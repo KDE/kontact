@@ -378,6 +378,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     view->setFocus();
     m_currentPlugin = plugin;
     KAction *action = plugin->newActions()->first();
+    setCaption( i18n("Plugin dependent window title" ,"%1 - Kontact").arg( plugin->title() ) );
     if ( action ) {
       // ##FIXME: Doesn't work for some reason..
       m_newActions->setIconSet( action->iconSet() );
@@ -559,12 +560,15 @@ void MainWindow::updateConfig()
 
 void MainWindow::showAboutDialog()
 {
+  KApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
+
   if ( !m_aboutDialog ) {
     m_aboutDialog = new AboutDialog( this );
   }
 
   m_aboutDialog->show();
   m_aboutDialog->raise();
+  KApplication::restoreOverrideCursor();
 }
 
 #include "mainwindow.moc"
