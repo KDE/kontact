@@ -95,6 +95,17 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       text += "<a href=\"" + home + "\">" + home + "</a><br>";
     }
 
+    KActiveLabel *label = new KActiveLabel( text, topFrame );
+	label->setAlignment( AlignTop );
+    topLayout->addWidget( label );
+
+  
+    QTextEdit *personView = new QTextEdit( topFrame );
+    personView->setReadOnly( true );
+    topLayout->addWidget( personView );
+
+    text = "";
+
     QValueList<KAboutPerson> authors = about->authors();
     if ( !authors.isEmpty() ) {
       text += i18n("<p><b>Authors:</b></p>");
@@ -130,9 +141,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       }
     }
 
-    KActiveLabel *label = new KActiveLabel( text, topFrame );
-	label->setAlignment( AlignTop );
-    topLayout->addWidget( label );
+    personView->setText( text );
   }
 }
 
