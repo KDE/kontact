@@ -27,6 +27,7 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
+#include "knodeiface_stub.h"
 #include "plugin.h"
 
 class KNodePlugin : public Kontact::Plugin
@@ -44,6 +45,12 @@ class KNodePlugin : public Kontact::Plugin
 
   protected:
     virtual KParts::Part* createPart();
+  
+  protected slots:
+    void slotPostArticle();
+
+  private:
+    KNodeIface_stub *mStub;
 };
 
 #endif

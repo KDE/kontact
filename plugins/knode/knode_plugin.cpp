@@ -44,11 +44,13 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_knodeplugin,
 
 
 KNodePlugin::KNodePlugin( Kontact::Core *core, const char *, const QStringList& )
-  : Kontact::Plugin( core, core, "knode" )
+  : Kontact::Plugin( core, core, "knode" ), mStub(0)
 {
   setInstance( KNodePluginFactory::instance() );
-}
 
+  insertNewAction( new KAction( i18n( "New Article" ), BarIcon( "mail_new" ),
+                   0, this, SLOT( slotPostArticle() ), actionCollection(), "post_article" ) );
+}
 
 KNodePlugin::~KNodePlugin()
 {
@@ -73,9 +75,21 @@ QStringList KNodePlugin::invisibleToolbarActions() const
   return QStringList( "article_postNew" );
 }
 
+void KNodePlugin::slotPostArticle()
+{
+  (void) part(); // ensure part is loaded
+  Q_ASSERT( mStub );
+  if ( mStub )
+    mStub->postArticle();
+}
+
 KParts::Part* KNodePlugin::createPart()
 {
-  return loadPart();
+  KParts::Part *part = loadPart();
+  if ( !part ) return 0;
+
+  mStub = new KNodeIface_stub( dcopClient(), "knode", "KNodeIface" );
+  return part;
 }
 
 #include "knode_plugin.moc"
