@@ -164,11 +164,9 @@ void SummaryWidget::updateView()
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
 
-      QString sDesc = i18n( "No description" );
-      if ( ! ev->description().isEmpty() ) {
-        sDesc = ev->description();
+      if ( !ev->description().isEmpty() ) {
+        QToolTip::add( urlLabel, ev->description() );
       }
-      QToolTip::add( urlLabel, sDesc );
 
       connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
                this, SLOT( selectEvent( const QString& ) ) );

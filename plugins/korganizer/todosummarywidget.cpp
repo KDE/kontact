@@ -170,11 +170,9 @@ void TodoSummaryWidget::updateView()
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
 
-      QString sDesc = i18n( "No description" );
-      if ( ! todo->description().isEmpty() ) {
-        sDesc = todo->description();
+      if ( !todo->description().isEmpty() ) {
+        QToolTip::add( urlLabel, todo->description() );
       }
-      QToolTip::add( urlLabel, sDesc );
 
       label = new QLabel( stateText, this );
       label->setAlignment( AlignLeft | AlignVCenter );
