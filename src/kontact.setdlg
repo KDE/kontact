@@ -41,6 +41,7 @@ Name[uk]=Пошта
 Name[uz]=Хат-хабар
 Name[zh_CN]=邮件
 Comment=
+Comment[ar]=KMail
 Weight=20
 Icon=kmail
 
@@ -85,11 +86,13 @@ Name[uk]=Контакти
 Name[uz]=Алоқалар
 Name[zh_CN]=联系人
 Comment=
+Comment[ar]=KMail
 Weight=50
 Icon=kaddressbook
 
 [KOrganizer]
 Name=Organizer
+Name[ar]=منظم كيدي
 Name[be]=Арганізатар
 Name[cs]=Organizér
 Name[cy]=Trefnydd
@@ -117,6 +120,7 @@ Name[tg]=Органайзер
 Name[uk]=Тижневик
 Name[uz]=Органайзер
 Comment=
+Comment[ar]=KMail
 Weight=30
 Icon=korganizer
 
@@ -205,6 +209,7 @@ Name[uk]=Погода
 Name[uz]=Об-ҳаво
 Name[zh_CN]=天气
 Comment=
+Comment[ar]=KMail
 Weight=60
 Icon=kweather
 
@@ -255,5 +260,6 @@ Name[xh]=Umchola-choli weendaba
 Name[zh_CN]=新闻点点通
 Name[zu]=Umlungiseleli Wezindaba 
 Comment=
+Comment[ar]=KMail
 Weight=60
 Icon=knode
