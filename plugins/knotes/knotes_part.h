@@ -1,6 +1,7 @@
 /*
    This file is part of the KDE project
    Copyright (C) 2002 Daniel Molkentin <molkentin@kde.org>
+   Copyright (C) 2004 Michael Brade <brade@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -18,65 +19,89 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef KNOTE_PART_H
-#define KNOTE_PART_H
+#ifndef KNOTES_PART_H
+#define KNOTES_PART_H
 
-#include <qmap.h>
-#include <qpixmap.h>
+#include <qdict.h>
+
+#include <kiconview.h>
+#include <kglobal.h>
+#include <kiconloader.h>
+
+#include <libkcal/journal.h>
 #include <kparts/part.h>
-#include <libkcal/resourcelocal.h>
-#include <libkcal/calendarresources.h>
 
-typedef QMap<QString, QString> NotesMap;
+#include "knotes/KNotesIface.h"
 
-class KAction;
-class KListView;
+class KIconView;
+class QIconViewItem;
+class KNotesIconViewItem;
+class KNoteTip;
+class KNoteEditDlg;
+class KNotesResourceManager;
 
-class QListViewItem;
-class QPoint;
+namespace KCal {
+    class Journal;
+}
 
-class KNotesPart : public KParts::ReadOnlyPart
+
+class KNotesPart : public KParts::ReadOnlyPart, virtual public KNotesIface
 {
-  Q_OBJECT
-
-  public:
+    Q_OBJECT
+public:
     KNotesPart( QObject *parent = 0, const char *name = 0 );
-    ~KNotesPart();
+   ~KNotesPart();
 
     bool openFile();
 
-  public slots:
-    void newNote();
+public slots:
+    QString newNote( const QString& name = QString::null,
+                     const QString& text = QString::null );
+    QString newNoteFromClipboard( const QString& name = QString::null );
 
-  signals:
-    void noteSelected( const QString &name );
-    void noteSelected( const QPixmap &pixmap );
+public:
+    void showNote( const QString& id ) const;
+    void hideNote( const QString& id ) const;
 
-  protected slots:
-    void noteRenamed( QListViewItem *item, int col, const QString& text );
-    void popupRMB( QListViewItem *item, const QPoint& pos, int );
-    void removeNote();
-    void removeSelectedNotes();
+    void killNote( const QString& id );
+    void killNote( const QString& id, bool force );
+
+    QString name( const QString& id ) const;
+    QString text( const QString& id ) const;
+
+    void setName( const QString& id, const QString& newName );
+    void setText( const QString& id, const QString& newText );
+
+    QMap<QString, QString> notes() const;
+
+// TODO: remove for KDE 4.0
+    void sync( const QString& app );
+    bool isNew( const QString& app, const QString& id ) const;
+    bool isModified( const QString& app, const QString& id ) const;
+
+private slots:
+    void createNote( KCal::Journal *journal );
+    void killNote( KCal::Journal *journal );
+
+    void editNote( QIconViewItem *item );
+
     void renameNote();
-    void editNote( QListViewItem* item, const QPoint&, int );
-    void editNote( QListViewItem* item );
-    void reloadNotes();
-    void slotCalendarChanged();
+    void renamedNote( QIconViewItem *item );
 
-  private:
-    bool lock();
-    bool unlock();
+    void slotOnItem( QIconViewItem *item );
+    void slotOnViewport();
 
-    KCal::ResourceLocal *mResource;
-    KCal::CalendarResources *mCalendar;
-    KCal::CalendarResources::Ticket *mTicket;
+    void popupRMB( QIconViewItem *item, const QPoint& pos );
+    void killSelectedNotes();
 
-    KAction *mActionEdit;
-    KAction *mActionDelete;
+private:
+    KIconView *m_notesView;
+    KNoteTip *m_noteTip;
+    KNoteEditDlg *m_noteEditDlg;
 
-    KListView *mNotesView;
-    QPixmap mAppIcon;
-    QPopupMenu *mPopupMenu;
+    KNotesResourceManager *m_manager;
+    QDict<KNotesIconViewItem> m_noteList;
 };
+
 
 #endif

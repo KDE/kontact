@@ -1,28 +1,15 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="knotes" version="1">
-
+<kpartgui name="knotes" version="2">
   <MenuBar>
     <Menu name="edit"><text>&amp;Edit</text>
       <Action name="edit_rename"/>
       <Action name="edit_delete"/>
     </Menu>
-    
-    <Menu name="view"><text>&amp;View</text>
-      <Action name="view_refresh"/>
-    </Menu>
   </MenuBar>
 
-  <Menu name="notePopup">
+  <Menu name="note_context">
     <Action name="file_new"/>
     <Action name="edit_rename"/>
     <Action name="edit_delete"/>
-    <Separator/>
-   <Action name="view_refresh"/>
   </Menu>
-
-  <ToolBar name="mainToolBar" noMerge="1"><text>Main Toolbar</text>
-    <Merge/>
-    <Action name="view_refresh"/>
-  </ToolBar>
-  
 </kpartgui>

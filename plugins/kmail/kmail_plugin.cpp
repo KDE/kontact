@@ -54,7 +54,7 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
 {
   setInstance( KMailPluginFactory::instance() );
 
-  insertNewAction( new KAction( i18n( "New Mail..." ), BarIcon( "mail_new" ),
+  insertNewAction( new KAction( i18n( "New Mail..." ), "mail_new",
 			             0, this, SLOT( slotNewMail() ), actionCollection(),
                    "new_mail" ) );
 
@@ -88,7 +88,7 @@ void KMailPlugin::openComposer( const KURL& attach )
     if ( attach.isValid() )
       mStub->openComposer( "", "", "", "", "", false, KURL(), attach );
     else
-      mStub->openComposer( "", "", "", "", "", false );
+      mStub->newMessage();
   }
 }
 
@@ -162,6 +162,12 @@ int KMailUniqueAppHandler::newInstance()
             return Kontact::UniqueAppHandler::newInstance();
     }
     return 0;
+}
+
+bool KMailPlugin::queryClose() const {
+  KMailIface_stub stub( kapp->dcopClient(), "kmail", "KMailIface" );
+  bool canClose=stub.canQueryClose();
+  return canClose;
 }
 
 #include "kmail_plugin.moc"
