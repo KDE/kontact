@@ -24,6 +24,7 @@
 
 #include <dcopclient.h>
 #include <dcopref.h>
+#include <kaction.h>
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kiconloader.h>
@@ -31,6 +32,7 @@
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
+#include <kstdaction.h>
 #include <libkdepim/infoextension.h>
 #include <libkdepim/sidebarextension.h>
 
@@ -72,6 +74,23 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
 
   mNotesEdit = new QTextEdit( splitter );
 
+  KAction *newAction = KStdAction::openNew( this, SLOT( newNote() ),
+                                            actionCollection() );
+  KAction *editAction = new KAction( i18n( "Rename" ), "editrename", this,
+                                     SLOT( renameNote() ), actionCollection(),
+                                     "edit_rename" );
+  KAction *delAction = new KAction( i18n( "Delete" ), "editdelete", 0, this,
+                                    SLOT( removeSelectedNotes() ), actionCollection(),
+                                    "edit_delete" );
+  KAction *reloadAction = new KAction( i18n( "Reload" ), "reload", 0, this,
+                                       SLOT( reloadNotes() ), actionCollection(),
+                                       "view_refresh" );
+  newAction->plug( mPopupMenu );
+  editAction->plug( mPopupMenu );
+  delAction->plug( mPopupMenu );
+  mPopupMenu->insertSeparator();
+  reloadAction->plug( mPopupMenu );
+/*
   mPopupMenu->insertItem( BarIcon( "filenew" ), i18n( "New" ),
                           this, SLOT( newNote() ), 1, 1);
   mPopupMenu->insertItem( BarIcon( "editrename" ), i18n( "Rename" ),
@@ -81,6 +100,7 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   mPopupMenu->insertSeparator();
   mPopupMenu->insertItem( BarIcon( "reload" ), i18n( "Reload" ),
                           this, SLOT( reloadNotes() ), 4, 4 );
+*/
 
   connect( mNotesView, SIGNAL( selectionChanged( QListViewItem* ) ),
            this, SLOT( showNote( QListViewItem* ) ) );
@@ -101,6 +121,8 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
            info, SIGNAL( textChanged( const QString& ) ) );
   connect( this, SIGNAL( noteSelected( const QPixmap& ) ),
            info, SIGNAL( iconChanged( const QPixmap& ) ) );
+
+  setXMLFile( "knotes_part.rc" );
 }
 
 KNotesPart::~KNotesPart()
