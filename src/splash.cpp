@@ -26,12 +26,12 @@
 Splash::Splash(QWidget *parent, const char *name)
    : QLabel(parent, name, WStyle_Customize|WStyle_Splash)
 {
-    QDesktopWidget dw;
-    QPixmap splash(UserIcon( "splash"));
+    QDesktopWidget *dw = kapp->desktop();
+    QPixmap splash(UserIcon("splash"));
     setBackgroundPixmap(splash);
     resize(splash.width(), splash.height());
     
-    QRect rect(dw.screenGeometry(dw.primaryScreen()));
+    QRect rect(dw->screenGeometry(dw->primaryScreen()));
     setGeometry((rect.width()/2)-(width()/2), (rect.height()/2)-(height()/2), width(), height());
 }
 
