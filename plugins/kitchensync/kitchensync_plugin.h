@@ -45,7 +45,7 @@ class KitchenSyncPlugin : public Kontact::Plugin
 
     virtual QStringList configModules() const;
   protected:
-    KPIM::Part *createPart();
+    KParts::ReadOnlyPart *createPart();
 };
 
 #endif

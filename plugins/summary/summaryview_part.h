@@ -27,7 +27,7 @@
 #include <qdatetime.h>
 #include <qmap.h>
 
-#include <libkdepim/part.h>
+#include <kparts/part.h>
 
 #include "core.h"
 #include "dropwidget.h"
@@ -49,7 +49,7 @@ class QGridLayout;
 class KAction;
 class KCMultiDialog;
 
-class SummaryViewPart : public KPIM::Part
+class SummaryViewPart : public KParts::ReadOnlyPart
 {
   Q_OBJECT
 

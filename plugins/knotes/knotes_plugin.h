@@ -43,7 +43,7 @@ public:
     const KAboutData *aboutData();
 
 protected:
-    KPIM::Part* createPart();
+    KParts::ReadOnlyPart* createPart();
 
 private slots:
     void slotNewNote();

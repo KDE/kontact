@@ -11,12 +11,12 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include <libkdepim/part.h>
+#include <kparts/part.h>
 #include <plugin.h>
 #include "akregator_partiface_stub.h"
 #include <uniqueapphandler.h>
 
-typedef KPIM::Part MyBasePart;
+typedef KParts::ReadOnlyPart MyBasePart;
 
 class KAboutData;
 

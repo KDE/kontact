@@ -140,9 +140,9 @@ QString KMailPlugin::tipFile() const
   return file;
 }
 
-KPIM::Part* KMailPlugin::createPart()
+KParts::ReadOnlyPart* KMailPlugin::createPart()
 {
-  KPIM::Part *part = loadPart();
+  KParts::ReadOnlyPart *part = loadPart();
   if ( !part ) return 0;
 
   connect( part, SIGNAL( raise() ), SLOT( raise() ) );

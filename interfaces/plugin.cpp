@@ -46,7 +46,7 @@ class Plugin::Private
     QString icon;
     QString executableName;
     QCString partLibraryName;
-    KPIM::Part *part;
+    KParts::ReadOnlyPart *part;
 };
 
 
@@ -114,7 +114,7 @@ void Plugin::setPartLibraryName( const QCString &libName )
   d->partLibraryName = libName;
 }
 
-KPIM::Part *Plugin::loadPart()
+KParts::ReadOnlyPart *Plugin::loadPart()
 {
   return core()->createPart( d->partLibraryName );
 }
@@ -135,7 +135,7 @@ const KAboutData *Plugin::aboutData()
   }
 }
 
-KPIM::Part *Plugin::part()
+KParts::ReadOnlyPart *Plugin::part()
 {
   if ( !d->part ) {
     d->part = createPart();

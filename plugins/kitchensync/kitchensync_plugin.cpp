@@ -52,7 +52,7 @@ KitchenSyncPlugin::~KitchenSyncPlugin()
 {
 }
 
-KPIM::Part* KitchenSyncPlugin::createPart()
+KParts::ReadOnlyPart* KitchenSyncPlugin::createPart()
 {
   return loadPart();
 }

@@ -43,7 +43,7 @@ class SpecialdatesPlugin : public Kontact::Plugin
     virtual bool showInSideBar() const { return false; }
 
   protected:
-    virtual KPIM::Part *createPart() { return false; }
+    virtual KParts::ReadOnlyPart *createPart() { return false; }
 
   private:
     KAboutData *mAboutData;

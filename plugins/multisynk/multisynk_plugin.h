@@ -44,7 +44,7 @@ class MultiSynkPlugin : public Kontact::Plugin
     int weight() const { return 700; }
 
   protected:
-    KPIM::Part *createPart();
+    KParts::ReadOnlyPart *createPart();
 };
 
 #endif

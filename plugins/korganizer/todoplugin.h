@@ -54,7 +54,7 @@ class TodoPlugin : public Kontact::Plugin
     KCalendarIface_stub *interface();
 
   protected:
-    KPIM::Part *createPart();
+    KParts::ReadOnlyPart *createPart();
 
   private slots:
     void slotNewTodo();

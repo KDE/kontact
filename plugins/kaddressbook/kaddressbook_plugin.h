@@ -67,7 +67,7 @@ class KAddressbookPlugin : public Kontact::Plugin
     KAddressBookIface_stub *interface();
 
   protected:
-    KPIM::Part *createPart();
+    KParts::ReadOnlyPart *createPart();
   private slots:
     void slotNewContact();
 

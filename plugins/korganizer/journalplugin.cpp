@@ -61,9 +61,9 @@ JournalPlugin::~JournalPlugin()
 {
 }
 
-KPIM::Part *JournalPlugin::createPart()
+KParts::ReadOnlyPart *JournalPlugin::createPart()
 {
-  KPIM::Part *part = loadPart();
+  KParts::ReadOnlyPart *part = loadPart();
 
   if ( !part )
     return 0;

@@ -51,7 +51,7 @@ KNotesPlugin::~KNotesPlugin()
 {
 }
 
-KPIM::Part* KNotesPlugin::createPart()
+KParts::ReadOnlyPart* KNotesPlugin::createPart()
 {
     return new KNotesPart( this, "notes" );
 }

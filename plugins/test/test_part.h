@@ -26,12 +26,12 @@
 
 
 
-#include <libkdepim/part.h>
+#include <kparts/part.h>
 
 class QTextEdit;
 class KAddressBookIface_stub;
 
-class TestPart : public KPIM::Part
+class TestPart : public KParts::ReadOnlyPart
 {
   Q_OBJECT
 

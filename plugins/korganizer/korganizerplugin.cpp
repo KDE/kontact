@@ -73,9 +73,9 @@ Kontact::Summary *KOrganizerPlugin::createSummaryWidget( QWidget *parent )
   return new SummaryWidget( this, parent );
 }
 
-KPIM::Part *KOrganizerPlugin::createPart()
+KParts::ReadOnlyPart *KOrganizerPlugin::createPart()
 {
-  KPIM::Part *part = loadPart();
+  KParts::ReadOnlyPart *part = loadPart();
 
   if ( !part )
     return 0;

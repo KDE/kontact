@@ -449,7 +449,7 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
   insertChildClient( plugin );
 }
 
-void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KPIM::Part *part )
+void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KParts::ReadOnlyPart *part )
 {
   // See if we have this part already (e.g. due to two plugins sharing it)
   if ( mStack->id( part->widget() ) != -1 )

@@ -41,7 +41,7 @@ class KPilotPlugin : public Kontact::Plugin
     const KAboutData *aboutData();
 
   protected:
-    virtual KPIM::Part *createPart() { return 0; }
+    virtual KParts::ReadOnlyPart *createPart() { return 0; }
   private:
     KAboutData *mAboutData;
 };

@@ -68,9 +68,9 @@ KAddressbookPlugin::~KAddressbookPlugin()
 {
 }
 
-KPIM::Part* KAddressbookPlugin::createPart()
+KParts::ReadOnlyPart* KAddressbookPlugin::createPart()
 {
-  KPIM::Part * part = loadPart();
+  KParts::ReadOnlyPart * part = loadPart();
   if ( !part ) return 0;
 
   // Create the stub that allows us to talk to the part

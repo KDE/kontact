@@ -34,7 +34,7 @@ class DCOPObject;
 class KAboutData;
 class KAction;
 class QWidget;
-namespace KPIM { class Part; }
+namespace KParts { class ReadOnlyPart; }
 
 /**
   Increase this version number whenever you make a change
@@ -146,7 +146,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       sure that you always get the same pointer as long as the part has not been
       deleted.
     */
-    KPIM::Part *part();
+    KParts::ReadOnlyPart *part();
 
      /**
        Reimplement this method and return the a path relative to "data" to the tips file.
@@ -238,9 +238,9 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       Reimplement and return the part here. Reimplementing createPart() is
       mandatory!
     */
-    virtual KPIM::Part *createPart() = 0;
+    virtual KParts::ReadOnlyPart *createPart() = 0;
 
-    KPIM::Part *loadPart();
+    KParts::ReadOnlyPart *loadPart();
 
     virtual void virtual_hook(  int id, void* data );
 

@@ -44,7 +44,7 @@ MultiSynkPlugin::~MultiSynkPlugin()
 {
 }
 
-KPIM::Part* MultiSynkPlugin::createPart()
+KParts::ReadOnlyPart* MultiSynkPlugin::createPart()
 {
   return loadPart();
 }

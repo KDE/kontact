@@ -60,7 +60,7 @@ class KMailPlugin : public Kontact::Plugin
     virtual QStringList invisibleToolbarActions() const;
     virtual bool queryClose() const;
   protected:
-    virtual KPIM::Part* createPart();
+    virtual KParts::ReadOnlyPart* createPart();
     void openComposer( const QString& to, const KURL& = KURL() );
     bool canDecodeDrag( QMimeSource * );
     void processDropEvent( QDropEvent * );

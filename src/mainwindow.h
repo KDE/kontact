@@ -121,7 +121,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void unloadPlugins();
     bool removePlugin( const KPluginInfo * );
     void addPlugin( Kontact::Plugin *plugin );
-    void partLoaded( Kontact::Plugin *plugin, KPIM::Part *part );
+    void partLoaded( Kontact::Plugin *plugin, KParts::ReadOnlyPart *part );
     void setupActions();
     void initHeaderWidget( QVBox *vBox );
     void showTip( bool );

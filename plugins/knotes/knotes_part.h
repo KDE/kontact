@@ -29,7 +29,7 @@
 #include <kiconloader.h>
 
 #include <libkcal/journal.h>
-#include <libkdepim/part.h>
+#include <kparts/part.h>
 
 #include "knotes/KNotesIface.h"
 
@@ -44,7 +44,7 @@ namespace KCal {
 class Journal;
 }
 
-class KNotesPart : public KPIM::Part, virtual public KNotesIface
+class KNotesPart : public KParts::ReadOnlyPart, virtual public KNotesIface
 {
   Q_OBJECT
 
