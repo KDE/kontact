@@ -32,6 +32,7 @@
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>
+#include <kedittoolbar.h>
 #include <kguiitem.h>
 #include <khelpmenu.h>
 #include <kiconloader.h>
@@ -94,6 +95,7 @@ MainWindow::MainWindow()
   loadPlugins();
 
   KStdAction::keyBindings( this, SLOT( configureShortcuts() ), actionCollection() );
+  KStdAction::configureToolbars( this, SLOT( configureToolbars() ), actionCollection() );
   setXMLFile( "kontactui.rc" );
 
   createGUI( 0 );
@@ -633,6 +635,16 @@ void MainWindow::configureShortcuts()
   dialog.configure();
 }
 
+void MainWindow::configureToolbars()
+{
+  saveMainWindowSettings( KGlobal::config(), "MainWindow" );
+
+  KEditToolbar edit( factory() );
+  if ( edit.exec() ) {
+    createGUI( mCurrentPlugin->part() );
+    applyMainWindowSettings( KGlobal::config(), "MainWindow" );
+  }
+}
 #include "mainwindow.moc"
 
 // vim: sw=2 sts=2 et

@@ -114,6 +114,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void setHeaderPixmap( const QPixmap& );
 
     void configureShortcuts();
+    void configureToolbars();
 
   private:
     QWidget *mTopWidget;

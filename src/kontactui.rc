@@ -17,6 +17,7 @@
      <Separator/>
      <Action name="settings_configure_kontact"/>
      <Action name="options_configure_keybinding"/>
+     <Action name="options_configure_toolbars"/>
   </Menu>
   <Menu name="help"><text>&amp;Help</text>
      <Action name="help_tipofday"/>
