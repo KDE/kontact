@@ -79,7 +79,7 @@ bool KMailPlugin::canDecodeDrag( QMimeSource *qms )
 void KMailPlugin::processDropEvent( QDropEvent * de )
 {
   kdDebug() << k_funcinfo << endl;
-  CalendarLocal cal;
+  CalendarLocal cal( QString::fromLatin1("UTC") );
   KABC::Addressee::List list;
 
   if ( VCalDrag::decode( de, &cal ) || ICalDrag::decode( de, &cal ) ) {
@@ -115,7 +115,7 @@ void KMailPlugin::openComposer( const QString& to )
   (void) part(); // ensure part is loaded
   Q_ASSERT( mStub );
   if ( mStub ) {
-      mStub->openComposer( to, "", "", "", "", 0 ); 
+      mStub->openComposer( to, "", "", "", "", 0 );
   }
 }
 

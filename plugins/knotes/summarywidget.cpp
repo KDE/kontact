@@ -49,7 +49,7 @@ KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
 {
   mMainLayout = new QVBoxLayout( this, 3, 3 );
 
-  mCalendar = new KCal::CalendarLocal();
+  mCalendar = new KCal::CalendarLocal( QString::fromLatin1("UTC") );
   KNotesResourceManager *manager = new KNotesResourceManager();
   QObject::connect( manager, SIGNAL( sigRegisteredNote( KCal::Journal* ) ),
                     this, SLOT( addNote( KCal::Journal* ) ) );
