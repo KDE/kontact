@@ -215,11 +215,6 @@ void Navigator::dropEvent( QDropEvent *event )
   
   kdDebug() << "  PLUGIN: " << entry->plugin()->identifier() << endl;
 
-  // Make sure the part is loaded before calling processDropEvent.
-  // Maybe it's better, if that would be done by the plugin.
-  // Hmm, this doesn't work anyway.
-  mSidePane->selectPlugin( entry->plugin() );
-
   entry->plugin()->processDropEvent( event );  
 }
 
