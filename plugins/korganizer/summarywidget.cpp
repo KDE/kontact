@@ -48,8 +48,6 @@ SummaryWidget::SummaryWidget( Kontact::Plugin* plugin, QWidget *parent,
                               const char *name )
   : Kontact::Summary( parent, name ), mPlugin(plugin), mLayout( 0 )
 {
-  connect(mPlugin->core(), SIGNAL( timeout() ), 
-                           SLOT( updateView() ));
   mMainLayout = new QVBoxLayout( this, 3, 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "korganizer", 
