@@ -27,7 +27,7 @@
 #include <kglobal.h>
 #include <kparts/componentfactory.h>
 #include <kdebug.h>
-
+#include <kinstance.h>
 #include "core.h"
 #include "plugin.h"
 
