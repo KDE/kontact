@@ -57,6 +57,9 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
   setInstance( new KInstance( "summaryviewpart" ) ); // ## memleak
 
   mFrame = new QFrame( core, widgetName );
+  mFrame->setFrameStyle( QFrame::Panel | QFrame::Sunken );
+  connect(kapp, SIGNAL(kdisplayPaletteChanged()), SLOT(slotAdjustPalette()));
+  slotAdjustPalette();
   setWidget( mFrame );
 
   mLayout = new QGridLayout( mFrame, 6, 3, KDialog::marginHint(),
@@ -157,6 +160,11 @@ void SummaryViewPart::getWidgets()
 void SummaryViewPart::slotTextChanged()
 {
   emit textChanged( i18n( "What's next?" ) );
+}
+
+void SummaryViewPart::slotAdjustPalette()
+{
+    mFrame->setPaletteBackgroundColor( kapp->palette().active().base() );
 }
 
 #include "summaryview_part.moc"

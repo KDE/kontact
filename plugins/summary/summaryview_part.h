@@ -45,6 +45,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
 
   public slots:
     void slotTextChanged();
+    void slotAdjustPalette();
 
   signals:
     void textChanged( const QString& );
