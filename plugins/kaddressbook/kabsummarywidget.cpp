@@ -21,6 +21,9 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qlabel.h>
+#include <qlayout.h>
+
 #include <kabc/stdaddressbook.h>
 #include <kglobal.h>
 #include <kiconloader.h>
@@ -37,8 +40,15 @@ struct KABDateEntry
 };
 
 KABSummaryWidget::KABSummaryWidget( QWidget *parent, const char *name )
-  : QTextBrowser( parent, name )
+  : QWidget( parent, name )
 {
+  setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
+
+  mLayout = new QGridLayout( this, 7, 3 );
+
+  QLabel *label = new QLabel( i18n( "Birthdays and Anniversaries" ), this );
+  mLayout->addMultiCellWidget( label, 0, 0, 0, 2 );
+
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
            this, SLOT( updateView() ) );
@@ -48,7 +58,9 @@ KABSummaryWidget::KABSummaryWidget( QWidget *parent, const char *name )
 
 void KABSummaryWidget::updateView()
 {
-  clear();
+  mLabels.setAutoDelete( true );
+  mLabels.clear();
+  mLabels.setAutoDelete( false );
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
   QMap<QDate, KABDateEntry> prevDates;
@@ -98,27 +110,32 @@ void KABSummaryWidget::updateView()
     dateList.append( dateIt.data() );
   }
 
+  int counter = 1;
   QValueList<KABDateEntry>::Iterator addrIt;
   QString lines;
-  for ( addrIt = dateList.begin(); addrIt != dateList.end(); ++addrIt ) {
-    QString img = ( (*addrIt).birthday ? "birthday" : "anniversary" );
-    QString date = KGlobal::locale()->formatDate( (*addrIt).date, true );
-    lines += QString( "<tr><td><img src=\"%1\"></td><td>%2</td><td>%3 (%4)</td></tr>" )
-                    .arg( img )
-                    .arg( date )
-                    .arg( (*addrIt).addressee.formattedName() )
-                    .arg( i18n( "one year", "%n years", (*addrIt).yearsOld  ) );
-  }
-  QMimeSourceFactory::defaultFactory()->setPixmap( "birthday",
-            KGlobal::iconLoader()->loadIcon( "cookie", KIcon::Small ) );
-  QMimeSourceFactory::defaultFactory()->setPixmap( "anniversary",
-            KGlobal::iconLoader()->loadIcon( "kdmconfig", KIcon::Small ) );
+  for ( addrIt = dateList.begin(); addrIt != dateList.end() && counter < 7; ++addrIt ) {
+    QLabel *label = new QLabel( this );
+    if ( (*addrIt).birthday )
+      label->setPixmap( KGlobal::iconLoader()->loadIcon( "cookie", KIcon::Small ) );
+    else
+      label->setPixmap( KGlobal::iconLoader()->loadIcon( "kdmconfig", KIcon::Small ) );
+    mLayout->addWidget( label, counter, 0 );
+    mLabels.append( label );
 
-  setText( QString( "<html><body>"
-                    "<h1>%1</h1>"
-                    "<table>%2</table>"
-                    "</body></html>" ).arg( i18n( "Birthdays and Anniversaries" ) )
-                                      .arg( lines ) );
+    label = new QLabel( KGlobal::locale()->formatDate( (*addrIt).date, true ), this );
+    mLayout->addWidget( label, counter, 1 );
+    mLabels.append( label );
+
+    label = new QLabel( this );
+    label->setText( QString( "%1 (%2)" ).arg( (*addrIt).addressee.formattedName() )
+                                        .arg( i18n( "one year", "%n years", (*addrIt).yearsOld  ) ) );
+    mLayout->addWidget( label, counter, 2 );
+    mLabels.append( label );
+
+    counter++;
+  }
+
+  show();
 }
 
 #include "kabsummarywidget.moc"

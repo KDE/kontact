@@ -24,9 +24,13 @@
 #ifndef KABSUMMARYWIDGET_H
 #define KABSUMMARYWIDGET_H
 
-#include <qtextbrowser.h>
+#include <qptrlist.h>
+#include <qwidget.h>
 
-class KABSummaryWidget : public QTextBrowser
+class QGridLayout;
+class QLabel;
+
+class KABSummaryWidget : public QWidget
 {
   Q_OBJECT
 
@@ -35,6 +39,11 @@ class KABSummaryWidget : public QTextBrowser
 
   private slots:
     void updateView();
+
+  private:
+    QGridLayout *mLayout;
+
+    QPtrList<QLabel> mLabels;
 };
 
 #endif
