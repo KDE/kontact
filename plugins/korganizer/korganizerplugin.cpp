@@ -28,17 +28,16 @@
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
-#include <kparts/componentfactory.h>
 #include <kmessagebox.h>
 
 #include "core.h"
 #include "summarywidget.h"
 
-#include "korganizer_plugin.h"
+#include "korganizerplugin.h"
 
 typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkpkorganizerplugin,
-                            KOrganizerPluginFactory( "kporganizerplugin" ) );
+K_EXPORT_COMPONENT_FACTORY( libkontact_korganizerplugin,
+                            KOrganizerPluginFactory( "kontact_korganizerplugin" ) );
 
 KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "korganizer" ), 
@@ -47,15 +46,9 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QSt
 {
   setInstance( KOrganizerPluginFactory::instance() );
 
-  setXMLFile( "kpkorganizerplugin.rc" );
-
   insertNewAction( new KAction( i18n( "New Event" ), BarIcon( "event" ),
                    0, this, SLOT( slotNewEvent() ), actionCollection(),
                    "new_event" ) );
-
-  insertNewAction( new KAction( i18n( "New Todo" ), BarIcon( "todo" ),
-                   0, this, SLOT( slotNewTodo() ), actionCollection(),
-                   "new_todo" ) );
 }
 
 KOrganizerPlugin::~KOrganizerPlugin()
@@ -73,23 +66,18 @@ KParts::ReadOnlyPart *KOrganizerPlugin::part()
     (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
     mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
 
-    mPart = KParts::ComponentFactory
-      ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkorganizerpart",
-                                                             0, 0, // parentwidget,name
-                                                             this, "kontact" ); // parent,name
+    mPart = core()->createPart( "libkorganizerpart" );
   }
 
   return mPart;
 }
 
-void KOrganizerPlugin::slotNewEvent()
+void KOrganizerPlugin::select()
 {
-  part();
-  if ( !mIface )
-    return;
+  if ( mIface ) mIface->showEventView();
 }
 
-void KOrganizerPlugin::slotNewTodo()
+void KOrganizerPlugin::slotNewEvent()
 {
   part();
   if ( !mIface )
@@ -125,4 +113,4 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
   }
 }
 
-#include "korganizer_plugin.moc"
+#include "korganizerplugin.moc"

@@ -14,5 +14,5 @@ Comment[sv]=Kontact-insticksprogram för Korganizer
 Name=Calendar
 Icon=korganizer
 ServiceTypes=Kontact/Plugin
-X-KDE-Library=libkpkorganizerplugin
+X-KDE-Library=libkontact_korganizerplugin
 X-KDE-KontactIdentifier=calendar

@@ -1,7 +1,7 @@
 /*
     This file is part of KDE Kontact.
 
-    Copyright (c) 2003 Kontact Developer
+    Copyright (c) 2003 Cornelius Schumacher <schumacher@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,9 +21,8 @@
     with any edition of Qt, and distribute the resulting executable,
     without including the source code for Qt in the source distribution.
 */
-
-#ifndef KORGANIZER_PLUGIN_H
-#define KORGANIZER_PLUGIN_H
+#ifndef KONTACT_TODOPLUGIN_H
+#define KONTACT_TODOPLUGIN_H
 
 #include <klocale.h>
 #include <kparts/part.h>
@@ -31,13 +30,12 @@
 #include "kcalendariface_stub.h"
 #include "plugin.h"
 
-class KOrganizerPlugin : public Kontact::Plugin
+class TodoPlugin : public Kontact::Plugin
 {
-  Q_OBJECT
-
+    Q_OBJECT
   public:
-    KOrganizerPlugin( Kontact::Core *core, const char *name, const QStringList& );
-    ~KOrganizerPlugin();
+    TodoPlugin( Kontact::Core *core, const char *name, const QStringList& );
+    ~TodoPlugin();
 
     virtual bool createDCOPInterface( const QString& serviceType );
 
@@ -46,11 +44,11 @@ class KOrganizerPlugin : public Kontact::Plugin
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
 
-  protected:
     KParts::ReadOnlyPart *part();
 
+    void select();
+
   private slots:
-    void slotNewEvent();
     void slotNewTodo();
 
   private:

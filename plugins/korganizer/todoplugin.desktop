@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+Exec=
+Comment=Kontact KOrganizer Todo List Plugin
+Name=Todo List
+Icon=korganizer_todo
+ServiceTypes=Kontact/Plugin
+X-KDE-Library=libkontact_todoplugin
+X-KDE-KontactIdentifier=todo
