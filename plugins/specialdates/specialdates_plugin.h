@@ -37,11 +37,16 @@ class SpecialdatesPlugin : public Kontact::Plugin
 
     int weight() const { return 310; }
 
+    const KAboutData *aboutData();
+
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
     virtual bool showInSideBar() const { return false; }
 
   protected:
     virtual KPIM::Part *createPart() { return false; }
+
+  private:
+    KAboutData *mAboutData;
 
 };
 

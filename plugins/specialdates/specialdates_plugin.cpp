@@ -22,6 +22,7 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <kaboutdata.h>
 #include <kgenericfactory.h>
 #include <klocale.h>
 #include <kparts/componentfactory.h>
@@ -36,7 +37,8 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_specialdatesplugin,
                             SpecialdatesPluginFactory( "kontact_specialdatesplugin" ) )
 
 SpecialdatesPlugin::SpecialdatesPlugin( Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( core, core, name )
+  : Kontact::Plugin( core, core, name ),
+    mAboutData( 0 )
 {
   setInstance( SpecialdatesPluginFactory::instance() );
 }
@@ -48,4 +50,21 @@ SpecialdatesPlugin::~SpecialdatesPlugin()
 Kontact::Summary *SpecialdatesPlugin::createSummaryWidget( QWidget *parentWidget )
 {
   return new SDSummaryWidget( this, parentWidget );
+}
+
+const KAboutData *SpecialdatesPlugin::aboutData()
+{
+  if ( !mAboutData ) {
+    mAboutData = new KAboutData( "specialdates",
+                                 I18N_NOOP("Special Dates Summary"),
+                                 "0.1",
+                                 I18N_NOOP("Kontact Special Dates Summary"),
+                                 KAboutData::License_LGPL,
+                                 I18N_NOOP("(c) 2004 The KDE PIM Team" ) );
+    mAboutData->addAuthor( "Allen Winter", "Current Maintainer", "winter@kde.org" );
+    mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
+    mAboutData->setProductName( "kontact/specialdates" );
+  }
+
+  return mAboutData;
 }
