@@ -101,33 +101,35 @@ void SummaryWidget::updateView()
   if ( events.count() > 0 ) {
     QPixmap pm = loader.loadIcon( "appointment", KIcon::Small );
 
-    KCal::Event::List::ConstIterator it2;
-    for( it2 = events.begin(); it2 != events.end() && counter < 5; ++it2 ) {
-      KCal::Event *ev = *it2;
-      if ( !ev->recurrence()->doesRecur() || ev->recursOn( QDate::currentDate() ) ) {
-        if ( !ev->doesFloat() ) {
-          label = new QLabel( this );
-          label->setPixmap( pm );
-          label->setMaximumSize( label->minimumSizeHint() );
-          mLayout->addWidget( label, counter, 0 );
-          mLabels.append( label );
+    KCal::Event::List::ConstIterator it;
+    for( it = events.begin(); it != events.end() && counter < 5; ++it ) {
+      KCal::Event *ev = *it;
+      if ( ev->doesFloat() && ev->dtStart().date() < QDate::currentDate() )
+        continue;
 
-          QString date = ev->dtStartTimeStr() + " - " + ev->dtEndTimeStr();
-          label = new QLabel( date, this );
-          label->setAlignment( AlignHCenter );
-          mLayout->addWidget( label, counter, 1 );
-          mLabels.append( label );
+      if ( ev->recurrence()->doesRecur() && !ev->recursOn( QDate::currentDate() ) )
+        continue;
 
-          KURLLabel *urlLabel = new KURLLabel( ev->uid(), ev->summary(), this );
-          mLayout->addWidget( urlLabel, counter, 2 );
-          mLabels.append( urlLabel );
+      label = new QLabel( this );
+      label->setPixmap( pm );
+      label->setMaximumSize( label->minimumSizeHint() );
+      mLayout->addWidget( label, counter, 0 );
+      mLabels.append( label );
+
+      QString date = ev->dtStartTimeStr() + " - " + ev->dtEndTimeStr();
+      label = new QLabel( date, this );
+      label->setAlignment( AlignHCenter );
+      mLayout->addWidget( label, counter, 1 );
+      mLabels.append( label );
+
+      KURLLabel *urlLabel = new KURLLabel( ev->uid(), ev->summary(), this );
+      mLayout->addWidget( urlLabel, counter, 2 );
+      mLabels.append( urlLabel );
           
-          connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
-                   this, SLOT( selectEvent( const QString& ) ) );
+      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+               this, SLOT( selectEvent( const QString& ) ) );
 
-          counter++;
-        }
-      }
+      counter++;
     }
   } else {
     QLabel *noEvents = new QLabel( i18n( "No appointments pending" ), this );
