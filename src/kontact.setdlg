@@ -1,5 +1,6 @@
 [KMail]
 Name=Mail
+Name[ar]=بريد
 Name[be]=Пошта
 Name[br]=Lizher
 Name[ca]=Correu
@@ -45,7 +46,9 @@ Icon=kmail
 
 [KAB]
 Name=Contacts
+Name[ar]=جهات الإتصال
 Name[be]=Кантакты
+Name[br]=Darempredoù
 Name[bs]=Kontakti
 Name[ca]=Contactes
 Name[cs]=Kontakty
@@ -119,6 +122,7 @@ Icon=korganizer
 
 [KNode]
 Name=News
+Name[ar]=أخبار
 Name[be]=Навіны
 Name[br]=Keleier
 Name[bs]=Usenet
@@ -160,6 +164,7 @@ Icon=knode
 
 [KWeather]
 Name=Weather
+Name[ar]=حالة الطقس
 Name[be]=Надвор'е
 Name[br]=Amzer
 Name[bs]=Vrijeme
