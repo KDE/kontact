@@ -24,7 +24,7 @@
 #define KONTACT_CORE_H
 
 #include <qdatetime.h>
-
+#include <kdepimmacros.h>
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 
@@ -38,7 +38,7 @@ class Plugin;
 /**
   This class provides the interface to the Kontact core for the plugins.
 */
-class Core : public KParts::MainWindow
+class KDE_EXPORT Core : public KParts::MainWindow
 {
   Q_OBJECT
   public:

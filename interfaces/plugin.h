@@ -26,6 +26,7 @@
 
 #include <qobject.h>
 #include <kxmlguiclient.h>
+#include <kdepimmacros.h>
 #include <qptrlist.h>
 
 class QStringList;
@@ -53,7 +54,7 @@ class Summary;
   to get a plugin. It can insert an icon into the sidepane,
   add widgets to the widgetstack and add menu items via XMLGUI.
  */
-class Plugin : public QObject, virtual public KXMLGUIClient
+class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
 {
   Q_OBJECT
 

@@ -6,6 +6,7 @@ Singleton=true
 Mutators=true
 #Inherits=KPimPrefs
 #IncludeFiles=libkdepim/kpimprefs.h
+Visibility=KDE_EXPORT
 MemberVariables=public
 GlobalEnums=true
 ItemAccessors=true

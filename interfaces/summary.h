@@ -23,6 +23,7 @@
 
 #include <qwidget.h>
 #include <qpixmap.h>
+#include <kdepimmacros.h>
 
 class KStatusBar;
 
@@ -32,7 +33,7 @@ namespace Kontact
 /**
   Summary widget for display in the Summary View plugin.
  */
-class Summary : public QWidget
+class KDE_EXPORT Summary : public QWidget
 {
   Q_OBJECT
 

@@ -24,6 +24,7 @@
 
 #include <dcopobject.h>
 #include <plugin.h>
+#include <kdepimmacros.h>
 
 namespace Kontact
 {
@@ -35,7 +36,7 @@ namespace Kontact
  * By default this means simply bringing the main window to the front,
  * but newInstance can be reimplemented.
  */
-class UniqueAppHandler : public DCOPObject
+class KDE_EXPORT UniqueAppHandler : public DCOPObject
 {
     K_DCOP
 public:
@@ -83,7 +84,7 @@ public:
  * Kontact takes over from there.
  *
  */
-class UniqueAppWatcher : public QObject {
+class KDE_EXPORT UniqueAppWatcher : public QObject {
     Q_OBJECT
 public:
     /**
