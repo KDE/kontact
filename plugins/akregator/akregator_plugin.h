@@ -15,11 +15,12 @@
 
 #include "akregator_partiface_stub.h"
 
-#if (KDE_VERSION_MAJOR >= 3 && KDE_VERSION_MINOR > 3) || KDE_VERSION_MAJOR > 3
+#if KDE_VERSION > KDE_MAKE_VERSION( 3, 3, 90 )
 #include <kontact/part.h>
-typedef PIM::Part MyPart; 
 #else
-typedef KParts::Part MyPart;
+namespace KPIM{
+typedef KParts::Part Part;
+}
 #endif
 
 class KAboutData;
@@ -41,7 +42,7 @@ class aKregatorPlugin : public Kontact::Plugin
     virtual QStringList invisibleToolbarActions() const;
 	    
   protected:
-    MyPart *createPart();
+    KPIM::Part *createPart();
     Akregator::aKregatorPartIface_stub *m_stub;
 };
 
