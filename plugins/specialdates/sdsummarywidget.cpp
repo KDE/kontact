@@ -189,9 +189,6 @@ void SDSummaryWidget::updateView()
   KABC::AddressBook::Iterator it;
   for ( it = ab->begin(); it != ab->end(); ++it ) {
     QDate birthday = (*it).birthday().date();
-    QDate anniversary = QDate::fromString(
-          (*it).custom( "KADDRESSBOOK" , "X-Anniversary" ), Qt::ISODate );
-
     if ( birthday.isValid() && mShowBirthdaysFromKAB ) {
       SDEntry entry;
       entry.type = IncidenceTypeContact;
@@ -204,16 +201,21 @@ void SDSummaryWidget::updateView()
         dates.append( entry );
     }
 
-    if ( anniversary.isValid() && mShowAnniversariesFromKAB ) {
-      SDEntry entry;
-      entry.type = IncidenceTypeContact;
-      entry.category = CategoryAnniversary;
-      dateDiff( anniversary, entry.daysTo, entry.yearsOld );
+    QString anniversaryAsString =
+      (*it).custom( "KADDRESSBOOK" , "X-Anniversary" );
+    if ( !anniversaryAsString.isEmpty() ) {
+      QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
+      if ( anniversary.isValid() && mShowAnniversariesFromKAB ) {
+        SDEntry entry;
+        entry.type = IncidenceTypeContact;
+        entry.category = CategoryAnniversary;
+        dateDiff( anniversary, entry.daysTo, entry.yearsOld );
 
-      entry.date = anniversary;
-      entry.addressee = *it;
-      if ( entry.daysTo <= mDaysAhead )
-        dates.append( entry );
+        entry.date = anniversary;
+        entry.addressee = *it;
+        if ( entry.daysTo <= mDaysAhead )
+          dates.append( entry );
+      }
     }
   }
 
