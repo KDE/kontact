@@ -56,13 +56,14 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QStringList configModules() const;
 
   k_dcop:
-    void refresh( );
-
+    // all the information is pushed to Kontact by the daemon, to remove the chance of Kontact calling a daemon
+    // that is blocked for some reason, and blocking itself.
+    void receiveDaemonStatusDetails( QDateTime, QString, QStringList, QString, QString, QString, bool );
   private slots:
     void updateView();
     void showSyncLog( const QString &filename );
     void startKPilot();
-
+    void slotAppRemoved( const QCString & );
   private:
     QTimer mTimer;
 

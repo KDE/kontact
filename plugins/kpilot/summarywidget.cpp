@@ -117,8 +117,9 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
     startKPilot();
   }
 
-  connectDCOPSignal( 0, 0, "kpilotDaemonStatusChanged()", "refresh()", false );
-  refresh();
+  connectDCOPSignal( 0, 0, "kpilotDaemonStatusDetails(QDateTime,QString,QStringList,QString,QString,QString,bool)",
+                     "receiveDaemonStatusDetails(QDateTime,QString,QStringList,QString,QString,QString,bool)", false );
+	connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QCString & ) ), SLOT( slotAppRemoved( const QCString& ) ) );
 }
 
 SummaryWidget::~SummaryWidget()
@@ -136,36 +137,18 @@ QStringList SummaryWidget::configModules() const
   return modules;
 }
 
-void SummaryWidget::refresh( )
+void SummaryWidget::receiveDaemonStatusDetails(QDateTime lastSyncTime, QString status, QStringList conduits, QString logFileName, QString userName, QString pilotDevice, bool killOnExit )
 {
-  PilotDaemonDCOP_stub dcopToDaemon( "kpilotDaemon", "KPilotDaemonIface" );
   mDCOPSuccess = true;
-
-  mLastSyncTime = dcopToDaemon.lastSyncDate();
-  // check if that dcop call was successful
-  mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-
-  mDaemonStatus = dcopToDaemon.shortStatusString();
-  mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-
-  mConduits = dcopToDaemon.configuredConduitList();
-  mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-
-  mSyncLog = dcopToDaemon.logFileName();
-  mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-
-  mUserName = dcopToDaemon.userName();
-  mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-
-  mPilotDevice = dcopToDaemon.pilotDevice();
-  mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-
-  mShouldStopDaemon = dcopToDaemon.killDaemonOnExit();
-  mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-
+  mLastSyncTime = lastSyncTime;
+  mDaemonStatus = status;
+  mConduits = conduits;
+  mSyncLog = logFileName;
+  mUserName = userName;
+  mPilotDevice = pilotDevice;
+  mShouldStopDaemon = killOnExit;
   updateView();
 }
-
 
 void SummaryWidget::updateView()
 {
@@ -244,6 +227,16 @@ void SummaryWidget::startKPilot()
     mStartedDaemon = true;
   }
 }
+
+void SummaryWidget::slotAppRemoved( const QCString & appId )
+{
+  if ( appId == "kpilotDaemon" )
+  {
+    mDCOPSuccess = false;
+    pdateView();
+  }
+}
+
 
 #include "summarywidget.moc"
 
