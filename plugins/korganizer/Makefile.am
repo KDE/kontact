@@ -6,15 +6,13 @@ kde_module_LTLIBRARIES = libkontact_korganizerplugin.la libkontact_todoplugin.la
 
 libkontact_korganizerplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_korganizerplugin_la_LIBADD = \
-  $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) \
-  -L$(top_builddir)/libkcal -lkcal
+  $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) $(top_builddir)/libkcal/libkcal.la
 libkontact_korganizerplugin_la_SOURCES = korganizerplugin.cpp kcalendariface.stub \
   summarywidget.cpp
 
 libkontact_todoplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_todoplugin_la_LIBADD = \
-  $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) \
-  -L$(top_builddir)/libkcal -lkcal
+  $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) $(top_builddir)/libkcal/libkcal.la
 libkontact_todoplugin_la_SOURCES = todoplugin.cpp kcalendariface.stub
 
 METASOURCES = AUTO
