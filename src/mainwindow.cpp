@@ -54,163 +54,169 @@ MainWindow::MainWindow()
   : Kontact::Core()
 {
   // create the GUI
-  QHBox *box = new QHBox(this);
-  box->setFrameStyle(  QFrame::Panel | QFrame::Sunken );
+  QHBox *box = new QHBox( this );
+  box->setFrameStyle( QFrame::Panel | QFrame::Sunken );
 
   m_splitter = new QSplitter( box );
 
-  m_sidePane = new SidePane(m_splitter);
-  m_sidePane->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
-  connect(m_sidePane, SIGNAL(showPart(KParts::Part*)), SLOT(showPart(KParts::Part*)));
+  m_sidePane = new SidePane( m_splitter );
+  m_sidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
+                                          QSizePolicy::Preferred ) );
+  connect( m_sidePane, SIGNAL( showPart( KParts::Part* ) ),
+           SLOT( showPart( KParts::Part* ) ) );
+
   QVBox *vBox = new QVBox( m_splitter );
-  vBox->setSpacing(0);
+  vBox->setSpacing( 0 );
 
   // Initiate the headerWidget
-  headerFrame = new QHBox( vBox );
-  headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
-  headerFrame->setSpacing(0);
+  m_headerFrame = new QHBox( vBox );
+  m_headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
+                                QSizePolicy::Maximum );
+  m_headerFrame->setSpacing( 0 );
 
-  headerText = new QLabel( headerFrame );
-  headerText->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
-  headerText->setFrameShape( QFrame::ToolBarPanel );
-  
-  headerPixmap = new QLabel( headerFrame );
-  headerPixmap->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-  headerPixmap->setFrameShape( QFrame::ToolBarPanel );
-  headerPixmap->setAlignment( AlignRight );
+  m_headerText = new QLabel( m_headerFrame );
+  m_headerText->setSizePolicy( QSizePolicy::MinimumExpanding,
+                               QSizePolicy::Maximum );
+  m_headerText->setFrameShape( QFrame::ToolBarPanel );
 
-  connect( this, SIGNAL( textChanged( const QString& ) ), headerText, SLOT( setText( const QString& ) ) );
-  connect( this, SIGNAL( iconChanged( const QPixmap& ) ), headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
-  QFont fnt(m_sidePane->font());
-  fnt.setBold(true);
-  fnt.setPointSize(m_sidePane->font().pointSize()+3);
-  headerText->setFont(fnt);
+  m_headerPixmap = new QLabel( m_headerFrame );
+  m_headerPixmap->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
+  m_headerPixmap->setFrameShape( QFrame::ToolBarPanel );
+  m_headerPixmap->setAlignment( AlignRight );
+
+  connect( this, SIGNAL( textChanged( const QString& ) ),
+           m_headerText, SLOT( setText( const QString& ) ) );
+  connect( this, SIGNAL( iconChanged( const QPixmap& ) ),
+           m_headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
+
+  QFont fnt( m_sidePane->font() );
+  fnt.setBold( true );
+  fnt.setPointSize( m_sidePane->font().pointSize() + 3 );
+  m_headerText->setFont( fnt );
 
   m_lastInfoExtension = 0L;
 
-  m_stack = new QWidgetStack(vBox);
+  m_stack = new QWidgetStack( vBox );
 
-  setCentralWidget(box);
+  setCentralWidget( box );
 
   statusBar()->show();
 
   // prepare the part manager
-  m_partManager = new KParts::PartManager(this);
-  connect(m_partManager, SIGNAL(activePartChanged(KParts::Part *)), this, SLOT(activePartChanged(KParts::Part *)));
+  m_partManager = new KParts::PartManager( this );
+  connect( m_partManager, SIGNAL( activePartChanged( KParts::Part* ) ),
+           this, SLOT( activePartChanged( KParts::Part* ) ) );
 
   setupActions();
 
   loadPlugins();
 
-  setXMLFile("kontactui.rc");
+  setXMLFile( "kontactui.rc" );
 
-  createGUI(0);
+  createGUI( 0 );
 
   m_sidePane->invokeFirstEntry();
 
-  resize(600, 400); // initial size
+  resize( 600, 400 ); // initial size
   setAutoSaveSettings();
 
   loadSettings();
 }
 
-
 MainWindow::~MainWindow()
 {
   saveSettings();
   
-    QPtrList<KParts::Part> parts = *m_partManager->parts();
-    parts.setAutoDelete(true);
-    parts.clear();
+  QPtrList<KParts::Part> parts = *m_partManager->parts();
+  parts.setAutoDelete( true );
+  parts.clear();
 }
 
 void MainWindow::setupActions()
 {
-  (void) KStdAction::quit(this, SLOT(slotQuit()), actionCollection(), "file_quit");
-  (void) KStdAction::preferences(this, SLOT(slotPreferences()), actionCollection(), "settings_preferences");
-  m_newActions = new KActionMenu( i18n("New"), BarIcon("filenew2"), actionCollection(), "action_new" );
+  (void) KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
+  (void) KStdAction::preferences( this, SLOT( slotPreferences() ), actionCollection() );
+  m_newActions = new KActionMenu( i18n( "New" ), BarIcon( "filenew2" ), actionCollection(), "action_new" );
 }
 
-
-void MainWindow::insertNewAction(KAction *action)
+void MainWindow::insertNewAction( KAction *action )
 {
-  m_newActions->insert(action);
+  m_newActions->insert( action );
 }
 
 void MainWindow::loadPlugins()
 {
-  KTrader::OfferList offers = KTrader::self()->query(QString::fromLatin1("Kontact/Plugin"), QString::null);
+  KTrader::OfferList offers = KTrader::self()->query( QString::fromLatin1( "Kontact/Plugin" ), QString::null );
 
-  for (KTrader::OfferList::ConstIterator it = offers.begin(); it != offers.end(); ++it)
+  for ( KTrader::OfferList::ConstIterator it = offers.begin(); it != offers.end(); ++it )
   {
     kdDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
     Kontact::Plugin *plugin = KParts::ComponentFactory
-      ::createInstanceFromService<Kontact::Plugin>(*it, this);
-    if (!plugin)
+      ::createInstanceFromService<Kontact::Plugin>( *it, this );
+    if ( !plugin )
       continue;
 
-    addPlugin(plugin);
+    addPlugin( plugin );
   }
 }
 
-
-void MainWindow::addPlugin(Kontact::Plugin *plugin)
+void MainWindow::addPlugin( Kontact::Plugin *plugin )
 {
   kdDebug(5600) << "Added plugin" << endl;
 
   // merge the plugins GUI into the main window
-  insertChildClient(plugin);
-  m_plugins.append(plugin);
-  m_sidePane->addEntry(plugin);
+  insertChildClient( plugin );
+  m_plugins.append( plugin );
+  m_sidePane->addEntry( plugin );
 }
 
-void MainWindow::addPart(KParts::Part *part)
+void MainWindow::addPart( KParts::Part *part )
 {
-  m_partManager->addPart(part, false);
+  m_partManager->addPart( part, false );
 
-  if (part->widget())
-    m_stack->addWidget(part->widget(), 0);
+  if ( part->widget() )
+    m_stack->addWidget( part->widget(), 0 );
 }
 
-void MainWindow::activePartChanged(KParts::Part *part)
+void MainWindow::activePartChanged( KParts::Part *part )
 {
   if ( !part )  // part can be 0 at shutdown
     return;
 
   kdDebug(5600) << "Part activated: " << part << " with stack id. "
-      << m_stack->id(part->widget())<< endl;
+      << m_stack->id( part->widget() )<< endl;
   QObjectList *l = part->queryList( "KParts::InfoExtension" );
-  KParts::InfoExtension *ie = static_cast<KParts::InfoExtension*>(l->first());
-  if( ie != 0L )
+  KParts::InfoExtension *ie = static_cast<KParts::InfoExtension*>( l->first() );
+  if ( ie != 0L )
   {
-      disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
-	  			 headerText, SLOT( setText( const QString& ) ) );
-      connect( ie, SIGNAL( textChanged( const QString& ) ),
-	  			 headerText, SLOT( setText( const QString& ) ) );
-      disconnect( m_lastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
-				 headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
-      connect( ie, SIGNAL( iconChanged( const QPixmap& ) ),
-				 headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
+    disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
+                m_headerText, SLOT( setText( const QString& ) ) );
+    connect( ie, SIGNAL( textChanged( const QString& ) ),
+             m_headerText, SLOT( setText( const QString& ) ) );
+    disconnect( m_lastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
+                m_headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
+    connect( ie, SIGNAL( iconChanged( const QPixmap& ) ),
+             m_headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
   }
   else
   {
-	  headerText->setText( QString::null );
-	  headerPixmap->setPixmap( QPixmap() );
+    m_headerText->setText( QString::null );
+    m_headerPixmap->setPixmap( QPixmap() );
   }
   m_lastInfoExtension = ie;
 
   createGUI(part);
 }
 
-void MainWindow::showPart(KParts::Part* part)
+void MainWindow::showPart( KParts::Part* part )
 {
-  QPtrList<KParts::Part> *partList = const_cast< QPtrList<KParts::Part>* >(m_partManager->parts());
-  if (partList->find(part) == -1)
-      addPart(part);
+  QPtrList<KParts::Part> *partList = const_cast<QPtrList<KParts::Part>*>( m_partManager->parts() );
+  if ( partList->find( part ) == -1 )
+    addPart( part );
 
   m_partManager->setActivePart( part );
   QWidget* view = part->widget();
-  Q_ASSERT(view);
+  Q_ASSERT( view );
   if ( view )
   {
     m_stack->raiseWidget( view );
@@ -240,34 +246,32 @@ void MainWindow::slotQuit()
 
 void MainWindow::slotPreferences()
 {
-  KCMultiDialog* dialog = new KCMultiDialog("PIM", this, "KontactPreferences");
+  KCMultiDialog* dialog = new KCMultiDialog( "PIM", this, "KontactPreferences" );
 
   QStringList modules;
 
-
   // find all all modules for all plugins
-  QPtrListIterator<Kontact::Plugin> pit(m_plugins);
-  for(; pit.current(); ++pit)
+  QPtrListIterator<Kontact::Plugin> pit( m_plugins );
+  for( ; pit.current(); ++pit )
   {
-     QStringList tmp = pit.current()->configModules();
-     if(!tmp.isEmpty())
-         modules += tmp;
+    QStringList tmp = pit.current()->configModules();
+    if( !tmp.isEmpty() )
+      modules += tmp;
   }
-
 
   // add them all
   QStringList::iterator mit;
-  for (mit = modules.begin(); mit != modules.end(); ++mit)
-    dialog->addModule((*mit));
+  for ( mit = modules.begin(); mit != modules.end(); ++mit )
+    dialog->addModule( *mit );
 
   dialog->show();
   dialog->raise();
 }
 
 int MainWindow::startServiceFor( const QString& serviceType,
-                           const QString& constraint,
-                           const QString& preferences,
-                           QString *error, QCString* dcopService, int flags )
+                                 const QString& constraint,
+                                 const QString& preferences,
+                                 QString *error, QCString* dcopService, int flags )
 {
   QPtrListIterator<Kontact::Plugin> it( m_plugins );
   for ( ; it.current() ; ++it )
@@ -285,5 +289,3 @@ int MainWindow::startServiceFor( const QString& serviceType,
 }
 
 #include "mainwindow.moc"
-
-// vim: ts=4 sw=4 et

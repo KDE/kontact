@@ -54,69 +54,57 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 {
   Q_OBJECT
 
-public:
+  public:
+    MainWindow();
+    ~MainWindow();
 
-  MainWindow();
-  ~MainWindow();
-/*
-  virtual void addPart(KParts::Part *part);
+    virtual void insertNewAction( KAction *action );
 
-  virtual void showPart(KParts::Part *part);
-*/
-  virtual void insertNewAction(KAction *action);
+    // KDCOPServiceStarter interface
+    virtual int startServiceFor( const QString& serviceType,
+                                 const QString& constraint = QString::null,
+                                 const QString& preferences = QString::null,
+                                 QString *error = 0, QCString* dcopService = 0,
+                                 int flags = 0 );
 
-  // KDCOPServiceStarter interface
-  virtual int startServiceFor( const QString& serviceType,
-                               const QString& constraint = QString::null,
-                               const QString& preferences = QString::null,
-                               QString *error=0, QCString* dcopService=0,
-                               int flags=0 );
+  public slots:
+    virtual void showPart( KParts::Part *part );
 
- public slots:
-  virtual void showPart(KParts::Part *part);
+  signals:
+    void textChanged( const QString& );
+    void iconChanged( const QPixmap& );
 
- signals:
-  void textChanged( const QString& );
-  void iconChanged( const QPixmap& );
+  private slots:
+    void slotQuit();
 
- private slots:
+    void activePartChanged( KParts::Part *part );
+    void slotPreferences();
 
-  void slotQuit();
+  private:
+    void loadSettings();
+    void saveSettings();
 
-  void activePartChanged(KParts::Part *part);
-  void slotPreferences();
+    void loadPlugins();
+    void addPlugin( Kontact::Plugin *plugin );
+    void addPart( KParts::Part *part );
+    void setupActions();
 
- private:
-  void loadSettings();
-  void saveSettings();
+    SidePane *m_sidePane;
+    KParts::PartManager *m_partManager;
 
-  void loadPlugins();
-  void addPlugin(Kontact::Plugin *plugin);
+    QWidgetStack *m_stack;
+    QPtrList<Kontact::Plugin> m_plugins;
 
-  void addPart(KParts::Part *part);
+    KActionMenu *m_newActions;
 
-  void setupActions();
+    QHBox *m_headerFrame;
+    QLabel *m_headerText;
+    QLabel *m_headerPixmap;
+    QSplitter *m_splitter;
 
-  SidePane *m_sidePane;
-
-  KParts::PartManager *m_partManager;
-
-  QWidgetStack *m_stack;
-  QPtrList<Kontact::Plugin> m_plugins;
-
-  KActionMenu *m_newActions;
-
-  QHBox *headerFrame;
-  QLabel *headerText;
-  QLabel *headerPixmap;
-  QSplitter *m_splitter;
-
-  KParts::InfoExtension *m_lastInfoExtension;
-
+    KParts::InfoExtension *m_lastInfoExtension;
 };
 
 };
 
 #endif
-
-// vim: ts=4 sw=4 et
