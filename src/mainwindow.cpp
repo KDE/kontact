@@ -2,8 +2,8 @@
     This file is part of KDE Kontact.
 
     Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
-    Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
-    Copyright (c) 2003 Cornelius Schumacher <schumacher@kde.org>
+    Copyright (c) 2002-2005 Daniel Molkentin <molkentin@kde.org>
+    Copyright (c) 2003-2005 Cornelius Schumacher <schumacher@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -258,12 +258,14 @@ void MainWindow::initAboutScreen()
   QString location = locate( "data", "kontact/about/main.html" );
   QString content = KPIM::kFileToString( location );
   introPart->begin( KURL( location ) );
-  QString appName( i18n( "Kontact" ) );
+  QString appName( i18n( "KDE Kontact" ) );
   QString catchPhrase( i18n( "Get Organized!" ) );
   QString quickDescription( i18n( "The KDE Personal Information Management Suite" ) );
   KIconLoader *iconloader = KGlobal::iconLoader();
   int iconSize = iconloader->currentSize( KIcon::Desktop );
-  QString handbook_icon_path = iconloader->iconPath( "contents",  KIcon::Desktop );
+
+  // i18n("Loading Kontact...");
+  QString handbook_icon_path = iconloader->iconPath( "contents2",  KIcon::Desktop );
   QString html_icon_path = iconloader->iconPath( "html",  KIcon::Desktop );
   QString wizard_icon_path = iconloader->iconPath( "wizard",  KIcon::Desktop );
 
@@ -283,12 +285,20 @@ void MainWindow::initAboutScreen()
       .arg( "help:/kontact" )
       .arg( iconSize )
       .arg( iconSize )
+<<<<<<< mainwindow.cpp
+      .arg( manual_icon_path )
+=======
       .arg( handbook_icon_path )
+>>>>>>> 1.148
       .arg( "help:/kontact" )
       .arg( "http://kontact.kde.org" )
       .arg( iconSize )
       .arg( iconSize )
+<<<<<<< mainwindow.cpp
+      .arg( web_icon_path )
+=======
       .arg( html_icon_path )
+>>>>>>> 1.148
       .arg( "http://kontact.kde.org" )
       .arg( "exec:/gwwizard" )
       .arg( iconSize )
