@@ -1,4 +1,4 @@
-INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/libkdepim $(all_includes) -I$(top_srcdir)/kpilot/lib -I$(top_srcdir)/kpilot/kpilot
+INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/libkdepim -I$(top_srcdir)/kpilot/lib -I$(top_srcdir)/kpilot/kpilot $(all_includes)
 
 kde_module_LTLIBRARIES = libkontact_kpilotplugin.la
 libkontact_kpilotplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
