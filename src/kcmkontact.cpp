@@ -119,7 +119,6 @@ void PluginSelection::readConfig()
     mPluginCombo->insertItem( service->name() );
     mPluginList.append( service );
 
-    kdDebug() <<  service->property("X-KDE-PluginInfo-Name").toString() << " :: "<< mItem->value() << endl; 
     if ( service->property("X-KDE-PluginInfo-Name").toString() == mItem->value() )
       activeComponent = mPluginList.count()-1;
   }
