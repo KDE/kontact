@@ -217,7 +217,9 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
 {
   mViewMode = sizeIntToEnum( Prefs::self()->sidePaneIconSize() );
   setSelectionMode( KListBox::Single );
-  viewport()->setBackgroundMode( PaletteMid );
+  QColor gray = kapp->palette().color( QPalette::Normal,
+                                       QColorGroup::Background );
+  viewport()->setBackgroundColor( gray );
   setHScrollBarMode( QScrollView::AlwaysOff );
   setAcceptDrops( true );
 
