@@ -117,7 +117,7 @@ void SummaryWidget::updateView()
       label = new QLabel( this );
       label->setPixmap( pm );
       label->setMaximumWidth( label->minimumSizeHint().width() );
-      label->setAlignment( AlignTop );
+      label->setAlignment( AlignVCenter );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
@@ -141,7 +141,7 @@ void SummaryWidget::updateView()
         datestr = KGlobal::locale()->formatDate( sD );
       }
       label = new QLabel( datestr, this );
-      label->setAlignment( AlignLeft | AlignTop );
+      label->setAlignment( AlignLeft | AlignVCenter );
       if ( makeBold ) {
         QFont font = label->font();
         font.setBold( true );
@@ -181,7 +181,7 @@ void SummaryWidget::updateView()
                   .arg( KGlobal::locale()->formatTime( sST ) )
                   .arg( KGlobal::locale()->formatTime( sET ) );
         label = new QLabel( datestr, this );
-        label->setAlignment( AlignLeft | AlignTop );
+        label->setAlignment( AlignLeft | AlignVCenter );
         mLayout->addWidget( label, counter, 3 );
         mLabels.append( label );
       }
