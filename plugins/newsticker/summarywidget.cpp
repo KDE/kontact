@@ -42,7 +42,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ),
     DCOPObject( "NewsTickerPlugin" ), mLayout( 0 )
 {
-  QVBoxLayout *vlay = new QVBoxLayout( this );
+  QVBoxLayout *vlay = new QVBoxLayout( this, 3, 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_news",
                                                   KIcon::Desktop, KIcon::SizeMedium );

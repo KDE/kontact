@@ -56,7 +56,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
     mStartedDaemon(false),
     mShouldStopDaemon(true)
 {
-  mLayout = new QGridLayout( this );
+  mLayout = new QGridLayout( this, 2, 3, 3, 3 );
 
   int row=0;
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kpilot", KIcon::Desktop, KIcon::SizeMedium );
