@@ -146,6 +146,12 @@ Comment[sv]=Adressbokskomponent
 Weight=300
 Icon=kontact_contacts
 
+[Special Dates]
+Name=Special Dates Summary
+Comment=Special Dates Summary Component
+Weight=310
+Icon=cookie
+
 [KOrganizer]
 Name=Calendar
 Name[be]=Каляндар
