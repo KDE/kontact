@@ -5,7 +5,7 @@
 
   <group name="View">
     <entry type="String" name="ActivePlugin">
-      <default>summary</default>
+      <default>kontact_summaryplugin</default>
     </entry>
 
     <entry type="IntList" name="SidePaneSplitter">

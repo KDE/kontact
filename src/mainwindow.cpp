@@ -102,7 +102,7 @@ MainWindow::MainWindow()
 
   createGUI( 0 );
 
-  resize( 600, 450 ); // initial size
+  resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
 
   if ( mSidePane )
