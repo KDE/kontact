@@ -59,6 +59,7 @@ class KontactApp : public KUniqueApplication {
 static KCmdLineOptions options[] =
 {
     { "module <module>",   I18N_NOOP("Open a specific Kontact module."), 0 },
+    { "nosplash",   I18N_NOOP("Disable the splash screen."), 0 },
     { "list", I18N_NOOP("List plugins that are run at startup."), 0 },
     KCmdLineLastOption
 };
@@ -85,7 +86,7 @@ int KontactApp::newInstance()
         return 0;
     }
     QWidget* splash = 0;
-  if ( !mMainWindow ) // only the first time
+  if ( !mMainWindow && args->isSet("splash") ) // only the first time
   {
     // show splash
 #if (QT_VERSION-0 >= 0x030200)
@@ -122,7 +123,8 @@ int KontactApp::newInstance()
     }
   }
 
-  delete splash;
+  if( splash )
+    delete splash;
 
   // Handle startup notification and window activation
   // (The first time it will do nothing except note that it was called)
