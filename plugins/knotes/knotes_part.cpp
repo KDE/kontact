@@ -32,6 +32,7 @@
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
 #include <libkdepim/infoextension.h>
+#include <libkdepim/sidebarextension.h>
 
 #include "knotes_part.h"
 
@@ -61,8 +62,13 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   QSplitter *splitter = new QSplitter( Qt::Horizontal );
 
   mNotesView = new KListView( splitter );
-  mNotesView->setSelectionMode( QListView::Extended );
+  /* QListView::Extended prevents the QListView from emitting the
+     selectionChanged() signal, so you can't edit any note.
+   */
+//  mNotesView->setSelectionMode( QListView::Extended );
   mNotesView->addColumn( i18n( "Title" ) );
+
+  (void) new KParts::SideBarExtension( mNotesView, this, "NotesSideBarExtension" );
 
   mNotesEdit = new QTextEdit( splitter );
 
