@@ -114,7 +114,7 @@ Navigator::Navigator( SidePaneBase *parent, const char *name)
 {
   setSelectionMode( KListBox::Single );
 
-  viewport()->setBackgroundMode( PaletteDark );
+  viewport()->setBackgroundMode( PaletteMid );
 
   QPalette pal = palette();
   QColor gray = colorGroup().shadow();
