@@ -111,28 +111,26 @@ void MainWindow::initWidgets()
 
   setCentralWidget( m_topWidget );
 
-  QVBox *vBox;
-
   mSidePaneType = Prefs::self()->mSidePaneType;
+
+  m_splitter = new QSplitter( m_topWidget );
 
   switch ( mSidePaneType ) {
     case Prefs::SidePaneIcons:
-      m_splitter = new QSplitter( m_topWidget );
       m_sidePane = new IconSidePane( this, m_splitter );
-      vBox = new QVBox( m_splitter );
       break;
     default:
       kdError() << "Invalid SidePaneType: " << mSidePaneType << endl;
     case Prefs::SidePaneBars:
-      m_splitter = new QSplitter( m_topWidget );
       m_sidePane = new SidePane( this, m_splitter );
       m_sidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                               QSizePolicy::Preferred ) );
-      vBox = new QVBox( m_splitter );
       break;
   }
   connect( m_sidePane, SIGNAL( pluginSelected( Kontact::Plugin* ) ),
            SLOT( selectPlugin( Kontact::Plugin* ) ) );
+
+  QVBox *vBox = new QVBox( m_splitter );
 
   initHeaderWidget( vBox );
   if ( mSidePaneType != Prefs::SidePaneBars )
@@ -251,15 +249,15 @@ void MainWindow::addPart( KParts::Part *part )
 
 void MainWindow::slotActivePartChanged( KParts::Part *part )
 {
+  if ( !part )
+    return;
+
   if ( m_lastInfoExtension ) {
     disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
                 this, SLOT( setHeaderText( const QString& ) ) );
     disconnect( m_lastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
                 this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
   }
-
-  if ( !part )  // part can be 0 at shutdown
-    return;
 
   kdDebug(5600) << "Part activated: " << part << " with stack id. "
       << m_stack->id( part->widget() )<< endl;
@@ -402,16 +400,12 @@ int MainWindow::startServiceFor( const QString& serviceType,
 
 void MainWindow::setHeaderText( const QString &text )
 {
-  if ( mSidePaneType != Prefs::SidePaneBars ) return;
-
   m_infoExtCache[ m_lastInfoExtension ].text = text;
   m_headerText->setText( text );
 }
 
 void MainWindow::setHeaderPixmap( const QPixmap &pixmap )
 {
-  if ( mSidePaneType != Prefs::SidePaneBars ) return;
-
   QPixmap pm( pixmap );
   
   if ( pm.height() > 22 || pm.width() > 22 ) {
