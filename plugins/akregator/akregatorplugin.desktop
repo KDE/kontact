@@ -23,7 +23,7 @@ Comment[pt]='Plugin' do aKregator
 Comment[pt_BR]=Plug-in do aKregator
 Comment[ru]=Модуль aKregator
 Comment[sv]=aKregator-insticksprogram
-Comment[ta]=«ì¸¢¦Ã§¸ð¼¡÷ ¦º¡Õ¸¢
+Comment[ta]=aKregator சொருகு
 Comment[xx]=xxaKregator Pluginxx
 Name=Feeds
 Name[cy]=Porthiannau
@@ -32,6 +32,6 @@ Name[et]=Kanalid
 Name[pt]=Fontes
 Name[ru]=Новостные ленты
 Name[sv]=Källor
-Name[ta]=þ·À¢ð
+Name[ta]=உள்ளிடல்
 Name[xx]=xxFeedsxx
 
