@@ -21,6 +21,8 @@
 
 #include <kapplication.h>
 #include <kiconloader.h>
+#include <kconfig.h>
+#include <qcursor.h>
 
 #include "splash.h"
 
@@ -32,8 +34,21 @@ Splash::Splash(QWidget *parent, const char *name)
     setBackgroundPixmap(splash);
     resize(splash.width(), splash.height());
 
-    QRect rect(dw->screenGeometry(dw->primaryScreen()));
-    setGeometry((rect.width()/2)-(width()/2), (rect.height()/2)-(height()/2), width(), height());
+    QRect desk;
+    KConfig gc("kdeglobals", false, false);
+    gc.setGroup("Windows");
+    int scr = gc.readNumEntry("Unmanaged", -3);
+    if (dw->isVirtualDesktop() &&
+        gc.readBoolEntry("XineramaEnabled", true) &&
+        scr != -2) {
+        if (scr == -3)
+            scr = dw->screenNumber(QCursor::pos());
+        desk = dw->screenGeometry(scr);
+    } else {
+        desk = dw->geometry();
+    }
+
+    setGeometry((desk.width()/2)-(width()/2) + desk.left(), (desk.height()/2)-(height()/2) + desk.top(), width(), height());
 }
 
 #include "splash.moc" 
