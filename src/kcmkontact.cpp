@@ -79,8 +79,8 @@ KcmKontact::KcmKontact( QWidget *parent, const char *name )
   KPrefsWidRadios *radios = addWidRadios( i18n( "Side Pane Type" ),
                                           Kontact::Prefs::self()->mSidePaneType,
                                           this );
-  radios->addRadio( i18n( "Button View with Sidebar Extension" ) );
-  radios->addRadio( i18n( "Icon View" ) );
+  radios->addRadio( i18n( "Button view with sidebar extension" ) );
+  radios->addRadio( i18n( "Icon view" ) );
   topLayout->addWidget( radios->groupBox() );
 
   PluginSelection *plugins = new PluginSelection( i18n( "Plugins" ),
