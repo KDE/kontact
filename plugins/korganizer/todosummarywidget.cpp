@@ -35,6 +35,7 @@
 #include <libkcal/resourcecalendar.h>
 #include <libkcal/resourcelocal.h>
 #include <libkcal/todo.h>
+#include <libkdepim/kpimprefs.h>
 
 #include "core.h"
 #include "plugin.h"
@@ -56,12 +57,12 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
   mLayout->setRowStretch( 6, 1 );
 
-  KConfig config( "korganizerrc" );
-  mCalendar = new KCal::CalendarResources( config.readEntry( "TimeZoneId" ) );
+  mCalendar = new KCal::CalendarResources( KPimPrefs::timezone() );
   mCalendar->readConfig();
 
   KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
   if ( manager->isEmpty() ) {
+    KConfig config( "korganizerrc" );
     config.setGroup( "General" );
     QString fileName = config.readPathEntry( "Active Calendar" );
 
@@ -81,9 +82,6 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
     manager->add( defaultResource );
     manager->setStandardResource( defaultResource );
   }
-
-  config.setGroup( "Date & Time" );
-  mCalendar->setTimeZoneId( config.readEntry( "TimeZoneId" ) );
   mCalendar->load();
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
