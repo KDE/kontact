@@ -76,9 +76,11 @@ KcmKontact::KcmKontact( QWidget *parent, const char *name )
 {
   QVBoxLayout *topLayout = new QVBoxLayout( this );
 
+#if 0
   KPrefsWidRadios *radios = addWidRadios( Kontact::Prefs::self()->sidePaneTypeItem(),
                                           this );
   topLayout->addWidget( radios->groupBox() );
+#endif
 
   load();
 }

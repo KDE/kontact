@@ -136,27 +136,31 @@ void MainWindow::initWidgets()
 
   mSidePaneType = Prefs::self()->mSidePaneType;
 
-  mSplitter = new QSplitter( mTopWidget );
+  QHBox *mBox = 0;
 
-  switch ( mSidePaneType ) {
-    case Prefs::SidePaneIcons:
-      mSidePane = new IconSidePane( this, mSplitter );
-      break;
-    default:
-      kdError() << "Invalid SidePaneType: " << mSidePaneType << endl;
-    case Prefs::SidePaneBars:
-      mSidePane = new SidePane( this, mSplitter );
-      mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
-                                              QSizePolicy::Preferred ) );
-      break;
+  if ( mSidePaneType == Prefs::SidePaneBars ) {
+    mSplitter = new QSplitter( mTopWidget );
+    mSidePane = new SidePane( this, mSplitter );
+    mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
+                                           QSizePolicy::Preferred ) );
+    mSplitter->setResizeMode( mSidePane, QSplitter::KeepSize );
+  } else {
+    mSplitter = 0;
+    mBox = new QHBox( mTopWidget );
+    mSidePane = new IconSidePane( this, mBox );
+    mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
+                                           QSizePolicy::Preferred ) );
   }
-
-  mSplitter->setResizeMode( mSidePane, QSplitter::KeepSize );
 
   connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
            SLOT( selectPlugin( Kontact::Plugin * ) ) );
 
-  QVBox *vBox = new QVBox( mSplitter );
+  QVBox *vBox;
+  if ( mSplitter ) {
+    vBox = new QVBox( mSplitter );
+  } else {
+    vBox = new QVBox( mBox );
+  }
 
   initHeaderWidget( vBox );
   if ( mSidePaneType != Prefs::SidePaneBars )
@@ -548,6 +552,7 @@ void MainWindow::updateConfig()
 
   saveSettings();
 
+#if 0
   bool sidePaneChanged = ( Prefs::self()->mSidePaneType != mSidePaneType );
 
   if ( sidePaneChanged ) {
@@ -583,6 +588,7 @@ void MainWindow::updateConfig()
 
   if ( sidePaneChanged )
     mSidePane->updatePlugins();
+#endif
 
   loadSettings();
 }
