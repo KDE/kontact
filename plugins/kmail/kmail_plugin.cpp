@@ -37,7 +37,7 @@
 
 typedef KGenericFactory<KMailPlugin, Kontact::Core> KMailPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpkmailplugin,
-                            KMailPluginFactory( "kpmailplugin" ) );
+                            KMailPluginFactory( "kpmailplugin" ) )
 
 KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "kmail" ),

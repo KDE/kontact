@@ -132,6 +132,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     AboutDialog *m_aboutDialog;
 };
 
-};
+}
 
 #endif

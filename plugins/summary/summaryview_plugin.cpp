@@ -27,7 +27,7 @@
 
 typedef KGenericFactory< SummaryView, Kontact::Core > SummaryViewFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpsummaryplugin,
-                            SummaryViewFactory( "kpsummaryplugin" ) );
+                            SummaryViewFactory( "kpsummaryplugin" ) )
 
 SummaryView::SummaryView( Kontact::Core *core, const char *name, const QStringList& )
   : Kontact::Plugin( core, core, name),
