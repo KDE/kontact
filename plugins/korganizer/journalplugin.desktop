@@ -1,0 +1,20 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+Icon=kontact_journal
+ServiceTypes=Kontact/Plugin
+
+X-KDE-Library=libkontact_journalplugin
+X-KDE-KontactPluginVersion=4
+X-KDE-KontactPartLibraryName=libkorganizerpart
+X-KDE-KontactPartExecutableName=korganizer
+X-KDE-KontactPluginHasSummary=true
+
+X-KDE-PluginInfo-Website=http://korganizer.kde.org
+X-KDE-PluginInfo-Name=kontact_journalplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
+Comment=Kontact KOrganizer Journal Plugin
+Name=Journal
