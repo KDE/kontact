@@ -27,6 +27,8 @@
 
 #include <qlistbox.h>
 
+class QSignalMapper;
+
 namespace KParts { class Part; }
 
 namespace Kontact
@@ -92,9 +94,13 @@ class Navigator : public KListBox
 
   private slots:
     void slotExecuted( QListBoxItem *item );
+    void shortCutSelected( int );
 
   private:
     SidePaneBase *mSidePane;
+
+    QSignalMapper *mMapper;
+    QPtrList<KAction> mActions;
 };
 
 class IconSidePane : public SidePaneBase

@@ -27,6 +27,7 @@
 #include <qpainter.h>
 #include <qbitmap.h>
 #include <qfontmetrics.h>
+#include <qsignalmapper.h>
 #include <qstyle.h>
 #include <qframe.h>
 #include <qdrawutil.h>
@@ -126,6 +127,9 @@ Navigator::Navigator( SidePaneBase *parent, const char *name)
 
   connect( this, SIGNAL( currentChanged( QListBoxItem * ) ),
            SLOT( slotExecuted( QListBoxItem * ) ) );
+
+  mMapper = new QSignalMapper( this );
+  connect( mMapper, SIGNAL( mapped( int ) ), SLOT( shortCutSelected( int ) ) );
 }
 
 QSize Navigator::sizeHint() const
@@ -148,6 +152,11 @@ void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins )
 {
   clear();
 
+  mActions.setAutoDelete( true );
+  mActions.clear();
+  mActions.setAutoDelete( false );
+
+  int counter = 0;
   int minWidth = 0;
   QValueList<Kontact::Plugin*>::ConstIterator end = plugins.end();
   QValueList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
@@ -160,6 +169,13 @@ void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins )
 
     if ( item->width( this ) > minWidth )
       minWidth = item->width( this );
+
+    QString name = QString( "CTRL+%1" ).arg( counter + 1 );
+    KAction *action = new KAction( plugin->title(), KShortcut( name ),
+                                   mMapper, SLOT( map() ),
+                                   mSidePane->actionCollection(), name.latin1() );
+    mMapper->setMapping( action, counter );
+    counter++;
   }
 
   parentWidget()->setFixedWidth( minWidth );
@@ -223,6 +239,12 @@ void Navigator::resizeEvent( QResizeEvent *event )
   QListBox::resizeEvent( event );
   triggerUpdate( true );
 }
+
+void Navigator::shortCutSelected( int pos )
+{
+  setCurrentItem( pos );
+}
+
 
 IconSidePane::IconSidePane( Core *core, QWidget *parent, const char *name )
   : SidePaneBase( core, parent, name )

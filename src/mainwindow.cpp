@@ -215,6 +215,8 @@ void MainWindow::initWidgets()
                                            QSizePolicy::Preferred ) );
   }
 
+  mSidePane->setActionCollection( actionCollection() );
+
   connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
            SLOT( selectPlugin( Kontact::Plugin * ) ) );
 

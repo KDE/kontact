@@ -38,6 +38,9 @@ class SidePaneBase : public QVBox
     SidePaneBase( Core *core, QWidget *parent, const char *name = 0 );
     virtual ~SidePaneBase();
 
+    void setActionCollection( KActionCollection *actionCollection );
+    KActionCollection *actionCollection() const;
+
   signals:
     void pluginSelected( Kontact::Plugin* );
 
@@ -65,6 +68,7 @@ class SidePaneBase : public QVBox
 
   private:
     Core* mCore;
+    KActionCollection *mActionCollection;
 };
 
 }
