@@ -19,6 +19,7 @@
 
 #include <qdesktopwidget.h>
 
+#include <kapplication.h>
 #include <kiconloader.h>
 
 #include "splash.h"
@@ -30,7 +31,7 @@ Splash::Splash(QWidget *parent, const char *name)
     QPixmap splash(UserIcon("splash"));
     setBackgroundPixmap(splash);
     resize(splash.width(), splash.height());
-    
+
     QRect rect(dw->screenGeometry(dw->primaryScreen()));
     setGeometry((rect.width()/2)-(width()/2), (rect.height()/2)-(height()/2), width(), height());
 }
