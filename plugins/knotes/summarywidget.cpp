@@ -79,7 +79,8 @@ void SummaryWidget::updateView()
     dcopCall.call( "text(QString)", it.key() ).get( text );
     if ( !text.isEmpty() ) {
       QLabel *label = new QLabel( this );
-      label->setText( QString( "- %1:" ).arg( it.data() ) );
+      label->setText( it.data() + ":" );
+      label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Preferred );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
