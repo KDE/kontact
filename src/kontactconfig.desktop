@@ -11,5 +11,19 @@ X-KDE-FactoryName=kontactconfig
 X-KDE-HasReadOnlyMode=false
 
 Name=Kontact
+Name[be]=Кантакт
+Name[sv]=Kontakt
+Name[xx]=xxKontactxx
 Comment=KDE Kontact
+Comment[be]=Кантакт KDE
+Comment[ca]=Kontact de KDE
+Comment[pt_BR]=Kontact do KDE
+Comment[xx]=xxKDE Kontactxx
 Keywords=kontact
+Keywords[be]=кантакт,kontact
+Keywords[hu]=kapcsolat
+Keywords[sv]=kontakt
+Keywords[tr]=bağlantı
+Keywords[xx]=xxkontactxx
+
+Categories=Qt;KDE;PIM
