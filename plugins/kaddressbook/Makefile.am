@@ -4,7 +4,7 @@ kde_module_LTLIBRARIES = libkpkaddressbookplugin.la
 libkpkaddressbookplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkpkaddressbookplugin_la_LIBADD = $(top_builddir)/kaplan/interfaces/libkpinterfaces.la 
 
-libkpkaddressbookplugin_la_SOURCES = kaddressbook_plugin.cpp kaddressbookiface_stub.h
+libkpkaddressbookplugin_la_SOURCES = kaddressbook_plugin.cpp kaddressbookiface.stub
 
 METASOURCES = AUTO
 
