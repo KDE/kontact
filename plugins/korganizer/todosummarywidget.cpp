@@ -109,10 +109,43 @@ void TodoSummaryWidget::updateView()
   if ( todos.count() > 0 ) {
     QPixmap pm = loader.loadIcon( "todo", KIcon::Small );
     KCal::Todo::List::ConstIterator it;
-    for( it = todos.begin(); it != todos.end(); ++it ) {
+    for ( it = todos.begin(); it != todos.end(); ++it ) {
       KCal::Todo *todo = *it;
 
-      if ( !showAllTodos && !( todo->hasDueDate() && todo->dtDue().date() == QDate::currentDate() && !todo->isCompleted() ) )
+      bool accepted = false;
+      QString stateText;
+
+      // show all todos
+      if ( showAllTodos )
+        accepted = accepted || true;
+
+      // show uncomplete todos from the last days
+      if ( todo->hasDueDate() && !todo->isCompleted() &&
+           todo->dtDue().date() <= QDate::currentDate() ) {
+        accepted = accepted || true;
+        stateText = i18n( "overdued" );
+      }
+
+      // show todos which started somewhere in the past and has to be finished in future
+      if ( todo->hasStartDate() && todo->hasDueDate() && todo->dtStart().date() 
+           <= QDate::currentDate() && QDate::currentDate() <= todo->dtDue().date() ) {
+        accepted = accepted || true;
+        stateText = i18n( "in progress" );
+      }
+
+      // all todos which start today
+      if ( todo->hasStartDate() && todo->dtStart().date() == QDate::currentDate() ) {
+        accepted = accepted || true;
+        stateText = i18n( "starts today" );
+      }
+
+      // all todos which end today
+      if ( todo->hasDueDate() && todo->dtDue().date() == QDate::currentDate() ) {
+        accepted = accepted || true;
+        stateText = i18n( "ends today" );
+      }
+
+      if ( !accepted )
         continue;
 
       label = new QLabel( this );
@@ -129,14 +162,19 @@ void TodoSummaryWidget::updateView()
       KURLLabel *urlLabel = new KURLLabel( todo->uid(), todo->summary(), this );
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
-          
+
+      label = new QLabel( stateText, this );
+      label->setAlignment( AlignLeft );
+      mLayout->addWidget( label, counter, 3 );
+      mLabels.append( label );
+
       connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
                this, SLOT( selectEvent( const QString& ) ) );
 
       counter++;
     }
   }
-  
+
   if ( counter == 0 ) {
     QLabel *noTodos = new QLabel( i18n( "No Todos pending" ), this );
     noTodos->setAlignment( AlignRight );
