@@ -38,7 +38,7 @@
 #include <ktrader.h>
 #include <kservice.h>
 #include <kparts/componentfactory.h>
-#include <libkdepim/infoextension.h>
+#include <infoextension.h>
 
 namespace Kontact
 {
