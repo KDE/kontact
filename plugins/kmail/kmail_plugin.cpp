@@ -10,6 +10,7 @@
 #include <kparts/componentfactory.h>
 
 #include "kpcore.h"
+#include "summarywidget.h"
 
 #include "kmail_plugin.h"
 #include "kmail_plugin.moc"
@@ -75,3 +76,7 @@ KParts::Part* KMailPlugin::part()
 	return m_part;
 }
 
+QWidget* KMailPlugin::createSummaryWidget( QWidget *parent )
+{
+  return new SummaryWidget( this, parent );
+}

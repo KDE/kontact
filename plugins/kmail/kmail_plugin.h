@@ -20,6 +20,7 @@ public:
 
   virtual KParts::Part* part();
   virtual bool createDCOPInterface( const QString& serviceType );
+  virtual QWidget* createSummaryWidget( QWidget *parent );
 
 protected slots:
   void slotNewMail();
