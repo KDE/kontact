@@ -2,19 +2,23 @@ UNTIL KDE 3.2
 ==============
 
 - merge config of parts into a unified config dialog
+  * Unified Identity handling (Name, Mail address, SMTP, use KMIdentity KDEPIM wide?)
+    Currently this is dublicated in at least KMail, KNode and KOrganizer
+  * Molularize KOrganizer and KMail Settings and turn them into kcm's
+  * Think about extending the kcm idea and add a framework to locate kcm's for apps via KTrader
 - same for unified credits
 - find a solution for a setup wizard
 - replace Splash class with QSplashScreen                      (done)
 - make the "new" action a bit smarter                          (done)
 - make korganizers part offer the normal dcop interface
 - move plugins to respective apps for code sharing(?)
-- Summary (what's next) view (slueppken)
+- Summary (what's next) view (slueppken)                       (done)
 - Basic groupware functionality (Exchange 2k and Kolab)
 - make the headerWidget look nicer (we might use KIconLoader
   for larger icons) (slueppken)                                (done)
-- make all parts use the InfoExtension
-- make KCMultiDialog not crash when non-existent desktop-file is given to
-  addModule().
+- make all parts use the InfoExtension                         (done)
+- make KCMultiDialog not crash when non-existent desktop-file 
+  is given to addModule()
 	
 LATER
 ======
