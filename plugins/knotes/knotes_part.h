@@ -7,7 +7,7 @@
 #include <kparts/part.h>
 
 
-typedef QMap<int, QString> QNotesMap;
+typedef QMap<int, QString> NotesMap;
 
 class QListViewItem;
 
@@ -18,20 +18,26 @@ class KNotesPart : public KParts::ReadOnlyPart
 public:
 
   KNotesPart(QObject *parent=0, const char *name=0);
-  
+
   bool openFile();
 
 public slots:
 
-  QNotesMap slotGetNotes();
-  void slotOpenNote( QListViewItem* item);
   void slotNewNote();
-  void slotInitPart();
-  
+
+protected slots:
+
+  NotesMap slotGetNotes();
+  void slotOpenNote( QListViewItem* item);
+
+protected:
+
+  void startKNotes();
+
 private:
 
   KListView *m_listView;
-  
+
 };
 
 

@@ -38,35 +38,47 @@ KNotesPart::KNotesPart(QObject *parent, const char *name)
   m_listView->addColumn(QString::null);
   m_listView->setResizeMode(QListView::LastColumn);
   m_listView->setAllColumnsShowFocus(true);
-  
-  KRun *run = new KRun(locate("exe", "knotes")); // start kntoes if required
-  connect(run, SIGNAL(finished()), SLOT(slotInitPart()));
+
+  connect(m_listView, SIGNAL(executed(QListViewItem*)), SLOT(slotOpenNote(QListViewItem*)) );
+
+  startKNotes();
   
   setWidget(m_listView);
 
-   
 }
 
+void KNotesPart::startKNotes()
+{
+  QString *error = 0;
+  int started = KApplication::startServiceByDesktopName("knotes", QString(), error);
+ 
+  if ( started > 0 )
+  {
+	  if (error) 
+		  KMessageBox::error(0L, *error, i18n("Error"));
+	  return;
+  }
+  
+  delete error;
+
+  m_listView->clear();
+  
+  NotesMap map;
+  map = slotGetNotes();
+  NotesMap::const_iterator it;
+  for (it = map.begin(); it != map.end(); ++it )
+  {
+	 (void) new NotesListItem( m_listView, it.key(), it.data() );
+  }
+  
+}
 
 bool KNotesPart::openFile()
 {
 	return false;
 }
 
-void KNotesPart::slotInitPart()
-{
-  QNotesMap map;
-  map = slotGetNotes();
-  QNotesMap::const_iterator it;
-  for (it = map.begin(); it != map.end(); ++it )
-  {
-	 (void) new NotesListItem( m_listView, it.key(), it.data() );
-  }
-    
-  connect(m_listView, SIGNAL(executed(QListViewItem*)), SLOT(slotOpenNote(QListViewItem*)) );
-}
-
-QNotesMap KNotesPart::slotGetNotes()
+NotesMap KNotesPart::slotGetNotes()
 {
 	QCString replyType;
 	QByteArray data, replyData;
@@ -75,12 +87,12 @@ QNotesMap KNotesPart::slotGetNotes()
 	{
 		kdDebug() << "Reply Type: " << replyType << endl;
 		QDataStream answer(  replyData, IO_ReadOnly );
-		QNotesMap notes;
+		NotesMap notes;
 		answer >> notes;
 		return notes;
 	}
 	else 
-		return QNotesMap();
+		return NotesMap();
 	
 }
 
@@ -92,8 +104,7 @@ void KNotesPart::slotOpenNote( QListViewItem *item )
 	QDataStream arg( data, IO_WriteOnly );
 	arg << id;
 	if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "showNote(int)", data ) )
-		kdDebug() << "Opening Note!" << endl;		
-		
+		kdDebug() << "Opening Note!" << endl;
 }
 
 void KNotesPart::slotNewNote()
