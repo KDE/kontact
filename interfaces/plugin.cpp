@@ -90,9 +90,6 @@ QString Plugin::icon() const
 
 KAboutData *Plugin::aboutData()
 {
-  if ( !showInSideBar() )
-    return;
-
   KParts::Part *p = part();
 
   if ( !p )
