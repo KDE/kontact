@@ -7,6 +7,8 @@ libkontact_kmailplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinter
 libkontact_kmailplugin_la_SOURCES = kmail_plugin.cpp kmailIface.stub \
                                     summarywidget.cpp
 
+kmailIface_DCOPIDLNG = true
+
 METASOURCES = AUTO
 
 servicedir = $(kde_servicesdir)/kontact
