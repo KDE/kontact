@@ -45,7 +45,7 @@ class aKregatorPlugin : public Kontact::Plugin
                        const QStringList & );
     ~aKregatorPlugin();
 
-    int weight() const { return 100; }
+    int weight() const { return 700; }
 
     Akregator::aKregatorPartIface_stub *interface();
 
