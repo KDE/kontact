@@ -39,6 +39,8 @@
 #include "summary.h"
 #include "summarywidget.h"
 
+#include <time.h>
+
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ),
     DCOPObject( QCString("MailSummary") ),
@@ -46,7 +48,8 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Desktop, KIcon::SizeMedium);
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Desktop,
+                                                  KIcon::SizeMedium );
   QWidget *header = createHeader(this, icon, i18n("New Messages"));
   mLayout = new QGridLayout( 1, 3, 3 );
 
@@ -71,6 +74,16 @@ void SummaryWidget::selectFolder( const QString& folder )
   emitDCOPSignal( "kmailSelectFolder(QString)", data );
 }
 
+void SummaryWidget::updateSummary( bool )
+{
+  // check whether we need to update the message counts
+  DCOPRef kmail( "kmail", "KMailIface" );
+  const int timeOfLastMessageCountChange =
+    kmail.call( "timeOfLastMessageCountChange()" );
+  if ( timeOfLastMessageCountChange > mTimeOfLastMessageCountUpdate )
+    slotUnreadCountChanged();
+}
+
 void SummaryWidget::slotUnreadCountChanged()
 {
   DCOPRef kmail( "kmail", "KMailIface" );
@@ -83,6 +96,7 @@ void SummaryWidget::slotUnreadCountChanged()
     kdDebug(5602) << "Calling kmail->KMailIface->folderList() via DCOP failed."
                   << endl;
   }
+  mTimeOfLastMessageCountUpdate = ::time( 0 );
 }
 
 void SummaryWidget::updateFolderList( const QStringList& folders )

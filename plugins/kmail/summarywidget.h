@@ -52,6 +52,9 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   k_dcop_hidden:
     void slotUnreadCountChanged();
 
+  public slots:
+    virtual void updateSummary( bool force );
+
   private slots:
     void selectFolder( const QString& );
 
@@ -61,6 +64,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QPtrList<QLabel> mLabels;
     QGridLayout *mLayout;
     Kontact::Plugin *mPlugin;
+    int mTimeOfLastMessageCountUpdate;
 };
 
 #endif
