@@ -41,65 +41,68 @@
 
 
 KNoteTip::KNoteTip( KIconView *parent )
-  : QFrame( 0, 0, WX11BypassWM |   // this will make Seli happy >:-P
-            WStyle_Customize | WStyle_NoBorder | WStyle_Tool | WStyle_StaysOnTop ),
-    mFilter( false ),
-    mView( parent ),
-    mNoteIVI( 0 ),
-    mPreview( new QTextEdit( this ) )
+    : QFrame( 0, 0, WX11BypassWM |   // this will make Seli happy >:-P
+              WStyle_Customize | WStyle_NoBorder | WStyle_Tool | WStyle_StaysOnTop ),
+      m_filter( false ),
+      m_view( parent ),
+      m_noteIVI( 0 ),
+      m_preview( new QTextEdit( this ) )
 {
-  mPreview->setReadOnly( true );
-  mPreview->setHScrollBarMode( QScrollView::AlwaysOff );
-  mPreview->setVScrollBarMode( QScrollView::AlwaysOff );
+    m_preview->setReadOnly( true );
+    m_preview->setHScrollBarMode( QScrollView::AlwaysOff );
+    m_preview->setVScrollBarMode( QScrollView::AlwaysOff );
 
-  QBoxLayout *layout = new QVBoxLayout( this );
-  layout->addWidget( mPreview );
+    QBoxLayout *layout = new QVBoxLayout( this );
+    layout->addWidget( m_preview );
 
-  setPalette( QToolTip::palette() );
-  setMargin( 1 );
-  setFrameStyle( QFrame::Plain | QFrame::Box );
-  hide();
+    setPalette( QToolTip::palette() );
+    setMargin( 1 );
+    setFrameStyle( QFrame::Plain | QFrame::Box );
+    hide();
 }
 
 KNoteTip::~KNoteTip()
 {
-  delete mPreview;
-  mPreview = 0;
+    delete m_preview;
 }
 
 void KNoteTip::setNote( KNotesIconViewItem *item, TextFormat format )
 {
-  if ( mNoteIVI == item && mFormat == format )
-    return;
+    if ( m_noteIVI == item && m_format == format )
+        return;
 
-  mNoteIVI = item;
-  mFormat = format;
+    m_noteIVI = item;
+    m_format = format;
 
-  if ( !mNoteIVI ) {
-    killTimers();
-    if ( isVisible() ) {
-      setFilter( false );
-      hide();
+    if ( !m_noteIVI )
+    {
+        killTimers();
+        if ( isVisible() )
+        {
+            setFilter( false );
+            hide();
+        }
     }
-  } else {
-    mPreview->setTextFormat( format );
-    mPreview->setText( item->journal()->description() );
-    mPreview->zoomTo( 6 );
-    mPreview->sync();
+    else
+    {
+        m_preview->setTextFormat( format );
+        m_preview->setText( item->journal()->description() );
+        m_preview->zoomTo( 6 );
+        m_preview->sync();
 
-    int w = 400;
-    int h = mPreview->heightForWidth( w );
-    while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) )
-        w -= 20;
+        int w = 400;
+        int h = m_preview->heightForWidth( w );
+        while ( w > 60 && h == m_preview->heightForWidth( w - 20 ) )
+            w -= 20;
 
-    QRect desk = KGlobalSettings::desktopGeometry( mNoteIVI->rect().center() );
-    resize( w, QMIN( h, desk.height() / 2 - 20 ) );
+        QRect desk = KGlobalSettings::desktopGeometry( m_noteIVI->rect().center() );
+        resize( w, QMIN(h, desk.height()/2 - 20) );
 
-    hide();
-    killTimers();
-    setFilter( true );
-    startTimer( 700 );  // delay showing the tooltip for 0.7 sec
-  }
+        hide();
+        killTimers();
+        setFilter( true );
+        startTimer( 700 );  // delay showing the tooltip for 0.7 sec
+    }
 }
 
 
@@ -107,27 +110,30 @@ void KNoteTip::setNote( KNotesIconViewItem *item, TextFormat format )
 
 void KNoteTip::resizeEvent( QResizeEvent *ev )
 {
-  QFrame::resizeEvent( ev );
-  reposition();
+    QFrame::resizeEvent( ev );
+    reposition();
 }
 
 void KNoteTip::timerEvent( QTimerEvent * )
 {
-  killTimers();
-
-  if ( !isVisible() ) {
-    startTimer( 15000 ); // show the tooltip for 15 sec
-    reposition();
-    show();
-  } else {
-    setFilter( false );
-    hide();
-  }
+    killTimers();
+    if ( !isVisible() )
+    {
+        startTimer( 15000 ); // show the tooltip for 15 sec
+        reposition();
+        show();
+    }
+    else
+    {
+        setFilter( false );
+        hide();
+    }
 }
 
 bool KNoteTip::eventFilter( QObject *, QEvent *e )
 {
-  switch ( e->type() ) {
+    switch ( e->type() )
+    {
     case QEvent::Leave:
     case QEvent::MouseButtonPress:
     case QEvent::MouseButtonRelease:
@@ -136,14 +142,14 @@ bool KNoteTip::eventFilter( QObject *, QEvent *e )
     case QEvent::FocusIn:
     case QEvent::FocusOut:
     case QEvent::Wheel:
-      killTimers();
-      setFilter( false );
-      hide();
+        killTimers();
+        setFilter( false );
+        hide();
     default:
-      break;
-  }
+        break;
+    }
 
-  return false;
+    return false;
 }
 
 
@@ -151,48 +157,54 @@ bool KNoteTip::eventFilter( QObject *, QEvent *e )
 
 void KNoteTip::setFilter( bool enable )
 {
-  if ( enable == mFilter )
-    return;
+    if ( enable == m_filter )
+        return;
 
-  if ( enable ) {
-    kapp->installEventFilter( this );
-    QApplication::setGlobalMouseTracking( true );
-  } else {
-    QApplication::setGlobalMouseTracking( false );
-    kapp->removeEventFilter( this );
-  }
+    if ( enable )
+    {
+        kapp->installEventFilter( this );
+        QApplication::setGlobalMouseTracking( true );
+    }
+    else
+    {
+        QApplication::setGlobalMouseTracking( false );
+        kapp->removeEventFilter( this );
+    }
 
-  mFilter = enable;
+    m_filter = enable;
 }
 
 void KNoteTip::reposition()
 {
-  if ( !mNoteIVI )
-    return;
+    if ( !m_noteIVI )
+        return;
 
-  QRect rect = mNoteIVI->rect();
-  QPoint off = mView->mapToGlobal( mView->contentsToViewport( QPoint( 0, 0 ) ) );
-  rect.moveBy( off.x(), off.y() );
+    QRect rect = m_noteIVI->rect();
+    QPoint off = m_view->mapToGlobal( m_view->contentsToViewport( QPoint( 0, 0 ) ) );
+    rect.moveBy( off.x(), off.y() );
 
-  QPoint pos = rect.center();
+    QPoint pos = rect.center();
 
-  // should the tooltip be shown to the left or to the right of the ivi?
-  QRect desk = KGlobalSettings::desktopGeometry( pos );
-  if ( rect.center().x() + width() > desk.right() ) {
-    // to the left
-    if ( pos.x() - width() < 0 )
-        pos.setX( 0 );
+    // should the tooltip be shown to the left or to the right of the ivi?
+    QRect desk = KGlobalSettings::desktopGeometry( pos );
+    if ( rect.center().x() + width() > desk.right() )
+    {
+        // to the left
+        if ( pos.x() - width() < 0 )
+            pos.setX( 0 );
+        else
+            pos.setX( pos.x() - width() );
+    }
+
+    // should the tooltip be shown above or below the ivi ?
+    if ( rect.bottom() + height() > desk.bottom() )
+    {
+        // above
+        pos.setY( rect.top() - height() );
+    }
     else
-        pos.setX( pos.x() - width() );
-  }
+        pos.setY( rect.bottom() );
 
-  // should the tooltip be shown above or below the ivi ?
-  if ( rect.bottom() + height() > desk.bottom() ) {
-    // above
-    pos.setY( rect.top() - height() );
-  } else
-    pos.setY( rect.bottom() );
-
-  move( pos );
-  update();
+    move( pos );
+    update();
 }

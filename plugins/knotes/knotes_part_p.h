@@ -53,84 +53,82 @@
 
 class KNotesIconViewItem : public KIconViewItem
 {
-  public:
+public:
     KNotesIconViewItem( KIconView *parent, KCal::Journal *journal )
       : KIconViewItem( parent ),
-        mJournal( journal )
+        m_journal( journal )
     {
-      setRenameEnabled( true );
+        setRenameEnabled( true );
 
-      setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop ) );
-      setText( journal->summary() );
+        setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop ) );
+        setText( journal->summary() );
     }
 
     KCal::Journal *journal()
     {
-      return mJournal;
+        return m_journal;
     }
 
     virtual void setText( const QString & text )
     {
-      KIconViewItem::setText( text );
-      mJournal->setSummary( text );
+        KIconViewItem::setText( text );
+        m_journal->setSummary( text );
     }
 
     virtual QString text() const
     {
-      return mJournal->summary();
+        return m_journal->summary();
     }
 
-  private:
-    KCal::Journal *mJournal;
+private:
+    KCal::Journal *m_journal;
 };
 
 
 class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
 {
-  Q_OBJECT
-
-  public:
+    Q_OBJECT
+public:
     KNoteEditDlg( QWidget *parent = 0, const char *name = 0 )
-      : KDialogBase( Plain, i18n( "Edit Note" ), Ok | Cancel, Ok,
-                     parent, name, true, true )
+        : KDialogBase( Plain, i18n("Edit Note"), Ok|Cancel, Ok, parent, name, true, true )
     {
-      // this dialog is modal to prevent one from editing the same note twice in two
-      // different windows
+        // this dialog is modal to prevent one from editing the same note twice in two
+        // different windows
 
-      setInstance( new KInstance( "knotes" ) ); // TODO: hm, memleak??
-      setXMLFile( "knotesui.rc" );
-      actionCollection()->setWidget( this );
+        setInstance( new KInstance( "knotes" ) ); // TODO: hm, memleak??
+        setXMLFile( "knotesui.rc" );
+        actionCollection()->setWidget( this );
 
-      QWidget *page = plainPage();
-      QVBoxLayout *layout = new QVBoxLayout( page );
+        QWidget *page = plainPage();
+        QVBoxLayout *layout = new QVBoxLayout( page );
 
-      mNoteEdit = new KNoteEdit( actionCollection(), page );
-      mNoteEdit->setFocus();
+        m_noteEdit = new KNoteEdit( actionCollection(), page );
+        m_noteEdit->setFocus();
 
-      KXMLGUIBuilder builder( page );
-      KXMLGUIFactory factory( &builder, this );
-      factory.addClient( this );
+        KXMLGUIBuilder builder( page );
+        KXMLGUIFactory factory( &builder, this );
+        factory.addClient( this );
 
-      mTool = static_cast<KToolBar *>(factory.container( "note_tool", this ));
+        m_tool = static_cast<KToolBar *>(factory.container( "note_tool", this ));
 
-      layout->addWidget( mTool );
-      layout->addWidget( mNoteEdit );
+        layout->addWidget( m_tool );
+        layout->addWidget( m_noteEdit );
     }
 
     QString text() const
     {
-      return mNoteEdit->text();
+        return m_noteEdit->text();
     }
 
     void setText( const QString& text )
     {
-      mNoteEdit->setText( text );
+        m_noteEdit->setText( text );
     }
 
-  private:
-    KNoteEdit  *mNoteEdit;
-    KToolBar   *mTool;
-    KPopupMenu *mEditMenu;
+private:
+    KNoteEdit  *m_noteEdit;
+    KToolBar   *m_tool;
+    KPopupMenu *m_edit_menu;
 };
 
 
