@@ -374,11 +374,10 @@ void SDSummaryWidget::updateView()
       label = new QLabel( this );
       if ( (*addrIt).daysTo == 0 ) {
         label->setText( i18n( "now" ) );
-      } else if ( (*addrIt).daysTo == 1 ) {
-        label->setText( i18n( "in 1 day" ) );
       } else {
-        label->setText( i18n( "in %1 days" ).arg( (*addrIt).daysTo ) );
+        label->setText( i18n( "in 1 day", "in %n days", (*addrIt).daysTo ) );
       }
+
       label->setAlignment( AlignLeft | AlignVCenter );
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, column++ );
@@ -455,6 +454,7 @@ void SDSummaryWidget::updateView()
     label->setAlignment( AlignCenter );
     label->setTextFormat( RichText );
     mLayout->addMultiCellWidget( label, 0, 0, 0, 4 );
+    mLabels.append( label );
   }
 
   for ( label = mLabels.first(); label; label = mLabels.next() )
