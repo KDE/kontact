@@ -38,10 +38,6 @@ class KOrganizerPlugin : public Kontact::Plugin
     KOrganizerPlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KOrganizerPlugin();
 
-    QString identifier() const { return "calendar"; }
-    QString title() const { return i18n( "Calendar" ); }
-    QString icon() const { return "korganizer"; }
-
     virtual bool createDCOPInterface( const QString& serviceType );
 
   protected:

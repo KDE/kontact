@@ -97,7 +97,7 @@ void SummaryViewPart::getWidgets()
     QWidget *wdg = plugin->createSummaryWidget( mFrame );
     if ( plugin->identifier() == "weather" ) {
       mLayout->addWidget( wdg, 0, 0 );
-    } else if ( plugin->identifier() == "mail" ) {
+    } else if ( plugin->identifier() == "mails" ) {
       mLayout->addWidget( wdg, 0, 2 );
     } else if ( plugin->identifier()  == "newsticker" ) {
       mLayout->addMultiCellWidget( wdg, 2, 3, 0, 0 );

@@ -60,21 +60,35 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     ~Plugin();
 
     /**
-      Returns the identifier of this plugin. It is used as argument for several 
+      Sets the identifier.
+     */
+    void setIdentifier( const QString &identifier );
+
+    /**
+      Returns the identifier. It is used as argument for several 
       methods of Kontacts core.
      */
-    virtual QString identifier() const = 0;
+    QString identifier() const;
 
     /**
-      Returns the title of this plugin. This title is displayed to the user, so 
-      it should be localized.
+      Sets the localized title.
      */
-    virtual QString title() const = 0;
+    void setTitle( const QString &title );
 
     /**
-      Return the name of the icon.
+      Returns the localized title.
      */
-    virtual QString icon() const = 0;
+    QString title() const;
+
+    /**
+      Sets the icon name.
+     */
+    void setIcon( const QString &icon );
+
+    /**
+      Returns the icon name.
+     */
+    QString icon() const;
 
     /**
       Create the DCOP interface for the given @p serviceType, if this

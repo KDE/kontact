@@ -31,10 +31,6 @@ class WeatherPlugin : public Kontact::Plugin
     WeatherPlugin( Kontact::Core *core, const char *name, const QStringList& );
     WeatherPlugin();
 
-    QString identifier() const { return "weather"; }
-    QString title() const { return ""; }
-    QString icon() const { return ""; }
-
     virtual QWidget *createSummaryWidget( QWidget* parentWidget );
 
     virtual bool showInSideBar() const { return false; }

@@ -196,13 +196,20 @@ void MainWindow::loadPlugins()
     kdDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
     Kontact::Plugin *plugin = KParts::ComponentFactory
       ::createInstanceFromService<Kontact::Plugin>( *it, this );
+
     if ( !plugin )
       continue;
+    
+    QVariant variant = (*it)->property( "X-KDE-KontactIdentifier" );
+    plugin->setIdentifier( variant.toString() );
+    plugin->setTitle( (*it)->name() );
+    plugin->setIcon( (*it)->icon() );
 
     for( i = 0; i < plugins.count(); ++i ) {
       Plugin *p = plugins.at( i );
       if ( plugin->weight() < p->weight() ) break;
     }
+
     plugins.insert( i, plugin );
   }
 

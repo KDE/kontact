@@ -37,10 +37,6 @@ class SummaryView : public Kontact::Plugin
 
     int weight() const { return -100; }
 
-    QString identifier() const { return "summary"; }
-    QString title() const { return i18n( "Summary" ); }
-    QString icon() const { return "keditbookmarks"; }
-
     virtual KParts::Part* part();
 
   private:

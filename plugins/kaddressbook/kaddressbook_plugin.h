@@ -41,10 +41,6 @@ class KAddressbookPlugin : public Kontact::Plugin
     KAddressbookPlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KAddressbookPlugin();
 
-    QString identifier() const { return "contacts"; }
-    QString title() const { return i18n( "Contacts" ); }
-    QString icon() const { return "kaddressbook"; }
-
     virtual bool createDCOPInterface( const QString& serviceType );
     virtual QStringList configModules() const;
     KAboutData* aboutData();

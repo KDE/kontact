@@ -33,6 +33,9 @@ class Plugin::Private
     Kontact::Core *core;
     DCOPClient *dcopClient;
     QPtrList<KAction> *newActions;
+    QString identifier;
+    QString title;
+    QString icon;
 };
 
 
@@ -49,6 +52,36 @@ Plugin::~Plugin()
 {
   delete d->dcopClient;
   delete d;
+}
+
+void Plugin::setIdentifier( const QString &identifier )
+{
+  d->identifier = identifier;
+}
+
+QString Plugin::identifier() const
+{
+  return d->identifier;
+}
+
+void Plugin::setTitle( const QString &title )
+{
+  d->title = title;
+}
+
+QString Plugin::title() const
+{
+  return d->title;
+}
+
+void Plugin::setIcon( const QString &icon )
+{
+  d->icon = icon;
+}
+
+QString Plugin::icon() const
+{
+  return d->icon;
 }
 
 DCOPClient *Plugin::dcopClient() const

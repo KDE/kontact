@@ -2,3 +2,16 @@
 Type=ServiceType
 X-KDE-ServiceType=Kontact/Plugin
 Name=Kontact Plugin
+Name[be]=Дапаўненьне Кантакту
+Name[ca]=Connector Kontact
+Name[da]=Kontact-plugin
+Name[el]=Πρόσθετο Kontact
+Name[es]=Plugin Kontact
+Name[hu]=Kontact bővítőmodul
+Name[pt_BR]=Plug-in do Kontact
+Name[ru]=Модуль Kontact
+Name[sv]=Kontact-insticksprogram
+Name[tr]=Kontact Eklentisi
+
+[PropertyDef::X-KDE-KontactIdentifier]
+Type=QString

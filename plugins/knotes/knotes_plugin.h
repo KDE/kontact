@@ -35,10 +35,6 @@ class KNotesPlugin : public Kontact::Plugin
     KNotesPlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KNotesPlugin();
 
-    QString identifier() const { return "notes"; }
-    QString title() const { return i18n( "Notes" ); }
-    QString icon() const { return "knotes"; }
-
     KParts::Part* part();
     virtual QWidget* createSummaryWidget( QWidget* parentWidget );
   

@@ -1,10 +1,11 @@
 [Desktop Entry]
 Type=Service
-Exec=blubb
+Exec=
 Comment=Kontact SummaryView Plugin
-Name=SummaryView
-Icon=konsole
+Name=Summary
+Icon=keditbookmarks
 ServiceTypes=Kontact/Plugin
 X-KDE-Library=libkpsummaryplugin
+X-KDE-KontactIdentifier=summary
 #Always last
 InitialPreference=0

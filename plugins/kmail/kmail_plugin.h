@@ -38,10 +38,6 @@ class KMailPlugin : public Kontact::Plugin
     KMailPlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KMailPlugin();
 
-    QString identifier() const { return "mail"; }
-    QString title() const { return i18n( "Mail" ); }
-    QString icon() const { return "kmail"; }
-
     virtual KParts::Part* part();
     virtual bool createDCOPInterface( const QString& serviceType );
     virtual QWidget* createSummaryWidget( QWidget *parent );
