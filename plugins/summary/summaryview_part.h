@@ -43,6 +43,7 @@ namespace KParts
 class QFrame;
 class QLabel;
 class QGridLayout;
+class KAction;
 class KCMultiDialog;
 
 class SummaryViewPart : public KParts::ReadOnlyPart
@@ -71,6 +72,8 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     void slotConfigure();
 
   private:
+    QStringList configModules() const;
+
     QPtrList<Kontact::Summary> mSummaries;
 
     KParts::StatusBarExtension *mStatusExt;
@@ -79,6 +82,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     QLabel *mDateLabel;
     Kontact::Core *mCore;
     KCMultiDialog *mOptionsDialog;
+    KAction *mConfigAction;
 };
 
 #endif

@@ -63,7 +63,7 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
                                   const KAboutData *aboutData,
                                   QObject *parent, const char *name )
   : KParts::ReadOnlyPart( parent, name ),
-    mCore( core ), mOptionsDialog( 0 )
+    mCore( core ), mOptionsDialog( 0 ), mConfigAction( 0 )
 {
   mStatusExt = new KParts::StatusBarExtension( this );
   setInstance( new KInstance( aboutData ) );
@@ -91,9 +91,12 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
   connect( this, SIGNAL( textChanged( const QString& ) ),
            info, SIGNAL( textChanged( const QString& ) ) );
 
-  new KAction( i18n("&Configure"), "configure", 0, this,
-               SLOT( slotConfigure() ), actionCollection(),
-               "summaryview_configure" );
+  if ( !configModules().isEmpty() ) {
+    mConfigAction = new KAction( i18n( "&Configure"),
+                                 "configure", 0, this,
+                                 SLOT( slotConfigure() ), actionCollection(),
+                                 "summaryview_configure" );
+  }
 
   setXMLFile( "kontactsummary_part.rc" );
 
@@ -230,19 +233,12 @@ void SummaryViewPart::slotConfigure()
   if ( !mOptionsDialog ) {
     mOptionsDialog = new KCMultiDialog( mFrame );
 
-    QStringList modules;
+    QStringList modules = configModules();
 
     Kontact::Summary *summary;
-    for( summary = mSummaries.first(); summary; summary = mSummaries.next() ) {
-      QStringList cm = summary->configModules();
-      QStringList::ConstIterator sit;
-      for( sit = cm.begin(); sit != cm.end(); ++sit ) {
-        modules.append( *sit );
-      }
-
+    for ( summary = mSummaries.first(); summary; summary = mSummaries.next() )
       connect( mOptionsDialog, SIGNAL( configCommitted() ),
                summary, SLOT( configChanged() ) );
-    }
 
     QStringList::ConstIterator it;
     for ( it = modules.begin(); it != modules.end(); ++it ) {
@@ -252,6 +248,23 @@ void SummaryViewPart::slotConfigure()
 
   mOptionsDialog->show();
   mOptionsDialog->raise();
+}
+
+QStringList SummaryViewPart::configModules() const
+{
+  QStringList modules;
+
+  QPtrListIterator<Kontact::Summary> it( mSummaries );
+  while ( it.current() ) {
+    QStringList cm = it.current()->configModules();
+    QStringList::ConstIterator sit;
+    for ( sit = cm.begin(); sit != cm.end(); ++sit )
+      modules.append( *sit );
+
+    ++it;
+  }
+
+  return modules;
 }
 
 #include "summaryview_part.moc"
