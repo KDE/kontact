@@ -86,7 +86,7 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
     mDCOPApp = "kaddressbook";
   else {
     KParts::Part *part = plugin->part();
-    part->widget()->hide();
+//    part->widget()->hide();
     mDCOPApp = "kontact";
   }
 

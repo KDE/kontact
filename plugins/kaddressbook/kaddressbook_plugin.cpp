@@ -86,28 +86,6 @@ QStringList KAddressbookPlugin::configModules() const
   return modules;
 }
 
-KAboutData* KAddressbookPlugin::aboutData()
-{
-  KAboutData *about = new KAboutData( "kaddressbook", I18N_NOOP( "KAddressBook" ),
-                                      "3.1", I18N_NOOP( "The KDE Address Book" ),
-                                      KAboutData::License_GPL_V2,
-                                      I18N_NOOP( "(c) 1997-2003, The KDE PIM Team" ) );
-  about->addAuthor( "Tobias Koenig", I18N_NOOP( "Current maintainer" ), "tokoe@kde.org" );
-  about->addAuthor( "Don Sanders", I18N_NOOP( "Original author" ) );
-  about->addAuthor( "Cornelius Schumacher",
-                    I18N_NOOP( "Co-maintainer, libkabc port, CSV import/export" ),
-                    "schumacher@kde.org" );
-  about->addAuthor( "Mike Pilone", I18N_NOOP( "GUI and framework redesign" ),
-                    "mpilone@slac.com" );
-  about->addAuthor( "Greg Stern", I18N_NOOP( "DCOP interface" ) );
-  about->addAuthor( "Mark Westcott", I18N_NOOP( "Contact pinning" ) );
-  about->addAuthor( "Mischel Boyer de la Giroday", I18N_NOOP( "LDAP Lookup" ),
-                    "michel@klaralvdalens-datakonsult.se" );
-  about->addAuthor( "Steffen Hansen", I18N_NOOP( "LDAP Lookup" ),
-                    "hansen@kde.org" );
-  return about;
-}
-
 void KAddressbookPlugin::slotNewContact()
 {
   (void) part(); // ensure part is loaded

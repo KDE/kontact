@@ -20,8 +20,12 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <dcopclient.h>
+#include <qobjectlist.h>
 
+#include <dcopclient.h>
+#include <kaboutdata.h>
+
+#include "libkdepim/aboutdataextension.h"
 #include "core.h"
 #include "plugin.h"
 
@@ -82,6 +86,26 @@ void Plugin::setIcon( const QString &icon )
 QString Plugin::icon() const
 {
   return d->icon;
+}
+
+KAboutData *Plugin::aboutData()
+{
+  if ( !showInSideBar() )
+    return;
+
+  KParts::Part *p = part();
+
+  if ( !p )
+    return 0;
+
+  QObjectList *list = p->queryList( "KParts::AboutDataExtension" );
+  KParts::AboutDataExtension *about =
+          static_cast<KParts::AboutDataExtension*>( list->first() );
+
+  if ( !about )
+    return 0;
+  else
+    return about->aboutData();
 }
 
 DCOPClient *Plugin::dcopClient() const

@@ -112,7 +112,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       Reimplement this method if you want to add your credits to the Kontact
       about dialog.
     */
-    virtual KAboutData *aboutData() { return 0; }
+    virtual KAboutData *aboutData();
 
     /**
       Reimplement and retun the part here.You can use this method if

@@ -43,7 +43,6 @@ class KAddressbookPlugin : public Kontact::Plugin
 
     virtual bool createDCOPInterface( const QString &serviceType );
     virtual QStringList configModules() const;
-    KAboutData *aboutData();
     KParts::Part *part();
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );

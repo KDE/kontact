@@ -4,7 +4,7 @@ lib_LTLIBRARIES = libkpinterfaces.la
 
 libkpinterfaces_la_SOURCES = core.cpp plugin.cpp
 libkpinterfaces_la_LDFLAGS = $(all_libraries) -no-undefined -version-info 1:0:0
-libkpinterfaces_la_LIBADD = $(LIB_KPARTS)
+libkpinterfaces_la_LIBADD = $(LIB_KPARTS) $(LIB_KDEPIM)
 
 kpincludedir = $(includedir)/kontact
 kpinclude_HEADERS = core.h plugin.h summary.h
