@@ -1,4 +1,4 @@
-INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/akregator/src $(all_includes)
+INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/akregator/src -I$(top_srcdir) $(all_includes)
 
 kde_module_LTLIBRARIES = libkontact_akregator.la
 libkontact_akregator_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
