@@ -50,9 +50,10 @@ class SDSummaryWidget : public Kontact::Summary
 
     QStringList configModules() const;
     void configUpdated();
+    void updateSummary( bool force = false ) { Q_UNUSED( force ); updateView(); }
 
   protected:
-    virtual bool eventFilter(QObject *obj, QEvent* e);
+    virtual bool eventFilter( QObject *obj, QEvent* e );
 
   private slots:
     void updateView();
