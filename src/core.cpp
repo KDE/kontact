@@ -1,7 +1,7 @@
 /*
     This file is part of Kaplan
     Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
-    Copyright (c) 2002 Daniel Molkentin <molkentin@kde.org>
+    Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 #include <qhbox.h>
 #include <qcombobox.h>
 #include <qwhatsthis.h>
+#include <qsplitter.h>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -38,13 +39,12 @@
 #include <kstatusbar.h>
 #include <kcmultidialog.h>
 
-#include "kpplugin.h"
-
-
-#include "navigator.h"
-#include "core.h"
 #include <dcopclient.h>
 
+#include "kpplugin.h"
+
+#include "core.h"
+#include "sidepane.h"
 
 Core::Core()
   : Kaplan::Core()
@@ -53,16 +53,17 @@ Core::Core()
   QHBox *box = new QHBox(this);
   box->setFrameStyle(  QFrame::Panel | QFrame::Sunken );
 
-  m_navigator = new Navigator(box);
-  m_navigator->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
-
-  QWhatsThis::add(m_navigator, i18n("Use this bar to invoke a specific groupware part"));
-
-  m_stack = new QWidgetStack(box);
-
+  QSplitter *splitter = new QSplitter(box);
+  
+  m_sidePane = new SidePane(splitter);
+  m_sidePane->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
+  
+  m_stack = new QWidgetStack(splitter);
+ 
   setCentralWidget(box);
 
   statusBar()->show();
+
   // prepare the part manager
   m_partManager = new KParts::PartManager(this);
   connect(m_partManager, SIGNAL(activePartChanged(KParts::Part *)), this, SLOT(activePartChanged(KParts::Part *)));
@@ -76,9 +77,9 @@ Core::Core()
   setXMLFile("kontactui.rc");
 
   createGUI(0);
-
-  m_navigator->setCurrentItem(0);
-
+  
+  m_sidePane->invokeFirstEntry();
+  
   resize(600, 400); // initial size
   setAutoSaveSettings();
 }
@@ -200,9 +201,11 @@ void Core::slotPreferences()
   dialog->raise();
 }
 
+
+// called from the plugins
 void Core::addMainEntry(QString text, QString icon, QObject *receiver, const char *member)
 {
-  m_navigator->addEntry(text, icon, receiver, member);
+  m_sidePane->addServiceEntry(BarIcon(icon), text, receiver, member);
 }
 
 int Core::startServiceFor( const QString& serviceType,
