@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
+<kcfg>
+  <kcfgfile name="kontactrc"/>
+
+  <group name="View">
+    <entry type="String" name="ActivePlugin">
+      <default>summary</default>
+    </entry>
+
+    <entry type="IntList" name="SidePaneSplitter">
+    </entry>
+
+    <entry type="Enum" name="SidePaneType">
+      <label>Side Pane Type</label>
+      <values>
+        <value>SidePaneBars</value>
+        <value>SidePaneIcons</value>
+      </values>
+      <default>SidePaneIcons</default>
+    </entry>
+  </group>
+
+</kcfg>

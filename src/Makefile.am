@@ -4,7 +4,7 @@ INCLUDES = -I$(top_srcdir)/libkdepim -I$(top_srcdir)/kontact/interfaces \
 lib_LTLIBRARIES = libkontact.la
 libkontact_la_LDFLAGS = $(all_libraries) $(KDE_RPATH) -version-info 1:0
 libkontact_la_LIBADD = $(LIB_KDECORE)
-libkontact_la_SOURCES = prefs.cpp
+libkontact_la_SOURCES = prefs.kcfgc
 
 bin_PROGRAMS = kontact
 

@@ -1,0 +1,12 @@
+# Code generation options for kconfig_compiler
+File=prefs.kcfg
+NameSpace=Kontact
+ClassName=Prefs
+Singleton=true
+Mutators=true
+#Inherits=KPimPrefs
+#IncludeFiles=libkdepim/kpimprefs.h
+MemberVariables=public
+GlobalEnums=true
+ItemAccessors=true
+SetUserTexts=true
