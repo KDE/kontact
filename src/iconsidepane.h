@@ -38,7 +38,7 @@ class Core;
 class Plugin;
 
 /**
-  A @ref QListBoxPixmap Square Box with a large icon and a text
+  A @see QListBoxPixmap Square Box with a large icon and a text
   underneath.
 */
 class EntryItem : public QListBoxItem

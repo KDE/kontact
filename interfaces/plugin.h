@@ -59,10 +59,10 @@ class Plugin : public QObject, virtual public KXMLGUIClient
 
   public:
     /**
-      Creates a new Plugin, note that @param name is required if
+      Creates a new Plugin, note that name parameter name is required if
       you want your plugin to do dcop via it's own instance of
-      @ref DCOPClient by calling @ref dcopClient.
-      @note @ref name MUST be the name of the application that
+      @see DCOPClient by calling @see dcopClient.
+      @note @see name MUST be the name of the application that
       provides the part! This is the name used for DCOP registration.
       It's ok to have several plugins using the same application name.
     */
@@ -168,8 +168,6 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     /**
       Reimplement this method if you want to add a widget for your application
       to Kontact's summary page.
-
-      @param parent parent widget.
     */
     virtual Summary *createSummaryWidget( QWidget * /*parent*/ ) { return 0; }
 
@@ -180,7 +178,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
 
     /**
       Reimplement this method if you want to add checks before closing down the main kontact
-      window.  Return true if it's OK to close the window.  If any loaded plugin returns false 
+      window.  Return true if it's OK to close the window.  If any loaded plugin returns false
       from this method, then the main kontact window will not close.
     */
     virtual bool queryClose() const { return true; }

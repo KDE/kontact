@@ -93,6 +93,7 @@ public:
      *
      * @param factory templatized factory to create the handler. Example:
      * ...   Note that the watcher takes ownership of the factory.
+     * @param plugin is the plugin application
      */
     UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin* plugin );
 
