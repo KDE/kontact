@@ -37,6 +37,9 @@
 #include <libkcal/icaldrag.h>
 #include <libkcal/calendarlocal.h>
 
+#include <kmail/kmail_part.h>
+#include <kmail/kmkernel.h>
+
 #include "core.h"
 #include "summarywidget.h"
 
@@ -55,7 +58,7 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
   setInstance( KMailPluginFactory::instance() );
 
   insertNewAction( new KAction( i18n( "New Mail..." ), "mail_new",
-			             0, this, SLOT( slotNewMail() ), actionCollection(),
+                   0, this, SLOT( slotNewMail() ), actionCollection(),
                    "new_mail" ) );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
@@ -97,6 +100,11 @@ void KMailPlugin::slotNewMail()
   openComposer( KURL() );
 }
 
+void KMailPlugin::raise()
+{
+  core()->selectPlugin( this );
+}
+
 KMailPlugin::~KMailPlugin()
 {
 }
@@ -117,12 +125,15 @@ QString KMailPlugin::tipFile() const
   return file;
 }
 
-KParts::Part* KMailPlugin::createPart()
+KPIM::Part* KMailPlugin::createPart()
 {
-  KParts::Part *part = loadPart();
+  KPIM::Part *part = loadPart();
   if ( !part ) return 0;
 
+  connect( part, SIGNAL( raise() ), SLOT( raise() ) );
+
   mStub = new KMailIface_stub( dcopClient(), "kmail", "KMailIface" );
+
   return part;
 }
 

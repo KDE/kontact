@@ -72,9 +72,9 @@ Kontact::Summary *TodoPlugin::createSummaryWidget( QWidget *parent )
   return new TodoSummaryWidget( this, parent );
 }
 
-KParts::Part *TodoPlugin::createPart()
+KPIM::Part *TodoPlugin::createPart()
 {
-  KParts::Part *part = loadPart();
+  KPIM::Part *part = loadPart();
 
   if ( !part )
     return 0;

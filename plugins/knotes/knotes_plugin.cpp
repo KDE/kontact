@@ -50,7 +50,7 @@ KNotesPlugin::~KNotesPlugin()
 {
 }
 
-KParts::Part* KNotesPlugin::createPart()
+KPIM::Part* KNotesPlugin::createPart()
 {
   return new KNotesPart( this, "notes" );
 }

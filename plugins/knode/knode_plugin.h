@@ -53,7 +53,7 @@ class KNodePlugin : public Kontact::Plugin
     virtual QStringList invisibleToolbarActions() const;
 
   protected:
-    virtual KParts::Part* createPart();
+    virtual KPIM::Part* createPart();
 
   protected slots:
     void slotPostArticle();

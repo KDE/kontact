@@ -26,7 +26,7 @@
 #include <qdatetime.h>
 
 #include <kparts/mainwindow.h>
-#include <kparts/part.h>
+#include <libkdepim/part.h>
 
 class KAction;
 
@@ -64,13 +64,13 @@ class Core : public KParts::MainWindow
     /**
      @internal (for Plugin)
      */
-    KParts::ReadOnlyPart *createPart( const char *libname );
+    KPIM::Part *createPart( const char *libname );
 
     /**
      @internal (for Plugin)
      Tell kontact that a part was loaded
      */
-    virtual void partLoaded( Plugin* plugin, KParts::Part * part ) = 0;
+    virtual void partLoaded( Plugin* plugin, KPIM::Part * part ) = 0;
 
   signals:
     /**
@@ -86,7 +86,7 @@ class Core : public KParts::MainWindow
     void checkNewDay();
 
   private:
-    QMap<QCString,KParts::ReadOnlyPart *> mParts;
+    QMap<QCString,KPIM::Part *> mParts;
     QDate mLastDate;
 
     class Private;

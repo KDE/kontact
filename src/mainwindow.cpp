@@ -445,7 +445,7 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
   insertChildClient( plugin );
 }
 
-void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KParts::Part *part )
+void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KPIM::Part *part )
 {
   if ( part->widget() )
     mStack->addWidget( part->widget(), 0 );

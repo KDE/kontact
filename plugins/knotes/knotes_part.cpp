@@ -96,7 +96,7 @@ class NoteEditDialog : public KDialogBase
 };
 
 KNotesPart::KNotesPart( QObject *parent, const char *name )
-  : KParts::ReadOnlyPart( parent, name ),
+  : KPIM::Part( parent, name ),
     mTicket( 0 ), mPopupMenu( 0 )
 {
   setInstance( new KInstance( "knotes" ) );

@@ -41,7 +41,7 @@ SummaryView::~SummaryView()
 {
 }
 
-KParts::Part *SummaryView::createPart()
+KPIM::Part *SummaryView::createPart()
 {
   return new SummaryViewPart( core(), "summarypartframe", aboutData(),
                               this, "summarypart" );

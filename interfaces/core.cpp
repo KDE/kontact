@@ -43,11 +43,11 @@ Core::~Core()
 {
 }
 
-KParts::ReadOnlyPart *Core::createPart( const char *libname )
+KPIM::Part *Core::createPart( const char *libname )
 {
   kdDebug(5601) << "Core::createPart(): " << libname << endl;
 
-  QMap<QCString,KParts::ReadOnlyPart *>::ConstIterator it;
+  QMap<QCString,KPIM::Part *>::ConstIterator it;
   it = mParts.find( libname );
   if ( it != mParts.end() ) return it.data();
 
@@ -59,9 +59,10 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
           createPartInstanceFromLibrary<KParts::ReadOnlyPart>
               ( libname, this, 0, this, "kontact", QStringList(), &error );
 
-  if ( part ) {
-    mParts.insert( libname, part );
-    QObject::connect( part, SIGNAL( destroyed( QObject * ) ),
+  KPIM::Part *pimPart = dynamic_cast<KPIM::Part*>( part );
+  if ( pimPart ) {
+    mParts.insert( libname, pimPart );
+    QObject::connect( pimPart, SIGNAL( destroyed( QObject * ) ),
                       SLOT( slotPartDestroyed( QObject * ) ) );
   } else {
     if ( error == KParts::ComponentFactory::ErrNoLibrary ) {
@@ -72,15 +73,15 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
     }
   }
 
-  return part;
+  return pimPart;
 }
 
 void Core::slotPartDestroyed( QObject * obj )
 {
   // the part was deleted, we need to remove it from the part map to not return
   // a dangling pointer in createPart
-  QMap<QCString, KParts::ReadOnlyPart*>::Iterator end = mParts.end();
-  QMap<QCString, KParts::ReadOnlyPart*>::Iterator it = mParts.begin();
+  QMap<QCString, KPIM::Part*>::Iterator end = mParts.end();
+  QMap<QCString, KPIM::Part*>::Iterator it = mParts.begin();
   for ( ; it != end; ++it ) {
     if ( it.data() == obj ) {
       mParts.remove( it );

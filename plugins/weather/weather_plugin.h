@@ -38,7 +38,7 @@ class WeatherPlugin : public Kontact::Plugin
     const KAboutData *aboutData();
 
   protected:
-    virtual KParts::Part *createPart() { return 0; }
+    virtual KPIM::Part *createPart() { return 0; }
   private:
     KAboutData *mAboutData;
 };

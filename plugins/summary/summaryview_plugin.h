@@ -40,7 +40,7 @@ class SummaryView : public Kontact::Plugin
     const KAboutData *aboutData();
 
   protected:
-    virtual KParts::Part* createPart();
+    virtual KPIM::Part* createPart();
 
   private:
     KAboutData *mAboutData;

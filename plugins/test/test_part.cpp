@@ -42,7 +42,7 @@
 
 
 TestPart::TestPart(QObject *parent, const char *name) // ## parentWidget
-  : KParts::ReadOnlyPart(parent, name)
+  : KPIM::Part(parent, name)
 {
   setInstance( new KInstance("testpart") ); // ## memleak
   m_edit = new QTextEdit;

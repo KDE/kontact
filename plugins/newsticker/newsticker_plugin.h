@@ -35,7 +35,7 @@ class NewsTickerPlugin : public Kontact::Plugin
 
     virtual bool showInSideBar() const { return false; }
   protected:
-    virtual KParts::Part* createPart() { return 0L; }
+    virtual KPIM::Part* createPart() { return 0L; }
 };
 
 #endif

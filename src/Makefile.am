@@ -16,7 +16,7 @@ kontact_SOURCES = main.cpp mainwindow.cpp splash.cpp sidepanebase.cpp \
   sidepane.cpp iconsidepane.cpp aboutdialog.cpp
 kontact_COMPILE_FIRST = prefs.h
 
-kde_module_LTLIBRARIES = kcm_kontact.la
+#kde_module_LTLIBRARIES = kcm_kontact.la
 
 kcm_kontact_la_SOURCES = kcmkontact.cpp
 kcm_kontact_la_LDFLAGS = $(all_libraries) -module -avoid-version -no-undefined
@@ -31,7 +31,7 @@ xdg_apps_DATA = Kontact.desktop
 
 kde_kcfg_DATA = kontact.kcfg
 
-kde_services_DATA = kontactconfig.desktop
+#kde_services_DATA = kontactconfig.desktop
 
 kontactsetdlgdir = $(kde_datadir)/kontact
 kontactsetdlg_DATA = kontact.setdlg

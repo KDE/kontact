@@ -82,9 +82,9 @@ void KNodePlugin::slotPostArticle()
     mStub->postArticle();
 }
 
-KParts::Part* KNodePlugin::createPart()
+KPIM::Part* KNodePlugin::createPart()
 {
-  KParts::Part *part = loadPart();
+  KPIM::Part *part = loadPart();
   if ( !part ) return 0;
 
   mStub = new KNodeIface_stub( dcopClient(), "knode", "KNodeIface" );

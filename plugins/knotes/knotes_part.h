@@ -23,9 +23,9 @@
 
 #include <qmap.h>
 #include <qpixmap.h>
-#include <kparts/part.h>
 #include <libkcal/resourcelocal.h>
 #include <libkcal/calendarresources.h>
+#include <libkdepim/part.h>
 
 typedef QMap<QString, QString> NotesMap;
 
@@ -35,7 +35,7 @@ class KListView;
 class QListViewItem;
 class QPoint;
 
-class KNotesPart : public KParts::ReadOnlyPart
+class KNotesPart : public KPIM::Part
 {
   Q_OBJECT
 

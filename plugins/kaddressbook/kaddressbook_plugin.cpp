@@ -68,9 +68,9 @@ KAddressbookPlugin::~KAddressbookPlugin()
 {
 }
 
-KParts::Part* KAddressbookPlugin::createPart()
+KPIM::Part* KAddressbookPlugin::createPart()
 {
-  KParts::Part * part = loadPart();
+  KPIM::Part * part = loadPart();
   if ( !part ) return 0;
 
   // Create the stub that allows us to talk to the part
@@ -116,6 +116,10 @@ bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
   }
 
   return false;
+}
+
+void KAddressbookPlugin::configUpdated()
+{
 }
 
 bool KAddressbookPlugin::isRunningStandalone()

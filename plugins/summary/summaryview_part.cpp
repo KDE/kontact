@@ -65,7 +65,7 @@ namespace Kontact
 SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
                                   const KAboutData *aboutData,
                                   QObject *parent, const char *name )
-  : KParts::ReadOnlyPart( parent, name ),
+  : KPIM::Part( parent, name ),
     mCore( core ), mFrame( 0 ), mConfigAction( 0 )
 {
   setInstance( new KInstance( aboutData ) );

@@ -61,10 +61,12 @@ class KAddressbookPlugin : public Kontact::Plugin
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
 
+    virtual void configUpdated();
+
     KAddressBookIface_stub *interface();
 
   protected:
-    KParts::Part *createPart();
+    KPIM::Part *createPart();
   private slots:
     void slotNewContact();
 

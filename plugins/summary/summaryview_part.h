@@ -25,7 +25,7 @@
 #define SUMMARYVIEW_PART_H
 
 #include <qdatetime.h>
-#include <kparts/part.h>
+#include <libkdepim/part.h>
 
 #include "core.h"
 
@@ -46,7 +46,7 @@ class QGridLayout;
 class KAction;
 class KCMultiDialog;
 
-class SummaryViewPart : public KParts::ReadOnlyPart
+class SummaryViewPart : public KPIM::Part
 {
   Q_OBJECT
 

@@ -40,7 +40,7 @@ class KNotesPlugin : public Kontact::Plugin
     const KAboutData *aboutData();
 
   protected:
-    KParts::Part* createPart();
+    KPIM::Part* createPart();
 
   private slots:
     void slotNewNote();
