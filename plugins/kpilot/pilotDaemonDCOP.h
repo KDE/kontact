@@ -72,6 +72,7 @@ k_dcop:
 	* Functions requesting the status of the daemon.
 	*/
 	virtual QString statusString() = 0;
+	virtual QString shortStatusString() = 0;
 	
 	/** 
 	* Functions reporting same status data, e.g. for the kontact plugin.
