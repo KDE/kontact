@@ -44,6 +44,8 @@ class KMailPlugin : public Kontact::Plugin
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
     virtual QString tipFile() const;
 
+    virtual QStringList invisibleToolbarActions() const;
+
   protected:
     virtual KParts::Part* createPart();
 

@@ -43,6 +43,8 @@ class TodoPlugin : public Kontact::Plugin
     bool canDecodeDrag( QMimeSource * );
     void processDropEvent( QDropEvent * );
 
+    virtual QStringList invisibleToolbarActions() const;
+
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
 
     void select();

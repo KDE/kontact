@@ -44,6 +44,8 @@ class KAddressbookPlugin : public Kontact::Plugin
     virtual bool isRunningStandalone();
     virtual QStringList configModules() const;
 
+    virtual QStringList invisibleToolbarActions() const;
+
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
   
   protected:

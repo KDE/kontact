@@ -68,6 +68,11 @@ bool KNodePlugin::isRunningStandalone()
 
 }
 
+QStringList KNodePlugin::invisibleToolbarActions() const
+{
+  return QStringList( "article_postNew" );
+}
+
 KParts::Part* KNodePlugin::createPart()
 {
   return loadPart();

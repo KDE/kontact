@@ -48,6 +48,7 @@ class KOrganizerPlugin : public Kontact::Plugin
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
 
     virtual QString tipFile() const;
+    virtual QStringList invisibleToolbarActions() const;
 
     void select();
 

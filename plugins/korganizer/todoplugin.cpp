@@ -72,13 +72,6 @@ KParts::Part *TodoPlugin::createPart()
   if ( !part )
     return 0;
 
-  KAction *action = part->actionCollection()->action( "new_event" );
-  if ( action )
-    part->actionCollection()->take( action );
-  action = part->actionCollection()->action( "new_todo" );
-  if ( action )
-    part->actionCollection()->take( action );
-
   dcopClient(); // ensure that we register to DCOP as "korganizer"
   mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
 
@@ -88,6 +81,11 @@ KParts::Part *TodoPlugin::createPart()
 void TodoPlugin::select()
 {
   interface()->showTodoView();
+}
+
+QStringList TodoPlugin::invisibleToolbarActions() const
+{
+  return QStringList( "new_todo" );
 }
 
 KCalendarIface_stub *TodoPlugin::interface()

@@ -70,7 +70,7 @@ MainWindow::MainWindow()
 {
   KTrader::OfferList offers = KTrader::self()->query(
       QString::fromLatin1( "Kontact/Plugin" ),
-      QString::fromLatin1( "[X-KDE-KontactPluginVersion] == 1" ) );
+      QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
   mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(),
       "Plugins" );
   for( KPluginInfo::List::Iterator it = mPluginInfos.begin();
@@ -463,6 +463,15 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
         }
       }
     }
+  }
+
+  QStringList invisibleActions = plugin->invisibleToolbarActions();
+
+  QStringList::ConstIterator it;
+  for ( it = invisibleActions.begin(); it != invisibleActions.end(); ++it ) {
+    KAction *action = part->actionCollection()->action( (*it).latin1() );
+    if ( action )
+      action->unplug( toolBar() );
   }
 
   KApplication::restoreOverrideCursor();

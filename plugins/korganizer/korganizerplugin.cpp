@@ -75,13 +75,6 @@ KParts::Part *KOrganizerPlugin::createPart()
   if ( !part )
     return 0;
 
-  KAction *action = part->actionCollection()->action( "new_event" );
-  if ( action )
-    part->actionCollection()->take( action );
-  action = part->actionCollection()->action( "new_todo" );
-  if ( action )
-    part->actionCollection()->take( action );
-
   dcopClient(); // ensure that we register to DCOP as "korganizer"
   mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
 
@@ -92,6 +85,11 @@ QString KOrganizerPlugin::tipFile() const
 {
   QString file = ::locate("data", "korganizer/tips");
   return file;
+}
+
+QStringList KOrganizerPlugin::invisibleToolbarActions() const
+{
+  return QStringList( "new_event" );
 }
 
 void KOrganizerPlugin::select()

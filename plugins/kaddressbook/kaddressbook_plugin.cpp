@@ -63,10 +63,6 @@ KParts::Part* KAddressbookPlugin::createPart()
   KParts::Part * part = loadPart();
   if ( !part ) return 0;
 
-  KAction *action = part->actionCollection()->action( "file_new_contact" );
-  if ( action )
-    part->actionCollection()->take( action );
-
   // 1) Register with dcop as "kaddressbook"  [maybe the part should do this]
   // 2) Create the stub that allows us to talk to the part
   mStub = new KAddressBookIface_stub( dcopClient(), "kaddressbook",
@@ -79,6 +75,11 @@ QStringList KAddressbookPlugin::configModules() const
   QStringList modules;
   modules << "PIM/kabconfig.desktop" << "PIM/kabldapconfig.desktop";
   return modules;
+}
+
+QStringList KAddressbookPlugin::invisibleToolbarActions() const
+{
+  return QStringList( "file_new_contact" );
 }
 
 void KAddressbookPlugin::slotNewContact()

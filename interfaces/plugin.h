@@ -35,6 +35,12 @@ class KAboutData;
 class KAction;
 class QWidget;
 
+/**
+  Increase this version number whenever you make a change
+  in the API.
+ */
+#define KONTACT_PLUGIN_VERSION 2
+
 namespace Kontact
 {
 
@@ -192,6 +198,11 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     QPtrList<KAction>* newActions() const;
 
     /**
+      Returns a list of action name which shall be hidden in the main toolbar.
+     */
+    virtual QStringList invisibleToolbarActions() const { return QStringList(); }
+
+    /**
       Return, if the plugin can handle the drag object of the given mime type.
     */
     virtual bool canDecodeDrag( QMimeSource * ) { return false; }
@@ -223,5 +234,3 @@ class Plugin : public QObject, virtual public KXMLGUIClient
 }
 
 #endif
-
-// vim: sw=2 et sts=2 tw=80

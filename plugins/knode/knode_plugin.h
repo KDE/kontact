@@ -40,6 +40,8 @@ class KNodePlugin : public Kontact::Plugin
     virtual bool createDCOPInterface( const QString& serviceType );
     virtual bool isRunningStandalone();
 
+    virtual QStringList invisibleToolbarActions() const;
+
   protected:
     virtual KParts::Part* createPart();
 };

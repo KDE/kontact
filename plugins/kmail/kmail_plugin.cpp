@@ -86,12 +86,13 @@ KParts::Part* KMailPlugin::createPart()
   KParts::Part *part = loadPart();
   if ( !part ) return 0;
 
-  KAction *action = part->actionCollection()->action( "new_message" );
-  if ( action )
-    part->actionCollection()->take( action );
-
   mStub = new KMailIface_stub( dcopClient(), "kmail", "KMailIface" );
   return part;
+}
+
+QStringList KMailPlugin::invisibleToolbarActions() const
+{
+  return QStringList( "new_message" );
 }
 
 bool KMailPlugin::isRunningStandalone()
