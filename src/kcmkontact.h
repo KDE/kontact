@@ -30,7 +30,7 @@
 #include "plugin.h"
 
 class QGroupBox;
-class QComboBOx;
+class QComboBox;
 class QListViewItem;
 
 class KAboutData;
