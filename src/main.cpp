@@ -57,7 +57,8 @@ int main(int argc, char **argv)
     about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
     about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
     about.addAuthor( "Sven Lüppken", 0, "sven@kde.org" );
-    about.addAuthor( "Tobias Koenig", "Summary view widgets", "tokoe@kde.org" );
+    about.addAuthor( "Tobias Koenig", I18N_NOOP( "Summary view widgets" ),
+                     "tokoe@kde.org" );
 
     KCmdLineArgs::init(argc, argv, &about);
 //    KCmdLineArgs::addCmdLineOptions(options);
