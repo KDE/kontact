@@ -139,7 +139,7 @@ void Core::addPlugin(Kaplan::Plugin *plugin)
 
 void Core::addPart(KParts::Part *part)
 {
-  m_partManager->addPart(part);
+  m_partManager->addPart(part, false);
 
   if (part->widget())
     m_stack->addWidget(part->widget(), 0);
@@ -153,11 +153,17 @@ void Core::activePartChanged(KParts::Part *part)
 }
 
 
-void Core::showView(QWidget *view)
+void Core::showPart(KParts::Part* part)
 {
-  m_stack->raiseWidget(view);
-  view->show();
-  view->setFocus();
+  m_partManager->setActivePart( part );
+  QWidget* view = part->widget();
+  Q_ASSERT(view);
+  if ( view )
+  {
+    m_stack->raiseWidget( view );
+    view->show();
+    view->setFocus();
+  }
 }
 
 

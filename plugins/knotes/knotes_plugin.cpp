@@ -61,13 +61,14 @@ void KNotesPlugin::loadPart()
 void KNotesPlugin::slotShowNotes()
 {
   loadPart();
-  core()->showView(m_part->widget()); 
+  core()->showPart(m_part);
 }
 
 void KNotesPlugin::slotNewNote()
 {
   loadPart();
-  m_part->slotNewNote();
+  if ( m_part )
+      m_part->slotNewNote();
 }
 
 #include "knotes_plugin.moc"

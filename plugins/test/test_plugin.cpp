@@ -21,7 +21,7 @@ TestPlugin::TestPlugin(Kaplan::Core *_core, const char *name, const QStringList 
 
   setXMLFile("kptestplugin.rc");
 
-  core()->addMainEntry(i18n("Test"), "configure", this, SLOT(slotShowPlugin()));
+  core()->addMainEntry(i18n("Test"), "configure", this, SLOT(slotShowPart()));
 }
 
 
@@ -35,16 +35,19 @@ void TestPlugin::slotTestMenu()
   core()->statusBar()->message("Test menu activated");
 }
 
-
-void TestPlugin::slotShowPlugin()
+void TestPlugin::loadPart()
 {
   if (!m_part)
   {
-    m_part = new TestPart(this, "notes");
+    m_part = new TestPart(this, "testpart");
     core()->addPart(m_part);
   }
+}
 
-  core()->showView(m_part->widget());
+void TestPlugin::slotShowPart()
+{
+  loadPart();
+  core()->showPart(m_part);
 }
 
 #include "test_plugin.moc"

@@ -21,7 +21,7 @@ public:
 
 private slots:
 
-  void slotShowPlugin();
+  void slotShowPart();
 
 private:
   void loadPart();

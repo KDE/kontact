@@ -22,7 +22,7 @@ public:
 
 private slots:
 
-  void slotShowPlugin();
+  void slotShowPart();
   void slotNewContact();
 
 private:

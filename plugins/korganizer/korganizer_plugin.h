@@ -6,7 +6,7 @@
 
 
 #include "kpplugin.h"
-#include "korganizeriface_stub.h"
+//#include "korganizeriface_stub.h"
 
 class KOrganizerPlugin : public Kaplan::Plugin
 {
@@ -17,16 +17,20 @@ public:
   KOrganizerPlugin(Kaplan::Core *core, const char *name, const QStringList &);
   ~KOrganizerPlugin();
 
-  
+  virtual bool createDCOPInterface( const QString& serviceType );
+
+protected:
+  void loadPart();
+
 private slots:
-  
-  void slotShowPlugin();
+
+  void slotShowPart();
   void slotNewAppointment();
 
 private:
 
   KParts::ReadOnlyPart *m_part;
-  KOrganizerIface_stub *m_iface; 
+  //KOrganizerIface_stub *m_iface;
 };
 
 

@@ -57,7 +57,7 @@ public:
 
   virtual void addPart(KParts::Part *part);
 
-  virtual void showView(QWidget *view);
+  virtual void showPart(KParts::Part *part);
 
   virtual void insertNewAction(KAction *action);
 

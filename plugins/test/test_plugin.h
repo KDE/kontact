@@ -21,10 +21,11 @@ public:
 private slots:
 
   void slotTestMenu();
-  void slotShowPlugin();
+  void slotShowPart();
 
 
 private:
+  void loadPart();
 
   TestPart *m_part;
 

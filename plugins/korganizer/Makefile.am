@@ -1,4 +1,5 @@
-INCLUDES = -I$(top_srcdir)/kaplan/interfaces $(all_includes)
+# top_srcdir/korganizer is a hack, to get korganizeriface.h
+INCLUDES = -I$(top_srcdir)/kaplan/interfaces -I$(top_srcdir)/korganizer $(all_includes)
 
 kde_module_LTLIBRARIES = libkpkorganizerplugin.la
 libkpkorganizerplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)

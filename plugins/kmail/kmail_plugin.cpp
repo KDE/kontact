@@ -20,12 +20,12 @@ K_EXPORT_COMPONENT_FACTORY( libkpkmailplugin,
 KMailPlugin::KMailPlugin(Kaplan::Core *_core, const char *name, const QStringList & /*args*/ )
   : Kaplan::Plugin(_core, _core, "kmail"), m_part(0)
 {
-//  m_stub = new KMailPartIface_stub(dcopClient(), "kmail", "*"); 	
+//  m_stub = new KMailPartIface_stub(dcopClient(), "kmail", "*");
   setInstance(KMailPluginFactory::instance());
 
   setXMLFile("kpkmailplugin.rc");
 
-  core()->addMainEntry(i18n("Mail"), "kmail", this, SLOT(slotShowPlugin()));
+  core()->addMainEntry(i18n("Mail"), "kmail", this, SLOT(slotShowPart()));
 }
 
 
@@ -48,16 +48,16 @@ void KMailPlugin::loadPart()
   }
 }
 
-void KMailPlugin::slotShowPlugin()
+void KMailPlugin::slotShowPart()
 {
   loadPart();
-  if (!m_part) 
+  if (m_part)
   {
-     KMessageBox::sorry(0,i18n("The mail plugin couldn't be loaded. E-mail services are not available"));
-     return;
+    core()->showPart(m_part);
   }
-  if (m_part->widget())
-    core()->showView(m_part->widget());
+  else
+  {
+    KMessageBox::sorry(0,i18n("The mail plugin couldn't be loaded. E-mail services are not available"));
+    return;
+  }
 }
-
-

@@ -27,7 +27,7 @@ KAddressbookPlugin::KAddressbookPlugin(Kaplan::Core *_core, const char *name, co
   setXMLFile("kpkaddressbookplugin.rc");
 
 
-  core()->addMainEntry(i18n("Contacts"), "kaddressbook", this, SLOT(slotShowPlugin()));
+  core()->addMainEntry(i18n("Contacts"), "kaddressbook", this, SLOT(slotShowPart()));
   core()->insertNewAction( new KAction( i18n( "New Contact" ), BarIcon( "contact" ),
 			  0, this, SLOT( slotNewContact() ), actionCollection(), "new_contact" ));
 }
@@ -55,11 +55,11 @@ void KAddressbookPlugin::loadPart()
   }
 }
 
-void KAddressbookPlugin::slotShowPlugin()
+void KAddressbookPlugin::slotShowPart()
 {
   loadPart();
-  if (m_part->widget())
-    core()->showView(m_part->widget());
+  if (m_part)
+    core()->showPart(m_part);
 }
 
 void KAddressbookPlugin::slotNewContact()
