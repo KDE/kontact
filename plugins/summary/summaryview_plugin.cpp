@@ -19,6 +19,7 @@
 
 #include <kgenericfactory.h>
 #include <kparts/componentfactory.h>
+#include <kaboutdata.h>
 
 #include "core.h"
 #include "summaryview_part.h"
@@ -31,7 +32,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_summaryplugin,
 
 SummaryView::SummaryView( Kontact::Core *core, const char *name, const QStringList& )
   : Kontact::Plugin( core, core, name),
-    mPart( 0 )
+    mPart( 0 ), mAboutData( 0 )
 {
   setInstance( SummaryViewFactory::instance() );
 }
@@ -48,6 +49,21 @@ KParts::Part *SummaryView::part()
   }
 
   return mPart;
+}
+
+const KAboutData *SummaryView::aboutData()
+{
+  if ( !mAboutData ) {
+    mAboutData = new KAboutData( "summaryview", I18N_NOOP("Kontact Summary"),
+                                 "0.1",
+                                 I18N_NOOP("Kontact Summary View"),
+                                 KAboutData::License_LGPL,
+                                 "(c) 2003 The Kontact developers" );
+    mAboutData->addAuthor( "Sven Lueppken", "", "lueppken@kde.org" );
+    mAboutData->addAuthor( "Cornelius Schumacher", "", "schumacher@kde.org" );
+    mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
+  }
+  return mAboutData;
 }
 
 #include "summaryview_plugin.moc"
