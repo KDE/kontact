@@ -76,7 +76,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );
 
-    int summaryHeight();
+    int summaryHeight() const;
 
   k_dcop:
     virtual void refresh( QString );

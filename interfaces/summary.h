@@ -42,7 +42,7 @@ class Summary : public QWidget
       much vertical space relative to other summary widgets this widget will use
       in the summary view.
     */
-    virtual int summaryHeight() { return 1; }
+    virtual int summaryHeight() const { return 1; }
 
   private:
     class Private;

@@ -46,7 +46,7 @@ class SummaryWidget : public Kontact::Summary
     SummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
                    const char *name = 0 );
 
-    int summaryHeight() { return 3; }
+    int summaryHeight() const { return 3; }
 
   private slots:
     void updateView();
