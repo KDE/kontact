@@ -22,7 +22,10 @@
 #include <qsignal.h>
 #include <qobjectlist.h>
 #include <qlabel.h>
-
+#include <qpainter.h>
+#include <qbitmap.h>
+#include <qfontmetrics.h>
+#include <qstyle.h>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -45,8 +48,12 @@ using namespace Kontact;
 ///////////////////////////////////////////////////////////////////////
 
 PanelButton::PanelButton( Kontact::Plugin *plugin, int id,  QWidget *parent, const char* name) :
-QPushButton(BarIcon(plugin->icon()), plugin->pluginName(), parent, name)
+QPushButton(parent, name)
 {
+  
+  setPixmap(BarIcon(plugin->icon()));
+  setText(plugin->pluginName()); 
+  
   m_active = false;
   m_id = id;
   m_plugin = plugin;
@@ -95,6 +102,54 @@ void PanelButton::setInactive()
   setPalette(parentWidget()->palette());
 
   m_active = false;
+}
+
+void PanelButton::setPixmap(const QPixmap& pix)
+{
+  m_pix = pix;
+  QPushButton::setPixmap(pix);
+}
+
+void PanelButton::setText(const QString& text)
+{
+  m_text = text;
+  QPushButton::setText(text);
+}
+
+void PanelButton::composeLabel(QPainter *p)
+{
+
+  QRect rect = style().subRect(QStyle::SR_PushButtonContents, this);
+  QRect pixRect = m_pix.rect();
+  pixRect.moveCenter(rect.center());
+  
+  if (kapp->reverseLayout())
+    pixRect.setLeft(rect.right()-pixRect.width());  
+  else
+    pixRect.setLeft(rect.left());
+
+  pixRect.setWidth(m_pix.width());
+  
+  p->drawPixmap(pixRect, m_pix);
+  QPen tmp = p->pen();
+  p->setPen(colorGroup().text());
+  if (kapp->reverseLayout())
+  {
+    rect.setRight(rect.right()-(m_pix.width()+2));
+    p->drawText(rect, AlignVCenter|AlignRight, m_text);
+  }
+  else
+  {
+    rect.setLeft(m_pix.width()+2);
+    p->drawText(rect, AlignVCenter, m_text);
+  }
+  p->setPen(tmp);
+  
+}
+
+void PanelButton::drawButtonLabel(QPainter *p)
+{
+  composeLabel(p);
 }
 
 ///////////////////////////////////////////////////////////////////////

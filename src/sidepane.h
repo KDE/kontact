@@ -60,8 +60,16 @@ namespace Kontact
     public slots:
       void slotClicked();
 
+    protected:
+      virtual void setPixmap(const QPixmap&);
+      virtual void setText(const QString&);
+      virtual void drawButtonLabel(QPainter *p);
+      void composeLabel(QPainter *p);
+
     private:
       Kontact::Plugin *m_plugin;
+      QPixmap m_pix;
+      QString m_text;
       bool m_active;
       bool m_id;
   };
