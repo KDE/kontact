@@ -21,7 +21,7 @@ TestPlugin::TestPlugin(Kontact::Core *_core, const char *name, const QStringList
 
   setXMLFile("kptestplugin.rc");
 
-  core()->addMainEntry(i18n("Test"), "configure", this, SLOT(slotShowPart()));
+  core()->addMainEntry("Test", "configure", this, SLOT(slotShowPart()));
 }
 
 

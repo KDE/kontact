@@ -20,7 +20,7 @@ TestPart::TestPart(QObject *parent, const char *name) // ## parentWidget
   m_edit = new QTextEdit;
   setWidget(m_edit);
   setXMLFile("testpartui.rc");
-  new KAction( i18n("new contact (test)"), 0, this, SLOT( newContact() ), actionCollection(), "test_deleteevent" );
+  new KAction( "new contact (test)", 0, this, SLOT( newContact() ), actionCollection(), "test_deleteevent" );
   m_kab_stub = 0L;
 
   kapp->dcopClient()->setNotifications( true );
