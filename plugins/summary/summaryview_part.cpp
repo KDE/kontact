@@ -58,16 +58,24 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
   mFrame->setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
   setWidget( mFrame );
 
-  mLayout = new QGridLayout( mFrame, 4, 3, KDialog::marginHint(),
+  mLayout = new QGridLayout( mFrame, 6, 3, KDialog::marginHint(),
                              KDialog::spacingHint() );
 
   QFrame *frame = new QFrame( mFrame );
   frame->setFrameStyle( QFrame::VLine | QFrame::Sunken );
-  mLayout->addMultiCellWidget( frame, 0, 3, 1, 1 );
+  mLayout->addMultiCellWidget( frame, 0, 5, 1, 1 );
 
   frame = new QFrame( mFrame );
   frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
   mLayout->addWidget( frame, 1, 0 );
+
+  frame = new QFrame( mFrame );
+  frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
+  mLayout->addWidget( frame, 1, 2 );
+
+  frame = new QFrame( mFrame );
+  frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
+  mLayout->addWidget( frame, 4, 2 );
 
   getWidgets();
 
@@ -95,7 +103,6 @@ void SummaryViewPart::getWidgets()
   Kontact::Plugin *plugin;
   for ( plugin = plugins.first(); plugin; plugin = plugins.next() ) {
     QWidget *wdg = plugin->createSummaryWidget( mFrame );
-    kdDebug(5006) <<  "identifier=" << plugin->identifier() << endl;
     if ( plugin->identifier() == "weather" ) {
       mLayout->addWidget( wdg, 0, 0 );
     } else if ( plugin->identifier() == "mails" ) {
@@ -103,9 +110,9 @@ void SummaryViewPart::getWidgets()
     } else if ( plugin->identifier()  == "newsticker" ) {
       mLayout->addMultiCellWidget( wdg, 2, 3, 0, 0 );
     } else if ( plugin->identifier() == "notes" ) {
-      mLayout->addMultiCellWidget( wdg, 1, 2, 2, 2 );
+      mLayout->addMultiCellWidget( wdg, 2, 3, 2, 2 );
     } else if ( plugin->identifier() == "contacts" ) {
-      mLayout->addWidget( wdg, 3, 2 );
+      mLayout->addWidget( wdg, 5, 2 );
     }
   }
 }
