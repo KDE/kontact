@@ -34,6 +34,7 @@
 #include <qdrawutil.h>
 #include <qcursor.h>
 #include <qtimer.h>
+#include <qtooltip.h>
 
 #include <kpopupmenu.h>
 #include <kapplication.h>
@@ -270,6 +271,11 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
 
   mMapper = new QSignalMapper( this );
   connect( mMapper, SIGNAL( mapped( int ) ), SLOT( shortCutSelected( int ) ) );
+
+  QToolTip::remove( this );
+  if ( !mShowText )
+    new EntryItemToolTip( this );
+
 }
 
 QSize Navigator::sizeHint() const

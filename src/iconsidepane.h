@@ -21,9 +21,13 @@
 #ifndef KONTACT_ICONSIDEPANEBASE_H
 #define KONTACT_ICONSIDEPANEBASE_H
 
-#include "sidepanebase.h"
+#include <qtooltip.h>
 
 #include <klistbox.h>
+
+#include "sidepanebase.h"
+#include "prefs.h"
+
 
 class QSignalMapper;
 
@@ -37,6 +41,7 @@ class Plugin;
 class Navigator;
 
 enum IconViewMode { LargeIcons = 48, NormalIcons = 32, SmallIcons = 22, ShowText = 3, ShowIcons = 5 };
+
 
 /**
   A @see QListBoxPixmap Square Box with an optional icon and a text
@@ -76,6 +81,34 @@ class EntryItem : public QListBoxItem
     QPixmap mPixmap;
     bool mHasHover;
     bool mPaintActive;
+};
+
+/**
+ * Tooltip that changes text depending on the item it is above.
+ * Compliments of "Practical Qt" by Dalheimer, Petersen et al.
+ */
+class EntryItemToolTip : public QToolTip
+{
+  public:
+    EntryItemToolTip( QListBox* parent )
+      : QToolTip( parent->viewport() ), mListBox( parent ) 
+      {}
+  protected:
+    void maybeTip( const QPoint& p ) {
+      // We only show tooltips when there are no texts shown
+      if ( Prefs::self()->sidePaneShowText() ) return;
+      if ( !mListBox ) return;
+      QListBoxItem* item = mListBox->itemAt( p );
+      if ( !item ) return;
+      const QRect itemRect = mListBox->itemRect( item );
+      if ( !itemRect.isValid() ) return;
+
+      const EntryItem *entryItem = static_cast<EntryItem*>( item );
+      QString tipStr = entryItem->text();
+      tip( itemRect, tipStr );
+    }
+  private:
+    QListBox* mListBox;
 };
 
 /**
