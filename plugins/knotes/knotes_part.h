@@ -1,4 +1,5 @@
-/* This file is part of the KDE project
+/*
+   This file is part of the KDE project
    Copyright (C) 2002 Daniel Molkentin <molkentin@kde.org>
 
    This program is free software; you can redistribute it and/or
@@ -38,32 +39,30 @@ class KNotesPart : public KParts::ReadOnlyPart
   public:
     KNotesPart( QObject *parent = 0, const char *name = 0 );
 
-  bool openFile();
+    bool openFile();
 
-public slots:
-  void slotNewNote();
+  public slots:
+    void slotNewNote();
 
-signals:
-  void noteSelected( const QString &name );
-  void noteSelected( const QPixmap &pixmap );
+  signals:
+    void noteSelected( const QString &name );
+    void noteSelected( const QPixmap &pixmap );
 
-protected slots:
-  void slotNoteRenamed(QIconViewItem *item, const QString& text);
-  void slotPopupRMB(QIconViewItem *item, const QPoint& pos);
-  void slotRemoveCurrentNote();
-  void slotRenameCurrentNote();
-  void slotOpenNote(QIconViewItem* item);
+  protected slots:
+    void slotNoteRenamed( QIconViewItem *item, const QString& text );
+    void slotPopupRMB( QIconViewItem *item, const QPoint& pos );
+    void slotRemoveCurrentNote();
+    void slotRenameCurrentNote();
+    void slotOpenNote( QIconViewItem* item );
 
+  protected:
+    void initKNotes();
+    NotesMap fetchNotes();
 
-protected:
-  void initKNotes();
-  NotesMap fetchNotes();
-
-private:
-  KIconView  *m_iconView;
-  QPixmap m_appIcon;
-  QPopupMenu *m_popupMenu;
+  private:
+    KIconView *mIconView;
+    QPixmap mAppIcon;
+    QPopupMenu *mPopupMenu;
 };
 
-
-#endif // KNOTE_PART_H
+#endif

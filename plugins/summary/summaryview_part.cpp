@@ -47,27 +47,27 @@ namespace Kontact
   class MainWindow;
 }
 
-SummaryViewPart::SummaryViewPart( Kontact::Core *core,
-                                  const char *widgetName,
+SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
                                   QObject *parent, const char *name )
-  : KParts::ReadOnlyPart( parent, name ), m_core( core )
+  : KParts::ReadOnlyPart( parent, name ),
+    mCore( core )
 {
   setInstance( new KInstance( "summaryviewpart" ) ); // ## memleak
 
-  m_frame = new QFrame( core, widgetName );
-  m_frame->setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
-  setWidget(m_frame);
+  mFrame = new QFrame( core, widgetName );
+  mFrame->setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
+  setWidget( mFrame );
 
-  m_layout = new QGridLayout( m_frame, 4, 3, KDialog::marginHint(),
-                              KDialog::spacingHint() );
+  mLayout = new QGridLayout( mFrame, 4, 3, KDialog::marginHint(),
+                             KDialog::spacingHint() );
 
-  QFrame *frame = new QFrame( m_frame );
+  QFrame *frame = new QFrame( mFrame );
   frame->setFrameStyle( QFrame::VLine | QFrame::Sunken );
-  m_layout->addMultiCellWidget( frame, 0, 3, 1, 1 );
+  mLayout->addMultiCellWidget( frame, 0, 3, 1, 1 );
 
-  frame = new QFrame( m_frame );
+  frame = new QFrame( mFrame );
   frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
-  m_layout->addWidget( frame, 1, 0 );
+  mLayout->addWidget( frame, 1, 0 );
 
   getWidgets();
 
@@ -91,20 +91,20 @@ bool SummaryViewPart::openFile()
 
 void SummaryViewPart::getWidgets()
 {
-  QPtrList<Kontact::Plugin> plugins = m_core->pluginList();
+  QPtrList<Kontact::Plugin> plugins = mCore->pluginList();
   Kontact::Plugin *plugin;
-  for( plugin = plugins.first(); plugin; plugin = plugins.next() ) {
-    QWidget *wdg = plugin->createSummaryWidget( m_frame );
+  for ( plugin = plugins.first(); plugin; plugin = plugins.next() ) {
+    QWidget *wdg = plugin->createSummaryWidget( mFrame );
     if ( plugin->identifier() == "weather" ) {
-      m_layout->addWidget( wdg, 0, 0 );
+      mLayout->addWidget( wdg, 0, 0 );
     } else if ( plugin->identifier() == "mail" ) {
-      m_layout->addWidget( wdg, 0, 2 );
+      mLayout->addWidget( wdg, 0, 2 );
     } else if ( plugin->identifier()  == "newsticker" ) {
-      m_layout->addMultiCellWidget( wdg, 2, 3, 0, 0 );
+      mLayout->addMultiCellWidget( wdg, 2, 3, 0, 0 );
     } else if ( plugin->identifier() == "notes" ) {
-      m_layout->addMultiCellWidget( wdg, 1, 2, 2, 2 );
+      mLayout->addMultiCellWidget( wdg, 1, 2, 2, 2 );
     } else if ( plugin->identifier() == "contacts" ) {
-      m_layout->addWidget( wdg, 3, 2 );
+      mLayout->addWidget( wdg, 3, 2 );
     }
   }
 }

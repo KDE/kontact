@@ -17,26 +17,21 @@
    Boston, MA 02111-1307, USA.
  */
 
-#include <kmessagebox.h>
-#include <kaction.h>
 #include <kgenericfactory.h>
-#include <kstatusbar.h>
 #include <kparts/componentfactory.h>
-#include <kdebug.h>
 
 #include "core.h"
-#include "summaryview_plugin.h"
 #include "summaryview_part.h"
 
-#include "summaryview_plugin.moc"
+#include "summaryview_plugin.h"
 
 typedef KGenericFactory< SummaryView, Kontact::Core > SummaryViewFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpsummaryplugin,
                             SummaryViewFactory( "kpsummaryplugin" ) );
 
-SummaryView::SummaryView( Kontact::Core *_core, const char *name, const QStringList& )
-  : Kontact::Plugin( _core, _core, name),
-    m_part( 0 )
+SummaryView::SummaryView( Kontact::Core *core, const char *name, const QStringList& )
+  : Kontact::Plugin( core, core, name),
+    mPart( 0 )
 {
   setInstance( SummaryViewFactory::instance() );
 
@@ -49,10 +44,12 @@ SummaryView::~SummaryView()
 
 KParts::Part *SummaryView::part()
 {
-  if ( !m_part ) {
-    m_part = new SummaryViewPart( core(), "summarypartframe", this,
+  if ( !mPart ) {
+    mPart = new SummaryViewPart( core(), "summarypartframe", this,
                                   "summarypart" );
   }
 
-  return m_part;
+  return mPart;
 }
+
+#include "summaryview_plugin.moc"

@@ -44,7 +44,7 @@ class SummaryView : public Kontact::Plugin
     virtual KParts::Part* part();
 
   private:
-    KParts::ReadOnlyPart *m_part;
+    KParts::ReadOnlyPart *mPart;
 };
 
 #endif

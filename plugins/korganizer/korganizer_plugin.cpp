@@ -1,3 +1,25 @@
+/*
+    This file is part of Kontact.
+    Copyright (c) 2003 Kontact Developer
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+    As a special exception, permission is given to link this program
+    with any edition of Qt, and distribute the resulting executable,
+    without including the source code for Qt in the source distribution.
+*/
 
 #include <qwidget.h>
 
@@ -15,9 +37,10 @@ typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFacto
 K_EXPORT_COMPONENT_FACTORY( libkpkorganizerplugin,
                             KOrganizerPluginFactory( "kporganizerplugin" ) );
 
-KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *_core, const char *name, const QStringList& )
-  : Kontact::Plugin( _core, _core, name ), 
-    m_part( 0 ), m_iface( 0 )
+KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *name, const QStringList& )
+  : Kontact::Plugin( core, core, name ), 
+    mPart( 0 ), 
+    mIface( 0 )
 {
   setInstance( KOrganizerPluginFactory::instance() );
 
@@ -38,30 +61,30 @@ KOrganizerPlugin::~KOrganizerPlugin()
 
 KParts::ReadOnlyPart* KOrganizerPlugin::part()
 {
-  if ( !m_part ) {
+  if ( !mPart ) {
     (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
-    m_iface = new KOrganizerIface_stub( dcopClient(), "korganizer", "KOrganizerIface" );
+    mIface = new KOrganizerIface_stub( dcopClient(), "korganizer", "KOrganizerIface" );
 
-    m_part = KParts::ComponentFactory
+    mPart = KParts::ComponentFactory
       ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkorganizer",
                                                              0, 0, // parentwidget,name
                                                              this, 0 ); // parent,name
   }
 
-  return m_part;
+  return mPart;
 }
 
 void KOrganizerPlugin::slotNewEvent()
 {
   part();
-  if ( !m_iface )
+  if ( !mIface )
     return;
 }
 
 void KOrganizerPlugin::slotNewTodo()
 {
   part();
-  if ( !m_iface )
+  if ( !mIface )
     return;
 }
 

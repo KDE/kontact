@@ -26,13 +26,13 @@
 
 #include "core.h"
 
-class QGridLayout;
-class QFrame;
-
 namespace Kontact
 {
   class Plugin;
 }
+
+class QFrame;
+class QGridLayout;
 
 class SummaryViewPart : public KParts::ReadOnlyPart
 {
@@ -54,9 +54,9 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     void getWidgets();
 
   private:
-    QGridLayout *m_layout;
-    QFrame *m_frame;
-    Kontact::Core *m_core;
+    QGridLayout *mLayout;
+    QFrame *mFrame;
+    Kontact::Core *mCore;
 };
 
 #endif

@@ -46,7 +46,7 @@ class KNotesPlugin : public Kontact::Plugin
     void slotNewNote();
 
   private:
-    KNotesPart *m_part;
+    KNotesPart *mPart;
 };
 
 #endif

@@ -143,4 +143,3 @@ void KABSummaryWidget::updateView()
 }
 
 #include "kabsummarywidget.moc"
-
