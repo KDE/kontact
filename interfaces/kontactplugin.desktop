@@ -19,6 +19,7 @@ Name[hu]=Kontact-bővítőmodul
 Name[it]=Plugin Kontact
 Name[nb]=Kontact-programtillegg
 Name[nn]=Kontact-programtillegg
+Name[pl]=Wtyczka Kontact
 Name[pt]='Plugin' do Kontact
 Name[pt_BR]=Plug-in do Kontact
 Name[ru]=Модуль Kontact
@@ -38,4 +39,6 @@ Type=QString
 [PropertyDef::X-KDE-KontactPartExecutableName]
 Type=QString
 [PropertyDef::X-KDE-KontactPartLoadOnStart]
+Type=bool
+[PropertyDef::X-KDE-KontactPluginHasSummary]
 Type=bool
