@@ -122,7 +122,7 @@ int EntryItem::width( const QListBox *listbox) const
   else
     w = QMAX( (int)navigator()->viewMode(), listbox->fontMetrics().width( text() ) );
 
-  return w + 36;
+  return w + 26;
 }
 
 int EntryItem::height( const QListBox *listbox) const
