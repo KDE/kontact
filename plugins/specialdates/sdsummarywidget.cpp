@@ -93,10 +93,9 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   // Setup the Addressbook
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
-           SLOT( updateView() ) );
-
+           this, SLOT( updateView() ) );
   connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
-           SLOT( updateView() ) );
+           this, SLOT( updateView() ) );
 
   // Setup the Calendar
   mCalendar = new KCal::CalendarResources( KPimPrefs::timezone() );
@@ -127,9 +126,10 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   mCalendar = KOrg::StdCalendar::self();
   mCalendar->load();
 
-  connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
+  connect( mCalendar, SIGNAL( calendarChanged() ),
+           this, SLOT( updateView() ) );
   connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
-           SLOT( updateView() ) );
+           this, SLOT( updateView() ) );
 
   // Setup the Holidays
   KConfig hconfig( "korganizerrc" );
@@ -353,7 +353,11 @@ void SDSummaryWidget::updateView()
       } else if ( (*addrIt).daysTo == 1 ) {
         datestr = i18n( "Tomorrow" );
       } else {
-        datestr = KGlobal::locale()->formatDate( (*addrIt).date );
+        //Muck with the year -- change to the year 'daysTo' days away
+        int year = QDate::currentDate().addDays( (*addrIt).daysTo ).year();
+        QDate sD = QDate::QDate( year,
+                                 (*addrIt).date.month(), (*addrIt).date.day() );
+        datestr = KGlobal::locale()->formatDate( sD );
       }
       label = new QLabel( datestr, this );
       label->setAlignment( AlignLeft | AlignVCenter );
