@@ -28,6 +28,8 @@
 #include <kstartupinfo.h>
 #include <kuniqueapplication.h>
 #include <kwin.h>
+#include <ktrader.h>
+#include "plugin.h"
 
 #include <qlabel.h>
 #if (QT_VERSION-0 >= 0x030200)
@@ -57,6 +59,7 @@ class KontactApp : public KUniqueApplication {
 static KCmdLineOptions options[] =
 {
     { "module <module>",   I18N_NOOP("Open a specific kontact module."), 0 },
+    { "list", I18N_NOOP("List plugins that are run at startup."), 0 },
     KCmdLineLastOption
 };
 
@@ -69,8 +72,18 @@ int KontactApp::newInstance()
     {
         moduleName = QString::fromLocal8Bit(args->getOption("module"));
     }
-
-
+    else if (  args->isSet( "list" ) )
+    {
+        KTrader::OfferList offers = KTrader::self()->query(
+            QString::fromLatin1( "Kontact/Plugin" ),
+            QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
+        for(KService::List::Iterator it = offers.begin(); it != offers.end(); ++it)
+        {
+            KService::Ptr service = (*it);
+            printf("%s\n", service->library().latin1());
+        }
+        return 0;
+    }
     QWidget* splash = 0;
   if ( !mMainWindow ) // only the first time
   {
