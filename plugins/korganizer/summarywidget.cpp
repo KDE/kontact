@@ -103,12 +103,13 @@ void SummaryWidget::updateView()
 
   QLabel *label = 0;
   int counter = 0;
-  QPtrList<KCal::Event> events = mCalendar->events( QDate::currentDate(), true );
+  KCal::Event::List events = mCalendar->events( QDate::currentDate(), true );
   if ( events.count() > 0 ) {
     QPixmap pm = loader.loadIcon( "appointment", KIcon::Small );
 
-    KCal::Event *ev = events.first();
-    while ( ev && counter < 5 ) {
+    KCal::Event::List::ConstIterator it2;
+    for( it2 = events.begin(); it2 != events.end() && counter < 5; ++it2 ) {
+      KCal::Event *ev = *it2;
       if ( !ev->recurrence()->doesRecur() || ev->recursOn( QDate::currentDate() ) ) {
         if ( !ev->doesFloat() ) {
           label = new QLabel( this );
@@ -131,16 +132,15 @@ void SummaryWidget::updateView()
           counter++;
         }
       }
-
-      ev = events.next();
     }
   }
 
-  QPtrList<KCal::Todo> todos = mCalendar->todos();
+  KCal::Todo::List todos = mCalendar->todos();
   if ( todos.count() > 0 ) {
     QPixmap pm = loader.loadIcon( "todo", KIcon::Small );
-    KCal::Todo *todo = todos.first();
-    while ( todo ) {
+    KCal::Todo::List::ConstIterator it;
+    for( it = todos.begin(); it != todos.end(); ++it ) {
+      KCal::Todo *todo = *it;
       if ( todo->hasDueDate() && todo->dtDue().date() == QDate::currentDate() ) {
         label = new QLabel( this );
         label->setPixmap( pm );
@@ -156,8 +156,6 @@ void SummaryWidget::updateView()
 
         counter++;
       }
-
-      todo = todos.next();
     }
   }
 
