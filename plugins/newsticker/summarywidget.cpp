@@ -21,20 +21,23 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qclipboard.h>
 #include <qeventloop.h>
 #include <qhbox.h>
 #include <qlayout.h>
 #include <qpixmap.h>
+#include <qpopupmenu.h>
+#include <qcursor.h>
 
 #include <dcopclient.h>
 #include <kapplication.h>
+#include <kcharsets.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kurllabel.h>
-#include <kcharsets.h>
 
 #include "summarywidget.h"
 
@@ -218,6 +221,8 @@ void SummaryWidget::updateView()
 
     connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
              kapp, SLOT( invokeBrowser( const QString& ) ) );
+    connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+             this, SLOT( rmbMenu( const QString& ) ) );
 
     // header
     QLabel *label = new QLabel( hbox );
@@ -243,6 +248,9 @@ void SummaryWidget::updateView()
 
       connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
                kapp, SLOT( invokeBrowser( const QString& ) ) );
+      connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+               this, SLOT( rmbMenu( const QString& ) ) );
+
 
       numArticles++;
     }
@@ -255,6 +263,15 @@ void SummaryWidget::updateView()
 QStringList SummaryWidget::configModules() const
 {
   return "kcmkontactknt.desktop";
+}
+
+void SummaryWidget::rmbMenu( const QString& url )
+{
+  QPopupMenu menu;
+  menu.insertItem( i18n( "Copy URL to Clipboard" ) );
+  int id = menu.exec( QCursor::pos() );
+  if ( id != -1 )
+    kapp->clipboard()->setText( url, QClipboard::Clipboard );
 }
 
 #include "summarywidget.moc"

@@ -73,14 +73,16 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   public slots:
     void configChanged();
 
-  private slots:
+  protected slots:
     void updateDocuments();
+    void rmbMenu( const QString& );
 
-  private:
+  protected:
     void initDocuments();
     void updateView();
     void readConfig();
 
+  private:
     QVBoxLayout *mLayout;
     QWidget* mBaseWidget;
 
