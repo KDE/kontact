@@ -1,4 +1,4 @@
-INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/libkdepim -I$(top_srcdir) $(all_includes)
+INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/certmanager/lib -I$(top_srcdir)/libkdepim -I$(top_srcdir) $(all_includes)
 
 kde_module_LTLIBRARIES = libkontact_summaryplugin.la kcm_kontactsummary.la
 libkontact_summaryplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
