@@ -66,7 +66,10 @@ k_dcop:
 	* should do.
 	*/
 	virtual ASYNC quitNow() = 0;
-	virtual ASYNC reloadSettings() =0; // Indicate changed config file.
+	virtual ASYNC reloadSettings() = 0; // Indicate changed config file.
+	virtual void stopListening() = 0; 
+	virtual void startListening() = 0;
+	virtual bool isListening() =0 ;
 
 	/**
 	* Functions requesting the status of the daemon.
