@@ -32,6 +32,7 @@
 
 #include <dcopclient.h>
 #include <kapplication.h>
+#include <kcmultidialog.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kedittoolbar.h>
@@ -653,6 +654,7 @@ void MainWindow::slotPreferences()
   if( !dlg ) {
     dlg = new KSettings::Dialog( KSettings::Dialog::Configurable, this );
     dlg->addPluginInfos( mPluginInfos );
+    dlg->dialog()->setInitialSize( QSize( 900, 600 ) );
     connect( dlg, SIGNAL( pluginSelectionChanged() ),
          SLOT( pluginsChanged() ) );
 //    connect( dlg, SIGNAL( okClicked() ), SLOT( pluginsChanged() ) );
