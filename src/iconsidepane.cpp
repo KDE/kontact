@@ -102,8 +102,10 @@ void EntryItem::paint( QPainter *p )
   }
   // draw sunken
   if ( isCurrent() || isSelected() ) {
+    QColorGroup group = box->colorGroup();
+    group.setColor( QColorGroup::Dark, Qt::black );
     qDrawShadePanel( p, 1, 0, w - 2, height( box ),
-                     box->colorGroup(), true, 1, 0 );
+                     group, true, 1, 0 );
   }
 }
 
@@ -111,13 +113,17 @@ Navigator::Navigator( SidePaneBase *parent, const char *name)
   : KListBox( parent, name ), mSidePane( parent )
 {
   setSelectionMode( KListBox::Single );
+
+  viewport()->setBackgroundMode( PaletteDark );
+
   QPalette pal = palette();
-  QColor gray = pal.color(QPalette::Normal, QColorGroup::Mid );
-  pal.setColor( QPalette::Normal, QColorGroup::Base, gray );
-  pal.setColor( QPalette::Inactive, QColorGroup::Base, gray );
+  QColor gray = colorGroup().shadow();
+  pal.setColor( QPalette::Normal, QColorGroup::Text, Qt::white );
+  pal.setColor( QPalette::Inactive, QColorGroup::Text, Qt::white );
+  pal.setColor( QPalette::Normal, QColorGroup::HighlightedText, Qt::white );
+  pal.setColor( QPalette::Inactive, QColorGroup::HighlightedText, Qt::white );
 
   setPalette( pal );
-  viewport()->setBackgroundMode( PaletteMid );
 
   setHScrollBarMode( QScrollView::AlwaysOff );
 
