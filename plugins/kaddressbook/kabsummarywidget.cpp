@@ -83,6 +83,8 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   else
     mDCOPApp = "kontact";
 
+  mDaysAhead = 30; // ### make configurable
+
   updateView();
 }
 
@@ -99,12 +101,23 @@ void KABSummaryWidget::updateView()
   QDate currentDate( 0, QDate::currentDate().month(),
                      QDate::currentDate().day() );
 
+  QDate aheadTime = currentDate.addDays(mDaysAhead);
+
   KABC::AddressBook::Iterator it;
   for ( it = ab->begin(); it != ab->end(); ++it ) {
     QDate birthday = (*it).birthday().date();
     QDate anniversary = QDate::fromString(
           (*it).custom( "KADDRESSBOOK" , "X-Anniversary" ), Qt::ISODate );
-    if ( birthday.isValid() ) {
+
+    QDate birthdayCmp( birthday.year(), currentDate.month(), currentDate.day() );
+    QDate anniversaryCmp( anniversary.year(), currentDate.month(), currentDate.day() );
+    QDate birthdayCmpAhead = birthdayCmp.addDays(mDaysAhead);
+    QDate anniversaryCmpAhead = anniversaryCmp.addDays(mDaysAhead);
+
+    if ( ( birthday.isValid() )
+        && ( birthday >= birthdayCmp )
+        && ( birthday <= birthdayCmpAhead ) )
+    {
       QDate date( 0, birthday.month(), birthday.day() );
       KABDateEntry entry;
       entry.birthday = true;
@@ -123,7 +136,10 @@ void KABSummaryWidget::updateView()
       else
         nextDates.append( entry );
     }
-    if ( anniversary.isValid() ) {
+    if ( ( anniversary.isValid() )
+        && ( anniversary >= anniversaryCmp )
+        && ( anniversary <= anniversaryCmpAhead ) )
+     {
       QDate date( 0, anniversary.month(), anniversary.day() );
       KABDateEntry entry;
       entry.birthday = false;
