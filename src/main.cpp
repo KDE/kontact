@@ -54,9 +54,24 @@ class KontactApp : public KUniqueApplication {
     Kontact::MainWindow *mMainWindow;
 };
 
+static KCmdLineOptions options[] =
+{
+    { "module <module>",   I18N_NOOP("Open a specific kontact module."), 0 },
+    KCmdLineLastOption
+};
+
+
 int KontactApp::newInstance()
 {
-  QWidget* splash = 0;
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    QString moduleName;
+    if (args->isSet("module"))
+    {
+        moduleName = QString::fromLocal8Bit(args->getOption("module"));
+    }
+
+
+    QWidget* splash = 0;
   if ( !mMainWindow ) // only the first time
   {
     // show splash
@@ -82,8 +97,15 @@ int KontactApp::newInstance()
   } else {
     if ( !mMainWindow ) {
       mMainWindow = new Kontact::MainWindow;
+      if(!moduleName.isEmpty() )
+          mMainWindow->activePluginModule( moduleName );
       mMainWindow->show();
       setMainWidget( mMainWindow );
+    }
+    else
+    {
+        if ( !moduleName.isEmpty() )
+          mMainWindow->activePluginModule( moduleName );
     }
   }
 
@@ -107,6 +129,8 @@ int main(int argc, char **argv)
   about.addAuthor( "Matthias Hoelzer-Kluepfel", I18N_NOOP("Original Author"), "mhk@kde.org" );
 
   KCmdLineArgs::init( argc, argv, &about );
+  KCmdLineArgs::addCmdLineOptions( options );
+  KApplication::addCmdLineOptions();
 
   if ( !KontactApp::start() ) {
     kdError() << "Kontact is already running!" << endl;

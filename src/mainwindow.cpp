@@ -130,6 +130,17 @@ MainWindow::~MainWindow()
   Prefs::self()->writeConfig();
 }
 
+void MainWindow::activePluginModule( const QString &_module )
+{
+    PluginList::ConstIterator end = mPlugins.end();
+    for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
+        if ( ( *it )->identifier().contains( _module ) ) {
+            selectPlugin( *it );
+            return;
+        }
+}
+
+
 void MainWindow::initWidgets()
 {
   QHBox *topWidget = new QHBox( this );
