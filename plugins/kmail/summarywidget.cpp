@@ -71,9 +71,15 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
   mTimer.start( 0 );
 }
 
+void SummaryWidget::show()
+{
+  timeout();
+  QWidget::show();
+}
+
 void SummaryWidget::raisePart()
 {
-	mPlugin->showPart(mPlugin);
+  mPlugin->showPart(mPlugin);
 }
 
 void SummaryWidget::timeout()

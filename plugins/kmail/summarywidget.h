@@ -43,6 +43,9 @@ class SummaryWidget : public QWidget
   public:
     SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
 
+  public slots:
+    virtual void show(); 
+	
   protected slots:
     void timeout();
     void raisePart();
