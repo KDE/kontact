@@ -6,6 +6,8 @@
 	<Merge/>
 	<Separator/>
     <Action name="action_new"/>
+	<Separator/>
+    <Action name="file_quit"/>
 	<Merge/>
   </Menu>
   <Menu name="edit" noMerge="1">
