@@ -21,9 +21,11 @@
 
 #include "sidepanebase.h"
 
-#include <qpushbutton.h>
-#include <qvbox.h>
+#include <qguardedptr.h>
 #include <qptrlist.h>
+#include <qpushbutton.h>
+#include <qvaluelist.h>
+#include <qvbox.h>
 
 class QWidgetStack;
 class QLabel;
@@ -100,7 +102,7 @@ namespace Kontact
       QWidgetStack* m_contentStack;
       QLabel* m_headerWidget;
       QPtrList<PanelButton> m_buttonList;
-      QPtrList<QWidget> m_contentList;
+      QValueList<QGuardedPtr<QWidget> > m_contentList;
   };
 
 }

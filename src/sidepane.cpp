@@ -179,9 +179,11 @@ SidePane::SidePane( Core* core, QWidget *parent, const char* name )
 
 SidePane::~SidePane()
 {
-  QWidget *wdg;
-  for ( wdg = m_contentList.first(); wdg; wdg = m_contentList.next() )
-    wdg->reparent( 0, 0, QPoint( 0, 0 ) );
+  QValueList<QGuardedPtr<QWidget> >::Iterator it;
+  for ( it = m_contentList.begin(); it != m_contentList.end(); ++it ) {
+    if ( (*it) )
+      (*it)->reparent( 0, 0, QPoint( 0, 0 ) );
+  }
 }
 
 void SidePane::switchSidePaneWidget( Kontact::Plugin *plugin )
@@ -200,7 +202,8 @@ void SidePane::switchSidePaneWidget( Kontact::Plugin *plugin )
 
   if (m_contentStack->id(sbe->widget()) == -1) {
     m_contentStack->addWidget(sbe->widget());
-    m_contentList.append( sbe->widget() );
+    QGuardedPtr<QWidget> ptr = sbe->widget();
+    m_contentList.append( ptr );
   }
 
   m_contentStack->raiseWidget(sbe->widget());
