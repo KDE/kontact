@@ -196,6 +196,9 @@ void SummaryViewPart::updateWidgets()
 
   mMainWidget->setUpdatesEnabled( true );
   mMainWidget->update();
+
+  mLeftColumn->addStretch();
+  mRightColumn->addStretch();
 }
 
 void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget )
