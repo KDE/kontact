@@ -55,6 +55,7 @@
 #include <ktrader.h>
 #include <ksettings/componentsdialog.h>
 #include <kstringhandler.h>
+#include <krsqueezedtextlabel.h>
 
 #include <infoextension.h>
 
@@ -256,10 +257,10 @@ void MainWindow::initWidgets()
 
   mLittleProgress = new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
 
-  mStatusMsgLabel = new KStatusBarLabel( i18n( " Initializing..." ), 1, statusBar() );
+  mStatusMsgLabel = new KRSqueezedTextLabel( i18n( " Initializing..." ), statusBar() );
   mStatusMsgLabel->setAlignment( AlignLeft | AlignVCenter );
 
-  statusBar()->addWidget( mStatusMsgLabel, 1 , false );
+  statusBar()->addWidget( mStatusMsgLabel, 10 , false );
   statusBar()->addWidget( mLittleProgress, 0 , true );
   mLittleProgress->show();
 }
@@ -846,10 +847,8 @@ bool MainWindow::queryClose()
 
 void MainWindow::slotShowStatusMsg( const QString &msg )
 {
-  if ( !statusBar() || !mStatusMsgLabel ) return;
-  int statusWidth = mStatusMsgLabel->width() - fontMetrics().maxWidth();
-  QString text = KStringHandler::rPixelSqueeze( " " + msg, fontMetrics(),
-                                                statusWidth );
-  mStatusMsgLabel->setText( text );
+  if ( !statusBar() || !mStatusMsgLabel )
+     return;
+  mStatusMsgLabel->setText( msg );
 }
 #include "mainwindow.moc"
