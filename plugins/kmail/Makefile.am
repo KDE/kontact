@@ -1,5 +1,5 @@
 INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/kmail \
-           -I$(top_builddir)/libkdepim -I$(top_srcdir)/libkdepim \
+           -I$(top_builddir)/libkdepim -I$(top_builddir)/libkdepim \
            -I$(top_srcdir) $(all_includes)
 
 kde_module_LTLIBRARIES = libkontact_kmailplugin.la kcm_kmailsummary.la

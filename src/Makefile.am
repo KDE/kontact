@@ -1,4 +1,4 @@
-INCLUDES = -I$(top_builddir)/libkdepim -I$(top_srcdir)/libkdepim \
+INCLUDES = -I$(top_builddir)/libkdepim -I$(top_builddir)/libkdepim \
   -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir) $(all_includes)
 
 lib_LTLIBRARIES = libkontact.la

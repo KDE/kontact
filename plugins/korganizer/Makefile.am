@@ -1,6 +1,6 @@
 # top_srcdir/korganizer is a hack, to get korganizeriface.h
 INCLUDES = -I$(top_srcdir)/kontact/interfaces \
-  -I$(top_builddir)/libkdepim -I$(top_srcdir)/libkdepim \
+  -I$(top_builddir)/libkdepim -I$(top_builddir)/libkdepim \
   -I$(top_srcdir)/korganizer \
   -I$(top_srcdir) $(all_includes)
 
