@@ -1,5 +1,6 @@
 [KontactSummary]
 Name=Summary
+Name[br]=Diverrañ
 Name[bs]=Sažetak
 Name[ca]=Resum
 Name[cs]=Souhrn
@@ -46,6 +47,7 @@ Icon=kontact_summary
 [KMail]
 Name=Mail
 Name[be]=Пошта
+Name[br]=Lizher
 Name[ca]=Correu
 Name[cs]=Pošta
 Name[cy]=Ebost
@@ -138,6 +140,7 @@ Icon=kontact_contacts
 [KOrganizer]
 Name=Calendar
 Name[be]=Каляндар
+Name[br]=Deiziadur
 Name[bs]=Kalendar
 Name[ca]=Calendari
 Name[cs]=Kalendář
@@ -184,6 +187,7 @@ Icon=kontact_date
 [KNode]
 Name=News
 Name[be]=Навіны
+Name[br]=Keleier
 Name[bs]=Usenet
 Name[ca]=Notícies
 Name[cs]=Novinky
@@ -269,6 +273,7 @@ Name[xx]=xxWeatherxx
 Name[zh_CN]=天气
 Comment=Weather Information
 Comment[be]=Інфармацыя пра надвор’е
+Comment[cy]=Gwybodaeth Dywydd
 Comment[es]=Información meteorológica
 Comment[sv]=Väderrapport
 Weight=1000
