@@ -4,13 +4,15 @@ UNTIL KDE 3.2
 - merge config of parts into a unified config dialog
 - same for unified credits
 - find a solution for a setup wizard
-- replace Splash class with QSplashScreen
-- make the "new" action a bit smarter, involves changes in KActionMenu
+- replace Splash class with QSplashScreen                      (done)
+- make the "new" action a bit smarter                          (done)
+- make korganizers part offer the normal dcop interface
 - move plugins to respective apps for code sharing(?)
 - Summary (what's next) view (slueppken)
 - Basic groupware functionality (Exchange 2k and Kolab)
 - make the headerWidget look nicer (we might use KIconLoader
-  for larger icons) (slueppken)
+  for larger icons) (slueppken)                                (done)
+- make all parts user the InfoExtension
 	
 LATER
 ======
