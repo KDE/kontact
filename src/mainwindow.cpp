@@ -135,8 +135,8 @@ void MainWindow::initWidgets()
                                               QSizePolicy::Preferred ) );
       break;
   }
-  connect( m_sidePane, SIGNAL( pluginSelected( Kontact::Plugin* ) ),
-           SLOT( selectPlugin( Kontact::Plugin* ) ) );
+  connect( m_sidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
+           SLOT( selectPlugin( Kontact::Plugin * ) ) );
 
   QVBox *vBox = new QVBox( m_splitter );
 
@@ -335,6 +335,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   KParts::Part *part = plugin->part();
 
+  plugin->select();
+
   QPtrList<KParts::Part> *partList = const_cast<QPtrList<KParts::Part>*>( m_partManager->parts() );
   if ( partList->find( part ) == -1 )
     addPart( part );
@@ -495,8 +497,8 @@ void MainWindow::updateConfig()
     m_sidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                QSizePolicy::Preferred ) );
 
-    connect( m_sidePane, SIGNAL( pluginSelected( Kontact::Plugin* ) ),
-             SLOT( selectPlugin( Kontact::Plugin* ) ) );
+    connect( m_sidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
+             SLOT( selectPlugin( Kontact::Plugin * ) ) );
 
     m_splitter->moveToFirst( m_sidePane );
 
