@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Service
-Icon=korganizer_todo
+Icon=kontact-todo
 ServiceTypes=Kontact/Plugin
 
 X-KDE-Library=libkontact_todoplugin
