@@ -208,12 +208,12 @@ void SummaryWidget::updateView()
   for ( it = mFeeds.begin(); it != mFeeds.end(); ++it ) {
     QHBox *hbox = new QHBox( mBaseWidget );
     mLayout->addWidget( hbox );
-    hbox->show();
 
     // icon
     KURLLabel *urlLabel = new KURLLabel( hbox );
     urlLabel->setURL( (*it).url );
     urlLabel->setPixmap( (*it).logo );
+    urlLabel->setMaximumSize( urlLabel->minimumSizeHint() );
     mLabels.append( urlLabel );
 
     connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
@@ -223,12 +223,13 @@ void SummaryWidget::updateView()
     QLabel *label = new QLabel( hbox );
     label->setText( KCharsets::resolveEntities( (*it).title ) );
     label->setAlignment( AlignLeft|AlignVCenter );
-    label->setTextFormat( RichText );
     label->setFont( boldFont );
     label->setIndent( 6 );
-    label->setSizePolicy( QSizePolicy::MinimumExpanding,
-                          QSizePolicy::Preferred );
+    label->setMaximumSize( label->minimumSizeHint() );
     mLabels.append( label );
+
+    hbox->setMaximumWidth( hbox->minimumSizeHint().width() );
+    hbox->show();
 
     // articles
     ArticleMap articles = (*it).map;
