@@ -1,85 +1,87 @@
-/*
-    This file is part of Kontact.
-    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+	/*
+	    This file is part of Kontact.
+	    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+	    This program is free software; you can redistribute it and/or modify
+	    it under the terms of the GNU General Public License as published by
+	    the Free Software Foundation; either version 2 of the License, or
+	    (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+	    This program is distributed in the hope that it will be useful,
+	    but WITHOUT ANY WARRANTY; without even the implied warranty of
+	    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	    GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+	    You should have received a copy of the GNU General Public License
+	    along with this program; if not, write to the Free Software
+	    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
-*/
+	    As a special exception, permission is given to link this program
+	    with any edition of Qt, and distribute the resulting executable,
+	    without including the source code for Qt in the source distribution.
+	*/
 
-#include <qlabel.h>
-#include <qlayout.h>
+	#include <qlabel.h>
+	#include <qlayout.h>
 
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kparts/part.h>
-#include <kstandarddirs.h>
-#include <kurllabel.h>
-#include <libkcal/event.h>
-#include <libkcal/resourcecalendar.h>
-#include <libkcal/resourcelocal.h>
+	#include <kdialog.h>
+	#include <kglobal.h>
+	#include <kiconloader.h>
+	#include <klocale.h>
+	#include <kparts/part.h>
+	#include <kstandarddirs.h>
+	#include <kurllabel.h>
+	#include <libkcal/event.h>
+	#include <libkcal/resourcecalendar.h>
+	#include <libkcal/resourcelocal.h>
 
-#include "core.h"
-#include "plugin.h"
-#include "korganizerplugin.h"
+	#include "core.h"
+	#include "plugin.h"
+	#include "korganizerplugin.h"
 
-#include "summarywidget.h"
+	#include "summarywidget.h"
 
-SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
-                              const char *name )
-  : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 )
-{
-  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+	SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
+				      const char *name )
+	  : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 )
+	{
+	  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "korganizer", 
-                   KIcon::Desktop, KIcon::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "Appointments" ) );
-  mainLayout->addWidget( header );
+	  QPixmap icon = KGlobal::iconLoader()->loadIcon( "korganizer", 
+			   KIcon::Desktop, KIcon::SizeMedium );
+	  QWidget *header = createHeader( this, icon, i18n( "Appointments" ) );
+	  mainLayout->addWidget( header );
 
-  mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
-  mLayout->setRowStretch( 6, 1 );
+	  mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
+	  mLayout->setRowStretch( 6, 1 );
 
-  KConfig config( "korganizerrc" );
-  mCalendar = new KCal::CalendarResources( config.readEntry( "TimeZoneId" ) );
-  KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
-  mCalendar->readConfig();
-  if ( manager->isEmpty() ) {
-    config.setGroup( "General" );
-    QString fileName = config.readPathEntry( "Active Calendar" );
+	  KConfig config( "korganizerrc" );
+	  mCalendar = new KCal::CalendarResources( config.readEntry( "TimeZoneId" ) );
+	  KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
+	  mCalendar->readConfig();
+	  if ( manager->isEmpty() ) {
+	    config.setGroup( "General" );
+	    QString fileName = config.readPathEntry( "Active Calendar" );
 
-    QString resourceName;
-    if ( fileName.isEmpty() ) {
-      fileName = locateLocal( "data", "korganizer/std.ics" );
-      resourceName = i18n( "Default KOrganizer resource" );
-    } else {
-      resourceName = i18n( "Active Calendar" );
-    }
+	    QString resourceName;
+	    if ( fileName.isEmpty() ) {
+	      fileName = locateLocal( "data", "korganizer/std.ics" );
+	      resourceName = i18n( "Default KOrganizer resource" );
+	    } else {
+	      resourceName = i18n( "Active Calendar" );
+	    }
 
-    KCal::ResourceCalendar *defaultResource =
-                             new KCal::ResourceLocal( fileName );
+	    KCal::ResourceCalendar *defaultResource =
+				     new KCal::ResourceLocal( fileName );
 
-    defaultResource->setResourceName( resourceName );
+	    defaultResource->setResourceName( resourceName );
 
-    manager->add( defaultResource );
-    manager->setStandardResource( defaultResource );
-  }
+	    manager->add( defaultResource );
+	    manager->setStandardResource( defaultResource );
+	  }
 
+  config.setGroup( "Date & Time" );
+  mCalendar->setTimeZoneId( config.readEntry( "TimeZoneId" ) );
   mCalendar->load();
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );

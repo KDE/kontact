@@ -81,6 +81,8 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
     manager->setStandardResource( defaultResource );
   }
 
+  config.setGroup( "Date & Time" );
+  mCalendar->setTimeZoneId( config.readEntry( "TimeZoneId" ) );
   mCalendar->load();
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
