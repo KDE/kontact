@@ -43,9 +43,9 @@
 
 #include "summarywidget.h"
 
-SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, 
+SummaryWidget::SummaryWidget( Kontact::Plugin *plugin,
                               QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ), mLayout( 0 ), mMainLayout( 0 ), 
+  : Kontact::Summary( parent, name ), mLayout( 0 ), mMainLayout( 0 ),
     mPlugin( plugin )
 {
   mMainLayout = new QVBoxLayout( this, 3, 3 );
@@ -80,17 +80,16 @@ void SummaryWidget::updateView()
 
   KCal::Journal::List::Iterator it;
   for (it = mNotes.begin(); it != mNotes.end(); ++it) {
-    KURLLabel *urlLabel = new KURLLabel( 
+    KURLLabel *urlLabel = new KURLLabel(
         (*it)->uid(), (*it)->summary(), this );
     urlLabel->setTextFormat(RichText);
+    urlLabel->show();
     mLayout->addWidget( urlLabel );
     mLabels.append( urlLabel );
 
     connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
         this, SLOT( urlClicked( const QString& ) ) );
   }
-
-  mLayout->addStretch();
 }
 
 void SummaryWidget::urlClicked( const QString &/*uid*/ )
