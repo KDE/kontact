@@ -31,9 +31,12 @@
 #include <klocale.h>
 #include <kiconloader.h>
 #include <kaboutdata.h>
+#include <kactivelabel.h>
 
 #include <qlayout.h>
 #include <qlabel.h>
+
+#include <kdebug.h>
 
 using namespace Kontact;
 
@@ -74,46 +77,52 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
   } else {
     QString text;
     
-    text += "<b>" + about->programName() + "</b><br>";
+    text += "<p><b>" + about->programName() + "</b><br>";
     
-    text += i18n("Version %1<br>").arg( about->version() );
+    text += i18n("Version %1</p>").arg( about->version() );
 
     QString home = about->homepage();
     if ( !home.isEmpty() ) {
-      text += "<a href=\"" + home + ">" + home + "</a><br>";
+      text += "<a href=\"" + home + "\">" + home + "</a><br>";
     }
   
     QValueList<KAboutPerson> authors = about->authors();
     if ( !authors.isEmpty() ) {
-      text += "<b>Authors:</b><br>";
+      text += "<p><b>Authors:</b></p>";
     
       QValueList<KAboutPerson>::ConstIterator it;
       for( it = authors.begin(); it != authors.end(); ++it ) {
-        text += (*it).name() + "<br>";
+        text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() + 
+                "\">" + (*it).emailAddress() + "</a>&gt;<br>";
+        if (!(*it).task().isEmpty()) text += "<i>" + (*it).task() + "</i><br>";
       }
     }
   
     QValueList<KAboutPerson> credits = about->credits();
     if ( !credits.isEmpty() ) {
-      text += "<b>Thanks to:</b><br>";
+      text += "<p><b>Thanks to:</b></p>";
     
       QValueList<KAboutPerson>::ConstIterator it;
       for( it = credits.begin(); it != credits.end(); ++it ) {
-        text += (*it).name() + "<br>";
+        text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() + 
+                "\">" + (*it).emailAddress() + "</a>&gt;<br>";
+        if (!(*it).task().isEmpty()) text += "<i>" + (*it).task() + "</i><br>";
       }
     }
   
     QValueList<KAboutTranslator> translators = about->translators();
     if ( !translators.isEmpty() ) {
-      text += "<b>Translators:</b><br>";
+      text += "<p><b>Translators:</b></p>";
     
       QValueList<KAboutTranslator>::ConstIterator it;
       for( it = translators.begin(); it != translators.end(); ++it ) {
-        text += (*it).name() + "<br>";
+       text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() + 
+                "\">" + (*it).emailAddress() + "</a>&gt;<br>";
       }
     }
   
-    QLabel *label = new QLabel( text, topFrame );
+    KActiveLabel *label = new KActiveLabel( text, topFrame );
+	label->setAlignment( AlignTop );
     topLayout->addWidget( label );
   }
 }
