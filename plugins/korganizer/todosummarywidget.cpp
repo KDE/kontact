@@ -123,7 +123,7 @@ void TodoSummaryWidget::updateView()
       if ( todo->hasDueDate() && !todo->isCompleted() &&
            todo->dtDue().date() < QDate::currentDate() ) {
         accepted = accepted || true;
-        stateText = i18n( "overdued" );
+        stateText = i18n( "overdue" );
       }
 
       // show todos which started somewhere in the past and has to be finished in future
