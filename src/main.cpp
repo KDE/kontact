@@ -58,9 +58,9 @@ class KontactApp : public KUniqueApplication {
 
 static KCmdLineOptions options[] =
 {
-    { "module <module>",   I18N_NOOP("Open a specific Kontact module."), 0 },
+    { "module <module>",   I18N_NOOP("Start with a specific Kontact module."), 0 },
     { "nosplash",   I18N_NOOP("Disable the splash screen."), 0 },
-    { "list", I18N_NOOP("List plugins that are run at startup."), 0 },
+    { "list", I18N_NOOP("List all possible modules and exit."), 0 },
     KCmdLineLastOption
 };
 
@@ -81,7 +81,7 @@ int KontactApp::newInstance()
         for(KService::List::Iterator it = offers.begin(); it != offers.end(); ++it)
         {
             KService::Ptr service = (*it);
-            printf("%s\n", service->library().latin1());
+            printf("%s\n", service->library().remove( "libkontact_" ).latin1());
         }
         return 0;
     }
@@ -111,7 +111,7 @@ int KontactApp::newInstance()
   } else {
     if ( !mMainWindow ) {
       mMainWindow = new Kontact::MainWindow;
-      if(!moduleName.isEmpty() )
+      if ( !moduleName.isEmpty() )
           mMainWindow->activePluginModule( moduleName );
       mMainWindow->show();
       setMainWidget( mMainWindow );
