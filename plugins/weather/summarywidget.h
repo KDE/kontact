@@ -35,6 +35,8 @@
 #include <qtimer.h>
 #include <qwidget.h>
 
+#include <kprocess.h>
+
 class QGridLayout;
 class QLabel;
 class QVBoxLayout;
@@ -95,7 +97,8 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     void updateView();
     void timeout();
     void slotShowReport(const QString&);
-
+    void slotReportFinished(KProcess*);
+    
   private:
     QStringList mStations;
     QMap<QString, WeatherData> mWeatherMap;
@@ -105,7 +108,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QPtrList<QGridLayout> mLayouts;
     QVBoxLayout *mLayout;
     
-    bool m_hasShowReport;   // can be removed after the release of kdetoys/kweather has showReport implemented
+    KProcess* mProc;
 };
 
 #endif

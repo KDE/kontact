@@ -39,7 +39,7 @@
 
 SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ),
-    DCOPObject( "WeatherSummaryWidget" )
+    DCOPObject( "WeatherSummaryWidget" ), mProc( 0 )
 {
   mLayout = new QVBoxLayout( this );
   mLayout->setAlignment( Qt::AlignTop );
@@ -50,7 +50,6 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
   QString error;
   QCString appID;
-  m_hasShowReport = false;   //will be obsolete when kdetoys/kweather has showReport implemented
   bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "KWeatherService" ) ) {
     if ( KApplication::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
@@ -74,20 +73,9 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
     } else {
       kdDebug(5602) << "ERROR: dcop reply not valid..." << endl;
     }
-    
-    //check for weatherservice::showReport(QString)
-    QCStringList functions = kapp->dcopClient()->remoteFunctions("KWeatherService", "WeatherService");
-    QValueList<QCString>::Iterator it;
-   
-    for (it = functions.begin(); it != functions.end(); ++it){
-      if ((*it).contains("showReport")){
-	m_hasShowReport = true;
-	break;
-       }
-     }
-    }
-   // this check ^^^  will be obsolete after the release of kdetoys/kweather with showReport implemented
+  }
 }
+   
 
 void SummaryWidget::updateView()
 {
@@ -120,27 +108,17 @@ void SummaryWidget::updateView()
     QGridLayout *layout = new QGridLayout( mLayout, 3, 3, 3 );
     mLayout->addStretch( 10 );
     mLayouts.append( layout );
-	// this condition will be obsolete after the release of kdetoys/kweather with showReport implemented.
-     if (m_hasShowReport) {
-	KURLLabel* urlLabel = new KURLLabel(this);
-	urlLabel->installEventFilter(this);
-	urlLabel->setURL((*it).stationID());
-	urlLabel->setPixmap( img.smoothScale( 32, 32 ) );
-	urlLabel->setMaximumSize(urlLabel->sizeHint());
-	urlLabel->setAlignment(/* AlignRight |*/ AlignTop );
-	layout->addMultiCellWidget( urlLabel, 0, 1, 0, 0 );
-	mLabels.append( urlLabel );
-	connect (urlLabel, SIGNAL(leftClickedURL( const QString&) ),
+    
+    KURLLabel* urlLabel = new KURLLabel(this);
+    urlLabel->installEventFilter(this);
+    urlLabel->setURL((*it).stationID());
+    urlLabel->setPixmap( img.smoothScale( 32, 32 ) );
+    urlLabel->setMaximumSize(urlLabel->sizeHint());
+    urlLabel->setAlignment(/* AlignRight |*/ AlignTop );
+    layout->addMultiCellWidget( urlLabel, 0, 1, 0, 0 );
+    mLabels.append( urlLabel );
+    connect (urlLabel, SIGNAL(leftClickedURL( const QString&) ),
     	this, SLOT(slotShowReport(const QString& )));
-    }
-    else {                   // when this if is obsolete just get rid of this else.
-    	QLabel* label= new QLabel(this);
-	label->setPixmap( img.smoothScale( 32, 32 ) );
-	label->setMaximumSize(label->sizeHint());
-	label->setAlignment(/* AlignRight |*/ AlignTop );
-	layout->addMultiCellWidget( label, 0, 1, 0, 0 );
-	mLabels.append( label);
-     }
     
     QLabel* label = new QLabel( this );
     label->setText( QString( "%1 (%2)" ).arg( (*it).name() ).arg( (*it).temperature() ) );
@@ -209,11 +187,19 @@ QStringList SummaryWidget::configModules() const
   return QStringList( "kcmweatherservice.desktop" );
 }
 
-
 void SummaryWidget::slotShowReport(const QString &stationID)
 {
-  DCOPRef dcopCall( "KWeatherService", "WeatherService" );
-  DCOPReply reply = dcopCall.call( "showReport(QString)", stationID, true );
+  mProc = new KProcess;
+  QApplication::connect(mProc, SIGNAL(processExited(KProcess *)),
+	this, SLOT(slotReportFinished(KProcess* )));
+  *mProc << "kweatherreport";
+  *mProc << stationID;
+  mProc->start();
+}
+
+void SummaryWidget::slotReportFinished(KProcess* proc){
+ delete mProc;
+ mProc = 0;
 }
 
 #include "summarywidget.moc"
