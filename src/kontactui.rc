@@ -28,6 +28,7 @@
 </MenuBar>
 <ToolBar position="Top" iconText="IconOnly" noMerge="1" name="mainToolBar">
   <Action name="action_new"/>
+  <Merge/>
   <Action name="help_whats_this"/>
 </ToolBar>
 </kpartgui>
