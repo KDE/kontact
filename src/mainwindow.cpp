@@ -46,6 +46,7 @@
 #include <kshortcut.h>
 #include <kcmultidialog.h>
 #include <khelpmenu.h>
+#include <kmessagebox.h>
 
 #include <dcopclient.h>
 
@@ -338,6 +339,12 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     m_sidePane->selectPlugin( plugin );
 
   KParts::Part *part = plugin->part();
+
+  if ( !part ) {
+    KMessageBox::error( this, i18n("Can't load Part for %1")
+                              .arg( plugin->title() ) );
+    return;
+  }
 
   plugin->select();
 
