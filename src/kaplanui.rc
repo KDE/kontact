@@ -21,10 +21,6 @@
      <text>&amp;Settings</text>
 	 <Merge/>
   </Menu>
-  <Menu noMerge="1" name="help">
-    <text>&amp;Help</text>
-    <Merge/>
-  </Menu>
 </MenuBar>
 <ToolBar position="Top" iconText="IconOnly" noMerge="1" name="mainToolBar">
   <Action name="action_new"/>
