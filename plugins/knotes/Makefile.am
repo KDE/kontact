@@ -1,4 +1,4 @@
-INCLUDES = -I$(top_srcdir)/kontact/interfaces $(all_includes)
+INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir) $(all_includes)
 
 kde_module_LTLIBRARIES = libkpknotesplugin.la
 libkpknotesplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN) -lkdepim
