@@ -22,7 +22,7 @@ KOrganizerPlugin::KOrganizerPlugin(Kaplan::Core *_core, const char *name, const 
 
   setXMLFile("kpkorganizerplugin.rc");
 
-  core()->addMainEntry("Dates", "korganizer", this, SLOT(slotShowPlugin()));
+  core()->addMainEntry(i18n("Dates"), "korganizer", this, SLOT(slotShowPlugin()));
 }
 
 

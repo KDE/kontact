@@ -1,2 +1,2 @@
-SUBDIRS = test korganizer kaddressbook
+SUBDIRS = test korganizer kaddressbook knotes
 

@@ -1,0 +1,14 @@
+<!DOCTYPE kpartgui>
+<kpartplugin name="kpknotesplugin" library="libkpknotesplugin" version="1">
+<!--
+<MenuBar>
+ <Menu name="edit"><Text>&amp;Edit</Text>
+  <Action name="edit_newnote"/>
+ </Menu>
+</MenuBar>
+-->
+<ToolBar>
+  <Action name="edit_newnote"/>
+</ToolBar>
+</kpartplugin>
+

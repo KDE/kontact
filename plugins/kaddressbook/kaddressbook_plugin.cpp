@@ -24,7 +24,7 @@ KAddressbookPlugin::KAddressbookPlugin(Kaplan::Core *_core, const char *name, co
 
   setXMLFile("kpkaddressbookplugin.rc");
 
-  core()->addMainEntry("Contacts", "kaddressbook", this, SLOT(slotShowPlugin()));
+  core()->addMainEntry(i18n("Contacts"), "kaddressbook", this, SLOT(slotShowPlugin()));
 }
 
 

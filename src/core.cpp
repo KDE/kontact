@@ -14,6 +14,7 @@
 #include <kparts/componentfactory.h>
 #include <klocale.h>
 #include <kiconloader.h>
+#include <kstatusbar.h>
 
 #include "kpplugin.h"
 
@@ -27,14 +28,16 @@ Core::Core()
 {
   // create the GUI
   QHBox *box = new QHBox(this);	
-
+  box->setFrameStyle(  QFrame::Panel | QFrame::Sunken );
+  
   m_navigator = new Navigator(box);
   m_navigator->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
   
   m_stack = new QWidgetStack(box);
 
   setCentralWidget(box);
- 
+
+  statusBar()->show();
   // prepare the part manager
   m_partManager = new KParts::PartManager(this);
   connect(m_partManager, SIGNAL(activePartChanged(KParts::Part *)), this, SLOT(activePartChanged(KParts::Part *))); 

@@ -1,6 +1,7 @@
 #include <kmessagebox.h>
 #include <kaction.h>
 #include <kgenericfactory.h>
+#include <kstatusbar.h>
 
 #include "kpcore.h"
 
@@ -20,9 +21,8 @@ TestPlugin::TestPlugin(Kaplan::Core *_core, const char *name, const QStringList 
   
   setXMLFile("kptestplugin.rc");
 
-  core()->addMainEntry("Mail", "kmail", this, SLOT(slotTestMenu()));
-  core()->addMainEntry("News", "knode", this, SLOT(slotTestMenu()));
-  core()->addMainEntry("Notes", "knotes", this, SLOT(slotShowNotes()));
+  core()->addMainEntry(i18n("Mail"), "kmail", this, SLOT(slotTestMenu()));
+  core()->addMainEntry(i18n("News"), "knode", this, SLOT(slotTestMenu()));
 }
 
 
@@ -33,7 +33,7 @@ TestPlugin::~TestPlugin()
 
 void TestPlugin::slotTestMenu()
 {
-  KMessageBox::information(0, "Test menu activated");
+  core()->statusBar()->message("Test menu activated");
 }
 
 
