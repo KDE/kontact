@@ -1,4 +1,6 @@
-/* This file is part of the KDE project
+/*
+   This file is part of KDE Kontact.
+
    Copyright (C) 2003 Sven Lüppken <sven@kde.org>
 
    This library is free software; you can redistribute it and/or
@@ -15,7 +17,7 @@
    along with this library; see the file COPYING.LIB.  If not, write to
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
- */
+*/
 
 #ifndef __SUMMARYVIEW_PLUGIN_H__
 #define __SUMMARYVIEW_PLUGIN_H__
@@ -29,18 +31,19 @@ class SummaryView : public Kontact::Plugin
 
 public:
 
-	SummaryView(Kontact::Core *core, const char *name, const QStringList & /*args*/);
-	~SummaryView();
+  SummaryView( Kontact::Core *, const char *name, const QStringList & /*args*/);
+  ~SummaryView();
 
-	virtual KParts::Part* part();
+  int weight() const { return -100; }
+
+  virtual KParts::Part *part();
 //  virtual bool createDCOPInterface( const QString& serviceType );
 
 //protected slots:
 //  void slotNewMail();
 
 private:
-	KParts::ReadOnlyPart *m_part;
-	QPtrList<Kontact::Plugin> m_plugins;
+  KParts::ReadOnlyPart *m_part;
 };
 
 #endif

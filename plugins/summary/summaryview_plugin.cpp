@@ -33,27 +33,27 @@
 typedef KGenericFactory< SummaryView, Kontact::Core > SummaryViewFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpsummaryplugin, SummaryViewFactory( "kpsummaryplugin" ) );
 
-SummaryView::SummaryView(Kontact::Core *_core, const char*, const QStringList &)
-  : Kontact::Plugin(i18n("Summary"), "summary", _core, _core, "summary"), m_part(0)
+SummaryView::SummaryView( Kontact::Core *core, const char *, const QStringList & )
+  : Kontact::Plugin(i18n("Summary"), "summary", core, core, "summary"),
+    m_part( 0 )
 {
-	setInstance(SummaryViewFactory::instance());
+  setInstance( SummaryViewFactory::instance() );
 
   //insertNewAction(new KAction("Summarry", 0, this, SLOT(slotTestMenu()), actionCollection(), "edit_test"));
 
-   m_plugins = _core->pluginList();
-   setXMLFile("kpsummaryplugin.rc");
+  setXMLFile("kpsummaryplugin.rc");
 }
 
 SummaryView::~SummaryView()
 {
 }
 
-KParts::Part* SummaryView::part()
+KParts::Part *SummaryView::part()
 {
-	if (!m_part)
-	{
-		m_part = new SummaryViewPart(m_plugins, core(), "summarypartframe", this, "summarypart" );
-	}
+  if ( !m_part ) {
+    m_part = new SummaryViewPart( core(), "summarypartframe", this,
+                                  "summarypart" );
+  }
 
-	return m_part;
+  return m_part;
 }

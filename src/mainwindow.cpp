@@ -190,6 +190,10 @@ void MainWindow::loadPlugins()
 {
   KTrader::OfferList offers = KTrader::self()->query( QString::fromLatin1( "Kontact/Plugin" ), QString::null );
 
+  QPtrList<Plugin> plugins;
+
+  uint i;
+
   for ( KTrader::OfferList::ConstIterator it = offers.begin(); it != offers.end(); ++it )
   {
     kdDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
@@ -197,6 +201,17 @@ void MainWindow::loadPlugins()
       ::createInstanceFromService<Kontact::Plugin>( *it, this );
     if ( !plugin )
       continue;
+
+    for( i = 0; i < plugins.count(); ++i ) {
+      Plugin *p = plugins.at( i );
+      if ( plugin->weight() < p->weight() ) break;
+    }
+    plugins.insert( i, plugin );
+  }
+
+  for( i = 0; i < plugins.count(); ++ i ) {
+    Plugin *plugin = plugins.at( i );
+
     KAction *action;
     QPtrList<KAction> *actionList = plugin->newActions();
 	

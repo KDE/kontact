@@ -1,4 +1,6 @@
-/* This file is part of the KDE project
+/*
+   This file is part of KDE Kontact.
+
    Copyright (C) 2003 Sven Lüppken <sven@kde.org>
 
    This library is free software; you can redistribute it and/or
@@ -15,7 +17,7 @@
    along with this library; see the file COPYING.LIB.  If not, write to
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
- */
+*/
 
 #include "summaryview_part.h"
 
@@ -42,23 +44,23 @@
 
 namespace Kontact
 {
-     class MainWindow;
-};
+  class MainWindow;
+}
 
-SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins,
-                                  QWidget* parentWidget, const char* widgetName,
+SummaryViewPart::SummaryViewPart( Kontact::Core *core,
+                                  const char *widgetName,
                                   QObject *parent, const char *name )
-  : KParts::ReadOnlyPart(parent, name )
+  : KParts::ReadOnlyPart( parent, name ), m_core( core )
 {
-	setInstance( new KInstance("summaryviewpart") ); // ## memleak
+  setInstance( new KInstance("summaryviewpart") ); // ## memleak
 
-	m_frame = new QFrame( parentWidget, widgetName );
-	m_frame->setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
-	setWidget(m_frame);
+  m_frame = new QFrame( core, widgetName );
+  m_frame->setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
+  setWidget(m_frame);
 
-	m_layout = new QGridLayout( m_frame, 4, 3, KDialog::marginHint(),
+  m_layout = new QGridLayout( m_frame, 4, 3, KDialog::marginHint(),
                               KDialog::spacingHint() );
-	//m_layout->setSpacing( 50 ); We should look later which spacing is appropriate here
+//  m_layout->setSpacing( 50 ); We should look later which spacing is appropriate here
 
   QFrame *frame = new QFrame( m_frame );
   frame->setFrameStyle( QFrame::VLine | QFrame::Sunken );
@@ -68,13 +70,13 @@ SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins,
   frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
   m_layout->addWidget( frame, 1, 0 );
 
-	setXMLFile("summaryparttui.rc");
+  setXMLFile("summaryparttui.rc");
   //new KAction( "new contact (test)", 0, this, SLOT( newContact() ), actionCollection(), "test_deleteevent" );
-	//new KParts::SideBarExtension( label, this, "sbe");
-	m_plugins = plugins;
-	kapp->dcopClient()->setNotifications( true );
+  //new KParts::SideBarExtension( label, this, "sbe");
 
-	getWidgets();
+  kapp->dcopClient()->setNotifications( true );
+
+  getWidgets();
 
   KParts::InfoExtension *info = new KParts::InfoExtension( this, "Summary" );
   connect( this, SIGNAL( textChanged( const QString& ) ),
@@ -86,7 +88,6 @@ SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins,
 SummaryViewPart::~SummaryViewPart()
 {
   kapp->dcopClient()->setNotifications( false );
-
 }
 
 bool SummaryViewPart::openFile()
@@ -98,10 +99,15 @@ bool SummaryViewPart::openFile()
 
 void SummaryViewPart::getWidgets()
 {
-	kdDebug() << "Adding the widgets..." << endl;
-	Kontact::Plugin *plugin;
-	for( plugin = m_plugins.first(); plugin; plugin = m_plugins.next() ) {
-		QWidget *wdg = plugin->createSummaryWidget( m_frame );
+  kdDebug() << "Adding the widgets..." << endl;
+
+  QPtrList<Kontact::Plugin> plugins = m_core->pluginList();
+  Kontact::Plugin *plugin;
+  for( plugin = plugins.first(); plugin; plugin = plugins.next() ) {
+    kdDebug() << "Summary::getWidgets(): PLUGIN: " << plugin->pluginName()
+              << endl;
+    
+    QWidget *wdg = plugin->createSummaryWidget( m_frame );
     if ( QString( "weather" ).compare( plugin->name() ) == 0 ) {
       m_layout->addWidget( wdg, 0, 0 );
     } else if ( QString( "kmail" ).compare( plugin->name() ) == 0 ) {

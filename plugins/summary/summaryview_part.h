@@ -1,4 +1,6 @@
-/* This file is part of the KDE project
+/*
+   This file is part of KDE Kontact.
+
    Copyright (C) 2003 Sven Lüppken <sven@kde.org>
 
    This library is free software; you can redistribute it and/or
@@ -15,12 +17,13 @@
    along with this library; see the file COPYING.LIB.  If not, write to
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
- */
+*/
 
 #ifndef __SUMMARYVIEW_PART_H__
 #define __SUMMARYVIEW_PART_H__
 
 #include <kparts/part.h>
+
 #include "core.h"
 
 class QGridLayout;
@@ -28,35 +31,31 @@ class QFrame;
 
 namespace Kontact
 {
-	class Plugin;
+  class Plugin;
 }
 
 class SummaryViewPart : public KParts::ReadOnlyPart
 {
-  Q_OBJECT
-
-public:
-
-  SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins, QWidget* parentWidget, const char* widgetName, QObject *parent=0, const char *name=0 );
+    Q_OBJECT
+  public:
+    SummaryViewPart( Kontact::Core *core, const char *widgetName,
+                     QObject *parent = 0, const char *name = 0 );
     ~SummaryViewPart();
 
-public slots:
-  void slotTextChanged();
+  public slots:
+    void slotTextChanged();
 
-signals:
-  void textChanged( const QString& );
+  signals:
+    void textChanged( const QString & );
 
-protected:
+  protected:
+    virtual bool openFile();
+    void getWidgets();
 
-  virtual bool openFile();
-  void getWidgets();
-
-private:
-
-	QPtrList<Kontact::Plugin> m_plugins;
-	QGridLayout *m_layout;
-	QFrame *m_frame;
+  private:
+    QGridLayout *m_layout;
+    QFrame *m_frame;
+    Kontact::Core *m_core;
 };
-
 
 #endif

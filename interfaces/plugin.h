@@ -3,6 +3,7 @@
 
    Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
    Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
+   Copyright (c) 2003 Cornelius Schumacher <schumacher@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -71,6 +72,12 @@ namespace Kontact
        * Returns the name of the icon
        */
       QString icon() const;
+
+      /**
+        Return the weight of the plugin. The higher the weight the lower it will
+        be displayed in the sidebar. The default implementation returns 0.
+      */
+      virtual int weight() const { return 0; }
 
       /**
         Called when the KPart associated with plugin is to be shown. The
