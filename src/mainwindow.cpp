@@ -124,8 +124,12 @@ MainWindow::~MainWindow()
   saveSettings();
 
   QPtrList<KParts::Part> parts = *mPartManager->parts();
-  parts.setAutoDelete( true );
-  parts.clear();
+
+  for (KParts::Part *p = parts.last(); p; p = parts.next())
+  {
+    delete p;
+    p = 0;
+  }
 
   Prefs::self()->writeConfig();
 }
