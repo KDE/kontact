@@ -377,6 +377,8 @@ void MainWindow::loadPlugins()
   }
 
   mLastInfoExtension = 0;
+
+  mNewActions->setEnabled( mPlugins.size() != 0 );
 }
 
 void MainWindow::unloadPlugins()
@@ -405,6 +407,10 @@ bool MainWindow::removePlugin( const KPluginInfo * info )
       }
 
       removeChildClient( plugin );
+
+      if ( mCurrentPlugin == plugin )
+        mCurrentPlugin = 0;
+
       delete plugin; // removes the part automatically
       mPlugins.remove( it );
 
