@@ -25,7 +25,7 @@
 #define KONTACT_ABOUTDIALOG_H
 
 #include <kdialogbase.h>
-
+class KAboutData;
 namespace Kontact {
 
 class Core;
