@@ -45,6 +45,7 @@ class SummaryWidget : public Kontact::Summary
                    const char *name = 0 );
 
     int summaryHeight() const { return 3; }
+    QStringList configModules() const;
 
   private slots:
     void updateView();

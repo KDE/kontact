@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=korganizer
+Type=Service
+ServiceTypes=KCModule
+
+X-KDE-ModuleType=Library
+X-KDE-Library=korgsummary
+X-KDE-FactoryName=korgsummary
+X-KDE-ParentApp=kontact_korganizerplugin,kontact_todoplugin
+X-KDE-ParentComponents=kontact_korganizerplugin,kontact_todoplugin
+X-KDE-CfgDlgHierarchy=KOrganizer
+
+Name=Schedule
+Name[xx]=xxSchedulexx
+Comment=Schedule Setup
+Comment[xx]=xxSchedule Setupxx
+Keywords=calendar, todos, configure, settings
+Keywords[xx]=xxcalendar, todos, configure, settingsxx

@@ -95,20 +95,44 @@ void SummaryWidget::updateView()
 
   KIconLoader loader( "korganizer" );
 
+  KConfig config( "kcmkorgsummaryrc" );
+
+  config.setGroup( "Calendar" );
+  int days = config.readNumEntry( "DaysToShow", 1 );
+
   QLabel *label = 0;
   int counter = 0;
-  KCal::Event::List events = mCalendar->events( QDate::currentDate(), true );
+  KCal::Event::List events = mCalendar->events( QDate::currentDate(),
+                                                QDate::currentDate().addDays( days - 1 ), true );
+
+  // sort events
+  KCal::Event::List sortedEvents;
+  KCal::Event::List::Iterator sortIt;
+  KCal::Event::List::Iterator eventIt;
+  for ( eventIt = events.begin(); eventIt != events.end(); ++eventIt ) {
+    sortIt = sortedEvents.begin();
+    while ( sortIt != sortedEvents.end() &&
+            (*eventIt)->dtStart().date() >= (*sortIt)->dtStart().date() ) {
+      ++sortIt;
+    }
+    sortedEvents.insert( sortIt, *eventIt );
+  }
+
+  // display events
   if ( events.count() > 0 ) {
     QPixmap pm = loader.loadIcon( "appointment", KIcon::Small );
 
     KCal::Event::List::ConstIterator it;
-    for( it = events.begin(); it != events.end() && counter < 5; ++it ) {
+    for( it = sortedEvents.begin(); it != sortedEvents.end() && counter < 5; ++it ) {
       KCal::Event *ev = *it;
-      if ( ev->doesFloat() && ev->dtStart().date() < QDate::currentDate() )
-        continue;
 
-      if ( ev->recurrence()->doesRecur() && !ev->recursOn( QDate::currentDate() ) )
-        continue;
+      if ( days == 1 ) {
+        if ( ev->doesFloat() && ev->dtStart().date() < QDate::currentDate() )
+          continue;
+
+        if ( ev->recurrence()->doesRecur() && !ev->recursOn( QDate::currentDate() ) )
+          continue;
+      }
 
       label = new QLabel( this );
       label->setPixmap( pm );
@@ -116,7 +140,10 @@ void SummaryWidget::updateView()
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
-      QString date = ev->dtStartTimeStr() + " - " + ev->dtEndTimeStr();
+      QString date;
+      if ( days > 1 )
+        date += ev->dtStartDateStr() + ": ";
+      date += ev->dtStartTimeStr() + " - " + ev->dtEndTimeStr();
       label = new QLabel( date, this );
       label->setAlignment( AlignHCenter );
       mLayout->addWidget( label, counter, 1 );
@@ -144,6 +171,11 @@ void SummaryWidget::updateView()
 void SummaryWidget::selectEvent( const QString & )
 {
   mPlugin->interface()->showEventView();
+}
+
+QStringList SummaryWidget::configModules() const
+{
+  return QStringList( "kcmkorgsummary.desktop" );
 }
 
 #include "summarywidget.moc"

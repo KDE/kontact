@@ -94,6 +94,10 @@ void TodoSummaryWidget::updateView()
   mLabels.clear();
   mLabels.setAutoDelete( false );
 
+  KConfig config( "kcmkorgsummaryrc" );
+  config.setGroup( "Todo" );
+  bool showAllTodos = config.readBoolEntry( "ShowAllTodos", false );
+
   KIconLoader loader( "korganizer" );
 
   QLabel *label = 0;
@@ -105,27 +109,29 @@ void TodoSummaryWidget::updateView()
     KCal::Todo::List::ConstIterator it;
     for( it = todos.begin(); it != todos.end(); ++it ) {
       KCal::Todo *todo = *it;
-      if ( todo->hasDueDate() && todo->dtDue().date() == QDate::currentDate() && !todo->isCompleted() ) {
-        label = new QLabel( this );
-        label->setPixmap( pm );
-        label->setMaximumSize( label->minimumSizeHint() );
-        mLayout->addWidget( label, counter, 0 );
-        mLabels.append( label );
 
-        label = new QLabel( QString::number( todo->percentComplete() ) + "%", this );
-        label->setAlignment( AlignHCenter );
-        mLayout->addWidget( label, counter, 1 );
-        mLabels.append( label );
+      if ( !showAllTodos && !( todo->hasDueDate() && todo->dtDue().date() == QDate::currentDate() && !todo->isCompleted() ) )
+        continue;
 
-        KURLLabel *urlLabel = new KURLLabel( todo->uid(), todo->summary(), this );
-        mLayout->addWidget( urlLabel, counter, 2 );
-        mLabels.append( urlLabel );
+      label = new QLabel( this );
+      label->setPixmap( pm );
+      label->setMaximumSize( label->minimumSizeHint() );
+      mLayout->addWidget( label, counter, 0 );
+      mLabels.append( label );
+
+      label = new QLabel( QString::number( todo->percentComplete() ) + "%", this );
+      label->setAlignment( AlignHCenter );
+      mLayout->addWidget( label, counter, 1 );
+      mLabels.append( label );
+
+      KURLLabel *urlLabel = new KURLLabel( todo->uid(), todo->summary(), this );
+      mLayout->addWidget( urlLabel, counter, 2 );
+      mLabels.append( urlLabel );
           
-        connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
-                 this, SLOT( selectEvent( const QString& ) ) );
+      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+               this, SLOT( selectEvent( const QString& ) ) );
 
-        counter++;
-      }
+      counter++;
     }
   }
   
@@ -142,6 +148,11 @@ void TodoSummaryWidget::updateView()
 void TodoSummaryWidget::selectEvent( const QString & )
 {
   mPlugin->interface()->showTodoView();
+}
+
+QStringList TodoSummaryWidget::configModules() const
+{
+  return QStringList( "kcmkorgsummary.desktop" );
 }
 
 #include "todosummarywidget.moc"
