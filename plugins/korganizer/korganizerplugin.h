@@ -51,6 +51,8 @@ class KOrganizerPlugin : public Kontact::Plugin
 
     void select();
 
+    KCalendarIface_stub *interface();
+
   protected:
     KParts::Part *createPart();
 

@@ -67,10 +67,9 @@ Kontact::Summary *KOrganizerPlugin::createSummaryWidget( QWidget *parent )
 
 KParts::Part *KOrganizerPlugin::createPart()
 {
-  KParts::Part * part = loadPart();
-  if ( !part ) return 0;
+  KParts::Part *part = loadPart();
 
-  (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
+  dcopClient(); // ensure that we register to DCOP as "korganizer"
   mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
 
   return part;
@@ -84,14 +83,21 @@ QString KOrganizerPlugin::tipFile() const
 
 void KOrganizerPlugin::select()
 {
-  if ( mIface ) mIface->showEventView();
+  interface()->showEventView();
+}
+
+KCalendarIface_stub *KOrganizerPlugin::interface()
+{
+  if ( !mIface ) {
+    part();
+  }
+  Q_ASSERT( mIface );
+  return mIface;
 }
 
 void KOrganizerPlugin::slotNewEvent()
 {
-  part();
-  if ( !mIface )
-    return;
+  interface()->openEventEditor( "" );
 }
 
 bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )
@@ -107,10 +113,10 @@ bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )
 
 bool KOrganizerPlugin::isRunningStandalone()
 {
-  DCOPClient* dc = kapp->dcopClient();
+  DCOPClient *dc = kapp->dcopClient();
 
-  return (dc->isApplicationRegistered("korganizer")) &&
-         (!dc->remoteObjects("kontact").contains("CalendarIface"));
+  return ( dc->isApplicationRegistered( "korganizer" ) ) &&
+         ( !dc->remoteObjects( "kontact" ).contains( "CalendarIface" ) );
 }
 
 bool KOrganizerPlugin::canDecodeDrag( QMimeSource *mimeSource )
@@ -121,15 +127,10 @@ bool KOrganizerPlugin::canDecodeDrag( QMimeSource *mimeSource )
 
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
-  if ( !mIface ) {
-    kdError() << "KOrganizer Part not loaded." << endl;
-    return;
-  }
-
   QString text;  
   if ( QTextDrag::decode( event, text ) ) {
     kdDebug() << "DROP:" << text << endl;
-    mIface->openEventEditor( text );
+    interface()->openEventEditor( text );
     return;
   }
   
@@ -144,8 +145,8 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
                     .arg( mail.to() ).arg( mail.subject() );
       QString uri = "kmail:" + QString::number( mail.serialNumber() ) + "/" +
                     mail.messageId();
-      mIface->openEventEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
-                               uri );
+      interface()->openEventEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
+                                    uri );
     }
     return;
   }

@@ -65,10 +65,9 @@ Kontact::Summary *TodoPlugin::createSummaryWidget( QWidget * /*parent*/ )
 
 KParts::Part *TodoPlugin::createPart()
 {
-  KParts::Part * part = loadPart();
-  if ( !part ) return 0;
+  KParts::Part *part = loadPart();
 
-  (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
+  dcopClient(); // ensure that we register to DCOP as "korganizer"
   mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
 
   return part;
@@ -76,14 +75,21 @@ KParts::Part *TodoPlugin::createPart()
 
 void TodoPlugin::select()
 {
-  if ( mIface ) mIface->showTodoView();
+  interface()->showTodoView();
+}
+
+KCalendarIface_stub *TodoPlugin::interface()
+{
+  if ( !mIface ) {
+    part();
+  }
+  Q_ASSERT( mIface );
+  return mIface;
 }
 
 void TodoPlugin::slotNewTodo()
 {
-  part();
-  if ( !mIface )
-    return;
+  interface()->openTodoEditor( "" );
 }
 
 bool TodoPlugin::createDCOPInterface( const QString& serviceType )
@@ -113,14 +119,9 @@ bool TodoPlugin::isRunningStandalone()
 
 void TodoPlugin::processDropEvent( QDropEvent *event )
 {
-  if ( !mIface ) {
-    kdError() << "KOrganizer Part not loaded." << endl;
-    return;
-  }
-    
   QString text;
   if ( QTextDrag::decode( event, text ) ) {
-    mIface->openTodoEditor( text );
+    interface()->openTodoEditor( text );
     return;
   }
 
@@ -135,8 +136,8 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
                     .arg( mail.to() ).arg( mail.subject() );
       QString uri = "kmail:" + QString::number( mail.serialNumber() ) + "/" +
                     mail.messageId();
-      mIface->openTodoEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
-                              uri );
+      interface()->openTodoEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
+                                   uri );
     }
     return;
   }
