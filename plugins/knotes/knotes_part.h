@@ -37,47 +37,12 @@ class KIconView;
 class QIconViewItem;
 class KNotesIconViewItem;
 class KNoteTip;
+class KNoteEditDlg;
 class KNotesResourceManager;
 
 namespace KCal {
     class Journal;
 }
-
-typedef QMap<QString, QString> NotesMap;
-
-
-class KNotesIconViewItem : public KIconViewItem
-{
-public:
-    KNotesIconViewItem( KIconView *parent, KCal::Journal *journal )
-      : KIconViewItem( parent ),
-        m_journal( journal )
-    {
-        setRenameEnabled( true );
-
-        setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop ) );
-        setText( journal->summary() );
-    }
-
-    KCal::Journal *journal()
-    {
-        return m_journal;
-    }
-
-    virtual void setText( const QString & text )
-    {
-        KIconViewItem::setText( text );
-        m_journal->setSummary( text );
-    }
-
-    virtual QString text() const
-    {
-        return m_journal->summary();
-    }
-
-private:
-    KCal::Journal *m_journal;
-};
 
 
 class KNotesPart : public KPIM::Part, virtual public KNotesIface
@@ -114,13 +79,14 @@ public:
     bool isNew( const QString& app, const QString& id ) const;
     bool isModified( const QString& app, const QString& id ) const;
 
-// signals:
-//     void noteSelected( const QString &name );
-//     void noteSelected( const QPixmap &pixmap );
-
 private slots:
     void createNote( KCal::Journal *journal );
     void killNote( KCal::Journal *journal );
+
+    void editNote( QIconViewItem *item );
+
+    void renameNote();
+    void renamedNote( QIconViewItem *item );
 
     void slotOnItem( QIconViewItem *item );
     void slotOnViewport();
@@ -129,12 +95,13 @@ private slots:
     void killSelectedNotes();
 
 private:
-    KIconView  *m_notesView;
-    KNoteTip   *m_noteTip;
+    KIconView *m_notesView;
+    KNoteTip *m_noteTip;
+    KNoteEditDlg *m_noteEditDlg;
     QPopupMenu *m_context_menu;
 
-    KNotesResourceManager     *m_manager;
-    QDict<KNotesIconViewItem>  m_noteList;
+    KNotesResourceManager *m_manager;
+    QDict<KNotesIconViewItem> m_noteList;
 };
 
 

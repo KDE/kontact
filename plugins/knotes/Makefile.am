@@ -5,7 +5,8 @@ libkontact_knotesplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_knotesplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinterfaces.la \
                                     $(LIB_KPARTS) $(top_builddir)/libkdepim/libkdepim.la \
                                     $(top_builddir)/libkcal/libkcal.la -lkresources \
-                                    $(top_builddir)/knotes/libknotesresources.la
+                                    $(top_builddir)/knotes/libknotesresources.la \
+                                    $(top_builddir)/knotes/libknoteseditor.la
 
 libkontact_knotesplugin_la_SOURCES = knotes_plugin.cpp knotes_part.cpp summarywidget.cpp \
                                      knotetip.cpp KNotesIface.skel

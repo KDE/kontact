@@ -37,7 +37,7 @@
 #include <kglobalsettings.h>
 
 #include "knotetip.h"
-#include "knotes_part.h"
+#include "knotes_part_p.h"
 
 
 KNoteTip::KNoteTip( KIconView *parent )

@@ -23,17 +23,17 @@
 #include <qclipboard.h>
 
 #include <kapplication.h>
-#include <klocale.h>
 #include <kdebug.h>
 #include <kaction.h>
 #include <kmessagebox.h>
-#include <kxmlguifactory.h>
 
 #include <libkdepim/infoextension.h>
 #include <libkdepim/sidebarextension.h>
 
 #include "knotes/resourcemanager.h"
+
 #include "knotes_part.h"
+#include "knotes_part_p.h"
 #include "knotetip.h"
 
 
@@ -41,7 +41,9 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   : DCOPObject("KNotesIface"), KPIM::Part( parent, name ),
     m_notesView( new KIconView() ),
     m_noteTip( new KNoteTip( m_notesView ) ),
-    m_context_menu( 0 )
+    m_noteEditDlg( 0 ),
+    m_context_menu( 0 ),
+    m_manager( new KNotesResourceManager() )
 {
     m_noteList.setAutoDelete( true );
 
@@ -63,10 +65,12 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
     m_notesView->setItemsMovable( false );
     m_notesView->setResizeMode( QIconView::Adjust );
 
-//    connect( m_notesView, SIGNAL(executed( QIconViewItem * )),
-//             this, SLOT(editNote( QIconViewItem * )) );
-//    connect( m_notesView, SIGNAL(returnPressed( KIconViewItem * )),
-//             this, SLOT(editNote( QIconViewItem * )) );
+    connect( m_notesView, SIGNAL(executed( QIconViewItem * )),
+             this, SLOT(editNote( QIconViewItem * )) );
+    connect( m_notesView, SIGNAL(returnPressed( QIconViewItem * )),
+             this, SLOT(editNote( QIconViewItem * )) );
+    connect( m_notesView, SIGNAL(itemRenamed( QIconViewItem * )),
+             this, SLOT(renamedNote( QIconViewItem * )) );
     connect( m_notesView, SIGNAL(contextMenuRequested( QIconViewItem *, const QPoint & )),
              this, SLOT(popupRMB( QIconViewItem *, const QPoint & )) );
     connect( m_notesView, SIGNAL(onItem( QIconViewItem * )),
@@ -78,8 +82,7 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
     setWidget( m_notesView );
     setXMLFile( "knotes_part.rc" );
 
-    // create the resource manager
-    m_manager = new KNotesResourceManager();
+    // connect the resource manager
     connect( m_manager, SIGNAL(sigRegisteredNote( KCal::Journal * )),
              this,      SLOT(createNote( KCal::Journal * )) );
     connect( m_manager, SIGNAL(sigDeregisteredNote( KCal::Journal * )),
@@ -121,6 +124,8 @@ QString KNotesPart::newNote( const QString& name, const QString& text )
 
     showNote( journal->uid() );
 
+    m_manager->save();
+
     return journal->uid();
 }
 
@@ -160,6 +165,7 @@ void KNotesPart::killNote( const QString& id, bool force )
             KGuiItem( i18n("Delete"), "editdelete" ) ) == KMessageBox::Continue )
     {
         m_manager->deleteNote( m_noteList[id]->journal() );
+        m_manager->save();
     }
 }
 
@@ -185,14 +191,20 @@ void KNotesPart::setName( const QString& id, const QString& newName )
 {
     KNotesIconViewItem *note = m_noteList[id];
     if ( note )
-        return note->setText( newName );
+    {
+        note->setText( newName );
+        m_manager->save();
+    }
 }
 
 void KNotesPart::setText( const QString& id, const QString& newText )
 {
     KNotesIconViewItem *note = m_noteList[id];
     if ( note )
-        return note->journal()->setDescription( newText );
+    {
+        note->journal()->setDescription( newText );
+        m_manager->save();
+    }
 }
 
 QMap<QString, QString> KNotesPart::notes() const
@@ -224,7 +236,6 @@ bool KNotesPart::isModified( const QString&, const QString& ) const
 
 
 // private stuff
-
 
 void KNotesPart::killSelectedNotes()
 {
@@ -263,6 +274,7 @@ void KNotesPart::killSelectedNotes()
             ++kniviIt;
             m_manager->deleteNote( knivi->journal() );
         }
+        m_manager->save();
     }
 
 //   unlock();
@@ -294,7 +306,7 @@ void KNotesPart::slotOnViewport()
 
 // TODO: also with takeItem, clear(),
 
-// create and kill the icon view item corresponding to the note
+// create and kill the icon view item corresponding to the note, edit the note
 
 void KNotesPart::createNote( KCal::Journal *journal )
 {
@@ -306,5 +318,28 @@ void KNotesPart::killNote( KCal::Journal *journal )
     m_noteList.remove( journal->uid() );
 }
 
+void KNotesPart::editNote( QIconViewItem *item )
+{
+    if ( !m_noteEditDlg )
+        m_noteEditDlg = new KNoteEditDlg( widget() );
+
+    KCal::Journal *journal = static_cast<KNotesIconViewItem *>(item)->journal();
+    m_noteEditDlg->setText( journal->description() );
+    if ( m_noteEditDlg->exec() == QDialog::Accepted )
+        journal->setDescription( m_noteEditDlg->text() );
+
+    m_manager->save();
+}
+
+void KNotesPart::renameNote()
+{
+    m_notesView->currentItem()->rename();
+}
+
+void KNotesPart::renamedNote( QIconViewItem * )
+{
+    m_manager->save();
+}
 
 #include "knotes_part.moc"
+#include "knotes_part_p.moc"
