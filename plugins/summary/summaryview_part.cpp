@@ -259,7 +259,8 @@ QStringList SummaryViewPart::configModules() const
     QStringList cm = it.current()->configModules();
     QStringList::ConstIterator sit;
     for ( sit = cm.begin(); sit != cm.end(); ++sit )
-      modules.append( *sit );
+      if ( !modules.contains( *sit ) )
+        modules.append( *sit );
 
     ++it;
   }
