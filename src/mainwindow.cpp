@@ -251,6 +251,12 @@ void MainWindow::paintAboutScreen( const QString& msg )
 {
   QString location = locate( "data", "kontact/about/main.html" );
   QString content = KPIM::kFileToString( location );
+  content = content.arg( locate( "data", "libkdepim/about/kde_infopage.css" ) );
+  if ( kapp->reverseLayout() )
+    content = content.arg( "@import \"%1\";" ).arg( locate( "data", "libkdepim/about/kde_infopage_rtl.css" ) );
+  else
+    content = content.arg( "" );
+
   mIntroPart->begin( KURL( location ) );
 
   QString appName( i18n( "KDE Kontact" ) );
