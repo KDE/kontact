@@ -93,7 +93,11 @@ QString KOrganizerPlugin::tipFile() const
 
 QStringList KOrganizerPlugin::invisibleToolbarActions() const
 {
-  return QStringList( "new_event" );
+  QStringList invisible;
+  invisible += "new_event";
+  invisible += "new_todo";
+  invisible += "new_journal";
+  return invisible;
 }
 
 void KOrganizerPlugin::select()

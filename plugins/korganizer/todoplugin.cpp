@@ -92,7 +92,11 @@ void TodoPlugin::select()
 
 QStringList TodoPlugin::invisibleToolbarActions() const
 {
-  return QStringList( "new_todo" );
+  QStringList invisible;
+  invisible += "new_event";
+  invisible += "new_todo";
+  invisible += "new_journal";
+  return invisible;
 }
 
 KCalendarIface_stub *TodoPlugin::interface()

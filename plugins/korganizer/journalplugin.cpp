@@ -1,7 +1,7 @@
 /*
     This file is part of Kontact.
 
-    Copyright (c) 2003 Allen Winter <winterz@kde.org>
+    Copyright (c) 2004 Allen Winter <awinterz@users.sourceforge.net>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -81,7 +81,11 @@ void JournalPlugin::select()
 
 QStringList JournalPlugin::invisibleToolbarActions() const
 {
-  return QStringList( "new_journal" );
+  QStringList invisible;
+  invisible += "new_event";
+  invisible += "new_todo";
+  invisible += "new_journal";
+  return invisible;
 }
 
 KCalendarIface_stub *JournalPlugin::interface()
