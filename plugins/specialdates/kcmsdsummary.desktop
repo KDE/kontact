@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=cookie
+Type=Service
+ServiceTypes=KCModule
+
+X-KDE-ModuleType=Library
+X-KDE-Library=sdsummary
+X-KDE-FactoryName=sdsummary
+X-KDE-ParentApp=kontact_specialdatesplugin
+X-KDE-ParentComponents=kontact_specialdatesplugin
+X-KDE-CfgDlgHierarchy=KontactSummary
+
+Name=Special Dates
+Name[xx]=xxSpecial Datesxx
+Comment=Special Dates Summary Setup
+Comment[xx]=xxSpecial Dates Summary Setupxx
+Keywords=birthday, anniversary, holiday, configure, settings
+Keywords[xx]=xxbirthday, anniversary, holiday, configure, settingsxx

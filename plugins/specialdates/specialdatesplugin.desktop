@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+Icon=cookie
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_specialdatesplugin
+X-KDE-KontactPluginVersion=4
+X-KDE-KontactPluginHasSummary=true
+
+X-KDE-PluginInfo-Name=kontact_specialdatesplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
+Name=Special Dates
+Name[xx]=xxSpecial Datesxx
+Comment=Special Dates Plugin
+Comment[xx]=xxSpecial Dates Pluginxx
