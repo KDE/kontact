@@ -19,9 +19,7 @@
 
     <entry type="IntList" name="SidePaneSplitter">
     </entry>
-    <entry type="Bool" name="IconSidePaneShowText">
-      <default>true</default>
-    </entry>
+
     <entry type="Enum" name="SidePaneType">
       <label>Side Pane Type</label>
       <choices>
@@ -34,6 +32,7 @@
       </choices>
       <default>SidePaneIcons</default>
     </entry>
+
     <entry type="Int" name="SidePaneIconSize">
       <default>32</default>
     </entry>

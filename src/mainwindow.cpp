@@ -567,8 +567,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     if ( mFocusWidgets.contains( plugin->identifier() ) ) {
       focusWidget = mFocusWidgets[ plugin->identifier() ];
       if ( focusWidget )
-       kdDebug() << "##########" << plugin->identifier()<<endl;
-       // focusWidget->setFocus();
+        focusWidget->setFocus();
     }
 
     mCurrentPlugin = plugin;
