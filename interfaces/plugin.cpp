@@ -35,7 +35,7 @@ using namespace Kontact;
 class Plugin::Private
 {
 public:
-	Kontact::Core *core;
+    Kontact::Core *core;
     DCOPClient *dcopClient;
     QCString name;
     QString pluginName;
@@ -43,7 +43,7 @@ public:
 };
 
 
-Plugin::Plugin(const QString& pluginName, const QString& icon, Kontact::Core *core, 
+Plugin::Plugin(const QString& pluginName, const QString& icon, Kontact::Core *core,
                 QObject *parent, const char *name)
     : QObject(parent, name)
 {

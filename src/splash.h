@@ -22,6 +22,8 @@
 
 #include <qlabel.h>
 
+namespace Kontact {
+
 class Splash : public QLabel
 {
     Q_OBJECT
@@ -29,6 +31,8 @@ class Splash : public QLabel
         Splash(QWidget *parent, const char *name);
         ~Splash() {};
 };
+
+}
 
 // vim: ts=4 sw=4 et
 

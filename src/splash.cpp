@@ -26,6 +26,8 @@
 
 #include "splash.h"
 
+using namespace Kontact;
+
 Splash::Splash(QWidget *parent, const char *name)
    : QLabel(parent, name, WStyle_Customize|WStyle_Splash)
 {
@@ -38,5 +40,5 @@ Splash::Splash(QWidget *parent, const char *name)
     setGeometry((desk.width()/2)-(width()/2) + desk.left(), (desk.height()/2)-(height()/2) + desk.top(), width(), height());
 }
 
-#include "splash.moc" 
+#include "splash.moc"
 // vim: ts=4 sw=4 et

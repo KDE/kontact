@@ -51,13 +51,13 @@ int main(int argc, char **argv)
     about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
     about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
     about.addAuthor("Sven Lüppken", 0, "sven@kde.org");
-    
+
     KCmdLineArgs::init(argc, argv, &about);
 //    KCmdLineArgs::addCmdLineOptions(options);
     KUniqueApplication app;
 
     // show splash
-    Splash *s = new Splash( 0, "splash" );
+    Kontact::Splash *s = new Kontact::Splash( 0, "splash" );
     s->show();
 
     // see if we are starting with session management
