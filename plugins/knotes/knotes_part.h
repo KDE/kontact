@@ -82,6 +82,7 @@ class KNotesPart : public KParts::ReadOnlyPart, virtual public KNotesIface
 
     void slotOnItem( QIconViewItem *item );
     void slotOnViewport();
+    void slotOnCurrentChanged( QIconViewItem *item );
 
     void popupRMB( QIconViewItem *item, const QPoint& pos );
     void killSelectedNotes();

@@ -76,6 +76,10 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
              this, SLOT( slotOnItem( QIconViewItem * ) ) );
     connect( mNotesView, SIGNAL( onViewport() ),
              this, SLOT( slotOnViewport() ) );
+    connect( mNotesView, SIGNAL( currentChanged( QIconViewItem * ) ),
+	     this, SLOT( slotOnCurrentChanged( QIconViewItem * ) ) );
+
+    slotOnCurrentChanged(0);
 
     new KParts::SideBarExtension( mNotesView, this, "NotesSideBarExtension" );
 
@@ -316,6 +320,21 @@ void KNotesPart::renameNote()
 void KNotesPart::renamedNote( QIconViewItem * )
 {
   mManager->save();
+}
+
+void KNotesPart::slotOnCurrentChanged( QIconViewItem* )
+{
+  KAction *renameAction = actionCollection()->action( "edit_rename" );
+  KAction *deleteAction = actionCollection()->action( "edit_delete" );
+
+  if ( !mNotesView->currentItem() ) {
+    renameAction->setEnabled( false );
+    deleteAction->setEnabled( false );
+  }
+  else {
+    renameAction->setEnabled( true );
+    deleteAction->setEnabled( true );
+  }
 }
 
 #include "knotes_part.moc"
