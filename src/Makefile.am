@@ -2,7 +2,7 @@ INCLUDES = -I$(top_srcdir)/kaplan/interfaces $(all_includes)
 
 bin_PROGRAMS = kaplan
 
-kaplan_SOURCES = main.cpp core.cpp navigator.cpp
+kaplan_SOURCES = main.cpp core.cpp navigator.cpp splash.cpp
 kaplan_METASOURCES = AUTO
 kaplan_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kaplan_LDADD = $(LIB_KPARTS) $(top_builddir)/kaplan/interfaces/libkpinterfaces.la

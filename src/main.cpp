@@ -23,7 +23,9 @@
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
+#include <qlabel.h>
 
+#include "splash.h"
 #include "core.h"
 
 static const char *description =
@@ -54,6 +56,9 @@ int main(int argc, char **argv)
     // register ourselves as a dcop client
     app.dcopClient()->registerAs(app.name(), false);
 
+    Splash *s = new Splash( 0, "splash" );
+    s->show();
+    
     // see if we are starting with session management
     if (app.isRestored())
         RESTORE(Core)
@@ -63,7 +68,7 @@ int main(int argc, char **argv)
         Core *widget = new Core;
         widget->show();
     }
-
+    delete s;
     return app.exec();
 }
 // vim: ts=4 sw=4 et
