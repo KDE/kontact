@@ -66,100 +66,100 @@
 
 */
 
-namespace Kontact {
+using namespace Kontact;
 
 int UniqueAppHandler::newInstance()
 {
-    // This bit is duplicated from KUniqueApplication::newInstance()
-    if ( kapp->mainWidget() )
-    {
-      kapp->mainWidget()->show();
-      KWin::forceActiveWindow( kapp->mainWidget()->winId() );
-      KStartupInfo::appStarted();
-    }
+  // This bit is duplicated from KUniqueApplication::newInstance()
+  if ( kapp->mainWidget() ) {
+    kapp->mainWidget()->show();
+    KWin::forceActiveWindow( kapp->mainWidget()->winId() );
+    KStartupInfo::appStarted();
+  }
 
-    // Then ensure the part appears in kontact
-    mPlugin->core()->selectPlugin( mPlugin );
-    return 0;
+  // Then ensure the part appears in kontact
+  mPlugin->core()->selectPlugin( mPlugin );
+  return 0;
 }
 
-bool UniqueAppHandler::process(const QCString &fun, const QByteArray &data, QCString& replyType, QByteArray &replyData)
+bool UniqueAppHandler::process( const QCString &fun, const QByteArray &data,
+                                QCString& replyType, QByteArray &replyData )
 {
-    if ( fun == "newInstance()" ) {
-       replyType = "int";
+  if ( fun == "newInstance()" ) {
+    replyType = "int";
 
-       KCmdLineArgs::reset(); // forget options defined by other "applications"
-       loadCommandLineOptions();
+    KCmdLineArgs::reset(); // forget options defined by other "applications"
+    loadCommandLineOptions();
 
-       // This bit is duplicated from KUniqueApplication::processDelayed()
-       QDataStream ds(data, IO_ReadOnly);
-       KCmdLineArgs::loadAppArgs(ds);
-       if( !ds.atEnd()) // backwards compatibility
-       {
-           QCString asn_id;
-           ds >> asn_id;
-           kapp->setStartupId( asn_id );
-       }
-
-       QDataStream _replyStream( replyData, IO_WriteOnly );
-       _replyStream << newInstance( );
-    } else {
-        return DCOPObject::process( fun, data, replyType, replyData );
+    // This bit is duplicated from KUniqueApplication::processDelayed()
+    QDataStream ds( data, IO_ReadOnly );
+    KCmdLineArgs::loadAppArgs( ds );
+    if ( !ds.atEnd() ) { // backwards compatibility
+      QCString asn_id;
+      ds >> asn_id;
+      kapp->setStartupId( asn_id );
     }
-    return true;
+
+    QDataStream _replyStream( replyData, IO_WriteOnly );
+    _replyStream << newInstance( );
+  } else {
+    return DCOPObject::process( fun, data, replyType, replyData );
+  }
+
+  return true;
 }
 
 QCStringList UniqueAppHandler::interfaces()
 {
-    QCStringList ifaces = DCOPObject::interfaces();
-    ifaces += "Kontact::UniqueAppHandler";
-    return ifaces;
+  QCStringList ifaces = DCOPObject::interfaces();
+  ifaces += "Kontact::UniqueAppHandler";
+  return ifaces;
 }
 
 QCStringList UniqueAppHandler::functions()
 {
-    QCStringList funcs = DCOPObject::functions();
-    funcs << "int newInstance()";
-    return funcs;
+  QCStringList funcs = DCOPObject::functions();
+  funcs << "int newInstance()";
+  return funcs;
 }
 
 UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin* plugin )
     : QObject( plugin ), mFactory( factory ), mPlugin( plugin )
 {
-    // The app is running standalone if 1) that name is known to DCOP
-    mRunningStandalone = kapp->dcopClient()->isApplicationRegistered( plugin->name() );
-    // and 2) it's not registered by kontact (e.g. in another plugin)
-    if ( mRunningStandalone && kapp->dcopClient()->findLocalClient( plugin->name() ) )
-        mRunningStandalone = false;
+  // The app is running standalone if 1) that name is known to DCOP
+  mRunningStandalone = kapp->dcopClient()->isApplicationRegistered( plugin->name() );
 
-    if ( mRunningStandalone ) {
-        kapp->dcopClient()->setNotifications( true );
-        connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QCString&)),
-                 this, SLOT( unregisteredFromDCOP( const QCString& )) );
-    } else {
-        mFactory->createHandler( mPlugin );
-    }
+  // and 2) it's not registered by kontact (e.g. in another plugin)
+  if ( mRunningStandalone && kapp->dcopClient()->findLocalClient( plugin->name() ) )
+      mRunningStandalone = false;
+
+  if ( mRunningStandalone ) {
+    kapp->dcopClient()->setNotifications( true );
+    connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QCString& ) ),
+             this, SLOT( unregisteredFromDCOP( const QCString& ) ) );
+  } else {
+    mFactory->createHandler( mPlugin );
+  }
 }
 
 UniqueAppWatcher::~UniqueAppWatcher()
 {
-    if ( mRunningStandalone )
-        kapp->dcopClient()->setNotifications( false );
-    delete mFactory;
+  if ( mRunningStandalone )
+    kapp->dcopClient()->setNotifications( false );
+
+  delete mFactory;
 }
 
 void UniqueAppWatcher::unregisteredFromDCOP( const QCString& appId )
 {
-    if ( appId == mPlugin->name() && mRunningStandalone ) {
-        disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QCString&)),
-                    this, SLOT( unregisteredFromDCOP( const QCString& )) );
-        kdDebug(5601) << k_funcinfo << appId << endl;
-        mFactory->createHandler( mPlugin );
-        kapp->dcopClient()->setNotifications( false );
-        mRunningStandalone = false;
-    }
+  if ( appId == mPlugin->name() && mRunningStandalone ) {
+    disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QCString& ) ),
+                this, SLOT( unregisteredFromDCOP( const QCString& ) ) );
+    kdDebug(5601) << k_funcinfo << appId << endl;
+    mFactory->createHandler( mPlugin );
+    kapp->dcopClient()->setNotifications( false );
+    mRunningStandalone = false;
+  }
 }
-
-} // namespace
 
 #include "uniqueapphandler.moc"
