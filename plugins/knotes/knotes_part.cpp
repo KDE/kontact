@@ -26,56 +26,21 @@
 #include <klocale.h>
 #include <kdebug.h>
 #include <kaction.h>
-#include <kiconview.h>
-#include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kxmlguifactory.h>
-
-#include <libkcal/journal.h>
 
 #include <libkdepim/infoextension.h>
 #include <libkdepim/sidebarextension.h>
 
 #include "knotes/resourcemanager.h"
 #include "knotes_part.h"
-
-
-class KNotesIconViewItem : public KIconViewItem
-{
-public:
-    KNotesIconViewItem( KIconView *parent, KCal::Journal *journal )
-      : KIconViewItem( parent ),
-        m_journal( journal )
-    {
-        setRenameEnabled( true );
-
-        setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop ) );
-        setText( journal->summary() );
-    }
-
-    KCal::Journal *journal()
-    {
-        return m_journal;
-    }
-
-    virtual void setText( const QString & text )
-    {
-        KIconViewItem::setText( text );
-        m_journal->setSummary( text );
-    }
-
-    virtual QString text() const
-    {
-        return m_journal->summary();
-    }
-
-private:
-    KCal::Journal *m_journal;
-};
+#include "knotetip.h"
 
 
 KNotesPart::KNotesPart( QObject *parent, const char *name )
   : DCOPObject("KNotesIface"), KPIM::Part( parent, name ),
+    m_notesView( new KIconView() ),
+    m_noteTip( new KNoteTip( m_notesView ) ),
     m_context_menu( 0 )
 {
     m_noteList.setAutoDelete( true );
@@ -93,8 +58,7 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
     // TODO styleguide: s/New.../New/, s/Rename/Rename.../
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
-    // create the view
-    m_notesView = new KIconView();
+    // set the view up
     m_notesView->setSelectionMode( QIconView::Extended );
     m_notesView->setItemsMovable( false );
     m_notesView->setResizeMode( QIconView::Adjust );
@@ -105,6 +69,9 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
 //             this, SLOT(editNote( QIconViewItem * )) );
     connect( m_notesView, SIGNAL(contextMenuRequested( QIconViewItem *, const QPoint & )),
              this, SLOT(popupRMB( QIconViewItem *, const QPoint & )) );
+    connect( m_notesView, SIGNAL(onItem( QIconViewItem * )),
+             this, SLOT(slotOnItem( QIconViewItem * )) );
+    connect( m_notesView, SIGNAL(onViewport()), this, SLOT(slotOnViewport()) );
 
     new KParts::SideBarExtension( m_notesView, this, "NotesSideBarExtension" );
 
@@ -124,6 +91,7 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
 
 KNotesPart::~KNotesPart()
 {
+    delete m_noteTip;
     delete m_manager;
 }
 
@@ -311,6 +279,20 @@ void KNotesPart::popupRMB( QIconViewItem *item, const QPoint& pos )
     m_context_menu->popup( pos );
 }
 
+void KNotesPart::slotOnItem( QIconViewItem *i )
+{
+    // TODO: disable (i.e. setNote( QString::null )) when mouse button pressed
+
+    KNotesIconViewItem *item = static_cast<KNotesIconViewItem *>(i);
+    m_noteTip->setNote( item, Qt::AutoText );
+}
+
+void KNotesPart::slotOnViewport()
+{
+    m_noteTip->setNote( 0 );
+}
+
+// TODO: also with takeItem, clear(),
 
 // create and kill the icon view item corresponding to the note
 

@@ -24,6 +24,11 @@
 
 #include <qdict.h>
 
+#include <kiconview.h>
+#include <kglobal.h>
+#include <kiconloader.h>
+
+#include <libkcal/journal.h>
 #include <libkdepim/part.h>
 
 #include "knotes/KNotesIface.h"
@@ -31,6 +36,7 @@
 class KIconView;
 class QIconViewItem;
 class KNotesIconViewItem;
+class KNoteTip;
 class KNotesResourceManager;
 
 namespace KCal {
@@ -38,6 +44,40 @@ namespace KCal {
 }
 
 typedef QMap<QString, QString> NotesMap;
+
+
+class KNotesIconViewItem : public KIconViewItem
+{
+public:
+    KNotesIconViewItem( KIconView *parent, KCal::Journal *journal )
+      : KIconViewItem( parent ),
+        m_journal( journal )
+    {
+        setRenameEnabled( true );
+
+        setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop ) );
+        setText( journal->summary() );
+    }
+
+    KCal::Journal *journal()
+    {
+        return m_journal;
+    }
+
+    virtual void setText( const QString & text )
+    {
+        KIconViewItem::setText( text );
+        m_journal->setSummary( text );
+    }
+
+    virtual QString text() const
+    {
+        return m_journal->summary();
+    }
+
+private:
+    KCal::Journal *m_journal;
+};
 
 
 class KNotesPart : public KPIM::Part, virtual public KNotesIface
@@ -82,11 +122,15 @@ private slots:
     void createNote( KCal::Journal *journal );
     void killNote( KCal::Journal *journal );
 
+    void slotOnItem( QIconViewItem *item );
+    void slotOnViewport();
+
     void popupRMB( QIconViewItem *item, const QPoint& pos );
     void killSelectedNotes();
 
 private:
     KIconView  *m_notesView;
+    KNoteTip   *m_noteTip;
     QPopupMenu *m_context_menu;
 
     KNotesResourceManager     *m_manager;

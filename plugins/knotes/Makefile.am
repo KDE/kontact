@@ -8,7 +8,7 @@ libkontact_knotesplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinte
                                     $(top_builddir)/knotes/libknotesresources.la
 
 libkontact_knotesplugin_la_SOURCES = knotes_plugin.cpp knotes_part.cpp summarywidget.cpp \
-                                     KNotesIface.skel
+                                     knotetip.cpp KNotesIface.skel
 
 METASOURCES = AUTO
 
