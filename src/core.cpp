@@ -21,6 +21,7 @@
 
 #include <qhbox.h>
 #include <qcombobox.h>
+#include <qwhatsthis.h>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -53,6 +54,8 @@ Core::Core()
   
   m_navigator = new Navigator(box);
   m_navigator->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
+
+  QWhatsThis::add(m_navigator, i18n("Use this bar to invoke a specific groupware part"));
   
   m_stack = new QWidgetStack(box);
 
