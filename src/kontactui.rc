@@ -19,7 +19,9 @@
   <Merge />
   <Menu noMerge="1" name="settings">
      <text>&amp;Settings</text>
-	 <Merge/>
+     <Merge/>
+     <Separator/>
+     <Action name="settings_preferences"/>
   </Menu>
 </MenuBar>
 <ToolBar position="Top" iconText="IconOnly" noMerge="1" name="mainToolBar">

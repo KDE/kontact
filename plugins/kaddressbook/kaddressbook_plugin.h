@@ -9,6 +9,8 @@
 #include "kaddressbookiface_stub.h"
 
 
+class KAboutData;
+
 class KAddressbookPlugin : public Kaplan::Plugin
 {
   Q_OBJECT
@@ -20,6 +22,10 @@ public:
 
   virtual bool createDCOPInterface( const QString& serviceType );
 
+  virtual QStringList configModules() const;
+
+  KAboutData* aboutData();
+  
 private slots:
 
   void slotShowPart();

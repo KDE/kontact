@@ -36,6 +36,7 @@
 #include <kparts/componentfactory.h>
 #include <klocale.h>
 #include <kstatusbar.h>
+#include <kcmultidialog.h>
 
 #include "kpplugin.h"
 
@@ -101,6 +102,7 @@ void Core::saveSettings()
 void Core::setupActions()
 {
   (void) KStdAction::quit(this, SLOT(slotQuit()), actionCollection(), "file_quit");
+  (void) KStdAction::preferences(this, SLOT(slotPreferences()), actionCollection(), "settings_preferences");
   m_newActions = new KActionMenu( i18n("New"), BarIcon("mail_generic"), actionCollection(), "action_new" );
 }
 
@@ -172,6 +174,31 @@ void Core::slotQuit()
   close();
 }
 
+void Core::slotPreferences()
+{
+  KCMultiDialog* dialog = new KCMultiDialog("PIM", this, "KaplanPreferences");
+
+  QStringList modules;
+
+
+  // find all all modules for all plugins 
+  QPtrListIterator<Kaplan::Plugin> pit(m_plugins);
+  for(; pit.current(); ++pit)
+  {
+     QStringList tmp = pit.current()->configModules();
+     if(!tmp.isEmpty())
+         modules += tmp;
+  }
+  
+
+  // add them all  
+  QStringList::iterator mit;
+  for (mit = modules.begin(); mit != modules.end(); ++mit)
+    dialog->addModule((*mit));
+
+  dialog->show();
+  dialog->raise();
+}
 
 void Core::addMainEntry(QString text, QString icon, QObject *receiver, const char *member)
 {

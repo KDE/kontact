@@ -77,6 +77,7 @@ private slots:
   void loadSettings();
   void saveSettings();
 
+  void slotPreferences();
 private:
 
   void loadPlugins();
