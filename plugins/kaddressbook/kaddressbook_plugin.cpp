@@ -72,7 +72,7 @@ void KAddressbookPlugin::slotNewContact()
 
 bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
 {
-    if ( serviceType == "AddressBook" )
+    if ( serviceType == "DCOP/AddressBook" )
     {
         loadPart();
         Q_ASSERT( m_stub );
