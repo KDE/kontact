@@ -56,10 +56,7 @@ KitchenSyncPlugin::~KitchenSyncPlugin()
 KParts::Part* KitchenSyncPlugin::part()
 {
   if ( !mPart ) {
-    mPart = KParts::ComponentFactory
-      ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkitchensyncpart",
-                                                             core(), 0, // parentwidget,name
-                                                             this, 0 ); // parent,name
+    mPart = loadPart();
   }
 
   return mPart;

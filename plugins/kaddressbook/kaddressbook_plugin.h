@@ -51,7 +51,7 @@ class KAddressbookPlugin : public Kontact::Plugin
 
   private:
     KAddressBookIface_stub *mStub;
-    KParts::ReadOnlyPart *mPart;
+    KParts::Part *mPart;
 };
 
 #endif

@@ -61,12 +61,8 @@ KAddressbookPlugin::~KAddressbookPlugin()
 KParts::Part* KAddressbookPlugin::part()
 {
   if ( !mPart ) {
-    mPart = KParts::ComponentFactory
-      ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkaddressbookpart",
-                                                             core(), 0, // parentwidget,name
-                                                             this, 0 ); // parent,name
-    if ( !mPart )
-      return 0L;
+    mPart = loadPart();
+    if ( !mPart ) return 0;
 
     // 1) Register with dcop as "kaddressbook"  [maybe the part should do this]
     // 2) Create the stub that allows us to talk to the part

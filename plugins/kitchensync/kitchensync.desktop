@@ -7,3 +7,4 @@ ServiceTypes=Kontact/Plugin
 X-KDE-Library=libkontact_kitchensync
 X-KDE-KontactIdentifier=synchronisation
 X-KDE-KontactPluginVersion=1
+X-KDE-KontactPartLibraryName=libkitchensyncpart

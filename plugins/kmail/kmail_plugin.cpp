@@ -76,19 +76,13 @@ bool KMailPlugin::createDCOPInterface( const QString& serviceType )
 KParts::Part* KMailPlugin::part()
 {
   if ( !mPart ) {
-    kdDebug() << "KMAIL_PLUGIN: No part!!!" << endl;
-    mPart = KParts::ComponentFactory
-      ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkmailpart",
-                                                             core(), 0, // parentwidget,name
-                                                             this, 0 ); // parent,name
+    mPart = loadPart();
+
+    if ( !mPart ) return 0;
+
     mStub = new KMailIface_stub( dcopClient(), "kmail", "KMailIface" );
-
-    if ( !mPart )
-      return 0;
-
-    return mPart;
-  } else
-    return mPart;
+  }
+  return mPart;
 }
 
 Kontact::Summary *KMailPlugin::createSummaryWidget( QWidget *parent )

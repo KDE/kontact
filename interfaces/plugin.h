@@ -94,6 +94,11 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     QString icon() const;
 
     /**
+      Set name of library which contains the KPart used by this plugin.
+    */
+    void setPartLibraryName( const QCString & );
+
+    /**
       Create the DCOP interface for the given @p serviceType, if this
       plugin provides it. Return false otherwise.
     */
@@ -179,6 +184,9 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     virtual void processDropEvent( QDropEvent * ) {}
 
     Core *core() const;
+
+  protected:
+    KParts::Part *loadPart();
 
   private:
     class Private;

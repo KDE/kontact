@@ -63,10 +63,12 @@ Kontact::Summary *TodoPlugin::createSummaryWidget( QWidget *parent )
 KParts::ReadOnlyPart *TodoPlugin::part()
 {
   if ( !mPart ) {
+    mPart = core()->createPart( "libkorganizerpart" );
+
+    if ( !mPart ) return 0;
+
     (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
     mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
-
-    mPart = core()->createPart( "libkorganizerpart" );
   }
 
   return mPart;

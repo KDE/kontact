@@ -60,15 +60,9 @@ bool KNodePlugin::createDCOPInterface( const QString& serviceType )
 KParts::Part* KNodePlugin::part()
 {
   if ( !mPart ) {
-    kdDebug() << "KNODEL_PLUGIN: No part!!!" << endl;
-    mPart = KParts::ComponentFactory
-            ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libknodepart",
-                                                                   core(), 0, // parentwidget,name
-                                                                   this, 0 ); // parent,name
-
-    return mPart;
-  } else
-    return mPart;
+    mPart = loadPart();
+  }
+  return mPart;
 }
 
 #include "knode_plugin.moc"

@@ -25,6 +25,7 @@
 #include <dcopclient.h>
 #include <kaboutdata.h>
 #include <kglobal.h>
+#include <kparts/componentfactory.h>
 
 #include "libkdepim/aboutdataextension.h"
 #include "core.h"
@@ -41,6 +42,7 @@ class Plugin::Private
     QString identifier;
     QString title;
     QString icon;
+    QCString partLibraryName;
 };
 
 
@@ -89,6 +91,16 @@ void Plugin::setIcon( const QString &icon )
 QString Plugin::icon() const
 {
   return d->icon;
+}
+
+void Plugin::setPartLibraryName( const QCString &libName )
+{
+  d->partLibraryName = libName;
+}
+
+KParts::Part *Plugin::loadPart()
+{
+  return core()->createPart( d->partLibraryName );
 }
 
 KAboutData *Plugin::aboutData()

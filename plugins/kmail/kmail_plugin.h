@@ -47,7 +47,7 @@ class KMailPlugin : public Kontact::Plugin
     void slotNewMail();
 
   private:
-    KParts::ReadOnlyPart *mPart;
+    KParts::Part *mPart;
     KMailIface_stub *mStub;
 };
 

@@ -45,7 +45,7 @@ class KitchenSyncPlugin : public Kontact::Plugin
     KParts::Part *part();
 
   private:
-    KParts::ReadOnlyPart *mPart;
+    KParts::Part *mPart;
 };
 
 #endif

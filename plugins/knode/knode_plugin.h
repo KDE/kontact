@@ -41,7 +41,7 @@ class KNodePlugin : public Kontact::Plugin
     virtual bool createDCOPInterface( const QString& serviceType );
 
   private:
-    KParts::ReadOnlyPart *mPart;
+    KParts::Part *mPart;
 };
 
 #endif

@@ -10,6 +10,7 @@ Name[es]=Plugin Kontact
 Name[hu]=Kontact bővítőmodul
 Name[pt_BR]=Plug-in do Kontact
 Name[ru]=Модуль Kontact
+Name[sr]=Додатак Kontact-а
 Name[sv]=Kontact-insticksprogram
 Name[tr]=Kontact Eklentisi
 Name[xx]=xxKontact Pluginxx
@@ -19,3 +20,5 @@ Name[zh_CN]=Kontact 插件
 Type=QString
 [PropertyDef::X-KDE-KontactPluginVersion]
 Type=int
+[PropertyDef::X-KDE-KontactPartLibraryName]
+Type=QString

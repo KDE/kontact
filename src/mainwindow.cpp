@@ -222,6 +222,12 @@ void MainWindow::loadPlugins()
     plugin->setTitle( (*it)->name() );
     plugin->setIcon( (*it)->icon() );
 
+    QVariant libNameProp = (*it)->property( "X-KDE-KontactPartLibraryName" );
+
+    kdDebug() << "LIBNAMEPART: " << libNameProp.toString() << endl;
+
+    plugin->setPartLibraryName( libNameProp.toString().utf8() );
+
     for( i = 0; i < plugins.count(); ++i ) {
       Plugin *p = plugins.at( i );
       if ( plugin->weight() < p->weight() ) break;
