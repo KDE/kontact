@@ -86,9 +86,6 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
            this, SLOT( updateView() ) );
 
-  QString error;
-  QCString appID;
-
   if ( kapp->dcopClient()->isApplicationRegistered( "kaddressbook" ) )
     mDCOPApp = "kaddressbook";
   else {
