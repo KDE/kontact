@@ -89,6 +89,9 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void setupActions();
     void initHeaderWidget( QVBox *vBox );
 
+  private slots:
+    void setHeaderPixmap( const QPixmap& );
+
   private:
     QHBox *m_headerFrame;
     QLabel *m_headerText;

@@ -24,6 +24,7 @@
 #include <qwhatsthis.h>
 #include <qsplitter.h>
 #include <qobjectlist.h>
+#include <qimage.h>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -144,7 +145,7 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   connect( this, SIGNAL( textChanged( const QString& ) ),
            m_headerText, SLOT( setText( const QString& ) ) );
   connect( this, SIGNAL( iconChanged( const QPixmap& ) ),
-           m_headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
+           this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
 
   QFont fnt( m_sidePane->font() );
   fnt.setBold( true );
@@ -210,9 +211,9 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
     connect( ie, SIGNAL( textChanged( const QString& ) ),
              m_headerText, SLOT( setText( const QString& ) ) );
     disconnect( m_lastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
-                m_headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
+                this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
     connect( ie, SIGNAL( iconChanged( const QPixmap& ) ),
-             m_headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
+             this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
   }
   else
   {
@@ -316,6 +317,16 @@ int MainWindow::startServiceFor( const QString& serviceType,
   }
   kdDebug(5600) << "Didn't find dcop interface, falling back to external process" << endl;
   return KDCOPServiceStarter::startServiceFor( serviceType, constraint, preferences, error, dcopService, flags );
+}
+
+void MainWindow::setHeaderPixmap( const QPixmap &pixmap )
+{
+  if ( pixmap.height() > 22 || pixmap.width() > 22 ) {
+    QImage img;
+    img = pixmap;
+    m_headerPixmap->setPixmap( img.smoothScale( 22, 22, QImage::ScaleMin ) );
+  } else
+    m_headerPixmap->setPixmap( pixmap );
 }
 
 #include "mainwindow.moc"
