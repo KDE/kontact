@@ -160,6 +160,7 @@ void MainWindow::initObject()
     selectPlugin( mCurrentPlugin );
   }
 
+  paintAboutScreen( introductionString() );
   Prefs::setLastVersionSeen( kapp->aboutData()->version() );
 }
 
@@ -225,7 +226,12 @@ void MainWindow::initWidgets()
 
   mPartsStack = new QWidgetStack( vBox );
   initAboutScreen();
+  
+  QString loading = i18n( "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>" )
+                    .arg( i18n("Loading Kontact...") );
 
+  paintAboutScreen( loading );
+  
   /* Create a progress dialog and hide it. */
   KPIM::ProgressDialog *progressDialog = new KPIM::ProgressDialog( statusBar(), this );
   progressDialog->hide();
@@ -240,74 +246,43 @@ void MainWindow::initWidgets()
   mLittleProgress->show();
 }
 
+
+void MainWindow::paintAboutScreen( const QString& msg )
+{
+  QString location = locate( "data", "kontact/about/main.html" );
+  QString content = KPIM::kFileToString( location );
+  mIntroPart->begin( KURL( location ) );
+
+  QString appName( i18n( "KDE Kontact" ) );
+  QString catchPhrase( i18n( "Get Organized!" ) );
+  QString quickDescription( i18n( "The KDE Personal Information Management Suite" ) );
+
+  mIntroPart->write( content.arg( QFont().pointSize() ).arg( appName )
+      .arg( catchPhrase ).arg( quickDescription ).arg( msg ) );
+  mIntroPart->end();
+
+}
+
 void MainWindow::initAboutScreen()
 {
   QHBox *introbox = new QHBox( mPartsStack );
   mPartsStack->addWidget( introbox );
   mPartsStack->raiseWidget( introbox );
-  KHTMLPart *introPart = new KHTMLPart( introbox );
-  introPart->widget()->setFocusPolicy( WheelFocus );
+  mIntroPart = new KHTMLPart( introbox );
+  mIntroPart->widget()->setFocusPolicy( WheelFocus );
   // Let's better be paranoid and disable plugins (it defaults to enabled):
-  introPart->setPluginsEnabled( false );
-  introPart->setJScriptEnabled( false ); // just make this explicit
-  introPart->setJavaEnabled( false );    // just make this explicit
-  introPart->setMetaRefreshEnabled( false );
-  introPart->setURLCursor( KCursor::handCursor() );
-  introPart->view()->setLineWidth( 0 );
+  mIntroPart->setPluginsEnabled( false );
+  mIntroPart->setJScriptEnabled( false ); // just make this explicit
+  mIntroPart->setJavaEnabled( false );    // just make this explicit
+  mIntroPart->setMetaRefreshEnabled( false );
+  mIntroPart->setURLCursor( KCursor::handCursor() );
+  mIntroPart->view()->setLineWidth( 0 );
 
-  QString location = locate( "data", "kontact/about/main.html" );
-  QString content = KPIM::kFileToString( location );
-  introPart->begin( KURL( location ) );
-  QString appName( i18n( "KDE Kontact" ) );
-  QString catchPhrase( i18n( "Get Organized!" ) );
-  QString quickDescription( i18n( "The KDE Personal Information Management Suite" ) );
-  KIconLoader *iconloader = KGlobal::iconLoader();
-  int iconSize = iconloader->currentSize( KIcon::Desktop );
-
-  // i18n("Loading Kontact...");
-  QString handbook_icon_path = iconloader->iconPath( "contents2",  KIcon::Desktop );
-  QString html_icon_path = iconloader->iconPath( "html",  KIcon::Desktop );
-  QString wizard_icon_path = iconloader->iconPath( "wizard",  KIcon::Desktop );
-
-  QString info = i18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
-      "<p>%1</p>"
-      "<table align=\"center\">"
-      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
-      "<td><a href=\"%1\">Read Manual</a></td></tr>"
-      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
-      "<td><a href=\"%1\">Visit Kontact Website</a></td></tr>"
-      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
-      "<td><a href=\"%1\">Configure Kontact as Groupware Client</a></td></tr>"
-      "</table>"
-      "<p style=\"margin-bottom: 0px\"> <a href=\"%1\">Skip this introduction</a></p>")
-      .arg( kapp->aboutData()->version() )
-      .arg( i18n( "Kontact handles your e-mail, addressbook, calendar, to-do list and more." ) )
-      .arg( "help:/kontact" )
-      .arg( iconSize )
-      .arg( iconSize )
-      .arg( handbook_icon_path )
-      .arg( "help:/kontact" )
-      .arg( "http://kontact.kde.org" )
-      .arg( iconSize )
-      .arg( iconSize )
-      .arg( html_icon_path )
-      .arg( "http://kontact.kde.org" )
-      .arg( "exec:/gwwizard" )
-      .arg( iconSize )
-      .arg( iconSize )
-      .arg( wizard_icon_path )
-      .arg( "exec:/gwwizard" )
-      .arg( "exec:/switch" );
-
-  introPart->write( content.arg( QFont().pointSize() ).arg( appName )
-      .arg( catchPhrase ).arg( quickDescription ).arg( info ) );
-  introPart->end();
-
-  connect( introPart->browserExtension(),
+  connect( mIntroPart->browserExtension(),
            SIGNAL( openURLRequest( const KURL&, const KParts::URLArgs& ) ),
            SLOT( slotOpenUrl( const KURL& ) ) );
 
-  connect( introPart->browserExtension(),
+  connect( mIntroPart->browserExtension(),
            SIGNAL( createNewWindow( const KURL&, const KParts::URLArgs& ) ),
            SLOT( slotOpenUrl( const KURL& ) ) );
 }
@@ -804,5 +779,47 @@ void MainWindow::slotShowStatusMsg( const QString &msg )
 
   mStatusMsgLabel->setText( msg );
 }
+
+QString MainWindow::introductionString()
+{
+  KIconLoader *iconloader = KGlobal::iconLoader();
+  int iconSize = iconloader->currentSize( KIcon::Desktop );
+
+  QString handbook_icon_path = iconloader->iconPath( "contents2",  KIcon::Desktop );
+  QString html_icon_path = iconloader->iconPath( "html",  KIcon::Desktop );
+  QString wizard_icon_path = iconloader->iconPath( "wizard",  KIcon::Desktop );
+
+  QString info = i18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
+      "<p>%1</p>"
+      "<table align=\"center\">"
+      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
+      "<td><a href=\"%1\">Read Manual</a></td></tr>"
+      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
+      "<td><a href=\"%1\">Visit Kontact Website</a></td></tr>"
+      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
+      "<td><a href=\"%1\">Configure Kontact as Groupware Client</a></td></tr>"
+      "</table>"
+      "<p style=\"margin-bottom: 0px\"> <a href=\"%1\">Skip this introduction</a></p>")
+      .arg( kapp->aboutData()->version() )
+      .arg( i18n( "Kontact handles your e-mail, addressbook, calendar, to-do list and more." ) )
+      .arg( "help:/kontact" )
+      .arg( iconSize )
+      .arg( iconSize )
+      .arg( handbook_icon_path )
+      .arg( "help:/kontact" )
+      .arg( "http://kontact.kde.org" )
+      .arg( iconSize )
+      .arg( iconSize )
+      .arg( html_icon_path )
+      .arg( "http://kontact.kde.org" )
+      .arg( "exec:/gwwizard" )
+      .arg( iconSize )
+      .arg( iconSize )
+      .arg( wizard_icon_path )
+      .arg( "exec:/gwwizard" )
+      .arg( "exec:/switch" );
+  return info;
+}
+
 
 #include "mainwindow.moc"

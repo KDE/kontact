@@ -35,13 +35,15 @@
 
 #include "core.h"
 
-class KAction;
-class KPluginInfo;
-class KRSqueezedTextLabel;
 class QHBox;
 class QSplitter;
 class QVBox;
 class QFrame;
+
+class KAction;
+class KPluginInfo;
+class KRSqueezedTextLabel;
+class KHTMLPart;
 
 namespace KPIM
 {
@@ -114,6 +116,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void setupActions();
     void showTip( bool );
     virtual bool queryClose();
+    void paintAboutScreen( const QString& msg );
+    static QString introductionString();
 
   private slots:
     void pluginsChanged();
@@ -134,6 +138,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     PluginList mPlugins;
     PluginList mDelayedPreload;
     QValueList<KPluginInfo*> mPluginInfos;
+    KHTMLPart *mIntroPart;
 
     int mSidePaneType;
 
