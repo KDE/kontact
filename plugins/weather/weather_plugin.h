@@ -35,6 +35,11 @@ class WeatherPlugin : public Kontact::Plugin
 
     virtual bool showInSideBar() const { return false; }
     virtual KParts::Part *part() { return 0; }
+
+    const KAboutData *aboutData();
+
+  private:
+    KAboutData *mAboutData;
 };
 
 #endif

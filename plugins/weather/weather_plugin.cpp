@@ -18,6 +18,7 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <kaboutdata.h>
 #include <kgenericfactory.h>
 #include <kparts/componentfactory.h>
 
@@ -31,7 +32,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_weatherplugin,
                             WeatherPluginFactory( "kontact_weatherplugin" ) )
 
 WeatherPlugin::WeatherPlugin( Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( core, core, name )
+  : Kontact::Plugin( core, core, name ), mAboutData( 0 )
 {
   setInstance( WeatherPluginFactory::instance() );
 }
@@ -39,4 +40,22 @@ WeatherPlugin::WeatherPlugin( Kontact::Core *core, const char *name, const QStri
 Kontact::Summary *WeatherPlugin::createSummaryWidget( QWidget *parentWidget )
 {
   return new SummaryWidget( parentWidget );
+}
+
+const KAboutData *WeatherPlugin::aboutData()
+{
+  if ( !mAboutData ) {
+    mAboutData = new KAboutData( "weatherplugin", I18N_NOOP( "Weather Information" ),
+                                 "0.1",
+                                 I18N_NOOP( "Weather Information" ),
+                                 KAboutData::License_GPL_V2,
+                                 "(c) 2003 The Kontact developers" );
+    mAboutData->addAuthor( "Ian Reinhart Geiser", "", "geiseri@kde.org" );
+    mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
+    mAboutData->addCredit( "John Ratke",
+                           I18N_NOOP( "Improvements and more code cleanups" ),
+                           "jratke@comcast.net" );
+  }
+
+  return mAboutData;
 }

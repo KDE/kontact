@@ -18,6 +18,7 @@
 	   Boston, MA 02111-1307, USA.
 */
 
+#include <kaboutdata.h>
 #include <kaction.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
@@ -36,8 +37,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_knotesplugin,
 
 KNotesPlugin::KNotesPlugin( Kontact::Core *core, const char *,
                             const QStringList &)
-  : Kontact::Plugin( core, core, "knotes" ), 
-    mPart( 0 )
+  : Kontact::Plugin( core, core, "knotes" ), mPart( 0 ), mAboutData( 0 )
 {
   setInstance( KNotesPluginFactory::instance() );
 
@@ -70,6 +70,20 @@ void KNotesPlugin::slotNewNote()
   (void) part();
   if ( mPart )
       mPart->newNote();
+}
+
+const KAboutData *KNotesPlugin::aboutData()
+{
+  if ( !mAboutData ) {
+    mAboutData = new KAboutData( "knotes", I18N_NOOP( "Notes Management" ),
+                                 "0.1",
+                                 I18N_NOOP( "Notes Management" ),
+                                 KAboutData::License_GPL_V2,
+                                 "(c) 2003 The Kontact developers" );
+    mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
+  }
+
+  return mAboutData;
 }
 
 #include "knotes_plugin.moc"
