@@ -105,44 +105,32 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
   QStringList::ConstIterator it;
   DCOPRef kmail( "kmail", "KMailIface" );
   for ( it = folders.begin(); it != folders.end() && counter < 9; ++it ) {
-    DCOPReply reply = kmail.call( "getFolder", *it );
-    if ( reply.isValid() ) {
-      DCOPRef folderRef = reply;
-      int numUnreadMsg = -1;
-      DCOPReply dcopReply = folderRef.call( "unreadMessages" );
-      if ( dcopReply.isValid() ) {
-        numUnreadMsg = dcopReply;
-      }
-      else {
-        kdDebug(5602) << "Calling folderRef->unreadMessages() via DCOP failed."
-                      << endl;
-      }
+    DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
+    int numMsg = folderRef.call( "messages()" );
+    int numUnreadMsg = folderRef.call( "unreadMessages()" );
 
-      if ( activeFolders.contains( *it ) ) {
-        QString folderPath = *it;
-        if ( !showFullPath )
-          folderPath = folderPath.mid( folderPath.findRev( '/' ) + 1 );
+    if ( activeFolders.contains( *it ) ) {
+      QString folderPath = *it;
+      if ( !showFullPath )
+        folderPath = folderPath.mid( folderPath.findRev( '/' ) + 1 );
 
-        KURLLabel *urlLabel = new KURLLabel( QString::null, folderPath,
-                                             this );
-        urlLabel->setAlignment( AlignLeft );
-        urlLabel->show();
-        // ### FIXME emit dcop signal to jumo to actual folder
-        connect( urlLabel, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
-        mLayout->addWidget( urlLabel, counter, 0 );
-        mLabels.append( urlLabel );
-        QLabel *label = new QLabel( QString::number( numUnreadMsg ), this );
+      KURLLabel *urlLabel = new KURLLabel( QString::null, folderPath,
+                                           this );
+      urlLabel->setAlignment( AlignLeft );
+      urlLabel->show();
+      // ### FIXME emit dcop signal to jumo to actual folder
+      connect( urlLabel, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
+      mLayout->addWidget( urlLabel, counter, 0 );
+      mLabels.append( urlLabel );
 
-        label->setAlignment( AlignLeft );
-        label->show();
-        mLayout->addWidget( label, counter, 2 );
-        mLabels.append( label );
-        counter++;
-      }
-    }
-    else {
-      kdDebug(5602) << "Calling kmail->KMailIface->getFolder() via DCOP "
-                       "failed." << endl;
+      QLabel *label = new QLabel( QString( "%1 / %2" )
+                                  .arg( numUnreadMsg ).arg( numMsg ), this );
+      label->setAlignment( AlignLeft );
+      label->show();
+      mLayout->addWidget( label, counter, 2 );
+      mLabels.append( label );
+
+      counter++;
     }
   }
 
