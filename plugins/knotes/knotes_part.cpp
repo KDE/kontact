@@ -28,6 +28,7 @@
 #include <krun.h>
 #include <kstandarddirs.h>
 #include <kmessagebox.h>
+#include <libkdepim/infoextension.h>
 
 #include "knotes_part.h"
 
@@ -69,6 +70,14 @@ KNotesPart::KNotesPart(QObject *parent, const char *name)
 
   m_iconView->arrangeItemsInGrid();
   m_iconView->setItemsMovable(false);
+
+  m_appIcon = KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Small );
+
+  KParts::InfoExtension *info = new KParts::InfoExtension( this, "KNoteInfoExtension" );
+  connect( this, SIGNAL( noteSelected( const QString& ) ),
+           info, SIGNAL( textChanged( const QString& ) ) );
+  connect( this, SIGNAL( noteSelected( const QPixmap& ) ),
+           info, SIGNAL( iconChanged( const QPixmap& ) ) );
 }
 
 void KNotesPart::initKNotes()
@@ -183,6 +192,9 @@ void KNotesPart::slotOpenNote( QIconViewItem *item )
 	arg << id;
 	if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "showNote(QString)", data ) )
 		kdDebug(5602) << "Opening Note!" << endl;
+
+  emit noteSelected( item->text() );
+  emit noteSelected( m_appIcon );
 }
 
 void KNotesPart::slotNewNote()

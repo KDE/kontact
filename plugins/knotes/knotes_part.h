@@ -21,6 +21,7 @@
 #define KNOTE_PART_H
 
 #include <qmap.h>
+#include <qpixmap.h>
 #include <kparts/part.h>
 
 
@@ -35,14 +36,16 @@ class KNotesPart : public KParts::ReadOnlyPart
   Q_OBJECT
 
 public:
-
   KNotesPart(QObject *parent=0, const char *name=0);
 
   bool openFile();
 
 public slots:
-
   void slotNewNote();
+
+signals:
+  void noteSelected( const QString &name );
+  void noteSelected( const QPixmap &pixmap );
 
 protected slots:
   void slotNoteRenamed(QIconViewItem *item, const QString& text);
@@ -53,15 +56,13 @@ protected slots:
 
 
 protected:
-
   void initKNotes();
   NotesMap fetchNotes();
 
 private:
-
   KIconView  *m_iconView;
+  QPixmap m_appIcon;
   QPopupMenu *m_popupMenu;
-
 };
 
 
