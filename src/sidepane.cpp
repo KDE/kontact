@@ -230,6 +230,8 @@ void SidePane::updatePlugins()
              SIGNAL( pluginSelected( Kontact::Plugin* ) ) );
     connect( pb, SIGNAL( showPart( Kontact::Plugin* ) ), 
              SLOT( switchSidePaneWidget( Kontact::Plugin* ) ) );
+
+    pb->show();
   }
 }
 

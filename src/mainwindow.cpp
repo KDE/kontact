@@ -117,8 +117,9 @@ void MainWindow::initWidgets()
 
   switch ( mSidePaneType ) {
     case Prefs::SidePaneIcons:
-      m_sidePane = new IconSidePane( this, m_topWidget );
-      vBox = new QVBox( m_topWidget );
+      m_splitter = new QSplitter( m_topWidget );
+      m_sidePane = new IconSidePane( this, m_splitter );
+      vBox = new QVBox( m_splitter );
       break;
     default:
       kdError() << "Invalid SidePaneType: " << mSidePaneType << endl;
@@ -429,26 +430,35 @@ void MainWindow::updateConfig()
 
   if ( Prefs::self()->mSidePaneType != mSidePaneType ) {
     kdDebug() << "Recreate top widget." << endl;
-    
-    saveSettings();
 
+    mSidePaneType = Prefs::self()->mSidePaneType;
+
+    saveSettings();
     slotActivePartChanged( 0 );
 
-    delete m_topWidget;
-    m_topWidget = 0;
-    m_headerText = 0;
-    m_headerPixmap = 0;
-    m_splitter = 0;
-    m_sidePane = 0;
-    m_stack = 0;
-    m_lastInfoExtension = 0;
-    
-    initWidgets();
+    delete m_sidePane;
 
-    m_topWidget->show();
+    switch ( mSidePaneType ) {
+      case Prefs::SidePaneIcons:
+        m_sidePane = new IconSidePane( this, m_splitter );
+        break;
+      default:
+        kdError() << "Invalid SidePaneType: " << mSidePaneType << endl;
+      case Prefs::SidePaneBars:
+        m_sidePane = new SidePane( this, m_splitter );
+        break;
+    }
 
-    if ( m_sidePane )
-      m_sidePane->updatePlugins();
+    m_sidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
+                               QSizePolicy::Preferred ) );
+
+    connect( m_sidePane, SIGNAL( pluginSelected( Kontact::Plugin* ) ),
+             SLOT( selectPlugin( Kontact::Plugin* ) ) );
+
+    m_splitter->moveToFirst( m_sidePane );
+
+    m_sidePane->show();
+    m_sidePane->updatePlugins();
 
     loadSettings();
   }

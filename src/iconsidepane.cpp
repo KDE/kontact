@@ -145,7 +145,7 @@ void Navigator::updatePlugins( QPtrList<Kontact::Plugin> plugins )
       minWidth = item->width( this );
   }
 
-  setFixedWidth( minWidth );
+  parentWidget()->setFixedWidth( minWidth );
 }
 
 void Navigator::slotExecuted( QListBoxItem *item )
