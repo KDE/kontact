@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui >
-<kpartgui version="12" name="kontact" >
+<kpartgui version="13" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -23,7 +23,7 @@
      <text>&amp;Settings</text>
      <Merge/>
      <Separator/>
-     <Action name="settings_preferences"/>
+     <Action name="settings_configure_kontact"/>
   </Menu>
 </MenuBar>
 <ToolBar position="Top" iconText="IconOnly" noMerge="1" name="mainToolBar">

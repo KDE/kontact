@@ -126,9 +126,12 @@ MainWindow::~MainWindow()
 void MainWindow::setupActions()
 {
   (void) KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
-  (void) KStdAction::preferences( this, SLOT( slotPreferences() ), actionCollection() );
+//  (void) KStdAction::preferences( this, SLOT( slotPreferences() ), actionCollection() );
   m_newActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), "filenew2"), 
 		  KShortcut(), this, SLOT(slotNewClicked()),actionCollection(), "action_new" );
+
+  new KAction( i18n("Configure Kontact..."), 0, this, SLOT( slotPreferences() ),
+               actionCollection(), "settings_configure_kontact" );
 }
 
 void MainWindow::initHeaderWidget(QVBox *vBox)
@@ -298,6 +301,8 @@ void MainWindow::slotPreferences()
   KCMultiDialog* dialog = new KCMultiDialog( "PIM", this, "KontactPreferences" );
 
   QStringList modules;
+
+  modules.append( "PIM/kontactconfig.desktop" );
 
   // find all all modules for all plugins
   QPtrListIterator<Kontact::Plugin> pit( m_plugins );

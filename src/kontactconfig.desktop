@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=kcmshell kontactconfig
+Icon=kontact
+Type=Application
+Terminal=0
+
+X-KDE-ModuleType=Library
+X-KDE-Library=kontact
+X-KDE-FactoryName=kontactconfig
+X-KDE-HasReadOnlyMode=false
+
+Name=Kontact
+Comment=KDE Kontact
+Keywords=kontact
