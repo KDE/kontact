@@ -107,8 +107,8 @@ void EntryItem::paint( QPainter *p )
   }
 }
 
-Navigator::Navigator(QWidget *parent, const char *name)
-  : KListBox( parent, name )
+Navigator::Navigator( SidePaneBase *parent, const char *name)
+  : KListBox( parent, name ), mSidePane( parent )
 {
   setSelectionMode( KListBox::Single );
   QPalette pal = palette();
@@ -120,6 +120,8 @@ Navigator::Navigator(QWidget *parent, const char *name)
   viewport()->setBackgroundMode( PaletteMid );
 
   setHScrollBarMode( QScrollView::AlwaysOff );
+
+  setAcceptDrops( true );
 
   connect( this, SIGNAL( currentChanged( QListBoxItem * ) ),
            SLOT( slotExecuted( QListBoxItem * ) ) );
@@ -157,6 +159,55 @@ void Navigator::slotExecuted( QListBoxItem *item )
   emit pluginActivated( entry->plugin() );
 }
 
+void Navigator::dragEnterEvent( QDragEnterEvent *event )
+{
+  kdDebug() << "Navigator::dragEnterEvent()" << endl;
+
+  dragMoveEvent( event );
+}
+
+void Navigator::dragMoveEvent( QDragMoveEvent *event )
+{
+  kdDebug() << "Navigator::dragEnterEvent()" << endl;
+  
+  kdDebug() << "  Format: " << event->format() << endl;
+
+  QListBoxItem *item = itemAt( event->pos() );
+
+  if ( !item ) {
+    event->accept( false );
+    return;
+  }
+
+  EntryItem *entry = static_cast<EntryItem *>( item );
+  
+  kdDebug() << "  PLUGIN: " << entry->plugin()->identifier() << endl;
+
+  event->accept( entry->plugin()->canDecodeDrag( event ) );
+}
+
+void Navigator::dropEvent( QDropEvent *event )
+{
+  kdDebug() << "Navigator::dropEvent()" << endl;
+
+  QListBoxItem *item = itemAt( event->pos() );
+
+  if ( !item ) {
+    return;
+  }
+
+  EntryItem *entry = static_cast<EntryItem *>( item );
+  
+  kdDebug() << "  PLUGIN: " << entry->plugin()->identifier() << endl;
+
+  // Make sure the part is loaded before calling processDropEvent.
+  // Maybe it's better, if that would be done by the plugin.
+  // Hmm, this doesn't work anyway.
+  mSidePane->selectPlugin( entry->plugin() );
+
+  entry->plugin()->processDropEvent( event );  
+}
+
 
 IconSidePane::IconSidePane( Core *core, QWidget *parent, const char *name )
   : SidePaneBase( core, parent, name )
@@ -164,6 +215,8 @@ IconSidePane::IconSidePane( Core *core, QWidget *parent, const char *name )
   mNavigator = new Navigator( this );
   connect( mNavigator, SIGNAL( pluginActivated( Kontact::Plugin * ) ),
            SIGNAL( pluginSelected( Kontact::Plugin * ) ) );
+
+  setAcceptDrops( true );
 }
 
 IconSidePane::~IconSidePane()

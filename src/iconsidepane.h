@@ -73,7 +73,7 @@ class Navigator : public KListBox
 {
     Q_OBJECT
   public:
-    Navigator( QWidget *parent = 0, const char *name = 0 );
+    Navigator( SidePaneBase *parent = 0, const char *name = 0 );
 
     void updatePlugins( QPtrList<Kontact::Plugin> plugins );
 
@@ -82,8 +82,16 @@ class Navigator : public KListBox
   signals:
     void pluginActivated( Kontact::Plugin * );
 
+  protected:
+    void dragEnterEvent( QDragEnterEvent * );
+    void dragMoveEvent ( QDragMoveEvent * );
+    void dropEvent( QDropEvent * );
+
   private slots:
     void slotExecuted( QListBoxItem *item );
+
+  private:
+    SidePaneBase *mSidePane;
 };
 
 class IconSidePane : public SidePaneBase
