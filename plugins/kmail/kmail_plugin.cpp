@@ -51,6 +51,11 @@ void KMailPlugin::loadPart()
 void KMailPlugin::slotShowPlugin()
 {
   loadPart();
+  if (!m_part) 
+  {
+     KMessageBox::sorry(0,i18n("The mail plugin couldn't be loaded. E-mail services are not available"));
+     return;
+  }
   if (m_part->widget())
     core()->showView(m_part->widget());
 }
