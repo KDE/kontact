@@ -96,6 +96,9 @@ QStringList KOrganizerPlugin::invisibleToolbarActions() const
   invisible += "new_event";
   invisible += "new_todo";
   invisible += "new_journal";
+
+  invisible += "view_todo";
+  invisible += "view_journal";
   return invisible;
 }
 

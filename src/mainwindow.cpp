@@ -62,6 +62,7 @@
 #include <kcursor.h>
 #include <krun.h>
 #include <kaboutdata.h>
+#include <kmenubar.h>
 
 #include "aboutdialog.h"
 #include "iconsidepane.h"
@@ -497,7 +498,7 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
   kdDebug(5600) << "Part activated: " << part << " with stack id. "
       << mPartsStack->id( part->widget() )<< endl;
 
-  createGUI( part );
+  //createGUI( part ); // moved to selectPlugin()
 
   statusBar()->clear();
 }
@@ -580,6 +581,9 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     mCurrentPlugin = plugin;
     KAction *action = plugin->newActions()->first();
     setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );
+
+    createGUI( plugin->part() );
+
     if ( action ) {
       mNewActions->setIcon( action->icon() );
       mNewActions->setText( action->text() );

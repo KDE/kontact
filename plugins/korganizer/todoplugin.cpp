@@ -95,6 +95,14 @@ QStringList TodoPlugin::invisibleToolbarActions() const
   invisible += "new_event";
   invisible += "new_todo";
   invisible += "new_journal";
+
+  invisible += "view_day";
+  invisible += "view_list";
+  invisible += "view_workweek";
+  invisible += "view_week";
+  invisible += "view_nextx";
+  invisible += "view_month";
+  invisible += "view_journal";
   return invisible;
 }
 

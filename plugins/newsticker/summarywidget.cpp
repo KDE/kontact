@@ -119,7 +119,8 @@ void SummaryWidget::initDocuments()
   dcopCall.call( "list()" ).get( urls );
 
   if ( urls.isEmpty() ) { // add default
-    urls.append( "http://www.kde.org/dotkdeorg.rdf" );
+//  urls.append( "http://www.kde.org/dotkdeorg.rdf" );
+    urls.append( "http://rss.news.yahoo.com/rss/topstories" );
     dcopCall.send( "add(QString)", urls[ 0 ] );
   }
 
