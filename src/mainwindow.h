@@ -127,6 +127,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QMap<KParts::InfoExtension*, InfoExtData> m_infoExtCache;
 
     int mSidePaneType;
+    QStringList mActivePlugins;
 
     AboutDialog *m_aboutDialog;
 };

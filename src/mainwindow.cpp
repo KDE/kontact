@@ -372,6 +372,8 @@ void MainWindow::loadSettings()
     m_splitter->setSizes( Prefs::self()->mSidePaneSplitter );
 
   selectPlugin( Prefs::self()->mActivePlugin );
+
+  mActivePlugins = Prefs::self()->mActivePlugins;
 }
 
 void MainWindow::saveSettings()
@@ -460,14 +462,18 @@ void MainWindow::updateConfig()
 {
   kdDebug() << "MainWindow::updateConfig()" << endl;
 
-  if ( Prefs::self()->mSidePaneType != mSidePaneType ) {
-    kdDebug() << "Recreate top widget." << endl;
+  saveSettings();
 
-    mSidePaneType = Prefs::self()->mSidePaneType;
+  bool pluginsChanged = ( Prefs::self()->mActivePlugins != mActivePlugins );
+  bool sidePaneChanged = ( Prefs::self()->mSidePaneType != mSidePaneType );
 
-    saveSettings();
-
+  if ( pluginsChanged ) {
     unloadPlugins();
+    loadPlugins();
+  }
+
+  if ( sidePaneChanged ) {
+    mSidePaneType = Prefs::self()->mSidePaneType;
 
     delete m_sidePane;
 
@@ -492,13 +498,13 @@ void MainWindow::updateConfig()
 
     m_splitter->moveToFirst( m_sidePane );
 
-    loadPlugins();
-
     m_sidePane->show();
+  }
+
+  if ( pluginsChanged || sidePaneChanged )
     m_sidePane->updatePlugins();
 
-    loadSettings();
-  }
+  loadSettings();
 }
 
 void MainWindow::showAboutDialog()
