@@ -108,6 +108,6 @@ private:
     Plugin* mPlugin;
 };
 
-}; // namespace
+} // namespace
 
 #endif /* KONTACT_UNIQUEAPPHANDLER_H */
