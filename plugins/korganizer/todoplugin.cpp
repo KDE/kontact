@@ -51,13 +51,14 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {
-  setInstance( TodoPluginFactory::instance() );
+  // hack for iconloader to find the icon in the right place
+  setInstance( new KInstance( "korganizer" ) );
 
-  instance()->iconLoader()->addAppDir( "korganizer" );
-  QPixmap pm = instance()->iconLoader()->loadIcon( "newtodo", KIcon::Toolbar );
-  insertNewAction( new KAction( i18n( "New To-do..." ), pm,
+  insertNewAction( new KAction( i18n( "New To-do..." ), "newtodo",
                    0, this, SLOT( slotNewTodo() ), actionCollection(),
                    "new_todo" ) );
+
+  setInstance( TodoPluginFactory::instance() );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );

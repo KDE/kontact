@@ -51,15 +51,15 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QSt
   : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {
-  setInstance( KOrganizerPluginFactory::instance() );
 
-  instance()->iconLoader()->addAppDir( "korganizer" );
-  QPixmap pm = instance()->iconLoader()->loadIcon( "appointment", KIcon::Toolbar );
+  // hack for iconloader to find the icon in the right place
+  setInstance( new KInstance( "korganizer" ) );
 
-  insertNewAction( new KAction( i18n( "New Event..." ), pm,
+  insertNewAction( new KAction( i18n( "New Event..." ), "appointment",
                    0, this, SLOT( slotNewEvent() ), actionCollection(),
                    "new_event" ) );
 
+  setInstance( KOrganizerPluginFactory::instance() );
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
 }
