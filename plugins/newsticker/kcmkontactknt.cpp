@@ -166,7 +166,7 @@ void KCMKontactKNT::loadCustomNews()
   QMap<QString, QString> customFeeds = config.entryMap( "CustomFeeds" );
   config.setGroup( "CustomFeeds" );
 
-  mCustomItem = new QListViewItem( mAllNews, i18n( "Customs" ) );
+  mCustomItem = new QListViewItem( mAllNews, i18n( "Custom" ) );
   mCustomItem->setSelectable( false );
 
   if ( customFeeds.count() == 0 )
