@@ -47,6 +47,9 @@ class TodoSummaryWidget : public Kontact::Summary
     int summaryHeight() const { return 3; }
     QStringList configModules() const;
 
+  public slots:
+    void updateSummary( bool force = false ) { updateView(); }
+
   private slots:
     void updateView();
     void selectEvent( const QString &uid );
