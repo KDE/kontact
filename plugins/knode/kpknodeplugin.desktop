@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+Exec=
+Comment=Kontact KNode Plugin
+Name=News
+Icon=knode
+ServiceTypes=Kontact/Plugin
+X-KDE-Library=libkpknodeplugin
+X-KDE-KontactIdentifier=news
