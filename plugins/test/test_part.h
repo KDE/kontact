@@ -14,15 +14,17 @@ class TestPart : public KParts::ReadOnlyPart
 public:
 
   TestPart(QObject *parent=0, const char *name=0);
-
+    ~TestPart();
 
 protected:
 
   virtual bool openFile();
+  bool connectToAddressBook();
 
 protected slots:
 
   void newContact();
+  void unregisteredFromDCOP( const QCString& );
 
 private:
 
