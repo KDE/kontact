@@ -54,7 +54,7 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QSt
   instance()->iconLoader()->addAppDir( "korganizer" );
   QPixmap pm = instance()->iconLoader()->loadIcon( "appointment", KIcon::Toolbar );
 
-  insertNewAction( new KAction( i18n( "New Event" ), pm,
+  insertNewAction( new KAction( i18n( "New Event..." ), pm,
                    0, this, SLOT( slotNewEvent() ), actionCollection(),
                    "new_event" ) );
 

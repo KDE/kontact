@@ -117,7 +117,7 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
 
   (void) new KParts::SideBarExtension( mNotesView, this, "NotesSideBarExtension" );
 
-  KStdAction::openNew( this, SLOT( newNote() ), actionCollection() );
+  (void) new KAction( i18n("&New..."), "editnew", CTRL+Key_N, this, SLOT( newNote() ), actionCollection(), "file_new" );
   mActionEdit = new KAction( i18n( "Rename" ), "editrename", this,
                              SLOT( renameNote() ), actionCollection(),
                                      "edit_rename" );
@@ -224,11 +224,11 @@ void KNotesPart::removeSelectedNotes()
     return;
 
   int ret = KMessageBox::warningContinueCancelList( mNotesView,
-      i18n( "Do you really want to delete that note?",
+      i18n( "Do you really want to delete this note?",
             "Do you really want to delete these %n notes?", items.count() ),
       titles,
       i18n( "Confirm Delete" ),
-      i18n( "Delete" )
+      KGuiItem( i18n( "Delete" ), "editdelete")
       );
 
   if ( ret == KMessageBox::Continue ) {
@@ -293,7 +293,7 @@ void KNotesPart::newNote()
 {
   bool ok;
   QString title = KInputDialog::getText( i18n( "New Note" ),
-                                         i18n( "Enter title for the new note:" ),
+                                         i18n( "Enter title for the note:" ),
                                          KGlobal::locale()->formatDateTime( QDateTime::currentDateTime() ),
                                          &ok );
   if ( !ok )
