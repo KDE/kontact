@@ -27,9 +27,6 @@
 #define KP_CORE_H
 
 
-#include <qstring.h>
-#include <qobject.h>
-
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 
@@ -39,6 +36,9 @@ namespace Kontact
 {
 
 
+    /**
+     * This class is now purely private to Kontact and not visible for the plugins 
+     **/
     class Core : public KParts::MainWindow
     {
         protected:
@@ -47,13 +47,8 @@ namespace Kontact
         public:
             virtual ~Core();
 
-            virtual void addMainEntry(QString text, QString icon, QObject *reveiver, const char *slot) = 0;
-
-            virtual void addPart(KParts::Part *part) = 0;
-
-            virtual void showPart(KParts::Part *part) = 0;
-
             virtual void insertNewAction(KAction *action) = 0;
+            virtual void showPart(KParts::Part *part) = 0;
 
     };
 

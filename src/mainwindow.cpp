@@ -59,6 +59,7 @@ MainWindow::MainWindow()
   
   m_sidePane = new SidePane(splitter);
   m_sidePane->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
+  connect(m_sidePane, SIGNAL(showPart(KParts::Part*)), SLOT(showPart(KParts::Part*)));
   
   m_stack = new QWidgetStack(splitter);
  
@@ -139,8 +140,8 @@ void MainWindow::addPlugin(Kontact::Plugin *plugin)
   // merge the plugins GUI into the main window
   insertChildClient(plugin);
   m_plugins.append(plugin);
+  m_sidePane->addEntry(plugin);
 }
-
 
 void MainWindow::addPart(KParts::Part *part)
 {
@@ -150,16 +151,19 @@ void MainWindow::addPart(KParts::Part *part)
     m_stack->addWidget(part->widget(), 0);
 }
 
-
 void MainWindow::activePartChanged(KParts::Part *part)
 {
   kdDebug() << "Part activated: " << part << endl;
   createGUI(part);
 }
 
-
 void MainWindow::showPart(KParts::Part* part)
 {
+    
+  QPtrList<KParts::Part> parts = *m_partManager->parts();
+//  if (!parts.find(part))
+      addPart(part);
+
   m_partManager->setActivePart( part );
   QWidget* view = part->widget();
   Q_ASSERT(view);
@@ -201,13 +205,6 @@ void MainWindow::slotPreferences()
 
   dialog->show();
   dialog->raise();
-}
-
-
-// called from the plugins
-void MainWindow::addMainEntry(QString text, QString icon, QObject *receiver, const char *member)
-{
-  m_sidePane->addServiceEntry(BarIcon(icon), text, receiver, member);
 }
 
 int MainWindow::startServiceFor( const QString& serviceType,

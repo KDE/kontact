@@ -22,15 +22,13 @@ K_EXPORT_COMPONENT_FACTORY( libkpkaddressbookplugin,
                             KAddressbookPluginFactory( "kpaddressbookplugin" ) );
 
 KAddressbookPlugin::KAddressbookPlugin(Kontact::Core *_core, const char *, const QStringList & /*args*/ )
-  : Kontact::Plugin(_core, _core, "kaddressbook"), m_part(0)
+  : Kontact::Plugin(i18n("Contacts"), "kaddressbook", _core, _core, "kaddressbook"), m_part(0)
 {
   m_stub = 0L;
   setInstance(KAddressbookPluginFactory::instance());
 
   setXMLFile("kpkaddressbookplugin.rc");
 
-
-  core()->addMainEntry(i18n("Contacts"), "kaddressbook", this, SLOT(slotShowPart()));
   core()->insertNewAction( new KAction( i18n( "New Contact" ), BarIcon( "contact" ),
 			  0, this, SLOT( slotNewContact() ), actionCollection(), "new_contact" ));
 }
@@ -40,7 +38,7 @@ KAddressbookPlugin::~KAddressbookPlugin()
 {
 }
 
-void KAddressbookPlugin::loadPart()
+KParts::Part* KAddressbookPlugin::part()
 {
   if (!m_part)
   {
@@ -49,13 +47,13 @@ void KAddressbookPlugin::loadPart()
                                                              0, 0, // parentwidget,name
                                                              this, 0 ); // parent,name
     if (!m_part)
-      return;
+      return 0L;
 
-    core()->addPart(m_part);
     // 1) Register with dcop as "kaddressbook"  [maybe the part should do this]
     // 2) Create the stub that allows us to talk to the part
     m_stub = new KAddressBookIface_stub(dcopClient(), "kaddressbook", "KAddressBookIface");
   }
+  return m_part;
 }
 
 QStringList KAddressbookPlugin::configModules() const
@@ -88,16 +86,9 @@ KAboutData* KAddressbookPlugin::aboutData()
   return about;
 }
 
-void KAddressbookPlugin::slotShowPart()
-{
-  loadPart();
-  if (m_part)
-    core()->showPart(m_part);
-}
-
 void KAddressbookPlugin::slotNewContact()
 {
-  loadPart();
+  (void) part(); // ensure part is loaded
   Q_ASSERT( m_stub );
   if ( m_stub )
       m_stub->newContact();
@@ -107,7 +98,6 @@ bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
 {
     if ( serviceType == "DCOP/AddressBook" )
     {
-        loadPart();
         Q_ASSERT( m_stub );
         return true;
     }

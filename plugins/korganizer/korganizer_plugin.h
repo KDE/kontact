@@ -6,7 +6,7 @@
 
 
 #include "kpplugin.h"
-//#include "korganizeriface_stub.h"
+#include "korganizeriface_stub.h"
 
 class KOrganizerPlugin : public Kontact::Plugin
 {
@@ -20,17 +20,15 @@ public:
   virtual bool createDCOPInterface( const QString& serviceType );
 
 protected:
-  void loadPart();
+  KParts::ReadOnlyPart* part();
 
 private slots:
-
-  void slotShowPart();
   void slotNewAppointment();
 
 private:
 
   KParts::ReadOnlyPart *m_part;
-  //KOrganizerIface_stub *m_iface;
+  KOrganizerIface_stub *m_iface;
 };
 
 

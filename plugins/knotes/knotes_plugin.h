@@ -33,15 +33,14 @@ public:
   KNotesPlugin(Kontact::Core *core, const char *name, const QStringList &);
   ~KNotesPlugin();
 
+  KParts::Part* part();
   
 private slots:
   
-  void slotShowNotes();
   void slotNewNote();
 
 private:
 
-  void loadPart();
   KNotesPart *m_part;
   
 };

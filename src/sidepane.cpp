@@ -17,14 +17,22 @@
    Boston, MA 02111-1307, USA.
  */
 
+#include <assert.h>
+
 #include <qptrlist.h>
 #include <qwidgetstack.h>
 #include <qsignal.h>
+#include <qobjectlist.h>
 
 #include <klocale.h>
 #include <kiconloader.h>
 
 #include <kdebug.h>
+
+#include "mainwindow.h"
+
+#include "kpplugin.h"
+#include "sidebarextension.h"
 
 #include "sidepane.h"
 
@@ -34,32 +42,24 @@ using namespace Kontact;
 // Helper classes
 ///////////////////////////////////////////////////////////////////////
 
-PanelButton::PanelButton(const QIconSet & icon, const QString & text, 
-    int id, QObject* receiver, const char* slot, 
-    QWidget *parent, const char* name) :
-QPushButton(icon, text, parent, name)
+PanelButton::PanelButton( Kontact::Plugin *plugin, int id,  QWidget *parent, const char* name) :
+QPushButton(BarIcon(plugin->icon()), plugin->pluginName(), parent, name)
 {
   m_active = false;
   m_id = id;
-  m_receiver = receiver;
-  m_slot = slot;
-
-
+  m_plugin = plugin;
+  
   setFlat(true);
   connect(this, SIGNAL(clicked()), SLOT(slotClicked()));
 }
 
-void PanelButton::connectToReceiver(QObject* sender) {
-  QSignal sig(sender);
-  sig.connect(m_receiver, m_slot);
-  sig.activate();
-  kdDebug() << "PanelButton::connectToReceiver()" << endl;
-}
-
-
 void PanelButton::slotClicked()
 {
-  emit clicked(this, m_id);
+  emit clicked(this);
+
+  KParts::Part* part = m_plugin->part();
+  emit showPart(part);
+  
   setActive();
 }
 
@@ -105,16 +105,33 @@ void PanelButton::setInactive()
 }
 
 
-void SidePane::addServiceEntry(const QPixmap& icon, const QString& text, 
-    QObject* receiver, const char* slot) 
+void SidePane::addEntry(Kontact::Plugin *plugin)
 {
   //int id = m_contentStack->addWidget(child);
-  PanelButton* pb = new PanelButton(icon, text, 0, receiver, slot, this, "PanelButton");
+  PanelButton* pb = new PanelButton(plugin, 0, this, "PanelButton");
   m_buttonList.append(pb);
-  connect(pb, SIGNAL(clicked(PanelButton*, int)), this, SLOT(switchItems(PanelButton*, int)));
+  connect(pb, SIGNAL(clicked(PanelButton*)), this, SLOT(switchItems(PanelButton*)));
+  connect(pb, SIGNAL(showPart(KParts::Part*)), this, SIGNAL(showPart(KParts::Part*)));
+  connect(pb, SIGNAL(showPart(KParts::Part*)), this, SLOT(switchSidePaneWidget(KParts::Part*)));
 }
 
-void SidePane::switchItems(PanelButton* pb, int id)
+void SidePane::switchSidePaneWidget(KParts::Part* part)
+{
+ assert(part);
+ 
+ QObjectList *l = part->queryList( "KParts::SideBarExtension" );
+ KParts::SideBarExtension *sbe = static_cast<KParts::SideBarExtension*>(l->first());
+ 
+ if (!sbe)
+   return;
+
+ if (m_contentStack->id(sbe->widget()) == -1)
+   m_contentStack->addWidget(sbe->widget());
+
+ m_contentStack->raiseWidget(sbe->widget());
+}
+
+void SidePane::switchItems(PanelButton* pb)
 {
   QPtrListIterator<PanelButton> it(m_buttonList);
   for (; it.current(); ++it)
@@ -123,8 +140,7 @@ void SidePane::switchItems(PanelButton* pb, int id)
       it.current()->setInactive();
   }
 
-  pb->connectToReceiver(this);
-  m_contentStack->raiseWidget(id);
+  m_contentStack->raiseWidget(pb->id());
   m_headerWidget->setText(pb->text());
 }
 

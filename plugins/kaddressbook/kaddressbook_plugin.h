@@ -16,23 +16,18 @@ class KAddressbookPlugin : public Kontact::Plugin
   Q_OBJECT
 
 public:
-
   KAddressbookPlugin(Kontact::Core *core, const char *name, const QStringList & /*args*/);
   ~KAddressbookPlugin();
 
   virtual bool createDCOPInterface( const QString& serviceType );
-
   virtual QStringList configModules() const;
-
   KAboutData* aboutData();
+  KParts::Part* part();
   
 private slots:
-
-  void slotShowPart();
   void slotNewContact();
 
 private:
-  void loadPart();
   KAddressBookIface_stub *m_stub;
   KParts::ReadOnlyPart *m_part;
 

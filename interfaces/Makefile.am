@@ -7,7 +7,7 @@ libkpinterfaces_la_LDFLAGS = $(all_libraries) -no-undefined -version-info 1:0:0
 libkpinterfaces_la_LIBADD = $(LIB_KPARTS)
 
 kpincludedir = $(includedir)/kontact
-kpinclude_HEADERS = kpcore.h kpplugin.h sidebarextension.h
+kpinclude_HEADERS = kpplugin.h sidebarextension.h
 
 METASOURCES = AUTO
 

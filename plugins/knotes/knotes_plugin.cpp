@@ -35,38 +35,30 @@ typedef KGenericFactory< KNotesPlugin, Kontact::Core > KNotesPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpknotesplugin, KNotesPluginFactory( "kpknotesplugin" ) );
 
 KNotesPlugin::KNotesPlugin(Kontact::Core *_core, const char *name, const QStringList &)
-  : Kontact::Plugin(_core, _core, name), m_part(0)
+  : Kontact::Plugin(i18n("Notes"), "knotes", _core, _core, name), m_part(0)
 {
   setInstance(KNotesPluginFactory::instance());
 
   setXMLFile("kpknotesplugin.rc");
 
-  core()->insertNewAction(new KAction(i18n("New Note"), BarIcon("knotes"), 0, this, SLOT(slotNewNote()), actionCollection(), "new_note" ) );
-  core()->addMainEntry(i18n("Notes"), "knotes", this, SLOT(slotShowNotes()));
+  insertNewAction(new KAction(i18n("New Note"), BarIcon("knotes"), 0, this, SLOT(slotNewNote()), actionCollection(), "new_note" ) );
 }
 
 KNotesPlugin::~KNotesPlugin()
 {
 }
 
-void KNotesPlugin::loadPart()
+KParts::Part* KNotesPlugin::part()
 {
   if (!m_part)
-  {
     m_part = new KNotesPart(this, "notes");
-    core()->addPart(m_part);
-  }
-}
-
-void KNotesPlugin::slotShowNotes()
-{
-  loadPart();
-  core()->showPart(m_part);
+  
+  return m_part;
 }
 
 void KNotesPlugin::slotNewNote()
 {
-  loadPart();
+  (void) part();
   if ( m_part )
       m_part->slotNewNote();
 }

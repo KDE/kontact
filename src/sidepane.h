@@ -21,13 +21,14 @@
 
 #include <qpushbutton.h>
 #include <qvbox.h>
+#include <qptrlist.h>
 
 class QWidgetStack;
 
-template <class T> class QPtrList;
-
 namespace Kontact
 {
+
+  class Plugin;
 
   ///////////////////////////////////////////////////////////////////////
   // Helper classes
@@ -38,34 +39,28 @@ namespace Kontact
   {
     Q_OBJECT
     public:
-      PanelButton(const QIconSet & icon, const QString & text, 
-          int id, QObject* receiver, const char* slot,
-          QWidget *parent, const char* name = 0);
+      PanelButton(Kontact::Plugin *plugin, int id, QWidget *parent, const char* name = 0);
 
       ~PanelButton() {};
 
       bool isActive() const { return m_active; };
 
-      /**
-       * Does the virtal connection
-       **/
-      void connectToReceiver( QObject * );
-
       void setActive();
       void setInactive();
 
-signals:
-      void clicked(PanelButton* pb, int id);
+      int id() const { return m_id; }
 
-      public slots:	
-        void slotClicked();
+    signals:
+      void clicked(PanelButton* pb);
+      void showPart(KParts::Part* part);
 
+    public slots:	
+      void slotClicked();
 
     private:
+      Kontact::Plugin *m_plugin;
       bool m_active;
       bool m_id;
-      QObject* m_receiver;
-      QCString m_slot;
   };
 
   ///////////////////////////////////////////////////////////////////////
@@ -77,17 +72,22 @@ signals:
       SidePane(QWidget *parent, const char* name = 0);
       ~SidePane() {};
 
-      public slots:
-        /**
-         * adds a new service to the sidepane
-         **/
-        void addServiceEntry(const QPixmap& icon, const QString& text, 
-            QObject* receiver, const char* slot); 
+    signals:
+      void showPart(KParts::Part*);
 
-      void switchItems(PanelButton* pb, int id);
+    public slots:
+      /**
+       * adds a new entry to the sidepane
+       **/
+      void addEntry(Kontact::Plugin *plugin);
+
+      void switchItems(PanelButton* pb);
 
       void invokeFirstEntry();
 
+    protected slots:
+      void switchSidePaneWidget(KParts::Part* part);
+      
     private:
       QWidgetStack* m_contentStack;
       QPushButton* m_headerWidget;

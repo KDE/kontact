@@ -51,13 +51,11 @@ public:
 
   MainWindow();
   ~MainWindow();
-
-  virtual void addMainEntry(QString text, QString icon, QObject *receiver, const char *slot);
-
+/*
   virtual void addPart(KParts::Part *part);
 
   virtual void showPart(KParts::Part *part);
-
+*/
   virtual void insertNewAction(KAction *action);
 
   // KDCOPServiceStarter interface
@@ -67,6 +65,8 @@ public:
                                QString *error=0, QCString* dcopService=0,
                                int flags=0 );
 
+ public slots: 
+  virtual void showPart(KParts::Part *part);
 private slots:
 
   void slotQuit();
@@ -81,6 +81,8 @@ private:
 
   void loadPlugins();
   void addPlugin(Kontact::Plugin *plugin);
+
+  void addPart(KParts::Part *part);
 
   void setupActions();
 

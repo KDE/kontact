@@ -17,15 +17,10 @@ public:
 
   KMailPlugin(Kontact::Core *core, const char *name, const QStringList & /*args*/);
   ~KMailPlugin();
-
-
-private slots:
-
-  void slotShowPart();
-
+  
+  virtual KParts::Part* part();
+  
 private:
-  void loadPart();
-//  KMailPartIface_stub *m_stub;
   KParts::ReadOnlyPart *m_part;
 };
 

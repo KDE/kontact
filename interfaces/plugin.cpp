@@ -23,10 +23,11 @@
 
 // $Id$
 
+#include <assert.h>
+
 #include <dcopclient.h>
 
 #include "kpcore.h"
-
 #include "kpplugin.h"
 
 using namespace Kontact;
@@ -37,32 +38,42 @@ public:
 	Kontact::Core *core;
     DCOPClient *dcopClient;
     QCString name;
+    QString pluginName;
+    QString icon;
 };
 
 
-Plugin::Plugin(Kontact::Core *core, QObject *parent, const char *name)
-: QObject(parent, name)
+Plugin::Plugin(const QString& pluginName, const QString& icon, Kontact::Core *core, 
+                QObject *parent, const char *name)
+    : QObject(parent, name)
 {
-	d = new Kontact::Plugin::Private;
+    d = new Kontact::Plugin::Private;
     d->name = name;
-	d->core = core;
+    d->core = core;
+    d->icon = icon;
+    d->pluginName = pluginName;
     d->dcopClient = 0L;
 }
 
 
 Plugin::~Plugin()
 {
-        delete d->dcopClient;
-	delete d;
+    delete d->dcopClient;
+    delete d;
 }
 
-
-Kontact::Core *Plugin::core() const
+QString Plugin::pluginName() const
 {
-	return d->core;
+    return d->pluginName;
 }
 
-DCOPClient * Plugin::dcopClient() const
+QString Plugin::icon() const
+{
+    return d->icon;
+}
+
+
+DCOPClient* Plugin::dcopClient() const
 {
     if (!d->dcopClient)
     {
@@ -73,6 +84,23 @@ DCOPClient * Plugin::dcopClient() const
     return d->dcopClient;
 }
 
+void Plugin::insertNewAction(KAction *action)
+{
+    d->core->insertNewAction(action);
+}
+
+// Protected
+
+void Plugin::showPart()
+{
+    assert(part());
+    d->core->showPart(part());
+}
+
+Kontact::Core* Plugin::core() const
+{
+    return d->core;
+}
 
 #include "kpplugin.moc"
 

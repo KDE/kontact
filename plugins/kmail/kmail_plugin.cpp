@@ -17,15 +17,14 @@ typedef KGenericFactory< KMailPlugin, Kontact::Core > KMailPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpkmailplugin,
                             KMailPluginFactory( "kpmailplugin" ) );
 
-KMailPlugin::KMailPlugin(Kontact::Core *_core, const char *name, const QStringList & /*args*/ )
-  : Kontact::Plugin(_core, _core, "kmail"), m_part(0)
+KMailPlugin::KMailPlugin(Kontact::Core *_core, const char * /*name*/, const QStringList & /*args*/ )
+  : Kontact::Plugin(i18n("Mail"), "kmail", _core, _core,  "kmail"), m_part(0)
 {
 //  m_stub = new KMailPartIface_stub(dcopClient(), "kmail", "*");
   setInstance(KMailPluginFactory::instance());
 
   setXMLFile("kpkmailplugin.rc");
 
-  core()->addMainEntry(i18n("Mail"), "kmail", this, SLOT(slotShowPart()));
 }
 
 
@@ -33,7 +32,7 @@ KMailPlugin::~KMailPlugin()
 {
 }
 
-void KMailPlugin::loadPart()
+KParts::Part* KMailPlugin::part()
 {
   if (!m_part)
   {
@@ -42,22 +41,11 @@ void KMailPlugin::loadPart()
                                                              core(), 0, // parentwidget,name
                                                              this, 0 ); // parent,name
     if (!m_part)
-      return;
+      return 0;
 
-    core()->addPart(m_part);
+    return m_part;
   }
+  else 
+	return m_part;
 }
 
-void KMailPlugin::slotShowPart()
-{
-  loadPart();
-  if (m_part)
-  {
-    core()->showPart(m_part);
-  }
-  else
-  {
-    KMessageBox::sorry(0,i18n("The mail plugin couldn't be loaded. E-mail services are not available"));
-    return;
-  }
-}

@@ -2,6 +2,10 @@
 #include "kaddressbookiface_stub.h"
 
 #include <qtextedit.h>
+#include <qcombobox.h>
+
+#include "sidebarextension.h"
+
 #include <kmessagebox.h>
 #include <klocale.h>
 #include <kaction.h>
@@ -23,6 +27,8 @@ TestPart::TestPart(QObject *parent, const char *name) // ## parentWidget
   new KAction( "new contact (test)", 0, this, SLOT( newContact() ), actionCollection(), "test_deleteevent" );
   m_kab_stub = 0L;
 
+  new KParts::SideBarExtension(new QComboBox(this), this, "sbe");
+  
   kapp->dcopClient()->setNotifications( true );
   connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QCString&)),
            this, SLOT( unregisteredFromDCOP( const QCString& )) );

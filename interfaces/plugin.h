@@ -54,15 +54,24 @@ namespace Kontact
          * you want your plugin to do dcop via it's own instance of
          * @ref DCOPClient by calling @ref dcopClient.
          */
-        Plugin(Core *core, QObject *parent, const char *name);
+        Plugin(const QString& name, const QString& icon, Core *core, 
+               QObject *parent, const char *name);
+
         ~Plugin();
+
+        void insertNewAction(KAction *action);
+
 
         /**
          * Offers access to Kontacts core.
          **/
+        QString pluginName() const;
 
-        Core *core() const;
-
+        /**
+         * Returns the name of the icon
+         **/
+        QString icon() const;
+        
         /**
          * Create the DCOP interface for the given @p serviceType, if this
          * plugin provides it. Return false otherwise.
@@ -88,6 +97,13 @@ namespace Kontact
         virtual KAboutData* aboutData() { return 0L; };
 
         /**
+         *  reimplement and retun the part here.You can use this method if 
+         *  you need to access the current part.
+         **/
+        virtual KParts::Part* part() = 0L;
+       
+
+        /**
          * Retrieve the current DCOP Client for the plugin.
          *
          * The clients name is taken from the name argument in the constructor.
@@ -97,6 +113,21 @@ namespace Kontact
          * interface that other parts might use.
          */
         DCOPClient *dcopClient() const;
+
+    signals:
+        /**
+         * Emitted when the part will be shown. If you really want to avoid that
+         * the part is shown at all, you will have to reimplement showPart();
+         **/ 
+        void aboutToShowPart();
+        
+    protected:
+        Core *core() const;
+
+        /**
+         * This will cause the part to show up by calling  KPart::show();
+         **/ 
+        virtual void showPart();
 
     private:
         class Private;
