@@ -136,7 +136,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
   QString text;
 
   KABC::VCardConverter converter;
-  if ( KVCardDrag::decode( event, text ) ) {
+  if ( KVCardDrag::canDecode( event ) && KVCardDrag::decode( event, text ) ) {
     KABC::Addressee::List contacts = converter.parseVCards( text );
     KABC::Addressee::List::Iterator it;
 
