@@ -80,11 +80,6 @@ class KNotesIconViewItem : public KIconViewItem
       mJournal->setSummary( text );
     }
 
-    virtual QString text() const
-    {
-      return mJournal->summary();
-    }
-
   private:
     KCal::Journal *mJournal;
 };
