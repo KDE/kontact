@@ -35,10 +35,10 @@
 
 #include "mainwindow.h"
 
-static const char *description =
+static const char description[] =
     I18N_NOOP( "A KDE Personal Information Manager" );
 
-static const char *version = "0.2.9 (CVS)";
+static const char version[] = "0.2.9 (CVS)";
 
 int main(int argc, char **argv)
 {
