@@ -44,6 +44,7 @@ Icon=kmail
 [KAB]
 Name=Contacts
 Name[be]=Кантакты
+Name[bs]=Kontakti
 Name[ca]=Contactes
 Name[cs]=Kontakty
 Name[cy]=Cysylltau
@@ -115,6 +116,7 @@ Icon=korganizer
 [KNode]
 Name=News
 Name[be]=Навіны
+Name[bs]=Usenet
 Name[ca]=Notícies
 Name[cs]=Novinky
 Name[cy]=Newyddion
@@ -154,6 +156,7 @@ Icon=knode
 Name=Weather
 Name[be]=Надвор'е
 Name[br]=Amzer
+Name[bs]=Vrijeme
 Name[ca]=Temps
 Name[cs]=Počasí
 Name[cy]=Tywydd
