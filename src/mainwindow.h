@@ -106,6 +106,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void slotNewToolbarConfig();
     void showAboutDialog();
     void slotShowStatusMsg( const QString& );
+    void activatePluginModule();
 
   protected:
     void initWidgets();
@@ -160,6 +161,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 
     KStatusBarLabel* mStatusMsgLabel;
     KPIM::StatusbarProgressWidget *mLittleProgress;
+
+    QString mActiveModule;
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;

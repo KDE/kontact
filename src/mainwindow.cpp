@@ -161,6 +161,10 @@ void MainWindow::initObject()
   connect( KPIM::BroadcastStatus::instance(), SIGNAL( statusMsg( const QString& ) ),
            this, SLOT( slotShowStatusMsg( const QString&  ) ) );
 
+  // launch commandline specified module if any
+  // TODO: GUI Option
+  activatePluginModule();
+
 }
 
 MainWindow::~MainWindow()
@@ -179,14 +183,21 @@ MainWindow::~MainWindow()
 
 void MainWindow::activePluginModule( const QString &_module )
 {
-  PluginList::ConstIterator end = mPlugins.end();
-  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
-    if ( ( *it )->identifier().contains( _module ) ) {
-      selectPlugin( *it );
-      return;
-    }
+  mActiveModule = _module;
 }
 
+void MainWindow::activatePluginModule()
+{
+  if ( !mActiveModule.isEmpty() )
+  {
+    PluginList::ConstIterator end = mPlugins.end();
+    for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
+      if ( ( *it )->identifier().contains( mActiveModule ) ) {
+        selectPlugin( *it );
+        return;
+      }
+  }
+}
 
 void MainWindow::initWidgets()
 {
