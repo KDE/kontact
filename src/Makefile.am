@@ -27,7 +27,6 @@ rc_DATA = kontactui.rc
 
 xdg_apps_DATA = Kontact.desktop
 
-hidden_apps_DATA =  kontactconfig.desktop
-hidden_appsdir = $(kde_appsdir)/.hidden
+kde_services_DATA = kontactconfig.desktop
 
 KDE_ICON = AUTO
