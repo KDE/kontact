@@ -164,17 +164,19 @@ void SDSummaryWidget::configUpdated()
   updateView();
 }
 
-void SDSummaryWidget::initHolidays()
+bool SDSummaryWidget::initHolidays()
 {
   KConfig hconfig( "korganizerrc" );
   hconfig.setGroup( "Calendar/Holiday Plugin" );
-  QString country = hconfig.readEntry( "Holidays" );
-  if ( country != mLastCountry ) {
-    if ( !mLastCountry.isNull() )
+  QString location = hconfig.readEntry( "Holidays" );
+  if ( location != mLastLocation ) {
+    if ( !mLastLocation.isNull() && !mLastLocation.isEmpty() )
       delete mHolidays;
-    mLastCountry = country;
-    mHolidays = new KHolidays::KHolidays( country );
+    mLastLocation = location;
+    mHolidays = new KHolidays::KHolidays( location );
+    return true;
   }
+  return false;
 }
 
 void SDSummaryWidget::updateView()
@@ -306,20 +308,21 @@ void SDSummaryWidget::updateView()
 
   // Seach for Holidays
   if ( mShowHolidays ) {
-    initHolidays();
-    for ( dt=QDate::currentDate();
-          dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
-          dt=dt.addDays(1) ) {
-      QString holstring = mHolidays->shortText( dt );
-      if ( !holstring.isNull() && !holstring.isEmpty() ) {
-        SDEntry entry;
-        entry.type = IncidenceTypeEvent;
-        entry.category = CategoryHoliday;
-        entry.date = dt;
-        entry.summary = holstring;
-        dateDiff( dt, entry.daysTo, entry.yearsOld );
-        entry.yearsOld = -1; //ignore age of holidays
-        dates.append( entry );
+    if ( initHolidays() ) {
+      for ( dt=QDate::currentDate();
+            dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
+            dt=dt.addDays(1) ) {
+        QString holstring = mHolidays->shortText( dt );
+        if ( !holstring.isNull() && !holstring.isEmpty() ) {
+          SDEntry entry;
+          entry.type = IncidenceTypeEvent;
+          entry.category = CategoryHoliday;
+          entry.date = dt;
+          entry.summary = holstring;
+          dateDiff( dt, entry.daysTo, entry.yearsOld );
+          entry.yearsOld = -1; //ignore age of holidays
+          dates.append( entry );
+        }
       }
     }
   }
