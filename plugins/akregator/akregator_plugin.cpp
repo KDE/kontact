@@ -69,11 +69,19 @@ MyBasePart* aKregatorPlugin::createPart()
 {
     MyBasePart* p = loadPart();
 
+    connect(p, SIGNAL(showPart()), this, SLOT(showPart()));
     m_stub = new Akregator::aKregatorPartIface_stub( dcopClient(), "akregator",
                                       "aKregatorIface" );
     m_stub->openStandardFeedList();
     return p;
 }
+
+
+void aKregatorPlugin::showPart()
+{
+    core()->selectPlugin(this);
+}
+
 
 QStringList aKregatorPlugin::configModules() const
 {

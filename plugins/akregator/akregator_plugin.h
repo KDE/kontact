@@ -53,6 +53,9 @@ class aKregatorPlugin : public Kontact::Plugin
     virtual QStringList invisibleToolbarActions() const;
     virtual bool isRunningStandalone();
     
+  private slots:
+    void showPart();
+
   protected:
     MyBasePart *createPart();
     Akregator::aKregatorPartIface_stub *m_stub;
