@@ -28,6 +28,8 @@
 #include <kparts/componentfactory.h>
 #include <kdebug.h>
 #include <kinstance.h>
+#include <krun.h>
+
 #include "core.h"
 #include "plugin.h"
 
@@ -42,6 +44,7 @@ class Plugin::Private
     QString identifier;
     QString title;
     QString icon;
+    QString executableName;
     QCString partLibraryName;
     KParts::Part *part;
 };
@@ -94,6 +97,16 @@ void Plugin::setIcon( const QString &icon )
 QString Plugin::icon() const
 {
   return d->icon;
+}
+
+void Plugin::setExecutableName( const QString& bin )
+{
+  d->executableName = bin;
+}
+
+QString Plugin::executableName() const
+{
+  return d->executableName;
 }
 
 void Plugin::setPartLibraryName( const QCString &libName )
@@ -170,6 +183,12 @@ void Plugin::select()
 void Plugin::partDestroyed()
 {
   d->part = 0;
+}
+
+void Plugin::bringToForeground()
+{
+  if (!d->executableName.isEmpty())
+    KRun::runCommand(d->executableName);
 }
 
 #include "plugin.moc"

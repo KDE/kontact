@@ -4,11 +4,13 @@ X-KDE-ServiceType=Kontact/Plugin
 Name=Kontact Plugin
 Name[be]=Дапаўненьне Кантакту
 Name[ca]=Connector Kontact
+Name[cs]=Modul aplikace Kontact
 Name[da]=Kontact-plugin
 Name[el]=Πρόσθετο Kontact
 Name[es]=Plugin Kontact
 Name[fr]=Module Kontact
 Name[hu]=Kontact bővítőmodul
+Name[it]=Plugin Kontact
 Name[pt_BR]=Plug-in do Kontact
 Name[ru]=Модуль Kontact
 Name[sr]=Додатак Kontact-а
@@ -20,4 +22,6 @@ Name[zh_CN]=Kontact 插件
 [PropertyDef::X-KDE-KontactPluginVersion]
 Type=int
 [PropertyDef::X-KDE-KontactPartLibraryName]
+Type=QString
+[PropertyDef::X-KDE-KontactPartExecutableName]
 Type=QString

@@ -94,6 +94,16 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     QString icon() const;
 
     /**
+      Sets the name of executable (if existant).
+    */
+    void setExecutableName( const QString &bin );
+
+    /**
+      Returns the name of the binary (if existant).
+    */
+    QString executableName() const;
+
+    /**
       Set name of library which contains the KPart used by this plugin.
     */
     void setPartLibraryName( const QCString & );
@@ -109,6 +119,13 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       This is only required if your part is also available as standalone application.
     */
     virtual bool isRunningStandalone() { return false; }
+
+    /**
+      Reimplement this method if your application needs a different approach to be brought
+      in the foreground. The default behaviour is calling the binary.
+      This is only required if your part is also available as standalone application.
+    */
+    virtual void bringToForeground();
 
     /**
       Reimplement this method if you want to add your credits to the Kontact

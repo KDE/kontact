@@ -253,10 +253,12 @@ void MainWindow::loadPlugins()
     plugin->setIcon( ( *it )->icon() );
 
     QVariant libNameProp = ( *it )->property( "X-KDE-KontactPartLibraryName" );
+    QVariant exeNameProp = ( *it )->property( "X-KDE-KontactPartExecutableName" );
 
     kdDebug() << "LIBNAMEPART: " << libNameProp.toString() << endl;
 
     plugin->setPartLibraryName( libNameProp.toString().utf8() );
+    plugin->setExecutableName( exeNameProp.toString() );
 
     for( i = 0; i < plugins.count(); ++i ) {
       Plugin *p = plugins.at( i );
@@ -384,10 +386,9 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   if ( plugin->isRunningStandalone() )
   {
-    KMessageBox::error(this, i18n("%1 cannot be loaded because the "
-                      "the application is still running statndalone. "
-                      "Please close the application and try again.")
-        .arg(plugin->title()));
+    statusBar()->message(
+        i18n("Application is running standalone. Foregrounding..."), 500);
+    plugin->bringToForeground();
     return;
   }
 
