@@ -8,7 +8,7 @@ libkontact_akregator_la_SOURCES = akregator_plugin.cpp akregator_partiface.stub
 
 METASOURCES = AUTO
 
-akregator_partiface_DIR = ..
+akregator_partiface_DIR = $(srcdir)/..
 
 servicedir = $(kde_servicesdir)/kontact
 service_DATA = akregatorplugin.desktop
