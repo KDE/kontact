@@ -46,7 +46,7 @@ AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
                  true ),
     mCore( core )
 {
-  addAboutData( i18n("Kontact Container Application"), QString( "kontact" ),
+  addAboutData( i18n("Kontact Container"), QString( "kontact" ),
                 KGlobal::instance()->aboutData() );
 
   QPtrList<Plugin> plugins = mCore->pluginList();
