@@ -94,8 +94,7 @@ void KCMKMailSummary::initFolders()
   for ( it = folderList.begin(); it != folderList.end(); ++it ) {
     if ( (*it).contains( '/' ) == 1 ) {
       if ( mFolderMap.find( *it ) == mFolderMap.end() )
-        mFolderMap.insert( *it,
-                           new QCheckListItem( mFolderView, (*it).mid( 1 ), QCheckListItem::CheckBox ) );
+        mFolderMap.insert( *it, new QListViewItem( mFolderView, (*it).mid( 1 ) ) );
     } else {
       int pos = (*it).findRev( '/' );
       QString parentFolder = (*it).left( pos );
@@ -117,15 +116,17 @@ void KCMKMailSummary::loadFolders()
   else
     folders = config.readListEntry( "ActiveFolders" );
 
-  QMap<QString, QCheckListItem*>::Iterator it;
+  QMap<QString, QListViewItem*>::Iterator it;
   for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it ) {
-    if ( folders.contains( it.key() ) ) {
-      it.data()->setOn( true );
-      mFolderView->ensureItemVisible( it.data() );
-    } else
-      it.data()->setOn( false );
+    if ( QCheckListItem *qli = dynamic_cast<QCheckListItem*>( it.data() ) ) {
+      if ( folders.contains( it.key() ) ) {
+        qli->setOn( true );
+        mFolderView->ensureItemVisible( it.data() );
+      } else {
+        qli->setOn( false );
+      }
+    }
   }
-
   mFullPath->setChecked( config.readBoolEntry( "ShowFullPath", false ) );
 }
 
@@ -136,10 +137,11 @@ void KCMKMailSummary::storeFolders()
 
   QStringList folders;
 
-  QMap<QString, QCheckListItem*>::Iterator it;
+  QMap<QString, QListViewItem*>::Iterator it;
   for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it )
-    if ( it.data()->isOn() )
-      folders.append( it.key() );
+    if ( QCheckListItem *qli = dynamic_cast<QCheckListItem*>( it.data() ) )
+      if ( qli->isOn() )
+        folders.append( it.key() );
 
   config.writeEntry( "ActiveFolders", folders );
   config.writeEntry( "ShowFullPath", mFullPath->isChecked() );

@@ -57,7 +57,7 @@ class KCMKMailSummary : public KCModule
 
     KListView *mFolderView;
     QCheckBox *mFullPath;
-    QMap<QString, QCheckListItem*> mFolderMap;
+    QMap<QString, QListViewItem*> mFolderMap;
 };
 
 #endif
