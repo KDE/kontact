@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Exec=blubb
+Comment=Kaplan KAddressbook Plugin
+Name=KAddressbookPlugin
+Icon=konsole
+ServiceTypes=Kaplan/Plugin
+X-KDE-Library=libkpkaddressbookplugin

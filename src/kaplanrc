@@ -1,0 +1,12 @@
+<!DOCTYPE kpartgui >
+<kpartgui version="1" name="kaplan" >
+<MenuBar>
+  <Menu name="help" append="about_merge">
+    <text>&amp;Help</text>
+    <Merge/>
+  </Menu>
+</MenuBar>
+<ToolBar position="Top" iconText="IconOnly" noMerge="1" name="mainToolBar">
+  <Action name="help_whats_this"/>
+</ToolBar>
+</kpartgui>

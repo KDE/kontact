@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Exec=blubb
+Comment=Kaplan Test Plugin
+Name=TestPlugin
+Icon=konsole
+ServiceTypes=Kaplan/Plugin
+X-KDE-Library=libkptestplugin

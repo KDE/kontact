@@ -1,0 +1,9 @@
+<!DOCTYPE kpartgui>
+<kpartplugin name="kptestplugin" library="libkptestplugin" version="1">
+<MenuBar>
+ <Menu name="edit"><Text>&amp;Edit</Text>
+  <Action name="edit_test"/>
+ </Menu>
+</MenuBar>
+</kpartplugin>
+
