@@ -275,7 +275,6 @@ void KNotesPart::killSelectedNotes()
         {
             ++kniviIt;
             m_manager->deleteNote( knivi->journal() );
-            delete knivi;
         }
     }
 
@@ -284,7 +283,6 @@ void KNotesPart::killSelectedNotes()
 
 void KNotesPart::popupRMB( QIconViewItem *item, const QPoint& pos )
 {
-    kdDebug() << k_funcinfo << item << ", " << pos << endl;
     if ( !m_context_menu )
         m_context_menu = static_cast<QPopupMenu *>(factory()->container( "note_context", this ));
 
