@@ -295,7 +295,9 @@ void MainWindow::initAboutScreen()
       .arg( "exec:/gwwizard" )
       .arg( iconSize )
       .arg( iconSize )
-      .arg( wizard_icon_path );
+      .arg( wizard_icon_path )
+      .arg( "exec:/gwwizard" )
+      .arg( "exec:/switch" );
 
   introPart->write( content.arg( QFont().pointSize() ).arg( appName )
       .arg( catchPhrase ).arg( quickDescription ).arg( info ) );
