@@ -31,6 +31,7 @@
 #include <kparts/part.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
+#include <qtooltip.h>
 #include <libkcal/resourcecalendar.h>
 #include <libkcal/resourcelocal.h>
 #include <libkcal/todo.h>
@@ -161,9 +162,19 @@ void TodoSummaryWidget::updateView()
       mLayout->addWidget( label, counter, 1 );
       mLabels.append( label );
 
-      KURLLabel *urlLabel = new KURLLabel( todo->uid(), todo->summary(), this );
+      QString sSummary = todo->summary();
+      if ( todo->relatedTo() ) { // show parent only, not entire ancestry
+        sSummary = todo->relatedTo()->summary() + ":" + todo->summary();
+      }
+      KURLLabel *urlLabel = new KURLLabel( todo->uid(), sSummary, this );
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
+
+      QString sDesc = i18n( "No description" );
+      if ( ! todo->description().isEmpty() ) {
+        sDesc = todo->description();
+      }
+      QToolTip::add( urlLabel, sDesc );
 
       label = new QLabel( stateText, this );
       label->setAlignment( AlignLeft | AlignVCenter );
