@@ -129,7 +129,12 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
                           i18n("Drops of multiple mails aren't supported." ) );
     } else {
       KPIM::MailSummary mail = mails.first();
-      mIface->openEventEditor( mail.subject() );
+      QString txt = i18n("From: %1\nTo: %2\nSubject: %3").arg( mail.from() )
+                    .arg( mail.to() ).arg( mail.subject() );
+      QString uri = "kmail:" + QString::number( mail.serialNumber() ) + "/" +
+                    mail.messageId();
+      mIface->openEventEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
+                               uri );
     }
     return;
   }
