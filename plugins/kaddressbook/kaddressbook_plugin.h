@@ -29,8 +29,17 @@
 
 #include "kaddressbookiface_stub.h"
 #include "plugin.h"
+#include <uniqueapphandler.h>
 
 class KAboutData;
+
+class KABUniqueAppHandler : public Kontact::UniqueAppHandler
+{
+public:
+    KABUniqueAppHandler( Kontact::Plugin* plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    virtual void loadCommandLineOptions();
+    virtual int newInstance();
+};
 
 class KAddressbookPlugin : public Kontact::Plugin
 {
@@ -47,7 +56,7 @@ class KAddressbookPlugin : public Kontact::Plugin
     virtual QStringList invisibleToolbarActions() const;
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
-  
+
   protected:
     KParts::Part *createPart();
   private slots:
@@ -55,6 +64,7 @@ class KAddressbookPlugin : public Kontact::Plugin
 
   private:
     KAddressBookIface_stub *mStub;
+    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif

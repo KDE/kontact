@@ -118,6 +118,8 @@ void KMailUniqueAppHandler::loadCommandLineOptions()
 
 int KMailUniqueAppHandler::newInstance()
 {
+    // Ensure part is loaded
+    (void)plugin()->part();
     DCOPRef kmail( "kmail", "KMailIface" );
     DCOPReply reply = kmail.call( "handleCommandLine", false );
     if ( reply.isValid() ) {

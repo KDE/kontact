@@ -44,7 +44,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_kaddressbookplugin,
                             KAddressbookPluginFactory( "kontact_kaddressbookplugin" ) )
 
 KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const QStringList& )
-  : Kontact::Plugin( core, core, "kaddressbook" ), 
+  : Kontact::Plugin( core, core, "kaddressbook" ),
     mStub( 0 )
 {
   setInstance( KAddressbookPluginFactory::instance() );
@@ -52,6 +52,8 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const
   insertNewAction( new KAction( i18n( "New Contact" ), BarIcon( "identity" ),
 			             0, this, SLOT( slotNewContact() ), actionCollection(),
                    "new_contact" ) );
+  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
+      new Kontact::UniqueAppHandlerFactory<KABUniqueAppHandler>(), this );
 }
 
 KAddressbookPlugin::~KAddressbookPlugin()
@@ -63,8 +65,7 @@ KParts::Part* KAddressbookPlugin::createPart()
   KParts::Part * part = loadPart();
   if ( !part ) return 0;
 
-  // 1) Register with dcop as "kaddressbook"  [maybe the part should do this]
-  // 2) Create the stub that allows us to talk to the part
+  // Create the stub that allows us to talk to the part
   mStub = new KAddressBookIface_stub( dcopClient(), "kaddressbook",
                                       "KAddressBookIface" );
   return part;
@@ -102,15 +103,38 @@ bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
 
 bool KAddressbookPlugin::isRunningStandalone()
 {
-  DCOPClient *dc = kapp->dcopClient();
-  
-  return (dc->isApplicationRegistered("kaddressbook")) &&
-         (!dc->remoteObjects("kontact").contains("KAddressBookIface"));
+  return mUniqueAppWatcher->isRunningStandalone();
 }
 
 Kontact::Summary *KAddressbookPlugin::createSummaryWidget( QWidget *parentWidget )
 {
   return new KABSummaryWidget( this, parentWidget );
+}
+
+////
+
+#include "../../../kaddressbook/kaddressbook_options.h"
+#include <dcopref.h>
+
+void KABUniqueAppHandler::loadCommandLineOptions()
+{
+    KCmdLineArgs::addCmdLineOptions( kaddressbook_options );
+}
+
+int KABUniqueAppHandler::newInstance()
+{
+    //kdDebug() << k_funcinfo << endl;
+    // Ensure part is loaded
+    (void)plugin()->part();
+    DCOPRef kAB( "kaddressbook", "KAddressBookIface" );
+    DCOPReply reply = kAB.call( "handleCommandLine" );
+    if ( reply.isValid() ) {
+        bool handled = reply;
+        //kdDebug() << k_funcinfo << "handled=" << handled << endl;
+        if ( !handled ) // no args -> simply bring kaddressbook plugin to front
+            return Kontact::UniqueAppHandler::newInstance();
+    }
+    return 0;
 }
 
 #include "kaddressbook_plugin.moc"
