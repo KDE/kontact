@@ -60,16 +60,25 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   private slots:
     void updateView();
     void showSyncLog( const QString &filename );
+    void startKPilot();
 
   private:
     QTimer mTimer;
 
+    QLabel*mSyncTimeTextLabel;
     QLabel*mSyncTimeLabel;
     KURLLabel*mShowSyncLogLabel;
+    QLabel*mPilotUserTextLabel;
     QLabel*mPilotUserLabel;
+    QLabel*mPilotDeviceTextLabel;
     QLabel*mPilotDeviceLabel;
+    QLabel*mDaemonStatusTextLabel;
     QLabel*mDaemonStatusLabel;
+    QLabel*mConduitsTextLabel;
     QLabel*mConduitsLabel;
+    QLabel*mNoConnectionLabel;
+    KURLLabel*mNoConnectionStartLabel;
+    
 
     QGridLayout *mLayout;
 
