@@ -50,6 +50,8 @@ KCMKOrgSummary::KCMKOrgSummary( QWidget *parent, const char *name )
 {
   initGUI();
 
+  customDaysChanged( 1 );
+
   connect( mCalendarGroup, SIGNAL( clicked( int ) ), SLOT( modified() ) );
   connect( mCalendarGroup, SIGNAL( clicked( int ) ), SLOT( buttonClicked( int ) ) );
   connect( mTodoGroup, SIGNAL( clicked( int ) ), SLOT( modified() ) );
@@ -73,7 +75,7 @@ void KCMKOrgSummary::buttonClicked( int id )
 
 void KCMKOrgSummary::customDaysChanged( int value )
 {
-  mCustomDays->setSuffix( value == 1 ? i18n( " day" ) : i18n( " days" ) );
+  mCustomDays->setSuffix( i18n( " day",  " days", value ) );
 }
 
 void KCMKOrgSummary::initGUI()
@@ -106,7 +108,6 @@ void KCMKOrgSummary::initGUI()
   hbox->addWidget( button );
 
   mCustomDays = new QSpinBox( 1, 365, 1, mCalendarGroup );
-  mCustomDays->setSuffix( i18n( " day" ) );
   mCustomDays->setEnabled( false );
   hbox->addWidget( mCustomDays );
 
