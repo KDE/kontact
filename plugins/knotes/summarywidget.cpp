@@ -21,6 +21,7 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qobject.h>
 #include <qlabel.h>
 #include <qlayout.h>
 
@@ -34,23 +35,28 @@
 #include <kurllabel.h>
 #include <kstandarddirs.h>
 
+#include <knotes/resourcenotes.h>
+#include <knotes/resourcemanager.h>
+
 #include "core.h"
 #include "plugin.h"
 
 #include "summarywidget.h"
 
-SummaryWidget::SummaryWidget( Kontact::Plugin *plugin,
+SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, 
                               QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ), mPlugin( plugin )
+  : Kontact::Summary( parent, name ), mLayout( 0 ), mMainLayout( 0 ), 
+    mPlugin( plugin )
 {
   mMainLayout = new QVBoxLayout( this, 3, 3 );
 
-  mCalendar = new KCal::CalendarResources;
-  mResource = new KCal::ResourceLocal( ::locate( "data", "knotes/notes.ics" ) );
-  mCalendar->resourceManager()->add( mResource );
-  mCalendar->load();
-
-  connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
+  mCalendar = new KCal::CalendarLocal();
+  KNotesResourceManager *manager = new KNotesResourceManager();
+  QObject::connect( manager, SIGNAL( sigRegisteredNote( KCal::Journal* ) ),
+                    this, SLOT( addNote( KCal::Journal* ) ) );
+  QObject::connect( manager, SIGNAL( sigDeregisteredNote( KCal::Journal* ) ),
+                    this, SLOT( removeNote( KCal::Journal* ) ) );
+  manager->load();
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_notes", KIcon::Desktop, KIcon::SizeMedium );
   QWidget* heading = createHeader( this, icon, i18n( "Notes" ) );
@@ -94,5 +100,18 @@ void SummaryWidget::urlClicked( const QString &/*uid*/ )
   else
     mPlugin->bringToForeground();
 }
+
+void SummaryWidget::addNote( KCal::Journal *j )
+{
+  mCalendar->addJournal( j );
+  updateView();
+}
+
+void SummaryWidget::removeNote( KCal::Journal *j )
+{
+  mCalendar->deleteJournal( j );
+  updateView();
+}
+
 
 #include "summarywidget.moc"
