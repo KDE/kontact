@@ -65,7 +65,23 @@ Icon=kweather
 
 [NewsTicker]
 Name=News Ticker
-Name[mn]=Мэдээний Дэлгэц
+Name[ar]=تجديد الأخبار
+Name[az]=Xəbər Gözləyici
+Name[bg]=Монитор с новини
+Name[eo]=Novaĵprezentilo
+Name[fi]=Uutisnäyttäjä
+Name[id]=Ticker Berita
+Name[is]=FrÃ©ttastrimill
+Name[it]=Ticker notizie
+Name[ja]=ニュース ティッカー
+Name[lt]=News pranešėjas
+Name[lv]=Ziņu Tikkers
+Name[ro]=Ştiri Internet
+Name[th]=ตั๋วข่าว
+Name[ven]=Musengulusi wa Mafhungo
+Name[vi]=Trình kiểm tra news 
+Name[xh]=Umchola-choli weendaba
+Name[zu]=Umlungiseleli Wezindaba 
 Comment=
 Weight=60
 Icon=knode
