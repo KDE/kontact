@@ -124,7 +124,7 @@ int KMailUniqueAppHandler::newInstance()
     DCOPReply reply = kmail.call( "handleCommandLine", false );
     if ( reply.isValid() ) {
         bool handled = reply;
-        kdDebug() << k_funcinfo << "handled=" << handled << endl;
+        //kdDebug() << k_funcinfo << "handled=" << handled << endl;
         if ( !handled ) // no args -> simply bring kmail plugin to front
             return Kontact::UniqueAppHandler::newInstance();
     }

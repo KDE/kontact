@@ -50,6 +50,9 @@ KNodePlugin::KNodePlugin( Kontact::Core *core, const char *, const QStringList& 
 
   insertNewAction( new KAction( i18n( "New Article" ), BarIcon( "mail_new" ),
                    0, this, SLOT( slotPostArticle() ), actionCollection(), "post_article" ) );
+
+  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
+      new Kontact::UniqueAppHandlerFactory<KNodeUniqueAppHandler>(), this );
 }
 
 KNodePlugin::~KNodePlugin()
@@ -63,11 +66,7 @@ bool KNodePlugin::createDCOPInterface( const QString& /*serviceType*/ )
 
 bool KNodePlugin::isRunningStandalone()
 {
-  DCOPClient *dc = kapp->dcopClient();
-  
-  return (dc->isApplicationRegistered("knode")) &&
-         (!dc->remoteObjects("knode").contains("KNodeIface"));
-
+  return mUniqueAppWatcher->isRunningStandalone();
 }
 
 QStringList KNodePlugin::invisibleToolbarActions() const
@@ -90,6 +89,34 @@ KParts::Part* KNodePlugin::createPart()
 
   mStub = new KNodeIface_stub( dcopClient(), "knode", "KNodeIface" );
   return part;
+}
+
+////
+
+#include "../../../knode/knode_options.h"
+void KNodeUniqueAppHandler::loadCommandLineOptions()
+{
+    KCmdLineArgs::addCmdLineOptions( knode_options );
+}
+
+int KNodeUniqueAppHandler::newInstance()
+{
+    // Ensure part is loaded
+    (void)plugin()->part();
+    DCOPRef knode( "knode", "KNodeIface" );
+    DCOPReply reply = knode.call( "handleCommandLine" );
+#if 0
+    if ( reply.isValid() ) {
+        bool handled = reply;
+        kdDebug() << k_funcinfo << "handled=" << handled << endl;
+        if ( !handled )
+#endif
+    // in all cases, bring knode plugin to front
+    return Kontact::UniqueAppHandler::newInstance();
+#if 0
+    }
+    return 0;
+#endif
 }
 
 #include "knode_plugin.moc"

@@ -51,7 +51,7 @@ class Core : public KParts::MainWindow
     virtual void selectPlugin( Kontact::Plugin *plugin ) = 0;
 
     /**
-      This is an overloaded member function. It behaves essentially like the 
+      This is an overloaded member function. It behaves essentially like the
       above function.
      */
     virtual void selectPlugin( const QString &plugin ) = 0;
@@ -61,7 +61,16 @@ class Core : public KParts::MainWindow
      */
     virtual QValueList<Kontact::Plugin*> pluginList() const = 0;
 
+    /**
+     @internal (for Plugin)
+     */
     KParts::ReadOnlyPart *createPart( const char *libname );
+
+    /**
+     @internal (for Plugin)
+     Tell kontact that a part was loaded
+     */
+    virtual void partLoaded( Plugin* plugin, KParts::Part * part ) = 0;
 
   signals:
     /**

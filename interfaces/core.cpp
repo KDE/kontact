@@ -45,7 +45,7 @@ Core::~Core()
 
 KParts::ReadOnlyPart *Core::createPart( const char *libname )
 {
-  kdDebug() << "Core:createPart(): " << libname << endl; 
+  kdDebug() << "Core:createPart(): " << libname << endl;
 
   QMap<QCString,KParts::ReadOnlyPart *>::ConstIterator it;
   it = mParts.find( libname );

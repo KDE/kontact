@@ -36,7 +36,9 @@
  1b) type "kmail" -> it switches to kmail
  1c) type "kaddressbook" -> it switches to kaddressbook
  1d) type "kmail foo@kde.org" -> it opens a kmail composer, without switching
- 1e) switch to kmail, type "kaddressbook --new-contact" -> kontact opens a kaddressbook contact window
+ 1e) type "knode" -> it switches to knode
+ 1f) type "kaddressbook --new-contact" -> it opens a kaddressbook contact window
+ 1g) type "knode news://foobar/group" -> it pops up "can't resolve hostname"
 
  2) close kontact. Launch kmail. Launch kontact again.
  2a) click "Mail" icon -> kontact doesn't load a part, but activates the kmail window
@@ -51,10 +53,16 @@
  3d) type "korganizer" -> kontact is brought to front
 
  4) close kontact. Launch kaddressbook, then kontact.
- 4a) "Contact" icon activate the running kaddressbook.
+ 4a) "Contacts" icon activate the running kaddressbook.
  4b) type "kaddressbook" -> standalone kaddressbook is brought to front
  4c) close kaddressbook, type "kaddressbook -a foo@kde.org" -> kontact loads part and opens editor
  4d) type "kaddressbook" -> kontact is brought to front
+
+ 5) close kontact. Launch knode, then kontact.
+ 5a) "News" icon activate the running knode.
+ 5b) type "knode" -> standalone knode is brought to front
+ 5c) close knode, type "knode news://foobar/group" -> kontact loads knode and pops up msgbox
+ 5d) type "knode" -> kontact is brought to front
 
 */
 

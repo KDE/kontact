@@ -65,7 +65,7 @@
 using namespace Kontact;
 
 MainWindow::MainWindow()
-  : Kontact::Core(), mTopWidget( 0 ), mHeaderText( 0 ), mHeaderPixmap( 0 ), mSplitter( 0 ), 
+  : Kontact::Core(), mTopWidget( 0 ), mHeaderText( 0 ), mHeaderPixmap( 0 ), mSplitter( 0 ),
     mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 )
 {
   KTrader::OfferList offers = KTrader::self()->query(
@@ -78,7 +78,7 @@ MainWindow::MainWindow()
     ( *it )->load();
 
   initWidgets();
- 
+
   // prepare the part manager
   mPartManager = new KParts::PartManager( this );
   connect( mPartManager, SIGNAL( activePartChanged( KParts::Part* ) ),
@@ -179,7 +179,7 @@ void MainWindow::initWidgets()
 void MainWindow::setupActions()
 {
   (void) KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
-  mNewActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), ""), 
+  mNewActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), ""),
 		  KShortcut(), this, SLOT(slotNewClicked()),actionCollection(), "action_new" );
 
   new KAction( i18n("Configure Kontact..."), "configure", 0, this, SLOT( slotPreferences() ),
@@ -204,7 +204,7 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
                                QSizePolicy::Preferred );
   mHeaderText->setPaletteForegroundColor( colorGroup().light() );
   mHeaderText->setPaletteBackgroundColor( colorGroup().dark() );
-  
+
   mHeaderPixmap = new QLabel( mHeaderFrame );
   mHeaderPixmap->setSizePolicy( QSizePolicy::Maximum,
                                  QSizePolicy::Preferred );
@@ -350,7 +350,7 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
   insertChildClient( plugin );
 }
 
-void MainWindow::addPart( KParts::Part *part )
+void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KParts::Part *part )
 {
   if ( part->widget() )
     mStack->addWidget( part->widget(), 0 );
@@ -442,12 +442,6 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   }
 
   plugin->select();
-
-  // the following check is not needed because PartManager::addPart does
-  // just the same (mkretz 20030923)
-  //QPtrList<KParts::Part> *partList = const_cast<QPtrList<KParts::Part>*>( mPartManager->parts() );
-  //if ( partList->find( part ) == -1 )
-  addPart( part );
 
   mPartManager->setActivePart( part );
   QWidget *view = part->widget();
@@ -587,14 +581,14 @@ void MainWindow::setHeaderText( const QString &text )
 void MainWindow::setHeaderPixmap( const QPixmap &pixmap )
 {
   QPixmap pm( pixmap );
-  
+
   if ( pm.height() > 22 || pm.width() > 22 ) {
     QImage img;
     img = pixmap;
     pm = img.smoothScale( 22, 22, QImage::ScaleMin );
   }
 
-  mInfoExtCache[ mLastInfoExtension ].pixmap = pm;  
+  mInfoExtCache[ mLastInfoExtension ].pixmap = pm;
   mHeaderPixmap->setPixmap( pm );
 }
 
@@ -693,5 +687,4 @@ void MainWindow::slotNewToolbarConfig()
 }
 
 #include "mainwindow.moc"
-
 // vim: sw=2 sts=2 et

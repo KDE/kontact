@@ -29,6 +29,15 @@
 
 #include "knodeiface_stub.h"
 #include "plugin.h"
+#include <uniqueapphandler.h>
+
+class KNodeUniqueAppHandler : public Kontact::UniqueAppHandler
+{
+public:
+    KNodeUniqueAppHandler( Kontact::Plugin* plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    virtual void loadCommandLineOptions();
+    virtual int newInstance();
+};
 
 class KNodePlugin : public Kontact::Plugin
 {
@@ -45,12 +54,13 @@ class KNodePlugin : public Kontact::Plugin
 
   protected:
     virtual KParts::Part* createPart();
-  
+
   protected slots:
     void slotPostArticle();
 
   private:
     KNodeIface_stub *mStub;
+    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif
