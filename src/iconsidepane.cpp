@@ -46,6 +46,43 @@
 
 #include "iconsidepane.h"
 
+namespace Kontact
+{
+
+//ugly wrapper class for adding an operator< to the Plugin class
+
+class PluginProxy
+{
+public:
+  PluginProxy()
+    : m_plugin( 0 )
+  { }
+
+  PluginProxy( Plugin * plugin )
+    : m_plugin( plugin )
+  { }
+
+  PluginProxy & operator=( Plugin * plugin )
+  {
+    m_plugin = plugin;
+    return *this;
+  }
+
+  bool operator<( PluginProxy & rhs ) const
+  {
+    return m_plugin->weight() < rhs.m_plugin->weight();
+  }
+
+  Plugin * plugin() const
+  {
+    return m_plugin;
+  }
+
+private:
+  Plugin * m_plugin;
+};
+} //namespace
+
 using namespace Kontact;
 
 EntryItem::EntryItem( QListBox *parent, Kontact::Plugin *plugin )
@@ -148,8 +185,14 @@ void Navigator::setSelected( QListBoxItem *i, bool sel )
   }
 }
 
-void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins )
+void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins_ )
 {
+  QValueList<Kontact::PluginProxy> plugins;
+  QValueList<Kontact::Plugin*>::ConstIterator end_ = plugins_.end();
+  QValueList<Kontact::Plugin*>::ConstIterator it_ = plugins_.begin();
+  for ( ; it_ != end_; ++it_ )
+    plugins += PluginProxy( *it_ );
+
   clear();
 
   mActions.setAutoDelete( true );
@@ -158,10 +201,11 @@ void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins )
 
   int counter = 0;
   int minWidth = 0;
-  QValueList<Kontact::Plugin*>::ConstIterator end = plugins.end();
-  QValueList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
+  qBubbleSort( plugins );
+  QValueList<Kontact::PluginProxy>::ConstIterator end = plugins.end();
+  QValueList<Kontact::PluginProxy>::ConstIterator it = plugins.begin();
   for ( ; it != end; ++it ) {
-    Kontact::Plugin *plugin = *it;
+    Kontact::Plugin *plugin = ( *it ).plugin();
     if ( !plugin->showInSideBar() )
       continue;
 
