@@ -153,15 +153,15 @@ void MainWindow::addPart(KParts::Part *part)
 
 void MainWindow::activePartChanged(KParts::Part *part)
 {
-  kdDebug(5600) << "Part activated: " << part << endl;
+  kdDebug(5600) << "Part activated: " << part << " with stack id. " 
+      << m_stack->id(part->widget())<< endl;
   createGUI(part);
 }
 
 void MainWindow::showPart(KParts::Part* part)
 {
-
-  QPtrList<KParts::Part> parts = *m_partManager->parts();
-//  if (!parts.find(part))
+  QPtrList<KParts::Part> *partList = const_cast< QPtrList<KParts::Part>* >(m_partManager->parts());
+  if (partList->find(part) == -1)
       addPart(part);
 
   m_partManager->setActivePart( part );
