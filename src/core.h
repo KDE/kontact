@@ -24,6 +24,7 @@
 
 
 #include <qwidgetstack.h>
+#include <qptrlist.h>
 
 
 #include <kparts/mainwindow.h>
@@ -32,6 +33,7 @@
 
 
 #include "kpcore.h"
+#include <kdcopservicestarter.h>
 
 
 namespace Kaplan
@@ -42,7 +44,7 @@ namespace Kaplan
 class Navigator;
 class KAction;
 
-class Core : public Kaplan::Core
+class Core : public Kaplan::Core, public KDCOPServiceStarter
 {
   Q_OBJECT
 
@@ -52,22 +54,29 @@ public:
   ~Core();
 
   virtual void addMainEntry(QString text, QString icon, QObject *receiver, const char *slot);
-  
+
   virtual void addPart(KParts::Part *part);
 
   virtual void showView(QWidget *view);
 
   virtual void insertNewAction(KAction *action);
-  
+
+  // KDCOPServiceStarter interface
+  virtual int startServiceFor( const QString& serviceType,
+                               const QString& constraint = QString::null,
+                               const QString& preferences = QString::null,
+                               QString *error=0, QCString* dcopService=0,
+                               int flags=0 );
+
 private slots:
 
   void slotQuit();
-  
+
   void activePartChanged(KParts::Part *part);
 
   void loadSettings();
   void saveSettings();
-  
+
 private:
 
   void loadPlugins();
@@ -78,11 +87,12 @@ private:
   Navigator *m_navigator;
 
   KParts::PartManager *m_partManager;
-  
+
   QWidgetStack *m_stack;
+  QPtrList<Kaplan::Plugin> m_plugins;
 
   KActionMenu *m_newActions;
-  
+
 };
 
 #endif

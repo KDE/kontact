@@ -42,13 +42,14 @@
 
 #include "navigator.h"
 #include "core.h"
+#include <dcopclient.h>
 
 
 Core::Core()
   : Kaplan::Core()
 {
   // create the GUI
-  QHBox *box = new QHBox(this);	
+  QHBox *box = new QHBox(this);
   box->setFrameStyle(  QFrame::Panel | QFrame::Sunken );
 
   m_navigator = new Navigator(box);
@@ -76,12 +77,14 @@ Core::Core()
   createGUI(0);
 
   m_navigator->setCurrentItem(0);
+
+  resize(600, 400); // initial size
+  setAutoSaveSettings();
 }
 
 
 Core::~Core()
 {
-	saveSettings();	
     QPtrList<KParts::Part> parts = *m_partManager->parts();
     parts.setAutoDelete(true);
     parts.clear();
@@ -89,16 +92,10 @@ Core::~Core()
 
 void Core::loadSettings()
 {
-	KConfig* config = kapp->config();
-	config->setGroup("General");
-	resize( config->readSizeEntry("Dimensions", new QSize(600, 400)) );
 }
-	
+
 void Core::saveSettings()
 {
-	KConfig* config = kapp->config();
-	config->setGroup("General");
-	config->writeEntry("Dimensions", size());
 }
 
 void Core::setupActions()
@@ -136,6 +133,7 @@ void Core::addPlugin(Kaplan::Plugin *plugin)
 
   // merge the plugins GUI into the main window
   insertChildClient(plugin);
+  m_plugins.append(plugin);
 }
 
 
@@ -165,7 +163,7 @@ void Core::showView(QWidget *view)
 
 void Core::slotQuit()
 {
-  kapp->quit();
+  close();
 }
 
 
@@ -174,6 +172,25 @@ void Core::addMainEntry(QString text, QString icon, QObject *receiver, const cha
   m_navigator->addEntry(text, icon, receiver, member);
 }
 
+int Core::startServiceFor( const QString& serviceType,
+                           const QString& constraint,
+                           const QString& preferences,
+                           QString *error, QCString* dcopService, int flags )
+{
+  QPtrListIterator<Kaplan::Plugin> it( m_plugins );
+  for ( ; it.current() ; ++it )
+  {
+    if ( it.current()->createDCOPInterface( serviceType ) ) {
+      kdDebug() << "found interface for " << serviceType << endl;
+      if ( dcopService )
+        *dcopService = it.current()->dcopClient()->appId();
+      kdDebug() << "appId=" << it.current()->dcopClient()->appId() << endl;
+      return 0; // success
+    }
+  }
+  kdDebug() << "Didn't find dcop interface, falling back to external process" << endl;
+  return KDCOPServiceStarter::startServiceFor( serviceType, constraint, preferences, error, dcopService, flags );
+}
 
 #include "core.moc"
 
