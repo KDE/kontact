@@ -21,7 +21,7 @@ TestPlugin::TestPlugin(Kaplan::Core *_core, const char *name, const QStringList 
 
   setXMLFile("kptestplugin.rc");
 
-  core()->addMainEntry(i18n("Test"), "configure", this, SLOT(slotTestMenu()));
+  core()->addMainEntry(i18n("Test"), "configure", this, SLOT(slotShowPlugin()));
 }
 
 
@@ -36,7 +36,7 @@ void TestPlugin::slotTestMenu()
 }
 
 
-void TestPlugin::slotShowNotes()
+void TestPlugin::slotShowPlugin()
 {
   if (!m_part)
   {

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui>
-<gui name="kptestplugin" version="1">
+<gui name="testpart" version="1">
 <MenuBar>
  <Menu name="edit"><Text>&amp;Edit</Text>
-  <Action name="edit_test"/>
+  <Action name="test_deleteevent"/>
  </Menu>
 </MenuBar>
 </gui>

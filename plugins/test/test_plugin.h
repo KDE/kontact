@@ -17,11 +17,11 @@ public:
   TestPlugin(Kaplan::Core *core, const char *name, const QStringList &);
   ~TestPlugin();
 
-  
+
 private slots:
-  
+
   void slotTestMenu();
-  void slotShowNotes();
+  void slotShowPlugin();
 
 
 private:

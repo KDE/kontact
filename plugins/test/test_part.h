@@ -2,11 +2,10 @@
 #define __TEST_PART_H__
 
 
-#include <qmultilineedit.h>
-
 
 #include <kparts/part.h>
-
+class QTextEdit;
+class KAddressBookIface_stub;
 
 class TestPart : public KParts::ReadOnlyPart
 {
@@ -20,12 +19,16 @@ public:
 protected:
 
   virtual bool openFile();
-  
+
+protected slots:
+
+  void newContact();
 
 private:
 
-  QMultiLineEdit *m_edit;
-  
+  QTextEdit *m_edit;
+  KAddressBookIface_stub *m_kab_stub;
+
 };
 
 
