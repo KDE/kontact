@@ -255,6 +255,8 @@ void MainWindow::slotNewClicked()
 
 void MainWindow::showPart( Kontact::Plugin *plugin )
 {
+  if (!plugin) return;
+
   KParts::Part *part = plugin->part();
 
   QPtrList<KParts::Part> *partList = const_cast<QPtrList<KParts::Part>*>( m_partManager->parts() );
