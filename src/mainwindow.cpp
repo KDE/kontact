@@ -387,7 +387,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   if ( plugin->isRunningStandalone() )
   {
     statusBar()->message(
-        i18n("Application is running standalone. Foregrounding..."), 500);
+        i18n("Application is running standalone. Foregrounding..."), 1000);
     plugin->bringToForeground();
     return;
   }

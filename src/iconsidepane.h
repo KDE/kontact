@@ -75,6 +75,8 @@ class Navigator : public KListBox
   public:
     Navigator( SidePaneBase *parent = 0, const char *name = 0 );
 
+    virtual void setSelected( QListBoxItem *, bool );
+
     void updatePlugins( QValueList<Kontact::Plugin*> plugins );
 
     QSize sizeHint() const;

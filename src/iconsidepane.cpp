@@ -133,6 +133,17 @@ QSize Navigator::sizeHint() const
   return QSize( 100, 100 );
 }
 
+void Navigator::setSelected( QListBoxItem *i, bool sel )
+{
+  // Reimplmemented to avoid the immediate activation of
+  // the item. might turn out it doesn't work, we check that
+  // an confirm from MainWindow::selectPlugin()
+  if (sel) {
+    EntryItem *entry = static_cast<EntryItem *>( i );
+    emit pluginActivated( entry->plugin() );
+  }
+}
+
 void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins )
 {
   clear();
