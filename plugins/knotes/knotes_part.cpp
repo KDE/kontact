@@ -128,6 +128,9 @@ void KNotesPart::reloadNotes()
   NotesMap::ConstIterator it;
   for ( it = map.begin(); it != map.end(); ++it )
     (void) new NotesItem( mNotesView, it.key(), it.data() );
+
+  mNotesView->setCurrentItem( mNotesView->firstChild() );
+  showNote( mNotesView->firstChild() );
 }
 
 bool KNotesPart::openFile()
@@ -218,11 +221,7 @@ void KNotesPart::saveNote()
 void KNotesPart::newNote()
 {
   DCOPRef dcopCall( "knotes", "KNotesIface" );
-
-  if ( !dcopCall.send( "newNote(QString, QString)", QString::null, QString::null ) ) {
-    KMessageBox::error( 0, i18n( "Unable to add a new note!" ) );
-    return;
-  }
+  dcopCall.call( "newNote(QString, QString)", QString::null, QString::null );
 
   reloadNotes();
 }
