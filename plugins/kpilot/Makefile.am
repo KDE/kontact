@@ -16,6 +16,7 @@ libkontact_kpilotplugin_la_SOURCES = kpilot_plugin.cpp summarywidget.cpp \
                                       summarywidget.skel pilotDaemonDCOP.stub
 
 pilotDaemonDCOP_DIR = $(top_srcdir)/kpilot/kpilot
+pilotDaemonDCOP_DCOPIDLNG = true
 
 METASOURCES = AUTO
 
