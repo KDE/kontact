@@ -85,6 +85,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item, TextFormat format )
         m_preview->setTextFormat( format );
         m_preview->setText( item->journal()->description() );
         m_preview->zoomTo( 6 );
+        m_preview->sync();
         resize( m_preview->contentsWidth(), m_preview->contentsHeight() );
 
         //QRect desk = KGlobalSettings::desktopGeometry( m_noteIVI->rect().center() );
