@@ -59,6 +59,7 @@ Comment[sv]=Översiktsvy
 Comment[tr]=Özet Görünüm
 Comment[uk]=Вигляд короткого підсумку
 Comment[xx]=xxSummary Viewxx
+Comment[zh_CN]=摘要视图
 Weight=100
 Icon=kontact_summary
 
@@ -125,6 +126,7 @@ Comment[sv]=E-postkomponent
 Comment[tr]=E-posta Bileşeni
 Comment[uk]=Компонент пошти
 Comment[xx]=xxMail Componentxx
+Comment[zh_CN]=邮件组件
 Weight=200
 Icon=kontact_mail
 
@@ -189,6 +191,7 @@ Comment[sv]=Adressbokskomponent
 Comment[tr]=Adres Defteri Bileşeni
 Comment[uk]=Компонент адресної книги
 Comment[xx]=xxAddress Book Componentxx
+Comment[zh_CN]=地址簿组件
 Weight=300
 Icon=kontact_contacts
 
@@ -210,6 +213,7 @@ Name[sv]=Översikt av speciella datum
 Name[tr]=Özel Tarihler Özeti
 Name[uk]=Короткий підсумок особливих дат
 Name[xx]=xxSpecial Dates Summaryxx
+Name[zh_CN]=特殊日期摘要
 Comment=Special Dates Summary Component
 Comment[bg]=Модул за обобщение на специалните случаи
 Comment[ca]=Component pel resum de dates especials
@@ -228,6 +232,7 @@ Comment[sv]=Komponent för översikt av speciella datum
 Comment[tr]=Özel Tarihler Özeti Bileşeni
 Comment[uk]=Компонент короткого підсумку особливих дат
 Comment[xx]=xxSpecial Dates Summary Componentxx
+Comment[zh_CN]=特殊日期摘要组件
 Weight=310
 Icon=cookie
 
@@ -293,6 +298,7 @@ Comment[sv]=Kalenderkomponent
 Comment[tr]=Takvim Bileşeni
 Comment[uk]=Компонент календаря
 Comment[xx]=xxCalendar Componentxx
+Comment[zh_CN]=日历组件
 Weight=400
 Icon=kontact_date
 
@@ -356,6 +362,7 @@ Comment[sv]=Diskussionsgruppskomponent
 Comment[tr]=Haber Grubu Bileşeni
 Comment[uk]=Компонент новин
 Comment[xx]=xxNews Componentxx
+Comment[zh_CN]=新闻组件
 Weight=500
 Icon=kontact_news
 
@@ -423,6 +430,7 @@ Comment[sv]=Väderrapport
 Comment[tr]=Hava Durumu Bilgisi
 Comment[uk]=Інформація про погоду
 Comment[xx]=xxWeather Informationxx
+Comment[zh_CN]=天气信息
 Weight=1000
 Icon=kweather
 
@@ -490,5 +498,6 @@ Comment[sv]=Nyhetskomponent
 Comment[tr]=Haber İzleyici Bileşeni
 Comment[uk]=Компонент смужки новин
 Comment[xx]=xxNews Ticker Componentxx
+Comment[zh_CN]=新闻点点通组件
 Weight=1100
 Icon=knode
