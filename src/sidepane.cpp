@@ -193,7 +193,10 @@ void SidePane::switchSidePaneWidget( Kontact::Plugin *plugin )
   Q_ASSERT(part);
 
   QObjectList *l = part->queryList( "KParts::SideBarExtension" );
-  KParts::SideBarExtension *sbe = static_cast<KParts::SideBarExtension*>(l->first());
+  KParts::SideBarExtension *sbe = 0;
+  if ( l )
+    sbe = static_cast<KParts::SideBarExtension*>(l->first());
+  delete l;
 
   if (!sbe) {
     m_contentStack->raiseWidget(0);

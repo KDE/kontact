@@ -277,7 +277,10 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
   kdDebug(5600) << "Part activated: " << part << " with stack id. "
       << m_stack->id( part->widget() )<< endl;
   QObjectList *l = part->queryList( "KParts::InfoExtension" );
-  KParts::InfoExtension *ie = static_cast<KParts::InfoExtension*>( l->first() );
+  KParts::InfoExtension *ie = 0;
+  if ( l )
+      ie = static_cast<KParts::InfoExtension*>( l->first() );
+  delete l;
   if ( ie ) {
     connect( ie, SIGNAL( textChanged( const QString& ) ),
              SLOT( setHeaderText( const QString& ) ) );
