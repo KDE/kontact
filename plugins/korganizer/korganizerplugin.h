@@ -46,7 +46,7 @@ class KOrganizerPlugin : public Kontact::Plugin
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
 
-    KParts::ReadOnlyPart *part();
+    KParts::Part *part();
 
     void select();
 
@@ -54,7 +54,7 @@ class KOrganizerPlugin : public Kontact::Plugin
     void slotNewEvent();
 
   private:
-    KParts::ReadOnlyPart *mPart;
+    KParts::Part *mPart;
     KCalendarIface_stub *mIface;
 };
 

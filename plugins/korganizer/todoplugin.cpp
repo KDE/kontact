@@ -60,10 +60,10 @@ Kontact::Summary *TodoPlugin::createSummaryWidget( QWidget *parent )
   return 0;
 }
 
-KParts::ReadOnlyPart *TodoPlugin::part()
+KParts::Part *TodoPlugin::part()
 {
   if ( !mPart ) {
-    mPart = core()->createPart( "libkorganizerpart" );
+    mPart = loadPart();
 
     if ( !mPart ) return 0;
 

@@ -60,13 +60,15 @@ Kontact::Summary *KOrganizerPlugin::createSummaryWidget( QWidget *parent )
   return new SummaryWidget( this, parent );
 }
 
-KParts::ReadOnlyPart *KOrganizerPlugin::part()
+KParts::Part *KOrganizerPlugin::part()
 {
   if ( !mPart ) {
+    mPart = loadPart();
+
+    if ( !mPart ) return 0;
+
     (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
     mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
-
-    mPart = core()->createPart( "libkorganizerpart" );
   }
 
   return mPart;

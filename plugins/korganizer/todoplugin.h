@@ -44,7 +44,7 @@ class TodoPlugin : public Kontact::Plugin
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
 
-    KParts::ReadOnlyPart *part();
+    KParts::Part *part();
 
     void select();
 
@@ -52,7 +52,7 @@ class TodoPlugin : public Kontact::Plugin
     void slotNewTodo();
 
   private:
-    KParts::ReadOnlyPart *mPart;
+    KParts::Part *mPart;
     KCalendarIface_stub *mIface;
 };
 
