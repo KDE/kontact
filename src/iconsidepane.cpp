@@ -436,6 +436,7 @@ void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint &pos )
   menu.insertItem( i18n( "Normal" ), (int)NormalIcons );
   menu.insertItem( i18n( "Small" ), (int)SmallIcons );
   menu.insertItem( i18n( "Text Only" ), (int)TextOnly );
+  menu.setItemChecked( (int)mViewMode, true );
   int choice = menu.exec( pos );
 
   if ( choice == -1 )
