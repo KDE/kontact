@@ -35,7 +35,7 @@ class SummaryView : public Kontact::Plugin
     SummaryView( Kontact::Core *core, const char *name, const QStringList& );
 	  ~SummaryView();
 
-    int weight() const { return -100; }
+    int weight() const { return 100; }
 
     const KAboutData *aboutData();
 

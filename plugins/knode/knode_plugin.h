@@ -49,6 +49,7 @@ class KNodePlugin : public Kontact::Plugin
 
     virtual bool createDCOPInterface( const QString& serviceType );
     virtual bool isRunningStandalone();
+    int weight() const { return 500; }
 
     virtual QStringList invisibleToolbarActions() const;
 

@@ -36,6 +36,7 @@ class KNotesPlugin : public Kontact::Plugin
     ~KNotesPlugin();
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
+    int weight() const { return 600; }
 
     const KAboutData *aboutData();
 

@@ -40,6 +40,7 @@ class TodoPlugin : public Kontact::Plugin
 
     virtual bool createDCOPInterface( const QString& serviceType );
     virtual bool isRunningStandalone();
+    int weight() const { return 450; }
 
     bool canDecodeDrag( QMimeSource * );
     void processDropEvent( QDropEvent * );

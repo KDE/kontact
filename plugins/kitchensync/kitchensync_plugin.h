@@ -41,7 +41,7 @@ class KitchenSyncPlugin : public Kontact::Plugin
                        const QStringList & );
     ~KitchenSyncPlugin();
 
-    int weight() const { return 100; }
+    int weight() const { return 800; }
 
     virtual QStringList configModules() const;
   protected:

@@ -55,6 +55,7 @@ class KMailPlugin : public Kontact::Plugin
     virtual bool createDCOPInterface( const QString& serviceType );
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
     virtual QString tipFile() const;
+    int weight() const { return 200; }
 
     virtual QStringList invisibleToolbarActions() const;
     virtual bool queryClose() const;
