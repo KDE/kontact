@@ -45,8 +45,7 @@
 
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin,
                               QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ), mLayout( 0 ), mMainLayout( 0 ),
-    mPlugin( plugin )
+  : Kontact::Summary( parent, name ), mLayout( 0 ), mPlugin( plugin )
 {
   mMainLayout = new QVBoxLayout( this, 3, 3 );
 
