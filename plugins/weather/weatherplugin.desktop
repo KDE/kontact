@@ -3,6 +3,7 @@ Encoding=UTF-8
 Type=Service
 Icon=kweather
 ServiceTypes=Kontact/Plugin,KPluginInfo
+TryExec=kweatherservice
 
 X-KDE-Library=libkontact_weatherplugin
 X-KDE-KontactIdentifier=weather
