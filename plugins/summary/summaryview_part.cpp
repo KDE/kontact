@@ -228,12 +228,23 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
   }
 
   if ( target == mFrame ) {
-    if ( alignment == Qt::AlignLeft ) {
-      mLeftColumn->insertWidget( 0, widget );
-      mLeftColumnSummaries.insert( mLeftColumnSummaries.at( 0 ), widgetName( widget ) );
+    int pos = 0;
+
+    if ( alignment & Qt::AlignTop )
+      pos = 0;
+
+    if ( alignment & Qt::AlignLeft ) {
+      if ( alignment & Qt::AlignBottom )
+        pos = mLeftColumnSummaries.count();
+
+      mLeftColumn->insertWidget( pos, widget );
+      mLeftColumnSummaries.insert( mLeftColumnSummaries.at( pos ), widgetName( widget ) );
     } else {
-      mRightColumn->insertWidget( 0, widget );
-      mRightColumnSummaries.insert( mRightColumnSummaries.at( 0 ), widgetName( widget ) );
+      if ( alignment & Qt::AlignBottom )
+        pos = mRightColumnSummaries.count();
+
+      mRightColumn->insertWidget( pos, widget );
+      mRightColumnSummaries.insert( mRightColumnSummaries.at( pos ), widgetName( widget ) );
     }
 
     return;
@@ -241,10 +252,17 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
 
   int targetPos = mLeftColumn->findWidget( target );
   if ( targetPos != -1 ) {
+    if ( alignment == Qt::AlignBottom )
+      targetPos++;
+
     mLeftColumn->insertWidget( targetPos, widget );
     mLeftColumnSummaries.insert( mLeftColumnSummaries.at( targetPos ), widgetName( widget ) );
   } else {
     targetPos = mRightColumn->findWidget( target );
+
+    if ( alignment == Qt::AlignBottom )
+      targetPos++;
+
     mRightColumn->insertWidget( targetPos, widget );
     mRightColumnSummaries.insert( mRightColumnSummaries.at( targetPos ), widgetName( widget ) );
   }
