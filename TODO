@@ -12,7 +12,7 @@ UNTIL KDE 3.2
 - Basic groupware functionality (Exchange 2k and Kolab)
 - make the headerWidget look nicer (we might use KIconLoader
   for larger icons) (slueppken)                                (done)
-- make all parts user the InfoExtension
+- make all parts use the InfoExtension
 	
 LATER
 ======
