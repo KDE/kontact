@@ -138,21 +138,6 @@ QString KNotesPart::newNoteFromClipboard( const QString& name )
   return newNote( name, text );
 }
 
-void KNotesPart::showNote( const QString& id ) const
-{
-  KNotesIconViewItem *note = mNoteList[ id ];
-  if ( !note )
-    return;
-
-  mNotesView->ensureItemVisible( note );
-  mNotesView->setCurrentItem( note );
-}
-
-void KNotesPart::hideNote( const QString& ) const
-{
-  // simply does nothing, there is nothing to hide
-}
-
 void KNotesPart::killNote( const QString& id )
 {
   killNote( id, false );
@@ -216,22 +201,6 @@ QMap<QString, QString> KNotesPart::notes() const
     notes.insert( (*it)->journal()->uid(), (*it)->journal()->description() );
 
   return notes;
-}
-
-// TODO KDE 4.0: remove
-
-void KNotesPart::sync( const QString& )
-{
-}
-
-bool KNotesPart::isNew( const QString&, const QString& ) const
-{
-    return true;
-}
-
-bool KNotesPart::isModified( const QString&, const QString& ) const
-{
-    return true;
 }
 
 

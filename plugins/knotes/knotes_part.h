@@ -60,9 +60,6 @@ class KNotesPart : public KPIM::Part, virtual public KNotesIface
     QString newNoteFromClipboard( const QString& name = QString::null );
 
   public:
-    void showNote( const QString& id ) const;
-    void hideNote( const QString& id ) const;
-
     void killNote( const QString& id );
     void killNote( const QString& id, bool force );
 
@@ -73,11 +70,6 @@ class KNotesPart : public KPIM::Part, virtual public KNotesIface
     void setText( const QString& id, const QString& newText );
 
     QMap<QString, QString> notes() const;
-
-// TODO: remove for KDE 4.0
-    void sync( const QString& app );
-    bool isNew( const QString& app, const QString& id ) const;
-    bool isModified( const QString& app, const QString& id ) const;
 
   private slots:
     void createNote( KCal::Journal *journal );
