@@ -8,6 +8,7 @@ X-KDE-Library=libkontact_kpilotplugin
 X-KDE-KontactIdentifier=kpilot
 X-KDE-KontactPluginVersion=4
 X-KDE-KontactPluginHasSummary=true
+X-KDE-KontactPluginHasPart=false
 
 X-KDE-PluginInfo-Website=http://www.slac.com/~pilone/kpilot_home/
 X-KDE-PluginInfo-Name=kontact_kpilotplugin
