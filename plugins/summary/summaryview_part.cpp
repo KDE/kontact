@@ -157,6 +157,8 @@ void SummaryViewPart::updateWidgets()
   }
 
   // Collect all summary widgets with a summaryHeight > 0
+  QStringList loadedSummaries;
+
   QValueList<Kontact::Plugin*> plugins = mCore->pluginList();
   QValueList<Kontact::Plugin*>::ConstIterator end = plugins.end();
   QValueList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
@@ -179,8 +181,27 @@ void SummaryViewPart::updateWidgets()
              !mRightColumnSummaries.contains( plugin->identifier() ) ) {
           mLeftColumnSummaries.append( plugin->identifier() );
         }
+
+        loadedSummaries.append( plugin->identifier() );
       } else {
         summary->hide();
+      }
+    }
+  }
+
+  // Remove all unavailable summary widgets
+  {
+    QStringList::Iterator strIt;
+    for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
+      if ( loadedSummaries.find( *strIt ) == loadedSummaries.end() ) {
+        strIt = mLeftColumnSummaries.remove( strIt );
+        --strIt;
+      }
+    }
+    for ( strIt = mRightColumnSummaries.begin(); strIt != mRightColumnSummaries.end(); ++strIt ) {
+      if ( loadedSummaries.find( *strIt ) == loadedSummaries.end() ) {
+        strIt = mRightColumnSummaries.remove( strIt );
+        --strIt;
       }
     }
   }
