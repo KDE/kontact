@@ -77,7 +77,7 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
 
   KTempFile tmp( locateLocal( "tmp", "incidences-" ), ".ics" );
   cal.save(tmp.name());
-  openComposer( tmp.name() );
+  openComposer( KURL::fromPathOrURL( tmp.name() ) );
 }
 
 void KMailPlugin::openComposer( const KURL& attach )
