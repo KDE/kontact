@@ -105,6 +105,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void slotShowTip();
     void slotRequestFeature();
     void slotNewToolbarConfig();
+    void slotShowIntroduction();
     void showAboutDialog();
     void slotShowStatusMsg( const QString& );
     void activatePluginModule();
@@ -146,7 +147,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 
     KToolBarPopupAction *mNewActions;
     SidePaneBase *mSidePane;
-    QWidgetStack *mMainStack;
     QWidgetStack *mPartsStack;
     Plugin *mCurrentPlugin;
     KParts::PartManager *mPartManager;
@@ -158,7 +158,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QMap<KParts::InfoExtension*, InfoExtData> mInfoExtCache;
 
     int mSidePaneType;
-    //QStringList mActivePlugins;
 
     KRSqueezedTextLabel* mStatusMsgLabel;
     KPIM::StatusbarProgressWidget *mLittleProgress;
@@ -169,6 +168,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;
+    bool mStartupCompleted;
 };
 
 }

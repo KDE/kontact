@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui >
-<kpartgui version="17" name="kontact" >
+<kpartgui version="18" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -28,6 +28,7 @@
 -->
   </Menu>
   <Menu name="help"><text>&amp;Help</text>
+     <Action name="help_introduction"/>
      <Action name="help_tipofday"/>
      <Separator/>
      <Action name="help_requestfeature"/>

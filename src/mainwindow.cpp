@@ -79,7 +79,8 @@ using namespace Kontact;
 
 MainWindow::MainWindow()
   : Kontact::Core(), mTopWidget( 0 ), mHeaderText( 0 ), mHeaderPixmap( 0 ), mSplitter( 0 ),
-    mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ), mReallyClose( false )
+    mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ), mReallyClose( false ),
+    mStartupCompleted( false )
 {
   // Set this to be the group leader for all subdialogs - this means
   // modal subdialogs will only affect this dialog, not the other windows
@@ -158,11 +159,11 @@ void MainWindow::initObject()
   activatePluginModule();
 
   if ( Prefs::lastVersionSeen() == kapp->aboutData()->version() ) {
-    mMainStack->raiseWidget( mTopWidget );
+    selectPlugin( mCurrentPlugin );
   }
-
   Prefs::setLastVersionSeen( kapp->aboutData()->version() );
 
+  mStartupCompleted = true;
 }
 
 MainWindow::~MainWindow()
@@ -200,18 +201,10 @@ void MainWindow::activatePluginModule()
 
 void MainWindow::initWidgets()
 {
-  // master stack
-  mMainStack = new QWidgetStack( this );
-  setCentralWidget( mMainStack );
-
   // includes sidebar and part stack
-  mTopWidget = new QHBox( mMainStack );
+  mTopWidget = new QHBox( this );
   mTopWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-  mMainStack->addWidget( mTopWidget );
-
-  // holds about screen
-  initAboutScreen();
-  //mMainStack->raiseWidget( mTopWidget );
+  setCentralWidget( mTopWidget );
 
   // init appropriate sidebar (disabled for now)
   mSidePaneType = Prefs::self()->mSidePaneType;
@@ -256,6 +249,7 @@ void MainWindow::initWidgets()
   vBox->setSpacing( 0 );
 
   mPartsStack = new QWidgetStack( vBox );
+  initAboutScreen();
 
   /* Create a progress dialog and hide it. */
   KPIM::ProgressDialog *progressDialog = new KPIM::ProgressDialog( statusBar(), this );
@@ -274,9 +268,9 @@ void MainWindow::initWidgets()
 
 void MainWindow::initAboutScreen()
 {
-  QHBox *introbox = new QHBox( mMainStack );
-  mMainStack->addWidget( introbox );
-  mMainStack->raiseWidget(introbox);
+  QHBox *introbox = new QHBox( mPartsStack );
+  mPartsStack->addWidget( introbox );
+  mPartsStack->raiseWidget( introbox );
   KHTMLPart *introPart = new KHTMLPart( introbox );
   introPart->widget()->setFocusPolicy( WheelFocus );
   // Let's better be paranoid and disable plugins (it defaults to enabled):
@@ -334,6 +328,8 @@ void MainWindow::setupActions()
   new KAction( i18n( "Configure Kontact..." ), "configure", 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
 
+  new KAction( i18n( "&Kontact Introduction" ), 0, this, SLOT( slotShowIntroduction() ),
+               actionCollection(), "help_introduction" );
   new KAction( i18n( "&Tip of the Day" ), 0, this, SLOT( slotShowTip() ),
                actionCollection(), "help_tipofday" );
   new KAction( i18n( "&Request Feature..." ), 0, this, SLOT( slotRequestFeature() ),
@@ -612,7 +608,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   QWidget *view = part->widget();
   Q_ASSERT( view );
 
-  if ( view ) {
+  if ( view && mStartupCompleted ) {
     mPartsStack->raiseWidget( view );
     view->show();
 
@@ -697,6 +693,11 @@ void MainWindow::slotRequestFeature()
 {
   if ( kapp )
     kapp->invokeBrowser( "http://kontact.org/shopping" );
+}
+
+void MainWindow::slotShowIntroduction()
+{
+  mPartsStack->raiseWidget( 0 ); // ###
 }
 
 void MainWindow::showTip(bool force)
@@ -888,7 +889,7 @@ void MainWindow::slotOpenUrl(const KURL &url)
   {
     if (url.path() == "/switch" )
     {
-      mMainStack->raiseWidget( mTopWidget );
+      selectPlugin( mCurrentPlugin );
     }
     if (url.path() == "/gwwizard" )
     {
