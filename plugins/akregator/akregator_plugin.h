@@ -16,7 +16,7 @@
 #include "akregator_partiface_stub.h"
 
 #if KDE_VERSION > KDE_MAKE_VERSION( 3, 3, 80 )
-#include <kontact/part.h>
+#include <libkdepim/part.h>
 #else
 namespace KPIM{
 typedef KParts::Part Part;
