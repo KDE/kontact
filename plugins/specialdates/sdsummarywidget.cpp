@@ -25,6 +25,7 @@
 #include <qcursor.h>
 #include <qlabel.h>
 #include <qlayout.h>
+#include <qimage.h>
 #include <qtooltip.h>
 
 #include <dcopclient.h>
@@ -339,19 +340,46 @@ void SDSummaryWidget::updateView()
       bool makeBold = (*addrIt).daysTo == 0; // i.e., today
 
       // Pixmap
-      QString icon;
+      QImage icon_img;
+      QString icon_name;
+      KABC::Picture pic;
       switch( (*addrIt).category ) {  // TODO: better icons
       case CategoryBirthday:
-        icon = "cookie"; break;
+        icon_name = "cookie";
+        pic = (*addrIt).addressee.photo();
+        if ( pic.isIntern() && !pic.data().isNull() ) {
+          QImage img = pic.data();
+          if ( img.width() > img.height() ) {
+            icon_img = img.scaleWidth( 32 );
+          } else {
+            icon_img = img.scaleHeight( 32 );
+          }
+        }
+        break;
       case CategoryAnniversary:
-        icon = "kdmconfig"; break;
+        icon_name = "kdmconfig";
+        pic = (*addrIt).addressee.photo();
+        if ( pic.isIntern() && !pic.data().isNull() ) {
+          QImage img = pic.data();
+          if ( img.width() > img.height() ) {
+            icon_img = img.scaleWidth( 32 );
+          } else {
+            icon_img = img.scaleHeight( 32 );
+          }
+        }
+        break;
       case CategoryHoliday:
-        icon = "kdmconfig"; break;
+        icon_name = "kdmconfig"; break;
       case CategoryOther:
-        icon = "cookie"; break;
+        icon_name = "cookie"; break;
       }
       label = new QLabel( this );
-      label->setPixmap( KGlobal::iconLoader()->loadIcon( icon, KIcon::Small ) );
+      if ( icon_img.isNull() ) {
+        label->setPixmap( KGlobal::iconLoader()->loadIcon( icon_name,
+                                                           KIcon::Small ) );
+      } else {
+        label->setPixmap( icon_img );
+      }
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       label->setAlignment( AlignLeft | AlignVCenter );
       mLayout->addWidget( label, counter, column++ );
