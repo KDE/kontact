@@ -285,27 +285,14 @@ void MainWindow::initAboutScreen()
       .arg( "help:/kontact" )
       .arg( iconSize )
       .arg( iconSize )
-<<<<<<< mainwindow.cpp
-      .arg( manual_icon_path )
-=======
       .arg( handbook_icon_path )
->>>>>>> 1.148
       .arg( "help:/kontact" )
       .arg( "http://kontact.kde.org" )
       .arg( iconSize )
       .arg( iconSize )
-<<<<<<< mainwindow.cpp
-      .arg( web_icon_path )
-=======
       .arg( html_icon_path )
->>>>>>> 1.148
       .arg( "http://kontact.kde.org" )
-      .arg( "exec:/gwwizard" )
-      .arg( iconSize )
-      .arg( iconSize )
-      .arg( wizard_icon_path )
-      .arg( "exec:/gwwizard" )
-      .arg( "exec:/switch" );
+      .arg( "exec:/gwwizard" );
 
   introPart->write( content.arg( QFont().pointSize() ).arg( appName )
       .arg( catchPhrase ).arg( quickDescription ).arg( info ) );
