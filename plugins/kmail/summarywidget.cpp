@@ -87,7 +87,9 @@ void SummaryWidget::timeout()
       int numMsg = config.readNumEntry( "TotalMsgs", 0 );
       int numUnreadMsg = config.readNumEntry( "UnreadMsgs", 0 );
       if ( numUnreadMsg != 0 ) {
-        QString folderPath = (*it).mid( 7 ).remove(0,1).replace(".directory","");
+        QString folderPath = (*it).mid( 7 );
+        folderPath = folderPath.replace(".directory","");
+        if (folderPath.startsWith(".")) folderPath = folderPath.remove(0,1);
         KURLLabel *urlLabel = new KURLLabel( QString::null, folderPath, this );
         urlLabel->setAlignment( AlignLeft );
         urlLabel->show();
