@@ -52,7 +52,7 @@ const KAboutData *KPilotPlugin::aboutData()
   if ( !mAboutData ) {
 		mAboutData = new KAboutData("kpilotplugin", I18N_NOOP("KPilot Information"),
 			KPILOT_VERSION,
-			"KPilot - HotSync software for KDE\n\n",
+			I18N_NOOP("KPilot - HotSync software for KDE\n\n"),
 			KAboutData::License_GPL, "(c) 1998-2000,2001, Dan Pilone");
 		mAboutData->addAuthor("Dan Pilone",
 			I18N_NOOP("Project Leader"),
