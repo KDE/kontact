@@ -215,22 +215,10 @@ void KABSummaryWidget::updateView()
 
 void KABSummaryWidget::mailContact( const QString &uid )
 {
-  QString app;
-  if ( kapp->dcopClient()->isApplicationRegistered( "kmail" ) )
-    app = QString::fromLatin1( "kmail" );
-  else {
-    mPlugin->core()->selectPlugin( "mails" );
-    app = QString::fromLatin1( "kontact" );
-  }
-
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QString email = ab->findByUid( uid ).fullEmail();
 
-  // FIXME: replace "DCOPRef, dcopCall.send..." with kapp->invokeMailer for kde 3.2
-  // kapp->invokeMailer(addr, QString::null);
-  DCOPRef dcopCall( app.latin1(), "KMailIface" );
-  dcopCall.send( "openComposer(QString,QString,QString,QString,QString,bool)", email,
-                 QString::null, QString::null, QString::null, QString::null, false );
+  kapp->invokeMailer( email, QString::null );
 }
 
 void KABSummaryWidget::viewContact( const QString &uid )
