@@ -15,3 +15,9 @@ Name=Organizer
 Comment=
 Weight=30
 Icon=korganizer
+
+[KWeather]
+Name=Weather
+Comment=
+Weight=60
+Icon=kweather
