@@ -50,8 +50,10 @@
 
 #include "kpplugin.h"
 
+#include "prefs.h"
 #include "mainwindow.h"
 #include "sidepane.h"
+#include "iconsidepane.h"
 
 using namespace Kontact;
 
@@ -62,15 +64,25 @@ MainWindow::MainWindow()
   QHBox *box = new QHBox( this );
   box->setFrameStyle( QFrame::Panel | QFrame::Sunken );
 
-  m_curPlugin = 0L;
+  m_curPlugin = 0;
   
   m_splitter = new QSplitter( box );
 
-  m_sidePane = new SidePane( m_splitter );
+  int sidePaneType = Prefs::self()->mSidePaneType;
+  switch ( sidePaneType ) {
+    case Prefs::SidePaneBars:
+      m_sidePane = new SidePane( m_splitter );
+      break;
+    default:
+      kdError() << "Invalid SidePaneType: " << sidePaneType << endl;
+    case Prefs::SidePaneIcons:
+      m_sidePane = new IconSidePane( m_splitter );
+      break;
+  }
   m_sidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                           QSizePolicy::Preferred ) );
-  connect( m_sidePane, SIGNAL( showPart( KParts::Part*, Kontact::Plugin* ) ),
-           SLOT( showPart( KParts::Part*, Kontact::Plugin* ) ) );
+  connect( m_sidePane, SIGNAL( showPart( Kontact::Plugin* ) ),
+           SLOT( showPart( Kontact::Plugin* ) ) );
 
   QVBox *vBox = new QVBox( m_splitter );
   vBox->setSpacing( 0 );
@@ -95,8 +107,6 @@ MainWindow::MainWindow()
   setXMLFile( "kontactui.rc" );
 
   createGUI( 0 );
-
-  m_sidePane->invokeFirstEntry();
 
   resize( 600, 400 ); // initial size
   setAutoSaveSettings();
@@ -235,8 +245,10 @@ void MainWindow::slotNewClicked()
   if (action) action->activate();
 }
 
-void MainWindow::showPart( KParts::Part* part, Kontact::Plugin *plugin )
+void MainWindow::showPart( Kontact::Plugin *plugin )
 {
+  KParts::Part *part = plugin->part();
+
   QPtrList<KParts::Part> *partList = const_cast<QPtrList<KParts::Part>*>( m_partManager->parts() );
   if ( partList->find( part ) == -1 )
     addPart( part );
@@ -265,6 +277,7 @@ void MainWindow::loadSettings()
   KConfig *config = kapp->config();
   KConfigGroupSaver saver( config, "General" );
   m_splitter->setSizes( config->readIntListEntry( "SideBarSize" ) );
+  m_sidePane->selectPlugin( config->readEntry( "ActivePlugin", "kmail" ) );
 }
 
 void MainWindow::saveSettings()
@@ -272,6 +285,7 @@ void MainWindow::saveSettings()
   KConfig *config = kapp->config();
   KConfigGroupSaver saver( config, "General" );
   config->writeEntry( "SideBarSize", m_splitter->sizes() );
+  config->writeEntry( "ActivePlugin", m_sidePane->currentPluginName() );
 }
 
 void MainWindow::slotQuit()

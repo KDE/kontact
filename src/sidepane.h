@@ -16,8 +16,10 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
  */
-#ifndef  SIDEPANE_H
-#define  SIDEPANE_H
+#ifndef KONTACT_SIDEPANE_H
+#define KONTACT_SIDEPANE_H
+
+#include "sidepanebase.h"
 
 #include <qpushbutton.h>
 #include <qvbox.h>
@@ -42,9 +44,9 @@ namespace Kontact
     public:
       PanelButton(Kontact::Plugin *plugin, int id, QWidget *parent, const char* name = 0);
 
-      ~PanelButton() {};
+      ~PanelButton() {}
 
-      bool isActive() const { return m_active; };
+      bool isActive() const { return m_active; }
 
       void setActive();
       void setInactive();
@@ -54,8 +56,8 @@ namespace Kontact
       Kontact::Plugin *plugin() const { return m_plugin; }
 
     signals:
-      void clicked(PanelButton* pb);
-      void showPart(KParts::Part* part, Kontact::Plugin* plugin);
+      void clicked( PanelButton *pb );
+      void showPart( Kontact::Plugin* plugin );
 
     public slots:
       void slotClicked();
@@ -76,15 +78,14 @@ namespace Kontact
 
   ///////////////////////////////////////////////////////////////////////
 
-  class SidePane : public QVBox
+  class SidePane : public SidePaneBase
   {
     Q_OBJECT
     public:
       SidePane(QWidget *parent, const char* name = 0);
-      ~SidePane() {};
+      ~SidePane() {}
 
-    signals:
-      void showPart(KParts::Part*, Kontact::Plugin*);
+      QString currentPluginName() const;
 
     public slots:
       /**
@@ -94,18 +95,20 @@ namespace Kontact
 
       void switchItems(PanelButton* pb);
 
-      void invokeFirstEntry();
+      void selectPlugin( const QString &pluginName );
 
     protected slots:
-      void switchSidePaneWidget(KParts::Part* part, Kontact::Plugin*);
+      void switchSidePaneWidget( Kontact::Plugin * );
 
     private:
       QWidgetStack* m_contentStack;
       QLabel* m_headerWidget;
       QPtrList<PanelButton> m_buttonList;
+      QString mCurrentPluginName;
   };
 
-};
-#endif // SIDEPANE_H
+}
+
+#endif
 
 // vim: ts=2 sw=2 et

@@ -20,12 +20,8 @@
    Boston, MA 02111-1307, USA.
 
 */
-
-// $Id$
-
-#ifndef KP_CORE_H
-#define KP_CORE_H
-
+#ifndef KONTACT_CORE_H
+#define KONTACT_CORE_H
 
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
@@ -35,26 +31,24 @@ class KAction;
 namespace Kontact
 {
 
-    class Plugin;
-    /**
-     * This class is now purely private to Kontact and not visible for the plugins
-     **/
-    class Core : public KParts::MainWindow
-    {
-        protected:
+class Plugin;
+/**
+  This class is now purely private to Kontact and not visible for the plugins 
+*/
+class Core : public KParts::MainWindow
+{
+  public:
+    virtual ~Core();
 
-            Core(QWidget *parentWidget = 0, const char *name = 0);
-        public:
-            virtual ~Core();
+    virtual void showPart( Kontact::Plugin *plugin ) = 0;
+    virtual QPtrList<Kontact::Plugin> pluginList() = 0;
 
-            virtual void showPart(KParts::Part *part, Kontact::Plugin *plugin) = 0;
-
-			virtual QPtrList<Kontact::Plugin> pluginList() = 0;
-    };
-
-
+  protected:
+    Core( QWidget *parentWidget = 0, const char *name = 0 );
 };
 
+}
+
 #endif
-// vim: ts=4 sw=4 et
+// vim: ts=2 sw=2 et
 

@@ -42,8 +42,8 @@ class QVBox;
 
 namespace KParts
 {
-	class InfoExtension;
-};
+  class InfoExtension;
+}
 
 namespace Kontact
 {
@@ -55,7 +55,7 @@ struct InfoExtData
 };
 
 class Plugin;
-class SidePane;
+class SidePaneBase;
 
 class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 {
@@ -75,7 +75,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 	virtual QPtrList<Kontact::Plugin> pluginList() { return m_plugins; }
 
   public slots:
-    virtual void showPart( KParts::Part *part, Kontact::Plugin *plugin );
+    virtual void showPart( Kontact::Plugin *plugin );
 
   signals:
     void textChanged( const QString& );
@@ -84,7 +84,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
   protected slots:
     void slotActivePartChanged( KParts::Part *part );
     void slotPreferences();
-	void slotNewClicked();
+    void slotNewClicked();
     void slotQuit();
 
   protected:
@@ -108,8 +108,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QSplitter *m_splitter;
 
     KToolBarPopupAction *m_newActions;
-
-    SidePane *m_sidePane;
+    SidePaneBase *m_sidePane;
     QWidgetStack *m_stack;
     Plugin *m_curPlugin;
     KParts::PartManager *m_partManager;

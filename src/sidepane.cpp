@@ -47,8 +47,8 @@ using namespace Kontact;
 // Helper classes
 ///////////////////////////////////////////////////////////////////////
 
-PanelButton::PanelButton( Kontact::Plugin *plugin, int id,  QWidget *parent, const char* name) :
-QPushButton(parent, name)
+PanelButton::PanelButton( Kontact::Plugin *plugin, int id,  QWidget *parent, const char* name)
+  : QPushButton(parent, name)
 {
   
   setPixmap(BarIcon(plugin->icon()));
@@ -70,8 +70,8 @@ QPushButton(parent, name)
 
 void PanelButton::slotClicked()
 {
-  emit clicked(this);
-  emit showPart(m_plugin->part(), m_plugin);
+  emit clicked( this );
+  emit showPart( m_plugin );
 
   setActive();
 }
@@ -153,8 +153,8 @@ void PanelButton::drawButtonLabel(QPainter *p)
 
 ///////////////////////////////////////////////////////////////////////
 
-  SidePane::SidePane(QWidget *parent, const char* name)
-: QVBox(parent, name), m_contentStack(0), m_headerWidget(0)
+SidePane::SidePane(QWidget *parent, const char* name)
+  : SidePaneBase(parent, name), m_contentStack(0), m_headerWidget(0)
 {
 
   setSpacing(0);
@@ -181,30 +181,31 @@ void SidePane::addEntry(Kontact::Plugin *plugin)
   //int id = m_contentStack->addWidget(child);
   PanelButton* pb = new PanelButton(plugin, 0, this, "PanelButton");
   m_buttonList.append(pb);
-  connect(pb, SIGNAL(clicked(PanelButton*)), this, SLOT(switchItems(PanelButton*)));
-  connect(pb, SIGNAL(showPart(KParts::Part*, Kontact::Plugin*)), 
-      this, SIGNAL(showPart(KParts::Part*, Kontact::Plugin*)));
-  connect(pb, SIGNAL(showPart(KParts::Part*, Kontact::Plugin*)), 
-      this, SLOT(switchSidePaneWidget(KParts::Part*, Kontact::Plugin*)));
+  connect(pb, SIGNAL(clicked(PanelButton*)), SLOT(switchItems(PanelButton*)));
+  connect(pb, SIGNAL(showPart(Kontact::Plugin*)), 
+          SIGNAL(showPart(Kontact::Plugin*)));
+  connect(pb, SIGNAL(showPart(Kontact::Plugin*)), 
+          SLOT(switchSidePaneWidget(Kontact::Plugin*)));
 }
 
-void SidePane::switchSidePaneWidget(KParts::Part* part, Kontact::Plugin*)
+void SidePane::switchSidePaneWidget( Kontact::Plugin *plugin )
 {
- Q_ASSERT(part);
+  KParts::Part *part = plugin->part();
 
- QObjectList *l = part->queryList( "KParts::SideBarExtension" );
- KParts::SideBarExtension *sbe = static_cast<KParts::SideBarExtension*>(l->first());
+  Q_ASSERT(part);
 
- if (!sbe)
- {
-   m_contentStack->raiseWidget(0);
-   return;
- }
+  QObjectList *l = part->queryList( "KParts::SideBarExtension" );
+  KParts::SideBarExtension *sbe = static_cast<KParts::SideBarExtension*>(l->first());
 
- if (m_contentStack->id(sbe->widget()) == -1)
-   m_contentStack->addWidget(sbe->widget());
+  if (!sbe) {
+    m_contentStack->raiseWidget(0);
+    return;
+  }
 
- m_contentStack->raiseWidget(sbe->widget());
+  if (m_contentStack->id(sbe->widget()) == -1)
+    m_contentStack->addWidget(sbe->widget());
+
+  m_contentStack->raiseWidget(sbe->widget());
 }
 
 void SidePane::switchItems(PanelButton* pb)
@@ -216,24 +217,25 @@ void SidePane::switchItems(PanelButton* pb)
       it.current()->setInactive();
   }
 
-  KConfigGroupSaver saver( kapp->config(), "General" );
-  kapp->config()->writeEntry( "ActivePlugin", pb->plugin()->name() );
+  mCurrentPluginName = pb->plugin()->name();
 
   m_contentStack->raiseWidget(pb->id());
   m_headerWidget->setText(pb->text());
 }
 
-void SidePane::invokeFirstEntry()
+QString SidePane::currentPluginName() const
 {
-  KConfigGroupSaver saver( kapp->config(), "General" );
-  QString activePlugin = kapp->config()->readEntry( "ActivePlugin", "kmail" );
+  return mCurrentPluginName;
+}
 
+void SidePane::selectPlugin( const QString &pluginName )
+{
   QPtrListIterator<PanelButton> it(m_buttonList);
   PanelButton *btn;
   while ((btn = it.current()) != 0) {
     ++it;
     Kontact::Plugin *plugin = btn->plugin();
-    if ( plugin->name() == activePlugin ) {
+    if ( plugin->name() == pluginName ) {
       btn->slotClicked();
       return;
     }
