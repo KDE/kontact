@@ -292,7 +292,10 @@ void MainWindow::initAboutScreen()
       .arg( iconSize )
       .arg( html_icon_path )
       .arg( "http://kontact.kde.org" )
-      .arg( "exec:/gwwizard" );
+      .arg( "exec:/gwwizard" )
+      .arg( iconSize )
+      .arg( iconSize )
+      .arg( wizard_icon_path );
 
   introPart->write( content.arg( QFont().pointSize() ).arg( appName )
       .arg( catchPhrase ).arg( quickDescription ).arg( info ) );
