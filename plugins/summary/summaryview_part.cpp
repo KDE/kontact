@@ -46,6 +46,7 @@
 
 #include <kparts/componentfactory.h>
 #include <kparts/statusbarextension.h>
+#include <kparts/event.h>
 
 #include <infoextension.h>
 #include <sidebarextension.h>
@@ -100,6 +101,20 @@ bool SummaryViewPart::openFile()
 {
   kdDebug(5006) << "SummaryViewPart:openFile()" << endl;
   return true;
+}
+
+void SummaryViewPart::partActivateEvent( KParts::PartActivateEvent *event )
+{
+  // inform the plugins that the part has been activated so that they can
+  // update the displayed information
+  if ( event->activated() && ( event->part() == this ) ) {
+    QPtrListIterator<Kontact::Summary> it( mSummaries );
+    for ( ; it.current(); ++it ) {
+      it.current()->updateSummary( false );
+    }
+  }
+
+  KParts::ReadOnlyPart::partActivateEvent( event );
 }
 
 void SummaryViewPart::updateWidgets()

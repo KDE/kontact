@@ -40,7 +40,7 @@ namespace KParts { class Part; }
   Increase this version number whenever you make a change
   in the API.
  */
-#define KONTACT_PLUGIN_VERSION 3
+#define KONTACT_PLUGIN_VERSION 4
 
 namespace Kontact
 {

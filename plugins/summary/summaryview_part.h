@@ -38,6 +38,7 @@ namespace Kontact
 namespace KParts
 {
   class StatusBarExtension;
+  class PartActivateEvent;
 }
 
 class QFrame;
@@ -66,6 +67,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
 
   protected:
     virtual bool openFile();
+    virtual void partActivateEvent( KParts::PartActivateEvent *event );
 
   protected slots:
     void slotConfigure();

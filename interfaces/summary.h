@@ -61,7 +61,13 @@ class Summary : public QWidget
     virtual QStringList configModules() const { return QStringList(); }
 
   public slots:
-    virtual void configChanged() {};
+    virtual void configChanged() {}
+
+    /**
+      This is called if the displayed information should be updated.
+      @param force true if the update was requested by the user
+    */
+    virtual void updateSummary( bool force = false ) { Q_UNUSED( force ); }
 
   signals:
     void message( const QString &message );
