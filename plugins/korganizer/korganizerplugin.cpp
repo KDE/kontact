@@ -72,6 +72,13 @@ KParts::Part *KOrganizerPlugin::createPart()
 {
   KParts::Part *part = loadPart();
 
+  if ( !part )
+    return 0;
+
+  KAction *action = part->actionCollection()->action( "new_event" );
+  if ( action )
+    part->actionCollection()->take( action );
+
   dcopClient(); // ensure that we register to DCOP as "korganizer"
   mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
 

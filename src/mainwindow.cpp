@@ -437,7 +437,6 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     KAction *action = plugin->newActions()->first();
     setCaption( i18n("Plugin dependent window title" ,"%1 - Kontact").arg( plugin->title() ) );
     if ( action ) {
-      // ##FIXME: Doesn't work for some reason..
       mNewActions->setIconSet( action->iconSet() );
       mNewActions->setText( action->text() );
     }
