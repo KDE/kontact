@@ -37,6 +37,11 @@
 
 class KAction;
 
+namespace KParts
+{
+	class InfoExtension;
+};
+
 namespace Kontact
 {
 
@@ -65,8 +70,12 @@ public:
                                QString *error=0, QCString* dcopService=0,
                                int flags=0 );
 
- public slots: 
+ public slots:
   virtual void showPart(KParts::Part *part);
+
+ signals:
+  void textChanged( const QString& );
+
 private slots:
 
   void slotQuit();
@@ -87,13 +96,16 @@ private:
   void setupActions();
 
   SidePane *m_sidePane;
-      
+
   KParts::PartManager *m_partManager;
 
   QWidgetStack *m_stack;
   QPtrList<Kontact::Plugin> m_plugins;
 
   KActionMenu *m_newActions;
+
+  QLabel *headerWidget;
+  KParts::InfoExtension *m_lastInfoExtension;
 
 };
 

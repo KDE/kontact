@@ -24,6 +24,7 @@
 #include <qptrlist.h>
 
 class QWidgetStack;
+class QLabel;
 
 namespace Kontact
 {
@@ -54,7 +55,7 @@ namespace Kontact
       void clicked(PanelButton* pb);
       void showPart(KParts::Part* part);
 
-    public slots:	
+    public slots:
       void slotClicked();
 
     private:
@@ -68,7 +69,7 @@ namespace Kontact
   class SidePane : public QVBox
   {
     Q_OBJECT
-    public:	
+    public:
       SidePane(QWidget *parent, const char* name = 0);
       ~SidePane() {};
 
@@ -87,14 +88,14 @@ namespace Kontact
 
     protected slots:
       void switchSidePaneWidget(KParts::Part* part);
-      
+
     private:
       QWidgetStack* m_contentStack;
-      QPushButton* m_headerWidget;
+      QLabel* m_headerWidget;
       QPtrList<PanelButton> m_buttonList;
   };
 
 };
-#endif // SIDEPANE_H 
+#endif // SIDEPANE_H
 
 // vim: ts=2 sw=2 et

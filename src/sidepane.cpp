@@ -21,6 +21,7 @@
 #include <qwidgetstack.h>
 #include <qsignal.h>
 #include <qobjectlist.h>
+#include <qlabel.h>
 
 #include <klocale.h>
 #include <kiconloader.h>
@@ -47,14 +48,18 @@ QPushButton(BarIcon(plugin->icon()), plugin->pluginName(), parent, name)
   m_id = id;
   m_plugin = plugin;
 
+  QFont fnt(font());
+  fnt.setBold(true);
+  setFont(fnt);
+
   setFlat(true);
+
   connect(this, SIGNAL(clicked()), SLOT(slotClicked()));
 }
 
 void PanelButton::slotClicked()
 {
   emit clicked(this);
-
   KParts::Part* part = m_plugin->part();
   emit showPart(part);
 
@@ -97,9 +102,16 @@ void PanelButton::setInactive()
 {
 
   setSpacing(0);
-  m_headerWidget = new QPushButton(this, "header");
-  m_headerWidget->setFlat(true);
+
+  m_headerWidget = new QLabel(QString::null, this, "header");
+  m_headerWidget->setFrameShape(QFrame::ToolBarPanel);
+  QFont fnt(font());
+  fnt.setBold(true);
+  fnt.setPointSize(font().pointSize()+3);
+  m_headerWidget->setFont(fnt);
+
   m_contentStack = new QWidgetStack(this);
+  m_contentStack->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
   m_contentStack->addWidget(new QWidget(m_contentStack));
 }
 

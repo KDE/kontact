@@ -23,6 +23,7 @@
 #include <qcombobox.h>
 #include <qwhatsthis.h>
 #include <qsplitter.h>
+#include <qobjectlist.h>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -38,6 +39,7 @@
 #include <klocale.h>
 #include <kstatusbar.h>
 #include <kcmultidialog.h>
+#include <infoextension.h>
 
 #include <dcopclient.h>
 
@@ -60,8 +62,23 @@ MainWindow::MainWindow()
   m_sidePane = new SidePane(splitter);
   m_sidePane->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
   connect(m_sidePane, SIGNAL(showPart(KParts::Part*)), SLOT(showPart(KParts::Part*)));
+  QVBox *vBox = new QVBox( splitter );
+  vBox->setSpacing(0);
 
-  m_stack = new QWidgetStack(splitter);
+  // Initiate the headerWidget
+  headerWidget = new QLabel(QString::null, vBox);
+  headerWidget->setSizePolicy( QSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum ) );
+  headerWidget->setFrameShape(QFrame::ToolBarPanel);
+  connect( this, SIGNAL( textChanged( const QString& ) ), headerWidget, SLOT( setText( const QString& ) ) );
+
+  QFont fnt(m_sidePane->font());
+  fnt.setBold(true);
+  fnt.setPointSize(m_sidePane->font().pointSize()+3);
+  headerWidget->setFont(fnt);
+
+  m_lastInfoExtension = 0L;
+
+  m_stack = new QWidgetStack(vBox);
 
   setCentralWidget(box);
 
@@ -153,8 +170,21 @@ void MainWindow::addPart(KParts::Part *part)
 
 void MainWindow::activePartChanged(KParts::Part *part)
 {
-  kdDebug(5600) << "Part activated: " << part << " with stack id. " 
+  kdDebug(5600) << "Part activated: " << part << " with stack id. "
       << m_stack->id(part->widget())<< endl;
+  QObjectList *l = part->queryList( "KParts::InfoExtension" );
+  KParts::InfoExtension *ie = static_cast<KParts::InfoExtension*>(l->first());
+  if( ie != 0L )
+  {
+      disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
+	  			 headerWidget, SLOT( setText( const QString& ) ) );
+	  connect( ie, SIGNAL( textChanged( const QString& ) ),
+	  			 headerWidget, SLOT( setText( const QString& ) ) );
+  }
+  else
+	  headerWidget->setText( QString::null );
+  m_lastInfoExtension = ie;
+
   createGUI(part);
 }
 
