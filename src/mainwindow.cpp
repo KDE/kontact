@@ -98,6 +98,8 @@ MainWindow::MainWindow()
   KStdAction::configureToolbars( this, SLOT( configureToolbars() ), actionCollection() );
   setXMLFile( "kontactui.rc" );
 
+  setStandardToolBarMenuEnabled( true );
+
   createGUI( 0 );
 
   resize( 600, 450 ); // initial size
@@ -114,7 +116,6 @@ MainWindow::MainWindow()
 
   showTip( false );
 
-  setStandardToolBarMenuEnabled( true );
   statusBar()->show();
 }
 
@@ -181,7 +182,7 @@ void MainWindow::setupActions()
   mNewActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), ""), 
 		  KShortcut(), this, SLOT(slotNewClicked()),actionCollection(), "action_new" );
 
-  new KAction( i18n("Configure Kontact..."), 0, this, SLOT( slotPreferences() ),
+  new KAction( i18n("Configure Kontact..."), "configure", 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
 
  ( void )new KAction( i18n( "&Tip of the Day" ), 0,
