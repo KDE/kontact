@@ -245,9 +245,9 @@ void KABSummaryWidget::viewContact( const QString &uid )
 void KABSummaryWidget::popupMenu( const QString &uid )
 {
   KPopupMenu popup( this );
-  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Small ),
+  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kontact_mail", KIcon::Small ),
                     i18n( "Send &Mail" ), 0 );
-  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kaddressbook", KIcon::Small ),
+  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kontact_contact", KIcon::Small ),
                     i18n( "View &Contact" ), 1 );
 
   switch ( popup.exec( QCursor::pos() ) ) {
