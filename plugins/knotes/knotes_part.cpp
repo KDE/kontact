@@ -292,8 +292,8 @@ void KNotesPart::editNote( QListViewItem *i )
 void KNotesPart::newNote()
 {
   bool ok;
-  QString title = KInputDialog::getText( i18n( "Title" ),
-                                         i18n( "Title" ),
+  QString title = KInputDialog::getText( i18n( "New Note" ),
+                                         i18n( "Enter title for the new note:" ),
                                          KGlobal::locale()->formatDateTime( QDateTime::currentDateTime() ),
                                          &ok );
   if ( !ok )
