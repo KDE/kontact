@@ -104,6 +104,36 @@ Icon=korganizer
 
 [KNode]
 Name=News
+Name[be]=Навіны
+Name[ca]=Notícies
+Name[cs]=Novinky
+Name[cy]=Newyddion
+Name[da]=Nyheder
+Name[el]=Νέα
+Name[es]=Noticias
+Name[et]=Uudised
+Name[fi]=Uutiset
+Name[fr]=Nouvelles
+Name[hi]=समाचार
+Name[hu]=Hírek
+Name[it]=Notizie
+Name[nb]=Njus
+Name[nl]=Nieuws
+Name[nn]=Nyheiter
+Name[pl]=Listy dyskusyjne
+Name[pt]=Notícias
+Name[pt_BR]=Notícias
+Name[ro]=Ştiri
+Name[ru]=Новости
+Name[sl]=Novice
+Name[sr]=Вести
+Name[sv]=Nyheter
+Name[ta]=செய்திகள்
+Name[tr]=Haberler
+Name[uk]=Новини
+Name[uz]=Янгиликлар
+Name[xx]=xxNewsxx
+Name[zh_CN]=新闻
 Weight=50
 Icon=knode
 
