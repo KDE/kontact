@@ -590,10 +590,13 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   QStringList::ConstIterator it;
   for ( it = invisibleActions.begin(); it != invisibleActions.end(); ++it ) {
     KAction *action = part->actionCollection()->action( (*it).latin1() );
-    if ( action )
-      action->unplug( toolBar() );
+    if ( action ) {
+      QPtrListIterator<KToolBar> it(  toolBarIterator() );
+      for (  ; it.current() ; ++it ) {
+        action->unplug( it.current() );
+      }
+    }
   }
-
   KApplication::restoreOverrideCursor();
 }
 
