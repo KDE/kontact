@@ -32,7 +32,7 @@
 #include <qtimer.h>
 #include <qwidget.h>
 
-#include <kontact/summary.h>
+#include "summary.h"
 #include <kurl.h>
 
 class QVBoxLayout;

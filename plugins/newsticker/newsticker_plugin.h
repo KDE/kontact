@@ -21,7 +21,7 @@
 #ifndef NEWSTICKER_PLUGIN_H
 #define NEWSTICKER_PLUGIN_H
 
-#include <kontact/plugin.h>
+#include "plugin.h"
 
 class SummaryWidget;
 
