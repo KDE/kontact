@@ -88,7 +88,7 @@ void KMailPlugin::openComposer( const KURL& attach )
     if ( attach.isValid() )
       mStub->openComposer( "", "", "", "", "", false, KURL(), attach );
     else
-      mStub->openComposer( "", "", "", "", "", false );
+      mStub->newMessage();
   }
 }
 
