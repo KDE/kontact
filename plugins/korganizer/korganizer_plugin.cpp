@@ -66,7 +66,7 @@ KParts::ReadOnlyPart *KOrganizerPlugin::part()
     mIface = new KOrganizerIface_stub( dcopClient(), "korganizer", "KOrganizerIface" );
 
     mPart = KParts::ComponentFactory
-      ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkorganizer",
+      ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkorganizerpart",
                                                              0, 0, // parentwidget,name
                                                              this, 0 ); // parent,name
   }
