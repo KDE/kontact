@@ -57,7 +57,7 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const
 {
   setInstance( KAddressbookPluginFactory::instance() );
 
-  insertNewAction( new KAction( i18n( "New Contact..." ), BarIcon( "identity" ),
+  insertNewAction( new KAction( i18n( "New Contact..." ), "identity",
 			             0, this, SLOT( slotNewContact() ), actionCollection(),
                    "new_contact" ) );
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(

@@ -491,7 +491,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     KAction *action = plugin->newActions()->first();
     setCaption( i18n("Plugin dependent window title" ,"%1 - Kontact").arg( plugin->title() ) );
     if ( action ) {
-      mNewActions->setIconSet( action->iconSet() );
+      mNewActions->setIcon( action->icon() );
       mNewActions->setText( action->text() );
     } else { // we'll use the action of the first plugin which offers one
       PluginList::Iterator it;
