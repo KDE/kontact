@@ -342,6 +342,8 @@ void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint& pos )
   menu.insertItem( i18n("Text Only"), (int)TextOnly );
   int choice = menu.exec( pos );
   
+  if ( choice == -1 )
+    return;
   mViewMode = sizeIntToEnum(choice);
   Prefs::self()->setSidePaneIconSize( choice );
 
