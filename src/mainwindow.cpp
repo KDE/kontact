@@ -263,7 +263,9 @@ void MainWindow::initAboutScreen()
   QString quickDescription( i18n( "The KDE Personal Information Management Suite" ) );
   KIconLoader *iconloader = KGlobal::iconLoader();
   int iconSize = iconloader->currentSize( KIcon::Desktop );
-  QString home_icon_path = iconloader->iconPath( "kfm_home",  KIcon::Desktop );
+  QString handbook_icon_path = iconloader->iconPath( "contents",  KIcon::Desktop );
+  QString html_icon_path = iconloader->iconPath( "html",  KIcon::Desktop );
+  QString wizard_icon_path = iconloader->iconPath( "wizard",  KIcon::Desktop );
 
   QString info = i18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
       "<p>%1</p>"
@@ -281,22 +283,18 @@ void MainWindow::initAboutScreen()
       .arg( "help:/kontact" )
       .arg( iconSize )
       .arg( iconSize )
-      .arg( home_icon_path )
+      .arg( handbook_icon_path )
       .arg( "help:/kontact" )
       .arg( "http://kontact.kde.org" )
       .arg( iconSize )
       .arg( iconSize )
-      .arg( home_icon_path )
+      .arg( html_icon_path )
       .arg( "http://kontact.kde.org" )
       .arg( "exec:/gwwizard" )
       .arg( iconSize )
       .arg( iconSize )
-      .arg( home_icon_path )
+      .arg( wizard_icon_path )
       .arg( "exec:/gwwizard" )
-      .arg( "exec:/switch" )
-      .arg( iconSize )
-      .arg( iconSize )
-      .arg( home_icon_path )
       .arg( "exec:/switch" );
 
   introPart->write( content.arg( QFont().pointSize() ).arg( appName )
