@@ -22,7 +22,7 @@
 **
 ** You should have received a copy of the GNU General Public License
 ** along with this program in a file called COPYING; if not, write to
-** the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, 
+** the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
 ** MA 02111-1307, USA.
 */
 
@@ -67,7 +67,7 @@ k_dcop:
 	*/
 	virtual ASYNC quitNow() = 0;
 	virtual ASYNC reloadSettings() = 0; // Indicate changed config file.
-	virtual void stopListening() = 0; 
+	virtual void stopListening() = 0;
 	virtual void startListening() = 0;
 	virtual bool isListening() =0 ;
 
@@ -76,8 +76,8 @@ k_dcop:
 	*/
 	virtual QString statusString() = 0;
 	virtual QString shortStatusString() = 0;
-	
-	/** 
+
+	/**
 	* Functions reporting same status data, e.g. for the kontact plugin.
 	*/
 	virtual QDateTime lastSyncDate() = 0;
@@ -85,6 +85,8 @@ k_dcop:
 	virtual QString logFileName() = 0;
 	virtual QString userName() = 0;
 	virtual QString pilotDevice() = 0;
+	virtual bool killDaemonOnExit() = 0;
+
 k_dcop_signals:
 	void kpilotDaemonStatusChanged();
 } ;
