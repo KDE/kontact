@@ -41,8 +41,6 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const char *,
 {
   setInstance( KNotesPluginFactory::instance() );
 
-  setXMLFile( "kpknotesplugin.rc" );
-
   insertNewAction( new KAction( i18n( "New Note" ), BarIcon( "knotes" ), 0,
                    this, SLOT( slotNewNote() ), actionCollection(),
                    "new_note" ) );
