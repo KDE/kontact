@@ -78,11 +78,6 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
            this, SLOT( updateView() ) );
 
-  if ( kapp->dcopClient()->isApplicationRegistered( "kaddressbook" ) )
-    mDCOPApp = "kaddressbook";
-  else
-    mDCOPApp = "kontact";
-
   mDaysAhead = 30; // ### make configurable
 
   updateView();
@@ -100,8 +95,6 @@ void KABSummaryWidget::updateView()
 
   QDate currentDate( 0, QDate::currentDate().month(),
                      QDate::currentDate().day() );
-
-  QDate aheadTime = currentDate.addDays(mDaysAhead);
 
   KABC::AddressBook::Iterator it;
   for ( it = ab->begin(); it != ab->end(); ++it ) {
@@ -266,10 +259,10 @@ void KABSummaryWidget::mailContact( const QString &uid )
 
 void KABSummaryWidget::viewContact( const QString &uid )
 {
-  if ( mDCOPApp == "kontact" )
+  if ( !mPlugin->isRunningStandalone() )
     mPlugin->core()->selectPlugin( mPlugin );
 
-  DCOPRef dcopCall( mDCOPApp.latin1(), "KAddressBookIface" );
+  DCOPRef dcopCall( "korganizer", "KAddressBookIface" );
   dcopCall.send( "showContactEditor(QString)", uid );
 }
 

@@ -55,11 +55,9 @@ class KABSummaryWidget : public Kontact::Summary
 
   private:
     QGridLayout *mLayout;
-
     QPtrList<QLabel> mLabels;
-    QString mDCOPApp;
-
     Kontact::Plugin *mPlugin;
+    int mDaysAhead;
 };
 
 #endif
