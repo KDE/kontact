@@ -220,6 +220,7 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
   mViewMode = sizeIntToEnum( Prefs::self()->sidePaneIconSize() );
   setSelectionMode( KListBox::Single );
   viewport()->setBackgroundMode( PaletteBackground );
+  setFrameStyle( QFrame::NoFrame );
   setHScrollBarMode( QScrollView::AlwaysOff );
   setAcceptDrops( true );
 
