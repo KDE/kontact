@@ -64,7 +64,7 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
                                   const KAboutData *aboutData,
                                   QObject *parent, const char *name )
   : KParts::ReadOnlyPart( parent, name ),
-    mCore( core ), mFrame( 0 ), mOptionsDialog( 0 ), mConfigAction( 0 )
+    mCore( core ), mFrame( 0 ), mConfigAction( 0 )
 {
   mStatusExt = new KParts::StatusBarExtension( this );
   setInstance( new KInstance( aboutData ) );
@@ -227,27 +227,23 @@ void SummaryViewPart::setDate( const QDate& newDate )
 
 void SummaryViewPart::slotConfigure()
 {
-  if ( !mOptionsDialog ) {
-    mOptionsDialog = new KCMultiDialog( mMainWidget );
+  KCMultiDialog dlg( mMainWidget, "ConfigDialog", true );
 
-    QStringList modules = configModules();
-    modules.prepend( "kcmkontactsummary.desktop" );
-    connect( mOptionsDialog, SIGNAL( configCommitted() ),
-             this, SLOT( updateWidgets() ) );
+  QStringList modules = configModules();
+  modules.prepend( "kcmkontactsummary.desktop" );
+  connect( &dlg, SIGNAL( configCommitted() ),
+           this, SLOT( updateWidgets() ) );
 
-    Kontact::Summary *summary;
-    for ( summary = mSummaries.first(); summary; summary = mSummaries.next() )
-      connect( mOptionsDialog, SIGNAL( configCommitted() ),
-               summary, SLOT( configChanged() ) );
+  Kontact::Summary *summary;
+  for ( summary = mSummaries.first(); summary; summary = mSummaries.next() )
+    connect( &dlg, SIGNAL( configCommitted() ),
+             summary, SLOT( configChanged() ) );
 
-    QStringList::ConstIterator it;
-    for ( it = modules.begin(); it != modules.end(); ++it ) {
-      mOptionsDialog->addModule( *it );
-    }
-  }
+  QStringList::ConstIterator it;
+  for ( it = modules.begin(); it != modules.end(); ++it )
+    dlg.addModule( *it );
 
-  mOptionsDialog->show();
-  mOptionsDialog->raise();
+  dlg.exec();
 }
 
 QStringList SummaryViewPart::configModules() const

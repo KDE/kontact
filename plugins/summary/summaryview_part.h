@@ -84,7 +84,6 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     QFrame *mMainWidget;
     QVBoxLayout *mMainLayout;
     QLabel *mDateLabel;
-    KCMultiDialog *mOptionsDialog;
     KAction *mConfigAction;
 };
 
