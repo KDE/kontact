@@ -91,9 +91,11 @@ void SummaryViewPart::getWidgets()
 
   // Collect all summary widgets with a summaryHeight > 0
   QPtrList<Kontact::Summary> summaries;
-  QPtrList<Kontact::Plugin> plugins = mCore->pluginList();
-  Kontact::Plugin *plugin;
-  for ( plugin = plugins.first(); plugin; plugin = plugins.next() ) {
+  QValueList<Kontact::Plugin*> plugins = mCore->pluginList();
+  QValueList<Kontact::Plugin*>::ConstIterator end = plugins.end();
+  QValueList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
+  for ( ; it != end; ++it ) {
+    Kontact::Plugin *plugin = *it;
     Kontact::Summary *s = plugin->createSummaryWidget( mFrame );
     if ( s ) {
       int h = s->summaryHeight();
@@ -168,3 +170,5 @@ void SummaryViewPart::slotAdjustPalette()
 }
 
 #include "summaryview_part.moc"
+
+// vim: sw=2 sts=2 et tw=80

@@ -72,7 +72,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
                                  QString *error = 0, QCString* dcopService = 0,
                                  int flags = 0 );
 
-    virtual QPtrList<Kontact::Plugin> pluginList() const { return m_plugins; }
+    virtual QValueList<Kontact::Plugin*> pluginList() const { return mPlugins; }
 
   public slots:
     virtual void selectPlugin( Kontact::Plugin *plugin );
@@ -98,8 +98,10 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void loadSettings();
     void saveSettings();
 
+    bool isPluginLoaded( const KPluginInfo * );
     void loadPlugins();
     void unloadPlugins();
+    bool removePlugin( const KPluginInfo * );
     void addPlugin( Kontact::Plugin *plugin );
     void addPart( KParts::Part *part );
     void setupActions();
@@ -124,7 +126,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QWidgetStack *m_stack;
     Plugin *m_currentPlugin;
     KParts::PartManager *m_partManager;
-    QPtrList<Kontact::Plugin> m_plugins;
+    typedef QValueList<Kontact::Plugin*> PluginList;
+    PluginList mPlugins;
     QValueList<KPluginInfo*> mPluginInfos;
     KParts::InfoExtension *m_lastInfoExtension;
 
@@ -139,3 +142,4 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 }
 
 #endif
+// vim: sw=2 sts=2 et

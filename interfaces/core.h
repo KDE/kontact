@@ -56,7 +56,7 @@ class Core : public KParts::MainWindow
     /**
       Returns the pointer list of available plugins.
      */
-    virtual QPtrList<Kontact::Plugin> pluginList() const = 0;
+    virtual QValueList<Kontact::Plugin*> pluginList() const = 0;
 
     KParts::ReadOnlyPart *createPart( const char *libname );
 

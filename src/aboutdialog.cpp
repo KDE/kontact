@@ -49,10 +49,11 @@ AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
   addAboutData( i18n("Kontact Container"), QString( "kontact" ),
                 KGlobal::instance()->aboutData() );
 
-  QPtrList<Plugin> plugins = mCore->pluginList();
-  uint i;
-  for( i = 0; i < plugins.count(); ++i ) {
-    addAboutPlugin( plugins.at( i ) );
+  QValueList<Plugin*> plugins = mCore->pluginList();
+  QValueList<Plugin*>::ConstIterator end = plugins.end();
+  QValueList<Plugin*>::ConstIterator it = plugins.begin();
+  for ( ; it != end; ++it ) {
+    addAboutPlugin( *it );
   }
 
   addLicenseText( KGlobal::instance()->aboutData() );

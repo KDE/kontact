@@ -79,8 +79,6 @@ MainWindow::MainWindow()
       it != mPluginInfos.end(); ++it )
     ( *it )->load();
 
-  m_plugins.setAutoDelete( true );
-
   initWidgets();
  
   // prepare the part manager
@@ -217,6 +215,15 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   m_headerText->setFont( fnt );
 }
 
+bool MainWindow::isPluginLoaded( const KPluginInfo * info )
+{
+    PluginList::ConstIterator end = mPlugins.end();
+    for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
+      if ( ( *it )->identifier() == info->pluginName() )
+        return true;
+    return false;
+}
+
 void MainWindow::loadPlugins()
 {
   QPtrList<Plugin> plugins;
@@ -227,6 +234,8 @@ void MainWindow::loadPlugins()
       it != mPluginInfos.end(); ++it )
   {
     if( ! ( *it )->isPluginEnabled() )
+      continue;
+    if( isPluginLoaded( *it ) )
       continue;
 
     kdDebug(5600) << "Loading Plugin: " << ( *it )->name() << endl;
@@ -273,32 +282,43 @@ void MainWindow::loadPlugins()
 
 void MainWindow::unloadPlugins()
 {
-  QPtrList<KParts::Part> parts = *m_partManager->parts();
-  parts.setAutoDelete( true );
-  parts.clear();
-
-  for( uint i = 0; i < m_plugins.count(); ++ i ) {
-    Plugin *plugin = m_plugins.at( i );
-
-    KAction *action;
-    QPtrList<KAction> *actionList = plugin->newActions();
-	
-    for(action = actionList->first(); action; action = actionList->next()){
-      kdDebug() << "Unplugging " << action->name() << endl;
-      action->unplug(m_newActions->popupMenu());
-    }
-
-    removeChildClient( plugin );
+  KPluginInfo::List::ConstIterator end = mPluginInfos.end();
+  for ( KPluginInfo::List::ConstIterator it = mPluginInfos.begin();
+      it != end; ++it ) {
+    if ( ! ( *it )->isPluginEnabled() )
+      removePlugin( *it );
   }
+}
 
-  m_plugins.clear();
+bool MainWindow::removePlugin( const KPluginInfo * info )
+{
+  PluginList::Iterator end = mPlugins.end();
+  for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it )
+    if( ( *it )->identifier() == info->pluginName() ) {
+      Plugin *plugin = *it;
+
+      KAction *action;
+      QPtrList<KAction> *actionList = plugin->newActions();
+
+      for ( action = actionList->first(); action; action = actionList->next() )
+      {
+        kdDebug() << "Unplugging " << action->name() << endl;
+        action->unplug( m_newActions->popupMenu() );
+      }
+
+      removeChildClient( plugin );
+      delete plugin; // removes the part automatically
+      mPlugins.remove( it );
+      return true;
+    }
+  return false;
 }
 
 void MainWindow::addPlugin( Kontact::Plugin *plugin )
 {
   kdDebug(5600) << "Added plugin" << endl;
 
-  m_plugins.append( plugin );
+  mPlugins.append( plugin );
 
   // merge the plugins GUI into the main window
   insertChildClient( plugin );
@@ -375,9 +395,11 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   plugin->select();
 
-  QPtrList<KParts::Part> *partList = const_cast<QPtrList<KParts::Part>*>( m_partManager->parts() );
-  if ( partList->find( part ) == -1 )
-    addPart( part );
+  // the following check is not needed because PartManager::addPart does
+  // just the same (mkretz 20030923)
+  //QPtrList<KParts::Part> *partList = const_cast<QPtrList<KParts::Part>*>( m_partManager->parts() );
+  //if ( partList->find( part ) == -1 )
+  addPart( part );
 
   m_partManager->setActivePart( part );
   QWidget *view = part->widget();
@@ -402,12 +424,12 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
 void MainWindow::selectPlugin( const QString &pluginName )
 {
-  for ( Kontact::Plugin *plugin = m_plugins.first(); plugin; plugin = m_plugins.next() ) {
-    if ( plugin->identifier() == pluginName ) {
-      selectPlugin( plugin );
+  PluginList::ConstIterator end = mPlugins.end();
+  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
+    if ( ( *it )->identifier() == pluginName ) {
+      selectPlugin( *it );
       return;
     }
-  }
 }
 
 void MainWindow::loadSettings()
@@ -435,8 +457,9 @@ void MainWindow::slotShowTip()
 void MainWindow::showTip(bool force)
 {
   QStringList tips;
-  for ( uint i=0; i < m_plugins.count(); ++i ) {
-    QString file = m_plugins.at( i )->tipFile();
+  PluginList::ConstIterator end = mPlugins.end();
+  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
+    QString file = ( *it )->tipFile();
     if ( !file.isEmpty() )
       tips.append( file );
   }
@@ -465,21 +488,23 @@ void MainWindow::slotPreferences()
 int MainWindow::startServiceFor( const QString& serviceType,
                                  const QString& constraint,
                                  const QString& preferences,
-                                 QString *error, QCString* dcopService, int flags )
+                                 QString *error, QCString* dcopService,
+                                 int flags )
 {
-  QPtrListIterator<Kontact::Plugin> it( m_plugins );
-  for ( ; it.current() ; ++it )
-  {
-    if ( it.current()->createDCOPInterface( serviceType ) ) {
+  PluginList::ConstIterator end = mPlugins.end();
+  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
+    if ( ( *it )->createDCOPInterface( serviceType ) ) {
       kdDebug(5600) << "found interface for " << serviceType << endl;
       if ( dcopService )
-        *dcopService = it.current()->dcopClient()->appId();
-      kdDebug(5600) << "appId=" << it.current()->dcopClient()->appId() << endl;
+        *dcopService = ( *it )->dcopClient()->appId();
+      kdDebug(5600) << "appId=" << ( *it )->dcopClient()->appId() << endl;
       return 0; // success
     }
   }
-  kdDebug(5600) << "Didn't find dcop interface, falling back to external process" << endl;
-  return KDCOPServiceStarter::startServiceFor( serviceType, constraint, preferences, error, dcopService, flags );
+  kdDebug(5600) <<
+    "Didn't find dcop interface, falling back to external process" << endl;
+  return KDCOPServiceStarter::startServiceFor( serviceType, constraint,
+      preferences, error, dcopService, flags );
 }
 
 void MainWindow::setHeaderText( const QString &text )

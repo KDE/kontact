@@ -132,12 +132,15 @@ QSize Navigator::sizeHint() const
   return QSize( 100, 100 );
 }
 
-void Navigator::updatePlugins( QPtrList<Kontact::Plugin> plugins )
+void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins )
 {
   clear();
 
   int minWidth = 0;
-  for ( Kontact::Plugin *plugin = plugins.first(); plugin; plugin = plugins.next() ) {
+  QValueList<Kontact::Plugin*>::ConstIterator end = plugins.end();
+  QValueList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
+  for ( ; it != end; ++it ) {
+    Kontact::Plugin *plugin = *it;
     if ( !plugin->showInSideBar() )
       continue;
 
@@ -263,3 +266,5 @@ void IconSidePane::selectPlugin( const QString &name )
 }
 
 #include "iconsidepane.moc"
+
+// vim: sw=2 sts=2 et tw=80

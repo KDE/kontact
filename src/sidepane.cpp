@@ -232,8 +232,11 @@ void SidePane::updatePlugins()
   m_buttonList.clear();
   m_buttonList.setAutoDelete( false );
 
-  QPtrList<Plugin> plugins = core()->pluginList();
-  for ( Plugin* plugin = plugins.first(); plugin; plugin = plugins.next() ) {
+  QValueList<Plugin*> plugins = core()->pluginList();
+  QValueList<Plugin*>::ConstIterator end = plugins.end();
+  QValueList<Plugin*>::ConstIterator it = plugins.begin();
+  for ( ; it != end; ++it ) {
+    Plugin *plugin = *it;
     if ( !plugin->showInSideBar() )
       continue;
 
@@ -306,3 +309,5 @@ void SidePane::selectPlugin( const QString &pluginName )
 }
 
 #include "sidepane.moc"
+
+// vim: sw=2 sts=2 et tw=80

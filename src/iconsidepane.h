@@ -75,7 +75,7 @@ class Navigator : public KListBox
   public:
     Navigator( SidePaneBase *parent = 0, const char *name = 0 );
 
-    void updatePlugins( QPtrList<Kontact::Plugin> plugins );
+    void updatePlugins( QValueList<Kontact::Plugin*> plugins );
 
     QSize sizeHint() const;
 

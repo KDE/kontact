@@ -61,6 +61,7 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
 
 Plugin::~Plugin()
 {
+  delete d->part;
   delete d->dcopClient;
   delete d;
 }
