@@ -32,7 +32,7 @@ namespace Kontact {
 class Prefs : public KPrefs
 {
   public:
-    enum { SidePaneIcons, SidePaneBars };
+    enum { SidePaneBars, SidePaneIcons };
 
     virtual ~Prefs();
 
