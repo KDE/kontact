@@ -55,7 +55,7 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const char *, const QStringList& )
 
   instance()->iconLoader()->addAppDir( "korganizer" );
   QPixmap pm = instance()->iconLoader()->loadIcon( "newtodo", KIcon::Toolbar );
-  insertNewAction( new KAction( i18n( "New Todo..." ), pm,
+  insertNewAction( new KAction( i18n( "New To-do..." ), pm,
                    0, this, SLOT( slotNewTodo() ), actionCollection(),
                    "new_todo" ) );
 

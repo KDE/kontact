@@ -115,7 +115,7 @@ void KCMKOrgSummary::initGUI()
 
   layout->addWidget( mCalendarGroup );
 
-  mTodoGroup = new QButtonGroup( 2, Horizontal, i18n( "Todos" ), this );
+  mTodoGroup = new QButtonGroup( 2, Horizontal, i18n( "To-dos" ), this );
   new QRadioButton( i18n( "Show all tasks" ), mTodoGroup );
   new QRadioButton( i18n( "Show today's tasks" ), mTodoGroup );
 

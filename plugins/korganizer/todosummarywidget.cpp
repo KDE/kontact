@@ -53,7 +53,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_todo",
                    KIcon::Desktop, KIcon::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "Todos" ) );
+  QWidget *header = createHeader( this, icon, i18n( "To-dos" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
@@ -164,7 +164,7 @@ void TodoSummaryWidget::updateView()
   }
 
   if ( counter == 0 ) {
-    QLabel *noTodos = new QLabel( i18n( "No Todos pending" ), this );
+    QLabel *noTodos = new QLabel( i18n( "No to-dos pending" ), this );
     noTodos->setAlignment( AlignRight );
     mLayout->addWidget( noTodos, 0, 2 );
     mLabels.append( noTodos );
