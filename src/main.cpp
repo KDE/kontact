@@ -18,7 +18,7 @@
     Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
-#include <kapplication.h>
+#include <kuniqueapplication.h>
 #include <dcopclient.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
@@ -45,17 +45,14 @@ static KCmdLineOptions options[] =
 int main(int argc, char **argv)
 {
     KAboutData about("kontact", I18N_NOOP("Kontact"), version, description,
-                     KAboutData::License_GPL, "(C) 2001-2002 The Kontact developers", 0, "http://kontact.kde.org", "kde-pim@kde.org");
+                     KAboutData::License_GPL, "(C) 2001-2003 The Kontact developers", 0, "http://kontact.kde.org", "kde-pim@kde.org");
     about.addAuthor( "Matthias Hoelzer-Kluepfel", 0, "mhk@kde.org" );
     about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
     about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
     about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
     KCmdLineArgs::init(argc, argv, &about);
 //    KCmdLineArgs::addCmdLineOptions(options);
-    KApplication app;
-
-    // register ourselves as a dcop client
-    app.dcopClient()->registerAs(app.name(), false);
+    KUniqueApplication app;
 
     // show splash
     Splash *s = new Splash( 0, "splash" );
