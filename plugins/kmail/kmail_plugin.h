@@ -6,7 +6,7 @@
 
 
 #include "kpplugin.h"
-#include "kmailpartIface_stub.h"
+#include "kmailIface_stub.h"
 
 
 class KMailPlugin : public Kontact::Plugin
@@ -21,9 +21,12 @@ public:
   virtual KParts::Part* part();
   virtual bool createDCOPInterface( const QString& serviceType );
 
+protected slots:
+  void slotNewMail();
+
 private:
   KParts::ReadOnlyPart *m_part;
-  KMailPartIface_stub *m_stub;
+  KMailIface_stub *m_stub;
 };
 
 
