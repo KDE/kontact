@@ -131,12 +131,6 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
            this, SLOT( updateView() ) );
 
-  // Setup the Holidays
-  KConfig hconfig( "korganizerrc" );
-  hconfig.setGroup( "Calendar/Holiday Plugin" );
-  QString country = hconfig.readEntry( "Holidays" );
-  mHolidays = new KHolidays::KHolidays( country );
-
   // Update Configuration
   configUpdated();
 }
@@ -168,6 +162,19 @@ void SDSummaryWidget::configUpdated()
     config.readBoolEntry( "ShowSpecialsFromCalendar", true );
 
   updateView();
+}
+
+void SDSummaryWidget::initHolidays()
+{
+  KConfig hconfig( "korganizerrc" );
+  hconfig.setGroup( "Calendar/Holiday Plugin" );
+  QString country = hconfig.readEntry( "Holidays" );
+  if ( country != mLastCountry ) {
+    if ( !mLastCountry.isNull() )
+      delete mHolidays;
+    mLastCountry = country;
+    mHolidays = new KHolidays::KHolidays( country );
+  }
 }
 
 void SDSummaryWidget::updateView()
@@ -299,6 +306,7 @@ void SDSummaryWidget::updateView()
 
   // Seach for Holidays
   if ( mShowHolidays ) {
+    initHolidays();
     for ( dt=QDate::currentDate();
           dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
           dt=dt.addDays(1) ) {

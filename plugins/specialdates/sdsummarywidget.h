@@ -57,11 +57,12 @@ class SDSummaryWidget : public Kontact::Summary
 
   private slots:
     void updateView();
-    void popupMenu( const QString &uid );
+      void popupMenu( const QString &uid );
     void mailContact( const QString &uid );
     void viewContact( const QString &uid );
 
   private:
+    void initHolidays();
     void dateDiff( const QDate &date, int &days, int &years );
     QGridLayout *mLayout;
     QPtrList<QLabel> mLabels;
@@ -75,6 +76,8 @@ class SDSummaryWidget : public Kontact::Summary
     bool mShowHolidays;
     bool mShowHolidaysFromCal;
     bool mShowSpecialsFromCal;
+
+    QString mLastCountry;
     KHolidays::KHolidays *mHolidays;
 };
 
