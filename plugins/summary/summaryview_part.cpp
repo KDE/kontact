@@ -200,6 +200,9 @@ void SummaryViewPart::updateWidgets()
 
 void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget )
 {
+  if ( target == widget )
+    return;
+
   if ( mLeftColumn->findWidget( target ) == -1 && mRightColumn->findWidget( target ) == -1 ||
        mLeftColumn->findWidget( widget ) == -1 && mRightColumn->findWidget( widget ) == -1 ) {
     return;
