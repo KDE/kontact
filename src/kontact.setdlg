@@ -24,6 +24,7 @@ Name[uk]=Пошта
 Name[uz]=Хат-хабар
 Name[xx]=xxMailxx
 Comment=
+Comment[xx]=xxxx
 Weight=20
 Icon=kmail
 
@@ -52,6 +53,7 @@ Name[tr]=Bağlantılar
 Name[uk]=Контакти
 Name[xx]=xxContactsxx
 Comment=
+Comment[xx]=xxxx
 Weight=50
 Icon=kaddressbook
 
@@ -69,7 +71,9 @@ Name[pt_BR]=Organizador
 Name[sl]=Organizator
 Name[uk]=Організатор
 Name[uz]=Органайзер
+Name[xx]=xxOrganizerxx
 Comment=
+Comment[xx]=xxxx
 Weight=30
 Icon=korganizer
 
@@ -100,6 +104,7 @@ Name[uk]=Погода
 Name[uz]=Об-ҳаво
 Name[xx]=xxWeatherxx
 Comment=
+Comment[xx]=xxxx
 Weight=60
 Icon=kweather
 
@@ -134,7 +139,9 @@ Name[uk]=Стрічка новин
 Name[ven]=Musengulusi wa Mafhungo
 Name[vi]=Trình kiểm tra news 
 Name[xh]=Umchola-choli weendaba
+Name[xx]=xxNews Tickerxx
 Name[zu]=Umlungiseleli Wezindaba 
 Comment=
+Comment[xx]=xxxx
 Weight=60
 Icon=knode
