@@ -161,9 +161,12 @@ void EntryItem::paint( QPainter *p )
   if ( isCurrent() || isSelected() ) {
     if ( beFancy ) {
       int h = height( box );
+      bool reverse = QApplication::reverseLayout();
       QImage gradient = KImageEffect::gradient( QSize( w, h ),
-                                                box->colorGroup().mid(),
-                                                box->colorGroup().highlight(),
+                                                reverse ? box->colorGroup().highlight() :
+                                                          box->colorGroup().mid(),
+                                                reverse ? box->colorGroup().mid() :
+                                                          box->colorGroup().highlight(),
                                                 KImageEffect::HorizontalGradient );
       p->drawImage( 0, 0, gradient );
       QPen pen = p->pen();
@@ -171,8 +174,16 @@ void EntryItem::paint( QPainter *p )
       pen.setWidth( 1 );
       pen.setColor( box->colorGroup().mid() );
       p->setPen( pen );
-      p->drawPoint( w - 1, 0 );
-      p->drawPoint( w - 1, h - 1 );
+
+      if ( reverse ) {
+        p->drawPoint( 0, 0 );
+        p->drawPoint( 0, h - 1 );
+      }
+      else {
+        p->drawPoint( w - 1, 0 );
+        p->drawPoint( w - 1, h - 1 );
+      }
+
       p->setPen( oldPen );
     }
     else {
