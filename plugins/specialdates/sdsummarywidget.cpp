@@ -168,13 +168,15 @@ void SDSummaryWidget::configUpdated()
 bool SDSummaryWidget::initHolidays()
 {
   KConfig hconfig( "korganizerrc" );
-  hconfig.setGroup( "Calendar/Holiday Plugin" );
+  hconfig.setGroup( "Time & Date" );
   QString location = hconfig.readEntry( "Holidays" );
-  if ( location != mLastLocation ) {
-    if ( !mLastLocation.isNull() && !mLastLocation.isEmpty() )
-      delete mHolidays;
-    mLastLocation = location;
-    mHolidays = new KHolidays::KHolidays( location );
+  if ( !location.isNull() ) {
+    if ( location != mLastLocation ) {
+      if ( !mLastLocation.isNull() && !mLastLocation.isEmpty() )
+        delete mHolidays;
+      mLastLocation = location;
+      mHolidays = new KHolidays::KHolidays( location );
+    }
     return true;
   }
   return false;
