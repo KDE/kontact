@@ -155,15 +155,17 @@ void MainWindow::initObject()
            this, SLOT( slotShowStatusMsg( const QString&  ) ) );
 
   // launch commandline specified module if any
-  // TODO: GUI Option
   activatePluginModule();
+
+  // keep this above the lastVersionSeen check!
+  mStartupCompleted = true;
 
   if ( Prefs::lastVersionSeen() == kapp->aboutData()->version() ) {
     selectPlugin( mCurrentPlugin );
   }
+
   Prefs::setLastVersionSeen( kapp->aboutData()->version() );
 
-  mStartupCompleted = true;
 }
 
 MainWindow::~MainWindow()
@@ -180,7 +182,7 @@ MainWindow::~MainWindow()
   Prefs::self()->writeConfig();
 }
 
-void MainWindow::activePluginModule( const QString &_module )
+void MainWindow::setActivePluginModule( const QString &_module )
 {
   mActiveModule = _module;
   activatePluginModule();
@@ -608,9 +610,12 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   QWidget *view = part->widget();
   Q_ASSERT( view );
 
-  if ( view && mStartupCompleted ) {
-    mPartsStack->raiseWidget( view );
-    view->show();
+  if ( view ) {
+    if ( mStartupCompleted )
+    {
+      mPartsStack->raiseWidget( view );
+      view->show();
+    }
 
     if ( mFocusWidgets.contains( plugin->identifier() ) ) {
       focusWidget = mFocusWidgets[ plugin->identifier() ];
@@ -884,7 +889,6 @@ void MainWindow::slotNewToolbarConfig()
 
 void MainWindow::slotOpenUrl(const KURL &url)
 {
-  kdDebug() << url.url() << endl;
   if (url.protocol() == "exec")
   {
     if (url.path() == "/switch" )

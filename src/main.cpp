@@ -103,7 +103,7 @@ int KontactApp::newInstance()
     if ( !mMainWindow ) {
       mMainWindow = new Kontact::MainWindow();
       if ( !moduleName.isEmpty() )
-        mMainWindow->activePluginModule( moduleName );
+        mMainWindow->setActivePluginModule( moduleName );
       mMainWindow->show();
       setMainWidget( mMainWindow );
       // --iconify is needed in kontact, although kstart can do that too,
@@ -114,7 +114,7 @@ int KontactApp::newInstance()
     else
     {
       if ( !moduleName.isEmpty() )
-        mMainWindow->activePluginModule( moduleName );
+        mMainWindow->setActivePluginModule( moduleName );
     }
   }
 

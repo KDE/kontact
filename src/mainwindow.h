@@ -83,7 +83,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
                                  int flags = 0 );
 
     virtual PluginList pluginList() const { return mPlugins; }
-    void activePluginModule( const QString & );
+    void setActivePluginModule( const QString & );
   public slots:
     virtual void selectPlugin( Kontact::Plugin *plugin );
     virtual void selectPlugin( const QString &pluginName );
