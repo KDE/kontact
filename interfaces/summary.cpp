@@ -42,7 +42,8 @@ Summary::~Summary()
 
 QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QString& heading)
 {
-  QHBox* hbox = new QHBox(parent);
+  QHBox* hbox = new QHBox( parent );
+
   QFont boldFont;
   boldFont.setBold( true );
   boldFont.setPointSize( boldFont.pointSize() + 2 );
@@ -50,11 +51,16 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
   QLabel *label = new QLabel( hbox );
   label->setPixmap( icon );
   label->setFixedSize( label->sizeHint() );
+  label->setPaletteBackgroundColor( colorGroup().mid() );
 
   label = new QLabel( heading, hbox );
   label->setAlignment( AlignLeft|AlignVCenter );
   label->setIndent( KDialog::spacingHint() );
   label->setFont( boldFont );
+  label->setPaletteForegroundColor( colorGroup().light() );
+  label->setPaletteBackgroundColor( colorGroup().mid() );
+
+  hbox->setPaletteBackgroundColor( colorGroup().mid() );
 
   return hbox;
 }
