@@ -386,13 +386,14 @@ void Navigator::enterEvent( QEvent *event )
 {
   // work around Qt behaviour: onItem is not emmitted in enterEvent()
   KListBox::enterEvent( event );
-  emit onItem( itemAt( QCursor::pos() ) );
+  emit onItem( itemAt( mapFromGlobal( QCursor::pos() ) ) );
 }
 
 void Navigator::leaveEvent( QEvent *event )
 {
   KListBox::leaveEvent( event );
   slotMouseOn( 0 );
+  mMouseOn = 0;
 }
 
 void Navigator::slotExecuted( QListBoxItem *item )
