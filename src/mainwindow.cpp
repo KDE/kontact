@@ -448,7 +448,7 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
 void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KPIM::Part *part )
 {
   if ( part->widget() )
-    mStack->addWidget( part->widget(), 0 );
+    mStack->addWidget( part->widget() );
 
   mPartManager->addPart( part, false );
 }
