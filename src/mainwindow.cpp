@@ -77,6 +77,10 @@ MainWindow::MainWindow(Kontact::Splash *splash)
     mSplash( splash ), mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ),
     mReallyClose( false )
 {
+  // Set this to be the group leader for all subdialogs - this means
+  // modal subdialogs will only affect this dialog, not the other windows
+  setWFlags( getWFlags() | WGroupLeader );
+
   initGUI();
   QTimer::singleShot( 0, this, SLOT(initObject()) );
 }
