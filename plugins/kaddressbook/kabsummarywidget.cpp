@@ -44,7 +44,7 @@ KABSummaryWidget::KABSummaryWidget( QWidget *parent, const char *name )
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 
-  mLayout = new QGridLayout( this, 7, 3 );
+  mLayout = new QGridLayout( this, 7, 3, 3 );
 
   QFont boldFont;
   boldFont.setBold( true );

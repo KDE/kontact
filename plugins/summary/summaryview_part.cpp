@@ -56,13 +56,13 @@ SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins,
 	m_frame->setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 	setWidget(m_frame);
 
-	m_layout = new QGridLayout( m_frame, 3, 3, KDialog::marginHint(),
+	m_layout = new QGridLayout( m_frame, 4, 3, KDialog::marginHint(),
                               KDialog::spacingHint() );
 	//m_layout->setSpacing( 50 ); We should look later which spacing is appropriate here
 
   QFrame *frame = new QFrame( m_frame );
   frame->setFrameStyle( QFrame::VLine | QFrame::Sunken );
-  m_layout->addMultiCellWidget( frame, 0, 2, 1, 1 );
+  m_layout->addMultiCellWidget( frame, 0, 3, 1, 1 );
 
   frame = new QFrame( m_frame );
   frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
@@ -106,10 +106,12 @@ void SummaryViewPart::getWidgets()
       m_layout->addWidget( wdg, 0, 0 );
     } else if ( QString( "kmail" ).compare( plugin->name() ) == 0 ) {
       m_layout->addWidget( wdg, 0, 2 );
-    } else if ( QString( "kaddressbook" ).compare( plugin->name() ) == 0 ) {
-      m_layout->addWidget( wdg, 2, 0 );
+    } else if ( QString( "newsticker" ).compare( plugin->name() ) == 0 ) {
+      m_layout->addMultiCellWidget( wdg, 2, 3, 0, 0 );
     } else if ( QString( "knotes" ).compare( plugin->name() ) == 0 ) {
-      m_layout->addWidget( wdg, 2, 2 );
+      m_layout->addMultiCellWidget( wdg, 1, 2, 2, 2 );
+    } else if ( QString( "kaddressbook" ).compare( plugin->name() ) == 0 ) {
+      m_layout->addWidget( wdg, 3, 2 );
     }
   }
 }
