@@ -51,7 +51,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact-todo",
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_todo",
                    KIcon::Desktop, KIcon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Todos" ) );
   mainLayout->addWidget( header );

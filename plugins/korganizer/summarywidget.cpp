@@ -51,7 +51,7 @@ SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact-date",
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_date",
                    KIcon::Desktop, KIcon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Appointments" ) );
   mainLayout->addWidget( header );
