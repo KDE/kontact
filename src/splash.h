@@ -21,17 +21,23 @@
 #ifndef SPLASH_H
 #define SPLASH_H
 
-#include <qlabel.h>
+#include <qvbox.h>
+
+class QProgressBar;
 
 namespace Kontact {
 
-class Splash : public QLabel
+class Splash : public QVBox
 {
   Q_OBJECT
 
   public:
     Splash( QWidget *parent, const char *name = 0 );
     ~Splash() {};
+
+     QProgressBar* progressBar() const { return mProgressBar; }
+  protected:
+     QProgressBar* mProgressBar;
 };
 
 }

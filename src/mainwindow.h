@@ -56,6 +56,7 @@ struct InfoExtData
 class Plugin;
 class SidePaneBase;
 class AboutDialog;
+class Splash;
 
 typedef QValueList<Kontact::Plugin*> PluginList;
 
@@ -64,7 +65,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
   Q_OBJECT
 
   public:
-    MainWindow();
+    MainWindow(Splash *splash);
     ~MainWindow();
 
     // KDCOPServiceStarter interface
@@ -87,6 +88,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void iconChanged( const QPixmap& );
 
   protected slots:
+    void initObject();
+    void initGUI();
     void slotActivePartChanged( KParts::Part *part );
     void slotPreferences();
     void slotSelectComponents();
@@ -130,6 +133,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QLabel *mHeaderText;
     QLabel *mHeaderPixmap;
     QSplitter *mSplitter;
+
+    Splash *mSplash;
 
     KToolBarPopupAction *mNewActions;
     SidePaneBase *mSidePane;

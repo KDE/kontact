@@ -20,6 +20,8 @@
 
 #include <qcursor.h>
 #include <qdesktopwidget.h>
+#include <qlabel.h>
+#include <qprogressbar.h>
 
 #include <kapplication.h>
 #include <kglobalsettings.h>
@@ -30,11 +32,14 @@
 using namespace Kontact;
 
 Splash::Splash( QWidget *parent, const char *name )
-  : QLabel( parent, name, WStyle_Customize | WStyle_Splash )
+  : QVBox( parent, name, WStyle_Customize | WStyle_Splash )
 {
+  QLabel *lbl = new QLabel( this );
   QPixmap splash( UserIcon( "splash" ) );
-  setBackgroundPixmap( splash );
-  resize( splash.width(), splash.height() );
+  lbl->setBackgroundPixmap( splash );
+  mProgressBar = new QProgressBar( this );
+  resize( splash.size() );
+  setFrameStyle( QFrame::Box | QFrame::Plain );
 
   QRect desk = KGlobalSettings::splashScreenDesktopGeometry();
 

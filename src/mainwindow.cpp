@@ -27,6 +27,8 @@
 #include <qobjectlist.h>
 #include <qsplitter.h>
 #include <qwhatsthis.h>
+#include <qtimer.h>
+#include <qprogressbar.h>
 
 #include <dcopclient.h>
 #include <kapplication.h>
@@ -64,37 +66,27 @@
 #include "sidepane.h"
 #include "progressdialog.h"
 #include "statusbarprogresswidget.h"
+#include "splash.h"
 
 using namespace Kontact;
 
-MainWindow::MainWindow()
+MainWindow::MainWindow(Kontact::Splash *splash)
   : Kontact::Core(), mTopWidget( 0 ), mHeaderText( 0 ), mHeaderPixmap( 0 ), mSplitter( 0 ),
-    mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ), mReallyClose( false )
+    mSplash( splash ), mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ), 
+    mReallyClose( false )
 {
-  KTrader::OfferList offers = KTrader::self()->query(
-      QString::fromLatin1( "Kontact/Plugin" ),
-      QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
-  mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(),
-      "Plugins" );
-  for( KPluginInfo::List::Iterator it = mPluginInfos.begin();
-      it != mPluginInfos.end(); ++it )
-    ( *it )->load();
+  initGUI();
+  QTimer::singleShot( 0, this, SLOT(initObject()) );
+}
 
+void MainWindow::initGUI()
+{
   initWidgets();
-
-  // prepare the part manager
-  mPartManager = new KParts::PartManager( this );
-  connect( mPartManager, SIGNAL( activePartChanged( KParts::Part* ) ),
-           this, SLOT( slotActivePartChanged( KParts::Part* ) ) );
-
   setupActions();
-
   setHelpMenuEnabled( false );
-
   KHelpMenu *helpMenu = new KHelpMenu( this, 0, true, actionCollection() );
   connect( helpMenu, SIGNAL( showAboutApplication() ),
            SLOT( showAboutDialog() ) );
-  loadPlugins();
 
   KStdAction::keyBindings( this, SLOT( configureShortcuts() ), actionCollection() );
   KStdAction::configureToolbars( this, SLOT( configureToolbars() ), actionCollection() );
@@ -107,18 +99,67 @@ MainWindow::MainWindow()
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
 
+}
+
+
+void MainWindow::initObject()
+{
+  
+  KTrader::OfferList offers = KTrader::self()->query(
+      QString::fromLatin1( "Kontact/Plugin" ),
+      QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
+  mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(),
+      "Plugins" );
+
+  QProgressBar *bar = mSplash->progressBar();
+  int count = 3;
+  count += mPluginInfos.count();
+  bar->setTotalSteps( count );
+
+  for( KPluginInfo::List::Iterator it = mPluginInfos.begin();
+      it != mPluginInfos.end(); ++it )
+  {
+    ( *it )->load();
+    bar->setProgress( bar->progress() + 1 );
+  }
+
+
+  // prepare the part manager
+  mPartManager = new KParts::PartManager( this );
+  connect( mPartManager, SIGNAL( activePartChanged( KParts::Part* ) ),
+           this, SLOT( slotActivePartChanged( KParts::Part* ) ) );
+
+  loadPlugins();
+
+
+  bar->setProgress( bar->progress() + 1 );
+  
   if ( mSidePane )
     mSidePane->updatePlugins();
 
+  // flush paint events
+  kapp->sendPostedEvents();
+
+  setUpdatesEnabled( false );
+
+  bar->setProgress( bar->progress() + 1 );
 
   KSettings::Dispatcher::self()->registerInstance( instance(), this,
       SLOT( updateConfig() ) );
 
   loadSettings();
 
-  showTip( false );
+  bar->setProgress( bar->progress() + 1 );
 
+  setUpdatesEnabled( true );
+  
   statusBar()->show();
+
+  // we are done - remove splash
+  delete mSplash;
+  mSplash=0;
+
+  showTip( false );
 }
 
 MainWindow::~MainWindow()

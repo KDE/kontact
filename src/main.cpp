@@ -34,11 +34,7 @@
 #include "plugin.h"
 
 #include <qlabel.h>
-#if (QT_VERSION-0 >= 0x030200)
-#include <qsplashscreen.h>
-#else
 #include "splash.h"
-#endif
 
 #include "mainwindow.h"
 
@@ -90,32 +86,21 @@ int KontactApp::newInstance()
   {
     moduleName = QString::fromLocal8Bit(args->getOption("module"));
   }
-  QWidget* splash = 0;
+  Kontact::Splash* splash = new Kontact::Splash( 0, "splash" );
   if ( !mMainWindow && args->isSet("splash") ) // only the first time
-  {
-    // show splash
-#if (QT_VERSION-0 >= 0x030200)
-    QPixmap splashPixmap( UserIcon( "splash" ) );
-
-    splash = new QSplashScreen( splashPixmap );
     splash->show();
-#else
-    splash = new Kontact::Splash( 0, "splash" );
-    splash->show();
-#endif
-  }
 
   if ( isRestored() ) {
     // There can only be one main window
     if ( KMainWindow::canBeRestored( 1 ) ) {
-      mMainWindow = new Kontact::MainWindow;
+      mMainWindow = new Kontact::MainWindow(splash);
       setMainWidget( mMainWindow );
       mMainWindow->show();
       mMainWindow->restore( 1 );
     }
   } else {
     if ( !mMainWindow ) {
-      mMainWindow = new Kontact::MainWindow;
+      mMainWindow = new Kontact::MainWindow(splash);
       if ( !moduleName.isEmpty() )
         mMainWindow->activePluginModule( moduleName );
       mMainWindow->show();
@@ -127,9 +112,6 @@ int KontactApp::newInstance()
         mMainWindow->activePluginModule( moduleName );
     }
   }
-
-  if( splash )
-    delete splash;
 
   // Handle startup notification and window activation
   // (The first time it will do nothing except note that it was called)
