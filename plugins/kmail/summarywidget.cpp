@@ -1,4 +1,5 @@
-/*
+/*  -*- mode: C++; c-file-style: "gnu" -*-
+
     This file is part of Kontact.
     Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
 
@@ -24,7 +25,7 @@
 #include <qlabel.h>
 #include <qlayout.h>
 
-#include <dcopclient.h>
+#include <dcopref.h>
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>
@@ -39,7 +40,9 @@
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ), mPlugin( plugin )
+  : Kontact::Summary( parent, name ),
+    DCOPObject( QCString("MailSummary") ),
+    mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
@@ -51,8 +54,9 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
   mainLayout->addLayout(mLayout);
   mainLayout->addStretch();
 
-  connect( &mTimer, SIGNAL( timeout() ), this, SLOT( timeout() ) );
-  mTimer.start( 0 );
+  slotUnreadCountChanged();
+  connectDCOPSignal( 0, 0, "unreadCountChanged()", "slotUnreadCountChanged()",
+                     false );
 }
 
 
@@ -66,47 +70,66 @@ void SummaryWidget::raisePart()
     mPlugin->core()->selectPlugin( mPlugin );
 }
 
-void SummaryWidget::timeout()
+void SummaryWidget::slotUnreadCountChanged()
 {
-  mTimer.stop();
+  DCOPRef kmail( "kmail", "KMailIface" );
+  DCOPReply reply = kmail.call( "folderList" );
+  if ( reply.isValid() ) {
+    QStringList folderList = reply;
+    updateFolderList( folderList );
+  }
+  else {
+    kdDebug(5602) << "Calling kmail->KMailIface->folderList() via DCOP failed."
+                  << endl;
+  }
+}
 
+void SummaryWidget::updateFolderList( const QStringList& folders )
+{
   mLabels.setAutoDelete( true );
   mLabels.clear();
   mLabels.setAutoDelete( false );
 
-  KConfig config( "kmailrc" );
-
-  QStringList groups = config.groupList();
-  groups.sort();
-
   int counter = 0;
-  QStringList::Iterator it;
-  for ( it = groups.begin(); it != groups.end() && counter < 6; ++it ) {
-    if ( (*it).startsWith( QString::fromLatin1( "Folder-" ) ) ) { // hmm, that may fail...
-      config.setGroup( *it );
-      int numMsg = config.readNumEntry( "TotalMsgs", 0 );
-      int numUnreadMsg = config.readNumEntry( "UnreadMsgs", 0 );
-      if ( numUnreadMsg != 0 ) {
-        QString folderPath = (*it).mid( 7 );
-        folderPath = folderPath.replace(".directory","");
-        folderPath = folderPath.replace( "/.", "/" );
-        if (folderPath.startsWith(".")) folderPath = folderPath.remove(0,1);
-        KURLLabel *urlLabel = new KURLLabel( QString::null, folderPath, this );
+  QStringList::ConstIterator it;
+  DCOPRef kmail( "kmail", "KMailIface" );
+  for ( it = folders.begin(); it != folders.end() && counter < 9; ++it ) {
+    DCOPReply reply = kmail.call( "getFolder", *it );
+    if ( reply.isValid() ) {
+      DCOPRef folderRef = reply;
+      int numUnreadMsg = -1;
+      DCOPReply dcopReply = folderRef.call( "unreadMessages" );
+      if ( dcopReply.isValid() ) {
+        numUnreadMsg = dcopReply;
+      }
+      else {
+        kdDebug(5602) << "Calling folderRef->unreadMessages() via DCOP failed."
+                      << endl;
+      }
+      if ( numUnreadMsg > 0 ) {
+        QString folderPath( *it );
+        if ( folderPath.startsWith("/") )
+          folderPath = folderPath.mid( 1 );
+        KURLLabel *urlLabel = new KURLLabel( QString::null, folderPath,
+                                             this );
         urlLabel->setAlignment( AlignLeft );
         urlLabel->show();
         // ### FIXME emit dcop signal to jumo to actual folder
         connect( urlLabel, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
         mLayout->addWidget( urlLabel, counter, 0 );
         mLabels.append( urlLabel );
-        QLabel *label = new QLabel( QString( "%1 / %2" ).arg( numUnreadMsg ).arg( numMsg ), this );
+        QLabel *label = new QLabel( QString::number( numUnreadMsg ), this );
 
         label->setAlignment( AlignLeft );
         label->show();
         mLayout->addWidget( label, counter, 2 );
         mLabels.append( label );
-
         counter++;
       }
+    }
+    else {
+      kdDebug(5602) << "Calling kmail->KMailIface->getFolder() via DCOP "
+                       "failed." << endl;
     }
   }
 
@@ -116,8 +139,6 @@ void SummaryWidget::timeout()
     mLayout->addMultiCellWidget( label, 1, 1, 1, 2 );
     mLabels.append( label );
   }
-
-  mTimer.start( 15 * 1000 );
 }
 
 #include "summarywidget.moc"

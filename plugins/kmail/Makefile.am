@@ -5,9 +5,11 @@ libkontact_kmailplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_kmailplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS)
 
 libkontact_kmailplugin_la_SOURCES = kmail_plugin.cpp kmailIface.stub \
-                                    summarywidget.cpp
+                                    summarywidget.cpp summarywidget.skel
 
 kmailIface_DCOPIDLNG = true
+
+summarywidget_DCOPIDLNG = true
 
 METASOURCES = AUTO
 

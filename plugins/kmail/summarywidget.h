@@ -28,6 +28,7 @@
 #include <qtimer.h>
 #include <qwidget.h>
 
+#include <dcopobject.h>
 #include <kurllabel.h>
 #include <kparts/part.h>
 
@@ -37,21 +38,25 @@
 class QGridLayout;
 class QString;
 
-class SummaryWidget : public Kontact::Summary
+class SummaryWidget : public Kontact::Summary, public DCOPObject
 {
   Q_OBJECT
+  K_DCOP
 
   public:
     SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
 
     int summaryHeight() const { return 1; }
 
+  k_dcop_hidden:
+    void slotUnreadCountChanged();
+
   private slots:
-    void timeout();
     void raisePart();
 
   private:
-    QTimer mTimer;
+    void updateFolderList( const QStringList& folders );
+
     QPtrList<QLabel> mLabels;
     QGridLayout *mLayout;
     Kontact::Plugin *mPlugin;
