@@ -31,8 +31,9 @@ class SummaryWidget;
 
 class KNotesPlugin : public Kontact::Plugin
 {
-    Q_OBJECT
-public:
+  Q_OBJECT
+
+  public:
     KNotesPlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KNotesPlugin();
 
@@ -42,14 +43,15 @@ public:
 
     const KAboutData *aboutData();
 
-protected:
+  protected:
     KParts::ReadOnlyPart* createPart();
 
-private slots:
+  private slots:
     void slotNewNote();
 
-private:
+  private:
     KAboutData *mAboutData;
 };
 
 #endif
+

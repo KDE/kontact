@@ -54,34 +54,35 @@ namespace Kontact
 
 class PluginProxy
 {
-public:
-  PluginProxy()
-    : m_plugin( 0 )
-  { }
+  public:
+    PluginProxy()
+      : mPlugin( 0 )
+    { }
 
-  PluginProxy( Plugin * plugin )
-    : m_plugin( plugin )
-  { }
+    PluginProxy( Plugin *plugin )
+      : mPlugin( plugin )
+    { }
 
-  PluginProxy & operator=( Plugin * plugin )
-  {
-    m_plugin = plugin;
-    return *this;
-  }
+    PluginProxy & operator=( Plugin *plugin )
+    {
+      mPlugin = plugin;
+      return *this;
+    }
 
-  bool operator<( PluginProxy & rhs ) const
-  {
-    return m_plugin->weight() < rhs.m_plugin->weight();
-  }
+    bool operator<( PluginProxy &rhs ) const
+    {
+      return mPlugin->weight() < rhs.mPlugin->weight();
+    }
 
-  Plugin * plugin() const
-  {
-    return m_plugin;
-  }
+    Plugin *plugin() const
+    {
+      return mPlugin;
+    }
 
-private:
-  Plugin * m_plugin;
+  private:
+    Plugin *mPlugin;
 };
+
 } //namespace
 
 using namespace Kontact;
@@ -102,19 +103,19 @@ EntryItem::~EntryItem()
 void EntryItem::reloadPixmap()
 {
   int size = (int)navigator()->viewMode();
-  if (size != 0)
+  if ( size != 0 )
     mPixmap = KGlobal::iconLoader()->loadIcon( mPlugin->icon(),
-  KIcon::Desktop, size );
+                                               KIcon::Desktop, size );
   else
     mPixmap = QPixmap();
 }
 
 Navigator* EntryItem::navigator() const
-{ 
-  return static_cast<Navigator*>(listBox());
+{
+  return static_cast<Navigator*>( listBox() );
 }
 
-int EntryItem::width( const QListBox *listbox) const
+int EntryItem::width( const QListBox *listbox ) const
 {
   int w;
   if ( text().isEmpty() )
@@ -125,12 +126,12 @@ int EntryItem::width( const QListBox *listbox) const
   return w + 26;
 }
 
-int EntryItem::height( const QListBox *listbox) const
+int EntryItem::height( const QListBox *listbox ) const
 {
   int h;
   if ( text().isEmpty() )
     h =  mPixmap.height();
-  else 
+  else
     h = (int)navigator()->viewMode() + listbox->fontMetrics().lineSpacing();
 
   return h + 4;
@@ -139,7 +140,7 @@ int EntryItem::height( const QListBox *listbox) const
 void EntryItem::paint( QPainter *p )
 {
   reloadPixmap();
-  
+
   QListBox *box = listBox();
   int w = box->viewport()->width();
   int y = 2;
@@ -152,7 +153,7 @@ void EntryItem::paint( QPainter *p )
   QColor save;
   if ( isCurrent() || isSelected() ) {
     save = p->pen().color();
-    p->setPen(listBox()->colorGroup().brightText());
+    p->setPen( listBox()->colorGroup().brightText() );
   }
 
   if ( !text().isEmpty() ) {
@@ -161,6 +162,7 @@ void EntryItem::paint( QPainter *p )
     int x = ( w - fm.width( text() ) ) / 2;
     p->drawText( x, y, text() );
   }
+
   // draw sunken
   if ( isCurrent() || isSelected() ) {
     p->setPen(save);
@@ -171,7 +173,7 @@ void EntryItem::paint( QPainter *p )
   }
 }
 
-Navigator::Navigator( SidePaneBase *parent, const char *name)
+Navigator::Navigator( SidePaneBase *parent, const char *name )
   : KListBox( parent, name ), mSidePane( parent )
 {
   mViewMode = sizeIntToEnum( Prefs::self()->sidePaneIconSize() );
@@ -182,11 +184,11 @@ Navigator::Navigator( SidePaneBase *parent, const char *name)
 
   setFocusPolicy( NoFocus );
 
-  connect( this, SIGNAL( selectionChanged( QListBoxItem * ) ),
-           SLOT( slotExecuted( QListBoxItem * ) ) );
+  connect( this, SIGNAL( selectionChanged( QListBoxItem* ) ),
+           SLOT( slotExecuted( QListBoxItem* ) ) );
 
-  connect( this, SIGNAL( rightButtonPressed( QListBoxItem *, const QPoint& ) ),
-           SLOT( slotShowRMBMenu( QListBoxItem *, const QPoint& ) ) );
+  connect( this, SIGNAL( rightButtonPressed( QListBoxItem*, const QPoint& ) ),
+           SLOT( slotShowRMBMenu( QListBoxItem*, const QPoint& ) ) );
 
   mMapper = new QSignalMapper( this );
   connect( mMapper, SIGNAL( mapped( int ) ), SLOT( shortCutSelected( int ) ) );
@@ -197,13 +199,13 @@ QSize Navigator::sizeHint() const
   return QSize( 100, 100 );
 }
 
-void Navigator::setSelected( QListBoxItem *i, bool sel )
+void Navigator::setSelected( QListBoxItem *item, bool selected )
 {
   // Reimplemented to avoid the immediate activation of
   // the item. might turn out it doesn't work, we check that
   // an confirm from MainWindow::selectPlugin()
-  if (sel) {
-    EntryItem *entry = static_cast<EntryItem *>( i );
+  if ( selected ) {
+    EntryItem *entry = static_cast<EntryItem*>( item );
     emit pluginActivated( entry->plugin() );
   }
 }
@@ -258,7 +260,7 @@ void Navigator::dragEnterEvent( QDragEnterEvent *event )
 void Navigator::dragMoveEvent( QDragMoveEvent *event )
 {
   kdDebug(5600) << "Navigator::dragEnterEvent()" << endl;
-  
+
   kdDebug(5600) << "  Format: " << event->format() << endl;
 
   QListBoxItem *item = itemAt( event->pos() );
@@ -268,8 +270,8 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
     return;
   }
 
-  EntryItem *entry = static_cast<EntryItem *>( item );
-  
+  EntryItem *entry = static_cast<EntryItem*>( item );
+
   kdDebug(5600) << "  PLUGIN: " << entry->plugin()->identifier() << endl;
 
   event->accept( entry->plugin()->canDecodeDrag( event ) );
@@ -285,13 +287,12 @@ void Navigator::dropEvent( QDropEvent *event )
     return;
   }
 
-  EntryItem *entry = static_cast<EntryItem *>( item );
-  
+  EntryItem *entry = static_cast<EntryItem*>( item );
+
   kdDebug(5600) << "  PLUGIN: " << entry->plugin()->identifier() << endl;
 
-  entry->plugin()->processDropEvent( event );  
+  entry->plugin()->processDropEvent( event );
 }
-
 
 void Navigator::resizeEvent( QResizeEvent *event )
 {
@@ -301,16 +302,17 @@ void Navigator::resizeEvent( QResizeEvent *event )
 
 void Navigator::slotExecuted( QListBoxItem *item )
 {
-  if ( !item ) return;
-  
-  EntryItem *entry = static_cast<EntryItem *>( item );
+  if ( !item )
+    return;
+
+  EntryItem *entry = static_cast<EntryItem*>( item );
 
   emit pluginActivated( entry->plugin() );
 }
 
 IconViewMode Navigator::sizeIntToEnum(int size) const
 {
-  switch ( size ) { 
+  switch ( size ) {
     case int(LargeIcons):
       return LargeIcons;
       break;
@@ -329,22 +331,22 @@ IconViewMode Navigator::sizeIntToEnum(int size) const
       kdDebug() << "View mode not implemented!" << endl;
       break;
   }
-  
 }
 
-void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint& pos )
+void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint &pos )
 {
   KPopupMenu menu;
-  menu.insertTitle( i18n("Icon Size") );
-  menu.insertItem( i18n("Large"), (int)LargeIcons );
-  menu.insertItem( i18n("Normal"), (int)NormalIcons );
-  menu.insertItem( i18n("Small"), (int)SmallIcons );
-  menu.insertItem( i18n("Text Only"), (int)TextOnly );
+  menu.insertTitle( i18n( "Icon Size" ) );
+  menu.insertItem( i18n( "Large" ), (int)LargeIcons );
+  menu.insertItem( i18n( "Normal" ), (int)NormalIcons );
+  menu.insertItem( i18n( "Small" ), (int)SmallIcons );
+  menu.insertItem( i18n( "Text Only" ), (int)TextOnly );
   int choice = menu.exec( pos );
-  
+
   if ( choice == -1 )
     return;
-  mViewMode = sizeIntToEnum(choice);
+
+  mViewMode = sizeIntToEnum( choice );
   Prefs::self()->setSidePaneIconSize( choice );
 
   triggerUpdate( true );
@@ -360,8 +362,8 @@ IconSidePane::IconSidePane( Core *core, QWidget *parent, const char *name )
   : SidePaneBase( core, parent, name )
 {
   mNavigator = new Navigator( this );
-  connect( mNavigator, SIGNAL( pluginActivated( Kontact::Plugin * ) ),
-           SIGNAL( pluginSelected( Kontact::Plugin * ) ) );
+  connect( mNavigator, SIGNAL( pluginActivated( Kontact::Plugin* ) ),
+           SIGNAL( pluginSelected( Kontact::Plugin* ) ) );
 
   setAcceptDrops( true );
 }
@@ -382,7 +384,7 @@ void IconSidePane::selectPlugin( Kontact::Plugin *plugin )
 
   uint i;
   for ( i = 0; i < mNavigator->count(); ++i ) {
-    EntryItem *item = static_cast<EntryItem *>( mNavigator->item( i ) );
+    EntryItem *item = static_cast<EntryItem*>( mNavigator->item( i ) );
     if ( item->plugin() == plugin ) {
       mNavigator->setCurrentItem( i );
       break;
@@ -399,7 +401,7 @@ void IconSidePane::selectPlugin( const QString &name )
 
   uint i;
   for ( i = 0; i < mNavigator->count(); ++i ) {
-    EntryItem *item = static_cast<EntryItem *>( mNavigator->item( i ) );
+    EntryItem *item = static_cast<EntryItem*>( mNavigator->item( i ) );
     if ( item->plugin()->identifier() == name ) {
       mNavigator->setCurrentItem( i );
       break;

@@ -44,56 +44,56 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
     mNoteEditDlg( 0 ),
     mManager( new KNotesResourceManager() )
 {
-    mNoteList.setAutoDelete( true );
+  mNoteList.setAutoDelete( true );
 
-    setInstance( new KInstance( "knotes" ) );
+  setInstance( new KInstance( "knotes" ) );
 
-    // create the actions
-    new KAction( i18n( "&New..." ), "knotes", CTRL+Key_N, this, SLOT( newNote() ),
-                 actionCollection(), "file_new" );
-    new KAction( i18n( "Rename" ), "text", this, SLOT( renameNote() ),
-                 actionCollection(), "edit_rename" );
-    new KAction( i18n( "Delete" ), "editdelete", Key_Delete, this, SLOT( killSelectedNotes() ),
-                 actionCollection(), "edit_delete" );
+  // create the actions
+  new KAction( i18n( "&New..." ), "knotes", CTRL+Key_N, this, SLOT( newNote() ),
+               actionCollection(), "file_new" );
+  new KAction( i18n( "Rename" ), "text", this, SLOT( renameNote() ),
+               actionCollection(), "edit_rename" );
+  new KAction( i18n( "Delete" ), "editdelete", Key_Delete, this, SLOT( killSelectedNotes() ),
+               actionCollection(), "edit_delete" );
 
-    // TODO styleguide: s/New.../New/, s/Rename/Rename.../
-    // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
+  // TODO styleguide: s/New.../New/, s/Rename/Rename.../
+  // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
-    // set the view up
-    mNotesView->setSelectionMode( QIconView::Extended );
-    mNotesView->setItemsMovable( false );
-    mNotesView->setResizeMode( QIconView::Adjust );
+  // set the view up
+  mNotesView->setSelectionMode( QIconView::Extended );
+  mNotesView->setItemsMovable( false );
+  mNotesView->setResizeMode( QIconView::Adjust );
 
-    connect( mNotesView, SIGNAL( executed( QIconViewItem * ) ),
-             this, SLOT( editNote( QIconViewItem * ) ) );
-    connect( mNotesView, SIGNAL( returnPressed( QIconViewItem * ) ),
-             this, SLOT( editNote( QIconViewItem * ) ) );
-    connect( mNotesView, SIGNAL( itemRenamed( QIconViewItem * ) ),
-             this, SLOT( renamedNote( QIconViewItem * ) ) );
-    connect( mNotesView, SIGNAL( contextMenuRequested( QIconViewItem *, const QPoint & ) ),
-             this, SLOT( popupRMB( QIconViewItem *, const QPoint & ) ) );
-    connect( mNotesView, SIGNAL( onItem( QIconViewItem * ) ),
-             this, SLOT( slotOnItem( QIconViewItem * ) ) );
-    connect( mNotesView, SIGNAL( onViewport() ),
-             this, SLOT( slotOnViewport() ) );
-    connect( mNotesView, SIGNAL( currentChanged( QIconViewItem * ) ),
-	     this, SLOT( slotOnCurrentChanged( QIconViewItem * ) ) );
+  connect( mNotesView, SIGNAL( executed( QIconViewItem* ) ),
+           this, SLOT( editNote( QIconViewItem* ) ) );
+  connect( mNotesView, SIGNAL( returnPressed( QIconViewItem* ) ),
+           this, SLOT( editNote( QIconViewItem* ) ) );
+  connect( mNotesView, SIGNAL( itemRenamed( QIconViewItem* ) ),
+           this, SLOT( renamedNote( QIconViewItem* ) ) );
+  connect( mNotesView, SIGNAL( contextMenuRequested( QIconViewItem*, const QPoint& ) ),
+           this, SLOT( popupRMB( QIconViewItem*, const QPoint& ) ) );
+  connect( mNotesView, SIGNAL( onItem( QIconViewItem* ) ),
+           this, SLOT( slotOnItem( QIconViewItem* ) ) );
+  connect( mNotesView, SIGNAL( onViewport() ),
+           this, SLOT( slotOnViewport() ) );
+  connect( mNotesView, SIGNAL( currentChanged( QIconViewItem* ) ),
+           this, SLOT( slotOnCurrentChanged( QIconViewItem* ) ) );
 
-    slotOnCurrentChanged(0);
+  slotOnCurrentChanged( 0 );
 
-    new KParts::SideBarExtension( mNotesView, this, "NotesSideBarExtension" );
+  new KParts::SideBarExtension( mNotesView, this, "NotesSideBarExtension" );
 
-    setWidget( mNotesView );
-    setXMLFile( "knotes_part.rc" );
+  setWidget( mNotesView );
+  setXMLFile( "knotes_part.rc" );
 
-    // connect the resource manager
-    connect( mManager, SIGNAL( sigRegisteredNote( KCal::Journal * ) ),
-             this, SLOT( createNote( KCal::Journal * ) ) );
-    connect( mManager, SIGNAL( sigDeregisteredNote( KCal::Journal * ) ),
-             this, SLOT( killNote( KCal::Journal * ) ) );
+  // connect the resource manager
+  connect( mManager, SIGNAL( sigRegisteredNote( KCal::Journal* ) ),
+           this, SLOT( createNote( KCal::Journal* ) ) );
+  connect( mManager, SIGNAL( sigDeregisteredNote( KCal::Journal* ) ),
+           this, SLOT( killNote( KCal::Journal* ) ) );
 
-    // read the notes
-    mManager->load();
+  // read the notes
+  mManager->load();
 }
 
 KNotesPart::~KNotesPart()
@@ -156,7 +156,7 @@ void KNotesPart::killNote( const QString& id, bool force )
    if ( note && !force && KMessageBox::warningContinueCancelList( mNotesView,
         i18n( "Do you really want to delete this note?" ),
         mNoteList[ id ]->text(), i18n( "Confirm Delete" ),
-	KStdGuiItem::del() ) == KMessageBox::Continue ) {
+        KStdGuiItem::del() ) == KMessageBox::Continue ) {
      mManager->deleteNote( mNoteList[id]->journal() );
      mManager->save();
    }
@@ -233,7 +233,7 @@ void KNotesPart::killSelectedNotes()
             i18n( "Do you really want to delete this note?",
                   "Do you really want to delete these %n notes?", items.count() ),
             notes, i18n( "Confirm Delete" ),
-	    KStdGuiItem::del() );
+            KStdGuiItem::del() );
 
   if ( ret == KMessageBox::Continue ) {
     QPtrListIterator<KNotesIconViewItem> kniviIt( items );
@@ -260,7 +260,7 @@ void KNotesPart::slotOnItem( QIconViewItem *i )
 {
   // TODO: disable (i.e. setNote( QString::null )) when mouse button pressed
 
-  KNotesIconViewItem *item = static_cast<KNotesIconViewItem *>(i);
+  KNotesIconViewItem *item = static_cast<KNotesIconViewItem *>( i );
   mNoteTip->setNote( item );
 }
 
@@ -301,11 +301,10 @@ void KNotesPart::editNote( QIconViewItem *item )
   if ( !mNoteEditDlg )
     mNoteEditDlg = new KNoteEditDlg( widget() );
 
-  KCal::Journal *journal = static_cast<KNotesIconViewItem *>(item)->journal();
+  KCal::Journal *journal = static_cast<KNotesIconViewItem *>( item )->journal();
   mNoteEditDlg->setText( journal->description() );
 
-  if ( mNoteEditDlg->exec() == QDialog::Accepted )
-  {
+  if ( mNoteEditDlg->exec() == QDialog::Accepted ) {
     journal->setDescription( mNoteEditDlg->text() );
     mManager->save();
   }
@@ -316,7 +315,7 @@ void KNotesPart::renameNote()
   mNotesView->currentItem()->rename();
 }
 
-void KNotesPart::renamedNote( QIconViewItem * )
+void KNotesPart::renamedNote( QIconViewItem* )
 {
   mManager->save();
 }
@@ -329,8 +328,7 @@ void KNotesPart::slotOnCurrentChanged( QIconViewItem* )
   if ( !mNotesView->currentItem() ) {
     renameAction->setEnabled( false );
     deleteAction->setEnabled( false );
-  }
-  else {
+  } else {
     renameAction->setEnabled( true );
     deleteAction->setEnabled( true );
   }
@@ -338,3 +336,4 @@ void KNotesPart::slotOnCurrentChanged( QIconViewItem* )
 
 #include "knotes_part.moc"
 #include "knotes_part_p.moc"
+

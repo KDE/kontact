@@ -62,9 +62,9 @@ class WeatherData
     void setRelativeHumidity( const QString &relativeHumidity ) { mRelativeHumidity = relativeHumidity; }
     QString relativeHumidity() const { return mRelativeHumidity; }
 
-    void setStationID(const QString &station) { mStationID = station;}
+    void setStationID( const QString &station ) { mStationID = station;}
     QString stationID() { return mStationID; }
-    
+
     bool operator< ( const WeatherData &data )
     {
       return ( QString::localeAwareCompare( mName, data.mName ) < 0 );
@@ -96,9 +96,9 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   private slots:
     void updateView();
     void timeout();
-    void slotShowReport(const QString&);
-    void slotReportFinished(KProcess*);
-    
+    void showReport( const QString& );
+    void reportFinished( KProcess* );
+
   private:
     QStringList mStations;
     QMap<QString, WeatherData> mWeatherMap;
@@ -107,7 +107,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QPtrList<QLabel> mLabels;
     QPtrList<QGridLayout> mLayouts;
     QVBoxLayout *mLayout;
-    
+
     KProcess* mProc;
 };
 

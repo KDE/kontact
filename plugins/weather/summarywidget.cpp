@@ -108,16 +108,16 @@ void SummaryWidget::updateView()
     QGridLayout *layout = new QGridLayout( mLayout, 3, 3, 3 );
     mLayouts.append( layout );
 
-    KURLLabel* urlLabel = new KURLLabel(this);
-    urlLabel->installEventFilter(this);
-    urlLabel->setURL((*it).stationID());
+    KURLLabel* urlLabel = new KURLLabel( this );
+    urlLabel->installEventFilter( this );
+    urlLabel->setURL( (*it).stationID() );
     urlLabel->setPixmap( img.smoothScale( 32, 32 ) );
-    urlLabel->setMaximumSize(urlLabel->sizeHint());
-    urlLabel->setAlignment(/* AlignRight |*/ AlignTop );
+    urlLabel->setMaximumSize( urlLabel->sizeHint() );
+    urlLabel->setAlignment( AlignTop );
     layout->addMultiCellWidget( urlLabel, 0, 1, 0, 0 );
     mLabels.append( urlLabel );
-    connect (urlLabel, SIGNAL(leftClickedURL( const QString&) ),
-    	this, SLOT(slotShowReport(const QString& )));
+    connect ( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+              this, SLOT( showReport( const QString& ) ) );
 
     QLabel* label = new QLabel( this );
     label->setText( QString( "%1 (%2)" ).arg( (*it).name() ).arg( (*it).temperature() ) );
@@ -184,23 +184,24 @@ QStringList SummaryWidget::configModules() const
   return QStringList( "kcmweatherservice.desktop" );
 }
 
-void SummaryWidget::slotShowReport(const QString &stationID)
+void SummaryWidget::showReport( const QString &stationID )
 {
   mProc = new KProcess;
-  QApplication::connect(mProc, SIGNAL(processExited(KProcess *)),
-	this, SLOT(slotReportFinished(KProcess* )));
+  QApplication::connect( mProc, SIGNAL( processExited( KProcess* ) ),
+                         this, SLOT( reportFinished( KProcess* ) ) );
   *mProc << "kweatherreport";
   *mProc << stationID;
-  if ( !mProc->start() )
-  {
+
+  if ( !mProc->start() ) {
     delete mProc;
-    mProc=0;
+    mProc = 0;
   }
 }
 
-void SummaryWidget::slotReportFinished(KProcess* /*proc*/){
-  delete mProc;
- mProc = 0;
+void SummaryWidget::reportFinished( KProcess* )
+{
+  mProc->deleteLater();
+  mProc = 0;
 }
 
 #include "summarywidget.moc"

@@ -64,7 +64,7 @@ KCMKABSummary::KCMKABSummary( QWidget *parent, const char *name )
   KAcceleratorManager::manage( this );
 
   load();
-  
+
   KAboutData *about = new KAboutData( I18N_NOOP( "kcmkabsummary" ),
                                       I18N_NOOP( "Address Book Configuration Dialog" ),
                                       0, 0, KAboutData::License_GPL,

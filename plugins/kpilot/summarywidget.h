@@ -44,8 +44,9 @@ class KURLLabel;
 
 class SummaryWidget : public Kontact::Summary, public DCOPObject
 {
-    Q_OBJECT
-    K_DCOP
+  Q_OBJECT
+  K_DCOP
+
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );
     virtual ~SummaryWidget();
@@ -78,7 +79,6 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QLabel*mConduitsLabel;
     QLabel*mNoConnectionLabel;
     KURLLabel*mNoConnectionStartLabel;
-    
 
     QGridLayout *mLayout;
 
@@ -95,3 +95,4 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
 };
 
 #endif
+
