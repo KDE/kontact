@@ -130,4 +130,8 @@ Kontact::Core *Plugin::core() const
   return d->core;
 }
 
+void Plugin::select()
+{
+}
+
 #include "plugin.moc"

@@ -123,6 +123,12 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     virtual KParts::Part *part() = 0;
 
     /**
+      This function is called when the plugin is selected by the user before the
+      widget of the KPart belonging to the plugin is raised.
+    */
+    virtual void select();
+
+    /**
       Reimplement this method if you want to add a widget for your application
       to Kontact's summary page.
       

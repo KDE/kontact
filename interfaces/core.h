@@ -58,10 +58,14 @@ class Core : public KParts::MainWindow
      */
     virtual QPtrList<Kontact::Plugin> pluginList() const = 0;
 
+    KParts::ReadOnlyPart *createPart( const char *libname );
+
   protected:
     Core( QWidget *parentWidget = 0, const char *name = 0 );
 
   private:
+    QMap<QCString,KParts::ReadOnlyPart *> mParts;
+
     class Private;
     Private *d;
 };
