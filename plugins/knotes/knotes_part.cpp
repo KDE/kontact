@@ -141,11 +141,11 @@ QString KNotesPart::newNoteFromClipboard( const QString& name )
 void KNotesPart::showNote( const QString& id ) const
 {
   KNotesIconViewItem *note = mNoteList[ id ];
-    if ( !note )
-      return;
+  if ( !note )
+    return;
 
-    mNotesView->ensureItemVisible( note );
-    mNotesView->setCurrentItem( note );
+  mNotesView->ensureItemVisible( note );
+  mNotesView->setCurrentItem( note );
 }
 
 void KNotesPart::hideNote( const QString& ) const
@@ -287,7 +287,7 @@ void KNotesPart::slotOnItem( QIconViewItem *i )
   // TODO: disable (i.e. setNote( QString::null )) when mouse button pressed
 
   KNotesIconViewItem *item = static_cast<KNotesIconViewItem *>(i);
-  mNoteTip->setNote( item, Qt::AutoText );
+  mNoteTip->setNote( item );
 }
 
 void KNotesPart::slotOnViewport()
@@ -301,6 +301,19 @@ void KNotesPart::slotOnViewport()
 
 void KNotesPart::createNote( KCal::Journal *journal )
 {
+  // make sure all fields are existent, initialize them with default values
+  QString property = journal->customProperty( "KNotes", "BgColor" );
+  if ( property == QString::null )
+    journal->setCustomProperty( "KNotes", "BgColor", "#ffff00" );
+
+  property = journal->customProperty( "KNotes", "FgColor" );
+  if ( property == QString::null )
+    journal->setCustomProperty( "KNotes", "FgColor", "#000000" );
+
+  property = journal->customProperty( "KNotes", "RichText" );
+  if ( property == QString::null )
+    journal->setCustomProperty( "KNotes", "RichText", "false" );
+
   mNoteList.insert( journal->uid(), new KNotesIconViewItem( mNotesView, journal ) );
 }
 
@@ -316,10 +329,12 @@ void KNotesPart::editNote( QIconViewItem *item )
 
   KCal::Journal *journal = static_cast<KNotesIconViewItem *>(item)->journal();
   mNoteEditDlg->setText( journal->description() );
-  if ( mNoteEditDlg->exec() == QDialog::Accepted )
-    journal->setDescription( mNoteEditDlg->text() );
 
-  mManager->save();
+  if ( mNoteEditDlg->exec() == QDialog::Accepted )
+  {
+    journal->setDescription( mNoteEditDlg->text() );
+    mManager->save();
+  }
 }
 
 void KNotesPart::renameNote()

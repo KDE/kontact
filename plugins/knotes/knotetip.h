@@ -44,7 +44,7 @@ class KNoteTip : public QFrame
     KNoteTip( KIconView *parent );
     ~KNoteTip();
 
-    void setNote( KNotesIconViewItem *item, Qt::TextFormat format = Qt::PlainText );
+    void setNote( KNotesIconViewItem *item );
 
   protected:
     virtual bool eventFilter( QObject *, QEvent *e );
@@ -52,6 +52,7 @@ class KNoteTip : public QFrame
     virtual void resizeEvent( QResizeEvent * );
 
   private:
+    void setColor( const QColor &fg, const QColor &bg );
     void setFilter( bool enable );
     void reposition();
 
@@ -62,7 +63,6 @@ class KNoteTip : public QFrame
     KNotesIconViewItem *mNoteIVI;
 
     QTextEdit *mPreview;
-    Qt::TextFormat mFormat;
 };
 
 #endif

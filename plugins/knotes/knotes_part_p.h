@@ -39,6 +39,7 @@
 #include <kiconview.h>
 #include <kglobal.h>
 #include <kiconloader.h>
+#include <kiconeffect.h>
 #include <ktoolbar.h>
 #include <kpopupmenu.h>
 #include <kdialogbase.h>
@@ -60,7 +61,11 @@ class KNotesIconViewItem : public KIconViewItem
     {
       setRenameEnabled( true );
 
-      setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop ) );
+      KIconEffect effect;
+      QColor color( journal->customProperty( "KNotes", "BgColor" ) );
+      QPixmap icon = KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop );
+      icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
+      setPixmap( icon );
       setText( journal->summary() );
     }
 

@@ -67,13 +67,12 @@ KNoteTip::~KNoteTip()
   mPreview = 0;
 }
 
-void KNoteTip::setNote( KNotesIconViewItem *item, TextFormat format )
+void KNoteTip::setNote( KNotesIconViewItem *item )
 {
-  if ( mNoteIVI == item && mFormat == format )
+  if ( mNoteIVI == item )
     return;
 
   mNoteIVI = item;
-  mFormat = format;
 
   if ( !mNoteIVI ) {
     killTimers();
@@ -82,9 +81,18 @@ void KNoteTip::setNote( KNotesIconViewItem *item, TextFormat format )
       hide();
     }
   } else {
-    mPreview->setTextFormat( format );
-    mPreview->setText( item->journal()->description() );
-    mPreview->zoomTo( 6 );
+    KCal::Journal *journal = item->journal();
+    if ( journal->customProperty( "KNotes", "RichText" ) == "true" )
+      mPreview->setTextFormat( Qt::RichText );
+    else
+      mPreview->setTextFormat( Qt::PlainText );
+
+    QColor fg( journal->customProperty( "KNotes", "FgColor" ) );
+    QColor bg( journal->customProperty( "KNotes", "BgColor" ) );
+    setColor( fg, bg );
+
+    mPreview->setText( journal->description() );
+    mPreview->zoomTo( 8 );
     mPreview->sync();
 
     int w = 400;
@@ -98,7 +106,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item, TextFormat format )
     hide();
     killTimers();
     setFilter( true );
-    startTimer( 700 );  // delay showing the tooltip for 0.7 sec
+    startTimer( 600 );  // delay showing the tooltip for 0.7 sec
   }
 }
 
@@ -148,6 +156,27 @@ bool KNoteTip::eventFilter( QObject *, QEvent *e )
 
 
 // private stuff
+
+void KNoteTip::setColor( const QColor &fg, const QColor &bg )
+{
+  QPalette newpalette = palette();
+  newpalette.setColor( QColorGroup::Background, bg );
+  newpalette.setColor( QColorGroup::Foreground, fg );
+  newpalette.setColor( QColorGroup::Base,       bg ); // text background
+  newpalette.setColor( QColorGroup::Text,       fg ); // text color
+  newpalette.setColor( QColorGroup::Button,     bg );
+
+  // the shadow
+  newpalette.setColor( QColorGroup::Midlight, bg.light(110) );
+  newpalette.setColor( QColorGroup::Shadow, bg.dark(116) );
+  newpalette.setColor( QColorGroup::Light, bg.light(180) );
+  newpalette.setColor( QColorGroup::Dark, bg.dark(108) );
+  setPalette( newpalette );
+
+  // set the text color
+  mPreview->setColor( fg );
+}
+
 
 void KNoteTip::setFilter( bool enable )
 {
