@@ -32,7 +32,12 @@
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
 
+#include <kaddrbook.h>
+#include <kabc/addressbook.h>
+#include <kabc/stdaddressbook.h>
+
 #include <dcopclient.h>
+#include "kmailIface_stub.h"
 
 #include <libkdepim/maillistdrag.h>
 
@@ -52,7 +57,7 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const
 {
   setInstance( KAddressbookPluginFactory::instance() );
 
-  insertNewAction( new KAction( i18n( "New Contact..." ), BarIcon( "identity" ),
+  insertNewAction( new KAction( i18n( "New Contact..." ), "identity",
 			             0, this, SLOT( slotNewContact() ), actionCollection(),
                    "new_contact" ) );
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
@@ -124,6 +129,8 @@ bool KAddressbookPlugin::canDecodeDrag( QMimeSource *mimeSource )
     KPIM::MailListDrag::canDecode( mimeSource );
 }
 
+#include <dcopref.h>
+
 void KAddressbookPlugin::processDropEvent( QDropEvent *event )
 {
   KPIM::MailList mails;
@@ -133,8 +140,13 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
                           i18n( "Drops of multiple mails are not supported." ) );
     } else {
       KPIM::MailSummary mail = mails.first();
-      core()->selectPlugin( "kontact_kaddressbookplugin" );
-      interface()->addEmail( mail.from() );
+
+      KMailIface_stub kmailIface( "kmail", "KMailIface" );
+      QString sFrom = kmailIface.getFrom( mail.serialNumber() );
+
+      if ( !sFrom.isEmpty() ) {
+        KAddrBookExternal::addEmail( sFrom, core() );
+      }
     }
     return;
   }
@@ -151,7 +163,6 @@ Kontact::Summary *KAddressbookPlugin::createSummaryWidget( QWidget *parentWidget
 ////
 
 #include "../../../kaddressbook/kaddressbook_options.h"
-#include <dcopref.h>
 
 void KABUniqueAppHandler::loadCommandLineOptions()
 {

@@ -200,6 +200,10 @@ void Plugin::bringToForeground()
     KRun::runCommand(d->executableName);
 }
 
+void Plugin::virtual_hook( int, void* ) {
+	//BASE::virtual_hook( id, data );
+}
+
 #include "plugin.moc"
 
 // vim: sw=2 et sts=2 tw=80
