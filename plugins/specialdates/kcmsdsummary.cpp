@@ -39,9 +39,11 @@
 
 #include "kcmsdsummary.h"
 
+#include <kdepimmacros.h>
+
 extern "C"
 {
-  KCModule *create_sdsummary( QWidget *parent, const char * )
+  KDE_EXPORT KCModule *create_sdsummary( QWidget *parent, const char * )
   {
     return new KCMSDSummary( parent, "kcmsdsummary" );
   }
