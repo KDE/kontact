@@ -115,11 +115,6 @@ void KMailPlugin::slotNewMail()
   openComposer( QString::null, KURL() );
 }
 
-void KMailPlugin::raise()
-{
-  core()->selectPlugin( this );
-}
-
 KMailPlugin::~KMailPlugin()
 {
 }
