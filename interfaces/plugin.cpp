@@ -126,7 +126,8 @@ KParts::Part *Plugin::part()
 {
   if ( !d->part ) {
     d->part = createPart();
-    connect( d->part, SIGNAL( destroyed() ), SLOT( partDestroyed() ) );
+    if( d->part )
+      connect( d->part, SIGNAL( destroyed() ), SLOT( partDestroyed() ) );
   }
   return d->part;
 }
