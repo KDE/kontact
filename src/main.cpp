@@ -31,7 +31,7 @@
 static const char *description =
     I18N_NOOP("A KDE Personal Information Manager");
 
-static const char *version = "0.12 CVS";
+static const char *version = "0.2.9 (CVS)";
 
 /*
 static KCmdLineOptions options[] =
