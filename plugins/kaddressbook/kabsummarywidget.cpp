@@ -166,66 +166,73 @@ void KABSummaryWidget::updateView()
     dateList.append( *dateIt );
   }
 
-  int counter = 0;
-  QValueList<KABDateEntry>::Iterator addrIt;
-  QString lines;
-  for ( addrIt = dateList.begin(); addrIt != dateList.end() && counter < 6; ++addrIt ) {
-    bool makeBold = (*addrIt).daysTo < 5;
+  if (!dateList.isEmpty()) {
+    int counter = 0;
+    QValueList<KABDateEntry>::Iterator addrIt;
+    QString lines;
+    for ( addrIt = dateList.begin(); addrIt != dateList.end() && counter < 6; ++addrIt ) {
+      bool makeBold = (*addrIt).daysTo < 5;
 
-    QLabel *label = new QLabel( this );
-    if ( (*addrIt).birthday )
-      label->setPixmap( KGlobal::iconLoader()->loadIcon( "cookie", KIcon::Small ) );
-    else
-      label->setPixmap( KGlobal::iconLoader()->loadIcon( "kdmconfig", KIcon::Small ) );
-    mLayout->addWidget( label, counter, 0 );
-    mLabels.append( label );
+      QLabel *label = new QLabel( this );
+      if ( (*addrIt).birthday )
+        label->setPixmap( KGlobal::iconLoader()->loadIcon( "cookie", KIcon::Small ) );
+      else
+        label->setPixmap( KGlobal::iconLoader()->loadIcon( "kdmconfig", KIcon::Small ) );
+      mLayout->addWidget( label, counter, 0 );
+      mLabels.append( label );
 
-    label = new QLabel( this );
-    if ( (*addrIt).daysTo == 0 )
-      label->setText( i18n( "Today" ) );
-    else
-      label->setText( i18n( "in 1 day", "in %n days", (*addrIt).daysTo ) );
-    mLayout->addWidget( label, counter, 1 );
-    mLabels.append( label );
-    if ( makeBold ) {
-      QFont font = label->font();
-      font.setBold( true );
-      label->setFont( font );
+      label = new QLabel( this );
+      if ( (*addrIt).daysTo == 0 )
+        label->setText( i18n( "Today" ) );
+      else
+        label->setText( i18n( "in 1 day", "in %n days", (*addrIt).daysTo ) );
+      mLayout->addWidget( label, counter, 1 );
+      mLabels.append( label );
+      if ( makeBold ) {
+        QFont font = label->font();
+        font.setBold( true );
+        label->setFont( font );
+      }
+
+      label = new QLabel( KGlobal::locale()->formatDate( (*addrIt).date, true ), this );
+      mLayout->addWidget( label, counter, 2 );
+      mLabels.append( label );
+
+      KURLLabel *urlLabel = new KURLLabel( this );
+      urlLabel->setURL( (*addrIt).addressee.uid() );
+      urlLabel->setText( (*addrIt).addressee.formattedName() );
+      mLayout->addWidget( urlLabel, counter, 3 );
+      mLabels.append( urlLabel );
+      if ( makeBold ) {
+        QFont font = label->font();
+        font.setBold( true );
+        label->setFont( font );
+      }
+
+      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+          this, SLOT( mailContact( const QString& ) ) );
+      connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+          this, SLOT( popupMenu( const QString& ) ) );
+
+      label = new QLabel( this );
+      label->setText( i18n( "one year", "%n years", (*addrIt).yearsOld  ) );
+      mLayout->addWidget( label, counter, 4 );
+      mLabels.append( label );
+      if ( makeBold ) {
+        QFont font = label->font();
+        font.setBold( true );
+        label->setFont( font );
+      }
+
+      counter++;
     }
-
-    label = new QLabel( KGlobal::locale()->formatDate( (*addrIt).date, true ), this );
-    mLayout->addWidget( label, counter, 2 );
-    mLabels.append( label );
-
-    KURLLabel *urlLabel = new KURLLabel( this );
-    urlLabel->setURL( (*addrIt).addressee.uid() );
-    urlLabel->setText( (*addrIt).addressee.formattedName() );
-    mLayout->addWidget( urlLabel, counter, 3 );
-    mLabels.append( urlLabel );
-    if ( makeBold ) {
-      QFont font = label->font();
-      font.setBold( true );
-      label->setFont( font );
-    }
-
-    connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
-             this, SLOT( mailContact( const QString& ) ) );
-    connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
-             this, SLOT( popupMenu( const QString& ) ) );
-
-    label = new QLabel( this );
-    label->setText( i18n( "one year", "%n years", (*addrIt).yearsOld  ) );
-    mLayout->addWidget( label, counter, 4 );
-    mLabels.append( label );
-    if ( makeBold ) {
-      QFont font = label->font();
-      font.setBold( true );
-      label->setFont( font );
-    }
-
-    counter++;
   }
-
+  else
+  {
+    QLabel *nothingtosee = new QLabel(i18n("No Birthdays or Anniversaries pending"), this, "nothing to see");
+    nothingtosee->setTextFormat(RichText);
+    mLayout->addMultiCellWidget(nothingtosee, 0, 0, 0, 4);
+  }
   show();
 }
 
