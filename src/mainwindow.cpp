@@ -1,7 +1,9 @@
 /*
-    This file is part of Kontact
+    This file is part of KDE Kontact.
+
     Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
     Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
+    Copyright (c) 2003 Cornelius Schumacher <schumacher@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -58,7 +60,8 @@
 using namespace Kontact;
 
 MainWindow::MainWindow()
-  : Kontact::Core()
+  : Kontact::Core(), m_headerText( 0 ), m_headerPixmap( 0 ),
+    m_lastInfoExtension( 0 )
 {
   // create the GUI
   QHBox *box = new QHBox( this );
@@ -87,7 +90,9 @@ MainWindow::MainWindow()
   QVBox *vBox = new QVBox( m_splitter );
   vBox->setSpacing( 0 );
 
-  initHeaderWidget( vBox );
+  if ( sidePaneType == Prefs::SidePaneBars ) {
+    initHeaderWidget( vBox );
+  }
 
   m_stack = new QWidgetStack( vBox );
 
@@ -137,19 +142,19 @@ void MainWindow::setupActions()
 void MainWindow::initHeaderWidget(QVBox *vBox)
 {
   // Initiate the headerWidget
-  m_headerFrame = new QHBox( vBox );
-  m_headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
+  QHBox *headerFrame = new QHBox( vBox );
+  headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
                                 QSizePolicy::Maximum );
-  m_headerFrame->setSpacing( 0 );
-  m_headerFrame->setFixedHeight(22);
+  headerFrame->setSpacing( 0 );
+  headerFrame->setFixedHeight(22);
 
-  m_headerText = new QLabel( m_headerFrame );
+  m_headerText = new QLabel( headerFrame );
   m_headerText->setSizePolicy( QSizePolicy::MinimumExpanding,
                                QSizePolicy::Preferred );
   m_headerText->setPaletteForegroundColor( colorGroup().light() );
   m_headerText->setPaletteBackgroundColor( colorGroup().dark() );
   
-  m_headerPixmap = new QLabel( m_headerFrame );
+  m_headerPixmap = new QLabel( headerFrame );
   m_headerPixmap->setSizePolicy( QSizePolicy::Maximum,
                                  QSizePolicy::Preferred );
   m_headerPixmap->setAlignment( AlignRight|AlignVCenter );
@@ -164,8 +169,6 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   fnt.setBold( true );
   fnt.setPointSize( m_sidePane->font().pointSize() + 3 );
   m_headerText->setFont( fnt );
-
-  m_lastInfoExtension = 0L;
 }
 
 void MainWindow::loadPlugins()
@@ -220,17 +223,19 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
       << m_stack->id( part->widget() )<< endl;
   QObjectList *l = part->queryList( "KParts::InfoExtension" );
   KParts::InfoExtension *ie = static_cast<KParts::InfoExtension*>( l->first() );
-  if ( ie != 0L )
-  {
-    disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
-                this, SLOT( setHeaderText( const QString& ) ) );
+  if ( ie ) {
+    if ( m_lastInfoExtension ) {
+      disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
+                  this, SLOT( setHeaderText( const QString& ) ) );
+    }
     connect( ie, SIGNAL( textChanged( const QString& ) ),
-             this, SLOT( setHeaderText( const QString& ) ) );
-    disconnect( m_lastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
-                this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
+             SLOT( setHeaderText( const QString& ) ) );
+    if ( m_lastInfoExtension ) {
+      disconnect( m_lastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
+                  this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
+    }
     connect( ie, SIGNAL( iconChanged( const QPixmap& ) ),
-             this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
-
+             SLOT( setHeaderPixmap( const QPixmap& ) ) );
   }
 
   m_lastInfoExtension = ie;
@@ -344,12 +349,16 @@ int MainWindow::startServiceFor( const QString& serviceType,
 
 void MainWindow::setHeaderText( const QString &text )
 {
+  if ( Prefs::self()->mSidePaneType != Prefs::SidePaneBars ) return;
+
   m_infoExtCache[ m_lastInfoExtension ].text = text;
   m_headerText->setText( text );
 }
 
 void MainWindow::setHeaderPixmap( const QPixmap &pixmap )
 {
+  if ( Prefs::self()->mSidePaneType != Prefs::SidePaneBars ) return;
+
   QPixmap pm( pixmap );
   
   if ( pm.height() > 22 || pm.width() > 22 ) {

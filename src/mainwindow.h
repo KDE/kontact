@@ -1,5 +1,6 @@
 /*
-    This file is part of Kontact
+    This file is part of KDE Kontact.
+
     Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
     Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
 
@@ -19,24 +20,20 @@
 */
 
 
-#ifndef __CORE_H__
-#define __CORE_H__
-
+#ifndef KONTACT_MAINWINDOW_H
+#define KONTACT_MAINWINDOW_H
 
 #include <qwidgetstack.h>
 #include <qptrlist.h>
 
-
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 #include <kparts/partmanager.h>
-
-
-#include "kpcore.h"
 #include <kdcopservicestarter.h>
 
+#include "kpcore.h"
+
 class KAction;
-class QHBox;
 class QSplitter;
 class QVBox;
 
@@ -102,7 +99,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void setHeaderPixmap( const QPixmap& );
 
   private:
-    QHBox *m_headerFrame;
     QLabel *m_headerText;
     QLabel *m_headerPixmap;
     QSplitter *m_splitter;
