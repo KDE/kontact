@@ -41,13 +41,14 @@ class UniqueAppHandler : public DCOPObject
 public:
     UniqueAppHandler( Plugin* plugin ) : DCOPObject( plugin->name() ), mPlugin( plugin ) {}
 
-    // This must be reimplemented so that app-specific command line options can be parsed
+    /// This must be reimplemented so that app-specific command line options can be parsed
     virtual void loadCommandLineOptions() = 0;
 
-    // We can't use k_dcop and dcopidl here, because the data passed
-    // to newInstance can't be expressed in terms of normal data types.
+    /// We can't use k_dcop and dcopidl here, because the data passed
+    /// to newInstance can't be expressed in terms of normal data types.
     virtual int newInstance();
 
+    Plugin* plugin() const { return mPlugin; }
 private:
     Plugin* mPlugin;
 };
