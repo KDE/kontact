@@ -84,8 +84,12 @@ void KMailPlugin::openComposer( const KURL& attach )
 {
   (void) part(); // ensure part is loaded
   Q_ASSERT( mStub );
-  if ( mStub )
-    mStub->openComposer( "", "", "", "", "", false, KURL(), attach );
+  if ( mStub ) {
+    if ( attach.isValid() )
+      mStub->openComposer( "", "", "", "", "", false, KURL(), attach );
+    else
+      mStub->openComposer( "", "", "", "", "", false );
+  }
 }
 
 void KMailPlugin::slotNewMail()
