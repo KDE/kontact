@@ -60,6 +60,8 @@ private:
   KParts::PartManager *m_partManager;
   
   QWidgetStack *m_stack;
+
+  KActionMenu *m_newActions;
   
 };
 

@@ -1,5 +1,5 @@
 #include <qhbox.h>
-
+#include <qcombobox.h>
 
 #include <kapp.h>
 #include <kconfig.h>
@@ -10,8 +10,10 @@
 #include <klistbox.h>
 #include <kiconloader.h>
 #include <kstddirs.h>
+#include <kshortcut.h>
 #include <kparts/componentfactory.h>
-
+#include <klocale.h>
+#include <kiconloader.h>
 
 #include "kpplugin.h"
 
@@ -71,7 +73,14 @@ void Core::saveSettings()
 void Core::setupActions()
 {
   (void) KStdAction::quit(this, SLOT(slotQuit()), actionCollection(), "file_quit");
+  m_newActions = new KActionMenu( "action_new", BarIcon("mail_generic"), actionCollection(), "action_new" );
+  m_newActions->insert(new KAction( i18n( "New Note" ), BarIcon( "knotes" ), 0, this, SLOT(""), actionCollection(), "newNote" ) );
+  m_newActions->insert(new KAction( i18n( "New Mail" ), BarIcon( "mail_generic" ), 0, this, SLOT(""), actionCollection(), "newMail" ) );
+  m_newActions->insert(new KAction( i18n( "New Contact" ), BarIcon( "contact" ), 0, this, SLOT(""), actionCollection(), "newContact" ) );
+  m_newActions->insert(new KAction( i18n( "New Todo" ), BarIcon( "todo" ), 0, this, SLOT(""), actionCollection(), "newTodo" ) );
+  m_newActions->setDelayed( true );
 }
+
 
 
 void Core::loadPlugins()

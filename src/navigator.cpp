@@ -86,7 +86,7 @@ Navigator::Navigator(QWidget *parent, const char *name)
 
 QSize Navigator::sizeHint() const
 {
-	return QSize(128,128);
+	return QSize(100, 100);
 }
 
 void Navigator::addEntry(QString text, QString icon, QObject *receiver, const char *slot)
