@@ -1,8 +1,8 @@
-INCLUDES = -I$(top_srcdir)/kaplan/interfaces $(all_includes)
+INCLUDES = -I$(top_srcdir)/kontact/interfaces $(all_includes)
 
 kde_module_LTLIBRARIES = libkpkmailplugin.la
 libkpkmailplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
-libkpkmailplugin_la_LIBADD = $(top_builddir)/kaplan/interfaces/libkpinterfaces.la
+libkpkmailplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinterfaces.la
 
 libkpkmailplugin_la_SOURCES = kmail_plugin.cpp
 
