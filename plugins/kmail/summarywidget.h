@@ -53,7 +53,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     void slotUnreadCountChanged();
 
   private slots:
-    void raisePart();
+    void selectFolder( const QString& );
 
   private:
     void updateFolderList( const QStringList& folders );

@@ -59,15 +59,15 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
                      false );
 }
 
-
-void SummaryWidget::raisePart()
+void SummaryWidget::selectFolder( const QString& folder )
 {
-
-  // FIXME: select specific folder when 'selectFolder' dcop call is implemented
   if ( mPlugin->isRunningStandalone() )
     mPlugin->bringToForeground();
   else
     mPlugin->core()->selectPlugin( mPlugin );
+  DCOPRef kmail( "kmail", "KMailIface" );
+  DCOPRef folderRef = kmail.call( "getFolder(QString)", folder );
+  folderRef.call( "select()" );
 }
 
 void SummaryWidget::slotUnreadCountChanged()
@@ -114,12 +114,13 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
       if ( !showFullPath )
         folderPath = folderPath.mid( folderPath.findRev( '/' ) + 1 );
 
-      KURLLabel *urlLabel = new KURLLabel( QString::null, folderPath,
+      KURLLabel *urlLabel = new KURLLabel( *it, folderPath,
                                            this );
       urlLabel->setAlignment( AlignLeft );
       urlLabel->show();
       // ### FIXME emit dcop signal to jumo to actual folder
-      connect( urlLabel, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
+      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+               SLOT( selectFolder( const QString& ) ) );
       mLayout->addWidget( urlLabel, counter, 0 );
       mLabels.append( urlLabel );
 
