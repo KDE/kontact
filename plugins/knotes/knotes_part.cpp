@@ -33,6 +33,7 @@
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
 #include <kstdaction.h>
+#include <kxmlguifactory.h>
 #include <libkdepim/infoextension.h>
 #include <libkdepim/sidebarextension.h>
 
@@ -58,9 +59,11 @@ NotesItem::NotesItem( KListView *parent, const QString &id, const QString &text 
 
 KNotesPart::KNotesPart( QObject *parent, const char *name )
   : KParts::ReadOnlyPart( parent, name ),
-    mPopupMenu( new QPopupMenu ),
+    mPopupMenu( 0 ),
     mNoteChanged( false )
 {
+  setInstance( new KInstance( "knotes" ) );
+
   QSplitter *splitter = new QSplitter( Qt::Horizontal );
 
   mNotesView = new KListView( splitter );
@@ -71,33 +74,15 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
 
   mNotesEdit = new QTextEdit( splitter );
 
-  KAction *newAction = KStdAction::openNew( this, SLOT( newNote() ),
-                                            actionCollection() );
-  KAction *editAction = new KAction( i18n( "Rename" ), "editrename", this,
-                                     SLOT( renameNote() ), actionCollection(),
+  KStdAction::openNew( this, SLOT( newNote() ), actionCollection() );
+  mActionEdit = new KAction( i18n( "Rename" ), "editrename", this,
+                             SLOT( renameNote() ), actionCollection(),
                                      "edit_rename" );
-  KAction *delAction = new KAction( i18n( "Delete" ), "editdelete", 0, this,
-                                    SLOT( removeSelectedNotes() ), actionCollection(),
-                                    "edit_delete" );
-  KAction *reloadAction = new KAction( i18n( "Reload" ), "reload", 0, this,
-                                       SLOT( reloadNotes() ), actionCollection(),
-                                       "view_refresh" );
-  newAction->plug( mPopupMenu );
-  editAction->plug( mPopupMenu );
-  delAction->plug( mPopupMenu );
-  mPopupMenu->insertSeparator();
-  reloadAction->plug( mPopupMenu );
-/*
-  mPopupMenu->insertItem( BarIcon( "filenew" ), i18n( "New" ),
-                          this, SLOT( newNote() ), 1, 1);
-  mPopupMenu->insertItem( BarIcon( "editrename" ), i18n( "Rename" ),
-                          this, SLOT( renameNote() ), 2, 2 );
-  mPopupMenu->insertItem( BarIcon( "editdelete" ), i18n( "Remove" ),
-                          this, SLOT( removeSelectedNotes() ), 3, 3 );
-  mPopupMenu->insertSeparator();
-  mPopupMenu->insertItem( BarIcon( "reload" ), i18n( "Reload" ),
-                          this, SLOT( reloadNotes() ), 4, 4 );
-*/
+  mActionDelete = new KAction( i18n( "Delete" ), "editdelete", 0, this,
+                               SLOT( removeSelectedNotes() ), actionCollection(),
+                               "edit_delete" );
+  (void) new KAction( i18n( "Reload" ), "reload", 0, this,
+                      SLOT( reloadNotes() ), actionCollection(), "view_refresh" );
 
   connect( mNotesView, SIGNAL( selectionChanged() ),
            this, SLOT( showNote() ) );
@@ -171,17 +156,13 @@ bool KNotesPart::openFile()
 
 void KNotesPart::popupRMB( QListViewItem *item, const QPoint& pos, int )
 {
-  if ( item ) {
-    mPopupMenu->setItemVisible( 2, true );
-    mPopupMenu->setItemEnabled( 2, true );
-    mPopupMenu->setItemVisible( 3, true );
-    mPopupMenu->setItemEnabled( 3, true );
-  } else {
-    mPopupMenu->setItemVisible( 2, false );
-    mPopupMenu->setItemEnabled( 2, false );
-    mPopupMenu->setItemVisible( 3, false );
-    mPopupMenu->setItemEnabled( 3, false );
-  }
+  mPopupMenu = static_cast<QPopupMenu*>( factory()->container( "notePopup", this ) );
+  if ( !mPopupMenu )
+    return;
+
+  bool state = ( item != 0 );
+  mActionEdit->setEnabled( state );
+  mActionDelete->setEnabled( state );
 
   mPopupMenu->popup( pos );
 }

@@ -28,7 +28,9 @@
 
 typedef QMap<QString, QString> NotesMap;
 
+class KAction;
 class KListView;
+
 class QListViewItem;
 class QPoint;
 class QTextEdit;
@@ -63,6 +65,9 @@ class KNotesPart : public KParts::ReadOnlyPart
     void reloadNotes();
 
   private:
+    KAction *mActionEdit;
+    KAction *mActionDelete;
+
     KListView *mNotesView;
     QTextEdit *mNotesEdit;
     QPixmap mAppIcon;

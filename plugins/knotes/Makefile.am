@@ -16,6 +16,6 @@ service_DATA = kpknotesplugin.desktop
 rc_DATA = kpknotesplugin.rc
 rcdir = $(kde_datadir)/kpknotesplugin
 
-partdir = $(kde_datadir)/kontact
+partdir = $(kde_datadir)/knotes
 part_DATA = knotes_part.rc
 
