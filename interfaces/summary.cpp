@@ -25,8 +25,9 @@
 #include <qimage.h>
 #include <qdragobject.h>
 #include <qhbox.h>
-#include <qlabel.h>
 #include <qfont.h>
+#include <qlabel.h>
+#include <qpainter.h>
 
 #include <kiconloader.h>
 #include <kdialog.h>
@@ -89,6 +90,12 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
     QPixmap pm = QPixmap::grabWidget( this );
     if ( pm.width() > 300 )
       pm = pm.convertToImage().smoothScale( 300, 300, QImage::ScaleMin );
+
+    QPainter painter;
+    painter.begin( &pm );
+    painter.setPen( Qt::gray );
+    painter.drawRect( 0, 0, pm.width(), pm.height() );
+    painter.end();
     drag->setPixmap( pm );
     drag->dragMove();
   } else
