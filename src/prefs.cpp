@@ -43,6 +43,8 @@ Prefs::Prefs()
   KPrefs::setCurrentGroup("View");
 
   addItemInt("SidePaneType", mSidePaneType, SidePaneBars );
+  addItemString("ActivePlugin", mActivePlugin, "summary" );
+  addItemIntList("SidePaneSplitter", mSidePaneSplitter );
 }
 
 Prefs::~Prefs()

@@ -95,10 +95,12 @@ MainWindow::MainWindow()
 MainWindow::~MainWindow()
 {
   saveSettings();
-  
+
   QPtrList<KParts::Part> parts = *m_partManager->parts();
   parts.setAutoDelete( true );
   parts.clear();
+
+  Prefs::self()->writeConfig();
 }
 
 void MainWindow::initWidgets()
@@ -305,22 +307,18 @@ void MainWindow::showPart( Kontact::Plugin *plugin )
 
 void MainWindow::loadSettings()
 {
-  KConfig *config = kapp->config();
-  KConfigGroupSaver saver( config, "General" );
-  if ( m_splitter ) {
-    m_splitter->setSizes( config->readIntListEntry( "SideBarSize" ) );
-  }
-  m_sidePane->selectPlugin( config->readEntry( "ActivePlugin", "kmail" ) );
+  if ( m_splitter )
+    m_splitter->setSizes( Prefs::self()->mSidePaneSplitter );
+
+  m_sidePane->selectPlugin( Prefs::self()->mActivePlugin );
 }
 
 void MainWindow::saveSettings()
 {
-  KConfig *config = kapp->config();
-  KConfigGroupSaver saver( config, "General" );
-  if ( m_splitter ) {
-    config->writeEntry( "SideBarSize", m_splitter->sizes() );
-  }
-  config->writeEntry( "ActivePlugin", m_sidePane->currentPluginName() );
+  if ( m_splitter )
+    Prefs::self()->mSidePaneSplitter = m_splitter->sizes();
+
+  Prefs::self()->mActivePlugin = m_sidePane->currentPluginName();
 }
 
 void MainWindow::slotQuit()

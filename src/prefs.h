@@ -54,6 +54,8 @@ class Prefs : public KPrefs
     // preferences data
 
     int mSidePaneType;
+    QString mActivePlugin;
+    QValueList<int> mSidePaneSplitter;
 };
 
 }
