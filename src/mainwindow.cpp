@@ -451,6 +451,8 @@ void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KParts::Part *part )
     mStack->addWidget( part->widget(), 0 );
 
   mPartManager->addPart( part, false );
+  // Workaround for KParts misbehavior: addPart calls show!
+  part->widget()->hide();
 }
 
 void MainWindow::slotActivePartChanged( KParts::Part *part )
