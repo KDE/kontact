@@ -424,13 +424,13 @@ void MainWindow::slotShowTip()
 void MainWindow::showTip(bool force)
 {
   QStringList tips;
-  for ( uint i=0; i < m_plugins.count(); ++i )
-  {
+  for ( uint i=0; i < m_plugins.count(); ++i ) {
     QString file = m_plugins.at( i )->tipFile();
     if ( !file.isEmpty() )
       tips.append( file );
   }
-  KTipDialog::showTip(this, tips, force);
+
+  KTipDialog::showMultiTip(this, tips, force);
 }
 
 void MainWindow::slotQuit()
