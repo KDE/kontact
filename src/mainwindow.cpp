@@ -130,7 +130,7 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
 
   m_headerText = new QLabel( m_headerFrame );
   m_headerText->setSizePolicy( QSizePolicy::MinimumExpanding,
-                               QSizePolicy::Maximum );
+                               QSizePolicy::Preferred );
   m_headerText->setFrameShape( QFrame::ToolBarPanel );
 
   m_headerPixmap = new QLabel( m_headerFrame );
