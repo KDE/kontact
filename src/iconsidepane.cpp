@@ -123,29 +123,32 @@ Navigator* EntryItem::navigator() const
 
 int EntryItem::width( const QListBox *listbox ) const
 {
-  int w;
-  if ( text().isEmpty() )
-    w = mPixmap.width();
-  else if (navigator()->viewMode() > SmallIcons)
-    w = QMAX( (int)navigator()->viewMode(), listbox->fontMetrics().width( text() ) );
-  else
-    w = (int)navigator()->viewMode() + 4 + listbox->fontMetrics().width( text() );
-
+  int w = 0;
+  if( navigator()->showIcons() ) {
+    w = navigator()->viewMode();
+    if ( navigator()->viewMode() == SmallIcons )
+      w += 4;
+  }
+  if( navigator()->showText() ) {
+    if ( navigator()->viewMode() == SmallIcons )
+      w += listbox->fontMetrics().width( text() );
+    else
+      w = QMAX( w, listbox->fontMetrics().width( text() ) );
+  }
   return w + ( KDialog::marginHint() * 2 );
 }
 
 int EntryItem::height( const QListBox *listbox ) const
 {
-  int h;
-  if ( text().isEmpty() )
-    h = mPixmap.height() + 4;
-  else if (navigator()->viewMode() > SmallIcons)
-    h = (int)navigator()->viewMode() + listbox->fontMetrics().lineSpacing() + 4;
-  else
-    h = QMAX( (int)navigator()->viewMode(),
-              listbox->fontMetrics().lineSpacing() ) +
-              KDialog::spacingHint() * 2;
-
+  int h = 0;
+  if ( navigator()->showIcons() )
+    h = (int)navigator()->viewMode() + 4;
+  if ( navigator()->showText() ) {
+    if ( navigator()->viewMode() == SmallIcons || !navigator()->showIcons() )
+      h = QMAX( h, listbox->fontMetrics().lineSpacing() ) + KDialog::spacingHint() * 2;
+    else
+      h = (int)navigator()->viewMode() + listbox->fontMetrics().lineSpacing() + 4;
+  }
   return h;
 }
 
@@ -154,9 +157,10 @@ void EntryItem::paint( QPainter *p )
   reloadPixmap();
 
   QListBox *box = listBox();
-  bool iconAboveText = navigator()->viewMode() > SmallIcons;
+  bool iconAboveText = ( navigator()->viewMode() > SmallIcons ) 
+                     && navigator()->showIcons();
   int w = box->viewport()->width();
-  int y = iconAboveText ? 2 : KDialog::spacingHint();
+  int y = 2;
 
   // draw selected
   if ( isCurrent() || isSelected() || mHasHover || mPaintActive ) {
@@ -181,7 +185,7 @@ void EntryItem::paint( QPainter *p )
     p->setPen( oldPen );
   }
 
-  if ( !mPixmap.isNull() ) {
+  if ( !mPixmap.isNull() && navigator()->showIcons() ) {
       int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) : 
                               KDialog::marginHint();
     p->drawPixmap( x, y, mPixmap );
@@ -192,18 +196,22 @@ void EntryItem::paint( QPainter *p )
     p->setPen( box->colorGroup().highlightedText() );
   }
 
-  if ( !text().isEmpty() ) {
+  if ( !text().isEmpty() && navigator()->showText() ) {
     QFontMetrics fm = p->fontMetrics();
 
     int x = 0;
-    if (iconAboveText) {
+    if ( iconAboveText ) {
       x = ( w - fm.width( text() ) ) / 2;
-      y += fm.height() - fm.descent() + mPixmap.height();
-    }
-    else {
-      x = KDialog::marginHint() + mPixmap.width() + 4;
+      y += fm.height() - fm.descent();
+      if ( navigator()->showIcons() )
+        y += mPixmap.height();
+    } else {
+      x = KDialog::marginHint() + 4;
+      if( navigator()->showIcons() ) {
+        x += mPixmap.width();
+      }
 
-      if ( mPixmap.height() < fm.height() )
+      if ( !navigator()->showIcons() || mPixmap.height() < fm.height() )
         y += fm.ascent() + fm.leading()/2;
       else
         y += mPixmap.height()/2 - fm.height()/2 + fm.ascent();
@@ -236,11 +244,14 @@ void EntryItem::setPaintActive( bool paintActive )
 }
 
 Navigator::Navigator( SidePaneBase *parent, const char *name )
-  : KListBox( parent, name ), mSidePane( parent )
+  : KListBox( parent, name ), mSidePane( parent ),
+    mShowIcons( true ), mShowText( true )
 {
   mMouseOn = 0;
   mHighlightItem = 0;
   mViewMode = sizeIntToEnum( Prefs::self()->sidePaneIconSize() );
+  mShowIcons = Prefs::self()->sidePaneShowIcons();
+  mShowText = Prefs::self()->sidePaneShowText();
   setSelectionMode( KListBox::Single );
   viewport()->setBackgroundMode( PaletteBackground );
   setFrameStyle( QFrame::NoFrame );
@@ -418,9 +429,6 @@ IconViewMode Navigator::sizeIntToEnum(int size) const
     case int(SmallIcons):
       return SmallIcons;
       break;
-    case int(TextOnly):
-      return TextOnly;
-      break;
     default:
       // Stick with sane values
       return NormalIcons;
@@ -434,18 +442,39 @@ void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint &pos )
   KPopupMenu menu;
   menu.insertTitle( i18n( "Icon Size" ) );
   menu.insertItem( i18n( "Large" ), (int)LargeIcons );
+  menu.setItemEnabled( (int)LargeIcons, mShowIcons );
   menu.insertItem( i18n( "Normal" ), (int)NormalIcons );
+  menu.setItemEnabled( (int)NormalIcons, mShowIcons );
   menu.insertItem( i18n( "Small" ), (int)SmallIcons );
-  menu.insertItem( i18n( "Text Only" ), (int)TextOnly );
+  menu.setItemEnabled( (int)SmallIcons, mShowIcons );
+
   menu.setItemChecked( (int)mViewMode, true );
+  menu.insertSeparator();
+
+  menu.insertItem( i18n( "Show Icons" ), (int)ShowIcons );
+  menu.setItemChecked( (int)ShowIcons, mShowIcons );
+  menu.setItemEnabled( (int)ShowIcons, mShowText );
+  menu.insertItem( i18n( "Show Text" ), (int)ShowText );
+  menu.setItemChecked( (int)ShowText, mShowText );
+  menu.setItemEnabled( (int)ShowText, mShowIcons );
   int choice = menu.exec( pos );
 
   if ( choice == -1 )
     return;
 
-  mViewMode = sizeIntToEnum( choice );
-  Prefs::self()->setSidePaneIconSize( choice );
-
+  if ( choice >= SmallIcons ) {
+    mViewMode = sizeIntToEnum( choice );
+    Prefs::self()->setSidePaneIconSize( choice );
+  } else {
+    // either icons or text were toggled
+    if ( choice == ShowIcons ) {
+      mShowIcons = !mShowIcons;
+      Prefs::self()->setSidePaneShowIcons( mShowIcons );
+    } else {
+      mShowText = !mShowText;
+      Prefs::self()->setSidePaneShowText( mShowText );
+    }
+  }
   int maxWidth = 0;
   QListBoxItem* it = 0;
   for (int i = 0; (it = item(i)) != 0; ++i)

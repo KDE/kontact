@@ -36,7 +36,7 @@ class Core;
 class Plugin;
 class Navigator;
 
-enum IconViewMode { LargeIcons = 48, NormalIcons = 32, SmallIcons = 22, TextOnly = 0 };
+enum IconViewMode { LargeIcons = 48, NormalIcons = 32, SmallIcons = 22, ShowText = 3, ShowIcons = 5 };
 
 /**
   A @see QListBoxPixmap Square Box with an optional icon and a text
@@ -98,6 +98,8 @@ class Navigator : public KListBox
     IconViewMode viewMode() { return mViewMode; }
     IconViewMode sizeIntToEnum(int size) const;
     const QPtrList<KAction> & actions() { return mActions; }
+    bool showIcons() const { return mShowIcons; }
+    bool showText() const { return mShowText; }
   signals:
     void pluginActivated( Kontact::Plugin * );
 
@@ -130,6 +132,8 @@ class Navigator : public KListBox
 
     QSignalMapper *mMapper;
     QPtrList<KAction> mActions;
+    bool mShowIcons;
+    bool mShowText;
 };
 
 class IconSidePane : public SidePaneBase
