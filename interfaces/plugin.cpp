@@ -24,6 +24,7 @@
 
 #include <dcopclient.h>
 #include <kaboutdata.h>
+#include <kglobal.h>
 
 #include "libkdepim/aboutdataextension.h"
 #include "core.h"
@@ -46,9 +47,11 @@ class Plugin::Private
 Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
   : QObject( parent, name ), d( new Private )
 {
+  KGlobal::locale()->insertCatalogue(name);
+
   d->core = core;
   d->dcopClient = 0;
-  d->newActions = new QPtrList<KAction>; 
+  d->newActions = new QPtrList<KAction>;
 }
 
 

@@ -76,7 +76,7 @@ bool KMailPlugin::createDCOPInterface( const QString& serviceType )
 KParts::Part* KMailPlugin::part()
 {
   if ( !mPart ) {
-    kdDebug() << "KMAIL_PLUGIN: No part!!!" << endl;  
+    kdDebug() << "KMAIL_PLUGIN: No part!!!" << endl;
     mPart = KParts::ComponentFactory
       ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkmailpart",
                                                              core(), 0, // parentwidget,name
