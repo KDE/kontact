@@ -11,19 +11,12 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
+#include <libkdepim/part.h>
 #include <kontact/plugin.h>
-
-
 #include "akregator_partiface_stub.h"
 #include "uniqueapphandler.h"
 
-#include "config.h"
-#ifdef HAVE_KPIMPART
-#include <libkdepim/part.h>
 typedef KPIM::Part MyBasePart;
-#else
-typedef KParts::Part MyBasePart;
-#endif
 
 class KAboutData;
 

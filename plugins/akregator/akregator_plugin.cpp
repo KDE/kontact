@@ -22,6 +22,7 @@
 #include <kontact/core.h>
 #include <kontact/plugin.h>
 
+#include "akregator_options.h"
 #include "akregator_plugin.h"
 #include "uniqueapphandler.h"
 
@@ -89,8 +90,6 @@ QStringList aKregatorPlugin::configModules() const
     modules << "PIM/akregator.desktop";
     return modules;
 }
-
-#include "../akregator_options.h"
 
 void AkregatorUniqueAppHandler::loadCommandLineOptions()
 {
