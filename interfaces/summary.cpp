@@ -22,6 +22,7 @@
 
 #include "summary.h"
 
+#include <qimage.h>
 #include <qdragobject.h>
 #include <qhbox.h>
 #include <qlabel.h>
@@ -84,7 +85,12 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
        (event->pos() - mDragStartPoint).manhattanLength() > 4 ) {
 
     QDragObject *drag = new QTextDrag( "", this, "SummaryWidgetDrag" );
-    drag->dragCopy();
+
+    QPixmap pm = QPixmap::grabWidget( this );
+    if ( pm.width() > 300 )
+      pm = pm.convertToImage().smoothScale( 300, 300, QImage::ScaleMin );
+    drag->setPixmap( pm );
+    drag->dragMove();
   } else
     QWidget::mouseMoveEvent( event );
 }
