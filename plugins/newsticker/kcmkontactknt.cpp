@@ -147,7 +147,6 @@ void KCMKontactKNT::loadNews()
   parents.append( new QListViewItem( mAllNews, i18n( "Business" ) ) );
   parents.append( new QListViewItem( mAllNews, i18n( "Computers" ) ) );
   parents.append( new QListViewItem( mAllNews, i18n( "Misc" ) ) );
-  parents.append( new QListViewItem( mAllNews, i18n( "Magazines" ) ) );
   parents.append( new QListViewItem( mAllNews, i18n( "Recreation" ) ) );
   parents.append( new QListViewItem( mAllNews, i18n( "Society" ) ) );
 

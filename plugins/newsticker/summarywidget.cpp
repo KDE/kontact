@@ -34,6 +34,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kurllabel.h>
+#include <kcharsets.h>
 
 #include "summarywidget.h"
 
@@ -43,7 +44,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 {
   QVBoxLayout *vlay = new QVBoxLayout( this );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "knode",
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_news",
                                                   KIcon::Desktop, KIcon::SizeMedium );
 
   QWidget *header = createHeader( this, icon, i18n( "News Feeds" ) );
@@ -220,7 +221,7 @@ void SummaryWidget::updateView()
 
     // header
     QLabel *label = new QLabel( hbox );
-    label->setText( (*it).title );
+    label->setText( KCharsets::resolveEntities( (*it).title ) );
     label->setAlignment( AlignLeft|AlignVCenter );
     label->setTextFormat( RichText );
     label->setFont( boldFont );

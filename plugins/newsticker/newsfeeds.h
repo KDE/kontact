@@ -3,7 +3,7 @@
 
 #include <qvaluelist.h>
 
-#define DEFAULT_NEWSSOURCES 61
+#define DEFAULT_NEWSSOURCES 60
 
 class NewsSourceData
 {
@@ -11,7 +11,7 @@ class NewsSourceData
     typedef QValueList<NewsSourceData> List;
 
     enum Category { Arts, Business, Computers, Misc,
-                   Magazines, Recreation, Society };
+                    Recreation, Society };
 
     NewsSourceData( const QString &name = I18N_NOOP( "Unknown" ),
                     const QString &url = QString::null,
@@ -62,9 +62,9 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
 		NewsSourceData::Business ),
 	// Computers ----------
 		NewsSourceData(
-		QString::fromLatin1( "linuxartist.org" ),
-		QString::fromLatin1( "http://www.linuxartist.org/backend.php"),
-		QString::fromLatin1( "http://www.linuxartist.org/favicon.ico"),
+		QString::fromLatin1("linuxartist.org"),
+		QString::fromLatin1("http://www.linuxartist.org/backend.php"),
+		QString::fromLatin1("http://www.linuxartist.org/favicon.ico"),
 		NewsSourceData::Computers ),
 		NewsSourceData(
 		QString::fromLatin1("KDE Deutschland"),
@@ -317,12 +317,6 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
 		QString::fromLatin1( "http://www.csmonitor.com/rss/csm.rss"),
 		QString::fromLatin1( "http://www.csmonitor.com/favicon.ico"),
 		NewsSourceData::Misc ),
-	// Magazines ------
-		NewsSourceData(
-		QString::fromLatin1("Revista do Linux"),
-		QString::fromLatin1("http://www.revistadolinux.com.br/noticias/arquivo/noticias.rdf"),
-		QString::fromLatin1("http://www.revistadolinux.com.br/favicon.ico"),
-		NewsSourceData::Magazines ),	
 	// Recreation
 		NewsSourceData(
 		QString::fromLatin1("Segfault"),
