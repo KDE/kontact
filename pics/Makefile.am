@@ -1,6 +1,3 @@
-data_DATA = splash.png
-
-datadir = $(kde_datadir)/kontact/pics
-
-EXTRA_DIST = $(data_DATA)
+pics_DATA = splash.png
+picsdir = $(kde_datadir)/kontact/pics
 
