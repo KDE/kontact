@@ -1,5 +1,5 @@
 /*
-   This file is part of Kontact
+   This file is part of KDE Kontact.
 
    Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
    Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
@@ -18,10 +18,7 @@
    along with this library; see the file COPYING.LIB.  If not, write to
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
-
 */
-
-// $Id$
 
 #include <assert.h>
 
@@ -34,7 +31,7 @@ using namespace Kontact;
 
 class Plugin::Private
 {
-public:
+  public:
     Kontact::Core *core;
     DCOPClient *dcopClient;
     QCString name;
@@ -44,69 +41,69 @@ public:
 };
 
 
-Plugin::Plugin(const QString& pluginName, const QString& icon, Kontact::Core *core,
-                QObject *parent, const char *name)
-    : QObject(parent, name)
+Plugin::Plugin( const QString& pluginName, const QString& icon,
+                Kontact::Core *core, QObject *parent, const char *name )
+    : QObject( parent, name )
 {
-    d = new Kontact::Plugin::Private;
-    d->name = name;
-    d->core = core;
-    d->icon = icon;
-    d->pluginName = pluginName;
-    d->dcopClient = 0L;
-    d->newActions = new QPtrList<KAction>; 
+  d = new Kontact::Plugin::Private;
+  d->name = name;
+  d->core = core;
+  d->icon = icon;
+  d->pluginName = pluginName;
+  d->dcopClient = 0;
+  d->newActions = new QPtrList<KAction>; 
 }
 
 
 Plugin::~Plugin()
 {
-    delete d->dcopClient;
-    delete d;
+  delete d->dcopClient;
+  delete d;
 }
 
 QString Plugin::pluginName() const
 {
-    return d->pluginName;
+  return d->pluginName;
 }
 
 QString Plugin::icon() const
 {
-    return d->icon;
+  return d->icon;
 }
 
 
 void Plugin::showPart( Kontact::Plugin *plugin )
 {
-    d->core->showPart(plugin);
+  d->core->showPart( plugin );
 }
 
-DCOPClient* Plugin::dcopClient() const
+DCOPClient *Plugin::dcopClient() const
 {
-    if (!d->dcopClient)
-    {
-        d->dcopClient = new DCOPClient();
-        d->dcopClient->registerAs(d->name, false);
-    }
+  if ( !d->dcopClient )
+  {
+      d->dcopClient = new DCOPClient();
+      d->dcopClient->registerAs( d->name, false );
+  }
 
-    return d->dcopClient;
+  return d->dcopClient;
 }
 
-void Plugin::insertNewAction(KAction *action)
+void Plugin::insertNewAction( KAction *action )
 {
-    d->newActions->append(action);
+  d->newActions->append(action);
 }
 
-QPtrList<KAction>* Plugin::newActions() const
+QPtrList<KAction> *Plugin::newActions() const
 {
-    return d->newActions;
+  return d->newActions;
 }
 
 // Protected
-Kontact::Core* Plugin::core() const
+Kontact::Core *Plugin::core() const
 {
-    return d->core;
+  return d->core;
 }
 
 #include "plugin.moc"
 
-// vim: ts=4 sw=4 et
+// vim: ts=2 sw=2 et

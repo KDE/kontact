@@ -1,5 +1,6 @@
 /*
-    This file is part of Kontact
+    This file is part of KDE Kontact.
+
     Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
     Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
 
@@ -90,4 +91,5 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
-// vim: ts=4 sw=4 et
+
+// vim: ts=2 sw=2 et

@@ -1,5 +1,5 @@
 /*
-   This file is part of Kontact
+   This file is part of KDE Kontact.
 
    Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
    Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
@@ -32,8 +32,9 @@ namespace Kontact
 {
 
 class Plugin;
+
 /**
-  This class is now purely private to Kontact and not visible for the plugins 
+  This class provides the interface to the Kontact core for the plugins.
 */
 class Core : public KParts::MainWindow
 {

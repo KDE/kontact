@@ -131,8 +131,8 @@ void MainWindow::initWidgets()
       vBox = new QVBox( m_splitter );
       break;
   }
-  connect( m_sidePane, SIGNAL( showPart( Kontact::Plugin* ) ),
-           SLOT( showPart( Kontact::Plugin* ) ) );
+  connect( m_sidePane, SIGNAL( showPart( Kontact::Plugin * ) ),
+           SLOT( showPart( Kontact::Plugin * ) ) );
 
   if ( mSidePaneType == Prefs::SidePaneBars ) {
     initHeaderWidget( vBox );

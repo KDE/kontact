@@ -1,5 +1,5 @@
 /*
-   This file is part of Kontact
+   This file is part of KDE Kontact.
 
    Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
    Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
@@ -21,14 +21,12 @@
 
 */
 
-// $Id$
-
 #include "core.h"
 
 using namespace Kontact;
 
-Core::Core(QWidget *parent, const char *name)
-    : KParts::MainWindow(parent,name)
+Core::Core( QWidget *parent, const char *name )
+  : KParts::MainWindow( parent, name )
 {
 }
 
@@ -36,4 +34,4 @@ Core::~Core()
 {
 }
 
-// vim: ts=4 sw=4 et
+// vim: ts=2 sw=2 et
