@@ -216,7 +216,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
 
   protected:
     /**
-      Reimplement and retun the part here. Reimpleneting createPart() is
+      Reimplement and return the part here. Reimplementing createPart() is
       mandatory!
     */
     virtual KParts::Part *createPart() = 0;
