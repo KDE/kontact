@@ -45,6 +45,7 @@ class KABDateEntry
   public:
     bool birthday;
     int yearsOld;
+    int daysTo;
     QDate date;
     KABC::Addressee addressee;
 
@@ -78,7 +79,7 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   label->setFont( boldFont );
   hbox->addWidget( label );
 
-  mLayout = new QGridLayout( mainLayout, 7, 4, 3 );
+  mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
   mLayout->setRowStretch( 6, 1 );
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
@@ -121,6 +122,13 @@ void KABSummaryWidget::updateView()
       KABDateEntry entry;
       entry.birthday = true;
       entry.yearsOld = QDate::currentDate().year() - birthday.year();
+      entry.daysTo = QDate::currentDate().daysTo( QDate( 
+                                                  QDate::currentDate().year(),
+                                                  date.month(), date.day() ) );
+
+      if ( entry.daysTo < 0 )
+        entry.daysTo += 365;
+
       entry.date = birthday;
       entry.addressee = *it;
       if ( date < currentDate )
@@ -133,6 +141,12 @@ void KABSummaryWidget::updateView()
       KABDateEntry entry;
       entry.birthday = false;
       entry.yearsOld = QDate::currentDate().year() - anniversary.year();
+      entry.daysTo = QDate::currentDate().daysTo( QDate( 
+                                                  QDate::currentDate().year(),
+                                                  date.month(), date.day() ) );
+      if ( entry.daysTo < 0 )
+        entry.daysTo += 365;
+
       entry.date = anniversary;
       entry.addressee = *it;
       if ( date < currentDate )
@@ -159,6 +173,8 @@ void KABSummaryWidget::updateView()
   QValueList<KABDateEntry>::Iterator addrIt;
   QString lines;
   for ( addrIt = dateList.begin(); addrIt != dateList.end() && counter < 6; ++addrIt ) {
+    bool makeBold = (*addrIt).daysTo < 5;
+
     QLabel *label = new QLabel( this );
     if ( (*addrIt).birthday )
       label->setPixmap( KGlobal::iconLoader()->loadIcon( "cookie", KIcon::Small ) );
@@ -167,23 +183,46 @@ void KABSummaryWidget::updateView()
     mLayout->addWidget( label, counter, 0 );
     mLabels.append( label );
 
-    label = new QLabel( KGlobal::locale()->formatDate( (*addrIt).date, true ), this );
+    label = new QLabel( this );
+    if ( (*addrIt).daysTo == 0 )
+      label->setText( i18n( "Today" ) );
+    else
+      label->setText( i18n( "in 1 day", "in %n days", (*addrIt).daysTo ) );
     mLayout->addWidget( label, counter, 1 );
+    mLabels.append( label );
+    if ( makeBold ) {
+      QFont font = label->font();
+      font.setBold( true );
+      label->setFont( font );
+    }
+
+    label = new QLabel( KGlobal::locale()->formatDate( (*addrIt).date, true ), this );
+    mLayout->addWidget( label, counter, 2 );
     mLabels.append( label );
 
     KURLLabel *urlLabel = new KURLLabel( this );
     urlLabel->setURL( (*addrIt).addressee.uid() );
     urlLabel->setText( (*addrIt).addressee.formattedName() );
-    mLayout->addWidget( urlLabel, counter, 2 );
+    mLayout->addWidget( urlLabel, counter, 3 );
     mLabels.append( urlLabel );
+    if ( makeBold ) {
+      QFont font = label->font();
+      font.setBold( true );
+      label->setFont( font );
+    }
 
     connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
              this, SLOT( selectContact( const QString& ) ) );
 
     label = new QLabel( this );
     label->setText( i18n( "one year", "%n years", (*addrIt).yearsOld  ) );
-    mLayout->addWidget( label, counter, 3 );
+    mLayout->addWidget( label, counter, 4 );
     mLabels.append( label );
+    if ( makeBold ) {
+      QFont font = label->font();
+      font.setBold( true );
+      label->setFont( font );
+    }
 
     counter++;
   }
