@@ -19,13 +19,12 @@ libkontact_la_SOURCES = prefs.kcfgc
 bin_PROGRAMS = kontact
 
 kontact_METASOURCES = AUTO
-kontact_COMPILE_FIRST = tiles.h
+kontact_COMPILE_FIRST = tiles.h prefs.h
 kontact_LDFLAGS = $(all_libraries) $(KDE_RPATH) -lkutils
 kontact_LDADD = $(LIB_KPARTS) $(top_builddir)/libkdepim/libkdepim.la \
   $(top_builddir)/kontact/interfaces/libkpinterfaces.la libkontact.la
 kontact_SOURCES = main.cpp mainwindow.cpp splash.cpp sidepanebase.cpp \
   sidepane.cpp iconsidepane.cpp aboutdialog.cpp
-kontact_COMPILE_FIRST = prefs.h
 
 kde_module_LTLIBRARIES = kcm_kontact.la
 
