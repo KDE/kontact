@@ -643,9 +643,9 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   for ( it = invisibleActions.begin(); it != invisibleActions.end(); ++it ) {
     KAction *action = part->actionCollection()->action( (*it).latin1() );
     if ( action ) {
-      QPtrListIterator<KToolBar> it(  toolBarIterator() );
-      for (  ; it.current() ; ++it ) {
-        action->unplug( it.current() );
+      QPtrListIterator<KToolBar> it2(  toolBarIterator() );
+      for (  ; it2.current() ; ++it2 ) {
+        action->unplug( it2.current() );
       }
     }
   }
