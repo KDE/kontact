@@ -84,6 +84,8 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
   mCalendar->load();
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
+  connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
+           SLOT( updateView() ) );
 
   updateView();
 }
@@ -142,7 +144,8 @@ void TodoSummaryWidget::updateView()
     mLabels.append( noTodos );
   }
 
-  show();
+  for ( label = mLabels.first(); label; label = mLabels.next() )
+    label->show();
 }
 
 void TodoSummaryWidget::selectEvent( const QString & )

@@ -43,7 +43,7 @@
 
 SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
                               const char *name )
-  : Kontact::Summary( parent, name ), mPlugin( plugin )
+  : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
@@ -83,8 +83,16 @@ SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
   mCalendar->load();
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
+  connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
+           SLOT( updateView() ) );
 
   updateView();
+}
+
+SummaryWidget::~SummaryWidget()
+{
+  delete mCalendar;
+  mCalendar = 0;
 }
 
 void SummaryWidget::updateView()
@@ -165,7 +173,8 @@ void SummaryWidget::updateView()
     mLabels.append( noEvents );
   }
 
-  show();
+  for ( label = mLabels.first(); label; label = mLabels.next() )
+    label->show();
 }
 
 void SummaryWidget::selectEvent( const QString & )

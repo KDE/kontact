@@ -43,6 +43,7 @@ class SummaryWidget : public Kontact::Summary
   public:
     SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
                    const char *name = 0 );
+    ~SummaryWidget();
 
     int summaryHeight() const { return 3; }
     QStringList configModules() const;

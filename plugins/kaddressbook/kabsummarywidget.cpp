@@ -76,6 +76,9 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
            this, SLOT( updateView() ) );
 
+  connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
+           this, SLOT( updateView() ) );
+
   mDaysAhead = 62; // ### make configurable
 
   updateView();
@@ -89,6 +92,7 @@ void KABSummaryWidget::updateView()
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
   QValueList<KABDateEntry> dates;
+  QLabel *label = 0;
 
   KABC::AddressBook::Iterator it;
   for ( it = ab->begin(); it != ab->end(); ++it ) {
@@ -128,7 +132,7 @@ void KABSummaryWidget::updateView()
     for ( addrIt = dates.begin(); addrIt != dates.end() && counter < 6; ++addrIt ) {
       bool makeBold = (*addrIt).daysTo < 5;
 
-      QLabel *label = new QLabel( this );
+      label = new QLabel( this );
       if ( (*addrIt).birthday )
         label->setPixmap( KGlobal::iconLoader()->loadIcon( "cookie", KIcon::Small ) );
       else
@@ -183,16 +187,17 @@ void KABSummaryWidget::updateView()
       counter++;
     }
   } else {
-    QLabel *nothingtosee = new QLabel(
+    label = new QLabel(
         i18n( "No birthdays or anniversaries pending within the next 1 day",
               "No birthdays or anniversaries pending within the next %n days",
               mDaysAhead ), this, "nothing to see" );
-    nothingtosee->setAlignment( AlignCenter );
-    nothingtosee->setTextFormat( RichText );
-    mLayout->addMultiCellWidget( nothingtosee, 0, 0, 0, 4 );
+    label->setAlignment( AlignCenter );
+    label->setTextFormat( RichText );
+    mLayout->addMultiCellWidget( label, 0, 0, 0, 4 );
   }
 
-  show();
+  for ( label = mLabels.first(); label; label = mLabels.next() )
+    label->show();
 }
 
 void KABSummaryWidget::mailContact( const QString &uid )
