@@ -58,6 +58,7 @@ Icon=kweather
 
 [NewsTicker]
 Name=News Ticker
+Name[mn]=Мэдээний Дэлгэц
 Comment=
 Weight=60
 Icon=knode
