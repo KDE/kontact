@@ -127,16 +127,19 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   m_headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
                                 QSizePolicy::Maximum );
   m_headerFrame->setSpacing( 0 );
+  m_headerFrame->setFrameShape( QFrame::Panel );
 
   m_headerText = new QLabel( m_headerFrame );
   m_headerText->setSizePolicy( QSizePolicy::MinimumExpanding,
                                QSizePolicy::Preferred );
-  m_headerText->setFrameShape( QFrame::ToolBarPanel );
-
+  m_headerText->setPaletteForegroundColor( white );
+  m_headerText->setPaletteBackgroundColor( darkGray );
+  
   m_headerPixmap = new QLabel( m_headerFrame );
   m_headerPixmap->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-  m_headerPixmap->setFrameShape( QFrame::ToolBarPanel );
+  m_headerPixmap->setMaximumSize(22, 22);
   m_headerPixmap->setAlignment( AlignRight );
+  m_headerPixmap->setPaletteBackgroundColor( darkGray );
 
   connect( this, SIGNAL( textChanged( const QString& ) ),
            m_headerText, SLOT( setText( const QString& ) ) );
