@@ -71,7 +71,7 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
 
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
 
-  KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
+  KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
            this, SLOT( updateView() ) );
 
@@ -101,7 +101,7 @@ void KABSummaryWidget::updateView()
   mLabels.clear();
   mLabels.setAutoDelete( false );
 
-  KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
+  KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QValueList<KABDateEntry> dates;
   QLabel *label = 0;
 
@@ -223,7 +223,7 @@ void KABSummaryWidget::mailContact( const QString &uid )
     app = QString::fromLatin1( "kontact" );
   }
 
-  KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
+  KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QString email = ab->findByUid( uid ).fullEmail();
 
   // FIXME: replace "DCOPRef, dcopCall.send..." with kapp->invokeMailer for kde 3.2
