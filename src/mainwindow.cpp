@@ -256,10 +256,10 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
 
 void MainWindow::addPart( KParts::Part *part )
 {
-  m_partManager->addPart( part, false );
-
   if ( part->widget() )
     m_stack->addWidget( part->widget(), 0 );
+
+  m_partManager->addPart( part, false );
 }
 
 void MainWindow::slotActivePartChanged( KParts::Part *part )
