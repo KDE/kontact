@@ -150,9 +150,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;
-    bool mStartupCompleted;
-
-    KeyPressEater *mKeyPressEater;
 };
 
 }

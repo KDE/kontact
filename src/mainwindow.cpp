@@ -73,45 +73,18 @@
 #include "statusbarprogresswidget.h"
 #include "broadcaststatus.h"
 
-class KeyPressEater : public QObject
-{
-  public:
-    KeyPressEater( QObject *parent )
-      : QObject( parent, "KeyPressEater" )
-    {
-    }
-
-  protected:
-    bool eventFilter( QObject*, QEvent *event )
-    {
-      if ( event->type() == QEvent::KeyPress ||
-           event->type() == QEvent::KeyRelease ||
-           event->type() == QEvent::MouseButtonPress ||
-           event->type() == QEvent::MouseButtonRelease ||
-           event->type() == QEvent::MouseButtonDblClick )
-        return true;
-      else
-        return false;
-    }
-};
-
 using namespace Kontact;
 
 MainWindow::MainWindow()
   : Kontact::Core(), mTopWidget( 0 ), mSplitter( 0 ),
-    mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false ),
-    mStartupCompleted( false )
+    mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false )
 {
   // Set this to be the group leader for all subdialogs - this means
   // modal subdialogs will only affect this dialog, not the other windows
   setWFlags( getWFlags() | WGroupLeader );
 
-  // Prevent user input during loading the plugins
-  mKeyPressEater = new KeyPressEater( this );
-  kapp->installEventFilter( mKeyPressEater );
-
   initGUI();
-  QTimer::singleShot( 0, this, SLOT( initObject() ) );
+  initObject();
 }
 
 void MainWindow::initGUI()
@@ -156,10 +129,9 @@ void MainWindow::initObject()
 
   loadPlugins();
 
-  if ( mSidePane )
-  {
-      mSidePane->updatePlugins();
-      plugActionList( "navigator_actionlist", mSidePane->actions() );
+  if ( mSidePane ) {
+    mSidePane->updatePlugins();
+    plugActionList( "navigator_actionlist", mSidePane->actions() );
   }
 
   // flush paint events
@@ -183,18 +155,12 @@ void MainWindow::initObject()
   // launch commandline specified module if any
   activatePluginModule();
 
-  // keep this above the lastVersionSeen check!
-  mStartupCompleted = true;
-
   if ( Prefs::lastVersionSeen() == kapp->aboutData()->version() ) {
     selectPlugin( mCurrentPlugin );
   }
 
   paintAboutScreen( introductionString() );
   Prefs::setLastVersionSeen( kapp->aboutData()->version() );
-
-  kapp->removeEventFilter( mKeyPressEater );
-  delete mKeyPressEater;
 }
 
 MainWindow::~MainWindow()
@@ -577,10 +543,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   Q_ASSERT( view );
 
   if ( view ) {
-    if ( mStartupCompleted ) {
-      mPartsStack->raiseWidget( view );
-      view->show();
-    }
+    mPartsStack->raiseWidget( view );
+    view->show();
 
     if ( mFocusWidgets.contains( plugin->identifier() ) ) {
       focusWidget = mFocusWidgets[ plugin->identifier() ];
