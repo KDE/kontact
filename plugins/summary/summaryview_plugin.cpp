@@ -51,7 +51,7 @@ const KAboutData *SummaryView::aboutData()
 {
   if ( !mAboutData ) {
     mAboutData = new KAboutData( "kontactsummary", I18N_NOOP("Kontact Summary"),
-                                 "0.1",
+                                 "0.2",
                                  I18N_NOOP("Kontact Summary View"),
                                  KAboutData::License_LGPL,
                                  I18N_NOOP("(c) 2003 The Kontact developers" ) );
