@@ -259,9 +259,19 @@ bool KABSummaryWidget::eventFilter( QObject *obj, QEvent* e )
 
 void KABSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
 {
-  QDate currentDate( 0, QDate::currentDate().month(), QDate::currentDate().day() );
+  QDate currentDate;
+  QDate eventDate;
 
-  QDate eventDate( 0, date.month(), date.day() );
+  if ( QDate::leapYear( date.year() ) && date.month() == 2 && date.day() == 29 ) {
+    currentDate = QDate( date.year(), QDate::currentDate().month(), QDate::currentDate().day() );
+    if ( !QDate::leapYear( QDate::currentDate().year() ) )
+      eventDate = QDate( date.year(), date.month(), 28 ); // celebrate one day earlier ;)
+    else
+      eventDate = QDate( date.year(), date.month(), date.day() );
+  } else {
+    currentDate = QDate( 0, QDate::currentDate().month(), QDate::currentDate().day() );
+    eventDate = QDate( 0, date.month(), date.day() );
+  }
 
   int offset = currentDate.daysTo( eventDate );
   if ( offset < 0 ) {
