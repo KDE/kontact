@@ -44,6 +44,9 @@ class KABSummaryWidget : public Kontact::Summary
     KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
                       const char *name = 0 );
 
+    QStringList configModules() const;
+    void configUpdated();
+
   protected:
     virtual bool eventFilter(QObject *obj, QEvent* e);
 
@@ -59,6 +62,8 @@ class KABSummaryWidget : public Kontact::Summary
     QPtrList<QLabel> mLabels;
     Kontact::Plugin *mPlugin;
     int mDaysAhead;
+    bool mShowBirthdays;
+    bool mShowAnniversaries;
 };
 
 #endif

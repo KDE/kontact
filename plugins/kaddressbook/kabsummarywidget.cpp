@@ -79,7 +79,19 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
            this, SLOT( updateView() ) );
 
-  mDaysAhead = 62; // ### make configurable
+  configUpdated();
+}
+
+void KABSummaryWidget::configUpdated()
+{
+  KConfig config( "kcmkabsummaryrc" );
+
+  config.setGroup( "Days" );
+  mDaysAhead = config.readNumEntry( "DaysToShow", 7 );
+
+  config.setGroup( "EventTypes" );
+  mShowBirthdays = config.readBoolEntry( "ShowBirthdays", true );
+  mShowAnniversaries = config.readBoolEntry( "ShowAnniversaries", true );
 
   updateView();
 }
@@ -100,7 +112,7 @@ void KABSummaryWidget::updateView()
     QDate anniversary = QDate::fromString(
           (*it).custom( "KADDRESSBOOK" , "X-Anniversary" ), Qt::ISODate );
 
-    if ( birthday.isValid() ) {
+    if ( birthday.isValid() && mShowBirthdays ) {
       KABDateEntry entry;
       entry.birthday = true;
       dateDiff( birthday, entry.daysTo, entry.yearsOld );
@@ -111,7 +123,7 @@ void KABSummaryWidget::updateView()
         dates.append( entry );
     }
 
-    if ( anniversary.isValid() ) {
+    if ( anniversary.isValid() && mShowAnniversaries ) {
       KABDateEntry entry;
       entry.birthday = false;
       dateDiff( anniversary, entry.daysTo, entry.yearsOld );
@@ -129,7 +141,7 @@ void KABSummaryWidget::updateView()
     int counter = 0;
     QValueList<KABDateEntry>::Iterator addrIt;
     QString lines;
-    for ( addrIt = dates.begin(); addrIt != dates.end() && counter < 6; ++addrIt ) {
+    for ( addrIt = dates.begin(); addrIt != dates.end(); ++addrIt ) {
       bool makeBold = (*addrIt).daysTo < 5;
 
       label = new QLabel( this );
@@ -286,6 +298,11 @@ void KABSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
     days = offset;
     years = QDate::currentDate().year() - date.year();
   }
+}
+
+QStringList KABSummaryWidget::configModules() const
+{
+  return QStringList( "kcmkabsummary.desktop" );
 }
 
 #include "kabsummarywidget.moc"
