@@ -54,7 +54,7 @@ namespace Kontact
          * you want your plugin to do dcop via it's own instance of
          * @ref DCOPClient by calling @ref dcopClient.
          */
-        Plugin(const QString& name, const QString& icon, Core *core, 
+        Plugin(const QString& pluginName, const QString& icon, Core *core, 
                QObject *parent, const char *name);
 
         ~Plugin();
@@ -71,7 +71,7 @@ namespace Kontact
          * Returns the name of the icon
          **/
         QString icon() const;
-        
+
         /**
          * Create the DCOP interface for the given @p serviceType, if this
          * plugin provides it. Return false otherwise.
@@ -97,11 +97,16 @@ namespace Kontact
         virtual KAboutData* aboutData() { return 0L; };
 
         /**
-         *  reimplement and retun the part here.You can use this method if 
-         *  you need to access the current part.
+         * Reimplement and retun the part here.You can use this method if 
+         * you need to access the current part. Reimpleneting part() is mandatory!
          **/
         virtual KParts::Part* part() = 0L;
-       
+
+        /**
+         * Reimplement this method if you want to add a widget for your application
+         * to Kontact's summary page.
+         **/
+        virtual QWidget * SummaryWidget() { return 0L };
 
         /**
          * Retrieve the current DCOP Client for the plugin.
@@ -111,7 +116,7 @@ namespace Kontact
          * called for the first time. Make sure that the part has been loaded
          * before calling this method, if it's the one that contains the DCOP
          * interface that other parts might use.
-         */
+         **/
         DCOPClient *dcopClient() const;
 
     signals:
