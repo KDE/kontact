@@ -20,7 +20,6 @@
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-
 #include <qcombobox.h>
 #include <qhbox.h>
 #include <qimage.h>
@@ -451,6 +450,8 @@ void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KPIM::Part *part )
     mStack->addWidget( part->widget() );
 
   mPartManager->addPart( part, false );
+  // Workaround for KParts misbehavior: addPart calls show!
+  part->widget()->hide();
 }
 
 void MainWindow::slotActivePartChanged( KParts::Part *part )
