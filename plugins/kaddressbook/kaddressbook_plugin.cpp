@@ -99,7 +99,7 @@ bool KAddressbookPlugin::isRunningStandalone()
 {
   DCOPClient *dc = kapp->dcopClient();
   
-  return (dc->isApplicationRegistered("korganizer")) &&
+  return (dc->isApplicationRegistered("kaddressbook")) &&
          (!dc->remoteObjects("kontact").contains("KAddressBookIface"));
 }
 
