@@ -22,6 +22,7 @@
 */
 
 #include <qwidget.h>
+#include <qdragobject.h>
 
 #include <kaction.h>
 #include <kapplication.h>
@@ -32,6 +33,8 @@
 #include <kparts/componentfactory.h>
 
 #include <dcopclient.h>
+
+#include <libkdepim/maillistdrag.h>
 
 #include "core.h"
 #include "kabsummarywidget.h"
@@ -83,6 +86,15 @@ QStringList KAddressbookPlugin::invisibleToolbarActions() const
   return QStringList( "file_new_contact" );
 }
 
+KAddressBookIface_stub *KAddressbookPlugin::interface()
+{
+  if ( !mStub ) {
+    part();
+  }
+  Q_ASSERT( mStub );
+  return mStub;
+}
+
 void KAddressbookPlugin::slotNewContact()
 {
   (void) part(); // ensure part is loaded
@@ -104,6 +116,31 @@ bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
 bool KAddressbookPlugin::isRunningStandalone()
 {
   return mUniqueAppWatcher->isRunningStandalone();
+}
+
+bool KAddressbookPlugin::canDecodeDrag( QMimeSource *mimeSource )
+{
+  return QTextDrag::canDecode( mimeSource ) ||
+    KPIM::MailListDrag::canDecode( mimeSource );
+}
+
+void KAddressbookPlugin::processDropEvent( QDropEvent *event )
+{
+  KPIM::MailList mails;
+  if ( KPIM::MailListDrag::decode( event, mails ) ) {
+    if ( mails.count() != 1 ) {
+      KMessageBox::sorry( core(),
+                          i18n( "Drops of multiple mails are not supported." ) );
+    } else {
+      KPIM::MailSummary mail = mails.first();
+      core()->selectPlugin( "kontact_kaddressbookplugin" );
+      interface()->addEmail( mail.from() );
+    }
+    return;
+  }
+
+  KMessageBox::sorry( core(), i18n("Cannot handle drop events of type '%1'.")
+                      .arg( event->format() ) );
 }
 
 Kontact::Summary *KAddressbookPlugin::createSummaryWidget( QWidget *parentWidget )

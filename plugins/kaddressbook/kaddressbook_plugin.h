@@ -51,11 +51,17 @@ class KAddressbookPlugin : public Kontact::Plugin
 
     virtual bool createDCOPInterface( const QString &serviceType );
     virtual bool isRunningStandalone();
+
+    bool canDecodeDrag( QMimeSource * );
+    void processDropEvent( QDropEvent * );
+
     virtual QStringList configModules() const;
 
     virtual QStringList invisibleToolbarActions() const;
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
+
+    KAddressBookIface_stub *interface();
 
   protected:
     KParts::Part *createPart();
