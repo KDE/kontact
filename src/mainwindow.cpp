@@ -282,7 +282,7 @@ void MainWindow::loadPlugins()
 
     KAction *action;
     QPtrList<KAction> *actionList = plugin->newActions();
-	
+
     for(action = actionList->first(); action; action = actionList->next()){
       kdDebug() << "Plugging " << action->name() << endl;
       action->plug(mNewActions->popupMenu());
@@ -291,7 +291,6 @@ void MainWindow::loadPlugins()
   }
 
   mLastInfoExtension = 0;
-
 }
 
 void MainWindow::unloadPlugins()
@@ -381,6 +380,8 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
   setHeaderText( data.text );
 
   createGUI( part );
+
+  statusBar()->clear();
 }
 
 void MainWindow::slotNewClicked()
