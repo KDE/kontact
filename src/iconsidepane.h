@@ -88,6 +88,7 @@ class Navigator : public KListBox
     void dragEnterEvent( QDragEnterEvent * );
     void dragMoveEvent ( QDragMoveEvent * );
     void dropEvent( QDropEvent * );
+    void resizeEvent( QResizeEvent * );
 
   private slots:
     void slotExecuted( QListBoxItem *item );

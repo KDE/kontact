@@ -218,6 +218,11 @@ void Navigator::dropEvent( QDropEvent *event )
   entry->plugin()->processDropEvent( event );  
 }
 
+void Navigator::resizeEvent( QResizeEvent *event )
+{
+  QListBox::resizeEvent( event );
+  triggerUpdate( true );
+}
 
 IconSidePane::IconSidePane( Core *core, QWidget *parent, const char *name )
   : SidePaneBase( core, parent, name )
