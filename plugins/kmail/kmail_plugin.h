@@ -29,6 +29,7 @@
 
 #include "kmailIface_stub.h"
 #include "plugin.h"
+#include "summary.h"
 
 class KMailPlugin : public Kontact::Plugin
 {
@@ -40,7 +41,7 @@ class KMailPlugin : public Kontact::Plugin
 
     virtual KParts::Part* part();
     virtual bool createDCOPInterface( const QString& serviceType );
-    virtual QWidget* createSummaryWidget( QWidget *parent );
+    virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
 
   protected slots:
     void slotNewMail();

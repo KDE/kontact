@@ -24,6 +24,8 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
+#include "summary.h"
+
 #include <dcopobject.h>
 
 #include <qmap.h>
@@ -67,13 +69,14 @@ class WeatherData
     QString mRelativeHumidity;
 };
 
-class SummaryWidget : public QWidget, public DCOPObject
+class SummaryWidget : public Kontact::Summary, public DCOPObject
 {
-  Q_OBJECT
-  K_DCOP
-
+    Q_OBJECT
+    K_DCOP
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );
+
+    int summaryHeight();
 
   k_dcop:
     virtual void refresh( QString );

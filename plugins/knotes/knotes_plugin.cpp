@@ -60,7 +60,7 @@ KParts::Part* KNotesPlugin::part()
   return mPart;
 }
 
-QWidget* KNotesPlugin::createSummaryWidget( QWidget* parentWidget )
+Kontact::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
 {
   return new SummaryWidget( parentWidget );
 }

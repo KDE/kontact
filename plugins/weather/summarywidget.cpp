@@ -35,7 +35,7 @@
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
-  : QWidget( parent, name ),
+  : Kontact::Summary( parent, name ),
     DCOPObject( "WeatherSummaryWidget" )
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
@@ -70,6 +70,12 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
       kdDebug() << "ERROR: dcop reply not valid..." << endl;
     }
   }
+}
+
+int SummaryWidget::summaryHeight()
+{
+  if ( mStations.isEmpty() ) return 0;
+  else return 1;
 }
 
 void SummaryWidget::updateView()

@@ -93,7 +93,7 @@ KParts::Part* KMailPlugin::part()
     return mPart;
 }
 
-QWidget* KMailPlugin::createSummaryWidget( QWidget *parent )
+Kontact::Summary *KMailPlugin::createSummaryWidget( QWidget *parent )
 {
   return new SummaryWidget( this, parent );
 }

@@ -50,7 +50,7 @@ struct KABDateEntry
 
 KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
                                     const char *name )
-  : QWidget( parent, name ), mPlugin( plugin )
+  : Kontact::Summary( parent, name ), mPlugin( plugin )
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 

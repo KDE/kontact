@@ -59,7 +59,7 @@ KOrganizerPlugin::~KOrganizerPlugin()
 {
 }
 
-KParts::ReadOnlyPart* KOrganizerPlugin::part()
+KParts::ReadOnlyPart *KOrganizerPlugin::part()
 {
   if ( !mPart ) {
     (void) dcopClient(); // ensure that we register to DCOP as "korganizer"

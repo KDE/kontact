@@ -32,16 +32,19 @@
 #include <kparts/part.h>
 
 #include "plugin.h"
+#include "summary.h"
 
 class QGridLayout;
 class QString;
 
-class SummaryWidget : public QWidget
+class SummaryWidget : public Kontact::Summary
 {
   Q_OBJECT
 
   public:
     SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
+
+    int summaryHeight() { return 2; }
 
   public slots:
     virtual void show(); 

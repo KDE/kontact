@@ -39,6 +39,7 @@ namespace Kontact
 {
 
 class Core;
+class Summary;
 
 /**
   Base class for all Plugins in Kontact. Inherit from it
@@ -61,13 +62,13 @@ class Plugin : public QObject, virtual public KXMLGUIClient
 
     /**
       Sets the identifier.
-     */
+    */
     void setIdentifier( const QString &identifier );
 
     /**
       Returns the identifier. It is used as argument for several 
       methods of Kontacts core.
-     */
+    */
     QString identifier() const;
 
     /**
@@ -77,23 +78,23 @@ class Plugin : public QObject, virtual public KXMLGUIClient
 
     /**
       Returns the localized title.
-     */
+    */
     QString title() const;
 
     /**
       Sets the icon name.
-     */
+    */
     void setIcon( const QString &icon );
 
     /**
       Returns the icon name.
-     */
+    */
     QString icon() const;
 
     /**
       Create the DCOP interface for the given @p serviceType, if this
       plugin provides it. Return false otherwise.
-     */
+    */
     virtual bool createDCOPInterface( const QString& /*serviceType*/ ) { return false; }
 
     /**
@@ -104,31 +105,33 @@ class Plugin : public QObject, virtual public KXMLGUIClient
 
       @note Make sure you offer the modules in the form:
       <code>"pathrelativetosettings/mysettings.desktop"</code>
-     */
-    virtual QStringList configModules() const { return QStringList(); };
+    */
+    virtual QStringList configModules() const { return QStringList(); }
 
     /**
       Reimplement this method if you want to add your credits to the Kontact
       about dialog.
-     */
-    virtual KAboutData* aboutData() { return 0L; };
+    */
+    virtual KAboutData *aboutData() { return 0; }
 
     /**
       Reimplement and retun the part here.You can use this method if
       you need to access the current part. Reimpleneting part() is mandatory!
-     */
-    virtual KParts::Part* part() = 0;
+    */
+    virtual KParts::Part *part() = 0;
 
     /**
       Reimplement this method if you want to add a widget for your application
       to Kontact's summary page.
-     */
-    virtual QWidget * createSummaryWidget( QWidget* ) { return 0L; };
+      
+      @param parent parent widget.
+    */
+    virtual Summary *createSummaryWidget( QWidget */*parent*/ ) { return 0; }
 
     /**
       Reimplement this method if you don't want to have a plugin shown in the sidebar.
-     */
-    virtual bool showInSideBar() const { return true; };
+    */
+    virtual bool showInSideBar() const { return true; }
     
     /**
       Retrieve the current DCOP Client for the plugin.
@@ -138,7 +141,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       called for the first time. Make sure that the part has been loaded
       before calling this method, if it's the one that contains the DCOP
       interface that other parts might use.
-     */
+    */
     DCOPClient *dcopClient() const;
 
     /**
@@ -149,7 +152,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
 
     /**
       Insert "New" action.
-     */
+    */
     void insertNewAction( KAction *action );
 
     /**

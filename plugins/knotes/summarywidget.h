@@ -24,6 +24,8 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
+#include "summary.h"
+
 #include <qmap.h>
 #include <qwidget.h>
 
@@ -31,7 +33,7 @@ typedef QMap<QString, QString> NotesMap;
 
 class QLabel;
 
-class SummaryWidget : public QWidget
+class SummaryWidget : public Kontact::Summary
 {
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );

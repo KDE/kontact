@@ -37,8 +37,10 @@
 #include <ktrader.h>
 
 #include <infoextension.h>
-#include "plugin.h"
 #include <sidebarextension.h>
+
+#include "plugin.h"
+#include "summary.h"
 
 #include "summaryview_part.h"
 
@@ -60,22 +62,6 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
 
   mLayout = new QGridLayout( mFrame, 6, 3, KDialog::marginHint(),
                              KDialog::spacingHint() );
-
-  QFrame *frame = new QFrame( mFrame );
-  frame->setFrameStyle( QFrame::VLine | QFrame::Sunken );
-  mLayout->addMultiCellWidget( frame, 0, 5, 1, 1 );
-
-  frame = new QFrame( mFrame );
-  frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
-  mLayout->addWidget( frame, 1, 0 );
-
-  frame = new QFrame( mFrame );
-  frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
-  mLayout->addWidget( frame, 1, 2 );
-
-  frame = new QFrame( mFrame );
-  frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
-  mLayout->addWidget( frame, 4, 2 );
 
   getWidgets();
 
@@ -99,22 +85,74 @@ bool SummaryViewPart::openFile()
 
 void SummaryViewPart::getWidgets()
 {
+  int totalHeight = 0;
+
+  // Collect all summary widgets with a summaryHeight > 0
+  QPtrList<Kontact::Summary> summaries;
   QPtrList<Kontact::Plugin> plugins = mCore->pluginList();
   Kontact::Plugin *plugin;
   for ( plugin = plugins.first(); plugin; plugin = plugins.next() ) {
-    QWidget *wdg = plugin->createSummaryWidget( mFrame );
-    if ( plugin->identifier() == "weather" ) {
-      mLayout->addWidget( wdg, 0, 0 );
-    } else if ( plugin->identifier() == "mails" ) {
-      mLayout->addWidget( wdg, 0, 2 );
-    } else if ( plugin->identifier()  == "newsticker" ) {
-      mLayout->addMultiCellWidget( wdg, 2, 3, 0, 0 );
-    } else if ( plugin->identifier() == "notes" ) {
-      mLayout->addMultiCellWidget( wdg, 2, 3, 2, 2 );
-    } else if ( plugin->identifier() == "contacts" ) {
-      mLayout->addWidget( wdg, 5, 2 );
+    Kontact::Summary *s = plugin->createSummaryWidget( mFrame );
+    if ( s ) {
+      int h = s->summaryHeight();
+      kdDebug() << "Summary for " << plugin->title() << " Height: " << h
+                << endl;
+      if ( h ) {
+        totalHeight += s->summaryHeight();
+        summaries.append( s );
+      } else {
+        s->hide();
+      }
     }
   }
+
+  // Layout the summary widgets. Put widgets in two columns. Each widget gets as
+  // many rows in the layout as Summary::summaryHeight() defines. Separator
+  // lines are automatically added as appropriate.
+
+  int column = 0;
+
+  int currentHeight = 0;
+  int currentRow = 0;
+  int maxRow = 0;
+  uint i;
+  for( i = 0; i < summaries.count(); ++i ) {
+    Kontact::Summary *summary = summaries.at( i );
+
+    int h = summary->summaryHeight();
+
+    // Add summary widget using as many rows of the layout as specified by
+    // Kontact::Summary::summaryHeight().
+    if ( h == 1 ) {
+      mLayout->addWidget( summary, currentRow, column );
+    } else {
+      mLayout->addMultiCellWidget( summary, currentRow, currentRow + h - 1,
+                                   column, column );
+    }
+    
+    currentHeight += h;
+    currentRow += h;
+    
+    if ( currentHeight * 2 >= totalHeight ) {
+      // Start second row
+      currentHeight = 0;
+      maxRow = currentRow;
+      currentRow = 0;
+      column += 2;
+    } else {
+      if ( i < summaries.count() - 1 ) {
+        // Add horizontal line, when widget is not the last in the column.
+        QFrame *hline = new QFrame( mFrame );
+        hline->setFrameStyle( QFrame::HLine | QFrame::Sunken );
+        mLayout->addWidget( hline, currentRow++, column );
+      }
+    }
+  }
+
+  // Add vertical line between the two rows of summary widgets.
+  QFrame *vline = new QFrame( mFrame );
+  vline->setFrameStyle( QFrame::VLine | QFrame::Sunken );
+  mLayout->addMultiCellWidget( vline, 0, maxRow, 1, 1 );
 }
 
 void SummaryViewPart::slotTextChanged()

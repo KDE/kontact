@@ -27,6 +27,8 @@
 #include <qptrlist.h>
 #include <qwidget.h>
 
+#include "summary.h"
+
 namespace Kontact {
   class Plugin;
 }
@@ -34,7 +36,7 @@ namespace Kontact {
 class QGridLayout;
 class QLabel;
 
-class KABSummaryWidget : public QWidget
+class KABSummaryWidget : public Kontact::Summary
 {
   Q_OBJECT
 

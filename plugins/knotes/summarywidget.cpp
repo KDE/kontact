@@ -35,7 +35,7 @@
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
-  : QWidget( parent, name )
+  : Kontact::Summary( parent, name )
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 

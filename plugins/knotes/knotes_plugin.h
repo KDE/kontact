@@ -36,7 +36,7 @@ class KNotesPlugin : public Kontact::Plugin
     ~KNotesPlugin();
 
     KParts::Part* part();
-    virtual QWidget* createSummaryWidget( QWidget* parentWidget );
+    virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
   
   private slots:
     void slotNewNote();

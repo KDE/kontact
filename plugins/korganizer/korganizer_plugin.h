@@ -1,5 +1,6 @@
 /*
-    This file is part of Kontact.
+    This file is part of KDE Kontact.
+
     Copyright (c) 2003 Kontact Developer
 
     This program is free software; you can redistribute it and/or modify
@@ -41,7 +42,7 @@ class KOrganizerPlugin : public Kontact::Plugin
     virtual bool createDCOPInterface( const QString& serviceType );
 
   protected:
-    KParts::ReadOnlyPart* part();
+    KParts::ReadOnlyPart *part();
 
   private slots:
     void slotNewEvent();

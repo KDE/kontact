@@ -33,10 +33,10 @@ K_EXPORT_COMPONENT_FACTORY( libkpweatherplugin,
 WeatherPlugin::WeatherPlugin( Kontact::Core *core, const char *name, const QStringList& )
   : Kontact::Plugin( core, core, name )
 {
-	setInstance( WeatherPluginFactory::instance() );
+  setInstance( WeatherPluginFactory::instance() );
 }
 
-QWidget *WeatherPlugin::createSummaryWidget( QWidget* parentWidget )
+Kontact::Summary *WeatherPlugin::createSummaryWidget( QWidget *parentWidget )
 {
   return new SummaryWidget( parentWidget );
 }

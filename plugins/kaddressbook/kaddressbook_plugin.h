@@ -41,12 +41,12 @@ class KAddressbookPlugin : public Kontact::Plugin
     KAddressbookPlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KAddressbookPlugin();
 
-    virtual bool createDCOPInterface( const QString& serviceType );
+    virtual bool createDCOPInterface( const QString &serviceType );
     virtual QStringList configModules() const;
-    KAboutData* aboutData();
-    KParts::Part* part();
+    KAboutData *aboutData();
+    KParts::Part *part();
 
-    virtual QWidget *createSummaryWidget( QWidget* parentWidget );
+    virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
   
   private slots:
     void slotNewContact();
