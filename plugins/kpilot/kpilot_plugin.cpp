@@ -19,6 +19,8 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include "options.h"
+
 #include <kaboutdata.h>
 #include <kgenericfactory.h>
 #include <kparts/componentfactory.h>
@@ -27,7 +29,6 @@
 #include "summarywidget.h"
 
 #include "kpilot_plugin.h"
-#include "options.h"
 
 typedef KGenericFactory< KPilotPlugin, Kontact::Core > KPilotPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_kpilotplugin,
