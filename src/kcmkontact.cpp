@@ -51,7 +51,7 @@ class PluginItem : public QListViewItem
 {
   public:
     PluginItem( QListView *parent, const KService::Ptr &ptr )
-  : QListViewItem( parent, ptr->name(), ptr->comment(), ptr->library() ),
+      : QListViewItem( parent, ptr->name(), ptr->comment(), ptr->library() ),
         mPtr( ptr )
     {
     }
@@ -69,17 +69,20 @@ KcmKontact::KcmKontact( QWidget *parent, const char *name )
   : KPrefsModule( Kontact::Prefs::self(), parent, name )
 {
   QBoxLayout *topLayout = new QVBoxLayout( this );
-  QBoxLayout *pluginStartupLayout= new QHBoxLayout( this );
-  topLayout->addLayout( pluginStartupLayout );
+  QBoxLayout *pluginStartupLayout = new QHBoxLayout( topLayout );
   topLayout->addStretch();
+
   KPrefsWidBool *forceStartupPlugin = addWidBool( Kontact::Prefs::self()->forceStartupPluginItem(), this );
   pluginStartupLayout->addWidget( forceStartupPlugin->checkBox() );
-  PluginSelection  *pl = new PluginSelection( Kontact::Prefs::self()->forcedStartupPluginItem(), this );
-  addWid( pl );
-  pluginStartupLayout->addWidget( pl->comboBox() );
-  pl->comboBox()->setEnabled( false );
+
+  PluginSelection *selection = new PluginSelection( Kontact::Prefs::self()->forcedStartupPluginItem(), this );
+  addWid( selection );
+
+  pluginStartupLayout->addWidget( selection->comboBox() );
+  selection->comboBox()->setEnabled( false );
+
   connect( forceStartupPlugin->checkBox(), SIGNAL( toggled( bool ) ),
-           pl->comboBox(), SLOT( setEnabled( bool ) ) );
+           selection->comboBox(), SLOT( setEnabled( bool ) ) );
   load();
 }
 
@@ -109,19 +112,20 @@ PluginSelection::~PluginSelection()
 
 void PluginSelection::readConfig()
 {
-  KTrader::OfferList offers = KTrader::self()->query(
+  const KTrader::OfferList offers = KTrader::self()->query(
       QString::fromLatin1( "Kontact/Plugin" ),
+
   QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
   int activeComponent = 0;
-  for(KService::List::Iterator it = offers.begin(); it != offers.end(); ++it)
-  {
-    KService::Ptr service = (*it);
+  for ( KService::List::ConstIterator it = offers.begin(); it != offers.end(); ++it ) {
+    KService::Ptr service = *it;
     mPluginCombo->insertItem( service->name() );
     mPluginList.append( service );
 
     if ( service->property("X-KDE-PluginInfo-Name").toString() == mItem->value() )
-      activeComponent = mPluginList.count()-1;
+      activeComponent = mPluginList.count() - 1;
   }
+
   mPluginCombo->setCurrentItem( activeComponent );
 }
 
@@ -141,8 +145,8 @@ QValueList<QWidget *> PluginSelection::widgets() const
 {
   QValueList<QWidget *> widgets;
   widgets.append( mPluginCombo );
+
   return widgets;
 }
-
 
 #include "kcmkontact.moc"
