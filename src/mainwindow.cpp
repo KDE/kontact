@@ -215,11 +215,10 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
     connect( ie, SIGNAL( iconChanged( const QPixmap& ) ),
              this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
   }
-  else
-  {
-    m_headerText->setText( QString::null );
-    m_headerPixmap->setPixmap( QPixmap() );
-  }
+
+  m_headerText->setText( QString::null );
+  m_headerPixmap->setPixmap( QPixmap() );
+
   m_lastInfoExtension = ie;
 
   createGUI(part);
