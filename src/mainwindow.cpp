@@ -116,6 +116,7 @@ MainWindow::MainWindow()
   showTip( false );
 
   statusBar()->show();
+  mReallyClose=false;
 }
 
 MainWindow::~MainWindow()
@@ -556,6 +557,7 @@ void MainWindow::showTip(bool force)
 
 void MainWindow::slotQuit()
 {
+  mReallyClose=true;
   close();
 }
 
@@ -710,5 +712,13 @@ void MainWindow::slotNewToolbarConfig()
   applyMainWindowSettings( KGlobal::config(), "MainWindow" );
 }
 
+bool MainWindow::queryClose() {
+     if (!mReallyClose){
+        KMailIface_stub stub( kapp->dcopClient(), "kmail", "KMailIface" );
+	bool canClose=stub.canQueryClose();
+        return canClose;
+      }
+    return true;
+}
+
 #include "mainwindow.moc"
-// vim: sw=2 sts=2 et
