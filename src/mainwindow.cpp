@@ -109,13 +109,11 @@ void MainWindow::initGUI()
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
   
-  // ### why doesn't that work?
-  if (Prefs::self()->lastVersionSeen() == kapp->aboutData()->version())
-  {
+  if ( Prefs::lastVersionSeen() == kapp->aboutData()->version() ) {
     mMainStack->raiseWidget( mTopWidget );
-    Prefs::self()->setLastVersionSeen(kapp->aboutData()->version());
   }
 
+  Prefs::setLastVersionSeen( kapp->aboutData()->version() );
 }
 
 
