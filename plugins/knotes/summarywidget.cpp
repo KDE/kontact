@@ -21,6 +21,7 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qobject.h>
 #include <qlabel.h>
 #include <qlayout.h>
 
@@ -34,24 +35,28 @@
 #include <kurllabel.h>
 #include <kstandarddirs.h>
 
+#include <knotes/resourcenotes.h>
+#include <knotes/resourcemanager.h>
+
 #include "core.h"
 #include "plugin.h"
 
 #include "summarywidget.h"
 
-KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
-        QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ),
+KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin, 
+                                          QWidget *parent, const char *name )
+  : Kontact::Summary( parent, name ), mMainLayout( 0 ), mLayout( 0 ), 
     mPlugin( plugin )
 {
   mMainLayout = new QVBoxLayout( this, 3, 3 );
 
-  mCalendar = new KCal::CalendarResources;
-  mResource = new KCal::ResourceLocal( ::locate( "data", "knotes/notes.ics" ) );
-  mCalendar->resourceManager()->add( mResource );
-  mCalendar->load();
-
-  connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
+  mCalendar = new KCal::CalendarLocal();
+  KNotesResourceManager *manager = new KNotesResourceManager();
+  QObject::connect( manager, SIGNAL( sigRegisteredNote( KCal::Journal* ) ),
+                    this, SLOT( addNote( KCal::Journal* ) ) );
+  QObject::connect( manager, SIGNAL( sigDeregisteredNote( KCal::Journal* ) ),
+                    this, SLOT( removeNote( KCal::Journal* ) ) );
+  manager->load();
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_notes", KIcon::Desktop, KIcon::SizeMedium );
   QWidget* heading = createHeader( this, icon, i18n( "Notes" ) );
@@ -94,5 +99,18 @@ void KNotesSummaryWidget::urlClicked( const QString &/*uid*/ )
   else
     mPlugin->bringToForeground();
 }
+
+void KNotesSummaryWidget::addNote( KCal::Journal *j )
+{
+  mCalendar->addJournal( j );
+  updateView();
+}
+
+void KNotesSummaryWidget::removeNote( KCal::Journal *j )
+{
+  mCalendar->deleteJournal( j );
+  updateView();
+}
+
 
 #include "summarywidget.moc"
