@@ -244,7 +244,7 @@ void SDSummaryWidget::updateView()
             entry.date = dt;
             entry.summary = ev->summary();
             entry.desc = ev->description();
-            dateDiff( dt, entry.daysTo, entry.yearsOld );//TODO: yearsOld is bogus
+            dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
             dates.append( entry );
             break;
           }
@@ -258,7 +258,7 @@ void SDSummaryWidget::updateView()
             entry.date = dt;
             entry.summary = ev->summary();
             entry.desc = ev->description();
-            dateDiff( dt, entry.daysTo, entry.yearsOld );//TODO: yearsOld is bogus
+            dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
             dates.append( entry );
             break;
           }
@@ -272,7 +272,8 @@ void SDSummaryWidget::updateView()
             entry.date = dt;
             entry.summary = ev->summary();
             entry.desc = ev->description();
-            dateDiff( dt, entry.daysTo, entry.yearsOld );//TODO: yearsOld is bogus
+            dateDiff( dt, entry.daysTo, entry.yearsOld );
+            entry.yearsOld = -1; //ignore age of holidays
             dates.append( entry );
             break;
           }
@@ -286,7 +287,8 @@ void SDSummaryWidget::updateView()
             entry.date = dt;
             entry.summary = ev->summary();
             entry.desc = ev->description();
-            dateDiff( dt, entry.daysTo, entry.yearsOld );//TODO: yearsOld is bogus
+            dateDiff( dt, entry.daysTo, entry.yearsOld );
+            entry.yearsOld = -1; //ignore age of special occasions
             dates.append( entry );
             break;
           }
@@ -307,7 +309,8 @@ void SDSummaryWidget::updateView()
         entry.category = CategoryHoliday;
         entry.date = dt;
         entry.summary = holstring;
-        dateDiff( dt, entry.daysTo, entry.yearsOld );//TODO: yearsOld is bogus
+        dateDiff( dt, entry.daysTo, entry.yearsOld );
+        entry.yearsOld = -1; //ignore age of holidays
         dates.append( entry );
       }
     }
@@ -365,8 +368,10 @@ void SDSummaryWidget::updateView()
 
       // Countdown
       label = new QLabel( this );
-      if ( (*addrIt).daysTo <= 1 ) {
-        label->setText( "" );
+      if ( (*addrIt).daysTo == 0 ) {
+        label->setText( i18n( "now" ) );
+      } else if ( (*addrIt).daysTo == 1 ) {
+        label->setText( i18n( "in 1 day" ) );
       } else {
         label->setText( i18n( "in %1 days" ).arg( (*addrIt).daysTo ) );
       }
@@ -374,11 +379,6 @@ void SDSummaryWidget::updateView()
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, column++ );
       mLabels.append( label );
-      if ( makeBold ) {
-        QFont font = label->font();
-        font.setBold( true );
-        label->setFont( font );
-      }
 
       // What
       QString what;
@@ -398,11 +398,6 @@ void SDSummaryWidget::updateView()
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, column++ );
       mLabels.append( label );
-      if ( makeBold ) {
-        QFont font = label->font();
-        font.setBold( true );
-        label->setFont( font );
-      }
 
       // Description
       if ( (*addrIt).type == IncidenceTypeContact ) {
@@ -426,11 +421,6 @@ void SDSummaryWidget::updateView()
         label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
         mLayout->addWidget( label, counter, column++ );
         mLabels.append( label );
-        if ( makeBold ) {
-          QFont font = label->font();
-          font.setBold( true );
-          label->setFont( font );
-        }
         if ( !(*addrIt).desc.isEmpty() ) {
           QToolTip::add( label, (*addrIt).desc );
         }
@@ -449,11 +439,6 @@ void SDSummaryWidget::updateView()
         label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
         mLayout->addWidget( label, counter, column++ );
         mLabels.append( label );
-        if ( makeBold ) {
-          QFont font = label->font();
-          font.setBold( true );
-          label->setFont( font );
-        }
       }
 
       counter++;
