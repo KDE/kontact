@@ -785,7 +785,7 @@ void MainWindow::slotNewToolbarConfig()
 
 bool MainWindow::queryClose()
 {
-  if (mReallyClose)
+  if (kapp->sessionSaving() || mReallyClose)
     return true;
   bool localClose=true;
   QValueList<Plugin*>::ConstIterator end = mPlugins.end();
