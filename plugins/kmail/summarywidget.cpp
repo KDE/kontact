@@ -65,9 +65,10 @@ void SummaryWidget::selectFolder( const QString& folder )
     mPlugin->bringToForeground();
   else
     mPlugin->core()->selectPlugin( mPlugin );
-  DCOPRef kmail( "kmail", "KMailIface" );
-  DCOPRef folderRef = kmail.call( "getFolder(QString)", folder );
-  folderRef.call( "select()" );
+  QByteArray data;
+  QDataStream arg( data, IO_WriteOnly );
+  arg << folder;
+  emitDCOPSignal( "kmailSelectFolder(QString)", data );
 }
 
 void SummaryWidget::slotUnreadCountChanged()
