@@ -124,7 +124,7 @@ void MainWindow::setupActions()
 {
   (void) KStdAction::quit(this, SLOT(slotQuit()), actionCollection(), "file_quit");
   (void) KStdAction::preferences(this, SLOT(slotPreferences()), actionCollection(), "settings_preferences");
-  m_newActions = new KActionMenu( i18n("New"), BarIcon("mail_generic"), actionCollection(), "action_new" );
+  m_newActions = new KActionMenu( i18n("New"), BarIcon("filenew2"), actionCollection(), "action_new" );
 }
 
 
