@@ -43,6 +43,7 @@ Icon=kaddressbook
 [KOrganizer]
 Name=Organizer
 Name[cs]=Organizér
+Name[hu]=Határidőnapló
 Comment=
 Weight=30
 Icon=korganizer
@@ -78,6 +79,7 @@ Name[ca]=Teletip de notícies
 Name[da]=Nyhedstelegraf
 Name[eo]=Novaĵprezentilo
 Name[fi]=Uutisnäyttäjä
+Name[hu]=Hírmegjelenítő
 Name[id]=Ticker Berita
 Name[is]=FrÃ©ttastrimill
 Name[it]=Ticker notizie
