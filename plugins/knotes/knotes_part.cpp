@@ -308,6 +308,7 @@ void KNotesPart::newNote()
     mCalendar->addJournal( journal );
     journal->setSummary( title );
     journal->setDescription( dlg.text() );
+    (void) new NotesItem( mNotesView, journal );
   }
 
   unlock();
