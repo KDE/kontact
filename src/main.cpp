@@ -16,7 +16,7 @@ static const char *description =
     I18N_NOOP("A KDE PIM Framework");
 
     
-static const char *version = "0.1";
+static const char *version = "0.2";
 
 
 /*
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 {
     KAboutData about("kaplan", I18N_NOOP("Kaplan"), version, description,
                      KAboutData::License_GPL, "(C) 2001 Matthias Hölzer-Klüpfel", 0, 0, "mhk@kde.org");
-    about.addAuthor( "Matthias Hölzer-Klüpfel", 0, "mhk@kde.org" );
+    about.addAuthor( "Matthias Hoelzer-Kluepfel", 0, "mhk@kde.org" );
     about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
     KCmdLineArgs::init(argc, argv, &about);
 //    KCmdLineArgs::addCmdLineOptions(options);

@@ -77,14 +77,13 @@ void Core::setupActions()
 {
   (void) KStdAction::quit(this, SLOT(slotQuit()), actionCollection(), "file_quit");
   m_newActions = new KActionMenu( i18n("New"), BarIcon("mail_generic"), actionCollection(), "action_new" );
-  m_newActions->insert(new KAction( i18n( "Note" ), BarIcon( "knotes" ), 0, this, SLOT(""), actionCollection(), "newNote" ) );
-  m_newActions->insert(new KAction( i18n( "Mail" ), BarIcon( "mail_generic" ), 0, this, SLOT(""), actionCollection(), "newMail" ) );
-  m_newActions->insert(new KAction( i18n( "Contact" ), BarIcon( "contact" ), 0, this, SLOT(""), actionCollection(), "newContact" ) );
-  m_newActions->insert(new KAction( i18n( "Todo" ), BarIcon( "todo" ), 0, this, SLOT(""), actionCollection(), "newTodo" ) );
-  m_newActions->setDelayed( true );
 }
 
 
+void Core::insertNewAction(KAction *action)
+{
+  m_newActions->insert(action);
+}
 
 void Core::loadPlugins()
 {

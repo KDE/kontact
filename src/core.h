@@ -8,7 +8,6 @@
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 #include <kparts/partmanager.h>
-#include <klistbox.h>
 
 
 #include "kpcore.h"
@@ -21,7 +20,7 @@ namespace Kaplan
 
 
 class Navigator;
-
+class KAction;
 
 class Core : public Kaplan::Core
 {
@@ -38,7 +37,8 @@ public:
 
   virtual void showView(QWidget *view);
 
-
+  virtual void insertNewAction(KAction *action);
+  
 private slots:
 
   void slotQuit();
