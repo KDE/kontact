@@ -70,7 +70,6 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   mainLayout->addWidget(header);
 
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
-  mLayout->setRowStretch( 6, 1 );
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
