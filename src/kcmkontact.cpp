@@ -27,7 +27,9 @@
 
 #include <kaboutdata.h>
 #include <kdebug.h>
+#include <klistview.h>
 #include <klocale.h>
+#include <ktrader.h>
 
 #include <qlayout.h>
 #include <qlabel.h>
@@ -39,6 +41,35 @@ extern "C"
     return new KcmKontact( parent, "kcmkontact" );
   }
 }
+
+class PluginItem : public QCheckListItem
+{
+  public:
+    PluginItem( const KService::Ptr &ptr, QListView *parent,
+                const QString &text )
+      : QCheckListItem( parent, text, QCheckListItem::CheckBox ),
+        mPtr( ptr )
+    {
+    }
+
+    KService::Ptr servicePtr() const
+    {
+      return mPtr;
+    }
+
+    virtual QString text( int column ) const
+    {
+      if ( column == 0 )
+        return mPtr->name();
+      else if ( column == 1 )
+        return mPtr->comment();
+      else
+        return QString::null;
+    }
+
+  private:
+    KService::Ptr mPtr;
+};
 
 KcmKontact::KcmKontact( QWidget *parent, const char *name )
   : KPrefsModule( Kontact::Prefs::self(), parent, name )
@@ -54,6 +85,18 @@ KcmKontact::KcmKontact( QWidget *parent, const char *name )
                     "effect.</em>" ), radios->groupBox() );
   topLayout->addWidget( radios->groupBox() );
 
+  QGroupBox *groupBox = new QGroupBox( 0, Qt::Vertical, i18n( "Plugins" ), this );
+  QVBoxLayout *boxLayout = new QVBoxLayout( groupBox->layout() );
+  boxLayout->setAlignment( Qt::AlignTop );
+
+  mPluginView = new KListView( groupBox );
+  mPluginView->setAllColumnsShowFocus( true );
+  mPluginView->addColumn( i18n( "Name" ) );
+  mPluginView->addColumn( i18n( "Description" ) );
+  boxLayout->addWidget( mPluginView );
+
+  topLayout->addWidget( groupBox );
+
   load();
 }
 
@@ -65,8 +108,47 @@ const KAboutData* KcmKontact::aboutData() const
                                       I18N_NOOP( "(c), 2003 Cornelius Schumacher" ) );
 
   about->addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
+  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
 
   return about;
+}
+
+void KcmKontact::usrReadConfig()
+{
+  QStringList activePlugins = Kontact::Prefs::self()->mActivePlugins;
+
+  mPluginView->clear();
+
+  KTrader::OfferList plugins = KTrader::self()->query( QString::fromLatin1( "Kontact/Plugin" ) );
+  KTrader::OfferList::ConstIterator it;
+  for ( it = plugins.begin(); it != plugins.end(); ++it ) {
+    if ( !(*it)->hasServiceType( QString::fromLatin1( "Kontact/Plugin" ) ) )
+      continue;
+
+    PluginItem *item = new PluginItem( *it, mPluginView, (*it)->name() );
+    if ( activePlugins.contains( (*it)->property( "X-KDE-KontactIdentifier" )
+         .toString() ) )
+      item->setOn( true );
+  }
+}
+
+void KcmKontact::usrWriteConfig()
+{
+  QStringList activePlugins;
+
+  QPtrList<QListViewItem> list;
+  QListViewItemIterator it( mPluginView );
+  while ( it.current() ) {
+    PluginItem *item = static_cast<PluginItem*>( it.current() );
+    if ( item ) {
+      if ( item->isOn() )
+        activePlugins.append( item->servicePtr()->
+                              property( "X-KDE-KontactIdentifier" ).toString() );
+    }
+    ++it;
+  }
+
+  Kontact::Prefs::self()->mActivePlugins = activePlugins;
 }
 
 #include "kcmkontact.moc"

@@ -28,6 +28,7 @@
 #include <kprefsdialog.h>
 
 class KAboutData;
+class KListView;
 
 class KcmKontact : public KPrefsModule
 {
@@ -37,6 +38,13 @@ class KcmKontact : public KPrefsModule
     KcmKontact( QWidget *parent = 0, const char *name = 0 );
 
     virtual const KAboutData* aboutData() const;
+
+  protected:
+    virtual void usrReadConfig();
+    virtual void usrWriteConfig();
+
+  private:
+    KListView *mPluginView;
 };
 
 #endif

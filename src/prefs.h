@@ -56,6 +56,7 @@ class Prefs : public KPrefs
 
     int mSidePaneType;
     QString mActivePlugin;
+    QStringList mActivePlugins;
     QValueList<int> mSidePaneSplitter;
 };
 

@@ -199,6 +199,7 @@ void MainWindow::loadPlugins()
 
   uint i;
 
+  QStringList activePlugins = Prefs::self()->mActivePlugins;
   for ( KTrader::OfferList::ConstIterator it = offers.begin(); it != offers.end(); ++it )
   {
     kdDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
@@ -207,9 +208,12 @@ void MainWindow::loadPlugins()
 
     if ( !plugin )
       continue;
-    
-    QVariant variant = (*it)->property( "X-KDE-KontactIdentifier" );
-    plugin->setIdentifier( variant.toString() );
+
+    QString identifier = (*it)->property( "X-KDE-KontactIdentifier" ).toString();
+    if ( !activePlugins.contains( identifier ) )
+      continue;
+
+    plugin->setIdentifier( identifier );
     plugin->setTitle( (*it)->name() );
     plugin->setIcon( (*it)->icon() );
 
@@ -233,6 +237,8 @@ void MainWindow::loadPlugins()
     }
     addPlugin( plugin );
   }
+
+  m_lastInfoExtension = 0;
 }
 
 void MainWindow::unloadPlugins()
@@ -240,6 +246,20 @@ void MainWindow::unloadPlugins()
   QPtrList<KParts::Part> parts = *m_partManager->parts();
   parts.setAutoDelete( true );
   parts.clear();
+
+  for( uint i = 0; i < m_plugins.count(); ++ i ) {
+    Plugin *plugin = m_plugins.at( i );
+
+    KAction *action;
+    QPtrList<KAction> *actionList = plugin->newActions();
+	
+    for(action = actionList->first(); action; action = actionList->next()){
+      kdDebug() << "Unplugging " << action->name() << endl;
+      action->unplug(m_newActions->popupMenu());
+    }
+
+    removeChildClient( plugin );
+  }
 
   m_plugins.clear();
 }
@@ -446,7 +466,8 @@ void MainWindow::updateConfig()
     mSidePaneType = Prefs::self()->mSidePaneType;
 
     saveSettings();
-    slotActivePartChanged( 0 );
+
+    unloadPlugins();
 
     delete m_sidePane;
 
@@ -470,6 +491,8 @@ void MainWindow::updateConfig()
              SLOT( selectPlugin( Kontact::Plugin* ) ) );
 
     m_splitter->moveToFirst( m_sidePane );
+
+    loadPlugins();
 
     m_sidePane->show();
     m_sidePane->updatePlugins();
