@@ -73,12 +73,10 @@ MainWindow::MainWindow()
   headerText = new QLabel( headerFrame );
   headerText->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
   headerText->setFrameShape( QFrame::ToolBarPanel );
-  headerText->setAutoMask(true);
-
+  
   headerPixmap = new QLabel( headerFrame );
   headerPixmap->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
   headerPixmap->setFrameShape( QFrame::ToolBarPanel );
-  headerPixmap->setAutoMask(true);
   headerPixmap->setAlignment( AlignRight );
 
   connect( this, SIGNAL( textChanged( const QString& ) ), headerText, SLOT( setText( const QString& ) ) );
