@@ -84,13 +84,16 @@ Navigator::Navigator(QWidget *parent, const char *name)
   connect(this, SIGNAL(executed(QListBoxItem *)), this, SLOT(slotExecuted(EntryItem *)));
 }
 
+QSize Navigator::sizeHint() const
+{
+	return QSize(128,128);
+}
 
 void Navigator::addEntry(QString text, QString icon, QObject *receiver, const char *slot)
 {
   QPixmap pixmap = KGlobal::iconLoader()->loadIcon(icon, KIcon::Desktop, 48);
   insertItem(new EntryItem(this, pixmap, text, receiver, slot));
 }
-
 
 void Navigator::slotExecuted(EntryItem *item)
 {

@@ -45,7 +45,9 @@ private slots:
   
   void activePartChanged(KParts::Part *part);
 
-
+  void loadSettings();
+  void saveSettings();
+  
 private:
 
   void loadPlugins();

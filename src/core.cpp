@@ -1,7 +1,8 @@
-#include <qsplitter.h>
+#include <qhbox.h>
 
 
 #include <kapp.h>
+#include <kconfig.h>
 #include <ktrader.h>
 #include <klibloader.h>
 #include <kdebug.h>
@@ -23,10 +24,14 @@ Core::Core()
   : Kaplan::Core()
 {
   // create the GUI
-  QSplitter *splitter = new QSplitter(this);
-  m_navigator = new Navigator(splitter);
-  m_stack = new QWidgetStack(splitter);
-  setCentralWidget(splitter);
+  QHBox *box = new QHBox(this);	
+
+  m_navigator = new Navigator(box);
+  m_navigator->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
+  
+  m_stack = new QWidgetStack(box);
+
+  setCentralWidget(box);
  
   // prepare the part manager
   m_partManager = new KParts::PartManager(this);
@@ -34,22 +39,34 @@ Core::Core()
 
   setupActions();
 
+  loadSettings();
+  
   loadPlugins();
 
   setXMLFile("kaplanrc");
 
   createGUI(0);
-
-  splitter->setResizeMode(m_navigator, QSplitter::FollowSizeHint);
-
-  resize( 600,400 );
 }
 
 
 Core::~Core()
 {
+	saveSettings();	
 }
 
+void Core::loadSettings()
+{
+	KConfig* config = kapp->config();
+	config->setGroup("General");
+	resize( config->readSizeEntry("Dimensions", new QSize(600, 400)) );
+}
+	
+void Core::saveSettings()
+{
+	KConfig* config = kapp->config();
+	config->setGroup("General");
+	config->writeEntry("Dimensions", size());
+}
 
 void Core::setupActions()
 {

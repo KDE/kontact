@@ -49,7 +49,6 @@ class EntryItem : public QListBoxPixmap
       QListBox* m_parent;
 };
 
-
 class Navigator : public KListBox
 {
   Q_OBJECT
@@ -61,6 +60,8 @@ public:
   void addEntry(QString text, QString icon, QObject *receiver, const char *slot);
 
 
+  QSize sizeHint() const;
+  
 private slots:
 
   void slotExecuted(EntryItem *item);
