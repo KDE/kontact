@@ -39,6 +39,7 @@ Icon=kaddressbook
 
 [KOrganizer]
 Name=Organizer
+Name[cs]=Organizér
 Comment=
 Weight=30
 Icon=korganizer
@@ -79,6 +80,7 @@ Name[ja]=ニュース ティッカー
 Name[lt]=News pranešėjas
 Name[lv]=Ziņu Tikkers
 Name[ro]=Ştiri Internet
+Name[sv]=Nyhetsövervakare
 Name[th]=ตั๋วข่าว
 Name[ven]=Musengulusi wa Mafhungo
 Name[vi]=Trình kiểm tra news 
