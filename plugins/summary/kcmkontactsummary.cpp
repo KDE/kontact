@@ -104,6 +104,7 @@ KCMKontactSummary::KCMKontactSummary( QWidget *parent, const char *name )
 
   connect( mPluginView, SIGNAL( clicked( QListViewItem* ) ),
            this, SLOT( itemClicked( QListViewItem* ) ) );
+  load();
 }
 
 void KCMKontactSummary::load()
