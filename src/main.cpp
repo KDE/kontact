@@ -50,6 +50,8 @@ int main(int argc, char **argv)
     about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
     about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
     about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
+    about.addAuthor("Sven Lüppken", 0, "sven@kde.org");
+    
     KCmdLineArgs::init(argc, argv, &about);
 //    KCmdLineArgs::addCmdLineOptions(options);
     KUniqueApplication app;
