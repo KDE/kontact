@@ -21,7 +21,7 @@
 #include <kgenericfactory.h>
 #include <klocale.h>
 #include <kparts/componentfactory.h>
-#include <kontact/core.h>
+#include "core.h"
 
 #include "summarywidget.h"
 
