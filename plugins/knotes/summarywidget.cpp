@@ -95,9 +95,10 @@ void SummaryWidget::updateView()
 
       KURLLabel *urlLabel = new KURLLabel( it.key(), text.left(
                                            text.find( "\n" ) ), this );
+      urlLabel->setTextFormat(RichText);
       mLayout->addWidget( urlLabel, counter, 1 );
       mLabels.append( urlLabel );
-      
+
       connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
                this, SLOT( urlClicked( const QString& ) ) );
 
