@@ -348,6 +348,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   if ( !plugin )
     return;
 
+  KApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
+
   if ( m_sidePane )
     m_sidePane->selectPlugin( plugin );
 
@@ -382,6 +384,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       m_newActions->setText( action->text() );
     }
   }
+  KApplication::restoreOverrideCursor();
 }
 
 void MainWindow::selectPlugin( const QString &pluginName )
