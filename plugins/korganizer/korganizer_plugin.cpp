@@ -40,8 +40,8 @@ K_EXPORT_COMPONENT_FACTORY( libkpkorganizerplugin,
                             KOrganizerPluginFactory( "kporganizerplugin" ) );
 
 KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( core, core, name ), 
-    mPart( 0 ), 
+  : Kontact::Plugin( core, core, name ),
+    mPart( 0 ),
     mIface( 0 )
 {
   setInstance( KOrganizerPluginFactory::instance() );
@@ -70,7 +70,7 @@ KParts::ReadOnlyPart *KOrganizerPlugin::part()
     mPart = KParts::ComponentFactory
       ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkorganizerpart",
                                                              0, 0, // parentwidget,name
-                                                             this, 0 ); // parent,name
+                                                             this, "kontact" ); // parent,name
   }
 
   return mPart;
