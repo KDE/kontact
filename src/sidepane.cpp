@@ -102,6 +102,7 @@ void PanelButton::setInactive()
   m_headerWidget = new QPushButton(this, "header");
   m_headerWidget->setFlat(true);
   m_contentStack = new QWidgetStack(this);
+  m_contentStack->addWidget(new QWidget(m_contentStack));
 }
 
 
@@ -123,7 +124,10 @@ void SidePane::switchSidePaneWidget(KParts::Part* part)
  KParts::SideBarExtension *sbe = static_cast<KParts::SideBarExtension*>(l->first());
  
  if (!sbe)
-   return;
+ {
+   m_contentStack->raiseWidget(0);
+   return;   
+ }
 
  if (m_contentStack->id(sbe->widget()) == -1)
    m_contentStack->addWidget(sbe->widget());
