@@ -21,6 +21,9 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qlabel.h>
+#include <qlayout.h>
+
 #include <dcopclient.h>
 #include <dcopref.h>
 #include <kapplication.h>
@@ -30,15 +33,25 @@
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
-  : QTextBrowser( parent, name )
+  : QWidget( parent, name )
 {
+  setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
+
+  QVBoxLayout *layout = new QVBoxLayout( this, 3 );
+
+  QLabel *label = new QLabel( i18n( "Notes" ), this );
+  layout->addWidget( label );
+
+  mNoteList = new QLabel( this );
+  layout->addWidget( mNoteList );
+
   QString error;
   QCString appID;
 
   bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "knotes" ) ) {
     if ( KApplication::startServiceByDesktopName( "knotes", QStringList(), &error, &appID ) != 0 ) {
-      setText( error );
+      mNoteList->setText( error );
       serviceAvailable = false;
     }
   }
@@ -51,8 +64,6 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
 void SummaryWidget::updateView()
 {
-  clear();
-
   DCOPRef dcopCall( "knotes", "KNotesIface" );
 
   QString lines;
@@ -62,15 +73,13 @@ void SummaryWidget::updateView()
     QString text;
     dcopCall.call( "text(QString)", it.key() ).get( text );
     if ( !text.isEmpty() ) {
-      lines += QString( "<li><b>%1:</b> %2</li>" ).arg( it.data() )
-                                                  .arg( text.left( text.find( "\n" ) ) );
+      lines += QString( "<li><nobr><b>%1:</b> %2</nobr></li>" )
+                      .arg( it.data() )
+                      .arg( text.left( text.find( "\n" ) ) );
     }
   }
 
-  QString text = QString( "<html><body><h1>%1</h1><ul>%2</ul></body></html>" )
-                        .arg( i18n( "Notes" ) )
-                        .arg( lines );
-  setText( text );
+  mNoteList->setText( "<ul>" + lines + "</ul>" );
 }
 
 NotesMap SummaryWidget::fetchNotes()

@@ -25,11 +25,13 @@
 #define SUMMARYWIDGET_H
 
 #include <qmap.h>
-#include <qtextbrowser.h>
+#include <qwidget.h>
 
 typedef QMap<QString, QString> NotesMap;
 
-class SummaryWidget : public QTextBrowser
+class QLabel;
+
+class SummaryWidget : public QWidget
 {
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );
@@ -38,6 +40,7 @@ class SummaryWidget : public QTextBrowser
     void updateView();
     NotesMap fetchNotes();
 
+    QLabel *mNoteList;
     NotesMap mNotesMap;
 };
 
