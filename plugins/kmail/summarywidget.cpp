@@ -99,27 +99,31 @@ void SummaryWidget::timeout()
       config.setGroup( *it );
       int numMsg = config.readNumEntry( "TotalMsgs", 0 );
       int numUnreadMsg = config.readNumEntry( "UnreadMsgs", 0 );
-      KURLLabel *urlLabel = new KURLLabel( QString::null, (*it).mid( 7 ), this );
-      urlLabel->setAlignment( AlignLeft );
-      urlLabel->show();
-      // ### FIXME emit dcop signal to jumo to actual folder
-      connect( urlLabel, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
-      mLayout->addWidget( urlLabel, counter, 0 );
-      mLabels.append( urlLabel );
-      QLabel *label = new QLabel( QString( "%1 / %2" ).arg( numUnreadMsg ).arg( numMsg ), this );
-      if ( numUnreadMsg > 0 ) {
-        QFont font = label->font();
-        font.setBold( true );
-        label->setFont( font );
-      }
-      label->setAlignment( AlignLeft );
-      label->show();
-      mLayout->addWidget( label, counter, 0 );
-      mLayout->addWidget( label, counter, 2 );
-      mLabels.append( label );
+      if ( numUnreadMsg != 0 ) {
+        KURLLabel *urlLabel = new KURLLabel( QString::null, (*it).mid( 7 ), this );
+        urlLabel->setAlignment( AlignLeft );
+        urlLabel->show();
+        // ### FIXME emit dcop signal to jumo to actual folder
+        connect( urlLabel, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
+        mLayout->addWidget( urlLabel, counter, 0 );
+        mLabels.append( urlLabel );
+        QLabel *label = new QLabel( QString( "%1 / %2" ).arg( numUnreadMsg ).arg( numMsg ), this );
 
-      counter++;
+        label->setAlignment( AlignLeft );
+        label->show();
+        mLayout->addWidget( label, counter, 2 );
+        mLabels.append( label );
+
+        counter++;
+      }
     }
+  }
+
+  if ( counter == 0 ) {
+    QLabel *label = new QLabel( i18n( "No unread messages" ), this );
+    label->show();
+    mLayout->addMultiCellWidget( label, 1, 1, 1, 2 );
+    mLabels.append( label );
   }
 
   mTimer.start( 15 * 1000 );
