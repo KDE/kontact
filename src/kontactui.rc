@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui >
-<kpartgui version="16" name="kontact" >
+<kpartgui version="17" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -17,6 +17,7 @@
 <!-- <Separator/> -->
      <DefineGroup name="settings_configure" append="configure_merge"/>
      <Action name="settings_configure_kontact" append="configure_merge"/>
+     <Action name="settings_select_components" append="configure_merge"/>
 
 <!-- Those actions have to be set by the parts because some applications
      have app.rc == part.rc

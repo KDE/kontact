@@ -52,6 +52,7 @@
 #include <kstdaction.h>
 #include <ktip.h>
 #include <ktrader.h>
+#include <ksettings/componentsdialog.h>
 
 #include <infoextension.h>
 
@@ -210,6 +211,10 @@ void MainWindow::setupActions()
   (void) KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
   mNewActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), ""),
 		  KShortcut(), this, SLOT(slotNewClicked()),actionCollection(), "action_new" );
+
+  new KAction( i18n("Select Components..."), "configure", 0, this,
+               SLOT( slotSelectComponents() ),
+               actionCollection(), "settings_select_components" );
 
   new KAction( i18n("Configure Kontact..."), "configure", 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
@@ -585,6 +590,19 @@ void MainWindow::slotPreferences()
          SLOT( pluginsChanged() ) );
 //    connect( dlg, SIGNAL( okClicked() ), SLOT( pluginsChanged() ) );
 //    connect( dlg, SIGNAL( applyClicked() ), SLOT( pluginsChanged() ) );
+  }
+
+  dlg->show();
+}
+
+void MainWindow::slotSelectComponents()
+{
+  static KSettings::ComponentsDialog *dlg = 0;
+  if( !dlg ) {
+    dlg = new KSettings::ComponentsDialog( this );
+    dlg->setPluginInfos( mPluginInfos );
+    connect( dlg, SIGNAL( okClicked() ), SLOT( pluginsChanged() ) );
+    connect( dlg, SIGNAL( applyClicked() ), SLOT( pluginsChanged() ) );
   }
 
   dlg->show();
