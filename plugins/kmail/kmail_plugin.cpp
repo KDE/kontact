@@ -50,6 +50,9 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
   insertNewAction( new KAction( i18n( "New Mail" ), BarIcon( "mail_new" ),
 			             0, this, SLOT( slotNewMail() ), actionCollection(),
                    "new_mail" ) );
+
+  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
+      new Kontact::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
 }
 
 
@@ -97,15 +100,33 @@ QStringList KMailPlugin::invisibleToolbarActions() const
 
 bool KMailPlugin::isRunningStandalone()
 {
-  DCOPClient* dc = kapp->dcopClient();
-
-  return (dc->isApplicationRegistered("kmail")) &&
-         (!dc->remoteObjects("kontact").contains("KMailIface"));
+  return mUniqueAppWatcher->isRunningStandalone();
 }
 
 Kontact::Summary *KMailPlugin::createSummaryWidget( QWidget *parent )
 {
   return new SummaryWidget( this, parent );
+}
+
+////
+
+#include "../../../kmail/kmail_options.h"
+void KMailUniqueAppHandler::loadCommandLineOptions()
+{
+    KCmdLineArgs::addCmdLineOptions( kmail_options );
+}
+
+int KMailUniqueAppHandler::newInstance()
+{
+    DCOPRef kmail( "kmail", "KMailIface" );
+    DCOPReply reply = kmail.call( "handleCommandLine", false );
+    if ( reply.isValid() ) {
+        bool handled = reply;
+        kdDebug() << k_funcinfo << "handled=" << handled << endl;
+        if ( !handled ) // no args -> simply bring kmail plugin to front
+            return Kontact::UniqueAppHandler::newInstance();
+    }
+    return 0;
 }
 
 #include "kmail_plugin.moc"

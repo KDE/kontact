@@ -105,7 +105,6 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
 
 SummaryViewPart::~SummaryViewPart()
 {
-  kapp->dcopClient()->setNotifications( false );
 }
 
 bool SummaryViewPart::openFile()

@@ -2,7 +2,7 @@ INCLUDES = -I$(top_srcdir) $(all_includes)
 
 lib_LTLIBRARIES = libkpinterfaces.la
 
-libkpinterfaces_la_SOURCES = core.cpp plugin.cpp summary.cpp
+libkpinterfaces_la_SOURCES = core.cpp plugin.cpp summary.cpp uniqueapphandler.cpp
 libkpinterfaces_la_LDFLAGS = $(all_libraries) -no-undefined -version-info 1:0:0
 libkpinterfaces_la_LIBADD = $(LIB_KPARTS) ../../libkdepim/libkdepim.la 
 

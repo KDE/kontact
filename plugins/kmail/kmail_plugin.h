@@ -28,8 +28,17 @@
 #include <kparts/part.h>
 
 #include "kmailIface_stub.h"
-#include "plugin.h"
-#include "summary.h"
+#include <plugin.h>
+#include <summary.h>
+#include <uniqueapphandler.h>
+
+class KMailUniqueAppHandler : public Kontact::UniqueAppHandler
+{
+public:
+    KMailUniqueAppHandler( Kontact::Plugin* plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    virtual void loadCommandLineOptions();
+    virtual int newInstance();
+};
 
 class KMailPlugin : public Kontact::Plugin
 {
@@ -54,6 +63,7 @@ class KMailPlugin : public Kontact::Plugin
 
   private:
     KMailIface_stub *mStub;
+    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif

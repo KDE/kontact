@@ -30,6 +30,7 @@
 
 #include "kcalendariface_stub.h"
 #include "plugin.h"
+#include "uniqueapphandler.h"
 
 class KOrganizerPlugin : public Kontact::Plugin
 {
@@ -62,6 +63,7 @@ class KOrganizerPlugin : public Kontact::Plugin
 
   private:
     KCalendarIface_stub *mIface;
+    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif

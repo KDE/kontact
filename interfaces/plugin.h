@@ -34,6 +34,7 @@ class DCOPObject;
 class KAboutData;
 class KAction;
 class QWidget;
+namespace KParts { class Part; }
 
 /**
   Increase this version number whenever you make a change
@@ -62,7 +63,8 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       you want your plugin to do dcop via it's own instance of
       @ref DCOPClient by calling @ref dcopClient.
       @note @ref name MUST be the name of the application that
-      provides the part!
+      provides the part! This is the name used for DCOP registration.
+      It's ok to have several plugins using the same application name.
     */
     Plugin( Core *core, QObject *parent, const char *name );
 

@@ -29,6 +29,7 @@
 
 #include "kcalendariface_stub.h"
 #include "plugin.h"
+#include "uniqueapphandler.h"
 
 class TodoPlugin : public Kontact::Plugin
 {
@@ -59,6 +60,7 @@ class TodoPlugin : public Kontact::Plugin
 
   private:
     KCalendarIface_stub *mIface;
+    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif

@@ -7,6 +7,7 @@ ServiceTypes=Kontact/Plugin
 X-KDE-Library=libkontact_todoplugin
 X-KDE-KontactPluginVersion=3
 X-KDE-KontactPartLibraryName=libkorganizerpart
+X-KDE-KontactPartExecutableName=korganizer
 
 X-KDE-PluginInfo-Website=http://korganizer.kde.org
 X-KDE-PluginInfo-Name=kontact_todoplugin
@@ -21,7 +22,7 @@ Comment[ca]=Connector Kontact per a la llista de pendents de KOrganizer
 Comment[cs]=Modul úkolů KOrganizeru pro aplikaci Kontact
 Comment[da]=Kontact KOrganizer gøremålsliste-plugin
 Comment[de]=KOrganizer-Aufgabenlisten-Plugin für Kontact
-Comment[el]=Πρόσθετο του Kontact για την προς-υλοποίηση λίστα του KOrganizer
+Comment[el]=� ρόσθετο του Kontact για την προς-υλοποίηση λίστα του KOrganizer
 Comment[es]=Accesorio de tareas pendientes para Kontact KOrganizer
 Comment[et]=Kontacti KOrganizeri ülesannete nimekirja plugin
 Comment[fr]=Module des tâches de KOrganizer pour Kontact

@@ -38,13 +38,14 @@
 #include "core.h"
 
 #include "todoplugin.h"
+#include "korg_uniqueapp.h"
 
 typedef KGenericFactory< TodoPlugin, Kontact::Core > TodoPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_todoplugin,
                             TodoPluginFactory( "kontact_todoplugin" ) )
 
 TodoPlugin::TodoPlugin( Kontact::Core *core, const char *, const QStringList& )
-  : Kontact::Plugin( core, core, "korganizer" ), 
+  : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {
   setInstance( TodoPluginFactory::instance() );
@@ -54,6 +55,9 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const char *, const QStringList& )
   insertNewAction( new KAction( i18n( "New Todo" ), pm,
                    0, this, SLOT( slotNewTodo() ), actionCollection(),
                    "new_todo" ) );
+
+  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
+      new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
 }
 
 TodoPlugin::~TodoPlugin()
@@ -121,10 +125,7 @@ bool TodoPlugin::canDecodeDrag( QMimeSource *mimeSource )
 
 bool TodoPlugin::isRunningStandalone()
 {
-  DCOPClient* dc = kapp->dcopClient();
-
-  return (dc->isApplicationRegistered("korganizer")) &&
-         (!dc->remoteObjects("kontact").contains("CalendarIface"));
+  return mUniqueAppWatcher->isRunningStandalone();
 }
 
 void TodoPlugin::processDropEvent( QDropEvent *event )

@@ -38,15 +38,15 @@
 
 #include "core.h"
 #include "summarywidget.h"
-
 #include "korganizerplugin.h"
+#include "korg_uniqueapp.h"
 
 typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_korganizerplugin,
                             KOrganizerPluginFactory( "kontact_korganizerplugin" ) )
 
 KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QStringList& )
-  : Kontact::Plugin( core, core, "korganizer" ), 
+  : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {
   setInstance( KOrganizerPluginFactory::instance() );
@@ -57,6 +57,9 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QSt
   insertNewAction( new KAction( i18n( "New Event" ), pm,
                    0, this, SLOT( slotNewEvent() ), actionCollection(),
                    "new_event" ) );
+
+  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
+      new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
 }
 
 KOrganizerPlugin::~KOrganizerPlugin()
@@ -75,7 +78,6 @@ KParts::Part *KOrganizerPlugin::createPart()
   if ( !part )
     return 0;
 
-  dcopClient(); // ensure that we register to DCOP as "korganizer"
   mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
 
   return part;
@@ -124,10 +126,7 @@ bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )
 
 bool KOrganizerPlugin::isRunningStandalone()
 {
-  DCOPClient *dc = kapp->dcopClient();
-
-  return ( dc->isApplicationRegistered( "korganizer" ) ) &&
-         ( !dc->remoteObjects( "kontact" ).contains( "CalendarIface" ) );
+  return mUniqueAppWatcher->isRunningStandalone();
 }
 
 bool KOrganizerPlugin::canDecodeDrag( QMimeSource *mimeSource )
@@ -138,13 +137,13 @@ bool KOrganizerPlugin::canDecodeDrag( QMimeSource *mimeSource )
 
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
-  QString text;  
+  QString text;
   if ( QTextDrag::decode( event, text ) ) {
     kdDebug() << "DROP:" << text << endl;
     interface()->openEventEditor( text );
     return;
   }
-  
+
   KPIM::MailList mails;
   if ( KPIM::MailListDrag::decode( event, mails ) ) {
     if ( mails.count() != 1 ) {
@@ -161,7 +160,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
     }
     return;
   }
-  
+
   KMessageBox::sorry( core(), i18n("Can't handle drop events of type '%1'.")
                               .arg( event->format() ) );
 }
