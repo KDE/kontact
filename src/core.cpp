@@ -31,11 +31,10 @@
 #include <kstdaction.h>
 #include <klistbox.h>
 #include <kiconloader.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kshortcut.h>
 #include <kparts/componentfactory.h>
 #include <klocale.h>
-#include <kiconloader.h>
 #include <kstatusbar.h>
 
 #include "kpplugin.h"

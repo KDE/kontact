@@ -22,7 +22,7 @@
 #define NAVIGATOR_H
 
 #include <klistbox.h>
-#include <qlist.h>
+#include <qptrlist.h>
 
 class QPixmap;
 class QListBox;
