@@ -229,9 +229,9 @@ bool MainWindow::isPluginLoaded( const KPluginInfo * info )
 
 Plugin *MainWindow::pluginFromInfo( const KPluginInfo *info )
 {
-    PluginList::ConstIterator end = mPlugins.end();
-    for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
-      if ( ( *it )->identifier() == info->pluginName() )
+  PluginList::ConstIterator end = mPlugins.end();
+  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
+    if ( ( *it )->identifier() == info->pluginName() )
       return *it;
 
   return 0;
@@ -675,8 +675,8 @@ void MainWindow::configureToolbars()
   saveMainWindowSettings( KGlobal::config(), "MainWindow" );
 
   KEditToolbar edit( factory() );
-  connect(&edit,SIGNAL(newToolbarConfig()),this,
-      SLOT(slotNewToolbarConfig()));
+  connect( &edit, SIGNAL( newToolbarConfig() ),
+           this, SLOT( slotNewToolbarConfig() ) );
   edit.exec();
 }
 
