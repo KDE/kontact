@@ -127,7 +127,10 @@ void SummaryViewPart::updateWidgets()
 
   mSummaries.clear();
 
-  mFrame = new QFrame( mMainWidget );
+  mFrame = new DropWidget( mMainWidget );
+  connect( mFrame, SIGNAL( summaryWidgetDropped( QWidget*, QWidget*, int ) ),
+           this, SLOT( summaryWidgetMoved( QWidget*, QWidget*, int ) ) );
+
   mMainLayout->insertWidget( 2, mFrame );
 
   QStringList activeSummaries;
@@ -158,8 +161,8 @@ void SummaryViewPart::updateWidgets()
 
         connect( summary, SIGNAL( message( const QString& ) ),
                  BroadcastStatus::instance(), SLOT( setStatusMsg( const QString& ) ) );
-        connect( summary, SIGNAL( summaryWidgetDropped( QWidget*, QWidget* ) ),
-                 this, SLOT( summaryWidgetMoved( QWidget*, QWidget* ) ) );
+        connect( summary, SIGNAL( summaryWidgetDropped( QWidget*, QWidget*, int ) ),
+                 this, SLOT( summaryWidgetMoved( QWidget*, QWidget*, int ) ) );
 
         if ( !mLeftColumnSummaries.contains( plugin->identifier() ) &&
              !mRightColumnSummaries.contains( plugin->identifier() ) ) {
@@ -181,6 +184,7 @@ void SummaryViewPart::updateWidgets()
   layout->addWidget( vline );
   mRightColumn = new QVBoxLayout( layout, KDialog::spacingHint()  );
 
+
   QStringList::Iterator strIt;
   for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
     if ( mSummaries.find( *strIt ) != mSummaries.end() )
@@ -201,28 +205,38 @@ void SummaryViewPart::updateWidgets()
   mRightColumn->addStretch();
 }
 
-void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget )
+void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int alignment )
 {
   if ( target == widget )
     return;
 
-  if ( mLeftColumn->findWidget( target ) == -1 && mRightColumn->findWidget( target ) == -1 ||
-       mLeftColumn->findWidget( widget ) == -1 && mRightColumn->findWidget( widget ) == -1 ) {
-    return;
+  if ( target == mFrame ) {
+    if ( mLeftColumn->findWidget( widget ) == -1 && mRightColumn->findWidget( widget ) == -1 )
+      return;
+  } else {
+    if ( mLeftColumn->findWidget( target ) == -1 && mRightColumn->findWidget( target ) == -1 ||
+         mLeftColumn->findWidget( widget ) == -1 && mRightColumn->findWidget( widget ) == -1 )
+      return;
   }
 
   if ( mLeftColumn->findWidget( widget ) != -1 ) {
-    if ( mLeftColumnSummaries.count() == 1 ) // don't allow to remove all widgets from one side
-      return;
-
     mLeftColumn->remove( widget );
     mLeftColumnSummaries.remove( widgetName( widget ) );
   } else if ( mRightColumn->findWidget( widget ) != -1 ) {
-    if ( mRightColumnSummaries.count() == 1 ) // don't allow to remove all widgets from one side
-      return;
-
     mRightColumn->remove( widget );
     mRightColumnSummaries.remove( widgetName( widget ) );
+  }
+
+  if ( target == mFrame ) {
+    if ( alignment == Qt::AlignLeft ) {
+      mLeftColumn->insertWidget( 0, widget );
+      mLeftColumnSummaries.insert( mLeftColumnSummaries.at( 0 ), widgetName( widget ) );
+    } else {
+      mRightColumn->insertWidget( 0, widget );
+      mRightColumnSummaries.insert( mRightColumnSummaries.at( 0 ), widgetName( widget ) );
+    }
+
+    return;
   }
 
   int targetPos = mLeftColumn->findWidget( target );
@@ -309,8 +323,11 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   hline->setFrameStyle( QFrame::HLine | QFrame::Plain );
   mMainLayout->insertWidget( 1, hline );
 
-  mFrame = new QFrame( mMainWidget );
+  mFrame = new DropWidget( mMainWidget );
   mMainLayout->insertWidget( 2, mFrame );
+
+  connect( mFrame, SIGNAL( summaryWidgetDropped( QWidget*, QWidget*, int ) ),
+           this, SLOT( summaryWidgetMoved( QWidget*, QWidget*, int ) ) );
 
   updateWidgets();
 }

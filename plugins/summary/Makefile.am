@@ -6,7 +6,7 @@ libkontact_summaryplugin_la_LIBADD = -lkutils \
   $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) \
   $(top_builddir)/libkdepim/libkdepim.la
 
-libkontact_summaryplugin_la_SOURCES = summaryview_plugin.cpp summaryview_part.cpp
+libkontact_summaryplugin_la_SOURCES = summaryview_plugin.cpp summaryview_part.cpp dropwidget.cpp
 
 kcm_kontactsummary_la_SOURCES = kcmkontactsummary.cpp
 kcm_kontactsummary_la_LDFLAGS = -module $(KDE_PLUGIN) $(KDE_RPATH) $(all_libraries) \

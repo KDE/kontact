@@ -35,6 +35,7 @@ namespace Kontact
 class Summary : public QWidget
 {
   Q_OBJECT
+
   public:
     Summary( QWidget *parent, const char *name = 0 );
 
@@ -71,7 +72,7 @@ class Summary : public QWidget
 
   signals:
     void message( const QString &message );
-    void summaryWidgetDropped( QWidget *target, QWidget *widget );
+    void summaryWidgetDropped( QWidget *target, QWidget *widget, int alignment );
 
   protected:
     virtual void mousePressEvent( QMouseEvent* );

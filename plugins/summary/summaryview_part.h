@@ -30,6 +30,7 @@
 #include <libkdepim/part.h>
 
 #include "core.h"
+#include "dropwidget.h"
 
 namespace Kontact
 {
@@ -73,7 +74,7 @@ class SummaryViewPart : public KPIM::Part
   protected slots:
     void slotConfigure();
     void updateWidgets();
-    void summaryWidgetMoved( QWidget *target, QWidget *widget );
+    void summaryWidgetMoved( QWidget *target, QWidget *widget, int alignment );
 
   private:
     void initGUI( Kontact::Core *core );
@@ -85,7 +86,7 @@ class SummaryViewPart : public KPIM::Part
 
     QMap<QString, Kontact::Summary*> mSummaries;
     Kontact::Core *mCore;
-    QFrame *mFrame;
+    DropWidget *mFrame;
     QFrame *mMainWidget;
     QVBoxLayout *mMainLayout;
     QVBoxLayout *mLeftColumn;
