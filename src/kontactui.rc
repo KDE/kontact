@@ -10,14 +10,6 @@
     <Action name="file_quit"/>
 	<Merge/>
   </Menu>
-  <Menu name="edit" noMerge="1">
-  	<text>&amp;Edit</text>
-  	<Merge/>
-  </Menu>
-  <Menu name="view" noMerge="1">
-  	<text>&amp;View</text>
-  	<Merge/>
-  </Menu>
   <Merge />
   <Menu noMerge="1" name="settings">
      <text>&amp;Settings</text>
