@@ -37,6 +37,8 @@
 #include <libkcal/todo.h>
 #include <libkdepim/kpimprefs.h>
 
+#include <korganizer/stdcalendar.h>
+
 #include "core.h"
 #include "plugin.h"
 #include "todoplugin.h"
@@ -57,31 +59,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
   mLayout->setRowStretch( 6, 1 );
 
-  mCalendar = new KCal::CalendarResources( KPimPrefs::timezone() );
-  mCalendar->readConfig();
-
-  KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
-  if ( manager->isEmpty() ) {
-    KConfig config( "korganizerrc" );
-    config.setGroup( "General" );
-    QString fileName = config.readPathEntry( "Active Calendar" );
-
-    QString resourceName;
-    if ( fileName.isEmpty() ) {
-      fileName = locateLocal( "data", "korganizer/std.ics" );
-      resourceName = i18n( "Default KOrganizer resource" );
-    } else {
-      resourceName = i18n( "Active Calendar" );
-    }
-
-    KCal::ResourceCalendar *defaultResource =
-                             new KCal::ResourceLocal( fileName );
-
-    defaultResource->setResourceName( resourceName );
-
-    manager->add( defaultResource );
-    manager->setStandardResource( defaultResource );
-  }
+  mCalendar = KOrg::StdCalendar::self();
   mCalendar->load();
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );

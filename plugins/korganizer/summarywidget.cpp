@@ -41,6 +41,8 @@
 #include "plugin.h"
 #include "korganizerplugin.h"
 
+#include "korganizer/stdcalendar.h"
+
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
@@ -57,31 +59,7 @@ SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
   mLayout->setRowStretch( 6, 1 );
 
-  mCalendar = new KCal::CalendarResources( KPimPrefs::timezone() );
-  mCalendar->readConfig();
-
-  KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
-  if ( manager->isEmpty() ) {
-    KConfig config( "korganizerrc" );
-    config.setGroup( "General" );
-    QString fileName = config.readPathEntry( "Active Calendar" );
-
-    QString resourceName;
-    if ( fileName.isEmpty() ) {
-      fileName = locateLocal( "data", "korganizer/std.ics" );
-      resourceName = i18n( "Default KOrganizer resource" );
-    } else {
-      resourceName = i18n( "Active Calendar" );
-    }
-
-    KCal::ResourceCalendar *defaultResource =
-                             new KCal::ResourceLocal( fileName );
-
-    defaultResource->setResourceName( resourceName );
-
-    manager->add( defaultResource );
-    manager->setStandardResource( defaultResource );
-  }
+  mCalendar = KOrg::StdCalendar::self();
   mCalendar->load();
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
@@ -93,8 +71,6 @@ SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
 
 SummaryWidget::~SummaryWidget()
 {
-  delete mCalendar;
-  mCalendar = 0;
 }
 
 void SummaryWidget::updateView()
