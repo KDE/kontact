@@ -274,15 +274,15 @@ void KNotesPart::createNote( KCal::Journal *journal )
 {
   // make sure all fields are existent, initialize them with default values
   QString property = journal->customProperty( "KNotes", "BgColor" );
-  if ( property == QString::null )
+  if ( property.isNull() )
     journal->setCustomProperty( "KNotes", "BgColor", "#ffff00" );
 
   property = journal->customProperty( "KNotes", "FgColor" );
-  if ( property == QString::null )
+  if ( property.isNull() )
     journal->setCustomProperty( "KNotes", "FgColor", "#000000" );
 
   property = journal->customProperty( "KNotes", "RichText" );
-  if ( property == QString::null )
+  if ( property.isNull() )
     journal->setCustomProperty( "KNotes", "RichText", "false" );
 
   mNoteList.insert( journal->uid(), new KNotesIconViewItem( mNotesView, journal ) );
