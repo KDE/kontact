@@ -78,6 +78,8 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
 
     int summaryHeight() const;
 
+    QStringList configModules() const;
+
   k_dcop:
     virtual void refresh( QString );
     virtual void stationRemoved( QString );

@@ -184,4 +184,9 @@ void SummaryWidget::stationRemoved( QString station )
   updateView();
 }
 
+QStringList SummaryWidget::configModules() const
+{
+  return QStringList( "kcmweatherservice.desktop" );
+}
+
 #include "summarywidget.moc"

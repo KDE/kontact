@@ -58,7 +58,7 @@ class Summary : public QWidget
       part. The string has to be suitable for being passed to
       KCMultiDialog::addModule().
     */
-    virtual QStringList configModules() { return QStringList(); }
+    virtual QStringList configModules() const { return QStringList(); }
 
   signals:
     void message( const QString &message );
