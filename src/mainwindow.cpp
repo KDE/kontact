@@ -389,7 +389,18 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
 void MainWindow::slotNewClicked()
 {
   KAction *action = mCurrentPlugin->newActions()->first();
-  if ( action ) action->activate();
+  if ( action ) {
+    action->activate();
+  } else {
+    PluginList::Iterator it;
+    for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+      action = (*it)->newActions()->first();
+      if ( action ) {
+        action->activate();
+        return;
+      }
+    }
+  }
 }
 
 void MainWindow::selectPlugin( Kontact::Plugin *plugin )
@@ -431,8 +442,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   QWidget *view = part->widget();
   Q_ASSERT( view );
 
-  if ( view )
-  {
+  if ( view ) {
     mStack->raiseWidget( view );
     view->show();
     view->setFocus();
@@ -442,8 +452,19 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     if ( action ) {
       mNewActions->setIconSet( action->iconSet() );
       mNewActions->setText( action->text() );
+    } else { // we'll use the action of the first plugin which offers one
+      PluginList::Iterator it;
+      for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+        action = (*it)->newActions()->first();
+        if ( action ) {
+          mNewActions->setIconSet( action->iconSet() );
+          mNewActions->setText( action->text() );
+          break;
+        }
+      }
     }
   }
+
   KApplication::restoreOverrideCursor();
 }
 
