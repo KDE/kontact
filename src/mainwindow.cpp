@@ -43,7 +43,7 @@
 
 #include "kpplugin.h"
 
-#include "core.h"
+#include "mainwindow.h"
 #include "sidepane.h"
 
 using namespace Kontact;
@@ -230,6 +230,6 @@ int MainWindow::startServiceFor( const QString& serviceType,
   return KDCOPServiceStarter::startServiceFor( serviceType, constraint, preferences, error, dcopService, flags );
 }
 
-#include "core.moc"
+#include "mainwindow.moc"
 
 // vim: ts=4 sw=4 et

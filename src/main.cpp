@@ -26,7 +26,7 @@
 #include <qlabel.h>
 
 #include "splash.h"
-#include "core.h"
+#include "mainwindow.h"
 
 static const char *description =
     I18N_NOOP("A KDE Personal Information Manager");
