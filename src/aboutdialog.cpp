@@ -32,6 +32,7 @@
 #include <kiconloader.h>
 #include <kaboutdata.h>
 #include <kactivelabel.h>
+#include <ktextbrowser.h>
 
 #include <qlayout.h>
 #include <qlabel.h>
@@ -53,6 +54,8 @@ AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
   for( i = 0; i < plugins.count(); ++i ) {
     addAboutPlugin( plugins.at( i ) );
   }
+
+  addLicenseText( KGlobal::instance()->aboutData() );
 }
 
 void AboutDialog::addAboutPlugin( Kontact::Plugin *plugin )
@@ -81,11 +84,17 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     
     text += i18n("Version %1</p>").arg( about->version() );
 
+
+    if (!about->shortDescription().isEmpty()) {
+      text += "<p>" + about->shortDescription() + "<br>" +
+               about->copyrightStatement() + "</p>";
+    }
+
     QString home = about->homepage();
     if ( !home.isEmpty() ) {
       text += "<a href=\"" + home + "\">" + home + "</a><br>";
     }
-  
+
     QValueList<KAboutPerson> authors = about->authors();
     if ( !authors.isEmpty() ) {
       text += "<p><b>Authors:</b></p>";
@@ -125,4 +134,22 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 	label->setAlignment( AlignTop );
     topLayout->addWidget( label );
   }
+}
+
+void AboutDialog::addLicenseText(const KAboutData *about)
+{
+  if ( !about || about->license().isEmpty() ) return;
+  
+  QPixmap pixmap = KGlobal::iconLoader()->loadIcon( "scripting",
+                                                    KIcon::Desktop, 48 );
+
+  QString title = i18n("%1 license").arg(about->programName());
+  
+  QFrame *topFrame = addPage( title, QString::null, pixmap );
+  QBoxLayout *topLayout = new QVBoxLayout( topFrame );
+  
+  KTextBrowser *textBrowser = new KTextBrowser( topFrame );
+  textBrowser->setText( QString("<pre>%1</pre>").arg(about->license()) );
+  
+  topLayout->addWidget(textBrowser);
 }

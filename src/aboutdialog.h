@@ -43,6 +43,8 @@ class AboutDialog : public KDialogBase
     void addAboutData( const QString &title, const QString &icon,
                        const KAboutData *about );
 
+	void addLicenseText( const KAboutData *about );
+
   private:
     Core *mCore;
 };
