@@ -88,7 +88,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void slotPreferences();
     void slotNewClicked();
     void slotQuit();
-
+    void slotShowTip();
     void showAboutDialog();
 
   protected:
@@ -103,6 +103,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void addPart( KParts::Part *part );
     void setupActions();
     void initHeaderWidget( QVBox *vBox );
+    void showTip( bool );
 
   private slots:
     void setHeaderText( const QString& );

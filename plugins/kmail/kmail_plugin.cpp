@@ -29,6 +29,7 @@
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kparts/componentfactory.h>
+#include <kstandarddirs.h>
 
 #include "core.h"
 #include "summarywidget.h"
@@ -71,6 +72,12 @@ bool KMailPlugin::createDCOPInterface( const QString& serviceType )
   }
 
   return false;
+}
+
+QString KMailPlugin::tipFile() const
+{
+  QString file = ::locate("data", "kmail/tips");
+  return file;
 }
 
 KParts::Part* KMailPlugin::part()

@@ -42,6 +42,7 @@ class KMailPlugin : public Kontact::Plugin
     virtual KParts::Part* part();
     virtual bool createDCOPInterface( const QString& serviceType );
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
+    virtual QString tipFile() const;
 
   protected slots:
     void slotNewMail();

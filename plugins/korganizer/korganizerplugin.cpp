@@ -29,6 +29,7 @@
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
+#include <kstandarddirs.h>
 
 #include "core.h"
 #include "summarywidget.h"
@@ -72,6 +73,12 @@ KParts::Part *KOrganizerPlugin::part()
   }
 
   return mPart;
+}
+
+QString KOrganizerPlugin::tipFile() const
+{
+  QString file = ::locate("data", "korganizer/tips");
+  return file;
 }
 
 void KOrganizerPlugin::select()

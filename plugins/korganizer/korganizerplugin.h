@@ -48,6 +48,8 @@ class KOrganizerPlugin : public Kontact::Plugin
 
     KParts::Part *part();
 
+    virtual QString tipFile() const;
+
     void select();
 
   private slots:

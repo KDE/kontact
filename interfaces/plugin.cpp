@@ -120,7 +120,13 @@ const KAboutData *Plugin::aboutData()
   }
 }
 
-DCOPClient *Plugin::dcopClient() const
+QString Plugin::tipFile() const
+{
+  return QString::null;
+}
+
+
+DCOPClient* Plugin::dcopClient() const
 {
   if ( !d->dcopClient ) {
     d->dcopClient = new DCOPClient();

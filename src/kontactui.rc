@@ -17,6 +17,9 @@
      <Separator/>
      <Action name="settings_configure_kontact"/>
   </Menu>
+  <Menu name="help"><text>&amp;Help</text>
+     <Action name="help_tipofday"/>
+  </Menu>
 </MenuBar>
 <ToolBar position="Top" iconText="IconOnly" noMerge="1" name="mainToolBar">
   <Action name="action_new"/>

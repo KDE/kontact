@@ -47,6 +47,7 @@
 #include <kcmultidialog.h>
 #include <khelpmenu.h>
 #include <kmessagebox.h>
+#include <ktip.h>
 
 #include <dcopclient.h>
 
@@ -98,6 +99,8 @@ MainWindow::MainWindow()
     m_sidePane->updatePlugins();
 
   loadSettings();
+
+  showTip( false );
 }
 
 MainWindow::~MainWindow()
@@ -161,6 +164,10 @@ void MainWindow::setupActions()
 
   new KAction( i18n("Configure Kontact..."), 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
+
+ ( void )new KAction( i18n( "&Tip of the Day" ), 0,
+                     this, SLOT( slotShowTip() ), actionCollection(), "help_tipofday" );
+
 }
 
 void MainWindow::initHeaderWidget(QVBox *vBox)
@@ -404,6 +411,23 @@ void MainWindow::saveSettings()
 
   if ( m_currentPlugin )
     Prefs::self()->mActivePlugin = m_currentPlugin->identifier();
+}
+
+void MainWindow::slotShowTip()
+{
+  showTip( true );
+}
+
+void MainWindow::showTip(bool force)
+{
+  QStringList tips;
+  for ( uint i=0; i < m_plugins.count(); ++i )
+  {
+    QString file = m_plugins.at( i )->tipFile();
+    if ( !file.isEmpty() )
+      tips.append( file );
+  }
+  KTipDialog::showTip(this, tips, force);
 }
 
 void MainWindow::slotQuit()
