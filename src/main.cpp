@@ -73,6 +73,7 @@ static KCmdLineOptions options[] =
 {
     { "module <module>",   I18N_NOOP("Start with a specific Kontact module"), 0 },
     { "nosplash",   I18N_NOOP("Disable the splash screen"), 0 },
+    { "iconify",   I18N_NOOP("Start in iconified (minimized) mode"), 0 },
     { "list", I18N_NOOP("List all possible modules and exit"), 0 },
     KCmdLineLastOption
 };
@@ -105,6 +106,10 @@ int KontactApp::newInstance()
         mMainWindow->activePluginModule( moduleName );
       mMainWindow->show();
       setMainWidget( mMainWindow );
+      // --iconify is needed in kontact, although kstart can do that too,
+      // because kstart returns immediately so it's too early to talk DCOP to the app.
+      if ( args->isSet( "iconify" ) )
+        KWin::iconifyWindow( mMainWindow->winId(), false /*no animation*/ );
     }
     else
     {

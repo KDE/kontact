@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Kontact
+Exec=kontact --nosplash --iconify
+Type=Application
+Icon=kontact
+NoDisplay=true
+X-DCOP-ServiceType=Unique
+X-DCOP-ServiceName=kontact
+ServiceTypes=DCOP/ResourceBackend/IMAP,DCOP/Mailer
+X-KDE-StartupNotify=false
+Categories=Qt;KDE;Office

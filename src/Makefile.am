@@ -27,7 +27,7 @@ kcm_kontact_la_COMPILE_FIRST = prefs.h
 rcdir = $(kde_datadir)/kontact
 rc_DATA = kontactui.rc
 
-xdg_apps_DATA = Kontact.desktop
+xdg_apps_DATA = Kontact.desktop kontactdcop.desktop
 
 kde_kcfg_DATA = kontact.kcfg
 
