@@ -335,7 +335,7 @@ void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint& pos )
   KPopupMenu menu;
   menu.insertTitle( i18n("Icon Size") );
   menu.insertItem( i18n("Large"), (int)LargeIcons );
-  menu.insertItem( i18n("Normal "), (int)NormalIcons );
+  menu.insertItem( i18n("Normal"), (int)NormalIcons );
   menu.insertItem( i18n("Small"), (int)SmallIcons );
   menu.insertItem( i18n("Text Only"), (int)TextOnly );
   int choice = menu.exec( pos );
