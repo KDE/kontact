@@ -138,9 +138,7 @@ void MainWindow::initObject()
     mSidePane->updatePlugins();
 
   // flush paint events
-  kapp->sendPostedEvents();
-
-  setUpdatesEnabled( false );
+  kapp->processEvents();
 
   bar->setProgress( bar->progress() + 1 );
 
@@ -151,8 +149,6 @@ void MainWindow::initObject()
 
   bar->setProgress( bar->progress() + 1 );
 
-  setUpdatesEnabled( true );
-  
   statusBar()->show();
 
   // we are done - remove splash
@@ -160,6 +156,9 @@ void MainWindow::initObject()
   mSplash=0;
 
   showTip( false );
+
+  // done initializing
+  statusBar()->changeItem( QString::null, 1 );
 }
 
 MainWindow::~MainWindow()
@@ -239,7 +238,6 @@ void MainWindow::initWidgets()
 
   KPIM::StatusbarProgressWidget *littleProgress =
     new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
-  littleProgress->show();
 
   statusBar()->addWidget( littleProgress, 0 , true );
   statusBar()->insertItem(i18n(" Initializing..."), 1, 1 );
