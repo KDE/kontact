@@ -60,6 +60,9 @@ class WeatherData
     void setRelativeHumidity( const QString &relativeHumidity ) { mRelativeHumidity = relativeHumidity; }
     QString relativeHumidity() const { return mRelativeHumidity; }
 
+    void setStationID(const QString &station) { mStationID = station;}
+    QString stationID() { return mStationID; }
+    
     bool operator< ( const WeatherData &data )
     {
       return ( QString::localeAwareCompare( mName, data.mName ) < 0 );
@@ -72,6 +75,7 @@ class WeatherData
     QString mTemperature;
     QString mWindSpeed;
     QString mRelativeHumidity;
+    QString mStationID;
 };
 
 class SummaryWidget : public Kontact::Summary, public DCOPObject
@@ -90,6 +94,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   private slots:
     void updateView();
     void timeout();
+    void slotShowReport(const QString&);
 
   private:
     QStringList mStations;
@@ -99,6 +104,8 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QPtrList<QLabel> mLabels;
     QPtrList<QGridLayout> mLayouts;
     QVBoxLayout *mLayout;
+    
+    bool m_hasShowReport;   // can be removed after the release of kdetoys/kweather has showReport implemented
 };
 
 #endif
