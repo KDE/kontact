@@ -105,6 +105,12 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     virtual bool createDCOPInterface( const QString& /*serviceType*/ ) { return false; }
 
     /**
+      Reimplement this method and return wether a standalone application is still running
+      This is only required if your part is also available as standalone application.
+    */
+    virtual bool isRunningStandalone() { return false; }
+
+    /**
       Reimplement this method if you want to add your credits to the Kontact
       about dialog.
     */
