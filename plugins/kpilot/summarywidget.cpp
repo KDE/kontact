@@ -53,7 +53,9 @@
 SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ),
     DCOPObject( "KPilotSummaryWidget" ),
-    mDCOPSuccess(false)
+    mDCOPSuccess(false),
+    mStartedDaemon(false),
+    mShouldStopDaemon(true)
 {
   mLayout = new QGridLayout( this );
 
@@ -71,32 +73,32 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   mLayout->addWidget( mShowSyncLogLabel, row, 2 );
   connect( mShowSyncLogLabel, SIGNAL( leftClickedURL( const QString& ) ),
     this, SLOT( showSyncLog( const QString& ) ) );
-  
+
   // User
   row++;
   mLayout->addWidget( new QLabel( i18n("<i>User:</i>"), this), row, 0);
   mPilotUserLabel = new QLabel( i18n("Unknown"), this );
   mLayout->addMultiCellWidget( mPilotUserLabel, row, row, 1,2 );
-  
+
   // Device information
   row++;
   mLayout->addWidget( new QLabel( i18n("<i>Device:</i>"), this), row, 0 );
   mPilotDeviceLabel = new QLabel( i18n("Unknown"), this );
   mLayout->addMultiCellWidget( mPilotDeviceLabel, row, row, 1,2 );
-  
+
   // Status
   row++;
   mLayout->addWidget( new QLabel( i18n("<i>Status:</i>"), this), row, 0);
   mDaemonStatusLabel = new QLabel( i18n("No communication with the daemon possible"), this );
   mLayout->addMultiCellWidget( mDaemonStatusLabel, row, row, 1,2 );
-  
+
   // Conduits:
   row++;
   mLayout->addWidget( new QLabel( i18n("<i>Conduits:</i>"), this), row, 0 );
   mConduitsLabel = new QLabel( i18n("No information available"), this );
   mConduitsLabel->setAlignment( mConduitsLabel->alignment()|Qt::WordBreak );
   mLayout->addMultiCellWidget( mConduitsLabel, row,row, 1,2 );
-  
+
 //  mLayout->addStretch( 1 );
 //  mLayout->addWidget( new QSpacerItem( 1, 20, QSizePolicy::Minimum, QSizePolicy::Expanding ) );
 
@@ -106,11 +108,21 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   if ( !kapp->dcopClient()->isApplicationRegistered( "kpilotDaemon" ) ) {
     if ( !KApplication::startServiceByDesktopName( "kpilotDaemon", QStringList(), &error, &appID ) ) {
       kdDebug(5602) << "No service available..." << endl;
+      mStartedDaemon = true;
     }
   }
 
   connectDCOPSignal( 0, 0, "kpilotDaemonStatusChanged()", "refresh()", false );
   refresh();
+}
+
+SummaryWidget::~SummaryWidget()
+{
+  if (mStartedDaemon && mShouldStopDaemon)
+  {
+    PilotDaemonDCOP_stub dcopToDaemon( "kpilotDaemon", "KPilotDaemonIface" );
+    dcopToDaemon.quitNow(); // ASYNC, always succeeds.
+  }
 }
 
 QStringList SummaryWidget::configModules() const
@@ -128,29 +140,32 @@ void SummaryWidget::refresh( )
   mLastSyncTime = dcopToDaemon.lastSyncDate();
   // check if that dcop call was successful
   mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-  
+
   mDaemonStatus = dcopToDaemon.shortStatusString();
   mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-  
+
   mConduits = dcopToDaemon.configuredConduitList();
   mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
 
   mSyncLog = dcopToDaemon.logFileName();
   mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-  
+
   mUserName = dcopToDaemon.userName();
   mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-  
+
   mPilotDevice = dcopToDaemon.pilotDevice();
   mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
-  
+
+  mShouldStopDaemon = dcopToDaemon.killDaemonOnExit();
+  mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
+
   updateView();
 }
 
 
 void SummaryWidget::updateView()
 {
-  if (mDCOPSuccess) 
+  if (mDCOPSuccess)
   {
     if ( mLastSyncTime.isValid() ) {
       mSyncTimeLabel->setText( mLastSyncTime.toString(Qt::LocalDate) );
@@ -193,14 +208,14 @@ void SummaryWidget::showSyncLog( const QString &filename )
 		KMessageBox::error( this, i18n("Unable to open Hotsync log %1.").arg(filename) );
 		return;
 	}
-	
+
 	QTextStream s(&f);
 	while (!s.eof()) edit->append(s.readLine());
 
 	edit->moveCursor(QTextEdit::MoveHome, false);
 
 	f.close();
-	
+
 	dlg.setInitialSize( QSize( 400, 350) );
 	dlg.exec();
 }

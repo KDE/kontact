@@ -48,6 +48,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     K_DCOP
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );
+    virtual ~SummaryWidget();
 
     int summaryHeight() const { return 1; }
 
@@ -62,16 +63,16 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
 
   private:
     QTimer mTimer;
-    
+
     QLabel*mSyncTimeLabel;
     KURLLabel*mShowSyncLogLabel;
     QLabel*mPilotUserLabel;
     QLabel*mPilotDeviceLabel;
     QLabel*mDaemonStatusLabel;
     QLabel*mConduitsLabel;
-    
+
     QGridLayout *mLayout;
-    
+
     QDateTime mLastSyncTime;
     QString mDaemonStatus;
     QStringList mConduits;
@@ -79,6 +80,9 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QString mUserName;
     QString mPilotDevice;
     bool mDCOPSuccess;
+
+    bool mStartedDaemon; // Record whether the daemon was started by kontact
+    bool mShouldStopDaemon;
 };
 
 #endif
