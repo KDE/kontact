@@ -96,7 +96,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
 
   QStringList activeFolders;
   if ( !config.hasKey( "ActiveFolders" ) )
-    activeFolders << "/inbox";
+    activeFolders << "/Local/inbox";
   else
     activeFolders = config.readListEntry( "ActiveFolders" );
 
@@ -106,17 +106,18 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
   QStringList::ConstIterator it;
   DCOPRef kmail( "kmail", "KMailIface" );
   for ( it = folders.begin(); it != folders.end() && counter < 9; ++it ) {
-    DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
-    int numMsg = folderRef.call( "messages()" );
-    int numUnreadMsg = folderRef.call( "unreadMessages()" );
-
     if ( activeFolders.contains( *it ) ) {
-      QString folderPath = *it;
-      if ( !showFullPath )
-        folderPath = folderPath.mid( folderPath.findRev( '/' ) + 1 );
+      DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
+      const int numMsg = folderRef.call( "messages()" );
+      const int numUnreadMsg = folderRef.call( "unreadMessages()" );
 
-      KURLLabel *urlLabel = new KURLLabel( *it, folderPath,
-                                           this );
+      QString folderPath;
+      if ( showFullPath )
+        folderRef.call( "displayPath()" ).get( folderPath );
+      else
+        folderRef.call( "displayName()" ).get( folderPath );
+
+      KURLLabel *urlLabel = new KURLLabel( *it, folderPath, this );
       urlLabel->setAlignment( AlignLeft );
       urlLabel->show();
       connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
@@ -124,8 +125,10 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
       mLayout->addWidget( urlLabel, counter, 0 );
       mLabels.append( urlLabel );
 
-      QLabel *label = new QLabel( QString( "%1 / %2" )
-                                  .arg( numUnreadMsg ).arg( numMsg ), this );
+      QLabel *label =
+        new QLabel( QString( i18n("%1: number of unread messages "
+                                  "%2: total number of messages", "%1 / %2") )
+                    .arg( numUnreadMsg ).arg( numMsg ), this );
       label->setAlignment( AlignLeft );
       label->show();
       mLayout->addWidget( label, counter, 2 );

@@ -92,15 +92,24 @@ void KCMKMailSummary::initFolders()
 
   QStringList::Iterator it;
   for ( it = folderList.begin(); it != folderList.end(); ++it ) {
+    QString displayName;
+    if ( (*it) == "/Local" )
+      displayName = i18n( "prefix for local folders", "Local" );
+    else {
+      DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
+      folderRef.call( "displayName()" ).get( displayName );
+    }
     if ( (*it).contains( '/' ) == 1 ) {
       if ( mFolderMap.find( *it ) == mFolderMap.end() )
-        mFolderMap.insert( *it, new QListViewItem( mFolderView, (*it).mid( 1 ) ) );
+        mFolderMap.insert( *it, new QListViewItem( mFolderView,
+                                                   displayName ) );
     } else {
-      int pos = (*it).findRev( '/' );
-      QString parentFolder = (*it).left( pos );
-      QString name = (*it).mid( pos + 1 );
+      const int pos = (*it).findRev( '/' );
+      const QString parentFolder = (*it).left( pos );
       mFolderMap.insert( *it,
-                         new QCheckListItem( mFolderMap[ parentFolder ], name, QCheckListItem::CheckBox ) );
+                         new QCheckListItem( mFolderMap[ parentFolder ],
+                                             displayName,
+                                             QCheckListItem::CheckBox ) );
     }
   }
 }
@@ -112,7 +121,7 @@ void KCMKMailSummary::loadFolders()
 
   QStringList folders;
   if ( !config.hasKey( "ActiveFolders" ) )
-    folders << "/inbox";
+    folders << "/Local/inbox";
   else
     folders = config.readListEntry( "ActiveFolders" );
 
