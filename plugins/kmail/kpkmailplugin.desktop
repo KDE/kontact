@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Exec=blubb
+Comment=Kaplan KMail Plugin
+Name=KMailPlugin
+Icon=konsole
+ServiceTypes=Kaplan/Plugin
+X-KDE-Library=libkpkmailplugin

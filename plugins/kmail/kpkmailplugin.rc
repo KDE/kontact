@@ -1,0 +1,4 @@
+<!DOCTYPE kpartgui>
+<kpartplugin name="kptestplugin" library="libkptestplugin" version="1">
+</kpartplugin>
+
