@@ -75,6 +75,11 @@ QString Plugin::icon() const
 }
 
 
+void Plugin::showPart( Kontact::Plugin *plugin )
+{
+    d->core->showPart(plugin);
+}
+
 DCOPClient* Plugin::dcopClient() const
 {
     if (!d->dcopClient)

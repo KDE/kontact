@@ -75,6 +75,13 @@ namespace Kontact
         QString icon() const;
 
         /**
+         * Will cause Kontact to raise the part of the plugin
+         */
+
+        void showPart( Kontact::Plugin *plugin );
+
+
+        /**
          * Create the DCOP interface for the given @p serviceType, if this
          * plugin provides it. Return false otherwise.
          */
