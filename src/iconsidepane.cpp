@@ -94,6 +94,12 @@ void EntryItem::paint( QPainter *p )
     p->drawPixmap( x, y, mPixmap );
   }
 
+  QColor save;
+  if ( isCurrent() || isSelected() ) {
+    save = p->pen().color();
+    p->setPen(listBox()->colorGroup().brightText());
+  }
+
   if ( !text().isEmpty() ) {
     QFontMetrics fm = p->fontMetrics();
     y += mPixmap.height() + fm.height() - fm.descent();
@@ -102,6 +108,7 @@ void EntryItem::paint( QPainter *p )
   }
   // draw sunken
   if ( isCurrent() || isSelected() ) {
+    p->setPen(save);
     QColorGroup group = box->colorGroup();
     group.setColor( QColorGroup::Dark, Qt::black );
     qDrawShadePanel( p, 1, 0, w - 2, height( box ),
@@ -113,20 +120,8 @@ Navigator::Navigator( SidePaneBase *parent, const char *name)
   : KListBox( parent, name ), mSidePane( parent )
 {
   setSelectionMode( KListBox::Single );
-
   viewport()->setBackgroundMode( PaletteMid );
-
-  QPalette pal = palette();
-  QColor gray = colorGroup().shadow();
-  pal.setColor( QPalette::Normal, QColorGroup::Text, Qt::white );
-  pal.setColor( QPalette::Inactive, QColorGroup::Text, Qt::white );
-  pal.setColor( QPalette::Normal, QColorGroup::HighlightedText, Qt::white );
-  pal.setColor( QPalette::Inactive, QColorGroup::HighlightedText, Qt::white );
-
-  setPalette( pal );
-
   setHScrollBarMode( QScrollView::AlwaysOff );
-
   setAcceptDrops( true );
 
   connect( this, SIGNAL( currentChanged( QListBoxItem * ) ),
