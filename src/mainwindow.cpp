@@ -81,8 +81,6 @@ MainWindow::MainWindow()
 
   m_plugins.setAutoDelete( true );
 
-  statusBar()->show();
-
   initWidgets();
  
   // prepare the part manager
@@ -113,8 +111,8 @@ MainWindow::MainWindow()
   KSettings::Dispatcher::self()->registerInstance( instance(), this,
       SLOT( updateConfig() ) );
   loadSettings();
-
   showTip( false );
+  statusBar()->show();
 }
 
 MainWindow::~MainWindow()
