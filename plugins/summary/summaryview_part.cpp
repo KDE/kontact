@@ -141,7 +141,7 @@ void SummaryViewPart::updateWidgets()
     Kontact::Summary *s = plugin->createSummaryWidget( mFrame );
     if ( s ) {
       int h = s->summaryHeight();
-      kdDebug() << "Summary for " << plugin->title() << " Height: " << h
+      kdDebug(5602) << "Summary for " << plugin->title() << " Height: " << h
                 << endl;
       if ( h ) {
         totalHeight += s->summaryHeight();

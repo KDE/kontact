@@ -139,7 +139,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
   QString text;
   if ( QTextDrag::decode( event, text ) ) {
-    kdDebug() << "DROP:" << text << endl;
+    kdDebug(5602) << "DROP:" << text << endl;
     interface()->openEventEditor( text );
     return;
   }

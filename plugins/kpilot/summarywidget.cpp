@@ -105,7 +105,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
   if ( !kapp->dcopClient()->isApplicationRegistered( "kpilotDaemon" ) ) {
     if ( !KApplication::startServiceByDesktopName( "kpilotDaemon", QStringList(), &error, &appID ) ) {
-      kdDebug() << "No service available..." << endl;
+      kdDebug(5602) << "No service available..." << endl;
     }
   }
 

@@ -30,7 +30,7 @@ void KOrganizerUniqueAppHandler::loadCommandLineOptions()
 
 int KOrganizerUniqueAppHandler::newInstance()
 {
-    //kdDebug() << k_funcinfo << endl;
+    //kdDebug(5602) << k_funcinfo << endl;
     // Ensure part is loaded
     (void)plugin()->part();
     // TODO handle command line options
