@@ -52,7 +52,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin,
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop, KIcon::SizeMedium );
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_notes", KIcon::Desktop, KIcon::SizeMedium );
   QWidget* heading = createHeader( this, icon, i18n( "Notes" ) );
 
   mMainLayout->addWidget(heading);

@@ -1,8 +1,8 @@
 /*
    This file is part of KDE Kontact.
 
-   Copyright (C) 2003 Sven Lüppken <sven@kde.org>
-   Copyright (C) 2003 Tobias König <tokoe@kde.org>
+   Copyright (C) 2003 Sven LÃ¼ppken <sven@kde.org>
+   Copyright (C) 2003 Tobias KÃ¶nig <tokoe@kde.org>
    Copyright (C) 2003 Daniel Molkentin <molkentin@kde.org>
 
    This library is free software; you can redistribute it and/or
@@ -37,7 +37,6 @@ namespace Kontact
 
 namespace KParts
 {
-  class StatusBarExtension;
   class PartActivateEvent;
 }
 
@@ -80,8 +79,6 @@ class SummaryViewPart : public KParts::ReadOnlyPart
 
     QPtrList<Kontact::Summary> mSummaries;
     Kontact::Core *mCore;
-
-    KParts::StatusBarExtension *mStatusExt;
     QFrame *mFrame;
     QFrame *mMainWidget;
     QVBoxLayout *mMainLayout;

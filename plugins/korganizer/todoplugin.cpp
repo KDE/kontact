@@ -26,6 +26,7 @@
 #include <qdragobject.h>
 
 #include <kapplication.h>
+#include <kabc/vcardconverter.h>
 #include <kaction.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
@@ -34,6 +35,7 @@
 #include <dcopclient.h>
 
 #include <libkdepim/maillistdrag.h>
+#include <libkdepim/kvcarddrag.h>
 
 #include "core.h"
 
@@ -132,6 +134,26 @@ bool TodoPlugin::isRunningStandalone()
 void TodoPlugin::processDropEvent( QDropEvent *event )
 {
   QString text;
+
+  KABC::VCardConverter converter;
+  if ( KVCardDrag::canDecode( event ) && KVCardDrag::decode( event, text ) ) {
+    KABC::Addressee::List contacts = converter.parseVCards( text );
+    KABC::Addressee::List::Iterator it;
+
+    QStringList attendees;
+    for ( it = contacts.begin(); it != contacts.end(); ++it ) {
+      QString email = (*it).fullEmail();
+      if ( email.isEmpty() )
+        attendees.append( (*it).realName() + "<>" );
+      else
+        attendees.append( email );
+    }
+
+    interface()->openTodoEditor( i18n( "Meeting" ), QString::null, QString::null,
+                                 attendees );
+    return;
+  }
+
   if ( QTextDrag::decode( event, text ) ) {
     interface()->openTodoEditor( text );
     return;

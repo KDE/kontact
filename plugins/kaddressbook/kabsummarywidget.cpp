@@ -63,7 +63,7 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kaddressbook",
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_contacts",
                     KIcon::Desktop, KIcon::SizeMedium );
 
   QWidget *header = createHeader( this, icon, i18n( "Birthdays and Anniversaries" ) );
@@ -108,9 +108,6 @@ void KABSummaryWidget::updateView()
   KABC::AddressBook::Iterator it;
   for ( it = ab->begin(); it != ab->end(); ++it ) {
     QDate birthday = (*it).birthday().date();
-    QDate anniversary = QDate::fromString(
-          (*it).custom( "KADDRESSBOOK" , "X-Anniversary" ), Qt::ISODate );
-
     if ( birthday.isValid() && mShowBirthdays ) {
       KABDateEntry entry;
       entry.birthday = true;
@@ -122,15 +119,19 @@ void KABSummaryWidget::updateView()
         dates.append( entry );
     }
 
-    if ( anniversary.isValid() && mShowAnniversaries ) {
-      KABDateEntry entry;
-      entry.birthday = false;
-      dateDiff( anniversary, entry.daysTo, entry.yearsOld );
+    QString anniversaryAsString = (*it).custom( "KADDRESSBOOK" , "X-Anniversary" );
+    if ( !anniversaryAsString.isEmpty() ) {
+      QDate anniversary = QDate::fromString( anniversaryAsString , Qt::ISODate );
+      if ( anniversary.isValid() && mShowAnniversaries ) {
+         KABDateEntry entry;
+         entry.birthday = false;
+         dateDiff( anniversary, entry.daysTo, entry.yearsOld );
 
-      entry.date = anniversary;
-      entry.addressee = *it;
-      if ( entry.daysTo <= mDaysAhead )
-        dates.append( entry );
+         entry.date = anniversary;
+         entry.addressee = *it;
+         if ( entry.daysTo <= mDaysAhead )
+           dates.append( entry );
+       }
     }
   }
 
@@ -245,9 +246,9 @@ void KABSummaryWidget::viewContact( const QString &uid )
 void KABSummaryWidget::popupMenu( const QString &uid )
 {
   KPopupMenu popup( this );
-  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Small ),
+  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kontact_mail", KIcon::Small ),
                     i18n( "Send &Mail" ), 0 );
-  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kaddressbook", KIcon::Small ),
+  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kontact_contact", KIcon::Small ),
                     i18n( "View &Contact" ), 1 );
 
   switch ( popup.exec( QCursor::pos() ) ) {

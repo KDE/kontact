@@ -1,8 +1,8 @@
 /*
    This file is part of KDE Kontact.
 
-   Copyright (C) 2003 Sven Lüppken <sven@kde.org>
-   Copyright (C) 2003 Tobias König <tokoe@kde.org>
+   Copyright (C) 2003 Sven LÃ¼ppken <sven@kde.org>
+   Copyright (C) 2003 Tobias KÃ¶nig <tokoe@kde.org>
    Copyright (C) 2003 Daniel Molkentin <molkentin@kde.org>
 
    This library is free software; you can redistribute it and/or
@@ -38,14 +38,12 @@
 #include <kservice.h>
 #include <ktrader.h>
 #include <kstandarddirs.h>
-#include <kstatusbar.h>
 #include <qscrollview.h>
 #include <kglobal.h>
 #include <klocale.h>
 #include <kcmultidialog.h>
 
 #include <kparts/componentfactory.h>
-#include <kparts/statusbarextension.h>
 #include <kparts/event.h>
 
 #include <infoextension.h>
@@ -55,6 +53,9 @@
 #include "summary.h"
 
 #include "summaryview_part.h"
+
+#include "broadcaststatus.h"
+using KPIM::BroadcastStatus;
 
 namespace Kontact
 {
@@ -67,7 +68,6 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
   : KParts::ReadOnlyPart( parent, name ),
     mCore( core ), mFrame( 0 ), mConfigAction( 0 )
 {
-  mStatusExt = new KParts::StatusBarExtension( this );
   setInstance( new KInstance( aboutData ) );
 
   initGUI( core );
@@ -160,8 +160,8 @@ void SummaryViewPart::updateWidgets()
                 << endl;
       if ( h ) {
         totalHeight += s->summaryHeight();
-        connect(s, SIGNAL(message(const QString&)),
-                mStatusExt->statusBar(), SLOT(message(const QString&)));
+        connect( s, SIGNAL( message( const QString& ) ),
+                 BroadcastStatus::instance(), SLOT( setStatusMsg( const QString& ) ) );
         mSummaries.append( s );
       } else {
         s->hide();
