@@ -56,38 +56,42 @@ class KontactApp : public KUniqueApplication {
 
 int KontactApp::newInstance()
 {
-  // show splash
+  QWidget* splash = 0;
+  if ( !mMainWindow ) // only the first time
+  {
+    // show splash
 #if (QT_VERSION-0 >= 0x030200)
-  QPixmap splashPixmap( UserIcon( "splash" ) );
+    QPixmap splashPixmap( UserIcon( "splash" ) );
 
-  QSplashScreen *splash = new QSplashScreen( splashPixmap );
-  splash->show();
+    splash = new QSplashScreen( splashPixmap );
+    splash->show();
 #else
-  Kontact::Splash *splash = new Kontact::Splash( 0, "splash" );
-  splash->show();
+    splash = new Kontact::Splash( 0, "splash" );
+    splash->show();
 #endif
+  }
 
   if ( isRestored() ) {
     // There can only be one main window
     if ( KMainWindow::canBeRestored( 1 ) ) {
       mMainWindow = new Kontact::MainWindow;
+      setMainWidget( mMainWindow );
       mMainWindow->show();
       mMainWindow->restore( 1 );
     }
   } else {
-    if ( mMainWindow ) {
-      mMainWindow->show();
-      KWin::forceActiveWindow( mMainWindow->winId() );
-      KStartupInfo::appStarted();
-    } else {
+    if ( !mMainWindow ) {
       mMainWindow = new Kontact::MainWindow;
       mMainWindow->show();
+      setMainWidget( mMainWindow );
     }
   }
 
   delete splash;
 
-  return 0;
+  // Handle startup notification and window activation
+  // (The first time it will do nothing except note that it was called)
+  return KUniqueApplication::newInstance();
 }
 
 int main(int argc, char **argv)
