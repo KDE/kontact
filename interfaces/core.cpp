@@ -53,15 +53,23 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
 
   kdDebug(5601) << "Creating new KPart" << endl;
 
+  int error = 0;
   KParts::ReadOnlyPart *part =
       KParts::ComponentFactory::
           createPartInstanceFromLibrary<KParts::ReadOnlyPart>
-              ( libname, this, 0, this, "kontact" );
+              ( libname, this, 0, this, "kontact", QStringList(), &error );
 
   if ( part ) {
     mParts.insert( libname, part );
     QObject::connect( part, SIGNAL( destroyed( QObject * ) ),
-        SLOT( slotPartDestroyed( QObject * ) ) );
+                      SLOT( slotPartDestroyed( QObject * ) ) );
+  } else {
+    if ( error == KParts::ComponentFactory::ErrNoLibrary ) {
+      // ### how to pass it to kontact for displaying together with the "Cannot load Part" box?
+      kdWarning(5601) << KLibLoader::self()->lastErrorMessage() << endl;
+    } else {
+      kdWarning(5601) << "KParts::ComponentFactory::createInstanceFromFactory returned error code " << error << " for " << libname << endl;
+    }
   }
 
   return part;
