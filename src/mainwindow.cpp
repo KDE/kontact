@@ -546,6 +546,11 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   plugin->select();
 
+  // store old focus widget
+  QWidget *focusWidget = kapp->focusWidget();
+  if ( mCurrentPlugin && focusWidget )
+    mFocusWidgets.insert( mCurrentPlugin->identifier(), QGuardedPtr<QWidget>( focusWidget ) );
+
   mPartManager->setActivePart( part );
   QWidget *view = part->widget();
   Q_ASSERT( view );
@@ -553,7 +558,13 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   if ( view ) {
     mStack->raiseWidget( view );
     view->show();
-    view->setFocus();
+
+    if ( mFocusWidgets.contains( plugin->identifier() ) ) {
+      focusWidget = mFocusWidgets[ plugin->identifier() ];
+      if ( focusWidget )
+        focusWidget->setFocus();
+    }
+
     mCurrentPlugin = plugin;
     KAction *action = plugin->newActions()->first();
     setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );

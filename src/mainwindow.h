@@ -23,8 +23,9 @@
 #ifndef KONTACT_MAINWINDOW_H
 #define KONTACT_MAINWINDOW_H
 
-#include <qwidgetstack.h>
+#include <qguardedptr.h>
 #include <qptrlist.h>
+#include <qwidgetstack.h>
 
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
@@ -163,6 +164,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     KPIM::StatusbarProgressWidget *mLittleProgress;
 
     QString mActiveModule;
+
+    QMap<QString, QGuardedPtr<QWidget> > mFocusWidgets;
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;

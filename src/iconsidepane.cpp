@@ -180,6 +180,8 @@ Navigator::Navigator( SidePaneBase *parent, const char *name)
   setHScrollBarMode( QScrollView::AlwaysOff );
   setAcceptDrops( true );
 
+  setFocusPolicy( NoFocus );
+
   connect( this, SIGNAL( selectionChanged( QListBoxItem * ) ),
            SLOT( slotExecuted( QListBoxItem * ) ) );
 
