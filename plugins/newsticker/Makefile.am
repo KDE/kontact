@@ -3,7 +3,7 @@ INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir) $(all_includes)
 kde_module_LTLIBRARIES = libkontact_newstickerplugin.la kcm_kontactknt.la
 libkontact_newstickerplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_newstickerplugin_la_LIBADD = $(LIB_KPARTS) $(LIB_KDEUI) \
-                                        $(LIB_KDEPIM) -lkpinterfaces
+                                        $(top_builddir)/libkdepim/libkdepim.la -lkpinterfaces
 
 libkontact_newstickerplugin_la_SOURCES = newsticker_plugin.cpp \
                                          summarywidget.cpp summarywidget.skel
