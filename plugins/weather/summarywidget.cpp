@@ -116,7 +116,8 @@ void SummaryWidget::updateView()
 
     QLabel *label = new QLabel( this );
     label->setPixmap( img.smoothScale( 32, 32 ) );
-    label->setAlignment( AlignRight | AlignTop );
+    label->setMaximumSize(label->sizeHint());
+    label->setAlignment(/* AlignRight |*/ AlignTop );
     layout->addMultiCellWidget( label, 0, 1, 0, 0 );
     mLabels.append( label );
 
