@@ -587,9 +587,10 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
     mCurrentPlugin = plugin;
     KAction *action = plugin->newActions()->first();
-    setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );
-
+    
     createGUI( plugin->part() );
+
+    setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );
 
     if ( action ) {
       mNewActions->setIcon( action->icon() );
