@@ -16,12 +16,12 @@
 #include "akregator_partiface_stub.h"
 #include <uniqueapphandler.h>
 
-typedef KParts::ReadOnlyPart MyBasePart;
-
 class KAboutData;
 
 namespace Akregator {
-  
+
+typedef KParts::ReadOnlyPart MyBasePart;
+      
 class UniqueAppHandler : public Kontact::UniqueAppHandler
 {
     public:
