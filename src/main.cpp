@@ -2,7 +2,7 @@
  * Copyright (C) 2001 Matthias Hölzer-Klüpfel <mhk@caldera.de>
  */
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <dcopclient.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>

@@ -1,7 +1,7 @@
 #include <qhbox.h>
 #include <qcombobox.h>
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <kconfig.h>
 #include <ktrader.h>
 #include <klibloader.h>
