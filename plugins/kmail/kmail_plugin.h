@@ -32,6 +32,9 @@
 #include <summary.h>
 #include <uniqueapphandler.h>
 
+class QMimeSource;
+class QDropEvent;
+
 class KMailUniqueAppHandler : public Kontact::UniqueAppHandler
 {
 public:
@@ -57,6 +60,10 @@ class KMailPlugin : public Kontact::Plugin
 
   protected:
     virtual KParts::Part* createPart();
+    void openComposer( const KURL& );
+    bool canDecodeDrag( QMimeSource * );
+    void processDropEvent( QDropEvent * );
+
 
   protected slots:
     void slotNewMail();

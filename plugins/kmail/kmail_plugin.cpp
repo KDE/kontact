@@ -31,11 +31,18 @@
 #include <kparts/componentfactory.h>
 #include <kstandarddirs.h>
 #include <dcopclient.h>
+#include <ktempfile.h>
+
+#include <libkcal/vcaldrag.h>
+#include <libkcal/icaldrag.h>
+#include <libkcal/calendarlocal.h>
 
 #include "core.h"
 #include "summarywidget.h"
 
 #include "kmail_plugin.h"
+
+using namespace KCal;
 
 typedef KGenericFactory<KMailPlugin, Kontact::Core> KMailPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_kmailplugin,
@@ -55,13 +62,35 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
       new Kontact::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
 }
 
+bool KMailPlugin::canDecodeDrag( QMimeSource *qms )
+{
+  return ( ICalDrag::canDecode( qms ) || VCalDrag::canDecode( qms ));
+}
 
-void KMailPlugin::slotNewMail()
+void KMailPlugin::processDropEvent( QDropEvent * de )
+{
+  CalendarLocal cal;
+  
+  if ( !VCalDrag::decode( de, &cal ) &&
+       !ICalDrag::decode( de, &cal ) )
+    return;
+
+  KTempFile tmp( locateLocal( "tmp", "incidences-" ), ".ics" );
+  cal.save(tmp.name());
+  openComposer( tmp.name() );
+}
+
+void KMailPlugin::openComposer( const KURL& attach )
 {
   (void) part(); // ensure part is loaded
   Q_ASSERT( mStub );
   if ( mStub )
-    mStub->openComposer( "", "", "", "", "", false, 0 );
+    mStub->openComposer( "", "", "", "", "", false, KURL(), attach );
+}
+
+void KMailPlugin::slotNewMail()
+{
+  openComposer( KURL() );
 }
 
 KMailPlugin::~KMailPlugin()
