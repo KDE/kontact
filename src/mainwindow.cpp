@@ -288,7 +288,7 @@ void MainWindow::loadPlugins()
       mDelayedPreload.append(plugin);
     }
 
-    kdDebug() << "LIBNAMEPART: " << libNameProp.toString() << endl;
+    kdDebug(5600) << "LIBNAMEPART: " << libNameProp.toString() << endl;
 
     plugin->setPartLibraryName( libNameProp.toString().utf8() );
     plugin->setExecutableName( exeNameProp.toString() );
@@ -308,7 +308,7 @@ void MainWindow::loadPlugins()
     QPtrList<KAction> *actionList = plugin->newActions();
 
     for(action = actionList->first(); action; action = actionList->next()){
-      kdDebug() << "Plugging " << action->name() << endl;
+      kdDebug(5600) << "Plugging " << action->name() << endl;
       action->plug(mNewActions->popupMenu());
     }
     addPlugin( plugin );
@@ -339,7 +339,7 @@ bool MainWindow::removePlugin( const KPluginInfo * info )
 
       for ( action = actionList->first(); action; action = actionList->next() )
       {
-        kdDebug() << "Unplugging " << action->name() << endl;
+        kdDebug(5600) << "Unplugging " << action->name() << endl;
         action->unplug( mNewActions->popupMenu() );
       }
 

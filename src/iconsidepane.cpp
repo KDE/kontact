@@ -176,16 +176,16 @@ void Navigator::slotExecuted( QListBoxItem *item )
 
 void Navigator::dragEnterEvent( QDragEnterEvent *event )
 {
-  kdDebug() << "Navigator::dragEnterEvent()" << endl;
+  kdDebug(5600) << "Navigator::dragEnterEvent()" << endl;
 
   dragMoveEvent( event );
 }
 
 void Navigator::dragMoveEvent( QDragMoveEvent *event )
 {
-  kdDebug() << "Navigator::dragEnterEvent()" << endl;
+  kdDebug(5600) << "Navigator::dragEnterEvent()" << endl;
   
-  kdDebug() << "  Format: " << event->format() << endl;
+  kdDebug(5600) << "  Format: " << event->format() << endl;
 
   QListBoxItem *item = itemAt( event->pos() );
 
@@ -196,14 +196,14 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
 
   EntryItem *entry = static_cast<EntryItem *>( item );
   
-  kdDebug() << "  PLUGIN: " << entry->plugin()->identifier() << endl;
+  kdDebug(5600) << "  PLUGIN: " << entry->plugin()->identifier() << endl;
 
   event->accept( entry->plugin()->canDecodeDrag( event ) );
 }
 
 void Navigator::dropEvent( QDropEvent *event )
 {
-  kdDebug() << "Navigator::dropEvent()" << endl;
+  kdDebug(5600) << "Navigator::dropEvent()" << endl;
 
   QListBoxItem *item = itemAt( event->pos() );
 
@@ -213,7 +213,7 @@ void Navigator::dropEvent( QDropEvent *event )
 
   EntryItem *entry = static_cast<EntryItem *>( item );
   
-  kdDebug() << "  PLUGIN: " << entry->plugin()->identifier() << endl;
+  kdDebug(5600) << "  PLUGIN: " << entry->plugin()->identifier() << endl;
 
   entry->plugin()->processDropEvent( event );  
 }
