@@ -40,12 +40,20 @@
 
 #include "kabsummarywidget.h"
 
-struct KABDateEntry
+class KABDateEntry
 {
-  bool birthday;
-  int yearsOld;
-  QDate date;
-  KABC::Addressee addressee;
+  public:
+    bool birthday;
+    int yearsOld;
+    QDate date;
+    KABC::Addressee addressee;
+
+    bool operator<( const KABDateEntry &entry ) const
+    {
+      QDate thisDate( 0, date.month(), date.day() );
+      QDate otherDate( 0, entry.date.month(), entry.date.day() );
+      return thisDate < otherDate;
+    }
 };
 
 KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
@@ -83,8 +91,7 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   if ( kapp->dcopClient()->isApplicationRegistered( "kaddressbook" ) )
     mDCOPApp = "kaddressbook";
   else {
-    KParts::Part *part = plugin->part();
-//    part->widget()->hide();
+    plugin->part();
     mDCOPApp = "kontact";
   }
 
@@ -98,8 +105,8 @@ void KABSummaryWidget::updateView()
   mLabels.setAutoDelete( false );
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
-  QMap<QDate, KABDateEntry> prevDates;
-  QMap<QDate, KABDateEntry> nextDates;
+  QValueList<KABDateEntry> prevDates;
+  QValueList<KABDateEntry> nextDates;
 
   QDate currentDate( 0, QDate::currentDate().month(),
                      QDate::currentDate().day() );
@@ -117,9 +124,9 @@ void KABSummaryWidget::updateView()
       entry.date = birthday;
       entry.addressee = *it;
       if ( date < currentDate )
-        prevDates.insert( date, entry, false );
+        prevDates.append( entry );
       else
-        nextDates.insert( date, entry, false );
+        nextDates.append( entry );
     }
     if ( anniversary.isValid() ) {
       QDate date( 0, anniversary.month(), anniversary.day() );
@@ -129,20 +136,23 @@ void KABSummaryWidget::updateView()
       entry.date = anniversary;
       entry.addressee = *it;
       if ( date < currentDate )
-        prevDates.insert( date, entry, false );
+        prevDates.append( entry );
       else
-        nextDates.insert( date, entry, false );
+        nextDates.append( entry );
     }
   }
 
+  qHeapSort( prevDates );
+  qHeapSort( nextDates );
+
   QValueList<KABDateEntry> dateList;
-  QMap<QDate, KABDateEntry>::Iterator dateIt;
+  QValueList<KABDateEntry>::Iterator dateIt;
   for ( dateIt = nextDates.begin(); dateIt != nextDates.end(); ++dateIt )
-    dateList.append( dateIt.data() );
+    dateList.append( *dateIt );
 
   for ( dateIt = prevDates.begin(); dateIt != prevDates.end(); ++dateIt ) {
-    dateIt.data().yearsOld++;
-    dateList.append( dateIt.data() );
+    (*dateIt).yearsOld++;
+    dateList.append( *dateIt );
   }
 
   int counter = 0;
