@@ -57,7 +57,6 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
   setInstance( new KInstance( "summaryviewpart" ) ); // ## memleak
 
   mFrame = new QFrame( core, widgetName );
-  mFrame->setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
   setWidget( mFrame );
 
   mLayout = new QGridLayout( mFrame, 6, 3, KDialog::marginHint(),

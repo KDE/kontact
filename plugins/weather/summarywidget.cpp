@@ -38,8 +38,6 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ),
     DCOPObject( "WeatherSummaryWidget" )
 {
-  setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
-
   mLayout = new QVBoxLayout( this );
 
   if ( !connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false ) )

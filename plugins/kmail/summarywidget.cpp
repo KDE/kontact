@@ -41,8 +41,6 @@
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ), mPlugin(plugin)
 {
-  setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
-
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
   QHBoxLayout *hbox = new QHBoxLayout( mainLayout, 3 );
   mLayout = new QGridLayout( mainLayout, 6, 3, 3 );
