@@ -27,7 +27,7 @@
 #define KP_PLUGIN_H
 
 #include <qobject.h>
-
+#include <qwidget.h>
 #include <kxmlguiclient.h>
 
 class QStringList;
@@ -54,7 +54,7 @@ namespace Kontact
          * you want your plugin to do dcop via it's own instance of
          * @ref DCOPClient by calling @ref dcopClient.
          */
-        Plugin(const QString& pluginName, const QString& icon, Core *core, 
+        Plugin(const QString& pluginName, const QString& icon, Core *core,
                QObject *parent, const char *name);
 
         ~Plugin();
@@ -84,7 +84,7 @@ namespace Kontact
          * part and the module will have to take care for config syncing themselves.
          * Usually @p DCOP used for that purpose.
          *
-         * @note Make sure you offer the modules in the form: 
+         * @note Make sure you offer the modules in the form:
          * <code>"pathrelativetosettings/mysettings.desktop"</code>
          *
          **/
@@ -97,7 +97,7 @@ namespace Kontact
         virtual KAboutData* aboutData() { return 0L; };
 
         /**
-         * Reimplement and retun the part here.You can use this method if 
+         * Reimplement and retun the part here.You can use this method if
          * you need to access the current part. Reimpleneting part() is mandatory!
          **/
         virtual KParts::Part* part() = 0L;
@@ -106,7 +106,7 @@ namespace Kontact
          * Reimplement this method if you want to add a widget for your application
          * to Kontact's summary page.
          **/
-        virtual QWidget * SummaryWidget() { return 0L };
+        virtual QWidget * SummaryWidget() { return 0L; };
 
         /**
          * Retrieve the current DCOP Client for the plugin.
@@ -123,15 +123,15 @@ namespace Kontact
         /**
          * Emitted when the part will be shown. If you really want to avoid that
          * the part is shown at all, you will have to reimplement showPart();
-         **/ 
+         **/
         void aboutToShowPart();
-        
+
     protected:
         Core *core() const;
 
         /**
          * This will cause the part to show up by calling  KPart::show();
-         **/ 
+         **/
         virtual void showPart();
 
     private:
