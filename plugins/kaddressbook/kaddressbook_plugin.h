@@ -10,6 +10,7 @@
 
 
 class KAboutData;
+class KABSummaryWidget;
 
 class KAddressbookPlugin : public Kontact::Plugin
 {
@@ -32,7 +33,7 @@ private slots:
 private:
   KAddressBookIface_stub *m_stub;
   KParts::ReadOnlyPart *m_part;
-
+  KABSummaryWidget *m_summaryWidget;
 };
 
 

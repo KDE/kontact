@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Exec=blubb
+Comment=Kontact Weather Plugin
+Name=Weather
+Icon=konsole
+ServiceTypes=Kontact/Plugin
+X-KDE-Library=libkpweatherplugin
