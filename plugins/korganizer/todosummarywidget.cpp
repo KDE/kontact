@@ -116,8 +116,8 @@ void TodoSummaryWidget::updateView()
       bool accepted = false;
       QString stateText;
 
-      // show all todos
-      if ( showAllTodos )
+      // show all incomplete todos
+      if ( showAllTodos && !todo->isCompleted())
         accepted = accepted || true;
 
       // show uncomplete todos from the last days
