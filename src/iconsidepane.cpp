@@ -134,13 +134,15 @@ int EntryItem::height( const QListBox *listbox ) const
 {
   int h;
   if ( text().isEmpty() )
-    h = mPixmap.height();
+    h = mPixmap.height() + 4;
   else if (navigator()->viewMode() > SmallIcons)
-    h = (int)navigator()->viewMode() + listbox->fontMetrics().lineSpacing();
+    h = (int)navigator()->viewMode() + listbox->fontMetrics().lineSpacing() + 4;
   else
-    h = QMAX( (int)navigator()->viewMode(), listbox->fontMetrics().lineSpacing() );
+    h = QMAX( (int)navigator()->viewMode(),
+              listbox->fontMetrics().lineSpacing() ) +
+              KDialog::spacingHint() * 2;
 
-  return h + 4;
+  return h;
 }
 
 void EntryItem::paint( QPainter *p )
@@ -150,7 +152,7 @@ void EntryItem::paint( QPainter *p )
   QListBox *box = listBox();
   bool iconAboveText = navigator()->viewMode() > SmallIcons;
   int w = box->viewport()->width();
-  int y = 2;
+  int y = iconAboveText ? 2 : KDialog::spacingHint();
 
   // draw selected
   if ( isCurrent() || isSelected() ) {
