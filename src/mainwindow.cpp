@@ -196,7 +196,8 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
 
 void MainWindow::loadPlugins()
 {
-  KTrader::OfferList offers = KTrader::self()->query( QString::fromLatin1( "Kontact/Plugin" ), QString::null );
+  KTrader::OfferList offers = KTrader::self()->query( QString::fromLatin1( "Kontact/Plugin" ), 
+		  QString::fromLatin1("[X-KDE-KontactPluginVersion] == 1"));
 
   QPtrList<Plugin> plugins;
 

@@ -2,10 +2,26 @@
 Type=Service
 Exec=
 Comment=Kontact SummaryView Plugin
+Comment[ca]=Connector Kontact per a vista del resum
+Comment[da]=Kontact SummaryView-plugin
+Comment[es]=Accesorio Vista resumen para Kontact
+Comment[hu]=Kontact bővítőmodul a névjegyek áttekintéséhez
+Comment[pt_BR]=Plug-in SummaryView do Kontact
+Comment[sv]=Kontact-insticksprogram för översikt
+Comment[tr]=Kontact Özet Gösterim Eklentisi
+Comment[xx]=xxKontact SummaryView Pluginxx
 Name=Summary
+Name[ca]=Resum
+Name[da]=Opsummaring
+Name[es]=Resumen
+Name[pt_BR]=Resumo
+Name[sv]=Översikt
+Name[tr]=Özet
+Name[xx]=xxSummaryxx
 Icon=keditbookmarks
 ServiceTypes=Kontact/Plugin
 X-KDE-Library=libkpsummaryplugin
 X-KDE-KontactIdentifier=summary
+X-KDE-KontactPluginVersion=1
 #Always last
 InitialPreference=0

@@ -2,8 +2,17 @@
 Type=Service
 Exec=
 Comment=Kontact KNode Plugin
+Comment[be]=Дапаўненьне Кантакту "KNode"
+Comment[da]=Kontact KNode-plugin
+Comment[es]=Accesorio KNode para Kontact
+Comment[sv]=Kontact insticksdelprogram för Knode
 Name=News
+Name[be]=Навіны
+Name[da]=Nyheder
+Name[es]=Noticias
+Name[sv]=Nyheter
 Icon=knode
 ServiceTypes=Kontact/Plugin
 X-KDE-Library=libkpknodeplugin
 X-KDE-KontactIdentifier=news
+X-KDE-KontactPluginVersion=1

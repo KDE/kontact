@@ -2,8 +2,25 @@
 Type=Service
 Exec=
 Comment=Kontact Weather Plugin
+Comment[be]=Comment=Дапаўненьне Кантакту "Надвор'е"
+Comment[ca]=Connector de temps vist per a Kontact
+Comment[da]=Kontact Vejr-plugin
+Comment[es]=Accesorio de clima para Kontact
+Comment[pt_BR]=Plugin de Tempo do Kontact
+Comment[sv]=Kontact-väderinsticksprogram
+Comment[tr]=Kontact Hava Durumu Eklentisi
+Comment[xx]=xxKontact Weather Pluginxx
 Name=Weather
+Name[be]=Надвор'е
+Name[ca]=Temps vist
+Name[da]=Vejr
+Name[es]=Clima
+Name[pt_BR]=Tempo
+Name[sv]=Väder
+Name[tr]=Hava Durumu
+Name[xx]=xxWeatherxx
 Icon=
 ServiceTypes=Kontact/Plugin
 X-KDE-Library=libkpweatherplugin
 X-KDE-KontactIdentifier=weather
+X-KDE-KontactPluginVersion=1
