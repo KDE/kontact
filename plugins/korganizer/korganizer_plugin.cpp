@@ -7,7 +7,7 @@
 #include <kiconloader.h>
 #include <kparts/componentfactory.h>
 
-#include "kpcore.h"
+#include "core.h"
 
 #include "korganizer_plugin.h"
 #include <kdebug.h>

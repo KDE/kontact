@@ -24,7 +24,7 @@
 #include <qframe.h>
 
 #include <sidebarextension.h>
-#include "kpplugin.h"
+#include "plugin.h"
 
 #include <kmessagebox.h>
 #include <klocale.h>
@@ -37,6 +37,7 @@
 #include <ktrader.h>
 #include <kservice.h>
 #include <kparts/componentfactory.h>
+#include <libkdepim/infoextension.h>
 
 namespace Kontact
 {
@@ -73,6 +74,12 @@ SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins,
 	kapp->dcopClient()->setNotifications( true );
 
 	getWidgets();
+
+  KParts::InfoExtension *info = new KParts::InfoExtension( this, "Summary" );
+  connect( this, SIGNAL( textChanged( const QString& ) ),
+           info, SIGNAL( textChanged( const QString& ) ) );
+
+  emit textChanged( i18n( "What's next?" ) );
 }
 
 SummaryViewPart::~SummaryViewPart()

@@ -50,7 +50,7 @@
 
 #include <infoextension.h>
 
-#include "kpplugin.h"
+#include "plugin.h"
 
 #include "prefs.h"
 #include "mainwindow.h"

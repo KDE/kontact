@@ -11,8 +11,8 @@
 
 #include <kdebug.h>
 
-#include "kpcore.h"
-#include "kpplugin.h"
+#include "core.h"
+#include "plugin.h"
 
 #include "kabsummarywidget.h"
 #include "kaddressbook_plugin.h"

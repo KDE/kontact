@@ -20,7 +20,7 @@
 #define KNOTES_PLUGIN_H
 
 
-#include "kpplugin.h"
+#include "plugin.h"
 
 class KNotesPart;
 class SummaryWidget;

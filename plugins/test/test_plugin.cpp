@@ -3,7 +3,7 @@
 #include <kgenericfactory.h>
 #include <kstatusbar.h>
 
-#include "kpcore.h"
+#include "core.h"
 
 #include "test_plugin.h"
 #include "test_part.h"

@@ -21,7 +21,7 @@
 #ifndef __WEATHER_PLUGIN_H__
 #define __WEATHER_PLUGIN_H__
 
-#include "kpplugin.h"
+#include "plugin.h"
 
 class SummaryWidget;
 

@@ -24,7 +24,7 @@
 #include <kiconloader.h>
 #include <kstatusbar.h>
 
-#include "kpcore.h"
+#include "core.h"
 
 #include <kdebug.h>
 

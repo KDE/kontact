@@ -31,7 +31,7 @@
 #include <kparts/partmanager.h>
 #include <kdcopservicestarter.h>
 
-#include "kpcore.h"
+#include "core.h"
 
 class KAction;
 class QSplitter;

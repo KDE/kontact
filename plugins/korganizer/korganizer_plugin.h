@@ -5,7 +5,7 @@
 #include <kparts/part.h>
 
 
-#include "kpplugin.h"
+#include "plugin.h"
 #include "korganizeriface_stub.h"
 
 class KOrganizerPlugin : public Kontact::Plugin

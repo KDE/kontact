@@ -31,7 +31,7 @@
 #include <kurllabel.h>
 #include <kparts/part.h>
 
-#include "kpplugin.h"
+#include "plugin.h"
 
 class QGridLayout;
 class QString;

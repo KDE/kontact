@@ -23,7 +23,7 @@
 
 // $Id$
 
-#include "kpcore.h"
+#include "core.h"
 
 using namespace Kontact;
 

@@ -9,7 +9,7 @@
 #include <kiconloader.h>
 #include <kparts/componentfactory.h>
 
-#include "kpcore.h"
+#include "core.h"
 #include "summarywidget.h"
 
 #include "kmail_plugin.h"

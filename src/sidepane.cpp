@@ -37,7 +37,7 @@
 
 #include "mainwindow.h"
 
-#include "kpplugin.h"
+#include "plugin.h"
 
 #include "sidepane.h"
 

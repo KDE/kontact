@@ -21,7 +21,7 @@
 #include <kgenericfactory.h>
 #include <kparts/componentfactory.h>
 
-#include "kpcore.h"
+#include "core.h"
 #include "summarywidget.h"
 
 #include "weather_plugin.h"

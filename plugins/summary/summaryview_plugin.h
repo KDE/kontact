@@ -20,7 +20,7 @@
 #ifndef __SUMMARYVIEW_PLUGIN_H__
 #define __SUMMARYVIEW_PLUGIN_H__
 
-#include "kpplugin.h"
+#include "plugin.h"
 #include <kparts/part.h>
 
 class SummaryView : public Kontact::Plugin

@@ -27,8 +27,8 @@
 
 #include <dcopclient.h>
 
-#include "kpcore.h"
-#include "kpplugin.h"
+#include "core.h"
+#include "plugin.h"
 
 using namespace Kontact;
 
@@ -107,6 +107,6 @@ Kontact::Core* Plugin::core() const
     return d->core;
 }
 
-#include "kpplugin.moc"
+#include "plugin.moc"
 
 // vim: ts=4 sw=4 et

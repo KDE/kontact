@@ -2,7 +2,7 @@
 #define __TEST_PLUGIN_H__
 
 
-#include "kpplugin.h"
+#include "plugin.h"
 
 
 class TestPart;

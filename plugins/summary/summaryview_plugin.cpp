@@ -24,7 +24,7 @@
 #include <kparts/componentfactory.h>
 #include <kdebug.h>
 
-#include "kpcore.h"
+#include "core.h"
 #include "summaryview_plugin.h"
 #include "summaryview_part.h"
 
@@ -33,8 +33,8 @@
 typedef KGenericFactory< SummaryView, Kontact::Core > SummaryViewFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpsummaryplugin, SummaryViewFactory( "kpsummaryplugin" ) );
 
-SummaryView::SummaryView(Kontact::Core *_core, const char *name, const QStringList &)
-  : Kontact::Plugin(i18n("Summary"), "summary", _core, _core, name), m_part(0)
+SummaryView::SummaryView(Kontact::Core *_core, const char*, const QStringList &)
+  : Kontact::Plugin(i18n("Summary"), "summary", _core, _core, "summary"), m_part(0)
 {
 	setInstance(SummaryViewFactory::instance());
 

@@ -21,7 +21,7 @@
 #define __SUMMARYVIEW_PART_H__
 
 #include <kparts/part.h>
-#include "kpcore.h"
+#include "core.h"
 
 class QGridLayout;
 class QFrame;
@@ -39,6 +39,9 @@ public:
 
   SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins, QWidget* parentWidget, const char* widgetName, QObject *parent=0, const char *name=0 );
     ~SummaryViewPart();
+
+signals:
+  void textChanged( const QString& );
 
 protected:
 
