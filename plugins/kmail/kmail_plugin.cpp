@@ -85,34 +85,43 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
   if ( VCalDrag::decode( de, &cal ) || ICalDrag::decode( de, &cal ) ) {
     KTempFile tmp( locateLocal( "tmp", "incidences-" ), ".ics" );
     cal.save( tmp.name() );
-    openComposer( QString::null, KURL::fromPathOrURL( tmp.name() ) );
+    openComposer( KURL::fromPathOrURL( tmp.name() ) );
   }
   else if ( KVCardDrag::decode( de, list ) ) {
     KABC::Addressee::List::Iterator it;
     QStringList to;
     for ( it = list.begin(); it != list.end(); ++it ) {
-      to += ( *it ).fullEmail();
+      to.append( ( *it ).fullEmail() );
     }
     openComposer( to.join(", ") );
   }
 
 }
 
-void KMailPlugin::openComposer( const QString& to, const KURL& attach )
+void KMailPlugin::openComposer( const KURL& attach )
 {
   (void) part(); // ensure part is loaded
   Q_ASSERT( mStub );
   if ( mStub ) {
     if ( attach.isValid() )
-      mStub->openComposer( to, "", "", "", "", false, KURL(), attach );
+      mStub->openComposer( "", "", "", "", "", false, KURL(), attach );
     else
       mStub->newMessage();
   }
 }
 
+void KMailPlugin::openComposer( const QString& to )
+{
+  (void) part(); // ensure part is loaded
+  Q_ASSERT( mStub );
+  if ( mStub ) {
+      mStub->openComposer( to, "", "", "", "", 0 ); 
+  }
+}
+
 void KMailPlugin::slotNewMail()
 {
-  openComposer( QString::null, KURL() );
+  openComposer( QString::null );
 }
 
 KMailPlugin::~KMailPlugin()
