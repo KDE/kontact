@@ -18,7 +18,7 @@ UNTIL KDE 3.2
   for larger icons) (slueppken)                                (done)
 - make all parts use the InfoExtension                         (done)
 - make KCMultiDialog not crash when non-existent desktop-file 
-  is given to addModule()
+  is given to addModule()                                      (done)
 - support icon and buttons sidebar                             (done)
 - enable/disable single plugins                                (done)
 
