@@ -55,7 +55,6 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
 
   mainLayout->addWidget(header);
   mainLayout->addLayout(mLayout);
-  mainLayout->addStretch();
 
   slotUnreadCountChanged();
   connectDCOPSignal( 0, 0, "unreadCountChanged()", "slotUnreadCountChanged()",
