@@ -66,15 +66,27 @@ MainWindow::MainWindow()
   vBox->setSpacing(0);
 
   // Initiate the headerWidget
-  headerWidget = new QLabel(QString::null, vBox);
-  headerWidget->setSizePolicy( QSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum ) );
-  headerWidget->setFrameShape(QFrame::ToolBarPanel);
-  connect( this, SIGNAL( textChanged( const QString& ) ), headerWidget, SLOT( setText( const QString& ) ) );
+  headerFrame = new QHBox( vBox );
+  headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
+  headerFrame->setSpacing(0);
 
+  headerText = new QLabel( headerFrame );
+  headerText->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
+  headerText->setFrameShape( QFrame::ToolBarPanel );
+  headerText->setAutoMask(true);
+
+  headerPixmap = new QLabel( headerFrame );
+  headerPixmap->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
+  headerPixmap->setFrameShape( QFrame::ToolBarPanel );
+  headerPixmap->setAutoMask(true);
+  headerPixmap->setAlignment( AlignRight );
+
+  connect( this, SIGNAL( textChanged( const QString& ) ), headerText, SLOT( setText( const QString& ) ) );
+  connect( this, SIGNAL( iconChanged( const QPixmap& ) ), headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
   QFont fnt(m_sidePane->font());
   fnt.setBold(true);
   fnt.setPointSize(m_sidePane->font().pointSize()+3);
-  headerWidget->setFont(fnt);
+  headerText->setFont(fnt);
 
   m_lastInfoExtension = 0L;
 
@@ -180,12 +192,19 @@ void MainWindow::activePartChanged(KParts::Part *part)
   if( ie != 0L )
   {
       disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
-	  			 headerWidget, SLOT( setText( const QString& ) ) );
-	  connect( ie, SIGNAL( textChanged( const QString& ) ),
-	  			 headerWidget, SLOT( setText( const QString& ) ) );
+	  			 headerText, SLOT( setText( const QString& ) ) );
+      connect( ie, SIGNAL( textChanged( const QString& ) ),
+	  			 headerText, SLOT( setText( const QString& ) ) );
+      disconnect( m_lastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
+				 headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
+      connect( ie, SIGNAL( iconChanged( const QPixmap& ) ),
+				 headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
   }
   else
-	  headerWidget->setText( QString::null );
+  {
+	  headerText->setText( QString::null );
+	  headerPixmap->setPixmap( QPixmap() );
+  }
   m_lastInfoExtension = ie;
 
   createGUI(part);

@@ -36,6 +36,7 @@
 #include <kdcopservicestarter.h>
 
 class KAction;
+class QHBox;
 
 namespace KParts
 {
@@ -75,6 +76,7 @@ public:
 
  signals:
   void textChanged( const QString& );
+  void iconChanged( const QPixmap& );
 
 private slots:
 
@@ -104,7 +106,10 @@ private:
 
   KActionMenu *m_newActions;
 
-  QLabel *headerWidget;
+  QHBox *headerFrame;
+  QLabel *headerText;
+  QLabel *headerPixmap;
+
   KParts::InfoExtension *m_lastInfoExtension;
 
 };
