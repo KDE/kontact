@@ -86,7 +86,7 @@ class NoteEditDialog : public KDialogBase
       layout->addWidget( mTextEdit );
 
       mTextEdit->setText( text );
-      mTextEdit->setFocus();      
+      mTextEdit->setFocus();
     }
 
     QString text() const { return mTextEdit->text(); }
@@ -224,7 +224,7 @@ void KNotesPart::removeSelectedNotes()
     return;
 
   int ret = KMessageBox::warningContinueCancelList( mNotesView,
-      i18n( "Do you really want to delete that note?", 
+      i18n( "Do you really want to delete that note?",
             "Do you really want to delete these %n notes?", items.count() ),
       titles,
       i18n( "Confirm Delete" ),
@@ -329,7 +329,7 @@ bool KNotesPart::lock()
 
   if ( !ok )
     KMessageBox::error( mNotesView,
-                        i18n( "Unable to access the notes, make sure no other program uses them!" ) );
+                        i18n( "Unable to access the notes, make sure no other program uses them." ) );
 
   return ok;
 }
