@@ -58,7 +58,7 @@ class KontactApp : public KUniqueApplication {
 
 static KCmdLineOptions options[] =
 {
-    { "module <module>",   I18N_NOOP("Open a specific kontact module."), 0 },
+    { "module <module>",   I18N_NOOP("Open a specific Kontact module."), 0 },
     { "list", I18N_NOOP("List plugins that are run at startup."), 0 },
     KCmdLineLastOption
 };

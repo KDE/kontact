@@ -54,7 +54,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "KWeatherService" ) ) {
     if ( KApplication::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
-      QLabel *label = new QLabel( i18n( "No weather dcop service available,\nyou need kweather to use this plugin." ), this );
+      QLabel *label = new QLabel( i18n( "No weather dcop service available;\nyou need KWeather to use this plugin." ), this );
       mLayout->addWidget( label, Qt::AlignHCenter );
       serviceAvailable = false;
     }
