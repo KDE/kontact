@@ -24,7 +24,7 @@ KOrganizerPlugin::KOrganizerPlugin(Kontact::Core *_core, const char *, const QSt
 
   setXMLFile("kpkorganizerplugin.rc");
 
-  core()->addMainEntry(i18n("Dates"), "korganizer", this, SLOT(slotShowPart()));
+  core()->addMainEntry(i18n("Calendar"), "korganizer", this, SLOT(slotShowPart()));
   core()->insertNewAction(  new KAction(  i18n(  "New Appointment" ), BarIcon(  "appointment" ),
 			                0, this, SLOT(  slotNewAppointment() ), actionCollection(), "new_appointment" ) );
 
