@@ -23,7 +23,6 @@
 */
 
 #include "aboutdialog.h"
-#include "aboutdialog.moc"
 
 #include "core.h"
 #include "plugin.h"
@@ -46,15 +45,14 @@ AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
                  true ),
     mCore( core )
 {
-  addAboutData( i18n("Kontact Container"), QString( "kontact" ),
+  addAboutData( i18n( "Kontact Container" ), QString( "kontact" ),
                 KGlobal::instance()->aboutData() );
 
   QValueList<Plugin*> plugins = mCore->pluginList();
   QValueList<Plugin*>::ConstIterator end = plugins.end();
   QValueList<Plugin*>::ConstIterator it = plugins.begin();
-  for ( ; it != end; ++it ) {
+  for ( ; it != end; ++it )
     addAboutPlugin( *it );
-  }
 
   addLicenseText( KGlobal::instance()->aboutData() );
 }
@@ -75,7 +73,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
   if ( !about ) {
-    QLabel *label = new QLabel( i18n("No about information available."),
+    QLabel *label = new QLabel( i18n( "No about information available." ),
                                 topFrame );
     topLayout->addWidget( label );
   } else {
@@ -83,9 +81,9 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
     text += "<p><b>" + about->programName() + "</b><br>";
 
-    text += i18n("Version %1</p>").arg( about->version() );
+    text += i18n( "Version %1</p>" ).arg( about->version() );
 
-    if (!about->shortDescription().isEmpty()) {
+    if ( !about->shortDescription().isEmpty() ) {
       text += "<p>" + about->shortDescription() + "<br>" +
                about->copyrightStatement() + "</p>";
     }
@@ -108,34 +106,36 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
     text = "";
 
-    QValueList<KAboutPerson> authors = about->authors();
+    const QValueList<KAboutPerson> authors = about->authors();
     if ( !authors.isEmpty() ) {
-      text += i18n("<p><b>Authors:</b></p>");
+      text += i18n( "<p><b>Authors:</b></p>" );
 
       QValueList<KAboutPerson>::ConstIterator it;
-      for( it = authors.begin(); it != authors.end(); ++it ) {
+      for ( it = authors.begin(); it != authors.end(); ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
-        if (!(*it).task().isEmpty()) text += "<i>" + (*it).task() + "</i><br>";
+        if ( !(*it).task().isEmpty() )
+          text += "<i>" + (*it).task() + "</i><br>";
       }
     }
 
-    QValueList<KAboutPerson> credits = about->credits();
+    const QValueList<KAboutPerson> credits = about->credits();
     if ( !credits.isEmpty() ) {
-      text += i18n("<p><b>Thanks to:</b></p>");
+      text += i18n( "<p><b>Thanks to:</b></p>" );
 
       QValueList<KAboutPerson>::ConstIterator it;
-      for( it = credits.begin(); it != credits.end(); ++it ) {
+      for ( it = credits.begin(); it != credits.end(); ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
-        if (!(*it).task().isEmpty()) text += "<i>" + (*it).task() + "</i><br>";
+        if ( !(*it).task().isEmpty() )
+          text += "<i>" + (*it).task() + "</i><br>";
       }
     }
 
-    QValueList<KAboutTranslator> translators = about->translators();
+    const QValueList<KAboutTranslator> translators = about->translators();
     if ( !translators.isEmpty() ) {
       text += i18n("<p><b>Translators:</b></p>");
 
       QValueList<KAboutTranslator>::ConstIterator it;
-      for( it = translators.begin(); it != translators.end(); ++it ) {
+      for ( it = translators.begin(); it != translators.end(); ++it ) {
        text += formatPerson( (*it).name(), (*it).emailAddress() );
       }
     }
@@ -150,24 +150,28 @@ QString AboutDialog::formatPerson( const QString &name, const QString &email )
   if ( !email.isEmpty() ) {
     text += " &lt;<a href=\"mailto:" + email + "\">" + email + "</a>&gt;";
   }
+
   text += "<br>";
   return text;
 }
 
-void AboutDialog::addLicenseText(const KAboutData *about)
+void AboutDialog::addLicenseText( const KAboutData *about )
 {
-  if ( !about || about->license().isEmpty() ) return;
+  if ( !about || about->license().isEmpty() )
+    return;
 
   QPixmap pixmap = KGlobal::iconLoader()->loadIcon( "signature",
                                                     KIcon::Desktop, 48 );
 
-  QString title = i18n("%1 License").arg(about->programName());
+  QString title = i18n( "%1 License" ).arg( about->programName() );
 
   QFrame *topFrame = addPage( title, QString::null, pixmap );
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
   KTextBrowser *textBrowser = new KTextBrowser( topFrame );
-  textBrowser->setText( QString("<pre>%1</pre>").arg(about->license()) );
+  textBrowser->setText( QString( "<pre>%1</pre>" ).arg( about->license() ) );
 
-  topLayout->addWidget(textBrowser);
+  topLayout->addWidget( textBrowser );
 }
+
+#include "aboutdialog.moc"

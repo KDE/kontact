@@ -87,7 +87,7 @@ MainWindow::MainWindow()
   setWFlags( getWFlags() | WGroupLeader );
 
   initGUI();
-  QTimer::singleShot( 0, this, SLOT(initObject()) );
+  QTimer::singleShot( 0, this, SLOT( initObject() ) );
 }
 
 void MainWindow::initGUI()
@@ -109,7 +109,6 @@ void MainWindow::initGUI()
 
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
-  
 }
 
 
@@ -165,7 +164,6 @@ void MainWindow::initObject()
   }
 
   Prefs::setLastVersionSeen( kapp->aboutData()->version() );
-
 }
 
 MainWindow::~MainWindow()
@@ -182,16 +180,15 @@ MainWindow::~MainWindow()
   Prefs::self()->writeConfig();
 }
 
-void MainWindow::setActivePluginModule( const QString &_module )
+void MainWindow::setActivePluginModule( const QString &module )
 {
-  mActiveModule = _module;
+  mActiveModule = module;
   activatePluginModule();
 }
 
 void MainWindow::activatePluginModule()
 {
-  if ( !mActiveModule.isEmpty() )
-  {
+  if ( !mActiveModule.isEmpty() ) {
     PluginList::ConstIterator end = mPlugins.end();
     for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
       if ( ( *it )->identifier().contains( mActiveModule ) ) {
@@ -230,8 +227,6 @@ void MainWindow::initWidgets()
                                            QSizePolicy::Preferred ) );
   }
 
-  
-  
   mSidePane->setActionCollection( actionCollection() );
 
   connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
@@ -267,7 +262,6 @@ void MainWindow::initWidgets()
   mLittleProgress->show();
 }
 
-
 void MainWindow::initAboutScreen()
 {
   QHBox *introbox = new QHBox( mPartsStack );
@@ -285,41 +279,40 @@ void MainWindow::initAboutScreen()
 
   QString location = locate( "data", "kontact/about/main.html" );
   QString content = KPIM::kFileToString( location );
-  introPart->begin(KURL( location ) );
-  QString appName(i18n("Kontact")); 
-  QString catchPhrase(i18n("Get Organized!")); 
-  QString quickDescription(i18n("The KDE Personal Information Management Suite"));
-  QString info = i18n("<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
+  introPart->begin( KURL( location ) );
+  QString appName( i18n( "Kontact" ) ); 
+  QString catchPhrase( i18n( "Get Organized!" ) ); 
+  QString quickDescription( i18n( "The KDE Personal Information Management Suite" ) );
+  QString info = i18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
       "<p>%2</p><ul>"
       "<li><a href=\"%3\">Read Manual</a></li>"
       "<li><a href=\"%4\">Visit Kontact Website</a></li>"
       "<li><a href=\"%5\">Configure Kontact as Groupware Client</a></li>"
       "</ul><p style=\"margin-bottom: 0px\"> <a href=\"%6\">Skip this introduction</a></p>")
-      .arg(kapp->aboutData()->version())
-      .arg(i18n("Some introductionary text goes here..."))
-      .arg("help:/kontact")
-      .arg("http://kontact.kde.org")
-      .arg("exec:/gwwizard")
-      .arg("exec:/switch");
+      .arg( kapp->aboutData()->version() )
+      .arg( i18n( "Some introductionary text goes here..." ) )
+      .arg( "help:/kontact" )
+      .arg( "http://kontact.kde.org" )
+      .arg( "exec:/gwwizard" )
+      .arg( "exec:/switch" );
 
   introPart->write( content.arg( QFont().pointSize() ).arg( appName )
       .arg( catchPhrase ).arg( quickDescription ).arg( info ) );
   introPart->end();
 
-  connect(introPart->browserExtension(),
-          SIGNAL(openURLRequest(const KURL &, const KParts::URLArgs &)),
-          SLOT(slotOpenUrl(const KURL &)));
+  connect( introPart->browserExtension(),
+           SIGNAL( openURLRequest( const KURL&, const KParts::URLArgs& ) ),
+           SLOT( slotOpenUrl( const KURL& ) ) );
 
-  connect(introPart->browserExtension(),
-          SIGNAL(createNewWindow(const KURL &, const KParts::URLArgs &)),
-          SLOT(slotOpenUrl(const KURL &)));
+  connect( introPart->browserExtension(),
+           SIGNAL( createNewWindow( const KURL&, const KParts::URLArgs& ) ),
+           SLOT( slotOpenUrl( const KURL& ) ) );
 }
-
 
 void MainWindow::setupActions()
 {
   KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
-  mNewActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), ""),
+  mNewActions = new KToolBarPopupAction( KGuiItem( i18n( "New" ), "" ),
                                          KShortcut(), this, SLOT( slotNewClicked() ),
                                          actionCollection(), "action_new" );
 
@@ -336,7 +329,6 @@ void MainWindow::setupActions()
                actionCollection(), "help_tipofday" );
   new KAction( i18n( "&Request Feature..." ), 0, this, SLOT( slotRequestFeature() ),
                actionCollection(), "help_requestfeature" );
-
 }
 
 void MainWindow::initHeaderWidget( QVBox *vBox )
@@ -371,16 +363,16 @@ void MainWindow::initHeaderWidget( QVBox *vBox )
   mHeaderText->setFont( fnt );
 }
 
-bool MainWindow::isPluginLoaded( const KPluginInfo * info )
+bool MainWindow::isPluginLoaded( const KPluginInfo *info )
 {
-  return ( pluginFromInfo( info ) != 0 );
+  return (pluginFromInfo( info ) != 0);
 }
 
 Plugin *MainWindow::pluginFromInfo( const KPluginInfo *info )
 {
   PluginList::ConstIterator end = mPlugins.end();
   for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
-    if ( ( *it )->identifier() == info->pluginName() )
+    if ( (*it)->identifier() == info->pluginName() )
       return *it;
 
   return 0;
@@ -394,7 +386,7 @@ void MainWindow::loadPlugins()
   uint i;
   KPluginInfo::List::ConstIterator it;
   for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
-    if ( ! ( *it )->isPluginEnabled() )
+    if ( !(*it)->isPluginEnabled() )
       continue;
     if ( isPluginLoaded( *it ) ) {
       Plugin *plugin = pluginFromInfo( *it );
@@ -403,21 +395,21 @@ void MainWindow::loadPlugins()
       continue;
     }
 
-    kdDebug(5600) << "Loading Plugin: " << ( *it )->name() << endl;
+    kdDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
     Kontact::Plugin *plugin =
       KParts::ComponentFactory::createInstanceFromService<Kontact::Plugin>(
-          ( *it )->service(), this );
+          (*it)->service(), this );
 
     if ( !plugin )
       continue;
 
-    plugin->setIdentifier( ( *it )->pluginName() );
-    plugin->setTitle( ( *it )->name() );
-    plugin->setIcon( ( *it )->icon() );
+    plugin->setIdentifier( (*it)->pluginName() );
+    plugin->setTitle( (*it)->name() );
+    plugin->setIcon( (*it)->icon() );
 
-    QVariant libNameProp = ( *it )->property( "X-KDE-KontactPartLibraryName" );
-    QVariant exeNameProp = ( *it )->property( "X-KDE-KontactPartExecutableName" );
-    QVariant loadOnStart = ( *it )->property( "X-KDE-KontactPartLoadOnStart" );
+    QVariant libNameProp = (*it)->property( "X-KDE-KontactPartLibraryName" );
+    QVariant exeNameProp = (*it)->property( "X-KDE-KontactPartExecutableName" );
+    QVariant loadOnStart = (*it)->property( "X-KDE-KontactPartLoadOnStart" );
 
     if ( !loadOnStart.isNull() && loadOnStart.toBool() )
       mDelayedPreload.append( plugin );
@@ -429,7 +421,8 @@ void MainWindow::loadPlugins()
 
     for ( i = 0; i < plugins.count(); ++i ) {
       Plugin *p = plugins.at( i );
-      if ( plugin->weight() < p->weight() ) break;
+      if ( plugin->weight() < p->weight() )
+        break;
     }
 
     plugins.insert( i, plugin );
@@ -459,12 +452,12 @@ void MainWindow::unloadPlugins()
   KPluginInfo::List::ConstIterator end = mPluginInfos.end();
   KPluginInfo::List::ConstIterator it;
   for ( it = mPluginInfos.begin(); it != end; ++it ) {
-    if ( ! ( *it )->isPluginEnabled() )
+    if ( !(*it)->isPluginEnabled() )
       removePlugin( *it );
   }
 }
 
-bool MainWindow::removePlugin( const KPluginInfo * info )
+bool MainWindow::removePlugin( const KPluginInfo *info )
 {
   PluginList::Iterator end = mPlugins.end();
   for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it )
@@ -503,7 +496,7 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
   insertChildClient( plugin );
 }
 
-void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KParts::ReadOnlyPart *part )
+void MainWindow::partLoaded( Kontact::Plugin*, KParts::ReadOnlyPart *part )
 {
   // See if we have this part already (e.g. due to two plugins sharing it)
   if ( mPartsStack->id( part->widget() ) != -1 )
@@ -611,8 +604,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   Q_ASSERT( view );
 
   if ( view ) {
-    if ( mStartupCompleted )
-    {
+    if ( mStartupCompleted ) {
       mPartsStack->raiseWidget( view );
       view->show();
     }
@@ -654,6 +646,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       }
     }
   }
+
   KApplication::restoreOverrideCursor();
 }
 
@@ -705,35 +698,33 @@ void MainWindow::slotShowIntroduction()
   mPartsStack->raiseWidget( 0 ); // ###
 }
 
-void MainWindow::showTip(bool force)
+void MainWindow::showTip( bool force )
 {
   QStringList tips;
   PluginList::ConstIterator end = mPlugins.end();
   for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
-    QString file = ( *it )->tipFile();
+    QString file = (*it)->tipFile();
     if ( !file.isEmpty() )
       tips.append( file );
   }
 
-  KTipDialog::showMultiTip(this, tips, force);
+  KTipDialog::showMultiTip( this, tips, force );
 }
 
 void MainWindow::slotQuit()
 {
-  mReallyClose=true;
+  mReallyClose = true;
   close();
 }
 
 void MainWindow::slotPreferences()
 {
   static KSettings::Dialog *dlg = 0;
-  if( !dlg ) {
+  if ( !dlg ) {
     dlg = new KSettings::Dialog( KSettings::Dialog::Configurable, this );
     dlg->addPluginInfos( mPluginInfos );
     connect( dlg, SIGNAL( pluginSelectionChanged() ),
-         SLOT( pluginsChanged() ) );
-//    connect( dlg, SIGNAL( okClicked() ), SLOT( pluginsChanged() ) );
-//    connect( dlg, SIGNAL( applyClicked() ), SLOT( pluginsChanged() ) );
+             SLOT( pluginsChanged() ) );
   }
 
   dlg->show();
@@ -760,16 +751,18 @@ int MainWindow::startServiceFor( const QString& serviceType,
 {
   PluginList::ConstIterator end = mPlugins.end();
   for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
-    if ( ( *it )->createDCOPInterface( serviceType ) ) {
+    if ( (*it)->createDCOPInterface( serviceType ) ) {
       kdDebug(5600) << "found interface for " << serviceType << endl;
       if ( dcopService )
-        *dcopService = ( *it )->dcopClient()->appId();
-      kdDebug(5600) << "appId=" << ( *it )->dcopClient()->appId() << endl;
+        *dcopService = (*it)->dcopClient()->appId();
+      kdDebug(5600) << "appId=" << (*it)->dcopClient()->appId() << endl;
       return 0; // success
     }
   }
+
   kdDebug(5600) <<
     "Didn't find dcop interface, falling back to external process" << endl;
+
   return KDCOPServiceStarter::startServiceFor( serviceType, constraint,
       preferences, error, dcopService, flags );
 }
@@ -887,23 +880,18 @@ void MainWindow::slotNewToolbarConfig()
   applyMainWindowSettings( KGlobal::config(), "MainWindow" );
 }
 
-void MainWindow::slotOpenUrl(const KURL &url)
+void MainWindow::slotOpenUrl( const KURL &url )
 {
-  if (url.protocol() == "exec")
-  {
-    if (url.path() == "/switch" )
-    {
+  if ( url.protocol() == "exec" ) {
+    if ( url.path() == "/switch" ) {
       selectPlugin( mCurrentPlugin );
     }
-    if (url.path() == "/gwwizard" )
-    {
-      KRun::runCommand("groupwarewizard");
+    if ( url.path() == "/gwwizard" ) {
+      KRun::runCommand( "groupwarewizard" );
       slotQuit();
     }
-
-  }
-  else
-    new KRun(url, this);
+  } else
+    new KRun( url, this );
 }
 
 bool MainWindow::queryClose()
@@ -928,6 +916,8 @@ void MainWindow::slotShowStatusMsg( const QString &msg )
 {
   if ( !statusBar() || !mStatusMsgLabel )
      return;
+
   mStatusMsgLabel->setText( msg );
 }
+
 #include "mainwindow.moc"

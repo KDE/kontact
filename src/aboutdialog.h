@@ -33,7 +33,8 @@ class Plugin;
 
 class AboutDialog : public KDialogBase
 {
-    Q_OBJECT
+  Q_OBJECT
+
   public:
     AboutDialog( Kontact::Core *core, const char *name = 0 );
 
