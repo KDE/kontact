@@ -25,8 +25,8 @@
 #include <qlayout.h>
 
 #include <dcopclient.h>
-#include <dcopref.h>
 #include <kapplication.h>
+#include <kconfig.h>
 #include <kdebug.h>
 #include <kdialog.h>
 #include <kglobal.h>
@@ -35,11 +35,11 @@
 #include <kparts/part.h>
 
 #include "core.h"
-#include "summarywidget.h"
 #include "summary.h"
+#include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ), mPlugin(plugin)
+  : Kontact::Summary( parent, name ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
   QHBoxLayout *hbox = new QHBoxLayout( mainLayout, 3 );
@@ -61,30 +61,22 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
   label->setFont( boldFont );
   hbox->addWidget( label );
 
-  QString error;
-  QCString appID;
-
-  if ( kapp->dcopClient()->isApplicationRegistered( "kmail" ) )
-    mDCOPApp = "kmail";
-  else {
-    KParts::Part *part = plugin->part(); // start part to have dcop iface available
-    part->widget()->hide();
-    mDCOPApp = "kontact";
-  }
-
   connect( &mTimer, SIGNAL( timeout() ), this, SLOT( timeout() ) );
   mTimer.start( 0 );
 }
 
-void SummaryWidget::show()
-{
-  timeout();
-  QWidget::show();
-}
 
 void SummaryWidget::raisePart()
 {
-  mPlugin->core()->selectPlugin( mPlugin );
+  QString dcopApp;
+
+  // FIXME: select specific folder when 'selectFolder' dcop call is implemented
+  if ( kapp->dcopClient()->isApplicationRegistered( "kmail" ) )
+    dcopApp = "kmail";
+  else {
+    mPlugin->core()->selectPlugin( mPlugin );
+    dcopApp = "kontact";
+  }
 }
 
 void SummaryWidget::timeout()
@@ -95,34 +87,39 @@ void SummaryWidget::timeout()
   mLabels.clear();
   mLabels.setAutoDelete( false );
 
-  DCOPRef dcopCall( mDCOPApp.latin1(), "KMailIface" );
-  QStringList folderList = dcopCall.call( "folderList()" );
+  KConfig config( "kmailrc" );
+
+  QStringList groups = config.groupList();
+  groups.sort();
 
   int counter = 0;
   QStringList::Iterator it;
-  for ( it = folderList.begin(); it != folderList.end() && counter < 6; ++it, ++counter ) {
-    DCOPRef folderRef;
-    dcopCall.call( "getFolder(QString)", *it ).get( folderRef );
-    int numMsg = folderRef.call( "messages()" );
-    int numUnreadMsg = folderRef.call( "unreadMessages()" );
-    KURLLabel *urlLabel = new KURLLabel( QString::null, (*it).mid( 1 ), this );
-    urlLabel->setAlignment( AlignLeft );
-    urlLabel->show();
-    // ### FIXME emit dcop signal to jumo to actual folder
-    connect( urlLabel, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
-    mLayout->addWidget( urlLabel, counter, 0 );
-    mLabels.append( urlLabel );
-    QLabel *label = new QLabel( QString( "%1 / %2" ).arg( numUnreadMsg ).arg( numMsg ), this );
-    if ( numUnreadMsg > 0 ) {
-      QFont font = label->font();
-      font.setBold( true );
-      label->setFont( font );
+  for ( it = groups.begin(); it != groups.end() && counter < 6; ++it ) {
+    if ( (*it).startsWith( QString::fromLatin1( "Folder-" ) ) ) { // hmm, that may fail...
+      config.setGroup( *it );
+      int numMsg = config.readNumEntry( "TotalMsgs", 0 );
+      int numUnreadMsg = config.readNumEntry( "UnreadMsgs", 0 );
+      KURLLabel *urlLabel = new KURLLabel( QString::null, (*it).mid( 7 ), this );
+      urlLabel->setAlignment( AlignLeft );
+      urlLabel->show();
+      // ### FIXME emit dcop signal to jumo to actual folder
+      connect( urlLabel, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
+      mLayout->addWidget( urlLabel, counter, 0 );
+      mLabels.append( urlLabel );
+      QLabel *label = new QLabel( QString( "%1 / %2" ).arg( numUnreadMsg ).arg( numMsg ), this );
+      if ( numUnreadMsg > 0 ) {
+        QFont font = label->font();
+        font.setBold( true );
+        label->setFont( font );
+      }
+      label->setAlignment( AlignLeft );
+      label->show();
+      mLayout->addWidget( label, counter, 0 );
+      mLayout->addWidget( label, counter, 2 );
+      mLabels.append( label );
+
+      counter++;
     }
-    label->setAlignment( AlignLeft );
-    label->show();
-    mLayout->addWidget( label, counter, 0 );
-    mLayout->addWidget( label, counter, 2 );
-    mLabels.append( label );
   }
 
   mTimer.start( 15 * 1000 );

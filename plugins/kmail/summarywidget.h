@@ -46,10 +46,7 @@ class SummaryWidget : public Kontact::Summary
 
     int summaryHeight() const { return 3; }
 
-  public slots:
-    virtual void show(); 
-	
-  protected slots:
+  private slots:
     void timeout();
     void raisePart();
 
@@ -57,7 +54,6 @@ class SummaryWidget : public Kontact::Summary
     QTimer mTimer;
     QPtrList<QLabel> mLabels;
     QGridLayout *mLayout;
-    QString mDCOPApp;
     Kontact::Plugin *mPlugin;
 };
 
