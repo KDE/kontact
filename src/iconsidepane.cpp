@@ -38,7 +38,6 @@
 #include <kdialog.h>
 #include <klocale.h>
 #include <kiconloader.h>
-#include <kimageeffect.h>
 #include <sidebarextension.h>
 
 #include <kdebug.h>
@@ -153,49 +152,28 @@ void EntryItem::paint( QPainter *p )
   int w = box->viewport()->width();
   int y = 2;
 
-  // we'll only do neat things when we have enough color depth
-  // because things like gradients look ugly without it
-  bool beFancy = QPixmap::defaultDepth() > 14;
-
   // draw selected
   if ( isCurrent() || isSelected() ) {
-    if ( beFancy ) {
-      int h = height( box );
-      bool reverse = QApplication::reverseLayout();
-      QImage gradient = KImageEffect::gradient( QSize( w, h ),
-                                                reverse ? box->colorGroup().highlight() :
-                                                          box->colorGroup().mid(),
-                                                reverse ? box->colorGroup().mid() :
-                                                          box->colorGroup().highlight(),
-                                                KImageEffect::HorizontalGradient );
-      p->drawImage( 0, 0, gradient );
-      QPen pen = p->pen();
-      QPen oldPen = pen;
-      pen.setWidth( 1 );
-      pen.setColor( box->colorGroup().mid() );
-      p->setPen( pen );
+    int h = height( box );
 
-      if ( reverse ) {
-        p->drawPoint( 0, 0 );
-        p->drawPoint( 0, h - 1 );
-      }
-      else {
-        p->drawPoint( w - 1, 0 );
-        p->drawPoint( w - 1, h - 1 );
-      }
+    QBrush brush = box->colorGroup().brush( QColorGroup::Highlight );
+    brush.setColor( brush.color().light( 115 ) );
+    p->fillRect( 1, 0, w - 2, h - 1, brush );
+    QPen pen = p->pen();
+    QPen oldPen = pen;
+    pen.setColor( box->colorGroup().mid() );
+    p->setPen( pen );
 
-      p->setPen( oldPen );
-    }
-    else {
-      QColorGroup group = box->colorGroup();
-      group.setColor( QColorGroup::Dark, Qt::black );
-      qDrawShadePanel( p, 1, 0, w - 2, height( box ),
-                       group, true, 1, 0 );
-    }
+    p->drawPoint( 1, 0 );
+    p->drawPoint( 1, h - 2 );
+    p->drawPoint( w - 2, 0 );
+    p->drawPoint( w - 2, h - 2 );
+
+    p->setPen( oldPen );
   }
 
   if ( !mPixmap.isNull() ) {
-    int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) : KDialog::marginHint();
+      int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) : KDialog::marginHint();
     p->drawPixmap( x, y, mPixmap );
   }
 
@@ -222,11 +200,9 @@ void EntryItem::paint( QPainter *p )
     }
 
     if ( isCurrent() || isSelected() ) {
-      if ( beFancy ) {
-        p->setPen( box->colorGroup().highlight().dark(115) );
-        p->drawText( x + ( QApplication::reverseLayout() ? -1 : 1),
-                     y + 1, text() );
-      }
+      p->setPen( box->colorGroup().highlight().dark(115) );
+      p->drawText( x + ( QApplication::reverseLayout() ? -1 : 1),
+                   y + 1, text() );
       p->setPen( box->colorGroup().highlightedText() );
     }
     else
