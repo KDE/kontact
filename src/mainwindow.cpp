@@ -170,6 +170,9 @@ void MainWindow::addPart(KParts::Part *part)
 
 void MainWindow::activePartChanged(KParts::Part *part)
 {
+  if ( !part )  // part can be 0 at shutdown
+    return;
+
   kdDebug(5600) << "Part activated: " << part << " with stack id. "
       << m_stack->id(part->widget())<< endl;
   QObjectList *l = part->queryList( "KParts::InfoExtension" );
