@@ -19,6 +19,9 @@
 #ifndef  SIDEPANE_H
 #define  SIDEPANE_H
 
+#include <kapplication.h>
+#include <kconfig.h>
+
 #include <qpushbutton.h>
 #include <qvbox.h>
 #include <qptrlist.h>
@@ -50,6 +53,8 @@ namespace Kontact
       void setInactive();
 
       int id() const { return m_id; }
+
+      Kontact::Plugin *plugin() const { return m_plugin; }
 
     signals:
       void clicked(PanelButton* pb);

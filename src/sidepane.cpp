@@ -154,13 +154,31 @@ void SidePane::switchItems(PanelButton* pb)
       it.current()->setInactive();
   }
 
+  KConfigGroupSaver saver( kapp->config(), "General" );
+  kapp->config()->writeEntry( "ActivePlugin", pb->plugin()->name() );
+
   m_contentStack->raiseWidget(pb->id());
   m_headerWidget->setText(pb->text());
 }
 
 void SidePane::invokeFirstEntry()
 {
-  PanelButton *btn = m_buttonList.first();
+  KConfigGroupSaver saver( kapp->config(), "General" );
+  QString activePlugin = kapp->config()->readEntry( "ActivePlugin", "kmail" );
+
+  QPtrListIterator<PanelButton> it(m_buttonList);
+  PanelButton *btn;
+  while ((btn = it.current()) != 0) {
+    ++it;
+    Kontact::Plugin *plugin = btn->plugin();
+    if ( plugin->name() == activePlugin ) {
+      btn->slotClicked();
+      return;
+    }
+  }
+
+  btn = m_buttonList.first();
+
   // no plugins loaded. Something is really broken..
   Q_ASSERT(btn);
   btn->slotClicked();
