@@ -80,6 +80,9 @@ Core::Core()
 Core::~Core()
 {
 	saveSettings();	
+    QPtrList<KParts::Part> parts = *m_partManager->parts();
+    parts.setAutoDelete(true);
+    parts.clear();
 }
 
 void Core::loadSettings()
