@@ -378,6 +378,15 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   if ( !plugin )
     return;
 
+  if ( plugin->isRunningStandalone() )
+  {
+    KMessageBox::error(this, i18n("%1 cannot be loaded because the "
+                      "the application is still running statndalone. "
+                      "Please close the application and try again.")
+        .arg(plugin->title()));
+    return;
+  }
+
   KApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
   if ( mSidePane )
@@ -387,7 +396,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   if ( !part ) {
     KMessageBox::error( this, i18n("Can't load Part for %1")
-                              .arg( plugin->title() ) );
+        .arg( plugin->title() ) );
+    KApplication::restoreOverrideCursor();
     return;
   }
 
