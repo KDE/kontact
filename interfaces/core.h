@@ -45,10 +45,12 @@ class Core : public KParts::MainWindow
 
   protected:
     Core( QWidget *parentWidget = 0, const char *name = 0 );
+
+  private:
+    class Private;
+    Private *d;
 };
 
 }
 
 #endif
-// vim: ts=2 sw=2 et
-
