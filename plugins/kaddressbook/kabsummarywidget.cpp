@@ -24,11 +24,19 @@
 #include <qlabel.h>
 #include <qlayout.h>
 
+#include <dcopclient.h>
+#include <dcopref.h>
 #include <kabc/stdaddressbook.h>
+#include <kapplication.h>
 #include <kdialog.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <klocale.h>
+#include <kparts/part.h>
+#include <kurllabel.h>
+
+#include "core.h"
+#include "plugin.h"
 
 #include "kabsummarywidget.h"
 
@@ -40,12 +48,13 @@ struct KABDateEntry
   KABC::Addressee addressee;
 };
 
-KABSummaryWidget::KABSummaryWidget( QWidget *parent, const char *name )
-  : QWidget( parent, name )
+KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
+                                    const char *name )
+  : QWidget( parent, name ), mPlugin( plugin )
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 
-  mLayout = new QGridLayout( this, 8, 3, 3 );
+  mLayout = new QGridLayout( this, 8, 4, 3 );
   mLayout->setRowStretch( 7, 1 );
 
   QFont boldFont;
@@ -61,11 +70,22 @@ KABSummaryWidget::KABSummaryWidget( QWidget *parent, const char *name )
   label = new QLabel( i18n( "Birthdays and Anniversaries" ), this );
   label->setAlignment( AlignRight | AlignTop );
   label->setFont( boldFont );
-  mLayout->addMultiCellWidget( label, 0, 0, 1, 2 );
+  mLayout->addMultiCellWidget( label, 0, 0, 1, 3 );
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
            this, SLOT( updateView() ) );
+
+  QString error;
+  QCString appID;
+
+  if ( kapp->dcopClient()->isApplicationRegistered( "kaddressbook" ) )
+    mDCOPApp = "kaddressbook";
+  else {
+    KParts::Part *part = plugin->part();
+    part->widget()->hide();
+    mDCOPApp = "kontact";
+  }
 
   updateView();
 }
@@ -140,16 +160,33 @@ void KABSummaryWidget::updateView()
     mLayout->addWidget( label, counter, 1 );
     mLabels.append( label );
 
+    KURLLabel *urlLabel = new KURLLabel( this );
+    urlLabel->setURL( (*addrIt).addressee.uid() );
+    urlLabel->setText( (*addrIt).addressee.formattedName() );
+    mLayout->addWidget( urlLabel, counter, 2 );
+    mLabels.append( urlLabel );
+
+    connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+             this, SLOT( selectContact( const QString& ) ) );
+
     label = new QLabel( this );
-    label->setText( QString( "%1 (%2)" ).arg( (*addrIt).addressee.formattedName() )
-                                        .arg( i18n( "one year", "%n years", (*addrIt).yearsOld  ) ) );
-    mLayout->addWidget( label, counter, 2 );
+    label->setText( i18n( "one year", "%n years", (*addrIt).yearsOld  ) );
+    mLayout->addWidget( label, counter, 3 );
     mLabels.append( label );
 
     counter++;
   }
 
   show();
+}
+
+void KABSummaryWidget::selectContact( const QString &uid )
+{
+  if ( mDCOPApp == "kontact" )
+    mPlugin->core()->selectPlugin( mPlugin );
+
+  DCOPRef dcopCall( mDCOPApp.latin1(), "KAddressBookIface" );
+  dcopCall.send( "showContactEditor(QString)", uid );
 }
 
 #include "kabsummarywidget.moc"

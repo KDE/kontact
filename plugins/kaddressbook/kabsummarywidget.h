@@ -27,6 +27,10 @@
 #include <qptrlist.h>
 #include <qwidget.h>
 
+namespace Kontact {
+  class Plugin;
+}
+
 class QGridLayout;
 class QLabel;
 
@@ -35,15 +39,20 @@ class KABSummaryWidget : public QWidget
   Q_OBJECT
 
   public:
-    KABSummaryWidget( QWidget *parent, const char *name = 0 );
+    KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
+                      const char *name = 0 );
 
   private slots:
     void updateView();
+    void selectContact( const QString &uid );
 
   private:
     QGridLayout *mLayout;
 
     QPtrList<QLabel> mLabels;
+    QString mDCOPApp;
+
+    Kontact::Plugin *mPlugin;
 };
 
 #endif

@@ -128,7 +128,7 @@ bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
 
 QWidget *KAddressbookPlugin::createSummaryWidget( QWidget* parentWidget )
 {
-  return new KABSummaryWidget( parentWidget );
+  return new KABSummaryWidget( this, parentWidget );
 }
 
 #include "kaddressbook_plugin.moc"
