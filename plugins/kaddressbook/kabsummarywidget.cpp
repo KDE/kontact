@@ -21,6 +21,7 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qcursor.h>
 #include <qlabel.h>
 #include <qlayout.h>
 
@@ -33,6 +34,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/part.h>
+#include <kpopupmenu.h>
 #include <kurllabel.h>
 
 #include "core.h"
@@ -88,10 +90,8 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
 
   if ( kapp->dcopClient()->isApplicationRegistered( "kaddressbook" ) )
     mDCOPApp = "kaddressbook";
-  else {
-    plugin->part();
+  else
     mDCOPApp = "kontact";
-  }
 
   updateView();
 }
@@ -209,7 +209,9 @@ void KABSummaryWidget::updateView()
     }
 
     connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
-             this, SLOT( selectContact( const QString& ) ) );
+             this, SLOT( mailContact( const QString& ) ) );
+    connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+             this, SLOT( popupMenu( const QString& ) ) );
 
     label = new QLabel( this );
     label->setText( i18n( "one year", "%n years", (*addrIt).yearsOld  ) );
@@ -227,13 +229,51 @@ void KABSummaryWidget::updateView()
   show();
 }
 
-void KABSummaryWidget::selectContact( const QString &uid )
+void KABSummaryWidget::mailContact( const QString &uid )
+{
+  QString app;
+  if ( kapp->dcopClient()->isApplicationRegistered( "kmail" ) )
+    app = QString::fromLatin1( "kmail" );
+  else {
+    mPlugin->core()->selectPlugin( "mails" );
+    app = QString::fromLatin1( "kontact" );
+  }
+
+  KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
+  QString email = ab->findByUid( uid ).fullEmail();
+
+  // FIXME: replace "DCOPRef, dcopCall.send..." with kapp->invokeMailer for kde 3.2
+  // kapp->invokeMailer(addr, QString::null);
+  DCOPRef dcopCall( app.latin1(), "KMailIface" );
+  dcopCall.send( "openComposer(QString,QString,QString,QString,QString,bool)", email,
+                 QString::null, QString::null, QString::null, QString::null, false );
+}
+
+void KABSummaryWidget::viewContact( const QString &uid )
 {
   if ( mDCOPApp == "kontact" )
     mPlugin->core()->selectPlugin( mPlugin );
 
   DCOPRef dcopCall( mDCOPApp.latin1(), "KAddressBookIface" );
   dcopCall.send( "showContactEditor(QString)", uid );
+}
+
+void KABSummaryWidget::popupMenu( const QString &uid )
+{
+  KPopupMenu popup( this );
+  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Small ),
+                    i18n( "Send &Mail" ), 0 );
+  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kaddressbook", KIcon::Small ),
+                    i18n( "View &Contact" ), 1 );
+
+  switch ( popup.exec( QCursor::pos() ) ) {
+    case 0:
+      mailContact( uid );
+      break;
+    case 1:
+      viewContact( uid );
+      break;
+  }
 }
 
 #include "kabsummarywidget.moc"

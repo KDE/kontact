@@ -46,7 +46,9 @@ class KABSummaryWidget : public Kontact::Summary
 
   private slots:
     void updateView();
-    void selectContact( const QString &uid );
+    void popupMenu( const QString &uid );
+    void mailContact( const QString &uid );
+    void viewContact( const QString &uid );
 
   private:
     QGridLayout *mLayout;
