@@ -1,15 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui>
 <gui name="kpknotesplugin" version="1">
-<!--
-<MenuBar>
- <Menu name="edit"><Text>&amp;Edit</Text>
-  <Action name="edit_newnote"/>
- </Menu>
-</MenuBar>
--->
-<ToolBar>
-  <Action name="edit_newnote"/>
-</ToolBar>
+  <ToolBar>
+    <Action name="edit_newnote"/>
+  </ToolBar>
 </gui>
 
