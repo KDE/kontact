@@ -284,8 +284,10 @@ void MainWindow::addPart( KParts::Part *part )
 
 void MainWindow::slotActivePartChanged( KParts::Part *part )
 {
-  if ( !part )
+  if ( !part ) {
+    createGUI( 0 );
     return;
+  }
 
   if ( m_lastInfoExtension ) {
     disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
