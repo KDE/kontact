@@ -20,7 +20,7 @@ K_EXPORT_COMPONENT_FACTORY( libkpkmailplugin,
 KMailPlugin::KMailPlugin(Kontact::Core *_core, const char * /*name*/, const QStringList & /*args*/ )
   : Kontact::Plugin(i18n("Mail"), "kmail", _core, _core,  "kmail"), m_part(0)
 {
-//  m_stub = new KMailPartIface_stub(dcopClient(), "kmail", "*");
+
   setInstance(KMailPluginFactory::instance());
 
   setXMLFile("kpkmailplugin.rc");
@@ -32,8 +32,20 @@ KMailPlugin::~KMailPlugin()
 {
 }
 
+bool KMailPlugin::createDCOPInterface( const QString& serviceType )
+{
+  if ( serviceType == "DCOP/ResourceBackend/IMAP" )
+  {
+    if ( part() )
+      return true;
+  }
+
+  return false;
+}
+
 KParts::Part* KMailPlugin::part()
 {
+  m_stub = new KMailPartIface_stub(dcopClient(), "kmail", "*");
   if (!m_part)
   {
     m_part = KParts::ComponentFactory
@@ -45,7 +57,7 @@ KParts::Part* KMailPlugin::part()
 
     return m_part;
   }
-  else 
+  else
 	return m_part;
 }
 
