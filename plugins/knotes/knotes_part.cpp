@@ -106,17 +106,9 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
     connect( m_notesView, SIGNAL(contextMenuRequested( QIconViewItem *, const QPoint & )),
              this, SLOT(popupRMB( QIconViewItem *, const QPoint & )) );
 
-    setWidget( m_notesView );
-
     new KParts::SideBarExtension( m_notesView, this, "NotesSideBarExtension" );
 
-//     KParts::InfoExtension *info = new KParts::InfoExtension( this, "NotesInfoExtension" );
-//     connect( this, SIGNAL(noteSelected( const QString& )),
-//              info, SIGNAL(textChanged( const QString& )) );
-//     connect( this, SIGNAL(noteSelected( const QPixmap& )),
-//              info, SIGNAL(iconChanged( const QPixmap& )) );
-
-
+    setWidget( m_notesView );
     setXMLFile( "knotes_part.rc" );
 
     // create the resource manager
