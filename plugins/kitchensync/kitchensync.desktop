@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+Comment=KitchenSync Plugin
+Name=Synchronisation
+Icon=kitchensync
+ServiceTypes=Kontact/Plugin
+X-KDE-Library=libkontact_kitchensync
+X-KDE-KontactIdentifier=synchronisation
+X-KDE-KontactPluginVersion=1
