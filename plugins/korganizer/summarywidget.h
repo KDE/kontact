@@ -1,7 +1,6 @@
 /*
-    This file is part of KDE Kontact.
-
-    Copyright (c) 2003 Kontact Developer
+    This file is part of Kontact.
+    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,40 +21,40 @@
     without including the source code for Qt in the source distribution.
 */
 
-#ifndef KORGANIZER_PLUGIN_H
-#define KORGANIZER_PLUGIN_H
+#ifndef SUMMARYWIDGET_H
+#define SUMMARYWIDGET_H
 
-#include <klocale.h>
-#include <kparts/part.h>
+#include <qptrlist.h>
+#include <qwidget.h>
 
-#include "kcalendariface_stub.h"
-#include "plugin.h"
+#include <libkcal/calendarresources.h>
 
-class KOrganizerPlugin : public Kontact::Plugin
+#include "summary.h"
+
+namespace Kontact {
+  class Plugin;
+}
+
+class QGridLayout;
+class QLabel;
+
+class SummaryWidget : public Kontact::Summary
 {
   Q_OBJECT
 
   public:
-    KOrganizerPlugin( Kontact::Core *core, const char *name, const QStringList& );
-    ~KOrganizerPlugin();
-
-    virtual bool createDCOPInterface( const QString& serviceType );
-
-    bool canDecodeDrag( QMimeSource * );
-    void processDropEvent( QDropEvent * );
-
-    virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
-
-  protected:
-    KParts::ReadOnlyPart *part();
+    SummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
+                   const char *name = 0 );
 
   private slots:
-    void slotNewEvent();
-    void slotNewTodo();
+    void updateView();
+    void selectEvent( const QString &uid );
 
   private:
-    KParts::ReadOnlyPart *mPart;
-    KCalendarIface_stub *mIface;
+    QGridLayout *mLayout;
+
+    QPtrList<QLabel> mLabels;
+    KCal::CalendarResources *mCalendar;
 };
 
 #endif

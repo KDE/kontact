@@ -32,6 +32,7 @@
 #include <kmessagebox.h>
 
 #include "core.h"
+#include "summarywidget.h"
 
 #include "korganizer_plugin.h"
 
@@ -59,6 +60,11 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *name, const
 
 KOrganizerPlugin::~KOrganizerPlugin()
 {
+}
+
+Kontact::Summary *KOrganizerPlugin::createSummaryWidget( QWidget *parent )
+{
+  return new SummaryWidget( this, parent );
 }
 
 KParts::ReadOnlyPart *KOrganizerPlugin::part()
