@@ -1,7 +1,7 @@
 /*
     This file is part of KDE Kontact.
 
-    Copyright (c) 2004 Allen Winter <awinterz@users.sourceforge.net>
+    Copyright (c) 2004 Allen Winter <winter@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
