@@ -78,8 +78,6 @@ KcmKontact::KcmKontact( QWidget *parent, const char *name )
 
   KPrefsWidRadios *radios = addWidRadios( Kontact::Prefs::self()->sidePaneTypeItem(),
                                           this );
-  radios->addRadio( i18n( "Button view with sidebar extension" ) );
-  radios->addRadio( i18n( "Icon view" ) );
   topLayout->addWidget( radios->groupBox() );
 
   load();
