@@ -31,6 +31,7 @@
 #include <kparts/part.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
+#include <qtooltip.h>
 #include <libkcal/event.h>
 #include <libkcal/resourcecalendar.h>
 #include <libkcal/resourcelocal.h>
@@ -47,7 +48,7 @@ SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "korganizer", 
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "korganizer",
                    KIcon::Desktop, KIcon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Appointments" ) );
   mainLayout->addWidget( header );
@@ -162,7 +163,13 @@ void SummaryWidget::updateView()
       KURLLabel *urlLabel = new KURLLabel( ev->uid(), ev->summary(), this );
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
-          
+
+      QString sDesc = i18n( "No description" );
+      if ( ! ev->description().isEmpty() ) {
+        sDesc = ev->description();
+      }
+      QToolTip::add( urlLabel, sDesc );
+
       connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
                this, SLOT( selectEvent( const QString& ) ) );
 
@@ -170,7 +177,7 @@ void SummaryWidget::updateView()
     }
   } else {
     QLabel *noEvents = new QLabel( i18n( "No appointments pending" ), this );
-    noEvents->setAlignment( AlignRight );
+    noEvents->setAlignment( AlignRight | AlignVCenter );
     mLayout->addWidget( noEvents, 0, 2 );
     mLabels.append( noEvents );
   }
