@@ -1,4 +1,4 @@
-INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/kmail -I$(top_srcdir)/kmail $(all_includes)
+INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/kmail -I$(top_srcdir)/kmail -I$(top_srcdir) $(all_includes)
 kde_module_LTLIBRARIES = libkontact_kmailplugin.la
 libkontact_kmailplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_kmailplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(top_builddir)/libkcal/libkcal.la $(LIB_KPARTS)
