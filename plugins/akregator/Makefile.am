@@ -11,4 +11,4 @@ METASOURCES = AUTO
 akregator_partiface_DIR = $(srcdir)/..
 
 servicedir = $(kde_servicesdir)/kontact
-service_DATA = akregatorplugin.desktop
+service_DATA = akregatorplugin.desktop akregatorplugin3.2.desktop
