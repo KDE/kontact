@@ -22,7 +22,7 @@
 #include <kontact/core.h>
 #include <kontact/plugin.h>
 
-#include "akregator_options.h"
+#include <akregator_options.h>
 #include "akregator_plugin.h"
 
 typedef KGenericFactory< aKregatorPlugin, Kontact::Core > aKregatorPluginFactory;
