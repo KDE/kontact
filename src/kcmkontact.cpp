@@ -81,21 +81,14 @@ KcmKontact::KcmKontact( QWidget *parent, const char *name )
                                           this );
   radios->addRadio( i18n( "Button View with Sidebar Extension" ) );
   radios->addRadio( i18n( "Icon View" ) );
-  new QLabel( i18n( "<em>You have to restart Kontact for this setting to take "
-                    "effect.</em>" ), radios->groupBox() );
   topLayout->addWidget( radios->groupBox() );
 
-  QGroupBox *groupBox = new QGroupBox( 0, Qt::Vertical, i18n( "Plugins" ), this );
-  QVBoxLayout *boxLayout = new QVBoxLayout( groupBox->layout() );
-  boxLayout->setAlignment( Qt::AlignTop );
+  PluginSelection *plugins = new PluginSelection( i18n( "Plugins" ),
+                                                  Kontact::Prefs::self()->mActivePlugins,
+                                                  this );
+  topLayout->addWidget( plugins->groupBox() );
 
-  mPluginView = new KListView( groupBox );
-  mPluginView->setAllColumnsShowFocus( true );
-  mPluginView->addColumn( i18n( "Name" ) );
-  mPluginView->addColumn( i18n( "Description" ) );
-  boxLayout->addWidget( mPluginView );
-
-  topLayout->addWidget( groupBox );
+  addWid( plugins );
 
   load();
 }
@@ -113,10 +106,36 @@ const KAboutData* KcmKontact::aboutData() const
   return about;
 }
 
-void KcmKontact::usrReadConfig()
-{
-  QStringList activePlugins = Kontact::Prefs::self()->mActivePlugins;
 
+PluginSelection::PluginSelection( const QString &text, QStringList &reference,
+                                  QWidget *parent )
+  : mReference( reference )
+{
+  mBox = new QGroupBox( 0, Qt::Vertical, text, parent );
+  QVBoxLayout *boxLayout = new QVBoxLayout( mBox->layout() );
+  boxLayout->setAlignment( Qt::AlignTop );
+
+  mPluginView = new KListView( mBox );
+  mPluginView->setAllColumnsShowFocus( true );
+  mPluginView->addColumn( i18n( "Name" ) );
+  mPluginView->addColumn( i18n( "Description" ) );
+  boxLayout->addWidget( mPluginView );
+
+  connect( mPluginView, SIGNAL( clicked( QListViewItem* ) ),
+           SLOT( itemClicked( QListViewItem* ) ) );
+}
+
+PluginSelection::~PluginSelection()
+{
+}
+
+QGroupBox *PluginSelection::groupBox()
+{
+  return mBox;
+}
+
+void PluginSelection::readConfig()
+{
   mPluginView->clear();
 
   KTrader::OfferList plugins = KTrader::self()->query( QString::fromLatin1( "Kontact/Plugin" ) );
@@ -126,15 +145,15 @@ void KcmKontact::usrReadConfig()
       continue;
 
     PluginItem *item = new PluginItem( *it, mPluginView, (*it)->name() );
-    if ( activePlugins.contains( (*it)->property( "X-KDE-KontactIdentifier" )
+    if ( mReference.contains( (*it)->property( "X-KDE-KontactIdentifier" )
          .toString() ) )
       item->setOn( true );
   }
 }
 
-void KcmKontact::usrWriteConfig()
+void PluginSelection::writeConfig()
 {
-  QStringList activePlugins;
+  mReference.clear();
 
   QPtrList<QListViewItem> list;
   QListViewItemIterator it( mPluginView );
@@ -142,13 +161,17 @@ void KcmKontact::usrWriteConfig()
     PluginItem *item = static_cast<PluginItem*>( it.current() );
     if ( item ) {
       if ( item->isOn() )
-        activePlugins.append( item->servicePtr()->
-                              property( "X-KDE-KontactIdentifier" ).toString() );
+        mReference.append( item->servicePtr()->
+                           property( "X-KDE-KontactIdentifier" ).toString() );
     }
     ++it;
   }
+}
 
-  Kontact::Prefs::self()->mActivePlugins = activePlugins;
+void PluginSelection::itemClicked( QListViewItem *item )
+{
+  if ( item != 0 )
+    emit changed();
 }
 
 #include "kcmkontact.moc"

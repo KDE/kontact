@@ -27,6 +27,9 @@
 
 #include <kprefsdialog.h>
 
+class QGroupBox;
+class QListViewItem;
+
 class KAboutData;
 class KListView;
 
@@ -38,12 +41,28 @@ class KcmKontact : public KPrefsModule
     KcmKontact( QWidget *parent = 0, const char *name = 0 );
 
     virtual const KAboutData* aboutData() const;
+};
 
-  protected:
-    virtual void usrReadConfig();
-    virtual void usrWriteConfig();
+class PluginSelection : public KPrefsWid
+{
+  Q_OBJECT
+
+  public:
+    PluginSelection( const QString &text, QStringList &reference, QWidget *parent );
+    ~PluginSelection();
+
+    void readConfig();
+    void writeConfig();
+
+    QGroupBox *groupBox();
+
+  private slots:
+    void itemClicked( QListViewItem* );
 
   private:
+    QStringList &mReference;
+
+    QGroupBox *mBox;
     KListView *mPluginView;
 };
 
