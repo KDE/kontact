@@ -63,7 +63,7 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kaddressbook",
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_contacts",
                     KIcon::Desktop, KIcon::SizeMedium );
 
   QWidget *header = createHeader( this, icon, i18n( "Birthdays and Anniversaries" ) );
