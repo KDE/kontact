@@ -1,6 +1,7 @@
 /*
    This file is part of the KDE project
    Copyright (C) 2002-2003 Daniel Molkentin <molkentin@kde.org>
+   Copyright (C) 2004 Michael Brade <brade@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -18,334 +19,293 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <qlayout.h>
 #include <qpopupmenu.h>
-#include <qtextedit.h>
+#include <qclipboard.h>
 
-#include <kaction.h>
 #include <kapplication.h>
-#include <kdebug.h>
-#include <kdialogbase.h>
-#include <kiconloader.h>
-#include <kinputdialog.h>
-#include <klistview.h>
 #include <klocale.h>
+#include <kdebug.h>
+#include <kaction.h>
+#include <kiconview.h>
+#include <kiconloader.h>
 #include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <kstdaction.h>
 #include <kxmlguifactory.h>
+
+#include <libkcal/journal.h>
 
 #include <libkdepim/infoextension.h>
 #include <libkdepim/sidebarextension.h>
 
+#include "knotes/resourcemanager.h"
 #include "knotes_part.h"
 
-class NotesItem : public KListViewItem
+
+class KNotesIconViewItem : public KIconViewItem
 {
-  public:
-    NotesItem( KListView *parent, KCal::Journal *journal )
-      : KListViewItem( parent, "" ), mJournal( journal )
+public:
+    KNotesIconViewItem( KIconView *parent, KCal::Journal *journal )
+      : KIconViewItem( parent ),
+        m_journal( journal )
     {
-      setRenameEnabled( 0, true );
-      setPixmap( 0, KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Small ) );
+        setRenameEnabled( true );
+
+        setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop ) );
+        setText( journal->summary() );
     }
 
-    KCal::Journal* journal() { return mJournal; }
-
-    virtual void setText( int column, const QString &text )
+    KCal::Journal *journal()
     {
-      if ( column == 0 )
-        mJournal->setSummary( text );
+        return m_journal;
     }
 
-    virtual QString text( int column ) const
+    virtual void setText( const QString & text )
     {
-      if ( column == 0 )
-        return mJournal->summary();
-      else if ( column == 1 )
-        return mJournal->description().replace( "\n", " " );
-      else
-        return QString();
+        KIconViewItem::setText( text );
+        m_journal->setSummary( text );
     }
 
-  private:
-    KCal::Journal* mJournal;
+    virtual QString text() const
+    {
+        return m_journal->summary();
+    }
+
+private:
+    KCal::Journal *m_journal;
 };
 
-class NoteEditDialog : public KDialogBase
-{
-  public:
-    NoteEditDialog( QWidget *parent, const QString &text )
-      : KDialogBase( Plain, i18n( "Edit Note" ), Ok | Cancel, Ok,
-                     parent, 0, true, true )
-    {
-      QWidget *page = plainPage();
-      QVBoxLayout *layout = new QVBoxLayout( page );
-
-      mTextEdit = new QTextEdit( page );
-      layout->addWidget( mTextEdit );
-
-      mTextEdit->setText( text );
-      mTextEdit->setFocus();
-    }
-
-    QString text() const { return mTextEdit->text(); }
-
-  private:
-    QTextEdit *mTextEdit;
-};
 
 KNotesPart::KNotesPart( QObject *parent, const char *name )
   : KPIM::Part( parent, name ),
-    mTicket( 0 ), mPopupMenu( 0 )
+    m_context_menu( 0 )
 {
-  setInstance( new KInstance( "knotes" ) );
+    m_noteList.setAutoDelete( true );
 
-  mCalendar = new KCal::CalendarResources;
-  mResource = new KCal::ResourceLocal( ::locateLocal( "data", "knotes/notes.ics" ) );
-  mCalendar->resourceManager()->add( mResource );
-  mCalendar->load();
+    setInstance( new KInstance( "knotes" ) );
 
-  connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( slotCalendarChanged() ) );
+    // create the actions
+    new KAction( i18n("&New..."), "knotes", CTRL+Key_N, this, SLOT(newNote()),
+                 actionCollection(), "file_new" );
+    new KAction( i18n("Rename"), "text", this, SLOT(renameNote()),
+                 actionCollection(), "edit_rename" );
+    new KAction( i18n("Delete"), "editdelete", 0, this, SLOT(killSelectedNotes()),
+                 actionCollection(), "edit_delete" );
 
-  mNotesView = new KListView();
-  mNotesView->setSelectionMode( QListView::Extended );
-  mNotesView->addColumn( i18n( "Title" ) );
-  mNotesView->addColumn( i18n( "Content" ) );
-  mNotesView->setAllColumnsShowFocus( true );
-  mNotesView->setResizeMode( QListView::LastColumn );
+    // TODO styleguide: s/New.../New/, s/Rename/Rename.../
+    // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
-  (void) new KParts::SideBarExtension( mNotesView, this, "NotesSideBarExtension" );
+    // create the view
+    m_notesView = new KIconView();
+    m_notesView->setSelectionMode( QIconView::Extended );
+    m_notesView->setItemsMovable( false );
+    m_notesView->setResizeMode( QIconView::Adjust );
 
-  (void) new KAction( i18n("&New..."), "knotes", CTRL+Key_N, this, SLOT( newNote() ), actionCollection(), "file_new" );
-  mActionEdit = new KAction( i18n( "Rename" ), "editrename", this,
-                             SLOT( renameNote() ), actionCollection(),
-                                     "edit_rename" );
-  mActionDelete = new KAction( i18n( "Delete" ), "editdelete", 0, this,
-                               SLOT( removeSelectedNotes() ), actionCollection(),
-                               "edit_delete" );
-  (void) new KAction( i18n( "Reload" ), "reload", 0, this,
-                      SLOT( reloadNotes() ), actionCollection(), "view_refresh" );
+//    connect( m_notesView, SIGNAL(executed( QIconViewItem * )),
+//             this, SLOT(editNote( QIconViewItem * )) );
+//    connect( m_notesView, SIGNAL(returnPressed( KIconViewItem * )),
+//             this, SLOT(editNote( QIconViewItem * )) );
+    connect( m_notesView, SIGNAL(contextMenuRequested( QIconViewItem *, const QPoint & )),
+             this, SLOT(popupRMB( QIconViewItem *, const QPoint & )) );
 
-  connect( mNotesView, SIGNAL( doubleClicked( QListViewItem*, const QPoint&, int ) ),
-           this, SLOT( editNote( QListViewItem*, const QPoint&, int ) ) );
-  connect( mNotesView, SIGNAL( returnPressed( QListViewItem* ) ),
-           this, SLOT( editNote( QListViewItem* ) ) );
-  connect( mNotesView, SIGNAL( contextMenuRequested( QListViewItem*, const QPoint&, int ) ),
-           this, SLOT( popupRMB( QListViewItem*, const QPoint&, int ) ) );
-  connect( mNotesView, SIGNAL( itemRenamed( QListViewItem*, int, const QString& ) ),
-           this, SLOT( noteRenamed( QListViewItem*, int, const QString& ) ) );
+    setWidget( m_notesView );
 
-  setWidget( mNotesView );
+    new KParts::SideBarExtension( m_notesView, this, "NotesSideBarExtension" );
 
-  mAppIcon = KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Small );
+//     KParts::InfoExtension *info = new KParts::InfoExtension( this, "NotesInfoExtension" );
+//     connect( this, SIGNAL(noteSelected( const QString& )),
+//              info, SIGNAL(textChanged( const QString& )) );
+//     connect( this, SIGNAL(noteSelected( const QPixmap& )),
+//              info, SIGNAL(iconChanged( const QPixmap& )) );
 
-  KParts::InfoExtension *info = new KParts::InfoExtension( this, "KNoteInfoExtension" );
-  connect( this, SIGNAL( noteSelected( const QString& ) ),
-           info, SIGNAL( textChanged( const QString& ) ) );
-  connect( this, SIGNAL( noteSelected( const QPixmap& ) ),
-           info, SIGNAL( iconChanged( const QPixmap& ) ) );
 
-  setXMLFile( "knotes_part.rc" );
+    setXMLFile( "knotes_part.rc" );
 
-  reloadNotes();
+    // create the resource manager
+    m_manager = new KNotesResourceManager();
+    connect( m_manager, SIGNAL(sigRegisteredNote( KCal::Journal * )),
+             this,      SLOT(createNote( KCal::Journal * )) );
+    connect( m_manager, SIGNAL(sigDeregisteredNote( KCal::Journal * )),
+             this,      SLOT(killNote( KCal::Journal * )) );
+
+    // read the notes
+    m_manager->load();
 }
 
 KNotesPart::~KNotesPart()
 {
-}
-
-void KNotesPart::reloadNotes()
-{
-  int pos = mNotesView->itemPos( mNotesView->currentItem() );
-  mNotesView->clear();
-
-  KCal::Journal::List::Iterator it;
-  KCal::Journal::List notes = mCalendar->journals();
-  for ( it = notes.begin(); it != notes.end(); ++it )
-    (void) new NotesItem( mNotesView, (*it) );
-
-  mNotesView->setCurrentItem( mNotesView->itemAt( QPoint( 1, pos ) ) );
+    delete m_manager;
 }
 
 bool KNotesPart::openFile()
 {
-  return false;
-}
-
-void KNotesPart::popupRMB( QListViewItem *item, const QPoint& pos, int )
-{
-  mPopupMenu = static_cast<QPopupMenu*>( factory()->container( "notePopup", this ) );
-  if ( !mPopupMenu )
-    return;
-
-  bool state = ( item != 0 );
-  mActionEdit->setEnabled( state );
-  mActionDelete->setEnabled( state );
-
-  mPopupMenu->popup( pos );
-}
-
-void KNotesPart::removeNote()
-{
-  NotesItem *item = static_cast<NotesItem*>( mNotesView->currentItem() );
-
-  if ( !item )
-    return;
-
-  if ( !lock() )
-    return;
-
-  mCalendar->deleteJournal( item->journal() );
-
-  unlock();
-}
-
-void KNotesPart::removeSelectedNotes()
-{
-  QListViewItemIterator it( mNotesView );
-  QPtrList<NotesItem> items;
-  QStringList titles;
-
-  while ( it.current() ) {
-    if ( it.current()->isSelected() ) {
-      NotesItem *item = static_cast<NotesItem*>( it.current() );
-      items.append( item );
-      titles.append( item->journal()->summary() );
-    }
-
-    ++it;
-  }
-
-  if ( items.isEmpty() )
-    return;
-
-  if ( !lock() )
-    return;
-
-  int ret = KMessageBox::warningContinueCancelList( mNotesView,
-      i18n( "Do you really want to delete this note?",
-            "Do you really want to delete these %n notes?", items.count() ),
-      titles,
-      i18n( "Confirm Delete" ),
-      KGuiItem( i18n( "Delete" ), "editdelete")
-      );
-
-  if ( ret == KMessageBox::Continue ) {
-    QPtrListIterator<NotesItem> itemIt( items );
-    NotesItem *item;
-    while ( (item = itemIt.current()) != 0 ) {
-      ++itemIt;
-
-      mCalendar->deleteJournal( item->journal() );
-
-      delete item;
-    }
-  }
-
-  unlock();
-}
-
-void KNotesPart::renameNote()
-{
-  if ( mNotesView->currentItem() )
-    mNotesView->currentItem()->startRename( 0 );
-}
-
-void KNotesPart::noteRenamed( QListViewItem *i, int,  const QString& )
-{
-  NotesItem *item = static_cast<NotesItem*>( i );
-
-  if ( !item )
-    return;
-
-  if ( !lock() )
-    return;
-
-  unlock();
-}
-
-void KNotesPart::editNote( QListViewItem *i, const QPoint&, int column )
-{
-  if ( column == 1 )
-    editNote( i );
-}
-
-void KNotesPart::editNote( QListViewItem *i )
-{
-  NotesItem *item = static_cast<NotesItem*>( i );
-
-  if ( !item )
-    return;
-
-  if ( !lock() )
-    return;
-
-  NoteEditDialog dlg( mNotesView, item->journal()->description() );
-  if ( dlg.exec() ) {
-    item->journal()->setDescription( dlg.text() );
-  }
-
-  unlock();
-}
-
-void KNotesPart::newNote()
-{
-  bool ok;
-  QString title = KInputDialog::getText( i18n( "New Note" ),
-                                         i18n( "Enter title for the note:" ),
-                                         KGlobal::locale()->formatDateTime( QDateTime::currentDateTime() ),
-                                         &ok );
-  if ( !ok )
-    return;
-
-  if ( !lock() )
-    return;
-
-  NoteEditDialog dlg( mNotesView, "" );
-  if ( dlg.exec() ) {
-    KCal::Journal* journal = new KCal::Journal();
-    mCalendar->addJournal( journal );
-    journal->setSummary( title );
-    journal->setDescription( dlg.text() );
-    (void) new NotesItem( mNotesView, journal );
-  }
-
-  unlock();
-}
-
-void KNotesPart::slotCalendarChanged()
-{
-  reloadNotes();
-}
-
-bool KNotesPart::lock()
-{
-  if ( mTicket ) // we still have a valid ticket
-    return true;
-
-  mTicket = mCalendar->requestSaveTicket( mResource );
-
-  bool ok = (mTicket != 0);
-
-  if ( !ok )
-    KMessageBox::error( mNotesView,
-                        i18n( "Unable to access the notes, make sure no other program uses them." ) );
-
-  return ok;
-}
-
-bool KNotesPart::unlock()
-{
-  if ( !mTicket ) {
-    kdError() << "save with null ticket" << endl;
     return false;
-  }
-
-  mCalendar->save( mTicket );
-  mTicket = 0;
-
-  return true;
 }
+
+
+// public KNotes DCOP interface implementation
+
+QString KNotesPart::newNote( const QString& name, const QString& text )
+{
+    // create the new note
+    KCal::Journal *journal = new KCal::Journal();
+
+    // new notes have the current date/time as title if none was given
+    if ( !name.isEmpty() )
+        journal->setSummary( name );
+    else
+        journal->setSummary( KGlobal::locale()->formatDateTime( QDateTime::currentDateTime() ) );
+
+    // the body of the note
+    journal->setDescription( text );
+
+    m_manager->addNewNote( journal );
+
+    showNote( journal->uid() );
+
+    return journal->uid();
+}
+
+QString KNotesPart::newNoteFromClipboard( const QString& name )
+{
+    const QString& text = KApplication::clipboard()->text();
+    return newNote( name, text );
+}
+
+void KNotesPart::showNote( const QString& id ) const
+{
+    KNotesIconViewItem *item = m_noteList[id];
+    m_notesView->ensureItemVisible( item );
+    m_notesView->setCurrentItem( item );
+}
+
+void KNotesPart::hideNote( const QString& ) const
+{
+    // simply does nothing, there is nothing to hide
+}
+
+void KNotesPart::killNote( const QString& id )
+{
+}
+
+void KNotesPart::killNote( const QString& id, bool force )
+{
+}
+
+QString KNotesPart::name( const QString& id ) const
+{
+    return m_noteList[id]->text();
+}
+
+QString KNotesPart::text( const QString& id ) const
+{
+    return m_noteList[id]->journal()->description();
+}
+
+void KNotesPart::setName( const QString& id, const QString& newName )
+{
+    m_noteList[id]->setText( newName );
+}
+
+void KNotesPart::setText( const QString& id, const QString& newText )
+{
+    m_noteList[id]->journal()->setDescription( newText );
+}
+
+QMap<QString, QString> KNotesPart::notes() const
+{
+    QMap<QString, QString> notes;
+    QDictIterator<KNotesIconViewItem> it( m_noteList );
+
+    for ( ; it.current(); ++it )
+        notes.insert( (*it)->journal()->uid(), (*it)->journal()->description() );
+
+    return notes;
+}
+
+// TODO KDE 4.0: remove
+
+void KNotesPart::sync( const QString& app )
+{
+}
+
+bool KNotesPart::isNew( const QString& app, const QString& id ) const
+{
+}
+
+bool KNotesPart::isModified( const QString& app, const QString& id ) const
+{
+}
+
+
+// private stuff
+
+
+void KNotesPart::killSelectedNotes()
+{
+    QPtrList<KNotesIconViewItem> items;
+    QStringList notes;
+
+    KNotesIconViewItem *knivi;
+    for ( QIconViewItem *it = m_notesView->firstItem(); it; it = it->nextItem() )
+    {
+        if ( it->isSelected() )
+        {
+            knivi = static_cast<KNotesIconViewItem *>( it );
+            items.append( knivi );
+            notes.append( knivi->text() );
+        }
+    }
+
+    if ( items.isEmpty() )
+        return;
+
+//   if ( !lock() )
+//     return;
+
+    int ret = KMessageBox::warningContinueCancelList( m_notesView,
+            i18n( "Do you really want to delete this note?",
+                  "Do you really want to delete these %n notes?", items.count() ),
+            notes, i18n("Confirm Delete"),
+            KGuiItem( i18n("Delete"), "editdelete" )
+                                                    );
+
+    if ( ret == KMessageBox::Continue )
+    {
+        QPtrListIterator<KNotesIconViewItem> kniviIt( items );
+        while ( (knivi = *kniviIt) )
+        {
+            ++kniviIt;
+            m_manager->deleteNote( knivi->journal() );
+            delete knivi;
+        }
+    }
+
+//   unlock();
+}
+
+void KNotesPart::popupRMB( QIconViewItem *item, const QPoint& pos )
+{
+    kdDebug() << k_funcinfo << item << ", " << pos << endl;
+    if ( !m_context_menu )
+        m_context_menu = static_cast<QPopupMenu *>(factory()->container( "note_context", this ));
+
+    if ( !m_context_menu || !item )
+        return;
+
+    m_context_menu->popup( pos );
+}
+
+
+// create and kill the icon view item corresponding to the note
+
+void KNotesPart::createNote( KCal::Journal *journal )
+{
+    new KNotesIconViewItem( m_notesView, journal );
+}
+
+void KNotesPart::killNote( KCal::Journal *journal )
+{
+    m_noteList.remove( journal->uid() );
+}
+
 
 #include "knotes_part.moc"
