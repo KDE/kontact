@@ -70,7 +70,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
     mDCOPApp = "kmail";
   else {
     KParts::Part *part = plugin->part(); // start part to have dcop iface available
-//    part->widget()->hide();
+    part->widget()->hide();
     mDCOPApp = "kontact";
   }
 
