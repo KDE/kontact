@@ -139,6 +139,7 @@ void SummaryViewPart::updateWidgets()
   if ( !config.hasKey( "ActiveSummaries" ) ) {
     activeSummaries << "kontact_kmailplugin";
     activeSummaries << "kontact_kaddressbookplugin";
+    activeSummaries << "kontact_specialdatesplugin";
     activeSummaries << "kontact_korganizerplugin";
     activeSummaries << "kontact_todoplugin";
     activeSummaries << "kontact_newstickerplugin";
@@ -360,6 +361,7 @@ void SummaryViewPart::loadLayout()
     mLeftColumnSummaries << "kontact_korganizerplugin";
     mLeftColumnSummaries << "kontact_todoplugin";
     mLeftColumnSummaries << "kontact_kaddressbookplugin";
+    mLeftColumnSummaries << "kontact_specialdatesplugin";
   } else {
     mLeftColumnSummaries = config.readListEntry( "LeftColumnSummaries" );
   }

@@ -91,7 +91,7 @@ PluginView::~PluginView()
 KCMKontactSummary::KCMKontactSummary( QWidget *parent, const char *name )
   : KCModule( parent, name )
 {
-  QVBoxLayout *layout = new QVBoxLayout( this, KDialog::marginHint(), 
+  QVBoxLayout *layout = new QVBoxLayout( this, KDialog::marginHint(),
                                          KDialog::spacingHint() );
 
   QLabel *label = new QLabel( i18n( "Here you can select which summary plugins to have visible in your summary view." ), this );
@@ -105,7 +105,7 @@ KCMKontactSummary::KCMKontactSummary( QWidget *parent, const char *name )
   connect( mPluginView, SIGNAL( clicked( QListViewItem* ) ),
            this, SLOT( itemClicked( QListViewItem* ) ) );
   load();
-  
+
   KAboutData *about = new KAboutData( I18N_NOOP( "kontactsummary" ),
                                       I18N_NOOP( "KDE Kontact Summary" ),
                                       0, 0, KAboutData::License_GPL,
@@ -126,6 +126,7 @@ void KCMKontactSummary::load()
   KConfig config( "kontact_summaryrc" );
   if ( !config.hasKey( "ActiveSummaries" ) ) {
     activeSummaries << "kontact_kaddressbookplugin";
+    activeSummaries << "kontact_specialdatesplugin";
     activeSummaries << "kontact_korganizerplugin";
     activeSummaries << "kontact_todoplugin";
     activeSummaries << "kontact_kpilotplugin";
