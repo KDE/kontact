@@ -78,14 +78,13 @@ void KNotesSummaryWidget::updateView()
     KURLLabel *urlLabel = new KURLLabel(
         (*it)->uid(), (*it)->summary(), this );
     urlLabel->setTextFormat(RichText);
+    urlLabel->show();
     mLayout->addWidget( urlLabel );
     mLabels.append( urlLabel );
 
     connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
         this, SLOT( urlClicked( const QString& ) ) );
   }
-
-  mLayout->addStretch();
 }
 
 void KNotesSummaryWidget::urlClicked( const QString &/*uid*/ )
