@@ -25,11 +25,11 @@
 #ifndef KONTACT_PREFS_H
 #define KONTACT_PREFS_H
 
-#include <kprefs.h>
+#include <kconfigskeleton.h>
 
 namespace Kontact {
 
-class Prefs : public KPrefs
+class Prefs : public KConfigSkeleton
 {
   public:
     enum { SidePaneBars, SidePaneIcons };

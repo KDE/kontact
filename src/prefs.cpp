@@ -38,13 +38,13 @@ static KStaticDeleter<Prefs> insd;
 
 
 Prefs::Prefs()
-  : KPrefs( "kontactrc" )
+  : KConfigSkeleton( "kontactrc" )
 {
-  KPrefs::setCurrentGroup( "View" );
+  KConfigSkeleton::setCurrentGroup( "View" );
 
-  addItemInt( "SidePaneType", mSidePaneType, SidePaneIcons );
-  addItemString( "ActivePlugin", mActivePlugin, "summary" );
-  addItemIntList( "SidePaneSplitter", mSidePaneSplitter );
+  addItemInt( "", "SidePaneType", mSidePaneType, SidePaneIcons );
+  addItemString( "", "ActivePlugin", mActivePlugin, "summary" );
+  addItemIntList( "", "SidePaneSplitter", mSidePaneSplitter );
 }
 
 Prefs::~Prefs()
