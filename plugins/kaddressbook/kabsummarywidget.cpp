@@ -229,7 +229,7 @@ void KABSummaryWidget::updateView()
   }
   else
   {
-    QLabel *nothingtosee = new QLabel(i18n("No Birthdays or Anniversaries pending"), this, "nothing to see");
+    QLabel *nothingtosee = new QLabel(i18n("No birthdays or anniversaries pending"), this, "nothing to see");
     nothingtosee->setTextFormat(RichText);
     mLayout->addMultiCellWidget(nothingtosee, 0, 0, 0, 4);
   }
