@@ -1,5 +1,6 @@
-<!DOCTYPE kpartgui >
-<kpartgui version="18" name="kontact" >
+<?xml version="1.0"?>
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui version="19" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -42,4 +43,4 @@
 <ToolBar position="Top" hidden="true" name="navigatorToolBar"><text>Navigator</text>
   <ActionList name="navigator_actionlist" />
 </ToolBar>
-</kpartgui>
+</gui>
