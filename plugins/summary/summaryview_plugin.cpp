@@ -50,7 +50,7 @@ KParts::Part *SummaryView::createPart()
 const KAboutData *SummaryView::aboutData()
 {
   if ( !mAboutData ) {
-    mAboutData = new KAboutData( "kontact/summary", I18N_NOOP("Kontact Summary"),
+    mAboutData = new KAboutData( "kontactsummary", I18N_NOOP("Kontact Summary"),
                                  "0.1",
                                  I18N_NOOP("Kontact Summary View"),
                                  KAboutData::License_LGPL,
@@ -58,7 +58,9 @@ const KAboutData *SummaryView::aboutData()
     mAboutData->addAuthor( "Sven Lueppken", "", "sven@kde.org" );
     mAboutData->addAuthor( "Cornelius Schumacher", "", "schumacher@kde.org" );
     mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
+    mAboutData->setProductName( "kontact/summary" );
   }
+
   return mAboutData;
 }
 
