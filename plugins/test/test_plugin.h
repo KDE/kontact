@@ -8,13 +8,13 @@
 class TestPart;
 
 
-class TestPlugin : public Kaplan::Plugin
+class TestPlugin : public Kontact::Plugin
 {
   Q_OBJECT
 
 public:
 
-  TestPlugin(Kaplan::Core *core, const char *name, const QStringList &);
+  TestPlugin(Kontact::Core *core, const char *name, const QStringList &);
   ~TestPlugin();
 
 

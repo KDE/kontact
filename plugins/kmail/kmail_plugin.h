@@ -9,13 +9,13 @@
 //#include "kmailpartIface_stub.h"
 
 
-class KMailPlugin : public Kaplan::Plugin
+class KMailPlugin : public Kontact::Plugin
 {
   Q_OBJECT
 
 public:
 
-  KMailPlugin(Kaplan::Core *core, const char *name, const QStringList & /*args*/);
+  KMailPlugin(Kontact::Core *core, const char *name, const QStringList & /*args*/);
   ~KMailPlugin();
 
 

@@ -1,5 +1,5 @@
 /*
-       This file is part of Kaplan
+       This file is part of Kontact
        Copyright (c) 2002 Daniel Molkentin <molkentin@kde.org>
 
        This library is free software; you can redistribute it and/or
@@ -31,11 +31,11 @@
 #include "knotes_plugin.h"
 #include "knotes_part.h"
 
-typedef KGenericFactory< KNotesPlugin, Kaplan::Core > KNotesPluginFactory;
+typedef KGenericFactory< KNotesPlugin, Kontact::Core > KNotesPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpknotesplugin, KNotesPluginFactory( "kpknotesplugin" ) );
 
-KNotesPlugin::KNotesPlugin(Kaplan::Core *_core, const char *name, const QStringList &)
-  : Kaplan::Plugin(_core, _core, name), m_part(0)
+KNotesPlugin::KNotesPlugin(Kontact::Core *_core, const char *name, const QStringList &)
+  : Kontact::Plugin(_core, _core, name), m_part(0)
 {
   setInstance(KNotesPluginFactory::instance());
 

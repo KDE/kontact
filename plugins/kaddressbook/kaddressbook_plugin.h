@@ -11,13 +11,13 @@
 
 class KAboutData;
 
-class KAddressbookPlugin : public Kaplan::Plugin
+class KAddressbookPlugin : public Kontact::Plugin
 {
   Q_OBJECT
 
 public:
 
-  KAddressbookPlugin(Kaplan::Core *core, const char *name, const QStringList & /*args*/);
+  KAddressbookPlugin(Kontact::Core *core, const char *name, const QStringList & /*args*/);
   ~KAddressbookPlugin();
 
   virtual bool createDCOPInterface( const QString& serviceType );

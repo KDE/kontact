@@ -13,12 +13,12 @@
 #include "kmail_plugin.h"
 #include "kmail_plugin.moc"
 
-typedef KGenericFactory< KMailPlugin, Kaplan::Core > KMailPluginFactory;
+typedef KGenericFactory< KMailPlugin, Kontact::Core > KMailPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpkmailplugin,
                             KMailPluginFactory( "kpmailplugin" ) );
 
-KMailPlugin::KMailPlugin(Kaplan::Core *_core, const char *name, const QStringList & /*args*/ )
-  : Kaplan::Plugin(_core, _core, "kmail"), m_part(0)
+KMailPlugin::KMailPlugin(Kontact::Core *_core, const char *name, const QStringList & /*args*/ )
+  : Kontact::Plugin(_core, _core, "kmail"), m_part(0)
 {
 //  m_stub = new KMailPartIface_stub(dcopClient(), "kmail", "*");
   setInstance(KMailPluginFactory::instance());

@@ -13,12 +13,12 @@
 #include "korganizer_plugin.h"
 #include <kdebug.h>
 
-typedef KGenericFactory< KOrganizerPlugin, Kaplan::Core > KOrganizerPluginFactory;
+typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpkorganizerplugin,
                             KOrganizerPluginFactory( "kporganizerplugin" ) );
 
-KOrganizerPlugin::KOrganizerPlugin(Kaplan::Core *_core, const char *, const QStringList &)
-  : Kaplan::Plugin(_core, _core, "korganizer"), m_part(0)
+KOrganizerPlugin::KOrganizerPlugin(Kontact::Core *_core, const char *, const QStringList &)
+  : Kontact::Plugin(_core, _core, "korganizer"), m_part(0)
 {
   setInstance(KOrganizerPluginFactory::instance());
 

@@ -8,13 +8,13 @@
 #include "kpplugin.h"
 //#include "korganizeriface_stub.h"
 
-class KOrganizerPlugin : public Kaplan::Plugin
+class KOrganizerPlugin : public Kontact::Plugin
 {
   Q_OBJECT
 
 public:
 
-  KOrganizerPlugin(Kaplan::Core *core, const char *name, const QStringList &);
+  KOrganizerPlugin(Kontact::Core *core, const char *name, const QStringList &);
   ~KOrganizerPlugin();
 
   virtual bool createDCOPInterface( const QString& serviceType );

@@ -25,7 +25,7 @@
 
 #include "kpcore.h"
 
-using namespace Kaplan;
+using namespace Kontact;
 
 Core::Core(QWidget *parent, const char *name)
     : KParts::MainWindow(parent,name)

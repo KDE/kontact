@@ -35,12 +35,12 @@ class DCOPClient;
 class DCOPObject;
 class KAboutData;
 
-namespace Kaplan
+namespace Kontact
 {
     class Core;
 
     /**
-     * Base class for all Plugins in Kaplan. Inherit from it
+     * Base class for all Plugins in Kontact. Inherit from it
      * to get a plugin. It can insert an icon into the sidepane,
      * add widgets to the widgetstack and add menu items via XMLGUI.
      */
@@ -58,7 +58,7 @@ namespace Kaplan
         ~Plugin();
 
         /**
-         * Offers access to Kaplans core.
+         * Offers access to Kontacts core.
          **/
 
         Core *core() const;
@@ -71,7 +71,7 @@ namespace Kaplan
 
         /**
          * Reimplement this method and return a @ref QStringList of all config
-         * modules your application part should offer via Kaplan. Note that the
+         * modules your application part should offer via Kontact. Note that the
          * part and the module will have to take care for config syncing themselves.
          * Usually @p DCOP used for that purpose.
          *
@@ -82,7 +82,7 @@ namespace Kaplan
         virtual QStringList configModules() const { return QStringList(); };
 
         /**
-         * Reimplement this method if you want to add your credits to the Kaplan
+         * Reimplement this method if you want to add your credits to the Kontact
          * about dialog.
          **/
         virtual KAboutData* aboutData() { return 0L; };

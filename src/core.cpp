@@ -1,5 +1,5 @@
 /*
-    This file is part of Kaplan
+    This file is part of Kontact
     Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
     Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
 
@@ -46,8 +46,10 @@
 #include "core.h"
 #include "sidepane.h"
 
-Core::Core()
-  : Kaplan::Core()
+using namespace Kontact;
+
+MainWindow::MainWindow()
+  : Kontact::Core()
 {
   // create the GUI
   QHBox *box = new QHBox(this);
@@ -85,22 +87,22 @@ Core::Core()
 }
 
 
-Core::~Core()
+MainWindow::~MainWindow()
 {
     QPtrList<KParts::Part> parts = *m_partManager->parts();
     parts.setAutoDelete(true);
     parts.clear();
 }
 
-void Core::loadSettings()
+void MainWindow::loadSettings()
 {
 }
 
-void Core::saveSettings()
+void MainWindow::saveSettings()
 {
 }
 
-void Core::setupActions()
+void MainWindow::setupActions()
 {
   (void) KStdAction::quit(this, SLOT(slotQuit()), actionCollection(), "file_quit");
   (void) KStdAction::preferences(this, SLOT(slotPreferences()), actionCollection(), "settings_preferences");
@@ -108,20 +110,20 @@ void Core::setupActions()
 }
 
 
-void Core::insertNewAction(KAction *action)
+void MainWindow::insertNewAction(KAction *action)
 {
   m_newActions->insert(action);
 }
 
-void Core::loadPlugins()
+void MainWindow::loadPlugins()
 {
-  KTrader::OfferList offers = KTrader::self()->query(QString::fromLatin1("Kaplan/Plugin"), QString::null);
+  KTrader::OfferList offers = KTrader::self()->query(QString::fromLatin1("Kontact/Plugin"), QString::null);
 
   for (KTrader::OfferList::ConstIterator it = offers.begin(); it != offers.end(); ++it)
   {
     kdDebug() << "Loading Plugin: " << (*it)->name() << endl;
-    Kaplan::Plugin *plugin = KParts::ComponentFactory
-      ::createInstanceFromService<Kaplan::Plugin>(*it, this);
+    Kontact::Plugin *plugin = KParts::ComponentFactory
+      ::createInstanceFromService<Kontact::Plugin>(*it, this);
     if (!plugin)
       continue;
 
@@ -130,7 +132,7 @@ void Core::loadPlugins()
 }
 
 
-void Core::addPlugin(Kaplan::Plugin *plugin)
+void MainWindow::addPlugin(Kontact::Plugin *plugin)
 {
   kdDebug() << "Added plugin" << endl;
 
@@ -140,7 +142,7 @@ void Core::addPlugin(Kaplan::Plugin *plugin)
 }
 
 
-void Core::addPart(KParts::Part *part)
+void MainWindow::addPart(KParts::Part *part)
 {
   m_partManager->addPart(part, false);
 
@@ -149,14 +151,14 @@ void Core::addPart(KParts::Part *part)
 }
 
 
-void Core::activePartChanged(KParts::Part *part)
+void MainWindow::activePartChanged(KParts::Part *part)
 {
   kdDebug() << "Part activated: " << part << endl;
   createGUI(part);
 }
 
 
-void Core::showPart(KParts::Part* part)
+void MainWindow::showPart(KParts::Part* part)
 {
   m_partManager->setActivePart( part );
   QWidget* view = part->widget();
@@ -170,20 +172,20 @@ void Core::showPart(KParts::Part* part)
 }
 
 
-void Core::slotQuit()
+void MainWindow::slotQuit()
 {
   close();
 }
 
-void Core::slotPreferences()
+void MainWindow::slotPreferences()
 {
-  KCMultiDialog* dialog = new KCMultiDialog("PIM", this, "KaplanPreferences");
+  KCMultiDialog* dialog = new KCMultiDialog("PIM", this, "KontactPreferences");
 
   QStringList modules;
 
 
   // find all all modules for all plugins 
-  QPtrListIterator<Kaplan::Plugin> pit(m_plugins);
+  QPtrListIterator<Kontact::Plugin> pit(m_plugins);
   for(; pit.current(); ++pit)
   {
      QStringList tmp = pit.current()->configModules();
@@ -203,17 +205,17 @@ void Core::slotPreferences()
 
 
 // called from the plugins
-void Core::addMainEntry(QString text, QString icon, QObject *receiver, const char *member)
+void MainWindow::addMainEntry(QString text, QString icon, QObject *receiver, const char *member)
 {
   m_sidePane->addServiceEntry(BarIcon(icon), text, receiver, member);
 }
 
-int Core::startServiceFor( const QString& serviceType,
+int MainWindow::startServiceFor( const QString& serviceType,
                            const QString& constraint,
                            const QString& preferences,
                            QString *error, QCString* dcopService, int flags )
 {
-  QPtrListIterator<Kaplan::Plugin> it( m_plugins );
+  QPtrListIterator<Kontact::Plugin> it( m_plugins );
   for ( ; it.current() ; ++it )
   {
     if ( it.current()->createDCOPInterface( serviceType ) ) {

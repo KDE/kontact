@@ -16,7 +16,7 @@ Configuration Merge
 
 d Idea: The KOffice way of life: Offer a method that adds a given wiget of a
 d predefined type as page in a KDialogBase or offer a pointer to a KDialogBase
-d -> requires a kaplan part or an external lib per part
+d -> requires a Kontact part or an external lib per part
 
 m I believe this is a more general problem. Please take a look at
 m kdegraphics/kview/kpreferences{dialog,module}.{h,cpp}. I'd like to generalize
@@ -207,7 +207,7 @@ Don: Definitely.
 # problems, right?
 
 d: Right. Simply add it as childobject in your part and use it's API. Works even
-d: for other KPart hosts than Kaplan
+d: for other KPart hosts than Kontact
 
 
 Kontact plugin unification
@@ -276,7 +276,7 @@ s about that. you'll end up with really complex code on the caller side to handl
 s like that.
 
 d Yes, but of course one should always prefer in-process IPC if possible. DCOP
-d currently _works_ for kaplan, but that's all about it. It isn't exactly elegant.
+d currently _works_ for Kontact, but that's all about it. It isn't exactly elegant.
 d The only advantange of the current approach is that we can allow the user to
 d run one of the parts standalone. I am not really sure we want that. I used to find
 d it desireable, but I am not sure anymore.
@@ -323,10 +323,10 @@ d If we use the kparts (ktrader) approach to find a parts by looking
 d for an application with the correct mime type this might raise security
 d problems. (Martin's concern)
 
-# Looking up kaplan parts isn't based on mime types but on services of type
+# Looking up Kontact parts isn't based on mime types but on services of type
 # "Kontact/Plugin". This is just as save as starting a program statically linking
 # its parts. I really don't see any security concerns here.
 
-d Ok, if we limit stuff to Kontact/Plugin and Kaplan/Part that might be safe enough
+d Ok, if we limit stuff to Kontact/Plugin and Kontact/Part that might be safe enough
 d indeed. I (and Martin, who raise this concern initially) was just afraid of
 d allowing "any" part.

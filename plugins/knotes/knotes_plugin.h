@@ -24,13 +24,13 @@
 
 class KNotesPart;
 
-class KNotesPlugin : public Kaplan::Plugin
+class KNotesPlugin : public Kontact::Plugin
 {
   Q_OBJECT
 
 public:
 
-  KNotesPlugin(Kaplan::Core *core, const char *name, const QStringList &);
+  KNotesPlugin(Kontact::Core *core, const char *name, const QStringList &);
   ~KNotesPlugin();
 
   

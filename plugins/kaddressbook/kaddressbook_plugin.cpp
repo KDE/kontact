@@ -17,12 +17,12 @@
 #include "kaddressbook_plugin.h"
 #include "kaddressbook_plugin.moc"
 
-typedef KGenericFactory< KAddressbookPlugin, Kaplan::Core > KAddressbookPluginFactory;
+typedef KGenericFactory< KAddressbookPlugin, Kontact::Core > KAddressbookPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpkaddressbookplugin,
                             KAddressbookPluginFactory( "kpaddressbookplugin" ) );
 
-KAddressbookPlugin::KAddressbookPlugin(Kaplan::Core *_core, const char *, const QStringList & /*args*/ )
-  : Kaplan::Plugin(_core, _core, "kaddressbook"), m_part(0)
+KAddressbookPlugin::KAddressbookPlugin(Kontact::Core *_core, const char *, const QStringList & /*args*/ )
+  : Kontact::Plugin(_core, _core, "kaddressbook"), m_part(0)
 {
   m_stub = 0L;
   setInstance(KAddressbookPluginFactory::instance());

@@ -1,5 +1,5 @@
 /*
-    This file is part of Kaplan
+    This file is part of Kontact
     Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
     Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
 
@@ -35,23 +35,22 @@
 #include "kpcore.h"
 #include <kdcopservicestarter.h>
 
-
-namespace Kaplan
-{
-  class Plugin;
-};
-
-class SidePane;
 class KAction;
 
-class Core : public Kaplan::Core, public KDCOPServiceStarter
+namespace Kontact
+{
+
+class Plugin;
+class SidePane;
+
+class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 {
   Q_OBJECT
 
 public:
 
-  Core();
-  ~Core();
+  MainWindow();
+  ~MainWindow();
 
   virtual void addMainEntry(QString text, QString icon, QObject *receiver, const char *slot);
 
@@ -81,7 +80,7 @@ private slots:
 private:
 
   void loadPlugins();
-  void addPlugin(Kaplan::Plugin *plugin);
+  void addPlugin(Kontact::Plugin *plugin);
 
   void setupActions();
 
@@ -90,9 +89,11 @@ private:
   KParts::PartManager *m_partManager;
 
   QWidgetStack *m_stack;
-  QPtrList<Kaplan::Plugin> m_plugins;
+  QPtrList<Kontact::Plugin> m_plugins;
 
   KActionMenu *m_newActions;
+
+};
 
 };
 

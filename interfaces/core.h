@@ -35,7 +35,7 @@
 
 class KAction;
 
-namespace Kaplan
+namespace Kontact
 {
 
 

@@ -23,74 +23,78 @@
 #include <qvbox.h>
 
 class QWidgetStack;
+
 template <class T> class QPtrList;
 
-
-///////////////////////////////////////////////////////////////////////
-// Helper classes
-///////////////////////////////////////////////////////////////////////
-
-
-class PanelButton : public QPushButton
+namespace Kontact
 {
-  Q_OBJECT
-  public:
-    PanelButton(const QIconSet & icon, const QString & text, 
-        int id, QObject* receiver, const char* slot,
-        QWidget *parent, const char* name = 0);
 
-    ~PanelButton() {};
-
-    bool isActive() const { return m_active; };
-
-    /**
-     * Does the virtal connection
-     **/
-    void connectToReceiver( QObject * );
-
-    void setActive();
-    void setInactive();
-
-  signals:
-    void clicked(PanelButton* pb, int id);
-
-  public slots:	
-    void slotClicked();
+  ///////////////////////////////////////////////////////////////////////
+  // Helper classes
+  ///////////////////////////////////////////////////////////////////////
 
 
-  private:
-    bool m_active;
-    bool m_id;
-    QObject* m_receiver;
-    QCString m_slot;
-};
+  class PanelButton : public QPushButton
+  {
+    Q_OBJECT
+    public:
+      PanelButton(const QIconSet & icon, const QString & text, 
+          int id, QObject* receiver, const char* slot,
+          QWidget *parent, const char* name = 0);
 
-///////////////////////////////////////////////////////////////////////
+      ~PanelButton() {};
 
-class SidePane : public QVBox
-{
-  Q_OBJECT
-  public:	
-    SidePane(QWidget *parent, const char* name = 0);
-    ~SidePane() {};
+      bool isActive() const { return m_active; };
 
-    public slots:
       /**
-       * adds a new service to the sidepane
+       * Does the virtal connection
        **/
-    void addServiceEntry(const QPixmap& icon, const QString& text, 
-                         QObject* receiver, const char* slot); 
+      void connectToReceiver( QObject * );
 
-    void switchItems(PanelButton* pb, int id);
+      void setActive();
+      void setInactive();
 
-    void invokeFirstEntry(); //### replace me with a decent class design
+signals:
+      void clicked(PanelButton* pb, int id);
 
-  private:
-    QWidgetStack* m_contentStack;
-    QPushButton* m_headerWidget;
-    QPtrList<PanelButton> m_buttonList;
+      public slots:	
+        void slotClicked();
+
+
+    private:
+      bool m_active;
+      bool m_id;
+      QObject* m_receiver;
+      QCString m_slot;
+  };
+
+  ///////////////////////////////////////////////////////////////////////
+
+  class SidePane : public QVBox
+  {
+    Q_OBJECT
+    public:	
+      SidePane(QWidget *parent, const char* name = 0);
+      ~SidePane() {};
+
+      public slots:
+        /**
+         * adds a new service to the sidepane
+         **/
+        void addServiceEntry(const QPixmap& icon, const QString& text, 
+            QObject* receiver, const char* slot); 
+
+      void switchItems(PanelButton* pb, int id);
+
+      void invokeFirstEntry();
+
+    private:
+      QWidgetStack* m_contentStack;
+      QPushButton* m_headerWidget;
+      QPtrList<PanelButton> m_buttonList;
+  };
+
 };
-
 #endif // SIDEPANE_H 
 
 // vim: ts=2 sw=2 et

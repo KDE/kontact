@@ -29,21 +29,21 @@
 
 #include "kpplugin.h"
 
-using namespace Kaplan;
+using namespace Kontact;
 
 class Plugin::Private
 {
 public:
-	Kaplan::Core *core;
+	Kontact::Core *core;
     DCOPClient *dcopClient;
     QCString name;
 };
 
 
-Plugin::Plugin(Kaplan::Core *core, QObject *parent, const char *name)
+Plugin::Plugin(Kontact::Core *core, QObject *parent, const char *name)
 : QObject(parent, name)
 {
-	d = new Kaplan::Plugin::Private;
+	d = new Kontact::Plugin::Private;
     d->name = name;
 	d->core = core;
     d->dcopClient = 0L;
@@ -57,7 +57,7 @@ Plugin::~Plugin()
 }
 
 
-Kaplan::Core *Plugin::core() const
+Kontact::Core *Plugin::core() const
 {
 	return d->core;
 }

@@ -1,5 +1,5 @@
 /*
-    This file is part of Kaplan
+    This file is part of Kontact
     Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
     Copyright (c) 2002-2003 Daniel Molkentin <molkentin@kde.org>
 
@@ -60,12 +60,12 @@ int main(int argc, char **argv)
 
     // see if we are starting with session management
     if (app.isRestored())
-        RESTORE(Core)
+        RESTORE(Kontact::MainWindow)
     else
     {
         // no session.. just start up normally
-        Core *widget = new Core;
-        widget->show();
+        Kontact::MainWindow *mw = new Kontact::MainWindow;
+        mw->show();
     }
 
     // delete splash

@@ -9,11 +9,11 @@
 #include "test_plugin.h"
 #include "test_part.h"
 
-typedef KGenericFactory< TestPlugin, Kaplan::Core > TestPluginFactory;
+typedef KGenericFactory< TestPlugin, Kontact::Core > TestPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkptestplugin, TestPluginFactory( "kptestplugin" ) );
 
-TestPlugin::TestPlugin(Kaplan::Core *_core, const char *name, const QStringList &)
-  : Kaplan::Plugin(_core, _core, name), m_part(0)
+TestPlugin::TestPlugin(Kontact::Core *_core, const char *name, const QStringList &)
+  : Kontact::Plugin(_core, _core, name), m_part(0)
 {
   setInstance(TestPluginFactory::instance());
 
