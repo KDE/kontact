@@ -125,7 +125,7 @@ MainWindow::~MainWindow()
 
   QPtrList<KParts::Part> parts = *mPartManager->parts();
 
-  for (KParts::Part *p = parts.last(); p; p = parts.next())
+  for (KParts::Part *p = parts.last(); p; p = parts.prev())
   {
     delete p;
     p = 0;
