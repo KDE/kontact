@@ -199,7 +199,7 @@ void SummaryWidget::updateView()
 void SummaryWidget::showSyncLog( const QString &filename )
 {
 	KDialogBase dlg( this, 0, true, QString::null, KDialogBase::Ok, KDialogBase::Ok );
-	dlg.setCaption( i18n("KPilot HotSync log") );
+	dlg.setCaption( i18n("KPilot HotSync Log") );
 	QTextEdit *edit = new QTextEdit( dlg.makeVBoxMainWidget() );
 	edit->setReadOnly(TRUE);
 
