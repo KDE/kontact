@@ -7,9 +7,12 @@
 
 #include <qwidget.h>
 
+#include <dcopclient.h>
+#include <dcopref.h>
 #include <kaboutdata.h>
 #include <kaction.h>
 #include <kapplication.h>
+#include <kcmdlineargs.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
@@ -20,6 +23,7 @@
 #include <kontact/plugin.h>
 
 #include "akregator_plugin.h"
+#include "uniqueapphandler.h"
 
 typedef KGenericFactory< aKregatorPlugin, Kontact::Core > aKregatorPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_akregator,
@@ -28,17 +32,27 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_akregator,
 aKregatorPlugin::aKregatorPlugin( Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "akregator" ), m_stub(0)
 {
-     setInstance( aKregatorPluginFactory::instance() );
+
+    setInstance( aKregatorPluginFactory::instance() );
+    
+    m_uniqueAppWatcher = new Akregator::UniqueAppWatcher(
+            new Akregator::UniqueAppHandlerFactory<AkregatorUniqueAppHandler>(), this );
 }
 
 aKregatorPlugin::~aKregatorPlugin()
 {
 }
 
+bool aKregatorPlugin::isRunningStandalone()
+{
+    return m_uniqueAppWatcher->isRunningStandalone();
+}
+
 QStringList aKregatorPlugin::invisibleToolbarActions() const
 {
     return QStringList( "file_new_contact" );
 }
+
 
 Akregator::aKregatorPartIface_stub *aKregatorPlugin::interface()
 {
@@ -51,9 +65,9 @@ Akregator::aKregatorPartIface_stub *aKregatorPlugin::interface()
 }
 
 
-KPIM::Part* aKregatorPlugin::createPart()
+MyBasePart* aKregatorPlugin::createPart()
 {
-    KPIM::Part* p = loadPart();
+    MyBasePart* p = loadPart();
 
     m_stub = new Akregator::aKregatorPartIface_stub( dcopClient(), "akregator",
                                       "aKregatorIface" );
@@ -67,5 +81,29 @@ QStringList aKregatorPlugin::configModules() const
     modules << "PIM/akregator.desktop";
     return modules;
 }
+
+#include "../akregator_options.h"
+
+void AkregatorUniqueAppHandler::loadCommandLineOptions()
+{
+    KCmdLineArgs::addCmdLineOptions( akregator_options );
+}
+
+int AkregatorUniqueAppHandler::newInstance()
+{
+    kdDebug(5602) << k_funcinfo << endl;
+    // Ensure part is loaded
+    (void)plugin()->part();
+    DCOPRef akr( "akregator", "aKregatorIface" );
+//    DCOPReply reply = kAB.call( "handleCommandLine" );
+  //  if ( reply.isValid() ) {
+    //    bool handled = reply;
+     //   kdDebug(5602) << k_funcinfo << "handled=" << handled << endl;
+     //   if ( !handled ) // no args -> simply bring kaddressbook plugin to front
+            return Akregator::UniqueAppHandler::newInstance();
+   // }
+   // return 0;
+}
+
 
 #include "akregator_plugin.moc"

@@ -13,17 +13,28 @@
 
 #include <kontact/plugin.h>
 
-#include "akregator_partiface_stub.h"
 
-#if KDE_VERSION > KDE_MAKE_VERSION( 3, 3, 80 )
+#include "akregator_partiface_stub.h"
+#include "uniqueapphandler.h"
+
+#include "config.h"
+#ifdef HAVE_KPIMPART
 #include <libkdepim/part.h>
+typedef KPIM::Part MyBasePart;
 #else
-namespace KPIM{
-typedef KParts::Part Part;
-}
+typedef KParts::Part MyBasePart;
 #endif
 
 class KAboutData;
+
+class AkregatorUniqueAppHandler : public Akregator::UniqueAppHandler
+{
+    public:
+        AkregatorUniqueAppHandler( Kontact::Plugin* plugin ) : Akregator::UniqueAppHandler( plugin ) {}
+        virtual void loadCommandLineOptions();
+        virtual int newInstance();
+};
+
 
 class aKregatorPlugin : public Kontact::Plugin
 {
@@ -40,10 +51,12 @@ class aKregatorPlugin : public Kontact::Plugin
 
     virtual QStringList configModules() const;
     virtual QStringList invisibleToolbarActions() const;
-	    
+    virtual bool isRunningStandalone();
+    
   protected:
-    KPIM::Part *createPart();
+    MyBasePart *createPart();
     Akregator::aKregatorPartIface_stub *m_stub;
+    Akregator::UniqueAppWatcher *m_uniqueAppWatcher;
 };
 
 #endif
