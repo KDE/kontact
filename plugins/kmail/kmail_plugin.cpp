@@ -39,7 +39,7 @@ void KMailPlugin::loadPart()
   {
     m_part = KParts::ComponentFactory
       ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkmailpart",
-                                                             0, 0, // parentwidget,name
+                                                             core(), 0, // parentwidget,name
                                                              this, 0 ); // parent,name
     if (!m_part)
       return;
