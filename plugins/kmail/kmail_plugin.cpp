@@ -33,9 +33,13 @@
 #include <dcopclient.h>
 #include <ktempfile.h>
 
+#include <kabc/addressee.h>
+
 #include <libkcal/vcaldrag.h>
 #include <libkcal/icaldrag.h>
 #include <libkcal/calendarlocal.h>
+
+#include <libkdepim/kvcarddrag.h>
 
 #include <kmail/kmail_part.h>
 #include <kmail/kmkernel.h>
@@ -67,23 +71,34 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
 
 bool KMailPlugin::canDecodeDrag( QMimeSource *qms )
 {
-  return ( ICalDrag::canDecode( qms ) || VCalDrag::canDecode( qms ));
+  return ( ICalDrag::canDecode( qms ) ||
+           VCalDrag::canDecode( qms ) ||
+           KVCardDrag::canDecode( qms ) );
 }
 
 void KMailPlugin::processDropEvent( QDropEvent * de )
 {
+  kdDebug() << k_funcinfo << endl;
   CalendarLocal cal;
+  KABC::Addressee::List list;
 
-  if ( !VCalDrag::decode( de, &cal ) &&
-       !ICalDrag::decode( de, &cal ) )
-    return;
+  if ( VCalDrag::decode( de, &cal ) && ICalDrag::decode( de, &cal ) ) {
+    KTempFile tmp( locateLocal( "tmp", "incidences-" ), ".ics" );
+    cal.save( tmp.name() );
+    openComposer( QString::null, KURL::fromPathOrURL( tmp.name() ) );
+  }
+  else if ( KVCardDrag::decode( de, list ) ) {
+    KABC::Addressee::List::Iterator it;
+    QStringList to;
+    for ( it = list.begin(); it != list.end(); ++it ) {
+      to += ( *it ).fullEmail();
+    }
+    openComposer( to.join(", ") );
+  }
 
-  KTempFile tmp( locateLocal( "tmp", "incidences-" ), ".ics" );
-  cal.save(tmp.name());
-  openComposer( KURL::fromPathOrURL( tmp.name() ) );
 }
 
-void KMailPlugin::openComposer( const KURL& attach )
+void KMailPlugin::openComposer( const QString& to, const KURL& attach )
 {
   (void) part(); // ensure part is loaded
   Q_ASSERT( mStub );
@@ -91,13 +106,13 @@ void KMailPlugin::openComposer( const KURL& attach )
     if ( attach.isValid() )
       mStub->openComposer( "", "", "", "", "", false, KURL(), attach );
     else
-      mStub->newMessage();
+      mStub->openComposer( to, "", "", "", "", false, KURL() );
   }
 }
 
 void KMailPlugin::slotNewMail()
 {
-  openComposer( KURL() );
+  openComposer( QString::null );
 }
 
 void KMailPlugin::raise()
