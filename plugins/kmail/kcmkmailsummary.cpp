@@ -90,15 +90,12 @@ void KCMKMailSummary::initFolders()
   mFolderView->clear();
   mFolderMap.clear();
 
-  bool firstFound = false;
   QStringList::Iterator it;
   for ( it = folderList.begin(); it != folderList.end(); ++it ) {
     QString displayName;
-    if ( !firstFound ) {
-      // The first one is the local folders. Can't test for *it to be "/Local", it's translated.
-      firstFound = true;
+    if ( (*it) == "/Local" )
       displayName = i18n( "prefix for local folders", "Local" );
-    } else {
+    else {
       DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
       folderRef.call( "displayName()" ).get( displayName );
     }
