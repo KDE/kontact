@@ -37,7 +37,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
   bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "knotes" ) ) {
-    if ( !KApplication::startServiceByDesktopName( "knotes", QStringList(), &error, &appID ) ) {
+    if ( KApplication::startServiceByDesktopName( "knotes", QStringList(), &error, &appID ) != 0 ) {
       setText( error );
       serviceAvailable = false;
     }
