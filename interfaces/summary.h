@@ -43,6 +43,10 @@ class Summary : public QWidget
       in the summary view.
     */
     virtual int summaryHeight() { return 1; }
+
+  private:
+    class Private;
+    Private *d;
 };
 
 }

@@ -7,7 +7,7 @@ libkpinterfaces_la_LDFLAGS = $(all_libraries) -no-undefined -version-info 1:0:0
 libkpinterfaces_la_LIBADD = $(LIB_KPARTS)
 
 kpincludedir = $(includedir)/kontact
-kpinclude_HEADERS = core.h plugin.h
+kpinclude_HEADERS = core.h plugin.h summary.h
 
 METASOURCES = AUTO
 
