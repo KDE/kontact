@@ -123,10 +123,9 @@ void SummaryWidget::updateView()
       // Fill Event Date Field
       bool makeBold = false;
       QString datestr;
-      QDate d = ev->dtStart().date();
 
       // Modify event date for printing
-      QDate sD = QDate::QDate( dt.year(), dt.month(), d.day() );
+      QDate sD = QDate::QDate( dt.year(), dt.month(), dt.day() );
       if ( ev->isMultiDay() ) {
         sD.setYMD( dt.year(), dt.month(), dt.day() );
       }
