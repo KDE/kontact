@@ -138,7 +138,7 @@ void SummaryWidget::updateView()
     KCal::Todo::List::ConstIterator it;
     for( it = todos.begin(); it != todos.end(); ++it ) {
       KCal::Todo *todo = *it;
-      if ( todo->hasDueDate() && todo->dtDue().date() == QDate::currentDate() ) {
+      if ( todo->hasDueDate() && todo->dtDue().date() == QDate::currentDate() && !todo->isCompleted() ) {
         label = new QLabel( this );
         label->setPixmap( pm );
         mLayout->addWidget( label, counter, 0 );
