@@ -110,6 +110,12 @@ namespace Kontact
          **/
         virtual QWidget * summaryWidget() { return 0L; };
 
+	/**
+	 * Reimplement this method if you don't want to have a plugin shown in the sidebar.
+	 *
+	 **/
+        virtual bool showInSideBar() const { return true; };
+        
         /**
          * Retrieve the current DCOP Client for the plugin.
          *
