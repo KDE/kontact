@@ -116,7 +116,8 @@ void SummaryWidget::updateView()
       // Fill Appointment Pixmap Field
       label = new QLabel( this );
       label->setPixmap( pm );
-      label->setMaximumSize( label->minimumSizeHint() );
+      label->setMaximumWidth( label->minimumSizeHint().width() );
+      label->setAlignment( AlignTop );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
@@ -140,7 +141,7 @@ void SummaryWidget::updateView()
         datestr = KGlobal::locale()->formatDate( sD );
       }
       label = new QLabel( datestr, this );
-      label->setAlignment( AlignLeft | AlignVCenter );
+      label->setAlignment( AlignLeft | AlignTop );
       if ( makeBold ) {
         QFont font = label->font();
         font.setBold( true );
@@ -156,6 +157,7 @@ void SummaryWidget::updateView()
       }
 
       KURLLabel *urlLabel = new KURLLabel( ev->uid(), newtext, this );
+      urlLabel->setAlignment( urlLabel->alignment() | Qt::WordBreak );
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
 
@@ -179,7 +181,7 @@ void SummaryWidget::updateView()
                   .arg( KGlobal::locale()->formatTime( sST ) )
                   .arg( KGlobal::locale()->formatTime( sET ) );
         label = new QLabel( datestr, this );
-        label->setAlignment( AlignLeft | AlignVCenter );
+        label->setAlignment( AlignLeft | AlignTop );
         mLayout->addWidget( label, counter, 3 );
         mLabels.append( label );
       }
