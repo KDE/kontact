@@ -670,11 +670,17 @@ void MainWindow::configureToolbars()
   saveMainWindowSettings( KGlobal::config(), "MainWindow" );
 
   KEditToolbar edit( factory() );
-  if ( edit.exec() ) {
-    createGUI( mCurrentPlugin->part() );
-    applyMainWindowSettings( KGlobal::config(), "MainWindow" );
-  }
+  connect(&edit,SIGNAL(newToolbarConfig()),this,
+      SLOT(slotNewToolbarConfig()));
+  edit.exec();
 }
+
+void MainWindow::slotNewToolbarConfig()
+{
+  createGUI( mCurrentPlugin->part() );
+  applyMainWindowSettings( KGlobal::config(), "MainWindow" );
+}
+
 #include "mainwindow.moc"
 
 // vim: sw=2 sts=2 et
