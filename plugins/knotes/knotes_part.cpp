@@ -1,6 +1,6 @@
 /*
    This file is part of the KDE project
-   Copyright (C) 2002 Daniel Molkentin <molkentin@kde.org>
+   Copyright (C) 2002-2003 Daniel Molkentin <molkentin@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -63,6 +63,12 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
     mNoteChanged( false )
 {
   setInstance( new KInstance( "knotes" ) );
+
+
+  mICal = new KCal::CalendarLocal;
+  connect(mICal, SIGNAL(calendarChanged()), SLOT(slotCalendarChanged()));
+  mICal->load(::locate("data", "knotes/notes.ics"));
+  mNotes = mICal->journals();
 
   QSplitter *splitter = new QSplitter( Qt::Horizontal );
 

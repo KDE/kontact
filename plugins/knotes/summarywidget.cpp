@@ -32,90 +32,77 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kurllabel.h>
+#include <kstandarddirs.h>
 
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   : Kontact::Summary( parent, name )
 {
-  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+  mMainLayout = new QVBoxLayout( this, 3, 3 );
+
+  mICal = new KCal::CalendarLocal;
+
+  // doesn't get triggered (danimo)
+  connect(mICal, SIGNAL(calendarChanged()), SLOT(updateView()));
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop, KIcon::SizeMedium );
   QWidget* heading = createHeader( this, icon, i18n( "Notes" ) );
 
-  mainLayout->addWidget(heading);
-  mLayout = new QGridLayout( mainLayout, 5, 2 );
-  mainLayout->addStretch();
+  mMainLayout->addWidget(heading);
+  mLayout = new QVBoxLayout( mMainLayout );
 
+  updateView();
+}
+
+bool SummaryWidget::ensureKNotesRunning()
+{
   QString error;
-  QCString appID;
-
-  bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "knotes" ) ) {
-    if ( KApplication::startServiceByDesktopName( "knotes", QStringList(), &error, &appID ) != 0 ) {
+    if ( KApplication::startServiceByDesktopName( 
+          "knotes", QStringList(), &error ) != 0 ) 
+    {
       kdDebug() << error << endl;
-      serviceAvailable = false;
+      return false;
     }
   }
-
-  if ( serviceAvailable ) {
-    mNotesMap = fetchNotes();
-    updateView();
-  }
+  return true;
 }
 
 void SummaryWidget::updateView()
 {
+  mICal->load(::locate("data", "knotes/notes.ics"));
+  mNotes = mICal->journals();
+
+  delete mLayout;
+  mLayout = new QVBoxLayout( mMainLayout );
+
   mLabels.setAutoDelete( true );
   mLabels.clear();
   mLabels.setAutoDelete( false );
 
-  DCOPRef dcopCall( "knotes", "KNotesIface" );
+  KCal::Journal::List::Iterator it;
+  for (it = mNotes.begin(); it != mNotes.end(); ++it) {
+    KURLLabel *urlLabel = new KURLLabel( 
+        (*it)->uid(), (*it)->summary(), this );
+    urlLabel->setTextFormat(RichText);
+    mLayout->addWidget( urlLabel );
+    mLabels.append( urlLabel );
 
-  int counter = 0;
-  NotesMap::Iterator it;
-  for ( it = mNotesMap.begin(); it != mNotesMap.end() && counter < 5; ++it ) {
-    QString text;
-    dcopCall.call( "text(QString)", it.key() ).get( text );
-    if ( !text.isEmpty() ) {
-      QLabel *label = new QLabel( this );
-      label->setText( it.data() + ":" );
-      label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Preferred );
-      mLayout->addWidget( label, counter, 0 );
-      mLabels.append( label );
-
-      KURLLabel *urlLabel = new KURLLabel( it.key(), text.left(
-                                           text.find( "\n" ) ), this );
-      urlLabel->setTextFormat(RichText);
-      mLayout->addWidget( urlLabel, counter, 1 );
-      mLabels.append( urlLabel );
-
-      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
-               this, SLOT( urlClicked( const QString& ) ) );
-
-      counter++;
-    }
+    connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+        this, SLOT( urlClicked( const QString& ) ) );
   }
+
+  mLayout->addStretch();
 }
 
 void SummaryWidget::urlClicked( const QString &uid )
 {
-  DCOPRef dcopCall( "knotes", "KNotesIface" );
-  dcopCall.send( "showNote(QString)", uid );
-}
-
-NotesMap SummaryWidget::fetchNotes()
-{
-  QCString replyType;
-  QByteArray data, replyData;
-  QDataStream arg(  data, IO_WriteOnly );
-  if( kapp->dcopClient()->call( "knotes", "KNotesIface", "notes()", data, replyType, replyData ) ) {
-    QDataStream answer(  replyData, IO_ReadOnly );
-    NotesMap notes;
-    answer >> notes;
-    return notes;
-  } else
-    return NotesMap();
+  if (ensureKNotesRunning())
+  {
+    DCOPRef dcopCall( "knotes", "KNotesIface" );
+    dcopCall.send( "showNote(QString)", uid );
+  }
 }
 
 #include "summarywidget.moc"

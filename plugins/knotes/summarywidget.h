@@ -30,6 +30,8 @@
 #include <qptrlist.h>
 #include <qwidget.h>
 
+#include <libkcal/calendarlocal.h>
+
 typedef QMap<QString, QString> NotesMap;
 
 class QGridLayout;
@@ -42,14 +44,19 @@ class SummaryWidget : public Kontact::Summary
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );
 
-  private slots:
+  protected:
+    bool ensureKNotesRunning();
+
+  protected slots:
     void urlClicked( const QString& );
+    void updateView();
 
   private:
-    void updateView();
-    NotesMap fetchNotes();
+    KCal::CalendarLocal *mICal;
+    KCal::Journal::List mNotes;
 
-    QGridLayout *mLayout;
+    QVBoxLayout *mMainLayout;
+    QVBoxLayout *mLayout;
 
     QPtrList<QLabel> mLabels;
     NotesMap mNotesMap;

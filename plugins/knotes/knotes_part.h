@@ -24,7 +24,7 @@
 #include <qmap.h>
 #include <qpixmap.h>
 #include <kparts/part.h>
-
+#include <libkcal/calendarlocal.h>
 
 typedef QMap<QString, QString> NotesMap;
 
@@ -65,6 +65,9 @@ class KNotesPart : public KParts::ReadOnlyPart
     void reloadNotes();
 
   private:
+    KCal::CalendarLocal *mICal;
+    KCal::Journal::List mNotes;
+
     KAction *mActionEdit;
     KAction *mActionDelete;
 
