@@ -22,6 +22,7 @@
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qframe.h>
+#include <qtimer.h>
 
 #include <sidebarextension.h>
 #include "plugin.h"
@@ -79,7 +80,7 @@ SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins,
   connect( this, SIGNAL( textChanged( const QString& ) ),
            info, SIGNAL( textChanged( const QString& ) ) );
 
-  emit textChanged( i18n( "What's next?" ) );
+  QTimer::singleShot( 0, this, SLOT( slotTextChanged() ) );
 }
 
 SummaryViewPart::~SummaryViewPart()
@@ -110,7 +111,12 @@ void SummaryViewPart::getWidgets()
     } else if ( QString( "knotes" ).compare( plugin->name() ) == 0 ) {
       m_layout->addWidget( wdg, 2, 2 );
     }
+  }
 }
+
+void SummaryViewPart::slotTextChanged()
+{
+  emit textChanged( i18n( "What's next?" ) );
 }
 
 #include "summaryview_part.moc"

@@ -40,6 +40,9 @@ public:
   SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins, QWidget* parentWidget, const char* widgetName, QObject *parent=0, const char *name=0 );
     ~SummaryViewPart();
 
+public slots:
+  void slotTextChanged();
+
 signals:
   void textChanged( const QString& );
 
