@@ -1,26 +1,27 @@
 <!DOCTYPE kpartgui >
-<kpartgui version="5" name="kaplan" >
+<kpartgui version="10" name="kaplan" >
 <MenuBar>
-  <Menu name="file">
+  <Menu name="file" noMerge="1">
     <text>&amp;File</text>
 	<Merge/>
 	<Separator/>
     <Action name="action_new"/>
 	<Merge/>
   </Menu>
-  <Menu name="edit">
+  <Menu name="edit" noMerge="1">
   	<text>&amp;Edit</text>
   	<Merge/>
   </Menu>
-  <Menu name="view">
+  <Menu name="view" noMerge="1">
   	<text>&amp;View</text>
   	<Merge/>
   </Menu>
-  <Menu name="settings">
+  <Merge />
+  <Menu noMerge="1" name="settings">
      <text>&amp;Settings</text>
 	 <Merge/>
-  </Menu>	 
-  <Menu name="help" append="about_merge">
+  </Menu>
+  <Menu noMerge="1" name="help">
     <text>&amp;Help</text>
     <Merge/>
   </Menu>
