@@ -75,7 +75,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   // User
   row++;
   mLayout->addWidget( new QLabel( i18n("<i>User:</i>"), this), row, 0);
-  mPilotUserLabel = new QLabel( i18n("Unknkown"), this );
+  mPilotUserLabel = new QLabel( i18n("Unknown"), this );
   mLayout->addMultiCellWidget( mPilotUserLabel, row, row, 1,2 );
   
   // Device information
