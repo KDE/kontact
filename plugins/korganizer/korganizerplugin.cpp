@@ -25,6 +25,7 @@
 #include <qdragobject.h>
 
 #include <kapplication.h>
+#include <kabc/vcardconverter.h>
 #include <kaction.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
@@ -34,6 +35,7 @@
 
 #include <dcopclient.h>
 
+#include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
 
 #include "core.h"
@@ -138,6 +140,26 @@ bool KOrganizerPlugin::canDecodeDrag( QMimeSource *mimeSource )
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
   QString text;
+
+  KABC::VCardConverter converter;
+  if ( KVCardDrag::decode( event, text ) ) {
+    KABC::Addressee::List contacts = converter.parseVCards( text );
+    KABC::Addressee::List::Iterator it;
+
+    QStringList attendees;
+    for ( it = contacts.begin(); it != contacts.end(); ++it ) {
+      QString email = (*it).fullEmail();
+      if ( email.isEmpty() )
+        attendees.append( (*it).realName() + "<>" );
+      else
+        attendees.append( email );
+    }
+
+    interface()->openEventEditor( i18n( "Meeting" ), QString::null, QString::null,
+                                  attendees );
+    return;
+  }
+
   if ( QTextDrag::decode( event, text ) ) {
     kdDebug(5602) << "DROP:" << text << endl;
     interface()->openEventEditor( text );
