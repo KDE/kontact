@@ -4,7 +4,7 @@ kde_module_LTLIBRARIES = libkontact_summaryplugin.la kcm_kontactsummary.la
 libkontact_summaryplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_summaryplugin_la_LIBADD = -lkutils \
   $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) \
-  $(top_builddir)/libkdepim/libkdepim.la
+  $(top_builddir)/libkdepim/libkdepim.la $(top_builddir)/libkpimidentities/libkpimidentities.la
 
 libkontact_summaryplugin_la_SOURCES = summaryview_plugin.cpp summaryview_part.cpp dropwidget.cpp
 

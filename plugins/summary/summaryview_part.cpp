@@ -46,6 +46,9 @@
 #include <kparts/componentfactory.h>
 #include <kparts/event.h>
 
+#include <libkpimidentities/identity.h>
+#include <libkpimidentities/identitymanager.h>
+
 #include <infoextension.h>
 #include <sidebarextension.h>
 
@@ -124,6 +127,11 @@ void SummaryViewPart::updateWidgets()
   mMainWidget->setUpdatesEnabled( false );
 
   delete mFrame;
+
+  KPIM::IdentityManager idm( /*readonly=*/true, this );
+  const KPIM::Identity &id = idm.defaultIdentity();
+  QString currUser = QString("Summary for %1").arg(id.fullName());
+  mUsernameLabel->setText( QString("<i><b>%1</b></i>").arg(currUser) );
 
   mSummaries.clear();
 
@@ -282,7 +290,7 @@ void SummaryViewPart::slotAdjustPalette()
 
 void SummaryViewPart::setDate( const QDate& newDate )
 {
-  QString date( "<b>%1<b>" );
+  QString date( "<b>%1</b>" );
   date = date.arg( KGlobal::locale()->formatDate( newDate ) );
   mDateLabel->setText( date );
 }
@@ -336,9 +344,12 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   mMainLayout = new QVBoxLayout( mMainWidget,KDialog::marginHint(),
                                  KDialog::spacingHint() );
 
-  mDateLabel = new QLabel( mMainWidget );
+  QHBoxLayout *hbl = new QHBoxLayout( mMainLayout );
+  mUsernameLabel = new QLabel( mMainWidget );
+  hbl->addWidget( mUsernameLabel );
+  mDateLabel = new QLabel( mMainWidget ); 
   mDateLabel->setAlignment( AlignRight );
-  mMainLayout->insertWidget( 0, mDateLabel );
+  hbl->addWidget( mDateLabel );
 
   QFrame *hline = new QFrame( mMainWidget );
   hline->setFrameStyle( QFrame::HLine | QFrame::Plain );

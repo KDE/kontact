@@ -91,6 +91,7 @@ class SummaryViewPart : public KPIM::Part
     QVBoxLayout *mMainLayout;
     QVBoxLayout *mLeftColumn;
     QVBoxLayout *mRightColumn;
+    QLabel *mUsernameLabel;
     QLabel *mDateLabel;
     KAction *mConfigAction;
 
