@@ -43,6 +43,7 @@
 KNoteTip::KNoteTip( KIconView *parent )
     : QFrame( 0, 0, WX11BypassWM |   // this will make Seli happy >:-P
               WStyle_Customize | WStyle_NoBorder | WStyle_Tool | WStyle_StaysOnTop ),
+      m_filter( false ),
       m_view( parent ),
       m_noteIVI( 0 ),
       m_preview( new QTextEdit( this ) )
@@ -57,7 +58,6 @@ KNoteTip::KNoteTip( KIconView *parent )
     setPalette( QToolTip::palette() );
     setMargin( 1 );
     setFrameStyle( QFrame::Plain | QFrame::Box );
-    resize( 350, height() );
     hide();
 }
 
@@ -90,8 +90,13 @@ void KNoteTip::setNote( KNotesIconViewItem *item, TextFormat format )
         m_preview->zoomTo( 6 );
         m_preview->sync();
 
+        int w = 400;
+        int h = m_preview->heightForWidth( w );
+        while ( w > 60 && h == m_preview->heightForWidth( w - 20 ) )
+            w -= 20;
+
         QRect desk = KGlobalSettings::desktopGeometry( m_noteIVI->rect().center() );
-        resize( width(), QMIN( m_preview->contentsHeight(), desk.height()/2 - 20 ) );
+        resize( w, QMIN(h, desk.height()/2 - 20) );
 
         hide();
         killTimers();
