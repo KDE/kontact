@@ -24,6 +24,7 @@
 #include <qsignal.h>
 #include <qobjectlist.h>
 #include <qlabel.h>
+#include <qimage.h>
 #include <qpainter.h>
 #include <qbitmap.h>
 #include <qfontmetrics.h>
@@ -34,8 +35,10 @@
 
 #include <kpopupmenu.h>
 #include <kapplication.h>
+#include <kdialog.h>
 #include <klocale.h>
 #include <kiconloader.h>
+#include <kimageeffect.h>
 #include <sidebarextension.h>
 
 #include <kdebug.h>
@@ -120,19 +123,23 @@ int EntryItem::width( const QListBox *listbox ) const
   int w;
   if ( text().isEmpty() )
     w = mPixmap.width();
-  else
+  else if (navigator()->viewMode() > SmallIcons)
     w = QMAX( (int)navigator()->viewMode(), listbox->fontMetrics().width( text() ) );
+  else
+    w = (int)navigator()->viewMode() + 4 + listbox->fontMetrics().width( text() );
 
-  return w + 26;
+  return w + ( KDialog::marginHint() * 2 );
 }
 
 int EntryItem::height( const QListBox *listbox ) const
 {
   int h;
   if ( text().isEmpty() )
-    h =  mPixmap.height();
-  else
+    h = mPixmap.height();
+  else if (navigator()->viewMode() > SmallIcons)
     h = (int)navigator()->viewMode() + listbox->fontMetrics().lineSpacing();
+  else
+    h = QMAX( (int)navigator()->viewMode(), listbox->fontMetrics().lineSpacing() );
 
   return h + 4;
 }
@@ -142,34 +149,79 @@ void EntryItem::paint( QPainter *p )
   reloadPixmap();
 
   QListBox *box = listBox();
+  bool iconAboveText = navigator()->viewMode() > SmallIcons;
   int w = box->viewport()->width();
   int y = 2;
 
+  // we'll only do neat things when we have enough color depth
+  // because things like gradients look ugly without it
+  bool beFancy = QPixmap::defaultDepth() > 14;
+
+  // draw selected
+  if ( isCurrent() || isSelected() ) {
+    if ( beFancy ) {
+      int h = height( box );
+      QImage gradient = KImageEffect::gradient( QSize( w, h ),
+                                                box->colorGroup().mid(),
+                                                box->colorGroup().highlight(),
+                                                KImageEffect::HorizontalGradient );
+      p->drawImage( 0, 0, gradient );
+      QPen pen = p->pen();
+      QPen oldPen = pen;
+      pen.setWidth( 1 );
+      pen.setColor( box->colorGroup().mid() );
+      p->setPen( pen );
+      p->drawPoint( w - 1, 0 );
+      p->drawPoint( w - 1, h - 1 );
+      p->setPen( oldPen );
+    }
+    else {
+      QColorGroup group = box->colorGroup();
+      group.setColor( QColorGroup::Dark, Qt::black );
+      qDrawShadePanel( p, 1, 0, w - 2, height( box ),
+                       group, true, 1, 0 );
+    }
+  }
+
   if ( !mPixmap.isNull() ) {
-    int x = ( w - mPixmap.width() ) / 2;
+    int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) : KDialog::marginHint();
     p->drawPixmap( x, y, mPixmap );
   }
 
-  QColor save;
+  QColor shadowColor = listBox()->colorGroup().background().dark(115);
   if ( isCurrent() || isSelected() ) {
-    save = p->pen().color();
-    p->setPen( listBox()->colorGroup().brightText() );
+    p->setPen( box->colorGroup().highlightedText() );
   }
 
   if ( !text().isEmpty() ) {
     QFontMetrics fm = p->fontMetrics();
-    y += mPixmap.height() + fm.height() - fm.descent();
-    int x = ( w - fm.width( text() ) ) / 2;
-    p->drawText( x, y, text() );
-  }
 
-  // draw sunken
-  if ( isCurrent() || isSelected() ) {
-    p->setPen(save);
-    QColorGroup group = box->colorGroup();
-    group.setColor( QColorGroup::Dark, Qt::black );
-    qDrawShadePanel( p, 1, 0, w - 2, height( box ),
-                     group, true, 1, 0 );
+    int x = 0;
+    if (iconAboveText) {
+      x = ( w - fm.width( text() ) ) / 2;
+      y += fm.height() - fm.descent() + mPixmap.height();
+    }
+    else {
+      x = KDialog::marginHint() + mPixmap.width() + 4;
+
+      if ( mPixmap.height() < fm.height() )
+        y += fm.ascent() + fm.leading()/2;
+      else
+        y += mPixmap.height()/2 - fm.height()/2 + fm.ascent();
+    }
+
+    if ( isCurrent() || isSelected() ) {
+      if ( beFancy ) {
+        p->setPen( box->colorGroup().highlight().dark(115) );
+        p->drawText( x + ( QApplication::reverseLayout() ? -1 : 1),
+                     y + 1, text() );
+      }
+      p->setPen( box->colorGroup().highlightedText() );
+    }
+    else
+      p->setPen( box->colorGroup().text() );
+
+    p->drawText( x, y, text() );
   }
 }
 
@@ -348,6 +400,16 @@ void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint &pos )
 
   mViewMode = sizeIntToEnum( choice );
   Prefs::self()->setSidePaneIconSize( choice );
+
+  int maxWidth = 0;
+  QListBoxItem* it = 0;
+  for (int i = 0; (it = item(i)) != 0; ++i)
+  {
+    int width = it->width(this);
+    if (width > maxWidth)
+      maxWidth = width;
+  }
+  parentWidget()->setFixedWidth( maxWidth );
 
   triggerUpdate( true );
 }

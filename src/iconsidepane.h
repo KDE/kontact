@@ -36,7 +36,7 @@ class Core;
 class Plugin;
 class Navigator;
 
-enum IconViewMode { LargeIcons = 48, NormalIcons = 32, SmallIcons = 16, TextOnly = 0 };
+enum IconViewMode { LargeIcons = 48, NormalIcons = 32, SmallIcons = 22, TextOnly = 0 };
 
 /**
   A @see QListBoxPixmap Square Box with an optional icon and a text
