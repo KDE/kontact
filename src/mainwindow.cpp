@@ -181,10 +181,13 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
 {
   kdDebug(5600) << "Added plugin" << endl;
 
-  // merge the plugins GUI into the main window
-  insertChildClient( plugin );
   m_plugins.append( plugin );
-  m_sidePane->addEntry( plugin );
+  // merge the plugins GUI into the main window
+  if( plugin->showInSideBar() )
+  {
+    insertChildClient( plugin );
+    m_sidePane->addEntry( plugin );
+  }
 }
 
 void MainWindow::addPart( KParts::Part *part )
