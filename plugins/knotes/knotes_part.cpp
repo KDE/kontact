@@ -49,6 +49,8 @@ NotesItem::NotesItem( KListView *parent, const QString &id, const QString &text 
 {
   noteID = id;
   setRenameEnabled( 0, true );
+
+  setPixmap( 0, KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Small ) );
 }
 
 KNotesPart::KNotesPart( QObject *parent, const char *name )
@@ -64,9 +66,9 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   mNotesEdit = new QTextEdit( splitter );
 
   mPopupMenu->insertItem( BarIcon( "editdelete" ), i18n( "Remove Note" ),
-                          this, SLOT( slotRemoveCurrentNote() ) );
+                          this, SLOT( removeNote() ) );
   mPopupMenu->insertItem( BarIcon( "editrename" ), i18n( "Rename Note" ),
-                          this, SLOT( slotRenameCurrentNote() ) );
+                          this, SLOT( renameNote() ) );
 
   connect( mNotesView, SIGNAL( selectionChanged( QListViewItem* ) ),
            this, SLOT( showNote( QListViewItem* ) ) );
@@ -96,17 +98,19 @@ KNotesPart::~KNotesPart()
 
 void KNotesPart::reloadNotes()
 {
-  QString *error = 0;
-  int started = KApplication::startServiceByDesktopName( "knotes", QString(),
-                                                         error );
+  if ( !kapp->dcopClient()->isApplicationRegistered( "knotes" ) ) {
+    QString *error = 0;
+    int started  = KApplication::startServiceByDesktopName( "knotes",
+                                                            QString(), error );
 
-  if ( started > 0 ) {
-	  if ( error )
-		  KMessageBox::error( 0L, *error, i18n( "Error" ) );
-	  return;
+    if ( started > 0 ) {
+	    if ( error )
+		    KMessageBox::error( 0L, *error, i18n( "Error" ) );
+	    return;
+    }
+
+    delete error;
   }
-
-  delete error;
 
   mNotesView->clear();
 
@@ -114,10 +118,10 @@ void KNotesPart::reloadNotes()
 
   QCString replyType;
   QByteArray data, replyData;
-  QDataStream arg(  data, IO_WriteOnly );
+  QDataStream arg( data, IO_WriteOnly );
   if ( kapp->dcopClient()->call( "knotes", "KNotesIface", "notes()", data, replyType, replyData ) ) {
     kdDebug(5602) << "Reply Type: " << replyType << endl;
-    QDataStream answer(  replyData, IO_ReadOnly );
+    QDataStream answer( replyData, IO_ReadOnly );
     answer >> map;
   }
 
@@ -146,19 +150,14 @@ void KNotesPart::removeNote()
   if ( !item )
     return;
 
-  QByteArray data;
-  QDataStream arg( data, IO_WriteOnly );
-  arg << item->id();
-  if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "killNote(QString)", data ) )
-    kdDebug(5602) << "Deleting Note!" << endl;
+  DCOPRef dcopCall( "knotes", "KNotesIface" );
+  dcopCall.call( "killNote(QString)", item->id() );
 
-  // reinit knotes and refetch notes
   reloadNotes();
 }
 
 void KNotesPart::renameNote()
 {
-  // better safe than sorry
   if( mNotesView->currentItem() )
     mNotesView->currentItem()->startRename( 0 );
 }
@@ -170,12 +169,8 @@ void KNotesPart::noteRenamed( QListViewItem *i, int,  const QString& text )
   if ( !item )
     return;
 
-  QByteArray data;
-  QDataStream arg( data, IO_WriteOnly );
-  arg << item->id();
-  arg << text;
-  if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "setName(QString, QString)", data ) )
-    kdDebug(5602) << "Rename Note!" << endl;
+  DCOPRef dcopCall( "knotes", "KNotesIface" );
+  dcopCall.send( "setName(QString,QString)", item->id(), text );
 }
 
 void KNotesPart::showNote( QListViewItem *i )
@@ -215,7 +210,7 @@ void KNotesPart::saveNote()
     return;
 
   DCOPRef dcopCall( "knotes", "KNotesIface" );
-  dcopCall.call( "setText(QString,QString)", mCurrentNote, mNotesEdit->text() );
+  dcopCall.send( "setText(QString,QString)", mCurrentNote, mNotesEdit->text() );
 
   mNoteChanged = false;
 }
