@@ -39,15 +39,15 @@ class QGridLayout;
 class QLabel;
 
 namespace Kontact {
-class Plugin;
+    class Plugin;
 }
 
-class SummaryWidget : public Kontact::Summary
+class KNotesSummaryWidget : public Kontact::Summary
 {
   Q_OBJECT
 
   public:
-    SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
+    KNotesSummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
 
   protected:
     bool ensureKNotesRunning();

@@ -1,5 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2002 Daniel Molkentin <molkentin@kde.org>
+                 2004 Michael Brade <brade@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -27,26 +28,27 @@
 class KNotesPart;
 class SummaryWidget;
 
+
 class KNotesPlugin : public Kontact::Plugin
 {
-  Q_OBJECT
-
-  public:
+    Q_OBJECT
+public:
     KNotesPlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KNotesPlugin();
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
+
     int weight() const { return 600; }
 
     const KAboutData *aboutData();
 
-  protected:
+protected:
     KPIM::Part* createPart();
 
-  private slots:
+private slots:
     void slotNewNote();
 
-  private:
+private:
     KAboutData *mAboutData;
 };
 

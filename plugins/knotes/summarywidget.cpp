@@ -39,9 +39,10 @@
 
 #include "summarywidget.h"
 
-SummaryWidget::SummaryWidget( Kontact::Plugin *plugin,
-                              QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ), mPlugin( plugin )
+KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
+        QWidget *parent, const char *name )
+  : Kontact::Summary( parent, name ),
+    mPlugin( plugin )
 {
   mMainLayout = new QVBoxLayout( this, 3, 3 );
 
@@ -61,7 +62,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin,
   updateView();
 }
 
-void SummaryWidget::updateView()
+void KNotesSummaryWidget::updateView()
 {
   mNotes = mCalendar->journals();
 
@@ -74,7 +75,7 @@ void SummaryWidget::updateView()
 
   KCal::Journal::List::Iterator it;
   for (it = mNotes.begin(); it != mNotes.end(); ++it) {
-    KURLLabel *urlLabel = new KURLLabel( 
+    KURLLabel *urlLabel = new KURLLabel(
         (*it)->uid(), (*it)->summary(), this );
     urlLabel->setTextFormat(RichText);
     mLayout->addWidget( urlLabel );
@@ -87,7 +88,7 @@ void SummaryWidget::updateView()
   mLayout->addStretch();
 }
 
-void SummaryWidget::urlClicked( const QString &/*uid*/ )
+void KNotesSummaryWidget::urlClicked( const QString &/*uid*/ )
 {
   if ( !mPlugin->isRunningStandalone() )
     mPlugin->core()->selectPlugin( mPlugin );
