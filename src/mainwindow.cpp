@@ -92,7 +92,7 @@ MainWindow::MainWindow()
 
   createGUI( 0 );
 
-  resize( 600, 400 ); // initial size
+  resize( 600, 450 ); // initial size
   setAutoSaveSettings();
 
   if ( m_sidePane )
