@@ -29,11 +29,13 @@
 #include <qobject.h>
 #include <qwidget.h>
 #include <kxmlguiclient.h>
+#include <qptrlist.h>
 
 class QStringList;
 class DCOPClient;
 class DCOPObject;
 class KAboutData;
+class KAction;
 
 namespace Kontact
 {
@@ -106,7 +108,7 @@ namespace Kontact
          * Reimplement this method if you want to add a widget for your application
          * to Kontact's summary page.
          **/
-        virtual QWidget * SummaryWidget() { return 0L; };
+        virtual QWidget * summaryWidget() { return 0L; };
 
         /**
          * Retrieve the current DCOP Client for the plugin.
@@ -119,6 +121,8 @@ namespace Kontact
          **/
         DCOPClient *dcopClient() const;
 
+        QPtrList<KAction>* newActions() const; 
+
     signals:
         /**
          * Emitted when the part will be shown. If you really want to avoid that
@@ -127,17 +131,12 @@ namespace Kontact
         void aboutToShowPart();
 
     protected:
-        Core *core() const;
 
-        /**
-         * This will cause the part to show up by calling  KPart::show();
-         **/
-        virtual void showPart();
+        Core *core() const;
 
     private:
         class Private;
         Private *d;
-
     };
 
 };

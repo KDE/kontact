@@ -29,7 +29,7 @@ KAddressbookPlugin::KAddressbookPlugin(Kontact::Core *_core, const char *, const
 
   setXMLFile("kpkaddressbookplugin.rc");
 
-  core()->insertNewAction( new KAction( i18n( "New Contact" ), BarIcon( "contact" ),
+  insertNewAction( new KAction( i18n( "New Contact" ), BarIcon( "contact" ),
 			  0, this, SLOT( slotNewContact() ), actionCollection(), "new_contact" ));
 }
 

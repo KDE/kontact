@@ -71,8 +71,7 @@ QPushButton(parent, name)
 void PanelButton::slotClicked()
 {
   emit clicked(this);
-  KParts::Part* part = m_plugin->part();
-  emit showPart(part);
+  emit showPart(m_plugin->part(), m_plugin);
 
   setActive();
 }
@@ -179,11 +178,13 @@ void SidePane::addEntry(Kontact::Plugin *plugin)
   PanelButton* pb = new PanelButton(plugin, 0, this, "PanelButton");
   m_buttonList.append(pb);
   connect(pb, SIGNAL(clicked(PanelButton*)), this, SLOT(switchItems(PanelButton*)));
-  connect(pb, SIGNAL(showPart(KParts::Part*)), this, SIGNAL(showPart(KParts::Part*)));
-  connect(pb, SIGNAL(showPart(KParts::Part*)), this, SLOT(switchSidePaneWidget(KParts::Part*)));
+  connect(pb, SIGNAL(showPart(KParts::Part*, Kontact::Plugin*)), 
+      this, SIGNAL(showPart(KParts::Part*, Kontact::Plugin*)));
+  connect(pb, SIGNAL(showPart(KParts::Part*, Kontact::Plugin*)), 
+      this, SLOT(switchSidePaneWidget(KParts::Part*, Kontact::Plugin*)));
 }
 
-void SidePane::switchSidePaneWidget(KParts::Part* part)
+void SidePane::switchSidePaneWidget(KParts::Part* part, Kontact::Plugin*)
 {
  Q_ASSERT(part);
 

@@ -59,8 +59,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     MainWindow();
     ~MainWindow();
 
-    virtual void insertNewAction( KAction *action );
-
     // KDCOPServiceStarter interface
     virtual int startServiceFor( const QString& serviceType,
                                  const QString& constraint = QString::null,
@@ -69,7 +67,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
                                  int flags = 0 );
 
   public slots:
-    virtual void showPart( KParts::Part *part );
+    virtual void showPart( KParts::Part *part, Kontact::Plugin *plugin );
 
   signals:
     void textChanged( const QString& );
@@ -78,6 +76,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
   protected slots:
     void slotActivePartChanged( KParts::Part *part );
     void slotPreferences();
+	void slotNewClicked();
     void slotQuit();
 
   protected:
@@ -96,10 +95,11 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QLabel *m_headerPixmap;
     QSplitter *m_splitter;
 
-    KActionMenu *m_newActions;
+    KToolBarPopupAction *m_newActions;
 	
     SidePane *m_sidePane;
     QWidgetStack *m_stack;
+	Plugin *m_curPlugin;
     KParts::PartManager *m_partManager;
     QPtrList<Kontact::Plugin> m_plugins;
     KParts::InfoExtension *m_lastInfoExtension;

@@ -55,7 +55,7 @@ namespace Kontact
 
     signals:
       void clicked(PanelButton* pb);
-      void showPart(KParts::Part* part);
+      void showPart(KParts::Part* part, Kontact::Plugin* plugin);
 
     public slots:
       void slotClicked();
@@ -84,7 +84,7 @@ namespace Kontact
       ~SidePane() {};
 
     signals:
-      void showPart(KParts::Part*);
+      void showPart(KParts::Part*, Kontact::Plugin*);
 
     public slots:
       /**
@@ -97,7 +97,7 @@ namespace Kontact
       void invokeFirstEntry();
 
     protected slots:
-      void switchSidePaneWidget(KParts::Part* part);
+      void switchSidePaneWidget(KParts::Part* part, Kontact::Plugin*);
 
     private:
       QWidgetStack* m_contentStack;

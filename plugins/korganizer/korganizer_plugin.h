@@ -23,7 +23,8 @@ protected:
   KParts::ReadOnlyPart* part();
 
 private slots:
-  void slotNewAppointment();
+  void slotNewEvent();
+  void slotNewTodo();
 
 private:
 

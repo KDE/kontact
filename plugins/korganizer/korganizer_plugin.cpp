@@ -17,16 +17,19 @@ K_EXPORT_COMPONENT_FACTORY( libkpkorganizerplugin,
                             KOrganizerPluginFactory( "kporganizerplugin" ) );
 
 KOrganizerPlugin::KOrganizerPlugin(Kontact::Core *_core, const char *, const QStringList &)
-  : Kontact::Plugin(i18n("Calendar"), "korganizer", _core, _core, "korganizer"), m_part(0)
+  : Kontact::Plugin(i18n("Calendar"), "korganizer", _core, _core, "korganizer"), 
+    m_part(0), m_iface(0)
 {
   setInstance(KOrganizerPluginFactory::instance());
 
   setXMLFile("kpkorganizerplugin.rc");
 
-  insertNewAction(  new KAction(  i18n(  "New Appointment" ), BarIcon(  "appointment" ),
-			                0, this, SLOT(  slotNewAppointment() ), actionCollection(), "new_appointment" ) );
+  insertNewAction(  new KAction(  i18n(  "New Event" ), BarIcon(  "event" ),
+			                0, this, SLOT( slotNewEvent() ), actionCollection(), "new_event" ) );
 
-  m_iface = 0L;
+  insertNewAction(  new KAction(  i18n(  "New Todo" ), BarIcon(  "todo" ),
+			                0, this, SLOT( slotNewTodo() ), actionCollection(), "new_todo" ) );
+
 }
 
 
@@ -50,11 +53,21 @@ KParts::ReadOnlyPart* KOrganizerPlugin::part()
 
 }
 
-void KOrganizerPlugin::slotNewAppointment()
+void KOrganizerPlugin::slotNewEvent()
 {
-  if ( !m_iface)
+  part();
+  if(!m_iface)
     return;
-//  m_iface->newAppointment(); //### Add Method to Iface
+  m_iface->newEvent();
+}
+
+void KOrganizerPlugin::slotNewTodo()
+{
+  part();
+  if(!m_iface)
+    return;
+  m_iface->newTodo();
+
 }
 
 bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )

@@ -35,7 +35,7 @@ class KAction;
 namespace Kontact
 {
 
-
+    class Plugin;
     /**
      * This class is now purely private to Kontact and not visible for the plugins 
      **/
@@ -47,9 +47,7 @@ namespace Kontact
         public:
             virtual ~Core();
 
-            virtual void insertNewAction(KAction *action) = 0;
-            virtual void showPart(KParts::Part *part) = 0;
-
+            virtual void showPart(KParts::Part *part, Kontact::Plugin *plugin) = 0;
     };
 
 

@@ -38,10 +38,14 @@
 #include <kparts/componentfactory.h>
 #include <klocale.h>
 #include <kstatusbar.h>
+#include <kguiitem.h>
+#include <kpopupmenu.h>
+#include <kshortcut.h>
 #include <kcmultidialog.h>
-#include <infoextension.h>
 
 #include <dcopclient.h>
+
+#include <infoextension.h>
 
 #include "kpplugin.h"
 
@@ -57,13 +61,15 @@ MainWindow::MainWindow()
   QHBox *box = new QHBox( this );
   box->setFrameStyle( QFrame::Panel | QFrame::Sunken );
 
+  m_curPlugin = 0L;
+  
   m_splitter = new QSplitter( box );
 
   m_sidePane = new SidePane( m_splitter );
   m_sidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                           QSizePolicy::Preferred ) );
-  connect( m_sidePane, SIGNAL( showPart( KParts::Part* ) ),
-           SLOT( showPart( KParts::Part* ) ) );
+  connect( m_sidePane, SIGNAL( showPart( KParts::Part*, Kontact::Plugin* ) ),
+           SLOT( showPart( KParts::Part*, Kontact::Plugin* ) ) );
 
   QVBox *vBox = new QVBox( m_splitter );
   vBox->setSpacing( 0 );
@@ -110,7 +116,8 @@ void MainWindow::setupActions()
 {
   (void) KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
   (void) KStdAction::preferences( this, SLOT( slotPreferences() ), actionCollection() );
-  m_newActions = new KActionMenu( i18n( "New" ), BarIcon( "filenew2" ), actionCollection(), "action_new" );
+  m_newActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), "filenew2"), 
+		  KShortcut(), this, SLOT(slotNewClicked()),actionCollection(), "action_new" );
 }
 
 void MainWindow::initHeaderWidget(QVBox *vBox)
@@ -144,11 +151,6 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   m_lastInfoExtension = 0L;
 }
 
-void MainWindow::insertNewAction( KAction *action )
-{
-  m_newActions->insert( action );
-}
-
 void MainWindow::loadPlugins()
 {
   KTrader::OfferList offers = KTrader::self()->query( QString::fromLatin1( "Kontact/Plugin" ), QString::null );
@@ -160,7 +162,13 @@ void MainWindow::loadPlugins()
       ::createInstanceFromService<Kontact::Plugin>( *it, this );
     if ( !plugin )
       continue;
-
+	KAction *action;
+	QPtrList<KAction> *actionList = plugin->newActions();
+		
+	for(action = actionList->first(); action; action = actionList->next()){
+      kdDebug() << "Plugging " << action->name() << endl;
+      action->plug(m_newActions->popupMenu());
+	}
     addPlugin( plugin );
   }
 }
@@ -213,7 +221,13 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
   createGUI(part);
 }
 
-void MainWindow::showPart( KParts::Part* part )
+void MainWindow::slotNewClicked()
+{
+  KAction *action = m_curPlugin->newActions()->first();
+  if (action) action->activate();
+}
+
+void MainWindow::showPart( KParts::Part* part, Kontact::Plugin *plugin )
 {
   QPtrList<KParts::Part> *partList = const_cast<QPtrList<KParts::Part>*>( m_partManager->parts() );
   if ( partList->find( part ) == -1 )
@@ -222,11 +236,19 @@ void MainWindow::showPart( KParts::Part* part )
   m_partManager->setActivePart( part );
   QWidget* view = part->widget();
   Q_ASSERT( view );
+
   if ( view )
   {
     m_stack->raiseWidget( view );
     view->show();
     view->setFocus();
+    m_curPlugin = plugin;
+    KAction *action = plugin->newActions()->first();
+    if (action) {
+      // ##FIXME: Doesn't work for some reason..
+      m_newActions->setIconSet(action->iconSet());
+      m_newActions->setText(action->text());
+	}
   }
 }
 

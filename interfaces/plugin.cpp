@@ -40,6 +40,7 @@ public:
     QCString name;
     QString pluginName;
     QString icon;
+    QPtrList<KAction> *newActions;
 };
 
 
@@ -53,6 +54,7 @@ Plugin::Plugin(const QString& pluginName, const QString& icon, Kontact::Core *co
     d->icon = icon;
     d->pluginName = pluginName;
     d->dcopClient = 0L;
+    d->newActions = new QPtrList<KAction>; 
 }
 
 
@@ -86,17 +88,15 @@ DCOPClient* Plugin::dcopClient() const
 
 void Plugin::insertNewAction(KAction *action)
 {
-    d->core->insertNewAction(action);
+    d->newActions->append(action);
+}
+
+QPtrList<KAction>* Plugin::newActions() const
+{
+    return d->newActions;
 }
 
 // Protected
-
-void Plugin::showPart()
-{
-    assert(part());
-    d->core->showPart(part());
-}
-
 Kontact::Core* Plugin::core() const
 {
     return d->core;

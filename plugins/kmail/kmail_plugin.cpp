@@ -26,7 +26,7 @@ KMailPlugin::KMailPlugin(Kontact::Core *_core, const char * /*name*/, const QStr
 
   setXMLFile("kpkmailplugin.rc");
 
-  core()->insertNewAction( new KAction( i18n( "New Mail" ), BarIcon( "mail_new2" ),
+  insertNewAction( new KAction( i18n( "New Mail" ), BarIcon( "mail_new2" ),
 			  0, this, SLOT( slotNewMail() ), actionCollection(), "new_mail" ));
 
 }
