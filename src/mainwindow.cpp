@@ -257,7 +257,7 @@ void MainWindow::paintAboutScreen( const QString& msg )
   QString catchPhrase( i18n( "Get Organized!" ) );
   QString quickDescription( i18n( "The KDE Personal Information Management Suite" ) );
 
-  mIntroPart->write( content.arg( QFont().pointSize() ).arg( appName )
+  mIntroPart->write( content.arg( QFont().pointSize()+2 ).arg( appName )
       .arg( catchPhrase ).arg( quickDescription ).arg( msg ) );
   mIntroPart->end();
 
@@ -793,11 +793,11 @@ QString MainWindow::introductionString()
       "<p>%1</p>"
       "<table align=\"center\">"
       "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
-      "<td><a href=\"%1\">Read Manual</a></td></tr>"
+      "<td><a href=\"%1\">%1</a><br><span id=\"subtext\"><nobr>%1</td></tr>"
       "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
-      "<td><a href=\"%1\">Visit Kontact Website</a></td></tr>"
+      "<td><a href=\"%1\">%1</a><br><span id=\"subtext\"><nobr>%1</td></tr>"
       "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
-      "<td><a href=\"%1\">Configure Kontact as Groupware Client</a></td></tr>"
+      "<td><a href=\"%1\">%1</a><br><span id=\"subtext\"><nobr>%1</td></tr>"
       "</table>"
       "<p style=\"margin-bottom: 0px\"> <a href=\"%1\">Skip this introduction</a></p>")
       .arg( kapp->aboutData()->version() )
@@ -807,16 +807,22 @@ QString MainWindow::introductionString()
       .arg( iconSize )
       .arg( handbook_icon_path )
       .arg( "help:/kontact" )
-      .arg( "http://kontact.org" )
+      .arg( i18n("Read Manual") )
+      .arg( i18n("Learn more about Kontact and its components") )
+      .arg( "http://kontact.kde.org" )
       .arg( iconSize )
       .arg( iconSize )
       .arg( html_icon_path )
-      .arg( "http://kontact.org" )
+      .arg( "http://kontact.kde.org" )
+      .arg( i18n("Visit Kontact Website") )
+      .arg( i18n("Access online resources and tutorials") )
       .arg( "exec:/gwwizard" )
       .arg( iconSize )
       .arg( iconSize )
       .arg( wizard_icon_path )
       .arg( "exec:/gwwizard" )
+      .arg( i18n("Configure Kontact as Groupware Client") )
+      .arg( i18n("Prepare Kontact for use in corporate networks") )
       .arg( "exec:/switch" );
   return info;
 }

@@ -14,5 +14,9 @@
   background-position: bottom right;
 }
 
+#subtext {
+  font-style: italic;
+}
+
 /* vim:set sw=2 et nocindent smartindent: */
 
