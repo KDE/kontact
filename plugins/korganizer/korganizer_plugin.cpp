@@ -69,7 +69,7 @@ void KOrganizerPlugin::slotNewAppointment()
 bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )
 {
   kdDebug() << k_funcinfo << serviceType << endl;
-  if ( serviceType == "DCOP/Organizer" )
+  if ( serviceType == "DCOP/Organizer" || serviceType == "DCOP/Calendar" )
   {
     loadPart();
     if ( m_part )
