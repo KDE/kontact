@@ -110,9 +110,9 @@ void KNotesPart::reloadNotes()
                                                             QString(), error );
 
     if ( started > 0 ) {
-	    if ( error )
-		    KMessageBox::error( 0L, *error, i18n( "Error" ) );
-	    return;
+      if ( error )
+        KMessageBox::error( 0L, *error, i18n( "Error" ) );
+      return;
     }
 
     delete error;
@@ -169,52 +169,54 @@ void KNotesPart::removeNote()
     return;
 
   DCOPRef dcopCall( "knotes", "KNotesIface" );
-  dcopCall.call( "killNote(QString)", item->id() );
+  dcopCall.call( "killNote(QString, bool)", item->id(), true );
 
   reloadNotes();
 }
 
 void KNotesPart::removeSelectedNotes()
 {
-    QStringList ids;
-    QStringList names;
+  QStringList ids;
+  QStringList names;
 
-    QListViewItemIterator it( mNotesView );
-    while ( it.current() ) {
-        if ( it.current()->isSelected() ) {
-            ids+= static_cast<NotesItem*>( it.current() )->id();
-            names+= it.current()->text(0);
-        }
-        ++it;
+  QListViewItemIterator it( mNotesView );
+  while ( it.current() ) {
+    if ( it.current()->isSelected() ) {
+      ids += static_cast<NotesItem*>( it.current() )->id();
+      names += it.current()->text( 0 );
     }
 
-  if ( ids.isEmpty() ) return;
+    ++it;
+  }
+
+  if ( ids.isEmpty() )
+    return;
 
   if ( ids.count() == 1 ) {
     DCOPRef dcopCall( "knotes", "KNotesIface" );
     dcopCall.call( "killNote(QString)", ids.first() );
   } else {
-
     int ret = KMessageBox::warningContinueCancelList( 0,
-        i18n("translators: not called for n == 1", "Do you really want to delete these %n notes?", ids.count() ),
+        i18n( "translators: not called for n == 1", "Do you really want to delete these %n notes?", ids.count() ),
         names,
-        i18n("Confirm Delete"),
-        i18n("Delete") );
+        i18n( "Confirm Delete" ),
+        i18n( "Delete" ) );
 
-    int doIt = (ret == KMessageBox::Continue);
+    int doIt = ( ret == KMessageBox::Continue );
 
     if ( doIt )
-    for ( QStringList::ConstIterator it = ids.begin(); it != ids.end(); ++it ) {
-      DCOPRef dcopCall( "knotes", "KNotesIface" );
-      dcopCall.call( "killNote(QString, bool)", *it, true );
-    }
+      for ( QStringList::ConstIterator it = ids.begin(); it != ids.end(); ++it ) {
+        DCOPRef dcopCall( "knotes", "KNotesIface" );
+        dcopCall.call( "killNote(QString, bool)", *it, true );
+      }
   }
+
   reloadNotes();
 }
 
 void KNotesPart::renameNote()
 {
-  if( mNotesView->currentItem() )
+  if ( mNotesView->currentItem() )
     mNotesView->currentItem()->startRename( 0 );
 }
 
@@ -241,6 +243,7 @@ void KNotesPart::showNote( QListViewItem *i )
   NotesItem *item = static_cast<NotesItem*>( i );
   if ( !item ) {
     mCurrentNote = "";
+    qDebug("err");
     return;
   }
 
@@ -249,6 +252,7 @@ void KNotesPart::showNote( QListViewItem *i )
   DCOPRef dcopCall( "knotes", "KNotesIface" );
   mNotesEdit->blockSignals( true );
   mNotesEdit->setText( dcopCall.call( "text(QString)", item->id() ) );
+  qDebug("text set");
   mNotesEdit->blockSignals( false );
 
   emit noteSelected( item->text( 0 ) );
