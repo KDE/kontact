@@ -37,7 +37,7 @@ namespace Kontact
 
     class Plugin;
     /**
-     * This class is now purely private to Kontact and not visible for the plugins 
+     * This class is now purely private to Kontact and not visible for the plugins
      **/
     class Core : public KParts::MainWindow
     {
@@ -48,6 +48,8 @@ namespace Kontact
             virtual ~Core();
 
             virtual void showPart(KParts::Part *part, Kontact::Plugin *plugin) = 0;
+
+			virtual QPtrList<Kontact::Plugin> pluginList() = 0;
     };
 
 

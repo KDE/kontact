@@ -72,6 +72,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
                                  QString *error = 0, QCString* dcopService = 0,
                                  int flags = 0 );
 
+	virtual QPtrList<Kontact::Plugin> pluginList() { return m_plugins; }
+
   public slots:
     virtual void showPart( KParts::Part *part, Kontact::Plugin *plugin );
 
@@ -106,7 +108,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QSplitter *m_splitter;
 
     KToolBarPopupAction *m_newActions;
-	
+
     SidePane *m_sidePane;
     QWidgetStack *m_stack;
     Plugin *m_curPlugin;
