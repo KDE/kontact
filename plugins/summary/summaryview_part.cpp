@@ -52,9 +52,7 @@ SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins, QWid
 	m_layout = new QGridLayout( m_frame, 2, 2 );
 	setXMLFile("summaryparttui.rc");
   //new KAction( "new contact (test)", 0, this, SLOT( newContact() ), actionCollection(), "test_deleteevent" );
-	QLabel *label = new QLabel( "Welcome to Kontact 0.2.9", 0L );
-	label->setFont( QFont( "Arial", 18 ) );
-	new KParts::SideBarExtension( label, this, "sbe");
+	//new KParts::SideBarExtension( label, this, "sbe");
 	m_plugins = plugins;
 	kapp->dcopClient()->setNotifications( true );
 

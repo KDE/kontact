@@ -107,12 +107,12 @@ void KABSummaryWidget::updateView()
                     .arg( img )
                     .arg( date )
                     .arg( (*addrIt).addressee.formattedName() )
-                    .arg( (*addrIt).yearsOld );
+                    .arg( i18n( "one year", "%n years", (*addrIt).yearsOld  ) );
   }
   QMimeSourceFactory::defaultFactory()->setPixmap( "birthday",
             KGlobal::iconLoader()->loadIcon( "cookie", KIcon::Small ) );
   QMimeSourceFactory::defaultFactory()->setPixmap( "anniversary",
-            KGlobal::iconLoader()->loadIcon( "kuser", KIcon::Small ) );
+            KGlobal::iconLoader()->loadIcon( "kdmconfig", KIcon::Small ) );
 
   setText( QString( "<html><body>"
                     "<h1>%1</h1>"
