@@ -60,12 +60,13 @@ namespace Kontact
 }
 
 SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
+                                  const KAboutData *aboutData,
                                   QObject *parent, const char *name )
   : KParts::ReadOnlyPart( parent, name ),
     mCore( core ), mOptionsDialog( 0 )
 {
   mStatusExt = new KParts::StatusBarExtension( this );
-  setInstance( new KInstance( "kontactsummary" ) ); // ## memleak
+  setInstance( new KInstance( aboutData ) );
 
   QScrollView *sv = new QScrollView( core );
 

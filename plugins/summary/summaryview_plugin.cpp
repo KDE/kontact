@@ -43,14 +43,14 @@ SummaryView::~SummaryView()
 
 KParts::Part *SummaryView::createPart()
 {
-  return new SummaryViewPart( core(), "summarypartframe", this,
-                              "summarypart" );
+  return new SummaryViewPart( core(), "summarypartframe", aboutData(),
+                              this, "summarypart" );
 }
 
 const KAboutData *SummaryView::aboutData()
 {
   if ( !mAboutData ) {
-    mAboutData = new KAboutData( "summaryview", I18N_NOOP("Kontact Summary"),
+    mAboutData = new KAboutData( "kontact/summary", I18N_NOOP("Kontact Summary"),
                                  "0.1",
                                  I18N_NOOP("Kontact Summary View"),
                                  KAboutData::License_LGPL,
