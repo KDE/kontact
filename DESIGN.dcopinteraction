@@ -80,3 +80,5 @@ values to the caller) has to be changed. If there is more than one
 value to be returned, you need to
 * define a structure containing all the returned values
 * define QDataStream << and >> operators for that structure.
+
+$Id$
