@@ -32,6 +32,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 
+#include "core.h"
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name )
@@ -77,7 +78,7 @@ void SummaryWidget::show()
 
 void SummaryWidget::raisePart()
 {
-  mPlugin->showPart(mPlugin);
+  mPlugin->core()->selectPlugin( mPlugin );
 }
 
 void SummaryWidget::timeout()

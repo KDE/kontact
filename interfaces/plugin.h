@@ -37,135 +37,119 @@ class KAction;
 
 namespace Kontact
 {
-  class Core;
 
-  /**
-   * Base class for all Plugins in Kontact. Inherit from it
-   * to get a plugin. It can insert an icon into the sidepane,
-   * add widgets to the widgetstack and add menu items via XMLGUI.
-   */
-  class Plugin : public QObject, virtual public KXMLGUIClient
-  {
-      Q_OBJECT
-    public:
-      /**
-       * Creates a new Plugin, note that @param name is required if
-       * you want your plugin to do dcop via it's own instance of
-       * @ref DCOPClient by calling @ref dcopClient.
-       */
-      Plugin( const QString& pluginName, const QString& icon, Core *core,
-              QObject *parent, const char *name );
+class Core;
 
-      ~Plugin();
+/**
+  Base class for all Plugins in Kontact. Inherit from it
+  to get a plugin. It can insert an icon into the sidepane,
+  add widgets to the widgetstack and add menu items via XMLGUI.
+ */
+class Plugin : public QObject, virtual public KXMLGUIClient
+{
+  Q_OBJECT
 
-      /**
-        Insert "New" action.
-      */
-      void insertNewAction( KAction *action );
+  public:
+    /**
+      Creates a new Plugin, note that @param name is required if
+      you want your plugin to do dcop via it's own instance of
+      @ref DCOPClient by calling @ref dcopClient.
+    */
+     Plugin( Core *core, QObject *parent, const char *name );
 
-      /**
-        Return user visible translated name of plugin.
-      */
-      QString pluginName() const;
+    ~Plugin();
 
-      /**
-       * Returns the name of the icon
-       */
-      QString icon() const;
+    /**
+      Returns the identifier of this plugin. It is used as argument for several 
+      methods of Kontacts core.
+     */
+    virtual QString identifier() const = 0;
 
-      /**
-        Return the weight of the plugin. The higher the weight the lower it will
-        be displayed in the sidebar. The default implementation returns 0.
-      */
-      virtual int weight() const { return 0; }
+    /**
+      Returns the title of this plugin. This title is displayed to the user, so 
+      it should be localized.
+     */
+    virtual QString title() const = 0;
 
-      /**
-        Called when the KPart associated with plugin is to be shown. The
-        default implementation calls Kontact::Core::showPart().
-      */
-      void showPart( Kontact::Plugin *plugin );
+    /**
+      Return the name of the icon.
+     */
+    virtual QString icon() const = 0;
 
+    /**
+      Create the DCOP interface for the given @p serviceType, if this
+      plugin provides it. Return false otherwise.
+     */
+    virtual bool createDCOPInterface( const QString& /*serviceType*/ ) { return false; }
 
-      /**
-       * Create the DCOP interface for the given @p serviceType, if this
-       * plugin provides it. Return false otherwise.
-       */
-      virtual bool createDCOPInterface( const QString& /*serviceType*/ )
-      {
-        return 0;
-      }
+    /**
+      Reimplement this method and return a @ref QStringList of all config
+      modules your application part should offer via Kontact. Note that the
+      part and the module will have to take care for config syncing themselves.
+      Usually @p DCOP used for that purpose.
 
-      /**
-       * Reimplement this method and return a @ref QStringList of all config
-       * modules your application part should offer via Kontact. Note that the
-       * part and the module will have to take care for config syncing themselves.
-       * Usually @p DCOP is used for that purpose.
-       *
-       * @note Make sure you offer the modules in the form:
-       * <code>"pathrelativetosettings/mysettings.desktop"</code>
-       *
-       **/
-      virtual QStringList configModules() const { return QStringList(); }
+      @note Make sure you offer the modules in the form:
+      <code>"pathrelativetosettings/mysettings.desktop"</code>
+     */
+    virtual QStringList configModules() const { return QStringList(); };
 
-      /**
-        Return about data of the application associated with the plugin. The
-        about data will be used for display in the common Kontact about
-        dialog.
-      */
-      virtual KAboutData *aboutData() { return 0; }
+    /**
+      Reimplement this method if you want to add your credits to the Kontact
+      about dialog.
+     */
+    virtual KAboutData* aboutData() { return 0L; };
 
-      /**
-        Return the KPart associated with the plugin.
-      */
-      virtual KParts::Part *part() = 0;
+    /**
+      Reimplement and retun the part here.You can use this method if
+      you need to access the current part. Reimpleneting part() is mandatory!
+     */
+    virtual KParts::Part* part() = 0;
 
-      /**
-        Return widget representing the plugin in the Kontact summary view. The
-        default implementation returns no widget.
-      */
-      virtual QWidget *createSummaryWidget( QWidget * ) { return 0; }
+    /**
+      Reimplement this method if you want to add a widget for your application
+      to Kontact's summary page.
+     */
+    virtual QWidget * createSummaryWidget( QWidget* ) { return 0L; };
 
-      /**
-        Returns if the plugin should be shown in the sidebar. The default
-        implementation returns true.
-      */
-      virtual bool showInSideBar() const { return true; }
+    /**
+      Reimplement this method if you don't want to have a plugin shown in the sidebar.
+     */
+    virtual bool showInSideBar() const { return true; };
+    
+    /**
+      Retrieve the current DCOP Client for the plugin.
 
-      /**
-       * Retrieve the current DCOP Client for the plugin.
-       *
-       * The clients name is taken from the name argument in the constructor.
-       * @note: The DCOPClient object will only be created when this method is
-       * called for the first time. Make sure that the part has been loaded
-       * before calling this method, if it's the one that contains the DCOP
-       * interface that other parts might use.
-       **/
-      DCOPClient *dcopClient() const;
+      The clients name is taken from the name argument in the constructor.
+      @note: The DCOPClient object will only be created when this method is
+      called for the first time. Make sure that the part has been loaded
+      before calling this method, if it's the one that contains the DCOP
+      interface that other parts might use.
+     */
+    DCOPClient *dcopClient() const;
 
-      /**
-        FIXME: write API doc for Kontact::Plugin::newActions().
-      */
-      QPtrList<KAction> *newActions() const; 
+    /**
+      Return the weight of the plugin. The higher the weight the lower it will
+      be displayed in the sidebar. The default implementation returns 0.
+    */
+    virtual int weight() const { return 0; }
 
-    signals:
-      /**
-       * Emitted when the part will be shown. If you really want to avoid that
-       * the part is shown at all, you will have to reimplement showPart();
-       **/
-      void aboutToShowPart();
+    /**
+      Insert "New" action.
+     */
+    void insertNewAction( KAction *action );
 
-    protected:
-      /**
-        Provide access to the Kontact core.
-      */
-      Core *core() const;
+    /**
+      FIXME: write API doc for Kontact::Plugin::newActions().
+    */
+    QPtrList<KAction>* newActions() const; 
 
-    private:
-      class Private;
-      Private *d;
-  };
+    Core *core() const;
+
+  private:
+    class Private;
+    Private *d;
+};
+
 }
 
 #endif
-
-// vim: ts=2 sw=2 et

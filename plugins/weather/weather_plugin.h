@@ -18,8 +18,8 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __WEATHER_PLUGIN_H__
-#define __WEATHER_PLUGIN_H__
+#ifndef WEATHER_PLUGIN_H
+#define WEATHER_PLUGIN_H
 
 #include "plugin.h"
 
@@ -30,6 +30,10 @@ class WeatherPlugin : public Kontact::Plugin
   public:
     WeatherPlugin( Kontact::Core *core, const char *name, const QStringList& );
     WeatherPlugin();
+
+    QString identifier() const { return "weather"; }
+    QString title() const { return ""; }
+    QString icon() const { return ""; }
 
     virtual QWidget *createSummaryWidget( QWidget* parentWidget );
 

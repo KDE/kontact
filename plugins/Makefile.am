@@ -1,2 +1,2 @@
-SUBDIRS = korganizer kaddressbook knotes kmail summary weather
+SUBDIRS = kaddressbook kmail knotes korganizer summary weather
 

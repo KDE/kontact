@@ -19,28 +19,28 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include "summaryview_part.h"
-
-#include <qlayout.h>
-#include <qlabel.h>
 #include <qframe.h>
+#include <qlabel.h>
+#include <qlayout.h>
 #include <qtimer.h>
 
-#include <sidebarextension.h>
-#include "plugin.h"
-
-#include <kmessagebox.h>
-#include <klocale.h>
+#include <dcopclient.h>
 #include <kaction.h>
 #include <kapplication.h>
+#include <kdcopservicestarter.h>
 #include <kdebug.h>
 #include <kdialog.h>
-#include <dcopclient.h>
-#include <kdcopservicestarter.h>
-#include <ktrader.h>
-#include <kservice.h>
+#include <klocale.h>
+#include <kmessagebox.h>
 #include <kparts/componentfactory.h>
+#include <kservice.h>
+#include <ktrader.h>
+
 #include <infoextension.h>
+#include "plugin.h"
+#include <sidebarextension.h>
+
+#include "summaryview_part.h"
 
 namespace Kontact
 {
@@ -52,7 +52,7 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core,
                                   QObject *parent, const char *name )
   : KParts::ReadOnlyPart( parent, name ), m_core( core )
 {
-  setInstance( new KInstance("summaryviewpart") ); // ## memleak
+  setInstance( new KInstance( "summaryviewpart" ) ); // ## memleak
 
   m_frame = new QFrame( core, widgetName );
   m_frame->setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
@@ -60,7 +60,6 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core,
 
   m_layout = new QGridLayout( m_frame, 4, 3, KDialog::marginHint(),
                               KDialog::spacingHint() );
-//  m_layout->setSpacing( 50 ); We should look later which spacing is appropriate here
 
   QFrame *frame = new QFrame( m_frame );
   frame->setFrameStyle( QFrame::VLine | QFrame::Sunken );
@@ -69,12 +68,6 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core,
   frame = new QFrame( m_frame );
   frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
   m_layout->addWidget( frame, 1, 0 );
-
-  setXMLFile("summaryparttui.rc");
-  //new KAction( "new contact (test)", 0, this, SLOT( newContact() ), actionCollection(), "test_deleteevent" );
-  //new KParts::SideBarExtension( label, this, "sbe");
-
-  kapp->dcopClient()->setNotifications( true );
 
   getWidgets();
 
@@ -93,30 +86,24 @@ SummaryViewPart::~SummaryViewPart()
 bool SummaryViewPart::openFile()
 {
   kdDebug(5006) << "SummaryViewPart:openFile()" << endl;
-
   return true;
 }
 
 void SummaryViewPart::getWidgets()
 {
-  kdDebug() << "Adding the widgets..." << endl;
-
   QPtrList<Kontact::Plugin> plugins = m_core->pluginList();
   Kontact::Plugin *plugin;
   for( plugin = plugins.first(); plugin; plugin = plugins.next() ) {
-    kdDebug() << "Summary::getWidgets(): PLUGIN: " << plugin->pluginName()
-              << endl;
-    
     QWidget *wdg = plugin->createSummaryWidget( m_frame );
-    if ( QString( "weather" ).compare( plugin->name() ) == 0 ) {
+    if ( plugin->identifier() == "weather" ) {
       m_layout->addWidget( wdg, 0, 0 );
-    } else if ( QString( "kmail" ).compare( plugin->name() ) == 0 ) {
+    } else if ( plugin->identifier() == "mail" ) {
       m_layout->addWidget( wdg, 0, 2 );
-    } else if ( QString( "newsticker" ).compare( plugin->name() ) == 0 ) {
+    } else if ( plugin->identifier()  == "newsticker" ) {
       m_layout->addMultiCellWidget( wdg, 2, 3, 0, 0 );
-    } else if ( QString( "knotes" ).compare( plugin->name() ) == 0 ) {
+    } else if ( plugin->identifier() == "notes" ) {
       m_layout->addMultiCellWidget( wdg, 1, 2, 2, 2 );
-    } else if ( QString( "kaddressbook" ).compare( plugin->name() ) == 0 ) {
+    } else if ( plugin->identifier() == "contacts" ) {
       m_layout->addWidget( wdg, 3, 2 );
     }
   }

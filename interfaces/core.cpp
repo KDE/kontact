@@ -33,5 +33,3 @@ Core::Core( QWidget *parent, const char *name )
 Core::~Core()
 {
 }
-
-// vim: ts=2 sw=2 et

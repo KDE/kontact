@@ -51,8 +51,8 @@ PanelButton::PanelButton( Kontact::Plugin *plugin, int id,  QWidget *parent, con
   : QPushButton(parent, name)
 {
   
-  setPixmap(BarIcon(plugin->icon()));
-  setText(plugin->pluginName()); 
+  setPixmap( BarIcon( plugin->icon() ) );
+  setText( plugin->title() ); 
   
   m_active = false;
   m_id = id;
@@ -153,8 +153,10 @@ void PanelButton::drawButtonLabel(QPainter *p)
 
 ///////////////////////////////////////////////////////////////////////
 
-SidePane::SidePane(QWidget *parent, const char* name)
-  : SidePaneBase(parent, name), m_contentStack(0), m_headerWidget(0)
+SidePane::SidePane( Core* core, QWidget *parent, const char* name )
+  : SidePaneBase( core, parent, name ),
+    m_contentStack( 0 ),
+    m_headerWidget( 0 )
 {
 
   setSpacing(0);
@@ -173,19 +175,6 @@ SidePane::SidePane(QWidget *parent, const char* name)
   m_contentStack = new QWidgetStack(this);
   m_contentStack->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
   m_contentStack->addWidget(new QWidget(m_contentStack));
-}
-
-
-void SidePane::addEntry(Kontact::Plugin *plugin)
-{
-  //int id = m_contentStack->addWidget(child);
-  PanelButton* pb = new PanelButton(plugin, 0, this, "PanelButton");
-  m_buttonList.append(pb);
-  connect(pb, SIGNAL(clicked(PanelButton*)), SLOT(switchItems(PanelButton*)));
-  connect(pb, SIGNAL(showPart(Kontact::Plugin*)), 
-          SIGNAL(showPart(Kontact::Plugin*)));
-  connect(pb, SIGNAL(showPart(Kontact::Plugin*)), 
-          SLOT(switchSidePaneWidget(Kontact::Plugin*)));
 }
 
 void SidePane::switchSidePaneWidget( Kontact::Plugin *plugin )
@@ -210,33 +199,53 @@ void SidePane::switchSidePaneWidget( Kontact::Plugin *plugin )
 
 void SidePane::switchItems(PanelButton* pb)
 {
-  QPtrListIterator<PanelButton> it(m_buttonList);
+  QPtrListIterator<PanelButton> it( m_buttonList );
   for (; it.current(); ++it)
   {
     if (it.current()->isActive())
       it.current()->setInactive();
   }
 
-  mCurrentPluginName = pb->plugin()->name();
-
-  m_contentStack->raiseWidget(pb->id());
-  m_headerWidget->setText(pb->text());
+  m_contentStack->raiseWidget( pb->id() );
+  m_headerWidget->setText( pb->text() );
 }
 
-QString SidePane::currentPluginName() const
+void SidePane::updatePlugins()
 {
-  return mCurrentPluginName;
+  // delete all existing buttons
+  m_buttonList.setAutoDelete( true );
+  m_buttonList.clear();
+  m_buttonList.setAutoDelete( false );
+
+  QPtrList<Plugin> plugins = core()->pluginList();
+  for ( Plugin* plugin = plugins.first(); plugin; plugin = plugins.next() ) {
+    if ( !plugin->showInSideBar() )
+      continue;
+
+    PanelButton* pb = new PanelButton( plugin, 0, this, "PanelButton" );
+    m_buttonList.append( pb );
+    connect( pb, SIGNAL( clicked( PanelButton* ) ),
+             SLOT( switchItems( PanelButton* ) ) );
+    connect( pb, SIGNAL( showPart( Kontact::Plugin* ) ),
+             SIGNAL( pluginSelected( Kontact::Plugin* ) ) );
+    connect( pb, SIGNAL( showPart( Kontact::Plugin* ) ), 
+             SLOT( switchSidePaneWidget( Kontact::Plugin* ) ) );
+  }
 }
 
-void SidePane::selectPlugin( const QString &pluginName )
+void SidePane::selectPlugin( Kontact::Plugin *plugin )
 {
-  QPtrListIterator<PanelButton> it(m_buttonList);
+  bool blocked = signalsBlocked();
+  blockSignals( true );
+
+  QPtrListIterator<PanelButton> it( m_buttonList );
+
   PanelButton *btn;
-  while ((btn = it.current()) != 0) {
+  while ( ( btn = it.current() ) != 0 ) {
     ++it;
-    Kontact::Plugin *plugin = btn->plugin();
-    if ( plugin->name() == pluginName ) {
+    if ( btn->plugin() == plugin ) {
       btn->slotClicked();
+      blockSignals( blocked );
       return;
     }
   }
@@ -244,10 +253,39 @@ void SidePane::selectPlugin( const QString &pluginName )
   btn = m_buttonList.first();
 
   // no plugins loaded. Something is really broken..
-  Q_ASSERT(btn);
-  if ( btn ) btn->slotClicked();
+  Q_ASSERT( btn );
+  if ( btn )
+    btn->slotClicked();
+
+  blockSignals( blocked );
+}
+
+void SidePane::selectPlugin( const QString &pluginName )
+{
+  bool blocked = signalsBlocked();
+  blockSignals( true );
+
+  QPtrListIterator<PanelButton> it( m_buttonList );
+
+  PanelButton *btn;
+  while ( ( btn = it.current() ) != 0 ) {
+    ++it;
+    Kontact::Plugin *plugin = btn->plugin();
+    if ( plugin->identifier() == pluginName ) {
+      btn->slotClicked();
+      blockSignals( blocked );
+      return;
+    }
+  }
+
+  btn = m_buttonList.first();
+
+  // no plugins loaded. Something is really broken..
+  Q_ASSERT( btn );
+  if ( btn )
+    btn->slotClicked();
+
+  blockSignals( blocked );
 }
 
 #include "sidepane.moc"
-
-// vim: ts=2 sw=2 et

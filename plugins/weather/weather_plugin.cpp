@@ -27,10 +27,11 @@
 #include "weather_plugin.h"
 
 typedef KGenericFactory< WeatherPlugin, Kontact::Core > WeatherPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkpweatherplugin, WeatherPluginFactory( "kpweatherplugin" ) );
+K_EXPORT_COMPONENT_FACTORY( libkpweatherplugin,
+                            WeatherPluginFactory( "kpweatherplugin" ) );
 
-WeatherPlugin::WeatherPlugin( Kontact::Core *core, const char *, const QStringList& )
-  : Kontact::Plugin( i18n( "Weather" ), "weather", core, core, "weather" )
+WeatherPlugin::WeatherPlugin( Kontact::Core *core, const char *name, const QStringList& )
+  : Kontact::Plugin( core, core, name )
 {
 	setInstance( WeatherPluginFactory::instance() );
 }

@@ -69,10 +69,11 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
                                  QString *error = 0, QCString* dcopService = 0,
                                  int flags = 0 );
 
-    virtual QPtrList<Kontact::Plugin> pluginList() { return m_plugins; }
+    virtual QPtrList<Kontact::Plugin> pluginList() const { return m_plugins; }
 
   public slots:
-    virtual void showPart( Kontact::Plugin *plugin );
+    virtual void selectPlugin( Kontact::Plugin *plugin );
+    virtual void selectPlugin( const QString &pluginName );
 
     void updateConfig();
 

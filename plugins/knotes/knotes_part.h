@@ -35,8 +35,8 @@ class KNotesPart : public KParts::ReadOnlyPart
 {
   Q_OBJECT
 
-public:
-  KNotesPart(QObject *parent=0, const char *name=0);
+  public:
+    KNotesPart( QObject *parent = 0, const char *name = 0 );
 
   bool openFile();
 

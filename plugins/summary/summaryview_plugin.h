@@ -19,31 +19,32 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __SUMMARYVIEW_PLUGIN_H__
-#define __SUMMARYVIEW_PLUGIN_H__
+#ifndef SUMMARYVIEW_PLUGIN_H
+#define SUMMARYVIEW_PLUGIN_H
+
+#include <klocale.h>
+#include <kparts/part.h>
 
 #include "plugin.h"
-#include <kparts/part.h>
 
 class SummaryView : public Kontact::Plugin
 {
   Q_OBJECT
 
-public:
+  public:
+    SummaryView( Kontact::Core *core, const char *name, const QStringList& );
+	  ~SummaryView();
 
-  SummaryView( Kontact::Core *, const char *name, const QStringList & /*args*/);
-  ~SummaryView();
+    int weight() const { return -100; }
 
-  int weight() const { return -100; }
+    QString identifier() const { return "summary"; }
+    QString title() const { return i18n( "Summary" ); }
+    QString icon() const { return "keditbookmarks"; }
 
-  virtual KParts::Part *part();
-//  virtual bool createDCOPInterface( const QString& serviceType );
+    virtual KParts::Part* part();
 
-//protected slots:
-//  void slotNewMail();
-
-private:
-  KParts::ReadOnlyPart *m_part;
+  private:
+    KParts::ReadOnlyPart *m_part;
 };
 
 #endif

@@ -20,8 +20,6 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <assert.h>
-
 #include <dcopclient.h>
 
 #include "core.h"
@@ -34,22 +32,14 @@ class Plugin::Private
   public:
     Kontact::Core *core;
     DCOPClient *dcopClient;
-    QCString name;
-    QString pluginName;
-    QString icon;
     QPtrList<KAction> *newActions;
 };
 
 
-Plugin::Plugin( const QString& pluginName, const QString& icon,
-                Kontact::Core *core, QObject *parent, const char *name )
-    : QObject( parent, name )
+Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
+  : QObject( parent, name ), d( new Private )
 {
-  d = new Kontact::Plugin::Private;
-  d->name = name;
   d->core = core;
-  d->icon = icon;
-  d->pluginName = pluginName;
   d->dcopClient = 0;
   d->newActions = new QPtrList<KAction>; 
 }
@@ -61,28 +51,11 @@ Plugin::~Plugin()
   delete d;
 }
 
-QString Plugin::pluginName() const
-{
-  return d->pluginName;
-}
-
-QString Plugin::icon() const
-{
-  return d->icon;
-}
-
-
-void Plugin::showPart( Kontact::Plugin *plugin )
-{
-  d->core->showPart( plugin );
-}
-
 DCOPClient *Plugin::dcopClient() const
 {
-  if ( !d->dcopClient )
-  {
-      d->dcopClient = new DCOPClient();
-      d->dcopClient->registerAs( d->name, false );
+  if ( !d->dcopClient ) {
+    d->dcopClient = new DCOPClient();
+    d->dcopClient->registerAs( name(), false );
   }
 
   return d->dcopClient;
@@ -90,7 +63,7 @@ DCOPClient *Plugin::dcopClient() const
 
 void Plugin::insertNewAction( KAction *action )
 {
-  d->newActions->append(action);
+  d->newActions->append( action );
 }
 
 QPtrList<KAction> *Plugin::newActions() const
@@ -98,12 +71,9 @@ QPtrList<KAction> *Plugin::newActions() const
   return d->newActions;
 }
 
-// Protected
 Kontact::Core *Plugin::core() const
 {
   return d->core;
 }
 
 #include "plugin.moc"
-
-// vim: ts=2 sw=2 et

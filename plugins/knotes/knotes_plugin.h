@@ -16,9 +16,11 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
  */
+
 #ifndef KNOTES_PLUGIN_H
 #define KNOTES_PLUGIN_H
 
+#include <klocale.h>
 
 #include "plugin.h"
 
@@ -29,23 +31,22 @@ class KNotesPlugin : public Kontact::Plugin
 {
   Q_OBJECT
 
-public:
+  public:
+    KNotesPlugin( Kontact::Core *core, const char *name, const QStringList& );
+    ~KNotesPlugin();
 
-  KNotesPlugin(Kontact::Core *core, const char *name, const QStringList &);
-  ~KNotesPlugin();
+    QString identifier() const { return "notes"; }
+    QString title() const { return i18n( "Notes" ); }
+    QString icon() const { return "knotes"; }
 
-  KParts::Part* part();
-  virtual QWidget* createSummaryWidget( QWidget* parentWidget );
+    KParts::Part* part();
+    virtual QWidget* createSummaryWidget( QWidget* parentWidget );
   
-private slots:
-  
-  void slotNewNote();
+  private slots:
+    void slotNewNote();
 
-private:
-
-  KNotesPart *m_part;
-
+  private:
+    KNotesPart *m_part;
 };
-
 
 #endif

@@ -31,17 +31,16 @@
 #include "summaryview_plugin.moc"
 
 typedef KGenericFactory< SummaryView, Kontact::Core > SummaryViewFactory;
-K_EXPORT_COMPONENT_FACTORY( libkpsummaryplugin, SummaryViewFactory( "kpsummaryplugin" ) );
+K_EXPORT_COMPONENT_FACTORY( libkpsummaryplugin,
+                            SummaryViewFactory( "kpsummaryplugin" ) );
 
-SummaryView::SummaryView( Kontact::Core *core, const char *, const QStringList & )
-  : Kontact::Plugin(i18n("Summary"), "summary", core, core, "summary"),
+SummaryView::SummaryView( Kontact::Core *_core, const char *name, const QStringList& )
+  : Kontact::Plugin( _core, _core, name),
     m_part( 0 )
 {
   setInstance( SummaryViewFactory::instance() );
 
-  //insertNewAction(new KAction("Summarry", 0, this, SLOT(slotTestMenu()), actionCollection(), "edit_test"));
-
-  setXMLFile("kpsummaryplugin.rc");
+  setXMLFile( "kpsummaryplugin.rc" );
 }
 
 SummaryView::~SummaryView()

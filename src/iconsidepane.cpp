@@ -54,7 +54,7 @@ EntryItem::EntryItem( QListBox *parent, Kontact::Plugin *plugin )
   mPixmap = KGlobal::iconLoader()->loadIcon( plugin->icon(),
                                              KIcon::Desktop, 48 );
   setCustomHighlighting( true );
-  setText( plugin->pluginName() );
+  setText( plugin->title() );
 }
 
 EntryItem::~EntryItem()
@@ -108,7 +108,7 @@ void EntryItem::paint( QPainter *p )
 }
 
 Navigator::Navigator(QWidget *parent, const char *name)
-  : KListBox( parent, name ), mMinimumWidth( 0 )
+  : KListBox( parent, name )
 {
   setSelectionMode( KListBox::Single );
   QPalette pal = palette();
@@ -130,15 +130,22 @@ QSize Navigator::sizeHint() const
   return QSize( 100, 100 );
 }
 
-void Navigator::addEntry( Kontact::Plugin *plugin )
+void Navigator::updatePlugins( QPtrList<Kontact::Plugin> plugins )
 {
-  EntryItem *item = new EntryItem( this, plugin );
-  
-  int w = item->width( this );
-  if ( w > mMinimumWidth ) {
-    mMinimumWidth = w;
-    setFixedWidth( w );
+  clear();
+
+  int minWidth = 0;
+  for ( Kontact::Plugin *plugin = plugins.first(); plugin; plugin = plugins.next() ) {
+    if ( !plugin->showInSideBar() )
+      continue;
+
+    EntryItem *item = new EntryItem( this, plugin );
+
+    if ( item->width( this ) > minWidth )
+      minWidth = item->width( this );
   }
+
+  setFixedWidth( minWidth );
 }
 
 void Navigator::slotExecuted( QListBoxItem *item )
@@ -151,47 +158,55 @@ void Navigator::slotExecuted( QListBoxItem *item )
 }
 
 
-IconSidePane::IconSidePane( QWidget *parent, const char *name )
-  : SidePaneBase( parent, name )
+IconSidePane::IconSidePane( Core *core, QWidget *parent, const char *name )
+  : SidePaneBase( core, parent, name )
 {
   mNavigator = new Navigator( this );
   connect( mNavigator, SIGNAL( pluginActivated( Kontact::Plugin * ) ),
-           SIGNAL( showPart( Kontact::Plugin * ) ) );
+           SIGNAL( pluginSelected( Kontact::Plugin * ) ) );
 }
 
 IconSidePane::~IconSidePane()
 {
 }
 
-void IconSidePane::addEntry( Kontact::Plugin *plugin )
+void IconSidePane::updatePlugins()
 {
-  kdDebug() << "IconSidePane::addEntry()" << endl;
-
-  mNavigator->addEntry( plugin );
+  mNavigator->updatePlugins( core()->pluginList() );
 }
 
-void IconSidePane::selectPlugin( const QString &name )
+void IconSidePane::selectPlugin( Kontact::Plugin *plugin )
 {
+  bool blocked = signalsBlocked();
+  blockSignals( true );
+
   uint i;
-  for( i = 0; i < mNavigator->count(); ++i ) {
+  for ( i = 0; i < mNavigator->count(); ++i ) {
     EntryItem *item = static_cast<EntryItem *>( mNavigator->item( i ) );
-    if ( item->plugin()->name() == name ) {
+    if ( item->plugin() == plugin ) {
       mNavigator->setCurrentItem( i );
       break;
     }
   }
+
+  blockSignals( blocked );
 }
 
-QString IconSidePane::currentPluginName() const
+void IconSidePane::selectPlugin( const QString &name )
 {
-  QListBoxItem *i = mNavigator->item( mNavigator->currentItem() );
-  if ( !i ) return QString::null;
-  
-  EntryItem *item = static_cast<EntryItem *>( i );
-  
-  return item->plugin()->name();
+  bool blocked = signalsBlocked();
+  blockSignals( true );
+
+  uint i;
+  for ( i = 0; i < mNavigator->count(); ++i ) {
+    EntryItem *item = static_cast<EntryItem *>( mNavigator->item( i ) );
+    if ( item->plugin()->identifier() == name ) {
+      mNavigator->setCurrentItem( i );
+      break;
+    }
+  }
+
+  blockSignals( blocked );
 }
 
 #include "iconsidepane.moc"
-
-// vim: ts=2 sw=2 et

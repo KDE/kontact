@@ -19,8 +19,8 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __SUMMARYVIEW_PART_H__
-#define __SUMMARYVIEW_PART_H__
+#ifndef SUMMARYVIEW_PART_H
+#define SUMMARYVIEW_PART_H
 
 #include <kparts/part.h>
 
@@ -36,7 +36,8 @@ namespace Kontact
 
 class SummaryViewPart : public KParts::ReadOnlyPart
 {
-    Q_OBJECT
+  Q_OBJECT
+
   public:
     SummaryViewPart( Kontact::Core *core, const char *widgetName,
                      QObject *parent = 0, const char *name = 0 );
@@ -46,7 +47,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     void slotTextChanged();
 
   signals:
-    void textChanged( const QString & );
+    void textChanged( const QString& );
 
   protected:
     virtual bool openFile();

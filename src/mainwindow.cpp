@@ -63,14 +63,12 @@ MainWindow::MainWindow()
   : Kontact::Core(), m_topWidget( 0 ), m_headerText( 0 ), m_headerPixmap( 0 ), m_splitter( 0 ), 
     m_currentPlugin( 0 ), m_lastInfoExtension( 0 )
 {
-  kdDebug() << "MainWindow()" << endl;
-
   m_plugins.setAutoDelete( true );
 
   statusBar()->show();
 
   initWidgets();
-  
+ 
   // prepare the part manager
   m_partManager = new KParts::PartManager( this );
   connect( m_partManager, SIGNAL( activePartChanged( KParts::Part* ) ),
@@ -87,9 +85,10 @@ MainWindow::MainWindow()
   resize( 600, 400 ); // initial size
   setAutoSaveSettings();
 
-  loadSettings();
+  if ( m_sidePane )
+    m_sidePane->updatePlugins();
 
-  kdDebug() << "MainWindow() done" << endl;
+  loadSettings();
 }
 
 MainWindow::~MainWindow()
@@ -118,21 +117,21 @@ void MainWindow::initWidgets()
 
   switch ( mSidePaneType ) {
     case Prefs::SidePaneIcons:
-      m_sidePane = new IconSidePane( m_topWidget );
+      m_sidePane = new IconSidePane( this, m_topWidget );
       vBox = new QVBox( m_topWidget );
       break;
     default:
       kdError() << "Invalid SidePaneType: " << mSidePaneType << endl;
     case Prefs::SidePaneBars:
       m_splitter = new QSplitter( m_topWidget );
-      m_sidePane = new SidePane( m_splitter );
+      m_sidePane = new SidePane( this, m_splitter );
       m_sidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                               QSizePolicy::Preferred ) );
       vBox = new QVBox( m_splitter );
       break;
   }
-  connect( m_sidePane, SIGNAL( showPart( Kontact::Plugin * ) ),
-           SLOT( showPart( Kontact::Plugin * ) ) );
+  connect( m_sidePane, SIGNAL( pluginSelected( Kontact::Plugin* ) ),
+           SLOT( selectPlugin( Kontact::Plugin* ) ) );
 
   if ( mSidePaneType == Prefs::SidePaneBars ) {
     initHeaderWidget( vBox );
@@ -146,7 +145,6 @@ void MainWindow::initWidgets()
 void MainWindow::setupActions()
 {
   (void) KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
-//  (void) KStdAction::preferences( this, SLOT( slotPreferences() ), actionCollection() );
   m_newActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), "filenew2"), 
 		  KShortcut(), this, SLOT(slotNewClicked()),actionCollection(), "action_new" );
 
@@ -237,12 +235,9 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
   kdDebug(5600) << "Added plugin" << endl;
 
   m_plugins.append( plugin );
+
   // merge the plugins GUI into the main window
-  if( plugin->showInSideBar() )
-  {
-    insertChildClient( plugin );
-    m_sidePane->addEntry( plugin );
-  }
+  insertChildClient( plugin );
 }
 
 void MainWindow::addPart( KParts::Part *part )
@@ -291,9 +286,13 @@ void MainWindow::slotNewClicked()
   if ( action ) action->activate();
 }
 
-void MainWindow::showPart( Kontact::Plugin *plugin )
+void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 {
-  if (!plugin) return;
+  if ( !plugin )
+    return;
+
+  if ( m_sidePane )
+    m_sidePane->selectPlugin( plugin );
 
   KParts::Part *part = plugin->part();
 
@@ -320,12 +319,22 @@ void MainWindow::showPart( Kontact::Plugin *plugin )
   }
 }
 
+void MainWindow::selectPlugin( const QString &pluginName )
+{
+  for ( Kontact::Plugin *plugin = m_plugins.first(); plugin; plugin = m_plugins.next() ) {
+    if ( plugin->identifier() == pluginName ) {
+      selectPlugin( plugin );
+      return;
+    }
+  }
+}
+
 void MainWindow::loadSettings()
 {
   if ( m_splitter )
     m_splitter->setSizes( Prefs::self()->mSidePaneSplitter );
 
-  m_sidePane->selectPlugin( Prefs::self()->mActivePlugin );
+  selectPlugin( Prefs::self()->mActivePlugin );
 }
 
 void MainWindow::saveSettings()
@@ -333,7 +342,8 @@ void MainWindow::saveSettings()
   if ( m_splitter )
     Prefs::self()->mSidePaneSplitter = m_splitter->sizes();
 
-  Prefs::self()->mActivePlugin = m_sidePane->currentPluginName();
+  if ( m_currentPlugin )
+    Prefs::self()->mActivePlugin = m_currentPlugin->identifier();
 }
 
 void MainWindow::slotQuit()
@@ -424,8 +434,6 @@ void MainWindow::updateConfig()
 
     slotActivePartChanged( 0 );
 
-    unloadPlugins();
-
     delete m_topWidget;
     m_topWidget = 0;
     m_headerText = 0;
@@ -439,7 +447,8 @@ void MainWindow::updateConfig()
 
     m_topWidget->show();
 
-    loadPlugins();
+    if ( m_sidePane )
+      m_sidePane->updatePlugins();
 
     loadSettings();
   }

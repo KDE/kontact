@@ -18,32 +18,34 @@
 	   Boston, MA 02111-1307, USA.
 */
 
-#include <kmessagebox.h>
 #include <kaction.h>
+#include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kstatusbar.h>
 
 #include "core.h"
-
-#include <kdebug.h>
-
-#include "summarywidget.h"
-#include "knotes_plugin.h"
 #include "knotes_part.h"
+#include "summarywidget.h"
+
+#include "knotes_plugin.h"
 
 typedef KGenericFactory< KNotesPlugin, Kontact::Core > KNotesPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkpknotesplugin, KNotesPluginFactory( "kpknotesplugin" ) );
+K_EXPORT_COMPONENT_FACTORY( libkpknotesplugin,
+                            KNotesPluginFactory( "kpknotesplugin" ) );
 
-KNotesPlugin::KNotesPlugin(Kontact::Core *_core, const char*, const QStringList &)
-  : Kontact::Plugin(i18n("Notes"), "knotes", _core, _core, "knotes"), 
-    m_part(0)
+KNotesPlugin::KNotesPlugin( Kontact::Core *core, const char *name,
+                            const QStringList &)
+  : Kontact::Plugin( core, core, name ), 
+    m_part( 0 )
 {
-  setInstance(KNotesPluginFactory::instance());
+  setInstance( KNotesPluginFactory::instance() );
 
-  setXMLFile("kpknotesplugin.rc");
+  setXMLFile( "kpknotesplugin.rc" );
 
-  insertNewAction(new KAction(i18n("New Note"), BarIcon("knotes"), 0, this, SLOT(slotNewNote()), actionCollection(), "new_note" ) );
+  insertNewAction( new KAction( i18n( "New Note" ), BarIcon( "knotes" ), 0,
+                   this, SLOT( slotNewNote() ), actionCollection(),
+                   "new_note" ) );
 }
 
 KNotesPlugin::~KNotesPlugin()
@@ -52,9 +54,9 @@ KNotesPlugin::~KNotesPlugin()
 
 KParts::Part* KNotesPlugin::part()
 {
-  if (!m_part)
-    m_part = new KNotesPart(this, "notes");
-  
+  if ( !m_part )
+    m_part = new KNotesPart( this, "notes" );
+
   return m_part;
 }
 

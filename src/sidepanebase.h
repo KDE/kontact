@@ -28,31 +28,45 @@ namespace KParts { class Part; }
 namespace Kontact
 {
 
+class Core;
 class Plugin;
 
 class SidePaneBase : public QVBox
 {
     Q_OBJECT
   public:
-    SidePaneBase( QWidget *parent, const char *name = 0 );
+    SidePaneBase( Core *core, QWidget *parent, const char *name = 0 );
     virtual ~SidePaneBase();
 
-    virtual QString currentPluginName() const = 0;
-  
   signals:
-    void showPart( Kontact::Plugin * );
+    void pluginSelected( Kontact::Plugin* );
 
   public slots:
     /**
-      Adds a new entry to the sidepane.
-    */
-    virtual void addEntry( Kontact::Plugin *plugin ) = 0;
+      This method is called by the core whenever the count
+      of plugins has changed.
+     */
+    virtual void updatePlugins() = 0;
 
+    /**
+      Select the current plugin without emmiting a signal.
+      This is used to sync with the core.
+     */
+    virtual void selectPlugin( Kontact::Plugin* ) = 0;
+
+    /**
+      This is an overloaded member function. It behaves essentially like the 
+      above function.
+     */
     virtual void selectPlugin( const QString &name ) = 0;
+
+  protected:
+    Core* core() const;
+
+  private:
+    Core* m_core;
 };
 
 }
 
 #endif
-
-// vim: ts=2 sw=2 et

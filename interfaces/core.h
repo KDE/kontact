@@ -41,8 +41,22 @@ class Core : public KParts::MainWindow
   public:
     virtual ~Core();
 
-    virtual void showPart( Kontact::Plugin *plugin ) = 0;
-    virtual QPtrList<Kontact::Plugin> pluginList() = 0;
+    /**
+      Selects the given plugin @param plugin and raises the associated
+      part.
+     */
+    virtual void selectPlugin( Kontact::Plugin *plugin ) = 0;
+
+    /**
+      This is an overloaded member function. It behaves essentially like the 
+      above function.
+     */
+    virtual void selectPlugin( const QString &plugin ) = 0;
+
+    /**
+      Returns the pointer list of available plugins.
+     */
+    virtual QPtrList<Kontact::Plugin> pluginList() const = 0;
 
   protected:
     Core( QWidget *parentWidget = 0, const char *name = 0 );

@@ -31,6 +31,7 @@ class QLabel;
 namespace Kontact
 {
 
+  class Core;
   class Plugin;
 
   ///////////////////////////////////////////////////////////////////////
@@ -82,19 +83,14 @@ namespace Kontact
   {
     Q_OBJECT
     public:
-      SidePane(QWidget *parent, const char* name = 0);
+      SidePane( Core* core, QWidget *parent, const char* name = 0 );
       ~SidePane() {}
 
-      QString currentPluginName() const;
-
     public slots:
-      /**
-       * adds a new entry to the sidepane
-       **/
-      void addEntry(Kontact::Plugin *plugin);
-
       void switchItems(PanelButton* pb);
 
+      void updatePlugins();
+      void selectPlugin( Kontact::Plugin* );
       void selectPlugin( const QString &pluginName );
 
     protected slots:
@@ -104,11 +100,8 @@ namespace Kontact
       QWidgetStack* m_contentStack;
       QLabel* m_headerWidget;
       QPtrList<PanelButton> m_buttonList;
-      QString mCurrentPluginName;
   };
 
 }
 
 #endif
-
-// vim: ts=2 sw=2 et

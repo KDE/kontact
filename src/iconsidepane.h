@@ -32,6 +32,7 @@ namespace KParts { class Part; }
 namespace Kontact
 {
 
+class Core;
 class Plugin;
 
 /**
@@ -72,9 +73,9 @@ class Navigator : public KListBox
 {
     Q_OBJECT
   public:
-    Navigator(QWidget *parent=0, const char *name=0);
+    Navigator( QWidget *parent = 0, const char *name = 0 );
 
-    void addEntry( Kontact::Plugin * );
+    void updatePlugins( QPtrList<Kontact::Plugin> plugins );
 
     QSize sizeHint() const;
 
@@ -82,27 +83,19 @@ class Navigator : public KListBox
     void pluginActivated( Kontact::Plugin * );
 
   private slots:
-    void slotExecuted(QListBoxItem *item);
-
-  private:
-    int mMinimumWidth;
+    void slotExecuted( QListBoxItem *item );
 };
 
 class IconSidePane : public SidePaneBase
 {
     Q_OBJECT
   public:
-    IconSidePane( QWidget *parent, const char *name = 0 );
+    IconSidePane( Core *core, QWidget *parent, const char *name = 0 );
     ~IconSidePane();
 
-    QString currentPluginName() const;
-
   public slots:
-    /**
-      Adds a new entry to the sidepane.
-    */
-    virtual void addEntry( Kontact::Plugin *plugin );
-
+    virtual void updatePlugins();
+    virtual void selectPlugin( Kontact::Plugin* );
     virtual void selectPlugin( const QString &name );
 
   private:
@@ -112,5 +105,3 @@ class IconSidePane : public SidePaneBase
 }
 
 #endif
-
-// vim: ts=2 sw=2 et
