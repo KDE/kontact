@@ -40,6 +40,7 @@ class KRSqueezedTextLabel;
 class QHBox;
 class QSplitter;
 class QVBox;
+class QFrame;
 
 namespace KPIM
 {
@@ -63,7 +64,6 @@ struct InfoExtData
 class Plugin;
 class SidePaneBase;
 class AboutDialog;
-class Splash;
 
 typedef QValueList<Kontact::Plugin*> PluginList;
 
@@ -72,7 +72,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
   Q_OBJECT
 
   public:
-    MainWindow(Splash *splash);
+    MainWindow();
     ~MainWindow();
 
     // KDCOPServiceStarter interface
@@ -108,10 +108,11 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void showAboutDialog();
     void slotShowStatusMsg( const QString& );
     void activatePluginModule();
+    void slotOpenUrl(const KURL &url);
 
   protected:
     void initWidgets();
-
+    void initAboutScreen();
     void loadSettings();
     void saveSettings();
 
@@ -136,18 +137,17 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void configureToolbars();
 
   private:
-    QWidget *mTopWidget;
+    QFrame *mTopWidget;
 
     QHBox *mHeaderFrame;
     QLabel *mHeaderText;
     QLabel *mHeaderPixmap;
     QSplitter *mSplitter;
 
-    Splash *mSplash;
-
     KToolBarPopupAction *mNewActions;
     SidePaneBase *mSidePane;
-    QWidgetStack *mStack;
+    QWidgetStack *mMainStack;
+    QWidgetStack *mPartsStack;
     Plugin *mCurrentPlugin;
     KParts::PartManager *mPartManager;
     PluginList mPlugins;

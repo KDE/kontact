@@ -36,5 +36,7 @@
     <entry type="Int" name="SidePaneIconSize">
       <default>32</default>
     </entry>
+    <entry type="String" name="LastVersionSeen">
+    </entry>
   </group>
 </kcfg>

@@ -34,7 +34,6 @@
 #include "plugin.h"
 
 #include <qlabel.h>
-#include "splash.h"
 #include "prefs.h"
 
 #include "mainwindow.h"
@@ -73,7 +72,6 @@ static void listPlugins()
 static KCmdLineOptions options[] =
 {
     { "module <module>",   I18N_NOOP("Start with a specific Kontact module"), 0 },
-    { "nosplash",   I18N_NOOP("Disable the splash screen"), 0 },
     { "iconify",   I18N_NOOP("Start in iconified (minimized) mode"), 0 },
     { "list", I18N_NOOP("List all possible modules and exit"), 0 },
     KCmdLineLastOption
@@ -92,21 +90,18 @@ int KontactApp::newInstance()
   {
     moduleName = QString::fromLocal8Bit(args->getOption("module"));
   }
-  Kontact::Splash* splash = new Kontact::Splash( 0, "splash" );
-  if ( !mMainWindow && args->isSet("splash") ) // only the first time
-    splash->show();
 
   if ( isRestored() ) {
     // There can only be one main window
     if ( KMainWindow::canBeRestored( 1 ) ) {
-      mMainWindow = new Kontact::MainWindow(splash);
+      mMainWindow = new Kontact::MainWindow();
       setMainWidget( mMainWindow );
       mMainWindow->show();
       mMainWindow->restore( 1 );
     }
   } else {
     if ( !mMainWindow ) {
-      mMainWindow = new Kontact::MainWindow( splash );
+      mMainWindow = new Kontact::MainWindow();
       if ( !moduleName.isEmpty() )
         mMainWindow->activePluginModule( moduleName );
       mMainWindow->show();

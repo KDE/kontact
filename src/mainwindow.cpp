@@ -56,6 +56,12 @@
 #include <ksettings/componentsdialog.h>
 #include <kstringhandler.h>
 #include <krsqueezedtextlabel.h>
+#include <khtml_part.h>
+#include <khtmlview.h>
+#include <libkdepim/kfileio.h>
+#include <kcursor.h>
+#include <krun.h>
+#include <kaboutdata.h>
 
 #include <infoextension.h>
 
@@ -68,14 +74,12 @@
 #include "progressdialog.h"
 #include "statusbarprogresswidget.h"
 #include "broadcaststatus.h"
-#include "splash.h"
 
 using namespace Kontact;
 
-MainWindow::MainWindow(Kontact::Splash *splash)
+MainWindow::MainWindow()
   : Kontact::Core(), mTopWidget( 0 ), mHeaderText( 0 ), mHeaderPixmap( 0 ), mSplitter( 0 ),
-    mSplash( splash ), mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ),
-    mReallyClose( false )
+    mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ), mReallyClose( false )
 {
   // Set this to be the group leader for all subdialogs - this means
   // modal subdialogs will only affect this dialog, not the other windows
@@ -104,6 +108,13 @@ void MainWindow::initGUI()
 
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
+  
+  // ### why doesn't that work?
+  if (Prefs::self()->lastVersionSeen() == kapp->aboutData()->version())
+  {
+    mMainStack->raiseWidget( mTopWidget );
+    Prefs::self()->setLastVersionSeen(kapp->aboutData()->version());
+  }
 
 }
 
@@ -115,15 +126,9 @@ void MainWindow::initObject()
       QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
   mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(), "Plugins" );
 
-  QProgressBar *bar = mSplash->progressBar();
-  int count = 3;
-  count += mPluginInfos.count();
-  bar->setTotalSteps( count );
-
   KPluginInfo::List::Iterator it;
   for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
     ( *it )->load();
-    bar->setProgress( bar->progress() + 1 );
   }
 
 
@@ -134,28 +139,18 @@ void MainWindow::initObject()
 
   loadPlugins();
 
-  bar->setProgress( bar->progress() + 1 );
-
   if ( mSidePane )
     mSidePane->updatePlugins();
 
   // flush paint events
   kapp->processEvents();
 
-  bar->setProgress( bar->progress() + 1 );
-
   KSettings::Dispatcher::self()->registerInstance( instance(), this,
                                                    SLOT( updateConfig() ) );
 
   loadSettings();
 
-  bar->setProgress( bar->progress() + 1 );
-
   statusBar()->show();
-
-  // we are done - remove splash
-  delete mSplash;
-  mSplash=0;
 
   showTip( false );
 
@@ -206,13 +201,20 @@ void MainWindow::activatePluginModule()
 
 void MainWindow::initWidgets()
 {
-  QHBox *topWidget = new QHBox( this );
-  topWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
+  // master stack
+  mMainStack = new QWidgetStack( this );
+  setCentralWidget( mMainStack );
 
-  mTopWidget = topWidget;
+  // includes sidebar and part stack
+  mTopWidget = new QHBox( mMainStack );
+  mTopWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
+  mMainStack->addWidget( mTopWidget );
 
-  setCentralWidget( mTopWidget );
+  // holds about screen
+  initAboutScreen();
+  //mMainStack->raiseWidget( mTopWidget );
 
+  // init appropriate sidebar (disabled for now)
   mSidePaneType = Prefs::self()->mSidePaneType;
 
   QHBox *mBox = 0;
@@ -234,6 +236,8 @@ void MainWindow::initWidgets()
                                            QSizePolicy::Preferred ) );
   }
 
+  
+  
   mSidePane->setActionCollection( actionCollection() );
 
   connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
@@ -252,7 +256,7 @@ void MainWindow::initWidgets()
 
   vBox->setSpacing( 0 );
 
-  mStack = new QWidgetStack( vBox );
+  mPartsStack = new QWidgetStack( vBox );
 
   /* Create a progress dialog and hide it. */
   KPIM::ProgressDialog *progressDialog = new KPIM::ProgressDialog( statusBar(), this );
@@ -266,7 +270,59 @@ void MainWindow::initWidgets()
   statusBar()->addWidget( mStatusMsgLabel, 10 , false );
   statusBar()->addWidget( mLittleProgress, 0 , true );
   mLittleProgress->show();
+
+  // keep introscreen
+  // ### maybe add links and text only past this point?
 }
+
+
+void MainWindow::initAboutScreen()
+{
+  QHBox *introbox = new QHBox( mMainStack );
+  mMainStack->addWidget( introbox );
+  mMainStack->raiseWidget(introbox);
+  KHTMLPart *introPart = new KHTMLPart( introbox );
+  introPart->widget()->setFocusPolicy( WheelFocus );
+  // Let's better be paranoid and disable plugins (it defaults to enabled):
+  introPart->setPluginsEnabled( false );
+  introPart->setJScriptEnabled( false ); // just make this explicit
+  introPart->setJavaEnabled( false );    // just make this explicit
+  introPart->setMetaRefreshEnabled( false );
+  introPart->setURLCursor( KCursor::handCursor() );
+  introPart->view()->setLineWidth( 0 );
+
+  QString location = locate( "data", "kontact/about/main.html" );
+  QString content = KPIM::kFileToString( location );
+  introPart->begin(KURL( location ) );
+  QString appName(i18n("Kontact")); 
+  QString catchPhrase(i18n("Get Organized!")); 
+  QString quickDescription(i18n("The KDE Personal Information Management Suite"));
+  QString info = i18n("<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
+      "<p>%2</p><ul>"
+      "<li><a href=\"%3\">Read Manual</a></li>"
+      "<li><a href=\"%4\">Visit Kontact Website</a></li>"
+      "<li><a href=\"%5\">Configure Kontact as Groupware Client</a></li>"
+      "</ul><p style=\"margin-bottom: 0px\"> <a href=\"%6\">Skip this introduction</a></p>")
+      .arg(kapp->aboutData()->version())
+      .arg(i18n("Some introductionary text goes here..."))
+      .arg("help:/kontact")
+      .arg("http://kontact.kde.org")
+      .arg("exec:/gwwizard")
+      .arg("exec:/switch");
+
+  introPart->write( content.arg( QFont().pointSize() ).arg( appName )
+      .arg( catchPhrase ).arg( quickDescription ).arg( info ) );
+  introPart->end();
+
+  connect(introPart->browserExtension(),
+          SIGNAL(openURLRequest(const KURL &, const KParts::URLArgs &)),
+          SLOT(slotOpenUrl(const KURL &)));
+
+  connect(introPart->browserExtension(),
+          SIGNAL(createNewWindow(const KURL &, const KParts::URLArgs &)),
+          SLOT(slotOpenUrl(const KURL &)));
+}
+
 
 void MainWindow::setupActions()
 {
@@ -456,10 +512,10 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
 void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KParts::ReadOnlyPart *part )
 {
   // See if we have this part already (e.g. due to two plugins sharing it)
-  if ( mStack->id( part->widget() ) != -1 )
+  if ( mPartsStack->id( part->widget() ) != -1 )
     return;
 
-  mStack->addWidget( part->widget() );
+  mPartsStack->addWidget( part->widget() );
 
   mPartManager->addPart( part, false );
   // Workaround for KParts misbehavior: addPart calls show!
@@ -481,7 +537,7 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
   }
 
   kdDebug(5600) << "Part activated: " << part << " with stack id. "
-      << mStack->id( part->widget() )<< endl;
+      << mPartsStack->id( part->widget() )<< endl;
   QObjectList *l = part->queryList( "KParts::InfoExtension" );
   KParts::InfoExtension *ie = 0;
   if ( l )
@@ -561,7 +617,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   Q_ASSERT( view );
 
   if ( view ) {
-    mStack->raiseWidget( view );
+    mPartsStack->raiseWidget( view );
     view->show();
 
     if ( mFocusWidgets.contains( plugin->identifier() ) ) {
@@ -829,6 +885,26 @@ void MainWindow::slotNewToolbarConfig()
   applyMainWindowSettings( KGlobal::config(), "MainWindow" );
 }
 
+void MainWindow::slotOpenUrl(const KURL &url)
+{
+  kdDebug() << url.url() << endl;
+  if (url.protocol() == "exec")
+  {
+    if (url.path() == "/switch" )
+    {
+      mMainStack->raiseWidget( mTopWidget );
+    }
+    if (url.path() == "/gwwizard" )
+    {
+      KRun::runCommand("groupwarewizard");
+      slotQuit();
+    }
+
+  }
+  else
+    new KRun(url, this);
+}
+
 bool MainWindow::queryClose()
 {
   if ( kapp->sessionSaving() || mReallyClose )
@@ -846,7 +922,6 @@ bool MainWindow::queryClose()
 
   return localClose;
 }
-
 
 void MainWindow::slotShowStatusMsg( const QString &msg )
 {

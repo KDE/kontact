@@ -1,3 +1,5 @@
+SUBDIRS = about 
+
 INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir) $(all_includes)
 
 lib_LTLIBRARIES = libkontact.la
@@ -10,8 +12,9 @@ bin_PROGRAMS = kontact
 kontact_METASOURCES = AUTO
 kontact_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kontact_LDADD = $(top_builddir)/libkdepim/libkdepim.la \
-  $(top_builddir)/kontact/interfaces/libkpinterfaces.la libkontact.la $(LIB_KPARTS) $(LIB_KUTILS)
-kontact_SOURCES = main.cpp mainwindow.cpp splash.cpp sidepanebase.cpp \
+  $(top_builddir)/kontact/interfaces/libkpinterfaces.la libkontact.la \
+  $(LIB_KPARTS) $(LIB_KUTILS) $(LIB_KHTML)
+kontact_SOURCES = main.cpp mainwindow.cpp sidepanebase.cpp \
   sidepane.cpp iconsidepane.cpp aboutdialog.cpp
 kontact_COMPILE_FIRST = prefs.h
 
