@@ -1,7 +1,7 @@
 /*
    This file is part of KDE Kontact.
 
-   Copyright (C) 2003 Sven Lppken <sven@kde.org>
+   Copyright (C) 2003 Sven Lüppken <sven@kde.org>
    Copyright (C) 2003 Tobias König <tokoe@kde.org>
    Copyright (C) 2003 Daniel Molkentin <molkentin@kde.org>
 
