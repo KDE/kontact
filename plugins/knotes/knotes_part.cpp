@@ -312,12 +312,12 @@ void KNotesPart::killNote( KCal::Journal *journal )
 void KNotesPart::editNote( QIconViewItem *item )
 {
   if ( !mNoteEditDlg )
-      mNoteEditDlg = new KNoteEditDlg( widget() );
+    mNoteEditDlg = new KNoteEditDlg( widget() );
 
   KCal::Journal *journal = static_cast<KNotesIconViewItem *>(item)->journal();
   mNoteEditDlg->setText( journal->description() );
   if ( mNoteEditDlg->exec() == QDialog::Accepted )
-      journal->setDescription( mNoteEditDlg->text() );
+    journal->setDescription( mNoteEditDlg->text() );
 
   mManager->save();
 }
