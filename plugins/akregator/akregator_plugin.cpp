@@ -26,25 +26,46 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_akregator,
                             aKregatorPluginFactory( "kontact_akregator" ) )
 
 aKregatorPlugin::aKregatorPlugin( Kontact::Core *core, const char *, const QStringList& )
-  : Kontact::Plugin( core, core, "akregator" )
+  : Kontact::Plugin( core, core, "akregator" ), m_stub(0)
 {
-  setInstance( aKregatorPluginFactory::instance() );
+     setInstance( aKregatorPluginFactory::instance() );
 }
 
 aKregatorPlugin::~aKregatorPlugin()
 {
 }
 
+QStringList aKregatorPlugin::invisibleToolbarActions() const
+{
+    return QStringList( "file_new_contact" );
+}
+
+Akregator::aKregatorPartIface_stub *aKregatorPlugin::interface()
+{
+    if ( !m_stub ) {
+        part();
+    }
+
+    Q_ASSERT( m_stub );
+    return m_stub;
+}
+
+
 KParts::Part* aKregatorPlugin::createPart()
 {
-  return loadPart();
+    KParts::Part* p=loadPart();
+
+    m_stub = new Akregator::aKregatorPartIface_stub( dcopClient(), "akregator",
+                                      "aKregatorIface" );
+    m_stub->openLastFeedList();
+    return p;
 }
 
 QStringList aKregatorPlugin::configModules() const
 {
-  QStringList modules;
-  modules << "PIM/akregator.desktop";
-  return modules;
+    QStringList modules;
+    modules << "PIM/akregator.desktop";
+    return modules;
 }
 
 #include "akregator_plugin.moc"

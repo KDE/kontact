@@ -14,6 +14,9 @@
 
 #include <kontact/plugin.h>
 
+#include "akregator_partiface_stub.h"
+
+
 class KAboutData;
 
 class aKregatorPlugin : public Kontact::Plugin
@@ -27,9 +30,14 @@ class aKregatorPlugin : public Kontact::Plugin
 
     int weight() const { return 100; }
 
+    Akregator::aKregatorPartIface_stub *interface();
+
     virtual QStringList configModules() const;
+    virtual QStringList invisibleToolbarActions() const;
+	    
   protected:
     KParts::Part *createPart();
+    Akregator::aKregatorPartIface_stub *m_stub;
 };
 
 #endif
