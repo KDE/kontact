@@ -84,7 +84,7 @@ namespace Kontact
     Q_OBJECT
     public:
       SidePane( Core* core, QWidget *parent, const char* name = 0 );
-      ~SidePane() {}
+      ~SidePane();
 
     public slots:
       void switchItems(PanelButton* pb);
@@ -100,6 +100,7 @@ namespace Kontact
       QWidgetStack* m_contentStack;
       QLabel* m_headerWidget;
       QPtrList<PanelButton> m_buttonList;
+      QPtrList<QWidget> m_contentList;
   };
 
 }

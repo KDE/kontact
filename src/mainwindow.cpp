@@ -134,9 +134,9 @@ void MainWindow::initWidgets()
   connect( m_sidePane, SIGNAL( pluginSelected( Kontact::Plugin* ) ),
            SLOT( selectPlugin( Kontact::Plugin* ) ) );
 
-  if ( mSidePaneType == Prefs::SidePaneBars ) {
-    initHeaderWidget( vBox );
-  }
+  initHeaderWidget( vBox );
+  if ( mSidePaneType != Prefs::SidePaneBars )
+    m_headerFrame->hide();
 
   vBox->setSpacing( 0 );
 
@@ -156,19 +156,19 @@ void MainWindow::setupActions()
 void MainWindow::initHeaderWidget(QVBox *vBox)
 {
   // Initiate the headerWidget
-  QHBox *headerFrame = new QHBox( vBox );
-  headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
+  m_headerFrame = new QHBox( vBox );
+  m_headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
                                 QSizePolicy::Maximum );
-  headerFrame->setSpacing( 0 );
-  headerFrame->setFixedHeight(22);
+  m_headerFrame->setSpacing( 0 );
+  m_headerFrame->setFixedHeight( 22 );
 
-  m_headerText = new QLabel( headerFrame );
+  m_headerText = new QLabel( m_headerFrame );
   m_headerText->setSizePolicy( QSizePolicy::MinimumExpanding,
                                QSizePolicy::Preferred );
   m_headerText->setPaletteForegroundColor( colorGroup().light() );
   m_headerText->setPaletteBackgroundColor( colorGroup().dark() );
   
-  m_headerPixmap = new QLabel( headerFrame );
+  m_headerPixmap = new QLabel( m_headerFrame );
   m_headerPixmap->setSizePolicy( QSizePolicy::Maximum,
                                  QSizePolicy::Preferred );
   m_headerPixmap->setAlignment( AlignRight|AlignVCenter );
@@ -441,11 +441,13 @@ void MainWindow::updateConfig()
     switch ( mSidePaneType ) {
       case Prefs::SidePaneIcons:
         m_sidePane = new IconSidePane( this, m_splitter );
+        m_headerFrame->hide();
         break;
       default:
         kdError() << "Invalid SidePaneType: " << mSidePaneType << endl;
       case Prefs::SidePaneBars:
         m_sidePane = new SidePane( this, m_splitter );
+        m_headerFrame->show();
         break;
     }
 

@@ -177,6 +177,13 @@ SidePane::SidePane( Core* core, QWidget *parent, const char* name )
   m_contentStack->addWidget(new QWidget(m_contentStack));
 }
 
+SidePane::~SidePane()
+{
+  QWidget *wdg;
+  for ( wdg = m_contentList.first(); wdg; wdg = m_contentList.next() )
+    wdg->reparent( 0, 0, QPoint( 0, 0 ) );
+}
+
 void SidePane::switchSidePaneWidget( Kontact::Plugin *plugin )
 {
   KParts::Part *part = plugin->part();
@@ -191,8 +198,10 @@ void SidePane::switchSidePaneWidget( Kontact::Plugin *plugin )
     return;
   }
 
-  if (m_contentStack->id(sbe->widget()) == -1)
+  if (m_contentStack->id(sbe->widget()) == -1) {
     m_contentStack->addWidget(sbe->widget());
+    m_contentList.append( sbe->widget() );
+  }
 
   m_contentStack->raiseWidget(sbe->widget());
 }

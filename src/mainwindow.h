@@ -34,6 +34,7 @@
 #include "core.h"
 
 class KAction;
+class QHBox;
 class QSplitter;
 class QVBox;
 
@@ -106,7 +107,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 
   private:
     QWidget *m_topWidget;
-  
+
+    QHBox *m_headerFrame;
     QLabel *m_headerText;
     QLabel *m_headerPixmap;
     QSplitter *m_splitter;
