@@ -31,6 +31,8 @@
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
 
+#include <dcopclient.h>
+
 #include "core.h"
 #include "kabsummarywidget.h"
 #include "plugin.h"
@@ -91,6 +93,14 @@ bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
   }
 
   return false;
+}
+
+bool KAddressbookPlugin::isRunningStandalone()
+{
+  DCOPClient *dc = kapp->dcopClient();
+  
+  return (dc->isApplicationRegistered("korganizer")) &&
+         (!dc->remoteObjects("kontact").contains("KAddressBookIface"));
 }
 
 Kontact::Summary *KAddressbookPlugin::createSummaryWidget( QWidget *parentWidget )

@@ -24,12 +24,15 @@
 #include <qwidget.h>
 #include <qdragobject.h>
 
+#include <kapplication.h>
 #include <kaction.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
+
+#include <dcopclient.h>
 
 #include <libkdepim/maillistdrag.h>
 
@@ -100,6 +103,14 @@ bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )
   }
 
   return false;
+}
+
+bool KOrganizerPlugin::isRunningStandalone()
+{
+  DCOPClient* dc = kapp->dcopClient();
+
+  return (dc->isApplicationRegistered("korganizer")) &&
+         (!dc->remoteObjects("kontact").contains("CalendarIface"));
 }
 
 bool KOrganizerPlugin::canDecodeDrag( QMimeSource *mimeSource )

@@ -25,11 +25,13 @@
 #include <qwidget.h>
 #include <qdragobject.h>
 
+#include <kapplication.h>
 #include <kaction.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
+#include <dcopclient.h>
 
 #include "core.h"
 
@@ -96,6 +98,14 @@ bool TodoPlugin::createDCOPInterface( const QString& serviceType )
 bool TodoPlugin::canDecodeDrag( QMimeSource *mimeSource )
 {
   return QTextDrag::canDecode( mimeSource );
+}
+
+bool TodoPlugin::isRunningStandalone()
+{
+  DCOPClient* dc = kapp->dcopClient();
+
+  return (dc->isApplicationRegistered("korganizer")) &&
+         (!dc->remoteObjects("kontact").contains("CalendarIface"));
 }
 
 void TodoPlugin::processDropEvent( QDropEvent *event )

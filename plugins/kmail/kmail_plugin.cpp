@@ -30,6 +30,7 @@
 #include <kiconloader.h>
 #include <kparts/componentfactory.h>
 #include <kstandarddirs.h>
+#include <dcopclient.h>
 
 #include "core.h"
 #include "summarywidget.h"
@@ -87,6 +88,14 @@ KParts::Part* KMailPlugin::createPart()
 
   mStub = new KMailIface_stub( dcopClient(), "kmail", "KMailIface" );
   return part;
+}
+
+bool KMailPlugin::isRunningStandalone()
+{
+  DCOPClient* dc = kapp->dcopClient();
+
+  return (dc->isApplicationRegistered("kmail")) &&
+         (!dc->remoteObjects("kontact").contains("KMailIface"));
 }
 
 Kontact::Summary *KMailPlugin::createSummaryWidget( QWidget *parent )

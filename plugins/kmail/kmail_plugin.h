@@ -39,6 +39,7 @@ class KMailPlugin : public Kontact::Plugin
     KMailPlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KMailPlugin();
 
+    virtual bool isRunningStandalone();
     virtual bool createDCOPInterface( const QString& serviceType );
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
     virtual QString tipFile() const;

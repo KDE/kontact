@@ -38,6 +38,7 @@ class KNodePlugin : public Kontact::Plugin
     ~KNodePlugin();
 
     virtual bool createDCOPInterface( const QString& serviceType );
+    virtual bool isRunningStandalone();
 
   protected:
     virtual KParts::Part* createPart();

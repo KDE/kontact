@@ -25,12 +25,15 @@
 
 #include "core.h"
 
+#include <kapplication.h>
 #include <kparts/componentfactory.h>
 #include <kgenericfactory.h>
 #include <kapplication.h>
 #include <kaction.h>
 #include <kiconloader.h>
 #include <kdebug.h>
+
+#include <dcopclient.h>
 
 #include <qwidget.h>
 
@@ -54,6 +57,15 @@ KNodePlugin::~KNodePlugin()
 bool KNodePlugin::createDCOPInterface( const QString& /*serviceType*/ )
 {
   return false;
+}
+
+bool KNodePlugin::isRunningStandalone()
+{
+  DCOPClient *dc = kapp->dcopClient();
+  
+  return (dc->isApplicationRegistered("knode")) &&
+         (!dc->remoteObjects("knode").contains("KNodeIface"));
+
 }
 
 KParts::Part* KNodePlugin::createPart()

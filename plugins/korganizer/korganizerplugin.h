@@ -40,6 +40,7 @@ class KOrganizerPlugin : public Kontact::Plugin
     ~KOrganizerPlugin();
 
     virtual bool createDCOPInterface( const QString& serviceType );
+    virtual bool isRunningStandalone();
 
     bool canDecodeDrag( QMimeSource * );
     void processDropEvent( QDropEvent * );
