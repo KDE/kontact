@@ -51,9 +51,9 @@ Akregator::aKregatorPartIface_stub *aKregatorPlugin::interface()
 }
 
 
-MyPart* aKregatorPlugin::createPart()
+KPIM::Part* aKregatorPlugin::createPart()
 {
-    MyPart* p = loadPart();
+    KPIM::Part* p = loadPart();
 
     m_stub = new Akregator::aKregatorPartIface_stub( dcopClient(), "akregator",
                                       "aKregatorIface" );
