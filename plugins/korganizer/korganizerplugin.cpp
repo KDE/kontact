@@ -78,6 +78,9 @@ KParts::Part *KOrganizerPlugin::createPart()
   KAction *action = part->actionCollection()->action( "new_event" );
   if ( action )
     part->actionCollection()->take( action );
+  action = part->actionCollection()->action( "new_todo" );
+  if ( action )
+    part->actionCollection()->take( action );
 
   dcopClient(); // ensure that we register to DCOP as "korganizer"
   mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );

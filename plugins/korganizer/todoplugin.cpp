@@ -72,7 +72,10 @@ KParts::Part *TodoPlugin::createPart()
   if ( !part )
     return 0;
 
-  KAction *action = part->actionCollection()->action( "new_todo" );
+  KAction *action = part->actionCollection()->action( "new_event" );
+  if ( action )
+    part->actionCollection()->take( action );
+  action = part->actionCollection()->action( "new_todo" );
   if ( action )
     part->actionCollection()->take( action );
 
