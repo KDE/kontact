@@ -20,19 +20,6 @@
     <entry type="IntList" name="SidePaneSplitter">
     </entry>
 
-    <entry type="Enum" name="SidePaneType">
-      <label>Side Pane Type</label>
-      <choices>
-        <choice name="SidePaneBars">
-          <label>Button view with sidebar extension</label>
-        </choice>
-        <choice name="SidePaneIcons">
-          <label>Icon view</label>
-        </choice>
-      </choices>
-      <default>SidePaneIcons</default>
-    </entry>
-
     <entry type="Int" name="SidePaneIconSize">
       <default>32</default>
     </entry>

@@ -47,19 +47,8 @@ namespace KPIM
   class StatusbarProgressWidget;
 }
 
-namespace KParts
-{
-  class InfoExtension;
-}
-
 namespace Kontact
 {
-
-struct InfoExtData
-{
-  QString text;
-  QPixmap pixmap;
-};
 
 class Plugin;
 class SidePaneBase;
@@ -84,15 +73,12 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 
     virtual PluginList pluginList() const { return mPlugins; }
     void setActivePluginModule( const QString & );
+
   public slots:
     virtual void selectPlugin( Kontact::Plugin *plugin );
     virtual void selectPlugin( const QString &pluginName );
 
     void updateConfig();
-
-  signals:
-    void textChanged( const QString& );
-    void iconChanged( const QPixmap& );
 
   protected slots:
     void initObject();
@@ -125,14 +111,11 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void addPlugin( Kontact::Plugin *plugin );
     void partLoaded( Kontact::Plugin *plugin, KParts::ReadOnlyPart *part );
     void setupActions();
-    void initHeaderWidget( QVBox *vBox );
     void showTip( bool );
-    virtual bool queryClose ();
+    virtual bool queryClose();
 
   private slots:
     void pluginsChanged();
-    void setHeaderText( const QString& );
-    void setHeaderPixmap( const QPixmap& );
 
     void configureShortcuts();
     void configureToolbars();
@@ -140,9 +123,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
   private:
     QFrame *mTopWidget;
 
-    QHBox *mHeaderFrame;
-    QLabel *mHeaderText;
-    QLabel *mHeaderPixmap;
     QSplitter *mSplitter;
 
     KToolBarPopupAction *mNewActions;
@@ -153,9 +133,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     PluginList mPlugins;
     PluginList mDelayedPreload;
     QValueList<KPluginInfo*> mPluginInfos;
-    KParts::InfoExtension *mLastInfoExtension;
-
-    QMap<KParts::InfoExtension*, InfoExtData> mInfoExtCache;
 
     int mSidePaneType;
 

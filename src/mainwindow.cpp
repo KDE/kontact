@@ -63,14 +63,11 @@
 #include <krun.h>
 #include <kaboutdata.h>
 
-#include <infoextension.h>
-
 #include "aboutdialog.h"
 #include "iconsidepane.h"
 #include "mainwindow.h"
 #include "plugin.h"
 #include "prefs.h"
-#include "sidepane.h"
 #include "progressdialog.h"
 #include "statusbarprogresswidget.h"
 #include "broadcaststatus.h"
@@ -78,8 +75,8 @@
 using namespace Kontact;
 
 MainWindow::MainWindow()
-  : Kontact::Core(), mTopWidget( 0 ), mHeaderText( 0 ), mHeaderPixmap( 0 ), mSplitter( 0 ),
-    mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ), mReallyClose( false ),
+  : Kontact::Core(), mTopWidget( 0 ), mSplitter( 0 ),
+    mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false ),
     mStartupCompleted( false )
 {
   // Set this to be the group leader for all subdialogs - this means
@@ -205,27 +202,12 @@ void MainWindow::initWidgets()
   mTopWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
   setCentralWidget( mTopWidget );
 
-  // init appropriate sidebar (disabled for now)
-  mSidePaneType = Prefs::self()->mSidePaneType;
-
   QHBox *mBox = 0;
-#if 0
-  if ( mSidePaneType == Prefs::SidePaneBars ) {
-    mSplitter = new QSplitter( mTopWidget );
-    mSidePane = new SidePane( this, mSplitter );
-    mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
-                                           QSizePolicy::Preferred ) );
-    mSplitter->setResizeMode( mSidePane, QSplitter::KeepSize );
-  }
-   else 
-#endif
-  {
-    mSplitter = 0;
-    mBox = new QHBox( mTopWidget );
-    mSidePane = new IconSidePane( this, mBox );
-    mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
-                                           QSizePolicy::Preferred ) );
-  }
+  mSplitter = 0;
+  mBox = new QHBox( mTopWidget );
+  mSidePane = new IconSidePane( this, mBox );
+  mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
+                                         QSizePolicy::Preferred ) );
 
   mSidePane->setActionCollection( actionCollection() );
 
@@ -238,10 +220,6 @@ void MainWindow::initWidgets()
   } else {
     vBox = new QVBox( mBox );
   }
-
-  initHeaderWidget( vBox );
-  if ( mSidePaneType != Prefs::SidePaneBars )
-    mHeaderFrame->hide();
 
   vBox->setSpacing( 0 );
 
@@ -331,38 +309,6 @@ void MainWindow::setupActions()
                actionCollection(), "help_requestfeature" );
 }
 
-void MainWindow::initHeaderWidget( QVBox *vBox )
-{
-  // Initiate the headerWidget
-  mHeaderFrame = new QHBox( vBox );
-  mHeaderFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
-                               QSizePolicy::Maximum );
-  mHeaderFrame->setSpacing( 0 );
-  mHeaderFrame->setFixedHeight( 22 );
-
-  mHeaderText = new QLabel( mHeaderFrame );
-  mHeaderText->setSizePolicy( QSizePolicy::MinimumExpanding,
-                              QSizePolicy::Preferred );
-  mHeaderText->setPaletteForegroundColor( colorGroup().light() );
-  mHeaderText->setPaletteBackgroundColor( colorGroup().dark() );
-
-  mHeaderPixmap = new QLabel( mHeaderFrame );
-  mHeaderPixmap->setSizePolicy( QSizePolicy::Maximum,
-                                QSizePolicy::Preferred );
-  mHeaderPixmap->setAlignment( AlignRight|AlignVCenter );
-  mHeaderPixmap->setPaletteBackgroundColor( colorGroup().dark() );
-
-  connect( this, SIGNAL( textChanged( const QString& ) ),
-           this, SLOT( setHeaderText( const QString& ) ) );
-  connect( this, SIGNAL( iconChanged( const QPixmap& ) ),
-           this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
-
-  QFont fnt( mSidePane->font() );
-  fnt.setBold( true );
-  fnt.setPointSize( mSidePane->font().pointSize() + 3 );
-  mHeaderText->setFont( fnt );
-}
-
 bool MainWindow::isPluginLoaded( const KPluginInfo *info )
 {
   return (pluginFromInfo( info ) != 0);
@@ -442,8 +388,6 @@ void MainWindow::loadPlugins()
     addPlugin( plugin );
   }
 
-  mLastInfoExtension = 0;
-
   mNewActions->setEnabled( mPlugins.size() != 0 );
 }
 
@@ -516,33 +460,8 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
     return;
   }
 
-  if ( mLastInfoExtension ) {
-    disconnect( mLastInfoExtension, SIGNAL( textChanged( const QString& ) ),
-                this, SLOT( setHeaderText( const QString& ) ) );
-    disconnect( mLastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
-                this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
-  }
-
   kdDebug(5600) << "Part activated: " << part << " with stack id. "
       << mPartsStack->id( part->widget() )<< endl;
-  QObjectList *l = part->queryList( "KParts::InfoExtension" );
-  KParts::InfoExtension *ie = 0;
-  if ( l )
-    ie = static_cast<KParts::InfoExtension*>( l->first() );
-  delete l;
-
-  if ( ie ) {
-    connect( ie, SIGNAL( textChanged( const QString& ) ),
-             SLOT( setHeaderText( const QString& ) ) );
-    connect( ie, SIGNAL( iconChanged( const QPixmap& ) ),
-             SLOT( setHeaderPixmap( const QPixmap& ) ) );
-  }
-
-  mLastInfoExtension = ie;
-
-  InfoExtData data = mInfoExtCache[ ie ];
-  setHeaderPixmap( data.pixmap );
-  setHeaderText( data.text );
 
   createGUI( part );
 
@@ -767,26 +686,6 @@ int MainWindow::startServiceFor( const QString& serviceType,
       preferences, error, dcopService, flags );
 }
 
-void MainWindow::setHeaderText( const QString &text )
-{
-  mInfoExtCache[ mLastInfoExtension ].text = text;
-  mHeaderText->setText( text );
-}
-
-void MainWindow::setHeaderPixmap( const QPixmap &pixmap )
-{
-  QPixmap pm( pixmap );
-
-  if ( pm.height() > 22 || pm.width() > 22 ) {
-    QImage img;
-    img = pixmap;
-    pm = img.smoothScale( 22, 22, QImage::ScaleMin );
-  }
-
-  mInfoExtCache[ mLastInfoExtension ].pixmap = pm;
-  mHeaderPixmap->setPixmap( pm );
-}
-
 void MainWindow::pluginsChanged()
 {
   unloadPlugins();
@@ -799,45 +698,6 @@ void MainWindow::updateConfig()
   kdDebug( 5600 ) << k_funcinfo << endl;
 
   saveSettings();
-
-#if 0
-  bool sidePaneChanged = ( Prefs::self()->mSidePaneType != mSidePaneType );
-
-  if ( sidePaneChanged ) {
-    mSidePaneType = Prefs::self()->mSidePaneType;
-
-    delete mSidePane;
-
-    switch ( mSidePaneType ) {
-      case Prefs::SidePaneIcons:
-        mSidePane = new IconSidePane( this, mSplitter );
-        mHeaderFrame->hide();
-        break;
-      default:
-        kdError() << "Invalid SidePaneType: " << mSidePaneType << endl;
-      case Prefs::SidePaneBars:
-        mSidePane = new SidePane( this, mSplitter );
-        mHeaderFrame->show();
-        break;
-    }
-
-    mSplitter->setResizeMode( mSidePane, QSplitter::KeepSize );
-
-    mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
-                               QSizePolicy::Preferred ) );
-
-    connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
-             SLOT( selectPlugin( Kontact::Plugin * ) ) );
-
-    mSplitter->moveToFirst( mSidePane );
-
-    mSidePane->show();
-  }
-
-  if ( sidePaneChanged )
-    mSidePane->updatePlugins();
-#endif
-
   loadSettings();
 }
 
