@@ -39,6 +39,11 @@ class QHBox;
 class QSplitter;
 class QVBox;
 
+namespace KPIM
+{
+  class StatusbarProgressWidget;
+}
+
 namespace KParts
 {
   class InfoExtension;
@@ -99,6 +104,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void slotRequestFeature();
     void slotNewToolbarConfig();
     void showAboutDialog();
+    void slotShowStatusMsg( const QString& );
 
   protected:
     void initWidgets();
@@ -150,6 +156,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 
     int mSidePaneType;
     //QStringList mActivePlugins;
+
+    KPIM::StatusbarProgressWidget *mLittleProgress;
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;

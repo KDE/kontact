@@ -55,6 +55,7 @@
 #include <ktip.h>
 #include <ktrader.h>
 #include <ksettings/componentsdialog.h>
+#include <kstringhandler.h>
 
 #include <infoextension.h>
 
@@ -66,13 +67,14 @@
 #include "sidepane.h"
 #include "progressdialog.h"
 #include "statusbarprogresswidget.h"
+#include "broadcaststatus.h"
 #include "splash.h"
 
 using namespace Kontact;
 
 MainWindow::MainWindow(Kontact::Splash *splash)
   : Kontact::Core(), mTopWidget( 0 ), mHeaderText( 0 ), mHeaderPixmap( 0 ), mSplitter( 0 ),
-    mSplash( splash ), mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ), 
+    mSplash( splash ), mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ),
     mReallyClose( false )
 {
   initGUI();
@@ -155,6 +157,10 @@ void MainWindow::initObject()
 
   // done initializing
   statusBar()->changeItem( QString::null, 1 );
+
+  connect( KPIM::BroadcastStatus::instance(), SIGNAL( statusMsg( const QString& ) ),
+           this, SLOT( slotShowStatusMsg( const QString&  ) ) );
+
 }
 
 MainWindow::~MainWindow()
@@ -231,13 +237,12 @@ void MainWindow::initWidgets()
   KPIM::ProgressDialog *progressDialog = new KPIM::ProgressDialog( statusBar(), this );
   progressDialog->hide();
 
-  KPIM::StatusbarProgressWidget *littleProgress =
-    new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
+  mLittleProgress = new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
 
-  statusBar()->addWidget( littleProgress, 0 , true );
+  statusBar()->addWidget( mLittleProgress, 0 , true );
   statusBar()->insertItem( i18n( " Initializing..." ), 1, 1 );
   statusBar()->setItemAlignment( 1, AlignLeft | AlignVCenter );
-  littleProgress->show();
+  mLittleProgress->show();
 }
 
 void MainWindow::setupActions()
@@ -793,4 +798,15 @@ bool MainWindow::queryClose()
   return localClose;
 }
 
+
+void MainWindow::slotShowStatusMsg( const QString &msg )
+{
+  // Copied from KMail's kmmainwin.cpp
+  if ( !statusBar() || !mLittleProgress) return;
+  int statusWidth = statusBar()->width() - mLittleProgress->width()
+                    - fontMetrics().maxWidth();
+  QString text = KStringHandler::rPixelSqueeze( " " + msg, fontMetrics(),
+                                                statusWidth );
+  statusBar()->changeItem( text, 1 );
+}
 #include "mainwindow.moc"
