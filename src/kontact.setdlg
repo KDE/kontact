@@ -148,9 +148,11 @@ Icon=kontact_contacts
 
 [Special Dates]
 Name=Special Dates Summary
+Name[es]=Resumen de fechas especiales
 Name[et]=Tähtpäevade kokkuvõte
 Name[sv]=Översikt av speciella datum
 Comment=Special Dates Summary Component
+Comment[es]=Componente de resumen de fechas especiales
 Comment[et]=Tähtpäevade kokkuvõtte komponent
 Comment[sv]=Komponent för översikt av speciella datum
 Weight=310
