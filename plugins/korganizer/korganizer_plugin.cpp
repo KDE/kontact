@@ -36,13 +36,16 @@ KOrganizerPlugin::~KOrganizerPlugin()
 
 KParts::ReadOnlyPart* KOrganizerPlugin::part()
 {
-    (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
-    m_iface = new KOrganizerIface_stub(dcopClient(), "korganizer", "KOrganizerIface");
+    if (!m_part) {
+      (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
+      m_iface = new KOrganizerIface_stub(dcopClient(), "korganizer", "KOrganizerIface");
 
-    m_part = KParts::ComponentFactory
-      ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkorganizer",
-                                                               0, 0, // parentwidget,name
+      m_part = KParts::ComponentFactory
+       ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkorganizer",
+                                                                0, 0, // parentwidget,name
                                                                this, 0 ); // parent,name
+    }
+
     return m_part;
 
 }
