@@ -11,6 +11,7 @@
 #include "kpcore.h"
 
 #include "kaddressbook_plugin.h"
+#include <kdebug.h>
 #include "kaddressbook_plugin.moc"
 
 typedef KGenericFactory< KAddressbookPlugin, Kaplan::Core > KAddressbookPluginFactory;
@@ -20,7 +21,7 @@ K_EXPORT_COMPONENT_FACTORY( libkpkaddressbookplugin,
 KAddressbookPlugin::KAddressbookPlugin(Kaplan::Core *_core, const char *name, const QStringList & /*args*/ )
   : Kaplan::Plugin(_core, _core, "kaddressbook"), m_part(0)
 {
-  m_stub = new KAddressBookIface_stub(dcopClient(), "kaddressbook", "KAddressBookIface");
+  m_stub = 0L;
   setInstance(KAddressbookPluginFactory::instance());
 
   setXMLFile("kpkaddressbookplugin.rc");
@@ -48,6 +49,9 @@ void KAddressbookPlugin::loadPart()
       return;
 
     core()->addPart(m_part);
+    // 1) Register with dcop as "kaddressbook"  [maybe the part should do this]
+    // 2) Create the stub that allows us to talk to the part
+    m_stub = new KAddressBookIface_stub(dcopClient(), "kaddressbook", "KAddressBookIface");
   }
 }
 
@@ -61,6 +65,18 @@ void KAddressbookPlugin::slotShowPlugin()
 void KAddressbookPlugin::slotNewContact()
 {
   loadPart();
-  m_stub->newContact();
+  Q_ASSERT( m_stub );
+  if ( m_stub )
+      m_stub->newContact();
 }
 
+bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
+{
+    if ( serviceType == "AddressBook" )
+    {
+        loadPart();
+        Q_ASSERT( m_stub );
+        return true;
+    }
+    return false;
+}

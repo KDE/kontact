@@ -18,9 +18,10 @@ public:
   KAddressbookPlugin(Kaplan::Core *core, const char *name, const QStringList & /*args*/);
   ~KAddressbookPlugin();
 
-  
+  virtual bool createDCOPInterface( const QString& serviceType );
+
 private slots:
-  
+
   void slotShowPlugin();
   void slotNewContact();
 
