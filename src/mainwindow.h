@@ -57,6 +57,8 @@ class Plugin;
 class SidePaneBase;
 class AboutDialog;
 
+typedef QValueList<Kontact::Plugin*> PluginList;
+
 class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 {
   Q_OBJECT
@@ -72,7 +74,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
                                  QString *error = 0, QCString* dcopService = 0,
                                  int flags = 0 );
 
-    virtual QValueList<Kontact::Plugin*> pluginList() const { return mPlugins; }
+    virtual PluginList pluginList() const { return mPlugins; }
     void activePluginModule( const QString & );
   public slots:
     virtual void selectPlugin( Kontact::Plugin *plugin );
@@ -131,7 +133,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QWidgetStack *mStack;
     Plugin *mCurrentPlugin;
     KParts::PartManager *mPartManager;
-    typedef QValueList<Kontact::Plugin*> PluginList;
     PluginList mPlugins;
     PluginList mDelayedPreload;
     QValueList<KPluginInfo*> mPluginInfos;
