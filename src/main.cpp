@@ -121,7 +121,7 @@ int KontactApp::newInstance()
 int main(int argc, char **argv)
 {
   KAboutData about( "kontact", I18N_NOOP( "Kontact" ), version, description,
-                    KAboutData::License_GPL, I18N_NOOP("(C) 2001-2004 The Kontact developers"), 0, "http://kontact.org", "kde-pim@kde.org" );
+                    KAboutData::License_GPL, I18N_NOOP("(C) 2001-2004 The Kontact developers"), 0, "http://kontact.org" );
   about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
   about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
   about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
