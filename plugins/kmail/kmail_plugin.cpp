@@ -20,7 +20,7 @@ K_EXPORT_COMPONENT_FACTORY( libkpkmailplugin,
 KMailPlugin::KMailPlugin(Kaplan::Core *_core, const char *name, const QStringList & /*args*/ )
   : Kaplan::Plugin(_core, _core, "kmail"), m_part(0)
 {
-  m_stub = new KMailPartIface_stub(dcopClient(), "kmail", "*"); 	
+//  m_stub = new KMailPartIface_stub(dcopClient(), "kmail", "*"); 	
   setInstance(KMailPluginFactory::instance());
 
   setXMLFile("kpkmailplugin.rc");

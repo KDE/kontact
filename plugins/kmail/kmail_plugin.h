@@ -6,7 +6,7 @@
 
 
 #include "kpplugin.h"
-#include "kmailpartIface_stub.h"
+//#include "kmailpartIface_stub.h"
 
 
 class KMailPlugin : public Kaplan::Plugin
@@ -25,7 +25,7 @@ private slots:
 
 private:
   void loadPart();
-  KMailPartIface_stub *m_stub;
+//  KMailPartIface_stub *m_stub;
   KParts::ReadOnlyPart *m_part;
 };
 
