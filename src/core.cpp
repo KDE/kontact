@@ -50,12 +50,12 @@ Core::Core()
   // create the GUI
   QHBox *box = new QHBox(this);	
   box->setFrameStyle(  QFrame::Panel | QFrame::Sunken );
-  
+
   m_navigator = new Navigator(box);
   m_navigator->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
 
   QWhatsThis::add(m_navigator, i18n("Use this bar to invoke a specific groupware part"));
-  
+
   m_stack = new QWidgetStack(box);
 
   setCentralWidget(box);
@@ -63,15 +63,15 @@ Core::Core()
   statusBar()->show();
   // prepare the part manager
   m_partManager = new KParts::PartManager(this);
-  connect(m_partManager, SIGNAL(activePartChanged(KParts::Part *)), this, SLOT(activePartChanged(KParts::Part *))); 
+  connect(m_partManager, SIGNAL(activePartChanged(KParts::Part *)), this, SLOT(activePartChanged(KParts::Part *)));
 
   setupActions();
 
   loadSettings();
-  
+
   loadPlugins();
 
-  setXMLFile("kaplanui.rc");
+  setXMLFile("kontactui.rc");
 
   createGUI(0);
 

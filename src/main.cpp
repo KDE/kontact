@@ -29,9 +29,9 @@
 #include "core.h"
 
 static const char *description =
-    I18N_NOOP("A KDE PIM Framework");
+    I18N_NOOP("A KDE Personal Information Manager");
 
-static const char *version = "0.2";
+static const char *version = "0.11";
 
 /*
 static KCmdLineOptions options[] =
@@ -44,11 +44,12 @@ static KCmdLineOptions options[] =
 
 int main(int argc, char **argv)
 {
-    KAboutData about("kaplan", I18N_NOOP("Kaplan"), version, description,
-                     KAboutData::License_GPL, "(C) 2000-2002 The KDE PIM Team", 0, 0, "kde-pim@kde.org");
+    KAboutData about("kontact", I18N_NOOP("Kontact"), version, description,
+                     KAboutData::License_GPL, "(C) 2001-2002 The Kontact developers", 0, "http://kontact.kde.org", "kde-pim@kde.org");
+    about.addAuthor( "Matthias Hoelzer-Kluepfel", 0, "mhk@kde.org" );
     about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
     about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
-    about.addAuthor( "Matthias Hoelzer-Kluepfel", I18N_NOOP("Original Author"), "mhk@kde.org" );
+    about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
     KCmdLineArgs::init(argc, argv, &about);
 //    KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
