@@ -19,9 +19,6 @@
 #ifndef  SIDEPANE_H
 #define  SIDEPANE_H
 
-#include <kapplication.h>
-#include <kconfig.h>
-
 #include <qpushbutton.h>
 #include <qvbox.h>
 #include <qptrlist.h>

@@ -23,6 +23,9 @@
 #include <qobjectlist.h>
 #include <qlabel.h>
 
+
+#include <kapplication.h>
+#include <kconfig.h>
 #include <klocale.h>
 #include <kiconloader.h>
 #include <sidebarextension.h>

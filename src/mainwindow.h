@@ -91,19 +91,17 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void initHeaderWidget( QVBox *vBox );
 
   private:
-    SidePane *m_sidePane;
-    KParts::PartManager *m_partManager;
-
-    QWidgetStack *m_stack;
-    QPtrList<Kontact::Plugin> m_plugins;
-
-    KActionMenu *m_newActions;
-
     QHBox *m_headerFrame;
     QLabel *m_headerText;
     QLabel *m_headerPixmap;
     QSplitter *m_splitter;
 
+    KActionMenu *m_newActions;
+	
+    SidePane *m_sidePane;
+    QWidgetStack *m_stack;
+    KParts::PartManager *m_partManager;
+    QPtrList<Kontact::Plugin> m_plugins;
     KParts::InfoExtension *m_lastInfoExtension;
 };
 
