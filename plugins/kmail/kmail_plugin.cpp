@@ -39,9 +39,9 @@ typedef KGenericFactory<KMailPlugin, Kontact::Core> KMailPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpkmailplugin,
                             KMailPluginFactory( "kpmailplugin" ) );
 
-KMailPlugin::KMailPlugin(Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( core, core,  name ),
-    mPart( 0 )
+KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
+  : Kontact::Plugin( core, core, "kmail" ),
+    mPart( 0 ), mStub( 0 )
 {
   setInstance( KMailPluginFactory::instance() );
 

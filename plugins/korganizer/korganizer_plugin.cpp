@@ -40,9 +40,9 @@ typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFacto
 K_EXPORT_COMPONENT_FACTORY( libkpkorganizerplugin,
                             KOrganizerPluginFactory( "kporganizerplugin" ) );
 
-KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( core, core, name ),
-    mPart( 0 ),
+KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QStringList& )
+  : Kontact::Plugin( core, core, "korganizer" ), 
+    mPart( 0 ), 
     mIface( 0 )
 {
   setInstance( KOrganizerPluginFactory::instance() );

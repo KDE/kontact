@@ -42,8 +42,8 @@ typedef KGenericFactory< KAddressbookPlugin, Kontact::Core > KAddressbookPluginF
 K_EXPORT_COMPONENT_FACTORY( libkpkaddressbookplugin,
                             KAddressbookPluginFactory( "kpaddressbookplugin" ) );
 
-KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( core, core, name ), 
+KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const QStringList& )
+  : Kontact::Plugin( core, core, "kaddressbook" ), 
     mStub( 0 ),
     mPart( 0 )
 {

@@ -55,6 +55,8 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       Creates a new Plugin, note that @param name is required if
       you want your plugin to do dcop via it's own instance of
       @ref DCOPClient by calling @ref dcopClient.
+      @note @ref name MUST be the name of the application that
+      provides the part!
     */
     Plugin( Core *core, QObject *parent, const char *name );
 
@@ -126,7 +128,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       
       @param parent parent widget.
     */
-    virtual Summary *createSummaryWidget( QWidget */*parent*/ ) { return 0; }
+    virtual Summary *createSummaryWidget( QWidget * /*parent*/ ) { return 0; }
 
     /**
       Reimplement this method if you don't want to have a plugin shown in the sidebar.
