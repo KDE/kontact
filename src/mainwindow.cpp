@@ -111,7 +111,10 @@ MainWindow::MainWindow()
   KSettings::Dispatcher::self()->registerInstance( instance(), this,
       SLOT( updateConfig() ) );
   loadSettings();
+
   showTip( false );
+
+  setStandardToolBarMenuEnabled( true );
   statusBar()->show();
 }
 
