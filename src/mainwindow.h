@@ -116,29 +116,29 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void configureShortcuts();
 
   private:
-    QWidget *m_topWidget;
+    QWidget *mTopWidget;
 
-    QHBox *m_headerFrame;
-    QLabel *m_headerText;
-    QLabel *m_headerPixmap;
-    QSplitter *m_splitter;
+    QHBox *mHeaderFrame;
+    QLabel *mHeaderText;
+    QLabel *mHeaderPixmap;
+    QSplitter *mSplitter;
 
-    KToolBarPopupAction *m_newActions;
-    SidePaneBase *m_sidePane;
-    QWidgetStack *m_stack;
-    Plugin *m_currentPlugin;
-    KParts::PartManager *m_partManager;
+    KToolBarPopupAction *mNewActions;
+    SidePaneBase *mSidePane;
+    QWidgetStack *mStack;
+    Plugin *mCurrentPlugin;
+    KParts::PartManager *mPartManager;
     typedef QValueList<Kontact::Plugin*> PluginList;
     PluginList mPlugins;
     QValueList<KPluginInfo*> mPluginInfos;
-    KParts::InfoExtension *m_lastInfoExtension;
+    KParts::InfoExtension *mLastInfoExtension;
 
-    QMap<KParts::InfoExtension*, InfoExtData> m_infoExtCache;
+    QMap<KParts::InfoExtension*, InfoExtData> mInfoExtCache;
 
     int mSidePaneType;
     //QStringList mActivePlugins;
 
-    AboutDialog *m_aboutDialog;
+    AboutDialog *mAboutDialog;
 };
 
 }

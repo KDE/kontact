@@ -49,14 +49,14 @@ namespace Kontact
 
       ~PanelButton() {}
 
-      bool isActive() const { return m_active; }
+      bool isActive() const { return mActive; }
 
       void setActive();
       void setInactive();
 
-      int id() const { return m_id; }
+      int id() const { return mId; }
 
-      Kontact::Plugin *plugin() const { return m_plugin; }
+      Kontact::Plugin *plugin() const { return mPlugin; }
 
     signals:
       void clicked( PanelButton *pb );
@@ -72,11 +72,11 @@ namespace Kontact
       void composeLabel(QPainter *p);
 
     private:
-      Kontact::Plugin *m_plugin;
-      QPixmap m_pix;
-      QString m_text;
-      bool m_active;
-      bool m_id;
+      Kontact::Plugin *mPlugin;
+      QPixmap mPix;
+      QString mText;
+      bool mActive;
+      bool mId;
   };
 
   ///////////////////////////////////////////////////////////////////////
@@ -99,10 +99,10 @@ namespace Kontact
       void switchSidePaneWidget( Kontact::Plugin * );
 
     private:
-      QWidgetStack* m_contentStack;
-      QLabel* m_headerWidget;
-      QPtrList<PanelButton> m_buttonList;
-      QValueList<QGuardedPtr<QWidget> > m_contentList;
+      QWidgetStack* mContentStack;
+      QLabel* mHeaderWidget;
+      QPtrList<PanelButton> mButtonList;
+      QValueList<QGuardedPtr<QWidget> > mContentList;
   };
 
 }

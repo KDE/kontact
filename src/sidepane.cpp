@@ -54,9 +54,9 @@ PanelButton::PanelButton( Kontact::Plugin *plugin, int id,  QWidget *parent, con
   setPixmap( BarIcon( plugin->icon() ) );
   setText( plugin->title() ); 
   
-  m_active = false;
-  m_id = id;
-  m_plugin = plugin;
+  mActive = false;
+  mId = id;
+  mPlugin = plugin;
 
   QFont fnt(font());
   fnt.setBold(true);
@@ -71,7 +71,7 @@ PanelButton::PanelButton( Kontact::Plugin *plugin, int id,  QWidget *parent, con
 void PanelButton::slotClicked()
 {
   emit clicked( this );
-  emit showPart( m_plugin );
+  emit showPart( mPlugin );
 
   setActive();
 }
@@ -91,7 +91,7 @@ void PanelButton::setActive()
   pal.setInactive(cgi);
   setPalette(pal);
 
-  m_active = true;
+  mActive = true;
 
   kdDebug(5600) << "PanelButton::setActive()" << endl;
 }
@@ -101,25 +101,25 @@ void PanelButton::setInactive()
   // reset using parents palette 
   setPalette(parentWidget()->palette());
 
-  m_active = false;
+  mActive = false;
 }
 
 void PanelButton::setPixmap(const QPixmap& pix)
 {
-  m_pix = pix;
+  mPix = pix;
   QPushButton::setPixmap(pix);
 }
 
 void PanelButton::setText(const QString& text)
 {
-  m_text = text;
+  mText = text;
   QPushButton::setText(text);
 }
 
 void PanelButton::composeLabel(QPainter *p)
 {
   QRect rect = style().subRect(QStyle::SR_PushButtonContents, this);
-  QRect pixRect = m_pix.rect();
+  QRect pixRect = mPix.rect();
   pixRect.moveCenter(rect.center());
   
   if (kapp->reverseLayout())
@@ -127,20 +127,20 @@ void PanelButton::composeLabel(QPainter *p)
   else
     pixRect.setLeft(rect.left());
 
-  pixRect.setWidth(m_pix.width());
+  pixRect.setWidth(mPix.width());
   
-  p->drawPixmap(pixRect, m_pix);
+  p->drawPixmap(pixRect, mPix);
   QPen tmp = p->pen();
   p->setPen(colorGroup().buttonText());
   if (kapp->reverseLayout())
   {
-    rect.setRight(rect.right()-(m_pix.width()+2));
-    p->drawText(rect, AlignVCenter|AlignRight, m_text);
+    rect.setRight(rect.right()-(mPix.width()+2));
+    p->drawText(rect, AlignVCenter|AlignRight, mText);
   }
   else
   {
-    rect.setLeft(m_pix.width()+2);
-    p->drawText(rect, AlignVCenter, m_text);
+    rect.setLeft(mPix.width()+2);
+    p->drawText(rect, AlignVCenter, mText);
   }
   p->setPen(tmp);
   
@@ -155,32 +155,32 @@ void PanelButton::drawButtonLabel(QPainter *p)
 
 SidePane::SidePane( Core* core, QWidget *parent, const char* name )
   : SidePaneBase( core, parent, name ),
-    m_contentStack( 0 ),
-    m_headerWidget( 0 )
+    mContentStack( 0 ),
+    mHeaderWidget( 0 )
 {
 
   setSpacing(0);
 
-  m_headerWidget = new QLabel(this, "header");
-  m_headerWidget->setAlignment( AlignVCenter );
-  m_headerWidget->setPaletteBackgroundColor( colorGroup().dark() );
-  m_headerWidget->setPaletteForegroundColor( colorGroup().light() );
-  m_headerWidget->setFixedHeight(22);
+  mHeaderWidget = new QLabel(this, "header");
+  mHeaderWidget->setAlignment( AlignVCenter );
+  mHeaderWidget->setPaletteBackgroundColor( colorGroup().dark() );
+  mHeaderWidget->setPaletteForegroundColor( colorGroup().light() );
+  mHeaderWidget->setFixedHeight(22);
   
   QFont fnt(font());
   fnt.setBold(true);
   fnt.setPointSize(font().pointSize()+3);
-  m_headerWidget->setFont(fnt);
+  mHeaderWidget->setFont(fnt);
 
-  m_contentStack = new QWidgetStack(this);
-  m_contentStack->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
-  m_contentStack->addWidget(new QWidget(m_contentStack));
+  mContentStack = new QWidgetStack(this);
+  mContentStack->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
+  mContentStack->addWidget(new QWidget(mContentStack));
 }
 
 SidePane::~SidePane()
 {
   QValueList<QGuardedPtr<QWidget> >::Iterator it;
-  for ( it = m_contentList.begin(); it != m_contentList.end(); ++it ) {
+  for ( it = mContentList.begin(); it != mContentList.end(); ++it ) {
     if ( (*it) )
       (*it)->reparent( 0, 0, QPoint( 0, 0 ) );
   }
@@ -199,38 +199,38 @@ void SidePane::switchSidePaneWidget( Kontact::Plugin *plugin )
   delete l;
 
   if (!sbe) {
-    m_contentStack->raiseWidget(0);
+    mContentStack->raiseWidget(0);
     return;
   }
 
-  if (m_contentStack->id(sbe->widget()) == -1) {
-    m_contentStack->addWidget(sbe->widget());
+  if (mContentStack->id(sbe->widget()) == -1) {
+    mContentStack->addWidget(sbe->widget());
     QGuardedPtr<QWidget> ptr = sbe->widget();
-    m_contentList.append( ptr );
+    mContentList.append( ptr );
   }
 
-  m_contentStack->raiseWidget(sbe->widget());
+  mContentStack->raiseWidget(sbe->widget());
 }
 
 void SidePane::switchItems(PanelButton* pb)
 {
-  QPtrListIterator<PanelButton> it( m_buttonList );
+  QPtrListIterator<PanelButton> it( mButtonList );
   for (; it.current(); ++it)
   {
     if (it.current()->isActive())
       it.current()->setInactive();
   }
 
-  m_contentStack->raiseWidget( pb->id() );
-  m_headerWidget->setText( pb->text() );
+  mContentStack->raiseWidget( pb->id() );
+  mHeaderWidget->setText( pb->text() );
 }
 
 void SidePane::updatePlugins()
 {
   // delete all existing buttons
-  m_buttonList.setAutoDelete( true );
-  m_buttonList.clear();
-  m_buttonList.setAutoDelete( false );
+  mButtonList.setAutoDelete( true );
+  mButtonList.clear();
+  mButtonList.setAutoDelete( false );
 
   QValueList<Plugin*> plugins = core()->pluginList();
   QValueList<Plugin*>::ConstIterator end = plugins.end();
@@ -241,7 +241,7 @@ void SidePane::updatePlugins()
       continue;
 
     PanelButton* pb = new PanelButton( plugin, 0, this, "PanelButton" );
-    m_buttonList.append( pb );
+    mButtonList.append( pb );
     connect( pb, SIGNAL( clicked( PanelButton* ) ),
              SLOT( switchItems( PanelButton* ) ) );
     connect( pb, SIGNAL( showPart( Kontact::Plugin* ) ),
@@ -258,7 +258,7 @@ void SidePane::selectPlugin( Kontact::Plugin *plugin )
   bool blocked = signalsBlocked();
   blockSignals( true );
 
-  QPtrListIterator<PanelButton> it( m_buttonList );
+  QPtrListIterator<PanelButton> it( mButtonList );
 
   PanelButton *btn;
   while ( ( btn = it.current() ) != 0 ) {
@@ -270,7 +270,7 @@ void SidePane::selectPlugin( Kontact::Plugin *plugin )
     }
   }
 
-  btn = m_buttonList.first();
+  btn = mButtonList.first();
 
   // no plugins loaded. Something is really broken..
   Q_ASSERT( btn );
@@ -285,7 +285,7 @@ void SidePane::selectPlugin( const QString &pluginName )
   bool blocked = signalsBlocked();
   blockSignals( true );
 
-  QPtrListIterator<PanelButton> it( m_buttonList );
+  QPtrListIterator<PanelButton> it( mButtonList );
 
   PanelButton *btn;
   while ( ( btn = it.current() ) != 0 ) {
@@ -298,7 +298,7 @@ void SidePane::selectPlugin( const QString &pluginName )
     }
   }
 
-  btn = m_buttonList.first();
+  btn = mButtonList.first();
 
   // no plugins loaded. Something is really broken..
   Q_ASSERT( btn );
