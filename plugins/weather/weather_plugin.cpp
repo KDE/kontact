@@ -27,8 +27,8 @@
 #include "weather_plugin.h"
 
 typedef KGenericFactory< WeatherPlugin, Kontact::Core > WeatherPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkpweatherplugin,
-                            WeatherPluginFactory( "kpweatherplugin" ) )
+K_EXPORT_COMPONENT_FACTORY( libkontact_weatherplugin,
+                            WeatherPluginFactory( "kontact_weatherplugin" ) )
 
 WeatherPlugin::WeatherPlugin( Kontact::Core *core, const char *name, const QStringList& )
   : Kontact::Plugin( core, core, name )

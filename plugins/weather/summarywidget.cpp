@@ -72,8 +72,10 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
 int SummaryWidget::summaryHeight() const
 {
-  if ( mStations.isEmpty() ) return 0;
-  else return 1;
+  if ( mStations.isEmpty() )
+    return 0;
+  else
+    return 1;
 }
 
 void SummaryWidget::updateView()

@@ -26,16 +26,14 @@
 #include "summaryview_plugin.h"
 
 typedef KGenericFactory< SummaryView, Kontact::Core > SummaryViewFactory;
-K_EXPORT_COMPONENT_FACTORY( libkpsummaryplugin,
-                            SummaryViewFactory( "kpsummaryplugin" ) )
+K_EXPORT_COMPONENT_FACTORY( libkontact_summaryplugin,
+                            SummaryViewFactory( "kontact_summaryplugin" ) )
 
 SummaryView::SummaryView( Kontact::Core *core, const char *name, const QStringList& )
   : Kontact::Plugin( core, core, name),
     mPart( 0 )
 {
   setInstance( SummaryViewFactory::instance() );
-
-  setXMLFile( "kpsummaryplugin.rc" );
 }
 
 SummaryView::~SummaryView()

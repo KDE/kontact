@@ -39,8 +39,8 @@
 #include "kaddressbook_plugin.h"
 
 typedef KGenericFactory< KAddressbookPlugin, Kontact::Core > KAddressbookPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkpkaddressbookplugin,
-                            KAddressbookPluginFactory( "kpaddressbookplugin" ) )
+K_EXPORT_COMPONENT_FACTORY( libkontact_kaddressbookplugin,
+                            KAddressbookPluginFactory( "kontact_kaddressbookplugin" ) )
 
 KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "kaddressbook" ), 
@@ -48,8 +48,6 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const
     mPart( 0 )
 {
   setInstance( KAddressbookPluginFactory::instance() );
-
-  setXMLFile( "kpkaddressbookplugin.rc" );
 
   insertNewAction( new KAction( i18n( "New Contact" ), BarIcon( "contact" ),
 			             0, this, SLOT( slotNewContact() ), actionCollection(),
@@ -65,7 +63,7 @@ KParts::Part* KAddressbookPlugin::part()
   if ( !mPart ) {
     mPart = KParts::ComponentFactory
       ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkaddressbookpart",
-                                                             0, 0, // parentwidget,name
+                                                             core(), 0, // parentwidget,name
                                                              this, 0 ); // parent,name
     if ( !mPart )
       return 0L;

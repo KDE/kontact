@@ -36,8 +36,8 @@
 
 
 typedef KGenericFactory<KNodePlugin, Kontact::Core> KNodePluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkpknodeplugin,
-                            KNodePluginFactory( "kpnewsplugin" ) )
+K_EXPORT_COMPONENT_FACTORY( libkontact_knodeplugin,
+                            KNodePluginFactory( "kontact_knodeplugin" ) )
 
 
 KNodePlugin::KNodePlugin( Kontact::Core *core, const char *, const QStringList& )
@@ -45,8 +45,6 @@ KNodePlugin::KNodePlugin( Kontact::Core *core, const char *, const QStringList& 
     mPart( 0 )
 {
   setInstance( KNodePluginFactory::instance() );
-
-  setXMLFile( "kpknodeplugin.rc" );
 }
 
 

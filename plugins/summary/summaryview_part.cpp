@@ -54,7 +54,7 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
   : KParts::ReadOnlyPart( parent, name ),
     mCore( core )
 {
-  setInstance( new KInstance( "summaryviewpart" ) ); // ## memleak
+  setInstance( new KInstance( "kontactsummary" ) ); // ## memleak
 
   mFrame = new QFrame( core, widgetName );
   mFrame->setFrameStyle( QFrame::Panel | QFrame::Sunken );

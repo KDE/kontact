@@ -36,16 +36,14 @@
 #include "kmail_plugin.h"
 
 typedef KGenericFactory<KMailPlugin, Kontact::Core> KMailPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkpkmailplugin,
-                            KMailPluginFactory( "kpmailplugin" ) )
+K_EXPORT_COMPONENT_FACTORY( libkontact_kmailplugin,
+                            KMailPluginFactory( "kontact_kmailplugin" ) )
 
 KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "kmail" ),
     mPart( 0 ), mStub( 0 )
 {
   setInstance( KMailPluginFactory::instance() );
-
-  setXMLFile( "kpkmailplugin.rc" );
 
   insertNewAction( new KAction( i18n( "New Mail" ), BarIcon( "mail_new2" ),
 			             0, this, SLOT( slotNewMail() ), actionCollection(),

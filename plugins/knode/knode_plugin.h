@@ -33,15 +33,15 @@ class KNodePlugin : public Kontact::Plugin
 {
   Q_OBJECT
 
-public:
-  KNodePlugin( Kontact::Core *core, const char *name, const QStringList& );
-  ~KNodePlugin();
+  public:
+    KNodePlugin( Kontact::Core *core, const char *name, const QStringList& );
+    ~KNodePlugin();
 
-  virtual KParts::Part* part();
-  virtual bool createDCOPInterface( const QString& serviceType );
-private:
-  KParts::ReadOnlyPart *mPart;
+    virtual KParts::Part* part();
+    virtual bool createDCOPInterface( const QString& serviceType );
+
+  private:
+    KParts::ReadOnlyPart *mPart;
 };
-
 
 #endif

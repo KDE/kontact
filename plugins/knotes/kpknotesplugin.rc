@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<!DOCTYPE gui>
-<gui name="kpknotesplugin" version="1">
-  <ToolBar>
-    <Action name="edit_newnote"/>
-  </ToolBar>
-</gui>
-
