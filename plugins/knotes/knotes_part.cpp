@@ -66,7 +66,7 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
 
 
   mICal = new KCal::CalendarLocal;
-  connect(mICal, SIGNAL(calendarChanged()), SLOT(slotCalendarChanged()));
+  //connect(mICal, SIGNAL(calendarChanged()), SLOT(slotCalendarChanged()));
   mICal->load(::locate("data", "knotes/notes.ics"));
   mNotes = mICal->journals();
 
@@ -276,7 +276,7 @@ void KNotesPart::showNote( QListViewItem *i )
 
 void KNotesPart::noteChanged()
 {
-  mNoteChanged = true;  
+  mNoteChanged = true;
 }
 
 void KNotesPart::saveNote()
