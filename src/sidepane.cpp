@@ -160,7 +160,11 @@ void PanelButton::drawButtonLabel(QPainter *p)
   setSpacing(0);
 
   m_headerWidget = new QLabel(this, "header");
-  m_headerWidget->setFrameShape(QFrame::ToolBarPanel);
+  m_headerWidget->setAlignment( AlignVCenter );
+  m_headerWidget->setPaletteBackgroundColor( darkGray );
+  m_headerWidget->setPaletteForegroundColor( white );
+  m_headerWidget->setFixedHeight(22);
+  
   QFont fnt(font());
   fnt.setBold(true);
   fnt.setPointSize(font().pointSize()+3);

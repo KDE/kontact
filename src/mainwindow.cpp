@@ -127,7 +127,6 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   m_headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
                                 QSizePolicy::Maximum );
   m_headerFrame->setSpacing( 0 );
-  m_headerFrame->setFrameShape( QFrame::Panel );
 
   m_headerText = new QLabel( m_headerFrame );
   m_headerText->setSizePolicy( QSizePolicy::MinimumExpanding,
@@ -137,7 +136,7 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   
   m_headerPixmap = new QLabel( m_headerFrame );
   m_headerPixmap->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-  m_headerPixmap->setMaximumSize(22, 22);
+  m_headerPixmap->setFixedSize(22, 22);
   m_headerPixmap->setAlignment( AlignRight );
   m_headerPixmap->setPaletteBackgroundColor( darkGray );
 
