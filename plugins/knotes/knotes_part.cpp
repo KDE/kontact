@@ -209,7 +209,7 @@ void KNotesPart::removeSelectedNotes()
     dcopCall.call( "killNote(QString)", ids.first() );
   } else {
     int ret = KMessageBox::warningContinueCancelList( 0,
-        i18n( "translators: not called for n == 1", "Do you really want to delete these %n notes?", ids.count() ),
+        i18n( "Do you really want to delete that note?", "Do you really want to delete these %n notes?", ids.count() ),
         names,
         i18n( "Confirm Delete" ),
         i18n( "Delete" ) );
