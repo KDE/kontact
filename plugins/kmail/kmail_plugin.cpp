@@ -47,7 +47,7 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
 {
   setInstance( KMailPluginFactory::instance() );
 
-  insertNewAction( new KAction( i18n( "New Mail" ), BarIcon( "mail_new2" ),
+  insertNewAction( new KAction( i18n( "New Mail" ), BarIcon( "mail_new" ),
 			             0, this, SLOT( slotNewMail() ), actionCollection(),
                    "new_mail" ) );
 }
