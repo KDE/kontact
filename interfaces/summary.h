@@ -50,13 +50,22 @@ class Summary : public QWidget
     /**
       Creates a heading for a typical summary view with an icon and a heading.
      */
-    QWidget* createHeader(QWidget* parent, const QPixmap& icon, const QString& heading);
+    QWidget *createHeader( QWidget* parent, const QPixmap &icon,
+                           const QString& heading );
+
+    /**
+      Return list of strings identifiying configuration modules for this summary
+      part. The string has to be suitable for being passed to
+      KCMultiDialog::addModule().
+    */
+    virtual QStringList configModules() { return QStringList(); }
 
   signals:
-    void message(const QString& message);
+    void message( const QString &message );
 
   private:
     KStatusBar *mStatusBar;
+
     class Private;
     Private *d;
 };

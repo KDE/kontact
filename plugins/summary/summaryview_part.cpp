@@ -41,6 +41,7 @@
 #include <qscrollview.h>
 #include <kglobal.h>
 #include <klocale.h>
+#include <kcmultidialog.h>
 
 #include <kparts/componentfactory.h>
 #include <kparts/statusbarextension.h>
@@ -61,7 +62,7 @@ namespace Kontact
 SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
                                   QObject *parent, const char *name )
   : KParts::ReadOnlyPart( parent, name ),
-    mCore( core )
+    mCore( core ), mOptionsDialog( 0 )
 {
   mStatusExt = new KParts::StatusBarExtension( this );
   setInstance( new KInstance( "kontactsummary" ) ); // ## memleak
@@ -89,6 +90,12 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
   connect( this, SIGNAL( textChanged( const QString& ) ),
            info, SIGNAL( textChanged( const QString& ) ) );
 
+  new KAction( i18n("&Configure"), "configure", 0, this,
+               SLOT( slotConfigure() ), actionCollection(),
+               "summaryview_configure" );
+
+  setXMLFile( "kontactsummary_part.rc" );
+
   QTimer::singleShot( 0, this, SLOT( slotTextChanged() ) );
 }
 
@@ -108,7 +115,6 @@ void SummaryViewPart::getWidgets()
   int totalHeight = 0;
 
   // Collect all summary widgets with a summaryHeight > 0
-  QPtrList<Kontact::Summary> summaries;
   QValueList<Kontact::Plugin*> plugins = mCore->pluginList();
   QValueList<Kontact::Plugin*>::ConstIterator end = plugins.end();
   QValueList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
@@ -123,7 +129,7 @@ void SummaryViewPart::getWidgets()
         totalHeight += s->summaryHeight();
         connect(s, SIGNAL(message(const QString&)),
                 mStatusExt->statusBar(), SLOT(message(const QString&)));
-        summaries.append( s );
+        mSummaries.append( s );
       } else {
         s->hide();
       }
@@ -150,8 +156,8 @@ void SummaryViewPart::getWidgets()
   hline->setFrameStyle( QFrame::HLine | QFrame::Plain );
   mLayout->addMultiCellWidget( hline, 1, 1, 0, 2 );
 
-  for( uint i = 0; i < summaries.count(); ++i ) {
-    Kontact::Summary *summary = summaries.at( i );
+  for( uint i = 0; i < mSummaries.count(); ++i ) {
+    Kontact::Summary *summary = mSummaries.at( i );
 
     int h = summary->summaryHeight();
 
@@ -174,7 +180,7 @@ void SummaryViewPart::getWidgets()
       currentRow = 2;
       column += 2;
     } else {
-      if ( i < summaries.count() - 1 ) {
+      if ( i < mSummaries.count() - 1 ) {
         // Add horizontal line, when widget is not the last in the column.
         hline = new QFrame( mFrame );
         hline->setFrameStyle(/* QFrame::HLine |*/ QFrame::Plain );
@@ -216,6 +222,32 @@ void SummaryViewPart::setDate( const QDate& newDate )
   QString date("<b>%1<b>");
   date = date.arg( KGlobal::locale()->formatDate( newDate ) );
   mDateLabel->setText( date );
+}
+
+void SummaryViewPart::slotConfigure()
+{
+  if ( !mOptionsDialog ) {
+    mOptionsDialog = new KCMultiDialog( mFrame );
+
+    QStringList modules;
+
+    Kontact::Summary *summary;
+    for( summary = mSummaries.first(); summary; summary = mSummaries.next() ) {
+      QStringList cm = summary->configModules();
+      QStringList::ConstIterator sit;
+      for( sit = cm.begin(); sit != cm.end(); ++sit ) {
+        modules.append( *sit );
+      }
+    }
+
+    QStringList::ConstIterator it;
+    for ( it = modules.begin(); it != modules.end(); ++it ) {
+      mOptionsDialog->addModule( *it );
+    }
+  }
+
+  mOptionsDialog->show();
+  mOptionsDialog->raise();
 }
 
 #include "summaryview_part.moc"

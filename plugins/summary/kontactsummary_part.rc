@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui>
-<gui name="kontactsummary" version="1">
+<gui name="kontactsummary" version="2">
+
+  <MenuBar>
+    <Menu name="settings"><text>&amp;Settings</text>
+      <Action name="summaryview_configure"/>
+    </Menu>
+  </MenuBar>
+
 </gui>

@@ -32,6 +32,7 @@
 namespace Kontact
 {
   class Plugin;
+  class Summary;
 }
 
 namespace KParts
@@ -42,6 +43,7 @@ namespace KParts
 class QFrame;
 class QLabel;
 class QGridLayout;
+class KCMultiDialog;
 
 class SummaryViewPart : public KParts::ReadOnlyPart
 {
@@ -64,12 +66,18 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     virtual bool openFile();
     void getWidgets();
 
+  protected slots:
+    void slotConfigure();
+
   private:
+    QPtrList<Kontact::Summary> mSummaries;
+
     KParts::StatusBarExtension *mStatusExt;
     QGridLayout *mLayout;
     QFrame *mFrame;
     QLabel *mDateLabel;
     Kontact::Core *mCore;
+    KCMultiDialog *mOptionsDialog;
 };
 
 #endif
