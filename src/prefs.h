@@ -57,6 +57,11 @@ class Prefs : public KConfigSkeleton
     int mSidePaneType;
     QString mActivePlugin;
     QValueList<int> mSidePaneSplitter;
+
+    KConfigSkeleton::ItemEnum *sidePaneTypeItem() { return mSidePaneTypeItem; }
+
+  private:
+    KConfigSkeleton::ItemEnum *mSidePaneTypeItem;
 };
 
 }

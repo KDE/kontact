@@ -42,7 +42,16 @@ Prefs::Prefs()
 {
   KConfigSkeleton::setCurrentGroup( "View" );
 
-  addItemInt( "", "SidePaneType", mSidePaneType, SidePaneIcons );
+  QStringList values;
+  values.append( "SidePaneBars" );
+  values.append( "SidePaneIcons" );
+  mSidePaneTypeItem =
+      new KConfigSkeleton::ItemEnum( KConfigSkeleton::currentGroup(),
+                                     "SidePaneType", mSidePaneType,
+                                     values, SidePaneIcons );
+  addItem( "", mSidePaneTypeItem );
+  mSidePaneTypeItem->setLabel( i18n( "Side Pane Type" ) );
+
   addItemString( "", "ActivePlugin", mActivePlugin, "summary" );
   addItemIntList( "", "SidePaneSplitter", mSidePaneSplitter );
 }
