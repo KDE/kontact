@@ -1,7 +1,7 @@
 /*
     This file is part of Kontact.
     Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-    Copyright (c) 2004 Allen Winter <winter@kde.org>
+    Copyright (c) 2004-2005 Allen Winter <winter@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -57,10 +57,10 @@ const KAboutData *SpecialdatesPlugin::aboutData()
   if ( !mAboutData ) {
     mAboutData = new KAboutData( "specialdates",
                                  I18N_NOOP("Special Dates Summary"),
-                                 "0.1",
+                                 "1.0",
                                  I18N_NOOP("Kontact Special Dates Summary"),
                                  KAboutData::License_LGPL,
-                                 I18N_NOOP("(c) 2004 The KDE PIM Team" ) );
+                                 I18N_NOOP("(c) 2004-2005 The KDE PIM Team" ) );
     mAboutData->addAuthor( "Allen Winter", "Current Maintainer", "winter@kde.org" );
     mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
     mAboutData->setProductName( "kontact/specialdates" );
