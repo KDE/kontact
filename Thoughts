@@ -40,7 +40,7 @@ MiB: On the one hand, Notes can be hierarchic, so a folder tree would be the
 MiB: nearest solution...
 
 z I think so. Applications could send the root of their tree to
-z Kaplan so that the interface looks like
+z Kontact so that the interface looks like
 
 - Mail
   |    \
@@ -64,9 +64,9 @@ z Kaplan so that the interface looks like
          Event 2
 
 z which is not that bad. The question would be how to render the tree
-z on the Kaplan side while keeping the items on the parts side ( because
+z on the Kontact side while keeping the items on the parts side ( because
 z e.g. KMails hold custom pixmaps for the folders which had to be
-z displayed in the Kaplan tree).
+z displayed in the Kontact tree).
 
 g I'm currently having 248 events. A tree is a very bad solution to visualize
 g them. selecting "Events" in the tree should just only start the korganizer
@@ -121,21 +121,21 @@ KNotes integration
 ------------------
 
 MiB: Which reminds me of my own concern about the 'how' of integrating KNotes:
-MiB: * the current solution is to start KNotes extern, it is not embedded in Kaplan
-MiB:   at all. Thus opening a note that is on another desktop either leaves the Kaplan
-MiB:   window or moves the note. Either not perfect. Also, Kaplan is likely to cover
+MiB: * the current solution is to start KNotes extern, it is not embedded in Kontact
+MiB:   at all. Thus opening a note that is on another desktop either leaves the Kontact
+MiB:   window or moves the note. Either not perfect. Also, Kontact is likely to cover
 MiB:   notes that reside on the desktop, easy working is impossible. Which is the reason
 MiB:   I don't like the current approach too much.
-MiB: * but there's always hope---my idea would be to show the notes in Kaplan itself. 
+MiB: * but there's always hope---my idea would be to show the notes in Kontact itself. 
 MiB:   Now I tend to say it's a bit intrusive to not allow starting KNotes and 
-MiB:   Kaplan/KNotes at the same time which raises the following issues:
-MiB:     - if KNotes and Kaplan are running at the same time, changes to the notes have
+MiB:   Kontact/KNotes at the same time which raises the following issues:
+MiB:     - if KNotes and Kontact are running at the same time, changes to the notes have
 MiB:       to be synchronized (not much of a problem). Changes to be synced are the 
 MiB:       text/contents itself, the text color/style..., the note color. Not sure about
 MiB:       the note size. Not to be synced is the position.
-MiB:     - so the position in Kaplan has to be saved individually and independently 
+MiB:     - so the position in Kontact has to be saved individually and independently 
 MiB:       of the real desktop position (realized by attaching two display config 
-MiB:       files, works in make_it_cool branch mostly). Kaplan's size is generally
+MiB:       files, works in make_it_cool branch mostly). Kontact's size is generally
 MiB:       smaller than the desktop.
 MiB:     - normally notes are on a specific desktop, now they have to be displayed on one
 MiB:       area---how to do this best?
@@ -206,20 +206,23 @@ Don: Definitely.
 # We now have kdelibs/kparts/statusbarextension. This is intended to solve these
 # problems, right?
 
+d: Right. Simply add it as childobject in your part and use it's API. Works even
+d: for other KPart hosts than Kaplan
 
-Kaplan plugin unification
+
+Kontact plugin unification
 -------------------------
 
-# Currently all Kaplan plugins look quite similar. It would be nice, if we
+# Currently all Kontact plugins look quite similar. It would be nice, if we
 # could provide infratructure to reduce duplicated code as far as possible.
 
-d I thouht of a KaplanPart, similar to a KOPart, if that makes sense. I don't think
+d I thouht of a KontactPart, similar to a KOPart, if that makes sense. I don't think
 d a normal KPart is sufficient for us.
 
 Don: I've spent quite a bit of time in all pim *_part files and IIRC
 Don: the amount of duplicated code, is pretty much negligible.
 Don:
-Don: But a KaplanPart could make sense for when the parts want to communicate with
+Don: But a KontactPart could make sense for when the parts want to communicate with
 Don: the container. Eg. if the parts want to add folders to the container
 Don: apps folder tree (or navigator)
 Don:
@@ -233,7 +236,7 @@ d Invoking parts when they are needed for the first time takes too long,
 d starting all takes too long on startup
 d Idea: Mark complex parts as basic parts that get loaded anyway
 
-# parts could be loaded in the background based on usage patterns. Kaplan could
+# parts could be loaded in the background based on usage patterns. Kontact could
 # remeber which parts were used at the last session and load them in the
 # background after loading the initial part to be shown at startup.
 
@@ -278,9 +281,9 @@ d The only advantange of the current approach is that we can allow the user to
 d run one of the parts standalone. I am not really sure we want that. I used to find
 d it desireable, but I am not sure anymore.
 
-MiB: But that's the whole idea behind Kaplan---to be able to integrate apps 
+MiB: But that's the whole idea behind Kontact---to be able to integrate apps 
 MiB: _and_ to have standalone versions. Just think about KNotes... impossible
-MiB: to have it limited to only Kaplan!
+MiB: to have it limited to only Kontact!
 
 Don: I love being able to run the apps inside or outside of the
 Don: container, it's just really cool being able to choose I think it's a
@@ -298,19 +301,19 @@ Don: I find difficult to imagine a function that DCOP is not fast enough
 Don: to support. It supports all our current PIM IPC needs fine.
 
 MiB: yes, not too much against DCOP. But for KNotes I thought about turning
-MiB: a note into a plugin that can be loaded by Kaplan and KNotes independently.
+MiB: a note into a plugin that can be loaded by Kontact and KNotes independently.
 MiB: like this, there's no DCOP necessary anymore and makes it much more flexible.
 MiB: e.g. usage of different display configs, a note embedded somewhere and having
 MiB: a parent or standalone on the desktop.
 
 # Communication with external applications is something which doesn't fit too
-# well with the 'integrated' approach of Kaplan. Is this really necessary?
+# well with the 'integrated' approach of Kontact. Is this really necessary?
 
 d We won't get around it, think knotes, maybe sync tools, think abstact 3rd party
 d projects (not sure the latter is really that important, but we should consider it.
 d it barely plays a role anyway).
 
-MiB: hm. true. But not too important, IMHO. Just add a Kaplan-DCOP interface :-)
+MiB: hm. true. But not too important, IMHO. Just add a Kontact-DCOP interface :-)
 
 
 Security
@@ -321,9 +324,9 @@ d for an application with the correct mime type this might raise security
 d problems. (Martin's concern)
 
 # Looking up kaplan parts isn't based on mime types but on services of type
-# "Kaplan/Plugin". This is just as save as starting a program statically linking
+# "Kontact/Plugin". This is just as save as starting a program statically linking
 # its parts. I really don't see any security concerns here.
 
-d Ok, if we limit stuff to Kaplan/Plugin and Kaplan/Part that might be safe enough
+d Ok, if we limit stuff to Kontact/Plugin and Kaplan/Part that might be safe enough
 d indeed. I (and Martin, who raise this concern initially) was just afraid of
 d allowing "any" part.
