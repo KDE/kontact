@@ -31,6 +31,7 @@
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <klocale.h>
+#include <kurllabel.h>
 
 #include "summarywidget.h"
 
@@ -41,6 +42,8 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
   QHBoxLayout *hbox = new QHBoxLayout( mainLayout, 3 );
+  mLayout = new QGridLayout( mainLayout, 5, 2 );
+  mainLayout->addStretch();
 
   QFont boldFont;
   boldFont.setBold( true );
@@ -56,18 +59,13 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   label->setFont( boldFont );
   hbox->addWidget( label );
 
-  mNoteList = new QLabel( this );
-  mNoteList->setAlignment( AlignLeft | AlignTop );
-  mainLayout->addWidget( mNoteList );
-  mainLayout->addStretch();
-
   QString error;
   QCString appID;
 
   bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "knotes" ) ) {
     if ( KApplication::startServiceByDesktopName( "knotes", QStringList(), &error, &appID ) != 0 ) {
-      mNoteList->setText( error );
+      kdDebug() << error << endl;
       serviceAvailable = false;
     }
   }
@@ -80,22 +78,40 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
 void SummaryWidget::updateView()
 {
+  mLabels.setAutoDelete( true );
+  mLabels.clear();
+  mLabels.setAutoDelete( false );
+
   DCOPRef dcopCall( "knotes", "KNotesIface" );
 
-  QString lines;
-
+  int counter = 0;
   NotesMap::Iterator it;
-  for ( it = mNotesMap.begin(); it != mNotesMap.end(); ++it ) {
+  for ( it = mNotesMap.begin(); it != mNotesMap.end() && counter < 5; ++it ) {
     QString text;
     dcopCall.call( "text(QString)", it.key() ).get( text );
     if ( !text.isEmpty() ) {
-      lines += QString( "<li><nobr><b>%1:</b> %2</nobr></li>" )
-                      .arg( it.data() )
-                      .arg( text.left( text.find( "\n" ) ) );
+      QLabel *label = new QLabel( this );
+      label->setText( QString( "- %1:" ).arg( it.data() ) );
+      mLayout->addWidget( label, counter, 0 );
+      mLabels.append( label );
+
+      KURLLabel *urlLabel = new KURLLabel( it.key(), text.left(
+                                           text.find( "\n" ) ), this );
+      mLayout->addWidget( urlLabel, counter, 1 );
+      mLabels.append( urlLabel );
+      
+      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+               this, SLOT( urlClicked( const QString& ) ) );
+
+      counter++;
     }
   }
+}
 
-  mNoteList->setText( "<ul>" + lines + "</ul>" );
+void SummaryWidget::urlClicked( const QString &uid )
+{
+  DCOPRef dcopCall( "knotes", "KNotesIface" );
+  dcopCall.send( "showNote(QString)", uid );
 }
 
 NotesMap SummaryWidget::fetchNotes()
@@ -111,3 +127,5 @@ NotesMap SummaryWidget::fetchNotes()
   } else
     return NotesMap();
 }
+
+#include "summarywidget.moc"

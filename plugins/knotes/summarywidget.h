@@ -27,22 +27,31 @@
 #include "summary.h"
 
 #include <qmap.h>
+#include <qptrlist.h>
 #include <qwidget.h>
 
 typedef QMap<QString, QString> NotesMap;
 
+class QGridLayout;
 class QLabel;
 
 class SummaryWidget : public Kontact::Summary
 {
+  Q_OBJECT
+
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );
+
+  private slots:
+    void urlClicked( const QString& );
 
   private:
     void updateView();
     NotesMap fetchNotes();
 
-    QLabel *mNoteList;
+    QGridLayout *mLayout;
+
+    QPtrList<QLabel> mLabels;
     NotesMap mNotesMap;
 };
 
