@@ -28,12 +28,12 @@
 #include <qtimer.h>
 #include <qwidget.h>
 
+#include <kurllabel.h>
 #include <kparts/part.h>
 
 #include "kpplugin.h"
 
 class QGridLayout;
-class QLabel;
 class QString;
 
 class SummaryWidget : public QWidget
@@ -43,14 +43,16 @@ class SummaryWidget : public QWidget
   public:
     SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
 
-  private slots:
+  protected slots:
     void timeout();
+    void raisePart();
 
   private:
     QTimer mTimer;
-    QPtrList<QLabel> mLabels;
+    QPtrList<KURLLabel> mLabels;
     QGridLayout *mLayout;
     QString mDCOPApp;
+	Kontact::Plugin *mPlugin;
 };
 
 #endif

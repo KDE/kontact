@@ -35,7 +35,7 @@
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name )
-  : QWidget( parent, name )
+  : QWidget( parent, name ), mPlugin(plugin)
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 
@@ -71,6 +71,11 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
   mTimer.start( 0 );
 }
 
+void SummaryWidget::raisePart()
+{
+	mPlugin->showPart(mPlugin);
+}
+
 void SummaryWidget::timeout()
 {
   mTimer.stop();
@@ -92,16 +97,20 @@ void SummaryWidget::timeout()
     dcopCall.call( "getFolder(QString)", *it ).get( folderRef );
     int numMsg = folderRef.call( "messages()" );
     int numUnreadMsg = folderRef.call( "unreadMessages()" );
-    QLabel *label = new QLabel( (*it).mid( 1 ), this );
+    KURLLabel *label = new KURLLabel( QString::null, (*it).mid( 1 ), this );
     label->setFont( font );
     label->setAlignment( AlignLeft );
     label->show();
+	// ### FIXME emit dcop signal to jumo to actual folder
+	connect( label, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
     mLayout->addWidget( label, counter, 0 );
     mLabels.append( label );
-    label = new QLabel( QString( "%1 / %2" ).arg( numUnreadMsg ).arg( numMsg ), this );
+    label = new KURLLabel( QString::null, QString( "%1 / %2" ).arg( numUnreadMsg ).arg( numMsg ), this );
     label->setFont( font );
     label->setAlignment( AlignLeft );
     label->show();
+	connect( label, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
+    mLayout->addWidget( label, counter, 0 );
     mLayout->addWidget( label, counter, 2 );
     mLabels.append( label );
   }
