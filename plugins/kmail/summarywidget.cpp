@@ -90,6 +90,17 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
   mLabels.clear();
   mLabels.setAutoDelete( false );
 
+  KConfig config( "kcmkmailsummaryrc" );
+  config.setGroup( "General" );
+
+  QStringList activeFolders;
+  if ( !config.hasKey( "ActiveFolders" ) )
+    activeFolders << "/inbox";
+  else
+    activeFolders = config.readListEntry( "ActiveFolders" );
+
+  bool showFullPath = config.readBoolEntry( "ShowFullPath", false );
+
   int counter = 0;
   QStringList::ConstIterator it;
   DCOPRef kmail( "kmail", "KMailIface" );
@@ -106,10 +117,12 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
         kdDebug(5602) << "Calling folderRef->unreadMessages() via DCOP failed."
                       << endl;
       }
-      if ( numUnreadMsg > 0 ) {
-        QString folderPath( *it );
-        if ( folderPath.startsWith("/") )
-          folderPath = folderPath.mid( 1 );
+
+      if ( activeFolders.contains( *it ) ) {
+        QString folderPath = *it;
+        if ( !showFullPath )
+          folderPath = folderPath.mid( folderPath.findRev( '/' ) + 1 );
+
         KURLLabel *urlLabel = new KURLLabel( QString::null, folderPath,
                                              this );
         urlLabel->setAlignment( AlignLeft );
@@ -139,6 +152,11 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
     mLayout->addMultiCellWidget( label, 1, 1, 1, 2 );
     mLabels.append( label );
   }
+}
+
+QStringList SummaryWidget::configModules() const
+{
+  return QStringList( "kcmkmailsummary.desktop" );
 }
 
 #include "summarywidget.moc"

@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=kmail
+Type=Service
+ServiceTypes=KCModule
+
+X-KDE-ModuleType=Library
+X-KDE-Library=kmailsummary
+X-KDE-FactoryName=kmailsummary
+X-KDE-ParentApp=kontact_kmailplugin
+X-KDE-ParentComponents=kontact_kmailplugin
+X-KDE-CfgDlgHierarchy=KMail
+
+Name=Mail Summary
+Name[xx]=xxMail Summaryxx
+Comment=Mail Summary Setup
+Comment[xx]=xxMail Summary Setupxx
+Keywords=email, summary, configure, settings
+Keywords[xx]=xxemail, summary, configure, settingsxx

@@ -47,6 +47,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
 
     int summaryHeight() const { return 1; }
+    QStringList configModules() const;
 
   k_dcop_hidden:
     void slotUnreadCountChanged();
