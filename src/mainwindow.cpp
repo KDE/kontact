@@ -242,7 +242,11 @@ void MainWindow::initWidgets()
   mSidePane = new IconSidePane( this, mSplitter );
   mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                          QSizePolicy::Preferred ) );
-
+  // donÄt occupy screen estate on load
+  QValueList<int> sizes;
+  sizes << 0;
+  mSplitter->setSizes(sizes);
+ 
   mSidePane->setActionCollection( actionCollection() );
 
   connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
