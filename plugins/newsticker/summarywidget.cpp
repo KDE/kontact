@@ -246,7 +246,6 @@ void SummaryWidget::updateView()
       numArticles++;
     }
   }
-  mLayout->addStretch();
 
   for ( QLabel *label = mLabels.first(); label; label = mLabels.next() )
     label->show();
