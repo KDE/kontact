@@ -31,6 +31,8 @@
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
 
+#include <libkdepim/maillistdrag.h>
+
 #include "core.h"
 #include "summarywidget.h"
 
@@ -102,20 +104,38 @@ bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )
 
 bool KOrganizerPlugin::canDecodeDrag( QMimeSource *mimeSource )
 {
-  return QTextDrag::canDecode( mimeSource );
+  return QTextDrag::canDecode( mimeSource ) ||
+         KPIM::MailListDrag::canDecode( mimeSource );
 }
 
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
-  QString text;
+  if ( !mIface ) {
+    kdError() << "KOrganizer Part not loaded." << endl;
+    return;
+  }
+
+  QString text;  
   if ( QTextDrag::decode( event, text ) ) {
     kdDebug() << "DROP:" << text << endl;
-    if ( mIface ) mIface->openEventEditor( text );
-    else kdError() << "KOrganizer Part not loaded." << endl;
-  } else {
-    KMessageBox::sorry( core(), i18n("Can't handle drop events of type '%1'.")
-                                .arg( event->format() ) );
+    mIface->openEventEditor( text );
+    return;
   }
+  
+  KPIM::MailList mails;
+  if ( KPIM::MailListDrag::decode( event, mails ) ) {
+    if ( mails.count() != 1 ) {
+      KMessageBox::sorry( core(),
+                          i18n("Drops of multiple mails aren't supported." ) );
+    } else {
+      KPIM::MailSummary mail = mails.first();
+      mIface->openEventEditor( mail.subject() );
+    }
+    return;
+  }
+  
+  KMessageBox::sorry( core(), i18n("Can't handle drop events of type '%1'.")
+                              .arg( event->format() ) );
 }
 
 #include "korganizerplugin.moc"
