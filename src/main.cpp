@@ -45,10 +45,10 @@ static KCmdLineOptions options[] =
 int main(int argc, char **argv)
 {
     KAboutData about("kaplan", I18N_NOOP("Kaplan"), version, description,
-                     KAboutData::License_GPL, "(C) 2001 Matthias Hölzer-Klüpfel", 0, 0, "mhk@kde.org");
-    about.addAuthor( "Matthias Hoelzer-Kluepfel", 0, "mhk@kde.org" );
+                     KAboutData::License_GPL, "(C) 2000-2002 The KDE PIM Team", 0, 0, "kde-pim@kde.org");
     about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
     about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
+    about.addAuthor( "Matthias Hoelzer-Kluepfel", I18N_NOOP("Original Author"), "mhk@kde.org" );
     KCmdLineArgs::init(argc, argv, &about);
 //    KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
@@ -56,9 +56,10 @@ int main(int argc, char **argv)
     // register ourselves as a dcop client
     app.dcopClient()->registerAs(app.name(), false);
 
+    // show splash
     Splash *s = new Splash( 0, "splash" );
     s->show();
-    
+
     // see if we are starting with session management
     if (app.isRestored())
         RESTORE(Core)
@@ -68,7 +69,10 @@ int main(int argc, char **argv)
         Core *widget = new Core;
         widget->show();
     }
+
+    // delete splash
     delete s;
+
     return app.exec();
 }
 // vim: ts=4 sw=4 et

@@ -98,8 +98,9 @@ Navigator::Navigator(QWidget *parent, const char *name)
   pal.setColor( QPalette::Inactive, QColorGroup::Base, gray );
 
   setPalette( pal );
-  viewport()->setBackgroundMode( PaletteMid);
+  viewport()->setBackgroundMode( PaletteMid );
 
+  setHScrollBarMode( QScrollView::AlwaysOff );
 
   connect(this, SIGNAL(currentChanged(QListBoxItem *)), this, SLOT(slotExecuted(QListBoxItem *)));
 }
