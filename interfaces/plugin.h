@@ -108,7 +108,7 @@ namespace Kontact
          * Reimplement this method if you want to add a widget for your application
          * to Kontact's summary page.
          **/
-        virtual QWidget * summaryWidget() { return 0L; };
+        virtual QWidget * createSummaryWidget( QWidget* ) { return 0L; };
 
 	/**
 	 * Reimplement this method if you don't want to have a plugin shown in the sidebar.

@@ -81,12 +81,7 @@ void SummaryViewPart::getWidgets()
 	kdDebug() << "Adding the widgets..." << endl;
 	Kontact::Plugin *plugin;
 	for( plugin = m_plugins.first(); plugin; plugin = m_plugins.next() )
-		{
-		if( plugin->summaryWidget() != 0L )
-		{
-			plugin->summaryWidget()->reparent( m_frame , 0, QPoint() );
-			kdDebug() << "Item added" << endl;
-		}
-	}
+		plugin->createSummaryWidget( m_frame );
 }
+
 #include "summaryview_part.moc"

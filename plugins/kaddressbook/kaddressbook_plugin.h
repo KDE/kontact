@@ -25,7 +25,7 @@ public:
   KAboutData* aboutData();
   KParts::Part* part();
 
-  virtual QWidget *summaryWidget();
+  virtual QWidget *createSummaryWidget( QWidget* parentWidget );
   
 private slots:
   void slotNewContact();
@@ -33,7 +33,6 @@ private slots:
 private:
   KAddressBookIface_stub *m_stub;
   KParts::ReadOnlyPart *m_part;
-  KABSummaryWidget *m_summaryWidget;
 };
 
 

@@ -35,7 +35,7 @@ public:
   ~KNotesPlugin();
 
   KParts::Part* part();
-  virtual QWidget* summaryWidget();
+  virtual QWidget* createSummaryWidget( QWidget* parentWidget );
   
 private slots:
   
@@ -44,7 +44,7 @@ private slots:
 private:
 
   KNotesPart *m_part;
-  SummaryWidget *m_summaryWidget;
+
 };
 
 

@@ -24,7 +24,7 @@ K_EXPORT_COMPONENT_FACTORY( libkpkaddressbookplugin,
 
 KAddressbookPlugin::KAddressbookPlugin(Kontact::Core *_core, const char *, const QStringList & /*args*/ )
   : Kontact::Plugin(i18n("Contacts"), "kaddressbook", _core, _core, "kaddressbook"), 
-    m_part(0), m_summaryWidget(0)
+    m_part(0)
 {
   m_stub = 0L;
   setInstance(KAddressbookPluginFactory::instance());
@@ -34,7 +34,6 @@ KAddressbookPlugin::KAddressbookPlugin(Kontact::Core *_core, const char *, const
   insertNewAction( new KAction( i18n( "New Contact" ), BarIcon( "contact" ),
 			  0, this, SLOT( slotNewContact() ), actionCollection(), "new_contact" ));
 
-  m_summaryWidget = new KABSummaryWidget( 0 );
 }
 
 
@@ -108,7 +107,7 @@ bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
     return false;
 }
 
-QWidget *KAddressbookPlugin::summaryWidget()
+QWidget *KAddressbookPlugin::createSummaryWidget( QWidget* parentWidget )
 {
-  return m_summaryWidget;
+  return new KABSummaryWidget( parentWidget );
 }

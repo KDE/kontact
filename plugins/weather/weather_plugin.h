@@ -31,13 +31,11 @@ class WeatherPlugin : public Kontact::Plugin
     WeatherPlugin( Kontact::Core *core, const char *name, const QStringList& );
     WeatherPlugin();
 
-    virtual QWidget *summaryWidget();
+    virtual QWidget *createSummaryWidget( QWidget* parentWidget );
 
     virtual bool showInSideBar() const { return false; }
     virtual KParts::Part* part() { return 0L; }
 
-  private:
-    SummaryWidget *mSummaryWidget;
 };
 
 #endif

@@ -37,15 +37,13 @@ K_EXPORT_COMPONENT_FACTORY( libkpknotesplugin, KNotesPluginFactory( "kpknotesplu
 
 KNotesPlugin::KNotesPlugin(Kontact::Core *_core, const char*, const QStringList &)
   : Kontact::Plugin(i18n("Notes"), "knotes", _core, _core, "knotes"), 
-    m_part(0), m_summaryWidget(0)
+    m_part(0)
 {
   setInstance(KNotesPluginFactory::instance());
 
   setXMLFile("kpknotesplugin.rc");
 
   insertNewAction(new KAction(i18n("New Note"), BarIcon("knotes"), 0, this, SLOT(slotNewNote()), actionCollection(), "new_note" ) );
-
-  m_summaryWidget = new SummaryWidget(0);
 }
 
 KNotesPlugin::~KNotesPlugin()
@@ -60,9 +58,9 @@ KParts::Part* KNotesPlugin::part()
   return m_part;
 }
 
-QWidget* KNotesPlugin::summaryWidget()
+QWidget* KNotesPlugin::createSummaryWidget( QWidget* parentWidget )
 {
-  return m_summaryWidget;
+  return new SummaryWidget( parentWidget );
 }
 
 void KNotesPlugin::slotNewNote()

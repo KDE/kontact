@@ -30,14 +30,13 @@ typedef KGenericFactory< WeatherPlugin, Kontact::Core > WeatherPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpweatherplugin, WeatherPluginFactory( "kpweatherplugin" ) );
 
 WeatherPlugin::WeatherPlugin( Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( i18n( "Weather" ), "weather", core, core, name ),
-    mSummaryWidget( 0 )
+  : Kontact::Plugin( i18n( "Weather" ), "weather", core, core, name )
+    
 {
 	setInstance( WeatherPluginFactory::instance() );
-  mSummaryWidget = new SummaryWidget( 0 );
 }
 
-QWidget *WeatherPlugin::summaryWidget()
+QWidget *WeatherPlugin::createSummaryWidget( QWidget* parentWidget )
 {
-  return mSummaryWidget;
+  return new SummaryWidget( parentWidget );
 }
