@@ -43,23 +43,25 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 
-  mLayout = new QGridLayout( this, 8, 3, 3 );
-  mLayout->setRowStretch( 7, 1 );
+  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+  QHBoxLayout *hbox = new QHBoxLayout( mainLayout, 3 );
+  mLayout = new QGridLayout( mainLayout, 6, 3, 3 );
+  mainLayout->addStretch();
 
   QFont boldFont;
   boldFont.setBold( true );
   boldFont.setPointSize( boldFont.pointSize() + 2 );
 
   QLabel *label = new QLabel( this );
-  label->setAlignment( AlignLeft );
+  label->setFixedSize( 32, 32 );
   label->setPixmap( KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Desktop,
                                                      KIcon::SizeMedium ) );
-  mLayout->addWidget( label, 0, 0 );
+  hbox->addWidget( label );
 
   label = new QLabel( i18n( "EMails" ), this );
-  label->setAlignment( AlignRight );
+  label->setAlignment( AlignLeft );
   label->setFont( boldFont );
-  mLayout->addMultiCellWidget( label, 0, 0, 1, 2 );
+  hbox->addWidget( label );
 
   QString error;
   QCString appID;
@@ -98,9 +100,9 @@ void SummaryWidget::timeout()
   DCOPRef dcopCall( mDCOPApp.latin1(), "KMailIface" );
   QStringList folderList = dcopCall.call( "folderList()" );
 
-  int counter = 1;
+  int counter = 0;
   QStringList::Iterator it;
-  for ( it = folderList.begin(); it != folderList.end() && counter < 7; ++it, ++counter ) {
+  for ( it = folderList.begin(); it != folderList.end() && counter < 6; ++it, ++counter ) {
     DCOPRef folderRef;
     dcopCall.call( "getFolder(QString)", *it ).get( folderRef );
     int numMsg = folderRef.call( "messages()" );

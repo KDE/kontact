@@ -54,23 +54,26 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 
-  mLayout = new QGridLayout( this, 8, 4, 3 );
-  mLayout->setRowStretch( 7, 1 );
+  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+  QHBoxLayout *hbox = new QHBoxLayout( mainLayout, 3 );
 
   QFont boldFont;
   boldFont.setBold( true );
   boldFont.setPointSize( boldFont.pointSize() + 2 );
 
   QLabel *label = new QLabel( this );
-  label->setAlignment( AlignLeft );
+  label->setFixedSize( 32, 32 );
   label->setPixmap( KGlobal::iconLoader()->loadIcon( "kaddressbook", 
                     KIcon::Desktop, KIcon::SizeMedium ) );
-  mLayout->addWidget( label, 0, 0 );
+  hbox->addWidget( label );
 
   label = new QLabel( i18n( "Birthdays and Anniversaries" ), this );
-  label->setAlignment( AlignRight | AlignTop );
+  label->setAlignment( AlignLeft );
   label->setFont( boldFont );
-  mLayout->addMultiCellWidget( label, 0, 0, 1, 3 );
+  hbox->addWidget( label );
+
+  mLayout = new QGridLayout( mainLayout, 7, 4, 3 );
+  mLayout->setRowStretch( 6, 1 );
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
@@ -144,10 +147,10 @@ void KABSummaryWidget::updateView()
     dateList.append( dateIt.data() );
   }
 
-  int counter = 1;
+  int counter = 0;
   QValueList<KABDateEntry>::Iterator addrIt;
   QString lines;
-  for ( addrIt = dateList.begin(); addrIt != dateList.end() && counter < 7; ++addrIt ) {
+  for ( addrIt = dateList.begin(); addrIt != dateList.end() && counter < 6; ++addrIt ) {
     QLabel *label = new QLabel( this );
     if ( (*addrIt).birthday )
       label->setPixmap( KGlobal::iconLoader()->loadIcon( "cookie", KIcon::Small ) );

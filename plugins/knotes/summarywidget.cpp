@@ -39,26 +39,27 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 
-  QGridLayout *layout = new QGridLayout( this, 3, 2, 3 );
-  layout->setRowStretch( 2, 1 );
+  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+  QHBoxLayout *hbox = new QHBoxLayout( mainLayout, 3 );
 
   QFont boldFont;
   boldFont.setBold( true );
   boldFont.setPointSize( boldFont.pointSize() + 2 );
 
   QLabel *label = new QLabel( this );
+  label->setFixedSize( 32, 32 );
   label->setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop, KIcon::SizeMedium ) );
-  label->setAlignment( AlignLeft | AlignTop );
-  layout->addWidget( label, 0, 0 );
+  hbox->addWidget( label );
 
   label = new QLabel( i18n( "Notes" ), this );
-  label->setAlignment( AlignRight | AlignTop );
+  label->setAlignment( AlignLeft );
   label->setFont( boldFont );
-  layout->addWidget( label, 0, 1 );
+  hbox->addWidget( label );
 
   mNoteList = new QLabel( this );
   mNoteList->setAlignment( AlignLeft | AlignTop );
-  layout->addMultiCellWidget( mNoteList, 1, 1, 0, 1 );
+  mainLayout->addWidget( mNoteList );
+  mainLayout->addStretch();
 
   QString error;
   QCString appID;
