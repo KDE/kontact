@@ -6,7 +6,7 @@
 
 
 #include "kpplugin.h"
-
+#include "korganizeriface_stub.h"
 
 class KOrganizerPlugin : public Kaplan::Plugin
 {
@@ -21,12 +21,12 @@ public:
 private slots:
   
   void slotShowPlugin();
-
+  void slotNewAppointment();
 
 private:
 
   KParts::ReadOnlyPart *m_part;
-
+  KOrganizerIface_stub *m_iface; 
 };
 
 
