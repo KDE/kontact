@@ -62,8 +62,7 @@ static void listPlugins()
   KTrader::OfferList offers = KTrader::self()->query(
     QString::fromLatin1( "Kontact/Plugin" ),
     QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
-  for(KService::List::Iterator it = offers.begin(); it != offers.end(); ++it)
-  {
+  for ( KService::List::Iterator it = offers.begin(); it != offers.end(); ++it ) {
     KService::Ptr service = (*it);
     cout << service->library().remove( "libkontact_" ).latin1() << endl;
   }
@@ -71,9 +70,9 @@ static void listPlugins()
 
 static KCmdLineOptions options[] =
 {
-    { "module <module>",   I18N_NOOP("Start with a specific Kontact module"), 0 },
-    { "iconify",   I18N_NOOP("Start in iconified (minimized) mode"), 0 },
-    { "list", I18N_NOOP("List all possible modules and exit"), 0 },
+    { "module <module>",   I18N_NOOP( "Start with a specific Kontact module" ), 0 },
+    { "iconify",   I18N_NOOP( "Start in iconified (minimized) mode" ), 0 },
+    { "list", I18N_NOOP( "List all possible modules and exit" ), 0 },
     KCmdLineLastOption
 };
 
@@ -82,13 +81,11 @@ int KontactApp::newInstance()
 {
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   QString moduleName;
-  if ( Kontact::Prefs::self()->forceStartupPlugin() ) 
-  {
-        moduleName = Kontact::Prefs::self()->forcedStartupPlugin();
+  if ( Kontact::Prefs::self()->forceStartupPlugin() ) {
+    moduleName = Kontact::Prefs::self()->forcedStartupPlugin();
   }
-  if ( args->isSet("module") )
-  {
-    moduleName = QString::fromLocal8Bit(args->getOption("module"));
+  if ( args->isSet( "module" ) ) {
+    moduleName = QString::fromLocal8Bit( args->getOption( "module" ) );
   }
 
   if ( isRestored() ) {
@@ -110,9 +107,7 @@ int KontactApp::newInstance()
       // because kstart returns immediately so it's too early to talk DCOP to the app.
       if ( args->isSet( "iconify" ) )
         KWin::iconifyWindow( mMainWindow->winId(), false /*no animation*/ );
-    }
-    else
-    {
+    } else {
       if ( !moduleName.isEmpty() )
         mMainWindow->setActivePluginModule( moduleName );
     }
@@ -123,7 +118,7 @@ int KontactApp::newInstance()
   return KUniqueApplication::newInstance();
 }
 
-int main(int argc, char **argv)
+int main( int argc, char **argv )
 {
   KAboutData about( "kontact", I18N_NOOP( "Kontact" ), version, description,
                     KAboutData::License_GPL, I18N_NOOP("(C) 2001-2004 The Kontact developers"), 0, "http://kontact.org" );
@@ -143,8 +138,7 @@ int main(int argc, char **argv)
   KApplication::addCmdLineOptions();
 
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-  if ( args->isSet( "list" ) )
-  {
+  if ( args->isSet( "list" ) ) {
     listPlugins();
     return 0;
   }
