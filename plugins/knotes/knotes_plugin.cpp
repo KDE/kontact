@@ -28,6 +28,7 @@
 
 #include <kdebug.h>
 
+#include "summarywidget.h"
 #include "knotes_plugin.h"
 #include "knotes_part.h"
 
@@ -35,13 +36,16 @@ typedef KGenericFactory< KNotesPlugin, Kontact::Core > KNotesPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpknotesplugin, KNotesPluginFactory( "kpknotesplugin" ) );
 
 KNotesPlugin::KNotesPlugin(Kontact::Core *_core, const char*, const QStringList &)
-  : Kontact::Plugin(i18n("Notes"), "knotes", _core, _core, "knotes"), m_part(0)
+  : Kontact::Plugin(i18n("Notes"), "knotes", _core, _core, "knotes"), 
+    m_part(0), m_summaryWidget(0)
 {
   setInstance(KNotesPluginFactory::instance());
 
   setXMLFile("kpknotesplugin.rc");
 
   insertNewAction(new KAction(i18n("New Note"), BarIcon("knotes"), 0, this, SLOT(slotNewNote()), actionCollection(), "new_note" ) );
+
+  m_summaryWidget = new SummaryWidget(0);
 }
 
 KNotesPlugin::~KNotesPlugin()
@@ -54,6 +58,11 @@ KParts::Part* KNotesPlugin::part()
     m_part = new KNotesPart(this, "notes");
   
   return m_part;
+}
+
+QWidget* KNotesPlugin::summaryWidget()
+{
+  return m_summaryWidget;
 }
 
 void KNotesPlugin::slotNewNote()

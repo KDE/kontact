@@ -23,6 +23,7 @@
 #include "kpplugin.h"
 
 class KNotesPart;
+class SummaryWidget;
 
 class KNotesPlugin : public Kontact::Plugin
 {
@@ -34,6 +35,7 @@ public:
   ~KNotesPlugin();
 
   KParts::Part* part();
+  virtual QWidget* summaryWidget();
   
 private slots:
   
@@ -42,7 +44,7 @@ private slots:
 private:
 
   KNotesPart *m_part;
-  
+  SummaryWidget *m_summaryWidget;
 };
 
 
