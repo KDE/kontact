@@ -170,7 +170,6 @@ void MainWindow::initObject()
 
   loadSettings();
 
-  statusBar()->setSizeGripEnabled(true);
   statusBar()->show();
 
   showTip( false );
