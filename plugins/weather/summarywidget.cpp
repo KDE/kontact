@@ -197,7 +197,7 @@ void SummaryWidget::slotShowReport(const QString &stationID)
   mProc->start();
 }
 
-void SummaryWidget::slotReportFinished(KProcess* proc){
+void SummaryWidget::slotReportFinished(KProcess* /*proc*/){
  delete mProc;
  mProc = 0;
 }

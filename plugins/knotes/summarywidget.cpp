@@ -87,7 +87,7 @@ void SummaryWidget::updateView()
   mLayout->addStretch();
 }
 
-void SummaryWidget::urlClicked( const QString &uid )
+void SummaryWidget::urlClicked( const QString &/*uid*/ )
 {
   if ( !mPlugin->isRunningStandalone() )
     mPlugin->core()->selectPlugin( mPlugin );
