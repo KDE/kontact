@@ -145,8 +145,6 @@ KParts::ReadOnlyPart* KMailPlugin::createPart()
   KParts::ReadOnlyPart *part = loadPart();
   if ( !part ) return 0;
 
-  connect( part, SIGNAL( raise() ), SLOT( raise() ) );
-
   mStub = new KMailIface_stub( dcopClient(), "kmail", "KMailIface" );
 
   return part;
