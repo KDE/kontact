@@ -40,7 +40,6 @@
 
 class QGridLayout;
 class QLabel;
-class QVBoxLayout;
 class KURLLabel;
 
 class SummaryWidget : public Kontact::Summary, public DCOPObject
@@ -66,11 +65,12 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     
     QLabel*mSyncTimeLabel;
     KURLLabel*mShowSyncLogLabel;
+    QLabel*mPilotUserLabel;
     QLabel*mPilotDeviceLabel;
     QLabel*mDaemonStatusLabel;
     QLabel*mConduitsLabel;
     
-    QVBoxLayout *mLayout;
+    QGridLayout *mLayout;
     
     QDateTime mLastSyncTime;
     QString mDaemonStatus;

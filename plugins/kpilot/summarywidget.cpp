@@ -55,29 +55,49 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
     DCOPObject( "KPilotSummaryWidget" ),
     mDCOPSuccess(false)
 {
-  mLayout = new QVBoxLayout( this );
+  mLayout = new QGridLayout( this );
 
+  int row=0;
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kpilot", KIcon::Desktop, KIcon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "KPilot Information" ) );
-  mLayout->addWidget( header );
+  mLayout->addMultiCellWidget( header, row,row, 0,2 );
 
-  mSyncTimeLabel = new QLabel( i18n("No information about the last sync available" ), this );
-  mLayout->addWidget( mSyncTimeLabel );
-  mShowSyncLogLabel = new KURLLabel( "", "Show last sync log", this );
-  mLayout->addWidget( mShowSyncLogLabel );
+  // Last sync information
+  row++;
+  mLayout->addWidget( new QLabel( i18n("<i>Last sync:</i>"), this), row, 0 );
+  mSyncTimeLabel = new QLabel( i18n("No information available" ), this );
+  mLayout->addWidget( mSyncTimeLabel, row,1 );
+  mShowSyncLogLabel = new KURLLabel( "", "Sync log", this );
+  mLayout->addWidget( mShowSyncLogLabel, row,2 );
   connect( mShowSyncLogLabel, SIGNAL( leftClickedURL( const QString& ) ),
     this, SLOT( showSyncLog( const QString& ) ) );
   
-  mPilotDeviceLabel = new QLabel( i18n("Hardware device for sync: Unknown"), this );
-  mLayout->addWidget( mPilotDeviceLabel );
-  mDaemonStatusLabel = new QLabel( i18n("No communication with the daemon possible"), this );
-  mLayout->addWidget( mDaemonStatusLabel );
-  mConduitsLabel = new QLabel( i18n("<i>Enabled conduits:</i>"), this );
-  mLayout->addWidget( mConduitsLabel );
-  mConduitsLabel = new QLabel( i18n("No information available"), this );
-  mLayout->addWidget( mConduitsLabel );
+  // User
+  row++;
+  mLayout->addWidget( new QLabel( i18n("<i>User:</i>"), this), row, 0);
+  mPilotUserLabel = new QLabel( i18n("Unknkown"), this );
+  mLayout->addMultiCellWidget( mPilotUserLabel, row, row, 1,2 );
   
-  mLayout->addStretch( 1 );
+  // Device information
+  row++;
+  mLayout->addWidget( new QLabel( i18n("<i>Device:</i>"), this), row, 0 );
+  mPilotDeviceLabel = new QLabel( i18n("Unknown"), this );
+  mLayout->addMultiCellWidget( mPilotDeviceLabel, row, row, 1,2 );
+  
+  // Status
+  row++;
+  mLayout->addWidget( new QLabel( i18n("<i>Status:</i>"), this), row, 0);
+  mDaemonStatusLabel = new QLabel( i18n("No communication with the daemon possible"), this );
+  mLayout->addMultiCellWidget( mDaemonStatusLabel, row, row, 1,2 );
+  
+  // Conduits:
+  row++;
+  mLayout->addWidget( new QLabel( i18n("<i>Conduits:</i>"), this), row, 0 );
+  mConduitsLabel = new QLabel( i18n("No information available"), this );
+  mConduitsLabel->setAlignment( mConduitsLabel->alignment()|Qt::WordBreak );
+  mLayout->addMultiCellWidget( mConduitsLabel, row,row, 1,2 );
+  
+//  mLayout->addStretch( 1 );
 //  mLayout->addWidget( new QSpacerItem( 1, 20, QSizePolicy::Minimum, QSizePolicy::Expanding ) );
 
   QString error;
@@ -109,7 +129,7 @@ void SummaryWidget::refresh( )
   // check if that dcop call was successful
   mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
   
-  mDaemonStatus = dcopToDaemon.statusString();
+  mDaemonStatus = dcopToDaemon.shortStatusString();
   mDCOPSuccess = mDCOPSuccess && dcopToDaemon.ok();
   
   mConduits = dcopToDaemon.configuredConduitList();
@@ -133,21 +153,27 @@ void SummaryWidget::updateView()
   if (mDCOPSuccess) 
   {
     if ( mLastSyncTime.isValid() ) {
-      mSyncTimeLabel->setText( i18n("Last synced at %1 (user: %2)").arg( mLastSyncTime.toString() ).arg( mUserName ) );
+      mSyncTimeLabel->setText( mLastSyncTime.toString(Qt::LocalDate) );
     } else {
-      mSyncTimeLabel->setText( i18n("Last sync time not available") );
+      mSyncTimeLabel->setText( i18n("No information available") );
     }
-    mShowSyncLogLabel->setEnabled(true);
-    mShowSyncLogLabel->setURL( mSyncLog );
-    mPilotDeviceLabel->setText( i18n("Daemon listening on device %1").arg( mPilotDevice ) );
+    if (!mSyncLog.isEmpty()) {
+      mShowSyncLogLabel->setEnabled(true);
+      mShowSyncLogLabel->setURL( mSyncLog );
+    } else {
+      mShowSyncLogLabel->setEnabled(false);
+    }
+    mPilotUserLabel->setText( (mUserName.isEmpty())?i18n("unknown"):mUserName );
+    mPilotDeviceLabel->setText( (mPilotDevice.isEmpty())?i18n("unknown"):mPilotDevice );
     mDaemonStatusLabel->setText( mDaemonStatus );
     mConduitsLabel->setText( mConduits.join(", ") );
   }
   else
   {
-    mSyncTimeLabel->setText( i18n("No information about the last sync (Daemon not running?)" ) );
+    mSyncTimeLabel->setText( i18n("No information available (Daemon not running?)" ) );
     mShowSyncLogLabel->setEnabled(false);
-    mPilotDeviceLabel->setText( i18n("Daemon listening on device %1").arg( i18n("\"unknown\"") ) );
+    mPilotUserLabel->setText( i18n("unknown" ) );
+    mPilotDeviceLabel->setText( i18n("unknown" ) );
     mDaemonStatusLabel->setText( i18n("No communication with the daemon possible") );
     mConduitsLabel->setText( i18n("No information available") );
   }
@@ -175,14 +201,7 @@ void SummaryWidget::showSyncLog( const QString &filename )
 
 	f.close();
 	
-//	dlg.adjustSize();
-//	dlg.resize(dlg.size());
 	dlg.setInitialSize( QSize( 400, 350) );
-
-
-//	if ( width > 0 && height > 0 )
-//		dlg.setInitialSize( QSize( width, height ) );
-
 	dlg.exec();
 }
 #include "summarywidget.moc"
