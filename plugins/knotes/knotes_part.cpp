@@ -34,14 +34,13 @@
 class NotesItem : public KIconViewItem
 {
 public:
-	NotesItem(KIconView * parent, int id, const QString& text); 
-    virtual QString key() { return QString::number(noteID); };
-	int id() { return noteID; };
+	NotesItem(KIconView * parent, const QString& id, const QString& text); 
+	QString id() { return noteID; };
 private:
-	int noteID;
+	QString noteID;
 };
 
-NotesItem::NotesItem(KIconView * parent, int id, const QString& text):
+NotesItem::NotesItem(KIconView * parent, const QString& id, const QString& text):
 	KIconViewItem(parent, text, DesktopIcon("knotes"))
 {
 	noteID = id;
@@ -137,12 +136,12 @@ void KNotesPart::slotRemoveCurrentNote()
 	if (!item)
 		return;
 	
-	int id = static_cast<NotesItem*>( item )->id();
+	QString id = static_cast<NotesItem*>( item )->id();
 
 	QByteArray data;
 	QDataStream arg( data, IO_WriteOnly );
 	arg << id;
-	if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "killNote(int)", data ) )
+	if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "killNote(QString)", data ) )
 		kdDebug() << "Deleting Note!" << endl;
 
 	// reinit knotes and refetch notes
@@ -163,13 +162,13 @@ void KNotesPart::slotNoteRenamed(QIconViewItem *item, const QString& text)
 	if (!item)
 		return;
 	
-	int id = static_cast<NotesItem*>( item )->id();
+	QString id = static_cast<NotesItem*>( item )->id();
 
 	QByteArray data;
 	QDataStream arg( data, IO_WriteOnly );
 	arg << id;
 	arg << text;
-	if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "setName(int, QString)", data ) )
+	if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "setName(QString, QString)", data ) )
 		kdDebug() << "Rename Note!" << endl;
 
 	m_iconView->arrangeItemsInGrid();
@@ -177,12 +176,12 @@ void KNotesPart::slotNoteRenamed(QIconViewItem *item, const QString& text)
 	
 void KNotesPart::slotOpenNote( QIconViewItem *item )
 {
-	int id = static_cast<NotesItem*>( item )->id();
+	QString id = static_cast<NotesItem*>( item )->id();
 
 	QByteArray data;
 	QDataStream arg( data, IO_WriteOnly );
 	arg << id;
-	if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "showNote(int)", data ) )
+	if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "showNote(QString)", data ) )
 		kdDebug() << "Opening Note!" << endl;
 }
 
