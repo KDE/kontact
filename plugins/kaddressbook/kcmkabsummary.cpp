@@ -38,6 +38,8 @@
 
 #include "kcmkabsummary.h"
 
+#include <kdepimmacros.h>
+
 extern "C"
 {
   KDE_EXPORT KCModule *create_kabsummary( QWidget *parent, const char * )

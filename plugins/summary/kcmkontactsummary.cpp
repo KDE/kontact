@@ -39,6 +39,8 @@
 
 #include "kcmkontactsummary.h"
 
+#include <kdepimmacros.h>
+
 extern "C"
 {
   KDE_EXPORT KCModule *create_kontactsummary( QWidget *parent, const char * ) {

@@ -45,6 +45,8 @@
 
 #include "newsfeeds.h"
 
+#include <kdepimmacros.h>
+
 extern "C"
 {
   KDE_EXPORT KCModule *create_kontactknt( QWidget *parent, const char * )

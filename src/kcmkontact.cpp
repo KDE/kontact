@@ -35,6 +35,8 @@
 #include <qlabel.h>
 #include <qbuttongroup.h>
 
+#include <kdepimmacros.h>
+
 extern "C"
 {
   KDE_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * ) {

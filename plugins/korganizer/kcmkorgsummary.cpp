@@ -37,6 +37,8 @@
 
 #include "kcmkorgsummary.h"
 
+#include <kdepimmacros.h>
+
 extern "C"
 {
   KDE_EXPORT KCModule *create_korgsummary( QWidget *parent, const char * )

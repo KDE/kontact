@@ -37,6 +37,8 @@
 
 #include "kcmkmailsummary.h"
 
+#include <kdepimmacros.h>
+
 extern "C"
 {
   KDE_EXPORT KCModule *create_kmailsummary( QWidget *parent, const char * )
