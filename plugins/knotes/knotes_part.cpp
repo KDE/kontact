@@ -75,7 +75,7 @@ private:
 
 
 KNotesPart::KNotesPart( QObject *parent, const char *name )
-  : KPIM::Part( parent, name ),
+  : DCOPObject("KNotesIface"), KPIM::Part( parent, name ),
     m_context_menu( 0 )
 {
     m_noteList.setAutoDelete( true );
@@ -172,9 +172,12 @@ QString KNotesPart::newNoteFromClipboard( const QString& name )
 
 void KNotesPart::showNote( const QString& id ) const
 {
-    KNotesIconViewItem *item = m_noteList[id];
-    m_notesView->ensureItemVisible( item );
-    m_notesView->setCurrentItem( item );
+    KNotesIconViewItem *note = m_noteList[id];
+    if ( !note )
+        return;
+
+    m_notesView->ensureItemVisible( note );
+    m_notesView->setCurrentItem( note );
 }
 
 void KNotesPart::hideNote( const QString& ) const
@@ -184,30 +187,52 @@ void KNotesPart::hideNote( const QString& ) const
 
 void KNotesPart::killNote( const QString& id )
 {
+    killNote( id, false );
 }
 
 void KNotesPart::killNote( const QString& id, bool force )
 {
+    KNotesIconViewItem *note = m_noteList[id];
+
+    if ( note && !force && KMessageBox::warningContinueCancelList( m_notesView,
+            i18n( "Do you really want to delete this note?" ),
+            m_noteList[id]->text(), i18n("Confirm Delete"),
+            KGuiItem( i18n("Delete"), "editdelete" ) ) == KMessageBox::Continue )
+    {
+        m_manager->deleteNote( m_noteList[id]->journal() );
+    }
 }
 
 QString KNotesPart::name( const QString& id ) const
 {
-    return m_noteList[id]->text();
+    KNotesIconViewItem *note = m_noteList[id];
+    if ( note )
+        return note->text();
+    else
+        return QString::null;
 }
 
 QString KNotesPart::text( const QString& id ) const
 {
-    return m_noteList[id]->journal()->description();
+    KNotesIconViewItem *note = m_noteList[id];
+    if ( note )
+        return note->journal()->description();
+    else
+        return QString::null;
 }
 
 void KNotesPart::setName( const QString& id, const QString& newName )
 {
-    m_noteList[id]->setText( newName );
+    KNotesIconViewItem *note = m_noteList[id];
+    if ( note )
+        return note->setText( newName );
 }
 
 void KNotesPart::setText( const QString& id, const QString& newText )
 {
-    m_noteList[id]->journal()->setDescription( newText );
+    KNotesIconViewItem *note = m_noteList[id];
+    if ( note )
+        return note->journal()->setDescription( newText );
 }
 
 QMap<QString, QString> KNotesPart::notes() const
@@ -229,10 +254,12 @@ void KNotesPart::sync( const QString& app )
 
 bool KNotesPart::isNew( const QString& app, const QString& id ) const
 {
+    return true;
 }
 
 bool KNotesPart::isModified( const QString& app, const QString& id ) const
 {
+    return true;
 }
 
 
@@ -297,7 +324,7 @@ void KNotesPart::popupRMB( QIconViewItem *item, const QPoint& pos )
 
 void KNotesPart::createNote( KCal::Journal *journal )
 {
-    new KNotesIconViewItem( m_notesView, journal );
+    m_noteList.insert( journal->uid(), new KNotesIconViewItem( m_notesView, journal ) );
 }
 
 void KNotesPart::killNote( KCal::Journal *journal )
