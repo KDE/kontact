@@ -24,6 +24,7 @@
 #include <qimage.h>
 #include <qlabel.h>
 #include <qlayout.h>
+#include <qtooltip.h>
 
 #include <dcopclient.h>
 #include <dcopref.h>
@@ -127,6 +128,16 @@ void SummaryWidget::updateView()
     label->setAlignment( AlignLeft );
     layout->addMultiCellWidget( label, 0, 0, 1, 2 );
     mLabels.append( label );
+
+    QString labelText;
+    labelText = QString( "<b>%1:</b> %2<br>"
+                         "<b>%3:</b> %4" )
+                         .arg( i18n( "Wind Speed" ) )
+                         .arg( data.windSpeed() )
+                         .arg( i18n( "Rel. Humidity" ) )
+                         .arg( data.relativeHumidity() );
+
+    QToolTip::add( label, labelText.replace( " ", "&nbsp;" ) );
 
     label = new QLabel( cover, this );
     label->setAlignment( AlignLeft );
