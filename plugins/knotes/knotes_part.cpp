@@ -102,7 +102,7 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   setInstance( new KInstance( "knotes" ) );
 
   mCalendar = new KCal::CalendarResources;
-  mResource = new KCal::ResourceLocal( ::locate( "data", "knotes/notes.ics" ) );
+  mResource = new KCal::ResourceLocal( ::locateLocal( "data", "knotes/notes.ics" ) );
   mCalendar->resourceManager()->add( mResource );
   mCalendar->load();
 
