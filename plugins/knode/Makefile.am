@@ -1,4 +1,4 @@
-INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/knode $(all_includes)
+INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/knode -I$(top_srcdir) $(all_includes)
 
 kde_module_LTLIBRARIES = libkontact_knodeplugin.la
 libkontact_knodeplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
