@@ -6,9 +6,14 @@
 	<Merge/>
 	<Separator/>
 	<Action name="file_quit"/>
+    <Action name="action_new"/>
   </Menu>
   <Menu name="edit">
   	<text>&amp;Edit</text>
+  	<Merge/>
+  </Menu>
+  <Menu name="view">
+  	<text>&amp;View</text>
   	<Merge/>
   </Menu>
   <Menu name="help" append="about_merge">
