@@ -1,12 +1,26 @@
 [Desktop Entry]
+Encoding=UTF-8
 Type=Service
-Exec=
+Icon=kmail
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_kmailplugin
+X-KDE-KontactPluginVersion=1
+X-KDE-KontactPartLibraryName=libkmailpart
+
+X-KDE-PluginInfo-Website=http://kmail.kde.org/
+X-KDE-PluginInfo-Name=kontact_kmailplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
 Comment=Kontact KMail Plugin
 Comment[be]=Дапаўненьне Кантакту "K Пошта"
 Comment[ca]=Connector Kontact per a KMail
 Comment[da]=Kontact KMail-plugin
 Comment[el]=Πρόσθετο του Kontact για το KMail
 Comment[es]=Plugin de KMail para Kontact
+Comment[fr]=Module KMail pour Kontact
 Comment[hu]=Kontact KMail-bővítőmodul
 Comment[pt_BR]=Plug-in para KMail do Kontact
 Comment[ru]=Модуль Kontact для доступа к KMail
@@ -16,9 +30,13 @@ Comment[tr]=Kontact KMail Eklentisi
 Comment[xx]=xxKontact KMail Pluginxx
 Comment[zh_CN]=Kontact KMail 插件
 Name=Mail
-Icon=kmail
-ServiceTypes=Kontact/Plugin
-X-KDE-Library=libkontact_kmailplugin
-X-KDE-KontactIdentifier=mail
-X-KDE-KontactPluginVersion=1
-X-KDE-KontactPartLibraryName=libkmailpart
+Name[be]=Пошта
+Name[ca]=Correu
+Name[da]=Brev
+Name[es]=Correo
+Name[it]=Posta
+Name[pt_BR]=Correio
+Name[ru]=Письмо
+Name[sr]=Пошта
+Name[sv]=Brev
+Name[tr]=Posta

@@ -45,10 +45,6 @@ Prefs::Prefs()
   addItemInt( "SidePaneType", mSidePaneType, SidePaneIcons );
   addItemString( "ActivePlugin", mActivePlugin, "summary" );
   addItemIntList( "SidePaneSplitter", mSidePaneSplitter );
-
-  QStringList defaultPlugins;
-  defaultPlugins << "summary" << "mail" << "calendar" << "contacts" << "notes";
-  addItemStringList( "ActivePlugins", mActivePlugins, defaultPlugins );
 }
 
 Prefs::~Prefs()

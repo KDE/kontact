@@ -48,6 +48,9 @@
 #include <khelpmenu.h>
 #include <kmessagebox.h>
 #include <ktip.h>
+#include <kplugininfo.h>
+#include <ksettings/dialog.h>
+#include <ksettings/dispatcher.h>
 
 #include <dcopclient.h>
 
@@ -67,6 +70,15 @@ MainWindow::MainWindow()
   : Kontact::Core(), m_topWidget( 0 ), m_headerText( 0 ), m_headerPixmap( 0 ), m_splitter( 0 ), 
     m_currentPlugin( 0 ), m_lastInfoExtension( 0 ), m_aboutDialog( 0 )
 {
+  KTrader::OfferList offers = KTrader::self()->query(
+      QString::fromLatin1( "Kontact/Plugin" ),
+      QString::fromLatin1( "[X-KDE-KontactPluginVersion] == 1" ) );
+  mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(),
+      "Plugins" );
+  for( KPluginInfo::List::Iterator it = mPluginInfos.begin();
+      it != mPluginInfos.end(); ++it )
+    ( *it )->load();
+
   m_plugins.setAutoDelete( true );
 
   statusBar()->show();
@@ -98,6 +110,8 @@ MainWindow::MainWindow()
   if ( m_sidePane )
     m_sidePane->updatePlugins();
 
+  KSettings::Dispatcher::self()->registerInstance( instance(), this,
+      SLOT( updateConfig() ) );
   loadSettings();
 
   showTip( false );
@@ -204,32 +218,29 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
 
 void MainWindow::loadPlugins()
 {
-  KTrader::OfferList offers = KTrader::self()->query( QString::fromLatin1( "Kontact/Plugin" ), 
-		  QString::fromLatin1("[X-KDE-KontactPluginVersion] == 1"));
-
   QPtrList<Plugin> plugins;
 
   uint i;
 
-  QStringList activePlugins = Prefs::self()->mActivePlugins;
-  for ( KTrader::OfferList::ConstIterator it = offers.begin(); it != offers.end(); ++it )
+  for( KPluginInfo::List::ConstIterator it = mPluginInfos.begin();
+      it != mPluginInfos.end(); ++it )
   {
-    kdDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
-    Kontact::Plugin *plugin = KParts::ComponentFactory
-      ::createInstanceFromService<Kontact::Plugin>( *it, this );
+    if( ! ( *it )->isPluginEnabled() )
+      continue;
+
+    kdDebug(5600) << "Loading Plugin: " << ( *it )->name() << endl;
+    Kontact::Plugin *plugin =
+      KParts::ComponentFactory::createInstanceFromService<Kontact::Plugin>(
+          ( *it )->service(), this );
 
     if ( !plugin )
       continue;
 
-    QString identifier = (*it)->property( "X-KDE-KontactIdentifier" ).toString();
-    if ( !activePlugins.contains( identifier ) )
-      continue;
+    plugin->setIdentifier( ( *it )->pluginName() );
+    plugin->setTitle( ( *it )->name() );
+    plugin->setIcon( ( *it )->icon() );
 
-    plugin->setIdentifier( identifier );
-    plugin->setTitle( (*it)->name() );
-    plugin->setIcon( (*it)->icon() );
-
-    QVariant libNameProp = (*it)->property( "X-KDE-KontactPartLibraryName" );
+    QVariant libNameProp = ( *it )->property( "X-KDE-KontactPartLibraryName" );
 
     kdDebug() << "LIBNAMEPART: " << libNameProp.toString() << endl;
 
@@ -404,8 +415,6 @@ void MainWindow::loadSettings()
     m_splitter->setSizes( Prefs::self()->mSidePaneSplitter );
 
   selectPlugin( Prefs::self()->mActivePlugin );
-
-  mActivePlugins = Prefs::self()->mActivePlugins;
 }
 
 void MainWindow::saveSettings()
@@ -441,30 +450,15 @@ void MainWindow::slotQuit()
 
 void MainWindow::slotPreferences()
 {
-  KCMultiDialog *dialog = new KCMultiDialog( this, "KontactPreferences" );
-  connect( dialog, SIGNAL( applyClicked() ), SLOT( updateConfig() ) );
-  connect( dialog, SIGNAL( okClicked() ), SLOT( updateConfig() ) );
-
-  QStringList modules;
-
-  modules.append( "kontactconfig.desktop" );
-
-  // find all all modules for all plugins
-  QPtrListIterator<Kontact::Plugin> pit( m_plugins );
-  for( ; pit.current(); ++pit )
-  {
-    QStringList tmp = pit.current()->configModules();
-    if( !tmp.isEmpty() )
-      modules += tmp;
+  static KSettings::Dialog * dlg = 0;
+  if( dlg == 0 ) {
+    dlg = new KSettings::Dialog( KSettings::Dialog::Configurable, this );
+    dlg->addPluginInfos( mPluginInfos );
+    connect( dlg, SIGNAL( pluginSelectionChanged() ),
+        SLOT( pluginsChanged() ) );
   }
 
-  // add them all
-  QStringList::iterator mit;
-  for ( mit = modules.begin(); mit != modules.end(); ++mit )
-    dialog->addModule( *mit );
-
-  dialog->show();
-  dialog->raise();
+  dlg->show();
 }
 
 int MainWindow::startServiceFor( const QString& serviceType,
@@ -507,19 +501,20 @@ void MainWindow::setHeaderPixmap( const QPixmap &pixmap )
   m_headerPixmap->setPixmap( pm );
 }
 
+void MainWindow::pluginsChanged()
+{
+  unloadPlugins();
+  loadPlugins();
+  m_sidePane->updatePlugins();
+}
+
 void MainWindow::updateConfig()
 {
-  kdDebug() << "MainWindow::updateConfig()" << endl;
+  kdDebug( 5600 ) << k_funcinfo << endl;
 
   saveSettings();
 
-  bool pluginsChanged = ( Prefs::self()->mActivePlugins != mActivePlugins );
   bool sidePaneChanged = ( Prefs::self()->mSidePaneType != mSidePaneType );
-
-  if ( pluginsChanged ) {
-    unloadPlugins();
-    loadPlugins();
-  }
 
   if ( sidePaneChanged ) {
     mSidePaneType = Prefs::self()->mSidePaneType;
@@ -552,7 +547,7 @@ void MainWindow::updateConfig()
     m_sidePane->show();
   }
 
-  if ( pluginsChanged || sidePaneChanged )
+  if ( sidePaneChanged )
     m_sidePane->updatePlugins();
 
   loadSettings();
@@ -572,3 +567,5 @@ void MainWindow::showAboutDialog()
 }
 
 #include "mainwindow.moc"
+
+// vim: sw=2 sts=2 et

@@ -1,13 +1,28 @@
 [Desktop Entry]
+Encoding=UTF-8
 Type=Service
-Exec=
+Icon=
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_weatherplugin
+X-KDE-KontactIdentifier=weather
+X-KDE-KontactPluginVersion=1
+
+X-KDE-PluginInfo-Name=kontact_weatherplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=LGPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
 Comment=Kontact Weather Plugin
 Comment[be]=Comment=Дапаўненьне Кантакту "Надвор'е"
 Comment[ca]=Connector de temps vist per a Kontact
 Comment[da]=Kontact Vejr-plugin
 Comment[es]=Accesorio de clima para Kontact
+Comment[fr]=Module météo pour Kontact
+Comment[hu]=Kontact időjárás-előrejelzési bővítőmodul
 Comment[pt_BR]=Plugin de Tempo do Kontact
 Comment[ru]=Модуль погоды Kontact
+Comment[sr]=Додатак Kontact-а за време
 Comment[sv]=Kontact-väderinsticksprogram
 Comment[tr]=Kontact Hava Durumu Eklentisi
 Comment[xx]=xxKontact Weather Pluginxx
@@ -16,13 +31,11 @@ Name[be]=Надвор'е
 Name[ca]=Temps vist
 Name[da]=Vejr
 Name[es]=Clima
+Name[fr]=Météo
+Name[hu]=Időjárás
 Name[pt_BR]=Tempo
 Name[ru]=Погода
+Name[sr]=Време
 Name[sv]=Väder
 Name[tr]=Hava Durumu
 Name[xx]=xxWeatherxx
-Icon=
-ServiceTypes=Kontact/Plugin
-X-KDE-Library=libkontact_weatherplugin
-X-KDE-KontactIdentifier=weather
-X-KDE-KontactPluginVersion=1

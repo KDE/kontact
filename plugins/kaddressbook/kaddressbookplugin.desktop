@@ -1,12 +1,26 @@
 [Desktop Entry]
+Encoding=UTF-8
 Type=Service
-Exec=
+Icon=kaddressbook
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_kaddressbookplugin
+X-KDE-KontactPluginVersion=1
+X-KDE-KontactPartLibraryName=libkaddressbookpart
+
+X-KDE-PluginInfo-Website=http://www.kaddressbook.org/
+X-KDE-PluginInfo-Name=kontact_kaddressbookplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
 Comment=Kontact KAddressBook Plugin
 Comment[be]=Дапаўненьне Кантакту "K Адрасная кніга"
 Comment[ca]=Connector Kontact per a la Llibreta d'adreces
 Comment[da]=Kontact KAddressbook-plugin
 Comment[el]=Πρόσθετο του Kontact για το KAddressBook
 Comment[es]=Plugin de KAddressbook para Kontact
+Comment[fr]=Module KAddressBook pour Kontact
 Comment[hu]=Kontact bővítőmodul a KAddressbookhoz
 Comment[pt_BR]=Plug-in para KAddressBook do Kontact
 Comment[ru]=Модуль Kontact для доступа к адресной книге
@@ -26,9 +40,3 @@ Name[sr]=Контакти
 Name[sv]=Kontakter
 Name[tr]=Bağlantılar
 Name[xx]=xxContactsxx
-Icon=kaddressbook
-ServiceTypes=Kontact/Plugin
-X-KDE-Library=libkontact_kaddressbookplugin
-X-KDE-KontactIdentifier=contacts
-X-KDE-KontactPluginVersion=1
-X-KDE-KontactPartLibraryName=libkaddressbookpart

@@ -1,12 +1,26 @@
 [Desktop Entry]
+Encoding=UTF-8
 Type=Service
-Exec=
+Icon=korganizer
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_korganizerplugin
+X-KDE-KontactPluginVersion=1
+X-KDE-KontactPartLibraryName=libkorganizerpart
+
+X-KDE-PluginInfo-Website=http://korganizer.kde.org
+X-KDE-PluginInfo-Name=kontact_korganizerplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
 Comment=Kontact KOrganizer Plugin
 Comment[be]=Дапаўненьне Кантакту "K Арганізатар"
 Comment[ca]=Connector Kontact per a KOrganizer
 Comment[da]=Kontact KOrganizer-plugin
 Comment[el]=Πρόσθετο του Kontact για το KOrganizer
 Comment[es]=Plugin de KOrganizer para Kontact
+Comment[fr]=Module KOrganizer pour Kontact
 Comment[hu]=Kontact KOrganizer-bővítőmodul
 Comment[pt_BR]=Plug-in para KOrganizer do Kontact
 Comment[ru]=Модуль Kontact для доступа к органайзеру
@@ -20,6 +34,7 @@ Name[be]=Каляндар
 Name[ca]=Calendari
 Name[da]=Kalender
 Name[es]=Calendario
+Name[fr]=Calendrier
 Name[hu]=Naptár
 Name[pt_BR]=Calendário
 Name[ru]=Календарь
@@ -27,9 +42,3 @@ Name[sr]=Календар
 Name[sv]=Kalender
 Name[tr]=Takvim
 Name[xx]=xxCalendarxx
-Icon=korganizer
-ServiceTypes=Kontact/Plugin
-X-KDE-Library=libkontact_korganizerplugin
-X-KDE-KontactIdentifier=calendar
-X-KDE-KontactPluginVersion=1
-X-KDE-KontactPartLibraryName=libkorganizerpart

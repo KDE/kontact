@@ -1,15 +1,27 @@
 [Desktop Entry]
+Encoding=UTF-8
 Type=Service
-Exec=blubb
+Icon=konsole
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkptestplugin
+X-KDE-KontactPluginVersion=1
+
+X-KDE-PluginInfo-Name=kptestplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-EnabledByDefault=false
+
 Comment=Kontact Test Plugin
 Comment[be]=Тэставае дапаўненьне Кантакту
 Comment[ca]=Connector de proves per a Kontact
 Comment[da]=Kontact Test-plugin
 Comment[el]=Δοκιμαστικό πρόσθετο του Kontact
 Comment[es]=Plugin de prueba para Kontact
+Comment[fr]=Module de test pour Kontact
 Comment[hu]=Kontact tesztmodul
 Comment[pt_BR]=Plug-in para Teste do Kontact
 Comment[ru]=Тестовый модуль Kontact
+Comment[sr]=Тест додатак Kontact-а
 Comment[sv]=Kontact-testinsticksprogram
 Comment[tr]=Kontact Test Eklentisi
 Comment[xx]=xxKontact Test Pluginxx
@@ -34,12 +46,9 @@ Name[pt_BR]=Plugin de Teste
 Name[ro]=Modul de  test
 Name[ru]=Тестовый модуль
 Name[sk]=TestModul
+Name[sr]=Тест додатак
 Name[sv]=Testinsticksprogram
 Name[tr]=Test Eklentisi
 Name[ven]=Lingani Plugin
 Name[xx]=xxTestPluginxx
 Name[zh_CN]=Test 插件
-Icon=konsole
-ServiceTypes=Kontact/Plugin
-X-KDE-Library=libkptestplugin
-X-KDE-KontactPluginVersion=1

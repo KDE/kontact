@@ -1,0 +1,17 @@
+[KMail]
+Name=Mail
+Comment=
+Weight=20
+Icon=kmail
+
+[KAB]
+Name=Contacts
+Comment=
+Weight=50
+Icon=kaddressbook
+
+[KOrganizer]
+Name=Organizer
+Comment=
+Weight=30
+Icon=korganizer

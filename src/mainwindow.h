@@ -34,6 +34,7 @@
 #include "core.h"
 
 class KAction;
+class KPluginInfo;
 class QHBox;
 class QSplitter;
 class QVBox;
@@ -106,6 +107,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void showTip( bool );
 
   private slots:
+    void pluginsChanged();
     void setHeaderText( const QString& );
     void setHeaderPixmap( const QPixmap& );
 
@@ -123,12 +125,13 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     Plugin *m_currentPlugin;
     KParts::PartManager *m_partManager;
     QPtrList<Kontact::Plugin> m_plugins;
+    QValueList<KPluginInfo*> mPluginInfos;
     KParts::InfoExtension *m_lastInfoExtension;
 
     QMap<KParts::InfoExtension*, InfoExtData> m_infoExtCache;
 
     int mSidePaneType;
-    QStringList mActivePlugins;
+    //QStringList mActivePlugins;
 
     AboutDialog *m_aboutDialog;
 };

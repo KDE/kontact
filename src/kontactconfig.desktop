@@ -3,12 +3,15 @@ Encoding=UTF-8
 Exec=kcmshell kontactconfig
 Icon=kontact
 Type=Service
-Terminal=0
+ServiceTypes=KCModule
 
 X-KDE-ModuleType=Library
 X-KDE-Library=kontact
 X-KDE-FactoryName=kontactconfig
 X-KDE-HasReadOnlyMode=false
+X-KDE-ParentApp=kontact
+X-KDE-ParentComponents=kontact
+X-KDE-Weight=0
 
 Name=Kontact
 Name[be]=Кантакт

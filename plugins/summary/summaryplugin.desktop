@@ -1,13 +1,26 @@
 [Desktop Entry]
+Encoding=UTF-8
 Type=Service
-Exec=
+Icon=keditbookmarks
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_summaryplugin
+X-KDE-KontactPluginVersion=1
+
+X-KDE-PluginInfo-Name=kontact_summaryplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=LGPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
 Comment=Kontact SummaryView Plugin
 Comment[ca]=Connector Kontact per a vista del resum
 Comment[da]=Kontact SummaryView-plugin
 Comment[es]=Accesorio Vista resumen para Kontact
+Comment[fr]=Module de vue résumée pour Kontact
 Comment[hu]=Kontact bővítőmodul a névjegyek áttekintéséhez
 Comment[pt_BR]=Plug-in SummaryView do Kontact
 Comment[ru]=Модуль дайджеста Kontact
+Comment[sr]=Додатак Kontact-а за SummaryView
 Comment[sv]=Kontact-insticksprogram för översikt
 Comment[tr]=Kontact Özet Gösterim Eklentisi
 Comment[xx]=xxKontact SummaryView Pluginxx
@@ -15,15 +28,13 @@ Name=Summary
 Name[ca]=Resum
 Name[da]=Opsummaring
 Name[es]=Resumen
+Name[fr]=Résumé
+Name[hu]=Áttekintés
 Name[pt_BR]=Resumo
 Name[ru]=Дайджест
+Name[sr]=Сажетак
 Name[sv]=Översikt
 Name[tr]=Özet
 Name[xx]=xxSummaryxx
-Icon=keditbookmarks
-ServiceTypes=Kontact/Plugin
-X-KDE-Library=libkontact_summaryplugin
-X-KDE-KontactIdentifier=summary
-X-KDE-KontactPluginVersion=1
 #Always last
 InitialPreference=0

@@ -1,11 +1,25 @@
 [Desktop Entry]
+Encoding=UTF-8
 Type=Service
-Exec=
+Icon=korganizer_todo
+ServiceTypes=Kontact/Plugin
+
+X-KDE-Library=libkontact_todoplugin
+X-KDE-KontactPluginVersion=1
+X-KDE-KontactPartLibraryName=libkorganizerpart
+
+X-KDE-PluginInfo-Website=http://korganizer.kde.org
+X-KDE-PluginInfo-Name=kontact_todoplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
 Comment=Kontact KOrganizer Todo List Plugin
 Comment[be]=Дапаўненьне Кантакту "Сьпіс заданьняў K Арганізатара"
 Comment[ca]=Connector Kontact per a la llista de pendents de KOrganizer
 Comment[da]=Kontact KOrganizer gøremålsliste-plugin
 Comment[es]=Accesorio de tareas pendientes para Kontact KOrganizer
+Comment[fr]=Module des tâches de KOrganizer pour Kontact
 Comment[hu]=Kontact KOrganizer tennivalólista-bővítőmodul
 Comment[pt_BR]=Plug-in para Lista de Pendências do KOrganizer no Kontact
 Comment[ru]=Модуль Kontact для доступа к списку задач органайзера
@@ -17,15 +31,11 @@ Name[be]=Сьпіс заданьняў
 Name[ca]=Llista de pendents
 Name[da]=Gøremålsliste
 Name[es]=Tareas pendientes
+Name[fr]=Liste de tâches
 Name[hu]=Tennivalók
 Name[pt_BR]=Lista de Pendências
 Name[ru]=Список задач
 Name[sr]=За-урадити листа
 Name[sv]=Att-göra-lista
+Name[tr]=Yapılacaklar Listesi
 Name[xx]=xxTodo Listxx
-Icon=korganizer_todo
-ServiceTypes=Kontact/Plugin
-X-KDE-Library=libkontact_todoplugin
-X-KDE-KontactIdentifier=todo
-X-KDE-KontactPluginVersion=1
-X-KDE-KontactPartLibraryName=libkorganizerpart

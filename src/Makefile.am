@@ -29,4 +29,7 @@ xdg_apps_DATA = Kontact.desktop
 
 kde_services_DATA = kontactconfig.desktop
 
+kontactsetdlgdir = $(kde_datadir)/kontact
+kontactsetdlg_DATA = kontact.setdlg
+
 KDE_ICON = AUTO

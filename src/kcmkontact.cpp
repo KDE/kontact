@@ -83,13 +83,6 @@ KcmKontact::KcmKontact( QWidget *parent, const char *name )
   radios->addRadio( i18n( "Icon view" ) );
   topLayout->addWidget( radios->groupBox() );
 
-  PluginSelection *plugins = new PluginSelection( i18n( "Plugins" ),
-                                                  Kontact::Prefs::self()->mActivePlugins,
-                                                  this );
-  topLayout->addWidget( plugins->groupBox() );
-
-  addWid( plugins );
-
   load();
 }
 
@@ -137,18 +130,6 @@ QGroupBox *PluginSelection::groupBox()  const
 void PluginSelection::readConfig()
 {
   mPluginView->clear();
-
-  KTrader::OfferList plugins = KTrader::self()->query( QString::fromLatin1( "Kontact/Plugin" ) );
-  KTrader::OfferList::ConstIterator it;
-  for ( it = plugins.begin(); it != plugins.end(); ++it ) {
-    if ( !(*it)->hasServiceType( QString::fromLatin1( "Kontact/Plugin" ) ) )
-      continue;
-
-    PluginItem *item = new PluginItem( *it, mPluginView, (*it)->name() );
-    if ( mReference.contains( (*it)->property( "X-KDE-KontactIdentifier" )
-         .toString() ) )
-      item->setOn( true );
-  }
 }
 
 void PluginSelection::writeConfig()
