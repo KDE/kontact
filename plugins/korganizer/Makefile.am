@@ -5,11 +5,11 @@ kde_module_LTLIBRARIES = libkpkorganizerplugin.la
 libkpkorganizerplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkpkorganizerplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS)
 
-libkpkorganizerplugin_la_SOURCES = korganizer_plugin.cpp korganizeriface.stub
+libkpkorganizerplugin_la_SOURCES = korganizer_plugin.cpp kcalendariface.stub
 
 METASOURCES = AUTO
 
-korganizeriface_DIR = $(top_srcdir)/korganizer
+kcalendariface_DIR = $(top_srcdir)/korganizer
 
 
 servicedir = $(kde_servicesdir)

@@ -28,7 +28,7 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include "korganizeriface_stub.h"
+#include "kcalendariface_stub.h"
 #include "plugin.h"
 
 class KOrganizerPlugin : public Kontact::Plugin
@@ -41,6 +41,9 @@ class KOrganizerPlugin : public Kontact::Plugin
 
     virtual bool createDCOPInterface( const QString& serviceType );
 
+    bool canDecodeDrag( QMimeSource * );
+    void processDropEvent( QDropEvent * );
+
   protected:
     KParts::ReadOnlyPart *part();
 
@@ -50,7 +53,7 @@ class KOrganizerPlugin : public Kontact::Plugin
 
   private:
     KParts::ReadOnlyPart *mPart;
-    KOrganizerIface_stub *mIface;
+    KCalendarIface_stub *mIface;
 };
 
 #endif

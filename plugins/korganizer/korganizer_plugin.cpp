@@ -22,12 +22,14 @@
 */
 
 #include <qwidget.h>
+#include <qdragobject.h>
 
 #include <kaction.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kparts/componentfactory.h>
+#include <kmessagebox.h>
 
 #include "core.h"
 
@@ -63,7 +65,7 @@ KParts::ReadOnlyPart *KOrganizerPlugin::part()
 {
   if ( !mPart ) {
     (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
-    mIface = new KOrganizerIface_stub( dcopClient(), "korganizer", "KOrganizerIface" );
+    mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
 
     mPart = KParts::ComponentFactory
       ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkorganizerpart",
@@ -97,6 +99,24 @@ bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )
   }
 
   return false;
+}
+
+bool KOrganizerPlugin::canDecodeDrag( QMimeSource *mimeSource )
+{
+  return QTextDrag::canDecode( mimeSource );
+}
+
+void KOrganizerPlugin::processDropEvent( QDropEvent *event )
+{
+  QString text;
+  if ( QTextDrag::decode( event, text ) ) {
+    kdDebug() << "DROP:" << text << endl;
+    if ( mIface ) mIface->openEventEditor( text );
+    else kdError() << "KOrganizer Part not loaded." << endl;
+  } else {
+    KMessageBox::sorry( core(), i18n("Can't handle drop events of type '%1'.")
+                                .arg( event->format() ) );
+  }
 }
 
 #include "korganizer_plugin.moc"
