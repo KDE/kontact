@@ -55,3 +55,9 @@ Name[xx]=xxWeatherxx
 Comment=
 Weight=60
 Icon=kweather
+
+[NewsTicker]
+Name=News Ticker
+Comment=
+Weight=60
+Icon=knode
