@@ -102,6 +102,11 @@ Comment[xx]=xxxx
 Weight=30
 Icon=korganizer
 
+[KNode]
+Name=News
+Weight=50
+Icon=knode
+
 [KWeather]
 Name=Weather
 Name[be]=Надвор'е
