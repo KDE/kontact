@@ -18,10 +18,9 @@ TestPlugin::TestPlugin(Kaplan::Core *_core, const char *name, const QStringList 
   setInstance(TestPluginFactory::instance());
 
   new KAction("Test", 0, this, SLOT(slotTestMenu()), actionCollection(), "edit_test");
-  
+
   setXMLFile("kptestplugin.rc");
 
-  core()->addMainEntry(i18n("Mail"), "kmail", this, SLOT(slotTestMenu()));
   core()->addMainEntry(i18n("News"), "knode", this, SLOT(slotTestMenu()));
 }
 
@@ -44,8 +43,8 @@ void TestPlugin::slotShowNotes()
     m_part = new TestPart(this, "notes");
     core()->addPart(m_part);
   }
- 
-  core()->showView(m_part->widget()); 
+
+  core()->showView(m_part->widget());
 }
 
 #include "test_plugin.moc"
