@@ -127,6 +127,7 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   m_headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
                                 QSizePolicy::Maximum );
   m_headerFrame->setSpacing( 0 );
+  m_headerFrame->setFixedHeight(22);
 
   m_headerText = new QLabel( m_headerFrame );
   m_headerText->setSizePolicy( QSizePolicy::MinimumExpanding,
@@ -135,9 +136,9 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   m_headerText->setPaletteBackgroundColor( darkGray );
   
   m_headerPixmap = new QLabel( m_headerFrame );
-  m_headerPixmap->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-  m_headerPixmap->setFixedSize(22, 22);
-  m_headerPixmap->setAlignment( AlignRight );
+  m_headerPixmap->setSizePolicy( QSizePolicy::Maximum,
+                                 QSizePolicy::Preferred );
+  m_headerPixmap->setAlignment( AlignRight|AlignVCenter );
   m_headerPixmap->setPaletteBackgroundColor( darkGray );
 
   connect( this, SIGNAL( textChanged( const QString& ) ),
