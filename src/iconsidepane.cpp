@@ -159,7 +159,6 @@ void EntryItem::paint( QPainter *p )
     int h = height( box );
 
     QBrush brush = box->colorGroup().brush( QColorGroup::Highlight );
-    brush.setColor( brush.color().light( 115 ) );
     p->fillRect( 1, 0, w - 2, h - 1, brush );
     QPen pen = p->pen();
     QPen oldPen = pen;
@@ -175,7 +174,8 @@ void EntryItem::paint( QPainter *p )
   }
 
   if ( !mPixmap.isNull() ) {
-      int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) : KDialog::marginHint();
+      int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) : 
+                              KDialog::marginHint();
     p->drawPixmap( x, y, mPixmap );
   }
 
