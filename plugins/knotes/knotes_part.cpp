@@ -53,7 +53,7 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
                  actionCollection(), "file_new" );
     new KAction( i18n( "Rename" ), "text", this, SLOT( renameNote() ),
                  actionCollection(), "edit_rename" );
-    new KAction( i18n( "Delete" ), "editdelete", 0, this, SLOT( killSelectedNotes() ),
+    new KAction( i18n( "Delete" ), "editdelete", Key_Delete, this, SLOT( killSelectedNotes() ),
                  actionCollection(), "edit_delete" );
 
     // TODO styleguide: s/New.../New/, s/Rename/Rename.../
