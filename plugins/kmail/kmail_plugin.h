@@ -57,7 +57,7 @@ class KMailPlugin : public Kontact::Plugin
     virtual QString tipFile() const;
 
     virtual QStringList invisibleToolbarActions() const;
-
+    virtual bool queryClose() const;
   protected:
     virtual KParts::Part* createPart();
     void openComposer( const KURL& );

@@ -112,6 +112,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void setupActions();
     void initHeaderWidget( QVBox *vBox );
     void showTip( bool );
+    virtual bool queryClose ();
 
   private slots:
     void pluginsChanged();
@@ -145,6 +146,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     //QStringList mActivePlugins;
 
     AboutDialog *mAboutDialog;
+    bool mReallyClose;
 };
 
 }

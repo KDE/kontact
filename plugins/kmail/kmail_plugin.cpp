@@ -164,4 +164,10 @@ int KMailUniqueAppHandler::newInstance()
     return 0;
 }
 
+bool KMailPlugin::queryClose() const {
+  KMailIface_stub stub( kapp->dcopClient(), "kmail", "KMailIface" );
+  bool canClose=stub.canQueryClose();
+  return canClose;
+}
+
 #include "kmail_plugin.moc"

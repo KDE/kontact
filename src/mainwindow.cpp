@@ -68,7 +68,7 @@ using namespace Kontact;
 
 MainWindow::MainWindow()
   : Kontact::Core(), mTopWidget( 0 ), mHeaderText( 0 ), mHeaderPixmap( 0 ), mSplitter( 0 ),
-    mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 )
+    mCurrentPlugin( 0 ), mLastInfoExtension( 0 ), mAboutDialog( 0 ), mReallyClose( false )
 {
   KTrader::OfferList offers = KTrader::self()->query(
       QString::fromLatin1( "Kontact/Plugin" ),
@@ -571,6 +571,7 @@ void MainWindow::showTip(bool force)
 
 void MainWindow::slotQuit()
 {
+  mReallyClose=true;
   close();
 }
 
@@ -723,6 +724,22 @@ void MainWindow::slotNewToolbarConfig()
 {
   createGUI( mCurrentPlugin->part() );
   applyMainWindowSettings( KGlobal::config(), "MainWindow" );
+}
+
+bool MainWindow::queryClose()
+{
+  if (mReallyClose)
+    return true;
+  bool localClose=true;
+  QValueList<Plugin*>::ConstIterator end = mPlugins.end();
+  QValueList<Plugin*>::ConstIterator it = mPlugins.begin();
+  for ( ; it != end; ++it ) {
+    Plugin *plugin = *it;
+    if (!plugin->isRunningStandalone())
+      if ( !plugin->queryClose())
+        localClose=false;
+  }
+  return localClose;
 }
 
 #include "mainwindow.moc"

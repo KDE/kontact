@@ -179,6 +179,13 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     virtual bool showInSideBar() const { return true; }
 
     /**
+      Reimplement this method if you want to add checks before closing down the main kontact
+      window.  Return true if it's OK to close the window.  If any loaded plugin returns false 
+      from this method, then the main kontact window will not close.
+    */
+    virtual bool queryClose() const { return true; }
+
+    /**
       Retrieve the current DCOP Client for the plugin.
 
       The clients name is taken from the name argument in the constructor.
@@ -230,6 +237,8 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     virtual KParts::Part *createPart() = 0;
 
     KParts::Part *loadPart();
+
+    virtual void virtual_hook(  int id, void* data );
 
   private slots:
     void partDestroyed();
