@@ -121,7 +121,7 @@ KParts::Part *Plugin::loadPart()
 
 const KAboutData *Plugin::aboutData()
 {
-  kdDebug() << "Plugin::aboutData(): libname: " << d->partLibraryName << endl;
+  kdDebug(5601) << "Plugin::aboutData(): libname: " << d->partLibraryName << endl;
 
   const KInstance *instance =
     KParts::Factory::partInstanceFromLibrary( d->partLibraryName );
