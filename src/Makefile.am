@@ -25,8 +25,7 @@ kcm_kontact_la_LIBADD = libkontact.la $(top_builddir)/libkdepim/libkdepim.la \
 rcdir = $(kde_datadir)/kontact
 rc_DATA = kontactui.rc
 
-kdelnkdir = $(kde_appsdir)/Applications
-kdelnk_DATA = Kontact.desktop
+xdg_apps_DATA = Kontact.desktop
 
 KDE_ICON = AUTO
 
