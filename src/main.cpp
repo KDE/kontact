@@ -19,6 +19,8 @@
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include <iostream>
+
 #include <dcopclient.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
@@ -40,6 +42,8 @@
 
 #include "mainwindow.h"
 
+using namespace std;
+
 static const char description[] =
     I18N_NOOP( "A KDE Personal Information Manager" );
 
@@ -56,6 +60,19 @@ class KontactApp : public KUniqueApplication {
     Kontact::MainWindow *mMainWindow;
 };
 
+static void listPlugins()
+{
+  KInstance instance( "kontact" ); // Can't use KontactApp since it's too late for adding cmdline options
+  KTrader::OfferList offers = KTrader::self()->query(
+    QString::fromLatin1( "Kontact/Plugin" ),
+    QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
+  for(KService::List::Iterator it = offers.begin(); it != offers.end(); ++it)
+  {
+    KService::Ptr service = (*it);
+    cout << service->library().remove( "libkontact_" ).latin1() << endl;
+  }
+}
+
 static KCmdLineOptions options[] =
 {
     { "module <module>",   I18N_NOOP("Start with a specific Kontact module."), 0 },
@@ -67,25 +84,13 @@ static KCmdLineOptions options[] =
 
 int KontactApp::newInstance()
 {
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    QString moduleName;
-    if (args->isSet("module"))
-    {
-        moduleName = QString::fromLocal8Bit(args->getOption("module"));
-    }
-    else if (  args->isSet( "list" ) )
-    {
-        KTrader::OfferList offers = KTrader::self()->query(
-            QString::fromLatin1( "Kontact/Plugin" ),
-            QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
-        for(KService::List::Iterator it = offers.begin(); it != offers.end(); ++it)
-        {
-            KService::Ptr service = (*it);
-            printf("%s\n", service->library().remove( "libkontact_" ).latin1());
-        }
-        return 0;
-    }
-    QWidget* splash = 0;
+  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+  QString moduleName;
+  if ( args->isSet("module") )
+  {
+    moduleName = QString::fromLocal8Bit(args->getOption("module"));
+  }
+  QWidget* splash = 0;
   if ( !mMainWindow && args->isSet("splash") ) // only the first time
   {
     // show splash
@@ -112,14 +117,14 @@ int KontactApp::newInstance()
     if ( !mMainWindow ) {
       mMainWindow = new Kontact::MainWindow;
       if ( !moduleName.isEmpty() )
-          mMainWindow->activePluginModule( moduleName );
+        mMainWindow->activePluginModule( moduleName );
       mMainWindow->show();
       setMainWidget( mMainWindow );
     }
     else
     {
-        if ( !moduleName.isEmpty() )
-          mMainWindow->activePluginModule( moduleName );
+      if ( !moduleName.isEmpty() )
+        mMainWindow->activePluginModule( moduleName );
     }
   }
 
@@ -147,15 +152,22 @@ int main(int argc, char **argv)
 
   KCmdLineArgs::init( argc, argv, &about );
   KCmdLineArgs::addCmdLineOptions( options );
+  KUniqueApplication::addCmdLineOptions();
   KApplication::addCmdLineOptions();
 
+  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+  if ( args->isSet( "list" ) )
+  {
+    listPlugins();
+    return 0;
+  }
+
   if ( !KontactApp::start() ) {
-    kdError() << "Kontact is already running!" << endl;
+    // Already running, brought to the foreground.
     return 0;
   }
 
   KontactApp app;
-
   bool ret = app.exec();
   while ( KMainWindow::memberList->first() )
     delete KMainWindow::memberList->first();
