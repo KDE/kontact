@@ -75,9 +75,9 @@ static void listPlugins()
 
 static KCmdLineOptions options[] =
 {
-    { "module <module>",   I18N_NOOP("Start with a specific Kontact module."), 0 },
-    { "nosplash",   I18N_NOOP("Disable the splash screen."), 0 },
-    { "list", I18N_NOOP("List all possible modules and exit."), 0 },
+    { "module <module>",   I18N_NOOP("Start with a specific Kontact module"), 0 },
+    { "nosplash",   I18N_NOOP("Disable the splash screen"), 0 },
+    { "list", I18N_NOOP("List all possible modules and exit"), 0 },
     KCmdLineLastOption
 };
 
