@@ -156,7 +156,7 @@ void KABSummaryWidget::updateView()
       KURLLabel *urlLabel = new KURLLabel( this );
       urlLabel->installEventFilter(this);
       urlLabel->setURL( (*addrIt).addressee.uid() );
-      urlLabel->setText( (*addrIt).addressee.formattedName() );
+      urlLabel->setText( (*addrIt).addressee.realName() );
       mLayout->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
       if ( makeBold ) {
