@@ -22,9 +22,12 @@
 #include <dcopclient.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
+#include <kdebug.h>
 #include <kiconloader.h>
 #include <klocale.h>
+#include <kstartupinfo.h>
 #include <kuniqueapplication.h>
+#include <kwin.h>
 
 #include <qlabel.h>
 #if (QT_VERSION-0 >= 0x030200)
@@ -40,6 +43,53 @@ static const char description[] =
 
 static const char version[] = "0.7.3 (Beta 1)";
 
+class KontactApp : public KUniqueApplication {
+  public:
+    KontactApp() : mMainWindow( 0 ) {}
+    ~KontactApp() {}
+
+    int newInstance();
+
+  private:
+    Kontact::MainWindow *mMainWindow;
+};
+
+int KontactApp::newInstance()
+{
+  // show splash
+#if (QT_VERSION-0 >= 0x030200)
+  QPixmap splashPixmap( UserIcon( "splash" ) );
+
+  QSplashScreen *splash = new QSplashScreen( splashPixmap );
+  splash->show();
+#else
+  Kontact::Splash *splash = new Kontact::Splash( 0, "splash" );
+  splash->show();
+#endif
+
+  if ( isRestored() ) {
+    // There can only be one main window
+    if ( KMainWindow::canBeRestored( 1 ) ) {
+      mMainWindow = new Kontact::MainWindow;
+      mMainWindow->show();
+      mMainWindow->restore( 1 );
+    }
+  } else {
+    if ( mMainWindow ) {
+      mMainWindow->show();
+      KWin::forceActiveWindow( mMainWindow->winId() );
+      KStartupInfo::appStarted();
+    } else {
+      mMainWindow = new Kontact::MainWindow;
+      mMainWindow->show();
+    }
+  }
+
+  delete splash;
+
+  return 0;
+}
+
 int main(int argc, char **argv)
 {
   KAboutData about( "kontact", I18N_NOOP( "Kontact" ), version, description,
@@ -52,35 +102,17 @@ int main(int argc, char **argv)
   about.addAuthor( "Matthias Hoelzer-Kluepfel", I18N_NOOP("Original Author"), "mhk@kde.org" );
 
   KCmdLineArgs::init( argc, argv, &about );
-  KUniqueApplication app;
 
-  // show splash
-#if (QT_VERSION-0 >= 0x030200)
-  QPixmap splashPixmap( UserIcon( "splash" ) );
-
-  QSplashScreen *splash = new QSplashScreen( splashPixmap );
-  splash->show();
-#else
-  Kontact::Splash *splash = new Kontact::Splash( 0, "splash" );
-  splash->show();
-#endif
-
-  // see if we are starting with session management
-  if ( app.isRestored() ) {
-      if (Kontact::MainWindow::canBeRestored(1))
-	  //only restore a single main window! (Don);
-	  (new Kontact::MainWindow)->restore(1);
-  } else {
-    // no session.. just start up normally
-    Kontact::MainWindow *mw = new Kontact::MainWindow;
-     mw->show();
+  if ( !KontactApp::start() ) {
+    kdError() << "Kontact is already running!" << endl;
+    return 0;
   }
 
-  // delete splash
-  delete splash;
+  KontactApp app;
 
   bool ret = app.exec();
-  while (KMainWindow::memberList->first())
-      delete KMainWindow::memberList->first();
+  while ( KMainWindow::memberList->first() )
+    delete KMainWindow::memberList->first();
+
   return ret;
 }
