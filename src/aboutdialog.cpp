@@ -23,6 +23,7 @@
 */
 
 #include "aboutdialog.h"
+#include "aboutdialog.moc"
 
 #include "core.h"
 #include "plugin.h"
