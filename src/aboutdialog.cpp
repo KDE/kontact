@@ -84,7 +84,6 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
     text += i18n("Version %1</p>").arg( about->version() );
 
-
     if (!about->shortDescription().isEmpty()) {
       text += "<p>" + about->shortDescription() + "<br>" +
                about->copyrightStatement() + "</p>";
@@ -102,7 +101,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
   
     QTextEdit *personView = new QTextEdit( topFrame );
     personView->setReadOnly( true );
-    topLayout->addWidget( personView );
+    topLayout->addWidget( personView, 1 );
 
     text = "";
 
@@ -112,8 +111,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
       QValueList<KAboutPerson>::ConstIterator it;
       for( it = authors.begin(); it != authors.end(); ++it ) {
-        text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() +
-                "\">" + (*it).emailAddress() + "</a>&gt;<br>";
+        text += formatPerson( (*it).name(), (*it).emailAddress() );
         if (!(*it).task().isEmpty()) text += "<i>" + (*it).task() + "</i><br>";
       }
     }
@@ -124,8 +122,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
       QValueList<KAboutPerson>::ConstIterator it;
       for( it = credits.begin(); it != credits.end(); ++it ) {
-        text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() +
-                "\">" + (*it).emailAddress() + "</a>&gt;<br>";
+        text += formatPerson( (*it).name(), (*it).emailAddress() );
         if (!(*it).task().isEmpty()) text += "<i>" + (*it).task() + "</i><br>";
       }
     }
@@ -136,13 +133,21 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
       QValueList<KAboutTranslator>::ConstIterator it;
       for( it = translators.begin(); it != translators.end(); ++it ) {
-       text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() +
-                "\">" + (*it).emailAddress() + "</a>&gt;<br>";
+       text += formatPerson( (*it).name(), (*it).emailAddress() );
       }
     }
 
     personView->setText( text );
   }
+}
+
+QString AboutDialog::formatPerson( const QString &name, const QString &email )
+{
+  QString text = name;
+  if ( !email.isEmpty() ) {
+    text += " &lt;<a href=\"mailto:" + email + "\">" + email + "</a>&gt;<br>";
+  }
+  return text;
 }
 
 void AboutDialog::addLicenseText(const KAboutData *about)

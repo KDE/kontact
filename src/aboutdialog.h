@@ -43,7 +43,9 @@ class AboutDialog : public KDialogBase
     void addAboutData( const QString &title, const QString &icon,
                        const KAboutData *about );
 
-	void addLicenseText( const KAboutData *about );
+    void addLicenseText( const KAboutData *about );
+
+    QString formatPerson( const QString &name, const QString &email );
 
   private:
     Core *mCore;
