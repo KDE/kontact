@@ -1,5 +1,6 @@
 INCLUDES = -I$(top_srcdir)/kontact/interfaces \
 	-I$(top_srcdir)/libkdepim \
+	-I$(top_srcdir) \
 	-I$(top_srcdir)/kpilot/lib \
 	-I$(top_srcdir)/kpilot/kpilot \
 	$(PISOCK_INCLUDE) $(all_includes)
