@@ -24,37 +24,38 @@
 
 #include <akregator_options.h>
 #include "akregator_plugin.h"
+namespace Akregator {
 
-typedef KGenericFactory< aKregatorPlugin, Kontact::Core > aKregatorPluginFactory;
+typedef KGenericFactory<Akregator::Plugin, Kontact::Core > PluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_akregator,
-                            aKregatorPluginFactory( "kontact_akregator" ) )
+                            PluginFactory( "kontact_akregator" ) )
 
-aKregatorPlugin::aKregatorPlugin( Kontact::Core *core, const char *, const QStringList& )
+Plugin::Plugin( Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "akregator" ), m_stub(0)
 {
 
-    setInstance( aKregatorPluginFactory::instance() );
+    setInstance( PluginFactory::instance() );
     
     m_uniqueAppWatcher = new Kontact::UniqueAppWatcher(
-            new Kontact::UniqueAppHandlerFactory<AkregatorUniqueAppHandler>(), this );
+	new Kontact::UniqueAppHandlerFactory<Akregator::UniqueAppHandler>(), this );
 }
 
-aKregatorPlugin::~aKregatorPlugin()
+Plugin::~Plugin()
 {
 }
 
-bool aKregatorPlugin::isRunningStandalone()
+bool Plugin::isRunningStandalone()
 {
     return m_uniqueAppWatcher->isRunningStandalone();
 }
 
-QStringList aKregatorPlugin::invisibleToolbarActions() const
+QStringList Plugin::invisibleToolbarActions() const
 {
     return QStringList( "file_new_contact" );
 }
 
 
-Akregator::aKregatorPartIface_stub *aKregatorPlugin::interface()
+Akregator::AkregatorPartIface_stub *Plugin::interface()
 {
     if ( !m_stub ) {
         part();
@@ -65,42 +66,42 @@ Akregator::aKregatorPartIface_stub *aKregatorPlugin::interface()
 }
 
 
-MyBasePart* aKregatorPlugin::createPart()
+MyBasePart* Plugin::createPart()
 {
     MyBasePart* p = loadPart();
 
     connect(p, SIGNAL(showPart()), this, SLOT(showPart()));
-    m_stub = new Akregator::aKregatorPartIface_stub( dcopClient(), "akregator",
-                                      "aKregatorIface" );
+    m_stub = new Akregator::AkregatorPartIface_stub( dcopClient(), "akregator",
+                                      "AkregatorIface" );
     m_stub->openStandardFeedList();
     return p;
 }
 
 
-void aKregatorPlugin::showPart()
+void Plugin::showPart()
 {
     core()->selectPlugin(this);
 }
 
 
-QStringList aKregatorPlugin::configModules() const
+QStringList Plugin::configModules() const
 {
     QStringList modules;
     modules << "PIM/akregator.desktop";
     return modules;
 }
 
-void AkregatorUniqueAppHandler::loadCommandLineOptions()
+void UniqueAppHandler::loadCommandLineOptions()
 {
     KCmdLineArgs::addCmdLineOptions( akregator_options );
 }
 
-int AkregatorUniqueAppHandler::newInstance()
+int UniqueAppHandler::newInstance()
 {
     kdDebug(5602) << k_funcinfo << endl;
     // Ensure part is loaded
     (void)plugin()->part();
-    DCOPRef akr( "akregator", "aKregatorIface" );
+    DCOPRef akr( "akregator", "AkregatorIface" );
 //    DCOPReply reply = kAB.call( "handleCommandLine" );
   //  if ( reply.isValid() ) {
     //    bool handled = reply;
@@ -111,5 +112,5 @@ int AkregatorUniqueAppHandler::newInstance()
    // return 0;
 }
 
-
+} // namespace Akregator
 #include "akregator_plugin.moc"

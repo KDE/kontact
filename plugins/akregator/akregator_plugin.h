@@ -20,27 +20,29 @@ typedef KPIM::Part MyBasePart;
 
 class KAboutData;
 
-class AkregatorUniqueAppHandler : public Kontact::UniqueAppHandler
+namespace Akregator {
+  
+class UniqueAppHandler : public Kontact::UniqueAppHandler
 {
     public:
-        AkregatorUniqueAppHandler( Kontact::Plugin* plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+        UniqueAppHandler( Kontact::Plugin* plugin ) : Kontact::UniqueAppHandler( plugin ) {}
         virtual void loadCommandLineOptions();
         virtual int newInstance();
 };
 
 
-class aKregatorPlugin : public Kontact::Plugin
+class Plugin : public Kontact::Plugin
 {
   Q_OBJECT
 
   public:
-    aKregatorPlugin( Kontact::Core *core, const char *name,
+    Plugin( Kontact::Core *core, const char *name,
                        const QStringList & );
-    ~aKregatorPlugin();
+    ~Plugin();
 
     int weight() const { return 700; }
 
-    Akregator::aKregatorPartIface_stub *interface();
+    AkregatorPartIface_stub *interface();
 
     virtual QStringList configModules() const;
     virtual QStringList invisibleToolbarActions() const;
@@ -51,8 +53,9 @@ class aKregatorPlugin : public Kontact::Plugin
 
   protected:
     MyBasePart *createPart();
-    Akregator::aKregatorPartIface_stub *m_stub;
+    AkregatorPartIface_stub *m_stub;
     Kontact::UniqueAppWatcher *m_uniqueAppWatcher;
 };
 
+} // namespace Akregator
 #endif
