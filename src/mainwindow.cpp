@@ -73,28 +73,6 @@
 #include "statusbarprogresswidget.h"
 #include "broadcaststatus.h"
 
-class KeyPressEater : public QObject
-{
-  public:
-    KeyPressEater( QObject *parent )
-      : QObject( parent, "KeyPressEater" )
-    {
-    }
-
-  protected:
-    bool eventFilter( QObject*, QEvent *event )
-    {
-      if ( event->type() == QEvent::KeyPress ||
-           event->type() == QEvent::KeyRelease ||
-           event->type() == QEvent::MouseButtonPress ||
-           event->type() == QEvent::MouseButtonRelease ||
-           event->type() == QEvent::MouseButtonDblClick )
-        return true;
-      else
-        return false;
-    }
-};
-
 using namespace Kontact;
 
 MainWindow::MainWindow()
@@ -106,12 +84,8 @@ MainWindow::MainWindow()
   // modal subdialogs will only affect this dialog, not the other windows
   setWFlags( getWFlags() | WGroupLeader );
 
-  // Prevent user input during loading the plugins
-  mKeyPressEater = new KeyPressEater( this );
-  kapp->installEventFilter( mKeyPressEater );
-
   initGUI();
-  QTimer::singleShot( 0, this, SLOT( initObject() ) );
+  initObject();
 }
 
 void MainWindow::initGUI()
@@ -192,9 +166,6 @@ void MainWindow::initObject()
 
   paintAboutScreen( introductionString() );
   Prefs::setLastVersionSeen( kapp->aboutData()->version() );
-
-  kapp->removeEventFilter( mKeyPressEater );
-  delete mKeyPressEater;
 }
 
 MainWindow::~MainWindow()
