@@ -70,12 +70,12 @@ MainWindow::MainWindow()
 
   int sidePaneType = Prefs::self()->mSidePaneType;
   switch ( sidePaneType ) {
-    case Prefs::SidePaneBars:
+    case Prefs::SidePaneIcons:
       m_sidePane = new IconSidePane( m_splitter );
       break;
     default:
       kdError() << "Invalid SidePaneType: " << sidePaneType << endl;
-    case Prefs::SidePaneIcons:
+    case Prefs::SidePaneBars:
       m_sidePane = new SidePane( m_splitter );
       break;
   }

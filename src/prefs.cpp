@@ -42,7 +42,7 @@ Prefs::Prefs()
 {
   KPrefs::setCurrentGroup("View");
 
-  addItemInt("SidePaneType", mSidePaneType, SidePaneIcons );
+  addItemInt("SidePaneType", mSidePaneType, SidePaneBars );
 }
 
 Prefs::~Prefs()
