@@ -12,7 +12,7 @@
 #include <kparts/part.h>
 
 #include <libkdepim/part.h>
-#include <kontact/plugin.h>
+#include <plugin.h>
 #include "akregator_partiface_stub.h"
 #include <uniqueapphandler.h>
 

@@ -19,8 +19,8 @@
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
 
-#include <kontact/core.h>
-#include <kontact/plugin.h>
+#include <core.h>
+#include <plugin.h>
 
 #include <akregator_options.h>
 #include "akregator_plugin.h"
