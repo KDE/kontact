@@ -56,7 +56,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
   QWidget *header = createHeader( this, icon, i18n( "To-dos" ) );
   mainLayout->addWidget( header );
 
-  mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
+  mLayout = new QGridLayout( mainLayout, 7, 4, 3 );
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = KOrg::StdCalendar::self();
@@ -129,12 +129,13 @@ void TodoSummaryWidget::updateView()
 
       label = new QLabel( this );
       label->setPixmap( pm );
-      label->setMaximumSize( label->minimumSizeHint() );
+      label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
       label = new QLabel( QString::number( todo->percentComplete() ) + "%", this );
       label->setAlignment( AlignHCenter | AlignVCenter );
+      label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, 1 );
       mLabels.append( label );
 
@@ -153,6 +154,7 @@ void TodoSummaryWidget::updateView()
 
       label = new QLabel( stateText, this );
       label->setAlignment( AlignLeft | AlignVCenter );
+      label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, 3 );
       mLabels.append( label );
 
