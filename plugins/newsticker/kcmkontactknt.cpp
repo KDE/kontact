@@ -193,6 +193,8 @@ void KCMKontactKNT::storeCustomNews()
     QStringList value;
     value << (*it)->title() << (*it)->url();
     config.writeEntry( QString::number( counter ), value );
+
+    ++counter;
   }
 
   config.sync();
