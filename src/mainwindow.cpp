@@ -135,6 +135,9 @@ void MainWindow::initWidgets()
                                               QSizePolicy::Preferred ) );
       break;
   }
+
+  m_splitter->setResizeMode( m_sidePane, QSplitter::KeepSize );
+
   connect( m_sidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
            SLOT( selectPlugin( Kontact::Plugin * ) ) );
 
@@ -493,6 +496,8 @@ void MainWindow::updateConfig()
         m_headerFrame->show();
         break;
     }
+
+    m_splitter->setResizeMode( m_sidePane, QSplitter::KeepSize );
 
     m_sidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                QSizePolicy::Preferred ) );
