@@ -115,7 +115,7 @@ void KABSummaryWidget::updateView()
       KABDateEntry entry;
       entry.birthday = true;
       entry.yearsOld = QDate::currentDate().year() - birthday.year();
-      entry.daysTo = QDate::currentDate().daysTo( QDate( 
+      entry.daysTo = QDate::currentDate().daysTo( QDate(
                                                   QDate::currentDate().year(),
                                                   date.month(), date.day() ) );
 
@@ -137,7 +137,7 @@ void KABSummaryWidget::updateView()
       KABDateEntry entry;
       entry.birthday = false;
       entry.yearsOld = QDate::currentDate().year() - anniversary.year();
-      entry.daysTo = QDate::currentDate().daysTo( QDate( 
+      entry.daysTo = QDate::currentDate().daysTo( QDate(
                                                   QDate::currentDate().year(),
                                                   date.month(), date.day() ) );
       if ( entry.daysTo < 0 )
@@ -229,9 +229,10 @@ void KABSummaryWidget::updateView()
   }
   else
   {
-    QLabel *nothingtosee = new QLabel( 
-        i18n( "No birthdays or anniversaries pending within the next %1 days" )
-        .arg(mDaysAhead), this, "nothing to see" );
+    QLabel *nothingtosee = new QLabel(
+        i18n( "No birthdays or anniversaries pending within the next 1 day",
+              "No birthdays or anniversaries pending within the next %n days",
+              mDaysAhead ), this, "nothing to see" );
     nothingtosee->setAlignment( AlignCenter );
     nothingtosee->setTextFormat( RichText );
     mLayout->addMultiCellWidget( nothingtosee, 0, 0, 0, 4 );
@@ -299,7 +300,7 @@ bool KABSummaryWidget::eventFilter(QObject *obj, QEvent* e)
       emit message(QString::null);
   }
 
-  return Kontact::Summary::eventFilter(obj, e); 
+  return Kontact::Summary::eventFilter(obj, e);
 }
 
 #include "kabsummarywidget.moc"
