@@ -25,7 +25,6 @@
 #define KONTACT_PLUGIN_H
 
 #include <qobject.h>
-#include <qwidget.h>
 #include <kxmlguiclient.h>
 #include <qptrlist.h>
 
@@ -34,6 +33,7 @@ class DCOPClient;
 class DCOPObject;
 class KAboutData;
 class KAction;
+class QWidget;
 
 namespace Kontact
 {
@@ -68,7 +68,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     void setIdentifier( const QString &identifier );
 
     /**
-      Returns the identifier. It is used as argument for several 
+      Returns the identifier. It is used as argument for several
       methods of Kontacts core.
     */
     QString identifier() const;
@@ -131,7 +131,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     /**
       Reimplement this method if you want to add a widget for your application
       to Kontact's summary page.
-      
+
       @param parent parent widget.
     */
     virtual Summary *createSummaryWidget( QWidget * /*parent*/ ) { return 0; }
@@ -140,7 +140,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       Reimplement this method if you don't want to have a plugin shown in the sidebar.
     */
     virtual bool showInSideBar() const { return true; }
-    
+
     /**
       Retrieve the current DCOP Client for the plugin.
 
@@ -166,7 +166,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     /**
       FIXME: write API doc for Kontact::Plugin::newActions().
     */
-    QPtrList<KAction>* newActions() const; 
+    QPtrList<KAction>* newActions() const;
 
     /**
       Return, if the plugin can handle the drag object of the given mime type.
