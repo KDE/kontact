@@ -6,7 +6,7 @@ ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=libkontact_weatherplugin
 X-KDE-KontactIdentifier=weather
-X-KDE-KontactPluginVersion=2
+X-KDE-KontactPluginVersion=3
 
 X-KDE-PluginInfo-Name=kontact_weatherplugin
 X-KDE-PluginInfo-Version=0.1

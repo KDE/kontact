@@ -100,6 +100,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void saveSettings();
 
     bool isPluginLoaded( const KPluginInfo * );
+    Kontact::Plugin *pluginFromInfo( const KPluginInfo * );
     void loadPlugins();
     void unloadPlugins();
     bool removePlugin( const KPluginInfo * );

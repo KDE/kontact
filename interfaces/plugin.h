@@ -39,7 +39,7 @@ class QWidget;
   Increase this version number whenever you make a change
   in the API.
  */
-#define KONTACT_PLUGIN_VERSION 2
+#define KONTACT_PLUGIN_VERSION 3
 
 namespace Kontact
 {
@@ -156,6 +156,12 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       widget of the KPart belonging to the plugin is raised.
     */
     virtual void select();
+
+    /**
+      This function is called whenever the config dialog has been closed
+      successfully.
+     */
+    virtual void configUpdated();
 
     /**
       Reimplement this method if you want to add a widget for your application

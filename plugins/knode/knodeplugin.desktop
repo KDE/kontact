@@ -5,7 +5,7 @@ Icon=knode
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=libkontact_knodeplugin
-X-KDE-KontactPluginVersion=2
+X-KDE-KontactPluginVersion=3
 X-KDE-KontactPartLibraryName=libknodepart
 X-KDE-KontactPartExecutableName=knode
 

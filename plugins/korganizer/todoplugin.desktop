@@ -5,7 +5,7 @@ Icon=korganizer_todo
 ServiceTypes=Kontact/Plugin
 
 X-KDE-Library=libkontact_todoplugin
-X-KDE-KontactPluginVersion=2
+X-KDE-KontactPluginVersion=3
 X-KDE-KontactPartLibraryName=libkorganizerpart
 
 X-KDE-PluginInfo-Website=http://korganizer.kde.org

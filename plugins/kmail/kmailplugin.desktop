@@ -5,7 +5,7 @@ Icon=kmail
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=libkontact_kmailplugin
-X-KDE-KontactPluginVersion=2
+X-KDE-KontactPluginVersion=3
 X-KDE-KontactPartLibraryName=libkmailpart
 X-KDE-KontactPartExecutableName=kmail
 X-KDE-KontactPartLoadOnStart=true

@@ -223,11 +223,17 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
 
 bool MainWindow::isPluginLoaded( const KPluginInfo * info )
 {
+  return ( pluginFromInfo( info ) != 0 );
+}
+
+Plugin *MainWindow::pluginFromInfo( const KPluginInfo *info )
+{
     PluginList::ConstIterator end = mPlugins.end();
     for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
       if ( ( *it )->identifier() == info->pluginName() )
-        return true;
-    return false;
+      return *it;
+
+  return 0;
 }
 
 void MainWindow::loadPlugins()
@@ -242,8 +248,12 @@ void MainWindow::loadPlugins()
   {
     if( ! ( *it )->isPluginEnabled() )
       continue;
-    if( isPluginLoaded( *it ) )
+    if( isPluginLoaded( *it ) ) {
+      Plugin *plugin = pluginFromInfo( *it );
+      if ( plugin )
+        plugin->configUpdated();
       continue;
+    }
 
     kdDebug(5600) << "Loading Plugin: " << ( *it )->name() << endl;
     Kontact::Plugin *plugin =

@@ -5,7 +5,7 @@ Icon=konsole
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=libkptestplugin
-X-KDE-KontactPluginVersion=1
+X-KDE-KontactPluginVersion=3
 
 X-KDE-PluginInfo-Name=kptestplugin
 X-KDE-PluginInfo-Version=0.1

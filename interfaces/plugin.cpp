@@ -180,6 +180,10 @@ void Plugin::select()
 {
 }
 
+void Plugin::configUpdated()
+{
+}
+
 void Plugin::partDestroyed()
 {
   d->part = 0;

@@ -5,7 +5,7 @@ Icon=keditbookmarks
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=libkontact_summaryplugin
-X-KDE-KontactPluginVersion=2
+X-KDE-KontactPluginVersion=3
 
 X-KDE-PluginInfo-Name=kontact_summaryplugin
 X-KDE-PluginInfo-Version=0.1
