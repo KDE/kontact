@@ -4,7 +4,7 @@ INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/korganizer \
 
 kde_module_LTLIBRARIES = libkpkorganizerplugin.la
 libkpkorganizerplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
-libkpkorganizerplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) -lkcal
+libkpkorganizerplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) -L$(top_builddir)/libkcal -lkcal
 
 libkpkorganizerplugin_la_SOURCES = korganizer_plugin.cpp kcalendariface.stub \
   summarywidget.cpp
