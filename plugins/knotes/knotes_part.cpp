@@ -117,7 +117,7 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
 
   (void) new KParts::SideBarExtension( mNotesView, this, "NotesSideBarExtension" );
 
-  (void) new KAction( i18n("&New..."), "editnew", CTRL+Key_N, this, SLOT( newNote() ), actionCollection(), "file_new" );
+  (void) new KAction( i18n("&New..."), "knotes", CTRL+Key_N, this, SLOT( newNote() ), actionCollection(), "file_new" );
   mActionEdit = new KAction( i18n( "Rename" ), "editrename", this,
                              SLOT( renameNote() ), actionCollection(),
                                      "edit_rename" );
