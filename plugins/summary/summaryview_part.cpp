@@ -130,8 +130,8 @@ void SummaryViewPart::updateWidgets()
 
   KPIM::IdentityManager idm( /*readonly=*/true, this );
   const KPIM::Identity &id = idm.defaultIdentity();
-  QString currUser = QString("Summary for %1").arg(id.fullName());
-  mUsernameLabel->setText( QString("<i><b>%1</b></i>").arg(currUser) );
+  QString currUser = i18n("Summary for %1").arg(id.fullName());
+  mUsernameLabel->setText( QString::fromLatin1("<i><b>%1</b></i>").arg(currUser) );
 
   mSummaries.clear();
 
