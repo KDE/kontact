@@ -132,7 +132,7 @@ void PluginSelection::readConfig()
 void PluginSelection::writeConfig()
 {
   KService::Ptr ptr = *( mPluginList.at( mPluginCombo->currentItem() ) );
-  mItem->setValue( ptr->library() );
+  mItem->setValue( ptr->property("X-KDE-PluginInfo-Name").toString() );
 }
 
 void PluginSelection::itemClicked( QListViewItem *item )
