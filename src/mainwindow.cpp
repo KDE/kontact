@@ -43,7 +43,7 @@
 #include <kparts/componentfactory.h>
 #include <kplugininfo.h>
 #include <kpopupmenu.h>
-#include <ksettings/dialog.h>
+#include <ksettings/componentsdialog.h>
 #include <ksettings/dispatcher.h>
 #include <kshortcut.h>
 #include <kstandarddirs.h>
@@ -104,8 +104,10 @@ MainWindow::MainWindow()
   if ( mSidePane )
     mSidePane->updatePlugins();
 
+#if 0
   KSettings::Dispatcher::self()->registerInstance( instance(), this,
       SLOT( updateConfig() ) );
+#endif
   loadSettings();
 
   showTip( false );
@@ -500,12 +502,12 @@ void MainWindow::slotQuit()
 
 void MainWindow::slotPreferences()
 {
-  static KSettings::Dialog * dlg = 0;
-  if( dlg == 0 ) {
-    dlg = new KSettings::Dialog( KSettings::Dialog::Configurable, this );
-    dlg->addPluginInfos( mPluginInfos );
-    connect( dlg, SIGNAL( pluginSelectionChanged() ),
-        SLOT( pluginsChanged() ) );
+  static KSettings::ComponentsDialog *dlg = 0;
+  if( !dlg ) {
+    dlg = new KSettings::ComponentsDialog( this );
+    dlg->setPluginInfos( mPluginInfos );
+    connect( dlg, SIGNAL( okClicked() ), SLOT( pluginsChanged() ) );
+    connect( dlg, SIGNAL( applyClicked() ), SLOT( pluginsChanged() ) );
   }
 
   dlg->show();
