@@ -35,6 +35,7 @@
 #include <libkcal/event.h>
 #include <libkcal/resourcecalendar.h>
 #include <libkcal/resourcelocal.h>
+#include <libkdepim/kpimprefs.h>
 
 #include "core.h"
 #include "plugin.h"
@@ -56,11 +57,12 @@ SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
   mLayout->setRowStretch( 6, 1 );
 
-  KConfig config( "korganizerrc" );
-  mCalendar = new KCal::CalendarResources( config.readEntry( "TimeZoneId" ) );
-  KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
+  mCalendar = new KCal::CalendarResources( KPimPrefs::timezone() );
   mCalendar->readConfig();
+
+  KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
   if ( manager->isEmpty() ) {
+    KConfig config( "korganizerrc" );
     config.setGroup( "General" );
     QString fileName = config.readPathEntry( "Active Calendar" );
 
@@ -80,9 +82,6 @@ SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
     manager->add( defaultResource );
     manager->setStandardResource( defaultResource );
   }
-
-  config.setGroup( "Date & Time" );
-  mCalendar->setTimeZoneId( config.readEntry( "TimeZoneId" ) );
   mCalendar->load();
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
@@ -113,54 +112,75 @@ void SummaryWidget::updateView()
 
   QLabel *label = 0;
   int counter = 0;
-  KCal::Event::List events = mCalendar->events( QDate::currentDate(),
-                                                QDate::currentDate().addDays( days - 1 ), true );
+  QPixmap pm = loader.loadIcon( "appointment", KIcon::Small );
 
-  // sort events
-  KCal::Event::List sortedEvents;
-  KCal::Event::List::Iterator sortIt;
-  KCal::Event::List::Iterator eventIt;
-  for ( eventIt = events.begin(); eventIt != events.end(); ++eventIt ) {
-    sortIt = sortedEvents.begin();
-    while ( sortIt != sortedEvents.end() &&
-            (*eventIt)->dtStart().date() >= (*sortIt)->dtStart().date() ) {
-      ++sortIt;
-    }
-    sortedEvents.insert( sortIt, *eventIt );
-  }
-
-  // display events
-  if ( events.count() > 0 ) {
-    QPixmap pm = loader.loadIcon( "appointment", KIcon::Small );
-
+  QDate dt;
+  for ( dt=QDate::currentDate();
+        dt<=QDate::currentDate().addDays( days - 1 );
+        dt=dt.addDays(1) ) {
+    KCal::Event::List events = mCalendar->events( dt, true );
+    KCal::Event *ev;
     KCal::Event::List::ConstIterator it;
-    for( it = sortedEvents.begin(); it != sortedEvents.end() && counter < 5; ++it ) {
-      KCal::Event *ev = *it;
+    for ( it=events.begin(); it!=events.end(); ++it ) {
+      ev = *it;
 
-      if ( days == 1 ) {
-        if ( ev->doesFloat() && ev->dtStart().date() < QDate::currentDate() )
-          continue;
-
-        if ( ev->recurrence()->doesRecur() && !ev->recursOn( QDate::currentDate() ) )
-          continue;
+      // Count number of days in multiday event
+      int span=1; int dayof=1;
+      if ( ev->isMultiDay() ) {
+        QDate d = ev->dtStart().date();
+        while ( d < ev->dtEnd().date() ) {
+          if ( d < dt ) {
+            dayof++;
+          }
+          span++;
+          d=d.addDays( 1 );
+        }
       }
 
+      // Fill Appointment Pixmap Field
       label = new QLabel( this );
       label->setPixmap( pm );
       label->setMaximumSize( label->minimumSizeHint() );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
-      QString date;
-      if ( days > 1 )
-        date += ev->dtStartDateStr() + ": ";
-      date += ev->dtStartTimeStr() + " - " + ev->dtEndTimeStr();
-      label = new QLabel( date, this );
-      label->setAlignment( AlignHCenter );
+      // Fill Event Date Field
+      bool makeBold = false;
+      QString datestr;
+      QDate d = ev->dtStart().date();
+
+      // Modify event date for printing
+      QDate sD = QDate::QDate( dt.year(), dt.month(), d.day() );
+      if ( ev->isMultiDay() ) {
+        sD.setYMD( dt.year(), dt.month(), dt.day() );
+      }
+      if ( ( sD.month() == QDate::currentDate().month() ) &&
+           ( sD.day()   == QDate::currentDate().day() ) ) {
+        datestr = i18n( "Today" );
+        makeBold = true;
+      } else if ( ( sD.month() == QDate::currentDate().addDays( 1 ).month() ) &&
+                  ( sD.day()   == QDate::currentDate().addDays( 1 ).day() ) ) {
+        datestr = i18n( "Tomorrow" );
+      } else {
+        datestr = KGlobal::locale()->formatDate( sD );
+      }
+      label = new QLabel( datestr, this );
+      label->setAlignment( AlignLeft | AlignVCenter );
+      if ( makeBold ) {
+        QFont font = label->font();
+        font.setBold( true );
+        label->setFont( font );
+      }
       mLayout->addWidget( label, counter, 1 );
       mLabels.append( label );
 
-      KURLLabel *urlLabel = new KURLLabel( ev->uid(), ev->summary(), this );
+      // Fill Event Summary Field
+      QString newtext = ev->summary();
+      if ( ev->isMultiDay() ) {
+        newtext.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
+      }
+
+      KURLLabel *urlLabel = new KURLLabel( ev->uid(), newtext, this );
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
 
@@ -168,12 +188,35 @@ void SummaryWidget::updateView()
         QToolTip::add( urlLabel, ev->description() );
       }
 
+      // Fill Event Time Range Field (only for non-floating Events)
+      if ( !ev->doesFloat() ) {
+        QTime sST = ev->dtStart().time();
+        QTime sET = ev->dtEnd().time();
+        if ( ev->isMultiDay() ) {
+          if ( ev->dtStart().date() < dt ) {
+            sST = QTime::QTime( 0, 0 );
+          }
+          if ( ev->dtEnd().date() > dt ) {
+            sET = QTime::QTime( 23, 59 );
+          }
+        }
+        datestr = i18n( "Time from - to", "%1 - %2" )
+                  .arg( KGlobal::locale()->formatTime( sST ) )
+                  .arg( KGlobal::locale()->formatTime( sET ) );
+        label = new QLabel( datestr, this );
+        label->setAlignment( AlignLeft | AlignVCenter );
+        mLayout->addWidget( label, counter, 3 );
+        mLabels.append( label );
+      }
+
       connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
                this, SLOT( selectEvent( const QString& ) ) );
 
       counter++;
     }
-  } else {
+  }
+
+  if ( !counter ) {
     QLabel *noEvents = new QLabel( i18n( "No appointments pending" ), this );
     noEvents->setAlignment( AlignRight | AlignVCenter );
     mLayout->addWidget( noEvents, 0, 2 );
