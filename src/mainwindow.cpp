@@ -176,7 +176,7 @@ void MainWindow::initWidgets()
 void MainWindow::setupActions()
 {
   (void) KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
-  mNewActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), "filenew2"), 
+  mNewActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), ""), 
 		  KShortcut(), this, SLOT(slotNewClicked()),actionCollection(), "action_new" );
 
   new KAction( i18n("Configure Kontact..."), 0, this, SLOT( slotPreferences() ),
