@@ -62,15 +62,15 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   int row=0;
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kpilot", KIcon::Desktop, KIcon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "KPilot Information" ) );
-  mLayout->addMultiCellWidget( header, row,row, 0,2 );
+  mLayout->addMultiCellWidget( header, row,row, 0,3 );
 
   // Last sync information
   row++;
   mLayout->addWidget( new QLabel( i18n("<i>Last sync:</i>"), this), row, 0 );
   mSyncTimeLabel = new QLabel( i18n("No information available" ), this );
   mLayout->addWidget( mSyncTimeLabel, row, 1 );
-  mShowSyncLogLabel = new KURLLabel( "", i18n("[Sync log]"), this );
-  mLayout->addWidget( mShowSyncLogLabel, row, 2 );
+  mShowSyncLogLabel = new KURLLabel( "", i18n("[log]"), this );
+  mLayout->addWidget( mShowSyncLogLabel, row, 3 );
   connect( mShowSyncLogLabel, SIGNAL( leftClickedURL( const QString& ) ),
     this, SLOT( showSyncLog( const QString& ) ) );
 
@@ -78,26 +78,28 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   row++;
   mLayout->addWidget( new QLabel( i18n("<i>User:</i>"), this), row, 0);
   mPilotUserLabel = new QLabel( i18n("Unknown"), this );
-  mLayout->addMultiCellWidget( mPilotUserLabel, row, row, 1,2 );
+  mLayout->addMultiCellWidget( mPilotUserLabel, row, row, 1,3 );
 
   // Device information
   row++;
   mLayout->addWidget( new QLabel( i18n("<i>Device:</i>"), this), row, 0 );
   mPilotDeviceLabel = new QLabel( i18n("Unknown"), this );
-  mLayout->addMultiCellWidget( mPilotDeviceLabel, row, row, 1,2 );
+  mLayout->addMultiCellWidget( mPilotDeviceLabel, row, row, 1,3 );
 
   // Status
   row++;
   mLayout->addWidget( new QLabel( i18n("<i>Status:</i>"), this), row, 0);
   mDaemonStatusLabel = new QLabel( i18n("No communication with the daemon possible"), this );
-  mLayout->addMultiCellWidget( mDaemonStatusLabel, row, row, 1,2 );
+  mLayout->addMultiCellWidget( mDaemonStatusLabel, row, row, 1,3 );
 
   // Conduits:
   row++;
-  mLayout->addWidget( new QLabel( i18n("<i>Conduits:</i>"), this), row, 0 );
+  QLabel *l = new QLabel( i18n("<i>Conduits:</i>"), this );
+  l->setAlignment(AlignAuto | AlignTop | ExpandTabs);
+  mLayout->addWidget( l, row, 0 );
   mConduitsLabel = new QLabel( i18n("No information available"), this );
   mConduitsLabel->setAlignment( mConduitsLabel->alignment()|Qt::WordBreak );
-  mLayout->addMultiCellWidget( mConduitsLabel, row,row, 1,2 );
+  mLayout->addMultiCellWidget( mConduitsLabel, row,row, 1,3 );
 
 //  mLayout->addStretch( 1 );
 //  mLayout->addWidget( new QSpacerItem( 1, 20, QSizePolicy::Minimum, QSizePolicy::Expanding ) );
