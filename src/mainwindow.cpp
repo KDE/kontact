@@ -544,7 +544,6 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   // store old focus widget
   QWidget *focusWidget = kapp->focusWidget();
-  focusWidget->setPaletteBackgroundColor( Qt::green );
   if ( mCurrentPlugin && focusWidget ) {
     // save the focus widget only when it belongs to the activated part
     QWidget *parent = focusWidget->parentWidget();
