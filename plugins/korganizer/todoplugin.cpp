@@ -33,6 +33,8 @@
 #include <kmessagebox.h>
 #include <dcopclient.h>
 
+#include <libkdepim/maillistdrag.h>
+
 #include "core.h"
 
 #include "todoplugin.h"
@@ -97,7 +99,8 @@ bool TodoPlugin::createDCOPInterface( const QString& serviceType )
 
 bool TodoPlugin::canDecodeDrag( QMimeSource *mimeSource )
 {
-  return QTextDrag::canDecode( mimeSource );
+  return QTextDrag::canDecode( mimeSource ) ||
+         KPIM::MailListDrag::canDecode( mimeSource );
 }
 
 bool TodoPlugin::isRunningStandalone()
@@ -110,15 +113,36 @@ bool TodoPlugin::isRunningStandalone()
 
 void TodoPlugin::processDropEvent( QDropEvent *event )
 {
+  if ( !mIface ) {
+    kdError() << "KOrganizer Part not loaded." << endl;
+    return;
+  }
+    
   QString text;
   if ( QTextDrag::decode( event, text ) ) {
-    kdDebug() << "DROP:" << text << endl;
-    if ( mIface ) mIface->openEventEditor( text );
-    else kdError() << "KOrganizer Part not loaded." << endl;
-  } else {
-    KMessageBox::sorry( core(), i18n("Can't handle drop events of type '%1'.")
-                                .arg( event->format() ) );
+    mIface->openTodoEditor( text );
+    return;
   }
+
+  KPIM::MailList mails;
+  if ( KPIM::MailListDrag::decode( event, mails ) ) {
+    if ( mails.count() != 1 ) {
+      KMessageBox::sorry( core(),
+                          i18n("Drops of multiple mails aren't supported." ) );
+    } else {
+      KPIM::MailSummary mail = mails.first();
+      QString txt = i18n("From: %1\nTo: %2\nSubject: %3").arg( mail.from() )
+                    .arg( mail.to() ).arg( mail.subject() );
+      QString uri = "kmail:" + QString::number( mail.serialNumber() ) + "/" +
+                    mail.messageId();
+      mIface->openTodoEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
+                              uri );
+    }
+    return;
+  }
+
+  KMessageBox::sorry( core(), i18n("Can't handle drop events of type '%1'.")
+                              .arg( event->format() ) );
 }
 
 #include "todoplugin.moc"
