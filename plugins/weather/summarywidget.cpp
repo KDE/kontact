@@ -98,9 +98,8 @@ void SummaryWidget::updateView()
     return;
   }
 
-  int counter = 0;
   QMap<QString, WeatherData>::Iterator it;
-  for ( it = mWeatherMap.begin(); it != mWeatherMap.end() && counter < 3; ++it ) {
+  for ( it = mWeatherMap.begin(); it != mWeatherMap.end(); ++it ) {
     WeatherData data = it.data();
 
     QString cover;
@@ -144,8 +143,6 @@ void SummaryWidget::updateView()
     label->setAlignment( AlignLeft );
     layout->addMultiCellWidget( label, 1, 1, 1, 2 );
     mLabels.append( label );
-
-    counter++;
   }
 
   for ( QLabel *label = mLabels.first(); label; label = mLabels.next() )
