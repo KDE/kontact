@@ -216,14 +216,17 @@ void MainWindow::initWidgets()
   mSidePaneType = Prefs::self()->mSidePaneType;
 
   QHBox *mBox = 0;
-
+#if 0
   if ( mSidePaneType == Prefs::SidePaneBars ) {
     mSplitter = new QSplitter( mTopWidget );
     mSidePane = new SidePane( this, mSplitter );
     mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                            QSizePolicy::Preferred ) );
     mSplitter->setResizeMode( mSidePane, QSplitter::KeepSize );
-  } else {
+  }
+   else 
+#endif
+  {
     mSplitter = 0;
     mBox = new QHBox( mTopWidget );
     mSidePane = new IconSidePane( this, mBox );
@@ -564,7 +567,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     if ( mFocusWidgets.contains( plugin->identifier() ) ) {
       focusWidget = mFocusWidgets[ plugin->identifier() ];
       if ( focusWidget )
-        focusWidget->setFocus();
+       kdDebug() << "##########" << plugin->identifier()<<endl;
+       // focusWidget->setFocus();
     }
 
     mCurrentPlugin = plugin;
