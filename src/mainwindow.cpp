@@ -104,21 +104,18 @@ void MainWindow::initGUI()
 
 void MainWindow::initObject()
 {
-  
   KTrader::OfferList offers = KTrader::self()->query(
       QString::fromLatin1( "Kontact/Plugin" ),
       QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
-  mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(),
-      "Plugins" );
+  mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(), "Plugins" );
 
   QProgressBar *bar = mSplash->progressBar();
   int count = 3;
   count += mPluginInfos.count();
   bar->setTotalSteps( count );
 
-  for( KPluginInfo::List::Iterator it = mPluginInfos.begin();
-      it != mPluginInfos.end(); ++it )
-  {
+  KPluginInfo::List::Iterator it;
+  for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
     ( *it )->load();
     bar->setProgress( bar->progress() + 1 );
   }
@@ -131,9 +128,8 @@ void MainWindow::initObject()
 
   loadPlugins();
 
-
   bar->setProgress( bar->progress() + 1 );
-  
+
   if ( mSidePane )
     mSidePane->updatePlugins();
 
@@ -143,7 +139,7 @@ void MainWindow::initObject()
   bar->setProgress( bar->progress() + 1 );
 
   KSettings::Dispatcher::self()->registerInstance( instance(), this,
-      SLOT( updateConfig() ) );
+                                                   SLOT( updateConfig() ) );
 
   loadSettings();
 
@@ -167,8 +163,7 @@ MainWindow::~MainWindow()
 
   QPtrList<KParts::Part> parts = *mPartManager->parts();
 
-  for (KParts::Part *p = parts.last(); p; p = parts.prev())
-  {
+  for ( KParts::Part *p = parts.last(); p; p = parts.prev() ) {
     delete p;
     p = 0;
   }
@@ -178,12 +173,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::activePluginModule( const QString &_module )
 {
-    PluginList::ConstIterator end = mPlugins.end();
-    for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
-        if ( ( *it )->identifier().contains( _module ) ) {
-            selectPlugin( *it );
-            return;
-        }
+  PluginList::ConstIterator end = mPlugins.end();
+  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
+    if ( ( *it )->identifier().contains( _module ) ) {
+      selectPlugin( *it );
+      return;
+    }
 }
 
 
@@ -240,49 +235,50 @@ void MainWindow::initWidgets()
     new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
 
   statusBar()->addWidget( littleProgress, 0 , true );
-  statusBar()->insertItem(i18n(" Initializing..."), 1, 1 );
+  statusBar()->insertItem( i18n( " Initializing..." ), 1, 1 );
   statusBar()->setItemAlignment( 1, AlignLeft | AlignVCenter );
   littleProgress->show();
 }
 
 void MainWindow::setupActions()
 {
-  (void) KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
+  KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
   mNewActions = new KToolBarPopupAction( KGuiItem(i18n( "New" ), ""),
-		  KShortcut(), this, SLOT(slotNewClicked()),actionCollection(), "action_new" );
+                                         KShortcut(), this, SLOT( slotNewClicked() ),
+                                         actionCollection(), "action_new" );
 
-  new KAction( i18n("Select Components..."), "configure", 0, this,
+  new KAction( i18n( "Select Components..." ), "configure", 0, this,
                SLOT( slotSelectComponents() ),
                actionCollection(), "settings_select_components" );
 
-  new KAction( i18n("Configure Kontact..."), "configure", 0, this, SLOT( slotPreferences() ),
+  new KAction( i18n( "Configure Kontact..." ), "configure", 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
 
- ( void )new KAction( i18n( "&Tip of the Day" ), 0,
-                     this, SLOT( slotShowTip() ), actionCollection(), "help_tipofday" );
- ( void )new KAction( i18n( "&Request Feature..." ), 0,
-                     this, SLOT( slotRequestFeature() ), actionCollection(), "help_requestfeature" );
+  new KAction( i18n( "&Tip of the Day" ), 0, this, SLOT( slotShowTip() ),
+               actionCollection(), "help_tipofday" );
+  new KAction( i18n( "&Request Feature..." ), 0, this, SLOT( slotRequestFeature() ),
+               actionCollection(), "help_requestfeature" );
 
 }
 
-void MainWindow::initHeaderWidget(QVBox *vBox)
+void MainWindow::initHeaderWidget( QVBox *vBox )
 {
   // Initiate the headerWidget
   mHeaderFrame = new QHBox( vBox );
   mHeaderFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
-                                QSizePolicy::Maximum );
+                               QSizePolicy::Maximum );
   mHeaderFrame->setSpacing( 0 );
   mHeaderFrame->setFixedHeight( 22 );
 
   mHeaderText = new QLabel( mHeaderFrame );
   mHeaderText->setSizePolicy( QSizePolicy::MinimumExpanding,
-                               QSizePolicy::Preferred );
+                              QSizePolicy::Preferred );
   mHeaderText->setPaletteForegroundColor( colorGroup().light() );
   mHeaderText->setPaletteBackgroundColor( colorGroup().dark() );
 
   mHeaderPixmap = new QLabel( mHeaderFrame );
   mHeaderPixmap->setSizePolicy( QSizePolicy::Maximum,
-                                 QSizePolicy::Preferred );
+                                QSizePolicy::Preferred );
   mHeaderPixmap->setAlignment( AlignRight|AlignVCenter );
   mHeaderPixmap->setPaletteBackgroundColor( colorGroup().dark() );
 
@@ -318,13 +314,11 @@ void MainWindow::loadPlugins()
   QPtrList<KParts::Part> loadDelayed;
 
   uint i;
-
-  for( KPluginInfo::List::ConstIterator it = mPluginInfos.begin();
-      it != mPluginInfos.end(); ++it )
-  {
-    if( ! ( *it )->isPluginEnabled() )
+  KPluginInfo::List::ConstIterator it;
+  for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
+    if ( ! ( *it )->isPluginEnabled() )
       continue;
-    if( isPluginLoaded( *it ) ) {
+    if ( isPluginLoaded( *it ) ) {
       Plugin *plugin = pluginFromInfo( *it );
       if ( plugin )
         plugin->configUpdated();
@@ -347,17 +341,15 @@ void MainWindow::loadPlugins()
     QVariant exeNameProp = ( *it )->property( "X-KDE-KontactPartExecutableName" );
     QVariant loadOnStart = ( *it )->property( "X-KDE-KontactPartLoadOnStart" );
 
-    if (!loadOnStart.isNull() && loadOnStart.toBool() )
-    {
-      mDelayedPreload.append(plugin);
-    }
+    if ( !loadOnStart.isNull() && loadOnStart.toBool() )
+      mDelayedPreload.append( plugin );
 
     kdDebug(5600) << "LIBNAMEPART: " << libNameProp.toString() << endl;
 
     plugin->setPartLibraryName( libNameProp.toString().utf8() );
     plugin->setExecutableName( exeNameProp.toString() );
 
-    for( i = 0; i < plugins.count(); ++i ) {
+    for ( i = 0; i < plugins.count(); ++i ) {
       Plugin *p = plugins.at( i );
       if ( plugin->weight() < p->weight() ) break;
     }
@@ -365,16 +357,17 @@ void MainWindow::loadPlugins()
     plugins.insert( i, plugin );
   }
 
-  for( i = 0; i < plugins.count(); ++ i ) {
+  for ( i = 0; i < plugins.count(); ++ i ) {
     Plugin *plugin = plugins.at( i );
 
     KAction *action;
     QPtrList<KAction> *actionList = plugin->newActions();
 
-    for(action = actionList->first(); action; action = actionList->next()){
+    for ( action = actionList->first(); action; action = actionList->next() ) {
       kdDebug(5600) << "Plugging " << action->name() << endl;
-      action->plug(mNewActions->popupMenu());
+      action->plug( mNewActions->popupMenu() );
     }
+
     addPlugin( plugin );
   }
 
@@ -384,8 +377,8 @@ void MainWindow::loadPlugins()
 void MainWindow::unloadPlugins()
 {
   KPluginInfo::List::ConstIterator end = mPluginInfos.end();
-  for ( KPluginInfo::List::ConstIterator it = mPluginInfos.begin();
-      it != end; ++it ) {
+  KPluginInfo::List::ConstIterator it;
+  for ( it = mPluginInfos.begin(); it != end; ++it ) {
     if ( ! ( *it )->isPluginEnabled() )
       removePlugin( *it );
   }
@@ -395,14 +388,13 @@ bool MainWindow::removePlugin( const KPluginInfo * info )
 {
   PluginList::Iterator end = mPlugins.end();
   for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it )
-    if( ( *it )->identifier() == info->pluginName() ) {
+    if ( ( *it )->identifier() == info->pluginName() ) {
       Plugin *plugin = *it;
 
       KAction *action;
       QPtrList<KAction> *actionList = plugin->newActions();
 
-      for ( action = actionList->first(); action; action = actionList->next() )
-      {
+      for ( action = actionList->first(); action; action = actionList->next() ) {
         kdDebug(5600) << "Unplugging " << action->name() << endl;
         action->unplug( mNewActions->popupMenu() );
       }
@@ -410,8 +402,10 @@ bool MainWindow::removePlugin( const KPluginInfo * info )
       removeChildClient( plugin );
       delete plugin; // removes the part automatically
       mPlugins.remove( it );
+
       return true;
     }
+
   return false;
 }
 
@@ -452,8 +446,9 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
   QObjectList *l = part->queryList( "KParts::InfoExtension" );
   KParts::InfoExtension *ie = 0;
   if ( l )
-      ie = static_cast<KParts::InfoExtension*>( l->first() );
+    ie = static_cast<KParts::InfoExtension*>( l->first() );
   delete l;
+
   if ( ie ) {
     connect( ie, SIGNAL( textChanged( const QString& ) ),
              SLOT( setHeaderText( const QString& ) ) );
@@ -494,10 +489,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   if ( !plugin )
     return;
 
-  if ( plugin->isRunningStandalone() )
-  {
-    statusBar()->message(
-        i18n("Application is running standalone. Foregrounding..."), 1000);
+  if ( plugin->isRunningStandalone() ) {
+    statusBar()->message( i18n( "Application is running standalone. Foregrounding..." ), 1000 );
     plugin->bringToForeground();
     return;
   }
@@ -510,8 +503,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   KParts::Part *part = plugin->part();
 
   if ( !part ) {
-    KMessageBox::error( this, i18n("Cannot load part for %1.")
-        .arg( plugin->title() ) );
+    KMessageBox::error( this, i18n( "Cannot load part for %1." )
+                              .arg( plugin->title() ) );
     KApplication::restoreOverrideCursor();
     return;
   }
@@ -528,7 +521,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     view->setFocus();
     mCurrentPlugin = plugin;
     KAction *action = plugin->newActions()->first();
-    setCaption( i18n("Plugin dependent window title" ,"%1 - Kontact").arg( plugin->title() ) );
+    setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );
     if ( action ) {
       mNewActions->setIcon( action->icon() );
       mNewActions->setText( action->text() );
@@ -637,7 +630,7 @@ void MainWindow::slotPreferences()
 void MainWindow::slotSelectComponents()
 {
   static KSettings::ComponentsDialog *dlg = 0;
-  if( !dlg ) {
+  if ( !dlg ) {
     dlg = new KSettings::ComponentsDialog( this );
     dlg->setPluginInfos( mPluginInfos );
     connect( dlg, SIGNAL( okClicked() ), SLOT( pluginsChanged() ) );
@@ -747,9 +740,8 @@ void MainWindow::showAboutDialog()
 {
   KApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
-  if ( !mAboutDialog ) {
+  if ( !mAboutDialog )
     mAboutDialog = new AboutDialog( this );
-  }
 
   mAboutDialog->show();
   mAboutDialog->raise();
@@ -785,19 +777,20 @@ void MainWindow::slotNewToolbarConfig()
 
 bool MainWindow::queryClose()
 {
-  if (kapp->sessionSaving() || mReallyClose)
+  if ( kapp->sessionSaving() || mReallyClose )
     return true;
-  bool localClose=true;
+
+  bool localClose = true;
   QValueList<Plugin*>::ConstIterator end = mPlugins.end();
   QValueList<Plugin*>::ConstIterator it = mPlugins.begin();
   for ( ; it != end; ++it ) {
     Plugin *plugin = *it;
-    if (!plugin->isRunningStandalone())
-      if ( !plugin->queryClose())
-        localClose=false;
+    if ( !plugin->isRunningStandalone() )
+      if ( !plugin->queryClose() )
+        localClose = false;
   }
+
   return localClose;
 }
 
 #include "mainwindow.moc"
-// vim: sw=2 sts=2 et
