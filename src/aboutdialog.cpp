@@ -101,7 +101,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     label->setAlignment( AlignTop );
     topLayout->addWidget( label );
 
-  
+
     QTextEdit *personView = new QTextEdit( topFrame );
     personView->setReadOnly( true );
     topLayout->addWidget( personView, 1 );
@@ -161,7 +161,7 @@ void AboutDialog::addLicenseText(const KAboutData *about)
   QPixmap pixmap = KGlobal::iconLoader()->loadIcon( "signature",
                                                     KIcon::Desktop, 48 );
 
-  QString title = i18n("%1 license").arg(about->programName());
+  QString title = i18n("%1 License").arg(about->programName());
 
   QFrame *topFrame = addPage( title, QString::null, pixmap );
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
