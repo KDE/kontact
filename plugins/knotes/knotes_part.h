@@ -41,25 +41,25 @@ class KNoteEditDlg;
 class KNotesResourceManager;
 
 namespace KCal {
-    class Journal;
+class Journal;
 }
-
 
 class KNotesPart : public KPIM::Part, virtual public KNotesIface
 {
-    Q_OBJECT
-public:
+  Q_OBJECT
+
+  public:
     KNotesPart( QObject *parent = 0, const char *name = 0 );
    ~KNotesPart();
 
     bool openFile();
 
-public slots:
+  public slots:
     QString newNote( const QString& name = QString::null,
                      const QString& text = QString::null );
     QString newNoteFromClipboard( const QString& name = QString::null );
 
-public:
+  public:
     void showNote( const QString& id ) const;
     void hideNote( const QString& id ) const;
 
@@ -79,7 +79,7 @@ public:
     bool isNew( const QString& app, const QString& id ) const;
     bool isModified( const QString& app, const QString& id ) const;
 
-private slots:
+  private slots:
     void createNote( KCal::Journal *journal );
     void killNote( KCal::Journal *journal );
 
@@ -94,14 +94,13 @@ private slots:
     void popupRMB( QIconViewItem *item, const QPoint& pos );
     void killSelectedNotes();
 
-private:
-    KIconView *m_notesView;
-    KNoteTip *m_noteTip;
-    KNoteEditDlg *m_noteEditDlg;
+  private:
+    KIconView *mNotesView;
+    KNoteTip *mNoteTip;
+    KNoteEditDlg *mNoteEditDlg;
 
-    KNotesResourceManager *m_manager;
-    QDict<KNotesIconViewItem> m_noteList;
+    KNotesResourceManager *mManager;
+    QDict<KNotesIconViewItem> mNoteList;
 };
-
 
 #endif
