@@ -37,7 +37,7 @@ static const char *version = "0.2.9 (CVS)";
 static KCmdLineOptions options[] =
 {
     { "+[URL]", I18N_NOOP( "Document to open." ), 0 },
-    { 0, 0, 0 }
+    KCmdLineLastOption
 };
 */
 
