@@ -37,6 +37,7 @@
 
 class KAction;
 class QHBox;
+class QSplitter;
 
 namespace KParts
 {
@@ -78,17 +79,16 @@ public:
   void textChanged( const QString& );
   void iconChanged( const QPixmap& );
 
-private slots:
+ private slots:
 
   void slotQuit();
 
   void activePartChanged(KParts::Part *part);
+  void slotPreferences();
 
+ private:
   void loadSettings();
   void saveSettings();
-
-  void slotPreferences();
-private:
 
   void loadPlugins();
   void addPlugin(Kontact::Plugin *plugin);
@@ -109,6 +109,7 @@ private:
   QHBox *headerFrame;
   QLabel *headerText;
   QLabel *headerPixmap;
+  QSplitter *m_splitter;
 
   KParts::InfoExtension *m_lastInfoExtension;
 

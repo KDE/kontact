@@ -57,12 +57,12 @@ MainWindow::MainWindow()
   QHBox *box = new QHBox(this);
   box->setFrameStyle(  QFrame::Panel | QFrame::Sunken );
 
-  QSplitter *splitter = new QSplitter(box);
+  m_splitter = new QSplitter( box );
 
-  m_sidePane = new SidePane(splitter);
+  m_sidePane = new SidePane(m_splitter);
   m_sidePane->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
   connect(m_sidePane, SIGNAL(showPart(KParts::Part*)), SLOT(showPart(KParts::Part*)));
-  QVBox *vBox = new QVBox( splitter );
+  QVBox *vBox = new QVBox( m_splitter );
   vBox->setSpacing(0);
 
   // Initiate the headerWidget
@@ -100,8 +100,6 @@ MainWindow::MainWindow()
 
   setupActions();
 
-  loadSettings();
-
   loadPlugins();
 
   setXMLFile("kontactui.rc");
@@ -112,22 +110,18 @@ MainWindow::MainWindow()
 
   resize(600, 400); // initial size
   setAutoSaveSettings();
+
+  loadSettings();
 }
 
 
 MainWindow::~MainWindow()
 {
+  saveSettings();
+  
     QPtrList<KParts::Part> parts = *m_partManager->parts();
     parts.setAutoDelete(true);
     parts.clear();
-}
-
-void MainWindow::loadSettings()
-{
-}
-
-void MainWindow::saveSettings()
-{
 }
 
 void MainWindow::setupActions()
@@ -225,6 +219,19 @@ void MainWindow::showPart(KParts::Part* part)
   }
 }
 
+void MainWindow::loadSettings()
+{
+  KConfig *config = kapp->config();
+  KConfigGroupSaver saver( config, "General" );
+  m_splitter->setSizes( config->readIntListEntry( "SideBarSize" ) );
+}
+
+void MainWindow::saveSettings()
+{
+  KConfig *config = kapp->config();
+  KConfigGroupSaver saver( config, "General" );
+  config->writeEntry( "SideBarSize", m_splitter->sizes() );
+}
 
 void MainWindow::slotQuit()
 {
