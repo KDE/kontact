@@ -45,14 +45,13 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const char *, const QStringLi
   : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {
-  // hack for iconloader to find the icon in the right place
-  setInstance( new KInstance( "korganizer" ) );
+  setInstance( JournalPluginFactory::instance() );
+  instance()->iconLoader()->addAppDir("korganizer");
 
   insertNewAction( new KAction( i18n( "New Journal..." ), "newjournal",
                    0, this, SLOT( slotNewJournal() ), actionCollection(),
                    "new_journal" ) );
 
-  setInstance( JournalPluginFactory::instance() );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );

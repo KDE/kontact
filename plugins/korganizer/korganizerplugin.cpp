@@ -52,14 +52,13 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QSt
     mIface( 0 )
 {
 
-  // hack for iconloader to find the icon in the right place
-  setInstance( new KInstance( "korganizer" ) );
+  setInstance( KOrganizerPluginFactory::instance() );
+  instance()->iconLoader()->addAppDir("korganizer");
 
   insertNewAction( new KAction( i18n( "New Event..." ), "appointment",
                    0, this, SLOT( slotNewEvent() ), actionCollection(),
                    "new_event" ) );
 
-  setInstance( KOrganizerPluginFactory::instance() );
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
 }
