@@ -156,7 +156,7 @@ void MainWindow::initObject()
   showTip( false );
 
   // done initializing
-  statusBar()->changeItem( QString::null, 1 );
+  slotShowStatusMsg( QString::null );
 
   connect( KPIM::BroadcastStatus::instance(), SIGNAL( statusMsg( const QString& ) ),
            this, SLOT( slotShowStatusMsg( const QString&  ) ) );
@@ -241,9 +241,11 @@ void MainWindow::initWidgets()
 
   mLittleProgress = new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
 
+  mStatusMsgLabel = new KStatusBarLabel( i18n( " Initializing..." ), 1, statusBar() );
+  mStatusMsgLabel->setAlignment( AlignLeft | AlignVCenter );
+
+  statusBar()->addWidget( mStatusMsgLabel, 1 , false );
   statusBar()->addWidget( mLittleProgress, 0 , true );
-  statusBar()->insertItem( i18n( " Initializing..." ), 1, 1 );
-  statusBar()->setItemAlignment( 1, AlignLeft | AlignVCenter );
   mLittleProgress->show();
 }
 
@@ -809,12 +811,10 @@ bool MainWindow::queryClose()
 
 void MainWindow::slotShowStatusMsg( const QString &msg )
 {
-  // Copied from KMail's kmmainwin.cpp
-  if ( !statusBar() || !mLittleProgress) return;
-  int statusWidth = statusBar()->width() - mLittleProgress->width()
-                    - fontMetrics().maxWidth();
+  if ( !statusBar() || !mStatusMsgLabel ) return;
+  int statusWidth = mStatusMsgLabel->width() - fontMetrics().maxWidth();
   QString text = KStringHandler::rPixelSqueeze( " " + msg, fontMetrics(),
                                                 statusWidth );
-  statusBar()->changeItem( text, 1 );
+  mStatusMsgLabel->setText( text );
 }
 #include "mainwindow.moc"

@@ -35,6 +35,7 @@
 
 class KAction;
 class KPluginInfo;
+class KStatusBarLabel;
 class QHBox;
 class QSplitter;
 class QVBox;
@@ -157,6 +158,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     int mSidePaneType;
     //QStringList mActivePlugins;
 
+    KStatusBarLabel* mStatusMsgLabel;
     KPIM::StatusbarProgressWidget *mLittleProgress;
 
     AboutDialog *mAboutDialog;
