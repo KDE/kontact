@@ -8,7 +8,7 @@ X-KDE-Library=libkontact_journalplugin
 X-KDE-KontactPluginVersion=4
 X-KDE-KontactPartLibraryName=libkorganizerpart
 X-KDE-KontactPartExecutableName=korganizer
-X-KDE-KontactPluginHasSummary=true
+X-KDE-KontactPluginHasSummary=false
 
 X-KDE-PluginInfo-Website=http://korganizer.kde.org
 X-KDE-PluginInfo-Name=kontact_journalplugin
