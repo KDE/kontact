@@ -30,6 +30,7 @@
 #include <qpixmap.h>
 #include <qtextbrowser.h>
 #include <qtimer.h>
+#include <qstringlist.h>
 
 class WeatherData
 {
