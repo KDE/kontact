@@ -1,6 +1,6 @@
 SUBDIRS = interfaces plugins src pics
 
-include ../admin/Doxyfile.am
+include $(top_srcdir)/doc/api/Doxyfile.am
 
 
 messages: rc.cpp
