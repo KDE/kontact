@@ -23,7 +23,7 @@
 #include <kparts/part.h>
 #include "kpcore.h"
 
-class QGridLayout;
+class QVBoxLayout;
 class QFrame;
 
 namespace Kontact
@@ -48,7 +48,7 @@ protected:
 private:
 
 	QPtrList<Kontact::Plugin> m_plugins;
-	QGridLayout *m_layout;
+	QVBoxLayout *m_layout;
 	QFrame *m_frame;
 };
 

@@ -50,7 +50,7 @@ SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins, QWid
 	m_frame = new QFrame( parentWidget, widgetName );
 	setWidget(m_frame);
 
-	m_layout = new QGridLayout( m_frame, -1, 2 );
+	m_layout = new QVBoxLayout( m_frame );
 	m_layout->setAutoAdd( true );
 	//m_layout->setSpacing( 50 ); We should look later which spacing is appropriate here
 
