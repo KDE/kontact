@@ -237,7 +237,7 @@ void SummaryWidget::updateView()
     int numArticles = 0;
     for ( artIt = articles.begin(); artIt != articles.end() && numArticles < mArticleCount; ++artIt ) {
       urlLabel = new KURLLabel( (*artIt).second.url(), (*artIt).first, mBaseWidget );
-      urlLabel->setMaximumSize( urlLabel->minimumSizeHint() );
+      urlLabel->setTextFormat( RichText );
       mLabels.append( urlLabel );
       mLayout->addWidget( urlLabel );
 
