@@ -56,11 +56,11 @@ const KAboutData *SpecialdatesPlugin::aboutData()
 {
   if ( !mAboutData ) {
     mAboutData = new KAboutData( "specialdates",
-                                 I18N_NOOP("Special Dates Summary"),
+                                 I18N_NOOP( "Special Dates Summary" ),
                                  "1.0",
-                                 I18N_NOOP("Kontact Special Dates Summary"),
+                                 I18N_NOOP( "Kontact Special Dates Summary" ),
                                  KAboutData::License_LGPL,
-                                 I18N_NOOP("(c) 2004-2005 The KDE PIM Team" ) );
+                                 I18N_NOOP( "(c) 2004-2005 The KDE PIM Team" ) );
     mAboutData->addAuthor( "Allen Winter", "Current Maintainer", "winter@kde.org" );
     mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
     mAboutData->setProductName( "kontact/specialdates" );

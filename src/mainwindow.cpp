@@ -226,12 +226,12 @@ void MainWindow::initWidgets()
 
   mPartsStack = new QWidgetStack( vBox );
   initAboutScreen();
-  
+
   QString loading = i18n( "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>" )
                     .arg( i18n("Loading Kontact...") );
 
   paintAboutScreen( loading );
-  
+
   /* Create a progress dialog and hide it. */
   KPIM::ProgressDialog *progressDialog = new KPIM::ProgressDialog( statusBar(), this );
   progressDialog->hide();
@@ -257,10 +257,9 @@ void MainWindow::paintAboutScreen( const QString& msg )
   QString catchPhrase( i18n( "Get Organized!" ) );
   QString quickDescription( i18n( "The KDE Personal Information Management Suite" ) );
 
-  mIntroPart->write( content.arg( QFont().pointSize()+2 ).arg( appName )
+  mIntroPart->write( content.arg( QFont().pointSize() + 2 ).arg( appName )
       .arg( catchPhrase ).arg( quickDescription ).arg( msg ) );
   mIntroPart->end();
-
 }
 
 void MainWindow::initAboutScreen()
@@ -799,7 +798,7 @@ QString MainWindow::introductionString()
       "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
       "<td><a href=\"%1\">%1</a><br><span id=\"subtext\"><nobr>%1</td></tr>"
       "</table>"
-      "<p style=\"margin-bottom: 0px\"> <a href=\"%1\">Skip this introduction</a></p>")
+      "<p style=\"margin-bottom: 0px\"> <a href=\"%1\">Skip this introduction</a></p>" )
       .arg( kapp->aboutData()->version() )
       .arg( i18n( "Kontact handles your e-mail, addressbook, calendar, to-do list and more." ) )
       .arg( "help:/kontact" )
@@ -807,22 +806,22 @@ QString MainWindow::introductionString()
       .arg( iconSize )
       .arg( handbook_icon_path )
       .arg( "help:/kontact" )
-      .arg( i18n("Read Manual") )
-      .arg( i18n("Learn more about Kontact and its components") )
+      .arg( i18n( "Read Manual" ) )
+      .arg( i18n( "Learn more about Kontact and its components" ) )
       .arg( "http://kontact.org" )
       .arg( iconSize )
       .arg( iconSize )
       .arg( html_icon_path )
       .arg( "http://kontact.org" )
-      .arg( i18n("Visit Kontact Website") )
-      .arg( i18n("Access online resources and tutorials") )
+      .arg( i18n( "Visit Kontact Website" ) )
+      .arg( i18n( "Access online resources and tutorials" ) )
       .arg( "exec:/gwwizard" )
       .arg( iconSize )
       .arg( iconSize )
       .arg( wizard_icon_path )
       .arg( "exec:/gwwizard" )
-      .arg( i18n("Configure Kontact as Groupware Client") )
-      .arg( i18n("Prepare Kontact for use in corporate networks") )
+      .arg( i18n( "Configure Kontact as Groupware Client" ) )
+      .arg( i18n( "Prepare Kontact for use in corporate networks" ) )
       .arg( "exec:/switch" );
   return info;
 }
