@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Kaplan
+Exec=kaplan
+Type=Application
+Icon=kaplan
+GenericName=Personal Information Manager
+Terminal=0
+X-KDE-StartupNotify=true
