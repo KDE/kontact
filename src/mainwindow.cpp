@@ -441,7 +441,7 @@ void MainWindow::slotQuit()
 
 void MainWindow::slotPreferences()
 {
-  KCMultiDialog *dialog = new KCMultiDialog( "PIM", this, "KontactPreferences" );
+  KCMultiDialog *dialog = new KCMultiDialog( this, "KontactPreferences" );
   connect( dialog, SIGNAL( applyClicked() ), SLOT( updateConfig() ) );
   connect( dialog, SIGNAL( okClicked() ), SLOT( updateConfig() ) );
 
