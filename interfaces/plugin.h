@@ -160,6 +160,16 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     */
     QPtrList<KAction>* newActions() const; 
 
+    /**
+      Return, if the plugin can handle the drag object of the given mime type.
+    */
+    virtual bool canDecodeDrag( QMimeSource * ) { return false; }
+
+    /**
+      Process drop event.
+    */
+    virtual void processDropEvent( QDropEvent * ) {}
+
     Core *core() const;
 
   private:
