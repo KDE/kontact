@@ -64,13 +64,15 @@ SummaryWidget::SummaryWidget( Kontact::Plugin*, QWidget *parent,
 
     QString resourceName;
     if ( fileName.isEmpty() ) {
-      fileName = locateLocal( "appdata", "std.ics" );
+      fileName = locateLocal( "data", "korganizer/std.ics" );
       resourceName = i18n("Default KOrganizer resource");
     } else {
       resourceName = i18n("Active Calendar");
     }
 
-    KCal::ResourceCalendar *defaultResource = new KCal::ResourceLocal( fileName );
+    KCal::ResourceCalendar *defaultResource =
+                             new KCal::ResourceLocal( fileName );
+
     defaultResource->setResourceName( resourceName );
 
     manager->add( defaultResource );
