@@ -64,22 +64,12 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   : Kontact::Summary( parent, name ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
-  QHBoxLayout *hbox = new QHBoxLayout( mainLayout, 3 );
 
-  QFont boldFont;
-  boldFont.setBold( true );
-  boldFont.setPointSize( boldFont.pointSize() + 2 );
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kaddressbook",
+                    KIcon::Desktop, KIcon::SizeMedium );
 
-  QLabel *label = new QLabel( this );
-  label->setFixedSize( 32, 32 );
-  label->setPixmap( KGlobal::iconLoader()->loadIcon( "kaddressbook", 
-                    KIcon::Desktop, KIcon::SizeMedium ) );
-  hbox->addWidget( label );
-
-  label = new QLabel( i18n( "Birthdays and Anniversaries" ), this );
-  label->setAlignment( AlignLeft );
-  label->setFont( boldFont );
-  hbox->addWidget( label );
+  QWidget *header = createHeader( this, icon, i18n( "Birthdays and Anniversaries" ) );
+  mainLayout->addWidget(header);
 
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
   mLayout->setRowStretch( 6, 1 );
@@ -229,9 +219,10 @@ void KABSummaryWidget::updateView()
   }
   else
   {
-    QLabel *nothingtosee = new QLabel(i18n("No birthdays or anniversaries pending"), this, "nothing to see");
-    nothingtosee->setTextFormat(RichText);
-    mLayout->addMultiCellWidget(nothingtosee, 0, 0, 0, 4);
+    QLabel *nothingtosee = new QLabel( i18n( "No birthdays or anniversaries pending" ), this, "nothing to see" );
+    nothingtosee->setAlignment( AlignCenter );
+    nothingtosee->setTextFormat( RichText );
+    mLayout->addMultiCellWidget( nothingtosee, 0, 0, 0, 4 );
   }
   show();
 }

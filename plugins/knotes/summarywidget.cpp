@@ -39,23 +39,13 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   : Kontact::Summary( parent, name )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
-  QHBoxLayout *hbox = new QHBoxLayout( mainLayout, 3 );
+
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop, KIcon::SizeMedium );
+  QWidget* heading = createHeader( this, icon, i18n( "Notes" ) );
+
+  mainLayout->addWidget(heading);
   mLayout = new QGridLayout( mainLayout, 5, 2 );
   mainLayout->addStretch();
-
-  QFont boldFont;
-  boldFont.setBold( true );
-  boldFont.setPointSize( boldFont.pointSize() + 2 );
-
-  QLabel *label = new QLabel( this );
-  label->setFixedSize( 32, 32 );
-  label->setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop, KIcon::SizeMedium ) );
-  hbox->addWidget( label );
-
-  label = new QLabel( i18n( "Notes" ), this );
-  label->setAlignment( AlignLeft );
-  label->setFont( boldFont );
-  hbox->addWidget( label );
 
   QString error;
   QCString appID;

@@ -2,6 +2,7 @@
    This file is part of KDE Kontact.
 
    Copyright (c) 2003 Cornelius Schumacher <schumacher@kde.org>
+   Copyright (c) 2003 Daniel Molkentin <molkentin@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -18,42 +19,43 @@
    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
 */
-#ifndef KONTACT_SUMMARY_H
-#define KONTACT_SUMMARY_H
 
-#include <qwidget.h>
-#include <qpixmap.h>
+#include "summary.h"
 
-namespace Kontact
+#include <qhbox.h>
+#include <qlabel.h>
+#include <qfont.h>
+
+#include <kiconloader.h>
+#include <kdialog.h>
+
+using namespace Kontact;
+
+Summary::Summary( QWidget *parent, const char *name )
+  : QWidget( parent, name )
 {
-
-/**
-  Summary widget for display in the Summary View plugin.
- */
-class Summary : public QWidget
-{
-  public:
-    Summary( QWidget *parent, const char *name = 0 );
-
-    virtual ~Summary();
-      
-    /**
-      Return logical height of summary widget. This is used to calculate how
-      much vertical space relative to other summary widgets this widget will use
-      in the summary view.
-    */
-    virtual int summaryHeight() const { return 1; }
-
-    /**
-      Creates a heading for a typical summary view with an icon and a heading.
-     */
-    QWidget* createHeader(QWidget* parent, const QPixmap& icon, const QString& heading);
-
-  private:
-    class Private;
-    Private *d;
-};
-
 }
 
-#endif
+Summary::~Summary()
+{
+}
+
+QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QString& heading)
+{
+  QHBox* hbox = new QHBox(parent);
+  QFont boldFont;
+  boldFont.setBold( true );
+  boldFont.setPointSize( boldFont.pointSize() + 2 );
+
+  QLabel *label = new QLabel( hbox );
+  label->setPixmap( icon );
+  label->setFixedSize( label->sizeHint() );
+
+  label = new QLabel( heading, hbox );
+  label->setAlignment( AlignLeft|AlignVCenter );
+  label->setIndent( KDialog::spacingHint() );
+  label->setFont( boldFont );
+
+  return hbox;
+}
+

@@ -42,24 +42,14 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
   : Kontact::Summary( parent, name ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
-  QHBoxLayout *hbox = new QHBoxLayout( mainLayout, 3 );
-  mLayout = new QGridLayout( mainLayout, 6, 3, 3 );
+
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Desktop, KIcon::SizeMedium);
+  QWidget *header = createHeader(this, icon, i18n("Messages"));
+  mLayout = new QGridLayout( 6, 3, 3 );
+
+  mainLayout->addWidget(header);
+  mainLayout->addLayout(mLayout);
   mainLayout->addStretch();
-
-  QFont boldFont;
-  boldFont.setBold( true );
-  boldFont.setPointSize( boldFont.pointSize() + 2 );
-
-  QLabel *label = new QLabel( this );
-  label->setFixedSize( 32, 32 );
-  label->setPixmap( KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Desktop,
-                                                     KIcon::SizeMedium ) );
-  hbox->addWidget( label );
-
-  label = new QLabel( i18n( "EMails" ), this );
-  label->setAlignment( AlignLeft );
-  label->setFont( boldFont );
-  hbox->addWidget( label );
 
   connect( &mTimer, SIGNAL( timeout() ), this, SLOT( timeout() ) );
   mTimer.start( 0 );

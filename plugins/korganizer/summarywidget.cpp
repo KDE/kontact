@@ -46,22 +46,11 @@ SummaryWidget::SummaryWidget( Kontact::Plugin*, QWidget *parent,
   : Kontact::Summary( parent, name )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
-  QHBoxLayout *hbox = new QHBoxLayout( mainLayout, 3 );
 
-  QFont boldFont;
-  boldFont.setBold( true );
-  boldFont.setPointSize( boldFont.pointSize() + 2 );
-
-  QLabel *label = new QLabel( this );
-  label->setFixedSize( 32, 32 );
-  label->setPixmap( KGlobal::iconLoader()->loadIcon( "korganizer", 
-                    KIcon::Desktop, KIcon::SizeMedium ) );
-  hbox->addWidget( label );
-
-  label = new QLabel( i18n( "Appointments" ), this );
-  label->setAlignment( AlignLeft );
-  label->setFont( boldFont );
-  hbox->addWidget( label );
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "korganizer", 
+                   KIcon::Desktop, KIcon::SizeMedium );
+  QWidget *header = createHeader( this, icon, i18n( "Appointments" ) );
+  mainLayout->addWidget(header);
 
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
   mLayout->setRowStretch( 6, 1 );
