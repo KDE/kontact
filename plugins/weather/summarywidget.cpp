@@ -75,7 +75,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
     }
   }
 }
-   
+
 
 void SummaryWidget::updateView()
 {
@@ -108,7 +108,7 @@ void SummaryWidget::updateView()
     QGridLayout *layout = new QGridLayout( mLayout, 3, 3, 3 );
     mLayout->addStretch( 10 );
     mLayouts.append( layout );
-    
+
     KURLLabel* urlLabel = new KURLLabel(this);
     urlLabel->installEventFilter(this);
     urlLabel->setURL((*it).stationID());
@@ -119,7 +119,7 @@ void SummaryWidget::updateView()
     mLabels.append( urlLabel );
     connect (urlLabel, SIGNAL(leftClickedURL( const QString&) ),
     	this, SLOT(slotShowReport(const QString& )));
-    
+
     QLabel* label = new QLabel( this );
     label->setText( QString( "%1 (%2)" ).arg( (*it).name() ).arg( (*it).temperature() ) );
     QFont font = label->font();
@@ -164,7 +164,7 @@ void SummaryWidget::timeout()
 void SummaryWidget::refresh( QString station )
 {
   DCOPRef dcopCall( "KWeatherService", "WeatherService" );
-    
+
   mWeatherMap[ station ].setIcon( dcopCall.call( "currentIcon(QString)", station, true ) );
   mWeatherMap[ station ].setName( dcopCall.call( "stationName(QString)", station, true ) );
   mWeatherMap[ station ].setCover( dcopCall.call( "cover(QString)", station, true ) );
@@ -194,11 +194,15 @@ void SummaryWidget::slotShowReport(const QString &stationID)
 	this, SLOT(slotReportFinished(KProcess* )));
   *mProc << "kweatherreport";
   *mProc << stationID;
-  mProc->start();
+  if ( !mProc->start() )
+  {
+    delete mProc;
+    mProc=0;
+  }
 }
 
 void SummaryWidget::slotReportFinished(KProcess* /*proc*/){
- delete mProc;
+  delete mProc;
  mProc = 0;
 }
 
