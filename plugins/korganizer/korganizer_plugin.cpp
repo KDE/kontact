@@ -64,7 +64,7 @@ void KOrganizerPlugin::slotNewEvent()
 void KOrganizerPlugin::slotNewTodo()
 {
   part();
-  if(!//m_iface)
+  if(!m_iface)
     return;
   //m_iface->newTodo();
 
