@@ -21,9 +21,12 @@
 #include <kmessagebox.h>
 #include <kaction.h>
 #include <kgenericfactory.h>
+#include <kiconloader.h>
+#include <kstatusbar.h>
 
 #include "kpcore.h"
 
+#include <kdebug.h>
 
 #include "knotes_plugin.h"
 #include "knotes_part.h"
@@ -36,34 +39,35 @@ KNotesPlugin::KNotesPlugin(Kaplan::Core *_core, const char *name, const QStringL
 {
   setInstance(KNotesPluginFactory::instance());
 
-//  (void) new KAction(i18n("New note"),0, this, SLOT(slotNewNote()), actionCollection(), "edit_newnote");
-  
   setXMLFile("kpknotesplugin.rc");
 
+  core()->insertNewAction(new KAction(i18n("New Note"), BarIcon("knotes"), 0, this, SLOT(slotNewNote()), actionCollection(), "new_note" ) );
   core()->addMainEntry(i18n("Notes"), "knotes", this, SLOT(slotShowNotes()));
 }
-
 
 KNotesPlugin::~KNotesPlugin()
 {
 }
 
-
-void KNotesPlugin::slotKNotesMenu()
-{
-  KMessageBox::information(0, "KNotes menu activated");
-}
-
-
-void KNotesPlugin::slotShowNotes()
+void KNotesPlugin::loadPart()
 {
   if (!m_part)
   {
     m_part = new KNotesPart(this, "notes");
     core()->addPart(m_part);
   }
+}
 
+void KNotesPlugin::slotShowNotes()
+{
+  loadPart();
   core()->showView(m_part->widget()); 
+}
+
+void KNotesPlugin::slotNewNote()
+{
+  loadPart();
+  m_part->slotNewNote();
 }
 
 #include "knotes_plugin.moc"

@@ -18,11 +18,12 @@ public:
   
 private slots:
   
-  void slotKNotesMenu();
   void slotShowNotes();
-  
+  void slotNewNote();
+
 private:
 
+  void loadPart();
   KNotesPart *m_part;
   
 };

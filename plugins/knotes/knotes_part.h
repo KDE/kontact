@@ -25,6 +25,7 @@ public slots:
 
   QNotesMap slotGetNotes();
   void slotOpenNote( QListViewItem* item);
+  void slotNewNote();
   void slotInitPart();
   
 private:

@@ -4,8 +4,8 @@
 #include <kmessagebox.h>
 #include <kaction.h>
 #include <kgenericfactory.h>
+#include <kiconloader.h>
 #include <kparts/componentfactory.h>
-
 
 #include "kpcore.h"
 
@@ -25,6 +25,7 @@ KAddressbookPlugin::KAddressbookPlugin(Kaplan::Core *_core, const char *name, co
   setXMLFile("kpkaddressbookplugin.rc");
 
   core()->addMainEntry(i18n("Contacts"), "kaddressbook", this, SLOT(slotShowPlugin()));
+  core()->insertNewAction( new KAction( i18n( "New Contact" ), BarIcon( "contact" ), 0, this, SLOT( slotNewContact() ), actionCollection(), "new_contact" ));
 }
 
 
@@ -32,8 +33,7 @@ KAddressbookPlugin::~KAddressbookPlugin()
 {
 }
 
-
-void KAddressbookPlugin::slotShowPlugin()
+void KAddressbookPlugin::loadPart()
 {
   if (!m_part)
   {
@@ -46,8 +46,18 @@ void KAddressbookPlugin::slotShowPlugin()
 
     core()->addPart(m_part);
   }
+}
 
+void KAddressbookPlugin::slotShowPlugin()
+{
+  loadPart();
   if (m_part->widget()) 
     core()->showView(m_part->widget()); 
+}
+
+void KAddressbookPlugin::slotNewContact()
+{
+  loadPart();
+  //m_part->newContact(); ###FIXME
 }
 

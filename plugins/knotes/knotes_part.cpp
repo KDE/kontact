@@ -5,6 +5,7 @@
 #include <klocale.h>
 #include <krun.h>
 #include <kstddirs.h>
+#include <kmessagebox.h>
 
 #include "knotes_part.h"
 
@@ -91,4 +92,15 @@ void KNotesPart::slotOpenNote( QListViewItem *item )
 		kdDebug() << "Opening Note!" << endl;		
 		
 }
+
+void KNotesPart::slotNewNote()
+{
+	kdDebug() << "slotNewNote called!" << endl;
+    QByteArray data;
+    QDataStream arg(  data, IO_WriteOnly );
+	arg << QString::null << QString::null;
+    if ( !kapp->dcopClient()->send(  "knotes", "KNotesIface", "newNote(QString, QString)", data ) )
+		KMessageBox::error(0, i18n("Unable to add a new Note!"));
+}
+
 #include "knotes_part.moc"

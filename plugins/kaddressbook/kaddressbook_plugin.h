@@ -21,10 +21,11 @@ public:
 private slots:
   
   void slotShowPlugin();
-
+  void slotNewContact();
 
 private:
 
+  void loadPart();
   KParts::ReadOnlyPart *m_part;
 
 };
