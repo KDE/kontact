@@ -532,17 +532,18 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   KApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
-  if ( mSidePane )
-    mSidePane->selectPlugin( plugin );
-
   KParts::Part *part = plugin->part();
 
   if ( !part ) {
-    KMessageBox::error( this, i18n( "Cannot load part for %1." )
-                              .arg( plugin->title() ) );
     KApplication::restoreOverrideCursor();
+    KMessageBox::error( this, i18n( "Cannot load part for %1." )
+                              .arg( plugin->title() )
+                        + "\n" + lastErrorMessage() );
     return;
   }
+
+  if ( mSidePane )
+    mSidePane->selectPlugin( plugin );
 
   plugin->select();
 

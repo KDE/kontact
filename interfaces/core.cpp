@@ -27,12 +27,20 @@
 #include <kparts/componentfactory.h>
 #include <kdebug.h>
 #include <qtimer.h>
+#include <klocale.h>
 
 using namespace Kontact;
+
+class Core::Private
+{
+public:
+  QString lastErrorMessage;
+};
 
 Core::Core( QWidget *parent, const char *name )
   : KParts::MainWindow( parent, name )
 {
+  d = new Private;
   QTimer* timer = new QTimer( this );
   mLastDate = QDate::currentDate();
   connect(timer, SIGNAL( timeout() ), SLOT( checkNewDay() ) );
@@ -41,6 +49,7 @@ Core::Core( QWidget *parent, const char *name )
 
 Core::~Core()
 {
+  delete d;
 }
 
 KParts::ReadOnlyPart *Core::createPart( const char *libname )
@@ -65,12 +74,25 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
     QObject::connect( pimPart, SIGNAL( destroyed( QObject * ) ),
                       SLOT( slotPartDestroyed( QObject * ) ) );
   } else {
-    if ( error == KParts::ComponentFactory::ErrNoLibrary ) {
-      // ### how to pass it to kontact for displaying together with the "Cannot load Part" box?
-      kdWarning(5601) << KLibLoader::self()->lastErrorMessage() << endl;
-    } else {
-      kdWarning(5601) << "KParts::ComponentFactory::createInstanceFromFactory returned error code " << error << " for " << libname << endl;
+    // TODO move to KParts::ComponentFactory
+    switch( error ) {
+    case KParts::ComponentFactory::ErrNoServiceFound:
+      d->lastErrorMessage = i18n( "No service found" );
+      break;
+    case KParts::ComponentFactory::ErrServiceProvidesNoLibrary:
+      d->lastErrorMessage = i18n( "Program error: the .desktop file for the service does not have a Library key." );
+      break;
+    case KParts::ComponentFactory::ErrNoLibrary:
+      d->lastErrorMessage = KLibLoader::self()->lastErrorMessage();
+      break;
+    case KParts::ComponentFactory::ErrNoFactory:
+      d->lastErrorMessage = i18n( "Program error: the library %1 does not provide a factory." ).arg( libname );
+      break;
+    case KParts::ComponentFactory::ErrNoComponent:
+      d->lastErrorMessage = i18n( "Program error: the library %1 does not support creating components of the specified type" ).arg( libname );
+      break;
     }
+    kdWarning(5601) << d->lastErrorMessage << endl;
   }
 
   return pimPart;
@@ -96,6 +118,11 @@ void Core::checkNewDay()
     emit dayChanged( QDate::currentDate() );
 
   mLastDate = QDate::currentDate();
+}
+
+QString Core::lastErrorMessage() const
+{
+  return d->lastErrorMessage;
 }
 
 #include "core.moc"

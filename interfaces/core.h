@@ -81,6 +81,8 @@ class Core : public KParts::MainWindow
   protected:
     Core( QWidget *parentWidget = 0, const char *name = 0 );
 
+    QString lastErrorMessage() const;
+
   private slots:
     void slotPartDestroyed( QObject * );
     void checkNewDay();
