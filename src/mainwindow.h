@@ -89,7 +89,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void initGUI();
     void slotActivePartChanged( KParts::Part *part );
     void slotPreferences();
-    void slotSelectComponents();
     void slotNewClicked();
     void slotQuit();
     void slotShowTip();

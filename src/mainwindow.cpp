@@ -24,10 +24,11 @@
 #include <qhbox.h>
 #include <qimage.h>
 #include <qobjectlist.h>
-#include <qsplitter.h>
-#include <qwhatsthis.h>
-#include <qtimer.h>
 #include <qprogressbar.h>
+#include <qpushbutton.h>
+#include <qsplitter.h>
+#include <qtimer.h>
+#include <qwhatsthis.h>
 
 #include <dcopclient.h>
 #include <kapplication.h>
@@ -74,6 +75,24 @@
 #include "broadcaststatus.h"
 
 using namespace Kontact;
+
+class SettingsDialogWrapper : public KSettings::Dialog
+{
+  public:
+    SettingsDialogWrapper( ContentInListView content, QWidget * parent = 0 )
+      : KSettings::Dialog( content, parent, 0 )
+    {
+    }
+
+
+    void fixButtonLabel( QWidget *widget )
+    {
+      QObject *object = widget->child( "KJanusWidget::buttonBelowList" );
+      QPushButton *button = static_cast<QPushButton*>( object );
+      if ( button )
+        button->setText( i18n( "Select Components..." ) );
+    }
+};
 
 MainWindow::MainWindow()
   : Kontact::Core(), mTopWidget( 0 ), mSplitter( 0 ),
@@ -301,10 +320,6 @@ void MainWindow::setupActions()
   mNewActions = new KToolBarPopupAction( KGuiItem( i18n( "New" ), "" ),
                                          KShortcut(), this, SLOT( slotNewClicked() ),
                                          actionCollection(), "action_new" );
-
-  new KAction( i18n( "Select Components..." ), "configure", 0, this,
-               SLOT( slotSelectComponents() ),
-               actionCollection(), "settings_select_components" );
 
   new KAction( i18n( "Configure Kontact..." ), "configure", 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
@@ -661,9 +676,9 @@ void MainWindow::slotQuit()
 
 void MainWindow::slotPreferences()
 {
-  static KSettings::Dialog *dlg = 0;
+  static SettingsDialogWrapper *dlg = 0;
   if ( !dlg ) {
-    dlg = new KSettings::Dialog( KSettings::Dialog::Configurable, this );
+    dlg = new SettingsDialogWrapper( KSettings::Dialog::Configurable, this );
 
     // do not show settings of components running standalone
     QValueList<KPluginInfo*> filteredPlugins = mPluginInfos;
@@ -685,19 +700,7 @@ void MainWindow::slotPreferences()
   }
 
   dlg->show();
-}
-
-void MainWindow::slotSelectComponents()
-{
-  static KSettings::ComponentsDialog *dlg = 0;
-  if ( !dlg ) {
-    dlg = new KSettings::ComponentsDialog( this );
-    dlg->setPluginInfos( mPluginInfos );
-    connect( dlg, SIGNAL( okClicked() ), SLOT( pluginsChanged() ) );
-    connect( dlg, SIGNAL( applyClicked() ), SLOT( pluginsChanged() ) );
-  }
-
-  dlg->show();
+  dlg->fixButtonLabel( this );
 }
 
 int MainWindow::startServiceFor( const QString& serviceType,
