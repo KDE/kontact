@@ -1,4 +1,5 @@
-INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/libkdepim -I$(top_srcdir) $(all_includes)
+INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_builddir)/libkdepim \
+   -I$(top_srcdir)/libkdepim -I$(top_srcdir) $(all_includes)
 
 kde_module_LTLIBRARIES = libkontact_kaddressbookplugin.la kcm_kabsummary.la
 libkontact_kaddressbookplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN) -lkabc
