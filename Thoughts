@@ -6,7 +6,7 @@
 * Note: Lines starting with a "g" are my comments - Guenter
 * Note: Lines starting with a "m" are my comments - Matthias Kretz
 * Note: Lines starting with a "MiB:" are my comments - Michael
-
+* Note: Lines starting with a "h" are my comments - Holger
 
 Misc:
 =====
@@ -170,6 +170,11 @@ Don: KMailIface loadKMail()
 Don: KOrganizerIface loadKOrganizer()
 MiB: And don't forget KNotesIface loadKNotes() :-)
 
+h: That doesn't sound extendable ;)
+h: So if I would like to add a 'New ShortMessage' part we would have to extend
+h: that library... better use KTrader and some sort of a common framework
+h: and Mib's comments shows that problem!
+
 Don: Now if kontact is running then loadX will load the X part in kontact
 Don: (if it is not already loaded) and return a dcop iface for that
 Don: part.
@@ -315,6 +320,28 @@ d it barely plays a role anyway).
 
 MiB: hm. true. But not too important, IMHO. Just add a Kontact-DCOP interface :-)
 
+h: Pretty much to talk about...
+h: 1. the speed of DCOP is not that important. I worry more about the integration
+h:    of all parts. So how would I cross reference an 'Event' with a 3rd party 
+h:    Kaplan Part? A common base class for all PIM records comes into my mind - again -
+h:    Now with normal C++ you can pass a pointer through the framework
+h:    Doing it with DCOP we need to marshall and demarshall it. This part can get really
+h:    ugly if we want more tight integration of all KaplanParts. We could add
+h:    a pure virtual method to marshall to a QDataStream. So now marshalling is done.
+h:    For demarshalling we need to get the type of the QDataStream content and then we need
+h:    to ask someone - a factory - to get a object for the type and then call another pure
+h:    virtual.....
+h:    The question is if this is really necessary
+h: 2. stand a lone apps
+h:    The 'stand a lone' app can always run in the same address space but be a top level widget
+h:    itself. WIth some DCOP magic clicking on the KMAIL icon code make Kaplan detach the part...
+h: 3. Integration!
+h:    The goal of Kaplan should not be to merge some XML files an give a common Toolbar for
+h:    X applications in one shell. I want true integration. Yes KMAIL can use KABC to show
+h:    all emails for one contact but a generic way to do such things would be more than nice.
+h:    It would be nice if I could relate the PIM objects in a common way. So I create an Event and
+h:    relate some todos to it. So for KDE4 I want a common base class for all PIM classes including mail
+h:    see Opies OPimRecord for a bit too huge base class
 
 Security
 --------
@@ -330,3 +357,6 @@ d problems. (Martin's concern)
 d Ok, if we limit stuff to Kontact/Plugin and Kontact/Part that might be safe enough
 d indeed. I (and Martin, who raise this concern initially) was just afraid of
 d allowing "any" part.
+
+h: hmm If somebody can install a Service into the global kde dir or the user kde home
+h: there is something else broken IMHO
