@@ -64,10 +64,7 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   QSplitter *splitter = new QSplitter( Qt::Horizontal );
 
   mNotesView = new KListView( splitter );
-  /* QListView::Extended prevents the QListView from emitting the
-     selectionChanged() signal, so you can't edit any note.
-   */
-//  mNotesView->setSelectionMode( QListView::Extended );
+  mNotesView->setSelectionMode( QListView::Extended );
   mNotesView->addColumn( i18n( "Title" ) );
 
   (void) new KParts::SideBarExtension( mNotesView, this, "NotesSideBarExtension" );
@@ -102,8 +99,8 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
                           this, SLOT( reloadNotes() ), 4, 4 );
 */
 
-  connect( mNotesView, SIGNAL( selectionChanged( QListViewItem* ) ),
-           this, SLOT( showNote( QListViewItem* ) ) );
+  connect( mNotesView, SIGNAL( selectionChanged() ),
+           this, SLOT( showNote() ) );
   connect( mNotesView, SIGNAL( contextMenuRequested( QListViewItem*, const QPoint&, int ) ),
            this, SLOT( popupRMB( QListViewItem*, const QPoint&, int ) ) );
   connect( mNotesView, SIGNAL( itemRenamed( QListViewItem*, int, const QString& ) ),
@@ -257,6 +254,11 @@ void KNotesPart::noteRenamed( QListViewItem *i, int,  const QString& text )
 
   DCOPRef dcopCall( "knotes", "KNotesIface" );
   dcopCall.send( "setName(QString,QString)", item->id(), text );
+}
+
+void KNotesPart::showNote()
+{
+  showNote( mNotesView->currentItem() );
 }
 
 void KNotesPart::showNote( QListViewItem *i )

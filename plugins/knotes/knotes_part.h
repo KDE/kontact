@@ -56,6 +56,7 @@ class KNotesPart : public KParts::ReadOnlyPart
     void removeNote();
     void removeSelectedNotes();
     void renameNote();
+    void showNote();
     void showNote( QListViewItem* item );
     void noteChanged();
     void saveNote();
