@@ -25,6 +25,7 @@
 
 #include <kparts/part.h>
 #include <kparts/componentfactory.h>
+#include <kdebug.h>
 
 using namespace Kontact;
 
