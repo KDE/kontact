@@ -2,6 +2,8 @@
    This file is part of KDE Kontact.
 
    Copyright (C) 2003 Sven Lüppken <sven@kde.org>
+   Copyright (C) 2003 Tobias König <tokoe@kde.org>
+   Copyright (C) 2003 Daniel Molkentin <molkentin@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -36,6 +38,7 @@
 #include <ktrader.h>
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
+#include <qscrollview.h>
 
 #include <kparts/componentfactory.h>
 #include <kparts/statusbarextension.h>
@@ -61,12 +64,19 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
   mStatusExt = new KParts::StatusBarExtension( this );
   setInstance( new KInstance( "kontactsummary" ) ); // ## memleak
 
-  mFrame = new QFrame( core, widgetName );
+  QScrollView *sv = new QScrollView( core );
+
+  sv->setResizePolicy( QScrollView::AutoOneFit );
+  sv->setFrameStyle( QFrame::NoFrame | QFrame::Plain );
+
+  mFrame = new QFrame( sv->viewport(), widgetName );
+  sv->addChild(mFrame);
+
   mFrame->setFocusPolicy( QWidget::StrongFocus );
   mFrame->setFrameStyle( QFrame::Panel | QFrame::Sunken );
   connect(kapp, SIGNAL(kdisplayPaletteChanged()), SLOT(slotAdjustPalette()));
   slotAdjustPalette();
-  setWidget( mFrame );
+  setWidget( sv );
 
   mLayout = new QGridLayout( mFrame, 6, 3, KDialog::marginHint(),
                              KDialog::spacingHint() );
@@ -155,7 +165,7 @@ void SummaryViewPart::getWidgets()
       if ( i < summaries.count() - 1 ) {
         // Add horizontal line, when widget is not the last in the column.
         QFrame *hline = new QFrame( mFrame );
-        hline->setFrameStyle( QFrame::HLine | QFrame::Sunken );
+        //hline->setFrameStyle( QFrame::HLine | QFrame::Sunken );
         mLayout->addWidget( hline, currentRow++, column );
       }
     }
@@ -163,7 +173,7 @@ void SummaryViewPart::getWidgets()
 
   // Add vertical line between the two rows of summary widgets.
   QFrame *vline = new QFrame( mFrame );
-  vline->setFrameStyle( QFrame::VLine | QFrame::Sunken );
+  vline->setFrameStyle( QFrame::VLine | QFrame::Plain );
   mLayout->addMultiCellWidget( vline, 0, maxRow, 1, 1 );
 }
 
