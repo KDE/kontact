@@ -244,7 +244,7 @@ d starting all takes too long on startup
 d Idea: Mark complex parts as basic parts that get loaded anyway
 
 # parts could be loaded in the background based on usage patterns. Kontact could
-# remeber which parts were used at the last session and load them in the
+# remember which parts were used at the last session and load them in the
 # background after loading the initial part to be shown at startup.
 
 z This idea seems to be similar to Microsoft's
@@ -257,7 +257,7 @@ z last used part on startup. Make sure its loading finishes and then
 z load the rest once the user can already interact with the last used
 z loaded part.
 
-g why do we always need the addressbook? Is libkabc not sufficent?
+g why do we always need the addressbook? Is libkabc not sufficient?
 
 Don: I guess my machine is too fast, starting parts is pretty quick here :-)
 
