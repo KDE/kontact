@@ -40,7 +40,6 @@ class SpecialdatesPlugin : public Kontact::Plugin
     const KAboutData *aboutData();
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
-    virtual bool showInSideBar() const { return false; }
 
   protected:
     virtual KParts::ReadOnlyPart *createPart() { return false; }

@@ -8,6 +8,7 @@ TryExec=rssservice
 X-KDE-Library=libkontact_newstickerplugin
 X-KDE-KontactPluginVersion=4
 X-KDE-KontactPluginHasSummary=true
+X-KDE-KontactPluginHasPart=false
 
 X-KDE-PluginInfo-Name=kontact_newstickerplugin
 X-KDE-PluginInfo-Version=0.1
@@ -63,6 +64,7 @@ Name[nn]=Nyhendetelegraf
 Name[pt]=Notícias
 Name[ru]=Лента новостей
 Name[sk]=Správy
+Name[sl]=Prikazovalnik novic
 Name[sv]=Nyhetsövervakare
 Name[ta]=செய்திகள் குறிப்பான்
 Name[tr]=Haberİzleyici

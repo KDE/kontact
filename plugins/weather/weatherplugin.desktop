@@ -9,6 +9,7 @@ X-KDE-Library=libkontact_weatherplugin
 X-KDE-KontactIdentifier=weather
 X-KDE-KontactPluginVersion=4
 X-KDE-KontactPluginHasSummary=true
+X-KDE-KontactPluginHasPart=false
 
 X-KDE-PluginInfo-Name=kontact_weatherplugin
 X-KDE-PluginInfo-Version=0.1

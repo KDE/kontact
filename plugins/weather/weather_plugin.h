@@ -33,8 +33,6 @@ class WeatherPlugin : public Kontact::Plugin
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
 
-    virtual bool showInSideBar() const { return false; }
-
     const KAboutData *aboutData();
 
   protected:

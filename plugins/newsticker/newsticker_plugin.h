@@ -33,7 +33,6 @@ class NewsTickerPlugin : public Kontact::Plugin
 
     virtual Kontact::Summary *createSummaryWidget( QWidget* parentWidget );
 
-    virtual bool showInSideBar() const { return false; }
   protected:
     virtual KParts::ReadOnlyPart* createPart() { return 0L; }
 };
