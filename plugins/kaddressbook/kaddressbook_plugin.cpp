@@ -23,7 +23,6 @@
 
 #include <qwidget.h>
 
-#include <kaboutdata.h>
 #include <kaction.h>
 #include <kapplication.h>
 #include <kdebug.h>

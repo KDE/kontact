@@ -106,13 +106,16 @@ KParts::Part *Plugin::loadPart()
 
 const KAboutData *Plugin::aboutData()
 {
+  kdDebug() << "Plugin::aboutData(): libname: " << d->partLibraryName << endl;
+
   const KInstance *instance =
     KParts::Factory::partInstanceFromLibrary( d->partLibraryName );
 
   if ( instance ) {
     return instance->aboutData();
   } else {
-    kdError() << "Can't load instance for " << title() << endl;
+    kdError() << "Plugin::aboutData(): Can't load instance for "
+              << title() << endl;
     return 0;
   }
 }
