@@ -143,6 +143,7 @@ void TodoSummaryWidget::updateView()
         sSummary = todo->relatedTo()->summary() + ":" + todo->summary();
       }
       KURLLabel *urlLabel = new KURLLabel( todo->uid(), sSummary, this );
+      urlLabel->setTextFormat( Qt::RichText );
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
 
