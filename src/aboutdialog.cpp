@@ -98,7 +98,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     text.replace( "\n", "<br>" );
 
     KActiveLabel *label = new KActiveLabel( text, topFrame );
-	label->setAlignment( AlignTop );
+    label->setAlignment( AlignTop );
     topLayout->addWidget( label );
 
   
@@ -158,7 +158,7 @@ void AboutDialog::addLicenseText(const KAboutData *about)
 {
   if ( !about || about->license().isEmpty() ) return;
 
-  QPixmap pixmap = KGlobal::iconLoader()->loadIcon( "scripting",
+  QPixmap pixmap = KGlobal::iconLoader()->loadIcon( "signature",
                                                     KIcon::Desktop, 48 );
 
   QString title = i18n("%1 license").arg(about->programName());
