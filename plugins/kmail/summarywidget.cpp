@@ -118,7 +118,6 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
                                            this );
       urlLabel->setAlignment( AlignLeft );
       urlLabel->show();
-      // ### FIXME emit dcop signal to jumo to actual folder
       connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
                SLOT( selectFolder( const QString& ) ) );
       mLayout->addWidget( urlLabel, counter, 0 );
