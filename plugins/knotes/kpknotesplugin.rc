@@ -1,5 +1,6 @@
-<!DOCTYPE kpartgui>
-<kpartplugin name="kpknotesplugin" library="libkpknotesplugin" version="1">
+<?xml version="1.0"?>
+<!DOCTYPE gui>
+<gui name="kpknotesplugin" version="1">
 <!--
 <MenuBar>
  <Menu name="edit"><Text>&amp;Edit</Text>
@@ -10,5 +11,5 @@
 <ToolBar>
   <Action name="edit_newnote"/>
 </ToolBar>
-</kpartplugin>
+</gui>
 

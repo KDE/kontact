@@ -1,9 +1,10 @@
-<!DOCTYPE kpartgui>
-<kpartplugin name="kptestplugin" library="libkptestplugin" version="1">
+<?xml version="1.0"?>
+<!DOCTYPE gui>
+<gui name="kpkorganizerplugin" version="1">
 <MenuBar>
  <Menu name="edit"><Text>&amp;Edit</Text>
   <Action name="edit_test"/>
  </Menu>
 </MenuBar>
-</kpartplugin>
+</gui>
 
