@@ -28,6 +28,13 @@
 
 #include "kabsummarywidget.h"
 
+struct KABDateEntry
+{
+  bool birthday;
+  int yearsOld;
+  QDate date;
+  KABC::Addressee addressee;
+};
 
 KABSummaryWidget::KABSummaryWidget( QWidget *parent, const char *name )
   : QTextBrowser( parent, name )
@@ -44,45 +51,74 @@ void KABSummaryWidget::updateView()
   clear();
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
-  QMap<QDate, KABC::Addressee> prevDates;
-  QMap<QDate, KABC::Addressee> nextDates;
+  QMap<QDate, KABDateEntry> prevDates;
+  QMap<QDate, KABDateEntry> nextDates;
 
   QDate currentDate( 0, QDate::currentDate().month(),
                      QDate::currentDate().day() );
 
   KABC::AddressBook::Iterator it;
   for ( it = ab->begin(); it != ab->end(); ++it ) {
-    QDate d = (*it).birthday().date();
-    if ( d.isValid() ) {
-      QDate date( 0, d.month(), d.day() );
+    QDate birthday = (*it).birthday().date();
+    QDate anniversary = QDate::fromString(
+          (*it).custom( "KADDRESSBOOK" , "X-Anniversary" ), Qt::ISODate );
+    if ( birthday.isValid() ) {
+      QDate date( 0, birthday.month(), birthday.day() );
+      KABDateEntry entry;
+      entry.birthday = true;
+      entry.yearsOld = QDate::currentDate().year() - birthday.year();
+      entry.date = birthday;
+      entry.addressee = *it;
       if ( date < currentDate )
-        prevDates.insert( date, *it, false );
+        prevDates.insert( date, entry, false );
       else
-        nextDates.insert( date, *it, false );
+        nextDates.insert( date, entry, false );
+    }
+    if ( anniversary.isValid() ) {
+      QDate date( 0, anniversary.month(), anniversary.day() );
+      KABDateEntry entry;
+      entry.birthday = false;
+      entry.yearsOld = QDate::currentDate().year() - anniversary.year();
+      entry.date = anniversary;
+      entry.addressee = *it;
+      if ( date < currentDate )
+        prevDates.insert( date, entry, false );
+      else
+        nextDates.insert( date, entry, false );
     }
   }
 
-  KABC::Addressee::List addrList;
-  QMap<QDate, KABC::Addressee>::Iterator dateIt;
+  QValueList<KABDateEntry> dateList;
+  QMap<QDate, KABDateEntry>::Iterator dateIt;
   for ( dateIt = nextDates.begin(); dateIt != nextDates.end(); ++dateIt )
-    addrList.append( dateIt.data() );
+    dateList.append( dateIt.data() );
 
-  for ( dateIt = prevDates.begin(); dateIt != prevDates.end(); ++dateIt )
-    addrList.append( dateIt.data() );
+  for ( dateIt = prevDates.begin(); dateIt != prevDates.end(); ++dateIt ) {
+    dateIt.data().yearsOld++;
+    dateList.append( dateIt.data() );
+  }
 
-  KABC::Addressee::List::Iterator addrIt;
+  QValueList<KABDateEntry>::Iterator addrIt;
   QString lines;
-  for ( addrIt = addrList.begin(); addrIt != addrList.end(); ++addrIt ) {
-    lines += QString( "<tr><td><img src=\"%1\"></td><td>%2</td><td>%3</td></tr>" )
-                    .arg( "birthday" )
-                    .arg( KGlobal::locale()->formatDate( 
-                          (*addrIt).birthday().date(), true ) )
-                    .arg( (*addrIt).formattedName() );
+  for ( addrIt = dateList.begin(); addrIt != dateList.end(); ++addrIt ) {
+    QString img = ( (*addrIt).birthday ? "birthday" : "anniversary" );
+    QString date = KGlobal::locale()->formatDate( (*addrIt).date, true );
+    lines += QString( "<tr><td><img src=\"%1\"></td><td>%2</td><td>%3 (%4)</td></tr>" )
+                    .arg( img )
+                    .arg( date )
+                    .arg( (*addrIt).addressee.formattedName() )
+                    .arg( (*addrIt).yearsOld );
   }
   QMimeSourceFactory::defaultFactory()->setPixmap( "birthday",
-            KGlobal::iconLoader()->loadIcon( "bookmark", KIcon::Small ) );
+            KGlobal::iconLoader()->loadIcon( "cookie", KIcon::Small ) );
+  QMimeSourceFactory::defaultFactory()->setPixmap( "anniversary",
+            KGlobal::iconLoader()->loadIcon( "kuser", KIcon::Small ) );
 
-  setText( QString( "<html><body><table>%1</table></body></html>" ).arg( lines ) );
+  setText( QString( "<html><body>"
+                    "<h1>%1</h1>"
+                    "<table>%2</table>"
+                    "</body></html>" ).arg( i18n( "Birthdays and Anniversaries" ) )
+                                      .arg( lines ) );
 }
 
 #include "kabsummarywidget.moc"
