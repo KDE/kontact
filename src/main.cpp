@@ -77,5 +77,8 @@ int main(int argc, char **argv)
   // delete splash
   delete splash;
 
-  return app.exec();
+  bool ret = app.exec();
+  while (KMainWindow::memberList->first())
+      delete KMainWindow::memberList->first();
+  return ret;
 }
