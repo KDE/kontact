@@ -32,6 +32,7 @@
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <klocale.h>
+#include <kparts/part.h>
 
 #include "core.h"
 #include "summarywidget.h"
@@ -65,7 +66,8 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
   if ( kapp->dcopClient()->isApplicationRegistered( "kmail" ) )
     mDCOPApp = "kmail";
   else {
-    plugin->part(); // start part to have dcop iface available
+    KParts::Part *part = plugin->part(); // start part to have dcop iface available
+    part->widget()->hide();
     mDCOPApp = "kontact";
   }
 
