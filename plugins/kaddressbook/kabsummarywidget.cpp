@@ -189,6 +189,7 @@ void KABSummaryWidget::updateView()
       mLabels.append( label );
 
       KURLLabel *urlLabel = new KURLLabel( this );
+      urlLabel->installEventFilter(this);
       urlLabel->setURL( (*addrIt).addressee.uid() );
       urlLabel->setText( (*addrIt).addressee.formattedName() );
       mLayout->addWidget( urlLabel, counter, 3 );
@@ -272,6 +273,20 @@ void KABSummaryWidget::popupMenu( const QString &uid )
       viewContact( uid );
       break;
   }
+}
+
+bool KABSummaryWidget::eventFilter(QObject *obj, QEvent* e)
+{
+  if (obj->inherits("KURLLabel"))
+  {
+    KURLLabel* label = static_cast<KURLLabel*>(obj);
+    if (e->type() == QEvent::Enter)
+      emit message(i18n("Mail to %1").arg(label->text()));
+    if (e->type() == QEvent::Leave)
+      emit message(QString::null);
+  }
+
+  return Kontact::Summary::eventFilter(obj, e); 
 }
 
 #include "kabsummarywidget.moc"

@@ -44,6 +44,9 @@ class KABSummaryWidget : public Kontact::Summary
     KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
                       const char *name = 0 );
 
+  protected:
+    virtual bool eventFilter(QObject *obj, QEvent* e);
+
   private slots:
     void updateView();
     void popupMenu( const QString &uid );

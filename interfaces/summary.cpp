@@ -59,3 +59,5 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
   return hbox;
 }
 
+
+#include "summary.moc"

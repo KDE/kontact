@@ -2,6 +2,7 @@
    This file is part of KDE Kontact.
 
    Copyright (C) 2003 Sven Lüppken <sven@kde.org>
+   Copyright (C) 2003 Daniel Molkentin <molkentin@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -31,6 +32,11 @@ namespace Kontact
   class Plugin;
 }
 
+namespace KParts
+{
+  class StatusBarExtension;
+}
+
 class QFrame;
 class QGridLayout;
 
@@ -55,6 +61,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     void getWidgets();
 
   private:
+    KParts::StatusBarExtension *mStatusExt;
     QGridLayout *mLayout;
     QFrame *mFrame;
     Kontact::Core *mCore;

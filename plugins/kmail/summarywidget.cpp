@@ -45,7 +45,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Desktop, KIcon::SizeMedium);
   QWidget *header = createHeader(this, icon, i18n("Messages"));
-  mLayout = new QGridLayout( 6, 3, 3 );
+  mLayout = new QGridLayout( 1, 3, 3 );
 
   mainLayout->addWidget(header);
   mainLayout->addLayout(mLayout);

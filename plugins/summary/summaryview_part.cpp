@@ -32,9 +32,13 @@
 #include <kdialog.h>
 #include <klocale.h>
 #include <kmessagebox.h>
-#include <kparts/componentfactory.h>
 #include <kservice.h>
 #include <ktrader.h>
+#include <kstandarddirs.h>
+#include <kstatusbar.h>
+
+#include <kparts/componentfactory.h>
+#include <kparts/statusbarextension.h>
 
 #include <infoextension.h>
 #include <sidebarextension.h>
@@ -54,9 +58,11 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
   : KParts::ReadOnlyPart( parent, name ),
     mCore( core )
 {
+  mStatusExt = new KParts::StatusBarExtension( this );
   setInstance( new KInstance( "kontactsummary" ) ); // ## memleak
 
   mFrame = new QFrame( core, widgetName );
+  mFrame->setFocusPolicy( QWidget::StrongFocus );
   mFrame->setFrameStyle( QFrame::Panel | QFrame::Sunken );
   connect(kapp, SIGNAL(kdisplayPaletteChanged()), SLOT(slotAdjustPalette()));
   slotAdjustPalette();
@@ -103,6 +109,8 @@ void SummaryViewPart::getWidgets()
                 << endl;
       if ( h ) {
         totalHeight += s->summaryHeight();
+        connect(s, SIGNAL(message(const QString&)),
+                mStatusExt->statusBar(), SLOT(message(const QString&)));
         summaries.append( s );
       } else {
         s->hide();
