@@ -5,7 +5,7 @@ Icon=kaddressbook
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=libkontact_kaddressbookplugin
-X-KDE-KontactPluginVersion=3
+X-KDE-KontactPluginVersion=4
 X-KDE-KontactPartLibraryName=libkaddressbookpart
 X-KDE-KontactPartExecutableName=kaddressbook
 X-KDE-KontactPluginHasSummary=true
