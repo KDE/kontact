@@ -57,7 +57,7 @@ KParts::Part* aKregatorPlugin::createPart()
 
     m_stub = new Akregator::aKregatorPartIface_stub( dcopClient(), "akregator",
                                       "aKregatorIface" );
-    m_stub->openLastFeedList();
+    m_stub->openStandardFeedList();
     return p;
 }
 
