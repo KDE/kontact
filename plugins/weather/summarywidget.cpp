@@ -106,7 +106,6 @@ void SummaryWidget::updateView()
     img = (*it).icon();
 
     QGridLayout *layout = new QGridLayout( mLayout, 3, 3, 3 );
-    mLayout->addStretch( 10 );
     mLayouts.append( layout );
 
     KURLLabel* urlLabel = new KURLLabel(this);
