@@ -28,9 +28,10 @@
 
 typedef QMap<QString, QString> NotesMap;
 
-class KIconView;
-class QIconViewItem;
+class KListView;
+class QListViewItem;
 class QPoint;
+class QTextEdit;
 
 class KNotesPart : public KParts::ReadOnlyPart
 {
@@ -38,31 +39,37 @@ class KNotesPart : public KParts::ReadOnlyPart
 
   public:
     KNotesPart( QObject *parent = 0, const char *name = 0 );
+    ~KNotesPart();
 
     bool openFile();
 
   public slots:
-    void slotNewNote();
+    void newNote();
 
   signals:
     void noteSelected( const QString &name );
     void noteSelected( const QPixmap &pixmap );
 
   protected slots:
-    void slotNoteRenamed( QIconViewItem *item, const QString& text );
-    void slotPopupRMB( QIconViewItem *item, const QPoint& pos );
-    void slotRemoveCurrentNote();
-    void slotRenameCurrentNote();
-    void slotOpenNote( QIconViewItem* item );
+    void noteRenamed( QListViewItem *item, int col, const QString& text );
+    void popupRMB( QListViewItem *item, const QPoint& pos, int );
+    void removeNote();
+    void renameNote();
+    void showNote( QListViewItem* item );
+    void noteChanged();
+    void saveNote();
 
   protected:
-    void initKNotes();
-    NotesMap fetchNotes();
+    void reloadNotes();
 
   private:
-    KIconView *mIconView;
+    KListView *mNotesView;
+    QTextEdit *mNotesEdit;
     QPixmap mAppIcon;
     QPopupMenu *mPopupMenu;
+
+    bool mNoteChanged;
+    QString mCurrentNote;
 };
 
 #endif

@@ -19,58 +19,66 @@
 */
 
 #include <qpopupmenu.h>
+#include <qsplitter.h>
+#include <qtextedit.h>
 
 #include <dcopclient.h>
+#include <dcopref.h>
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kiconloader.h>
-#include <kiconview.h>
+#include <klistview.h>
 #include <klocale.h>
 #include <kmessagebox.h>
-#include <krun.h>
 #include <kstandarddirs.h>
 #include <libkdepim/infoextension.h>
 
 #include "knotes_part.h"
 
-class NotesItem : public KIconViewItem
+class NotesItem : public KListViewItem
 {
   public:
-    NotesItem( KIconView *parent, const QString &id, const QString &text );
+    NotesItem( KListView *parent, const QString &id, const QString &text );
     QString id() { return noteID; };
   private:
     QString noteID;
 };
 
-NotesItem::NotesItem( KIconView *parent, const QString &id, const QString &text )
-  :	KIconViewItem( parent, text, DesktopIcon( "knotes" ) )
+NotesItem::NotesItem( KListView *parent, const QString &id, const QString &text )
+  :	KListViewItem( parent, text )
 {
   noteID = id;
-  setRenameEnabled( true );
+  setRenameEnabled( 0, true );
 }
 
 KNotesPart::KNotesPart( QObject *parent, const char *name )
   : KParts::ReadOnlyPart( parent, name ),
-    mIconView( new KIconView ),
-    mPopupMenu( new QPopupMenu )
+    mPopupMenu( new QPopupMenu ),
+    mNoteChanged( false )
 {
+  QSplitter *splitter = new QSplitter( Qt::Horizontal );
+
+  mNotesView = new KListView( splitter );
+  mNotesView->addColumn( i18n( "Title" ) );
+
+  mNotesEdit = new QTextEdit( splitter );
+
   mPopupMenu->insertItem( BarIcon( "editdelete" ), i18n( "Remove Note" ),
                           this, SLOT( slotRemoveCurrentNote() ) );
   mPopupMenu->insertItem( BarIcon( "editrename" ), i18n( "Rename Note" ),
                           this, SLOT( slotRenameCurrentNote() ) );
 
-  connect( mIconView, SIGNAL( executed( QIconViewItem* ) ),
-           this, SLOT( slotOpenNote( QIconViewItem* ) ) );
-  connect( mIconView, SIGNAL( rightButtonClicked( QIconViewItem*, const QPoint& ) ),
-           this, SLOT( slotPopupRMB( QIconViewItem*, const QPoint& ) ) );
-  connect( mIconView, SIGNAL( itemRenamed( QIconViewItem*, const QString& ) ),
-           this, SLOT( slotNoteRenamed( QIconViewItem*, const QString& ) ) );
+  connect( mNotesView, SIGNAL( selectionChanged( QListViewItem* ) ),
+           this, SLOT( showNote( QListViewItem* ) ) );
+  connect( mNotesView, SIGNAL( contextMenuRequested( QListViewItem*, const QPoint&, int ) ),
+           this, SLOT( popupRMB( QListViewItem*, const QPoint&, int ) ) );
+  connect( mNotesView, SIGNAL( itemRenamed( QListViewItem*, int, const QString& ) ),
+           this, SLOT( noteRenamed( QListViewItem*, int, const QString& ) ) );
+  connect( mNotesEdit, SIGNAL( textChanged() ),
+           this, SLOT( noteChanged() ) );
 
-  initKNotes();
-  setWidget( mIconView );
-
-  mIconView->arrangeItemsInGrid();
-  mIconView->setItemsMovable( false );
+  reloadNotes();
+  setWidget( splitter );
 
   mAppIcon = KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Small );
 
@@ -81,7 +89,12 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
            info, SIGNAL( iconChanged( const QPixmap& ) ) );
 }
 
-void KNotesPart::initKNotes()
+KNotesPart::~KNotesPart()
+{
+  saveNote();
+}
+
+void KNotesPart::reloadNotes()
 {
   QString *error = 0;
   int started = KApplication::startServiceByDesktopName( "knotes", QString(),
@@ -95,13 +108,22 @@ void KNotesPart::initKNotes()
 
   delete error;
 
-  mIconView->clear();
+  mNotesView->clear();
 
   NotesMap map;
-  map = fetchNotes();
+
+  QCString replyType;
+  QByteArray data, replyData;
+  QDataStream arg(  data, IO_WriteOnly );
+  if ( kapp->dcopClient()->call( "knotes", "KNotesIface", "notes()", data, replyType, replyData ) ) {
+    kdDebug(5602) << "Reply Type: " << replyType << endl;
+    QDataStream answer(  replyData, IO_ReadOnly );
+    answer >> map;
+  }
+
   NotesMap::ConstIterator it;
   for ( it = map.begin(); it != map.end(); ++it )
-    (void) new NotesItem( mIconView, it.key(), it.data() );
+    (void) new NotesItem( mNotesView, it.key(), it.data() );
 }
 
 bool KNotesPart::openFile()
@@ -109,22 +131,7 @@ bool KNotesPart::openFile()
   return false;
 }
 
-NotesMap KNotesPart::fetchNotes()
-{
-  QCString replyType;
-  QByteArray data, replyData;
-  QDataStream arg(  data, IO_WriteOnly );
-  if ( kapp->dcopClient()->call( "knotes", "KNotesIface", "notes()", data, replyType, replyData ) ) {
-    kdDebug(5602) << "Reply Type: " << replyType << endl;
-    QDataStream answer(  replyData, IO_ReadOnly );
-    NotesMap notes;
-    answer >> notes;
-    return notes;
-  } else
-    return NotesMap();
-}
-
-void KNotesPart::slotPopupRMB( QIconViewItem *item, const QPoint& pos )
+void KNotesPart::popupRMB( QListViewItem *item, const QPoint& pos, int )
 {
   if ( !item )
     return;
@@ -132,73 +139,97 @@ void KNotesPart::slotPopupRMB( QIconViewItem *item, const QPoint& pos )
   mPopupMenu->popup( pos );
 }
 
-void KNotesPart::slotRemoveCurrentNote()
+void KNotesPart::removeNote()
 {
-  QIconViewItem* item = mIconView->currentItem();
+  NotesItem *item = static_cast<NotesItem*>( mNotesView->currentItem() );
 
-  // better safe than sorry
   if ( !item )
     return;
 
-  QString id = static_cast<NotesItem*>( item )->id();
-
   QByteArray data;
   QDataStream arg( data, IO_WriteOnly );
-  arg << id;
+  arg << item->id();
   if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "killNote(QString)", data ) )
     kdDebug(5602) << "Deleting Note!" << endl;
 
   // reinit knotes and refetch notes
-  initKNotes();
+  reloadNotes();
 }
 
-void KNotesPart::slotRenameCurrentNote()
+void KNotesPart::renameNote()
 {
   // better safe than sorry
-  if( mIconView->currentItem() )
-    mIconView->currentItem()->rename();
+  if( mNotesView->currentItem() )
+    mNotesView->currentItem()->startRename( 0 );
 }
 
-void KNotesPart::slotNoteRenamed( QIconViewItem *item, const QString& text )
+void KNotesPart::noteRenamed( QListViewItem *i, int,  const QString& text )
 {
-  // better safe than sorry
+  NotesItem *item = static_cast<NotesItem*>( i );
+
   if ( !item )
     return;
 
-  QString id = static_cast<NotesItem*>( item )->id();
-
   QByteArray data;
   QDataStream arg( data, IO_WriteOnly );
-  arg << id;
+  arg << item->id();
   arg << text;
   if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "setName(QString, QString)", data ) )
     kdDebug(5602) << "Rename Note!" << endl;
-
-  mIconView->arrangeItemsInGrid();
 }
 
-void KNotesPart::slotOpenNote( QIconViewItem *item )
+void KNotesPart::showNote( QListViewItem *i )
 {
-  QString id = static_cast<NotesItem*>( item )->id();
+  if ( !mCurrentNote.isEmpty() ) {
+    if ( mNoteChanged )
+      saveNote();
+  }
 
-  QByteArray data;
-  QDataStream arg( data, IO_WriteOnly );
-  arg << id;
-  if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "showNote(QString)", data ) )
-    kdDebug(5602) << "Opening Note!" << endl;
+  mNotesEdit->clear();
 
-  emit noteSelected( item->text() );
+  NotesItem *item = static_cast<NotesItem*>( i );
+  if ( !item ) {
+    mCurrentNote = "";
+    return;
+  }
+
+  mCurrentNote = item->id();
+
+  DCOPRef dcopCall( "knotes", "KNotesIface" );
+  mNotesEdit->blockSignals( true );
+  mNotesEdit->setText( dcopCall.call( "text(QString)", item->id() ) );
+  mNotesEdit->blockSignals( false );
+
+  emit noteSelected( item->text( 0 ) );
   emit noteSelected( mAppIcon );
 }
 
-void KNotesPart::slotNewNote()
+void KNotesPart::noteChanged()
 {
-  kdDebug(5602) << "slotNewNote called!" << endl;
-  QByteArray data;
-  QDataStream arg(  data, IO_WriteOnly );
-  arg << QString::null << QString::null;
-  if ( !kapp->dcopClient()->send(  "knotes", "KNotesIface", "newNote(QString, QString)", data ) )
+  mNoteChanged = true;  
+}
+
+void KNotesPart::saveNote()
+{
+  if ( mCurrentNote.isEmpty() )
+    return;
+
+  DCOPRef dcopCall( "knotes", "KNotesIface" );
+  dcopCall.call( "setText(QString,QString)", mCurrentNote, mNotesEdit->text() );
+
+  mNoteChanged = false;
+}
+
+void KNotesPart::newNote()
+{
+  DCOPRef dcopCall( "knotes", "KNotesIface" );
+
+  if ( !dcopCall.send( "newNote(QString, QString)", QString::null, QString::null ) ) {
     KMessageBox::error( 0, i18n( "Unable to add a new note!" ) );
+    return;
+  }
+
+  reloadNotes();
 }
 
 #include "knotes_part.moc"

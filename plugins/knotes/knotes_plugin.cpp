@@ -69,7 +69,7 @@ void KNotesPlugin::slotNewNote()
 {
   (void) part();
   if ( mPart )
-      mPart->slotNewNote();
+      mPart->newNote();
 }
 
 #include "knotes_plugin.moc"
