@@ -74,9 +74,9 @@ class PluginItem : public QCheckListItem
 KcmKontact::KcmKontact( QWidget *parent, const char *name )
   : KPrefsModule( Kontact::Prefs::self(), parent, name )
 {
+#if 0
   QVBoxLayout *topLayout = new QVBoxLayout( this );
 
-#if 0
   KPrefsWidRadios *radios = addWidRadios( Kontact::Prefs::self()->sidePaneTypeItem(),
                                           this );
   topLayout->addWidget( radios->groupBox() );
