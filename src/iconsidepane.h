@@ -54,6 +54,9 @@ class EntryItem : public QListBoxItem
 
     Navigator* navigator() const;
 
+    void setHover( bool );
+    void setPaintActive( bool );
+    bool paintActive() const { return mPaintActive; }
     /**
       returns the width of this item.
     */
@@ -71,6 +74,8 @@ class EntryItem : public QListBoxItem
   private:
     Kontact::Plugin *mPlugin;
     QPixmap mPixmap;
+    bool mHasHover;
+    bool mPaintActive;
 };
 
 /**
@@ -88,6 +93,8 @@ class Navigator : public KListBox
 
     QSize sizeHint() const;
 
+    void highlightItem( EntryItem* item );
+
     IconViewMode viewMode() { return mViewMode; }
     IconViewMode sizeIntToEnum(int size) const;
     const QPtrList<KAction> & actions() { return mActions; }
@@ -99,15 +106,27 @@ class Navigator : public KListBox
     void dragMoveEvent ( QDragMoveEvent * );
     void dropEvent( QDropEvent * );
     void resizeEvent( QResizeEvent * );
+    void enterEvent( QEvent* );
+    void leaveEvent( QEvent* );
+
+    void setHoverItem( QListBoxItem*, bool );
+    void setPaintActiveItem( QListBoxItem*, bool );
 
   protected slots:
     void slotExecuted( QListBoxItem * );
+    void slotMouseOn( QListBoxItem *item );
+    void slotMouseOff();
     void slotShowRMBMenu( QListBoxItem *, const QPoint& );
     void shortCutSelected( int );
+    void slotStopHighlight();
 
   private:
     SidePaneBase *mSidePane;
     IconViewMode mViewMode;
+
+    QListBoxItem* mMouseOn;
+
+    EntryItem*    mHighlightItem;
 
     QSignalMapper *mMapper;
     QPtrList<KAction> mActions;
@@ -119,6 +138,8 @@ class IconSidePane : public SidePaneBase
   public:
     IconSidePane( Core *core, QWidget *parent, const char *name = 0 );
     ~IconSidePane();
+
+    virtual void indicateForegrunding( Kontact::Plugin* );
 
   public slots:
     virtual void updatePlugins();

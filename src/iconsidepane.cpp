@@ -32,6 +32,8 @@
 #include <qstyle.h>
 #include <qframe.h>
 #include <qdrawutil.h>
+#include <qcursor.h>
+#include <qtimer.h>
 
 #include <kpopupmenu.h>
 #include <kapplication.h>
@@ -91,7 +93,9 @@ using namespace Kontact;
 
 EntryItem::EntryItem( Navigator *parent, Kontact::Plugin *plugin )
   : QListBoxItem( parent ),
-    mPlugin( plugin )
+    mPlugin( plugin ),
+    mHasHover( false ),
+    mPaintActive( false )
 {
   reloadPixmap();
   setCustomHighlighting( true );
@@ -155,10 +159,14 @@ void EntryItem::paint( QPainter *p )
   int y = iconAboveText ? 2 : KDialog::spacingHint();
 
   // draw selected
-  if ( isCurrent() || isSelected() ) {
+  if ( isCurrent() || isSelected() || mHasHover || mPaintActive ) {
     int h = height( box );
 
-    QBrush brush = box->colorGroup().brush( QColorGroup::Highlight );
+    QBrush brush;
+    if ( isCurrent() || isSelected() || mPaintActive )
+      brush = box->colorGroup().brush( QColorGroup::Highlight );
+    else
+      brush = box->colorGroup().highlight().light( 115 );
     p->fillRect( 1, 0, w - 2, h - 1, brush );
     QPen pen = p->pen();
     QPen oldPen = pen;
@@ -201,7 +209,7 @@ void EntryItem::paint( QPainter *p )
         y += mPixmap.height()/2 - fm.height()/2 + fm.ascent();
     }
 
-    if ( isCurrent() || isSelected() ) {
+    if ( isCurrent() || isSelected() || mHasHover ) {
       p->setPen( box->colorGroup().highlight().dark(115) );
       p->drawText( x + ( QApplication::reverseLayout() ? -1 : 1),
                    y + 1, text() );
@@ -212,11 +220,26 @@ void EntryItem::paint( QPainter *p )
 
     p->drawText( x, y, text() );
   }
+
+  // ensure that we don't have a stale flag around
+  if (  isCurrent() || isSelected() ) mHasHover = false;
+}
+
+void EntryItem::setHover( bool hasHover )
+{
+  mHasHover = hasHover;
+}
+
+void EntryItem::setPaintActive( bool paintActive )
+{
+  mPaintActive = paintActive;
 }
 
 Navigator::Navigator( SidePaneBase *parent, const char *name )
   : KListBox( parent, name ), mSidePane( parent )
 {
+  mMouseOn = 0;
+  mHighlightItem = 0;
   mViewMode = sizeIntToEnum( Prefs::self()->sidePaneIconSize() );
   setSelectionMode( KListBox::Single );
   viewport()->setBackgroundMode( PaletteBackground );
@@ -228,9 +251,11 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
 
   connect( this, SIGNAL( selectionChanged( QListBoxItem* ) ),
            SLOT( slotExecuted( QListBoxItem* ) ) );
-
   connect( this, SIGNAL( rightButtonPressed( QListBoxItem*, const QPoint& ) ),
            SLOT( slotShowRMBMenu( QListBoxItem*, const QPoint& ) ) );
+  connect( this, SIGNAL( onItem( QListBoxItem * ) ),
+            SLOT(  slotMouseOn( QListBoxItem * ) ) );
+  connect( this, SIGNAL( onViewport() ), SLOT(  slotMouseOff() ) );
 
   mMapper = new QSignalMapper( this );
   connect( mMapper, SIGNAL( mapped( int ) ), SLOT( shortCutSelected( int ) ) );
@@ -239,6 +264,20 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
 QSize Navigator::sizeHint() const
 {
   return QSize( 100, 100 );
+}
+
+void Navigator::highlightItem( EntryItem * item )
+{
+  mHighlightItem = item;
+
+  setPaintActiveItem( mHighlightItem, true );
+
+  QTimer::singleShot( 2000, this, SLOT( slotStopHighlight() ) ); 
+}
+
+void Navigator::slotStopHighlight()
+{
+  setPaintActiveItem( mHighlightItem, false );
 }
 
 void Navigator::setSelected( QListBoxItem *item, bool selected )
@@ -343,11 +382,24 @@ void Navigator::resizeEvent( QResizeEvent *event )
   triggerUpdate( true );
 }
 
+void Navigator::enterEvent( QEvent *event )
+{
+  // work around Qt behaviour: onItem is not emmitted in enterEvent()
+  KListBox::enterEvent( event );
+  emit onItem( itemAt( QCursor::pos() ) );
+}
+
+void Navigator::leaveEvent( QEvent *event )
+{
+  KListBox::leaveEvent( event );
+  slotMouseOn( 0 );
+}
+
 void Navigator::slotExecuted( QListBoxItem *item )
 {
   if ( !item )
     return;
-
+  
   EntryItem *entry = static_cast<EntryItem*>( item );
 
   emit pluginActivated( entry->plugin() );
@@ -410,6 +462,39 @@ void Navigator::shortCutSelected( int pos )
   setCurrentItem( pos );
 }
 
+void Navigator::setHoverItem( QListBoxItem* item, bool hover )
+{
+    static_cast<EntryItem*>( item )->setHover( hover );
+    updateItem( item );
+}
+
+void Navigator::setPaintActiveItem( QListBoxItem* item, bool paintActive )
+{
+    static_cast<EntryItem*>( item )->setPaintActive( paintActive );
+    updateItem( item );
+}
+
+void Navigator::slotMouseOn( QListBoxItem* newItem )
+{
+  QListBoxItem* oldItem = mMouseOn;
+  if ( oldItem == newItem ) return;
+
+  if ( oldItem && !oldItem->isCurrent() && !oldItem->isSelected() )
+  {
+    setHoverItem( oldItem, false );
+  }
+
+  if ( newItem && !newItem->isCurrent() && !newItem->isSelected() )
+  {
+    setHoverItem( newItem, true );
+    mMouseOn = newItem;
+  }
+}
+
+void Navigator::slotMouseOff()
+{
+  slotMouseOn( 0 );
+}
 
 IconSidePane::IconSidePane( Core *core, QWidget *parent, const char *name )
   : SidePaneBase( core, parent, name )
@@ -435,8 +520,7 @@ void IconSidePane::selectPlugin( Kontact::Plugin *plugin )
   bool blocked = signalsBlocked();
   blockSignals( true );
 
-  uint i;
-  for ( i = 0; i < mNavigator->count(); ++i ) {
+  for ( uint i = 0; i < mNavigator->count(); ++i ) {
     EntryItem *item = static_cast<EntryItem*>( mNavigator->item( i ) );
     if ( item->plugin() == plugin ) {
       mNavigator->setCurrentItem( i );
@@ -452,8 +536,7 @@ void IconSidePane::selectPlugin( const QString &name )
   bool blocked = signalsBlocked();
   blockSignals( true );
 
-  uint i;
-  for ( i = 0; i < mNavigator->count(); ++i ) {
+  for ( uint i = 0; i < mNavigator->count(); ++i ) {
     EntryItem *item = static_cast<EntryItem*>( mNavigator->item( i ) );
     if ( item->plugin()->identifier() == name ) {
       mNavigator->setCurrentItem( i );
@@ -464,6 +547,18 @@ void IconSidePane::selectPlugin( const QString &name )
   blockSignals( blocked );
 }
 
+void IconSidePane::indicateForegrunding( Kontact::Plugin *plugin )
+{
+  for ( uint i = 0; i < mNavigator->count(); ++i ) {
+    EntryItem *item = static_cast<EntryItem*>( mNavigator->item( i ) );
+    if ( item->plugin() == plugin ) {
+      mNavigator->highlightItem( item ); 
+      break;
+    }
+  }
+
+
+}
 #include "iconsidepane.moc"
 
 // vim: sw=2 sts=2 et tw=80

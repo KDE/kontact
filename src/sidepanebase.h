@@ -65,6 +65,7 @@ class SidePaneBase : public QVBox
      */
     virtual void selectPlugin( const QString &name ) = 0;
 
+    virtual void indicateForegrunding( Kontact::Plugin* ) = 0;
   protected:
     Core* core() const;
 

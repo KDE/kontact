@@ -141,8 +141,6 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QValueList<KPluginInfo*> mPluginInfos;
     KHTMLPart *mIntroPart;
 
-    int mSidePaneType;
-
     KRSqueezedTextLabel* mStatusMsgLabel;
     KPIM::StatusbarProgressWidget *mLittleProgress;
 
