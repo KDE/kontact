@@ -49,14 +49,18 @@ SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins, QWid
 
 	m_frame = new QFrame( parentWidget, widgetName );
 	setWidget(m_frame);
-	m_layout = new QGridLayout( m_frame, 2, 2 );
+
+	m_layout = new QGridLayout( m_frame, -1, 2 );
+	m_layout->setAutoAdd( true );
+	//m_layout->setSpacing( 50 ); We should look later which spacing is appropriate here
+
 	setXMLFile("summaryparttui.rc");
   //new KAction( "new contact (test)", 0, this, SLOT( newContact() ), actionCollection(), "test_deleteevent" );
 	//new KParts::SideBarExtension( label, this, "sbe");
 	m_plugins = plugins;
 	kapp->dcopClient()->setNotifications( true );
 
-  getWidgets();
+	getWidgets();
 }
 
 SummaryViewPart::~SummaryViewPart()
@@ -81,7 +85,6 @@ void SummaryViewPart::getWidgets()
 		if( plugin->summaryWidget() != 0L )
 		{
 			plugin->summaryWidget()->reparent( m_frame , 0, QPoint() );
-			m_layout->addWidget( plugin->summaryWidget(), 1, 1 ) ;
 			kdDebug() << "Item added" << endl;
 		}
 	}
