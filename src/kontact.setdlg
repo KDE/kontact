@@ -1,3 +1,47 @@
+[KontactSummary]
+Name=Summary
+Name[bs]=Sažetak
+Name[ca]=Resum
+Name[cs]=Souhrn
+Name[cy]=Crynodeb
+Name[da]=Opsummaring
+Name[de]=Übersicht
+Name[el]=Περίληψη
+Name[es]=Resumen
+Name[et]=Kokkuvõte
+Name[fi]=Yhteenveto
+Name[fr]=Résumé
+Name[gl]=Resumo
+Name[hi]=सारांश
+Name[hu]=Áttekintés
+Name[is]=Yfirlit
+Name[it]=Sommario
+Name[ja]=サマリ
+Name[nb]=Sammendrag
+Name[nl]=Overzicht
+Name[nn]=Samandrag
+Name[pl]=Podsumowanie
+Name[pt]=Resumo
+Name[pt_BR]=Resumo
+Name[ro]=Sumar
+Name[ru]=Дайджест
+Name[sk]=Súhrn
+Name[sl]=Povzetek
+Name[sr]=Сажетак
+Name[sr@Latn]=Sažetak
+Name[sv]=Översikt
+Name[ta]=சுருக்கம்
+Name[tg]=Дайджест
+Name[tr]=Özet
+Name[uk]=Зведення
+Name[uz]=Ҳисобот
+Name[xx]=xxSummaryxx
+Name[zh_CN]=概览
+Name[xx]=xxSummaryxx
+Comment=Summary View
+Weight=100
+Icon=kontact_summary
+
 [KMail]
 Name=Mail
 Name[be]=Пошта
@@ -40,7 +84,7 @@ Name[xx]=xxMailxx
 Name[zh_CN]=邮件
 Comment=Mail Component
 Comment[xx]=xxxx
-Weight=20
+Weight=200
 Icon=kontact_mail
 
 [KAB]
@@ -83,7 +127,7 @@ Name[xx]=xxContactsxx
 Name[zh_CN]=联系人
 Comment=Address Book Component
 Comment[xx]=xxxx
-Weight=50
+Weight=300
 Icon=kontact_contacts
 
 [KOrganizer]
@@ -127,7 +171,7 @@ Name[xx]=xxCalendarxx
 Name[zh_CN]=日历
 Comment=Calendar Component
 Comment[xx]=xxxx
-Weight=30
+Weight=400
 Icon=kontact_date
 
 [KNode]
@@ -170,7 +214,7 @@ Name[xx]=xxNewsxx
 Name[zh_CN]=新闻
 Comment=News Component
 Comment[xx]=xxxx
-Weight=50
+Weight=500
 Icon=kontact_news
 
 [KWeather]
@@ -216,7 +260,7 @@ Name[xx]=xxWeatherxx
 Name[zh_CN]=天气
 Comment=Weather Information
 Comment[xx]=xxxx
-Weight=60
+Weight=1000
 Icon=kweather
 
 [NewsTicker]
@@ -267,48 +311,5 @@ Name[zh_CN]=新闻点点通
 Name[zu]=Umlungiseleli Wezindaba 
 Comment=News Ticker Component
 Comment[xx]=xxxx
-Weight=60
+Weight=1100
 Icon=knode
-
-[KontactSummary]
-Name=Summary
-Name[bs]=Sažetak
-Name[ca]=Resum
-Name[cs]=Souhrn
-Name[cy]=Crynodeb
-Name[da]=Opsummaring
-Name[de]=Übersicht
-Name[el]=Περίληψη
-Name[es]=Resumen
-Name[et]=Kokkuvõte
-Name[fi]=Yhteenveto
-Name[fr]=Résumé
-Name[gl]=Resumo
-Name[hi]=सारांश
-Name[hu]=Áttekintés
-Name[is]=Yfirlit
-Name[it]=Sommario
-Name[ja]=サマリ
-Name[nb]=Sammendrag
-Name[nl]=Overzicht
-Name[nn]=Samandrag
-Name[pl]=Podsumowanie
-Name[pt]=Resumo
-Name[pt_BR]=Resumo
-Name[ro]=Sumar
-Name[ru]=Дайджест
-Name[sk]=Súhrn
-Name[sl]=Povzetek
-Name[sr]=Сажетак
-Name[sr@Latn]=Sažetak
-Name[sv]=Översikt
-Name[ta]=சுருக்கம்
-Name[tg]=Дайджест
-Name[tr]=Özet
-Name[uk]=Зведення
-Name[uz]=Ҳисобот
-Name[xx]=xxSummaryxx
-Name[zh_CN]=概览
-Name[xx]=xxSummaryxx
-Comment=Summary View
-Icon=kontact_summary
