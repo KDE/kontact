@@ -258,8 +258,8 @@ void MainWindow::initAboutScreen()
   QString location = locate( "data", "kontact/about/main.html" );
   QString content = KPIM::kFileToString( location );
   introPart->begin( KURL( location ) );
-  QString appName( i18n( "Kontact" ) ); 
-  QString catchPhrase( i18n( "Get Organized!" ) ); 
+  QString appName( i18n( "Kontact" ) );
+  QString catchPhrase( i18n( "Get Organized!" ) );
   QString quickDescription( i18n( "The KDE Personal Information Management Suite" ) );
   QString info = i18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
       "<p>%2</p><ul>"
@@ -559,9 +559,9 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   for ( it = invisibleActions.begin(); it != invisibleActions.end(); ++it ) {
     KAction *action = part->actionCollection()->action( (*it).latin1() );
     if ( action ) {
-      QPtrListIterator<KToolBar> it2(  toolBarIterator() );
-      for (  ; it2.current() ; ++it2 ) {
-        action->unplug( it2.current() );
+      QPtrListIterator<KToolBar> it(  toolBarIterator() );
+      for (  ; it.current() ; ++it ) {
+        action->unplug( it.current() );
       }
     }
   }
