@@ -54,6 +54,7 @@ class KABSummaryWidget : public Kontact::Summary
     void viewContact( const QString &uid );
 
   private:
+    void dateDiff( const QDate &date, int &days, int &years );
     QGridLayout *mLayout;
     QPtrList<QLabel> mLabels;
     Kontact::Plugin *mPlugin;

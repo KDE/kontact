@@ -53,9 +53,7 @@ class KABDateEntry
 
     bool operator<( const KABDateEntry &entry ) const
     {
-      QDate thisDate( 0, date.month(), date.day() );
-      QDate otherDate( 0, entry.date.month(), entry.date.day() );
-      return thisDate < otherDate;
+      return daysTo < entry.daysTo;
     }
 };
 
@@ -78,7 +76,7 @@ KABSummaryWidget::KABSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
            this, SLOT( updateView() ) );
 
-  mDaysAhead = 30; // ### make configurable
+  mDaysAhead = 62; // ### make configurable
 
   updateView();
 }
@@ -90,11 +88,7 @@ void KABSummaryWidget::updateView()
   mLabels.setAutoDelete( false );
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
-  QValueList<KABDateEntry> prevDates;
-  QValueList<KABDateEntry> nextDates;
-
-  QDate currentDate( 0, QDate::currentDate().month(),
-                     QDate::currentDate().day() );
+  QValueList<KABDateEntry> dates;
 
   KABC::AddressBook::Iterator it;
   for ( it = ab->begin(); it != ab->end(); ++it ) {
@@ -102,74 +96,36 @@ void KABSummaryWidget::updateView()
     QDate anniversary = QDate::fromString(
           (*it).custom( "KADDRESSBOOK" , "X-Anniversary" ), Qt::ISODate );
 
-    QDate birthdayCmp( birthday.year(), currentDate.month(), currentDate.day() );
-    QDate anniversaryCmp( anniversary.year(), currentDate.month(), currentDate.day() );
-    QDate birthdayCmpAhead = birthdayCmp.addDays(mDaysAhead);
-    QDate anniversaryCmpAhead = anniversaryCmp.addDays(mDaysAhead);
-
-    if ( ( birthday.isValid() )
-        && ( birthday >= birthdayCmp )
-        && ( birthday <= birthdayCmpAhead ) )
-    {
-      QDate date( 0, birthday.month(), birthday.day() );
+    if ( birthday.isValid() ) {
       KABDateEntry entry;
       entry.birthday = true;
-      entry.yearsOld = QDate::currentDate().year() - birthday.year();
-      entry.daysTo = QDate::currentDate().daysTo( QDate(
-                                                  QDate::currentDate().year(),
-                                                  date.month(), date.day() ) );
-
-      if ( entry.daysTo < 0 )
-        entry.daysTo += 365;
+      dateDiff( birthday, entry.daysTo, entry.yearsOld );
 
       entry.date = birthday;
       entry.addressee = *it;
-      if ( date < currentDate )
-        prevDates.append( entry );
-      else
-        nextDates.append( entry );
+      if ( entry.daysTo <= mDaysAhead )
+        dates.append( entry );
     }
-    if ( ( anniversary.isValid() )
-        && ( anniversary >= anniversaryCmp )
-        && ( anniversary <= anniversaryCmpAhead ) )
-     {
-      QDate date( 0, anniversary.month(), anniversary.day() );
+
+    if ( anniversary.isValid() ) {
       KABDateEntry entry;
       entry.birthday = false;
-      entry.yearsOld = QDate::currentDate().year() - anniversary.year();
-      entry.daysTo = QDate::currentDate().daysTo( QDate(
-                                                  QDate::currentDate().year(),
-                                                  date.month(), date.day() ) );
-      if ( entry.daysTo < 0 )
-        entry.daysTo += 365;
+      dateDiff( anniversary, entry.daysTo, entry.yearsOld );
 
       entry.date = anniversary;
       entry.addressee = *it;
-      if ( date < currentDate )
-        prevDates.append( entry );
-      else
-        nextDates.append( entry );
+      if ( entry.daysTo <= mDaysAhead )
+        dates.append( entry );
     }
   }
 
-  qHeapSort( prevDates );
-  qHeapSort( nextDates );
+  qHeapSort( dates );
 
-  QValueList<KABDateEntry> dateList;
-  QValueList<KABDateEntry>::Iterator dateIt;
-  for ( dateIt = nextDates.begin(); dateIt != nextDates.end(); ++dateIt )
-    dateList.append( *dateIt );
-
-  for ( dateIt = prevDates.begin(); dateIt != prevDates.end(); ++dateIt ) {
-    (*dateIt).yearsOld++;
-    dateList.append( *dateIt );
-  }
-
-  if (!dateList.isEmpty()) {
+  if ( !dates.isEmpty() ) {
     int counter = 0;
     QValueList<KABDateEntry>::Iterator addrIt;
     QString lines;
-    for ( addrIt = dateList.begin(); addrIt != dateList.end() && counter < 6; ++addrIt ) {
+    for ( addrIt = dates.begin(); addrIt != dates.end() && counter < 6; ++addrIt ) {
       bool makeBold = (*addrIt).daysTo < 5;
 
       QLabel *label = new QLabel( this );
@@ -226,9 +182,7 @@ void KABSummaryWidget::updateView()
 
       counter++;
     }
-  }
-  else
-  {
+  } else {
     QLabel *nothingtosee = new QLabel(
         i18n( "No birthdays or anniversaries pending within the next 1 day",
               "No birthdays or anniversaries pending within the next %n days",
@@ -237,6 +191,7 @@ void KABSummaryWidget::updateView()
     nothingtosee->setTextFormat( RichText );
     mLayout->addMultiCellWidget( nothingtosee, 0, 0, 0, 4 );
   }
+
   show();
 }
 
@@ -291,16 +246,31 @@ void KABSummaryWidget::popupMenu( const QString &uid )
 
 bool KABSummaryWidget::eventFilter(QObject *obj, QEvent* e)
 {
-  if (obj->inherits("KURLLabel"))
-  {
-    KURLLabel* label = static_cast<KURLLabel*>(obj);
-    if (e->type() == QEvent::Enter)
-      emit message(i18n("Mail to %1").arg(label->text()));
-    if (e->type() == QEvent::Leave)
-      emit message(QString::null);
+  if ( obj->inherits( "KURLLabel" ) ) {
+    KURLLabel* label = static_cast<KURLLabel*>( obj );
+    if ( e->type() == QEvent::Enter )
+      emit message( i18n( "Mail to %1" ).arg( label->text() ) );
+    if ( e->type() == QEvent::Leave )
+      emit message( QString::null );
   }
 
-  return Kontact::Summary::eventFilter(obj, e);
+  return Kontact::Summary::eventFilter( obj, e );
+}
+
+void KABSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
+{
+  QDate currentDate( 0, QDate::currentDate().month(), QDate::currentDate().day() );
+
+  QDate eventDate( 0, date.month(), date.day() );
+
+  int offset = currentDate.daysTo( eventDate );
+  if ( offset < 0 ) {
+    days = 365 + offset;
+    years = QDate::currentDate().year() + 1 - date.year();
+  } else {
+    days = offset;
+    years = QDate::currentDate().year() - date.year();
+  }
 }
 
 #include "kabsummarywidget.moc"
