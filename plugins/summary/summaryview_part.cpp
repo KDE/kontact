@@ -182,16 +182,6 @@ void SummaryViewPart::getWidgets()
       maxRow = currentRow;
       currentRow = 2;
       column += 2;
-    } else {
-      if ( i < mSummaries.count() - 1 ) {
-        // Add horizontal line, when widget is not the last in the column.
-        hline = new QFrame( mFrame );
-        hline->setFrameStyle(/* QFrame::HLine |*/ QFrame::Plain );
-        hline->setMaximumHeight( KDialog::spacingHint() );
-        hline->setMinimumHeight( KDialog::spacingHint() );
-        hline->hide();
-        mLayout->addWidget( hline, currentRow++, column );
-      }
     }
   }
 
@@ -199,11 +189,6 @@ void SummaryViewPart::getWidgets()
   QFrame *vline = new QFrame( mFrame );
   vline->setFrameStyle( QFrame::VLine | QFrame::Plain );
   mLayout->addMultiCellWidget( vline, 2, maxRow, 1, 1 );
-
-  // Add line below all summaries
-  hline = new QFrame( mFrame );
-  hline->setFrameStyle( QFrame::HLine | QFrame::Plain );
-  mLayout->addMultiCellWidget( hline, maxRow+1, maxRow+1, 0, 2 );
 
   // space out remaining space to avoid ugly stretching
   mLayout->addItem(new QSpacerItem( 1, 1, QSizePolicy::MinimumExpanding,

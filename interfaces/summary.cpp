@@ -43,6 +43,7 @@ Summary::~Summary()
 QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QString& heading)
 {
   QHBox* hbox = new QHBox( parent );
+  hbox->setMargin( 2 );
 
   QFont boldFont;
   boldFont.setBold( true );
@@ -61,6 +62,8 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
   label->setPaletteBackgroundColor( colorGroup().mid() );
 
   hbox->setPaletteBackgroundColor( colorGroup().mid() );
+
+  hbox->setMaximumHeight( hbox->minimumSizeHint().height() );
 
   return hbox;
 }

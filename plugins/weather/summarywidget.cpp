@@ -42,6 +42,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
     DCOPObject( "WeatherSummaryWidget" )
 {
   mLayout = new QVBoxLayout( this );
+  mLayout->setAlignment( Qt::AlignTop );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kweather", KIcon::Desktop, KIcon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Weather Information" ) );
