@@ -1,10 +1,11 @@
 INCLUDES = -I$(top_srcdir)/kontact/interfaces $(all_includes)
 
 kde_module_LTLIBRARIES = libkpkaddressbookplugin.la
-libkpkaddressbookplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
+libkpkaddressbookplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN) -lkabc
 libkpkaddressbookplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinterfaces.la 
 
-libkpkaddressbookplugin_la_SOURCES = kaddressbook_plugin.cpp kaddressbookiface.stub
+libkpkaddressbookplugin_la_SOURCES = kaddressbook_plugin.cpp kaddressbookiface.stub \
+                                     kabsummarywidget.cpp
 
 METASOURCES = AUTO
 

@@ -23,6 +23,8 @@ public:
   virtual QStringList configModules() const;
   KAboutData* aboutData();
   KParts::Part* part();
+
+  virtual QWidget *summaryWidget();
   
 private slots:
   void slotNewContact();

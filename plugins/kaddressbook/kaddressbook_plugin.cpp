@@ -14,6 +14,7 @@
 #include "kpcore.h"
 #include "kpplugin.h"
 
+#include "kabsummarywidget.h"
 #include "kaddressbook_plugin.h"
 #include "kaddressbook_plugin.moc"
 
@@ -102,4 +103,9 @@ bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
         return true;
     }
     return false;
+}
+
+QWidget *KAddressbookPlugin::summaryWidget()
+{
+  return new KABSummaryWidget( 0 );
 }
