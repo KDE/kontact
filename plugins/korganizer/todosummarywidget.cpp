@@ -47,7 +47,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "korganizer", 
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "korganizer",
                    KIcon::Desktop, KIcon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Todos" ) );
   mainLayout->addWidget( header );
@@ -129,7 +129,7 @@ void TodoSummaryWidget::updateView()
       }
 
       // show todos which started somewhere in the past and has to be finished in future
-      if ( todo->hasStartDate() && todo->hasDueDate() && todo->dtStart().date() 
+      if ( todo->hasStartDate() && todo->hasDueDate() && todo->dtStart().date()
            < QDate::currentDate() && QDate::currentDate() < todo->dtDue().date() ) {
         accepted = accepted || true;
         stateText = i18n( "in progress" );
@@ -157,7 +157,7 @@ void TodoSummaryWidget::updateView()
       mLabels.append( label );
 
       label = new QLabel( QString::number( todo->percentComplete() ) + "%", this );
-      label->setAlignment( AlignHCenter );
+      label->setAlignment( AlignHCenter | AlignVCenter );
       mLayout->addWidget( label, counter, 1 );
       mLabels.append( label );
 
@@ -166,7 +166,7 @@ void TodoSummaryWidget::updateView()
       mLabels.append( urlLabel );
 
       label = new QLabel( stateText, this );
-      label->setAlignment( AlignLeft );
+      label->setAlignment( AlignLeft | AlignVCenter );
       mLayout->addWidget( label, counter, 3 );
       mLabels.append( label );
 
