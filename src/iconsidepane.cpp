@@ -333,11 +333,11 @@ IconViewMode Navigator::sizeIntToEnum(int size) const
 void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint& pos )
 {
   KPopupMenu menu;
-  menu.insertTitle( i18n("Icon size") );
+  menu.insertTitle( i18n("Icon Size") );
   menu.insertItem( i18n("Large"), (int)LargeIcons );
   menu.insertItem( i18n("Nomal "), (int)NormalIcons );
   menu.insertItem( i18n("Small"), (int)SmallIcons );
-  menu.insertItem( i18n("Text only"), (int)TextOnly );
+  menu.insertItem( i18n("Text Only"), (int)TextOnly );
   int choice = menu.exec( pos );
   
   mViewMode = sizeIntToEnum(choice);
