@@ -121,14 +121,14 @@ void TodoSummaryWidget::updateView()
 
       // show uncomplete todos from the last days
       if ( todo->hasDueDate() && !todo->isCompleted() &&
-           todo->dtDue().date() <= QDate::currentDate() ) {
+           todo->dtDue().date() < QDate::currentDate() ) {
         accepted = accepted || true;
         stateText = i18n( "overdued" );
       }
 
       // show todos which started somewhere in the past and has to be finished in future
       if ( todo->hasStartDate() && todo->hasDueDate() && todo->dtStart().date() 
-           <= QDate::currentDate() && QDate::currentDate() <= todo->dtDue().date() ) {
+           < QDate::currentDate() && QDate::currentDate() < todo->dtDue().date() ) {
         accepted = accepted || true;
         stateText = i18n( "in progress" );
       }
