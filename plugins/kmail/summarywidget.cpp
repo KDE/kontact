@@ -58,15 +58,12 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
 
 void SummaryWidget::raisePart()
 {
-  QString dcopApp;
 
   // FIXME: select specific folder when 'selectFolder' dcop call is implemented
-  if ( kapp->dcopClient()->isApplicationRegistered( "kmail" ) )
-    dcopApp = "kmail";
-  else {
+  if ( mPlugin->isRunningStandalone() )
+    mPlugin->bringToForeground();
+  else
     mPlugin->core()->selectPlugin( mPlugin );
-    dcopApp = "kontact";
-  }
 }
 
 void SummaryWidget::timeout()
@@ -90,7 +87,8 @@ void SummaryWidget::timeout()
       int numMsg = config.readNumEntry( "TotalMsgs", 0 );
       int numUnreadMsg = config.readNumEntry( "UnreadMsgs", 0 );
       if ( numUnreadMsg != 0 ) {
-        KURLLabel *urlLabel = new KURLLabel( QString::null, (*it).mid( 7 ), this );
+        QString folderPath = (*it).mid( 7 ).remove(0,1).replace(".directory","");
+        KURLLabel *urlLabel = new KURLLabel( QString::null, folderPath, this );
         urlLabel->setAlignment( AlignLeft );
         urlLabel->show();
         // ### FIXME emit dcop signal to jumo to actual folder
