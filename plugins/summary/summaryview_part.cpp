@@ -212,9 +212,15 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget )
   }
 
   if ( mLeftColumn->findWidget( widget ) != -1 ) {
+    if ( mLeftColumnSummaries.count() == 1 ) // don't allow to remove all widgets from one side
+      return;
+
     mLeftColumn->remove( widget );
     mLeftColumnSummaries.remove( widgetName( widget ) );
   } else if ( mRightColumn->findWidget( widget ) != -1 ) {
+    if ( mRightColumnSummaries.count() == 1 ) // don't allow to remove all widgets from one side
+      return;
+
     mRightColumn->remove( widget );
     mRightColumnSummaries.remove( widgetName( widget ) );
   }
