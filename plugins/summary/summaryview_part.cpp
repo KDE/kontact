@@ -324,6 +324,7 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
 
   sv->setResizePolicy( QScrollView::AutoOneFit );
   sv->setFrameStyle( QFrame::NoFrame | QFrame::Plain );
+  sv->setHScrollBarMode( QScrollView::AlwaysOff );
 
   mMainWidget = new QFrame( sv->viewport() );
   sv->addChild( mMainWidget );
