@@ -28,9 +28,14 @@
 
 #include <qmap.h>
 #include <qpixmap.h>
-#include <qtextbrowser.h>
-#include <qtimer.h>
+#include <qptrlist.h>
 #include <qstringlist.h>
+#include <qtimer.h>
+#include <qwidget.h>
+
+class QGridLayout;
+class QLabel;
+class QVBoxLayout;
 
 class WeatherData
 {
@@ -38,35 +43,31 @@ class WeatherData
     void setIcon( const QPixmap &icon ) { mIcon = icon; }
     QPixmap icon() const { return mIcon; }
 
+    void setName( const QString &name ) { mName = name; }
+    QString name() const { return mName; }
+
     void setCover( const QStringList& cover ) { mCover = cover; }
     QStringList cover() const { return mCover; }
 
     void setTemperature( const QString &temperature ) { mTemperature = temperature; }
     QString temperature() const { return mTemperature; }
 
-    void setPressure( const QString &pressure ) { mPressure = pressure; }
-    QString pressure() const { return mPressure; }
-
     void setWindSpeed( const QString &windSpeed ) { mWindSpeed = windSpeed; }
     QString windSpeed() const { return mWindSpeed; }
-
-    void setDewPoint( const QString &dewPoint ) { mDewPoint = dewPoint; }
-    QString dewPoint() const { return mDewPoint; }
 
     void setRelativeHumidity( const QString &relativeHumidity ) { mRelativeHumidity = relativeHumidity; }
     QString relativeHumidity() const { return mRelativeHumidity; }
 
   private:
     QPixmap mIcon;
+    QString mName;
     QStringList mCover;
     QString mTemperature;
-    QString mPressure;
     QString mWindSpeed;
-    QString mDewPoint;
     QString mRelativeHumidity;
 };
 
-class SummaryWidget : public QTextBrowser, public DCOPObject
+class SummaryWidget : public QWidget, public DCOPObject
 {
   Q_OBJECT
   K_DCOP
@@ -85,6 +86,10 @@ class SummaryWidget : public QTextBrowser, public DCOPObject
     QStringList mStations;
     QMap<QString, WeatherData> mWeatherMap;
     QTimer mTimer;
+
+    QPtrList<QLabel> mLabels;
+    QPtrList<QGridLayout> mLayouts;
+    QVBoxLayout *mLayout;
 };
 
 #endif

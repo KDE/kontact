@@ -21,18 +21,27 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qimage.h>
+#include <qlabel.h>
+#include <qlayout.h>
+
 #include <dcopclient.h>
 #include <dcopref.h>
 #include <kapplication.h>
 #include <kdebug.h>
+#include <kglobalsettings.h>
 #include <klocale.h>
 
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
-  : QTextBrowser( parent, name ),
+  : QWidget( parent, name ),
     DCOPObject( "WeatherSummaryWidget" )
 {
+  setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
+
+  mLayout = new QVBoxLayout( this );
+
   if ( !connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false ) )
     kdDebug() << "Could not attach signal..." << endl;
   else
@@ -44,7 +53,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "KWeatherService" ) ) {
     if ( !KApplication::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
-      setText( error );
+      kdDebug() << "No service available..." << endl;
       serviceAvailable = false;
     }
   }
@@ -58,50 +67,86 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
       connect( &mTimer, SIGNAL( timeout() ), this, SLOT( timeout() ) );
       mTimer.start( 0 );
     } else {
-      setText( "ERROR: dcop reply not valid" );
+      kdDebug() << "ERROR: dcop reply not valid..." << endl;
     }
   }
 }
 
 void SummaryWidget::updateView()
 {
-  clear();
+  mLayouts.setAutoDelete( true );
+  mLayouts.clear();
+  mLayouts.setAutoDelete( false );
+
+  mLabels.setAutoDelete( true );
+  mLabels.clear();
+  mLabels.setAutoDelete( false );
 
   if ( mStations.count() == 0 ) {
-    setText( i18n( "No weather stations defined." ) );
+    kdDebug() << "No weather stations defined..." << endl;
     return;
   }
 
-  WeatherData data = mWeatherMap[ mStations[ 0 ] ];
+  int counter = 0;
+  QMap<QString, WeatherData>::Iterator it;
+  for ( it = mWeatherMap.begin(); it != mWeatherMap.end() && counter < 3; ++it ) {
+    WeatherData data = it.data();
 
-  QString cover;
-  for ( uint i = 0; i < data.cover().count(); ++i )
-    cover += QString( "<li>%1</li>" ).arg( data.cover()[ i ] );
+    QString cover;
+    for ( uint i = 0; i < data.cover().count(); ++i )
+      cover += QString( "- %1\n" ).arg( data.cover()[ i ] );
 
-  QString line1 = QString( "<tr><td><img src=\"weather_icon\" width=\"64\" height=\"64\"></td><td valign=\"top\">%1</td><td></td><td></td></tr>" )
-                         .arg( "<ul>" + cover + "</ul>" );
-  QString line2 = QString( "<tr><td align=\"right\"><b>%1:</b></td><td>%2</td><td align=\"right\"><b>%3:</b></td><td>%4</td></tr>" )
-                         .arg( i18n( "Temperature" ) )
-                         .arg( data.temperature() )
-                         .arg( i18n( "Dew Point" ) )
-                         .arg( data.dewPoint() );
+    QImage img;
+    img = data.icon();
 
-  QString line3 = QString( "<tr><td align=\"right\"><b>%1:</b></td><td>%2</td><td align=\"right\"><b>%3:</b></td><td>%4</td></tr>" )
-                         .arg( i18n( "Air Pressure" ) )
-                         .arg( data.pressure() )
-                         .arg( i18n( "Rel. Humidity" ) )
-                         .arg( data.relativeHumidity() );
+    QGridLayout *layout = new QGridLayout( mLayout, 3, 4, 3 );
+    mLayouts.append( layout );
 
-  QString line4 = QString( "<tr><td align=\"right\"><b>%1:</b></td><td>%2</td><td align=\"right\"></td><td></td></tr>" )
-                         .arg( i18n( "Wind Speed" ) )
-                         .arg( data.windSpeed() );
+    QLabel *label = new QLabel( this );
+    label->setPixmap( img.smoothScale( 32, 32 ) );
+    label->setAlignment( AlignRight );
+    layout->addMultiCellWidget( label, 0, 1, 0, 0 );
+    mLabels.append( label );
 
-  QMimeSourceFactory::defaultFactory()->setPixmap( "weather_icon", data.icon() );
+    label = new QLabel( this );
+    label->setText( QString( "%1 (%2)" ).arg( data.name() ).arg( data.temperature() ) );
+    layout->addMultiCellWidget( label, 0, 0, 1, 3 );
+    mLabels.append( label );
 
-  QString text = QString( "<html><body><h1>%1</h1><table>%2</table></body></html>" )
-                        .arg( i18n( "Weather Report" ) )
-                        .arg( line1 + line2 + line3 + line4 );
-  setText( text );
+    label = new QLabel( cover, this );
+    layout->addMultiCellWidget( label, 1, 1, 1, 3 );
+    mLabels.append( label );
+
+    QFont font = label->font();
+    font.setBold( true );
+
+    label = new QLabel( i18n( "Rel. Humidity:" ), this );
+    label->setAlignment( AlignRight );
+    label->setFont( font );
+    layout->addWidget( label, 2, 0 );
+    mLabels.append( label );
+
+    label = new QLabel( data.relativeHumidity(), this );
+    label->setAlignment( AlignLeft );
+    layout->addWidget( label, 2, 1 );
+    mLabels.append( label );
+
+    label = new QLabel( i18n( "Wind Speed:" ), this );
+    label->setAlignment( AlignRight );
+    label->setFont( font );
+    layout->addWidget( label, 2, 2 );
+    mLabels.append( label );
+
+    label = new QLabel( data.windSpeed(), this );
+    label->setAlignment( AlignLeft );
+    layout->addWidget( label, 2, 3 );
+    mLabels.append( label );
+
+    counter++;
+  }
+
+  for ( QLabel *label = mLabels.first(); label; label = mLabels.next() )
+    label->show();
 }
 
 void SummaryWidget::timeout()
@@ -119,11 +164,10 @@ void SummaryWidget::refresh( QString station )
   DCOPRef dcopCall( "KWeatherService", "WeatherService" );
     
   mWeatherMap[ station ].setIcon( dcopCall.call( "currentIcon(QString)", station, true ) );
+  mWeatherMap[ station ].setName( dcopCall.call( "stationName(QString)", station, true ) );
   mWeatherMap[ station ].setCover( dcopCall.call( "cover(QString)", station, true ) );
   mWeatherMap[ station ].setTemperature( dcopCall.call( "temperature(QString)", station, true ) );
-  mWeatherMap[ station ].setPressure( dcopCall.call( "pressure(QString)", station, true ) );
   mWeatherMap[ station ].setWindSpeed( dcopCall.call( "wind(QString)", station, true ) );
-  mWeatherMap[ station ].setDewPoint( dcopCall.call( "dewPoint(QString)", station, true ) );
   mWeatherMap[ station ].setRelativeHumidity( dcopCall.call( "relativeHumidity(QString)", station, true ) );
 
   updateView();
