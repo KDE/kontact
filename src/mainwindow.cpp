@@ -61,6 +61,8 @@
 #include "plugin.h"
 #include "prefs.h"
 #include "sidepane.h"
+#include "progressdialog.h"
+#include "statusbarprogresswidget.h"
 
 using namespace Kontact;
 
@@ -90,7 +92,7 @@ MainWindow::MainWindow()
 
   KHelpMenu *helpMenu = new KHelpMenu( this, 0, true, actionCollection() );
   connect( helpMenu, SIGNAL( showAboutApplication() ),
-           SLOT( showAboutDialog() ) );	
+           SLOT( showAboutDialog() ) );
   loadPlugins();
 
   KStdAction::keyBindings( this, SLOT( configureShortcuts() ), actionCollection() );
@@ -188,6 +190,19 @@ void MainWindow::initWidgets()
   vBox->setSpacing( 0 );
 
   mStack = new QWidgetStack( vBox );
+
+  /* Create a progress dialog and hide it. */
+  KPIM::ProgressDialog *progressDialog = new KPIM::ProgressDialog( statusBar(), this );
+  progressDialog->hide();
+
+  KPIM::StatusbarProgressWidget *littleProgress =
+    new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
+  littleProgress->show();
+
+  statusBar()->addWidget( littleProgress, 0 , true );
+  statusBar()->insertItem(i18n(" Initializing..."), 1, 1 );
+  statusBar()->setItemAlignment( 1, AlignLeft | AlignVCenter );
+  littleProgress->show();
 }
 
 void MainWindow::setupActions()
