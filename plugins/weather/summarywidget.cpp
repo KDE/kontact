@@ -147,6 +147,8 @@ void SummaryWidget::updateView()
 
   for ( QLabel *label = mLabels.first(); label; label = mLabels.next() )
     label->show();
+
+  mLayout->addStretch( 1 );
 }
 
 void SummaryWidget::timeout()

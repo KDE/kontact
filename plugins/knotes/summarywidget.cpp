@@ -39,10 +39,12 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 
-  QGridLayout *layout = new QGridLayout( this, 2, 2 );
+  QGridLayout *layout = new QGridLayout( this, 3, 2, 3 );
+  layout->setRowStretch( 2, 1 );
 
   QFont boldFont;
   boldFont.setBold( true );
+  boldFont.setPointSize( boldFont.pointSize() + 2 );
 
   QLabel *label = new QLabel( this );
   label->setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop, KIcon::SizeMedium ) );
@@ -50,7 +52,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   layout->addWidget( label, 0, 0 );
 
   label = new QLabel( i18n( "Notes" ), this );
-  label->setAlignment( AlignLeft | AlignTop );
+  label->setAlignment( AlignRight | AlignTop );
   label->setFont( boldFont );
   layout->addWidget( label, 0, 1 );
 

@@ -28,6 +28,7 @@
 #include <dcopref.h>
 #include <kapplication.h>
 #include <kdebug.h>
+#include <kdialog.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <klocale.h>
@@ -40,10 +41,12 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 
-  mLayout = new QGridLayout( this, 7, 3, 3 );
+  mLayout = new QGridLayout( this, 8, 3, 3 );
+  mLayout->setRowStretch( 7, 1 );
 
   QFont boldFont;
   boldFont.setBold( true );
+  boldFont.setPointSize( boldFont.pointSize() + 2 );
 
   QLabel *label = new QLabel( this );
   label->setAlignment( AlignLeft );
@@ -52,7 +55,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
   mLayout->addWidget( label, 0, 0 );
 
   label = new QLabel( i18n( "EMails" ), this );
-  label->setAlignment( AlignLeft );
+  label->setAlignment( AlignRight );
   label->setFont( boldFont );
   mLayout->addMultiCellWidget( label, 0, 0, 1, 2 );
 

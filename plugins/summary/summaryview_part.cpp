@@ -95,6 +95,7 @@ void SummaryViewPart::getWidgets()
   Kontact::Plugin *plugin;
   for ( plugin = plugins.first(); plugin; plugin = plugins.next() ) {
     QWidget *wdg = plugin->createSummaryWidget( mFrame );
+    qDebug( "identifier=%s", plugin->identifier().latin1() );
     if ( plugin->identifier() == "weather" ) {
       mLayout->addWidget( wdg, 0, 0 );
     } else if ( plugin->identifier() == "mails" ) {

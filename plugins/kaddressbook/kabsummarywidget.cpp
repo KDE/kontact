@@ -25,6 +25,7 @@
 #include <qlayout.h>
 
 #include <kabc/stdaddressbook.h>
+#include <kdialog.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <klocale.h>
@@ -44,14 +45,23 @@ KABSummaryWidget::KABSummaryWidget( QWidget *parent, const char *name )
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 
-  mLayout = new QGridLayout( this, 7, 3, 3 );
+  mLayout = new QGridLayout( this, 8, 3, 3 );
+  mLayout->setRowStretch( 7, 1 );
 
   QFont boldFont;
   boldFont.setBold( true );
+  boldFont.setPointSize( boldFont.pointSize() + 2 );
 
-  QLabel *label = new QLabel( i18n( "Birthdays and Anniversaries" ), this );
+  QLabel *label = new QLabel( this );
+  label->setAlignment( AlignLeft );
+  label->setPixmap( KGlobal::iconLoader()->loadIcon( "kaddressbook", 
+                    KIcon::Desktop, KIcon::SizeMedium ) );
+  mLayout->addWidget( label, 0, 0 );
+
+  label = new QLabel( i18n( "Birthdays and Anniversaries" ), this );
+  label->setAlignment( AlignRight | AlignTop );
   label->setFont( boldFont );
-  mLayout->addMultiCellWidget( label, 0, 0, 0, 2 );
+  mLayout->addMultiCellWidget( label, 0, 0, 1, 2 );
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();
   connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
