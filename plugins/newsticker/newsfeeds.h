@@ -293,14 +293,9 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
 		QString::fromLatin1("http://www.tagesschau.de/favicon.ico"),
 		NewsSourceData::Misc ),
 		NewsSourceData(
-		QString::fromLatin1("CNN"),
-		QString::fromLatin1("http://www.cnn.com/cnn.rss"),
+		QString::fromLatin1("CNN Top Stories"),
+		QString::fromLatin1("http://rss.cnn.com/rss/cnn_topstories.rss"),
 		QString::fromLatin1("http://www.cnn.com/favicon.ico"),
-		NewsSourceData::Misc ),
-		NewsSourceData(
-		QString::fromLatin1("CNN Europe"),
-		QString::fromLatin1("http://europe.cnn.com/cnn.rss"),
-		QString::fromLatin1("http://europe.cnn.com/favicon.ico"),
 		NewsSourceData::Misc ),
 		NewsSourceData(
 		QString::fromLatin1("HotWired"),
