@@ -175,6 +175,8 @@ h: So if I would like to add a 'New ShortMessage' part we would have to extend
 h: that library... better use KTrader and some sort of a common framework
 h: and Mib's comments shows that problem!
 
+d: That's what KDCOPServiceStarter is for :)
+
 Don: Now if kontact is running then loadX will load the X part in kontact
 Don: (if it is not already loaded) and return a dcop iface for that
 Don: part.
