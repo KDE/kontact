@@ -46,7 +46,6 @@ class KABSummaryWidget : public Kontact::Summary
 
     QStringList configModules() const;
     void configUpdated();
-  public:
     void updateSummary( bool force = false ) { Q_UNUSED( force ); updateView(); }
 
   protected:

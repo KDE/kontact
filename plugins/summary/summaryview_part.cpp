@@ -70,6 +70,8 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
 {
   setInstance( new KInstance( aboutData ) );
 
+  loadLayout();
+
   initGUI( core );
 
   connect( kapp, SIGNAL( kdisplayPaletteChanged() ), SLOT( slotAdjustPalette() ) );
@@ -95,6 +97,7 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
 
 SummaryViewPart::~SummaryViewPart()
 {
+  saveLayout();
 }
 
 bool SummaryViewPart::openFile()
@@ -108,10 +111,9 @@ void SummaryViewPart::partActivateEvent( KParts::PartActivateEvent *event )
   // inform the plugins that the part has been activated so that they can
   // update the displayed information
   if ( event->activated() && ( event->part() == this ) ) {
-    QPtrListIterator<Kontact::Summary> it( mSummaries );
-    for ( ; it.current(); ++it ) {
-      it.current()->updateSummary( false );
-    }
+    QMap<QString, Kontact::Summary*>::Iterator it;
+    for ( it = mSummaries.begin(); it != mSummaries.end(); ++it )
+      it.data()->updateSummary( false );
   }
 
   KParts::ReadOnlyPart::partActivateEvent( event );
@@ -128,8 +130,6 @@ void SummaryViewPart::updateWidgets()
   mFrame = new QFrame( mMainWidget );
   mMainLayout->insertWidget( 2, mFrame );
 
-  int totalHeight = 0;
-
   QStringList activeSummaries;
 
   KConfig config( "kontact_summaryrc" );
@@ -137,8 +137,6 @@ void SummaryViewPart::updateWidgets()
     activeSummaries << "kontact_kaddressbookplugin";
     activeSummaries << "kontact_korganizerplugin";
     activeSummaries << "kontact_todoplugin";
-    activeSummaries << "kontact_kpilotplugin";
-    activeSummaries << "kontact_weatherplugin";
     activeSummaries << "kontact_newstickerplugin";
   } else {
     activeSummaries = config.readListEntry( "ActiveSummaries" );
@@ -153,74 +151,77 @@ void SummaryViewPart::updateWidgets()
     if ( activeSummaries.find( plugin->identifier() ) == activeSummaries.end() )
       continue;
 
-    Kontact::Summary *s = plugin->createSummaryWidget( mFrame );
-    if ( s ) {
-      int h = s->summaryHeight();
-      kdDebug(5602) << "Summary for " << plugin->title() << " Height: " << h
-                << endl;
-      if ( h ) {
-        totalHeight += s->summaryHeight();
-        connect( s, SIGNAL( message( const QString& ) ),
+    Kontact::Summary *summary = plugin->createSummaryWidget( mFrame );
+    if ( summary ) {
+      if ( summary->summaryHeight() > 0 ) {
+        mSummaries.insert( plugin->identifier(), summary );
+
+        connect( summary, SIGNAL( message( const QString& ) ),
                  BroadcastStatus::instance(), SLOT( setStatusMsg( const QString& ) ) );
-        mSummaries.append( s );
+        connect( summary, SIGNAL( summaryWidgetDropped( QWidget*, QWidget* ) ),
+                 this, SLOT( summaryWidgetMoved( QWidget*, QWidget* ) ) );
+
+        if ( !mLeftColumnSummaries.contains( plugin->identifier() ) &&
+             !mRightColumnSummaries.contains( plugin->identifier() ) ) {
+          mLeftColumnSummaries.append( plugin->identifier() );
+        }
       } else {
-        s->hide();
+        summary->hide();
       }
-    }
-  }
-
-  // Layout the summary widgets. Put widgets in two columns. Each widget gets as
-  // many rows in the layout as Summary::summaryHeight() defines. Separator
-  // lines are automatically added as appropriate.
-
-  int column = 0;
-
-  int currentHeight = 0;
-  int currentRow = 0;
-  int maxRow = 0;
-
-  QGridLayout *layout = new QGridLayout( mFrame, 6, 3, KDialog::marginHint(),
-                                         KDialog::spacingHint() );
-
-  for( uint i = 0; i < mSummaries.count(); ++i ) {
-    Kontact::Summary *summary = mSummaries.at( i );
-
-    int h = summary->summaryHeight();
-
-    // Add summary widget using as many rows of the layout as specified by
-    // Kontact::Summary::summaryHeight().
-    if ( h == 1 ) {
-      layout->addWidget( summary, currentRow, column );
-    } else {
-      layout->addMultiCellWidget( summary, currentRow, currentRow + h - 1,
-                                   column, column );
-    }
-
-    currentHeight += h;
-    currentRow += h;
-
-    if ( currentHeight * 2 >= totalHeight ) {
-      // Start second row
-      currentHeight = 0;
-      maxRow = currentRow;
-      currentRow = 0;
-      column += 2;
     }
   }
 
   // Add vertical line between the two rows of summary widgets.
   QFrame *vline = new QFrame( mFrame );
   vline->setFrameStyle( QFrame::VLine | QFrame::Plain );
-  layout->addMultiCellWidget( vline, 0, maxRow, 1, 1 );
 
-  // space out remaining space to avoid ugly stretching
-  layout->addItem( new QSpacerItem( 1, 1, QSizePolicy::MinimumExpanding,
-                   QSizePolicy::MinimumExpanding ), maxRow, 0 );
+  QHBoxLayout *layout = new QHBoxLayout( mFrame );
+
+  mLeftColumn = new QVBoxLayout( layout, KDialog::spacingHint() );
+  layout->addWidget( vline );
+  mRightColumn = new QVBoxLayout( layout, KDialog::spacingHint()  );
+
+  QStringList::Iterator strIt;
+  for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
+    if ( mSummaries.find( *strIt ) != mSummaries.end() )
+      mLeftColumn->addWidget( mSummaries[ *strIt ] );
+  }
+
+  for ( strIt = mRightColumnSummaries.begin(); strIt != mRightColumnSummaries.end(); ++strIt ) {
+    if ( mSummaries.find( *strIt ) != mSummaries.end() )
+      mRightColumn->addWidget( mSummaries[ *strIt ] );
+  }
 
   mFrame->show();
 
   mMainWidget->setUpdatesEnabled( true );
   mMainWidget->update();
+}
+
+void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget )
+{
+  if ( mLeftColumn->findWidget( target ) == -1 && mRightColumn->findWidget( target ) == -1 ||
+       mLeftColumn->findWidget( widget ) == -1 && mRightColumn->findWidget( widget ) == -1 ) {
+    return;
+  }
+
+  if ( mLeftColumn->findWidget( widget ) != -1 ) {
+    mLeftColumn->remove( widget );
+    mLeftColumnSummaries.remove( widgetName( widget ) );
+  } else if ( mRightColumn->findWidget( widget ) != -1 ) {
+    mRightColumn->remove( widget );
+    mRightColumnSummaries.remove( widgetName( widget ) );
+  }
+
+  int targetPos = mLeftColumn->findWidget( target );
+  if ( targetPos != -1 ) {
+    mLeftColumn->insertWidget( targetPos, widget );
+    mLeftColumnSummaries.insert( mLeftColumnSummaries.at( targetPos ), widgetName( widget ) );
+  } else {
+    targetPos = mRightColumn->findWidget( target );
+    mRightColumn->insertWidget( targetPos, widget );
+    mRightColumnSummaries.insert( mRightColumnSummaries.at( targetPos ), widgetName( widget ) );
+  }
 }
 
 void SummaryViewPart::slotTextChanged()
@@ -249,14 +250,9 @@ void SummaryViewPart::slotConfigure()
   connect( &dlg, SIGNAL( configCommitted() ),
            this, SLOT( updateWidgets() ) );
 
-  Kontact::Summary *summary;
-  for ( summary = mSummaries.first(); summary; summary = mSummaries.next() )
-    connect( &dlg, SIGNAL( configCommitted() ),
-             summary, SLOT( configChanged() ) );
-
-  QStringList::ConstIterator it;
-  for ( it = modules.begin(); it != modules.end(); ++it )
-    dlg.addModule( *it );
+  QStringList::ConstIterator strIt;
+  for ( strIt = modules.begin(); strIt != modules.end(); ++strIt )
+    dlg.addModule( *strIt );
 
   dlg.exec();
 }
@@ -265,15 +261,13 @@ QStringList SummaryViewPart::configModules() const
 {
   QStringList modules;
 
-  QPtrListIterator<Kontact::Summary> it( mSummaries );
-  while ( it.current() ) {
-    QStringList cm = it.current()->configModules();
-    QStringList::ConstIterator sit;
-    for ( sit = cm.begin(); sit != cm.end(); ++sit )
-      if ( !modules.contains( *sit ) )
-        modules.append( *sit );
-
-    ++it;
+  QMap<QString, Kontact::Summary*>::ConstIterator it;
+  for ( it = mSummaries.begin(); it != mSummaries.end(); ++it ) {
+    QStringList cm = it.data()->configModules();
+    QStringList::ConstIterator strIt;
+    for ( strIt = cm.begin(); strIt != cm.end(); ++strIt )
+      if ( !(*strIt).isEmpty() && !modules.contains( *strIt ) )
+        modules.append( *strIt );
   }
 
   return modules;
@@ -307,6 +301,46 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   mMainLayout->insertWidget( 2, mFrame );
 
   updateWidgets();
+}
+
+void SummaryViewPart::loadLayout()
+{
+  KConfig config( "kontact_summaryrc" );
+
+  if ( !config.hasKey( "LeftColumnSummaries" ) ) {
+    mLeftColumnSummaries << "kontact_korganizerplugin";
+    mLeftColumnSummaries << "kontact_todoplugin";
+    mLeftColumnSummaries << "kontact_kaddressbookplugin";
+  } else {
+    mLeftColumnSummaries = config.readListEntry( "LeftColumnSummaries" );
+  }
+
+  if ( !config.hasKey( "RightColumnSummaries" ) ) {
+    mRightColumnSummaries << "kontact_newstickerplugin";
+  } else {
+    mRightColumnSummaries = config.readListEntry( "RightColumnSummaries" );
+  }
+}
+
+void SummaryViewPart::saveLayout()
+{
+  KConfig config( "kontact_summaryrc" );
+
+  config.writeEntry( "LeftColumnSummaries", mLeftColumnSummaries );
+  config.writeEntry( "RightColumnSummaries", mRightColumnSummaries );
+
+  config.sync();
+}
+
+QString SummaryViewPart::widgetName( QWidget *widget ) const
+{
+  QMap<QString, Kontact::Summary*>::ConstIterator it;
+  for ( it = mSummaries.begin(); it != mSummaries.end(); ++it ) {
+    if ( it.data() == widget )
+      return it.key();
+  }
+
+  return QString::null;
 }
 
 #include "summaryview_part.moc"

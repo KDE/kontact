@@ -25,6 +25,8 @@
 #define SUMMARYVIEW_PART_H
 
 #include <qdatetime.h>
+#include <qmap.h>
+
 #include <libkdepim/part.h>
 
 #include "core.h"
@@ -71,19 +73,28 @@ class SummaryViewPart : public KPIM::Part
   protected slots:
     void slotConfigure();
     void updateWidgets();
+    void summaryWidgetMoved( QWidget *target, QWidget *widget );
 
   private:
     void initGUI( Kontact::Core *core );
+    void loadLayout();
+    void saveLayout();
+    QString widgetName( QWidget* ) const;
 
     QStringList configModules() const;
 
-    QPtrList<Kontact::Summary> mSummaries;
+    QMap<QString, Kontact::Summary*> mSummaries;
     Kontact::Core *mCore;
     QFrame *mFrame;
     QFrame *mMainWidget;
     QVBoxLayout *mMainLayout;
+    QVBoxLayout *mLeftColumn;
+    QVBoxLayout *mRightColumn;
     QLabel *mDateLabel;
     KAction *mConfigAction;
+
+    QStringList mLeftColumnSummaries;
+    QStringList mRightColumnSummaries;
 };
 
 #endif

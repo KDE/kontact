@@ -22,6 +22,7 @@
 
 #include "summary.h"
 
+#include <qdragobject.h>
 #include <qhbox.h>
 #include <qlabel.h>
 #include <qfont.h>
@@ -34,6 +35,7 @@ using namespace Kontact;
 Summary::Summary( QWidget *parent, const char *name )
   : QWidget( parent, name )
 {
+  setAcceptDrops( true );
 }
 
 Summary::~Summary()
@@ -53,6 +55,7 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
   label->setPixmap( icon );
   label->setFixedSize( label->sizeHint() );
   label->setPaletteBackgroundColor( colorGroup().mid() );
+  label->setAcceptDrops( true );
 
   label = new QLabel( heading, hbox );
   label->setAlignment( AlignLeft|AlignVCenter );
@@ -68,5 +71,32 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
   return hbox;
 }
 
+void Summary::mousePressEvent( QMouseEvent *event )
+{
+  mDragStartPoint = event->pos();
+
+  QWidget::mousePressEvent( event );
+}
+
+void Summary::mouseMoveEvent( QMouseEvent *event )
+{
+  if ( (event->state() & LeftButton) &&
+       (event->pos() - mDragStartPoint).manhattanLength() > 4 ) {
+
+    QDragObject *drag = new QTextDrag( "", this, "SummaryWidgetDrag" );
+    drag->dragCopy();
+  } else
+    QWidget::mouseMoveEvent( event );
+}
+
+void Summary::dragEnterEvent( QDragEnterEvent *event )
+{
+  event->accept( QTextDrag::canDecode( event ) );
+}
+
+void Summary::dropEvent( QDropEvent *event )
+{
+  emit summaryWidgetDropped( this, event->source() );
+}
 
 #include "summary.moc"

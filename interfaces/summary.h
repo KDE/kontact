@@ -39,7 +39,7 @@ class Summary : public QWidget
     Summary( QWidget *parent, const char *name = 0 );
 
     virtual ~Summary();
-      
+
     /**
       Return logical height of summary widget. This is used to calculate how
       much vertical space relative to other summary widgets this widget will use
@@ -71,9 +71,17 @@ class Summary : public QWidget
 
   signals:
     void message( const QString &message );
+    void summaryWidgetDropped( QWidget *target, QWidget *widget );
+
+  protected:
+    virtual void mousePressEvent( QMouseEvent* );
+    virtual void mouseMoveEvent( QMouseEvent* );
+    virtual void dragEnterEvent( QDragEnterEvent* );
+    virtual void dropEvent( QDropEvent* );
 
   private:
     KStatusBar *mStatusBar;
+    QPoint mDragStartPoint;
 
     class Private;
     Private *d;
