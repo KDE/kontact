@@ -1,11 +1,33 @@
 [KMail]
 Name=Mail
+Name[be]=Пошта
+Name[ca]=Correu
+Name[da]=Brev
+Name[es]=Correo
+Name[fi]=Sähköposti
+Name[it]=Posta
+Name[pt_BR]=Correio
+Name[ru]=Письмо
+Name[sr]=Пошта
+Name[sv]=Brev
+Name[tr]=Posta
 Comment=
 Weight=20
 Icon=kmail
 
 [KAB]
 Name=Contacts
+Name[be]=Кантакты
+Name[ca]=Contactes
+Name[da]=Kontakter
+Name[es]=Contactos
+Name[hu]=Névjegyek
+Name[pt_BR]=Contatos
+Name[ru]=Контакты
+Name[sr]=Контакти
+Name[sv]=Kontakter
+Name[tr]=Bağlantılar
+Name[xx]=xxContactsxx
 Comment=
 Weight=50
 Icon=kaddressbook
@@ -18,6 +40,18 @@ Icon=korganizer
 
 [KWeather]
 Name=Weather
+Name[be]=Надвор'е
+Name[ca]=Temps vist
+Name[da]=Vejr
+Name[es]=Clima
+Name[fr]=Météo
+Name[hu]=Időjárás
+Name[pt_BR]=Tempo
+Name[ru]=Погода
+Name[sr]=Време
+Name[sv]=Väder
+Name[tr]=Hava Durumu
+Name[xx]=xxWeatherxx
 Comment=
 Weight=60
 Icon=kweather
