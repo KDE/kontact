@@ -94,6 +94,8 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       text += "<a href=\"" + home + "\">" + home + "</a><br>";
     }
 
+    text.replace( "\n", "<br>" );
+
     KActiveLabel *label = new KActiveLabel( text, topFrame );
 	label->setAlignment( AlignTop );
     topLayout->addWidget( label );
@@ -145,8 +147,9 @@ QString AboutDialog::formatPerson( const QString &name, const QString &email )
 {
   QString text = name;
   if ( !email.isEmpty() ) {
-    text += " &lt;<a href=\"mailto:" + email + "\">" + email + "</a>&gt;<br>";
+    text += " &lt;<a href=\"mailto:" + email + "\">" + email + "</a>&gt;";
   }
+  text += "<br>";
   return text;
 }
 
