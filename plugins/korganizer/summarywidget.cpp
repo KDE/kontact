@@ -94,7 +94,9 @@ void SummaryWidget::updateView()
   for ( dt=QDate::currentDate();
         dt<=QDate::currentDate().addDays( days - 1 );
         dt=dt.addDays(1) ) {
-    KCal::Event::List events = mCalendar->events( dt, true );
+    KCal::Event::List events = mCalendar->events( dt,
+                                                  KCal::EventSortStartDate,
+                                                  KCal::SortDirectionAscending );
     KCal::Event *ev;
     KCal::Event::List::ConstIterator it;
     for ( it=events.begin(); it!=events.end(); ++it ) {
