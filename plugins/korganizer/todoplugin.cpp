@@ -141,7 +141,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
   if ( KPIM::MailListDrag::decode( event, mails ) ) {
     if ( mails.count() != 1 ) {
       KMessageBox::sorry( core(),
-                          i18n("Drops of multiple mails aren't supported." ) );
+                          i18n("Drops of multiple mails are not supported." ) );
     } else {
       KPIM::MailSummary mail = mails.first();
       QString txt = i18n("From: %1\nTo: %2\nSubject: %3").arg( mail.from() )
@@ -154,7 +154,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  KMessageBox::sorry( core(), i18n("Can't handle drop events of type '%1'.")
+  KMessageBox::sorry( core(), i18n("Cannot handle drop events of type '%1'.")
                               .arg( event->format() ) );
 }
 
