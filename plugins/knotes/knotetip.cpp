@@ -48,6 +48,8 @@ KNoteTip::KNoteTip( KIconView *parent )
       m_preview( new QTextEdit( this ) )
 {
     m_preview->setReadOnly( true );
+    m_preview->setHScrollBarMode( QScrollView::AlwaysOff );
+    m_preview->setVScrollBarMode( QScrollView::AlwaysOff );
 
     QBoxLayout *layout = new QVBoxLayout( this );
     layout->addWidget( m_preview );
@@ -55,6 +57,7 @@ KNoteTip::KNoteTip( KIconView *parent )
     setPalette( QToolTip::palette() );
     setMargin( 1 );
     setFrameStyle( QFrame::Plain | QFrame::Box );
+    resize( 350, height() );
     hide();
 }
 
@@ -86,9 +89,9 @@ void KNoteTip::setNote( KNotesIconViewItem *item, TextFormat format )
         m_preview->setText( item->journal()->description() );
         m_preview->zoomTo( 6 );
         m_preview->sync();
-        resize( m_preview->contentsWidth(), m_preview->contentsHeight() );
 
-        //QRect desk = KGlobalSettings::desktopGeometry( m_noteIVI->rect().center() );
+        QRect desk = KGlobalSettings::desktopGeometry( m_noteIVI->rect().center() );
+        resize( width(), QMIN( m_preview->contentsHeight(), desk.height()/2 - 20 ) );
 
         hide();
         killTimers();
