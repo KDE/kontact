@@ -90,7 +90,7 @@ class Navigator : public KListBox
 
     IconViewMode viewMode() { return mViewMode; }
     IconViewMode sizeIntToEnum(int size) const;
-    QPtrList<KAction> actions() { return mActions; }
+    const QPtrList<KAction> & actions() { return mActions; }
   signals:
     void pluginActivated( Kontact::Plugin * );
 
@@ -124,7 +124,7 @@ class IconSidePane : public SidePaneBase
     virtual void updatePlugins();
     virtual void selectPlugin( Kontact::Plugin* );
     virtual void selectPlugin( const QString &name );
-    QPtrList<KAction> actions() { return mNavigator->actions(); }
+    const QPtrList<KAction> & actions() { return mNavigator->actions(); }
 
   private:
     Navigator *mNavigator;

@@ -34,12 +34,12 @@
      <Action name="help_requestfeature"/>
   </Menu>
 </MenuBar>
-<ToolBar position="Top" iconText="IconOnly" noMerge="1" name="mainToolBar"><text>Main Toolbar</text>
+<ToolBar position="Top" noMerge="1" name="mainToolBar"><text>Main Toolbar</text>
   <Action name="action_new"/>
   <Merge/>
   <Action name="help_whats_this"/>
 </ToolBar>
-<ToolBar position="Top" iconText="IconOnly" hidden="true" name="navigatorToolBar"><text>Navigator</text>
+<ToolBar position="Top" hidden="true" name="navigatorToolBar"><text>Navigator</text>
   <ActionList name="navigator_actionlist" />
 </ToolBar>
 </kpartgui>
