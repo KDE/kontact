@@ -18,6 +18,7 @@
     </entry>
 
     <entry type="IntList" name="SidePaneSplitter">
+      <default>1</default>
     </entry>
 
     <entry type="Int" name="SidePaneIconSize">
