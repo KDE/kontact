@@ -44,13 +44,12 @@ int main(int argc, char **argv)
 {
   KAboutData about( "kontact", I18N_NOOP( "Kontact" ), version, description,
                     KAboutData::License_GPL, "(C) 2001-2003 The Kontact developers", 0, "http://kontact.kde.org", "kde-pim@kde.org" );
-  about.addAuthor( "Matthias Hoelzer-Kluepfel", 0, "mhk@kde.org" );
   about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
   about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
   about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
+  about.addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
   about.addAuthor( "Sven Lüppken", 0, "sven@kde.org" );
-  about.addAuthor( "Tobias Koenig", I18N_NOOP( "Summary view widgets" ),
-                   "tokoe@kde.org" );
+  about.addAuthor( "Matthias Hoelzer-Kluepfel", I18N_NOOP("Original Author"), "mhk@kde.org" );
 
   KCmdLineArgs::init( argc, argv, &about );
   KUniqueApplication app;
