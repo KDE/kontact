@@ -101,7 +101,7 @@ Navigator::Navigator(QWidget *parent, const char *name)
   viewport()->setBackgroundMode( PaletteMid);
 
 
-  connect(this, SIGNAL(executed(QListBoxItem *)), this, SLOT(slotExecuted(QListBoxItem *)));
+  connect(this, SIGNAL(currentChanged(QListBoxItem *)), this, SLOT(slotExecuted(QListBoxItem *)));
 }
 
 QSize Navigator::sizeHint() const

@@ -72,6 +72,8 @@ Core::Core()
   setXMLFile("kaplanui.rc");
 
   createGUI(0);
+
+  m_navigator->setCurrentItem(0);
 }
 
 
