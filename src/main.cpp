@@ -66,9 +66,11 @@ int main(int argc, char **argv)
 #endif
 
   // see if we are starting with session management
-  if ( app.isRestored() )
-    RESTORE( Kontact::MainWindow )
-  else {
+  if ( app.isRestored() ) {
+      if (Kontact::MainWindow::canBeRestored(1))
+	  //only restore a single main window! (Don);
+	  (new Kontact::MainWindow)->restore(1);
+  } else {
     // no session.. just start up normally
     Kontact::MainWindow *mw = new Kontact::MainWindow;
      mw->show();
