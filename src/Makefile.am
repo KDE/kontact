@@ -29,6 +29,8 @@ rc_DATA = kontactui.rc
 
 xdg_apps_DATA = Kontact.desktop
 
+kde_kcfg_DATA = kontact.kcfg
+
 kde_services_DATA = kontactconfig.desktop
 
 kontactsetdlgdir = $(kde_datadir)/kontact
