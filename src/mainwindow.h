@@ -92,6 +92,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void slotNewClicked();
     void slotQuit();
     void slotShowTip();
+    void slotRequestFeature();
     void slotNewToolbarConfig();
     void showAboutDialog();
 

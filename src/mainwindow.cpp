@@ -90,8 +90,7 @@ MainWindow::MainWindow()
 
   KHelpMenu *helpMenu = new KHelpMenu( this, 0, true, actionCollection() );
   connect( helpMenu, SIGNAL( showAboutApplication() ),
-           SLOT( showAboutDialog() ) );
-
+           SLOT( showAboutDialog() ) );	
   loadPlugins();
 
   KStdAction::keyBindings( this, SLOT( configureShortcuts() ), actionCollection() );
@@ -202,6 +201,8 @@ void MainWindow::setupActions()
 
  ( void )new KAction( i18n( "&Tip of the Day" ), 0,
                      this, SLOT( slotShowTip() ), actionCollection(), "help_tipofday" );
+ ( void )new KAction( i18n( "&Request Feature..." ), 0,
+                     this, SLOT( slotRequestFeature() ), actionCollection(), "help_requestfeature" );
 
 }
 
@@ -532,6 +533,12 @@ void MainWindow::saveSettings()
 void MainWindow::slotShowTip()
 {
   showTip( true );
+}
+
+void MainWindow::slotRequestFeature()
+{
+  if ( kapp )
+    kapp->invokeBrowser( "http://kontact.org/shopping" );
 }
 
 void MainWindow::showTip(bool force)
