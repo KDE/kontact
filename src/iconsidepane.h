@@ -87,12 +87,13 @@ class Navigator : public KListBox
     void updatePlugins( QValueList<Kontact::Plugin*> plugins );
 
     QSize sizeHint() const;
-    
+
     IconViewMode viewMode() { return mViewMode; }
     IconViewMode sizeIntToEnum(int size) const;
+    QPtrList<KAction> actions() { return mActions; }
   signals:
     void pluginActivated( Kontact::Plugin * );
-    
+
   protected:
     void dragEnterEvent( QDragEnterEvent * );
     void dragMoveEvent ( QDragMoveEvent * );
@@ -123,6 +124,7 @@ class IconSidePane : public SidePaneBase
     virtual void updatePlugins();
     virtual void selectPlugin( Kontact::Plugin* );
     virtual void selectPlugin( const QString &name );
+    QPtrList<KAction> actions() { return mNavigator->actions(); }
 
   private:
     Navigator *mNavigator;

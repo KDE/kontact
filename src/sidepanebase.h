@@ -41,6 +41,8 @@ class SidePaneBase : public QVBox
     void setActionCollection( KActionCollection *actionCollection );
     KActionCollection *actionCollection() const;
 
+    virtual QPtrList<KAction> actions() = 0;
+
   signals:
     void pluginSelected( Kontact::Plugin* );
 

@@ -157,7 +157,10 @@ void MainWindow::initObject()
   loadPlugins();
 
   if ( mSidePane )
-    mSidePane->updatePlugins();
+  {
+      mSidePane->updatePlugins();
+      plugActionList( "navigator_actionlist", mSidePane->actions() );
+  }
 
   // flush paint events
   kapp->processEvents();
@@ -234,9 +237,9 @@ void MainWindow::initWidgets()
   setCentralWidget( mTopWidget );
 
   QHBox *mBox = 0;
-  mSplitter = 0;
+  mSplitter = new QSplitter( mTopWidget );
   mBox = new QHBox( mTopWidget );
-  mSidePane = new IconSidePane( this, mBox );
+  mSidePane = new IconSidePane( this, mSplitter );
   mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                          QSizePolicy::Preferred ) );
 
@@ -735,9 +738,11 @@ int MainWindow::startServiceFor( const QString& serviceType,
 
 void MainWindow::pluginsChanged()
 {
+  unplugActionList( "navigator_actionlist" );
   unloadPlugins();
   loadPlugins();
   mSidePane->updatePlugins();
+  plugActionList( "navigator_actionlist", mSidePane->actions() );
 }
 
 void MainWindow::updateConfig()

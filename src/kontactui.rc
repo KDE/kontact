@@ -39,4 +39,7 @@
   <Merge/>
   <Action name="help_whats_this"/>
 </ToolBar>
+<ToolBar position="Top" iconText="IconOnly" hidden="true" name="navigatorToolBar"><text>Navigator</text>
+  <ActionList name="navigator_actionlist" />
+</ToolBar>
 </kpartgui>
