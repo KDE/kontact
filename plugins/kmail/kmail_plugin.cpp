@@ -82,7 +82,7 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
   CalendarLocal cal;
   KABC::Addressee::List list;
 
-  if ( VCalDrag::decode( de, &cal ) && ICalDrag::decode( de, &cal ) ) {
+  if ( VCalDrag::decode( de, &cal ) || ICalDrag::decode( de, &cal ) ) {
     KTempFile tmp( locateLocal( "tmp", "incidences-" ), ".ics" );
     cal.save( tmp.name() );
     openComposer( QString::null, KURL::fromPathOrURL( tmp.name() ) );
