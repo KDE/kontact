@@ -15,7 +15,7 @@
 
 #include "akregator_partiface_stub.h"
 
-#if KDE_VERSION > KDE_MAKE_VERSION( 3, 3, 90 )
+#if KDE_VERSION > KDE_MAKE_VERSION( 3, 3, 80 )
 #include <kontact/part.h>
 #else
 namespace KPIM{
