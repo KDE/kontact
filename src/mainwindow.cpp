@@ -664,7 +664,22 @@ void MainWindow::slotPreferences()
   static KSettings::Dialog *dlg = 0;
   if ( !dlg ) {
     dlg = new KSettings::Dialog( KSettings::Dialog::Configurable, this );
-    dlg->addPluginInfos( mPluginInfos );
+
+    // do not show settings of components running standalone
+    QValueList<KPluginInfo*> filteredPlugins = mPluginInfos;
+    PluginList::ConstIterator it;
+    for ( it = mPlugins.begin(); it != mPlugins.end(); ++it )
+      if ( (*it)->isRunningStandalone() ) {
+        QValueList<KPluginInfo*>::ConstIterator infoIt;
+        for ( infoIt = filteredPlugins.begin(); infoIt != filteredPlugins.end(); ++infoIt ) {
+          if ( (*infoIt)->pluginName() == (*it)->identifier() ) {
+            filteredPlugins.remove( *infoIt );
+            break;
+          }
+        }
+      }
+
+    dlg->addPluginInfos( filteredPlugins );
     connect( dlg, SIGNAL( pluginSelectionChanged() ),
              SLOT( pluginsChanged() ) );
   }
