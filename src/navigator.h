@@ -64,7 +64,7 @@ public:
   
 private slots:
 
-  void slotExecuted(EntryItem *item);
+  void slotExecuted(QListBoxItem *item);
 
 
 private:

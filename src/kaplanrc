@@ -5,8 +5,8 @@
     <text>&amp;File</text>
 	<Merge/>
 	<Separator/>
-	<Action name="file_quit"/>
     <Action name="action_new"/>
+	<Merge/>
   </Menu>
   <Menu name="edit">
   	<text>&amp;Edit</text>

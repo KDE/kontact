@@ -81,7 +81,7 @@ Navigator::Navigator(QWidget *parent, const char *name)
   viewport()->setBackgroundMode( PaletteMid);
 
 
-  connect(this, SIGNAL(executed(QListBoxItem *)), this, SLOT(slotExecuted(EntryItem *)));
+  connect(this, SIGNAL(executed(QListBoxItem *)), this, SLOT(slotExecuted(QListBoxItem *)));
 }
 
 QSize Navigator::sizeHint() const
@@ -95,9 +95,9 @@ void Navigator::addEntry(QString text, QString icon, QObject *receiver, const ch
   insertItem(new EntryItem(this, pixmap, text, receiver, slot));
 }
 
-void Navigator::slotExecuted(EntryItem *item)
+void Navigator::slotExecuted(QListBoxItem *item)
 {
-  item->connectToReceiver(this);
+  static_cast<EntryItem*>(item)->connectToReceiver(this);
 }
 
 
