@@ -31,43 +31,44 @@
 #include <kparts/part.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
-
-#include <dcopref.h>
-
 #include <libkcal/event.h>
 #include <libkcal/resourcecalendar.h>
 #include <libkcal/resourcelocal.h>
-#include <libkcal/todo.h>
 
 #include "core.h"
 #include "plugin.h"
+#include "korganizerplugin.h"
 
 #include "summarywidget.h"
 
-SummaryWidget::SummaryWidget( Kontact::Plugin* plugin, QWidget *parent,
+SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
                               const char *name )
-  : Kontact::Summary( parent, name ), mPlugin(plugin), mLayout( 0 )
+  : Kontact::Summary( parent, name ), mPlugin( plugin )
 {
-  mMainLayout = new QVBoxLayout( this, 3, 3 );
+  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "korganizer", 
                    KIcon::Desktop, KIcon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Appointments" ) );
-  mMainLayout->addWidget(header);
+  mainLayout->addWidget( header );
+
+  mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
+  mLayout->setRowStretch( 6, 1 );
 
   KConfig config( "korganizerrc" );
   mCalendar = new KCal::CalendarResources( config.readEntry( "TimeZoneId" ) );
   KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
+  mCalendar->readConfig();
   if ( manager->isEmpty() ) {
-    config.setGroup("General");
+    config.setGroup( "General" );
     QString fileName = config.readPathEntry( "Active Calendar" );
 
     QString resourceName;
     if ( fileName.isEmpty() ) {
       fileName = locateLocal( "data", "korganizer/std.ics" );
-      resourceName = i18n("Default KOrganizer resource");
+      resourceName = i18n( "Default KOrganizer resource" );
     } else {
-      resourceName = i18n("Active Calendar");
+      resourceName = i18n( "Active Calendar" );
     }
 
     KCal::ResourceCalendar *defaultResource =
@@ -79,24 +80,18 @@ SummaryWidget::SummaryWidget( Kontact::Plugin* plugin, QWidget *parent,
     manager->setStandardResource( defaultResource );
   }
 
+  mCalendar->load();
+
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
 
   updateView();
-  show();
 }
 
 void SummaryWidget::updateView()
 {
-
-  delete mLayout;
-
   mLabels.setAutoDelete( true );
   mLabels.clear();
   mLabels.setAutoDelete( false );
-
-  mLayout = new QGridLayout( 7, 5, 3 );
-  mMainLayout->addLayout( mLayout );
-  mLayout->setRowStretch( 6, 1 );
 
   KIconLoader loader( "korganizer" );
 
@@ -113,19 +108,20 @@ void SummaryWidget::updateView()
         if ( !ev->doesFloat() ) {
           label = new QLabel( this );
           label->setPixmap( pm );
-          label->setMaximumSize( label->sizeHint() );
+          label->setMaximumSize( label->minimumSizeHint() );
           mLayout->addWidget( label, counter, 0 );
           mLabels.append( label );
 
           QString date = ev->dtStartTimeStr() + " - " + ev->dtEndTimeStr();
           label = new QLabel( date, this );
+          label->setAlignment( AlignHCenter );
           mLayout->addWidget( label, counter, 1 );
           mLabels.append( label );
 
           KURLLabel *urlLabel = new KURLLabel( ev->uid(), ev->summary(), this );
           mLayout->addWidget( urlLabel, counter, 2 );
           mLabels.append( urlLabel );
-
+          
           connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
                    this, SLOT( selectEvent( const QString& ) ) );
 
@@ -133,51 +129,19 @@ void SummaryWidget::updateView()
         }
       }
     }
-  }
-  else {
-    QLabel *noEvents = new QLabel( i18n("No appointments pending"), this );
+  } else {
+    QLabel *noEvents = new QLabel( i18n( "No appointments pending" ), this );
     noEvents->setAlignment( AlignRight );
     mLayout->addWidget( noEvents, 0, 2 );
-    mLabels.append(noEvents);
+    mLabels.append( noEvents );
   }
 
-  KCal::Todo::List todos = mCalendar->todos();
-  if ( todos.count() > 0 ) {
-    QPixmap pm = loader.loadIcon( "todo", KIcon::Small );
-    KCal::Todo::List::ConstIterator it;
-    for( it = todos.begin(); it != todos.end(); ++it ) {
-      KCal::Todo *todo = *it;
-      if ( todo->hasDueDate() && todo->dtDue().date() == QDate::currentDate() && !todo->isCompleted() ) {
-        label = new QLabel( this );
-        label->setPixmap( pm );
-        mLayout->addWidget( label, counter, 0 );
-        mLabels.append( label );
-
-        KURLLabel *urlLabel = new KURLLabel( todo->uid(), todo->summary(), this );
-        mLayout->addWidget( urlLabel, counter, 2 );
-        mLabels.append( urlLabel );
-          
-        connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
-                 this, SLOT( selectEvent( const QString& ) ) );
-
-        counter++;
-      }
-    }
-  }
-
+  show();
 }
 
-void SummaryWidget::selectEvent( const QString & /* uid */ )
+void SummaryWidget::selectEvent( const QString & )
 {
-  if ( !mPlugin->isRunningStandalone() )
-    mPlugin->core()->selectPlugin( mPlugin );
-  else
-    mPlugin->bringToForeground();
-
-/*
-  DCOPRef dcopCall( "korganizer", "KOrganizerIface" );
-  dcopCall.send( "showEventEditor(QString)", uid );
-*/
+  mPlugin->interface()->showEventView();
 }
 
 #include "summarywidget.moc"

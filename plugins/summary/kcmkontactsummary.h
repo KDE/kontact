@@ -1,6 +1,7 @@
 /*
-    This file is part of Kontact.
-    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+    This file is part of KDE Kontact.
+
+    Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,52 +22,43 @@
     without including the source code for Qt in the source distribution.
 */
 
-#ifndef SUMMARYWIDGET_H
-#define SUMMARYWIDGET_H
+#ifndef KCMKONTACTSUMMARY_H
+#define KCMKONTACTSUMMARY_H
 
-#include "summary.h"
+#include <kcmodule.h>
+#include <klistview.h>
 
-#include <qmap.h>
-#include <qptrlist.h>
-#include <qwidget.h>
+class KAboutData;
+class KPluginInfo;
 
-#include <libkcal/resourcelocal.h>
-#include <libkcal/calendarresources.h>
-
-typedef QMap<QString, QString> NotesMap;
-
-class QGridLayout;
-class QLabel;
-
-namespace Kontact {
-class Plugin;
-}
-
-class SummaryWidget : public Kontact::Summary
+class PluginView : public KListView
 {
   Q_OBJECT
 
   public:
-    SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
+    PluginView( QWidget *parent, const char *name = 0 );
+    ~PluginView();
+};
 
-  protected:
-    bool ensureKNotesRunning();
+class KCMKontactSummary : public KCModule
+{
+  Q_OBJECT
 
-  protected slots:
-    void urlClicked( const QString& );
-    void updateView();
+  public:
+    KCMKontactSummary( QWidget *parent = 0, const char *name = 0 );
+
+    virtual void load();
+    virtual void save();
+    virtual void defaults();
+    virtual const KAboutData* aboutData() const;
+
+  private slots:
+    void itemClicked( QListViewItem* );
 
   private:
-    KCal::ResourceLocal *mResource;
-    KCal::CalendarResources *mCalendar;
-    KCal::Journal::List mNotes;
+    PluginView *mPluginView;
 
-    QVBoxLayout *mMainLayout;
-    QVBoxLayout *mLayout;
-
-    QPtrList<QLabel> mLabels;
-    NotesMap mNotesMap;
-    Kontact::Plugin *mPlugin;
+    KPluginInfo::List mPluginList;
 };
 
 #endif

@@ -9,6 +9,7 @@ X-KDE-KontactPluginVersion=3
 X-KDE-KontactPartLibraryName=libkmailpart
 X-KDE-KontactPartExecutableName=kmail
 X-KDE-KontactPartLoadOnStart=true
+X-KDE-KontactPluginHasSummary=true
 
 X-KDE-PluginInfo-Website=http://kmail.kde.org/
 X-KDE-PluginInfo-Name=kontact_kmailplugin

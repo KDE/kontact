@@ -1,6 +1,7 @@
 /*
     This file is part of Kontact.
     Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+    Copyright (C) 2004 Reinhold Kainhofer <reinhold@kainhofer.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -27,6 +28,7 @@
 #include "summary.h"
 
 #include <dcopobject.h>
+#include <pilotDaemonDCOP.h>
 
 #include <qmap.h>
 #include <qpixmap.h>
@@ -34,45 +36,12 @@
 #include <qstringlist.h>
 #include <qtimer.h>
 #include <qwidget.h>
+#include <qdatetime.h>
 
 class QGridLayout;
 class QLabel;
 class QVBoxLayout;
-
-class WeatherData
-{
-  public:
-    void setIcon( const QPixmap &icon ) { mIcon = icon; }
-    QPixmap icon() const { return mIcon; }
-
-    void setName( const QString &name ) { mName = name; }
-    QString name() const { return mName; }
-
-    void setCover( const QStringList& cover ) { mCover = cover; }
-    QStringList cover() const { return mCover; }
-
-    void setTemperature( const QString &temperature ) { mTemperature = temperature; }
-    QString temperature() const { return mTemperature; }
-
-    void setWindSpeed( const QString &windSpeed ) { mWindSpeed = windSpeed; }
-    QString windSpeed() const { return mWindSpeed; }
-
-    void setRelativeHumidity( const QString &relativeHumidity ) { mRelativeHumidity = relativeHumidity; }
-    QString relativeHumidity() const { return mRelativeHumidity; }
-
-    bool operator< ( const WeatherData &data )
-    {
-      return ( QString::localeAwareCompare( mName, data.mName ) < 0 );
-    }
-
-  private:
-    QPixmap mIcon;
-    QString mName;
-    QStringList mCover;
-    QString mTemperature;
-    QString mWindSpeed;
-    QString mRelativeHumidity;
-};
+class KURLLabel;
 
 class SummaryWidget : public Kontact::Summary, public DCOPObject
 {
@@ -81,26 +50,35 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );
 
-    int summaryHeight() const;
+    int summaryHeight() const { return 1; }
 
     QStringList configModules() const;
 
   k_dcop:
-    virtual void refresh( QString );
-    virtual void stationRemoved( QString );
+    void refresh( );
 
   private slots:
     void updateView();
-    void timeout();
+    void showSyncLog( const QString &filename );
 
   private:
-    QStringList mStations;
-    QMap<QString, WeatherData> mWeatherMap;
     QTimer mTimer;
-
-    QPtrList<QLabel> mLabels;
-    QPtrList<QGridLayout> mLayouts;
+    
+    QLabel*mSyncTimeLabel;
+    KURLLabel*mShowSyncLogLabel;
+    QLabel*mPilotDeviceLabel;
+    QLabel*mDaemonStatusLabel;
+    QLabel*mConduitsLabel;
+    
     QVBoxLayout *mLayout;
+    
+    QDateTime mLastSyncTime;
+    QString mDaemonStatus;
+    QStringList mConduits;
+    QString mSyncLog;
+    QString mUserName;
+    QString mPilotDevice;
+    bool mDCOPSuccess;
 };
 
 #endif

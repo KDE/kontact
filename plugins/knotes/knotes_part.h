@@ -24,7 +24,8 @@
 #include <qmap.h>
 #include <qpixmap.h>
 #include <kparts/part.h>
-#include <libkcal/calendarlocal.h>
+#include <libkcal/resourcelocal.h>
+#include <libkcal/calendarresources.h>
 
 typedef QMap<QString, QString> NotesMap;
 
@@ -33,7 +34,6 @@ class KListView;
 
 class QListViewItem;
 class QPoint;
-class QTextEdit;
 
 class KNotesPart : public KParts::ReadOnlyPart
 {
@@ -58,26 +58,25 @@ class KNotesPart : public KParts::ReadOnlyPart
     void removeNote();
     void removeSelectedNotes();
     void renameNote();
-    void showNote();
-    void showNote( QListViewItem* item );
-    void noteChanged();
-    void saveNote();
+    void editNote( QListViewItem* item, const QPoint&, int );
+    void editNote( QListViewItem* item );
     void reloadNotes();
+    void slotCalendarChanged();
 
   private:
-    KCal::CalendarLocal *mICal;
-    KCal::Journal::List mNotes;
+    bool lock();
+    bool unlock();
+
+    KCal::ResourceLocal *mResource;
+    KCal::CalendarResources *mCalendar;
+    KCal::CalendarResources::Ticket *mTicket;
 
     KAction *mActionEdit;
     KAction *mActionDelete;
 
     KListView *mNotesView;
-    QTextEdit *mNotesEdit;
     QPixmap mAppIcon;
     QPopupMenu *mPopupMenu;
-
-    bool mNoteChanged;
-    QString mCurrentNote;
 };
 
 #endif

@@ -99,16 +99,18 @@ void SummaryWidget::updateView()
     return;
   }
 
-  QMap<QString, WeatherData>::Iterator it;
-  for ( it = mWeatherMap.begin(); it != mWeatherMap.end(); ++it ) {
-    WeatherData data = it.data();
 
+  QValueList<WeatherData> dataList = mWeatherMap.values();
+  qHeapSort( dataList );
+
+  QValueList<WeatherData>::Iterator it;
+  for ( it = dataList.begin(); it != dataList.end(); ++it ) {
     QString cover;
-    for ( uint i = 0; i < data.cover().count(); ++i )
-      cover += QString( "- %1\n" ).arg( data.cover()[ i ] );
+    for ( uint i = 0; i < (*it).cover().count(); ++i )
+      cover += QString( "- %1\n" ).arg( (*it).cover()[ i ] );
 
     QImage img;
-    img = data.icon();
+    img = (*it).icon();
 
     QGridLayout *layout = new QGridLayout( mLayout, 3, 3, 3 );
     mLayout->addStretch( 10 );
@@ -122,7 +124,7 @@ void SummaryWidget::updateView()
     mLabels.append( label );
 
     label = new QLabel( this );
-    label->setText( QString( "%1 (%2)" ).arg( data.name() ).arg( data.temperature() ) );
+    label->setText( QString( "%1 (%2)" ).arg( (*it).name() ).arg( (*it).temperature() ) );
     QFont font = label->font();
     font.setBold( true );
     label->setFont( font );
@@ -134,9 +136,9 @@ void SummaryWidget::updateView()
     labelText = QString( "<b>%1:</b> %2<br>"
                          "<b>%3:</b> %4" )
                          .arg( i18n( "Wind Speed" ) )
-                         .arg( data.windSpeed() )
+                         .arg( (*it).windSpeed() )
                          .arg( i18n( "Rel. Humidity" ) )
-                         .arg( data.relativeHumidity() );
+                         .arg( (*it).relativeHumidity() );
 
     QToolTip::add( label, labelText.replace( " ", "&nbsp;" ) );
 

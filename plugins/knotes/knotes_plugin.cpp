@@ -57,7 +57,7 @@ KParts::Part* KNotesPlugin::createPart()
 
 Kontact::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
 {
-  return new SummaryWidget( parentWidget );
+  return new SummaryWidget( this, parentWidget );
 }
 
 void KNotesPlugin::slotNewNote()

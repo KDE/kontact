@@ -38,6 +38,7 @@
 #include "core.h"
 
 #include "todoplugin.h"
+#include "todosummarywidget.h"
 #include "korg_uniqueapp.h"
 
 typedef KGenericFactory< TodoPlugin, Kontact::Core > TodoPluginFactory;
@@ -64,9 +65,9 @@ TodoPlugin::~TodoPlugin()
 {
 }
 
-Kontact::Summary *TodoPlugin::createSummaryWidget( QWidget * /*parent*/ )
+Kontact::Summary *TodoPlugin::createSummaryWidget( QWidget *parent )
 {
-  return 0;
+  return new TodoSummaryWidget( this, parent );
 }
 
 KParts::Part *TodoPlugin::createPart()

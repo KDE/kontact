@@ -8,6 +8,7 @@ X-KDE-Library=libkontact_todoplugin
 X-KDE-KontactPluginVersion=3
 X-KDE-KontactPartLibraryName=libkorganizerpart
 X-KDE-KontactPartExecutableName=korganizer
+X-KDE-KontactPluginHasSummary=true
 
 X-KDE-PluginInfo-Website=http://korganizer.kde.org
 X-KDE-PluginInfo-Name=kontact_todoplugin

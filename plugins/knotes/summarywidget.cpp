@@ -34,17 +34,23 @@
 #include <kurllabel.h>
 #include <kstandarddirs.h>
 
+#include "core.h"
+#include "plugin.h"
+
 #include "summarywidget.h"
 
-SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name )
+SummaryWidget::SummaryWidget( Kontact::Plugin *plugin,
+                              QWidget *parent, const char *name )
+  : Kontact::Summary( parent, name ), mPlugin( plugin )
 {
   mMainLayout = new QVBoxLayout( this, 3, 3 );
 
-  mICal = new KCal::CalendarLocal;
+  mCalendar = new KCal::CalendarResources;
+  mResource = new KCal::ResourceLocal( ::locate( "data", "knotes/notes.ics" ) );
+  mCalendar->resourceManager()->add( mResource );
+  mCalendar->load();
 
-  // doesn't get triggered (danimo)
-  connect(mICal, SIGNAL(calendarChanged()), SLOT(updateView()));
+  connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop, KIcon::SizeMedium );
   QWidget* heading = createHeader( this, icon, i18n( "Notes" ) );
@@ -55,24 +61,9 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   updateView();
 }
 
-bool SummaryWidget::ensureKNotesRunning()
-{
-  QString error;
-  if ( !kapp->dcopClient()->isApplicationRegistered( "knotes" ) ) {
-    if ( KApplication::startServiceByDesktopName( 
-          "knotes", QStringList(), &error ) != 0 ) 
-    {
-      kdDebug() << error << endl;
-      return false;
-    }
-  }
-  return true;
-}
-
 void SummaryWidget::updateView()
 {
-  mICal->load(::locate("data", "knotes/notes.ics"));
-  mNotes = mICal->journals();
+  mNotes = mCalendar->journals();
 
   delete mLayout;
   mLayout = new QVBoxLayout( mMainLayout );
@@ -98,11 +89,10 @@ void SummaryWidget::updateView()
 
 void SummaryWidget::urlClicked( const QString &uid )
 {
-  if (ensureKNotesRunning())
-  {
-    DCOPRef dcopCall( "knotes", "KNotesIface" );
-    dcopCall.send( "showNote(QString)", uid );
-  }
+  if ( !mPlugin->isRunningStandalone() )
+    mPlugin->core()->selectPlugin( mPlugin );
+  else
+    mPlugin->bringToForeground();
 }
 
 #include "summarywidget.moc"

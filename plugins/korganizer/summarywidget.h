@@ -31,20 +31,17 @@
 
 #include "summary.h"
 
-namespace Kontact {
-  class Plugin;
-  class Core;
-}
-
 class QGridLayout;
 class QLabel;
+
+class KOrganizerPlugin;
 
 class SummaryWidget : public Kontact::Summary
 {
   Q_OBJECT
 
   public:
-    SummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
+    SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
                    const char *name = 0 );
 
     int summaryHeight() const { return 3; }
@@ -54,8 +51,7 @@ class SummaryWidget : public Kontact::Summary
     void selectEvent( const QString &uid );
 
   private:
-    Kontact::Plugin *mPlugin;
-    QVBoxLayout *mMainLayout;
+    KOrganizerPlugin *mPlugin;
     QGridLayout *mLayout;
 
     QPtrList<QLabel> mLabels;

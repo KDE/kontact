@@ -29,6 +29,7 @@
 #include <dcopclient.h>
 #include <kaction.h>
 #include <kapplication.h>
+#include <kconfig.h>
 #include <kdcopservicestarter.h>
 #include <kdebug.h>
 #include <kdialog.h>
@@ -59,44 +60,32 @@ namespace Kontact
   class MainWindow;
 }
 
-SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
+SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
                                   const KAboutData *aboutData,
                                   QObject *parent, const char *name )
   : KParts::ReadOnlyPart( parent, name ),
-    mCore( core ), mOptionsDialog( 0 ), mConfigAction( 0 )
+    mCore( core ), mFrame( 0 ), mOptionsDialog( 0 ), mConfigAction( 0 )
 {
   mStatusExt = new KParts::StatusBarExtension( this );
   setInstance( new KInstance( aboutData ) );
 
-  QScrollView *sv = new QScrollView( core );
+  initGUI( core );
 
-  sv->setResizePolicy( QScrollView::AutoOneFit );
-  sv->setFrameStyle( QFrame::NoFrame | QFrame::Plain );
-
-  mFrame = new QFrame( sv->viewport(), widgetName );
-  sv->addChild(mFrame);
-
-  mFrame->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-  connect(kapp, SIGNAL(kdisplayPaletteChanged()), SLOT(slotAdjustPalette()));
+  connect( kapp, SIGNAL( kdisplayPaletteChanged() ), SLOT( slotAdjustPalette() ) );
   slotAdjustPalette();
-  sv->setFocusPolicy( QWidget::StrongFocus );
-  setWidget( sv );
 
-  mLayout = new QGridLayout( mFrame, 6, 3, KDialog::marginHint(),
-                             KDialog::spacingHint() );
-
-  getWidgets();
+  setDate( QDate::currentDate() );
+  connect( mCore, SIGNAL( dayChanged( const QDate& ) ),
+           SLOT( setDate( const QDate& ) ) );
 
   KParts::InfoExtension *info = new KParts::InfoExtension( this, "Summary" );
   connect( this, SIGNAL( textChanged( const QString& ) ),
            info, SIGNAL( textChanged( const QString& ) ) );
 
-  if ( !configModules().isEmpty() ) {
-    mConfigAction = new KAction( i18n( "&Configure"),
-                                 "configure", 0, this,
-                                 SLOT( slotConfigure() ), actionCollection(),
-                                 "summaryview_configure" );
-  }
+  mConfigAction = new KAction( i18n( "&Configure Summary View..." ),
+                               "configure", 0, this,
+                               SLOT( slotConfigure() ), actionCollection(),
+                               "summaryview_configure" );
 
   setXMLFile( "kontactsummary_part.rc" );
 
@@ -113,9 +102,32 @@ bool SummaryViewPart::openFile()
   return true;
 }
 
-void SummaryViewPart::getWidgets()
+void SummaryViewPart::updateWidgets()
 {
+  mMainWidget->setUpdatesEnabled( false );
+
+  delete mFrame;
+
+  mSummaries.clear();
+
+  mFrame = new QFrame( mMainWidget );
+  mMainLayout->insertWidget( 2, mFrame );
+
   int totalHeight = 0;
+
+  QStringList activeSummaries;
+
+  KConfig config( "kontact_summaryrc" );
+  if ( !config.hasKey( "ActiveSummaries" ) ) {
+    activeSummaries << "kontact_kaddressbookplugin";
+    activeSummaries << "kontact_korganizerplugin";
+    activeSummaries << "kontact_todoplugin";
+    activeSummaries << "kontact_kpilotplugin";
+    activeSummaries << "kontact_weatherplugin";
+    activeSummaries << "kontact_newstickerplugin";
+  } else {
+    activeSummaries = config.readListEntry( "ActiveSummaries" );
+  }
 
   // Collect all summary widgets with a summaryHeight > 0
   QValueList<Kontact::Plugin*> plugins = mCore->pluginList();
@@ -123,6 +135,9 @@ void SummaryViewPart::getWidgets()
   QValueList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
   for ( ; it != end; ++it ) {
     Kontact::Plugin *plugin = *it;
+    if ( activeSummaries.find( plugin->identifier() ) == activeSummaries.end() )
+      continue;
+
     Kontact::Summary *s = plugin->createSummaryWidget( mFrame );
     if ( s ) {
       int h = s->summaryHeight();
@@ -146,18 +161,11 @@ void SummaryViewPart::getWidgets()
   int column = 0;
 
   int currentHeight = 0;
-  int currentRow = 2;
-  int maxRow = 2;
-  mDateLabel = new QLabel( mFrame );
-  mDateLabel->setAlignment( AlignRight );
-  mLayout->addMultiCellWidget( mDateLabel, 0, 0, 0, 2 );
-  setDate( QDate::currentDate() );
-  connect(mCore, SIGNAL( dayChanged( const QDate& ) ),
-                SLOT( setDate( const QDate& ) ) );
+  int currentRow = 0;
+  int maxRow = 0;
 
-  QFrame *hline = new QFrame( mFrame );
-  hline->setFrameStyle( QFrame::HLine | QFrame::Plain );
-  mLayout->addMultiCellWidget( hline, 1, 1, 0, 2 );
+  QGridLayout *layout = new QGridLayout( mFrame, 6, 3, KDialog::marginHint(),
+                                         KDialog::spacingHint() );
 
   for( uint i = 0; i < mSummaries.count(); ++i ) {
     Kontact::Summary *summary = mSummaries.at( i );
@@ -167,20 +175,20 @@ void SummaryViewPart::getWidgets()
     // Add summary widget using as many rows of the layout as specified by
     // Kontact::Summary::summaryHeight().
     if ( h == 1 ) {
-      mLayout->addWidget( summary, currentRow, column );
+      layout->addWidget( summary, currentRow, column );
     } else {
-      mLayout->addMultiCellWidget( summary, currentRow, currentRow + h - 1,
+      layout->addMultiCellWidget( summary, currentRow, currentRow + h - 1,
                                    column, column );
     }
-    
+
     currentHeight += h;
     currentRow += h;
-    
+
     if ( currentHeight * 2 >= totalHeight ) {
       // Start second row
       currentHeight = 0;
       maxRow = currentRow;
-      currentRow = 2;
+      currentRow = 0;
       column += 2;
     }
   }
@@ -188,11 +196,16 @@ void SummaryViewPart::getWidgets()
   // Add vertical line between the two rows of summary widgets.
   QFrame *vline = new QFrame( mFrame );
   vline->setFrameStyle( QFrame::VLine | QFrame::Plain );
-  mLayout->addMultiCellWidget( vline, 2, maxRow, 1, 1 );
+  layout->addMultiCellWidget( vline, 0, maxRow, 1, 1 );
 
   // space out remaining space to avoid ugly stretching
-  mLayout->addItem(new QSpacerItem( 1, 1, QSizePolicy::MinimumExpanding,
-        QSizePolicy::MinimumExpanding ), maxRow+2, 0 );
+  layout->addItem( new QSpacerItem( 1, 1, QSizePolicy::MinimumExpanding,
+                   QSizePolicy::MinimumExpanding ), maxRow, 0 );
+
+  mFrame->show();
+
+  mMainWidget->setUpdatesEnabled( true );
+  mMainWidget->update();
 }
 
 void SummaryViewPart::slotTextChanged()
@@ -202,12 +215,12 @@ void SummaryViewPart::slotTextChanged()
 
 void SummaryViewPart::slotAdjustPalette()
 {
-    mFrame->setPaletteBackgroundColor( kapp->palette().active().base() );
+  mMainWidget->setPaletteBackgroundColor( kapp->palette().active().base() );
 }
 
 void SummaryViewPart::setDate( const QDate& newDate )
 {
-  QString date("<b>%1<b>");
+  QString date( "<b>%1<b>" );
   date = date.arg( KGlobal::locale()->formatDate( newDate ) );
   mDateLabel->setText( date );
 }
@@ -215,9 +228,12 @@ void SummaryViewPart::setDate( const QDate& newDate )
 void SummaryViewPart::slotConfigure()
 {
   if ( !mOptionsDialog ) {
-    mOptionsDialog = new KCMultiDialog( mFrame );
+    mOptionsDialog = new KCMultiDialog( mMainWidget );
 
     QStringList modules = configModules();
+    modules.prepend( "kcmkontactsummary.desktop" );
+    connect( mOptionsDialog, SIGNAL( configCommitted() ),
+             this, SLOT( updateWidgets() ) );
 
     Kontact::Summary *summary;
     for ( summary = mSummaries.first(); summary; summary = mSummaries.next() )
@@ -251,6 +267,34 @@ QStringList SummaryViewPart::configModules() const
   return modules;
 }
 
-#include "summaryview_part.moc"
+void SummaryViewPart::initGUI( Kontact::Core *core )
+{
+  QScrollView *sv = new QScrollView( core );
 
-// vim: sw=2 sts=2 et tw=80
+  sv->setResizePolicy( QScrollView::AutoOneFit );
+  sv->setFrameStyle( QFrame::NoFrame | QFrame::Plain );
+
+  mMainWidget = new QFrame( sv->viewport() );
+  sv->addChild( mMainWidget );
+  mMainWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
+  sv->setFocusPolicy( QWidget::StrongFocus );
+  setWidget( sv );
+
+  mMainLayout = new QVBoxLayout( mMainWidget,KDialog::marginHint(),
+                                 KDialog::spacingHint() );
+
+  mDateLabel = new QLabel( mMainWidget );
+  mDateLabel->setAlignment( AlignRight );
+  mMainLayout->insertWidget( 0, mDateLabel );
+
+  QFrame *hline = new QFrame( mMainWidget );
+  hline->setFrameStyle( QFrame::HLine | QFrame::Plain );
+  mMainLayout->insertWidget( 1, hline );
+
+  mFrame = new QFrame( mMainWidget );
+  mMainLayout->insertWidget( 2, mFrame );
+
+  updateWidgets();
+}
+
+#include "summaryview_part.moc"

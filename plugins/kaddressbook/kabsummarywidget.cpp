@@ -244,7 +244,7 @@ void KABSummaryWidget::popupMenu( const QString &uid )
   }
 }
 
-bool KABSummaryWidget::eventFilter(QObject *obj, QEvent* e)
+bool KABSummaryWidget::eventFilter( QObject *obj, QEvent* e )
 {
   if ( obj->inherits( "KURLLabel" ) ) {
     KURLLabel* label = static_cast<KURLLabel*>( obj );

@@ -66,21 +66,24 @@ class SummaryViewPart : public KParts::ReadOnlyPart
 
   protected:
     virtual bool openFile();
-    void getWidgets();
 
   protected slots:
     void slotConfigure();
+    void updateWidgets();
 
   private:
+    void initGUI( Kontact::Core *core );
+
     QStringList configModules() const;
 
     QPtrList<Kontact::Summary> mSummaries;
+    Kontact::Core *mCore;
 
     KParts::StatusBarExtension *mStatusExt;
-    QGridLayout *mLayout;
     QFrame *mFrame;
+    QFrame *mMainWidget;
+    QVBoxLayout *mMainLayout;
     QLabel *mDateLabel;
-    Kontact::Core *mCore;
     KCMultiDialog *mOptionsDialog;
     KAction *mConfigAction;
 };

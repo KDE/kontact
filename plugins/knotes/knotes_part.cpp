@@ -18,22 +18,23 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <qlayout.h>
 #include <qpopupmenu.h>
-#include <qsplitter.h>
 #include <qtextedit.h>
 
-#include <dcopclient.h>
-#include <dcopref.h>
 #include <kaction.h>
 #include <kapplication.h>
 #include <kdebug.h>
+#include <kdialogbase.h>
 #include <kiconloader.h>
+#include <kinputdialog.h>
 #include <klistview.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
 #include <kstdaction.h>
 #include <kxmlguifactory.h>
+
 #include <libkdepim/infoextension.h>
 #include <libkdepim/sidebarextension.h>
 
@@ -42,43 +43,79 @@
 class NotesItem : public KListViewItem
 {
   public:
-    NotesItem( KListView *parent, const QString &id, const QString &text );
-    QString id() { return noteID; };
+    NotesItem( KListView *parent, KCal::Journal *journal )
+      : KListViewItem( parent, "" ), mJournal( journal )
+    {
+      setRenameEnabled( 0, true );
+      setPixmap( 0, KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Small ) );
+    }
+
+    KCal::Journal* journal() { return mJournal; }
+
+    virtual void setText( int column, const QString &text )
+    {
+      if ( column == 0 )
+        mJournal->setSummary( text );
+    }
+
+    virtual QString text( int column ) const
+    {
+      if ( column == 0 )
+        return mJournal->summary();
+      else if ( column == 1 )
+        return mJournal->description().replace( "\n", " " );
+      else
+        return QString();
+    }
+
   private:
-    QString noteID;
+    KCal::Journal* mJournal;
 };
 
-NotesItem::NotesItem( KListView *parent, const QString &id, const QString &text )
-  :	KListViewItem( parent, text )
+class NoteEditDialog : public KDialogBase
 {
-  noteID = id;
-  setRenameEnabled( 0, true );
+  public:
+    NoteEditDialog( QWidget *parent, const QString &text )
+      : KDialogBase( Plain, i18n( "Edit Note" ), Ok | Cancel, Ok,
+                     parent, 0, true, true )
+    {
+      QWidget *page = plainPage();
+      QVBoxLayout *layout = new QVBoxLayout( page );
 
-  setPixmap( 0, KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Small ) );
-}
+      mTextEdit = new QTextEdit( page );
+      layout->addWidget( mTextEdit );
+
+      mTextEdit->setText( text );
+      mTextEdit->setFocus();      
+    }
+
+    QString text() const { return mTextEdit->text(); }
+
+  private:
+    QTextEdit *mTextEdit;
+};
 
 KNotesPart::KNotesPart( QObject *parent, const char *name )
   : KParts::ReadOnlyPart( parent, name ),
-    mPopupMenu( 0 ),
-    mNoteChanged( false )
+    mTicket( 0 ), mPopupMenu( 0 )
 {
   setInstance( new KInstance( "knotes" ) );
 
+  mCalendar = new KCal::CalendarResources;
+  mResource = new KCal::ResourceLocal( ::locate( "data", "knotes/notes.ics" ) );
+  mCalendar->resourceManager()->add( mResource );
+  mCalendar->load();
 
-  mICal = new KCal::CalendarLocal;
-  //connect(mICal, SIGNAL(calendarChanged()), SLOT(slotCalendarChanged()));
-  mICal->load(::locate("data", "knotes/notes.ics"));
-  mNotes = mICal->journals();
+  connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( slotCalendarChanged() ) );
 
-  QSplitter *splitter = new QSplitter( Qt::Horizontal );
-
-  mNotesView = new KListView( splitter );
+  mNotesView = new KListView();
   mNotesView->setSelectionMode( QListView::Extended );
   mNotesView->addColumn( i18n( "Title" ) );
+  mNotesView->addColumn( i18n( "Content" ) );
+  mNotesView->setAllColumnsShowFocus( true );
+  mNotesView->setResizeMode( QListView::LastColumn );
 
   (void) new KParts::SideBarExtension( mNotesView, this, "NotesSideBarExtension" );
-
-  mNotesEdit = new QTextEdit( splitter );
 
   KStdAction::openNew( this, SLOT( newNote() ), actionCollection() );
   mActionEdit = new KAction( i18n( "Rename" ), "editrename", this,
@@ -90,17 +127,16 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   (void) new KAction( i18n( "Reload" ), "reload", 0, this,
                       SLOT( reloadNotes() ), actionCollection(), "view_refresh" );
 
-  connect( mNotesView, SIGNAL( selectionChanged() ),
-           this, SLOT( showNote() ) );
+  connect( mNotesView, SIGNAL( doubleClicked( QListViewItem*, const QPoint&, int ) ),
+           this, SLOT( editNote( QListViewItem*, const QPoint&, int ) ) );
+  connect( mNotesView, SIGNAL( returnPressed( QListViewItem* ) ),
+           this, SLOT( editNote( QListViewItem* ) ) );
   connect( mNotesView, SIGNAL( contextMenuRequested( QListViewItem*, const QPoint&, int ) ),
            this, SLOT( popupRMB( QListViewItem*, const QPoint&, int ) ) );
   connect( mNotesView, SIGNAL( itemRenamed( QListViewItem*, int, const QString& ) ),
            this, SLOT( noteRenamed( QListViewItem*, int, const QString& ) ) );
-  connect( mNotesEdit, SIGNAL( textChanged() ),
-           this, SLOT( noteChanged() ) );
 
-  reloadNotes();
-  setWidget( splitter );
+  setWidget( mNotesView );
 
   mAppIcon = KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Small );
 
@@ -111,48 +147,25 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
            info, SIGNAL( iconChanged( const QPixmap& ) ) );
 
   setXMLFile( "knotes_part.rc" );
+
+  reloadNotes();
 }
 
 KNotesPart::~KNotesPart()
 {
-  saveNote();
 }
 
 void KNotesPart::reloadNotes()
 {
-  if ( !kapp->dcopClient()->isApplicationRegistered( "knotes" ) ) {
-    QString *error = 0;
-    int started  = KApplication::startServiceByDesktopName( "knotes",
-                                                            QString(), error );
-
-    if ( started > 0 ) {
-      if ( error )
-        KMessageBox::error( 0L, *error, i18n( "Error" ) );
-      return;
-    }
-
-    delete error;
-  }
-
+  int pos = mNotesView->itemPos( mNotesView->currentItem() );
   mNotesView->clear();
 
-  NotesMap map;
+  KCal::Journal::List::Iterator it;
+  KCal::Journal::List notes = mCalendar->journals();
+  for ( it = notes.begin(); it != notes.end(); ++it )
+    (void) new NotesItem( mNotesView, (*it) );
 
-  QCString replyType;
-  QByteArray data, replyData;
-  QDataStream arg( data, IO_WriteOnly );
-  if ( kapp->dcopClient()->call( "knotes", "KNotesIface", "notes()", data, replyType, replyData ) ) {
-    kdDebug(5602) << "Reply Type: " << replyType << endl;
-    QDataStream answer( replyData, IO_ReadOnly );
-    answer >> map;
-  }
-
-  NotesMap::ConstIterator it;
-  for ( it = map.begin(); it != map.end(); ++it )
-    (void) new NotesItem( mNotesView, it.key(), it.data() );
-
-  mNotesView->setCurrentItem( mNotesView->firstChild() );
-  showNote( mNotesView->firstChild() );
+  mNotesView->setCurrentItem( mNotesView->itemAt( QPoint( 1, pos ) ) );
 }
 
 bool KNotesPart::openFile()
@@ -180,50 +193,57 @@ void KNotesPart::removeNote()
   if ( !item )
     return;
 
-  DCOPRef dcopCall( "knotes", "KNotesIface" );
-  dcopCall.call( "killNote(QString, bool)", item->id(), true );
+  if ( !lock() )
+    return;
 
-  reloadNotes();
+  mCalendar->deleteJournal( item->journal() );
+
+  unlock();
 }
 
 void KNotesPart::removeSelectedNotes()
 {
-  QStringList ids;
-  QStringList names;
-
   QListViewItemIterator it( mNotesView );
+  QPtrList<NotesItem> items;
+  QStringList titles;
+
   while ( it.current() ) {
     if ( it.current()->isSelected() ) {
-      ids += static_cast<NotesItem*>( it.current() )->id();
-      names += it.current()->text( 0 );
+      NotesItem *item = static_cast<NotesItem*>( it.current() );
+      items.append( item );
+      titles.append( item->journal()->summary() );
     }
 
     ++it;
   }
 
-  if ( ids.isEmpty() )
+  if ( items.isEmpty() )
     return;
 
-  if ( ids.count() == 1 ) {
-    DCOPRef dcopCall( "knotes", "KNotesIface" );
-    dcopCall.call( "killNote(QString)", ids.first() );
-  } else {
-    int ret = KMessageBox::warningContinueCancelList( 0,
-        i18n( "Do you really want to delete that note?", "Do you really want to delete these %n notes?", ids.count() ),
-        names,
-        i18n( "Confirm Delete" ),
-        i18n( "Delete" ) );
+  if ( !lock() )
+    return;
 
-    int doIt = ( ret == KMessageBox::Continue );
+  int ret = KMessageBox::warningContinueCancelList( mNotesView,
+      i18n( "Do you really want to delete that note?", 
+            "Do you really want to delete these %n notes?", items.count() ),
+      titles,
+      i18n( "Confirm Delete" ),
+      i18n( "Delete" )
+      );
 
-    if ( doIt )
-      for ( QStringList::ConstIterator it = ids.begin(); it != ids.end(); ++it ) {
-        DCOPRef dcopCall( "knotes", "KNotesIface" );
-        dcopCall.call( "killNote(QString, bool)", *it, true );
-      }
+  if ( ret == KMessageBox::Continue ) {
+    QPtrListIterator<NotesItem> itemIt( items );
+    NotesItem *item;
+    while ( (item = itemIt.current()) != 0 ) {
+      ++itemIt;
+
+      mCalendar->deleteJournal( item->journal() );
+
+      delete item;
+    }
   }
 
-  reloadNotes();
+  unlock();
 }
 
 void KNotesPart::renameNote()
@@ -232,70 +252,99 @@ void KNotesPart::renameNote()
     mNotesView->currentItem()->startRename( 0 );
 }
 
-void KNotesPart::noteRenamed( QListViewItem *i, int,  const QString& text )
+void KNotesPart::noteRenamed( QListViewItem *i, int,  const QString& )
 {
   NotesItem *item = static_cast<NotesItem*>( i );
 
   if ( !item )
     return;
 
-  DCOPRef dcopCall( "knotes", "KNotesIface" );
-  dcopCall.send( "setName(QString,QString)", item->id(), text );
+  if ( !lock() )
+    return;
+
+  unlock();
 }
 
-void KNotesPart::showNote()
+void KNotesPart::editNote( QListViewItem *i, const QPoint&, int column )
 {
-  showNote( mNotesView->currentItem() );
+  if ( column == 1 )
+    editNote( i );
 }
 
-void KNotesPart::showNote( QListViewItem *i )
+void KNotesPart::editNote( QListViewItem *i )
 {
-  if ( !mCurrentNote.isEmpty() ) {
-    if ( mNoteChanged )
-      saveNote();
-  }
-
-  mNotesEdit->clear();
-
   NotesItem *item = static_cast<NotesItem*>( i );
-  if ( !item ) {
-    mCurrentNote = "";
+
+  if ( !item )
     return;
+
+  if ( !lock() )
+    return;
+
+  NoteEditDialog dlg( mNotesView, item->journal()->description() );
+  if ( dlg.exec() ) {
+    item->journal()->setDescription( dlg.text() );
   }
 
-  mCurrentNote = item->id();
-
-  DCOPRef dcopCall( "knotes", "KNotesIface" );
-  mNotesEdit->blockSignals( true );
-  mNotesEdit->setText( dcopCall.call( "text(QString)", item->id() ) );
-  mNotesEdit->blockSignals( false );
-
-  emit noteSelected( item->text( 0 ) );
-  emit noteSelected( mAppIcon );
-}
-
-void KNotesPart::noteChanged()
-{
-  mNoteChanged = true;
-}
-
-void KNotesPart::saveNote()
-{
-  if ( mCurrentNote.isEmpty() )
-    return;
-
-  DCOPRef dcopCall( "knotes", "KNotesIface" );
-  dcopCall.send( "setText(QString,QString)", mCurrentNote, mNotesEdit->text() );
-
-  mNoteChanged = false;
+  unlock();
 }
 
 void KNotesPart::newNote()
 {
-  DCOPRef dcopCall( "knotes", "KNotesIface" );
-  dcopCall.call( "newNote(QString, QString)", QString::null, QString::null );
+  bool ok;
+  QString title = KInputDialog::getText( i18n( "Title" ),
+                                         i18n( "Title" ),
+                                         KGlobal::locale()->formatDateTime( QDateTime::currentDateTime() ),
+                                         &ok );
+  if ( !ok )
+    return;
 
+  if ( !lock() )
+    return;
+
+  NoteEditDialog dlg( mNotesView, "" );
+  if ( dlg.exec() ) {
+    KCal::Journal* journal = new KCal::Journal();
+    mCalendar->addJournal( journal );
+    journal->setSummary( title );
+    journal->setDescription( dlg.text() );
+  }
+
+  unlock();
+}
+
+void KNotesPart::slotCalendarChanged()
+{
   reloadNotes();
+}
+
+bool KNotesPart::lock()
+{
+  if ( mTicket ) // we still have a valid ticket
+    return true;
+
+  mTicket = mCalendar->requestSaveTicket( mResource );
+
+  bool ok = (mTicket != 0);
+
+  if ( !ok )
+    KMessageBox::error( mNotesView,
+                        i18n( "Unable to access the notes, make sure no other program uses them!" ) );
+
+  return ok;
+}
+
+bool KNotesPart::unlock()
+{
+  if ( !mTicket ) {
+    kdError() << "save with null ticket" << endl;
+    return false;
+  }
+
+  mCalendar->save( mTicket );
+  mTicket = 0;
+
+  return true;
 }
 
 #include "knotes_part.moc"

@@ -123,14 +123,14 @@ void KABUniqueAppHandler::loadCommandLineOptions()
 
 int KABUniqueAppHandler::newInstance()
 {
-    //kdDebug() << k_funcinfo << endl;
+    kdDebug() << k_funcinfo << endl;
     // Ensure part is loaded
     (void)plugin()->part();
     DCOPRef kAB( "kaddressbook", "KAddressBookIface" );
     DCOPReply reply = kAB.call( "handleCommandLine" );
     if ( reply.isValid() ) {
         bool handled = reply;
-        //kdDebug() << k_funcinfo << "handled=" << handled << endl;
+        kdDebug() << k_funcinfo << "handled=" << handled << endl;
         if ( !handled ) // no args -> simply bring kaddressbook plugin to front
             return Kontact::UniqueAppHandler::newInstance();
     }

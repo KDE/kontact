@@ -8,6 +8,7 @@ X-KDE-Library=libkontact_kaddressbookplugin
 X-KDE-KontactPluginVersion=3
 X-KDE-KontactPartLibraryName=libkaddressbookpart
 X-KDE-KontactPartExecutableName=kaddressbook
+X-KDE-KontactPluginHasSummary=true
 
 X-KDE-PluginInfo-Website=http://www.kaddressbook.org/
 X-KDE-PluginInfo-Name=kontact_kaddressbookplugin

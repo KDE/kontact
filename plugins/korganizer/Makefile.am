@@ -16,7 +16,7 @@ libkontact_korganizerplugin_la_SOURCES = korganizerplugin.cpp kcalendariface.stu
 libkontact_todoplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_todoplugin_la_LIBADD = libcommon.la \
   $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) $(top_builddir)/libkcal/libkcal.la
-libkontact_todoplugin_la_SOURCES = todoplugin.cpp kcalendariface.stub
+libkontact_todoplugin_la_SOURCES = todoplugin.cpp kcalendariface.stub todosummarywidget.cpp
 
 METASOURCES = AUTO
 

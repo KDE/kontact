@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=kontact
+Type=Service
+ServiceTypes=KCModule
+
+X-KDE-ModuleType=Library
+X-KDE-Library=kontactsummary
+X-KDE-FactoryName=kontactsummary
+X-KDE-ParentApp=kontact_summaryplugin
+X-KDE-ParentComponents=kontact_summaryplugin
+X-KDE-CfgDlgHierarchy=KontactSummary
+
+Name=General
+Comment=General configuration of Kontact's summary view

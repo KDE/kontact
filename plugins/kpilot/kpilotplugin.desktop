@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+Icon=kpilot
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_kpilotplugin
+X-KDE-KontactIdentifier=kpilot
+X-KDE-KontactPluginVersion=3
+X-KDE-KontactPluginHasSummary=true
+
+X-KDE-PluginInfo-Name=kontact_kpilotplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
+Comment=Kontact KPilot Plugin
+Name=KPilot configuration
