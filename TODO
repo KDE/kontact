@@ -1,0 +1,17 @@
+UNTIL KDE 3.2
+==============
+
+- merge config of parts into a unified config dialog
+- same for unified credits
+- find a solution for a setup wizard
+- replace Splash class with QSplashScreen
+- make the "new" action a bit smarter, involves changes in KActionMenu
+- move plugins to respective apps for code sharing(?)
+- Summary (what's next) view
+- Basic groupware functionality (Exchange 2k and Kolab)
+	
+LATER
+======
+
+- Support other groupware solutions
+- your stuff here... 
