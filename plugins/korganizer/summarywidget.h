@@ -33,6 +33,7 @@
 
 namespace Kontact {
   class Plugin;
+  class Core;
 }
 
 class QGridLayout;
@@ -53,6 +54,8 @@ class SummaryWidget : public Kontact::Summary
     void selectEvent( const QString &uid );
 
   private:
+    Kontact::Plugin *mPlugin;
+    QVBoxLayout *mMainLayout;
     QGridLayout *mLayout;
 
     QPtrList<QLabel> mLabels;

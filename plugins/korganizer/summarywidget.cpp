@@ -31,6 +31,9 @@
 #include <kparts/part.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
+
+#include <dcopref.h>
+
 #include <libkcal/event.h>
 #include <libkcal/resourcecalendar.h>
 #include <libkcal/resourcelocal.h>
@@ -41,19 +44,18 @@
 
 #include "summarywidget.h"
 
-SummaryWidget::SummaryWidget( Kontact::Plugin*, QWidget *parent,
+SummaryWidget::SummaryWidget( Kontact::Plugin* plugin, QWidget *parent,
                               const char *name )
-  : Kontact::Summary( parent, name )
+  : Kontact::Summary( parent, name ), mPlugin(plugin), mLayout( 0 )
 {
-  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+  connect(mPlugin->core(), SIGNAL( timeout() ), 
+                           SLOT( updateView() ));
+  mMainLayout = new QVBoxLayout( this, 3, 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "korganizer", 
                    KIcon::Desktop, KIcon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Appointments" ) );
-  mainLayout->addWidget(header);
-
-  mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
-  mLayout->setRowStretch( 6, 1 );
+  mMainLayout->addWidget(header);
 
   KConfig config( "korganizerrc" );
   mCalendar = new KCal::CalendarResources( config.readEntry( "TimeZoneId" ) );
@@ -82,13 +84,21 @@ SummaryWidget::SummaryWidget( Kontact::Plugin*, QWidget *parent,
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
 
   updateView();
+  show();
 }
 
 void SummaryWidget::updateView()
 {
+
+  delete mLayout;
+
   mLabels.setAutoDelete( true );
   mLabels.clear();
   mLabels.setAutoDelete( false );
+
+  mLayout = new QGridLayout( 7, 5, 3 );
+  mMainLayout->addLayout( mLayout );
+  mLayout->setRowStretch( 6, 1 );
 
   KIconLoader loader( "korganizer" );
 
@@ -105,6 +115,7 @@ void SummaryWidget::updateView()
         if ( !ev->doesFloat() ) {
           label = new QLabel( this );
           label->setPixmap( pm );
+          label->setMaximumSize( label->sizeHint() );
           mLayout->addWidget( label, counter, 0 );
           mLabels.append( label );
 
@@ -116,7 +127,7 @@ void SummaryWidget::updateView()
           KURLLabel *urlLabel = new KURLLabel( ev->uid(), ev->summary(), this );
           mLayout->addWidget( urlLabel, counter, 2 );
           mLabels.append( urlLabel );
-          
+
           connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
                    this, SLOT( selectEvent( const QString& ) ) );
 
@@ -156,13 +167,17 @@ void SummaryWidget::updateView()
     }
   }
 
-  show();
 }
 
-void SummaryWidget::selectEvent( const QString & )
+void SummaryWidget::selectEvent( const QString & /* uid */ )
 {
+  if ( !mPlugin->isRunningStandalone() )
+    mPlugin->core()->selectPlugin( mPlugin );
+  else
+    mPlugin->bringToForeground();
+
 /*
-  DCOPRef dcopCall( mDCOPApp.latin1(), "KOrganizerIface" );
+  DCOPRef dcopCall( "korganizer", "KOrganizerIface" );
   dcopCall.send( "showEventEditor(QString)", uid );
 */
 }
