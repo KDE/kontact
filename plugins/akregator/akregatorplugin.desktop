@@ -14,6 +14,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=aKregator Plugin
+Comment[br]=Lugant aKregator
 Comment[cy]=Ategyn aKregator
 Comment[et]=aKregatori plugin
 Comment[pt]='Plugin' do aKregator
