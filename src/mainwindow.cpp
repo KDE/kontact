@@ -451,7 +451,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   KParts::Part *part = plugin->part();
 
   if ( !part ) {
-    KMessageBox::error( this, i18n("Cannot load Part for %1")
+    KMessageBox::error( this, i18n("Cannot load part for %1.")
         .arg( plugin->title() ) );
     KApplication::restoreOverrideCursor();
     return;

@@ -45,7 +45,7 @@
 using namespace std;
 
 static const char description[] =
-    I18N_NOOP( "A KDE Personal Information Manager" );
+    I18N_NOOP( "KDE personal information manager" );
 
 static const char version[] = "0.9";
 
