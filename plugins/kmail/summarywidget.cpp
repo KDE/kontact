@@ -93,9 +93,6 @@ void SummaryWidget::timeout()
   DCOPRef dcopCall( mDCOPApp.latin1(), "KMailIface" );
   QStringList folderList = dcopCall.call( "folderList()" );
 
-  QFont font;
-  font.setPointSize( 9 );
-
   int counter = 1;
   QStringList::Iterator it;
   for ( it = folderList.begin(); it != folderList.end() && counter < 7; ++it, ++counter ) {
@@ -103,19 +100,21 @@ void SummaryWidget::timeout()
     dcopCall.call( "getFolder(QString)", *it ).get( folderRef );
     int numMsg = folderRef.call( "messages()" );
     int numUnreadMsg = folderRef.call( "unreadMessages()" );
-    KURLLabel *label = new KURLLabel( QString::null, (*it).mid( 1 ), this );
-    label->setFont( font );
+    KURLLabel *urlLabel = new KURLLabel( QString::null, (*it).mid( 1 ), this );
+    urlLabel->setAlignment( AlignLeft );
+    urlLabel->show();
+    // ### FIXME emit dcop signal to jumo to actual folder
+    connect( urlLabel, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
+    mLayout->addWidget( urlLabel, counter, 0 );
+    mLabels.append( urlLabel );
+    QLabel *label = new QLabel( QString( "%1 / %2" ).arg( numUnreadMsg ).arg( numMsg ), this );
+    if ( numUnreadMsg > 0 ) {
+      QFont font = label->font();
+      font.setBold( true );
+      label->setFont( font );
+    }
     label->setAlignment( AlignLeft );
     label->show();
-	// ### FIXME emit dcop signal to jumo to actual folder
-	connect( label, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
-    mLayout->addWidget( label, counter, 0 );
-    mLabels.append( label );
-    label = new KURLLabel( QString::null, QString( "%1 / %2" ).arg( numUnreadMsg ).arg( numMsg ), this );
-    label->setFont( font );
-    label->setAlignment( AlignLeft );
-    label->show();
-	connect( label, SIGNAL( leftClickedURL() ), SLOT( raisePart() ) );
     mLayout->addWidget( label, counter, 0 );
     mLayout->addWidget( label, counter, 2 );
     mLabels.append( label );

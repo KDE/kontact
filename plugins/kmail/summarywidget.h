@@ -52,10 +52,10 @@ class SummaryWidget : public QWidget
 
   private:
     QTimer mTimer;
-    QPtrList<KURLLabel> mLabels;
+    QPtrList<QLabel> mLabels;
     QGridLayout *mLayout;
     QString mDCOPApp;
-	Kontact::Plugin *mPlugin;
+    Kontact::Plugin *mPlugin;
 };
 
 #endif
