@@ -21,7 +21,9 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <dcopclient.h>
 #include <dcopref.h>
+#include <kapplication.h>
 #include <kdebug.h>
 #include <klocale.h>
 
@@ -36,15 +38,28 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   else
     kdDebug() << "attached dcop signals..." << endl;
 
-  DCOPRef dcopCall( "KWeatherService", "WeatherService" );
-  DCOPReply reply = dcopCall.call( "listStations()", true );
-  if ( reply.isValid() ) {
-    mStations = reply;
+  QString error;
+  QCString appID;
 
-    connect( &mTimer, SIGNAL( timeout() ), this, SLOT( timeout() ) );
-    mTimer.start( 0 );
-  } else {
-    setText( i18n( "Can't find kweather service." ) );
+  bool serviceAvailable = true;
+  if ( !kapp->dcopClient()->isApplicationRegistered( "KWeatherService" ) ) {
+    if ( !KApplication::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
+      setText( error );
+      serviceAvailable = false;
+    }
+  }
+
+  if ( serviceAvailable ) {
+    DCOPRef dcopCall( "KWeatherService", "WeatherService" );
+    DCOPReply reply = dcopCall.call( "listStations()", true );
+    if ( reply.isValid() ) {
+      mStations = reply;
+
+      connect( &mTimer, SIGNAL( timeout() ), this, SLOT( timeout() ) );
+      mTimer.start( 0 );
+    } else {
+      setText( "ERROR: dcop reply not valid" );
+    }
   }
 }
 
@@ -83,7 +98,7 @@ void SummaryWidget::updateView()
 
   QMimeSourceFactory::defaultFactory()->setPixmap( "weather_icon", data.icon() );
 
-  QString text = QString( "<html><body><center><h1>%1</h1></center><table>%2</table></body></html>" )
+  QString text = QString( "<html><body><h1>%1</h1><table>%2</table></body></html>" )
                         .arg( i18n( "Weather Report" ) )
                         .arg( line1 + line2 + line3 + line4 );
   setText( text );
