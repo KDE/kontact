@@ -38,8 +38,8 @@ KPilotPlugin::KPilotPlugin( Kontact::Core *core, const char *name, const QString
 {
   setInstance( KPilotPluginFactory::instance() );
 	// TODO: Make sure kpilotDaemon is running!
-	
-	
+
+
 }
 
 Kontact::Summary *KPilotPlugin::createSummaryWidget( QWidget *parentWidget )
@@ -50,30 +50,18 @@ Kontact::Summary *KPilotPlugin::createSummaryWidget( QWidget *parentWidget )
 const KAboutData *KPilotPlugin::aboutData()
 {
   if ( !mAboutData ) {
-		mAboutData = new KAboutData("kpilotplugin", I18N_NOOP("KPilot Information"),
-			KPILOT_VERSION,
-			I18N_NOOP("KPilot - HotSync software for KDE\n\n"),
-			KAboutData::License_GPL, "(c) 1998-2000,2001, Dan Pilone");
-		mAboutData->addAuthor("Dan Pilone",
-			I18N_NOOP("Project Leader"),
-			"pilone@slac.com", "http://www.slac.com/pilone/kpilot_home/");
-		mAboutData->addAuthor("Adriaan de Groot",
-			I18N_NOOP("Maintainer"),
-			"groot@kde.org", "http://www.cs.kun.nl/~adridg/kpilot/");
-		mAboutData->addAuthor("Reinhold Kainhofer",
-			I18N_NOOP("Core and conduits developer"), "reinhold@kainhofer.com", "http://reinhold.kainhofer.com/Linux/");
-		mAboutData->addCredit("Preston Brown", I18N_NOOP("VCal conduit"));
-		mAboutData->addCredit("Greg Stern", I18N_NOOP("Abbrowser conduit"));
-		mAboutData->addCredit("Chris Molnar", I18N_NOOP("Expenses conduit"));
-		mAboutData->addCredit("Heiko Purnhagen", I18N_NOOP("Bugfixer"));
-		mAboutData->addCredit("Joerg Habenicht", I18N_NOOP("Bugfixer"));
-		mAboutData->addCredit("Martin Junius",
-			I18N_NOOP("XML GUI"),
-			"mj@m-j-s.net", "http://www.m-j-s.net/kde/");
-		mAboutData->addCredit("David Bishop",
-			I18N_NOOP(".ui files"));
-		mAboutData->addCredit("Aaron J. Seigo",
-			I18N_NOOP("Bugfixer, coolness"));
+	mAboutData = new KAboutData("kpilotplugin", I18N_NOOP("KPilot Information"),
+		KPILOT_VERSION,
+		I18N_NOOP("KPilot - HotSync software for KDE\n\n"),
+		KAboutData::License_GPL, "(c) 2004 Reinhold Kainhofer");
+	mAboutData->addAuthor("Reinhold Kainhofer",
+		I18N_NOOP("Plugin Developer"), "reinhold@kainhofer.com", "http://reinhold.kainhofer.com/Linux/");
+	mAboutData->addAuthor("Dan Pilone",
+		I18N_NOOP("Project Leader"),
+		0, "http://www.kpilot.org/");
+	mAboutData->addAuthor("Adriaan de Groot",
+		I18N_NOOP("Maintainer"),
+		"groot@kde.org", "http://people.fruitsalad.org/adridg/");
   }
 
   return mAboutData;
