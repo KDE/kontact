@@ -24,7 +24,6 @@
 
 #include "akregator_options.h"
 #include "akregator_plugin.h"
-#include "uniqueapphandler.h"
 
 typedef KGenericFactory< aKregatorPlugin, Kontact::Core > aKregatorPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_akregator,
@@ -36,8 +35,8 @@ aKregatorPlugin::aKregatorPlugin( Kontact::Core *core, const char *, const QStri
 
     setInstance( aKregatorPluginFactory::instance() );
     
-    m_uniqueAppWatcher = new Akregator::UniqueAppWatcher(
-            new Akregator::UniqueAppHandlerFactory<AkregatorUniqueAppHandler>(), this );
+    m_uniqueAppWatcher = new Kontact::UniqueAppWatcher(
+            new Kontact::UniqueAppHandlerFactory<AkregatorUniqueAppHandler>(), this );
 }
 
 aKregatorPlugin::~aKregatorPlugin()
@@ -107,7 +106,7 @@ int AkregatorUniqueAppHandler::newInstance()
     //    bool handled = reply;
      //   kdDebug(5602) << k_funcinfo << "handled=" << handled << endl;
      //   if ( !handled ) // no args -> simply bring kaddressbook plugin to front
-            return Akregator::UniqueAppHandler::newInstance();
+            return Kontact::UniqueAppHandler::newInstance();
    // }
    // return 0;
 }

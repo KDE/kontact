@@ -14,16 +14,16 @@
 #include <libkdepim/part.h>
 #include <kontact/plugin.h>
 #include "akregator_partiface_stub.h"
-#include "uniqueapphandler.h"
+#include <uniqueapphandler.h>
 
 typedef KPIM::Part MyBasePart;
 
 class KAboutData;
 
-class AkregatorUniqueAppHandler : public Akregator::UniqueAppHandler
+class AkregatorUniqueAppHandler : public Kontact::UniqueAppHandler
 {
     public:
-        AkregatorUniqueAppHandler( Kontact::Plugin* plugin ) : Akregator::UniqueAppHandler( plugin ) {}
+        AkregatorUniqueAppHandler( Kontact::Plugin* plugin ) : Kontact::UniqueAppHandler( plugin ) {}
         virtual void loadCommandLineOptions();
         virtual int newInstance();
 };
@@ -52,7 +52,7 @@ class aKregatorPlugin : public Kontact::Plugin
   protected:
     MyBasePart *createPart();
     Akregator::aKregatorPartIface_stub *m_stub;
-    Akregator::UniqueAppWatcher *m_uniqueAppWatcher;
+    Kontact::UniqueAppWatcher *m_uniqueAppWatcher;
 };
 
 #endif
