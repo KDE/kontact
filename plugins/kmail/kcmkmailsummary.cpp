@@ -39,7 +39,7 @@
 
 extern "C"
 {
-  KCModule *create_kmailsummary( QWidget *parent, const char * )
+  KDE_EXPORT KCModule *create_kmailsummary( QWidget *parent, const char * )
   {
     return new KCMKMailSummary( parent, "kcmkmailsummary" );
   }

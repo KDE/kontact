@@ -37,7 +37,7 @@
 
 extern "C"
 {
-  KCModule *create_kontactconfig( QWidget *parent, const char * ) {
+  KDE_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * ) {
     return new KcmKontact( parent, "kcmkontact" );
   }
 }
