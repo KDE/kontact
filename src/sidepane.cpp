@@ -57,8 +57,8 @@ void PanelButton::connectToReceiver(QObject* sender) {
 
 void PanelButton::slotClicked()
 {
-  setActive();
   emit clicked(this, m_id);
+  setActive();
 }
 
 void PanelButton::setActive()
