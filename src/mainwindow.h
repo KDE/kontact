@@ -38,6 +38,7 @@
 class KAction;
 class QHBox;
 class QSplitter;
+class QVBox;
 
 namespace KParts
 {
@@ -74,13 +75,12 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void textChanged( const QString& );
     void iconChanged( const QPixmap& );
 
-  private slots:
+  protected slots:
+    void slotActivePartChanged( KParts::Part *part );
+    void slotPreferences();
     void slotQuit();
 
-    void activePartChanged( KParts::Part *part );
-    void slotPreferences();
-
-  private:
+  protected:
     void loadSettings();
     void saveSettings();
 
@@ -88,7 +88,9 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void addPlugin( Kontact::Plugin *plugin );
     void addPart( KParts::Part *part );
     void setupActions();
+    void initHeaderWidget( QVBox *vBox );
 
+  private:
     SidePane *m_sidePane;
     KParts::PartManager *m_partManager;
 

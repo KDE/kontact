@@ -68,33 +68,7 @@ MainWindow::MainWindow()
   QVBox *vBox = new QVBox( m_splitter );
   vBox->setSpacing( 0 );
 
-  // Initiate the headerWidget
-  m_headerFrame = new QHBox( vBox );
-  m_headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
-                                QSizePolicy::Maximum );
-  m_headerFrame->setSpacing( 0 );
-
-  m_headerText = new QLabel( m_headerFrame );
-  m_headerText->setSizePolicy( QSizePolicy::MinimumExpanding,
-                               QSizePolicy::Maximum );
-  m_headerText->setFrameShape( QFrame::ToolBarPanel );
-
-  m_headerPixmap = new QLabel( m_headerFrame );
-  m_headerPixmap->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-  m_headerPixmap->setFrameShape( QFrame::ToolBarPanel );
-  m_headerPixmap->setAlignment( AlignRight );
-
-  connect( this, SIGNAL( textChanged( const QString& ) ),
-           m_headerText, SLOT( setText( const QString& ) ) );
-  connect( this, SIGNAL( iconChanged( const QPixmap& ) ),
-           m_headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
-
-  QFont fnt( m_sidePane->font() );
-  fnt.setBold( true );
-  fnt.setPointSize( m_sidePane->font().pointSize() + 3 );
-  m_headerText->setFont( fnt );
-
-  m_lastInfoExtension = 0L;
+  initHeaderWidget( vBox );
 
   m_stack = new QWidgetStack( vBox );
 
@@ -105,7 +79,7 @@ MainWindow::MainWindow()
   // prepare the part manager
   m_partManager = new KParts::PartManager( this );
   connect( m_partManager, SIGNAL( activePartChanged( KParts::Part* ) ),
-           this, SLOT( activePartChanged( KParts::Part* ) ) );
+           this, SLOT( slotActivePartChanged( KParts::Part* ) ) );
 
   setupActions();
 
@@ -137,6 +111,37 @@ void MainWindow::setupActions()
   (void) KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
   (void) KStdAction::preferences( this, SLOT( slotPreferences() ), actionCollection() );
   m_newActions = new KActionMenu( i18n( "New" ), BarIcon( "filenew2" ), actionCollection(), "action_new" );
+}
+
+void MainWindow::initHeaderWidget(QVBox *vBox)
+{
+  // Initiate the headerWidget
+  m_headerFrame = new QHBox( vBox );
+  m_headerFrame->setSizePolicy( QSizePolicy::MinimumExpanding,
+                                QSizePolicy::Maximum );
+  m_headerFrame->setSpacing( 0 );
+
+  m_headerText = new QLabel( m_headerFrame );
+  m_headerText->setSizePolicy( QSizePolicy::MinimumExpanding,
+                               QSizePolicy::Maximum );
+  m_headerText->setFrameShape( QFrame::ToolBarPanel );
+
+  m_headerPixmap = new QLabel( m_headerFrame );
+  m_headerPixmap->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
+  m_headerPixmap->setFrameShape( QFrame::ToolBarPanel );
+  m_headerPixmap->setAlignment( AlignRight );
+
+  connect( this, SIGNAL( textChanged( const QString& ) ),
+           m_headerText, SLOT( setText( const QString& ) ) );
+  connect( this, SIGNAL( iconChanged( const QPixmap& ) ),
+           m_headerPixmap, SLOT( setPixmap( const QPixmap& ) ) );
+
+  QFont fnt( m_sidePane->font() );
+  fnt.setBold( true );
+  fnt.setPointSize( m_sidePane->font().pointSize() + 3 );
+  m_headerText->setFont( fnt );
+
+  m_lastInfoExtension = 0L;
 }
 
 void MainWindow::insertNewAction( KAction *action )
@@ -178,7 +183,7 @@ void MainWindow::addPart( KParts::Part *part )
     m_stack->addWidget( part->widget(), 0 );
 }
 
-void MainWindow::activePartChanged( KParts::Part *part )
+void MainWindow::slotActivePartChanged( KParts::Part *part )
 {
   if ( !part )  // part can be 0 at shutdown
     return;
