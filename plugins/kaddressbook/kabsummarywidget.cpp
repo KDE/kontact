@@ -229,7 +229,9 @@ void KABSummaryWidget::updateView()
   }
   else
   {
-    QLabel *nothingtosee = new QLabel( i18n( "No birthdays or anniversaries pending within the next %1 days" ).arg(mDaysAhead), this, "nothing to see" );
+    QLabel *nothingtosee = new QLabel( 
+        i18n( "No birthdays or anniversaries pending within the next %1 days" )
+        .arg(mDaysAhead), this, "nothing to see" );
     nothingtosee->setAlignment( AlignCenter );
     nothingtosee->setTextFormat( RichText );
     mLayout->addMultiCellWidget( nothingtosee, 0, 0, 0, 4 );
@@ -261,8 +263,10 @@ void KABSummaryWidget::viewContact( const QString &uid )
 {
   if ( !mPlugin->isRunningStandalone() )
     mPlugin->core()->selectPlugin( mPlugin );
+  else
+    mPlugin->bringToForeground();
 
-  DCOPRef dcopCall( "korganizer", "KAddressBookIface" );
+  DCOPRef dcopCall( "kaddressbook", "KAddressBookIface" );
   dcopCall.send( "showContactEditor(QString)", uid );
 }
 
