@@ -62,7 +62,8 @@ QPushButton(parent, name)
   fnt.setBold(true);
   setFont(fnt);
 
-  setFlat(true);
+  if (style().inherits("KStyle")) 
+    setFlat(true);
 
   connect(this, SIGNAL(clicked()), SLOT(slotClicked()));
 }
@@ -118,7 +119,6 @@ void PanelButton::setText(const QString& text)
 
 void PanelButton::composeLabel(QPainter *p)
 {
-
   QRect rect = style().subRect(QStyle::SR_PushButtonContents, this);
   QRect pixRect = m_pix.rect();
   pixRect.moveCenter(rect.center());
