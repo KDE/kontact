@@ -1,4 +1,5 @@
-/* This file is part of the KDE project
+/*
+   This file is part of the KDE project
    Copyright (C) 2002 Daniel Molkentin <molkentin@kde.org>
 
    This program is free software; you can redistribute it and/or
@@ -17,28 +18,29 @@
    Boston, MA 02111-1307, USA.
  */
 
+#include <qcursor.h>
 #include <qdesktopwidget.h>
 
 #include <kapplication.h>
-#include <kiconloader.h>
 #include <kglobalsettings.h>
-#include <qcursor.h>
+#include <kiconloader.h>
 
 #include "splash.h"
 
 using namespace Kontact;
 
-Splash::Splash(QWidget *parent, const char *name)
-   : QLabel(parent, name, WStyle_Customize|WStyle_Splash)
+Splash::Splash( QWidget *parent, const char *name )
+  : QLabel( parent, name, WStyle_Customize | WStyle_Splash )
 {
-    QPixmap splash(UserIcon("splash"));
-    setBackgroundPixmap(splash);
-    resize(splash.width(), splash.height());
+  QPixmap splash( UserIcon( "splash" ) );
+  setBackgroundPixmap( splash );
+  resize( splash.width(), splash.height() );
 
-    QRect desk = KGlobalSettings::splashScreenDesktopGeometry();
+  QRect desk = KGlobalSettings::splashScreenDesktopGeometry();
 
-    setGeometry((desk.width()/2)-(width()/2) + desk.left(), (desk.height()/2)-(height()/2) + desk.top(), width(), height());
+  setGeometry( ( desk.width() / 2 ) - ( width() / 2 ) + desk.left(),
+               ( desk.height() / 2 ) - ( height() / 2 ) + desk.top(),
+               width(), height() );
 }
 
 #include "splash.moc"
-// vim: ts=4 sw=4 et

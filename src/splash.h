@@ -1,4 +1,5 @@
-/* This file is part of the KDE project
+/*
+   This file is part of the KDE project
    Copyright (C) 2002 Daniel Molkentin <molkentin@kde.org>
 
    This program is free software; you can redistribute it and/or
@@ -26,14 +27,13 @@ namespace Kontact {
 
 class Splash : public QLabel
 {
-    Q_OBJECT
-    public:
-        Splash(QWidget *parent, const char *name);
-        ~Splash() {};
+  Q_OBJECT
+
+  public:
+    Splash( QWidget *parent, const char *name = 0 );
+    ~Splash() {};
 };
 
 }
 
-// vim: ts=4 sw=4 et
-
-#endif // SPLASH_H
+#endif

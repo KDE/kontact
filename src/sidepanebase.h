@@ -64,7 +64,7 @@ class SidePaneBase : public QVBox
     Core* core() const;
 
   private:
-    Core* m_core;
+    Core* mCore;
 };
 
 }

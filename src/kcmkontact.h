@@ -21,6 +21,7 @@
     with any edition of Qt, and distribute the resulting executable,    
     without including the source code for Qt in the source distribution.
 */                                                                      
+
 #ifndef KCMKONTACT_H
 #define KCMKONTACT_H
 
@@ -30,13 +31,12 @@ class KAboutData;
 
 class KcmKontact : public KPrefsModule
 {
-    Q_OBJECT
+  Q_OBJECT
+
   public:
     KcmKontact( QWidget *parent = 0, const char *name = 0 );
 
     virtual const KAboutData* aboutData() const;
-
-  private:
 };
 
 #endif

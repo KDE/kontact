@@ -22,10 +22,10 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <kglobal.h>
 #include <kconfig.h>
-#include <klocale.h>
 #include <kdebug.h>
+#include <kglobal.h>
+#include <klocale.h>
 #include <kstaticdeleter.h>
 
 #include "prefs.h"
@@ -38,18 +38,19 @@ static KStaticDeleter<Prefs> insd;
 
 
 Prefs::Prefs()
-  : KPrefs("kontactrc")
+  : KPrefs( "kontactrc" )
 {
-  KPrefs::setCurrentGroup("View");
+  KPrefs::setCurrentGroup( "View" );
 
-  addItemInt("SidePaneType", mSidePaneType, SidePaneBars );
-  addItemString("ActivePlugin", mActivePlugin, "summary" );
-  addItemIntList("SidePaneSplitter", mSidePaneSplitter );
+  addItemInt( "SidePaneType", mSidePaneType, SidePaneBars );
+  addItemString( "ActivePlugin", mActivePlugin, "summary" );
+  addItemIntList( "SidePaneSplitter", mSidePaneSplitter );
 }
 
 Prefs::~Prefs()
 {
-  if ( mInstance == this ) mInstance = insd.setObject( 0 );
+  if ( mInstance == this )
+    mInstance = insd.setObject( 0 );
 }
 
 Prefs *Prefs::self()

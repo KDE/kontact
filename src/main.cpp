@@ -36,60 +36,47 @@
 #include "mainwindow.h"
 
 static const char *description =
-    I18N_NOOP("A KDE Personal Information Manager");
+    I18N_NOOP( "A KDE Personal Information Manager" );
 
 static const char *version = "0.2.9 (CVS)";
 
-/*
-static KCmdLineOptions options[] =
-{
-    { "+[URL]", I18N_NOOP( "Document to open." ), 0 },
-    KCmdLineLastOption
-};
-*/
-
-
 int main(int argc, char **argv)
 {
-    KAboutData about("kontact", I18N_NOOP("Kontact"), version, description,
-                     KAboutData::License_GPL, "(C) 2001-2003 The Kontact developers", 0, "http://kontact.kde.org", "kde-pim@kde.org");
-    about.addAuthor( "Matthias Hoelzer-Kluepfel", 0, "mhk@kde.org" );
-    about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
-    about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
-    about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
-    about.addAuthor( "Sven Lüppken", 0, "sven@kde.org" );
-    about.addAuthor( "Tobias Koenig", I18N_NOOP( "Summary view widgets" ),
-                     "tokoe@kde.org" );
+  KAboutData about( "kontact", I18N_NOOP( "Kontact" ), version, description,
+                    KAboutData::License_GPL, "(C) 2001-2003 The Kontact developers", 0, "http://kontact.kde.org", "kde-pim@kde.org" );
+  about.addAuthor( "Matthias Hoelzer-Kluepfel", 0, "mhk@kde.org" );
+  about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
+  about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
+  about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
+  about.addAuthor( "Sven Lüppken", 0, "sven@kde.org" );
+  about.addAuthor( "Tobias Koenig", I18N_NOOP( "Summary view widgets" ),
+                   "tokoe@kde.org" );
 
-    KCmdLineArgs::init(argc, argv, &about);
-//    KCmdLineArgs::addCmdLineOptions(options);
-    KUniqueApplication app;
+  KCmdLineArgs::init( argc, argv, &about );
+  KUniqueApplication app;
 
-    // show splash
+  // show splash
 #if (QT_VERSION-0 >= 0x030200)
-    QPixmap splashPixmap( UserIcon( "splash" ) );
+  QPixmap splashPixmap( UserIcon( "splash" ) );
 
-    QSplashScreen *splash = new QSplashScreen( splashPixmap );
-    splash->show();
+  QSplashScreen *splash = new QSplashScreen( splashPixmap );
+  splash->show();
 #else
-    Kontact::Splash *splash = new Kontact::Splash( 0, "splash" );
-    splash->show();
+  Kontact::Splash *splash = new Kontact::Splash( 0, "splash" );
+  splash->show();
 #endif
 
-    // see if we are starting with session management
-    if (app.isRestored())
-        RESTORE(Kontact::MainWindow)
-    else
-    {
-        // no session.. just start up normally
-        Kontact::MainWindow *mw = new Kontact::MainWindow;
-        mw->show();
-    }
+  // see if we are starting with session management
+  if ( app.isRestored() )
+    RESTORE( Kontact::MainWindow )
+  else {
+    // no session.. just start up normally
+    Kontact::MainWindow *mw = new Kontact::MainWindow;
+     mw->show();
+  }
 
-    // delete splash
-    delete splash;
+  // delete splash
+  delete splash;
 
-    return app.exec();
+  return app.exec();
 }
-
-// vim: ts=2 sw=2 et

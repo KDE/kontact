@@ -21,6 +21,7 @@
     with any edition of Qt, and distribute the resulting executable,
     without including the source code for Qt in the source distribution.
 */
+
 #ifndef KONTACT_PREFS_H
 #define KONTACT_PREFS_H
 
