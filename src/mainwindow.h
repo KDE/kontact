@@ -54,6 +54,7 @@ struct InfoExtData
 
 class Plugin;
 class SidePaneBase;
+class AboutDialog;
 
 class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 {
@@ -87,6 +88,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void slotPreferences();
     void slotNewClicked();
     void slotQuit();
+
+    void showAboutDialog();
 
   protected:
     void initWidgets();
@@ -124,6 +127,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QMap<KParts::InfoExtension*, InfoExtData> m_infoExtCache;
 
     int mSidePaneType;
+
+    AboutDialog *m_aboutDialog;
 };
 
 };

@@ -45,6 +45,7 @@
 #include <kpopupmenu.h>
 #include <kshortcut.h>
 #include <kcmultidialog.h>
+#include <khelpmenu.h>
 
 #include <dcopclient.h>
 
@@ -56,12 +57,13 @@
 #include "mainwindow.h"
 #include "sidepane.h"
 #include "iconsidepane.h"
+#include "aboutdialog.h"
 
 using namespace Kontact;
 
 MainWindow::MainWindow()
   : Kontact::Core(), m_topWidget( 0 ), m_headerText( 0 ), m_headerPixmap( 0 ), m_splitter( 0 ), 
-    m_currentPlugin( 0 ), m_lastInfoExtension( 0 )
+    m_currentPlugin( 0 ), m_lastInfoExtension( 0 ), m_aboutDialog( 0 )
 {
   m_plugins.setAutoDelete( true );
 
@@ -75,6 +77,12 @@ MainWindow::MainWindow()
            this, SLOT( slotActivePartChanged( KParts::Part* ) ) );
 
   setupActions();
+
+  setHelpMenuEnabled( false );
+
+  KHelpMenu *helpMenu = new KHelpMenu( this, 0, true, actionCollection() );
+  connect( helpMenu, SIGNAL( showAboutApplication() ),
+           SLOT( showAboutDialog() ) );
 
   loadPlugins();
 
@@ -465,6 +473,16 @@ void MainWindow::updateConfig()
 
     loadSettings();
   }
+}
+
+void MainWindow::showAboutDialog()
+{
+  if ( !m_aboutDialog ) {
+    m_aboutDialog = new AboutDialog( this );
+  }
+
+  m_aboutDialog->show();
+  m_aboutDialog->raise();
 }
 
 #include "mainwindow.moc"

@@ -55,7 +55,7 @@ class Plugin : public QObject, virtual public KXMLGUIClient
       you want your plugin to do dcop via it's own instance of
       @ref DCOPClient by calling @ref dcopClient.
     */
-     Plugin( Core *core, QObject *parent, const char *name );
+    Plugin( Core *core, QObject *parent, const char *name );
 
     ~Plugin();
 

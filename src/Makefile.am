@@ -13,7 +13,7 @@ kontact_LDFLAGS = $(all_libraries) $(KDE_RPATH) -lkutils
 kontact_LDADD = $(LIB_KPARTS) $(top_builddir)/libkdepim/libkdepim.la \
   $(top_builddir)/kontact/interfaces/libkpinterfaces.la libkontact.la
 kontact_SOURCES = main.cpp mainwindow.cpp splash.cpp sidepanebase.cpp \
-  sidepane.cpp iconsidepane.cpp
+  sidepane.cpp iconsidepane.cpp aboutdialog.cpp
 
 kde_module_LTLIBRARIES = kcm_kontact.la
 
