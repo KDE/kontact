@@ -7,8 +7,10 @@ UNTIL KDE 3.2
 - replace Splash class with QSplashScreen
 - make the "new" action a bit smarter, involves changes in KActionMenu
 - move plugins to respective apps for code sharing(?)
-- Summary (what's next) view
+- Summary (what's next) view (slueppken)
 - Basic groupware functionality (Exchange 2k and Kolab)
+- make the headerWidget look nicer (we might use KIconLoader
+  for larger icons) (slueppken)
 	
 LATER
 ======
