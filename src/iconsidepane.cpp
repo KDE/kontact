@@ -33,11 +33,9 @@
 
 #include <kapplication.h>
 #include <kconfig.h>
-#include <kcursor.h>
 #include <klocale.h>
 #include <kiconloader.h>
 #include <sidebarextension.h>
-#include <kiconeffect.h>
 
 #include <kdebug.h>
 
@@ -46,11 +44,6 @@
 #include "plugin.h"
 
 #include "iconsidepane.h"
-
-#include "tiles.h"
-
-extern bool qt_use_xrender;
-extern bool qt_has_xft;
 
 using namespace Kontact;
 
@@ -76,7 +69,7 @@ int EntryItem::width( const QListBox *listbox) const
   else
     w = QMAX( mPixmap.width(), listbox->fontMetrics().width( text() ) );
 
-  return w + 22;
+  return w + 18;
 }
 
 int EntryItem::height( const QListBox *listbox) const
@@ -87,90 +80,52 @@ int EntryItem::height( const QListBox *listbox) const
   else 
     h = mPixmap.height() + listbox->fontMetrics().lineSpacing();
 
-  return h + 12;
+  return h + 4;
 }
 
 void EntryItem::paint( QPainter *p )
 {
-  Navigator *box = static_cast<Navigator*>(listBox());
+  QListBox *box = listBox();
   int w = box->viewport()->width();
-  int h = height( box );
   int y = 2;
-  QPixmap pix( w, h );
-  pix.fill( box->viewport()->paletteBackgroundColor() );
-  QPainter dp;
-  dp.begin( &pix );
-  QColor save = dp.pen().color();
-  QColorGroup group = box->colorGroup();
-  // draw sunken
-  if ( isCurrent() || isSelected() ) {
-    if (qt_use_xrender && qt_has_xft ) {
-      dp.drawPixmap( 0, 0, *box->tile(TopLeft) );
-      dp.drawTiledPixmap( 10, 0, w-20, 10, *box->tile(Top) );
-      dp.drawPixmap( w - 10, 0, *box->tile(TopRight) );
 
-      dp.drawTiledPixmap( 0, 10, 10, h-20, *box->tile(Left) );
-      dp.drawTiledPixmap( 10, 10, w-20, h-20, *box->tile(Center) );
-      dp.drawTiledPixmap( w-10, 10, 10, h-20, *box->tile(Right) );
-
-      dp.drawPixmap( 0, h-10, *box->tile(BottomLeft) );
-      dp.drawTiledPixmap( 10, h-10, w-20, 10, *box->tile(Bottom) );
-      dp.drawPixmap( w-10, h-10, *box->tile(BottomRight) );
-    }
-    else {
-      dp.setPen( Qt::darkGray );
-      dp.setBrush( Qt::darkGray );
-      dp.drawRoundRect( 0, 0, w, h, 35, 35 );
-    }
- }
-
-  dp.setPen( save );
-  
   if ( !mPixmap.isNull() ) {
     int x = ( w - mPixmap.width() ) / 2;
-    QImage img = mPixmap.convertToImage();
-    if ( box->mMouseOverItem == this && 
-        !( isCurrent() || isSelected() ) )
-      KIconEffect::toGamma( img, 0.8f );
-    dp.drawPixmap( x, y, img );
+    p->drawPixmap( x, y, mPixmap );
+  }
+
+  QColor save;
+  if ( isCurrent() || isSelected() ) {
+    save = p->pen().color();
+    p->setPen(listBox()->colorGroup().brightText());
   }
 
   if ( !text().isEmpty() ) {
-    QFontMetrics fm = dp.fontMetrics();
+    QFontMetrics fm = p->fontMetrics();
     y += mPixmap.height() + fm.height() - fm.descent();
     int x = ( w - fm.width( text() ) ) / 2;
-    if ( isCurrent() || isSelected() ) {
-      dp.setPen( group.shadow() );
-      dp.drawText( x+1, y+1, text() );
-      dp.setPen( group.brightText() );
-    }
-    dp.drawText( x, y, text() );
+    p->drawText( x, y, text() );
   }
-  dp.end();
-  p->drawPixmap( 0, 0, pix );
+  // draw sunken
+  if ( isCurrent() || isSelected() ) {
+    p->setPen(save);
+    QColorGroup group = box->colorGroup();
+    group.setColor( QColorGroup::Dark, Qt::black );
+    qDrawShadePanel( p, 1, 0, w - 2, height( box ),
+                     group, true, 1, 0 );
+  }
 }
 
 Navigator::Navigator( SidePaneBase *parent, const char *name)
-  : KListBox( parent, name ), mSidePane( parent ), mMouseOverItem( 0 )
+  : KListBox( parent, name ), mSidePane( parent )
 {
   setSelectionMode( KListBox::Single );
   viewport()->setBackgroundMode( PaletteMid );
   setHScrollBarMode( QScrollView::AlwaysOff );
   setAcceptDrops( true );
-  setCursor( KCursor::handCursor() );
 
   connect( this, SIGNAL( currentChanged( QListBoxItem * ) ),
            SLOT( slotExecuted( QListBoxItem * ) ) );
-
-  KontactImageDb *imagedb = KontactImageDb::instance();
-
-  QStringList images;
-  images << "left" << "topleft" << "top" << "topright" << "right"
-		  << "bottomright" << "bottom" << "bottomleft" << "center";
-#if 1
-  for (int i = 0; i < NTiles; i++)  
-    tiles[i] = new QPixmap( *imagedb->image( images[i] ) );
-#endif
 }
 
 QSize Navigator::sizeHint() const
@@ -217,25 +172,6 @@ void Navigator::slotExecuted( QListBoxItem *item )
   EntryItem *entry = static_cast<EntryItem *>( item );
 
   emit pluginActivated( entry->plugin() );
-}
-
-void Navigator::mouseMoveEvent( QMouseEvent *event )
-{
-  EntryItem *i = static_cast<EntryItem*>(itemAt(event->pos()));
-  if ( mMouseOverItem && mMouseOverItem != i )
-  {
-    EntryItem *tmp = mMouseOverItem;
-    mMouseOverItem = 0;
-    updateItem(tmp);
-  }
-
-  if ( i )
-  {
-    if ( i != mMouseOverItem ) {
-      mMouseOverItem = i;
-      updateItem(mMouseOverItem);
-    }
-  }
 }
 
 void Navigator::dragEnterEvent( QDragEnterEvent *event )
