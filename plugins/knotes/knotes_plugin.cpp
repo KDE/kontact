@@ -34,8 +34,8 @@
 typedef KGenericFactory< KNotesPlugin, Kontact::Core > KNotesPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpknotesplugin, KNotesPluginFactory( "kpknotesplugin" ) );
 
-KNotesPlugin::KNotesPlugin(Kontact::Core *_core, const char *name, const QStringList &)
-  : Kontact::Plugin(i18n("Notes"), "knotes", _core, _core, name), m_part(0)
+KNotesPlugin::KNotesPlugin(Kontact::Core *_core, const char*, const QStringList &)
+  : Kontact::Plugin(i18n("Notes"), "knotes", _core, _core, "knotes"), m_part(0)
 {
   setInstance(KNotesPluginFactory::instance());
 
