@@ -161,8 +161,8 @@ void PanelButton::drawButtonLabel(QPainter *p)
 
   m_headerWidget = new QLabel(this, "header");
   m_headerWidget->setAlignment( AlignVCenter );
-  m_headerWidget->setPaletteBackgroundColor( darkGray );
-  m_headerWidget->setPaletteForegroundColor( white );
+  m_headerWidget->setPaletteBackgroundColor( colorGroup().dark() );
+  m_headerWidget->setPaletteForegroundColor( colorGroup().light() );
   m_headerWidget->setFixedHeight(22);
   
   QFont fnt(font());

@@ -132,14 +132,14 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   m_headerText = new QLabel( m_headerFrame );
   m_headerText->setSizePolicy( QSizePolicy::MinimumExpanding,
                                QSizePolicy::Preferred );
-  m_headerText->setPaletteForegroundColor( white );
-  m_headerText->setPaletteBackgroundColor( darkGray );
+  m_headerText->setPaletteForegroundColor( colorGroup().light() );
+  m_headerText->setPaletteBackgroundColor( colorGroup().dark() );
   
   m_headerPixmap = new QLabel( m_headerFrame );
   m_headerPixmap->setSizePolicy( QSizePolicy::Maximum,
                                  QSizePolicy::Preferred );
   m_headerPixmap->setAlignment( AlignRight|AlignVCenter );
-  m_headerPixmap->setPaletteBackgroundColor( darkGray );
+  m_headerPixmap->setPaletteBackgroundColor( colorGroup().dark() );
 
   connect( this, SIGNAL( textChanged( const QString& ) ),
            m_headerText, SLOT( setText( const QString& ) ) );
