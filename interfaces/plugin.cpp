@@ -26,6 +26,7 @@
 #include <kaboutdata.h>
 #include <kglobal.h>
 #include <kparts/componentfactory.h>
+#include <kdebug.h>
 
 #include "libkdepim/aboutdataextension.h"
 #include "core.h"
@@ -103,21 +104,17 @@ KParts::Part *Plugin::loadPart()
   return core()->createPart( d->partLibraryName );
 }
 
-KAboutData *Plugin::aboutData()
+const KAboutData *Plugin::aboutData()
 {
-  KParts::Part *p = part();
+  const KInstance *instance =
+    KParts::Factory::partInstanceFromLibrary( d->partLibraryName );
 
-  if ( !p )
+  if ( instance ) {
+    return instance->aboutData();
+  } else {
+    kdError() << "Can't load instance for " << title() << endl;
     return 0;
-
-  QObjectList *list = p->queryList( "KParts::AboutDataExtension" );
-  KParts::AboutDataExtension *about =
-          static_cast<KParts::AboutDataExtension*>( list->first() );
-
-  if ( !about )
-    return 0;
-  else
-    return about->aboutData();
+  }
 }
 
 DCOPClient *Plugin::dcopClient() const
