@@ -65,7 +65,7 @@ class WeatherData
     QString mRelativeHumidity;
 };
 
-class SummaryWidget : public QTextBrowser, virtual public DCOPObject
+class SummaryWidget : public QTextBrowser, public DCOPObject
 {
   Q_OBJECT
   K_DCOP
