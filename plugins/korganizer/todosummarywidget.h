@@ -48,7 +48,7 @@ class TodoSummaryWidget : public Kontact::Summary
     QStringList configModules() const;
 
   public slots:
-    void updateSummary( bool force = false ) { updateView(); }
+    void updateSummary( bool force = false ) { Q_UNUSED( force ); updateView(); }
 
   private slots:
     void updateView();
