@@ -498,7 +498,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
         action = (*it)->newActions()->first();
         if ( action ) {
-          mNewActions->setIconSet( action->iconSet() );
+          mNewActions->setIcon( action->icon() );
           mNewActions->setText( action->text() );
           break;
         }
