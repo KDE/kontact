@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Exec=kcmshell kontactconfig
 Icon=kontact
-Type=Application
+Type=Service
 Terminal=0
 
 X-KDE-ModuleType=Library

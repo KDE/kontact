@@ -447,7 +447,7 @@ void MainWindow::slotPreferences()
 
   QStringList modules;
 
-  modules.append( "PIM/kontactconfig.desktop" );
+  modules.append( "kontactconfig.desktop" );
 
   // find all all modules for all plugins
   QPtrListIterator<Kontact::Plugin> pit( m_plugins );
