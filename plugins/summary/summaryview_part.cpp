@@ -39,6 +39,8 @@
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 #include <qscrollview.h>
+#include <kglobal.h>
+#include <klocale.h>
 
 #include <kparts/componentfactory.h>
 #include <kparts/statusbarextension.h>
@@ -72,10 +74,10 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *widgetName,
   mFrame = new QFrame( sv->viewport(), widgetName );
   sv->addChild(mFrame);
 
-  mFrame->setFocusPolicy( QWidget::StrongFocus );
   mFrame->setFrameStyle( QFrame::Panel | QFrame::Sunken );
   connect(kapp, SIGNAL(kdisplayPaletteChanged()), SLOT(slotAdjustPalette()));
   slotAdjustPalette();
+  sv->setFocusPolicy( QWidget::StrongFocus );
   setWidget( sv );
 
   mLayout = new QGridLayout( mFrame, 6, 3, KDialog::marginHint(),
@@ -135,10 +137,20 @@ void SummaryViewPart::getWidgets()
   int column = 0;
 
   int currentHeight = 0;
-  int currentRow = 0;
-  int maxRow = 0;
-  uint i;
-  for( i = 0; i < summaries.count(); ++i ) {
+  int currentRow = 2;
+  int maxRow = 2;
+  mDateLabel = new QLabel( mFrame );
+  mDateLabel->setAlignment( AlignRight );
+  mLayout->addMultiCellWidget( mDateLabel, 0, 0, 0, 2 );
+  setDate( QDate::currentDate() );
+  connect(mCore, SIGNAL( dayChanged( const QDate& ) ),
+                SLOT( setDate( const QDate& ) ) );
+
+  QFrame *hline = new QFrame( mFrame );
+  hline->setFrameStyle( QFrame::HLine | QFrame::Plain );
+  mLayout->addMultiCellWidget( hline, 1, 1, 0, 2 );
+
+  for( uint i = 0; i < summaries.count(); ++i ) {
     Kontact::Summary *summary = summaries.at( i );
 
     int h = summary->summaryHeight();
@@ -159,13 +171,16 @@ void SummaryViewPart::getWidgets()
       // Start second row
       currentHeight = 0;
       maxRow = currentRow;
-      currentRow = 0;
+      currentRow = 2;
       column += 2;
     } else {
       if ( i < summaries.count() - 1 ) {
         // Add horizontal line, when widget is not the last in the column.
-        QFrame *hline = new QFrame( mFrame );
-        //hline->setFrameStyle( QFrame::HLine | QFrame::Sunken );
+        hline = new QFrame( mFrame );
+        hline->setFrameStyle(/* QFrame::HLine |*/ QFrame::Plain );
+        hline->setMaximumHeight( KDialog::spacingHint() );
+        hline->setMinimumHeight( KDialog::spacingHint() );
+        hline->hide();
         mLayout->addWidget( hline, currentRow++, column );
       }
     }
@@ -174,7 +189,16 @@ void SummaryViewPart::getWidgets()
   // Add vertical line between the two rows of summary widgets.
   QFrame *vline = new QFrame( mFrame );
   vline->setFrameStyle( QFrame::VLine | QFrame::Plain );
-  mLayout->addMultiCellWidget( vline, 0, maxRow, 1, 1 );
+  mLayout->addMultiCellWidget( vline, 2, maxRow, 1, 1 );
+
+  // Add line below all summaries
+  hline = new QFrame( mFrame );
+  hline->setFrameStyle( QFrame::HLine | QFrame::Plain );
+  mLayout->addMultiCellWidget( hline, maxRow+1, maxRow+1, 0, 2 );
+
+  // space out remaining space to avoid ugly stretching
+  mLayout->addItem(new QSpacerItem( 1, 1, QSizePolicy::MinimumExpanding,
+        QSizePolicy::MinimumExpanding ), maxRow+2, 0 );
 }
 
 void SummaryViewPart::slotTextChanged()
@@ -185,6 +209,13 @@ void SummaryViewPart::slotTextChanged()
 void SummaryViewPart::slotAdjustPalette()
 {
     mFrame->setPaletteBackgroundColor( kapp->palette().active().base() );
+}
+
+void SummaryViewPart::setDate( const QDate& newDate )
+{
+  QString date("<b>%1<b>");
+  date = date.arg( KGlobal::locale()->formatDate( newDate ) );
+  mDateLabel->setText( date );
 }
 
 #include "summaryview_part.moc"

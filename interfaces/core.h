@@ -23,6 +23,8 @@
 #ifndef KONTACT_CORE_H
 #define KONTACT_CORE_H
 
+#include <qdatetime.h>
+
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 
@@ -61,14 +63,22 @@ class Core : public KParts::MainWindow
 
     KParts::ReadOnlyPart *createPart( const char *libname );
 
+  signals:
+    /**
+      Emitted when a new day starts
+      */
+    void dayChanged( const QDate& );
+
   protected:
     Core( QWidget *parentWidget = 0, const char *name = 0 );
 
   private slots:
     void slotPartDestroyed( QObject * );
+    void checkNewDay();
 
   private:
     QMap<QCString,KParts::ReadOnlyPart *> mParts;
+    QDate mLastDate;
 
     class Private;
     Private *d;

@@ -24,6 +24,7 @@
 #ifndef SUMMARYVIEW_PART_H
 #define SUMMARYVIEW_PART_H
 
+#include <qdatetime.h>
 #include <kparts/part.h>
 
 #include "core.h"
@@ -39,6 +40,7 @@ namespace KParts
 }
 
 class QFrame;
+class QLabel;
 class QGridLayout;
 
 class SummaryViewPart : public KParts::ReadOnlyPart
@@ -53,6 +55,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
   public slots:
     void slotTextChanged();
     void slotAdjustPalette();
+    void setDate( const QDate& newDate );
 
   signals:
     void textChanged( const QString& );
@@ -65,6 +68,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     KParts::StatusBarExtension *mStatusExt;
     QGridLayout *mLayout;
     QFrame *mFrame;
+    QLabel *mDateLabel;
     Kontact::Core *mCore;
 };
 

@@ -26,12 +26,17 @@
 #include <kparts/part.h>
 #include <kparts/componentfactory.h>
 #include <kdebug.h>
+#include <qtimer.h>
 
 using namespace Kontact;
 
 Core::Core( QWidget *parent, const char *name )
   : KParts::MainWindow( parent, name )
 {
+  QTimer* timer = new QTimer( this );
+  mLastDate = QDate::currentDate();
+  connect(timer, SIGNAL( timeout() ), SLOT( checkNewDay() ) );
+  timer->start( 1000*60 );
 }
 
 Core::~Core()
@@ -74,6 +79,14 @@ void Core::slotPartDestroyed( QObject * obj )
       return;
     }
   }
+}
+
+void Core::checkNewDay()
+{
+  if ( mLastDate != QDate::currentDate() )
+    emit dayChanged( QDate::currentDate() );
+
+  mLastDate = QDate::currentDate();
 }
 
 #include "core.moc"
