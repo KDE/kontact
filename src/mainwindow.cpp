@@ -261,17 +261,42 @@ void MainWindow::initAboutScreen()
   QString appName( i18n( "Kontact" ) );
   QString catchPhrase( i18n( "Get Organized!" ) );
   QString quickDescription( i18n( "The KDE Personal Information Management Suite" ) );
+  KIconLoader *iconloader = KGlobal::iconLoader();
+  int iconSize = iconloader->currentSize( KIcon::Desktop );
+  QString home_icon_path = iconloader->iconPath( "kfm_home",  KIcon::Desktop );
+
   QString info = i18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
-      "<p>%2</p><ul>"
-      "<li><a href=\"%3\">Read Manual</a></li>"
-      "<li><a href=\"%4\">Visit Kontact Website</a></li>"
-      "<li><a href=\"%5\">Configure Kontact as Groupware Client</a></li>"
-      "</ul><p style=\"margin-bottom: 0px\"> <a href=\"%6\">Skip this introduction</a></p>")
+      "<p>%1</p>"
+      "<table align=\"center\">"
+      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
+      "<td><a href=\"%1\">Read Manual</a></td></tr>"
+      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
+      "<td><a href=\"%1\">Visit Kontact Website</a></td></tr>"
+      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
+      "<td><a href=\"%1\">Configure Kontact as Groupware Client</a></td></tr>"
+      "</table>"
+      "<p style=\"margin-bottom: 0px\"> <a href=\"%1\">Skip this introduction</a></p>")
       .arg( kapp->aboutData()->version() )
-      .arg( i18n( "Some introductionary text goes here..." ) )
+      .arg( i18n( "Kontact handles your e-mail, addressbook, calendar, to-do list and more." ) )
+      .arg( "help:/kontact" )
+      .arg( iconSize )
+      .arg( iconSize )
+      .arg( home_icon_path )
       .arg( "help:/kontact" )
       .arg( "http://kontact.kde.org" )
+      .arg( iconSize )
+      .arg( iconSize )
+      .arg( home_icon_path )
+      .arg( "http://kontact.kde.org" )
       .arg( "exec:/gwwizard" )
+      .arg( iconSize )
+      .arg( iconSize )
+      .arg( home_icon_path )
+      .arg( "exec:/gwwizard" )
+      .arg( "exec:/switch" )
+      .arg( iconSize )
+      .arg( iconSize )
+      .arg( home_icon_path )
       .arg( "exec:/switch" );
 
   introPart->write( content.arg( QFont().pointSize() ).arg( appName )
