@@ -42,7 +42,6 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
     m_notesView( new KIconView() ),
     m_noteTip( new KNoteTip( m_notesView ) ),
     m_noteEditDlg( 0 ),
-    m_context_menu( 0 ),
     m_manager( new KNotesResourceManager() )
 {
     m_noteList.setAutoDelete( true );
@@ -282,13 +281,12 @@ void KNotesPart::killSelectedNotes()
 
 void KNotesPart::popupRMB( QIconViewItem *item, const QPoint& pos )
 {
-    if ( !m_context_menu )
-        m_context_menu = static_cast<QPopupMenu *>(factory()->container( "note_context", this ));
+  QPopupMenu *contextMenu = static_cast<QPopupMenu *>( factory()->container( "note_context", this ) );
 
-    if ( !m_context_menu || !item )
-        return;
+  if ( !contextMenu || !item )
+    return;
 
-    m_context_menu->popup( pos );
+  contextMenu->popup( pos );
 }
 
 void KNotesPart::slotOnItem( QIconViewItem *i )

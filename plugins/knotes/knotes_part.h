@@ -98,7 +98,6 @@ private:
     KIconView *m_notesView;
     KNoteTip *m_noteTip;
     KNoteEditDlg *m_noteEditDlg;
-    QPopupMenu *m_context_menu;
 
     KNotesResourceManager *m_manager;
     QDict<KNotesIconViewItem> m_noteList;
