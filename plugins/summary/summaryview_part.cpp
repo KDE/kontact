@@ -238,6 +238,9 @@ void SummaryViewPart::slotConfigure()
       for( sit = cm.begin(); sit != cm.end(); ++sit ) {
         modules.append( *sit );
       }
+
+      connect( mOptionsDialog, SIGNAL( configCommitted() ),
+               summary, SLOT( configChanged() ) );
     }
 
     QStringList::ConstIterator it;

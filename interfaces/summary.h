@@ -60,6 +60,9 @@ class Summary : public QWidget
     */
     virtual QStringList configModules() const { return QStringList(); }
 
+  public slots:
+    virtual void configChanged() {};
+
   signals:
     void message( const QString &message );
 
