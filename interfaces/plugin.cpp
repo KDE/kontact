@@ -43,6 +43,7 @@ class Plugin::Private
     QString title;
     QString icon;
     QCString partLibraryName;
+    KParts::Part *part;
 };
 
 
@@ -54,6 +55,7 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
   d->core = core;
   d->dcopClient = 0;
   d->newActions = new QPtrList<KAction>;
+  d->part = 0;
 }
 
 
@@ -119,6 +121,15 @@ const KAboutData *Plugin::aboutData()
   }
 }
 
+KParts::Part *Plugin::part()
+{
+  if ( !d->part ) {
+    d->part = createPart();
+    connect( d->part, SIGNAL( destroyed() ), SLOT( partDestroyed() ) );
+  }
+  return d->part;
+}
+
 QString Plugin::tipFile() const
 {
   return QString::null;
@@ -154,4 +165,11 @@ void Plugin::select()
 {
 }
 
+void Plugin::partDestroyed()
+{
+  d->part = 0;
+}
+
 #include "plugin.moc"
+
+// vim: sw=2 et sts=2 tw=80

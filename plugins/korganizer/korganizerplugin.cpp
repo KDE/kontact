@@ -42,7 +42,6 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_korganizerplugin,
 
 KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "korganizer" ), 
-    mPart( 0 ), 
     mIface( 0 )
 {
   setInstance( KOrganizerPluginFactory::instance() );
@@ -61,18 +60,15 @@ Kontact::Summary *KOrganizerPlugin::createSummaryWidget( QWidget *parent )
   return new SummaryWidget( this, parent );
 }
 
-KParts::Part *KOrganizerPlugin::part()
+KParts::Part *KOrganizerPlugin::createPart()
 {
-  if ( !mPart ) {
-    mPart = loadPart();
+  KParts::Part * part = loadPart();
+  if ( !part ) return 0;
 
-    if ( !mPart ) return 0;
+  (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
+  mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
 
-    (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
-    mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
-  }
-
-  return mPart;
+  return part;
 }
 
 QString KOrganizerPlugin::tipFile() const

@@ -42,16 +42,16 @@ class KAddressbookPlugin : public Kontact::Plugin
 
     virtual bool createDCOPInterface( const QString &serviceType );
     virtual QStringList configModules() const;
-    KParts::Part *part();
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
   
+  protected:
+    KParts::Part *createPart();
   private slots:
     void slotNewContact();
 
   private:
     KAddressBookIface_stub *mStub;
-    KParts::Part *mPart;
 };
 
 #endif

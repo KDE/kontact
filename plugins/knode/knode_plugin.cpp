@@ -41,8 +41,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_knodeplugin,
 
 
 KNodePlugin::KNodePlugin( Kontact::Core *core, const char *, const QStringList& )
-  : Kontact::Plugin( core, core, "knode" ),
-    mPart( 0 )
+  : Kontact::Plugin( core, core, "knode" )
 {
   setInstance( KNodePluginFactory::instance() );
 }
@@ -52,17 +51,14 @@ KNodePlugin::~KNodePlugin()
 {
 }
 
-bool KNodePlugin::createDCOPInterface( const QString& serviceType )
+bool KNodePlugin::createDCOPInterface( const QString& /*serviceType*/ )
 {
   return false;
 }
 
-KParts::Part* KNodePlugin::part()
+KParts::Part* KNodePlugin::createPart()
 {
-  if ( !mPart ) {
-    mPart = loadPart();
-  }
-  return mPart;
+  return loadPart();
 }
 
 #include "knode_plugin.moc"

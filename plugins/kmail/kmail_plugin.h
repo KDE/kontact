@@ -39,16 +39,17 @@ class KMailPlugin : public Kontact::Plugin
     KMailPlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KMailPlugin();
 
-    virtual KParts::Part* part();
     virtual bool createDCOPInterface( const QString& serviceType );
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
     virtual QString tipFile() const;
+
+  protected:
+    virtual KParts::Part* createPart();
 
   protected slots:
     void slotNewMail();
 
   private:
-    KParts::Part *mPart;
     KMailIface_stub *mStub;
 };
 

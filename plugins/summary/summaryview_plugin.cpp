@@ -32,7 +32,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_summaryplugin,
 
 SummaryView::SummaryView( Kontact::Core *core, const char *name, const QStringList& )
   : Kontact::Plugin( core, core, name),
-    mPart( 0 ), mAboutData( 0 )
+    mAboutData( 0 )
 {
   setInstance( SummaryViewFactory::instance() );
 }
@@ -41,14 +41,10 @@ SummaryView::~SummaryView()
 {
 }
 
-KParts::Part *SummaryView::part()
+KParts::Part *SummaryView::createPart()
 {
-  if ( !mPart ) {
-    mPart = new SummaryViewPart( core(), "summarypartframe", this,
-                                  "summarypart" );
-  }
-
-  return mPart;
+  return new SummaryViewPart( core(), "summarypartframe", this,
+                              "summarypart" );
 }
 
 const KAboutData *SummaryView::aboutData()

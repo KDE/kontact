@@ -42,7 +42,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_kmailplugin,
 
 KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "kmail" ),
-    mPart( 0 ), mStub( 0 )
+    mStub( 0 )
 {
   setInstance( KMailPluginFactory::instance() );
 
@@ -80,16 +80,13 @@ QString KMailPlugin::tipFile() const
   return file;
 }
 
-KParts::Part* KMailPlugin::part()
+KParts::Part* KMailPlugin::createPart()
 {
-  if ( !mPart ) {
-    mPart = loadPart();
+  KParts::Part *part = loadPart();
+  if ( !part ) return 0;
 
-    if ( !mPart ) return 0;
-
-    mStub = new KMailIface_stub( dcopClient(), "kmail", "KMailIface" );
-  }
-  return mPart;
+  mStub = new KMailIface_stub( dcopClient(), "kmail", "KMailIface" );
+  return part;
 }
 
 Kontact::Summary *KMailPlugin::createSummaryWidget( QWidget *parent )

@@ -17,16 +17,12 @@ public:
   TestPlugin(Kontact::Core *core, const char *name, const QStringList &);
   ~TestPlugin();
 
-  KParts::Part* part();
+protected:
+  KParts::Part* createPart();
   
 private slots:
 
   void slotTestMenu();
-
-private:
-
-  TestPart *m_part;
-
 };
 
 

@@ -35,16 +35,17 @@ class KNotesPlugin : public Kontact::Plugin
     KNotesPlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KNotesPlugin();
 
-    KParts::Part* part();
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
 
     const KAboutData *aboutData();
-  
+
+  protected:
+    KParts::Part* createPart();
+
   private slots:
     void slotNewNote();
 
   private:
-    KNotesPart *mPart;
     KAboutData *mAboutData;
 };
 

@@ -37,12 +37,12 @@ class SummaryView : public Kontact::Plugin
 
     int weight() const { return -100; }
 
-    virtual KParts::Part* part();
-
     const KAboutData *aboutData();
 
+  protected:
+    virtual KParts::Part* createPart();
+
   private:
-    KParts::ReadOnlyPart *mPart;
     KAboutData *mAboutData;
 };
 

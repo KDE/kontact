@@ -46,17 +46,17 @@ class KOrganizerPlugin : public Kontact::Plugin
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
 
-    KParts::Part *part();
-
     virtual QString tipFile() const;
 
     void select();
+
+  protected:
+    KParts::Part *createPart();
 
   private slots:
     void slotNewEvent();
 
   private:
-    KParts::Part *mPart;
     KCalendarIface_stub *mIface;
 };
 

@@ -37,7 +37,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_knotesplugin,
 
 KNotesPlugin::KNotesPlugin( Kontact::Core *core, const char *,
                             const QStringList &)
-  : Kontact::Plugin( core, core, "knotes" ), mPart( 0 ), mAboutData( 0 )
+  : Kontact::Plugin( core, core, "knotes" ), mAboutData( 0 )
 {
   setInstance( KNotesPluginFactory::instance() );
 
@@ -52,12 +52,9 @@ KNotesPlugin::~KNotesPlugin()
 {
 }
 
-KParts::Part* KNotesPlugin::part()
+KParts::Part* KNotesPlugin::createPart()
 {
-  if ( !mPart )
-    mPart = new KNotesPart( this, "notes" );
-
-  return mPart;
+  return new KNotesPart( this, "notes" );
 }
 
 Kontact::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
@@ -67,9 +64,8 @@ Kontact::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
 
 void KNotesPlugin::slotNewNote()
 {
-  (void) part();
-  if ( mPart )
-      mPart->newNote();
+  if ( part() )
+      static_cast<KNotesPart*>( part() )->newNote();
 }
 
 const KAboutData *KNotesPlugin::aboutData()

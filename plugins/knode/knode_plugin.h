@@ -37,11 +37,10 @@ class KNodePlugin : public Kontact::Plugin
     KNodePlugin( Kontact::Core *core, const char *name, const QStringList& );
     ~KNodePlugin();
 
-    virtual KParts::Part* part();
     virtual bool createDCOPInterface( const QString& serviceType );
 
-  private:
-    KParts::Part *mPart;
+  protected:
+    virtual KParts::Part* createPart();
 };
 
 #endif

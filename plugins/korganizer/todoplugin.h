@@ -44,15 +44,15 @@ class TodoPlugin : public Kontact::Plugin
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
 
-    KParts::Part *part();
-
     void select();
+
+  protected:
+    KParts::Part *createPart();
 
   private slots:
     void slotNewTodo();
 
   private:
-    KParts::Part *mPart;
     KCalendarIface_stub *mIface;
 };
 

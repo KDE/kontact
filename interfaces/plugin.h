@@ -105,27 +105,17 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     virtual bool createDCOPInterface( const QString& /*serviceType*/ ) { return false; }
 
     /**
-      Reimplement this method and return a @ref QStringList of all config
-      modules your application part should offer via Kontact. Note that the
-      part and the module will have to take care for config syncing themselves.
-      Usually @p DCOP used for that purpose.
-
-      @note Make sure you offer the modules in the form:
-      <code>"pathrelativetosettings/mysettings.desktop"</code>
-    */
-    virtual QStringList configModules() const { return QStringList(); }
-
-    /**
       Reimplement this method if you want to add your credits to the Kontact
       about dialog.
     */
     virtual const KAboutData *aboutData();
 
     /**
-      Reimplement and retun the part here.You can use this method if
-      you need to access the current part. Reimpleneting part() is mandatory!
+      You can use this method if you need to access the current part. You can be
+      sure that you always get the same pointer as long as the part has not been
+      deleted.
     */
-    virtual KParts::Part *part() = 0;
+    KParts::Part *part();
 
      /**
        Reimplement this method and return the a path relative to "data" to the tips file.
@@ -191,7 +181,16 @@ class Plugin : public QObject, virtual public KXMLGUIClient
     Core *core() const;
 
   protected:
+    /**
+      Reimplement and retun the part here. Reimpleneting createPart() is
+      mandatory!
+    */
+    virtual KParts::Part *createPart() = 0;
+
     KParts::Part *loadPart();
+
+  private slots:
+    void partDestroyed();
 
   private:
     class Private;
@@ -201,3 +200,5 @@ class Plugin : public QObject, virtual public KXMLGUIClient
 }
 
 #endif
+
+// vim: sw=2 et sts=2 tw=80

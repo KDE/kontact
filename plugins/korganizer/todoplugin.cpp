@@ -41,7 +41,6 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_todoplugin,
 
 TodoPlugin::TodoPlugin( Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "korganizer" ), 
-    mPart( 0 ), 
     mIface( 0 )
 {
   setInstance( TodoPluginFactory::instance() );
@@ -55,23 +54,20 @@ TodoPlugin::~TodoPlugin()
 {
 }
 
-Kontact::Summary *TodoPlugin::createSummaryWidget( QWidget *parent )
+Kontact::Summary *TodoPlugin::createSummaryWidget( QWidget * /*parent*/ )
 {
   return 0;
 }
 
-KParts::Part *TodoPlugin::part()
+KParts::Part *TodoPlugin::createPart()
 {
-  if ( !mPart ) {
-    mPart = loadPart();
+  KParts::Part * part = loadPart();
+  if ( !part ) return 0;
 
-    if ( !mPart ) return 0;
+  (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
+  mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
 
-    (void) dcopClient(); // ensure that we register to DCOP as "korganizer"
-    mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
-  }
-
-  return mPart;
+  return part;
 }
 
 void TodoPlugin::select()

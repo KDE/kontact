@@ -44,10 +44,8 @@ class KitchenSyncPlugin : public Kontact::Plugin
     int weight() const { return 100; }
 
     virtual QStringList configModules() const;
-    KParts::Part *part();
-
-  private:
-    KParts::Part *mPart;
+  protected:
+    KParts::Part *createPart();
 };
 
 #endif

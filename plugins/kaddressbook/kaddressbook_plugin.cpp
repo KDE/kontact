@@ -43,8 +43,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_kaddressbookplugin,
 
 KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "kaddressbook" ), 
-    mStub( 0 ),
-    mPart( 0 )
+    mStub( 0 )
 {
   setInstance( KAddressbookPluginFactory::instance() );
 
@@ -57,19 +56,16 @@ KAddressbookPlugin::~KAddressbookPlugin()
 {
 }
 
-KParts::Part* KAddressbookPlugin::part()
+KParts::Part* KAddressbookPlugin::createPart()
 {
-  if ( !mPart ) {
-    mPart = loadPart();
-    if ( !mPart ) return 0;
+  KParts::Part * part = loadPart();
+  if ( !part ) return 0;
 
-    // 1) Register with dcop as "kaddressbook"  [maybe the part should do this]
-    // 2) Create the stub that allows us to talk to the part
-    mStub = new KAddressBookIface_stub( dcopClient(), "kaddressbook",
-                                        "KAddressBookIface" );
-  }
-
-  return mPart;
+  // 1) Register with dcop as "kaddressbook"  [maybe the part should do this]
+  // 2) Create the stub that allows us to talk to the part
+  mStub = new KAddressBookIface_stub( dcopClient(), "kaddressbook",
+                                      "KAddressBookIface" );
+  return part;
 }
 
 QStringList KAddressbookPlugin::configModules() const
@@ -103,3 +99,5 @@ Kontact::Summary *KAddressbookPlugin::createSummaryWidget( QWidget *parentWidget
 }
 
 #include "kaddressbook_plugin.moc"
+
+// vim: sw=2 sts=2 tw=80 et

@@ -43,8 +43,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_kitchensync,
                             KitchenSyncPluginFactory( "kontact_kitchensync" ) )
 
 KitchenSyncPlugin::KitchenSyncPlugin( Kontact::Core *core, const char *, const QStringList& )
-  : Kontact::Plugin( core, core, "KitchenSync" ), 
-    mPart( 0 )
+  : Kontact::Plugin( core, core, "KitchenSync" )
 {
   setInstance( KitchenSyncPluginFactory::instance() );
 }
@@ -53,13 +52,9 @@ KitchenSyncPlugin::~KitchenSyncPlugin()
 {
 }
 
-KParts::Part* KitchenSyncPlugin::part()
+KParts::Part* KitchenSyncPlugin::createPart()
 {
-  if ( !mPart ) {
-    mPart = loadPart();
-  }
-
-  return mPart;
+  return loadPart();
 }
 
 QStringList KitchenSyncPlugin::configModules() const
