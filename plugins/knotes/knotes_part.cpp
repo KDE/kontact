@@ -1,4 +1,26 @@
+/* This file is part of the KDE project
+   Copyright (C) 2002 Daniel Molkentin <molkentin@kde.org>
 
+   This program is free software; you can redistribute it and/or
+   modify it under the terms of the GNU General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; see the file COPYING.  If not, write to
+   the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+   Boston, MA 02111-1307, USA.
+*/
+
+#include <qpopupmenu.h>
+
+#include <kiconloader.h>
+#include <kiconview.h>
 #include <dcopclient.h>
 #include <kapplication.h>
 #include <kdebug.h>
@@ -9,45 +31,48 @@
 
 #include "knotes_part.h"
 
-class NotesListItem : public KListViewItem
+class NotesItem : public KIconViewItem
 {
 public:
-	NotesListItem( KListView * parent, int id, QString label1 ); 
-    int id();	
+	NotesItem(KIconView * parent, int id, const QString& text); 
+    virtual QString key() { return QString::number(noteID); };
+	int id() { return noteID; };
 private:
 	int noteID;
 };
 
-NotesListItem::NotesListItem( KListView * parent, int id, QString label1 ):
-	KListViewItem(parent, label1)
+NotesItem::NotesItem(KIconView * parent, int id, const QString& text):
+	KIconViewItem(parent, text, DesktopIcon("knotes"))
 {
 	noteID = id;
+	setRenameEnabled(true);
 }
-
-int NotesListItem::id()
-{
-	return noteID;
-}
-
 
 KNotesPart::KNotesPart(QObject *parent, const char *name)
-  : KParts::ReadOnlyPart(parent, name)
+  : KParts::ReadOnlyPart(parent, name), 
+    m_iconView(new KIconView), m_popupMenu(new QPopupMenu)
 {
-  m_listView = new KListView;
-  m_listView->addColumn(i18n("Title"));
-  m_listView->addColumn(QString::null);
-  m_listView->setResizeMode(QListView::LastColumn);
-  m_listView->setAllColumnsShowFocus(true);
 
-  connect(m_listView, SIGNAL(executed(QListViewItem*)), SLOT(slotOpenNote(QListViewItem*)) );
-
-  startKNotes();
+  m_popupMenu->insertItem(BarIcon("editdelete"), i18n("Remove Note"), 
+		  this, SLOT(slotRemoveCurrentNote()));
+  m_popupMenu->insertItem(BarIcon("editrename"), i18n("Rename Note"), 
+		  this, SLOT(slotRenameCurrentNote()));
+	
+  connect(m_iconView, SIGNAL(executed(QIconViewItem*)), 
+		  this, SLOT(slotOpenNote(QIconViewItem*)));
+  connect(m_iconView, SIGNAL(rightButtonClicked(QIconViewItem*, const QPoint&)), 
+		  this, SLOT(slotPopupRMB(QIconViewItem*, const QPoint&)));
+  connect(m_iconView, SIGNAL(itemRenamed(QIconViewItem*, const QString&)),
+		  this, SLOT(slotNoteRenamed(QIconViewItem*, const QString&)));
   
-  setWidget(m_listView);
+  initKNotes();
+  setWidget(m_iconView);
 
+  m_iconView->arrangeItemsInGrid();
+  m_iconView->setItemsMovable(false);
 }
 
-void KNotesPart::startKNotes()
+void KNotesPart::initKNotes()
 {
   QString *error = 0;
   int started = KApplication::startServiceByDesktopName("knotes", QString(), error);
@@ -61,14 +86,14 @@ void KNotesPart::startKNotes()
   
   delete error;
 
-  m_listView->clear();
+  m_iconView->clear();
   
   NotesMap map;
-  map = slotGetNotes();
+  map = fetchNotes();
   NotesMap::const_iterator it;
   for (it = map.begin(); it != map.end(); ++it )
   {
-	 (void) new NotesListItem( m_listView, it.key(), it.data() );
+	 (void) new NotesItem( m_iconView, it.key(), it.data() );
   }
   
 }
@@ -78,7 +103,7 @@ bool KNotesPart::openFile()
 	return false;
 }
 
-NotesMap KNotesPart::slotGetNotes()
+NotesMap KNotesPart::fetchNotes()
 {
 	QCString replyType;
 	QByteArray data, replyData;
@@ -96,9 +121,63 @@ NotesMap KNotesPart::slotGetNotes()
 	
 }
 
-void KNotesPart::slotOpenNote( QListViewItem *item )
+void KNotesPart::slotPopupRMB(QIconViewItem *item, const QPoint& pos)
 {
-	int id = static_cast<NotesListItem*>( item )->id();
+	if (!item) 
+		return;
+	
+	m_popupMenu->popup(pos);
+}
+
+void KNotesPart::slotRemoveCurrentNote()
+{
+	QIconViewItem* item = m_iconView->currentItem();
+
+	// better safe than sorry
+	if (!item)
+		return;
+	
+	int id = static_cast<NotesItem*>( item )->id();
+
+	QByteArray data;
+	QDataStream arg( data, IO_WriteOnly );
+	arg << id;
+	if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "killNote(int)", data ) )
+		kdDebug() << "Deleting Note!" << endl;
+
+	// reinit knotes and refetch notes
+	initKNotes();
+}
+
+void KNotesPart::slotRenameCurrentNote()
+{
+	// better safe than sorry
+	if(m_iconView->currentItem()) 
+		m_iconView->currentItem()->rename();
+}
+
+
+void KNotesPart::slotNoteRenamed(QIconViewItem *item, const QString& text)
+{
+	// better safe than sorry
+	if (!item)
+		return;
+	
+	int id = static_cast<NotesItem*>( item )->id();
+
+	QByteArray data;
+	QDataStream arg( data, IO_WriteOnly );
+	arg << id;
+	arg << text;
+	if ( kapp->dcopClient()->send( "knotes", "KNotesIface", "setName(int, QString)", data ) )
+		kdDebug() << "Rename Note!" << endl;
+
+	m_iconView->arrangeItemsInGrid();
+}
+	
+void KNotesPart::slotOpenNote( QIconViewItem *item )
+{
+	int id = static_cast<NotesItem*>( item )->id();
 
 	QByteArray data;
 	QDataStream arg( data, IO_WriteOnly );
