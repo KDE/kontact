@@ -134,6 +134,12 @@ void SummaryWidget::updateView()
       }
     }
   }
+  else {
+    QLabel *noEvents = new QLabel( i18n("No appointments pending"), this );
+    noEvents->setAlignment( AlignRight );
+    mLayout->addWidget( noEvents, 0, 2 );
+    mLabels.append(noEvents);
+  }
 
   KCal::Todo::List todos = mCalendar->todos();
   if ( todos.count() > 0 ) {
