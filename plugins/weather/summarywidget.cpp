@@ -29,7 +29,9 @@
 #include <dcopref.h>
 #include <kapplication.h>
 #include <kdebug.h>
+#include <kglobal.h>
 #include <kglobalsettings.h>
+#include <kiconloader.h>
 #include <klocale.h>
 
 #include "summarywidget.h"
@@ -40,10 +42,12 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 {
   mLayout = new QVBoxLayout( this );
 
-  if ( !connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false ) )
-    kdDebug() << "Could not attach signal..." << endl;
-  else
-    kdDebug() << "attached dcop signals..." << endl;
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kweather", KIcon::Desktop, KIcon::SizeMedium );
+  QWidget *header = createHeader( this, icon, i18n( "Weather Information" ) );
+  mLayout->addWidget( header );
+
+  connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false );
+  connectDCOPSignal( 0, 0, "stationRemoved(QString)", "stationRemoved(QString)", false );
 
   QString error;
   QCString appID;
@@ -105,47 +109,28 @@ void SummaryWidget::updateView()
     QImage img;
     img = data.icon();
 
-    QGridLayout *layout = new QGridLayout( mLayout, 3, 4, 3 );
+    QGridLayout *layout = new QGridLayout( mLayout, 3, 3, 3 );
+    mLayout->addStretch( 10 );
     mLayouts.append( layout );
 
     QLabel *label = new QLabel( this );
     label->setPixmap( img.smoothScale( 32, 32 ) );
-    label->setAlignment( AlignRight );
+    label->setAlignment( AlignRight | AlignTop );
     layout->addMultiCellWidget( label, 0, 1, 0, 0 );
     mLabels.append( label );
 
     label = new QLabel( this );
     label->setText( QString( "%1 (%2)" ).arg( data.name() ).arg( data.temperature() ) );
-    layout->addMultiCellWidget( label, 0, 0, 1, 3 );
+    QFont font = label->font();
+    font.setBold( true );
+    label->setFont( font );
+    label->setAlignment( AlignLeft );
+    layout->addMultiCellWidget( label, 0, 0, 1, 2 );
     mLabels.append( label );
 
     label = new QLabel( cover, this );
-    layout->addMultiCellWidget( label, 1, 1, 1, 3 );
-    mLabels.append( label );
-
-    QFont font = label->font();
-    font.setBold( true );
-
-    label = new QLabel( i18n( "Rel. humidity:" ), this );
-    label->setAlignment( AlignRight );
-    label->setFont( font );
-    layout->addWidget( label, 2, 0 );
-    mLabels.append( label );
-
-    label = new QLabel( data.relativeHumidity(), this );
     label->setAlignment( AlignLeft );
-    layout->addWidget( label, 2, 1 );
-    mLabels.append( label );
-
-    label = new QLabel( i18n( "Wind speed:" ), this );
-    label->setAlignment( AlignRight );
-    label->setFont( font );
-    layout->addWidget( label, 2, 2 );
-    mLabels.append( label );
-
-    label = new QLabel( data.windSpeed(), this );
-    label->setAlignment( AlignLeft );
-    layout->addWidget( label, 2, 3 );
+    layout->addMultiCellWidget( label, 1, 1, 1, 2 );
     mLabels.append( label );
 
     counter++;
@@ -178,6 +163,12 @@ void SummaryWidget::refresh( QString station )
   mWeatherMap[ station ].setWindSpeed( dcopCall.call( "wind(QString)", station, true ) );
   mWeatherMap[ station ].setRelativeHumidity( dcopCall.call( "relativeHumidity(QString)", station, true ) );
 
+  updateView();
+}
+
+void SummaryWidget::stationRemoved( QString station )
+{
+  mWeatherMap.remove( station );
   updateView();
 }
 

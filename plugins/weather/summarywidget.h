@@ -80,6 +80,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
 
   k_dcop:
     virtual void refresh( QString );
+    virtual void stationRemoved( QString );
 
   private slots:
     void updateView();
