@@ -46,7 +46,11 @@ KABSummaryWidget::KABSummaryWidget( QWidget *parent, const char *name )
 
   mLayout = new QGridLayout( this, 7, 3 );
 
+  QFont boldFont;
+  boldFont.setBold( true );
+
   QLabel *label = new QLabel( i18n( "Birthdays and Anniversaries" ), this );
+  label->setFont( boldFont );
   mLayout->addMultiCellWidget( label, 0, 0, 0, 2 );
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self();

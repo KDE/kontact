@@ -41,10 +41,8 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
 
   mLayout = new QGridLayout( this, 7, 3, 3 );
 
-  QFont boldFont, font;
+  QFont boldFont;
   boldFont.setBold( true );
-  boldFont.setPointSize( 9 );
-  font.setPointSize( 9 );
 
   QLabel *label = new QLabel( this );
   label->setAlignment( AlignLeft );
@@ -54,7 +52,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
 
   label = new QLabel( i18n( "EMails" ), this );
   label->setAlignment( AlignLeft );
-  label->setFont( font );
+  label->setFont( boldFont );
   mLayout->addMultiCellWidget( label, 0, 0, 1, 2 );
 
   QString error;

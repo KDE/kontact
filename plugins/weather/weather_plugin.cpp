@@ -29,9 +29,8 @@
 typedef KGenericFactory< WeatherPlugin, Kontact::Core > WeatherPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkpweatherplugin, WeatherPluginFactory( "kpweatherplugin" ) );
 
-WeatherPlugin::WeatherPlugin( Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( i18n( "Weather" ), "weather", core, core, name )
-    
+WeatherPlugin::WeatherPlugin( Kontact::Core *core, const char *, const QStringList& )
+  : Kontact::Plugin( i18n( "Weather" ), "weather", core, core, "weather" )
 {
 	setInstance( WeatherPluginFactory::instance() );
 }

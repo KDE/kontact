@@ -31,6 +31,7 @@
 #include <kaction.h>
 #include <kapplication.h>
 #include <kdebug.h>
+#include <kdialog.h>
 #include <dcopclient.h>
 #include <kdcopservicestarter.h>
 #include <ktrader.h>
@@ -42,17 +43,28 @@ namespace Kontact
      class MainWindow;
 };
 
-SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins, QWidget* parentWidget, const char* widgetName, QObject *parent, const char *name )
+SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins,
+                                  QWidget* parentWidget, const char* widgetName,
+                                  QObject *parent, const char *name )
   : KParts::ReadOnlyPart(parent, name )
 {
 	setInstance( new KInstance("summaryviewpart") ); // ## memleak
 
 	m_frame = new QFrame( parentWidget, widgetName );
+	m_frame->setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 	setWidget(m_frame);
 
-	m_layout = new QVBoxLayout( m_frame );
-	m_layout->setAutoAdd( true );
+	m_layout = new QGridLayout( m_frame, 3, 3, KDialog::marginHint(),
+                              KDialog::spacingHint() );
 	//m_layout->setSpacing( 50 ); We should look later which spacing is appropriate here
+
+  QFrame *frame = new QFrame( m_frame );
+  frame->setFrameStyle( QFrame::VLine | QFrame::Sunken );
+  m_layout->addMultiCellWidget( frame, 0, 2, 1, 1 );
+
+  frame = new QFrame( m_frame );
+  frame->setFrameStyle( QFrame::HLine | QFrame::Sunken );
+  m_layout->addWidget( frame, 1, 0 );
 
 	setXMLFile("summaryparttui.rc");
   //new KAction( "new contact (test)", 0, this, SLOT( newContact() ), actionCollection(), "test_deleteevent" );
@@ -80,8 +92,18 @@ void SummaryViewPart::getWidgets()
 {
 	kdDebug() << "Adding the widgets..." << endl;
 	Kontact::Plugin *plugin;
-	for( plugin = m_plugins.first(); plugin; plugin = m_plugins.next() )
-		plugin->createSummaryWidget( m_frame );
+	for( plugin = m_plugins.first(); plugin; plugin = m_plugins.next() ) {
+		QWidget *wdg = plugin->createSummaryWidget( m_frame );
+    if ( QString( "weather" ).compare( plugin->name() ) == 0 ) {
+      m_layout->addWidget( wdg, 0, 0 );
+    } else if ( QString( "kmail" ).compare( plugin->name() ) == 0 ) {
+      m_layout->addWidget( wdg, 0, 2 );
+    } else if ( QString( "kaddressbook" ).compare( plugin->name() ) == 0 ) {
+      m_layout->addWidget( wdg, 2, 0 );
+    } else if ( QString( "knotes" ).compare( plugin->name() ) == 0 ) {
+      m_layout->addWidget( wdg, 2, 2 );
+    }
+}
 }
 
 #include "summaryview_part.moc"

@@ -28,6 +28,8 @@
 #include <dcopref.h>
 #include <kapplication.h>
 #include <kdebug.h>
+#include <kglobal.h>
+#include <kiconloader.h>
 #include <klocale.h>
 
 #include "summarywidget.h"
@@ -37,13 +39,24 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 {
   setPaletteBackgroundColor( QColor( 240, 240, 240 ) );
 
-  QVBoxLayout *layout = new QVBoxLayout( this, 3 );
+  QGridLayout *layout = new QGridLayout( this, 2, 2 );
 
-  QLabel *label = new QLabel( i18n( "Notes" ), this );
-  layout->addWidget( label );
+  QFont boldFont;
+  boldFont.setBold( true );
+
+  QLabel *label = new QLabel( this );
+  label->setPixmap( KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop, KIcon::SizeMedium ) );
+  label->setAlignment( AlignLeft | AlignTop );
+  layout->addWidget( label, 0, 0 );
+
+  label = new QLabel( i18n( "Notes" ), this );
+  label->setAlignment( AlignLeft | AlignTop );
+  label->setFont( boldFont );
+  layout->addWidget( label, 0, 1 );
 
   mNoteList = new QLabel( this );
-  layout->addWidget( mNoteList );
+  mNoteList->setAlignment( AlignLeft | AlignTop );
+  layout->addMultiCellWidget( mNoteList, 1, 1, 0, 1 );
 
   QString error;
   QCString appID;
