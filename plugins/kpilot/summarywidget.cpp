@@ -233,7 +233,7 @@ void SummaryWidget::slotAppRemoved( const QCString & appId )
   if ( appId == "kpilotDaemon" )
   {
     mDCOPSuccess = false;
-    pdateView();
+    updateView();
   }
 }
 
