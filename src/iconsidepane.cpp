@@ -489,8 +489,8 @@ void Navigator::slotMouseOn( QListBoxItem* newItem )
   if ( newItem && !newItem->isCurrent() && !newItem->isSelected() )
   {
     setHoverItem( newItem, true );
-    mMouseOn = newItem;
   }
+  mMouseOn = newItem;
 }
 
 void Navigator::slotMouseOff()
