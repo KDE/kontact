@@ -451,8 +451,11 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
 
 void MainWindow::partLoaded( Kontact::Plugin * /*plugin*/, KParts::Part *part )
 {
-  if ( part->widget() )
-    mStack->addWidget( part->widget(), 0 );
+  // See if we have this part already (e.g. due to two plugins sharing it)
+  if ( mStack->id( part->widget() ) != -1 )
+    return;
+
+  mStack->addWidget( part->widget(), 0 );
 
   mPartManager->addPart( part, false );
   // Workaround for KParts misbehavior: addPart calls show!
