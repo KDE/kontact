@@ -28,7 +28,7 @@ TestPart::TestPart(QObject *parent, const char *name) // ## parentWidget
   m_kab_stub = 0L;
 
   new KParts::SideBarExtension(new QComboBox(this), this, "sbe");
-  
+
   kapp->dcopClient()->setNotifications( true );
   connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QCString&)),
            this, SLOT( unregisteredFromDCOP( const QCString& )) );
@@ -45,12 +45,12 @@ void TestPart::newContact()
   if ( !connectToAddressBook() )
     return;
 
-  kdDebug() << "Calling newContact" << endl;
+  kdDebug(5602) << "Calling newContact" << endl;
   m_kab_stub->newContact();
 
   // If critical call: test that it worked ok
   if ( !m_kab_stub->ok() ) {
-    kdDebug() << "Communication problem - ERROR" << endl;
+    kdDebug(5602) << "Communication problem - ERROR" << endl;
     // TODO handle the error
   }
 }

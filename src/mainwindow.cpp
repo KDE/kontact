@@ -56,13 +56,13 @@ MainWindow::MainWindow()
   box->setFrameStyle(  QFrame::Panel | QFrame::Sunken );
 
   QSplitter *splitter = new QSplitter(box);
-  
+
   m_sidePane = new SidePane(splitter);
   m_sidePane->setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred));
   connect(m_sidePane, SIGNAL(showPart(KParts::Part*)), SLOT(showPart(KParts::Part*)));
-  
+
   m_stack = new QWidgetStack(splitter);
- 
+
   setCentralWidget(box);
 
   statusBar()->show();
@@ -80,9 +80,9 @@ MainWindow::MainWindow()
   setXMLFile("kontactui.rc");
 
   createGUI(0);
-  
+
   m_sidePane->invokeFirstEntry();
-  
+
   resize(600, 400); // initial size
   setAutoSaveSettings();
 }
@@ -122,7 +122,7 @@ void MainWindow::loadPlugins()
 
   for (KTrader::OfferList::ConstIterator it = offers.begin(); it != offers.end(); ++it)
   {
-    kdDebug() << "Loading Plugin: " << (*it)->name() << endl;
+    kdDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
     Kontact::Plugin *plugin = KParts::ComponentFactory
       ::createInstanceFromService<Kontact::Plugin>(*it, this);
     if (!plugin)
@@ -135,7 +135,7 @@ void MainWindow::loadPlugins()
 
 void MainWindow::addPlugin(Kontact::Plugin *plugin)
 {
-  kdDebug() << "Added plugin" << endl;
+  kdDebug(5600) << "Added plugin" << endl;
 
   // merge the plugins GUI into the main window
   insertChildClient(plugin);
@@ -153,13 +153,13 @@ void MainWindow::addPart(KParts::Part *part)
 
 void MainWindow::activePartChanged(KParts::Part *part)
 {
-  kdDebug() << "Part activated: " << part << endl;
+  kdDebug(5600) << "Part activated: " << part << endl;
   createGUI(part);
 }
 
 void MainWindow::showPart(KParts::Part* part)
 {
-    
+
   QPtrList<KParts::Part> parts = *m_partManager->parts();
 //  if (!parts.find(part))
       addPart(part);
@@ -188,7 +188,7 @@ void MainWindow::slotPreferences()
   QStringList modules;
 
 
-  // find all all modules for all plugins 
+  // find all all modules for all plugins
   QPtrListIterator<Kontact::Plugin> pit(m_plugins);
   for(; pit.current(); ++pit)
   {
@@ -196,9 +196,9 @@ void MainWindow::slotPreferences()
      if(!tmp.isEmpty())
          modules += tmp;
   }
-  
 
-  // add them all  
+
+  // add them all
   QStringList::iterator mit;
   for (mit = modules.begin(); mit != modules.end(); ++mit)
     dialog->addModule((*mit));
@@ -216,14 +216,14 @@ int MainWindow::startServiceFor( const QString& serviceType,
   for ( ; it.current() ; ++it )
   {
     if ( it.current()->createDCOPInterface( serviceType ) ) {
-      kdDebug() << "found interface for " << serviceType << endl;
+      kdDebug(5600) << "found interface for " << serviceType << endl;
       if ( dcopService )
         *dcopService = it.current()->dcopClient()->appId();
-      kdDebug() << "appId=" << it.current()->dcopClient()->appId() << endl;
+      kdDebug(5600) << "appId=" << it.current()->dcopClient()->appId() << endl;
       return 0; // success
     }
   }
-  kdDebug() << "Didn't find dcop interface, falling back to external process" << endl;
+  kdDebug(5600) << "Didn't find dcop interface, falling back to external process" << endl;
   return KDCOPServiceStarter::startServiceFor( serviceType, constraint, preferences, error, dcopService, flags );
 }
 

@@ -17,8 +17,6 @@
    Boston, MA 02111-1307, USA.
  */
 
-#include <assert.h>
-
 #include <qptrlist.h>
 #include <qwidgetstack.h>
 #include <qsignal.h>
@@ -48,7 +46,7 @@ QPushButton(BarIcon(plugin->icon()), plugin->pluginName(), parent, name)
   m_active = false;
   m_id = id;
   m_plugin = plugin;
-  
+
   setFlat(true);
   connect(this, SIGNAL(clicked()), SLOT(slotClicked()));
 }
@@ -59,7 +57,7 @@ void PanelButton::slotClicked()
 
   KParts::Part* part = m_plugin->part();
   emit showPart(part);
-  
+
   setActive();
 }
 
@@ -75,7 +73,7 @@ void PanelButton::setActive()
 
   m_active = true;
 
-  kdDebug() << "PanelButton::setActive()" << endl;
+  kdDebug(5600) << "PanelButton::setActive()" << endl;
 }
 
 void PanelButton::setInactive()
@@ -118,15 +116,15 @@ void SidePane::addEntry(Kontact::Plugin *plugin)
 
 void SidePane::switchSidePaneWidget(KParts::Part* part)
 {
- assert(part);
- 
+ Q_ASSERT(part);
+
  QObjectList *l = part->queryList( "KParts::SideBarExtension" );
  KParts::SideBarExtension *sbe = static_cast<KParts::SideBarExtension*>(l->first());
- 
+
  if (!sbe)
  {
    m_contentStack->raiseWidget(0);
-   return;   
+   return;
  }
 
  if (m_contentStack->id(sbe->widget()) == -1)
@@ -140,7 +138,7 @@ void SidePane::switchItems(PanelButton* pb)
   QPtrListIterator<PanelButton> it(m_buttonList);
   for (; it.current(); ++it)
   {
-    if (it.current()->isActive())	
+    if (it.current()->isActive())
       it.current()->setInactive();
   }
 
