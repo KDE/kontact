@@ -28,7 +28,6 @@
 #include <kparts/componentfactory.h>
 #include <kdebug.h>
 
-#include "libkdepim/aboutdataextension.h"
 #include "core.h"
 #include "plugin.h"
 
