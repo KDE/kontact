@@ -35,7 +35,10 @@ KNotesPart::KNotesPart(QObject *parent, const char *name)
 {
   m_listView = new KListView;
   m_listView->addColumn(i18n("Title"));
-
+  m_listView->addColumn(QString::null);
+  m_listView->setResizeMode(QListView::LastColumn);
+  m_listView->setAllColumnsShowFocus(true);
+  
   KRun *run = new KRun(locate("exe", "knotes")); // start kntoes if required
   connect(run, SIGNAL(finished()), SLOT(slotInitPart()));
   

@@ -6,6 +6,7 @@
 
 
 #include "kpplugin.h"
+#include "kaddressbookiface_stub.h"
 
 
 class KAddressbookPlugin : public Kaplan::Plugin
@@ -24,8 +25,8 @@ private slots:
   void slotNewContact();
 
 private:
-
   void loadPart();
+  KAddressBookIface_stub *m_stub;
   KParts::ReadOnlyPart *m_part;
 
 };

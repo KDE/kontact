@@ -1,6 +1,7 @@
 #include <qwidget.h>
 
 
+#include <kapplication.h>
 #include <kmessagebox.h>
 #include <kaction.h>
 #include <kgenericfactory.h>
@@ -8,7 +9,6 @@
 #include <kparts/componentfactory.h>
 
 #include "kpcore.h"
-
 
 #include "kaddressbook_plugin.h"
 #include "kaddressbook_plugin.moc"
@@ -18,14 +18,17 @@ K_EXPORT_COMPONENT_FACTORY( libkpkaddressbookplugin,
                             KAddressbookPluginFactory( "kpaddressbookplugin" ) );
 
 KAddressbookPlugin::KAddressbookPlugin(Kaplan::Core *_core, const char *name, const QStringList & /*args*/ )
-  : Kaplan::Plugin(_core, _core, name), m_part(0)
+  : Kaplan::Plugin(_core, _core, "kaddressbook"), m_part(0)
 {
+  m_stub = new KAddressBookIface_stub(dcopClient(), "kaddressbook", "*"); 	
   setInstance(KAddressbookPluginFactory::instance());
 
   setXMLFile("kpkaddressbookplugin.rc");
+  
 
   core()->addMainEntry(i18n("Contacts"), "kaddressbook", this, SLOT(slotShowPlugin()));
-  core()->insertNewAction( new KAction( i18n( "New Contact" ), BarIcon( "contact" ), 0, this, SLOT( slotNewContact() ), actionCollection(), "new_contact" ));
+  core()->insertNewAction( new KAction( i18n( "New Contact" ), BarIcon( "contact" ), 
+			  0, this, SLOT( slotNewContact() ), actionCollection(), "new_contact" ));
 }
 
 
@@ -58,6 +61,6 @@ void KAddressbookPlugin::slotShowPlugin()
 void KAddressbookPlugin::slotNewContact()
 {
   loadPart();
-  //m_part->newContact(); ###FIXME
+  m_stub->newContact();
 }
 
