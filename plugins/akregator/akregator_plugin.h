@@ -5,7 +5,6 @@
  *     Licensed under GPL.                                                 *
  ***************************************************************************/
 
-
 #ifndef AKREGATOR_PLUGIN_H
 #define AKREGATOR_PLUGIN_H
 
@@ -16,6 +15,12 @@
 
 #include "akregator_partiface_stub.h"
 
+#if (KDE_VERSION_MAJOR >= 3 && KDE_VERSION_MINOR > 3) || KDE_VERSION_MAJOR > 3
+#include <kontact/part.h>
+typedef PIM::Part MyPart; 
+#else
+typedef KParts::Part MyPart;
+#endif
 
 class KAboutData;
 
@@ -36,7 +41,7 @@ class aKregatorPlugin : public Kontact::Plugin
     virtual QStringList invisibleToolbarActions() const;
 	    
   protected:
-    KParts::Part *createPart();
+    MyPart *createPart();
     Akregator::aKregatorPartIface_stub *m_stub;
 };
 
