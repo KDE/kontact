@@ -52,7 +52,7 @@ KParts::Part* SummaryView::part()
 {
 	if (!m_part)
 	{
-		m_part = new SummaryViewPart(this, "summarypart", m_plugins );
+		m_part = new SummaryViewPart(m_plugins, core(), "core", this, "summarypart" );
 	}
 
 	return m_part;

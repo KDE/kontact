@@ -42,12 +42,12 @@ namespace Kontact
      class MainWindow;
 };
 
-SummaryViewPart::SummaryViewPart(QObject *parent, const char *name, QPtrList<Kontact::Plugin> plugins ) // ## parentWidget
-  : KParts::ReadOnlyPart(parent, name)
+SummaryViewPart::SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins, QWidget* parentWidget, const char* widgetName, QObject *parent, const char *name )
+  : KParts::ReadOnlyPart(parent, name )
 {
 	setInstance( new KInstance("summaryviewpart") ); // ## memleak
 
-	m_frame = new QFrame();
+	m_frame = new QFrame( parentWidget, widgetName );
 	setWidget(m_frame);
 	m_layout = new QGridLayout( m_frame, 2, 2 );
 	setXMLFile("summaryparttui.rc");

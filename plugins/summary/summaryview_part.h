@@ -37,7 +37,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
 
 public:
 
-  SummaryViewPart(QObject *parent=0, const char *name=0, QPtrList<Kontact::Plugin> plugin=0L);
+  SummaryViewPart( const QPtrList<Kontact::Plugin>& plugins, QWidget* parentWidget, const char* widgetName, QObject *parent=0, const char *name=0 );
     ~SummaryViewPart();
 
 protected:

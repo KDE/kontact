@@ -6,3 +6,5 @@ Name=SummaryView
 Icon=konsole
 ServiceTypes=Kontact/Plugin
 X-KDE-Library=libkpsummaryplugin
+#Always last
+InitialPreference=0
