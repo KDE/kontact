@@ -25,8 +25,6 @@
 
 #include <klistbox.h>
 
-#include <qlistbox.h>
-
 class QSignalMapper;
 
 namespace KParts { class Part; }
@@ -36,20 +34,25 @@ namespace Kontact
 
 class Core;
 class Plugin;
+class Navigator;
+
+enum IconViewMode { LargeIcons = 48, NormalIcons = 32, SmallIcons = 16, TextOnly = 0 };
 
 /**
-  A @see QListBoxPixmap Square Box with a large icon and a text
+  A @see QListBoxPixmap Square Box with an optional icon and a text
   underneath.
 */
 class EntryItem : public QListBoxItem
 {
   public:
-    EntryItem( QListBox *, Kontact::Plugin * );
+    EntryItem( Navigator *, Kontact::Plugin * );
     ~EntryItem();
 
     Kontact::Plugin *plugin() const { return mPlugin; }
 
     const QPixmap *pixmap() const { return &mPixmap; }
+
+    Navigator* navigator() const;
 
     /**
       returns the width of this item.
@@ -61,6 +64,8 @@ class EntryItem : public QListBoxItem
     virtual int height( const QListBox * ) const;
 
   protected:
+    void reloadPixmap();
+    
     virtual void paint( QPainter *p );
 
   private:
@@ -82,22 +87,26 @@ class Navigator : public KListBox
     void updatePlugins( QValueList<Kontact::Plugin*> plugins );
 
     QSize sizeHint() const;
-
+    
+    IconViewMode viewMode() { return mViewMode; }
+    IconViewMode sizeIntToEnum(int size) const;
   signals:
     void pluginActivated( Kontact::Plugin * );
-
+    
   protected:
     void dragEnterEvent( QDragEnterEvent * );
     void dragMoveEvent ( QDragMoveEvent * );
     void dropEvent( QDropEvent * );
     void resizeEvent( QResizeEvent * );
 
-  private slots:
-    void slotExecuted( QListBoxItem *item );
+  protected slots:
+    void slotExecuted( QListBoxItem * );
+    void slotShowRMBMenu( QListBoxItem *, const QPoint& );
     void shortCutSelected( int );
 
   private:
     SidePaneBase *mSidePane;
+    IconViewMode mViewMode;
 
     QSignalMapper *mMapper;
     QPtrList<KAction> mActions;

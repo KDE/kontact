@@ -32,8 +32,8 @@
 #include <qframe.h>
 #include <qdrawutil.h>
 
+#include <kpopupmenu.h>
 #include <kapplication.h>
-#include <kconfig.h>
 #include <klocale.h>
 #include <kiconloader.h>
 #include <sidebarextension.h>
@@ -44,6 +44,7 @@
 
 #include "plugin.h"
 
+#include "prefs.h"
 #include "iconsidepane.h"
 
 namespace Kontact
@@ -85,12 +86,11 @@ private:
 
 using namespace Kontact;
 
-EntryItem::EntryItem( QListBox *parent, Kontact::Plugin *plugin )
+EntryItem::EntryItem( Navigator *parent, Kontact::Plugin *plugin )
   : QListBoxItem( parent ),
     mPlugin( plugin )
 {
-  mPixmap = KGlobal::iconLoader()->loadIcon( plugin->icon(),
-                                             KIcon::Desktop, 48 );
+  reloadPixmap();
   setCustomHighlighting( true );
   setText( plugin->title() );
 }
@@ -99,13 +99,28 @@ EntryItem::~EntryItem()
 {
 }
 
+void EntryItem::reloadPixmap()
+{
+  int size = (int)navigator()->viewMode();
+  if (size != 0)
+    mPixmap = KGlobal::iconLoader()->loadIcon( mPlugin->icon(),
+  KIcon::Desktop, size );
+  else
+    mPixmap = QPixmap();
+}
+
+Navigator* EntryItem::navigator() const
+{ 
+  return static_cast<Navigator*>(listBox());
+}
+
 int EntryItem::width( const QListBox *listbox) const
 {
   int w;
   if ( text().isEmpty() )
     w = mPixmap.width();
   else
-    w = QMAX( mPixmap.width(), listbox->fontMetrics().width( text() ) );
+    w = QMAX( (int)navigator()->viewMode(), listbox->fontMetrics().width( text() ) );
 
   return w + 36;
 }
@@ -116,13 +131,15 @@ int EntryItem::height( const QListBox *listbox) const
   if ( text().isEmpty() )
     h =  mPixmap.height();
   else 
-    h = mPixmap.height() + listbox->fontMetrics().lineSpacing();
+    h = (int)navigator()->viewMode() + listbox->fontMetrics().lineSpacing();
 
   return h + 4;
 }
 
 void EntryItem::paint( QPainter *p )
 {
+  reloadPixmap();
+  
   QListBox *box = listBox();
   int w = box->viewport()->width();
   int y = 2;
@@ -157,13 +174,17 @@ void EntryItem::paint( QPainter *p )
 Navigator::Navigator( SidePaneBase *parent, const char *name)
   : KListBox( parent, name ), mSidePane( parent )
 {
+  mViewMode = sizeIntToEnum( Prefs::self()->sidePaneIconSize() );
   setSelectionMode( KListBox::Single );
   viewport()->setBackgroundMode( PaletteMid );
   setHScrollBarMode( QScrollView::AlwaysOff );
   setAcceptDrops( true );
 
-  connect( this, SIGNAL( currentChanged( QListBoxItem * ) ),
+  connect( this, SIGNAL( selectionChanged( QListBoxItem * ) ),
            SLOT( slotExecuted( QListBoxItem * ) ) );
+
+  connect( this, SIGNAL( rightButtonPressed( QListBoxItem *, const QPoint& ) ),
+           SLOT( slotShowRMBMenu( QListBoxItem *, const QPoint& ) ) );
 
   mMapper = new QSignalMapper( this );
   connect( mMapper, SIGNAL( mapped( int ) ), SLOT( shortCutSelected( int ) ) );
@@ -176,7 +197,7 @@ QSize Navigator::sizeHint() const
 
 void Navigator::setSelected( QListBoxItem *i, bool sel )
 {
-  // Reimplmemented to avoid the immediate activation of
+  // Reimplemented to avoid the immediate activation of
   // the item. might turn out it doesn't work, we check that
   // an confirm from MainWindow::selectPlugin()
   if (sel) {
@@ -225,15 +246,6 @@ void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins_ )
   parentWidget()->setFixedWidth( minWidth );
 }
 
-void Navigator::slotExecuted( QListBoxItem *item )
-{
-  if ( !item ) return;
-  
-  EntryItem *entry = static_cast<EntryItem *>( item );
-
-  emit pluginActivated( entry->plugin() );
-}
-
 void Navigator::dragEnterEvent( QDragEnterEvent *event )
 {
   kdDebug(5600) << "Navigator::dragEnterEvent()" << endl;
@@ -278,9 +290,59 @@ void Navigator::dropEvent( QDropEvent *event )
   entry->plugin()->processDropEvent( event );  
 }
 
+
 void Navigator::resizeEvent( QResizeEvent *event )
 {
   QListBox::resizeEvent( event );
+  triggerUpdate( true );
+}
+
+void Navigator::slotExecuted( QListBoxItem *item )
+{
+  if ( !item ) return;
+  
+  EntryItem *entry = static_cast<EntryItem *>( item );
+
+  emit pluginActivated( entry->plugin() );
+}
+
+IconViewMode Navigator::sizeIntToEnum(int size) const
+{
+  switch ( size ) { 
+    case int(LargeIcons):
+      return LargeIcons;
+      break;
+    case int(NormalIcons):
+      return NormalIcons;
+      break;
+    case int(SmallIcons):
+      return SmallIcons;
+      break;
+    case int(TextOnly):
+      return TextOnly;
+      break;
+    default:
+      // Stick with sane values
+      return NormalIcons;
+      kdDebug() << "View mode not implemented!" << endl;
+      break;
+  }
+  
+}
+
+void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint& pos )
+{
+  KPopupMenu menu;
+  menu.insertTitle( i18n("Icon size") );
+  menu.insertItem( i18n("Large"), (int)LargeIcons );
+  menu.insertItem( i18n("Nomal "), (int)NormalIcons );
+  menu.insertItem( i18n("Small"), (int)SmallIcons );
+  menu.insertItem( i18n("Text only"), (int)TextOnly );
+  int choice = menu.exec( pos );
+  
+  mViewMode = sizeIntToEnum(choice);
+  Prefs::self()->setSidePaneIconSize( choice );
+
   triggerUpdate( true );
 }
 

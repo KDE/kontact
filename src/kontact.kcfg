@@ -9,6 +9,13 @@
     <entry type="String" name="ActivePlugin">
       <default>kontact_summaryplugin</default>
     </entry>
+    <entry type="Bool" name="ForceStartupPlugin">
+      <default>false</default>
+      <label>Always start with specified component</label>
+      <whatsthis>Usually Kontact will come up with the component used before shutdown. Check this box if you would like a specific component to come up on start instead.</whatsthis>
+    </entry>
+    <entry type="String" name="ForcedStartupPlugin">
+    </entry>
 
     <entry type="IntList" name="SidePaneSplitter">
     </entry>
@@ -25,6 +32,9 @@
       </choices>
       <default>SidePaneIcons</default>
     </entry>
-  </group>
 
+    <entry type="Int" name="SidePaneIconSize">
+      <default>32</default>
+    </entry>
+  </group>
 </kcfg>
