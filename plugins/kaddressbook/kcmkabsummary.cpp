@@ -91,8 +91,7 @@ void KCMKABSummary::customDaysChanged( int value )
 
 void KCMKABSummary::initGUI()
 {
-  QVBoxLayout *layout = new QVBoxLayout( this, KDialog::marginHint(),
-                                         KDialog::spacingHint() );
+  QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
 
   mDaysGroup = new QButtonGroup( 0, Vertical, i18n( "Address Book Summary" ), this );
   QVBoxLayout *boxLayout = new QVBoxLayout( mDaysGroup->layout(),
@@ -131,6 +130,8 @@ void KCMKABSummary::initGUI()
   mShowAnniversaries = new QCheckBox( i18n( "Show all anniversaries" ), mShowGroup );
 
   layout->addWidget( mShowGroup );
+
+  layout->addStretch();
 }
 
 void KCMKABSummary::load()

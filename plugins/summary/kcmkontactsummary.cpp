@@ -93,8 +93,7 @@ PluginView::~PluginView()
 KCMKontactSummary::KCMKontactSummary( QWidget *parent, const char *name )
   : KCModule( parent, name )
 {
-  QVBoxLayout *layout = new QVBoxLayout( this, KDialog::marginHint(),
-                                         KDialog::spacingHint() );
+  QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
 
   QLabel *label = new QLabel( i18n( "Here you can select which summary plugins to have visible in your summary view." ), this );
   layout->addWidget( label );

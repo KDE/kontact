@@ -84,8 +84,7 @@ void KCMSDSummary::customDaysChanged( int value )
 
 void KCMSDSummary::initGUI()
 {
-  QVBoxLayout *layout = new QVBoxLayout( this, KDialog::marginHint(),
-                                         KDialog::spacingHint() );
+  QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
 
   mDaysGroup = new QButtonGroup( 0, Vertical, i18n( "Special Dates Summary" ), this );
   QVBoxLayout *boxLayout = new QVBoxLayout( mDaysGroup->layout(),
@@ -140,6 +139,8 @@ void KCMSDSummary::initGUI()
     new QCheckBox( i18n( "Show special occasions from calendar" ), mShowGroup );
 
   layout->addWidget( mShowGroup );
+
+  layout->addStretch();
 }
 
 void KCMSDSummary::load()

@@ -90,8 +90,7 @@ void KCMKOrgSummary::customDaysChanged( int value )
 
 void KCMKOrgSummary::initGUI()
 {
-  QVBoxLayout *layout = new QVBoxLayout( this, KDialog::marginHint(),
-                                         KDialog::spacingHint() );
+  QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
 
   mCalendarGroup = new QButtonGroup( 0, Vertical, i18n( "Calendar" ), this );
   QVBoxLayout *boxLayout = new QVBoxLayout( mCalendarGroup->layout(),
@@ -130,6 +129,8 @@ void KCMKOrgSummary::initGUI()
   new QRadioButton( i18n( "Show today's tasks" ), mTodoGroup );
 
   layout->addWidget( mTodoGroup );
+
+  layout->addStretch();
 }
 
 void KCMKOrgSummary::load()
