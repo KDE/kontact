@@ -124,6 +124,8 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
       const int numMsg = folderRef.call( "messages()" );
       const int numUnreadMsg = folderRef.call( "unreadMessages()" );
 
+      if ( numUnreadMsg == 0 ) continue;
+
       QString folderPath;
       if ( showFullPath )
         folderRef.call( "displayPath()" ).get( folderPath );
