@@ -18,14 +18,20 @@
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-#include <kuniqueapplication.h>
 #include <dcopclient.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
+#include <kiconloader.h>
 #include <klocale.h>
-#include <qlabel.h>
+#include <kuniqueapplication.h>
 
+#include <qlabel.h>
+#if (QT_VERSION-0 >= 0x030200)
+#include <qsplashscreen.h>
+#else
 #include "splash.h"
+#endif
+
 #include "mainwindow.h"
 
 static const char *description =
@@ -57,8 +63,15 @@ int main(int argc, char **argv)
     KUniqueApplication app;
 
     // show splash
-    Kontact::Splash *s = new Kontact::Splash( 0, "splash" );
-    s->show();
+#if (QT_VERSION-0 >= 0x030200)
+    QPixmap splashPixmap( UserIcon( "splash" ) );
+
+    QSplashScreen *splash = new QSplashScreen( splashPixmap );
+    splash->show();
+#else
+    Kontact::Splash *splash = new Kontact::Splash( 0, "splash" );
+    splash->show();
+#endif
 
     // see if we are starting with session management
     if (app.isRestored())
@@ -71,7 +84,7 @@ int main(int argc, char **argv)
     }
 
     // delete splash
-    delete s;
+    delete splash;
 
     return app.exec();
 }
