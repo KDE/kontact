@@ -179,6 +179,7 @@ void SummaryWidget::updateView()
 
 void SummaryWidget::selectEvent( const QString & )
 {
+  mPlugin->core()->selectPlugin( "kontact_korganizerplugin" );
   mPlugin->interface()->showEventView();
 }
 

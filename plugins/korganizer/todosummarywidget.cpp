@@ -188,6 +188,7 @@ void TodoSummaryWidget::updateView()
 
 void TodoSummaryWidget::selectEvent( const QString & )
 {
+  mPlugin->core()->selectPlugin( "kontact_todoplugin" );
   mPlugin->interface()->showTodoView();
 }
 
