@@ -131,7 +131,7 @@ void PanelButton::composeLabel(QPainter *p)
   
   p->drawPixmap(pixRect, m_pix);
   QPen tmp = p->pen();
-  p->setPen(colorGroup().text());
+  p->setPen(colorGroup().buttonText());
   if (kapp->reverseLayout())
   {
     rect.setRight(rect.right()-(m_pix.width()+2));
