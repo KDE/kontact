@@ -56,7 +56,7 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QSt
   instance()->iconLoader()->addAppDir("korganizer");
 
   insertNewAction( new KAction( i18n( "New Event..." ), "appointment",
-                   0, this, SLOT( slotNewEvent() ), actionCollection(),
+                   CTRL+SHIFT+Key_E, this, SLOT( slotNewEvent() ), actionCollection(),
                    "new_event" ) );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(

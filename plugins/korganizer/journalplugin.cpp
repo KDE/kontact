@@ -49,7 +49,7 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const char *, const QStringLi
   instance()->iconLoader()->addAppDir("korganizer");
 
   insertNewAction( new KAction( i18n( "New Journal..." ), "newjournal",
-                   0, this, SLOT( slotNewJournal() ), actionCollection(),
+                   CTRL+SHIFT+Key_J, this, SLOT( slotNewJournal() ), actionCollection(),
                    "new_journal" ) );
 
 

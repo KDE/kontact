@@ -48,8 +48,8 @@ KNodePlugin::KNodePlugin( Kontact::Core *core, const char *, const QStringList& 
 {
   setInstance( KNodePluginFactory::instance() );
 
-  insertNewAction( new KAction( i18n( "New Article..." ), "mail_new",
-                   0, this, SLOT( slotPostArticle() ), actionCollection(), "post_article" ) );
+  insertNewAction( new KAction( i18n( "New Article..." ), "mail_new", CTRL+SHIFT+Key_A,
+                   this, SLOT( slotPostArticle() ), actionCollection(), "post_article" ) );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KNodeUniqueAppHandler>(), this );
