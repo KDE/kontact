@@ -61,14 +61,20 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   QSplitter *splitter = new QSplitter( Qt::Horizontal );
 
   mNotesView = new KListView( splitter );
+  mNotesView->setSelectionMode( QListView::Extended );
   mNotesView->addColumn( i18n( "Title" ) );
 
   mNotesEdit = new QTextEdit( splitter );
 
-  mPopupMenu->insertItem( BarIcon( "editdelete" ), i18n( "Remove Note" ),
-                          this, SLOT( removeNote() ) );
-  mPopupMenu->insertItem( BarIcon( "editrename" ), i18n( "Rename Note" ),
-                          this, SLOT( renameNote() ) );
+  mPopupMenu->insertItem( BarIcon( "filenew" ), i18n( "New" ),
+                          this, SLOT( newNote() ), 1, 1);
+  mPopupMenu->insertItem( BarIcon( "editrename" ), i18n( "Rename" ),
+                          this, SLOT( renameNote() ), 2, 2 );
+  mPopupMenu->insertItem( BarIcon( "editdelete" ), i18n( "Remove" ),
+                          this, SLOT( removeSelectedNotes() ), 3, 3 );
+  mPopupMenu->insertSeparator();
+  mPopupMenu->insertItem( BarIcon( "reload" ), i18n( "Reload" ),
+                          this, SLOT( reloadNotes() ), 4, 4 );
 
   connect( mNotesView, SIGNAL( selectionChanged( QListViewItem* ) ),
            this, SLOT( showNote( QListViewItem* ) ) );
@@ -140,8 +146,17 @@ bool KNotesPart::openFile()
 
 void KNotesPart::popupRMB( QListViewItem *item, const QPoint& pos, int )
 {
-  if ( !item )
-    return;
+  if ( item ) {
+    mPopupMenu->setItemVisible( 2, true );
+    mPopupMenu->setItemEnabled( 2, true );
+    mPopupMenu->setItemVisible( 3, true );
+    mPopupMenu->setItemEnabled( 3, true );
+  } else {
+    mPopupMenu->setItemVisible( 2, false );
+    mPopupMenu->setItemEnabled( 2, false );
+    mPopupMenu->setItemVisible( 3, false );
+    mPopupMenu->setItemEnabled( 3, false );
+  }
 
   mPopupMenu->popup( pos );
 }
@@ -156,6 +171,44 @@ void KNotesPart::removeNote()
   DCOPRef dcopCall( "knotes", "KNotesIface" );
   dcopCall.call( "killNote(QString)", item->id() );
 
+  reloadNotes();
+}
+
+void KNotesPart::removeSelectedNotes()
+{
+    QStringList ids;
+    QStringList names;
+
+    QListViewItemIterator it( mNotesView );
+    while ( it.current() ) {
+        if ( it.current()->isSelected() ) {
+            ids+= static_cast<NotesItem*>( it.current() )->id();
+            names+= it.current()->text(0);
+        }
+        ++it;
+    }
+
+  if ( ids.isEmpty() ) return;
+
+  if ( ids.count() == 1 ) {
+    DCOPRef dcopCall( "knotes", "KNotesIface" );
+    dcopCall.call( "killNote(QString)", ids.first() );
+  } else {
+
+    int ret = KMessageBox::warningContinueCancelList( 0,
+        i18n("translators: not called for n == 1", "Do you really want to delete these %n notes?", ids.count() ),
+        names,
+        i18n("Confirm Delete"),
+        i18n("Delete") );
+
+    int doIt = (ret == KMessageBox::Continue);
+
+    if ( doIt )
+    for ( QStringList::ConstIterator it = ids.begin(); it != ids.end(); ++it ) {
+      DCOPRef dcopCall( "knotes", "KNotesIface" );
+      dcopCall.call( "killNote(QString, bool)", *it, true );
+    }
+  }
   reloadNotes();
 }
 

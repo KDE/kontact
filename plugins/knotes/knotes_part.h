@@ -54,12 +54,11 @@ class KNotesPart : public KParts::ReadOnlyPart
     void noteRenamed( QListViewItem *item, int col, const QString& text );
     void popupRMB( QListViewItem *item, const QPoint& pos, int );
     void removeNote();
+    void removeSelectedNotes();
     void renameNote();
     void showNote( QListViewItem* item );
     void noteChanged();
     void saveNote();
-
-  protected:
     void reloadNotes();
 
   private:
