@@ -53,3 +53,5 @@ Type=QString
 Type=bool
 [PropertyDef::X-KDE-KontactPluginHasSummary]
 Type=bool
+[PropertyDef::X-KDE-KontactPluginHasPart]
+Type=bool

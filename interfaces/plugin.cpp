@@ -46,6 +46,7 @@ class Plugin::Private
     QString icon;
     QString executableName;
     QCString partLibraryName;
+    bool hasPart;
     KParts::ReadOnlyPart *part;
 };
 
@@ -58,6 +59,7 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
   d->core = core;
   d->dcopClient = 0;
   d->newActions = new QPtrList<KAction>;
+  d->hasPart = true;
   d->part = 0;
 }
 
@@ -203,6 +205,16 @@ void Plugin::bringToForeground()
 {
   if (!d->executableName.isEmpty())
     KRun::runCommand(d->executableName);
+}
+
+bool Kontact::Plugin::showInSideBar() const
+{
+  return d->hasPart;
+}
+
+void Kontact::Plugin::setShowInSideBar( bool hasPart )
+{
+  d->hasPart = hasPart;
 }
 
 void Plugin::virtual_hook( int, void* ) {

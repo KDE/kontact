@@ -173,9 +173,14 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     virtual Summary *createSummaryWidget( QWidget * /*parent*/ ) { return 0; }
 
     /**
-      Reimplement this method if you don't want to have a plugin shown in the sidebar.
+      Returns wether the plugin provides a part that should be shown in the sidebar.
     */
-    virtual bool showInSideBar() const { return true; }
+    virtual bool showInSideBar() const;
+
+    /**
+      Set if the plugin provides a part that should be shown in the sidebar.
+    */
+    void setShowInSideBar( bool hasPart );
 
     /**
       Reimplement this method if you want to add checks before closing down the main kontact

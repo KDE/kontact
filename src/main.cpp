@@ -64,6 +64,10 @@ static void listPlugins()
     QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
   for ( KService::List::Iterator it = offers.begin(); it != offers.end(); ++it ) {
     KService::Ptr service = (*it);
+    // skip summary only plugins
+    QVariant var = service->property( "X-KDE-KontactPluginHasPart" );
+    if ( var.isValid() && var.toBool() == false )
+      continue;
     cout << service->library().remove( "libkontact_" ).latin1() << endl;
   }
 }

@@ -394,6 +394,7 @@ void MainWindow::loadPlugins()
     QVariant libNameProp = (*it)->property( "X-KDE-KontactPartLibraryName" );
     QVariant exeNameProp = (*it)->property( "X-KDE-KontactPartExecutableName" );
     QVariant loadOnStart = (*it)->property( "X-KDE-KontactPartLoadOnStart" );
+    QVariant hasPartProp = (*it)->property( "X-KDE-KontactPluginHasPart" );
 
     if ( !loadOnStart.isNull() && loadOnStart.toBool() )
       mDelayedPreload.append( plugin );
@@ -402,6 +403,8 @@ void MainWindow::loadPlugins()
 
     plugin->setPartLibraryName( libNameProp.toString().utf8() );
     plugin->setExecutableName( exeNameProp.toString() );
+    if ( hasPartProp.isValid() )
+      plugin->setShowInSideBar( hasPartProp.toBool() );
 
     for ( i = 0; i < plugins.count(); ++i ) {
       Plugin *p = plugins.at( i );
