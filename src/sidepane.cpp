@@ -26,13 +26,13 @@
 
 #include <klocale.h>
 #include <kiconloader.h>
+#include <sidebarextension.h>
 
 #include <kdebug.h>
 
 #include "mainwindow.h"
 
 #include "kpplugin.h"
-#include "sidebarextension.h"
 
 #include "sidepane.h"
 

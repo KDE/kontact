@@ -1,4 +1,4 @@
-INCLUDES = -I$(top_srcdir)/kontact/interfaces $(all_includes)
+INCLUDES = -I$(top_srcdir)/libkdepim -I$(top_srcdir)/kontact/interfaces $(all_includes)
 
 bin_PROGRAMS = kontact
 
