@@ -1,6 +1,16 @@
 INCLUDES = -I$(top_srcdir)/libkdepim -I$(top_srcdir)/kontact/interfaces \
   $(all_includes)
 
+noinst_PROGRAMS           = embedtool
+embedtool_SOURCES         = embedtool.cpp
+embedtool_LDADD           = $(LIB_QT)
+embedtool_LDFLAGS         = $(all_libraries) $(KDE_RPATH)
+
+tiles.h: embedtool
+	pics=`ls $(srcdir)/tiles/*.png 2>/dev/null` ;\
+        ./embedtool $$pics
+
+
 lib_LTLIBRARIES = libkontact.la
 libkontact_la_LDFLAGS = $(all_libraries) $(KDE_RPATH) -version-info 1:0
 libkontact_la_LIBADD = $(LIB_KDECORE)
@@ -9,6 +19,7 @@ libkontact_la_SOURCES = prefs.kcfgc
 bin_PROGRAMS = kontact
 
 kontact_METASOURCES = AUTO
+kontact_COMPILE_FIRST = tiles.h
 kontact_LDFLAGS = $(all_libraries) $(KDE_RPATH) -lkutils
 kontact_LDADD = $(LIB_KPARTS) $(top_builddir)/libkdepim/libkdepim.la \
   $(top_builddir)/kontact/interfaces/libkpinterfaces.la libkontact.la

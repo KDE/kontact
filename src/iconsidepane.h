@@ -35,6 +35,8 @@ namespace Kontact
 class Core;
 class Plugin;
 
+enum Tile { Left=0, TopLeft, Top, TopRight, Right, BottomRight, Bottom, BottomLeft, Center, NTiles };
+
 /**
   A @ref QListBoxPixmap Square Box with a large icon and a text
   underneath.
@@ -72,6 +74,7 @@ class EntryItem : public QListBoxItem
 class Navigator : public KListBox
 {
     Q_OBJECT
+  friend class EntryItem;
   public:
     Navigator( SidePaneBase *parent = 0, const char *name = 0 );
 
@@ -85,6 +88,7 @@ class Navigator : public KListBox
     void pluginActivated( Kontact::Plugin * );
 
   protected:
+    void mouseMoveEvent( QMouseEvent * );
     void dragEnterEvent( QDragEnterEvent * );
     void dragMoveEvent ( QDragMoveEvent * );
     void dropEvent( QDropEvent * );
@@ -94,7 +98,11 @@ class Navigator : public KListBox
     void slotExecuted( QListBoxItem *item );
 
   private:
+    const QPixmap *tile (Tile tile) const { return tiles[tile]; }
+
+    QPixmap *tiles[NTiles];
     SidePaneBase *mSidePane;
+    EntryItem *mMouseOverItem;
 };
 
 class IconSidePane : public SidePaneBase
