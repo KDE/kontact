@@ -1,7 +1,23 @@
 [Desktop Entry]
 Type=Service
 Comment=KitchenSync Plugin
-Name=Synchronisation
+Comment[ca]=Connector KitchenSync
+Comment[da]=Køkkenvask-plugin
+Comment[es]=Accesorio de KitchenSync
+Comment[pt_BR]=Plug-in para KitchenSync
+Comment[ru]=Модуль KitchenSync
+Comment[sr]=KitchenSync додатак
+Comment[sv]=Kitchensync-insticksprogram
+Name=Synchronization
+Name[be]=Сынхранізацыя
+Name[ca]=Sincronització
+Name[da]=Synkronisering
+Name[es]=Sincronización
+Name[pt_BR]=Sincronização
+Name[ru]=Синхронизация
+Name[sr]=Синхронизација
+Name[sv]=Synkronisering
+Name[tr]=Senkronizyasyon
 Icon=kitchensync
 ServiceTypes=Kontact/Plugin
 X-KDE-Library=libkontact_kitchensync
