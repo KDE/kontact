@@ -31,7 +31,6 @@
 #include "plugin.h"
 
 class KAboutData;
-class KABSummaryWidget;
 
 class KAddressbookPlugin : public Kontact::Plugin
 {

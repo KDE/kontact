@@ -243,7 +243,6 @@ void KNotesPart::showNote( QListViewItem *i )
   NotesItem *item = static_cast<NotesItem*>( i );
   if ( !item ) {
     mCurrentNote = "";
-    qDebug("err");
     return;
   }
 
@@ -252,7 +251,6 @@ void KNotesPart::showNote( QListViewItem *i )
   DCOPRef dcopCall( "knotes", "KNotesIface" );
   mNotesEdit->blockSignals( true );
   mNotesEdit->setText( dcopCall.call( "text(QString)", item->id() ) );
-  qDebug("text set");
   mNotesEdit->blockSignals( false );
 
   emit noteSelected( item->text( 0 ) );
