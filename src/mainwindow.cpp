@@ -21,48 +21,45 @@
 */
 
 
-#include <qhbox.h>
 #include <qcombobox.h>
-#include <qwhatsthis.h>
-#include <qsplitter.h>
-#include <qobjectlist.h>
+#include <qhbox.h>
 #include <qimage.h>
-
-#include <kapplication.h>
-#include <kconfig.h>
-#include <ktrader.h>
-#include <klibloader.h>
-#include <kdebug.h>
-#include <kstdaction.h>
-#include <klistbox.h>
-#include <kiconloader.h>
-#include <kstandarddirs.h>
-#include <kshortcut.h>
-#include <kparts/componentfactory.h>
-#include <klocale.h>
-#include <kstatusbar.h>
-#include <kguiitem.h>
-#include <kpopupmenu.h>
-#include <kshortcut.h>
-#include <kcmultidialog.h>
-#include <khelpmenu.h>
-#include <kmessagebox.h>
-#include <ktip.h>
-#include <kplugininfo.h>
-#include <ksettings/dialog.h>
-#include <ksettings/dispatcher.h>
+#include <qobjectlist.h>
+#include <qsplitter.h>
+#include <qwhatsthis.h>
 
 #include <dcopclient.h>
+#include <kapplication.h>
+#include <kconfig.h>
+#include <kdebug.h>
+#include <kguiitem.h>
+#include <khelpmenu.h>
+#include <kiconloader.h>
+#include <kkeydialog.h>
+#include <klibloader.h>
+#include <klistbox.h>
+#include <klocale.h>
+#include <kmessagebox.h>
+#include <kparts/componentfactory.h>
+#include <kplugininfo.h>
+#include <kpopupmenu.h>
+#include <ksettings/dialog.h>
+#include <ksettings/dispatcher.h>
+#include <kshortcut.h>
+#include <kstandarddirs.h>
+#include <kstatusbar.h>
+#include <kstdaction.h>
+#include <ktip.h>
+#include <ktrader.h>
 
 #include <infoextension.h>
 
-#include "plugin.h"
-
-#include "prefs.h"
-#include "mainwindow.h"
-#include "sidepane.h"
-#include "iconsidepane.h"
 #include "aboutdialog.h"
+#include "iconsidepane.h"
+#include "mainwindow.h"
+#include "plugin.h"
+#include "prefs.h"
+#include "sidepane.h"
 
 using namespace Kontact;
 
@@ -96,6 +93,7 @@ MainWindow::MainWindow()
 
   loadPlugins();
 
+  KStdAction::keyBindings( this, SLOT( configureShortcuts() ), actionCollection() );
   setXMLFile( "kontactui.rc" );
 
   createGUI( 0 );
@@ -590,6 +588,17 @@ void MainWindow::showAboutDialog()
   m_aboutDialog->show();
   m_aboutDialog->raise();
   KApplication::restoreOverrideCursor();
+}
+
+void MainWindow::configureShortcuts()
+{
+  KKeyDialog dialog( true, this );
+  dialog.insert( actionCollection() );
+
+  if ( m_currentPlugin && m_currentPlugin->part() )
+    dialog.insert( m_currentPlugin->part()->actionCollection() );
+
+  dialog.configure();
 }
 
 #include "mainwindow.moc"
