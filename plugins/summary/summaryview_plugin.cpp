@@ -59,7 +59,7 @@ const KAboutData *SummaryView::aboutData()
                                  I18N_NOOP("Kontact Summary View"),
                                  KAboutData::License_LGPL,
                                  "(c) 2003 The Kontact developers" );
-    mAboutData->addAuthor( "Sven Lueppken", "", "lueppken@kde.org" );
+    mAboutData->addAuthor( "Sven Lueppken", "", "sven@kde.org" );
     mAboutData->addAuthor( "Cornelius Schumacher", "", "schumacher@kde.org" );
     mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
   }
