@@ -130,6 +130,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     KParts::PartManager *mPartManager;
     typedef QValueList<Kontact::Plugin*> PluginList;
     PluginList mPlugins;
+    PluginList mDelayedPreload;
     QValueList<KPluginInfo*> mPluginInfos;
     KParts::InfoExtension *mLastInfoExtension;
 

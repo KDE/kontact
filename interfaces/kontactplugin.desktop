@@ -8,9 +8,12 @@ Name[cs]=Modul aplikace Kontact
 Name[da]=Kontact-plugin
 Name[el]=Πρόσθετο Kontact
 Name[es]=Plugin Kontact
+Name[et]=Kontacti plugin
+Name[fi]=Kontact-liitännäinen
 Name[fr]=Module Kontact
 Name[hu]=Kontact bővítőmodul
 Name[it]=Plugin Kontact
+Name[pt]='Plugin' do Kontact
 Name[pt_BR]=Plug-in do Kontact
 Name[ru]=Модуль Kontact
 Name[sr]=Додатак Kontact-а
@@ -25,3 +28,5 @@ Type=int
 Type=QString
 [PropertyDef::X-KDE-KontactPartExecutableName]
 Type=QString
+[PropertyDef::X-KDE-KontactPartLoadOnStart]
+Type=bool

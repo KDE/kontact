@@ -229,6 +229,7 @@ bool MainWindow::isPluginLoaded( const KPluginInfo * info )
 void MainWindow::loadPlugins()
 {
   QPtrList<Plugin> plugins;
+  QPtrList<KParts::Part> loadDelayed;
 
   uint i;
 
@@ -254,6 +255,12 @@ void MainWindow::loadPlugins()
 
     QVariant libNameProp = ( *it )->property( "X-KDE-KontactPartLibraryName" );
     QVariant exeNameProp = ( *it )->property( "X-KDE-KontactPartExecutableName" );
+    QVariant loadOnStart = ( *it )->property( "X-KDE-KontactPartLoadOnStart" );
+
+    if (!loadOnStart.isNull() && loadOnStart.toBool() )
+    {
+      mDelayedPreload.append(plugin);
+    }
 
     kdDebug() << "LIBNAMEPART: " << libNameProp.toString() << endl;
 
@@ -282,6 +289,7 @@ void MainWindow::loadPlugins()
   }
 
   mLastInfoExtension = 0;
+
 }
 
 void MainWindow::unloadPlugins()
@@ -449,6 +457,11 @@ void MainWindow::loadSettings()
 {
   if ( mSplitter )
     mSplitter->setSizes( Prefs::self()->mSidePaneSplitter );
+
+  // Preload Plugins. This _must_ happen before the default part is loaded
+  PluginList::ConstIterator it;
+  for ( it = mDelayedPreload.begin(); it != mDelayedPreload.end(); ++it )
+    selectPlugin( *it );
 
   selectPlugin( Prefs::self()->mActivePlugin );
 }
