@@ -1,5 +1,6 @@
 # top_srcdir/korganizer is a hack, to get korganizeriface.h
-INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/korganizer $(all_includes)
+INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/korganizer \
+  -I$(top_srcdir) $(all_includes)
 
 kde_module_LTLIBRARIES = libkpkorganizerplugin.la
 libkpkorganizerplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
