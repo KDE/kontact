@@ -208,16 +208,16 @@ QMap<QString, QString> KNotesPart::notes() const
 
 // TODO KDE 4.0: remove
 
-void KNotesPart::sync( const QString& app )
+void KNotesPart::sync( const QString& )
 {
 }
 
-bool KNotesPart::isNew( const QString& app, const QString& id ) const
+bool KNotesPart::isNew( const QString&, const QString& ) const
 {
     return true;
 }
 
-bool KNotesPart::isModified( const QString& app, const QString& id ) const
+bool KNotesPart::isModified( const QString&, const QString& ) const
 {
     return true;
 }
