@@ -71,12 +71,17 @@ void PanelButton::slotClicked()
 
 void PanelButton::setActive()
 {
-  QColorGroup cg(colorGroup());
-  cg.setColor(QColorGroup::Button, cg.highlight());
-  cg.setColor(QColorGroup::ButtonText, cg.highlightedText());
+  QColorGroup cga(palette().active());
+  cga.setColor(QColorGroup::Button, cga.highlight());
+  cga.setColor(QColorGroup::ButtonText, cga.highlightedText());
+
+  QColorGroup cgi(palette().inactive());
+  cgi.setColor(QColorGroup::Button, cgi.highlight());
+  cgi.setColor(QColorGroup::ButtonText, cgi.highlightedText());
 
   QPalette pal = palette();
-  pal.setActive(cg);
+  pal.setActive(cga);
+  pal.setInactive(cgi);
   setPalette(pal);
 
   m_active = true;
@@ -86,14 +91,8 @@ void PanelButton::setActive()
 
 void PanelButton::setInactive()
 {
-  // reset using parents gc
-  QColorGroup cg(parentWidget()->colorGroup());
-  cg.setColor(QColorGroup::Button, cg.button());
-  cg.setColor(QColorGroup::ButtonText, cg.buttonText());
-
-  QPalette pal = palette();
-  pal.setActive(cg);
-  setPalette(pal);
+  // reset using parents palette 
+  setPalette(parentWidget()->palette());
 
   m_active = false;
 }
@@ -106,7 +105,7 @@ void PanelButton::setInactive()
 
   setSpacing(0);
 
-  m_headerWidget = new QLabel(QString::null, this, "header");
+  m_headerWidget = new QLabel(this, "header");
   m_headerWidget->setFrameShape(QFrame::ToolBarPanel);
   QFont fnt(font());
   fnt.setBold(true);
