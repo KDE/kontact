@@ -362,3 +362,14 @@ d allowing "any" part.
 
 h: hmm If somebody can install a Service into the global kde dir or the user kde home
 h: there is something else broken IMHO
+
+
+Summary View
+------------
+h: How would one best integrate a summary view into kontact?
+h: a) add a virtual QWidget *summary(const QDateTime&, QWidget* parent );
+h:    to get a summary widget for a day?
+h: b) use some sort of XML to UI to represent the summary informations
+h: c) have a stand a lone part which opens the PIM data seperately? ( How
+h:    to synchronize access? )
+   
