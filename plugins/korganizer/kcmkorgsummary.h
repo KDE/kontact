@@ -29,8 +29,6 @@
 class QSpinxBox;
 class QButtonGroup;
 
-class KAboutData;
-
 class KCMKOrgSummary : public KCModule
 {
   Q_OBJECT
@@ -41,7 +39,6 @@ class KCMKOrgSummary : public KCModule
     virtual void load();
     virtual void save();
     virtual void defaults();
-    virtual const KAboutData* aboutData() const;
 
   private slots:
     void modified();

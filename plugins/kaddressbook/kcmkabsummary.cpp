@@ -62,6 +62,14 @@ KCMKABSummary::KCMKABSummary( QWidget *parent, const char *name )
   KAcceleratorManager::manage( this );
 
   load();
+  
+  KAboutData *about = new KAboutData( I18N_NOOP( "kcmkabsummary" ),
+                                      I18N_NOOP( "Address Book Configuration Dialog" ),
+                                      0, 0, KAboutData::License_GPL,
+                                      I18N_NOOP( "(c) 2004 Tobias Koenig" ) );
+
+  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
+  setAboutData( about );
 }
 
 void KCMKABSummary::modified()
@@ -183,18 +191,6 @@ void KCMKABSummary::defaults()
   mShowAnniversaries->setChecked( true );
 
   emit changed( true );
-}
-
-const KAboutData* KCMKABSummary::aboutData() const
-{
-  KAboutData *about = new KAboutData( I18N_NOOP( "kcmkabsummary" ),
-                                      I18N_NOOP( "Address Book Configuration Dialog" ),
-                                      0, 0, KAboutData::License_GPL,
-                                      I18N_NOOP( "(c) 2004 Tobias Koenig" ) );
-
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
-
-  return about;
 }
 
 #include "kcmkabsummary.moc"

@@ -28,7 +28,6 @@
 #include <kcmodule.h>
 #include <klistview.h>
 
-class KAboutData;
 class KPluginInfo;
 
 class PluginView : public KListView
@@ -50,7 +49,6 @@ class KCMKontactSummary : public KCModule
     virtual void load();
     virtual void save();
     virtual void defaults();
-    virtual const KAboutData* aboutData() const;
 
   private slots:
     void itemClicked( QListViewItem* );

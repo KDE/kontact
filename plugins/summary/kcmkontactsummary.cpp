@@ -105,6 +105,14 @@ KCMKontactSummary::KCMKontactSummary( QWidget *parent, const char *name )
   connect( mPluginView, SIGNAL( clicked( QListViewItem* ) ),
            this, SLOT( itemClicked( QListViewItem* ) ) );
   load();
+  
+  KAboutData *about = new KAboutData( I18N_NOOP( "kontactsummary" ),
+                                      I18N_NOOP( "KDE Kontact Summary" ),
+                                      0, 0, KAboutData::License_GPL,
+                                      I18N_NOOP( "(c), 2004 Tobias Koenig" ) );
+
+  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
+  setAboutData( about );
 }
 
 void KCMKontactSummary::load()
@@ -169,18 +177,6 @@ void KCMKontactSummary::save()
 void KCMKontactSummary::defaults()
 {
   emit changed( true );
-}
-
-const KAboutData* KCMKontactSummary::aboutData() const
-{
-  KAboutData *about = new KAboutData( I18N_NOOP( "kontactsummary" ),
-                                      I18N_NOOP( "KDE Kontact Summary" ),
-                                      0, 0, KAboutData::License_GPL,
-                                      I18N_NOOP( "(c), 2004 Tobias Koenig" ) );
-
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
-
-  return about;
 }
 
 void KCMKontactSummary::itemClicked( QListViewItem* )

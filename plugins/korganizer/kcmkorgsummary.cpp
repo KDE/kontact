@@ -61,6 +61,14 @@ KCMKOrgSummary::KCMKOrgSummary( QWidget *parent, const char *name )
   KAcceleratorManager::manage( this );
 
   load();
+  
+  KAboutData *about = new KAboutData( I18N_NOOP( "kcmkorgsummary" ),
+                                      I18N_NOOP( "Schedule Configuration Dialog" ),
+                                      0, 0, KAboutData::License_GPL,
+                                      I18N_NOOP( "(c) 2003 - 2004 Tobias Koenig" ) );
+
+  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
+  setAboutData( about );
 }
 
 void KCMKOrgSummary::modified()
@@ -184,18 +192,6 @@ void KCMKOrgSummary::defaults()
   mTodoGroup->setButton( 1 );
 
   emit changed( true );
-}
-
-const KAboutData* KCMKOrgSummary::aboutData() const
-{
-  KAboutData *about = new KAboutData( I18N_NOOP( "kcmkorgsummary" ),
-                                      I18N_NOOP( "Schedule Configuration Dialog" ),
-                                      0, 0, KAboutData::License_GPL,
-                                      I18N_NOOP( "(c) 2003 - 2004 Tobias Koenig" ) );
-
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
-
-  return about;
 }
 
 #include "kcmkorgsummary.moc"

@@ -56,6 +56,14 @@ KCMKMailSummary::KCMKMailSummary( QWidget *parent, const char *name )
   KAcceleratorManager::manage( this );
 
   load();
+  
+  KAboutData *about = new KAboutData( I18N_NOOP( "kcmkmailsummary" ),
+                                      I18N_NOOP( "Mail Summary Configuration Dialog" ),
+                                      0, 0, KAboutData::License_GPL,
+                                      I18N_NOOP( "(c) 2004 Tobias Koenig" ) );
+
+  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
+  setAboutData( about );
 }
 
 void KCMKMailSummary::modified()
@@ -175,18 +183,6 @@ void KCMKMailSummary::save()
 
 void KCMKMailSummary::defaults()
 {
-}
-
-const KAboutData* KCMKMailSummary::aboutData() const
-{
-  KAboutData *about = new KAboutData( I18N_NOOP( "kcmkmailsummary" ),
-                                      I18N_NOOP( "Mail Summary Configuration Dialog" ),
-                                      0, 0, KAboutData::License_GPL,
-                                      I18N_NOOP( "(c) 2004 Tobias Koenig" ) );
-
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
-
-  return about;
 }
 
 #include "kcmkmailsummary.moc"

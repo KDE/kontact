@@ -28,7 +28,6 @@
 
 #include <kcmodule.h>
 
-class KAboutData;
 class KListView;
 
 class QCheckBox;
@@ -44,7 +43,6 @@ class KCMKMailSummary : public KCModule
     virtual void load();
     virtual void save();
     virtual void defaults();
-    virtual const KAboutData* aboutData() const;
 
   private slots:
     void modified();

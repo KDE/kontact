@@ -30,8 +30,6 @@ class QButtonGroup;
 class QCheckBox;
 class QSpinBox;
 
-class KAboutData;
-
 class KCMKABSummary : public KCModule
 {
   Q_OBJECT
@@ -42,7 +40,6 @@ class KCMKABSummary : public KCModule
     virtual void load();
     virtual void save();
     virtual void defaults();
-    virtual const KAboutData* aboutData() const;
 
   private slots:
     void modified();
