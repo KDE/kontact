@@ -126,7 +126,7 @@ void SummaryWidget::updateView()
     QFont font = label->font();
     font.setBold( true );
 
-    label = new QLabel( i18n( "Rel. Humidity:" ), this );
+    label = new QLabel( i18n( "Rel. humidity:" ), this );
     label->setAlignment( AlignRight );
     label->setFont( font );
     layout->addWidget( label, 2, 0 );
@@ -137,7 +137,7 @@ void SummaryWidget::updateView()
     layout->addWidget( label, 2, 1 );
     mLabels.append( label );
 
-    label = new QLabel( i18n( "Wind Speed:" ), this );
+    label = new QLabel( i18n( "Wind speed:" ), this );
     label->setAlignment( AlignRight );
     label->setFont( font );
     layout->addWidget( label, 2, 2 );
