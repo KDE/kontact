@@ -156,7 +156,7 @@ void KNotesPart::killNote( const QString& id, bool force )
    if ( note && !force && KMessageBox::warningContinueCancelList( mNotesView,
         i18n( "Do you really want to delete this note?" ),
         mNoteList[ id ]->text(), i18n( "Confirm Delete" ),
-        KGuiItem( i18n( "Delete" ), "editdelete" ) ) == KMessageBox::Continue ) {
+	KStdGuiItem::del() ) == KMessageBox::Continue ) {
      mManager->deleteNote( mNoteList[id]->journal() );
      mManager->save();
    }
@@ -233,8 +233,7 @@ void KNotesPart::killSelectedNotes()
             i18n( "Do you really want to delete this note?",
                   "Do you really want to delete these %n notes?", items.count() ),
             notes, i18n( "Confirm Delete" ),
-            KGuiItem( i18n( "Delete" ), "editdelete" )
-                                                    );
+	    KStdGuiItem::del() );
 
   if ( ret == KMessageBox::Continue ) {
     QPtrListIterator<KNotesIconViewItem> kniviIt( items );
