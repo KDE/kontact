@@ -35,6 +35,7 @@
 
 #include <qlabel.h>
 #include "splash.h"
+#include "prefs.h"
 
 #include "mainwindow.h"
 
@@ -83,6 +84,10 @@ int KontactApp::newInstance()
 {
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   QString moduleName;
+  if ( Kontact::Prefs::self()->forceStartupPlugin() ) 
+  {
+        moduleName = Kontact::Prefs::self()->forcedStartupPlugin();
+  }
   if ( args->isSet("module") )
   {
     moduleName = QString::fromLocal8Bit(args->getOption("module"));
@@ -101,7 +106,7 @@ int KontactApp::newInstance()
     }
   } else {
     if ( !mMainWindow ) {
-      mMainWindow = new Kontact::MainWindow(splash);
+      mMainWindow = new Kontact::MainWindow( splash );
       if ( !moduleName.isEmpty() )
         mMainWindow->activePluginModule( moduleName );
       mMainWindow->show();

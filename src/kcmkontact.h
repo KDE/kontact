@@ -26,8 +26,11 @@
 #define KCMKONTACT_H
 
 #include <kprefsdialog.h>
+#include <kservice.h>
+#include "plugin.h"
 
 class QGroupBox;
+class QComboBOx;
 class QListViewItem;
 
 class KAboutData;
@@ -48,22 +51,22 @@ class PluginSelection : public KPrefsWid
   Q_OBJECT
 
   public:
-    PluginSelection( const QString &text, QStringList &reference, QWidget *parent );
+    PluginSelection( KConfigSkeleton::ItemString *item, QWidget *parent );
     ~PluginSelection();
 
     void readConfig();
     void writeConfig();
 
-    QGroupBox *groupBox() const;
+    QValueList<QWidget *> widgets() const;
+    QComboBox *comboBox() const { return mPluginCombo; }
 
   private slots:
     void itemClicked( QListViewItem* );
 
   private:
-    QStringList &mReference;
-
-    QGroupBox *mBox;
-    KListView *mPluginView;
+    QComboBox *mPluginCombo;
+    QValueList<KService::Ptr> mPluginList;
+    KConfigSkeleton::ItemString *mItem;
 };
 
 #endif
