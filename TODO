@@ -13,6 +13,8 @@ UNTIL KDE 3.2
 - make the headerWidget look nicer (we might use KIconLoader
   for larger icons) (slueppken)                                (done)
 - make all parts use the InfoExtension
+- make KCMultiDialog not crash when non-existent desktop-file is given to
+  addModule().
 	
 LATER
 ======
