@@ -48,21 +48,22 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   QWidget *header = createHeader( this, icon, i18n( "Weather Information" ) );
   mLayout->addWidget( header );
 
-  connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false );
-  connectDCOPSignal( 0, 0, "stationRemoved(QString)", "stationRemoved(QString)", false );
-
   QString error;
   QCString appID;
 
   bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "KWeatherService" ) ) {
-    if ( !KApplication::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
-      kdDebug() << "No service available..." << endl;
+    if ( KApplication::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
+      QLabel *label = new QLabel( i18n( "No weather dcop service available,\nyou need kweather to use this plugin." ), this );
+      mLayout->addWidget( label, Qt::AlignHCenter );
       serviceAvailable = false;
     }
   }
 
   if ( serviceAvailable ) {
+    connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false );
+    connectDCOPSignal( 0, 0, "stationRemoved(QString)", "stationRemoved(QString)", false );
+
     DCOPRef dcopCall( "KWeatherService", "WeatherService" );
     DCOPReply reply = dcopCall.call( "listStations()", true );
     if ( reply.isValid() ) {
@@ -74,14 +75,6 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
       kdDebug() << "ERROR: dcop reply not valid..." << endl;
     }
   }
-}
-
-int SummaryWidget::summaryHeight() const
-{
-  if ( mStations.isEmpty() )
-    return 0;
-  else
-    return 1;
 }
 
 void SummaryWidget::updateView()

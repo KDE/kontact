@@ -81,8 +81,6 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );
 
-    int summaryHeight() const;
-
     QStringList configModules() const;
 
   k_dcop:
