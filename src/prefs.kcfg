@@ -13,10 +13,10 @@
 
     <entry type="Enum" name="SidePaneType">
       <label>Side Pane Type</label>
-      <values>
-        <value>SidePaneBars</value>
-        <value>SidePaneIcons</value>
-      </values>
+      <choices>
+        <choice name="SidePaneBars"/>
+        <choice name="SidePaneIcons"/>
+      </choices>
       <default>SidePaneIcons</default>
     </entry>
   </group>
