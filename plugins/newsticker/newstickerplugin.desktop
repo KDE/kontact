@@ -15,6 +15,7 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact NewsTicker Plugin
+Comment[bs]=Kontact NewsTicker dodatak
 Comment[ca]=Connector Kontact per al teletip de noticies
 Comment[cs]=Modul NewsTicker pro aplikaci Kontact
 Comment[da]=Kontact plugin for nyhedstelegraf
