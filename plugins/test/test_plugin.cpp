@@ -1,19 +1,20 @@
 #include <kmessagebox.h>
 #include <kaction.h>
-
+#include <kgenericfactory.h>
 
 #include "kpcore.h"
-#include "kpfactory.h"
 
 
 #include "test_plugin.h"
 #include "test_part.h"
 
+typedef KGenericFactory< TestPlugin, Kaplan::Core > TestPluginFactory;
+K_EXPORT_COMPONENT_FACTORY( libkptestplugin, TestPluginFactory( "kptestplugin" ) );
 
-TestPlugin::TestPlugin(Kaplan::Core *_core, QObject *parent, const char *name)
-  : Kaplan::Plugin(_core, parent, name), m_part(0)
+TestPlugin::TestPlugin(Kaplan::Core *_core, const char *name, const QStringList &)
+  : Kaplan::Plugin(_core, _core, name), m_part(0)
 {
-  setInstance(Kaplan::FactoryImpl<TestPlugin>::instance("kptestplugin"));
+  setInstance(TestPluginFactory::instance());
 
   new KAction("Test", 0, this, SLOT(slotTestMenu()), actionCollection(), "edit_test");
   
@@ -46,17 +47,5 @@ void TestPlugin::slotShowNotes()
  
   core()->showView(m_part->widget()); 
 }
-
-
-extern "C"
-{
-         
-  void *init_libkptestplugin()
-  {
-    return new Kaplan::FactoryImpl<TestPlugin>();
-  }
-          
-};
-
 
 #include "test_plugin.moc"

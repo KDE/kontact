@@ -9,9 +9,9 @@
 #include <klistbox.h>
 #include <kiconloader.h>
 #include <kstddirs.h>
+#include <kparts/componentfactory.h>
 
 
-#include "kpfactory.h"
 #include "kpplugin.h"
 
 
@@ -20,7 +20,7 @@
 
 
 Core::Core()
-  : KParts::MainWindow(), Kaplan::Core()
+  : Kaplan::Core()
 {
   // create the GUI
   QSplitter *splitter = new QSplitter(this);
@@ -64,12 +64,8 @@ void Core::loadPlugins()
   for (KTrader::OfferList::ConstIterator it = offers.begin(); it != offers.end(); ++it)
   {
     kdDebug() << "Loading Plugin: " << (*it)->name() << endl;
-    Kaplan::Factory *factory = static_cast<Kaplan::Factory*>(KLibLoader::self()->factory((*it)->library()));
-    if (!factory)
-      continue;
-
-    QStringList args;
-    Kaplan::Plugin *plugin = factory->create(this, this, args);
+    Kaplan::Plugin *plugin = KParts::ComponentFactory
+      ::createInstanceFromService<Kaplan::Plugin>(*it, this);
     if (!plugin)
       continue;
 

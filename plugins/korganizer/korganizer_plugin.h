@@ -14,7 +14,7 @@ class KOrganizerPlugin : public Kaplan::Plugin
 
 public:
 
-  KOrganizerPlugin(Kaplan::Core *core, QObject *parent=0, const char *name=0);
+  KOrganizerPlugin(Kaplan::Core *core, const char *name, const QStringList &);
   ~KOrganizerPlugin();
 
   

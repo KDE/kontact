@@ -3,20 +3,24 @@
 
 #include <kmessagebox.h>
 #include <kaction.h>
+#include <kgenericfactory.h>
+#include <kparts/componentfactory.h>
 
 
 #include "kpcore.h"
-#include "kpfactory.h"
 
 
 #include "kaddressbook_plugin.h"
 #include "kaddressbook_plugin.moc"
 
+typedef KGenericFactory< KAddressbookPlugin, Kaplan::Core > KAddressbookPluginFactory;
+K_EXPORT_COMPONENT_FACTORY( libkpkaddressbookplugin, 
+                            KAddressbookPluginFactory( "kpaddressbookplugin" ) );
 
-KAddressbookPlugin::KAddressbookPlugin(Kaplan::Core *_core, QObject *parent, const char *name)
-  : Kaplan::Plugin(_core, parent, name), m_part(0)
+KAddressbookPlugin::KAddressbookPlugin(Kaplan::Core *_core, const char *name, const QStringList & /*args*/ )
+  : Kaplan::Plugin(_core, _core, name), m_part(0)
 {
-  setInstance(Kaplan::FactoryImpl<KAddressbookPlugin>::instance("kpkaddressbookplugin"));
+  setInstance(KAddressbookPluginFactory::instance());
 
   setXMLFile("kpkaddressbookplugin.rc");
 
@@ -33,15 +37,13 @@ void KAddressbookPlugin::slotShowPlugin()
 {
   if (!m_part)
   {
-    KLibFactory *factory = KLibLoader::self()->factory("libkaddressbook");
-    if (!factory)
+    m_part = KParts::ComponentFactory
+      ::createPartInstanceFromLibrary<KParts::ReadOnlyPart>( "libkaddressbookpart",
+                                                             0, 0, // parentwidget,name
+                                                             this, 0 ); // parent,name
+    if (!m_part)
       return;
 
-    QObject *obj = factory->create();
-    if (!obj || !obj->inherits("KParts::ReadOnlyPart")) 
-      return;
-    
-    m_part = static_cast<KParts::ReadOnlyPart*>(obj);
     core()->addPart(m_part);
   }
 
@@ -49,13 +51,3 @@ void KAddressbookPlugin::slotShowPlugin()
     core()->showView(m_part->widget()); 
 }
 
-
-extern "C"
-{
-
-  void *init_libkpkaddressbookplugin()
-  {
-    return new Kaplan::FactoryImpl<KAddressbookPlugin>;
-  };
-  
-}

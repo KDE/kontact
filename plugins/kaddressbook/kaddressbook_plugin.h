@@ -14,7 +14,7 @@ class KAddressbookPlugin : public Kaplan::Plugin
 
 public:
 
-  KAddressbookPlugin(Kaplan::Core *core, QObject *parent=0, const char *name=0);
+  KAddressbookPlugin(Kaplan::Core *core, const char *name, const QStringList & /*args*/);
   ~KAddressbookPlugin();
 
   

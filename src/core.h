@@ -23,7 +23,7 @@ namespace Kaplan
 class Navigator;
 
 
-class Core : public KParts::MainWindow, virtual public Kaplan::Core
+class Core : public Kaplan::Core
 {
   Q_OBJECT
 

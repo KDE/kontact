@@ -14,7 +14,7 @@ class TestPlugin : public Kaplan::Plugin
 
 public:
 
-  TestPlugin(Kaplan::Core *core, QObject *parent=0, const char *name=0);
+  TestPlugin(Kaplan::Core *core, const char *name, const QStringList &);
   ~TestPlugin();
 
   
