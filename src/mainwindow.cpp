@@ -109,11 +109,6 @@ void MainWindow::initGUI()
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
   
-  if ( Prefs::lastVersionSeen() == kapp->aboutData()->version() ) {
-    mMainStack->raiseWidget( mTopWidget );
-  }
-
-  Prefs::setLastVersionSeen( kapp->aboutData()->version() );
 }
 
 
@@ -161,6 +156,12 @@ void MainWindow::initObject()
   // launch commandline specified module if any
   // TODO: GUI Option
   activatePluginModule();
+
+  if ( Prefs::lastVersionSeen() == kapp->aboutData()->version() ) {
+    mMainStack->raiseWidget( mTopWidget );
+  }
+
+  Prefs::setLastVersionSeen( kapp->aboutData()->version() );
 
 }
 
@@ -268,9 +269,6 @@ void MainWindow::initWidgets()
   statusBar()->addWidget( mStatusMsgLabel, 10 , false );
   statusBar()->addWidget( mLittleProgress, 0 , true );
   mLittleProgress->show();
-
-  // keep introscreen
-  // ### maybe add links and text only past this point?
 }
 
 
