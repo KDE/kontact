@@ -70,7 +70,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
                                                     KIcon::Desktop, 48 );
 
   QFrame *topFrame = addPage( title, QString::null, pixmap );
-  
+
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
   if ( !about ) {
@@ -79,9 +79,9 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     topLayout->addWidget( label );
   } else {
     QString text;
-    
+
     text += "<p><b>" + about->programName() + "</b><br>";
-    
+
     text += i18n("Version %1</p>").arg( about->version() );
 
 
@@ -97,39 +97,39 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
     QValueList<KAboutPerson> authors = about->authors();
     if ( !authors.isEmpty() ) {
-      text += "<p><b>Authors:</b></p>";
-    
+      text += i18n("<p><b>Authors:</b></p>");
+
       QValueList<KAboutPerson>::ConstIterator it;
       for( it = authors.begin(); it != authors.end(); ++it ) {
-        text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() + 
+        text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() +
                 "\">" + (*it).emailAddress() + "</a>&gt;<br>";
         if (!(*it).task().isEmpty()) text += "<i>" + (*it).task() + "</i><br>";
       }
     }
-  
+
     QValueList<KAboutPerson> credits = about->credits();
     if ( !credits.isEmpty() ) {
-      text += "<p><b>Thanks to:</b></p>";
-    
+      text += i18n("<p><b>Thanks to:</b></p>");
+
       QValueList<KAboutPerson>::ConstIterator it;
       for( it = credits.begin(); it != credits.end(); ++it ) {
-        text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() + 
+        text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() +
                 "\">" + (*it).emailAddress() + "</a>&gt;<br>";
         if (!(*it).task().isEmpty()) text += "<i>" + (*it).task() + "</i><br>";
       }
     }
-  
+
     QValueList<KAboutTranslator> translators = about->translators();
     if ( !translators.isEmpty() ) {
-      text += "<p><b>Translators:</b></p>";
-    
+      text += i18n("<p><b>Translators:</b></p>");
+
       QValueList<KAboutTranslator>::ConstIterator it;
       for( it = translators.begin(); it != translators.end(); ++it ) {
-       text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() + 
+       text += (*it).name() + " &lt;<a href=\"mailto:" + (*it).emailAddress() +
                 "\">" + (*it).emailAddress() + "</a>&gt;<br>";
       }
     }
-  
+
     KActiveLabel *label = new KActiveLabel( text, topFrame );
 	label->setAlignment( AlignTop );
     topLayout->addWidget( label );
@@ -139,17 +139,17 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 void AboutDialog::addLicenseText(const KAboutData *about)
 {
   if ( !about || about->license().isEmpty() ) return;
-  
+
   QPixmap pixmap = KGlobal::iconLoader()->loadIcon( "scripting",
                                                     KIcon::Desktop, 48 );
 
   QString title = i18n("%1 license").arg(about->programName());
-  
+
   QFrame *topFrame = addPage( title, QString::null, pixmap );
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
-  
+
   KTextBrowser *textBrowser = new KTextBrowser( topFrame );
   textBrowser->setText( QString("<pre>%1</pre>").arg(about->license()) );
-  
+
   topLayout->addWidget(textBrowser);
 }

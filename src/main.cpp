@@ -43,7 +43,7 @@ static const char *version = "0.2.9 (CVS)";
 int main(int argc, char **argv)
 {
   KAboutData about( "kontact", I18N_NOOP( "Kontact" ), version, description,
-                    KAboutData::License_GPL, "(C) 2001-2003 The Kontact developers", 0, "http://kontact.kde.org", "kde-pim@kde.org" );
+                    KAboutData::License_GPL, I18N_NOOP("(C) 2001-2003 The Kontact developers"), 0, "http://kontact.kde.org", "kde-pim@kde.org" );
   about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
   about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
   about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
