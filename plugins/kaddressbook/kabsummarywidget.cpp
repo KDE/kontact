@@ -205,6 +205,7 @@ void KABSummaryWidget::updateView()
               mDaysAhead ), this, "nothing to see" );
     label->setAlignment( AlignCenter );
     label->setTextFormat( RichText );
+    mLabels.append( label );
     mLayout->addMultiCellWidget( label, 0, 0, 0, 4 );
   }
 
