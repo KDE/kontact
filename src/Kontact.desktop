@@ -1,0 +1,14 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Kontact
+Exec=kontact
+Type=Application
+Icon=kontact
+GenericName=Personal Information Manager
+GenericName[da]=Personlig informationshåndtering
+GenericName[es]=Gestor de información personal
+GenericName[he]=מנהל מידע אישי
+GenericName[hu]=határidőnaptár
+GenericName[sv]=Personlig informationshantering
+Terminal=0
+X-KDE-StartupNotify=true

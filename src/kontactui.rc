@@ -1,0 +1,29 @@
+<!DOCTYPE kpartgui >
+<kpartgui version="12" name="kontact" >
+<MenuBar>
+  <Menu name="file" noMerge="1">
+    <text>&amp;File</text>
+	<Merge/>
+	<Separator/>
+    <Action name="action_new"/>
+	<Merge/>
+  </Menu>
+  <Menu name="edit" noMerge="1">
+  	<text>&amp;Edit</text>
+  	<Merge/>
+  </Menu>
+  <Menu name="view" noMerge="1">
+  	<text>&amp;View</text>
+  	<Merge/>
+  </Menu>
+  <Merge />
+  <Menu noMerge="1" name="settings">
+     <text>&amp;Settings</text>
+	 <Merge/>
+  </Menu>
+</MenuBar>
+<ToolBar position="Top" iconText="IconOnly" noMerge="1" name="mainToolBar">
+  <Action name="action_new"/>
+  <Action name="help_whats_this"/>
+</ToolBar>
+</kpartgui>
