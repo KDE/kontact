@@ -187,6 +187,7 @@ MainWindow::~MainWindow()
 void MainWindow::activePluginModule( const QString &_module )
 {
   mActiveModule = _module;
+  activatePluginModule();
 }
 
 void MainWindow::activatePluginModule()
