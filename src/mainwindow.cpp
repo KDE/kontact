@@ -60,46 +60,17 @@
 using namespace Kontact;
 
 MainWindow::MainWindow()
-  : Kontact::Core(), m_headerText( 0 ), m_headerPixmap( 0 ),
-    m_lastInfoExtension( 0 )
+  : Kontact::Core(), m_topWidget( 0 ), m_headerText( 0 ), m_headerPixmap( 0 ), m_splitter( 0 ), 
+    m_currentPlugin( 0 ), m_lastInfoExtension( 0 )
 {
-  // create the GUI
-  QHBox *box = new QHBox( this );
-  box->setFrameStyle( QFrame::Panel | QFrame::Sunken );
+  kdDebug() << "MainWindow()" << endl;
 
-  m_curPlugin = 0;
-  
-  m_splitter = new QSplitter( box );
-
-  int sidePaneType = Prefs::self()->mSidePaneType;
-  switch ( sidePaneType ) {
-    case Prefs::SidePaneIcons:
-      m_sidePane = new IconSidePane( m_splitter );
-      break;
-    default:
-      kdError() << "Invalid SidePaneType: " << sidePaneType << endl;
-    case Prefs::SidePaneBars:
-      m_sidePane = new SidePane( m_splitter );
-      break;
-  }
-  m_sidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
-                                          QSizePolicy::Preferred ) );
-  connect( m_sidePane, SIGNAL( showPart( Kontact::Plugin* ) ),
-           SLOT( showPart( Kontact::Plugin* ) ) );
-
-  QVBox *vBox = new QVBox( m_splitter );
-  vBox->setSpacing( 0 );
-
-  if ( sidePaneType == Prefs::SidePaneBars ) {
-    initHeaderWidget( vBox );
-  }
-
-  m_stack = new QWidgetStack( vBox );
-
-  setCentralWidget( box );
+  m_plugins.setAutoDelete( true );
 
   statusBar()->show();
 
+  initWidgets();
+  
   // prepare the part manager
   m_partManager = new KParts::PartManager( this );
   connect( m_partManager, SIGNAL( activePartChanged( KParts::Part* ) ),
@@ -117,6 +88,8 @@ MainWindow::MainWindow()
   setAutoSaveSettings();
 
   loadSettings();
+
+  kdDebug() << "MainWindow() done" << endl;
 }
 
 MainWindow::~MainWindow()
@@ -126,6 +99,46 @@ MainWindow::~MainWindow()
   QPtrList<KParts::Part> parts = *m_partManager->parts();
   parts.setAutoDelete( true );
   parts.clear();
+}
+
+void MainWindow::initWidgets()
+{
+  QHBox *topWidget = new QHBox( this );
+  topWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
+
+  m_topWidget = topWidget;
+
+  setCentralWidget( m_topWidget );
+
+  QVBox *vBox;
+
+  mSidePaneType = Prefs::self()->mSidePaneType;
+
+  switch ( mSidePaneType ) {
+    case Prefs::SidePaneIcons:
+      m_sidePane = new IconSidePane( m_topWidget );
+      vBox = new QVBox( m_topWidget );
+      break;
+    default:
+      kdError() << "Invalid SidePaneType: " << mSidePaneType << endl;
+    case Prefs::SidePaneBars:
+      m_splitter = new QSplitter( m_topWidget );
+      m_sidePane = new SidePane( m_splitter );
+      m_sidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
+                                              QSizePolicy::Preferred ) );
+      vBox = new QVBox( m_splitter );
+      break;
+  }
+  connect( m_sidePane, SIGNAL( showPart( Kontact::Plugin* ) ),
+           SLOT( showPart( Kontact::Plugin* ) ) );
+
+  if ( mSidePaneType == Prefs::SidePaneBars ) {
+    initHeaderWidget( vBox );
+  }
+
+  vBox->setSpacing( 0 );
+
+  m_stack = new QWidgetStack( vBox );
 }
 
 void MainWindow::setupActions()
@@ -182,15 +195,24 @@ void MainWindow::loadPlugins()
       ::createInstanceFromService<Kontact::Plugin>( *it, this );
     if ( !plugin )
       continue;
-	KAction *action;
-	QPtrList<KAction> *actionList = plugin->newActions();
-		
-	for(action = actionList->first(); action; action = actionList->next()){
+    KAction *action;
+    QPtrList<KAction> *actionList = plugin->newActions();
+	
+    for(action = actionList->first(); action; action = actionList->next()){
       kdDebug() << "Plugging " << action->name() << endl;
       action->plug(m_newActions->popupMenu());
-	}
+    }
     addPlugin( plugin );
   }
+}
+
+void MainWindow::unloadPlugins()
+{
+  QPtrList<KParts::Part> parts = *m_partManager->parts();
+  parts.setAutoDelete( true );
+  parts.clear();
+
+  m_plugins.clear();
 }
 
 void MainWindow::addPlugin( Kontact::Plugin *plugin )
@@ -216,6 +238,13 @@ void MainWindow::addPart( KParts::Part *part )
 
 void MainWindow::slotActivePartChanged( KParts::Part *part )
 {
+  if ( m_lastInfoExtension ) {
+    disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
+                this, SLOT( setHeaderText( const QString& ) ) );
+    disconnect( m_lastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
+                this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
+  }
+
   if ( !part )  // part can be 0 at shutdown
     return;
 
@@ -224,16 +253,8 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
   QObjectList *l = part->queryList( "KParts::InfoExtension" );
   KParts::InfoExtension *ie = static_cast<KParts::InfoExtension*>( l->first() );
   if ( ie ) {
-    if ( m_lastInfoExtension ) {
-      disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
-                  this, SLOT( setHeaderText( const QString& ) ) );
-    }
     connect( ie, SIGNAL( textChanged( const QString& ) ),
              SLOT( setHeaderText( const QString& ) ) );
-    if ( m_lastInfoExtension ) {
-      disconnect( m_lastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
-                  this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
-    }
     connect( ie, SIGNAL( iconChanged( const QPixmap& ) ),
              SLOT( setHeaderPixmap( const QPixmap& ) ) );
   }
@@ -244,13 +265,13 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
   setHeaderPixmap( data.pixmap );
   setHeaderText( data.text );
 
-  createGUI(part);
+  createGUI( part );
 }
 
 void MainWindow::slotNewClicked()
 {
-  KAction *action = m_curPlugin->newActions()->first();
-  if (action) action->activate();
+  KAction *action = m_currentPlugin->newActions()->first();
+  if ( action ) action->activate();
 }
 
 void MainWindow::showPart( Kontact::Plugin *plugin )
@@ -264,7 +285,7 @@ void MainWindow::showPart( Kontact::Plugin *plugin )
     addPart( part );
 
   m_partManager->setActivePart( part );
-  QWidget* view = part->widget();
+  QWidget *view = part->widget();
   Q_ASSERT( view );
 
   if ( view )
@@ -272,12 +293,12 @@ void MainWindow::showPart( Kontact::Plugin *plugin )
     m_stack->raiseWidget( view );
     view->show();
     view->setFocus();
-    m_curPlugin = plugin;
+    m_currentPlugin = plugin;
     KAction *action = plugin->newActions()->first();
-    if (action) {
+    if ( action ) {
       // ##FIXME: Doesn't work for some reason..
-      m_newActions->setIconSet(action->iconSet());
-      m_newActions->setText(action->text());
+      m_newActions->setIconSet( action->iconSet() );
+      m_newActions->setText( action->text() );
     }
   }
 }
@@ -286,7 +307,9 @@ void MainWindow::loadSettings()
 {
   KConfig *config = kapp->config();
   KConfigGroupSaver saver( config, "General" );
-  m_splitter->setSizes( config->readIntListEntry( "SideBarSize" ) );
+  if ( m_splitter ) {
+    m_splitter->setSizes( config->readIntListEntry( "SideBarSize" ) );
+  }
   m_sidePane->selectPlugin( config->readEntry( "ActivePlugin", "kmail" ) );
 }
 
@@ -294,7 +317,9 @@ void MainWindow::saveSettings()
 {
   KConfig *config = kapp->config();
   KConfigGroupSaver saver( config, "General" );
-  config->writeEntry( "SideBarSize", m_splitter->sizes() );
+  if ( m_splitter ) {
+    config->writeEntry( "SideBarSize", m_splitter->sizes() );
+  }
   config->writeEntry( "ActivePlugin", m_sidePane->currentPluginName() );
 }
 
@@ -305,7 +330,9 @@ void MainWindow::slotQuit()
 
 void MainWindow::slotPreferences()
 {
-  KCMultiDialog* dialog = new KCMultiDialog( "PIM", this, "KontactPreferences" );
+  KCMultiDialog *dialog = new KCMultiDialog( "PIM", this, "KontactPreferences" );
+  connect( dialog, SIGNAL( applyClicked() ), SLOT( updateConfig() ) );
+  connect( dialog, SIGNAL( okClicked() ), SLOT( updateConfig() ) );
 
   QStringList modules;
 
@@ -351,7 +378,7 @@ int MainWindow::startServiceFor( const QString& serviceType,
 
 void MainWindow::setHeaderText( const QString &text )
 {
-  if ( Prefs::self()->mSidePaneType != Prefs::SidePaneBars ) return;
+  if ( mSidePaneType != Prefs::SidePaneBars ) return;
 
   m_infoExtCache[ m_lastInfoExtension ].text = text;
   m_headerText->setText( text );
@@ -359,7 +386,7 @@ void MainWindow::setHeaderText( const QString &text )
 
 void MainWindow::setHeaderPixmap( const QPixmap &pixmap )
 {
-  if ( Prefs::self()->mSidePaneType != Prefs::SidePaneBars ) return;
+  if ( mSidePaneType != Prefs::SidePaneBars ) return;
 
   QPixmap pm( pixmap );
   
@@ -371,6 +398,38 @@ void MainWindow::setHeaderPixmap( const QPixmap &pixmap )
 
   m_infoExtCache[ m_lastInfoExtension ].pixmap = pm;  
   m_headerPixmap->setPixmap( pm );
+}
+
+void MainWindow::updateConfig()
+{
+  kdDebug() << "MainWindow::updateConfig()" << endl;
+
+  if ( Prefs::self()->mSidePaneType != mSidePaneType ) {
+    kdDebug() << "Recreate top widget." << endl;
+    
+    saveSettings();
+
+    slotActivePartChanged( 0 );
+
+    unloadPlugins();
+
+    delete m_topWidget;
+    m_topWidget = 0;
+    m_headerText = 0;
+    m_headerPixmap = 0;
+    m_splitter = 0;
+    m_sidePane = 0;
+    m_stack = 0;
+    m_lastInfoExtension = 0;
+    
+    initWidgets();
+
+    m_topWidget->show();
+
+    loadPlugins();
+
+    loadSettings();
+  }
 }
 
 #include "mainwindow.moc"

@@ -38,7 +38,7 @@ class Plugin;
   A @ref QListBoxPixmap Square Box with a large icon and a text
   underneath.
 */
-class EntryItem : public QListBoxPixmap
+class EntryItem : public QListBoxItem
 {
   public:
     EntryItem( QListBox *, Kontact::Plugin * );
@@ -46,12 +46,7 @@ class EntryItem : public QListBoxPixmap
 
     Kontact::Plugin *plugin() const { return mPlugin; }
 
-    /**
-      sets the icon for the item.
-      @param icon the icon to set
-      @param group the icongroup
-    */
-    void setIcon( const QString& icon, KIcon::Group group = KIcon::Panel );
+    const QPixmap *pixmap() const { return &mPixmap; }
 
     /**
       returns the width of this item.
@@ -62,21 +57,12 @@ class EntryItem : public QListBoxPixmap
     */
     virtual int height( const QListBox * ) const;
 
-    /**
-      returns the pixmap.
-    */
-    virtual const QPixmap *pixmap() const
-    {
-        return mPixmap;
-    }
-
   protected:
-    virtual void paint( QPainter *p);
+    virtual void paint( QPainter *p );
 
   private:
     Kontact::Plugin *mPlugin;
-    QPixmap *mPixmap;
-    QListBox *mParent;
+    QPixmap mPixmap;
 };
 
 /**
@@ -97,6 +83,9 @@ class Navigator : public KListBox
 
   private slots:
     void slotExecuted(QListBoxItem *item);
+
+  private:
+    int mMinimumWidth;
 };
 
 class IconSidePane : public SidePaneBase

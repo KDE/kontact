@@ -245,7 +245,7 @@ void SidePane::selectPlugin( const QString &pluginName )
 
   // no plugins loaded. Something is really broken..
   Q_ASSERT(btn);
-  btn->slotClicked();
+  if ( btn ) btn->slotClicked();
 }
 
 #include "sidepane.moc"

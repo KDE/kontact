@@ -69,10 +69,12 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
                                  QString *error = 0, QCString* dcopService = 0,
                                  int flags = 0 );
 
-	virtual QPtrList<Kontact::Plugin> pluginList() { return m_plugins; }
+    virtual QPtrList<Kontact::Plugin> pluginList() { return m_plugins; }
 
   public slots:
     virtual void showPart( Kontact::Plugin *plugin );
+
+    void updateConfig();
 
   signals:
     void textChanged( const QString& );
@@ -85,10 +87,13 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void slotQuit();
 
   protected:
+    void initWidgets();
+
     void loadSettings();
     void saveSettings();
 
     void loadPlugins();
+    void unloadPlugins();
     void addPlugin( Kontact::Plugin *plugin );
     void addPart( KParts::Part *part );
     void setupActions();
@@ -99,6 +104,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void setHeaderPixmap( const QPixmap& );
 
   private:
+    QWidget *m_topWidget;
+  
     QLabel *m_headerText;
     QLabel *m_headerPixmap;
     QSplitter *m_splitter;
@@ -106,12 +113,14 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     KToolBarPopupAction *m_newActions;
     SidePaneBase *m_sidePane;
     QWidgetStack *m_stack;
-    Plugin *m_curPlugin;
+    Plugin *m_currentPlugin;
     KParts::PartManager *m_partManager;
     QPtrList<Kontact::Plugin> m_plugins;
     KParts::InfoExtension *m_lastInfoExtension;
 
     QMap<KParts::InfoExtension*, InfoExtData> m_infoExtCache;
+
+    int mSidePaneType;
 };
 
 };

@@ -48,13 +48,11 @@
 using namespace Kontact;
 
 EntryItem::EntryItem( QListBox *parent, Kontact::Plugin *plugin )
-  : QListBoxPixmap( KIconLoader::unknown() ),
-    mPlugin( plugin ),
-    mParent( parent )
+  : QListBoxItem( parent ),
+    mPlugin( plugin )
 {
-  QPixmap pixmap = KGlobal::iconLoader()->loadIcon( plugin->icon(),
-                                                    KIcon::Desktop, 48 );
-  mPixmap = new QPixmap( pixmap );
+  mPixmap = KGlobal::iconLoader()->loadIcon( plugin->icon(),
+                                             KIcon::Desktop, 48 );
   setCustomHighlighting( true );
   setText( plugin->pluginName() );
 }
@@ -65,47 +63,52 @@ EntryItem::~EntryItem()
 
 int EntryItem::width( const QListBox *listbox) const
 {
-  return listbox->viewport()->width();
+  int w;
+  if ( text().isEmpty() )
+    w = mPixmap.width();
+  else
+    w = QMAX( mPixmap.width(), listbox->fontMetrics().width( text() ) );
+
+  return w + 18;
 }
 
 int EntryItem::height( const QListBox *listbox) const
 {
-  int min = 0;
-  min = listbox->fontMetrics().lineSpacing() + pixmap()->height() + 6;
-  return min;
+  int h;
+  if ( text().isEmpty() )
+    h =  mPixmap.height();
+  else 
+    h = mPixmap.height() + listbox->fontMetrics().lineSpacing();
+
+  return h + 4;
 }
 
 void EntryItem::paint( QPainter *p )
 {
   QListBox *box = listBox();
-  int w = width( box );
-  static const int margin = 3;
-  int y = margin;
-  const QPixmap *pm = pixmap();
+  int w = box->viewport()->width();
+  int y = 2;
 
-  if ( !pm->isNull() ) {
-    int x = (w - pm->width()) / 2;
-    x = QMAX( x, margin );
-    p->drawPixmap( x, y, *pm );
+  if ( !mPixmap.isNull() ) {
+    int x = ( w - mPixmap.width() ) / 2;
+    p->drawPixmap( x, y, mPixmap );
   }
 
   if ( !text().isEmpty() ) {
     QFontMetrics fm = p->fontMetrics();
-    y += pm->height() + fm.height() - fm.descent();
-    int x = (w - fm.width( text() )) / 2;
-    x = QMAX( x, margin );
+    y += mPixmap.height() + fm.height() - fm.descent();
+    int x = ( w - fm.width( text() ) ) / 2;
     p->drawText( x, y, text() );
   }
   // draw sunken
   if ( isCurrent() || isSelected() ) {
-    qDrawShadePanel( p, 1, 0, w -2, height(box),
+    qDrawShadePanel( p, 1, 0, w - 2, height( box ),
                      box->colorGroup(), true, 1, 0 );
   }
 }
 
-
 Navigator::Navigator(QWidget *parent, const char *name)
-  : KListBox(parent, name)
+  : KListBox( parent, name ), mMinimumWidth( 0 )
 {
   setSelectionMode( KListBox::Single );
   QPalette pal = palette();
@@ -129,7 +132,13 @@ QSize Navigator::sizeHint() const
 
 void Navigator::addEntry( Kontact::Plugin *plugin )
 {
-  insertItem( new EntryItem( this, plugin ) );
+  EntryItem *item = new EntryItem( this, plugin );
+  
+  int w = item->width( this );
+  if ( w > mMinimumWidth ) {
+    mMinimumWidth = w;
+    setFixedWidth( w );
+  }
 }
 
 void Navigator::slotExecuted( QListBoxItem *item )
