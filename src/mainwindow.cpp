@@ -72,6 +72,28 @@
 #include "statusbarprogresswidget.h"
 #include "broadcaststatus.h"
 
+class KeyPressEater : public QObject
+{
+  public:
+    KeyPressEater( QObject *parent )
+      : QObject( parent, "KeyPressEater" )
+    {
+    }
+
+  protected:
+    bool eventFilter( QObject*, QEvent *event )
+    {
+      if ( event->type() == QEvent::KeyPress ||
+           event->type() == QEvent::KeyRelease ||
+           event->type() == QEvent::MouseButtonPress ||
+           event->type() == QEvent::MouseButtonRelease ||
+           event->type() == QEvent::MouseButtonDblClick )
+        return true;
+      else
+        return false;
+    }
+};
+
 using namespace Kontact;
 
 MainWindow::MainWindow()
@@ -82,6 +104,10 @@ MainWindow::MainWindow()
   // Set this to be the group leader for all subdialogs - this means
   // modal subdialogs will only affect this dialog, not the other windows
   setWFlags( getWFlags() | WGroupLeader );
+
+  // Prevent user input during loading the plugins
+  mKeyPressEater = new KeyPressEater( this );
+  kapp->installEventFilter( mKeyPressEater );
 
   initGUI();
   QTimer::singleShot( 0, this, SLOT( initObject() ) );
@@ -162,6 +188,9 @@ void MainWindow::initObject()
 
   paintAboutScreen( introductionString() );
   Prefs::setLastVersionSeen( kapp->aboutData()->version() );
+
+  kapp->removeEventFilter( mKeyPressEater );
+  delete mKeyPressEater;
 }
 
 MainWindow::~MainWindow()
@@ -513,15 +542,24 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     return;
   }
 
+  // store old focus widget
+  QWidget *focusWidget = kapp->focusWidget();
+  focusWidget->setPaletteBackgroundColor( Qt::green );
+  if ( mCurrentPlugin && focusWidget ) {
+    // save the focus widget only when it belongs to the activated part
+    QWidget *parent = focusWidget->parentWidget();
+    while ( parent ) {
+      if ( parent == mCurrentPlugin->part()->widget() )
+        mFocusWidgets.insert( mCurrentPlugin->identifier(), QGuardedPtr<QWidget>( focusWidget ) );
+
+      parent = parent->parentWidget();
+    }
+  }
+
   if ( mSidePane )
     mSidePane->selectPlugin( plugin );
 
   plugin->select();
-
-  // store old focus widget
-  QWidget *focusWidget = kapp->focusWidget();
-  if ( mCurrentPlugin && focusWidget )
-    mFocusWidgets.insert( mCurrentPlugin->identifier(), QGuardedPtr<QWidget>( focusWidget ) );
 
   mPartManager->setActivePart( part );
   QWidget *view = part->widget();
@@ -537,7 +575,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       focusWidget = mFocusWidgets[ plugin->identifier() ];
       if ( focusWidget )
         focusWidget->setFocus();
-    }
+    } else
+      view->setFocus();
 
     mCurrentPlugin = plugin;
     KAction *action = plugin->newActions()->first();

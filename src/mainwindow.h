@@ -44,6 +44,7 @@ class KAction;
 class KPluginInfo;
 class KRSqueezedTextLabel;
 class KHTMLPart;
+class KeyPressEater;
 
 namespace KPIM
 {
@@ -152,6 +153,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     AboutDialog *mAboutDialog;
     bool mReallyClose;
     bool mStartupCompleted;
+
+    KeyPressEater *mKeyPressEater;
 };
 
 }
