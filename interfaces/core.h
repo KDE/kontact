@@ -38,6 +38,7 @@ class Plugin;
 */
 class Core : public KParts::MainWindow
 {
+  Q_OBJECT
   public:
     virtual ~Core();
 
@@ -63,6 +64,9 @@ class Core : public KParts::MainWindow
   protected:
     Core( QWidget *parentWidget = 0, const char *name = 0 );
 
+  private slots:
+    void slotPartDestroyed( QObject * );
+
   private:
     QMap<QCString,KParts::ReadOnlyPart *> mParts;
 
@@ -73,3 +77,5 @@ class Core : public KParts::MainWindow
 }
 
 #endif
+
+// vim: sw=2 sts=2 et tw=80
