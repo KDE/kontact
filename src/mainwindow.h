@@ -48,6 +48,12 @@ namespace KParts
 namespace Kontact
 {
 
+struct InfoExtData
+{
+  QString text;
+  QPixmap pixmap;
+};
+
 class Plugin;
 class SidePane;
 
@@ -90,6 +96,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void initHeaderWidget( QVBox *vBox );
 
   private slots:
+    void setHeaderText( const QString& );
     void setHeaderPixmap( const QPixmap& );
 
   private:
@@ -102,10 +109,12 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 	
     SidePane *m_sidePane;
     QWidgetStack *m_stack;
-	Plugin *m_curPlugin;
+    Plugin *m_curPlugin;
     KParts::PartManager *m_partManager;
     QPtrList<Kontact::Plugin> m_plugins;
     KParts::InfoExtension *m_lastInfoExtension;
+
+    QMap<KParts::InfoExtension*, InfoExtData> m_infoExtCache;
 };
 
 };

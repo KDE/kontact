@@ -143,7 +143,7 @@ void MainWindow::initHeaderWidget(QVBox *vBox)
   m_headerPixmap->setPaletteBackgroundColor( colorGroup().dark() );
 
   connect( this, SIGNAL( textChanged( const QString& ) ),
-           m_headerText, SLOT( setText( const QString& ) ) );
+           this, SLOT( setHeaderText( const QString& ) ) );
   connect( this, SIGNAL( iconChanged( const QPixmap& ) ),
            this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
 
@@ -207,19 +207,21 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
   if ( ie != 0L )
   {
     disconnect( m_lastInfoExtension, SIGNAL( textChanged( const QString& ) ),
-                m_headerText, SLOT( setText( const QString& ) ) );
+                this, SLOT( setHeaderText( const QString& ) ) );
     connect( ie, SIGNAL( textChanged( const QString& ) ),
-             m_headerText, SLOT( setText( const QString& ) ) );
+             this, SLOT( setHeaderText( const QString& ) ) );
     disconnect( m_lastInfoExtension, SIGNAL( iconChanged( const QPixmap& ) ),
                 this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
     connect( ie, SIGNAL( iconChanged( const QPixmap& ) ),
              this, SLOT( setHeaderPixmap( const QPixmap& ) ) );
+
   }
 
-  m_headerText->setText( QString::null );
-  m_headerPixmap->setPixmap( QPixmap() );
-
   m_lastInfoExtension = ie;
+
+  InfoExtData data = m_infoExtCache[ ie ];
+  setHeaderPixmap( data.pixmap );
+  setHeaderText( data.text );
 
   createGUI(part);
 }
@@ -251,7 +253,7 @@ void MainWindow::showPart( KParts::Part* part, Kontact::Plugin *plugin )
       // ##FIXME: Doesn't work for some reason..
       m_newActions->setIconSet(action->iconSet());
       m_newActions->setText(action->text());
-	}
+    }
   }
 }
 
@@ -318,14 +320,24 @@ int MainWindow::startServiceFor( const QString& serviceType,
   return KDCOPServiceStarter::startServiceFor( serviceType, constraint, preferences, error, dcopService, flags );
 }
 
+void MainWindow::setHeaderText( const QString &text )
+{
+  m_infoExtCache[ m_lastInfoExtension ].text = text;
+  m_headerText->setText( text );
+}
+
 void MainWindow::setHeaderPixmap( const QPixmap &pixmap )
 {
-  if ( pixmap.height() > 22 || pixmap.width() > 22 ) {
+  QPixmap pm( pixmap );
+  
+  if ( pm.height() > 22 || pm.width() > 22 ) {
     QImage img;
     img = pixmap;
-    m_headerPixmap->setPixmap( img.smoothScale( 22, 22, QImage::ScaleMin ) );
-  } else
-    m_headerPixmap->setPixmap( pixmap );
+    pm = img.smoothScale( 22, 22, QImage::ScaleMin );
+  }
+
+  m_infoExtCache[ m_lastInfoExtension ].pixmap = pm;  
+  m_headerPixmap->setPixmap( pm );
 }
 
 #include "mainwindow.moc"
