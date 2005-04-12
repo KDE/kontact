@@ -33,6 +33,7 @@
 #define KNOTES_PART_P_H
 
 #include <qlayout.h>
+#include <qlabel.h>
 
 #include <kactioncollection.h>
 #include <klocale.h>
@@ -40,6 +41,7 @@
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <kiconeffect.h>
+#include <klineedit.h>
 #include <ktoolbar.h>
 #include <kpopupmenu.h>
 #include <kdialogbase.h>
@@ -104,6 +106,15 @@ class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
       QWidget *page = plainPage();
       QVBoxLayout *layout = new QVBoxLayout( page );
 
+      QHBoxLayout *hbl = new QHBoxLayout( layout );
+      QLabel *label = new QLabel( page);
+      label->setText( i18n( "Name:" ) );
+      hbl->addWidget( label,0 );
+      mTitleEdit= new KLineEdit( page, "name" );
+      hbl->addWidget( mTitleEdit, 1,Qt::AlignVCenter  );
+
+//      layout->addLayout( hbl);
+      
       mNoteEdit = new KNoteEdit( actionCollection(), page );
       mNoteEdit->setFocus();
 
@@ -127,7 +138,18 @@ class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
       mNoteEdit->setText( text );
     }
 
+    QString title() const
+    {
+      return mTitleEdit->text();
+    }
+
+    void setTitle( const QString& text )
+    {
+      mTitleEdit->setText( text );
+    }
+
   private:
+    KLineEdit *mTitleEdit;
     KNoteEdit  *mNoteEdit;
     KToolBar   *mTool;
     KPopupMenu *mEditMenu;
