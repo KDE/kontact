@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="knotes" version="2">
+<kpartgui name="knotes" version="3">
   <MenuBar>
     <Menu name="edit"><text>&amp;Edit</text>
       <Action name="edit_rename"/>
@@ -12,4 +12,8 @@
     <Action name="edit_rename"/>
     <Action name="edit_delete"/>
   </Menu>
+  <Menu name="notepart_context">
+    <Action name="file_new"/>
+  </Menu>
+
 </kpartgui>

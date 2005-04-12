@@ -127,14 +127,35 @@ QString KNotesPart::newNote( const QString& name, const QString& text )
   // the body of the note
   journal->setDescription( text );
 
-  mManager->addNewNote( journal );
+
+
+  // Edit the new note if text is empty
+  if ( text.isNull() ) 
+  {
+    if ( !mNoteEditDlg )
+      mNoteEditDlg = new KNoteEditDlg( widget() );
+
+    mNoteEditDlg->setTitle( journal->summary() );
+    mNoteEditDlg->setText( journal->description() );
+
+    if ( mNoteEditDlg->exec() == QDialog::Accepted ) 
+    {
+      journal->setSummary( mNoteEditDlg->title() );
+      journal->setDescription( mNoteEditDlg->text() );
+    } 
+    else 
+    {
+      delete journal;
+      return "";
+    }
+  }
 
   KNotesIconViewItem *note = mNoteList[ journal->uid() ];
   mNotesView->ensureItemVisible( note );
   mNotesView->setCurrentItem( note );
 
+  mManager->addNewNote( journal );
   mManager->save();
-
   return journal->uid();
 }
 
@@ -248,9 +269,14 @@ void KNotesPart::killSelectedNotes()
 
 void KNotesPart::popupRMB( QIconViewItem *item, const QPoint& pos )
 {
-  QPopupMenu *contextMenu = static_cast<QPopupMenu *>( factory()->container( "note_context", this ) );
+  QPopupMenu *contextMenu = NULL;
 
-  if ( !contextMenu || !item )
+  if ( item ) 
+    contextMenu = static_cast<QPopupMenu *>( factory()->container( "note_context", this ) );
+  else 
+    contextMenu = static_cast<QPopupMenu *>( factory()->container( "notepart_context", this ) );
+
+  if ( !contextMenu )
     return;
 
   contextMenu->popup( pos );
@@ -302,9 +328,11 @@ void KNotesPart::editNote( QIconViewItem *item )
     mNoteEditDlg = new KNoteEditDlg( widget() );
 
   KCal::Journal *journal = static_cast<KNotesIconViewItem *>( item )->journal();
+  mNoteEditDlg->setTitle( journal->summary() );
   mNoteEditDlg->setText( journal->description() );
 
   if ( mNoteEditDlg->exec() == QDialog::Accepted ) {
+    journal->setSummary( mNoteEditDlg->title() );
     journal->setDescription( mNoteEditDlg->text() );
     mManager->save();
   }
