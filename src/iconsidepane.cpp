@@ -476,9 +476,13 @@ void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint &pos )
     if ( choice == ShowIcons ) {
       mShowIcons = !mShowIcons;
       Prefs::self()->setSidePaneShowIcons( mShowIcons );
+      QToolTip::remove( this );
+      if ( !mShowText )
+        new EntryItemToolTip( this );
     } else {
       mShowText = !mShowText;
       Prefs::self()->setSidePaneShowText( mShowText );
+      QToolTip::remove( this );
     }
   }
   int maxWidth = 0;
