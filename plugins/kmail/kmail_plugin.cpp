@@ -104,9 +104,9 @@ void KMailPlugin::openComposer( const KURL& attach )
   Q_ASSERT( mStub );
   if ( mStub ) {
     if ( attach.isValid() )
-      mStub->openComposer( "", "", "", "", "", false, KURL(), attach );
+      mStub->newMessage( "", "", "", false, true, KURL(), attach );
     else
-      mStub->newMessage();
+      mStub->newMessage( "", "", "", false, true, KURL(), KURL() );
   }
 }
 
@@ -115,7 +115,7 @@ void KMailPlugin::openComposer( const QString& to )
   (void) part(); // ensure part is loaded
   Q_ASSERT( mStub );
   if ( mStub ) {
-      mStub->openComposer( to, "", "", "", "", 0 );
+    mStub->newMessage( to, "", "", false, true, KURL(), KURL() );
   }
 }
 
