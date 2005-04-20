@@ -14,6 +14,7 @@ Name[de]=Kontact-Plugin
 Name[el]=Πρόσθετο Kontact
 Name[es]=Plugin Kontact
 Name[et]=Kontacti plugin
+Name[eu]=Kontact plugin-a
 Name[fi]=Kontact-liitännäinen
 Name[fr]=Module Kontact
 Name[ga]=Breiseán Kontact
@@ -33,14 +34,13 @@ Name[ru]=Модуль Kontact
 Name[se]=Kontact-lassemoduvla
 Name[sl]=Vstavek za Kontact
 Name[sr]=Прикључак Kontact-а
-Name[sr@Latn]=Dodatak Kontact-a
+Name[sr@Latn]=Priključak Kontact-a
 Name[sv]=Kontact-insticksprogram
 Name[ta]=சொருகுப்பொருளை தொடர்புக்கொள்
 Name[tg]=Модули Kontact
 Name[tr]=Kontact Eklentisi
 Name[uk]=Втулок Kontact
 Name[uz]=Kontact учун плагин
-Name[xx]=xxKontact Pluginxx
 Name[zh_CN]=Kontact 插件
 
 [PropertyDef::X-KDE-KontactPluginVersion]
