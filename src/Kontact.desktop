@@ -55,3 +55,4 @@ GenericName[zh_CN]=个人信息管理器
 Terminal=false
 X-KDE-StartupNotify=true
 Categories=Qt;KDE;Office;
+DocPath=kontact/index.html
