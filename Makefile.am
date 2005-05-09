@@ -1,4 +1,4 @@
-SUBDIRS = interfaces plugins src pics data
+SUBDIRS = interfaces plugins src pics
 
 include ../admin/Doxyfile.am
 
