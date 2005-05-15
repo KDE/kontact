@@ -53,6 +53,8 @@ Plugin::Plugin( Kontact::Core *core, const char *, const QStringList& )
 
     setInstance( PluginFactory::instance() );
     
+    insertNewAction( new KAction( i18n( "New Feed..." ), "bookmark_add", "", this, SLOT( addFeed() ), actionCollection(), "feed_new" ) );
+    
     m_uniqueAppWatcher = new Kontact::UniqueAppWatcher(
 	new Kontact::UniqueAppHandlerFactory<Akregator::UniqueAppHandler>(), this );
 }
@@ -100,6 +102,10 @@ void Plugin::showPart()
     core()->selectPlugin(this);
 }
 
+void Plugin::addFeed()
+{
+    interface()->addFeed();
+}
 
 QStringList Plugin::configModules() const
 {

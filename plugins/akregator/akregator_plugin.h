@@ -67,6 +67,7 @@ class Plugin : public Kontact::Plugin
     
   private slots:
     void showPart();
+    void addFeed();
 
   protected:
     MyBasePart *createPart();
