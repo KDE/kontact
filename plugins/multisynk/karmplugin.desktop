@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+Icon=karm
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_karm
+X-KDE-KontactPluginVersion=4
+X-KDE-KontactPartLibraryName=libkarmpart
+
+X-KDE-PluginInfo-Name=kontact_karm
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=false
+
+Comment=KArm Plugin
+
+Name=KArm
