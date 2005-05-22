@@ -33,6 +33,7 @@
 #include <kglobalsettings.h>
 #include <kiconloader.h>
 #include <klocale.h>
+#include <kprocess.h>
 #include <kurllabel.h>
 
 #include "summarywidget.h"
@@ -130,7 +131,10 @@ void SummaryWidget::updateView()
 
     QString labelText;
     labelText = QString( "<b>%1:</b> %2<br>"
-                         "<b>%3:</b> %4" )
+                         "<b>%3:</b> %4<br>"
+                         "<b>%5:</b> %6" )
+                         .arg( i18n( "Last updated on" ) )
+                         .arg( (*it).date() )
                          .arg( i18n( "Wind Speed" ) )
                          .arg( (*it).windSpeed() )
                          .arg( i18n( "Rel. Humidity" ) )
@@ -165,6 +169,7 @@ void SummaryWidget::refresh( QString station )
   mWeatherMap[ station ].setIcon( dcopCall.call( "currentIcon(QString)", station, true ) );
   mWeatherMap[ station ].setName( dcopCall.call( "stationName(QString)", station, true ) );
   mWeatherMap[ station ].setCover( dcopCall.call( "cover(QString)", station, true ) );
+  mWeatherMap[ station ].setDate( dcopCall.call( "date(QString)", station, true ) );
   mWeatherMap[ station ].setTemperature( dcopCall.call( "temperature(QString)", station, true ) );
   mWeatherMap[ station ].setWindSpeed( dcopCall.call( "wind(QString)", station, true ) );
   mWeatherMap[ station ].setRelativeHumidity( dcopCall.call( "relativeHumidity(QString)", station, true ) );

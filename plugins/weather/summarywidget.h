@@ -35,7 +35,7 @@
 #include <qtimer.h>
 #include <qwidget.h>
 
-#include <kprocess.h>
+class KProcess;
 
 class QGridLayout;
 class QLabel;
@@ -52,6 +52,9 @@ class WeatherData
 
     void setCover( const QStringList& cover ) { mCover = cover; }
     QStringList cover() const { return mCover; }
+
+    void setDate( const QString &date ) { mDate = date; }
+    QString date() const { return mDate; }
 
     void setTemperature( const QString &temperature ) { mTemperature = temperature; }
     QString temperature() const { return mTemperature; }
@@ -74,6 +77,7 @@ class WeatherData
     QPixmap mIcon;
     QString mName;
     QStringList mCover;
+    QString mDate;
     QString mTemperature;
     QString mWindSpeed;
     QString mRelativeHumidity;
