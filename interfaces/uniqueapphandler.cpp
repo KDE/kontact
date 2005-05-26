@@ -103,6 +103,12 @@ bool UniqueAppHandler::process(const QCString &fun, const QByteArray &data, QCSt
 
        QDataStream _replyStream( replyData, IO_WriteOnly );
        _replyStream << newInstance( );
+    } else if ( fun == "load()" ) {
+      replyType = "bool";
+      (void)mPlugin->part(); // load the part without bringing it to front
+
+      QDataStream _replyStream( replyData, IO_WriteOnly );
+      _replyStream << true;
     } else {
         return DCOPObject::process( fun, data, replyType, replyData );
     }
@@ -120,6 +126,7 @@ QCStringList UniqueAppHandler::functions()
 {
     QCStringList funcs = DCOPObject::functions();
     funcs << "int newInstance()";
+    funcs << "bool load()";
     return funcs;
 }
 
