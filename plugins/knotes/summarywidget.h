@@ -33,8 +33,6 @@
 #include <libkcal/resourcelocal.h>
 #include <libkcal/calendarresources.h>
 
-typedef QMap<QString, QString> NotesMap;
-
 class QGridLayout;
 class QLabel;
 
@@ -49,23 +47,25 @@ class SummaryWidget : public Kontact::Summary
   public:
     SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
 
+    void updateSummary( bool force = false ) { Q_UNUSED( force ); updateView(); }
+
   protected:
     bool ensureKNotesRunning();
 
   protected slots:
     void urlClicked( const QString& );
     void updateView();
+    void addNote( KCal::Journal* );
+    void removeNote( KCal::Journal* );
 
   private:
-    KCal::ResourceLocal *mResource;
-    KCal::CalendarResources *mCalendar;
+    KCal::CalendarLocal *mCalendar;
     KCal::Journal::List mNotes;
 
     QVBoxLayout *mMainLayout;
     QVBoxLayout *mLayout;
 
     QPtrList<QLabel> mLabels;
-    NotesMap mNotesMap;
     Kontact::Plugin *mPlugin;
 };
 

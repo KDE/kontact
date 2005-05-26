@@ -75,11 +75,6 @@ public:
         m_journal->setSummary( text );
     }
 
-    virtual QString text() const
-    {
-        return m_journal->summary();
-    }
-
 private:
     KCal::Journal *m_journal;
 };
