@@ -18,7 +18,11 @@ libkontact_korganizerplugin_la_LIBADD = libcommon.la \
     $(top_builddir)/korganizer/libkorganizer_calendar.la
 libkontact_korganizerplugin_la_SOURCES = korganizerplugin.cpp \
                                          kcalendariface.stub \
-                                         summarywidget.cpp
+                                         summarywidget.cpp \
+                                         korganizeriface.stub
+
+korganizeriface_DIR = $(top_srcdir)/korganizer
+korganizeriface_DCOPIDLNG = true
 
 libkontact_todoplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_todoplugin_la_LIBADD = libcommon.la \

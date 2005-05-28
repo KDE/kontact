@@ -37,6 +37,8 @@
 #include <libkcal/resourcelocal.h>
 #include <libkdepim/kpimprefs.h>
 
+#include "korganizeriface_stub.h"
+
 #include "core.h"
 #include "plugin.h"
 #include "korganizerplugin.h"
@@ -206,10 +208,10 @@ void SummaryWidget::updateView()
     label->show();
 }
 
-void SummaryWidget::selectEvent( const QString & )
+void SummaryWidget::selectEvent( const QString &uid )
 {
-  mPlugin->core()->selectPlugin( "kontact_korganizerplugin" );
-  mPlugin->interface()->showEventView();
+  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
+  iface.editIncidence( uid );
 }
 
 QStringList SummaryWidget::configModules() const
