@@ -54,7 +54,8 @@ class KCMSDSummary : public KCModule
     void initGUI();
 
     QButtonGroup *mDaysGroup;
-    QButtonGroup *mShowGroup;
+    QButtonGroup *mCalendarGroup;
+    QButtonGroup *mContactGroup;
     QCheckBox *mShowBirthdaysFromKAB;
     QCheckBox *mShowBirthdaysFromCal;
     QCheckBox *mShowAnniversariesFromKAB;

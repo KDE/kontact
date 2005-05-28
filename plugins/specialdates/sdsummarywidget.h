@@ -74,7 +74,6 @@ class SDSummaryWidget : public Kontact::Summary
     bool mShowAnniversariesFromKAB;
     bool mShowAnniversariesFromCal;
     bool mShowHolidays;
-    bool mShowHolidaysFromCal;
     bool mShowSpecialsFromCal;
 
     QString mLastLocation;

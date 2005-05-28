@@ -156,8 +156,6 @@ void SDSummaryWidget::configUpdated()
 
   mShowHolidays =
     config.readBoolEntry( "ShowHolidays", true );
-  mShowHolidaysFromCal =
-    config.readBoolEntry( "ShowHolidaysFromCalendar", true );
 
   mShowSpecialsFromCal =
     config.readBoolEntry( "ShowSpecialsFromCalendar", true );
@@ -278,7 +276,7 @@ void SDSummaryWidget::updateView()
           }
 
           // Append Holiday Event?
-          if ( mShowHolidaysFromCal &&
+          if ( mShowHolidays &&
                ( ( *it2 ).upper() == i18n( "HOLIDAY" ) ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;

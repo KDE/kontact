@@ -58,7 +58,8 @@ KCMSDSummary::KCMSDSummary( QWidget *parent, const char *name )
 
   connect( mDaysGroup, SIGNAL( clicked( int ) ), SLOT( modified() ) );
   connect( mDaysGroup, SIGNAL( clicked( int ) ), SLOT( buttonClicked( int ) ) );
-  connect( mShowGroup, SIGNAL( clicked( int ) ), SLOT( modified() ) );
+  connect( mCalendarGroup, SIGNAL( clicked( int ) ), SLOT( modified() ) );
+  connect( mContactGroup, SIGNAL( clicked( int ) ), SLOT( modified() ) );
   connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
   connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( customDaysChanged( int ) ) );
 
@@ -84,7 +85,7 @@ void KCMSDSummary::customDaysChanged( int value )
 
 void KCMSDSummary::initGUI()
 {
-  QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
+  QGridLayout *layout = new QGridLayout( this, 3, 2, KDialog::spacingHint() );
 
   mDaysGroup = new QButtonGroup( 0, Vertical, i18n( "Special Dates Summary" ), this );
   QVBoxLayout *boxLayout = new QVBoxLayout( mDaysGroup->layout(),
@@ -116,31 +117,25 @@ void KCMSDSummary::initGUI()
 
   hbox->addStretch( 1 );
 
-  layout->addWidget( mDaysGroup );
+  layout->addMultiCellWidget( mDaysGroup, 0, 0, 0, 1 );
 
-  mShowGroup = new QButtonGroup( 2, Horizontal, i18n( "Special Dates" ), this );
+  mCalendarGroup = new QButtonGroup( 1, Horizontal, i18n( "Special Dates from Calendar" ), this );
 
-  mShowBirthdaysFromKAB =
-    new QCheckBox( i18n( "Show birthdays from contact list" ), mShowGroup );
-  mShowBirthdaysFromCal =
-    new QCheckBox( i18n( "Show birthdays from calendar" ), mShowGroup );
+  mShowBirthdaysFromCal = new QCheckBox( i18n( "Show birthdays" ), mCalendarGroup );
+  mShowAnniversariesFromCal = new QCheckBox( i18n( "Show anniversaries" ), mCalendarGroup );
+  mShowHolidays = new QCheckBox( i18n( "Show holidays" ), mCalendarGroup );
 
-  mShowAnniversariesFromKAB =
-    new QCheckBox( i18n( "Show anniversaries from contact list" ), mShowGroup );
-  mShowAnniversariesFromCal =
-    new QCheckBox( i18n( "Show anniversaries from calendar" ), mShowGroup );
+  mShowSpecialsFromCal = new QCheckBox( i18n( "Show special occasions" ), mCalendarGroup );
 
-  mShowHolidays =
-    new QCheckBox( i18n( "Show political, cultural, and religious holidays" ), mShowGroup );
-  mShowHolidaysFromCal =
-    new QCheckBox( i18n( "Show holidays from calendar" ), mShowGroup );
+  mContactGroup = new QButtonGroup( 1, Horizontal, i18n( "Special Dates from Contact List" ), this );
 
-  mShowSpecialsFromCal =
-    new QCheckBox( i18n( "Show special occasions from calendar" ), mShowGroup );
+  mShowBirthdaysFromKAB = new QCheckBox( i18n( "Show birthdays" ), mContactGroup );
+  mShowAnniversariesFromKAB = new QCheckBox( i18n( "Show anniversaries" ), mContactGroup );
 
-  layout->addWidget( mShowGroup );
+  layout->addWidget( mCalendarGroup, 1, 0 );
+  layout->addWidget( mContactGroup, 1, 1 );
 
-  layout->addStretch();
+  layout->setRowStretch( 2, 1 );
 }
 
 void KCMSDSummary::load()
@@ -177,8 +172,6 @@ void KCMSDSummary::load()
 
   mShowHolidays->
     setChecked( config.readBoolEntry( "ShowHolidays", true ) );
-  mShowHolidaysFromCal->
-    setChecked( config.readBoolEntry( "ShowHolidaysFromCalendar", true ) );
 
   mShowSpecialsFromCal->
     setChecked( config.readBoolEntry( "ShowSpecialsFromCalendar", true ) );
@@ -217,8 +210,6 @@ void KCMSDSummary::save()
 
   config.writeEntry( "ShowHolidays",
                      mShowHolidays->isChecked() );
-  config.writeEntry( "ShowHolidaysFromCalendar",
-                     mShowHolidaysFromCal->isChecked() );
 
   config.writeEntry( "ShowSpecialsFromCalendar",
                      mShowSpecialsFromCal->isChecked() );
@@ -236,7 +227,6 @@ void KCMSDSummary::defaults()
   mShowAnniversariesFromKAB->setChecked( true );
   mShowAnniversariesFromCal->setChecked( true );
   mShowHolidays->setChecked( true );
-  mShowHolidaysFromCal->setChecked( true );
   mShowSpecialsFromCal->setChecked( true );
 
   emit changed( true );
