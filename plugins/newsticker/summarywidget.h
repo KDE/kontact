@@ -65,6 +65,8 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
 
     QStringList configModules() const;
 
+    void updateSummary( bool force = false );
+
   k_dcop:
     void documentUpdated( DCOPRef );
     void documentAdded( QString );

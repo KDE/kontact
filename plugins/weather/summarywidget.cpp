@@ -189,6 +189,11 @@ QStringList SummaryWidget::configModules() const
   return QStringList( "kcmweatherservice.desktop" );
 }
 
+void SummaryWidget::updateSummary( bool )
+{
+  timeout();
+}
+
 void SummaryWidget::showReport( const QString &stationID )
 {
   mProc = new KProcess;

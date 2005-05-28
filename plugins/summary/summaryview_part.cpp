@@ -93,6 +93,11 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
                                SLOT( slotConfigure() ), actionCollection(),
                                "summaryview_configure" );
 
+  mRefreshAction = new KAction( i18n( "&Refresh Summary View..." ),
+                                "reload", 0, this,
+                                SLOT( updateSummaries() ), actionCollection(),
+                                "summaryview_refresh" );
+
   setXMLFile( "kontactsummary_part.rc" );
 
   QTimer::singleShot( 0, this, SLOT( slotTextChanged() ) );
@@ -114,12 +119,17 @@ void SummaryViewPart::partActivateEvent( KParts::PartActivateEvent *event )
   // inform the plugins that the part has been activated so that they can
   // update the displayed information
   if ( event->activated() && ( event->part() == this ) ) {
-    QMap<QString, Kontact::Summary*>::Iterator it;
-    for ( it = mSummaries.begin(); it != mSummaries.end(); ++it )
-      it.data()->updateSummary( false );
+    updateSummaries();
   }
 
   KParts::ReadOnlyPart::partActivateEvent( event );
+}
+
+void SummaryViewPart::updateSummaries()
+{
+  QMap<QString, Kontact::Summary*>::Iterator it;
+  for ( it = mSummaries.begin(); it != mSummaries.end(); ++it )
+    it.data()->updateSummary( false );
 }
 
 void SummaryViewPart::updateWidgets()

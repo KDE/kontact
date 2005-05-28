@@ -1,11 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui>
 <gui name="kontactsummary" version="2">
-
   <MenuBar>
     <Menu name="settings"><text>&amp;Settings</text>
       <Action name="summaryview_configure" group="settings_configure"/>
     </Menu>
   </MenuBar>
 
+  <ToolBar position="Top" noMerge="1" name="mainToolBar"><text>Main Toolbar</text>
+    <Separator/>
+    <Action name="summaryview_refresh"/>
+    <Separator/>
+  </ToolBar>
 </gui>

@@ -73,6 +73,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
 
   protected slots:
     void slotConfigure();
+    void updateSummaries();
     void updateWidgets();
     void summaryWidgetMoved( QWidget *target, QWidget *widget, int alignment );
 
@@ -94,6 +95,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     QLabel *mUsernameLabel;
     QLabel *mDateLabel;
     KAction *mConfigAction;
+    KAction *mRefreshAction;
 
     QStringList mLeftColumnSummaries;
     QStringList mRightColumnSummaries;

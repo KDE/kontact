@@ -265,6 +265,11 @@ QStringList SummaryWidget::configModules() const
   return "kcmkontactknt.desktop";
 }
 
+void SummaryWidget::updateSummary( bool )
+{
+  updateDocuments();
+}
+
 void SummaryWidget::rmbMenu( const QString& url )
 {
   QPopupMenu menu;
