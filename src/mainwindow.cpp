@@ -450,6 +450,16 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
       delete plugin; // removes the part automatically
       mPlugins.remove( it );
 
+      if ( mCurrentPlugin == 0 ) {
+        PluginList::Iterator it;
+        for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+          if ( (*it)->showInSideBar() ) {
+            selectPlugin( *it );
+            return true;
+          }
+        }
+      }
+
       return true;
     }
 
