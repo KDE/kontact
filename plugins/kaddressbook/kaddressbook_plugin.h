@@ -61,8 +61,6 @@ class KAddressbookPlugin : public Kontact::Plugin
 
     virtual QStringList invisibleToolbarActions() const;
 
-    virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
-
     virtual void configUpdated();
 
     KAddressBookIface_stub *interface();

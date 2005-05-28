@@ -43,7 +43,6 @@
 #include <libkdepim/maillistdrag.h>
 
 #include "core.h"
-#include "kabsummarywidget.h"
 #include "plugin.h"
 
 #include "kaddressbook_plugin.h"
@@ -156,13 +155,8 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  KMessageBox::sorry( core(), i18n("Cannot handle drop events of type '%1'.")
+  KMessageBox::sorry( core(), i18n( "Cannot handle drop events of type '%1'." )
                       .arg( event->format() ) );
-}
-
-Kontact::Summary *KAddressbookPlugin::createSummaryWidget( QWidget *parentWidget )
-{
-  return new KABSummaryWidget( this, parentWidget );
 }
 
 ////
