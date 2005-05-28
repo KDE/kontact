@@ -82,4 +82,21 @@ class KCMKontactKNT : public KCModule
     QValueList<NewsItem*> mCustomFeeds;
 };
 
+class NewsEditDialog : public KDialogBase
+{
+  Q_OBJECT
+
+  public:
+    NewsEditDialog( const QString&, const QString&, QWidget *parent );
+    QString title() const;
+    QString url() const;
+
+  private slots:
+    void modified();
+
+  private:
+    QLineEdit *mTitle;
+    QLineEdit *mURL;
+};
+
 #endif

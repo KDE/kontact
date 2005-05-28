@@ -55,42 +55,53 @@ extern "C"
   }
 }
 
-class NewsEditDialog : public KDialogBase
+NewsEditDialog::NewsEditDialog( const QString& title, const QString& url, QWidget *parent )
+  : KDialogBase( Plain, i18n( "New News Feed" ), Ok | Cancel,
+                 Ok, parent, 0, true, true )
 {
-  public:
-    NewsEditDialog( const QString& title, const QString& url, QWidget *parent )
-      : KDialogBase( Plain, i18n( "New News Feed" ), Ok | Cancel,
-                     Ok, parent, 0, true, true )
-    {
-      QWidget *page = plainPage();
-      QGridLayout *layout = new QGridLayout( page, 2, 3, marginHint(),
-                                             spacingHint() );
+  QWidget *page = plainPage();
+  QGridLayout *layout = new QGridLayout( page, 2, 3, marginHint(),
+                                         spacingHint() );
 
-      QLabel *label = new QLabel( i18n( "Name:" ), page );
-      layout->addWidget( label, 0, 0 );
+  QLabel *label = new QLabel( i18n( "Name:" ), page );
+  layout->addWidget( label, 0, 0 );
 
-      mTitle = new QLineEdit( page );
-      label->setBuddy( mTitle );
-      layout->addMultiCellWidget( mTitle, 0, 0, 1, 2 );
+  mTitle = new QLineEdit( page );
+  label->setBuddy( mTitle );
+  layout->addMultiCellWidget( mTitle, 0, 0, 1, 2 );
 
-      label = new QLabel( i18n( "URL:" ), page );
-      layout->addWidget( label, 1, 0 );
+  label = new QLabel( i18n( "URL:" ), page );
+  layout->addWidget( label, 1, 0 );
 
-      mURL = new QLineEdit( page );
-      label->setBuddy( mURL );
-      layout->addMultiCellWidget( mURL, 1, 1, 1, 2 );
+  mURL = new QLineEdit( page );
+  label->setBuddy( mURL );
+  layout->addMultiCellWidget( mURL, 1, 1, 1, 2 );
 
-      mTitle->setText( title );
-      mURL->setText( url );
-    }
+  mTitle->setText( title );
+  mURL->setText( url );
 
-    QString title() const { return mTitle->text(); }
-    QString url() const { return mURL->text(); }
+  connect( mTitle, SIGNAL( textChanged( const QString& ) ),
+           this, SLOT( modified() ) );
+  connect( mURL, SIGNAL( textChanged( const QString& ) ),
+           this, SLOT( modified() ) );
 
-  private:
-    QLineEdit *mTitle;
-    QLineEdit *mURL;
-};
+  modified();
+}
+
+void NewsEditDialog::modified()
+{
+  enableButton( KDialogBase::Ok, !title().isEmpty() && !url().isEmpty() );
+}
+
+QString NewsEditDialog::title() const
+{
+  return mTitle->text();
+}
+
+QString NewsEditDialog::url() const
+{
+  return mURL->text();
+}
 
 class NewsItem : public QListViewItem
 {
