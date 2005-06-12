@@ -57,6 +57,7 @@ Name[xx]=xxNews Tickerxx
 Name[zh_CN]=新闻点点通
 Name[zu]=Umlungiseleli Wezindaba 
 Comment=News Ticker Summary Setup
+Comment[bg]=Настройки на обобщението на новините
 Comment[da]=Nehedstelegrafs opsætning af opsummering
 Comment[es]=Configuración del resumen del teletipo de noticias
 Keywords=news ticker, configure, settings
