@@ -30,6 +30,7 @@
 #include <kstartupinfo.h>
 #include <kuniqueapplication.h>
 #include <kwin.h>
+#include <kstandarddirs.h>
 #include <ktrader.h>
 #include "plugin.h"
 
@@ -53,6 +54,7 @@ class KontactApp : public KUniqueApplication {
     int newInstance();
 
   private:
+    void startKOrgac();
     Kontact::MainWindow *mMainWindow;
 };
 
@@ -80,6 +82,23 @@ static KCmdLineOptions options[] =
     KCmdLineLastOption
 };
 
+void KontactApp::startKOrgac()
+{
+  if ( kapp->dcopClient()->isApplicationRegistered( "korgac" ) ) {
+    // Alarm daemon already runs
+    return;
+  }
+  KGlobal::dirs()->addResourceType("autostart", "share/autostart");
+  QString desktopFile = locate( "autostart", "korgac.desktop" );
+  if ( desktopFile.isEmpty() ) {
+    kdWarning() << "Couldn't find autostart/korgac.desktop!" << endl;
+  }
+  else {
+    QString error;
+    if ( startServiceByDesktopPath( desktopFile, QStringList(), &error ) != 0 )
+      kdWarning() << "Failure starting korgac:" << error << endl;
+  }
+}
 
 int KontactApp::newInstance()
 {
@@ -116,6 +135,8 @@ int KontactApp::newInstance()
         mMainWindow->setActivePluginModule( moduleName );
     }
   }
+
+  startKOrgac();
 
   // Handle startup notification and window activation
   // (The first time it will do nothing except note that it was called)
