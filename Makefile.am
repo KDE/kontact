@@ -2,7 +2,7 @@ SUBDIRS = interfaces plugins src pics
 
 DOXYGEN_SET_RECURSIVE = YES
 DOXYGEN_REFERENCES = kdeui kparts libkcal
-include $(top_srcdir)/doc/api/Doxyfile.am
+include $(top_srcdir)/admin/Doxyfile.am
 
 
 messages: rc.cpp
