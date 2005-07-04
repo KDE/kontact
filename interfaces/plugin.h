@@ -62,8 +62,8 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     /**
       Creates a new Plugin, note that name parameter name is required if
       you want your plugin to do dcop via it's own instance of
-      @see DCOPClient by calling @see dcopClient.
-      @note @see name MUST be the name of the application that
+      DCOPClient by calling dcopClient.
+      @note name MUST be the name of the application that
       provides the part! This is the name used for DCOP registration.
       It's ok to have several plugins using the same application name.
     */

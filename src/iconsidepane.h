@@ -44,7 +44,7 @@ enum IconViewMode { LargeIcons = 48, NormalIcons = 32, SmallIcons = 22, ShowText
 
 
 /**
-  A @see QListBoxPixmap Square Box with an optional icon and a text
+  A QListBoxPixmap Square Box with an optional icon and a text
   underneath.
 */
 class EntryItem : public QListBoxItem
