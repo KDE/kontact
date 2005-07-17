@@ -39,6 +39,7 @@ KarmPlugin::KarmPlugin( Kontact::Core *core, const char *, const QStringList& )
   : Kontact::Plugin( core, core, "KArm" )
 {
   setInstance( KarmPluginFactory::instance() );
+  (void)dcopClient();
 }
 
 KarmPlugin::~KarmPlugin()
