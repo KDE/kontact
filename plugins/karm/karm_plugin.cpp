@@ -30,6 +30,7 @@
 #include "plugin.h"
 
 #include "karm_plugin.h"
+#include "karmdcopiface_stub.h"
 
 typedef KGenericFactory<KarmPlugin, Kontact::Core> KarmPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_karm,
@@ -40,6 +41,9 @@ KarmPlugin::KarmPlugin( Kontact::Core *core, const char *, const QStringList& )
 {
   setInstance( KarmPluginFactory::instance() );
   (void)dcopClient();
+  insertNewAction( new KAction( i18n( "New Contact..." ), "bookmark_add",
+			             CTRL+SHIFT+Key_C, this, SLOT( dummy() ), actionCollection(),
+                   "new_task" ) );
 }
 
 KarmPlugin::~KarmPlugin()
@@ -48,6 +52,13 @@ KarmPlugin::~KarmPlugin()
 
 KParts::ReadOnlyPart* KarmPlugin::createPart()
 {
+  KParts::ReadOnlyPart * part = loadPart();
+  if ( !part ) return 0;
+
+  // call it that way:
+  //mStub = new KarmDCOPIface_stub( dcopClient(), "App",
+  //                                    "KarmDCOPIface_stub" );
+
   return loadPart();
 }
 

@@ -28,6 +28,7 @@
 
 #include <klocale.h>
 #include <kparts/part.h>
+#include "karmdcopiface_stub.h"
 
 #include "plugin.h"
 
@@ -46,6 +47,8 @@ class KarmPlugin : public Kontact::Plugin
 
   protected:
     KParts::ReadOnlyPart *createPart();
+    KarmDCOPIface_stub *mStub;
+
 };
 
 #endif
