@@ -56,7 +56,7 @@ class KDE_EXPORT Summary : public QWidget
                            const QString& heading );
 
     /**
-      Return list of strings identifiying configuration modules for this summary
+      Return list of strings identifying configuration modules for this summary
       part. The string has to be suitable for being passed to
       KCMultiDialog::addModule().
     */
