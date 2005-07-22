@@ -49,6 +49,9 @@ class KarmPlugin : public Kontact::Plugin
     KParts::ReadOnlyPart *createPart();
     KarmDCOPIface_stub *mStub;
 
+  public slots:
+    void newTask();
+
 };
 
 #endif

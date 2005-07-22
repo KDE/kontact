@@ -41,8 +41,8 @@ KarmPlugin::KarmPlugin( Kontact::Core *core, const char *, const QStringList& )
 {
   setInstance( KarmPluginFactory::instance() );
   (void)dcopClient();
-  insertNewAction( new KAction( i18n( "New Contact..." ), "bookmark_add",
-			             CTRL+SHIFT+Key_C, this, SLOT( dummy() ), actionCollection(),
+  insertNewAction( new KAction( i18n( "New Task" ), "karm",
+			             CTRL+SHIFT+Key_T, this, SLOT( newTask() ), actionCollection(),
                    "new_task" ) );
 }
 
@@ -55,11 +55,17 @@ KParts::ReadOnlyPart* KarmPlugin::createPart()
   KParts::ReadOnlyPart * part = loadPart();
   if ( !part ) return 0;
 
-  // call it that way:
-  //mStub = new KarmDCOPIface_stub( dcopClient(), "App",
-  //                                    "KarmDCOPIface_stub" );
+  // this calls a DCOP interface from karm via the lib KarmDCOPIface_stub that is generated automatically
+  mStub = new KarmDCOPIface_stub( dcopClient(), "KArm",
+                                      "KarmDCOPIface" );
 
-  return loadPart();
+  return part;
+}
+
+void KarmPlugin::newTask()
+{
+  kdDebug() << "Entering newTask" << endl;
+  mStub->addTask("New Task");
 }
 
 #include "karm_plugin.moc"
