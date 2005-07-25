@@ -64,6 +64,7 @@
 #include <krun.h>
 #include <kaboutdata.h>
 #include <kmenubar.h>
+#include <kstdaccel.h>
 
 #include "aboutdialog.h"
 #include "iconsidepane.h"
@@ -315,7 +316,7 @@ void MainWindow::setupActions()
 {
   KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
   mNewActions = new KToolBarPopupAction( KGuiItem( i18n( "New" ), "" ),
-                                         KShortcut(), this, SLOT( slotNewClicked() ),
+                                         KStdAccel::shortcut(KStdAccel::New), this, SLOT( slotNewClicked() ),
                                          actionCollection(), "action_new" );
 
   new KAction( i18n( "Configure Kontact..." ), "configure", 0, this, SLOT( slotPreferences() ),
