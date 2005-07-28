@@ -119,7 +119,7 @@ void KCMSDSummary::initGUI()
 
   layout->addMultiCellWidget( mDaysGroup, 0, 0, 0, 1 );
 
-  mCalendarGroup = new QButtonGroup( 1, Horizontal, i18n( "Special Dates from Calendar" ), this );
+  mCalendarGroup = new QButtonGroup( 1, Horizontal, i18n( "Special Dates From Calendar" ), this );
 
   mShowBirthdaysFromCal = new QCheckBox( i18n( "Show birthdays" ), mCalendarGroup );
   mShowAnniversariesFromCal = new QCheckBox( i18n( "Show anniversaries" ), mCalendarGroup );
@@ -127,7 +127,7 @@ void KCMSDSummary::initGUI()
 
   mShowSpecialsFromCal = new QCheckBox( i18n( "Show special occasions" ), mCalendarGroup );
 
-  mContactGroup = new QButtonGroup( 1, Horizontal, i18n( "Special Dates from Contact List" ), this );
+  mContactGroup = new QButtonGroup( 1, Horizontal, i18n( "Special Dates From Contact List" ), this );
 
   mShowBirthdaysFromKAB = new QCheckBox( i18n( "Show birthdays" ), mContactGroup );
   mShowAnniversariesFromKAB = new QCheckBox( i18n( "Show anniversaries" ), mContactGroup );
