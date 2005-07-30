@@ -158,10 +158,11 @@ void EntryItem::paint( QPainter *p )
   reloadPixmap();
 
   QListBox *box = listBox();
-  bool iconAboveText = ( navigator()->viewMode() > SmallIcons ) 
+  bool iconAboveText = ( navigator()->viewMode() > SmallIcons )
                      && navigator()->showIcons();
   int w = box->viewport()->width();
-  int y = 2;
+  int y = iconAboveText ? 2 :
+                        ( ( height( box ) - mPixmap.height() ) / 2 );
 
   // draw selected
   if ( isCurrent() || isSelected() || mHasHover || mPaintActive ) {
