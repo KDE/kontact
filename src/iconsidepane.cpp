@@ -214,7 +214,7 @@ void EntryItem::paint( QPainter *p )
       }
 
       if ( !navigator()->showIcons() || mPixmap.height() < fm.height() )
-        y += fm.ascent() + fm.leading()/2;
+        y = height( box )/2 - fm.height()/2 + fm.ascent();
       else
         y += mPixmap.height()/2 - fm.height()/2 + fm.ascent();
     }
