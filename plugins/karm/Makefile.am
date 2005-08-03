@@ -4,7 +4,7 @@ kde_module_LTLIBRARIES = libkontact_karm.la
 libkontact_karm_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_karm_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(top_builddir)/karm/libkarm_shared.la
 
-libkontact_karm_la_SOURCES = karm_plugin.cpp
+libkontact_karm_la_SOURCES = karm_plugin.cpp karmdcopiface.h karmdcopiface.stub
 
 METASOURCES = AUTO
 
