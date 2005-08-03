@@ -117,6 +117,10 @@ void SummaryWidget::updateView()
         }
       }
 
+      // If this date is part of a floating, multiday event, then we
+      // only make a print for the first day of the event.
+      if ( ev->isMultiDay() && ev->doesFloat() && dayof != 1 )break;
+
       // Fill Appointment Pixmap Field
       label = new QLabel( this );
       label->setPixmap( pm );
@@ -144,6 +148,14 @@ void SummaryWidget::updateView()
       } else {
         datestr = KGlobal::locale()->formatDate( sD );
       }
+
+      // Print the date span for multiday, floating events, for the
+      // first day of the event only.
+      if ( ev->isMultiDay() && ev->doesFloat() && dayof == 1 ) {
+        QString endstr = KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
+        datestr += " -\n " + endstr;
+      }
+
       label = new QLabel( datestr, this );
       label->setAlignment( AlignLeft | AlignVCenter );
       if ( makeBold ) {
@@ -156,7 +168,7 @@ void SummaryWidget::updateView()
 
       // Fill Event Summary Field
       QString newtext = ev->summary();
-      if ( ev->isMultiDay() ) {
+      if ( ev->isMultiDay() &&  !ev->doesFloat() ) {
         newtext.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
       }
 
