@@ -13,3 +13,5 @@ service_DATA = karmplugin.desktop
 
 karmdcopiface_DIR = $(top_srcdir)/karm
 karmdcopiface_DCOPIDLNG = true
+
+DISTCLEANFILES = karmdcopiface.h karmdcopiface.stub
