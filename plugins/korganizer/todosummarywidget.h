@@ -43,6 +43,7 @@ class TodoSummaryWidget : public Kontact::Summary
   public:
     TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent,
                        const char *name = 0 );
+    ~TodoSummaryWidget();
 
     int summaryHeight() const { return 3; }
     QStringList configModules() const;

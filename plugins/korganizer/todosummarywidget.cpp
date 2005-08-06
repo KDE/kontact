@@ -37,11 +37,13 @@
 #include <libkcal/todo.h>
 #include <libkdepim/kpimprefs.h>
 
-#include <korganizer/stdcalendar.h>
+#include "korganizeriface_stub.h"
 
 #include "core.h"
 #include "plugin.h"
 #include "todoplugin.h"
+
+#include "korganizer/stdcalendar.h"
 
 #include "todosummarywidget.h"
 
@@ -67,6 +69,10 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
            SLOT( updateView() ) );
 
   updateView();
+}
+
+TodoSummaryWidget::~TodoSummaryWidget()
+{
 }
 
 void TodoSummaryWidget::updateView()
@@ -176,10 +182,10 @@ void TodoSummaryWidget::updateView()
     label->show();
 }
 
-void TodoSummaryWidget::selectEvent( const QString & )
+void TodoSummaryWidget::selectEvent( const QString &uid )
 {
-  mPlugin->core()->selectPlugin( "kontact_todoplugin" );
-  mPlugin->interface()->showTodoView();
+  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
+  iface.editIncidence( uid );
 }
 
 QStringList TodoSummaryWidget::configModules() const
