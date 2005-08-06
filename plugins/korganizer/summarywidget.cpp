@@ -108,6 +108,9 @@ void SummaryWidget::updateView()
       int span=1; int dayof=1;
       if ( ev->isMultiDay() ) {
         QDate d = ev->dtStart().date();
+        if ( d < QDate::currentDate() ) {
+          d = QDate::currentDate();
+        }
         while ( d < ev->dtEnd().date() ) {
           if ( d < dt ) {
             dayof++;
@@ -135,9 +138,6 @@ void SummaryWidget::updateView()
 
       // Modify event date for printing
       QDate sD = QDate::QDate( dt.year(), dt.month(), dt.day() );
-      if ( ev->isMultiDay() ) {
-        sD.setYMD( dt.year(), dt.month(), dt.day() );
-      }
       if ( ( sD.month() == QDate::currentDate().month() ) &&
            ( sD.day()   == QDate::currentDate().day() ) ) {
         datestr = i18n( "Today" );
