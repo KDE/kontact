@@ -63,7 +63,7 @@ KCMKOrgSummary::KCMKOrgSummary( QWidget *parent, const char *name )
   KAcceleratorManager::manage( this );
 
   load();
-  
+
   KAboutData *about = new KAboutData( I18N_NOOP( "kcmkorgsummary" ),
                                       I18N_NOOP( "Schedule Configuration Dialog" ),
                                       0, 0, KAboutData::License_GPL,
@@ -125,8 +125,8 @@ void KCMKOrgSummary::initGUI()
   layout->addWidget( mCalendarGroup );
 
   mTodoGroup = new QButtonGroup( 2, Horizontal, i18n( "To-dos" ), this );
-  new QRadioButton( i18n( "Show all tasks" ), mTodoGroup );
-  new QRadioButton( i18n( "Show today's tasks" ), mTodoGroup );
+  new QRadioButton( i18n( "Display all to-dos" ), mTodoGroup );
+  new QRadioButton( i18n( "Display today's to-dos only" ), mTodoGroup );
 
   layout->addWidget( mTodoGroup );
 
