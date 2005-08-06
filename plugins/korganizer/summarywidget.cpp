@@ -222,6 +222,7 @@ void SummaryWidget::updateView()
 
 void SummaryWidget::selectEvent( const QString &uid )
 {
+  mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
   KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
   iface.editIncidence( uid );
 }

@@ -184,6 +184,7 @@ void TodoSummaryWidget::updateView()
 
 void TodoSummaryWidget::selectEvent( const QString &uid )
 {
+  mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
   KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
   iface.editIncidence( uid );
 }
