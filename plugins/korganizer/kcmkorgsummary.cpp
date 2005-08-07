@@ -96,7 +96,7 @@ void KCMKOrgSummary::initGUI()
   QVBoxLayout *boxLayout = new QVBoxLayout( mCalendarGroup->layout(),
                                             KDialog::spacingHint() );
 
-  QLabel *label = new QLabel( i18n( "How many days should the calendar display at once?" ), mCalendarGroup );
+  QLabel *label = new QLabel( i18n( "How many days should the calendar show at once?" ), mCalendarGroup );
   boxLayout->addWidget( label );
 
   QRadioButton *button = new QRadioButton( i18n( "One day" ), mCalendarGroup );
@@ -125,8 +125,8 @@ void KCMKOrgSummary::initGUI()
   layout->addWidget( mCalendarGroup );
 
   mTodoGroup = new QButtonGroup( 2, Horizontal, i18n( "To-dos" ), this );
-  new QRadioButton( i18n( "Display all to-dos" ), mTodoGroup );
-  new QRadioButton( i18n( "Display today's to-dos only" ), mTodoGroup );
+  new QRadioButton( i18n( "Show all to-dos" ), mTodoGroup );
+  new QRadioButton( i18n( "Show today's to-dos only" ), mTodoGroup );
 
   layout->addWidget( mTodoGroup );
 
