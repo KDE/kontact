@@ -91,7 +91,7 @@ void KCMSDSummary::initGUI()
   QVBoxLayout *boxLayout = new QVBoxLayout( mDaysGroup->layout(),
                                             KDialog::spacingHint() );
 
-  QLabel *label = new QLabel( i18n( "How many days should the special dates summary display at once?" ), mDaysGroup );
+  QLabel *label = new QLabel( i18n( "How many days should the special dates summary show at once?" ), mDaysGroup );
   boxLayout->addWidget( label );
 
   QRadioButton *button = new QRadioButton( i18n( "One day" ), mDaysGroup );
