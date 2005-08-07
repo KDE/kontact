@@ -573,7 +573,7 @@ void SDSummaryWidget::mailContact( const QString &uid )
 void SDSummaryWidget::viewContact( const QString &uid )
 {
   if ( !mPlugin->isRunningStandalone() )
-    mPlugin->core()->selectPlugin( mPlugin );
+    mPlugin->core()->selectPlugin( "kontact_kaddressbookplugin" );
   else
     mPlugin->bringToForeground();
 
