@@ -151,7 +151,7 @@ void SummaryWidget::updateView()
 
       // Print the date span for multiday, floating events, for the
       // first day of the event only.
-      if ( ev->isMultiDay() && ev->doesFloat() && dayof == 1 && span != 1 ) {
+      if ( ev->isMultiDay() && ev->doesFloat() && dayof == 1 && span > 1 ) {
         QString endstr = KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
         datestr += " -\n " + endstr;
       }
