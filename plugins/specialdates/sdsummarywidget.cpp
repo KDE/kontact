@@ -68,6 +68,7 @@ class SDEntry
     QDate date;
     QString summary;
     QString desc;
+    int span; // #days in the special occassion.
     KABC::Addressee addressee;
 
     bool operator<( const SDEntry &entry ) const
@@ -180,6 +181,42 @@ bool SDSummaryWidget::initHolidays()
   return false;
 }
 
+// number of days remaining in an Event
+int SDSummaryWidget::span( KCal::Event *event )
+{
+  int span=1;
+  if ( event->isMultiDay() && event->doesFloat() ) {
+    QDate d = event->dtStart().date();
+    if ( d < QDate::currentDate() ) {
+      d = QDate::currentDate();
+    }
+    while ( d < event->dtEnd().date() ) {
+      span++;
+      d=d.addDays( 1 );
+    }
+  }
+  return span;
+}
+
+// day of a multiday Event
+int SDSummaryWidget::dayof( KCal::Event *event, const QDate& date )
+{
+  int dayof=1;
+  QDate d = event->dtStart().date();
+  if ( d < QDate::currentDate() ) {
+    d = QDate::currentDate();
+  }
+  while ( d < event->dtEnd().date() ) {
+    if ( d < date ) {
+      dayof++;
+    }
+    d = d.addDays( 1 );
+  }
+  return dayof;
+}
+
+
+
 void SDSummaryWidget::updateView()
 {
   mLabels.setAutoDelete( true );
@@ -207,6 +244,7 @@ void SDSummaryWidget::updateView()
 
       entry.date = birthday;
       entry.addressee = *it;
+      entry.span = 1;
       if ( entry.daysTo <= mDaysAhead )
         dates.append( entry );
     }
@@ -223,6 +261,7 @@ void SDSummaryWidget::updateView()
 
         entry.date = anniversary;
         entry.addressee = *it;
+        entry.span = 1;
         if ( entry.daysTo <= mDaysAhead )
           dates.append( entry );
       }
@@ -257,6 +296,7 @@ void SDSummaryWidget::updateView()
             entry.summary = ev->summary();
             entry.desc = ev->description();
             dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
+            entry.span = 1;
             dates.append( entry );
             break;
           }
@@ -271,6 +311,7 @@ void SDSummaryWidget::updateView()
             entry.summary = ev->summary();
             entry.desc = ev->description();
             dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
+            entry.span = 1;
             dates.append( entry );
             break;
           }
@@ -286,6 +327,9 @@ void SDSummaryWidget::updateView()
             entry.desc = ev->description();
             dateDiff( dt, entry.daysTo, entry.yearsOld );
             entry.yearsOld = -1; //ignore age of holidays
+            entry.span = span( ev );
+            if ( entry.span > 1 && dayof( ev, dt ) > 1 ) // skip days 2,3,...
+              break;
             dates.append( entry );
             break;
           }
@@ -301,6 +345,9 @@ void SDSummaryWidget::updateView()
             entry.desc = ev->description();
             dateDiff( dt, entry.daysTo, entry.yearsOld );
             entry.yearsOld = -1; //ignore age of special occasions
+            entry.span = span( ev );
+            if ( entry.span > 1 && dayof( ev, dt ) > 1 ) // skip days 2,3,...
+              break;
             dates.append( entry );
             break;
           }
@@ -324,6 +371,7 @@ void SDSummaryWidget::updateView()
           entry.summary = holstring;
           dateDiff( dt, entry.daysTo, entry.yearsOld );
           entry.yearsOld = -1; //ignore age of holidays
+          entry.span = 1;
           dates.append( entry );
         }
       }
@@ -389,17 +437,27 @@ void SDSummaryWidget::updateView()
 
       // Event date
       QString datestr;
+
+      //Muck with the year -- change to the year 'daysTo' days away
+      int year = QDate::currentDate().addDays( (*addrIt).daysTo ).year();
+      QDate sD = QDate::QDate( year,
+                           (*addrIt).date.month(), (*addrIt).date.day() );
+
       if ( (*addrIt).daysTo == 0 ) {
         datestr = i18n( "Today" );
       } else if ( (*addrIt).daysTo == 1 ) {
         datestr = i18n( "Tomorrow" );
       } else {
-        //Muck with the year -- change to the year 'daysTo' days away
-        int year = QDate::currentDate().addDays( (*addrIt).daysTo ).year();
-        QDate sD = QDate::QDate( year,
-                                 (*addrIt).date.month(), (*addrIt).date.day() );
         datestr = KGlobal::locale()->formatDate( sD );
       }
+      // Print the date span for multiday, floating events, for the
+      // first day of the event only.
+      if ( (*addrIt).span > 1 ) {
+        QString endstr =
+          KGlobal::locale()->formatDate( sD.addDays( (*addrIt).span - 1 ) );
+        datestr += " -\n " + endstr;
+      }
+
       label = new QLabel( datestr, this );
       label->setAlignment( AlignLeft | AlignVCenter );
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );

@@ -62,6 +62,8 @@ class SDSummaryWidget : public Kontact::Summary
     void viewContact( const QString &uid );
 
   private:
+    int span( KCal::Event *event );
+    int dayof( KCal::Event *event, const QDate &date );
     bool initHolidays();
     void dateDiff( const QDate &date, int &days, int &years );
     QGridLayout *mLayout;
