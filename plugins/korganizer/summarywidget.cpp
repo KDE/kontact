@@ -104,7 +104,7 @@ void SummaryWidget::updateView()
     for ( it=events.begin(); it!=events.end(); ++it ) {
       ev = *it;
 
-      // Count number of days in multiday event
+      // Count number of days remaining in multiday event
       int span=1; int dayof=1;
       if ( ev->isMultiDay() ) {
         QDate d = ev->dtStart().date();
@@ -151,7 +151,7 @@ void SummaryWidget::updateView()
 
       // Print the date span for multiday, floating events, for the
       // first day of the event only.
-      if ( ev->isMultiDay() && ev->doesFloat() && dayof == 1 ) {
+      if ( ev->isMultiDay() && ev->doesFloat() && dayof == 1 && span != 1 ) {
         QString endstr = KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
         datestr += " -\n " + endstr;
       }
