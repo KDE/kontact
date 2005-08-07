@@ -133,6 +133,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
         folderRef.call( "displayName()" ).get( folderPath );
 
       KURLLabel *urlLabel = new KURLLabel( *it, folderPath, this );
+      urlLabel->installEventFilter( this );
       urlLabel->setAlignment( AlignLeft );
       urlLabel->show();
       connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
@@ -159,6 +160,19 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
     mLayout->addMultiCellWidget( label, 1, 1, 1, 2 );
     mLabels.append( label );
   }
+}
+
+bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
+{
+  if ( obj->inherits( "KURLLabel" ) ) {
+    KURLLabel* label = static_cast<KURLLabel*>( obj );
+    if ( e->type() == QEvent::Enter )
+      emit message( i18n( "Open Folder: \"%1\"" ).arg( label->text() ) );
+    if ( e->type() == QEvent::Leave )
+      emit message( QString::null );
+  }
+
+  return Kontact::Summary::eventFilter( obj, e );
 }
 
 QStringList SummaryWidget::configModules() const

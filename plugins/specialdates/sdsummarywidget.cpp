@@ -504,7 +504,7 @@ void SDSummaryWidget::updateView()
       // Description
       if ( (*addrIt).type == IncidenceTypeContact ) {
         KURLLabel *urlLabel = new KURLLabel( this );
-        urlLabel->installEventFilter(this);
+        urlLabel->installEventFilter( this );
         urlLabel->setURL( (*addrIt).addressee.uid() );
         urlLabel->setText( (*addrIt).addressee.realName() );
         urlLabel->setAlignment( AlignLeft | AlignVCenter );
@@ -604,7 +604,7 @@ bool SDSummaryWidget::eventFilter( QObject *obj, QEvent* e )
   if ( obj->inherits( "KURLLabel" ) ) {
     KURLLabel* label = static_cast<KURLLabel*>( obj );
     if ( e->type() == QEvent::Enter )
-      emit message( i18n( "Mail to %1" ).arg( label->text() ) );
+      emit message( i18n( "Mail to:\"%1\"" ).arg( label->text() ) );
     if ( e->type() == QEvent::Leave )
       emit message( QString::null );
   }

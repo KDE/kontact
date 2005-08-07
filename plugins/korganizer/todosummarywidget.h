@@ -51,6 +51,9 @@ class TodoSummaryWidget : public Kontact::Summary
   public slots:
     void updateSummary( bool force = false ) { Q_UNUSED( force ); updateView(); }
 
+  protected:
+    virtual bool eventFilter( QObject *obj, QEvent* e );
+
   private slots:
     void updateView();
     void selectEvent( const QString &uid );

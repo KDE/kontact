@@ -150,6 +150,7 @@ void TodoSummaryWidget::updateView()
         sSummary = todo->relatedTo()->summary() + ":" + todo->summary();
       }
       KURLLabel *urlLabel = new KURLLabel( todo->uid(), sSummary, this );
+      urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
@@ -187,6 +188,19 @@ void TodoSummaryWidget::selectEvent( const QString &uid )
   mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
   KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
   iface.editIncidence( uid );
+}
+
+bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent* e )
+{
+  if ( obj->inherits( "KURLLabel" ) ) {
+    KURLLabel* label = static_cast<KURLLabel*>( obj );
+    if ( e->type() == QEvent::Enter )
+      emit message( i18n( "Edit To-do: \"%1\"" ).arg( label->text() ) );
+    if ( e->type() == QEvent::Leave )
+      emit message( QString::null );
+  }
+
+  return Kontact::Summary::eventFilter( obj, e );
 }
 
 QStringList TodoSummaryWidget::configModules() const

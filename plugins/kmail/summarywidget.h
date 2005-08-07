@@ -52,6 +52,9 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   k_dcop_hidden:
     void slotUnreadCountChanged();
 
+  protected:
+    virtual bool eventFilter( QObject *obj, QEvent* e );
+
   public slots:
     virtual void updateSummary( bool force );
 
