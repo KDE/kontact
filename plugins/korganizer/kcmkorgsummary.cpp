@@ -92,7 +92,7 @@ void KCMKOrgSummary::initGUI()
 {
   QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
 
-  mCalendarGroup = new QButtonGroup( 0, Vertical, i18n( "Calendar" ), this );
+  mCalendarGroup = new QButtonGroup( 0, Vertical, i18n( "Appointments and To-dos" ), this );
   QVBoxLayout *boxLayout = new QVBoxLayout( mCalendarGroup->layout(),
                                             KDialog::spacingHint() );
 
