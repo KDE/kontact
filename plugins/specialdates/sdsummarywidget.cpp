@@ -550,8 +550,7 @@ void SDSummaryWidget::updateView()
         i18n( "No special dates within the next 1 day",
               "No special dates pending within the next %n days",
               mDaysAhead ), this, "nothing to see" );
-    label->setAlignment( AlignCenter );
-    label->setTextFormat( RichText );
+    label->setAlignment( AlignHCenter | AlignVCenter );
     mLayout->addMultiCellWidget( label, 0, 0, 0, 4 );
     mLabels.append( label );
   }

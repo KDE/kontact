@@ -211,8 +211,11 @@ void SummaryWidget::updateView()
   }
 
   if ( !counter ) {
-    QLabel *noEvents = new QLabel( i18n( "No appointments pending" ), this );
-    noEvents->setAlignment( AlignRight | AlignVCenter );
+    QLabel *noEvents = new QLabel(
+      i18n( "No appointments pending within the next day",
+            "No appointments pending within the next %n days",
+            days ), this, "nothing to see" );
+    noEvents->setAlignment( AlignHCenter | AlignVCenter );
     mLayout->addWidget( noEvents, 0, 2 );
     mLabels.append( noEvents );
   }

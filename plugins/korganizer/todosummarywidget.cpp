@@ -174,7 +174,7 @@ void TodoSummaryWidget::updateView()
 
   if ( counter == 0 ) {
     QLabel *noTodos = new QLabel( i18n( "No to-dos pending" ), this );
-    noTodos->setAlignment( AlignRight );
+    noTodos->setAlignment( AlignHCenter | AlignVCenter );
     mLayout->addWidget( noTodos, 0, 2 );
     mLabels.append( noTodos );
   }
