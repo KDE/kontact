@@ -91,6 +91,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   mainLayout->addWidget(header);
 
   mLayout = new QGridLayout( mainLayout, 7, 6, 3 );
+  mLayout->setRowStretch( 6, 1 );
 
   // Setup the Addressbook
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
@@ -386,7 +387,6 @@ void SDSummaryWidget::updateView()
     QValueList<SDEntry>::Iterator addrIt;
     QString lines;
     for ( addrIt = dates.begin(); addrIt != dates.end(); ++addrIt ) {
-      int column = 0;
       bool makeBold = (*addrIt).daysTo == 0; // i.e., today
 
       // Pixmap
@@ -431,8 +431,7 @@ void SDSummaryWidget::updateView()
         label->setPixmap( icon_img );
       }
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-      label->setAlignment( AlignLeft | AlignVCenter );
-      mLayout->addWidget( label, counter, column++ );
+      mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
       // Event date
@@ -461,7 +460,7 @@ void SDSummaryWidget::updateView()
       label = new QLabel( datestr, this );
       label->setAlignment( AlignLeft | AlignVCenter );
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-      mLayout->addWidget( label, counter, column++ );
+      mLayout->addWidget( label, counter, 1 );
       mLabels.append( label );
       if ( makeBold ) {
         QFont font = label->font();
@@ -479,7 +478,7 @@ void SDSummaryWidget::updateView()
 
       label->setAlignment( AlignLeft | AlignVCenter );
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-      mLayout->addWidget( label, counter, column++ );
+      mLayout->addWidget( label, counter, 2 );
       mLabels.append( label );
 
       // What
@@ -498,7 +497,7 @@ void SDSummaryWidget::updateView()
       label->setText( what );
       label->setAlignment( AlignRight | AlignVCenter );
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-      mLayout->addWidget( label, counter, column++ );
+      mLayout->addWidget( label, counter, 3 );
       mLabels.append( label );
 
       // Description
@@ -509,7 +508,7 @@ void SDSummaryWidget::updateView()
         urlLabel->setText( (*addrIt).addressee.realName() );
         urlLabel->setAlignment( AlignLeft | AlignVCenter );
         urlLabel->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-        mLayout->addWidget( urlLabel, counter, column++ );
+        mLayout->addWidget( urlLabel, counter, 4 );
         mLabels.append( urlLabel );
 
         connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
@@ -521,7 +520,7 @@ void SDSummaryWidget::updateView()
         label->setText( (*addrIt).summary );
         label->setAlignment( AlignLeft | AlignVCenter );
         label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-        mLayout->addWidget( label, counter, column++ );
+        mLayout->addWidget( label, counter, 4 );
         mLabels.append( label );
         if ( !(*addrIt).desc.isEmpty() ) {
           QToolTip::add( label, (*addrIt).desc );
@@ -539,7 +538,7 @@ void SDSummaryWidget::updateView()
         }
         label->setAlignment( AlignLeft | AlignVCenter );
         label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
-        mLayout->addWidget( label, counter, column++ );
+        mLayout->addWidget( label, counter, 5 );
         mLabels.append( label );
       }
 
