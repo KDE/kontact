@@ -50,7 +50,7 @@ class KNotesSummaryWidget : public Kontact::Summary
     void updateSummary( bool force = false ) { Q_UNUSED( force ); updateView(); }
 
   protected:
-    bool ensureKNotesRunning();
+    virtual bool eventFilter( QObject *obj, QEvent* e );
 
   protected slots:
     void urlClicked( const QString& );
@@ -62,8 +62,7 @@ class KNotesSummaryWidget : public Kontact::Summary
     KCal::CalendarLocal *mCalendar;
     KCal::Journal::List mNotes;
 
-    QVBoxLayout *mMainLayout;
-    QVBoxLayout *mLayout;
+    QGridLayout *mLayout;
 
     QPtrList<QLabel> mLabels;
     Kontact::Plugin *mPlugin;
