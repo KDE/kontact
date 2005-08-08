@@ -99,6 +99,9 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     virtual void refresh( QString );
     virtual void stationRemoved( QString );
 
+  protected:
+    virtual bool eventFilter( QObject *obj, QEvent *e );
+
   private slots:
     void updateView();
     void timeout();

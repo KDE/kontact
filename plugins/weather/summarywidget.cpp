@@ -55,7 +55,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   if ( !kapp->dcopClient()->isApplicationRegistered( "KWeatherService" ) ) {
     if ( KApplication::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
       QLabel *label = new QLabel( i18n( "No weather dcop service available;\nyou need KWeather to use this plugin." ), this );
-      mLayout->addWidget( label, Qt::AlignHCenter );
+      mLayout->addWidget( label, Qt::AlignHCenter | AlignVCenter );
       serviceAvailable = false;
     }
   }
@@ -182,6 +182,19 @@ void SummaryWidget::stationRemoved( QString station )
 {
   mWeatherMap.remove( station );
   updateView();
+}
+
+bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
+{
+  if ( obj->inherits( "KURLLabel" ) ) {
+    if ( e->type() == QEvent::Enter )
+      emit message(
+        i18n( "View Weather Report for Station" ) );
+    if ( e->type() == QEvent::Leave )
+      emit message( QString::null );
+  }
+
+  return Kontact::Summary::eventFilter( obj, e );
 }
 
 QStringList SummaryWidget::configModules() const
