@@ -12,7 +12,9 @@ X-KDE-ParentComponents=kontact_korganizerplugin,kontact_todoplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Appointments and To-dos
+Name[es]=Citas y tareas pendientes
 Comment=Appointments and To-dos Summary Setup
+Comment[es]=Configuración del resumen de citas y de tareas pendientes
 Keywords=calendar, todos, configure, settings
 Keywords[be]=каляндар, заданьні, настроіць, настройкі, calendar, todos, configure, settings
 Keywords[bg]=календар, задачи, организатор, calendar, todos, configure, settings
