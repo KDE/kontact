@@ -118,7 +118,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
   int counter = 0;
   QStringList::ConstIterator it;
   DCOPRef kmail( "kmail", "KMailIface" );
-  for ( it = folders.begin(); it != folders.end() && counter < 9; ++it ) {
+  for ( it = folders.begin(); it != folders.end(); ++it ) {
     if ( activeFolders.contains( *it ) ) {
       DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
       const int numMsg = folderRef.call( "messages()" );
