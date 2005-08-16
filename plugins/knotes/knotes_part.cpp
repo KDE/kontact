@@ -142,8 +142,8 @@ QString KNotesPart::newNote( const QString& name, const QString& text )
     {
       journal->setSummary( mNoteEditDlg->title() );
       journal->setDescription( mNoteEditDlg->text() );
-    } 
-    else 
+    }
+    else
     {
       delete journal;
       return "";
@@ -312,7 +312,7 @@ void KNotesPart::createNote( KCal::Journal *journal )
 
   property = journal->customProperty( "KNotes", "RichText" );
   if ( property.isNull() )
-    journal->setCustomProperty( "KNotes", "RichText", "false" );
+    journal->setCustomProperty( "KNotes", "RichText", "true" );
 
   mNoteList.insert( journal->uid(), new KNotesIconViewItem( mNotesView, journal ) );
 }
