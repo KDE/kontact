@@ -159,6 +159,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
     label->setAlignment( AlignHCenter | AlignVCenter );
     mLayout->addMultiCellWidget( label, 0, 0, 0, 2 );
     label->show();
+    mLabels.append( label );
   }
 }
 
