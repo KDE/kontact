@@ -113,8 +113,6 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
   else
     activeFolders = config.readListEntry( "ActiveFolders" );
 
-  bool showFullPath = config.readBoolEntry( "ShowFullPath", false );
-
   int counter = 0;
   QStringList::ConstIterator it;
   DCOPRef kmail( "kmail", "KMailIface" );
@@ -127,7 +125,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
       if ( numUnreadMsg == 0 ) continue;
 
       QString folderPath;
-      if ( showFullPath )
+      if ( mFullPath )
         folderRef.call( "displayPath()" ).get( folderPath );
       else
         folderRef.call( "displayName()" ).get( folderPath );

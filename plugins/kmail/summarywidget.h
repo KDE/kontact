@@ -63,6 +63,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
 
   private:
     void updateFolderList( const QStringList& folders );
+    bool mFullPath;
 
     QPtrList<QLabel> mLabels;
     QGridLayout *mLayout;

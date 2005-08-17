@@ -84,6 +84,7 @@ void KCMKMailSummary::initGUI()
   mFolderView->addColumn( i18n( "Summary" ) );
 
   mFullPath = new QCheckBox( i18n( "Show full path for folders" ), this );
+  mFullPath->setChecked( true );
 
   layout->addWidget( mFolderView );
   layout->addWidget( mFullPath );
@@ -145,7 +146,7 @@ void KCMKMailSummary::loadFolders()
       }
     }
   }
-  mFullPath->setChecked( config.readBoolEntry( "ShowFullPath", false ) );
+  mFullPath->setChecked( config.readBoolEntry( "ShowFullPath", true ) );
 }
 
 void KCMKMailSummary::storeFolders()
