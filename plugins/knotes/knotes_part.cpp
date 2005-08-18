@@ -130,7 +130,7 @@ QString KNotesPart::newNote( const QString& name, const QString& text )
 
 
   // Edit the new note if text is empty
-  if ( text.isNull() ) 
+  if ( text.isNull() )
   {
     if ( !mNoteEditDlg )
       mNoteEditDlg = new KNoteEditDlg( widget() );
@@ -138,7 +138,7 @@ QString KNotesPart::newNote( const QString& name, const QString& text )
     mNoteEditDlg->setTitle( journal->summary() );
     mNoteEditDlg->setText( journal->description() );
 
-    if ( mNoteEditDlg->exec() == QDialog::Accepted ) 
+    if ( mNoteEditDlg->exec() == QDialog::Accepted )
     {
       journal->setSummary( mNoteEditDlg->title() );
       journal->setDescription( mNoteEditDlg->text() );
@@ -271,9 +271,9 @@ void KNotesPart::popupRMB( QIconViewItem *item, const QPoint& pos )
 {
   QPopupMenu *contextMenu = NULL;
 
-  if ( item ) 
+  if ( item )
     contextMenu = static_cast<QPopupMenu *>( factory()->container( "note_context", this ) );
-  else 
+  else
     contextMenu = static_cast<QPopupMenu *>( factory()->container( "notepart_context", this ) );
 
   if ( !contextMenu )

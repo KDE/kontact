@@ -1,6 +1,6 @@
 /*
     This file is part of Kontact.
-    
+
     Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
     adapted for karm 2005 by Thorsten Staerk <kde@staerk.de>
 

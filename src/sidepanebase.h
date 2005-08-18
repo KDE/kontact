@@ -60,7 +60,7 @@ class SidePaneBase : public QVBox
     virtual void selectPlugin( Kontact::Plugin* ) = 0;
 
     /**
-      This is an overloaded member function. It behaves essentially like the 
+      This is an overloaded member function. It behaves essentially like the
       above function.
      */
     virtual void selectPlugin( const QString &name ) = 0;

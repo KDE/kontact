@@ -21,8 +21,8 @@
     with any edition of Qt, and distribute the resulting executable,
     without including the source code for Qt in the source distribution.
 */
-#ifndef __TEST_PLUGIN_H__
-#define __TEST_PLUGIN_H__
+#ifndef TEST_PLUGIN_H
+#define TEST_PLUGIN_H
 
 
 #include "plugin.h"
@@ -42,11 +42,10 @@ public:
 
 protected:
   KParts::Part* createPart();
-  
+
 private slots:
 
   void slotTestMenu();
 };
-
 
 #endif

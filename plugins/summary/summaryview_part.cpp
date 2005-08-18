@@ -378,7 +378,7 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   QHBoxLayout *hbl = new QHBoxLayout( mMainLayout );
   mUsernameLabel = new QLabel( mMainWidget );
   hbl->addWidget( mUsernameLabel );
-  mDateLabel = new QLabel( mMainWidget ); 
+  mDateLabel = new QLabel( mMainWidget );
   mDateLabel->setAlignment( AlignRight );
   hbl->addWidget( mDateLabel );
 

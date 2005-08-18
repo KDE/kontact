@@ -126,15 +126,15 @@ MiB:   at all. Thus opening a note that is on another desktop either leaves the 
 MiB:   window or moves the note. Either not perfect. Also, Kontact is likely to cover
 MiB:   notes that reside on the desktop, easy working is impossible. Which is the reason
 MiB:   I don't like the current approach too much.
-MiB: * but there's always hope---my idea would be to show the notes in Kontact itself. 
-MiB:   Now I tend to say it's a bit intrusive to not allow starting KNotes and 
+MiB: * but there's always hope---my idea would be to show the notes in Kontact itself.
+MiB:   Now I tend to say it's a bit intrusive to not allow starting KNotes and
 MiB:   Kontact/KNotes at the same time which raises the following issues:
 MiB:     - if KNotes and Kontact are running at the same time, changes to the notes have
-MiB:       to be synchronized (not much of a problem). Changes to be synced are the 
+MiB:       to be synchronized (not much of a problem). Changes to be synced are the
 MiB:       text/contents itself, the text color/style..., the note color. Not sure about
 MiB:       the note size. Not to be synced is the position.
-MiB:     - so the position in Kontact has to be saved individually and independently 
-MiB:       of the real desktop position (realized by attaching two display config 
+MiB:     - so the position in Kontact has to be saved individually and independently
+MiB:       of the real desktop position (realized by attaching two display config
 MiB:       files, works in make_it_cool branch mostly). Kontact's size is generally
 MiB:       smaller than the desktop.
 MiB:     - normally notes are on a specific desktop, now they have to be displayed on one
@@ -288,7 +288,7 @@ d The only advantange of the current approach is that we can allow the user to
 d run one of the parts standalone. I am not really sure we want that. I used to find
 d it desireable, but I am not sure anymore.
 
-MiB: But that's the whole idea behind Kontact---to be able to integrate apps 
+MiB: But that's the whole idea behind Kontact---to be able to integrate apps
 MiB: _and_ to have standalone versions. Just think about KNotes... impossible
 MiB: to have it limited to only Kontact!
 
@@ -324,7 +324,7 @@ MiB: hm. true. But not too important, IMHO. Just add a Kontact-DCOP interface :-
 
 h: Pretty much to talk about...
 h: 1. the speed of DCOP is not that important. I worry more about the integration
-h:    of all parts. So how would I cross reference an 'Event' with a 3rd party 
+h:    of all parts. So how would I cross reference an 'Event' with a 3rd party
 h:    Kaplan Part? A common base class for all PIM records comes into my mind - again -
 h:    Now with normal C++ you can pass a pointer through the framework
 h:    Doing it with DCOP we need to marshall and demarshall it. This part can get really
@@ -372,4 +372,4 @@ h:    to get a summary widget for a day?
 h: b) use some sort of XML to UI to represent the summary informations
 h: c) have a stand a lone part which opens the PIM data seperately? ( How
 h:    to synchronize access? )
-   
+

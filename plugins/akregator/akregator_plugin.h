@@ -38,7 +38,7 @@ class KAboutData;
 namespace Akregator {
 
 typedef KParts::ReadOnlyPart MyBasePart;
-      
+
 class UniqueAppHandler : public Kontact::UniqueAppHandler
 {
     public:
@@ -64,7 +64,7 @@ class Plugin : public Kontact::Plugin
     virtual QStringList configModules() const;
     virtual QStringList invisibleToolbarActions() const;
     virtual bool isRunningStandalone();
-    
+
   private slots:
     void showPart();
     void addFeed();

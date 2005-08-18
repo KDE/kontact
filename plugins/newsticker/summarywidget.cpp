@@ -137,7 +137,7 @@ void SummaryWidget::initDocuments()
     connectDCOPSignal( "rssservice", feedRef.obj(), "documentUpdated(DCOPRef)",
                        "documentUpdated(DCOPRef)", false );
 
-    qApp->processEvents( QEventLoop::ExcludeUserInput | 
+    qApp->processEvents( QEventLoop::ExcludeUserInput |
                          QEventLoop::ExcludeSocketNotifiers );
   }
 
@@ -165,7 +165,7 @@ void SummaryWidget::documentUpdated( DCOPRef feedRef )
     DCOPRef artRef = feedRef.call( "article(int)", i );
     QString title, url;
 
-    qApp->processEvents( QEventLoop::ExcludeUserInput | 
+    qApp->processEvents( QEventLoop::ExcludeUserInput |
                          QEventLoop::ExcludeSocketNotifiers );
 
     artRef.call( "title()" ).get( title );

@@ -229,7 +229,7 @@ void MainWindow::initWidgets()
   QValueList<int> sizes;
   sizes << 0;
   mSplitter->setSizes(sizes);
- 
+
   mSidePane->setActionCollection( actionCollection() );
 
   connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
@@ -578,7 +578,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
     mCurrentPlugin = plugin;
     KAction *action = plugin->newActions()->first();
-    
+
     createGUI( plugin->part() );
 
     setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );

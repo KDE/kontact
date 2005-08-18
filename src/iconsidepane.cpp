@@ -188,7 +188,7 @@ void EntryItem::paint( QPainter *p )
   }
 
   if ( !mPixmap.isNull() && navigator()->showIcons() ) {
-      int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) : 
+      int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) :
                               KDialog::marginHint();
     p->drawPixmap( x, y, mPixmap );
   }
@@ -290,7 +290,7 @@ void Navigator::highlightItem( EntryItem * item )
 
   setPaintActiveItem( mHighlightItem, true );
 
-  QTimer::singleShot( 2000, this, SLOT( slotStopHighlight() ) ); 
+  QTimer::singleShot( 2000, this, SLOT( slotStopHighlight() ) );
 }
 
 void Navigator::slotStopHighlight()
@@ -418,7 +418,7 @@ void Navigator::slotExecuted( QListBoxItem *item )
 {
   if ( !item )
     return;
-  
+
   EntryItem *entry = static_cast<EntryItem*>( item );
 
   emit pluginActivated( entry->plugin() );
@@ -594,7 +594,7 @@ void IconSidePane::indicateForegrunding( Kontact::Plugin *plugin )
   for ( uint i = 0; i < mNavigator->count(); ++i ) {
     EntryItem *item = static_cast<EntryItem*>( mNavigator->item( i ) );
     if ( item->plugin() == plugin ) {
-      mNavigator->highlightItem( item ); 
+      mNavigator->highlightItem( item );
       break;
     }
   }

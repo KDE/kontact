@@ -17,7 +17,7 @@ UNTIL KDE 3.2
 - make the headerWidget look nicer (we might use KIconLoader
   for larger icons) (slueppken)                                (done)
 - make all parts use the InfoExtension                         (done)
-- make KCMultiDialog not crash when non-existent desktop-file 
+- make KCMultiDialog not crash when non-existent desktop-file
   is given to addModule()                                      (done)
 - support icon and buttons sidebar                             (done)
 - enable/disable single plugins                                (done)
@@ -26,4 +26,4 @@ LATER
 ======
 
 - Support other groupware solutions
-- your stuff here... 
+- your stuff here...

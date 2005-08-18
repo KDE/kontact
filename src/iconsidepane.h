@@ -73,7 +73,7 @@ class EntryItem : public QListBoxItem
 
   protected:
     void reloadPixmap();
-    
+
     virtual void paint( QPainter *p );
 
   private:
@@ -91,7 +91,7 @@ class EntryItemToolTip : public QToolTip
 {
   public:
     EntryItemToolTip( QListBox* parent )
-      : QToolTip( parent->viewport() ), mListBox( parent ) 
+      : QToolTip( parent->viewport() ), mListBox( parent )
       {}
   protected:
     void maybeTip( const QPoint& p ) {

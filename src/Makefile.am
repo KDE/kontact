@@ -1,4 +1,4 @@
-SUBDIRS = about 
+SUBDIRS = about
 
 INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir) $(all_includes)
 
@@ -22,7 +22,7 @@ kde_module_LTLIBRARIES = kcm_kontact.la
 
 kcm_kontact_la_SOURCES = kcmkontact.cpp
 kcm_kontact_la_LDFLAGS = $(all_libraries) -module -avoid-version -no-undefined
-kcm_kontact_la_LIBADD = libkontact.la $(top_builddir)/libkdepim/libkdepim.la 
+kcm_kontact_la_LIBADD = libkontact.la $(top_builddir)/libkdepim/libkdepim.la
 kcm_kontact_la_COMPILE_FIRST = prefs.h
 
 

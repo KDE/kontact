@@ -21,8 +21,8 @@
     with any edition of Qt, and distribute the resulting executable,
     without including the source code for Qt in the source distribution.
 */
-#ifndef __TEST_PART_H__
-#define __TEST_PART_H__
+#ifndef TEST_PART_H
+#define TEST_PART_H
 
 
 

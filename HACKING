@@ -48,7 +48,7 @@ class MyClass
 {
   public:
     MyClass();
-    
+
   private:
     int mMyInt;
 };
@@ -72,7 +72,7 @@ Example:
 
   /**
     This function makes tea.
-    
+
     @param cups number of cups.
     @result tea
   */
