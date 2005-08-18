@@ -125,7 +125,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
       if ( numUnreadMsg == 0 ) continue;
 
       QString folderPath;
-      if ( mFullPath )
+      if ( config.readBoolEntry( "ShowFullPath", true ) )
         folderRef.call( "displayPath()" ).get( folderPath );
       else
         folderRef.call( "displayName()" ).get( folderPath );
