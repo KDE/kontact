@@ -175,7 +175,7 @@ void TodoSummaryWidget::updateView()
   if ( counter == 0 ) {
     QLabel *noTodos = new QLabel( i18n( "No to-dos pending" ), this );
     noTodos->setAlignment( AlignHCenter | AlignVCenter );
-    mLayout->addWidget( noTodos, 0, 2 );
+    mLayout->addWidget( noTodos, 0, 1 );
     mLabels.append( noTodos );
   }
 
@@ -205,7 +205,7 @@ bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent* e )
 
 QStringList TodoSummaryWidget::configModules() const
 {
-  return QStringList( "kcmkorgsummary.desktop" );
+  return QStringList( "kcmtodosummary.desktop" );
 }
 
 #include "todosummarywidget.moc"
