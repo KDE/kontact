@@ -12,6 +12,7 @@ X-KDE-ParentComponents=kontact_specialdatesplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Special Dates
+Name[br]=Deiziadoù dibar
 Name[ca]=Dates especials
 Name[cs]=Speciální datumy
 Name[da]=Særlige datoer
