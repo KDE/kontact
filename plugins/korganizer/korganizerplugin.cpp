@@ -36,6 +36,7 @@
 
 #include <dcopclient.h>
 
+#include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
 
@@ -182,7 +183,8 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       KPIM::MailSummary mail = mails.first();
       QString txt = i18n("From: %1\nTo: %2\nSubject: %3").arg( mail.from() )
                     .arg( mail.to() ).arg( mail.subject() );
-      QString uri = "kmail:" + QString::number( mail.serialNumber() );
+      QString uri = KDEPIMPROTOCOL_EMAIL + 
+                    QString::number( mail.serialNumber() );
       interface()->openEventEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
                                     uri );
     }

@@ -35,6 +35,7 @@
 #include <dcopclient.h>
 
 #include <libkdepim/maillistdrag.h>
+#include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
 
 #include "core.h"
@@ -179,7 +180,8 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       KPIM::MailSummary mail = mails.first();
       QString txt = i18n("From: %1\nTo: %2\nSubject: %3").arg( mail.from() )
                     .arg( mail.to() ).arg( mail.subject() );
-      QString uri = "kmail:" + QString::number( mail.serialNumber() ) + "/" +
+      QString uri = KDEPIMPROTOCOL_EMAIL + 
+                    QString::number( mail.serialNumber() ) + "/" +
                     mail.messageId();
       interface()->openTodoEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
                                    uri );
