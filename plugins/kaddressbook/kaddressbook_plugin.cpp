@@ -102,10 +102,7 @@ KAddressBookIface_stub *KAddressbookPlugin::interface()
 
 void KAddressbookPlugin::slotNewContact()
 {
-  (void) part(); // ensure part is loaded
-  Q_ASSERT( mStub );
-  if ( mStub )
-    mStub->newContact();
+  interface()->newContact();
 }
 
 bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
