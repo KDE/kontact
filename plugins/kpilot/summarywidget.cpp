@@ -207,7 +207,7 @@ void SummaryWidget::showSyncLog( const QString &filename )
   }
 
   QTextStream s( &f );
-  while ( !s.eof() )
+  while ( !s.atEnd() )
     edit->append( s.readLine() );
 
   edit->moveCursor( QTextEdit::MoveHome, false );

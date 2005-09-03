@@ -35,6 +35,7 @@
 
 #include <kapplication.h>
 #include <kglobalsettings.h>
+#include <QAbstractEventDispatcher>
 
 #include "knotetip.h"
 #include "knotes_part_p.h"
@@ -75,7 +76,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
   mNoteIVI = item;
 
   if ( !mNoteIVI ) {
-    killTimers();
+    QAbstractEventDispatcher::instance()->unregisterTimers(this);
     if ( isVisible() ) {
       setFilter( false );
       hide();
@@ -104,7 +105,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
     resize( w, QMIN( h, desk.height() / 2 - 20 ) );
 
     hide();
-    killTimers();
+    QAbstractEventDispatcher::instance()->unregisterTimers(this);
     setFilter( true );
     startTimer( 600 );  // delay showing the tooltip for 0.7 sec
   }
@@ -121,7 +122,7 @@ void KNoteTip::resizeEvent( QResizeEvent *ev )
 
 void KNoteTip::timerEvent( QTimerEvent * )
 {
-  killTimers();
+  QAbstractEventDispatcher::instance()->unregisterTimers(this);
 
   if ( !isVisible() ) {
     startTimer( 15000 ); // show the tooltip for 15 sec
@@ -144,7 +145,7 @@ bool KNoteTip::eventFilter( QObject *, QEvent *e )
     case QEvent::FocusIn:
     case QEvent::FocusOut:
     case QEvent::Wheel:
-      killTimers();
+      QAbstractEventDispatcher::instance()->unregisterTimers(this);
       setFilter( false );
       hide();
     default:
