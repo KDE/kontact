@@ -25,9 +25,12 @@
 #define KONTACT_PLUGIN_H
 
 #include <qobject.h>
+//Added by qt3to4:
+#include <Q3CString>
+#include <QDropEvent>
 #include <kxmlguiclient.h>
 #include <kdepimmacros.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 
 class QStringList;
 class DCOPClient;
@@ -115,7 +118,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     /**
       Set name of library which contains the KPart used by this plugin.
     */
-    void setPartLibraryName( const QCString & );
+    void setPartLibraryName( const Q3CString & );
 
     /**
       Create the DCOP interface for the given @p serviceType, if this
@@ -214,7 +217,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     /**
       FIXME: write API doc for Kontact::Plugin::newActions().
     */
-    QPtrList<KAction>* newActions() const;
+    Q3PtrList<KAction>* newActions() const;
 
     /**
       Returns a list of action name which shall be hidden in the main toolbar.

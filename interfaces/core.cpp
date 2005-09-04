@@ -27,6 +27,8 @@
 #include <kparts/componentfactory.h>
 #include <kdebug.h>
 #include <qtimer.h>
+//Added by qt3to4:
+#include <Q3CString>
 #include <klocale.h>
 
 using namespace Kontact;
@@ -56,7 +58,7 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
 {
   kdDebug(5601) << "Core::createPart(): " << libname << endl;
 
-  QMap<QCString,KParts::ReadOnlyPart *>::ConstIterator it;
+  QMap<Q3CString,KParts::ReadOnlyPart *>::ConstIterator it;
   it = mParts.find( libname );
   if ( it != mParts.end() ) return it.data();
 
@@ -102,8 +104,8 @@ void Core::slotPartDestroyed( QObject * obj )
 {
   // the part was deleted, we need to remove it from the part map to not return
   // a dangling pointer in createPart
-  QMap<QCString, KParts::ReadOnlyPart*>::Iterator end = mParts.end();
-  QMap<QCString, KParts::ReadOnlyPart*>::Iterator it = mParts.begin();
+  QMap<Q3CString, KParts::ReadOnlyPart*>::Iterator end = mParts.end();
+  QMap<Q3CString, KParts::ReadOnlyPart*>::Iterator it = mParts.begin();
   for ( ; it != end; ++it ) {
     if ( it.data() == obj ) {
       mParts.remove( it );

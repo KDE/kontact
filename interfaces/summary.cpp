@@ -23,11 +23,16 @@
 #include "summary.h"
 
 #include <qimage.h>
-#include <qdragobject.h>
-#include <qhbox.h>
+#include <q3dragobject.h>
+#include <q3hbox.h>
 #include <qfont.h>
 #include <qlabel.h>
 #include <qpainter.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QMouseEvent>
+#include <QDragEnterEvent>
+#include <QDropEvent>
 
 #include <kiconloader.h>
 #include <kdialog.h>
@@ -46,7 +51,7 @@ Summary::~Summary()
 
 QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QString& heading)
 {
-  QHBox* hbox = new QHBox( parent );
+  Q3HBox* hbox = new Q3HBox( parent );
   hbox->setMargin( 2 );
 
   QFont boldFont;
@@ -60,7 +65,7 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
   label->setAcceptDrops( true );
 
   label = new QLabel( heading, hbox );
-  label->setAlignment( AlignLeft|AlignVCenter );
+  label->setAlignment( Qt::AlignLeft|Qt::AlignVCenter );
   label->setIndent( KDialog::spacingHint() );
   label->setFont( boldFont );
   label->setPaletteForegroundColor( colorGroup().light() );
@@ -82,14 +87,14 @@ void Summary::mousePressEvent( QMouseEvent *event )
 
 void Summary::mouseMoveEvent( QMouseEvent *event )
 {
-  if ( (event->state() & LeftButton) &&
+  if ( (event->state() & Qt::LeftButton) &&
        (event->pos() - mDragStartPoint).manhattanLength() > 4 ) {
 
-    QDragObject *drag = new QTextDrag( "", this, "SummaryWidgetDrag" );
+    Q3DragObject *drag = new Q3TextDrag( "", this, "SummaryWidgetDrag" );
 
     QPixmap pm = QPixmap::grabWidget( this );
     if ( pm.width() > 300 )
-      pm = pm.convertToImage().smoothScale( 300, 300, QImage::ScaleMin );
+      pm = pm.convertToImage().smoothScale( 300, 300, Qt::KeepAspectRatio );
 
     QPainter painter;
     painter.begin( &pm );
@@ -104,7 +109,7 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
 
 void Summary::dragEnterEvent( QDragEnterEvent *event )
 {
-  event->accept( QTextDrag::canDecode( event ) );
+  event->accept( Q3TextDrag::canDecode( event ) );
 }
 
 void Summary::dropEvent( QDropEvent *event )

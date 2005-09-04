@@ -27,6 +27,8 @@
 #include <kwin.h>
 #include <dcopclient.h>
 #include <kdebug.h>
+//Added by qt3to4:
+#include <Q3CString>
 
 /*
  Test plan for the various cases of interaction between standalone apps and kontact:
@@ -82,8 +84,8 @@ int UniqueAppHandler::newInstance()
   return 0;
 }
 
-bool UniqueAppHandler::process( const QCString &fun, const QByteArray &data,
-                                QCString& replyType, QByteArray &replyData )
+bool UniqueAppHandler::process( const DCOPCString &fun, const QByteArray &data,
+                                DCOPCString& replyType, QByteArray &replyData )
 {
   if ( fun == "newInstance()" ) {
     replyType = "int";
@@ -92,21 +94,25 @@ bool UniqueAppHandler::process( const QCString &fun, const QByteArray &data,
     loadCommandLineOptions();
 
     // This bit is duplicated from KUniqueApplication::processDelayed()
-    QDataStream ds( data, IO_ReadOnly );
+    QByteArray tmp(data);
+	QDataStream ds( &tmp,QIODevice::ReadOnly );
+    ds.setVersion(QDataStream::Qt_3_1);
     KCmdLineArgs::loadAppArgs( ds );
     if ( !ds.atEnd() ) { // backwards compatibility
-      QCString asn_id;
+      Q3CString asn_id;
       ds >> asn_id;
       kapp->setStartupId( asn_id );
     }
 
-    QDataStream _replyStream( replyData, IO_WriteOnly );
+    QDataStream _replyStream( &replyData,QIODevice::WriteOnly );
+    _replyStream.setVersion(QDataStream::Qt_3_1);
     _replyStream << newInstance( );
   } else if ( fun == "load()" ) {
     replyType = "bool";
     (void)mPlugin->part(); // load the part without bringing it to front
 
-    QDataStream _replyStream( replyData, IO_WriteOnly );
+    QDataStream _replyStream( &replyData,QIODevice::WriteOnly );
+    _replyStream.setVersion(QDataStream::Qt_3_1);
     _replyStream << true;
   } else {
     return DCOPObject::process( fun, data, replyType, replyData );
@@ -114,16 +120,16 @@ bool UniqueAppHandler::process( const QCString &fun, const QByteArray &data,
   return true;
 }
 
-QCStringList UniqueAppHandler::interfaces()
+DCOPCStringList UniqueAppHandler::interfaces()
 {
-  QCStringList ifaces = DCOPObject::interfaces();
+  DCOPCStringList ifaces = DCOPObject::interfaces();
   ifaces += "Kontact::UniqueAppHandler";
   return ifaces;
 }
 
-QCStringList UniqueAppHandler::functions()
+DCOPCStringList UniqueAppHandler::functions()
 {
-  QCStringList funcs = DCOPObject::functions();
+  DCOPCStringList funcs = DCOPObject::functions();
   funcs << "int newInstance()";
   funcs << "bool load()";
   return funcs;
@@ -141,8 +147,8 @@ UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin
 
   if ( mRunningStandalone ) {
     kapp->dcopClient()->setNotifications( true );
-    connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QCString& ) ),
-             this, SLOT( unregisteredFromDCOP( const QCString& ) ) );
+    connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const Q3CString& ) ),
+             this, SLOT( unregisteredFromDCOP( const Q3CString& ) ) );
   } else {
     mFactory->createHandler( mPlugin );
   }
@@ -156,11 +162,11 @@ UniqueAppWatcher::~UniqueAppWatcher()
   delete mFactory;
 }
 
-void UniqueAppWatcher::unregisteredFromDCOP( const QCString& appId )
+void UniqueAppWatcher::unregisteredFromDCOP( const Q3CString& appId )
 {
   if ( appId == mPlugin->name() && mRunningStandalone ) {
-    disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QCString& ) ),
-                this, SLOT( unregisteredFromDCOP( const QCString& ) ) );
+    disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const Q3CString& ) ),
+                this, SLOT( unregisteredFromDCOP( const Q3CString& ) ) );
     kdDebug(5601) << k_funcinfo << appId << endl;
     mFactory->createHandler( mPlugin );
     kapp->dcopClient()->setNotifications( false );

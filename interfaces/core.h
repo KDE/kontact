@@ -24,6 +24,9 @@
 #define KONTACT_CORE_H
 
 #include <qdatetime.h>
+//Added by qt3to4:
+#include <Q3ValueList>
+#include <Q3CString>
 #include <kdepimmacros.h>
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
@@ -59,7 +62,7 @@ class KDE_EXPORT Core : public KParts::MainWindow
     /**
       Returns the pointer list of available plugins.
      */
-    virtual QValueList<Kontact::Plugin*> pluginList() const = 0;
+    virtual Q3ValueList<Kontact::Plugin*> pluginList() const = 0;
 
     /**
      @internal (for Plugin)
@@ -88,7 +91,7 @@ class KDE_EXPORT Core : public KParts::MainWindow
     void checkNewDay();
 
   private:
-    QMap<QCString,KParts::ReadOnlyPart *> mParts;
+    QMap<Q3CString,KParts::ReadOnlyPart *> mParts;
     QDate mLastDate;
 
     class Private;

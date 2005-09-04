@@ -20,7 +20,10 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <qobjectlist.h>
+#include <qobject.h>
+//Added by qt3to4:
+#include <Q3CString>
+#include <Q3PtrList>
 
 #include <dcopclient.h>
 #include <kaboutdata.h>
@@ -40,12 +43,12 @@ class Plugin::Private
   public:
     Kontact::Core *core;
     DCOPClient *dcopClient;
-    QPtrList<KAction> *newActions;
+    Q3PtrList<KAction> *newActions;
     QString identifier;
     QString title;
     QString icon;
     QString executableName;
-    QCString partLibraryName;
+    Q3CString partLibraryName;
     bool hasPart;
     KParts::ReadOnlyPart *part;
 };
@@ -59,7 +62,7 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
 
   d->core = core;
   d->dcopClient = 0;
-  d->newActions = new QPtrList<KAction>;
+  d->newActions = new Q3PtrList<KAction>;
   d->hasPart = true;
   d->part = 0;
 }
@@ -112,7 +115,7 @@ QString Plugin::executableName() const
   return d->executableName;
 }
 
-void Plugin::setPartLibraryName( const QCString &libName )
+void Plugin::setPartLibraryName( const Q3CString &libName )
 {
   d->partLibraryName = libName;
 }
@@ -174,7 +177,7 @@ void Plugin::insertNewAction( KAction *action )
   d->newActions->append( action );
 }
 
-QPtrList<KAction> *Plugin::newActions() const
+Q3PtrList<KAction> *Plugin::newActions() const
 {
   return d->newActions;
 }
