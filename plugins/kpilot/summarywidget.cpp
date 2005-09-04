@@ -28,8 +28,13 @@
 #include <qtooltip.h>
 #include <qfile.h>
 #include <qlabel.h>
-#include <qtextedit.h>
-#include <qvbox.h>
+#include <q3textedit.h>
+#include <q3vbox.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QGridLayout>
+#include <QTextStream>
+#include <Q3CString>
 
 #include <dcopclient.h>
 #include <dcopref.h>
@@ -98,7 +103,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   // Conduits:
   row++;
   mConduitsTextLabel = new QLabel( i18n( "<i>Conduits:</i>" ), this );
-  mConduitsTextLabel->setAlignment( AlignAuto | AlignTop | ExpandTabs );
+  mConduitsTextLabel->setAlignment( Qt::AlignAuto | Qt::AlignTop | Qt::ExpandTabs );
   mLayout->addWidget( mConduitsTextLabel, row, 0 );
   mConduitsLabel = new QLabel( i18n( "No information available" ), this );
   mConduitsLabel->setAlignment( mConduitsLabel->alignment() | Qt::WordBreak );
@@ -119,7 +124,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
   connectDCOPSignal( 0, 0, "kpilotDaemonStatusDetails(QDateTime,QString,QStringList,QString,QString,QString,bool)",
                      "receiveDaemonStatusDetails(QDateTime,QString,QStringList,QString,QString,QString,bool)", false );
-	connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QCString & ) ), SLOT( slotAppRemoved( const QCString& ) ) );
+	connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const Q3CString & ) ), SLOT( slotAppRemoved( const Q3CString& ) ) );
 }
 
 SummaryWidget::~SummaryWidget()
@@ -197,11 +202,11 @@ void SummaryWidget::showSyncLog( const QString &filename )
   KDialogBase dlg( this, 0, true, QString::null, KDialogBase::Ok, KDialogBase::Ok );
   dlg.setCaption( i18n( "KPilot HotSync Log" ) );
 
-  QTextEdit *edit = new QTextEdit( dlg.makeVBoxMainWidget() );
+  Q3TextEdit *edit = new Q3TextEdit( dlg.makeVBoxMainWidget() );
   edit->setReadOnly( true );
 
   QFile f(filename);
-  if ( !f.open( IO_ReadOnly ) ) {
+  if ( !f.open( QIODevice::ReadOnly ) ) {
     KMessageBox::error( this, i18n( "Unable to open Hotsync log %1." ).arg( filename ) );
     return;
   }
@@ -210,7 +215,7 @@ void SummaryWidget::showSyncLog( const QString &filename )
   while ( !s.atEnd() )
     edit->append( s.readLine() );
 
-  edit->moveCursor( QTextEdit::MoveHome, false );
+  edit->moveCursor( Q3TextEdit::MoveHome, false );
 
   f.close();
 
@@ -221,14 +226,16 @@ void SummaryWidget::showSyncLog( const QString &filename )
 void SummaryWidget::startKPilot()
 {
   QString error;
-  QCString appID;
-  if ( !KApplication::kdeinitExec( "kpilotDaemon", QString( "--fail-silently" ) ) ) {
+  Q3CString appID;
+  QStringList lst;
+  lst << "--fail-silently";
+  if ( !KApplication::kdeinitExec( "kpilotDaemon", /*QString( "--fail-silently" )*/lst ) ) {
     kdDebug(5602) << "No service available..." << endl;
     mStartedDaemon = true;
   }
 }
 
-void SummaryWidget::slotAppRemoved( const QCString & appId )
+void SummaryWidget::slotAppRemoved( const Q3CString & appId )
 {
   if ( appId == "kpilotDaemon" )
   {

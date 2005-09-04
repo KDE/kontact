@@ -27,7 +27,7 @@
 
 #include <kcmodule.h>
 
-class QButtonGroup;
+class Q3ButtonGroup;
 class QCheckBox;
 class QSpinBox;
 
@@ -53,9 +53,9 @@ class KCMSDSummary : public KCModule
   private:
     void initGUI();
 
-    QButtonGroup *mDaysGroup;
-    QButtonGroup *mCalendarGroup;
-    QButtonGroup *mContactGroup;
+    Q3ButtonGroup *mDaysGroup;
+    Q3ButtonGroup *mCalendarGroup;
+    Q3ButtonGroup *mContactGroup;
     QCheckBox *mShowBirthdaysFromKAB;
     QCheckBox *mShowBirthdaysFromCal;
     QCheckBox *mShowAnniversariesFromKAB;

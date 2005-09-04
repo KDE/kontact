@@ -23,7 +23,9 @@
 */
 
 #include <qwidget.h>
-#include <qdragobject.h>
+#include <q3dragobject.h>
+//Added by qt3to4:
+#include <QDropEvent>
 
 #include <kapplication.h>
 #include <kabc/vcardconverter.h>
@@ -134,7 +136,7 @@ bool TodoPlugin::createDCOPInterface( const QString& serviceType )
 
 bool TodoPlugin::canDecodeDrag( QMimeSource *mimeSource )
 {
-  return QTextDrag::canDecode( mimeSource ) ||
+  return Q3TextDrag::canDecode( mimeSource ) ||
          KPIM::MailListDrag::canDecode( mimeSource );
 }
 
@@ -166,7 +168,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  if ( QTextDrag::decode( event, text ) ) {
+  if ( Q3TextDrag::decode( event, text ) ) {
     interface()->openTodoEditor( text );
     return;
   }

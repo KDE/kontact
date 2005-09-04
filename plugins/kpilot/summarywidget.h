@@ -32,11 +32,15 @@
 
 #include <qmap.h>
 #include <qpixmap.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qstringlist.h>
 #include <qtimer.h>
 #include <qwidget.h>
 #include <qdatetime.h>
+//Added by qt3to4:
+#include <QLabel>
+#include <QGridLayout>
+#include <Q3CString>
 
 class QGridLayout;
 class QLabel;
@@ -63,7 +67,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     void updateView();
     void showSyncLog( const QString &filename );
     void startKPilot();
-    void slotAppRemoved( const QCString & );
+    void slotAppRemoved( const Q3CString & );
   private:
     QTimer mTimer;
 

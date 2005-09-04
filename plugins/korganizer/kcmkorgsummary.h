@@ -27,7 +27,7 @@
 #include <kcmodule.h>
 
 class QSpinxBox;
-class QButtonGroup;
+class Q3ButtonGroup;
 
 class KCMKOrgSummary : public KCModule
 {
@@ -48,8 +48,8 @@ class KCMKOrgSummary : public KCModule
   private:
     void initGUI();
 
-    QButtonGroup *mCalendarGroup;
-    QButtonGroup *mTodoGroup;
+    Q3ButtonGroup *mCalendarGroup;
+    Q3ButtonGroup *mTodoGroup;
     QSpinBox *mCustomDays;
 };
 

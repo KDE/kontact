@@ -31,6 +31,8 @@
 #include "kaddressbookiface_stub.h"
 #include "plugin.h"
 #include <uniqueapphandler.h>
+//Added by qt3to4:
+#include <QDropEvent>
 
 class KAboutData;
 

@@ -24,6 +24,13 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qtooltip.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QVBoxLayout>
+#include <Q3ValueList>
+#include <QGridLayout>
+#include <QEvent>
+#include <Q3CString>
 
 #include <dcopclient.h>
 #include <dcopref.h>
@@ -35,6 +42,7 @@
 #include <klocale.h>
 #include <kprocess.h>
 #include <kurllabel.h>
+#include <q3tl.h>
 
 #include "summarywidget.h"
 
@@ -50,12 +58,12 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   mLayout->addWidget( header );
 
   QString error;
-  QCString appID;
+  Q3CString appID;
   bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "KWeatherService" ) ) {
     if ( KApplication::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
       QLabel *label = new QLabel( i18n( "No weather dcop service available;\nyou need KWeather to use this plugin." ), this );
-      mLayout->addWidget( label, Qt::AlignHCenter | AlignVCenter );
+      mLayout->addWidget( label, Qt::AlignHCenter | Qt::AlignVCenter );
       serviceAvailable = false;
     }
   }
@@ -94,10 +102,10 @@ void SummaryWidget::updateView()
   }
 
 
-  QValueList<WeatherData> dataList = mWeatherMap.values();
+  Q3ValueList<WeatherData> dataList = mWeatherMap.values();
   qHeapSort( dataList );
 
-  QValueList<WeatherData>::Iterator it;
+  Q3ValueList<WeatherData>::Iterator it;
   for ( it = dataList.begin(); it != dataList.end(); ++it ) {
     QString cover;
     for ( uint i = 0; i < (*it).cover().count(); ++i )
@@ -125,7 +133,7 @@ void SummaryWidget::updateView()
     QFont font = label->font();
     font.setBold( true );
     label->setFont( font );
-    label->setAlignment( AlignLeft );
+    label->setAlignment( Qt::AlignLeft );
     layout->addMultiCellWidget( label, 0, 0, 1, 2 );
     mLabels.append( label );
 
@@ -143,7 +151,7 @@ void SummaryWidget::updateView()
     QToolTip::add( label, labelText.replace( " ", "&nbsp;" ) );
 
     label = new QLabel( cover, this );
-    label->setAlignment( AlignLeft );
+    label->setAlignment( Qt::AlignLeft );
     layout->addMultiCellWidget( label, 1, 1, 1, 2 );
     mLabels.append( label );
   }

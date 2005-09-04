@@ -36,6 +36,8 @@
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qpixmap.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
 
 #include "kcmkontactsummary.h"
 
@@ -48,11 +50,11 @@ extern "C"
   }
 }
 
-class PluginItem : public QCheckListItem
+class PluginItem : public Q3CheckListItem
 {
   public:
     PluginItem( KPluginInfo *info, KListView *parent )
-      : QCheckListItem( parent, QString::null, QCheckListItem::CheckBox ),
+      : Q3CheckListItem( parent, QString::null, Q3CheckListItem::CheckBox ),
         mInfo( info )
     {
       QPixmap pm = KGlobal::iconLoader()->loadIcon( mInfo->icon(), KIcon::Small );
@@ -103,8 +105,8 @@ KCMKontactSummary::KCMKontactSummary( QWidget *parent, const char *name )
 
   layout->setStretchFactor( mPluginView, 1 );
 
-  connect( mPluginView, SIGNAL( clicked( QListViewItem* ) ),
-           this, SLOT( itemClicked( QListViewItem* ) ) );
+  connect( mPluginView, SIGNAL( clicked( Q3ListViewItem* ) ),
+           this, SLOT( itemClicked( Q3ListViewItem* ) ) );
   load();
 
   KAboutData *about = new KAboutData( I18N_NOOP( "kontactsummary" ),
@@ -165,7 +167,7 @@ void KCMKontactSummary::save()
 {
   QStringList activeSummaries;
 
-  QListViewItemIterator it( mPluginView, QListViewItemIterator::Checked );
+  Q3ListViewItemIterator it( mPluginView, Q3ListViewItemIterator::Checked );
   while ( it.current() ) {
     PluginItem *item = static_cast<PluginItem*>( it.current() );
     activeSummaries.append( item->pluginInfo()->pluginName() );
@@ -181,7 +183,7 @@ void KCMKontactSummary::defaults()
   emit changed( true );
 }
 
-void KCMKontactSummary::itemClicked( QListViewItem* )
+void KCMKontactSummary::itemClicked( Q3ListViewItem* )
 {
   emit changed( true );
 }

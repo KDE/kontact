@@ -24,6 +24,12 @@
 
 #include <qlabel.h>
 #include <qlayout.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QVBoxLayout>
+#include <QGridLayout>
+#include <QEvent>
+#include <Q3CString>
 
 #include <dcopref.h>
 #include <kapplication.h>
@@ -43,7 +49,7 @@
 
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ),
-    DCOPObject( QCString("MailSummary") ),
+    DCOPObject( Q3CString("MailSummary") ),
     mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
@@ -68,7 +74,7 @@ void SummaryWidget::selectFolder( const QString& folder )
   else
     mPlugin->core()->selectPlugin( mPlugin );
   QByteArray data;
-  QDataStream arg( data, IO_WriteOnly );
+  QDataStream arg( data, QIODevice::WriteOnly );
   arg << folder;
   emitDCOPSignal( "kmailSelectFolder(QString)", data );
 }

@@ -23,6 +23,11 @@
 
 #include <qlabel.h>
 #include <qlayout.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QVBoxLayout>
+#include <QGridLayout>
+#include <QEvent>
 
 #include <kdialog.h>
 #include <kglobal.h>

@@ -21,10 +21,14 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <qframe.h>
+#include <q3frame.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qtimer.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <Q3ValueList>
+#include <QHBoxLayout>
 
 #include <dcopclient.h>
 #include <kaction.h>
@@ -38,7 +42,7 @@
 #include <kservice.h>
 #include <ktrader.h>
 #include <kstandarddirs.h>
-#include <qscrollview.h>
+#include <q3scrollview.h>
 #include <kglobal.h>
 #include <klocale.h>
 #include <kcmultidialog.h>
@@ -168,9 +172,9 @@ void SummaryViewPart::updateWidgets()
   // Collect all summary widgets with a summaryHeight > 0
   QStringList loadedSummaries;
 
-  QValueList<Kontact::Plugin*> plugins = mCore->pluginList();
-  QValueList<Kontact::Plugin*>::ConstIterator end = plugins.end();
-  QValueList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
+  Q3ValueList<Kontact::Plugin*> plugins = mCore->pluginList();
+  Q3ValueList<Kontact::Plugin*>::ConstIterator end = plugins.end();
+  Q3ValueList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
   for ( ; it != end; ++it ) {
     Kontact::Plugin *plugin = *it;
     if ( activeSummaries.find( plugin->identifier() ) == activeSummaries.end() )
@@ -216,8 +220,8 @@ void SummaryViewPart::updateWidgets()
   }
 
   // Add vertical line between the two rows of summary widgets.
-  QFrame *vline = new QFrame( mFrame );
-  vline->setFrameStyle( QFrame::VLine | QFrame::Plain );
+  Q3Frame *vline = new Q3Frame( mFrame );
+  vline->setFrameStyle( Q3Frame::VLine | Q3Frame::Plain );
 
   QHBoxLayout *layout = new QHBoxLayout( mFrame );
 
@@ -360,16 +364,16 @@ QStringList SummaryViewPart::configModules() const
 
 void SummaryViewPart::initGUI( Kontact::Core *core )
 {
-  QScrollView *sv = new QScrollView( core );
+  Q3ScrollView *sv = new Q3ScrollView( core );
 
-  sv->setResizePolicy( QScrollView::AutoOneFit );
-  sv->setFrameStyle( QFrame::NoFrame | QFrame::Plain );
-  sv->setHScrollBarMode( QScrollView::AlwaysOff );
+  sv->setResizePolicy( Q3ScrollView::AutoOneFit );
+  sv->setFrameStyle( Q3Frame::NoFrame | Q3Frame::Plain );
+  sv->setHScrollBarMode( Q3ScrollView::AlwaysOff );
 
-  mMainWidget = new QFrame( sv->viewport() );
+  mMainWidget = new Q3Frame( sv->viewport() );
   sv->addChild( mMainWidget );
-  mMainWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-  sv->setFocusPolicy( QWidget::StrongFocus );
+  mMainWidget->setFrameStyle( Q3Frame::Panel | Q3Frame::Sunken );
+  sv->setFocusPolicy( Qt::StrongFocus );
   setWidget( sv );
 
   mMainLayout = new QVBoxLayout( mMainWidget,KDialog::marginHint(),
@@ -382,8 +386,8 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   mDateLabel->setAlignment( AlignRight );
   hbl->addWidget( mDateLabel );
 
-  QFrame *hline = new QFrame( mMainWidget );
-  hline->setFrameStyle( QFrame::HLine | QFrame::Plain );
+  Q3Frame *hline = new Q3Frame( mMainWidget );
+  hline->setFrameStyle( Q3Frame::HLine | Q3Frame::Plain );
   mMainLayout->insertWidget( 1, hline );
 
   mFrame = new DropWidget( mMainWidget );

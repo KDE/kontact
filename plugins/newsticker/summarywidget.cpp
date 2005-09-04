@@ -23,11 +23,15 @@
 
 #include <qclipboard.h>
 #include <qeventloop.h>
-#include <qhbox.h>
+#include <q3hbox.h>
 #include <qlayout.h>
 #include <qpixmap.h>
-#include <qpopupmenu.h>
+#include <q3popupmenu.h>
 #include <qcursor.h>
+//Added by qt3to4:
+#include <QLabel>
+#include <QVBoxLayout>
+#include <Q3CString>
 
 #include <dcopclient.h>
 #include <kapplication.h>
@@ -54,7 +58,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   vlay->addWidget( header );
 
   QString error;
-  QCString appID;
+  Q3CString appID;
 
   bool dcopAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "rssservice" ) ) {
@@ -209,7 +213,7 @@ void SummaryWidget::updateView()
 
   FeedList::Iterator it;
   for ( it = mFeeds.begin(); it != mFeeds.end(); ++it ) {
-    QHBox *hbox = new QHBox( mBaseWidget );
+    Q3HBox *hbox = new Q3HBox( mBaseWidget );
     mLayout->addWidget( hbox );
 
     // icon
@@ -227,7 +231,7 @@ void SummaryWidget::updateView()
     // header
     QLabel *label = new QLabel( hbox );
     label->setText( KCharsets::resolveEntities( (*it).title ) );
-    label->setAlignment( AlignLeft|AlignVCenter );
+    label->setAlignment( Qt::AlignLeft|Qt::AlignVCenter );
     label->setFont( boldFont );
     label->setIndent( 6 );
     label->setMaximumSize( label->minimumSizeHint() );
@@ -242,7 +246,7 @@ void SummaryWidget::updateView()
     int numArticles = 0;
     for ( artIt = articles.begin(); artIt != articles.end() && numArticles < mArticleCount; ++artIt ) {
       urlLabel = new KURLLabel( (*artIt).second.url(), (*artIt).first, mBaseWidget );
-      urlLabel->setTextFormat( RichText );
+      urlLabel->setTextFormat( Qt::RichText );
       mLabels.append( urlLabel );
       mLayout->addWidget( urlLabel );
 
@@ -262,7 +266,7 @@ void SummaryWidget::updateView()
 
 QStringList SummaryWidget::configModules() const
 {
-  return "kcmkontactknt.desktop";
+  return QStringList("kcmkontactknt.desktop");
 }
 
 void SummaryWidget::updateSummary( bool )
@@ -272,7 +276,7 @@ void SummaryWidget::updateSummary( bool )
 
 void SummaryWidget::rmbMenu( const QString& url )
 {
-  QPopupMenu menu;
+  Q3PopupMenu menu;
   menu.insertItem( i18n( "Copy URL to Clipboard" ) );
   int id = menu.exec( QCursor::pos() );
   if ( id != -1 )

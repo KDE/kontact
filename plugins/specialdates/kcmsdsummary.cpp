@@ -22,12 +22,16 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qbuttongroup.h>
+#include <q3buttongroup.h>
 #include <qcheckbox.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qradiobutton.h>
 #include <qspinbox.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QGridLayout>
 
 #include <kaboutdata.h>
 #include <kapplication.h>
@@ -87,7 +91,7 @@ void KCMSDSummary::initGUI()
 {
   QGridLayout *layout = new QGridLayout( this, 3, 2, KDialog::spacingHint() );
 
-  mDaysGroup = new QButtonGroup( 0, Vertical, i18n( "Special Dates Summary" ), this );
+  mDaysGroup = new Q3ButtonGroup( 0, Vertical, i18n( "Special Dates Summary" ), this );
   QVBoxLayout *boxLayout = new QVBoxLayout( mDaysGroup->layout(),
                                             KDialog::spacingHint() );
 
@@ -119,7 +123,7 @@ void KCMSDSummary::initGUI()
 
   layout->addMultiCellWidget( mDaysGroup, 0, 0, 0, 1 );
 
-  mCalendarGroup = new QButtonGroup( 1, Horizontal, i18n( "Special Dates From Calendar" ), this );
+  mCalendarGroup = new Q3ButtonGroup( 1, Horizontal, i18n( "Special Dates From Calendar" ), this );
 
   mShowBirthdaysFromCal = new QCheckBox( i18n( "Show birthdays" ), mCalendarGroup );
   mShowAnniversariesFromCal = new QCheckBox( i18n( "Show anniversaries" ), mCalendarGroup );
@@ -127,7 +131,7 @@ void KCMSDSummary::initGUI()
 
   mShowSpecialsFromCal = new QCheckBox( i18n( "Show special occasions" ), mCalendarGroup );
 
-  mContactGroup = new QButtonGroup( 1, Horizontal, i18n( "Special Dates From Contact List" ), this );
+  mContactGroup = new Q3ButtonGroup( 1, Horizontal, i18n( "Special Dates From Contact List" ), this );
 
   mShowBirthdaysFromKAB = new QCheckBox( i18n( "Show birthdays" ), mContactGroup );
   mShowAnniversariesFromKAB = new QCheckBox( i18n( "Show anniversaries" ), mContactGroup );

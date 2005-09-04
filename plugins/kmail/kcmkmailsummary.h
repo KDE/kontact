@@ -24,14 +24,14 @@
 #ifndef KCMKMAILSUMMARY_H
 #define KCMKMAILSUMMARY_H
 
-#include <qvaluelist.h>
+#include <q3valuelist.h>
 
 #include <kcmodule.h>
 
 class KListView;
 
 class QCheckBox;
-class QCheckListItem;
+class Q3CheckListItem;
 
 class KCMKMailSummary : public KCModule
 {
@@ -55,7 +55,7 @@ class KCMKMailSummary : public KCModule
 
     KListView *mFolderView;
     QCheckBox *mFullPath;
-    QMap<QString, QListViewItem*> mFolderMap;
+    QMap<QString, Q3ListViewItem*> mFolderMap;
 };
 
 #endif

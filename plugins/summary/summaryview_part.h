@@ -26,6 +26,11 @@
 
 #include <qdatetime.h>
 #include <qmap.h>
+//Added by qt3to4:
+#include <QLabel>
+#include <QVBoxLayout>
+#include <Q3Frame>
+#include <QGridLayout>
 
 #include <kparts/part.h>
 
@@ -43,7 +48,7 @@ namespace KParts
   class PartActivateEvent;
 }
 
-class QFrame;
+class Q3Frame;
 class QLabel;
 class QGridLayout;
 class KAction;
@@ -88,7 +93,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     QMap<QString, Kontact::Summary*> mSummaries;
     Kontact::Core *mCore;
     DropWidget *mFrame;
-    QFrame *mMainWidget;
+    Q3Frame *mMainWidget;
     QVBoxLayout *mMainLayout;
     QVBoxLayout *mLeftColumn;
     QVBoxLayout *mRightColumn;

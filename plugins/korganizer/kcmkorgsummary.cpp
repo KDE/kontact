@@ -21,11 +21,14 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qbuttongroup.h>
+#include <q3buttongroup.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qradiobutton.h>
 #include <qspinbox.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 
 #include <kaboutdata.h>
 #include <kapplication.h>
@@ -92,7 +95,7 @@ void KCMKOrgSummary::initGUI()
 {
   QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
 
-  mCalendarGroup = new QButtonGroup( 0, Vertical, i18n( "Appointments" ), this );
+  mCalendarGroup = new Q3ButtonGroup( 0, Vertical, i18n( "Appointments" ), this );
   QVBoxLayout *boxLayout = new QVBoxLayout( mCalendarGroup->layout(),
                                             KDialog::spacingHint() );
 
@@ -124,7 +127,7 @@ void KCMKOrgSummary::initGUI()
 
   layout->addWidget( mCalendarGroup );
 
-  mTodoGroup = new QButtonGroup( 2, Horizontal, i18n( "To-dos" ), this );
+  mTodoGroup = new Q3ButtonGroup( 2, Horizontal, i18n( "To-dos" ), this );
   new QRadioButton( i18n( "Show all to-dos" ), mTodoGroup );
   new QRadioButton( i18n( "Show today's to-dos only" ), mTodoGroup );
 

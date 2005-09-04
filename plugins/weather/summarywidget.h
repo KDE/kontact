@@ -30,10 +30,15 @@
 
 #include <qmap.h>
 #include <qpixmap.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qstringlist.h>
 #include <qtimer.h>
 #include <qwidget.h>
+//Added by qt3to4:
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QGridLayout>
+#include <QEvent>
 
 class KProcess;
 
@@ -113,8 +118,8 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QMap<QString, WeatherData> mWeatherMap;
     QTimer mTimer;
 
-    QPtrList<QLabel> mLabels;
-    QPtrList<QGridLayout> mLayouts;
+    Q3PtrList<QLabel> mLabels;
+    Q3PtrList<QGridLayout> mLayouts;
     QVBoxLayout *mLayout;
 
     KProcess* mProc;

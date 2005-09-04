@@ -22,6 +22,8 @@
 */
 
 #include <qwidget.h>
+//Added by qt3to4:
+#include <QDropEvent>
 
 #include <kaction.h>
 #include <kapplication.h>
@@ -62,7 +64,7 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
   setInstance( KMailPluginFactory::instance() );
 
   insertNewAction( new KAction( i18n( "New Message..." ), "mail_new",
-                   CTRL+SHIFT+Key_M, this, SLOT( slotNewMail() ), actionCollection(),
+                   Qt::CTRL+Qt::SHIFT+Qt::Key_M, this, SLOT( slotNewMail() ), actionCollection(),
                    "new_mail" ) );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(

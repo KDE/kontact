@@ -31,6 +31,8 @@
 #include <plugin.h>
 #include <summary.h>
 #include <uniqueapphandler.h>
+//Added by qt3to4:
+#include <QDropEvent>
 
 class QMimeSource;
 class QDropEvent;

@@ -25,8 +25,10 @@
 #define KCMKONTACTKNT_H
 
 #include <kcmodule.h>
+//Added by qt3to4:
+#include <Q3ValueList>
 
-class QListViewItem;
+class Q3ListViewItem;
 class QSpinxBox;
 
 class KAboutData;
@@ -53,8 +55,8 @@ class KCMKontactKNT : public KCModule
     void newFeed();
     void deleteFeed();
 
-    void selectedChanged( QListViewItem *item );
-    void allCurrentChanged( QListViewItem *item );
+    void selectedChanged( Q3ListViewItem *item );
+    void allCurrentChanged( Q3ListViewItem *item );
 
     void modified();
 
@@ -69,7 +71,7 @@ class KCMKontactKNT : public KCModule
 
     KListView *mAllNews;
     KListView *mSelectedNews;
-    QListViewItem *mCustomItem;
+    Q3ListViewItem *mCustomItem;
 
     KPushButton *mAddButton;
     KPushButton *mRemoveButton;
@@ -79,7 +81,7 @@ class KCMKontactKNT : public KCModule
     QSpinBox *mArticleCount;
 
     QMap<QString, QString> mFeedMap;
-    QValueList<NewsItem*> mCustomFeeds;
+    Q3ValueList<NewsItem*> mCustomFeeds;
 };
 
 class NewsEditDialog : public KDialogBase

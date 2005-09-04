@@ -28,9 +28,14 @@
 #include <dcopref.h>
 
 #include <qmap.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qtimer.h>
 #include <qwidget.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QLabel>
+#include <QVBoxLayout>
+#include <Q3ValueList>
 
 #include "summary.h"
 #include <kurl.h>
@@ -41,7 +46,7 @@ class QLabel;
 class DCOPRef;
 class KURLLabel;
 
-typedef QValueList< QPair<QString, KURL> > ArticleMap;
+typedef Q3ValueList< QPair<QString, KURL> > ArticleMap;
 
 typedef struct {
   DCOPRef ref;
@@ -51,7 +56,7 @@ typedef struct {
   ArticleMap map;
 } Feed;
 
-typedef QValueList<Feed> FeedList;
+typedef Q3ValueList<Feed> FeedList;
 
 class SummaryWidget : public Kontact::Summary, public DCOPObject
 {
@@ -88,7 +93,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QVBoxLayout *mLayout;
     QWidget* mBaseWidget;
 
-    QPtrList<QLabel> mLabels;
+    Q3PtrList<QLabel> mLabels;
 
     FeedList mFeeds;
 

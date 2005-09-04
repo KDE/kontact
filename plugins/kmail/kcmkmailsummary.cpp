@@ -23,6 +23,8 @@
 
 #include <qcheckbox.h>
 #include <qlayout.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
 
 #include <dcopref.h>
 
@@ -52,7 +54,7 @@ KCMKMailSummary::KCMKMailSummary( QWidget *parent, const char *name )
 {
   initGUI();
 
-  connect( mFolderView, SIGNAL( clicked( QListViewItem* ) ), SLOT( modified() ) );
+  connect( mFolderView, SIGNAL( clicked( Q3ListViewItem* ) ), SLOT( modified() ) );
   connect( mFullPath, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
 
   KAcceleratorManager::manage( this );
@@ -110,15 +112,15 @@ void KCMKMailSummary::initFolders()
     }
     if ( (*it).contains( '/' ) == 1 ) {
       if ( mFolderMap.find( *it ) == mFolderMap.end() )
-        mFolderMap.insert( *it, new QListViewItem( mFolderView,
+        mFolderMap.insert( *it, new Q3ListViewItem( mFolderView,
                                                    displayName ) );
     } else {
       const int pos = (*it).findRev( '/' );
       const QString parentFolder = (*it).left( pos );
       mFolderMap.insert( *it,
-                         new QCheckListItem( mFolderMap[ parentFolder ],
+                         new Q3CheckListItem( mFolderMap[ parentFolder ],
                                              displayName,
-                                             QCheckListItem::CheckBox ) );
+                                             Q3CheckListItem::CheckBox ) );
     }
   }
 }
@@ -134,9 +136,9 @@ void KCMKMailSummary::loadFolders()
   else
     folders = config.readListEntry( "ActiveFolders" );
 
-  QMap<QString, QListViewItem*>::Iterator it;
+  QMap<QString, Q3ListViewItem*>::Iterator it;
   for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it ) {
-    if ( QCheckListItem *qli = dynamic_cast<QCheckListItem*>( it.data() ) ) {
+    if ( Q3CheckListItem *qli = dynamic_cast<Q3CheckListItem*>( it.data() ) ) {
       if ( folders.contains( it.key() ) ) {
         qli->setOn( true );
         mFolderView->ensureItemVisible( it.data() );
@@ -155,9 +157,9 @@ void KCMKMailSummary::storeFolders()
 
   QStringList folders;
 
-  QMap<QString, QListViewItem*>::Iterator it;
+  QMap<QString, Q3ListViewItem*>::Iterator it;
   for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it )
-    if ( QCheckListItem *qli = dynamic_cast<QCheckListItem*>( it.data() ) )
+    if ( Q3CheckListItem *qli = dynamic_cast<Q3CheckListItem*>( it.data() ) )
       if ( qli->isOn() )
         folders.append( it.key() );
 

@@ -21,12 +21,17 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qgroupbox.h>
+#include <q3groupbox.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qlineedit.h>
-#include <qvaluevector.h>
+#include <q3valuevector.h>
 #include <qspinbox.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <Q3ValueList>
+#include <QGridLayout>
+#include <Q3CString>
 
 #include <dcopref.h>
 #include <dcopclient.h>
@@ -103,17 +108,17 @@ QString NewsEditDialog::url() const
   return mURL->text();
 }
 
-class NewsItem : public QListViewItem
+class NewsItem : public Q3ListViewItem
 {
   public:
-    NewsItem( QListView *parent, const QString& title, const QString& url, bool custom )
-      : QListViewItem( parent ), mTitle( title ), mUrl( url ), mCustom( custom )
+    NewsItem( Q3ListView *parent, const QString& title, const QString& url, bool custom )
+      : Q3ListViewItem( parent ), mTitle( title ), mUrl( url ), mCustom( custom )
     {
       setText( 0, mTitle );
     }
 
-    NewsItem( QListViewItem *parent, const QString& title, const QString& url, bool custom )
-      : QListViewItem( parent ), mTitle( title ), mUrl( url ), mCustom( custom )
+    NewsItem( Q3ListViewItem *parent, const QString& title, const QString& url, bool custom )
+      : Q3ListViewItem( parent ), mTitle( title ), mUrl( url ), mCustom( custom )
     {
       setText( 0, mTitle );
     }
@@ -133,10 +138,10 @@ KCMKontactKNT::KCMKontactKNT( QWidget *parent, const char *name )
 {
   initGUI();
 
-  connect( mAllNews, SIGNAL( currentChanged( QListViewItem* ) ),
-           this, SLOT( allCurrentChanged( QListViewItem* ) ) );
-  connect( mSelectedNews, SIGNAL( selectionChanged( QListViewItem* ) ),
-           this, SLOT( selectedChanged( QListViewItem* ) ) );
+  connect( mAllNews, SIGNAL( currentChanged( Q3ListViewItem* ) ),
+           this, SLOT( allCurrentChanged( Q3ListViewItem* ) ) );
+  connect( mSelectedNews, SIGNAL( selectionChanged( Q3ListViewItem* ) ),
+           this, SLOT( selectedChanged( Q3ListViewItem* ) ) );
 
   connect( mUpdateInterval, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
   connect( mArticleCount, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
@@ -153,15 +158,15 @@ KCMKontactKNT::KCMKontactKNT( QWidget *parent, const char *name )
 
 void KCMKontactKNT::loadNews()
 {
-  QValueVector<QListViewItem*> parents;
-  QValueVector<QListViewItem*>::Iterator it;
+  Q3ValueVector<Q3ListViewItem*> parents;
+  Q3ValueVector<Q3ListViewItem*>::Iterator it;
 
-  parents.append( new QListViewItem( mAllNews, i18n( "Arts" ) ) );
-  parents.append( new QListViewItem( mAllNews, i18n( "Business" ) ) );
-  parents.append( new QListViewItem( mAllNews, i18n( "Computers" ) ) );
-  parents.append( new QListViewItem( mAllNews, i18n( "Misc" ) ) );
-  parents.append( new QListViewItem( mAllNews, i18n( "Recreation" ) ) );
-  parents.append( new QListViewItem( mAllNews, i18n( "Society" ) ) );
+  parents.append( new Q3ListViewItem( mAllNews, i18n( "Arts" ) ) );
+  parents.append( new Q3ListViewItem( mAllNews, i18n( "Business" ) ) );
+  parents.append( new Q3ListViewItem( mAllNews, i18n( "Computers" ) ) );
+  parents.append( new Q3ListViewItem( mAllNews, i18n( "Misc" ) ) );
+  parents.append( new Q3ListViewItem( mAllNews, i18n( "Recreation" ) ) );
+  parents.append( new Q3ListViewItem( mAllNews, i18n( "Society" ) ) );
 
   for ( it = parents.begin(); it != parents.end(); ++it )
     (*it)->setSelectable( false );
@@ -179,7 +184,7 @@ void KCMKontactKNT::loadCustomNews()
   QMap<QString, QString> customFeeds = config.entryMap( "CustomFeeds" );
   config.setGroup( "CustomFeeds" );
 
-  mCustomItem = new QListViewItem( mAllNews, i18n( "Custom" ) );
+  mCustomItem = new Q3ListViewItem( mAllNews, i18n( "Custom" ) );
   mCustomItem->setSelectable( false );
 
   if ( customFeeds.count() == 0 )
@@ -201,7 +206,7 @@ void KCMKontactKNT::storeCustomNews()
   config.setGroup( "CustomFeeds" );
 
   int counter = 0;
-  QValueList<NewsItem*>::Iterator it;
+  Q3ValueList<NewsItem*>::Iterator it;
   for ( it = mCustomFeeds.begin(); it != mCustomFeeds.end(); ++it ) {
     QStringList value;
     value << (*it)->title() << (*it)->url();
@@ -298,12 +303,12 @@ void KCMKontactKNT::scanNews()
     new NewsItem( mSelectedNews, mFeedMap[ urls[ i ] ], urls[ i ], false );
 }
 
-void KCMKontactKNT::selectedChanged( QListViewItem *item )
+void KCMKontactKNT::selectedChanged( Q3ListViewItem *item )
 {
   mRemoveButton->setEnabled( item && item->isSelected() );
 }
 
-void KCMKontactKNT::allCurrentChanged( QListViewItem *item )
+void KCMKontactKNT::allCurrentChanged( Q3ListViewItem *item )
 {
   NewsItem *newsItem = dynamic_cast<NewsItem*>( item );
 
@@ -350,7 +355,7 @@ void KCMKontactKNT::initGUI()
   mSelectedNews->setFullWidth( true );
   layout->addWidget( mSelectedNews, 0, 2 );
 
-  QGroupBox *box = new QGroupBox( 0, Qt::Vertical,
+  Q3GroupBox *box = new Q3GroupBox( 0, Qt::Vertical,
                                   i18n( "News Feed Settings" ), this );
 
   QGridLayout *boxLayout = new QGridLayout( box->layout(), 2, 3,
@@ -384,7 +389,7 @@ void KCMKontactKNT::initGUI()
 bool KCMKontactKNT::dcopActive() const
 {
   QString error;
-  QCString appID;
+  Q3CString appID;
   bool isGood = true;
   DCOPClient *client = kapp->dcopClient();
   if ( !client->isApplicationRegistered( "rssservice" ) ) {

@@ -42,7 +42,7 @@ KarmPlugin::KarmPlugin( Kontact::Core *core, const char *, const QStringList& )
   setInstance( KarmPluginFactory::instance() );
   (void)dcopClient();
   insertNewAction( new KAction( i18n( "New Task" ), "karm",
-                   CTRL+SHIFT+Key_T, this, SLOT( newTask() ), actionCollection(),
+                   Qt::CTRL+Qt::SHIFT+Qt::Key_T, this, SLOT( newTask() ), actionCollection(),
                    "new_task" ) );
 }
 

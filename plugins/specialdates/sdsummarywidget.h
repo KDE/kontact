@@ -25,8 +25,12 @@
 #ifndef SDSUMMARYWIDGET_H
 #define SDSUMMARYWIDGET_H
 
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qwidget.h>
+//Added by qt3to4:
+#include <QLabel>
+#include <QGridLayout>
+#include <QEvent>
 
 #include <libkcal/calendarresources.h>
 #include <libkholidays/kholidays.h>
@@ -67,7 +71,7 @@ class SDSummaryWidget : public Kontact::Summary
     bool initHolidays();
     void dateDiff( const QDate &date, int &days, int &years );
     QGridLayout *mLayout;
-    QPtrList<QLabel> mLabels;
+    Q3PtrList<QLabel> mLabels;
     Kontact::Plugin *mPlugin;
     KCal::CalendarResources *mCalendar;
     int mDaysAhead;

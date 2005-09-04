@@ -51,7 +51,7 @@ class KCMKontactSummary : public KCModule
     virtual void defaults();
 
   private slots:
-    void itemClicked( QListViewItem* );
+    void itemClicked( Q3ListViewItem* );
 
   private:
     PluginView *mPluginView;

@@ -23,7 +23,9 @@
 */
 
 #include <qwidget.h>
-#include <qdragobject.h>
+#include <q3dragobject.h>
+//Added by qt3to4:
+#include <QDropEvent>
 
 #include <kaction.h>
 #include <kapplication.h>
@@ -58,7 +60,7 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const
   setInstance( KAddressbookPluginFactory::instance() );
 
   insertNewAction( new KAction( i18n( "New Contact..." ), "identity",
-			             CTRL+SHIFT+Key_C, this, SLOT( slotNewContact() ), actionCollection(),
+			             Qt::CTRL+Qt::SHIFT+Qt::Key_C, this, SLOT( slotNewContact() ), actionCollection(),
                    "new_contact" ) );
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KABUniqueAppHandler>(), this );
@@ -126,7 +128,7 @@ bool KAddressbookPlugin::isRunningStandalone()
 
 bool KAddressbookPlugin::canDecodeDrag( QMimeSource *mimeSource )
 {
-  return QTextDrag::canDecode( mimeSource ) ||
+  return Q3TextDrag::canDecode( mimeSource ) ||
     KPIM::MailListDrag::canDecode( mimeSource );
 }
 
