@@ -13,6 +13,7 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Appointments and To-dos
 Name[cs]=Schůzky a úkoly
+Name[da]=Møder og gøremål
 Name[es]=Citas y tareas pendientes
 Name[fr]=Évènements et tâches
 Name[it]=Appuntamenti e cose da fare
@@ -27,6 +28,7 @@ Name[xx]=xxAppointments and To-dosxx
 Name[zh_CN]=约会和待办
 Comment=Appointments and To-dos Summary Setup
 Comment[cs]=Nastavení souhrnu schůzek a úkolů
+Comment[da]=Indstilling af oversigt over møder og gøremål
 Comment[es]=Configuración del resumen de citas y de tareas pendientes
 Comment[fr]=Configuration du résumé des évènements et des tâches
 Comment[it]=Impostazioni sommario appuntamenti e cose da fare
