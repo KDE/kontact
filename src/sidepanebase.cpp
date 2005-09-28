@@ -26,7 +26,7 @@
 using namespace Kontact;
 
 SidePaneBase::SidePaneBase( Core *core, QWidget *parent, const char *name )
-  : QVBox( parent, name ), mCore( core )
+  : Q3VBox( parent, name ), mCore( core )
 {
 }
 

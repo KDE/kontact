@@ -21,14 +21,19 @@
 */
 
 #include <qcombobox.h>
-#include <qhbox.h>
+#include <q3hbox.h>
 #include <qimage.h>
-#include <qobjectlist.h>
-#include <qprogressbar.h>
+#include <qobject.h>
+#include <q3progressbar.h>
 #include <qpushbutton.h>
 #include <qsplitter.h>
 #include <qtimer.h>
-#include <qwhatsthis.h>
+#include <q3whatsthis.h>
+//Added by qt3to4:
+#include <Q3CString>
+#include <Q3PtrList>
+#include <Q3Frame>
+#include <Q3ValueList>
 
 #include <dcopclient.h>
 #include <kapplication.h>
@@ -101,7 +106,7 @@ MainWindow::MainWindow()
 {
   // Set this to be the group leader for all subdialogs - this means
   // modal subdialogs will only affect this dialog, not the other windows
-  setWFlags( getWFlags() | WGroupLeader );
+  setAttribute( Qt::WA_GroupLeader );
 
   initGUI();
   initObject();
@@ -184,7 +189,7 @@ MainWindow::~MainWindow()
 {
   saveSettings();
 
-  QPtrList<KParts::Part> parts = *mPartManager->parts();
+  Q3PtrList<KParts::Part> parts = *mPartManager->parts();
 
   for ( KParts::Part *p = parts.last(); p; p = parts.prev() ) {
     delete p;
@@ -215,18 +220,18 @@ void MainWindow::activatePluginModule()
 void MainWindow::initWidgets()
 {
   // includes sidebar and part stack
-  mTopWidget = new QHBox( this );
-  mTopWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
+  mTopWidget = new Q3HBox( this );
+  mTopWidget->setFrameStyle( Q3Frame::Panel | Q3Frame::Sunken );
   setCentralWidget( mTopWidget );
 
-  QHBox *mBox = 0;
+  Q3HBox *mBox = 0;
   mSplitter = new QSplitter( mTopWidget );
-  mBox = new QHBox( mTopWidget );
+  mBox = new Q3HBox( mTopWidget );
   mSidePane = new IconSidePane( this, mSplitter );
   mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                          QSizePolicy::Preferred ) );
   // donÄt occupy screen estate on load
-  QValueList<int> sizes;
+  Q3ValueList<int> sizes;
   sizes << 0;
   mSplitter->setSizes(sizes);
 
@@ -235,16 +240,16 @@ void MainWindow::initWidgets()
   connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
            SLOT( selectPlugin( Kontact::Plugin * ) ) );
 
-  QVBox *vBox;
+  Q3VBox *vBox;
   if ( mSplitter ) {
-    vBox = new QVBox( mSplitter );
+    vBox = new Q3VBox( mSplitter );
   } else {
-    vBox = new QVBox( mBox );
+    vBox = new Q3VBox( mBox );
   }
 
   vBox->setSpacing( 0 );
 
-  mPartsStack = new QWidgetStack( vBox );
+  mPartsStack = new Q3WidgetStack( vBox );
   initAboutScreen();
 
   QString loading = i18n( "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>" )
@@ -259,7 +264,7 @@ void MainWindow::initWidgets()
   mLittleProgress = new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
 
   mStatusMsgLabel = new KRSqueezedTextLabel( i18n( " Initializing..." ), statusBar() );
-  mStatusMsgLabel->setAlignment( AlignLeft | AlignVCenter );
+  mStatusMsgLabel->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
 
   statusBar()->addWidget( mStatusMsgLabel, 10 , false );
   statusBar()->addWidget( mLittleProgress, 0 , true );
@@ -290,11 +295,11 @@ void MainWindow::paintAboutScreen( const QString& msg )
 
 void MainWindow::initAboutScreen()
 {
-  QHBox *introbox = new QHBox( mPartsStack );
+  Q3HBox *introbox = new Q3HBox( mPartsStack );
   mPartsStack->addWidget( introbox );
   mPartsStack->raiseWidget( introbox );
   mIntroPart = new KHTMLPart( introbox );
-  mIntroPart->widget()->setFocusPolicy( WheelFocus );
+  mIntroPart->widget()->setFocusPolicy( Qt::WheelFocus );
   // Let's better be paranoid and disable plugins (it defaults to enabled):
   mIntroPart->setPluginsEnabled( false );
   mIntroPart->setJScriptEnabled( false ); // just make this explicit
@@ -347,8 +352,8 @@ Plugin *MainWindow::pluginFromInfo( const KPluginInfo *info )
 
 void MainWindow::loadPlugins()
 {
-  QPtrList<Plugin> plugins;
-  QPtrList<KParts::Part> loadDelayed;
+  Q3PtrList<Plugin> plugins;
+  Q3PtrList<KParts::Part> loadDelayed;
 
   uint i;
   KPluginInfo::List::ConstIterator it;
@@ -402,7 +407,7 @@ void MainWindow::loadPlugins()
     Plugin *plugin = plugins.at( i );
 
     KAction *action;
-    QPtrList<KAction> *actionList = plugin->newActions();
+    Q3PtrList<KAction> *actionList = plugin->newActions();
 
     for ( action = actionList->first(); action; action = actionList->next() ) {
       kdDebug(5600) << "Plugging " << action->name() << endl;
@@ -433,7 +438,7 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
       Plugin *plugin = *it;
 
       KAction *action;
-      QPtrList<KAction> *actionList = plugin->newActions();
+      Q3PtrList<KAction> *actionList = plugin->newActions();
 
       for ( action = actionList->first(); action; action = actionList->next() ) {
         kdDebug(5600) << "Unplugging " << action->name() << endl;
@@ -550,7 +555,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     QWidget *parent = focusWidget->parentWidget();
     while ( parent ) {
       if ( parent == mCurrentPlugin->part()->widget() )
-        mFocusWidgets.insert( mCurrentPlugin->identifier(), QGuardedPtr<QWidget>( focusWidget ) );
+        mFocusWidgets.insert( mCurrentPlugin->identifier(), QPointer<QWidget>( focusWidget ) );
 
       parent = parent->parentWidget();
     }
@@ -605,9 +610,9 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   for ( it = invisibleActions.begin(); it != invisibleActions.end(); ++it ) {
     KAction *action = part->actionCollection()->action( (*it).latin1() );
     if ( action ) {
-      QPtrListIterator<KToolBar> it(  toolBarIterator() );
-      for (  ; it.current() ; ++it ) {
-        action->unplug( it.current() );
+      QList<KToolBar*> toolbars = toolBarList();
+      for( QList<KToolBar*>::Iterator it = toolbars.begin(); it != toolbars.end(); ++it ) {
+        action->unplug( *it );
       }
     }
   }
@@ -689,11 +694,11 @@ void MainWindow::slotPreferences()
     dlg = new SettingsDialogWrapper( KSettings::Dialog::Configurable, this );
 
     // do not show settings of components running standalone
-    QValueList<KPluginInfo*> filteredPlugins = mPluginInfos;
+    Q3ValueList<KPluginInfo*> filteredPlugins = mPluginInfos;
     PluginList::ConstIterator it;
     for ( it = mPlugins.begin(); it != mPlugins.end(); ++it )
       if ( (*it)->isRunningStandalone() ) {
-        QValueList<KPluginInfo*>::ConstIterator infoIt;
+        Q3ValueList<KPluginInfo*>::ConstIterator infoIt;
         for ( infoIt = filteredPlugins.begin(); infoIt != filteredPlugins.end(); ++infoIt ) {
           if ( (*infoIt)->pluginName() == (*it)->identifier() ) {
             filteredPlugins.remove( *infoIt );
@@ -714,7 +719,7 @@ void MainWindow::slotPreferences()
 int MainWindow::startServiceFor( const QString& serviceType,
                                  const QString& constraint,
                                  const QString& preferences,
-                                 QString *error, QCString* dcopService,
+                                 QString *error, DCOPCString* dcopService,
                                  int flags )
 {
   PluginList::ConstIterator end = mPlugins.end();
@@ -811,8 +816,8 @@ bool MainWindow::queryClose()
     return true;
 
   bool localClose = true;
-  QValueList<Plugin*>::ConstIterator end = mPlugins.end();
-  QValueList<Plugin*>::ConstIterator it = mPlugins.begin();
+  Q3ValueList<Plugin*>::ConstIterator end = mPlugins.end();
+  Q3ValueList<Plugin*>::ConstIterator it = mPlugins.begin();
   for ( ; it != end; ++it ) {
     Plugin *plugin = *it;
     if ( !plugin->isRunningStandalone() )

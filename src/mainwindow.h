@@ -24,9 +24,13 @@
 #ifndef KONTACT_MAINWINDOW_H
 #define KONTACT_MAINWINDOW_H
 
-#include <qguardedptr.h>
-#include <qptrlist.h>
-#include <qwidgetstack.h>
+#include <qpointer.h>
+#include <q3ptrlist.h>
+#include <q3widgetstack.h>
+//Added by qt3to4:
+#include <Q3Frame>
+#include <Q3ValueList>
+#include <Q3CString>
 
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
@@ -35,10 +39,10 @@
 
 #include "core.h"
 
-class QHBox;
+class Q3HBox;
 class QSplitter;
-class QVBox;
-class QFrame;
+class Q3VBox;
+class Q3Frame;
 
 class KAction;
 class KPluginInfo;
@@ -58,7 +62,7 @@ class Plugin;
 class SidePaneBase;
 class AboutDialog;
 
-typedef QValueList<Kontact::Plugin*> PluginList;
+typedef Q3ValueList<Kontact::Plugin*> PluginList;
 
 class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 {
@@ -72,7 +76,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     virtual int startServiceFor( const QString& serviceType,
                                  const QString& constraint = QString::null,
                                  const QString& preferences = QString::null,
-                                 QString *error = 0, QCString* dcopService = 0,
+                                 QString *error = 0, DCOPCString* dcopService = 0,
                                  int flags = 0 );
 
     virtual PluginList pluginList() const { return mPlugins; }
@@ -126,18 +130,18 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void configureToolbars();
 
   private:
-    QFrame *mTopWidget;
+    Q3Frame *mTopWidget;
 
     QSplitter *mSplitter;
 
     KToolBarPopupAction *mNewActions;
     SidePaneBase *mSidePane;
-    QWidgetStack *mPartsStack;
+    Q3WidgetStack *mPartsStack;
     Plugin *mCurrentPlugin;
     KParts::PartManager *mPartManager;
     PluginList mPlugins;
     PluginList mDelayedPreload;
-    QValueList<KPluginInfo*> mPluginInfos;
+    Q3ValueList<KPluginInfo*> mPluginInfos;
     KHTMLPart *mIntroPart;
 
     KRSqueezedTextLabel* mStatusMsgLabel;
@@ -145,7 +149,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 
     QString mActiveModule;
 
-    QMap<QString, QGuardedPtr<QWidget> > mFocusWidgets;
+    QMap<QString, QPointer<QWidget> > mFocusWidgets;
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;

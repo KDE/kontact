@@ -19,10 +19,10 @@
   Boston, MA 02110-1301, USA.
  */
 
-#include <qptrlist.h>
-#include <qwidgetstack.h>
-#include <qsignal.h>
-#include <qobjectlist.h>
+#include <q3ptrlist.h>
+#include <q3widgetstack.h>
+#include <q3signal.h>
+#include <qobject.h>
 #include <qlabel.h>
 #include <qimage.h>
 #include <qpainter.h>
@@ -30,18 +30,25 @@
 #include <qfontmetrics.h>
 #include <qsignalmapper.h>
 #include <qstyle.h>
-#include <qframe.h>
+#include <q3frame.h>
 #include <qdrawutil.h>
 #include <qcursor.h>
 #include <qtimer.h>
 #include <qtooltip.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QDragMoveEvent>
+#include <QEvent>
+#include <QDropEvent>
+#include <Q3ValueList>
+#include <QResizeEvent>
+#include <QDragEnterEvent>
 
 #include <kpopupmenu.h>
 #include <kapplication.h>
 #include <kdialog.h>
 #include <klocale.h>
 #include <kiconloader.h>
-#include <sidebarextension.h>
 
 #include <kdebug.h>
 
@@ -93,7 +100,7 @@ class PluginProxy
 using namespace Kontact;
 
 EntryItem::EntryItem( Navigator *parent, Kontact::Plugin *plugin )
-  : QListBoxItem( parent ),
+  : Q3ListBoxItem( parent ),
     mPlugin( plugin ),
     mHasHover( false ),
     mPaintActive( false )
@@ -122,7 +129,7 @@ Navigator* EntryItem::navigator() const
   return static_cast<Navigator*>( listBox() );
 }
 
-int EntryItem::width( const QListBox *listbox ) const
+int EntryItem::width( const Q3ListBox *listbox ) const
 {
   int w = 0;
   if( navigator()->showIcons() ) {
@@ -139,7 +146,7 @@ int EntryItem::width( const QListBox *listbox ) const
   return w + ( KDialog::marginHint() * 2 );
 }
 
-int EntryItem::height( const QListBox *listbox ) const
+int EntryItem::height( const Q3ListBox *listbox ) const
 {
   int h = 0;
   if ( navigator()->showIcons() )
@@ -157,7 +164,7 @@ void EntryItem::paint( QPainter *p )
 {
   reloadPixmap();
 
-  QListBox *box = listBox();
+  Q3ListBox *box = listBox();
   bool iconAboveText = ( navigator()->viewMode() > SmallIcons )
                      && navigator()->showIcons();
   int w = box->viewport()->width();
@@ -255,27 +262,28 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
   mShowIcons = Prefs::self()->sidePaneShowIcons();
   mShowText = Prefs::self()->sidePaneShowText();
   setSelectionMode( KListBox::Single );
-  viewport()->setBackgroundMode( PaletteBackground );
-  setFrameStyle( QFrame::NoFrame );
-  setHScrollBarMode( QScrollView::AlwaysOff );
+  viewport()->setBackgroundMode( Qt::PaletteBackground );
+  setFrameStyle( Q3Frame::NoFrame );
+  setHScrollBarMode( Q3ScrollView::AlwaysOff );
   setAcceptDrops( true );
 
-  setFocusPolicy( NoFocus );
+  setFocusPolicy( Qt::NoFocus );
 
-  connect( this, SIGNAL( selectionChanged( QListBoxItem* ) ),
-           SLOT( slotExecuted( QListBoxItem* ) ) );
-  connect( this, SIGNAL( rightButtonPressed( QListBoxItem*, const QPoint& ) ),
-           SLOT( slotShowRMBMenu( QListBoxItem*, const QPoint& ) ) );
-  connect( this, SIGNAL( onItem( QListBoxItem * ) ),
-            SLOT(  slotMouseOn( QListBoxItem * ) ) );
+  connect( this, SIGNAL( selectionChanged( Q3ListBoxItem* ) ),
+           SLOT( slotExecuted( Q3ListBoxItem* ) ) );
+  connect( this, SIGNAL( rightButtonPressed( Q3ListBoxItem*, const QPoint& ) ),
+           SLOT( slotShowRMBMenu( Q3ListBoxItem*, const QPoint& ) ) );
+  connect( this, SIGNAL( onItem( Q3ListBoxItem * ) ),
+            SLOT(  slotMouseOn( Q3ListBoxItem * ) ) );
   connect( this, SIGNAL( onViewport() ), SLOT(  slotMouseOff() ) );
 
   mMapper = new QSignalMapper( this );
   connect( mMapper, SIGNAL( mapped( int ) ), SLOT( shortCutSelected( int ) ) );
 
   QToolTip::remove( this );
-  if ( !mShowText )
-    new EntryItemToolTip( this );
+#warning Port me!
+//  if ( !mShowText )
+//    new EntryItemToolTip( this );
 
 }
 
@@ -298,7 +306,7 @@ void Navigator::slotStopHighlight()
   setPaintActiveItem( mHighlightItem, false );
 }
 
-void Navigator::setSelected( QListBoxItem *item, bool selected )
+void Navigator::setSelected( Q3ListBoxItem *item, bool selected )
 {
   // Reimplemented to avoid the immediate activation of
   // the item. might turn out it doesn't work, we check that
@@ -309,11 +317,11 @@ void Navigator::setSelected( QListBoxItem *item, bool selected )
   }
 }
 
-void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins_ )
+void Navigator::updatePlugins( Q3ValueList<Kontact::Plugin*> plugins_ )
 {
-  QValueList<Kontact::PluginProxy> plugins;
-  QValueList<Kontact::Plugin*>::ConstIterator end_ = plugins_.end();
-  QValueList<Kontact::Plugin*>::ConstIterator it_ = plugins_.begin();
+  QList<Kontact::PluginProxy> plugins;
+  Q3ValueList<Kontact::Plugin*>::ConstIterator end_ = plugins_.end();
+  Q3ValueList<Kontact::Plugin*>::ConstIterator it_ = plugins_.begin();
   for ( ; it_ != end_; ++it_ )
     plugins += PluginProxy( *it_ );
 
@@ -325,9 +333,10 @@ void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins_ )
 
   int counter = 0;
   int minWidth = 0;
-  qBubbleSort( plugins );
-  QValueList<Kontact::PluginProxy>::ConstIterator end = plugins.end();
-  QValueList<Kontact::PluginProxy>::ConstIterator it = plugins.begin();
+#warning Port me!
+//  qSort( plugins );
+  QList<Kontact::PluginProxy>::ConstIterator end = plugins.end();
+  QList<Kontact::PluginProxy>::ConstIterator it = plugins.begin();
   for ( ; it != end; ++it ) {
     Kontact::Plugin *plugin = ( *it ).plugin();
     if ( !plugin->showInSideBar() )
@@ -363,7 +372,7 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
 
   kdDebug(5600) << "  Format: " << event->format() << endl;
 
-  QListBoxItem *item = itemAt( event->pos() );
+  Q3ListBoxItem *item = itemAt( event->pos() );
 
   if ( !item ) {
     event->accept( false );
@@ -381,7 +390,7 @@ void Navigator::dropEvent( QDropEvent *event )
 {
   kdDebug(5600) << "Navigator::dropEvent()" << endl;
 
-  QListBoxItem *item = itemAt( event->pos() );
+  Q3ListBoxItem *item = itemAt( event->pos() );
 
   if ( !item ) {
     return;
@@ -396,7 +405,7 @@ void Navigator::dropEvent( QDropEvent *event )
 
 void Navigator::resizeEvent( QResizeEvent *event )
 {
-  QListBox::resizeEvent( event );
+  Q3ListBox::resizeEvent( event );
   triggerUpdate( true );
 }
 
@@ -414,7 +423,7 @@ void Navigator::leaveEvent( QEvent *event )
   mMouseOn = 0;
 }
 
-void Navigator::slotExecuted( QListBoxItem *item )
+void Navigator::slotExecuted( Q3ListBoxItem *item )
 {
   if ( !item )
     return;
@@ -444,7 +453,7 @@ IconViewMode Navigator::sizeIntToEnum(int size) const
   }
 }
 
-void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint &pos )
+void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint &pos )
 {
   KPopupMenu menu;
   menu.insertTitle( i18n( "Icon Size" ) );
@@ -478,8 +487,9 @@ void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint &pos )
       mShowIcons = !mShowIcons;
       Prefs::self()->setSidePaneShowIcons( mShowIcons );
       QToolTip::remove( this );
-      if ( !mShowText )
-        new EntryItemToolTip( this );
+#warning Port me!
+//      if ( !mShowText )
+//        new EntryItemToolTip( this );
     } else {
       mShowText = !mShowText;
       Prefs::self()->setSidePaneShowText( mShowText );
@@ -487,7 +497,7 @@ void Navigator::slotShowRMBMenu( QListBoxItem *, const QPoint &pos )
     }
   }
   int maxWidth = 0;
-  QListBoxItem* it = 0;
+  Q3ListBoxItem* it = 0;
   for (int i = 0; (it = item(i)) != 0; ++i)
   {
     int width = it->width(this);
@@ -504,21 +514,21 @@ void Navigator::shortCutSelected( int pos )
   setCurrentItem( pos );
 }
 
-void Navigator::setHoverItem( QListBoxItem* item, bool hover )
+void Navigator::setHoverItem( Q3ListBoxItem* item, bool hover )
 {
     static_cast<EntryItem*>( item )->setHover( hover );
     updateItem( item );
 }
 
-void Navigator::setPaintActiveItem( QListBoxItem* item, bool paintActive )
+void Navigator::setPaintActiveItem( Q3ListBoxItem* item, bool paintActive )
 {
     static_cast<EntryItem*>( item )->setPaintActive( paintActive );
     updateItem( item );
 }
 
-void Navigator::slotMouseOn( QListBoxItem* newItem )
+void Navigator::slotMouseOn( Q3ListBoxItem* newItem )
 {
-  QListBoxItem* oldItem = mMouseOn;
+  Q3ListBoxItem* oldItem = mMouseOn;
   if ( oldItem == newItem ) return;
 
   if ( oldItem && !oldItem->isCurrent() && !oldItem->isSelected() )

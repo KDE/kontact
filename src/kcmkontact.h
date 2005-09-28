@@ -28,10 +28,12 @@
 #include <kprefsdialog.h>
 #include <kservice.h>
 #include "plugin.h"
+//Added by qt3to4:
+#include <Q3ValueList>
 
-class QGroupBox;
+class Q3GroupBox;
 class QComboBox;
-class QListViewItem;
+class Q3ListViewItem;
 
 class KAboutData;
 class KListView;
@@ -57,15 +59,15 @@ class PluginSelection : public KPrefsWid
     void readConfig();
     void writeConfig();
 
-    QValueList<QWidget *> widgets() const;
+    Q3ValueList<QWidget *> widgets() const;
     QComboBox *comboBox() const { return mPluginCombo; }
 
   private slots:
-    void itemClicked( QListViewItem* );
+    void itemClicked( Q3ListViewItem* );
 
   private:
     QComboBox *mPluginCombo;
-    QValueList<KService::Ptr> mPluginList;
+    Q3ValueList<KService::Ptr> mPluginList;
     KConfigSkeleton::ItemString *mItem;
 };
 

@@ -35,6 +35,12 @@
 
 #include <qlayout.h>
 #include <qlabel.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QVBoxLayout>
+#include <Q3ValueList>
+#include <Q3Frame>
+#include <QBoxLayout>
 
 #include <kdebug.h>
 
@@ -48,9 +54,9 @@ AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
   addAboutData( i18n( "Kontact Container" ), QString( "kontact" ),
                 KGlobal::instance()->aboutData() );
 
-  QValueList<Plugin*> plugins = mCore->pluginList();
-  QValueList<Plugin*>::ConstIterator end = plugins.end();
-  QValueList<Plugin*>::ConstIterator it = plugins.begin();
+  Q3ValueList<Plugin*> plugins = mCore->pluginList();
+  Q3ValueList<Plugin*>::ConstIterator end = plugins.end();
+  Q3ValueList<Plugin*>::ConstIterator it = plugins.begin();
   for ( ; it != end; ++it )
     addAboutPlugin( *it );
 
@@ -96,21 +102,21 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     text.replace( "\n", "<br>" );
 
     KActiveLabel *label = new KActiveLabel( text, topFrame );
-    label->setAlignment( AlignTop );
+    label->setAlignment( Qt::AlignTop );
     topLayout->addWidget( label );
 
 
-    QTextEdit *personView = new QTextEdit( topFrame );
+    Q3TextEdit *personView = new Q3TextEdit( topFrame );
     personView->setReadOnly( true );
     topLayout->addWidget( personView, 1 );
 
     text = "";
 
-    const QValueList<KAboutPerson> authors = about->authors();
+    const Q3ValueList<KAboutPerson> authors = about->authors();
     if ( !authors.isEmpty() ) {
       text += i18n( "<p><b>Authors:</b></p>" );
 
-      QValueList<KAboutPerson>::ConstIterator it;
+      Q3ValueList<KAboutPerson>::ConstIterator it;
       for ( it = authors.begin(); it != authors.end(); ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
         if ( !(*it).task().isEmpty() )
@@ -118,11 +124,11 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       }
     }
 
-    const QValueList<KAboutPerson> credits = about->credits();
+    const Q3ValueList<KAboutPerson> credits = about->credits();
     if ( !credits.isEmpty() ) {
       text += i18n( "<p><b>Thanks to:</b></p>" );
 
-      QValueList<KAboutPerson>::ConstIterator it;
+      Q3ValueList<KAboutPerson>::ConstIterator it;
       for ( it = credits.begin(); it != credits.end(); ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
         if ( !(*it).task().isEmpty() )
@@ -130,11 +136,11 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       }
     }
 
-    const QValueList<KAboutTranslator> translators = about->translators();
+    const Q3ValueList<KAboutTranslator> translators = about->translators();
     if ( !translators.isEmpty() ) {
       text += i18n("<p><b>Translators:</b></p>");
 
-      QValueList<KAboutTranslator>::ConstIterator it;
+      Q3ValueList<KAboutTranslator>::ConstIterator it;
       for ( it = translators.begin(); it != translators.end(); ++it ) {
        text += formatPerson( (*it).name(), (*it).emailAddress() );
       }

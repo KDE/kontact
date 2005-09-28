@@ -21,7 +21,9 @@
 #ifndef KONTACT_SIDEPANEBASE_H
 #define KONTACT_SIDEPANEBASE_H
 
-#include <qvbox.h>
+#include <q3vbox.h>
+//Added by qt3to4:
+#include <Q3PtrList>
 
 namespace KParts { class Part; }
 
@@ -31,7 +33,7 @@ namespace Kontact
 class Core;
 class Plugin;
 
-class SidePaneBase : public QVBox
+class SidePaneBase : public Q3VBox
 {
     Q_OBJECT
   public:
@@ -41,7 +43,7 @@ class SidePaneBase : public QVBox
     void setActionCollection( KActionCollection *actionCollection );
     KActionCollection *actionCollection() const;
 
-    virtual const QPtrList<KAction> & actions() = 0;
+    virtual const Q3PtrList<KAction> & actions() = 0;
 
   signals:
     void pluginSelected( Kontact::Plugin* );

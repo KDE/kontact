@@ -32,11 +32,16 @@
 #include <klocale.h>
 #include <ktrader.h>
 
-#include <qbuttongroup.h>
+#include <q3buttongroup.h>
 #include <qcheckbox.h>
 #include <qcombobox.h>
 #include <qlabel.h>
 #include <qlayout.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <Q3ValueList>
+#include <QHBoxLayout>
+#include <QBoxLayout>
 
 #include <kdepimmacros.h>
 
@@ -47,11 +52,11 @@ extern "C"
   }
 }
 
-class PluginItem : public QListViewItem
+class PluginItem : public Q3ListViewItem
 {
   public:
-    PluginItem( QListView *parent, const KService::Ptr &ptr )
-      : QListViewItem( parent, ptr->name(), ptr->comment(), ptr->library() ),
+    PluginItem( Q3ListView *parent, const KService::Ptr &ptr )
+      : Q3ListViewItem( parent, ptr->name(), ptr->comment(), ptr->library() ),
         mPtr( ptr )
     {
     }
@@ -140,15 +145,15 @@ void PluginSelection::writeConfig()
   mItem->setValue( ptr->property("X-KDE-PluginInfo-Name").toString() );
 }
 
-void PluginSelection::itemClicked( QListViewItem *item )
+void PluginSelection::itemClicked( Q3ListViewItem *item )
 {
   if ( item )
     emit changed();
 }
 
-QValueList<QWidget *> PluginSelection::widgets() const
+Q3ValueList<QWidget *> PluginSelection::widgets() const
 {
-  QValueList<QWidget *> widgets;
+  Q3ValueList<QWidget *> widgets;
   widgets.append( mPluginCombo );
 
   return widgets;
