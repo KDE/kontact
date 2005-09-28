@@ -74,7 +74,7 @@ void SummaryWidget::selectFolder( const QString& folder )
   else
     mPlugin->core()->selectPlugin( mPlugin );
   QByteArray data;
-  QDataStream arg( data, QIODevice::WriteOnly );
+  QDataStream arg( &data, QIODevice::WriteOnly );
   arg << folder;
   emitDCOPSignal( "kmailSelectFolder(QString)", data );
 }
@@ -138,7 +138,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
 
       KURLLabel *urlLabel = new KURLLabel( *it, folderPath, this );
       urlLabel->installEventFilter( this );
-      urlLabel->setAlignment( AlignLeft );
+      urlLabel->setAlignment( Qt::AlignLeft );
       urlLabel->show();
       connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
                SLOT( selectFolder( const QString& ) ) );
@@ -149,7 +149,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
         new QLabel( QString( i18n("%1: number of unread messages "
                                   "%2: total number of messages", "%1 / %2") )
                     .arg( numUnreadMsg ).arg( numMsg ), this );
-      label->setAlignment( AlignLeft );
+      label->setAlignment( Qt::AlignLeft );
       label->show();
       mLayout->addWidget( label, counter, 2 );
       mLabels.append( label );
@@ -160,7 +160,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
 
   if ( counter == 0 ) {
     QLabel *label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );
-    label->setAlignment( AlignHCenter | AlignVCenter );
+    label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addMultiCellWidget( label, 0, 0, 0, 2 );
     label->show();
     mLabels.append( label );
