@@ -436,7 +436,8 @@ void SDSummaryWidget::updateView()
       } else {
         label->setPixmap( icon_img );
       }
-      label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
+      label->setMaximumWidth( label->minimumSizeHint().width() );
+      label->setAlignment( AlignVCenter );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
@@ -465,7 +466,6 @@ void SDSummaryWidget::updateView()
 
       label = new QLabel( datestr, this );
       label->setAlignment( AlignLeft | AlignVCenter );
-      label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, 1 );
       mLabels.append( label );
       if ( makeBold ) {
@@ -483,7 +483,6 @@ void SDSummaryWidget::updateView()
       }
 
       label->setAlignment( AlignLeft | AlignVCenter );
-      label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, 2 );
       mLabels.append( label );
 
@@ -501,8 +500,7 @@ void SDSummaryWidget::updateView()
       }
       label = new QLabel( this );
       label->setText( what );
-      label->setAlignment( AlignRight | AlignVCenter );
-      label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
+      label->setAlignment( AlignLeft | AlignVCenter );
       mLayout->addWidget( label, counter, 3 );
       mLabels.append( label );
 
@@ -513,7 +511,6 @@ void SDSummaryWidget::updateView()
         urlLabel->setURL( (*addrIt).addressee.uid() );
         urlLabel->setText( (*addrIt).addressee.realName() );
         urlLabel->setAlignment( AlignLeft | AlignVCenter );
-        urlLabel->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
         mLayout->addWidget( urlLabel, counter, 4 );
         mLabels.append( urlLabel );
 
@@ -525,7 +522,6 @@ void SDSummaryWidget::updateView()
         label = new QLabel( this );
         label->setText( (*addrIt).summary );
         label->setAlignment( AlignLeft | AlignVCenter );
-        label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
         mLayout->addWidget( label, counter, 4 );
         mLabels.append( label );
         if ( !(*addrIt).desc.isEmpty() ) {
@@ -543,7 +539,6 @@ void SDSummaryWidget::updateView()
           label->setText( i18n( "one year", "%n years", (*addrIt).yearsOld  ) );
         }
         label->setAlignment( AlignLeft | AlignVCenter );
-        label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
         mLayout->addWidget( label, counter, 5 );
         mLabels.append( label );
       }
