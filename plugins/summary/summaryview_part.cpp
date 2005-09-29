@@ -53,9 +53,6 @@
 #include <libkpimidentities/identity.h>
 #include <libkpimidentities/identitymanager.h>
 
-#include <infoextension.h>
-#include <sidebarextension.h>
-
 #include "plugin.h"
 #include "summary.h"
 
@@ -87,10 +84,6 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
   setDate( QDate::currentDate() );
   connect( mCore, SIGNAL( dayChanged( const QDate& ) ),
            SLOT( setDate( const QDate& ) ) );
-
-  KParts::InfoExtension *info = new KParts::InfoExtension( this, "Summary" );
-  connect( this, SIGNAL( textChanged( const QString& ) ),
-           info, SIGNAL( textChanged( const QString& ) ) );
 
   mConfigAction = new KAction( i18n( "&Configure Summary View..." ),
                                "configure", 0, this,
@@ -283,13 +276,13 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
         pos = mLeftColumnSummaries.count();
 
       mLeftColumn->insertWidget( pos, widget );
-      mLeftColumnSummaries.insert( mLeftColumnSummaries.at( pos ), widgetName( widget ) );
+      mLeftColumnSummaries.insert( pos, widgetName( widget ) );
     } else {
       if ( alignment & Qt::AlignBottom )
         pos = mRightColumnSummaries.count();
 
       mRightColumn->insertWidget( pos, widget );
-      mRightColumnSummaries.insert( mRightColumnSummaries.at( pos ), widgetName( widget ) );
+      mRightColumnSummaries.insert( pos, widgetName( widget ) );
     }
 
     return;
@@ -301,7 +294,7 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
       targetPos++;
 
     mLeftColumn->insertWidget( targetPos, widget );
-    mLeftColumnSummaries.insert( mLeftColumnSummaries.at( targetPos ), widgetName( widget ) );
+    mLeftColumnSummaries.insert( targetPos, widgetName( widget ) );
   } else {
     targetPos = mRightColumn->findWidget( target );
 
@@ -309,7 +302,7 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
       targetPos++;
 
     mRightColumn->insertWidget( targetPos, widget );
-    mRightColumnSummaries.insert( mRightColumnSummaries.at( targetPos ), widgetName( widget ) );
+    mRightColumnSummaries.insert( targetPos, widgetName( widget ) );
   }
 }
 
@@ -383,7 +376,7 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   mUsernameLabel = new QLabel( mMainWidget );
   hbl->addWidget( mUsernameLabel );
   mDateLabel = new QLabel( mMainWidget );
-  mDateLabel->setAlignment( AlignRight );
+  mDateLabel->setAlignment( Qt::AlignRight );
   hbl->addWidget( mDateLabel );
 
   Q3Frame *hline = new Q3Frame( mMainWidget );
