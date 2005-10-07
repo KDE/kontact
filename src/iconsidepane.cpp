@@ -141,7 +141,7 @@ int EntryItem::width( const Q3ListBox *listbox ) const
     if ( navigator()->viewMode() == SmallIcons )
       w += listbox->fontMetrics().width( text() );
     else
-      w = QMAX( w, listbox->fontMetrics().width( text() ) );
+      w = qMax( w, listbox->fontMetrics().width( text() ) );
   }
   return w + ( KDialog::marginHint() * 2 );
 }
@@ -153,7 +153,7 @@ int EntryItem::height( const Q3ListBox *listbox ) const
     h = (int)navigator()->viewMode() + 4;
   if ( navigator()->showText() ) {
     if ( navigator()->viewMode() == SmallIcons || !navigator()->showIcons() )
-      h = QMAX( h, listbox->fontMetrics().lineSpacing() ) + KDialog::spacingHint() * 2;
+      h = qMax( h, listbox->fontMetrics().lineSpacing() ) + KDialog::spacingHint() * 2;
     else
       h = (int)navigator()->viewMode() + listbox->fontMetrics().lineSpacing() + 4;
   }

@@ -102,7 +102,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
         w -= 20;
 
     QRect desk = KGlobalSettings::desktopGeometry( mNoteIVI->rect().center() );
-    resize( w, QMIN( h, desk.height() / 2 - 20 ) );
+    resize( w, qMin( h, desk.height() / 2 - 20 ) );
 
     hide();
     QAbstractEventDispatcher::instance()->unregisterTimers(this);
