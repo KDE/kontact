@@ -44,13 +44,14 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/part.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
 #include <libkcal/event.h>
 #include <libkcal/resourcecalendar.h>
 #include <libkcal/resourcelocal.h>
 #include <libkdepim/kpimprefs.h>
+#include <ktoolinvocation.h>
 
 #include "core.h"
 #include "plugin.h"
@@ -566,7 +567,7 @@ void SDSummaryWidget::mailContact( const QString &uid )
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QString email = ab->findByUid( uid ).fullEmail();
 
-  kapp->invokeMailer( email, QString::null );
+  KToolInvocation::invokeMailer( email, QString::null );
 }
 
 void SDSummaryWidget::viewContact( const QString &uid )
@@ -582,7 +583,7 @@ void SDSummaryWidget::viewContact( const QString &uid )
 
 void SDSummaryWidget::popupMenu( const QString &uid )
 {
-  KPopupMenu popup( this );
+  KMenu popup( this );
   popup.insertItem( KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Small ),
                     i18n( "Send &Mail" ), 0 );
   popup.insertItem( KGlobal::iconLoader()->loadIcon( "kaddressbook", KIcon::Small ),

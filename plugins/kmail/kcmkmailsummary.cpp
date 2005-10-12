@@ -29,7 +29,7 @@
 #include <dcopref.h>
 
 #include <kaboutdata.h>
-#include <kaccelmanager.h>
+#include <kacceleratormanager.h>
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>

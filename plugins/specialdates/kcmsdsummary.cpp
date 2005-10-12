@@ -35,7 +35,7 @@
 
 #include <kaboutdata.h>
 #include <kapplication.h>
-#include <kaccelmanager.h>
+#include <kacceleratormanager.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kdialogbase.h>

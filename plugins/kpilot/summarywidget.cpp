@@ -51,6 +51,7 @@
 #include "pilotDaemonDCOP_stub.h"
 
 #include <ktextedit.h>
+#include <ktoolinvocation.h>
 
 #include "summarywidget.h"
 
@@ -229,7 +230,7 @@ void SummaryWidget::startKPilot()
   Q3CString appID;
   QStringList lst;
   lst << "--fail-silently";
-  if ( !KApplication::kdeinitExec( "kpilotDaemon", /*QString( "--fail-silently" )*/lst ) ) {
+  if ( !KToolInvocation::kdeinitExec( "kpilotDaemon", /*QString( "--fail-silently" )*/lst ) ) {
     kdDebug(5602) << "No service available..." << endl;
     mStartedDaemon = true;
   }

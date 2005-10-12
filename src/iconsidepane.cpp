@@ -44,7 +44,7 @@
 #include <QResizeEvent>
 #include <QDragEnterEvent>
 
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kapplication.h>
 #include <kdialog.h>
 #include <klocale.h>
@@ -455,7 +455,7 @@ IconViewMode Navigator::sizeIntToEnum(int size) const
 
 void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint &pos )
 {
-  KPopupMenu menu;
+  KMenu menu;
   menu.insertTitle( i18n( "Icon Size" ) );
   menu.insertItem( i18n( "Large" ), (int)LargeIcons );
   menu.setItemEnabled( (int)LargeIcons, mShowIcons );

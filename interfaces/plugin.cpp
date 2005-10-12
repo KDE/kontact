@@ -58,7 +58,7 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
   : KXMLGUIClient(  core ), QObject(  parent, name ), d(  new Private )
 {
   core->factory()->addClient( this );
-  KGlobal::locale()->insertCatalogue(name);
+  KGlobal::locale()->insertCatalog(name);
 
   d->core = core;
   d->dcopClient = 0;

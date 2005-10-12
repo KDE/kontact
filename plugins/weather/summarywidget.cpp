@@ -43,6 +43,7 @@
 #include <kprocess.h>
 #include <kurllabel.h>
 #include <q3tl.h>
+#include <ktoolinvocation.h>
 
 #include "summarywidget.h"
 
@@ -61,7 +62,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   Q3CString appID;
   bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "KWeatherService" ) ) {
-    if ( KApplication::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
+    if ( KToolInvocation::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
       QLabel *label = new QLabel( i18n( "No weather dcop service available;\nyou need KWeather to use this plugin." ), this );
       mLayout->addWidget( label, Qt::AlignHCenter | Qt::AlignVCenter );
       serviceAvailable = false;

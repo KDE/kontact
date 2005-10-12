@@ -50,7 +50,7 @@
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
 #include <kplugininfo.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <ksettings/dialog.h>
 #include <ksettings/dispatcher.h>
 #include <kshortcut.h>
@@ -70,6 +70,7 @@
 #include <kaboutdata.h>
 #include <kmenubar.h>
 #include <kstdaccel.h>
+#include <ktoolinvocation.h>
 
 #include "aboutdialog.h"
 #include "iconsidepane.h"
@@ -660,7 +661,7 @@ void MainWindow::slotShowTip()
 void MainWindow::slotRequestFeature()
 {
   if ( kapp )
-    kapp->invokeBrowser( "http://kontact.org/shopping" );
+    KToolInvocation::invokeBrowser( "http://kontact.org/shopping" );
 }
 
 void MainWindow::slotShowIntroduction()

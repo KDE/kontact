@@ -43,7 +43,7 @@
 #include <kiconeffect.h>
 #include <klineedit.h>
 #include <ktoolbar.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kdialogbase.h>
 #include <kxmlguiclient.h>
 #include <kxmlguifactory.h>
@@ -151,7 +151,7 @@ class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
     KLineEdit *mTitleEdit;
     KNoteEdit  *mNoteEdit;
     KToolBar   *mTool;
-    KPopupMenu *mEditMenu;
+    KMenu *mEditMenu;
 };
 
 

@@ -38,7 +38,7 @@
 
 #include <kaboutdata.h>
 #include <kapplication.h>
-#include <kaccelmanager.h>
+#include <kacceleratormanager.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kdialogbase.h>
@@ -51,6 +51,7 @@
 #include "newsfeeds.h"
 
 #include <kdepimmacros.h>
+#include <ktoolinvocation.h>
 
 extern "C"
 {
@@ -393,7 +394,7 @@ bool KCMKontactKNT::dcopActive() const
   bool isGood = true;
   DCOPClient *client = kapp->dcopClient();
   if ( !client->isApplicationRegistered( "rssservice" ) ) {
-    if ( KApplication::startServiceByDesktopName( "rssservice", QStringList(), &error, &appID ) )
+    if ( KToolInvocation::startServiceByDesktopName( "rssservice", QStringList(), &error, &appID ) )
       isGood = false;
   }
 

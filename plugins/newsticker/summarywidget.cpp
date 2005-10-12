@@ -42,6 +42,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kurllabel.h>
+#include <ktoolinvocation.h>
 
 #include "summarywidget.h"
 
@@ -62,7 +63,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
   bool dcopAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "rssservice" ) ) {
-    if ( KApplication::startServiceByDesktopName( "rssservice", QStringList(), &error, &appID ) ) {
+    if ( KToolInvocation::startServiceByDesktopName( "rssservice", QStringList(), &error, &appID ) ) {
       QLabel *label = new QLabel( i18n( "No rss dcop service available.\nYou need rssservice to use this plugin." ), this );
       vlay->addWidget( label, Qt::AlignHCenter );
       dcopAvailable = false;
