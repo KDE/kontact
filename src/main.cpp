@@ -160,7 +160,7 @@ int main( int argc, char **argv )
   KCmdLineArgs::init( argc, argv, &about );
   KCmdLineArgs::addCmdLineOptions( options );
   KUniqueApplication::addCmdLineOptions();
-  KApplication::addCmdLineOptions();
+  KCmdLineArgs::addStdCmdLineOptions();
 
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   if ( args->isSet( "list" ) ) {
