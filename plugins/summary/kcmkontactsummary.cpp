@@ -32,7 +32,7 @@
 #include <plugin.h>
 #include <kplugininfo.h>
 #include <ktrader.h>
-
+#include <kinstance.h>
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qpixmap.h>
@@ -46,7 +46,8 @@
 extern "C"
 {
   KDE_EXPORT KCModule *create_kontactsummary( QWidget *parent, const char * ) {
-    return new KCMKontactSummary( parent, "kcmkontactsummary" );
+	KInstance *inst = new KInstance("kcmkontactsummary");
+    return new KCMKontactSummary( inst,parent );
   }
 }
 
@@ -81,7 +82,7 @@ class PluginItem : public Q3CheckListItem
 };
 
 PluginView::PluginView( QWidget *parent, const char *name )
-  : KListView( parent, name )
+  : KListView( parent )
 {
   addColumn( i18n( "Name" ) );
   setAllColumnsShowFocus( true );
@@ -92,8 +93,8 @@ PluginView::~PluginView()
 {
 }
 
-KCMKontactSummary::KCMKontactSummary( QWidget *parent, const char *name )
-  : KCModule( parent, name )
+KCMKontactSummary::KCMKontactSummary( KInstance* inst, QWidget *parent )
+  : KCModule( inst, parent )
 {
   QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
 
