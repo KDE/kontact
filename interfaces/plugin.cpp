@@ -24,7 +24,8 @@
 //Added by qt3to4:
 #include <Q3CString>
 #include <Q3PtrList>
-
+#include <kxmlguifactory.h>
+#include <klocale.h>
 #include <dcopclient.h>
 #include <kaboutdata.h>
 #include <kglobal.h>
