@@ -31,6 +31,7 @@
 #include <kuniqueapplication.h>
 #include <kwin.h>
 #include <kstandarddirs.h>
+#include <ktoolinvocation.h>
 #include <ktrader.h>
 #include "plugin.h"
 
@@ -95,7 +96,7 @@ void KontactApp::startKOrgac()
   }
   else {
     QString error;
-    if ( startServiceByDesktopPath( desktopFile, QStringList(), &error ) != 0 )
+    if ( KToolInvocation::startServiceByDesktopPath( desktopFile, QStringList(), &error ) != 0 )
       kdWarning() << "Failure starting korgac:" << error << endl;
   }
 }

@@ -48,7 +48,8 @@
 extern "C"
 {
   KDE_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * ) {
-    return new KcmKontact( parent, "kcmkontact" );
+	KInstance *inst = new KInstance("kcmkontact" );
+    return new KcmKontact( inst, parent );
   }
 }
 
@@ -70,8 +71,8 @@ class PluginItem : public Q3ListViewItem
     KService::Ptr mPtr;
 };
 
-KcmKontact::KcmKontact( QWidget *parent, const char *name )
-  : KPrefsModule( Kontact::Prefs::self(), parent, name )
+KcmKontact::KcmKontact( KInstance *inst, QWidget *parent )
+  : KPrefsModule( Kontact::Prefs::self(), inst, parent )
 {
   QBoxLayout *topLayout = new QVBoxLayout( this );
   QBoxLayout *pluginStartupLayout = new QHBoxLayout( topLayout );

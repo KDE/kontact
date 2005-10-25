@@ -43,7 +43,7 @@ class KcmKontact : public KPrefsModule
   Q_OBJECT
 
   public:
-    KcmKontact( QWidget *parent = 0, const char *name = 0 );
+    KcmKontact( KInstance *inst, QWidget *parent = 0 );
 
     virtual const KAboutData* aboutData() const;
 };
