@@ -109,7 +109,7 @@ void SummaryWidget::updateView()
   Q3ValueList<WeatherData>::Iterator it;
   for ( it = dataList.begin(); it != dataList.end(); ++it ) {
     QString cover;
-    for ( uint i = 0; i < (*it).cover().count(); ++i )
+    for ( int i = 0; i < (*it).cover().count(); ++i )
       cover += QString( "- %1\n" ).arg( (*it).cover()[ i ] );
 
     QImage img;

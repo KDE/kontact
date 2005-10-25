@@ -38,7 +38,7 @@ class KCMKMailSummary : public KCModule
   Q_OBJECT
 
   public:
-    KCMKMailSummary( QWidget *parent = 0, const char *name = 0 );
+    KCMKMailSummary( KInstance *inst, QWidget *parent = 0);
 
     virtual void load();
     virtual void save();

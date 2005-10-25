@@ -57,7 +57,8 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_kontactknt( QWidget *parent, const char * )
   {
-    return new KCMKontactKNT( parent, "kcmkontactknt" );
+	KInstance * inst = new KInstance("kcmkontactknt" );
+    return new KCMKontactKNT( inst,parent );
   }
 }
 
@@ -134,8 +135,8 @@ class NewsItem : public Q3ListViewItem
     bool mCustom;
 };
 
-KCMKontactKNT::KCMKontactKNT( QWidget *parent, const char *name )
-  : KCModule( parent, name )
+KCMKontactKNT::KCMKontactKNT( KInstance *inst,QWidget *parent )
+  : KCModule( inst, parent )
 {
   initGUI();
 
@@ -300,7 +301,7 @@ void KCMKontactKNT::scanNews()
   DCOPRef service( "rssservice", "RSSService" );
   QStringList urls = service.call( "list()" );
 
-  for ( uint i = 0; i < urls.count(); ++i )
+  for ( int i = 0; i < urls.count(); ++i )
     new NewsItem( mSelectedNews, mFeedMap[ urls[ i ] ], urls[ i ], false );
 }
 

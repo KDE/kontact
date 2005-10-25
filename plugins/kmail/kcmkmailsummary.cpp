@@ -45,12 +45,13 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_kmailsummary( QWidget *parent, const char * )
   {
-    return new KCMKMailSummary( parent, "kcmkmailsummary" );
+	KInstance *inst = new KInstance("kcmkmailsummary" );
+    return new KCMKMailSummary( inst, parent );
   }
 }
 
-KCMKMailSummary::KCMKMailSummary( QWidget *parent, const char *name )
-  : KCModule( parent, name )
+KCMKMailSummary::KCMKMailSummary( KInstance *inst, QWidget *parent )
+  : KCModule( inst, parent )
 {
   initGUI();
 
