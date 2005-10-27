@@ -179,7 +179,7 @@ void SummaryWidget::updateView()
 
       KURLLabel *urlLabel = new KURLLabel( ev->uid(), newtext, this );
       urlLabel->installEventFilter( this );
-      urlLabel->setAlignment( urlLabel->alignment() | Qt::WordBreak );
+      urlLabel->setAlignment( urlLabel->alignment() | Qt::TextWordWrap );
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
 

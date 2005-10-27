@@ -29,7 +29,7 @@
 #include <qfile.h>
 #include <qlabel.h>
 #include <q3textedit.h>
-#include <q3vbox.h>
+#include <kvbox.h>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QGridLayout>
@@ -104,10 +104,10 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   // Conduits:
   row++;
   mConduitsTextLabel = new QLabel( i18n( "<i>Conduits:</i>" ), this );
-  mConduitsTextLabel->setAlignment( Qt::AlignAuto | Qt::AlignTop | Qt::ExpandTabs );
+  mConduitsTextLabel->setAlignment( Qt::AlignAuto | Qt::AlignTop | Qt::TextExpandTabs );
   mLayout->addWidget( mConduitsTextLabel, row, 0 );
   mConduitsLabel = new QLabel( i18n( "No information available" ), this );
-  mConduitsLabel->setAlignment( mConduitsLabel->alignment() | Qt::WordBreak );
+  mConduitsLabel->setAlignment( mConduitsLabel->alignment() | Qt::TextWordWrap );
   mLayout->addMultiCellWidget( mConduitsLabel, row, row, 1, 3 );
 
   // widgets shown if kpilotDaemon is not running
