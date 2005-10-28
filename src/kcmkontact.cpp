@@ -24,7 +24,7 @@
 
 #include "kcmkontact.h"
 #include "prefs.h"
-
+#include <kinstance.h>
 
 #include <kaboutdata.h>
 #include <kdebug.h>
