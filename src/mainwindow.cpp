@@ -87,7 +87,7 @@ class SettingsDialogWrapper : public KSettings::Dialog
 {
   public:
     SettingsDialogWrapper( ContentInListView content, QWidget * parent = 0 )
-      : KSettings::Dialog( content, parent, 0 )
+      : KSettings::Dialog( content, parent )
     {
     }
 
