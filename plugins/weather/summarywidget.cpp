@@ -121,9 +121,9 @@ void SummaryWidget::updateView()
     KURLLabel* urlLabel = new KURLLabel( this );
     urlLabel->installEventFilter( this );
     urlLabel->setURL( (*it).stationID() );
-    urlLabel->setPixmap( img.smoothScale( 32, 32 ) );
+    urlLabel->setPixmap( QPixmap(img.smoothScale( 32, 32 )) );
     urlLabel->setMaximumSize( urlLabel->sizeHint() );
-    urlLabel->setAlignment( AlignTop );
+    urlLabel->setAlignment( Qt::AlignTop );
     layout->addMultiCellWidget( urlLabel, 0, 1, 0, 0 );
     mLabels.append( urlLabel );
     connect ( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
