@@ -67,7 +67,7 @@ class PluginSelection : public KPrefsWid
 
   private:
     QComboBox *mPluginCombo;
-    Q3ValueList<KService::Ptr> mPluginList;
+    KService::List mPluginList;
     KConfigSkeleton::ItemString *mItem;
 };
 
