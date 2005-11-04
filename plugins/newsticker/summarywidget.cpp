@@ -162,7 +162,7 @@ void SummaryWidget::updateDocuments()
 
 void SummaryWidget::documentUpdated( DCOPRef feedRef )
 {
-  static uint feedCounter = 0;
+  static int feedCounter = 0;
   ArticleMap map;
 
   int numArticles = feedRef.call( "count()" );
