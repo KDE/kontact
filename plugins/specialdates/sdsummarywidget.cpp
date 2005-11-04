@@ -52,6 +52,7 @@
 #include <libkcal/resourcelocal.h>
 #include <libkdepim/kpimprefs.h>
 #include <ktoolinvocation.h>
+#include <q3tl.h>
 
 #include "core.h"
 #include "plugin.h"
@@ -435,10 +436,10 @@ void SDSummaryWidget::updateView()
         label->setPixmap( KGlobal::iconLoader()->loadIcon( icon_name,
                                                            KIcon::Small ) );
       } else {
-        label->setPixmap( icon_img );
+        label->setPixmap( QPixmap(icon_img) );
       }
       label->setMaximumWidth( label->minimumSizeHint().width() );
-      label->setAlignment( AlignVCenter );
+      label->setAlignment( Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
@@ -466,7 +467,7 @@ void SDSummaryWidget::updateView()
       }
 
       label = new QLabel( datestr, this );
-      label->setAlignment( AlignLeft | AlignVCenter );
+      label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 1 );
       mLabels.append( label );
       if ( makeBold ) {
@@ -483,7 +484,7 @@ void SDSummaryWidget::updateView()
         label->setText( i18n( "in 1 day", "in %n days", (*addrIt).daysTo ) );
       }
 
-      label->setAlignment( AlignLeft | AlignVCenter );
+      label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 2 );
       mLabels.append( label );
 
@@ -501,7 +502,7 @@ void SDSummaryWidget::updateView()
       }
       label = new QLabel( this );
       label->setText( what );
-      label->setAlignment( AlignLeft | AlignVCenter );
+      label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 3 );
       mLabels.append( label );
 
@@ -511,7 +512,7 @@ void SDSummaryWidget::updateView()
         urlLabel->installEventFilter( this );
         urlLabel->setURL( (*addrIt).addressee.uid() );
         urlLabel->setText( (*addrIt).addressee.realName() );
-        urlLabel->setAlignment( AlignLeft | AlignVCenter );
+        urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
         mLayout->addWidget( urlLabel, counter, 4 );
         mLabels.append( urlLabel );
 
@@ -522,7 +523,7 @@ void SDSummaryWidget::updateView()
       } else {
         label = new QLabel( this );
         label->setText( (*addrIt).summary );
-        label->setAlignment( AlignLeft | AlignVCenter );
+        label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
         mLayout->addWidget( label, counter, 4 );
         mLabels.append( label );
         if ( !(*addrIt).desc.isEmpty() ) {
@@ -539,7 +540,7 @@ void SDSummaryWidget::updateView()
         } else {
           label->setText( i18n( "one year", "%n years", (*addrIt).yearsOld  ) );
         }
-        label->setAlignment( AlignLeft | AlignVCenter );
+        label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
         mLayout->addWidget( label, counter, 5 );
         mLabels.append( label );
       }
@@ -551,7 +552,7 @@ void SDSummaryWidget::updateView()
         i18n( "No special dates within the next 1 day",
               "No special dates pending within the next %n days",
               mDaysAhead ), this, "nothing to see" );
-    label->setAlignment( AlignHCenter | AlignVCenter );
+    label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addMultiCellWidget( label, 0, 0, 0, 4 );
     mLabels.append( label );
   }
@@ -584,19 +585,16 @@ void SDSummaryWidget::viewContact( const QString &uid )
 void SDSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
-  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Small ),
-                    i18n( "Send &Mail" ), 0 );
-  popup.insertItem( KGlobal::iconLoader()->loadIcon( "kaddressbook", KIcon::Small ),
-                    i18n( "View &Contact" ), 1 );
+  QAction *sendMailAction = popup.addAction( KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Small ),
+                    i18n( "Send &Mail" ));
+  QAction * viewContactAction = popup.addAction( KGlobal::iconLoader()->loadIcon( "kaddressbook", KIcon::Small ),
+                    i18n( "View &Contact" ) );
 
-  switch ( popup.exec( QCursor::pos() ) ) {
-    case 0:
-      mailContact( uid );
-      break;
-    case 1:
-      viewContact( uid );
-      break;
-  }
+  QAction *ret = popup.exec( QCursor::pos() );
+  if( ret == sendMailAction)
+		  mailContact( uid );
+  else if( ret == viewContactAction )
+		  viewContact( uid );
 }
 
 bool SDSummaryWidget::eventFilter( QObject *obj, QEvent* e )
