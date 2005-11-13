@@ -25,8 +25,6 @@
 #include <dcopobject.h>
 #include <plugin.h>
 #include <kdepimmacros.h>
-//Added by qt3to4:
-#include <Q3CString>
 
 namespace Kontact
 {
@@ -110,7 +108,7 @@ class KDE_EXPORT UniqueAppWatcher : public QObject
     bool isRunningStandalone() const { return mRunningStandalone; }
 
   protected slots:
-    void unregisteredFromDCOP( const Q3CString& appId );
+    void unregisteredFromDCOP( const QByteArray& appId );
 
   private:
     bool mRunningStandalone;

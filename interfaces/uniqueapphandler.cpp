@@ -27,8 +27,6 @@
 #include <kwin.h>
 #include <dcopclient.h>
 #include <kdebug.h>
-//Added by qt3to4:
-#include <Q3CString>
 
 /*
  Test plan for the various cases of interaction between standalone apps and kontact:
@@ -99,7 +97,7 @@ bool UniqueAppHandler::process( const DCOPCString &fun, const QByteArray &data,
     ds.setVersion(QDataStream::Qt_3_1);
     KCmdLineArgs::loadAppArgs( ds );
     if ( !ds.atEnd() ) { // backwards compatibility
-      Q3CString asn_id;
+      QByteArray asn_id;
       ds >> asn_id;
       kapp->setStartupId( asn_id );
     }
@@ -147,8 +145,8 @@ UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin
 
   if ( mRunningStandalone ) {
     kapp->dcopClient()->setNotifications( true );
-    connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const Q3CString& ) ),
-             this, SLOT( unregisteredFromDCOP( const Q3CString& ) ) );
+    connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ),
+             this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
   } else {
     mFactory->createHandler( mPlugin );
   }
@@ -162,11 +160,11 @@ UniqueAppWatcher::~UniqueAppWatcher()
   delete mFactory;
 }
 
-void UniqueAppWatcher::unregisteredFromDCOP( const Q3CString& appId )
+void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray& appId )
 {
   if ( appId == mPlugin->name() && mRunningStandalone ) {
-    disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const Q3CString& ) ),
-                this, SLOT( unregisteredFromDCOP( const Q3CString& ) ) );
+    disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ),
+                this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
     kdDebug(5601) << k_funcinfo << appId << endl;
     mFactory->createHandler( mPlugin );
     kapp->dcopClient()->setNotifications( false );
