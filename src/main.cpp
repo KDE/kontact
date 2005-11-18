@@ -176,8 +176,9 @@ int main( int argc, char **argv )
 
   KontactApp app;
   bool ret = app.exec();
-  while ( KMainWindow::memberList()->first() )
-    delete KMainWindow::memberList()->first();
+#warning "kde4: now that KMainWindow::memberList() is a static const QList<KMainWindow*>& memberList(); we can't delete it. How port it ?"
+  //while ( KMainWindow::memberList()->first() )
+    //delete KMainWindow::memberList()->first();
 
   return ret;
 }
