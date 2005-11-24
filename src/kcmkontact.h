@@ -59,7 +59,7 @@ class PluginSelection : public KPrefsWid
     void readConfig();
     void writeConfig();
 
-    Q3ValueList<QWidget *> widgets() const;
+    QList<QWidget *> widgets() const;
     QComboBox *comboBox() const { return mPluginCombo; }
 
   private slots:

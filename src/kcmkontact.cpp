@@ -39,7 +39,6 @@
 #include <qlayout.h>
 //Added by qt3to4:
 #include <QVBoxLayout>
-#include <Q3ValueList>
 #include <QHBoxLayout>
 #include <QBoxLayout>
 
@@ -152,7 +151,7 @@ void PluginSelection::itemClicked( Q3ListViewItem *item )
     emit changed();
 }
 
-Q3ValueList<QWidget *> PluginSelection::widgets() const
+QList<QWidget *> PluginSelection::widgets() const
 {
   Q3ValueList<QWidget *> widgets;
   widgets.append( mPluginCombo );
