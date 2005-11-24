@@ -27,7 +27,6 @@
 #include <qtimer.h>
 //Added by qt3to4:
 #include <QVBoxLayout>
-#include <Q3ValueList>
 #include <QHBoxLayout>
 
 #include <dcopclient.h>
@@ -165,9 +164,9 @@ void SummaryViewPart::updateWidgets()
   // Collect all summary widgets with a summaryHeight > 0
   QStringList loadedSummaries;
 
-  Q3ValueList<Kontact::Plugin*> plugins = mCore->pluginList();
-  Q3ValueList<Kontact::Plugin*>::ConstIterator end = plugins.end();
-  Q3ValueList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
+  QList<Kontact::Plugin*> plugins = mCore->pluginList();
+  QList<Kontact::Plugin*>::ConstIterator end = plugins.end();
+  QList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
   for ( ; it != end; ++it ) {
     Kontact::Plugin *plugin = *it;
     if ( activeSummaries.find( plugin->identifier() ) == activeSummaries.end() )
