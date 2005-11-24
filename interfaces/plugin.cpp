@@ -22,7 +22,6 @@
 
 #include <qobject.h>
 //Added by qt3to4:
-#include <Q3CString>
 #include <Q3PtrList>
 #include <kxmlguifactory.h>
 #include <klocale.h>
@@ -49,7 +48,7 @@ class Plugin::Private
     QString title;
     QString icon;
     QString executableName;
-    Q3CString partLibraryName;
+    QByteArray partLibraryName;
     bool hasPart;
     KParts::ReadOnlyPart *part;
 };
@@ -116,7 +115,7 @@ QString Plugin::executableName() const
   return d->executableName;
 }
 
-void Plugin::setPartLibraryName( const Q3CString &libName )
+void Plugin::setPartLibraryName( const QByteArray &libName )
 {
   d->partLibraryName = libName;
 }

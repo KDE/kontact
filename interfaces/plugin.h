@@ -25,8 +25,6 @@
 #define KONTACT_PLUGIN_H
 
 #include <qobject.h>
-//Added by qt3to4:
-#include <Q3CString>
 #include <QDropEvent>
 #include <kxmlguiclient.h>
 #include <kdepimmacros.h>
@@ -118,7 +116,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     /**
       Set name of library which contains the KPart used by this plugin.
     */
-    void setPartLibraryName( const Q3CString & );
+    void setPartLibraryName( const QByteArray & );
 
     /**
       Create the DCOP interface for the given @p serviceType, if this
