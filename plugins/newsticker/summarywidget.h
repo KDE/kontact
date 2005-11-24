@@ -35,7 +35,6 @@
 #include <QPixmap>
 #include <QLabel>
 #include <QVBoxLayout>
-#include <Q3ValueList>
 
 #include "summary.h"
 #include <kurl.h>
@@ -46,7 +45,7 @@ class QLabel;
 class DCOPRef;
 class KURLLabel;
 
-typedef Q3ValueList< QPair<QString, KURL> > ArticleMap;
+typedef QList< QPair<QString, KURL> > ArticleMap;
 
 typedef struct {
   DCOPRef ref;
@@ -56,7 +55,7 @@ typedef struct {
   ArticleMap map;
 } Feed;
 
-typedef Q3ValueList<Feed> FeedList;
+typedef QList<Feed> FeedList;
 
 class SummaryWidget : public Kontact::Summary, public DCOPObject
 {

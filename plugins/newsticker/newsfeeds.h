@@ -24,14 +24,13 @@
 #ifndef NEWSFEEDS_H
 #define NEWSFEEDS_H
 
-#include <q3valuelist.h>
 
 #define DEFAULT_NEWSSOURCES 60
 
 class NewsSourceData
 {
   public:
-    typedef Q3ValueList<NewsSourceData> List;
+    typedef QList<NewsSourceData> List;
 
     enum Category { Arts, Business, Computers, Misc,
                     Recreation, Society };

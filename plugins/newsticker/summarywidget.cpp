@@ -23,15 +23,14 @@
 
 #include <qclipboard.h>
 #include <qeventloop.h>
-#include <q3hbox.h>
+#include <khbox.h>
 #include <qlayout.h>
 #include <qpixmap.h>
-#include <q3popupmenu.h>
+#include <qmenu.h>
 #include <qcursor.h>
 //Added by qt3to4:
 #include <QLabel>
 #include <QVBoxLayout>
-#include <Q3CString>
 
 #include <dcopclient.h>
 #include <kapplication.h>
@@ -59,7 +58,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   vlay->addWidget( header );
 
   QString error;
-  Q3CString appID;
+  DCOPCString appID;
 
   bool dcopAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "rssservice" ) ) {
@@ -214,7 +213,7 @@ void SummaryWidget::updateView()
 
   FeedList::Iterator it;
   for ( it = mFeeds.begin(); it != mFeeds.end(); ++it ) {
-    Q3HBox *hbox = new Q3HBox( mBaseWidget );
+    KHBox *hbox = new KHBox( mBaseWidget );
     mLayout->addWidget( hbox );
 
     // icon
@@ -277,10 +276,9 @@ void SummaryWidget::updateSummary( bool )
 
 void SummaryWidget::rmbMenu( const QString& url )
 {
-  Q3PopupMenu menu;
-  menu.insertItem( i18n( "Copy URL to Clipboard" ) );
-  int id = menu.exec( QCursor::pos() );
-  if ( id != -1 )
+  QMenu menu;
+  menu.addMenu( i18n( "Copy URL to Clipboard" ) );
+  if ( menu.exec( QCursor::pos() ) )
     kapp->clipboard()->setText( url, QClipboard::Clipboard );
 }
 

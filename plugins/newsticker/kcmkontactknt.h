@@ -25,8 +25,6 @@
 #define KCMKONTACTKNT_H
 
 #include <kcmodule.h>
-//Added by qt3to4:
-#include <Q3ValueList>
 
 class Q3ListViewItem;
 class QSpinxBox;
@@ -81,7 +79,7 @@ class KCMKontactKNT : public KCModule
     QSpinBox *mArticleCount;
 
     QMap<QString, QString> mFeedMap;
-    Q3ValueList<NewsItem*> mCustomFeeds;
+    QList<NewsItem*> mCustomFeeds;
 };
 
 class NewsEditDialog : public KDialogBase

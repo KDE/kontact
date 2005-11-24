@@ -29,9 +29,7 @@
 #include <qspinbox.h>
 //Added by qt3to4:
 #include <QVBoxLayout>
-#include <Q3ValueList>
 #include <QGridLayout>
-#include <Q3CString>
 
 #include <dcopref.h>
 #include <dcopclient.h>
@@ -208,7 +206,7 @@ void KCMKontactKNT::storeCustomNews()
   config.setGroup( "CustomFeeds" );
 
   int counter = 0;
-  Q3ValueList<NewsItem*>::Iterator it;
+  QList<NewsItem*>::Iterator it;
   for ( it = mCustomFeeds.begin(); it != mCustomFeeds.end(); ++it ) {
     QStringList value;
     value << (*it)->title() << (*it)->url();
@@ -391,7 +389,7 @@ void KCMKontactKNT::initGUI()
 bool KCMKontactKNT::dcopActive() const
 {
   QString error;
-  Q3CString appID;
+  DCOPCString appID;
   bool isGood = true;
   DCOPClient *client = kapp->dcopClient();
   if ( !client->isApplicationRegistered( "rssservice" ) ) {
