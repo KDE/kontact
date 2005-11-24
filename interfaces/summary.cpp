@@ -24,7 +24,7 @@
 
 #include <qimage.h>
 #include <q3dragobject.h>
-#include <q3hbox.h>
+#include <khbox.h>
 #include <qfont.h>
 #include <qlabel.h>
 #include <qpainter.h>
@@ -51,7 +51,7 @@ Summary::~Summary()
 
 QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QString& heading)
 {
-  Q3HBox* hbox = new Q3HBox( parent );
+  KHBox* hbox = new KHBox( parent );
   hbox->setMargin( 2 );
 
   QFont boldFont;
