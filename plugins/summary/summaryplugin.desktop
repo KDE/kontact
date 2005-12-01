@@ -50,7 +50,6 @@ Comment[ta]=சுருக்கக்காட்சி சொருகுப�
 Comment[tg]=Модули дайджести Kontact
 Comment[tr]=Kontact Özet Gösterim Eklentisi
 Comment[uk]=Втулок Kontact для перегляду зведень
-Comment[xx]=xxKontact SummaryView Pluginxx
 Comment[zh_CN]=Kontact 概览视图插件
 Name=Summary
 Name[br]=Diverrañ
@@ -94,7 +93,6 @@ Name[tg]=Дайджест
 Name[tr]=Özet
 Name[uk]=Зведення
 Name[uz]=Ҳисобот
-Name[xx]=xxSummaryxx
 Name[zh_CN]=概览
 #Always last
 InitialPreference=0
