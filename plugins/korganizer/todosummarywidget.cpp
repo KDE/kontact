@@ -145,7 +145,7 @@ void TodoSummaryWidget::updateView()
       mLabels.append( label );
 
       label = new QLabel( QString::number( todo->percentComplete() ) + "%", this );
-      label->setAlignment( AlignHCenter | AlignVCenter );
+      label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, 1 );
       mLabels.append( label );
@@ -165,7 +165,7 @@ void TodoSummaryWidget::updateView()
       }
 
       label = new QLabel( stateText, this );
-      label->setAlignment( AlignLeft | AlignVCenter );
+      label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, 3 );
       mLabels.append( label );
@@ -179,7 +179,7 @@ void TodoSummaryWidget::updateView()
 
   if ( counter == 0 ) {
     QLabel *noTodos = new QLabel( i18n( "No to-dos pending" ), this );
-    noTodos->setAlignment( AlignHCenter | AlignVCenter );
+    noTodos->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( noTodos, 0, 1 );
     mLabels.append( noTodos );
   }

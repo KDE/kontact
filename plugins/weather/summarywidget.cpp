@@ -103,10 +103,10 @@ void SummaryWidget::updateView()
   }
 
 
-  Q3ValueList<WeatherData> dataList = mWeatherMap.values();
-  qHeapSort( dataList );
+  QList<WeatherData> dataList = mWeatherMap.values();
+  qSort( dataList );
 
-  Q3ValueList<WeatherData>::Iterator it;
+  QList<WeatherData>::Iterator it;
   for ( it = dataList.begin(); it != dataList.end(); ++it ) {
     QString cover;
     for ( int i = 0; i < (*it).cover().count(); ++i )

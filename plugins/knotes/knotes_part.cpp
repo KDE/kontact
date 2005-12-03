@@ -19,16 +19,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <qpopupmenu.h>
+#include <q3popupmenu.h>
 #include <qclipboard.h>
+//Added by qt3to4:
+#include <Q3PtrList>
 
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kaction.h>
 #include <kmessagebox.h>
-
-#include <libkdepim/infoextension.h>
-#include <libkdepim/sidebarextension.h>
 
 #include "knotes/resourcemanager.h"
 
@@ -37,8 +36,8 @@
 #include "knotetip.h"
 
 
-KNotesPart::KNotesPart( QObject *parent, const char *name )
-  : DCOPObject( "KNotesIface" ), KParts::ReadOnlyPart( parent, name ),
+KNotesPart::KNotesPart( QObject *parent )
+  : DCOPObject( "KNotesIface" ), KParts::ReadOnlyPart( parent ),
     mNotesView( new KIconView() ),
     mNoteTip( new KNoteTip( mNotesView ) ),
     mNoteEditDlg( 0 ),
@@ -49,39 +48,37 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   setInstance( new KInstance( "knotes" ) );
 
   // create the actions
-  new KAction( i18n( "&New..." ), "knotes", CTRL+Key_N, this, SLOT( newNote() ),
+  new KAction( i18n( "&New..." ), "knotes", Qt::CTRL+Qt::Key_N, this, SLOT( newNote() ),
                actionCollection(), "file_new" );
   new KAction( i18n( "Rename" ), "text", this, SLOT( renameNote() ),
                actionCollection(), "edit_rename" );
-  new KAction( i18n( "Delete" ), "editdelete", Key_Delete, this, SLOT( killSelectedNotes() ),
+  new KAction( i18n( "Delete" ), "editdelete", Qt::Key_Delete, this, SLOT( killSelectedNotes() ),
                actionCollection(), "edit_delete" );
 
   // TODO styleguide: s/New.../New/, s/Rename/Rename.../
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
   // set the view up
-  mNotesView->setSelectionMode( QIconView::Extended );
+  mNotesView->setSelectionMode( Q3IconView::Extended );
   mNotesView->setItemsMovable( false );
-  mNotesView->setResizeMode( QIconView::Adjust );
+  mNotesView->setResizeMode( Q3IconView::Adjust );
 
-  connect( mNotesView, SIGNAL( executed( QIconViewItem* ) ),
-           this, SLOT( editNote( QIconViewItem* ) ) );
-  connect( mNotesView, SIGNAL( returnPressed( QIconViewItem* ) ),
-           this, SLOT( editNote( QIconViewItem* ) ) );
-  connect( mNotesView, SIGNAL( itemRenamed( QIconViewItem* ) ),
-           this, SLOT( renamedNote( QIconViewItem* ) ) );
-  connect( mNotesView, SIGNAL( contextMenuRequested( QIconViewItem*, const QPoint& ) ),
-           this, SLOT( popupRMB( QIconViewItem*, const QPoint& ) ) );
-  connect( mNotesView, SIGNAL( onItem( QIconViewItem* ) ),
-           this, SLOT( slotOnItem( QIconViewItem* ) ) );
+  connect( mNotesView, SIGNAL( executed( Q3IconViewItem* ) ),
+           this, SLOT( editNote( Q3IconViewItem* ) ) );
+  connect( mNotesView, SIGNAL( returnPressed( Q3IconViewItem* ) ),
+           this, SLOT( editNote( Q3IconViewItem* ) ) );
+  connect( mNotesView, SIGNAL( itemRenamed( Q3IconViewItem* ) ),
+           this, SLOT( renamedNote( Q3IconViewItem* ) ) );
+  connect( mNotesView, SIGNAL( contextMenuRequested( Q3IconViewItem*, const QPoint& ) ),
+           this, SLOT( popupRMB( Q3IconViewItem*, const QPoint& ) ) );
+  connect( mNotesView, SIGNAL( onItem( Q3IconViewItem* ) ),
+           this, SLOT( slotOnItem( Q3IconViewItem* ) ) );
   connect( mNotesView, SIGNAL( onViewport() ),
            this, SLOT( slotOnViewport() ) );
-  connect( mNotesView, SIGNAL( currentChanged( QIconViewItem* ) ),
-           this, SLOT( slotOnCurrentChanged( QIconViewItem* ) ) );
+  connect( mNotesView, SIGNAL( currentChanged( Q3IconViewItem* ) ),
+           this, SLOT( slotOnCurrentChanged( Q3IconViewItem* ) ) );
 
   slotOnCurrentChanged( 0 );
-
-  new KParts::SideBarExtension( mNotesView, this, "NotesSideBarExtension" );
 
   setWidget( mNotesView );
   setXMLFile( "knotes_part.rc" );
@@ -176,7 +173,7 @@ void KNotesPart::killNote( const QString& id, bool force )
 
    if ( note && !force && KMessageBox::warningContinueCancelList( mNotesView,
         i18n( "Do you really want to delete this note?" ),
-        mNoteList[ id ]->text(), i18n( "Confirm Delete" ),
+        QStringList( mNoteList[ id ]->text() ), i18n( "Confirm Delete" ),
         KStdGuiItem::del() ) == KMessageBox::Continue ) {
      mManager->deleteNote( mNoteList[id]->journal() );
      mManager->save();
@@ -222,7 +219,7 @@ void KNotesPart::setText( const QString& id, const QString& newText )
 QMap<QString, QString> KNotesPart::notes() const
 {
   QMap<QString, QString> notes;
-  QDictIterator<KNotesIconViewItem> it( mNoteList );
+  Q3DictIterator<KNotesIconViewItem> it( mNoteList );
 
   for ( ; it.current(); ++it )
     notes.insert( (*it)->journal()->uid(), (*it)->journal()->description() );
@@ -235,11 +232,11 @@ QMap<QString, QString> KNotesPart::notes() const
 
 void KNotesPart::killSelectedNotes()
 {
-  QPtrList<KNotesIconViewItem> items;
+  Q3PtrList<KNotesIconViewItem> items;
   QStringList notes;
 
   KNotesIconViewItem *knivi;
-  for ( QIconViewItem *it = mNotesView->firstItem(); it; it = it->nextItem() ) {
+  for ( Q3IconViewItem *it = mNotesView->firstItem(); it; it = it->nextItem() ) {
     if ( it->isSelected() ) {
       knivi = static_cast<KNotesIconViewItem *>( it );
       items.append( knivi );
@@ -257,7 +254,7 @@ void KNotesPart::killSelectedNotes()
             KStdGuiItem::del() );
 
   if ( ret == KMessageBox::Continue ) {
-    QPtrListIterator<KNotesIconViewItem> kniviIt( items );
+    Q3PtrListIterator<KNotesIconViewItem> kniviIt( items );
     while ( (knivi = *kniviIt) ) {
       ++kniviIt;
       mManager->deleteNote( knivi->journal() );
@@ -267,14 +264,14 @@ void KNotesPart::killSelectedNotes()
   }
 }
 
-void KNotesPart::popupRMB( QIconViewItem *item, const QPoint& pos )
+void KNotesPart::popupRMB( Q3IconViewItem *item, const QPoint& pos )
 {
-  QPopupMenu *contextMenu = NULL;
+  Q3PopupMenu *contextMenu = NULL;
 
   if ( item )
-    contextMenu = static_cast<QPopupMenu *>( factory()->container( "note_context", this ) );
+    contextMenu = static_cast<Q3PopupMenu *>( factory()->container( "note_context", this ) );
   else
-    contextMenu = static_cast<QPopupMenu *>( factory()->container( "notepart_context", this ) );
+    contextMenu = static_cast<Q3PopupMenu *>( factory()->container( "notepart_context", this ) );
 
   if ( !contextMenu )
     return;
@@ -282,7 +279,7 @@ void KNotesPart::popupRMB( QIconViewItem *item, const QPoint& pos )
   contextMenu->popup( pos );
 }
 
-void KNotesPart::slotOnItem( QIconViewItem *i )
+void KNotesPart::slotOnItem( Q3IconViewItem *i )
 {
   // TODO: disable (i.e. setNote( QString::null )) when mouse button pressed
 
@@ -322,7 +319,7 @@ void KNotesPart::killNote( KCal::Journal *journal )
   mNoteList.remove( journal->uid() );
 }
 
-void KNotesPart::editNote( QIconViewItem *item )
+void KNotesPart::editNote( Q3IconViewItem *item )
 {
   if ( !mNoteEditDlg )
     mNoteEditDlg = new KNoteEditDlg( widget() );
@@ -343,12 +340,12 @@ void KNotesPart::renameNote()
   mNotesView->currentItem()->rename();
 }
 
-void KNotesPart::renamedNote( QIconViewItem* )
+void KNotesPart::renamedNote( Q3IconViewItem* )
 {
   mManager->save();
 }
 
-void KNotesPart::slotOnCurrentChanged( QIconViewItem* )
+void KNotesPart::slotOnCurrentChanged( Q3IconViewItem* )
 {
   KAction *renameAction = actionCollection()->action( "edit_rename" );
   KAction *deleteAction = actionCollection()->action( "edit_delete" );

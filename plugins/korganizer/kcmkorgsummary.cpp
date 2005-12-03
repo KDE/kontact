@@ -46,12 +46,13 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_korgsummary( QWidget *parent, const char * )
   {
-    return new KCMKOrgSummary( parent, "kcmkorgsummary" );
+    KInstance *inst = new KInstance( "kcmkorgsummary" );
+    return new KCMKOrgSummary( inst, parent );
   }
 }
 
-KCMKOrgSummary::KCMKOrgSummary( QWidget *parent, const char *name )
-  : KCModule( parent, name )
+KCMKOrgSummary::KCMKOrgSummary( KInstance *inst, QWidget *parent )
+  : KCModule( inst, parent )
 {
   initGUI();
 
@@ -95,7 +96,7 @@ void KCMKOrgSummary::initGUI()
 {
   QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
 
-  mCalendarGroup = new Q3ButtonGroup( 0, Vertical, i18n( "Appointments" ), this );
+  mCalendarGroup = new Q3ButtonGroup( 0, Qt::Vertical, i18n( "Appointments" ), this );
   QVBoxLayout *boxLayout = new QVBoxLayout( mCalendarGroup->layout(),
                                             KDialog::spacingHint() );
 
@@ -127,7 +128,7 @@ void KCMKOrgSummary::initGUI()
 
   layout->addWidget( mCalendarGroup );
 
-  mTodoGroup = new Q3ButtonGroup( 2, Horizontal, i18n( "To-dos" ), this );
+  mTodoGroup = new Q3ButtonGroup( 2, Qt::Horizontal, i18n( "To-dos" ), this );
   new QRadioButton( i18n( "Show all to-dos" ), mTodoGroup );
   new QRadioButton( i18n( "Show today's to-dos only" ), mTodoGroup );
 

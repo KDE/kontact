@@ -25,6 +25,11 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qtooltip.h>
+//Added by qt3to4:
+#include <Q3VBoxLayout>
+#include <QPixmap>
+#include <Q3GridLayout>
+#include <QEvent>
 
 #include <dcopclient.h>
 #include <dcopref.h>
@@ -48,14 +53,14 @@ KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
                                           QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ), mLayout( 0 ), mPlugin( plugin )
 {
-  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+  Q3VBoxLayout *mainLayout = new Q3VBoxLayout( this, 3, 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_notes",
                    KIcon::Desktop, KIcon::SizeMedium );
   QWidget* header = createHeader( this, icon, i18n( "Notes" ) );
   mainLayout->addWidget( header );
 
-  mLayout = new QGridLayout( mainLayout, 7, 3, 3 );
+  mLayout = new Q3GridLayout( mainLayout, 7, 3, 3 );
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = new KCal::CalendarLocal( QString::fromLatin1("UTC") );
@@ -93,7 +98,7 @@ void KNotesSummaryWidget::updateView()
       label = new QLabel( this );
       label->setPixmap( pm );
       label->setMaximumWidth( label->minimumSizeHint().width() );
-      label->setAlignment( AlignVCenter );
+      label->setAlignment( Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
@@ -102,7 +107,7 @@ void KNotesSummaryWidget::updateView()
 
       KURLLabel *urlLabel = new KURLLabel( (*it)->uid(), newtext, this );
       urlLabel->installEventFilter( this );
-      urlLabel->setTextFormat(RichText);
+      urlLabel->setTextFormat(Qt::RichText);
       urlLabel->setAlignment( urlLabel->alignment() | Qt::TextWordWrap );
       mLayout->addWidget( urlLabel, counter, 1 );
       mLabels.append( urlLabel );
@@ -118,7 +123,7 @@ void KNotesSummaryWidget::updateView()
 
   } else {
       QLabel *noNotes = new QLabel( i18n( "No Notes Available" ), this );
-      noNotes->setAlignment( AlignHCenter | AlignVCenter );
+      noNotes->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
       mLayout->addWidget( noNotes, 0, 1 );
       mLabels.append( noNotes );
   }

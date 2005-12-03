@@ -34,6 +34,10 @@
 
 #include <qlayout.h>
 #include <qlabel.h>
+//Added by qt3to4:
+#include <Q3VBoxLayout>
+#include <QPixmap>
+#include <Q3HBoxLayout>
 
 #include <kactioncollection.h>
 #include <klocale.h>
@@ -104,17 +108,18 @@ class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
       actionCollection()->setWidget( this );
 
       QWidget *page = plainPage();
-      QVBoxLayout *layout = new QVBoxLayout( page );
+      Q3VBoxLayout *layout = new Q3VBoxLayout( page );
 
-      QHBoxLayout *hbl = new QHBoxLayout( layout, marginHint() );
+      Q3HBoxLayout *hbl = new Q3HBoxLayout( layout, marginHint() );
       QLabel *label = new QLabel( page);
       label->setText( i18n( "Name:" ) );
       hbl->addWidget( label,0 );
-      mTitleEdit= new KLineEdit( page, "name" );
+      mTitleEdit= new KLineEdit( page );
+      mTitleEdit->setObjectName( "name" );
       hbl->addWidget( mTitleEdit, 1,Qt::AlignVCenter  );
 
       mNoteEdit = new KNoteEdit( actionCollection(), page );
-      mNoteEdit->setTextFormat( RichText );
+      mNoteEdit->setTextFormat( Qt::RichText );
       mNoteEdit->setFocus();
 
       KXMLGUIBuilder builder( page );

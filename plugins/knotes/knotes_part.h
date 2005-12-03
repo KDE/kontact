@@ -22,7 +22,7 @@
 #ifndef KNOTES_PART_H
 #define KNOTES_PART_H
 
-#include <qdict.h>
+#include <q3dict.h>
 
 #include <kiconview.h>
 #include <kglobal.h>
@@ -34,7 +34,7 @@
 #include "knotes/KNotesIface.h"
 
 class KIconView;
-class QIconViewItem;
+class Q3IconViewItem;
 class KNotesIconViewItem;
 class KNoteTip;
 class KNoteEditDlg;
@@ -49,7 +49,7 @@ class KNotesPart : public KParts::ReadOnlyPart, virtual public KNotesIface
   Q_OBJECT
 
   public:
-    KNotesPart( QObject *parent = 0, const char *name = 0 );
+    KNotesPart( QObject *parent = 0 );
    ~KNotesPart();
 
     bool openFile();
@@ -75,16 +75,16 @@ class KNotesPart : public KParts::ReadOnlyPart, virtual public KNotesIface
     void createNote( KCal::Journal *journal );
     void killNote( KCal::Journal *journal );
 
-    void editNote( QIconViewItem *item );
+    void editNote( Q3IconViewItem *item );
 
     void renameNote();
-    void renamedNote( QIconViewItem *item );
+    void renamedNote( Q3IconViewItem *item );
 
-    void slotOnItem( QIconViewItem *item );
+    void slotOnItem( Q3IconViewItem *item );
     void slotOnViewport();
-    void slotOnCurrentChanged( QIconViewItem *item );
+    void slotOnCurrentChanged( Q3IconViewItem *item );
 
-    void popupRMB( QIconViewItem *item, const QPoint& pos );
+    void popupRMB( Q3IconViewItem *item, const QPoint& pos );
     void killSelectedNotes();
 
   private:
@@ -93,7 +93,7 @@ class KNotesPart : public KParts::ReadOnlyPart, virtual public KNotesIface
     KNoteEditDlg *mNoteEditDlg;
 
     KNotesResourceManager *mManager;
-    QDict<KNotesIconViewItem> mNoteList;
+    Q3Dict<KNotesIconViewItem> mNoteList;
 };
 
 #endif

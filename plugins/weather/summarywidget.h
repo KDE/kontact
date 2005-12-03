@@ -73,7 +73,7 @@ class WeatherData
     void setStationID( const QString &station ) { mStationID = station;}
     QString stationID() { return mStationID; }
 
-    bool operator< ( const WeatherData &data )
+    bool operator< ( const WeatherData &data ) const
     {
       return ( QString::localeAwareCompare( mName, data.mName ) < 0 );
     }

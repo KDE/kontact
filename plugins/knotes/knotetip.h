@@ -32,13 +32,17 @@
 #ifndef KNOTETIP_H
 #define KNOTETIP_H
 
-#include <qframe.h>
+#include <q3frame.h>
+//Added by qt3to4:
+#include <QTimerEvent>
+#include <QResizeEvent>
+#include <QEvent>
 
-class QTextEdit;
+class Q3TextEdit;
 class KIconView;
 class KNotesIconViewItem;
 
-class KNoteTip : public QFrame
+class KNoteTip : public Q3Frame
 {
   public:
     KNoteTip( KIconView *parent );
@@ -62,7 +66,7 @@ class KNoteTip : public QFrame
     KIconView *mView;
     KNotesIconViewItem *mNoteIVI;
 
-    QTextEdit *mPreview;
+    Q3TextEdit *mPreview;
 };
 
 #endif

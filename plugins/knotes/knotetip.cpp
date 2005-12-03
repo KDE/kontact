@@ -31,7 +31,13 @@
 
 #include <qtooltip.h>
 #include <qlayout.h>
-#include <qtextedit.h>
+#include <q3textedit.h>
+//Added by qt3to4:
+#include <QEvent>
+#include <Q3Frame>
+#include <QTimerEvent>
+#include <QResizeEvent>
+#include <Q3VBoxLayout>
 
 #include <kapplication.h>
 #include <kglobalsettings.h>
@@ -42,23 +48,23 @@
 
 
 KNoteTip::KNoteTip( KIconView *parent )
-  : QFrame( 0, 0, WX11BypassWM |   // this will make Seli happy >:-P
-            WStyle_Customize | WStyle_NoBorder | WStyle_Tool | WStyle_StaysOnTop ),
+  : Q3Frame( 0, 0, Qt::WX11BypassWM |   // this will make Seli happy >:-P
+            Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
     mFilter( false ),
     mView( parent ),
     mNoteIVI( 0 ),
-    mPreview( new QTextEdit( this ) )
+    mPreview( new Q3TextEdit( this ) )
 {
   mPreview->setReadOnly( true );
-  mPreview->setHScrollBarMode( QScrollView::AlwaysOff );
-  mPreview->setVScrollBarMode( QScrollView::AlwaysOff );
+  mPreview->setHScrollBarMode( Q3ScrollView::AlwaysOff );
+  mPreview->setVScrollBarMode( Q3ScrollView::AlwaysOff );
 
-  QBoxLayout *layout = new QVBoxLayout( this );
+  Q3BoxLayout *layout = new Q3VBoxLayout( this );
   layout->addWidget( mPreview );
 
   setPalette( QToolTip::palette() );
   setMargin( 1 );
-  setFrameStyle( QFrame::Plain | QFrame::Box );
+  setFrameStyle( Q3Frame::Plain | Q3Frame::Box );
   hide();
 }
 
@@ -116,7 +122,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
 
 void KNoteTip::resizeEvent( QResizeEvent *ev )
 {
-  QFrame::resizeEvent( ev );
+  Q3Frame::resizeEvent( ev );
   reposition();
 }
 

@@ -49,12 +49,13 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_sdsummary( QWidget *parent, const char * )
   {
-    return new KCMSDSummary( parent, "kcmsdsummary" );
+    KInstance *inst = new KInstance( "kcmsdsummary" );
+    return new KCMSDSummary( inst, parent );
   }
 }
 
-KCMSDSummary::KCMSDSummary( QWidget *parent, const char *name )
-  : KCModule( parent, name )
+KCMSDSummary::KCMSDSummary( KInstance *inst, QWidget *parent )
+  : KCModule( inst, parent )
 {
   initGUI();
 
@@ -91,7 +92,7 @@ void KCMSDSummary::initGUI()
 {
   QGridLayout *layout = new QGridLayout( this, 3, 2, KDialog::spacingHint() );
 
-  mDaysGroup = new Q3ButtonGroup( 0, Vertical, i18n( "Special Dates Summary" ), this );
+  mDaysGroup = new Q3ButtonGroup( 0, Qt::Vertical, i18n( "Special Dates Summary" ), this );
   QVBoxLayout *boxLayout = new QVBoxLayout( mDaysGroup->layout(),
                                             KDialog::spacingHint() );
 
@@ -123,7 +124,7 @@ void KCMSDSummary::initGUI()
 
   layout->addMultiCellWidget( mDaysGroup, 0, 0, 0, 1 );
 
-  mCalendarGroup = new Q3ButtonGroup( 1, Horizontal, i18n( "Special Dates From Calendar" ), this );
+  mCalendarGroup = new Q3ButtonGroup( 1, Qt::Horizontal, i18n( "Special Dates From Calendar" ), this );
 
   mShowBirthdaysFromCal = new QCheckBox( i18n( "Show birthdays" ), mCalendarGroup );
   mShowAnniversariesFromCal = new QCheckBox( i18n( "Show anniversaries" ), mCalendarGroup );
@@ -131,7 +132,7 @@ void KCMSDSummary::initGUI()
 
   mShowSpecialsFromCal = new QCheckBox( i18n( "Show special occasions" ), mCalendarGroup );
 
-  mContactGroup = new Q3ButtonGroup( 1, Horizontal, i18n( "Special Dates From Contact List" ), this );
+  mContactGroup = new Q3ButtonGroup( 1, Qt::Horizontal, i18n( "Special Dates From Contact List" ), this );
 
   mShowBirthdaysFromKAB = new QCheckBox( i18n( "Show birthdays" ), mContactGroup );
   mShowAnniversariesFromKAB = new QCheckBox( i18n( "Show anniversaries" ), mContactGroup );

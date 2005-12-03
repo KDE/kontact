@@ -133,7 +133,7 @@ void SummaryWidget::updateView()
       label = new QLabel( this );
       label->setPixmap( pm );
       label->setMaximumWidth( label->minimumSizeHint().width() );
-      label->setAlignment( AlignVCenter );
+      label->setAlignment( Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
@@ -162,7 +162,7 @@ void SummaryWidget::updateView()
       }
 
       label = new QLabel( datestr, this );
-      label->setAlignment( AlignLeft | AlignVCenter );
+      label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
       if ( makeBold ) {
         QFont font = label->font();
         font.setBold( true );
@@ -203,7 +203,7 @@ void SummaryWidget::updateView()
                   .arg( KGlobal::locale()->formatTime( sST ) )
                   .arg( KGlobal::locale()->formatTime( sET ) );
         label = new QLabel( datestr, this );
-        label->setAlignment( AlignLeft | AlignVCenter );
+        label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
         mLayout->addWidget( label, counter, 3 );
         mLabels.append( label );
       }
@@ -220,7 +220,7 @@ void SummaryWidget::updateView()
       i18n( "No appointments pending within the next day",
             "No appointments pending within the next %n days",
             days ), this, "nothing to see" );
-    noEvents->setAlignment( AlignHCenter | AlignVCenter );
+    noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( noEvents, 0, 2 );
     mLabels.append( noEvents );
   }

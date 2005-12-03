@@ -34,7 +34,7 @@ class KCMKOrgSummary : public KCModule
   Q_OBJECT
 
   public:
-    KCMKOrgSummary( QWidget *parent = 0, const char *name = 0 );
+    KCMKOrgSummary( KInstance *inst, QWidget *parent = 0 );
 
     virtual void load();
     virtual void save();

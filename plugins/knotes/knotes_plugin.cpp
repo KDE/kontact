@@ -43,7 +43,7 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const char *, const QStringList
 {
   setInstance( KNotesPluginFactory::instance() );
 
-  insertNewAction( new KAction( i18n( "New Note..." ), "knotes", CTRL+SHIFT+Key_N,
+  insertNewAction( new KAction( i18n( "New Note..." ), "knotes", Qt::CTRL+Qt::SHIFT+Qt::Key_N,
                    this, SLOT( slotNewNote() ), actionCollection(), "new_note" ) );
 }
 
@@ -53,7 +53,7 @@ KNotesPlugin::~KNotesPlugin()
 
 KParts::ReadOnlyPart* KNotesPlugin::createPart()
 {
-  return new KNotesPart( this, "notes" );
+  return new KNotesPart( this /*, "notes"*/ );
 }
 
 Kontact::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
