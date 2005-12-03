@@ -24,11 +24,10 @@
 #include <qtooltip.h>
 //Added by qt3to4:
 #include <QPixmap>
-#include <Q3PtrList>
+#include <QList>
 #include <QDragMoveEvent>
 #include <QEvent>
 #include <QDropEvent>
-#include <Q3ValueList>
 #include <QResizeEvent>
 #include <QDragEnterEvent>
 
@@ -134,7 +133,7 @@ class Navigator : public KListBox
 
     virtual void setSelected( Q3ListBoxItem *, bool );
 
-    void updatePlugins( Q3ValueList<Kontact::Plugin*> plugins );
+    void updatePlugins( QList<Kontact::Plugin*> plugins );
 
     QSize sizeHint() const;
 
@@ -142,7 +141,7 @@ class Navigator : public KListBox
 
     IconViewMode viewMode() { return mViewMode; }
     IconViewMode sizeIntToEnum(int size) const;
-    const Q3PtrList<KAction> & actions() { return mActions; }
+    const QList<KAction*> & actions() { return mActions; }
     bool showIcons() const { return mShowIcons; }
     bool showText() const { return mShowText; }
   signals:
@@ -176,7 +175,7 @@ class Navigator : public KListBox
     EntryItem*    mHighlightItem;
 
     QSignalMapper *mMapper;
-    Q3PtrList<KAction> mActions;
+    QList<KAction*> mActions;
     bool mShowIcons;
     bool mShowText;
 };
@@ -194,7 +193,7 @@ class IconSidePane : public SidePaneBase
     virtual void updatePlugins();
     virtual void selectPlugin( Kontact::Plugin* );
     virtual void selectPlugin( const QString &name );
-    const Q3PtrList<KAction> & actions() { return mNavigator->actions(); }
+    const QList<KAction*> & actions() { return mNavigator->actions(); }
 
   private:
     Navigator *mNavigator;

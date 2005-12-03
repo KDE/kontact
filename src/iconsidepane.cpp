@@ -40,7 +40,6 @@
 #include <QDragMoveEvent>
 #include <QEvent>
 #include <QDropEvent>
-#include <Q3ValueList>
 #include <QResizeEvent>
 #include <QDragEnterEvent>
 
@@ -317,19 +316,18 @@ void Navigator::setSelected( Q3ListBoxItem *item, bool selected )
   }
 }
 
-void Navigator::updatePlugins( Q3ValueList<Kontact::Plugin*> plugins_ )
+void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
 {
   QList<Kontact::PluginProxy> plugins;
-  Q3ValueList<Kontact::Plugin*>::ConstIterator end_ = plugins_.end();
-  Q3ValueList<Kontact::Plugin*>::ConstIterator it_ = plugins_.begin();
+  QList<Kontact::Plugin*>::ConstIterator end_ = plugins_.end();
+  QList<Kontact::Plugin*>::ConstIterator it_ = plugins_.begin();
   for ( ; it_ != end_; ++it_ )
     plugins += PluginProxy( *it_ );
 
   clear();
 
-  mActions.setAutoDelete( true );
+  qDeleteAll( mActions );
   mActions.clear();
-  mActions.setAutoDelete( false );
 
   int counter = 0;
   int minWidth = 0;
@@ -456,7 +454,7 @@ IconViewMode Navigator::sizeIntToEnum(int size) const
 void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint &pos )
 {
   KMenu menu;
-  menu.insertTitle( i18n( "Icon Size" ) );
+  menu.addTitle( i18n( "Icon Size" ) );
   menu.insertItem( i18n( "Large" ), (int)LargeIcons );
   menu.setItemEnabled( (int)LargeIcons, mShowIcons );
   menu.insertItem( i18n( "Normal" ), (int)NormalIcons );
@@ -473,7 +471,8 @@ void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint &pos )
   menu.insertItem( i18n( "Show Text" ), (int)ShowText );
   menu.setItemChecked( (int)ShowText, mShowText );
   menu.setItemEnabled( (int)ShowText, mShowIcons );
-  int choice = menu.exec( pos );
+#warning Port me!
+  int choice = -1 /*menu.exec( pos )*/;
 
   if ( choice == -1 )
     return;

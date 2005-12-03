@@ -190,9 +190,9 @@ MainWindow::~MainWindow()
 {
   saveSettings();
 
-  Q3PtrList<KParts::Part> parts = *mPartManager->parts();
+  QList<KParts::Part*> parts = mPartManager->parts();
 
-  for ( KParts::Part *p = parts.last(); p; p = parts.prev() ) {
+  Q_FOREACH( KParts::Part *p, parts ) {
     delete p;
     p = 0;
   }
@@ -695,11 +695,11 @@ void MainWindow::slotPreferences()
     dlg = new SettingsDialogWrapper( KSettings::Dialog::Configurable, this );
 
     // do not show settings of components running standalone
-    Q3ValueList<KPluginInfo*> filteredPlugins = mPluginInfos;
+    KPluginInfo::List filteredPlugins = mPluginInfos;
     PluginList::ConstIterator it;
     for ( it = mPlugins.begin(); it != mPlugins.end(); ++it )
       if ( (*it)->isRunningStandalone() ) {
-        Q3ValueList<KPluginInfo*>::ConstIterator infoIt;
+        KPluginInfo::List::ConstIterator infoIt;
         for ( infoIt = filteredPlugins.begin(); infoIt != filteredPlugins.end(); ++infoIt ) {
           if ( (*infoIt)->pluginName() == (*it)->identifier() ) {
             filteredPlugins.remove( *infoIt );
@@ -817,8 +817,8 @@ bool MainWindow::queryClose()
     return true;
 
   bool localClose = true;
-  Q3ValueList<Plugin*>::ConstIterator end = mPlugins.end();
-  Q3ValueList<Plugin*>::ConstIterator it = mPlugins.begin();
+  QList<Plugin*>::ConstIterator end = mPlugins.end();
+  QList<Plugin*>::ConstIterator it = mPlugins.begin();
   for ( ; it != end; ++it ) {
     Plugin *plugin = *it;
     if ( !plugin->isRunningStandalone() )

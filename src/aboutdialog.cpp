@@ -29,6 +29,7 @@
 
 #include <klocale.h>
 #include <kiconloader.h>
+#include <kinstance.h>
 #include <kaboutdata.h>
 #include <kactivelabel.h>
 #include <ktextbrowser.h>

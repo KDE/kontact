@@ -23,7 +23,7 @@
 
 #include <q3vbox.h>
 //Added by qt3to4:
-#include <Q3PtrList>
+#include <QList>
 
 namespace KParts { class Part; }
 
@@ -43,7 +43,7 @@ class SidePaneBase : public Q3VBox
     void setActionCollection( KActionCollection *actionCollection );
     KActionCollection *actionCollection() const;
 
-    virtual const Q3PtrList<KAction> & actions() = 0;
+    virtual const QList<KAction*> & actions() = 0;
 
   signals:
     void pluginSelected( Kontact::Plugin* );

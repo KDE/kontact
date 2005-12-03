@@ -29,7 +29,6 @@
 #include <q3widgetstack.h>
 //Added by qt3to4:
 #include <Q3Frame>
-#include <Q3ValueList>
 #include <Q3CString>
 
 #include <kparts/mainwindow.h>
@@ -62,7 +61,7 @@ class Plugin;
 class SidePaneBase;
 class AboutDialog;
 
-typedef Q3ValueList<Kontact::Plugin*> PluginList;
+typedef QList<Kontact::Plugin*> PluginList;
 
 class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 {
@@ -141,7 +140,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     KParts::PartManager *mPartManager;
     PluginList mPlugins;
     PluginList mDelayedPreload;
-    Q3ValueList<KPluginInfo*> mPluginInfos;
+    QList<KPluginInfo*> mPluginInfos;
     KHTMLPart *mIntroPart;
 
     KRSqueezedTextLabel* mStatusMsgLabel;
