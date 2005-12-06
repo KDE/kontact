@@ -1,7 +1,7 @@
 /*
    This file is part of KDE Kontact.
 
-   Copyright (C) 2003 Sven Lüppken <sven@kde.org>
+   Copyright (C) 2003 Sven LÃ¼ppken <sven@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
