@@ -153,7 +153,7 @@ void PluginSelection::itemClicked( Q3ListViewItem *item )
 
 QList<QWidget *> PluginSelection::widgets() const
 {
-  Q3ValueList<QWidget *> widgets;
+  QList<QWidget *> widgets;
   widgets.append( mPluginCombo );
 
   return widgets;

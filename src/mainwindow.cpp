@@ -33,7 +33,7 @@
 #include <Q3CString>
 #include <Q3PtrList>
 #include <Q3Frame>
-#include <Q3ValueList>
+#include <QList>
 
 #include <dcopclient.h>
 #include <kapplication.h>
@@ -232,7 +232,7 @@ void MainWindow::initWidgets()
   mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                          QSizePolicy::Preferred ) );
   // donÄt occupy screen estate on load
-  Q3ValueList<int> sizes;
+  QList<int> sizes;
   sizes << 0;
   mSplitter->setSizes(sizes);
 

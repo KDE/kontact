@@ -39,7 +39,7 @@
 //Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>
-#include <Q3ValueList>
+#include <QList>
 #include <Q3Frame>
 #include <QBoxLayout>
 
@@ -55,9 +55,9 @@ AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
   addAboutData( i18n( "Kontact Container" ), QString( "kontact" ),
                 KGlobal::instance()->aboutData() );
 
-  Q3ValueList<Plugin*> plugins = mCore->pluginList();
-  Q3ValueList<Plugin*>::ConstIterator end = plugins.end();
-  Q3ValueList<Plugin*>::ConstIterator it = plugins.begin();
+  QList<Plugin*> plugins = mCore->pluginList();
+  QList<Plugin*>::ConstIterator end = plugins.end();
+  QList<Plugin*>::ConstIterator it = plugins.begin();
   for ( ; it != end; ++it )
     addAboutPlugin( *it );
 
@@ -113,11 +113,11 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
     text = "";
 
-    const Q3ValueList<KAboutPerson> authors = about->authors();
+    const QList<KAboutPerson> authors = about->authors();
     if ( !authors.isEmpty() ) {
       text += i18n( "<p><b>Authors:</b></p>" );
 
-      Q3ValueList<KAboutPerson>::ConstIterator it;
+      QList<KAboutPerson>::ConstIterator it;
       for ( it = authors.begin(); it != authors.end(); ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
         if ( !(*it).task().isEmpty() )
@@ -125,11 +125,11 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       }
     }
 
-    const Q3ValueList<KAboutPerson> credits = about->credits();
+    const QList<KAboutPerson> credits = about->credits();
     if ( !credits.isEmpty() ) {
       text += i18n( "<p><b>Thanks to:</b></p>" );
 
-      Q3ValueList<KAboutPerson>::ConstIterator it;
+      QList<KAboutPerson>::ConstIterator it;
       for ( it = credits.begin(); it != credits.end(); ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
         if ( !(*it).task().isEmpty() )
@@ -137,11 +137,11 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       }
     }
 
-    const Q3ValueList<KAboutTranslator> translators = about->translators();
+    const QList<KAboutTranslator> translators = about->translators();
     if ( !translators.isEmpty() ) {
       text += i18n("<p><b>Translators:</b></p>");
 
-      Q3ValueList<KAboutTranslator>::ConstIterator it;
+      QList<KAboutTranslator>::ConstIterator it;
       for ( it = translators.begin(); it != translators.end(); ++it ) {
        text += formatPerson( (*it).name(), (*it).emailAddress() );
       }
