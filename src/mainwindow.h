@@ -26,7 +26,7 @@
 
 #include <qpointer.h>
 #include <q3ptrlist.h>
-#include <q3widgetstack.h>
+#include <QStackedWidget>
 //Added by qt3to4:
 #include <Q3CString>
 
@@ -135,7 +135,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 
     KToolBarPopupAction *mNewActions;
     SidePaneBase *mSidePane;
-    Q3WidgetStack *mPartsStack;
+    QStackedWidget  *mPartsStack;
     Plugin *mCurrentPlugin;
     KParts::PartManager *mPartManager;
     PluginList mPlugins;

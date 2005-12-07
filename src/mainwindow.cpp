@@ -21,7 +21,7 @@
 */
 
 #include <qcombobox.h>
-
+#include <khbox.h>
 #include <qimage.h>
 #include <qobject.h>
 #include <q3progressbar.h>
@@ -251,7 +251,7 @@ void MainWindow::initWidgets()
 
   vBox->setSpacing( 0 );
 
-  mPartsStack = new Q3WidgetStack( vBox );
+  mPartsStack = new QStackedWidget( vBox );
   initAboutScreen();
 
   QString loading = i18n( "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>" )
@@ -299,7 +299,7 @@ void MainWindow::initAboutScreen()
 {
   KHBox *introbox = new KHBox( mPartsStack );
   mPartsStack->addWidget( introbox );
-  mPartsStack->raiseWidget( introbox );
+  mPartsStack->setCurrentWidget( introbox );
   mIntroPart = new KHTMLPart( introbox );
   mIntroPart->widget()->setFocusPolicy( Qt::WheelFocus );
   // Let's better be paranoid and disable plugins (it defaults to enabled):
@@ -484,7 +484,7 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
 void MainWindow::partLoaded( Kontact::Plugin*, KParts::ReadOnlyPart *part )
 {
   // See if we have this part already (e.g. due to two plugins sharing it)
-  if ( mPartsStack->id( part->widget() ) != -1 )
+  if ( mPartsStack->indexOf( part->widget() ) != -1 )
     return;
 
   mPartsStack->addWidget( part->widget() );
@@ -502,7 +502,7 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
   }
 
   kdDebug(5600) << "Part activated: " << part << " with stack id. "
-      << mPartsStack->id( part->widget() )<< endl;
+      << mPartsStack->indexOf( part->widget() )<< endl;
 
   //createGUI( part ); // moved to selectPlugin()
 
@@ -573,7 +573,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   Q_ASSERT( view );
 
   if ( view ) {
-    mPartsStack->raiseWidget( view );
+    mPartsStack->setCurrentWidget( view );
     view->show();
 
     if ( mFocusWidgets.contains( plugin->identifier() ) ) {
@@ -667,7 +667,7 @@ void MainWindow::slotRequestFeature()
 
 void MainWindow::slotShowIntroduction()
 {
-  mPartsStack->raiseWidget( 0 ); // ###
+  mPartsStack->setCurrentWidget( 0 ); // ###
 }
 
 void MainWindow::showTip( bool force )
