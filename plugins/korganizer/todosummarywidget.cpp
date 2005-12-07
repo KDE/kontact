@@ -161,7 +161,7 @@ void TodoSummaryWidget::updateView()
       mLabels.append( urlLabel );
 
       if ( !todo->description().isEmpty() ) {
-        QToolTip::add( urlLabel, todo->description() );
+        urlLabel->setToolTip( todo->description() );
       }
 
       label = new QLabel( stateText, this );

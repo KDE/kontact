@@ -148,7 +148,7 @@ void SummaryWidget::updateView()
                          .arg( i18n( "Rel. Humidity" ) )
                          .arg( (*it).relativeHumidity() );
 
-    QToolTip::add( label, labelText.replace( " ", "&nbsp;" ) );
+    label->setToolTip( labelText.replace( " ", "&nbsp;" ) );
 
     label = new QLabel( cover, this );
     label->setAlignment( Qt::AlignLeft );

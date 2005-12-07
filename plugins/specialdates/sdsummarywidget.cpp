@@ -526,7 +526,7 @@ void SDSummaryWidget::updateView()
         mLayout->addWidget( label, counter, 4 );
         mLabels.append( label );
         if ( !(*addrIt).desc.isEmpty() ) {
-          QToolTip::add( label, (*addrIt).desc );
+          label->setToolTip( (*addrIt).desc );
         }
       }
 

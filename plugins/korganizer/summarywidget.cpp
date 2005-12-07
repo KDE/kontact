@@ -184,7 +184,7 @@ void SummaryWidget::updateView()
       mLabels.append( urlLabel );
 
       if ( !ev->description().isEmpty() ) {
-        QToolTip::add( urlLabel, ev->description() );
+        urlLabel->setToolTip( ev->description() );
       }
 
       // Fill Event Time Range Field (only for non-floating Events)
