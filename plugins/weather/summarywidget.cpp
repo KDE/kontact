@@ -27,7 +27,6 @@
 //Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>
-#include <Q3ValueList>
 #include <QGridLayout>
 #include <QEvent>
 #include <Q3CString>

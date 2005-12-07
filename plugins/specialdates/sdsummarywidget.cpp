@@ -31,7 +31,6 @@
 #include <QPixmap>
 #include <QGridLayout>
 #include <QEvent>
-#include <Q3ValueList>
 #include <QVBoxLayout>
 
 #include <dcopclient.h>
@@ -233,7 +232,7 @@ void SDSummaryWidget::updateView()
   mLabels.setAutoDelete( false );
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
-  Q3ValueList<SDEntry> dates;
+  QList<SDEntry> dates;
   QLabel *label = 0;
 
   // No reason to show the date year
@@ -392,7 +391,7 @@ void SDSummaryWidget::updateView()
 
   if ( !dates.isEmpty() ) {
     int counter = 0;
-    Q3ValueList<SDEntry>::Iterator addrIt;
+    QList<SDEntry>::Iterator addrIt;
     QString lines;
     for ( addrIt = dates.begin(); addrIt != dates.end(); ++addrIt ) {
       bool makeBold = (*addrIt).daysTo == 0; // i.e., today
