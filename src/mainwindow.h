@@ -28,19 +28,19 @@
 #include <q3ptrlist.h>
 #include <q3widgetstack.h>
 //Added by qt3to4:
-#include <Q3Frame>
 #include <Q3CString>
 
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 #include <kparts/partmanager.h>
 #include <kdcopservicestarter.h>
+#include <kvbox.h>
 
 #include "core.h"
 
-class Q3HBox;
+class KHBox;
 class QSplitter;
-class Q3VBox;
+class KVBox;
 class Q3Frame;
 
 class KAction;
@@ -129,7 +129,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void configureToolbars();
 
   private:
-    Q3Frame *mTopWidget;
+    QFrame *mTopWidget;
 
     QSplitter *mSplitter;
 

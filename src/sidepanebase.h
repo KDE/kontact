@@ -21,10 +21,10 @@
 #ifndef KONTACT_SIDEPANEBASE_H
 #define KONTACT_SIDEPANEBASE_H
 
-#include <q3vbox.h>
+
 //Added by qt3to4:
 #include <QList>
-
+#include <kvbox.h>
 namespace KParts { class Part; }
 
 namespace Kontact
@@ -33,7 +33,7 @@ namespace Kontact
 class Core;
 class Plugin;
 
-class SidePaneBase : public Q3VBox
+class SidePaneBase : public KVBox
 {
     Q_OBJECT
   public:

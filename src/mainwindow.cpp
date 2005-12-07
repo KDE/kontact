@@ -21,7 +21,7 @@
 */
 
 #include <qcombobox.h>
-#include <q3hbox.h>
+
 #include <qimage.h>
 #include <qobject.h>
 #include <q3progressbar.h>
@@ -71,6 +71,7 @@
 #include <kmenubar.h>
 #include <kstdaccel.h>
 #include <ktoolinvocation.h>
+#include <kvbox.h>
 
 #include "aboutdialog.h"
 #include "iconsidepane.h"
@@ -221,13 +222,13 @@ void MainWindow::activatePluginModule()
 void MainWindow::initWidgets()
 {
   // includes sidebar and part stack
-  mTopWidget = new Q3HBox( this );
+  mTopWidget = new KHBox( this );
   mTopWidget->setFrameStyle( Q3Frame::Panel | Q3Frame::Sunken );
   setCentralWidget( mTopWidget );
 
-  Q3HBox *mBox = 0;
+  KHBox *mBox = 0;
   mSplitter = new QSplitter( mTopWidget );
-  mBox = new Q3HBox( mTopWidget );
+  mBox = new KHBox( mTopWidget );
   mSidePane = new IconSidePane( this, mSplitter );
   mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                          QSizePolicy::Preferred ) );
@@ -241,11 +242,11 @@ void MainWindow::initWidgets()
   connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
            SLOT( selectPlugin( Kontact::Plugin * ) ) );
 
-  Q3VBox *vBox;
+  KVBox *vBox;
   if ( mSplitter ) {
-    vBox = new Q3VBox( mSplitter );
+    vBox = new KVBox( mSplitter );
   } else {
-    vBox = new Q3VBox( mBox );
+    vBox = new KVBox( mBox );
   }
 
   vBox->setSpacing( 0 );
@@ -296,7 +297,7 @@ void MainWindow::paintAboutScreen( const QString& msg )
 
 void MainWindow::initAboutScreen()
 {
-  Q3HBox *introbox = new Q3HBox( mPartsStack );
+  KHBox *introbox = new KHBox( mPartsStack );
   mPartsStack->addWidget( introbox );
   mPartsStack->raiseWidget( introbox );
   mIntroPart = new KHTMLPart( introbox );
