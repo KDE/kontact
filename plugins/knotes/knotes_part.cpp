@@ -19,7 +19,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <q3popupmenu.h>
+#include <QMenu>
 #include <qclipboard.h>
 //Added by qt3to4:
 #include <Q3PtrList>
@@ -266,12 +266,12 @@ void KNotesPart::killSelectedNotes()
 
 void KNotesPart::popupRMB( Q3IconViewItem *item, const QPoint& pos )
 {
-  Q3PopupMenu *contextMenu = NULL;
+  QMenu *contextMenu = NULL;
 
   if ( item )
-    contextMenu = static_cast<Q3PopupMenu *>( factory()->container( "note_context", this ) );
+    contextMenu = static_cast<QMenu *>( factory()->container( "note_context", this ) );
   else
-    contextMenu = static_cast<Q3PopupMenu *>( factory()->container( "notepart_context", this ) );
+    contextMenu = static_cast<QMenu *>( factory()->container( "notepart_context", this ) );
 
   if ( !contextMenu )
     return;
