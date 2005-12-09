@@ -25,7 +25,7 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qlineedit.h>
-#include <q3valuevector.h>
+#include <QVector>
 #include <qspinbox.h>
 //Added by qt3to4:
 #include <QVBoxLayout>
@@ -158,8 +158,8 @@ KCMKontactKNT::KCMKontactKNT( KInstance *inst,QWidget *parent )
 
 void KCMKontactKNT::loadNews()
 {
-  Q3ValueVector<Q3ListViewItem*> parents;
-  Q3ValueVector<Q3ListViewItem*>::Iterator it;
+  QVector<Q3ListViewItem*> parents;
+  QVector<Q3ListViewItem*>::Iterator it;
 
   parents.append( new Q3ListViewItem( mAllNews, i18n( "Arts" ) ) );
   parents.append( new Q3ListViewItem( mAllNews, i18n( "Business" ) ) );
