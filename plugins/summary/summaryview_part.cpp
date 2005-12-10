@@ -312,7 +312,7 @@ void SummaryViewPart::slotTextChanged()
 
 void SummaryViewPart::slotAdjustPalette()
 {
-  mMainWidget->setPaletteBackgroundColor( kapp->palette().active().base() );
+  mMainWidget->setBackgroundMode( Qt::PaletteBase );
 }
 
 void SummaryViewPart::setDate( const QDate& newDate )
