@@ -296,7 +296,7 @@ void SDSummaryWidget::updateView()
 
           // Append Birthday Event?
           if ( mShowBirthdaysFromCal &&
-               ( ( *it2 ).upper() == i18n( "BIRTHDAY" ) ) ) {
+               ( ( *it2 ).toUpper() == i18n( "BIRTHDAY" ) ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryBirthday;
@@ -311,7 +311,7 @@ void SDSummaryWidget::updateView()
 
           // Append Anniversary Event?
           if ( mShowAnniversariesFromCal &&
-               ( ( *it2 ).upper() == i18n( "ANNIVERSARY" ) ) ) {
+               ( ( *it2 ).toUpper() == i18n( "ANNIVERSARY" ) ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryAnniversary;
@@ -326,7 +326,7 @@ void SDSummaryWidget::updateView()
 
           // Append Holiday Event?
           if ( mShowHolidays &&
-               ( ( *it2 ).upper() == i18n( "HOLIDAY" ) ) ) {
+               ( ( *it2 ).toUpper() == i18n( "HOLIDAY" ) ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryHoliday;
@@ -344,7 +344,7 @@ void SDSummaryWidget::updateView()
 
           // Append Special Occasion Event?
           if ( mShowSpecialsFromCal &&
-               ( ( *it2 ).upper() == i18n( "SPECIAL OCCASION" ) ) ) {
+               ( ( *it2 ).toUpper() == i18n( "SPECIAL OCCASION" ) ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryOther;

@@ -104,7 +104,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   // Conduits:
   row++;
   mConduitsTextLabel = new QLabel( i18n( "<i>Conduits:</i>" ), this );
-  mConduitsTextLabel->setAlignment( Qt::AlignAuto | Qt::AlignTop | Qt::TextExpandTabs );
+  mConduitsTextLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop | Qt::TextExpandTabs );
   mLayout->addWidget( mConduitsTextLabel, row, 0 );
   mConduitsLabel = new QLabel( i18n( "No information available" ), this );
   mConduitsLabel->setAlignment( mConduitsLabel->alignment() | Qt::TextWordWrap );

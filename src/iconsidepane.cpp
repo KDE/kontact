@@ -348,7 +348,7 @@ void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
     QString name = QString( "CTRL+%1" ).arg( counter + 1 );
     KAction *action = new KAction( plugin->title(), plugin->icon(), KShortcut( name ),
                                    mMapper, SLOT( map() ),
-                                   mSidePane->actionCollection(), name.latin1() );
+                                   mSidePane->actionCollection(), name.toLatin1() );
     mActions.append( action );
     mMapper->setMapping( action, counter );
     counter++;

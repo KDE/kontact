@@ -163,7 +163,7 @@ DCOPClient* Plugin::dcopClient() const
 {
   if ( !d->dcopClient ) {
     d->dcopClient = new DCOPClient();
-    // ### Note: maybe we could use executableName().latin1() instead here.
+    // ### Note: maybe we could use executableName().toLatin1() instead here.
     // But this requires that dcopClient is NOT called by the constructor,
     // and is called by some new virtual void init() later on.
     d->dcopClient->registerAs( name(), false );
