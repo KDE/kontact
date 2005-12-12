@@ -41,7 +41,6 @@
 class KHBox;
 class QSplitter;
 class KVBox;
-class Q3Frame;
 
 class KAction;
 class KPluginInfo;

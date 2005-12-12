@@ -262,7 +262,7 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
   mShowText = Prefs::self()->sidePaneShowText();
   setSelectionMode( KListBox::Single );
   viewport()->setBackgroundMode( Qt::PaletteBackground );
-  setFrameStyle( Q3Frame::NoFrame );
+  setFrameStyle( QFrame::NoFrame );
   setHScrollBarMode( Q3ScrollView::AlwaysOff );
   setAcceptDrops( true );
 

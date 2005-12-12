@@ -40,7 +40,6 @@
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QList>
-#include <Q3Frame>
 #include <QBoxLayout>
 
 #include <kdebug.h>

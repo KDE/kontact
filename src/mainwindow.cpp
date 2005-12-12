@@ -32,7 +32,6 @@
 //Added by qt3to4:
 #include <Q3CString>
 #include <Q3PtrList>
-#include <Q3Frame>
 #include <QList>
 
 #include <dcopclient.h>
@@ -223,7 +222,7 @@ void MainWindow::initWidgets()
 {
   // includes sidebar and part stack
   mTopWidget = new KHBox( this );
-  mTopWidget->setFrameStyle( Q3Frame::Panel | Q3Frame::Sunken );
+  mTopWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
   setCentralWidget( mTopWidget );
 
   KHBox *mBox = 0;
