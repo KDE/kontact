@@ -79,7 +79,7 @@ class SDEntry
 
 SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
                                     const char *name )
-  : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 )
+  : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 ), mHolidays( 0 )
 {
   // Create the Summary Layout
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
@@ -87,7 +87,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "cookie",
                     KIcon::Desktop, KIcon::SizeMedium );
 
-  QWidget *header = createHeader( this, icon, i18n( "Special Dates" ) );
+  QWidget *header = createHeader( this, icon, i18n( "Upcoming Special Dates" ) );
   mainLayout->addWidget(header);
 
   mLayout = new QGridLayout( mainLayout, 7, 6, 3 );
@@ -145,22 +145,22 @@ void SDSummaryWidget::configUpdated()
   config.setGroup( "Days" );
   mDaysAhead = config.readNumEntry( "DaysToShow", 7 );
 
-  config.setGroup( "EventTypes" );
+  config.setGroup( "Show" );
   mShowBirthdaysFromKAB =
-    config.readBoolEntry( "ShowBirthdaysFromContacts", true );
+    config.readBoolEntry( "BirthdaysFromContacts", true );
   mShowBirthdaysFromCal =
-    config.readBoolEntry( "ShowBirthdaysFromCalendar", true );
+    config.readBoolEntry( "BirthdaysFromCalendar", true );
 
   mShowAnniversariesFromKAB =
-    config.readBoolEntry( "ShowAnniversariesFromContacts", true );
+    config.readBoolEntry( "AnniversariesFromContacts", true );
   mShowAnniversariesFromCal =
-    config.readBoolEntry( "ShowAnniversariesFromCalendar", true );
+    config.readBoolEntry( "AnniversariesFromCalendar", true );
 
   mShowHolidays =
-    config.readBoolEntry( "ShowHolidays", true );
+    config.readBoolEntry( "HolidaysFromCalendar", true );
 
   mShowSpecialsFromCal =
-    config.readBoolEntry( "ShowSpecialsFromCalendar", true );
+    config.readBoolEntry( "SpecialsFromCalendar", true );
 
   updateView();
 }
@@ -170,13 +170,9 @@ bool SDSummaryWidget::initHolidays()
   KConfig hconfig( "korganizerrc" );
   hconfig.setGroup( "Time & Date" );
   QString location = hconfig.readEntry( "Holidays" );
-  if ( !location.isNull() ) {
-    if ( location != mLastLocation ) {
-      if ( !mLastLocation.isNull() && !mLastLocation.isEmpty() )
-        delete mHolidays;
-      mLastLocation = location;
-      mHolidays = new KHolidays::KHolidays( location );
-    }
+  if ( !location.isEmpty() ) {
+    if ( mHolidays ) delete mHolidays;
+    mHolidays = new KHolidays( location );
     return true;
   }
   return false;

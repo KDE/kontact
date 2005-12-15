@@ -78,7 +78,6 @@ class SDSummaryWidget : public Kontact::Summary
     bool mShowHolidays;
     bool mShowSpecialsFromCal;
 
-    QString mLastLocation;
     KHolidays::KHolidays *mHolidays;
 };
 
