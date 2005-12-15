@@ -87,7 +87,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "cookie",
                     KIcon::Desktop, KIcon::SizeMedium );
 
-  QWidget *header = createHeader( this, icon, i18n( "Upcoming Special Dates" ) );
+  QWidget *header = createHeader( this, icon, i18n( "Special Dates" ) );
   mainLayout->addWidget(header);
 
   mLayout = new QGridLayout( mainLayout, 7, 6, 3 );
