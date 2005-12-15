@@ -86,7 +86,7 @@ class SDEntry
 
 SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
                                     const char *name )
-  : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 )
+  : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 ), mHolidays( 0 )
 {
   // Create the Summary Layout
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
@@ -177,13 +177,9 @@ bool SDSummaryWidget::initHolidays()
   KConfig hconfig( "korganizerrc" );
   hconfig.setGroup( "Time & Date" );
   QString location = hconfig.readEntry( "Holidays" );
-  if ( !location.isNull() ) {
-    if ( location != mLastLocation ) {
-      if ( !mLastLocation.isNull() && !mLastLocation.isEmpty() )
-        delete mHolidays;
-      mLastLocation = location;
-      mHolidays = new KHolidays::KHolidays( location );
-    }
+  if ( !location.isEmpty() ) {
+    if ( mHolidays ) delete mHolidays;
+    mHolidays = new KHolidays( location );
     return true;
   }
   return false;
