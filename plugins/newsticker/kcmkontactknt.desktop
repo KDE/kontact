@@ -9,7 +9,7 @@ X-KDE-Library=kontactknt
 X-KDE-FactoryName=kontactknt
 X-KDE-ParentApp=kontact_newstickerplugin
 X-KDE-ParentComponents=kontact_newstickerplugin
-X-KDE-CfgDlgHierarchy=NewsTicker
+X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=News Sources
 Name[be]=Крыніцы навін

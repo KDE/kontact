@@ -9,7 +9,7 @@ X-KDE-Library=kmailsummary
 X-KDE-FactoryName=kmailsummary
 X-KDE-ParentApp=kontact_kmailplugin
 X-KDE-ParentComponents=kontact_kmailplugin
-X-KDE-CfgDlgHierarchy=KMail
+X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Mail Summary
 Name[bg]=Обобщение на писмата

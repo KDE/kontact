@@ -9,7 +9,7 @@ X-KDE-Library=korgsummary
 X-KDE-FactoryName=korgsummary
 X-KDE-ParentApp=kontact_korganizerplugin,kontact_todoplugin
 X-KDE-ParentComponents=kontact_korganizerplugin,kontact_todoplugin
-X-KDE-CfgDlgHierarchy=KOrganizer
+X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Schedule
 Name[be]=Расклад
