@@ -216,20 +216,21 @@ void MainWindow::initWidgets()
   mSidePaneType = Prefs::self()->mSidePaneType;
 
   QHBox *mBox = 0;
-
+  mSplitter = new QSplitter( mTopWidget );
   if ( mSidePaneType == Prefs::SidePaneBars ) {
-    mSplitter = new QSplitter( mTopWidget );
     mSidePane = new SidePane( this, mSplitter );
     mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                            QSizePolicy::Preferred ) );
     mSplitter->setResizeMode( mSidePane, QSplitter::KeepSize );
   } else {
-    mSplitter = 0;
     mBox = new QHBox( mTopWidget );
-    mSidePane = new IconSidePane( this, mBox );
+    mSidePane = new IconSidePane( this, mSplitter );
     mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                            QSizePolicy::Preferred ) );
   }
+  QValueList<int> sizes;
+  sizes << 0;
+  mSplitter->setSizes(sizes);
 
   mSidePane->setActionCollection( actionCollection() );
 
