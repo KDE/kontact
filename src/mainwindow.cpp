@@ -28,10 +28,6 @@
 #include <qpushbutton.h>
 #include <qsplitter.h>
 #include <qtimer.h>
-#include <q3whatsthis.h>
-//Added by qt3to4:
-#include <Q3CString>
-#include <Q3PtrList>
 #include <QList>
 
 #include <dcopclient.h>
@@ -182,7 +178,7 @@ void MainWindow::initObject()
     selectPlugin( mCurrentPlugin );
   }
 
-  paintAboutScreen( introductionString() );
+//  paintAboutScreen( introductionString() );
   Prefs::setLastVersionSeen( kapp->aboutData()->version() );
 }
 
@@ -231,33 +227,32 @@ void MainWindow::initWidgets()
   mSidePane = new IconSidePane( this, mSplitter );
   mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum,
                                          QSizePolicy::Preferred ) );
-  // donÄt occupy screen estate on load
+/*
+  // don't occupy screen estate on load
+
   QList<int> sizes;
   sizes << 0;
   mSplitter->setSizes(sizes);
-
+*/
   mSidePane->setActionCollection( actionCollection() );
 
   connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
            SLOT( selectPlugin( Kontact::Plugin * ) ) );
 
-  KVBox *vBox;
-  if ( mSplitter ) {
-    vBox = new KVBox( mSplitter );
-  } else {
-    vBox = new KVBox( mBox );
-  }
+  KVBox *vBox = new KVBox( mSplitter );
 
   vBox->setSpacing( 0 );
 
   mPartsStack = new QStackedWidget( vBox );
+
+/*
   initAboutScreen();
 
   QString loading = i18n( "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>" )
                     .arg( i18n("Loading Kontact...") );
 
   paintAboutScreen( loading );
-
+*/
   /* Create a progress dialog and hide it. */
   KPIM::ProgressDialog *progressDialog = new KPIM::ProgressDialog( statusBar(), this );
   progressDialog->hide();
@@ -353,10 +348,10 @@ Plugin *MainWindow::pluginFromInfo( const KPluginInfo *info )
 
 void MainWindow::loadPlugins()
 {
-  Q3PtrList<Plugin> plugins;
-  Q3PtrList<KParts::Part> loadDelayed;
+  QList<Plugin*> plugins;
+//  QList<KParts::Part*> loadDelayed;
 
-  uint i;
+  int i;
   KPluginInfo::List::ConstIterator it;
   for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
     if ( !(*it)->isPluginEnabled() )
@@ -400,19 +395,19 @@ void MainWindow::loadPlugins()
       if ( plugin->weight() < p->weight() )
         break;
     }
-
     plugins.insert( i, plugin );
+
   }
 
   for ( i = 0; i < plugins.count(); ++ i ) {
     Plugin *plugin = plugins.at( i );
 
-    KAction *action;
-    Q3PtrList<KAction> *actionList = plugin->newActions();
+    const QList<KAction*> *actionList = plugin->newActions();
+    QList<KAction*>::const_iterator listIt;
 
-    for ( action = actionList->first(); action; action = actionList->next() ) {
-      kdDebug(5600) << "Plugging " << action->name() << endl;
-      action->plug( mNewActions->popupMenu() );
+    for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
+      kdDebug(5600) << "Plugging " << (*listIt)->name() << endl;
+      (*listIt)->plug( mNewActions->popupMenu() );
     }
 
     addPlugin( plugin );
@@ -438,12 +433,12 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
     if ( ( *it )->identifier() == info->pluginName() ) {
       Plugin *plugin = *it;
 
-      KAction *action;
-      Q3PtrList<KAction> *actionList = plugin->newActions();
+      const QList<KAction*> *actionList = plugin->newActions();
+      QList<KAction*>::const_iterator listIt;
 
-      for ( action = actionList->first(); action; action = actionList->next() ) {
-        kdDebug(5600) << "Unplugging " << action->name() << endl;
-        action->unplug( mNewActions->popupMenu() );
+      for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
+        kdDebug(5600) << "Unplugging " << (*listIt)->name() << endl;
+        (*listIt)->unplug( mNewActions->popupMenu() );
       }
 
       removeChildClient( plugin );
@@ -583,7 +578,9 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       view->setFocus();
 
     mCurrentPlugin = plugin;
-    KAction *action = plugin->newActions()->first();
+    KAction *action = 0; 
+    if (plugin->newActions()->count() > 0)
+      action = plugin->newActions()->first();
 
     createGUI( plugin->part() );
 
@@ -595,7 +592,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     } else { // we'll use the action of the first plugin which offers one
       PluginList::Iterator it;
       for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
-        action = (*it)->newActions()->first();
+        if ((*it)->newActions()->count() > 0)
+          action = (*it)->newActions()->first();
         if ( action ) {
           mNewActions->setIcon( action->icon() );
           mNewActions->setText( action->text() );
