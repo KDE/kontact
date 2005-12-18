@@ -90,7 +90,10 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
   if ( (event->state() & Qt::LeftButton) &&
        (event->pos() - mDragStartPoint).manhattanLength() > 4 ) {
 
-    Q3DragObject *drag = new Q3TextDrag( "", this, "SummaryWidgetDrag" );
+   
+    QDrag *drag = new QDrag(this);
+    drag->setMimeData(new QMimeData());
+    drag->setObjectName("SummaryWidgetDrag");
 
     QPixmap pm = QPixmap::grabWidget( this );
     if ( pm.width() > 300 )
@@ -102,14 +105,15 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
     painter.drawRect( 0, 0, pm.width(), pm.height() );
     painter.end();
     drag->setPixmap( pm );
-    drag->dragMove();
+    drag->start(Qt::MoveAction);
   } else
     QWidget::mouseMoveEvent( event );
 }
 
 void Summary::dragEnterEvent( QDragEnterEvent *event )
 {
-  event->accept( Q3TextDrag::canDecode( event ) );
+  if (event->source()->inherits("SummaryWidget"))
+    event->acceptProposedAction();
 }
 
 void Summary::dropEvent( QDropEvent *event )

@@ -215,7 +215,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     /**
       FIXME: write API doc for Kontact::Plugin::newActions().
     */
-    Q3PtrList<KAction>* newActions() const;
+    QList<KAction*>* newActions() const;
 
     /**
       Returns a list of action name which shall be hidden in the main toolbar.

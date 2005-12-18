@@ -19,8 +19,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <q3dragobject.h>
-//Added by qt3to4:
 #include <QDragEnterEvent>
 #include <QDropEvent>
 
@@ -34,7 +32,8 @@ DropWidget::DropWidget( QWidget *parent, const char *name )
 
 void DropWidget::dragEnterEvent( QDragEnterEvent *event )
 {
-  event->accept( Q3TextDrag::canDecode( event ) );
+  if (event->source()->inherits("SummaryWidget"))
+    event->acceptProposedAction();
 }
 
 void DropWidget::dropEvent( QDropEvent *event )

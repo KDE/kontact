@@ -21,8 +21,6 @@
 */
 
 #include <qobject.h>
-//Added by qt3to4:
-#include <Q3PtrList>
 #include <kxmlguifactory.h>
 #include <klocale.h>
 #include <dcopclient.h>
@@ -43,7 +41,7 @@ class Plugin::Private
   public:
     Kontact::Core *core;
     DCOPClient *dcopClient;
-    Q3PtrList<KAction> *newActions;
+    QList<KAction*> *newActions;
     QString identifier;
     QString title;
     QString icon;
@@ -62,7 +60,7 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
 
   d->core = core;
   d->dcopClient = 0;
-  d->newActions = new Q3PtrList<KAction>;
+  d->newActions = new QList<KAction*>;
   d->hasPart = true;
   d->part = 0;
 }
@@ -177,7 +175,7 @@ void Plugin::insertNewAction( KAction *action )
   d->newActions->append( action );
 }
 
-Q3PtrList<KAction> *Plugin::newActions() const
+QList<KAction*>* Plugin::newActions() const
 {
   return d->newActions;
 }
