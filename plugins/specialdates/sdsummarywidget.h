@@ -71,7 +71,7 @@ class SDSummaryWidget : public Kontact::Summary
     bool initHolidays();
     void dateDiff( const QDate &date, int &days, int &years );
     QGridLayout *mLayout;
-    Q3PtrList<QLabel> mLabels;
+    QList<QLabel*> mLabels;
     Kontact::Plugin *mPlugin;
     KCal::CalendarResources *mCalendar;
     int mDaysAhead;

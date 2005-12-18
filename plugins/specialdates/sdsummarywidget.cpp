@@ -51,7 +51,6 @@
 #include <libkcal/resourcelocal.h>
 #include <libkdepim/kpimprefs.h>
 #include <ktoolinvocation.h>
-#include <q3tl.h>
 
 #include "core.h"
 #include "plugin.h"
@@ -223,9 +222,7 @@ int SDSummaryWidget::dayof( KCal::Event *event, const QDate& date )
 
 void SDSummaryWidget::updateView()
 {
-  mLabels.setAutoDelete( true );
-  mLabels.clear();
-  mLabels.setAutoDelete( false );
+  qDeleteAll(mLabels);
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QList<SDEntry> dates;
@@ -383,7 +380,7 @@ void SDSummaryWidget::updateView()
   }
 
   // Sort, then Print the Special Dates
-  qHeapSort( dates );
+  qSort( dates );
 
   if ( !dates.isEmpty() ) {
     int counter = 0;
@@ -552,8 +549,9 @@ void SDSummaryWidget::updateView()
     mLabels.append( label );
   }
 
-  for ( label = mLabels.first(); label; label = mLabels.next() )
-    label->show();
+  QList<QLabel*>::iterator lit;
+  for ( lit = mLabels.begin(); lit != mLabels.end() ; ++lit )
+    (*lit)->show();
 
   KGlobal::locale()->setDateFormat( savefmt );
 }
