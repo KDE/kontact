@@ -24,13 +24,7 @@
 #ifndef SUMMARYVIEW_PART_H
 #define SUMMARYVIEW_PART_H
 
-#include <qdatetime.h>
 #include <qmap.h>
-//Added by qt3to4:
-#include <QLabel>
-#include <QVBoxLayout>
-#include <Q3Frame>
-#include <QGridLayout>
 
 #include <kparts/part.h>
 
@@ -48,9 +42,10 @@ namespace KParts
   class PartActivateEvent;
 }
 
-class Q3Frame;
+class QFrame;
 class QLabel;
 class QGridLayout;
+class QVBoxLayout;
 class KAction;
 class KCMultiDialog;
 
@@ -93,7 +88,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     QMap<QString, Kontact::Summary*> mSummaries;
     Kontact::Core *mCore;
     DropWidget *mFrame;
-    Q3Frame *mMainWidget;
+    QFrame *mMainWidget;
     QVBoxLayout *mMainLayout;
     QVBoxLayout *mLeftColumn;
     QVBoxLayout *mRightColumn;

@@ -21,13 +21,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <q3frame.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qtimer.h>
-//Added by qt3to4:
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QScrollArea>
 
 #include <dcopclient.h>
 #include <kaction.h>
@@ -212,8 +212,8 @@ void SummaryViewPart::updateWidgets()
   }
 
   // Add vertical line between the two rows of summary widgets.
-  Q3Frame *vline = new Q3Frame( mFrame );
-  vline->setFrameStyle( Q3Frame::VLine | Q3Frame::Plain );
+  QFrame *vline = new QFrame( mFrame );
+  vline->setFrameStyle( QFrame::VLine | QFrame::Plain );
 
   QHBoxLayout *layout = new QHBoxLayout( mFrame );
 
@@ -356,17 +356,17 @@ QStringList SummaryViewPart::configModules() const
 
 void SummaryViewPart::initGUI( Kontact::Core *core )
 {
-  Q3ScrollView *sv = new Q3ScrollView( core );
+  QScrollArea *sa = new QScrollArea( core );
+  
+  sa->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+  sa->setFrameStyle( QFrame::NoFrame | QFrame::Plain );
+  sa->setWidgetResizable( true );
 
-  sv->setResizePolicy( Q3ScrollView::AutoOneFit );
-  sv->setFrameStyle( Q3Frame::NoFrame | Q3Frame::Plain );
-  sv->setHScrollBarMode( Q3ScrollView::AlwaysOff );
-
-  mMainWidget = new Q3Frame( sv->viewport() );
-  sv->addChild( mMainWidget );
-  mMainWidget->setFrameStyle( Q3Frame::Panel | Q3Frame::Sunken );
-  sv->setFocusPolicy( Qt::StrongFocus );
-  setWidget( sv );
+  mMainWidget = new QFrame;
+  sa->setWidget( mMainWidget );
+  mMainWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
+  sa->setFocusPolicy( Qt::StrongFocus );
+  setWidget( sa );
 
   mMainLayout = new QVBoxLayout( mMainWidget,KDialog::marginHint(),
                                  KDialog::spacingHint() );
@@ -378,8 +378,8 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   mDateLabel->setAlignment( Qt::AlignRight );
   hbl->addWidget( mDateLabel );
 
-  Q3Frame *hline = new Q3Frame( mMainWidget );
-  hline->setFrameStyle( Q3Frame::HLine | Q3Frame::Plain );
+  QFrame *hline = new QFrame( mMainWidget );
+  hline->setFrameStyle( QFrame::HLine | QFrame::Plain );
   mMainLayout->insertWidget( 1, hline );
 
   mFrame = new DropWidget( mMainWidget );
