@@ -112,7 +112,7 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
 
 void Summary::dragEnterEvent( QDragEnterEvent *event )
 {
-  if (event->source()->inherits("SummaryWidget"))
+  if (event->source()->inherits("Kontact::Summary"))
     event->acceptProposedAction();
 }
 
