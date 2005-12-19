@@ -223,6 +223,7 @@ int SDSummaryWidget::dayof( KCal::Event *event, const QDate& date )
 void SDSummaryWidget::updateView()
 {
   qDeleteAll(mLabels);
+  mLabels.clear();
 
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QList<SDEntry> dates;
