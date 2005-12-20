@@ -88,13 +88,11 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
 void SummaryWidget::updateView()
 {
-  mLayouts.setAutoDelete( true );
+  qDeleteAll( mLayouts );
   mLayouts.clear();
-  mLayouts.setAutoDelete( false );
 
-  mLabels.setAutoDelete( true );
+  qDeleteAll( mLabels );
   mLabels.clear();
-  mLabels.setAutoDelete( false );
 
   if ( mStations.count() == 0 ) {
     kdDebug(5602) << "No weather stations defined..." << endl;
@@ -156,7 +154,7 @@ void SummaryWidget::updateView()
     mLabels.append( label );
   }
 
-  for ( QLabel *label = mLabels.first(); label; label = mLabels.next() )
+  Q_FOREACH(QLabel *label, mLabels)
     label->show();
 }
 
