@@ -229,7 +229,7 @@ void MainWindow::initWidgets()
                                            QSizePolicy::Preferred ) );
   }
   QValueList<int> sizes;
-  sizes << 0;
+  sizes << 20;
   mSplitter->setSizes(sizes);
 
   mSidePane->setActionCollection( actionCollection() );
