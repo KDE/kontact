@@ -82,9 +82,8 @@ TodoSummaryWidget::~TodoSummaryWidget()
 
 void TodoSummaryWidget::updateView()
 {
-  mLabels.setAutoDelete( true );
+  qDeleteAll( mLabels );
   mLabels.clear();
-  mLabels.setAutoDelete( false );
 
   KConfig config( "kcmkorgsummaryrc" );
   config.setGroup( "Todo" );
@@ -184,7 +183,7 @@ void TodoSummaryWidget::updateView()
     mLabels.append( noTodos );
   }
 
-  for ( label = mLabels.first(); label; label = mLabels.next() )
+  Q_FOREACH( label, mLabels )
     label->show();
 }
 

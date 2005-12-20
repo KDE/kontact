@@ -24,7 +24,7 @@
 #ifndef TODO_SUMMARYWIDGET_H
 #define TODO_SUMMARYWIDGET_H
 
-#include <q3ptrlist.h>
+#include <qlist.h>
 #include <qwidget.h>
 //Added by qt3to4:
 #include <QLabel>
@@ -66,7 +66,7 @@ class TodoSummaryWidget : public Kontact::Summary
     TodoPlugin *mPlugin;
     QGridLayout *mLayout;
 
-    Q3PtrList<QLabel> mLabels;
+    QList<QLabel*> mLabels;
     KCal::CalendarResources *mCalendar;
 };
 
