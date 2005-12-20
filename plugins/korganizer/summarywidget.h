@@ -24,10 +24,10 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <q3ptrlist.h>
 #include <qwidget.h>
 //Added by qt3to4:
 #include <QLabel>
+#include <QList>
 #include <QGridLayout>
 #include <QEvent>
 
@@ -65,7 +65,7 @@ class SummaryWidget : public Kontact::Summary
     KOrganizerPlugin *mPlugin;
     QGridLayout *mLayout;
 
-    Q3PtrList<QLabel> mLabels;
+    QList<QLabel*> mLabels;
     KCal::CalendarResources *mCalendar;
 };
 

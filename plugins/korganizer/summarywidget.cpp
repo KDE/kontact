@@ -82,9 +82,8 @@ SummaryWidget::~SummaryWidget()
 
 void SummaryWidget::updateView()
 {
-  mLabels.setAutoDelete( true );
+  qDeleteAll( mLabels );
   mLabels.clear();
-  mLabels.setAutoDelete( false );
 
   KIconLoader loader( "korganizer" );
 
@@ -225,7 +224,7 @@ void SummaryWidget::updateView()
     mLabels.append( noEvents );
   }
 
-  for ( label = mLabels.first(); label; label = mLabels.next() )
+  Q_FOREACH(label, mLabels)
     label->show();
 }
 
