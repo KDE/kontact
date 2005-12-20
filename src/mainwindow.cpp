@@ -24,7 +24,6 @@
 #include <khbox.h>
 #include <qimage.h>
 #include <qobject.h>
-#include <q3progressbar.h>
 #include <qpushbutton.h>
 #include <qsplitter.h>
 #include <qtimer.h>
