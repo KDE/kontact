@@ -106,9 +106,8 @@ void SummaryWidget::slotUnreadCountChanged()
 
 void SummaryWidget::updateFolderList( const QStringList& folders )
 {
-  mLabels.setAutoDelete( true );
+  qDeleteAll( mLabels );
   mLabels.clear();
-  mLabels.setAutoDelete( false );
 
   KConfig config( "kcmkmailsummaryrc" );
   config.setGroup( "General" );

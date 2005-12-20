@@ -27,11 +27,11 @@
 #include <qmap.h>
 #include <qtimer.h>
 #include <qwidget.h>
-//Added by qt3to4:
+
 #include <QLabel>
 #include <QGridLayout>
 #include <QEvent>
-#include <Q3PtrList>
+#include <QList>
 
 #include <dcopobject.h>
 #include <kurllabel.h>
@@ -69,7 +69,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   private:
     void updateFolderList( const QStringList& folders );
 
-    Q3PtrList<QLabel> mLabels;
+    QList<QLabel*> mLabels;
     QGridLayout *mLayout;
     Kontact::Plugin *mPlugin;
     int mTimeOfLastMessageCountUpdate;

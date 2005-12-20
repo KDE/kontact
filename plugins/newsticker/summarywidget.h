@@ -28,10 +28,10 @@
 #include <dcopref.h>
 
 #include <qmap.h>
-#include <q3ptrlist.h>
 #include <qtimer.h>
 #include <qwidget.h>
-//Added by qt3to4:
+
+#include <QList>
 #include <QPixmap>
 #include <QLabel>
 #include <QVBoxLayout>
@@ -92,7 +92,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QVBoxLayout *mLayout;
     QWidget* mBaseWidget;
 
-    Q3PtrList<QLabel> mLabels;
+    QList<QLabel*> mLabels;
 
     FeedList mFeeds;
 

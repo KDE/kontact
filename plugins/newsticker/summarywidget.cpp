@@ -200,9 +200,8 @@ void SummaryWidget::documentUpdated( DCOPRef feedRef )
 
 void SummaryWidget::updateView()
 {
-  mLabels.setAutoDelete( true );
+  qDeleteAll( mLabels );
   mLabels.clear();
-  mLabels.setAutoDelete( false );
 
   delete mLayout;
   mLayout = new QVBoxLayout( mBaseWidget, 3 );
@@ -260,7 +259,7 @@ void SummaryWidget::updateView()
     }
   }
 
-  for ( QLabel *label = mLabels.first(); label; label = mLabels.next() )
+  Q_FOREACH( QLabel *label, mLabels )
     label->show();
 }
 
