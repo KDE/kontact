@@ -232,7 +232,7 @@ QMap<QString, QString> KNotesPart::notes() const
 
 void KNotesPart::killSelectedNotes()
 {
-  Q3PtrList<KNotesIconViewItem> items;
+  QList<KNotesIconViewItem*> items;
   QStringList notes;
 
   KNotesIconViewItem *knivi;
@@ -254,10 +254,9 @@ void KNotesPart::killSelectedNotes()
             KStdGuiItem::del() );
 
   if ( ret == KMessageBox::Continue ) {
-    Q3PtrListIterator<KNotesIconViewItem> kniviIt( items );
-    while ( (knivi = *kniviIt) ) {
-      ++kniviIt;
-      mManager->deleteNote( knivi->journal() );
+    QListIterator<KNotesIconViewItem*> kniviIt( items );
+    while ( kniviIt.hasNext() ) {
+      mManager->deleteNote( kniviIt.next()->journal() );
     }
 
     mManager->save();
