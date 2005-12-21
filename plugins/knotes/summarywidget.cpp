@@ -80,9 +80,8 @@ void KNotesSummaryWidget::updateView()
 {
   mNotes = mCalendar->journals();
 
-  mLabels.setAutoDelete( true );
+  qDeleteAll(mLabels);
   mLabels.clear();
-  mLabels.setAutoDelete( false );
 
   KIconLoader loader( "knotes" );
 
@@ -128,7 +127,7 @@ void KNotesSummaryWidget::updateView()
       mLabels.append( noNotes );
   }
 
-  for ( label = mLabels.first(); label; label = mLabels.next() )
+  Q_FOREACH( label, mLabels )
     label->show();
 }
 

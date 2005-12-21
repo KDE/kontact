@@ -68,7 +68,7 @@ class KNotesSummaryWidget : public Kontact::Summary
 
     Q3GridLayout *mLayout;
 
-    Q3PtrList<QLabel> mLabels;
+    QList<QLabel*> mLabels;
     Kontact::Plugin *mPlugin;
 };
 
