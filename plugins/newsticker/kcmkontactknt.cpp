@@ -300,7 +300,13 @@ void KCMKontactKNT::scanNews()
   QStringList urls = service.call( "list()" );
 
   for ( int i = 0; i < urls.count(); ++i )
-    new NewsItem( mSelectedNews, mFeedMap[ urls[ i ] ], urls[ i ], false );
+  {
+    QString url = urls[ i ];
+    QString feedName = mFeedMap[ url ];
+    if ( feedName.isEmpty() )
+      feedName = url;
+    new NewsItem( mSelectedNews, feedName, url, false );
+  }
 }
 
 void KCMKontactKNT::selectedChanged( Q3ListViewItem *item )

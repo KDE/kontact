@@ -65,7 +65,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   public:
     SummaryWidget( QWidget *parent, const char *name = 0 );
 
-    int summaryHight() const;
+    int summaryHeight() const;
 
     QStringList configModules() const;
 
@@ -75,6 +75,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     void documentUpdated( DCOPRef );
     void documentAdded( QString );
     void documentRemoved( QString );
+    void documentUpdateError( DCOPRef, int );
 
   public slots:
     void configChanged();
@@ -99,6 +100,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QTimer mTimer;
     int mUpdateInterval;
     int mArticleCount;
+    int mFeedCounter;
 };
 
 #endif

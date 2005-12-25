@@ -76,6 +76,8 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
   readConfig();
 
+  connectDCOPSignal( 0, 0, "documentUpdateError(DCOPRef,int)", "documentUpdateError(DCOPRef, int)", false );
+
   if ( dcopAvailable )
     initDocuments();
 
@@ -83,7 +85,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   connectDCOPSignal( 0, 0, "removed(QString)", "documentRemoved(QString)", false );
 }
 
-int SummaryWidget::summaryHight() const
+int SummaryWidget::summaryHeight() const
 {
   return ( mFeeds.count() == 0 ? 1 : mFeeds.count() );
 }
@@ -138,6 +140,7 @@ void SummaryWidget::initDocuments()
     feedRef.call( "pixmap()" ).get( feed.logo );
     mFeeds.append( feed );
 
+    disconnectDCOPSignal( "rssservice", feedRef.obj(), "documentUpdated(DCOPRef)", 0 );
     connectDCOPSignal( "rssservice", feedRef.obj(), "documentUpdated(DCOPRef)",
                        "documentUpdated(DCOPRef)", false );
 
@@ -161,7 +164,6 @@ void SummaryWidget::updateDocuments()
 
 void SummaryWidget::documentUpdated( DCOPRef feedRef )
 {
-  static int feedCounter = 0;
   ArticleMap map;
 
   int numArticles = feedRef.call( "count()" );
@@ -191,9 +193,9 @@ void SummaryWidget::documentUpdated( DCOPRef feedRef )
         feedRef.call( "pixmap()" ).get( (*it).logo );
     }
 
-  feedCounter++;
-  if ( feedCounter == mFeeds.count() ) {
-    feedCounter = 0;
+  mFeedCounter++;
+  if ( mFeedCounter == mFeeds.count() ) {
+    mFeedCounter = 0;
     updateView();
   }
 }
@@ -261,6 +263,24 @@ void SummaryWidget::updateView()
 
   Q_FOREACH( QLabel *label, mLabels )
     label->show();
+}
+
+void SummaryWidget::documentUpdateError( DCOPRef feedRef, int errorCode )
+{
+  kdDebug() << " error while updating document, error code: " << errorCode << endl;
+  FeedList::Iterator it;
+  for ( it = mFeeds.begin(); it != mFeeds.end(); ++it ) {
+    if ( (*it).ref.obj() == feedRef.obj() ) {
+      mFeeds.remove( it );
+      break;
+    }
+  }
+
+  if ( mFeedCounter == mFeeds.count() ) {
+    mFeedCounter = 0;
+    updateView();
+  }
+
 }
 
 QStringList SummaryWidget::configModules() const
