@@ -72,10 +72,26 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     void updateSummary( bool force = false );
 
   k_dcop:
+    /**
+     * Inform the newsticker summary widget that an RSSDocument has been updated.
+     */
     void documentUpdated( DCOPRef );
+    /**
+     * Inform the newsticker summary widget that a feed has been added.
+     */
     void documentAdded( QString );
+    /**
+     * Inform the newsticker summary widget that a feed has been removed.
+     */
     void documentRemoved( QString );
-    void documentUpdateError( DCOPRef, int );
+    /**
+     * Inform the newsticker summary widget that an error occurred while
+     * updating a feed.
+     * @param ref DCOPRef to the failing RSSDocument.
+     * @param errorCode indicates the cause of the failure:
+     *   1 = RSS Parse Error, 2 = Could not access file, 3 = Unknown error.
+     */
+    void documentUpdateError( DCOPRef ref, int errorCode );
 
   public slots:
     void configChanged();
