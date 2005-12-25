@@ -505,7 +505,7 @@ void SDSummaryWidget::updateView()
         urlLabel->installEventFilter( this );
         urlLabel->setURL( (*addrIt).addressee.uid() );
         urlLabel->setText( (*addrIt).addressee.realName() );
-        urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+        urlLabel->setTextFormat( Qt::RichText );
         mLayout->addWidget( urlLabel, counter, 4 );
         mLabels.append( urlLabel );
 
@@ -516,7 +516,7 @@ void SDSummaryWidget::updateView()
       } else {
         label = new QLabel( this );
         label->setText( (*addrIt).summary );
-        label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+        label->setTextFormat( Qt::RichText );
         mLayout->addWidget( label, counter, 4 );
         mLabels.append( label );
         if ( !(*addrIt).desc.isEmpty() ) {
