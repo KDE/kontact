@@ -27,8 +27,6 @@
 #include <qpointer.h>
 #include <q3ptrlist.h>
 #include <QStackedWidget>
-//Added by qt3to4:
-#include <Q3CString>
 
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>

@@ -29,7 +29,6 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QEvent>
-#include <Q3CString>
 
 #include <dcopref.h>
 #include <kapplication.h>
@@ -49,7 +48,7 @@
 
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ),
-    DCOPObject( Q3CString("MailSummary") ),
+    DCOPObject( "MailSummary" ),
     mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );

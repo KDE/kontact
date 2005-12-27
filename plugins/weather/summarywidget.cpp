@@ -58,7 +58,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   mLayout->addWidget( header );
 
   QString error;
-  Q3CString appID;
+  QByteArray appID;
   bool serviceAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "KWeatherService" ) ) {
     if ( KToolInvocation::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
