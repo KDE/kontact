@@ -119,7 +119,7 @@ class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
       hbl->addWidget( mTitleEdit, 1,Qt::AlignVCenter  );
 
       mNoteEdit = new KNoteEdit( actionCollection(), page );
-      mNoteEdit->setTextFormat( Qt::RichText );
+      ((KTextEdit*)mNoteEdit)->setTextFormat( Qt::RichText );
       mNoteEdit->setFocus();
 
       KXMLGUIBuilder builder( page );
