@@ -1,7 +1,7 @@
 /*
    This file is part of the KDE project
    Copyright (C) 2002-2003 Daniel Molkentin <molkentin@kde.org>
-   Copyright (C) 2004 Michael Brade <brade@kde.org>
+   Copyright (C) 2004-2006 Michael Brade <brade@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -177,7 +177,8 @@ void KNotesPart::killNote( const QString& id, bool force )
    if ( note && !force && KMessageBox::warningContinueCancelList( mNotesView,
         i18n( "Do you really want to delete this note?" ),
         mNoteList[ id ]->text(), i18n( "Confirm Delete" ),
-        KStdGuiItem::del() ) == KMessageBox::Continue ) {
+        KStdGuiItem::del() ) == KMessageBox::Continue ) 
+   {
      mManager->deleteNote( mNoteList[id]->journal() );
      mManager->save();
    }
@@ -328,6 +329,8 @@ void KNotesPart::editNote( QIconViewItem *item )
     mNoteEditDlg = new KNoteEditDlg( widget() );
 
   KCal::Journal *journal = static_cast<KNotesIconViewItem *>( item )->journal();
+
+  mNoteEditDlg->setRichText( journal->customProperty( "KNotes", "RichText" ) == "true" );
   mNoteEditDlg->setTitle( journal->summary() );
   mNoteEditDlg->setText( journal->description() );
 

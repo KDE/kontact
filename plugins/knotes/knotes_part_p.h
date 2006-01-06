@@ -1,6 +1,6 @@
 /*
    This file is part of the KDE project
-   Copyright (C) 2004 Michael Brade <brade@kde.org>
+   Copyright (C) 2004-2006 Michael Brade <brade@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -147,8 +147,13 @@ class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
       mTitleEdit->setText( text );
     }
 
+    void setRichText( bool rt )
+    {
+      mNoteEdit->setTextFormat( rt ? RichText : PlainText );
+    }
+
   private:
-    KLineEdit *mTitleEdit;
+    KLineEdit  *mTitleEdit;
     KNoteEdit  *mNoteEdit;
     KToolBar   *mTool;
     KPopupMenu *mEditMenu;
