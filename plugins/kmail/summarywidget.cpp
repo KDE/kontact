@@ -144,8 +144,8 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
       mLabels.append( urlLabel );
 
       QLabel *label =
-        new QLabel( QString( i18n("%1: number of unread messages "
-                                  "%2: total number of messages", "%1 / %2") )
+        new QLabel( i18n("%1: number of unread messages "
+                                  "%2: total number of messages", "%1 / %2")
                     .arg( numUnreadMsg ).arg( numMsg ), this );
       label->setAlignment( Qt::AlignLeft );
       label->show();
