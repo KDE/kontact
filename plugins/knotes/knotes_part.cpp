@@ -1,7 +1,7 @@
 /*
    This file is part of the KDE project
    Copyright (C) 2002-2003 Daniel Molkentin <molkentin@kde.org>
-   Copyright (C) 2004 Michael Brade <brade@kde.org>
+   Copyright (C) 2004-2006 Michael Brade <brade@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -46,14 +46,13 @@ KNotesPart::KNotesPart( QObject *parent )
   setInstance( new KInstance( "knotes" ) );
 
   // create the actions
-  new KAction( i18n( "&New..." ), "knotes", Qt::CTRL+Qt::Key_N, this, SLOT( newNote() ),
+  new KAction( i18n( "&New" ), "knotes", Qt::CTRL+Qt::Key_N, this, SLOT( newNote() ),
                actionCollection(), "file_new" );
-  new KAction( i18n( "Rename" ), "text", this, SLOT( renameNote() ),
+  new KAction( i18n( "Rename..." ), "text", this, SLOT( renameNote() ),
                actionCollection(), "edit_rename" );
   new KAction( i18n( "Delete" ), "editdelete", Qt::Key_Delete, this, SLOT( killSelectedNotes() ),
                actionCollection(), "edit_delete" );
 
-  // TODO styleguide: s/New.../New/, s/Rename/Rename.../
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
   // set the view up
