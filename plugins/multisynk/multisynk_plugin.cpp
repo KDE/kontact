@@ -44,6 +44,14 @@ MultiSynkPlugin::~MultiSynkPlugin()
 {
 }
 
+QString MultiSynkPlugin::tipFile() const
+{
+  // TODO: tips file
+  //QString file = ::locate("data", "multisynk/tips");
+  QString file;
+  return file;
+}
+
 KParts::ReadOnlyPart* MultiSynkPlugin::createPart()
 {
   return loadPart();
