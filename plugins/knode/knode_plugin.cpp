@@ -83,6 +83,14 @@ void KNodePlugin::slotPostArticle()
     mStub->postArticle();
 }
 
+QString KNodePlugin::tipFile() const
+{
+  // TODO: tips file
+  //QString file = ::locate("data", "knode/tips");
+  QString file;
+  return file;
+}
+
 KParts::ReadOnlyPart* KNodePlugin::createPart()
 {
   KParts::ReadOnlyPart *part = loadPart();
