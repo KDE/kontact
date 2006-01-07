@@ -50,6 +50,14 @@ KarmPlugin::~KarmPlugin()
 {
 }
 
+QString KarmPlugin::tipFile() const
+{
+  // TODO: tips file
+  //QString file = ::locate("data", "karm/tips");
+  QString file;
+  return file;
+}
+
 KParts::ReadOnlyPart* KarmPlugin::createPart()
 {
   KParts::ReadOnlyPart * part = loadPart();

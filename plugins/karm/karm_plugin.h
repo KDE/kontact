@@ -43,6 +43,7 @@ class KarmPlugin : public Kontact::Plugin
                        const QStringList & );
     ~KarmPlugin();
 
+    virtual QString tipFile() const;
     int weight() const { return 700; }
 
   protected:
