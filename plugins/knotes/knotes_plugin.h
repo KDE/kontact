@@ -39,6 +39,7 @@ class KNotesPlugin : public Kontact::Plugin
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
 
+    virtual QString tipFile() const;
     int weight() const { return 600; }
 
     const KAboutData *aboutData();

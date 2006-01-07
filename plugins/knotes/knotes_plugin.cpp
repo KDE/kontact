@@ -51,6 +51,14 @@ KNotesPlugin::~KNotesPlugin()
 {
 }
 
+QString KNotesPlugin::tipFile() const
+{
+  // TODO: tips file
+  //QString file = ::locate("data", "knotes/tips");
+  QString file;
+  return file;
+}
+
 KParts::ReadOnlyPart* KNotesPlugin::createPart()
 {
   return new KNotesPart( this /*, "notes"*/ );
