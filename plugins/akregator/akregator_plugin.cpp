@@ -85,6 +85,15 @@ Akregator::AkregatorPartIface_stub *Plugin::interface()
 }
 
 
+QString Plugin::tipFile() const
+{
+  // TODO: tips file
+  //QString file = ::locate("data", "akregator/tips");
+  QString file = QString();
+  return file;
+}
+
+
 MyBasePart* Plugin::createPart()
 {
     MyBasePart* p = loadPart();
