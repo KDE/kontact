@@ -1,0 +1,307 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>SDSummaryConfig_Base</class>
+<comment>Configuration page for the Korganizer Special Dates Summary</comment>
+<author>Allen Winter &lt;winter@kde.org&gt;</author>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>TodoSummaryConfig_Base</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>311</width>
+            <height>348</height>
+        </rect>
+    </property>
+    <property name="sizePolicy">
+        <sizepolicy>
+            <hsizetype>5</hsizetype>
+            <vsizetype>5</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+    </property>
+    <property name="caption">
+        <string>Special Dates Summary Configuration</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout14</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>mDaysGroup</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Show special dates starting:</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton">
+                            <property name="name">
+                                <cstring>mDateTodayButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Today only</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+T</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton">
+                            <property name="name">
+                                <cstring>mDateMonthButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Within the next &amp;month (31 days)</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+M</string>
+                            </property>
+                            <property name="checked">
+                                <bool>false</bool>
+                            </property>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout18</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QRadioButton">
+                                    <property name="name">
+                                        <cstring>mDateRangeButton</cstring>
+                                    </property>
+                                    <property name="enabled">
+                                        <bool>true</bool>
+                                    </property>
+                                    <property name="text">
+                                        <string>Within the &amp;next</string>
+                                    </property>
+                                    <property name="accel">
+                                        <string>Alt+N</string>
+                                    </property>
+                                    <property name="checked">
+                                        <bool>false</bool>
+                                    </property>
+                                </widget>
+                                <widget class="QSpinBox">
+                                    <property name="name">
+                                        <cstring>mCustomDays</cstring>
+                                    </property>
+                                    <property name="enabled">
+                                        <bool>false</bool>
+                                    </property>
+                                    <property name="suffix">
+                                        <string> days</string>
+                                    </property>
+                                    <property name="maxValue">
+                                        <number>365</number>
+                                    </property>
+                                    <property name="minValue">
+                                        <number>1</number>
+                                    </property>
+                                    <property name="lineStep">
+                                        <number>1</number>
+                                    </property>
+                                    <property name="value">
+                                        <number>7</number>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>mShowFromCalGroup</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Show these special dates from your calendar:</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>mShowBirthdaysFromCalBox</cstring>
+                            </property>
+                            <property name="acceptDrops">
+                                <bool>true</bool>
+                            </property>
+                            <property name="text">
+                                <string>Show &amp;birthdays</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+B</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Check this box to hide to-dos that are 100% complete.</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Check this box to hide to-dos that are 100% complete</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>mShowAnniversariesFromCalBox</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Show &amp;anniversaries</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+A</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Check this box to hide to-dos that do not have a due date set</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Check this box to hide to-dos that do not have a due date set</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>mShowHolidaysFromCalBox</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Show &amp;holidays</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+H</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Check this box to hide to-dos that have been started but are not complete yet</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Check this box to hide to-dos that have been started but are not complete yet</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>mShowSpecialsFromCalBox</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Show s&amp;pecial occasions</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+P</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Check this box to hide to-dos that have been started but are not complete yet</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Check this box to hide to-dos that have been started but are not complete yet</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>mShowFromKABGroup</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Show these special dates from your contact list:</string>
+                    </property>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>mShowBirthdaysFromKABBox</cstring>
+                        </property>
+                        <property name="geometry">
+                            <rect>
+                                <x>11</x>
+                                <y>20</y>
+                                <width>234</width>
+                                <height>18</height>
+                            </rect>
+                        </property>
+                        <property name="acceptDrops">
+                            <bool>true</bool>
+                        </property>
+                        <property name="text">
+                            <string>Show birth&amp;days</string>
+                        </property>
+                        <property name="accel">
+                            <string>Alt+D</string>
+                        </property>
+                        <property name="checked">
+                            <bool>true</bool>
+                        </property>
+                        <property name="toolTip" stdset="0">
+                            <string>Check this box to hide to-dos that are 100% complete.</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>Check this box to hide to-dos that are 100% complete</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>mShowAnniversariesFromKABBox</cstring>
+                        </property>
+                        <property name="geometry">
+                            <rect>
+                                <x>11</x>
+                                <y>44</y>
+                                <width>234</width>
+                                <height>18</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>Show anni&amp;versaries</string>
+                        </property>
+                        <property name="accel">
+                            <string>Alt+V</string>
+                        </property>
+                        <property name="checked">
+                            <bool>true</bool>
+                        </property>
+                        <property name="toolTip" stdset="0">
+                            <string>Check this box to hide to-dos that do not have a due date set</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>Check this box to hide to-dos that do not have a due date set</string>
+                        </property>
+                    </widget>
+                </widget>
+            </vbox>
+        </widget>
+    </vbox>
+</widget>
+<connections>
+    <connection>
+        <sender>mDateRangeButton</sender>
+        <signal>&lt;No Signal&gt;</signal>
+        <receiver>mCustomDays</receiver>
+        <slot>&lt;No)</slot>
+    </connection>
+</connections>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

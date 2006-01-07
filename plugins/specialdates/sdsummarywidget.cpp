@@ -93,7 +93,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "cookie",
                     KIcon::Desktop, KIcon::SizeMedium );
 
-  QWidget *header = createHeader( this, icon, i18n( "Special Dates" ) );
+  QWidget *header = createHeader( this, icon, i18n( "Upcoming Special Dates" ) );
   mainLayout->addWidget(header);
 
   mLayout = new QGridLayout( mainLayout, 7, 6, 3 );
@@ -151,22 +151,22 @@ void SDSummaryWidget::configUpdated()
   config.setGroup( "Days" );
   mDaysAhead = config.readNumEntry( "DaysToShow", 7 );
 
-  config.setGroup( "EventTypes" );
+  config.setGroup( "Show" );
   mShowBirthdaysFromKAB =
-    config.readBoolEntry( "ShowBirthdaysFromContacts", true );
+    config.readBoolEntry( "BirthdaysFromContacts", true );
   mShowBirthdaysFromCal =
-    config.readBoolEntry( "ShowBirthdaysFromCalendar", true );
+    config.readBoolEntry( "BirthdaysFromCalendar", true );
 
   mShowAnniversariesFromKAB =
-    config.readBoolEntry( "ShowAnniversariesFromContacts", true );
+    config.readBoolEntry( "AnniversariesFromContacts", true );
   mShowAnniversariesFromCal =
-    config.readBoolEntry( "ShowAnniversariesFromCalendar", true );
+    config.readBoolEntry( "AnniversariesFromCalendar", true );
 
   mShowHolidays =
-    config.readBoolEntry( "ShowHolidays", true );
+    config.readBoolEntry( "HolidaysFromCalendar", true );
 
   mShowSpecialsFromCal =
-    config.readBoolEntry( "ShowSpecialsFromCalendar", true );
+    config.readBoolEntry( "SpecialsFromCalendar", true );
 
   updateView();
 }

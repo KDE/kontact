@@ -1,7 +1,7 @@
 /*
     This file is part of Kontact.
     Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
-    Copyright (c) 2004 Allen Winter <winter@kde.org>
+    Copyright (c) 2004-2006 Allen Winter <winter@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -26,12 +26,11 @@
 #define KCMSDSUMMARY_H
 
 #include <kcmodule.h>
+#include "sdsummaryconfig_base.h"
 
 class Q3ButtonGroup;
 class QCheckBox;
 class QSpinBox;
-
-class KAboutData;
 
 class KCMSDSummary : public KCModule
 {
@@ -47,23 +46,11 @@ class KCMSDSummary : public KCModule
 
   private slots:
     void modified();
-    void buttonClicked( int );
-    void customDaysChanged( int );
+    void buttonClicked( int id );
+    void customDaysChanged( int value );
 
   private:
-    void initGUI();
-
-    Q3ButtonGroup *mDaysGroup;
-    Q3ButtonGroup *mCalendarGroup;
-    Q3ButtonGroup *mContactGroup;
-    QCheckBox *mShowBirthdaysFromKAB;
-    QCheckBox *mShowBirthdaysFromCal;
-    QCheckBox *mShowAnniversariesFromKAB;
-    QCheckBox *mShowAnniversariesFromCal;
-    QCheckBox *mShowHolidays;
-    QCheckBox *mShowHolidaysFromCal;
-    QCheckBox *mShowSpecialsFromCal;
-    QSpinBox *mCustomDays;
+    SDSummaryConfig_Base* mConfigBase;
 };
 
 #endif

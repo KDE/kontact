@@ -11,9 +11,9 @@ X-KDE-ParentApp=kontact_specialdatesplugin
 X-KDE-ParentComponents=kontact_specialdatesplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
-Name=Special Dates
-Name[x-test]=xxSpecial Datesxx
-Comment=Special Dates Summary Setup
-Comment[x-test]=xxSpecial Dates Summary Setupxx
+Name=Upcoming Special Dates
+Name[x-test]=xxUpcoming Special Datesxx
+Comment=Upcoming Special Dates Summary Setup
+Comment[x-test]=xxUpcoming Special Dates Summary Setupxx
 Keywords=birthday, anniversary, holiday, configure, settings
 Keywords[x-test]=xxbirthday, anniversary, holiday, configure, settingsxx

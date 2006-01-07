@@ -14,7 +14,7 @@ libkontact_specialdatesplugin_la_LIBADD = \
 libkontact_specialdatesplugin_la_SOURCES = specialdates_plugin.cpp \
                                            sdsummarywidget.cpp
 
-kcm_sdsummary_la_SOURCES = kcmsdsummary.cpp
+kcm_sdsummary_la_SOURCES = kcmsdsummary.cpp sdsummaryconfig_base.ui
 kcm_sdsummary_la_LDFLAGS = -module $(KDE_PLUGIN) $(KDE_RPATH) $(all_libraries) \
                             -avoid-version -no-undefined
 kcm_sdsummary_la_LIBADD = $(LIB_KDEUI)
