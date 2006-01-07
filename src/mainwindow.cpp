@@ -243,6 +243,8 @@ void MainWindow::initWidgets()
   vBox->setSpacing( 0 );
 
   mPartsStack = new QStackedWidget( vBox );
+  mPartsStack->layout()->setSpacing(0);
+
 
 /*
   initAboutScreen();
