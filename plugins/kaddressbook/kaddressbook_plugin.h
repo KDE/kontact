@@ -54,6 +54,7 @@ class KAddressbookPlugin : public Kontact::Plugin
 
     virtual bool createDCOPInterface( const QString &serviceType );
     virtual bool isRunningStandalone();
+    virtual QString tipFile() const;
     int weight() const { return 300; }
 
     bool canDecodeDrag( QMimeSource * );

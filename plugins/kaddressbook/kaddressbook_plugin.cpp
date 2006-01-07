@@ -70,7 +70,15 @@ KAddressbookPlugin::~KAddressbookPlugin()
 {
 }
 
-KParts::ReadOnlyPart* KAddressbookPlugin::createPart()
+QString KAddressbookPlugin::tipFile() const
+{
+  // TODO: tips file
+  //QString file = ::locate("data", "kaddressbook/tips");
+  QString file = QString();
+  return file;
+}
+
+  KParts::ReadOnlyPart* KAddressbookPlugin::createPart()
 {
   KParts::ReadOnlyPart * part = loadPart();
   if ( !part ) return 0;
