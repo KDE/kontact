@@ -41,6 +41,7 @@ class KitchenSyncPlugin : public Kontact::Plugin
                        const QStringList & );
     ~KitchenSyncPlugin();
 
+    virtual QString tipFile() const;
     int weight() const { return 800; }
 
     virtual QStringList configModules() const;

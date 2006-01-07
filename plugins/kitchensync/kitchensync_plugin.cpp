@@ -52,6 +52,14 @@ KitchenSyncPlugin::~KitchenSyncPlugin()
 {
 }
 
+QString KitchenSyncPlugin::tipFile() const
+{
+  // TODO: tips file
+  //QString file = ::locate("data", "kitchensync/tips");
+  QString file;
+  return file;
+}
+
 KParts::ReadOnlyPart* KitchenSyncPlugin::createPart()
 {
   return loadPart();
