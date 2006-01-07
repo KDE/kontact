@@ -74,7 +74,7 @@ QString KAddressbookPlugin::tipFile() const
 {
   // TODO: tips file
   //QString file = ::locate("data", "kaddressbook/tips");
-  QString file = QString();
+  QString file;
   return file;
 }
 
