@@ -1,4 +1,4 @@
-INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/kleopatra/lib \
+INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/libkleo \
   -I$(top_srcdir)/libkdepim \
   -I$(top_srcdir) $(all_includes)
 
