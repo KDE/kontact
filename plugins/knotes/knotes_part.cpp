@@ -144,12 +144,13 @@ QString KNotesPart::newNote( const QString& name, const QString& text )
     }
   }
 
+  mManager->addNewNote( journal );
+  mManager->save();
+
   KNotesIconViewItem *note = mNoteList[ journal->uid() ];
   mNotesView->ensureItemVisible( note );
   mNotesView->setCurrentItem( note );
 
-  mManager->addNewNote( journal );
-  mManager->save();
   return journal->uid();
 }
 
