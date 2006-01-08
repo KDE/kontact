@@ -59,6 +59,7 @@ KNotesPart::KNotesPart( QObject *parent )
   mNotesView->setSelectionMode( Q3IconView::Extended );
   mNotesView->setItemsMovable( false );
   mNotesView->setResizeMode( Q3IconView::Adjust );
+  mNotesView->setSorting( true );
 
   connect( mNotesView, SIGNAL( executed( Q3IconViewItem* ) ),
            this, SLOT( editNote( Q3IconViewItem* ) ) );
