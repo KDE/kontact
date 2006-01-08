@@ -63,6 +63,8 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   mNotesView->setSelectionMode( QIconView::Extended );
   mNotesView->setItemsMovable( false );
   mNotesView->setResizeMode( QIconView::Adjust );
+  mNotesView->setAutoArrange( true );
+  mNotesView->setSorting( true );
 
   connect( mNotesView, SIGNAL( executed( QIconViewItem* ) ),
            this, SLOT( editNote( QIconViewItem* ) ) );
