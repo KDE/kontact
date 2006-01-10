@@ -1,6 +1,7 @@
 /*
     This file is part of Kontact.
     Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+    Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -66,8 +67,61 @@ class TodoSummaryWidget : public Kontact::Summary
     TodoPlugin *mPlugin;
     QGridLayout *mLayout;
 
+    bool mDaysToGo;
+    bool mHideInProgress;
+    bool mHideOverdue;
+    bool mHideCompleted;
+    bool mHideOpenEnded;
+    bool mHideNotStarted;
+
     QList<QLabel*> mLabels;
     KCal::CalendarResources *mCalendar;
+
+    // FIXME: could the following methods be moved into the KCal::Todo class?
+
+    /**
+       Test if a To-do is in-progress.
+       @param todo is a pointer to a To-do object to test.
+       @return if the To-do is in-progress.
+    */
+    bool inProgress( KCal::Todo *todo );
+    /**
+       Test if a To-do is overdue.
+       @param todo is a pointer to a To-do object to test.
+       @return if the To-do is overdue.
+    */
+    bool overdue( KCal::Todo *todo );
+    /**
+       Test if a To-do is completed.
+       @param todo is a pointer to a To-do object to test.
+       @return if the To-do is overdue.
+    */
+    bool starts( KCal::Todo *todo );
+    /**
+       Test if a To-do starts on the current date.
+       @param todo is a pointer to a To-do object to test.
+       @return if the To-do starts today.
+    */
+    bool completed( KCal::Todo *todo );
+    /**
+       Test if a To-do is open-ended.
+       @param todo is a pointer to a To-do object to test.
+       @return if the To-do is completed.
+    */
+    bool openEnded( KCal::Todo *todo );
+    /**
+       Test if a To-do has yet to be started.
+       @param todo is a pointer to a To-do object to test.
+       @return if the To-do is yet to be started.
+    */
+    bool notStarted( KCal::Todo *todo );
+
+    /**
+       Create a text string containing the states of the To-do.
+       @param todo is a pointer to a To-do object to test.
+       @return a QString containing a comma-separated list of To-do states.
+    */
+    const QString TodoSummaryWidget::stateStr( KCal::Todo *todo );
 };
 
 #endif

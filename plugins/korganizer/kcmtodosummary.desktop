@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=kontact_todo
+Type=Service
+ServiceTypes=KCModule
+
+X-KDE-ModuleType=Library
+X-KDE-Library=todosummary
+X-KDE-FactoryName=todosummary
+X-KDE-ParentApp=kontact_todoplugin
+X-KDE-ParentComponents=kontact_todoplugin
+X-KDE-CfgDlgHierarchy=KontactSummary
+
+Name=Pending To-dos
+Name[xx]=xxPending To-dosxx
+Comment=Pending To-dos Summary Setup
+Comment[xx]=xxPending To-dos Summary Setupxx
+Keywords=calendar, todos, configure, settings
+Keywords[xx]=xxcalendar, todos, configure, settingsxx

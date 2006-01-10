@@ -1,6 +1,7 @@
 /*
     This file is part of Kontact.
     Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+    Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -40,17 +41,18 @@ class QLabel;
 
 class KOrganizerPlugin;
 
-class SummaryWidget : public Kontact::Summary
+class ApptSummaryWidget : public Kontact::Summary
 {
   Q_OBJECT
 
   public:
-    SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
-                   const char *name = 0 );
-    ~SummaryWidget();
+    ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
+                       const char *name = 0 );
+    ~ApptSummaryWidget();
 
     int summaryHeight() const { return 3; }
     QStringList configModules() const;
+
   public slots:
     void updateSummary( bool force = false ) { Q_UNUSED( force ); updateView(); }
 
@@ -63,9 +65,10 @@ class SummaryWidget : public Kontact::Summary
 
   private:
     KOrganizerPlugin *mPlugin;
+    void dateDiff( const QDate &date, int &days );
     QGridLayout *mLayout;
 
-    QList<QLabel*> mLabels;
+    QList<QLabel *> mLabels;
     KCal::CalendarResources *mCalendar;
 };
 

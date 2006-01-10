@@ -1,6 +1,7 @@
 /*
     This file is part of Kontact.
     Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
+    Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,36 +22,35 @@
     without including the source code for Qt in the source distribution.
 */
 
-#ifndef KCMKORGSUMMARY_H
-#define KCMKORGSUMMARY_H
+#ifndef KCMTODOSUMMARY_H
+#define KCMTODOSUMMARY_H
 
 #include <kcmodule.h>
+#include "todosummaryconfig_base.h"
 
-class QSpinxBox;
-class Q3ButtonGroup;
+class QSpinBox;
+class QCheckBox;
+class QButtonGroup;
 
-class KCMKOrgSummary : public KCModule
+class KCMTodoSummary : public KCModule
 {
   Q_OBJECT
 
   public:
-    KCMKOrgSummary( KInstance *inst, QWidget *parent = 0 );
+    KCMTodoSummary( KInstance *inst, QWidget *parent = 0 );
 
     virtual void load();
     virtual void save();
     virtual void defaults();
+    virtual const KAboutData* aboutData() const;
 
   private slots:
     void modified();
-    void buttonClicked( int );
-    void customDaysChanged( int );
+    void buttonClicked( int id );
+    void customDaysChanged( int value );
 
   private:
-    void initGUI();
-
-    Q3ButtonGroup *mCalendarGroup;
-    Q3ButtonGroup *mTodoGroup;
-    QSpinBox *mCustomDays;
+    TodoSummaryConfig_Base* mConfigBase;
 };
 
 #endif

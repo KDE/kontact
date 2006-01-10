@@ -1,6 +1,7 @@
 /*
     This file is part of Kontact.
     Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+    Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -50,17 +51,17 @@
 
 #include "korganizer/stdcalendar.h"
 
-#include "summarywidget.h"
+#include "apptsummarywidget.h"
 
-SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
-                              const char *name )
+ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
+                                      const char *name )
   : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_date",
                    KIcon::Desktop, KIcon::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "Appointments" ) );
+  QWidget *header = createHeader( this, icon, i18n( "Upcoming Events" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
@@ -76,37 +77,61 @@ SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
   updateView();
 }
 
-SummaryWidget::~SummaryWidget()
+ApptSummaryWidget::~ApptSummaryWidget()
 {
 }
 
-void SummaryWidget::updateView()
+void ApptSummaryWidget::updateView()
 {
   qDeleteAll( mLabels );
   mLabels.clear();
 
-  KIconLoader loader( "korganizer" );
+  KConfig config( "kcmapptsummaryrc" );
+  config.setGroup( "Days" );
+  int days = config.readNumEntry( "DaysToShow", 7 );
 
-  KConfig config( "kcmkorgsummaryrc" );
+  // The event print consists of the following fields:
+  //  icon:start date:days-to-go:summary:time range
+  // where,
+  //   the icon is the typical event icon
+  //   the start date is the event start date
+  //   the days-to-go is the #days until the event starts
+  //   the summary is the event summary
+  //   the time range is the start-end time (only for non-floating events)
 
-  config.setGroup( "Calendar" );
-  int days = config.readNumEntry( "DaysToShow", 1 );
+  // No reason to show the date year
+  QString savefmt = KGlobal::locale()->dateFormat();
+  KGlobal::locale()->setDateFormat( KGlobal::locale()->
+                                    dateFormat().replace( 'Y', ' ' ) );
 
   QLabel *label = 0;
   int counter = 0;
+
+  KIconLoader loader( "korganizer" );
   QPixmap pm = loader.loadIcon( "appointment", KIcon::Small );
 
+  QString str;
   QDate dt;
   for ( dt=QDate::currentDate();
         dt<=QDate::currentDate().addDays( days - 1 );
         dt=dt.addDays(1) ) {
-    KCal::Event::List events = mCalendar->events( dt,
-                                                  KCal::EventSortStartDate,
-                                                  KCal::SortDirectionAscending );
+    KCal::Event::List events = mCalendar->events( dt );
+
+    // sort the events for this date by summary
+    events = KCal::Calendar::sortEvents( &events,
+                                         KCal::EventSortSummary,
+                                         KCal::SortDirectionAscending );
+    // sort the events for this date by start date
+    events = KCal::Calendar::sortEvents( &events,
+                                         KCal::EventSortStartDate,
+                                         KCal::SortDirectionAscending );
+
     KCal::Event *ev;
     KCal::Event::List::ConstIterator it;
     for ( it=events.begin(); it!=events.end(); ++it ) {
       ev = *it;
+      bool makeBold = false;
+      int daysTo = -1;
 
       // Count number of days remaining in multiday event
       int span=1; int dayof=1;
@@ -128,65 +153,74 @@ void SummaryWidget::updateView()
       // only make a print for the first day of the event.
       if ( ev->isMultiDay() && ev->doesFloat() && dayof != 1 )break;
 
-      // Fill Appointment Pixmap Field
+      // Icon label
       label = new QLabel( this );
       label->setPixmap( pm );
       label->setMaximumWidth( label->minimumSizeHint().width() );
-      label->setAlignment( Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
-      // Fill Event Date Field
-      bool makeBold = false;
-      QString datestr;
-
-      // Modify event date for printing
+      // Start date label
+      str = "";
       QDate sD = QDate::QDate( dt.year(), dt.month(), dt.day() );
       if ( ( sD.month() == QDate::currentDate().month() ) &&
            ( sD.day()   == QDate::currentDate().day() ) ) {
-        datestr = i18n( "Today" );
+        str = i18n( "Today" );
         makeBold = true;
       } else if ( ( sD.month() == QDate::currentDate().addDays( 1 ).month() ) &&
                   ( sD.day()   == QDate::currentDate().addDays( 1 ).day() ) ) {
-        datestr = i18n( "Tomorrow" );
+        str = i18n( "Tomorrow" );
       } else {
-        datestr = KGlobal::locale()->formatDate( sD );
+        str = KGlobal::locale()->formatDate( sD );
       }
 
       // Print the date span for multiday, floating events, for the
       // first day of the event only.
       if ( ev->isMultiDay() && ev->doesFloat() && dayof == 1 && span > 1 ) {
-        QString endstr = KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
-        datestr += " -\n " + endstr;
+        str += " -\n " + KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
       }
 
-      label = new QLabel( datestr, this );
+      label = new QLabel( str, this );
       label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+      mLayout->addWidget( label, counter, 1 );
+      mLabels.append( label );
       if ( makeBold ) {
         QFont font = label->font();
         font.setBold( true );
         label->setFont( font );
       }
-      mLayout->addWidget( label, counter, 1 );
+
+      // Days togo label
+      str = "";
+      dateDiff( ev->dtStart().date(), daysTo );
+      if ( daysTo > 0 ) {
+        str = i18n( "in 1 day", "in %n days", daysTo );
+      } else {
+        str = i18n( "now" );
+      }
+      label = new QLabel( str, this );
+      label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+      mLayout->addWidget( label, counter, 2 );
       mLabels.append( label );
 
-      // Fill Event Summary Field
-      QString newtext = ev->summary();
+      // Summary label
+      str = ev->summary();
       if ( ev->isMultiDay() &&  !ev->doesFloat() ) {
-        newtext.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
+        str.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
       }
 
-      KURLLabel *urlLabel = new KURLLabel( ev->uid(), newtext, this );
+      KURLLabel *urlLabel = new KURLLabel( ev->uid(), str, this );
       urlLabel->installEventFilter( this );
-      urlLabel->setAlignment( urlLabel->alignment() | Qt::TextWordWrap );
-      mLayout->addWidget( urlLabel, counter, 2 );
+      urlLabel->setTextFormat( Qt::RichText );
+      mLayout->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
 
       if ( !ev->description().isEmpty() ) {
         urlLabel->setToolTip( ev->description() );
       }
 
-      // Fill Event Time Range Field (only for non-floating Events)
+      // Time range label (only for non-floating events)
+      str = "";
       if ( !ev->doesFloat() ) {
         QTime sST = ev->dtStart().time();
         QTime sET = ev->dtEnd().time();
@@ -198,12 +232,12 @@ void SummaryWidget::updateView()
             sET = QTime::QTime( 23, 59 );
           }
         }
-        datestr = i18n( "Time from - to", "%1 - %2" )
-                  .arg( KGlobal::locale()->formatTime( sST ) )
-                  .arg( KGlobal::locale()->formatTime( sET ) );
-        label = new QLabel( datestr, this );
+        str = i18n( "Time from - to", "%1 - %2" )
+              .arg( KGlobal::locale()->formatTime( sST ) )
+              .arg( KGlobal::locale()->formatTime( sET ) );
+        label = new QLabel( str, this );
         label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
-        mLayout->addWidget( label, counter, 3 );
+        mLayout->addWidget( label, counter, 4 );
         mLabels.append( label );
       }
 
@@ -216,31 +250,33 @@ void SummaryWidget::updateView()
 
   if ( !counter ) {
     QLabel *noEvents = new QLabel(
-      i18n( "No appointments pending within the next day",
-            "No appointments pending within the next %n days",
+      i18n( "No upcoming events starting within the next day",
+            "No upcoming events starting within the next %n days",
             days ), this, "nothing to see" );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( noEvents, 0, 2 );
     mLabels.append( noEvents );
   }
 
-  Q_FOREACH(label, mLabels)
+  Q_FOREACH( label, mLabels )
     label->show();
+
+  KGlobal::locale()->setDateFormat( savefmt );
 }
 
-void SummaryWidget::selectEvent( const QString &uid )
+void ApptSummaryWidget::selectEvent( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
   KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
   iface.editIncidence( uid );
 }
 
-bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
+bool ApptSummaryWidget::eventFilter( QObject *obj, QEvent* e )
 {
   if ( obj->inherits( "KURLLabel" ) ) {
     KURLLabel* label = static_cast<KURLLabel*>( obj );
     if ( e->type() == QEvent::Enter )
-      emit message( i18n( "Edit Appointment: \"%1\"" ).arg( label->text() ) );
+      emit message( i18n( "Edit Event: \"%1\"" ).arg( label->text() ) );
     if ( e->type() == QEvent::Leave )
       emit message( QString::null );
   }
@@ -248,9 +284,35 @@ bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
   return Kontact::Summary::eventFilter( obj, e );
 }
 
-QStringList SummaryWidget::configModules() const
+void ApptSummaryWidget::dateDiff( const QDate &date, int &days )
 {
-  return QStringList( "kcmkorgsummary.desktop" );
+  QDate currentDate;
+  QDate eventDate;
+
+  if ( QDate::leapYear( date.year() ) && date.month() == 2 && date.day() == 29 ) {
+    currentDate =
+      QDate( date.year(), QDate::currentDate().month(), QDate::currentDate().day() );
+    if ( !QDate::leapYear( QDate::currentDate().year() ) )
+      eventDate = QDate( date.year(), date.month(), 28 );
+    else
+      eventDate = QDate( date.year(), date.month(), date.day() );
+  } else {
+    currentDate =
+      QDate( 0, QDate::currentDate().month(), QDate::currentDate().day() );
+    eventDate = QDate( 0, date.month(), date.day() );
+  }
+
+  int offset = currentDate.daysTo( eventDate );
+  if ( offset < 0 ) {
+    days = 365 + offset;
+  } else {
+    days = offset;
+  }
 }
 
-#include "summarywidget.moc"
+QStringList ApptSummaryWidget::configModules() const
+{
+  return QStringList( "kcmapptsummary.desktop" );
+}
+
+#include "apptsummarywidget.moc"

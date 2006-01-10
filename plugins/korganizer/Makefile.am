@@ -7,7 +7,7 @@ INCLUDES = -I$(top_srcdir)/kontact/interfaces \
 kde_module_LTLIBRARIES = libkontact_korganizerplugin.la \
                          libkontact_todoplugin.la \
                          libkontact_journalplugin.la \
-                         kcm_korgsummary.la
+                         kcm_apptsummary.la kcm_todosummary.la
 
 noinst_LTLIBRARIES = libcommon.la
 libcommon_la_SOURCES = korg_uniqueapp.cpp
@@ -18,7 +18,7 @@ libkontact_korganizerplugin_la_LIBADD = libcommon.la \
     $(top_builddir)/korganizer/libkorganizer_calendar.la
 libkontact_korganizerplugin_la_SOURCES = korganizerplugin.cpp \
                                          kcalendariface.stub \
-                                         summarywidget.cpp \
+                                         apptsummarywidget.cpp \
                                          korganizeriface.stub
 
 korganizeriface_DIR = $(top_srcdir)/korganizer
@@ -39,11 +39,17 @@ libkontact_journalplugin_la_LIBADD = libcommon.la \
     $(top_builddir)/korganizer/libkorganizer_calendar.la
 libkontact_journalplugin_la_SOURCES = journalplugin.cpp kcalendariface.stub
 
-kcm_korgsummary_la_SOURCES = kcmkorgsummary.cpp
-kcm_korgsummary_la_LDFLAGS = -module $(KDE_PLUGIN) $(KDE_RPATH) \
+kcm_apptsummary_la_SOURCES = kcmapptsummary.cpp apptsummaryconfig_base.ui
+kcm_apptsummary_la_LDFLAGS = -module $(KDE_PLUGIN) $(KDE_RPATH) \
                              $(all_libraries) \
                              -avoid-version -no-undefined
-kcm_korgsummary_la_LIBADD = $(LIB_KDEUI)
+kcm_apptsummary_la_LIBADD = $(LIB_KDEUI)
+
+kcm_todosummary_la_SOURCES = kcmtodosummary.cpp todosummaryconfig_base.ui
+kcm_todosummary_la_LDFLAGS = -module $(KDE_PLUGIN) $(KDE_RPATH) \
+                             $(all_libraries) \
+                             -avoid-version -no-undefined
+kcm_todosummary_la_LIBADD = $(LIB_KDEUI)
 
 METASOURCES = AUTO
 
@@ -52,6 +58,6 @@ kcalendariface_DIR = $(top_srcdir)/korganizer
 servicedir = $(kde_servicesdir)/kontact
 service_DATA = korganizerplugin.desktop todoplugin.desktop journalplugin.desktop
 
-kde_services_DATA = kcmkorgsummary.desktop
+kde_services_DATA = kcmapptsummary.desktop kcmtodosummary.desktop
 
 KDE_ICON = AUTO

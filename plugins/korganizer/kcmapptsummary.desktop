@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=kontact_date
+Type=Service
+ServiceTypes=KCModule
+
+X-KDE-ModuleType=Library
+X-KDE-Library=apptsummary
+X-KDE-FactoryName=apptsummary
+X-KDE-ParentApp=kontact_korganizerplugin
+X-KDE-ParentComponents=kontact_korganizerplugin
+X-KDE-CfgDlgHierarchy=KontactSummary
+
+Name=Upcoming Events
+Name[xx]=xxUpcoming Eventsxx
+Comment=Upcoming Events Summary Setup
+Comment[xx]=xxUpcoming Events Summary Setupxx
+Keywords=calendar, events, configure, settings
+Keywords[xx]=xxcalendar, events, configure, settingsxx

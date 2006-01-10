@@ -43,7 +43,7 @@
 #include <libkdepim/maillistdrag.h>
 
 #include "core.h"
-#include "summarywidget.h"
+#include "apptsummarywidget.h"
 #include "korganizerplugin.h"
 #include "korg_uniqueapp.h"
 
@@ -73,7 +73,7 @@ KOrganizerPlugin::~KOrganizerPlugin()
 
 Kontact::Summary *KOrganizerPlugin::createSummaryWidget( QWidget *parent )
 {
-  return new SummaryWidget( this, parent );
+  return new ApptSummaryWidget( this, parent );
 }
 
 KParts::ReadOnlyPart *KOrganizerPlugin::createPart()
