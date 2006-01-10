@@ -338,7 +338,7 @@ void KNotesPart::editNote( QIconViewItem *item )
   mNoteEditDlg->setText( journal->description() );
 
   if ( mNoteEditDlg->exec() == QDialog::Accepted ) {
-    journal->setSummary( mNoteEditDlg->title() );
+    item->setText( mNoteEditDlg->title() );
     journal->setDescription( mNoteEditDlg->text() );
     mManager->save();
   }
