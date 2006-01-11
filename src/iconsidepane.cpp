@@ -451,7 +451,7 @@ IconViewMode Navigator::sizeIntToEnum(int size) const
   }
 }
 
-void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint &pos )
+void Navigator::slotShowRMBMenu( Q3ListBoxItem * )
 {
   KMenu menu;
   menu.addTitle( i18n( "Icon Size" ) );
@@ -547,8 +547,8 @@ void Navigator::slotMouseOff()
   slotMouseOn( 0 );
 }
 
-IconSidePane::IconSidePane( Core *core, QWidget *parent, const char *name )
-  : SidePaneBase( core, parent, name )
+IconSidePane::IconSidePane( Core *core, QWidget *parent )
+  : SidePaneBase( core, parent )
 {
   mNavigator = new Navigator( this );
   connect( mNavigator, SIGNAL( pluginActivated( Kontact::Plugin* ) ),

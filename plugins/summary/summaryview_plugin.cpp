@@ -43,8 +43,7 @@ SummaryView::~SummaryView()
 
 KParts::ReadOnlyPart *SummaryView::createPart()
 {
-  return new SummaryViewPart( core(), "summarypartframe", aboutData(),
-                              this, "summarypart" );
+  return new SummaryViewPart( core(), "summarypartframe", aboutData(), this );
 }
 
 const KAboutData *SummaryView::aboutData()

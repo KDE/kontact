@@ -35,7 +35,7 @@ class PluginView : public KListView
   Q_OBJECT
 
   public:
-    PluginView( QWidget *parent, const char *name = 0 );
+    PluginView( QWidget *parent );
     ~PluginView();
 };
 

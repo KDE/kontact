@@ -55,8 +55,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
 
   public:
     SummaryViewPart( Kontact::Core *core, const char *widgetName,
-                     const KAboutData *aboutData,
-                     QObject *parent = 0, const char *name = 0 );
+                     const KAboutData *aboutData, QObject *parent = 0 );
     ~SummaryViewPart();
 
   public slots:

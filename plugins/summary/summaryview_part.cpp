@@ -67,7 +67,7 @@ namespace Kontact
 
 SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
                                   const KAboutData *aboutData,
-                                  QObject *parent, const char *name )
+                                  QObject *parent )
   : KParts::ReadOnlyPart( parent ),
     mCore( core ), mFrame( 0 ), mConfigAction( 0 )
 {
@@ -357,7 +357,7 @@ QStringList SummaryViewPart::configModules() const
 void SummaryViewPart::initGUI( Kontact::Core *core )
 {
   QScrollArea *sa = new QScrollArea( core );
-  
+
   sa->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
   sa->setFrameStyle( QFrame::NoFrame | QFrame::Plain );
   sa->setWidgetResizable( true );

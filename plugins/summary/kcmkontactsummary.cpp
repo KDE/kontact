@@ -81,7 +81,7 @@ class PluginItem : public Q3CheckListItem
     KPluginInfo *mInfo;
 };
 
-PluginView::PluginView( QWidget *parent, const char *name )
+PluginView::PluginView( QWidget *parent )
   : KListView( parent )
 {
   addColumn( i18n( "Name" ) );

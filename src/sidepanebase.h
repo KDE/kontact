@@ -37,7 +37,7 @@ class SidePaneBase : public KVBox
 {
     Q_OBJECT
   public:
-    SidePaneBase( Core *core, QWidget *parent, const char *name = 0 );
+    SidePaneBase( Core *core, QWidget *parent );
     virtual ~SidePaneBase();
 
     void setActionCollection( KActionCollection *actionCollection );

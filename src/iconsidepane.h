@@ -162,7 +162,7 @@ class Navigator : public KListBox
     void slotExecuted( Q3ListBoxItem * );
     void slotMouseOn( Q3ListBoxItem *item );
     void slotMouseOff();
-    void slotShowRMBMenu( Q3ListBoxItem *, const QPoint& );
+    void slotShowRMBMenu( Q3ListBoxItem * );
     void shortCutSelected( int );
     void slotStopHighlight();
 
@@ -184,7 +184,7 @@ class IconSidePane : public SidePaneBase
 {
     Q_OBJECT
   public:
-    IconSidePane( Core *core, QWidget *parent, const char *name = 0 );
+    IconSidePane( Core *core, QWidget *parent );
     ~IconSidePane();
 
     virtual void indicateForegrunding( Kontact::Plugin* );
