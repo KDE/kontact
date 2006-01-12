@@ -153,20 +153,20 @@ void SDSummaryWidget::configUpdated()
 
   config.setGroup( "Show" );
   mShowBirthdaysFromKAB =
-    config.readBoolEntry( "BirthdaysFromContacts", true );
+    config.readEntry( "BirthdaysFromContacts", true );
   mShowBirthdaysFromCal =
-    config.readBoolEntry( "BirthdaysFromCalendar", true );
+    config.readEntry( "BirthdaysFromCalendar", true );
 
   mShowAnniversariesFromKAB =
-    config.readBoolEntry( "AnniversariesFromContacts", true );
+    config.readEntry( "AnniversariesFromContacts", true );
   mShowAnniversariesFromCal =
-    config.readBoolEntry( "AnniversariesFromCalendar", true );
+    config.readEntry( "AnniversariesFromCalendar", true );
 
   mShowHolidays =
-    config.readBoolEntry( "HolidaysFromCalendar", true );
+    config.readEntry( "HolidaysFromCalendar", true );
 
   mShowSpecialsFromCal =
-    config.readBoolEntry( "SpecialsFromCalendar", true );
+    config.readEntry( "SpecialsFromCalendar", true );
 
   updateView();
 }

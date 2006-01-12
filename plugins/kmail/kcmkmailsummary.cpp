@@ -148,7 +148,7 @@ void KCMKMailSummary::loadFolders()
       }
     }
   }
-  mFullPath->setChecked( config.readBoolEntry( "ShowFullPath", true ) );
+  mFullPath->setChecked( config.readEntry( "ShowFullPath", true ) );
 }
 
 void KCMKMailSummary::storeFolders()

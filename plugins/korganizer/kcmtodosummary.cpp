@@ -106,15 +106,15 @@ void KCMTodoSummary::load()
 
   config.setGroup( "Hide" );
   mConfigBase->mHideInProgressBox->
-    setChecked( config.readBoolEntry( "InProgress", false ) );
+    setChecked( config.readEntry( "InProgress", false ) );
   mConfigBase->mHideOverdueBox->
-    setChecked( config.readBoolEntry( "Overdue", false ) );
+    setChecked( config.readEntry( "Overdue", false ) );
   mConfigBase->mHideCompletedBox->
-    setChecked( config.readBoolEntry( "Completed", true ) );
+    setChecked( config.readEntry( "Completed", true ) );
   mConfigBase->mHideOpenEndedBox->
-    setChecked( config.readBoolEntry( "OpenEnded", false ) );
+    setChecked( config.readEntry( "OpenEnded", false ) );
   mConfigBase->mHideUnstartedBox->
-    setChecked( config.readBoolEntry( "NotStarted", false ) );
+    setChecked( config.readEntry( "NotStarted", false ) );
 
   emit changed( false );
 }

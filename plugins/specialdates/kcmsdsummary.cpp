@@ -114,20 +114,20 @@ void KCMSDSummary::load()
   config.setGroup( "Show" );
 
   mConfigBase->mShowBirthdaysFromKABBox->
-    setChecked( config.readBoolEntry( "BirthdaysFromContacts", true ) );
+    setChecked( config.readEntry( "BirthdaysFromContacts", true ) );
   mConfigBase->mShowBirthdaysFromCalBox->
-    setChecked( config.readBoolEntry( "BirthdaysFromCalendar", true ) );
+    setChecked( config.readEntry( "BirthdaysFromCalendar", true ) );
 
   mConfigBase->mShowAnniversariesFromKABBox->
-    setChecked( config.readBoolEntry( "AnniversariesFromContacts", true ) );
+    setChecked( config.readEntry( "AnniversariesFromContacts", true ) );
   mConfigBase->mShowAnniversariesFromCalBox->
-    setChecked( config.readBoolEntry( "AnniversariesFromCalendar", true ) );
+    setChecked( config.readEntry( "AnniversariesFromCalendar", true ) );
 
   mConfigBase->mShowHolidaysFromCalBox->
-    setChecked( config.readBoolEntry( "HolidaysFromCalendar", true ) );
+    setChecked( config.readEntry( "HolidaysFromCalendar", true ) );
 
   mConfigBase->mShowSpecialsFromCalBox->
-    setChecked( config.readBoolEntry( "SpecialsFromCalendar", true ) );
+    setChecked( config.readEntry( "SpecialsFromCalendar", true ) );
 
   emit changed( false );
 }

@@ -92,11 +92,11 @@ void TodoSummaryWidget::updateView()
   int mDaysToGo = config.readNumEntry( "DaysToShow", 7 );
 
   config.setGroup( "Hide" );
-  mHideInProgress = config.readBoolEntry( "InProgress", false );
-  mHideOverdue = config.readBoolEntry( "Overdue", false );
-  mHideCompleted = config.readBoolEntry( "Completed", true );
-  mHideOpenEnded = config.readBoolEntry( "OpenEnded", true );
-  mHideNotStarted = config.readBoolEntry( "NotStarted", false );
+  mHideInProgress = config.readEntry( "InProgress", false );
+  mHideOverdue = config.readEntry( "Overdue", false );
+  mHideCompleted = config.readEntry( "Completed", true );
+  mHideOpenEnded = config.readEntry( "OpenEnded", true );
+  mHideNotStarted = config.readEntry( "NotStarted", false );
 
   // for each todo,
   //   if it passes the filter, append to a list
