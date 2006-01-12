@@ -100,7 +100,7 @@ void KCMSDSummary::load()
   KConfig config( "kcmsdsummaryrc" );
 
   config.setGroup( "Days" );
-  int days = config.readNumEntry( "DaysToShow", 7 );
+  int days = config.readEntry( "DaysToShow", 7 );
   if ( days == 1 )
     mConfigBase->mDaysGroup->setButton( 0 );
   else if ( days == 31 )

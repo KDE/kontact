@@ -417,8 +417,8 @@ void KCMKontactKNT::load()
   KConfig config( "kcmkontactkntrc" );
   config.setGroup( "General" );
 
-  mUpdateInterval->setValue( config.readNumEntry( "UpdateInterval", 600 ) );
-  mArticleCount->setValue( config.readNumEntry( "ArticleCount", 4 ) );
+  mUpdateInterval->setValue( config.readEntry( "UpdateInterval", 600 ) );
+  mArticleCount->setValue( config.readEntry( "ArticleCount", 4 ) );
 
   emit changed( false );
 }

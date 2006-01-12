@@ -89,7 +89,7 @@ void TodoSummaryWidget::updateView()
 
   KConfig config( "kcmtodosummaryrc" );
   config.setGroup( "Days" );
-  int mDaysToGo = config.readNumEntry( "DaysToShow", 7 );
+  int mDaysToGo = config.readEntry( "DaysToShow", 7 );
 
   config.setGroup( "Hide" );
   mHideInProgress = config.readEntry( "InProgress", false );

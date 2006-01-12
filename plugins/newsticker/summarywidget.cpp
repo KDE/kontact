@@ -112,8 +112,8 @@ void SummaryWidget::readConfig()
   KConfig config( "kcmkontactkntrc" );
   config.setGroup( "General" );
 
-  mUpdateInterval = config.readNumEntry( "UpdateInterval", 600 );
-  mArticleCount = config.readNumEntry( "ArticleCount", 4 );
+  mUpdateInterval = config.readEntry( "UpdateInterval", 600 );
+  mArticleCount = config.readEntry( "ArticleCount", 4 );
 }
 
 void SummaryWidget::initDocuments()

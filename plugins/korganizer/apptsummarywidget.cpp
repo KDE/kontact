@@ -88,7 +88,7 @@ void ApptSummaryWidget::updateView()
 
   KConfig config( "kcmapptsummaryrc" );
   config.setGroup( "Days" );
-  int days = config.readNumEntry( "DaysToShow", 7 );
+  int days = config.readEntry( "DaysToShow", 7 );
 
   // The event print consists of the following fields:
   //  icon:start date:days-to-go:summary:time range

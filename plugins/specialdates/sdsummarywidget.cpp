@@ -149,7 +149,7 @@ void SDSummaryWidget::configUpdated()
   KConfig config( "kcmsdsummaryrc" );
 
   config.setGroup( "Days" );
-  mDaysAhead = config.readNumEntry( "DaysToShow", 7 );
+  mDaysAhead = config.readEntry( "DaysToShow", 7 );
 
   config.setGroup( "Show" );
   mShowBirthdaysFromKAB =
