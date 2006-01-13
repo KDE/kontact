@@ -11,7 +11,7 @@ X-KDE-ParentApp=kontact_newstickerplugin
 X-KDE-ParentComponents=kontact_newstickerplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
-Name=News Sources
+Name=News Feeds
 Name[be]=Крыніцы навін
 Name[ca]=Fonts de notícies
 Name[cs]=Zdroje novinek

@@ -11,13 +11,13 @@ X-KDE-ParentApp=kontact_korganizerplugin,kontact_todoplugin
 X-KDE-ParentComponents=kontact_korganizerplugin,kontact_todoplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
-Name=Schedule
+Name=Appointments
 Name[be]=Расклад
 Name[bg]=Разписание
 Name[ca]=Planificació
 Name[cs]=Rozvrh
 Name[da]=Skema
-Name[de]=Zeitplan
+Name[de]=Verabredungen
 Name[es]=Planificación
 Name[et]=Ajakavad
 Name[fr]=Planification

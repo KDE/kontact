@@ -11,12 +11,12 @@ X-KDE-ParentApp=kontact_kmailplugin
 X-KDE-ParentComponents=kontact_kmailplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
-Name=Mail Summary
+Name=New Messages
 Name[bg]=Обобщение на писмата
 Name[ca]=Resum de correu
 Name[cs]=Souhrn pošty
 Name[da]=Post opsummering
-Name[de]=E-Mail Übersicht
+Name[de]=Neue Nachrichten
 Name[es]=Resumen de correo
 Name[et]=Meilikokkuvõte
 Name[fr]=Résumé du courrier

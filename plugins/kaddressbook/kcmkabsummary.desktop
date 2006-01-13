@@ -9,14 +9,14 @@ X-KDE-Library=kabsummary
 X-KDE-FactoryName=kabsummary
 X-KDE-ParentApp=kontact_kaddressbookplugin
 X-KDE-ParentComponents=kontact_kaddressbookplugin
-X-KDE-CfgDlgHierarchy=KAddressBook
+X-KDE-CfgDlgHierarchy=KontactSummary
 
-Name=Address Book Summary
+Name=Birthdays and Anniversaries
 Name[bg]=Обобщение на адресника
 Name[ca]=Resum de la llibreta d'adreces
 Name[cs]=Souhrn knihy adres
 Name[da]=Adressebogssammendrag
-Name[de]=Adressbuch Übersicht
+Name[de]=Geburtstage und Jubiläen
 Name[es]=Resumen de la libreta de direcciones
 Name[et]=Aadressiraamatu kokkuvõte
 Name[fr]=Résumé de carnet d'adresses
