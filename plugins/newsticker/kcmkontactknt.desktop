@@ -11,7 +11,7 @@ X-KDE-ParentApp=kontact_newstickerplugin
 X-KDE-ParentComponents=kontact_newstickerplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
-Name=News Ticker
+Name=News Feeds
 Name[x-test]=xxNews Tickerxx
 Comment=News Ticker Summary Setup
 Comment[x-test]=xxNews Ticker Summary Setupxx
