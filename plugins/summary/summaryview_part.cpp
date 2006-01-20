@@ -154,6 +154,7 @@ void SummaryViewPart::updateWidgets()
   if ( !config.hasKey( "ActiveSummaries" ) ) {
     activeSummaries << "kontact_kmailplugin";
     activeSummaries << "kontact_specialdatesplugin";
+    activeSummaries << "kontact_knotesplugin";
     activeSummaries << "kontact_korganizerplugin";
     activeSummaries << "kontact_todoplugin";
     activeSummaries << "kontact_newstickerplugin";

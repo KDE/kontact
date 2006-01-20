@@ -133,7 +133,8 @@ void KCMKontactSummary::load()
     activeSummaries << "kontact_specialdatesplugin";
     activeSummaries << "kontact_korganizerplugin";
     activeSummaries << "kontact_todoplugin";
-    activeSummaries << "kontact_kpilotplugin";
+    activeSummaries << "kontact_knotesplugin";
+    activeSummaries << "kontact_kmailplugin";
     activeSummaries << "kontact_weatherplugin";
     activeSummaries << "kontact_newstickerplugin";
   } else {
