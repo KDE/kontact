@@ -35,7 +35,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_kpilotplugin,
                             KPilotPluginFactory( "kontact_kpilotplugin" ) )
 
 KPilotPlugin::KPilotPlugin( Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( core, core, name ), mAboutData( 0 )
+  : Kontact::Plugin( core, core, "kpilot" ), mAboutData( 0 )
 {
   setInstance( KPilotPluginFactory::instance() );
 	// TODO: Make sure kpilotDaemon is running!
