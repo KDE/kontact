@@ -209,7 +209,7 @@ void ApptSummaryWidget::updateView()
         str.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
       }
 
-      KURLLabel *urlLabel = new KURLLabel( ev->uid(), str, this );
+      KUrlLabel *urlLabel = new KUrlLabel( ev->uid(), str, this );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
       mLayout->addWidget( urlLabel, counter, 3 );
@@ -273,8 +273,8 @@ void ApptSummaryWidget::selectEvent( const QString &uid )
 
 bool ApptSummaryWidget::eventFilter( QObject *obj, QEvent* e )
 {
-  if ( obj->inherits( "KURLLabel" ) ) {
-    KURLLabel* label = static_cast<KURLLabel*>( obj );
+  if ( obj->inherits( "KUrlLabel" ) ) {
+    KUrlLabel* label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter )
       emit message( i18n( "Edit Event: \"%1\"" ).arg( label->text() ) );
     if ( e->type() == QEvent::Leave )

@@ -75,7 +75,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   mLayout->addWidget( mSyncTimeTextLabel, row, 0 );
   mSyncTimeLabel = new QLabel( i18n( "No information available" ), this );
   mLayout->addWidget( mSyncTimeLabel, row, 1 );
-  mShowSyncLogLabel = new KURLLabel( "", i18n( "[View Sync Log]" ), this );
+  mShowSyncLogLabel = new KUrlLabel( "", i18n( "[View Sync Log]" ), this );
   mLayout->addWidget( mShowSyncLogLabel, row, 3 );
   connect( mShowSyncLogLabel, SIGNAL( leftClickedURL( const QString& ) ),
     this, SLOT( showSyncLog( const QString& ) ) );
@@ -114,7 +114,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   row++;
   mNoConnectionLabel = new QLabel( i18n( "KPilot is currently not running." ), this );
   mLayout->addMultiCellWidget( mNoConnectionLabel, row, row, 1, 2 );
-  mNoConnectionStartLabel = new KURLLabel( "", i18n( "[Start KPilot]" ), this );
+  mNoConnectionStartLabel = new KUrlLabel( "", i18n( "[Start KPilot]" ), this );
   mLayout->addWidget( mNoConnectionStartLabel, row, 3 );
   connect( mNoConnectionStartLabel, SIGNAL( leftClickedURL( const QString& ) ),
            this, SLOT( startKPilot() ) );

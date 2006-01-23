@@ -44,7 +44,7 @@
 
 class QGridLayout;
 class QLabel;
-class KURLLabel;
+class KUrlLabel;
 
 class SummaryWidget : public Kontact::Summary, public DCOPObject
 {
@@ -73,7 +73,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
 
     QLabel*mSyncTimeTextLabel;
     QLabel*mSyncTimeLabel;
-    KURLLabel*mShowSyncLogLabel;
+    KUrlLabel*mShowSyncLogLabel;
     QLabel*mPilotUserTextLabel;
     QLabel*mPilotUserLabel;
     QLabel*mPilotDeviceTextLabel;
@@ -83,7 +83,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     QLabel*mConduitsTextLabel;
     QLabel*mConduitsLabel;
     QLabel*mNoConnectionLabel;
-    KURLLabel*mNoConnectionStartLabel;
+    KUrlLabel*mNoConnectionStartLabel;
 
     QGridLayout *mLayout;
 

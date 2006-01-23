@@ -134,7 +134,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
       else
         folderRef.call( "displayName()" ).get( folderPath );
 
-      KURLLabel *urlLabel = new KURLLabel( *it, folderPath, this );
+      KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
       urlLabel->installEventFilter( this );
       urlLabel->setAlignment( Qt::AlignLeft );
       urlLabel->show();
@@ -167,8 +167,8 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
 
 bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
 {
-  if ( obj->inherits( "KURLLabel" ) ) {
-    KURLLabel* label = static_cast<KURLLabel*>( obj );
+  if ( obj->inherits( "KUrlLabel" ) ) {
+    KUrlLabel* label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter )
       emit message( i18n( "Open Folder: \"%1\"" ).arg( label->text() ) );
     if ( e->type() == QEvent::Leave )

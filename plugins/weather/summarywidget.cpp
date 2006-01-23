@@ -115,7 +115,7 @@ void SummaryWidget::updateView()
     QGridLayout *layout = new QGridLayout( mLayout, 3, 3, 3 );
     mLayouts.append( layout );
 
-    KURLLabel* urlLabel = new KURLLabel( this );
+    KUrlLabel* urlLabel = new KUrlLabel( this );
     urlLabel->installEventFilter( this );
     urlLabel->setURL( (*it).stationID() );
     urlLabel->setPixmap( QPixmap(img.smoothScale( 32, 32 )) );
@@ -192,7 +192,7 @@ void SummaryWidget::stationRemoved( QString station )
 
 bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
 {
-  if ( obj->inherits( "KURLLabel" ) ) {
+  if ( obj->inherits( "KUrlLabel" ) ) {
     if ( e->type() == QEvent::Enter )
       emit message(
         i18n( "View Weather Report for Station" ) );

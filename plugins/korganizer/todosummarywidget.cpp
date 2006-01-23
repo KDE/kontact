@@ -246,7 +246,7 @@ void TodoSummaryWidget::updateView()
       if ( todo->relatedTo() ) { // show parent only, not entire ancestry
         str = todo->relatedTo()->summary() + ":" + str;
       }
-      KURLLabel *urlLabel = new KURLLabel( todo->uid(), str, this );
+      KUrlLabel *urlLabel = new KUrlLabel( todo->uid(), str, this );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
       mLayout->addWidget( urlLabel, counter, 4 );
@@ -295,8 +295,8 @@ void TodoSummaryWidget::selectEvent( const QString &uid )
 
 bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent* e )
 {
-  if ( obj->inherits( "KURLLabel" ) ) {
-    KURLLabel* label = static_cast<KURLLabel*>( obj );
+  if ( obj->inherits( "KUrlLabel" ) ) {
+    KUrlLabel* label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter )
       emit message( i18n( "Edit To-do: \"%1\"" ).arg( label->text() ) );
     if ( e->type() == QEvent::Leave )

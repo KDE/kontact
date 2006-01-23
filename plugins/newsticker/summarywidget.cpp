@@ -218,7 +218,7 @@ void SummaryWidget::updateView()
     mLayout->addWidget( hbox );
 
     // icon
-    KURLLabel *urlLabel = new KURLLabel( hbox );
+    KUrlLabel *urlLabel = new KUrlLabel( hbox );
     urlLabel->setURL( (*it).url );
     urlLabel->setPixmap( (*it).logo );
     urlLabel->setMaximumSize( urlLabel->minimumSizeHint() );
@@ -246,7 +246,7 @@ void SummaryWidget::updateView()
     ArticleMap::Iterator artIt;
     int numArticles = 0;
     for ( artIt = articles.begin(); artIt != articles.end() && numArticles < mArticleCount; ++artIt ) {
-      urlLabel = new KURLLabel( (*artIt).second.url(), (*artIt).first, mBaseWidget );
+      urlLabel = new KUrlLabel( (*artIt).second.url(), (*artIt).first, mBaseWidget );
       urlLabel->setTextFormat( Qt::RichText );
       mLabels.append( urlLabel );
       mLayout->addWidget( urlLabel );

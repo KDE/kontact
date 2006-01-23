@@ -104,7 +104,7 @@ void KNotesSummaryWidget::updateView()
       // File Note Summary Field
       QString newtext = (*it)->summary();
 
-      KURLLabel *urlLabel = new KURLLabel( (*it)->uid(), newtext, this );
+      KUrlLabel *urlLabel = new KUrlLabel( (*it)->uid(), newtext, this );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat(Qt::RichText);
       urlLabel->setAlignment( urlLabel->alignment() | Qt::TextWordWrap );
@@ -141,8 +141,8 @@ void KNotesSummaryWidget::urlClicked( const QString &/*uid*/ )
 
 bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent* e )
 {
-  if ( obj->inherits( "KURLLabel" ) ) {
-    KURLLabel* label = static_cast<KURLLabel*>( obj );
+  if ( obj->inherits( "KUrlLabel" ) ) {
+    KUrlLabel* label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter )
       emit message( i18n( "Read Note: \"%1\"" ).arg( label->text() ) );
     if ( e->type() == QEvent::Leave )
