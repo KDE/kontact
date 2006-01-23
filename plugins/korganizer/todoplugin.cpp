@@ -151,7 +151,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
 
   KABC::VCardConverter converter;
   if ( KVCardDrag::canDecode( event ) && KVCardDrag::decode( event, text ) ) {
-    KABC::Addressee::List contacts = converter.parseVCards( text );
+    KABC::Addressee::List contacts = converter.parseVCards( text.toAscii() );
     KABC::Addressee::List::Iterator it;
 
     QStringList attendees;
