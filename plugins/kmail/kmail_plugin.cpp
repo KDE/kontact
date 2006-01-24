@@ -87,7 +87,7 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
   if ( VCalDrag::decode( de, &cal ) || ICalDrag::decode( de, &cal ) ) {
     KTempFile tmp( locateLocal( "tmp", "incidences-" ), ".ics" );
     cal.save( tmp.name() );
-    openComposer( KURL::fromPathOrURL( tmp.name() ) );
+    openComposer( KUrl::fromPathOrURL( tmp.name() ) );
   }
   else if ( KVCardDrag::decode( de, list ) ) {
     KABC::Addressee::List::Iterator it;
@@ -100,7 +100,7 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
 
 }
 
-void KMailPlugin::openComposer( const KURL& attach )
+void KMailPlugin::openComposer( const KUrl& attach )
 {
   (void) part(); // ensure part is loaded
   Q_ASSERT( mStub );

@@ -98,7 +98,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void showAboutDialog();
     void slotShowStatusMsg( const QString& );
     void activatePluginModule();
-    void slotOpenUrl( const KURL &url );
+    void slotOpenUrl( const KUrl &url );
 
   protected:
     void initWidgets();

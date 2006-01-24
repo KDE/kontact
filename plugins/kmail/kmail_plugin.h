@@ -63,7 +63,7 @@ class KMailPlugin : public Kontact::Plugin
     virtual bool queryClose() const;
   protected:
     virtual KParts::ReadOnlyPart* createPart();
-    void openComposer( const KURL& = KURL() );
+    void openComposer( const KUrl& = KURL() );
     void openComposer( const QString& to );
     bool canDecodeDrag( QMimeSource * );
     void processDropEvent( QDropEvent * );

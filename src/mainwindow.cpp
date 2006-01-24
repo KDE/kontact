@@ -306,12 +306,12 @@ void MainWindow::initAboutScreen()
   mIntroPart->view()->setLineWidth( 0 );
 
   connect( mIntroPart->browserExtension(),
-           SIGNAL( openURLRequest( const KURL&, const KParts::URLArgs& ) ),
-           SLOT( slotOpenUrl( const KURL& ) ) );
+           SIGNAL( openURLRequest( const KUrl&, const KParts::URLArgs& ) ),
+           SLOT( slotOpenUrl( const KUrl& ) ) );
 
   connect( mIntroPart->browserExtension(),
-           SIGNAL( createNewWindow( const KURL&, const KParts::URLArgs& ) ),
-           SLOT( slotOpenUrl( const KURL& ) ) );
+           SIGNAL( createNewWindow( const KUrl&, const KParts::URLArgs& ) ),
+           SLOT( slotOpenUrl( const KUrl& ) ) );
 }
 
 void MainWindow::setupActions()
@@ -796,7 +796,7 @@ void MainWindow::slotNewToolbarConfig()
   applyMainWindowSettings( KGlobal::config(), "MainWindow" );
 }
 
-void MainWindow::slotOpenUrl( const KURL &url )
+void MainWindow::slotOpenUrl( const KUrl &url )
 {
   if ( url.protocol() == "exec" ) {
     if ( url.path() == "/switch" ) {
