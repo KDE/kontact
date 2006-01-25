@@ -159,7 +159,7 @@ void SummaryViewPart::updateWidgets()
     activeSummaries << "kontact_todoplugin";
     activeSummaries << "kontact_newstickerplugin";
   } else {
-    activeSummaries = config.readListEntry( "ActiveSummaries" );
+    activeSummaries = config.readEntry( "ActiveSummaries" , QStringList() );
   }
 
   // Collect all summary widgets with a summaryHeight > 0
@@ -402,13 +402,13 @@ void SummaryViewPart::loadLayout()
     mLeftColumnSummaries << "kontact_kaddressbookplugin";
     mLeftColumnSummaries << "kontact_specialdatesplugin";
   } else {
-    mLeftColumnSummaries = config.readListEntry( "LeftColumnSummaries" );
+    mLeftColumnSummaries = config.readEntry( "LeftColumnSummaries" , QStringList() );
   }
 
   if ( !config.hasKey( "RightColumnSummaries" ) ) {
     mRightColumnSummaries << "kontact_newstickerplugin";
   } else {
-    mRightColumnSummaries = config.readListEntry( "RightColumnSummaries" );
+    mRightColumnSummaries = config.readEntry( "RightColumnSummaries" , QStringList() );
   }
 }
 

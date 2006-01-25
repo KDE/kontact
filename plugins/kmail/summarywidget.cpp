@@ -115,7 +115,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
   if ( !config.hasKey( "ActiveFolders" ) )
     activeFolders << "/Local/inbox";
   else
-    activeFolders = config.readListEntry( "ActiveFolders" );
+    activeFolders = config.readEntry( "ActiveFolders" , QStringList() );
 
   int counter = 0;
   QStringList::ConstIterator it;

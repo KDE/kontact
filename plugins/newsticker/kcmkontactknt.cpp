@@ -192,7 +192,7 @@ void KCMKontactKNT::loadCustomNews()
 
   QMap<QString, QString>::Iterator it;
   for ( it = customFeeds.begin(); it != customFeeds.end(); ++it ) {
-    QStringList value = config.readListEntry( it.key() );
+    QStringList value = config.readEntry( it.key(), QStringList() );
     mCustomFeeds.append( new NewsItem( mCustomItem, value[ 0 ], value[ 1 ], true ) );
     mFeedMap.insert( value[ 1 ], value[ 0 ] );
     mCustomItem->setVisible( true );

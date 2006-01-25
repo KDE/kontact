@@ -135,7 +135,7 @@ void KCMKMailSummary::loadFolders()
   if ( !config.hasKey( "ActiveFolders" ) )
     folders << "/Local/inbox";
   else
-    folders = config.readListEntry( "ActiveFolders" );
+    folders = config.readEntry( "ActiveFolders" , QStringList() );
 
   QMap<QString, Q3ListViewItem*>::Iterator it;
   for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it ) {

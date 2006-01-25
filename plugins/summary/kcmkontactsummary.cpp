@@ -138,7 +138,7 @@ void KCMKontactSummary::load()
     activeSummaries << "kontact_weatherplugin";
     activeSummaries << "kontact_newstickerplugin";
   } else {
-    activeSummaries = config.readListEntry( "ActiveSummaries" );
+    activeSummaries = config.readEntry( "ActiveSummaries" , QStringList() );
   }
 
   mPluginView->clear();
