@@ -28,7 +28,6 @@
 #include <QDropEvent>
 
 #include <kapplication.h>
-#include <kabc/vcardconverter.h>
 #include <kaction.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
@@ -151,9 +150,11 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
   QString text;
 
-  KABC::VCardConverter converter;
-  if ( KVCardDrag::canDecode( event ) && KVCardDrag::decode( event, text ) ) {
-    KABC::Addressee::List contacts = converter.parseVCards( text.toAscii());
+  if ( KVCardDrag::canDecode( event ) ) {
+    KABC::Addressee::List contacts;
+
+    KVCardDrag::decode( event, contacts );
+
     KABC::Addressee::List::Iterator it;
 
     QStringList attendees;
