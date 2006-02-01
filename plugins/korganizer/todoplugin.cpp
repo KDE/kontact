@@ -151,7 +151,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
   if ( KVCardDrag::canDecode( event ) ) {
     KABC::Addressee::List contacts;
 
-    KVCardDrag::decode( event, contacts )
+    KVCardDrag::decode( event, contacts );
 
     KABC::Addressee::List::Iterator it;
 
