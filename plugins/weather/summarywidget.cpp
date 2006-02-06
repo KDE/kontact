@@ -80,7 +80,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
       connect( &mTimer, SIGNAL( timeout() ), this, SLOT( timeout() ) );
       mTimer.start( 0 );
     } else {
-      kdDebug(5602) << "ERROR: dcop reply not valid..." << endl;
+      kDebug(5602) << "ERROR: dcop reply not valid..." << endl;
     }
   }
 }
@@ -95,7 +95,7 @@ void SummaryWidget::updateView()
   mLabels.clear();
 
   if ( mStations.count() == 0 ) {
-    kdDebug(5602) << "No weather stations defined..." << endl;
+    kDebug(5602) << "No weather stations defined..." << endl;
     return;
   }
 

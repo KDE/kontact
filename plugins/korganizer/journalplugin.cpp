@@ -112,7 +112,7 @@ void JournalPlugin::slotNewJournal()
 
 bool JournalPlugin::createDCOPInterface( const QString& serviceType )
 {
-  kdDebug(5602) << k_funcinfo << serviceType << endl;
+  kDebug(5602) << k_funcinfo << serviceType << endl;
   if ( serviceType == "DCOP/Organizer" || serviceType == "DCOP/Calendar" ) {
     if ( part() )
       return true;

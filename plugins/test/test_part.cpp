@@ -69,12 +69,12 @@ void TestPart::newContact()
   if ( !connectToAddressBook() )
     return;
 
-  kdDebug(5602) << "Calling newContact" << endl;
+  kDebug(5602) << "Calling newContact" << endl;
   m_kab_stub->newContact();
 
   // If critical call: test that it worked ok
   if ( !m_kab_stub->ok() ) {
-    kdDebug(5602) << "Communication problem - ERROR" << endl;
+    kDebug(5602) << "Communication problem - ERROR" << endl;
     // TODO handle the error
   }
 }

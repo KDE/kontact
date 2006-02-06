@@ -80,7 +80,7 @@ bool KMailPlugin::canDecodeDrag( QMimeSource *qms )
 
 void KMailPlugin::processDropEvent( QDropEvent * de )
 {
-  kdDebug() << k_funcinfo << endl;
+  kDebug() << k_funcinfo << endl;
   CalendarLocal cal( QString::fromLatin1("UTC") );
   KABC::Addressee::List list;
 
@@ -187,7 +187,7 @@ int KMailUniqueAppHandler::newInstance()
     DCOPReply reply = kmail.call( "handleCommandLine", false );
     if ( reply.isValid() ) {
         bool handled = reply;
-        //kdDebug(5602) << k_funcinfo << "handled=" << handled << endl;
+        //kDebug(5602) << k_funcinfo << "handled=" << handled << endl;
         if ( !handled ) // no args -> simply bring kmail plugin to front
             return Kontact::UniqueAppHandler::newInstance();
     }

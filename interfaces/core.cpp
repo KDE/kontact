@@ -54,13 +54,13 @@ Core::~Core()
 
 KParts::ReadOnlyPart *Core::createPart( const char *libname )
 {
-  kdDebug(5601) << "Core::createPart(): " << libname << endl;
+  kDebug(5601) << "Core::createPart(): " << libname << endl;
 
   QMap<QByteArray,KParts::ReadOnlyPart *>::ConstIterator it;
   it = mParts.find( libname );
   if ( it != mParts.end() ) return it.data();
 
-  kdDebug(5601) << "Creating new KPart" << endl;
+  kDebug(5601) << "Creating new KPart" << endl;
 
   int error = 0;
   KParts::ReadOnlyPart *part =
@@ -92,7 +92,7 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
       d->lastErrorMessage = i18n( "Program error: the library %1 does not support creating components of the specified type" ).arg( libname );
       break;
     }
-    kdWarning(5601) << d->lastErrorMessage << endl;
+    kWarning(5601) << d->lastErrorMessage << endl;
   }
 
   return pimPart;

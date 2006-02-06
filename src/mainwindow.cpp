@@ -364,7 +364,7 @@ void MainWindow::loadPlugins()
       continue;
     }
 
-    kdDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
+    kDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
     Kontact::Plugin *plugin =
       KParts::ComponentFactory::createInstanceFromService<Kontact::Plugin>(
           (*it)->service(), this );
@@ -384,7 +384,7 @@ void MainWindow::loadPlugins()
     if ( !loadOnStart.isNull() && loadOnStart.toBool() )
       mDelayedPreload.append( plugin );
 
-    kdDebug(5600) << "LIBNAMEPART: " << libNameProp.toString() << endl;
+    kDebug(5600) << "LIBNAMEPART: " << libNameProp.toString() << endl;
 
     plugin->setPartLibraryName( libNameProp.toString().utf8() );
     plugin->setExecutableName( exeNameProp.toString() );
@@ -407,7 +407,7 @@ void MainWindow::loadPlugins()
     QList<KAction*>::const_iterator listIt;
 
     for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-      kdDebug(5600) << "Plugging " << (*listIt)->name() << endl;
+      kDebug(5600) << "Plugging " << (*listIt)->name() << endl;
       (*listIt)->plug( mNewActions->popupMenu() );
     }
 
@@ -438,7 +438,7 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
       QList<KAction*>::const_iterator listIt;
 
       for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-        kdDebug(5600) << "Unplugging " << (*listIt)->name() << endl;
+        kDebug(5600) << "Unplugging " << (*listIt)->name() << endl;
         (*listIt)->unplug( mNewActions->popupMenu() );
       }
 
@@ -468,7 +468,7 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
 
 void MainWindow::addPlugin( Kontact::Plugin *plugin )
 {
-  kdDebug(5600) << "Added plugin" << endl;
+  kDebug(5600) << "Added plugin" << endl;
 
   mPlugins.append( plugin );
 
@@ -496,7 +496,7 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
     return;
   }
 
-  kdDebug(5600) << "Part activated: " << part << " with stack id. "
+  kDebug(5600) << "Part activated: " << part << " with stack id. "
       << mPartsStack->indexOf( part->widget() )<< endl;
 
   //createGUI( part ); // moved to selectPlugin()
@@ -725,15 +725,15 @@ int MainWindow::startServiceFor( const QString& serviceType,
   PluginList::ConstIterator end = mPlugins.end();
   for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
     if ( (*it)->createDCOPInterface( serviceType ) ) {
-      kdDebug(5600) << "found interface for " << serviceType << endl;
+      kDebug(5600) << "found interface for " << serviceType << endl;
       if ( dcopService )
         *dcopService = (*it)->dcopClient()->appId();
-      kdDebug(5600) << "appId=" << (*it)->dcopClient()->appId() << endl;
+      kDebug(5600) << "appId=" << (*it)->dcopClient()->appId() << endl;
       return 0; // success
     }
   }
 
-  kdDebug(5600) <<
+  kDebug(5600) <<
     "Didn't find dcop interface, falling back to external process" << endl;
 
   return KDCOPServiceStarter::startServiceFor( serviceType, constraint,
@@ -751,7 +751,7 @@ void MainWindow::pluginsChanged()
 
 void MainWindow::updateConfig()
 {
-  kdDebug( 5600 ) << k_funcinfo << endl;
+  kDebug( 5600 ) << k_funcinfo << endl;
 
   saveSettings();
   loadSettings();

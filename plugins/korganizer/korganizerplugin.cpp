@@ -126,7 +126,7 @@ void KOrganizerPlugin::slotNewEvent()
 
 bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )
 {
-  kdDebug(5602) << k_funcinfo << serviceType << endl;
+  kDebug(5602) << k_funcinfo << serviceType << endl;
   if ( serviceType == "DCOP/Organizer" || serviceType == "DCOP/Calendar" ) {
     if ( part() )
       return true;
@@ -172,7 +172,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
   }
 
   if ( Q3TextDrag::decode( event, text ) ) {
-    kdDebug(5602) << "DROP:" << text << endl;
+    kDebug(5602) << "DROP:" << text << endl;
     interface()->openEventEditor( text );
     return;
   }

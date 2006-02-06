@@ -231,7 +231,7 @@ void SummaryWidget::startKPilot()
   QStringList lst;
   lst << "--fail-silently";
   if ( !KToolInvocation::kdeinitExec( "kpilotDaemon", /*QString( "--fail-silently" )*/lst ) ) {
-    kdDebug(5602) << "No service available..." << endl;
+    kDebug(5602) << "No service available..." << endl;
     mStartedDaemon = true;
   }
 }

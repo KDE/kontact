@@ -97,7 +97,7 @@ void SummaryWidget::slotUnreadCountChanged()
     updateFolderList( folderList );
   }
   else {
-    kdDebug(5602) << "Calling kmail->KMailIface->folderList() via DCOP failed."
+    kDebug(5602) << "Calling kmail->KMailIface->folderList() via DCOP failed."
                   << endl;
   }
   mTimeOfLastMessageCountUpdate = ::time( 0 );

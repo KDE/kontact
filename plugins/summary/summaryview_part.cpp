@@ -106,7 +106,7 @@ SummaryViewPart::~SummaryViewPart()
 
 bool SummaryViewPart::openFile()
 {
-  kdDebug(5006) << "SummaryViewPart:openFile()" << endl;
+  kDebug(5006) << "SummaryViewPart:openFile()" << endl;
   return true;
 }
 

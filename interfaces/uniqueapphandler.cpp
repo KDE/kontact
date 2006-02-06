@@ -165,7 +165,7 @@ void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray& appId )
   if ( appId == mPlugin->name() && mRunningStandalone ) {
     disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ),
                 this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
-    kdDebug(5601) << k_funcinfo << appId << endl;
+    kDebug(5601) << k_funcinfo << appId << endl;
     mFactory->createHandler( mPlugin );
     kapp->dcopClient()->setNotifications( false );
     mRunningStandalone = false;

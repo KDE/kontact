@@ -130,14 +130,14 @@ void UniqueAppHandler::loadCommandLineOptions()
 
 int UniqueAppHandler::newInstance()
 {
-    kdDebug(5602) << k_funcinfo << endl;
+    kDebug(5602) << k_funcinfo << endl;
     // Ensure part is loaded
     (void)plugin()->part();
     DCOPRef akr( "akregator", "AkregatorIface" );
 //    DCOPReply reply = kAB.call( "handleCommandLine" );
   //  if ( reply.isValid() ) {
     //    bool handled = reply;
-     //   kdDebug(5602) << k_funcinfo << "handled=" << handled << endl;
+     //   kDebug(5602) << k_funcinfo << "handled=" << handled << endl;
      //   if ( !handled ) // no args -> simply bring kaddressbook plugin to front
             return Kontact::UniqueAppHandler::newInstance();
    // }
