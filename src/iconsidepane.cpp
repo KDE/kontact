@@ -279,7 +279,7 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
   mMapper = new QSignalMapper( this );
   connect( mMapper, SIGNAL( mapped( int ) ), SLOT( shortCutSelected( int ) ) );
 
-  QToolTip::remove( this );
+  this->setToolTip("");
 #warning Port me!
 //  if ( !mShowText )
 //    new EntryItemToolTip( this );
@@ -485,14 +485,14 @@ void Navigator::slotShowRMBMenu( Q3ListBoxItem * )
     if ( choice == ShowIcons ) {
       mShowIcons = !mShowIcons;
       Prefs::self()->setSidePaneShowIcons( mShowIcons );
-      QToolTip::remove( this );
+      this->setToolTip("");
 #warning Port me!
 //      if ( !mShowText )
 //        new EntryItemToolTip( this );
     } else {
       mShowText = !mShowText;
       Prefs::self()->setSidePaneShowText( mShowText );
-      QToolTip::remove( this );
+      this->setToolTip("");
     }
   }
   int maxWidth = 0;
