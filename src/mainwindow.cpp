@@ -279,7 +279,7 @@ void MainWindow::paintAboutScreen( const QString& msg )
   else
     content = content.arg( "" );
 
-  mIntroPart->begin( KURL( location ) );
+  mIntroPart->begin( KUrl( location ) );
 
   QString appName( i18n( "KDE Kontact" ) );
   QString catchPhrase( i18n( "Get Organized!" ) );
