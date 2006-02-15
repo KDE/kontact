@@ -22,7 +22,7 @@
             <verstretch>0</verstretch>
         </sizepolicy>
     </property>
-    <property name="caption">
+    <property name="windowTitle">
         <string>Special Dates Summary Configuration</string>
     </property>
     <vbox>
