@@ -16,6 +16,8 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact NewsTicker Plugin
+Comment[fr]=Module NewsTicker pour Kontact
 Comment[x-test]=xxKontact NewsTicker Pluginxx
 Name=NewsTicker
+Name[fr]=Téléscripteur de nouvelles
 Name[x-test]=xxNewsTickerxx

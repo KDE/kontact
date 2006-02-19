@@ -17,6 +17,8 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KPilot Plugin
+Comment[fr]=Module KPilot pour Kontact
 Comment[x-test]=xxKontact KPilot Pluginxx
 Name=KPilot Configuration
+Name[fr]=Configuration de KPilot
 Name[x-test]=xxKPilot Configurationxx

@@ -14,4 +14,5 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 Name=Pending To-dos
 Comment=Pending To-dos Summary Setup
 Keywords=calendar, todos, configure, settings
+Keywords[fr]=calendrier,agenda,tâches,configurer,paramètres,paramètre
 Keywords[x-test]=xxcalendar, todos, configure, settingsxx

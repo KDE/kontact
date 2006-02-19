@@ -13,8 +13,10 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact SummaryView Plugin
+Comment[fr]=Module de vue résumée pour Kontact
 Comment[x-test]=xxKontact SummaryView Pluginxx
 Name=Summary
+Name[fr]=Résumé
 Name[x-test]=xxSummaryxx
 #Always last
 InitialPreference=0

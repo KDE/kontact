@@ -17,6 +17,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KOrganizer Journal Plugin
+Comment[fr]=Module de journal KOrganizer pour Kontact
 Comment[x-test]=xxKontact KOrganizer Journal Pluginxx
 Name=Journal
 Name[x-test]=xxJournalxx

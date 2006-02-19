@@ -1,15 +1,19 @@
 [KontactSummary]
 Name=Summary
+Name[fr]=Résumé
 Name[x-test]=xxSummaryxx
 Comment=Summary View
+Comment[fr]=Vue résumée
 Comment[x-test]=xxSummary Viewxx
 Weight=100
 Icon=kontact_summary
 
 [KMail]
 Name=Mail
+Name[fr]=Messages
 Name[x-test]=xxMailxx
 Comment=Mail Component
+Comment[fr]=Composant messagerie
 Comment[x-test]=xxMail Componentxx
 Weight=200
 Icon=kontact_mail
@@ -18,46 +22,57 @@ Icon=kontact_mail
 Name=Contacts
 Name[x-test]=xxContactsxx
 Comment=Address Book Component
+Comment[fr]=Composant de carnet d'adresses
 Comment[x-test]=xxAddress Book Componentxx
 Weight=300
 Icon=kontact_contacts
 
 [Special Dates]
 Name=Special Dates Summary
+Name[fr]=Résumé des dates particulières
 Name[x-test]=xxSpecial Dates Summaryxx
 Comment=Special Dates Summary Component
+Comment[fr]=Composant de résumé des dates particulières
 Comment[x-test]=xxSpecial Dates Summary Componentxx
 Weight=310
 Icon=cookie
 
 [KOrganizer]
 Name=Calendar
+Name[fr]=Calendrier
 Name[x-test]=xxCalendarxx
 Comment=Calendar Component
+Comment[fr]=Composant d'agenda
 Comment[x-test]=xxCalendar Componentxx
 Weight=400
 Icon=kontact_date
 
 [KNode]
 Name=News
+Name[fr]=Nouvelles
 Name[x-test]=xxNewsxx
 Comment=News Component
+Comment[fr]=Composant de Nouvelles
 Comment[x-test]=xxNews Componentxx
 Weight=500
 Icon=kontact_news
 
 [KWeather]
 Name=Weather
+Name[fr]=Météo
 Name[x-test]=xxWeatherxx
 Comment=Weather Information
+Comment[fr]=Informations météo
 Comment[x-test]=xxWeather Informationxx
 Weight=1000
 Icon=kweather
 
 [NewsTicker]
 Name=News Ticker
+Name[fr]=Téléscripteur de nouvelles
 Name[x-test]=xxNews Tickerxx
 Comment=News Ticker Component
+Comment[fr]=Composant d'affichage de nouvelles
 Comment[x-test]=xxNews Ticker Componentxx
 Weight=1100
 Icon=knode

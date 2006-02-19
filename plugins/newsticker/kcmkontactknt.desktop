@@ -13,6 +13,8 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=News Feeds
 Comment=News Ticker Summary Setup
+Comment[fr]=Configuration du résumé du téléscripteur de nouvelles
 Comment[x-test]=xxNews Ticker Summary Setupxx
 Keywords=news ticker, configure, settings
+Keywords[fr]=configurer,paramètre,news ticker, téléscripteur
 Keywords[x-test]=xxnews ticker, configure, settingsxx

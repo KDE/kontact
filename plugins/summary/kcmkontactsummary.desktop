@@ -12,6 +12,8 @@ X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Components
+Name[fr]=Composants
 Name[x-test]=xxComponentsxx
 Comment=General Configuration of Kontact's Summary View
+Comment[fr]=Configuration générale de la vue résumée de Kontact
 Comment[x-test]=xxGeneral Configuration of Kontact's Summary Viewxx

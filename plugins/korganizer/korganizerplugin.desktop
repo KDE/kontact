@@ -17,6 +17,8 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KOrganizer Plugin
+Comment[fr]=Module KOrganizer pour Kontact
 Comment[x-test]=xxKontact KOrganizer Pluginxx
 Name=Calendar
+Name[fr]=Calendrier
 Name[x-test]=xxCalendarxx

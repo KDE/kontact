@@ -17,6 +17,8 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact Weather Plugin
+Comment[fr]=Module météo pour Kontact
 Comment[x-test]=xxKontact Weather Pluginxx
 Name=Weather Service
+Name[fr]=KWeatherService
 Name[x-test]=xxWeather Servicexx

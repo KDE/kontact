@@ -13,6 +13,8 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=New Messages
 Comment=Mail Summary Setup
+Comment[fr]=Configuration du résumé du courrier
 Comment[x-test]=xxMail Summary Setupxx
 Keywords=email, summary, configure, settings
+Keywords[fr]=message,messagerie,courrier,résumé,vue,configurer,paramètres,paramètre
 Keywords[x-test]=xxemail, summary, configure, settingsxx

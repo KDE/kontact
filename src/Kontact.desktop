@@ -6,6 +6,7 @@ Exec=kontact
 Type=Application
 Icon=kontact
 GenericName=Personal Information Manager
+GenericName[fr]=Gestionnaire d'informations personnelles
 GenericName[x-test]=xxPersonal Information Managerxx
 Terminal=false
 X-KDE-StartupNotify=true

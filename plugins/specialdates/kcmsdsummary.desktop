@@ -14,4 +14,5 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 Name=Upcoming Special Dates
 Comment=Upcoming Special Dates Summary Setup
 Keywords=birthday, anniversary, holiday, configure, settings
+Keywords[fr]=anniversaire,date de naissance,vacances,configurer,paramètres,préférences
 Keywords[x-test]=xxbirthday, anniversary, holiday, configure, settingsxx
