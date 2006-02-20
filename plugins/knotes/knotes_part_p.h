@@ -76,7 +76,7 @@ class KNotesIconViewItem : public KIconViewItem
       return mJournal;
     }
 
-    virtual void setText( const QString & text )
+    virtual void setText( const QString& text )
     {
       KIconViewItem::setText( text );
       mJournal->setSummary( text );
