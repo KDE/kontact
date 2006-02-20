@@ -49,14 +49,13 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   setInstance( new KInstance( "knotes" ) );
 
   // create the actions
-  new KAction( i18n( "&New..." ), "knotes", CTRL+Key_N, this, SLOT( newNote() ),
+  new KAction( i18n( "&New" ), "knotes", CTRL+Key_N, this, SLOT( newNote() ),
                actionCollection(), "file_new" );
-  new KAction( i18n( "Rename" ), "text", this, SLOT( renameNote() ),
+  new KAction( i18n( "Rename..." ), "text", this, SLOT( renameNote() ),
                actionCollection(), "edit_rename" );
   new KAction( i18n( "Delete" ), "editdelete", Key_Delete, this, SLOT( killSelectedNotes() ),
                actionCollection(), "edit_delete" );
 
-  // TODO styleguide: s/New.../New/, s/Rename/Rename.../
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
   // set the view up
