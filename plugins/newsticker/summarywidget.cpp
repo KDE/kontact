@@ -177,7 +177,7 @@ void SummaryWidget::documentUpdated( DCOPRef feedRef )
     artRef.call( "title()" ).get( title );
     artRef.call( "link()" ).get( url );
 
-    QPair<QString, KURL> article(title, KUrl( url ));
+    QPair<QString, KUrl> article(title, KUrl( url ));
     map.append( article );
   }
 

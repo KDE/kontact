@@ -45,7 +45,7 @@ class QLabel;
 class DCOPRef;
 class KUrlLabel;
 
-typedef QList< QPair<QString, KURL> > ArticleMap;
+typedef QList< QPair<QString, KUrl> > ArticleMap;
 
 typedef struct {
   DCOPRef ref;
