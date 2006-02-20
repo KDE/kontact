@@ -30,9 +30,6 @@
 #include <libkdepim/infoextension.h>
 #include <libkdepim/sidebarextension.h>
 
-#include <libkcal/calendarlocal.h>
-
-#include "knotes/knoteslegacy.h"
 #include "knotes/resourcemanager.h"
 
 #include "knotes_part.h"
@@ -52,13 +49,14 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   setInstance( new KInstance( "knotes" ) );
 
   // create the actions
-  new KAction( i18n( "&New" ), "knotes", CTRL+Key_N, this, SLOT( newNote() ),
+  new KAction( i18n( "&New..." ), "knotes", CTRL+Key_N, this, SLOT( newNote() ),
                actionCollection(), "file_new" );
-  new KAction( i18n( "Rename..." ), "text", this, SLOT( renameNote() ),
+  new KAction( i18n( "Rename" ), "text", this, SLOT( renameNote() ),
                actionCollection(), "edit_rename" );
   new KAction( i18n( "Delete" ), "editdelete", Key_Delete, this, SLOT( killSelectedNotes() ),
                actionCollection(), "edit_delete" );
 
+  // TODO styleguide: s/New.../New/, s/Rename/Rename.../
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
   // set the view up
@@ -90,9 +88,6 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
   setWidget( mNotesView );
   setXMLFile( "knotes_part.rc" );
 
-  // clean up old config files
-  KNotesLegacy::cleanUp();
-  
   // connect the resource manager
   connect( mManager, SIGNAL( sigRegisteredNote( KCal::Journal* ) ),
            this, SLOT( createNote( KCal::Journal* ) ) );
@@ -101,18 +96,6 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
 
   // read the notes
   mManager->load();
-
-  // read the old config files, convert and add them
-  KCal::CalendarLocal calendar( QString::fromLatin1( "UTC" ) );
-  if ( KNotesLegacy::convert( &calendar ) )
-  {
-    KCal::Journal::List notes = calendar.journals();
-    KCal::Journal::List::ConstIterator it;
-    for ( it = notes.begin(); it != notes.end(); ++it )
-      mManager->addNewNote( *it );
-
-    mManager->save();
-  }
 }
 
 KNotesPart::~KNotesPart()
