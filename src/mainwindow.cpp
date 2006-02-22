@@ -387,7 +387,7 @@ void MainWindow::loadPlugins()
 
     kDebug(5600) << "LIBNAMEPART: " << libNameProp.toString() << endl;
 
-    plugin->setPartLibraryName( libNameProp.toString().utf8() );
+    plugin->setPartLibraryName( libNameProp.toString().toUtf8() );
     plugin->setExecutableName( exeNameProp.toString() );
     if ( hasPartProp.isValid() )
       plugin->setShowInSideBar( hasPartProp.toBool() );
