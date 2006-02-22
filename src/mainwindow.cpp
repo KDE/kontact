@@ -40,6 +40,7 @@
 #include <kkeydialog.h>
 #include <klibloader.h>
 #include <klistbox.h>
+#include <ktoolbar.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
@@ -579,7 +580,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       view->setFocus();
 
     mCurrentPlugin = plugin;
-    KAction *action = 0; 
+    KAction *action = 0;
     if (plugin->newActions()->count() > 0)
       action = plugin->newActions()->first();
 
