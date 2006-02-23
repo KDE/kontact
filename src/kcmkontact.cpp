@@ -136,7 +136,7 @@ void PluginSelection::readConfig()
       activeComponent = mPluginList.count() - 1;
   }
 
-  mPluginCombo->setCurrentItem( activeComponent );
+  mPluginCombo->setCurrentIndex( activeComponent );
 }
 
 void PluginSelection::writeConfig()
