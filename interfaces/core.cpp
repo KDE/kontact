@@ -58,7 +58,7 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
 
   QMap<QByteArray,KParts::ReadOnlyPart *>::ConstIterator it;
   it = mParts.find( libname );
-  if ( it != mParts.end() ) return it.data();
+  if ( it != mParts.end() ) return it.value();
 
   kDebug(5601) << "Creating new KPart" << endl;
 
@@ -105,7 +105,7 @@ void Core::slotPartDestroyed( QObject * obj )
   QMap<QByteArray, KParts::ReadOnlyPart*>::Iterator end = mParts.end();
   QMap<QByteArray, KParts::ReadOnlyPart*>::Iterator it = mParts.begin();
   for ( ; it != end; ++it ) {
-    if ( it.data() == obj ) {
+    if ( it.value() == obj ) {
       mParts.remove( it );
       return;
     }

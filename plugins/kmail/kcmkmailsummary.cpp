@@ -139,10 +139,10 @@ void KCMKMailSummary::loadFolders()
 
   QMap<QString, Q3ListViewItem*>::Iterator it;
   for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it ) {
-    if ( Q3CheckListItem *qli = dynamic_cast<Q3CheckListItem*>( it.data() ) ) {
+    if ( Q3CheckListItem *qli = dynamic_cast<Q3CheckListItem*>( it.value() ) ) {
       if ( folders.contains( it.key() ) ) {
         qli->setOn( true );
-        mFolderView->ensureItemVisible( it.data() );
+        mFolderView->ensureItemVisible( it.value() );
       } else {
         qli->setOn( false );
       }
@@ -160,7 +160,7 @@ void KCMKMailSummary::storeFolders()
 
   QMap<QString, Q3ListViewItem*>::Iterator it;
   for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it )
-    if ( Q3CheckListItem *qli = dynamic_cast<Q3CheckListItem*>( it.data() ) )
+    if ( Q3CheckListItem *qli = dynamic_cast<Q3CheckListItem*>( it.value() ) )
       if ( qli->isOn() )
         folders.append( it.key() );
 

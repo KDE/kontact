@@ -125,7 +125,7 @@ void SummaryViewPart::updateSummaries()
 {
   QMap<QString, Kontact::Summary*>::Iterator it;
   for ( it = mSummaries.begin(); it != mSummaries.end(); ++it )
-    it.data()->updateSummary( false );
+    it.value()->updateSummary( false );
 }
 
 void SummaryViewPart::updateWidgets()
@@ -345,7 +345,7 @@ QStringList SummaryViewPart::configModules() const
 
   QMap<QString, Kontact::Summary*>::ConstIterator it;
   for ( it = mSummaries.begin(); it != mSummaries.end(); ++it ) {
-    QStringList cm = it.data()->configModules();
+    QStringList cm = it.value()->configModules();
     QStringList::ConstIterator strIt;
     for ( strIt = cm.begin(); strIt != cm.end(); ++strIt )
       if ( !(*strIt).isEmpty() && !modules.contains( *strIt ) )
@@ -426,7 +426,7 @@ QString SummaryViewPart::widgetName( QWidget *widget ) const
 {
   QMap<QString, Kontact::Summary*>::ConstIterator it;
   for ( it = mSummaries.begin(); it != mSummaries.end(); ++it ) {
-    if ( it.data() == widget )
+    if ( it.value() == widget )
       return it.key();
   }
 
