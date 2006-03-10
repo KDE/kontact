@@ -24,7 +24,7 @@ set(kcm_sdsummary_PART_SRCS kcmsdsummary.cpp )
 
 kde4_automoc(${kcm_sdsummary_PART_SRCS})
 
-kde4_add_ui_files(kcm_sdsummary_PART_SRCS sdsummaryconfig_base.ui )
+kde4_add_ui3_files(kcm_sdsummary_PART_SRCS sdsummaryconfig_base.ui )
 
 kde4_add_plugin(kcm_sdsummary ${kcm_sdsummary_PART_SRCS})
 

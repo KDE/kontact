@@ -9,7 +9,9 @@ set(kontact_kaddressbookplugin_PART_SRCS kaddressbook_plugin.cpp )
 
 kde4_automoc(${kontact_kaddressbookplugin_PART_SRCS})
 
-kde4_add_dcop_stubs(kontact_kaddressbookplugin_PART_SRCS kaddressbookiface.h kmailIface.h )
+kde4_add_dcop_stubs(kontact_kaddressbookplugin_PART_SRCS 
+	${CMAKE_SOURCE_DIR}/kaddressbook/kaddressbookiface.h 
+	${CMAKE_SOURCE_DIR}/kmail/kmailIface.h )
 
 kde4_add_plugin(kontact_kaddressbookplugin WITH_PREFIX ${kontact_kaddressbookplugin_PART_SRCS})
 

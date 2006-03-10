@@ -9,7 +9,7 @@ set(kontact_karm_PART_SRCS karm_plugin.cpp )
 
 kde4_automoc(${kontact_karm_PART_SRCS})
 
-kde4_add_dcop_stubs(kontact_karm_PART_SRCS karmdcopiface.h )
+kde4_add_dcop_stubs(kontact_karm_PART_SRCS ${CMAKE_SOURCE_DIR}/karm/karmdcopiface.h )
 
 kde4_add_plugin(kontact_karm WITH_PREFIX ${kontact_karm_PART_SRCS})
 

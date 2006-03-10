@@ -9,7 +9,7 @@ set(kontact_akregator_PART_SRCS akregator_plugin.cpp )
 
 kde4_automoc(${kontact_akregator_PART_SRCS})
 
-kde4_add_dcop_stubs(kontact_akregator_PART_SRCS akregator_partiface.h )
+kde4_add_dcop_stubs(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregator/src/akregator_partiface.h )
 
 kde4_add_plugin(kontact_akregator WITH_PREFIX ${kontact_akregator_PART_SRCS})
 

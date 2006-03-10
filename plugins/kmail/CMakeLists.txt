@@ -11,7 +11,7 @@ kde4_automoc(${kontact_kmailplugin_PART_SRCS})
 
 kde4_add_dcop_skels(kontact_kmailplugin_PART_SRCS summarywidget.h )
 
-kde4_add_dcop_stubs(kontact_kmailplugin_PART_SRCS kmailIface.h )
+kde4_add_dcop_stubs(kontact_kmailplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kmail/kmailIface.h )
 
 kde4_add_plugin(kontact_kmailplugin WITH_PREFIX ${kontact_kmailplugin_PART_SRCS})
 
