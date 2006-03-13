@@ -40,7 +40,7 @@
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kdialogbase.h>
-#include <klistview.h>
+#include <k3listview.h>
 #include <klocale.h>
 #include <kpushbutton.h>
 
@@ -339,7 +339,7 @@ void KCMKontactKNT::initGUI()
   QGridLayout *layout = new QGridLayout( this, 2, 3, KDialog::marginHint(),
                                          KDialog::spacingHint() );
 
-  mAllNews = new KListView( this );
+  mAllNews = new K3ListView( this );
   mAllNews->addColumn( i18n( "All" ) );
   mAllNews->setRootIsDecorated( true );
   mAllNews->setFullWidth( true );
@@ -356,7 +356,7 @@ void KCMKontactKNT::initGUI()
   vbox->addWidget( mRemoveButton );
   vbox->addStretch();
 
-  mSelectedNews = new KListView( this );
+  mSelectedNews = new K3ListView( this );
   mSelectedNews->addColumn( i18n( "Selected" ) );
   mSelectedNews->setFullWidth( true );
   layout->addWidget( mSelectedNews, 0, 2 );

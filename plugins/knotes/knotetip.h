@@ -39,13 +39,13 @@
 #include <QEvent>
 
 class Q3TextEdit;
-class KIconView;
+class K3IconView;
 class KNotesIconViewItem;
 
 class KNoteTip : public Q3Frame
 {
   public:
-    KNoteTip( KIconView *parent );
+    KNoteTip( K3IconView *parent );
     ~KNoteTip();
 
     void setNote( KNotesIconViewItem *item );
@@ -63,7 +63,7 @@ class KNoteTip : public Q3Frame
   private:
     bool mFilter;
 
-    KIconView *mView;
+    K3IconView *mView;
     KNotesIconViewItem *mNoteIVI;
 
     Q3TextEdit *mPreview;

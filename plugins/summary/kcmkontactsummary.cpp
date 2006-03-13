@@ -54,7 +54,7 @@ extern "C"
 class PluginItem : public Q3CheckListItem
 {
   public:
-    PluginItem( KPluginInfo *info, KListView *parent )
+    PluginItem( KPluginInfo *info, K3ListView *parent )
       : Q3CheckListItem( parent, QString::null, Q3CheckListItem::CheckBox ),
         mInfo( info )
     {
@@ -82,7 +82,7 @@ class PluginItem : public Q3CheckListItem
 };
 
 PluginView::PluginView( QWidget *parent )
-  : KListView( parent )
+  : K3ListView( parent )
 {
   addColumn( i18n( "Name" ) );
   setAllColumnsShowFocus( true );

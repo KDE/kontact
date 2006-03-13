@@ -41,7 +41,7 @@
 
 #include <kactioncollection.h>
 #include <klocale.h>
-#include <kiconview.h>
+#include <k3iconview.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <kiconeffect.h>
@@ -58,11 +58,11 @@
 #include "knotes/knoteedit.h"
 
 
-class KNotesIconViewItem : public KIconViewItem
+class KNotesIconViewItem : public K3IconViewItem
 {
   public:
-    KNotesIconViewItem( KIconView *parent, KCal::Journal *journal )
-      : KIconViewItem( parent ),
+    KNotesIconViewItem( K3IconView *parent, KCal::Journal *journal )
+      : K3IconViewItem( parent ),
         mJournal( journal )
     {
       setRenameEnabled( true );
@@ -82,7 +82,7 @@ class KNotesIconViewItem : public KIconViewItem
 
     virtual void setText( const QString & text )
     {
-      KIconViewItem::setText( text );
+      K3IconViewItem::setText( text );
       mJournal->setSummary( text );
     }
 

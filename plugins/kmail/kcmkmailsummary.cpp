@@ -34,7 +34,7 @@
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kdialog.h>
-#include <klistview.h>
+#include <k3listview.h>
 #include <klocale.h>
 
 #include "kcmkmailsummary.h"
@@ -80,7 +80,7 @@ void KCMKMailSummary::initGUI()
 {
   QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
 
-  mFolderView = new KListView( this );
+  mFolderView = new K3ListView( this );
   mFolderView->setRootIsDecorated( true );
   mFolderView->setFullWidth( true );
 

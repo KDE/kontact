@@ -24,7 +24,7 @@
 
 #include <q3dict.h>
 
-#include <kiconview.h>
+#include <k3iconview.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 
@@ -33,7 +33,7 @@
 
 #include "knotes/KNotesIface.h"
 
-class KIconView;
+class K3IconView;
 class Q3IconViewItem;
 class KNotesIconViewItem;
 class KNoteTip;
@@ -88,7 +88,7 @@ class KNotesPart : public KParts::ReadOnlyPart, virtual public KNotesIface
     void killSelectedNotes();
 
   private:
-    KIconView *mNotesView;
+    K3IconView *mNotesView;
     KNoteTip *mNoteTip;
     KNoteEditDlg *mNoteEditDlg;
 

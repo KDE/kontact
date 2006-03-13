@@ -28,7 +28,7 @@
 
 #include <kaboutdata.h>
 #include <kdebug.h>
-#include <klistview.h>
+#include <k3listview.h>
 #include <klocale.h>
 #include <ktrader.h>
 

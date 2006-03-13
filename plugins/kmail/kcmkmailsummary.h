@@ -28,7 +28,7 @@
 
 #include <kcmodule.h>
 
-class KListView;
+class K3ListView;
 
 class QCheckBox;
 class Q3CheckListItem;
@@ -53,7 +53,7 @@ class KCMKMailSummary : public KCModule
     void loadFolders();
     void storeFolders();
 
-    KListView *mFolderView;
+    K3ListView *mFolderView;
     QCheckBox *mFullPath;
     QMap<QString, Q3ListViewItem*> mFolderMap;
 };

@@ -30,7 +30,7 @@ class Q3ListViewItem;
 class QSpinxBox;
 
 class KAboutData;
-class KListView;
+class K3ListView;
 class KPushButton;
 
 class NewsItem;
@@ -67,8 +67,8 @@ class KCMKontactKNT : public KCModule
 
     bool dcopActive() const;
 
-    KListView *mAllNews;
-    KListView *mSelectedNews;
+    K3ListView *mAllNews;
+    K3ListView *mSelectedNews;
     Q3ListViewItem *mCustomItem;
 
     KPushButton *mAddButton;

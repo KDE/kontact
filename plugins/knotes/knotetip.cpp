@@ -47,7 +47,7 @@
 #include "knotes_part_p.h"
 
 
-KNoteTip::KNoteTip( KIconView *parent )
+KNoteTip::KNoteTip( K3IconView *parent )
   : Q3Frame( 0, 0, Qt::WX11BypassWM |   // this will make Seli happy >:-P
             Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
     mFilter( false ),

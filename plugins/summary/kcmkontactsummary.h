@@ -26,11 +26,11 @@
 #define KCMKONTACTSUMMARY_H
 
 #include <kcmodule.h>
-#include <klistview.h>
+#include <k3listview.h>
 
 class KPluginInfo;
 
-class PluginView : public KListView
+class PluginView : public K3ListView
 {
   Q_OBJECT
 

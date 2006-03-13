@@ -36,7 +36,7 @@ class QComboBox;
 class Q3ListViewItem;
 
 class KAboutData;
-class KListView;
+class K3ListView;
 
 class KcmKontact : public KPrefsModule
 {
