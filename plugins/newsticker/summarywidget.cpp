@@ -306,7 +306,7 @@ bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
   if ( obj->inherits( "KURLLabel" ) ) {
     KURLLabel* label = static_cast<KURLLabel*>( obj );
     if ( e->type() == QEvent::Enter )
-      emit message( i18n( "Open URL %1" ).arg( label->text() ) );
+      emit message( label->url() );
     if ( e->type() == QEvent::Leave )
       emit message( QString::null );
   }
