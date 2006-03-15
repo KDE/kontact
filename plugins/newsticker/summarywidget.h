@@ -62,10 +62,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     SummaryWidget( QWidget *parent, const char *name = 0 );
 
     int summaryHeight() const;
-
     QStringList configModules() const;
-
-    void updateSummary( bool force = false );
 
   k_dcop:
     /**
@@ -88,6 +85,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     void documentUpdateError( DCOPRef ref, int errorCode );
 
   public slots:
+    void updateSummary( bool force = false );
     void configChanged();
 
   protected slots:
@@ -95,6 +93,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     void rmbMenu( const QString& );
 
   protected:
+    virtual bool eventFilter( QObject *obj, QEvent *e );
     void initDocuments();
     void updateView();
     void readConfig();
