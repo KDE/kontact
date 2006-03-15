@@ -247,7 +247,9 @@ void SummaryWidget::updateView()
     int numArticles = 0;
     for ( artIt = articles.begin(); artIt != articles.end() && numArticles < mArticleCount; ++artIt ) {
       urlLabel = new KUrlLabel( (*artIt).second.url(), (*artIt).first, mBaseWidget );
-      urlLabel->setTextFormat( Qt::RichText );
+      urlLabel->installEventFilter( this );
+      //TODO: RichText causes too much horizontal space between articles
+      //urlLabel->setTextFormat( Qt::RichText );
       mLabels.append( urlLabel );
       mLayout->addWidget( urlLabel );
 
@@ -299,6 +301,19 @@ void SummaryWidget::rmbMenu( const QString& url )
   menu.addMenu( i18n( "Copy URL to Clipboard" ) );
   if ( menu.exec( QCursor::pos() ) )
     kapp->clipboard()->setText( url, QClipboard::Clipboard );
+}
+
+bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
+{
+  if ( obj->inherits( "KURLLabel" ) ) {
+    KUrlLabel* label = static_cast<KUrlLabel*>( obj );
+    if ( e->type() == QEvent::Enter )
+      emit message( i18n( "Open URL %1" ).arg( label->text() ) );
+    if ( e->type() == QEvent::Leave )
+      emit message( QString::null );
+  }
+
+  return Kontact::Summary::eventFilter( obj, e );
 }
 
 #include "summarywidget.moc"
