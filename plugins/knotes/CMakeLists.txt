@@ -11,7 +11,7 @@ set(kontact_knotesplugin_PART_SRCS
    summarywidget.cpp 
    knotetip.cpp )
 
-kde4_automoc(${kontact_knotesplugin_PART_SRCS})
+kde4_automoc(${kontact_knotesplugin_PART_SRCS} ${libknotesresources_SRCS} ${libknoteseditor_SRCS})
 
 kde4_add_dcop_skels(kontact_knotesplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/knotes/KNotesIface.h )
 
@@ -19,7 +19,7 @@ kde4_add_plugin(kontact_knotesplugin WITH_PREFIX ${kontact_knotesplugin_PART_SRC
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_knotesplugin )
 
-target_link_libraries(kontact_knotesplugin  ${QT_AND_KDECORE_LIBS} kpinterfaces kparts kdepim kcal kresources knotesresources knoteseditor )
+target_link_libraries(kontact_knotesplugin  ${QT_AND_KDECORE_LIBS} kpinterfaces kparts kdepim kcal kresources )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_knotesplugin )
 
