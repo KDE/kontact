@@ -48,12 +48,10 @@ Weight=400
 Icon=kontact_date
 
 [KNode]
-Name=News
-Name[fr]=Nouvelles
-Name[x-test]=xxNewsxx
-Comment=News Component
-Comment[fr]=Composant de Nouvelles
-Comment[x-test]=xxNews Componentxx
+Name=Usenet
+Name[x-test]=xxUsenetxx
+Comment=Usenet Component
+Comment[x-test]=xxUsenet Componentxx
 Weight=500
 Icon=kontact_news
 
