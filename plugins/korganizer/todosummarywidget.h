@@ -121,7 +121,7 @@ class TodoSummaryWidget : public Kontact::Summary
        @param todo is a pointer to a To-do object to test.
        @return a QString containing a comma-separated list of To-do states.
     */
-    const QString TodoSummaryWidget::stateStr( KCal::Todo *todo );
+    const QString stateStr( KCal::Todo *todo );
 };
 
 #endif
