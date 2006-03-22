@@ -15,7 +15,7 @@ kde4_automoc(${kpinterfaces_LIB_SRCS})
 
 kde4_add_library(kpinterfaces SHARED ${kpinterfaces_LIB_SRCS})
 
-target_link_libraries(kpinterfaces  ${QT_AND_KDECORE_LIBS} kdepim kparts )
+target_link_libraries(kpinterfaces  ${KDE4_KDECORE_LIBS} kdepim kparts )
 
 set_target_properties(kpinterfaces PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 install_targets(${LIB_INSTALL_DIR} kpinterfaces )

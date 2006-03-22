@@ -15,7 +15,7 @@ kde4_add_plugin(kontact_karm WITH_PREFIX ${kontact_karm_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_karm )
 
-target_link_libraries(kontact_karm  ${QT_AND_KDECORE_LIBS} kpinterfaces )
+target_link_libraries(kontact_karm  ${KDE4_KDECORE_LIBS} kpinterfaces )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_karm )
 

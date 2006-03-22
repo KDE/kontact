@@ -15,7 +15,7 @@ kde4_add_plugin(kontact_weatherplugin WITH_PREFIX ${kontact_weatherplugin_PART_S
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_weatherplugin )
 
-target_link_libraries(kontact_weatherplugin  ${QT_AND_KDECORE_LIBS} kpinterfaces kparts kdepim )
+target_link_libraries(kontact_weatherplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kparts kdepim )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_weatherplugin )
 

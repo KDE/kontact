@@ -13,7 +13,7 @@ kde4_add_plugin(kontact_kitchensync WITH_PREFIX ${kontact_kitchensync_PART_SRCS}
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_kitchensync )
 
-target_link_libraries(kontact_kitchensync  ${QT_AND_KDECORE_LIBS} kpinterfaces )
+target_link_libraries(kontact_kitchensync  ${KDE4_KDECORE_LIBS} kpinterfaces )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_kitchensync )
 

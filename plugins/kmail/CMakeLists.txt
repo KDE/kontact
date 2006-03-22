@@ -17,7 +17,7 @@ kde4_add_plugin(kontact_kmailplugin WITH_PREFIX ${kontact_kmailplugin_PART_SRCS}
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_kmailplugin )
 
-target_link_libraries(kontact_kmailplugin  ${QT_AND_KDECORE_LIBS} kpinterfaces kcal kparts )
+target_link_libraries(kontact_kmailplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kcal kparts )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_kmailplugin )
 
@@ -32,7 +32,7 @@ kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kmailsummary )
 
-target_link_libraries(kcm_kmailsummary  ${QT_AND_KDECORE_LIBS} kdeui )
+target_link_libraries(kcm_kmailsummary  ${KDE4_KDECORE_LIBS} kdeui )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kcm_kmailsummary )
 

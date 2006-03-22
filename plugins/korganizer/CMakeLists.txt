@@ -18,7 +18,7 @@ kde4_add_plugin(kontact_korganizerplugin WITH_PREFIX ${kontact_korganizerplugin_
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_korganizerplugin )
 
-target_link_libraries(kontact_korganizerplugin  ${QT_AND_KDECORE_LIBS} common kpinterfaces kparts korganizer_calendar )
+target_link_libraries(kontact_korganizerplugin  ${KDE4_KDECORE_LIBS} common kpinterfaces kparts korganizer_calendar )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_korganizerplugin )
 
@@ -35,7 +35,7 @@ kde4_add_plugin(kontact_todoplugin WITH_PREFIX ${kontact_todoplugin_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_todoplugin )
 
-target_link_libraries(kontact_todoplugin  ${QT_AND_KDECORE_LIBS} common kpinterfaces kparts korganizer_calendar )
+target_link_libraries(kontact_todoplugin  ${KDE4_KDECORE_LIBS} common kpinterfaces kparts korganizer_calendar )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_todoplugin )
 
@@ -52,7 +52,7 @@ kde4_add_plugin(kontact_journalplugin WITH_PREFIX ${kontact_journalplugin_PART_S
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_journalplugin )
 
-target_link_libraries(kontact_journalplugin  ${QT_AND_KDECORE_LIBS} common kpinterfaces kparts korganizer_calendar )
+target_link_libraries(kontact_journalplugin  ${KDE4_KDECORE_LIBS} common kpinterfaces kparts korganizer_calendar )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_journalplugin )
 
@@ -69,7 +69,7 @@ kde4_add_plugin(kcm_apptsummary ${kcm_apptsummary_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_apptsummary )
 
-target_link_libraries(kcm_apptsummary  ${QT_AND_KDECORE_LIBS} kdeui )
+target_link_libraries(kcm_apptsummary  ${KDE4_KDECORE_LIBS} kdeui )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kcm_apptsummary )
 
@@ -86,7 +86,7 @@ kde4_add_plugin(kcm_todosummary ${kcm_todosummary_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_todosummary )
 
-target_link_libraries(kcm_todosummary  ${QT_AND_KDECORE_LIBS} kdeui )
+target_link_libraries(kcm_todosummary  ${KDE4_KDECORE_LIBS} kdeui )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kcm_todosummary )
 
