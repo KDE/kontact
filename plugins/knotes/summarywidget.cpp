@@ -56,7 +56,7 @@ KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
   Q3VBoxLayout *mainLayout = new Q3VBoxLayout( this, 3, 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_notes",
-                   KIcon::Desktop, KIcon::SizeMedium );
+                   K3Icon::Desktop, K3Icon::SizeMedium );
   QWidget* header = createHeader( this, icon, i18n( "Notes" ) );
   mainLayout->addWidget( header );
 
@@ -87,7 +87,7 @@ void KNotesSummaryWidget::updateView()
 
   QLabel *label = 0;
   int counter = 0;
-  QPixmap pm = loader.loadIcon( "knotes", KIcon::Small );
+  QPixmap pm = loader.loadIcon( "knotes", K3Icon::Small );
 
   KCal::Journal::List::Iterator it;
   if ( mNotes.count() ) {

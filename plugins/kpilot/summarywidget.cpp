@@ -65,7 +65,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   mLayout = new QGridLayout( this, 2, 3, 3, 3 );
 
   int row=0;
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kpilot", KIcon::Desktop, KIcon::SizeMedium );
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kpilot", K3Icon::Desktop, K3Icon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "KPilot Information" ) );
   mLayout->addMultiCellWidget( header, row,row, 0,3 );
 

@@ -53,8 +53,8 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_mail", KIcon::Desktop,
-                                                  KIcon::SizeMedium );
+  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_mail", K3Icon::Desktop,
+                                                  K3Icon::SizeMedium );
   QWidget *header = createHeader(this, icon, i18n("New Messages"));
   mLayout = new QGridLayout( 1, 3, 3 );
 

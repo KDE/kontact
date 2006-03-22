@@ -69,7 +69,7 @@ class KNotesIconViewItem : public K3IconViewItem
 
       KIconEffect effect;
       QColor color( journal->customProperty( "KNotes", "BgColor" ) );
-      QPixmap icon = KGlobal::iconLoader()->loadIcon( "knotes", KIcon::Desktop );
+      QPixmap icon = KGlobal::iconLoader()->loadIcon( "knotes", K3Icon::Desktop );
       icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
       setPixmap( icon );
       setText( journal->summary() );

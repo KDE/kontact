@@ -91,7 +91,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "cookie",
-                    KIcon::Desktop, KIcon::SizeMedium );
+                    K3Icon::Desktop, K3Icon::SizeMedium );
 
   QWidget *header = createHeader( this, icon, i18n( "Upcoming Special Dates" ) );
   mainLayout->addWidget(header);
@@ -427,7 +427,7 @@ void SDSummaryWidget::updateView()
       label = new QLabel( this );
       if ( icon_img.isNull() ) {
         label->setPixmap( KGlobal::iconLoader()->loadIcon( icon_name,
-                                                           KIcon::Small ) );
+                                                           K3Icon::Small ) );
       } else {
         label->setPixmap( QPixmap(icon_img) );
       }
@@ -579,9 +579,9 @@ void SDSummaryWidget::viewContact( const QString &uid )
 void SDSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
-  QAction *sendMailAction = popup.addAction( KGlobal::iconLoader()->loadIcon( "kmail", KIcon::Small ),
+  QAction *sendMailAction = popup.addAction( KGlobal::iconLoader()->loadIcon( "kmail", K3Icon::Small ),
                     i18n( "Send &Mail" ));
-  QAction * viewContactAction = popup.addAction( KGlobal::iconLoader()->loadIcon( "kaddressbook", KIcon::Small ),
+  QAction * viewContactAction = popup.addAction( KGlobal::iconLoader()->loadIcon( "kaddressbook", K3Icon::Small ),
                     i18n( "View &Contact" ) );
 
   QAction *ret = popup.exec( QCursor::pos() );

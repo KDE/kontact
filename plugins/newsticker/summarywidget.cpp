@@ -52,7 +52,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   QVBoxLayout *vlay = new QVBoxLayout( this, 3, 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_news",
-                                                  KIcon::Desktop, KIcon::SizeMedium );
+                                                  K3Icon::Desktop, K3Icon::SizeMedium );
 
   QWidget *header = createHeader( this, icon, i18n( "News Feeds" ) );
   vlay->addWidget( header );

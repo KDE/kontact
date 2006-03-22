@@ -61,7 +61,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
   QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_todo",
-                   KIcon::Desktop, KIcon::SizeMedium );
+                   K3Icon::Desktop, K3Icon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Pending To-dos" ) );
   mainLayout->addWidget( header );
 
@@ -177,7 +177,7 @@ void TodoSummaryWidget::updateView()
   if ( prList.count() > 0 ) {
 
     KIconLoader loader( "korganizer" );
-    QPixmap pm = loader.loadIcon( "todo", KIcon::Small );
+    QPixmap pm = loader.loadIcon( "todo", K3Icon::Small );
 
     QString str;
 

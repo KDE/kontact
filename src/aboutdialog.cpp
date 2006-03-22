@@ -73,7 +73,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
                                 const KAboutData *about )
 {
   QPixmap pixmap = KGlobal::iconLoader()->loadIcon( icon,
-                                                    KIcon::Desktop, 48 );
+                                                    K3Icon::Desktop, 48 );
 
   QFrame *topFrame = addPage( title, QString::null, pixmap );
 
@@ -168,7 +168,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
     return;
 
   QPixmap pixmap = KGlobal::iconLoader()->loadIcon( "signature",
-                                                    KIcon::Desktop, 48 );
+                                                    K3Icon::Desktop, 48 );
 
   QString title = i18n( "%1 License" ).arg( about->programName() );
 
