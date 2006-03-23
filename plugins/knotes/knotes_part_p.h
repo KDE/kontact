@@ -105,7 +105,7 @@ class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
 
       setInstance( new KInstance( "knotes" ) ); // TODO: hm, memleak??
       setXMLFile( "knotesui.rc" );
-      actionCollection()->setWidget( this );
+      actionCollection()->setAssociatedWidget( this );
 
       QWidget *page = plainPage();
       Q3VBoxLayout *layout = new Q3VBoxLayout( page );

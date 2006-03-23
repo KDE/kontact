@@ -509,13 +509,13 @@ void MainWindow::slotNewClicked()
 {
   KAction *action = mCurrentPlugin->newActions()->first();
   if ( action ) {
-    action->activate();
+    action->trigger();
   } else {
     PluginList::Iterator it;
     for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
       action = (*it)->newActions()->first();
       if ( action ) {
-        action->activate();
+        action->trigger();
         return;
       }
     }
@@ -611,7 +611,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   for ( it = invisibleActions.begin(); it != invisibleActions.end(); ++it ) {
     KAction *action = part->actionCollection()->action( (*it).latin1() );
     if ( action ) {
-      QList<KToolBar*> toolbars = toolBarList();
+      QList<KToolBar*> toolbars = toolBars();
       for( QList<KToolBar*>::Iterator it = toolbars.begin(); it != toolbars.end(); ++it ) {
         action->unplug( *it );
       }
