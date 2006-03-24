@@ -69,7 +69,7 @@ kde4_add_plugin(kcm_apptsummary ${kcm_apptsummary_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_apptsummary )
 
-target_link_libraries(kcm_apptsummary  ${KDE4_KDECORE_LIBS} kdeui )
+target_link_libraries(kcm_apptsummary  ${KDE4_KDEUI_LIBS} )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kcm_apptsummary )
 
@@ -86,7 +86,7 @@ kde4_add_plugin(kcm_todosummary ${kcm_todosummary_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_todosummary )
 
-target_link_libraries(kcm_todosummary  ${KDE4_KDECORE_LIBS} kdeui )
+target_link_libraries(kcm_todosummary  ${KDE4_KDEUI_LIBS} )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kcm_todosummary )
 

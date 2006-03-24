@@ -32,7 +32,7 @@ kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kmailsummary )
 
-target_link_libraries(kcm_kmailsummary  ${KDE4_KDECORE_LIBS} kdeui )
+target_link_libraries(kcm_kmailsummary  ${KDE4_KDEUI_LIBS} )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kcm_kmailsummary )
 
