@@ -589,7 +589,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );
 
     if ( action ) {
-      mNewActions->setIcon( action->icon() );
+      static_cast<QAction*>( mNewActions )->setIcon( action->icon() );
       mNewActions->setText( action->text() );
     } else { // we'll use the action of the first plugin which offers one
       PluginList::Iterator it;
@@ -597,7 +597,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
         if ((*it)->newActions()->count() > 0)
           action = (*it)->newActions()->first();
         if ( action ) {
-          mNewActions->setIcon( action->icon() );
+          static_cast<QAction*>( mNewActions )->setIcon( action->icon() );
           mNewActions->setText( action->text() );
           break;
         }
