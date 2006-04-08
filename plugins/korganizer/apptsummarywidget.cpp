@@ -151,7 +151,7 @@ void ApptSummaryWidget::updateView()
 
       // If this date is part of a floating, multiday event, then we
       // only make a print for the first day of the event.
-      if ( ev->isMultiDay() && ev->doesFloat() && dayof != 1 )break;
+      if ( ev->isMultiDay() && ev->doesFloat() && dayof != 1 )continue;
 
       // Icon label
       label = new QLabel( this );
