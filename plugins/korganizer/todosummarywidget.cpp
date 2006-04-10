@@ -222,9 +222,9 @@ void TodoSummaryWidget::updateView()
       str = "";
       if ( todo->hasDueDate() ) {
         if ( daysTo > 0 ) {
-          str = i18n( "in 1 day", "in %n days", daysTo );
+          str = i18np( "in 1 day", "in %n days", daysTo );
         } else if ( daysTo < 0 ) {
-          str = i18n( "1 day ago", "%n days ago", -daysTo );
+          str = i18np( "1 day ago", "%n days ago", -daysTo );
         } else{
           str = i18n( "due" );
         }
@@ -272,7 +272,7 @@ void TodoSummaryWidget::updateView()
 
   if ( counter == 0 ) {
     QLabel *noTodos = new QLabel(
-      i18n( "No pending to-dos due within the next day",
+      i18np( "No pending to-dos due within the next day",
             "No pending to-dos due within the next %n days",
             mDaysToGo ), this );
     noTodos->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
@@ -298,7 +298,7 @@ bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent* e )
   if ( obj->inherits( "KUrlLabel" ) ) {
     KUrlLabel* label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter )
-      emit message( i18n( "Edit To-do: \"%1\"" ).arg( label->text() ) );
+      emit message( i18n( "Edit To-do: \"%1\"", label->text() ) );
     if ( e->type() == QEvent::Leave )
       emit message( QString::null );
   }

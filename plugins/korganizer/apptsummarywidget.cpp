@@ -194,7 +194,7 @@ void ApptSummaryWidget::updateView()
       str = "";
       dateDiff( ev->dtStart().date(), daysTo );
       if ( daysTo > 0 ) {
-        str = i18n( "in 1 day", "in %n days", daysTo );
+        str = i18np( "in 1 day", "in %n days", daysTo );
       } else {
         str = i18n( "now" );
       }
@@ -232,9 +232,9 @@ void ApptSummaryWidget::updateView()
             sET = QTime::QTime( 23, 59 );
           }
         }
-        str = i18n( "Time from - to", "%1 - %2" )
-              .arg( KGlobal::locale()->formatTime( sST ) )
-              .arg( KGlobal::locale()->formatTime( sET ) );
+        str = i18nc( "Time from - to", "%1 - %2" ,
+                KGlobal::locale()->formatTime( sST ) ,
+                KGlobal::locale()->formatTime( sET ) );
         label = new QLabel( str, this );
         label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
         mLayout->addWidget( label, counter, 4 );
@@ -250,7 +250,7 @@ void ApptSummaryWidget::updateView()
 
   if ( !counter ) {
     QLabel *noEvents = new QLabel(
-      i18n( "No upcoming events starting within the next day",
+      i18np( "No upcoming events starting within the next day",
             "No upcoming events starting within the next %n days",
             days ), this, "nothing to see" );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
@@ -276,7 +276,7 @@ bool ApptSummaryWidget::eventFilter( QObject *obj, QEvent* e )
   if ( obj->inherits( "KUrlLabel" ) ) {
     KUrlLabel* label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter )
-      emit message( i18n( "Edit Event: \"%1\"" ).arg( label->text() ) );
+      emit message( i18n( "Edit Event: \"%1\"", label->text() ) );
     if ( e->type() == QEvent::Leave )
       emit message( QString::null );
   }

@@ -162,8 +162,8 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  KMessageBox::sorry( core(), i18n( "Cannot handle drop events of type '%1'." )
-                      .arg( event->format() ) );
+  KMessageBox::sorry( core(), i18n( "Cannot handle drop events of type '%1'." ,
+                        event->format() ) );
 }
 
 ////

@@ -474,7 +474,7 @@ void SDSummaryWidget::updateView()
       if ( (*addrIt).daysTo == 0 ) {
         label->setText( i18n( "now" ) );
       } else {
-        label->setText( i18n( "in 1 day", "in %n days", (*addrIt).daysTo ) );
+        label->setText( i18np( "in 1 day", "in %n days", (*addrIt).daysTo ) );
       }
 
       label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
@@ -531,7 +531,7 @@ void SDSummaryWidget::updateView()
         if ( (*addrIt).yearsOld <= 0 ) {
           label->setText( "" );
         } else {
-          label->setText( i18n( "one year", "%n years", (*addrIt).yearsOld  ) );
+          label->setText( i18np( "one year", "%n years", (*addrIt).yearsOld  ) );
         }
         label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
         mLayout->addWidget( label, counter, 5 );
@@ -542,7 +542,7 @@ void SDSummaryWidget::updateView()
     }
   } else {
     label = new QLabel(
-        i18n( "No special dates within the next 1 day",
+        i18np( "No special dates within the next 1 day",
               "No special dates pending within the next %n days",
               mDaysAhead ) );
     label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
@@ -596,7 +596,7 @@ bool SDSummaryWidget::eventFilter( QObject *obj, QEvent* e )
   if ( obj->inherits( "KUrlLabel" ) ) {
     KUrlLabel* label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter )
-      emit message( i18n( "Mail to:\"%1\"" ).arg( label->text() ) );
+      emit message( i18n( "Mail to:\"%1\"", label->text() ) );
     if ( e->type() == QEvent::Leave )
       emit message( QString::null );
   }

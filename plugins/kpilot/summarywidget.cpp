@@ -208,7 +208,7 @@ void SummaryWidget::showSyncLog( const QString &filename )
 
   QFile f(filename);
   if ( !f.open( QIODevice::ReadOnly ) ) {
-    KMessageBox::error( this, i18n( "Unable to open Hotsync log %1." ).arg( filename ) );
+    KMessageBox::error( this, i18n( "Unable to open Hotsync log %1.", filename ) );
     return;
   }
 

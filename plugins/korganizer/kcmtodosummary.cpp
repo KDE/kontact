@@ -85,7 +85,7 @@ void KCMTodoSummary::buttonClicked( int id )
 
 void KCMTodoSummary::customDaysChanged( int value )
 {
-  mConfigBase->mCustomDays->setSuffix( i18n( " day",  " days", value ) );
+  mConfigBase->mCustomDays->setSuffix( i18np( " day", " days", value ) );
 }
 
 void KCMTodoSummary::load()

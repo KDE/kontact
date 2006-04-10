@@ -181,19 +181,19 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
                           i18n("Drops of multiple mails are not supported." ) );
     } else {
       KPIM::MailSummary mail = mails.first();
-      QString txt = i18n("From: %1\nTo: %2\nSubject: %3").arg( mail.from() )
-                    .arg( mail.to() ).arg( mail.subject() );
+      QString txt = i18n("From: %1\nTo: %2\nSubject: %3", mail.from() ,
+                      mail.to(), mail.subject() );
       QString uri = KDEPIMPROTOCOL_EMAIL + 
                     QString::number( mail.serialNumber() ) + "/" +
                     mail.messageId();
-      interface()->openTodoEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
+      interface()->openTodoEditor( i18n("Mail: %1", mail.subject() ), txt,
                                    uri );
     }
     return;
   }
 
-  KMessageBox::sorry( core(), i18n("Cannot handle drop events of type '%1'.")
-                              .arg( event->format() ) );
+  KMessageBox::sorry( core(), i18n("Cannot handle drop events of type '%1'.",
+                                event->format() ) );
 }
 
 #include "todoplugin.moc"

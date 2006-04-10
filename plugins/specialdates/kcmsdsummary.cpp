@@ -92,7 +92,7 @@ void KCMSDSummary::buttonClicked( int id )
 
 void KCMSDSummary::customDaysChanged( int value )
 {
-  mConfigBase->mCustomDays->setSuffix( i18n( " day",  " days", value ) );
+  mConfigBase->mCustomDays->setSuffix( i18np( " day", " days", value ) );
 }
 
 void KCMSDSummary::load()

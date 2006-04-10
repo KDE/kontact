@@ -144,9 +144,9 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
       mLabels.append( urlLabel );
 
       QLabel *label =
-        new QLabel( i18n("%1: number of unread messages "
-                                  "%2: total number of messages", "%1 / %2")
-                    .arg( numUnreadMsg ).arg( numMsg ), this );
+        new QLabel( i18nc("%1: number of unread messages "
+                                  "%2: total number of messages", "%1 / %2",
+                      numUnreadMsg, numMsg ), this );
       label->setAlignment( Qt::AlignLeft );
       label->show();
       mLayout->addWidget( label, counter, 2 );
@@ -170,7 +170,7 @@ bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
   if ( obj->inherits( "KUrlLabel" ) ) {
     KUrlLabel* label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter )
-      emit message( i18n( "Open Folder: \"%1\"" ).arg( label->text() ) );
+      emit message( i18n( "Open Folder: \"%1\"", label->text() ) );
     if ( e->type() == QEvent::Leave )
       emit message( QString::null );
   }

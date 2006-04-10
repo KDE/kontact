@@ -540,8 +540,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   if ( !part ) {
     KApplication::restoreOverrideCursor();
-    KMessageBox::error( this, i18n( "Cannot load part for %1." )
-                              .arg( plugin->title() )
+    KMessageBox::error( this, i18n( "Cannot load part for %1." ,
+                                plugin->title() )
                         + "\n" + lastErrorMessage() );
     return;
   }
@@ -586,7 +586,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
     createGUI( plugin->part() );
 
-    setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );
+    setCaption( i18nc( "Plugin dependent window title" ,"%1 - Kontact", plugin->title() ) );
 
     if ( action ) {
       static_cast<QAction*>( mNewActions )->setIcon( action->icon() );
@@ -846,41 +846,42 @@ QString MainWindow::introductionString()
   QString html_icon_path = iconloader->iconPath( "html",  K3Icon::Desktop );
   QString wizard_icon_path = iconloader->iconPath( "wizard",  K3Icon::Desktop );
 
-  QString info = i18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
-      "<p>%1</p>"
+  QString info = ki18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
+      "<p>%2</p>"
       "<table align=\"center\">"
-      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
-      "<td><a href=\"%1\">%1</a><br><span id=\"subtext\"><nobr>%1</td></tr>"
-      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
-      "<td><a href=\"%1\">%1</a><br><span id=\"subtext\"><nobr>%1</td></tr>"
-      "<tr><td><a href=\"%1\"><img width=\"%1\" height=\"%1\" src=\"%1\" /></a></td>"
-      "<td><a href=\"%1\">%1</a><br><span id=\"subtext\"><nobr>%1</td></tr>"
+      "<tr><td><a href=\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td>"
+      "<td><a href=\"%7\">%8</a><br><span id=\"subtext\"><nobr>%9</td></tr>"
+      "<tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /></a></td>"
+      "<td><a href=\"%14\">%15</a><br><span id=\"subtext\"><nobr>%16</td></tr>"
+      "<tr><td><a href=\"%17\"><img width=\"%18\" height=\"%19\" src=\"%20\" /></a></td>"
+      "<td><a href=\"%21\">%22</a><br><span id=\"subtext\"><nobr>%23</td></tr>"
       "</table>"
-      "<p style=\"margin-bottom: 0px\"> <a href=\"%1\">Skip this introduction</a></p>" )
-      .arg( kapp->aboutData()->version() )
-      .arg( i18n( "Kontact handles your e-mail, addressbook, calendar, to-do list and more." ) )
-      .arg( "help:/kontact" )
-      .arg( iconSize )
-      .arg( iconSize )
-      .arg( handbook_icon_path )
-      .arg( "help:/kontact" )
-      .arg( i18n( "Read Manual" ) )
-      .arg( i18n( "Learn more about Kontact and its components" ) )
-      .arg( "http://kontact.org" )
-      .arg( iconSize )
-      .arg( iconSize )
-      .arg( html_icon_path )
-      .arg( "http://kontact.org" )
-      .arg( i18n( "Visit Kontact Website" ) )
-      .arg( i18n( "Access online resources and tutorials" ) )
-      .arg( "exec:/gwwizard" )
-      .arg( iconSize )
-      .arg( iconSize )
-      .arg( wizard_icon_path )
-      .arg( "exec:/gwwizard" )
-      .arg( i18n( "Configure Kontact as Groupware Client" ) )
-      .arg( i18n( "Prepare Kontact for use in corporate networks" ) )
-      .arg( "exec:/switch" );
+      "<p style=\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>" )
+      .subs( kapp->aboutData()->version() )
+      .subs( i18n( "Kontact handles your e-mail, addressbook, calendar, to-do list and more." ) )
+      .subs( "help:/kontact" )
+      .subs( iconSize )
+      .subs( iconSize )
+      .subs( handbook_icon_path )
+      .subs( "help:/kontact" )
+      .subs( i18n( "Read Manual" ) )
+      .subs( i18n( "Learn more about Kontact and its components" ) )
+      .subs( "http://kontact.org" )
+      .subs( iconSize )
+      .subs( iconSize )
+      .subs( html_icon_path )
+      .subs( "http://kontact.org" )
+      .subs( i18n( "Visit Kontact Website" ) )
+      .subs( i18n( "Access online resources and tutorials" ) )
+      .subs( "exec:/gwwizard" )
+      .subs( iconSize )
+      .subs( iconSize )
+      .subs( wizard_icon_path )
+      .subs( "exec:/gwwizard" )
+      .subs( i18n( "Configure Kontact as Groupware Client" ) )
+      .subs( i18n( "Prepare Kontact for use in corporate networks" ) )
+      .subs( "exec:/switch" )
+      .toString();
   return info;
 }
 

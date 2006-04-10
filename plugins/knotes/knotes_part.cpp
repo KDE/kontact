@@ -247,7 +247,7 @@ void KNotesPart::killSelectedNotes()
     return;
 
   int ret = KMessageBox::warningContinueCancelList( mNotesView,
-            i18n( "Do you really want to delete this note?",
+            i18np( "Do you really want to delete this note?",
                   "Do you really want to delete these %n notes?", items.count() ),
             notes, i18n( "Confirm Delete" ),
             KStdGuiItem::del() );

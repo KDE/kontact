@@ -144,7 +144,7 @@ bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent* e )
   if ( obj->inherits( "KUrlLabel" ) ) {
     KUrlLabel* label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter )
-      emit message( i18n( "Read Note: \"%1\"" ).arg( label->text() ) );
+      emit message( i18n( "Read Note: \"%1\"", label->text() ) );
     if ( e->type() == QEvent::Leave )
       emit message( QString::null );
   }

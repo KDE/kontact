@@ -106,7 +106,7 @@ void KCMKMailSummary::initFolders()
   for ( it = folderList.begin(); it != folderList.end(); ++it ) {
     QString displayName;
     if ( (*it) == "/Local" )
-      displayName = i18n( "prefix for local folders", "Local" );
+      displayName = i18nc( "prefix for local folders", "Local" );
     else {
       DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
       folderRef.call( "displayName()" ).get( displayName );

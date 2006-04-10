@@ -86,10 +86,10 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
       d->lastErrorMessage = KLibLoader::self()->lastErrorMessage();
       break;
     case KParts::ComponentFactory::ErrNoFactory:
-      d->lastErrorMessage = i18n( "Program error: the library %1 does not provide a factory." ).arg( libname );
+      d->lastErrorMessage = i18n( "Program error: the library %1 does not provide a factory.", libname );
       break;
     case KParts::ComponentFactory::ErrNoComponent:
-      d->lastErrorMessage = i18n( "Program error: the library %1 does not support creating components of the specified type" ).arg( libname );
+      d->lastErrorMessage = i18n( "Program error: the library %1 does not support creating components of the specified type", libname );
       break;
     }
     kWarning(5601) << d->lastErrorMessage << endl;

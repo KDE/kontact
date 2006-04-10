@@ -88,7 +88,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
     text += "<p><b>" + about->programName() + "</b><br>";
 
-    text += i18n( "Version %1</p>" ).arg( about->version() );
+    text += i18n( "Version %1</p>", about->version() );
 
     if ( !about->shortDescription().isEmpty() ) {
       text += "<p>" + about->shortDescription() + "<br>" +
@@ -170,7 +170,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
   QPixmap pixmap = KGlobal::iconLoader()->loadIcon( "signature",
                                                     K3Icon::Desktop, 48 );
 
-  QString title = i18n( "%1 License" ).arg( about->programName() );
+  QString title = i18n( "%1 License", about->programName() );
 
   QFrame *topFrame = addPage( title, QString::null, pixmap );
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
