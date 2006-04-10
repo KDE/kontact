@@ -37,6 +37,7 @@
 #include <qlabel.h>
 #include "prefs.h"
 
+#include "alarmclient.h"
 #include "mainwindow.h"
 
 using namespace std;
@@ -82,24 +83,6 @@ static KCmdLineOptions options[] =
     KCmdLineLastOption
 };
 
-void KontactApp::startKOrgac()
-{
-  if ( kapp->dcopClient()->isApplicationRegistered( "korgac" ) ) {
-    // Alarm daemon already runs
-    return;
-  }
-  KGlobal::dirs()->addResourceType("autostart", "share/autostart");
-  QString desktopFile = locate( "autostart", "korgac.desktop" );
-  if ( desktopFile.isEmpty() ) {
-    kdWarning() << "Couldn't find autostart/korgac.desktop!" << endl;
-  }
-  else {
-    QString error;
-    if ( startServiceByDesktopPath( desktopFile, QStringList(), &error ) != 0 )
-      kdWarning() << "Failure starting korgac:" << error << endl;
-  }
-}
-
 int KontactApp::newInstance()
 {
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
@@ -136,7 +119,8 @@ int KontactApp::newInstance()
     }
   }
 
-  startKOrgac();
+  AlarmClient alarmclient;
+  alarmclient.startDaemon();
 
   // Handle startup notification and window activation
   // (The first time it will do nothing except note that it was called)
