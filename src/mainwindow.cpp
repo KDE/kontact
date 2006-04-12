@@ -772,7 +772,7 @@ void MainWindow::showAboutDialog()
 
 void MainWindow::configureShortcuts()
 {
-  KKeyDialog dialog( true, this );
+  KKeyDialog dialog( KKeyChooser::AllActions ,KKeyChooser::LetterShortcutsAllowed, this );
   dialog.insert( actionCollection() );
 
   if ( mCurrentPlugin && mCurrentPlugin->part() )
