@@ -48,7 +48,7 @@ KNotesPart::KNotesPart( QObject *parent )
   // create the actions
   new KAction( i18n( "&New" ), "knotes", Qt::CTRL+Qt::Key_N, this, SLOT( newNote() ),
                actionCollection(), "file_new" );
-  new KAction( i18n( "Rename..." ), "text", this, SLOT( renameNote() ),
+  new KAction( i18n( "Rename..." ), "text",0, this, SLOT( renameNote() ),
                actionCollection(), "edit_rename" );
   new KAction( i18n( "Delete" ), "editdelete", Qt::Key_Delete, this, SLOT( killSelectedNotes() ),
                actionCollection(), "edit_delete" );
