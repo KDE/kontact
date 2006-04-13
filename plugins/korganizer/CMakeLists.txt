@@ -4,8 +4,9 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 
 
 ########### next target ###############
+set(libcommon_SRCS korg_uniqueapp.cpp)
 
-set(kontact_korganizerplugin_PART_SRCS korganizerplugin.cpp apptsummarywidget.cpp )
+set(kontact_korganizerplugin_PART_SRCS korganizerplugin.cpp apptsummarywidget.cpp ${libcommon_SRCS})
 
 kde4_automoc(${kontact_korganizerplugin_PART_SRCS})
 
@@ -18,14 +19,14 @@ kde4_add_plugin(kontact_korganizerplugin WITH_PREFIX ${kontact_korganizerplugin_
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_korganizerplugin )
 
-target_link_libraries(kontact_korganizerplugin  ${KDE4_KDECORE_LIBS} common kpinterfaces kparts korganizer_calendar )
+target_link_libraries(kontact_korganizerplugin  ${KDE4_KDECORE_LIBS}  kpinterfaces kparts korganizer_calendar )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_korganizerplugin )
 
 
 ########### next target ###############
 
-set(kontact_todoplugin_PART_SRCS todoplugin.cpp todosummarywidget.cpp )
+set(kontact_todoplugin_PART_SRCS todoplugin.cpp todosummarywidget.cpp ${libcommon_SRCS} )
 
 kde4_automoc(${kontact_todoplugin_PART_SRCS})
 
@@ -35,14 +36,14 @@ kde4_add_plugin(kontact_todoplugin WITH_PREFIX ${kontact_todoplugin_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_todoplugin )
 
-target_link_libraries(kontact_todoplugin  ${KDE4_KDECORE_LIBS} common kpinterfaces kparts korganizer_calendar )
+target_link_libraries(kontact_todoplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kparts korganizer_calendar )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_todoplugin )
 
 
 ########### next target ###############
 
-set(kontact_journalplugin_PART_SRCS journalplugin.cpp )
+set(kontact_journalplugin_PART_SRCS journalplugin.cpp ${libcommon_SRCS})
 
 kde4_automoc(${kontact_journalplugin_PART_SRCS})
 
@@ -52,7 +53,7 @@ kde4_add_plugin(kontact_journalplugin WITH_PREFIX ${kontact_journalplugin_PART_S
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_journalplugin )
 
-target_link_libraries(kontact_journalplugin  ${KDE4_KDECORE_LIBS} common kpinterfaces kparts korganizer_calendar )
+target_link_libraries(kontact_journalplugin  ${KDE4_KDECORE_LIBS}  kpinterfaces kparts korganizer_calendar )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kontact_journalplugin )
 

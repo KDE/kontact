@@ -5,7 +5,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${KDE4_INCLUDE_DIR} 
 
 ########### next target ###############
 
-set(kontact_knotesplugin_PART_SRCS 
+set(kontact_knotesplugin_PART_SRCS ${libknotesresources_SRCS} ${libknoteseditor_SRCS} 
    knotes_plugin.cpp 
    knotes_part.cpp 
    summarywidget.cpp 
