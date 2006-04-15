@@ -102,31 +102,31 @@ void TodoSummaryWidget::updateView()
 
       // show all incomplete todos
       if ( showAllTodos && !todo->isCompleted())
-        accepted = accepted || true;
+        accepted = true;
 
       // show uncomplete todos from the last days
       if ( todo->hasDueDate() && !todo->isCompleted() &&
            todo->dtDue().date() < QDate::currentDate() ) {
-        accepted = accepted || true;
+        accepted = true;
         stateText = i18n( "overdue" );
       }
 
       // show todos which started somewhere in the past and has to be finished in future
       if ( todo->hasStartDate() && todo->hasDueDate() && todo->dtStart().date()
            < QDate::currentDate() && QDate::currentDate() < todo->dtDue().date() ) {
-        accepted = accepted || true;
+        accepted = true;
         stateText = i18n( "in progress" );
       }
 
       // all todos which start today
       if ( todo->hasStartDate() && todo->dtStart().date() == QDate::currentDate() ) {
-        accepted = accepted || true;
+        accepted = true;
         stateText = i18n( "starts today" );
       }
 
       // all todos which end today
       if ( todo->hasDueDate() && todo->dtDue().date() == QDate::currentDate() ) {
-        accepted = accepted || true;
+        accepted = true;
         stateText = i18n( "ends today" );
       }
 
