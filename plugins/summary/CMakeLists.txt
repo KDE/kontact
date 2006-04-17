@@ -15,7 +15,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_summaryplugin )
 
 target_link_libraries(kontact_summaryplugin  ${KDE4_KDECORE_LIBS} kutils kpinterfaces kparts kdepim kpimidentities )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kontact_summaryplugin )
+install_targets(${PLUGIN_INSTALL_DIR} kontact_summaryplugin )
 
 
 ########### next target ###############
@@ -30,7 +30,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kontactsummary )
 
 target_link_libraries(kcm_kontactsummary  ${KDE4_KDEUI_LIBS} kutils )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kcm_kontactsummary )
+install_targets(${PLUGIN_INSTALL_DIR} kcm_kontactsummary )
 
 
 ########### install files ###############

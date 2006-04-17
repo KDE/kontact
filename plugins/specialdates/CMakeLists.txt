@@ -15,7 +15,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_specialdatesplugin )
 
 target_link_libraries(kontact_specialdatesplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kdepim kholidays korganizer_calendar kaddressbook )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kontact_specialdatesplugin )
+install_targets(${PLUGIN_INSTALL_DIR} kontact_specialdatesplugin )
 
 
 ########### next target ###############
@@ -32,7 +32,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_sdsummary )
 
 target_link_libraries(kcm_sdsummary  ${KDE4_KDEUI_LIBS} )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kcm_sdsummary )
+install_targets(${PLUGIN_INSTALL_DIR} kcm_sdsummary )
 
 
 ########### install files ###############

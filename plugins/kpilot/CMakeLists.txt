@@ -19,7 +19,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_kpilotplugin )
 
 target_link_libraries(kontact_kpilotplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kparts kdepim kpilot )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kontact_kpilotplugin )
+install_targets(${PLUGIN_INSTALL_DIR} kontact_kpilotplugin )
 
 
 ########### install files ###############

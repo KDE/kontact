@@ -52,7 +52,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kontact )
 
 target_link_libraries(kcm_kontact  ${KDE4_KDECORE_LIBS} kontact kdepim )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kcm_kontact )
+install_targets(${PLUGIN_INSTALL_DIR} kcm_kontact )
 
 
 ########### install files ###############

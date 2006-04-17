@@ -15,7 +15,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_multisynk )
 
 target_link_libraries(kontact_multisynk  ${KDE4_KDECORE_LIBS} kpinterfaces )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kontact_multisynk )
+install_targets(${PLUGIN_INSTALL_DIR} kontact_multisynk )
 
 
 ########### install files ###############

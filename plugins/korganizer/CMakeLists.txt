@@ -21,7 +21,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_korganizerplugin )
 
 target_link_libraries(kontact_korganizerplugin  ${KDE4_KDECORE_LIBS}  kpinterfaces kparts korganizer_calendar )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kontact_korganizerplugin )
+install_targets(${PLUGIN_INSTALL_DIR} kontact_korganizerplugin )
 
 
 ########### next target ###############
@@ -38,7 +38,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_todoplugin )
 
 target_link_libraries(kontact_todoplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kparts korganizer_calendar )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kontact_todoplugin )
+install_targets(${PLUGIN_INSTALL_DIR} kontact_todoplugin )
 
 
 ########### next target ###############
@@ -55,7 +55,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_journalplugin )
 
 target_link_libraries(kontact_journalplugin  ${KDE4_KDECORE_LIBS}  kpinterfaces kparts korganizer_calendar )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kontact_journalplugin )
+install_targets(${PLUGIN_INSTALL_DIR} kontact_journalplugin )
 
 
 ########### next target ###############
@@ -72,7 +72,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_apptsummary )
 
 target_link_libraries(kcm_apptsummary  ${KDE4_KDEUI_LIBS} )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kcm_apptsummary )
+install_targets(${PLUGIN_INSTALL_DIR} kcm_apptsummary )
 
 
 ########### next target ###############
@@ -89,7 +89,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_todosummary )
 
 target_link_libraries(kcm_todosummary  ${KDE4_KDEUI_LIBS} )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kcm_todosummary )
+install_targets(${PLUGIN_INSTALL_DIR} kcm_todosummary )
 
 
 ########### next target ###############
