@@ -107,7 +107,6 @@ void KNotesSummaryWidget::updateView()
       KUrlLabel *urlLabel = new KUrlLabel( (*it)->uid(), newtext, this );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat(Qt::RichText);
-      urlLabel->setAlignment( urlLabel->alignment() );
       urlLabel->setWordWrap( true );
       mLayout->addWidget( urlLabel, counter, 1 );
       mLabels.append( urlLabel );
