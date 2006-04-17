@@ -107,7 +107,8 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   mConduitsTextLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop | Qt::TextExpandTabs );
   mLayout->addWidget( mConduitsTextLabel, row, 0 );
   mConduitsLabel = new QLabel( i18n( "No information available" ), this );
-  mConduitsLabel->setAlignment( mConduitsLabel->alignment() | Qt::TextWordWrap );
+  mConduitsLabel->setAlignment( mConduitsLabel->alignment() );
+  mConduitsLabel->setWordWrap( true );
   mLayout->addMultiCellWidget( mConduitsLabel, row, row, 1, 3 );
 
   // widgets shown if kpilotDaemon is not running
