@@ -609,9 +609,9 @@ void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
   QDate currentDate;
   QDate eventDate;
 
-  if ( QDate::leapYear( date.year() ) && date.month() == 2 && date.day() == 29 ) {
+  if ( QDate::isLeapYear( date.year() ) && date.month() == 2 && date.day() == 29 ) {
     currentDate = QDate( date.year(), QDate::currentDate().month(), QDate::currentDate().day() );
-    if ( !QDate::leapYear( QDate::currentDate().year() ) )
+    if ( !QDate::isLeapYear( QDate::currentDate().year() ) )
       eventDate = QDate( date.year(), date.month(), 28 ); // celebrate one day earlier ;)
     else
       eventDate = QDate( date.year(), date.month(), date.day() );
