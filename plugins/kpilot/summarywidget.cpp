@@ -67,7 +67,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   int row=0;
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kpilot", K3Icon::Desktop, K3Icon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "KPilot Information" ) );
-  mLayout->addMultiCellWidget( header, row,row, 0,3 );
+  mLayout->addWidget( header, row, 0, 1, 4 );
 
   // Last sync information
   row++;
@@ -85,21 +85,21 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   mPilotUserTextLabel = new QLabel( i18n( "<i>User:</i>" ), this);
   mLayout->addWidget( mPilotUserTextLabel, row, 0);
   mPilotUserLabel = new QLabel( i18n( "Unknown" ), this );
-  mLayout->addMultiCellWidget( mPilotUserLabel, row, row, 1, 3 );
+  mLayout->addWidget( mPilotUserLabel, row, 1, 1, 3 );
 
   // Device information
   row++;
   mPilotDeviceTextLabel = new QLabel( i18n( "<i>Device:</i>" ), this);
   mLayout->addWidget( mPilotDeviceTextLabel, row, 0 );
   mPilotDeviceLabel = new QLabel( i18n( "Unknown" ), this );
-  mLayout->addMultiCellWidget( mPilotDeviceLabel, row, row, 1, 3 );
+  mLayout->addWidget( mPilotDeviceLabel, row, 1, 1, 3 );
 
   // Status
   row++;
   mDaemonStatusTextLabel = new QLabel( i18n( "<i>Status:</i>" ), this);
   mLayout->addWidget( mDaemonStatusTextLabel, row, 0 );
   mDaemonStatusLabel = new QLabel( i18n( "No communication with the daemon possible" ), this );
-  mLayout->addMultiCellWidget( mDaemonStatusLabel, row, row, 1, 3 );
+  mLayout->addWidget( mDaemonStatusLabel, row, 1, 1, 3 );
 
   // Conduits:
   row++;
@@ -108,12 +108,12 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   mLayout->addWidget( mConduitsTextLabel, row, 0 );
   mConduitsLabel = new QLabel( i18n( "No information available" ), this );
   mConduitsLabel->setWordWrap( true );
-  mLayout->addMultiCellWidget( mConduitsLabel, row, row, 1, 3 );
+  mLayout->addWidget( mConduitsLabel, row, 1, 1, 3 );
 
   // widgets shown if kpilotDaemon is not running
   row++;
   mNoConnectionLabel = new QLabel( i18n( "KPilot is currently not running." ), this );
-  mLayout->addMultiCellWidget( mNoConnectionLabel, row, row, 1, 2 );
+  mLayout->addWidget( mNoConnectionLabel, row, 1, 1, 2 );
   mNoConnectionStartLabel = new KUrlLabel( "", i18n( "[Start KPilot]" ), this );
   mLayout->addWidget( mNoConnectionStartLabel, row, 3 );
   connect( mNoConnectionStartLabel, SIGNAL( leftClickedURL( const QString& ) ),

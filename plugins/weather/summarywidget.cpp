@@ -121,7 +121,7 @@ void SummaryWidget::updateView()
     urlLabel->setPixmap( QPixmap(img.smoothScale( 32, 32 )) );
     urlLabel->setMaximumSize( urlLabel->sizeHint() );
     urlLabel->setAlignment( Qt::AlignTop );
-    layout->addMultiCellWidget( urlLabel, 0, 1, 0, 0 );
+    layout->addWidget( urlLabel, 0, 0, 2, 1);
     mLabels.append( urlLabel );
     connect ( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
               this, SLOT( showReport( const QString& ) ) );
@@ -132,7 +132,7 @@ void SummaryWidget::updateView()
     font.setBold( true );
     label->setFont( font );
     label->setAlignment( Qt::AlignLeft );
-    layout->addMultiCellWidget( label, 0, 0, 1, 2 );
+    layout->addWidget( label, 0, 1, 1, 2 );
     mLabels.append( label );
 
     QString labelText;
@@ -150,7 +150,7 @@ void SummaryWidget::updateView()
 
     label = new QLabel( cover, this );
     label->setAlignment( Qt::AlignLeft );
-    layout->addMultiCellWidget( label, 1, 1, 1, 2 );
+    layout->addWidget( label, 1, 1, 1, 2 );
     mLabels.append( label );
   }
 

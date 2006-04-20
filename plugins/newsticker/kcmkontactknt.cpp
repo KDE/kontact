@@ -73,14 +73,14 @@ NewsEditDialog::NewsEditDialog( const QString& title, const QString& url, QWidge
 
   mTitle = new QLineEdit( page );
   label->setBuddy( mTitle );
-  layout->addMultiCellWidget( mTitle, 0, 0, 1, 2 );
+  layout->addWidget( mTitle, 0, 1, 1, 2 );
 
   label = new QLabel( i18n( "URL:" ), page );
   layout->addWidget( label, 1, 0 );
 
   mURL = new QLineEdit( page );
   label->setBuddy( mURL );
-  layout->addMultiCellWidget( mURL, 1, 1, 1, 2 );
+  layout->addWidget( mURL, 1, 1, 1, 2 );
 
   mTitle->setText( title );
   mURL->setText( url );
@@ -389,7 +389,7 @@ void KCMKontactKNT::initGUI()
   mDeleteButton->setEnabled( false );
   boxLayout->addWidget( mDeleteButton, 1, 2 );
 
-  layout->addMultiCellWidget( box, 1, 1, 0, 2 );
+  layout->addWidget( box, 1, 0, 1, 3 );
 }
 
 bool KCMKontactKNT::dcopActive() const

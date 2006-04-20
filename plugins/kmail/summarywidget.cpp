@@ -159,7 +159,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
   if ( counter == 0 ) {
     QLabel *label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );
     label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addMultiCellWidget( label, 0, 0, 0, 2 );
+    mLayout->addWidget( label, 0, 0, 1, 3 );
     label->show();
     mLabels.append( label );
   }
