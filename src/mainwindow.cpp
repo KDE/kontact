@@ -264,8 +264,8 @@ void MainWindow::initWidgets()
   mStatusMsgLabel = new KRSqueezedTextLabel( i18n( " Initializing..." ), statusBar() );
   mStatusMsgLabel->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
 
-  statusBar()->addWidget( mStatusMsgLabel, 10 , false );
-  statusBar()->addWidget( mLittleProgress, 0 , true );
+  statusBar()->addWidget( mStatusMsgLabel, 10 );
+  statusBar()->addPermanentWidget( mLittleProgress, 0 );
   mLittleProgress->show();
 }
 
@@ -502,7 +502,7 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
 
   //createGUI( part ); // moved to selectPlugin()
 
-  statusBar()->clear();
+  statusBar()->clearMessage();
 }
 
 void MainWindow::slotNewClicked()
@@ -528,7 +528,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     return;
 
   if ( plugin->isRunningStandalone() ) {
-    statusBar()->message( i18n( "Application is running standalone. Foregrounding..." ), 1000 );
+    statusBar()->showMessage( i18n( "Application is running standalone. Foregrounding..." ), 1000 );
     mSidePane->indicateForegrunding( plugin );
     plugin->bringToForeground();
     return;
