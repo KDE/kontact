@@ -129,7 +129,7 @@ void PluginSelection::readConfig()
     QVariant var = service->property( "X-KDE-KontactPluginHasPart" );
     if ( var.isValid() && var.toBool() == false )
       continue;
-    mPluginCombo->insertItem( service->name() );
+    mPluginCombo->addItem( service->name() );
     mPluginList.append( service );
 
     if ( service->property("X-KDE-PluginInfo-Name").toString() == mItem->value() )
@@ -141,7 +141,7 @@ void PluginSelection::readConfig()
 
 void PluginSelection::writeConfig()
 {
-  KService::Ptr ptr =  mPluginList.at( mPluginCombo->currentItem() );
+  KService::Ptr ptr =  mPluginList.at( mPluginCombo->currentIndex() );
   mItem->setValue( ptr->property("X-KDE-PluginInfo-Name").toString() );
 }
 
