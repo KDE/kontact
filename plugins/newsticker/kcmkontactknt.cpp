@@ -370,7 +370,8 @@ void KCMKontactKNT::initGUI()
   QLabel *label = new QLabel( i18n( "Refresh time:" ), box );
   boxLayout->addWidget( label, 0, 0 );
 
-  mUpdateInterval = new QSpinBox( 1, 3600, 1, box );
+  mUpdateInterval = new QSpinBox( box );
+  mUpdateInterval->setRange( 1, 3600 );
   mUpdateInterval->setSuffix( " sec." );
   label->setBuddy( mUpdateInterval );
   boxLayout->addWidget( mUpdateInterval, 0, 1 );
