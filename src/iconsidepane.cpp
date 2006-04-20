@@ -463,7 +463,7 @@ void Navigator::slotShowRMBMenu( Q3ListBoxItem * )
   menu.setItemEnabled( (int)SmallIcons, mShowIcons );
 
   menu.setItemChecked( (int)mViewMode, true );
-  menu.insertSeparator();
+  menu.addSeparator();
 
   menu.insertItem( i18n( "Show Icons" ), (int)ShowIcons );
   menu.setItemChecked( (int)ShowIcons, mShowIcons );
