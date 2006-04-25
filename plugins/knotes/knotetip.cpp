@@ -37,7 +37,7 @@
 #include <Q3Frame>
 #include <QTimerEvent>
 #include <QResizeEvent>
-#include <Q3VBoxLayout>
+#include <QVBoxLayout>
 
 #include <kapplication.h>
 #include <kglobalsettings.h>
@@ -59,7 +59,7 @@ KNoteTip::KNoteTip( K3IconView *parent )
   mPreview->setHScrollBarMode( Q3ScrollView::AlwaysOff );
   mPreview->setVScrollBarMode( Q3ScrollView::AlwaysOff );
 
-  Q3BoxLayout *layout = new Q3VBoxLayout( this );
+  QBoxLayout *layout = new QVBoxLayout( this );
   layout->addWidget( mPreview );
 
   setPalette( QToolTip::palette() );

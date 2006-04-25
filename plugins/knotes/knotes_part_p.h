@@ -35,9 +35,9 @@
 #include <qlayout.h>
 #include <qlabel.h>
 //Added by qt3to4:
-#include <Q3VBoxLayout>
+#include <QVBoxLayout>
 #include <QPixmap>
-#include <Q3HBoxLayout>
+#include <QHBoxLayout>
 
 #include <kactioncollection.h>
 #include <klocale.h>
@@ -108,9 +108,10 @@ class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
       actionCollection()->setAssociatedWidget( this );
 
       QWidget *page = plainPage();
-      Q3VBoxLayout *layout = new Q3VBoxLayout( page );
+      QVBoxLayout *layout = new QVBoxLayout( page );
 
-      Q3HBoxLayout *hbl = new Q3HBoxLayout( layout, marginHint() );
+      QHBoxLayout *hbl = new QHBoxLayout( layout );
+      hbl->setSpacing( marginHint() );
       QLabel *label = new QLabel( page);
       label->setText( i18n( "Name:" ) );
       hbl->addWidget( label,0 );

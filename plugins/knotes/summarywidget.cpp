@@ -26,9 +26,9 @@
 #include <qlayout.h>
 #include <qtooltip.h>
 //Added by qt3to4:
-#include <Q3VBoxLayout>
+#include <QVBoxLayout>
 #include <QPixmap>
-#include <Q3GridLayout>
+#include <QGridLayout>
 #include <QEvent>
 
 #include <dcopclient.h>
@@ -53,14 +53,17 @@ KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
                                           QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ), mLayout( 0 ), mPlugin( plugin )
 {
-  Q3VBoxLayout *mainLayout = new Q3VBoxLayout( this, 3, 3 );
+  QVBoxLayout *mainLayout = new QVBoxLayout( this );
+  mainLayout->setSpacing( 3 );
+  mainLayout->setMargin( 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_notes",
                    K3Icon::Desktop, K3Icon::SizeMedium );
   QWidget* header = createHeader( this, icon, i18n( "Notes" ) );
   mainLayout->addWidget( header );
 
-  mLayout = new Q3GridLayout( mainLayout, 7, 3, 3 );
+  mLayout = new QGridLayout( mainLayout );
+  mLayout->setMargin( 3 );
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = new KCal::CalendarLocal( QString::fromLatin1("UTC") );

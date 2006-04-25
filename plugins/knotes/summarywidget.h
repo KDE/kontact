@@ -31,13 +31,12 @@
 #include <qwidget.h>
 //Added by qt3to4:
 #include <QLabel>
-#include <Q3GridLayout>
 #include <QEvent>
 
 #include <libkcal/resourcelocal.h>
 #include <libkcal/calendarresources.h>
 
-class Q3GridLayout;
+class QGridLayout;
 class QLabel;
 
 namespace Kontact {
@@ -66,7 +65,7 @@ class KNotesSummaryWidget : public Kontact::Summary
     KCal::CalendarLocal *mCalendar;
     KCal::Journal::List mNotes;
 
-    Q3GridLayout *mLayout;
+    QGridLayout *mLayout;
 
     QList<QLabel*> mLabels;
     Kontact::Plugin *mPlugin;
