@@ -78,7 +78,9 @@ void KCMKMailSummary::modified()
 
 void KCMKMailSummary::initGUI()
 {
-  QVBoxLayout *layout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
+  QVBoxLayout *layout = new QVBoxLayout( this );
+  layout->setSpacing( KDialog::spacingHint() );
+  layout->setMargin( 0 );
 
   mFolderView = new K3ListView( this );
   mFolderView->setRootIsDecorated( true );

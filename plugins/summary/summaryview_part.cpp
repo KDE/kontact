@@ -218,9 +218,11 @@ void SummaryViewPart::updateWidgets()
 
   QHBoxLayout *layout = new QHBoxLayout( mFrame );
 
-  mLeftColumn = new QVBoxLayout( layout, KDialog::spacingHint() );
+  mLeftColumn = new QVBoxLayout( layout );
+  mLeftColumn->setSpacing( KDialog::spacingHint() );
   layout->addWidget( vline );
-  mRightColumn = new QVBoxLayout( layout, KDialog::spacingHint()  );
+  mRightColumn = new QVBoxLayout( layout );
+  mRightColumn->setSpacing( KDialog::spacingHint() );
 
 
   QStringList::Iterator strIt;
@@ -369,7 +371,9 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   sa->setFocusPolicy( Qt::StrongFocus );
   setWidget( sa );
 
-  mMainLayout = new QVBoxLayout( mMainWidget,KDialog::marginHint(), KDialog::spacingHint() );
+  mMainLayout = new QVBoxLayout( mMainWidget );
+  mMainLayout->setSpacing( KDialog::spacingHint() );
+  mMainLayout->setMargin( KDialog::marginHint() );
 
   QHBoxLayout *hbl = new QHBoxLayout( mMainLayout );
   mUsernameLabel = new QLabel( mMainWidget );

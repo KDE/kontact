@@ -58,14 +58,17 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
                                       QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ), mPlugin( plugin )
 {
-  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+  QVBoxLayout *mainLayout = new QVBoxLayout( this );
+  mainLayout->setSpacing( 3 );
+  mainLayout->setMargin( 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_todo",
                    K3Icon::Desktop, K3Icon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Pending To-dos" ) );
   mainLayout->addWidget( header );
 
-  mLayout = new QGridLayout( mainLayout, 7, 6, 3 );
+  mLayout = new QGridLayout( mainLayout );
+  mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = KOrg::StdCalendar::self();

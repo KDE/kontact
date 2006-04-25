@@ -62,7 +62,9 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
     mStartedDaemon( false ),
     mShouldStopDaemon( true )
 {
-  mLayout = new QGridLayout( this, 2, 3, 3, 3 );
+  mLayout = new QGridLayout( this );
+  mLayout->setSpacing( 3 );
+  mLayout->setMargin( 3 );
 
   int row=0;
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kpilot", K3Icon::Desktop, K3Icon::SizeMedium );

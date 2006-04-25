@@ -51,12 +51,15 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const ch
     DCOPObject( "MailSummary" ),
     mPlugin( plugin )
 {
-  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+  QVBoxLayout *mainLayout = new QVBoxLayout( this );
+  mainLayout->setSpacing( 3 );
+  mainLayout->setMargin( 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_mail", K3Icon::Desktop,
                                                   K3Icon::SizeMedium );
   QWidget *header = createHeader(this, icon, i18n("New Messages"));
-  mLayout = new QGridLayout( 1, 3, 3 );
+  mLayout = new QGridLayout();
+  mLayout->setSpacing( 3 );
 
   mainLayout->addWidget(header);
   mainLayout->addLayout(mLayout);

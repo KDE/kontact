@@ -88,7 +88,9 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 ), mHolidays( 0 )
 {
   // Create the Summary Layout
-  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+  QVBoxLayout *mainLayout = new QVBoxLayout( this );
+  mainLayout->setSpacing( 3 );
+  mainLayout->setMargin( 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "cookie",
                     K3Icon::Desktop, K3Icon::SizeMedium );
@@ -96,7 +98,8 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   QWidget *header = createHeader( this, icon, i18n( "Upcoming Special Dates" ) );
   mainLayout->addWidget(header);
 
-  mLayout = new QGridLayout( mainLayout, 7, 6, 3 );
+  mLayout = new QGridLayout( mainLayout );
+  mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
   // Setup the Addressbook

@@ -50,7 +50,9 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ),
     DCOPObject( "WeatherSummaryWidget" ), mProc( 0 )
 {
-  mLayout = new QVBoxLayout( this, 3, 3 );
+  mLayout = new QVBoxLayout( this );
+  mLayout->setSpacing( 3 );
+  mLayout->setMargin( 3 );
   mLayout->setAlignment( Qt::AlignTop );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kweather", K3Icon::Desktop, K3Icon::SizeMedium );
@@ -112,7 +114,8 @@ void SummaryWidget::updateView()
     QImage img;
     img = (*it).icon();
 
-    QGridLayout *layout = new QGridLayout( mLayout, 3, 3, 3 );
+    QGridLayout *layout = new QGridLayout( mLayout );
+    layout->setSpacing( 3 );
     mLayouts.append( layout );
 
     KUrlLabel* urlLabel = new KUrlLabel( this );

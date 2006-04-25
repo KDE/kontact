@@ -49,7 +49,9 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ),
     DCOPObject( "NewsTickerPlugin" ), mLayout( 0 )
 {
-  QVBoxLayout *vlay = new QVBoxLayout( this, 3, 3 );
+  QVBoxLayout *vlay = new QVBoxLayout( this );
+  vlay->setSpacing( 3 );
+  vlay->setMargin( 3 );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_news",
                                                   K3Icon::Desktop, K3Icon::SizeMedium );
@@ -208,7 +210,8 @@ void SummaryWidget::updateView()
   mLabels.clear();
 
   delete mLayout;
-  mLayout = new QVBoxLayout( mBaseWidget, 3 );
+  mLayout = new QVBoxLayout( mBaseWidget );
+  mLayout->setSpacing( 3 );
 
   QFont boldFont;
   boldFont.setBold( true );

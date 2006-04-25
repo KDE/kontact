@@ -65,7 +65,9 @@ NewsEditDialog::NewsEditDialog( const QString& title, const QString& url, QWidge
                  Ok, parent, 0, true, true )
 {
   QWidget *page = plainPage();
-  QGridLayout *layout = new QGridLayout( page, 2, 3, marginHint(), spacingHint() );
+  QGridLayout *layout = new QGridLayout( page );
+  layout->setSpacing( spacingHint() );
+  layout->setMargin( marginHint() );
 
   QLabel *label = new QLabel( i18n( "Name:" ), page );
   layout->addWidget( label, 0, 0 );
@@ -335,7 +337,9 @@ void KCMKontactKNT::modified()
 
 void KCMKontactKNT::initGUI()
 {
-  QGridLayout *layout = new QGridLayout( this, 2, 3, KDialog::marginHint(), KDialog::spacingHint() );
+  QGridLayout *layout = new QGridLayout( this );
+  layout->setSpacing( KDialog::spacingHint() );
+  layout->setMargin( KDialog::marginHint() );
 
   mAllNews = new K3ListView( this );
   mAllNews->addColumn( i18n( "All" ) );
@@ -343,7 +347,8 @@ void KCMKontactKNT::initGUI()
   mAllNews->setFullWidth( true );
   layout->addWidget( mAllNews, 0, 0 );
 
-  QVBoxLayout *vbox = new QVBoxLayout( layout, KDialog::spacingHint() );
+  QVBoxLayout *vbox = new QVBoxLayout( layout );
+  vbox->setSpacing( KDialog::spacingHint() );
 
   vbox->addStretch();
   mAddButton = new KPushButton( i18n( "Add" ), this );
@@ -362,7 +367,8 @@ void KCMKontactKNT::initGUI()
   Q3GroupBox *box = new Q3GroupBox( 0, Qt::Vertical,
                                   i18n( "News Feed Settings" ), this );
 
-  QGridLayout *boxLayout = new QGridLayout( box->layout(), 2, 3, KDialog::spacingHint() );
+  QGridLayout *boxLayout = new QGridLayout( box->layout() );
+  boxLayout->setSpacing( KDialog::spacingHint() );
 
   QLabel *label = new QLabel( i18n( "Refresh time:" ), box );
   boxLayout->addWidget( label, 0, 0 );
