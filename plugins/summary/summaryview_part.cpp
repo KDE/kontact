@@ -369,8 +369,7 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   sa->setFocusPolicy( Qt::StrongFocus );
   setWidget( sa );
 
-  mMainLayout = new QVBoxLayout( mMainWidget,KDialog::marginHint(),
-                                 KDialog::spacingHint() );
+  mMainLayout = new QVBoxLayout( mMainWidget,KDialog::marginHint(), KDialog::spacingHint() );
 
   QHBoxLayout *hbl = new QHBoxLayout( mMainLayout );
   mUsernameLabel = new QLabel( mMainWidget );
