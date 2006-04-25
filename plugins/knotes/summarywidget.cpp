@@ -62,7 +62,8 @@ KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
   QWidget* header = createHeader( this, icon, i18n( "Notes" ) );
   mainLayout->addWidget( header );
 
-  mLayout = new QGridLayout( mainLayout );
+  mLayout = new QGridLayout();
+  mainLayout->addItem( mLayout );
   mLayout->setMargin( 3 );
   mLayout->setRowStretch( 6, 1 );
 

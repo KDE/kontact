@@ -114,7 +114,8 @@ void SummaryWidget::updateView()
     QImage img;
     img = (*it).icon();
 
-    QGridLayout *layout = new QGridLayout( mLayout );
+    QGridLayout *layout = new QGridLayout();
+    mLayout->addItem( layout );
     layout->setSpacing( 3 );
     mLayouts.append( layout );
 

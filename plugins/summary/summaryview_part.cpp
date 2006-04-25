@@ -218,10 +218,12 @@ void SummaryViewPart::updateWidgets()
 
   QHBoxLayout *layout = new QHBoxLayout( mFrame );
 
-  mLeftColumn = new QVBoxLayout( layout );
+  mLeftColumn = new QVBoxLayout();
+  layout->addItem( mLeftColumn );
   mLeftColumn->setSpacing( KDialog::spacingHint() );
   layout->addWidget( vline );
-  mRightColumn = new QVBoxLayout( layout );
+  mRightColumn = new QVBoxLayout();
+  layout->addItem( mRightColumn );
   mRightColumn->setSpacing( KDialog::spacingHint() );
 
 
@@ -375,7 +377,8 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   mMainLayout->setSpacing( KDialog::spacingHint() );
   mMainLayout->setMargin( KDialog::marginHint() );
 
-  QHBoxLayout *hbl = new QHBoxLayout( mMainLayout );
+  QHBoxLayout *hbl = new QHBoxLayout();
+  mMainLayout->addItem( hbl );
   mUsernameLabel = new QLabel( mMainWidget );
   hbl->addWidget( mUsernameLabel );
   mDateLabel = new QLabel( mMainWidget );

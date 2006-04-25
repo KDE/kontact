@@ -98,7 +98,8 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
   QWidget *header = createHeader( this, icon, i18n( "Upcoming Special Dates" ) );
   mainLayout->addWidget(header);
 
-  mLayout = new QGridLayout( mainLayout );
+  mLayout = new QGridLayout();
+  mainLayout->addItem( mLayout );
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 

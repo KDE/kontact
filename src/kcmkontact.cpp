@@ -74,7 +74,8 @@ KcmKontact::KcmKontact( KInstance *inst, QWidget *parent )
   : KPrefsModule( Kontact::Prefs::self(), inst, parent )
 {
   QBoxLayout *topLayout = new QVBoxLayout( this );
-  QBoxLayout *pluginStartupLayout = new QHBoxLayout( topLayout );
+  QBoxLayout *pluginStartupLayout = new QHBoxLayout();
+  topLayout->addItem( pluginStartupLayout );
   topLayout->addStretch();
 
   KPrefsWidBool *forceStartupPlugin = addWidBool( Kontact::Prefs::self()->forceStartupPluginItem(), this );
