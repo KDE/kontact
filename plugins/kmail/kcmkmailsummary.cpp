@@ -118,7 +118,7 @@ void KCMKMailSummary::initFolders()
         mFolderMap.insert( *it, new Q3ListViewItem( mFolderView,
                                                    displayName ) );
     } else {
-      const int pos = (*it).findRev( '/' );
+      const int pos = (*it).lastIndexOf( '/' );
       const QString parentFolder = (*it).left( pos );
       mFolderMap.insert( *it,
                          new Q3CheckListItem( mFolderMap[ parentFolder ],
