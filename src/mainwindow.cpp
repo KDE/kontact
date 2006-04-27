@@ -840,7 +840,7 @@ void MainWindow::slotShowStatusMsg( const QString &msg )
 QString MainWindow::introductionString()
 {
   KIconLoader *iconloader = KGlobal::iconLoader();
-  if (!iconLoader)
+  if (!iconloader)
     return QString();
   int iconSize = iconloader->currentSize( K3Icon::Desktop );
 
