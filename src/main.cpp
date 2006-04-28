@@ -71,7 +71,7 @@ static void listPlugins()
     QVariant var = service->property( "X-KDE-KontactPluginHasPart" );
     if ( var.isValid() && var.toBool() == false )
       continue;
-    cout << service->library().remove( "libkontact_" ).toLatin1() << endl;
+    cout << service->library().remove( "libkontact_" ).toLatin1().data() << endl;
   }
 }
 
