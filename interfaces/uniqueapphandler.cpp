@@ -137,10 +137,10 @@ UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin
     : QObject( plugin ), mFactory( factory ), mPlugin( plugin )
 {
   // The app is running standalone if 1) that name is known to DCOP
-  mRunningStandalone = kapp->dcopClient()->isApplicationRegistered( plugin->name() );
+  mRunningStandalone = kapp->dcopClient()->isApplicationRegistered( plugin->objectName().toLatin1() );
 
   // and 2) it's not registered by kontact (e.g. in another plugin)
-  if ( mRunningStandalone && kapp->dcopClient()->findLocalClient( plugin->name() ) )
+  if ( mRunningStandalone && kapp->dcopClient()->findLocalClient( plugin->objectName().toLatin1() ) )
       mRunningStandalone = false;
 
   if ( mRunningStandalone ) {
@@ -162,7 +162,7 @@ UniqueAppWatcher::~UniqueAppWatcher()
 
 void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray& appId )
 {
-  if ( appId == mPlugin->name() && mRunningStandalone ) {
+  if ( appId == mPlugin->objectName() && mRunningStandalone ) {
     disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ),
                 this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
     kDebug(5601) << k_funcinfo << appId << endl;

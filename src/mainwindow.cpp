@@ -408,7 +408,7 @@ void MainWindow::loadPlugins()
     QList<KAction*>::const_iterator listIt;
 
     for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-      kDebug(5600) << "Plugging " << (*listIt)->name() << endl;
+      kDebug(5600) << "Plugging " << (*listIt)->objectName() << endl;
       (*listIt)->plug( mNewActions->popupMenu() );
     }
 
@@ -439,7 +439,7 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
       QList<KAction*>::const_iterator listIt;
 
       for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-        kDebug(5600) << "Unplugging " << (*listIt)->name() << endl;
+        kDebug(5600) << "Unplugging " << (*listIt)->objectName() << endl;
         (*listIt)->unplug( mNewActions->popupMenu() );
       }
 
@@ -609,7 +609,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   QStringList::ConstIterator it;
   for ( it = invisibleActions.begin(); it != invisibleActions.end(); ++it ) {
-    KAction *action = part->actionCollection()->action( (*it).toLatin1() );
+    KAction *action = part->actionCollection()->action( (*it) );
     if ( action ) {
       QList<KToolBar*> toolbars = toolBars();
       for( QList<KToolBar*>::Iterator it = toolbars.begin(); it != toolbars.end(); ++it ) {

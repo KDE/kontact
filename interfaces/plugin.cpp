@@ -53,8 +53,9 @@ class Plugin::Private
 
 
 Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
-  : KXMLGUIClient(  core ), QObject(  parent, name ), d(  new Private )
+  : KXMLGUIClient(  core ), QObject(  parent ), d(  new Private )
 {
+  setObjectName( name );
   core->factory()->addClient( this );
   KGlobal::locale()->insertCatalog(name);
 
@@ -164,7 +165,7 @@ DCOPClient* Plugin::dcopClient() const
     // ### Note: maybe we could use executableName().toLatin1() instead here.
     // But this requires that dcopClient is NOT called by the constructor,
     // and is called by some new virtual void init() later on.
-    d->dcopClient->registerAs( name(), false );
+    d->dcopClient->registerAs( objectName().toLatin1(), false );
   }
 
   return d->dcopClient;
