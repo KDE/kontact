@@ -277,7 +277,7 @@ void KCMKontactKNT::deleteFeed()
   if ( !item )
     return;
 
-  if ( mCustomFeeds.find( item ) == mCustomFeeds.end() )
+  if ( !mCustomFeeds.contains( item )  )
     return;
 
   mCustomFeeds.remove( item );
@@ -323,7 +323,7 @@ void KCMKontactKNT::allCurrentChanged( Q3ListViewItem *item )
   bool delState = false;
   if ( newsItem && newsItem->isSelected() ) {
     addState = true;
-    delState = (mCustomFeeds.find( newsItem ) != mCustomFeeds.end());
+    delState = (mCustomFeeds.contains( newsItem ) );
   }
 
   mAddButton->setEnabled( addState );

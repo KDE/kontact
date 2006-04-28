@@ -161,7 +161,7 @@ void KCMKontactSummary::load()
     if ( var.toBool() == true ) {
       PluginItem *item = new PluginItem( *it, mPluginView );
 
-      if ( activeSummaries.find( (*it)->pluginName() ) != activeSummaries.end() )
+      if ( activeSummaries.contains( (*it)->pluginName() )  )
         item->setOn( true );
     }
   }
