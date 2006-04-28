@@ -170,7 +170,7 @@ void SummaryViewPart::updateWidgets()
   QList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
   for ( ; it != end; ++it ) {
     Kontact::Plugin *plugin = *it;
-    if ( activeSummaries.find( plugin->identifier() ) == activeSummaries.end() )
+    if ( !activeSummaries.contains( plugin->identifier() )  )
       continue;
 
     Kontact::Summary *summary = plugin->createSummaryWidget( mFrame );
@@ -199,13 +199,13 @@ void SummaryViewPart::updateWidgets()
   {
     QStringList::Iterator strIt;
     for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
-      if ( loadedSummaries.find( *strIt ) == loadedSummaries.end() ) {
+      if ( !loadedSummaries.contains( *strIt )  ) {
         strIt = mLeftColumnSummaries.remove( strIt );
         --strIt;
       }
     }
     for ( strIt = mRightColumnSummaries.begin(); strIt != mRightColumnSummaries.end(); ++strIt ) {
-      if ( loadedSummaries.find( *strIt ) == loadedSummaries.end() ) {
+      if ( !loadedSummaries.contains( *strIt )  ) {
         strIt = mRightColumnSummaries.remove( strIt );
         --strIt;
       }
@@ -229,12 +229,12 @@ void SummaryViewPart::updateWidgets()
 
   QStringList::Iterator strIt;
   for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
-    if ( mSummaries.find( *strIt ) != mSummaries.end() )
+    if ( mSummaries.contains( *strIt )  )
       mLeftColumn->addWidget( mSummaries[ *strIt ] );
   }
 
   for ( strIt = mRightColumnSummaries.begin(); strIt != mRightColumnSummaries.end(); ++strIt ) {
-    if ( mSummaries.find( *strIt ) != mSummaries.end() )
+    if ( mSummaries.contains( *strIt )  )
       mRightColumn->addWidget( mSummaries[ *strIt ] );
   }
 
