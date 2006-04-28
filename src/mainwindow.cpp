@@ -449,7 +449,7 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
         mCurrentPlugin = 0;
 
       delete plugin; // removes the part automatically
-      mPlugins.remove( it );
+      mPlugins.erase( it );
 
       if ( mCurrentPlugin == 0 ) {
         PluginList::Iterator it;
@@ -702,7 +702,7 @@ void MainWindow::slotPreferences()
         KPluginInfo::List::ConstIterator infoIt;
         for ( infoIt = filteredPlugins.begin(); infoIt != filteredPlugins.end(); ++infoIt ) {
           if ( (*infoIt)->pluginName() == (*it)->identifier() ) {
-            filteredPlugins.remove( *infoIt );
+            filteredPlugins.removeAll( *infoIt );
             break;
           }
         }

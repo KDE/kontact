@@ -278,7 +278,7 @@ void SummaryWidget::documentUpdateError( DCOPRef feedRef, int errorCode )
   FeedList::Iterator it;
   for ( it = mFeeds.begin(); it != mFeeds.end(); ++it ) {
     if ( (*it).ref.obj() == feedRef.obj() ) {
-      mFeeds.remove( it );
+      mFeeds.erase( it );
       break;
     }
   }

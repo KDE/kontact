@@ -200,13 +200,13 @@ void SummaryViewPart::updateWidgets()
     QStringList::Iterator strIt;
     for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
       if ( !loadedSummaries.contains( *strIt )  ) {
-        strIt = mLeftColumnSummaries.remove( strIt );
+        strIt = mLeftColumnSummaries.erase( strIt );
         --strIt;
       }
     }
     for ( strIt = mRightColumnSummaries.begin(); strIt != mRightColumnSummaries.end(); ++strIt ) {
       if ( !loadedSummaries.contains( *strIt )  ) {
-        strIt = mRightColumnSummaries.remove( strIt );
+        strIt = mRightColumnSummaries.erase( strIt );
         --strIt;
       }
     }
@@ -263,10 +263,10 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
 
   if ( mLeftColumn->findWidget( widget ) != -1 ) {
     mLeftColumn->remove( widget );
-    mLeftColumnSummaries.remove( widgetName( widget ) );
+    mLeftColumnSummaries.removeAll( widgetName( widget ) );
   } else if ( mRightColumn->findWidget( widget ) != -1 ) {
     mRightColumn->remove( widget );
-    mRightColumnSummaries.remove( widgetName( widget ) );
+    mRightColumnSummaries.removeAll( widgetName( widget ) );
   }
 
   if ( target == mFrame ) {

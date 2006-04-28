@@ -280,7 +280,7 @@ void KCMKontactKNT::deleteFeed()
   if ( !mCustomFeeds.contains( item )  )
     return;
 
-  mCustomFeeds.remove( item );
+  mCustomFeeds.removeAll( item );
   mFeedMap.remove( item->url() );
   delete item;
 
