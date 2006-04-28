@@ -111,8 +111,7 @@ void SummaryWidget::updateView()
     for ( int i = 0; i < (*it).cover().count(); ++i )
       cover += QString( "- %1\n" ).arg( (*it).cover()[ i ] );
 
-    QImage img;
-    img = (*it).icon();
+    QImage img = (*it).icon().toImage();
 
     QGridLayout *layout = new QGridLayout();
     mLayout->addItem( layout );
@@ -122,7 +121,7 @@ void SummaryWidget::updateView()
     KUrlLabel* urlLabel = new KUrlLabel( this );
     urlLabel->installEventFilter( this );
     urlLabel->setURL( (*it).stationID() );
-    urlLabel->setPixmap( QPixmap(img.smoothScale( 32, 32 )) );
+    urlLabel->setPixmap( QPixmap::fromImage( img.smoothScale( 32, 32 ) ) );
     urlLabel->setMaximumSize( urlLabel->sizeHint() );
     urlLabel->setAlignment( Qt::AlignTop );
     layout->addWidget( urlLabel, 0, 0, 2, 1);

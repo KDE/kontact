@@ -97,7 +97,7 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
 
     QPixmap pm = QPixmap::grabWidget( this );
     if ( pm.width() > 300 )
-      pm = pm.convertToImage().smoothScale( 300, 300, Qt::KeepAspectRatio );
+      pm = QPixmap::fromImage( pm.toImage().smoothScale( 300, 300, Qt::KeepAspectRatio ) );
 
     QPainter painter;
     painter.begin( &pm );

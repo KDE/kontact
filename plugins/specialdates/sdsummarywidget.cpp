@@ -433,7 +433,7 @@ void SDSummaryWidget::updateView()
         label->setPixmap( KGlobal::iconLoader()->loadIcon( icon_name,
                                                            K3Icon::Small ) );
       } else {
-        label->setPixmap( QPixmap(icon_img) );
+        label->setPixmap( QPixmap::fromImage(icon_img) );
       }
       label->setMaximumWidth( label->minimumSizeHint().width() );
       label->setAlignment( Qt::AlignVCenter );
