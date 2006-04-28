@@ -113,7 +113,7 @@ class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
       QHBoxLayout *hbl = new QHBoxLayout();
       layout->addItem( hbl );
       hbl->setSpacing( marginHint() );
-      QLabel *label = new QLabel( page);
+      QLabel *label = new QLabel( page );
       label->setText( i18n( "Name:" ) );
       hbl->addWidget( label,0 );
       mTitleEdit= new KLineEdit( page );
