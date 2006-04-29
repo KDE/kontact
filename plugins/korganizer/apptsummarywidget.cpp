@@ -255,7 +255,8 @@ void ApptSummaryWidget::updateView()
     QLabel *noEvents = new QLabel(
       i18np( "No upcoming events starting within the next day",
             "No upcoming events starting within the next %n days",
-            days ), this, "nothing to see" );
+            days ), this );
+    noEvents->setObjectName( "nothing to see" );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( noEvents, 0, 2 );
     mLabels.append( noEvents );
