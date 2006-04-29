@@ -106,7 +106,7 @@ void Core::slotPartDestroyed( QObject * obj )
   QMap<QByteArray, KParts::ReadOnlyPart*>::Iterator it = mParts.begin();
   for ( ; it != end; ++it ) {
     if ( it.value() == obj ) {
-      mParts.remove( it );
+      mParts.erase( it );
       return;
     }
   }
