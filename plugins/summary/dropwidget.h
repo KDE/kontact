@@ -32,7 +32,7 @@ class DropWidget : public QWidget
   Q_OBJECT
 
   public:
-    DropWidget( QWidget *parent, const char *name = 0 );
+    DropWidget( QWidget *parent );
 
   signals:
     void summaryWidgetDropped( QWidget *target, QWidget *widget, int alignment );

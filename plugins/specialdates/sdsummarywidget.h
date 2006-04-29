@@ -49,8 +49,7 @@ class SDSummaryWidget : public Kontact::Summary
   Q_OBJECT
 
   public:
-    SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
-                     const char *name = 0 );
+    SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent );
 
     QStringList configModules() const;
     void configUpdated();

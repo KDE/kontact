@@ -49,7 +49,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
   K_DCOP
 
   public:
-    SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
+    SummaryWidget( Kontact::Plugin *plugin, QWidget *parent );
 
     int summaryHeight() const { return 1; }
     QStringList configModules() const;

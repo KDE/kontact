@@ -83,9 +83,8 @@ class SDEntry
     }
 };
 
-SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent,
-                                    const char *name )
-  : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 ), mHolidays( 0 )
+SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
+  : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 ), mHolidays( 0 )
 {
   // Create the Summary Layout
   QVBoxLayout *mainLayout = new QVBoxLayout( this );

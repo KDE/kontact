@@ -48,7 +48,7 @@ class KNotesSummaryWidget : public Kontact::Summary
   Q_OBJECT
 
   public:
-    KNotesSummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name = 0 );
+    KNotesSummaryWidget( Kontact::Plugin *plugin, QWidget *parent );
 
     void updateSummary( bool force = false ) { Q_UNUSED( force ); updateView(); }
 

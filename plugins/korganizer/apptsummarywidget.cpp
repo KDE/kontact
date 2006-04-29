@@ -53,9 +53,8 @@
 
 #include "apptsummarywidget.h"
 
-ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
-                                      const char *name )
-  : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 )
+ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
+  : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );

@@ -50,8 +50,8 @@
 #include "summarywidget.h"
 
 KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
-                                          QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ), mLayout( 0 ), mPlugin( plugin )
+                                          QWidget *parent )
+  : Kontact::Summary( parent ), mLayout( 0 ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );

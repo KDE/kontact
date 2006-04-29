@@ -39,8 +39,8 @@
 
 using namespace Kontact;
 
-Summary::Summary( QWidget *parent, const char *name )
-  : QWidget( parent, name )
+Summary::Summary( QWidget *parent )
+  : QWidget( parent )
 {
   setAcceptDrops( true );
 }
@@ -61,17 +61,20 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
   QLabel *label = new QLabel( hbox );
   label->setPixmap( icon );
   label->setFixedSize( label->sizeHint() );
-  label->setPaletteBackgroundColor( colorGroup().mid() );
+  QPalette pal = label->palette();
+  pal.setColor(label->backgroundRole(), palette().mid());
+  label->setPalette(pal);
   label->setAcceptDrops( true );
 
   label = new QLabel( heading, hbox );
   label->setAlignment( Qt::AlignLeft|Qt::AlignVCenter );
   label->setIndent( KDialog::spacingHint() );
   label->setFont( boldFont );
-  label->setPaletteForegroundColor( colorGroup().light() );
-  label->setPaletteBackgroundColor( colorGroup().mid() );
 
-  hbox->setPaletteBackgroundColor( colorGroup().mid() );
+  hbox->setPalette( pal );
+
+  pal.setColor( label->foregroundRole(), palette().light() );
+  label->setPalette( pal );
 
   hbox->setMaximumHeight( hbox->minimumSizeHint().height() );
 
@@ -90,7 +93,7 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
   if ( (event->state() & Qt::LeftButton) &&
        (event->pos() - mDragStartPoint).manhattanLength() > 4 ) {
 
-   
+
     QDrag *drag = new QDrag(this);
     drag->setMimeData(new QMimeData());
     drag->setObjectName("SummaryWidgetDrag");

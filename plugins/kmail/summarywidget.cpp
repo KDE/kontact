@@ -46,8 +46,8 @@
 
 #include <time.h>
 
-SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ),
+SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
+  : Kontact::Summary( parent ),
     DCOPObject( "MailSummary" ),
     mPlugin( plugin )
 {

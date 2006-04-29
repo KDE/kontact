@@ -46,8 +46,8 @@
 
 #include "summarywidget.h"
 
-SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ),
+SummaryWidget::SummaryWidget( QWidget *parent )
+  : Kontact::Summary( parent ),
     DCOPObject( "WeatherSummaryWidget" ), mProc( 0 )
 {
   mLayout = new QVBoxLayout( this );

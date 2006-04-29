@@ -55,8 +55,8 @@
 #include "todosummarywidget.h"
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
-                                      QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ), mPlugin( plugin )
+                                      QWidget *parent )
+  : Kontact::Summary( parent ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );

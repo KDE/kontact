@@ -46,8 +46,7 @@ class ApptSummaryWidget : public Kontact::Summary
   Q_OBJECT
 
   public:
-    ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
-                       const char *name = 0 );
+    ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent );
     ~ApptSummaryWidget();
 
     int summaryHeight() const { return 3; }

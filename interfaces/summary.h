@@ -42,7 +42,7 @@ class KDE_EXPORT Summary : public QWidget
   Q_OBJECT
 
   public:
-    Summary( QWidget *parent, const char *name = 0 );
+    Summary( QWidget *parent );
 
     virtual ~Summary();
 

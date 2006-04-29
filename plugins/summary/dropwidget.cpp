@@ -24,8 +24,8 @@
 
 #include "dropwidget.h"
 
-DropWidget::DropWidget( QWidget *parent, const char *name )
-  : QWidget( parent, name )
+DropWidget::DropWidget( QWidget *parent )
+  : QWidget( parent )
 {
   setAcceptDrops( true );
 }

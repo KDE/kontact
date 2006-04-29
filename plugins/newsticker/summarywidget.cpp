@@ -45,8 +45,8 @@
 
 #include "summarywidget.h"
 
-SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
-  : Kontact::Summary( parent, name ),
+SummaryWidget::SummaryWidget( QWidget *parent )
+  : Kontact::Summary( parent ),
     DCOPObject( "NewsTickerPlugin" ), mLayout( 0 )
 {
   QVBoxLayout *vlay = new QVBoxLayout( this );
