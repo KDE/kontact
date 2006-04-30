@@ -347,7 +347,8 @@ void KCMKontactKNT::initGUI()
   mAllNews->setFullWidth( true );
   layout->addWidget( mAllNews, 0, 0 );
 
-  QVBoxLayout *vbox = new QVBoxLayout(layout);
+  QVBoxLayout *vbox = new QVBoxLayout();
+  layout->addLayout( vbox, 0, 1 );
   vbox->setSpacing( KDialog::spacingHint() );
 
   vbox->addStretch();

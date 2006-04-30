@@ -253,18 +253,18 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
     return;
 
   if ( target == mFrame ) {
-    if ( mLeftColumn->findWidget( widget ) == -1 && mRightColumn->findWidget( widget ) == -1 )
+    if ( mLeftColumn->indexOf( widget ) == -1 && mRightColumn->indexOf( widget ) == -1 )
       return;
   } else {
-    if ( mLeftColumn->findWidget( target ) == -1 && mRightColumn->findWidget( target ) == -1 ||
-         mLeftColumn->findWidget( widget ) == -1 && mRightColumn->findWidget( widget ) == -1 )
+    if ( mLeftColumn->indexOf( target ) == -1 && mRightColumn->indexOf( target ) == -1 ||
+         mLeftColumn->indexOf( widget ) == -1 && mRightColumn->indexOf( widget ) == -1 )
       return;
   }
 
-  if ( mLeftColumn->findWidget( widget ) != -1 ) {
+  if ( mLeftColumn->indexOf( widget ) != -1 ) {
     mLeftColumn->remove( widget );
     mLeftColumnSummaries.removeAll( widgetName( widget ) );
-  } else if ( mRightColumn->findWidget( widget ) != -1 ) {
+  } else if ( mRightColumn->indexOf( widget ) != -1 ) {
     mRightColumn->remove( widget );
     mRightColumnSummaries.removeAll( widgetName( widget ) );
   }
@@ -292,7 +292,7 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
     return;
   }
 
-  int targetPos = mLeftColumn->findWidget( target );
+  int targetPos = mLeftColumn->indexOf( target );
   if ( targetPos != -1 ) {
     if ( alignment == Qt::AlignBottom )
       targetPos++;
@@ -300,7 +300,7 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
     mLeftColumn->insertWidget( targetPos, widget );
     mLeftColumnSummaries.insert( targetPos, widgetName( widget ) );
   } else {
-    targetPos = mRightColumn->findWidget( target );
+    targetPos = mRightColumn->indexOf( target );
 
     if ( alignment == Qt::AlignBottom )
       targetPos++;
