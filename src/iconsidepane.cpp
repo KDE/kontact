@@ -176,7 +176,7 @@ void EntryItem::paint( QPainter *p )
 
     QBrush brush;
     if ( isCurrent() || isSelected() || mPaintActive )
-      brush = box->palette().highlight();
+      brush = box->palette().color( QPalette::Highlight );
     else
       brush = QBrush( box->palette().color( QPalette::Highlight ).light( 115 ) );
     p->fillRect( 1, 0, w - 2, h - 1, brush );
@@ -261,7 +261,7 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
   mShowIcons = Prefs::self()->sidePaneShowIcons();
   mShowText = Prefs::self()->sidePaneShowText();
   setSelectionMode( KListBox::Single );
-  viewport()->setBackgroundMode( Qt::PaletteBackground );
+  viewport()->setBackgroundRole( QPalette::Background );
   setFrameStyle( QFrame::NoFrame );
   setHScrollBarMode( Q3ScrollView::AlwaysOff );
   setAcceptDrops( true );

@@ -73,7 +73,7 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
 
   hbox->setPalette( pal );
 
-  pal.setColor( label->foregroundRole(), palette().light() );
+  pal.setColor( label->foregroundRole(), palette().color( QPalette::Light) );
   label->setPalette( pal );
 
   hbox->setMaximumHeight( hbox->minimumSizeHint().height() );
