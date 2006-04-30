@@ -71,7 +71,8 @@ SummaryWidget::SummaryWidget( QWidget *parent )
     }
   }
 
-  mBaseWidget = new QWidget( this, "baseWidget" );
+  mBaseWidget = new QWidget( this );
+  mBaseWidget->setObjectName( "baseWidget" );
   vlay->addWidget( mBaseWidget );
 
   connect( &mTimer, SIGNAL( timeout() ), this, SLOT( updateDocuments() ) );

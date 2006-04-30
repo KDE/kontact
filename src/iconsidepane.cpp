@@ -176,13 +176,13 @@ void EntryItem::paint( QPainter *p )
 
     QBrush brush;
     if ( isCurrent() || isSelected() || mPaintActive )
-      brush = box->colorGroup().brush( QColorGroup::Highlight );
+      brush = box->palette().highlight();
     else
-      brush = box->colorGroup().highlight().light( 115 );
+      brush = QBrush( box->palette().color( QPalette::Highlight ).light( 115 ) );
     p->fillRect( 1, 0, w - 2, h - 1, brush );
     QPen pen = p->pen();
     QPen oldPen = pen;
-    pen.setColor( box->colorGroup().mid() );
+    pen.setColor( box->palette().mid() );
     p->setPen( pen );
 
     p->drawPoint( 1, 0 );
@@ -199,9 +199,9 @@ void EntryItem::paint( QPainter *p )
     p->drawPixmap( x, y, mPixmap );
   }
 
-  QColor shadowColor = listBox()->colorGroup().background().dark(115);
+  QColor shadowColor = listBox()->palette().color( QPalette::Background).dark(115);
   if ( isCurrent() || isSelected() ) {
-    p->setPen( box->colorGroup().highlightedText() );
+    p->setPen( box->palette().highlightedText() );
   }
 
   if ( !text().isEmpty() && navigator()->showText() ) {
@@ -226,13 +226,13 @@ void EntryItem::paint( QPainter *p )
     }
 
     if ( isCurrent() || isSelected() || mHasHover ) {
-      p->setPen( box->colorGroup().highlight().dark(115) );
+      p->setPen( box->palette().color( QPalette::Highlight).dark(115) );
       p->drawText( x + ( QApplication::isRightToLeft() ? -1 : 1),
                    y + 1, text() );
-      p->setPen( box->colorGroup().highlightedText() );
+      p->setPen( box->palette().highlightedText() );
     }
     else
-      p->setPen( box->colorGroup().text() );
+      p->setPen( box->palette().text() );
 
     p->drawText( x, y, text() );
   }
