@@ -167,17 +167,17 @@ bool KNoteTip::eventFilter( QObject *, QEvent *e )
 void KNoteTip::setColor( const QColor &fg, const QColor &bg )
 {
   QPalette newpalette = palette();
-  newpalette.setColor( QColorGroup::Background, bg );
-  newpalette.setColor( QColorGroup::Foreground, fg );
-  newpalette.setColor( QColorGroup::Base,       bg ); // text background
-  newpalette.setColor( QColorGroup::Text,       fg ); // text color
-  newpalette.setColor( QColorGroup::Button,     bg );
+  newpalette.setColor( QPalette::Background, bg );
+  newpalette.setColor( QPalette::Foreground, fg );
+  newpalette.setColor( QPalette::Base,       bg ); // text background
+  newpalette.setColor( QPalette::Text,       fg ); // text color
+  newpalette.setColor( QPalette::Button,     bg );
 
   // the shadow
-  newpalette.setColor( QColorGroup::Midlight, bg.light(110) );
-  newpalette.setColor( QColorGroup::Shadow, bg.dark(116) );
-  newpalette.setColor( QColorGroup::Light, bg.light(180) );
-  newpalette.setColor( QColorGroup::Dark, bg.dark(108) );
+  newpalette.setColor( QPalette::Midlight, bg.light(110) );
+  newpalette.setColor( QPalette::Shadow, bg.dark(116) );
+  newpalette.setColor( QPalette::Light, bg.light(180) );
+  newpalette.setColor( QPalette::Dark, bg.dark(108) );
   setPalette( newpalette );
 
   // set the text color
