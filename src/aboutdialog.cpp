@@ -176,7 +176,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
   KTextBrowser *textBrowser = new KTextBrowser( topFrame );
-  textBrowser->setText( QString( "<pre>%1</pre>" ).arg( about->license() ) );
+  textBrowser->setHtml( QString( "<pre>%1</pre>" ).arg( about->license() ) );
 
   topLayout->addWidget( textBrowser );
 }
