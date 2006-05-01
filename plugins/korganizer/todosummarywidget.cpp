@@ -239,7 +239,7 @@ void TodoSummaryWidget::updateView()
       mLabels.append( label );
 
       // Priority label
-      str = "[" + QString::number( todo->priority() ) + "]";
+      str = '[' + QString::number( todo->priority() ) + ']';
       label = new QLabel( str, this );
       label->setAlignment( Qt::AlignRight | Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 3 );
@@ -248,7 +248,7 @@ void TodoSummaryWidget::updateView()
       // Summary label
       str = todo->summary();
       if ( todo->relatedTo() ) { // show parent only, not entire ancestry
-        str = todo->relatedTo()->summary() + ":" + str;
+        str = todo->relatedTo()->summary() + ':' + str;
       }
       KUrlLabel *urlLabel = new KUrlLabel( todo->uid(), str, this );
       urlLabel->installEventFilter( this );

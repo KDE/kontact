@@ -183,8 +183,8 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       KPIM::MailSummary mail = mails.first();
       QString txt = i18n("From: %1\nTo: %2\nSubject: %3", mail.from() ,
                       mail.to(), mail.subject() );
-      QString uri = KDEPIMPROTOCOL_EMAIL + 
-                    QString::number( mail.serialNumber() ) + "/" +
+      QString uri = KDEPIMPROTOCOL_EMAIL +
+                    QString::number( mail.serialNumber() ) + '/' +
                     mail.messageId();
       interface()->openTodoEditor( i18n("Mail: %1", mail.subject() ), txt,
                                    uri );
