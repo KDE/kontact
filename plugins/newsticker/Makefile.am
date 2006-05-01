@@ -22,5 +22,3 @@ service_DATA = newstickerplugin.desktop
 
 kde_services_DATA = kcmkontactknt.desktop
 
-messages: rc.cpp
-	$(XGETTEXT) *.cpp -o $(podir)/kcmkontactnt.pot
