@@ -113,7 +113,7 @@ void KCMKMailSummary::initFolders()
       DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
       folderRef.call( "displayName()" ).get( displayName );
     }
-    if ( (*it).contains( '/' ) == 1 ) {
+    if ( (*it).count( '/' ) == 1 ) {
       if ( mFolderMap.find( *it ) == mFolderMap.end() )
         mFolderMap.insert( *it, new Q3ListViewItem( mFolderView,
                                                    displayName ) );
