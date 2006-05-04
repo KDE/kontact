@@ -325,12 +325,12 @@ void MainWindow::setupActions()
   new KAction( i18n( "Configure Kontact..." ), "configure", 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
 
-  new KAction( i18n( "&Kontact Introduction" ), 0, this, SLOT( slotShowIntroduction() ),
-               actionCollection(), "help_introduction" );
-  new KAction( i18n( "&Tip of the Day" ), 0, this, SLOT( slotShowTip() ),
-               actionCollection(), "help_tipofday" );
-  new KAction( i18n( "&Request Feature..." ), 0, this, SLOT( slotRequestFeature() ),
-               actionCollection(), "help_requestfeature" );
+  KAction *action = new KAction( i18n( "&Kontact Introduction" ), actionCollection(), "help_introduction" );
+  connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowIntroduction() ));
+  action = new KAction( i18n( "&Tip of the Day" ), actionCollection(), "help_tipofday" );
+  connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowTip() ));
+  action = new KAction( i18n( "&Request Feature..." ), actionCollection(), "help_requestfeature" );
+  connect(action, SIGNAL(triggered(bool) ), SLOT( slotRequestFeature() ));
 }
 
 bool MainWindow::isPluginLoaded( const KPluginInfo *info )
