@@ -409,7 +409,7 @@ void MainWindow::loadPlugins()
 
     for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
       kDebug(5600) << "Plugging " << (*listIt)->objectName() << endl;
-      (*listIt)->plug( mNewActions->popupMenu() );
+      mNewActions->popupMenu()->addAction( (*listIt) );
     }
 
     addPlugin( plugin );
