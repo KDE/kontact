@@ -440,7 +440,7 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
 
       for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
         kDebug(5600) << "Unplugging " << (*listIt)->objectName() << endl;
-        (*listIt)->unplug( mNewActions->popupMenu() );
+        mNewActions->popupMenu()->removeAction( *listIt );
       }
 
       removeChildClient( plugin );
@@ -613,7 +613,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     if ( action ) {
       QList<KToolBar*> toolbars = toolBars();
       for( QList<KToolBar*>::Iterator it = toolbars.begin(); it != toolbars.end(); ++it ) {
-        action->unplug( *it );
+        ( *it )->removeAction( action );
       }
     }
   }
