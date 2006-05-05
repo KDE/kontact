@@ -46,12 +46,14 @@ KNotesPart::KNotesPart( QObject *parent )
   setInstance( new KInstance( "knotes" ) );
 
   // create the actions
-  new KAction( i18n( "&New" ), "knotes", Qt::CTRL+Qt::Key_N, this, SLOT( newNote() ),
-               actionCollection(), "file_new" );
-  new KAction( i18n( "Rename..." ), "text",0, this, SLOT( renameNote() ),
-               actionCollection(), "edit_rename" );
-  new KAction( i18n( "Delete" ), "editdelete", Qt::Key_Delete, this, SLOT( killSelectedNotes() ),
-               actionCollection(), "edit_delete" );
+  KAction *action = new KAction(KIcon("knotes"),  i18n( "&New" ), actionCollection(), "file_new" );
+  connect(action, SIGNAL(triggered(bool)), SLOT( newNote() ));
+  action->setShortcut(Qt::CTRL+Qt::Key_N);
+  action = new KAction(KIcon("text"),  i18n( "Rename..." ), actionCollection(), "edit_rename" );
+  connect(action, SIGNAL(triggered(bool)), SLOT( renameNote() ));
+  action = new KAction(KIcon("editdelete"),  i18n( "Delete" ), actionCollection(), "edit_delete" );
+  connect(action, SIGNAL(triggered(bool)), SLOT( killSelectedNotes() ));
+  action->setShortcut(Qt::Key_Delete);
 
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 

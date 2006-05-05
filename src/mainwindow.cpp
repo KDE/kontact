@@ -322,10 +322,10 @@ void MainWindow::setupActions()
                                          KStdAccel::shortcut(KStdAccel::New), this, SLOT( slotNewClicked() ),
                                          actionCollection(), "action_new" );
 
-  new KAction( i18n( "Configure Kontact..." ), "configure", 0, this, SLOT( slotPreferences() ),
-               actionCollection(), "settings_configure_kontact" );
+  KAction *action = new KAction(KIcon("configure"),  i18n( "Configure Kontact..." ), actionCollection(), "settings_configure_kontact" );
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotPreferences() ));
 
-  KAction *action = new KAction( i18n( "&Kontact Introduction" ), actionCollection(), "help_introduction" );
+  action = new KAction( i18n( "&Kontact Introduction" ), actionCollection(), "help_introduction" );
   connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowIntroduction() ));
   action = new KAction( i18n( "&Tip of the Day" ), actionCollection(), "help_tipofday" );
   connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowTip() ));
