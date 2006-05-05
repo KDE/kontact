@@ -64,8 +64,7 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
   setInstance( KMailPluginFactory::instance() );
 
   insertNewAction( new KAction( i18n( "New Message..." ), "mail_new",
-                   Qt::CTRL+Qt::SHIFT+Qt::Key_M, this, SLOT( slotNewMail() ), actionCollection(),
-                   "new_mail" ) );
+                   Qt::CTRL+Qt::SHIFT+Qt::Key_M, this, SLOT( slotNewMail() ), actionCollection(), "new_mail" ) );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
