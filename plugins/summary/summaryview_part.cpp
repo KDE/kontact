@@ -84,15 +84,11 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
   connect( mCore, SIGNAL( dayChanged( const QDate& ) ),
            SLOT( setDate( const QDate& ) ) );
 
-  mConfigAction = new KAction( i18n( "&Configure Summary View..." ),
-                               "configure", 0, this,
-                               SLOT( slotConfigure() ), actionCollection(),
-                               "summaryview_configure" );
+  mConfigAction = new KAction(KIcon("configure"),  i18n( "&Configure Summary View..." ), actionCollection(), "summaryview_configure" );
+  connect(mConfigAction, SIGNAL(triggered(bool) ), SLOT( slotConfigure() ));
 
-  mRefreshAction = new KAction( i18n( "&Refresh Summary View..." ),
-                                "reload", 0, this,
-                                SLOT( updateSummaries() ), actionCollection(),
-                                "summaryview_refresh" );
+  mRefreshAction = new KAction(KIcon("reload"),  i18n( "&Refresh Summary View..." ), actionCollection(), "summaryview_refresh" );
+  connect(mRefreshAction, SIGNAL(triggered(bool) ), SLOT( updateSummaries() ));
 
   setXMLFile( "kontactsummary_part.rc" );
 
