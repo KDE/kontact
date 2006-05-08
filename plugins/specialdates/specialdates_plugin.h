@@ -32,7 +32,7 @@ class SDSummaryWidget;
 class SpecialdatesPlugin : public Kontact::Plugin
 {
   public:
-    SpecialdatesPlugin( Kontact::Core *core, const char *name, const QStringList& );
+    SpecialdatesPlugin( Kontact::Core *core, const QStringList& );
     ~SpecialdatesPlugin();
 
     int weight() const { return 310; }

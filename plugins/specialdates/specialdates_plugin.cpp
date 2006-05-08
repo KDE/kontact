@@ -36,8 +36,8 @@ typedef KGenericFactory< SpecialdatesPlugin, Kontact::Core > SpecialdatesPluginF
 K_EXPORT_COMPONENT_FACTORY( libkontact_specialdatesplugin,
                             SpecialdatesPluginFactory( "kontact_specialdatesplugin" ) )
 
-SpecialdatesPlugin::SpecialdatesPlugin( Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( core, core, name ),
+SpecialdatesPlugin::SpecialdatesPlugin( Kontact::Core *core, const QStringList& )
+  : Kontact::Plugin( core, core, 0 ),
     mAboutData( 0 )
 {
   setInstance( SpecialdatesPluginFactory::instance() );

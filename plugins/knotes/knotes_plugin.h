@@ -34,7 +34,7 @@ class KNotesPlugin : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    KNotesPlugin( Kontact::Core *core, const char *name, const QStringList& );
+    KNotesPlugin( Kontact::Core *core, const QStringList& );
     ~KNotesPlugin();
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );

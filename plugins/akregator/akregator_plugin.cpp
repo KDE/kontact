@@ -47,7 +47,7 @@ typedef KGenericFactory<Akregator::Plugin, Kontact::Core > PluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_akregator,
                             PluginFactory( "kontact_akregator" ) )
 
-Plugin::Plugin( Kontact::Core *core, const char *, const QStringList& )
+Plugin::Plugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "akregator" ), m_stub(0)
 {
 

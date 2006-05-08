@@ -39,7 +39,7 @@ class KOrganizerPlugin : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    KOrganizerPlugin( Kontact::Core *core, const char *name, const QStringList& );
+    KOrganizerPlugin( Kontact::Core *core, const QStringList& );
     ~KOrganizerPlugin();
 
     virtual bool createDCOPInterface( const QString& serviceType );

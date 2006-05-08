@@ -35,7 +35,7 @@ class JournalPlugin : public Kontact::Plugin
 {
     Q_OBJECT
   public:
-    JournalPlugin( Kontact::Core *core, const char *name, const QStringList& );
+    JournalPlugin( Kontact::Core *core, const QStringList& );
     ~JournalPlugin();
 
     virtual bool createDCOPInterface( const QString& serviceType );

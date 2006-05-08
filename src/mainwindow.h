@@ -45,6 +45,7 @@ class KPluginInfo;
 class KRSqueezedTextLabel;
 class KHTMLPart;
 class KeyPressEater;
+class KToolBarPopupAction;
 
 namespace KPIM
 {
@@ -60,7 +61,7 @@ class AboutDialog;
 
 typedef QList<Kontact::Plugin*> PluginList;
 
-class MainWindow : public Kontact::Core, public KDCOPServiceStarter
+class KDE_EXPORT MainWindow : public Kontact::Core, public KDCOPServiceStarter
 {
   Q_OBJECT
 

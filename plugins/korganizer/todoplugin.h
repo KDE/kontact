@@ -37,7 +37,7 @@ class TodoPlugin : public Kontact::Plugin
 {
     Q_OBJECT
   public:
-    TodoPlugin( Kontact::Core *core, const char *name, const QStringList& );
+    TodoPlugin( Kontact::Core *core, const QStringList& );
     ~TodoPlugin();
 
     virtual bool createDCOPInterface( const QString& serviceType );

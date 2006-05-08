@@ -36,7 +36,7 @@ typedef KGenericFactory<KarmPlugin, Kontact::Core> KarmPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_karm,
                             KarmPluginFactory( "kontact_karm" ) )
 
-KarmPlugin::KarmPlugin( Kontact::Core *core, const char *, const QStringList& )
+KarmPlugin::KarmPlugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "KArm" )
 {
   setInstance( KarmPluginFactory::instance() );

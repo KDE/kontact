@@ -31,6 +31,7 @@
 
 #include <dcopclient.h>
 #include <kapplication.h>
+#include <kactioncollection.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kedittoolbar.h>
@@ -66,6 +67,7 @@
 #include <kmenubar.h>
 #include <kstdaccel.h>
 #include <ktoolinvocation.h>
+#include <ktoolbarpopupaction.h>
 #include <kvbox.h>
 
 #include "aboutdialog.h"

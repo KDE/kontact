@@ -53,8 +53,7 @@ class Plugin : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    Plugin( Kontact::Core *core, const char *name,
-                       const QStringList & );
+    Plugin( Kontact::Core *core, const QStringList & );
     ~Plugin();
 
     virtual QString tipFile() const;

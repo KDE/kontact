@@ -31,8 +31,8 @@ typedef KGenericFactory< NewsTickerPlugin, Kontact::Core > NewsTickerPluginFacto
 K_EXPORT_COMPONENT_FACTORY( libkontact_newstickerplugin,
                             NewsTickerPluginFactory( "kontact_newstickerplugin" ) )
 
-NewsTickerPlugin::NewsTickerPlugin( Kontact::Core *core, const char *name, const QStringList& )
-  : Kontact::Plugin( core, core, name )
+NewsTickerPlugin::NewsTickerPlugin( Kontact::Core *core, const QStringList& )
+  : Kontact::Plugin( core, core, 0 )
 {
 	setInstance( NewsTickerPluginFactory::instance() );
 }

@@ -45,7 +45,7 @@ class KNodePlugin : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    KNodePlugin( Kontact::Core *core, const char *name, const QStringList& );
+    KNodePlugin( Kontact::Core *core, const QStringList& );
     ~KNodePlugin();
 
     virtual bool createDCOPInterface( const QString& serviceType );

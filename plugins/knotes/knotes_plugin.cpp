@@ -37,7 +37,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_knotesplugin,
                             KNotesPluginFactory( "kontact_knotesplugin" ) )
 
 
-KNotesPlugin::KNotesPlugin( Kontact::Core *core, const char *, const QStringList & )
+KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QStringList & )
   : Kontact::Plugin( core, core, "knotes" ),
     mAboutData( 0 )
 {

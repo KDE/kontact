@@ -41,7 +41,7 @@ typedef KGenericFactory< JournalPlugin, Kontact::Core > JournalPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_journalplugin,
                             JournalPluginFactory( "kontact_journalplugin" ) )
 
-JournalPlugin::JournalPlugin( Kontact::Core *core, const char *, const QStringList& )
+JournalPlugin::JournalPlugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {

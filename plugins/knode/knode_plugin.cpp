@@ -44,7 +44,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_knodeplugin,
                             KNodePluginFactory( "kontact_knodeplugin" ) )
 
 
-KNodePlugin::KNodePlugin( Kontact::Core *core, const char *, const QStringList& )
+KNodePlugin::KNodePlugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "knode" ), mStub(0)
 {
   setInstance( KNodePluginFactory::instance() );

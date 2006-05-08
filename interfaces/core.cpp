@@ -66,7 +66,7 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
   KParts::ReadOnlyPart *part =
       KParts::ComponentFactory::
           createPartInstanceFromLibrary<KParts::ReadOnlyPart>
-              ( libname, this, 0, this, "kontact", QStringList(), &error );
+              ( libname, this, this, QStringList(), &error );
 
   KParts::ReadOnlyPart *pimPart = dynamic_cast<KParts::ReadOnlyPart*>( part );
   if ( pimPart ) {

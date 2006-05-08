@@ -49,7 +49,7 @@ typedef KGenericFactory< TodoPlugin, Kontact::Core > TodoPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_todoplugin,
                             TodoPluginFactory( "kontact_todoplugin" ) )
 
-TodoPlugin::TodoPlugin( Kontact::Core *core, const char *, const QStringList& )
+TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {
