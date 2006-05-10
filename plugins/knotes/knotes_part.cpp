@@ -175,7 +175,7 @@ void KNotesPart::killNote( const QString& id, bool force )
   if ( note &&
        ( (!force && KMessageBox::warningContinueCancelList( mNotesView,
                     i18n( "Do you really want to delete this note?" ),
-                    mNoteList[ id ]->text(), i18n( "Confirm Delete" ),
+                    QStringList(mNoteList[ id ]->text()), i18n( "Confirm Delete" ),
                     KStdGuiItem::del() ) == KMessageBox::Continue)
          || force )
      )
