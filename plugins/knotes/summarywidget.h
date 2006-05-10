@@ -26,9 +26,9 @@
 
 #include "summary.h"
 
-#include <qmap.h>
+#include <QMap>
 #include <q3ptrlist.h>
-#include <qwidget.h>
+#include <QWidget>
 //Added by qt3to4:
 #include <QLabel>
 #include <QEvent>

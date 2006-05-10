@@ -32,8 +32,8 @@
 #ifndef KNOTES_PART_P_H
 #define KNOTES_PART_P_H
 
-#include <qlayout.h>
-#include <qlabel.h>
+#include <QLayout>
+#include <QLabel>
 //Added by qt3to4:
 #include <QVBoxLayout>
 #include <QPixmap>

@@ -29,8 +29,8 @@
    your version.
 */
 
-#include <qtooltip.h>
-#include <qlayout.h>
+#include <QToolTip>
+#include <QLayout>
 #include <q3textedit.h>
 //Added by qt3to4:
 #include <QEvent>
