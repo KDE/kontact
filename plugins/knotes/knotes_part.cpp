@@ -176,14 +176,17 @@ void KNotesPart::killNote( const QString& id, bool force )
 {
   KNotesIconViewItem *note = mNoteList[ id ];
 
-   if ( note && !force && KMessageBox::warningContinueCancelList( mNotesView,
-        i18n( "Do you really want to delete this note?" ),
-        mNoteList[ id ]->text(), i18n( "Confirm Delete" ),
-        KStdGuiItem::del() ) == KMessageBox::Continue ) 
-   {
-     mManager->deleteNote( mNoteList[id]->journal() );
-     mManager->save();
-   }
+  if ( note &&
+       ( (!force && KMessageBox::warningContinueCancelList( mNotesView,
+                    i18n( "Do you really want to delete this note?" ),
+                    mNoteList[ id ]->text(), i18n( "Confirm Delete" ),
+                    KStdGuiItem::del() ) == KMessageBox::Continue)
+         || force )
+     )
+  {
+    mManager->deleteNote( mNoteList[id]->journal() );
+    mManager->save();
+  }
 }
 
 QString KNotesPart::name( const QString& id ) const
@@ -228,7 +231,7 @@ QMap<QString, QString> KNotesPart::notes() const
   QDictIterator<KNotesIconViewItem> it( mNoteList );
 
   for ( ; it.current(); ++it )
-    notes.insert( (*it)->journal()->uid(), (*it)->journal()->description() );
+    notes.insert( (*it)->journal()->uid(), (*it)->journal()->summary() );
 
   return notes;
 }
