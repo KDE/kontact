@@ -36,7 +36,7 @@
 
 #include <dcopclient.h>
 
-#include <qwidget.h>
+#include <QWidget>
 
 
 typedef KGenericFactory<KNodePlugin, Kontact::Core> KNodePluginFactory;

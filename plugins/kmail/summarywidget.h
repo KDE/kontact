@@ -24,9 +24,9 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <qmap.h>
+#include <QMap>
 #include <qtimer.h>
-#include <qwidget.h>
+#include <QWidget>
 
 #include <QLabel>
 #include <QGridLayout>

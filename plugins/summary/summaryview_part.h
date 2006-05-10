@@ -24,7 +24,7 @@
 #ifndef SUMMARYVIEW_PART_H
 #define SUMMARYVIEW_PART_H
 
-#include <qmap.h>
+#include <QMap>
 
 #include <kparts/part.h>
 

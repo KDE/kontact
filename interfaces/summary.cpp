@@ -25,8 +25,8 @@
 #include <qimage.h>
 #include <q3dragobject.h>
 #include <khbox.h>
-#include <qfont.h>
-#include <qlabel.h>
+#include <QFont>
+#include <QLabel>
 #include <qpainter.h>
 //Added by qt3to4:
 #include <QPixmap>

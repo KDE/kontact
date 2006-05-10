@@ -21,7 +21,7 @@
 #ifndef KONTACT_SUMMARY_H
 #define KONTACT_SUMMARY_H
 
-#include <qwidget.h>
+#include <QWidget>
 #include <qpixmap.h>
 //Added by qt3to4:
 #include <QMouseEvent>

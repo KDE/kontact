@@ -22,10 +22,10 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qlabel.h>
-#include <qlayout.h>
+#include <QLabel>
+#include <QLayout>
 #include <qradiobutton.h>
-#include <qspinbox.h>
+#include <QSpinBox>
 
 #include <kaboutdata.h>
 #include <kapplication.h>

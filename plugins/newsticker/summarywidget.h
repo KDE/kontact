@@ -27,9 +27,9 @@
 #include <dcopobject.h>
 #include <dcopref.h>
 
-#include <qmap.h>
+#include <QMap>
 #include <qtimer.h>
-#include <qwidget.h>
+#include <QWidget>
 
 #include <QList>
 #include <QPixmap>

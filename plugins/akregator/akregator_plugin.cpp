@@ -22,7 +22,7 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qwidget.h>
+#include <QWidget>
 
 #include <dcopclient.h>
 #include <dcopref.h>

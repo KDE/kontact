@@ -24,7 +24,7 @@
 #include <qclipboard.h>
 #include <qeventloop.h>
 #include <khbox.h>
-#include <qlayout.h>
+#include <QLayout>
 #include <qpixmap.h>
 #include <qmenu.h>
 #include <qcursor.h>

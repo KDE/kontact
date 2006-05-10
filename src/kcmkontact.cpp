@@ -33,10 +33,10 @@
 #include <ktrader.h>
 
 #include <q3buttongroup.h>
-#include <qcheckbox.h>
-#include <qcombobox.h>
-#include <qlabel.h>
-#include <qlayout.h>
+#include <QCheckBox>
+#include <QComboBox>
+#include <QLabel>
+#include <QLayout>
 //Added by qt3to4:
 #include <QVBoxLayout>
 #include <QHBoxLayout>

@@ -35,7 +35,7 @@
 #include <ktrader.h>
 #include "plugin.h"
 
-#include <qlabel.h>
+#include <QLabel>
 #include "prefs.h"
 
 #include "mainwindow.h"

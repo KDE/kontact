@@ -22,11 +22,11 @@
 */
 
 #include <q3groupbox.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qlineedit.h>
+#include <QLabel>
+#include <QLayout>
+#include <QLineEdit>
 #include <QVector>
-#include <qspinbox.h>
+#include <QSpinBox>
 //Added by qt3to4:
 #include <QVBoxLayout>
 #include <QGridLayout>

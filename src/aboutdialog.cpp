@@ -34,8 +34,8 @@
 #include <kactivelabel.h>
 #include <ktextbrowser.h>
 
-#include <qlayout.h>
-#include <qlabel.h>
+#include <QLayout>
+#include <QLabel>
 //Added by qt3to4:
 #include <Q3TextEdit>
 #include <QPixmap>

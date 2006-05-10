@@ -33,8 +33,8 @@
 #include <kplugininfo.h>
 #include <ktrader.h>
 #include <kinstance.h>
-#include <qlayout.h>
-#include <qlabel.h>
+#include <QLayout>
+#include <QLabel>
 #include <qpixmap.h>
 //Added by qt3to4:
 #include <QVBoxLayout>

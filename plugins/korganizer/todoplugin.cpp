@@ -22,7 +22,7 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qwidget.h>
+#include <QWidget>
 #include <q3dragobject.h>
 //Added by qt3to4:
 #include <QDropEvent>

@@ -22,8 +22,8 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qlabel.h>
-#include <qlayout.h>
+#include <QLabel>
+#include <QLayout>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>
@@ -37,7 +37,7 @@
 #include <kparts/part.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
-#include <qtooltip.h>
+#include <QToolTip>
 #include <libkcal/calendar.h>
 #include <libkcal/resourcecalendar.h>
 #include <libkcal/resourcelocal.h>

@@ -21,7 +21,7 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qwidget.h>
+#include <QWidget>
 //Added by qt3to4:
 #include <QDropEvent>
 

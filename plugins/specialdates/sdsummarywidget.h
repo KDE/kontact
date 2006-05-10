@@ -26,7 +26,7 @@
 #define SDSUMMARYWIDGET_H
 
 #include <q3ptrlist.h>
-#include <qwidget.h>
+#include <QWidget>
 //Added by qt3to4:
 #include <QLabel>
 #include <QGridLayout>

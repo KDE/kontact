@@ -20,11 +20,11 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
-#include <qcombobox.h>
+#include <QComboBox>
 #include <khbox.h>
 #include <qimage.h>
 #include <qobject.h>
-#include <qpushbutton.h>
+#include <QPushButton>
 #include <qsplitter.h>
 #include <qtimer.h>
 #include <QList>

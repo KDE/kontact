@@ -28,11 +28,11 @@
 
 #include <dcopobject.h>
 
-#include <qmap.h>
+#include <QMap>
 #include <qpixmap.h>
 #include <qstringlist.h>
 #include <qtimer.h>
-#include <qwidget.h>
+#include <QWidget>
 
 #include <QList>
 #include <QLabel>

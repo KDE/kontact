@@ -23,7 +23,7 @@
 #include <q3widgetstack.h>
 #include <q3signal.h>
 #include <qobject.h>
-#include <qlabel.h>
+#include <QLabel>
 #include <qimage.h>
 #include <qpainter.h>
 #include <qbitmap.h>
@@ -34,7 +34,7 @@
 #include <qdrawutil.h>
 #include <qcursor.h>
 #include <qtimer.h>
-#include <qtooltip.h>
+#include <QToolTip>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QDragMoveEvent>

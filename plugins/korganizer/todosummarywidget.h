@@ -26,7 +26,7 @@
 #define TODO_SUMMARYWIDGET_H
 
 #include <qlist.h>
-#include <qwidget.h>
+#include <QWidget>
 //Added by qt3to4:
 #include <QLabel>
 #include <QGridLayout>

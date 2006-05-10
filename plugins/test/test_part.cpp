@@ -26,7 +26,7 @@
 #include "kaddressbookiface_stub.h"
 
 #include <qtextedit.h>
-#include <qcombobox.h>
+#include <QComboBox>
 
 #include "sidebarextension.h"
 
