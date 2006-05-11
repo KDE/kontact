@@ -2,7 +2,7 @@ kde4_header()
 
 add_subdirectory( about ) 
 
-include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces  )
 
 
 ########### next target ###############
