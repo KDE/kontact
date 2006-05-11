@@ -23,7 +23,7 @@
 #ifndef KONTACT_CORE_H
 #define KONTACT_CORE_H
 
-#include <qdatetime.h>
+#include <QDateTime>
 //Added by qt3to4:
 #include <kdepimmacros.h>
 #include <kparts/mainwindow.h>

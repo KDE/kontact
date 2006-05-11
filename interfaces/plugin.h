@@ -24,7 +24,7 @@
 #ifndef KONTACT_PLUGIN_H
 #define KONTACT_PLUGIN_H
 
-#include <qobject.h>
+#include <QObject>
 #include <QDropEvent>
 #include <kxmlguiclient.h>
 #include <kdepimmacros.h>
