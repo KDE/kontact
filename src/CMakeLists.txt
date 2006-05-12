@@ -1,4 +1,3 @@
-kde4_header()
 
 add_subdirectory( about ) 
 
@@ -65,7 +64,6 @@ install_files( ${DATA_INSTALL_DIR}/kontact FILES kontact.setdlg )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
-kde4_footer()
 
 
 

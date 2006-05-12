@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces  )
 
@@ -26,7 +25,6 @@ install_files( ${SERVICES_INSTALL_DIR} FILES kptestplugin.desktop )
 install_files( ${DATA_INSTALL_DIR}/kptestplugin FILES kptestplugin.rc )
 install_files( ${DATA_INSTALL_DIR}/testpart FILES testpartui.rc )
 
-kde4_footer()
 
 
 

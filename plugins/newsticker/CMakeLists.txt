@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/libkdepim  )
 
@@ -40,7 +39,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kcm_kontactknt )
 install_files( ${SERVICES_INSTALL_DIR}/kontact FILES newstickerplugin.desktop )
 install_files( ${SERVICES_INSTALL_DIR} FILES kcmkontactknt.desktop )
 
-kde4_footer()
 
 
 

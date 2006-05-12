@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/libkleo ${CMAKE_SOURCE_DIR}/libkdepim  )
 
@@ -39,7 +38,6 @@ install_files( ${SERVICES_INSTALL_DIR}/kontact FILES summaryplugin.desktop )
 install_files( ${SERVICES_INSTALL_DIR} FILES kcmkontactsummary.desktop )
 install_files( ${DATA_INSTALL_DIR}/kontactsummary FILES kontactsummary_part.rc )
 
-kde4_footer()
 
 
 

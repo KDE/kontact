@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories(
 	${CMAKE_SOURCE_DIR}/kontact/interfaces
@@ -48,7 +47,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kcm_kmailsummary )
 install_files( ${SERVICES_INSTALL_DIR}/kontact FILES kmailplugin.desktop )
 install_files( ${SERVICES_INSTALL_DIR} FILES kcmkmailsummary.desktop )
 
-kde4_footer()
 
 
 

@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/karm  )
 
@@ -24,7 +23,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kontact_karm )
 
 install_files( ${SERVICES_INSTALL_DIR}/kontact FILES karmplugin.desktop )
 
-kde4_footer()
 
 
 

@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces  )
 
@@ -26,7 +25,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kontact_kaddressbookplugin )
 
 install_files( ${SERVICES_INSTALL_DIR}/kontact FILES kaddressbookplugin.desktop )
 
-kde4_footer()
 
 
 

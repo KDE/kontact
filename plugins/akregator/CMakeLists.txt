@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/akregator/src  )
 
@@ -24,7 +23,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kontact_akregator )
 
 install_files( ${SERVICES_INSTALL_DIR}/kontact FILES akregatorplugin.desktop akregatorplugin3.2.desktop )
 
-kde4_footer()
 
 
 

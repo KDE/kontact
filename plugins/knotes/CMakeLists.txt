@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces  )
 
@@ -29,7 +28,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kontact_knotesplugin )
 install_files( ${DATA_INSTALL_DIR}/knotes FILES knotes_part.rc )
 install_files( ${SERVICES_INSTALL_DIR}/kontact FILES knotesplugin.desktop )
 
-kde4_footer()
 
 
 

@@ -1,4 +1,3 @@
-kde4_header()
 
 add_subdirectory( kaddressbook ) 
 add_subdirectory( kmail ) 
@@ -18,7 +17,6 @@ add_subdirectory( karm )
 ########### install files ###############
 
 
-kde4_footer()
 
 
 

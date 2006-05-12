@@ -1,4 +1,3 @@
-kde4_header()
 
 
 
@@ -26,7 +25,6 @@ install_targets(${LIB_INSTALL_DIR} kpinterfaces )
 install_files( /include/kontact FILES core.h plugin.h summary.h )
 install_files( ${SERVICETYPES_INSTALL_DIR} FILES kontactplugin.desktop )
 
-kde4_footer()
 
 
 

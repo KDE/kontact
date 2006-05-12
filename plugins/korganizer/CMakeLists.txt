@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/libkdepim ${CMAKE_SOURCE_DIR}/korganizer  )
 
@@ -102,7 +101,6 @@ install_files( ${SERVICES_INSTALL_DIR} FILES kcmapptsummary.desktop kcmtodosumma
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
-kde4_footer()
 
 
 

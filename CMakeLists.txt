@@ -1,4 +1,3 @@
-kde4_header()
 
 add_subdirectory( interfaces ) 
 add_subdirectory( plugins ) 
@@ -8,7 +7,6 @@ add_subdirectory( pics )
 
 
 
-kde4_footer()
 
 
 
