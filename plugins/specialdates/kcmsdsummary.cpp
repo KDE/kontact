@@ -22,13 +22,12 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <q3buttongroup.h>
+#include <Q3ButtonGroup>
 #include <QCheckBox>
 #include <QLabel>
 #include <QLayout>
 #include <QRadioButton>
 #include <QSpinBox>
-//Added by qt3to4:
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGridLayout>
@@ -42,7 +41,6 @@
 #include <klocale.h>
 
 #include "kcmsdsummary.h"
-#include "sdsummaryconfig_base.h"
 
 #include <kdepimmacros.h>
 
@@ -58,21 +56,22 @@ extern "C"
 KCMSDSummary::KCMSDSummary( KInstance *inst, QWidget *parent )
   : KCModule( inst, parent )
 {
-  mConfigBase = new SDSummaryConfig_Base( parent );
+  QWidget *widget = new QWidget( parent );
+  setupUi( widget );
 
   customDaysChanged( 7 );
 
-  connect( mConfigBase->mDaysGroup,
+  connect( mDaysGroup,
            SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mConfigBase->mDaysGroup,
+  connect( mDaysGroup,
            SIGNAL( clicked( int ) ), SLOT( buttonClicked( int ) ) );
-  connect( mConfigBase->mShowFromCalGroup,
+  connect( mShowFromCalGroup,
            SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mConfigBase->mShowFromKABGroup,
+  connect( mShowFromKABGroup,
            SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mConfigBase->mCustomDays,
+  connect( mCustomDays,
            SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
-  connect( mConfigBase->mCustomDays,
+  connect( mCustomDays,
            SIGNAL( valueChanged( int ) ), SLOT( customDaysChanged( int ) ) );
 
   KAcceleratorManager::manage( this );
@@ -87,12 +86,12 @@ void KCMSDSummary::modified()
 
 void KCMSDSummary::buttonClicked( int id )
 {
-  mConfigBase->mCustomDays->setEnabled( id == 2 );
+  mCustomDays->setEnabled( id == 2 );
 }
 
 void KCMSDSummary::customDaysChanged( int value )
 {
-  mConfigBase->mCustomDays->setSuffix( i18np( " day", " days", value ) );
+  mCustomDays->setSuffix( i18np( " day", " days", value ) );
 }
 
 void KCMSDSummary::load()
@@ -102,31 +101,31 @@ void KCMSDSummary::load()
   config.setGroup( "Days" );
   int days = config.readEntry( "DaysToShow", 7 );
   if ( days == 1 )
-    mConfigBase->mDaysGroup->setButton( 0 );
+    mDaysGroup->setButton( 0 );
   else if ( days == 31 )
-    mConfigBase->mDaysGroup->setButton( 1 );
+    mDaysGroup->setButton( 1 );
   else {
-    mConfigBase->mDaysGroup->setButton( 2 );
-    mConfigBase->mCustomDays->setValue( days );
-    mConfigBase->mCustomDays->setEnabled( true );
+    mDaysGroup->setButton( 2 );
+    mCustomDays->setValue( days );
+    mCustomDays->setEnabled( true );
   }
 
   config.setGroup( "Show" );
 
-  mConfigBase->mShowBirthdaysFromKABBox->
+  mShowBirthdaysFromKABBox->
     setChecked( config.readEntry( "BirthdaysFromContacts", true ) );
-  mConfigBase->mShowBirthdaysFromCalBox->
+  mShowBirthdaysFromCalBox->
     setChecked( config.readEntry( "BirthdaysFromCalendar", true ) );
 
-  mConfigBase->mShowAnniversariesFromKABBox->
+  mShowAnniversariesFromKABBox->
     setChecked( config.readEntry( "AnniversariesFromContacts", true ) );
-  mConfigBase->mShowAnniversariesFromCalBox->
+  mShowAnniversariesFromCalBox->
     setChecked( config.readEntry( "AnniversariesFromCalendar", true ) );
 
-  mConfigBase->mShowHolidaysFromCalBox->
+  mShowHolidaysFromCalBox->
     setChecked( config.readEntry( "HolidaysFromCalendar", true ) );
 
-  mConfigBase->mShowSpecialsFromCalBox->
+  mShowSpecialsFromCalBox->
     setChecked( config.readEntry( "SpecialsFromCalendar", true ) );
 
   emit changed( false );
@@ -139,31 +138,31 @@ void KCMSDSummary::save()
   config.setGroup( "Days" );
 
   int days;
-  switch ( mConfigBase->mDaysGroup->selectedId() ) {
+  switch ( mDaysGroup->selectedId() ) {
     case 0: days = 1; break;
     case 1: days = 31; break;
     case 2:
-    default: days = mConfigBase->mCustomDays->value(); break;
+    default: days = mCustomDays->value(); break;
   }
   config.writeEntry( "DaysToShow", days );
 
   config.setGroup( "Show" );
 
   config.writeEntry( "BirthdaysFromContacts",
-                     mConfigBase->mShowBirthdaysFromKABBox->isChecked() );
+                     mShowBirthdaysFromKABBox->isChecked() );
   config.writeEntry( "BirthdaysFromCalendar",
-                     mConfigBase->mShowBirthdaysFromCalBox->isChecked() );
+                     mShowBirthdaysFromCalBox->isChecked() );
 
   config.writeEntry( "AnniversariesFromContacts",
-                     mConfigBase->mShowAnniversariesFromKABBox->isChecked() );
+                     mShowAnniversariesFromKABBox->isChecked() );
   config.writeEntry( "AnniversariesFromCalendar",
-                     mConfigBase->mShowAnniversariesFromCalBox->isChecked() );
+                     mShowAnniversariesFromCalBox->isChecked() );
 
   config.writeEntry( "HolidaysFromCalendar",
-                     mConfigBase->mShowHolidaysFromCalBox->isChecked() );
+                     mShowHolidaysFromCalBox->isChecked() );
 
   config.writeEntry( "SpecialsFromCalendar",
-                     mConfigBase->mShowSpecialsFromCalBox->isChecked() );
+                     mShowSpecialsFromCalBox->isChecked() );
 
   config.sync();
   emit changed( false );
@@ -171,16 +170,16 @@ void KCMSDSummary::save()
 
 void KCMSDSummary::defaults()
 {
-  mConfigBase->mDateRangeButton->setChecked( true );
-  mConfigBase->mCustomDays->setValue( 7 );
-  mConfigBase->mCustomDays->setEnabled( true );
+  mDateRangeButton->setChecked( true );
+  mCustomDays->setValue( 7 );
+  mCustomDays->setEnabled( true );
 
-  mConfigBase->mShowBirthdaysFromKABBox->setChecked( true );
-  mConfigBase->mShowBirthdaysFromCalBox->setChecked( true );
-  mConfigBase->mShowAnniversariesFromKABBox->setChecked( true );
-  mConfigBase->mShowAnniversariesFromCalBox->setChecked( true );
-  mConfigBase->mShowHolidaysFromCalBox->setChecked( true );
-  mConfigBase->mShowSpecialsFromCalBox->setChecked( true );
+  mShowBirthdaysFromKABBox->setChecked( true );
+  mShowBirthdaysFromCalBox->setChecked( true );
+  mShowAnniversariesFromKABBox->setChecked( true );
+  mShowAnniversariesFromCalBox->setChecked( true );
+  mShowHolidaysFromCalBox->setChecked( true );
+  mShowSpecialsFromCalBox->setChecked( true );
 
   emit changed( true );
 }

@@ -26,13 +26,9 @@
 #define KCMSDSUMMARY_H
 
 #include <kcmodule.h>
-#include "sdsummaryconfig_base.h"
+#include "ui_sdsummaryconfig_base.h"
 
-class Q3ButtonGroup;
-class QCheckBox;
-class QSpinBox;
-
-class KCMSDSummary : public KCModule
+class KCMSDSummary : public KCModule, public Ui::SDSummaryConfig_Base
 {
   Q_OBJECT
 
@@ -49,8 +45,6 @@ class KCMSDSummary : public KCModule
     void buttonClicked( int id );
     void customDaysChanged( int value );
 
-  private:
-    SDSummaryConfig_Base* mConfigBase;
 };
 
 #endif
