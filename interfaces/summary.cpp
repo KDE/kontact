@@ -90,7 +90,7 @@ void Summary::mousePressEvent( QMouseEvent *event )
 
 void Summary::mouseMoveEvent( QMouseEvent *event )
 {
-  if ( (event->state() & Qt::LeftButton) &&
+  if ( (event->buttons() & Qt::LeftButton) &&
        (event->pos() - mDragStartPoint).manhattanLength() > 4 ) {
 
 
@@ -100,7 +100,7 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
 
     QPixmap pm = QPixmap::grabWidget( this );
     if ( pm.width() > 300 )
-      pm = QPixmap::fromImage( pm.toImage().smoothScale( 300, 300, Qt::KeepAspectRatio ) );
+      pm = QPixmap::fromImage( pm.toImage().scaled( 300, 300, Qt::KeepAspectRatio, Qt::SmoothTransformation ) );
 
     QPainter painter;
     painter.begin( &pm );

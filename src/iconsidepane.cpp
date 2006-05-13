@@ -372,7 +372,7 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
   Q3ListBoxItem *item = itemAt( event->pos() );
 
   if ( !item ) {
-    event->accept( false );
+    event->setAccepted( false );
     return;
   }
 
@@ -380,7 +380,7 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
 
   kDebug(5600) << "  PLUGIN: " << entry->plugin()->identifier() << endl;
 
-  event->accept( entry->plugin()->canDecodeDrag( event ) );
+  event->setAccepted( entry->plugin()->canDecodeDrag( event ) );
 }
 
 void Navigator::dropEvent( QDropEvent *event )

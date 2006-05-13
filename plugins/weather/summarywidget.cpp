@@ -121,7 +121,7 @@ void SummaryWidget::updateView()
     KUrlLabel* urlLabel = new KUrlLabel( this );
     urlLabel->installEventFilter( this );
     urlLabel->setURL( (*it).stationID() );
-    urlLabel->setPixmap( QPixmap::fromImage( img.smoothScale( 32, 32 ) ) );
+    urlLabel->setPixmap( QPixmap::fromImage( img.scaled( 32, 32, Qt::IgnoreAspectRatio, Qt::SmoothTransformation ) ) );
     urlLabel->setMaximumSize( urlLabel->sizeHint() );
     urlLabel->setAlignment( Qt::AlignTop );
     layout->addWidget( urlLabel, 0, 0, 2, 1);

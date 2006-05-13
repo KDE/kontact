@@ -404,9 +404,9 @@ void SDSummaryWidget::updateView()
         if ( pic.isIntern() && !pic.data().isNull() ) {
           QImage img = pic.data();
           if ( img.width() > img.height() ) {
-            icon_img = img.scaleWidth( 32 );
+            icon_img = img.scaledToWidth( 32 );
           } else {
-            icon_img = img.scaleHeight( 32 );
+            icon_img = img.scaledToHeight( 32 );
           }
         }
         break;
@@ -416,9 +416,9 @@ void SDSummaryWidget::updateView()
         if ( pic.isIntern() && !pic.data().isNull() ) {
           QImage img = pic.data();
           if ( img.width() > img.height() ) {
-            icon_img = img.scaleWidth( 32 );
+            icon_img = img.scaledToWidth( 32 );
           } else {
-            icon_img = img.scaleHeight( 32 );
+            icon_img = img.scaledToHeight( 32 );
           }
         }
         break;
