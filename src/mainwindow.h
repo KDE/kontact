@@ -24,7 +24,7 @@
 #ifndef KONTACT_MAINWINDOW_H
 #define KONTACT_MAINWINDOW_H
 
-#include <qpointer.h>
+#include <QPointer>
 #include <q3ptrlist.h>
 #include <QStackedWidget>
 

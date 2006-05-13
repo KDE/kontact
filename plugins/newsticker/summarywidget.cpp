@@ -21,13 +21,13 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qclipboard.h>
-#include <qeventloop.h>
+#include <QClipboard>
+#include <QEventLoop>
 #include <khbox.h>
 #include <QLayout>
-#include <qpixmap.h>
-#include <qmenu.h>
-#include <qcursor.h>
+#include <QPixmap>
+#include <QMenu>
+#include <QCursor>
 //Added by qt3to4:
 #include <QLabel>
 #include <QVBoxLayout>

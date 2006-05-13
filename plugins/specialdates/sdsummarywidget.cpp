@@ -22,10 +22,10 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qcursor.h>
+#include <QCursor>
 #include <QLabel>
 #include <QLayout>
-#include <qimage.h>
+#include <QImage>
 #include <QToolTip>
 //Added by qt3to4:
 #include <QPixmap>

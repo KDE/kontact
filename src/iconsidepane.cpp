@@ -22,18 +22,18 @@
 #include <q3ptrlist.h>
 #include <q3widgetstack.h>
 #include <q3signal.h>
-#include <qobject.h>
+#include <QObject>
 #include <QLabel>
-#include <qimage.h>
-#include <qpainter.h>
-#include <qbitmap.h>
-#include <qfontmetrics.h>
-#include <qsignalmapper.h>
-#include <qstyle.h>
+#include <QImage>
+#include <QPainter>
+#include <QBitmap>
+#include <QFontMetrics>
+#include <QSignalMapper>
+#include <QStyle>
 #include <q3frame.h>
 #include <qdrawutil.h>
-#include <qcursor.h>
-#include <qtimer.h>
+#include <QCursor>
+#include <QTimer>
 #include <QToolTip>
 //Added by qt3to4:
 #include <QPixmap>

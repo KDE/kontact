@@ -22,12 +22,12 @@
 
 #include "summary.h"
 
-#include <qimage.h>
+#include <QImage>
 #include <q3dragobject.h>
 #include <khbox.h>
 #include <QFont>
 #include <QLabel>
-#include <qpainter.h>
+#include <QPainter>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QMouseEvent>

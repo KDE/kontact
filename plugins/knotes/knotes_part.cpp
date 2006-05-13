@@ -20,7 +20,7 @@
 */
 
 #include <QMenu>
-#include <qclipboard.h>
+#include <QClipboard>
 
 #include <kapplication.h>
 #include <kdebug.h>

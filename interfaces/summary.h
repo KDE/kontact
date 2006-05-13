@@ -22,7 +22,7 @@
 #define KONTACT_SUMMARY_H
 
 #include <QWidget>
-#include <qpixmap.h>
+#include <QPixmap>
 //Added by qt3to4:
 #include <QMouseEvent>
 #include <QDragEnterEvent>

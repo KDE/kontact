@@ -35,7 +35,7 @@
 #include <kinstance.h>
 #include <QLayout>
 #include <QLabel>
-#include <qpixmap.h>
+#include <QPixmap>
 //Added by qt3to4:
 #include <QVBoxLayout>
 

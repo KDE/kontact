@@ -23,7 +23,7 @@
 
 #include <QLabel>
 #include <QLayout>
-#include <qtimer.h>
+#include <QTimer>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>

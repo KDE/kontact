@@ -25,7 +25,7 @@
 #define SUMMARYWIDGET_H
 
 #include <QMap>
-#include <qtimer.h>
+#include <QTimer>
 #include <QWidget>
 
 #include <QLabel>

@@ -28,7 +28,7 @@
 #include <dcopref.h>
 
 #include <QMap>
-#include <qtimer.h>
+#include <QTimer>
 #include <QWidget>
 
 #include <QList>

@@ -21,7 +21,7 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <qobject.h>
+#include <QObject>
 #include <QLabel>
 #include <QLayout>
 #include <QToolTip>

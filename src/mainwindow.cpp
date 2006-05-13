@@ -22,11 +22,11 @@
 
 #include <QComboBox>
 #include <khbox.h>
-#include <qimage.h>
-#include <qobject.h>
+#include <QImage>
+#include <QObject>
 #include <QPushButton>
-#include <qsplitter.h>
-#include <qtimer.h>
+#include <QSplitter>
+#include <QTimer>
 #include <QList>
 
 #include <dcopclient.h>

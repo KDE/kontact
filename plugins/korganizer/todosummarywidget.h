@@ -25,7 +25,7 @@
 #ifndef TODO_SUMMARYWIDGET_H
 #define TODO_SUMMARYWIDGET_H
 
-#include <qlist.h>
+#include <QList>
 #include <QWidget>
 //Added by qt3to4:
 #include <QLabel>

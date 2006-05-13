@@ -26,7 +26,7 @@
 #include <kparts/part.h>
 #include <kparts/componentfactory.h>
 #include <kdebug.h>
-#include <qtimer.h>
+#include <QTimer>
 #include <klocale.h>
 
 using namespace Kontact;
