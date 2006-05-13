@@ -37,7 +37,7 @@
 #include <klocale.h>
 
 #include "kcmtodosummary.h"
-#include "todosummaryconfig_base.h"
+#include "ui_todosummaryconfig_base.h"
 
 #include <kdepimmacros.h>
 
@@ -53,7 +53,9 @@ extern "C"
 KCMTodoSummary::KCMTodoSummary( KInstance *inst,  QWidget *parent )
   : KCModule( inst, parent )
 {
-  mConfigBase = new TodoSummaryConfig_Base( parent );
+  mConfigBase = new Ui::TodoSummaryConfig_Base();
+  QWidget*widget = new QWidget( parent );
+  mConfigBase->setupUi( widget );
 
   customDaysChanged( 7 );
 
@@ -71,6 +73,10 @@ KCMTodoSummary::KCMTodoSummary( KInstance *inst,  QWidget *parent )
   KAcceleratorManager::manage( this );
 
   load();
+}
+KCMTodoSummary::~KCMTodoSummary()
+{
+  delete mConfigBase;
 }
 
 void KCMTodoSummary::modified()

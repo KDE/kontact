@@ -36,6 +36,7 @@
 #include <klocale.h>
 
 #include "kcmapptsummary.h"
+#include "ui_apptsummaryconfig_base.h"
 
 #include <kdepimmacros.h>
 
@@ -51,7 +52,9 @@ extern "C"
 KCMApptSummary::KCMApptSummary( KInstance *inst, QWidget *parent )
   : KCModule( inst, parent )
 {
-  mConfigBase = new ApptSummaryConfig_Base( parent );
+  mConfigBase = new Ui::ApptSummaryConfig_Base();
+  QWidget *widget = new QWidget( parent );
+  mConfigBase->setupUi( widget );
 
   customDaysChanged( 7 );
 
@@ -68,6 +71,11 @@ KCMApptSummary::KCMApptSummary( KInstance *inst, QWidget *parent )
 
   load();
 }
+KCMApptSummary::~KCMApptSummary()
+{
+  delete mConfigBase;
+}
+
 
 void KCMApptSummary::modified()
 {

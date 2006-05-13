@@ -63,7 +63,7 @@ set(kcm_apptsummary_PART_SRCS kcmapptsummary.cpp )
 
 kde4_automoc(${kcm_apptsummary_PART_SRCS})
 
-kde4_add_ui3_files(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui )
+kde4_add_ui_files(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui )
 
 kde4_add_plugin(kcm_apptsummary ${kcm_apptsummary_PART_SRCS})
 
@@ -80,7 +80,7 @@ set(kcm_todosummary_PART_SRCS kcmtodosummary.cpp )
 
 kde4_automoc(${kcm_todosummary_PART_SRCS})
 
-kde4_add_ui3_files(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui )
+kde4_add_ui_files(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui )
 
 kde4_add_plugin(kcm_todosummary ${kcm_todosummary_PART_SRCS})
 
