@@ -36,7 +36,6 @@
 #include <klocale.h>
 
 #include "kcmapptsummary.h"
-#include "ui_apptsummaryconfig_base.h"
 
 #include <kdepimmacros.h>
 
@@ -52,19 +51,18 @@ extern "C"
 KCMApptSummary::KCMApptSummary( KInstance *inst, QWidget *parent )
   : KCModule( inst, parent )
 {
-  mConfigBase = new Ui::ApptSummaryConfig_Base();
   QWidget *widget = new QWidget( parent );
-  mConfigBase->setupUi( widget );
+  setupUi( widget );
 
   customDaysChanged( 7 );
 
-  connect( mConfigBase->mDaysGroup,
+  connect( mDaysGroup,
            SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mConfigBase->mDaysGroup,
+  connect( mDaysGroup,
            SIGNAL( clicked( int ) ), SLOT( buttonClicked( int ) ) );
-  connect( mConfigBase->mCustomDays,
+  connect( mCustomDays,
            SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
-  connect( mConfigBase->mCustomDays,
+  connect( mCustomDays,
            SIGNAL( valueChanged( int ) ), SLOT( customDaysChanged( int ) ) );
 
   KAcceleratorManager::manage( this );
@@ -73,7 +71,6 @@ KCMApptSummary::KCMApptSummary( KInstance *inst, QWidget *parent )
 }
 KCMApptSummary::~KCMApptSummary()
 {
-  delete mConfigBase;
 }
 
 
@@ -84,12 +81,12 @@ void KCMApptSummary::modified()
 
 void KCMApptSummary::buttonClicked( int id )
 {
-  mConfigBase->mCustomDays->setEnabled( id == 2 );
+  mCustomDays->setEnabled( id == 2 );
 }
 
 void KCMApptSummary::customDaysChanged( int value )
 {
-  mConfigBase->mCustomDays->setSuffix( i18np( " day", " days", value ) );
+  mCustomDays->setSuffix( i18np( " day", " days", value ) );
 }
 
 void KCMApptSummary::load()
@@ -99,13 +96,13 @@ void KCMApptSummary::load()
   config.setGroup( "Days" );
   int days = config.readEntry( "DaysToShow", 7 );
   if ( days == 1 )
-    mConfigBase->mDaysGroup->setButton( 0 );
+    mDaysGroup->setButton( 0 );
   else if ( days == 31 )
-    mConfigBase->mDaysGroup->setButton( 1 );
+    mDaysGroup->setButton( 1 );
   else {
-    mConfigBase->mDaysGroup->setButton( 2 );
-    mConfigBase->mCustomDays->setValue( days );
-    mConfigBase->mCustomDays->setEnabled( true );
+    mDaysGroup->setButton( 2 );
+    mCustomDays->setValue( days );
+    mCustomDays->setEnabled( true );
   }
 
   emit changed( false );
@@ -117,11 +114,11 @@ void KCMApptSummary::save()
 
   config.setGroup( "Days" );
   int days;
-  switch ( mConfigBase->mDaysGroup->selectedId() ) {
+  switch ( mDaysGroup->selectedId() ) {
     case 0: days = 1; break;
     case 1: days = 31; break;
     case 2:
-    default: days = mConfigBase->mCustomDays->value(); break;
+    default: days = mCustomDays->value(); break;
   }
   config.writeEntry( "DaysToShow", days );
 
@@ -132,9 +129,9 @@ void KCMApptSummary::save()
 
 void KCMApptSummary::defaults()
 {
-  mConfigBase->mDateRangeButton->setChecked( true );
-  mConfigBase->mCustomDays->setValue( 7 );
-  mConfigBase->mCustomDays->setEnabled( true );
+  mDateRangeButton->setChecked( true );
+  mCustomDays->setValue( 7 );
+  mCustomDays->setEnabled( true );
 
   emit changed( true );
 }

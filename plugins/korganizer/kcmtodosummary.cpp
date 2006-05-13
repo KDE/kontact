@@ -37,7 +37,6 @@
 #include <klocale.h>
 
 #include "kcmtodosummary.h"
-#include "ui_todosummaryconfig_base.h"
 
 #include <kdepimmacros.h>
 
@@ -53,22 +52,16 @@ extern "C"
 KCMTodoSummary::KCMTodoSummary( KInstance *inst,  QWidget *parent )
   : KCModule( inst, parent )
 {
-  mConfigBase = new Ui::TodoSummaryConfig_Base();
   QWidget*widget = new QWidget( parent );
-  mConfigBase->setupUi( widget );
+  setupUi( widget );
 
   customDaysChanged( 7 );
 
-  connect( mConfigBase->mDaysGroup,
-           SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mConfigBase->mDaysGroup,
-           SIGNAL( clicked( int ) ), SLOT( buttonClicked( int ) ) );
-  connect( mConfigBase->mHideGroup,
-           SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mConfigBase->mCustomDays,
-           SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
-  connect( mConfigBase->mCustomDays,
-           SIGNAL( valueChanged( int ) ), SLOT( customDaysChanged( int ) ) );
+  connect( mDaysGroup, SIGNAL( clicked( int ) ), SLOT( modified() ) );
+  connect( mDaysGroup, SIGNAL( clicked( int ) ), SLOT( buttonClicked( int ) ) );
+  connect( mHideGroup, SIGNAL( clicked( int ) ), SLOT( modified() ) );
+  connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
+  connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( customDaysChanged( int ) ) );
 
   KAcceleratorManager::manage( this );
 
@@ -76,7 +69,6 @@ KCMTodoSummary::KCMTodoSummary( KInstance *inst,  QWidget *parent )
 }
 KCMTodoSummary::~KCMTodoSummary()
 {
-  delete mConfigBase;
 }
 
 void KCMTodoSummary::modified()
@@ -86,12 +78,12 @@ void KCMTodoSummary::modified()
 
 void KCMTodoSummary::buttonClicked( int id )
 {
-  mConfigBase->mCustomDays->setEnabled( id == 2 );
+  mCustomDays->setEnabled( id == 2 );
 }
 
 void KCMTodoSummary::customDaysChanged( int value )
 {
-  mConfigBase->mCustomDays->setSuffix( i18np( " day", " days", value ) );
+  mCustomDays->setSuffix( i18np( " day", " days", value ) );
 }
 
 void KCMTodoSummary::load()
@@ -101,26 +93,21 @@ void KCMTodoSummary::load()
   config.setGroup( "Days" );
   int days = config.readEntry( "DaysToShow", 7 );
   if ( days == 1 )
-    mConfigBase->mDaysGroup->setButton( 0 );
+    mDaysGroup->setButton( 0 );
   else if ( days == 31 )
-    mConfigBase->mDaysGroup->setButton( 1 );
+    mDaysGroup->setButton( 1 );
   else {
-    mConfigBase->mDaysGroup->setButton( 2 );
-    mConfigBase->mCustomDays->setValue( days );
-    mConfigBase->mCustomDays->setEnabled( true );
+    mDaysGroup->setButton( 2 );
+    mCustomDays->setValue( days );
+    mCustomDays->setEnabled( true );
   }
 
   config.setGroup( "Hide" );
-  mConfigBase->mHideInProgressBox->
-    setChecked( config.readEntry( "InProgress", false ) );
-  mConfigBase->mHideOverdueBox->
-    setChecked( config.readEntry( "Overdue", false ) );
-  mConfigBase->mHideCompletedBox->
-    setChecked( config.readEntry( "Completed", true ) );
-  mConfigBase->mHideOpenEndedBox->
-    setChecked( config.readEntry( "OpenEnded", false ) );
-  mConfigBase->mHideUnstartedBox->
-    setChecked( config.readEntry( "NotStarted", false ) );
+  mHideInProgressBox->setChecked( config.readEntry( "InProgress", false ) );
+  mHideOverdueBox->setChecked( config.readEntry( "Overdue", false ) );
+  mHideCompletedBox->setChecked( config.readEntry( "Completed", true ) );
+  mHideOpenEndedBox->setChecked( config.readEntry( "OpenEnded", false ) );
+  mHideUnstartedBox->setChecked( config.readEntry( "NotStarted", false ) );
 
   emit changed( false );
 }
@@ -131,25 +118,20 @@ void KCMTodoSummary::save()
 
   config.setGroup( "Days" );
   int days;
-  switch ( mConfigBase->mDaysGroup->selectedId() ) {
+  switch ( mDaysGroup->selectedId() ) {
     case 0: days = 1; break;
     case 1: days = 31; break;
     case 2:
-    default: days = mConfigBase->mCustomDays->value(); break;
+    default: days = mCustomDays->value(); break;
   }
   config.writeEntry( "DaysToShow", days );
 
   config.setGroup( "Hide" );
-  config.writeEntry( "InProgress",
-                     mConfigBase->mHideInProgressBox->isChecked() );
-  config.writeEntry( "Overdue",
-                     mConfigBase->mHideOverdueBox->isChecked() );
-  config.writeEntry( "Completed",
-                     mConfigBase->mHideCompletedBox->isChecked() );
-  config.writeEntry( "OpenEnded",
-                     mConfigBase->mHideOpenEndedBox->isChecked() );
-  config.writeEntry( "NotStarted",
-                     mConfigBase->mHideUnstartedBox->isChecked() );
+  config.writeEntry( "InProgress", mHideInProgressBox->isChecked() );
+  config.writeEntry( "Overdue", mHideOverdueBox->isChecked() );
+  config.writeEntry( "Completed", mHideCompletedBox->isChecked() );
+  config.writeEntry( "OpenEnded", mHideOpenEndedBox->isChecked() );
+  config.writeEntry( "NotStarted", mHideUnstartedBox->isChecked() );
 
   config.sync();
   emit changed( false );
@@ -157,15 +139,15 @@ void KCMTodoSummary::save()
 
 void KCMTodoSummary::defaults()
 {
-  mConfigBase->mDateRangeButton->setChecked( true );
-  mConfigBase->mCustomDays->setValue( 7 );
-  mConfigBase->mCustomDays->setEnabled( true );
+  mDateRangeButton->setChecked( true );
+  mCustomDays->setValue( 7 );
+  mCustomDays->setEnabled( true );
 
-  mConfigBase->mHideInProgressBox->setChecked( false );
-  mConfigBase->mHideOverdueBox->setChecked( false );
-  mConfigBase->mHideCompletedBox->setChecked( true );
-  mConfigBase->mHideOpenEndedBox->setChecked( false );
-  mConfigBase->mHideUnstartedBox->setChecked( false );
+  mHideInProgressBox->setChecked( false );
+  mHideOverdueBox->setChecked( false );
+  mHideCompletedBox->setChecked( true );
+  mHideOpenEndedBox->setChecked( false );
+  mHideUnstartedBox->setChecked( false );
 
   emit changed( true );
 }

@@ -26,15 +26,13 @@
 #define KCMTODOSUMMARY_H
 
 #include <kcmodule.h>
+#include "ui_todosummaryconfig_base.h"
 
 class QSpinBox;
 class QCheckBox;
 class QButtonGroup;
-namespace Ui {
-class TodoSummaryConfig_Base;
-}
 
-class KCMTodoSummary : public KCModule
+class KCMTodoSummary : public KCModule, public Ui::TodoSummaryConfig_Base
 {
   Q_OBJECT
 
@@ -53,8 +51,6 @@ class KCMTodoSummary : public KCModule
     void buttonClicked( int id );
     void customDaysChanged( int value );
 
-  private:
-    Ui::TodoSummaryConfig_Base* mConfigBase;
 };
 
 #endif

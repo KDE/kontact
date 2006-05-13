@@ -26,15 +26,13 @@
 #define KCMAPPTSUMMARY_H
 
 #include <kcmodule.h>
+#include "ui_apptsummaryconfig_base.h"
 
 class QSpinBox;
 class QCheckBox;
 class QButtonGroup;
-namespace Ui {
-class ApptSummaryConfig_Base;
-}
 
-class KCMApptSummary : public KCModule
+class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
 {
   Q_OBJECT
 
@@ -52,8 +50,6 @@ class KCMApptSummary : public KCModule
     void buttonClicked( int id );
     void customDaysChanged( int value );
 
-  private:
-    Ui::ApptSummaryConfig_Base* mConfigBase;
 };
 
 #endif
