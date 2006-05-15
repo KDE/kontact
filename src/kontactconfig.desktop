@@ -1,0 +1,45 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=kcmshell kontactconfig
+Icon=kontact
+Type=Service
+ServiceTypes=KCModule
+
+X-KDE-ModuleType=Library
+X-KDE-Library=kontact
+X-KDE-FactoryName=kontactconfig
+X-KDE-HasReadOnlyMode=false
+X-KDE-ParentApp=kontact
+X-KDE-ParentComponents=kontact
+X-KDE-Weight=0
+
+Name=Kontact
+Name[be]=Кантакт
+Name[hi]=कॉन्टेक्ट
+Name[sv]=Kontakt
+Name[ta]=தொடர்பு கொள்
+Comment=KDE Kontact
+Comment[be]=Кантакт KDE
+Comment[bg]=Управление на личната информация
+Comment[ca]=Kontact de KDE
+Comment[cy]=Kontact KDE
+Comment[de]=Kontact
+Comment[fi]=Kontact
+Comment[hi]=केडीई कॉन्टेक्ट
+Comment[pl]=Kontact dla KDE
+Comment[pt]=Kontact do KDE
+Comment[pt_BR]=Kontact do KDE
+Comment[ro]=Contact KDE
+Comment[ta]=கேடிஇ தொடர்புகொள்
+Keywords=kontact
+Keywords[be]=кантакт,kontact
+Keywords[bg]=контакти, връзка, информация, личен, поща, бизнес, планиране, kontact
+Keywords[de]=Kontact
+Keywords[hi]=कॉन्टेक्ट
+Keywords[hu]=kapcsolat
+Keywords[nb]=kontact, kontakt
+Keywords[sr]=kontact, контакт
+Keywords[sr@Latn]=kontact, kontakt
+Keywords[sv]=kontakt
+Keywords[ta]=தொடர்புகொள்
+Keywords[tr]=bağlantı
