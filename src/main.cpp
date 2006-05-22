@@ -32,7 +32,7 @@
 #include <kwin.h>
 #include <kstandarddirs.h>
 #include <ktoolinvocation.h>
-#include <ktrader.h>
+#include <kservicetypetrader.h>
 #include "plugin.h"
 
 #include <QLabel>
@@ -62,7 +62,7 @@ class KontactApp : public KUniqueApplication {
 static void listPlugins()
 {
   KInstance instance( "kontact" ); // Can't use KontactApp since it's too late for adding cmdline options
-  KTrader::OfferList offers = KTrader::self()->query(
+  KService::List offers = KServiceTypeTrader::self()->query(
     QString::fromLatin1( "Kontact/Plugin" ),
     QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
   for ( KService::List::Iterator it = offers.begin(); it != offers.end(); ++it ) {

@@ -30,7 +30,7 @@
 #include <kdebug.h>
 #include <k3listview.h>
 #include <klocale.h>
-#include <ktrader.h>
+#include <kservicetypetrader.h>
 
 #include <q3buttongroup.h>
 #include <QCheckBox>
@@ -118,7 +118,7 @@ PluginSelection::~PluginSelection()
 
 void PluginSelection::readConfig()
 {
-  const KTrader::OfferList offers = KTrader::self()->query(
+  const KService::List offers = KServiceTypeTrader::self()->query(
       QString::fromLatin1( "Kontact/Plugin" ),
       QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
 

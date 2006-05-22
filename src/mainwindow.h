@@ -72,7 +72,6 @@ class KDE_EXPORT MainWindow : public Kontact::Core, public KDCOPServiceStarter
     // KDCOPServiceStarter interface
     virtual int startServiceFor( const QString& serviceType,
                                  const QString& constraint = QString::null,
-                                 const QString& preferences = QString::null,
                                  QString *error = 0, DCOPCString* dcopService = 0,
                                  int flags = 0 );
 

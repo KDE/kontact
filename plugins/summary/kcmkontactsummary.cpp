@@ -31,7 +31,7 @@
 #include <klocale.h>
 #include <plugin.h>
 #include <kplugininfo.h>
-#include <ktrader.h>
+#include <kservicetypetrader.h>
 #include <kinstance.h>
 #include <QLayout>
 #include <QLabel>
@@ -123,7 +123,7 @@ KCMKontactSummary::KCMKontactSummary( KInstance* inst, QWidget *parent )
 
 void KCMKontactSummary::load()
 {
-  KTrader::OfferList offers = KTrader::self()->query(
+  KService::List offers = KServiceTypeTrader::self()->query(
       QString::fromLatin1( "Kontact/Plugin" ),
       QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
 

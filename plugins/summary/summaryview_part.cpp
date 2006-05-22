@@ -39,7 +39,6 @@
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kservice.h>
-#include <ktrader.h>
 #include <kstandarddirs.h>
 #include <q3scrollview.h>
 #include <kglobal.h>

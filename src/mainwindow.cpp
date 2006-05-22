@@ -54,7 +54,7 @@
 #include <kstatusbar.h>
 #include <kstdaction.h>
 #include <ktip.h>
-#include <ktrader.h>
+#include <kservicetypetrader.h>
 #include <ksettings/componentsdialog.h>
 #include <kstringhandler.h>
 #include <krsqueezedtextlabel.h>
@@ -135,7 +135,7 @@ void MainWindow::initGUI()
 
 void MainWindow::initObject()
 {
-  KTrader::OfferList offers = KTrader::self()->query(
+  KService::List offers = KServiceTypeTrader::self()->query(
       QString::fromLatin1( "Kontact/Plugin" ),
       QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
   mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(), "Plugins" );
@@ -721,7 +721,6 @@ void MainWindow::slotPreferences()
 
 int MainWindow::startServiceFor( const QString& serviceType,
                                  const QString& constraint,
-                                 const QString& preferences,
                                  QString *error, DCOPCString* dcopService,
                                  int flags )
 {
@@ -740,7 +739,7 @@ int MainWindow::startServiceFor( const QString& serviceType,
     "Didn't find dcop interface, falling back to external process" << endl;
 
   return KDCOPServiceStarter::startServiceFor( serviceType, constraint,
-      preferences, error, dcopService, flags );
+      error, dcopService, flags );
 }
 
 void MainWindow::pluginsChanged()
