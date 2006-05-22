@@ -62,7 +62,7 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
   label->setPixmap( icon );
   label->setFixedSize( label->sizeHint() );
   QPalette pal = label->palette();
-  pal.setColor(label->backgroundRole(), palette().mid());
+  pal.setColor(label->backgroundRole(), palette().mid().color());
   label->setPalette(pal);
   label->setAcceptDrops( true );
 
