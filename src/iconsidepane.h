@@ -162,7 +162,7 @@ class Navigator : public KListBox
     void slotExecuted( Q3ListBoxItem * );
     void slotMouseOn( Q3ListBoxItem *item );
     void slotMouseOff();
-    void slotShowRMBMenu( Q3ListBoxItem * );
+    void slotShowRMBMenu( Q3ListBoxItem *, const QPoint& );
     void shortCutSelected( int );
     void slotStopHighlight();
 

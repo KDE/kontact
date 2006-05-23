@@ -450,7 +450,7 @@ IconViewMode Navigator::sizeIntToEnum(int size) const
   }
 }
 
-void Navigator::slotShowRMBMenu( Q3ListBoxItem * )
+void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint& )
 {
   KMenu menu;
   menu.addTitle( i18n( "Icon Size" ) );
