@@ -359,13 +359,14 @@ void SDSummaryWidget::updateView()
       for ( dt=QDate::currentDate();
             dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
             dt=dt.addDays(1) ) {
-        QString holstring = mHolidays->shortText( dt );
-        if ( !holstring.isNull() && !holstring.isEmpty() ) {
+        QValueList<KHoliday> holidays = mHolidays->getHolidays( dt );
+        QValueList<KHoliday>::ConstIterator it = holidays.begin();
+        for ( ; it != holidays.end(); ++it ) {
           SDEntry entry;
           entry.type = IncidenceTypeEvent;
-          entry.category = CategoryHoliday;
+          entry.category = ((*it).Category==KHolidays::HOLIDAY)?CategoryHoliday:CategoryOther;
           entry.date = dt;
-          entry.summary = holstring;
+          entry.summary = (*it).text;
           dateDiff( dt, entry.daysTo, entry.yearsOld );
           entry.yearsOld = -1; //ignore age of holidays
           entry.span = 1;
