@@ -74,24 +74,7 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
     QObject::connect( pimPart, SIGNAL( destroyed( QObject * ) ),
                       SLOT( slotPartDestroyed( QObject * ) ) );
   } else {
-    // TODO move to KParts::ComponentFactory
-    switch( error ) {
-    case KLibLoader::ErrNoServiceFound:
-      d->lastErrorMessage = i18n( "No service found" );
-      break;
-    case KLibLoader::ErrServiceProvidesNoLibrary:
-      d->lastErrorMessage = i18n( "Program error: the .desktop file for the service does not have a Library key." );
-      break;
-    case KLibLoader::ErrNoLibrary:
-      d->lastErrorMessage = KLibLoader::self()->lastErrorMessage();
-      break;
-    case KLibLoader::ErrNoFactory:
-      d->lastErrorMessage = i18n( "Program error: the library %1 does not provide a factory.", libname );
-      break;
-    case KLibLoader::ErrNoComponent:
-      d->lastErrorMessage = i18n( "Program error: the library %1 does not support creating components of the specified type", libname );
-      break;
-    }
+    d->lastErrorMessage = KLibLoader::errorString( error );
     kWarning(5601) << d->lastErrorMessage << endl;
   }
 
