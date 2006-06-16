@@ -76,19 +76,19 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
   } else {
     // TODO move to KParts::ComponentFactory
     switch( error ) {
-    case KParts::ComponentFactory::ErrNoServiceFound:
+    case KLibLoader::ErrNoServiceFound:
       d->lastErrorMessage = i18n( "No service found" );
       break;
-    case KParts::ComponentFactory::ErrServiceProvidesNoLibrary:
+    case KLibLoader::ErrServiceProvidesNoLibrary:
       d->lastErrorMessage = i18n( "Program error: the .desktop file for the service does not have a Library key." );
       break;
-    case KParts::ComponentFactory::ErrNoLibrary:
+    case KLibLoader::ErrNoLibrary:
       d->lastErrorMessage = KLibLoader::self()->lastErrorMessage();
       break;
-    case KParts::ComponentFactory::ErrNoFactory:
+    case KLibLoader::ErrNoFactory:
       d->lastErrorMessage = i18n( "Program error: the library %1 does not provide a factory.", libname );
       break;
-    case KParts::ComponentFactory::ErrNoComponent:
+    case KLibLoader::ErrNoComponent:
       d->lastErrorMessage = i18n( "Program error: the library %1 does not support creating components of the specified type", libname );
       break;
     }
