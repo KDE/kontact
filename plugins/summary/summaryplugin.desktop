@@ -54,6 +54,7 @@ Comment[tg]=Модули дайджести Kontact
 Comment[tr]=Kontact Özet Gösterim Eklentisi
 Comment[uk]=Втулок Kontact для перегляду зведень
 Comment[zh_CN]=Kontact 概览视图插件
+Comment[zh_TW]=Kontact 摘要檢視外掛程式
 Name=Summary
 Name[br]=Diverrañ
 Name[bs]=Sažetak
@@ -100,5 +101,6 @@ Name[tr]=Özet
 Name[uk]=Зведення
 Name[uz]=Ҳисобот
 Name[zh_CN]=概览
+Name[zh_TW]=摘要
 #Always last
 InitialPreference=0
