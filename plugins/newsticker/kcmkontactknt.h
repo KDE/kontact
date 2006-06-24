@@ -82,7 +82,7 @@ class KCMKontactKNT : public KCModule
     QList<NewsItem*> mCustomFeeds;
 };
 
-class NewsEditDialog : public KDialogBase
+class NewsEditDialog : public KDialog
 {
   Q_OBJECT
 

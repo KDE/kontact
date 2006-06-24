@@ -48,10 +48,15 @@
 using namespace Kontact;
 
 AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
-  : KDialogBase( IconList, i18n("About Kontact"), Ok, Ok, core, name, false,
-                 true ),
-    mCore( core )
+  : KPageDialog( core )
+    ,mCore( core )
 {
+  setCaption(i18n("About Kontact"));
+  setButtons(Ok);
+  setDefaultButton(Ok);
+  setModal(false);
+  enableButtonSeparator(true);
+  setFaceType(KPageDialog::List);
   addAboutData( i18n( "Kontact Container" ), QString( "kontact" ),
                 KGlobal::instance()->aboutData() );
 
@@ -75,7 +80,11 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
   QPixmap pixmap = KGlobal::iconLoader()->loadIcon( icon,
                                                     K3Icon::Desktop, 48 );
 
-  QFrame *topFrame = addPage( title, QString::null, pixmap );
+  QFrame *topFrame = new Frame();
+  KPageWidgetItem *pageItem = new KPageWidgetItem( topFrame, title );
+  pageItem->setIcon(pixmap);
+
+  addPage( pageItem );
 
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 

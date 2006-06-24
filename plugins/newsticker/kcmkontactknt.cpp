@@ -61,10 +61,16 @@ extern "C"
 }
 
 NewsEditDialog::NewsEditDialog( const QString& title, const QString& url, QWidget *parent )
-  : KDialogBase( Plain, i18n( "New News Feed" ), Ok | Cancel,
-                 Ok, parent, 0, true, true )
+  : KDialog( parent)
 {
-  QWidget *page = plainPage();
+  setCaption(i18n( "New News Feed" ));
+  setButtons(Ok | Cancel);
+  setDefaultButton(Ok);
+  setModal(true);
+  enableButtonSeparator(true);
+
+  QWidget *page = new QWidget(this);
+  setMainWidget(page);
   QGridLayout *layout = new QGridLayout( page );
   layout->setSpacing( spacingHint() );
   layout->setMargin( marginHint() );
@@ -96,7 +102,7 @@ NewsEditDialog::NewsEditDialog( const QString& title, const QString& url, QWidge
 
 void NewsEditDialog::modified()
 {
-  enableButton( KDialogBase::Ok, !title().isEmpty() && !url().isEmpty() );
+  enableButton( KDialog::Ok, !title().isEmpty() && !url().isEmpty() );
 }
 
 QString NewsEditDialog::title() const

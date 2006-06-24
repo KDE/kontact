@@ -24,14 +24,14 @@
 #ifndef KONTACT_ABOUTDIALOG_H
 #define KONTACT_ABOUTDIALOG_H
 
-#include <kdialogbase.h>
+#include <kpagedialog.h>
 class KAboutData;
 namespace Kontact {
 
 class Core;
 class Plugin;
 
-class AboutDialog : public KDialogBase
+class AboutDialog : public KPageDialog
 {
   Q_OBJECT
 

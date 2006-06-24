@@ -48,7 +48,7 @@
 #include <klineedit.h>
 #include <ktoolbar.h>
 #include <kmenu.h>
-#include <kdialogbase.h>
+#include <kdialog.h>
 #include <kxmlguiclient.h>
 #include <kxmlguifactory.h>
 #include <kxmlguibuilder.h>
@@ -91,15 +91,19 @@ class KNotesIconViewItem : public K3IconViewItem
 };
 
 
-class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
+class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
 {
   Q_OBJECT
 
   public:
     KNoteEditDlg( QWidget *parent = 0, const char *name = 0 )
-      : KDialogBase( Plain, i18n( "Edit Note" ), Ok | Cancel, Ok,
-                     parent, name, true, true )
+      : KDialog( parent)
     {
+	  setCaption(i18n( "Edit Note" ));
+	  setButtons(Ok | Cancel);
+	  setDefaultButton(Ok);
+	  setModal(true);
+	  enableButtonSeparator(true);
       // this dialog is modal to prevent one from editing the same note twice in two
       // different windows
 
@@ -107,7 +111,8 @@ class KNoteEditDlg : public KDialogBase, virtual public KXMLGUIClient
       setXMLFile( "knotesui.rc" );
       actionCollection()->setAssociatedWidget( this );
 
-      QWidget *page = plainPage();
+      QWidget *page = new QWidget(this);
+	  setMainWidget(page);
       QVBoxLayout *layout = new QVBoxLayout( page );
 
       QHBoxLayout *hbl = new QHBoxLayout();
