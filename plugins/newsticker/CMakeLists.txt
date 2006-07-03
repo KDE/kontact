@@ -8,7 +8,7 @@ set(kontact_newstickerplugin_PART_SRCS newsticker_plugin.cpp summarywidget.cpp )
 
 kde4_automoc(${kontact_newstickerplugin_PART_SRCS})
 
-kde4_add_dcop_skels(kontact_newstickerplugin_PART_SRCS summarywidget.h )
+#kde4_add_dcop_skels(kontact_newstickerplugin_PART_SRCS summarywidget.h )
 
 kde4_add_plugin(kontact_newstickerplugin WITH_PREFIX ${kontact_newstickerplugin_PART_SRCS})
 

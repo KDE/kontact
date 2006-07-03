@@ -8,7 +8,7 @@ set(kptestplugin_PART_SRCS test_plugin.cpp test_part.cpp )
 
 kde4_automoc(${kptestplugin_PART_SRCS})
 
-kde4_add_dcop_stubs(kptestplugin_PART_SRCS kaddressbookiface.h )
+#kde4_add_dcop_stubs(kptestplugin_PART_SRCS kaddressbookiface.h )
 
 kde4_add_plugin(kptestplugin WITH_PREFIX ${kptestplugin_PART_SRCS})
 

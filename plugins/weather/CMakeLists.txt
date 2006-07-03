@@ -8,7 +8,7 @@ set(kontact_weatherplugin_PART_SRCS weather_plugin.cpp summarywidget.cpp )
 
 kde4_automoc(${kontact_weatherplugin_PART_SRCS})
 
-kde4_add_dcop_skels(kontact_weatherplugin_PART_SRCS summarywidget.h )
+#kde4_add_dcop_skels(kontact_weatherplugin_PART_SRCS summarywidget.h )
 
 kde4_add_plugin(kontact_weatherplugin WITH_PREFIX ${kontact_weatherplugin_PART_SRCS})
 

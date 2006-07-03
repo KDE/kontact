@@ -12,7 +12,7 @@ set(kontact_knotesplugin_PART_SRCS ${libknotesresources_SRCS} ${libknoteseditor_
 
 kde4_automoc(${kontact_knotesplugin_PART_SRCS} ${libknotesresources_SRCS} ${libknoteseditor_SRCS})
 
-kde4_add_dcop_skels(kontact_knotesplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/knotes/KNotesIface.h )
+#kde4_add_dcop_skels(kontact_knotesplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/knotes/KNotesIface.h )
 
 kde4_add_plugin(kontact_knotesplugin WITH_PREFIX ${kontact_knotesplugin_PART_SRCS})
 

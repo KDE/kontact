@@ -9,10 +9,10 @@ set(kontact_korganizerplugin_PART_SRCS korganizerplugin.cpp apptsummarywidget.cp
 
 kde4_automoc(${kontact_korganizerplugin_PART_SRCS})
 
-kde4_add_dcop_stubs(kontact_korganizerplugin_PART_SRCS 
-	${CMAKE_SOURCE_DIR}/korganizer/kcalendariface.h 
-	${CMAKE_SOURCE_DIR}/korganizer/korganizeriface.h 
-	)
+#kde4_add_dcop_stubs(kontact_korganizerplugin_PART_SRCS 
+#	${CMAKE_SOURCE_DIR}/korganizer/kcalendariface.h 
+#	${CMAKE_SOURCE_DIR}/korganizer/korganizeriface.h 
+#	)
 
 kde4_add_plugin(kontact_korganizerplugin WITH_PREFIX ${kontact_korganizerplugin_PART_SRCS})
 
@@ -29,7 +29,7 @@ set(kontact_todoplugin_PART_SRCS todoplugin.cpp todosummarywidget.cpp ${libcommo
 
 kde4_automoc(${kontact_todoplugin_PART_SRCS})
 
-kde4_add_dcop_stubs(kontact_todoplugin_PART_SRCS kcalendariface.h korganizeriface.h )
+#kde4_add_dcop_stubs(kontact_todoplugin_PART_SRCS kcalendariface.h korganizeriface.h )
 
 kde4_add_plugin(kontact_todoplugin WITH_PREFIX ${kontact_todoplugin_PART_SRCS})
 
@@ -46,7 +46,7 @@ set(kontact_journalplugin_PART_SRCS journalplugin.cpp ${libcommon_SRCS})
 
 kde4_automoc(${kontact_journalplugin_PART_SRCS})
 
-kde4_add_dcop_stubs(kontact_journalplugin_PART_SRCS kcalendariface.h )
+#kde4_add_dcop_stubs(kontact_journalplugin_PART_SRCS kcalendariface.h )
 
 kde4_add_plugin(kontact_journalplugin WITH_PREFIX ${kontact_journalplugin_PART_SRCS})
 
