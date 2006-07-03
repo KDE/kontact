@@ -55,7 +55,7 @@ AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
   setButtons(Ok);
   setDefaultButton(Ok);
   setModal(false);
-  enableButtonSeparator(true);
+  showButtonSeparator(true);
   setFaceType(KPageDialog::List);
   addAboutData( i18n( "Kontact Container" ), QString( "kontact" ),
                 KGlobal::instance()->aboutData() );

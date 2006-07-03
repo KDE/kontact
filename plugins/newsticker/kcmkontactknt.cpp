@@ -66,7 +66,7 @@ NewsEditDialog::NewsEditDialog( const QString& title, const QString& url, QWidge
   setButtons(Ok | Cancel);
   setDefaultButton(Ok);
   setModal(true);
-  enableButtonSeparator(true);
+  showButtonSeparator(true);
 
   QWidget *page = new QWidget(this);
   setMainWidget(page);

@@ -103,7 +103,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
 	  setButtons(Ok | Cancel);
 	  setDefaultButton(Ok);
 	  setModal(true);
-	  enableButtonSeparator(true);
+	  showButtonSeparator(true);
       // this dialog is modal to prevent one from editing the same note twice in two
       // different windows
 
