@@ -39,7 +39,6 @@
 #include <kacceleratormanager.h>
 #include <kconfig.h>
 #include <kdebug.h>
-#include <kdialogbase.h>
 #include <k3listview.h>
 #include <klocale.h>
 #include <kpushbutton.h>

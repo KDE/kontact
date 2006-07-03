@@ -25,6 +25,7 @@
 #define KCMKONTACTKNT_H
 
 #include <kcmodule.h>
+#include <kdialog.h>
 
 class Q3ListViewItem;
 class QSpinxBox;

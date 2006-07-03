@@ -37,7 +37,6 @@
 #include <kacceleratormanager.h>
 #include <kconfig.h>
 #include <kdebug.h>
-#include <kdialogbase.h>
 #include <klocale.h>
 
 #include "kcmsdsummary.h"
