@@ -54,7 +54,7 @@ KNotesPlugin::~KNotesPlugin()
 QString KNotesPlugin::tipFile() const
 {
   // TODO: tips file
-  //QString file = ::locate("data", "knotes/tips");
+  //QString file = KStandardDirs::locate("data", "knotes/tips");
   QString file;
   return file;
 }

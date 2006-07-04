@@ -52,7 +52,7 @@ KarmPlugin::~KarmPlugin()
 QString KarmPlugin::tipFile() const
 {
   // TODO: tips file
-  //QString file = ::locate("data", "karm/tips");
+  //QString file = KStandardDirs::locate("data", "karm/tips");
   QString file;
   return file;
 }

@@ -88,7 +88,7 @@ Akregator::AkregatorPartIface_stub *Plugin::interface()
 QString Plugin::tipFile() const
 {
   // TODO: tips file
-  //QString file = ::locate("data", "akregator/tips");
+  //QString file = KStandardDirs::locate("data", "akregator/tips");
   QString file;
   return file;
 }

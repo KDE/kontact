@@ -86,7 +86,7 @@ void KNodePlugin::slotPostArticle()
 QString KNodePlugin::tipFile() const
 {
   // TODO: tips file
-  //QString file = ::locate("data", "knode/tips");
+  //QString file = KStandardDirs::locate("data", "knode/tips");
   QString file;
   return file;
 }

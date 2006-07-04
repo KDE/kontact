@@ -121,7 +121,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
 
     QString resourceName;
     if ( fileName.isEmpty() ) {
-      fileName = locateLocal( "data", "korganizer/std.ics" );
+      fileName = KStandardDirs::locateLocal( "data", "korganizer/std.ics" );
       resourceName = i18n( "Default KOrganizer resource" );
     } else {
       resourceName = i18n( "Active Calendar" );

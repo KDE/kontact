@@ -84,7 +84,7 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
   KABC::Addressee::List list;
 
   if ( VCalDrag::decode( de, &cal ) || ICalDrag::decode( de, &cal ) ) {
-    KTempFile tmp( locateLocal( "tmp", "incidences-" ), ".ics" );
+    KTempFile tmp( KStandardDirs::locateLocal( "tmp", "incidences-" ), ".ics" );
     cal.save( tmp.name() );
     openComposer( KUrl( tmp.name() ) );
   }
@@ -141,7 +141,7 @@ bool KMailPlugin::createDCOPInterface( const QString& serviceType )
 
 QString KMailPlugin::tipFile() const
 {
-  QString file = ::locate("data", "kmail/tips");
+  QString file = KStandardDirs::locate("data", "kmail/tips");
   return file;
 }
 
