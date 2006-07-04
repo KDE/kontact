@@ -16,12 +16,12 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_knodeplugin )
 
 target_link_libraries(kontact_knodeplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kparts )
 
-install_targets(${PLUGIN_INSTALL_DIR} kontact_knodeplugin )
+install(TARGETS kontact_knodeplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### install files ###############
 
-install_files( ${SERVICES_INSTALL_DIR}/kontact FILES knodeplugin.desktop )
+install( FILES knodeplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
 
 

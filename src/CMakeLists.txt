@@ -21,7 +21,7 @@ kde4_add_library(kontact SHARED ${kontact_LIB_SRCS})
 target_link_libraries(kontact  ${KDE4_KDECORE_LIBS} kdepim kpinterfaces kontact kparts kutils khtml )
 
 set_target_properties(kontact PROPERTIES VERSION 1.0.0 SOVERSION 1 )
-install_targets(${LIB_INSTALL_DIR} kontact )
+install(TARGETS kontact  DESTINATION ${LIB_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -36,7 +36,7 @@ set_target_properties(kontact_bin  PROPERTIES OUTPUT_NAME kontact)
 
 target_link_libraries(kontact_bin  ${KDE4_KDECORE_LIBS} khtml ${KDE4_KDE3SUPPORT_LIBS} kontact)
 
-install_targets(/bin kontact_bin )
+install(TARGETS kontact_bin  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### next target ###############
@@ -51,16 +51,16 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kontact )
 
 target_link_libraries(kcm_kontact  ${KDE4_KDECORE_LIBS} kontact kdepim )
 
-install_targets(${PLUGIN_INSTALL_DIR} kcm_kontact )
+install(TARGETS kcm_kontact  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES Kontact.desktop )
-install_files( ${KCFG_INSTALL_DIR} FILES kontact.kcfg )
-install_files( ${SERVICES_INSTALL_DIR} FILES kontactconfig.desktop )
-install_files( ${DATA_INSTALL_DIR}/kontact FILES kontactui.rc )
-install_files( ${DATA_INSTALL_DIR}/kontact FILES kontact.setdlg )
+install( FILES Kontact.desktop  DESTINATION ${XDG_APPS_DIR})
+install( FILES kontact.kcfg  DESTINATION ${KCFG_INSTALL_DIR})
+install( FILES kontactconfig.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
+install( FILES kontactui.rc  DESTINATION ${DATA_INSTALL_DIR}/kontact)
+install( FILES kontact.setdlg  DESTINATION ${DATA_INSTALL_DIR}/kontact)
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 

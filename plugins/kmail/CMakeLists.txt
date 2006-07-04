@@ -24,7 +24,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_kmailplugin )
 
 target_link_libraries(kontact_kmailplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kcal kparts )
 
-install_targets(${PLUGIN_INSTALL_DIR} kontact_kmailplugin )
+install(TARGETS kontact_kmailplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -39,13 +39,13 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kmailsummary )
 
 target_link_libraries(kcm_kmailsummary  ${KDE4_KDEUI_LIBS} )
 
-install_targets(${PLUGIN_INSTALL_DIR} kcm_kmailsummary )
+install(TARGETS kcm_kmailsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### install files ###############
 
-install_files( ${SERVICES_INSTALL_DIR}/kontact FILES kmailplugin.desktop )
-install_files( ${SERVICES_INSTALL_DIR} FILES kcmkmailsummary.desktop )
+install( FILES kmailplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install( FILES kcmkmailsummary.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
 
 

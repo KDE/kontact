@@ -16,12 +16,12 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_akregator )
 
 target_link_libraries(kontact_akregator  ${KDE4_KDECORE_LIBS} kpinterfaces kparts )
 
-install_targets(${PLUGIN_INSTALL_DIR} kontact_akregator )
+install(TARGETS kontact_akregator  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### install files ###############
 
-install_files( ${SERVICES_INSTALL_DIR}/kontact FILES akregatorplugin.desktop akregatorplugin3.2.desktop )
+install( FILES akregatorplugin.desktop akregatorplugin3.2.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
 
 

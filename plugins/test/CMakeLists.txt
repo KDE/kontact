@@ -16,14 +16,14 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kptestplugin )
 
 target_link_libraries(kptestplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kparts )
 
-install_targets(${PLUGIN_INSTALL_DIR} kptestplugin )
+install(TARGETS kptestplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### install files ###############
 
-install_files( ${SERVICES_INSTALL_DIR} FILES kptestplugin.desktop )
-install_files( ${DATA_INSTALL_DIR}/kptestplugin FILES kptestplugin.rc )
-install_files( ${DATA_INSTALL_DIR}/testpart FILES testpartui.rc )
+install( FILES kptestplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
+install( FILES kptestplugin.rc  DESTINATION ${DATA_INSTALL_DIR}/kptestplugin)
+install( FILES testpartui.rc  DESTINATION ${DATA_INSTALL_DIR}/testpart)
 
 
 

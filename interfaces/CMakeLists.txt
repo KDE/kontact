@@ -17,13 +17,13 @@ kde4_add_library(kpinterfaces SHARED ${kpinterfaces_LIB_SRCS})
 target_link_libraries(kpinterfaces  ${KDE4_KDECORE_LIBS} kdepim kparts )
 
 set_target_properties(kpinterfaces PROPERTIES VERSION 1.0.0 SOVERSION 1 )
-install_targets(${LIB_INSTALL_DIR} kpinterfaces )
+install(TARGETS kpinterfaces  DESTINATION ${LIB_INSTALL_DIR})
 
 
 ########### install files ###############
 
-install_files( /include/kontact FILES core.h plugin.h summary.h )
-install_files( ${SERVICETYPES_INSTALL_DIR} FILES kontactplugin.desktop )
+install( FILES core.h plugin.h summary.h  DESTINATION ${INCLUDE_INSTALL_DIR}/kontact)
+install( FILES kontactplugin.desktop  DESTINATION ${SERVICETYPES_INSTALL_DIR})
 
 
 

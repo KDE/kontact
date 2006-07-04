@@ -16,12 +16,12 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_karm )
 
 target_link_libraries(kontact_karm  ${KDE4_KDECORE_LIBS} kpinterfaces )
 
-install_targets(${PLUGIN_INSTALL_DIR} kontact_karm )
+install(TARGETS kontact_karm  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### install files ###############
 
-install_files( ${SERVICES_INSTALL_DIR}/kontact FILES karmplugin.desktop )
+install( FILES karmplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
 
 

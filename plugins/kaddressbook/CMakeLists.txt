@@ -18,12 +18,12 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_kaddressbookplugin )
 
 target_link_libraries(kontact_kaddressbookplugin  ${KDE4_KDECORE_LIBS} kabc kpinterfaces kdepim )
 
-install_targets(${PLUGIN_INSTALL_DIR} kontact_kaddressbookplugin )
+install(TARGETS kontact_kaddressbookplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### install files ###############
 
-install_files( ${SERVICES_INSTALL_DIR}/kontact FILES kaddressbookplugin.desktop )
+install( FILES kaddressbookplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
 
 

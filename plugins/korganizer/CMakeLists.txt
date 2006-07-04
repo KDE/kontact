@@ -20,7 +20,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_korganizerplugin )
 
 target_link_libraries(kontact_korganizerplugin  ${KDE4_KDECORE_LIBS}  kpinterfaces kparts korganizer_calendar )
 
-install_targets(${PLUGIN_INSTALL_DIR} kontact_korganizerplugin )
+install(TARGETS kontact_korganizerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -37,7 +37,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_todoplugin )
 
 target_link_libraries(kontact_todoplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kparts korganizer_calendar )
 
-install_targets(${PLUGIN_INSTALL_DIR} kontact_todoplugin )
+install(TARGETS kontact_todoplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -54,7 +54,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_journalplugin )
 
 target_link_libraries(kontact_journalplugin  ${KDE4_KDECORE_LIBS}  kpinterfaces kparts korganizer_calendar )
 
-install_targets(${PLUGIN_INSTALL_DIR} kontact_journalplugin )
+install(TARGETS kontact_journalplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -71,7 +71,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_apptsummary )
 
 target_link_libraries(kcm_apptsummary  ${KDE4_KDEUI_LIBS} )
 
-install_targets(${PLUGIN_INSTALL_DIR} kcm_apptsummary )
+install(TARGETS kcm_apptsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -88,7 +88,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_todosummary )
 
 target_link_libraries(kcm_todosummary  ${KDE4_KDEUI_LIBS} )
 
-install_targets(${PLUGIN_INSTALL_DIR} kcm_todosummary )
+install(TARGETS kcm_todosummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -96,8 +96,8 @@ install_targets(${PLUGIN_INSTALL_DIR} kcm_todosummary )
 
 ########### install files ###############
 
-install_files( ${SERVICES_INSTALL_DIR}/kontact FILES korganizerplugin.desktop todoplugin.desktop journalplugin.desktop )
-install_files( ${SERVICES_INSTALL_DIR} FILES kcmapptsummary.desktop kcmtodosummary.desktop )
+install( FILES korganizerplugin.desktop todoplugin.desktop journalplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install( FILES kcmapptsummary.desktop kcmtodosummary.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
