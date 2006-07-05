@@ -31,8 +31,7 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 
-#include <dcopref.h>
-#include <dcopclient.h>
+#include <QtDBus>
 
 #include <kaboutdata.h>
 #include <kapplication.h>
@@ -226,15 +225,16 @@ void KCMKontactKNT::storeCustomNews()
 
 void KCMKontactKNT::addNews()
 {
-  if ( !dcopActive() )
+  if ( !dbusActive() )
     return;
 
   NewsItem *item = dynamic_cast<NewsItem*>( mAllNews->selectedItem() );
   if ( item == 0 )
     return;
 
-  DCOPRef service( "rssservice", "RSSService" );
-  service.send( "add(QString)", item->url() );
+  #warning "insert the right dbus path/interface here, once knewsticker has been ported"
+  QDBusInterface service( "org.kde.rssservice", "/", "org.kde.rssservice.RSSService" );
+  service.call( "add(QString)", item->url() );
 
   scanNews();
 
@@ -243,15 +243,16 @@ void KCMKontactKNT::addNews()
 
 void KCMKontactKNT::removeNews()
 {
-  if ( !dcopActive() )
+  if ( !dbusActive() )
     return;
 
   NewsItem *item = dynamic_cast<NewsItem*>( mSelectedNews->selectedItem() );
   if ( item == 0 )
     return;
 
-  DCOPRef service( "rssservice", "RSSService" );
-  service.send( "remove(QString)", item->url() );
+  #warning "insert the right dbus path/interface here, once knewsticker has been ported"
+  QDBusInterface service( "org.kde.rssservice", "/", "org.kde.rssservice.RSSService" );
+  service.call( "remove(QString)", item->url() );
 
   scanNews();
 
@@ -297,13 +298,15 @@ void KCMKontactKNT::deleteFeed()
 
 void KCMKontactKNT::scanNews()
 {
-  if ( !dcopActive() )
+  if ( !dbusActive() )
     return;
 
   mSelectedNews->clear();
 
-  DCOPRef service( "rssservice", "RSSService" );
-  QStringList urls = service.call( "list()" );
+  #warning "insert the right dbus path/interface here, once knewsticker has been ported"
+  QDBusInterface service( "org.kde.rssservice", "/", "org.kde.rssservice.RSSService" );
+  QDBusReply<QStringList> reply = service.call( "list()" );
+  QStringList urls = reply.value();
 
   for ( int i = 0; i < urls.count(); ++i )
   {
@@ -403,13 +406,15 @@ void KCMKontactKNT::initGUI()
   layout->addWidget( box, 1, 0, 1, 3 );
 }
 
-bool KCMKontactKNT::dcopActive() const
+bool KCMKontactKNT::dbusActive() const
 {
   QString error;
-  DCOPCString appID;
+  QString appID;
   bool isGood = true;
-  DCOPClient *client = kapp->dcopClient();
-  if ( !client->isApplicationRegistered( "rssservice" ) ) {
+  
+  #warning "insert the right dbus path/interface here, once knewsticker has been ported"
+  QDBusInterface service( "org.kde.rssservice", "/", "org.kde.rssservice.RSSService" );
+  if ( !service.isValid() ) {
     if ( KToolInvocation::startServiceByDesktopName( "rssservice", QStringList(), &error, &appID ) )
       isGood = false;
   }

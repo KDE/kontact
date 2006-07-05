@@ -30,12 +30,12 @@
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
-#include <dcopclient.h>
 
 #include "core.h"
 
 #include "journalplugin.h"
 #include "korg_uniqueapp.h"
+#include "kcalendarinterface.h"
 
 typedef KGenericFactory< JournalPlugin, Kontact::Core > JournalPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_journalplugin,
@@ -67,8 +67,8 @@ KParts::ReadOnlyPart *JournalPlugin::createPart()
   if ( !part )
     return 0;
 
-  dcopClient(); // ensure that we register to DCOP as "korganizer"
-  mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
+  #warning "Once we have a running korganizer, make sure that this dbus call really does what it should! Where is it needed, anyway?"
+  mIface = new OrgKdeKorganizerCalendarInterface( "org.kde.Korganizer.Calendar", "/Calendar", QDBus::sessionBus, this );
 
   return part;
 }
@@ -95,7 +95,7 @@ QStringList JournalPlugin::invisibleToolbarActions() const
   return invisible;
 }
 
-KCalendarIface_stub *JournalPlugin::interface()
+OrgKdeKorganizerCalendarInterface *JournalPlugin::interface()
 {
   if ( !mIface ) {
     part();
@@ -109,10 +109,11 @@ void JournalPlugin::slotNewJournal()
   interface()->openJournalEditor( "" );
 }
 
-bool JournalPlugin::createDCOPInterface( const QString& serviceType )
+bool JournalPlugin::createDBUSInterface( const QString& serviceType )
 {
   kDebug(5602) << k_funcinfo << serviceType << endl;
-  if ( serviceType == "DCOP/Organizer" || serviceType == "DCOP/Calendar" ) {
+  #warning "What is this needed for, and do we still need it with DBUS?"
+  if ( serviceType == "DBUS/Organizer" || serviceType == "DBUS/Calendar" ) {
     if ( part() )
       return true;
   }

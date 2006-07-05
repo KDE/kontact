@@ -66,7 +66,7 @@ class KCMKontactKNT : public KCModule
     void storeCustomNews();
     void scanNews();
 
-    bool dcopActive() const;
+    bool dbusActive() const;
 
     K3ListView *mAllNews;
     K3ListView *mSelectedNews;

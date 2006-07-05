@@ -24,7 +24,6 @@
 
 #include <QWidget>
 #include <q3dragobject.h>
-//Added by qt3to4:
 #include <QDropEvent>
 
 #include <kapplication.h>
@@ -35,8 +34,6 @@
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
 
-#include <dcopclient.h>
-
 #include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
@@ -45,6 +42,7 @@
 #include "apptsummarywidget.h"
 #include "korganizerplugin.h"
 #include "korg_uniqueapp.h"
+#include "kcalendarinterface.h"
 
 typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_korganizerplugin,
@@ -81,14 +79,15 @@ KParts::ReadOnlyPart *KOrganizerPlugin::createPart()
   if ( !part )
     return 0;
 
-  mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
+  #warning "Once we have a running korganizer, make sure that this dbus call really does what it should! Where is it needed, anyway?"
+  mIface = new OrgKdeKorganizerCalendarInterface( "org.kde.Korganizer.Calendar", "/Calendar", QDBus::sessionBus, this );
 
   return part;
 }
 
 QString KOrganizerPlugin::tipFile() const
 {
-  QString file = ::locate("data", "korganizer/tips");
+  QString file = KStandardDirs::locate("data", "korganizer/tips");
   return file;
 }
 
@@ -109,7 +108,7 @@ void KOrganizerPlugin::select()
   interface()->showEventView();
 }
 
-KCalendarIface_stub *KOrganizerPlugin::interface()
+OrgKdeKorganizerCalendarInterface *KOrganizerPlugin::interface()
 {
   if ( !mIface ) {
     part();
@@ -123,10 +122,11 @@ void KOrganizerPlugin::slotNewEvent()
   interface()->openEventEditor( "" );
 }
 
-bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )
+bool KOrganizerPlugin::createDBUSInterface( const QString& serviceType )
 {
   kDebug(5602) << k_funcinfo << serviceType << endl;
-  if ( serviceType == "DCOP/Organizer" || serviceType == "DCOP/Calendar" ) {
+  #warning "What is this needed for, and do we still need it with DBUS?"
+  if ( serviceType == "DBUS/Organizer" || serviceType == "DBUS/Calendar" ) {
     if ( part() )
       return true;
   }

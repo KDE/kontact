@@ -28,11 +28,11 @@
 
 #include <klocale.h>
 #include <kparts/part.h>
-#include "karmdcopiface_stub.h"
 
 #include "plugin.h"
 
 class KAboutData;
+class OrgKdeKarmKarmInterface;
 
 class KarmPlugin : public Kontact::Plugin
 {
@@ -47,7 +47,7 @@ class KarmPlugin : public Kontact::Plugin
 
   protected:
     KParts::ReadOnlyPart *createPart();
-    KarmDCOPIface_stub *mStub;
+    OrgKdeKarmKarmInterface *mInterface;
 
   public slots:
     void newTask();

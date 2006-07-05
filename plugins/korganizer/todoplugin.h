@@ -27,11 +27,10 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include "kcalendariface_stub.h"
 #include "plugin.h"
 #include "uniqueapphandler.h"
-//Added by qt3to4:
 #include <QDropEvent>
+class OrgKdeKorganizerCalendarInterface;
 
 class TodoPlugin : public Kontact::Plugin
 {
@@ -40,7 +39,7 @@ class TodoPlugin : public Kontact::Plugin
     TodoPlugin( Kontact::Core *core, const QStringList& );
     ~TodoPlugin();
 
-    virtual bool createDCOPInterface( const QString& serviceType );
+    virtual bool createDBUSInterface( const QString& serviceType );
     virtual bool isRunningStandalone();
     int weight() const { return 450; }
 
@@ -53,7 +52,7 @@ class TodoPlugin : public Kontact::Plugin
 
     void select();
 
-    KCalendarIface_stub *interface();
+    OrgKdeKorganizerCalendarInterface *interface();
 
   protected:
     KParts::ReadOnlyPart *createPart();
@@ -62,7 +61,7 @@ class TodoPlugin : public Kontact::Plugin
     void slotNewTodo();
 
   private:
-    KCalendarIface_stub *mIface;
+    OrgKdeKorganizerCalendarInterface *mIface;
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 

@@ -24,7 +24,6 @@
 
 #include <QWidget>
 #include <q3dragobject.h>
-//Added by qt3to4:
 #include <QDropEvent>
 
 #include <kapplication.h>
@@ -33,7 +32,6 @@
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
-#include <dcopclient.h>
 
 #include <libkdepim/maillistdrag.h>
 #include <libkdepim/kdepimprotocols.h>
@@ -44,6 +42,7 @@
 #include "todoplugin.h"
 #include "todosummarywidget.h"
 #include "korg_uniqueapp.h"
+#include "kcalendarinterface.h"
 
 typedef KGenericFactory< TodoPlugin, Kontact::Core > TodoPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_todoplugin,
@@ -79,8 +78,8 @@ KParts::ReadOnlyPart *TodoPlugin::createPart()
   if ( !part )
     return 0;
 
-  dcopClient(); // ensure that we register to DCOP as "korganizer"
-  mIface = new KCalendarIface_stub( dcopClient(), "kontact", "CalendarIface" );
+  #warning "Once we have a running korganizer, make sure that this dbus call really does what it should! Where is it needed, anyway?"
+  mIface = new OrgKdeKorganizerCalendarInterface( "org.kde.Korganizer.Calendar", "/Calendar", QDBus::sessionBus, this );
 
   return part;
 }
@@ -121,10 +120,11 @@ void TodoPlugin::slotNewTodo()
   interface()->openTodoEditor( "" );
 }
 
-bool TodoPlugin::createDCOPInterface( const QString& serviceType )
+bool TodoPlugin::createDBUSInterface( const QString& serviceType )
 {
   kDebug(5602) << k_funcinfo << serviceType << endl;
-  if ( serviceType == "DCOP/Organizer" || serviceType == "DCOP/Calendar" ) {
+  #warning "What is this needed for, and do we still need it with DBUS?"
+  if ( serviceType == "DBUS/Organizer" || serviceType == "DBUS/Calendar" ) {
     if ( part() )
       return true;
   }

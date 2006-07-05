@@ -27,9 +27,9 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include "kcalendariface_stub.h"
 #include "plugin.h"
 #include "uniqueapphandler.h"
+class OrgKdeKorganizerCalendarInterface;
 
 class JournalPlugin : public Kontact::Plugin
 {
@@ -38,7 +38,7 @@ class JournalPlugin : public Kontact::Plugin
     JournalPlugin( Kontact::Core *core, const QStringList& );
     ~JournalPlugin();
 
-    virtual bool createDCOPInterface( const QString& serviceType );
+    virtual bool createDBUSInterface( const QString& serviceType );
     virtual bool isRunningStandalone();
     int weight() const { return 500; }
 
@@ -46,7 +46,7 @@ class JournalPlugin : public Kontact::Plugin
 
     void select();
 
-    KCalendarIface_stub *interface();
+    OrgKdeKorganizerCalendarInterface *interface();
 
   protected:
     KParts::ReadOnlyPart *createPart();
@@ -55,7 +55,7 @@ class JournalPlugin : public Kontact::Plugin
     void slotNewJournal();
 
   private:
-    KCalendarIface_stub *mIface;
+    OrgKdeKorganizerCalendarInterface *mIface;
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 

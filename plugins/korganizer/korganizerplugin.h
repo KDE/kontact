@@ -28,11 +28,10 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include "kcalendariface_stub.h"
 #include "plugin.h"
 #include "uniqueapphandler.h"
-//Added by qt3to4:
 #include <QDropEvent>
+class OrgKdeKorganizerCalendarInterface;
 
 class KOrganizerPlugin : public Kontact::Plugin
 {
@@ -42,7 +41,7 @@ class KOrganizerPlugin : public Kontact::Plugin
     KOrganizerPlugin( Kontact::Core *core, const QStringList& );
     ~KOrganizerPlugin();
 
-    virtual bool createDCOPInterface( const QString& serviceType );
+    virtual bool createDBUSInterface( const QString& serviceType );
     virtual bool isRunningStandalone();
     int weight() const { return 400; }
 
@@ -56,7 +55,7 @@ class KOrganizerPlugin : public Kontact::Plugin
 
     void select();
 
-    KCalendarIface_stub *interface();
+    OrgKdeKorganizerCalendarInterface *interface();
 
   protected:
     KParts::ReadOnlyPart *createPart();
@@ -65,7 +64,7 @@ class KOrganizerPlugin : public Kontact::Plugin
     void slotNewEvent();
 
   private:
-    KCalendarIface_stub *mIface;
+    OrgKdeKorganizerCalendarInterface *mIface;
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 

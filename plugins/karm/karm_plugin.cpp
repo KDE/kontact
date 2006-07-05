@@ -30,7 +30,7 @@
 #include "plugin.h"
 
 #include "karm_plugin.h"
-#include "karmdcopiface_stub.h"
+#include "karminterface.h"
 
 typedef KGenericFactory<KarmPlugin, Kontact::Core> KarmPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_karm,
@@ -40,7 +40,7 @@ KarmPlugin::KarmPlugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "KArm" )
 {
   setInstance( KarmPluginFactory::instance() );
-  (void)dcopClient();
+
   insertNewAction( new KAction( i18n( "New Task" ), "karm",
                    Qt::CTRL+Qt::SHIFT+Qt::Key_W, this, SLOT( newTask() ), actionCollection(), "new_task" ) );
 }
@@ -63,8 +63,7 @@ KParts::ReadOnlyPart* KarmPlugin::createPart()
   if ( !part ) return 0;
 
   // this calls a DCOP interface from karm via the lib KarmDCOPIface_stub that is generated automatically
-  mStub = new KarmDCOPIface_stub( dcopClient(), "KArm",
-                                      "KarmDCOPIface" );
+  mInterface = new OrgKdeKarmKarmInterface( "/Karm", "org.kde.karm.Karm", QDBus::sessionBus() );
 
   return part;
 }
@@ -72,7 +71,7 @@ KParts::ReadOnlyPart* KarmPlugin::createPart()
 void KarmPlugin::newTask()
 {
   kDebug() << "Entering newTask" << endl;
-  mStub->addTask("New Task");
+  mInterface->addTask("New Task");
 }
 
 #include "karm_plugin.moc"
