@@ -346,8 +346,9 @@ void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
       minWidth = item->width( this );
 
     QString name = QString( "CTRL+%1" ).arg( counter + 1 );
-    KAction *action = new KAction( plugin->title(), plugin->icon(), KShortcut( name ),
-                                   mMapper, SLOT( map() ), mSidePane->actionCollection(), name.toLatin1() );
+    KAction *action = new KAction(KIcon(plugin->icon()),  plugin->title(), mSidePane->actionCollection(), name.toLatin1() );
+    connect(action, SIGNAL(triggered(bool) ), mMapper, SLOT( map() ));
+    action->setShortcut(KShortcut( name ));
     mActions.append( action );
     mMapper->setMapping( action, counter );
     counter++;
