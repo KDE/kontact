@@ -181,7 +181,10 @@ void AboutDialog::addLicenseText( const KAboutData *about )
 
   QString title = i18n( "%1 License", about->programName() );
 
-  QFrame *topFrame = addPage( title, QString::null, pixmap );
+  QFrame *topFrame = new QFrame();
+  KPageWidgetItem *page = new KPageWidgetItem( topFrame, title );
+  page->setIcon(KIcon(pixmap));
+  addPage( page );
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
   KTextBrowser *textBrowser = new KTextBrowser( topFrame );
