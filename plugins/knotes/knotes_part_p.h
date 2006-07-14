@@ -53,7 +53,7 @@
 #include <kxmlguifactory.h>
 #include <kxmlguibuilder.h>
 
-#include <libkcal/journal.h>
+#include <kcal/journal.h>
 
 #include "knotes/knoteedit.h"
 

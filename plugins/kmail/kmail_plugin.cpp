@@ -37,9 +37,9 @@
 
 #include <kabc/addressee.h>
 
-#include <libkcal/vcaldrag.h>
-#include <libkcal/icaldrag.h>
-#include <libkcal/calendarlocal.h>
+#include <kcal/vcaldrag.h>
+#include <kcal/icaldrag.h>
+#include <kcal/calendarlocal.h>
 
 #include <libkdepim/kvcarddrag.h>
 

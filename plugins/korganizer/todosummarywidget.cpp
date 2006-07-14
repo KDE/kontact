@@ -38,10 +38,10 @@
 #include <kstandarddirs.h>
 #include <kurllabel.h>
 #include <QToolTip>
-#include <libkcal/calendar.h>
-#include <libkcal/resourcecalendar.h>
-#include <libkcal/resourcelocal.h>
-#include <libkcal/todo.h>
+#include <kcal/calendar.h>
+#include <kcal/resourcecalendar.h>
+#include <kcal/resourcelocal.h>
+#include <kcal/todo.h>
 #include <libkdepim/kpimprefs.h>
 
 #include "korganizeriface_stub.h"

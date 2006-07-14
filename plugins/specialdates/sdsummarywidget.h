@@ -32,7 +32,7 @@
 #include <QGridLayout>
 #include <QEvent>
 
-#include <libkcal/calendarresources.h>
+#include <kcal/calendarresources.h>
 #include <libkholidays/kholidays.h>
 
 #include "summary.h"

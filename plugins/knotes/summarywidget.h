@@ -33,8 +33,8 @@
 #include <QLabel>
 #include <QEvent>
 
-#include <libkcal/resourcelocal.h>
-#include <libkcal/calendarresources.h>
+#include <kcal/resourcelocal.h>
+#include <kcal/calendarresources.h>
 
 class QGridLayout;
 class QLabel;

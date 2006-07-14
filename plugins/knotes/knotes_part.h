@@ -28,7 +28,7 @@
 #include <kglobal.h>
 #include <kiconloader.h>
 
-#include <libkcal/journal.h>
+#include <kcal/journal.h>
 #include <kparts/part.h>
 
 #include "knotes/KNotesIface.h"

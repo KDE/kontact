@@ -46,9 +46,9 @@
 #include <kmenu.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
-#include <libkcal/event.h>
-#include <libkcal/resourcecalendar.h>
-#include <libkcal/resourcelocal.h>
+#include <kcal/event.h>
+#include <kcal/resourcecalendar.h>
+#include <kcal/resourcelocal.h>
 #include <libkdepim/kpimprefs.h>
 #include <ktoolinvocation.h>
 
