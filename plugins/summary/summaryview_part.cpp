@@ -29,11 +29,10 @@
 #include <QHBoxLayout>
 #include <QScrollArea>
 
-#include <dcopclient.h>
 #include <kaction.h>
 #include <kapplication.h>
 #include <kconfig.h>
-#include <kdcopservicestarter.h>
+#include <kdbusservicestarter.h>
 #include <kdebug.h>
 #include <kdialog.h>
 #include <klocale.h>
@@ -324,7 +323,9 @@ void SummaryViewPart::setDate( const QDate& newDate )
 
 void SummaryViewPart::slotConfigure()
 {
-  KCMultiDialog dlg( mMainWidget, "ConfigDialog", true );
+  KCMultiDialog dlg( mMainWidget );
+  dlg.setObjectName( "ConfigDialog" );
+  dlg.setModal( true );
 
   QStringList modules = configModules();
   modules.prepend( "kcmkontactsummary.desktop" );

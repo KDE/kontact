@@ -44,8 +44,6 @@
 #include <kcal/todo.h>
 #include <libkdepim/kpimprefs.h>
 
-#include "korganizeriface_stub.h"
-
 #include "core.h"
 #include "plugin.h"
 #include "todoplugin.h"
@@ -293,8 +291,9 @@ void TodoSummaryWidget::updateView()
 void TodoSummaryWidget::selectEvent( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
-  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
-  iface.editIncidence( uid );
+#warning Port me!
+//  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
+//  iface.editIncidence( uid );
 }
 
 bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent* e )

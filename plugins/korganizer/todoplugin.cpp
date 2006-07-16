@@ -25,6 +25,7 @@
 #include <QWidget>
 #include <q3dragobject.h>
 #include <QDropEvent>
+#include <QtDBus/QtDBus>
 
 #include <kapplication.h>
 #include <kaction.h>
@@ -42,7 +43,7 @@
 #include "todoplugin.h"
 #include "todosummarywidget.h"
 #include "korg_uniqueapp.h"
-#include "kcalendarinterface.h"
+#include "calendarinterface.h"
 
 typedef KGenericFactory< TodoPlugin, Kontact::Core > TodoPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_todoplugin,
@@ -79,7 +80,7 @@ KParts::ReadOnlyPart *TodoPlugin::createPart()
     return 0;
 
   #warning "Once we have a running korganizer, make sure that this dbus call really does what it should! Where is it needed, anyway?"
-  mIface = new OrgKdeKorganizerCalendarInterface( "org.kde.Korganizer.Calendar", "/Calendar", QDBus::sessionBus, this );
+  mIface = new OrgKdeKorganizerCalendarInterface( "org.kde.Korganizer.Calendar", "/Calendar", QDBus::sessionBus(), this );
 
   return part;
 }
@@ -106,7 +107,7 @@ QStringList TodoPlugin::invisibleToolbarActions() const
   return invisible;
 }
 
-KCalendarIface_stub *TodoPlugin::interface()
+OrgKdeKorganizerCalendarInterface *TodoPlugin::interface()
 {
   if ( !mIface ) {
     part();

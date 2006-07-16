@@ -43,8 +43,6 @@
 #include <kcal/resourcelocal.h>
 #include <libkdepim/kpimprefs.h>
 
-#include "korganizeriface_stub.h"
-
 #include "core.h"
 #include "plugin.h"
 #include "korganizerplugin.h"
@@ -271,8 +269,9 @@ void ApptSummaryWidget::updateView()
 void ApptSummaryWidget::selectEvent( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
-  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
-  iface.editIncidence( uid );
+#warning Port to DBus!
+//  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
+//  iface.editIncidence( uid );
 }
 
 bool ApptSummaryWidget::eventFilter( QObject *obj, QEvent* e )
