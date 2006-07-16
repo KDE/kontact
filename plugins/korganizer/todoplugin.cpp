@@ -56,8 +56,11 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
   setInstance( TodoPluginFactory::instance() );
   instance()->iconLoader()->addAppDir("korganizer");
 
-  insertNewAction( new KAction( i18n( "New To-do..." ), "newtodo",
-                   Qt::CTRL+Qt::SHIFT+Qt::Key_T, this, SLOT( slotNewTodo() ), actionCollection(), "new_todo" ) );
+  KAction *action = new KAction( KIcon("newtodo"), i18n( "New To-do..." ), 
+                                 actionCollection(), "new_todo" );
+  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_T);
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotNewTodo() ));
+  insertNewAction(action);
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );

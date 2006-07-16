@@ -51,7 +51,10 @@ Plugin::Plugin( Kontact::Core *core, const QStringList& )
 
     setInstance( PluginFactory::instance() );
 
-    insertNewAction( new KAction( i18n( "New Feed..." ), "bookmark_add", Qt::CTRL+Qt::SHIFT+Qt::Key_F, this, SLOT( addFeed() ), actionCollection(), "feed_new" ) );
+    KAction *action = new KAction( KIcon("bookmark_add"), i18n( "New Feed..." ), actionCollection(), "feed_new" );
+    action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_F);
+    connect(action, SIGNAL(triggered(bool)),SLOT( addFeed() ));
+    insertNewAction(action);
 
     m_uniqueAppWatcher = new Kontact::UniqueAppWatcher(
 	new Kontact::UniqueAppHandlerFactory<Akregator::UniqueAppHandler>(), this );

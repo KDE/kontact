@@ -49,8 +49,10 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const QStringList& )
   setInstance( JournalPluginFactory::instance() );
   instance()->iconLoader()->addAppDir("korganizer");
 
-  insertNewAction( new KAction( i18n( "New Journal..." ), "newjournal",
-                   Qt::CTRL+Qt::SHIFT+Qt::Key_J, this, SLOT( slotNewJournal() ), actionCollection(), "new_journal" ) );
+  KAction *action = new KAction( KIcon("newjournal"), i18n( "New Journal..." ), actionCollection(), "new_journal" );
+  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_J);
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotNewJournal()));
+  insertNewAction(action);
 
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(

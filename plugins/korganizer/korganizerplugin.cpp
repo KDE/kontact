@@ -57,8 +57,10 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QStringList& )
   setInstance( KOrganizerPluginFactory::instance() );
   instance()->iconLoader()->addAppDir("korganizer");
 
-  insertNewAction( new KAction( i18n( "New Event..." ), "appointment",
-                   Qt::CTRL+Qt::SHIFT+Qt::Key_E, this, SLOT( slotNewEvent() ), actionCollection(), "new_event" ) );
+  KAction *action = new KAction( KIcon("appointment"), i18n( "New Event..." ), actionCollection(), "new_event" );
+  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_E);
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotNewEvent() ));
+  insertNewAction(action);
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );

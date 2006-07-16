@@ -47,8 +47,11 @@ KNodePlugin::KNodePlugin( Kontact::Core *core, const QStringList& )
 {
   setInstance( KNodePluginFactory::instance() );
 
-  insertNewAction( new KAction( i18n( "New Article..." ), "mail_new", Qt::CTRL+Qt::SHIFT+Qt::Key_A,
-                   this, SLOT( slotPostArticle() ), actionCollection(), "post_article" ) );
+  KAction *action = new KAction( KIcon("mail_new"), i18n( "New Article..." ), 
+                                 actionCollection(), "post_article" );
+  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_A);
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotPostArticle()));
+  insertNewAction( action );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KNodeUniqueAppHandler>(), this );
