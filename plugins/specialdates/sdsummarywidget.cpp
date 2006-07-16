@@ -32,9 +32,8 @@
 #include <QGridLayout>
 #include <QEvent>
 #include <QVBoxLayout>
+#include <Q3ValueList>
 
-#include <dcopclient.h>
-#include <dcopref.h>
 #include <kabc/stdaddressbook.h>
 #include <korganizer/stdcalendar.h>
 #include <kapplication.h>
@@ -367,8 +366,8 @@ void SDSummaryWidget::updateView()
       for ( dt=QDate::currentDate();
             dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
             dt=dt.addDays(1) ) {
-        QValueList<KHoliday> holidays = mHolidays->getHolidays( dt );
-        QValueList<KHoliday>::ConstIterator it = holidays.begin();
+        Q3ValueList<KHoliday> holidays = mHolidays->getHolidays( dt );
+        Q3ValueList<KHoliday>::ConstIterator it = holidays.begin();
         for ( ; it != holidays.end(); ++it ) {
           SDEntry entry;
           entry.type = IncidenceTypeEvent;
@@ -507,7 +506,7 @@ void SDSummaryWidget::updateView()
       if ( (*addrIt).type == IncidenceTypeContact ) {
         KUrlLabel *urlLabel = new KUrlLabel( this );
         urlLabel->installEventFilter( this );
-        urlLabel->setURL( (*addrIt).addressee.uid() );
+        urlLabel->setUrl( (*addrIt).addressee.uid() );
         urlLabel->setText( (*addrIt).addressee.realName() );
         urlLabel->setTextFormat( Qt::RichText );
         mLayout->addWidget( urlLabel, counter, 4 );
@@ -576,8 +575,9 @@ void SDSummaryWidget::viewContact( const QString &uid )
   else
     mPlugin->bringToForeground();
 
-  DCOPRef dcopCall( "kaddressbook", "KAddressBookIface" );
-  dcopCall.send( "showContactEditor(QString)", uid );
+#warning Port me to DBus!
+//  DCOPRef dcopCall( "kaddressbook", "KAddressBookIface" );
+//  dcopCall.send( "showContactEditor(QString)", uid );
 }
 
 void SDSummaryWidget::popupMenu( const QString &uid )

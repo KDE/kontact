@@ -34,8 +34,6 @@
 #include <kiconloader.h>
 #include <kdebug.h>
 
-#include <dcopclient.h>
-
 #include <QWidget>
 
 
@@ -78,9 +76,10 @@ QStringList KNodePlugin::invisibleToolbarActions() const
 void KNodePlugin::slotPostArticle()
 {
   (void) part(); // ensure part is loaded
-  Q_ASSERT( mStub );
+#warning Port me!
+/*  Q_ASSERT( mStub );
   if ( mStub )
-    mStub->postArticle();
+    mStub->postArticle();*/
 }
 
 QString KNodePlugin::tipFile() const
@@ -96,7 +95,8 @@ KParts::ReadOnlyPart* KNodePlugin::createPart()
   KParts::ReadOnlyPart *part = loadPart();
   if ( !part ) return 0;
 
-  mStub = new KNodeIface_stub( dcopClient(), "knode", "KNodeIface" );
+#warning Port me!
+//  mStub = new KNodeIface_stub( dcopClient(), "knode", "KNodeIface" );
   return part;
 }
 
@@ -112,8 +112,9 @@ int KNodeUniqueAppHandler::newInstance()
 {
     // Ensure part is loaded
     (void)plugin()->part();
-    DCOPRef knode( "knode", "KNodeIface" );
-    DCOPReply reply = knode.call( "handleCommandLine" );
+#warning Port me to DBus!
+//    DCOPRef knode( "knode", "KNodeIface" );
+//    DCOPReply reply = knode.call( "handleCommandLine" );
 #if 0
     if ( reply.isValid() ) {
         bool handled = reply;

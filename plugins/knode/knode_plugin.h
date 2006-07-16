@@ -28,7 +28,6 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include "knodeiface_stub.h"
 #include "plugin.h"
 #include <uniqueapphandler.h>
 
@@ -62,7 +61,7 @@ class KNodePlugin : public Kontact::Plugin
     void slotPostArticle();
 
   private:
-    KNodeIface_stub *mStub;
+    /*KNodeIface_stub*/ void *mStub;
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 

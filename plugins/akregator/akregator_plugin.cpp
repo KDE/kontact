@@ -24,8 +24,6 @@
 
 #include <QWidget>
 
-#include <dcopclient.h>
-#include <dcopref.h>
 #include <kaboutdata.h>
 #include <kaction.h>
 #include <kapplication.h>
@@ -74,7 +72,8 @@ QStringList Plugin::invisibleToolbarActions() const
 }
 
 
-Akregator::AkregatorPartIface_stub *Plugin::interface()
+#warning Port me!
+/*Akregator::AkregatorPartIface_stub *Plugin::interface()
 {
     if ( !m_stub ) {
         part();
@@ -82,7 +81,7 @@ Akregator::AkregatorPartIface_stub *Plugin::interface()
 
     Q_ASSERT( m_stub );
     return m_stub;
-}
+}*/
 
 
 QString Plugin::tipFile() const
@@ -99,9 +98,10 @@ MyBasePart* Plugin::createPart()
     MyBasePart* p = loadPart();
 
     connect(p, SIGNAL(showPart()), this, SLOT(showPart()));
-    m_stub = new Akregator::AkregatorPartIface_stub( dcopClient(), "akregator",
-                                      "AkregatorIface" );
-    m_stub->openStandardFeedList();
+#warning Port me!
+//    m_stub = new Akregator::AkregatorPartIface_stub( dcopClient(), "akregator",
+//                                      "AkregatorIface" );
+//    m_stub->openStandardFeedList();
     return p;
 }
 
@@ -113,7 +113,8 @@ void Plugin::showPart()
 
 void Plugin::addFeed()
 {
-    interface()->addFeed();
+#warning Port me!
+//    interface()->addFeed();
 }
 
 QStringList Plugin::configModules() const
@@ -133,7 +134,8 @@ int UniqueAppHandler::newInstance()
     kDebug(5602) << k_funcinfo << endl;
     // Ensure part is loaded
     (void)plugin()->part();
-    DCOPRef akr( "akregator", "AkregatorIface" );
+#warning Port me to DBus!
+//    DCOPRef akr( "akregator", "AkregatorIface" );
 //    DCOPReply reply = kAB.call( "handleCommandLine" );
   //  if ( reply.isValid() ) {
     //    bool handled = reply;
