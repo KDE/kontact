@@ -23,7 +23,6 @@
 #include <QObject>
 #include <kxmlguifactory.h>
 #include <klocale.h>
-#include <dcopclient.h>
 #include <kaboutdata.h>
 #include <kglobal.h>
 #include <kparts/componentfactory.h>
@@ -40,7 +39,7 @@ class Plugin::Private
 {
   public:
     Kontact::Core *core;
-    DCOPClient *dcopClient;
+//    DCOPClient *dcopClient;
     QList<KAction*> *newActions;
     QString identifier;
     QString title;
@@ -60,7 +59,6 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
   KGlobal::locale()->insertCatalog(name);
 
   d->core = core;
-  d->dcopClient = 0;
   d->newActions = new QList<KAction*>;
   d->hasPart = true;
   d->part = 0;
@@ -70,7 +68,6 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
 Plugin::~Plugin()
 {
   delete d->part;
-  delete d->dcopClient;
   delete d;
 }
 
@@ -158,7 +155,7 @@ QString Plugin::tipFile() const
 }
 
 
-DCOPClient* Plugin::dcopClient() const
+/*DCOPClient* Plugin::dcopClient() const
 {
   if ( !d->dcopClient ) {
     d->dcopClient = new DCOPClient();
@@ -169,7 +166,7 @@ DCOPClient* Plugin::dcopClient() const
   }
 
   return d->dcopClient;
-}
+}*/
 
 void Plugin::insertNewAction( KAction *action )
 {

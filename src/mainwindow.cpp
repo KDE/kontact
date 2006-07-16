@@ -29,7 +29,6 @@
 #include <QTimer>
 #include <QList>
 
-#include <dcopclient.h>
 #include <kapplication.h>
 #include <kactioncollection.h>
 #include <kconfig.h>
@@ -54,6 +53,7 @@
 #include <kstatusbar.h>
 #include <kstdaction.h>
 #include <ktip.h>
+#include <kservice.h>
 #include <kservicetypetrader.h>
 #include <ksettings/componentsdialog.h>
 #include <kstringhandler.h>
@@ -369,7 +369,7 @@ void MainWindow::loadPlugins()
 
     kDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
     Kontact::Plugin *plugin =
-      KParts::ComponentFactory::createInstanceFromService<Kontact::Plugin>(
+      KService::createInstance<Kontact::Plugin>(
           (*it)->service(), this );
 
     if ( !plugin )
@@ -721,24 +721,25 @@ void MainWindow::slotPreferences()
 
 int MainWindow::startServiceFor( const QString& serviceType,
                                  const QString& constraint,
-                                 QString *error, DCOPCString* dcopService,
+                                 QString *error, QString* dcopService,
                                  int flags )
 {
   PluginList::ConstIterator end = mPlugins.end();
   for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
-    if ( (*it)->createDCOPInterface( serviceType ) ) {
+#warning Port me to DBus!
+/*  if ( (*it)->createDCOPInterface( serviceType ) ) {
       kDebug(5600) << "found interface for " << serviceType << endl;
       if ( dcopService )
         *dcopService = (*it)->dcopClient()->appId();
       kDebug(5600) << "appId=" << (*it)->dcopClient()->appId() << endl;
       return 0; // success
-    }
+    }*/
   }
 
   kDebug(5600) <<
     "Didn't find dcop interface, falling back to external process" << endl;
 
-  return KDCOPServiceStarter::startServiceFor( serviceType, constraint,
+  return KDBusServiceStarter::startServiceFor( serviceType, constraint,
       error, dcopService, flags );
 }
 

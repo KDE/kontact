@@ -32,7 +32,6 @@
 
 class QStringList;
 class DCOPClient;
-class DCOPObject;
 class KAboutData;
 class KAction;
 class QWidget;
@@ -199,7 +198,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
       before calling this method, if it's the one that contains the DCOP
       interface that other parts might use.
     */
-    DCOPClient *dcopClient() const;
+//    DCOPClient *dcopClient() const;
 
     /**
       Return the weight of the plugin. The higher the weight the lower it will

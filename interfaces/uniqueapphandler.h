@@ -22,7 +22,6 @@
 #ifndef KONTACT_UNIQUEAPPHANDLER_H
 #define KONTACT_UNIQUEAPPHANDLER_H
 
-#include <dcopobject.h>
 #include <plugin.h>
 #include <kdepimmacros.h>
 
@@ -36,12 +35,11 @@ namespace Kontact
  * By default this means simply bringing the main window to the front,
  * but newInstance can be reimplemented.
  */
-class KDE_EXPORT UniqueAppHandler : public DCOPObject
+#warning This was a DCOPObject, port to DBus!
+class KDE_EXPORT UniqueAppHandler //: public DCOPObject
 {
-  K_DCOP
-
   public:
-    UniqueAppHandler( Plugin* plugin ) : DCOPObject( plugin->objectName().toLatin1() ), mPlugin( plugin ) {}
+    UniqueAppHandler( Plugin* plugin ) : /*DCOPObject( plugin->objectName().toLatin1() ),*/ mPlugin( plugin ) {}
 
     /// This must be reimplemented so that app-specific command line options can be parsed
     virtual void loadCommandLineOptions() = 0;
@@ -74,7 +72,8 @@ template <class T> class UniqueAppHandlerFactory : public UniqueAppHandlerFactor
 {
   public:
     virtual UniqueAppHandler* createHandler( Plugin* plugin ) {
-        (void)plugin->dcopClient(); // ensure that we take over the DCOP name
+#warning Port to DBus!
+//        (void)plugin->dcopClient(); // ensure that we take over the DCOP name
         return new T( plugin );
     }
 };

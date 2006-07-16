@@ -77,12 +77,12 @@ void AboutDialog::addAboutPlugin( Kontact::Plugin *plugin )
 void AboutDialog::addAboutData( const QString &title, const QString &icon,
                                 const KAboutData *about )
 {
-  QPixmap pixmap = KGlobal::iconLoader()->loadIcon( icon,
+  QIcon pixmap = KGlobal::iconLoader()->loadIconSet( icon,
                                                     K3Icon::Desktop, 48 );
 
-  QFrame *topFrame = new Frame();
+  QFrame *topFrame = new QFrame();
   KPageWidgetItem *pageItem = new KPageWidgetItem( topFrame, title );
-  pageItem->setIcon(pixmap);
+  pageItem->setIcon(KIcon(pixmap));
 
   addPage( pageItem );
 

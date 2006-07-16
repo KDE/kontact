@@ -25,7 +25,6 @@
 #include <kcmdlineargs.h>
 #include "core.h"
 #include <kwin.h>
-#include <dcopclient.h>
 #include <kdebug.h>
 
 /*
@@ -82,7 +81,8 @@ int UniqueAppHandler::newInstance()
   return 0;
 }
 
-bool UniqueAppHandler::process( const DCOPCString &fun, const QByteArray &data,
+#warning Port to DBus!
+/*bool UniqueAppHandler::process( const DCOPCString &fun, const QByteArray &data,
                                 DCOPCString& replyType, QByteArray &replyData )
 {
   if ( fun == "newInstance()" ) {
@@ -131,13 +131,14 @@ DCOPCStringList UniqueAppHandler::functions()
   funcs << "int newInstance()";
   funcs << "bool load()";
   return funcs;
-}
+}*/
 
 UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin* plugin )
     : QObject( plugin ), mFactory( factory ), mPlugin( plugin )
 {
   // The app is running standalone if 1) that name is known to DCOP
-  mRunningStandalone = kapp->dcopClient()->isApplicationRegistered( plugin->objectName().toLatin1() );
+#warning Port to DBus!
+/*  mRunningStandalone = kapp->dcopClient()->isApplicationRegistered( plugin->objectName().toLatin1() );
 
   // and 2) it's not registered by kontact (e.g. in another plugin)
   if ( mRunningStandalone && kapp->dcopClient()->findLocalClient( plugin->objectName().toLatin1() ) )
@@ -149,13 +150,14 @@ UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin
              this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
   } else {
     mFactory->createHandler( mPlugin );
-  }
+  }*/
 }
 
 UniqueAppWatcher::~UniqueAppWatcher()
 {
-  if ( mRunningStandalone )
-    kapp->dcopClient()->setNotifications( false );
+#warning Port to DBus!
+//  if ( mRunningStandalone )
+//    kapp->dcopClient()->setNotifications( false );
 
   delete mFactory;
 }
@@ -163,11 +165,12 @@ UniqueAppWatcher::~UniqueAppWatcher()
 void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray& appId )
 {
   if ( appId == mPlugin->objectName() && mRunningStandalone ) {
-    disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ),
-                this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
+#warning Port to DBus!
+//    disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ),
+//                this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
     kDebug(5601) << k_funcinfo << appId << endl;
     mFactory->createHandler( mPlugin );
-    kapp->dcopClient()->setNotifications( false );
+//    kapp->dcopClient()->setNotifications( false );
     mRunningStandalone = false;
   }
 }
