@@ -31,7 +31,7 @@
 #include <kcal/journal.h>
 #include <kparts/part.h>
 
-#include "knotes/KNotesIface.h"
+//#include "knotes/KNotesIface.h"
 
 class K3IconView;
 class Q3IconViewItem;
@@ -44,7 +44,8 @@ namespace KCal {
 class Journal;
 }
 
-class KNotesPart : public KParts::ReadOnlyPart, virtual public KNotesIface
+#warning Port to DBus!
+class KNotesPart : public KParts::ReadOnlyPart //, virtual public KNotesIface
 {
   Q_OBJECT
 

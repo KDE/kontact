@@ -31,8 +31,6 @@
 #include <QGridLayout>
 #include <QEvent>
 
-#include <dcopclient.h>
-#include <dcopref.h>
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kglobal.h>

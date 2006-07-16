@@ -30,7 +30,6 @@
 #include <QGridLayout>
 #include <QEvent>
 
-#include <dcopref.h>
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>
@@ -48,7 +47,7 @@
 
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ),
-    DCOPObject( "MailSummary" ),
+//    DCOPObject( "MailSummary" ),
     mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
@@ -65,8 +64,9 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->addLayout(mLayout);
 
   slotUnreadCountChanged();
-  connectDCOPSignal( 0, 0, "unreadCountChanged()", "slotUnreadCountChanged()",
-                     false );
+#warning Port DCOP signal!
+//  connectDCOPSignal( 0, 0, "unreadCountChanged()", "slotUnreadCountChanged()",
+//                     false );
 }
 
 void SummaryWidget::selectFolder( const QString& folder )
@@ -78,22 +78,25 @@ void SummaryWidget::selectFolder( const QString& folder )
   QByteArray data;
   QDataStream arg( &data, QIODevice::WriteOnly );
   arg << folder;
-  emitDCOPSignal( "kmailSelectFolder(QString)", data );
+#warning Port DCOP signal!
+//  emitDCOPSignal( "kmailSelectFolder(QString)", data );
 }
 
 void SummaryWidget::updateSummary( bool )
 {
   // check whether we need to update the message counts
-  DCOPRef kmail( "kmail", "KMailIface" );
+#warning Port to DBus!
+/*  DCOPRef kmail( "kmail", "KMailIface" );
   const int timeOfLastMessageCountChange =
     kmail.call( "timeOfLastMessageCountChange()" );
   if ( timeOfLastMessageCountChange > mTimeOfLastMessageCountUpdate )
-    slotUnreadCountChanged();
+    slotUnreadCountChanged();*/
 }
 
 void SummaryWidget::slotUnreadCountChanged()
 {
-  DCOPRef kmail( "kmail", "KMailIface" );
+#warning Port to DBus!
+/*  DCOPRef kmail( "kmail", "KMailIface" );
   DCOPReply reply = kmail.call( "folderList" );
   if ( reply.isValid() ) {
     QStringList folderList = reply;
@@ -102,7 +105,7 @@ void SummaryWidget::slotUnreadCountChanged()
   else {
     kDebug(5602) << "Calling kmail->KMailIface->folderList() via DCOP failed."
                   << endl;
-  }
+  }*/
   mTimeOfLastMessageCountUpdate = ::time( 0 );
 }
 
@@ -122,7 +125,8 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
 
   int counter = 0;
   QStringList::ConstIterator it;
-  DCOPRef kmail( "kmail", "KMailIface" );
+#warning Port me to DBus!
+/*  DCOPRef kmail( "kmail", "KMailIface" );
   for ( it = folders.begin(); it != folders.end(); ++it ) {
     if ( activeFolders.contains( *it ) ) {
       DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
@@ -157,7 +161,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
 
       counter++;
     }
-  }
+  }*/
 
   if ( counter == 0 ) {
     QLabel *label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );

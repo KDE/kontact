@@ -28,7 +28,6 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include "kaddressbookiface_stub.h"
 #include "plugin.h"
 #include <uniqueapphandler.h>
 //Added by qt3to4:
@@ -66,7 +65,7 @@ class KAddressbookPlugin : public Kontact::Plugin
 
     virtual void configUpdated();
 
-    KAddressBookIface_stub *interface();
+//    KAddressBookIface_stub *interface();
 
   protected:
     KParts::ReadOnlyPart *createPart();
@@ -74,7 +73,7 @@ class KAddressbookPlugin : public Kontact::Plugin
     void slotNewContact();
 
   private:
-    KAddressBookIface_stub *mStub;
+    /*KAddressBookIface_stub*/ void *mStub;
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 

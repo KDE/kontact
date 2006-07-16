@@ -35,7 +35,7 @@
 
 
 KNotesPart::KNotesPart( QObject *parent )
-  : DCOPObject( "KNotesIface" ), KParts::ReadOnlyPart( parent ),
+  : /*DCOPObject( "KNotesIface" ),*/ KParts::ReadOnlyPart( parent ),
     mNotesView( new K3IconView() ),
     mNoteTip( new KNoteTip( mNotesView ) ),
     mNoteEditDlg( 0 ),

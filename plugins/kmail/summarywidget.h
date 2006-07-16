@@ -33,7 +33,6 @@
 #include <QEvent>
 #include <QList>
 
-#include <dcopobject.h>
 #include <kurllabel.h>
 #include <kparts/part.h>
 
@@ -43,10 +42,10 @@
 class QGridLayout;
 class QString;
 
-class SummaryWidget : public Kontact::Summary, public DCOPObject
+#warning Port DCOPObject -> DBus!
+class SummaryWidget : public Kontact::Summary //, public DCOPObject
 {
   Q_OBJECT
-  K_DCOP
 
   public:
     SummaryWidget( Kontact::Plugin *plugin, QWidget *parent );
@@ -54,7 +53,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     int summaryHeight() const { return 1; }
     QStringList configModules() const;
 
-  k_dcop_hidden:
+//  k_dcop_hidden:
     void slotUnreadCountChanged();
 
   protected:

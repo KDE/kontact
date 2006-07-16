@@ -26,7 +26,6 @@
 //Added by qt3to4:
 #include <QVBoxLayout>
 
-
 #include <kaboutdata.h>
 #include <kacceleratormanager.h>
 #include <kapplication.h>
@@ -95,12 +94,11 @@ void KCMKMailSummary::initGUI()
 
 void KCMKMailSummary::initFolders()
 {
-#warning "kde4: port to new dbus"
-#if 0
-  DCOPRef kmail( "kmail", "KMailIface" );
+#warning Port me to DBus!
+//  DCOPRef kmail( "kmail", "KMailIface" );
 
   QStringList folderList;
-  kmail.call( "folderList" ).get( folderList );
+//  kmail.call( "folderList" ).get( folderList );
 
   mFolderView->clear();
   mFolderMap.clear();
@@ -111,8 +109,9 @@ void KCMKMailSummary::initFolders()
     if ( (*it) == "/Local" )
       displayName = i18nc( "prefix for local folders", "Local" );
     else {
-      DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
-      folderRef.call( "displayName()" ).get( displayName );
+#warning Port me to DBus!
+//      DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
+//      folderRef.call( "displayName()" ).get( displayName );
     }
     if ( (*it).count( '/' ) == 1 ) {
       if ( mFolderMap.find( *it ) == mFolderMap.end() )
@@ -127,7 +126,6 @@ void KCMKMailSummary::initFolders()
                                              Q3CheckListItem::CheckBox ) );
     }
   }
-#endif
 }
 
 void KCMKMailSummary::loadFolders()

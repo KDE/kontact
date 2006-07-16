@@ -39,9 +39,6 @@
 #include <kabc/addressbook.h>
 #include <kabc/stdaddressbook.h>
 
-#include <dcopclient.h>
-#include "kmailIface_stub.h"
-
 #include <libkdepim/maillistdrag.h>
 
 #include "core.h"
@@ -83,8 +80,9 @@ QString KAddressbookPlugin::tipFile() const
   if ( !part ) return 0;
 
   // Create the stub that allows us to talk to the part
-  mStub = new KAddressBookIface_stub( dcopClient(), "kaddressbook",
-                                      "KAddressBookIface" );
+#warning Port me to DBus!
+//  mStub = new KAddressBookIface_stub( dcopClient(), "kaddressbook",
+//                                      "KAddressBookIface" );
   return part;
 }
 
@@ -100,18 +98,20 @@ QStringList KAddressbookPlugin::invisibleToolbarActions() const
   return QStringList( "file_new_contact" );
 }
 
-KAddressBookIface_stub *KAddressbookPlugin::interface()
+#warning Port me!
+/*KAddressBookIface_stub *KAddressbookPlugin::interface()
 {
   if ( !mStub ) {
     part();
   }
   Q_ASSERT( mStub );
   return mStub;
-}
+}*/
 
 void KAddressbookPlugin::slotNewContact()
 {
-  interface()->newContact();
+#warning Port me!
+//  interface()->newContact();
 }
 
 bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
@@ -139,8 +139,6 @@ bool KAddressbookPlugin::canDecodeDrag( QMimeSource *mimeSource )
     KPIM::MailListDrag::canDecode( mimeSource );
 }
 
-#include <dcopref.h>
-
 void KAddressbookPlugin::processDropEvent( QDropEvent *event )
 {
   KPIM::MailList mails;
@@ -151,12 +149,13 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
     } else {
       KPIM::MailSummary mail = mails.first();
 
-      KMailIface_stub kmailIface( "kmail", "KMailIface" );
+#warning Port me to DBus!
+/*      KMailIface_stub kmailIface( "kmail", "KMailIface" );
       QString sFrom = kmailIface.getFrom( mail.serialNumber() );
 
       if ( !sFrom.isEmpty() ) {
         KAddrBookExternal::addEmail( sFrom, core() );
-      }
+      }*/
     }
     return;
   }
@@ -179,14 +178,15 @@ int KABUniqueAppHandler::newInstance()
     kDebug(5602) << k_funcinfo << endl;
     // Ensure part is loaded
     (void)plugin()->part();
-    DCOPRef kAB( "kaddressbook", "KAddressBookIface" );
+#warning Port me to DBus!
+/*    DCOPRef kAB( "kaddressbook", "KAddressBookIface" );
     DCOPReply reply = kAB.call( "handleCommandLine" );
     if ( reply.isValid() ) {
         bool handled = reply;
         kDebug(5602) << k_funcinfo << "handled=" << handled << endl;
         if ( !handled ) // no args -> simply bring kaddressbook plugin to front
             return Kontact::UniqueAppHandler::newInstance();
-    }
+    }*/
     return 0;
 }
 

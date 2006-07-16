@@ -32,7 +32,6 @@
 #include <kiconloader.h>
 #include <kparts/componentfactory.h>
 #include <kstandarddirs.h>
-#include <dcopclient.h>
 #include <ktempfile.h>
 
 #include <kabc/addressee.h>
@@ -102,22 +101,24 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
 void KMailPlugin::openComposer( const KUrl& attach )
 {
   (void) part(); // ensure part is loaded
-  Q_ASSERT( mStub );
+#warning Port me!
+/*  Q_ASSERT( mStub );
   if ( mStub ) {
     if ( attach.isValid() )
       mStub->newMessage( "", "", "", false, true, KUrl(), attach );
     else
       mStub->newMessage( "", "", "", false, true, KUrl(), KUrl() );
-  }
+  }*/
 }
 
 void KMailPlugin::openComposer( const QString& to )
 {
   (void) part(); // ensure part is loaded
-  Q_ASSERT( mStub );
+#warning Port me!
+/*  Q_ASSERT( mStub );
   if ( mStub ) {
     mStub->newMessage( to, "", "", false, true, KUrl(), KUrl() );
-  }
+  }*/
 }
 
 void KMailPlugin::slotNewMail()
@@ -150,7 +151,8 @@ KParts::ReadOnlyPart* KMailPlugin::createPart()
   KParts::ReadOnlyPart *part = loadPart();
   if ( !part ) return 0;
 
-  mStub = new KMailIface_stub( dcopClient(), "kmail", "KMailIface" );
+#warning Port me to DBus!
+//  mStub = new KMailIface_stub( dcopClient(), "kmail", "KMailIface" );
 
   return part;
 }
@@ -182,21 +184,23 @@ int KMailUniqueAppHandler::newInstance()
 {
     // Ensure part is loaded
     (void)plugin()->part();
-    DCOPRef kmail( "kmail", "KMailIface" );
+#warning Port me to DBus!
+/*    DCOPRef kmail( "kmail", "KMailIface" );
     DCOPReply reply = kmail.call( "handleCommandLine", false );
     if ( reply.isValid() ) {
         bool handled = reply;
         //kDebug(5602) << k_funcinfo << "handled=" << handled << endl;
         if ( !handled ) // no args -> simply bring kmail plugin to front
             return Kontact::UniqueAppHandler::newInstance();
-    }
+    }*/
     return 0;
 }
 
 bool KMailPlugin::queryClose() const {
-  KMailIface_stub stub( kapp->dcopClient(), "kmail", "KMailIface" );
+#warning Port me to DBus!
+/*  KMailIface_stub stub( kapp->dcopClient(), "kmail", "KMailIface" );
   bool canClose=stub.canQueryClose();
-  return canClose;
+  return canClose;*/
 }
 
 #include "kmail_plugin.moc"

@@ -27,7 +27,6 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include "kmailIface_stub.h"
 #include <plugin.h>
 #include <summary.h>
 #include <uniqueapphandler.h>
@@ -73,7 +72,7 @@ class KMailPlugin : public Kontact::Plugin
     void slotNewMail();
 
   private:
-    KMailIface_stub *mStub;
+    /*KMailIface_stub*/ void *mStub;
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
