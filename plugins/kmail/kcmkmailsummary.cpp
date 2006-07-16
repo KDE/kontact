@@ -95,6 +95,8 @@ void KCMKMailSummary::initGUI()
 
 void KCMKMailSummary::initFolders()
 {
+#warning "kde4: port to new dbus"
+#if 0
   DCOPRef kmail( "kmail", "KMailIface" );
 
   QStringList folderList;
@@ -125,6 +127,7 @@ void KCMKMailSummary::initFolders()
                                              Q3CheckListItem::CheckBox ) );
     }
   }
+#endif
 }
 
 void KCMKMailSummary::loadFolders()
