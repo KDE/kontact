@@ -26,7 +26,6 @@
 //Added by qt3to4:
 #include <QVBoxLayout>
 
-#include <dcopref.h>
 
 #include <kaboutdata.h>
 #include <kacceleratormanager.h>
