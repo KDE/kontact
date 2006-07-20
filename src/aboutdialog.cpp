@@ -37,7 +37,7 @@
 #include <QLayout>
 #include <QLabel>
 //Added by qt3to4:
-#include <Q3TextEdit>
+#include <QTextEdit>
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QList>
@@ -116,7 +116,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     topLayout->addWidget( label );
 
 
-    Q3TextEdit *personView = new Q3TextEdit( topFrame );
+    QTextEdit *personView = new QTextEdit( topFrame );
     personView->setReadOnly( true );
     topLayout->addWidget( personView, 1 );
 
