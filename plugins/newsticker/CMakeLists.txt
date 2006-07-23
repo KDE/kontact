@@ -14,7 +14,7 @@ kde4_add_plugin(kontact_newstickerplugin WITH_PREFIX ${kontact_newstickerplugin_
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_newstickerplugin )
 
-target_link_libraries(kontact_newstickerplugin  ${KDE4_KPARTS_LIBS} ${KDE4_KDEUI_LIBS} kdepim kpinterfaces )
+target_link_libraries(kontact_newstickerplugin  ${KDE4_KPARTS_LIBS} kdepim kpinterfaces )
 
 install(TARGETS kontact_newstickerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
