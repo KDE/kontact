@@ -12,7 +12,7 @@ kde4_add_plugin(kontact_summaryplugin WITH_PREFIX ${kontact_summaryplugin_PART_S
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_summaryplugin )
 
-target_link_libraries(kontact_summaryplugin  ${KDE4_KDECORE_LIBS} kutils kpinterfaces kparts kdepim kpimidentities )
+target_link_libraries(kontact_summaryplugin  ${KDE4_KDECORE_LIBS} ${KDE4_KUTILS_LIBS} kpinterfaces kparts kdepim kpimidentities )
 
 install(TARGETS kontact_summaryplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -27,7 +27,7 @@ kde4_add_plugin(kcm_kontactsummary ${kcm_kontactsummary_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kontactsummary )
 
-target_link_libraries(kcm_kontactsummary  ${KDE4_KDEUI_LIBS} kutils )
+target_link_libraries(kcm_kontactsummary  ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBS} )
 
 install(TARGETS kcm_kontactsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 

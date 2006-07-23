@@ -18,7 +18,7 @@ kde4_add_kcfg_files(kontact_LIB_SRCS prefs.kcfgc )
 
 kde4_add_library(kontact SHARED ${kontact_LIB_SRCS})
 
-target_link_libraries(kontact  ${KDE4_KDECORE_LIBS} kdepim kpinterfaces kontact kparts kutils khtml )
+target_link_libraries(kontact  ${KDE4_KDECORE_LIBS} kdepim kpinterfaces kontact kparts ${KDE4_KUTILS_LIBS} ${KDE4_KHTML_LIBS} )
 
 set_target_properties(kontact PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 install(TARGETS kontact  DESTINATION ${LIB_INSTALL_DIR})
@@ -34,7 +34,7 @@ kde4_add_executable(kontact_bin ${kontact_bin_SRCS})
 
 set_target_properties(kontact_bin  PROPERTIES OUTPUT_NAME kontact)
 
-target_link_libraries(kontact_bin  ${KDE4_KDECORE_LIBS} khtml ${KDE4_KDE3SUPPORT_LIBS} kontact)
+target_link_libraries(kontact_bin  ${KDE4_KDECORE_LIBS} ${KDE4_KHTML_LIBS} ${KDE4_KDE3SUPPORT_LIBS} kontact)
 
 install(TARGETS kontact_bin  DESTINATION ${BIN_INSTALL_DIR} )
 
