@@ -16,7 +16,7 @@ kde4_add_plugin(kontact_korganizerplugin WITH_PREFIX ${kontact_korganizerplugin_
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_korganizerplugin )
 
-target_link_libraries(kontact_korganizerplugin  ${KDE4_KDECORE_LIBS}  kpinterfaces kparts korganizer_calendar )
+target_link_libraries(kontact_korganizerplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar)
 
 install(TARGETS kontact_korganizerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -33,7 +33,7 @@ kde4_add_plugin(kontact_todoplugin WITH_PREFIX ${kontact_todoplugin_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_todoplugin )
 
-target_link_libraries(kontact_todoplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kparts korganizer_calendar )
+target_link_libraries(kontact_todoplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar)
 
 install(TARGETS kontact_todoplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -50,7 +50,7 @@ kde4_add_plugin(kontact_journalplugin WITH_PREFIX ${kontact_journalplugin_PART_S
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_journalplugin )
 
-target_link_libraries(kontact_journalplugin  ${KDE4_KDECORE_LIBS}  kpinterfaces kparts korganizer_calendar )
+target_link_libraries(kontact_journalplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar)
 
 install(TARGETS kontact_journalplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 

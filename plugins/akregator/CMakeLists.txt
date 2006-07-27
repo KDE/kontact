@@ -14,7 +14,7 @@ kde4_add_plugin(kontact_akregator WITH_PREFIX ${kontact_akregator_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_akregator )
 
-target_link_libraries(kontact_akregator  ${KDE4_KDECORE_LIBS} kpinterfaces kparts )
+target_link_libraries(kontact_akregator ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces)
 
 install(TARGETS kontact_akregator  DESTINATION ${PLUGIN_INSTALL_DIR})
 
