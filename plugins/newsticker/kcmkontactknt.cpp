@@ -89,7 +89,7 @@ NewsEditDialog::NewsEditDialog( const QString& title, const QString& url, QWidge
 
   mTitle->setText( title );
   mURL->setText( url );
-
+  mTitle->setFocus();
   connect( mTitle, SIGNAL( textChanged( const QString& ) ),
            this, SLOT( modified() ) );
   connect( mURL, SIGNAL( textChanged( const QString& ) ),
