@@ -38,7 +38,7 @@
 #include <QResizeEvent>
 #include <QEvent>
 
-class Q3TextEdit;
+class QTextEdit;
 class K3IconView;
 class KNotesIconViewItem;
 
@@ -66,7 +66,7 @@ class KNoteTip : public Q3Frame
     K3IconView *mView;
     KNotesIconViewItem *mNoteIVI;
 
-    Q3TextEdit *mPreview;
+    QTextEdit *mPreview;
 };
 
 #endif

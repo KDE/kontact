@@ -31,7 +31,7 @@
 
 #include <QToolTip>
 #include <QLayout>
-#include <q3textedit.h>
+#include <QTextEdit>
 //Added by qt3to4:
 #include <QEvent>
 #include <Q3Frame>
@@ -53,11 +53,11 @@ KNoteTip::KNoteTip( K3IconView *parent )
     mFilter( false ),
     mView( parent ),
     mNoteIVI( 0 ),
-    mPreview( new Q3TextEdit( this ) )
+    mPreview( new QTextEdit( this ) )
 {
   mPreview->setReadOnly( true );
-  mPreview->setHScrollBarMode( Q3ScrollView::AlwaysOff );
-  mPreview->setVScrollBarMode( Q3ScrollView::AlwaysOff );
+  mPreview->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+  mPreview->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
 
   QBoxLayout *layout = new QVBoxLayout( this );
   layout->addWidget( mPreview );
@@ -99,7 +99,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
     setColor( fg, bg );
 
     mPreview->setText( journal->description() );
-    mPreview->zoomTo( 8 );
+    //mPreview->zoomTo( 8 );
     mPreview->sync();
 
     int w = 400;
