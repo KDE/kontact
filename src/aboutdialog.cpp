@@ -33,7 +33,7 @@
 #include <kaboutdata.h>
 #include <kactivelabel.h>
 #include <ktextbrowser.h>
-
+#include <kicon.h>
 #include <QLayout>
 #include <QLabel>
 //Added by qt3to4:

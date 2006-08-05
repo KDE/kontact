@@ -69,6 +69,7 @@
 #include <ktoolinvocation.h>
 #include <ktoolbarpopupaction.h>
 #include <kvbox.h>
+#include <kicon.h>
 
 #include "aboutdialog.h"
 #include "iconsidepane.h"
