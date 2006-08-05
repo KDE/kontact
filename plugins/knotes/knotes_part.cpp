@@ -26,7 +26,7 @@
 #include <kdebug.h>
 #include <kaction.h>
 #include <kmessagebox.h>
-
+#include <kicon.h>
 #include "knotes/resourcemanager.h"
 
 #include "knotes_part.h"

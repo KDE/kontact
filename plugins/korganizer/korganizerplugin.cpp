@@ -34,7 +34,7 @@
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
-
+#include <kicon.h> 
 #include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>

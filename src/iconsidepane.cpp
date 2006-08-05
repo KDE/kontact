@@ -50,7 +50,7 @@
 #include <kiconloader.h>
 
 #include <kdebug.h>
-
+#include <kicon.h>
 #include "mainwindow.h"
 
 #include "plugin.h"

@@ -24,7 +24,7 @@
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kstatusbar.h>
-
+#include <kicon.h>
 #include "core.h"
 #include "knotes_part.h"
 #include "summarywidget.h"

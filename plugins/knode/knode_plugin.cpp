@@ -33,7 +33,7 @@
 #include <kaction.h>
 #include <kiconloader.h>
 #include <kdebug.h>
-
+#include <kicon.h>
 #include <QWidget>
 
 

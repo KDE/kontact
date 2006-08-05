@@ -43,7 +43,7 @@
 #include <kglobal.h>
 #include <klocale.h>
 #include <kcmultidialog.h>
-
+#include <kicon.h>
 #include <kparts/componentfactory.h>
 #include <kparts/event.h>
 

@@ -36,7 +36,7 @@
 
 #include <core.h>
 #include <plugin.h>
-
+#include <kicon.h>
 #include <akregator_options.h>
 #include "akregator_plugin.h"
 namespace Akregator {

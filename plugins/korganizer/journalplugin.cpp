@@ -31,7 +31,7 @@
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
-
+#include <kicon.h>
 #include "core.h"
 
 #include "journalplugin.h"

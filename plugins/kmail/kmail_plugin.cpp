@@ -44,7 +44,7 @@
 
 #include <kmail/kmail_part.h>
 #include <kmail/kmkernel.h>
-
+#include <kicon.h>
 #include "core.h"
 #include "summarywidget.h"
 

@@ -40,7 +40,7 @@
 #include <kabc/stdaddressbook.h>
 
 #include <libkdepim/maillistdrag.h>
-
+#include <kicon.h>
 #include "core.h"
 #include "plugin.h"
 

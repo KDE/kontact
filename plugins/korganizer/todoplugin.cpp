@@ -33,7 +33,7 @@
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
-
+#include <kicon.h>
 #include <libkdepim/maillistdrag.h>
 #include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
