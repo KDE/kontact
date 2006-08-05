@@ -25,7 +25,7 @@
 
 #include <kgenericfactory.h>
 #include <kparts/componentfactory.h>
-
+#include <kicon.h>
 #include "core.h"
 #include "plugin.h"
 
