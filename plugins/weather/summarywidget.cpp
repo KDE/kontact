@@ -126,7 +126,7 @@ void SummaryWidget::updateView()
     urlLabel->setAlignment( Qt::AlignTop );
     layout->addWidget( urlLabel, 0, 0, 2, 1);
     mLabels.append( urlLabel );
-    connect ( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+    connect ( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
               this, SLOT( showReport( const QString& ) ) );
 
     QLabel* label = new QLabel( this );

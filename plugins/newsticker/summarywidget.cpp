@@ -230,7 +230,7 @@ void SummaryWidget::updateView()
     urlLabel->setMaximumSize( urlLabel->minimumSizeHint() );
     mLabels.append( urlLabel );
 
-    connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+    connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
              kapp, SLOT( invokeBrowser( const QString& ) ) );
     connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
              this, SLOT( rmbMenu( const QString& ) ) );
@@ -259,7 +259,7 @@ void SummaryWidget::updateView()
       mLabels.append( urlLabel );
       mLayout->addWidget( urlLabel );
 
-      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
                kapp, SLOT( invokeBrowser( const QString& ) ) );
       connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
                this, SLOT( rmbMenu( const QString& ) ) );

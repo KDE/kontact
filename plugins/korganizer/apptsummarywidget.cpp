@@ -242,7 +242,7 @@ void ApptSummaryWidget::updateView()
         mLabels.append( label );
       }
 
-      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
                this, SLOT( selectEvent( const QString& ) ) );
 
       counter++;

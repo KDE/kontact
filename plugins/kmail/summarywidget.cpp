@@ -145,7 +145,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
       urlLabel->installEventFilter( this );
       urlLabel->setAlignment( Qt::AlignLeft );
       urlLabel->show();
-      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
                SLOT( selectFolder( const QString& ) ) );
       mLayout->addWidget( urlLabel, counter, 0 );
       mLabels.append( urlLabel );

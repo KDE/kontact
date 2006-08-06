@@ -512,7 +512,7 @@ void SDSummaryWidget::updateView()
         mLayout->addWidget( urlLabel, counter, 4 );
         mLabels.append( urlLabel );
 
-        connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+        connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
                  this, SLOT( mailContact( const QString& ) ) );
         connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
                  this, SLOT( popupMenu( const QString& ) ) );
