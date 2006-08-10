@@ -13,15 +13,3 @@ add_subdirectory( akregator )
 add_subdirectory( karm ) 
 
 
-
-
-########### install files ###############
-
-
-
-
-
-#original Makefile.am contents follow:
-
-#SUBDIRS = kaddressbook kmail knotes korganizer \
-#	summary weather knode newsticker multisynk specialdates akregator karm
