@@ -62,7 +62,7 @@ install( FILES kontactconfig.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 install( FILES kontactui.rc  DESTINATION ${DATA_INSTALL_DIR}/kontact)
 install( FILES kontact.setdlg  DESTINATION ${DATA_INSTALL_DIR}/kontact)
 
-kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
+kde4_install_icons( ${ICON_INSTALL_DIR}   )
 
 
 
