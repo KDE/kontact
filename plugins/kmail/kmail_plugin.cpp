@@ -203,6 +203,7 @@ bool KMailPlugin::queryClose() const {
 /*  KMailIface_stub stub( kapp->dcopClient(), "kmail", "KMailIface" );
   bool canClose=stub.canQueryClose();
   return canClose;*/
+  return true;
 }
 
 #include "kmail_plugin.moc"
