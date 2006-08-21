@@ -83,7 +83,7 @@ KParts::ReadOnlyPart *KOrganizerPlugin::createPart()
     return 0;
 
   #warning "Once we have a running korganizer, make sure that this dbus call really does what it should! Where is it needed, anyway?"
-  mIface = new OrgKdeKorganizerCalendarInterface( "org.kde.Korganizer.Calendar", "/Calendar", QDBus::sessionBus(), this );
+  mIface = new OrgKdeKorganizerCalendarInterface( "org.kde.Korganizer.Calendar", "/Calendar", QDBusConnection::sessionBus(), this );
 
   return part;
 }
