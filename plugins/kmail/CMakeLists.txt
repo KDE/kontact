@@ -7,7 +7,6 @@ include_directories(
 	
 )
 
-
 ########### next target ###############
 
 set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp )
@@ -27,6 +26,7 @@ target_link_libraries(kontact_kmailplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIB
 
 install(TARGETS kontact_kmailplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
+set_source_files_properties( kmail_plugin.cpp  OBJECT_DEPENDS ${CMAKE_BINARY_DIR}/kmail/globalsettings_base.h )
 
 ########### next target ###############
 
@@ -48,37 +48,3 @@ install(TARGETS kcm_kmailsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 install( FILES kmailplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 install( FILES kcmkmailsummary.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
-
-
-
-#original Makefile.am contents follow:
-
-#INCLUDES = -I$(top_srcdir)/kontact/interfaces -I$(top_srcdir)/kmail \
-#           -I$(top_srcdir)/libkdepim \
-#           -I$(top_srcdir) $(all_includes)
-#
-#kde_module_LTLIBRARIES = libkontact_kmailplugin.la kcm_kmailsummary.la
-#
-#libkontact_kmailplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
-#libkontact_kmailplugin_la_LIBADD = $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(top_builddir)/libkcal/libkcal.la $(LIB_KPARTS)
-#
-#libkontact_kmailplugin_la_SOURCES = kmail_plugin.cpp kmailIface.stub \
-#                                    summarywidget.cpp summarywidget.skel
-#
-#kcm_kmailsummary_la_SOURCES = kcmkmailsummary.cpp
-#kcm_kmailsummary_la_LDFLAGS = -module $(KDE_PLUGIN) $(KDE_RPATH) $(all_libraries) \
-#                              -avoid-version -no-undefined
-#kcm_kmailsummary_la_LIBADD = $(LIB_KDEUI)
-#
-#kmailIface_DCOPIDLNG = true
-#
-#summarywidget_DCOPIDLNG = true
-#
-#METASOURCES = AUTO
-#
-#servicedir = $(kde_servicesdir)/kontact
-#service_DATA = kmailplugin.desktop
-#
-#kde_services_DATA = kcmkmailsummary.desktop
-#
-#kmailIface_DIR = $(top_srcdir)/kmail
