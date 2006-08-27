@@ -151,7 +151,7 @@ KParts::ReadOnlyPart *Plugin::part()
 
 QString Plugin::tipFile() const
 {
-  return QString::null;
+  return QString();
 }
 
 

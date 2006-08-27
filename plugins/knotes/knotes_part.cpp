@@ -191,16 +191,16 @@ QString KNotesPart::name( const QString& id ) const
   if ( note )
     return note->text();
   else
-    return QString::null;
+    return QString();
 }
 
 QString KNotesPart::text( const QString& id ) const
 {
-  KNotesIconViewItem *note = mNoteList[id];
+  KNotesIconViewItem *note = mNoteList[ id ];
   if ( note )
     return note->journal()->description();
   else
-    return QString::null;
+    return QString();
 }
 
 void KNotesPart::setName( const QString& id, const QString& newName )

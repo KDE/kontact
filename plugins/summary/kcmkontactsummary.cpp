@@ -74,7 +74,7 @@ class PluginItem : public Q3CheckListItem
       else if ( column == 1 )
         return mInfo->comment();
       else
-        return QString::null;
+        return QString();
     }
 
   private:

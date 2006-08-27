@@ -432,7 +432,7 @@ QString SummaryViewPart::widgetName( QWidget *widget ) const
       return it.key();
   }
 
-  return QString::null;
+  return QString();
 }
 
 #include "summaryview_part.moc"
