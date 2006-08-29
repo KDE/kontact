@@ -26,11 +26,6 @@ target_link_libraries(kontact_kmailplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIB
 
 install(TARGETS kontact_kmailplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
-set_source_files_properties( kmail_plugin.cpp OBJECT_DEPENDS ${CMAKE_BINARY_DIR}/kmail/globalsettings_base.h )
-
-ADD_CUSTOM_COMMAND(OUTPUT ${CMAKE_BINARY_DIR}/kmail/globalsettings_base.h
-	COMMAND make -C ${CMAKE_BINARY_DIR}/kmail globalsettings_base.o )
-
 ########### next target ###############
 
 set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp )
