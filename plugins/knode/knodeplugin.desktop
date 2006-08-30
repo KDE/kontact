@@ -15,7 +15,4 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=false
 
 Comment=Kontact KNode Plugin
-Comment[fr]=Module KNode pour Kontact
-Comment[x-test]=xxKontact KNode Pluginxx
 Name=Usenet
-Name[x-test]=xxUsenetxx

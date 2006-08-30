@@ -14,8 +14,5 @@ X-KDE-ParentComponents=kontact
 X-KDE-Weight=0
 
 Name=Kontact
-Name[x-test]=xxKontactxx
 Comment=KDE Kontact
-Comment[x-test]=xxKDE Kontactxx
 Keywords=kontact
-Keywords[x-test]=xxkontactxx
