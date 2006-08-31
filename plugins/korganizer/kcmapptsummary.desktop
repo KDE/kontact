@@ -12,5 +12,8 @@ X-KDE-ParentComponents=kontact_korganizerplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Upcoming Events
+Name[x-test]=xxUpcoming Eventsxx
 Comment=Upcoming Events Summary Setup
+Comment[x-test]=xxUpcoming Events Summary Setupxx
 Keywords=calendar, events, configure, settings
+Keywords[x-test]=xxcalendar, events, configure, settingsxx
