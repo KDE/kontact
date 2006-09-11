@@ -109,7 +109,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
            this, SLOT( updateView() ) );
 
   // Setup the Calendar
-  mCalendar = new KCal::CalendarResources( KPimPrefs::timezone() );
+  mCalendar = new KCal::CalendarResources( KPimPrefs::timeSpec() );
   mCalendar->readConfig();
 
   KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
