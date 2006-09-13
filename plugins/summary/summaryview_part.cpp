@@ -41,6 +41,7 @@
 #include <kstandarddirs.h>
 #include <q3scrollview.h>
 #include <kglobal.h>
+#include <kglobalsettings.h>
 #include <klocale.h>
 #include <kcmultidialog.h>
 #include <kicon.h>
@@ -75,7 +76,7 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
 
   initGUI( core );
 
-  connect( kapp, SIGNAL( kdisplayPaletteChanged() ), SLOT( slotAdjustPalette() ) );
+  connect( KGlobalSettings::self(), SIGNAL( kdisplayPaletteChanged() ), SLOT( slotAdjustPalette() ) );
   slotAdjustPalette();
 
   setDate( QDate::currentDate() );
