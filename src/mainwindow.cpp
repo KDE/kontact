@@ -310,7 +310,7 @@ void MainWindow::initAboutScreen()
   mIntroPart->view()->setLineWidth( 0 );
 
   connect( mIntroPart->browserExtension(),
-           SIGNAL( openURLRequest( const KUrl&, const KParts::URLArgs& ) ),
+           SIGNAL( openUrlRequest( const KUrl&, const KParts::URLArgs& ) ),
            SLOT( slotOpenUrl( const KUrl& ) ) );
 
   connect( mIntroPart->browserExtension(),
