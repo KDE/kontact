@@ -54,4 +54,3 @@ service_DATA = korganizerplugin.desktop todoplugin.desktop journalplugin.desktop
 
 kde_services_DATA = kcmkorgsummary.desktop
 
-KDE_ICON = AUTO
