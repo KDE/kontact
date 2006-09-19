@@ -56,7 +56,7 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QSt
   setInstance( KOrganizerPluginFactory::instance() );
   instance()->iconLoader()->addAppDir("kdepim");
 
-  insertNewAction( new KAction( i18n( "New Event..." ), "appointment",
+  insertNewAction( new KAction( i18n( "New Event..." ), "newappointment",
                    CTRL+SHIFT+Key_E, this, SLOT( slotNewEvent() ), actionCollection(),
                    "new_event" ) );
 
