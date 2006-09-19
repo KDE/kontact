@@ -46,7 +46,7 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const char *, const QStringLi
     mIface( 0 )
 {
   setInstance( JournalPluginFactory::instance() );
-  instance()->iconLoader()->addAppDir("korganizer");
+  instance()->iconLoader()->addAppDir("kdepim");
 
   insertNewAction( new KAction( i18n( "New Journal..." ), "newjournal",
                    CTRL+SHIFT+Key_J, this, SLOT( slotNewJournal() ), actionCollection(),

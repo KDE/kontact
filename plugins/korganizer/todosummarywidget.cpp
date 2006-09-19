@@ -85,7 +85,7 @@ void TodoSummaryWidget::updateView()
   config.setGroup( "Todo" );
   bool showAllTodos = config.readBoolEntry( "ShowAllTodos", false );
 
-  KIconLoader loader( "korganizer" );
+  KIconLoader loader( "kdepim" );
 
   QLabel *label = 0;
   int counter = 0;

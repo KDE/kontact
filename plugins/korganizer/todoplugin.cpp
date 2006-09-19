@@ -52,7 +52,7 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const char *, const QStringList& )
     mIface( 0 )
 {
   setInstance( TodoPluginFactory::instance() );
-  instance()->iconLoader()->addAppDir("korganizer");
+  instance()->iconLoader()->addAppDir("kdepim");
 
   insertNewAction( new KAction( i18n( "New To-do..." ), "newtodo",
                    CTRL+SHIFT+Key_T, this, SLOT( slotNewTodo() ), actionCollection(),

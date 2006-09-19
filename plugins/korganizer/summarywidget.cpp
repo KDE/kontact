@@ -81,7 +81,7 @@ void SummaryWidget::updateView()
   mLabels.clear();
   mLabels.setAutoDelete( false );
 
-  KIconLoader loader( "korganizer" );
+  KIconLoader loader( "kdepim" );
 
   KConfig config( "kcmkorgsummaryrc" );
 
