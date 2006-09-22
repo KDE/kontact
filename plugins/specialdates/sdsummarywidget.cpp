@@ -268,8 +268,9 @@ void SDSummaryWidget::updateView()
   // Search for Birthdays, Anniversaries, Holidays, and Special Occasions
   // in the Calendar
   QDate dt;
-  for ( dt=QDate::currentDate();
-        dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
+  QDate currentDate = QDate::currentDate();
+  for ( dt=currentDate;
+        dt<=currentDate.addDays( mDaysAhead - 1 );
         dt=dt.addDays(1) ) {
     KCal::Event::List events = mCalendar->events( dt,
                                                   KCal::EventSortStartDate,
@@ -356,8 +357,8 @@ void SDSummaryWidget::updateView()
   // Seach for Holidays
   if ( mShowHolidays ) {
     if ( initHolidays() ) {
-      for ( dt=QDate::currentDate();
-            dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
+      for ( dt=currentDate;
+            dt<=currentDate.addDays( mDaysAhead - 1 );
             dt=dt.addDays(1) ) {
         QValueList<KHoliday> holidays = mHolidays->getHolidays( dt );
         QValueList<KHoliday>::ConstIterator it = holidays.begin();
@@ -436,7 +437,7 @@ void SDSummaryWidget::updateView()
       QString datestr;
 
       //Muck with the year -- change to the year 'daysTo' days away
-      int year = QDate::currentDate().addDays( (*addrIt).daysTo ).year();
+      int year = currentDate.addDays( (*addrIt).daysTo ).year();
       QDate sD = QDate::QDate( year,
                            (*addrIt).date.month(), (*addrIt).date.day() );
 

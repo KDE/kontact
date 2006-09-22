@@ -90,6 +90,7 @@ void TodoSummaryWidget::updateView()
   QLabel *label = 0;
   int counter = 0;
 
+  QDate currentDate = QDate::currentDate();
   KCal::Todo::List todos = mCalendar->todos();
   if ( todos.count() > 0 ) {
     QPixmap pm = loader.loadIcon( "todo", KIcon::Small );
@@ -106,26 +107,27 @@ void TodoSummaryWidget::updateView()
 
       // show uncomplete todos from the last days
       if ( todo->hasDueDate() && !todo->isCompleted() &&
-           todo->dtDue().date() < QDate::currentDate() ) {
+           todo->dtDue().date() < currentDate ) {
         accepted = true;
         stateText = i18n( "overdue" );
       }
 
       // show todos which started somewhere in the past and has to be finished in future
-      if ( todo->hasStartDate() && todo->hasDueDate() && todo->dtStart().date()
-           < QDate::currentDate() && QDate::currentDate() < todo->dtDue().date() ) {
+      if ( todo->hasStartDate() && todo->hasDueDate() &&
+           todo->dtStart().date() < currentDate &&
+           currentDate < todo->dtDue().date() ) {
         accepted = true;
         stateText = i18n( "in progress" );
       }
 
       // all todos which start today
-      if ( todo->hasStartDate() && todo->dtStart().date() == QDate::currentDate() ) {
+      if ( todo->hasStartDate() && todo->dtStart().date() == currentDate ) {
         accepted = true;
         stateText = i18n( "starts today" );
       }
 
       // all todos which end today
-      if ( todo->hasDueDate() && todo->dtDue().date() == QDate::currentDate() ) {
+      if ( todo->hasDueDate() && todo->dtDue().date() == currentDate ) {
         accepted = true;
         stateText = i18n( "ends today" );
       }
