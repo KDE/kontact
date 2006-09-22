@@ -93,10 +93,25 @@ void SummaryWidget::updateView()
   QPixmap pm = loader.loadIcon( "appointment", KIcon::Small );
 
   QDate dt;
-  for ( dt=QDate::currentDate();
-        dt<=QDate::currentDate().addDays( days - 1 );
+  QDate currentDate = QDate::currentDate();
+  for ( dt=currentDate;
+        dt<=currentDate.addDays( days - 1 );
         dt=dt.addDays(1) ) {
     KCal::Event::List events = mCalendar->events( dt );
+
+    KCal::Event *ev;
+    KCal::Event::List::ConstIterator it;
+    QDateTime qdt;
+
+    // Find recurring events, replacing the QDate with the currentDate
+    for ( it=events.begin(); it!=events.end(); ++it ) {
+      ev = *it;
+      if ( ev->recursOn( dt ) ) {
+        qdt = ev->dtStart();
+        qdt.setDate( dt );
+        ev->setDtStart( qdt );
+      }
+    }
 
     // sort the events for this date by summary
     events = KCal::Calendar::sortEvents( &events,
@@ -107,8 +122,6 @@ void SummaryWidget::updateView()
                                          KCal::EventSortStartDate,
                                          KCal::SortDirectionAscending );
 
-    KCal::Event *ev;
-    KCal::Event::List::ConstIterator it;
     for ( it=events.begin(); it!=events.end(); ++it ) {
       ev = *it;
 
@@ -116,8 +129,8 @@ void SummaryWidget::updateView()
       int span=1; int dayof=1;
       if ( ev->isMultiDay() ) {
         QDate d = ev->dtStart().date();
-        if ( d < QDate::currentDate() ) {
-          d = QDate::currentDate();
+        if ( d < currentDate ) {
+          d = currentDate;
         }
         while ( d < ev->dtEnd().date() ) {
           if ( d < dt ) {
@@ -146,12 +159,12 @@ void SummaryWidget::updateView()
 
       // Modify event date for printing
       QDate sD = QDate::QDate( dt.year(), dt.month(), dt.day() );
-      if ( ( sD.month() == QDate::currentDate().month() ) &&
-           ( sD.day()   == QDate::currentDate().day() ) ) {
+      if ( ( sD.month() == currentDate.month() ) &&
+           ( sD.day()   == currentDate.day() ) ) {
         datestr = i18n( "Today" );
         makeBold = true;
-      } else if ( ( sD.month() == QDate::currentDate().addDays( 1 ).month() ) &&
-                  ( sD.day()   == QDate::currentDate().addDays( 1 ).day() ) ) {
+      } else if ( ( sD.month() == currentDate.addDays( 1 ).month() ) &&
+                  ( sD.day()   == currentDate.addDays( 1 ).day() ) ) {
         datestr = i18n( "Tomorrow" );
       } else {
         datestr = KGlobal::locale()->formatDate( sD );
