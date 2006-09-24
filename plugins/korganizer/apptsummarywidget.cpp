@@ -178,7 +178,9 @@ void ApptSummaryWidget::updateView()
       // Print the date span for multiday, floating events, for the
       // first day of the event only.
       if ( ev->isMultiDay() && ev->doesFloat() && dayof == 1 && span > 1 ) {
-        str += " -\n " + KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
+        str = KGlobal::locale()->formatDate( ev->dtStart().date() );
+        str += " -\n " +
+               KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
       }
 
       label = new QLabel( str, this );
