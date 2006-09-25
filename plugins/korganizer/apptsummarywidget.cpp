@@ -152,7 +152,7 @@ void ApptSummaryWidget::updateView()
 
       // If this date is part of a floating, multiday event, then we
       // only make a print for the first day of the event.
-      if ( ev->isMultiDay() && ev->doesFloat() && dayof != 1 )continue;
+      if ( ev->isMultiDay() && ev->floats() && dayof != 1 )continue;
 
       // Icon label
       label = new QLabel( this );
@@ -177,7 +177,7 @@ void ApptSummaryWidget::updateView()
 
       // Print the date span for multiday, floating events, for the
       // first day of the event only.
-      if ( ev->isMultiDay() && ev->doesFloat() && dayof == 1 && span > 1 ) {
+      if ( ev->isMultiDay() && ev->floats() && dayof == 1 && span > 1 ) {
         str = KGlobal::locale()->formatDate( ev->dtStart().date() );
         str += " -\n " +
                KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
@@ -208,7 +208,7 @@ void ApptSummaryWidget::updateView()
 
       // Summary label
       str = ev->summary();
-      if ( ev->isMultiDay() &&  !ev->doesFloat() ) {
+      if ( ev->isMultiDay() &&  !ev->floats() ) {
         str.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
       }
 
@@ -224,7 +224,7 @@ void ApptSummaryWidget::updateView()
 
       // Time range label (only for non-floating events)
       str = "";
-      if ( !ev->doesFloat() ) {
+      if ( !ev->floats() ) {
         QTime sST = ev->dtStart().time();
         QTime sET = ev->dtEnd().time();
         if ( ev->isMultiDay() ) {

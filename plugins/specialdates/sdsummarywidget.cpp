@@ -190,7 +190,7 @@ bool SDSummaryWidget::initHolidays()
 int SDSummaryWidget::span( KCal::Event *event )
 {
   int span=1;
-  if ( event->isMultiDay() && event->doesFloat() ) {
+  if ( event->isMultiDay() && event->floats() ) {
     QDate d = event->dtStart().date();
     if ( d < QDate::currentDate() ) {
       d = QDate::currentDate();
