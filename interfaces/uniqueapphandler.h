@@ -40,7 +40,7 @@ class KDE_EXPORT UniqueAppHandler //: public DCOPObject
 {
   public:
     UniqueAppHandler( Plugin* plugin ) : /*DCOPObject( plugin->objectName().toLatin1() ),*/ mPlugin( plugin ) {}
-
+    virtual ~UniqueAppHandler() {}
     /// This must be reimplemented so that app-specific command line options can be parsed
     virtual void loadCommandLineOptions() = 0;
 

@@ -28,6 +28,7 @@ class KOrganizerUniqueAppHandler : public Kontact::UniqueAppHandler
 {
 public:
     KOrganizerUniqueAppHandler( Kontact::Plugin* plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    virtual ~KOrganizerUniqueAppHandler() {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
