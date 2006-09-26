@@ -55,14 +55,12 @@ KCMApptSummary::KCMApptSummary( KInstance *inst, QWidget *parent )
 
   customDaysChanged( 7 );
 
-  connect( mDaysGroup,
-           SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mDaysGroup,
-           SIGNAL( clicked( int ) ), SLOT( buttonClicked( int ) ) );
-  connect( mCustomDays,
-           SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
-  connect( mCustomDays,
-           SIGNAL( valueChanged( int ) ), SLOT( customDaysChanged( int ) ) );
+  connect( mDateTodayButton, SIGNAL( clicked( int ) ), SLOT( modified() ) );
+  connect( mDateMonthButton, SIGNAL( clicked( int ) ), SLOT( modified() ) );
+  connect( mDateRangeButton, SIGNAL( clicked( int ) ), SLOT( modified() ) );
+
+  connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
+  connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( customDaysChanged( int ) ) );
 
   KAcceleratorManager::manage( this );
 
@@ -78,11 +76,6 @@ void KCMApptSummary::modified()
   emit changed( true );
 }
 
-void KCMApptSummary::buttonClicked( int id )
-{
-  mCustomDays->setEnabled( id == 2 );
-}
-
 void KCMApptSummary::customDaysChanged( int value )
 {
   mCustomDays->setSuffix( i18np( " day", " days", value ) );
@@ -95,11 +88,11 @@ void KCMApptSummary::load()
   config.setGroup( "Days" );
   int days = config.readEntry( "DaysToShow", 7 );
   if ( days == 1 )
-    mDaysGroup->setButton( 0 );
+    mDateTodayButton->setChecked( true );
   else if ( days == 31 )
-    mDaysGroup->setButton( 1 );
+    mDateMonthButton->setChecked( true );
   else {
-    mDaysGroup->setButton( 2 );
+    mDateRangeButton->setChecked( true );
     mCustomDays->setValue( days );
     mCustomDays->setEnabled( true );
   }
@@ -113,11 +106,12 @@ void KCMApptSummary::save()
 
   config.setGroup( "Days" );
   int days;
-  switch ( mDaysGroup->selectedId() ) {
-    case 0: days = 1; break;
-    case 1: days = 31; break;
-    case 2:
-    default: days = mCustomDays->value(); break;
+  if ( mDateTodayButton->isChecked() ) {
+    days = 1;
+  } else if ( mDateMonthButton->isChecked() ) {
+    days = 31;
+  } else {
+    days = mCustomDays->value();
   }
   config.writeEntry( "DaysToShow", days );
 

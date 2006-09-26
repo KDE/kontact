@@ -1,15 +1,14 @@
 <ui version="4.0" >
  <author>Allen Winter &lt;winter@kde.org></author>
  <comment>Configuration page for the Korganizer To-do Summary</comment>
- <exportmacro></exportmacro>
  <class>TodoSummaryConfig_Base</class>
  <widget class="QWidget" name="TodoSummaryConfig_Base" >
   <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>333</width>
-    <height>318</height>
+    <width>375</width>
+    <height>335</height>
    </rect>
   </property>
   <property name="sizePolicy" >
@@ -31,12 +30,9 @@
     <number>6</number>
    </property>
    <item>
-    <widget class="Q3ButtonGroup" name="mDaysGroup" >
+    <widget class="QGroupBox" name="mDaysGroup" >
      <property name="title" >
       <string>Show to-dos due:</string>
-     </property>
-     <property name="orientation" >
-      <enum>Qt::Vertical</enum>
      </property>
      <layout class="QGridLayout" >
       <property name="margin" >
@@ -168,16 +164,23 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
- <customwidgets>
-  <customwidget>
-   <class>Q3ButtonGroup</class>
-   <extends></extends>
-   <header>Qt3Support/Q3ButtonGroup</header>
-   <container>1</container>
-   <pixmap></pixmap>
-  </customwidget>
- </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>mDateRangeButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mCustomDays</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>120</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>182</x>
+     <y>112</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -48,7 +48,6 @@ class KCMTodoSummary : public KCModule, public Ui::TodoSummaryConfig_Base
 
   private slots:
     void modified();
-    void buttonClicked( int id );
     void customDaysChanged( int value );
 
 };

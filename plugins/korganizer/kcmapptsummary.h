@@ -47,7 +47,6 @@ class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
 
   private slots:
     void modified();
-    void buttonClicked( int id );
     void customDaysChanged( int value );
 
 };

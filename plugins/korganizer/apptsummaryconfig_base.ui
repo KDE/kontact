@@ -1,7 +1,6 @@
 <ui version="4.0" >
  <author>Allen Winter &lt;winter@kde.org></author>
  <comment>Configuration page for the Korganizer Event Summary</comment>
- <exportmacro></exportmacro>
  <class>ApptSummaryConfig_Base</class>
  <widget class="QWidget" name="ApptSummaryConfig_Base" >
   <property name="geometry" >
@@ -23,12 +22,9 @@
     <number>6</number>
    </property>
    <item>
-    <widget class="Q3ButtonGroup" name="mDaysGroup" >
+    <widget class="QGroupBox" name="mDaysGroup" >
      <property name="title" >
       <string>Show events starting:</string>
-     </property>
-     <property name="orientation" >
-      <enum>Qt::Vertical</enum>
      </property>
      <layout class="QGridLayout" >
       <property name="margin" >
@@ -101,16 +97,23 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
- <customwidgets>
-  <customwidget>
-   <class>Q3ButtonGroup</class>
-   <extends></extends>
-   <header>Qt3Support/Q3ButtonGroup</header>
-   <container>1</container>
-   <pixmap></pixmap>
-  </customwidget>
- </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>mDateRangeButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>mCustomDays</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>122</x>
+     <y>127</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>156</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
