@@ -451,50 +451,56 @@ IconViewMode Navigator::sizeIntToEnum(int size) const
   }
 }
 
-void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint& )
+void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint &pos )
 {
-  KMenu menu;
-  menu.addTitle( i18n( "Icon Size" ) );
-  menu.insertItem( i18n( "Large" ), (int)LargeIcons );
-  menu.setItemEnabled( (int)LargeIcons, mShowIcons );
-  menu.insertItem( i18n( "Normal" ), (int)NormalIcons );
-  menu.setItemEnabled( (int)NormalIcons, mShowIcons );
-  menu.insertItem( i18n( "Small" ), (int)SmallIcons );
-  menu.setItemEnabled( (int)SmallIcons, mShowIcons );
+  KMenu menu( i18n( "Icon Size" ) );
 
-  menu.setItemChecked( (int)mViewMode, true );
+  QAction *large = menu.addAction( i18n( "Large" ) );
+  large->setEnabled( mShowIcons );
+  large->setChecked( mViewMode == LargeIcons );
+  QAction *normal = menu.addAction( i18n( "Normal" ) );
+  normal->setEnabled( mShowIcons );
+  large->setChecked( mViewMode == NormalIcons );
+  QAction *small = menu.addAction( i18n( "Small" ) );
+  small->setEnabled( mShowIcons );
+  large->setChecked( mViewMode == SmallIcons );
+
   menu.addSeparator();
 
-  menu.insertItem( i18n( "Show Icons" ), (int)ShowIcons );
-  menu.setItemChecked( (int)ShowIcons, mShowIcons );
-  menu.setItemEnabled( (int)ShowIcons, mShowText );
-  menu.insertItem( i18n( "Show Text" ), (int)ShowText );
-  menu.setItemChecked( (int)ShowText, mShowText );
-  menu.setItemEnabled( (int)ShowText, mShowIcons );
+  QAction *showIcons = menu.addAction( i18n( "Show Icons" ) );
+  showIcons->setChecked( mShowIcons );
+  showIcons->setEnabled( mShowText );
+  QAction *showText = menu.addAction( i18n( "Show Text" ) );
+  showText->setChecked( mShowText );
+  showText->setEnabled( mShowIcons );
 #warning Port me!
-  int choice = -1 /*menu.exec( pos )*/;
+  QAction *choice = menu.exec( pos );
 
-  if ( choice == -1 )
+  if ( choice == 0 )
     return;
 
-  if ( choice >= SmallIcons ) {
-    mViewMode = sizeIntToEnum( choice );
-    Prefs::self()->setSidePaneIconSize( choice );
-  } else {
-    // either icons or text were toggled
-    if ( choice == ShowIcons ) {
-      mShowIcons = !mShowIcons;
-      Prefs::self()->setSidePaneShowIcons( mShowIcons );
-      this->setToolTip("");
+  if ( choice == large ) {
+    mViewMode = sizeIntToEnum( LargeIcons );
+    Prefs::self()->setSidePaneIconSize( LargeIcons );
+  } else if ( choice == normal ) {
+    mViewMode = sizeIntToEnum( NormalIcons );
+    Prefs::self()->setSidePaneIconSize( NormalIcons );
+  } else if ( choice == small ) {
+    mViewMode = sizeIntToEnum( SmallIcons );
+    Prefs::self()->setSidePaneIconSize( SmallIcons );
+  } else if ( choice == showIcons ) {
+    mShowIcons = !mShowIcons;
+    Prefs::self()->setSidePaneShowIcons( mShowIcons );
+    this->setToolTip("");
 #warning Port me!
-//      if ( !mShowText )
-//        new EntryItemToolTip( this );
-    } else {
-      mShowText = !mShowText;
-      Prefs::self()->setSidePaneShowText( mShowText );
-      this->setToolTip("");
-    }
+//    if ( !mShowText )
+//      new EntryItemToolTip( this );
+  } else if ( choice == showText ) {
+    mShowText = !mShowText;
+    Prefs::self()->setSidePaneShowText( mShowText );
+    this->setToolTip("");
   }
+
   int maxWidth = 0;
   Q3ListBoxItem* it = 0;
   for (int i = 0; (it = item(i)) != 0; ++i)
