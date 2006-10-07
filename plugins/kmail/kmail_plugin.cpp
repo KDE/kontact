@@ -32,7 +32,7 @@
 #include <kiconloader.h>
 #include <kparts/componentfactory.h>
 #include <kstandarddirs.h>
-#include <ktempfile.h>
+#include <ktemporaryfile.h>
 
 #include <kabc/addressee.h>
 
@@ -85,9 +85,13 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
   KABC::Addressee::List list;
 
   if ( VCalDrag::decode( de, &cal ) || ICalDrag::decode( de, &cal ) ) {
-    KTempFile tmp( KStandardDirs::locateLocal( "tmp", "incidences-" ), ".ics" );
-    cal.save( tmp.name() );
-    openComposer( KUrl( tmp.name() ) );
+    KTemporaryFile tmp;
+    tmp.setPrefix("incidences-");
+    tmp.setSuffix(".ics");
+    tmp.setAutoRemove(false);
+    tmp.open();
+    cal.save( tmp.fileName() );
+    openComposer( KUrl( tmp.fileName() ) );
   }
   else if ( KVCardDrag::decode( de, list ) ) {
     KABC::Addressee::List::Iterator it;
