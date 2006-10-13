@@ -11,7 +11,7 @@ include_directories(
 
 set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp )
 
-kde4_automoc(${kontact_kmailplugin_PART_SRCS})
+kde4_automoc(kontact_kmailplugin ${kontact_kmailplugin_PART_SRCS})
 
 #kde4_add_dcop_skels(kontact_kmailplugin_PART_SRCS summarywidget.h )
 
@@ -31,7 +31,7 @@ add_dependencies(kontact_kmailplugin kmailprivate)
 
 set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp )
 
-kde4_automoc(${kcm_kmailsummary_PART_SRCS})
+kde4_automoc(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 

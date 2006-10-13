@@ -6,7 +6,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces  )
 
 set(kontact_kaddressbookplugin_PART_SRCS kaddressbook_plugin.cpp )
 
-kde4_automoc(${kontact_kaddressbookplugin_PART_SRCS})
+kde4_automoc(kontact_kaddressbookplugin ${kontact_kaddressbookplugin_PART_SRCS})
 
 #kde4_add_dcop_stubs(kontact_kaddressbookplugin_PART_SRCS 
 #	${CMAKE_SOURCE_DIR}/kaddressbook/kaddressbookiface.h 

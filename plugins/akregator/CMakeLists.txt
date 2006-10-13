@@ -6,7 +6,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 
 set(kontact_akregator_PART_SRCS akregator_plugin.cpp )
 
-kde4_automoc(${kontact_akregator_PART_SRCS})
+kde4_automoc(kontact_akregator ${kontact_akregator_PART_SRCS})
 
 #kde4_add_dcop_stubs(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregator/src/akregator_partiface.h )
 
