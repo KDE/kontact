@@ -14,7 +14,7 @@ set(kontact_LIB_SRCS
 
 kde4_automoc(kontact ${kontact_LIB_SRCS})
 
-kde4_add_kcfg_files(kontact_LIB_SRCS prefs.kcfgc )
+kde4_add_kcfg_files(kontact kontact_LIB_SRCS prefs.kcfgc )
 
 kde4_add_library(kontact SHARED ${kontact_LIB_SRCS})
 
