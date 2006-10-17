@@ -29,10 +29,7 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QEvent>
-#include <Q3CString>
 
-#include <dcopclient.h>
-#include <dcopref.h>
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kglobal.h>
