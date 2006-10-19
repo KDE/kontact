@@ -1,1 +1,1 @@
-// DOXYGEN_REFERENCES = kdeui kparts kcal
+// DOXYGEN_REFERENCES = kdecore kdeui kio kparts sonnet kresources kabc kcal libkdepim
