@@ -31,7 +31,6 @@
 #include <kiconloader.h>
 #include <kinstance.h>
 #include <kaboutdata.h>
-#include <kactivelabel.h>
 #include <ktextbrowser.h>
 #include <kicon.h>
 #include <QLayout>
@@ -111,8 +110,10 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
     text.replace( "\n", "<br>" );
 
-    KActiveLabel *label = new KActiveLabel( text, topFrame );
+    QLabel *label = new QLabel( text, topFrame );
     label->setAlignment( Qt::AlignTop );
+    label->setOpenExternalLinks(true);
+    label->setTextInteractionFlags(Qt::TextSelectableByMouse|Qt::TextSelectableByKeyboard);
     topLayout->addWidget( label );
 
 
