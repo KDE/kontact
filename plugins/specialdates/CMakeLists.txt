@@ -6,7 +6,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 
 set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget.cpp )
 
-kde4_automoc(kontact_specialdatesplugin ${kontact_specialdatesplugin_PART_SRCS})
+kde4_automoc(${kontact_specialdatesplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_specialdatesplugin WITH_PREFIX ${kontact_specialdatesplugin_PART_SRCS})
 
@@ -21,7 +21,7 @@ install(TARGETS kontact_specialdatesplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kcm_sdsummary_PART_SRCS kcmsdsummary.cpp )
 
-kde4_automoc(kcm_sdsummary ${kcm_sdsummary_PART_SRCS})
+kde4_automoc(${kcm_sdsummary_PART_SRCS})
 
 kde4_add_ui_files(kcm_sdsummary_PART_SRCS sdsummaryconfig_base.ui )
 

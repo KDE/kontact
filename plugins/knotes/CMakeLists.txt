@@ -10,7 +10,7 @@ set(kontact_knotesplugin_PART_SRCS ${libknotesresources_SRCS} ${libknoteseditor_
    summarywidget.cpp 
    knotetip.cpp )
 
-kde4_automoc(${kontact_knotesplugin_PART_SRCS} ${libknotesresources_SRCS} libknoteseditor ${libknoteseditor_SRCS})
+kde4_automoc(${libknoteseditor_SRCS})
 
 #kde4_add_dcop_skels(kontact_knotesplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/knotes/KNotesIface.h )
 

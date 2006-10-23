@@ -6,7 +6,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 
 set(kontact_knodeplugin_PART_SRCS knode_plugin.cpp )
 
-kde4_automoc(kontact_knodeplugin ${kontact_knodeplugin_PART_SRCS})
+kde4_automoc(${kontact_knodeplugin_PART_SRCS})
 
 #kde4_add_dcop_stubs(kontact_knodeplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/knode/knodeiface.h )
 

@@ -6,7 +6,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 
 set(kontact_weatherplugin_PART_SRCS weather_plugin.cpp summarywidget.cpp )
 
-kde4_automoc(kontact_weatherplugin ${kontact_weatherplugin_PART_SRCS})
+kde4_automoc(${kontact_weatherplugin_PART_SRCS})
 
 #kde4_add_dcop_skels(kontact_weatherplugin_PART_SRCS summarywidget.h )
 
