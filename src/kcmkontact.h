@@ -60,9 +60,6 @@ class PluginSelection : public KPrefsWid
     QValueList<QWidget *> widgets() const;
     QComboBox *comboBox() const { return mPluginCombo; }
 
-  private slots:
-    void itemClicked( QListViewItem* );
-
   private:
     QComboBox *mPluginCombo;
     QValueList<KService::Ptr> mPluginList;

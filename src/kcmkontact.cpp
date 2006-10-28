@@ -104,6 +104,7 @@ PluginSelection::PluginSelection( KConfigSkeleton::ItemString *item, QWidget *pa
 {
   mItem = item;
   mPluginCombo = new QComboBox( parent );
+  connect( mPluginCombo, SIGNAL( activated( int ) ), SIGNAL( changed() ) );
 }
 
 PluginSelection::~PluginSelection()
@@ -138,12 +139,6 @@ void PluginSelection::writeConfig()
 {
   KService::Ptr ptr = *( mPluginList.at( mPluginCombo->currentItem() ) );
   mItem->setValue( ptr->property("X-KDE-PluginInfo-Name").toString() );
-}
-
-void PluginSelection::itemClicked( QListViewItem *item )
-{
-  if ( item )
-    emit changed();
 }
 
 QValueList<QWidget *> PluginSelection::widgets() const
