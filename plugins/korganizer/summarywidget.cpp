@@ -97,20 +97,26 @@ void SummaryWidget::updateView()
   for ( dt=currentDate;
         dt<=currentDate.addDays( days - 1 );
         dt=dt.addDays(1) ) {
-    KCal::Event::List events = mCalendar->events( dt );
 
     KCal::Event *ev;
-    KCal::Event::List::ConstIterator it;
+
+    KCal::Event::List events_orig = mCalendar->events( dt );
+    KCal::Event::List::ConstIterator it = events_orig.begin();
+
+    KCal::Event::List events;
+    events.setAutoDelete( true );
     QDateTime qdt;
 
-    // Find recurring events, replacing the QDate with the currentDate
-    for ( it=events.begin(); it!=events.end(); ++it ) {
-      ev = *it;
+    // prevent implicitely sharing while finding recurring events
+    // replacing the QDate with the currentDate
+    for ( ; it != events_orig.end(); ++it ) {
+      ev = (*it)->clone();
       if ( ev->recursOn( dt ) ) {
         qdt = ev->dtStart();
         qdt.setDate( dt );
         ev->setDtStart( qdt );
       }
+      events.append( ev );
     }
 
     // sort the events for this date by summary
