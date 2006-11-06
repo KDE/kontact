@@ -125,13 +125,13 @@ void ApptSummaryWidget::updateView()
 
     KCal::Event::List events;
     events.setAutoDelete( true );
-    QDateTime qdt;
+    KDateTime qdt;
 
     // prevent implicitely sharing while finding recurring events
     // replacing the QDate with the currentDate
     for ( ; it != events_orig.end(); ++it ) {
       ev = (*it)->clone();
-      if ( ev->recursOn( dt ) ) {
+      if ( ev->recursOn( dt, 0 ) ) { //FIXME: what should the timespec be?
         qdt = ev->dtStart();
         qdt.setDate( dt );
         ev->setDtStart( qdt );
