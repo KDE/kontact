@@ -44,6 +44,7 @@
 #include <kcal/resourcecalendar.h>
 #include <kcal/resourcelocal.h>
 #include <kcal/todo.h>
+#include <kcal/incidenceformatter.h>
 #include <libkdepim/kpimprefs.h>
 
 #include "core.h"
@@ -264,8 +265,9 @@ void TodoSummaryWidget::updateView()
       connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
                this, SLOT( popupMenu( const QString& ) ) );
 
-      if ( !todo->description().isEmpty() ) {
-        urlLabel->setToolTip( todo->description() );
+      QString tipText( KCal::IncidenceFormatter::toolTipString( todo, true ) );
+      if ( !tipText.isEmpty() ) {
+        QToolTip::add( urlLabel, tipText );
       }
 
       // State text label

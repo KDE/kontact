@@ -43,6 +43,7 @@
 #include <kcal/event.h>
 #include <kcal/resourcecalendar.h>
 #include <kcal/resourcelocal.h>
+#include <kcal/incidenceformatter.h>
 #include <libkdepim/kpimprefs.h>
 
 #include "core.h"
@@ -246,8 +247,9 @@ void ApptSummaryWidget::updateView()
       connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
                this, SLOT( popupMenu( const QString& ) ) );
 
-      if ( !ev->description().isEmpty() ) {
-        urlLabel->setToolTip( ev->description() );
+      QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
+      if ( !tipText.isEmpty() ) {
+        QToolTip::add( urlLabel, tipText );
       }
 
       // Time range label (only for non-floating events)
