@@ -314,6 +314,7 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
   KMenu popup( this );
   const QAction *editIt = popup.addAction( i18n( "&Edit Appointment..." ) );
   const QAction *delIt = popup.addAction( i18n( "&Delete Appointment" ) );
+  // TODO: add icons to the menu actions
 
   const QAction *selectedAction = popup.exec( QCursor::pos() );
   if ( selectedAction == editIt ) {

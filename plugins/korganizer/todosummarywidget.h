@@ -27,7 +27,6 @@
 
 #include <QList>
 #include <QWidget>
-//Added by qt3to4:
 #include <QLabel>
 #include <QGridLayout>
 #include <QEvent>
@@ -60,7 +59,9 @@ class TodoSummaryWidget : public Kontact::Summary
 
   private slots:
     void updateView();
-    void selectEvent( const QString &uid );
+    void popupMenu( const QString &uid );
+    void viewTodo( const QString &uid );
+    void removeTodo( const QString &uid );
 
   private:
     TodoPlugin *mPlugin;

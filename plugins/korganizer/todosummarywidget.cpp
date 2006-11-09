@@ -22,22 +22,24 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <QCursor>
 #include <QLabel>
 #include <QLayout>
-//Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QEvent>
+#include <QToolTip>
 
 #include <kdialog.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/part.h>
+#include <kmenu.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
-#include <QToolTip>
+
 #include <kcal/calendar.h>
 #include <kcal/resourcecalendar.h>
 #include <kcal/resourcelocal.h>
@@ -248,11 +250,19 @@ void TodoSummaryWidget::updateView()
       if ( todo->relatedTo() ) { // show parent only, not entire ancestry
         str = todo->relatedTo()->summary() + ':' + str;
       }
-      KUrlLabel *urlLabel = new KUrlLabel( todo->uid(), str, this );
+
+      KUrlLabel *urlLabel = new KUrlLabel( this );
+      urlLabel->setText( str );
+      urlLabel->setUrl( todo->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
       mLayout->addWidget( urlLabel, counter, 4 );
       mLabels.append( urlLabel );
+
+      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+               this, SLOT( viewTodo( const QString& ) ) );
+      connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+               this, SLOT( popupMenu( const QString& ) ) );
 
       if ( !todo->description().isEmpty() ) {
         urlLabel->setToolTip( todo->description() );
@@ -264,9 +274,6 @@ void TodoSummaryWidget::updateView()
       label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 5 );
       mLabels.append( label );
-
-      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
-               this, SLOT( selectEvent( const QString& ) ) );
 
       counter++;
     }
@@ -288,12 +295,35 @@ void TodoSummaryWidget::updateView()
   KGlobal::locale()->setDateFormat( savefmt );
 }
 
-void TodoSummaryWidget::selectEvent( const QString &uid )
+void TodoSummaryWidget::viewTodo( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
 #warning Port me!
 //  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
 //  iface.editIncidence( uid );
+}
+
+void TodoSummaryWidget::removeTodo( const QString &uid )
+{
+  mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
+#warning Port me!
+//  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
+//  iface.deleteIncidence( uid, false );
+}
+
+void TodoSummaryWidget::popupMenu( const QString &uid )
+{
+  KMenu popup( this );
+  const QAction *editIt = popup.addAction( i18n( "&Edit To-do.." ) );
+  const QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
+  // TODO: add icons to the menu actions
+
+  const QAction *selectedAction = popup.exec( QCursor::pos() );
+  if ( selectedAction == editIt ) {
+    viewTodo( uid );
+  } else if ( selectedAction == delIt ) {
+    removeTodo( uid );
+  }
 }
 
 bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent* e )

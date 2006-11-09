@@ -26,7 +26,6 @@
 #define SUMMARYWIDGET_H
 
 #include <QWidget>
-//Added by qt3to4:
 #include <QLabel>
 #include <QList>
 #include <QGridLayout>
