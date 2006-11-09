@@ -33,6 +33,7 @@
 
 #include <kdialog.h>
 #include <kglobal.h>
+#include <kicon.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/part.h>
@@ -314,9 +315,10 @@ void ApptSummaryWidget::removeEvent( const QString &uid )
 void ApptSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
-  const QAction *editIt = popup.addAction( i18n( "&Edit Appointment..." ) );
-  const QAction *delIt = popup.addAction( i18n( "&Delete Appointment" ) );
-  // TODO: add icons to the menu actions
+  QAction *editIt = popup.addAction( i18n( "&Edit Appointment..." ) );
+  QAction *delIt = popup.addAction( i18n( "&Delete Appointment" ) );
+  delIt->setIcon( KGlobal::iconLoader()->
+                  loadIcon( "editdelete", K3Icon::Small ) );
 
   const QAction *selectedAction = popup.exec( QCursor::pos() );
   if ( selectedAction == editIt ) {

@@ -33,6 +33,7 @@
 
 #include <kdialog.h>
 #include <kglobal.h>
+#include <kicon.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/part.h>
@@ -332,12 +333,16 @@ void TodoSummaryWidget::completeTodo( const QString &uid )
 void TodoSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
-  const QAction *editIt = popup.addAction( i18n( "&Edit To-do.." ) );
-  const QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
-  const QAction *doneIt;
+  QAction *editIt = popup.addAction( i18n( "&Edit To-do.." ) );
+  QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
+  delIt->setIcon( KGlobal::iconLoader()->
+                  loadIcon( "editdelete", K3Icon::Small) );
+  QAction *doneIt;
   KCal::Todo *todo = mCalendar->todo( uid );
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
+    doneIt->setIcon( KGlobal::iconLoader()->
+                     loadIcon( "checkedbox", K3Icon::Small) );
   }
   // TODO: add icons to the menu actions
 
@@ -346,7 +351,7 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
     viewTodo( uid );
   } else if ( selectedAction == delIt ) {
     removeTodo( uid );
-  } else if ( selectedAction && selectedAction == doneIt ) {
+  } else if ( doneIt && selectedAction == doneIt ) {
     completeTodo( uid );
   }
 }
