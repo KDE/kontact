@@ -22,22 +22,24 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <QCursor>
 #include <QLabel>
 #include <QLayout>
-//Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QEvent>
+#include <QToolTip>
 
 #include <kdialog.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/part.h>
+#include <kmenu.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
-#include <QToolTip>
+
 #include <kcal/event.h>
 #include <kcal/resourcecalendar.h>
 #include <kcal/resourcelocal.h>
@@ -231,11 +233,18 @@ void ApptSummaryWidget::updateView()
         str.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
       }
 
-      KUrlLabel *urlLabel = new KUrlLabel( ev->uid(), str, this );
+      KUrlLabel *urlLabel = new KUrlLabel( this );
+      urlLabel->setText( str );
+      urlLabel->setUrl( ev->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
       mLayout->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
+
+      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+               this, SLOT( viewEvent( const QString& ) ) );
+      connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+               this, SLOT( popupMenu( const QString& ) ) );
 
       if ( !ev->description().isEmpty() ) {
         urlLabel->setToolTip( ev->description() );
@@ -263,9 +272,6 @@ void ApptSummaryWidget::updateView()
         mLabels.append( label );
       }
 
-      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
-               this, SLOT( selectEvent( const QString& ) ) );
-
       counter++;
     }
   }
@@ -287,12 +293,34 @@ void ApptSummaryWidget::updateView()
   KGlobal::locale()->setDateFormat( savefmt );
 }
 
-void ApptSummaryWidget::selectEvent( const QString &uid )
+void ApptSummaryWidget::viewEvent( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
 #warning Port to DBus!
 //  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
 //  iface.editIncidence( uid );
+}
+
+void ApptSummaryWidget::removeEvent( const QString &uid )
+{
+  mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
+#warning Port to DBus!
+//  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
+//  iface.deleteIncidence( uid, false );
+}
+
+void ApptSummaryWidget::popupMenu( const QString &uid )
+{
+  KMenu popup( this );
+  const QAction *editIt = popup.addAction( i18n( "&Edit Appointment..." ) );
+  const QAction *delIt = popup.addAction( i18n( "&Delete Appointment" ) );
+
+  const QAction *selectedAction = popup.exec( QCursor::pos() );
+  if ( selectedAction == editIt ) {
+    viewEvent( uid );
+  } else if ( selectedAction == delIt ) {
+    removeEvent( uid );
+  }
 }
 
 bool ApptSummaryWidget::eventFilter( QObject *obj, QEvent* e )
