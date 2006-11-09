@@ -62,6 +62,7 @@ class TodoSummaryWidget : public Kontact::Summary
     void popupMenu( const QString &uid );
     void viewTodo( const QString &uid );
     void removeTodo( const QString &uid );
+    void completeTodo( const QString &uid );
 
   private:
     TodoPlugin *mPlugin;

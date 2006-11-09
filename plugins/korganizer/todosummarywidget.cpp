@@ -52,6 +52,8 @@
 #include "todoplugin.h"
 
 #include "korganizer/stdcalendar.h"
+#include "korganizer/koglobals.h"
+#include "korganizer/incidencechanger.h"
 
 #include "todosummarywidget.h"
 
@@ -313,11 +315,30 @@ void TodoSummaryWidget::removeTodo( const QString &uid )
 //  iface.deleteIncidence( uid, false );
 }
 
+void TodoSummaryWidget::completeTodo( const QString &uid )
+{
+  KCal::Todo *todo = mCalendar->todo( uid );
+  IncidenceChanger *changer = new IncidenceChanger( mCalendar, this );
+  if ( !todo->isReadOnly() && changer->beginChange( todo ) ) {
+    KCal::Todo *oldTodo = todo->clone();
+    todo->setCompleted( QDateTime::currentDateTime() );
+    changer->changeIncidence( oldTodo, todo, KOGlobals::COMPLETION_MODIFIED );
+    changer->endChange( todo );
+    delete oldTodo;
+    updateView();
+  }
+}
+
 void TodoSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
   const QAction *editIt = popup.addAction( i18n( "&Edit To-do.." ) );
   const QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
+  const QAction *doneIt;
+  KCal::Todo *todo = mCalendar->todo( uid );
+  if ( !todo->isCompleted() ) {
+    doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
+  }
   // TODO: add icons to the menu actions
 
   const QAction *selectedAction = popup.exec( QCursor::pos() );
@@ -325,6 +346,8 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
     viewTodo( uid );
   } else if ( selectedAction == delIt ) {
     removeTodo( uid );
+  } else if ( selectedAction && selectedAction == doneIt ) {
+    completeTodo( uid );
   }
 }
 
