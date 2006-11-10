@@ -47,7 +47,7 @@ kde4_automoc(${kcm_kontact_PART_SRCS})
 
 kde4_add_plugin(kcm_kontact ${kcm_kontact_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kontact )
+
 
 target_link_libraries(kcm_kontact  ${KDE4_KDECORE_LIBS} kontact kdepim )
 

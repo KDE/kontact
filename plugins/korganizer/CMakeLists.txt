@@ -14,7 +14,7 @@ qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/k
 
 kde4_add_plugin(kontact_korganizerplugin WITH_PREFIX ${kontact_korganizerplugin_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_korganizerplugin )
+
 
 target_link_libraries(kontact_korganizerplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar )
 
@@ -31,7 +31,7 @@ qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korgani
 
 kde4_add_plugin(kontact_todoplugin WITH_PREFIX ${kontact_todoplugin_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_todoplugin )
+
 
 target_link_libraries(kontact_todoplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar korganizer )
 
@@ -48,7 +48,7 @@ qt4_add_dbus_interfaces(kontact_journalplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korg
 
 kde4_add_plugin(kontact_journalplugin WITH_PREFIX ${kontact_journalplugin_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_journalplugin )
+
 
 target_link_libraries(kontact_journalplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar)
 
@@ -65,7 +65,7 @@ kde4_add_ui_files(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui )
 
 kde4_add_plugin(kcm_apptsummary ${kcm_apptsummary_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_apptsummary )
+
 
 target_link_libraries(kcm_apptsummary  ${KDE4_KDEUI_LIBS} )
 
@@ -82,7 +82,7 @@ kde4_add_ui_files(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui )
 
 kde4_add_plugin(kcm_todosummary ${kcm_todosummary_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_todosummary )
+
 
 target_link_libraries(kcm_todosummary  ${KDE4_KDEUI_LIBS} )
 

@@ -20,7 +20,7 @@ kde4_automoc(${kontact_kmailplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_kmailplugin WITH_PREFIX ${kontact_kmailplugin_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_kmailplugin )
+
 
 target_link_libraries(kontact_kmailplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces ${KDE4_KCAL_LIBS})
 
@@ -35,7 +35,7 @@ kde4_automoc(${kcm_kmailsummary_PART_SRCS})
 
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kmailsummary )
+
 
 target_link_libraries(kcm_kmailsummary  ${KDE4_KDEUI_LIBS} )
 

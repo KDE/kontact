@@ -10,7 +10,7 @@ kde4_automoc(${kontact_newstickerplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_newstickerplugin WITH_PREFIX ${kontact_newstickerplugin_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_newstickerplugin )
+
 
 target_link_libraries(kontact_newstickerplugin  ${KDE4_KPARTS_LIBS} kdepim kpinterfaces )
 
@@ -25,7 +25,7 @@ kde4_automoc(${kcm_kontactknt_PART_SRCS})
 
 kde4_add_plugin(kcm_kontactknt ${kcm_kontactknt_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kontactknt )
+
 
 target_link_libraries(kcm_kontactknt  ${KDE4_KDEUI_LIBS} )
 

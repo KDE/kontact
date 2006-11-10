@@ -12,7 +12,7 @@ kde4_automoc(${kontact_knodeplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_knodeplugin WITH_PREFIX ${kontact_knodeplugin_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_knodeplugin )
+
 
 target_link_libraries(kontact_knodeplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces)
 

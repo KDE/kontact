@@ -10,7 +10,7 @@ kde4_automoc(${kontact_specialdatesplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_specialdatesplugin WITH_PREFIX ${kontact_specialdatesplugin_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kontact_specialdatesplugin )
+
 
 target_link_libraries(kontact_specialdatesplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kdepim kholidays korganizer_calendar kaddressbook )
 
@@ -27,7 +27,7 @@ kde4_add_ui_files(kcm_sdsummary_PART_SRCS sdsummaryconfig_base.ui )
 
 kde4_add_plugin(kcm_sdsummary ${kcm_sdsummary_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_sdsummary )
+
 
 target_link_libraries(kcm_sdsummary  ${KDE4_KDEUI_LIBS} )
 

@@ -12,7 +12,7 @@ kde4_automoc(${kptestplugin_PART_SRCS})
 
 kde4_add_plugin(kptestplugin WITH_PREFIX ${kptestplugin_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kptestplugin )
+
 
 target_link_libraries(kptestplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces)
 
