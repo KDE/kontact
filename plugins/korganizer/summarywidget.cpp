@@ -21,20 +21,23 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qcursor.h>
 #include <qlabel.h>
 #include <qlayout.h>
+#include <qtooltip.h>
 
 #include <kdialog.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/part.h>
+#include <kpopupmenu.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
-#include <qtooltip.h>
 #include <libkcal/event.h>
 #include <libkcal/resourcecalendar.h>
 #include <libkcal/resourcelocal.h>
+#include <libkcal/incidenceformatter.h>
 #include <libkdepim/kpimprefs.h>
 
 #include "korganizeriface_stub.h"
@@ -200,14 +203,22 @@ void SummaryWidget::updateView()
         newtext.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
       }
 
-      KURLLabel *urlLabel = new KURLLabel( ev->uid(), newtext, this );
+      KURLLabel *urlLabel = new KURLLabel( this );
+      urlLabel->setText( newtext );
+      urlLabel->setURL( ev->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setAlignment( urlLabel->alignment() | Qt::WordBreak );
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
 
-      if ( !ev->description().isEmpty() ) {
-        QToolTip::add( urlLabel, ev->description() );
+      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+               this, SLOT( viewEvent( const QString& ) ) );
+      connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+               this, SLOT( popupMenu( const QString& ) ) );
+
+      QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
+      if ( !tipText.isEmpty() ) {
+        QToolTip::add( urlLabel, tipText );
       }
 
       // Fill Event Time Range Field (only for non-floating Events)
@@ -231,9 +242,6 @@ void SummaryWidget::updateView()
         mLabels.append( label );
       }
 
-      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
-               this, SLOT( selectEvent( const QString& ) ) );
-
       counter++;
     }
   }
@@ -252,11 +260,35 @@ void SummaryWidget::updateView()
     label->show();
 }
 
-void SummaryWidget::selectEvent( const QString &uid )
+void SummaryWidget::viewEvent( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
   KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
   iface.editIncidence( uid );
+}
+
+void SummaryWidget::removeEvent( const QString &uid )
+{
+  mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
+  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
+  iface.deleteIncidence( uid, false );
+}
+
+void SummaryWidget::popupMenu( const QString &uid )
+{
+  KPopupMenu popup( this );
+  popup.insertItem( i18n( "&Edit Appointment..." ), 0 );
+  popup.insertItem( KGlobal::iconLoader()->loadIcon( "editdelete", KIcon::Small),
+                    i18n( "&Delete Appointment" ), 1 );
+
+  switch ( popup.exec( QCursor::pos() ) ) {
+    case 0:
+      viewEvent( uid );
+      break;
+    case 1:
+      removeEvent( uid );
+      break;
+  }
 }
 
 bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )

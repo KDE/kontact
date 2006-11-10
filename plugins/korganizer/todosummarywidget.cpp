@@ -21,20 +21,23 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qcursor.h>
 #include <qlabel.h>
 #include <qlayout.h>
+#include <qtooltip.h>
 
 #include <kdialog.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/part.h>
+#include <kpopupmenu.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
-#include <qtooltip.h>
 #include <libkcal/resourcecalendar.h>
 #include <libkcal/resourcelocal.h>
 #include <libkcal/todo.h>
+#include <libkcal/incidenceformatter.h>
 #include <libkdepim/kpimprefs.h>
 
 #include "korganizeriface_stub.h"
@@ -44,6 +47,8 @@
 #include "todoplugin.h"
 
 #include "korganizer/stdcalendar.h"
+#include "korganizer/koglobals.h"
+#include "korganizer/incidencechanger.h"
 
 #include "todosummarywidget.h"
 
@@ -151,14 +156,22 @@ void TodoSummaryWidget::updateView()
       if ( todo->relatedTo() ) { // show parent only, not entire ancestry
         sSummary = todo->relatedTo()->summary() + ":" + todo->summary();
       }
-      KURLLabel *urlLabel = new KURLLabel( todo->uid(), sSummary, this );
+      KURLLabel *urlLabel = new KURLLabel( this );
+      urlLabel->setText( sSummary );
+      urlLabel->setURL( todo->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
       mLayout->addWidget( urlLabel, counter, 2 );
       mLabels.append( urlLabel );
 
-      if ( !todo->description().isEmpty() ) {
-        QToolTip::add( urlLabel, todo->description() );
+      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+               this, SLOT( viewTodo( const QString& ) ) );
+      connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+               this, SLOT( popupMenu( const QString& ) ) );
+
+      QString tipText( KCal::IncidenceFormatter::toolTipString( todo, true ) );
+      if ( !tipText.isEmpty() ) {
+        QToolTip::add( urlLabel, tipText );
       }
 
       label = new QLabel( stateText, this );
@@ -166,9 +179,6 @@ void TodoSummaryWidget::updateView()
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
       mLayout->addWidget( label, counter, 3 );
       mLabels.append( label );
-
-      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
-               this, SLOT( selectEvent( const QString& ) ) );
 
       counter++;
     }
@@ -185,11 +195,57 @@ void TodoSummaryWidget::updateView()
     label->show();
 }
 
-void TodoSummaryWidget::selectEvent( const QString &uid )
+void TodoSummaryWidget::viewTodo( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
   KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
   iface.editIncidence( uid );
+}
+
+void TodoSummaryWidget::removeTodo( const QString &uid )
+{
+  mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
+  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
+  iface.deleteIncidence( uid, false );
+}
+
+void TodoSummaryWidget::completeTodo( const QString &uid )
+{
+  KCal::Todo *todo = mCalendar->todo( uid );
+  IncidenceChanger *changer = new IncidenceChanger( mCalendar, this );
+  if ( !todo->isReadOnly() && changer->beginChange( todo ) ) {
+    KCal::Todo *oldTodo = todo->clone();
+    todo->setCompleted( QDateTime::currentDateTime() );
+    changer->changeIncidence( oldTodo, todo, KOGlobals::COMPLETION_MODIFIED );
+    changer->endChange( todo );
+    delete oldTodo;
+    updateView();
+  }
+}
+
+void TodoSummaryWidget::popupMenu( const QString &uid )
+{
+  KPopupMenu popup( this );
+  popup.insertItem( i18n( "&Edit To-do..." ), 0 );
+  popup.insertItem( KGlobal::iconLoader()->loadIcon( "editdelete", KIcon::Small),
+                    i18n( "&Delete To-do" ), 1 );
+  KCal::Todo *todo = mCalendar->todo( uid );
+  if ( !todo->isCompleted() ) {
+    popup.insertItem( KGlobal::iconLoader()->loadIcon( "checkedbox", KIcon::Small),
+                      i18n( "&Mark To-do Completed" ), 2 );
+  }
+
+  switch ( popup.exec( QCursor::pos() ) ) {
+    case 0:
+      viewTodo( uid );
+      break;
+    case 1:
+      removeTodo( uid );
+      break;
+    case 2:
+      completeTodo( uid );
+      break;
+  }
 }
 
 bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent* e )

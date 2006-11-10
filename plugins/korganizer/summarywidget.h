@@ -55,7 +55,9 @@ class SummaryWidget : public Kontact::Summary
 
   private slots:
     void updateView();
-    void selectEvent( const QString &uid );
+    void popupMenu( const QString &uid );
+    void viewEvent( const QString &uid );
+    void removeEvent( const QString &uid );
 
   private:
     KOrganizerPlugin *mPlugin;

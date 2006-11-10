@@ -2,6 +2,7 @@
 INCLUDES = -I$(top_srcdir)/kontact/interfaces \
   -I$(top_srcdir)/libkdepim \
   -I$(top_srcdir)/korganizer \
+  -I$(top_srcdir)/korganizer/interfaces \
   -I$(top_srcdir) $(all_includes)
 
 kde_module_LTLIBRARIES = libkontact_korganizerplugin.la \
@@ -27,7 +28,8 @@ korganizeriface_DCOPIDLNG = true
 libkontact_todoplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_todoplugin_la_LIBADD = libcommon.la \
     $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) \
-    $(top_builddir)/korganizer/libkorganizer_calendar.la
+    $(top_builddir)/korganizer/libkorganizer_calendar.la \
+    $(top_builddir)/korganizer/libkorganizer.la
 libkontact_todoplugin_la_SOURCES = todoplugin.cpp \
                                    kcalendariface.stub \
                                    todosummarywidget.cpp \
