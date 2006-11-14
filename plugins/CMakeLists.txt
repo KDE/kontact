@@ -1,7 +1,9 @@
 
 message( STATUS "Newsticker and weather Kontact plugins disabled." )
 add_subdirectory( kaddressbook ) 
+if(GPGME_FOUND)
 add_subdirectory( kmail ) 
+endif(GPGME_FOUND)
 add_subdirectory( knotes ) 
 add_subdirectory( korganizer ) 
 add_subdirectory( summary ) 
