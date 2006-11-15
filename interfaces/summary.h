@@ -27,7 +27,7 @@
 #include <QMouseEvent>
 #include <QDragEnterEvent>
 #include <QDropEvent>
-#include <kdepimmacros.h>
+#include <kdemacros.h>
 
 class KStatusBar;
 

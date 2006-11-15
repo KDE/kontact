@@ -41,7 +41,7 @@
 
 #include "kcmsdsummary.h"
 
-#include <kdepimmacros.h>
+#include <kdemacros.h>
 
 extern "C"
 {

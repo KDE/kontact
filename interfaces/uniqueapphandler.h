@@ -23,7 +23,7 @@
 #define KONTACT_UNIQUEAPPHANDLER_H
 
 #include <plugin.h>
-#include <kdepimmacros.h>
+#include <kdemacros.h>
 
 namespace Kontact
 {

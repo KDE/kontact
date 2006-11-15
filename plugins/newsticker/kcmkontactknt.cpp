@@ -46,7 +46,7 @@
 
 #include "newsfeeds.h"
 
-#include <kdepimmacros.h>
+#include <kdemacros.h>
 #include <ktoolinvocation.h>
 
 extern "C"

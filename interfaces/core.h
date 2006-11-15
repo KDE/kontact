@@ -25,7 +25,7 @@
 
 #include <QDateTime>
 //Added by qt3to4:
-#include <kdepimmacros.h>
+#include <kdemacros.h>
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 

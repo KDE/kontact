@@ -27,7 +27,7 @@
 #include <QObject>
 #include <QDropEvent>
 #include <kxmlguiclient.h>
-#include <kdepimmacros.h>
+#include <kdemacros.h>
 #include <q3ptrlist.h>
 
 class QStringList;

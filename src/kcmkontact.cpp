@@ -42,7 +42,7 @@
 #include <QHBoxLayout>
 #include <QBoxLayout>
 
-#include <kdepimmacros.h>
+#include <kdemacros.h>
 
 extern "C"
 {
