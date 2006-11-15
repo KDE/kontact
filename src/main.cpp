@@ -111,7 +111,9 @@ int KontactApp::newInstance()
       // --iconify is needed in kontact, although kstart can do that too,
       // because kstart returns immediately so it's too early to talk DCOP to the app.
       if ( args->isSet( "iconify" ) )
+#ifdef Q_OS_UNIX	      
         KWin::iconifyWindow( mMainWindow->winId(), false /*no animation*/ );
+#endif      
     } else {
       if ( !moduleName.isEmpty() )
         mMainWindow->setActivePluginModule( moduleName );

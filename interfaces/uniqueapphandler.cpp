@@ -72,7 +72,9 @@ int UniqueAppHandler::newInstance()
   // This bit is duplicated from KUniqueApplication::newInstance()
   if ( kapp->mainWidget() ) {
     kapp->mainWidget()->show();
+#ifdef Q_OS_UNIX    
     KWin::forceActiveWindow( kapp->mainWidget()->winId() );
+#endif    
     KStartupInfo::appStarted();
   }
 
