@@ -337,7 +337,7 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
   delIt->setIcon( KGlobal::iconLoader()->
                   loadIcon( "editdelete", K3Icon::Small) );
-  QAction *doneIt;
+  QAction *doneIt = 0;
   KCal::Todo *todo = mCalendar->todo( uid );
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
