@@ -5,7 +5,7 @@ Icon=multisynk
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=libkontact_multisynk
-X-KDE-KontactPluginVersion=4
+X-KDE-KontactPluginVersion=5
 X-KDE-KontactPartLibraryName=libmultisynkpart
 
 X-KDE-PluginInfo-Name=kontact_multisynk

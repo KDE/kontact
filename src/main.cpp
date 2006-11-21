@@ -49,14 +49,22 @@ static const char version[] = "1.2.3";
 
 class KontactApp : public KUniqueApplication {
   public:
-    KontactApp() : mMainWindow( 0 ) {}
+    KontactApp() : mMainWindow( 0 ), mSessionRestored( false ) {}
     ~KontactApp() {}
 
     int newInstance();
+    void setMainWindow( Kontact::MainWindow *window ) {
+        mMainWindow = window;
+        setMainWidget( window );
+    }
+    void setSessionRestored( bool restored ) {
+        mSessionRestored = restored;
+    }
 
   private:
     void startKOrgac();
     Kontact::MainWindow *mMainWindow;
+    bool mSessionRestored;
 };
 
 static void listPlugins()
@@ -94,15 +102,7 @@ int KontactApp::newInstance()
     moduleName = QString::fromLocal8Bit( args->getOption( "module" ) );
   }
 
-  if ( isRestored() ) {
-    // There can only be one main window
-    if ( KMainWindow::canBeRestored( 1 ) ) {
-      mMainWindow = new Kontact::MainWindow();
-      setMainWidget( mMainWindow );
-      mMainWindow->show();
-      mMainWindow->restore( 1 );
-    }
-  } else {
+  if ( !mSessionRestored ) {
     if ( !mMainWindow ) {
       mMainWindow = new Kontact::MainWindow();
       if ( !moduleName.isEmpty() )
@@ -158,6 +158,17 @@ int main( int argc, char **argv )
   }
 
   KontactApp app;
+  if ( app.restoringSession() ) {
+     // There can only be one main window
+    if ( KMainWindow::canBeRestored( 1 ) ) {
+      Kontact::MainWindow *mainWindow = new Kontact::MainWindow();
+      app.setMainWindow( mainWindow );
+      app.setSessionRestored( true );
+      mainWindow->show();
+      mainWindow->restore( 1 );
+    }
+  }
+
   bool ret = app.exec();
   while ( KMainWindow::memberList->first() )
     delete KMainWindow::memberList->first();

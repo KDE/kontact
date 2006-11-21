@@ -41,6 +41,7 @@ class QVBox;
 class QFrame;
 
 class KAction;
+class KConfig;
 class KPluginInfo;
 class KRSqueezedTextLabel;
 class KHTMLPart;
@@ -116,6 +117,8 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void setupActions();
     void showTip( bool );
     virtual bool queryClose();
+    virtual void readProperties( KConfig *config );
+    virtual void saveProperties( KConfig *config );
     void paintAboutScreen( const QString& msg );
     static QString introductionString();
 

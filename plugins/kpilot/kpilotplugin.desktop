@@ -6,7 +6,7 @@ ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=libkontact_kpilotplugin
 X-KDE-KontactIdentifier=kpilot
-X-KDE-KontactPluginVersion=4
+X-KDE-KontactPluginVersion=5
 X-KDE-KontactPluginHasSummary=true
 X-KDE-KontactPluginHasPart=false
 
