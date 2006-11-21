@@ -38,6 +38,7 @@
 #include <plugin.h>
 #include <kicon.h>
 #include <akregator_options.h>
+#include <akregator_part.h>
 #include "akregator_plugin.h"
 namespace Akregator {
 
@@ -125,6 +126,22 @@ QStringList Plugin::configModules() const
     QStringList modules;
     modules << "PIM/akregator.desktop";
     return modules;
+}
+
+void Plugin::readProperties( KConfig *config )
+{
+    if ( part() ) {
+        Akregator::Part *myPart = static_cast<Akregator::Part*>( part() );
+        myPart->readProperties( config );
+    }
+}
+
+void Plugin::saveProperties( KConfig *config )
+{
+    if ( part() ) {
+        Akregator::Part *myPart = static_cast<Akregator::Part*>( part() );
+        myPart->saveProperties( config );
+    }
 }
 
 void UniqueAppHandler::loadCommandLineOptions()

@@ -41,6 +41,7 @@ class QSplitter;
 class KVBox;
 
 class KAction;
+class KConfig;
 class KPluginInfo;
 class KRSqueezedTextLabel;
 class KHTMLPart;
@@ -116,6 +117,8 @@ class KDE_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStarter
     void setupActions();
     void showTip( bool );
     virtual bool queryClose();
+    virtual void readProperties( KConfig *config );
+    virtual void saveProperties( KConfig *config );
     void paintAboutScreen( const QString& msg );
     static QString introductionString();
 

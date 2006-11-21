@@ -814,6 +814,46 @@ void MainWindow::slotOpenUrl( const KUrl &url )
     new KRun( url, this );
 }
 
+void MainWindow::readProperties( KConfig *config )
+{
+  Core::readProperties( config );
+
+  QStringList activePlugins = config->readListEntry( "ActivePlugins" );
+  QList<Plugin*>::ConstIterator it = mPlugins.begin();
+  QList<Plugin*>::ConstIterator end = mPlugins.end();
+  for ( ; it != end; ++it ) {
+    Plugin *plugin = *it;
+    if ( !plugin->isRunningStandalone() ) {
+      QStringList::ConstIterator activePlugin = activePlugins.find( plugin->identifier() );
+      if ( activePlugin != activePlugins.end() ) {
+        plugin->readProperties( config );
+      }
+    }
+  }
+}
+
+void MainWindow::saveProperties( KConfig *config )
+{
+  Core::saveProperties( config );
+
+  QStringList activePlugins;
+
+  KPluginInfo::List::Iterator it = mPluginInfos.begin();
+  KPluginInfo::List::Iterator end = mPluginInfos.end();
+  for ( ; it != end; ++it ) {
+    KPluginInfo *info = *it;
+    if ( info->isPluginEnabled() ) {
+      Plugin *plugin = pluginFromInfo( info );
+      if ( plugin ) {
+        activePlugins.append( plugin->identifier() );
+        plugin->saveProperties( config );
+      }
+    }
+  }
+
+  config->writeEntry( "ActivePlugins", activePlugins );
+}
+
 bool MainWindow::queryClose()
 {
   if ( kapp->sessionSaving() || mReallyClose )

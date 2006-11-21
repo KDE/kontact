@@ -34,6 +34,7 @@ class QStringList;
 class DCOPClient;
 class KAboutData;
 class KAction;
+class KConfig;
 class QWidget;
 namespace KParts { class ReadOnlyPart; }
 
@@ -41,7 +42,7 @@ namespace KParts { class ReadOnlyPart; }
   Increase this version number whenever you make a change
   in the API.
  */
-#define KONTACT_PLUGIN_VERSION 4
+#define KONTACT_PLUGIN_VERSION 5
 
 namespace Kontact
 {
@@ -230,6 +231,16 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
       Process drop event.
     */
     virtual void processDropEvent( QDropEvent * ) {}
+
+    /**
+     * Session management: read properties
+     */
+    virtual void readProperties( KConfig * ) {}
+
+    /**
+     * Session management: save properties
+     */
+    virtual void saveProperties( KConfig * ) {}
 
     Core *core() const;
 

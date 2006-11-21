@@ -63,6 +63,8 @@ class Plugin : public Kontact::Plugin
     virtual QStringList configModules() const;
     virtual QStringList invisibleToolbarActions() const;
     virtual bool isRunningStandalone();
+    virtual void readProperties( KConfig *config );
+    virtual void saveProperties( KConfig *config );
 
   private slots:
     void showPart();

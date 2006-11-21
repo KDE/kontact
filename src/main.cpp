@@ -49,13 +49,21 @@ static const char version[] = "1.2";
 
 class KontactApp : public KUniqueApplication {
   public:
-    KontactApp() : mMainWindow( 0 ) {}
+    KontactApp() : mMainWindow( 0 ), mSessionRestored( false ) {}
     ~KontactApp() {}
 
     int newInstance();
+    void setMainWindow( Kontact::MainWindow *window ) {
+        mMainWindow = window;
+        setMainWidget( window );
+    }
+    void setSessionRestored( bool restored ) {
+        mSessionRestored = restored;
+    }
 
   private:
     Kontact::MainWindow *mMainWindow;
+    bool mSessionRestored;
 };
 
 static void listPlugins()
@@ -92,16 +100,7 @@ int KontactApp::newInstance()
   if ( args->isSet( "module" ) ) {
     moduleName = QString::fromLocal8Bit( args->getOption( "module" ) );
   }
-
-  if ( isSessionRestored() ) {
-    // There can only be one main window
-    if ( KMainWindow::canBeRestored( 1 ) ) {
-      mMainWindow = new Kontact::MainWindow();
-      setMainWidget( mMainWindow );
-      mMainWindow->show();
-      mMainWindow->restore( 1 );
-    }
-  } else {
+  if ( !mSessionRestored ) {
     if ( !mMainWindow ) {
       mMainWindow = new Kontact::MainWindow();
       if ( !moduleName.isEmpty() )
@@ -111,9 +110,9 @@ int KontactApp::newInstance()
       // --iconify is needed in kontact, although kstart can do that too,
       // because kstart returns immediately so it's too early to talk DCOP to the app.
       if ( args->isSet( "iconify" ) )
-#ifdef Q_OS_UNIX	      
+#ifdef Q_OS_UNIX
         KWin::iconifyWindow( mMainWindow->winId(), false /*no animation*/ );
-#endif      
+#endif
     } else {
       if ( !moduleName.isEmpty() )
         mMainWindow->setActivePluginModule( moduleName );
@@ -159,6 +158,17 @@ int main( int argc, char **argv )
   }
 
   KontactApp app;
+  if ( app.restoringSession() ) {
+     // There can only be one main window
+    if ( KMainWindow::canBeRestored( 1 ) ) {
+      Kontact::MainWindow *mainWindow = new Kontact::MainWindow();
+      app.setMainWindow( mainWindow );
+      app.setSessionRestored( true );
+      mainWindow->show();
+      mainWindow->restore( 1 );
+    }
+  }
+
   bool ret = app.exec();
 #warning "kde4: now that KMainWindow::memberList() is a static const QList<KMainWindow*>& memberList(); we can't delete it. How port it ?"
   //while ( KMainWindow::memberList()->first() )
