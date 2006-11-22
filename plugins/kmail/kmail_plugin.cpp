@@ -22,7 +22,6 @@
 */
 
 #include <QWidget>
-//Added by qt3to4:
 #include <QDropEvent>
 
 #include <kaction.h>
@@ -75,8 +74,8 @@ bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData )
 {
 #warning Port KVCardDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
   return ( ICalDrag::canDecode( mimeData ) ||
-           VCalDrag::canDecode( mimeData )/* ||
-           KVCardDrag::canDecode( qms )*/ );
+           VCalDrag::canDecode( mimeData ) ||
+           KVCardDrag::canDecode( mimeData ) );
 }
 
 void KMailPlugin::processDropEvent( QDropEvent * de )
@@ -95,7 +94,7 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
     cal.save( tmp.fileName() );
     openComposer( KUrl( tmp.fileName() ) );
   }
-  else if ( KVCardDrag::decode( de, list ) ) {
+  else if ( KVCardDrag::fromMimeData( md, list ) ) {
     KABC::Addressee::List::Iterator it;
     QStringList to;
     for ( it = list.begin(); it != list.end(); ++it ) {

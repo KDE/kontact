@@ -150,13 +150,11 @@ bool KOrganizerPlugin::canDecodeMimeData( const QMimeData *mimeData )
 
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
-  QString text;
-
-#warning Port KVCardDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
-  if ( KVCardDrag::canDecode( event ) ) {
+  const QMimeData *md = event->mimeData();
+  if ( KVCardDrag::canDecode( md ) ) {
     KABC::Addressee::List contacts;
 
-    KVCardDrag::decode( event, contacts );
+    KVCardDrag::fromMimeData( md, contacts );
 
     KABC::Addressee::List::Iterator it;
 
@@ -174,13 +172,15 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  if ( Q3TextDrag::decode( event, text ) ) {
+  if ( md->hasText() ) {
+    QString text = md->text();
     kDebug(5602) << "DROP:" << text << endl;
     interface()->openEventEditor( text );
     return;
   }
 
   KPIM::MailList mails;
+  #warning port KPIM::MailListDrag to QMimeData 
   if ( KPIM::MailListDrag::decode( event, mails ) ) {
     if ( mails.count() != 1 ) {
       KMessageBox::sorry( core(),

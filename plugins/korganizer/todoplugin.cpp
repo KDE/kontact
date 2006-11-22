@@ -23,7 +23,6 @@
 */
 
 #include <QWidget>
-#include <q3dragobject.h>
 #include <QDropEvent>
 #include <QtDBus/QtDBus>
 
@@ -149,13 +148,12 @@ bool TodoPlugin::isRunningStandalone()
 
 void TodoPlugin::processDropEvent( QDropEvent *event )
 {
-  QString text;
+  const QMimeData *md = event->mimeData();
 
-#warning Port KVCardDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
-  if ( KVCardDrag::canDecode( event ) ) {
+  if ( KVCardDrag::canDecode( md ) ) {
     KABC::Addressee::List contacts;
 
-    KVCardDrag::decode( event, contacts );
+    KVCardDrag::fromMimeData( md, contacts );
 
     KABC::Addressee::List::Iterator it;
 
@@ -173,12 +171,14 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  if ( Q3TextDrag::decode( event, text ) ) {
+  if ( md->hasText() ) {
+    QString text = md->text();
     interface()->openTodoEditor( text );
     return;
   }
 
   KPIM::MailList mails;
+  #warning Port KPIM::MailListDrag to QMImeData
   if ( KPIM::MailListDrag::decode( event, mails ) ) {
     if ( mails.count() != 1 ) {
       KMessageBox::sorry( core(),
