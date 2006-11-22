@@ -56,7 +56,7 @@ class KAddressbookPlugin : public Kontact::Plugin
     virtual QString tipFile() const;
     int weight() const { return 300; }
 
-    bool canDecodeDrag( QMimeSource * );
+    bool canDecodeMimeData( const QMimeData * );
     void processDropEvent( QDropEvent * );
 
     virtual QStringList configModules() const;

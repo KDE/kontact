@@ -45,7 +45,7 @@ class KOrganizerPlugin : public Kontact::Plugin
     virtual bool isRunningStandalone();
     int weight() const { return 400; }
 
-    bool canDecodeDrag( QMimeSource * );
+    bool canDecodeMimeData( const QMimeData * );
     void processDropEvent( QDropEvent * );
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parent );

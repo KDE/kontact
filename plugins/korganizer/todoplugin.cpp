@@ -136,10 +136,10 @@ bool TodoPlugin::createDBUSInterface( const QString& serviceType )
   return false;
 }
 
-bool TodoPlugin::canDecodeDrag( QMimeSource *mimeSource )
+bool TodoPlugin::canDecodeMimeData( const QMimeData *mimeData )
 {
-  return Q3TextDrag::canDecode( mimeSource ) ||
-         KPIM::MailListDrag::canDecode( mimeSource );
+#warning Port KPIM::MailListDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
+  return mimeData->hasText() /*|| KPIM::MailListDrag::canDecode( mimeSource )*/;
 }
 
 bool TodoPlugin::isRunningStandalone()
@@ -151,6 +151,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
 {
   QString text;
 
+#warning Port KVCardDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
   if ( KVCardDrag::canDecode( event ) ) {
     KABC::Addressee::List contacts;
 

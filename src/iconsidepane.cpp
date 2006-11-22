@@ -381,7 +381,7 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
 
   kDebug(5600) << "  PLUGIN: " << entry->plugin()->identifier() << endl;
 
-  event->setAccepted( entry->plugin()->canDecodeDrag( event ) );
+  event->setAccepted( entry->plugin()->canDecodeMimeData( event->mimeData() ) );
 }
 
 void Navigator::dropEvent( QDropEvent *event )

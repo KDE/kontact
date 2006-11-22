@@ -36,6 +36,7 @@ class KAboutData;
 class KAction;
 class KConfig;
 class QWidget;
+class QMimeData;
 namespace KParts { class ReadOnlyPart; }
 
 /**
@@ -225,7 +226,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     /**
       Return, if the plugin can handle the drag object of the given mime type.
     */
-    virtual bool canDecodeDrag( QMimeSource * ) { return false; }
+    virtual bool canDecodeMimeData( const QMimeData * ) { return false; }
 
     /**
       Process drop event.

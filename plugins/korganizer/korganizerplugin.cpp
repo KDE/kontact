@@ -142,16 +142,17 @@ bool KOrganizerPlugin::isRunningStandalone()
   return mUniqueAppWatcher->isRunningStandalone();
 }
 
-bool KOrganizerPlugin::canDecodeDrag( QMimeSource *mimeSource )
+bool KOrganizerPlugin::canDecodeMimeData( const QMimeData *mimeData )
 {
-  return Q3TextDrag::canDecode( mimeSource ) ||
-         KPIM::MailListDrag::canDecode( mimeSource );
+#warning Port KPIM::MailListDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
+  return mimeData->hasText() /*|| KPIM::MailListDrag::canDecode( mimeSource )*/;
 }
 
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
   QString text;
 
+#warning Port KVCardDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
   if ( KVCardDrag::canDecode( event ) ) {
     KABC::Addressee::List contacts;
 

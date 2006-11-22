@@ -64,7 +64,7 @@ class KMailPlugin : public Kontact::Plugin
     virtual KParts::ReadOnlyPart* createPart();
     void openComposer( const KUrl& = KUrl() );
     void openComposer( const QString& to );
-    bool canDecodeDrag( QMimeSource * );
+    bool canDecodeMimeData( const QMimeData * );
     void processDropEvent( QDropEvent * );
 
 

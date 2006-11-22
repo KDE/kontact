@@ -135,15 +135,16 @@ bool KAddressbookPlugin::isRunningStandalone()
   return mUniqueAppWatcher->isRunningStandalone();
 }
 
-bool KAddressbookPlugin::canDecodeDrag( QMimeSource *mimeSource )
+bool KAddressbookPlugin::canDecodeMimeData( const QMimeData * mimeData )
 {
-  return Q3TextDrag::canDecode( mimeSource ) ||
-    KPIM::MailListDrag::canDecode( mimeSource );
+#warning Port KPIM::MailListDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
+  return mimeData->hasText() /*|| KPIM::MailListDrag::canDecode( mimeSource )*/;
 }
 
 void KAddressbookPlugin::processDropEvent( QDropEvent *event )
 {
   KPIM::MailList mails;
+#warning Port KPIM::MailListDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
   if ( KPIM::MailListDrag::decode( event, mails ) ) {
     if ( mails.count() != 1 ) {
       KMessageBox::sorry( core(),

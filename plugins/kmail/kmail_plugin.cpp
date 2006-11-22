@@ -71,11 +71,12 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const QStringList& )
       new Kontact::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
 }
 
-bool KMailPlugin::canDecodeDrag( QMimeSource *qms )
+bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData )
 {
-  return ( ICalDrag::canDecode( qms ) ||
-           VCalDrag::canDecode( qms ) ||
-           KVCardDrag::canDecode( qms ) );
+#warning Port KVCardDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
+  return ( ICalDrag::canDecode( mimeData ) ||
+           VCalDrag::canDecode( mimeData )/* ||
+           KVCardDrag::canDecode( qms )*/ );
 }
 
 void KMailPlugin::processDropEvent( QDropEvent * de )
@@ -83,8 +84,9 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
   kDebug() << k_funcinfo << endl;
   CalendarLocal cal( QString::fromLatin1("UTC") );
   KABC::Addressee::List list;
+  const QMimeData *md = de->mimeData();
 
-  if ( VCalDrag::decode( de, &cal ) || ICalDrag::decode( de, &cal ) ) {
+  if ( VCalDrag::fromMimeData( md, &cal ) || ICalDrag::fromMimeData( md, &cal ) ) {
     KTemporaryFile tmp;
     tmp.setPrefix("incidences-");
     tmp.setSuffix(".ics");

@@ -43,7 +43,7 @@ class TodoPlugin : public Kontact::Plugin
     virtual bool isRunningStandalone();
     int weight() const { return 450; }
 
-    bool canDecodeDrag( QMimeSource * );
+    bool canDecodeMimeData( const QMimeData * );
     void processDropEvent( QDropEvent * );
 
     virtual QStringList invisibleToolbarActions() const;
