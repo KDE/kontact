@@ -23,7 +23,6 @@
 */
 
 #include <QWidget>
-#include <q3dragobject.h>
 #include <QDropEvent>
 #include <QtDBus/QtDBus>
 
