@@ -137,8 +137,7 @@ bool TodoPlugin::createDBUSInterface( const QString& serviceType )
 
 bool TodoPlugin::canDecodeMimeData( const QMimeData *mimeData )
 {
-#warning Port KPIM::MailListDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
-  return mimeData->hasText() /*|| KPIM::MailListDrag::canDecode( mimeSource )*/;
+  return mimeData->hasText() || KPIM::MailList::canDecode( mimeData );
 }
 
 bool TodoPlugin::isRunningStandalone()
@@ -177,9 +176,9 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  KPIM::MailList mails;
-  #warning Port KPIM::MailListDrag to QMImeData
-  if ( KPIM::MailListDrag::decode( event, mails ) ) {
+  if ( KPIM::MailList::canDecode( md ) ) {
+    KPIM::MailList mails = KPIM::MailList::fromMimeData( md );
+    event->accept();
     if ( mails.count() != 1 ) {
       KMessageBox::sorry( core(),
                           i18n("Drops of multiple mails are not supported." ) );

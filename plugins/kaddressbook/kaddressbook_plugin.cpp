@@ -135,15 +135,15 @@ bool KAddressbookPlugin::isRunningStandalone()
 
 bool KAddressbookPlugin::canDecodeMimeData( const QMimeData * mimeData )
 {
-#warning Port KPIM::MailListDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
-  return mimeData->hasText() /*|| KPIM::MailListDrag::canDecode( mimeSource )*/;
+  return mimeData->hasText() || KPIM::MailList::canDecode( mimeData );
 }
 
 void KAddressbookPlugin::processDropEvent( QDropEvent *event )
 {
-  KPIM::MailList mails;
-#warning Port KPIM::MailListDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
-  if ( KPIM::MailListDrag::decode( event, mails ) ) {
+  const QMimeData *md = event->mimeData();
+  if ( KPIM::MailList::canDecode( md ) ) {
+    event->accept();
+    KPIM::MailList mails = KPIM::MailList::fromMimeData( md );
     if ( mails.count() != 1 ) {
       KMessageBox::sorry( core(),
                           i18n( "Drops of multiple mails are not supported." ) );
