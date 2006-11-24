@@ -270,7 +270,7 @@ void TodoSummaryWidget::updateView()
 
       QString tipText( KCal::IncidenceFormatter::toolTipString( todo, true ) );
       if ( !tipText.isEmpty() ) {
-        QToolTip::add( urlLabel, tipText );
+        urlLabel->setToolTip( tipText );
       }
 
       // State text label
@@ -322,7 +322,7 @@ void TodoSummaryWidget::completeTodo( const QString &uid )
   IncidenceChanger *changer = new IncidenceChanger( mCalendar, this );
   if ( !todo->isReadOnly() && changer->beginChange( todo ) ) {
     KCal::Todo *oldTodo = todo->clone();
-    todo->setCompleted( QDateTime::currentDateTime() );
+    todo->setCompleted( KDateTime::currentLocalDateTime() );
     changer->changeIncidence( oldTodo, todo, KOGlobals::COMPLETION_MODIFIED );
     changer->endChange( todo );
     delete oldTodo;
