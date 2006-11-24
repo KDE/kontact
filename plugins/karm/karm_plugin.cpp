@@ -42,7 +42,7 @@ KarmPlugin::KarmPlugin( Kontact::Core *core, const QStringList& )
   setInstance( KarmPluginFactory::instance() );
 
   KAction *action = new KAction( KIcon("karm"), i18n( "New Task" ), actionCollection(), "new_task" );
-  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_W);
+  action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_W));
   connect(action, SIGNAL(triggered(bool)), SLOT( newTask() ));
   insertNewAction(action);
 }

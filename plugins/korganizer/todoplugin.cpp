@@ -57,7 +57,7 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
 
   KAction *action = new KAction( KIcon("newtodo"), i18n( "New To-do..." ), 
                                  actionCollection(), "new_todo" );
-  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_T);
+  action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_T));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewTodo() ));
   insertNewAction(action);
 

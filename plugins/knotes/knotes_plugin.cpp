@@ -45,7 +45,7 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QStringList & )
 
   KAction *action = new KAction( KIcon("knotes"), i18n( "New Note..." ), actionCollection(), "new_note" );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewNote() ));
-  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_N);
+  action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_N));
   insertNewAction(action);
 }
 

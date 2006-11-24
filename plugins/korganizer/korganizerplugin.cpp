@@ -57,7 +57,7 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QStringList& )
   instance()->iconLoader()->addAppDir("korganizer");
 
   KAction *action = new KAction( KIcon("appointment"), i18n( "New Event..." ), actionCollection(), "new_event" );
-  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_E);
+  action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_E));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewEvent() ));
   insertNewAction(action);
 

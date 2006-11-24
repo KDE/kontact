@@ -49,7 +49,7 @@ KNodePlugin::KNodePlugin( Kontact::Core *core, const QStringList& )
 
   KAction *action = new KAction( KIcon("mail_new"), i18n( "New Article..." ), 
                                  actionCollection(), "post_article" );
-  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_A);
+  action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_A));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotPostArticle()));
   insertNewAction( action );
 

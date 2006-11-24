@@ -62,7 +62,7 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const QStringList& )
   setInstance( KMailPluginFactory::instance() );
 
   KAction *action = new KAction( KIcon("mail_new"), i18n( "New Message..." ), actionCollection(), "new_mail" );
-  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_M);
+  action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_M));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewMail() ));
   insertNewAction(action);
 

@@ -56,7 +56,7 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QStringList& 
 
   KAction *action = new KAction( KIcon("identity"), i18n( "New Contact..." ), actionCollection(), "new_contact" );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewContact()));
-  action->setShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_C);
+  action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_C));
   insertNewAction(action);
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KABUniqueAppHandler>(), this );
