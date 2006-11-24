@@ -72,7 +72,6 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const QStringList& )
 
 bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData )
 {
-#warning Port KVCardDrag to the new d'n'd way of Qt 4, using QMimeData rather than QMImeSource!
   return ( ICalDrag::canDecode( mimeData ) ||
            VCalDrag::canDecode( mimeData ) ||
            KVCardDrag::canDecode( mimeData ) );
