@@ -72,7 +72,7 @@ See e.g. kdepim/kaddressbook/dcopaddressbook.desktop
 
 * Add DBus/Foo to the application's ServiceTypes list, in its .desktop file
 See e.g. kdepim/kaddressbook/kaddressbook.desktop
-* Make sure that X-DBUS-ServiceType (usually set to Unique)
+* Make sure that X-DBUS-StartupType (usually set to Unique)
 and X-DBUS-ServiceName (usually set to org.kde.appname) are specified too.
 
 Designing DBus interfaces
