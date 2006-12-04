@@ -351,8 +351,8 @@ void KNotesPart::renamedNote( Q3IconViewItem* )
 
 void KNotesPart::slotOnCurrentChanged( Q3IconViewItem* )
 {
-  KAction *renameAction = actionCollection()->action( "edit_rename" );
-  KAction *deleteAction = actionCollection()->action( "edit_delete" );
+  QAction *renameAction = actionCollection()->action( "edit_rename" );
+  QAction *deleteAction = actionCollection()->action( "edit_delete" );
 
   if ( !mNotesView->currentItem() ) {
     renameAction->setEnabled( false );

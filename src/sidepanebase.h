@@ -43,7 +43,7 @@ class SidePaneBase : public KVBox
     void setActionCollection( KActionCollection *actionCollection );
     KActionCollection *actionCollection() const;
 
-    virtual const QList<KAction*> & actions() = 0;
+    virtual const QList<QAction*> & actions() = 0;
 
   signals:
     void pluginSelected( Kontact::Plugin* );

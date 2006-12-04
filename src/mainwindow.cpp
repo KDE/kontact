@@ -612,7 +612,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   QStringList::ConstIterator it;
   for ( it = invisibleActions.begin(); it != invisibleActions.end(); ++it ) {
-    KAction *action = part->actionCollection()->action( (*it) );
+    QAction *action = part->actionCollection()->action( (*it) );
     if ( action ) {
       QList<KToolBar*> toolbars = toolBars();
       for( QList<KToolBar*>::Iterator it = toolbars.begin(); it != toolbars.end(); ++it ) {

@@ -141,7 +141,7 @@ class Navigator : public KListBox
 
     IconViewMode viewMode() { return mViewMode; }
     IconViewMode sizeIntToEnum(int size) const;
-    const QList<KAction*> & actions() { return mActions; }
+    const QList<QAction*> & actions() { return mActions; }
     bool showIcons() const { return mShowIcons; }
     bool showText() const { return mShowText; }
   signals:
@@ -175,7 +175,7 @@ class Navigator : public KListBox
     EntryItem*    mHighlightItem;
 
     QSignalMapper *mMapper;
-    QList<KAction*> mActions;
+    QList<QAction*> mActions;
     bool mShowIcons;
     bool mShowText;
 };
@@ -193,7 +193,7 @@ class IconSidePane : public SidePaneBase
     virtual void updatePlugins();
     virtual void selectPlugin( Kontact::Plugin* );
     virtual void selectPlugin( const QString &name );
-    const QList<KAction*> & actions() { return mNavigator->actions(); }
+    const QList<QAction*> & actions() { return mNavigator->actions(); }
 
   private:
     Navigator *mNavigator;
