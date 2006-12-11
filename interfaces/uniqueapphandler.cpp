@@ -26,6 +26,8 @@
 #include "core.h"
 #include <kwin.h>
 #include <kdebug.h>
+#include <klocale.h>
+#include <kuniqueapplication.h>
 
 /*
  Test plan for the various cases of interaction between standalone apps and kontact:
@@ -63,6 +65,12 @@
  5c) close knode, type "knode news://foobar/group" -> kontact loads knode and pops up msgbox
  5d) type "knode" -> kontact is brought to front
 
+ 6) start "kontact --module summaryplugin"
+ 6a) type "dcop kmail kmail newInstance" -> kontact switches to kmail (#103775)
+ 6b) type "kmail" -> kontact is brought to front
+ 6c) type "kontact" -> kontact is brought to front
+ 6d) type "kontact --module summaryplugin" -> kontact switches to summary
+
 */
 
 using namespace Kontact;
@@ -91,7 +99,7 @@ int UniqueAppHandler::newInstance()
     replyType = "int";
 
     KCmdLineArgs::reset(); // forget options defined by other "applications"
-    loadCommandLineOptions();
+    loadCommandLineOptions(); // implemented by plugin
 
     // This bit is duplicated from KUniqueApplication::processDelayed()
     QByteArray tmp(data);
@@ -175,6 +183,21 @@ void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray& appId )
 //    kapp->dcopClient()->setNotifications( false );
     mRunningStandalone = false;
   }
+}
+
+static KCmdLineOptions options[] =
+{
+    { "module <module>",   I18N_NOOP( "Start with a specific Kontact module" ), 0 },
+    { "iconify",   I18N_NOOP( "Start in iconified (minimized) mode" ), 0 },
+    { "list", I18N_NOOP( "List all possible modules and exit" ), 0 },
+    KCmdLineLastOption
+};
+
+void Kontact::UniqueAppHandler::loadKontactCommandLineOptions()
+{
+  KCmdLineArgs::addCmdLineOptions( options );
+  KUniqueApplication::addCmdLineOptions();
+  KCmdLineArgs::addStdCmdLineOptions();
 }
 
 #include "uniqueapphandler.moc"

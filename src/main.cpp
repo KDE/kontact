@@ -39,6 +39,7 @@
 
 #include "alarmclient.h"
 #include "mainwindow.h"
+#include <uniqueapphandler.h> // in ../interfaces
 
 using namespace std;
 
@@ -81,14 +82,6 @@ static void listPlugins()
     cout << service->library().remove( "libkontact_" ).toLatin1().data() << endl;
   }
 }
-
-static KCmdLineOptions options[] =
-{
-    { "module <module>",   I18N_NOOP( "Start with a specific Kontact module" ), 0 },
-    { "iconify",   I18N_NOOP( "Start in iconified (minimized) mode" ), 0 },
-    { "list", I18N_NOOP( "List all possible modules and exit" ), 0 },
-    KCmdLineLastOption
-};
 
 int KontactApp::newInstance()
 {
@@ -142,9 +135,7 @@ int main( int argc, char **argv )
   about.addAuthor( "Matthias Hoelzer-Kluepfel", I18N_NOOP("Original Author"), "mhk@kde.org" );
 
   KCmdLineArgs::init( argc, argv, &about );
-  KCmdLineArgs::addCmdLineOptions( options );
-  KUniqueApplication::addCmdLineOptions();
-  KCmdLineArgs::addStdCmdLineOptions();
+  Kontact::UniqueAppHandler::loadKontactCommandLineOptions();
 
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   if ( args->isSet( "list" ) ) {
