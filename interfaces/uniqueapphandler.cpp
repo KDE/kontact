@@ -27,6 +27,8 @@
 #include <kwin.h>
 #include <dcopclient.h>
 #include <kdebug.h>
+#include <klocale.h>
+#include <kuniqueapplication.h>
 
 /*
  Test plan for the various cases of interaction between standalone apps and kontact:
@@ -64,6 +66,12 @@
  5c) close knode, type "knode news://foobar/group" -> kontact loads knode and pops up msgbox
  5d) type "knode" -> kontact is brought to front
 
+ 6) start "kontact --module summaryplugin"
+ 6a) type "dcop kmail kmail newInstance" -> kontact switches to kmail (#103775)
+ 6b) type "kmail" -> kontact is brought to front
+ 6c) type "kontact" -> kontact is brought to front
+ 6d) type "kontact --module summaryplugin" -> kontact switches to summary
+
 */
 
 using namespace Kontact;
@@ -89,7 +97,7 @@ bool UniqueAppHandler::process( const QCString &fun, const QByteArray &data,
     replyType = "int";
 
     KCmdLineArgs::reset(); // forget options defined by other "applications"
-    loadCommandLineOptions();
+    loadCommandLineOptions(); // implemented by plugin
 
     // This bit is duplicated from KUniqueApplication::processDelayed()
     QDataStream ds( data, IO_ReadOnly );
@@ -101,7 +109,14 @@ bool UniqueAppHandler::process( const QCString &fun, const QByteArray &data,
     }
 
     QDataStream _replyStream( replyData, IO_WriteOnly );
-    _replyStream << newInstance( );
+    _replyStream << newInstance();
+
+    // OK, we're done, reload the initial kontact command line options,
+    // so that "kontact --module foo" keeps working (#103775).
+
+    KCmdLineArgs::reset(); // forget options defined above
+    loadKontactCommandLineOptions();
+
   } else if ( fun == "load()" ) {
     replyType = "bool";
     (void)mPlugin->part(); // load the part without bringing it to front
@@ -166,6 +181,21 @@ void UniqueAppWatcher::unregisteredFromDCOP( const QCString& appId )
     kapp->dcopClient()->setNotifications( false );
     mRunningStandalone = false;
   }
+}
+
+static KCmdLineOptions options[] =
+{
+    { "module <module>",   I18N_NOOP( "Start with a specific Kontact module" ), 0 },
+    { "iconify",   I18N_NOOP( "Start in iconified (minimized) mode" ), 0 },
+    { "list", I18N_NOOP( "List all possible modules and exit" ), 0 },
+    KCmdLineLastOption
+};
+
+void Kontact::UniqueAppHandler::loadKontactCommandLineOptions()
+{
+  KCmdLineArgs::addCmdLineOptions( options );
+  KUniqueApplication::addCmdLineOptions();
+  KApplication::addCmdLineOptions();
 }
 
 #include "uniqueapphandler.moc"

@@ -52,6 +52,9 @@ class KDE_EXPORT UniqueAppHandler : public DCOPObject
 
     Plugin* plugin() const { return mPlugin; }
 
+    /// Load the kontact command line options.
+    static void loadKontactCommandLineOptions();
+
   private:
     Plugin* mPlugin;
 };
