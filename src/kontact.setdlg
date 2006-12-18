@@ -545,6 +545,7 @@ Icon=kontact_news
 
 [KWeather]
 Name=Weather
+Name[ar]=الطقس
 Name[be]=Надвор'е
 Name[br]=Amzer
 Name[bs]=Vrijeme
@@ -642,7 +643,6 @@ Icon=kweather
 
 [NewsTicker]
 Name=News Ticker
-Name[ar]=تجديد الأخبار
 Name[az]=Xəbər Gözləyici
 Name[br]=Kliker keleier
 Name[ca]=Teletip de notícies
