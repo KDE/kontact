@@ -51,7 +51,7 @@
 #include <kshortcut.h>
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <ktip.h>
 #include <kservice.h>
 #include <kservicetypetrader.h>
@@ -121,8 +121,8 @@ void MainWindow::initGUI()
   connect( helpMenu, SIGNAL( showAboutApplication() ),
            SLOT( showAboutDialog() ) );
 
-  KStdAction::keyBindings( this, SLOT( configureShortcuts() ), actionCollection() );
-  KStdAction::configureToolbars( this, SLOT( configureToolbars() ), actionCollection() );
+  KStandardAction::keyBindings( this, SLOT( configureShortcuts() ), actionCollection() );
+  KStandardAction::configureToolbars( this, SLOT( configureToolbars() ), actionCollection() );
   setXMLFile( "kontactui.rc" );
 
   setStandardToolBarMenuEnabled( true );
@@ -320,7 +320,7 @@ void MainWindow::initAboutScreen()
 
 void MainWindow::setupActions()
 {
-  KStdAction::quit( this, SLOT( slotQuit() ), actionCollection() );
+  KStandardAction::quit( this, SLOT( slotQuit() ), actionCollection() );
   mNewActions = new KToolBarPopupAction( KGuiItem( i18n( "New" ), "" ),
                                          KStdAccel::shortcut(KStdAccel::New), this, SLOT( slotNewClicked() ),
                                          actionCollection(), "action_new" );
