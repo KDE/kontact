@@ -65,7 +65,7 @@
 #include <krun.h>
 #include <kaboutdata.h>
 #include <kmenubar.h>
-#include <kstdaccel.h>
+#include <kstandardshortcut.h>
 #include <ktoolinvocation.h>
 #include <ktoolbarpopupaction.h>
 #include <kvbox.h>
@@ -322,7 +322,7 @@ void MainWindow::setupActions()
 {
   KStandardAction::quit( this, SLOT( slotQuit() ), actionCollection() );
   mNewActions = new KToolBarPopupAction( KGuiItem( i18n( "New" ), "" ),
-                                         KStdAccel::shortcut(KStdAccel::New), this, SLOT( slotNewClicked() ),
+                                         KStandardShortcut::shortcut(KStandardShortcut::New), this, SLOT( slotNewClicked() ),
                                          actionCollection(), "action_new" );
 
   KAction *action = new KAction(KIcon("configure"),  i18n( "Configure Kontact..." ), actionCollection(), "settings_configure_kontact" );
