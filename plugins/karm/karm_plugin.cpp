@@ -65,7 +65,7 @@ KParts::ReadOnlyPart* KarmPlugin::createPart()
   if ( !part ) return 0;
 
   // this calls a DCOP interface from karm via the lib KarmDCOPIface_stub that is generated automatically
-  mInterface = new OrgKdeKarmKarmInterface( "/Karm", "org.kde.karm.Karm", QDBusConnection::sessionBus() );
+  mInterface = new OrgKdeKarmKarmInterface( "org.kde.karm", "/Karm", QDBusConnection::sessionBus() );
 
   return part;
 }
