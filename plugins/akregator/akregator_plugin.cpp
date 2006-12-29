@@ -40,6 +40,8 @@
 #include <akregator_options.h>
 #include <akregator_part.h>
 #include "akregator_plugin.h"
+#include "partinterface.h"
+
 namespace Akregator {
 
 typedef KGenericFactory<Akregator::Plugin, Kontact::Core > PluginFactory;
@@ -47,7 +49,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_akregator,
                             PluginFactory( "kontact_akregator" ) )
 
 Plugin::Plugin( Kontact::Core *core, const QStringList& )
-  : Kontact::Plugin( core, core, "akregator" ), m_stub(0)
+  : Kontact::Plugin( core, core, "akregator" ), m_interface(0)
 {
 
     setInstance( PluginFactory::instance() );
@@ -76,17 +78,14 @@ QStringList Plugin::invisibleToolbarActions() const
 }
 
 
-#warning Port me!
-/*Akregator::AkregatorPartIface_stub *Plugin::interface()
+OrgKdeAkregatorPartInterface *Plugin::interface()
 {
-    if ( !m_stub ) {
-        part();
-    }
+  if(!m_interface)
+    part();
+  Q_ASSERT( m_interface );
+  return m_interface;
 
-    Q_ASSERT( m_stub );
-    return m_stub;
-}*/
-
+}
 
 QString Plugin::tipFile() const
 {
@@ -102,10 +101,9 @@ MyBasePart* Plugin::createPart()
     MyBasePart* p = loadPart();
 
     connect(p, SIGNAL(showPart()), this, SLOT(showPart()));
-#warning Port me!
-//    m_stub = new Akregator::AkregatorPartIface_stub( dcopClient(), "akregator",
-//                                      "AkregatorIface" );
-//    m_stub->openStandardFeedList();
+    m_interface = new OrgKdeAkregatorPartInterface( "org.kde.akregator", "/Akregator", QDBusConnection::sessionBus() );
+
+    m_interface->openStandardFeedList();
     return p;
 }
 
@@ -117,8 +115,7 @@ void Plugin::showPart()
 
 void Plugin::addFeed()
 {
-#warning Port me!
-//    interface()->addFeed();
+      m_interface->addFeed();
 }
 
 QStringList Plugin::configModules() const

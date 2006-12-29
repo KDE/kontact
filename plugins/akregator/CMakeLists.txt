@@ -6,9 +6,9 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 
 set(kontact_akregator_PART_SRCS akregator_plugin.cpp )
 
-kde4_automoc(${kontact_akregator_PART_SRCS})
+qt4_add_dbus_interfaces(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregator/src/org.kde.akregator.part.xml ) 
 
-#kde4_add_dcop_stubs(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregator/src/akregator_partiface.h )
+kde4_automoc(${kontact_akregator_PART_SRCS})
 
 kde4_add_plugin(kontact_akregator WITH_PREFIX ${kontact_akregator_PART_SRCS})
 

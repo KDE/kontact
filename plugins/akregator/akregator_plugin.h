@@ -32,6 +32,7 @@
 #include <plugin.h>
 #include <uniqueapphandler.h>
 
+class OrgKdeAkregatorPartInterface;
 class KAboutData;
 
 namespace Akregator {
@@ -58,7 +59,7 @@ class Plugin : public Kontact::Plugin
     virtual QString tipFile() const;
     int weight() const { return 700; }
 
-//    AkregatorPartIface_stub *interface();
+    OrgKdeAkregatorPartInterface *interface();
 
     virtual QStringList configModules() const;
     virtual QStringList invisibleToolbarActions() const;
@@ -72,7 +73,7 @@ class Plugin : public Kontact::Plugin
 
   protected:
     MyBasePart *createPart();
-    /*AkregatorPartIface_stub*/ void *m_stub;
+    OrgKdeAkregatorPartInterface *m_interface;
     Kontact::UniqueAppWatcher *m_uniqueAppWatcher;
 };
 
