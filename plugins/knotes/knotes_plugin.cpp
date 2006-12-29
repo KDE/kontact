@@ -31,7 +31,6 @@
 
 #include "knotes_plugin.h"
 
-
 typedef KGenericFactory< KNotesPlugin, Kontact::Core > KNotesPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_knotesplugin,
                             KNotesPluginFactory( "kontact_knotesplugin" ) )

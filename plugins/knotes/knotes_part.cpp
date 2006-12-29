@@ -32,15 +32,17 @@
 #include "knotes_part.h"
 #include "knotes_part_p.h"
 #include "knotetip.h"
-
+#include "knotesadaptor.h"
 
 KNotesPart::KNotesPart( QObject *parent )
-  : /*DCOPObject( "KNotesIface" ),*/ KParts::ReadOnlyPart( parent ),
+  :  KParts::ReadOnlyPart( parent ),
     mNotesView( new K3IconView() ),
     mNoteTip( new KNoteTip( mNotesView ) ),
     mNoteEditDlg( 0 ),
     mManager( new KNotesResourceManager() )
 {
+  (void) new KNotesAdaptor( this );
+  QDBusConnection::sessionBus().registerObject("/KNotes", this);	
   mNoteList.setAutoDelete( true );
 
   setInstance( new KInstance( "knotes" ) );
