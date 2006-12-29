@@ -53,6 +53,7 @@
 
 #include "core.h"
 #include "plugin.h"
+#include "coreinterface.h"
 
 #include "sdsummarywidget.h"
 
@@ -575,9 +576,8 @@ void SDSummaryWidget::viewContact( const QString &uid )
   else
     mPlugin->bringToForeground();
 
-#warning Port me to DBus!
-//  DCOPRef dcopCall( "kaddressbook", "KAddressBookIface" );
-//  dcopCall.send( "showContactEditor(QString)", uid );
+  org::kde::KAddressbook::Core kaddressbook("org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus());
+  kaddressbook.showContactEditor(uid);
 }
 
 void SDSummaryWidget::popupMenu( const QString &uid )

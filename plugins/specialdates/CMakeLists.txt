@@ -6,6 +6,9 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 
 set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget.cpp )
 
+qt4_add_dbus_interfaces(kontact_specialdatesplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kaddressbook/org.kde.KAddressbook.Core.xml )
+
+
 kde4_automoc(${kontact_specialdatesplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_specialdatesplugin WITH_PREFIX ${kontact_specialdatesplugin_PART_SRCS})
