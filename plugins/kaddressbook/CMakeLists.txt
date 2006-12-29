@@ -6,11 +6,11 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces  )
 
 set(kontact_kaddressbookplugin_PART_SRCS kaddressbook_plugin.cpp )
 
-kde4_automoc(${kontact_kaddressbookplugin_PART_SRCS})
+qt4_add_dbus_interfaces(kontact_kaddressbookplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kaddressbook/org.kde.KAddressbook.Core.xml )
 
-#kde4_add_dcop_stubs(kontact_kaddressbookplugin_PART_SRCS 
-#	${CMAKE_SOURCE_DIR}/kaddressbook/kaddressbookiface.h 
-#	${CMAKE_SOURCE_DIR}/kmail/kmailIface.h )
+qt4_add_dbus_interfaces(kontact_kaddressbookplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kmail/org.kde.kmail.kmail.xml)
+
+kde4_automoc(${kontact_kaddressbookplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_kaddressbookplugin WITH_PREFIX ${kontact_kaddressbookplugin_PART_SRCS})
 

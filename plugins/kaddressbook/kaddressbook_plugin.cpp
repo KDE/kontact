@@ -41,7 +41,8 @@
 #include <kicon.h>
 #include "core.h"
 #include "plugin.h"
-
+#include "coreinterface.h" 
+#include "kmailinterface.h" 
 #include "kaddressbook_plugin.h"
 
 typedef KGenericFactory< KAddressbookPlugin, Kontact::Core > KAddressbookPluginFactory;
@@ -50,7 +51,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_kaddressbookplugin,
 
 KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "kaddressbook" ),
-    mStub( 0 )
+    m_interface( 0 )
 {
   setInstance( KAddressbookPluginFactory::instance() );
 
@@ -80,9 +81,7 @@ QString KAddressbookPlugin::tipFile() const
   if ( !part ) return 0;
 
   // Create the stub that allows us to talk to the part
-#warning Port me to DBus!
-//  mStub = new KAddressBookIface_stub( dcopClient(), "kaddressbook",
-//                                      "KAddressBookIface" );
+  m_interface = new OrgKdeKAddressbookCoreInterface( "org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus() );
   return part;
 }
 
@@ -98,26 +97,24 @@ QStringList KAddressbookPlugin::invisibleToolbarActions() const
   return QStringList( "file_new_contact" );
 }
 
-#warning Port me!
-/*KAddressBookIface_stub *KAddressbookPlugin::interface()
+OrgKdeKAddressbookCoreInterface *KAddressbookPlugin::interface()
 {
-  if ( !mStub ) {
+  if ( !m_interface ) {
     part();
   }
-  Q_ASSERT( mStub );
-  return mStub;
-}*/
+  Q_ASSERT( m_interface );
+  return m_interface;
+}
 
 void KAddressbookPlugin::slotNewContact()
 {
-#warning Port me!
-//  interface()->newContact();
+  interface()->newContact();
 }
 
 bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
 {
   if ( serviceType == "DCOP/AddressBook" )  {
-    Q_ASSERT( mStub );
+    Q_ASSERT( m_interface );
     return true;
   }
 
@@ -179,15 +176,16 @@ int KABUniqueAppHandler::newInstance()
     kDebug(5602) << k_funcinfo << endl;
     // Ensure part is loaded
     (void)plugin()->part();
-#warning Port me to DBus!
-/*    DCOPRef kAB( "kaddressbook", "KAddressBookIface" );
-    DCOPReply reply = kAB.call( "handleCommandLine" );
-    if ( reply.isValid() ) {
+
+    org::kde::KAddressbook::Core kaddressbook("org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus());
+    QDBusReply<bool> reply = kaddressbook.handleCommandLine();
+    if(reply.isValid() ) {
         bool handled = reply;
         kDebug(5602) << k_funcinfo << "handled=" << handled << endl;
         if ( !handled ) // no args -> simply bring kaddressbook plugin to front
-            return Kontact::UniqueAppHandler::newInstance();
-    }*/
+            return Kontact::UniqueAppHandler::newInstance();    
+    }
+
     return 0;
 }
 

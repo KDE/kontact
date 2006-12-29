@@ -34,6 +34,7 @@
 #include <QDropEvent>
 
 class KAboutData;
+class OrgKdeKAddressbookCoreInterface;
 
 class KABUniqueAppHandler : public Kontact::UniqueAppHandler
 {
@@ -65,7 +66,7 @@ class KAddressbookPlugin : public Kontact::Plugin
 
     virtual void configUpdated();
 
-//    KAddressBookIface_stub *interface();
+    OrgKdeKAddressbookCoreInterface *interface();
 
   protected:
     KParts::ReadOnlyPart *createPart();
@@ -73,7 +74,7 @@ class KAddressbookPlugin : public Kontact::Plugin
     void slotNewContact();
 
   private:
-    /*KAddressBookIface_stub*/ void *mStub;
+    OrgKdeKAddressbookCoreInterface *m_interface;
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
