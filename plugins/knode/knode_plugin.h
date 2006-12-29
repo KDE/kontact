@@ -31,6 +31,8 @@
 #include "plugin.h"
 #include <uniqueapphandler.h>
 
+class OrgKdeKnodeInterface;
+
 class KNodeUniqueAppHandler : public Kontact::UniqueAppHandler
 {
 public:
@@ -61,7 +63,7 @@ class KNodePlugin : public Kontact::Plugin
     void slotPostArticle();
 
   private:
-    /*KNodeIface_stub*/ void *mStub;
+    OrgKdeKnodeInterface *m_interface;
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 

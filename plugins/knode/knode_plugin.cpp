@@ -35,7 +35,7 @@
 #include <kdebug.h>
 #include <kicon.h>
 #include <QWidget>
-
+#include <knodeinterface.h>
 
 typedef KGenericFactory<KNodePlugin, Kontact::Core> KNodePluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_knodeplugin,
@@ -43,7 +43,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_knodeplugin,
 
 
 KNodePlugin::KNodePlugin( Kontact::Core *core, const QStringList& )
-  : Kontact::Plugin( core, core, "knode" ), mStub(0)
+  : Kontact::Plugin( core, core, "knode" ), m_interface(0)
 {
   setInstance( KNodePluginFactory::instance() );
 
@@ -79,10 +79,9 @@ QStringList KNodePlugin::invisibleToolbarActions() const
 void KNodePlugin::slotPostArticle()
 {
   (void) part(); // ensure part is loaded
-#warning Port me!
-/*  Q_ASSERT( mStub );
-  if ( mStub )
-    mStub->postArticle();*/
+  Q_ASSERT( m_interface );
+  if ( m_interface )
+    m_interface->postArticle();
 }
 
 QString KNodePlugin::tipFile() const
@@ -98,8 +97,7 @@ KParts::ReadOnlyPart* KNodePlugin::createPart()
   KParts::ReadOnlyPart *part = loadPart();
   if ( !part ) return 0;
 
-#warning Port me!
-//  mStub = new KNodeIface_stub( dcopClient(), "knode", "KNodeIface" );
+  m_interface = new OrgKdeKnodeInterface( "org.kde.knode", "/KNode", QDBusConnection::sessionBus() );
   return part;
 }
 
@@ -115,9 +113,9 @@ int KNodeUniqueAppHandler::newInstance()
 {
     // Ensure part is loaded
     (void)plugin()->part();
-#warning Port me to DBus!
-//    DCOPRef knode( "knode", "KNodeIface" );
-//    DCOPReply reply = knode.call( "handleCommandLine" );
+    org::kde::knode knode("org.kde.knode", "/KNode", QDBusConnection::sessionBus());
+    QDBusReply<bool> reply = knode.handleCommandLine();
+
 #if 0
     if ( reply.isValid() ) {
         bool handled = reply;
