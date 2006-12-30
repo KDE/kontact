@@ -113,7 +113,7 @@ void KAddressbookPlugin::slotNewContact()
 
 bool KAddressbookPlugin::createDBUSInterface( const QString& serviceType )
 {
-  if ( serviceType == "DCOP/AddressBook" )  {
+  if ( serviceType == "DBUS/AddressBook" )  {
     Q_ASSERT( m_interface );
     return true;
   }

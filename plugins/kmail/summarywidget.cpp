@@ -124,6 +124,7 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
   QStringList::ConstIterator it;
 #warning Port me to DBus!
 /*  DCOPRef kmail( "kmail", "KMailIface" );
+  org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail" , QDBusConnection::sessionBus());
   for ( it = folders.begin(); it != folders.end(); ++it ) {
     if ( activeFolders.contains( *it ) ) {
       DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
