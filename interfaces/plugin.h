@@ -31,7 +31,6 @@
 #include <q3ptrlist.h>
 
 class QStringList;
-class DCOPClient;
 class KAboutData;
 class KAction;
 class KConfig;
@@ -43,7 +42,7 @@ namespace KParts { class ReadOnlyPart; }
   Increase this version number whenever you make a change
   in the API.
  */
-#define KONTACT_PLUGIN_VERSION 5
+#define KONTACT_PLUGIN_VERSION 6
 
 namespace Kontact
 {
@@ -120,10 +119,10 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     void setPartLibraryName( const QByteArray & );
 
     /**
-      Create the DCOP interface for the given @p serviceType, if this
+      Create the D-Bus interface for the given @p serviceType, if this
       plugin provides it. Return false otherwise.
     */
-    virtual bool createDCOPInterface( const QString& /*serviceType*/ ) { return false; }
+    virtual bool createDBUSInterface( const QString& /*serviceType*/ ) { return false; }
 
     /**
       Reimplement this method and return wether a standalone application is still running

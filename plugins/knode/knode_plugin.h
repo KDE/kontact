@@ -49,7 +49,7 @@ class KNodePlugin : public Kontact::Plugin
     KNodePlugin( Kontact::Core *core, const QStringList& );
     ~KNodePlugin();
 
-    virtual bool createDCOPInterface( const QString& serviceType );
+    virtual bool createDBUSInterface( const QString& serviceType );
     virtual bool isRunningStandalone();
     virtual QString tipFile() const;
     int weight() const { return 500; }

@@ -61,7 +61,7 @@ KNodePlugin::~KNodePlugin()
 {
 }
 
-bool KNodePlugin::createDCOPInterface( const QString& /*serviceType*/ )
+bool KNodePlugin::createDBUSInterface( const QString& /*serviceType*/ )
 {
   return false;
 }

@@ -136,7 +136,7 @@ KMailPlugin::~KMailPlugin()
 {
 }
 
-bool KMailPlugin::createDCOPInterface( const QString& serviceType )
+bool KMailPlugin::createDBUSInterface( const QString& serviceType )
 {
   if ( serviceType == "DCOP/ResourceBackend/IMAP" ) {
     if ( part() )
