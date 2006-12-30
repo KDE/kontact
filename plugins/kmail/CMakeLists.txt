@@ -9,11 +9,13 @@ include_directories(
 
 ########### next target ###############
 
-set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp )
+set(kontact_kmail_plugins_interface_SRCS)
+qt4_add_dbus_interfaces(kontact_kmail_plugins_interface_SRCS ${CMAKE_SOURCE_DIR}/kmail/org.kde.kmail.kmail.xml )
+
+set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp ${kontact_kmail_plugins_interface_SRCS})
 
 kde4_automoc(${kontact_kmailplugin_PART_SRCS})
 
-qt4_add_dbus_interfaces(kontact_kmailplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kmail/org.kde.kmail.kmail.xml )
 
 kde4_add_plugin(kontact_kmailplugin WITH_PREFIX ${kontact_kmailplugin_PART_SRCS})
 
@@ -26,12 +28,11 @@ add_dependencies(kontact_kmailplugin kmailprivate)
 
 ########### next target ###############
 
-set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp )
+set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp ${kontact_kmail_plugins_interface_SRCS} )
 
 kde4_automoc(${kcm_kmailsummary_PART_SRCS})
 
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
-
 
 
 target_link_libraries(kcm_kmailsummary  ${KDE4_KDEUI_LIBS} )

@@ -30,11 +30,11 @@
 #include <plugin.h>
 #include <summary.h>
 #include <uniqueapphandler.h>
-//Added by qt3to4:
 #include <QDropEvent>
 
 class QMimeSource;
 class QDropEvent;
+class OrgKdeKmailKmailInterface;
 
 class KMailUniqueAppHandler : public Kontact::UniqueAppHandler
 {
@@ -72,7 +72,7 @@ class KMailPlugin : public Kontact::Plugin
     void slotNewMail();
 
   private:
-    /*KMailIface_stub*/ void *mStub;
+    OrgKdeKmailKmailInterface *m_instance;
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 };
 

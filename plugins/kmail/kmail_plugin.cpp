@@ -48,6 +48,7 @@
 #include "summarywidget.h"
 
 #include "kmail_plugin.h"
+#include "kmailinterface.h"
 
 using namespace KCal;
 
@@ -57,7 +58,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_kmailplugin,
 
 KMailPlugin::KMailPlugin(Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "kmail" ),
-    mStub( 0 )
+    m_instance( 0 )
 {
   setInstance( KMailPluginFactory::instance() );
 
@@ -107,24 +108,22 @@ void KMailPlugin::processDropEvent( QDropEvent * de )
 void KMailPlugin::openComposer( const KUrl& attach )
 {
   (void) part(); // ensure part is loaded
-#warning Port me!
-/*  Q_ASSERT( mStub );
-  if ( mStub ) {
+  Q_ASSERT( m_instance );
+  if ( m_instance ) {
     if ( attach.isValid() )
-      mStub->newMessage( "", "", "", false, true, KUrl(), attach );
+      m_instance->newMessage( "", "", "", false, true, QString(), attach.path() );
     else
-      mStub->newMessage( "", "", "", false, true, KUrl(), KUrl() );
-  }*/
+      m_instance->newMessage( "", "", "", false, true, QString(), QString() );
+  }
 }
 
 void KMailPlugin::openComposer( const QString& to )
 {
   (void) part(); // ensure part is loaded
-#warning Port me!
-/*  Q_ASSERT( mStub );
-  if ( mStub ) {
-    mStub->newMessage( to, "", "", false, true, KUrl(), KUrl() );
-  }*/
+  Q_ASSERT( m_instance );
+  if ( m_instance ) {
+    m_instance->newMessage( to, "", "", false, true, QString(), QString() );
+  }
 }
 
 void KMailPlugin::slotNewMail()
@@ -157,8 +156,7 @@ KParts::ReadOnlyPart* KMailPlugin::createPart()
   KParts::ReadOnlyPart *part = loadPart();
   if ( !part ) return 0;
 
-#warning Port me to DBus!
-//  mStub = new KMailIface_stub( dcopClient(), "kmail", "KMailIface" );
+  m_instance = new OrgKdeKmailKmailInterface( "org.kde.kmail", "/KMail", QDBusConnection::sessionBus() ); 
 
   return part;
 }
@@ -190,24 +188,22 @@ int KMailUniqueAppHandler::newInstance()
 {
     // Ensure part is loaded
     (void)plugin()->part();
-#warning Port me to DBus!
-/*    DCOPRef kmail( "kmail", "KMailIface" );
-    DCOPReply reply = kmail.call( "handleCommandLine", false );
+    org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
+    QDBusReply<bool> reply = kmail.handleCommandLine(false);
+    
     if ( reply.isValid() ) {
         bool handled = reply;
         //kDebug(5602) << k_funcinfo << "handled=" << handled << endl;
         if ( !handled ) // no args -> simply bring kmail plugin to front
             return Kontact::UniqueAppHandler::newInstance();
-    }*/
+    }
     return 0;
 }
 
 bool KMailPlugin::queryClose() const {
-#warning Port me to DBus!
-/*  KMailIface_stub stub( kapp->dcopClient(), "kmail", "KMailIface" );
-  bool canClose=stub.canQueryClose();
-  return canClose;*/
-  return true;
+   org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
+   QDBusReply<bool> canClose = kmail.canQueryClose();
+   return canClose;
 }
 
 #include "kmail_plugin.moc"

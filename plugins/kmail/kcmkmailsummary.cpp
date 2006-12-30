@@ -23,7 +23,6 @@
 
 #include <QCheckBox>
 #include <QLayout>
-//Added by qt3to4:
 #include <QVBoxLayout>
 
 #include <kaboutdata.h>
@@ -38,6 +37,7 @@
 #include "kcmkmailsummary.h"
 
 #include <kdemacros.h>
+#include "kmailinterface.h"
 
 extern "C"
 {
@@ -94,12 +94,10 @@ void KCMKMailSummary::initGUI()
 
 void KCMKMailSummary::initFolders()
 {
-#warning Port me to DBus!
-//  DCOPRef kmail( "kmail", "KMailIface" );
+   org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
+   QDBusReply<QStringList> lst = kmail.folderList();
 
-  QStringList folderList;
-//  kmail.call( "folderList" ).get( folderList );
-
+   QStringList folderList(lst);
   mFolderView->clear();
   mFolderMap.clear();
 
