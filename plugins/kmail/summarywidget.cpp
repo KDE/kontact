@@ -44,7 +44,7 @@
 #include "summarywidget.h"
 
 #include <time.h>
-
+#include "kmailinterface.h" 
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ),
 //    DCOPObject( "MailSummary" ),
@@ -85,27 +85,24 @@ void SummaryWidget::selectFolder( const QString& folder )
 void SummaryWidget::updateSummary( bool )
 {
   // check whether we need to update the message counts
-#warning Port to DBus!
-/*  DCOPRef kmail( "kmail", "KMailIface" );
-  const int timeOfLastMessageCountChange =
-    kmail.call( "timeOfLastMessageCountChange()" );
+  org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail" , QDBusConnection::sessionBus());
+  const int timeOfLastMessageCountChange = kmail.timeOfLastMessageCountChange();
   if ( timeOfLastMessageCountChange > mTimeOfLastMessageCountUpdate )
-    slotUnreadCountChanged();*/
+    slotUnreadCountChanged();
 }
 
 void SummaryWidget::slotUnreadCountChanged()
 {
-#warning Port to DBus!
-/*  DCOPRef kmail( "kmail", "KMailIface" );
-  DCOPReply reply = kmail.call( "folderList" );
+  org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail" , QDBusConnection::sessionBus());
+  QDBusReply<QStringList> reply = kmail.folderList();
   if ( reply.isValid() ) {
     QStringList folderList = reply;
     updateFolderList( folderList );
   }
   else {
-    kDebug(5602) << "Calling kmail->KMailIface->folderList() via DCOP failed."
+    kDebug(5602) << "Calling kmail->KMailIface->folderList() via D-Bus failed."
                   << endl;
-  }*/
+  }
   mTimeOfLastMessageCountUpdate = ::time( 0 );
 }
 
