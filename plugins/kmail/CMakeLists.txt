@@ -13,8 +13,6 @@ set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp )
 
 kde4_automoc(${kontact_kmailplugin_PART_SRCS})
 
-#kde4_add_dcop_skels(kontact_kmailplugin_PART_SRCS summarywidget.h )
-
 qt4_add_dbus_interfaces(kontact_kmailplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kmail/org.kde.kmail.kmail.xml )
 
 kde4_add_plugin(kontact_kmailplugin WITH_PREFIX ${kontact_kmailplugin_PART_SRCS})

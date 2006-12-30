@@ -110,7 +110,7 @@ bool KNotesPart::openFile()
 }
 
 
-// public KNotes DCOP interface implementation
+// public KNotes D-Bus interface implementation
 
 QString KNotesPart::newNote( const QString& name, const QString& text )
 {
