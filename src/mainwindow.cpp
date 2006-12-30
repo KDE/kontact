@@ -738,7 +738,7 @@ int MainWindow::startServiceFor( const QString& serviceType,
   }
 
   kDebug(5600) <<
-    "Didn't find dcop interface, falling back to external process" << endl;
+    "Didn't find dbus interface, falling back to external process" << endl;
 
   return KDBusServiceStarter::startServiceFor( serviceType, constraint,
       error, dcopService, flags );
