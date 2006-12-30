@@ -138,7 +138,7 @@ KMailPlugin::~KMailPlugin()
 
 bool KMailPlugin::createDBUSInterface( const QString& serviceType )
 {
-  if ( serviceType == "DCOP/ResourceBackend/IMAP" ) {
+  if ( serviceType == "DBUS/ResourceBackend/IMAP" ) {
     if ( part() )
       return true;
   }
