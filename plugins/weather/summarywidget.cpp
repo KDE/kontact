@@ -40,12 +40,12 @@
 #include <kurllabel.h>
 #include <q3tl.h>
 #include <ktoolinvocation.h>
-
+#include "serviceinterface.h"
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( QWidget *parent )
   : Kontact::Summary( parent ),
-    DCOPObject( "WeatherSummaryWidget" ), mProc( 0 )
+    /*DCOPObject( "WeatherSummaryWidget" ),*/ mProc( 0 )
 {
   mLayout = new QVBoxLayout( this );
   mLayout->setSpacing( 3 );
@@ -57,22 +57,24 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   mLayout->addWidget( header );
 
   QString error;
-  QByteArray appID;
+  QString appID;
   bool serviceAvailable = true;
-  if ( !kapp->dcopClient()->isApplicationRegistered( "KWeatherService" ) ) {
+  if(!QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.kweather.service")) {
     if ( KToolInvocation::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
-      QLabel *label = new QLabel( i18n( "No weather dcop service available;\nyou need KWeather to use this plugin." ), this );
+      QLabel *label = new QLabel( i18n( "No weather dbus service available;\nyou need KWeather to use this plugin." ), this );
       mLayout->addWidget( label, Qt::AlignHCenter | Qt::AlignVCenter );
       serviceAvailable = false;
     }
   }
 
   if ( serviceAvailable ) {
-    connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false );
+#warning "kde4 port to dbus"
+	  /*
+      	  connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false );
     connectDCOPSignal( 0, 0, "stationRemoved(QString)", "stationRemoved(QString)", false );
-
-    DCOPRef dcopCall( "KWeatherService", "WeatherService" );
-    DCOPReply reply = dcopCall.call( "listStations()", true );
+*/
+    OrgKdeKweatherServiceInterface service( "org.kde.kweather", "/Service", QDBusConnection::sessionBus() );
+    QDBusReply<QStringList> reply = service.listStations();
     if ( reply.isValid() ) {
       mStations = reply;
 
@@ -117,7 +119,7 @@ void SummaryWidget::updateView()
 
     KUrlLabel* urlLabel = new KUrlLabel( this );
     urlLabel->installEventFilter( this );
-    urlLabel->setURL( (*it).stationID() );
+    urlLabel->setUrl( (*it).stationID() );
     urlLabel->setPixmap( QPixmap::fromImage( img.scaled( 32, 32, Qt::IgnoreAspectRatio, Qt::SmoothTransformation ) ) );
     urlLabel->setMaximumSize( urlLabel->sizeHint() );
     urlLabel->setAlignment( Qt::AlignTop );
@@ -162,23 +164,22 @@ void SummaryWidget::timeout()
 {
   mTimer.stop();
 
-  DCOPRef dcopCall( "KWeatherService", "WeatherService" );
-  dcopCall.send( "updateAll()" );
+  OrgKdeKweatherServiceInterface service( "org.kde.kweather", "/Service", QDBusConnection::sessionBus() );
+  service.updateAll();
 
   mTimer.start( 15 * 60000 );
 }
 
 void SummaryWidget::refresh( QString station )
 {
-  DCOPRef dcopCall( "KWeatherService", "WeatherService" );
-
-  mWeatherMap[ station ].setIcon( dcopCall.call( "currentIcon(QString)", station, true ) );
-  mWeatherMap[ station ].setName( dcopCall.call( "stationName(QString)", station, true ) );
-  mWeatherMap[ station ].setCover( dcopCall.call( "cover(QString)", station, true ) );
-  mWeatherMap[ station ].setDate( dcopCall.call( "date(QString)", station, true ) );
-  mWeatherMap[ station ].setTemperature( dcopCall.call( "temperature(QString)", station, true ) );
-  mWeatherMap[ station ].setWindSpeed( dcopCall.call( "wind(QString)", station, true ) );
-  mWeatherMap[ station ].setRelativeHumidity( dcopCall.call( "relativeHumidity(QString)", station, true ) );
+  OrgKdeKweatherServiceInterface service( "org.kde.kweather", "/Service", QDBusConnection::sessionBus() );
+  //mWeatherMap[ station ].setIcon( dcopCall.call( "currentIcon(QString)", station, true ) );
+  mWeatherMap[ station ].setName( service.stationName(station) );
+  mWeatherMap[ station ].setCover( service.cover(station ) );
+  mWeatherMap[ station ].setDate( service.date(station ) );
+  mWeatherMap[ station ].setTemperature( service.temperature(station) );
+  mWeatherMap[ station ].setWindSpeed( service.wind(station) );
+  mWeatherMap[ station ].setRelativeHumidity( service.relativeHumidity(station) );
   mWeatherMap[ station ].setStationID(station);
 
   updateView();

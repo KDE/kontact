@@ -26,8 +26,6 @@
 
 #include "summary.h"
 
-#include <dcopobject.h>
-
 #include <QMap>
 #include <QPixmap>
 #include <QStringList>
@@ -89,10 +87,9 @@ class WeatherData
     QString mStationID;
 };
 
-class SummaryWidget : public Kontact::Summary, public DCOPObject
+class SummaryWidget : public Kontact::Summary//, public DCOPObject
 {
     Q_OBJECT
-    K_DCOP
   public:
     SummaryWidget( QWidget *parent );
 
@@ -100,7 +97,8 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
 
     void updateSummary( bool force = false );
 
-  k_dcop:
+  //k_dcop:
+  public slots:
     virtual void refresh( QString );
     virtual void stationRemoved( QString );
 
