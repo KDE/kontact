@@ -59,7 +59,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   QString error;
   QString appID;
   bool serviceAvailable = true;
-  if(!QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.kweather.service")) {
+  if(!QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.KWeatherService")) {
     if ( KToolInvocation::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
       QLabel *label = new QLabel( i18n( "No weather dbus service available;\nyou need KWeather to use this plugin." ), this );
       mLayout->addWidget( label, Qt::AlignHCenter | Qt::AlignVCenter );
@@ -73,7 +73,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
       	  connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false );
     connectDCOPSignal( 0, 0, "stationRemoved(QString)", "stationRemoved(QString)", false );
 */
-    OrgKdeKweatherServiceInterface service( "org.kde.kweather", "/Service", QDBusConnection::sessionBus() );
+    OrgKdeKweatherServiceInterface service( "org.kde.KWeatherService", "/Service", QDBusConnection::sessionBus() );
     QDBusReply<QStringList> reply = service.listStations();
     if ( reply.isValid() ) {
       mStations = reply;
@@ -164,7 +164,7 @@ void SummaryWidget::timeout()
 {
   mTimer.stop();
 
-  OrgKdeKweatherServiceInterface service( "org.kde.kweather", "/Service", QDBusConnection::sessionBus() );
+  OrgKdeKweatherServiceInterface service( "org.kde.KWeatherService", "/Service", QDBusConnection::sessionBus() );
   service.updateAll();
 
   mTimer.start( 15 * 60000 );
@@ -172,7 +172,7 @@ void SummaryWidget::timeout()
 
 void SummaryWidget::refresh( QString station )
 {
-  OrgKdeKweatherServiceInterface service( "org.kde.kweather", "/Service", QDBusConnection::sessionBus() );
+  OrgKdeKweatherServiceInterface service( "org.kde.KWeatherService", "/Service", QDBusConnection::sessionBus() );
   //mWeatherMap[ station ].setIcon( dcopCall.call( "currentIcon(QString)", station, true ) );
   mWeatherMap[ station ].setName( service.stationName(station) );
   mWeatherMap[ station ].setCover( service.cover(station ) );
