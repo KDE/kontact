@@ -232,7 +232,7 @@ void SummaryWidget::updateView()
 
     connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
              kapp, SLOT( invokeBrowser( const QString& ) ) );
-    connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+    connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
              this, SLOT( rmbMenu( const QString& ) ) );
 
     // header
@@ -261,7 +261,7 @@ void SummaryWidget::updateView()
 
       connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
                kapp, SLOT( invokeBrowser( const QString& ) ) );
-      connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+      connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
                this, SLOT( rmbMenu( const QString& ) ) );
 
 

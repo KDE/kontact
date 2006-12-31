@@ -515,7 +515,7 @@ void SDSummaryWidget::updateView()
 
         connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
                  this, SLOT( mailContact( const QString& ) ) );
-        connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+        connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
                  this, SLOT( popupMenu( const QString& ) ) );
       } else {
         label = new QLabel( this );

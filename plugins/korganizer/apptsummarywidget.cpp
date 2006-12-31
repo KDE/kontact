@@ -243,9 +243,9 @@ void ApptSummaryWidget::updateView()
       mLayout->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
 
-      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
                this, SLOT( viewEvent( const QString& ) ) );
-      connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+      connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
                this, SLOT( popupMenu( const QString& ) ) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
