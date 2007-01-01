@@ -146,14 +146,11 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
                           i18n( "Drops of multiple mails are not supported." ) );
     } else {
       KPIM::MailSummary mail = mails.first();
-
-#warning Port me to DBus!
-/*      KMailIface_stub kmailIface( "kmail", "KMailIface" );
-      QString sFrom = kmailIface.getFrom( mail.serialNumber() );
-
+      org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
+      QString sFrom = kmail.getFrom( mail.serialNumber() );
       if ( !sFrom.isEmpty() ) {
         KAddrBookExternal::addEmail( sFrom, core() );
-      }*/
+      }
     }
     return;
   }
