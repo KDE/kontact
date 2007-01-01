@@ -57,6 +57,7 @@
 #include "korganizer/incidencechanger.h"
 
 #include "todosummarywidget.h"
+#include "korganizerinterface.h"
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
                                       QWidget *parent )
@@ -303,17 +304,15 @@ void TodoSummaryWidget::updateView()
 void TodoSummaryWidget::viewTodo( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
-#warning Port me!
-//  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
-//  iface.editIncidence( uid );
+  OrgKdeKorganizerKorganizerInterface korganizer( "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus());
+  korganizer.editIncidence( uid );
 }
 
 void TodoSummaryWidget::removeTodo( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
-#warning Port me!
-//  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
-//  iface.deleteIncidence( uid, false );
+  OrgKdeKorganizerKorganizerInterface korganizer( "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus());
+  korganizer.deleteIncidence( uid, false );
 }
 
 void TodoSummaryWidget::completeTodo( const QString &uid )

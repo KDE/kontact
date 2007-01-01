@@ -109,7 +109,7 @@ OrgKdeKorganizerCalendarInterface *JournalPlugin::interface()
 
 void JournalPlugin::slotNewJournal()
 {
-  interface()->openJournalEditor( "" );
+  interface()->openJournalEditor( "",QDate() );
 }
 
 bool JournalPlugin::createDBUSInterface( const QString& serviceType )
