@@ -54,6 +54,7 @@
 #include "korganizer/stdcalendar.h"
 
 #include "apptsummarywidget.h"
+#include "korganizerinterface.h"
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
@@ -250,7 +251,7 @@ void ApptSummaryWidget::updateView()
 
       QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
       if ( !tipText.isEmpty() ) {
-        QToolTip::add( urlLabel, tipText );
+        urlLabel->setToolTip(tipText );
       }
 
       // Time range label (only for non-floating events)
@@ -299,17 +300,15 @@ void ApptSummaryWidget::updateView()
 void ApptSummaryWidget::viewEvent( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
-#warning Port to DBus!
-//  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
-//  iface.editIncidence( uid );
+  OrgKdeKorganizerKorganizerInterface korganizer( "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus());
+  korganizer.editIncidence( uid );
 }
 
 void ApptSummaryWidget::removeEvent( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
-#warning Port to DBus!
-//  KOrganizerIface_stub iface( "korganizer", "KOrganizerIface" );
-//  iface.deleteIncidence( uid, false );
+  OrgKdeKorganizerKorganizerInterface korganizer( "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus());
+  korganizer.deleteIncidence( uid, false );
 }
 
 void ApptSummaryWidget::popupMenu( const QString &uid )
