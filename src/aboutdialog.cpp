@@ -27,6 +27,7 @@
 #include "core.h"
 #include "plugin.h"
 
+#include <kapplication.h>
 #include <klocale.h>
 #include <kiconloader.h>
 #include <kinstance.h>
@@ -76,8 +77,8 @@ void AboutDialog::addAboutPlugin( Kontact::Plugin *plugin )
 void AboutDialog::addAboutData( const QString &title, const QString &icon,
                                 const KAboutData *about )
 {
-  QIcon pixmap = KGlobal::iconLoader()->loadIconSet( icon,
-                                                    K3Icon::Desktop, 48 );
+  QIcon pixmap = kapp->iconLoader()->loadIconSet( icon,
+                                                  K3Icon::Desktop, 48 );
 
   QFrame *topFrame = new QFrame();
   KPageWidgetItem *pageItem = new KPageWidgetItem( topFrame, title );
@@ -177,7 +178,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
   if ( !about || about->license().isEmpty() )
     return;
 
-  QPixmap pixmap = KGlobal::iconLoader()->loadIcon( "signature",
+  QPixmap pixmap = kapp->iconLoader()->loadIcon( "signature",
                                                     K3Icon::Desktop, 48 );
 
   QString title = i18n( "%1 License", about->programName() );

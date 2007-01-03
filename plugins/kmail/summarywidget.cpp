@@ -54,7 +54,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_mail", K3Icon::Desktop,
+  QPixmap icon = kapp->iconLoader()->loadIcon( "kontact_mail", K3Icon::Desktop,
                                                   K3Icon::SizeMedium );
   QWidget *header = createHeader(this, icon, i18n("New Messages"));
   mLayout = new QGridLayout();

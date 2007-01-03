@@ -40,6 +40,7 @@
 #include <QHBoxLayout>
 
 #include <kactioncollection.h>
+#include <kapplication.h>
 #include <klocale.h>
 #include <k3iconview.h>
 #include <kglobal.h>
@@ -69,7 +70,7 @@ class KNotesIconViewItem : public K3IconViewItem
 
       KIconEffect effect;
       QColor color( journal->customProperty( "KNotes", "BgColor" ) );
-      QPixmap icon = KGlobal::iconLoader()->loadIcon( "knotes", K3Icon::Desktop );
+      QPixmap icon = kapp->iconLoader()->loadIcon( "knotes", K3Icon::Desktop );
       icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
       setPixmap( icon );
       setText( journal->summary() );
