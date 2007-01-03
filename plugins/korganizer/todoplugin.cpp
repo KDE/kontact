@@ -53,7 +53,7 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
     mIface( 0 )
 {
   setInstance( TodoPluginFactory::instance() );
-  instance()->iconLoader()->addAppDir("korganizer");
+  kapp->iconLoader()->addAppDir("korganizer");
 
   KAction *action = new KAction( KIcon("newtodo"), i18n( "New To-do..." ), 
                                  actionCollection(), "new_todo" );

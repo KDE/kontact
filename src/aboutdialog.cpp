@@ -32,6 +32,7 @@
 #include <kiconloader.h>
 #include <kinstance.h>
 #include <kaboutdata.h>
+#include <kapplication.h>
 #include <ktextbrowser.h>
 #include <kicon.h>
 #include <QLayout>
@@ -78,7 +79,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
                                 const KAboutData *about )
 {
   QIcon pixmap = kapp->iconLoader()->loadIconSet( icon,
-                                                  K3Icon::Desktop, 48 );
+                                                    K3Icon::Desktop, 48 );
 
   QFrame *topFrame = new QFrame();
   KPageWidgetItem *pageItem = new KPageWidgetItem( topFrame, title );

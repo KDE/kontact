@@ -39,6 +39,7 @@
 #include <QPixmap>
 #include <QHBoxLayout>
 
+#include <kapplication.h>
 #include <kactioncollection.h>
 #include <kapplication.h>
 #include <klocale.h>

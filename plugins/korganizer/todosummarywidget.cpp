@@ -31,6 +31,7 @@
 #include <QEvent>
 #include <QToolTip>
 
+#include <kapplication.h>
 #include <kdialog.h>
 #include <kglobal.h>
 #include <kicon.h>

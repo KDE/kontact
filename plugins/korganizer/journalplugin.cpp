@@ -47,7 +47,7 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const QStringList& )
     mIface( 0 )
 {
   setInstance( JournalPluginFactory::instance() );
-  instance()->iconLoader()->addAppDir("korganizer");
+  kapp->iconLoader()->addAppDir("korganizer");
 
   KAction *action = new KAction( KIcon("newjournal"), i18n( "New Journal..." ), actionCollection(), "new_journal" );
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_J));
