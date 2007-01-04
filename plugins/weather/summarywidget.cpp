@@ -174,9 +174,8 @@ void SummaryWidget::refresh( QString station )
 {
   OrgKdeKweatherServiceInterface service( "org.kde.KWeatherService", "/Service", QDBusConnection::sessionBus() );
   QByteArray iconB = service.currentIcon(station);
-  QDataStream in(iconB);
   QPixmap icon;
-  in >> icon;
+  icon.loadFromData(iconB);
   mWeatherMap[ station ].setIcon( icon );
   mWeatherMap[ station ].setName( service.stationName(station) );
   mWeatherMap[ station ].setCover( service.cover(station ) );
