@@ -165,7 +165,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
         attendees.append( email );
     }
 
-    interface()->openEventEditor( i18n( "Meeting" ), QString::null, QString::null,
+    interface()->openEventEditor( i18n( "Meeting" ), QString::null, QStringList(),
                                   attendees );
     return;
   }
@@ -191,7 +191,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       QString uri = KDEPIMPROTOCOL_EMAIL + 
                     QString::number( mail.serialNumber() );
       interface()->openEventEditor( i18n("Mail: %1", mail.subject() ), txt,
-                                    uri );
+                                    QStringList( uri ) );
     }
     return;
   }

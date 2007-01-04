@@ -165,7 +165,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
         attendees.append( email );
     }
 
-    interface()->openTodoEditor( i18n( "Meeting" ), QString::null, QString::null,
+    interface()->openTodoEditor( i18n( "Meeting" ), QString::null, QStringList(),
                                  attendees );
     return;
   }
@@ -190,7 +190,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
                     QString::number( mail.serialNumber() ) + '/' +
                     mail.messageId();
       interface()->openTodoEditor( i18n("Mail: %1", mail.subject() ), txt,
-                                   uri );
+                                   QStringList( uri ) );
     }
     return;
   }
