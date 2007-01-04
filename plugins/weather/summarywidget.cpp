@@ -173,7 +173,11 @@ void SummaryWidget::timeout()
 void SummaryWidget::refresh( QString station )
 {
   OrgKdeKweatherServiceInterface service( "org.kde.KWeatherService", "/Service", QDBusConnection::sessionBus() );
-  //mWeatherMap[ station ].setIcon( dcopCall.call( "currentIcon(QString)", station, true ) );
+  QByteArray iconB = service.currentIcon(station);
+  QDataStream in(iconB);
+  QPixmap icon;
+  in >> icon;
+  mWeatherMap[ station ].setIcon( icon );
   mWeatherMap[ station ].setName( service.stationName(station) );
   mWeatherMap[ station ].setCover( service.cover(station ) );
   mWeatherMap[ station ].setDate( service.date(station ) );
