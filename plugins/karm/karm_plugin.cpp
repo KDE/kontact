@@ -26,6 +26,7 @@
 #include <kgenericfactory.h>
 #include <kparts/componentfactory.h>
 #include <kicon.h>
+#include <kactioncollection.h>
 #include "core.h"
 #include "plugin.h"
 
@@ -41,7 +42,8 @@ KarmPlugin::KarmPlugin( Kontact::Core *core, const QStringList& )
 {
   setInstance( KarmPluginFactory::instance() );
 
-  KAction *action = new KAction( KIcon("karm"), i18n( "New Task" ), actionCollection(), "new_task" );
+    KAction *action  = new KAction(KIcon("karm"), i18n("New Task"), this);
+    actionCollection()->addAction("new_task", action );
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_W));
   connect(action, SIGNAL(triggered(bool)), SLOT( newTask() ));
   insertNewAction(action);

@@ -22,6 +22,7 @@
 #include <kaction.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
+#include <kactioncollection.h>
 #include <kiconloader.h>
 #include <kstatusbar.h>
 #include <kicon.h>
@@ -42,7 +43,8 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QStringList & )
 {
   setInstance( KNotesPluginFactory::instance() );
 
-  KAction *action = new KAction( KIcon("knotes"), i18n( "New Note..." ), actionCollection(), "new_note" );
+    KAction *action  = new KAction(KIcon("knotes"), i18n("New Note..."), this);
+    actionCollection()->addAction("new_note", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewNote() ));
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_N));
   insertNewAction(action);

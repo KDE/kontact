@@ -30,6 +30,7 @@
 #include <QScrollArea>
 
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdbusservicestarter.h>
@@ -83,10 +84,12 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
   connect( mCore, SIGNAL( dayChanged( const QDate& ) ),
            SLOT( setDate( const QDate& ) ) );
 
-  mConfigAction = new KAction(KIcon("configure"),  i18n( "&Configure Summary View..." ), actionCollection(), "summaryview_configure" );
+  mConfigAction  = new KAction(KIcon("configure"), i18n("&Configure Summary View..."), this);
+  actionCollection()->addAction("summaryview_configure", mConfigAction );
   connect(mConfigAction, SIGNAL(triggered(bool) ), SLOT( slotConfigure() ));
 
-  mRefreshAction = new KAction(KIcon("reload"),  i18n( "&Refresh Summary View..." ), actionCollection(), "summaryview_refresh" );
+  mRefreshAction  = new KAction(KIcon("reload"), i18n("&Refresh Summary View..."), this);
+  actionCollection()->addAction("summaryview_refresh", mRefreshAction );
   connect(mRefreshAction, SIGNAL(triggered(bool) ), SLOT( updateSummaries() ));
 
   setXMLFile( "kontactsummary_part.rc" );

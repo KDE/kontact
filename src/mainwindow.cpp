@@ -320,19 +320,25 @@ void MainWindow::initAboutScreen()
 
 void MainWindow::setupActions()
 {
-  KStandardAction::quit( this, SLOT( slotQuit() ), actionCollection() );
-  mNewActions = new KToolBarPopupAction( KGuiItem( i18n( "New" ), "" ),
-                                         KStandardShortcut::shortcut(KStandardShortcut::New), this, SLOT( slotNewClicked() ),
-                                         actionCollection(), "action_new" );
+    actionCollection()->addAction(KStandardAction::Quit, this, SLOT( slotQuit() ));
 
-  KAction *action = new KAction(KIcon("configure"),  i18n( "Configure Kontact..." ), actionCollection(), "settings_configure_kontact" );
+    mNewActions = new KToolBarPopupAction( KIcon(""), i18n( "New" ), this);
+    actionCollection()->addAction("action_new", mNewActions);
+    mNewActions->setShortcut(KShortcut(KStandardShortcut::New));
+    connect(mNewActions, SIGNAL(triggered(bool)), this, SLOT( slotNewClicked() ));
+
+    KAction *action  = new KAction(KIcon("configure"), i18n("Configure Kontact..."), this);
+    actionCollection()->addAction("settings_configure_kontact", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotPreferences() ));
 
-  action = new KAction( i18n( "&Kontact Introduction" ), actionCollection(), "help_introduction" );
+    action  = new KAction(i18n("&Kontact Introduction"), this);
+    actionCollection()->addAction("help_introduction", action );
   connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowIntroduction() ));
-  action = new KAction( i18n( "&Tip of the Day" ), actionCollection(), "help_tipofday" );
+    action  = new KAction(i18n("&Tip of the Day"), this);
+    actionCollection()->addAction("help_tipofday", action );
   connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowTip() ));
-  action = new KAction( i18n( "&Request Feature..." ), actionCollection(), "help_requestfeature" );
+    action  = new KAction(i18n("&Request Feature..."), this);
+    actionCollection()->addAction("help_requestfeature", action );
   connect(action, SIGNAL(triggered(bool) ), SLOT( slotRequestFeature() ));
 }
 
@@ -510,7 +516,7 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
 
 void MainWindow::slotNewClicked()
 {
-  KAction *action = mCurrentPlugin->newActions()->first();
+  QAction *action = mCurrentPlugin->newActions()->first();
   if ( action ) {
     action->trigger();
   } else {
@@ -583,7 +589,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       view->setFocus();
 
     mCurrentPlugin = plugin;
-    KAction *action = 0;
+    QAction *action = 0;
     if (plugin->newActions()->count() > 0)
       action = plugin->newActions()->first();
 

@@ -29,6 +29,7 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
+#include <kactioncollection.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
@@ -55,7 +56,8 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QStringList& 
 {
   setInstance( KAddressbookPluginFactory::instance() );
 
-  KAction *action = new KAction( KIcon("identity"), i18n( "New Contact..." ), actionCollection(), "new_contact" );
+    KAction *action  = new KAction(KIcon("identity"), i18n("New Contact..."), this);
+    actionCollection()->addAction("new_contact", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewContact()));
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_C));
   insertNewAction(action);

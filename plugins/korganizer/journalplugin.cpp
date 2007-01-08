@@ -27,6 +27,7 @@
 
 #include <kapplication.h>
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
@@ -49,7 +50,8 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const QStringList& )
   setInstance( JournalPluginFactory::instance() );
   kapp->iconLoader()->addAppDir("korganizer");
 
-  KAction *action = new KAction( KIcon("newjournal"), i18n( "New Journal..." ), actionCollection(), "new_journal" );
+  KAction *action  = new KAction(KIcon("newjournal"), i18n("New Journal..."), this);
+  actionCollection()->addAction("new_journal", action );
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_J));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewJournal()));
   insertNewAction(action);

@@ -28,6 +28,7 @@
 
 #include <kapplication.h>
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
@@ -55,8 +56,8 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
   setInstance( TodoPluginFactory::instance() );
   kapp->iconLoader()->addAppDir("korganizer");
 
-  KAction *action = new KAction( KIcon("newtodo"), i18n( "New To-do..." ), 
-                                 actionCollection(), "new_todo" );
+  KAction *action  = new KAction(KIcon("newtodo"), i18n("New To-do..."), this);
+  actionCollection()->addAction("new_todo", action );
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_T));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewTodo() ));
   insertNewAction(action);

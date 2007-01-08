@@ -30,6 +30,7 @@
 #include <kcmdlineargs.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
+#include <kactioncollection.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
@@ -54,7 +55,8 @@ Plugin::Plugin( Kontact::Core *core, const QStringList& )
 
     setInstance( PluginFactory::instance() );
 
-    KAction *action = new KAction( KIcon("bookmark_add"), i18n( "New Feed..." ), actionCollection(), "feed_new" );
+    KAction *action  = new KAction(KIcon("bookmark_add"), i18n("New Feed..."), this);
+    actionCollection()->addAction("feed_new", action );
     action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_F));
     connect(action, SIGNAL(triggered(bool)),SLOT( addFeed() ));
     insertNewAction(action);

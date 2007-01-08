@@ -46,6 +46,7 @@
 #include <kmenu.h>
 #include <kapplication.h>
 #include <kdialog.h>
+#include <kactioncollection.h>
 #include <klocale.h>
 #include <kiconloader.h>
 
@@ -346,7 +347,8 @@ void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
       minWidth = item->width( this );
 
     QString name = QString( "CTRL+%1" ).arg( counter + 1 );
-    KAction *action = new KAction(KIcon(plugin->icon()),  plugin->title(), mSidePane->actionCollection(), name.toLatin1() );
+    KAction *action = new KAction(KIcon(plugin->icon()),  plugin->title(), this);
+    mSidePane->actionCollection()->addAction(name.toLatin1(), action);
     connect(action, SIGNAL(triggered(bool) ), mMapper, SLOT( map() ));
     action->setShortcut(KShortcut( name ));
     mActions.append( action );

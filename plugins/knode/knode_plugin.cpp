@@ -29,6 +29,7 @@
 #include <kapplication.h>
 #include <kparts/componentfactory.h>
 #include <kgenericfactory.h>
+#include <kactioncollection.h>
 #include <kapplication.h>
 #include <kaction.h>
 #include <kiconloader.h>
@@ -47,8 +48,8 @@ KNodePlugin::KNodePlugin( Kontact::Core *core, const QStringList& )
 {
   setInstance( KNodePluginFactory::instance() );
 
-  KAction *action = new KAction( KIcon("mail_new"), i18n( "New Article..." ), 
-                                 actionCollection(), "post_article" );
+  KAction *action  = new KAction(KIcon("mail_new"), i18n("New Article..."), this);
+  actionCollection()->addAction("post_article", action );
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_A));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotPostArticle()));
   insertNewAction( action );

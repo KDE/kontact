@@ -23,6 +23,7 @@
 #include <QClipboard>
 
 #include <kapplication.h>
+#include <kactioncollection.h>
 #include <kdebug.h>
 #include <kaction.h>
 #include <kmessagebox.h>
@@ -48,12 +49,15 @@ KNotesPart::KNotesPart( QObject *parent )
   setInstance( new KInstance( "knotes" ) );
 
   // create the actions
-  KAction *action = new KAction(KIcon("knotes"),  i18n( "&New" ), actionCollection(), "file_new" );
+  KAction *action  = new KAction(KIcon("knotes"), i18n("&New"), this);
+  actionCollection()->addAction("file_new", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( newNote() ));
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_N));
-  action = new KAction(KIcon("text"),  i18n( "Rename..." ), actionCollection(), "edit_rename" );
+  action  = new KAction(KIcon("text"), i18n("Rename..."), this);
+  actionCollection()->addAction("edit_rename", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( renameNote() ));
-  action = new KAction(KIcon("editdelete"),  i18n( "Delete" ), actionCollection(), "edit_delete" );
+  action  = new KAction(KIcon("editdelete"), i18n("Delete"), this);
+  actionCollection()->addAction("edit_delete", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( killSelectedNotes() ));
   action->setShortcut(QKeySequence(Qt::Key_Delete));
 

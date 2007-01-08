@@ -28,6 +28,7 @@
 
 #include <kapplication.h>
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
@@ -56,7 +57,8 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QStringList& )
   setInstance( KOrganizerPluginFactory::instance() );
   kapp->iconLoader()->addAppDir("korganizer");
 
-  KAction *action = new KAction( KIcon("appointment"), i18n( "New Event..." ), actionCollection(), "new_event" );
+  KAction *action  = new KAction(KIcon("appointment"), i18n("New Event..."), this);
+  actionCollection()->addAction("new_event", action );
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_E));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewEvent() ));
   insertNewAction(action);
