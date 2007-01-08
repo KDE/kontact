@@ -26,7 +26,6 @@
 #include <QDropEvent>
 #include <QtDBus/QtDBus>
 
-#include <kapplication.h>
 #include <kaction.h>
 #include <kactioncollection.h>
 #include <kdebug.h>
@@ -54,7 +53,7 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
     mIface( 0 )
 {
   setInstance( TodoPluginFactory::instance() );
-  kapp->iconLoader()->addAppDir("korganizer");
+  KIconLoader::global()->addAppDir("korganizer");
 
   KAction *action  = new KAction(KIcon("newtodo"), i18n("New To-do..."), this);
   actionCollection()->addAction("new_todo", action );

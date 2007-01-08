@@ -888,7 +888,7 @@ void MainWindow::slotShowStatusMsg( const QString &msg )
 
 QString MainWindow::introductionString()
 {
-  KIconLoader *iconloader = kapp->iconLoader();
+  KIconLoader *iconloader = KIconLoader::global();
   int iconSize = iconloader->currentSize( K3Icon::Desktop );
 
   QString handbook_icon_path = iconloader->iconPath( "contents2",  K3Icon::Desktop );

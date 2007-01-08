@@ -30,7 +30,6 @@
 #include <QGridLayout>
 #include <QEvent>
 
-#include <kapplication.h>
 #include <kdebug.h>
 #include <kglobal.h>
 #include <kglobalsettings.h>
@@ -52,7 +51,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   mLayout->setMargin( 3 );
   mLayout->setAlignment( Qt::AlignTop );
 
-  QPixmap icon = kapp->iconLoader()->loadIcon( "kweather", K3Icon::Desktop, K3Icon::SizeMedium );
+  QPixmap icon = KIconLoader::global()->loadIcon( "kweather", K3Icon::Desktop, K3Icon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Weather Information" ) );
   mLayout->addWidget( header );
 

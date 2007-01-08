@@ -44,7 +44,6 @@
 #include <QDragEnterEvent>
 
 #include <kmenu.h>
-#include <kapplication.h>
 #include <kdialog.h>
 #include <kactioncollection.h>
 #include <klocale.h>
@@ -118,7 +117,7 @@ void EntryItem::reloadPixmap()
 {
   int size = (int)navigator()->viewMode();
   if ( size != 0 )
-    mPixmap = kapp->iconLoader()->loadIcon( mPlugin->icon(),
+    mPixmap = KIconLoader::global()->loadIcon( mPlugin->icon(),
                                                K3Icon::Desktop, size );
   else
     mPixmap = QPixmap();

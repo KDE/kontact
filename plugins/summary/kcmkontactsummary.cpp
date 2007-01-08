@@ -22,7 +22,6 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <kapplication.h>
 #include <kaboutdata.h>
 #include <kconfig.h>
 #include <kdebug.h>
@@ -59,7 +58,7 @@ class PluginItem : public Q3CheckListItem
       : Q3CheckListItem( parent, QString::null, Q3CheckListItem::CheckBox ),
         mInfo( info )
     {
-      QPixmap pm = kapp->iconLoader()->loadIcon( mInfo->icon(), K3Icon::Small );
+      QPixmap pm = KIconLoader::global()->loadIcon( mInfo->icon(), K3Icon::Small );
       setPixmap( 0, pm );
     }
 

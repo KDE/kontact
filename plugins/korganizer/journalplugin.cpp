@@ -25,7 +25,6 @@
 #include <QWidget>
 #include <QtDBus/QtDBus>
 
-#include <kapplication.h>
 #include <kaction.h>
 #include <kactioncollection.h>
 #include <kdebug.h>
@@ -48,7 +47,7 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const QStringList& )
     mIface( 0 )
 {
   setInstance( JournalPluginFactory::instance() );
-  kapp->iconLoader()->addAppDir("korganizer");
+  KIconLoader::global()->addAppDir("korganizer");
 
   KAction *action  = new KAction(KIcon("newjournal"), i18n("New Journal..."), this);
   actionCollection()->addAction("new_journal", action );

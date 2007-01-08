@@ -31,7 +31,6 @@
 #include <QGridLayout>
 #include <QEvent>
 
-#include <kapplication.h>
 #include <kdebug.h>
 #include <kglobal.h>
 #include <kiconloader.h>
@@ -55,7 +54,7 @@ KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QPixmap icon = kapp->iconLoader()->loadIcon( "kontact_notes",
+  QPixmap icon = KIconLoader::global()->loadIcon( "kontact_notes",
                    K3Icon::Desktop, K3Icon::SizeMedium );
   QWidget* header = createHeader( this, icon, i18n( "Notes" ) );
   mainLayout->addWidget( header );

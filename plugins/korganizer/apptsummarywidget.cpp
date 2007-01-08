@@ -31,7 +31,6 @@
 #include <QEvent>
 #include <QToolTip>
 
-#include <kapplication.h>
 #include <kdialog.h>
 #include <kglobal.h>
 #include <kicon.h>
@@ -64,7 +63,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QPixmap icon = kapp->iconLoader()->loadIcon( "kontact_date",
+  QPixmap icon = KIconLoader::global()->loadIcon( "kontact_date",
                    K3Icon::Desktop, K3Icon::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Upcoming Events" ) );
   mainLayout->addWidget( header );
@@ -317,7 +316,7 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
   KMenu popup( this );
   QAction *editIt = popup.addAction( i18n( "&Edit Appointment..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete Appointment" ) );
-  delIt->setIcon( kapp->iconLoader()->
+  delIt->setIcon( KIconLoader::global()->
                   loadIcon( "editdelete", K3Icon::Small ) );
 
   const QAction *selectedAction = popup.exec( QCursor::pos() );

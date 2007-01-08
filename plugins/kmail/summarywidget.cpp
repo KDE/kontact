@@ -30,7 +30,6 @@
 #include <QGridLayout>
 #include <QEvent>
 
-#include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kdialog.h>
@@ -54,7 +53,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QPixmap icon = kapp->iconLoader()->loadIcon( "kontact_mail", K3Icon::Desktop,
+  QPixmap icon = KIconLoader::global()->loadIcon( "kontact_mail", K3Icon::Desktop,
                                                   K3Icon::SizeMedium );
   QWidget *header = createHeader(this, icon, i18n("New Messages"));
   mLayout = new QGridLayout();
