@@ -19,6 +19,7 @@
   Boston, MA 02110-1301, USA.
  */
 
+#include <QApplication>
 #include <q3ptrlist.h>
 #include <q3widgetstack.h>
 #include <q3signal.h>
@@ -35,7 +36,6 @@
 #include <QCursor>
 #include <QTimer>
 #include <QToolTip>
-//Added by qt3to4:
 #include <QPixmap>
 #include <QDragMoveEvent>
 #include <QEvent>
