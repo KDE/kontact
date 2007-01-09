@@ -33,7 +33,6 @@
 #include <QVBoxLayout>
 
 #include <dcopclient.h>
-#include <kapplication.h>
 #include <kcharsets.h>
 #include <kconfig.h>
 #include <kdebug.h>
@@ -306,7 +305,7 @@ void SummaryWidget::rmbMenu( const QString& url )
   QMenu menu;
   menu.addMenu( i18n( "Copy URL to Clipboard" ) );
   if ( menu.exec( QCursor::pos() ) )
-    kapp->clipboard()->setText( url, QClipboard::Clipboard );
+    QApplication::clipboard()->setText( url, QClipboard::Clipboard );
 }
 
 bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )

@@ -33,7 +33,6 @@
 #include <kmessagebox.h>
 #include <klocale.h>
 #include <kaction.h>
-#include <kapplication.h>
 #include <kdebug.h>
 #include <dcopclient.h>
 #include <kdcopservicestarter.h>

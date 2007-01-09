@@ -27,12 +27,12 @@
 
 #include <kaboutdata.h>
 #include <kacceleratormanager.h>
-#include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kdialog.h>
 #include <k3listview.h>
 #include <klocale.h>
+#include <kinstance.h>
 
 #include "kcmkmailsummary.h"
 
@@ -43,7 +43,7 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_kmailsummary( QWidget *parent, const char * )
   {
-	KInstance *inst = new KInstance("kcmkmailsummary" );
+    KInstance *inst = new KInstance("kcmkmailsummary" );
     return new KCMKMailSummary( inst, parent );
   }
 }

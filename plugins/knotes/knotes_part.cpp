@@ -21,8 +21,8 @@
 
 #include <QMenu>
 #include <QClipboard>
+#include <QApplication>
 
-#include <kapplication.h>
 #include <kactioncollection.h>
 #include <kdebug.h>
 #include <kaction.h>
@@ -43,7 +43,7 @@ KNotesPart::KNotesPart( QObject *parent )
     mManager( new KNotesResourceManager() )
 {
   (void) new KNotesAdaptor( this );
-  QDBusConnection::sessionBus().registerObject("/KNotes", this);	
+  QDBusConnection::sessionBus().registerObject("/KNotes", this);
   mNoteList.setAutoDelete( true );
 
   setInstance( new KInstance( "knotes" ) );
@@ -165,7 +165,7 @@ QString KNotesPart::newNote( const QString& name, const QString& text )
 
 QString KNotesPart::newNoteFromClipboard( const QString& name )
 {
-  const QString& text = KApplication::clipboard()->text();
+  const QString& text = QApplication::clipboard()->text();
   return newNote( name, text );
 }
 

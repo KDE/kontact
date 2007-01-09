@@ -31,11 +31,11 @@
 
 #include <kaction.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
 #include <kconfig.h>
 #include <kdbusservicestarter.h>
 #include <kdebug.h>
 #include <kdialog.h>
+#include <kinstance.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kservice.h>
@@ -43,7 +43,6 @@
 #include <q3scrollview.h>
 #include <kglobal.h>
 #include <kglobalsettings.h>
-#include <klocale.h>
 #include <kcmultidialog.h>
 #include <kicon.h>
 #include <kparts/componentfactory.h>

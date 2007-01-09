@@ -26,7 +26,6 @@
 
 #include <kaboutdata.h>
 #include <kaction.h>
-#include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>

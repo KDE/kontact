@@ -28,11 +28,11 @@
 #include <QSpinBox>
 
 #include <kaboutdata.h>
-#include <kapplication.h>
 #include <kacceleratormanager.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <klocale.h>
+#include <kinstance.h>
 
 #include "kcmapptsummary.h"
 

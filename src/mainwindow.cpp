@@ -29,8 +29,8 @@
 #include <QTimer>
 #include <QList>
 
-#include <kapplication.h>
 #include <kactioncollection.h>
+#include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kedittoolbar.h>
@@ -177,12 +177,12 @@ void MainWindow::initObject()
   // launch commandline specified module if any
   activatePluginModule();
 
-  if ( Prefs::lastVersionSeen() == kapp->aboutData()->version() ) {
+  if ( Prefs::lastVersionSeen() == KGlobal::instance()->aboutData()->version() ) {
     selectPlugin( mCurrentPlugin );
   }
 
 //  paintAboutScreen( introductionString() );
-  Prefs::setLastVersionSeen( kapp->aboutData()->version() );
+  Prefs::setLastVersionSeen( KGlobal::instance()->aboutData()->version() );
 }
 
 MainWindow::~MainWindow()
@@ -278,7 +278,7 @@ void MainWindow::paintAboutScreen( const QString& msg )
   QString location = KStandardDirs::locate( "data", "kontact/about/main.html" );
   QString content = KPIM::kFileToByteArray( location );
   content = content.arg( KStandardDirs::locate( "data", "libkdepim/about/kde_infopage.css" ) );
-  if ( kapp->isRightToLeft() )
+  if ( QApplication::isRightToLeft() )
     content = content.arg( "@import \"%1\";" ).arg( KStandardDirs::locate( "data", "libkdepim/about/kde_infopage_rtl.css" ) );
   else
     content = content.arg( "" );
@@ -543,12 +543,12 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     return;
   }
 
-  KApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
+  QApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
   KParts::Part *part = plugin->part();
 
   if ( !part ) {
-    KApplication::restoreOverrideCursor();
+    QApplication::restoreOverrideCursor();
     KMessageBox::error( this, i18n( "Cannot load part for %1." ,
                                 plugin->title() )
                         + '\n' + lastErrorMessage() );
@@ -627,7 +627,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     }
   }
 
-  KApplication::restoreOverrideCursor();
+  QApplication::restoreOverrideCursor();
 }
 
 void MainWindow::selectPlugin( const QString &pluginName )
@@ -669,8 +669,7 @@ void MainWindow::slotShowTip()
 
 void MainWindow::slotRequestFeature()
 {
-  if ( kapp )
-    KToolInvocation::invokeBrowser( "http://kontact.org/shopping" );
+  KToolInvocation::invokeBrowser( "http://kontact.org/shopping" );
 }
 
 void MainWindow::slotShowIntroduction()
@@ -769,14 +768,14 @@ void MainWindow::updateConfig()
 
 void MainWindow::showAboutDialog()
 {
-  KApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
+  QApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
   if ( !mAboutDialog )
     mAboutDialog = new AboutDialog( this );
 
   mAboutDialog->show();
   mAboutDialog->raise();
-  KApplication::restoreOverrideCursor();
+  QApplication::restoreOverrideCursor();
 }
 
 void MainWindow::configureShortcuts()
@@ -906,7 +905,7 @@ QString MainWindow::introductionString()
       "<td><a href=\"%21\">%22</a><br><span id=\"subtext\"><nobr>%23</td></tr>"
       "</table>"
       "<p style=\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>" )
-      .subs( kapp->aboutData()->version() )
+      .subs( KGlobal::instance()->aboutData()->version() )
       .subs( i18n( "Kontact handles your e-mail, addressbook, calendar, to-do list and more." ) )
       .subs( "help:/kontact" )
       .subs( iconSize )

@@ -33,7 +33,6 @@
 #include <QGridLayout>
 
 #include <kaboutdata.h>
-#include <kapplication.h>
 #include <kacceleratormanager.h>
 #include <kconfig.h>
 #include <kdebug.h>
@@ -42,6 +41,7 @@
 #include "kcmsdsummary.h"
 
 #include <kdemacros.h>
+#include <kinstance.h>
 
 extern "C"
 {

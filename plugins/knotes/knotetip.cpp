@@ -39,9 +39,9 @@
 #include <QResizeEvent>
 #include <QVBoxLayout>
 
-#include <kapplication.h>
 #include <kglobalsettings.h>
 #include <QAbstractEventDispatcher>
+#include <QApplication>
 
 #include "knotetip.h"
 #include "knotes_part_p.h"
@@ -191,11 +191,11 @@ void KNoteTip::setFilter( bool enable )
     return;
 
   if ( enable ) {
-    kapp->installEventFilter( this );
+    qApp->installEventFilter( this );
     QApplication::setGlobalMouseTracking( true );
   } else {
     QApplication::setGlobalMouseTracking( false );
-    kapp->removeEventFilter( this );
+    qApp->removeEventFilter( this );
   }
 
   mFilter = enable;

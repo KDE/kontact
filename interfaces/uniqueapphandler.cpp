@@ -21,7 +21,6 @@
 
 #include "uniqueapphandler.h"
 #include <kstartupinfo.h>
-#include <kapplication.h>
 #include <kcmdlineargs.h>
 #include "core.h"
 #include <kwin.h>

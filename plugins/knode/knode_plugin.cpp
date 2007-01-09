@@ -26,11 +26,9 @@
 
 #include "core.h"
 
-#include <kapplication.h>
 #include <kparts/componentfactory.h>
 #include <kgenericfactory.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
 #include <kaction.h>
 #include <kiconloader.h>
 #include <kdebug.h>
