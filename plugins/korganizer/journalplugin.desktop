@@ -17,6 +17,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KOrganizer Journal Plugin
+Comment[af]=Kontact KOrganizer joernaal inprop module
 Comment[bg]=Приставка за дневника
 Comment[ca]=Endollable de diaris KOrganizer per a Kontact
 Comment[cs]=Modul deníku KOrganizeru pro aplikaci Kontact
@@ -56,6 +57,7 @@ Comment[uk]=Втулок журналу для (KOrganizer) Kontact
 Comment[zh_CN]=Kontact KOrganizer 日记插件
 Comment[zh_TW]=Kontact KOrganizer Journal 外掛程式
 Name=Journal
+Name[af]=Joernaal
 Name[br]=Deizlevr
 Name[ca]=Diari
 Name[cs]=Deník

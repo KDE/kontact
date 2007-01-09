@@ -14,6 +14,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Akregator Plugin
+Comment[af]=Akregator inprop module
 Comment[bg]=Приставка за Akregator
 Comment[br]=Lugant Akregator
 Comment[ca]=Endollable Akregator
@@ -56,6 +57,7 @@ Comment[uz]=Akregator плагини
 Comment[zh_CN]=Akregator 插件
 Comment[zh_TW]=Akregator 外掛程式
 Name=Feeds
+Name[af]=Strome
 Name[bg]=Новини
 Name[ca]=Enllaços
 Name[cs]=Kanály

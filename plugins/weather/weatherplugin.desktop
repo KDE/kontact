@@ -17,6 +17,7 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact Weather Plugin
+Comment[af]=Kontact weer inprop module
 Comment[be]=Дапаўненьне Кантакту "Надвор'е"
 Comment[bg]=Приставка за информация за метеорологичното време
 Comment[bs]=Kontact dodatak za vremensku prognozu
@@ -64,6 +65,7 @@ Comment[uz]=Kontact учун об-ҳаво плагини
 Comment[zh_CN]=Kontact 天气插件
 Comment[zh_TW]=Kontact 天氣外掛程式
 Name=Weather Service
+Name[af]=Weer diens
 Name[br]=Servij an amzer
 Name[ca]=Servei meteorològic
 Name[cs]=Služba počasí
