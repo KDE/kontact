@@ -63,7 +63,9 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->addLayout(mLayout);
 
   slotUnreadCountChanged();
+#ifdef __GNUC__
 #warning Port DCOP signal!
+#endif
 //  connectDCOPSignal( 0, 0, "unreadCountChanged()", "slotUnreadCountChanged()",
 //                     false );
 }
@@ -77,7 +79,9 @@ void SummaryWidget::selectFolder( const QString& folder )
   QByteArray data;
   QDataStream arg( &data, QIODevice::WriteOnly );
   arg << folder;
+#ifdef __GNUC__
 #warning Port DCOP signal!
+#endif
 //  emitDCOPSignal( "kmailSelectFolder(QString)", data );
 }
 
@@ -121,7 +125,9 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
 
   int counter = 0;
   QStringList::ConstIterator it;
+#ifdef __GNUC__
 #warning Port me to DBus!
+#endif
 /*  DCOPRef kmail( "kmail", "KMailIface" );
   org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail" , QDBusConnection::sessionBus());
   for ( it = folders.begin(); it != folders.end(); ++it ) {

@@ -231,7 +231,9 @@ void KCMKontactKNT::addNews()
   if ( item == 0 )
     return;
 
+#ifdef __GNUC__
   #warning "insert the right dbus path/interface here, once knewsticker has been ported"
+#endif
   QDBusInterface service( "org.kde.rssservice", "/", "org.kde.rssservice.RSSService" );
   service.call( "add(QString)", item->url() );
 
@@ -249,7 +251,9 @@ void KCMKontactKNT::removeNews()
   if ( item == 0 )
     return;
 
+#ifdef __GNUC__
   #warning "insert the right dbus path/interface here, once knewsticker has been ported"
+#endif
   QDBusInterface service( "org.kde.rssservice", "/", "org.kde.rssservice.RSSService" );
   service.call( "remove(QString)", item->url() );
 
@@ -302,7 +306,9 @@ void KCMKontactKNT::scanNews()
 
   mSelectedNews->clear();
 
+#ifdef __GNUC__
   #warning "insert the right dbus path/interface here, once knewsticker has been ported"
+#endif
   QDBusInterface service( "org.kde.rssservice", "/", "org.kde.rssservice.RSSService" );
   QDBusReply<QStringList> reply = service.call( "list()" );
   QStringList urls = reply.value();
@@ -411,7 +417,9 @@ bool KCMKontactKNT::dbusActive() const
   QString appID;
   bool isGood = true;
   
+#ifdef __GNUC__
   #warning "insert the right dbus path/interface here, once knewsticker has been ported"
+#endif
   QDBusInterface service( "org.kde.rssservice", "/", "org.kde.rssservice.RSSService" );
   if ( !service.isValid() ) {
     if ( KToolInvocation::startServiceByDesktopName( "rssservice", QStringList(), &error, &appID ) )

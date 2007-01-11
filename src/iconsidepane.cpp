@@ -280,7 +280,9 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
   connect( mMapper, SIGNAL( mapped( int ) ), SLOT( shortCutSelected( int ) ) );
 
   this->setToolTip("");
+#ifdef __GNUC__
 #warning Port me!
+#endif
 //  if ( !mShowText )
 //    new EntryItemToolTip( this );
 
@@ -331,7 +333,9 @@ void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
 
   int counter = 0;
   int minWidth = 0;
+#ifdef __GNUC__
 #warning Port me!
+#endif
 //  qSort( plugins );
   QList<Kontact::PluginProxy>::ConstIterator end = plugins.end();
   QList<Kontact::PluginProxy>::ConstIterator it = plugins.begin();
@@ -474,7 +478,9 @@ void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint &pos )
   QAction *showText = menu.addAction( i18n( "Show Text" ) );
   showText->setChecked( mShowText );
   showText->setEnabled( mShowIcons );
+#ifdef __GNUC__
 #warning Port me!
+#endif
   QAction *choice = menu.exec( pos );
 
   if ( choice == 0 )
@@ -493,7 +499,9 @@ void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint &pos )
     mShowIcons = !mShowIcons;
     Prefs::self()->setSidePaneShowIcons( mShowIcons );
     this->setToolTip("");
+#ifdef __GNUC__
 #warning Port me!
+#endif
 //    if ( !mShowText )
 //      new EntryItemToolTip( this );
   } else if ( choice == showText ) {

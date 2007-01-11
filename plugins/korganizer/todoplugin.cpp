@@ -81,7 +81,9 @@ KParts::ReadOnlyPart *TodoPlugin::createPart()
   if ( !part )
     return 0;
 
+#ifdef __GNUC__
   #warning "Once we have a running korganizer, make sure that this dbus call really does what it should! Where is it needed, anyway?"
+#endif
   mIface = new OrgKdeKorganizerCalendarInterface( "org.kde.korganizer", "/Calendar", QDBusConnection::sessionBus(), this );
 
   return part;
@@ -126,7 +128,9 @@ void TodoPlugin::slotNewTodo()
 bool TodoPlugin::createDBUSInterface( const QString& serviceType )
 {
   kDebug(5602) << k_funcinfo << serviceType << endl;
+#ifdef __GNUC__
   #warning "What is this needed for, and do we still need it with DBUS?"
+#endif
   if ( serviceType == "DBUS/Organizer" || serviceType == "DBUS/Calendar" ) {
     if ( part() )
       return true;

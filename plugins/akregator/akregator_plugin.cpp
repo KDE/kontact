@@ -152,7 +152,9 @@ int UniqueAppHandler::newInstance()
     kDebug(5602) << k_funcinfo << endl;
     // Ensure part is loaded
     (void)plugin()->part();
+#ifdef __GNUC__
 #warning Port me to DBus!
+#endif
 //    DCOPRef akr( "akregator", "AkregatorIface" );
 //    DCOPReply reply = kAB.call( "handleCommandLine" );
   //  if ( reply.isValid() ) {

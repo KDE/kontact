@@ -732,7 +732,9 @@ int MainWindow::startServiceFor( const QString& serviceType,
 {
   PluginList::ConstIterator end = mPlugins.end();
   for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
+#ifdef __GNUC__
 #warning Port me to DBus!
+#endif
 /*  if ( (*it)->createDBUSInterface( serviceType ) ) {
       kDebug(5600) << "found interface for " << serviceType << endl;
       if ( dcopService )

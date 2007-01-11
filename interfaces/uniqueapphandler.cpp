@@ -90,7 +90,9 @@ int UniqueAppHandler::newInstance()
   return 0;
 }
 
+#ifdef __GNUC__
 #warning Port to DBus!
+#endif
 /*bool UniqueAppHandler::process( const DCOPCString &fun, const QByteArray &data,
                                 DCOPCString& replyType, QByteArray &replyData )
 {
@@ -146,7 +148,9 @@ UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin
     : QObject( plugin ), mFactory( factory ), mPlugin( plugin )
 {
   // The app is running standalone if 1) that name is known to DCOP
+#ifdef __GNUC__
 #warning Port to DBus!
+#endif
 /*  mRunningStandalone = kapp->dcopClient()->isApplicationRegistered( plugin->objectName().toLatin1() );
 
   // and 2) it's not registered by kontact (e.g. in another plugin)
@@ -164,7 +168,9 @@ UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin
 
 UniqueAppWatcher::~UniqueAppWatcher()
 {
+#ifdef __GNUC__
 #warning Port to DBus!
+#endif
 //  if ( mRunningStandalone )
 //    kapp->dcopClient()->setNotifications( false );
 
@@ -174,7 +180,9 @@ UniqueAppWatcher::~UniqueAppWatcher()
 void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray& appId )
 {
   if ( appId == mPlugin->objectName() && mRunningStandalone ) {
+#ifdef __GNUC__
 #warning Port to DBus!
+#endif
 //    disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ),
 //                this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
     kDebug(5601) << k_funcinfo << appId << endl;

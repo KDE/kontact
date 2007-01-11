@@ -95,7 +95,9 @@ class EntryItem : public Q3ListBoxItem
  * Tooltip that changes text depending on the item it is above.
  * Compliments of "Practical Qt" by Dalheimer, Petersen et al.
  */
+#ifdef __GNUC__
 #warning Port me!
+#endif
 #if 0
 class EntryItemToolTip : public QToolTip
 {

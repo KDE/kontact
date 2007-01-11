@@ -35,7 +35,9 @@ namespace Kontact
  * By default this means simply bringing the main window to the front,
  * but newInstance can be reimplemented.
  */
+#ifdef __GNUC__
 #warning This was a DCOPObject, port to DBus!
+#endif
 class KDE_EXPORT UniqueAppHandler //: public DCOPObject
 {
   public:
@@ -75,7 +77,9 @@ template <class T> class UniqueAppHandlerFactory : public UniqueAppHandlerFactor
 {
   public:
     virtual UniqueAppHandler* createHandler( Plugin* plugin ) {
+#ifdef __GNUC__
 #warning Port to DBus!
+#endif
 //        (void)plugin->dcopClient(); // ensure that we take over the DCOP name
         return new T( plugin );
     }

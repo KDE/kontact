@@ -67,7 +67,9 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   }
 
   if ( serviceAvailable ) {
+#ifdef __GNUC__
 #warning "kde4 port to dbus"
+#endif
 	  /*
       	  connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false );
     connectDCOPSignal( 0, 0, "stationRemoved(QString)", "stationRemoved(QString)", false );

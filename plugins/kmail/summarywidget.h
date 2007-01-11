@@ -42,7 +42,9 @@
 class QGridLayout;
 class QString;
 
+#ifdef __GNUC__
 #warning Port DCOPObject -> DBus!
+#endif
 class SummaryWidget : public Kontact::Summary //, public DCOPObject
 {
   Q_OBJECT

@@ -108,7 +108,9 @@ void KCMKMailSummary::initFolders()
       displayName = i18nc( "prefix for local folders", "Local" );
     else {
 	org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
+#ifdef __GNUC__
 #warning Port me to DBus!
+#endif
 //      DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
 //      folderRef.call( "displayName()" ).get( displayName );
     }
