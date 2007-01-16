@@ -16,5 +16,6 @@ Name[x-test]=xxPending To-dosxx
 Comment=Pending To-dos Summary Setup
 Comment[x-test]=xxPending To-dos Summary Setupxx
 Keywords=calendar, todos, configure, settings
+Keywords[el]=ημερολόγιο, προς υλοποίηση, ρύθμιση, ρυθμίσεις
 Keywords[fr]=calendrier,agenda,tâches,configurer,paramètres,paramètre
 Keywords[x-test]=xxcalendar, todos, configure, settingsxx

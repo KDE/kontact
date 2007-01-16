@@ -15,9 +15,11 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Akregator Plugin
+Comment[el]=Πρόσθετο του Akregator
 Comment[fr]=Module pour Akregator
 Comment[x-test]=xxAkregator Pluginxx
 Name=Feeds
+Name[el]=Ροές
 Name[fr]=Flux
 Name[x-test]=xxFeedsxx
 

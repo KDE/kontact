@@ -12,8 +12,10 @@ X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-EnabledByDefault=false
 
 Comment=Kontact Test Plugin
+Comment[el]=Δοκιμαστικό πρόσθετο του Kontact
 Comment[fr]=Module de test pour Kontact
 Comment[x-test]=xxKontact Test Pluginxx
 Name=TestPlugin
+Name[el]=Πρόσθετο ελέγχου
 Name[fr]=Module de test
 Name[x-test]=xxTestPluginxx

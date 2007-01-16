@@ -13,9 +13,11 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact SummaryView Plugin
+Comment[el]=Πρόσθετο προβολής Σύνοψης του Kontact
 Comment[fr]=Module de vue résumée pour Kontact
 Comment[x-test]=xxKontact SummaryView Pluginxx
 Name=Summary
+Name[el]=Σύνοψη
 Name[fr]=Résumé
 Name[x-test]=xxSummaryxx
 #Always last

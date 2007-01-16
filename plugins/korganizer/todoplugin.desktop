@@ -17,8 +17,10 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KOrganizer To-do List Plugin
+Comment[el]=Πρόσθετο του Kontact για την προς υλοποίηση λίστα του KOrganizer
 Comment[fr]=Module de liste des tâches de KOrganizer pour Kontact
 Comment[x-test]=xxKontact KOrganizer To-do List Pluginxx
 Name=To-do List
+Name[el]=Λίστα προς υλοποίηση
 Name[fr]=Liste de tâches
 Name[x-test]=xxTo-do Listxx

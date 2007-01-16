@@ -15,7 +15,9 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KNotes Plugin
+Comment[el]=Πρόσθετο KNotes του Kontact
 Comment[fr]=Module KNotes pour Kontact
 Comment[x-test]=xxKontact KNotes Pluginxx
 Name=Notes
+Name[el]=Σημειώσεις
 Name[x-test]=xxNotesxx

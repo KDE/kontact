@@ -18,6 +18,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KMail Plugin
+Comment[el]=Πρόσθετο KMail του Kontact
 Comment[fr]=Module KMail pour Kontact
 Comment[x-test]=xxKontact KMail Pluginxx
 Name=Mail

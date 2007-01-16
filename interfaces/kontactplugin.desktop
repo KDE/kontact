@@ -2,6 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=Kontact/Plugin
 Name=Kontact Plugin
+Name[el]=Πρόσθετο Kontact
 Name[fr]=Module Kontact
 Name[x-test]=xxKontact Pluginxx
 

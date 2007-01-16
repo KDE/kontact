@@ -17,7 +17,9 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KAddressBook Plugin
+Comment[el]=Πρόσθετο KAddressBook του Kontact
 Comment[fr]=Module KAddressBook pour Kontact
 Comment[x-test]=xxKontact KAddressBook Pluginxx
 Name=Contacts
+Name[el]=Επαφές
 Name[x-test]=xxContactsxx
