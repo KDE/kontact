@@ -29,6 +29,7 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QEvent>
+#include <QApplication>
 
 #include <kdebug.h>
 #include <kglobal.h>
@@ -67,13 +68,9 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   }
 
   if ( serviceAvailable ) {
-#ifdef __GNUC__
-#warning "kde4 port to dbus"
-#endif
-	  /*
-      	  connectDCOPSignal( 0, 0, "fileUpdate(QString)", "refresh(QString)", false );
-    connectDCOPSignal( 0, 0, "stationRemoved(QString)", "stationRemoved(QString)", false );
-*/
+    QDBusConnection::sessionBus().connect(QString(), "/Service", "org.kde.kweather.service", "fileUpdate", this, SLOT(refresh(QString)));
+    QDBusConnection::sessionBus().connect(QString(), "/Service", "org.kde.kweather.service", "stationRemoved", this, SLOT(stationRemoved(QString)));
+
     OrgKdeKweatherServiceInterface service( "org.kde.KWeatherService", "/Service", QDBusConnection::sessionBus() );
     QDBusReply<QStringList> reply = service.listStations();
     if ( reply.isValid() ) {
