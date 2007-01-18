@@ -727,7 +727,7 @@ void MainWindow::slotPreferences()
 
 int MainWindow::startServiceFor( const QString& serviceType,
                                  const QString& constraint,
-                                 QString *error, QString* dcopService,
+                                 QString *error, QString* dbusService,
                                  int flags )
 {
   PluginList::ConstIterator end = mPlugins.end();
@@ -748,7 +748,7 @@ int MainWindow::startServiceFor( const QString& serviceType,
     "Didn't find dbus interface, falling back to external process" << endl;
 
   return KDBusServiceStarter::startServiceFor( serviceType, constraint,
-      error, dcopService, flags );
+      error, dbusService, flags );
 }
 
 void MainWindow::pluginsChanged()
@@ -825,7 +825,7 @@ void MainWindow::readProperties( KConfig *config )
 {
   Core::readProperties( config );
 
-  QStringList activePlugins = config->readListEntry( "ActivePlugins" );
+  QStringList activePlugins = config->readEntry( "ActivePlugins",QStringList() );
   QList<Plugin*>::ConstIterator it = mPlugins.begin();
   QList<Plugin*>::ConstIterator end = mPlugins.end();
   for ( ; it != end; ++it ) {

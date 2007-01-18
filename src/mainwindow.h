@@ -70,10 +70,10 @@ class KDE_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStarter
     MainWindow();
     ~MainWindow();
 
-    // KDCOPServiceStarter interface
+    // KDBusServiceStarter interface
     virtual int startServiceFor( const QString& serviceType,
                                  const QString& constraint = QString::null,
-                                 QString *error = 0, QString* dcopService = 0,
+                                 QString *error = 0, QString* dbusService = 0,
                                  int flags = 0 );
 
     virtual PluginList pluginList() const { return mPlugins; }

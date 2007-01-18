@@ -27,6 +27,8 @@
 #include <kdebug.h>
 #include <klocale.h>
 #include <kuniqueapplication.h>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
 
 /*
  Test plan for the various cases of interaction between standalone apps and kontact:
@@ -147,10 +149,15 @@ DCOPCStringList UniqueAppHandler::functions()
 UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin* plugin )
     : QObject( plugin ), mFactory( factory ), mPlugin( plugin )
 {
-  // The app is running standalone if 1) that name is known to DCOP
+  // The app is running standalone if 1) that name is known to D-Bus
 #ifdef __GNUC__
 #warning Port to DBus!
 #endif
+    mRunningStandalone = QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde."+plugin->objectName().toLatin1());
+    kDebug()<<" plugin->objectName() :"<<plugin->objectName()<<" isServiceRegistered ? :"<<mRunningStandalone<<endl;
+    
+   
+
 /*  mRunningStandalone = kapp->dcopClient()->isApplicationRegistered( plugin->objectName().toLatin1() );
 
   // and 2) it's not registered by kontact (e.g. in another plugin)
