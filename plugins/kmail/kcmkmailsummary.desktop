@@ -13,6 +13,7 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Mail
 Name[af]=Pos
+Name[ar]=البريد
 Name[be]=Пошта
 Name[br]=Lizher
 Name[ca]=Correu
@@ -63,6 +64,7 @@ Name[zh_CN]=邮件
 Name[zh_TW]=郵件
 Comment=Mail Summary Setup
 Comment[af]=Pos opsomming opstelling
+Comment[ar]=تعيين ملخص البريد
 Comment[bg]=Настройки на обобщението на писмата
 Comment[bs]=Postavke mail sažetka
 Comment[ca]=Configuració del resum de correu
