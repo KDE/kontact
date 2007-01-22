@@ -28,6 +28,7 @@
 #include <QSplitter>
 #include <QTimer>
 #include <QList>
+#include <QLayout>
 
 #include <kactioncollection.h>
 #include <kapplication.h>
@@ -57,7 +58,7 @@
 #include <kservicetypetrader.h>
 #include <ksettings/componentsdialog.h>
 #include <kstringhandler.h>
-#include <krsqueezedtextlabel.h>
+#include <ksqueezedtextlabel.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
 #include <libkdepim/kfileio.h>
@@ -264,7 +265,8 @@ void MainWindow::initWidgets()
 
   mLittleProgress = new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
 
-  mStatusMsgLabel = new KRSqueezedTextLabel( i18n( " Initializing..." ), statusBar() );
+  mStatusMsgLabel = new KSqueezedTextLabel( i18n( " Initializing..." ), statusBar() );
+  mStatusMsgLabel->setTextElideMode( Qt::ElideRight );
   mStatusMsgLabel->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
 
   statusBar()->addWidget( mStatusMsgLabel, 10 );

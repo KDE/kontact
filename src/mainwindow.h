@@ -43,7 +43,7 @@ class KVBox;
 class KAction;
 class KConfig;
 class KPluginInfo;
-class KRSqueezedTextLabel;
+class KSqueezedTextLabel;
 class KHTMLPart;
 class KeyPressEater;
 class KToolBarPopupAction;
@@ -143,7 +143,7 @@ class KDE_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStarter
     QList<KPluginInfo*> mPluginInfos;
     KHTMLPart *mIntroPart;
 
-    KRSqueezedTextLabel* mStatusMsgLabel;
+    KSqueezedTextLabel* mStatusMsgLabel;
     KPIM::StatusbarProgressWidget *mLittleProgress;
 
     QString mActiveModule;
