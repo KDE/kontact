@@ -12,6 +12,7 @@ X-KDE-ParentComponents=kontact_newstickerplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=News Ticker
+Name[af]=Nuus tikker
 Name[az]=Xəbər Gözləyici
 Name[br]=Kliker keleier
 Name[ca]=Teletip de notícies
@@ -64,6 +65,7 @@ Name[zh_CN]=新闻点点通
 Name[zh_TW]=新聞顯示器
 Name[zu]=Umlungiseleli Wezindaba 
 Comment=News Ticker Summary Setup
+Comment[af]=Nuus tikker opsomming opstelling
 Comment[bg]=Настройки на обобщението на новините
 Comment[ca]=Configuració del resum del teletip de notícies
 Comment[cs]=Nastavení souhrnu newstickeru

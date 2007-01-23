@@ -13,6 +13,7 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact SummaryView Plugin
+Comment[af]=Kontact opsomming aansig inprop module
 Comment[bg]=Приставка за обобщен преглед
 Comment[bs]=Kontact dodatak za Sažetak
 Comment[ca]=Endollable de la vista resum per a Kontact
@@ -57,6 +58,8 @@ Comment[uk]=Втулок Kontact для перегляду зведень
 Comment[zh_CN]=Kontact 概览视图插件
 Comment[zh_TW]=Kontact 摘要檢視外掛程式
 Name=Summary
+Name[af]=Opsomming
+Name[ar]=الموجز
 Name[br]=Diverrañ
 Name[bs]=Sažetak
 Name[ca]=Resum

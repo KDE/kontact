@@ -15,6 +15,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=false
 
 Comment=Kontact KNode Plugin
+Comment[af]=Kontact KNode inprop module
 Comment[be]=Дапаўненьне Кантакту "KNode"
 Comment[bg]=Приставка за четене на новини
 Comment[br]=Lugent Kontact KNode
@@ -64,6 +65,8 @@ Comment[uz]=Kontact учун KNode плагини
 Comment[zh_CN]=Kontact KNode 插件
 Comment[zh_TW]=Kontact KNode 外掛程式
 Name=News
+Name[af]=Nuus
+Name[ar]=الأخبار
 Name[be]=Навіны
 Name[br]=Keleier
 Name[bs]=Usenet

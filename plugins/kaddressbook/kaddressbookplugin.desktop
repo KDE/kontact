@@ -17,6 +17,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KAddressBook Plugin
+Comment[af]=Kontact adresboek inprop module
 Comment[be]=Дапаўненьне Кантакту "K Адрасная кніга"
 Comment[bg]=Приставка за адресника
 Comment[br]=Lugent Kontact KAddressBook
@@ -65,6 +66,8 @@ Comment[uz]=Kontact учун KAddressBook плагини
 Comment[zh_CN]=Kontact KAddressbook 插件
 Comment[zh_TW]=Kontact KAddressBook 外掛程式
 Name=Contacts
+Name[af]=Kontakte
+Name[ar]=المراسلون
 Name[be]=Кантакты
 Name[br]=Darempredoù
 Name[bs]=Kontakti

@@ -1,5 +1,7 @@
 [KontactSummary]
 Name=Summary
+Name[af]=Opsomming
+Name[ar]=الموجز
 Name[br]=Diverrañ
 Name[bs]=Sažetak
 Name[ca]=Resum
@@ -48,6 +50,8 @@ Name[uz]=Ҳисобот
 Name[zh_CN]=概览
 Name[zh_TW]=摘要
 Comment=Summary View
+Comment[af]=Opsomming aansig
+Comment[ar]=عرض الملخص
 Comment[bg]=Обобщение
 Comment[ca]=Vista resum
 Comment[cs]=Souhrný pohled
@@ -92,6 +96,8 @@ Icon=kontact_summary
 
 [KMail]
 Name=Mail
+Name[af]=Pos
+Name[ar]=البريد
 Name[be]=Пошта
 Name[br]=Lizher
 Name[ca]=Correu
@@ -141,6 +147,8 @@ Name[uz]=Хат-хабар
 Name[zh_CN]=邮件
 Name[zh_TW]=郵件
 Comment=Mail Component
+Comment[af]=Pos komponent
+Comment[ar]=مكوّن البريد
 Comment[be]=Кампанэнт "Пошта"
 Comment[bg]=Модул за е-поща
 Comment[br]=Perzh postel
@@ -187,6 +195,8 @@ Icon=kontact_mail
 
 [KAB]
 Name=Contacts
+Name[af]=Kontakte
+Name[ar]=المراسلون
 Name[be]=Кантакты
 Name[br]=Darempredoù
 Name[bs]=Kontakti
@@ -236,12 +246,14 @@ Name[uz]=Алоқалар
 Name[zh_CN]=联系人
 Name[zh_TW]=聯絡人
 Comment=Address Book Component
+Comment[af]=Adres boek komponent
+Comment[ar]=مكون دفتر العناوين
 Comment[be]=Кампанэнт "Адрасная кніга"
 Comment[bg]=Модул за адресника
 Comment[ca]=Component de llibreta d'adreces
 Comment[cs]=Komponenta knihy adres
 Comment[da]=Adressebogskomponent
-Comment[de]=Addressbuch-Komponente
+Comment[de]=Adressbuch-Komponente
 Comment[el]=Στοιχείο βιβλίου διευθύνσεων
 Comment[es]=Componente de la libreta de direcciones
 Comment[et]=Aadressiraamatu komponent
@@ -281,6 +293,8 @@ Icon=kontact_contacts
 
 [Special Dates]
 Name=Special Dates Summary
+Name[af]=Spesiale datums opsomming
+Name[ar]=موجز عن التواريخ المرموقة
 Name[ca]=Resum de dates especials
 Name[cs]=Souhrn speciálních datumů
 Name[da]=Opsummering af særlige datoer
@@ -320,6 +334,7 @@ Name[uk]=Короткий підсумок особливих дат
 Name[zh_CN]=特殊日期摘要
 Name[zh_TW]=特殊日期摘要
 Comment=Special Dates Summary Component
+Comment[af]=Spesiale datums opsomming komponent
 Comment[bg]=Модул за обобщение на специалните случаи
 Comment[ca]=Component pel resum de dates especials
 Comment[cs]=Komponenta souhrnu speciálních příležitostí
@@ -364,6 +379,8 @@ Icon=cookie
 
 [KOrganizer]
 Name=Calendar
+Name[af]=Kalender
+Name[ar]=التقويم
 Name[be]=Каляндар
 Name[br]=Deiziadur
 Name[bs]=Kalendar
@@ -413,6 +430,7 @@ Name[uz]=Календар
 Name[zh_CN]=日历
 Name[zh_TW]=行事曆
 Comment=Calendar Component
+Comment[af]=Kalender komponent
 Comment[be]=Кампанэнт "Календар"
 Comment[bg]=Модул за календара
 Comment[ca]=Component de calendari
@@ -458,6 +476,8 @@ Icon=kontact_date
 
 [KNode]
 Name=News
+Name[af]=Nuus
+Name[ar]=الأخبار
 Name[be]=Навіны
 Name[br]=Keleier
 Name[bs]=Usenet
@@ -507,6 +527,7 @@ Name[uz]=Янгиликлар
 Name[zh_CN]=新闻
 Name[zh_TW]=新聞
 Comment=News Component
+Comment[af]=Nuus komponent
 Comment[be]=Кампанэнт "Навіны"
 Comment[bg]=Модул за новините
 Comment[ca]=Component ne notícies
@@ -552,6 +573,7 @@ Icon=kontact_news
 
 [KWeather]
 Name=Weather
+Name[af]=Weer
 Name[ar]=الطقس
 Name[be]=Надвор'е
 Name[br]=Amzer
@@ -602,6 +624,8 @@ Name[uz]=Об-ҳаво
 Name[zh_CN]=天气
 Name[zh_TW]=天氣
 Comment=Weather Information
+Comment[af]=Weer informasie
+Comment[ar]=معلومات عن الطقس
 Comment[be]=Інфармацыя пра надвор’е
 Comment[bg]=Информация за времето
 Comment[br]=Titouroù diwar-benn an amzer
@@ -651,6 +675,7 @@ Icon=kweather
 
 [NewsTicker]
 Name=News Ticker
+Name[af]=Nuus tikker
 Name[az]=Xəbər Gözləyici
 Name[br]=Kliker keleier
 Name[ca]=Teletip de notícies
@@ -703,6 +728,7 @@ Name[zh_CN]=新闻点点通
 Name[zh_TW]=新聞顯示器
 Name[zu]=Umlungiseleli Wezindaba 
 Comment=News Ticker Component
+Comment[af]=Nuus tikker komponent
 Comment[bg]=Компонент за новини
 Comment[ca]=Componennt de teletip de notícies
 Comment[cs]=Komponenta zdrojů novinek

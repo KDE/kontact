@@ -14,6 +14,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=MultiSynk Plugin
+Comment[af]=MultiSynk inprop module
 Comment[bg]=Приставка за синхронизация
 Comment[br]=Lugent MultiSynk
 Comment[ca]=Endollable MultiSynk
@@ -55,7 +56,8 @@ Comment[uz]=MultiSynk плагини
 Comment[zh_CN]=MultiSynk 插件
 Comment[zh_TW]=MultiSynk 外掛程式
 Name=Synchronization
-Name[ar]=التزامن
+Name[af]=Sinkronisasie
+Name[ar]=المزامنة
 Name[be]=Сынхранізацыя
 Name[bs]=Sinhronizacija
 Name[ca]=Sincronització

@@ -14,6 +14,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=false
 
 Comment=KitchenSync Plugin
+Comment[af]=KitchenSync inprop module
 Comment[bg]=Приставка за синхронизация
 Comment[br]=Lugent KitchenSync
 Comment[bs]=KitchenSync dodatak
@@ -60,7 +61,8 @@ Comment[uk]=Втулок KitchenSync
 Comment[zh_CN]=KitchenSync 插件
 Comment[zh_TW]=KitchenSync 外掛程式
 Name=Synchronization
-Name[ar]=التزامن
+Name[af]=Sinkronisasie
+Name[ar]=المزامنة
 Name[be]=Сынхранізацыя
 Name[bs]=Sinhronizacija
 Name[ca]=Sincronització

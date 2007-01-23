@@ -16,6 +16,7 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact NewsTicker Plugin
+Comment[af]=Kontact nuus tikker inprop module
 Comment[bg]=Приставка за новини
 Comment[bs]=Kontact NewsTicker dodatak
 Comment[ca]=Endollable del teletip de noticies per a Kontact
@@ -59,6 +60,7 @@ Comment[uk]=Втулок стрічки новин Kontact
 Comment[zh_CN]=Kontact 新闻点点通插件
 Comment[zh_TW]=Kontact NewsTicker 外掛程式
 Name=NewsTicker
+Name[af]=Nuus tikker
 Name[ca]=Teletip de notícies
 Name[da]=Nyhedstelegraf
 Name[de]=Newsticker
