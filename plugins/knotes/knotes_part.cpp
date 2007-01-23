@@ -180,10 +180,7 @@ void KNotesPart::killNote( const QString& id, bool force )
 
   if ( note &&
        ( (!force && KMessageBox::warningContinueCancelList( mNotesView,
-              // I know this looks silly, but it avoids a duplicated translation with 
-              // KNotesPart::killSelectedNotes
-              i18np( "Do you really want to delete this note?",
-                     "Do you really want to delete these %n notes?", 1 ),
+                    i18n( "Do you really want to delete this note?" ),
                     QStringList(mNoteList[ id ]->text()), i18n( "Confirm Delete" ),
                     KStandardGuiItem::del() ) == KMessageBox::Continue)
          || force )
