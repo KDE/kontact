@@ -37,7 +37,7 @@ K_EXPORT_COMPONENT_FACTORY( libkptestplugin, TestPluginFactory( "kptestplugin" )
 TestPlugin::TestPlugin(Kontact::Core *_core, const char *name, const QStringList &)
   : Kontact::Plugin(_core, _core, name)
 {
-  setInstance(TestPluginFactory::instance());
+  setComponentData(TestPluginFactory::componentData());
 
   insertNewAction(new KAction("Test", 0, this, SLOT(slotTestMenu()), actionCollection(), "edit_test"));
 

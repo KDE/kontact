@@ -29,7 +29,7 @@
 
 #include <klocale.h>
 #include <kiconloader.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 #include <kaboutdata.h>
 #include <ktextbrowser.h>
 #include <kicon.h>
@@ -57,7 +57,7 @@ AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
   showButtonSeparator(true);
   setFaceType(KPageDialog::List);
   addAboutData( i18n( "Kontact Container" ), QString( "kontact" ),
-                KGlobal::instance()->aboutData() );
+                KGlobal::mainComponent().aboutData() );
 
   QList<Plugin*> plugins = mCore->pluginList();
   QList<Plugin*>::ConstIterator end = plugins.end();
@@ -65,7 +65,7 @@ AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
   for ( ; it != end; ++it )
     addAboutPlugin( *it );
 
-  addLicenseText( KGlobal::instance()->aboutData() );
+  addLicenseText( KGlobal::mainComponent().aboutData() );
 }
 
 void AboutDialog::addAboutPlugin( Kontact::Plugin *plugin )

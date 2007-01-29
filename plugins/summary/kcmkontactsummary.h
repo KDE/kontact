@@ -44,7 +44,7 @@ class KCMKontactSummary : public KCModule
   Q_OBJECT
 
   public:
-    KCMKontactSummary( KInstance *inst,QWidget *parent = 0 );
+    KCMKontactSummary( const KComponentData &inst,QWidget *parent = 0 );
 
     virtual void load();
     virtual void save();

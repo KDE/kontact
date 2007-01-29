@@ -37,7 +37,7 @@ class KCMTodoSummary : public KCModule, public Ui::TodoSummaryConfig_Base
   Q_OBJECT
 
   public:
-    KCMTodoSummary( KInstance *inst, QWidget *parent = 0 );
+    KCMTodoSummary( const KComponentData &inst, QWidget *parent = 0 );
     virtual ~KCMTodoSummary();
 
 

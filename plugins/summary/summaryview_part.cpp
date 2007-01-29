@@ -35,7 +35,7 @@
 #include <kdbusservicestarter.h>
 #include <kdebug.h>
 #include <kdialog.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kservice.h>
@@ -70,7 +70,7 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
   : KParts::ReadOnlyPart( parent ),
     mCore( core ), mFrame( 0 ), mConfigAction( 0 )
 {
-  setInstance( new KInstance( aboutData ) );
+  setComponentData( KComponentData( aboutData ) );
 
   loadLayout();
 

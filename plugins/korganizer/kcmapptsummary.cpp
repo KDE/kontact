@@ -32,7 +32,7 @@
 #include <kconfig.h>
 #include <kdebug.h>
 #include <klocale.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 
 #include "kcmapptsummary.h"
 
@@ -42,12 +42,12 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_apptsummary( QWidget *parent, const char * )
   {
-    KInstance *inst = new KInstance( "kcmapptsummary" );
+    KComponentData inst( "kcmapptsummary" );
     return new KCMApptSummary( inst, parent );
   }
 }
 
-KCMApptSummary::KCMApptSummary( KInstance *inst, QWidget *parent )
+KCMApptSummary::KCMApptSummary( const KComponentData &inst, QWidget *parent )
   : KCModule( inst, parent )
 {
   QWidget *widget = new QWidget( parent );

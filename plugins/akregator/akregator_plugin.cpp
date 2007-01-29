@@ -52,7 +52,7 @@ Plugin::Plugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "akregator" ), m_interface(0)
 {
 
-    setInstance( PluginFactory::instance() );
+    setComponentData( PluginFactory::componentData() );
 
     KAction *action  = new KAction(KIcon("bookmark_add"), i18n("New Feed..."), this);
     actionCollection()->addAction("feed_new", action );

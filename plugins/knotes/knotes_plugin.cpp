@@ -41,7 +41,7 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QStringList & )
   : Kontact::Plugin( core, core, "knotes" ),
     mAboutData( 0 )
 {
-  setInstance( KNotesPluginFactory::instance() );
+  setComponentData( KNotesPluginFactory::componentData() );
 
     KAction *action  = new KAction(KIcon("knotes"), i18n("New Note..."), this);
     actionCollection()->addAction("new_note", action );

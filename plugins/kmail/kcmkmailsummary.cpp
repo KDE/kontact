@@ -32,7 +32,7 @@
 #include <kdialog.h>
 #include <k3listview.h>
 #include <klocale.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 
 #include "kcmkmailsummary.h"
 
@@ -43,12 +43,12 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_kmailsummary( QWidget *parent, const char * )
   {
-    KInstance *inst = new KInstance("kcmkmailsummary" );
+    KComponentData inst("kcmkmailsummary" );
     return new KCMKMailSummary( inst, parent );
   }
 }
 
-KCMKMailSummary::KCMKMailSummary( KInstance *inst, QWidget *parent )
+KCMKMailSummary::KCMKMailSummary( const KComponentData &inst, QWidget *parent )
   : KCModule( inst, parent )
 {
   initGUI();

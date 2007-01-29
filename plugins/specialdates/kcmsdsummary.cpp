@@ -41,18 +41,18 @@
 #include "kcmsdsummary.h"
 
 #include <kdemacros.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 
 extern "C"
 {
   KDE_EXPORT KCModule *create_sdsummary( QWidget *parent, const char * )
   {
-    KInstance *inst = new KInstance( "kcmsdsummary" );
+    KComponentData inst( "kcmsdsummary" );
     return new KCMSDSummary( inst, parent );
   }
 }
 
-KCMSDSummary::KCMSDSummary( KInstance *inst, QWidget *parent )
+KCMSDSummary::KCMSDSummary( const KComponentData &inst, QWidget *parent )
   : KCModule( inst, parent )
 {
   QWidget *widget = new QWidget( parent );

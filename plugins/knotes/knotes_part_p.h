@@ -56,7 +56,7 @@
 #include <kcal/journal.h>
 
 #include "knotes/knoteedit.h"
-#include <kinstance.h>
+#include <kcomponentdata.h>
 
 
 class KNotesIconViewItem : public K3IconViewItem
@@ -108,7 +108,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
       // this dialog is modal to prevent one from editing the same note twice in two
       // different windows
 
-      setInstance( new KInstance( "knotes" ) ); // TODO: memleak
+      setComponentData( KComponentData( "knotes" ) ); // TODO: memleak
       setXMLFile( "knotesui.rc" );
       actionCollection()->setAssociatedWidget( this );
 

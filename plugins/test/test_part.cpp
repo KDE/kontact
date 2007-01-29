@@ -43,7 +43,7 @@
 TestPart::TestPart(QObject *parent, const char *name) // ## parentWidget
   : KParts::ReadOnlyPart(parent, name)
 {
-  setInstance( new KInstance("testpart") ); // ## memleak
+  setComponentData( KComponentData("testpart") ); // ## memleak
   m_edit = new QTextEdit;
   setWidget(m_edit);
   setXMLFile("testpartui.rc");

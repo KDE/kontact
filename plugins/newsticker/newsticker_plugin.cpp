@@ -34,7 +34,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_newstickerplugin,
 NewsTickerPlugin::NewsTickerPlugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, 0 )
 {
-	setInstance( NewsTickerPluginFactory::instance() );
+	setComponentData( NewsTickerPluginFactory::componentData() );
 }
 
 Kontact::Summary *NewsTickerPlugin::createSummaryWidget( QWidget* parentWidget )

@@ -160,7 +160,7 @@ void MainWindow::initObject()
     plugActionList( "navigator_actionlist", mSidePane->actions() );
   }
 
-  KSettings::Dispatcher::self()->registerInstance( instance(), this,
+  KSettings::Dispatcher::self()->registerComponent( componentData(), this,
                                                    SLOT( updateConfig() ) );
 
   loadSettings();
@@ -178,12 +178,12 @@ void MainWindow::initObject()
   // launch commandline specified module if any
   activatePluginModule();
 
-  if ( Prefs::lastVersionSeen() == KGlobal::instance()->aboutData()->version() ) {
+  if ( Prefs::lastVersionSeen() == KGlobal::mainComponent().aboutData()->version() ) {
     selectPlugin( mCurrentPlugin );
   }
 
 //  paintAboutScreen( introductionString() );
-  Prefs::setLastVersionSeen( KGlobal::instance()->aboutData()->version() );
+  Prefs::setLastVersionSeen( KGlobal::mainComponent().aboutData()->version() );
 }
 
 MainWindow::~MainWindow()
@@ -795,7 +795,7 @@ void MainWindow::configureShortcuts()
 
 void MainWindow::configureToolbars()
 {
-  saveMainWindowSettings( KGlobal::config(), "MainWindow" );
+  saveMainWindowSettings( KGlobal::config().data(), "MainWindow" );
 
   KEditToolbar edit( factory() );
   connect( &edit, SIGNAL( newToolbarConfig() ),
@@ -806,7 +806,7 @@ void MainWindow::configureToolbars()
 void MainWindow::slotNewToolbarConfig()
 {
   createGUI( mCurrentPlugin->part() );
-  applyMainWindowSettings( KGlobal::config(), "MainWindow" );
+  applyMainWindowSettings( KGlobal::config().data(), "MainWindow" );
 }
 
 void MainWindow::slotOpenUrl( const KUrl &url )
@@ -909,7 +909,7 @@ QString MainWindow::introductionString()
       "<td><a href=\"%21\">%22</a><br><span id=\"subtext\"><nobr>%23</td></tr>"
       "</table>"
       "<p style=\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>" )
-      .subs( KGlobal::instance()->aboutData()->version() )
+      .subs( KGlobal::mainComponent().aboutData()->version() )
       .subs( i18n( "Kontact handles your e-mail, addressbook, calendar, to-do list and more." ) )
       .subs( "help:/kontact" )
       .subs( iconSize )

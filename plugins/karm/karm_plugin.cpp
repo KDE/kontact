@@ -40,7 +40,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_karm,
 KarmPlugin::KarmPlugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "KArm" )
 {
-  setInstance( KarmPluginFactory::instance() );
+  setComponentData( KarmPluginFactory::componentData() );
 
     KAction *action  = new KAction(KIcon("karm"), i18n("New Task"), this);
     actionCollection()->addAction("new_task", action );

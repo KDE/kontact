@@ -40,7 +40,7 @@ SpecialdatesPlugin::SpecialdatesPlugin( Kontact::Core *core, const QStringList& 
   : Kontact::Plugin( core, core, 0 ),
     mAboutData( 0 )
 {
-  setInstance( SpecialdatesPluginFactory::instance() );
+  setComponentData( SpecialdatesPluginFactory::componentData() );
 }
 
 SpecialdatesPlugin::~SpecialdatesPlugin()

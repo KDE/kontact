@@ -27,7 +27,7 @@
 #include <kglobal.h>
 #include <kparts/componentfactory.h>
 #include <kdebug.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 #include <krun.h>
 
 #include "core.h"
@@ -125,11 +125,11 @@ const KAboutData *Plugin::aboutData()
 {
   kDebug(5601) << "Plugin::aboutData(): libname: " << d->partLibraryName << endl;
 
-  const KInstance *instance =
-    KParts::Factory::partInstanceFromLibrary( d->partLibraryName );
+  const KComponentData instance =
+    KParts::Factory::partComponentDataFromLibrary( d->partLibraryName );
 
-  if ( instance ) {
-    return instance->aboutData();
+  if ( instance.isValid() ) {
+    return instance.aboutData();
   } else {
     kError() << "Plugin::aboutData(): Can't load instance for "
               << title() << endl;

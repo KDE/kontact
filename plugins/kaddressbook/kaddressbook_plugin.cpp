@@ -53,7 +53,7 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QStringList& 
   : Kontact::Plugin( core, core, "kaddressbook" ),
     m_interface( 0 )
 {
-  setInstance( KAddressbookPluginFactory::instance() );
+  setComponentData( KAddressbookPluginFactory::componentData() );
 
     KAction *action  = new KAction(KIcon("identity"), i18n("New Contact..."), this);
     actionCollection()->addAction("new_contact", action );

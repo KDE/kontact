@@ -69,7 +69,7 @@ class KontactApp : public KUniqueApplication {
 
 static void listPlugins()
 {
-  KInstance instance( "kontact" ); // Can't use KontactApp since it's too late for adding cmdline options
+  KComponentData instance( "kontact" ); // Can't use KontactApp since it's too late for adding cmdline options
   KService::List offers = KServiceTypeTrader::self()->query(
     QString::fromLatin1( "Kontact/Plugin" ),
     QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );

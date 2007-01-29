@@ -44,7 +44,7 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_knodeplugin,
 KNodePlugin::KNodePlugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "knode" ), m_interface(0)
 {
-  setInstance( KNodePluginFactory::instance() );
+  setComponentData( KNodePluginFactory::componentData() );
 
   KAction *action  = new KAction(KIcon("mail_new"), i18n("New Article..."), this);
   actionCollection()->addAction("post_article", action );

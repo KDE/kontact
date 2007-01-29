@@ -46,7 +46,7 @@ KNotesPart::KNotesPart( QObject *parent )
   QDBusConnection::sessionBus().registerObject("/KNotes", this);
   mNoteList.setAutoDelete( true );
 
-  setInstance( new KInstance( "knotes" ) );
+  setComponentData( KComponentData( "knotes" ) );
 
   // create the actions
   KAction *action  = new KAction(KIcon("knotes"), i18n("&New"), this);

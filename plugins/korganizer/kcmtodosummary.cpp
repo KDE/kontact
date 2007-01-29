@@ -33,7 +33,7 @@
 #include <kconfig.h>
 #include <kdebug.h>
 #include <klocale.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 
 #include "kcmtodosummary.h"
 
@@ -43,12 +43,12 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_todosummary( QWidget *parent, const char * )
   {
-    KInstance *inst = new KInstance( "kcmtodosummary" );
+    KComponentData inst( "kcmtodosummary" );
     return new KCMTodoSummary( inst, parent );
   }
 }
 
-KCMTodoSummary::KCMTodoSummary( KInstance *inst,  QWidget *parent )
+KCMTodoSummary::KCMTodoSummary( const KComponentData &inst,  QWidget *parent )
   : KCModule( inst, parent )
 {
   QWidget*widget = new QWidget( parent );

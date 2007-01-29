@@ -32,7 +32,7 @@
 #include <plugin.h>
 #include <kplugininfo.h>
 #include <kservicetypetrader.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 #include <QLayout>
 #include <QLabel>
 #include <QPixmap>
@@ -46,7 +46,7 @@
 extern "C"
 {
   KDE_EXPORT KCModule *create_kontactsummary( QWidget *parent, const char * ) {
-	KInstance *inst = new KInstance("kcmkontactsummary");
+	KComponentData inst("kcmkontactsummary");
     return new KCMKontactSummary( inst,parent );
   }
 }
@@ -93,7 +93,7 @@ PluginView::~PluginView()
 {
 }
 
-KCMKontactSummary::KCMKontactSummary( KInstance* inst, QWidget *parent )
+KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *parent )
   : KCModule( inst, parent )
 {
   QVBoxLayout *layout = new QVBoxLayout( this );

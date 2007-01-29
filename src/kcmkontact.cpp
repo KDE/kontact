@@ -24,7 +24,7 @@
 
 #include "kcmkontact.h"
 #include "prefs.h"
-#include <kinstance.h>
+#include <kcomponentdata.h>
 
 #include <kaboutdata.h>
 #include <kdebug.h>
@@ -47,7 +47,7 @@
 extern "C"
 {
   KDE_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * ) {
-	KInstance *inst = new KInstance("kcmkontact" );
+	KComponentData inst("kcmkontact" );
     return new KcmKontact( inst, parent );
   }
 }
@@ -70,7 +70,7 @@ class PluginItem : public Q3ListViewItem
     KService::Ptr mPtr;
 };
 
-KcmKontact::KcmKontact( KInstance *inst, QWidget *parent )
+KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
   : KPrefsModule( Kontact::Prefs::self(), inst, parent )
 {
   QBoxLayout *topLayout = new QVBoxLayout( this );

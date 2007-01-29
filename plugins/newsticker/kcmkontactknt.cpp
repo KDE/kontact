@@ -52,7 +52,7 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_kontactknt( QWidget *parent, const char * )
   {
-	KInstance * inst = new KInstance("kcmkontactknt" );
+	KComponentData inst("kcmkontactknt" );
     return new KCMKontactKNT( inst,parent );
   }
 }
@@ -137,7 +137,7 @@ class NewsItem : public Q3ListViewItem
     bool mCustom;
 };
 
-KCMKontactKNT::KCMKontactKNT( KInstance *inst,QWidget *parent )
+KCMKontactKNT::KCMKontactKNT( const KComponentData &inst,QWidget *parent )
   : KCModule( inst, parent )
 {
   initGUI();

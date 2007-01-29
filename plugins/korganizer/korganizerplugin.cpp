@@ -53,7 +53,7 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QStringList& )
     mIface( 0 )
 {
 
-  setInstance( KOrganizerPluginFactory::instance() );
+  setComponentData( KOrganizerPluginFactory::componentData() );
   KIconLoader::global()->addAppDir("korganizer");
 
   KAction *action  = new KAction(KIcon("appointment"), i18n("New Event..."), this);

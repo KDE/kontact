@@ -34,7 +34,7 @@ SummaryView::SummaryView( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, 0 ),
     mAboutData( 0 )
 {
-  setInstance( SummaryViewFactory::instance() );
+  setComponentData( SummaryViewFactory::componentData() );
 }
 
 SummaryView::~SummaryView()
