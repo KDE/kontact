@@ -21,6 +21,7 @@
 */
 
 #include <QObject>
+#include <QDBusConnection>
 #include <kxmlguifactory.h>
 #include <klocale.h>
 #include <kaboutdata.h>
@@ -39,7 +40,6 @@ class Plugin::Private
 {
   public:
     Kontact::Core *core;
-//    DCOPClient *dcopClient;
     QList<KAction*> *newActions;
     QString identifier;
     QString title;
@@ -154,19 +154,10 @@ QString Plugin::tipFile() const
   return QString();
 }
 
-
-/*DCOPClient* Plugin::dcopClient() const
+void Plugin::registerClient()
 {
-  if ( !d->dcopClient ) {
-    d->dcopClient = new DCOPClient();
-    // ### Note: maybe we could use executableName().toLatin1() instead here.
-    // But this requires that dcopClient is NOT called by the constructor,
-    // and is called by some new virtual void init() later on.
-    d->dcopClient->registerAs( objectName().toLatin1(), false );
-  }
-
-  return d->dcopClient;
-}*/
+  QDBusConnection::sessionBus().registerService( "org.kde." + objectName().toLatin1() );
+}
 
 void Plugin::insertNewAction( KAction *action )
 {

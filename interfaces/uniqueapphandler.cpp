@@ -76,6 +76,17 @@
 
 using namespace Kontact;
 
+UniqueAppHandler::UniqueAppHandler( Plugin* plugin ) 
+ : mPlugin( plugin ) 
+{
+  kDebug()<< k_funcinfo <<" plugin->objectName().toLatin1() :"<<plugin->objectName().toLatin1()<<endl; 
+  QDBusConnection::sessionBus().registerService( "org.kde." + plugin->objectName().toLatin1() );
+}
+
+UniqueAppHandler::~UniqueAppHandler()
+{
+}
+
 int UniqueAppHandler::newInstance()
 {
   // This bit is duplicated from KUniqueApplication::newInstance()
@@ -150,27 +161,22 @@ UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin
     : QObject( plugin ), mFactory( factory ), mPlugin( plugin )
 {
   // The app is running standalone if 1) that name is known to D-Bus
-#ifdef __GNUC__
-#warning Port to DBus!
-#endif
-    mRunningStandalone = QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde."+plugin->objectName().toLatin1());
+    QString serviceName = "org.kde."+plugin->objectName().toLatin1();
+    mRunningStandalone = QDBusConnection::sessionBus().interface()->isServiceRegistered(serviceName);
     kDebug()<<" plugin->objectName() :"<<plugin->objectName()<<" isServiceRegistered ? :"<<mRunningStandalone<<endl;
-    
-   
+ 
+    QString owner = QDBusConnection::sessionBus().interface()->serviceOwner(serviceName); 
+    if( mRunningStandalone && (owner == QDBusConnection::sessionBus().baseService())) 
+       mRunningStandalone = false;
 
-/*  mRunningStandalone = kapp->dcopClient()->isApplicationRegistered( plugin->objectName().toLatin1() );
-
-  // and 2) it's not registered by kontact (e.g. in another plugin)
-  if ( mRunningStandalone && kapp->dcopClient()->findLocalClient( plugin->objectName().toLatin1() ) )
-      mRunningStandalone = false;
-
-  if ( mRunningStandalone ) {
-    kapp->dcopClient()->setNotifications( true );
-    connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ),
-             this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
-  } else {
-    mFactory->createHandler( mPlugin );
-  }*/
+    if(mRunningStandalone)
+    {
+      //TODO port it
+      //kapp->dcopClient()->setNotifications( true );
+      //connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ), this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
+    }
+    else
+	mFactory->createHandler( mPlugin ); 
 }
 
 UniqueAppWatcher::~UniqueAppWatcher()

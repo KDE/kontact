@@ -190,17 +190,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     */
     virtual bool queryClose() const { return true; }
 
-    /**
-      Retrieve the current DCOP Client for the plugin.
-
-      The clients name is taken from the name argument in the constructor.
-      @note: The DCOPClient object will only be created when this method is
-      called for the first time. Make sure that the part has been loaded
-      before calling this method, if it's the one that contains the DCOP
-      interface that other parts might use.
-    */
-//    DCOPClient *dcopClient() const;
-
+    void registerClient();
     /**
       Return the weight of the plugin. The higher the weight the lower it will
       be displayed in the sidebar. The default implementation returns 0.
