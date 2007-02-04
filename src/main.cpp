@@ -162,11 +162,8 @@ int main( int argc, char **argv )
   }
 
   bool ret = app.exec();
-#ifdef __GNUC__
-#warning "kde4: now that KMainWindow::memberList() is a static const QList<KMainWindow*>& memberList(); we can't delete it. How port it ?"
-#endif
-  //while ( KMainWindow::memberList()->first() )
-    //delete KMainWindow::memberList()->first();
+  while ( !KMainWindow::memberList().isEmpty() )
+    delete KMainWindow::memberList().first();
 
   return ret;
 }
