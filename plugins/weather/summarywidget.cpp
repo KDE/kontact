@@ -79,7 +79,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
       connect( &mTimer, SIGNAL( timeout() ), this, SLOT( timeout() ) );
       mTimer.start( 0 );
     } else {
-      kDebug(5602) << "ERROR: dcop reply not valid..." << endl;
+      kDebug(5602) << "ERROR: D-Bus reply not valid..." << endl;
     }
   }
 }

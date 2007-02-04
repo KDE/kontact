@@ -87,7 +87,7 @@ class WeatherData
     QString mStationID;
 };
 
-class SummaryWidget : public Kontact::Summary//, public DCOPObject
+class SummaryWidget : public Kontact::Summary
 {
     Q_OBJECT
   public:
