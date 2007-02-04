@@ -190,7 +190,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     */
     virtual bool queryClose() const { return true; }
 
-    void registerClient();
+    QString registerClient();
     /**
       Return the weight of the plugin. The higher the weight the lower it will
       be displayed in the sidebar. The default implementation returns 0.

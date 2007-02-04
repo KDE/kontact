@@ -734,21 +734,17 @@ int MainWindow::startServiceFor( const QString& serviceType,
 {
   PluginList::ConstIterator end = mPlugins.end();
   for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
-#ifdef __GNUC__
-#warning Port me to DBus!
-#endif
-/*  if ( (*it)->createDBUSInterface( serviceType ) ) {
-      kDebug(5600) << "found interface for " << serviceType << endl;
-      if ( dcopService )
-        *dcopService = (*it)->dcopClient()->appId();
-      kDebug(5600) << "appId=" << (*it)->dcopClient()->appId() << endl;
-      return 0; // success
-    }*/
+   if ( (*it)->createDBUSInterface( serviceType ) ) {
+	    kDebug(5600) << "found interface for " << serviceType << endl;
+	    if( dbusService )
+               *dbusService = (*it)->registerClient();
+            //kDebug(5600) << "appId=" << (*it)->dcopClient()->appId() << endl;
+            return 0; // success
+    }
   }
 
   kDebug(5600) <<
     "Didn't find dbus interface, falling back to external process" << endl;
-
   return KDBusServiceStarter::startServiceFor( serviceType, constraint,
       error, dbusService, flags );
 }

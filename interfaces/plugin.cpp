@@ -45,6 +45,7 @@ class Plugin::Private
     QString title;
     QString icon;
     QString executableName;
+    QString serviceName;
     QByteArray partLibraryName;
     bool hasPart;
     KParts::ReadOnlyPart *part;
@@ -154,9 +155,14 @@ QString Plugin::tipFile() const
   return QString();
 }
 
-void Plugin::registerClient()
+QString Plugin::registerClient()
 {
-  QDBusConnection::sessionBus().registerService( "org.kde." + objectName().toLatin1() );
+  if( d->serviceName.isEmpty())
+  {
+      d->serviceName = "org.kde." + objectName().toLatin1();
+      QDBusConnection::sessionBus().registerService( d->serviceName );
+  }
+  return d->serviceName;
 }
 
 void Plugin::insertNewAction( KAction *action )
