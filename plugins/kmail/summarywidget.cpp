@@ -49,6 +49,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
 //    DCOPObject( "MailSummary" ),
     mPlugin( plugin )
 {
+  QDBusConnection::sessionBus().registerObject("/MailSummary", this);
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
@@ -63,11 +64,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->addLayout(mLayout);
 
   slotUnreadCountChanged();
-#ifdef __GNUC__
-#warning Port DCOP signal!
-#endif
-//  connectDCOPSignal( 0, 0, "unreadCountChanged()", "slotUnreadCountChanged()",
-//                     false );
+  QDBusConnection::sessionBus().connect(QString(), "/KMail","org.kde.kmail.kmail", "unreadCountChanged", this, SLOT(slotUnreadCountChanged()));
 }
 
 void SummaryWidget::selectFolder( const QString& folder )
@@ -96,6 +93,7 @@ void SummaryWidget::updateSummary( bool )
 
 void SummaryWidget::slotUnreadCountChanged()
 {
+  kDebug()<<" SummaryWidget::slotUnreadCountChanged\n";
   org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail" , QDBusConnection::sessionBus());
   QDBusReply<QStringList> reply = kmail.folderList();
   if ( reply.isValid() ) {

@@ -42,10 +42,7 @@
 class QGridLayout;
 class QString;
 
-#ifdef __GNUC__
-#warning Port DCOPObject -> DBus!
-#endif
-class SummaryWidget : public Kontact::Summary //, public DCOPObject
+class SummaryWidget : public Kontact::Summary
 {
   Q_OBJECT
 
@@ -55,9 +52,6 @@ class SummaryWidget : public Kontact::Summary //, public DCOPObject
     int summaryHeight() const { return 1; }
     QStringList configModules() const;
 
-//  k_dcop_hidden:
-    void slotUnreadCountChanged();
-
   protected:
     virtual bool eventFilter( QObject *obj, QEvent* e );
 
@@ -66,7 +60,7 @@ class SummaryWidget : public Kontact::Summary //, public DCOPObject
 
   private slots:
     void selectFolder( const QString& );
-
+    void slotUnreadCountChanged();
   private:
     void updateFolderList( const QStringList& folders );
 
