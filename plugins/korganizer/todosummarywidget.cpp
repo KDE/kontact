@@ -231,9 +231,9 @@ void TodoSummaryWidget::updateView()
       str = "";
       if ( todo->hasDueDate() ) {
         if ( daysTo > 0 ) {
-          str = i18np( "in 1 day", "in %n days", daysTo );
+          str = i18np( "in 1 day", "in %1 days", daysTo );
         } else if ( daysTo < 0 ) {
-          str = i18np( "1 day ago", "%n days ago", -daysTo );
+          str = i18np( "1 day ago", "%1 days ago", -daysTo );
         } else{
           str = i18n( "due" );
         }
@@ -288,7 +288,7 @@ void TodoSummaryWidget::updateView()
   if ( counter == 0 ) {
     QLabel *noTodos = new QLabel(
       i18np( "No pending to-dos due within the next day",
-            "No pending to-dos due within the next %n days",
+            "No pending to-dos due within the next %1 days",
             mDaysToGo ), this );
     noTodos->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( noTodos, 0, 2 );

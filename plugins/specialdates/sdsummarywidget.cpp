@@ -477,7 +477,7 @@ void SDSummaryWidget::updateView()
       if ( (*addrIt).daysTo == 0 ) {
         label->setText( i18n( "now" ) );
       } else {
-        label->setText( i18np( "in 1 day", "in %n days", (*addrIt).daysTo ) );
+        label->setText( i18np( "in 1 day", "in %1 days", (*addrIt).daysTo ) );
       }
 
       label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
@@ -534,7 +534,7 @@ void SDSummaryWidget::updateView()
         if ( (*addrIt).yearsOld <= 0 ) {
           label->setText( "" );
         } else {
-          label->setText( i18np( "one year", "%n years", (*addrIt).yearsOld  ) );
+          label->setText( i18np( "one year", "%1 years", (*addrIt).yearsOld  ) );
         }
         label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
         mLayout->addWidget( label, counter, 5 );
@@ -546,7 +546,7 @@ void SDSummaryWidget::updateView()
   } else {
     label = new QLabel(
         i18np( "No special dates within the next 1 day",
-              "No special dates pending within the next %n days",
+              "No special dates pending within the next %1 days",
               mDaysAhead ) );
     label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( label, 0, 0, 0, 4 );

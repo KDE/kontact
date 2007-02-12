@@ -221,7 +221,7 @@ void ApptSummaryWidget::updateView()
       str = "";
       dateDiff( ev->dtStart().date(), daysTo );
       if ( daysTo > 0 ) {
-        str = i18np( "in 1 day", "in %n days", daysTo );
+        str = i18np( "in 1 day", "in %1 days", daysTo );
       } else {
         str = i18n( "now" );
       }
@@ -283,7 +283,7 @@ void ApptSummaryWidget::updateView()
   if ( !counter ) {
     QLabel *noEvents = new QLabel(
       i18np( "No upcoming events starting within the next day",
-            "No upcoming events starting within the next %n days",
+            "No upcoming events starting within the next %1 days",
             days ), this );
     noEvents->setObjectName( "nothing to see" );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
