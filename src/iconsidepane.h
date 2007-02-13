@@ -31,7 +31,7 @@
 #include <QResizeEvent>
 #include <QDragEnterEvent>
 
-#include <klistbox.h>
+#include <k3listbox.h>
 
 #include "sidepanebase.h"
 #include "prefs.h"
@@ -127,7 +127,7 @@ class EntryItemToolTip : public QToolTip
 /**
   Navigation pane showing all parts relevant to the user
 */
-class Navigator : public KListBox
+class Navigator : public K3ListBox
 {
     Q_OBJECT
   public:

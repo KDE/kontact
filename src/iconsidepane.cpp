@@ -252,7 +252,7 @@ void EntryItem::setPaintActive( bool paintActive )
 }
 
 Navigator::Navigator( SidePaneBase *parent, const char *name )
-  : KListBox( parent, name ), mSidePane( parent ),
+  : K3ListBox( parent, name ), mSidePane( parent ),
     mShowIcons( true ), mShowText( true )
 {
   mMouseOn = 0;
@@ -260,7 +260,7 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
   mViewMode = sizeIntToEnum( Prefs::self()->sidePaneIconSize() );
   mShowIcons = Prefs::self()->sidePaneShowIcons();
   mShowText = Prefs::self()->sidePaneShowText();
-  setSelectionMode( KListBox::Single );
+  setSelectionMode( K3ListBox::Single );
   viewport()->setBackgroundRole( QPalette::Background );
   setFrameStyle( QFrame::NoFrame );
   setHScrollBarMode( Q3ScrollView::AlwaysOff );
@@ -415,13 +415,13 @@ void Navigator::resizeEvent( QResizeEvent *event )
 void Navigator::enterEvent( QEvent *event )
 {
   // work around Qt behaviour: onItem is not emmitted in enterEvent()
-  KListBox::enterEvent( event );
+  K3ListBox::enterEvent( event );
   emit onItem( itemAt( mapFromGlobal( QCursor::pos() ) ) );
 }
 
 void Navigator::leaveEvent( QEvent *event )
 {
-  KListBox::leaveEvent( event );
+  K3ListBox::leaveEvent( event );
   slotMouseOn( 0 );
   mMouseOn = 0;
 }

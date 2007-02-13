@@ -40,7 +40,6 @@
 #include <kiconloader.h>
 #include <kkeydialog.h>
 #include <klibloader.h>
-#include <klistbox.h>
 #include <ktoolbar.h>
 #include <klocale.h>
 #include <kmessagebox.h>
