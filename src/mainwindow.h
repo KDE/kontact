@@ -117,8 +117,8 @@ class KDE_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStarter
     void setupActions();
     void showTip( bool );
     virtual bool queryClose();
-    virtual void readProperties( KConfig *config );
-    virtual void saveProperties( KConfig *config );
+    virtual void readProperties( const KConfigGroup  &config );
+    virtual void saveProperties( KConfigGroup &config );
     void paintAboutScreen( const QString& msg );
     static QString introductionString();
 

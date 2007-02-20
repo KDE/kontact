@@ -126,7 +126,7 @@ QStringList Plugin::configModules() const
     return modules;
 }
 
-void Plugin::readProperties( KConfig *config )
+void Plugin::readProperties( const KConfigGroup &config )
 {
     if ( part() ) {
         Akregator::Part *myPart = static_cast<Akregator::Part*>( part() );
@@ -134,7 +134,7 @@ void Plugin::readProperties( KConfig *config )
     }
 }
 
-void Plugin::saveProperties( KConfig *config )
+void Plugin::saveProperties( KConfigGroup &config )
 {
     if ( part() ) {
         Akregator::Part *myPart = static_cast<Akregator::Part*>( part() );

@@ -112,8 +112,8 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
   qDeleteAll( mLabels );
   mLabels.clear();
 
-  KConfig config( "kcmkmailsummaryrc" );
-  config.setGroup( "General" );
+  KConfig _config( "kcmkmailsummaryrc" );
+  KConfigGroup config(&_config, "General" );
 
   QStringList activeFolders;
   if ( !config.hasKey( "ActiveFolders" ) )

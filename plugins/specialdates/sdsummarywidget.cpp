@@ -114,8 +114,8 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
 
   KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
   if ( manager->isEmpty() ) {
-    KConfig config( "korganizerrc" );
-    config.setGroup( "General" );
+    KConfig _config( "korganizerrc" );
+    KConfigGroup config(&_config, "General" );
     QString fileName = config.readPathEntry( "Active Calendar" );
 
     QString resourceName;
@@ -175,8 +175,8 @@ void SDSummaryWidget::configUpdated()
 
 bool SDSummaryWidget::initHolidays()
 {
-  KConfig hconfig( "korganizerrc" );
-  hconfig.setGroup( "Time & Date" );
+  KConfig _hconfig( "korganizerrc" );
+  KConfigGroup hconfig(&_hconfig, "Time & Date" );
   QString location = hconfig.readEntry( "Holidays" );
   if ( !location.isEmpty() ) {
     if ( mHolidays ) delete mHolidays;

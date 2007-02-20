@@ -34,6 +34,7 @@ class QStringList;
 class KAboutData;
 class KAction;
 class KConfig;
+class KConfigGroup;
 class QWidget;
 class QMimeData;
 namespace KParts { class ReadOnlyPart; }
@@ -225,12 +226,12 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     /**
      * Session management: read properties
      */
-    virtual void readProperties( KConfig * ) {}
+    virtual void readProperties( const KConfigGroup&  ) {}
 
     /**
      * Session management: save properties
      */
-    virtual void saveProperties( KConfig * ) {}
+    virtual void saveProperties( KConfigGroup & ) {}
 
     Core *core() const;
 

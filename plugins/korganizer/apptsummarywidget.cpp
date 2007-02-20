@@ -92,8 +92,8 @@ void ApptSummaryWidget::updateView()
   qDeleteAll( mLabels );
   mLabels.clear();
 
-  KConfig config( "kcmapptsummaryrc" );
-  config.setGroup( "Days" );
+  KConfig _config( "kcmapptsummaryrc" );
+  KConfigGroup config(&_config, "Days" );
   int days = config.readEntry( "DaysToShow", 7 );
 
   // The event print consists of the following fields:

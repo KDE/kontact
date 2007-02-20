@@ -790,7 +790,7 @@ void MainWindow::configureShortcuts()
 
 void MainWindow::configureToolbars()
 {
-  saveMainWindowSettings( KGlobal::config().data(), "MainWindow" );
+  saveMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
 
   KEditToolbar edit( factory() );
   connect( &edit, SIGNAL( newToolbarConfig() ),
@@ -801,7 +801,7 @@ void MainWindow::configureToolbars()
 void MainWindow::slotNewToolbarConfig()
 {
   createGUI( mCurrentPlugin->part() );
-  applyMainWindowSettings( KGlobal::config().data(), "MainWindow" );
+  applyMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
 }
 
 void MainWindow::slotOpenUrl( const KUrl &url )
@@ -818,11 +818,11 @@ void MainWindow::slotOpenUrl( const KUrl &url )
     new KRun( url, this );
 }
 
-void MainWindow::readProperties( KConfig *config )
+void MainWindow::readProperties( const KConfigGroup &config )
 {
   Core::readProperties( config );
 
-  QStringList activePlugins = config->readEntry( "ActivePlugins",QStringList() );
+  QStringList activePlugins = config.readEntry( "ActivePlugins",QStringList() );
   QList<Plugin*>::ConstIterator it = mPlugins.begin();
   QList<Plugin*>::ConstIterator end = mPlugins.end();
   for ( ; it != end; ++it ) {
@@ -836,7 +836,7 @@ void MainWindow::readProperties( KConfig *config )
   }
 }
 
-void MainWindow::saveProperties( KConfig *config )
+void MainWindow::saveProperties( KConfigGroup &config )
 {
   Core::saveProperties( config );
 
@@ -855,7 +855,7 @@ void MainWindow::saveProperties( KConfig *config )
     }
   }
 
-  config->writeEntry( "ActivePlugins", activePlugins );
+  config.writeEntry( "ActivePlugins", activePlugins );
 }
 
 bool MainWindow::queryClose()

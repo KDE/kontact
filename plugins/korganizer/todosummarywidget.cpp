@@ -96,11 +96,11 @@ void TodoSummaryWidget::updateView()
   qDeleteAll( mLabels );
   mLabels.clear();
 
-  KConfig config( "kcmtodosummaryrc" );
-  config.setGroup( "Days" );
+  KConfig _config( "kcmtodosummaryrc" );
+  KConfigGroup config(&_config, "Days" );
   int mDaysToGo = config.readEntry( "DaysToShow", 7 );
 
-  config.setGroup( "Hide" );
+  config.changeGroup( "Hide" );
   mHideInProgress = config.readEntry( "InProgress", false );
   mHideOverdue = config.readEntry( "Overdue", false );
   mHideCompleted = config.readEntry( "Completed", true );

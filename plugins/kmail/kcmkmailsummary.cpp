@@ -131,8 +131,8 @@ void KCMKMailSummary::initFolders()
 
 void KCMKMailSummary::loadFolders()
 {
-  KConfig config( "kcmkmailsummaryrc" );
-  config.setGroup( "General" );
+  KConfig _config( "kcmkmailsummaryrc" );
+  KConfigGroup config(&_config, "General" );
 
   QStringList folders;
   if ( !config.hasKey( "ActiveFolders" ) )
@@ -156,8 +156,8 @@ void KCMKMailSummary::loadFolders()
 
 void KCMKMailSummary::storeFolders()
 {
-  KConfig config( "kcmkmailsummaryrc" );
-  config.setGroup( "General" );
+  KConfig _config( "kcmkmailsummaryrc" );
+  KConfigGroup config(&_config, "General" );
 
   QStringList folders;
 
