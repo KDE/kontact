@@ -317,7 +317,7 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
   QAction *editIt = popup.addAction( i18n( "&Edit Appointment..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete Appointment" ) );
   delIt->setIcon( KIconLoader::global()->
-                  loadIcon( "editdelete", K3Icon::Small ) );
+                  loadIcon( "edit-delete", K3Icon::Small ) );
 
   const QAction *selectedAction = popup.exec( QCursor::pos() );
   if ( selectedAction == editIt ) {

@@ -56,7 +56,7 @@ KNotesPart::KNotesPart( QObject *parent )
   action  = new KAction(KIcon("text"), i18n("Rename..."), this);
   actionCollection()->addAction("edit_rename", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( renameNote() ));
-  action  = new KAction(KIcon("editdelete"), i18n("Delete"), this);
+  action  = new KAction(KIcon("edit-delete"), i18n("Delete"), this);
   actionCollection()->addAction("edit_delete", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( killSelectedNotes() ));
   action->setShortcut(QKeySequence(Qt::Key_Delete));

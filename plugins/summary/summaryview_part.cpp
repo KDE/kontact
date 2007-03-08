@@ -87,7 +87,7 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
   actionCollection()->addAction("summaryview_configure", mConfigAction );
   connect(mConfigAction, SIGNAL(triggered(bool) ), SLOT( slotConfigure() ));
 
-  mRefreshAction  = new KAction(KIcon("reload"), i18n("&Refresh Summary View..."), this);
+  mRefreshAction  = new KAction(KIcon("view-refresh"), i18n("&Refresh Summary View..."), this);
   actionCollection()->addAction("summaryview_refresh", mRefreshAction );
   connect(mRefreshAction, SIGNAL(triggered(bool) ), SLOT( updateSummaries() ));
 

@@ -54,7 +54,7 @@ Plugin::Plugin( Kontact::Core *core, const QStringList& )
 
     setComponentData( PluginFactory::componentData() );
 
-    KAction *action  = new KAction(KIcon("bookmark_add"), i18n("New Feed..."), this);
+    KAction *action  = new KAction(KIcon("bookmark-new"), i18n("New Feed..."), this);
     actionCollection()->addAction("feed_new", action );
     action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_F));
     connect(action, SIGNAL(triggered(bool)),SLOT( addFeed() ));
