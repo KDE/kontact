@@ -12,8 +12,10 @@ X-KDE-ParentComponents=kontact_specialdatesplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Upcoming Special Dates
+Name[es]=Fechas especiales próximas
 Name[x-test]=xxUpcoming Special Datesxx
 Comment=Upcoming Special Dates Summary Setup
+Comment[es]=Configuración del resumen de fechas especiales próximas
 Comment[x-test]=xxUpcoming Special Dates Summary Setupxx
 Keywords=birthday, anniversary, holiday, configure, settings
 Keywords[af]=birtday,anniversary, holiday, conifugre, settings, verjaarsdag, herdenking, vakansie

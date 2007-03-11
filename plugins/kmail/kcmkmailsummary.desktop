@@ -12,6 +12,7 @@ X-KDE-ParentComponents=kontact_kmailplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=New Messages
+Name[es]=Mensajes nuevos
 Name[x-test]=xxNew Messagesxx
 Comment=Mail Summary Setup
 Comment[af]=Pos opsomming opstelling

@@ -490,6 +490,7 @@ Icon=kontact_date
 Name=Usenet
 Name[x-test]=xxUsenetxx
 Comment=Usenet Component
+Comment[es]=Componente Usenet
 Comment[x-test]=xxUsenet Componentxx
 Weight=500
 Icon=kontact_news

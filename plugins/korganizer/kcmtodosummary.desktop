@@ -12,8 +12,10 @@ X-KDE-ParentComponents=kontact_todoplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Pending To-dos
+Name[es]=Tareas pendientes
 Name[x-test]=xxPending To-dosxx
 Comment=Pending To-dos Summary Setup
+Comment[es]=Configuración del resumen de tareas pendientes
 Comment[x-test]=xxPending To-dos Summary Setupxx
 Keywords=calendar, todos, configure, settings
 Keywords[af]=calendar,todos,configure,settings
