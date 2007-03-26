@@ -36,7 +36,7 @@
 #include <kglobalsettings.h>
 #include <kiconloader.h>
 #include <klocale.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include <kurllabel.h>
 #include <q3tl.h>
 #include <ktoolinvocation.h>
@@ -217,9 +217,9 @@ void SummaryWidget::updateSummary( bool )
 
 void SummaryWidget::showReport( const QString &stationID )
 {
-  mProc = new KProcess;
-  QApplication::connect( mProc, SIGNAL( processExited( KProcess* ) ),
-                         this, SLOT( reportFinished( KProcess* ) ) );
+  mProc = new K3Process;
+  QApplication::connect( mProc, SIGNAL( processExited( K3Process* ) ),
+                         this, SLOT( reportFinished( K3Process* ) ) );
   *mProc << "kweatherreport";
   *mProc << stationID;
 
@@ -229,7 +229,7 @@ void SummaryWidget::showReport( const QString &stationID )
   }
 }
 
-void SummaryWidget::reportFinished( KProcess* )
+void SummaryWidget::reportFinished( K3Process* )
 {
   mProc->deleteLater();
   mProc = 0;
