@@ -780,10 +780,10 @@ void MainWindow::showAboutDialog()
 void MainWindow::configureShortcuts()
 {
   KKeyDialog dialog( KKeyChooser::AllActions ,KKeyChooser::LetterShortcutsAllowed, this );
-  dialog.insert( actionCollection() );
+  dialog.addCollection( actionCollection() );
 
   if ( mCurrentPlugin && mCurrentPlugin->part() )
-    dialog.insert( mCurrentPlugin->part()->actionCollection() );
+    dialog.addCollection( mCurrentPlugin->part()->actionCollection() );
 
   dialog.configure();
 }
