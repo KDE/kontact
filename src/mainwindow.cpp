@@ -38,7 +38,7 @@
 #include <kguiitem.h>
 #include <khelpmenu.h>
 #include <kiconloader.h>
-#include <kkeydialog.h>
+#include <kshortcutsdialog.h>
 #include <klibloader.h>
 #include <ktoolbar.h>
 #include <klocale.h>
@@ -779,7 +779,7 @@ void MainWindow::showAboutDialog()
 
 void MainWindow::configureShortcuts()
 {
-  KKeyDialog dialog( KKeyChooser::AllActions ,KKeyChooser::LetterShortcutsAllowed, this );
+  KShortcutsDialog dialog( KShortcutsEditor::AllActions ,KShortcutsEditor::LetterShortcutsAllowed, this );
   dialog.addCollection( actionCollection() );
 
   if ( mCurrentPlugin && mCurrentPlugin->part() )
