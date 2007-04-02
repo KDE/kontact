@@ -35,7 +35,7 @@ kde4_automoc(${kcm_kmailsummary_PART_SRCS})
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 
 
-target_link_libraries(kcm_kmailsummary  ${KDE4_KDEUI_LIBS} )
+target_link_libraries(kcm_kmailsummary  ${KDE4_KDEUI_LIBS} ${KDE4_KDE3SUPPORT_LIBS})
 
 install(TARGETS kcm_kmailsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 

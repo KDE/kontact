@@ -21,6 +21,7 @@
 */
 
 #include <QComboBox>
+#include <QCursor>
 #include <khbox.h>
 #include <QImage>
 #include <QObject>
@@ -61,7 +62,6 @@
 #include <khtml_part.h>
 #include <khtmlview.h>
 #include <libkdepim/kfileio.h>
-#include <kcursor.h>
 #include <krun.h>
 #include <kaboutdata.h>
 #include <kmenubar.h>
@@ -307,7 +307,7 @@ void MainWindow::initAboutScreen()
   mIntroPart->setJScriptEnabled( false ); // just make this explicit
   mIntroPart->setJavaEnabled( false );    // just make this explicit
   mIntroPart->setMetaRefreshEnabled( false );
-  mIntroPart->setURLCursor( KCursor::handCursor() );
+  mIntroPart->setURLCursor( QCursor( Qt::PointingHandCursor ) );
   mIntroPart->view()->setLineWidth( 0 );
 
   connect( mIntroPart->browserExtension(),
