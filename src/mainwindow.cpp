@@ -792,7 +792,7 @@ void MainWindow::configureToolbars()
 {
   saveMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
 
-  KEditToolbar edit( factory() );
+  KEditToolBar edit( factory() );
   connect( &edit, SIGNAL( newToolbarConfig() ),
            this, SLOT( slotNewToolbarConfig() ) );
   edit.exec();
