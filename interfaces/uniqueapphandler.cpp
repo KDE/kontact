@@ -23,7 +23,7 @@
 #include <kstartupinfo.h>
 #include <kcmdlineargs.h>
 #include "core.h"
-#include <kwin.h>
+#include <kwm.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kuniqueapplication.h>
@@ -93,7 +93,7 @@ int UniqueAppHandler::newInstance()
   if ( kapp->mainWidget() ) {
     kapp->mainWidget()->show();
 #ifdef Q_OS_UNIX    
-    KWin::forceActiveWindow( kapp->mainWidget()->winId() );
+    KWM::forceActiveWindow( kapp->mainWidget()->winId() );
 #endif    
     KStartupInfo::appStarted();
   }
