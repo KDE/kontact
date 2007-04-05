@@ -13,7 +13,6 @@ X-KDE-PluginInfo-EnabledByDefault=false
 
 Comment=Kontact Test Plugin
 Comment[af]=Kontact toets inprop module
-Comment[be]=Тэставае дапаўненне Кантакту
 Comment[bg]=Приставка за проба
 Comment[ca]=Endollable de prova per a Kontact
 Comment[cy]=Ategyn Prawf Kontact
@@ -62,7 +61,6 @@ Comment[x-test]=xxKontact Test Pluginxx
 Comment[zh_TW]=Kontact 測試外掛程式
 Name=TestPlugin
 Name[af]=Toets inprop module
-Name[be]=Тэставае дапаўненне
 Name[ca]=Endollable de prova
 Name[cy]=AtegynPrawf
 Name[de]=TestModul

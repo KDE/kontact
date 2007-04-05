@@ -16,7 +16,6 @@ X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KNotes Plugin
 Comment[af]=Kontact KNotes inprop module
-Comment[be]=Дапаўненне Кантакту "K Нататкі"
 Comment[bg]=Приставка за бележки
 Comment[br]=Lugent Kontact KNotes
 Comment[ca]=Endollable KNotes per a Kontact
@@ -68,7 +67,6 @@ Comment[zh_TW]=Kontact KNotes 外掛程式
 Name=Notes
 Name[af]=Notas
 Name[ar]=الملاحظات
-Name[be]=Нататкі
 Name[br]=Notennoù
 Name[cs]=Poznámky
 Name[cy]=Nodiadau

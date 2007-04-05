@@ -14,7 +14,6 @@ X-KDE-ParentComponents=kontact
 X-KDE-Weight=0
 
 Name=Kontact
-Name[be]=Кантакт
 Name[mk]=Контакт
 Name[ne]=सम्पर्क गर्नुहोस्
 Name[sv]=Kontakt
@@ -38,7 +37,6 @@ Comment[ro]=Contact KDE
 Comment[ta]=கேடிஇ தொடர்புகொள்
 Comment[x-test]=xxKDE Kontactxx
 Keywords=kontact
-Keywords[be]=кантакт,kontact
 Keywords[bg]=контакти, връзка, информация, личен, поща, бизнес, планиране, kontact
 Keywords[de]=Kontact
 Keywords[hu]=kapcsolat

@@ -19,7 +19,6 @@ X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KMail Plugin
 Comment[af]=Kontact kMail inprop module
-Comment[be]=Дапаўненне Кантакту "K Пошта"
 Comment[bg]=Приставка връзка между пощата и адресника
 Comment[br]=Lugent Kontact KMail
 Comment[ca]=Endollable KMail per a Kontact
@@ -72,7 +71,6 @@ Comment[zh_TW]=Kontact KMail 外掛程式
 Name=Mail
 Name[af]=Pos
 Name[ar]=البريد
-Name[be]=Пошта
 Name[br]=Lizher
 Name[ca]=Correu
 Name[cs]=Pošta

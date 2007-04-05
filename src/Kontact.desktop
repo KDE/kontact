@@ -1,7 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Kontact
-Name[be]=Кантакт
 Name[mk]=Контакт
 Name[ne]=सम्पर्क गर्नुहोस्
 Name[sv]=Kontakt
@@ -14,7 +13,6 @@ Icon=kontact
 GenericName=Personal Information Manager
 GenericName[af]=Personlike informasie bestuurder
 GenericName[ar]=منظم المعلومات الشخصي
-GenericName[be]=Кіраванне пэрсанальнай інфармацыяй
 GenericName[bg]=Лична информация
 GenericName[ca]=Gestor d'informació personal
 GenericName[cs]=Správce osobních informací
