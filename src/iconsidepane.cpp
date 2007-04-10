@@ -21,9 +21,9 @@
 
 #include <QApplication>
 #include <q3ptrlist.h>
-#include <q3widgetstack.h>
 #include <q3signal.h>
 #include <QObject>
+#include <QFrame>
 #include <QLabel>
 #include <QImage>
 #include <QPainter>
@@ -31,7 +31,6 @@
 #include <QFontMetrics>
 #include <QSignalMapper>
 #include <QStyle>
-#include <q3frame.h>
 #include <qdrawutil.h>
 #include <QCursor>
 #include <QTimer>
