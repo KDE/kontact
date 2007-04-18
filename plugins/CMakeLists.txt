@@ -18,6 +18,6 @@ find_file(KWEATHER_INTERFACE_FILE_FOUND org.kde.kweather.service.xml PATHS ${DBU
 if(KWEATHER_INTERFACE_FILE_FOUND)
 	add_subdirectory( weather )
 else(KWEATHER_INTERFACE_FILE_FOUND)
-	MESSAGE(STATUS "kweather plugins will not compile. Kdetoys must be install before to compile it")
+	MESSAGE(STATUS "KWeather plugins will not compile. Kdetoys must be installed before compiling it")
 endif(KWEATHER_INTERFACE_FILE_FOUND)
 
