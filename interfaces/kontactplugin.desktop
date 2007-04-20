@@ -51,7 +51,7 @@ Name[tr]=Kontact Eklentisi
 Name[uk]=Втулок Kontact
 Name[uz]=Kontact учун плагин
 Name[x-test]=xxKontact Pluginxx
-Name[zh_TW]=Kontack 外掛程式
+Name[zh_TW]=Kontact 外掛程式
 
 [PropertyDef::X-KDE-KontactPluginVersion]
 Type=int
