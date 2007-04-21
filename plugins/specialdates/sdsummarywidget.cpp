@@ -26,7 +26,7 @@
 #include <QLabel>
 #include <QLayout>
 #include <QImage>
-#include <QToolTip>
+
 //Added by qt3to4:
 #include <QPixmap>
 #include <QGridLayout>

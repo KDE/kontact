@@ -29,7 +29,7 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QEvent>
-#include <QToolTip>
+
 
 #include <kdialog.h>
 #include <kglobal.h>

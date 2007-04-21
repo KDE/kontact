@@ -24,7 +24,7 @@
 #include <QObject>
 #include <QLabel>
 #include <QLayout>
-#include <QToolTip>
+
 //Added by qt3to4:
 #include <QVBoxLayout>
 #include <QPixmap>

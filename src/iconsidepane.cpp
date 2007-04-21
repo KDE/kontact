@@ -34,7 +34,7 @@
 #include <qdrawutil.h>
 #include <QCursor>
 #include <QTimer>
-#include <QToolTip>
+
 #include <QPixmap>
 #include <QDragMoveEvent>
 #include <QEvent>

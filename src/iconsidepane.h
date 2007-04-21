@@ -21,7 +21,7 @@
 #ifndef KONTACT_ICONSIDEPANEBASE_H
 #define KONTACT_ICONSIDEPANEBASE_H
 
-#include <QToolTip>
+
 //Added by qt3to4:
 #include <QPixmap>
 #include <QList>
