@@ -37,8 +37,6 @@
 #include <qtooltip.h>
 
 #include <kpopupmenu.h>
-#include <kpixmapeffect.h>
-#include <kplugininfo.h>
 #include <kapplication.h>
 #include <kdialog.h>
 #include <klocale.h>
@@ -54,161 +52,55 @@
 #include "prefs.h"
 #include "iconsidepane.h"
 
-namespace Kontact {
+namespace Kontact
+{
 
-// wrapper class to uniformly handle loaded plugins and disabled plugins where we
-// only have the plugin info available, not the plugin itself
+//ugly wrapper class for adding an operator< to the Plugin class
 
 class PluginProxy
 {
   public:
     PluginProxy()
-      : mPlugin( 0 ), mWeight( 0 ), mShowInSideBar( false )
+      : mPlugin( 0 )
     { }
 
-    explicit PluginProxy( Plugin *plugin )
-      : mPlugin( plugin ), mIcon( plugin->icon() ), mTitle( plugin->title() ), mIdentifier( plugin->identifier() ), mWeight( plugin->weight() ), mShowInSideBar( plugin->showInSideBar() )
+    PluginProxy( Plugin *plugin )
+      : mPlugin( plugin )
+    { }
+
+    PluginProxy & operator=( Plugin *plugin )
     {
+      mPlugin = plugin;
+      return *this;
     }
 
-    explicit PluginProxy( KPluginInfo* info ) : mPlugin( 0 ), mIcon( info->icon() ),  mTitle( info->name() ), mIdentifier( info->pluginName() ), mWeight( 1000 ), mShowInSideBar( true )
+    bool operator<( PluginProxy &rhs ) const
     {
-      const QVariant hasPart = info->property( "X-KDE-KontactPluginHasPart" );
-      if ( hasPart.isValid() )
-        mShowInSideBar = hasPart.toBool();
+      return mPlugin->weight() < rhs.mPlugin->weight();
     }
 
-    Plugin* plugin() const {
+    Plugin *plugin() const
+    {
       return mPlugin;
     }
 
-    bool isPluginEnabled() const {
-      return mPlugin != 0L;
-    }
-
-    bool operator<( PluginProxy &rhs ) const {
-      return weight() < rhs.weight();
-    }
-
-    QString icon() const {
-      return mIcon;
-    }
-
-    QString title() const {
-      return mTitle;
-    }
-
-    void processDropEvent( QDropEvent* event ) {
-      if ( mPlugin )
-        processDropEvent( event );
-    }
-
-    bool canDecodeDrag( QMimeSource * source ) const {
-      return mPlugin ? mPlugin->canDecodeDrag( source ) : false;
-    }
-    QString identifier() const {
-      return mIdentifier;
-    }
-
-    int weight() const {
-      return mWeight;
-    }
-
-    bool showInSideBar() const {
-      return mShowInSideBar;
-    }
-
   private:
-
     Plugin *mPlugin;
-    QString mIcon;
-    QString mTitle;
-    QString mIdentifier;
-    int mWeight;
-    bool mShowInSideBar;
 };
 
-/**
-  A QListBoxPixmap Square Box with an optional icon and a text
-  underneath.
-*/
-class EntryItem : public QListBoxItem
-{
-  public:
-    EntryItem( Navigator *, const PluginProxy& );
-    ~EntryItem();
-
-    Kontact::PluginProxy pluginProxy() const { return mPluginProxy; }
-
-    Navigator* navigator() const;
-
-    void setHover( bool );
-    void setPaintActive( bool );
-    bool paintActive() const { return mPaintActive; }
-
-    /**
-      returns the width of this item.
-    */
-    virtual int width( const QListBox * ) const;
-    /**
-      returns the height of this item.
-    */
-    virtual int height( const QListBox * ) const;
-
-  protected:
-    void reloadPixmap();
-// 
-    virtual void paint( QPainter *p );
-
-  private:
-    Kontact::PluginProxy mPluginProxy;
-    QPixmap mPixmap;
-
-    bool mHasHover;
-    bool mPaintActive;
-};
-
-/**
- * Tooltip that changes text depending on the item it is above.
- * Compliments of "Practical Qt" by Dalheimer, Petersen et al.
- */
-class EntryItemToolTip : public QToolTip
-{
-  public:
-    EntryItemToolTip( QListBox* parent )
-      : QToolTip( parent->viewport() ), mListBox( parent )
-      {}
-  protected:
-    void maybeTip( const QPoint& p ) {
-      // We only show tooltips when there are no texts shown
-      if ( Prefs::self()->sidePaneShowText() ) return;
-      if ( !mListBox ) return;
-      QListBoxItem* item = mListBox->itemAt( p );
-      if ( !item ) return;
-      const QRect itemRect = mListBox->itemRect( item );
-      if ( !itemRect.isValid() ) return;
-
-      const EntryItem *entryItem = static_cast<EntryItem*>( item );
-      QString tipStr = entryItem->text();
-      tip( itemRect, tipStr );
-    }
-  private:
-    QListBox* mListBox;
-};
-
-} // namespace Kontact
+} //namespace
 
 using namespace Kontact;
 
-EntryItem::EntryItem( Navigator *parent, const PluginProxy &proxy )
+EntryItem::EntryItem( Navigator *parent, Kontact::Plugin *plugin )
   : QListBoxItem( parent ),
-    mPluginProxy( proxy ),
+    mPlugin( plugin ),
     mHasHover( false ),
     mPaintActive( false )
 {
   reloadPixmap();
   setCustomHighlighting( true );
-  setText( proxy.title() );
+  setText( plugin->title() );
 }
 
 EntryItem::~EntryItem()
@@ -219,8 +111,8 @@ void EntryItem::reloadPixmap()
 {
   int size = (int)navigator()->viewMode();
   if ( size != 0 )
-    mPixmap = KGlobal::iconLoader()->loadIcon( mPluginProxy.icon(),
-                                               KIcon::Desktop, size, pluginProxy().isPluginEnabled() ? KIcon::DefaultState : KIcon::DisabledState );
+    mPixmap = KGlobal::iconLoader()->loadIcon( mPlugin->icon(),
+                                               KIcon::Desktop, size );
   else
     mPixmap = QPixmap();
 }
@@ -272,9 +164,8 @@ void EntryItem::paint( QPainter *p )
   int y = iconAboveText ? 2 :
                         ( ( height( box ) - mPixmap.height() ) / 2 );
 
-  const bool isEnabled = pluginProxy().isPluginEnabled();
   // draw selected
-  if ( isEnabled && ( isCurrent() || isSelected() || mHasHover || mPaintActive ) )  {
+  if ( isCurrent() || isSelected() || mHasHover || mPaintActive ) {
     int h = height( box );
 
     QBrush brush;
@@ -299,7 +190,6 @@ void EntryItem::paint( QPainter *p )
   if ( !mPixmap.isNull() && navigator()->showIcons() ) {
       int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) :
                               KDialog::marginHint();
-
     p->drawPixmap( x, y, mPixmap );
   }
 
@@ -329,10 +219,7 @@ void EntryItem::paint( QPainter *p )
         y += mPixmap.height()/2 - fm.height()/2 + fm.ascent();
     }
 
-    if ( !pluginProxy().isPluginEnabled() ) {
-        p->setPen( qApp->palette().disabled().text() );
-    }
-    else if ( isCurrent() || isSelected() || mHasHover ) {
+    if ( isCurrent() || isSelected() || mHasHover ) {
       p->setPen( box->colorGroup().highlight().dark(115) );
       p->drawText( x + ( QApplication::reverseLayout() ? -1 : 1),
                    y + 1, text() );
@@ -418,24 +305,17 @@ void Navigator::setSelected( QListBoxItem *item, bool selected )
   // an confirm from MainWindow::selectPlugin()
   if ( selected ) {
     EntryItem *entry = static_cast<EntryItem*>( item );
-    emit pluginActivated( entry->pluginProxy().plugin() );
+    emit pluginActivated( entry->plugin() );
   }
 }
 
-void Navigator::updatePlugins(  const QValueList<Kontact::Plugin*> &plugins_,
-                                const QValueList<KPluginInfo*> &disabled_ )
+void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins_ )
 {
   QValueList<Kontact::PluginProxy> plugins;
   QValueList<Kontact::Plugin*>::ConstIterator end_ = plugins_.end();
   QValueList<Kontact::Plugin*>::ConstIterator it_ = plugins_.begin();
   for ( ; it_ != end_; ++it_ )
     plugins += PluginProxy( *it_ );
-
-  QValueList<KPluginInfo*>::ConstIterator end2_ = disabled_.end();
-  QValueList<KPluginInfo*>::ConstIterator it2_ = disabled_.begin();
-
-  for ( ; it2_ != end2_; ++it2_ )
-    plugins += PluginProxy( *it2_ );
 
   clear();
 
@@ -449,17 +329,17 @@ void Navigator::updatePlugins(  const QValueList<Kontact::Plugin*> &plugins_,
   QValueList<Kontact::PluginProxy>::ConstIterator end = plugins.end();
   QValueList<Kontact::PluginProxy>::ConstIterator it = plugins.begin();
   for ( ; it != end; ++it ) {
-    if ( !(*it).showInSideBar() )
+    Kontact::Plugin *plugin = ( *it ).plugin();
+    if ( !plugin->showInSideBar() )
       continue;
 
-    EntryItem *item = new EntryItem( this, *it );
-    item->setSelectable( (*it).isPluginEnabled() );
+    EntryItem *item = new EntryItem( this, plugin );
 
     if ( item->width( this ) > minWidth )
       minWidth = item->width( this );
 
     QString name = QString( "CTRL+%1" ).arg( counter + 1 );
-    KAction *action = new KAction( (*it).title(), (*it).icon(), KShortcut( name ),
+    KAction *action = new KAction( plugin->title(), plugin->icon(), KShortcut( name ),
                                    mMapper, SLOT( map() ),
                                    mSidePane->actionCollection(), name.latin1() );
     mActions.append( action );
@@ -492,9 +372,9 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
 
   EntryItem *entry = static_cast<EntryItem*>( item );
 
-  kdDebug(5600) << "  PLUGIN: " << entry->pluginProxy().identifier() << endl;
+  kdDebug(5600) << "  PLUGIN: " << entry->plugin()->identifier() << endl;
 
-  event->accept( entry->pluginProxy().canDecodeDrag( event ) );
+  event->accept( entry->plugin()->canDecodeDrag( event ) );
 }
 
 void Navigator::dropEvent( QDropEvent *event )
@@ -509,9 +389,9 @@ void Navigator::dropEvent( QDropEvent *event )
 
   EntryItem *entry = static_cast<EntryItem*>( item );
 
-  kdDebug(5600) << "  PLUGIN: " << entry->pluginProxy().identifier() << endl;
+  kdDebug(5600) << "  PLUGIN: " << entry->plugin()->identifier() << endl;
 
-  entry->pluginProxy().processDropEvent( event );
+  entry->plugin()->processDropEvent( event );
 }
 
 void Navigator::resizeEvent( QResizeEvent *event )
@@ -541,7 +421,7 @@ void Navigator::slotExecuted( QListBoxItem *item )
 
   EntryItem *entry = static_cast<EntryItem*>( item );
 
-  emit pluginActivated( entry->pluginProxy().plugin() );
+  emit pluginActivated( entry->plugin() );
 }
 
 IconViewMode Navigator::sizeIntToEnum(int size) const
@@ -672,10 +552,9 @@ IconSidePane::~IconSidePane()
 {
 }
 
-void IconSidePane::updatePlugins( const QValueList<Kontact::Plugin*> &plugins,
-                                  const QValueList<KPluginInfo*> &disabled )
+void IconSidePane::updatePlugins()
 {
-  mNavigator->updatePlugins( plugins, disabled );
+  mNavigator->updatePlugins( core()->pluginList() );
 }
 
 void IconSidePane::selectPlugin( Kontact::Plugin *plugin )
@@ -685,7 +564,7 @@ void IconSidePane::selectPlugin( Kontact::Plugin *plugin )
 
   for ( uint i = 0; i < mNavigator->count(); ++i ) {
     EntryItem *item = static_cast<EntryItem*>( mNavigator->item( i ) );
-    if ( item->pluginProxy().plugin() == plugin ) {
+    if ( item->plugin() == plugin ) {
       mNavigator->setCurrentItem( i );
       break;
     }
@@ -701,21 +580,20 @@ void IconSidePane::selectPlugin( const QString &name )
 
   for ( uint i = 0; i < mNavigator->count(); ++i ) {
     EntryItem *item = static_cast<EntryItem*>( mNavigator->item( i ) );
-    if ( item->pluginProxy().identifier() == name ) {
+    if ( item->plugin()->identifier() == name ) {
       mNavigator->setCurrentItem( i );
       break;
     }
   }
 
   blockSignals( blocked );
-
 }
 
 void IconSidePane::indicateForegrunding( Kontact::Plugin *plugin )
 {
   for ( uint i = 0; i < mNavigator->count(); ++i ) {
     EntryItem *item = static_cast<EntryItem*>( mNavigator->item( i ) );
-    if ( item->pluginProxy().plugin() == plugin ) {
+    if ( item->plugin() == plugin ) {
       mNavigator->highlightItem( item );
       break;
     }

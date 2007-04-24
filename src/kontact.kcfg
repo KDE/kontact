@@ -14,13 +14,6 @@
       <label>Always start with specified component:</label>
       <whatsthis>Usually Kontact will come up with the component used before shutdown. Check this box if you would like a specific component to come up on start instead.</whatsthis>
     </entry>
-    <entry type="Bool" name="ShowDisabledPluginsInSideBar">
-      <default>false</default>
-      <label>Show disabled plugins in the side bar</label>
-      <whatsthis>Usually the side bar does not display disabled Kontact plugins. Enable this option to make disabled plugins appear in the side bar with 
-      a greyed out icon.</whatsthis>
-    </entry>
-
     <entry type="String" name="ForcedStartupPlugin">
     </entry>
 
