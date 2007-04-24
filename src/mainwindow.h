@@ -122,6 +122,9 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void paintAboutScreen( const QString& msg );
     static QString introductionString();
 
+  private:
+    QValueList<KPluginInfo*> disabledPlugins();
+
   private slots:
     void pluginsChanged();
 

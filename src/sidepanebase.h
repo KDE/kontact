@@ -23,6 +23,8 @@
 
 #include <qvbox.h>
 
+class KPluginInfo;
+
 namespace KParts { class Part; }
 
 namespace Kontact
@@ -51,7 +53,8 @@ class SidePaneBase : public QVBox
       This method is called by the core whenever the count
       of plugins has changed.
      */
-    virtual void updatePlugins() = 0;
+    virtual void updatePlugins( const QValueList<Kontact::Plugin*> &plugins,
+                                const QValueList<KPluginInfo*> &disabled ) = 0;
 
     /**
       Select the current plugin without emmiting a signal.

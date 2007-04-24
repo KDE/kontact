@@ -128,6 +128,17 @@ void MainWindow::initGUI()
   setAutoSaveSettings();
 }
 
+QValueList<KPluginInfo*> MainWindow::disabledPlugins()
+{
+  QValueList<KPluginInfo*> disabled;
+  KPluginInfo::List::Iterator it;
+  for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
+    if ( !isPluginLoaded( *it ) ) {
+      disabled.append( *it );
+    }
+  }
+  return disabled;
+}
 
 void MainWindow::initObject()
 {
@@ -150,7 +161,8 @@ void MainWindow::initObject()
   loadPlugins();
 
   if ( mSidePane ) {
-    mSidePane->updatePlugins();
+    const QValueList<KPluginInfo*> disabled = Prefs::showDisabledPluginsInSideBar() ? disabledPlugins() : QValueList<KPluginInfo*>();
+    mSidePane->updatePlugins( pluginList(), disabled );
     plugActionList( "navigator_actionlist", mSidePane->actions() );
   }
 
@@ -740,7 +752,8 @@ void MainWindow::pluginsChanged()
   unplugActionList( "navigator_actionlist" );
   unloadPlugins();
   loadPlugins();
-  mSidePane->updatePlugins();
+    const QValueList<KPluginInfo*> disabled = Prefs::showDisabledPluginsInSideBar() ? disabledPlugins() : QValueList<KPluginInfo*>();
+  mSidePane->updatePlugins( pluginList(), disabled );
   plugActionList( "navigator_actionlist", mSidePane->actions() );
 }
 
