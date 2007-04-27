@@ -60,6 +60,9 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const
   insertNewAction( new KAction( i18n( "New Contact..." ), "identity",
 			             CTRL+SHIFT+Key_C, this, SLOT( slotNewContact() ), actionCollection(),
                    "new_contact" ) );
+  insertSyncAction( new KAction( i18n( "Synchronize Contacts" ), "reload",
+                    0, this, SLOT( slotSyncContacts() ), actionCollection(),
+                   "kaddressbook_sync" ) );
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KABUniqueAppHandler>(), this );
 }
@@ -103,6 +106,12 @@ KAddressBookIface_stub *KAddressbookPlugin::interface()
 void KAddressbookPlugin::slotNewContact()
 {
   interface()->newContact();
+}
+
+void KAddressbookPlugin::slotSyncContacts()
+{
+  DCOPRef ref( "kmail", "KMailICalIface" );
+  ref.send( "triggerSync", QString("Contact") );
 }
 
 bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )

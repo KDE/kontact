@@ -69,6 +69,7 @@ class KMailPlugin : public Kontact::Plugin
 
   protected slots:
     void slotNewMail();
+    void slotSyncFolders();
 
   private:
     KMailIface_stub *mStub;

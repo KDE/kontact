@@ -91,6 +91,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void slotActivePartChanged( KParts::Part *part );
     void slotPreferences();
     void slotNewClicked();
+    void slotSyncClicked();
     void slotQuit();
     void slotShowTip();
     void slotRequestFeature();
@@ -134,6 +135,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QSplitter *mSplitter;
 
     KToolBarPopupAction *mNewActions;
+    KToolBarPopupAction *mSyncActions;
     SidePaneBase *mSidePane;
     QWidgetStack *mPartsStack;
     Plugin *mCurrentPlugin;

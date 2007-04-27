@@ -69,6 +69,7 @@ class KAddressbookPlugin : public Kontact::Plugin
     KParts::ReadOnlyPart *createPart();
   private slots:
     void slotNewContact();
+    void slotSyncContacts();
 
   private:
     KAddressBookIface_stub *mStub;

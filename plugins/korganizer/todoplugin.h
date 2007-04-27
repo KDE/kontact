@@ -58,6 +58,7 @@ class TodoPlugin : public Kontact::Plugin
 
   private slots:
     void slotNewTodo();
+    void slotSyncTodos();
 
   private:
     KCalendarIface_stub *mIface;

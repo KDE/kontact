@@ -41,6 +41,7 @@ class Plugin::Private
     Kontact::Core *core;
     DCOPClient *dcopClient;
     QPtrList<KAction> *newActions;
+    QPtrList<KAction> *syncActions;
     QString identifier;
     QString title;
     QString icon;
@@ -60,6 +61,7 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
   d->core = core;
   d->dcopClient = 0;
   d->newActions = new QPtrList<KAction>;
+  d->syncActions = new QPtrList<KAction>;
   d->hasPart = true;
   d->part = 0;
 }
@@ -174,9 +176,19 @@ void Plugin::insertNewAction( KAction *action )
   d->newActions->append( action );
 }
 
+void Plugin::insertSyncAction( KAction *action )
+{
+  d->syncActions->append( action );
+}
+
 QPtrList<KAction> *Plugin::newActions() const
 {
   return d->newActions;
+}
+
+QPtrList<KAction> *Plugin::syncActions() const
+{
+  return d->syncActions;
 }
 
 Kontact::Core *Plugin::core() const

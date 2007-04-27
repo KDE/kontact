@@ -33,6 +33,7 @@
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <dcopclient.h>
+#include <dcopref.h>
 
 #include <libkdepim/maillistdrag.h>
 #include <libkdepim/kvcarddrag.h>
@@ -57,6 +58,10 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const char *, const QStringList& )
   insertNewAction( new KAction( i18n( "New To-do..." ), "newtodo",
                    CTRL+SHIFT+Key_T, this, SLOT( slotNewTodo() ), actionCollection(),
                    "new_todo" ) );
+
+  insertSyncAction( new KAction( i18n( "Synchronize To-do List" ), "reload",
+                   0, this, SLOT( slotSyncTodos() ), actionCollection(),
+                   "todo_sync" ) );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
@@ -118,6 +123,12 @@ KCalendarIface_stub *TodoPlugin::interface()
 void TodoPlugin::slotNewTodo()
 {
   interface()->openTodoEditor( "" );
+}
+
+void TodoPlugin::slotSyncTodos()
+{
+  DCOPRef ref( "kmail", "KMailICalIface" );
+  ref.send( "triggerSync", QString("Todo") );
 }
 
 bool TodoPlugin::createDCOPInterface( const QString& serviceType )

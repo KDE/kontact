@@ -18,6 +18,7 @@
        Boston, MA 02110-1301, USA.
 */
 
+#include <dcopref.h>
 #include <kaboutdata.h>
 #include <kaction.h>
 #include <kdebug.h>
@@ -45,6 +46,8 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const char *, const QStringList
 
   insertNewAction( new KAction( i18n( "New Note..." ), "knotes", CTRL+SHIFT+Key_N,
                    this, SLOT( slotNewNote() ), actionCollection(), "new_note" ) );
+  insertSyncAction( new KAction( i18n( "Synchronize Notes" ), "reload", 0,
+                   this, SLOT( slotSyncNotes() ), actionCollection(), "knotes_sync" ) );
 }
 
 KNotesPlugin::~KNotesPlugin()
@@ -82,6 +85,12 @@ void KNotesPlugin::slotNewNote()
 {
   if ( part() )
       static_cast<KNotesPart *>( part() )->newNote();
+}
+
+void KNotesPlugin::slotSyncNotes()
+{
+  DCOPRef ref( "kmail", "KMailICalIface" );
+  ref.send( "triggerSync", QString("Note") );
 }
 
 #include "knotes_plugin.moc"

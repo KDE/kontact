@@ -319,6 +319,10 @@ void MainWindow::setupActions()
                                          KStdAccel::shortcut(KStdAccel::New), this, SLOT( slotNewClicked() ),
                                          actionCollection(), "action_new" );
 
+  mSyncActions = new KToolBarPopupAction( KGuiItem( i18n( "Synchronize" ), "kitchensync" ),
+                                          KStdAccel::shortcut(KStdAccel::Reload), this, SLOT( slotSyncClicked() ),
+                                          actionCollection(), "action_sync" );
+
   new KAction( i18n( "Configure Kontact..." ), "configure", 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
 
@@ -409,10 +413,18 @@ void MainWindow::loadPlugins()
       action->plug( mNewActions->popupMenu() );
     }
 
+    actionList = plugin->syncActions();
+
+    for ( action = actionList->first(); action; action = actionList->next() ) {
+      kdDebug(5600) << "Plugging " << action->name() << endl;
+      action->plug( mSyncActions->popupMenu() );
+    }
+
     addPlugin( plugin );
   }
 
   mNewActions->setEnabled( mPlugins.size() != 0 );
+  mSyncActions->setEnabled( mPlugins.size() != 0 );
 }
 
 void MainWindow::unloadPlugins()
@@ -438,6 +450,12 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
       for ( action = actionList->first(); action; action = actionList->next() ) {
         kdDebug(5600) << "Unplugging " << action->name() << endl;
         action->unplug( mNewActions->popupMenu() );
+      }
+
+      actionList = plugin->syncActions();
+    for ( action = actionList->first(); action; action = actionList->next() ) {
+        kdDebug(5600) << "Unplugging " << action->name() << endl;
+        action->unplug( mSyncActions->popupMenu() );
       }
 
       removeChildClient( plugin );
@@ -519,6 +537,23 @@ void MainWindow::slotNewClicked()
   }
 }
 
+void MainWindow::slotSyncClicked()
+{
+  KAction *action = mCurrentPlugin->syncActions()->first();
+  if ( action ) {
+    action->activate();
+  } else {
+    PluginList::Iterator it;
+    for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+      action = (*it)->syncActions()->first();
+      if ( action ) {
+        action->activate();
+        return;
+      }
+    }
+  }
+}
+
 void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 {
   if ( !plugin )
@@ -577,26 +612,42 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       view->setFocus();
 
     mCurrentPlugin = plugin;
-    KAction *action = plugin->newActions()->first();
+    KAction *newAction = plugin->newActions()->first();
+    KAction *syncAction = plugin->syncActions()->first();
 
     createGUI( plugin->part() );
 
     setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );
 
-    if ( action ) {
-      mNewActions->setIcon( action->icon() );
-      mNewActions->setText( action->text() );
+    if ( newAction ) {
+      mNewActions->setIcon( newAction->icon() );
+      mNewActions->setText( newAction->text() );
     } else { // we'll use the action of the first plugin which offers one
       PluginList::Iterator it;
       for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
-        action = (*it)->newActions()->first();
-        if ( action ) {
-          mNewActions->setIcon( action->icon() );
-          mNewActions->setText( action->text() );
+        newAction = (*it)->newActions()->first();
+        if ( newAction ) {
+          mNewActions->setIcon( newAction->icon() );
+          mNewActions->setText( newAction->text() );
           break;
         }
       }
     }
+    if ( syncAction ) {
+      mSyncActions->setIcon( syncAction->icon() );
+      mSyncActions->setText( syncAction->text() );
+    } else { // we'll use the action of the first plugin which offers one
+      PluginList::Iterator it;
+      for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+        syncAction = (*it)->syncActions()->first();
+        if ( syncAction ) {
+          mSyncActions->setIcon( syncAction->icon() );
+          mSyncActions->setText( syncAction->text() );
+          break;
+        }
+      }
+    }
+
   }
 
   QStringList invisibleActions = plugin->invisibleToolbarActions();

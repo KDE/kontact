@@ -28,6 +28,7 @@
 #include <kapplication.h>
 #include <kabc/vcardconverter.h>
 #include <kaction.h>
+#include <dcopref.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
@@ -59,6 +60,10 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QSt
   insertNewAction( new KAction( i18n( "New Event..." ), "newappointment",
                    CTRL+SHIFT+Key_E, this, SLOT( slotNewEvent() ), actionCollection(),
                    "new_event" ) );
+
+  insertSyncAction( new KAction( i18n( "Synchronize Calendar" ), "reload",
+                   0, this, SLOT( slotSyncEvents() ), actionCollection(),
+                   "korganizer_sync" ) );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
@@ -120,6 +125,12 @@ KCalendarIface_stub *KOrganizerPlugin::interface()
 void KOrganizerPlugin::slotNewEvent()
 {
   interface()->openEventEditor( "" );
+}
+
+void KOrganizerPlugin::slotSyncEvents()
+{
+  DCOPRef ref( "kmail", "KMailICalIface" );
+  ref.send( "triggerSync", QString("Calendar") );
 }
 
 bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )

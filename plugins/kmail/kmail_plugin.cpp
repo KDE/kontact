@@ -65,6 +65,10 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
                    CTRL+SHIFT+Key_M, this, SLOT( slotNewMail() ), actionCollection(),
                    "new_mail" ) );
 
+  insertSyncAction( new KAction( i18n( "Synchronize Mail" ), "reload",
+                   0, this, SLOT( slotSyncFolders() ), actionCollection(),
+                   "sync_mail" ) );
+
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
 }
@@ -122,6 +126,12 @@ void KMailPlugin::openComposer( const QString& to )
 void KMailPlugin::slotNewMail()
 {
   openComposer( QString::null );
+}
+
+void KMailPlugin::slotSyncFolders()
+{
+  DCOPRef ref( "kmail", "KMailICalIface" );
+  ref.send( "triggerSync", QString("Mail") );
 }
 
 KMailPlugin::~KMailPlugin()
