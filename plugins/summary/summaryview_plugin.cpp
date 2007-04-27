@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003 Sven Lüppken <sven@kde.org>
+   Copyright (C) 2003 Sven Lï¿½ppken <sven@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -32,19 +32,42 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_summaryplugin,
 
 SummaryView::SummaryView( Kontact::Core *core, const char *name, const QStringList& )
   : Kontact::Plugin( core, core, name),
-    mAboutData( 0 )
+    mAboutData( 0 ), mPart( 0 )
 {
   setInstance( SummaryViewFactory::instance() );
+
+  mSyncAction = new KAction( i18n( "Synchronize All" ), "reload",
+                   0, this, SLOT( doSync() ), actionCollection(),
+                   "kontact_summary_sync" );
+  insertSyncAction( mSyncAction );
 }
 
 SummaryView::~SummaryView()
 {
 }
 
+void SummaryView::doSync()
+{
+  if ( mPart )
+    mPart->updateSummaries();
+
+  const QValueList<Kontact::Plugin*> pluginList = core()->pluginList();
+  for ( QValueList<Kontact::Plugin*>::ConstIterator it = pluginList.begin(), end = pluginList.end();
+        it != end; ++it ) {
+    // execute all sync actions but our own
+    QPtrList<KAction> *actions = (*it)->syncActions();
+    for ( QPtrList<KAction>::Iterator jt = actions->begin(), end = actions->end(); jt != end; ++jt ) {
+      if ( *jt != mSyncAction )
+        (*jt)->activate();
+    }
+  }
+}
+
 KParts::ReadOnlyPart *SummaryView::createPart()
 {
-  return new SummaryViewPart( core(), "summarypartframe", aboutData(),
-                              this, "summarypart" );
+  mPart = new SummaryViewPart( core(), "summarypartframe", aboutData(),
+                               this, "summarypart" );
+  return mPart;
 }
 
 const KAboutData *SummaryView::aboutData()

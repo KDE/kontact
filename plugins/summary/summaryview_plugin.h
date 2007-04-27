@@ -1,7 +1,7 @@
 /*
    This file is part of KDE Kontact.
 
-   Copyright (C) 2003 Sven Lüppken <sven@kde.org>
+   Copyright (C) 2003 Sven Lï¿½ppken <sven@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -27,6 +27,8 @@
 
 #include "plugin.h"
 
+class SummaryViewPart;
+
 class SummaryView : public Kontact::Plugin
 {
   Q_OBJECT
@@ -42,8 +44,14 @@ class SummaryView : public Kontact::Plugin
   protected:
     virtual KParts::ReadOnlyPart* createPart();
 
+  private slots:
+
+    void doSync();
+
   private:
     KAboutData *mAboutData;
+    SummaryViewPart *mPart;
+    KAction *mSyncAction; 
 };
 
 #endif
