@@ -66,7 +66,7 @@ class KDE_EXPORT Summary : public QWidget
     */
     virtual QStringList configModules() const { return QStringList(); }
 
-  public slots:
+  public Q_SLOTS:
     virtual void configChanged() {}
 
     /**
@@ -75,7 +75,7 @@ class KDE_EXPORT Summary : public QWidget
     */
     virtual void updateSummary( bool force = false ) { Q_UNUSED( force ); }
 
-  signals:
+  Q_SIGNALS:
     void message( const QString &message );
     void summaryWidgetDropped( QWidget *target, QWidget *widget, int alignment );
 

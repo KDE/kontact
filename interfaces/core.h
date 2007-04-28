@@ -73,7 +73,7 @@ class KDE_EXPORT Core : public KParts::MainWindow
      */
     virtual void partLoaded( Plugin* plugin, KParts::ReadOnlyPart * part ) = 0;
 
-  signals:
+  Q_SIGNALS:
     /**
       Emitted when a new day starts
       */
@@ -84,7 +84,7 @@ class KDE_EXPORT Core : public KParts::MainWindow
 
     QString lastErrorMessage() const;
 
-  private slots:
+  private Q_SLOTS:
     void slotPartDestroyed( QObject * );
     void checkNewDay();
 
