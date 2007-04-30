@@ -28,7 +28,7 @@
 #include <klocale.h>
 #include <kstartupinfo.h>
 #include <kuniqueapplication.h>
-#include <kwm.h>
+#include <kwindowsystem.h>
 #include <kstandarddirs.h>
 #include <ktoolinvocation.h>
 #include <kservicetypetrader.h>
@@ -104,7 +104,7 @@ int KontactApp::newInstance()
       // because kstart returns immediately so it's too early to talk DCOP to the app.
       if ( args->isSet( "iconify" ) )
 #ifdef Q_OS_UNIX
-        KWM::minimizeWindow( mMainWindow->winId(), false /*no animation*/ );
+        KWindowSystem::minimizeWindow( mMainWindow->winId(), false /*no animation*/ );
 #endif
     } else {
       if ( !moduleName.isEmpty() )
