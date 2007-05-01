@@ -22,6 +22,8 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qcursor.h>
+#include <qfile.h>
 #include <qwidget.h>
 #include <qdragobject.h>
 
@@ -33,7 +35,9 @@
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
+#include <kpopupmenu.h>
 #include <kstandarddirs.h>
+#include <ktempfile.h>
 
 #include <dcopclient.h>
 
@@ -44,6 +48,10 @@
 #include "summarywidget.h"
 #include "korganizerplugin.h"
 #include "korg_uniqueapp.h"
+
+#define DROP_CANCEL 0
+#define DROP_URI 1
+#define DROP_INLINE 2
 
 typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_korganizerplugin,
@@ -190,12 +198,33 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       KMessageBox::sorry( core(),
                           i18n("Drops of multiple mails are not supported." ) );
     } else {
+      KPopupMenu *menu = new KPopupMenu( 0 );
+      menu->insertItem( i18n("Attach as &link"), DROP_URI, 0 );
+      menu->insertItem( i18n("Attach &inline"), DROP_INLINE, 1 );
+      menu->insertSeparator();
+      menu->insertItem( SmallIcon("cancel"), i18n("C&ancel"), DROP_CANCEL, 3 );
+      int action = menu->exec( QCursor::pos(), 0 );
+      delete menu;
+
+      if ( action == DROP_CANCEL )
+        return;
+
       KPIM::MailSummary mail = mails.first();
       QString txt = i18n("From: %1\nTo: %2\nSubject: %3").arg( mail.from() )
                     .arg( mail.to() ).arg( mail.subject() );
-      QString uri = "kmail:" + QString::number( mail.serialNumber() );
+
+      QString uri;
+      KTempFile tf;
+      if ( action == DROP_URI )
+        uri = QString::fromLatin1("kmail:") + QString::number( mail.serialNumber() );
+      else if ( action == DROP_INLINE ) {
+        tf.file()->writeBlock( event->encodedData( "message/rfc822" ) );
+        tf.close();
+        uri = tf.name();
+      }
       interface()->openEventEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
-                                    uri );
+                                    uri, QStringList(), "message/rfc822",
+                                    action == DROP_INLINE );
     }
     return;
   }
