@@ -41,6 +41,8 @@
 
 #include <dcopclient.h>
 
+#include <libkmime/kmime_message.h>
+
 #include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
 
@@ -51,7 +53,8 @@
 
 #define DROP_CANCEL 0
 #define DROP_URI 1
-#define DROP_INLINE 2
+#define DROP_INLINE_FULL 2
+#define DROP_INLINE_BODY 3
 
 typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_korganizerplugin,
@@ -199,10 +202,11 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
                           i18n("Drops of multiple mails are not supported." ) );
     } else {
       KPopupMenu *menu = new KPopupMenu( 0 );
-      menu->insertItem( i18n("Attach as &link"), DROP_URI, 0 );
-      menu->insertItem( i18n("Attach &inline"), DROP_INLINE, 1 );
+      menu->insertItem( i18n("Attach as &link"), DROP_URI );
+      menu->insertItem( i18n("Attach &inline"), DROP_INLINE_FULL );
+      menu->insertItem( i18n("Attach inline &without attachments"), DROP_INLINE_BODY );
       menu->insertSeparator();
-      menu->insertItem( SmallIcon("cancel"), i18n("C&ancel"), DROP_CANCEL, 3 );
+      menu->insertItem( SmallIcon("cancel"), i18n("C&ancel"), DROP_CANCEL );
       int action = menu->exec( QCursor::pos(), 0 );
       delete menu;
 
@@ -215,16 +219,67 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 
       QString uri;
       KTempFile tf;
+      tf.setAutoDelete( true );
       if ( action == DROP_URI )
         uri = QString::fromLatin1("kmail:") + QString::number( mail.serialNumber() );
-      else if ( action == DROP_INLINE ) {
+      else if ( action == DROP_INLINE_FULL ) {
         tf.file()->writeBlock( event->encodedData( "message/rfc822" ) );
         tf.close();
         uri = tf.name();
+      } else if ( action == DROP_INLINE_BODY ) {
+        KMime::Message *msg = new KMime::Message();
+        msg->setContent( QCString( event->encodedData( "message/rfc822" ) ) );
+        QCString head = msg->head();
+        msg->parse();
+        if ( msg == msg->textContent() || msg->textContent() == 0 ) { // no attachments
+          tf.file()->writeBlock( event->encodedData( "message/rfc822" ) );
+        } else {
+          if ( KMessageBox::warningContinueCancel( 0,
+               i18n("Removing attachments from an email might invalidate its signature."),
+               i18n("Remove Attachments"), KStdGuiItem::cont(), "BodyOnlyInlineAttachment" )
+               != KMessageBox::Continue )
+            return;
+          // due to kmime shortcomings in KDE3, we need to assemble the result manually
+          int begin = 0;
+          int end = head.find( '\n' );
+          bool skipFolded = false;
+          while ( end >= 0 && end > begin ) {
+            if ( head.find( "Content-Type:", begin, false ) != begin &&
+                 head.find( "Content-Transfer-Encoding:", begin, false ) != begin &&
+                 !(skipFolded && (head[begin] == ' ' || head[end] == '\t')) ) {
+              QCString line = head.mid( begin, end - begin );
+              tf.file()->writeBlock( line.data(), line.length() );
+              tf.file()->writeBlock( "\n", 1 );
+              skipFolded = false;
+            } else {
+              skipFolded = true;
+            }
+
+            begin = end + 1;
+            end = head.find( '\n', begin );
+            if ( end < 0 && begin < (int)head.length() )
+              end = head.length() - 1;
+          }
+          QCString cte = msg->textContent()->contentTransferEncoding()->as7BitString();
+          if ( !cte.stripWhiteSpace().isEmpty() ) {
+            tf.file()->writeBlock( cte.data(), cte.length() );
+            tf.file()->writeBlock( "\n", 1 );
+          }
+          QCString ct = msg->textContent()->contentType()->as7BitString();
+          if ( !ct.stripWhiteSpace().isEmpty() )
+            tf.file()->writeBlock( ct.data(), ct.length() );
+          tf.file()->writeBlock( "\n", 1 );
+          tf.file()->writeBlock( msg->textContent()->body() );
+        }
+        tf.close();
+        uri = tf.name();
+        delete msg;
+      } else {
+        kdFatal() << k_funcinfo << "Unknown drop type" << endl;
       }
       interface()->openEventEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
                                     uri, QStringList(), "message/rfc822",
-                                    action == DROP_INLINE );
+                                    action != DROP_URI );
     }
     return;
   }
