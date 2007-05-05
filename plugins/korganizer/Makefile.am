@@ -16,8 +16,7 @@ libcommon_la_SOURCES = korg_uniqueapp.cpp
 libkontact_korganizerplugin_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 libkontact_korganizerplugin_la_LIBADD = libcommon.la \
     $(top_builddir)/kontact/interfaces/libkpinterfaces.la $(LIB_KPARTS) \
-    $(top_builddir)/korganizer/libkorganizer_calendar.la \
-    $(top_builddir)/libkmime/libkmime.la
+    $(top_builddir)/korganizer/libkorganizer_calendar.la
 libkontact_korganizerplugin_la_SOURCES = korganizerplugin.cpp \
                                          kcalendariface.stub \
                                          summarywidget.cpp \
