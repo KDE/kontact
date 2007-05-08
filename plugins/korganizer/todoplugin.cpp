@@ -35,8 +35,12 @@
 #include <dcopclient.h>
 #include <dcopref.h>
 
+#include <libkcal/calendarlocal.h>
+#include <libkcal/icaldrag.h>
+
 #include <libkdepim/maillistdrag.h>
 #include <libkdepim/kvcarddrag.h>
+#include <libkdepim/kpimprefs.h>
 
 #include "core.h"
 
@@ -174,6 +178,20 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     interface()->openTodoEditor( i18n( "Meeting" ), QString::null, QString::null,
                                  attendees );
     return;
+  }
+
+  if ( KCal::ICalDrag::canDecode( event) ) {
+    KCal::CalendarLocal cal( KPimPrefs::timezone() );
+    if ( KCal::ICalDrag::decode( event, &cal ) ) {
+      KCal::Journal::List journals = cal.journals();
+      if ( !journals.isEmpty() ) {
+        event->accept();
+        KCal::Journal *j = journals.first();
+        interface()->openTodoEditor( i18n("Note: %1").arg( j->summary() ), j->description(), QString() );
+        return;
+      }
+      // else fall through to text decoding
+    }
   }
 
   if ( QTextDrag::decode( event, text ) ) {
