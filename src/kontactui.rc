@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui version="20" name="kontact" >
+<gui version="21" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -41,6 +41,7 @@
   <Action name="help_whats_this"/>
 </ToolBar>
 <ToolBar position="Top" hidden="true" name="navigatorToolBar"><text>Navigator</text>
+  <Action name="navigator_spacer_item"/>
   <ActionList name="navigator_actionlist" />
 </ToolBar>
 </gui>

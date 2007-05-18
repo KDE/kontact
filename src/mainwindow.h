@@ -102,7 +102,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void activatePluginModule();
     void slotOpenUrl( const KURL &url );
 
-  protected:
+  private:
     void initWidgets();
     void initAboutScreen();
     void loadSettings();
@@ -122,6 +122,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     virtual void saveProperties( KConfig *config );
     void paintAboutScreen( const QString& msg );
     static QString introductionString();
+    KToolBar* findToolBar(const char* name);
 
   private slots:
     void pluginsChanged();

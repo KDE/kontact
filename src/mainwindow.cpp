@@ -21,6 +21,7 @@
 */
 
 #include <qcombobox.h>
+#include <qdockarea.h>
 #include <qhbox.h>
 #include <qimage.h>
 #include <qobjectlist.h>
@@ -332,6 +333,9 @@ void MainWindow::setupActions()
                actionCollection(), "help_tipofday" );
   new KAction( i18n( "&Request Feature..." ), 0, this, SLOT( slotRequestFeature() ),
                actionCollection(), "help_requestfeature" );
+
+  KWidgetAction* spacerAction = new KWidgetAction( new QWidget( this ), "SpacerAction", "", 0, 0, actionCollection(), "navigator_spacer_item" );
+  spacerAction->setAutoSized( true );
 }
 
 bool MainWindow::isPluginLoaded( const KPluginInfo *info )
@@ -554,6 +558,12 @@ void MainWindow::slotSyncClicked()
   }
 }
 
+KToolBar* Kontact::MainWindow::findToolBar(const char* name)
+{
+  // like KMainWindow::toolBar, but which doesn't create the toolbar if not found
+  return static_cast<KToolBar *>(child(name, "KToolBar"));
+}
+
 void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 {
   if ( !plugin )
@@ -616,6 +626,13 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     KAction *syncAction = plugin->syncActions()->first();
 
     createGUI( plugin->part() );
+
+    KToolBar* navigatorToolBar = findToolBar( "navigatorToolBar" );
+    // Let the navigator toolbar be always the last one, if it's in the top dockwindow
+    if ( navigatorToolBar && !navigatorToolBar->isHidden() &&
+         navigatorToolBar->barPos() == KToolBar::Top ) {
+      topDock()->moveDockWindow( navigatorToolBar, -1 );
+    }
 
     setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );
 
@@ -968,6 +985,5 @@ QString MainWindow::introductionString()
       .arg( "exec:/switch" );
   return info;
 }
-
 
 #include "mainwindow.moc"
