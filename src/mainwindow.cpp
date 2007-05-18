@@ -93,8 +93,7 @@ class SettingsDialogWrapper : public KSettings::Dialog
 
     void fixButtonLabel( QWidget *widget )
     {
-      QObject *object = widget->child( "KJanusWidget::buttonBelowList" );
-      QPushButton *button = static_cast<QPushButton*>( object );
+      QPushButton* button = qFindChild<QPushButton *>( widget, "KJanusWidget::buttonBelowList" );
       if ( button )
         button->setText( i18n( "Select Components..." ) );
     }
@@ -341,6 +340,12 @@ void MainWindow::setupActions()
     action  = new KAction(i18n("&Request Feature..."), this);
     actionCollection()->addAction("help_requestfeature", action );
   connect(action, SIGNAL(triggered(bool) ), SLOT( slotRequestFeature() ));
+
+  QWidgetAction* spacerAction = new QWidgetAction(this);
+  QWidget* stretchWidget = new QWidget( this );
+  stretchWidget->setSizePolicy( QSizePolicy( QSizePolicy::Expanding, QSizePolicy::Preferred ) );
+  spacerAction->setDefaultWidget( stretchWidget );
+  actionCollection()->addAction("navigator_spacer_item", spacerAction);
 }
 
 bool MainWindow::isPluginLoaded( const KPluginInfo *info )
@@ -532,6 +537,12 @@ void MainWindow::slotNewClicked()
   }
 }
 
+KToolBar* Kontact::MainWindow::findToolBar(const char* name)
+{
+  // like KMainWindow::toolBar, but which doesn't create the toolbar if not found
+  return findChild<KToolBar *>(name);
+}
+
 void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 {
   if ( !plugin )
@@ -595,6 +606,13 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       action = plugin->newActions()->first();
 
     createGUI( plugin->part() );
+
+    KToolBar* navigatorToolBar = findToolBar( "navigatorToolBar" );
+    // Let the navigator toolbar be always the last one, if it's in the top dockwindow
+    if ( navigatorToolBar && !navigatorToolBar->isHidden() &&
+         toolBarArea( navigatorToolBar ) == Qt::TopToolBarArea ) {
+      addToolBar( Qt::TopToolBarArea, navigatorToolBar );
+    }
 
     setCaption( i18nc( "Plugin dependent window title" ,"%1 - Kontact", plugin->title() ) );
 
@@ -931,6 +949,5 @@ QString MainWindow::introductionString()
       .toString();
   return info;
 }
-
 
 #include "mainwindow.moc"

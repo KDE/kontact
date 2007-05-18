@@ -101,7 +101,7 @@ class KDE_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStarter
     void activatePluginModule();
     void slotOpenUrl( const KUrl &url );
 
-  protected:
+  private:
     void initWidgets();
     void initAboutScreen();
     void loadSettings();
@@ -121,6 +121,7 @@ class KDE_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStarter
     virtual void saveProperties( KConfigGroup &config );
     void paintAboutScreen( const QString& msg );
     static QString introductionString();
+    KToolBar* findToolBar(const char* name);
 
   private slots:
     void pluginsChanged();
