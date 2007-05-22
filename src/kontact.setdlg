@@ -490,6 +490,7 @@ Name=Usenet
 Name[x-test]=xxUsenetxx
 Comment=Usenet Component
 Comment[es]=Componente Usenet
+Comment[ja]=Usenet コンポーネント
 Comment[kk]=Пошта компоненті
 Comment[sv]=Diskussionsgruppskomponent
 Comment[x-test]=xxUsenet Componentxx
