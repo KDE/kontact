@@ -277,6 +277,7 @@ void SummaryWidget::removeEvent( const QString &uid )
 void SummaryWidget::popupMenu( const QString &uid )
 {
   KPopupMenu popup( this );
+  QToolTip::remove( this );
   popup.insertItem( i18n( "&Edit Appointment..." ), 0 );
   popup.insertItem( KGlobal::iconLoader()->loadIcon( "editdelete", KIcon::Small),
                     i18n( "&Delete Appointment" ), 1 );
