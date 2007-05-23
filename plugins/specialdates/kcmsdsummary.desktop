@@ -12,12 +12,14 @@ X-KDE-ParentComponents=kontact_specialdatesplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Upcoming Special Dates
+Name[el]=Σημαντικές ημερομηνίες
 Name[es]=Fechas especiales próximas
 Name[kk]=Болашақ ерекше күндер
 Name[sv]=Förestående speciella datum
 Name[x-test]=xxUpcoming Special Datesxx
 Name[zh_TW]=將來臨的特殊日期
 Comment=Upcoming Special Dates Summary Setup
+Comment[el]=Ρύθμιση σύνοψης σημαντικών ημερομηνιών
 Comment[es]=Configuración del resumen de fechas especiales próximas
 Comment[kk]=Болашақ ерекше күндер тұжырымының баптау
 Comment[sv]=Inställning av översikt av förestående speciella datum

@@ -12,6 +12,7 @@ X-KDE-ParentComponents=kontact_kmailplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=New Messages
+Name[el]=Νέα μηνύματα
 Name[es]=Mensajes nuevos
 Name[ja]=新規メッセージ
 Name[kk]=Жаңа хабарламалар

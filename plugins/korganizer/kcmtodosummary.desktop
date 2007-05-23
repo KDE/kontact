@@ -12,12 +12,14 @@ X-KDE-ParentComponents=kontact_todoplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Pending To-dos
+Name[el]=Εργασίες προς υλοποίηση
 Name[es]=Tareas pendientes
 Name[kk]=Кейінге қалдырылған жоспарлар
 Name[sv]=Väntande uppgifter
 Name[x-test]=xxPending To-dosxx
 Name[zh_TW]=未決定的待辦事項
 Comment=Pending To-dos Summary Setup
+Comment[el]=Ρύθμιση ραντεβού και προς υλοποίηση εργασιών
 Comment[es]=Configuración del resumen de tareas pendientes
 Comment[kk]=Кейінге қалдырылған жоспарлар тұжырымының баптау
 Comment[sv]=Inställning av översikt över väntande uppgifter

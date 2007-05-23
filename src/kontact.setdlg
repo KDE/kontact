@@ -489,6 +489,7 @@ Icon=kontact_date
 Name=Usenet
 Name[x-test]=xxUsenetxx
 Comment=Usenet Component
+Comment[el]=Συστατικό νέων
 Comment[es]=Componente Usenet
 Comment[ja]=Usenet コンポーネント
 Comment[kk]=Пошта компоненті
