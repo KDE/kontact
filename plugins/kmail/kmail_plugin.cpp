@@ -130,8 +130,8 @@ void KMailPlugin::slotNewMail()
 
 void KMailPlugin::slotSyncFolders()
 {
-  DCOPRef ref( "kmail", "KMailICalIface" );
-  ref.send( "triggerSync", QString("Mail") );
+  DCOPRef ref( "kmail", "KMailIface" );
+  ref.send( "checkMail" );
 }
 
 KMailPlugin::~KMailPlugin()
