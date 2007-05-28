@@ -24,6 +24,7 @@
 
 #include <qwidget.h>
 #include <qdragobject.h>
+#include <qfile.h>
 
 #include <kapplication.h>
 #include <kabc/vcardconverter.h>
@@ -34,6 +35,7 @@
 #include <kmessagebox.h>
 #include <dcopclient.h>
 #include <dcopref.h>
+#include <ktempfile.h>
 
 #include <libkcal/calendarlocal.h>
 #include <libkcal/icaldrag.h>
@@ -208,10 +210,15 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       KPIM::MailSummary mail = mails.first();
       QString txt = i18n("From: %1\nTo: %2\nSubject: %3").arg( mail.from() )
                     .arg( mail.to() ).arg( mail.subject() );
+
+      KTempFile tf;
+      tf.setAutoDelete( true );
       QString uri = "kmail:" + QString::number( mail.serialNumber() ) + "/" +
                     mail.messageId();
+      tf.file()->writeBlock( event->encodedData( "message/rfc822" ) );
+      tf.close();
       interface()->openTodoEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
-                                   uri );
+                                   uri, tf.name(), QStringList(), "message/rfc822" );
     }
     return;
   }
