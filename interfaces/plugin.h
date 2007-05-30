@@ -71,7 +71,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     */
     Plugin( Core *core, QObject *parent, const char *name );
 
-    ~Plugin();
+    virtual ~Plugin();
 
     /**
       Sets the identifier.
