@@ -61,5 +61,5 @@ GenericName[zh_CN]=个人信息管理器
 GenericName[zh_TW]=個人資訊管理者
 Terminal=false
 X-KDE-StartupNotify=true
-Categories=Qt;KDE;Office;
+Categories=Qt;KDE;Office;Network;Email;
 DocPath=kontact/index.html
