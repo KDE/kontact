@@ -30,7 +30,6 @@
 #include <libkdepim/infoextension.h>
 #include <libkdepim/sidebarextension.h>
 
-#include "knotes/knoteprinter.h"
 #include "knotes/resourcemanager.h"
 
 #include "knotes_part.h"
@@ -56,8 +55,6 @@ KNotesPart::KNotesPart( QObject *parent, const char *name )
                actionCollection(), "edit_rename" );
   new KAction( i18n( "Delete" ), "editdelete", Key_Delete, this, SLOT( killSelectedNotes() ),
                actionCollection(), "edit_delete" );
-  new KAction( i18n( "Print Selected Notes..." ), "print", CTRL+Key_P, this, SLOT( printSelectedNotes() ),
-               actionCollection(), "print_note" );
 
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -107,41 +104,6 @@ KNotesPart::~KNotesPart()
 
   delete mManager;
   mManager = 0;
-}
-
-void KNotesPart::printSelectedNotes()
-{
-  QValueList<KCal::Journal*> journals;
-
-  for ( QIconViewItem *it = mNotesView->firstItem(); it; it = it->nextItem() ) {
-    if ( it->isSelected() ) {
-      journals.append( static_cast<KNotesIconViewItem *>( it )->journal() );
-    }
-  }
-
-  if ( journals.isEmpty() ) {
-    KMessageBox::information( mNotesView, i18n("To print notes, first select the notes to print from the list."), i18n("Print Notes") );
-    return;
-  }
-
-  KNotePrinter printer;
-  printer.printNotes(journals );
-
-#if 0
-    QString content;
-    if ( m_editor->textFormat() == PlainText )
-        content = QStyleSheet::convertFromPlainText( m_editor->text() );
-    else
-        content = m_editor->text();
-
-    KNotePrinter printer;
-    printer.setMimeSourceFactory( m_editor->mimeSourceFactory() );
-    //printer.setFont( m_config->font() );
-    //printer.setContext( m_editor->context() );
-    //printer.setStyleSheet( m_editor->styleSheet() );
-    printer.setColorGroup( colorGroup() );
-    printer.printNote( , content );
-#endif
 }
 
 bool KNotesPart::openFile()

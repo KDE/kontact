@@ -87,8 +87,6 @@ class KNotesPart : public KParts::ReadOnlyPart, virtual public KNotesIface
     void popupRMB( QIconViewItem *item, const QPoint& pos );
     void killSelectedNotes();
 
-    void printSelectedNotes();
-
   private:
     KIconView *mNotesView;
     KNoteTip *mNoteTip;
