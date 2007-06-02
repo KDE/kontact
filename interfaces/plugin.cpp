@@ -49,6 +49,7 @@ class Plugin::Private
     QByteArray partLibraryName;
     bool hasPart;
     KParts::ReadOnlyPart *part;
+    bool disabled;
 };
 
 
@@ -63,6 +64,7 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
   d->newActions = new QList<KAction*>;
   d->hasPart = true;
   d->part = 0;
+  d->disabled = false;
 }
 
 
@@ -212,6 +214,16 @@ bool Kontact::Plugin::showInSideBar() const
 void Kontact::Plugin::setShowInSideBar( bool hasPart )
 {
   d->hasPart = hasPart;
+}
+
+void Kontact::Plugin::setDisabled( bool disabled )
+{
+    d->disabled = disabled;
+}
+
+bool Kontact::Plugin::disabled() const
+{
+    return d->disabled;
 }
 
 void Plugin::virtual_hook( int, void* ) {

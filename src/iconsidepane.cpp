@@ -116,8 +116,11 @@ void EntryItem::reloadPixmap()
 {
   int size = (int)navigator()->viewMode();
   if ( size != 0 )
-    mPixmap = KIconLoader::global()->loadIcon( mPlugin->icon(),
-                                               K3Icon::Desktop, size );
+    mPixmap = KGlobal::iconLoader()->loadIcon( mPlugin->icon(),
+                                               KIcon::Desktop, size,
+                                               mPlugin->disabled() ?
+                                                 KIcon::DisabledState
+                                               : KIcon::DefaultState);
   else
     mPixmap = QPixmap();
 }
@@ -224,10 +227,12 @@ void EntryItem::paint( QPainter *p )
         y += mPixmap.height()/2 - fm.height()/2 + fm.ascent();
     }
 
-    if ( isCurrent() || isSelected() || mHasHover ) {
+    if ( plugin()->disabled() ) {
+      p->setPen( box->palette().disabled().text( ) );
+    } else if ( isCurrent() || isSelected() || mHasHover ) {
       p->setPen( box->palette().color( QPalette::Highlight ).dark(115) );
       p->drawText( x + ( QApplication::isRightToLeft() ? -1 : 1),
-                   y + 1, text() );
+          y + 1, text() );
       p->setPen( box->palette().color( QPalette::HighlightedText ) );
     }
     else
@@ -344,6 +349,7 @@ void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
       continue;
 
     EntryItem *item = new EntryItem( this, plugin );
+    item->setSelectable( !plugin->disabled() );
 
     if ( item->width( this ) > minWidth )
       minWidth = item->width( this );
