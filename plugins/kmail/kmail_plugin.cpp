@@ -208,4 +208,14 @@ bool KMailPlugin::queryClose() const {
   return canClose;
 }
 
+void KMailPlugin::loadProfile( const QString& profileDirectory ) {
+  DCOPRef ref( "kmail", "KMailIface" );
+  ref.send( "loadProfile", profileDirectory );
+}
+
+void KMailPlugin::saveToProfile( const QString& profileDirectory ) {
+  DCOPRef ref( "kmail", "KMailIface" );
+  ref.send( "saveToProfile", profileDirectory );
+}
+
 #include "kmail_plugin.moc"

@@ -22,6 +22,7 @@
 
 #include <qcombobox.h>
 #include <qdockarea.h>
+#include <qguardedptr.h>
 #include <qhbox.h>
 #include <qimage.h>
 #include <qobjectlist.h>
@@ -66,12 +67,15 @@
 #include <kaboutdata.h>
 #include <kmenubar.h>
 #include <kstdaccel.h>
+#include <kcmultidialog.h>
 
 #include "aboutdialog.h"
 #include "iconsidepane.h"
 #include "mainwindow.h"
 #include "plugin.h"
 #include "prefs.h"
+#include "profiledialog.h"
+#include "profilemanager.h"
 #include "progressdialog.h"
 #include "statusbarprogresswidget.h"
 #include "broadcaststatus.h"
@@ -127,6 +131,11 @@ void MainWindow::initGUI()
 
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
+
+  connect( Kontact::ProfileManager::self(), SIGNAL( profileLoaded( const QString& ) ), 
+           this, SLOT( slotLoadProfile( const QString& ) ) );
+  connect( Kontact::ProfileManager::self(), SIGNAL( saveToProfileRequested( const QString& ) ), 
+           this, SLOT( slotSaveToProfile( const QString& ) ) );
 }
 
 
@@ -141,7 +150,6 @@ void MainWindow::initObject()
   for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
     ( *it )->load();
   }
-
 
   // prepare the part manager
   mPartManager = new KParts::PartManager( this );
@@ -327,15 +335,52 @@ void MainWindow::setupActions()
   new KAction( i18n( "Configure Kontact..." ), "configure", 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
 
+  new KAction( i18n( "Configure &Profiles..." ), 0, this, SLOT( slotConfigureProfiles() ),
+               actionCollection(), "settings_configure_kontact_profiles" );
+
   new KAction( i18n( "&Kontact Introduction" ), 0, this, SLOT( slotShowIntroduction() ),
                actionCollection(), "help_introduction" );
   new KAction( i18n( "&Tip of the Day" ), 0, this, SLOT( slotShowTip() ),
                actionCollection(), "help_tipofday" );
   new KAction( i18n( "&Request Feature..." ), 0, this, SLOT( slotRequestFeature() ),
                actionCollection(), "help_requestfeature" );
-
+  
   KWidgetAction* spacerAction = new KWidgetAction( new QWidget( this ), "SpacerAction", "", 0, 0, actionCollection(), "navigator_spacer_item" );
   spacerAction->setAutoSized( true );
+}
+
+void MainWindow::slotConfigureProfiles()
+{
+  QGuardedPtr<Kontact::ProfileDialog> dlg = new Kontact::ProfileDialog( this );
+  dlg->setModal( true );
+  dlg->exec();
+  delete dlg;
+}
+
+void MainWindow::slotSaveToProfile( const QString& id )
+{
+  const QString path = Kontact::ProfileManager::self()->profileById( id ).saveLocation();
+  if ( path.isNull() )
+    return;
+
+  // TODO save Kontact Settings
+
+  for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+    (*it)->saveToProfile( path );
+  }
+}
+
+void MainWindow::slotLoadProfile( const QString& id )
+{
+  const QString path = Kontact::ProfileManager::self()->profileById( id ).saveLocation();
+  if ( path.isNull() )
+    return;
+
+  // TODO Load Kontact settings
+
+  for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+    (*it)->loadProfile( path );
+  }
 }
 
 bool MainWindow::isPluginLoaded( const KPluginInfo *info )
@@ -754,8 +799,6 @@ void MainWindow::slotPreferences()
 {
   static SettingsDialogWrapper *dlg = 0;
   if ( !dlg ) {
-    dlg = new SettingsDialogWrapper( KSettings::Dialog::Configurable, this );
-
     // do not show settings of components running standalone
     QValueList<KPluginInfo*> filteredPlugins = mPluginInfos;
     PluginList::ConstIterator it;
@@ -769,7 +812,7 @@ void MainWindow::slotPreferences()
           }
         }
       }
-
+    dlg = new SettingsDialogWrapper( KSettings::Dialog::Configurable, this );
     dlg->addPluginInfos( filteredPlugins );
     connect( dlg, SIGNAL( pluginSelectionChanged() ),
              SLOT( pluginsChanged() ) );

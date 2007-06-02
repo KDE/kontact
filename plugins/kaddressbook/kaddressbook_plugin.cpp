@@ -165,6 +165,19 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
                       .arg( event->format() ) );
 }
 
+
+void KAddressbookPlugin::loadProfile( const QString& directory )
+{
+  DCOPRef ref( "kaddressbook", "KAddressBookIface" );
+  ref.send( "loadProfile", directory );
+}
+
+void KAddressbookPlugin::saveToProfile( const QString& directory ) const
+{
+  DCOPRef ref( "kaddressbook", "KAddressBookIface" );
+  ref.send( "saveToProfile", directory );
+}
+
 ////
 
 #include "../../../kaddressbook/kaddressbook_options.h"

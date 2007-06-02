@@ -212,4 +212,16 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
                               .arg( event->format() ) );
 }
 
+void KOrganizerPlugin::loadProfile( const QString& directory )
+{
+  DCOPRef ref( "korganizer", "KOrganizerIface" );
+  ref.send( "loadProfile", directory );
+}
+
+void KOrganizerPlugin::saveToProfile( const QString& directory ) const
+{
+  DCOPRef ref( "korganizer", "KOrganizerIface" );
+  ref.send( "saveToProfile", directory );
+}
+
 #include "korganizerplugin.moc"

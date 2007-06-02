@@ -59,6 +59,13 @@ class KMailPlugin : public Kontact::Plugin
 
     virtual QStringList invisibleToolbarActions() const;
     virtual bool queryClose() const;
+
+    //override
+    void loadProfile( const QString& profileDirectory );
+
+    //override
+    void saveToProfile( const QString& profileDirectory );
+
   protected:
     virtual KParts::ReadOnlyPart* createPart();
     void openComposer( const KURL& = KURL() );

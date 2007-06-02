@@ -242,6 +242,10 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     */
     virtual void processDropEvent( QDropEvent * ) {}
 
+    virtual void loadProfile( const QString& directoryPath );
+
+    virtual void saveToProfile( const QString& directoryPath ) const;
+
     /**
      * Session management: read properties
      */

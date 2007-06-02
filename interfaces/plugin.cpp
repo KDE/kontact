@@ -230,6 +230,15 @@ void Kontact::Plugin::setShowInSideBar( bool hasPart )
   d->hasPart = hasPart;
 }
 
+void Kontact::Plugin::loadProfile( const QString& )
+{
+}
+
+void Kontact::Plugin::saveToProfile( const QString& ) const
+{
+}
+
+
 void Plugin::virtual_hook( int, void* ) {
 	//BASE::virtual_hook( id, data );
 }
