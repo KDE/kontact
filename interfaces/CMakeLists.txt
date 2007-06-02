@@ -16,7 +16,7 @@ kde4_add_library(kpinterfaces SHARED ${kpinterfaces_LIB_SRCS})
 
 target_link_libraries(kpinterfaces  ${KDE4_KPARTS_LIBS} kdepim)
 
-set_target_properties(kpinterfaces PROPERTIES VERSION 1.0.0 SOVERSION 1)
+set_target_properties(kpinterfaces PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
 install(TARGETS kpinterfaces  DESTINATION ${LIB_INSTALL_DIR})
 
 
