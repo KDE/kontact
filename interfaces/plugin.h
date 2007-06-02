@@ -258,6 +258,9 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
 
     Core *core() const;
 
+    bool disabled() const;
+    void setDisabled( bool v );
+
   public slots:
     /**
       internal usage

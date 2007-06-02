@@ -49,6 +49,7 @@ class Plugin::Private
     QCString partLibraryName;
     bool hasPart;
     KParts::ReadOnlyPart *part;
+    bool disabled;
 };
 
 
@@ -64,6 +65,7 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
   d->syncActions = new QPtrList<KAction>;
   d->hasPart = true;
   d->part = 0;
+  d->disabled = false;
 }
 
 
@@ -230,6 +232,16 @@ void Kontact::Plugin::setShowInSideBar( bool hasPart )
   d->hasPart = hasPart;
 }
 
+void Kontact::Plugin::setDisabled( bool disabled )
+{
+    d->disabled = disabled;
+}
+
+bool Kontact::Plugin::disabled() const
+{
+    return d->disabled;
+}
+
 void Kontact::Plugin::loadProfile( const QString& )
 {
 }
@@ -237,7 +249,6 @@ void Kontact::Plugin::loadProfile( const QString& )
 void Kontact::Plugin::saveToProfile( const QString& ) const
 {
 }
-
 
 void Plugin::virtual_hook( int, void* ) {
 	//BASE::virtual_hook( id, data );

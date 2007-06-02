@@ -630,6 +630,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     KMessageBox::error( this, i18n( "Cannot load part for %1." )
                               .arg( plugin->title() )
                         + "\n" + lastErrorMessage() );
+    plugin->setDisabled( true );
+    mSidePane->updatePlugins();
     return;
   }
 
