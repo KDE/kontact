@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="knotes" version="3">
+<kpartgui name="knotes" version="390">
   <MenuBar>
     <Menu name="edit"><text>&amp;Edit</text>
       <Action name="edit_rename"/>

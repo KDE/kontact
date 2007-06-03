@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui version="19" name="kontact" >
+<gui version="390" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
