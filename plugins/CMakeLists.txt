@@ -12,6 +12,7 @@ add_subdirectory( knode )
 #add_subdirectory( newsticker ) 
 add_subdirectory( akregator ) 
 add_subdirectory( karm ) 
+add_subdirectory( kmobiletools ) 
 
 find_file(KWEATHER_INTERFACE_FILE_FOUND org.kde.kweather.service.xml PATHS ${DBUS_INTERFACES_DIR} )
 

@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+Icon=kmobiletools
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_kmobiletools
+X-KDE-KontactPluginVersion=4
+X-KDE-KontactPartLibraryName=libkmobiletoolsmainpart
+
+X-KDE-PluginInfo-Name=kontact_kmobiletools
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
+Comment=KMmobileTools Plugin
+Comment[zh_TW]=KMobileTools 外掛程式
+Name=Mobile Phones
+Name[zh_TW]=行動電話
