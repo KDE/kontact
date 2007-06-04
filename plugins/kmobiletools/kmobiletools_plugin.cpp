@@ -55,6 +55,10 @@ KMobileToolsPlugin::~KMobileToolsPlugin()
 bool KMobileToolsPlugin::isRunningStandalone()
 {
 //     return ( (!partLoaded) && kapp->dcopClient()->isApplicationRegistered("kmobiletools") );
+#ifdef __GNUC__
+#warning FIXME!!!
+#endif
+  return false;
 }
 
 KParts::ReadOnlyPart* KMobileToolsPlugin::createPart()
