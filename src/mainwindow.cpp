@@ -357,15 +357,34 @@ void MainWindow::slotConfigureProfiles()
   delete dlg;
 }
 
+namespace {
+    void copyConfigEntry( KConfig* source, KConfig* dest, const QString& group, const QString& key, const QString& defaultValue=QString() )
+    {
+        source->setGroup( group );
+        dest->setGroup( group );
+        dest->writeEntry( key, source->readEntry( key, defaultValue ) );
+    }
+}
+
 void MainWindow::slotSaveToProfile( const QString& id )
 {
   const QString path = Kontact::ProfileManager::self()->profileById( id ).saveLocation();
   if ( path.isNull() )
     return;
 
-  // TODO save Kontact Settings
+  KConfig* const cfg = Prefs::self()->config();
+  Prefs::self()->writeConfig();
+  saveMainWindowSettings( cfg );
+  saveSettings();
+
+  KConfig profile( path+"/kontactrc", /*read-only=*/false, /*useglobals=*/false );
+  ::copyConfigEntry( cfg, &profile, "MainWindow Toolbar navigatorToolBar", "Hidden", "true" );
+  ::copyConfigEntry( cfg, &profile, "View", "SidePaneSplitter" );
 
   for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+    if ( !(*it)->isRunningStandalone() ) {
+        (*it)->part();
+    }
     (*it)->saveToProfile( path );
   }
 }
@@ -376,9 +395,34 @@ void MainWindow::slotLoadProfile( const QString& id )
   if ( path.isNull() )
     return;
 
-  // TODO Load Kontact settings
+  KConfig* const cfg = Prefs::self()->config();
+  Prefs::self()->writeConfig();
+  saveMainWindowSettings( cfg );
+  saveSettings();
+
+  const KConfig profile( path+"/kontactrc", /*read-only=*/false, /*useglobals=*/false );
+  const QStringList groups = profile.groupList();
+  for ( QStringList::ConstIterator it = groups.begin(), end = groups.end(); it != end; ++it )
+  {
+    cfg->setGroup( *it );
+    typedef QMap<QString, QString> StringMap;
+    const StringMap entries = profile.entryMap( *it );
+    for ( StringMap::ConstIterator it2 = entries.begin(), end = entries.end(); it2 != end; ++it2 )
+    {
+      cfg->writeEntry( it2.key(), it2.data() );
+    }
+  }
+
+  cfg->sync();
+  Prefs::self()->readConfig();
+  applyMainWindowSettings( cfg );
+  loadSettings();
 
   for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+    if ( !(*it)->isRunningStandalone() ) {
+        kdDebug() << "Ensure loaded: " << (*it)->identifier() << endl;
+        (*it)->part();
+    }
     (*it)->loadProfile( path );
   }
 }

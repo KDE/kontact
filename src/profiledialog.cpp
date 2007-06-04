@@ -119,6 +119,7 @@ Kontact::ProfileDialog::ProfileDialog( QWidget* parent, WFlags flags ) : KDialog
 void Kontact::ProfileDialog::slotOk()
 {
     loadSelectedProfile();
+    KDialogBase::slotOk();
 }
 
 QString Kontact::ProfileDialog::selectedProfile() const
@@ -132,6 +133,7 @@ void Kontact::ProfileDialog::loadSelectedProfile()
     if ( profile.isNull() )
         return;
     Kontact::ProfileManager::self()->loadProfile( profile.id() );
+    KMessageBox::information( this, i18n("The profile \"%1\" was successfully loaded. Some profile settings require a restart to get activated.").arg( profile.name() ), i18n("Profile Loaded") );
 }
 
 void Kontact::ProfileDialog::saveToSelectedProfile()
