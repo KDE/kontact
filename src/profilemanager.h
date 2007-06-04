@@ -39,6 +39,7 @@ namespace Kontact {
 
 class Profile
 {
+    friend class ProfileManager;
 public:
     Profile();
 
@@ -52,8 +53,6 @@ public:
 
     bool isNull() const;
 
-    void setId( const QString& id );
-
     void setName( const QString& name );
 
     void setDescription( const QString& description );
@@ -62,11 +61,22 @@ public:
 
     QString saveLocation() const;
 
+private: // ProfileManager only
+
+    enum SetLocalMode {
+        DoNotCopyProfileFiles,
+        CopyProfileFiles
+    };
+    void setLocal( SetLocalMode mode );
     bool isLocal() const;
-
-    void setLocal();
-
     void setOriginalLocation( const QString& path );
+    void setId( const QString& id );
+
+private:
+
+    static void copyConfigFiles( const QString& source, const QString& dest );
+
+    QString localSaveLocation() const;
 
 private:
     QString m_id;
@@ -133,13 +143,13 @@ signals:
 private:
     static ProfileManager* m_self;
 
+    static Kontact::Profile readFromConfiguration( const QString& configFile, bool isLocal );
+
     explicit ProfileManager( QObject* parent = 0 );
 
     void readConfig();
 
     void writeConfig() const;
-
-    void copyConfigFiles( const QString& source, const QString& dest );
 
     void writeProfileConfig( const Kontact::Profile& profile ) const;
 

@@ -80,8 +80,14 @@ void Kontact::Profile::setName( const QString& name )
     m_name = name;
 }
 
-void Kontact::Profile::setLocal()
+void Kontact::Profile::setLocal( SetLocalMode mode )
 {
+    if ( m_local )
+        return;
+
+    if ( mode == CopyProfileFiles )
+        copyConfigFiles( m_originalLocation, localSaveLocation() );
+
     m_local = true;
 }
 
@@ -95,13 +101,15 @@ void Kontact::Profile::setOriginalLocation( const QString& path )
     m_originalLocation = path;
 }
 
+QString Kontact::Profile::localSaveLocation() const
+{
+
+    return  m_id.isNull() ? QString() : locateLocal( "data", "kontact/profiles/" + m_id, /*create folder=*/true );
+}
+
 QString Kontact::Profile::saveLocation() const
 {
-    if ( !m_local )
-        return m_originalLocation;
-    if ( m_id.isNull() )
-        return QString();
-    return  m_id.isNull() ? QString() : locateLocal( "data", "kontact/profiles/" + m_id, /*createDir=*/true );
+    return m_local ? localSaveLocation() : m_originalLocation;
 }
 
 bool Kontact::Profile::operator==( const Kontact::Profile& other ) const
@@ -141,9 +149,7 @@ void Kontact::ProfileManager::writeConfig() const
     }
 }
 
-namespace {
-
-Kontact::Profile readFromConfiguration( const QString& configFile, bool isLocal )
+Kontact::Profile Kontact::ProfileManager::readFromConfiguration( const QString& configFile, bool isLocal )
 {
     KConfig profileCfg( configFile, true /*read-only*/, false /*no KDE global*/ );
     profileCfg.setGroup( "Kontact Profile" );
@@ -152,10 +158,8 @@ Kontact::Profile readFromConfiguration( const QString& configFile, bool isLocal 
     profile.setName( profileCfg.readEntry( "Name" ) );
     profile.setDescription( profileCfg.readEntry( "Description" ) );
     if ( isLocal )
-        profile.setLocal();
+        profile.setLocal( Kontact::Profile::DoNotCopyProfileFiles );
     return profile;
-}
-
 }
 
 void Kontact::ProfileManager::writeProfileConfig( const Kontact::Profile& profile ) const
@@ -219,16 +223,13 @@ void Kontact::ProfileManager::updateProfile( const Kontact::Profile& profile_ )
     if ( id.isNull() || m_profiles[id] == profile_ )
         return;
     Kontact::Profile profile( profile_ );
-    const QString oldLocation = profile.saveLocation();
-    profile.setLocal();
     m_profiles[id] = profile;
+    profile.setLocal( Kontact::Profile::CopyProfileFiles );
     writeProfileConfig( profile );
-    if ( oldLocation != profile.saveLocation() )
-        copyConfigFiles( oldLocation, profile.saveLocation() );
     emit profileUpdated( id );
 }
 
-void Kontact::ProfileManager::copyConfigFiles( const QString& source_, const QString& dest_ )
+void Kontact::Profile::copyConfigFiles( const QString& source_, const QString& dest_ )
 {
     const KURL source = KURL::fromPathOrURL( source_+"/*rc" );
     const KURL dest = KURL::fromPathOrURL( dest_ );
@@ -238,8 +239,11 @@ void Kontact::ProfileManager::copyConfigFiles( const QString& source_, const QSt
 
 void Kontact::ProfileManager::saveToProfile( const QString& id )
 {
-    if ( !m_profiles.contains( id ) )
+    Kontact::Profile profile = profileById( id );
+    if ( profile.isNull() )
         return;
+    profile.setLocal( Kontact::Profile::CopyProfileFiles );
+    writeProfileConfig( profile );
     emit saveToProfileRequested( id );
 }
 
