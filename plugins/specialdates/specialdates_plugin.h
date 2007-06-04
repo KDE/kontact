@@ -27,7 +27,6 @@
 
 #include "plugin.h"
 
-class SDSummaryWidget;
 
 class SpecialdatesPlugin : public Kontact::Plugin
 {

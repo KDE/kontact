@@ -32,7 +32,6 @@
 #include <uniqueapphandler.h>
 #include <QDropEvent>
 
-class QMimeSource;
 class QDropEvent;
 class OrgKdeKmailKmailInterface;
 

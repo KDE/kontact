@@ -29,7 +29,6 @@
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 
-class KAction;
 
 namespace Kontact
 {

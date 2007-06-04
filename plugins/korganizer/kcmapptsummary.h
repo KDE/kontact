@@ -28,9 +28,6 @@
 #include <kcmodule.h>
 #include "ui_apptsummaryconfig_base.h"
 
-class QSpinBox;
-class QCheckBox;
-class QButtonGroup;
 
 class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
 {

@@ -25,7 +25,6 @@
 
 #include "plugin.h"
 
-class KNotesPart;
 class SummaryWidget;
 
 

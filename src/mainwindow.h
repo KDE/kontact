@@ -36,16 +36,12 @@
 
 #include "core.h"
 
-class KHBox;
 class QSplitter;
-class KVBox;
 
-class KAction;
 class KConfig;
 class KPluginInfo;
 class KSqueezedTextLabel;
 class KHTMLPart;
-class KeyPressEater;
 class KToolBarPopupAction;
 
 namespace KPIM

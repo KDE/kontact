@@ -31,7 +31,6 @@
 class K3ListView;
 
 class QCheckBox;
-class Q3CheckListItem;
 
 class KCMKMailSummary : public KCModule
 {

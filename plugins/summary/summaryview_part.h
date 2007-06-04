@@ -33,8 +33,7 @@
 
 namespace Kontact
 {
-  class Plugin;
-  class Summary;
+    class Summary;
 }
 
 namespace KParts
@@ -44,10 +43,8 @@ namespace KParts
 
 class QFrame;
 class QLabel;
-class QGridLayout;
 class QVBoxLayout;
 class KAction;
-class KCMultiDialog;
 
 class SummaryViewPart : public KParts::ReadOnlyPart
 {

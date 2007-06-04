@@ -28,7 +28,6 @@
 #include <kdialog.h>
 
 class Q3ListViewItem;
-class QSpinxBox;
 
 class KAboutData;
 class K3ListView;

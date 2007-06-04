@@ -33,7 +33,6 @@
 //Added by qt3to4:
 #include <QDropEvent>
 
-class KAboutData;
 class OrgKdeKAddressbookCoreInterface;
 
 class KABUniqueAppHandler : public Kontact::UniqueAppHandler

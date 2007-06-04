@@ -33,7 +33,6 @@
 #include <uniqueapphandler.h>
 
 class OrgKdeAkregatorPartInterface;
-class KAboutData;
 
 namespace Akregator {
 

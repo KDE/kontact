@@ -31,7 +31,6 @@
 
 #include "plugin.h"
 
-class KAboutData;
 class OrgKdeKarmKarmInterface;
 
 class KarmPlugin : public Kontact::Plugin

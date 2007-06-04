@@ -28,7 +28,6 @@
 #include "plugin.h"
 
 
-class TestPart;
 
 
 class TestPlugin : public Kontact::Plugin

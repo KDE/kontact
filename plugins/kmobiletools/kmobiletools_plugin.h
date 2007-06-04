@@ -29,7 +29,6 @@
 
 
 
-class KAboutData;
 
 class KMobileToolsPlugin : public Kontact::Plugin
 {

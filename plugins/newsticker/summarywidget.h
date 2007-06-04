@@ -43,7 +43,6 @@ class QVBoxLayout;
 class QLabel;
 
 class DCOPRef;
-class KUrlLabel;
 
 typedef QList< QPair<QString, KUrl> > ArticleMap;
 

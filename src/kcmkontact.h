@@ -31,12 +31,9 @@
 //Added by qt3to4:
 #include <QList>
 
-class Q3GroupBox;
 class QComboBox;
-class Q3ListViewItem;
 
 class KAboutData;
-class K3ListView;
 
 class KcmKontact : public KPrefsModule
 {
