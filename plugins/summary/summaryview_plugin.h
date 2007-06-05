@@ -21,11 +21,14 @@
 
 #ifndef SUMMARYVIEW_PLUGIN_H
 #define SUMMARYVIEW_PLUGIN_H
+#include "plugin.h"
 
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include "plugin.h"
+#include <qmap.h>
+
+class KSelectAction;
 
 class SummaryViewPart;
 
@@ -47,11 +50,13 @@ class SummaryView : public Kontact::Plugin
   private slots:
 
     void doSync();
+    void syncAccount( const QString& account );
+    void fillSyncActionSubEntries();
 
   private:
     KAboutData *mAboutData;
     SummaryViewPart *mPart;
-    KAction *mSyncAction; 
+    KSelectAction *mSyncAction; 
 };
 
 #endif
