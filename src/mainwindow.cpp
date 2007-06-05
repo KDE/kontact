@@ -68,6 +68,7 @@
 #include <kmenubar.h>
 #include <kstdaccel.h>
 #include <kcmultidialog.h>
+#include <kipc.h>
 
 #include "aboutdialog.h"
 #include "iconsidepane.h"
@@ -380,7 +381,8 @@ void MainWindow::slotSaveToProfile( const QString& id )
   KConfig profile( path+"/kontactrc", /*read-only=*/false, /*useglobals=*/false );
   ::copyConfigEntry( cfg, &profile, "MainWindow Toolbar navigatorToolBar", "Hidden", "true" );
   ::copyConfigEntry( cfg, &profile, "View", "SidePaneSplitter" );
-
+  ::copyConfigEntry( cfg, &profile, "Icons", "Theme" );
+  
   for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
     if ( !(*it)->isRunningStandalone() ) {
         (*it)->part();
@@ -409,13 +411,25 @@ void MainWindow::slotLoadProfile( const QString& id )
     const StringMap entries = profile.entryMap( *it );
     for ( StringMap::ConstIterator it2 = entries.begin(), end = entries.end(); it2 != end; ++it2 )
     {
-      cfg->writeEntry( it2.key(), it2.data() );
+      if ( it2.data() == "KONTACT_PROFILE_DELETE_KEY" )
+        cfg->deleteEntry( it2.key() );
+      else
+        cfg->writeEntry( it2.key(), it2.data() );
     }
   }
 
   cfg->sync();
   Prefs::self()->readConfig();
   applyMainWindowSettings( cfg );
+  KIconTheme::reconfigure();
+  const WId wid = winId();
+  KIPC::sendMessage( KIPC::PaletteChanged, wid );
+  KIPC::sendMessage( KIPC::FontChanged, wid );
+  KIPC::sendMessage( KIPC::StyleChanged, wid );
+  KIPC::sendMessage( KIPC::SettingsChanged, wid );
+  for ( int i = 0; i < KIcon::LastGroup; ++i )
+      KIPC::sendMessage( KIPC::IconChanged, wid, i );
+
   loadSettings();
 
   for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
