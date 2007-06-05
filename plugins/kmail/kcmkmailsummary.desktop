@@ -12,6 +12,7 @@ X-KDE-ParentComponents=kontact_kmailplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=New Messages
+Name[be]=Новыя паведамленні
 Name[el]=Νέα μηνύματα
 Name[es]=Mensajes nuevos
 Name[ja]=新規メッセージ
@@ -67,6 +68,7 @@ Comment[x-test]=xxMail Summary Setupxx
 Comment[zh_TW]=郵件摘要設定
 Keywords=email, summary, configure, settings
 Keywords[af]=email,summary,configure,settings
+Keywords[be]=каляндар, заданні, настроіць, настаўленні, calendar, todos, configure, settings
 Keywords[ca]=correu-e, resum, configuració, arranjament
 Keywords[cs]=email,souhrn,nastavení,nastavit
 Keywords[da]=e-mail, opsummering, indstil, opsætning
