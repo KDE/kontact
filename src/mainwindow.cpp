@@ -831,7 +831,7 @@ void MainWindow::slotOpenUrl( const KUrl &url )
       selectPlugin( mCurrentPlugin );
     }
     if ( url.path() == "/gwwizard" ) {
-      KRun::runCommand( "groupwarewizard" );
+      KRun::runCommand( "groupwarewizard", this );
       slotQuit();
     }
   } else
