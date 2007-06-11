@@ -203,7 +203,7 @@ void Plugin::slotConfigUpdated()
 void Plugin::bringToForeground()
 {
   if (!d->executableName.isEmpty())
-    KRun::runCommand(d->executableName);
+    KRun::runCommand(d->executableName,0);
 }
 
 bool Kontact::Plugin::showInSideBar() const
