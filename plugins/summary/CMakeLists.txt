@@ -1,5 +1,10 @@
 
-include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/libkleo ${CMAKE_SOURCE_DIR}/libkdepim  )
+include_directories(
+    ${CMAKE_SOURCE_DIR}/kontact/interfaces
+    ${CMAKE_SOURCE_DIR}/libkleo
+    ${CMAKE_SOURCE_DIR}/libkdepim
+    ${CMAKE_SOURCE_DIR}/libkpimidentities
+)
 
 
 ########### next target ###############
