@@ -46,7 +46,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
   mLayout->setAlignment( Qt::AlignTop );
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kweather", KIcon::Desktop, KIcon::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "Weather Information" ) );
+  QWidget *header = createHeader( this, icon, i18n( "Weather Service" ) );
   mLayout->addWidget( header );
 
   QString error;

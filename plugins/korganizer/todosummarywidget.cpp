@@ -60,7 +60,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_todo",
                    KIcon::Desktop, KIcon::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "To-dos" ) );
+  QWidget *header = createHeader( this, icon, i18n( "To-do List" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout( mainLayout, 7, 4, 3 );

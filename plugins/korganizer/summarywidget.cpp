@@ -58,7 +58,7 @@ SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
 
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kontact_date",
                    KIcon::Desktop, KIcon::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "Appointments" ) );
+  QWidget *header = createHeader( this, icon, i18n( "Calendar" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout( mainLayout, 7, 5, 3 );
