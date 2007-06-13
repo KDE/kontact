@@ -958,7 +958,7 @@ void MainWindow::configureToolbars()
 
 void MainWindow::slotNewToolbarConfig()
 {
-  if ( mCurrentPlugin->part() )
+  if ( mCurrentPlugin && mCurrentPlugin->part() )
     createGUI( mCurrentPlugin->part() );
   applyMainWindowSettings( KGlobal::config(), "MainWindow" );
 }
