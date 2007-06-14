@@ -180,7 +180,7 @@ bool SDSummaryWidget::initHolidays()
   QString location = hconfig.readEntry( "Holidays" );
   if ( !location.isEmpty() ) {
     if ( mHolidays ) delete mHolidays;
-    mHolidays = new KHolidays( location );
+    mHolidays = new LibKHolidays::KHolidays( location );
     return true;
   }
   return false;
@@ -366,12 +366,12 @@ void SDSummaryWidget::updateView()
       for ( dt=QDate::currentDate();
             dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
             dt=dt.addDays(1) ) {
-        Q3ValueList<KHoliday> holidays = mHolidays->getHolidays( dt );
-        Q3ValueList<KHoliday>::ConstIterator it = holidays.begin();
+        Q3ValueList<LibKHolidays::KHoliday> holidays = mHolidays->getHolidays( dt );
+        Q3ValueList<LibKHolidays::KHoliday>::ConstIterator it = holidays.begin();
         for ( ; it != holidays.end(); ++it ) {
           SDEntry entry;
           entry.type = IncidenceTypeEvent;
-          entry.category = ((*it).Category==KHolidays::HOLIDAY)?CategoryHoliday:CategoryOther;
+          entry.category = ((*it).Category==LibKHolidays::KHolidays::HOLIDAY)?CategoryHoliday:CategoryOther;
           entry.date = dt;
           entry.summary = (*it).text;
           dateDiff( dt, entry.daysTo, entry.yearsOld );
