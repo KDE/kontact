@@ -24,11 +24,11 @@
 #ifndef KONTACT_PLUGIN_H
 #define KONTACT_PLUGIN_H
 
-#include <QObject>
-#include <QDropEvent>
+#include <QtCore/QList>
+#include <QtCore/QObject>
+#include <QtGui/QDropEvent>
 #include <kxmlguiclient.h>
 #include <kdemacros.h>
-#include <q3ptrlist.h>
 
 class QStringList;
 class KAboutData;
@@ -238,7 +238,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     bool disabled() const;
     void setDisabled( bool v );
 
-  public slots:
+  public Q_SLOTS:
     /**
       internal usage
      */
@@ -255,7 +255,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
 
     virtual void virtual_hook(  int id, void* data );
 
-  private slots:
+  private Q_SLOTS:
     void partDestroyed();
 
   private:
