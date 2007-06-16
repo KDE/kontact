@@ -24,11 +24,11 @@
 #ifndef KONTACT_PLUGIN_H
 #define KONTACT_PLUGIN_H
 
+#include "kontact_export.h"
+#include <kxmlguiclient.h>
 #include <QtCore/QList>
 #include <QtCore/QObject>
 #include <QtGui/QDropEvent>
-#include <kxmlguiclient.h>
-#include <kdemacros.h>
 
 class QStringList;
 class KAboutData;
@@ -56,7 +56,7 @@ class Summary;
   to get a plugin. It can insert an icon into the sidepane,
   add widgets to the widgetstack and add menu items via XMLGUI.
  */
-class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
+class KONTACT_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
 {
   Q_OBJECT
 

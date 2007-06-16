@@ -21,13 +21,13 @@
 #ifndef KONTACT_SUMMARY_H
 #define KONTACT_SUMMARY_H
 
+#include "kontact_export.h"
+
 #include <QWidget>
 #include <QPixmap>
-//Added by qt3to4:
 #include <QMouseEvent>
 #include <QDragEnterEvent>
 #include <QDropEvent>
-#include <kdemacros.h>
 
 class KStatusBar;
 
@@ -37,7 +37,7 @@ namespace Kontact
 /**
   Summary widget for display in the Summary View plugin.
  */
-class KDE_EXPORT Summary : public QWidget
+class KONTACT_EXPORT Summary : public QWidget
 {
   Q_OBJECT
 

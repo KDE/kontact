@@ -23,12 +23,11 @@
 #ifndef KONTACT_CORE_H
 #define KONTACT_CORE_H
 
-#include <QDateTime>
-//Added by qt3to4:
-#include <kdemacros.h>
+#include "kontact_export.h"
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 
+#include <QDateTime>
 
 namespace Kontact
 {
@@ -38,7 +37,7 @@ class Plugin;
 /**
   This class provides the interface to the Kontact core for the plugins.
 */
-class KDE_EXPORT Core : public KParts::MainWindow
+class KONTACT_EXPORT Core : public KParts::MainWindow
 {
   Q_OBJECT
   public:

@@ -22,8 +22,8 @@
 #ifndef KONTACT_UNIQUEAPPHANDLER_H
 #define KONTACT_UNIQUEAPPHANDLER_H
 
+#include "kontact_export.h"
 #include <plugin.h>
-#include <kdemacros.h>
 
 namespace Kontact
 {
@@ -35,7 +35,7 @@ namespace Kontact
  * By default this means simply bringing the main window to the front,
  * but newInstance can be reimplemented.
  */
-class KDE_EXPORT UniqueAppHandler 
+class KONTACT_EXPORT UniqueAppHandler
 {
   public:
     UniqueAppHandler( Plugin* plugin );
@@ -87,7 +87,7 @@ template <class T> class UniqueAppHandlerFactory : public UniqueAppHandlerFactor
  * Kontact takes over from there.
  *
  */
-class KDE_EXPORT UniqueAppWatcher : public QObject
+class KONTACT_EXPORT UniqueAppWatcher : public QObject
 {
   Q_OBJECT
 
