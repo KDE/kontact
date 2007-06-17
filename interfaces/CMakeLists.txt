@@ -22,6 +22,6 @@ install(TARGETS kpinterfaces  DESTINATION ${LIB_INSTALL_DIR})
 
 ########### install files ###############
 
-install( FILES core.h plugin.h summary.h  DESTINATION ${INCLUDE_INSTALL_DIR}/kontact)
+install( FILES kontact_export.h core.h plugin.h summary.h  DESTINATION ${INCLUDE_INSTALL_DIR}/kontact)
 install( FILES kontactplugin.desktop  DESTINATION ${SERVICETYPES_INSTALL_DIR})
 
