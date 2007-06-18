@@ -158,8 +158,7 @@ void MainWindow::initObject()
     plugActionList( "navigator_actionlist", mSidePane->actions() );
   }
 
-  KSettings::Dispatcher::self()->registerComponent( componentData(), this,
-                                                   SLOT( updateConfig() ) );
+  KSettings::Dispatcher::registerComponent( componentData(), this, SLOT( updateConfig() ) );
 
   loadSettings();
 
