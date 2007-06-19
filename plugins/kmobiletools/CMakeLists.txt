@@ -1,5 +1,5 @@
 
-include_directories(  ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/kmobiletools/src ${KDE4_INCLUDE_DIR} ${QT_INCLUDES}  )
+include_directories(  ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/kmobiletools/src )
 
 
 ########### next target ###############
@@ -19,25 +19,3 @@ install(TARGETS kontact_kmobiletools DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 install( FILES  kmobiletools.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact )
 
-
-
-#original Makefile.am contents follow:
-
-#KDE_OPTIONS = nofinal
-#
-#INCLUDES = -I$(top_srcdir) $(all_includes) \
-#           -I../kmobiletools/libkmobiletools
-#
-#kde_module_LTLIBRARIES = libkontact_kmobiletools.la
-#libkontact_kmobiletools_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
-#libkontact_kmobiletools_la_LIBADD = ../kmobiletools/libkmobiletools/libkmobiletools.la \
-#				-lkpinterfaces
-#
-#libkontact_kmobiletools_la_SOURCES = kmobiletools_plugin.cpp
-#
-#METASOURCES = AUTO
-#
-#servicedir = $(kde_servicesdir)/kontact
-#service_DATA = kmobiletools.desktop
-#KDE_CXXFLAGS = -UQT_NO_ASCII_CAST
-#
