@@ -38,7 +38,6 @@
 #include <QGridLayout>
 #include <QEvent>
 
-class K3Process;
 
 class QGridLayout;
 class QLabel;
@@ -109,7 +108,6 @@ class SummaryWidget : public Kontact::Summary
     void updateView();
     void timeout();
     void showReport( const QString& );
-    void reportFinished( K3Process* );
 
   private:
     QStringList mStations;
@@ -119,8 +117,6 @@ class SummaryWidget : public Kontact::Summary
     QList<QLabel*> mLabels;
     QList<QGridLayout*> mLayouts;
     QVBoxLayout *mLayout;
-
-    K3Process* mProc;
 };
 
 #endif

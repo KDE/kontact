@@ -30,13 +30,13 @@
 #include <QGridLayout>
 #include <QEvent>
 #include <QApplication>
+#include <QProcess>
 
 #include <kdebug.h>
 #include <kglobal.h>
 #include <kglobalsettings.h>
 #include <kiconloader.h>
 #include <klocale.h>
-#include <k3process.h>
 #include <kurllabel.h>
 #include <q3tl.h>
 #include <ktoolinvocation.h>
@@ -44,8 +44,8 @@
 #include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( QWidget *parent )
-  : Kontact::Summary( parent ),
-    /*DCOPObject( "WeatherSummaryWidget" ),*/ mProc( 0 )
+  : Kontact::Summary( parent )
+    /*DCOPObject( "WeatherSummaryWidget" ),*/
 {
   mLayout = new QVBoxLayout( this );
   mLayout->setSpacing( 3 );
@@ -217,22 +217,9 @@ void SummaryWidget::updateSummary( bool )
 
 void SummaryWidget::showReport( const QString &stationID )
 {
-  mProc = new K3Process;
-  QApplication::connect( mProc, SIGNAL( processExited( K3Process* ) ),
-                         this, SLOT( reportFinished( K3Process* ) ) );
-  *mProc << "kweatherreport";
-  *mProc << stationID;
-
-  if ( !mProc->start() ) {
-    delete mProc;
-    mProc = 0;
-  }
-}
-
-void SummaryWidget::reportFinished( K3Process* )
-{
-  mProc->deleteLater();
-  mProc = 0;
+  QStringList lst;
+  lst <<stationID;
+  QProcess::startDetached("kweatherreport",lst);
 }
 
 #include "summarywidget.moc"
