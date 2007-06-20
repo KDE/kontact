@@ -56,7 +56,6 @@
 #include <ktip.h>
 #include <kservice.h>
 #include <kservicetypetrader.h>
-#include <ksettings/componentsdialog.h>
 #include <kstringhandler.h>
 #include <ksqueezedtextlabel.h>
 #include <khtml_part.h>
