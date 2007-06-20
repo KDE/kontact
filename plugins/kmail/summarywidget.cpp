@@ -76,13 +76,10 @@ void SummaryWidget::selectFolder( const QString& folder )
     mPlugin->bringToForeground();
   else
     mPlugin->core()->selectPlugin( mPlugin );
-  QByteArray data;
-  QDataStream arg( &data, QIODevice::WriteOnly );
-  arg << folder;
-#ifdef __GNUC__
-#warning Port DCOP signal!
-#endif
-//  emitDCOPSignal( "kmailSelectFolder(QString)", data );
+  QDBusMessage message =
+    QDBusMessage::createSignal("/KMail", "org.kde.kmail", "kmailSelectFolder(QString)");
+  message <<folder;
+  QDBusConnection::sessionBus().send(message);
 }
 
 void SummaryWidget::updateSummary( bool )
