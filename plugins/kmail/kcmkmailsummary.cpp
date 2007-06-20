@@ -35,9 +35,11 @@
 #include <kcomponentdata.h>
 
 #include "kcmkmailsummary.h"
+#include "kmail_folder_interface.h"
 
 #include <kdemacros.h>
 #include "kmailinterface.h"
+#define DBUS_KMAIL "org.kde.kmail"
 
 extern "C"
 {
@@ -107,12 +109,15 @@ void KCMKMailSummary::initFolders()
     if ( (*it) == "/Local" )
       displayName = i18nc( "prefix for local folders", "Local" );
     else {
-	org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
-#ifdef __GNUC__
-#warning Port me to DBus!
-#endif
-//      DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
-//      folderRef.call( "displayName()" ).get( displayName );
+	org::kde::kmail::kmail kmail(DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus());
+        QDBusReply<QDBusObjectPath> ref = kmail.getFolder( *it );
+        if ( ref.isValid() )
+        {
+          QDBusObjectPath path = ref;
+
+          OrgKdeKmailFolderInterface folderInterface(  DBUS_KMAIL, path.path(), QDBusConnection::sessionBus());
+          displayName = folderInterface.displayName();
+        }
     }
     if ( (*it).count( '/' ) == 1 ) {
       if ( mFolderMap.find( *it ) == mFolderMap.end() )

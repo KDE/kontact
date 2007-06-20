@@ -43,7 +43,10 @@
 #include "summarywidget.h"
 
 #include <time.h>
-#include "kmailinterface.h" 
+#include "kmailinterface.h"
+#include "kmail_folder_interface.h"
+#define DBUS_KMAIL "org.kde.kmail"
+
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ),
 //    DCOPObject( "MailSummary" ),
@@ -85,7 +88,7 @@ void SummaryWidget::selectFolder( const QString& folder )
 void SummaryWidget::updateSummary( bool )
 {
   // check whether we need to update the message counts
-  org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail" , QDBusConnection::sessionBus());
+  org::kde::kmail::kmail kmail( DBUS_KMAIL , "/KMail" , QDBusConnection::sessionBus());
   const int timeOfLastMessageCountChange = kmail.timeOfLastMessageCountChange();
   if ( timeOfLastMessageCountChange > mTimeOfLastMessageCountUpdate )
     slotUnreadCountChanged();
@@ -94,7 +97,7 @@ void SummaryWidget::updateSummary( bool )
 void SummaryWidget::slotUnreadCountChanged()
 {
   kDebug()<<" SummaryWidget::slotUnreadCountChanged\n";
-  org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail" , QDBusConnection::sessionBus());
+  org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail" , QDBusConnection::sessionBus());
   QDBusReply<QStringList> reply = kmail.folderList();
   if ( reply.isValid() ) {
     QStringList folderList = reply;
@@ -123,46 +126,50 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
 
   int counter = 0;
   QStringList::ConstIterator it;
-#ifdef __GNUC__
-#warning Port me to DBus!
-#endif
-/*  DCOPRef kmail( "kmail", "KMailIface" );
-  org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail" , QDBusConnection::sessionBus());
+  org::kde::kmail::kmail kmail( DBUS_KMAIL , "/KMail" , QDBusConnection::sessionBus());
   for ( it = folders.begin(); it != folders.end(); ++it ) {
     if ( activeFolders.contains( *it ) ) {
-      DCOPRef folderRef = kmail.call( "getFolder(QString)", *it );
-      const int numMsg = folderRef.call( "messages()" );
-      const int numUnreadMsg = folderRef.call( "unreadMessages()" );
+      QDBusReply<QDBusObjectPath> ref = kmail.getFolder( *it );
+      if ( ref.isValid() )
+        {
+          QDBusObjectPath path = ref;
+          OrgKdeKmailFolderInterface folderInterface(  DBUS_KMAIL, path.path(), QDBusConnection::sessionBus());
+          QDBusReply<int> replyNumMsg = folderInterface.messages();
+          const int numMsg = replyNumMsg;
+          QDBusReply<int> replyUnreadNumMsg = folderInterface.unreadMessages();
+          const int numUnreadMsg=replyUnreadNumMsg;
 
-      if ( numUnreadMsg == 0 ) continue;
+          if ( numUnreadMsg == 0 ) continue;
 
-      QString folderPath;
-      if ( config.readEntry( "ShowFullPath", true ) )
-        folderRef.call( "displayPath()" ).get( folderPath );
-      else
-        folderRef.call( "displayName()" ).get( folderPath );
+          QString folderPath;
+          QDBusReply<QString> replyFolderPath;
+          if ( config.readEntry( "ShowFullPath", true ) )
+            replyFolderPath= folderInterface.displayPath();
+          else
+            replyFolderPath= folderInterface.displayName();
+          folderPath = replyFolderPath;
+          KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
+          urlLabel->installEventFilter( this );
+          urlLabel->setAlignment( Qt::AlignLeft );
+          urlLabel->show();
+          connect( urlLabel, SIGNAL( leftClickedUrl( const KUrl&) ),
+                   SLOT( selectFolder( const KUrl& ) ) );
+          mLayout->addWidget( urlLabel, counter, 0 );
+          mLabels.append( urlLabel );
 
-      KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
-      urlLabel->installEventFilter( this );
-      urlLabel->setAlignment( Qt::AlignLeft );
-      urlLabel->show();
-      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
-               SLOT( selectFolder( const QString& ) ) );
-      mLayout->addWidget( urlLabel, counter, 0 );
-      mLabels.append( urlLabel );
+          QLabel *label =
+            new QLabel( i18nc("%1: number of unread messages "
+                              "%2: total number of messages", "%1 / %2",
+                              numUnreadMsg, numMsg ), this );
+          label->setAlignment( Qt::AlignLeft );
+          label->show();
+          mLayout->addWidget( label, counter, 2 );
+          mLabels.append( label );
 
-      QLabel *label =
-        new QLabel( i18nc("%1: number of unread messages "
-                                  "%2: total number of messages", "%1 / %2",
-                      numUnreadMsg, numMsg ), this );
-      label->setAlignment( Qt::AlignLeft );
-      label->show();
-      mLayout->addWidget( label, counter, 2 );
-      mLabels.append( label );
-
-      counter++;
+          counter++;
+        }
     }
-  }*/
+  }
 
   if ( counter == 0 ) {
     QLabel *label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );
