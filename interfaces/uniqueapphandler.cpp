@@ -76,10 +76,10 @@
 
 using namespace Kontact;
 
-UniqueAppHandler::UniqueAppHandler( Plugin* plugin ) 
- : mPlugin( plugin ) 
+UniqueAppHandler::UniqueAppHandler( Plugin* plugin )
+ : mPlugin( plugin )
 {
-  kDebug()<< k_funcinfo <<" plugin->objectName().toLatin1() :"<<plugin->objectName().toLatin1()<<endl; 
+  kDebug()<< k_funcinfo <<" plugin->objectName().toLatin1() :"<<plugin->objectName().toLatin1()<<endl;
   QDBusConnection::sessionBus().registerService( "org.kde." + plugin->objectName().toLatin1() );
 }
 
@@ -92,9 +92,7 @@ int UniqueAppHandler::newInstance()
   // This bit is duplicated from KUniqueApplication::newInstance()
   if ( kapp->mainWidget() ) {
     kapp->mainWidget()->show();
-#ifdef Q_OS_UNIX    
     KWindowSystem::forceActiveWindow( kapp->mainWidget()->winId() );
-#endif    
     KStartupInfo::appStarted();
   }
 
@@ -164,9 +162,9 @@ UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin
     QString serviceName = "org.kde."+plugin->objectName().toLatin1();
     mRunningStandalone = QDBusConnection::sessionBus().interface()->isServiceRegistered(serviceName);
     kDebug()<<" plugin->objectName() :"<<plugin->objectName()<<" isServiceRegistered ? :"<<mRunningStandalone<<endl;
- 
-    QString owner = QDBusConnection::sessionBus().interface()->serviceOwner(serviceName); 
-    if( mRunningStandalone && (owner == QDBusConnection::sessionBus().baseService())) 
+
+    QString owner = QDBusConnection::sessionBus().interface()->serviceOwner(serviceName);
+    if( mRunningStandalone && (owner == QDBusConnection::sessionBus().baseService()))
        mRunningStandalone = false;
 
     if(mRunningStandalone)
@@ -176,7 +174,7 @@ UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin
       //connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ), this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
     }
     else
-	mFactory->createHandler( mPlugin ); 
+	mFactory->createHandler( mPlugin );
 }
 
 UniqueAppWatcher::~UniqueAppWatcher()
