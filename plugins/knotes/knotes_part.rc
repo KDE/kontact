@@ -14,6 +14,7 @@
     <Action name="file_new"/>
     <Action name="edit_rename"/>
     <Action name="edit_delete"/>
+    <Action name="print_note"/>
   </Menu>
   <Menu name="notepart_context">
     <Action name="file_new"/>
