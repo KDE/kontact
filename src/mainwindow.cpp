@@ -81,6 +81,23 @@
 
 using namespace Kontact;
 
+class SettingsDialogWrapper : public KSettings::Dialog
+{
+  public:
+    SettingsDialogWrapper( ContentInListView content, QWidget * parent = 0 )
+      : KSettings::Dialog( content, parent )
+    {
+    }
+
+
+    void fixButtonLabel( QWidget *widget )
+    {
+      QPushButton* button = qFindChild<QPushButton *>( widget, "KJanusWidget::buttonBelowList" );
+      if ( button )
+        button->setText( i18n( "Select Components..." ) );
+    }
+};
+
 MainWindow::MainWindow()
   : Kontact::Core(), mTopWidget( 0 ), mSplitter( 0 ),
     mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false )
@@ -700,10 +717,9 @@ void MainWindow::slotQuit()
 
 void MainWindow::slotPreferences()
 {
-  static KSettings::Dialog *dlg = 0;
+  static SettingsDialogWrapper *dlg = 0;
   if ( !dlg ) {
-    dlg = new KSettings::Dialog( this );
-    dlg->setComponentSelection( KSettings::Dialog::AllowComponentSelection );
+    dlg = new SettingsDialogWrapper( KSettings::Dialog::Configurable, this );
 
     // do not show settings of components running standalone
     KPluginInfo::List filteredPlugins = mPluginInfos;
@@ -725,6 +741,7 @@ void MainWindow::slotPreferences()
   }
 
   dlg->show();
+  dlg->fixButtonLabel( this );
 }
 
 int MainWindow::startServiceFor( const QString& serviceType,
