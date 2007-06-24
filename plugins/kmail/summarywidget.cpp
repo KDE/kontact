@@ -24,7 +24,6 @@
 
 #include <QLabel>
 #include <QLayout>
-//Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QGridLayout>
@@ -49,7 +48,6 @@
 
 SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ),
-//    DCOPObject( "MailSummary" ),
     mPlugin( plugin )
 {
   QDBusConnection::sessionBus().registerObject("/MailSummary", this);
