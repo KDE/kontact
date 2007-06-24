@@ -6,6 +6,9 @@ include_directories(  ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}
 
 set(kontact_kmobiletools_PART_SRCS kmobiletools_plugin.cpp )
 
+qt4_add_dbus_interfaces(kontact_kmobiletools_PART_SRCS ${CMAKE_SOURCE_DIR}/kmobiletools/kmobiletools/libkmobiletools/org.kde.kmobiletools.main.xml )
+
+
 kde4_automoc(${kontact_kmobiletools_PART_SRCS})
 
 kde4_add_plugin(kontact_kmobiletools WITH_PREFIX ${kontact_kmobiletools_PART_SRCS})

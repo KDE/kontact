@@ -27,7 +27,7 @@
 #include <plugin.h>
 #include <uniqueapphandler.h>
 
-
+class OrgKdeKmobiletoolsMainInterface;
 
 
 class KMobileToolsPlugin : public Kontact::Plugin
@@ -44,7 +44,7 @@ class KMobileToolsPlugin : public Kontact::Plugin
   protected:
     KParts::ReadOnlyPart *createPart();
     bool partLoaded;
-//     MainIFace_stub *kmtIface;
+    OrgKdeKmobiletoolsMainInterface *m_interface;
     public slots:
         void slotNewSMS();
 };

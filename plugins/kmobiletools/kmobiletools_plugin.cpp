@@ -26,9 +26,8 @@
 
 #include <core.h>
 #include <kapplication.h>
-// #include <dcopclient.h>
 #include <kaction.h>
-
+#include <maininterface.h>
 
 typedef KGenericFactory<KMobileToolsPlugin, Kontact::Core> KMobileToolsPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_kmobiletools,
@@ -37,7 +36,6 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_kmobiletools,
 KMobileToolsPlugin::KMobileToolsPlugin( Kontact::Core *core, const QStringList& )
     : Kontact::Plugin( core, core, "KMobileTools" ), partLoaded(false)
 {
-//   kmtIface=0;
   setComponentData( KMobileToolsPluginFactory::componentData() );
   KAction *newaction=new KAction(i18n( "New SMS..." ), this );
   actionCollection()->addAction("newsms", newaction);
@@ -45,7 +43,6 @@ KMobileToolsPlugin::KMobileToolsPlugin( Kontact::Core *core, const QStringList& 
   connect(newaction, SIGNAL(triggered(bool)),SLOT( slotNewSMS() ));
   insertNewAction(newaction);
   setExecutableName("kmobiletools_bin");
-//   kmtIface=new MainIFace_stub( "kmobiletools", "KMobileTools" );
 }
 
 KMobileToolsPlugin::~KMobileToolsPlugin()
@@ -65,11 +62,16 @@ KParts::ReadOnlyPart* KMobileToolsPlugin::createPart()
 {
   KParts::ReadOnlyPart* m_part=loadPart();
   partLoaded=(bool)m_part;
+#ifdef __GNUC__
+#warning "look at if interface is ok";
+#endif
+  m_interface = new OrgKdeKmobiletoolsMainInterface("org.kde.kmobiletools", "/KMobitools", QDBusConnection::sessionBus() );
   return m_part;
 }
 
 void KMobileToolsPlugin::slotNewSMS()
 {
+       m_interface->newSMS();
 //     if(kmtIface) kmtIface->newSMS();
 }
 
