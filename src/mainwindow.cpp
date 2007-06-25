@@ -120,7 +120,7 @@ void MainWindow::initObject()
   KService::List offers = KServiceTypeTrader::self()->query(
       QString::fromLatin1( "Kontact/Plugin" ),
       QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
-  mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(), "Plugins" );
+  mPluginInfos = KPluginInfo::fromServices( offers, KConfigGroup( Prefs::self()->config(), "Plugins" ) );
 
   KPluginInfo::List::Iterator it;
   for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
@@ -703,7 +703,7 @@ void MainWindow::slotPreferences()
   static KSettings::Dialog *dlg = 0;
   if ( !dlg ) {
     dlg = new KSettings::Dialog( this );
-    dlg->setComponentSelection( KSettings::Dialog::AllowComponentSelection );
+    dlg->setAllowComponentSelection( true );
 
     // do not show settings of components running standalone
     KPluginInfo::List filteredPlugins = mPluginInfos;
