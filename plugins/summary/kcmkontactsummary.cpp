@@ -144,11 +144,10 @@ void KCMKontactSummary::load()
   }
 
   mPluginView->clear();
-  mPluginList.clear();
 
-  mPluginList = KPluginInfo::fromServices( offers, &config, "Plugins" );
+  KPluginInfo::List pluginList = KPluginInfo::fromServices( offers, KConfigGroup( &config, "Plugins" ) );
   KPluginInfo::List::Iterator it;
-  for ( it = mPluginList.begin(); it != mPluginList.end(); ++it ) {
+  for ( it = pluginList.begin(); it != pluginList.end(); ++it ) {
     (*it)->load();
 
     if ( !(*it)->isPluginEnabled() )

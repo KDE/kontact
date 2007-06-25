@@ -55,8 +55,6 @@ class KCMKontactSummary : public KCModule
 
   private:
     PluginView *mPluginView;
-
-    KPluginInfo::List mPluginList;
 };
 
 #endif
