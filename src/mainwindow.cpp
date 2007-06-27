@@ -60,7 +60,7 @@
 #include <ksqueezedtextlabel.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
-#include <libkdepim/kfileio.h>
+#include <kpimutils/kfileio.h>
 #include <krun.h>
 #include <kaboutdata.h>
 #include <kmenubar.h>
@@ -257,7 +257,7 @@ void MainWindow::initWidgets()
 void MainWindow::paintAboutScreen( const QString& msg )
 {
   QString location = KStandardDirs::locate( "data", "kontact/about/main.html" );
-  QString content = KPIM::kFileToByteArray( location );
+  QString content = KPIMUtils::kFileToByteArray( location );
   content = content.arg( KStandardDirs::locate( "data", "libkdepim/about/kde_infopage.css" ) );
   if ( QApplication::isRightToLeft() )
     content = content.arg( "@import \"%1\";" ).arg( KStandardDirs::locate( "data", "libkdepim/about/kde_infopage_rtl.css" ) );
