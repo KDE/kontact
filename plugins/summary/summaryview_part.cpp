@@ -48,8 +48,8 @@
 #include <kparts/componentfactory.h>
 #include <kparts/event.h>
 
-#include <libkpimidentities/identity.h>
-#include <libkpimidentities/identitymanager.h>
+#include <kpimidentities/identity.h>
+#include <kpimidentities/identitymanager.h>
 
 #include "plugin.h"
 #include "summary.h"
@@ -131,8 +131,8 @@ void SummaryViewPart::updateWidgets()
 
   delete mFrame;
 
-  KPIM::IdentityManager idm( true, this );
-  const KPIM::Identity &id = idm.defaultIdentity();
+  KPIMIdentities::IdentityManager idm( true, this );
+  const KPIMIdentities::Identity &id = idm.defaultIdentity();
 
   QString currentUser = i18n( "Summary for %1", id.fullName() );
   mUsernameLabel->setText( QString::fromLatin1( "<b>%1</b>" ).arg( currentUser ) );
