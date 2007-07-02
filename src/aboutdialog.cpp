@@ -147,11 +147,11 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       }
     }
 
-    const QList<KAboutTranslator> translators = about->translators();
+    const QList<KAboutPerson> translators = about->translators();
     if ( !translators.isEmpty() ) {
       text += i18n("<p><b>Translators:</b></p>");
 
-      QList<KAboutTranslator>::ConstIterator it;
+      QList<KAboutPerson>::ConstIterator it;
       for ( it = translators.begin(); it != translators.end(); ++it ) {
        text += formatPerson( (*it).name(), (*it).emailAddress() );
       }
