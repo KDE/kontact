@@ -45,15 +45,15 @@ Kontact::Summary *WeatherPlugin::createSummaryWidget( QWidget *parentWidget )
 const KAboutData *WeatherPlugin::aboutData()
 {
   if ( !mAboutData ) {
-    mAboutData = new KAboutData( "weatherplugin", I18N_NOOP( "Weather Information" ),
+    mAboutData = new KAboutData( "weatherplugin", 0, ki18n( "Weather Information" ),
                                  "0.1",
-                                 I18N_NOOP( "Weather Information" ),
+                                 ki18n( "Weather Information" ),
                                  KAboutData::License_GPL_V2,
-                                 "(c) 2003 The Kontact developers" );
-    mAboutData->addAuthor( "Ian Reinhart Geiser", "", "geiseri@kde.org" );
-    mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
-    mAboutData->addCredit( "John Ratke",
-                           I18N_NOOP( "Improvements and more code cleanups" ),
+                                 ki18n("(c) 2003 The Kontact developers") );
+    mAboutData->addAuthor( ki18n("Ian Reinhart Geiser"), KLocalizedString(), "geiseri@kde.org" );
+    mAboutData->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
+    mAboutData->addCredit( ki18n("John Ratke"),
+                           ki18n( "Improvements and more code cleanups" ),
                            "jratke@comcast.net" );
   }
 

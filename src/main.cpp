@@ -91,7 +91,7 @@ int KontactApp::newInstance()
     moduleName = Kontact::Prefs::self()->forcedStartupPlugin();
   }
   if ( args->isSet( "module" ) ) {
-    moduleName = QString::fromLocal8Bit( args->getOption( "module" ) );
+    moduleName = args->getOption( "module" );
   }
   if ( !mSessionRestored ) {
     if ( !mMainWindow ) {
@@ -120,17 +120,17 @@ int KontactApp::newInstance()
 
 int main( int argc, char **argv )
 {
-  KAboutData about( "kontact", I18N_NOOP( "Kontact" ), version, description,
-                    KAboutData::License_GPL, I18N_NOOP("(C) 2001-2004 The Kontact developers"), 0, "http://kontact.org" );
-  about.addAuthor( "Daniel Molkentin", 0, "molkentin@kde.org" );
-  about.addAuthor( "Don Sanders", 0, "sanders@kde.org" );
-  about.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
-  about.addAuthor( "Tobias K\303\266nig", 0, "tokoe@kde.org" );
-  about.addAuthor( "David Faure", 0, "faure@kde.org" );
-  about.addAuthor( "Ingo Kl\303\266cker", 0, "kloecker@kde.org" );
-  about.addAuthor( "Sven L\303\274ppken", 0, "sven@kde.org" );
-  about.addAuthor( "Zack Rusin", 0, "zack@kde.org" );
-  about.addAuthor( "Matthias Hoelzer-Kluepfel", I18N_NOOP("Original Author"), "mhk@kde.org" );
+  KAboutData about( "kontact", 0, ki18n( "Kontact" ), version, ki18n(description),
+                    KAboutData::License_GPL, ki18n("(C) 2001-2004 The Kontact developers"), KLocalizedString(), "http://kontact.org" );
+  about.addAuthor( ki18n("Daniel Molkentin"), KLocalizedString(), "molkentin@kde.org" );
+  about.addAuthor( ki18n("Don Sanders"), KLocalizedString(), "sanders@kde.org" );
+  about.addAuthor( ki18n("Cornelius Schumacher"), KLocalizedString(), "schumacher@kde.org" );
+  about.addAuthor( ki18n("Tobias K\303\266nig"), KLocalizedString(), "tokoe@kde.org" );
+  about.addAuthor( ki18n("David Faure"), KLocalizedString(), "faure@kde.org" );
+  about.addAuthor( ki18n("Ingo Kl\303\266cker"), KLocalizedString(), "kloecker@kde.org" );
+  about.addAuthor( ki18n("Sven L\303\274ppken"), KLocalizedString(), "sven@kde.org" );
+  about.addAuthor( ki18n("Zack Rusin"), KLocalizedString(), "zack@kde.org" );
+  about.addAuthor( ki18n("Matthias Hoelzer-Kluepfel"), ki18n("Original Author"), "mhk@kde.org" );
   about.setOrganizationDomain("kde.org");
 
   KCmdLineArgs::init( argc, argv, &about );

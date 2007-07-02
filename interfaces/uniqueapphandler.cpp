@@ -203,16 +203,13 @@ void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray& appId )
   }
 }
 
-static KCmdLineOptions options[] =
-{
-    { "module <module>",   I18N_NOOP( "Start with a specific Kontact module" ), 0 },
-    { "iconify",   I18N_NOOP( "Start in iconified (minimized) mode" ), 0 },
-    { "list", I18N_NOOP( "List all possible modules and exit" ), 0 },
-    KCmdLineLastOption
-};
-
 void Kontact::UniqueAppHandler::loadKontactCommandLineOptions()
 {
+
+  KCmdLineOptions options;
+  options.add("module <module>", ki18n( "Start with a specific Kontact module" ));
+  options.add("iconify", ki18n( "Start in iconified (minimized) mode" ));
+  options.add("list", ki18n( "List all possible modules and exit" ));
   KCmdLineArgs::addCmdLineOptions( options );
   KUniqueApplication::addCmdLineOptions();
   KCmdLineArgs::addStdCmdLineOptions();

@@ -25,7 +25,7 @@
 
 void KOrganizerUniqueAppHandler::loadCommandLineOptions()
 {
-    KCmdLineArgs::addCmdLineOptions( korganizer_options );
+    KCmdLineArgs::addCmdLineOptions( korganizer_options() );
 }
 
 int KOrganizerUniqueAppHandler::newInstance()

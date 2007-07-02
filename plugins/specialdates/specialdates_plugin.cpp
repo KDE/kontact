@@ -55,14 +55,14 @@ Kontact::Summary *SpecialdatesPlugin::createSummaryWidget( QWidget *parentWidget
 const KAboutData *SpecialdatesPlugin::aboutData()
 {
   if ( !mAboutData ) {
-    mAboutData = new KAboutData( "specialdates",
-                                 I18N_NOOP( "Special Dates Summary" ),
+    mAboutData = new KAboutData( "specialdates", 0,
+                                 ki18n( "Special Dates Summary" ),
                                  "1.0",
-                                 I18N_NOOP( "Kontact Special Dates Summary" ),
+                                 ki18n( "Kontact Special Dates Summary" ),
                                  KAboutData::License_LGPL,
-                                 I18N_NOOP( "(c) 2004-2005 The KDE PIM Team" ) );
-    mAboutData->addAuthor( "Allen Winter", "Current Maintainer", "winter@kde.org" );
-    mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
+                                 ki18n( "(c) 2004-2005 The KDE PIM Team" ) );
+    mAboutData->addAuthor( ki18n("Allen Winter"), ki18n("Current Maintainer"), "winter@kde.org" );
+    mAboutData->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
     mAboutData->setProductName( "kontact/specialdates" );
   }
 

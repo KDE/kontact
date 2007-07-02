@@ -144,7 +144,7 @@ void Plugin::saveProperties( KConfigGroup &config )
 
 void UniqueAppHandler::loadCommandLineOptions()
 {
-    KCmdLineArgs::addCmdLineOptions( akregator_options );
+    KCmdLineArgs::addCmdLineOptions( akregator_options() );
 }
 
 int UniqueAppHandler::newInstance()

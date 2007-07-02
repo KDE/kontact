@@ -166,7 +166,7 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
 
 void KABUniqueAppHandler::loadCommandLineOptions()
 {
-    KCmdLineArgs::addCmdLineOptions( kaddressbook_options );
+    KCmdLineArgs::addCmdLineOptions( kaddressbook_options() );
 }
 
 int KABUniqueAppHandler::newInstance()

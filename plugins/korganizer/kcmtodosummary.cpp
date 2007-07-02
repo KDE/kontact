@@ -158,13 +158,13 @@ void KCMTodoSummary::defaults()
 const KAboutData* KCMTodoSummary::aboutData() const
 {
   KAboutData *about = new KAboutData(
-    I18N_NOOP( "kcmtodosummary" ),
-    I18N_NOOP( "Pending To-dos Configuration Dialog" ),
-    0, 0, KAboutData::License_GPL,
-    I18N_NOOP( "(c) 2003 - 2004 Tobias Koenig" ) );
+    I18N_NOOP( "kcmtodosummary" ), 0,
+    ki18n( "Pending To-dos Configuration Dialog" ),
+    0, KLocalizedString(), KAboutData::License_GPL,
+    ki18n( "(c) 2003 - 2004 Tobias Koenig" ) );
 
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
-  about->addAuthor( "Allen Winter", 0, "winter@kde.org" );
+  about->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
+  about->addAuthor( ki18n("Allen Winter"), KLocalizedString(), "winter@kde.org" );
 
   return about;
 }

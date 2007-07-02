@@ -75,12 +75,12 @@ Kontact::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
 const KAboutData *KNotesPlugin::aboutData()
 {
   if ( !mAboutData ) {
-    mAboutData = new KAboutData( "knotes", I18N_NOOP( "Notes Management" ),
-                                 "0.5", I18N_NOOP( "Notes Management" ),
+    mAboutData = new KAboutData( "knotes", 0, ki18n( "Notes Management" ),
+                                 "0.5", ki18n( "Notes Management" ),
                                   KAboutData::License_GPL_V2,
-                                  "(c) 2003-2004 The Kontact developers" );
-    mAboutData->addAuthor( "Michael Brade", "Current Maintainer", "brade@kde.org" );
-    mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
+                                  ki18n("(c) 2003-2004 The Kontact developers") );
+    mAboutData->addAuthor( ki18n("Michael Brade"), ki18n("Current Maintainer"), "brade@kde.org" );
+    mAboutData->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
   }
 
   return mAboutData;

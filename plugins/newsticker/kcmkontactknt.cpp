@@ -467,12 +467,12 @@ void KCMKontactKNT::defaults()
 
 const KAboutData* KCMKontactKNT::aboutData() const
 {
-  KAboutData *about = new KAboutData( I18N_NOOP( "kcmkontactknt" ),
-                                      I18N_NOOP( "Newsticker Configuration Dialog" ),
-                                      0, 0, KAboutData::License_GPL,
-                                      I18N_NOOP( "(c) 2003 - 2004 Tobias Koenig" ) );
+  KAboutData *about = new KAboutData( I18N_NOOP( "kcmkontactknt" ), 0,
+                                      ki18n( "Newsticker Configuration Dialog" ),
+                                      0, KLocalizedString(), KAboutData::License_GPL,
+                                      ki18n( "(c) 2003 - 2004 Tobias Koenig" ) );
 
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
+  about->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
 
   return about;
 }

@@ -105,7 +105,7 @@ KParts::ReadOnlyPart* KNodePlugin::createPart()
 #include "../../../knode/knode_options.h"
 void KNodeUniqueAppHandler::loadCommandLineOptions()
 {
-    KCmdLineArgs::addCmdLineOptions( knode_options );
+    KCmdLineArgs::addCmdLineOptions( knode_options() );
 }
 
 int KNodeUniqueAppHandler::newInstance()

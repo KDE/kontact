@@ -94,13 +94,13 @@ KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
 
 const KAboutData* KcmKontact::aboutData() const
 {
-  KAboutData *about = new KAboutData( I18N_NOOP( "kontactconfig" ),
-                                      I18N_NOOP( "KDE Kontact" ),
-                                      0, 0, KAboutData::License_GPL,
-                                      I18N_NOOP( "(c), 2003 Cornelius Schumacher" ) );
+  KAboutData *about = new KAboutData( I18N_NOOP( "kontactconfig" ), 0,
+                                      ki18n( "KDE Kontact" ),
+                                      0, KLocalizedString(), KAboutData::License_GPL,
+                                      ki18n( "(c), 2003 Cornelius Schumacher" ) );
 
-  about->addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
+  about->addAuthor( ki18n("Cornelius Schumacher"), KLocalizedString(), "schumacher@kde.org" );
+  about->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
 
   return about;
 }

@@ -186,13 +186,13 @@ void KCMSDSummary::defaults()
 const KAboutData* KCMSDSummary::aboutData() const
 {
   KAboutData *about = new KAboutData(
-    I18N_NOOP( "kcmsdsummary" ),
-    I18N_NOOP( "Upcoming Special Dates Configuration Dialog" ),
-    0, 0, KAboutData::License_GPL,
-    I18N_NOOP( "(c) 2004-2006 Allen Winter" ) );
+    I18N_NOOP( "kcmsdsummary" ), 0,
+    ki18n( "Upcoming Special Dates Configuration Dialog" ),
+    0, KLocalizedString(), KAboutData::License_GPL,
+    ki18n( "(c) 2004-2006 Allen Winter" ) );
 
-  about->addAuthor( "Allen Winter", 0, "winter@kde.org" );
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
+  about->addAuthor( ki18n("Allen Winter"), KLocalizedString(), "winter@kde.org" );
+  about->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
 
   return about;
 }

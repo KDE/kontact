@@ -112,12 +112,12 @@ KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *paren
            this, SLOT( itemClicked( Q3ListViewItem* ) ) );
   load();
 
-  KAboutData *about = new KAboutData( I18N_NOOP( "kontactsummary" ),
-                                      I18N_NOOP( "KDE Kontact Summary" ),
-                                      0, 0, KAboutData::License_GPL,
-                                      I18N_NOOP( "(c), 2004 Tobias Koenig" ) );
+  KAboutData *about = new KAboutData( I18N_NOOP( "kontactsummary" ), 0,
+                                      ki18n( "KDE Kontact Summary" ),
+                                      0, KLocalizedString(), KAboutData::License_GPL,
+                                      ki18n( "(c), 2004 Tobias Koenig" ) );
 
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
+  about->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
   setAboutData( about );
 }
 

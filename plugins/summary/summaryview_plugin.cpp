@@ -49,14 +49,14 @@ KParts::ReadOnlyPart *SummaryView::createPart()
 const KAboutData *SummaryView::aboutData()
 {
   if ( !mAboutData ) {
-    mAboutData = new KAboutData( "kontactsummary", I18N_NOOP("Kontact Summary"),
+    mAboutData = new KAboutData( "kontactsummary", 0, ki18n("Kontact Summary"),
                                  "1.1",
-                                 I18N_NOOP("Kontact Summary View"),
+                                 ki18n("Kontact Summary View"),
                                  KAboutData::License_LGPL,
-                                 I18N_NOOP("(c) 2003 The Kontact developers" ) );
-    mAboutData->addAuthor( "Sven Lueppken", "", "sven@kde.org" );
-    mAboutData->addAuthor( "Cornelius Schumacher", "", "schumacher@kde.org" );
-    mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
+                                 ki18n("(c) 2003 The Kontact developers" ) );
+    mAboutData->addAuthor( ki18n("Sven Lueppken"), KLocalizedString(), "sven@kde.org" );
+    mAboutData->addAuthor( ki18n("Cornelius Schumacher"), KLocalizedString(), "schumacher@kde.org" );
+    mAboutData->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
     mAboutData->setProductName( "kontact/summary" );
   }
 

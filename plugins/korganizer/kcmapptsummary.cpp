@@ -132,13 +132,13 @@ void KCMApptSummary::defaults()
 const KAboutData* KCMApptSummary::aboutData() const
 {
   KAboutData *about = new KAboutData(
-    I18N_NOOP( "kcmapptsummary" ),
-    I18N_NOOP( "Upcoming Events Configuration Dialog" ),
-    0, 0, KAboutData::License_GPL,
-    I18N_NOOP( "(c) 2003 - 2004 Tobias Koenig" ) );
+    I18N_NOOP( "kcmapptsummary" ), 0,
+    ki18n( "Upcoming Events Configuration Dialog" ),
+    0, KLocalizedString(), KAboutData::License_GPL,
+    ki18n( "(c) 2003 - 2004 Tobias Koenig" ) );
 
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
-  about->addAuthor( "Allen Winter", 0, "winter@kde.org" );
+  about->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
+  about->addAuthor( ki18n("Allen Winter"), KLocalizedString(), "winter@kde.org" );
 
   return about;
 }
