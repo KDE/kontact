@@ -11,7 +11,7 @@ qt4_add_dbus_interfaces(kontact_knodeplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/knode/
 
 kde4_add_plugin(kontact_knodeplugin WITH_PREFIX ${kontact_knodeplugin_PART_SRCS})
 
-target_link_libraries(kontact_knodeplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces)
+target_link_libraries(kontact_knodeplugin ${KDE4_KPARTS_LIBS} kpinterfaces)
 
 install(TARGETS kontact_knodeplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 

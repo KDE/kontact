@@ -17,7 +17,7 @@ kde4_add_plugin(kontact_knotesplugin WITH_PREFIX ${kontact_knotesplugin_PART_SRC
 
 
 
-target_link_libraries(kontact_knotesplugin  ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces kdepim ${KDE4_KCAL_LIBS} ${KDE4_KRESOURCES_LIBS})
+target_link_libraries(kontact_knotesplugin  ${KDE4_KPARTS_LIBS} kpinterfaces kdepim ${KDE4_KCAL_LIBS} ${KDE4_KRESOURCES_LIBS})
 
 install(TARGETS kontact_knotesplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 

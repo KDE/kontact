@@ -27,7 +27,7 @@ kde4_add_plugin(kontact_kmailplugin WITH_PREFIX ${kontact_kmailplugin_PART_SRCS}
 
 
 
-target_link_libraries(kontact_kmailplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces ${KDE4_KCAL_LIBS})
+target_link_libraries(kontact_kmailplugin ${KDE4_KPARTS_LIBS} kpinterfaces ${KDE4_KCAL_LIBS})
 
 install(TARGETS kontact_kmailplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 add_dependencies(kontact_kmailplugin kmailprivate)

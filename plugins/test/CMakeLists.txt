@@ -13,7 +13,7 @@ kde4_add_plugin(kptestplugin WITH_PREFIX ${kptestplugin_PART_SRCS})
 
 
 
-target_link_libraries(kptestplugin ${KDE4_KDECORE_LIBS} ${KDE4_KPARTS_LIBS} kpinterfaces)
+target_link_libraries(kptestplugin ${KDE4_KPARTS_LIBS} kpinterfaces)
 
 install(TARGETS kptestplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
