@@ -7,7 +7,6 @@ set(libcommon_SRCS korg_uniqueapp.cpp)
 
 set(kontact_korganizerplugin_PART_SRCS korganizerplugin.cpp apptsummarywidget.cpp ${libcommon_SRCS})
 
-kde4_automoc(${kontact_korganizerplugin_PART_SRCS})
 
 qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml  ${CMAKE_SOURCE_DIR}/korganizer/org.kde.korganizer.Korganizer.xml )
 
@@ -25,7 +24,6 @@ install(TARGETS kontact_korganizerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kontact_todoplugin_PART_SRCS todoplugin.cpp todosummarywidget.cpp ${libcommon_SRCS} )
 
-kde4_automoc(${kontact_todoplugin_PART_SRCS})
 
 qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml  ${CMAKE_SOURCE_DIR}/korganizer/org.kde.korganizer.Korganizer.xml )
 
@@ -42,7 +40,6 @@ install(TARGETS kontact_todoplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kontact_journalplugin_PART_SRCS journalplugin.cpp ${libcommon_SRCS})
 
-kde4_automoc(${kontact_journalplugin_PART_SRCS})
 
 qt4_add_dbus_interfaces(kontact_journalplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml )
 
@@ -59,7 +56,6 @@ install(TARGETS kontact_journalplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kcm_apptsummary_PART_SRCS kcmapptsummary.cpp )
 
-kde4_automoc(${kcm_apptsummary_PART_SRCS})
 
 kde4_add_ui_files(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui )
 
@@ -76,7 +72,6 @@ install(TARGETS kcm_apptsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kcm_todosummary_PART_SRCS kcmtodosummary.cpp )
 
-kde4_automoc(${kcm_todosummary_PART_SRCS})
 
 kde4_add_ui_files(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui )
 

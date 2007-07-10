@@ -8,7 +8,6 @@ set(kontact_akregator_PART_SRCS akregator_plugin.cpp )
 
 qt4_add_dbus_interfaces(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregator/src/org.kde.akregator.part.xml ) 
 
-kde4_automoc(${kontact_akregator_PART_SRCS})
 
 kde4_add_plugin(kontact_akregator WITH_PREFIX ${kontact_akregator_PART_SRCS})
 

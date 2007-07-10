@@ -21,7 +21,6 @@ qt4_add_dbus_interfaces(kontact_kmail_plugins_interface_SRCS ${CMAKE_SOURCE_DIR}
 
 set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp ${kontact_kmail_plugins_interface_SRCS})
 
-kde4_automoc(${kontact_kmailplugin_PART_SRCS})
 
 
 kde4_add_plugin(kontact_kmailplugin WITH_PREFIX ${kontact_kmailplugin_PART_SRCS})
@@ -38,7 +37,6 @@ add_dependencies(kontact_kmailplugin kmailprivate)
 set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp ${kontact_kmail_plugins_interface_SRCS} )
 
 
-kde4_automoc(${kcm_kmailsummary_PART_SRCS})
 
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 

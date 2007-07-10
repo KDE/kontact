@@ -12,7 +12,6 @@ set(kontact_knotesplugin_PART_SRCS ${libknotesresources_SRCS} ${libknoteseditor_
 
 qt4_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml knotes_part.h KNotesPart  )
 
-kde4_automoc(${kontact_knotesplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_knotesplugin WITH_PREFIX ${kontact_knotesplugin_PART_SRCS})
 

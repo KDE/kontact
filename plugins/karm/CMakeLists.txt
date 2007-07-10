@@ -6,7 +6,6 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 
 set(kontact_karm_PART_SRCS karm_plugin.cpp )
 
-kde4_automoc(${kontact_karm_PART_SRCS})
 
 qt4_add_dbus_interfaces(kontact_karm_PART_SRCS ${CMAKE_SOURCE_DIR}/ktimetracker/org.kde.karm.Karm.xml )
 

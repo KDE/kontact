@@ -12,7 +12,6 @@ set(kontact_LIB_SRCS
    iconsidepane.cpp 
    aboutdialog.cpp )
 
-kde4_automoc(${kontact_LIB_SRCS})
 
 kde4_add_kcfg_files(kontact_LIB_SRCS prefs.kcfgc )
 
@@ -28,7 +27,6 @@ install(TARGETS kontact  DESTINATION ${LIB_INSTALL_DIR})
 
 set(kontact_bin_SRCS main.cpp )
 
-kde4_automoc(${kontact_bin_SRCS})
 
 kde4_add_executable(kontact_bin ${kontact_bin_SRCS})
 
@@ -43,7 +41,6 @@ install(TARGETS kontact_bin  DESTINATION ${BIN_INSTALL_DIR} )
 
 set(kcm_kontact_PART_SRCS kcmkontact.cpp )
 
-kde4_automoc(${kcm_kontact_PART_SRCS})
 
 kde4_add_plugin(kcm_kontact ${kcm_kontact_PART_SRCS})
 

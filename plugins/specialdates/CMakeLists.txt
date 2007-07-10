@@ -9,7 +9,6 @@ set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget
 qt4_add_dbus_interfaces(kontact_specialdatesplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kaddressbook/org.kde.KAddressbook.Core.xml )
 
 
-kde4_automoc(${kontact_specialdatesplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_specialdatesplugin WITH_PREFIX ${kontact_specialdatesplugin_PART_SRCS})
 
@@ -24,7 +23,6 @@ install(TARGETS kontact_specialdatesplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kcm_sdsummary_PART_SRCS kcmsdsummary.cpp )
 
-kde4_automoc(${kcm_sdsummary_PART_SRCS})
 
 kde4_add_ui_files(kcm_sdsummary_PART_SRCS sdsummaryconfig_base.ui )
 

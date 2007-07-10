@@ -10,7 +10,6 @@ set(kpinterfaces_LIB_SRCS
    summary.cpp 
    uniqueapphandler.cpp)
 
-kde4_automoc(${kpinterfaces_LIB_SRCS})
 
 kde4_add_library(kpinterfaces SHARED ${kpinterfaces_LIB_SRCS})
 

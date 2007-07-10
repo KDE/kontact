@@ -6,7 +6,6 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 
 set(kontact_knodeplugin_PART_SRCS knode_plugin.cpp )
 
-kde4_automoc(${kontact_knodeplugin_PART_SRCS})
 
 qt4_add_dbus_interfaces(kontact_knodeplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/knode/org.kde.knode.xml )
 

@@ -6,7 +6,6 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 
 set(kontact_newstickerplugin_PART_SRCS newsticker_plugin.cpp summarywidget.cpp )
 
-kde4_automoc(${kontact_newstickerplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_newstickerplugin WITH_PREFIX ${kontact_newstickerplugin_PART_SRCS})
 
@@ -21,7 +20,6 @@ install(TARGETS kontact_newstickerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kcm_kontactknt_PART_SRCS kcmkontactknt.cpp )
 
-kde4_automoc(${kcm_kontactknt_PART_SRCS})
 
 kde4_add_plugin(kcm_kontactknt ${kcm_kontactknt_PART_SRCS})
 

@@ -10,7 +10,6 @@ include_directories(
 
 set(kontact_summaryplugin_PART_SRCS summaryview_plugin.cpp summaryview_part.cpp dropwidget.cpp )
 
-kde4_automoc(${kontact_summaryplugin_PART_SRCS})
 
 kde4_add_plugin(kontact_summaryplugin WITH_PREFIX ${kontact_summaryplugin_PART_SRCS})
 
@@ -25,7 +24,6 @@ install(TARGETS kontact_summaryplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kcm_kontactsummary_PART_SRCS kcmkontactsummary.cpp )
 
-kde4_automoc(${kcm_kontactsummary_PART_SRCS})
 
 kde4_add_plugin(kcm_kontactsummary ${kcm_kontactsummary_PART_SRCS})
 
