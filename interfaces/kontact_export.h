@@ -23,8 +23,19 @@
 /* needed for KDE_EXPORT and KDE_IMPORT macros */
 #include <kdemacros.h>
 
-#ifndef KONTACT_EXPORT
+
+#ifndef KPINTERFACES_EXPORT
 # if defined(MAKE_KPINTERFACES_LIB)
+   /* We are building this library */
+#  define KPINTERFACES_EXPORT KDE_EXPORT
+# else
+   /* We are using this library */
+#  define KPINTERFACES_EXPORT KDE_IMPORT
+# endif
+#endif
+
+#ifndef KONTACT_EXPORT
+# if defined(MAKE_KONTACT_LIB)
    /* We are building this library */
 #  define KONTACT_EXPORT KDE_EXPORT
 # else
@@ -33,8 +44,13 @@
 # endif
 #endif
 
+# ifndef KPINTERFACES_EXPORT_DEPRECATED
+#  define KPINTERFACES_EXPORT_DEPRECATED KDE_DEPRECATED KPINTERFACES_EXPORT
+# endif
+
 # ifndef KONTACT_EXPORT_DEPRECATED
 #  define KONTACT_EXPORT_DEPRECATED KDE_DEPRECATED KONTACT_EXPORT
 # endif
+
 
 #endif

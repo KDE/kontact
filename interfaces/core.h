@@ -37,7 +37,7 @@ class Plugin;
 /**
   This class provides the interface to the Kontact core for the plugins.
 */
-class KONTACT_EXPORT Core : public KParts::MainWindow
+class KPINTERFACES_EXPORT Core : public KParts::MainWindow
 {
   Q_OBJECT
   public:

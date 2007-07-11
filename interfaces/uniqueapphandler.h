@@ -35,7 +35,7 @@ namespace Kontact
  * By default this means simply bringing the main window to the front,
  * but newInstance can be reimplemented.
  */
-class KONTACT_EXPORT UniqueAppHandler
+class KPINTERFACES_EXPORT UniqueAppHandler
 {
   public:
     UniqueAppHandler( Plugin* plugin );
@@ -87,7 +87,7 @@ template <class T> class UniqueAppHandlerFactory : public UniqueAppHandlerFactor
  * Kontact takes over from there.
  *
  */
-class KONTACT_EXPORT UniqueAppWatcher : public QObject
+class KPINTERFACES_EXPORT UniqueAppWatcher : public QObject
 {
   Q_OBJECT
 

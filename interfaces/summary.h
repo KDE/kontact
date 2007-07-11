@@ -37,7 +37,7 @@ namespace Kontact
 /**
   Summary widget for display in the Summary View plugin.
  */
-class KONTACT_EXPORT Summary : public QWidget
+class KPINTERFACES_EXPORT Summary : public QWidget
 {
   Q_OBJECT
 

@@ -56,7 +56,7 @@ class Summary;
   to get a plugin. It can insert an icon into the sidepane,
   add widgets to the widgetstack and add menu items via XMLGUI.
  */
-class KONTACT_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
+class KPINTERFACES_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
 {
   Q_OBJECT
 
