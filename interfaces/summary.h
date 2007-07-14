@@ -23,11 +23,11 @@
 
 #include "kontact_export.h"
 
-#include <QWidget>
-#include <QPixmap>
-#include <QMouseEvent>
-#include <QDragEnterEvent>
-#include <QDropEvent>
+#include <QtGui/QWidget>
+#include <QtGui/QPixmap>
+#include <QtGui/QMouseEvent>
+#include <QtGui/QDragEnterEvent>
+#include <QtGui/QDropEvent>
 
 class KStatusBar;
 

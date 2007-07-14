@@ -27,7 +27,7 @@
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 
-#include <QDateTime>
+#include <QtCore/QDateTime>
 
 namespace Kontact
 {
