@@ -24,9 +24,6 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <dcopobject.h>
-#include <dcopref.h>
-
 #include <QMap>
 #include <QTimer>
 #include <QWidget>
@@ -42,12 +39,10 @@
 class QVBoxLayout;
 class QLabel;
 
-class DCOPRef;
-
 typedef QList< QPair<QString, KUrl> > ArticleMap;
 
 typedef struct {
-  DCOPRef ref;
+//  DCOPRef ref;
   QString title;
   QString url;
   QPixmap logo;
@@ -56,10 +51,9 @@ typedef struct {
 
 typedef QList<Feed> FeedList;
 
-class SummaryWidget : public Kontact::Summary, public DCOPObject
+class SummaryWidget : public Kontact::Summary //, public DCOPObject
 {
   Q_OBJECT
-  K_DCOP
 
   public:
     SummaryWidget( QWidget *parent );
@@ -67,11 +61,14 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
     int summaryHeight() const;
     QStringList configModules() const;
 
+#if 0
+#warning Port me!
   k_dcop:
     /**
      * Inform the newsticker summary widget that an RSSDocument has been updated.
      */
     void documentUpdated( DCOPRef );
+#endif
     /**
      * Inform the newsticker summary widget that a feed has been added.
      */
@@ -80,6 +77,8 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
      * Inform the newsticker summary widget that a feed has been removed.
      */
     void documentRemoved( QString );
+#if 0
+#warning Port me!
     /**
      * Inform the newsticker summary widget that an error occurred while
      * updating a feed.
@@ -88,6 +87,7 @@ class SummaryWidget : public Kontact::Summary, public DCOPObject
      *   1 = RSS Parse Error, 2 = Could not access file, 3 = Unknown error.
      */
     void documentUpdateError( DCOPRef ref, int errorCode );
+#endif
 
   public slots:
     void updateSummary( bool force = false );

@@ -32,7 +32,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-#include <dcopclient.h>
+#include <kapplication.h>
 #include <kcharsets.h>
 #include <kconfig.h>
 #include <kdebug.h>
@@ -46,7 +46,7 @@
 
 SummaryWidget::SummaryWidget( QWidget *parent )
   : Kontact::Summary( parent ),
-    DCOPObject( "NewsTickerPlugin" ), mLayout( 0 )
+    /*DCOPObject( "NewsTickerPlugin" ),*/ mLayout( 0 )
 {
   QVBoxLayout *vlay = new QVBoxLayout( this );
   vlay->setSpacing( 3 );
@@ -59,6 +59,8 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   vlay->addWidget( header );
 
   QString error;
+#if 0
+#warning Port me!
   DCOPCString appID;
 
   bool dcopAvailable = true;
@@ -69,6 +71,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
       dcopAvailable = false;
     }
   }
+#endif
 
   mBaseWidget = new QWidget( this );
   mBaseWidget->setObjectName( "baseWidget" );
@@ -78,6 +81,8 @@ SummaryWidget::SummaryWidget( QWidget *parent )
 
   readConfig();
 
+#if 0
+#warning Port me!
   connectDCOPSignal( 0, 0, "documentUpdateError(DCOPRef,int)", "documentUpdateError(DCOPRef, int)", false );
 
   if ( dcopAvailable )
@@ -85,6 +90,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
 
   connectDCOPSignal( 0, 0, "added(QString)", "documentAdded(QString)", false );
   connectDCOPSignal( 0, 0, "removed(QString)", "documentRemoved(QString)", false );
+#endif
 }
 
 int SummaryWidget::summaryHeight() const
@@ -122,6 +128,8 @@ void SummaryWidget::initDocuments()
 {
   mFeeds.clear();
 
+#if 0
+#warning Port me!
   DCOPRef dcopCall( "rssservice", "RSSService" );
   QStringList urls;
   dcopCall.call( "list()" ).get( urls );
@@ -150,6 +158,7 @@ void SummaryWidget::initDocuments()
       qApp->processEvents( QEventLoop::ExcludeUserInput |
                            QEventLoop::ExcludeSocketNotifiers );
   }
+#endif
 
   updateDocuments();
 }
@@ -159,12 +168,17 @@ void SummaryWidget::updateDocuments()
   mTimer.stop();
 
   FeedList::Iterator it;
+#if 0
+#warning Port me!
   for ( it = mFeeds.begin(); it != mFeeds.end(); ++it )
     (*it).ref.send( "refresh()" );
+#endif
 
   mTimer.start( 1000 * mUpdateInterval );
 }
 
+#if 0
+#warning Port me!
 void SummaryWidget::documentUpdated( DCOPRef feedRef )
 {
   ArticleMap map;
@@ -203,6 +217,7 @@ void SummaryWidget::documentUpdated( DCOPRef feedRef )
     updateView();
   }
 }
+#endif
 
 void SummaryWidget::updateView()
 {
@@ -224,7 +239,7 @@ void SummaryWidget::updateView()
 
     // icon
     KUrlLabel *urlLabel = new KUrlLabel( hbox );
-    urlLabel->setURL( (*it).url );
+    urlLabel->setUrl( (*it).url );
     urlLabel->setPixmap( (*it).logo );
     urlLabel->setMaximumSize( urlLabel->minimumSizeHint() );
     mLabels.append( urlLabel );
@@ -272,6 +287,8 @@ void SummaryWidget::updateView()
     label->show();
 }
 
+#if 0
+#warning Port me!
 void SummaryWidget::documentUpdateError( DCOPRef feedRef, int errorCode )
 {
   kDebug() << " error while updating document, error code: " << errorCode << endl;
@@ -289,6 +306,7 @@ void SummaryWidget::documentUpdateError( DCOPRef feedRef, int errorCode )
   }
 
 }
+#endif
 
 QStringList SummaryWidget::configModules() const
 {

@@ -35,6 +35,7 @@
 
 #include <kaboutdata.h>
 #include <kacceleratormanager.h>
+#include <kcomponentdata.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <k3listview.h>

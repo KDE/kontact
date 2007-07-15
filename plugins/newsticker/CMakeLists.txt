@@ -25,7 +25,7 @@ kde4_add_plugin(kcm_kontactknt ${kcm_kontactknt_PART_SRCS})
 
 
 
-target_link_libraries(kcm_kontactknt  ${KDE4_KDEUI_LIBS} )
+target_link_libraries(kcm_kontactknt  ${KDE4_KDEUI_LIBS} ${KDE4_KDE3SUPPORT_LIBS})
 
 install(TARGETS kcm_kontactknt  DESTINATION ${PLUGIN_INSTALL_DIR})
 
