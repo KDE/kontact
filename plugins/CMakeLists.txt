@@ -13,12 +13,5 @@ add_subdirectory( knode )
 add_subdirectory( akregator ) 
 add_subdirectory( karm ) 
 add_subdirectory( kmobiletools ) 
-
-find_file(KWEATHER_INTERFACE_FILE_FOUND org.kde.kweather.service.xml PATHS ${DBUS_INTERFACES_DIR} )
-
-if(KWEATHER_INTERFACE_FILE_FOUND)
-	#add_subdirectory( weather )
-else(KWEATHER_INTERFACE_FILE_FOUND)
-	MESSAGE(STATUS "KWeather plugins will not compile. Kdetoys must be installed before compiling it")
-endif(KWEATHER_INTERFACE_FILE_FOUND)
+add_subdirectory( weather )
 
