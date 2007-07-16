@@ -136,7 +136,7 @@ void ApptSummaryWidget::updateView()
     // replacing the QDate with the currentDate
     for ( ; it != events_orig.end(); ++it ) {
       ev = (*it)->clone();
-      if ( ev->recursOn( dt, 0 ) ) { //FIXME: what should the timespec be?
+      if ( ev->recursOn( dt, KDateTime::Invalid ) ) { //FIXME: what should the timespec be?
         qdt = ev->dtStart();
         qdt.setDate( dt );
         ev->setDtStart( qdt );
