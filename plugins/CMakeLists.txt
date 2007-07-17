@@ -1,7 +1,9 @@
 
 add_subdirectory( kaddressbook ) 
 if(GPGME_FOUND)
+if(NOT WIN32)
 add_subdirectory( kmail ) 
+endif(NOT WIN32)
 add_subdirectory( korganizer )
 add_subdirectory( summary )
 add_subdirectory( specialdates )
