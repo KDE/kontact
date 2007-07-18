@@ -52,6 +52,7 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {
+  KGlobal::locale()->insertCatalog("kontact_korganizer_plugin");
   setComponentData( TodoPluginFactory::componentData() );
   KIconLoader::global()->addAppDir("korganizer");
 

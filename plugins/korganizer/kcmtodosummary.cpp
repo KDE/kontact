@@ -44,6 +44,7 @@ extern "C"
   KDE_EXPORT KCModule *create_todosummary( QWidget *parent, const char * )
   {
     KComponentData inst( "kcmtodosummary" );
+    KGlobal::locale()->insertCatalog("kontact_korganizer_plugin");
     return new KCMTodoSummary( inst, parent );
   }
 }
