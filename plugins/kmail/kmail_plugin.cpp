@@ -60,6 +60,7 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const QStringList& )
   : Kontact::Plugin( core, core, "kmail" ),
     m_instance( 0 )
 {
+  KGlobal::locale()->insertCatalog("kcmkmailsummary");
   setComponentData( KMailPluginFactory::componentData() );
 
   KAction *action  = new KAction(KIcon("mail_new"), i18n("New Message..."), this);
