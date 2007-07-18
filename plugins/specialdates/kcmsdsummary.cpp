@@ -48,6 +48,7 @@ extern "C"
   KDE_EXPORT KCModule *create_sdsummary( QWidget *parent, const char * )
   {
     KComponentData inst( "kcmsdsummary" );
+    KGlobal::locale()->insertCatalog("kontact_specialdatesplugin");
     return new KCMSDSummary( inst, parent );
   }
 }
