@@ -47,7 +47,6 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_kontactsummary( QWidget *parent, const char * ) {
     KComponentData inst("kcmkontactsummary");
-    KGlobal::locale()->insertCatalog("kontact_summaryplugin");
     return new KCMKontactSummary( inst,parent );
   }
 }
