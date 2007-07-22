@@ -101,11 +101,11 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStart
     void loadSettings();
     void saveSettings();
 
-    bool isPluginLoaded( const KPluginInfo * );
-    Kontact::Plugin *pluginFromInfo( const KPluginInfo * );
+    bool isPluginLoaded( const KPluginInfo & );
+    Kontact::Plugin *pluginFromInfo( const KPluginInfo & );
     void loadPlugins();
     void unloadPlugins();
-    bool removePlugin( const KPluginInfo * );
+    bool removePlugin( const KPluginInfo & );
     void addPlugin( Kontact::Plugin *plugin );
     void partLoaded( Kontact::Plugin *plugin, KParts::ReadOnlyPart *part );
     void setupActions();
@@ -135,7 +135,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStart
     KParts::PartManager *mPartManager;
     PluginList mPlugins;
     PluginList mDelayedPreload;
-    QList<KPluginInfo*> mPluginInfos;
+    QList<KPluginInfo> mPluginInfos;
     KHTMLPart *mIntroPart;
 
     KSqueezedTextLabel* mStatusMsgLabel;

@@ -124,7 +124,7 @@ void MainWindow::initObject()
 
   KPluginInfo::List::Iterator it;
   for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
-    ( *it )->load();
+    it->load();
   }
 
 
@@ -329,16 +329,16 @@ void MainWindow::setupActions()
   actionCollection()->addAction("navigator_spacer_item", spacerAction);
 }
 
-bool MainWindow::isPluginLoaded( const KPluginInfo *info )
+bool MainWindow::isPluginLoaded( const KPluginInfo &info )
 {
   return (pluginFromInfo( info ) != 0);
 }
 
-Plugin *MainWindow::pluginFromInfo( const KPluginInfo *info )
+Plugin *MainWindow::pluginFromInfo( const KPluginInfo &info )
 {
   PluginList::ConstIterator end = mPlugins.end();
   for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it )
-    if ( (*it)->identifier() == info->pluginName() )
+    if ( (*it)->identifier() == info.pluginName() )
       return *it;
 
   return 0;
@@ -352,7 +352,7 @@ void MainWindow::loadPlugins()
   int i;
   KPluginInfo::List::ConstIterator it;
   for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
-    if ( !(*it)->isPluginEnabled() )
+    if ( !it->isPluginEnabled() )
       continue;
     if ( isPluginLoaded( *it ) ) {
       Plugin *plugin = pluginFromInfo( *it );
@@ -361,22 +361,22 @@ void MainWindow::loadPlugins()
       continue;
     }
 
-    kDebug(5600) << "Loading Plugin: " << (*it)->name() << endl;
+    kDebug(5600) << "Loading Plugin: " << it->name() << endl;
     Kontact::Plugin *plugin =
       KService::createInstance<Kontact::Plugin>(
-          (*it)->service(), this );
+          it->service(), this );
 
     if ( !plugin )
       continue;
 
-    plugin->setIdentifier( (*it)->pluginName() );
-    plugin->setTitle( (*it)->name() );
-    plugin->setIcon( (*it)->icon() );
+    plugin->setIdentifier( it->pluginName() );
+    plugin->setTitle( it->name() );
+    plugin->setIcon( it->icon() );
 
-    QVariant libNameProp = (*it)->property( "X-KDE-KontactPartLibraryName" );
-    QVariant exeNameProp = (*it)->property( "X-KDE-KontactPartExecutableName" );
-    QVariant loadOnStart = (*it)->property( "X-KDE-KontactPartLoadOnStart" );
-    QVariant hasPartProp = (*it)->property( "X-KDE-KontactPluginHasPart" );
+    QVariant libNameProp = it->property( "X-KDE-KontactPartLibraryName" );
+    QVariant exeNameProp = it->property( "X-KDE-KontactPartExecutableName" );
+    QVariant loadOnStart = it->property( "X-KDE-KontactPartLoadOnStart" );
+    QVariant hasPartProp = it->property( "X-KDE-KontactPluginHasPart" );
 
     if ( !loadOnStart.isNull() && loadOnStart.toBool() )
       mDelayedPreload.append( plugin );
@@ -419,16 +419,16 @@ void MainWindow::unloadPlugins()
   KPluginInfo::List::ConstIterator end = mPluginInfos.end();
   KPluginInfo::List::ConstIterator it;
   for ( it = mPluginInfos.begin(); it != end; ++it ) {
-    if ( !(*it)->isPluginEnabled() )
+    if ( !it->isPluginEnabled() )
       removePlugin( *it );
   }
 }
 
-bool MainWindow::removePlugin( const KPluginInfo *info )
+bool MainWindow::removePlugin( const KPluginInfo &info )
 {
   PluginList::Iterator end = mPlugins.end();
   for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it )
-    if ( ( *it )->identifier() == info->pluginName() ) {
+    if ( ( *it )->identifier() == info.pluginName() ) {
       Plugin *plugin = *it;
 
       const QList<KAction*> *actionList = plugin->newActions();
@@ -712,7 +712,7 @@ void MainWindow::slotPreferences()
       if ( (*it)->isRunningStandalone() ) {
         KPluginInfo::List::ConstIterator infoIt;
         for ( infoIt = filteredPlugins.begin(); infoIt != filteredPlugins.end(); ++infoIt ) {
-          if ( (*infoIt)->pluginName() == (*it)->identifier() ) {
+          if ( infoIt->pluginName() == (*it)->identifier() ) {
             filteredPlugins.removeAll( *infoIt );
             break;
           }
@@ -847,9 +847,8 @@ void MainWindow::saveProperties( KConfigGroup &config )
   KPluginInfo::List::Iterator it = mPluginInfos.begin();
   KPluginInfo::List::Iterator end = mPluginInfos.end();
   for ( ; it != end; ++it ) {
-    KPluginInfo *info = *it;
-    if ( info->isPluginEnabled() ) {
-      Plugin *plugin = pluginFromInfo( info );
+    if ( it->isPluginEnabled() ) {
+      Plugin *plugin = pluginFromInfo( *it );
       if ( plugin ) {
         activePlugins.append( plugin->identifier() );
         plugin->saveProperties( config );

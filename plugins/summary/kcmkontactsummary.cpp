@@ -54,15 +54,15 @@ extern "C"
 class PluginItem : public Q3CheckListItem
 {
   public:
-    PluginItem( KPluginInfo *info, K3ListView *parent )
+    PluginItem( const KPluginInfo &info, K3ListView *parent )
       : Q3CheckListItem( parent, QString::null, Q3CheckListItem::CheckBox ),
         mInfo( info )
     {
-      QPixmap pm = KIconLoader::global()->loadIcon( mInfo->icon(), K3Icon::Small );
+      QPixmap pm = KIconLoader::global()->loadIcon( mInfo.icon(), K3Icon::Small );
       setPixmap( 0, pm );
     }
 
-    KPluginInfo* pluginInfo() const
+    KPluginInfo pluginInfo() const
     {
       return mInfo;
     }
@@ -70,15 +70,15 @@ class PluginItem : public Q3CheckListItem
     virtual QString text( int column ) const
     {
       if ( column == 0 )
-        return mInfo->name();
+        return mInfo.name();
       else if ( column == 1 )
-        return mInfo->comment();
+        return mInfo.comment();
       else
         return QString();
     }
 
   private:
-    KPluginInfo *mInfo;
+    KPluginInfo mInfo;
 };
 
 PluginView::PluginView( QWidget *parent )
@@ -148,19 +148,19 @@ void KCMKontactSummary::load()
   KPluginInfo::List pluginList = KPluginInfo::fromServices( offers, KConfigGroup( &config, "Plugins" ) );
   KPluginInfo::List::Iterator it;
   for ( it = pluginList.begin(); it != pluginList.end(); ++it ) {
-    (*it)->load();
+    it->load();
 
-    if ( !(*it)->isPluginEnabled() )
+    if ( !it->isPluginEnabled() )
       continue;
 
-    QVariant var = (*it)->property( "X-KDE-KontactPluginHasSummary" );
+    QVariant var = it->property( "X-KDE-KontactPluginHasSummary" );
     if ( !var.isValid() )
       continue;
 
     if ( var.toBool() == true ) {
       PluginItem *item = new PluginItem( *it, mPluginView );
 
-      if ( activeSummaries.contains( (*it)->pluginName() )  )
+      if ( activeSummaries.contains( it->pluginName() )  )
         item->setOn( true );
     }
   }
@@ -173,7 +173,7 @@ void KCMKontactSummary::save()
   Q3ListViewItemIterator it( mPluginView, Q3ListViewItemIterator::Checked );
   while ( it.current() ) {
     PluginItem *item = static_cast<PluginItem*>( it.current() );
-    activeSummaries.append( item->pluginInfo()->pluginName() );
+    activeSummaries.append( item->pluginInfo().pluginName() );
     ++it;
   }
 
