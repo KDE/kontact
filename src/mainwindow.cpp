@@ -103,7 +103,7 @@ class SettingsDialogWrapper : public KSettings::Dialog
 
 MainWindow::MainWindow()
   : Kontact::Core(), mTopWidget( 0 ), mSplitter( 0 ),
-    mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false )
+    mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false ), mSyncActionsEnabled( true )
 {
   // Set this to be the group leader for all subdialogs - this means
   // modal subdialogs will only affect this dialog, not the other windows
@@ -329,10 +329,15 @@ void MainWindow::setupActions()
                                          KStdAccel::shortcut(KStdAccel::New), this, SLOT( slotNewClicked() ),
                                          actionCollection(), "action_new" );
 
-  mSyncActions = new KToolBarPopupAction( KGuiItem( i18n( "Synchronize" ), "kitchensync" ),
-                                          KStdAccel::shortcut(KStdAccel::Reload), this, SLOT( slotSyncClicked() ),
-                                          actionCollection(), "action_sync" );
+  KConfig* const cfg = Prefs::self()->config();
+  cfg->setGroup( "Kontact Groupware Settings" );
+  mSyncActionsEnabled = cfg->readBoolEntry( "GroupwareMailFoldersEnabled", true );
 
+  if ( mSyncActionsEnabled ) {
+    mSyncActions = new KToolBarPopupAction( KGuiItem( i18n( "Synchronize" ), "kitchensync" ),
+                                            KStdAccel::shortcut(KStdAccel::Reload), this, SLOT( slotSyncClicked() ),
+                                            actionCollection(), "action_sync" );
+  }
   new KAction( i18n( "Configure Kontact..." ), "configure", 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
 
@@ -520,18 +525,19 @@ void MainWindow::loadPlugins()
       action->plug( mNewActions->popupMenu() );
     }
 
-    actionList = plugin->syncActions();
-
-    for ( action = actionList->first(); action; action = actionList->next() ) {
-      kdDebug(5600) << "Plugging " << action->name() << endl;
-      action->plug( mSyncActions->popupMenu() );
+    if ( mSyncActionsEnabled ) {
+      actionList = plugin->syncActions();
+      for ( action = actionList->first(); action; action = actionList->next() ) {
+        kdDebug(5600) << "Plugging " << action->name() << endl;
+        action->plug( mSyncActions->popupMenu() );
+      }
     }
-
     addPlugin( plugin );
   }
 
   mNewActions->setEnabled( mPlugins.size() != 0 );
-  mSyncActions->setEnabled( mPlugins.size() != 0 );
+  if ( mSyncActionsEnabled )
+    mSyncActions->setEnabled( mPlugins.size() != 0 );
 }
 
 void MainWindow::unloadPlugins()
@@ -559,12 +565,13 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
         action->unplug( mNewActions->popupMenu() );
       }
 
-      actionList = plugin->syncActions();
-    for ( action = actionList->first(); action; action = actionList->next() ) {
-        kdDebug(5600) << "Unplugging " << action->name() << endl;
-        action->unplug( mSyncActions->popupMenu() );
+      if ( mSyncActionsEnabled ) {
+        actionList = plugin->syncActions();
+        for ( action = actionList->first(); action; action = actionList->next() ) {
+          kdDebug(5600) << "Unplugging " << action->name() << endl;
+          action->unplug( mSyncActions->popupMenu() );
+        }
       }
-
       removeChildClient( plugin );
 
       if ( mCurrentPlugin == plugin )
@@ -755,23 +762,23 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
         }
       }
     }
-    if ( syncAction ) {
-      mSyncActions->setIcon( syncAction->icon() );
-      mSyncActions->setText( syncAction->text() );
-    } else { // we'll use the action of the first plugin which offers one
-      PluginList::Iterator it;
-      for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
-        syncAction = (*it)->syncActions()->first();
-        if ( syncAction ) {
-          mSyncActions->setIcon( syncAction->icon() );
-          mSyncActions->setText( syncAction->text() );
-          break;
+    if ( mSyncActionsEnabled ) {
+      if ( syncAction ) {
+        mSyncActions->setIcon( syncAction->icon() );
+        mSyncActions->setText( syncAction->text() );
+      } else { // we'll use the action of the first plugin which offers one
+        PluginList::Iterator it;
+        for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+          syncAction = (*it)->syncActions()->first();
+          if ( syncAction ) {
+            mSyncActions->setIcon( syncAction->icon() );
+            mSyncActions->setText( syncAction->text() );
+            break;
+          }
         }
       }
     }
-
   }
-
   QStringList invisibleActions = plugin->invisibleToolbarActions();
 
   QStringList::ConstIterator it;
