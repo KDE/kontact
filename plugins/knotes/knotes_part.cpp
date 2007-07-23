@@ -28,6 +28,7 @@
 #include <kaction.h>
 #include <kmessagebox.h>
 #include <kicon.h>
+#include "knotes/knoteprinter.h"
 #include "knotes/resourcemanager.h"
 
 #include "knotes_part.h"
@@ -60,6 +61,10 @@ KNotesPart::KNotesPart( QObject *parent )
   actionCollection()->addAction("edit_delete", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( killSelectedNotes() ));
   action->setShortcut(QKeySequence(Qt::Key_Delete));
+  action = new KAction( KIcon("print"), i18n( "Print Selected Notes..." ), this );
+  actionCollection()->addAction("print_note", action );
+  connect(action, SIGNAL(triggered(bool)), SLOT( printSelectedNotes() ));
+  action->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_Delete));
 
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -106,6 +111,26 @@ KNotesPart::~KNotesPart()
 
   delete mManager;
   mManager = 0;
+}
+
+void KNotesPart::printSelectedNotes()
+{
+  QList<KCal::Journal*> journals;
+
+  for ( Q3IconViewItem *it = mNotesView->firstItem(); it; it = it->nextItem() ) {
+    if ( it->isSelected() ) {
+      journals.append( static_cast<KNotesIconViewItem *>( it )->journal() );
+    }
+  }
+
+  if ( journals.isEmpty() ) {
+    KMessageBox::information( mNotesView, i18n("To print notes, first select the notes to print from the list."), i18n("Print Notes") );
+    return;
+  }
+
+  KNotePrinter printer;
+  printer.printNotes(journals );
+
 }
 
 bool KNotesPart::openFile()

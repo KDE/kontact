@@ -86,6 +86,8 @@ class KNotesPart : public KParts::ReadOnlyPart
     void popupRMB( Q3IconViewItem *item, const QPoint& pos );
     void killSelectedNotes();
 
+    void printSelectedNotes();
+
   private:
     K3IconView *mNotesView;
     KNoteTip *mNoteTip;
