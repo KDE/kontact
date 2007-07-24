@@ -310,7 +310,7 @@ actionCollection()->addAction(KStandardAction::Quit, this, SLOT( slotQuit() ));
 
   KConfig* const cfg = Prefs::self()->config();
   cfg->setGroup( "Kontact Groupware Settings" );
-  mSyncActionsEnabled = cfg->readBoolEntry( "GroupwareMailFoldersEnabled", true );
+  mSyncActionsEnabled = cfg->readBoolEntry( "GroupwareMailFoldersEnabled", false );
 
   if ( mSyncActionsEnabled ) {
     mSyncActions = new KToolBarPopupAction( KIcon( "view-refresh" ), i18n( "Synchronize" ), this );
