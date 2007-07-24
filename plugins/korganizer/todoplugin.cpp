@@ -63,7 +63,7 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewTodo() ));
   insertNewAction(action);
 
-  KAction* syncAction = new KAction(KIcon("reload"), i18n( "Synchronize To-do List" ), this);
+  KAction* syncAction = new KAction(KIcon("view-refresh"), i18n( "Synchronize To-do List" ), this);
   actionCollection()->addAction("todo_sync", syncAction);
   connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncTodos()));
   insertSyncAction( syncAction );
@@ -134,7 +134,7 @@ void TodoPlugin::slotNewTodo()
 
 void TodoPlugin::slotSyncTodos()
 {
-  QDBusMessage message = QDBusMessage::createSignal( "/KMailICalIface", "org.kde.kmail", "triggerSync(QString)");
+  QDBusMessage message = QDBusMessage::createSignal( "/Groupware", "org.kde.kmail", "triggerSync(QString)");
   message << QString( "Todo" );
   QDBusConnection::sessionBus().send( message );
 }

@@ -51,7 +51,7 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QStringList & )
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_N));
   insertNewAction(action);
 
-  KAction* syncAction = new KAction(KIcon("reload"), i18n( "Synchronize Notes" ), this);
+  KAction* syncAction = new KAction(KIcon("view-refresh"), i18n( "Synchronize Notes" ), this);
   actionCollection()->addAction("knotes_sync", syncAction);
   connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncNotes()));
   insertSyncAction( syncAction );
@@ -105,7 +105,7 @@ void KNotesPlugin::slotNewNote()
 
 void KNotesPlugin::slotSyncNotes()
 {
-  QDBusMessage message = QDBusMessage::createSignal( "/KMailICalIface", "org.kde.kmail", "triggerSync(QString)");
+  QDBusMessage message = QDBusMessage::createSignal( "/Groupware", "org.kde.kmail", "triggerSync(QString)");
   message << QString( "Note" );
   QDBusConnection::sessionBus().send( message );
 

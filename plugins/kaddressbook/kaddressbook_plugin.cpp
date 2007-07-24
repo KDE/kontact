@@ -60,7 +60,7 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QStringList& 
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewContact()));
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_C));
   insertNewAction(action);
-  KAction* syncAction = new KAction(KIcon("reload"), i18n( "Synchronize Contacts" ), this);
+  KAction* syncAction = new KAction(KIcon("view-refresh"), i18n( "Synchronize Contacts" ), this);
   actionCollection()->addAction("kaddressbook_sync", syncAction);
   connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncContacts()));
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
@@ -117,7 +117,7 @@ void KAddressbookPlugin::slotNewContact()
 
 void KAddressbookPlugin::slotSyncContacts()
 {
-  QDBusMessage message = QDBusMessage::createSignal( "/KMailICalIface", "org.kde.kmail", "triggerSync(QString)");
+  QDBusMessage message = QDBusMessage::createSignal( "/Groupware", "org.kde.kmail", "triggerSync(QString)");
   message << QString( "Contact" );
   QDBusConnection::sessionBus().send( message );
 }

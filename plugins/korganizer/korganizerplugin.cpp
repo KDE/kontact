@@ -61,7 +61,7 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QStringList& )
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewEvent() ));
   insertNewAction(action);
 
-  KAction* syncAction = new KAction(KIcon("reload"), i18n( "Synchronize Calendar" ), this);
+  KAction* syncAction = new KAction(KIcon("view-refresh"), i18n( "Synchronize Calendar" ), this);
   actionCollection()->addAction("korganizer_sync", syncAction);
   connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncEvents()));
   insertSyncAction( syncAction );
@@ -133,7 +133,7 @@ void KOrganizerPlugin::slotNewEvent()
 
 void KOrganizerPlugin::slotSyncEvents()
 {
-  QDBusMessage message = QDBusMessage::createSignal( "/KMailICalIface", "org.kde.kmail", "triggerSync(QString)");
+  QDBusMessage message = QDBusMessage::createSignal( "/Groupware", "org.kde.kmail", "triggerSync(QString)");
   message << QString( "Calendar" );
   QDBusConnection::sessionBus().send( message );
 }

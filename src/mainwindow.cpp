@@ -313,7 +313,7 @@ actionCollection()->addAction(KStandardAction::Quit, this, SLOT( slotQuit() ));
   mSyncActionsEnabled = cfg->readBoolEntry( "GroupwareMailFoldersEnabled", true );
 
   if ( mSyncActionsEnabled ) {
-    mSyncActions = new KToolBarPopupAction( KIcon( "refresh" ), i18n( "Synchronize" ), this );
+    mSyncActions = new KToolBarPopupAction( KIcon( "view-refresh" ), i18n( "Synchronize" ), this );
     mSyncActions->setShortcut( KShortcut(KStandardShortcut::Reload) );
     actionCollection()->addAction( "action_sync", mSyncActions );
     connect(mSyncActions, SIGNAL(triggered(bool)), this, SLOT(slotSyncClicked()) );

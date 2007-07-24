@@ -25,6 +25,8 @@
 #include "core.h"
 #include "plugin.h"
 
+#include "kmailinterface.h"
+
 #include <kgenericfactory.h>
 #include <kparts/componentfactory.h>
 #include <kaboutdata.h>
@@ -32,6 +34,7 @@
 #include <KAction>
 #include <KActionCollection>
 #include <KSelectAction>
+
 
 #include <QtDBus/QtDBus>
 #include <QList>
@@ -47,7 +50,7 @@ SummaryView::SummaryView( Kontact::Core *core, const QStringList& )
 {
   setComponentData( SummaryViewFactory::componentData() );
 
-  mSyncAction = new KSelectAction( KIcon("reload"), i18n( "Synchronize All" ), this );
+  mSyncAction = new KSelectAction( KIcon("view-refresh"), i18n( "Synchronize All" ), this );
   actionCollection()->addAction( "kontact_summary_sync", mSyncAction );
   connect( mSyncAction, SIGNAL( triggered( QString )  ), SLOT( syncAccount( QString ) ) );
   connect( mSyncAction->menu(), SIGNAL( aboutToShow() ), this, SLOT( fillSyncActionSubEntries() ) );
@@ -60,17 +63,13 @@ void SummaryView::fillSyncActionSubEntries()
 {
   QStringList menuItems;
   menuItems.append( i18n("All") );
-#ifdef __GNUC__
-#warning prokde port to DBUS
-#endif
-#if 0
-  org::kde::kmail kmail( "org.kde.kmail", "/KMailIface", QDBusConnection::sessionBus() );
-  QDBusReply<QStringList> reply = kmail.accounts();
-  if ( reply.isEmpty() )
-  {
-    menuItems.append( reply.value() );
+
+  org::kde::kmail::kmail kmail( "org.kde.kmail", "/KMailIface", QDBusConnection::sessionBus() );
+  const QDBusReply<QStringList> reply = kmail.accounts();
+  if ( reply.isValid() ) {
+    menuItems << reply.value();
   }
-#endif
+
   mSyncAction->clear();
   mSyncAction->setItems( menuItems );
 }

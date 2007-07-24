@@ -56,7 +56,7 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const QStringList& )
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewJournal()));
   insertNewAction(action);
 
-  KAction* syncAction = new KAction(KIcon("reload"), i18n( "Synchronize Journal" ), this);
+  KAction* syncAction = new KAction(KIcon("view-refresh"), i18n( "Synchronize Journal" ), this);
   actionCollection()->addAction("journal_sync", syncAction);
   connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncJournal()));
   insertSyncAction( syncAction );
@@ -123,7 +123,7 @@ void JournalPlugin::slotNewJournal()
 
 void JournalPlugin::slotSyncJournal()
 {
-  QDBusMessage message = QDBusMessage::createSignal( "/KMailICalIface", "org.kde.kmail", "triggerSync(QString)");
+  QDBusMessage message = QDBusMessage::createSignal( "/Groupware", "org.kde.kmail", "triggerSync(QString)");
   message << QString( "Journal" );
   QDBusConnection::sessionBus().send( message );
 }
