@@ -8,7 +8,8 @@ set(kontact_knotesplugin_PART_SRCS ${libknotesresources_SRCS} ${libknoteseditor_
    knotes_plugin.cpp 
    knotes_part.cpp 
    summarywidget.cpp 
-   knotetip.cpp )
+   knotetip.cpp
+   ${CMAKE_SOURCE_DIR}/knotes/knoteprinter.cpp )
 
 qt4_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml knotes_part.h KNotesPart  )
 
@@ -17,7 +18,7 @@ kde4_add_plugin(kontact_knotesplugin WITH_PREFIX ${kontact_knotesplugin_PART_SRC
 
 
 
-target_link_libraries(kontact_knotesplugin  ${KDE4_KPARTS_LIBS} kpinterfaces kdepim ${KDE4_KCAL_LIBS} ${KDE4_KRESOURCES_LIBS} knotesprinting)
+target_link_libraries(kontact_knotesplugin  ${KDE4_KPARTS_LIBS} kpinterfaces kdepim ${KDE4_KCAL_LIBS} ${KDE4_KRESOURCES_LIBS} ${KDE4_KDEPRINT_LIBS})
 
 install(TARGETS kontact_knotesplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
