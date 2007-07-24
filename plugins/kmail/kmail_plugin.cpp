@@ -67,6 +67,10 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const QStringList& )
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_M));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewMail() ));
   insertNewAction(action);
+  KAction *syncAction = new KAction( KIcon("reload"), i18n( "Synchronize Mail" ), this );
+  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncFolders()) );
+  actionCollection()->addAction("sync_mail", syncAction);
+  insertSyncAction( syncAction ); 
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
@@ -130,6 +134,13 @@ void KMailPlugin::openComposer( const QString& to )
 void KMailPlugin::slotNewMail()
 {
   openComposer( QString::null );
+}
+
+void KMailPlugin::slotSyncFolders()
+{
+  QDBusMessage message = QDBusMessage::createSignal( "/KMailICalIface", "org.kde.kmail", "triggerSync(QString)");
+  message << QString( "Mail" );
+  QDBusConnection::sessionBus().send( message );
 }
 
 KMailPlugin::~KMailPlugin()

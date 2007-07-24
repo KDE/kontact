@@ -18,6 +18,8 @@
        Boston, MA 02110-1301, USA.
 */
 
+#include <QtDBus/QtDBus>
+
 #include <kaboutdata.h>
 #include <kaction.h>
 #include <kdebug.h>
@@ -48,6 +50,12 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QStringList & )
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewNote() ));
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_N));
   insertNewAction(action);
+
+  KAction* syncAction = new KAction(KIcon("reload"), i18n( "Synchronize Notes" ), this);
+  actionCollection()->addAction("knotes_sync", syncAction);
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncNotes()));
+  insertSyncAction( syncAction );
+
 }
 
 KNotesPlugin::~KNotesPlugin()
@@ -93,6 +101,14 @@ void KNotesPlugin::slotNewNote()
 {
   if ( part() )
       static_cast<KNotesPart *>( part() )->newNote();
+}
+
+void KNotesPlugin::slotSyncNotes()
+{
+  QDBusMessage message = QDBusMessage::createSignal( "/KMailICalIface", "org.kde.kmail", "triggerSync(QString)");
+  message << QString( "Note" );
+  QDBusConnection::sessionBus().send( message );
+
 }
 
 #include "knotes_plugin.moc"

@@ -83,7 +83,7 @@ using namespace Kontact;
 
 MainWindow::MainWindow()
   : Kontact::Core(), mTopWidget( 0 ), mSplitter( 0 ),
-    mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false )
+    mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false ), mSyncActionsEnabled( true )
 {
   // Set this to be the group leader for all subdialogs - this means
   // modal subdialogs will only affect this dialog, not the other windows
@@ -301,12 +301,23 @@ void MainWindow::initAboutScreen()
 
 void MainWindow::setupActions()
 {
-    actionCollection()->addAction(KStandardAction::Quit, this, SLOT( slotQuit() ));
+actionCollection()->addAction(KStandardAction::Quit, this, SLOT( slotQuit() ));
 
-    mNewActions = new KToolBarPopupAction( KIcon(""), i18n( "New" ), this);
-    actionCollection()->addAction("action_new", mNewActions);
-    mNewActions->setShortcut(KShortcut(KStandardShortcut::New));
-    connect(mNewActions, SIGNAL(triggered(bool)), this, SLOT( slotNewClicked() ));
+  mNewActions = new KToolBarPopupAction( KIcon(""), i18n( "New" ), this);
+  actionCollection()->addAction("action_new", mNewActions);
+  mNewActions->setShortcut(KShortcut(KStandardShortcut::New));
+  connect(mNewActions, SIGNAL(triggered(bool)), this, SLOT( slotNewClicked() ));
+
+  KConfig* const cfg = Prefs::self()->config();
+  cfg->setGroup( "Kontact Groupware Settings" );
+  mSyncActionsEnabled = cfg->readBoolEntry( "GroupwareMailFoldersEnabled", true );
+
+  if ( mSyncActionsEnabled ) {
+    mSyncActions = new KToolBarPopupAction( KIcon( "refresh" ), i18n( "Synchronize" ), this );
+    mSyncActions->setShortcut( KShortcut(KStandardShortcut::Reload) );
+    actionCollection()->addAction( "action_sync", mSyncActions );
+    connect(mSyncActions, SIGNAL(triggered(bool)), this, SLOT(slotSyncClicked()) );
+  }
 
     KAction *action  = new KAction(KIcon("configure"), i18n("Configure Kontact..."), this);
     actionCollection()->addAction("settings_configure_kontact", action );
@@ -408,10 +419,19 @@ void MainWindow::loadPlugins()
       mNewActions->popupMenu()->addAction( (*listIt) );
     }
 
+    actionList = plugin->syncActions();
+    if ( mSyncActionsEnabled ) {
+      Q_FOREACH( KAction* listIt, *actionList ) {
+        kDebug(5600) << "Plugging " << listIt->objectName() << endl;
+        mSyncActions->popupMenu()->addAction( listIt );
+      }
+    }
     addPlugin( plugin );
   }
 
   mNewActions->setEnabled( mPlugins.size() != 0 );
+  if ( mSyncActionsEnabled )
+    mSyncActions->setEnabled( mPlugins.size() != 0 );
 }
 
 void MainWindow::unloadPlugins()
@@ -439,6 +459,13 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
         mNewActions->popupMenu()->removeAction( *listIt );
       }
 
+      if ( mSyncActionsEnabled ) {
+        actionList = plugin->syncActions();
+        for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
+            kDebug(5600) << "Unplugging " << (*listIt)->objectName() << endl;
+            mSyncActions->popupMenu()->removeAction( *listIt );
+        }
+      }
       removeChildClient( plugin );
 
       if ( mCurrentPlugin == plugin )
@@ -518,6 +545,23 @@ void MainWindow::slotNewClicked()
   }
 }
 
+void MainWindow::slotSyncClicked()
+{
+  QAction *action = mCurrentPlugin->syncActions()->first();
+  if ( action ) {
+    action->trigger();
+  } else {
+    PluginList::Iterator it;
+    for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+      action = (*it)->syncActions()->first();
+      if ( action ) {
+        action->trigger();
+        return;
+      }
+    }
+  }
+}
+
 KToolBar* Kontact::MainWindow::findToolBar(const char* name)
 {
   // like KMainWindow::toolBar, but which doesn't create the toolbar if not found
@@ -584,9 +628,14 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       view->setFocus();
 
     mCurrentPlugin = plugin;
-    QAction *action = 0;
+
+    QAction *newAction = 0;
     if (plugin->newActions()->count() > 0)
-      action = plugin->newActions()->first();
+      newAction = plugin->newActions()->first();
+
+    QAction *syncAction = 0;
+    if (plugin->syncActions()->count() > 0)
+      syncAction = plugin->syncActions()->first();
 
     createGUI( plugin->part() );
 
@@ -599,23 +648,40 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
     setCaption( i18nc( "Plugin dependent window title" ,"%1 - Kontact", plugin->title() ) );
 
-    if ( action ) {
-      static_cast<QAction*>( mNewActions )->setIcon( action->icon() );
-      mNewActions->setText( action->text() );
+    if ( newAction ) {
+      mNewActions->setIcon( newAction->icon() );
+      static_cast<QAction*>( mNewActions )->setText( newAction->text() );
     } else { // we'll use the action of the first plugin which offers one
       PluginList::Iterator it;
       for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
         if ((*it)->newActions()->count() > 0)
-          action = (*it)->newActions()->first();
-        if ( action ) {
-          static_cast<QAction*>( mNewActions )->setIcon( action->icon() );
-          mNewActions->setText( action->text() );
+          newAction = (*it)->newActions()->first();
+        if ( newAction ) {
+          static_cast<QAction*>( mNewActions )->setIcon( newAction->icon() );
+          mNewActions->setText( newAction->text() );
           break;
         }
       }
     }
-  }
 
+    if ( mSyncActionsEnabled ) {
+      if ( syncAction ) {
+        mSyncActions->setIcon( syncAction->icon() );
+        static_cast<QAction*>( mSyncActions )->setText( syncAction->text() );
+      } else { // we'll use the action of the first plugin which offers one
+        PluginList::Iterator it;
+        for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+          if ((*it)->syncActions()->count() > 0)
+            syncAction = (*it)->syncActions()->first();
+          if ( syncAction ) {
+            static_cast<QAction*>( mSyncActions )->setIcon( syncAction->icon() );
+            mSyncActions->setText( syncAction->text() );
+            break;
+          }
+        }
+      }
+    }
+  }
   QStringList invisibleActions = plugin->invisibleToolbarActions();
 
   QStringList::ConstIterator it;

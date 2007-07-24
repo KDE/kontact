@@ -41,6 +41,7 @@ class Plugin::Private
   public:
     Kontact::Core *core;
     QList<KAction*> *newActions;
+    QList<KAction*> *syncActions;
     QString identifier;
     QString title;
     QString icon;
@@ -62,6 +63,7 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
 
   d->core = core;
   d->newActions = new QList<KAction*>;
+  d->syncActions = new QList<KAction*>;
   d->hasPart = true;
   d->part = 0;
   d->disabled = false;
@@ -172,9 +174,19 @@ void Plugin::insertNewAction( KAction *action )
   d->newActions->append( action );
 }
 
-QList<KAction*>* Plugin::newActions() const
+void Plugin::insertSyncAction( KAction *action )
+{
+  d->syncActions->append( action );
+}
+
+QList<KAction*> *Plugin::newActions() const
 {
   return d->newActions;
+}
+
+QList<KAction*> *Plugin::syncActions() const
+{
+  return d->syncActions;
 }
 
 Kontact::Core *Plugin::core() const

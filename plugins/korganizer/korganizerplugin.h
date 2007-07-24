@@ -62,6 +62,7 @@ class KOrganizerPlugin : public Kontact::Plugin
 
   private slots:
     void slotNewEvent();
+    void slotSyncEvents();
 
   private:
     OrgKdeKorganizerCalendarInterface *mIface;

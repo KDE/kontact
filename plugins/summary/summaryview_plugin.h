@@ -1,7 +1,8 @@
 /*
    This file is part of KDE Kontact.
 
-   Copyright (C) 2003 Sven Lüppken <sven@kde.org>
+   Copyright (C) 2003 Sven L�ppken <sven@kde.org>
+
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -21,11 +22,16 @@
 
 #ifndef SUMMARYVIEW_PLUGIN_H
 #define SUMMARYVIEW_PLUGIN_H
+#include "plugin.h"
 
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include "plugin.h"
+#include <qmap.h>
+
+class KSelectAction;
+
+class SummaryViewPart;
 
 class SummaryView : public Kontact::Plugin
 {
@@ -42,8 +48,16 @@ class SummaryView : public Kontact::Plugin
   protected:
     virtual KParts::ReadOnlyPart* createPart();
 
+  private slots:
+
+    void doSync();
+    void syncAccount( const QString& account );
+    void fillSyncActionSubEntries();
+
   private:
     KAboutData *mAboutData;
+    SummaryViewPart *mPart;
+    KSelectAction *mSyncAction; 
 };
 
 #endif

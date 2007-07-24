@@ -32,11 +32,12 @@
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kicon.h>
-#include "core.h"
 
-#include "journalplugin.h"
+#include "core.h"
+#include "journalplugin.h" 
 #include "korg_uniqueapp.h"
 #include "calendarinterface.h"
+
 
 typedef KGenericFactory< JournalPlugin, Kontact::Core > JournalPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_journalplugin,
@@ -55,6 +56,10 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const QStringList& )
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewJournal()));
   insertNewAction(action);
 
+  KAction* syncAction = new KAction(KIcon("reload"), i18n( "Synchronize Journal" ), this);
+  actionCollection()->addAction("journal_sync", syncAction);
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncJournal()));
+  insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
@@ -113,6 +118,14 @@ OrgKdeKorganizerCalendarInterface *JournalPlugin::interface()
 void JournalPlugin::slotNewJournal()
 {
   interface()->openJournalEditor( "",QDate() );
+}
+
+
+void JournalPlugin::slotSyncJournal()
+{
+  QDBusMessage message = QDBusMessage::createSignal( "/KMailICalIface", "org.kde.kmail", "triggerSync(QString)");
+  message << QString( "Journal" );
+  QDBusConnection::sessionBus().send( message );
 }
 
 bool JournalPlugin::createDBUSInterface( const QString& serviceType )

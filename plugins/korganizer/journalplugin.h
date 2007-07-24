@@ -53,6 +53,7 @@ class JournalPlugin : public Kontact::Plugin
 
   private slots:
     void slotNewJournal();
+    void slotSyncJournal();
 
   private:
     OrgKdeKorganizerCalendarInterface *mIface;

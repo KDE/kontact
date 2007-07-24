@@ -85,6 +85,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStart
     void slotActivePartChanged( KParts::Part *part );
     void slotPreferences();
     void slotNewClicked();
+    void slotSyncClicked();
     void slotQuit();
     void slotShowTip();
     void slotRequestFeature();
@@ -129,6 +130,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStart
     QSplitter *mSplitter;
 
     KToolBarPopupAction *mNewActions;
+    KToolBarPopupAction *mSyncActions;
     SidePaneBase *mSidePane;
     QStackedWidget  *mPartsStack;
     Plugin *mCurrentPlugin;
@@ -147,6 +149,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStart
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;
+    bool mSyncActionsEnabled;
 };
 
 }

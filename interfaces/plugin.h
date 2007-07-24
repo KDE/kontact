@@ -204,9 +204,19 @@ class KPINTERFACES_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     void insertNewAction( KAction *action );
 
     /**
+      Insert "Sync" action.
+    */
+    void insertSyncAction( KAction *action );
+
+    /**
       FIXME: write API doc for Kontact::Plugin::newActions().
     */
     QList<KAction*>* newActions() const;
+
+    /**
+      FIXME: write API doc for Kontact::Plugin::syncActions().
+    */
+    QList<KAction*>* syncActions() const;
 
     /**
       Returns a list of action name which shall be hidden in the main toolbar.

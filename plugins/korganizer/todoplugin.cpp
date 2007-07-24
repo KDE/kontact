@@ -33,6 +33,7 @@
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kicon.h>
+
 #include <libkdepim/maillistdrag.h>
 #include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
@@ -55,11 +56,17 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
   setComponentData( TodoPluginFactory::componentData() );
   KIconLoader::global()->addAppDir("korganizer");
 
+
   KAction *action  = new KAction(KIcon("newtodo"), i18n("New To-do..."), this);
   actionCollection()->addAction("new_todo", action );
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_T));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewTodo() ));
   insertNewAction(action);
+
+  KAction* syncAction = new KAction(KIcon("reload"), i18n( "Synchronize To-do List" ), this);
+  actionCollection()->addAction("todo_sync", syncAction);
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncTodos()));
+  insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
@@ -123,6 +130,13 @@ OrgKdeKorganizerCalendarInterface *TodoPlugin::interface()
 void TodoPlugin::slotNewTodo()
 {
   interface()->openTodoEditor( "" );
+}
+
+void TodoPlugin::slotSyncTodos()
+{
+  QDBusMessage message = QDBusMessage::createSignal( "/KMailICalIface", "org.kde.kmail", "triggerSync(QString)");
+  message << QString( "Todo" );
+  QDBusConnection::sessionBus().send( message );
 }
 
 bool TodoPlugin::createDBUSInterface( const QString& serviceType )

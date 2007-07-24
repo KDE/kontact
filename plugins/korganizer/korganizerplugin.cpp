@@ -61,6 +61,11 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QStringList& )
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewEvent() ));
   insertNewAction(action);
 
+  KAction* syncAction = new KAction(KIcon("reload"), i18n( "Synchronize Calendar" ), this);
+  actionCollection()->addAction("korganizer_sync", syncAction);
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncEvents()));
+  insertSyncAction( syncAction );
+
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
 }
@@ -124,6 +129,13 @@ OrgKdeKorganizerCalendarInterface *KOrganizerPlugin::interface()
 void KOrganizerPlugin::slotNewEvent()
 {
   interface()->openEventEditor( "" );
+}
+
+void KOrganizerPlugin::slotSyncEvents()
+{
+  QDBusMessage message = QDBusMessage::createSignal( "/KMailICalIface", "org.kde.kmail", "triggerSync(QString)");
+  message << QString( "Calendar" );
+  QDBusConnection::sessionBus().send( message );
 }
 
 bool KOrganizerPlugin::createDBUSInterface( const QString& serviceType )
