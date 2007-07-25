@@ -32,11 +32,12 @@
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
-#include <k3popupmenu.h>
 #include <kstandarddirs.h>
 #include <kicon.h>
 #include <ktemporaryfile.h>
 #include <libkdepim/kdepimprotocols.h>
+#include <kmime/kmime_message.h>
+
 #include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
 
@@ -45,10 +46,6 @@
 #include "korganizerplugin.h"
 #include "korg_uniqueapp.h"
 #include "calendarinterface.h"
-
-#define DROP_CANCEL 0
-#define DROP_URI 1
-#define DROP_INLINE 2
 
 typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_korganizerplugin,
@@ -207,33 +204,17 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       KMessageBox::sorry( core(),
                           i18n("Drops of multiple mails are not supported." ) );
     } else {
-      K3PopupMenu *menu = new K3PopupMenu( 0 );
-      menu->insertItem( i18n("Attach as &link"), DROP_URI, 0 );
-      menu->insertItem( i18n("Attach &inline"), DROP_INLINE, 1 );
-      menu->insertSeparator();
-      menu->insertItem( SmallIcon("cancel"), i18n("C&ancel"), DROP_CANCEL, 3 );
-      int action = menu->exec( QCursor::pos(), 0 );
-      delete menu;
-
-      if ( action == DROP_CANCEL )
-        return;
-
       KPIM::MailSummary mail = mails.first();
       QString txt = i18n("From: %1\nTo: %2\nSubject: %3", mail.from() ,
                       mail.to(), mail.subject() );
 
-      QString uri;
       KTemporaryFile tf;
-      if ( action == DROP_URI )
-        uri = KDEPIMPROTOCOL_EMAIL + QString::number( mail.serialNumber() );
-      else if ( action == DROP_INLINE ) {
-        tf.write( event->encodedData( "message/rfc822" ) );
-        tf.flush();
-        uri = tf.fileName();
-      }
+      tf.setAutoRemove( true );
+      QString uri = KDEPIMPROTOCOL_EMAIL + QString::number( mail.serialNumber() );
+      tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openEventEditor( i18n("Mail: %1", mail.subject() ), txt,
-                                    uri, QStringList(), "message/rfc822",
-                                    action == DROP_INLINE );
+                                    uri, tf.name(), QStringList(), "message/rfc822" );
+      tf.close();
     }
     return;
   }
