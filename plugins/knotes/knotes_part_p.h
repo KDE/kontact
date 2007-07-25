@@ -54,6 +54,9 @@
 #include <kxmlguibuilder.h>
 
 #include <kcal/journal.h>
+#include <kcal/calendarlocal.h>
+#include <kcal/icaldrag.h>
+#include <libkdepim/kpimprefs.h>
 
 #include "knotes/knoteedit.h"
 #include <kcomponentdata.h>
@@ -89,6 +92,32 @@ class KNotesIconViewItem : public K3IconViewItem
 
   private:
     KCal::Journal *mJournal;
+};
+
+
+class KNotesIconView : public K3IconView
+{
+  protected:
+    Q3DragObject* dragObject()
+    {
+      QList<KNotesIconViewItem*> selectedItems;
+      for ( Q3IconViewItem *it = firstItem(); it; it = it->nextItem() ) {
+        if ( it->isSelected() )
+          selectedItems.append( static_cast<KNotesIconViewItem *>( it ) );
+      }
+      if ( selectedItems.count() != 1 )
+        return K3IconView::dragObject();
+
+      KCal::CalendarLocal cal( KPimPrefs::timeSpec() );
+      KCal::Incidence *i = selectedItems.first()->journal()->clone();
+      cal.addIncidence( i );
+#warning Port me!
+#if 0
+      KCal::ICalDrag *icd = new KCal::ICalDrag( &cal, this );
+      return icd;
+#endif
+      return 0;
+    }
 };
 
 

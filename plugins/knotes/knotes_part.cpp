@@ -38,7 +38,7 @@
 
 KNotesPart::KNotesPart( QObject *parent )
   :  KParts::ReadOnlyPart( parent ),
-    mNotesView( new K3IconView() ),
+    mNotesView( new KNotesIconView() ),
     mNoteTip( new KNoteTip( mNotesView ) ),
     mNoteEditDlg( 0 ),
     mManager( new KNotesResourceManager() )
