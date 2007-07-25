@@ -33,6 +33,7 @@
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kicon.h>
+#include <ktemporaryfile.h>
 
 #include <kcal/calendarlocal.h>
 #include <kcal/icaldrag.h>
@@ -192,14 +193,14 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  if ( KCal::ICalDrag::canDecode( event ) ) {
-    KCal::CalendarLocal cal( KPimPrefs::timezone() );
-    if ( KCal::ICalDrag::fromMimeData( event, &cal ) ) {
+  if ( KCal::ICalDrag::canDecode( event->mimeData() ) ) {
+    KCal::CalendarLocal cal( KPimPrefs::timeSpec() );
+    if ( KCal::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
       KCal::Journal::List journals = cal.journals();
       if ( !journals.isEmpty() ) {
         event->accept();
         KCal::Journal *j = journals.first();
-        interface()->openTodoEditor( i18n("Note: %1", j->summary() ), j->description(), QString() );
+        interface()->openTodoEditor( i18n("Note: %1", j->summary() ), j->description(), QStringList() );
         return;
       }
       // else fall through to text decoding
@@ -225,8 +226,12 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       QString uri = KDEPIMPROTOCOL_EMAIL +
                     QString::number( mail.serialNumber() ) + '/' +
                     mail.messageId();
+      KTemporaryFile tf;
+      tf.setAutoRemove( true );
+      tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openTodoEditor( i18n("Mail: %1", mail.subject() ), txt,
-                                   QStringList( uri ) );
+                                   uri, tf.name(), QStringList(), "message/rfc822" );
+      tf.close();
     }
     return;
   }
