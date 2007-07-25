@@ -199,7 +199,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       if ( !journals.isEmpty() ) {
         event->accept();
         KCal::Journal *j = journals.first();
-        interface()->openTodoEditor( i18n("Note: %1").arg( j->summary() ), j->description(), QString() );
+        interface()->openTodoEditor( i18n("Note: %1", j->summary() ), j->description(), QString() );
         return;
       }
       // else fall through to text decoding
