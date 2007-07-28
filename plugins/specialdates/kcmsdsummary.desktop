@@ -12,6 +12,7 @@ X-KDE-ParentComponents=kontact_specialdatesplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Upcoming Special Dates
+Name[bg]=Special Dates
 Name[el]=Σημαντικές ημερομηνίες
 Name[es]=Fechas especiales próximas
 Name[fa]=تاریخهای ویژۀ آیندۀ نزدیک
@@ -24,6 +25,7 @@ Name[sv]=Förestående speciella datum
 Name[x-test]=xxUpcoming Special Datesxx
 Name[zh_TW]=將來臨的特殊日期
 Comment=Upcoming Special Dates Summary Setup
+Comment[bg]=Настройки на специалните случаи
 Comment[el]=Ρύθμιση σύνοψης σημαντικών ημερομηνιών
 Comment[es]=Configuración del resumen de fechas especiales próximas
 Comment[fa]=برپایی خلاصۀ تاریخهای ویژۀ آیندۀ نزدیک
@@ -36,6 +38,7 @@ Comment[x-test]=xxUpcoming Special Dates Summary Setupxx
 Comment[zh_TW]=將來臨的特殊日期摘要設定
 Keywords=birthday, anniversary, holiday, configure, settings
 Keywords[af]=birtday,anniversary, holiday, conifugre, settings, verjaarsdag, herdenking, vakansie
+Keywords[bg]=Keywords=рождени, рожден, дни, ден, годишнина, годишнини, обобщение, birthday, anniversary, configure, settings
 Keywords[ca]=data de naixement, aniversari, vacances, configuració, arranjament
 Keywords[cs]=narozeniny,výročí,nastavení,nastavit,svátek
 Keywords[da]=fødselsdag, årsdag, helligdage, indstil, opsætning

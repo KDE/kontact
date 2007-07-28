@@ -14,6 +14,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=KMmobileTools Plugin
+Comment[bg]=KAB Mobile Phone XXPort Plugin
 Comment[el]=Πρόσθετο KMmobileTools
 Comment[es]=Plugin de KMobileTools
 Comment[fa]=وصلۀ KMmobileTools

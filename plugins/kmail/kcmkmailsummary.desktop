@@ -13,6 +13,7 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=New Messages
 Name[be]=Новыя паведамленні
+Name[bg]=MSN
 Name[el]=Νέα μηνύματα
 Name[es]=Mensajes nuevos
 Name[fa]=پیامهای جدید
@@ -27,6 +28,7 @@ Name[x-test]=xxNew Messagesxx
 Name[zh_TW]=新訊息
 Comment=Mail Summary Setup
 Comment[af]=Pos opsomming opstelling
+Comment[bg]=Настройки на обобщението на писмата
 Comment[ca]=Configuració del resum de correu
 Comment[cs]=Nastavení souhrnu pošty
 Comment[da]=Opsætning af post-opsummering
@@ -74,6 +76,7 @@ Comment[zh_TW]=郵件摘要設定
 Keywords=email, summary, configure, settings
 Keywords[af]=email,summary,configure,settings
 Keywords[be]=каляндар, заданні, настроіць, настаўленні, calendar, todos, configure, settings
+Keywords[bg]=Keywords=резюме, общо, обобщение, пощенски, клиент, е-поща, email, summary, configure, settings
 Keywords[ca]=correu-e, resum, configuració, arranjament
 Keywords[cs]=email,souhrn,nastavení,nastavit
 Keywords[da]=e-mail, opsummering, indstil, opsætning
