@@ -97,8 +97,8 @@ void KCMSDSummary::load()
 {
   KConfig config( "kcmsdsummaryrc" );
 
-  config.setGroup( "Days" );
-  int days = config.readEntry( "DaysToShow", 7 );
+  KConfigGroup group = config.group( "Days" );
+  int days = group.readEntry( "DaysToShow", 7 );
   if ( days == 1 )
     mDaysGroup->setButton( 0 );
   else if ( days == 31 )
@@ -109,23 +109,23 @@ void KCMSDSummary::load()
     mCustomDays->setEnabled( true );
   }
 
-  config.setGroup( "Show" );
+  group = config.group( "Show" );
 
   mShowBirthdaysFromKABBox->
-    setChecked( config.readEntry( "BirthdaysFromContacts", true ) );
+    setChecked( group.readEntry( "BirthdaysFromContacts", true ) );
   mShowBirthdaysFromCalBox->
-    setChecked( config.readEntry( "BirthdaysFromCalendar", true ) );
+    setChecked( group.readEntry( "BirthdaysFromCalendar", true ) );
 
   mShowAnniversariesFromKABBox->
-    setChecked( config.readEntry( "AnniversariesFromContacts", true ) );
+    setChecked( group.readEntry( "AnniversariesFromContacts", true ) );
   mShowAnniversariesFromCalBox->
-    setChecked( config.readEntry( "AnniversariesFromCalendar", true ) );
+    setChecked( group.readEntry( "AnniversariesFromCalendar", true ) );
 
   mShowHolidaysFromCalBox->
-    setChecked( config.readEntry( "HolidaysFromCalendar", true ) );
+    setChecked( group.readEntry( "HolidaysFromCalendar", true ) );
 
   mShowSpecialsFromCalBox->
-    setChecked( config.readEntry( "SpecialsFromCalendar", true ) );
+    setChecked( group.readEntry( "SpecialsFromCalendar", true ) );
 
   emit changed( false );
 }
@@ -134,7 +134,7 @@ void KCMSDSummary::save()
 {
   KConfig config( "kcmsdsummaryrc" );
 
-  config.setGroup( "Days" );
+  KConfigGroup group = config.group( "Days" );
 
   int days;
   switch ( mDaysGroup->selectedId() ) {
@@ -143,27 +143,27 @@ void KCMSDSummary::save()
     case 2:
     default: days = mCustomDays->value(); break;
   }
-  config.writeEntry( "DaysToShow", days );
+  group.writeEntry( "DaysToShow", days );
 
-  config.setGroup( "Show" );
+  group = config.group( "Show" );
 
-  config.writeEntry( "BirthdaysFromContacts",
+  group.writeEntry( "BirthdaysFromContacts",
                      mShowBirthdaysFromKABBox->isChecked() );
-  config.writeEntry( "BirthdaysFromCalendar",
+  group.writeEntry( "BirthdaysFromCalendar",
                      mShowBirthdaysFromCalBox->isChecked() );
 
-  config.writeEntry( "AnniversariesFromContacts",
+  group.writeEntry( "AnniversariesFromContacts",
                      mShowAnniversariesFromKABBox->isChecked() );
-  config.writeEntry( "AnniversariesFromCalendar",
+  group.writeEntry( "AnniversariesFromCalendar",
                      mShowAnniversariesFromCalBox->isChecked() );
 
-  config.writeEntry( "HolidaysFromCalendar",
+  group.writeEntry( "HolidaysFromCalendar",
                      mShowHolidaysFromCalBox->isChecked() );
 
-  config.writeEntry( "SpecialsFromCalendar",
+  group.writeEntry( "SpecialsFromCalendar",
                      mShowSpecialsFromCalBox->isChecked() );
 
-  config.sync();
+  group.sync();
   emit changed( false );
 }
 
