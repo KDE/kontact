@@ -74,14 +74,14 @@ KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
 void KNotesSummaryWidget::updateView()
 {
   mNotes = mCalendar->journals();
+  QLabel *label;
 
-  mLabels.setAutoDelete( true );
+  for ( label = mLabels.first(); label; label = mLabels.next() )
+    label->deleteLater();
   mLabels.clear();
-  mLabels.setAutoDelete( false );
 
   KIconLoader loader( "knotes" );
 
-  QLabel *label = 0;
   int counter = 0;
   QPixmap pm = loader.loadIcon( "knotes", KIcon::Small );
 
