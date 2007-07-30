@@ -278,7 +278,7 @@ void SDSummaryWidget::updateView()
   for ( dt=QDate::currentDate();
         dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
         dt=dt.addDays(1) ) {
-    KCal::Event::List events = mCalendar->events( dt,
+    KCal::Event::List events = mCalendar->events( dt, mCalendar->timeSpec(),
                                                   KCal::EventSortStartDate,
                                                   KCal::SortDirectionAscending );
     KCal::Event *ev;

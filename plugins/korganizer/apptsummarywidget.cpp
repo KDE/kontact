@@ -125,7 +125,7 @@ void ApptSummaryWidget::updateView()
 
     KCal::Event *ev;
 
-    KCal::Event::List events_orig = mCalendar->events( dt );
+    KCal::Event::List events_orig = mCalendar->events( dt, mCalendar->timeSpec() );
     KCal::Event::List::ConstIterator it = events_orig.begin();
 
     KCal::Event::List events;
