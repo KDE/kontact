@@ -99,8 +99,7 @@ void SummaryWidget::slotUnreadCountChanged()
     updateFolderList( folderList );
   }
   else {
-    kDebug(5602) <<"Calling kmail->KMailIface->folderList() via D-Bus failed."
-                  << endl;
+    kDebug(5602) <<"Calling kmail->KMailIface->folderList() via D-Bus failed.";
   }
   mTimeOfLastMessageCountUpdate = ::time( 0 );
 }

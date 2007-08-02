@@ -520,8 +520,8 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
     return;
   }
 
-  kDebug(5600) <<"Part activated:" << part <<" with stack id."
-      << mPartsStack->indexOf( part->widget() )<< endl;
+  kDebug(5600) <<"Part activated:" << part << "with stack id."
+      << mPartsStack->indexOf( part->widget() );
 
   //createGUI( part ); // moved to selectPlugin()
 
@@ -810,7 +810,7 @@ int MainWindow::startServiceFor( const QString& serviceType,
   }
 
   kDebug(5600) <<
-    "Didn't find dbus interface, falling back to external process" << endl;
+    "Didn't find dbus interface, falling back to external process";
   return KDBusServiceStarter::startServiceFor( serviceType, constraint,
       error, dbusService, flags );
 }

@@ -137,7 +137,7 @@ const KAboutData *Plugin::aboutData()
     return instance.aboutData();
   } else {
     kError() <<"Plugin::aboutData(): Can't load instance for"
-              << title() << endl;
+              << title();
     return 0;
   }
 }
