@@ -91,7 +91,7 @@ void SummaryWidget::updateSummary( bool )
 
 void SummaryWidget::slotUnreadCountChanged()
 {
-  kDebug()<<" SummaryWidget::slotUnreadCountChanged\n";
+  kDebug()<<" SummaryWidget::slotUnreadCountChanged";
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail" , QDBusConnection::sessionBus());
   QDBusReply<QStringList> reply = kmail.folderList();
   if ( reply.isValid() ) {
@@ -99,7 +99,7 @@ void SummaryWidget::slotUnreadCountChanged()
     updateFolderList( folderList );
   }
   else {
-    kDebug(5602) << "Calling kmail->KMailIface->folderList() via D-Bus failed."
+    kDebug(5602) <<"Calling kmail->KMailIface->folderList() via D-Bus failed."
                   << endl;
   }
   mTimeOfLastMessageCountUpdate = ::time( 0 );

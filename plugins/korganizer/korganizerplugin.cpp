@@ -143,7 +143,7 @@ void KOrganizerPlugin::slotSyncEvents()
 
 bool KOrganizerPlugin::createDBUSInterface( const QString& serviceType )
 {
-  kDebug(5602) << k_funcinfo << serviceType << endl;
+  kDebug(5602) << k_funcinfo << serviceType;
 #ifdef __GNUC__
   #warning "What is this needed for, and do we still need it with DBUS?"
 #endif
@@ -191,7 +191,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 
   if ( md->hasText() ) {
     QString text = md->text();
-    kDebug(5602) << "DROP:" << text << endl;
+    kDebug(5602) <<"DROP:" << text;
     interface()->openEventEditor( text );
     return;
   }

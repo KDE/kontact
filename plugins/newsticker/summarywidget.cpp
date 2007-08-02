@@ -291,7 +291,7 @@ void SummaryWidget::updateView()
 #warning Port me!
 void SummaryWidget::documentUpdateError( DCOPRef feedRef, int errorCode )
 {
-  kDebug() << " error while updating document, error code: " << errorCode << endl;
+  kDebug() <<" error while updating document, error code:" << errorCode;
   FeedList::Iterator it;
   for ( it = mFeeds.begin(); it != mFeeds.end(); ++it ) {
     if ( (*it).ref.obj() == feedRef.obj() ) {

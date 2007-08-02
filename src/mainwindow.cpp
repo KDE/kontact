@@ -372,7 +372,7 @@ void MainWindow::loadPlugins()
       continue;
     }
 
-    kDebug(5600) << "Loading Plugin: " << it->name() << endl;
+    kDebug(5600) <<"Loading Plugin:" << it->name();
     Kontact::Plugin *plugin =
       KService::createInstance<Kontact::Plugin>(
           it->service(), this );
@@ -392,7 +392,7 @@ void MainWindow::loadPlugins()
     if ( !loadOnStart.isNull() && loadOnStart.toBool() )
       mDelayedPreload.append( plugin );
 
-    kDebug(5600) << "LIBNAMEPART: " << libNameProp.toString() << endl;
+    kDebug(5600) <<"LIBNAMEPART:" << libNameProp.toString();
 
     plugin->setPartLibraryName( libNameProp.toString().toUtf8() );
     plugin->setExecutableName( exeNameProp.toString() );
@@ -415,14 +415,14 @@ void MainWindow::loadPlugins()
     QList<KAction*>::const_iterator listIt;
 
     for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-      kDebug(5600) << "Plugging " << (*listIt)->objectName() << endl;
+      kDebug(5600) <<"Plugging" << (*listIt)->objectName();
       mNewActions->popupMenu()->addAction( (*listIt) );
     }
 
     actionList = plugin->syncActions();
     if ( mSyncActionsEnabled ) {
       Q_FOREACH( KAction* listIt, *actionList ) {
-        kDebug(5600) << "Plugging " << listIt->objectName() << endl;
+        kDebug(5600) <<"Plugging" << listIt->objectName();
         mSyncActions->popupMenu()->addAction( listIt );
       }
     }
@@ -455,14 +455,14 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
       QList<KAction*>::const_iterator listIt;
 
       for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-        kDebug(5600) << "Unplugging " << (*listIt)->objectName() << endl;
+        kDebug(5600) <<"Unplugging" << (*listIt)->objectName();
         mNewActions->popupMenu()->removeAction( *listIt );
       }
 
       if ( mSyncActionsEnabled ) {
         actionList = plugin->syncActions();
         for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-            kDebug(5600) << "Unplugging " << (*listIt)->objectName() << endl;
+            kDebug(5600) <<"Unplugging" << (*listIt)->objectName();
             mSyncActions->popupMenu()->removeAction( *listIt );
         }
       }
@@ -492,7 +492,7 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
 
 void MainWindow::addPlugin( Kontact::Plugin *plugin )
 {
-  kDebug(5600) << "Added plugin" << endl;
+  kDebug(5600) <<"Added plugin";
 
   mPlugins.append( plugin );
 
@@ -520,7 +520,7 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
     return;
   }
 
-  kDebug(5600) << "Part activated: " << part << " with stack id. "
+  kDebug(5600) <<"Part activated:" << part <<" with stack id."
       << mPartsStack->indexOf( part->widget() )<< endl;
 
   //createGUI( part ); // moved to selectPlugin()
@@ -801,10 +801,10 @@ int MainWindow::startServiceFor( const QString& serviceType,
   PluginList::ConstIterator end = mPlugins.end();
   for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
    if ( (*it)->createDBUSInterface( serviceType ) ) {
-	    kDebug(5600) << "found interface for " << serviceType << endl;
+	    kDebug(5600) <<"found interface for" << serviceType;
 	    if( dbusService )
                *dbusService = (*it)->registerClient();
-            //kDebug(5600) << "appId=" << (*it)->dcopClient()->appId() << endl;
+            //kDebug(5600) <<"appId=" << (*it)->dcopClient()->appId();
             return 0; // success
     }
   }
@@ -826,7 +826,7 @@ void MainWindow::pluginsChanged()
 
 void MainWindow::updateConfig()
 {
-  kDebug( 5600 ) << k_funcinfo << endl;
+  kDebug( 5600 ) << k_funcinfo;
 
   saveSettings();
   loadSettings();

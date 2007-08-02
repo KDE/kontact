@@ -54,13 +54,13 @@ Core::~Core()
 
 KParts::ReadOnlyPart *Core::createPart( const char *libname )
 {
-  kDebug(5601) << "Core::createPart(): " << libname << endl;
+  kDebug(5601) <<"Core::createPart():" << libname;
 
   QMap<QByteArray,KParts::ReadOnlyPart *>::ConstIterator it;
   it = mParts.find( libname );
   if ( it != mParts.end() ) return it.value();
 
-  kDebug(5601) << "Creating new KPart" << endl;
+  kDebug(5601) <<"Creating new KPart";
 
   int error = 0;
   KParts::ReadOnlyPart *part =
@@ -75,7 +75,7 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
                       SLOT( slotPartDestroyed( QObject * ) ) );
   } else {
     d->lastErrorMessage = KLibLoader::errorString( error );
-    kWarning(5601) << d->lastErrorMessage << endl;
+    kWarning(5601) << d->lastErrorMessage;
   }
 
   return pimPart;

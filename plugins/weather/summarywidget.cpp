@@ -79,7 +79,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
       connect( &mTimer, SIGNAL( timeout() ), this, SLOT( timeout() ) );
       mTimer.start( 0 );
     } else {
-      kDebug(5602) << "ERROR: D-Bus reply not valid..." << endl;
+      kDebug(5602) <<"ERROR: D-Bus reply not valid...";
     }
   }
 }
@@ -94,7 +94,7 @@ void SummaryWidget::updateView()
   mLabels.clear();
 
   if ( mStations.count() == 0 ) {
-    kDebug(5602) << "No weather stations defined..." << endl;
+    kDebug(5602) <<"No weather stations defined...";
     return;
   }
 

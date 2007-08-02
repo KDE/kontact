@@ -79,7 +79,7 @@ using namespace Kontact;
 UniqueAppHandler::UniqueAppHandler( Plugin* plugin )
  : mPlugin( plugin )
 {
-  kDebug()<< k_funcinfo <<" plugin->objectName().toLatin1() :"<<plugin->objectName().toLatin1()<<endl;
+  kDebug()<< k_funcinfo <<" plugin->objectName().toLatin1() :"<<plugin->objectName().toLatin1();
   QDBusConnection::sessionBus().registerService( "org.kde." + plugin->objectName().toLatin1() );
 }
 
@@ -161,7 +161,7 @@ UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin
   // The app is running standalone if 1) that name is known to D-Bus
     QString serviceName = "org.kde."+plugin->objectName().toLatin1();
     mRunningStandalone = QDBusConnection::sessionBus().interface()->isServiceRegistered(serviceName);
-    kDebug()<<" plugin->objectName() :"<<plugin->objectName()<<" isServiceRegistered ? :"<<mRunningStandalone<<endl;
+    kDebug()<<" plugin->objectName() :"<<plugin->objectName()<<" isServiceRegistered ? :"<<mRunningStandalone;
 
     QString owner = QDBusConnection::sessionBus().interface()->serviceOwner(serviceName);
     if( mRunningStandalone && (owner == QDBusConnection::sessionBus().baseService()))
@@ -196,7 +196,7 @@ void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray& appId )
 #endif
 //    disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ),
 //                this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
-    kDebug(5601) << k_funcinfo << appId << endl;
+    kDebug(5601) << k_funcinfo << appId;
     mFactory->createHandler( mPlugin );
 //    kapp->dcopClient()->setNotifications( false );
     mRunningStandalone = false;

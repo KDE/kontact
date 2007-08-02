@@ -73,7 +73,7 @@ KParts::ReadOnlyPart* KarmPlugin::createPart()
 
 void KarmPlugin::newTask()
 {
-  kDebug() << "Entering newTask" << endl;
+  kDebug() <<"Entering newTask";
   mInterface->addTask("New Task");
 }
 

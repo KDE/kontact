@@ -128,7 +128,7 @@ KParts::ReadOnlyPart *Plugin::loadPart()
 
 const KAboutData *Plugin::aboutData()
 {
-  kDebug(5601) << "Plugin::aboutData(): libname: " << d->partLibraryName << endl;
+  kDebug(5601) <<"Plugin::aboutData(): libname:" << d->partLibraryName;
 
   const KComponentData instance =
     KParts::Factory::partComponentDataFromLibrary( d->partLibraryName );
@@ -136,7 +136,7 @@ const KAboutData *Plugin::aboutData()
   if ( instance.isValid() ) {
     return instance.aboutData();
   } else {
-    kError() << "Plugin::aboutData(): Can't load instance for "
+    kError() <<"Plugin::aboutData(): Can't load instance for"
               << title() << endl;
     return 0;
   }

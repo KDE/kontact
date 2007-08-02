@@ -369,16 +369,16 @@ void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
 
 void Navigator::dragEnterEvent( QDragEnterEvent *event )
 {
-  kDebug(5600) << "Navigator::dragEnterEvent()" << endl;
+  kDebug(5600) <<"Navigator::dragEnterEvent()";
 
   dragMoveEvent( event );
 }
 
 void Navigator::dragMoveEvent( QDragMoveEvent *event )
 {
-  kDebug(5600) << "Navigator::dragEnterEvent()" << endl;
+  kDebug(5600) <<"Navigator::dragEnterEvent()";
 
-  kDebug(5600) << "  Format: " << event->format() << endl;
+  kDebug(5600) <<"  Format:" << event->format();
 
   Q3ListBoxItem *item = itemAt( event->pos() );
 
@@ -389,14 +389,14 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
 
   EntryItem *entry = static_cast<EntryItem*>( item );
 
-  kDebug(5600) << "  PLUGIN: " << entry->plugin()->identifier() << endl;
+  kDebug(5600) <<"  PLUGIN:" << entry->plugin()->identifier();
 
   event->setAccepted( entry->plugin()->canDecodeMimeData( event->mimeData() ) );
 }
 
 void Navigator::dropEvent( QDropEvent *event )
 {
-  kDebug(5600) << "Navigator::dropEvent()" << endl;
+  kDebug(5600) <<"Navigator::dropEvent()";
 
   Q3ListBoxItem *item = itemAt( event->pos() );
 
@@ -406,7 +406,7 @@ void Navigator::dropEvent( QDropEvent *event )
 
   EntryItem *entry = static_cast<EntryItem*>( item );
 
-  kDebug(5600) << "  PLUGIN: " << entry->plugin()->identifier() << endl;
+  kDebug(5600) <<"  PLUGIN:" << entry->plugin()->identifier();
 
   entry->plugin()->processDropEvent( event );
 }
@@ -456,7 +456,7 @@ IconViewMode Navigator::sizeIntToEnum(int size) const
     default:
       // Stick with sane values
       return NormalIcons;
-      kDebug() << "View mode not implemented!" << endl;
+      kDebug() <<"View mode not implemented!";
       break;
   }
 }
