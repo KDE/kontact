@@ -61,7 +61,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   bool serviceAvailable = true;
   if(!QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.KWeatherService")) {
     if ( KToolInvocation::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
-      QLabel *label = new QLabel( i18n( "No weather dbus service available;\nyou need KWeather to use this plugin." ), this );
+      QLabel *label = new QLabel( i18n( "No weather D-Bus service available;\nyou need KWeather to use this plugin." ), this );
       mLayout->addWidget( label, Qt::AlignHCenter | Qt::AlignVCenter );
       serviceAvailable = false;
     }
