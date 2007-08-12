@@ -6,7 +6,7 @@ Type=Service
 ServiceTypes=KCModule
 
 X-KDE-ModuleType=Library
-X-KDE-Library=kontact
+X-KDE-Library=kcm_kontact
 X-KDE-FactoryName=kontactconfig
 X-KDE-HasReadOnlyMode=false
 X-KDE-ParentApp=kontact
