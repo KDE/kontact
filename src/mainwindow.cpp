@@ -291,11 +291,11 @@ void MainWindow::initAboutScreen()
   mIntroPart->view()->setLineWidth( 0 );
 
   connect( mIntroPart->browserExtension(),
-           SIGNAL( openUrlRequest( const KUrl&, const KParts::URLArgs& ) ),
+           SIGNAL( openUrlRequest( const KUrl&, const KParts::OpenUrlArguments&, const KParts::BrowserArguments& ) ),
            SLOT( slotOpenUrl( const KUrl& ) ) );
 
   connect( mIntroPart->browserExtension(),
-           SIGNAL( createNewWindow( const KUrl&, const KParts::URLArgs& ) ),
+           SIGNAL( createNewWindow( const KUrl&, const KParts::OpenUrlArguments&, const KParts::BrowserArguments& ) ),
            SLOT( slotOpenUrl( const KUrl& ) ) );
 }
 
