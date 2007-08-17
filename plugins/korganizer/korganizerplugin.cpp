@@ -184,7 +184,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
         attendees.append( email );
     }
 
-    interface()->openEventEditor( i18n( "Meeting" ), QString::null, QStringList(),	//krazy:exclude=nullstrassign for old broken gcc
+    interface()->openEventEditor( i18n( "Meeting" ), QString(), QStringList(),
                                   attendees );
     return;
   }

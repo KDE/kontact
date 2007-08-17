@@ -333,7 +333,7 @@ bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
     if ( e->type() == QEvent::Enter )
       emit message( label->text() );
     if ( e->type() == QEvent::Leave )
-      emit message( QString::null );
+      emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
   }
 
   return Kontact::Summary::eventFilter( obj, e );

@@ -84,7 +84,7 @@ bool TestPart::connectToAddressBook()
   {
     QString error;
     QCString dcopService;
-    int result = KDCOPServiceStarter::self()->findServiceFor( "DCOP/AddressBook", QString::null, QString::null, &error, &dcopService );	//krazy:exclude=nullstrassign for old broken gcc
+    int result = KDCOPServiceStarter::self()->findServiceFor( "DCOP/AddressBook", QString(), QString(), &error, &dcopService );
     if ( result != 0 ) {
       // You might want to show "error" (if not empty) here, using e.g. KMessageBox
       return false;

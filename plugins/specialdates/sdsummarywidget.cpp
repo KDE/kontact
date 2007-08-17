@@ -565,7 +565,7 @@ void SDSummaryWidget::mailContact( const QString &uid )
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QString email = ab->findByUid( uid ).fullEmail();
 
-  KToolInvocation::invokeMailer( email, QString::null );	//krazy:exclude=nullstrassign for old broken gcc
+  KToolInvocation::invokeMailer( email, QString() );
 }
 
 void SDSummaryWidget::viewContact( const QString &uid )

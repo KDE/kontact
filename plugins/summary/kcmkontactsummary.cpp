@@ -55,7 +55,7 @@ class PluginItem : public Q3CheckListItem
 {
   public:
     PluginItem( const KPluginInfo &info, K3ListView *parent )
-      : Q3CheckListItem( parent, QString::null, Q3CheckListItem::CheckBox ),	//krazy:exclude=nullstrassign for old broken gcc
+      : Q3CheckListItem( parent, QString(), Q3CheckListItem::CheckBox ),
         mInfo( info )
     {
       QPixmap pm = KIconLoader::global()->loadIcon( mInfo.icon(), K3Icon::Small );
