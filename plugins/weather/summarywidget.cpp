@@ -199,7 +199,7 @@ bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
       emit message(
         i18n( "View Weather Report for Station" ) );
     if ( e->type() == QEvent::Leave )
-      emit message( QString::null );
+      emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
   }
 
   return Kontact::Summary::eventFilter( obj, e );

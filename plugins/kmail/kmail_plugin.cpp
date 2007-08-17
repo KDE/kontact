@@ -133,7 +133,7 @@ void KMailPlugin::openComposer( const QString& to )
 
 void KMailPlugin::slotNewMail()
 {
-  openComposer( QString::null );
+  openComposer( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
 }
 
 void KMailPlugin::slotSyncFolders()

@@ -565,7 +565,7 @@ void SDSummaryWidget::mailContact( const QString &uid )
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QString email = ab->findByUid( uid ).fullEmail();
 
-  KToolInvocation::invokeMailer( email, QString::null );
+  KToolInvocation::invokeMailer( email, QString::null );	//krazy:exclude=nullstrassign for old broken gcc
 }
 
 void SDSummaryWidget::viewContact( const QString &uid )
@@ -601,7 +601,7 @@ bool SDSummaryWidget::eventFilter( QObject *obj, QEvent* e )
     if ( e->type() == QEvent::Enter )
       emit message( i18n( "Mail to:\"%1\"", label->text() ) );
     if ( e->type() == QEvent::Leave )
-      emit message( QString::null );
+      emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
   }
 
   return Kontact::Summary::eventFilter( obj, e );

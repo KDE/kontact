@@ -66,7 +66,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStart
 
     // KDBusServiceStarter interface
     virtual int startServiceFor( const QString& serviceType,
-                                 const QString& constraint = QString::null,
+                                 const QString& constraint = QString::null,	//krazy:exclude=nullstrassign for old broken gcc
                                  QString *error = 0, QString* dbusService = 0,
                                  int flags = 0 );
 

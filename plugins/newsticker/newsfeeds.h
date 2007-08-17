@@ -36,8 +36,8 @@ class NewsSourceData
                     Recreation, Society };
 
     NewsSourceData( const QString &name = I18N_NOOP( "Unknown" ),
-                    const QString &url = QString::null,
-                    const QString &icon = QString::null,
+                    const QString &url = QString::null,	//krazy:exclude=nullstrassign for old broken gcc
+                    const QString &icon = QString::null,	//krazy:exclude=nullstrassign for old broken gcc
                     const Category category= Computers )
       : mName( name ), mURL( url ), mIcon( icon ), mCategory( category )
     {
@@ -75,12 +75,12 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
     NewsSourceData(
     QString::fromLatin1("Internet.com Business"),
     QString::fromLatin1("http://headlines.internet.com/internetnews/bus-news/news.rss"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Business ),
     NewsSourceData(
     QString::fromLatin1("TradeSims"),
     QString::fromLatin1("http://www.tradesims.com/AEX.rdf"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Business ),
   // Computers ----------
     NewsSourceData(
@@ -96,7 +96,7 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
     NewsSourceData(
     QString::fromLatin1("KDE France"),
     QString::fromLatin1("http://www.kde-france.org/backend-breves.php3"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("FreeBSD Project News"),
@@ -111,7 +111,7 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
     NewsSourceData(
     QString::fromLatin1("GNOME News"),
     QString::fromLatin1("http://www.gnomedesktop.org/backend.php"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("Slashdot"),
@@ -141,7 +141,7 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
     NewsSourceData(
     QString::fromLatin1("Jabber News"),
     QString::fromLatin1("http://www.jabber.org/news/rss.xml"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("Freshmeat"),
@@ -186,17 +186,17 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
     NewsSourceData(
     QString::fromLatin1("LinuxSecurity.com"),
     QString::fromLatin1("http://www.linuxsecurity.com/linuxsecurity_hybrid.rdf"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("Linux Game Tome"),
     QString::fromLatin1("http://happypenguin.org/html/news.rdf"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("Telefragged"),
     QString::fromLatin1("http://www.telefragged.com/cgi-bin/rdf.pl"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("Mozilla"),
@@ -211,17 +211,17 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
     NewsSourceData(
     QString::fromLatin1("BSD Today"),
     QString::fromLatin1("http://bsdtoday.com/backend/bt.rdf"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("Daemon News"),
     QString::fromLatin1("http://daily.daemonnews.org/ddn.rdf.php3"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("use Perl;"),
     QString::fromLatin1("http://use.perl.org/useperl.rdf"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("desktopian.org"),
@@ -261,12 +261,12 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
     NewsSourceData(
     QString::fromLatin1("Linux4Us (sowie RadioTux & Magazin42)"),
     QString::fromLatin1("http://www.linux4us.de/newsticker.fd"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("kdenews.unixcode.org"),
     QString::fromLatin1("http://kdenews.unixcode.org/?node=news&action=rss"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("FreshPorts - the place for ports"),
@@ -286,7 +286,7 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
     NewsSourceData(
     QString::fromLatin1("zez.org - about code "),
     QString::fromLatin1("http://zez.org/article/rssheadlines"),
-    QString::null,
+    QString::null,	//krazy:exclude=nullstrassign for old broken gcc
     NewsSourceData::Computers ),
     NewsSourceData(
     QString::fromLatin1("BSDatwork.com"),

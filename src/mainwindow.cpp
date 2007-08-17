@@ -149,7 +149,7 @@ void MainWindow::initObject()
   showTip( false );
 
   // done initializing
-  slotShowStatusMsg( QString::null );
+  slotShowStatusMsg( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
 
   connect( KPIM::BroadcastStatus::instance(), SIGNAL( statusMsg( const QString& ) ),
            this, SLOT( slotShowStatusMsg( const QString&  ) ) );
