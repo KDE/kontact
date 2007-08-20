@@ -79,7 +79,7 @@ using namespace Kontact;
 UniqueAppHandler::UniqueAppHandler( Plugin* plugin )
  : mPlugin( plugin )
 {
-  kDebug()<< k_funcinfo <<" plugin->objectName().toLatin1() :"<<plugin->objectName().toLatin1();
+  kDebug()<<" plugin->objectName().toLatin1() :"<<plugin->objectName().toLatin1();
   QDBusConnection::sessionBus().registerService( "org.kde." + plugin->objectName().toLatin1() );
 }
 
@@ -196,7 +196,7 @@ void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray& appId )
 #endif
 //    disconnect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ),
 //                this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
-    kDebug(5601) << k_funcinfo << appId;
+    kDebug(5601) << appId;
     mFactory->createHandler( mPlugin );
 //    kapp->dcopClient()->setNotifications( false );
     mRunningStandalone = false;

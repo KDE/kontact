@@ -826,7 +826,7 @@ void MainWindow::pluginsChanged()
 
 void MainWindow::updateConfig()
 {
-  kDebug( 5600 ) << k_funcinfo;
+  kDebug( 5600 ) ;
 
   saveSettings();
   loadSettings();

@@ -149,7 +149,7 @@ void UniqueAppHandler::loadCommandLineOptions()
 
 int UniqueAppHandler::newInstance()
 {
-    kDebug(5602) << k_funcinfo;
+    kDebug(5602) ;
     // Ensure part is loaded
     (void)plugin()->part();
 #ifdef __GNUC__
@@ -159,7 +159,7 @@ int UniqueAppHandler::newInstance()
 //    DCOPReply reply = kAB.call( "handleCommandLine" );
   //  if ( reply.isValid() ) {
     //    bool handled = reply;
-     //   kDebug(5602) << k_funcinfo <<"handled=" << handled;
+     //   kDebug(5602) <<"handled=" << handled;
      //   if ( !handled ) // no args -> simply bring kaddressbook plugin to front
             return Kontact::UniqueAppHandler::newInstance();
    // }

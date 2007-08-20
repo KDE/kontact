@@ -85,7 +85,7 @@ bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData )
 
 void KMailPlugin::processDropEvent( QDropEvent * de )
 {
-  kDebug() << k_funcinfo;
+  kDebug() ;
   CalendarLocal cal( QString::fromLatin1("UTC") );
   KABC::Addressee::List list;
   const QMimeData *md = de->mimeData();
@@ -198,7 +198,7 @@ void KMailUniqueAppHandler::loadCommandLineOptions()
 
 int KMailUniqueAppHandler::newInstance()
 {
-    kDebug()<< k_funcinfo;
+    kDebug();
     // Ensure part is loaded
     (void)plugin()->part();
     org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
@@ -206,7 +206,7 @@ int KMailUniqueAppHandler::newInstance()
     
     if ( reply.isValid() ) {
         bool handled = reply;
-        kDebug(5602) << k_funcinfo <<"handled=" << handled;
+        kDebug(5602) <<"handled=" << handled;
         if ( !handled ) // no args -> simply bring kmail plugin to front
             return Kontact::UniqueAppHandler::newInstance();
     }

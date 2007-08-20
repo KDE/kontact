@@ -143,7 +143,7 @@ void KOrganizerPlugin::slotSyncEvents()
 
 bool KOrganizerPlugin::createDBUSInterface( const QString& serviceType )
 {
-  kDebug(5602) << k_funcinfo << serviceType;
+  kDebug(5602) << serviceType;
 #ifdef __GNUC__
   #warning "What is this needed for, and do we still need it with DBUS?"
 #endif

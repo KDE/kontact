@@ -118,7 +118,7 @@ int KNodeUniqueAppHandler::newInstance()
 #if 0
     if ( reply.isValid() ) {
         bool handled = reply;
-        kDebug(5602) << k_funcinfo <<"handled=" << handled;
+        kDebug(5602) <<"handled=" << handled;
         if ( !handled )
 #endif
     // in all cases, bring knode plugin to front
