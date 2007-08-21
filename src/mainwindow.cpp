@@ -964,11 +964,11 @@ QString MainWindow::introductionString()
       "<p>%2</p>"
       "<table align=\"center\">"
       "<tr><td><a href=\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td>"
-      "<td><a href=\"%7\">%8</a><br><span id=\"subtext\"><nobr>%9</td></tr>"
+      "<td><a href=\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></td></tr>"
       "<tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /></a></td>"
-      "<td><a href=\"%14\">%15</a><br><span id=\"subtext\"><nobr>%16</td></tr>"
+      "<td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>%16</nobr></td></tr>"
       "<tr><td><a href=\"%17\"><img width=\"%18\" height=\"%19\" src=\"%20\" /></a></td>"
-      "<td><a href=\"%21\">%22</a><br><span id=\"subtext\"><nobr>%23</td></tr>"
+      "<td><a href=\"%21\">%22</a><br /><span id=\"subtext\"><nobr>%23</nobr></td></tr>"
       "</table>"
       "<p style=\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>" )
       .subs( KGlobal::mainComponent().aboutData()->version() )
