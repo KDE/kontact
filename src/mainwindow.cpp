@@ -97,7 +97,7 @@ class SettingsDialogWrapper : public KSettings::Dialog
       QObject *object = widget->child( "KJanusWidget::buttonBelowList" );
       QPushButton *button = static_cast<QPushButton*>( object );
       if ( button )
-        button->setText( i18n( "Select Components..." ) );
+        button->setText( i18n( "Select Components ..." ) );
     }
 };
 
