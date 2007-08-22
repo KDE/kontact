@@ -11,7 +11,7 @@ X-KDE-ParentApp=kontact_korganizerplugin,kontact_todoplugin
 X-KDE-ParentComponents=kontact_korganizerplugin,kontact_todoplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
-Name=Appointments and To-dos
+Name=Appointment and To-do Overview
 Name[af]=Afsprake en te-doen lys
 Name[ar]=المواعيد و الواجبات
 Name[ca]=Cites i tasques pendents

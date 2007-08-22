@@ -11,7 +11,7 @@ X-KDE-ParentApp=kontact_kmailplugin
 X-KDE-ParentComponents=kontact_kmailplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
-Name=Mail
+Name=E-Mail Overview
 Name[af]=Pos
 Name[ar]=البريد
 Name[be]=Пошта
@@ -62,7 +62,7 @@ Name[uk]=Пошта
 Name[uz]=Хат-хабар
 Name[zh_CN]=邮件
 Name[zh_TW]=郵件
-Comment=Mail Summary Setup
+Comment=E-Mail Summary Setup
 Comment[af]=Pos opsomming opstelling
 Comment[ar]=تعيين ملخص البريد
 Comment[bg]=Настройки на обобщението на писмата

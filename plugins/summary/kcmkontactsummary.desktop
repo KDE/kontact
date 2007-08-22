@@ -11,7 +11,7 @@ X-KDE-ParentApp=kontact_summaryplugin
 X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
-Name=Components
+Name=Summary View Items
 Name[af]=Komponente
 Name[ar]=المكونات
 Name[be]=Кампанэнты
