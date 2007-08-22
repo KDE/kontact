@@ -17,7 +17,7 @@ X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
-Comment=Kontact KMail Plugin
+Comment=E-Mail Component (KMail Plugin)
 Comment[af]=Kontact kMail inprop module
 Comment[be]=Дапаўненьне Кантакту "K Пошта"
 Comment[bg]=Приставка връзка между пощата и адресника
@@ -67,7 +67,7 @@ Comment[uk]=Втулок електронної пошти Kontact
 Comment[uz]=Kontact учун KMail плагини
 Comment[zh_CN]=Kontact KMail 插件
 Comment[zh_TW]=Kontact KMail 外掛程式
-Name=Mail
+Name=E-Mail
 Name[af]=Pos
 Name[ar]=البريد
 Name[be]=Пошта

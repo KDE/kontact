@@ -13,7 +13,7 @@ X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=false
 
-Comment=KArm Plugin
+Comment=Time Tracker Component (KArm Plugin)
 Comment[af]=KArm inprop module
 Comment[bg]=Приставка за KArm
 Comment[br]=Lugent KArm
@@ -56,7 +56,7 @@ Comment[uz]=KArm плагини
 Comment[zh_CN]=KArm 插件
 Comment[zh_TW]=KArm 外掛程式
 
-Name=KArm
+Name=Timer
 Name[af]=Karm
 Name[eo]=Tempomezurilo
 Name[hi]=के-आर्म

@@ -16,7 +16,7 @@ X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
-Comment=Kontact KPilot Plugin
+Comment=Palm Tools Component (KPilot Plugin)
 Comment[af]=Kontact KPilot inprop module
 Comment[be]=Дапаўненьне Кантакту "KPilot"
 Comment[bg]=Приставка за връзка на адресника с мобилни устройства
@@ -63,7 +63,7 @@ Comment[uk]=Втулок Kontact для KPilot
 Comment[uz]=Kontact учун KPilot плагини
 Comment[zh_CN]=Kontact KPilot 插件
 Comment[zh_TW]=Kontact KPilot 外掛程式
-Name=KPilot Configuration
+Name=Palm
 Name[af]=KPilot opstelling
 Name[ar]=إعداد KPilot
 Name[be]=Канфігурацыя KPilot
