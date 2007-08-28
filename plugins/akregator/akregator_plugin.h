@@ -28,7 +28,6 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include <kparts/part.h>
 #include <plugin.h>
 #include <uniqueapphandler.h>
 
