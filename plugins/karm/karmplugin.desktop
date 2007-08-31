@@ -1,0 +1,67 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+Icon=karm
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_karm
+X-KDE-KontactPluginVersion=5
+X-KDE-KontactPartLibraryName=libkarmpart
+
+X-KDE-PluginInfo-Name=kontact_karm
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=false
+
+Comment=Time Tracker Component (KArm Plugin)
+Comment[af]=KArm inprop module
+Comment[bg]=Приставка за KArm
+Comment[br]=Lugent KArm
+Comment[ca]=Endollable KArm
+Comment[cs]=Modul KArm
+Comment[da]=KArm-plugin
+Comment[de]=Zeiterfassungskomponente in Kontact
+Comment[el]=Πρόσθετο του KArm
+Comment[es]=Extensión KArm
+Comment[et]=KArmi plugin
+Comment[eu]=KArm plugina
+Comment[fa]=وصلۀ KArm
+Comment[fi]=KArm-liitännäinen
+Comment[fr]=Module pour KArm
+Comment[ga]=Breiseán KArm
+Comment[gl]=Extensión para KArm
+Comment[hu]=KArm bővítőmodul
+Comment[is]=KArm íforrit
+Comment[it]=Plugin KArm
+Comment[ja]=KArm プラグイン
+Comment[km]=កម្មវិធី​ជំនួយ KArm
+Comment[lt]=KArm priedas
+Comment[ms]=Plugin KArm 
+Comment[nb]=KArm-programtillegg
+Comment[nds]=KArm-Moduul
+Comment[nl]=KArm-plugin
+Comment[nn]=KArm-programtillegg
+Comment[pl]=Wtyczka KArm
+Comment[pt]='Plugin' KArm
+Comment[pt_BR]=Plugin do KArm
+Comment[ru]=Модуль KArm
+Comment[sk]=Modul KArm
+Comment[sl]=Vstavek za KArm
+Comment[sr]=Прикључак KArm-а
+Comment[sr@Latn]=Priključak KArm-a
+Comment[sv]=Karm-insticksprogram
+Comment[tr]=KArm Eklentisi
+Comment[uk]=Втулок KArm
+Comment[uz]=KArm плагини
+Comment[zh_CN]=KArm 插件
+Comment[zh_TW]=KArm 外掛程式
+
+Name=Timer
+Name[af]=Karm
+Name[eo]=Tempomezurilo
+Name[hi]=के-आर्म
+Name[mk]=КРака
+Name[sv]=Karm
+Name[ta]=Kஅம்
+Name[xh]=KAlrm
+Name[zh_TW]=KArm 個人時程紀錄
