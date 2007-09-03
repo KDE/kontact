@@ -1,0 +1,375 @@
+* Note: Lines starting with a d are my comments - Daniel
+* Note: Lines starting with a # are my comments - Cornelius
+* Note: Lines starting with a "z" are my comments - Zack :)
+* Note: Lines starting with a "s" are my comments - Simon
+* Note: Lines starting with a "Don:" are my comments - Don
+* Note: Lines starting with a "g" are my comments - Guenter
+* Note: Lines starting with a "m" are my comments - Matthias Kretz
+* Note: Lines starting with a "MiB:" are my comments - Michael
+* Note: Lines starting with a "h" are my comments - Holger
+
+Misc:
+=====
+
+Configuration Merge
+-------------------
+
+d Idea: The KOffice way of life: Offer a method that adds a given wiget of a
+d predefined type as page in a KDialogBase or offer a pointer to a KDialogBase
+d -> requires a Kontact part or an external lib per part
+
+m I believe this is a more general problem. Please take a look at
+m kdegraphics/kview/kpreferences{dialog,module}.{h,cpp}. I'd like to generalize
+m these classes and include them into kdelibs (the same configuration merge is
+m being done in Kate, Noatun, Kopete, KView and probably more).
+
+# The problem is even more generic. We also have to merge about boxes, tips of
+# the day and maybe more.
+
+
+Merged Foldertree View
+----------------------
+
+d Idea: Let the part send a description of their folders and reaction to calls
+d as XML, similar to XMLGUI
+
+# Is a folder tree really the right tool to represent events, todos or
+# contacts?
+
+MiB: On the one hand, Notes can be hierarchic, so a folder tree would be the
+MiB: nearest solution...
+
+z I think so. Applications could send the root of their tree to
+z Kontact so that the interface looks like
+
+- Mail
+  |    \
+  |     - Local Folders
+  |                    \
+  |                     Inbox
+  |                     |
+  |                     Thrash
+  |                     |
+  |                     Sent
+- Notes
+  |    \
+  |     Notes 1
+  |     |
+  |     Notes 2
+  |
+- Events
+        \
+         Event 1
+         |
+         Event 2
+
+z which is not that bad. The question would be how to render the tree
+z on the Kontact side while keeping the items on the parts side ( because
+z e.g. KMails hold custom pixmaps for the folders which had to be
+z displayed in the Kontact tree).
+
+g I'm currently having 248 events. A tree is a very bad solution to visualize
+g them. selecting "Events" in the tree should just only start the korganizer
+g part.
+
+MiB: ...OTOH... yes, /me agrees with g, a folder tree becomes complex quite fast.
+
+Don: The folder tree makes sense for advanced users, but I think
+Don: the simplicity of the current navigator widget has advantages for
+Don: non power users.
+Don:
+Don: Actually instead of the navigator widget I think it makes sense
+Don: to consider reusing the widget choosing widget in the latest
+Don: version of the Qt designer, which in a sense can be
+Don: considered a generalization of the navigator widget. And could
+Don: make the folder tree in kmail unnecessary.
+Don:
+Don: I might investigate the Qt designer widget further but if someone
+Don: else wants to look at a folder tree widget that's cool with me.
+
+# I had a look at the Qt designer widget choosing widget. I think it has a
+# severe usability problem, because the buttons (or kind of tabs) which are used
+# to access the widget subgroups are not always at the same place but move
+# around when you click on them. Dependening on which group is shown, the button
+# is at the top or at the bottom of the widget. In my opinion this solution is
+# unacceptable.
+
+# But Daniel had a good idea how to improve that. It looks similar to the Qt
+# designer widget, but it opens the current group always at the top of the
+# widget and only highlights the current group in the list at the bottom, but
+# doesn't move it. This seems to also be the way Outlook does it.
+
+Don: Guenter, agree.
+Don: Wouldn't the idea to be to show calendars in the tree or
+Don: navigator widget, rather than individual events?
+
+# Yes, that makes sense. Calendars are much more similar to mail folders than
+# single events. You wouldn't integrate individual mails in the folder tree,
+# would you?
+
+d That raises an interesting point: The KNotes plugin would not need an own
+d canvas in the WidgetStack then. It's sufficient to have the notes in the
+d folder view, an RMB menu on them and a "New Note" action.
+d So the new design must be able to catch that case (the current one does not).
+
+# I think notes are on the same level as mails or events. They should be listed
+# in the view. KNotes would probably just create a single entry in the folder
+# tree.
+
+
+KNotes integration
+------------------
+
+MiB: Which reminds me of my own concern about the 'how' of integrating KNotes:
+MiB: * the current solution is to start KNotes extern, it is not embedded in Kontact
+MiB:   at all. Thus opening a note that is on another desktop either leaves the Kontact
+MiB:   window or moves the note. Either not perfect. Also, Kontact is likely to cover
+MiB:   notes that reside on the desktop, easy working is impossible. Which is the reason
+MiB:   I don't like the current approach too much.
+MiB: * but there's always hope---my idea would be to show the notes in Kontact itself.
+MiB:   Now I tend to say it's a bit intrusive to not allow starting KNotes and
+MiB:   Kontact/KNotes at the same time which raises the following issues:
+MiB:     - if KNotes and Kontact are running at the same time, changes to the notes have
+MiB:       to be synchronized (not much of a problem). Changes to be synced are the
+MiB:       text/contents itself, the text color/style..., the note color. Not sure about
+MiB:       the note size. Not to be synced is the position.
+MiB:     - so the position in Kontact has to be saved individually and independently
+MiB:       of the real desktop position (realized by attaching two display config
+MiB:       files, works in make_it_cool branch mostly). Kontact's size is generally
+MiB:       smaller than the desktop.
+MiB:     - normally notes are on a specific desktop, now they have to be displayed on one
+MiB:       area---how to do this best?
+
+MiB: what does M$ do? How do they manage the notes in their PIM app? (I don't know
+MiB: it, never seen that thing)
+
+
+Toolbar Items
+-------------
+
+d The KParts Technology only provides actions for the current part. It might be
+d desireable to have common actions that are always available.
+
+Don: I agree that it is desireable to have common actions always
+Don: available (and parts too like the todo list)
+Don:
+Don: But are you sure Kparts is limited in this way? KOrganizer can load
+Don: multiple plugins simultaneously. And all of these plugins are kparts
+Don: (eg. birthday import), and kactions for all loaded plugins are
+Don: created and made available simultaneously.
+Don:
+Don: Yeah, I'm quite positive you can load multiple parts simultaneously.
+
+# Certainly. Actions like "New Mail", "New Contact", "New Event" should be
+# available independently of a selected part.
+
+Don: This is a very important issue, I think we need a library with three
+Don: methods:
+Don: KAddressBookIface loadKAddressBook()
+Don: KMailIface loadKMail()
+Don: KOrganizerIface loadKOrganizer()
+MiB: And don't forget KNotesIface loadKNotes() :-)
+
+h: That doesn't sound extendable ;)
+h: So if I would like to add a 'New ShortMessage' part we would have to extend
+h: that library... better use KTrader and some sort of a common framework
+h: and Mib's comments shows that problem!
+
+d: That's what KDCOPServiceStarter is for :)
+
+Don: Now if kontact is running then loadX will load the X part in kontact
+Don: (if it is not already loaded) and return a dcop iface for that
+Don: part.
+Don:
+Don: If kontact is not running but is the users preferred application
+Don: then loadX will start kontact and then do the above.
+Don:
+Don: If kontact is not running and is not the users preferred application
+Don: then a standalone version of X should be started, and an iface for
+Don: that standalone app returned.
+Don:
+Don: I think this library should be in libkdepim ad all the kdepim apps
+Don: should be moved into kdepim, so their iface files all be in one
+Don: package. Or alternatively a new kdeinterfaces package be created
+Don: and used as a general repository for interface files.
+Don:
+Don: Another important issue is invokeMailer and the fact that currently
+Don: KDE just runs kmail with command line arguments by default. That has
+Don: to be made smarter.
+Don:
+Don: I guess when kmail is run with command line arguments it could
+Don: actually use loadKMail() and then use the resulting iface.
+Don:
+Don: And the same for all other loadX apps.
+
+
+Status Bar
+----------
+
+d We need a more sophisticated handling (progressbar, etc)
+
+Don: Definitely.
+
+# We now have kdelibs/kparts/statusbarextension. This is intended to solve these
+# problems, right?
+
+d: Right. Simply add it as childobject in your part and use it's API. Works even
+d: for other KPart hosts than Kontact
+
+
+Kontact plugin unification
+-------------------------
+
+# Currently all Kontact plugins look quite similar. It would be nice, if we
+# could provide infratructure to reduce duplicated code as far as possible.
+
+d I thouht of a KontactPart, similar to a KOPart, if that makes sense. I don't think
+d a normal KPart is sufficient for us.
+
+Don: I've spent quite a bit of time in all pim *_part files and IIRC
+Don: the amount of duplicated code, is pretty much negligible.
+Don:
+Don: But a KontactPart could make sense for when the parts want to communicate with
+Don: the container. Eg. if the parts want to add folders to the container
+Don: apps folder tree (or navigator)
+Don:
+Don: And maybe for communicating with the status bar.
+	
+
+Communication/Interaction:
+==========================
+
+d Invoking parts when they are needed for the first time takes too long,
+d starting all takes too long on startup
+d Idea: Mark complex parts as basic parts that get loaded anyway
+
+# parts could be loaded in the background based on usage patterns. Kontact could
+# remember which parts were used at the last session and load them in the
+# background after loading the initial part to be shown at startup.
+
+z This idea seems to be similar to Microsoft's
+z hide-unused-item-in-the-menu strategy. But it probably mess up
+z kaddressbook integration. Although not used during every session
+z this part is needed and should be always loaded. This strategy
+z would be great for could-to-come parts, like a summary part.
+z Background loading of parts is OK. The idea is simple : load the
+z last used part on startup. Make sure its loading finishes and then
+z load the rest once the user can already interact with the last used
+z loaded part.
+
+g why do we always need the addressbook? Is libkabc not sufficient?
+
+Don: I guess my machine is too fast, starting parts is pretty quick here :-)
+
+d DCOP is too slow, internal communication should be handled via a dedicated
+d interface, communication with external applications (i.e. knotes) should be
+d done via wrapper parts that communicate with their respective IPC method to
+d their application using the native protocol (DCOP, Corba, etc).
+
+# Are you sure that DCOP is too slow for in-process communications? I thought it
+# would handle this special case efficiently.
+
+s It is only efficient in the sense that it won't do a roundtrip to the server but
+s dispatch locally. What remains is the datastream marshalling. Not necessarily
+s ueberfast. But I think the point is a different one: It is simply not as intuitive
+s to use as C++. Yes, DCOPRef already helps a lot for simple calls, but talking to
+s remote components still requires one to do error checking after each method call.
+s in addition the stub objects one deals with (AddressBookIface_stub for example)
+s are no real references. To the programmer they look like a reference to a
+s remote addressbook component, but it really isn't. there is no state involved.
+s like if between two method calls on the stub the addressbook process gets restarted,
+s the state is lost and the programmer on the client side has no way to find out
+s about that. you'll end up with really complex code on the caller side to handle things
+s like that.
+
+d Yes, but of course one should always prefer in-process IPC if possible. DCOP
+d currently _works_ for Kontact, but that's all about it. It isn't exactly elegant.
+d The only advantange of the current approach is that we can allow the user to
+d run one of the parts standalone. I am not really sure we want that. I used to find
+d it desireable, but I am not sure anymore.
+
+MiB: But that's the whole idea behind Kontact---to be able to integrate apps
+MiB: _and_ to have standalone versions. Just think about KNotes... impossible
+MiB: to have it limited to only Kontact!
+
+Don: I love being able to run the apps inside or outside of the
+Don: container, it's just really cool being able to choose I think it's a
+Don: great feature and users will really love having the
+Don: choice. Especially when they are migrating.
+
+MiB: Definitely.
+
+Don: I think if we use the loadX methods defined above then we can still
+Don: support this. I'm PRO DCOP. And this way we don't have to special
+Don: case of the code depending on whether the application is running in
+Don: a container app or not.
+Don:
+Don: I find difficult to imagine a function that DCOP is not fast enough
+Don: to support. It supports all our current PIM IPC needs fine.
+
+MiB: yes, not too much against DCOP. But for KNotes I thought about turning
+MiB: a note into a plugin that can be loaded by Kontact and KNotes independently.
+MiB: like this, there's no DCOP necessary anymore and makes it much more flexible.
+MiB: e.g. usage of different display configs, a note embedded somewhere and having
+MiB: a parent or standalone on the desktop.
+
+# Communication with external applications is something which doesn't fit too
+# well with the 'integrated' approach of Kontact. Is this really necessary?
+
+d We won't get around it, think knotes, maybe sync tools, think abstact 3rd party
+d projects (not sure the latter is really that important, but we should consider it.
+d it barely plays a role anyway).
+
+MiB: hm. true. But not too important, IMHO. Just add a Kontact-DCOP interface :-)
+
+h: Pretty much to talk about...
+h: 1. the speed of DCOP is not that important. I worry more about the integration
+h:    of all parts. So how would I cross reference an 'Event' with a 3rd party
+h:    Kaplan Part? A common base class for all PIM records comes into my mind - again -
+h:    Now with normal C++ you can pass a pointer through the framework
+h:    Doing it with DCOP we need to marshall and demarshall it. This part can get really
+h:    ugly if we want more tight integration of all KaplanParts. We could add
+h:    a pure virtual method to marshall to a QDataStream. So now marshalling is done.
+h:    For demarshalling we need to get the type of the QDataStream content and then we need
+h:    to ask someone - a factory - to get a object for the type and then call another pure
+h:    virtual.....
+h:    The question is if this is really necessary
+h: 2. stand a lone apps
+h:    The 'stand a lone' app can always run in the same address space but be a top level widget
+h:    itself. WIth some DCOP magic clicking on the KMAIL icon code make Kaplan detach the part...
+h: 3. Integration!
+h:    The goal of Kaplan should not be to merge some XML files an give a common Toolbar for
+h:    X applications in one shell. I want true integration. Yes KMAIL can use KABC to show
+h:    all emails for one contact but a generic way to do such things would be more than nice.
+h:    It would be nice if I could relate the PIM objects in a common way. So I create an Event and
+h:    relate some todos to it. So for KDE4 I want a common base class for all PIM classes including mail
+h:    see Opies OPimRecord for a bit too huge base class
+
+Security
+--------
+
+d If we use the kparts (ktrader) approach to find a parts by looking
+d for an application with the correct mime type this might raise security
+d problems. (Martin's concern)
+
+# Looking up Kontact parts isn't based on mime types but on services of type
+# "Kontact/Plugin". This is just as save as starting a program statically linking
+# its parts. I really don't see any security concerns here.
+
+d Ok, if we limit stuff to Kontact/Plugin and Kontact/Part that might be safe enough
+d indeed. I (and Martin, who raise this concern initially) was just afraid of
+d allowing "any" part.
+
+h: hmm If somebody can install a Service into the global kde dir or the user kde home
+h: there is something else broken IMHO
+
+
+Summary View
+------------
+h: How would one best integrate a summary view into kontact?
+h: a) add a virtual QWidget *summary(const QDateTime&, QWidget* parent );
+h:    to get a summary widget for a day?
+h: b) use some sort of XML to UI to represent the summary informations
+h: c) have a stand a lone part which opens the PIM data seperately? ( How
+h:    to synchronize access? )
+

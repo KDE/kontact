@@ -1,0 +1,30 @@
+
+#headerR {
+  position: absolute;
+  right: 0px;
+  width: 430px;
+  height: 131px;
+  background-image: url(top-right-kontact.png);
+}
+
+#title {
+  right: 125px;
+}
+
+#tagline {
+  right: 125px;
+}
+
+#boxCenter {
+  background-image: url(box-center-kontact.png);
+  background-repeat: no-repeat;
+  background-color: #dfe7f3;
+  background-position: bottom right;
+}
+
+#subtext {
+  font-style: italic;
+}
+
+/* vim:set sw=2 et nocindent smartindent: */
+
