@@ -131,12 +131,11 @@ int ServiceStarter::startServiceFor( const QString& serviceType,
       }
     }
   }
-  else {
-    kDebug(5600) <<
-        "Didn't find dbus interface, falling back to external process";
-    return KDBusServiceStarter::startServiceFor( serviceType, constraint,
-                                                 error, dbusService, flags );
-  }
+
+  kDebug(5600) <<
+      "Didn't find dbus interface, falling back to external process";
+  return KDBusServiceStarter::startServiceFor( serviceType, constraint,
+                                               error, dbusService, flags );
 }
 
 
