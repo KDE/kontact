@@ -35,6 +35,7 @@
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>
+#include <kdbusservicestarter.h>
 #include <kedittoolbar.h>
 #include <kguiitem.h>
 #include <khelpmenu.h>
@@ -81,10 +82,72 @@
 
 using namespace Kontact;
 
+// This class extends the normal KDBusServiceStarter.
+//
+// When a service start is requested, it asks all plugins
+// to create their dbus interfaces in addition to the normal
+// way of starting a service.
+class ServiceStarter : public KDBusServiceStarter
+{
+  public:
+
+    virtual int startServiceFor( const QString& serviceType,
+                                 const QString& constraint = QString(),
+                                 QString *error = 0, QString* dbusService = 0,
+                                 int flags = 0 );
+
+    // We need to keep track of the plugins which are loaded, so pass a pointer
+    // to the plugin list here. Be sure to reset it back to 0 with 
+    // setPluginList() as soon as the list gets destroyed.
+    ServiceStarter( PluginList *pluginList ) {
+      mPlugins = pluginList;
+    }
+
+    static void setPluginList( PluginList *pluginList ) {
+      mPlugins = pluginList;
+    }
+
+  protected:
+
+    virtual ~ServiceStarter() {}
+    static PluginList *mPlugins;
+};
+PluginList* ServiceStarter::mPlugins = 0;
+
+int ServiceStarter::startServiceFor( const QString& serviceType,
+                                     const QString& constraint,
+                                     QString *error, QString* dbusService,
+                                     int flags )
+{
+  if ( mPlugins ) {
+    PluginList::ConstIterator end = mPlugins->end();
+    for ( PluginList::ConstIterator it = mPlugins->begin(); it != end; ++it ) {
+      if ( (*it)->createDBUSInterface( serviceType ) ) {
+        kDebug(5600) <<"found interface for" << serviceType;
+        if( dbusService )
+          *dbusService = (*it)->registerClient();
+          //kDebug(5600) <<"appId=" << (*it)->dcopClient()->appId();
+        return 0; // success
+      }
+    }
+  }
+  else {
+    kDebug(5600) <<
+        "Didn't find dbus interface, falling back to external process";
+    return KDBusServiceStarter::startServiceFor( serviceType, constraint,
+                                                 error, dbusService, flags );
+  }
+}
+
+
 MainWindow::MainWindow()
   : Kontact::Core(), mTopWidget( 0 ), mSplitter( 0 ),
     mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false ), mSyncActionsEnabled( true )
 {
+  // The ServiceStarter created here will be deleted by the KDbusServiceStarter
+  // base class, which is a global static.
+  new ServiceStarter( &mPlugins );
+
   // Set this to be the group leader for all subdialogs - this means
   // modal subdialogs will only affect this dialog, not the other windows
   setAttribute( Qt::WA_GroupLeader );
@@ -167,6 +230,7 @@ void MainWindow::initObject()
 
 MainWindow::~MainWindow()
 {
+  ServiceStarter::setPluginList( 0 );
   saveSettings();
 
   QList<KParts::Part*> parts = mPartManager->parts();
@@ -791,28 +855,6 @@ void MainWindow::slotPreferences()
   }
 
   dlg->show();
-}
-
-int MainWindow::startServiceFor( const QString& serviceType,
-                                 const QString& constraint,
-                                 QString *error, QString* dbusService,
-                                 int flags )
-{
-  PluginList::ConstIterator end = mPlugins.end();
-  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
-   if ( (*it)->createDBUSInterface( serviceType ) ) {
-	    kDebug(5600) <<"found interface for" << serviceType;
-	    if( dbusService )
-               *dbusService = (*it)->registerClient();
-            //kDebug(5600) <<"appId=" << (*it)->dcopClient()->appId();
-            return 0; // success
-    }
-  }
-
-  kDebug(5600) <<
-    "Didn't find dbus interface, falling back to external process";
-  return KDBusServiceStarter::startServiceFor( serviceType, constraint,
-      error, dbusService, flags );
 }
 
 void MainWindow::pluginsChanged()
