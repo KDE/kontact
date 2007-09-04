@@ -224,12 +224,18 @@ int SDSummaryWidget::dayof( KCal::Event *event, const QDate& date )
 
 void SDSummaryWidget::updateView()
 {
-  qDeleteAll(mLabels);
-  mLabels.clear();
-
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QList<SDEntry> dates;
   QLabel *label = 0;
+
+  // Remove all special date labels from the layout and delete them, as we
+  // will re-create all labels below.
+  setUpdatesEnabled( false );
+  foreach( label, mLabels ) {
+    mLayout->removeWidget( label );
+    delete( label );
+  }
+  mLabels.clear();
 
   // No reason to show the date year
   QString savefmt = KGlobal::locale()->dateFormat();
@@ -557,6 +563,7 @@ void SDSummaryWidget::updateView()
   for ( lit = mLabels.begin(); lit != mLabels.end() ; ++lit )
     (*lit)->show();
 
+  setUpdatesEnabled( true );
   KGlobal::locale()->setDateFormat( savefmt );
 }
 
