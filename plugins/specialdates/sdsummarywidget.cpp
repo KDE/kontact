@@ -150,25 +150,25 @@ void SDSummaryWidget::configUpdated()
 {
   KConfig config( "kcmsdsummaryrc" );
 
-  config.setGroup( "Days" );
-  mDaysAhead = config.readEntry( "DaysToShow", 7 );
+  KConfigGroup group = config.group( "Days" );
+  mDaysAhead = group.readEntry( "DaysToShow", 7 );
 
-  config.setGroup( "Show" );
+  group = config.group( "Show" );
   mShowBirthdaysFromKAB =
-    config.readEntry( "BirthdaysFromContacts", true );
+    group.readEntry( "BirthdaysFromContacts", true );
   mShowBirthdaysFromCal =
-    config.readEntry( "BirthdaysFromCalendar", true );
+    group.readEntry( "BirthdaysFromCalendar", true );
 
   mShowAnniversariesFromKAB =
-    config.readEntry( "AnniversariesFromContacts", true );
+    group.readEntry( "AnniversariesFromContacts", true );
   mShowAnniversariesFromCal =
-    config.readEntry( "AnniversariesFromCalendar", true );
+    group.readEntry( "AnniversariesFromCalendar", true );
 
   mShowHolidays =
-    config.readEntry( "HolidaysFromCalendar", true );
+    group.readEntry( "HolidaysFromCalendar", true );
 
   mShowSpecialsFromCal =
-    config.readEntry( "SpecialsFromCalendar", true );
+    group.readEntry( "SpecialsFromCalendar", true );
 
   updateView();
 }
