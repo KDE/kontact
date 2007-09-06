@@ -626,8 +626,10 @@ void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
     else
       eventDate = QDate( date.year(), date.month(), date.day() );
   } else {
-    currentDate = QDate( 0, QDate::currentDate().month(), QDate::currentDate().day() );
-    eventDate = QDate( 0, date.month(), date.day() );
+    currentDate = QDate( QDate::currentDate().year(),
+                         QDate::currentDate().month(),
+                         QDate::currentDate().day() );
+    eventDate = QDate( QDate::currentDate().year(), date.month(), date.day() );
   }
 
   int offset = currentDate.daysTo( eventDate );
