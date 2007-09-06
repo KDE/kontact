@@ -55,11 +55,17 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QStringList& 
 {
   setComponentData( KAddressbookPluginFactory::componentData() );
 
-    KAction *action  = new KAction(KIcon("identity"), i18n("New Contact..."), this);
-    actionCollection()->addAction("new_contact", action );
+  KAction *action  = new KAction(KIcon("identity"), i18n("New Contact..."), this);
+  actionCollection()->addAction("new_contact", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewContact()));
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_C));
   insertNewAction(action);
+
+  action  = new KAction( KIcon("kontact_contacts"), i18n("New Distribution List..."), this);
+  actionCollection()->addAction("new_distributionlist", action );
+  connect(action, SIGNAL(triggered(bool)), SLOT( slotNewDistributionList() ) );
+  insertNewAction(action);
+
   KAction* syncAction = new KAction(KIcon("view-refresh"), i18n( "Synchronize Contacts" ), this);
   actionCollection()->addAction("kaddressbook_sync", syncAction);
   connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncContacts()));
@@ -113,6 +119,12 @@ OrgKdeKAddressbookCoreInterface *KAddressbookPlugin::interface()
 void KAddressbookPlugin::slotNewContact()
 {
   interface()->newContact();
+}
+
+
+void KAddressbookPlugin::slotNewDistributionList()
+{
+  interface()->newDistributionList();
 }
 
 void KAddressbookPlugin::slotSyncContacts()
