@@ -229,6 +229,7 @@ void MainWindow::initObject()
 
 MainWindow::~MainWindow()
 {
+  createGUI( 0 );
   ServiceStarter::setPluginList( 0 );
   saveSettings();
 
