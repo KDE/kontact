@@ -23,6 +23,7 @@
 
 #include <QCheckBox>
 #include <QLayout>
+#include <QTreeWidget>
 #include <QVBoxLayout>
 
 #include <kaboutdata.h>
@@ -30,7 +31,6 @@
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kdialog.h>
-#include <k3listview.h>
 #include <klocale.h>
 #include <kcomponentdata.h>
 
@@ -82,11 +82,8 @@ void KCMKMailSummary::initGUI()
   layout->setSpacing( KDialog::spacingHint() );
   layout->setMargin( 0 );
 
-  mFolderView = new K3ListView( this );
-  mFolderView->setRootIsDecorated( true );
-  mFolderView->setFullWidth( true );
-
-  mFolderView->addColumn( i18n( "Summary" ) );
+  mFolderView = new QTreeWidget( this );
+  mFolderView->setHeaderLabels( QStringList() << i18n( "Summary" ) );
 
   mFullPath = new QCheckBox( i18n( "Show full path for folders" ), this );
 
@@ -96,10 +93,10 @@ void KCMKMailSummary::initGUI()
 
 void KCMKMailSummary::initFolders()
 {
-   org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
-   QDBusReply<QStringList> lst = kmail.folderList();
+  org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
+  QDBusReply<QStringList> lst = kmail.folderList();
 
-   QStringList folderList(lst);
+  QStringList folderList(lst);
   mFolderView->clear();
   mFolderMap.clear();
 
@@ -109,27 +106,28 @@ void KCMKMailSummary::initFolders()
     if ( (*it) == "/Local" )
       displayName = i18nc( "prefix for local folders", "Local" );
     else {
-	org::kde::kmail::kmail kmail(DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus());
-        QDBusReply<QDBusObjectPath> ref = kmail.getFolder( *it );
-        if ( ref.isValid() )
-        {
-          QDBusObjectPath path = ref;
-
-          OrgKdeKmailFolderInterface folderInterface(  DBUS_KMAIL, path.path(), QDBusConnection::sessionBus());
+      org::kde::kmail::kmail kmail(DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus());
+      QDBusReply<QString> ref = kmail.getFolder( *it );
+      if ( ref.isValid() && !ref.value().isEmpty() ) {
+          OrgKdeKmailFolderInterface folderInterface(  DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus());
           displayName = folderInterface.displayName();
-        }
+      }
+      else
+        kWarning(5602) << "Got invalid reply for" << (*it);
     }
     if ( (*it).count( '/' ) == 1 ) {
       if ( mFolderMap.find( *it ) == mFolderMap.end() )
-        mFolderMap.insert( *it, new Q3ListViewItem( mFolderView,
-                                                   displayName ) );
+        mFolderMap.insert( *it,
+                            new QTreeWidgetItem( mFolderView,
+                                                 QStringList() << displayName ) );
     } else {
       const int pos = (*it).lastIndexOf( '/' );
       const QString parentFolder = (*it).left( pos );
-      mFolderMap.insert( *it,
-                         new Q3CheckListItem( mFolderMap[ parentFolder ],
-                                             displayName,
-                                             Q3CheckListItem::CheckBox ) );
+      QTreeWidgetItem *item =
+          new QTreeWidgetItem( mFolderMap[ parentFolder ],
+                               QStringList() << displayName );
+      item->setFlags( item->flags() | Qt::ItemIsUserCheckable );
+      mFolderMap.insert( *it, item );
     }
   }
 }
@@ -145,14 +143,14 @@ void KCMKMailSummary::loadFolders()
   else
     folders = config.readEntry( "ActiveFolders" , QStringList() );
 
-  QMap<QString, Q3ListViewItem*>::Iterator it;
+  QMap<QString, QTreeWidgetItem*>::Iterator it;
   for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it ) {
-    if ( Q3CheckListItem *qli = dynamic_cast<Q3CheckListItem*>( it.value() ) ) {
+    if ( it.value()->flags() & Qt::ItemIsUserCheckable ) {
       if ( folders.contains( it.key() ) ) {
-        qli->setOn( true );
-        mFolderView->ensureItemVisible( it.value() );
+        it.value()->setCheckState( 0, Qt::Checked );
+        mFolderView->scrollToItem( it.value() );
       } else {
-        qli->setOn( false );
+        it.value()->setCheckState( 0, Qt::Unchecked );
       }
     }
   }
@@ -166,10 +164,10 @@ void KCMKMailSummary::storeFolders()
 
   QStringList folders;
 
-  QMap<QString, Q3ListViewItem*>::Iterator it;
+  QMap<QString, QTreeWidgetItem*>::Iterator it;
   for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it )
-    if ( Q3CheckListItem *qli = dynamic_cast<Q3CheckListItem*>( it.value() ) )
-      if ( qli->isOn() )
+    if ( it.value()->flags() & Qt::ItemIsUserCheckable )
+      if ( it.value()->checkState( 0 ) == Qt::Checked )
         folders.append( it.key() );
 
   config.writeEntry( "ActiveFolders", folders );

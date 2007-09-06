@@ -24,11 +24,9 @@
 #ifndef KCMKMAILSUMMARY_H
 #define KCMKMAILSUMMARY_H
 
-#include <q3valuelist.h>
-
 #include <kcmodule.h>
 
-class K3ListView;
+class QTreeWidget;
 
 class QCheckBox;
 
@@ -52,9 +50,9 @@ class KCMKMailSummary : public KCModule
     void loadFolders();
     void storeFolders();
 
-    K3ListView *mFolderView;
+    QTreeWidget *mFolderView;
     QCheckBox *mFullPath;
-    QMap<QString, Q3ListViewItem*> mFolderMap;
+    QMap<QString, QTreeWidgetItem*> mFolderMap;
 };
 
 #endif
