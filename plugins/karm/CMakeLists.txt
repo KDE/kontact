@@ -7,7 +7,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/
 set(kontact_karm_PART_SRCS karm_plugin.cpp )
 
 
-qt4_add_dbus_interfaces(kontact_karm_PART_SRCS ${CMAKE_SOURCE_DIR}/ktimetracker/org.kde.karm.Karm.xml )
+qt4_add_dbus_interfaces(kontact_karm_PART_SRCS ${CMAKE_SOURCE_DIR}/ktimetracker/org.kde.ktimetracker.ktimetracker.xml )
 
 kde4_add_plugin(kontact_karm WITH_PREFIX ${kontact_karm_PART_SRCS})
 

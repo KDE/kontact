@@ -31,7 +31,7 @@
 
 #include "plugin.h"
 
-class OrgKdeKarmKarmInterface;
+class OrgKdeKtimetrackerKtimetrackerInterface;
 
 class KarmPlugin : public Kontact::Plugin
 {
@@ -46,7 +46,7 @@ class KarmPlugin : public Kontact::Plugin
 
   protected:
     KParts::ReadOnlyPart *createPart();
-    OrgKdeKarmKarmInterface *mInterface;
+    OrgKdeKtimetrackerKtimetrackerInterface *mInterface;
 
   public slots:
     void newTask();

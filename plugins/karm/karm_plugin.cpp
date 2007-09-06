@@ -31,7 +31,7 @@
 #include "plugin.h"
 
 #include "karm_plugin.h"
-#include "karminterface.h"
+#include "ktimetrackerinterface.h"
 
 typedef KGenericFactory<KarmPlugin, Kontact::Core> KarmPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_karm,
@@ -66,7 +66,7 @@ KParts::ReadOnlyPart* KarmPlugin::createPart()
   KParts::ReadOnlyPart * part = loadPart();
   if ( !part ) return 0;
 
-  mInterface = new OrgKdeKarmKarmInterface( "org.kde.karm", "/Karm", QDBusConnection::sessionBus() );
+  mInterface = new OrgKdeKtimetrackerKtimetrackerInterface( "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
 
   return part;
 }
