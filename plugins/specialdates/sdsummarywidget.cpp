@@ -553,7 +553,7 @@ void SDSummaryWidget::updateView()
     label = new QLabel(
         i18np( "No special dates within the next 1 day",
               "No special dates pending within the next %1 days",
-              mDaysAhead ) );
+              mDaysAhead ), this );
     label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( label, 0, 0, 0, 4 );
     mLabels.append( label );
