@@ -116,10 +116,12 @@ void KCMKMailSummary::initFolders()
         kWarning(5602) << "Got invalid reply for" << (*it);
     }
     if ( (*it).count( '/' ) == 1 ) {
-      if ( mFolderMap.find( *it ) == mFolderMap.end() )
-        mFolderMap.insert( *it,
-                            new QTreeWidgetItem( mFolderView,
-                                                 QStringList() << displayName ) );
+      if ( mFolderMap.find( *it ) == mFolderMap.end() ) {
+        QTreeWidgetItem *item = new QTreeWidgetItem( mFolderView,
+                                                     QStringList() << displayName );
+        item->setFlags( item->flags() & ~Qt::ItemIsUserCheckable );
+        mFolderMap.insert( *it, item );
+      }
     } else {
       const int pos = (*it).lastIndexOf( '/' );
       const QString parentFolder = (*it).left( pos );
