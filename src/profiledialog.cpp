@@ -133,6 +133,13 @@ void Kontact::ProfileDialog::loadSelectedProfile()
     if ( profile.isNull() )
         return;
     Kontact::ProfileManager::self()->loadProfile( profile.id() );
+}
+
+void Kontact::ProfileDialog::profileLoaded( const QString& id )
+{
+    const Kontact::Profile profile = Kontact::ProfileManager::self()->profileById( id );
+    if ( profile.isNull() )
+        return;
     KMessageBox::information( this, i18n("The profile \"%1\" was successfully loaded. Some profile settings require a restart to get activated.").arg( profile.name() ), i18n("Profile Loaded") );
 }
 

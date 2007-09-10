@@ -72,6 +72,7 @@ private slots:
     void profileAdded( const QString& id );
     void profileRemoved( const QString& id );
     void profileUpdated( const QString& id );
+    void profileLoaded( const QString& id );
 
 private:
     KListView* m_list;

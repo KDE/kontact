@@ -152,11 +152,13 @@ void Kontact::ProfileManager::writeConfig() const
 Kontact::Profile Kontact::ProfileManager::readFromConfiguration( const QString& configFile, bool isLocal )
 {
     KConfig profileCfg( configFile, true /*read-only*/, false /*no KDE global*/ );
+    const QString configDir = configFile.left( configFile.findRev( QDir::separator(), -1 ) );
     profileCfg.setGroup( "Kontact Profile" );
     const QString id = profileCfg.readEntry( "Identifier" );
     Kontact::Profile profile( id );
     profile.setName( profileCfg.readEntry( "Name" ) );
     profile.setDescription( profileCfg.readEntry( "Description" ) );
+    profile.setOriginalLocation( configDir );
     if ( isLocal )
         profile.setLocal( Kontact::Profile::DoNotCopyProfileFiles );
     return profile;
