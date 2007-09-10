@@ -7,7 +7,7 @@ TryExec=kweatherservice
 
 X-KDE-Library=libkontact_weatherplugin
 X-KDE-KontactIdentifier=weather
-X-KDE-KontactPluginVersion=5
+X-KDE-KontactPluginVersion=6
 X-KDE-KontactPluginHasSummary=true
 X-KDE-KontactPluginHasPart=false
 

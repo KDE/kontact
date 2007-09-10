@@ -42,7 +42,7 @@ namespace KParts { class ReadOnlyPart; }
   Increase this version number whenever you make a change
   in the API.
  */
-#define KONTACT_PLUGIN_VERSION 5
+#define KONTACT_PLUGIN_VERSION 6
 
 namespace Kontact
 {
