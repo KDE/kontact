@@ -150,25 +150,25 @@ void SDSummaryWidget::configUpdated()
 {
   KConfig config( "kcmsdsummaryrc" );
 
-  config.setGroup( "Days" );
-  mDaysAhead = config.readEntry( "DaysToShow", 7 );
+  KConfigGroup group = config.group( "Days" );
+  mDaysAhead = group.readEntry( "DaysToShow", 7 );
 
-  config.setGroup( "Show" );
+  group = config.group( "Show" );
   mShowBirthdaysFromKAB =
-    config.readEntry( "BirthdaysFromContacts", true );
+    group.readEntry( "BirthdaysFromContacts", true );
   mShowBirthdaysFromCal =
-    config.readEntry( "BirthdaysFromCalendar", true );
+    group.readEntry( "BirthdaysFromCalendar", true );
 
   mShowAnniversariesFromKAB =
-    config.readEntry( "AnniversariesFromContacts", true );
+    group.readEntry( "AnniversariesFromContacts", true );
   mShowAnniversariesFromCal =
-    config.readEntry( "AnniversariesFromCalendar", true );
+    group.readEntry( "AnniversariesFromCalendar", true );
 
   mShowHolidays =
-    config.readEntry( "HolidaysFromCalendar", true );
+    group.readEntry( "HolidaysFromCalendar", true );
 
   mShowSpecialsFromCal =
-    config.readEntry( "SpecialsFromCalendar", true );
+    group.readEntry( "SpecialsFromCalendar", true );
 
   updateView();
 }
@@ -224,12 +224,18 @@ int SDSummaryWidget::dayof( KCal::Event *event, const QDate& date )
 
 void SDSummaryWidget::updateView()
 {
-  qDeleteAll(mLabels);
-  mLabels.clear();
-
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QList<SDEntry> dates;
   QLabel *label = 0;
+
+  // Remove all special date labels from the layout and delete them, as we
+  // will re-create all labels below.
+  setUpdatesEnabled( false );
+  foreach( label, mLabels ) {
+    mLayout->removeWidget( label );
+    delete( label );
+  }
+  mLabels.clear();
 
   // No reason to show the date year
   QString savefmt = KGlobal::locale()->dateFormat();
@@ -547,7 +553,7 @@ void SDSummaryWidget::updateView()
     label = new QLabel(
         i18np( "No special dates within the next 1 day",
               "No special dates pending within the next %1 days",
-              mDaysAhead ) );
+              mDaysAhead ), this );
     label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( label, 0, 0, 0, 4 );
     mLabels.append( label );
@@ -557,6 +563,7 @@ void SDSummaryWidget::updateView()
   for ( lit = mLabels.begin(); lit != mLabels.end() ; ++lit )
     (*lit)->show();
 
+  setUpdatesEnabled( true );
   KGlobal::locale()->setDateFormat( savefmt );
 }
 
@@ -619,8 +626,10 @@ void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
     else
       eventDate = QDate( date.year(), date.month(), date.day() );
   } else {
-    currentDate = QDate( 0, QDate::currentDate().month(), QDate::currentDate().day() );
-    eventDate = QDate( 0, date.month(), date.day() );
+    currentDate = QDate( QDate::currentDate().year(),
+                         QDate::currentDate().month(),
+                         QDate::currentDate().day() );
+    eventDate = QDate( QDate::currentDate().year(), date.month(), date.day() );
   }
 
   int offset = currentDate.daysTo( eventDate );

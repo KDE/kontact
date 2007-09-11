@@ -110,7 +110,7 @@ int KontactApp::newInstance()
     }
   }
 
-  AlarmClient alarmclient;
+  KPIM::AlarmClient alarmclient;
   alarmclient.startDaemon();
 
   // Handle startup notification and window activation

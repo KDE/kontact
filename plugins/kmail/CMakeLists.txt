@@ -41,7 +41,7 @@ set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp ${kontact_kmail_plugins_inter
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 
 
-target_link_libraries(kcm_kmailsummary  ${KDE4_KDEUI_LIBS} ${KDE4_KDE3SUPPORT_LIBS})
+target_link_libraries(kcm_kmailsummary  ${KDE4_KDEUI_LIBS})
 
 install(TARGETS kcm_kmailsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 

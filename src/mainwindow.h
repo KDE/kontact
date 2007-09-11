@@ -31,7 +31,6 @@
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 #include <kparts/partmanager.h>
-#include <kdbusservicestarter.h>
 #include <kvbox.h>
 
 #include "core.h"
@@ -56,19 +55,13 @@ class AboutDialog;
 
 typedef QList<Kontact::Plugin*> PluginList;
 
-class KONTACT_EXPORT MainWindow : public Kontact::Core, public KDBusServiceStarter
+class KONTACT_EXPORT MainWindow : public Kontact::Core
 {
   Q_OBJECT
 
   public:
     MainWindow();
     ~MainWindow();
-
-    // KDBusServiceStarter interface
-    virtual int startServiceFor( const QString& serviceType,
-                                 const QString& constraint = QString(),
-                                 QString *error = 0, QString* dbusService = 0,
-                                 int flags = 0 );
 
     virtual PluginList pluginList() const { return mPlugins; }
     void setActivePluginModule( const QString & );

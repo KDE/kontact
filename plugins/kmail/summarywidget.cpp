@@ -74,10 +74,8 @@ void SummaryWidget::selectFolder( const QString& folder )
     mPlugin->bringToForeground();
   else
     mPlugin->core()->selectPlugin( mPlugin );
-  QDBusMessage message =
-    QDBusMessage::createSignal("/KMail", "org.kde.kmail", "kmailSelectFolder(QString)");
-  message <<folder;
-  QDBusConnection::sessionBus().send(message);
+  org::kde::kmail::kmail kmail( DBUS_KMAIL , "/KMail" , QDBusConnection::sessionBus());
+  kmail.selectFolder( folder );
 }
 
 void SummaryWidget::updateSummary( bool )
@@ -123,11 +121,10 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
   org::kde::kmail::kmail kmail( DBUS_KMAIL , "/KMail" , QDBusConnection::sessionBus());
   for ( it = folders.begin(); it != folders.end(); ++it ) {
     if ( activeFolders.contains( *it ) ) {
-      QDBusReply<QDBusObjectPath> ref = kmail.getFolder( *it );
-      if ( ref.isValid() )
+      QDBusReply<QString> ref = kmail.getFolder( *it );
+      if ( ref.isValid() && !ref.value().isEmpty() )
         {
-          QDBusObjectPath path = ref;
-          OrgKdeKmailFolderInterface folderInterface(  DBUS_KMAIL, path.path(), QDBusConnection::sessionBus());
+          OrgKdeKmailFolderInterface folderInterface(  DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus());
           QDBusReply<int> replyNumMsg = folderInterface.messages();
           const int numMsg = replyNumMsg;
           QDBusReply<int> replyUnreadNumMsg = folderInterface.unreadMessages();
@@ -146,8 +143,8 @@ void SummaryWidget::updateFolderList( const QStringList& folders )
           urlLabel->installEventFilter( this );
           urlLabel->setAlignment( Qt::AlignLeft );
           urlLabel->show();
-          connect( urlLabel, SIGNAL( leftClickedUrl( const KUrl&) ),
-                   SLOT( selectFolder( const KUrl& ) ) );
+          connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
+                   SLOT( selectFolder( const QString& ) ) );
           mLayout->addWidget( urlLabel, counter, 0 );
           mLabels.append( urlLabel );
 
