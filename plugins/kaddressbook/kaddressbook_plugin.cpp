@@ -33,7 +33,7 @@
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
 
-#include <kaddrbook.h>
+#include <kaddrbookexternal.h>
 #include <kabc/addressbook.h>
 #include <kabc/stdaddressbook.h>
 
