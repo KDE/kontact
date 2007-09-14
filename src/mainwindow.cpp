@@ -393,9 +393,6 @@ actionCollection()->addAction(KStandardAction::Quit, this, SLOT( slotQuit() ));
     action  = new KAction(i18n("&Tip of the Day"), this);
     actionCollection()->addAction("help_tipofday", action );
   connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowTip() ));
-    action  = new KAction(i18n("&Request Feature..."), this);
-    actionCollection()->addAction("help_requestfeature", action );
-  connect(action, SIGNAL(triggered(bool) ), SLOT( slotRequestFeature() ));
 
   QWidgetAction* spacerAction = new QWidgetAction(this);
   QWidget* stretchWidget = new QWidget( this );
@@ -797,11 +794,6 @@ void MainWindow::saveSettings()
 void MainWindow::slotShowTip()
 {
   showTip( true );
-}
-
-void MainWindow::slotRequestFeature()
-{
-  KToolInvocation::invokeBrowser( "http://kontact.org/shopping" );
 }
 
 void MainWindow::slotShowIntroduction()
