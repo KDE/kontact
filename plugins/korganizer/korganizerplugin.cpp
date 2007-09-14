@@ -168,10 +168,10 @@ bool KOrganizerPlugin::canDecodeMimeData( const QMimeData *mimeData )
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
   const QMimeData *md = event->mimeData();
-  if ( KVCardDrag::canDecode( md ) ) {
+  if ( KPIM::KVCardDrag::canDecode( md ) ) {
     KABC::Addressee::List contacts;
 
-    KVCardDrag::fromMimeData( md, contacts );
+    KPIM::KVCardDrag::fromMimeData( md, contacts );
 
     KABC::Addressee::List::Iterator it;
 
