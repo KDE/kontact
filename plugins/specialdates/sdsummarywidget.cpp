@@ -26,8 +26,6 @@
 #include <QLabel>
 #include <QLayout>
 #include <QImage>
-
-//Added by qt3to4:
 #include <QPixmap>
 #include <QGridLayout>
 #include <QEvent>
@@ -109,7 +107,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
            this, SLOT( updateView() ) );
 
   // Setup the Calendar
-  mCalendar = new KCal::CalendarResources( KPimPrefs::timeSpec() );
+  mCalendar = new KCal::CalendarResources( KPIM::KPimPrefs::timeSpec() );
   mCalendar->readConfig();
 
   KCal::CalendarResourceManager *manager = mCalendar->resourceManager();

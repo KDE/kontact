@@ -194,7 +194,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
   }
 
   if ( KCal::ICalDrag::canDecode( event->mimeData() ) ) {
-    KCal::CalendarLocal cal( KPimPrefs::timeSpec() );
+    KCal::CalendarLocal cal( KPIM::KPimPrefs::timeSpec() );
     if ( KCal::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
       KCal::Journal::List journals = cal.journals();
       if ( !journals.isEmpty() ) {
