@@ -54,7 +54,7 @@ Core::~Core()
 
 KParts::ReadOnlyPart *Core::createPart( const char *libname )
 {
-  kDebug(5601) <<"Core::createPart():" << libname;
+  kDebug(5601) << libname;
 
   QMap<QByteArray,KParts::ReadOnlyPart *>::ConstIterator it;
   it = mParts.find( libname );
@@ -62,23 +62,23 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
 
   kDebug(5601) <<"Creating new KPart";
 
-  int error = 0;
-  KParts::ReadOnlyPart *part =
-      KParts::ComponentFactory::
-          createPartInstanceFromLibrary<KParts::ReadOnlyPart>
-              ( libname, this, this, QStringList(), &error );
+  KPluginLoader loader( libname );
+  kDebug(5601) << loader.fileName();
+  KPluginFactory *factory = loader.factory();
+  KParts::ReadOnlyPart *part = 0;
+  if (factory)
+    part = factory->create<KParts::ReadOnlyPart>(this);
 
-  KParts::ReadOnlyPart *pimPart = dynamic_cast<KParts::ReadOnlyPart*>( part );
-  if ( pimPart ) {
-    mParts.insert( libname, pimPart );
-    QObject::connect( pimPart, SIGNAL( destroyed( QObject * ) ),
+  if (part) {
+    mParts.insert( libname, part );
+    QObject::connect( part, SIGNAL( destroyed( QObject * ) ),
                       SLOT( slotPartDestroyed( QObject * ) ) );
   } else {
-    d->lastErrorMessage = KLibLoader::errorString( error );
+    d->lastErrorMessage = loader.errorString();
     kWarning(5601) << d->lastErrorMessage;
   }
 
-  return pimPart;
+  return part;
 }
 
 void Core::slotPartDestroyed( QObject * obj )

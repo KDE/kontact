@@ -128,18 +128,33 @@ KParts::ReadOnlyPart *Plugin::loadPart()
 
 const KAboutData *Plugin::aboutData()
 {
-  kDebug(5601) <<"Plugin::aboutData(): libname:" << d->partLibraryName;
+  KPluginLoader loader( d->partLibraryName );
+  KPluginFactory *factory = loader.factory();
+  kDebug(5601) << "filename:" << loader.fileName();
+  kDebug(5601) << "libname:" << d->partLibraryName;
 
-  const KComponentData instance =
-    KParts::Factory::partComponentDataFromLibrary( d->partLibraryName );
+  if ( factory ) {
+    if ( factory->componentData().isValid() )
+      return factory->componentData().aboutData();
 
-  if ( instance.isValid() ) {
-    return instance.aboutData();
-  } else {
-    kError() <<"Plugin::aboutData(): Can't load instance for"
-              << title();
-    return 0;
+    // If the componentData of the factory is invalid, the likely cause is that
+    // the part has not been ported to use K_PLUGIN_FACTORY/K_EXPORT_PLUGIN yet.
+    // In that case, fallback to the old method of loading component data, which
+    // does only work for old-style parts.
+    else {
+      kDebug(5601) << "Unable to load component data for" << loader.fileName()
+                   << "trying to use the old style plugin system now.";
+      const KComponentData instance =
+          KParts::Factory::partComponentDataFromLibrary( d->partLibraryName );
+      if ( instance.isValid() )
+        return instance.aboutData();
+      else
+        kDebug(5601) << "Invalid instance, unable to get about information!";
+    }
   }
+
+  kError(5601) << "Can't load instance for" << title();
+  return 0;
 }
 
 KParts::ReadOnlyPart *Plugin::part()
