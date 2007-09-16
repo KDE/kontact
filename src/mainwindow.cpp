@@ -591,15 +591,13 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
 
 void MainWindow::slotNewClicked()
 {
-  QAction *action = mCurrentPlugin->newActions()->first();
-  if ( action ) {
-    action->trigger();
-  } else {
+  if ( !mCurrentPlugin->newActions()->isEmpty() )
+    mCurrentPlugin->newActions()->first()->trigger();
+  else {
     PluginList::Iterator it;
     for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
-      action = (*it)->newActions()->first();
-      if ( action ) {
-        action->trigger();
+      if ( !(*it)->newActions()->isEmpty() ) {
+        (*it)->newActions()->first()->trigger();
         return;
       }
     }
@@ -608,15 +606,13 @@ void MainWindow::slotNewClicked()
 
 void MainWindow::slotSyncClicked()
 {
-  QAction *action = mCurrentPlugin->syncActions()->first();
-  if ( action ) {
-    action->trigger();
-  } else {
+  if ( !mCurrentPlugin->syncActions()->isEmpty() )
+    mCurrentPlugin->syncActions()->first()->trigger();
+  else {
     PluginList::Iterator it;
     for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
-      action = (*it)->syncActions()->first();
-      if ( action ) {
-        action->trigger();
+      if ( !(*it)->syncActions()->isEmpty() ) {
+        (*it)->syncActions()->first()->trigger();
         return;
       }
     }
