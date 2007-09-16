@@ -55,7 +55,8 @@ KCMKMailSummary::KCMKMailSummary( const KComponentData &inst, QWidget *parent )
 {
   initGUI();
 
-  connect( mFolderView, SIGNAL( clicked( Q3ListViewItem* ) ), SLOT( modified() ) );
+  connect( mFolderView, SIGNAL( itemClicked( QTreeWidgetItem *, int ) ),
+           SLOT( modified() ) );
   connect( mFullPath, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
 
   KAcceleratorManager::manage( this );
