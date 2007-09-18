@@ -172,10 +172,10 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
 {
   const QMimeData *md = event->mimeData();
 
-  if ( KVCardDrag::canDecode( md ) ) {
+  if ( KPIM::KVCardDrag::canDecode( md ) ) {
     KABC::Addressee::List contacts;
 
-    KVCardDrag::fromMimeData( md, contacts );
+    KPIM::KVCardDrag::fromMimeData( md, contacts );
 
     KABC::Addressee::List::Iterator it;
 
@@ -194,7 +194,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
   }
 
   if ( KCal::ICalDrag::canDecode( event->mimeData() ) ) {
-    KCal::CalendarLocal cal( KPimPrefs::timeSpec() );
+    KCal::CalendarLocal cal( KPIM::KPimPrefs::timeSpec() );
     if ( KCal::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
       KCal::Journal::List journals = cal.journals();
       if ( !journals.isEmpty() ) {

@@ -33,7 +33,7 @@
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
 
-#include <kaddrbook.h>
+#include <kaddrbookexternal.h>
 #include <kabc/addressbook.h>
 #include <kabc/stdaddressbook.h>
 
@@ -41,8 +41,8 @@
 #include <kicon.h>
 #include "core.h"
 #include "plugin.h"
-#include "coreinterface.h" 
-#include "kmailinterface.h" 
+#include "coreinterface.h"
+#include "kmailinterface.h"
 #include "kaddressbook_plugin.h"
 
 typedef KGenericFactory< KAddressbookPlugin, Kontact::Core > KAddressbookPluginFactory;
@@ -172,7 +172,7 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
       org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
       QString sFrom = kmail.getFrom( mail.serialNumber() );
       if ( !sFrom.isEmpty() ) {
-        KAddrBookExternal::addEmail( sFrom, core() );
+        KPIM::KAddrBookExternal::addEmail( sFrom, core() );
       }
     }
     return;
@@ -203,7 +203,7 @@ int KABUniqueAppHandler::newInstance()
         bool handled = reply;
         kDebug(5602) <<"handled=" << handled;
         if ( !handled ) // no args -> simply bring kaddressbook plugin to front
-            return Kontact::UniqueAppHandler::newInstance();    
+            return Kontact::UniqueAppHandler::newInstance();
     }
 
     return 0;

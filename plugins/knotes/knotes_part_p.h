@@ -108,7 +108,7 @@ class KNotesIconView : public K3IconView
       if ( selectedItems.count() != 1 )
         return K3IconView::dragObject();
 
-      KCal::CalendarLocal cal( KPimPrefs::timeSpec() );
+      KCal::CalendarLocal cal( KPIM::KPimPrefs::timeSpec() );
       KCal::Incidence *i = selectedItems.first()->journal()->clone();
       cal.addIncidence( i );
 #warning Port me!

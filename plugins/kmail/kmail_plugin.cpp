@@ -51,6 +51,7 @@
 #include "kmailinterface.h"
 
 using namespace KCal;
+using namespace KPIM;
 
 typedef KGenericFactory<KMailPlugin, Kontact::Core> KMailPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_kmailplugin,
@@ -70,7 +71,7 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const QStringList& )
   KAction *syncAction = new KAction( KIcon("view-refresh"), i18n( "Synchronize Mail" ), this );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncFolders()) );
   actionCollection()->addAction("sync_mail", syncAction);
-  insertSyncAction( syncAction ); 
+  insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
@@ -85,7 +86,7 @@ bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData )
 
 void KMailPlugin::processDropEvent( QDropEvent * de )
 {
-  kDebug() ;
+  kDebug(5602);
   CalendarLocal cal( QString::fromLatin1("UTC") );
   KABC::Addressee::List list;
   const QMimeData *md = de->mimeData();
@@ -168,7 +169,7 @@ KParts::ReadOnlyPart* KMailPlugin::createPart()
   KParts::ReadOnlyPart *part = loadPart();
   if ( !part ) return 0;
 
-  m_instance = new OrgKdeKmailKmailInterface( "org.kde.kmail", "/KMail", QDBusConnection::sessionBus() ); 
+  m_instance = new OrgKdeKmailKmailInterface( "org.kde.kmail", "/KMail", QDBusConnection::sessionBus() );
 
   return part;
 }
@@ -198,12 +199,12 @@ void KMailUniqueAppHandler::loadCommandLineOptions()
 
 int KMailUniqueAppHandler::newInstance()
 {
-    kDebug();
+    kDebug(5602);
     // Ensure part is loaded
     (void)plugin()->part();
     org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
     QDBusReply<bool> reply = kmail.handleCommandLine(false);
-    
+
     if ( reply.isValid() ) {
         bool handled = reply;
         kDebug(5602) <<"handled=" << handled;

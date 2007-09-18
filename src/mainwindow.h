@@ -81,7 +81,6 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     void slotSyncClicked();
     void slotQuit();
     void slotShowTip();
-    void slotRequestFeature();
     void slotNewToolbarConfig();
     void slotShowIntroduction();
     void showAboutDialog();
