@@ -30,6 +30,7 @@
 #include <QTimer>
 #include <QList>
 #include <QLayout>
+#include <QDBusConnection>
 
 #include <kactioncollection.h>
 #include <kapplication.h>
@@ -146,6 +147,8 @@ MainWindow::MainWindow()
   // The ServiceStarter created here will be deleted by the KDbusServiceStarter
   // base class, which is a global static.
   new ServiceStarter( &mPlugins );
+
+  QDBusConnection::sessionBus().registerObject("/KontactInterface", this, QDBusConnection::ExportScriptableSlots);
 
   // Set this to be the group leader for all subdialogs - this means
   // modal subdialogs will only affect this dialog, not the other windows

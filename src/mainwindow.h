@@ -58,6 +58,7 @@ typedef QList<Kontact::Plugin*> PluginList;
 class KONTACT_EXPORT MainWindow : public Kontact::Core
 {
   Q_OBJECT
+  Q_CLASSINFO("D-Bus Interface", "org.kde.kontact.KontactInterface")
 
   public:
     MainWindow();
@@ -68,7 +69,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
 
   public slots:
     virtual void selectPlugin( Kontact::Plugin *plugin );
-    virtual void selectPlugin( const QString &pluginName );
+    Q_SCRIPTABLE virtual void selectPlugin( const QString &pluginName );
 
     void updateConfig();
 
