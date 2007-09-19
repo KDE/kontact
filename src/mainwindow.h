@@ -34,6 +34,7 @@
 #include <kdcopservicestarter.h>
 
 #include "core.h"
+#include "kontactiface.h"
 
 class QHBox;
 class QSplitter;
@@ -61,7 +62,7 @@ class AboutDialog;
 
 typedef QValueList<Kontact::Plugin*> PluginList;
 
-class MainWindow : public Kontact::Core, public KDCOPServiceStarter
+class MainWindow : public Kontact::Core, public KDCOPServiceStarter, public KontactIface
 {
   Q_OBJECT
 

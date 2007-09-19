@@ -15,7 +15,8 @@ kontact_LDADD = $(top_builddir)/libkdepim/libkdepim.la \
   $(top_builddir)/kontact/interfaces/libkpinterfaces.la libkontact.la \
   $(LIB_KPARTS) $(LIB_KUTILS) $(LIB_KHTML)
 kontact_SOURCES = main.cpp mainwindow.cpp sidepanebase.cpp \
-  iconsidepane.cpp aboutdialog.cpp profilemanager.cpp profiledialog.cpp
+  iconsidepane.cpp aboutdialog.cpp profilemanager.cpp profiledialog.cpp \
+  kontactiface.skel
 kontact_COMPILE_FIRST = prefs.h
 
 kde_module_LTLIBRARIES = kcm_kontact.la
