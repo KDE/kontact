@@ -59,6 +59,7 @@ GenericName[tr]=Kişisel Bilgi Yöneticisi
 GenericName[uk]=Менеджер особистої інформації
 GenericName[uz]=Шахсий маълумот бошқарувчиси
 GenericName[x-test]=xxPersonal Information Managerxx
+GenericName[zh_CN]=个人信息管理器
 GenericName[zh_TW]=個人資訊管理者
 Terminal=false
 X-KDE-StartupNotify=true
