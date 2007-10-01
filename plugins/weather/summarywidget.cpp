@@ -52,7 +52,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   mLayout->setMargin( 3 );
   mLayout->setAlignment( Qt::AlignTop );
 
-  QPixmap icon = KIconLoader::global()->loadIcon( "kweather", K3Icon::Desktop, K3Icon::SizeMedium );
+  QPixmap icon = KIconLoader::global()->loadIcon( "kweather", KIconLoader::Desktop, KIconLoader::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Weather Information" ) );
   mLayout->addWidget( header );
 

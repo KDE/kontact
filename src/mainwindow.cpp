@@ -984,11 +984,11 @@ void MainWindow::slotShowStatusMsg( const QString &msg )
 QString MainWindow::introductionString()
 {
   KIconLoader *iconloader = KIconLoader::global();
-  int iconSize = iconloader->currentSize( K3Icon::Desktop );
+  int iconSize = iconloader->currentSize( KIconLoader::Desktop );
 
-  QString handbook_icon_path = iconloader->iconPath( "contents2",  K3Icon::Desktop );
-  QString html_icon_path = iconloader->iconPath( "html",  K3Icon::Desktop );
-  QString wizard_icon_path = iconloader->iconPath( "wizard",  K3Icon::Desktop );
+  QString handbook_icon_path = iconloader->iconPath( "contents2",  KIconLoader::Desktop );
+  QString html_icon_path = iconloader->iconPath( "html",  KIconLoader::Desktop );
+  QString wizard_icon_path = iconloader->iconPath( "wizard",  KIconLoader::Desktop );
 
   QString info = ki18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
       "<p>%2</p>"

@@ -68,7 +68,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
   mainLayout->setMargin( 3 );
 
   QPixmap icon = KIconLoader::global()->loadIcon( "kontact_todo",
-                   K3Icon::Desktop, K3Icon::SizeMedium );
+                   KIconLoader::Desktop, KIconLoader::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Pending To-dos" ) );
   mainLayout->addWidget( header );
 
@@ -186,7 +186,7 @@ void TodoSummaryWidget::updateView()
   if ( prList.count() > 0 ) {
 
     KIconLoader loader( "korganizer" );
-    QPixmap pm = loader.loadIcon( "todo", K3Icon::Small );
+    QPixmap pm = loader.loadIcon( "todo", KIconLoader::Small );
 
     QString str;
 
@@ -335,13 +335,13 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   QAction *editIt = popup.addAction( i18n( "&Edit To-do.." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
   delIt->setIcon( KIconLoader::global()->
-                  loadIcon( "edit-delete", K3Icon::Small) );
+                  loadIcon( "edit-delete", KIconLoader::Small) );
   QAction *doneIt = 0;
   KCal::Todo *todo = mCalendar->todo( uid );
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
     doneIt->setIcon( KIconLoader::global()->
-                     loadIcon( "checkedbox", K3Icon::Small) );
+                     loadIcon( "checkedbox", KIconLoader::Small) );
   }
   // TODO: add icons to the menu actions
 
