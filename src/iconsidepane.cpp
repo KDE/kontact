@@ -117,10 +117,10 @@ void EntryItem::reloadPixmap()
   int size = (int)navigator()->viewMode();
   if ( size != 0 )
     mPixmap = KIconLoader::global()->loadIcon( mPlugin->icon(),
-                                                K3Icon::Desktop, size,
+                                                KIconLoader::Desktop, size,
                                                 mPlugin->disabled() ?
-                                                  K3Icon::DisabledState
-                                                : K3Icon::DefaultState);
+                                                  KIconLoader::DisabledState
+                                                : KIconLoader::DefaultState);
   else
     mPixmap = QPixmap();
 }

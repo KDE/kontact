@@ -57,7 +57,7 @@ class PluginItem : public Q3CheckListItem
       : Q3CheckListItem( parent, QString(), Q3CheckListItem::CheckBox ),
         mInfo( info )
     {
-      QPixmap pm = KIconLoader::global()->loadIcon( mInfo.icon(), K3Icon::Small );
+      QPixmap pm = KIconLoader::global()->loadIcon( mInfo.icon(), KIconLoader::Small );
       setPixmap( 0, pm );
     }
 

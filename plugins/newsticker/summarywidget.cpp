@@ -53,7 +53,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   vlay->setMargin( 3 );
 
   QPixmap icon = KIconLoader::global()->loadIcon( "kontact_news",
-                                                  K3Icon::Desktop, K3Icon::SizeMedium );
+                                                  KIconLoader::Desktop, KIconLoader::SizeMedium );
 
   QWidget *header = createHeader( this, icon, i18n( "News Feeds" ) );
   vlay->addWidget( header );

@@ -64,7 +64,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mainLayout->setMargin( 3 );
 
   QPixmap icon = KIconLoader::global()->loadIcon( "kontact_date",
-                   K3Icon::Desktop, K3Icon::SizeMedium );
+                   KIconLoader::Desktop, KIconLoader::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Upcoming Events" ) );
   mainLayout->addWidget( header );
 
@@ -114,7 +114,7 @@ void ApptSummaryWidget::updateView()
   int counter = 0;
 
   KIconLoader loader( "korganizer" );
-  QPixmap pm = loader.loadIcon( "appointment", K3Icon::Small );
+  QPixmap pm = loader.loadIcon( "appointment", KIconLoader::Small );
 
   QString str;
   QDate dt;
@@ -317,7 +317,7 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
   QAction *editIt = popup.addAction( i18n( "&Edit Appointment..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete Appointment" ) );
   delIt->setIcon( KIconLoader::global()->
-                  loadIcon( "edit-delete", K3Icon::Small ) );
+                  loadIcon( "edit-delete", KIconLoader::Small ) );
 
   const QAction *selectedAction = popup.exec( QCursor::pos() );
   if ( selectedAction == editIt ) {
