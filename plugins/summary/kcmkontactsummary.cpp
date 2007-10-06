@@ -177,7 +177,8 @@ void KCMKontactSummary::save()
   }
 
   KConfig config( "kontact_summaryrc" );
-  config.writeEntry( "ActiveSummaries", activeSummaries );
+  KConfigGroup grp(&config,config.group());
+  grp.writeEntry( "ActiveSummaries", activeSummaries );
 }
 
 void KCMKontactSummary::defaults()
