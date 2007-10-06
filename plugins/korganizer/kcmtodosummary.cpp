@@ -91,7 +91,9 @@ void KCMTodoSummary::customDaysChanged( int value )
 void KCMTodoSummary::load()
 {
   KConfig config( "kcmtodosummaryrc" );
-  KConfigGroup grp = config.group( "Days" );
+  KConfigGroup grp( &config, config.group() );
+
+  config.setGroup( "Days" );
   int days = grp.readEntry( "DaysToShow", 7 );
   if ( days == 1 )
     mDateTodayButton->setChecked( true );
@@ -103,7 +105,7 @@ void KCMTodoSummary::load()
     mCustomDays->setEnabled( true );
   }
 
-  grp = config.group( "Hide" );
+  config.setGroup( "Hide" );
   mHideInProgressBox->setChecked( grp.readEntry( "InProgress", false ) );
   mHideOverdueBox->setChecked( grp.readEntry( "Overdue", false ) );
   mHideCompletedBox->setChecked( grp.readEntry( "Completed", true ) );
@@ -116,7 +118,9 @@ void KCMTodoSummary::load()
 void KCMTodoSummary::save()
 {
   KConfig config( "kcmtodosummaryrc" );
-  KConfigGroup grp = config.group( "Days" );
+  KConfigGroup grp( &config, config.group() );
+
+  config.setGroup( "Days" );
   int days;
   if ( mDateTodayButton->isChecked() ) {
     days = 1;
@@ -127,7 +131,7 @@ void KCMTodoSummary::save()
   }
   grp.writeEntry( "DaysToShow", days );
 
-  grp = config.group( "Hide" );
+  config.setGroup( "Hide" );
   grp.writeEntry( "InProgress", mHideInProgressBox->isChecked() );
   grp.writeEntry( "Overdue", mHideOverdueBox->isChecked() );
   grp.writeEntry( "Completed", mHideCompletedBox->isChecked() );

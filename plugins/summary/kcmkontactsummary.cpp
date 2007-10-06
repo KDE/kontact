@@ -129,7 +129,8 @@ void KCMKontactSummary::load()
   QStringList activeSummaries;
 
   KConfig config( "kontact_summaryrc" );
-  if ( !config.hasKey( "ActiveSummaries" ) ) {
+  KConfigGroup grp( &config, config.group() );
+  if ( !grp.hasKey( "ActiveSummaries" ) ) {
     activeSummaries << "kontact_kaddressbookplugin";
     activeSummaries << "kontact_specialdatesplugin";
     activeSummaries << "kontact_korganizerplugin";
@@ -139,7 +140,7 @@ void KCMKontactSummary::load()
     activeSummaries << "kontact_weatherplugin";
     activeSummaries << "kontact_newstickerplugin";
   } else {
-    activeSummaries = config.readEntry( "ActiveSummaries" , QStringList() );
+    activeSummaries = grp.readEntry( "ActiveSummaries" , QStringList() );
   }
 
   mPluginView->clear();
@@ -177,7 +178,7 @@ void KCMKontactSummary::save()
   }
 
   KConfig config( "kontact_summaryrc" );
-  KConfigGroup grp(&config,config.group());
+  KConfigGroup grp( &config, config.group() );
   grp.writeEntry( "ActiveSummaries", activeSummaries );
 }
 

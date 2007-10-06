@@ -34,6 +34,7 @@
 #include <kactioncollection.h>
 #include <kapplication.h>
 #include <kconfig.h>
+#include <kconfiggroup.h>
 #include <kdebug.h>
 #include <kdbusservicestarter.h>
 #include <kedittoolbar.h>
@@ -372,9 +373,9 @@ actionCollection()->addAction(KStandardAction::Quit, this, SLOT( slotQuit() ));
   mNewActions->setShortcut(KShortcut(KStandardShortcut::New));
   connect(mNewActions, SIGNAL(triggered(bool)), this, SLOT( slotNewClicked() ));
 
-  KConfig* const cfg = Prefs::self()->config();
-  cfg->setGroup( "Kontact Groupware Settings" );
-  mSyncActionsEnabled = cfg->readBoolEntry( "GroupwareMailFoldersEnabled", false );
+  KConfig* const _cfg = Prefs::self()->config();
+  KConfigGroup cfg( _cfg, "Kontact Groupware Settings" );
+  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", false );
 
   if ( mSyncActionsEnabled ) {
     mSyncActions = new KToolBarPopupAction( KIcon( "view-refresh" ), i18n( "Synchronize" ), this );
