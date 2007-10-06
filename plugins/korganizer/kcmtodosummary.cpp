@@ -91,9 +91,8 @@ void KCMTodoSummary::customDaysChanged( int value )
 void KCMTodoSummary::load()
 {
   KConfig config( "kcmtodosummaryrc" );
-
-  config.setGroup( "Days" );
-  int days = config.readEntry( "DaysToShow", 7 );
+  KConfigGroup grp = config.group( "Days" );
+  int days = grp.readEntry( "DaysToShow", 7 );
   if ( days == 1 )
     mDateTodayButton->setChecked( true );
   else if ( days == 31 )
@@ -104,12 +103,12 @@ void KCMTodoSummary::load()
     mCustomDays->setEnabled( true );
   }
 
-  config.setGroup( "Hide" );
-  mHideInProgressBox->setChecked( config.readEntry( "InProgress", false ) );
-  mHideOverdueBox->setChecked( config.readEntry( "Overdue", false ) );
-  mHideCompletedBox->setChecked( config.readEntry( "Completed", true ) );
-  mHideOpenEndedBox->setChecked( config.readEntry( "OpenEnded", false ) );
-  mHideUnstartedBox->setChecked( config.readEntry( "NotStarted", false ) );
+  grp = config.group( "Hide" );
+  mHideInProgressBox->setChecked( grp.readEntry( "InProgress", false ) );
+  mHideOverdueBox->setChecked( grp.readEntry( "Overdue", false ) );
+  mHideCompletedBox->setChecked( grp.readEntry( "Completed", true ) );
+  mHideOpenEndedBox->setChecked( grp.readEntry( "OpenEnded", false ) );
+  mHideUnstartedBox->setChecked( grp.readEntry( "NotStarted", false ) );
 
   emit changed( false );
 }
@@ -117,8 +116,7 @@ void KCMTodoSummary::load()
 void KCMTodoSummary::save()
 {
   KConfig config( "kcmtodosummaryrc" );
-
-  config.setGroup( "Days" );
+  KConfigGroup grp = config.group( "Days" );
   int days;
   if ( mDateTodayButton->isChecked() ) {
     days = 1;
@@ -127,14 +125,14 @@ void KCMTodoSummary::save()
   } else {
     days = mCustomDays->value();
   }
-  config.writeEntry( "DaysToShow", days );
+  grp.writeEntry( "DaysToShow", days );
 
-  config.setGroup( "Hide" );
-  config.writeEntry( "InProgress", mHideInProgressBox->isChecked() );
-  config.writeEntry( "Overdue", mHideOverdueBox->isChecked() );
-  config.writeEntry( "Completed", mHideCompletedBox->isChecked() );
-  config.writeEntry( "OpenEnded", mHideOpenEndedBox->isChecked() );
-  config.writeEntry( "NotStarted", mHideUnstartedBox->isChecked() );
+  grp = config.group( "Hide" );
+  grp.writeEntry( "InProgress", mHideInProgressBox->isChecked() );
+  grp.writeEntry( "Overdue", mHideOverdueBox->isChecked() );
+  grp.writeEntry( "Completed", mHideCompletedBox->isChecked() );
+  grp.writeEntry( "OpenEnded", mHideOpenEndedBox->isChecked() );
+  grp.writeEntry( "NotStarted", mHideUnstartedBox->isChecked() );
 
   config.sync();
   emit changed( false );
