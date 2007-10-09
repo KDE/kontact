@@ -35,6 +35,7 @@
 #include <kapplication.h>
 #include <kcharsets.h>
 #include <kconfig.h>
+#include <kconfiggroup.h>
 #include <kdebug.h>
 #include <kglobal.h>
 #include <kiconloader.h>
@@ -118,10 +119,10 @@ void SummaryWidget::configChanged()
 void SummaryWidget::readConfig()
 {
   KConfig config( "kcmkontactkntrc" );
-  config.setGroup( "General" );
+  KConfigGroup grp(&config, "General" );
 
-  mUpdateInterval = config.readEntry( "UpdateInterval", 600 );
-  mArticleCount = config.readEntry( "ArticleCount", 4 );
+  mUpdateInterval = grp.readEntry( "UpdateInterval", 600 );
+  mArticleCount = grp.readEntry( "ArticleCount", 4 );
 }
 
 void SummaryWidget::initDocuments()

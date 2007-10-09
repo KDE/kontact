@@ -144,7 +144,8 @@ void SummaryViewPart::updateWidgets()
   QStringList activeSummaries;
 
   KConfig config( "kontact_summaryrc" );
-  if ( !config.hasKey( "ActiveSummaries" ) ) {
+  KConfigGroup grp( &config, config.group() );
+  if ( !grp.hasKey( "ActiveSummaries" ) ) {
     activeSummaries << "kontact_kmailplugin";
     activeSummaries << "kontact_specialdatesplugin";
     activeSummaries << "kontact_knotesplugin";
@@ -152,7 +153,7 @@ void SummaryViewPart::updateWidgets()
     activeSummaries << "kontact_todoplugin";
     activeSummaries << "kontact_newstickerplugin";
   } else {
-    activeSummaries = config.readEntry( "ActiveSummaries" , QStringList() );
+    activeSummaries = grp.readEntry( "ActiveSummaries" , QStringList() );
   }
 
   // Collect all summary widgets with a summaryHeight > 0
@@ -396,29 +397,31 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
 void SummaryViewPart::loadLayout()
 {
   KConfig config( "kontact_summaryrc" );
+  KConfigGroup grp( &config, config.group() );
 
-  if ( !config.hasKey( "LeftColumnSummaries" ) ) {
+  if ( !grp.hasKey( "LeftColumnSummaries" ) ) {
     mLeftColumnSummaries << "kontact_korganizerplugin";
     mLeftColumnSummaries << "kontact_todoplugin";
     mLeftColumnSummaries << "kontact_kaddressbookplugin";
     mLeftColumnSummaries << "kontact_specialdatesplugin";
   } else {
-    mLeftColumnSummaries = config.readEntry( "LeftColumnSummaries" , QStringList() );
+    mLeftColumnSummaries = grp.readEntry( "LeftColumnSummaries" , QStringList() );
   }
 
-  if ( !config.hasKey( "RightColumnSummaries" ) ) {
+  if ( !grp.hasKey( "RightColumnSummaries" ) ) {
     mRightColumnSummaries << "kontact_newstickerplugin";
   } else {
-    mRightColumnSummaries = config.readEntry( "RightColumnSummaries" , QStringList() );
+    mRightColumnSummaries = grp.readEntry( "RightColumnSummaries" , QStringList() );
   }
 }
 
 void SummaryViewPart::saveLayout()
 {
   KConfig config( "kontact_summaryrc" );
+  KConfigGroup grp( &config, config.group() );
 
-  config.writeEntry( "LeftColumnSummaries", mLeftColumnSummaries );
-  config.writeEntry( "RightColumnSummaries", mRightColumnSummaries );
+  grp.writeEntry( "LeftColumnSummaries", mLeftColumnSummaries );
+  grp.writeEntry( "RightColumnSummaries", mRightColumnSummaries );
 
   config.sync();
 }

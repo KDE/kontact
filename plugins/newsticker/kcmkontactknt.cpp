@@ -187,7 +187,7 @@ void KCMKontactKNT::loadCustomNews()
 {
   KConfig config( "kcmkontactkntrc" );
   QMap<QString, QString> customFeeds = config.entryMap( "CustomFeeds" );
-  config.setGroup( "CustomFeeds" );
+  KConfigGroup cg = config.group( "CustomFeeds" );
 
   mCustomItem = new Q3ListViewItem( mAllNews, i18n( "Custom" ) );
   mCustomItem->setSelectable( false );
@@ -197,7 +197,7 @@ void KCMKontactKNT::loadCustomNews()
 
   QMap<QString, QString>::Iterator it;
   for ( it = customFeeds.begin(); it != customFeeds.end(); ++it ) {
-    QStringList value = config.readEntry( it.key(), QStringList() );
+    QStringList value = cg.readEntry( it.key(), QStringList() );
     mCustomFeeds.append( new NewsItem( mCustomItem, value[ 0 ], value[ 1 ], true ) );
     mFeedMap.insert( value[ 1 ], value[ 0 ] );
     mCustomItem->setVisible( true );
@@ -208,14 +208,14 @@ void KCMKontactKNT::storeCustomNews()
 {
   KConfig config( "kcmkontactkntrc" );
   config.deleteGroup( "CustomFeeds" );
-  config.setGroup( "CustomFeeds" );
+  KConfigGroup cg = config.group( "CustomFeeds" );
 
   int counter = 0;
   QList<NewsItem*>::Iterator it;
   for ( it = mCustomFeeds.begin(); it != mCustomFeeds.end(); ++it ) {
     QStringList value;
     value << (*it)->title() << (*it)->url();
-    config.writeEntry( QString::number( counter ), value );
+    cg.writeEntry( QString::number( counter ), value );
 
     ++counter;
   }
@@ -439,10 +439,10 @@ void KCMKontactKNT::load()
   scanNews();
 
   KConfig config( "kcmkontactkntrc" );
-  config.setGroup( "General" );
+  KConfigGroup grp = config.group( "General" );
 
-  mUpdateInterval->setValue( config.readEntry( "UpdateInterval", 600 ) );
-  mArticleCount->setValue( config.readEntry( "ArticleCount", 4 ) );
+  mUpdateInterval->setValue( grp.readEntry( "UpdateInterval", 600 ) );
+  mArticleCount->setValue( grp.readEntry( "ArticleCount", 4 ) );
 
   emit changed( false );
 }
@@ -452,10 +452,10 @@ void KCMKontactKNT::save()
   storeCustomNews();
 
   KConfig config( "kcmkontactkntrc" );
-  config.setGroup( "General" );
-
-  config.writeEntry( "UpdateInterval", mUpdateInterval->value() );
-  config.writeEntry( "ArticleCount", mArticleCount->value() );
+  KConfigGroup cg = config.group( "General" );
+  
+  cg.writeEntry( "UpdateInterval", mUpdateInterval->value() );
+  cg.writeEntry( "ArticleCount", mArticleCount->value() );
 
   config.sync();
 
