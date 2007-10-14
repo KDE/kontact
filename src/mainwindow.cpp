@@ -266,7 +266,7 @@ void MainWindow::initWidgets()
 {
   // includes sidebar and part stack
   mTopWidget = new KHBox( this );
-  mTopWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
+  mTopWidget->setFrameStyle( QFrame::NoFrame );
   setCentralWidget( mTopWidget );
 
   KHBox *mBox = 0;
