@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=kcmshell kontactconfig
+Exec=kcmshell4 kontactconfig
 Icon=kontact
 Type=Service
 ServiceTypes=KCModule
