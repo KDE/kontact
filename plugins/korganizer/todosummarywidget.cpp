@@ -186,7 +186,7 @@ void TodoSummaryWidget::updateView()
   if ( prList.count() > 0 ) {
 
     KIconLoader loader( "korganizer" );
-    QPixmap pm = loader.loadIcon( "todo", KIconLoader::Small );
+    QPixmap pm = loader.loadIcon( "view-calendar-tasks", KIconLoader::Small );
 
     QString str;
 
