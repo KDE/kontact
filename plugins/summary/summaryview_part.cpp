@@ -360,13 +360,12 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   QScrollArea *sa = new QScrollArea( core );
 
   sa->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
-  sa->setFrameStyle( QFrame::NoFrame | QFrame::Plain );
+  sa->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken );
   sa->setWidgetResizable( true );
 
   mMainWidget = new QFrame;
   sa->setWidget( mMainWidget );
-  mMainWidget->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-  sa->setFocusPolicy( Qt::StrongFocus );
+  mMainWidget->setFocusPolicy( Qt::StrongFocus );
   setWidget( sa );
 
   mMainLayout = new QVBoxLayout( mMainWidget );

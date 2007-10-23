@@ -113,7 +113,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     QLabel *label = new QLabel( text, topFrame );
     label->setAlignment( Qt::AlignTop );
     label->setOpenExternalLinks(true);
-    label->setTextInteractionFlags(Qt::TextSelectableByMouse|Qt::TextSelectableByKeyboard);
+    label->setTextInteractionFlags(Qt::TextSelectableByMouse|Qt::TextSelectableByKeyboard|Qt::LinksAccessibleByMouse);
     topLayout->addWidget( label );
 
 
