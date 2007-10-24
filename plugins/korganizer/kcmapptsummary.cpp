@@ -84,9 +84,8 @@ void KCMApptSummary::customDaysChanged( int value )
 void KCMApptSummary::load()
 {
   KConfig config( "kcmapptsummaryrc" );
-  KConfigGroup grp( &config, config.group() );
+  KConfigGroup grp( &config, "Days" );
 
-  config.setGroup( "Days" );
   int days = grp.readEntry( "DaysToShow", 7 );
   if ( days == 1 )
     mDateTodayButton->setChecked( true );
@@ -104,9 +103,8 @@ void KCMApptSummary::load()
 void KCMApptSummary::save()
 {
   KConfig config( "kcmapptsummaryrc" );
-  KConfigGroup grp( &config, config.group() );
+  KConfigGroup grp( &config, "Days" );
 
-  config.setGroup( "Days" );
   int days;
   if ( mDateTodayButton->isChecked() ) {
     days = 1;
