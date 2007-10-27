@@ -332,7 +332,7 @@ void TodoSummaryWidget::completeTodo( const QString &uid )
 void TodoSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
-  QAction *editIt = popup.addAction( i18n( "&Edit To-do.." ) );
+  QAction *editIt = popup.addAction( i18n( "&Edit To-do..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
   delIt->setIcon( KIconLoader::global()->
                   loadIcon( "edit-delete", KIconLoader::Small) );
