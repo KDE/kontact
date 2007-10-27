@@ -453,7 +453,7 @@ const QString TodoSummaryWidget::stateStr( KCal::Todo *todo )
   }
 
   if ( !str1.isEmpty() && !str2.isEmpty() )
-    str1 += i18n( "," );
+    str1 += i18nc( "Separator for status like this: overdue, completed", "," );
 
   return str1 + str2;
 }
