@@ -466,25 +466,28 @@ void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint &pos )
 
   QAction *large = menu.addAction( i18n( "Large" ) );
   large->setEnabled( mShowIcons );
+  large->setCheckable( true );
   large->setChecked( mViewMode == LargeIcons );
   QAction *normal = menu.addAction( i18n( "Normal" ) );
   normal->setEnabled( mShowIcons );
-  large->setChecked( mViewMode == NormalIcons );
+  normal->setCheckable( true );
+  normal->setChecked( mViewMode == NormalIcons );
   QAction *small = menu.addAction( i18n( "Small" ) );
   small->setEnabled( mShowIcons );
-  large->setChecked( mViewMode == SmallIcons );
+  small->setCheckable( true );
+  small->setChecked( mViewMode == SmallIcons );
 
   menu.addSeparator();
 
   QAction *showIcons = menu.addAction( i18n( "Show Icons" ) );
+  showIcons->setCheckable( true );
   showIcons->setChecked( mShowIcons );
   showIcons->setEnabled( mShowText );
   QAction *showText = menu.addAction( i18n( "Show Text" ) );
+  showText->setCheckable( true );
   showText->setChecked( mShowText );
   showText->setEnabled( mShowIcons );
-#ifdef __GNUC__
-#warning Port me!
-#endif
+
   QAction *choice = menu.exec( pos );
 
   if ( choice == 0 )
@@ -502,16 +505,9 @@ void Navigator::slotShowRMBMenu( Q3ListBoxItem *, const QPoint &pos )
   } else if ( choice == showIcons ) {
     mShowIcons = !mShowIcons;
     Prefs::self()->setSidePaneShowIcons( mShowIcons );
-    this->setToolTip("");
-#ifdef __GNUC__
-#warning Port me!
-#endif
-//    if ( !mShowText )
-//      new EntryItemToolTip( this );
   } else if ( choice == showText ) {
     mShowText = !mShowText;
     Prefs::self()->setSidePaneShowText( mShowText );
-    this->setToolTip("");
   }
 
   int maxWidth = 0;
