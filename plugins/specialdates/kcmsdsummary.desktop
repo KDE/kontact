@@ -13,6 +13,8 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Upcoming Special Dates
 Name[bg]=Special Dates
+Name[ca]=Dates especials properes
+Name[de]=Besondere anstehende Termine
 Name[el]=Σημαντικές ημερομηνίες
 Name[es]=Fechas especiales próximas
 Name[fa]=تاریخهای ویژۀ آیندۀ نزدیک
@@ -31,6 +33,8 @@ Name[zh_CN]=近期特殊日期
 Name[zh_TW]=將來臨的特殊日期
 Comment=Upcoming Special Dates Summary Setup
 Comment[bg]=Настройки на специалните случаи
+Comment[ca]=Configuració del resum de les dates especials
+Comment[de]=Einstellung der Übersicht über besondere anstehende Termine
 Comment[el]=Ρύθμιση σύνοψης σημαντικών ημερομηνιών
 Comment[es]=Configuración del resumen de fechas especiales próximas
 Comment[fa]=برپایی خلاصۀ تاریخهای ویژۀ آیندۀ نزدیک
