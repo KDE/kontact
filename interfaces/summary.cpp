@@ -37,6 +37,19 @@
 
 using namespace Kontact;
 
+class SummaryMimeData : public QMimeData
+{
+  public:
+    virtual bool hasFormat( const QString &format ) const
+    {
+      if ( format == "application/x-kontact-summary" ) {
+        return true;
+      }
+
+      return false;
+    }
+};
+
 Summary::Summary( QWidget *parent )
   : QWidget( parent )
 {
@@ -93,7 +106,7 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
 
 
     QDrag *drag = new QDrag(this);
-    drag->setMimeData(new QMimeData());
+    drag->setMimeData(new SummaryMimeData());
     drag->setObjectName("SummaryWidgetDrag");
 
     QPixmap pm = QPixmap::grabWidget( this );
@@ -113,7 +126,7 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
 
 void Summary::dragEnterEvent( QDragEnterEvent *event )
 {
-  if (event->source()->inherits("Kontact::Summary"))
+  if (event->mimeData()->hasFormat("application/x-kontact-summary"))
     event->acceptProposedAction();
 }
 
