@@ -186,8 +186,8 @@ void KCMKontactKNT::loadNews()
 void KCMKontactKNT::loadCustomNews()
 {
   KConfig config( "kcmkontactkntrc" );
-  QMap<QString, QString> customFeeds = config.entryMap( "CustomFeeds" );
   KConfigGroup cg = config.group( "CustomFeeds" );
+  const QStringList customFeeds = cg.keyList();
 
   mCustomItem = new Q3ListViewItem( mAllNews, i18n( "Custom" ) );
   mCustomItem->setSelectable( false );
@@ -195,9 +195,9 @@ void KCMKontactKNT::loadCustomNews()
   if ( customFeeds.count() == 0 )
     mCustomItem->setVisible( false );
 
-  QMap<QString, QString>::Iterator it;
+  QStringList::ConstIterator it;
   for ( it = customFeeds.begin(); it != customFeeds.end(); ++it ) {
-    QStringList value = cg.readEntry( it.key(), QStringList() );
+    QStringList value = cg.readEntry( *it, QStringList() );
     mCustomFeeds.append( new NewsItem( mCustomItem, value[ 0 ], value[ 1 ], true ) );
     mFeedMap.insert( value[ 1 ], value[ 0 ] );
     mCustomItem->setVisible( true );
@@ -417,7 +417,7 @@ bool KCMKontactKNT::dbusActive() const
   QString error;
   QString appID;
   bool isGood = true;
-  
+
 #ifdef __GNUC__
   #warning "insert the right dbus path/interface here, once knewsticker has been ported"
 #endif
@@ -453,7 +453,7 @@ void KCMKontactKNT::save()
 
   KConfig config( "kcmkontactkntrc" );
   KConfigGroup cg = config.group( "General" );
-  
+
   cg.writeEntry( "UpdateInterval", mUpdateInterval->value() );
   cg.writeEntry( "ArticleCount", mArticleCount->value() );
 
