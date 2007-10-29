@@ -22,6 +22,7 @@ Comment[cs]=Modul KArm
 Comment[da]=KArm-plugin
 Comment[de]=KArm-Modul
 Comment[el]=Πρόσθετο του KArm
+Comment[eo]=KArm-kromaĵo
 Comment[es]=Extensión KArm
 Comment[et]=KArmi plugin
 Comment[eu]=KArm plugina
@@ -62,7 +63,6 @@ Comment[zh_TW]=KArm 外掛程式
 
 Name=KArm
 Name[af]=Karm
-Name[eo]=Tempomezurilo
 Name[hi]=के-आर्म
 Name[sv]=Karm
 Name[ta]=Kஅம்
