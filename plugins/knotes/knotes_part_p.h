@@ -139,7 +139,6 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
 
       setComponentData( KComponentData( "knotes" ) ); // TODO: memleak
       setXMLFile( "knotesui.rc" );
-      actionCollection()->setAssociatedWidget( this );
 
       QWidget *page = new QWidget(this);
 	  setMainWidget(page);
@@ -167,6 +166,8 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
 
       layout->addWidget( mTool );
       layout->addWidget( mNoteEdit );
+
+      actionCollection()->associateWidget( this );
     }
 
     QString text() const
