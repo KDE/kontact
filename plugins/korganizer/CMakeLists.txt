@@ -15,7 +15,7 @@ kde4_add_plugin(kontact_korganizerplugin WITH_PREFIX ${kontact_korganizerplugin_
 
 
 
-target_link_libraries(kontact_korganizerplugin ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar )
+kdepim4_link_unique_libraries(kontact_korganizerplugin ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar )
 
 install(TARGETS kontact_korganizerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -31,7 +31,7 @@ kde4_add_plugin(kontact_todoplugin WITH_PREFIX ${kontact_todoplugin_PART_SRCS})
 
 
 
-target_link_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar korganizer )
+kdepim4_link_unique_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar korganizer )
 
 install(TARGETS kontact_todoplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -47,7 +47,7 @@ kde4_add_plugin(kontact_journalplugin WITH_PREFIX ${kontact_journalplugin_PART_S
 
 
 
-target_link_libraries(kontact_journalplugin ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar)
+kdepim4_link_unique_libraries(kontact_journalplugin ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar)
 
 install(TARGETS kontact_journalplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -63,7 +63,7 @@ kde4_add_plugin(kcm_apptsummary ${kcm_apptsummary_PART_SRCS})
 
 
 
-target_link_libraries(kcm_apptsummary  ${KDE4_KDEUI_LIBS} )
+kdepim4_link_unique_libraries(kcm_apptsummary  ${KDE4_KDEUI_LIBS} )
 
 install(TARGETS kcm_apptsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -79,7 +79,7 @@ kde4_add_plugin(kcm_todosummary ${kcm_todosummary_PART_SRCS})
 
 
 
-target_link_libraries(kcm_todosummary  ${KDE4_KDEUI_LIBS} )
+kdepim4_link_unique_libraries(kcm_todosummary  ${KDE4_KDEUI_LIBS} )
 
 install(TARGETS kcm_todosummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 

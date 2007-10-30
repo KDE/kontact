@@ -12,7 +12,7 @@ qt4_add_dbus_interfaces(kontact_kmobiletools_PART_SRCS ${CMAKE_SOURCE_DIR}/kmobi
 
 kde4_add_plugin(kontact_kmobiletools WITH_PREFIX ${kontact_kmobiletools_PART_SRCS})
 
-target_link_libraries(kontact_kmobiletools  ${KDE4_KDECORE_LIBS} kmobiletoolslib kpinterfaces )
+kdepim4_link_unique_libraries(kontact_kmobiletools  ${KDE4_KDECORE_LIBS} kmobiletoolslib kpinterfaces )
 
 install(TARGETS kontact_kmobiletools DESTINATION ${PLUGIN_INSTALL_DIR} )
 
