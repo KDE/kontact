@@ -11,7 +11,7 @@ kde4_add_plugin(kontact_newstickerplugin WITH_PREFIX ${kontact_newstickerplugin_
 
 
 
-target_link_libraries(kontact_newstickerplugin  ${KDE4_KPARTS_LIBS} kdepim kpinterfaces )
+kdepim4_link_unique_libraries(kontact_newstickerplugin  ${KDE4_KPARTS_LIBS} kdepim kpinterfaces )
 
 install(TARGETS kontact_newstickerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -25,7 +25,7 @@ kde4_add_plugin(kcm_kontactknt ${kcm_kontactknt_PART_SRCS})
 
 
 
-target_link_libraries(kcm_kontactknt  ${KDE4_KDEUI_LIBS} ${KDE4_KDE3SUPPORT_LIBS})
+kdepim4_link_unique_libraries(kcm_kontactknt  ${KDE4_KDEUI_LIBS} ${KDE4_KDE3SUPPORT_LIBS})
 
 install(TARGETS kcm_kontactknt  DESTINATION ${PLUGIN_INSTALL_DIR})
 

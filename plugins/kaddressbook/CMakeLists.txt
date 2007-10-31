@@ -15,7 +15,7 @@ kde4_add_plugin(kontact_kaddressbookplugin WITH_PREFIX ${kontact_kaddressbookplu
 
 
 
-target_link_libraries(kontact_kaddressbookplugin  ${KDE4_KDECORE_LIBS} ${KDE4_KABC_LIBS} kpinterfaces kdepim )
+kdepim4_link_unique_libraries(kontact_kaddressbookplugin  ${KDE4_KDECORE_LIBS} ${KDE4_KABC_LIBS} kpinterfaces kdepim )
 
 install(TARGETS kontact_kaddressbookplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 

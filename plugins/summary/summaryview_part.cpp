@@ -213,11 +213,11 @@ void SummaryViewPart::updateWidgets()
   QHBoxLayout *layout = new QHBoxLayout( mFrame );
 
   mLeftColumn = new QVBoxLayout();
-  layout->addItem( mLeftColumn );
+  layout->addLayout( mLeftColumn );
   mLeftColumn->setSpacing( KDialog::spacingHint() );
   layout->addWidget( vline );
   mRightColumn = new QVBoxLayout();
-  layout->addItem( mRightColumn );
+  layout->addLayout( mRightColumn );
   mRightColumn->setSpacing( KDialog::spacingHint() );
 
 
@@ -256,10 +256,10 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
   }
 
   if ( mLeftColumn->indexOf( widget ) != -1 ) {
-    mLeftColumn->remove( widget );
+    mLeftColumn->removeWidget( widget );
     mLeftColumnSummaries.removeAll( widgetName( widget ) );
   } else if ( mRightColumn->indexOf( widget ) != -1 ) {
-    mRightColumn->remove( widget );
+    mRightColumn->removeWidget( widget );
     mRightColumnSummaries.removeAll( widgetName( widget ) );
   }
 
@@ -283,6 +283,7 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
       mRightColumnSummaries.insert( pos, widgetName( widget ) );
     }
 
+    mFrame->updateGeometry();
     return;
   }
 
@@ -302,6 +303,7 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
     mRightColumn->insertWidget( targetPos, widget );
     mRightColumnSummaries.insert( targetPos, widgetName( widget ) );
   }
+  mFrame->updateGeometry();
 }
 
 void SummaryViewPart::slotTextChanged()

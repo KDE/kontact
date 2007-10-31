@@ -13,7 +13,7 @@ kde4_add_plugin(kontact_karm WITH_PREFIX ${kontact_karm_PART_SRCS})
 
 
 
-target_link_libraries(kontact_karm  ${KDE4_KDECORE_LIBS} kpinterfaces )
+kdepim4_link_unique_libraries(kontact_karm  ${KDE4_KDECORE_LIBS} kpinterfaces )
 
 install(TARGETS kontact_karm  DESTINATION ${PLUGIN_INSTALL_DIR})
 
