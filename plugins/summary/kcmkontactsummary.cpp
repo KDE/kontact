@@ -129,7 +129,7 @@ void KCMKontactSummary::load()
   QStringList activeSummaries;
 
   KConfig config( "kontact_summaryrc" );
-  KConfigGroup grp( &config, config.group() );
+  KConfigGroup grp( &config, QString() );
   if ( !grp.hasKey( "ActiveSummaries" ) ) {
     activeSummaries << "kontact_kaddressbookplugin";
     activeSummaries << "kontact_specialdatesplugin";
@@ -178,7 +178,7 @@ void KCMKontactSummary::save()
   }
 
   KConfig config( "kontact_summaryrc" );
-  KConfigGroup grp( &config, config.group() );
+  KConfigGroup grp( &config, QString() );
   grp.writeEntry( "ActiveSummaries", activeSummaries );
 }
 

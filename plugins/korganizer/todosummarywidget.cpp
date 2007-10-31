@@ -332,7 +332,7 @@ void TodoSummaryWidget::completeTodo( const QString &uid )
 void TodoSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
-  QAction *editIt = popup.addAction( i18n( "&Edit To-do.." ) );
+  QAction *editIt = popup.addAction( i18n( "&Edit To-do..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
   delIt->setIcon( KIconLoader::global()->
                   loadIcon( "edit-delete", KIconLoader::Small) );
@@ -453,7 +453,7 @@ const QString TodoSummaryWidget::stateStr( KCal::Todo *todo )
   }
 
   if ( !str1.isEmpty() && !str2.isEmpty() )
-    str1 += i18n( "," );
+    str1 += i18nc( "Separator for status like this: overdue, completed", "," );
 
   return str1 + str2;
 }

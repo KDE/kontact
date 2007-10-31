@@ -12,6 +12,8 @@ X-KDE-ParentComponents=kontact_korganizerplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Upcoming Events
+Name[ca]=Propers esdeveniments
+Name[de]=Anstehende Ereignisse
 Name[el]=Σημαντικά γεγονότα
 Name[es]=Eventos próximos
 Name[it]=Eventi futuri
@@ -28,6 +30,8 @@ Name[zh_CN]=近期事件
 Name[zh_TW]=將發生的事件
 Comment=Upcoming Events Summary Setup
 Comment[bg]=Настройки на обобщението на писмата
+Comment[ca]=Configuració del resum dels propers esdeveniments
+Comment[de]=Einstellung der Übersicht über anstehende Ereignisse
 Comment[el]=Ρύθμιση σύνοψης σημαντικών ημερομηνιών
 Comment[es]=Configuración del resumen de los eventos próximos
 Comment[fa]=برپایی خلاصۀ رویدادهای آیندۀ نزدیک
@@ -45,6 +49,8 @@ Comment[zh_CN]=近期事件摘要设置
 Comment[zh_TW]=將發生的事件摘要設定
 Keywords=calendar, events, configure, settings
 Keywords[bg]=Keywords=календар, задачи, организатор, calendar, todos, configure, settings
+Keywords[ca]=calendari, esdeveniments, configuració, arranjament
+Keywords[de]=Ereignisse,Kalendar,Aufgaben,einstellen,Einstellungen
 Keywords[el]=ημερολόγιο, γεγονότα, ρύθμιση, ρυθμίσεις
 Keywords[es]=calendario, eventos, configurar, opciones
 Keywords[fa]=تقویم، رویدادها، پیکربندی، تنظیمات

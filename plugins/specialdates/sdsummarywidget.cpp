@@ -114,7 +114,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   if ( manager->isEmpty() ) {
     KConfig _config( "korganizerrc" );
     KConfigGroup config(&_config, "General" );
-    QString fileName = config.readPathEntry( "Active Calendar" );
+    QString fileName = config.readPathEntry( "Active Calendar", QString() );
 
     QString resourceName;
     if ( fileName.isEmpty() ) {

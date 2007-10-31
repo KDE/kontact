@@ -144,7 +144,7 @@ void SummaryViewPart::updateWidgets()
   QStringList activeSummaries;
 
   KConfig config( "kontact_summaryrc" );
-  KConfigGroup grp( &config, config.group() );
+  KConfigGroup grp( &config, QString() );
   if ( !grp.hasKey( "ActiveSummaries" ) ) {
     activeSummaries << "kontact_kmailplugin";
     activeSummaries << "kontact_specialdatesplugin";
@@ -396,7 +396,7 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
 void SummaryViewPart::loadLayout()
 {
   KConfig config( "kontact_summaryrc" );
-  KConfigGroup grp( &config, config.group() );
+  KConfigGroup grp( &config, QString() );
 
   if ( !grp.hasKey( "LeftColumnSummaries" ) ) {
     mLeftColumnSummaries << "kontact_korganizerplugin";
@@ -417,7 +417,7 @@ void SummaryViewPart::loadLayout()
 void SummaryViewPart::saveLayout()
 {
   KConfig config( "kontact_summaryrc" );
-  KConfigGroup grp( &config, config.group() );
+  KConfigGroup grp( &config, QString() );
 
   grp.writeEntry( "LeftColumnSummaries", mLeftColumnSummaries );
   grp.writeEntry( "RightColumnSummaries", mRightColumnSummaries );
