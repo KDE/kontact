@@ -88,7 +88,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QPixmap icon = KIconLoader::global()->loadIcon( "cookie",
+  QPixmap icon = KIconLoader::global()->loadIcon( "cookies",
                     KIconLoader::Desktop, KIconLoader::SizeMedium );
 
   QWidget *header = createHeader( this, icon, i18n( "Upcoming Special Dates" ) );
@@ -403,7 +403,7 @@ void SDSummaryWidget::updateView()
       KABC::Picture pic;
       switch( (*addrIt).category ) {  // TODO: better icons
       case CategoryBirthday:
-        icon_name = "cookie";
+        icon_name = "cookies";
         pic = (*addrIt).addressee.photo();
         if ( pic.isIntern() && !pic.data().isNull() ) {
           QImage img = pic.data();
@@ -415,7 +415,7 @@ void SDSummaryWidget::updateView()
         }
         break;
       case CategoryAnniversary:
-        icon_name = "kdmconfig";
+        icon_name = "favorites";
         pic = (*addrIt).addressee.photo();
         if ( pic.isIntern() && !pic.data().isNull() ) {
           QImage img = pic.data();
@@ -427,9 +427,9 @@ void SDSummaryWidget::updateView()
         }
         break;
       case CategoryHoliday:
-        icon_name = "kdmconfig"; break;
+        icon_name = "favorites"; break;
       case CategoryOther:
-        icon_name = "cookie"; break;
+        icon_name = "cookies"; break;
       }
       label = new QLabel( this );
       if ( icon_img.isNull() ) {
