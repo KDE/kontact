@@ -6,7 +6,7 @@ ServiceTypes=Kontact/Plugin
 
 X-KDE-Library=libkontact_journalplugin
 X-KDE-KontactPluginVersion=7
-X-KDE-KontactPartLibraryName=libkorganizerpart
+X-KDE-KontactPartLibraryName=korganizerpart
 X-KDE-KontactPartExecutableName=korganizer
 X-KDE-KontactPluginHasSummary=false
 
