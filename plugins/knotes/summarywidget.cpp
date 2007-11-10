@@ -25,7 +25,6 @@
 #include <QLabel>
 #include <QLayout>
 
-//Added by qt3to4:
 #include <QVBoxLayout>
 #include <QPixmap>
 #include <QGridLayout>
@@ -37,6 +36,8 @@
 #include <klocale.h>
 #include <kurllabel.h>
 #include <kstandarddirs.h>
+
+#include <kcal/calendarlocal.h>
 
 #include <knotes/resourcenotes.h>
 #include <knotes/resourcemanager.h>
