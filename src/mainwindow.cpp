@@ -369,7 +369,7 @@ void MainWindow::initAboutScreen()
 
 void MainWindow::setupActions()
 {
-actionCollection()->addAction(KStandardAction::Quit, this, SLOT( slotQuit() ));
+  actionCollection()->addAction(KStandardAction::Quit, this, SLOT( slotQuit() ));
 
   mNewActions = new KToolBarPopupAction( KIcon(""), i18n( "New" ), this);
   actionCollection()->addAction("action_new", mNewActions);
