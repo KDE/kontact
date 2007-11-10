@@ -38,6 +38,8 @@
 #include <kurllabel.h>
 #include <kstandarddirs.h>
 
+#include <kcal/calendarlocal.h>
+
 #include <knotes/resourcenotes.h>
 #include <knotes/resourcemanager.h>
 
