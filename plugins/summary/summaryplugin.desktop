@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Service
-Icon=kontact-summary
+Icon=view-pim-summary
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_summaryplugin

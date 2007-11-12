@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Service
-Icon=kontact-journal
+Icon=view-pim-journal
 ServiceTypes=Kontact/Plugin
 
 X-KDE-Library=kontact_journalplugin
