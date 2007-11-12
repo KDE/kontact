@@ -34,7 +34,7 @@
 #include "ktimetrackerinterface.h"
 
 typedef KGenericFactory<KarmPlugin, Kontact::Core> KarmPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_karm,
+K_EXPORT_COMPONENT_FACTORY( kontact_karm,
                             KarmPluginFactory( "kontact_karm" ) )
 
 KarmPlugin::KarmPlugin( Kontact::Core *core, const QStringList& )

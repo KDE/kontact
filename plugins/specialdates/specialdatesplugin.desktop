@@ -4,7 +4,7 @@ Type=Service
 Icon=cookies
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_specialdatesplugin
+X-KDE-Library=kontact_specialdatesplugin
 X-KDE-KontactPluginVersion=7
 X-KDE-KontactPluginHasPart=false
 X-KDE-KontactPluginHasSummary=true

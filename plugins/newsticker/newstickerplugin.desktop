@@ -5,7 +5,7 @@ Icon=knewsticker
 ServiceTypes=Kontact/Plugin,KPluginInfo
 TryExec=rssservice
 
-X-KDE-Library=libkontact_newstickerplugin
+X-KDE-Library=kontact_newstickerplugin
 X-KDE-KontactPluginVersion=5
 X-KDE-KontactPluginHasSummary=true
 X-KDE-KontactPluginHasPart=false

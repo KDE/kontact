@@ -1,12 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Service
-Icon=kontact_news
+Icon=kontact-news
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_knodeplugin
+X-KDE-Library=kontact_knodeplugin
 X-KDE-KontactPluginVersion=7
-X-KDE-KontactPartLibraryName=libknodepart
+X-KDE-KontactPartLibraryName=knodepart
 X-KDE-KontactPartExecutableName=knode
 
 X-KDE-PluginInfo-Name=kontact_knodeplugin

@@ -41,7 +41,7 @@
 #include <QMenu>
 
 typedef KGenericFactory< SummaryView, Kontact::Core > SummaryViewFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_summaryplugin,
+K_EXPORT_COMPONENT_FACTORY( kontact_summaryplugin,
                             SummaryViewFactory( "kontact_summaryplugin" ) )
 
 SummaryView::SummaryView( Kontact::Core *core, const QStringList& )

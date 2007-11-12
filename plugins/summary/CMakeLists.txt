@@ -12,7 +12,7 @@ set(kontact_summaryplugin_PART_SRCS summaryview_plugin.cpp summaryview_part.cpp 
 qt4_add_dbus_interfaces(kontact_summaryplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kmail/org.kde.kmail.kmail.xml)
 
 
-kde4_add_plugin(kontact_summaryplugin WITH_PREFIX ${kontact_summaryplugin_PART_SRCS})
+kde4_add_plugin(kontact_summaryplugin ${kontact_summaryplugin_PART_SRCS})
 
 
 

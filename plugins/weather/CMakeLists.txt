@@ -9,7 +9,7 @@ set(kontact_weatherplugin_PART_SRCS weather_plugin.cpp summarywidget.cpp )
 qt4_add_dbus_interfaces( kontact_weatherplugin_PART_SRCS org.kde.kweather.service.xml )
 
 
-kde4_add_plugin(kontact_weatherplugin WITH_PREFIX ${kontact_weatherplugin_PART_SRCS})
+kde4_add_plugin(kontact_weatherplugin ${kontact_weatherplugin_PART_SRCS})
 
 
 

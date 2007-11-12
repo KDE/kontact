@@ -48,7 +48,7 @@
 #include "calendarinterface.h"
 
 typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_korganizerplugin,
+K_EXPORT_COMPONENT_FACTORY( kontact_korganizerplugin,
                             KOrganizerPluginFactory( "kontact_korganizerplugin" ) )
 
 KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QStringList& )

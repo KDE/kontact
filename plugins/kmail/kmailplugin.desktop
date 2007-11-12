@@ -1,12 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Service
-Icon=kontact_mail
+Icon=kontact-mail
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_kmailplugin
+X-KDE-Library=kontact_kmailplugin
 X-KDE-KontactPluginVersion=7
-X-KDE-KontactPartLibraryName=libkmailpart
+X-KDE-KontactPartLibraryName=kmailpart
 X-KDE-KontactPartExecutableName=kmail
 X-KDE-KontactPartLoadOnStart=true
 X-KDE-KontactPluginHasSummary=true

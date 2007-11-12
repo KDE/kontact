@@ -32,7 +32,7 @@
 #include "test_part.h"
 
 typedef KGenericFactory< TestPlugin, Kontact::Core > TestPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkptestplugin, TestPluginFactory( "kptestplugin" ) )
+K_EXPORT_COMPONENT_FACTORY( kptestplugin, TestPluginFactory( "kptestplugin" ) )
 
 TestPlugin::TestPlugin(Kontact::Core *_core, const char *name, const QStringList &)
   : Kontact::Plugin(_core, _core, name)

@@ -46,7 +46,7 @@
 #include "kaddressbook_plugin.h"
 
 typedef KGenericFactory< KAddressbookPlugin, Kontact::Core > KAddressbookPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_kaddressbookplugin,
+K_EXPORT_COMPONENT_FACTORY( kontact_kaddressbookplugin,
                             KAddressbookPluginFactory( "kontact_kaddressbookplugin" ) )
 
 KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QStringList& )
@@ -55,7 +55,7 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QStringList& 
 {
   setComponentData( KAddressbookPluginFactory::componentData() );
 
-    KAction *action  = new KAction(KIcon("identity"), i18n("New Contact..."), this);
+    KAction *action  = new KAction(KIcon("contact-new"), i18n("New Contact..."), this);
     actionCollection()->addAction("new_contact", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewContact()));
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_C));

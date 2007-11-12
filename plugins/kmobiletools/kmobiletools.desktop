@@ -4,9 +4,9 @@ Type=Service
 Icon=kmobiletools
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_kmobiletools
+X-KDE-Library=kontact_kmobiletools
 X-KDE-KontactPluginVersion=7
-X-KDE-KontactPartLibraryName=libkmobiletoolsmainpart
+X-KDE-KontactPartLibraryName=kmobiletoolsmainpart
 
 X-KDE-PluginInfo-Name=kontact_kmobiletools
 X-KDE-PluginInfo-Version=0.1

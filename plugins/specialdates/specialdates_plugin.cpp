@@ -33,7 +33,7 @@
 #include "specialdates_plugin.h"
 
 typedef KGenericFactory< SpecialdatesPlugin, Kontact::Core > SpecialdatesPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_specialdatesplugin,
+K_EXPORT_COMPONENT_FACTORY( kontact_specialdatesplugin,
                             SpecialdatesPluginFactory( "kontact_specialdatesplugin" ) )
 
 SpecialdatesPlugin::SpecialdatesPlugin( Kontact::Core *core, const QStringList& )

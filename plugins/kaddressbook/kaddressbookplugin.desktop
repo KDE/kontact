@@ -1,12 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Service
-Icon=kontact_contacts
+Icon=kontact-contacts
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_kaddressbookplugin
+X-KDE-Library=kontact_kaddressbookplugin
 X-KDE-KontactPluginVersion=7
-X-KDE-KontactPartLibraryName=libkaddressbookpart
+X-KDE-KontactPartLibraryName=kaddressbookpart
 X-KDE-KontactPartExecutableName=kaddressbook
 X-KDE-KontactPluginHasSummary=false
 

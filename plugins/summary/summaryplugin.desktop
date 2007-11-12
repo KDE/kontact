@@ -1,10 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Service
-Icon=kontact_summary
+Icon=kontact-summary
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_summaryplugin
+X-KDE-Library=kontact_summaryplugin
 X-KDE-KontactPluginVersion=7
 
 X-KDE-PluginInfo-Name=kontact_summaryplugin

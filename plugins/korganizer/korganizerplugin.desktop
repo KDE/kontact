@@ -1,10 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Service
-Icon=kontact_date
+Icon=kontact-date
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_korganizerplugin
+X-KDE-Library=kontact_korganizerplugin
 X-KDE-KontactPluginVersion=7
 X-KDE-KontactPartLibraryName=korganizerpart
 X-KDE-KontactPartExecutableName=korganizer

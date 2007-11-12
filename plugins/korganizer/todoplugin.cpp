@@ -51,7 +51,7 @@
 #include "calendarinterface.h"
 
 typedef KGenericFactory< TodoPlugin, Kontact::Core > TodoPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_todoplugin,
+K_EXPORT_COMPONENT_FACTORY( kontact_todoplugin,
                             TodoPluginFactory( "kontact_todoplugin" ) )
 
 TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )

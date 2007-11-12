@@ -30,7 +30,7 @@
 #include <maininterface.h>
 
 typedef KGenericFactory<KMobileToolsPlugin, Kontact::Core> KMobileToolsPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_kmobiletools,
+K_EXPORT_COMPONENT_FACTORY( kontact_kmobiletools,
                             KMobileToolsPluginFactory( "kontact_kmobiletools" ) )
 
 KMobileToolsPlugin::KMobileToolsPlugin( Kontact::Core *core, const QStringList& )

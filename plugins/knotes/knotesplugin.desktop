@@ -1,10 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Service
-Icon=kontact_notes
+Icon=kontact-notes
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_knotesplugin
+X-KDE-Library=kontact_knotesplugin
 X-KDE-KontactPluginVersion=7
 X-KDE-KontactPluginHasSummary=true
 

@@ -4,9 +4,9 @@ Type=Service
 Icon=akregator
 ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_akregator
+X-KDE-Library=kontact_akregator
 X-KDE-KontactPluginVersion=7
-X-KDE-KontactPartLibraryName=libakregatorpart
+X-KDE-KontactPartLibraryName=akregatorpart
 X-KDE-KontactPartLoadOnStart=false
 
 X-KDE-PluginInfo-Name=kontact_akregator
