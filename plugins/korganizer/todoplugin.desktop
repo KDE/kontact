@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Service
-Icon=kontact_todo
-ServiceTypes=Kontact/Plugin
+Icon=view-pim-tasks
+X-KDE-ServiceTypes=Kontact/Plugin
 
-X-KDE-Library=libkontact_todoplugin
+X-KDE-Library=kontact_todoplugin
 X-KDE-KontactPluginVersion=7
 X-KDE-KontactPartLibraryName=korganizerpart
 X-KDE-KontactPartExecutableName=korganizer

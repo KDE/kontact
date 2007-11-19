@@ -54,7 +54,7 @@ using namespace KCal;
 using namespace KPIM;
 
 typedef KGenericFactory<KMailPlugin, Kontact::Core> KMailPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_kmailplugin,
+K_EXPORT_COMPONENT_FACTORY( kontact_kmailplugin,
                             KMailPluginFactory( "kontact_kmailplugin" ) )
 
 KMailPlugin::KMailPlugin(Kontact::Core *core, const QStringList& )

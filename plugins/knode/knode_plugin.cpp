@@ -37,7 +37,7 @@
 #include <knodeinterface.h>
 
 typedef KGenericFactory<KNodePlugin, Kontact::Core> KNodePluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_knodeplugin,
+K_EXPORT_COMPONENT_FACTORY( kontact_knodeplugin,
                             KNodePluginFactory( "kontact_knodeplugin" ) )
 
 

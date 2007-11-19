@@ -11,7 +11,7 @@ set(kontact_korganizerplugin_PART_SRCS korganizerplugin.cpp apptsummarywidget.cp
 qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml  ${CMAKE_SOURCE_DIR}/korganizer/org.kde.korganizer.Korganizer.xml )
 
 
-kde4_add_plugin(kontact_korganizerplugin WITH_PREFIX ${kontact_korganizerplugin_PART_SRCS})
+kde4_add_plugin(kontact_korganizerplugin ${kontact_korganizerplugin_PART_SRCS})
 
 
 
@@ -27,7 +27,7 @@ set(kontact_todoplugin_PART_SRCS todoplugin.cpp todosummarywidget.cpp ${libcommo
 
 qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml  ${CMAKE_SOURCE_DIR}/korganizer/org.kde.korganizer.Korganizer.xml )
 
-kde4_add_plugin(kontact_todoplugin WITH_PREFIX ${kontact_todoplugin_PART_SRCS})
+kde4_add_plugin(kontact_todoplugin ${kontact_todoplugin_PART_SRCS})
 
 
 
@@ -43,7 +43,7 @@ set(kontact_journalplugin_PART_SRCS journalplugin.cpp ${libcommon_SRCS})
 
 qt4_add_dbus_interfaces(kontact_journalplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml )
 
-kde4_add_plugin(kontact_journalplugin WITH_PREFIX ${kontact_journalplugin_PART_SRCS})
+kde4_add_plugin(kontact_journalplugin ${kontact_journalplugin_PART_SRCS})
 
 
 

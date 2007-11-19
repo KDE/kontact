@@ -1,12 +1,11 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Service
 Icon=akregator
-ServiceTypes=Kontact/Plugin,KPluginInfo
+X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_akregator
+X-KDE-Library=kontact_akregator
 X-KDE-KontactPluginVersion=3
-X-KDE-KontactPartLibraryName=libakregatorpart
+X-KDE-KontactPartLibraryName=akregatorpart
 
 X-KDE-PluginInfo-Name=kontact_akregator
 X-KDE-PluginInfo-Version=1.0b2
@@ -74,7 +73,7 @@ Name[de]=Nachrichten
 Name[el]=Ροές
 Name[eo]=Fluoj
 Name[es]=Orígenes
-Name[et]=Kanalid
+Name[et]=Uudistevood
 Name[eu]=Iturriak
 Name[fa]=خوراندنها
 Name[fi]=Syötteet

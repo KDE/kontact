@@ -28,7 +28,7 @@
 #include "newsticker_plugin.h"
 
 typedef KGenericFactory< NewsTickerPlugin, Kontact::Core > NewsTickerPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_newstickerplugin,
+K_EXPORT_COMPONENT_FACTORY( kontact_newstickerplugin,
                             NewsTickerPluginFactory( "kontact_newstickerplugin" ) )
 
 NewsTickerPlugin::NewsTickerPlugin( Kontact::Core *core, const QStringList& )

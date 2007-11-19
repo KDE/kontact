@@ -23,7 +23,7 @@ set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp ${kontact_k
 
 
 
-kde4_add_plugin(kontact_kmailplugin WITH_PREFIX ${kontact_kmailplugin_PART_SRCS})
+kde4_add_plugin(kontact_kmailplugin ${kontact_kmailplugin_PART_SRCS})
 
 
 

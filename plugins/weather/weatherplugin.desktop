@@ -1,11 +1,10 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Service
 Icon=kweather
-ServiceTypes=Kontact/Plugin,KPluginInfo
+X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 TryExec=kweatherservice
 
-X-KDE-Library=libkontact_weatherplugin
+X-KDE-Library=kontact_weatherplugin
 X-KDE-KontactIdentifier=weather
 X-KDE-KontactPluginVersion=7
 X-KDE-KontactPluginHasSummary=true

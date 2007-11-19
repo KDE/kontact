@@ -1,12 +1,11 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Service
 Icon=kmobiletools
-ServiceTypes=Kontact/Plugin,KPluginInfo
+X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_kmobiletools
+X-KDE-Library=kontact_kmobiletools
 X-KDE-KontactPluginVersion=7
-X-KDE-KontactPartLibraryName=libkmobiletoolsmainpart
+X-KDE-KontactPartLibraryName=kmobiletoolsmainpart
 
 X-KDE-PluginInfo-Name=kontact_kmobiletools
 X-KDE-PluginInfo-Version=0.1
@@ -19,11 +18,13 @@ Comment[ca]=Connector del KMmobileTools
 Comment[de]=Modul für K-Mobiltelefonverwaltung
 Comment[el]=Πρόσθετο KMmobileTools
 Comment[es]=Plugin de KMobileTools
+Comment[et]=KMmobileToolsi plugin
 Comment[fa]=وصلۀ KMmobileTools
 Comment[ga]=Breiseán KMmobileTools
 Comment[it]=Plugin di KMobileTools
 Comment[ja]=KMobileTools プラグイン
 Comment[ko]=KMMobileTools 플러그인
+Comment[nds]=KMobileTools-Moduul
 Comment[ne]=KMmobile उपकरण प्लगइन
 Comment[nl]=KMmobileTools-plugin
 Comment[pa]=ਕੇ-ਮੋਬਾਇਲ ਸੰਦ ਪਲੱਗਇਨ
@@ -38,11 +39,13 @@ Name[ca]=Telèfons mòbils
 Name[de]=Mobiltelefone
 Name[el]=Κινητά τηλέφωνα
 Name[es]=Teléfonos móviles
+Name[et]=Mobiiltelefonid
 Name[fa]=تلفنهای همراه
 Name[ga]=Fóin Mhóibíleacha
 Name[it]=Telefoni cellulari
 Name[ja]=携帯電話
 Name[ko]=휴대폰
+Name[nds]=Mobiltelefonen
 Name[ne]=मोबाइल फोन
 Name[nl]=Mobiele telefoons
 Name[pa]=ਮੋਬਾਇਲ ਫੋਨ

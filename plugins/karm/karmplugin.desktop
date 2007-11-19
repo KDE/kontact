@@ -1,12 +1,11 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Service
 Icon=karm
-ServiceTypes=Kontact/Plugin,KPluginInfo
+X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_karm
+X-KDE-Library=kontact_karm
 X-KDE-KontactPluginVersion=7
-X-KDE-KontactPartLibraryName=libkarmpart
+X-KDE-KontactPartLibraryName=karmpart
 
 X-KDE-PluginInfo-Name=kontact_karm
 X-KDE-PluginInfo-Version=0.1
