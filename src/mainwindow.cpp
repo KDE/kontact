@@ -530,8 +530,10 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
       }
       removeChildClient( plugin );
 
-      if ( mCurrentPlugin == plugin )
+      if ( mCurrentPlugin == plugin ) {
         mCurrentPlugin = 0;
+        createGUI( 0 );
+      }
 
       delete plugin; // removes the part automatically
       mPlugins.erase( it );
