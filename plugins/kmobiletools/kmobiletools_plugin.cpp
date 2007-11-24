@@ -36,7 +36,7 @@ KMobileToolsPlugin::KMobileToolsPlugin( Kontact::Core *core, const QStringList &
   : Kontact::Plugin( core, core, "KMobileTools" ), partLoaded( false )
 {
   setComponentData( KMobileToolsPluginFactory::componentData() );
-  KAction *newaction = new KAction( i18n( "New SMS..." ), this );
+  KAction *newaction = new KAction( KIcon( "newsms" ), i18n( "New SMS..." ), this );
   actionCollection()->addAction( "newsms", newaction );
   newaction->setShortcut( QKeySequence( Qt::CTRL+Qt::SHIFT + Qt::Key_S ) );
   connect( newaction, SIGNAL(triggered(bool)),SLOT(slotNewSMS()) );
