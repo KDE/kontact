@@ -116,7 +116,9 @@ void Plugin::showPart()
 
 void Plugin::addFeed()
 {
-      m_interface->addFeed();
+    (void) part(); // ensure part is loaded
+    Q_ASSERT(m_interface);
+    m_interface->addFeed();
 }
 
 QStringList Plugin::configModules() const

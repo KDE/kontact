@@ -71,8 +71,9 @@ KParts::ReadOnlyPart* KMobileToolsPlugin::createPart()
 
 void KMobileToolsPlugin::slotNewSMS()
 {
-       m_interface->newSMS();
-//     if(kmtIface) kmtIface->newSMS();
+  (void) part(); // ensure part is loaded
+  Q_ASSERT(m_interface);
+  m_interface->newSMS();
 }
 
 #include "kmobiletools_plugin.moc"
