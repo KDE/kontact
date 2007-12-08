@@ -61,8 +61,10 @@ class SummaryWidget : public Kontact::Summary //, public DCOPObject
     int summaryHeight() const;
     QStringList configModules() const;
 
-#if 0
+#ifdef __GNUC__
 #warning Port me!
+#endif
+#if 0
   k_dcop:
     /**
      * Inform the newsticker summary widget that an RSSDocument has been updated.
@@ -77,8 +79,10 @@ class SummaryWidget : public Kontact::Summary //, public DCOPObject
      * Inform the newsticker summary widget that a feed has been removed.
      */
     void documentRemoved( QString );
-#if 0
+#ifdef __GNUC__
 #warning Port me!
+#endif
+#if 0
     /**
      * Inform the newsticker summary widget that an error occurred while
      * updating a feed.

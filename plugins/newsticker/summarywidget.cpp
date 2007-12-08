@@ -60,8 +60,10 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   vlay->addWidget( header );
 
   QString error;
-#if 0
+#ifdef __GNUC__
 #warning Port me!
+#endif
+#if 0
   DCOPCString appID;
 
   bool dcopAvailable = true;
@@ -82,8 +84,10 @@ SummaryWidget::SummaryWidget( QWidget *parent )
 
   readConfig();
 
-#if 0
+#ifdef __GNUC__
 #warning Port me!
+#endif
+#if 0
   connectDCOPSignal( 0, 0, "documentUpdateError(DCOPRef,int)", "documentUpdateError(DCOPRef, int)", false );
 
   if ( dcopAvailable )
@@ -129,8 +133,10 @@ void SummaryWidget::initDocuments()
 {
   mFeeds.clear();
 
-#if 0
+#ifdef __GNUC__
 #warning Port me!
+#endif
+#if 0
   DCOPRef dcopCall( "rssservice", "RSSService" );
   QStringList urls;
   dcopCall.call( "list()" ).get( urls );
@@ -169,8 +175,10 @@ void SummaryWidget::updateDocuments()
   mTimer.stop();
 
   FeedList::Iterator it;
-#if 0
+#ifdef __GNUC__
 #warning Port me!
+#endif
+#if 0
   for ( it = mFeeds.begin(); it != mFeeds.end(); ++it )
     (*it).ref.send( "refresh()" );
 #endif
@@ -178,8 +186,10 @@ void SummaryWidget::updateDocuments()
   mTimer.start( 1000 * mUpdateInterval );
 }
 
-#if 0
+#ifdef __GNUC__
 #warning Port me!
+#endif
+#if 0
 void SummaryWidget::documentUpdated( DCOPRef feedRef )
 {
   ArticleMap map;
@@ -288,8 +298,10 @@ void SummaryWidget::updateView()
     label->show();
 }
 
-#if 0
+#ifdef __GNUC__
 #warning Port me!
+#endif
+#if 0
 void SummaryWidget::documentUpdateError( DCOPRef feedRef, int errorCode )
 {
   kDebug() <<" error while updating document, error code:" << errorCode;
