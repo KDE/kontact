@@ -111,7 +111,9 @@ class KNotesIconView : public K3IconView
       KCal::CalendarLocal cal( KPIM::KPimPrefs::timeSpec() );
       KCal::Incidence *i = selectedItems.first()->journal()->clone();
       cal.addIncidence( i );
+#ifdef __GNUC__
 #warning Port me!
+#endif
 #if 0
       KCal::ICalDrag *icd = new KCal::ICalDrag( &cal, this );
       return icd;
