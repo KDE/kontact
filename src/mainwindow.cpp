@@ -370,7 +370,7 @@ void MainWindow::setupActions()
 
   mNewActions = new KToolBarPopupAction( KIcon(""), i18n( "New" ), this);
   actionCollection()->addAction("action_new", mNewActions);
-  mNewActions->setShortcut(KShortcut(KStandardShortcut::New));
+  mNewActions->setShortcut( KStandardShortcut::openNew() );
   connect(mNewActions, SIGNAL(triggered(bool)), this, SLOT( slotNewClicked() ));
 
   KConfig* const _cfg = Prefs::self()->config();
@@ -379,7 +379,7 @@ void MainWindow::setupActions()
 
   if ( mSyncActionsEnabled ) {
     mSyncActions = new KToolBarPopupAction( KIcon( "view-refresh" ), i18n( "Synchronize" ), this );
-    mSyncActions->setShortcut( KShortcut(KStandardShortcut::Reload) );
+    mSyncActions->setShortcut( KStandardShortcut::reload() );
     actionCollection()->addAction( "action_sync", mSyncActions );
     connect(mSyncActions, SIGNAL(triggered(bool)), this, SLOT(slotSyncClicked()) );
   }
