@@ -31,7 +31,7 @@ kde4_add_plugin(kontact_todoplugin ${kontact_todoplugin_PART_SRCS})
 
 
 
-kdepim4_link_unique_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar korganizer )
+kdepim4_link_unique_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} kpinterfaces korganizer_calendar korganizerprivate )
 
 install(TARGETS kontact_todoplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
