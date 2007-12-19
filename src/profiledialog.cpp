@@ -227,7 +227,7 @@ void Kontact::ProfileDialog::profileUpdated( const QString& id )
 
 void Kontact::ProfileDialog::addNewProfile()
 {
-    Kontact::Profile profile( Kontact::ProfileManager::self()->generateNewId() );
+    Kontact::Profile profile( Kontact::ProfileManager::self()->generateNewId(), true );
     profile.setName( i18n("New profile") );
     profile.setDescription( i18n("Enter description") );
     Kontact::ProfileManager::self()->addProfile( profile );

@@ -43,7 +43,7 @@ class Profile
 public:
     Profile();
 
-    explicit Profile( const QString& id );
+    explicit Profile( const QString& id, bool isLocal = false );
 
     QString id() const;
 
@@ -107,7 +107,7 @@ public:
 
     Kontact::Profile profileById( const QString& id ) const;
 
-    bool addProfile( const Kontact::Profile& profile );
+    bool addProfile( const Kontact::Profile& profile, bool syncConfig = true );
 
     void removeProfile( const Kontact::Profile& profile );
 

@@ -37,7 +37,7 @@
 #include <qstringlist.h>
 #include <qvaluelist.h>
 
-Kontact::Profile::Profile( const QString& id ) : m_id( id ), m_local( false )
+Kontact::Profile::Profile( const QString& id, bool isLocal ) : m_id( id ), m_local( isLocal )
 {
 }
 
@@ -205,7 +205,7 @@ void Kontact::ProfileManager::readConfig()
 
     for ( ProfileMap::ConstIterator it = profiles.begin(), end = profiles.end(); it != end; ++it )
     {
-        addProfile( *it );
+        addProfile( *it, false /*dont sync config */ );
     }
 }
 
@@ -249,7 +249,7 @@ void Kontact::ProfileManager::saveToProfile( const QString& id )
     emit saveToProfileRequested( id );
 }
 
-bool Kontact::ProfileManager::addProfile( const Kontact::Profile& profile )
+bool Kontact::ProfileManager::addProfile( const Kontact::Profile& profile, bool syncConfig )
 {
     const QString id = profile.id();
     if ( m_profiles.contains( id ) )
@@ -257,6 +257,10 @@ bool Kontact::ProfileManager::addProfile( const Kontact::Profile& profile )
     m_profiles[id] = profile;
     emit profileAdded( id );
     emit saveToProfileRequested( id );
+    if ( syncConfig ) {
+        writeProfileConfig( profile );
+    }
+
     return true;
 }
 
@@ -276,10 +280,15 @@ void Kontact::ProfileManager::removeProfile( const QString& id )
 {
     if ( !m_profiles.contains( id ) )
         return;
-    
+    Kontact::Profile profile = profileById( id );
+    if ( profile.isLocal() ) {
+        KURL location = KURL::fromPathOrURL( profile.saveLocation() );
+        KIO::DeleteJob* job = KIO::del( location, /*shred*/ false, /*showProgressInfo=*/false );
+        // TODO check result
+    }
     m_profiles.remove( id );
     emit profileRemoved( id );
-}
+ }
 
 Kontact::ProfileManager::ExportError Kontact::ProfileManager::exportProfileToDirectory( const QString& id, const QString& path )
 {
@@ -310,7 +319,6 @@ Kontact::ProfileManager::ImportError Kontact::ProfileManager::importProfileFromD
     const KURL source = KURL::fromPathOrURL( path );
     const KURL target = KURL::fromPathOrURL( profile.saveLocation() );
 
-    writeProfileConfig( profile );
     KIO::CopyJob* job = KIO::copy( source, target, /*showProgressInfo=*/false );
     // TODO better check for the copy result
 
