@@ -136,7 +136,10 @@ void KOrganizerPlugin::slotNewEvent()
 
 void KOrganizerPlugin::slotSyncEvents()
 {
-  QDBusMessage message = QDBusMessage::createSignal( "/Groupware", "org.kde.kmail", "triggerSync(QString)");
+  QDBusMessage message =
+      QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
+                                      "org.kde.kmail.groupware",
+                                      "triggerSync" );
   message << QString( "Calendar" );
   QDBusConnection::sessionBus().send( message );
 }
