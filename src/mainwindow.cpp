@@ -386,14 +386,14 @@ void MainWindow::setupActions()
 
     KAction *action  = new KAction(KIcon("configure"), i18n("Configure Kontact..."), this);
     actionCollection()->addAction("settings_configure_kontact", action );
-  connect(action, SIGNAL(triggered(bool)), SLOT( slotPreferences() ));
+    connect(action, SIGNAL(triggered(bool)), SLOT( slotPreferences() ));
 
     action  = new KAction(i18n("&Kontact Introduction"), this);
     actionCollection()->addAction("help_introduction", action );
-  connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowIntroduction() ));
+    connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowIntroduction() ));
     action  = new KAction(i18n("&Tip of the Day"), this);
     actionCollection()->addAction("help_tipofday", action );
-  connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowTip() ));
+    connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowTip() ));
 
   QWidgetAction* spacerAction = new QWidgetAction(this);
   QWidget* stretchWidget = new QWidget( this );
