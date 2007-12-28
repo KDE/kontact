@@ -478,14 +478,14 @@ void MainWindow::loadPlugins()
 
     for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
       kDebug(5600) <<"Plugging" << (*listIt)->objectName();
-      mNewActions->popupMenu()->addAction( (*listIt) );
+      mNewActions->menu()->addAction( (*listIt) );
     }
 
     actionList = plugin->syncActions();
     if ( mSyncActionsEnabled ) {
       Q_FOREACH( KAction* listIt, *actionList ) {
         kDebug(5600) <<"Plugging" << listIt->objectName();
-        mSyncActions->popupMenu()->addAction( listIt );
+        mSyncActions->menu()->addAction( listIt );
       }
     }
     addPlugin( plugin );
@@ -518,14 +518,14 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
 
       for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
         kDebug(5600) <<"Unplugging" << (*listIt)->objectName();
-        mNewActions->popupMenu()->removeAction( *listIt );
+        mNewActions->menu()->removeAction( *listIt );
       }
 
       if ( mSyncActionsEnabled ) {
         actionList = plugin->syncActions();
         for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
             kDebug(5600) <<"Unplugging" << (*listIt)->objectName();
-            mSyncActions->popupMenu()->removeAction( *listIt );
+            mSyncActions->menu()->removeAction( *listIt );
         }
       }
       removeChildClient( plugin );
