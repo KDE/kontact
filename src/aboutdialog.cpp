@@ -28,25 +28,18 @@
 #include "plugin.h"
 
 #include <klocale.h>
-#include <kiconloader.h>
 #include <kcomponentdata.h>
 #include <kaboutdata.h>
 #include <ktextbrowser.h>
 #include <kicon.h>
 #include <QLayout>
 #include <QLabel>
-//Added by qt3to4:
-#include <QTextEdit>
-#include <QPixmap>
-#include <QVBoxLayout>
-#include <QList>
-#include <QBoxLayout>
 
 #include <kdebug.h>
 
 using namespace Kontact;
 
-AboutDialog::AboutDialog( Kontact::Core *core, const char *name )
+AboutDialog::AboutDialog( Kontact::Core *core )
   : KPageDialog( core )
     ,mCore( core )
 {
@@ -76,8 +69,7 @@ void AboutDialog::addAboutPlugin( Kontact::Plugin *plugin )
 void AboutDialog::addAboutData( const QString &title, const QString &icon,
                                 const KAboutData *about )
 {
-  QIcon pixmap = KIconLoader::global()->loadIconSet( icon,
-                                                    KIconLoader::Desktop, 48 );
+  QIcon pixmap = KIcon( icon );
 
   QFrame *topFrame = new QFrame();
   KPageWidgetItem *pageItem = new KPageWidgetItem( topFrame, title );

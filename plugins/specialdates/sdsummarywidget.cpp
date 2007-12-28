@@ -587,9 +587,9 @@ void SDSummaryWidget::viewContact( const QString &uid )
 void SDSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
-  QAction *sendMailAction = popup.addAction( KIconLoader::global()->loadIcon( "kmail", KIconLoader::Small ),
+  QAction *sendMailAction = popup.addAction( KIconLoader::global()->loadIcon( "internet-mail", KIconLoader::Small ),
                     i18n( "Send &Mail" ));
-  QAction * viewContactAction = popup.addAction( KIconLoader::global()->loadIcon( "kaddressbook", KIconLoader::Small ),
+  QAction * viewContactAction = popup.addAction( KIconLoader::global()->loadIcon( "office-address-book", KIconLoader::Small ),
                     i18n( "View &Contact" ) );
 
   QAction *ret = popup.exec( QCursor::pos() );

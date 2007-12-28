@@ -78,7 +78,7 @@ class KPINTERFACES_EXPORT Core : public KParts::MainWindow
     void dayChanged( const QDate& );
 
   protected:
-    Core( QWidget *parentWidget = 0, const char *name = 0 );
+    Core( QWidget *parentWidget = 0, Qt::WindowFlags f = KDE_DEFAULT_WINDOWFLAGS );
 
     QString lastErrorMessage() const;
 

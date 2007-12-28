@@ -52,6 +52,7 @@
 #include <kxmlguiclient.h>
 #include <kxmlguifactory.h>
 #include <kxmlguibuilder.h>
+#include <kdeversion.h>
 
 #include <kcal/journal.h>
 #include <kcal/calendarlocal.h>
@@ -169,7 +170,13 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
       layout->addWidget( mTool );
       layout->addWidget( mNoteEdit );
 
-      actionCollection()->associateWidget( this );
+      actionCollection()->addAssociatedWidget( this );
+      foreach (QAction* action, actionCollection()->actions())
+#if QT_VERSION < KDE_MAKE_VERSION(4,4,0)
+        action->setShortcutContext(Qt::WidgetShortcut); // remove after Qt4.4 becomes mandatory
+#else
+        action->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+#endif
     }
 
     QString text() const

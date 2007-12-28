@@ -136,7 +136,10 @@ void KOrganizerPlugin::slotNewEvent()
 
 void KOrganizerPlugin::slotSyncEvents()
 {
-  QDBusMessage message = QDBusMessage::createSignal( "/Groupware", "org.kde.kmail", "triggerSync(QString)");
+  QDBusMessage message =
+      QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
+                                      "org.kde.kmail.groupware",
+                                      "triggerSync" );
   message << QString( "Calendar" );
   QDBusConnection::sessionBus().send( message );
 }
@@ -213,7 +216,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       QString uri = KDEPIMPROTOCOL_EMAIL + QString::number( mail.serialNumber() );
       tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openEventEditor( i18n("Mail: %1", mail.subject() ), txt,
-                                    uri, tf.name(), QStringList(), "message/rfc822" );
+                                    uri, tf.fileName(), QStringList(), "message/rfc822" );
       tf.close();
     }
     return;

@@ -37,8 +37,8 @@ public:
   QString lastErrorMessage;
 };
 
-Core::Core( QWidget *parent, const char *name )
-  : KParts::MainWindow( parent, name )
+Core::Core( QWidget *parent, Qt::WindowFlags f )
+  : KParts::MainWindow( parent, f )
 {
   d = new Private;
   QTimer* timer = new QTimer( this );

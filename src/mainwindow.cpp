@@ -373,7 +373,7 @@ void MainWindow::setupActions()
 
   mNewActions = new KToolBarPopupAction( KIcon(""), i18n( "New" ), this);
   actionCollection()->addAction("action_new", mNewActions);
-  mNewActions->setShortcut(KShortcut(KStandardShortcut::New));
+  mNewActions->setShortcut( KStandardShortcut::openNew() );
   connect(mNewActions, SIGNAL(triggered(bool)), this, SLOT( slotNewClicked() ));
 
   KConfig* const _cfg = Prefs::self()->config();
@@ -382,21 +382,21 @@ void MainWindow::setupActions()
 
   if ( mSyncActionsEnabled ) {
     mSyncActions = new KToolBarPopupAction( KIcon( "view-refresh" ), i18n( "Synchronize" ), this );
-    mSyncActions->setShortcut( KShortcut(KStandardShortcut::Reload) );
+    mSyncActions->setShortcut( KStandardShortcut::reload() );
     actionCollection()->addAction( "action_sync", mSyncActions );
     connect(mSyncActions, SIGNAL(triggered(bool)), this, SLOT(slotSyncClicked()) );
   }
 
     KAction *action  = new KAction(KIcon("configure"), i18n("Configure Kontact..."), this);
     actionCollection()->addAction("settings_configure_kontact", action );
-  connect(action, SIGNAL(triggered(bool)), SLOT( slotPreferences() ));
+    connect(action, SIGNAL(triggered(bool)), SLOT( slotPreferences() ));
 
     action  = new KAction(i18n("&Kontact Introduction"), this);
     actionCollection()->addAction("help_introduction", action );
-  connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowIntroduction() ));
+    connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowIntroduction() ));
     action  = new KAction(i18n("&Tip of the Day"), this);
     actionCollection()->addAction("help_tipofday", action );
-  connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowTip() ));
+    connect(action, SIGNAL(triggered(bool) ), SLOT( slotShowTip() ));
 
   QWidgetAction* spacerAction = new QWidgetAction(this);
   QWidget* stretchWidget = new QWidget( this );
@@ -481,14 +481,14 @@ void MainWindow::loadPlugins()
 
     for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
       kDebug(5600) <<"Plugging" << (*listIt)->objectName();
-      mNewActions->popupMenu()->addAction( (*listIt) );
+      mNewActions->menu()->addAction( (*listIt) );
     }
 
     actionList = plugin->syncActions();
     if ( mSyncActionsEnabled ) {
       Q_FOREACH( KAction* listIt, *actionList ) {
         kDebug(5600) <<"Plugging" << listIt->objectName();
-        mSyncActions->popupMenu()->addAction( listIt );
+        mSyncActions->menu()->addAction( listIt );
       }
     }
     addPlugin( plugin );
@@ -521,20 +521,22 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
 
       for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
         kDebug(5600) <<"Unplugging" << (*listIt)->objectName();
-        mNewActions->popupMenu()->removeAction( *listIt );
+        mNewActions->menu()->removeAction( *listIt );
       }
 
       if ( mSyncActionsEnabled ) {
         actionList = plugin->syncActions();
         for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
             kDebug(5600) <<"Unplugging" << (*listIt)->objectName();
-            mSyncActions->popupMenu()->removeAction( *listIt );
+            mSyncActions->menu()->removeAction( *listIt );
         }
       }
       removeChildClient( plugin );
 
-      if ( mCurrentPlugin == plugin )
+      if ( mCurrentPlugin == plugin ) {
         mCurrentPlugin = 0;
+        createGUI( 0 );
+      }
 
       delete plugin; // removes the part automatically
       mPlugins.erase( it );

@@ -17,7 +17,7 @@ qt4_generate_dbus_interface( ${folder_adaptor} org.kde.kmail.folder.xml )
 qt4_add_dbus_interface( interface_SRCS ${folder_adaptor_xml} kmail_folder_interface )
 
 set(kontact_kmail_plugins_interface_SRCS ${interface_SRCS})
-qt4_add_dbus_interfaces(kontact_kmail_plugins_interface_SRCS ${CMAKE_SOURCE_DIR}/kmail/org.kde.kmail.kmail.xml )
+qt4_add_dbus_interfaces(kontact_kmail_plugins_interface_SRCS ${CMAKE_BINARY_DIR}/kmail/org.kde.kmail.kmail.xml )
 
 set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp ${kontact_kmail_plugins_interface_SRCS})
 
@@ -29,6 +29,7 @@ kde4_add_plugin(kontact_kmailplugin ${kontact_kmailplugin_PART_SRCS})
 
 kdepim4_link_unique_libraries(kontact_kmailplugin ${KDE4_KPARTS_LIBS} kpinterfaces ${KDE4_KCAL_LIBS})
 
+add_dependencies(kontact_kmailplugin kmail)
 install(TARGETS kontact_kmailplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 add_dependencies(kontact_kmailplugin kmailprivate)
 

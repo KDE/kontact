@@ -139,7 +139,10 @@ void TodoPlugin::slotNewTodo()
 
 void TodoPlugin::slotSyncTodos()
 {
-  QDBusMessage message = QDBusMessage::createSignal( "/Groupware", "org.kde.kmail", "triggerSync(QString)");
+  QDBusMessage message =
+      QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
+                                      "org.kde.kmail.groupware",
+                                      "triggerSync" );
   message << QString( "Todo" );
   QDBusConnection::sessionBus().send( message );
 }
@@ -230,7 +233,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       tf.setAutoRemove( true );
       tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openTodoEditor( i18n("Mail: %1", mail.subject() ), txt,
-                                   uri, tf.name(), QStringList(), "message/rfc822" );
+                                   uri, tf.fileName(), QStringList(), "message/rfc822" );
       tf.close();
     }
     return;

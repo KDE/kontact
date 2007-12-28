@@ -94,7 +94,7 @@ void KCMKMailSummary::initGUI()
 
 void KCMKMailSummary::initFolders()
 {
-  org::kde::kmail::kmail kmail("org.kde.kmail", "/KMail", QDBusConnection::sessionBus());
+  org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
   QDBusReply<QStringList> lst = kmail.folderList();
 
   QStringList folderList(lst);
@@ -107,10 +107,10 @@ void KCMKMailSummary::initFolders()
     if ( (*it) == "/Local" )
       displayName = i18nc( "prefix for local folders", "Local" );
     else {
-      org::kde::kmail::kmail kmail(DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus());
+      org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
       QDBusReply<QString> ref = kmail.getFolder( *it );
       if ( ref.isValid() && !ref.value().isEmpty() ) {
-          OrgKdeKmailFolderInterface folderInterface(  DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus());
+          OrgKdeKmailFolderInterface folderInterface( DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus() );
           displayName = folderInterface.displayName();
       }
       else
