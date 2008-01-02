@@ -31,7 +31,7 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 
-#include <QtDBus>
+#include <QtDBus/QtDBus>
 
 #include <kaboutdata.h>
 #include <kacceleratormanager.h>
