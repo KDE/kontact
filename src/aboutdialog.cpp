@@ -169,7 +169,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
   if ( !about || about->license().isEmpty() )
     return;
 
-  QPixmap pixmap = KIconLoader::global()->loadIcon( "signature",
+  QPixmap pixmap = KIconLoader::global()->loadIcon( "help-about",
                                                     KIconLoader::Desktop, 48 );
 
   QString title = i18n( "%1 License", about->programName() );
