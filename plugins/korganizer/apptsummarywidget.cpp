@@ -187,7 +187,7 @@ void ApptSummaryWidget::updateView()
 
       // Start date label
       str = "";
-      QDate sD = QDate::QDate( dt.year(), dt.month(), dt.day() );
+      QDate sD = QDate( dt.year(), dt.month(), dt.day() );
       if ( ( sD.month() == currentDate.month() ) &&
            ( sD.day()   == currentDate.day() ) ) {
         str = i18n( "Today" );
@@ -261,10 +261,10 @@ void ApptSummaryWidget::updateView()
         QTime sET = ev->dtEnd().time();
         if ( ev->isMultiDay() ) {
           if ( ev->dtStart().date() < dt ) {
-            sST = QTime::QTime( 0, 0 );
+            sST = QTime( 0, 0 );
           }
           if ( ev->dtEnd().date() > dt ) {
-            sET = QTime::QTime( 23, 59 );
+            sET = QTime( 23, 59 );
           }
         }
         str = i18nc( "Time from - to", "%1 - %2" ,
