@@ -1,4 +1,3 @@
-
 include_directories(
 	${CMAKE_SOURCE_DIR}/kontact/interfaces
 	${CMAKE_SOURCE_DIR}/kmail
@@ -21,17 +20,13 @@ qt4_add_dbus_interfaces(kontact_kmail_plugins_interface_SRCS ${CMAKE_BINARY_DIR}
 
 set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp ${kontact_kmail_plugins_interface_SRCS})
 
-
-
 kde4_add_plugin(kontact_kmailplugin ${kontact_kmailplugin_PART_SRCS})
-
-
+add_dependencies(kontact_kmailplugin kmail)
+add_dependencies(kontact_kmailplugin kmailprivate)
 
 kdepim4_link_unique_libraries(kontact_kmailplugin ${KDE4_KPARTS_LIBS} kpinterfaces ${KDE4_KCAL_LIBS})
 
-add_dependencies(kontact_kmailplugin kmail)
 install(TARGETS kontact_kmailplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
-add_dependencies(kontact_kmailplugin kmailprivate)
 
 ########### next target ###############
 

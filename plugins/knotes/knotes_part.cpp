@@ -54,14 +54,14 @@ KNotesPart::KNotesPart( QObject *parent )
   actionCollection()->addAction("file_new", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( newNote() ));
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_N));
-  action  = new KAction(KIcon("text"), i18n("Rename..."), this);
+  action  = new KAction(KIcon("edit-rename"), i18n("Rename..."), this);
   actionCollection()->addAction("edit_rename", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( renameNote() ));
   action  = new KAction(KIcon("edit-delete"), i18n("Delete"), this);
   actionCollection()->addAction("edit_delete", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( killSelectedNotes() ));
   action->setShortcut(QKeySequence(Qt::Key_Delete));
-  action = new KAction( KIcon("print"), i18n( "Print Selected Notes..." ), this );
+  action = new KAction( KIcon("document-print"), i18n( "Print Selected Notes..." ), this );
   actionCollection()->addAction("print_note", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( printSelectedNotes() ));
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_Delete));
