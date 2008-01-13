@@ -64,7 +64,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mainLayout->setMargin( 3 );
 
   QPixmap icon = KIconLoader::global()->loadIcon( "kontact_date",
-                   KIconLoader::Desktop, KIconLoader::SizeMedium );
+                                                  KIconLoader::Desktop, KIconLoader::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Upcoming Events" ) );
   mainLayout->addWidget( header );
 
@@ -114,7 +114,7 @@ void ApptSummaryWidget::updateView()
   int counter = 0;
 
   KIconLoader loader( "korganizer" );
-  QPixmap pm = loader.loadIcon( "appointment", KIconLoader::Small );
+  QPixmap pm = loader.loadIcon( "view-calendar-day", KIconLoader::Small );
 
   QString str;
   QDate dt;
