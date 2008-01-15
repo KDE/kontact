@@ -13,6 +13,7 @@ qt4_add_dbus_interfaces(kontact_summaryplugin_PART_SRCS ${CMAKE_BINARY_DIR}/kmai
 
 
 kde4_add_plugin(kontact_summaryplugin ${kontact_summaryplugin_PART_SRCS})
+add_dependencies(kontact_summaryplugin kmail_xml)
 
 
 
