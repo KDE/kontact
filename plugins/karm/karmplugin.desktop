@@ -22,6 +22,7 @@ Comment[cs]=Modul KArm
 Comment[da]=KArm-plugin
 Comment[de]=Zeiterfassungskomponente in Kontact
 Comment[el]=Πρόσθετο του KArm
+Comment[eo]=KArm-kromaĵo
 Comment[es]=Extensión KArm
 Comment[et]=KArmi plugin
 Comment[eu]=KArm plugina
@@ -58,7 +59,6 @@ Comment[zh_TW]=KArm 外掛程式
 
 Name=Timer
 Name[af]=Karm
-Name[eo]=Tempomezurilo
 Name[hi]=के-आर्म
 Name[mk]=КРака
 Name[sv]=Karm
