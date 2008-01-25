@@ -1,0 +1,16 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=kontact_date
+Type=Service
+ServiceTypes=KCModule
+
+X-KDE-ModuleType=Library
+X-KDE-Library=planner
+X-KDE-FactoryName=planner
+X-KDE-ParentApp=kontact_plannerplugin
+X-KDE-ParentComponents=kontact_plannerplugin
+X-KDE-CfgDlgHierarchy=KontactSummary
+
+Name=Planner
+Comment=Planner Setup
+Keywords=calendar, todos, configure, settings

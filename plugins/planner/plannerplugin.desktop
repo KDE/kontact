@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+Icon=cookie
+ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=libkontact_plannerplugin
+X-KDE-KontactPluginVersion=5
+X-KDE-KontactPluginHasPart=false
+X-KDE-KontactPluginHasSummary=true
+
+X-KDE-PluginInfo-Name=kontact_plannerplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
+Name=Planner
+Comment=Planner Plugin
