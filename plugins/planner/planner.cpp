@@ -37,7 +37,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/part.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
 #include <libkcal/event.h>
@@ -64,8 +64,8 @@ Planner::Planner( PlannerPlugin *plugin, QWidget *parent,
   Q3VBoxLayout *mainLayout = new Q3VBoxLayout( this, 3, 3 );
 
   QPixmap icon =
-    KGlobal::iconLoader()->loadIcon( "kontact_date",
-                                     KIcon::Desktop, KIcon::SizeMedium );
+    KIconLoader::global()->loadIcon( "kontact_date",
+                                     KIconLoader::Desktop, KIconLoader::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Planner" ) );
   mainLayout->addWidget( header );
 
@@ -230,7 +230,7 @@ int Planner::showTodos(int counter, const QDate date)
       mLabels.append( label );
 
       QString percent = QString::number( todo->percentComplete() ) + '%';
-      KURLLabel *urlLabel = new KURLLabel( this );
+      KUrlLabel *urlLabel = new KUrlLabel( this );
       urlLabel->setText( percent );
       urlLabel->setURL( todo->uid() );
       if( stateText == i18n( "overdue" ) ){
@@ -241,7 +241,7 @@ int Planner::showTodos(int counter, const QDate date)
       mPlannerGrid->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
 
-      connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+      connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
                 this, SLOT( changePercentage( const QString& ) ) );
 
       QString string = todo->summary();
@@ -249,7 +249,7 @@ int Planner::showTodos(int counter, const QDate date)
         string = todo->relatedTo()->summary() + ":" + todo->summary();
       }
 
-      KURLLabel *urlLabel2 = new KURLLabel( this );
+      KUrlLabel *urlLabel2 = new KUrlLabel( this );
       urlLabel2->setText( string );
       urlLabel2->setURL( todo->uid() );
       urlLabel2->installEventFilter( this );
@@ -260,9 +260,9 @@ int Planner::showTodos(int counter, const QDate date)
       mPlannerGrid->addWidget( urlLabel2, counter, 4 );
       mLabels.append( urlLabel2 );
 
-      connect( urlLabel2, SIGNAL( leftClickedURL( const QString& ) ),
+      connect( urlLabel2, SIGNAL( leftClickedUrl( const QString& ) ),
                 this, SLOT( viewTodo( const QString& ) ) );
-      connect( urlLabel2, SIGNAL( rightClickedURL( const QString& ) ),
+      connect( urlLabel2, SIGNAL( rightClickedUrl( const QString& ) ),
                 this, SLOT( todoPopupMenu( const QString& ) ) );
 
       label = new QLabel( stateText, this );
@@ -429,7 +429,7 @@ int Planner::showEvents( int counter, const QDate date)
       if ( ev->isMultiDay() &&  !ev->doesFloat() ){
         newtext.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
       }
-      KURLLabel *urlLabel = new KURLLabel( this );
+      KUrlLabel *urlLabel = new KUrlLabel( this );
       urlLabel->setText( newtext );
       urlLabel->setURL( ev->uid() );
       urlLabel->installEventFilter( this );
@@ -438,9 +438,9 @@ int Planner::showEvents( int counter, const QDate date)
       mPlannerGrid->addWidget( urlLabel, counter, 4 );
       mLabels.append( urlLabel );
 
-      connect( urlLabel, SIGNAL( leftClickedURL( const QString& ) ),
+      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
                 this, SLOT( viewEvent( const QString& ) ) );
-      connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
+      connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
                 this, SLOT( eventPopupMenu( const QString& ) ) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
@@ -583,10 +583,10 @@ void Planner::removeEvent( const QString &uid )
 
 void Planner::eventPopupMenu( const QString &uid )
 {
-  KPopupMenu popup( this );
+  KMenu popup( this );
   QToolTip::remove( this );
   popup.insertItem( i18n( "&Edit Appointment..." ), 0 );
-  popup.insertItem( KGlobal::iconLoader()->loadIcon( "editdelete", KIcon::Small),
+  popup.insertItem( KIconLoader::global()->loadIcon( "editdelete", KIcon::Small),
                     i18n( "&Delete Appointment" ), 1 );
 
   switch ( popup.exec( QCursor::pos() ) ) {
@@ -601,8 +601,8 @@ void Planner::eventPopupMenu( const QString &uid )
 
 bool Planner::eventFilter( QObject *obj, QEvent *e )
 {
-  if ( obj->inherits( "KURLLabel" ) ) {
-    KURLLabel *label = static_cast<KURLLabel*>( obj );
+  if ( obj->inherits( "KUrlLabel" ) ) {
+    KUrlLabel *label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter ) {
       emit message( i18n( "Edit Appointment: \"%1\"" ).arg( label->text() ) );
     }
@@ -656,13 +656,13 @@ QString Planner::initStateText( const KCal::Todo *todo, const QDate date )
 
 void Planner::todoPopupMenu( const QString &uid )
 {
-  KPopupMenu popup( this );
+  KMenu popup( this );
   popup.insertItem( i18n( "&Edit To-do..." ), 0 );
-  popup.insertItem( KGlobal::iconLoader()->loadIcon( "editdelete", KIcon::Small),
+  popup.insertItem( KIconLoader::global()->loadIcon( "editdelete", KIcon::Small),
                     i18n( "&Delete To-do" ), 1 );
   KCal::Todo *todo = mCalendar->todo( uid );
   if ( !todo->isCompleted() ) {
-    popup.insertItem( KGlobal::iconLoader()->loadIcon( "checkedbox", KIcon::Small),
+    popup.insertItem( KIconLoader::global()->loadIcon( "checkedbox", KIcon::Small),
                       i18n( "&Mark To-do Completed" ), 2 );
   }
 
@@ -705,7 +705,7 @@ void Planner::completeTodo( const QString &uid )
 
 void Planner::changePercentage( const QString &uid )
 {
-  KPopupMenu popup( this );
+  KMenu popup( this );
   popup.insertItem( "0%", 0 );
   popup.insertItem( "10%", 1 );
   popup.insertItem( "20%", 2 );
@@ -740,8 +740,8 @@ void Planner::changePercentage( const QString &uid )
 
 bool Planner::todoEventFilter( QObject *obj, QEvent *e )
 {
-  if ( obj->inherits( "KURLLabel" ) ) {
-    KURLLabel *label = static_cast<KURLLabel*>( obj );
+  if ( obj->inherits( "KUrlLabel" ) ) {
+    KUrlLabel *label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter ) {
       emit message( i18n( "Edit To-do: \"%1\"" ).arg( label->text() ) );
     }
