@@ -20,42 +20,41 @@
   with any edition of Qt, and distribute the resulting executable,
   without including the source code for Qt in the source distribution.
 */
+#include "kcmplanner.h"
+
+#include <kdemacros.h>
+#include <kaboutdata.h>
+#include <kapplication.h>
+#include <kacceleratormanager.h>
+#include <kconfig.h>
+#include <kdebug.h>
+#include <kdialog.h>
+#include <klocale.h>
+#include <ktabwidget.h>
 
 #include <q3buttongroup.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qradiobutton.h>
 #include <qspinbox.h>
-#include <qtabwidget.h>
 #include <qcheckbox.h>
-//Added by qt3to4:
 #include <Q3HBoxLayout>
 #include <Q3VBoxLayout>
-
-#include <kaboutdata.h>
-#include <kapplication.h>
-#include <kacceleratormanager.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kdialogbase.h>
-#include <klocale.h>
-
-#include "kcmplanner.h"
-
-#include <kdepimmacros.h>
 
 extern "C"
 {
   KDE_EXPORT KCModule *create_planner( QWidget *parent, const char * )
   {
-    return new KCMPlanner( parent, "kcmplanner" );
+    KComponentData inst( "kcmplanner" );
+    return new KCMPlanner( inst, parent );
   }
 }
 
-KCMPlanner::KCMPlanner( QWidget *parent, const char *name )
-  : KCModule( parent, name )
+KCMPlanner::KCMPlanner( const KComponentData &inst, QWidget *parent )
+  : KCModule( inst, parent )
 {
-  initGUI();
+  QWidget *widget = new QWidget( parent );
+  initGUI( widget );
 
   customDaysChanged( 1 );
 
@@ -69,13 +68,13 @@ KCMPlanner::KCMPlanner( QWidget *parent, const char *name )
 
   load();
 
-  KAboutData *about = new KAboutData( I18N_NOOP( "kcmplanner" ),
-                                      I18N_NOOP( "Schedule Configuration Dialog" ),
-                                      0, 0, KAboutData::License_GPL,
-                                      I18N_NOOP( "(c) 2003 - 2004 Tobias Koenig" ) );
+  KAboutData *about = new KAboutData( I18N_NOOP( "kcmplanner" ), 0,
+                                      ki18n( "Schedule Configuration Dialog" ),
+                                      0, KLocalizedString(), KAboutData::License_GPL,
+                                      ki18n( "(c) 2007-2008 Oral Timocin" ) );
 
-  about->addAuthor( "Tobias Koenig", 0, "tokoe@kde.org" );
-  about->addAuthor( "Oral Timocin", 0, "oral.timocin@kdemail.net" );
+  about->addAuthor( ki18n( "Tobias Koenig" ), KLocalizedString(), "tokoe@kde.org" );
+  about->addAuthor( ki18n( "Allen Winter" ), KLocalizedString(), "winter@kde.org" );
   setAboutData( about );
 }
 
@@ -105,14 +104,14 @@ void KCMPlanner::buttonClicked( int id )
 
 void KCMPlanner::customDaysChanged( int value )
 {
-  mCustomDays->setSuffix( i18n( " day", " days", value ) );
+  mCustomDays->setSuffix( i18np( " day", " days", value ) );
 }
 
 /*
  *  If mShowAllTodos is true diasble all other options
  */
 
-void KCMPlanner::disableAll( bool state)
+void KCMPlanner::disableAll( bool state )
 {
   mShowTodayEndingTodos->setDisabled( state );
   mShowTodayEndingTodos->setChecked( false );
@@ -142,12 +141,10 @@ void KCMPlanner::initCalendarPage()
 {
   mCalendarPage = new QWidget( this );
 
-  Q3VBoxLayout *layout = new Q3VBoxLayout( mCalendarPage,
-                                            KDialog::spacingHint() );
+  Q3VBoxLayout *layout = new Q3VBoxLayout( mCalendarPage, KDialog::spacingHint() );
 
-  mCalendarGroup = new Q3ButtonGroup( 0, Vertical,  i18n( "Calendar View" ), mCalendarPage );
-  Q3VBoxLayout *boxLayout = new Q3VBoxLayout( mCalendarGroup->layout(), 
-                                                    KDialog::spacingHint() );
+  mCalendarGroup = new Q3ButtonGroup( 0, Qt::Vertical, i18n( "Calendar View" ), mCalendarPage );
+  Q3VBoxLayout *boxLayout = new Q3VBoxLayout( mCalendarGroup->layout(), KDialog::spacingHint() );
 
   QRadioButton *button = new QRadioButton( i18n( "One day" ), mCalendarGroup );
   boxLayout->addWidget( button );
@@ -172,7 +169,6 @@ void KCMPlanner::initCalendarPage()
 
   hbox->addStretch( 1 );
 
-
   layout->addWidget( mCalendarGroup );
   layout->addStretch();
 }
@@ -180,27 +176,26 @@ void KCMPlanner::initCalendarPage()
 void KCMPlanner::initTodoPage()
 {
   mTodoPage = new QWidget( this );
-  Q3VBoxLayout *layout = new Q3VBoxLayout( mTodoPage,
-                                            KDialog::spacingHint() );
+  Q3VBoxLayout *layout = new Q3VBoxLayout( mTodoPage, KDialog::spacingHint() );
 
-  mTodoGroup = new Q3GroupBox( 8, Vertical,  i18n( "Show To-dos?" ), mTodoPage );
+  mTodoGroup = new Q3GroupBox( 8, Qt::Vertical, i18n( "Show To-dos?" ), mTodoPage );
   mTodoGroup->setCheckable( true );
 
-  mShowAllTodos = new QCheckBox( i18n("Show all to-dos" ), mTodoGroup);
-  mShowOverdueTodos = new QCheckBox( i18n("Overdue To-dos" ), mTodoGroup);
-  mShowTodayStartingTodos = new QCheckBox( i18n("Starting to-dos" ), mTodoGroup);
-  mShowTodayEndingTodos = new QCheckBox( i18n("Ending to-dos" ), mTodoGroup);
-  mShowTodosInProgress = new QCheckBox( i18n("To-dos in progress" ), mTodoGroup);
-  mShowCompleted = new QCheckBox( i18n("Completed To-dos" ), mTodoGroup);
+  mShowAllTodos = new QCheckBox( i18n( "Show all to-dos" ), mTodoGroup );
+  mShowOverdueTodos = new QCheckBox( i18n( "Overdue To-dos" ), mTodoGroup );
+  mShowTodayStartingTodos = new QCheckBox( i18n( "Starting to-dos" ), mTodoGroup );
+  mShowTodayEndingTodos = new QCheckBox( i18n( "Ending to-dos" ), mTodoGroup );
+  mShowTodosInProgress = new QCheckBox( i18n( "To-dos in progress" ), mTodoGroup );
+  mShowCompleted = new QCheckBox( i18n( "Completed To-dos" ), mTodoGroup );
 
   Q3HBoxLayout *hbox = new Q3HBoxLayout( layout, KDialog::spacingHint() );
 
-  QLabel *label = new QLabel( "Priority Limit" , mTodoGroup);
+  QLabel *label = new QLabel( "Priority Limit", mTodoGroup );
   hbox->addWidget( label );
-  mPriority = new QSpinBox( 0, 9, 1, mTodoGroup);
+  mPriority = new QSpinBox( 0, 9, 1, mTodoGroup );
   hbox->addWidget( mPriority );
 
-  hbox->addStretch(2);
+  hbox->addStretch( 2 );
 
   connect( mTodoGroup, SIGNAL( toggled( bool ) ), SLOT( setTodo( bool ) ) );
   connect( mTodoGroup, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
@@ -220,9 +215,8 @@ void KCMPlanner::initTodoPage()
 void KCMPlanner::initSdPage()
 {
   mSdPage = new QWidget( this );
-  Q3VBoxLayout *layout = new Q3VBoxLayout( mSdPage,
-                                          KDialog::spacingHint() );
-  mSdGroup = new Q3GroupBox( 5, Vertical, i18n( "Show Special Dates?" ), mSdPage );
+  Q3VBoxLayout *layout = new Q3VBoxLayout( mSdPage, KDialog::spacingHint() );
+  mSdGroup = new Q3GroupBox( 5, Qt::Vertical, i18n( "Show Special Dates?" ), mSdPage );
   mSdGroup->setCheckable( true );
 
   connect( mSdGroup, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
@@ -236,16 +230,15 @@ void KCMPlanner::initSdPage()
   Initialization of Config Gui
 */
 
-void KCMPlanner::initGUI()
+void KCMPlanner::initGUI( QWidget *widget )
 {
-  Q3VBoxLayout *topLayout = new Q3VBoxLayout( this, 0,
-                                            KDialog::spacingHint() );
-  QTabWidget *tabWidget = new QTabWidget( this );
+  Q3VBoxLayout *topLayout = new Q3VBoxLayout( widget, 0, KDialog::spacingHint() );
+  KTabWidget *tabWidget = new KTabWidget( widget );
   topLayout->addWidget( tabWidget );
 
   //Build Calendar Page
   initCalendarPage();
-  //Build Todo Page 
+  //Build Todo Page
   initTodoPage();
   //Build Special Dates Pages
   initSdPage();
@@ -256,7 +249,7 @@ void KCMPlanner::initGUI()
 }
 
 /*
- *  Read Config Entrys
+ *  Read Config Entries
  */
 
 void KCMPlanner::load()
@@ -264,9 +257,9 @@ void KCMPlanner::load()
   KConfig config( "plannerrc" );
 
   //Read Calendar Config
-  config.setGroup( "Calendar" );
+  KConfigGroup group = config.group( "Calendar" );
 
-  int days = config.readNumEntry( "DaysToShow", 1 );
+  int days = group.readEntry( "DaysToShow", 1 );
   if ( days == 1 ) {
     mCalendarGroup->setButton( 0 );
   } else if ( days == 5 ) {
@@ -282,20 +275,20 @@ void KCMPlanner::load()
   }
 
   //Read Todo Config
-  config.setGroup( "Todo" );
-  mTodo = config.readBoolEntry( "Todo" );
+  group = config.group( "Todo" );
+  mTodo = group.readEntry( "Todo", true );
   mTodoGroup->setChecked( mTodo );
-  mShowAllTodos->setChecked( config.readBoolEntry( "ShowAllTodos" ) );
-  mShowTodayEndingTodos->setChecked( config.readBoolEntry( "ShowTodayEndingTodos" ) );
-  mShowTodosInProgress->setChecked( config.readBoolEntry( "ShowTodosInProgress" ) );
-  mShowTodayStartingTodos->setChecked( config.readBoolEntry( "ShowTodayStartingTodos" ) );
-  mShowOverdueTodos->setChecked( config.readBoolEntry( "ShowOverdueTodos" ) );
-  mShowCompleted->setChecked( config.readBoolEntry( "ShowCompleted" ) );
-  mPriority->setValue( config.readNumEntry( "MaxPriority" ) );
+  mShowAllTodos->setChecked( group.readEntry( "ShowAllTodos", true ) );
+  mShowTodayEndingTodos->setChecked( group.readEntry( "ShowTodayEndingTodos", true ) );
+  mShowTodosInProgress->setChecked( group.readEntry( "ShowTodosInProgress", true ) );
+  mShowTodayStartingTodos->setChecked( group.readEntry( "ShowTodayStartingTodos", true ) );
+  mShowOverdueTodos->setChecked( group.readEntry( "ShowOverdueTodos", true ) );
+  mShowCompleted->setChecked( group.readEntry( "ShowCompleted", true ) );
+  mPriority->setValue( group.readEntry( "MaxPriority", 0 ) );
 
   //Read Special Dates Config
-  config.setGroup( "SpecialDates" );
-  mSd = config.readBoolEntry( "SpecialDates" ) ;
+  group = config.group( "SpecialDates" );
+  mSd = group.readEntry( "SpecialDates", true ) ;
 
   emit changed( false );
 }
@@ -307,31 +300,41 @@ void KCMPlanner::load()
 void KCMPlanner::save()
 {
   KConfig config( "plannerrc" );
-  config.setGroup( "Calendar" );
+  KConfigGroup group = config.group( "Calendar" );
 
   int days;
   switch ( mCalendarGroup->selectedId() ) {
-  case 0: days = 1; break;
-  case 1: days = 5; break;
-  case 2: days = 7; break;
-  case 3: days = 31; break;
+  case 0:
+    days = 1;
+    break;
+  case 1:
+    days = 5;
+    break;
+  case 2:
+    days = 7;
+    break;
+  case 3:
+    days = 31;
+    break;
   case 4:
-  default: days = mCustomDays->value(); break;
+  default:
+    days = mCustomDays->value();
+    break;
   }
-  config.writeEntry( "DaysToShow", days );
+  group.writeEntry( "DaysToShow", days );
 
-  config.setGroup( "Todo" );
-  config.writeEntry( "Todo", mTodo );
-  config.writeEntry( "ShowAllTodos", mShowAllTodos->isChecked() );
-  config.writeEntry( "ShowTodayEndingTodos", mShowTodayEndingTodos->isChecked() );
-  config.writeEntry( "ShowTodosInProgress", mShowTodosInProgress->isChecked() );
-  config.writeEntry( "ShowTodayStartingTodos", mShowTodayStartingTodos->isChecked() );
-  config.writeEntry( "ShowOverdueTodos", mShowOverdueTodos->isChecked() );
-  config.writeEntry( "ShowCompleted", mShowCompleted->isChecked() );
-  config.writeEntry( "MaxPriority", mPriority->value() );
+  config.group( "Todo" );
+  group.writeEntry( "Todo", mTodo );
+  group.writeEntry( "ShowAllTodos", mShowAllTodos->isChecked() );
+  group.writeEntry( "ShowTodayEndingTodos", mShowTodayEndingTodos->isChecked() );
+  group.writeEntry( "ShowTodosInProgress", mShowTodosInProgress->isChecked() );
+  group.writeEntry( "ShowTodayStartingTodos", mShowTodayStartingTodos->isChecked() );
+  group.writeEntry( "ShowOverdueTodos", mShowOverdueTodos->isChecked() );
+  group.writeEntry( "ShowCompleted", mShowCompleted->isChecked() );
+  group.writeEntry( "MaxPriority", mPriority->value() );
 
-  config.setGroup( "SpecialDates" );
-  config.writeEntry( "SpecialDates", mSd );
+  config.group( "SpecialDates" );
+  group.writeEntry( "SpecialDates", mSd );
 
   config.sync();
 

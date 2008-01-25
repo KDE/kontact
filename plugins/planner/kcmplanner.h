@@ -26,15 +26,17 @@
 
 #include <kcmodule.h>
 
-class QSpinxBox;
 class Q3ButtonGroup;
+class QCheckBox;
+class Q3GroupBox;
+class QSpinBox;
 
 class KCMPlanner : public KCModule
 {
   Q_OBJECT
 
   public:
-    KCMPlanner( QWidget *parent = 0, const char *name = 0 );
+    explicit KCMPlanner( const KComponentData &inst, QWidget *parent = 0 );
 
     virtual void load();
     virtual void save();
@@ -49,7 +51,7 @@ class KCMPlanner : public KCModule
     void setSd( bool );
 
   private:
-    void initGUI();
+    void initGUI( QWidget *w );
     void initCalendarPage();
     void initTodoPage();
     void initSdPage();
