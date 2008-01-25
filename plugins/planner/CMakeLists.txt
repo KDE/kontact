@@ -1,3 +1,4 @@
+add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 
 include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/libkdepim  )
 
