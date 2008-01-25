@@ -26,6 +26,11 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qtooltip.h>
+//Added by qt3to4:
+#include <Q3GridLayout>
+#include <QPixmap>
+#include <QEvent>
+#include <Q3VBoxLayout>
 
 #include <kdialog.h>
 #include <kglobal.h>
@@ -56,7 +61,7 @@ Planner::Planner( PlannerPlugin *plugin, QWidget *parent,
                   const char *name )
   : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 )
 {
-  QVBoxLayout *mainLayout = new QVBoxLayout( this, 3, 3 );
+  Q3VBoxLayout *mainLayout = new Q3VBoxLayout( this, 3, 3 );
 
   QPixmap icon =
     KGlobal::iconLoader()->loadIcon( "kontact_date",
@@ -64,7 +69,7 @@ Planner::Planner( PlannerPlugin *plugin, QWidget *parent,
   QWidget *header = createHeader( this, icon, i18n( "Planner" ) );
   mainLayout->addWidget( header );
 
-  mLayout = new QGridLayout( mainLayout, 8, 5, 3 );
+  mLayout = new Q3GridLayout( mainLayout, 8, 5, 3 );
   mLayout->setRowStretch( 6, 1 );
   mainLayout->addStretch();
 
@@ -528,8 +533,8 @@ void Planner::updateView()
       mLabels.append( label );
 
       ++counter;
-      QVBoxLayout *todoLayout = new QVBoxLayout( this, 3, 3 );
-      mPlannerGrid = new QGridLayout ( todoLayout, 7 , 6, 3 );
+      Q3VBoxLayout *todoLayout = new Q3VBoxLayout( this, 3, 3 );
+      mPlannerGrid = new Q3GridLayout ( todoLayout, 7 , 6, 3 );
       mPlannerGrid->setRowStretch( 6, 1 );
       todoLayout->addStretch();
       mLayout->addMultiCellLayout( todoLayout, counter, counter, 0, 4 );

@@ -21,13 +21,16 @@
   without including the source code for Qt in the source distribution.
 */
 
-#include <qbuttongroup.h>
+#include <q3buttongroup.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qradiobutton.h>
 #include <qspinbox.h>
 #include <qtabwidget.h>
 #include <qcheckbox.h>
+//Added by qt3to4:
+#include <Q3HBoxLayout>
+#include <Q3VBoxLayout>
 
 #include <kaboutdata.h>
 #include <kapplication.h>
@@ -139,11 +142,11 @@ void KCMPlanner::initCalendarPage()
 {
   mCalendarPage = new QWidget( this );
 
-  QVBoxLayout *layout = new QVBoxLayout( mCalendarPage,
+  Q3VBoxLayout *layout = new Q3VBoxLayout( mCalendarPage,
                                             KDialog::spacingHint() );
 
-  mCalendarGroup = new QButtonGroup( 0, Vertical,  i18n( "Calendar View" ), mCalendarPage );
-  QVBoxLayout *boxLayout = new QVBoxLayout( mCalendarGroup->layout(), 
+  mCalendarGroup = new Q3ButtonGroup( 0, Vertical,  i18n( "Calendar View" ), mCalendarPage );
+  Q3VBoxLayout *boxLayout = new Q3VBoxLayout( mCalendarGroup->layout(), 
                                                     KDialog::spacingHint() );
 
   QRadioButton *button = new QRadioButton( i18n( "One day" ), mCalendarGroup );
@@ -158,7 +161,7 @@ void KCMPlanner::initCalendarPage()
   button = new QRadioButton( i18n( "One month" ), mCalendarGroup );
   boxLayout->addWidget( button );
 
-  QHBoxLayout *hbox = new QHBoxLayout( boxLayout, KDialog::spacingHint() );
+  Q3HBoxLayout *hbox = new Q3HBoxLayout( boxLayout, KDialog::spacingHint() );
 
   button = new QRadioButton( "", mCalendarGroup );
   hbox->addWidget( button );
@@ -177,10 +180,10 @@ void KCMPlanner::initCalendarPage()
 void KCMPlanner::initTodoPage()
 {
   mTodoPage = new QWidget( this );
-  QVBoxLayout *layout = new QVBoxLayout( mTodoPage,
+  Q3VBoxLayout *layout = new Q3VBoxLayout( mTodoPage,
                                             KDialog::spacingHint() );
 
-  mTodoGroup = new QGroupBox( 8, Vertical,  i18n( "Show To-dos?" ), mTodoPage );
+  mTodoGroup = new Q3GroupBox( 8, Vertical,  i18n( "Show To-dos?" ), mTodoPage );
   mTodoGroup->setCheckable( true );
 
   mShowAllTodos = new QCheckBox( i18n("Show all to-dos" ), mTodoGroup);
@@ -190,7 +193,7 @@ void KCMPlanner::initTodoPage()
   mShowTodosInProgress = new QCheckBox( i18n("To-dos in progress" ), mTodoGroup);
   mShowCompleted = new QCheckBox( i18n("Completed To-dos" ), mTodoGroup);
 
-  QHBoxLayout *hbox = new QHBoxLayout( layout, KDialog::spacingHint() );
+  Q3HBoxLayout *hbox = new Q3HBoxLayout( layout, KDialog::spacingHint() );
 
   QLabel *label = new QLabel( "Priority Limit" , mTodoGroup);
   hbox->addWidget( label );
@@ -217,9 +220,9 @@ void KCMPlanner::initTodoPage()
 void KCMPlanner::initSdPage()
 {
   mSdPage = new QWidget( this );
-  QVBoxLayout *layout = new QVBoxLayout( mSdPage,
+  Q3VBoxLayout *layout = new Q3VBoxLayout( mSdPage,
                                           KDialog::spacingHint() );
-  mSdGroup = new QGroupBox( 5, Vertical, i18n( "Show Special Dates?" ), mSdPage );
+  mSdGroup = new Q3GroupBox( 5, Vertical, i18n( "Show Special Dates?" ), mSdPage );
   mSdGroup->setCheckable( true );
 
   connect( mSdGroup, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
@@ -235,7 +238,7 @@ void KCMPlanner::initSdPage()
 
 void KCMPlanner::initGUI()
 {
-  QVBoxLayout *topLayout = new QVBoxLayout( this, 0,
+  Q3VBoxLayout *topLayout = new Q3VBoxLayout( this, 0,
                                             KDialog::spacingHint() );
   QTabWidget *tabWidget = new QTabWidget( this );
   topLayout->addWidget( tabWidget );

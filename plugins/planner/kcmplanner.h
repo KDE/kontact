@@ -27,7 +27,7 @@
 #include <kcmodule.h>
 
 class QSpinxBox;
-class QButtonGroup;
+class Q3ButtonGroup;
 
 class KCMPlanner : public KCModule
 {
@@ -57,10 +57,10 @@ class KCMPlanner : public KCModule
     QWidget *mCalendarPage;
     QWidget *mTodoPage;
     QWidget *mSdPage;
-    QButtonGroup *mCalendarGroup;
-    QGroupBox *mTodoGroup;
+    Q3ButtonGroup *mCalendarGroup;
+    Q3GroupBox *mTodoGroup;
     QSpinBox *mCustomDays;
-    QGroupBox *mSdGroup;
+    Q3GroupBox *mSdGroup;
 
     bool mTodo;
     QCheckBox *mShowAllTodos;

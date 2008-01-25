@@ -24,15 +24,19 @@
 #ifndef PLANNERWIDGET_H
 #define PLANNERWIDGET_H
 
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qwidget.h>
+//Added by qt3to4:
+#include <Q3GridLayout>
+#include <QEvent>
+#include <QLabel>
 
 #include <libkcal/calendarresources.h>
 #include <libkholidays/kholidays.h>
 
 #include "summary.h"
 
-class QGridLayout;
+class Q3GridLayout;
 class QLabel;
 
 class PlannerPlugin;
@@ -89,9 +93,9 @@ class Planner : public Kontact::Summary
 
     bool mShowSd;
     Kontact::Plugin *mPlugin;
-    QGridLayout *mLayout;
-    QGridLayout *mPlannerGrid;
-    QPtrList<QLabel> mLabels;
+    Q3GridLayout *mLayout;
+    Q3GridLayout *mPlannerGrid;
+    Q3PtrList<QLabel> mLabels;
     KCal::CalendarResources *mCalendar;
     KCal::Todo::List mTodos;
     QString initStateText( const KCal::Todo *todo, const QDate date );
