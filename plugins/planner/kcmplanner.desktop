@@ -1,8 +1,7 @@
 [Desktop Entry]
-Encoding=UTF-8
-Icon=kontact_date
+Icon=view-pim-calendar
 Type=Service
-ServiceTypes=KCModule
+X-KDE-ServiceTypes=KCModule
 
 X-KDE-ModuleType=Library
 X-KDE-Library=planner
@@ -13,4 +12,4 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Planner
 Comment=Planner Setup
-Keywords=calendar, todos, configure, settings
+X-KDE-Keywords=calendar, todos, configure, settings

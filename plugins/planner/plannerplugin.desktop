@@ -1,8 +1,7 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Service
 Icon=cookie
-ServiceTypes=Kontact/Plugin,KPluginInfo
+X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=libkontact_plannerplugin
 X-KDE-KontactPluginVersion=5
