@@ -22,26 +22,25 @@
   without including the source code for Qt in the source distribution.
 */
 
+#include "plannerplugin.h"
+#include "planner.h"
+
+#include "core.h"
+
+#include <kparts/componentfactory.h>
 #include <kaboutdata.h>
 #include <kgenericfactory.h>
 #include <klocale.h>
-#include <kparts/componentfactory.h>
-
-#include "core.h"
-#include "planner.h"
-
-#include "plannerplugin.h"
 
 typedef KGenericFactory< PlannerPlugin, Kontact::Core > PlannerPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( libkontact_plannerplugin,
+K_EXPORT_COMPONENT_FACTORY( kontact_plannerplugin,
                             PlannerPluginFactory( "kontact_plannerplugin" ) )
 
-  PlannerPlugin::PlannerPlugin( Kontact::Core *core,
-                                const char *name, const QStringList & )
-    : Kontact::Plugin( core, core, name ),
-      mAboutData( 0 )
+PlannerPlugin::PlannerPlugin( Kontact::Core *core, const QStringList & )
+  : Kontact::Plugin( core, core, 0 ),
+    mAboutData( 0 )
 {
-  setInstance( PlannerPluginFactory::instance() );
+  setComponentData( PlannerPluginFactory::componentData() );
 }
 
 PlannerPlugin::~PlannerPlugin()
@@ -56,15 +55,18 @@ Kontact::Summary *PlannerPlugin::createSummaryWidget( QWidget *parentWidget )
 const KAboutData *PlannerPlugin::aboutData()
 {
   if ( !mAboutData ) {
-    mAboutData = new KAboutData( "planner",
-                                 I18N_NOOP( "Planner Summary" ),
+    mAboutData = new KAboutData( "planner", 0,
+                                 ki18n( "Planner Summary" ),
                                  "1.0",
-                                 I18N_NOOP( "Kontact Planner Summary" ),
+                                 ki18n( "Kontact Planner Summary" ),
                                  KAboutData::License_LGPL,
-                                 I18N_NOOP( "(c) 2004-2005 The KDE PIM Team" ) );
-    mAboutData->addAuthor( "Allen Winter", "Current Maintainer", "winter@kde.org" );
-    mAboutData->addAuthor( "Tobias Koenig", "", "tokoe@kde.org" );
-    mAboutData->addAuthor( "Oral Timocin", "", "oral.timocin@kdemail.net" );
+                                 ki18n( "(c) 2004-2005 The KDE PIM Team" ) );
+    mAboutData->addAuthor( ki18n( "Allen Winter" ),
+                           ki18n( "Current Maintainer" ), "winter@kde.org" );
+    mAboutData->addAuthor( ki18n( "Tobias Koenig" ),
+                           KLocalizedString(), "tokoe@kde.org" );
+    mAboutData->addAuthor( ki18n( "Oral Timocin" ),
+                           KLocalizedString(), "oral.timocin@kdemail.net" );
     mAboutData->setProductName( "kontact/planner" );
   }
 

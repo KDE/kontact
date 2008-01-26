@@ -32,7 +32,7 @@ class Planner;
 class PlannerPlugin : public Kontact::Plugin
 {
   public:
-    PlannerPlugin( Kontact::Core *core, const char *name, const QStringList & );
+    PlannerPlugin( Kontact::Core *core, const QStringList & );
     ~PlannerPlugin();
 
     int weight() const { return 310; }
@@ -42,7 +42,7 @@ class PlannerPlugin : public Kontact::Plugin
 
   protected:
     virtual KParts::ReadOnlyPart *createPart()
-      { return false; }
+    { return false; }
 
   private:
     KAboutData *mAboutData;
