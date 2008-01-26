@@ -276,19 +276,19 @@ void KCMPlanner::load()
 
   //Read Todo Config
   group = config.group( "Todo" );
-  mTodo = group.readEntry( "Todo", true );
+  mTodo = group.readEntry( "Todo", false );
   mTodoGroup->setChecked( mTodo );
-  mShowAllTodos->setChecked( group.readEntry( "ShowAllTodos", true ) );
-  mShowTodayEndingTodos->setChecked( group.readEntry( "ShowTodayEndingTodos", true ) );
-  mShowTodosInProgress->setChecked( group.readEntry( "ShowTodosInProgress", true ) );
-  mShowTodayStartingTodos->setChecked( group.readEntry( "ShowTodayStartingTodos", true ) );
-  mShowOverdueTodos->setChecked( group.readEntry( "ShowOverdueTodos", true ) );
-  mShowCompleted->setChecked( group.readEntry( "ShowCompleted", true ) );
+  mShowAllTodos->setChecked( group.readEntry( "ShowAllTodos", false ) );
+  mShowTodayEndingTodos->setChecked( group.readEntry( "ShowTodayEndingTodos", false ) );
+  mShowTodosInProgress->setChecked( group.readEntry( "ShowTodosInProgress", false ) );
+  mShowTodayStartingTodos->setChecked( group.readEntry( "ShowTodayStartingTodos", false ) );
+  mShowOverdueTodos->setChecked( group.readEntry( "ShowOverdueTodos", false ) );
+  mShowCompleted->setChecked( group.readEntry( "ShowCompleted", false ) );
   mPriority->setValue( group.readEntry( "MaxPriority", 0 ) );
 
   //Read Special Dates Config
   group = config.group( "SpecialDates" );
-  mSd = group.readEntry( "SpecialDates", true ) ;
+  mSd = group.readEntry( "SpecialDates", false ) ;
 
   emit changed( false );
 }

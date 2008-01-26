@@ -1,13 +1,13 @@
 add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 
-include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/libkdepim  )
+include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/libkdepim ${CMAKE_SOURCE_DIR}/korganizer ${CMAKE_SOURCE_DIR}/korganizer/interfaces )
 
 
 ########### next target ###############
 
 set(kontact_plannerplugin_PART_SRCS plannerplugin.cpp planner.cpp )
 
-qt4_add_dbus_interfaces(kontact_plannerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kaddressbook/org.kde.KAddressbook.Core.xml )
+qt4_add_dbus_interfaces(kontact_plannerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml  ${CMAKE_SOURCE_DIR}/korganizer/org.kde.korganizer.Korganizer.xml )
 
 kde4_add_plugin(kontact_plannerplugin ${kontact_plannerplugin_PART_SRCS})
 

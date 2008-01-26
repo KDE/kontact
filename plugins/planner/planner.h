@@ -37,14 +37,17 @@
 
 class Q3GridLayout;
 class QLabel;
-class PlannerPlugin;
+
+namespace Kontact {
+  class Plugin;
+}
 
 class Planner : public Kontact::Summary
 {
   Q_OBJECT
 
   public:
-    Planner( PlannerPlugin *plugin, QWidget *parent, const char *name = 0 );
+    Planner( Kontact::Plugin *plugin, QWidget *parent );
     ~Planner();
 
     int summaryHeight() const { return 3; }
@@ -61,11 +64,11 @@ class Planner : public Kontact::Summary
     virtual bool todoEventFilter( QObject *obj, QEvent *e );
 
   private slots:
-    void initTodoList( const QDate date );
-    int showTodos( int counter, const QDate date );
-    void initEventList( const QDate date );
-    int showEvents( int counter, const QDate date );
-    void initSdList( const QDate date );
+    void initTodoList( const QDate &date );
+    int showTodos( int counter, const QDate &date );
+    void initEventList( const QDate &date );
+    int showEvents( int counter, const QDate &date );
+    void initSdList( const QDate &date );
     int showSd( int counter );
     void updateView();
 
@@ -98,7 +101,7 @@ class Planner : public Kontact::Summary
     Q3PtrList<QLabel> mLabels;
     KCal::CalendarResources *mCalendar;
     KCal::Todo::List mTodos;
-    QString initStateText( const KCal::Todo *todo, const QDate date );
+    QString initStateText( const KCal::Todo *todo, const QDate &date );
 };
 
 #endif
