@@ -22,32 +22,7 @@
   without including the source code for Qt in the source distribution.
 */
 
-#include <qcursor.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qtooltip.h>
-//Added by qt3to4:
-#include <Q3GridLayout>
-#include <QPixmap>
-#include <QEvent>
-#include <Q3VBoxLayout>
-
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kparts/part.h>
-#include <kmenu.h>
-#include <kstandarddirs.h>
-#include <kurllabel.h>
-#include <libkcal/event.h>
-#include <libkcal/todo.h>
-#include <libkcal/incidence.h>
-#include <libkcal/resourcecalendar.h>
-#include <libkcal/resourcelocal.h>
-#include <libkcal/incidenceformatter.h>
-#include <libkdepim/kpimprefs.h>
-#include <libkholidays/kholidays.h>
+#include "planner.h"
 
 #include "core.h"
 #include "plugin.h"
@@ -55,10 +30,35 @@
 #include "korganizer/stdcalendar.h"
 #include "korganizeriface_stub.h"
 
-#include "planner.h"
+#include <kcal/event.h>
+#include <kcal/todo.h>
+#include <kcal/incidence.h>
+#include <kcal/resourcecalendar.h>
+#include <kcal/resourcelocal.h>
+#include <kcal/incidenceformatter.h>
 
-Planner::Planner( PlannerPlugin *plugin, QWidget *parent,
-                  const char *name )
+#include <libkdepim/kpimprefs.h>
+#include <libkholidays/kholidays.h>
+
+#include <kparts/part.h>
+#include <kdialog.h>
+#include <kglobal.h>
+#include <kiconloader.h>
+#include <klocale.h>
+#include <kmenu.h>
+#include <kstandarddirs.h>
+#include <kurllabel.h>
+
+#include <qcursor.h>
+#include <qlabel.h>
+#include <qlayout.h>
+#include <qtooltip.h>
+#include <Q3GridLayout>
+#include <QPixmap>
+#include <QEvent>
+#include <Q3VBoxLayout>
+
+Planner::Planner( PlannerPlugin *plugin, QWidget *parent, const char *name )
   : Kontact::Summary( parent, name ), mPlugin( plugin ), mCalendar( 0 )
 {
   Q3VBoxLayout *mainLayout = new Q3VBoxLayout( this, 3, 3 );
@@ -134,7 +134,7 @@ void Planner::initTodoList( const QDate date )
   }
   if( mPriority > 0 ){
     KCal::Todo::List priorityList;
-    for( td = todos.begin() ; td != todos.end(); ++td){
+    for ( td = todos.begin(); td != todos.end(); ++td ) {
       todo = *td;
       if ( todo->priority() <= mPriority ) {
         priorityList.append( todo );
@@ -142,34 +142,33 @@ void Planner::initTodoList( const QDate date )
     }
     todos = priorityList;
   }
-  if( mShowOverdueTodos ){
-    for( td = todos.begin() ; td != todos.end(); ++td){
+  if ( mShowOverdueTodos ) {
+    for ( td = todos.begin(); td != todos.end(); ++td ) {
       todo = *td;
       if ( todo->hasDueDate() && !todo->isCompleted() &&
-          todo->dtDue().date() < date && date == currentDate ) {
+           todo->dtDue().date() < date && date == currentDate ) {
         mTodos.append( todo );
       }
     }
   }
-  if( mShowTodayEndingTodos ){
-    for( td = todos.begin() ; td != todos.end(); ++td){
+  if ( mShowTodayEndingTodos ) {
+    for ( td = todos.begin(); td != todos.end(); ++td ) {
       todo = *td;
       if ( todo->hasDueDate() && todo->dtDue().date() == date && !todo->isCompleted() ){
         mTodos.append( todo );
       }
     }
   }
-  if( mShowTodayStartingTodos ){
-    for( td = todos.begin() ; td != todos.end(); ++td){
+  if ( mShowTodayStartingTodos ) {
+    for ( td = todos.begin(); td != todos.end(); ++td ) {
       todo = *td;
-      if ( todo->hasStartDate() && todo->dtStart().date() == date &&
-          !todo->isCompleted() ) {
+      if ( todo->hasStartDate() && todo->dtStart().date() == date && !todo->isCompleted() ) {
         mTodos.append( todo );
       }
     }
   }
-  if( mShowTodosInProgress ){
-    for( td = todos.begin() ; td != todos.end(); ++td){
+  if ( mShowTodosInProgress ) {
+    for ( td = todos.begin(); td != todos.end(); ++td ) {
       todo = *td;
       if ( todo->hasStartDate() && todo->hasDueDate() &&
        todo->dtStart().date() < date &&
@@ -179,17 +178,17 @@ void Planner::initTodoList( const QDate date )
       }
     }
   }
-  if( mShowCompleted ){
-    for( td = todos.begin() ; td != todos.end(); ++td){
+  if ( mShowCompleted ) {
+    for ( td = todos.begin(); td != todos.end(); ++td ) {
       todo = *td;
-      if ( todo->isCompleted() && date == currentDate){
+      if ( todo->isCompleted() && date == currentDate ) {
         mTodos.append( todo );
       }
     }
   }
 }
 
-int Planner::showTodos(int counter, const QDate date)
+int Planner::showTodos( int counter, const QDate date )
 {
   KIconLoader loader( "kdepim" );
   initTodoList( date );
@@ -201,7 +200,7 @@ int Planner::showTodos(int counter, const QDate date)
     ++counter;
     for ( ; td != mTodos.end() ; ++td ) {
       todo = *td;
-      QString stateText = initStateText ( todo , date );
+      QString stateText = initStateText ( todo, date );
       QPixmap todoPm = loader.loadIcon( "kontact_todo", KIcon::Small );
       QLabel *label = new QLabel( this );
       label->setPixmap( todoPm );
@@ -282,7 +281,7 @@ int Planner::showTodos(int counter, const QDate date)
   return counter;
 }
 
-void Planner::initEventList( const QDate date)
+void Planner::initEventList( const QDate date )
 {
   mEvents.setAutoDelete( true );
   mEvents.clear();
@@ -311,16 +310,14 @@ void Planner::initEventList( const QDate date)
   // sort the events for this date by start date
   mEvents = KCal::Calendar::sortEvents( &mEvents, KCal::EventSortStartDate,
                                         KCal::SortDirectionAscending );
-
-
 }
 
-int Planner::showEvents( int counter, const QDate date)
+int Planner::showEvents( int counter, const QDate date )
 {
   KIconLoader loader( "kdepim" );
   initEventList( date );
 
-  if( !mEvents.empty() ){
+  if ( !mEvents.empty() ) {
     KCal::Event *ev;
     KCal::Event::List::ConstIterator it;
     QDate currentDate = QDate::currentDate();
@@ -333,18 +330,19 @@ int Planner::showEvents( int counter, const QDate date)
       ev = *it;
 
       // Count number of days remaining in multiday event
-      int span=1; int dayof=1;
-      if ( ev->isMultiDay() ){
+      int span = 1;
+      int dayof = 1;
+      if ( ev->isMultiDay() ) {
         QDate d = ev->dtStart().date();
-        if ( d < currentDate ){
+        if ( d < currentDate ) {
           d = currentDate;
         }
-        while ( d < ev->dtEnd().date() ){
-          if ( d < date ){
+        while ( d < ev->dtEnd().date() ) {
+          if ( d < date ) {
             dayof++;
           }
           span++;
-          d=d.addDays( 1 );
+          d = d.addDays( 1 );
         }
       }
 
@@ -362,7 +360,6 @@ int Planner::showEvents( int counter, const QDate date)
       label->setAlignment( AlignTop );
       mPlannerGrid->addWidget( label, counter, 0 );
       mLabels.append( label );
-
 
       //Show icon if Event recurs
       QPixmap recur;
@@ -414,9 +411,9 @@ int Planner::showEvents( int counter, const QDate date)
           }
         }
 
-        datestr = i18n( "Time from - to", "%1 - %2" )
-                  .arg( KGlobal::locale()->formatTime( sST ) )
-                  .arg( KGlobal::locale()->formatTime( sET ) );
+        datestr = i18nc( "Time from - to", "%1 - %2" ).
+                  arg( KGlobal::locale()->formatTime( sST ) ).
+                  arg( KGlobal::locale()->formatTime( sET ) );
         label = new QLabel( datestr, this );
         label->setAlignment( AlignLeft | AlignTop );
         label->setMaximumWidth( label->minimumSizeHint().width() );
@@ -427,24 +424,23 @@ int Planner::showEvents( int counter, const QDate date)
       // Fill Event Summary Field
       QString newtext = ev->summary();
       if ( ev->isMultiDay() &&  !ev->doesFloat() ){
-        newtext.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
+        newtext.append( QString( " (%1/%2)" ).arg( dayof ).arg( span ) );
       }
       KUrlLabel *urlLabel = new KUrlLabel( this );
       urlLabel->setText( newtext );
       urlLabel->setURL( ev->uid() );
       urlLabel->installEventFilter( this );
-      urlLabel->setAlignment( AlignLeft | AlignTop |
-                                Qt::WordBreak );
+      urlLabel->setAlignment( AlignLeft | AlignTop | Qt::WordBreak );
       mPlannerGrid->addWidget( urlLabel, counter, 4 );
       mLabels.append( urlLabel );
 
-      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
-                this, SLOT( viewEvent( const QString& ) ) );
-      connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
-                this, SLOT( eventPopupMenu( const QString& ) ) );
+      connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
+                this, SLOT(viewEvent(const QString&)) );
+      connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
+                this, SLOT(eventPopupMenu(const QString&)) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
-      if ( !tipText.isEmpty() ){
+      if ( !tipText.isEmpty() ) {
         QToolTip::add( urlLabel, tipText );
       }
 
@@ -454,12 +450,11 @@ int Planner::showEvents( int counter, const QDate date)
   return counter;
 }
 
-void Planner::initSdList( const QDate date)
+void Planner::initSdList( const QDate date )
 {
-
 }
 
-int Planner::showSd(int counter)
+int Planner::showSd( int counter )
 {
   return counter;
 }
@@ -488,7 +483,7 @@ void Planner::updateView()
     initEventList( dt );
 
     // Fill Appointment Pixmap Field
-    if ( !mEvents.empty() || (!mTodos.empty() && mShowTodos) ){
+    if ( !mEvents.empty() || ( !mTodos.empty() && mShowTodos ) ) {
       ++counter;
       label = new QLabel( this );
       label->setPaletteBackgroundColor( gray.light() );
@@ -515,7 +510,7 @@ void Planner::updateView()
         datestr = i18n( "Today" );
         makeBold = true;
       } else if ( ( sD.month() == currentDate.addDays( 1 ).month() ) &&
-                  ( sD.day()   == currentDate.addDays( 1 ).day() ) ){
+                  ( sD.day()   == currentDate.addDays( 1 ).day() ) ) {
         datestr = i18n( "Tomorrow" );
       } else {
         datestr = KGlobal::locale()->formatDate( sD );
@@ -534,15 +529,15 @@ void Planner::updateView()
 
       ++counter;
       Q3VBoxLayout *todoLayout = new Q3VBoxLayout( this, 3, 3 );
-      mPlannerGrid = new Q3GridLayout ( todoLayout, 7 , 6, 3 );
+      mPlannerGrid = new Q3GridLayout ( todoLayout, 7, 6, 3 );
       mPlannerGrid->setRowStretch( 6, 1 );
       todoLayout->addStretch();
       mLayout->addMultiCellLayout( todoLayout, counter, counter, 0, 4 );
 
-      if( !mTodos.empty() && mShowTodos){
-        counter = showTodos( counter , dt );
+      if ( !mTodos.empty() && mShowTodos ) {
+        counter = showTodos( counter, dt );
       }
-      if( !mEvents.empty() ){
+      if ( !mEvents.empty() ) {
         counter = showEvents( counter, dt );
       }
     }
@@ -550,9 +545,9 @@ void Planner::updateView()
 
   if ( !counter ) {
     QLabel *noEvents = new QLabel(
-      i18n( "No appointments pending within the next day",
-            "No appointments pending within the next %n days",
-            mDays ), this, "nothing to see" );
+      i18np( "No appointments pending within the next day",
+             "No appointments pending within the next %n days", mDays ),
+      this, "nothing to see" );
     noEvents->setAlignment( AlignHCenter | AlignVCenter );
     mLayout->addWidget( noEvents, 0, 2 );
     mLabels.append( noEvents );
@@ -562,10 +557,6 @@ void Planner::updateView()
     label->show();
   }
 }
-
-/*
- *      Event Section Begin
- */
 
 void Planner::viewEvent( const QString &uid )
 {
@@ -586,7 +577,7 @@ void Planner::eventPopupMenu( const QString &uid )
   KMenu popup( this );
   QToolTip::remove( this );
   popup.insertItem( i18n( "&Edit Appointment..." ), 0 );
-  popup.insertItem( KIconLoader::global()->loadIcon( "editdelete", KIcon::Small),
+  popup.insertItem( KIconLoader::global()->loadIcon( "editdelete", KIcon::Small ),
                     i18n( "&Delete Appointment" ), 1 );
 
   switch ( popup.exec( QCursor::pos() ) ) {
@@ -613,14 +604,6 @@ bool Planner::eventFilter( QObject *obj, QEvent *e )
 
   return Kontact::Summary::eventFilter( obj, e );
 }
-
-/*
- *      Event Section End
- */
-
-/*
- *      Todo Section Begin
- */
 
 QString Planner::initStateText( const KCal::Todo *todo, const QDate date )
 {
@@ -658,11 +641,11 @@ void Planner::todoPopupMenu( const QString &uid )
 {
   KMenu popup( this );
   popup.insertItem( i18n( "&Edit To-do..." ), 0 );
-  popup.insertItem( KIconLoader::global()->loadIcon( "editdelete", KIcon::Small),
+  popup.insertItem( KIconLoader::global()->loadIcon( "editdelete", KIcon::Small ),
                     i18n( "&Delete To-do" ), 1 );
   KCal::Todo *todo = mCalendar->todo( uid );
   if ( !todo->isCompleted() ) {
-    popup.insertItem( KIconLoader::global()->loadIcon( "checkedbox", KIcon::Small),
+    popup.insertItem( KIconLoader::global()->loadIcon( "checkedbox", KIcon::Small ),
                       i18n( "&Mark To-do Completed" ), 2 );
   }
 
@@ -719,19 +702,41 @@ void Planner::changePercentage( const QString &uid )
   popup.insertItem( "100%", 10 );
 
   KCal::Todo *todo = mCalendar->todo( uid );
-  if ( !todo->isReadOnly() && mCalendar->beginChange( todo )) {
+  if ( !todo->isReadOnly() && mCalendar->beginChange( todo ) ) {
     switch ( popup.exec( QCursor::pos() ) ) {
-      case 0: todo->setPercentComplete( 0 ) ;break;
-      case 1: todo->setPercentComplete( 10 ) ;break;
-      case 2: todo->setPercentComplete( 20 ) ;break;
-      case 3: todo->setPercentComplete( 30 ) ;break;
-      case 4: todo->setPercentComplete( 40 ) ;break;
-      case 5: todo->setPercentComplete( 50 ) ;break;
-      case 6: todo->setPercentComplete( 60 ) ;break;
-      case 7: todo->setPercentComplete( 70 ) ;break;
-      case 8: todo->setPercentComplete( 80 ) ;break;
-      case 9: todo->setPercentComplete( 90 ) ;break;
-      case 10: todo->setCompleted( true ) ;break;
+    case 0:
+      todo->setPercentComplete( 0 );
+      break;
+    case 1:
+      todo->setPercentComplete( 10 );
+      break;
+    case 2:
+      todo->setPercentComplete( 20 );
+      break;
+    case 3:
+      todo->setPercentComplete( 30 );
+      break;
+    case 4:
+      todo->setPercentComplete( 40 );
+      break;
+    case 5:
+      todo->setPercentComplete( 50 );
+      break;
+    case 6:
+      todo->setPercentComplete( 60 );
+      break;
+    case 7:
+      todo->setPercentComplete( 70 );
+      break;
+    case 8:
+      todo->setPercentComplete( 80 );
+      break;
+    case 9:
+      todo->setPercentComplete( 90 );
+      break;
+    case 10:
+      todo->setCompleted( true );
+      break;
     }
   mCalendar->endChange( todo );
   updateView();

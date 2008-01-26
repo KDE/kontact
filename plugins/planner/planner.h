@@ -24,21 +24,19 @@
 #ifndef PLANNERWIDGET_H
 #define PLANNERWIDGET_H
 
+#include "summary.h"
+
+#include <kcal/calendarresources.h>
+#include <libkholidays/kholidays.h>
+
 #include <q3ptrlist.h>
 #include <qwidget.h>
-//Added by qt3to4:
 #include <Q3GridLayout>
 #include <QEvent>
 #include <QLabel>
 
-#include <libkcal/calendarresources.h>
-#include <libkholidays/kholidays.h>
-
-#include "summary.h"
-
 class Q3GridLayout;
 class QLabel;
-
 class PlannerPlugin;
 
 class Planner : public Kontact::Summary
@@ -46,15 +44,17 @@ class Planner : public Kontact::Summary
   Q_OBJECT
 
   public:
-    Planner( PlannerPlugin *plugin, QWidget *parent,
-             const char *name = 0 );
+    Planner( PlannerPlugin *plugin, QWidget *parent, const char *name = 0 );
     ~Planner();
 
     int summaryHeight() const { return 3; }
     QStringList configModules() const;
     void configUpdated();
     void updateSummary( bool force = false )
-      { Q_UNUSED( force ); updateView(); }
+    {
+      Q_UNUSED( force );
+      updateView();
+    }
 
   protected:
     virtual bool eventFilter( QObject *obj, QEvent *e );
@@ -63,9 +63,9 @@ class Planner : public Kontact::Summary
   private slots:
     void initTodoList( const QDate date );
     int showTodos( int counter, const QDate date );
-    void initEventList( const QDate date);
-    int showEvents( int counter, const QDate date);
-    void initSdList( const QDate date);
+    void initEventList( const QDate date );
+    int showEvents( int counter, const QDate date );
+    void initSdList( const QDate date );
     int showSd( int counter );
     void updateView();
 
@@ -88,7 +88,7 @@ class Planner : public Kontact::Summary
     bool mShowTodayStartingTodos;
     bool mShowOverdueTodos;
     bool mShowCompleted;
-    
+
     KCal::Event::List mEvents;
 
     bool mShowSd;
