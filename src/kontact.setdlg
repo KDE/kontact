@@ -300,7 +300,7 @@ Comment[kk]=Адрестік кітапша компоненті
 Comment[ko]=주소록 구성 요소
 Comment[lt]=Adresų knygelės komponentas
 Comment[mk]=Компонента за адресар
-Comment[ms]=Komponen Buku Alamat
+Comment[ms]=Komponen Buku Alamat 
 Comment[nb]=Adressebok-komponent
 Comment[nds]=Adressbook-Komponent
 Comment[ne]=ठेगाना पुस्तिका अवयव
@@ -424,6 +424,8 @@ Icon=cookie
 
 [Planner]
 Name=Planner
+Name[ga]=Pleanálaí
+Name[zh_TW]=行事曆
 Comment=Planner Summary
 Weight=350
 Icon=cookie
@@ -728,7 +730,7 @@ Name[ta]=செய்திகள் குறிப்பான்
 Name[tg]=Ахборот
 Name[tr]=Haber İzleyici
 Name[uk]=Стрічка новин
-Name[vi]=Trình kiểm tra news
+Name[vi]=Trình kiểm tra news 
 Name[x-test]=xxNews Tickerxx
 Name[xh]=Umchola-choli weendaba
 Name[zh_CN]=新闻点点通

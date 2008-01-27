@@ -11,5 +11,10 @@ X-KDE-ParentComponents=kontact_plannerplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Planner
+Name[ga]=Pleanálaí
+Name[zh_TW]=行事曆
 Comment=Planner Setup
+Comment[ga]=Socrú Pleanálaí
+Comment[nds]=Planner inrichten
+Comment[zh_TW]=行事曆設定
 X-KDE-Keywords=calendar, todos, configure, settings
