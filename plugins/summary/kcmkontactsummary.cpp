@@ -139,6 +139,7 @@ void KCMKontactSummary::load()
     activeSummaries << "kontact_kmailplugin";
     activeSummaries << "kontact_weatherplugin";
     activeSummaries << "kontact_newstickerplugin";
+    activeSummaries << "kontact_plannerplugin";
   } else {
     activeSummaries = grp.readEntry( "ActiveSummaries" , QStringList() );
   }

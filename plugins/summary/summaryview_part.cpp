@@ -152,6 +152,7 @@ void SummaryViewPart::updateWidgets()
     activeSummaries << "kontact_korganizerplugin";
     activeSummaries << "kontact_todoplugin";
     activeSummaries << "kontact_newstickerplugin";
+    activeSummaries << "kontact_plannerplugin";
   } else {
     activeSummaries = grp.readEntry( "ActiveSummaries" , QStringList() );
   }
@@ -405,6 +406,7 @@ void SummaryViewPart::loadLayout()
     mLeftColumnSummaries << "kontact_todoplugin";
     mLeftColumnSummaries << "kontact_kaddressbookplugin";
     mLeftColumnSummaries << "kontact_specialdatesplugin";
+    mLeftColumnSummaries << "kontact_plannerplugin";
   } else {
     mLeftColumnSummaries = grp.readEntry( "LeftColumnSummaries" , QStringList() );
   }

@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Service
-Icon=cookie
+Icon=cookies
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=libkontact_plannerplugin
-X-KDE-KontactPluginVersion=5
+X-KDE-Library=kontact_plannerplugin
+X-KDE-KontactPluginVersion=7
 X-KDE-KontactPluginHasPart=false
 X-KDE-KontactPluginHasSummary=true
 
