@@ -24,6 +24,7 @@
 
 #include <qwidget.h>
 #include <qdragobject.h>
+#include <qfile.h>
 
 #include <kapplication.h>
 #include <kabc/vcardconverter.h>
@@ -33,9 +34,15 @@
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <dcopclient.h>
+#include <dcopref.h>
+#include <ktempfile.h>
+
+#include <libkcal/calendarlocal.h>
+#include <libkcal/icaldrag.h>
 
 #include <libkdepim/maillistdrag.h>
 #include <libkdepim/kvcarddrag.h>
+#include <libkdepim/kpimprefs.h>
 
 #include "core.h"
 
@@ -57,6 +64,10 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const char *, const QStringList& )
   insertNewAction( new KAction( i18n( "New To-do..." ), "newtodo",
                    CTRL+SHIFT+Key_T, this, SLOT( slotNewTodo() ), actionCollection(),
                    "new_todo" ) );
+
+  insertSyncAction( new KAction( i18n( "Synchronize To-do List" ), "reload",
+                   0, this, SLOT( slotSyncTodos() ), actionCollection(),
+                   "todo_sync" ) );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
@@ -120,6 +131,12 @@ void TodoPlugin::slotNewTodo()
   interface()->openTodoEditor( "" );
 }
 
+void TodoPlugin::slotSyncTodos()
+{
+  DCOPRef ref( "kmail", "KMailICalIface" );
+  ref.send( "triggerSync", QString("Todo") );
+}
+
 bool TodoPlugin::createDCOPInterface( const QString& serviceType )
 {
   kdDebug(5602) << k_funcinfo << serviceType << endl;
@@ -165,6 +182,20 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
+  if ( KCal::ICalDrag::canDecode( event) ) {
+    KCal::CalendarLocal cal( KPimPrefs::timezone() );
+    if ( KCal::ICalDrag::decode( event, &cal ) ) {
+      KCal::Journal::List journals = cal.journals();
+      if ( !journals.isEmpty() ) {
+        event->accept();
+        KCal::Journal *j = journals.first();
+        interface()->openTodoEditor( i18n("Note: %1").arg( j->summary() ), j->description(), QString() );
+        return;
+      }
+      // else fall through to text decoding
+    }
+  }
+
   if ( QTextDrag::decode( event, text ) ) {
     interface()->openTodoEditor( text );
     return;
@@ -179,10 +210,15 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       KPIM::MailSummary mail = mails.first();
       QString txt = i18n("From: %1\nTo: %2\nSubject: %3").arg( mail.from() )
                     .arg( mail.to() ).arg( mail.subject() );
+
+      KTempFile tf;
+      tf.setAutoDelete( true );
       QString uri = "kmail:" + QString::number( mail.serialNumber() ) + "/" +
                     mail.messageId();
+      tf.file()->writeBlock( event->encodedData( "message/rfc822" ) );
+      tf.close();
       interface()->openTodoEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
-                                   uri );
+                                   uri, tf.name(), QStringList(), "message/rfc822" );
     }
     return;
   }

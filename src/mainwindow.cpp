@@ -21,6 +21,8 @@
 */
 
 #include <qcombobox.h>
+#include <qdockarea.h>
+#include <qguardedptr.h>
 #include <qhbox.h>
 #include <qimage.h>
 #include <qobjectlist.h>
@@ -65,12 +67,16 @@
 #include <kaboutdata.h>
 #include <kmenubar.h>
 #include <kstdaccel.h>
+#include <kcmultidialog.h>
+#include <kipc.h>
 
 #include "aboutdialog.h"
 #include "iconsidepane.h"
 #include "mainwindow.h"
 #include "plugin.h"
 #include "prefs.h"
+#include "profiledialog.h"
+#include "profilemanager.h"
 #include "progressdialog.h"
 #include "statusbarprogresswidget.h"
 #include "broadcaststatus.h"
@@ -91,13 +97,13 @@ class SettingsDialogWrapper : public KSettings::Dialog
       QObject *object = widget->child( "KJanusWidget::buttonBelowList" );
       QPushButton *button = static_cast<QPushButton*>( object );
       if ( button )
-        button->setText( i18n( "Select Components..." ) );
+        button->setText( i18n( "Select Components ..." ) );
     }
 };
 
 MainWindow::MainWindow()
   : Kontact::Core(), mTopWidget( 0 ), mSplitter( 0 ),
-    mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false )
+    mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false ), mSyncActionsEnabled( true )
 {
   // Set this to be the group leader for all subdialogs - this means
   // modal subdialogs will only affect this dialog, not the other windows
@@ -126,6 +132,11 @@ void MainWindow::initGUI()
 
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
+
+  connect( Kontact::ProfileManager::self(), SIGNAL( profileLoaded( const QString& ) ), 
+           this, SLOT( slotLoadProfile( const QString& ) ) );
+  connect( Kontact::ProfileManager::self(), SIGNAL( saveToProfileRequested( const QString& ) ), 
+           this, SLOT( slotSaveToProfile( const QString& ) ) );
 }
 
 
@@ -140,7 +151,6 @@ void MainWindow::initObject()
   for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
     ( *it )->load();
   }
-
 
   // prepare the part manager
   mPartManager = new KParts::PartManager( this );
@@ -319,8 +329,20 @@ void MainWindow::setupActions()
                                          KStdAccel::shortcut(KStdAccel::New), this, SLOT( slotNewClicked() ),
                                          actionCollection(), "action_new" );
 
+  KConfig* const cfg = Prefs::self()->config();
+  cfg->setGroup( "Kontact Groupware Settings" );
+  mSyncActionsEnabled = cfg->readBoolEntry( "GroupwareMailFoldersEnabled", true );
+
+  if ( mSyncActionsEnabled ) {
+    mSyncActions = new KToolBarPopupAction( KGuiItem( i18n( "Synchronize" ), "kitchensync" ),
+                                            KStdAccel::shortcut(KStdAccel::Reload), this, SLOT( slotSyncClicked() ),
+                                            actionCollection(), "action_sync" );
+  }
   new KAction( i18n( "Configure Kontact..." ), "configure", 0, this, SLOT( slotPreferences() ),
                actionCollection(), "settings_configure_kontact" );
+
+  new KAction( i18n( "Configure &Profiles..." ), 0, this, SLOT( slotConfigureProfiles() ),
+               actionCollection(), "settings_configure_kontact_profiles" );
 
   new KAction( i18n( "&Kontact Introduction" ), 0, this, SLOT( slotShowIntroduction() ),
                actionCollection(), "help_introduction" );
@@ -328,6 +350,100 @@ void MainWindow::setupActions()
                actionCollection(), "help_tipofday" );
   new KAction( i18n( "&Request Feature..." ), 0, this, SLOT( slotRequestFeature() ),
                actionCollection(), "help_requestfeature" );
+  
+  KWidgetAction* spacerAction = new KWidgetAction( new QWidget( this ), "SpacerAction", "", 0, 0, actionCollection(), "navigator_spacer_item" );
+  spacerAction->setAutoSized( true );
+}
+
+void MainWindow::slotConfigureProfiles()
+{
+  QGuardedPtr<Kontact::ProfileDialog> dlg = new Kontact::ProfileDialog( this );
+  dlg->setModal( true );
+  dlg->exec();
+  delete dlg;
+}
+
+namespace {
+    void copyConfigEntry( KConfig* source, KConfig* dest, const QString& group, const QString& key, const QString& defaultValue=QString() )
+    {
+        source->setGroup( group );
+        dest->setGroup( group );
+        dest->writeEntry( key, source->readEntry( key, defaultValue ) );
+    }
+}
+
+void MainWindow::slotSaveToProfile( const QString& id )
+{
+  const QString path = Kontact::ProfileManager::self()->profileById( id ).saveLocation();
+  if ( path.isNull() )
+    return;
+
+  KConfig* const cfg = Prefs::self()->config();
+  Prefs::self()->writeConfig();
+  saveMainWindowSettings( cfg );
+  saveSettings();
+
+  KConfig profile( path+"/kontactrc", /*read-only=*/false, /*useglobals=*/false );
+  ::copyConfigEntry( cfg, &profile, "MainWindow Toolbar navigatorToolBar", "Hidden", "true" );
+  ::copyConfigEntry( cfg, &profile, "View", "SidePaneSplitter" );
+  ::copyConfigEntry( cfg, &profile, "Icons", "Theme" );
+  
+  for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+    if ( !(*it)->isRunningStandalone() ) {
+        (*it)->part();
+    }
+    (*it)->saveToProfile( path );
+  }
+}
+
+void MainWindow::slotLoadProfile( const QString& id )
+{
+  const QString path = Kontact::ProfileManager::self()->profileById( id ).saveLocation();
+  if ( path.isNull() )
+    return;
+
+  KConfig* const cfg = Prefs::self()->config();
+  Prefs::self()->writeConfig();
+  saveMainWindowSettings( cfg );
+  saveSettings();
+
+  const KConfig profile( path+"/kontactrc", /*read-only=*/false, /*useglobals=*/false );
+  const QStringList groups = profile.groupList();
+  for ( QStringList::ConstIterator it = groups.begin(), end = groups.end(); it != end; ++it )
+  {
+    cfg->setGroup( *it );
+    typedef QMap<QString, QString> StringMap;
+    const StringMap entries = profile.entryMap( *it );
+    for ( StringMap::ConstIterator it2 = entries.begin(), end = entries.end(); it2 != end; ++it2 )
+    {
+      if ( it2.data() == "KONTACT_PROFILE_DELETE_KEY" )
+        cfg->deleteEntry( it2.key() );
+      else
+        cfg->writeEntry( it2.key(), it2.data() );
+    }
+  }
+
+  cfg->sync();
+  Prefs::self()->readConfig();
+  applyMainWindowSettings( cfg );
+  KIconTheme::reconfigure();
+  const WId wid = winId();
+  KIPC::sendMessage( KIPC::PaletteChanged, wid );
+  KIPC::sendMessage( KIPC::FontChanged, wid );
+  KIPC::sendMessage( KIPC::StyleChanged, wid );
+  KIPC::sendMessage( KIPC::SettingsChanged, wid );
+  for ( int i = 0; i < KIcon::LastGroup; ++i )
+      KIPC::sendMessage( KIPC::IconChanged, wid, i );
+
+  loadSettings();
+
+  for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+    if ( !(*it)->isRunningStandalone() ) {
+        kdDebug() << "Ensure loaded: " << (*it)->identifier() << endl;
+        (*it)->part();
+    }
+    (*it)->loadProfile( path );
+  }
 }
 
 bool MainWindow::isPluginLoaded( const KPluginInfo *info )
@@ -409,10 +525,19 @@ void MainWindow::loadPlugins()
       action->plug( mNewActions->popupMenu() );
     }
 
+    if ( mSyncActionsEnabled ) {
+      actionList = plugin->syncActions();
+      for ( action = actionList->first(); action; action = actionList->next() ) {
+        kdDebug(5600) << "Plugging " << action->name() << endl;
+        action->plug( mSyncActions->popupMenu() );
+      }
+    }
     addPlugin( plugin );
   }
 
   mNewActions->setEnabled( mPlugins.size() != 0 );
+  if ( mSyncActionsEnabled )
+    mSyncActions->setEnabled( mPlugins.size() != 0 );
 }
 
 void MainWindow::unloadPlugins()
@@ -440,6 +565,13 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
         action->unplug( mNewActions->popupMenu() );
       }
 
+      if ( mSyncActionsEnabled ) {
+        actionList = plugin->syncActions();
+        for ( action = actionList->first(); action; action = actionList->next() ) {
+          kdDebug(5600) << "Unplugging " << action->name() << endl;
+          action->unplug( mSyncActions->popupMenu() );
+        }
+      }
       removeChildClient( plugin );
 
       if ( mCurrentPlugin == plugin )
@@ -519,6 +651,29 @@ void MainWindow::slotNewClicked()
   }
 }
 
+void MainWindow::slotSyncClicked()
+{
+  KAction *action = mCurrentPlugin->syncActions()->first();
+  if ( action ) {
+    action->activate();
+  } else {
+    PluginList::Iterator it;
+    for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+      action = (*it)->syncActions()->first();
+      if ( action ) {
+        action->activate();
+        return;
+      }
+    }
+  }
+}
+
+KToolBar* Kontact::MainWindow::findToolBar(const char* name)
+{
+  // like KMainWindow::toolBar, but which doesn't create the toolbar if not found
+  return static_cast<KToolBar *>(child(name, "KToolBar"));
+}
+
 void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 {
   if ( !plugin )
@@ -540,6 +695,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     KMessageBox::error( this, i18n( "Cannot load part for %1." )
                               .arg( plugin->title() )
                         + "\n" + lastErrorMessage() );
+    plugin->setDisabled( true );
+    mSidePane->updatePlugins();
     return;
   }
 
@@ -577,28 +734,51 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       view->setFocus();
 
     mCurrentPlugin = plugin;
-    KAction *action = plugin->newActions()->first();
+    KAction *newAction = plugin->newActions()->first();
+    KAction *syncAction = plugin->syncActions()->first();
 
     createGUI( plugin->part() );
 
+    KToolBar* navigatorToolBar = findToolBar( "navigatorToolBar" );
+    // Let the navigator toolbar be always the last one, if it's in the top dockwindow
+    if ( navigatorToolBar && !navigatorToolBar->isHidden() &&
+         navigatorToolBar->barPos() == KToolBar::Top ) {
+      topDock()->moveDockWindow( navigatorToolBar, -1 );
+    }
+
     setCaption( i18n( "Plugin dependent window title" ,"%1 - Kontact" ).arg( plugin->title() ) );
 
-    if ( action ) {
-      mNewActions->setIcon( action->icon() );
-      mNewActions->setText( action->text() );
+    if ( newAction ) {
+      mNewActions->setIcon( newAction->icon() );
+      mNewActions->setText( newAction->text() );
     } else { // we'll use the action of the first plugin which offers one
       PluginList::Iterator it;
       for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
-        action = (*it)->newActions()->first();
-        if ( action ) {
-          mNewActions->setIcon( action->icon() );
-          mNewActions->setText( action->text() );
+        newAction = (*it)->newActions()->first();
+        if ( newAction ) {
+          mNewActions->setIcon( newAction->icon() );
+          mNewActions->setText( newAction->text() );
           break;
         }
       }
     }
+    if ( mSyncActionsEnabled ) {
+      if ( syncAction ) {
+        mSyncActions->setIcon( syncAction->icon() );
+        mSyncActions->setText( syncAction->text() );
+      } else { // we'll use the action of the first plugin which offers one
+        PluginList::Iterator it;
+        for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+          syncAction = (*it)->syncActions()->first();
+          if ( syncAction ) {
+            mSyncActions->setIcon( syncAction->icon() );
+            mSyncActions->setText( syncAction->text() );
+            break;
+          }
+        }
+      }
+    }
   }
-
   QStringList invisibleActions = plugin->invisibleToolbarActions();
 
   QStringList::ConstIterator it;
@@ -686,8 +866,6 @@ void MainWindow::slotPreferences()
 {
   static SettingsDialogWrapper *dlg = 0;
   if ( !dlg ) {
-    dlg = new SettingsDialogWrapper( KSettings::Dialog::Configurable, this );
-
     // do not show settings of components running standalone
     QValueList<KPluginInfo*> filteredPlugins = mPluginInfos;
     PluginList::ConstIterator it;
@@ -701,7 +879,7 @@ void MainWindow::slotPreferences()
           }
         }
       }
-
+    dlg = new SettingsDialogWrapper( KSettings::Dialog::Configurable, this );
     dlg->addPluginInfos( filteredPlugins );
     connect( dlg, SIGNAL( pluginSelectionChanged() ),
              SLOT( pluginsChanged() ) );
@@ -918,6 +1096,5 @@ QString MainWindow::introductionString()
       .arg( "exec:/switch" );
   return info;
 }
-
 
 #include "mainwindow.moc"

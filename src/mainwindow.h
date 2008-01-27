@@ -34,6 +34,7 @@
 #include <kdcopservicestarter.h>
 
 #include "core.h"
+#include "kontactiface.h"
 
 class QHBox;
 class QSplitter;
@@ -61,7 +62,7 @@ class AboutDialog;
 
 typedef QValueList<Kontact::Plugin*> PluginList;
 
-class MainWindow : public Kontact::Core, public KDCOPServiceStarter
+class MainWindow : public Kontact::Core, public KDCOPServiceStarter, public KontactIface
 {
   Q_OBJECT
 
@@ -91,9 +92,13 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void slotActivePartChanged( KParts::Part *part );
     void slotPreferences();
     void slotNewClicked();
+    void slotSyncClicked();
     void slotQuit();
     void slotShowTip();
     void slotRequestFeature();
+    void slotConfigureProfiles();
+    void slotLoadProfile( const QString& id );
+    void slotSaveToProfile( const QString& id );
     void slotNewToolbarConfig();
     void slotShowIntroduction();
     void showAboutDialog();
@@ -101,7 +106,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     void activatePluginModule();
     void slotOpenUrl( const KURL &url );
 
-  protected:
+  private:
     void initWidgets();
     void initAboutScreen();
     void loadSettings();
@@ -121,6 +126,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     virtual void saveProperties( KConfig *config );
     void paintAboutScreen( const QString& msg );
     static QString introductionString();
+    KToolBar* findToolBar(const char* name);
 
   private slots:
     void pluginsChanged();
@@ -134,6 +140,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
     QSplitter *mSplitter;
 
     KToolBarPopupAction *mNewActions;
+    KToolBarPopupAction *mSyncActions;
     SidePaneBase *mSidePane;
     QWidgetStack *mPartsStack;
     Plugin *mCurrentPlugin;
@@ -152,6 +159,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;
+    bool mSyncActionsEnabled;
 };
 
 }

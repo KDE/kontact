@@ -49,7 +49,10 @@
 #include <kxmlguifactory.h>
 #include <kxmlguibuilder.h>
 
+#include <libkcal/calendarlocal.h>
 #include <libkcal/journal.h>
+#include <libkcal/icaldrag.h>
+#include <libkdepim/kpimprefs.h>
 
 #include "knotes/knoteedit.h"
 
@@ -84,6 +87,28 @@ class KNotesIconViewItem : public KIconViewItem
 
   private:
     KCal::Journal *mJournal;
+};
+
+
+class KNotesIconView : public KIconView
+{
+  protected:
+    QDragObject* dragObject()
+    {
+      QValueList<KNotesIconViewItem*> selectedItems;
+      for ( QIconViewItem *it = firstItem(); it; it = it->nextItem() ) {
+        if ( it->isSelected() )
+          selectedItems.append( static_cast<KNotesIconViewItem *>( it ) );
+      }
+      if ( selectedItems.count() != 1 )
+        return KIconView::dragObject();
+
+      KCal::CalendarLocal cal( KPimPrefs::timezone() );
+      KCal::Incidence *i = selectedItems.first()->journal()->clone();
+      cal.addIncidence( i );
+      KCal::ICalDrag *icd = new KCal::ICalDrag( &cal, this );
+      return icd;
+    }
 };
 
 

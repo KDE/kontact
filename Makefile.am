@@ -1,4 +1,4 @@
-SUBDIRS = interfaces plugins src pics
+SUBDIRS = interfaces plugins src pics profiles
 
 DOXYGEN_REFERENCES = kdeui kparts libkcal
 include $(top_srcdir)/admin/Doxyfile.am

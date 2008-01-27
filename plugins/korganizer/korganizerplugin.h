@@ -56,11 +56,16 @@ class KOrganizerPlugin : public Kontact::Plugin
 
     KCalendarIface_stub *interface();
 
+
+    void loadProfile( const QString& path );
+    void saveToProfile( const QString& path ) const;
+
   protected:
     KParts::ReadOnlyPart *createPart();
 
   private slots:
     void slotNewEvent();
+    void slotSyncEvents();
 
   private:
     KCalendarIface_stub *mIface;

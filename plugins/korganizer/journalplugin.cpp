@@ -31,11 +31,12 @@
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <dcopclient.h>
+#include <dcopref.h>
 
 #include "core.h"
-
-#include "journalplugin.h"
+#include "journalplugin.h" 
 #include "korg_uniqueapp.h"
+
 
 typedef KGenericFactory< JournalPlugin, Kontact::Core > JournalPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_journalplugin,
@@ -51,6 +52,9 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const char *, const QStringLi
   insertNewAction( new KAction( i18n( "New Journal..." ), "newjournal",
                    CTRL+SHIFT+Key_J, this, SLOT( slotNewJournal() ), actionCollection(),
                    "new_journal" ) );
+  insertSyncAction( new KAction( i18n( "Synchronize Journal" ), "reload",
+                   0, this, SLOT( slotSyncJournal() ), actionCollection(),
+                   "journal_sync" ) );
 
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
@@ -108,6 +112,12 @@ KCalendarIface_stub *JournalPlugin::interface()
 void JournalPlugin::slotNewJournal()
 {
   interface()->openJournalEditor( "" );
+}
+
+void JournalPlugin::slotSyncJournal()
+{
+  DCOPRef ref( "kmail", "KMailICalIface" );
+  ref.send( "triggerSync", QString("Journal") );
 }
 
 bool JournalPlugin::createDCOPInterface( const QString& serviceType )

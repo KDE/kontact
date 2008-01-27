@@ -60,6 +60,13 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const char *, const
   insertNewAction( new KAction( i18n( "New Contact..." ), "identity",
 			             CTRL+SHIFT+Key_C, this, SLOT( slotNewContact() ), actionCollection(),
                    "new_contact" ) );
+
+  insertNewAction( new KAction( i18n( "&New Distribution List..." ), "kontact_contacts", 0, this,
+                                SLOT( slotNewDistributionList() ), actionCollection(), "new_distributionlist" ) );
+
+  insertSyncAction( new KAction( i18n( "Synchronize Contacts" ), "reload",
+                    0, this, SLOT( slotSyncContacts() ), actionCollection(),
+                   "kaddressbook_sync" ) );
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KABUniqueAppHandler>(), this );
 }
@@ -103,6 +110,18 @@ KAddressBookIface_stub *KAddressbookPlugin::interface()
 void KAddressbookPlugin::slotNewContact()
 {
   interface()->newContact();
+}
+
+
+void KAddressbookPlugin::slotNewDistributionList()
+{
+  interface()->newDistributionList();
+}
+
+void KAddressbookPlugin::slotSyncContacts()
+{
+  DCOPRef ref( "kmail", "KMailICalIface" );
+  ref.send( "triggerSync", QString("Contact") );
 }
 
 bool KAddressbookPlugin::createDCOPInterface( const QString& serviceType )
@@ -154,6 +173,19 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
 
   KMessageBox::sorry( core(), i18n( "Cannot handle drop events of type '%1'." )
                       .arg( event->format() ) );
+}
+
+
+void KAddressbookPlugin::loadProfile( const QString& directory )
+{
+  DCOPRef ref( "kaddressbook", "KAddressBookIface" );
+  ref.send( "loadProfile", directory );
+}
+
+void KAddressbookPlugin::saveToProfile( const QString& directory ) const
+{
+  DCOPRef ref( "kaddressbook", "KAddressBookIface" );
+  ref.send( "saveToProfile", directory );
 }
 
 ////

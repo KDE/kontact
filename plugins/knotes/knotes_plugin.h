@@ -48,6 +48,7 @@ class KNotesPlugin : public Kontact::Plugin
 
   private slots:
     void slotNewNote();
+    void slotSyncNotes();
 
   private:
     KAboutData *mAboutData;

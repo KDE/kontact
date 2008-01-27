@@ -60,7 +60,7 @@ SummaryWidget::SummaryWidget( QWidget *parent, const char *name )
 
   int row=0;
   QPixmap icon = KGlobal::iconLoader()->loadIcon( "kpilot", KIcon::Desktop, KIcon::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "KPilot Information" ) );
+  QWidget *header = createHeader( this, icon, i18n( "KPilot Configuration" ) );
   mLayout->addMultiCellWidget( header, row,row, 0,3 );
 
   // Last sync information

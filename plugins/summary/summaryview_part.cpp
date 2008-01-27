@@ -93,11 +93,6 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
                                SLOT( slotConfigure() ), actionCollection(),
                                "summaryview_configure" );
 
-  mRefreshAction = new KAction( i18n( "&Refresh Summary View..." ),
-                                "reload", 0, this,
-                                SLOT( updateSummaries() ), actionCollection(),
-                                "summaryview_refresh" );
-
   setXMLFile( "kontactsummary_part.rc" );
 
   QTimer::singleShot( 0, this, SLOT( slotTextChanged() ) );

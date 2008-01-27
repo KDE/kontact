@@ -65,10 +65,18 @@ class KAddressbookPlugin : public Kontact::Plugin
 
     KAddressBookIface_stub *interface();
 
+    //override
+    void loadProfile( const QString& directory );
+
+    //override
+    void saveToProfile( const QString& directory ) const;
+
   protected:
     KParts::ReadOnlyPart *createPart();
   private slots:
     void slotNewContact();
+    void slotNewDistributionList();
+    void slotSyncContacts();
 
   private:
     KAddressBookIface_stub *mStub;

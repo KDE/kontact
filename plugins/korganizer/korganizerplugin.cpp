@@ -22,17 +22,21 @@
     without including the source code for Qt in the source distribution.
 */
 
+#include <qcursor.h>
+#include <qfile.h>
 #include <qwidget.h>
 #include <qdragobject.h>
 
 #include <kapplication.h>
 #include <kabc/vcardconverter.h>
 #include <kaction.h>
+#include <dcopref.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
+#include <ktempfile.h>
 
 #include <dcopclient.h>
 
@@ -59,6 +63,10 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const char *, const QSt
   insertNewAction( new KAction( i18n( "New Event..." ), "newappointment",
                    CTRL+SHIFT+Key_E, this, SLOT( slotNewEvent() ), actionCollection(),
                    "new_event" ) );
+
+  insertSyncAction( new KAction( i18n( "Synchronize Calendar" ), "reload",
+                   0, this, SLOT( slotSyncEvents() ), actionCollection(),
+                   "korganizer_sync" ) );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
@@ -122,6 +130,12 @@ void KOrganizerPlugin::slotNewEvent()
   interface()->openEventEditor( "" );
 }
 
+void KOrganizerPlugin::slotSyncEvents()
+{
+  DCOPRef ref( "kmail", "KMailICalIface" );
+  ref.send( "triggerSync", QString("Calendar") );
+}
+
 bool KOrganizerPlugin::createDCOPInterface( const QString& serviceType )
 {
   kdDebug(5602) << k_funcinfo << serviceType << endl;
@@ -182,15 +196,32 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       KPIM::MailSummary mail = mails.first();
       QString txt = i18n("From: %1\nTo: %2\nSubject: %3").arg( mail.from() )
                     .arg( mail.to() ).arg( mail.subject() );
-      QString uri = "kmail:" + QString::number( mail.serialNumber() );
+
+      KTempFile tf;
+      tf.setAutoDelete( true );
+      QString uri = QString::fromLatin1("kmail:") + QString::number( mail.serialNumber() );
+      tf.file()->writeBlock( event->encodedData( "message/rfc822" ) );
+      tf.close();
       interface()->openEventEditor( i18n("Mail: %1").arg( mail.subject() ), txt,
-                                    uri );
+                                    uri, tf.name(), QStringList(), "message/rfc822" );
     }
     return;
   }
 
   KMessageBox::sorry( core(), i18n("Cannot handle drop events of type '%1'.")
                               .arg( event->format() ) );
+}
+
+void KOrganizerPlugin::loadProfile( const QString& directory )
+{
+  DCOPRef ref( "korganizer", "KOrganizerIface" );
+  ref.send( "loadProfile", directory );
+}
+
+void KOrganizerPlugin::saveToProfile( const QString& directory ) const
+{
+  DCOPRef ref( "korganizer", "KOrganizerIface" );
+  ref.send( "saveToProfile", directory );
 }
 
 #include "korganizerplugin.moc"

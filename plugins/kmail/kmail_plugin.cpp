@@ -65,6 +65,10 @@ KMailPlugin::KMailPlugin(Kontact::Core *core, const char *, const QStringList& )
                    CTRL+SHIFT+Key_M, this, SLOT( slotNewMail() ), actionCollection(),
                    "new_mail" ) );
 
+  insertSyncAction( new KAction( i18n( "Synchronize Mail" ), "reload",
+                   0, this, SLOT( slotSyncFolders() ), actionCollection(),
+                   "sync_mail" ) );
+
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
       new Kontact::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
 }
@@ -122,6 +126,12 @@ void KMailPlugin::openComposer( const QString& to )
 void KMailPlugin::slotNewMail()
 {
   openComposer( QString::null );
+}
+
+void KMailPlugin::slotSyncFolders()
+{
+  DCOPRef ref( "kmail", "KMailIface" );
+  ref.send( "checkMail" );
 }
 
 KMailPlugin::~KMailPlugin()
@@ -196,6 +206,16 @@ bool KMailPlugin::queryClose() const {
   KMailIface_stub stub( kapp->dcopClient(), "kmail", "KMailIface" );
   bool canClose=stub.canQueryClose();
   return canClose;
+}
+
+void KMailPlugin::loadProfile( const QString& profileDirectory ) {
+  DCOPRef ref( "kmail", "KMailIface" );
+  ref.send( "loadProfile", profileDirectory );
+}
+
+void KMailPlugin::saveToProfile( const QString& profileDirectory ) {
+  DCOPRef ref( "kmail", "KMailIface" );
+  ref.send( "saveToProfile", profileDirectory );
 }
 
 #include "kmail_plugin.moc"

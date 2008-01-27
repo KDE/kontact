@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003 Sven Lüppken <sven@kde.org>
+   Copyright (C) 2003 Sven Lï¿½ppken <sven@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -17,14 +17,17 @@
    Boston, MA 02110-1301, USA.
  */
 
-#include <kgenericfactory.h>
-#include <kparts/componentfactory.h>
-#include <kaboutdata.h>
-
+#include "summaryview_plugin.h"
 #include "core.h"
 #include "summaryview_part.h"
 
-#include "summaryview_plugin.h"
+#include <dcopref.h>
+#include <kgenericfactory.h>
+#include <kparts/componentfactory.h>
+#include <kaboutdata.h>
+#include <kaction.h>
+
+#include <qpopupmenu.h>
 
 typedef KGenericFactory< SummaryView, Kontact::Core > SummaryViewFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_summaryplugin,
@@ -32,19 +35,72 @@ K_EXPORT_COMPONENT_FACTORY( libkontact_summaryplugin,
 
 SummaryView::SummaryView( Kontact::Core *core, const char *name, const QStringList& )
   : Kontact::Plugin( core, core, name),
-    mAboutData( 0 )
+    mAboutData( 0 ), mPart( 0 )
 {
   setInstance( SummaryViewFactory::instance() );
+
+  mSyncAction = new KSelectAction( i18n( "Synchronize All" ), "reload", 0, this,
+                                   SLOT( doSync() ), actionCollection(),
+                                   "kontact_summary_sync" );
+  connect( mSyncAction, SIGNAL( activated( const QString& ) ), this, SLOT( syncAccount( const QString& ) ) );
+  connect( mSyncAction->popupMenu(), SIGNAL( aboutToShow() ), this, SLOT( fillSyncActionSubEntries() ) );
+
+  insertSyncAction( mSyncAction );
+  fillSyncActionSubEntries();
+}
+
+void SummaryView::fillSyncActionSubEntries()
+{
+  QStringList menuItems;
+  menuItems.append( i18n("All") );
+
+  DCOPRef ref( "kmail", "KMailIface" );
+  DCOPReply reply = ref.call( "accounts" );
+
+  if ( reply.isValid() )
+  {
+    const QStringList accounts = reply;
+    menuItems += accounts;
+  }
+  mSyncAction->clear();
+  mSyncAction->setItems( menuItems );
+}
+
+void SummaryView::syncAccount( const QString& account )
+{
+  const QString acc = account == i18n("All") ? QString() : account;
+  DCOPRef ref( "kmail", "KMailIface" );
+  ref.send( "checkAccount", acc );
+  fillSyncActionSubEntries();
 }
 
 SummaryView::~SummaryView()
 {
 }
 
+void SummaryView::doSync()
+{
+  if ( mPart )
+    mPart->updateSummaries();
+
+  const QValueList<Kontact::Plugin*> pluginList = core()->pluginList();
+  for ( QValueList<Kontact::Plugin*>::ConstIterator it = pluginList.begin(), end = pluginList.end();
+        it != end; ++it ) {
+    // execute all sync actions but our own
+    QPtrList<KAction> *actions = (*it)->syncActions();
+    for ( QPtrList<KAction>::Iterator jt = actions->begin(), end = actions->end(); jt != end; ++jt ) {
+      if ( *jt != mSyncAction )
+        (*jt)->activate();
+    }
+  }
+  fillSyncActionSubEntries();
+}
+
 KParts::ReadOnlyPart *SummaryView::createPart()
 {
-  return new SummaryViewPart( core(), "summarypartframe", aboutData(),
-                              this, "summarypart" );
+  mPart = new SummaryViewPart( core(), "summarypartframe", aboutData(),
+                               this, "summarypart" );
+  return mPart;
 }
 
 const KAboutData *SummaryView::aboutData()
