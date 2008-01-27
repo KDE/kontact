@@ -51,7 +51,7 @@ class KCMPlanner : public KCModule
     void setSd( bool );
 
   private:
-    void initGUI( QWidget *w );
+    void initGUI();
     void initCalendarPage();
     void initTodoPage();
     void initSdPage();

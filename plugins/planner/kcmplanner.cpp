@@ -30,8 +30,8 @@
 #include <kdebug.h>
 #include <kdialog.h>
 #include <klocale.h>
-#include <ktabwidget.h>
 
+#include <QTabWidget>
 #include <q3buttongroup.h>
 #include <qlabel.h>
 #include <qlayout.h>
@@ -54,7 +54,7 @@ KCMPlanner::KCMPlanner( const KComponentData &inst, QWidget *parent )
   : KCModule( inst, parent )
 {
   QWidget *widget = new QWidget( parent );
-  initGUI( widget );
+  initGUI();
 
   customDaysChanged( 1 );
 
@@ -230,10 +230,10 @@ void KCMPlanner::initSdPage()
   Initialization of Config Gui
 */
 
-void KCMPlanner::initGUI( QWidget *widget )
+void KCMPlanner::initGUI()
 {
-  Q3VBoxLayout *topLayout = new Q3VBoxLayout( widget, 0, KDialog::spacingHint() );
-  KTabWidget *tabWidget = new KTabWidget( widget );
+  Q3VBoxLayout *topLayout = new Q3VBoxLayout( this, 0, KDialog::spacingHint() );
+  QTabWidget *tabWidget = new QTabWidget( this );
   topLayout->addWidget( tabWidget );
 
   //Build Calendar Page
