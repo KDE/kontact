@@ -15,8 +15,10 @@ X-KDE-PluginInfo-EnabledByDefault=true
 
 Name=Planner
 Name[ga]=Pleanálaí
+Name[tr]=Planlayıcı
 Name[zh_TW]=行事曆
 Comment=Planner Plugin
 Comment[ga]=Breiseán Pleanálaí
 Comment[nds]=Planner-Moduul
+Comment[tr]=Planlayıcı Eklentisi
 Comment[zh_TW]=行事曆外掛程式
