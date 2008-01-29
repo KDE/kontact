@@ -12,7 +12,11 @@ X-KDE-ParentComponents=kontact_kmailplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=E-Mail Overview
+Name[da]=Oversigt over e-mail
+Name[zh_CN]=邮件概览
 Comment=E-Mail Summary Setup
+Comment[da]=Opsætning af post-opsummering
+Comment[zh_CN]=邮件摘要设置
 Keywords=email, summary, configure, settings
 Keywords[af]=email,summary,configure,settings
 Keywords[bg]=резюме, общо, обобщение, пощенски, клиент, е-поща, email, summary, configure, settings

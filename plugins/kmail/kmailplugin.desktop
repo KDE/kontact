@@ -18,4 +18,8 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=E-Mail Component (KMail Plugin)
+Comment[da]=Post-komponent (KMail-plugin)
+Comment[zh_CN]=邮件组件(KMail 插件)
 Name=E-Mail
+Name[da]=E-mail
+Name[zh_CN]=邮件

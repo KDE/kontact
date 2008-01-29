@@ -17,6 +17,8 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Calendar Component (KOrganizer Plugin)
+Comment[da]=Kalenderkomponent (KOrganizer-plugin)
+Comment[zh_CN]=日历组件(KOrganizer 插件)
 Name=Calendar
 Name[af]=Kalender
 Name[ar]=التقويم

@@ -17,4 +17,6 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Palm Tools Component (KPilot Plugin)
+Comment[da]=Komponent til palm-værktøjer (KPilot-plugin)
+Comment[zh_CN]=Palm 工具组件(KPilot 插件)
 Name=Palm

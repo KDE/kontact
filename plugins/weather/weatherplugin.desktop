@@ -17,6 +17,8 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact Weather Component
+Comment[da]=Vejrkomponent til Kontact
+Comment[zh_CN]=Kontact 天气插件
 Name=Weather Service
 Name[af]=Weer diens
 Name[ar]=خدمة الطقس

@@ -17,4 +17,8 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=To-do List Component (KOrganizer plugin)
+Comment[da]=Komponent til gøremålsliste (KOrganizer-plugin)
+Comment[zh_CN]=待办清单组件(KOrganizer 插件)
 Name=To-do
+Name[da]=Gøremål
+Name[zh_CN]=待办清单

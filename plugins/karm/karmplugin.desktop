@@ -14,5 +14,8 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=false
 
 Comment=Time Tracker Component (KArm Plugin)
+Comment[da]=Time Tracker-komponent (KArm-plugin)
+Comment[zh_CN]=时间追踪组件(KArm 插件)
 
 Name=Timer
+Name[zh_CN]=计时器

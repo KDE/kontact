@@ -17,6 +17,8 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Contacts Component (KAdressbook Plugin)
+Comment[da]=Kontaktkomponent (KAddressbook-plugin)
+Comment[zh_CN]=联系人组件(KAddressbook 插件)
 Name=Contacts
 Name[af]=Kontakte
 Name[ar]=المراسلون
