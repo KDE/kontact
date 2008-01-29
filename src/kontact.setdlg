@@ -433,10 +433,12 @@ Icon=cookie
 [Planner]
 Name=Planner
 Name[ga]=Pleanálaí
+Name[km]=កម្មវិធីធ្វើ​គម្រោង
 Name[tr]=Planlayıcı
 Name[zh_TW]=行事曆
 Comment=Planner Summary
 Comment[ga]=Achoimre Pleanálaí
+Comment[km]=សេចក្ដី​សង្ខេប​របស់​កម្មវិធីធ្វើ​គម្រោង
 Comment[tr]=Planlayıcı Özeti
 Weight=350
 Icon=cookie

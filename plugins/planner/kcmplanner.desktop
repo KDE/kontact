@@ -12,10 +12,12 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Planner
 Name[ga]=Pleanálaí
+Name[km]=កម្មវិធីធ្វើ​គម្រោង
 Name[tr]=Planlayıcı
 Name[zh_TW]=行事曆
 Comment=Planner Setup
 Comment[ga]=Socrú Pleanálaí
+Comment[km]=កា​ររៀបចំ​កម្មវិធី​ធ្វើ​គម្រោង
 Comment[nds]=Planner inrichten
 Comment[tr]=Planlayıcı Kurlumu
 Comment[zh_TW]=行事曆設定
