@@ -16,7 +16,9 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Newsticker Component
+Comment[ca]=Component de teletip de notícies
 Comment[da]=Nyhedstelegraf-komponent
+Comment[el]=Συστατικό προβολέα ειδήσεων
 Comment[zh_CN]=新闻点点通组件
 Name=News
 Name[af]=Nuus

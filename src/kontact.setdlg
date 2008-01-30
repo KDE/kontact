@@ -1,19 +1,27 @@
 [KontactSummary]
 Name=Summary View
+Name[ca]=Vista de resum
 Name[da]=Opsummeringsvisning
+Name[el]=Προβολή σύνοψης
 Name[zh_CN]=摘要视图
 Comment=Configuration of Kontact's <b>Summary View</b>. Some plugins provide <i>Summary View</i> items, choose the ones you would like to list.
+Comment[ca]=Configuració de la <b>vista de resum</b> del Kontact. Alguns endollables proporcionen elements de <i>vista de resum</i>, trieu-ne els que voldríeu llistar.
 Comment[da]=Konfiguration af Kontacts <b>Opsummeringsvisning</b>. Nogle plugins giver <i>Opsummeringsvisning</i>-elementer, vælg dem du ønsker på listen.
+Comment[el]=Ρύθμιση της <b>Προβολής σύνοψης</b> του  Kontact. Κάποια πρόσθετα παρέχουν αντικείμενα <i>Προβολή σύνοψης</i>· επιλέξτε αυτά που θέλετε να εμφανίζονται.
 Comment[zh_CN]=Kontact <b>摘要视图</b>配置。有些插件提供了<i>摘要视图</i>项目，请选择您希望出现在列表中的项目。
 Weight=100
 Icon=kontact_summary
 
 [KMail]
 Name=E-Mail
+Name[ca]=Correu
 Name[da]=E-mail
+Name[el]=Αλληλογραφία
 Name[zh_CN]=邮件
 Comment=Configuration of Kontact's E-Mail Plugin <b>KMail</b>, includes a <i>Summary View Item</i> and represents a <i>Kontact Component</i>.
+Comment[ca]=Configuració de l'endollable de correu <b>KMail</b> del Kontact, inclou un <i>element de vista de resum</i> i representa un <i>component del Kontact</i>.
 Comment[da]=Konfiguration af Kontacts e-mail-plugin <b>KMail</b>, inkluderer et <i>Opsummeringsvisnings-element</i> og repræsenterer en <i>Kontact-komponent</i>.
+Comment[el]=Η ρύθμιση του προσθέτου αλληλογραφίας <b>KMail</b> του Kontact, περιέχει ένα <i>Αντικείμενο προβολής σύνοψης</i> και αντιπροσωπεύει ένα <i>Συστατικό του Kontact</i>.
 Comment[zh_CN]=Kontact <b>KMail</b> 电子邮件插件配置，其中包含一个<i>摘要视图项目和一个<i>Kontact 组件</i>。
 Weight=200
 Icon=kontact_mail
@@ -77,7 +85,9 @@ Name[uz]=Алоқалар
 Name[zh_CN]=联系人
 Name[zh_TW]=聯絡人
 Comment=Configuration of Kontact's Adress Book Plugin <b>KAdressbook</b> which represents a <i>Kontact Component</i>.
+Comment[ca]=Configuració de l'endollable de la llibreta d'adreces <b>KAdressbook</b> del Kontact, que representa un <i>component del Kontact</i>.
 Comment[da]=Konfiguration af Kontacts adressebog-plugin <b>KAdressbook</b> som repræsenterer en <i>Kontact-komponent</i>.
+Comment[el]=Ρύθμιση του πρόσθετου βιβλίου διευθύνσεων <b>KAdressbook</b> του Kontact που αντιπροσωπεύει ένα <i>Συστατικό του Kontact</i>.
 Comment[zh_CN]=Kontact <b>KAdressbook</b> 地址簿插件配置，包含一个<i>Kontact 组件</i>。
 Weight=300
 Icon=kontact_contacts
@@ -238,7 +248,9 @@ Name[uz]=Календар
 Name[zh_CN]=日历
 Name[zh_TW]=行事曆
 Comment=Configuration of Kontact's Calendar Plugin <b>KOrganizer</b>, includes a <i>Summary View Item</i> and represents a <i>Kontact Component</i>.
+Comment[ca]=Configuració de l'endollable de calendari <b>KOrganizer</b> del Kontact, inclou un <i>element de vista de resum</i> i representa un <i>component del Kontact</i>.
 Comment[da]=Konfiguration af Kontacts kalender-plugin <b>KOrganizer</b>, inkluderer et <i>Opsummeringsvisningselement</i> og repræsenterer en <i>Kontact-komponent</i>.
+Comment[el]=Η ρύθμιση του προσθέτου ημερολογίου του <b>KOrganizer</b> του Kontact, περιέχει ένα <i>Αντικείμενο προβολής σύνοψης</i> και αντιπροσωπεύει ένα <i>Συστατικό του Kontact</i>.
 Weight=400
 Icon=kontact_date
 
@@ -301,7 +313,9 @@ Name[uz]=Янгиликлар
 Name[zh_CN]=新闻
 Name[zh_TW]=新聞
 Comment=Configuration of Kontact's News Plugin <b>KNode</b> which represents a <i>Kontact Component</i>.
+Comment[ca]=Configuració de l'endollable de notícies <b>KNode</b> del Kontact, que representa un <i>component del Kontact</i>.
 Comment[da]=Konfiguration af Kontacts nyheds-plugin <b>KNode</b> som repræsenterer en <i>Kontact-komponent</i>.
+Comment[el]=Ρύθμιση του πρόσθετου νέων <b>KNode</b> του Kontact που αντιπροσωπεύει ένα <i>Συστατικό του Kontact</i>.
 Weight=500
 Icon=kontact_news
 
@@ -364,7 +378,9 @@ Name[uz]=Об-ҳаво
 Name[zh_CN]=天气
 Name[zh_TW]=天氣
 Comment=Weather Information Component
+Comment[ca]=Component d'informació del temps
 Comment[da]=Komponent til vejrinformation
+Comment[el]=Συστατικό πληροφοριών καιρού
 Comment[zh_CN]=天气信息组件
 Weight=1000
 Icon=kweather

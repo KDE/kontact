@@ -14,6 +14,9 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=false
 
 Comment=Synchronization Component (Kitchensynk Plugin)
+Comment[ca]=Component de sincronització (endollable del KitchenSync)
 Comment[da]=Synkronisergingskomponent (Kitchensync-plugin)
+Comment[el]=Συστατικό συγχρονισμού (Πρόσθετο του Kitchensynk)
 Comment[zh_CN]=同步组件(KitchenSync 插件)
 Name=Sync
+Name[el]=Συγχρονισμός

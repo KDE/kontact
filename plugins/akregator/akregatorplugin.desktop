@@ -15,7 +15,9 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Feed Reader Component (Akregator Plugin)
+Comment[ca]=Component lector d'enllaços (endollable de l'Akregator)
 Comment[da]=Feed-læserkomponent (Akregator-plugin)
+Comment[el]=Συστατικό ανάγνωσης ροών (Πρόσθετο του Akregator)
 Comment[zh_CN]=新闻源阅读器组件(Akregator 插件)
 Name=Feeds
 Name[af]=Strome

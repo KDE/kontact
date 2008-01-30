@@ -15,7 +15,9 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=false
 
 Comment=Newsreader Component (KNode Plugin)
+Comment[ca]=Component de notícies (endollable del KNode)
 Comment[da]=Nyhedskomponent (KNode-plugin)
+Comment[el]=Συστατικό ανάγνωσης νέων (Πρόσθετο του KNode)
 Comment[zh_CN]=新闻组阅读器组件(KNode 插件)
 Name=News
 Name[af]=Nuus
