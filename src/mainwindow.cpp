@@ -99,7 +99,7 @@ class ServiceStarter : public KDBusServiceStarter
                                  int flags = 0 );
 
     // We need to keep track of the plugins which are loaded, so pass a pointer
-    // to the plugin list here. Be sure to reset it back to 0 with 
+    // to the plugin list here. Be sure to reset it back to 0 with
     // setPluginList() as soon as the list gets destroyed.
     ServiceStarter( PluginList *pluginList ) {
       mPlugins = pluginList;
@@ -992,9 +992,9 @@ QString MainWindow::introductionString()
   KIconLoader *iconloader = KIconLoader::global();
   int iconSize = iconloader->currentSize( KIconLoader::Desktop );
 
-  QString handbook_icon_path = iconloader->iconPath( "contents2",  KIconLoader::Desktop );
-  QString html_icon_path = iconloader->iconPath( "html",  KIconLoader::Desktop );
-  QString wizard_icon_path = iconloader->iconPath( "wizard",  KIconLoader::Desktop );
+  QString handbook_icon_path = iconloader->iconPath( "help-contents",  KIconLoader::Desktop );
+  QString html_icon_path = iconloader->iconPath( "text-html",  KIconLoader::Desktop );
+  QString wizard_icon_path = iconloader->iconPath( "tools-wizard",  KIconLoader::Desktop );
 
   QString info = ki18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
       "<p>%2</p>"

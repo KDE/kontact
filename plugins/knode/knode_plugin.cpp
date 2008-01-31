@@ -46,7 +46,7 @@ KNodePlugin::KNodePlugin( Kontact::Core *core, const QStringList& )
 {
   setComponentData( KNodePluginFactory::componentData() );
 
-  KAction *action  = new KAction(KIcon("mail_new"), i18n("New Article..."), this);
+  KAction *action = new KAction(KIcon("mail-message-new"), i18n("New Article..."), this);
   actionCollection()->addAction("post_article", action );
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_A));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotPostArticle()));

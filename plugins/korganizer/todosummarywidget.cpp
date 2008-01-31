@@ -67,8 +67,9 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QPixmap icon = KIconLoader::global()->loadIcon( "kontact_todo",
-                   KIconLoader::Desktop, KIconLoader::SizeMedium );
+  QPixmap icon =
+    KIconLoader::global()->loadIcon( "view-pim-tasks",
+                                     KIconLoader::Desktop, KIconLoader::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Pending To-dos" ) );
   mainLayout->addWidget( header );
 

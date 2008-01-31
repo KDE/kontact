@@ -61,7 +61,7 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QStringList& 
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_C));
   insertNewAction(action);
 
-  action  = new KAction( KIcon("kontact_contacts"), i18n("New Distribution List..."), this);
+  action  = new KAction( KIcon("view-pim-contacts"), i18n("New Distribution List..."), this);
   actionCollection()->addAction("new_distributionlist", action );
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewDistributionList() ) );
   insertNewAction(action);

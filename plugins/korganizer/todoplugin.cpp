@@ -62,7 +62,7 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
   KIconLoader::global()->addAppDir("korganizer");
 
 
-  KAction *action  = new KAction(KIcon("newtodo"), i18n("New To-do..."), this);
+  KAction *action  = new KAction(KIcon("task-new"), i18n("New To-do..."), this);
   actionCollection()->addAction("new_todo", action );
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_T));
   connect(action, SIGNAL(triggered(bool)), SLOT( slotNewTodo() ));

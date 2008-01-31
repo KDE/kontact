@@ -354,7 +354,7 @@ int Planner::showEvents( int counter, const QDate &date )
       }
 
       //Show Event icon
-      QPixmap re = loader.loadIcon( "appointment", KIconLoader::Small );
+      QPixmap re = loader.loadIcon( "view-calendar-upcoming-events", KIconLoader::Small );
       label = new QLabel( this );
       label->setPixmap( re );
       label->setMaximumWidth( label->minimumSizeHint().width() );
