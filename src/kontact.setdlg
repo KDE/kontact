@@ -22,7 +22,7 @@ Comment=Configuration of Kontact's E-Mail Plugin <b>KMail</b>, includes a <i>Sum
 Comment[ca]=Configuració de l'endollable de correu <b>KMail</b> del Kontact, inclou un <i>element de vista de resum</i> i representa un <i>component del Kontact</i>.
 Comment[da]=Konfiguration af Kontacts e-mail-plugin <b>KMail</b>, inkluderer et <i>Opsummeringsvisnings-element</i> og repræsenterer en <i>Kontact-komponent</i>.
 Comment[el]=Η ρύθμιση του προσθέτου αλληλογραφίας <b>KMail</b> του Kontact, περιέχει ένα <i>Αντικείμενο προβολής σύνοψης</i> και αντιπροσωπεύει ένα <i>Συστατικό του Kontact</i>.
-Comment[zh_CN]=Kontact <b>KMail</b> 电子邮件插件配置，其中包含一个<i>摘要视图项目和一个<i>Kontact 组件</i>。
+Comment[zh_CN]=Kontact <b>KMail</b> 电子邮件插件配置，其中包含一个<i>摘要视图项目，以 <i>Kontact 组件</i>形式呈现。
 Weight=200
 Icon=kontact_mail
 
@@ -88,7 +88,7 @@ Comment=Configuration of Kontact's Adress Book Plugin <b>KAdressbook</b> which r
 Comment[ca]=Configuració de l'endollable de la llibreta d'adreces <b>KAdressbook</b> del Kontact, que representa un <i>component del Kontact</i>.
 Comment[da]=Konfiguration af Kontacts adressebog-plugin <b>KAdressbook</b> som repræsenterer en <i>Kontact-komponent</i>.
 Comment[el]=Ρύθμιση του πρόσθετου βιβλίου διευθύνσεων <b>KAdressbook</b> του Kontact που αντιπροσωπεύει ένα <i>Συστατικό του Kontact</i>.
-Comment[zh_CN]=Kontact <b>KAdressbook</b> 地址簿插件配置，包含一个<i>Kontact 组件</i>。
+Comment[zh_CN]=Kontact <b>KAdressbook</b> 地址簿插件配置，KAdressbook 以一个<i>Kontact 组件</i>形式呈现。
 Weight=300
 Icon=kontact_contacts
 
@@ -251,6 +251,7 @@ Comment=Configuration of Kontact's Calendar Plugin <b>KOrganizer</b>, includes a
 Comment[ca]=Configuració de l'endollable de calendari <b>KOrganizer</b> del Kontact, inclou un <i>element de vista de resum</i> i representa un <i>component del Kontact</i>.
 Comment[da]=Konfiguration af Kontacts kalender-plugin <b>KOrganizer</b>, inkluderer et <i>Opsummeringsvisningselement</i> og repræsenterer en <i>Kontact-komponent</i>.
 Comment[el]=Η ρύθμιση του προσθέτου ημερολογίου του <b>KOrganizer</b> του Kontact, περιέχει ένα <i>Αντικείμενο προβολής σύνοψης</i> και αντιπροσωπεύει ένα <i>Συστατικό του Kontact</i>.
+Comment[zh_CN]=Kontact 日历插件配置，<b>KOrganizer</b> 包含一个<i>摘要视图项目</i>，以 <i>Kontact 组件</i>形式呈现。
 Weight=400
 Icon=kontact_date
 
@@ -316,6 +317,7 @@ Comment=Configuration of Kontact's News Plugin <b>KNode</b> which represents a <
 Comment[ca]=Configuració de l'endollable de notícies <b>KNode</b> del Kontact, que representa un <i>component del Kontact</i>.
 Comment[da]=Konfiguration af Kontacts nyheds-plugin <b>KNode</b> som repræsenterer en <i>Kontact-komponent</i>.
 Comment[el]=Ρύθμιση του πρόσθετου νέων <b>KNode</b> του Kontact που αντιπροσωπεύει ένα <i>Συστατικό του Kontact</i>.
+Comment[zh_CN]=Kontact 新闻组插件配置，<b>KNode</b> 以一个 <i>Kontact 组件</i>形式呈现。
 Weight=500
 Icon=kontact_news
 
