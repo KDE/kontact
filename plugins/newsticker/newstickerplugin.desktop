@@ -19,6 +19,7 @@ Comment=Newsticker Component
 Comment[ca]=Component de teletip de notícies
 Comment[da]=Nyhedstelegraf-komponent
 Comment[el]=Συστατικό προβολέα ειδήσεων
+Comment[sv]=Nyhetsövervakningskomponent
 Comment[zh_CN]=新闻点点通组件
 Name=News
 Name[af]=Nuus
