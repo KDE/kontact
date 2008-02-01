@@ -55,8 +55,7 @@ extern "C"
 KCMSDSummary::KCMSDSummary( const KComponentData &inst, QWidget *parent )
   : KCModule( inst, parent )
 {
-  QWidget *widget = new QWidget( parent );
-  setupUi( widget );
+  setupUi( this );
 
   customDaysChanged( 7 );
 
