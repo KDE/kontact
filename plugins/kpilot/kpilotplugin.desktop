@@ -17,10 +17,13 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Palm Tools Component (KPilot Plugin)
+Comment[bg]=Приставка за KPilot
 Comment[ca]=Component d'eines de la Palm (endollable del KPilot)
 Comment[da]=Komponent til palm-værktøjer (KPilot-plugin)
 Comment[el]=Συστατικό εργαλείων Palm (Πρόσθετο του KPilot)
+Comment[nds]=Palmreekner-Warktüüchkomponent (KPilot-Moduul)
 Comment[sv]=Palm Pilot-verktygskomponent (Kpilot-insticksprogram)
 Comment[zh_CN]=Palm 工具组件(KPilot 插件)
 Name=Palm
+Name[nds]=Palmreekner
 Name[sv]=Palm Pilot

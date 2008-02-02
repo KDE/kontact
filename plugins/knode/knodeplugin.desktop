@@ -15,9 +15,11 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=false
 
 Comment=Newsreader Component (KNode Plugin)
+Comment[bg]=Приставка за KNode
 Comment[ca]=Component de notícies (endollable del KNode)
 Comment[da]=Nyhedskomponent (KNode-plugin)
 Comment[el]=Συστατικό ανάγνωσης νέων (Πρόσθετο του KNode)
+Comment[nds]=Narichtenkieker-Komponent (KNode-Moduul)
 Comment[sv]=Komponent för läsning av diskussionsgrupper (Knode-insticksprogram)
 Comment[zh_CN]=新闻组阅读器组件(KNode 插件)
 Name=News

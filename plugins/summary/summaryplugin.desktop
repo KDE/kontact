@@ -13,9 +13,11 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Summary View Component
+Comment[bg]=Обобщение
 Comment[ca]=Component de vista resum
 Comment[da]=Komponent for opsummeringsvisning
 Comment[el]=Συστατικό προβολής σύνοψης
+Comment[nds]=Översicht-Komponent
 Comment[sv]=Översiktsvykomponent
 Comment[zh_CN]=摘要视图组件
 Name=Summary

@@ -12,9 +12,11 @@ X-KDE-ParentComponents=kontact_korganizerplugin,kontact_todoplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Appointment and To-do Overview
+Name[bg]=Преглед на срещи и задачи
 Name[ca]=Resum de cites i tasques pendents
 Name[da]=Oversigt over møder og gøremål
 Name[el]=Επισκόπηση ραντεβού και προς υλοποίηση εργασιών
+Name[nds]=Termin- un Opgaven-Översicht
 Name[sv]=Översikt av möten och uppgifter
 Name[zh_CN]=约会和待办概览
 Comment=Appointments and To-dos Summary Setup

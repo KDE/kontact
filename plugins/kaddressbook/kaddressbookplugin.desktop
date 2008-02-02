@@ -17,9 +17,11 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Contacts Component (KAdressbook Plugin)
+Comment[bg]=Приставка за адресника
 Comment[ca]=Component de contactes (endollable del KAdressbook)
 Comment[da]=Kontaktkomponent (KAddressbook-plugin)
 Comment[el]=Συστατικό επαφών (Πρόσθετο του KAdressbook)
+Comment[nds]=Kontakten-Komponent (KAddressbook-Moduul)
 Comment[sv]=Kontaktkomponent (adressboksinsticksprogram)
 Comment[zh_CN]=联系人组件(KAddressbook 插件)
 Name=Contacts

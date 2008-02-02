@@ -17,9 +17,11 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Journal Component (KOrganizer Plugin)
+Comment[bg]=Приставка за KOrganizer
 Comment[ca]=Component de diari (endollable del KOrganizer)
 Comment[da]=Journalkomponent (KOrganizer-plugin)
 Comment[el]=Συστατικό χρονικών (Πρόσθετο του KOrganizer)
+Comment[nds]=Daagböker-Komponent (KOrganizer-Moduul)
 Comment[sv]=Journalkomponent (Korganizer-insticksprogram)
 Comment[zh_CN]=日记组件(KOrganizer 插件)
 Name=Journal

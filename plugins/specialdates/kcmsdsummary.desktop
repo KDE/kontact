@@ -12,9 +12,11 @@ X-KDE-ParentComponents=kontact_specialdatesplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Special Dates Overview
+Name[bg]=Преглед на специални случаи
 Name[ca]=Resum de dates especials
 Name[da]=Oversigt over særlige datoer
 Name[el]=Επισκόπηση σημαντικών ημερομηνιών
+Name[nds]=Översicht besünner Daten
 Name[sv]=Översikt av speciella datum
 Name[zh_CN]=特殊日期概览
 Comment=Special Dates Summary Setup

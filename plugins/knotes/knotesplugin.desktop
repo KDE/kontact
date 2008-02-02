@@ -15,9 +15,11 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Notes Component (KNotes Plugin)
+Comment[bg]=Приставка за бележки
 Comment[ca]=Component de notes (endollable del KNotes)
 Comment[da]=Notatkomponent (KNotes-plugin)
 Comment[el]=Συσταικό σημειώσεων (Πρόσθετο του KNotes)
+Comment[nds]=Notizen-Komponent (KNotes-Moduul)
 Comment[sv]=Anteckningskomponent (Knotes-insticksprogram)
 Comment[zh_CN]=便笺组件(KNotes 插件)
 Name=Notes
