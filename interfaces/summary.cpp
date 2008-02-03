@@ -64,28 +64,24 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
 {
   KHBox* hbox = new KHBox( parent );
   hbox->setMargin( 2 );
+  hbox->setBackgroundRole( QPalette::Window );
+  hbox->setForegroundRole( QPalette::WindowText );
+  hbox->setAutoFillBackground( true );
 
   QFont boldFont;
   boldFont.setBold( true );
   boldFont.setPointSize( boldFont.pointSize() + 2 );
 
   QLabel *label = new QLabel( hbox );
+  label->setBackgroundRole( QPalette::AlternateBase );
   label->setPixmap( icon );
   label->setFixedSize( label->sizeHint() );
-  QPalette pal = label->palette();
-  pal.setColor(label->backgroundRole(), palette().mid().color());
-  label->setPalette(pal);
   label->setAcceptDrops( true );
 
   label = new QLabel( heading, hbox );
-  label->setAlignment( Qt::AlignLeft|Qt::AlignVCenter );
+  label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
   label->setIndent( KDialog::spacingHint() );
   label->setFont( boldFont );
-
-  hbox->setPalette( pal );
-
-  pal.setColor( label->foregroundRole(), palette().color( QPalette::Light) );
-  label->setPalette( pal );
 
   hbox->setMaximumHeight( hbox->minimumSizeHint().height() );
 
