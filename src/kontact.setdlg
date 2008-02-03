@@ -806,3 +806,11 @@ Comment[zh_CN]=新闻点点通组件
 Comment[zh_TW]=新聞顯示元件
 Weight=1100
 Icon=knode
+
+
+[Akregator]
+Name=Feeds
+Comment=Feed Reader
+Weight=700
+Icon=akregator
+Comment[x-test]=xxFeeds Componentxx
