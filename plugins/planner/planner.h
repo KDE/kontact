@@ -29,13 +29,12 @@
 #include <kcal/calendarresources.h>
 #include <libkholidays/kholidays.h>
 
-#include <q3ptrlist.h>
-#include <qwidget.h>
-#include <Q3GridLayout>
-#include <QEvent>
+#include <QList>
 #include <QLabel>
 
-class Q3GridLayout;
+class QWidget;
+class QEvent;
+class QGridLayout;
 class QLabel;
 
 namespace Kontact {
@@ -96,9 +95,9 @@ class Planner : public Kontact::Summary
 
     bool mShowSd;
     Kontact::Plugin *mPlugin;
-    Q3GridLayout *mLayout;
-    Q3GridLayout *mPlannerGrid;
-    Q3PtrList<QLabel> mLabels;
+    QGridLayout *mLayout;
+    QGridLayout *mPlannerGrid;
+    QList<QLabel *> mLabels;
     KCal::CalendarResources *mCalendar;
     KCal::Todo::List mTodos;
     QString initStateText( const KCal::Todo *todo, const QDate &date );

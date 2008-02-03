@@ -55,7 +55,7 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qtooltip.h>
-#include <Q3GridLayout>
+#include <QGridLayout>
 #include <QPixmap>
 #include <QEvent>
 #include <Q3VBoxLayout>
@@ -70,10 +70,10 @@ Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
                                      KIconLoader::Desktop, KIconLoader::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Planner" ) );
   mainLayout->addWidget( header );
-
-  mLayout = new Q3GridLayout( mainLayout, 8, 5, 3 );
-  mLayout->setRowStretch( 6, 1 );
   mainLayout->addStretch();
+
+  mLayout = new QGridLayout( mainLayout, 8, 5, 3 );
+  mLayout->setRowStretch( 6, 1 );
 
   mCalendar = KOrg::StdCalendar::self();
   mCalendar->load();
@@ -394,7 +394,6 @@ int Planner::showEvents( int counter, const QDate &date )
                     KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
         label = new QLabel( datestr, this );
         label->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-        label->setPaletteForegroundColor( colorGroup().text() );
         mPlannerGrid->addWidget( label, counter, 3 );
         mLabels.append( label );
       }
@@ -462,9 +461,9 @@ int Planner::showSd( int counter )
 
 void Planner::updateView()
 {
-  mLabels.setAutoDelete( true );
-  mLabels.clear();
-  mLabels.setAutoDelete( false );
+  while ( !mLabels.isEmpty() ) {
+    delete mLabels.takeFirst();
+  }
 
   KIconLoader loader( "kdepim" );
 
@@ -519,7 +518,7 @@ void Planner::updateView()
 
       label = new QLabel( datestr, this );
       label->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-      label->setPaletteBackgroundColor( Qt::lightGray );
+      label->setBackgroundRole( QPalette::Midlight );
       if ( makeBold ){
         QFont font = label->font();
         font.setBold( true );
@@ -530,7 +529,7 @@ void Planner::updateView()
 
       ++counter;
       Q3VBoxLayout *todoLayout = new Q3VBoxLayout( this, 3, 3 );
-      mPlannerGrid = new Q3GridLayout ( todoLayout, 7, 6, 3 );
+      mPlannerGrid = new QGridLayout ( todoLayout, 7, 6, 3 );
       mPlannerGrid->setRowStretch( 6, 1 );
       todoLayout->addStretch();
       mLayout->addMultiCellLayout( todoLayout, counter, counter, 0, 4 );
@@ -554,8 +553,11 @@ void Planner::updateView()
     mLabels.append( noEvents );
   }
 
-  for ( label = mLabels.first(); label; label = mLabels.next() ) {
-    label->show();
+  QListIterator<QLabel *> i( mLabels );
+  QLabel *l;
+  while ( i.hasNext() ) {
+    l = i.next();
+    l->show();
   }
 }
 
