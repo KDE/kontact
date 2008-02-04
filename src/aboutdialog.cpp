@@ -59,6 +59,17 @@ AboutDialog::AboutDialog( Kontact::Core *core )
     addAboutPlugin( *it );
 
   addLicenseText( KGlobal::mainComponent().aboutData() );
+
+  setInitialSize(QSize(600, 400));
+  restoreDialogSize(KConfigGroup(KGlobal::config(), "AboutDialog"));
+  connect(this, SIGNAL(finished(int)), this, SLOT(saveSize()));
+}
+
+void AboutDialog::saveSize()
+{
+  KConfigGroup group(KGlobal::config(), "AboutDialog");
+  saveDialogSize(group);
+  group.sync();
 }
 
 void AboutDialog::addAboutPlugin( Kontact::Plugin *plugin )
