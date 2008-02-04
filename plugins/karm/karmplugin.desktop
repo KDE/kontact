@@ -19,12 +19,16 @@ Comment[ca]=Component de seguiment dels temps (endollable del KArm)
 Comment[da]=Time Tracker-komponent (KArm-plugin)
 Comment[el]=Συστατικό γραμμής χρόνου (Πρόσθετο του KArm)
 Comment[nds]=Tietlogbook-Komponent (KArm-Moduul)
+Comment[nl]=Tijdsregistratiecomponent (KArm-plugin)
 Comment[sv]=Komponent för tidmätning (Karm-insticksprogram)
 Comment[zh_CN]=时间追踪组件(KArm 插件)
+Comment[zh_TW]=時間追蹤器組件（KArm 外掛程式）
 
 Name=Timer
 Name[ca]=Cronòmetre
 Name[el]=Χρονόμετρο
 Name[nds]=Tietgever
+Name[nl]=Tijdklok
 Name[sv]=Tidmätning
 Name[zh_CN]=计时器
+Name[zh_TW]=計時器
