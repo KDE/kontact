@@ -47,7 +47,8 @@ class AboutDialog : public KPageDialog
     void addLicenseText( const KAboutData *about );
 
     QString formatPerson( const QString &name, const QString &email );
-
+  private slots:
+    void saveSize();
   private:
     Core *mCore;
 };
