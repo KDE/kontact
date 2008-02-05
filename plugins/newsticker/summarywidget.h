@@ -74,11 +74,11 @@ class SummaryWidget : public Kontact::Summary //, public DCOPObject
     /**
      * Inform the newsticker summary widget that a feed has been added.
      */
-    void documentAdded( QString );
+    void documentAdded( const QString & );
     /**
      * Inform the newsticker summary widget that a feed has been removed.
      */
-    void documentRemoved( QString );
+    void documentRemoved( const QString & );
 #ifdef __GNUC__
 #warning Port me!
 #endif

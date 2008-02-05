@@ -98,8 +98,8 @@ class SummaryWidget : public Kontact::Summary
 
   //k_dcop:
   public slots:
-    virtual void refresh( QString );
-    virtual void stationRemoved( QString );
+    virtual void refresh( const QString & );
+    virtual void stationRemoved( const QString & );
 
   protected:
     virtual bool eventFilter( QObject *obj, QEvent *e );

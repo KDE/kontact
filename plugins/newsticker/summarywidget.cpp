@@ -94,8 +94,8 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   if ( dcopAvailable )
     initDocuments();
 
-  connectDCOPSignal( 0, 0, "added(QString)", "documentAdded(QString)", false );
-  connectDCOPSignal( 0, 0, "removed(QString)", "documentRemoved(QString)", false );
+  connectDCOPSignal( 0, 0, "added(QString)", "documentAdded(const QString &)", false );
+  connectDCOPSignal( 0, 0, "removed(QString)", "documentRemoved(const QString &)", false );
 #endif
 }
 
@@ -104,12 +104,12 @@ int SummaryWidget::summaryHeight() const
   return ( mFeeds.count() == 0 ? 1 : mFeeds.count() );
 }
 
-void SummaryWidget::documentAdded( QString )
+void SummaryWidget::documentAdded( const QString & )
 {
   initDocuments();
 }
 
-void SummaryWidget::documentRemoved( QString )
+void SummaryWidget::documentRemoved( const QString & )
 {
   initDocuments();
 }

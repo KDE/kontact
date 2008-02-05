@@ -24,7 +24,6 @@
 #include <QLabel>
 #include <QLayout>
 
-//Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>
 #include <QGridLayout>
@@ -68,8 +67,8 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   }
 
   if ( serviceAvailable ) {
-    QDBusConnection::sessionBus().connect(QString(), "/Service", "org.kde.kweather.service", "fileUpdate", this, SLOT(refresh(QString)));
-    QDBusConnection::sessionBus().connect(QString(), "/Service", "org.kde.kweather.service", "stationRemoved", this, SLOT(stationRemoved(QString)));
+    QDBusConnection::sessionBus().connect(QString(), "/Service", "org.kde.kweather.service", "fileUpdate", this, SLOT(refresh(const QString&)));
+    QDBusConnection::sessionBus().connect(QString(), "/Service", "org.kde.kweather.service", "stationRemoved", this, SLOT(stationRemoved(const QString&)));
 
     OrgKdeKweatherServiceInterface service( "org.kde.KWeatherService", "/Service", QDBusConnection::sessionBus() );
     QDBusReply<QStringList> reply = service.listStations();
@@ -79,7 +78,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
       connect( &mTimer, SIGNAL( timeout() ), this, SLOT( timeout() ) );
       mTimer.start( 0 );
     } else {
-      kDebug(5602) <<"ERROR: D-Bus reply not valid...";
+      kDebug(5602) << "ERROR: D-Bus reply not valid...";
     }
   }
 }
@@ -168,7 +167,7 @@ void SummaryWidget::timeout()
   mTimer.start( 15 * 60000 );
 }
 
-void SummaryWidget::refresh( QString station )
+void SummaryWidget::refresh( const QString &station )
 {
   OrgKdeKweatherServiceInterface service( "org.kde.KWeatherService", "/Service", QDBusConnection::sessionBus() );
   QByteArray iconB = service.currentIcon(station);
@@ -186,7 +185,7 @@ void SummaryWidget::refresh( QString station )
   updateView();
 }
 
-void SummaryWidget::stationRemoved( QString station )
+void SummaryWidget::stationRemoved( const QString &station )
 {
   mWeatherMap.remove( station );
   updateView();
