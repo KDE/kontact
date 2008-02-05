@@ -69,7 +69,6 @@ void AboutDialog::saveSize()
 {
   KConfigGroup group(KGlobal::config(), "AboutDialog");
   saveDialogSize(group);
-  group.sync();
 }
 
 void AboutDialog::addAboutPlugin( Kontact::Plugin *plugin )
