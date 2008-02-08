@@ -26,6 +26,7 @@ Comment[sv]=Synkroniseringskomponent (Kitchensynk-insticksprogram)
 Comment[zh_CN]=同步组件(KitchenSync 插件)
 Comment[zh_TW]=同步組件（KitchenSynk 外掛程式）
 Name=Sync
+Name[bg]=Синхронизация
 Name[de]=Abgleich
 Name[el]=Συγχρονισμός
 Name[nds]=Synkroniseren

@@ -12,7 +12,9 @@ X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Summary View Items
+Name[bg]=Обобщение
 Name[ca]=Vista resum d'elements
+Name[de]=Elemente der Zusammenfassungsansicht
 Name[el]=Αντικείμενα προβολής σύνοψης
 Name[it]=Elementi vista sommario
 Name[nds]=Översicht-Indrääg

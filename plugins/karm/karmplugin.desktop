@@ -27,6 +27,7 @@ Comment[zh_CN]=时间追踪组件(KArm 插件)
 Comment[zh_TW]=時間追蹤器組件（KArm 外掛程式）
 
 Name=Timer
+Name[bg]=Таймер
 Name[ca]=Cronòmetre
 Name[de]=Stoppuhr
 Name[el]=Χρονόμετρο

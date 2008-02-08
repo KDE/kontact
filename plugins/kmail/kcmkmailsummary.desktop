@@ -12,7 +12,7 @@ X-KDE-ParentComponents=kontact_kmailplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=E-Mail Overview
-Name[bg]=Имате ново писмо
+Name[bg]=Преглед на пощата
 Name[ca]=Resum de correu
 Name[da]=Oversigt over e-mail
 Name[de]=E-Mail-Übersicht

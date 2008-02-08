@@ -30,6 +30,7 @@ Comment[sv]=E-postkomponent (Kmail-insticksprogram)
 Comment[zh_CN]=邮件组件(KMail 插件)
 Comment[zh_TW]=電子郵件組件（KMail 外掛程式）
 Name=E-Mail
+Name[bg]=Е-поща
 Name[ca]=Correu
 Name[da]=E-mail
 Name[el]=Αλληλογραφία
