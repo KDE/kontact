@@ -3,6 +3,7 @@
 
     Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
     adapted for karm 2005 by Thorsten Staerk <kde@staerk.de>
+    karm renamed to ktimetracker 2007-2008
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -42,8 +43,8 @@ KarmPlugin::KarmPlugin( Kontact::Core *core, const QStringList& )
 {
   setComponentData( KarmPluginFactory::componentData() );
 
-    KAction *action  = new KAction(KIcon("karm"), i18n("New Task"), this);
-    actionCollection()->addAction("new_task", action );
+  KAction *action  = new KAction(KIcon("karm"), i18n("New Task"), this);
+  actionCollection()->addAction("new_task", action );
   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_W));
   connect(action, SIGNAL(triggered(bool)), SLOT( newTask() ));
   insertNewAction(action);
