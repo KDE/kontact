@@ -31,15 +31,18 @@
 #include "core.h"
 #include "plugin.h"
 
+#include <karm_part.h>
 #include "karm_plugin.h"
 #include "ktimetrackerinterface.h"
+
+using namespace KTimeTracker;
 
 typedef KGenericFactory<KarmPlugin, Kontact::Core> KarmPluginFactory;
 K_EXPORT_COMPONENT_FACTORY( kontact_karm,
                             KarmPluginFactory( "kontact_karm" ) )
 
 KarmPlugin::KarmPlugin( Kontact::Core *core, const QStringList& )
-  : Kontact::Plugin( core, core, "KArm" )
+  : Kontact::Plugin( core, core, "KArm" ), mInterface( 0 )
 {
   setComponentData( KarmPluginFactory::componentData() );
 
@@ -54,6 +57,15 @@ KarmPlugin::~KarmPlugin()
 {
 }
 
+OrgKdeKtimetrackerKtimetrackerInterface *KarmPlugin::interface()
+{
+  if ( !mInterface ) {
+    part();
+  }
+  Q_ASSERT( mInterface );
+  return mInterface;
+}
+
 QString KarmPlugin::tipFile() const
 {
   // TODO: tips file
@@ -65,11 +77,23 @@ QString KarmPlugin::tipFile() const
 KParts::ReadOnlyPart* KarmPlugin::createPart()
 {
   KParts::ReadOnlyPart * part = loadPart();
-  if ( !part ) return 0;
 
+  connect( part, SIGNAL(showPart()), this, SLOT(showPart()) );
   mInterface = new OrgKdeKtimetrackerKtimetrackerInterface( "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
 
   return part;
+}
+
+QStringList KarmPlugin::configModules() const
+{
+  QStringList modules;
+  modules << "karmplugin.desktop";
+  return modules;
+}
+
+void KarmPlugin::showPart()
+{
+  core()->selectPlugin(this);
 }
 
 void KarmPlugin::newTask()

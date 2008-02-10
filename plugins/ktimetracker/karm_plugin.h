@@ -33,6 +33,8 @@
 
 class OrgKdeKtimetrackerKtimetrackerInterface;
 
+namespace KTimeTracker {
+
 class KarmPlugin : public Kontact::Plugin
 {
   Q_OBJECT
@@ -44,6 +46,13 @@ class KarmPlugin : public Kontact::Plugin
     virtual QString tipFile() const;
     int weight() const { return 700; }
 
+    OrgKdeKtimetrackerKtimetrackerInterface *interface();
+
+    virtual QStringList configModules() const;
+
+  private slots:
+    void showPart();
+
   protected:
     KParts::ReadOnlyPart *createPart();
     OrgKdeKtimetrackerKtimetrackerInterface *mInterface;
@@ -53,4 +62,5 @@ class KarmPlugin : public Kontact::Plugin
 
 };
 
+} // namespace KTimeTracker
 #endif
