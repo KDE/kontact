@@ -14,10 +14,4 @@ X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=TimeTracker Plugin
 
-Name=KTimeTracker
-Name[de]=Persönliche Zeiterfassung
-Name[km]=កម្មវិធី​តាមដាន​របស់ KTime
-Name[ne]=केडीई समय ट्रयाकर
-Name[pl]=Osobisty czasomierz
-Name[sv]=Ktimetracker
-Name[x-test]=xxKTimeTrackerxx
+Name=Time Tracker
