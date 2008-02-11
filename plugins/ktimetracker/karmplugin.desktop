@@ -13,5 +13,8 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=TimeTracker Plugin
+Comment[ga]=Breiseán TimeTracker
+Comment[pt]='Plugin' do KTimeTracker
+Comment[pt_BR]='Plugin' do KTimeTracker
 
 Name=Time Tracker
