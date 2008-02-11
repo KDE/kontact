@@ -24,8 +24,9 @@
 
 #include "core.h"
 #include "plugin.h"
-
-#include "kmailinterface.h"
+#ifdef KMAIL_SUPPORTED
+# include "kmailinterface.h"
+#endif
 
 #include <kgenericfactory.h>
 #include <kparts/componentfactory.h>
@@ -64,11 +65,13 @@ void SummaryView::fillSyncActionSubEntries()
   QStringList menuItems;
   menuItems.append( i18n("All") );
 
+#ifdef KMAIL_SUPPORTED
   org::kde::kmail::kmail kmail( "org.kde.kmail", "/KMail", QDBusConnection::sessionBus() );
   const QDBusReply<QStringList> reply = kmail.accounts();
   if ( reply.isValid() ) {
     menuItems << reply.value();
   }
+#endif
 
   mSyncAction->clear();
   mSyncAction->setItems( menuItems );
@@ -76,8 +79,10 @@ void SummaryView::fillSyncActionSubEntries()
 
 void SummaryView::syncAccount( const QString& account )
 {
+#ifdef KMAIL_SUPPORTED
   org::kde::kmail::kmail kmail( "org.kde.kmail" , "/KMail" , QDBusConnection::sessionBus() );
   kmail.checkAccount( ( account == i18n("All") ? QString() : account ) );
+#endif
   fillSyncActionSubEntries();
 }
 
