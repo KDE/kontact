@@ -7,6 +7,8 @@ X-KDE-Library=kontact_knodeplugin
 X-KDE-KontactPluginVersion=7
 X-KDE-KontactPartLibraryName=knodepart
 X-KDE-KontactPartExecutableName=knode
+X-KDE-KontactPartLoadOnStart=false
+X-KDE-KontactPluginHasSummary=false
 
 X-KDE-PluginInfo-Name=kontact_knodeplugin
 X-KDE-PluginInfo-Version=0.1
