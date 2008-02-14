@@ -213,6 +213,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 
       KTemporaryFile tf;
       tf.setAutoRemove( true );
+      tf.open();
       QString uri = KDEPIMPROTOCOL_EMAIL + QString::number( mail.serialNumber() );
       tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openEventEditor( i18n("Mail: %1", mail.subject() ), txt,
