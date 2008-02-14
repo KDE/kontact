@@ -49,6 +49,8 @@ class KarmPlugin : public Kontact::Plugin
     OrgKdeKtimetrackerKtimetrackerInterface *interface();
 
     virtual QStringList configModules() const;
+    virtual void readProperties( const KConfigGroup &config );
+    virtual void saveProperties( KConfigGroup &config );
 
   private slots:
     void showPart();
