@@ -15,10 +15,12 @@ X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=TimeTracker Plugin
 Comment[ga]=Breiseán TimeTracker
+Comment[ja]=タイムトラッカープラグイン
 Comment[km]=កម្មវិធី​ជំនួយ TimeTracker
 Comment[pt]='Plugin' do KTimeTracker
 Comment[pt_BR]='Plugin' do KTimeTracker
 
 Name=Time Tracker
 Name[ga]=TimeTracker
+Name[ja]=タイムトラッカー
 Name[km]=កម្មវិធី​តាមដាន​ពេលវេលា
