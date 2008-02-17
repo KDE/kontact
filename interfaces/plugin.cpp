@@ -39,6 +39,9 @@ using namespace Kontact;
 class Plugin::Private
 {
   public:
+      
+    void partDestroyed();
+      
     Kontact::Core *core;
     QList<KAction*> *newActions;
     QList<KAction*> *syncActions;
@@ -217,9 +220,9 @@ void Plugin::configUpdated()
 {
 }
 
-void Plugin::partDestroyed()
+void Plugin::Private::partDestroyed()
 {
-  d->part = 0;
+  part = 0;
 }
 
 void Plugin::slotConfigUpdated()

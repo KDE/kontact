@@ -50,14 +50,22 @@ class SummaryMimeData : public QMimeData
     }
 };
 
+class Summary::Private
+{
+public:
+  KStatusBar *mStatusBar;
+  QPoint mDragStartPoint;
+};
+
 Summary::Summary( QWidget *parent )
-  : QWidget( parent )
+  : QWidget( parent ), d( new Private )
 {
   setAcceptDrops( true );
 }
 
 Summary::~Summary()
 {
+  delete d;
 }
 
 QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QString& heading)
@@ -90,7 +98,7 @@ QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QStri
 
 void Summary::mousePressEvent( QMouseEvent *event )
 {
-  mDragStartPoint = event->pos();
+  d->mDragStartPoint = event->pos();
 
   QWidget::mousePressEvent( event );
 }
@@ -98,7 +106,7 @@ void Summary::mousePressEvent( QMouseEvent *event )
 void Summary::mouseMoveEvent( QMouseEvent *event )
 {
   if ( (event->buttons() & Qt::LeftButton) &&
-       (event->pos() - mDragStartPoint).manhattanLength() > 4 ) {
+       (event->pos() - d->mDragStartPoint).manhattanLength() > 4 ) {
 
 
     QDrag *drag = new QDrag(this);

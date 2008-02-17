@@ -33,16 +33,26 @@ using namespace Kontact;
 
 class Core::Private
 {
+  Core* const q;
 public:
+  explicit Private( Core* qq );
+
+  void slotPartDestroyed( QObject * );
+  void checkNewDay();
+
   QString lastErrorMessage;
+  QDate mLastDate;
+  QMap<QByteArray,KParts::ReadOnlyPart *> mParts;
 };
 
-Core::Core( QWidget *parent, Qt::WindowFlags f )
-  : KParts::MainWindow( parent, f )
+Core::Private::Private( Core* qq ) : q( qq ), mLastDate( QDate::currentDate() )
 {
-  d = new Private;
+}
+
+Core::Core( QWidget *parent, Qt::WindowFlags f )
+  : KParts::MainWindow( parent, f ), d( new Private( this ) )
+{
   QTimer* timer = new QTimer( this );
-  mLastDate = QDate::currentDate();
   connect(timer, SIGNAL( timeout() ), SLOT( checkNewDay() ) );
   timer->start( 1000*60 );
 }
@@ -57,8 +67,8 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
   kDebug(5601) << libname;
 
   QMap<QByteArray,KParts::ReadOnlyPart *>::ConstIterator it;
-  it = mParts.find( libname );
-  if ( it != mParts.end() ) return it.value();
+  it = d->mParts.find( libname );
+  if ( it != d->mParts.end() ) return it.value();
 
   kDebug(5601) <<"Creating new KPart";
 
@@ -70,7 +80,7 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
     part = factory->create<KParts::ReadOnlyPart>(this);
 
   if (part) {
-    mParts.insert( libname, part );
+    d->mParts.insert( libname, part );
     QObject::connect( part, SIGNAL( destroyed( QObject * ) ),
                       SLOT( slotPartDestroyed( QObject * ) ) );
   } else {
@@ -81,7 +91,7 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
   return part;
 }
 
-void Core::slotPartDestroyed( QObject * obj )
+void Core::Private::slotPartDestroyed( QObject * obj )
 {
   // the part was deleted, we need to remove it from the part map to not return
   // a dangling pointer in createPart
@@ -95,10 +105,10 @@ void Core::slotPartDestroyed( QObject * obj )
   }
 }
 
-void Core::checkNewDay()
+void Core::Private::checkNewDay()
 {
   if ( mLastDate != QDate::currentDate() )
-    emit dayChanged( QDate::currentDate() );
+    emit q->dayChanged( QDate::currentDate() );
 
   mLastDate = QDate::currentDate();
 }

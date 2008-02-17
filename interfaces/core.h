@@ -78,20 +78,15 @@ class KPINTERFACES_EXPORT Core : public KParts::MainWindow
     void dayChanged( const QDate& );
 
   protected:
-    Core( QWidget *parentWidget = 0, Qt::WindowFlags f = KDE_DEFAULT_WINDOWFLAGS );
+    explicit Core( QWidget *parentWidget = 0, Qt::WindowFlags f = KDE_DEFAULT_WINDOWFLAGS );
 
     QString lastErrorMessage() const;
 
-  private Q_SLOTS:
-    void slotPartDestroyed( QObject * );
-    void checkNewDay();
-
   private:
-    QMap<QByteArray,KParts::ReadOnlyPart *> mParts;
-    QDate mLastDate;
-
     class Private;
     Private *d;
+    Q_PRIVATE_SLOT( d, void slotPartDestroyed( QObject* ) );
+    Q_PRIVATE_SLOT( d, void checkNewDay() );
 };
 
 }

@@ -265,12 +265,10 @@ class KPINTERFACES_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
 
     virtual void virtual_hook(  int id, void* data );
 
-  private Q_SLOTS:
-    void partDestroyed();
-
   private:
     class Private;
     Private *d;
+    Q_PRIVATE_SLOT( d, void partDestroyed() )
 };
 
 }

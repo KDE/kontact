@@ -42,7 +42,7 @@ class KPINTERFACES_EXPORT Summary : public QWidget
   Q_OBJECT
 
   public:
-    Summary( QWidget *parent );
+    explicit Summary( QWidget *parent );
 
     virtual ~Summary();
 
@@ -86,9 +86,6 @@ class KPINTERFACES_EXPORT Summary : public QWidget
     virtual void dropEvent( QDropEvent* );
 
   private:
-    KStatusBar *mStatusBar;
-    QPoint mDragStartPoint;
-
     class Private;
     Private *d;
 };
