@@ -85,8 +85,8 @@ class KPINTERFACES_EXPORT Core : public KParts::MainWindow
   private:
     class Private;
     Private *d;
-    Q_PRIVATE_SLOT( d, void slotPartDestroyed( QObject* ) );
-    Q_PRIVATE_SLOT( d, void checkNewDay() );
+    Q_PRIVATE_SLOT( d, void slotPartDestroyed( QObject* ) )
+    Q_PRIVATE_SLOT( d, void checkNewDay() )
 };
 
 }
