@@ -14,6 +14,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=TimeTracker Plugin
+Comment[ca]=Connector de registre horari
 Comment[ga]=Breiseán TimeTracker
 Comment[ja]=タイムトラッカープラグイン
 Comment[km]=កម្មវិធី​ជំនួយ TimeTracker
@@ -21,6 +22,9 @@ Comment[pt]='Plugin' do KTimeTracker
 Comment[pt_BR]='Plugin' do KTimeTracker
 
 Name=Time Tracker
+Name[ca]=Registre horari
 Name[ga]=TimeTracker
 Name[ja]=タイムトラッカー
 Name[km]=កម្មវិធី​តាមដាន​ពេលវេលា
+Name[pt]=Gestor de Tempo
+Name[pt_BR]=Gestor de Tempo
