@@ -148,6 +148,7 @@ int main( int argc, char **argv )
   }
 
   KontactApp app;
+  QApplication::setQuitOnLastWindowClosed( false );
   if ( app.restoringSession() ) {
      // There can only be one main window
     if ( KMainWindow::canBeRestored( 1 ) ) {
