@@ -178,19 +178,19 @@ void KCMPlanner::initTodoPage()
   mTodoPage = new QWidget( this );
   Q3VBoxLayout *layout = new Q3VBoxLayout( mTodoPage, KDialog::spacingHint() );
 
-  mTodoGroup = new Q3GroupBox( 8, Qt::Vertical, i18n( "Show To-dos?" ), mTodoPage );
+  mTodoGroup = new Q3GroupBox( 8, Qt::Vertical, i18n( "Show To-dos" ), mTodoPage );
   mTodoGroup->setCheckable( true );
 
   mShowAllTodos = new QCheckBox( i18n( "Show all to-dos" ), mTodoGroup );
-  mShowOverdueTodos = new QCheckBox( i18n( "Overdue To-dos" ), mTodoGroup );
+  mShowOverdueTodos = new QCheckBox( i18n( "Overdue to-dos" ), mTodoGroup );
   mShowTodayStartingTodos = new QCheckBox( i18n( "Starting to-dos" ), mTodoGroup );
   mShowTodayEndingTodos = new QCheckBox( i18n( "Ending to-dos" ), mTodoGroup );
   mShowTodosInProgress = new QCheckBox( i18n( "To-dos in progress" ), mTodoGroup );
-  mShowCompleted = new QCheckBox( i18n( "Completed To-dos" ), mTodoGroup );
+  mShowCompleted = new QCheckBox( i18n( "Completed to-dos" ), mTodoGroup );
 
   Q3HBoxLayout *hbox = new Q3HBoxLayout( layout, KDialog::spacingHint() );
 
-  QLabel *label = new QLabel( "Priority Limit", mTodoGroup );
+  QLabel *label = new QLabel( "Priority limit:", mTodoGroup );
   hbox->addWidget( label );
   mPriority = new QSpinBox( 0, 9, 1, mTodoGroup );
   hbox->addWidget( mPriority );
@@ -216,7 +216,7 @@ void KCMPlanner::initSdPage()
 {
   mSdPage = new QWidget( this );
   Q3VBoxLayout *layout = new Q3VBoxLayout( mSdPage, KDialog::spacingHint() );
-  mSdGroup = new Q3GroupBox( 5, Qt::Vertical, i18n( "Show Special Dates?" ), mSdPage );
+  mSdGroup = new Q3GroupBox( 5, Qt::Vertical, i18n( "Show Special Dates" ), mSdPage );
   mSdGroup->setCheckable( true );
 
   connect( mSdGroup, SIGNAL( toggled( bool ) ), SLOT( modified() ) );

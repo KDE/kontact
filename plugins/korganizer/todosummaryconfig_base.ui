@@ -32,7 +32,7 @@
    <item>
     <widget class="QGroupBox" name="mDaysGroup" >
      <property name="title" >
-      <string>Show to-dos due:</string>
+      <string>Show To-dos Due</string>
      </property>
      <layout class="QGridLayout" >
       <property name="margin" >
@@ -105,7 +105,7 @@
    <item>
     <widget class="QGroupBox" name="mHideGroup" >
      <property name="title" >
-      <string>Hide the following to-do types:</string>
+      <string>Hide Following To-do Types</string>
      </property>
      <layout class="QVBoxLayout" >
       <property name="margin" >

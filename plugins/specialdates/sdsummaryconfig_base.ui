@@ -33,7 +33,7 @@
    <item>
     <widget class="Q3ButtonGroup" name="mDaysGroup" >
      <property name="title" >
-      <string>Show special dates starting:</string>
+      <string>Show Special Dates Starting</string>
      </property>
      <layout class="QGridLayout" >
       <property name="margin" >
@@ -103,7 +103,7 @@
    <item>
     <widget class="QGroupBox" name="mShowFromCalGroup" >
      <property name="title" >
-      <string>Show these special dates from your calendar:</string>
+      <string>Show These Special Dates From Your Calendar</string>
      </property>
      <layout class="QVBoxLayout" >
       <property name="margin" >
@@ -185,7 +185,7 @@
    <item>
     <widget class="QGroupBox" name="mShowFromKABGroup" >
      <property name="title" >
-      <string>Show these special dates from your contact list:</string>
+      <string>Show These Special Dates From Your Contact List</string>
      </property>
      <layout class="QVBoxLayout" >
       <property name="margin" >

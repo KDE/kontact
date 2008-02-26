@@ -33,7 +33,7 @@
    <item>
     <widget class="QGroupBox" name="mDaysGroup" >
      <property name="title" >
-      <string>Show events starting:</string>
+      <string>Show Events Starting</string>
      </property>
      <widget class="QWidget" name="" >
       <property name="geometry" >
