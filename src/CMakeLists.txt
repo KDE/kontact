@@ -6,21 +6,21 @@ include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces  )
 
 ########### next target ###############
 
-set(kontact_LIB_SRCS 
+set(kontactprivate_LIB_SRCS 
    mainwindow.cpp 
    sidepanebase.cpp 
    iconsidepane.cpp 
    aboutdialog.cpp )
 
 
-kde4_add_kcfg_files(kontact_LIB_SRCS prefs.kcfgc )
+kde4_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc )
 
-kde4_add_library(kontact SHARED ${kontact_LIB_SRCS})
+kde4_add_library(kontactprivate SHARED ${kontactprivate_LIB_SRCS})
 
-kdepim4_link_unique_libraries(kontact  ${KDE4_KPARTS_LIBS} kdepim kpinterfaces ${KDE4_KUTILS_LIBRARY} ${KDE4_KHTML_LIBRARY} )
+kdepim4_link_unique_libraries(kontactprivate  ${KDE4_KPARTS_LIBS} kdepim kpinterfaces ${KDE4_KUTILS_LIBRARY} ${KDE4_KHTML_LIBRARY} )
 
-set_target_properties(kontact PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
-install(TARGETS kontact  DESTINATION ${LIB_INSTALL_DIR})
+set_target_properties(kontactprivate PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
+install(TARGETS kontactprivate  DESTINATION ${LIB_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -32,7 +32,7 @@ kde4_add_executable(kontact_bin ${kontact_bin_SRCS})
 
 set_target_properties(kontact_bin  PROPERTIES OUTPUT_NAME kontact)
 
-kdepim4_link_unique_libraries(kontact_bin  ${KDE4_KHTML_LIBS} ${KDE4_KDE3SUPPORT_LIBS} kontact)
+kdepim4_link_unique_libraries(kontact_bin  ${KDE4_KHTML_LIBS} ${KDE4_KDE3SUPPORT_LIBS} kontactprivate)
 
 install(TARGETS kontact_bin  DESTINATION ${BIN_INSTALL_DIR} )
 
@@ -46,7 +46,7 @@ kde4_add_plugin(kcm_kontact ${kcm_kontact_PART_SRCS})
 
 
 
-kdepim4_link_unique_libraries(kcm_kontact  ${KDE4_KDECORE_LIBS} kontact kdepim )
+kdepim4_link_unique_libraries(kcm_kontact  ${KDE4_KDECORE_LIBS} kontactprivate kdepim)
 
 install(TARGETS kcm_kontact  DESTINATION ${PLUGIN_INSTALL_DIR})
 
