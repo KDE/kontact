@@ -27,6 +27,7 @@ Comment[pl]=Składnik podsumowania
 Comment[sr]=Компонента приказа сажетка
 Comment[sr@Latn]=Komponenta prikaza sažetka
 Comment[sv]=Översiktsvykomponent
+Comment[tr]=Özet Görünüm Bileşeni
 Comment[zh_CN]=摘要视图组件
 Comment[zh_TW]=摘要檢視組件
 Name=Summary

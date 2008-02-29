@@ -31,6 +31,7 @@ Comment[pl]=Składnik kalendarza (wtyczka KOrganizer)
 Comment[sr]=Компонента календара (прикључак KOrganizer-а)
 Comment[sr@Latn]=Komponenta kalendara (priključak KOrganizer-a)
 Comment[sv]=Kalenderkomponent (Korganizer-insticksprogram)
+Comment[tr]=Takvim Bileşeni (KOrganizer Eklentisi)
 Comment[zh_CN]=日历组件(KOrganizer 插件)
 Comment[zh_TW]=行事曆組件（KOrganizer 外掛程式）
 Name=Calendar

@@ -28,6 +28,7 @@ Comment[pl]=Składnik synchronizacji (wtyczka KitchenSync)
 Comment[sr]=Компонента синхронизације (прикључак KitchenSync-а)
 Comment[sr@Latn]=Komponenta sinhronizacije (priključak KitchenSync-a)
 Comment[sv]=Synkroniseringskomponent (Kitchensynk-insticksprogram)
+Comment[tr]=Eşzamanlama Eklentisi (Kitchensynk Eklentisi)
 Comment[zh_CN]=同步组件(KitchenSync 插件)
 Comment[zh_TW]=同步組件（KitchenSynk 外掛程式）
 Name=Sync

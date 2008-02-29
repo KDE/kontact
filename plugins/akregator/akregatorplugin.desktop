@@ -29,6 +29,7 @@ Comment[pl]=Składnik do czytania niusów (wtyczka Akregator)
 Comment[sr]=Компонента читања довода (прикључак Akregator-а)
 Comment[sr@Latn]=Komponenta čitanja dovoda (priključak Akregator-a)
 Comment[sv]=Komponent för läsning av kanaler (Akregator-insticksprogram)
+Comment[tr]=Kaynak Okuyucu Bileşeni (Akregator Eklentisi)
 Comment[zh_CN]=新闻源阅读器组件(Akregator 插件)
 Comment[zh_TW]=Feed 閱讀器組件（Akregator 外掛程式）
 Name=Feeds

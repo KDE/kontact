@@ -30,6 +30,7 @@ Comment[pl]=Składnik paska wiadomości
 Comment[sr]=Компонента откуцавача вести
 Comment[sr@Latn]=Komponenta otkucavača vesti
 Comment[sv]=Nyhetsövervakningskomponent
+Comment[tr]=Haber İzleyici Bileşeni
 Comment[zh_CN]=新闻点点通组件
 Comment[zh_TW]=新聞顯示組件
 Name=News
