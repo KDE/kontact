@@ -19,7 +19,7 @@ Comment[ga]=Breiseán TimeTracker
 Comment[ja]=タイムトラッカープラグイン
 Comment[km]=កម្មវិធី​ជំនួយ TimeTracker
 Comment[pt]='Plugin' do KTimeTracker
-Comment[pt_BR]='Plugin' do KTimeTracker
+Comment[pt_BR]=Plug-in do TimeTracker
 Comment[zh_TW]=時間追蹤器外掛程式
 
 Name=Time Tracker
@@ -28,5 +28,5 @@ Name[ga]=TimeTracker
 Name[ja]=タイムトラッカー
 Name[km]=កម្មវិធី​តាមដាន​ពេលវេលា
 Name[pt]=Gestor de Tempo
-Name[pt_BR]=Gestor de Tempo
+Name[pt_BR]=Gerenciador de Tempo
 Name[zh_TW]=時間追蹤器
