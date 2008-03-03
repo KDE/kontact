@@ -85,7 +85,7 @@ QString KAddressbookPlugin::tipFile() const
   return file;
 }
 
-  KParts::ReadOnlyPart* KAddressbookPlugin::createPart()
+KParts::ReadOnlyPart* KAddressbookPlugin::createPart()
 {
   KParts::ReadOnlyPart * part = loadPart();
   if ( !part ) return 0;
