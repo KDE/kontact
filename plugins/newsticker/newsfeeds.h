@@ -259,8 +259,8 @@ static NewsSourceData NewsSourceDefault[DEFAULT_NEWSSOURCES] = {
     QString::fromLatin1("http://www.amiga-news.de/favicon.ico"),
     NewsSourceData::Computers ),
     NewsSourceData(
-    QString::fromLatin1("Linux4Us (sowie RadioTux & Magazin42)"),
-    QString::fromLatin1("http://www.linux4us.de/newsticker.fd"),
+    QString::fromLatin1("RadioTux"),
+    QString::fromLatin1("http://blog.radiotux.de/feed/"),
     QString(),
     NewsSourceData::Computers ),
     NewsSourceData(
