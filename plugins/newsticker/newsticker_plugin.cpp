@@ -27,14 +27,12 @@
 
 #include "newsticker_plugin.h"
 
-typedef KGenericFactory< NewsTickerPlugin, Kontact::Core > NewsTickerPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_newstickerplugin,
-                            NewsTickerPluginFactory( "kontact_newstickerplugin" ) )
+EXPORT_KONTACT_PLUGIN(NewsTickerPlugin, newsticker)
 
-NewsTickerPlugin::NewsTickerPlugin( Kontact::Core *core, const QStringList& )
+NewsTickerPlugin::NewsTickerPlugin( Kontact::Core *core, const QVariantList& )
   : Kontact::Plugin( core, core, 0 )
 {
-	setComponentData( NewsTickerPluginFactory::componentData() );
+	setComponentData( KontactPluginFactory::componentData() );
 }
 
 Kontact::Summary *NewsTickerPlugin::createSummaryWidget( QWidget* parentWidget )

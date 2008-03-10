@@ -35,7 +35,7 @@ class JournalPlugin : public Kontact::Plugin
 {
     Q_OBJECT
   public:
-    JournalPlugin( Kontact::Core *core, const QStringList& );
+    JournalPlugin( Kontact::Core *core, const QVariantList& );
     ~JournalPlugin();
 
     virtual bool createDBUSInterface( const QString& serviceType );

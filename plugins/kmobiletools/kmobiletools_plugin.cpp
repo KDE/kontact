@@ -28,14 +28,12 @@
 #include <kactioncollection.h>
 #include <kgenericfactory.h>
 
-typedef KGenericFactory<KMobileToolsPlugin, Kontact::Core> KMobileToolsPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_kmobiletools,
-                            KMobileToolsPluginFactory( "kontact_kmobiletools" ) )
+EXPORT_KONTACT_PLUGIN(KMobileToolsPlugin, kmobiletools)
 
-KMobileToolsPlugin::KMobileToolsPlugin( Kontact::Core *core, const QStringList & )
+KMobileToolsPlugin::KMobileToolsPlugin( Kontact::Core *core, const QVariantList & )
   : Kontact::Plugin( core, core, "KMobileTools" ), partLoaded( false )
 {
-  setComponentData( KMobileToolsPluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
   KAction *newaction = new KAction( KIcon( "newsms" ), i18n( "New SMS..." ), this );
   actionCollection()->addAction( "newsms", newaction );
   newaction->setShortcut( QKeySequence( Qt::CTRL+Qt::SHIFT + Qt::Key_S ) );

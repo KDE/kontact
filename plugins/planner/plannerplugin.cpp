@@ -32,15 +32,13 @@
 #include <kgenericfactory.h>
 #include <klocale.h>
 
-typedef KGenericFactory< PlannerPlugin, Kontact::Core > PlannerPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_plannerplugin,
-                            PlannerPluginFactory( "kontact_plannerplugin" ) )
+EXPORT_KONTACT_PLUGIN(PlannerPlugin, planner)
 
-PlannerPlugin::PlannerPlugin( Kontact::Core *core, const QStringList & )
+PlannerPlugin::PlannerPlugin( Kontact::Core *core, const QVariantList & )
   : Kontact::Plugin( core, core, 0 ),
     mAboutData( 0 )
 {
-  setComponentData( PlannerPluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
 }
 
 PlannerPlugin::~PlannerPlugin()

@@ -41,15 +41,13 @@
 #include <QList>
 #include <QMenu>
 
-typedef KGenericFactory< SummaryView, Kontact::Core > SummaryViewFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_summaryplugin,
-                            SummaryViewFactory( "kontact_summaryplugin" ) )
+EXPORT_KONTACT_PLUGIN(SummaryView, summary)
 
-SummaryView::SummaryView( Kontact::Core *core, const QStringList& )
+SummaryView::SummaryView( Kontact::Core *core, const QVariantList& )
   : Kontact::Plugin( core, core, 0 ),
     mAboutData( 0 ), mPart( 0 )
 {
-  setComponentData( SummaryViewFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
 
   mSyncAction = new KSelectAction( KIcon("view-refresh"), i18n( "Synchronize All" ), this );
   actionCollection()->addAction( "kontact_summary_sync", mSyncAction );

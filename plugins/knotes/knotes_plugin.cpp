@@ -34,16 +34,13 @@
 
 #include "knotes_plugin.h"
 
-typedef KGenericFactory< KNotesPlugin, Kontact::Core > KNotesPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_knotesplugin,
-                            KNotesPluginFactory( "kontact_knotesplugin" ) )
+EXPORT_KONTACT_PLUGIN(KNotesPlugin, knotes)
 
-
-KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QStringList & )
+KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QVariantList & )
   : Kontact::Plugin( core, core, "knotes" ),
     mAboutData( 0 )
 {
-  setComponentData( KNotesPluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
 
     KAction *action  = new KAction(KIcon("knotes"), i18n("New Note..."), this);
     actionCollection()->addAction("new_note", action );

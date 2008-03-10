@@ -26,6 +26,7 @@
 
 #include "kontact_export.h"
 #include <kxmlguiclient.h>
+#include <KPluginFactory>
 #include <QtCore/QList>
 #include <QtCore/QObject>
 #include <QtGui/QDropEvent>
@@ -38,6 +39,15 @@ class KConfigGroup;
 class QWidget;
 class QMimeData;
 namespace KParts { class ReadOnlyPart; }
+
+/**
+  Exports Kontact plugin.
+ */
+#define EXPORT_KONTACT_PLUGIN( pluginclass, pluginname ) \
+  class Instance { public: static QObject* createInstance(QWidget *, QObject *parent, const QVariantList &list) \
+    { return new pluginclass( static_cast<Kontact::Core*>(parent), list ); } }; \
+  K_PLUGIN_FACTORY( KontactPluginFactory, registerPlugin< pluginclass >( QString(), Instance::createInstance ); ) \
+  K_EXPORT_PLUGIN( KontactPluginFactory( "kontact_" #pluginname "plugin" ) )
 
 /**
   Increase this version number whenever you make a change

@@ -48,7 +48,7 @@ class KMailPlugin : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    KMailPlugin( Kontact::Core *core, const QStringList& );
+    KMailPlugin( Kontact::Core *core, const QVariantList& );
     ~KMailPlugin();
 
     virtual bool isRunningStandalone();

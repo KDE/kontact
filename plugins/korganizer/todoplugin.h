@@ -36,7 +36,7 @@ class TodoPlugin : public Kontact::Plugin
 {
     Q_OBJECT
   public:
-    TodoPlugin( Kontact::Core *core, const QStringList& );
+    TodoPlugin( Kontact::Core *core, const QVariantList& );
     ~TodoPlugin();
 
     virtual bool createDBUSInterface( const QString& serviceType );

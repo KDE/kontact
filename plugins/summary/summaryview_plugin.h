@@ -38,7 +38,7 @@ class SummaryView : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    SummaryView( Kontact::Core *core, const QStringList& );
+    SummaryView( Kontact::Core *core, const QVariantList& );
 	  ~SummaryView();
 
     int weight() const { return 100; }

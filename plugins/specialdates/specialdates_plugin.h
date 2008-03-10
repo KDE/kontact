@@ -31,7 +31,7 @@
 class SpecialdatesPlugin : public Kontact::Plugin
 {
   public:
-    SpecialdatesPlugin( Kontact::Core *core, const QStringList& );
+    SpecialdatesPlugin( Kontact::Core *core, const QVariantList& );
     ~SpecialdatesPlugin();
 
     int weight() const { return 310; }

@@ -28,7 +28,7 @@ class SummaryWidget;
 class NewsTickerPlugin : public Kontact::Plugin
 {
   public:
-    NewsTickerPlugin( Kontact::Core *core, const QStringList& );
+    NewsTickerPlugin( Kontact::Core *core, const QVariantList& );
     NewsTickerPlugin();
 
     virtual Kontact::Summary *createSummaryWidget( QWidget* parentWidget );

@@ -45,15 +45,13 @@
 #include "kmailinterface.h"
 #include "kaddressbook_plugin.h"
 
-typedef KGenericFactory< KAddressbookPlugin, Kontact::Core > KAddressbookPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_kaddressbookplugin,
-                            KAddressbookPluginFactory( "kontact_kaddressbookplugin" ) )
+EXPORT_KONTACT_PLUGIN(KAddressbookPlugin, kaddressbook)
 
-KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QStringList& )
+KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QVariantList& )
   : Kontact::Plugin( core, core, "kaddressbook" ),
     m_interface( 0 )
 {
-  setComponentData( KAddressbookPluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action  = new KAction(KIcon("contact-new"), i18n("New Contact..."), this);
   actionCollection()->addAction("new_contact", action );

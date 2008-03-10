@@ -36,15 +36,12 @@
 #include <QWidget>
 #include <knodeinterface.h>
 
-typedef KGenericFactory<KNodePlugin, Kontact::Core> KNodePluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_knodeplugin,
-                            KNodePluginFactory( "kontact_knodeplugin" ) )
+EXPORT_KONTACT_PLUGIN(KNodePlugin, knode)
 
-
-KNodePlugin::KNodePlugin( Kontact::Core *core, const QStringList& )
+KNodePlugin::KNodePlugin( Kontact::Core *core, const QVariantList& )
   : Kontact::Plugin( core, core, "knode" ), m_interface(0)
 {
-  setComponentData( KNodePluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action = new KAction(KIcon("mail-message-new"), i18n("New Article..."), this);
   actionCollection()->addAction("post_article", action );

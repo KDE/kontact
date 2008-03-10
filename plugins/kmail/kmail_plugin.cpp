@@ -53,15 +53,13 @@
 using namespace KCal;
 using namespace KPIM;
 
-typedef KGenericFactory<KMailPlugin, Kontact::Core> KMailPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_kmailplugin,
-                            KMailPluginFactory( "kontact_kmailplugin" ) )
+EXPORT_KONTACT_PLUGIN(KMailPlugin, kmail)
 
-KMailPlugin::KMailPlugin(Kontact::Core *core, const QStringList& )
+KMailPlugin::KMailPlugin(Kontact::Core *core, const QVariantList& )
   : Kontact::Plugin( core, core, "kmail" ),
     m_instance( 0 )
 {
-  setComponentData( KMailPluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action  = new KAction(KIcon("mail-message-new"), i18n("New Message..."), this);
   actionCollection()->addAction("new_mail", action );

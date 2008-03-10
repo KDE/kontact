@@ -44,15 +44,13 @@
 
 using namespace Akregator;
 
-typedef KGenericFactory<Akregator::Plugin, Kontact::Core > PluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_akregator,
-                            PluginFactory( "kontact_akregator" ) )
+EXPORT_KONTACT_PLUGIN(Akregator::Plugin, akregator)
 
-Plugin::Plugin( Kontact::Core *core, const QStringList & )
+Plugin::Plugin( Kontact::Core *core, const QVariantList & )
   : Kontact::Plugin( core, core, "akregator" ), m_interface( 0 )
 {
 
-  setComponentData( PluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action  = new KAction( KIcon( "bookmark-new" ), i18n( "New Feed..." ), this );
   actionCollection()->addAction( "feed_new", action );

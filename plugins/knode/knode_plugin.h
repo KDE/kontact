@@ -46,7 +46,7 @@ class KNodePlugin : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    KNodePlugin( Kontact::Core *core, const QStringList& );
+    KNodePlugin( Kontact::Core *core, const QVariantList& );
     ~KNodePlugin();
 
     virtual bool createDBUSInterface( const QString& serviceType );

@@ -28,7 +28,7 @@ class SummaryWidget;
 class WeatherPlugin : public Kontact::Plugin
 {
   public:
-    WeatherPlugin( Kontact::Core *core, const QStringList& );
+    WeatherPlugin( Kontact::Core *core, const QVariantList& );
     WeatherPlugin();
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );

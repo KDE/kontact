@@ -27,14 +27,12 @@
 
 #include "weather_plugin.h"
 
-typedef KGenericFactory< WeatherPlugin, Kontact::Core > WeatherPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_weatherplugin,
-                            WeatherPluginFactory( "kontact_weatherplugin" ) )
+EXPORT_KONTACT_PLUGIN(WeatherPlugin, weather)
 
-WeatherPlugin::WeatherPlugin( Kontact::Core *core, const QStringList& )
+WeatherPlugin::WeatherPlugin( Kontact::Core *core, const QVariantList& )
   : Kontact::Plugin( core, core, 0 ), mAboutData( 0 )
 {
-  setComponentData( WeatherPluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
 }
 
 Kontact::Summary *WeatherPlugin::createSummaryWidget( QWidget *parentWidget )

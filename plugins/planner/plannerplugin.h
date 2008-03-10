@@ -32,7 +32,7 @@ class Planner;
 class PlannerPlugin : public Kontact::Plugin
 {
   public:
-    PlannerPlugin( Kontact::Core *core, const QStringList & );
+    PlannerPlugin( Kontact::Core *core, const QVariantList & );
     ~PlannerPlugin();
 
     int weight() const { return 310; }

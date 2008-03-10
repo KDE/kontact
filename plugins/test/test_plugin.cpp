@@ -31,13 +31,12 @@
 #include "test_plugin.h"
 #include "test_part.h"
 
-typedef KGenericFactory< TestPlugin, Kontact::Core > TestPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kptestplugin, TestPluginFactory( "kptestplugin" ) )
+EXPORT_KONTACT_PLUGIN(TestPlugin, test)
 
-TestPlugin::TestPlugin(Kontact::Core *_core, const char *name, const QStringList &)
+TestPlugin::TestPlugin(Kontact::Core *_core, const QVariantList &)
   : Kontact::Plugin(_core, _core, name)
 {
-  setComponentData(TestPluginFactory::componentData());
+  setComponentData(KontactPluginFactory::componentData());
 
   insertNewAction(new KAction("Test", 0, this, SLOT(slotTestMenu()), actionCollection(), "edit_test"));
 

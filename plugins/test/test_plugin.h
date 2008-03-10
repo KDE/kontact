@@ -36,7 +36,7 @@ class TestPlugin : public Kontact::Plugin
 
 public:
 
-  TestPlugin(Kontact::Core *core, const char *name, const QStringList &);
+  TestPlugin(Kontact::Core *core, const QVariantList &);
   ~TestPlugin();
 
 protected:

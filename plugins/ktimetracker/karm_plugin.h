@@ -40,7 +40,7 @@ class KarmPlugin : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    KarmPlugin( Kontact::Core *core, const QStringList & );
+    KarmPlugin( Kontact::Core *core, const QVariantList& );
     ~KarmPlugin();
 
     virtual QString tipFile() const;

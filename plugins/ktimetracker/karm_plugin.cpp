@@ -38,14 +38,12 @@
 
 using namespace KTimeTracker;
 
-typedef KGenericFactory<KarmPlugin, Kontact::Core> KarmPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_karm,
-                            KarmPluginFactory( "kontact_karm" ) )
+EXPORT_KONTACT_PLUGIN(KarmPlugin, karm)
 
-KarmPlugin::KarmPlugin( Kontact::Core *core, const QStringList& )
+KarmPlugin::KarmPlugin( Kontact::Core *core, const QVariantList& )
   : Kontact::Plugin( core, core, "KArm" ), mInterface( 0 )
 {
-  setComponentData( KarmPluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action  = new KAction(KIcon("ktimetracker"), i18n("New Task"), this);
   actionCollection()->addAction("new_task", action );

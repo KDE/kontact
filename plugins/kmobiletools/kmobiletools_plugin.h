@@ -33,7 +33,7 @@ class KMobileToolsPlugin : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    KMobileToolsPlugin( Kontact::Core *core, const QStringList & );
+    KMobileToolsPlugin( Kontact::Core *core, const QVariantList & );
     ~KMobileToolsPlugin();
 
     int weight() const { return 700; }

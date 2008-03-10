@@ -47,15 +47,13 @@
 #include "korg_uniqueapp.h"
 #include "calendarinterface.h"
 
-typedef KGenericFactory< KOrganizerPlugin, Kontact::Core > KOrganizerPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_korganizerplugin,
-                            KOrganizerPluginFactory( "kontact_korganizerplugin" ) )
+EXPORT_KONTACT_PLUGIN(KOrganizerPlugin, korganizer)
 
-KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QStringList& )
+KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QVariantList& )
   : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {
-  setComponentData( KOrganizerPluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir("korganizer");
 
   KAction *action  = new KAction(KIcon("view-calendar-day"), i18n("New Event..."), this);

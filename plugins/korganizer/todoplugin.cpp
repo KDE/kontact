@@ -50,15 +50,13 @@
 #include "korg_uniqueapp.h"
 #include "calendarinterface.h"
 
-typedef KGenericFactory< TodoPlugin, Kontact::Core > TodoPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_todoplugin,
-                            TodoPluginFactory( "kontact_todoplugin" ) )
+EXPORT_KONTACT_PLUGIN(TodoPlugin, todo)
 
-TodoPlugin::TodoPlugin( Kontact::Core *core, const QStringList& )
+TodoPlugin::TodoPlugin( Kontact::Core *core, const QVariantList& )
   : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {
-  setComponentData( TodoPluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir("korganizer");
 
 

@@ -38,7 +38,7 @@ class KOrganizerPlugin : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    KOrganizerPlugin( Kontact::Core *core, const QStringList& );
+    KOrganizerPlugin( Kontact::Core *core, const QVariantList& );
     ~KOrganizerPlugin();
 
     virtual bool createDBUSInterface( const QString& serviceType );

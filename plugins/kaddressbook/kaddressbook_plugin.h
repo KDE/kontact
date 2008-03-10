@@ -48,7 +48,7 @@ class KAddressbookPlugin : public Kontact::Plugin
   Q_OBJECT
 
   public:
-    KAddressbookPlugin( Kontact::Core *core, const QStringList& );
+    KAddressbookPlugin( Kontact::Core *core, const QVariantList& );
     ~KAddressbookPlugin();
 
     virtual bool createDBUSInterface( const QString &serviceType );

@@ -9,13 +9,13 @@ set(kontact_akregator_PART_SRCS akregator_plugin.cpp )
 qt4_add_dbus_interfaces(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregator/src/org.kde.akregator.part.xml ) 
 
 
-kde4_add_plugin(kontact_akregator ${kontact_akregator_PART_SRCS})
+kde4_add_plugin(kontact_akregatorplugin ${kontact_akregator_PART_SRCS})
 
 
 
-kdepim4_link_unique_libraries(kontact_akregator ${KDE4_KPARTS_LIBS} kpinterfaces)
+kdepim4_link_unique_libraries(kontact_akregatorplugin ${KDE4_KPARTS_LIBS} kpinterfaces)
 
-install(TARGETS kontact_akregator  DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_akregatorplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### install files ###############

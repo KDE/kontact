@@ -39,15 +39,13 @@
 #include "calendarinterface.h"
 
 
-typedef KGenericFactory< JournalPlugin, Kontact::Core > JournalPluginFactory;
-K_EXPORT_COMPONENT_FACTORY( kontact_journalplugin,
-                            JournalPluginFactory( "kontact_journalplugin" ) )
+EXPORT_KONTACT_PLUGIN(JournalPlugin, journal)
 
-JournalPlugin::JournalPlugin( Kontact::Core *core, const QStringList& )
+JournalPlugin::JournalPlugin( Kontact::Core *core, const QVariantList& )
   : Kontact::Plugin( core, core, "korganizer" ),
     mIface( 0 )
 {
-  setComponentData( JournalPluginFactory::componentData() );
+  setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir("korganizer");
 
   KAction *action  = new KAction(KIcon("newjournal"), i18n("New Journal..."), this);
