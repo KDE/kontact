@@ -58,12 +58,12 @@
 #include <QGridLayout>
 #include <QPixmap>
 #include <QEvent>
-#include <Q3VBoxLayout>
+#include <QVBoxLayout>
 
 Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
 {
-  Q3VBoxLayout *mainLayout = new Q3VBoxLayout( this, 3, 3 );
+  QVBoxLayout *mainLayout = new QVBoxLayout( this );
 
   QPixmap icon =
     KIconLoader::global()->loadIcon( "view-pim-calendar", //TODO we want our own icon
@@ -528,7 +528,7 @@ void Planner::updateView()
       mLabels.append( label );
 
       ++counter;
-      Q3VBoxLayout *todoLayout = new Q3VBoxLayout( this, 3, 3 );
+      QVBoxLayout *todoLayout = new QVBoxLayout( this );
       mPlannerGrid = new QGridLayout ( todoLayout, 7, 6, 3 );
       mPlannerGrid->setRowStretch( 6, 1 );
       todoLayout->addStretch();
