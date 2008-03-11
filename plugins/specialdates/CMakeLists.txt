@@ -14,7 +14,7 @@ kde4_add_plugin(kontact_specialdatesplugin ${kontact_specialdatesplugin_PART_SRC
 
 
 
-kdepim4_link_unique_libraries(kontact_specialdatesplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kdepim kholidays korganizer_calendar kaddressbook )
+kdepim4_link_unique_libraries(kontact_specialdatesplugin  ${KDE4_KDECORE_LIBS} kpinterfaces kdepim kholidays korganizer_calendar kaddressbookprivate )
 
 install(TARGETS kontact_specialdatesplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
