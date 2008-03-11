@@ -926,17 +926,10 @@ void MainWindow::readProperties( const KConfigGroup &config )
 {
   Core::readProperties( config );
 
-  QStringList activePlugins = config.readEntry( "ActivePlugins",QStringList() );
-  QList<Plugin*>::ConstIterator it = mPlugins.begin();
-  QList<Plugin*>::ConstIterator end = mPlugins.end();
-  for ( ; it != end; ++it ) {
-    Plugin *plugin = *it;
-    if ( !plugin->isRunningStandalone() ) {
-      QStringList::ConstIterator activePlugin = activePlugins.find( plugin->identifier() );
-      if ( activePlugin != activePlugins.end() ) {
-        plugin->readProperties( config );
-      }
-    }
+  QSet<QString> activePlugins = QSet<QString>::fromList( config.readEntry( "ActivePlugins",QStringList() ) );
+  foreach ( Plugin* plugin, mPlugins ) {
+    if ( !plugin->isRunningStandalone() && activePlugins.contains( plugin->identifier() ) )
+      plugin->readProperties( config );
   }
 }
 
@@ -946,11 +939,9 @@ void MainWindow::saveProperties( KConfigGroup &config )
 
   QStringList activePlugins;
 
-  KPluginInfo::List::Iterator it = mPluginInfos.begin();
-  KPluginInfo::List::Iterator end = mPluginInfos.end();
-  for ( ; it != end; ++it ) {
-    if ( it->isPluginEnabled() ) {
-      Plugin *plugin = pluginFromInfo( *it );
+  foreach ( const KPluginInfo& pluginInfo, mPluginInfos ) {
+    if ( pluginInfo.isPluginEnabled() ) {
+      Plugin *plugin = pluginFromInfo( pluginInfo );
       if ( plugin ) {
         activePlugins.append( plugin->identifier() );
         plugin->saveProperties( config );
@@ -966,17 +957,13 @@ bool MainWindow::queryClose()
   if ( kapp->sessionSaving() || mReallyClose )
     return true;
 
-  bool localClose = true;
-  QList<Plugin*>::ConstIterator end = mPlugins.end();
-  QList<Plugin*>::ConstIterator it = mPlugins.begin();
-  for ( ; it != end; ++it ) {
-    Plugin *plugin = *it;
+  foreach ( Plugin* plugin, mPlugins ) {
     if ( !plugin->isRunningStandalone() )
       if ( !plugin->queryClose() )
-        localClose = false;
+        return false;
   }
 
-  return localClose;
+  return true;
 }
 
 void MainWindow::slotShowStatusMsg( const QString &msg )
