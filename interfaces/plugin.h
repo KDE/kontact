@@ -26,7 +26,7 @@
 
 #include "kontact_export.h"
 #include <kxmlguiclient.h>
-#include <KPluginFactory>
+#include <KDE/KPluginFactory>
 #include <QtCore/QList>
 #include <QtCore/QObject>
 #include <QtGui/QDropEvent>
