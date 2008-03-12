@@ -51,20 +51,16 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   mLayout->setMargin( 3 );
   mLayout->setAlignment( Qt::AlignTop );
 
-  QPixmap icon = KIconLoader::global()->loadIcon( "kweather", KIconLoader::Desktop, KIconLoader::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "Weather Information" ) );
-  mLayout->addWidget( header );
-
   QString error;
   QString appID;
-  bool serviceAvailable = true;
-  if(!QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.KWeatherService")) {
-    if ( KToolInvocation::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID ) ) {
-      QLabel *label = new QLabel( i18n( "No weather D-Bus service available;\nyou need KWeather to use this plugin." ), this );
-      mLayout->addWidget( label, Qt::AlignHCenter | Qt::AlignVCenter );
-      serviceAvailable = false;
-    }
-  }
+  bool serviceAvailable =
+    QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.KWeatherService")
+    || 0 == KToolInvocation::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID );
+
+  QPixmap icon = KIconLoader::global()->loadIcon(
+    serviceAvailable ? "kweather" : "dialog-cancel", KIconLoader::Desktop, KIconLoader::SizeMedium );
+  QWidget *header = createHeader( this, icon, i18n( "Weather Information" ) );
+  mLayout->addWidget( header );
 
   if ( serviceAvailable ) {
     QDBusConnection::sessionBus().connect(QString(), "/Service", "org.kde.kweather.service", "fileUpdate", this, SLOT(refresh(const QString&)));
@@ -80,6 +76,10 @@ SummaryWidget::SummaryWidget( QWidget *parent )
     } else {
       kDebug(5602) << "ERROR: D-Bus reply not valid...";
     }
+  }
+  else {
+    QLabel *label = new QLabel( i18n( "No weather D-Bus service available;\nyou need KWeather to use this plugin." ), this );
+    mLayout->addWidget( label, Qt::AlignHCenter | Qt::AlignVCenter );
   }
 }
 
