@@ -342,7 +342,7 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
     doneIt->setIcon( KIconLoader::global()->
-                     loadIcon( "checkedbox", KIconLoader::Small) );
+                     loadIcon( "task-complete", KIconLoader::Small) );
   }
   // TODO: add icons to the menu actions
 

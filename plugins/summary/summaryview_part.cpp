@@ -171,6 +171,8 @@ void SummaryViewPart::updateWidgets()
     Kontact::Summary *summary = plugin->createSummaryWidget( mFrame );
     if ( summary ) {
       if ( summary->summaryHeight() > 0 ) {
+        summary->layout()->setAlignment( Qt::AlignLeft | Qt::AlignTop );
+        summary->layout()->setContentsMargins( 3, 3, 3, 3 );
         mSummaries.insert( plugin->identifier(), summary );
 
         connect( summary, SIGNAL( message( const QString& ) ),

@@ -66,7 +66,7 @@ Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
 
   QPixmap icon =
-    KIconLoader::global()->loadIcon( "view-pim-calendar", //TODO we want our own icon
+    KIconLoader::global()->loadIcon( "view-calendar-tasks", //TODO we want our own icon
                                      KIconLoader::Desktop, KIconLoader::SizeMedium );
   QWidget *header = createHeader( this, icon, i18n( "Planner" ) );
   mainLayout->addWidget( header );
@@ -211,7 +211,7 @@ int Planner::showTodos( int counter, const QDate &date )
 
       QPixmap recur;
       if( todo->isAlarmEnabled() ){
-        recur = loader.loadIcon( "recur", KIconLoader::Small );
+        recur = loader.loadIcon( "task-recurring", KIconLoader::Small );
       }
       label = new QLabel( this );
       label->setPixmap( recur );
@@ -221,7 +221,7 @@ int Planner::showTodos( int counter, const QDate &date )
 
       QPixmap alarm;
       if( todo->isAlarmEnabled() ){
-        alarm = loader.loadIcon( "bell", KIconLoader::Small );
+        alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
       }
       label = new QLabel( this );
       label->setPixmap( alarm );
@@ -365,7 +365,7 @@ int Planner::showEvents( int counter, const QDate &date )
       //Show icon if Event recurs
       QPixmap recur;
       if( ev->recurs() ){
-        recur = loader.loadIcon( "recur", KIconLoader::Small );
+        recur = loader.loadIcon( "appointment-recurring", KIconLoader::Small );
       }
       label = new QLabel( this );
       label->setPixmap( recur );
@@ -377,7 +377,7 @@ int Planner::showEvents( int counter, const QDate &date )
       //Show icon if Alarm is enabled
       QPixmap alarm;
       if( ev->isAlarmEnabled () ){
-        alarm = loader.loadIcon( "bell", KIconLoader::Small );
+        alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
       }
       label = new QLabel( this );
       label->setPixmap( alarm );
@@ -652,7 +652,7 @@ void Planner::todoPopupMenu( const QString &uid )
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
     doneIt->setIcon( KIconLoader::global()->
-    loadIcon( "checkedbox", KIconLoader::Small ) );
+    loadIcon( "task-complete", KIconLoader::Small ) );
   }
   // TODO: add icons to the menu actions
 
