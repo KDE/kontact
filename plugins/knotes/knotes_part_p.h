@@ -129,7 +129,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
   Q_OBJECT
 
   public:
-    KNoteEditDlg( QWidget *parent = 0, const char *name = 0 )
+    KNoteEditDlg( QWidget *parent = 0 )
       : KDialog( parent)
     {
 	  setCaption(i18n( "Edit Note" ));
