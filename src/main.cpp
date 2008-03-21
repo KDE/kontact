@@ -50,7 +50,9 @@ static const char version[] = "1.2";
 
 class KontactApp : public KUniqueApplication {
   public:
-    KontactApp() : mMainWindow( 0 ), mSessionRestored( false ) {}
+    KontactApp() : mMainWindow( 0 ), mSessionRestored( false ) {
+      KIconLoader::global()->addAppDir( "kdepim" );
+    }
     ~KontactApp() {}
 
     int newInstance();

@@ -58,7 +58,7 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QVariantList& )
 {
   setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir("korganizer");
-
+  KIconLoader::global()->addAppDir("kdepim");
 
   KAction *action  = new KAction(KIcon("task-new"), i18n("New To-do..."), this);
   actionCollection()->addAction("new_todo", action );

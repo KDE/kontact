@@ -55,6 +55,7 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QVariantList& )
 {
   setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir("korganizer");
+  KIconLoader::global()->addAppDir("kdepim");
 
   KAction *action  = new KAction(KIcon("view-calendar-day"), i18n("New Event..."), this);
   actionCollection()->addAction("new_event", action );

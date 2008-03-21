@@ -47,6 +47,7 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const QVariantList& )
 {
   setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir("korganizer");
+  KIconLoader::global()->addAppDir("kdepim");
 
   KAction *action  = new KAction(KIcon("journal-new"), i18n("New Journal..."), this);
   actionCollection()->addAction("new_journal", action );
