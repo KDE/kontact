@@ -22,6 +22,7 @@ Comment[km]=កម្មវិធី​ជំនួយ TimeTracker
 Comment[pt]='Plugin' do KTimeTracker
 Comment[pt_BR]=Plug-in do TimeTracker
 Comment[tr]=Zaman İzleyici Eklentisi
+Comment[x-test]=xxTimeTracker Pluginxx
 Comment[zh_TW]=時間追蹤器外掛程式
 
 Name=Time Tracker
@@ -33,4 +34,5 @@ Name[km]=កម្មវិធី​តាមដាន​ពេលវេលា
 Name[pt]=Gestor de Tempo
 Name[pt_BR]=Gerenciador de Tempo
 Name[tr]=Zaman İzleyici
+Name[x-test]=xxTime Trackerxx
 Name[zh_TW]=時間追蹤器
