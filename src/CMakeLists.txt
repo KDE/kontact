@@ -27,6 +27,7 @@ install(TARGETS kontactprivate  DESTINATION ${LIB_INSTALL_DIR})
 
 set(kontact_bin_SRCS main.cpp )
 
+kde4_add_app_icon(kontact_bin_SRCS "${KDE4_ICON_DIR}/oxygen/*/apps/kontact.png")
 
 kde4_add_executable(kontact_bin ${kontact_bin_SRCS})
 
