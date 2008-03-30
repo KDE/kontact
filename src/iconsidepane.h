@@ -162,7 +162,7 @@ class Navigator : public K3ListBox
     bool showText() const { return mShowText; }
 
   signals:
-    void pluginActivated( Plugin * );
+    void pluginActivated( Kontact::Plugin * );
 
   protected:
     void dragEnterEvent( QDragEnterEvent * );
