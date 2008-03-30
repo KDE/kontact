@@ -24,8 +24,6 @@
 #ifndef TEST_PART_H
 #define TEST_PART_H
 
-
-
 #include <kparts/part.h>
 
 class QTextEdit;
@@ -35,27 +33,23 @@ class TestPart : public KParts::ReadOnlyPart
 {
   Q_OBJECT
 
-public:
-
-  TestPart(QObject *parent=0, const char *name=0);
+  public:
+    explicit TestPart(QObject *parent=0, const char *name=0);
     ~TestPart();
 
-protected:
+  protected:
 
-  virtual bool openFile();
-  bool connectToAddressBook();
+    virtual bool openFile();
+    bool connectToAddressBook();
 
-protected slots:
+  protected slots:
+    void newContact();
+    void unregisteredFromDCOP( const QCString& );
 
-  void newContact();
-  void unregisteredFromDCOP( const QCString& );
-
-private:
-
-  QTextEdit *m_edit;
-  KAddressBookIface_stub *m_kab_stub;
+  private:
+    QTextEdit *m_edit;
+    KAddressBookIface_stub *m_kab_stub;
 
 };
-
 
 #endif

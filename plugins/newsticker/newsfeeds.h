@@ -35,10 +35,10 @@ class NewsSourceData
     enum Category { Arts, Business, Computers, Misc,
                     Recreation, Society };
 
-    NewsSourceData( const QString &name = I18N_NOOP( "Unknown" ),
-                    const QString &url = QString(),
-                    const QString &icon = QString(),
-                    const Category category= Computers )
+    explicit NewsSourceData( const QString &name = I18N_NOOP( "Unknown" ),
+                             const QString &url = QString(),
+                             const QString &icon = QString(),
+                             const Category category= Computers )
       : mName( name ), mURL( url ), mIcon( icon ), mCategory( category )
     {
     }

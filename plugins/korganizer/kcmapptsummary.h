@@ -34,7 +34,7 @@ class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
   Q_OBJECT
 
   public:
-    KCMApptSummary( const KComponentData &inst, QWidget *parent = 0 );
+    explicit KCMApptSummary( const KComponentData &inst, QWidget *parent = 0 );
     virtual ~KCMApptSummary();
 
     virtual void load();

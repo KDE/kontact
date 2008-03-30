@@ -129,9 +129,10 @@ class EntryItemToolTip : public QToolTip
 */
 class Navigator : public K3ListBox
 {
-    Q_OBJECT
+  Q_OBJECT
+
   public:
-    Navigator( SidePaneBase *parent = 0, const char *name = 0 );
+    explicit Navigator( SidePaneBase *parent = 0, const char *name = 0 );
 
     virtual void setSelected( Q3ListBoxItem *, bool );
 

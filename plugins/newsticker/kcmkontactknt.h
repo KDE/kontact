@@ -40,7 +40,7 @@ class KCMKontactKNT : public KCModule
   Q_OBJECT
 
   public:
-    KCMKontactKNT( const KComponentData &inst, QWidget *parent = 0);
+    explicit KCMKontactKNT( const KComponentData &inst, QWidget *parent = 0);
 
     virtual void load();
     virtual void save();

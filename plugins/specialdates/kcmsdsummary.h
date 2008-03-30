@@ -33,7 +33,7 @@ class KCMSDSummary : public KCModule, public Ui::SDSummaryConfig_Base
   Q_OBJECT
 
   public:
-    KCMSDSummary( const KComponentData &inst, QWidget *parent = 0 );
+    explicit KCMSDSummary( const KComponentData &inst, QWidget *parent = 0 );
 
     virtual void load();
     virtual void save();
