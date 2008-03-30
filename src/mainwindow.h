@@ -1,39 +1,38 @@
 /*
-    This file is part of KDE Kontact.
+  This file is part of KDE Kontact.
 
-    Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
-    Copyright (c) 2002-2005 Daniel Molkentin <molkentin@kde.org>
-    Copyright (c) 2003-2005 Cornelius Schumacher <schumacher@kde.org>
+  Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
+  Copyright (c) 2002-2005 Daniel Molkentin <molkentin@kde.org>
+  Copyright (c) 2003-2005 Cornelius Schumacher <schumacher@kde.org>
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License along
-    with this program; if not, write to the Free Software Foundation, Inc.,
-    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
-
 
 #ifndef KONTACT_MAINWINDOW_H
 #define KONTACT_MAINWINDOW_H
 
-#include <QPointer>
-#include <q3ptrlist.h>
-#include <QStackedWidget>
+#include "core.h"
 
 #include <kparts/mainwindow.h>
 #include <kparts/part.h>
 #include <kparts/partmanager.h>
 #include <kvbox.h>
 
-#include "core.h"
+#include <QPointer>
+#include <q3ptrlist.h>
+#include <QStackedWidget>
 
 class QSplitter;
 
@@ -58,7 +57,7 @@ typedef QList<Kontact::Plugin*> PluginList;
 class KONTACT_EXPORT MainWindow : public Kontact::Core
 {
   Q_OBJECT
-  Q_CLASSINFO("D-Bus Interface", "org.kde.kontact.KontactInterface")
+  Q_CLASSINFO( "D-Bus Interface", "org.kde.kontact.KontactInterface" )
 
   public:
     MainWindow();
@@ -85,7 +84,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     void slotNewToolbarConfig();
     void slotShowIntroduction();
     void showAboutDialog();
-    void slotShowStatusMsg( const QString& );
+    void slotShowStatusMsg( const QString & );
     void activatePluginModule();
     void slotOpenUrl( const KUrl &url );
 
@@ -105,11 +104,11 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     void setupActions();
     void showTip( bool );
     virtual bool queryClose();
-    virtual void readProperties( const KConfigGroup  &config );
+    virtual void readProperties( const KConfigGroup &config );
     virtual void saveProperties( KConfigGroup &config );
-    void paintAboutScreen( const QString& msg );
+    void paintAboutScreen( const QString &msg );
     static QString introductionString();
-    KToolBar* findToolBar(const char* name);
+    KToolBar *findToolBar( const char *name );
 
   private slots:
     void pluginsChanged();
@@ -133,7 +132,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     QList<KPluginInfo> mPluginInfos;
     KHTMLPart *mIntroPart;
 
-    KSqueezedTextLabel* mStatusMsgLabel;
+    KSqueezedTextLabel *mStatusMsgLabel;
     KPIM::StatusbarProgressWidget *mLittleProgress;
 
     QString mActiveModule;

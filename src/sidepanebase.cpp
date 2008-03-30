@@ -19,9 +19,8 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include "core.h"
-
 #include "sidepanebase.h"
+#include "core.h"
 
 using namespace Kontact;
 
@@ -34,7 +33,7 @@ SidePaneBase::~SidePaneBase()
 {
 }
 
-Core* SidePaneBase::core() const
+Core *SidePaneBase::core() const
 {
   return mCore;
 }

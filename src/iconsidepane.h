@@ -18,25 +18,23 @@
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   Boston, MA 02110-1301, USA.
 */
+
 #ifndef KONTACT_ICONSIDEPANEBASE_H
 #define KONTACT_ICONSIDEPANEBASE_H
-
-
-//Added by qt3to4:
-#include <QPixmap>
-#include <QList>
-#include <QDragMoveEvent>
-#include <QEvent>
-#include <QDropEvent>
-#include <QResizeEvent>
-#include <QDragEnterEvent>
-
-#include <k3listbox.h>
 
 #include "sidepanebase.h"
 #include "prefs.h"
 
+#include <k3listbox.h>
 
+#include <QPixmap>
+#include <QList>
+
+class QDragEnterEvent;
+class QDragMoveEvent;
+class QDropEvent;
+class QEvent;
+class QResizeEvent;
 class QSignalMapper;
 
 namespace KParts { class Part; }
@@ -48,8 +46,13 @@ class Core;
 class Plugin;
 class Navigator;
 
-enum IconViewMode { LargeIcons = 48, NormalIcons = 32, SmallIcons = 22, ShowText = 3, ShowIcons = 5 };
-
+enum IconViewMode {
+  LargeIcons = 48,
+  NormalIcons = 32,
+  SmallIcons = 22,
+  ShowText = 3,
+  ShowIcons = 5
+};
 
 /**
   A QListBoxPixmap Square Box with an optional icon and a text
@@ -58,14 +61,14 @@ enum IconViewMode { LargeIcons = 48, NormalIcons = 32, SmallIcons = 22, ShowText
 class EntryItem : public Q3ListBoxItem
 {
   public:
-    EntryItem( Navigator *, Kontact::Plugin * );
+    EntryItem( Navigator *, Plugin * );
     ~EntryItem();
 
-    Kontact::Plugin *plugin() const { return mPlugin; }
+    Plugin *plugin() const { return mPlugin; }
 
     const QPixmap *pixmap() const { return &mPixmap; }
 
-    Navigator* navigator() const;
+    Navigator *navigator() const;
 
     void setHover( bool );
     void setPaintActive( bool );
@@ -85,7 +88,7 @@ class EntryItem : public Q3ListBoxItem
     virtual void paint( QPainter *p );
 
   private:
-    Kontact::Plugin *mPlugin;
+    Plugin *mPlugin;
     QPixmap mPixmap;
     bool mHasHover;
     bool mPaintActive;
@@ -102,25 +105,35 @@ class EntryItem : public Q3ListBoxItem
 class EntryItemToolTip : public QToolTip
 {
   public:
-    EntryItemToolTip( Q3ListBox* parent )
+    EntryItemToolTip( Q3ListBox *parent )
       : QToolTip( parent->viewport() ), mListBox( parent )
-      {}
+    {}
+
   protected:
-    void maybeTip( const QPoint& p ) {
+    void maybeTip( const QPoint &p ) {
       // We only show tooltips when there are no texts shown
-      if ( Prefs::self()->sidePaneShowText() ) return;
-      if ( !mListBox ) return;
-      Q3ListBoxItem* item = mListBox->itemAt( p );
-      if ( !item ) return;
+      if ( Prefs::self()->sidePaneShowText() ) {
+        return;
+      }
+      if ( !mListBox ) {
+        return;
+      }
+      Q3ListBoxItem *item = mListBox->itemAt( p );
+      if ( !item ) {
+        return;
+      }
       const QRect itemRect = mListBox->itemRect( item );
-      if ( !itemRect.isValid() ) return;
+      if ( !itemRect.isValid() ) {
+        return;
+      }
 
       const EntryItem *entryItem = static_cast<EntryItem*>( item );
       QString tipStr = entryItem->text();
       tip( itemRect, tipStr );
     }
+
   private:
-    Q3ListBox* mListBox;
+    Q3ListBox *mListBox;
 };
 #endif
 
@@ -136,36 +149,37 @@ class Navigator : public K3ListBox
 
     virtual void setSelected( Q3ListBoxItem *, bool );
 
-    void updatePlugins( QList<Kontact::Plugin*> plugins );
+    void updatePlugins( QList<Plugin*> plugins );
 
     QSize sizeHint() const;
 
-    void highlightItem( EntryItem* item );
+    void highlightItem( EntryItem *item );
 
     IconViewMode viewMode() { return mViewMode; }
-    IconViewMode sizeIntToEnum(int size) const;
-    const QList<QAction*> & actions() { return mActions; }
+    IconViewMode sizeIntToEnum( int size ) const;
+    const QList<QAction*> &actions() { return mActions; }
     bool showIcons() const { return mShowIcons; }
     bool showText() const { return mShowText; }
+
   signals:
-    void pluginActivated( Kontact::Plugin * );
+    void pluginActivated( Plugin * );
 
   protected:
     void dragEnterEvent( QDragEnterEvent * );
     void dragMoveEvent ( QDragMoveEvent * );
     void dropEvent( QDropEvent * );
     void resizeEvent( QResizeEvent * );
-    void enterEvent( QEvent* );
-    void leaveEvent( QEvent* );
+    void enterEvent( QEvent * );
+    void leaveEvent( QEvent * );
 
-    void setHoverItem( Q3ListBoxItem*, bool );
-    void setPaintActiveItem( Q3ListBoxItem*, bool );
+    void setHoverItem( Q3ListBoxItem *, bool );
+    void setPaintActiveItem( Q3ListBoxItem *, bool );
 
   protected slots:
     void slotExecuted( Q3ListBoxItem * );
     void slotMouseOn( Q3ListBoxItem *item );
     void slotMouseOff();
-    void slotShowRMBMenu( Q3ListBoxItem *, const QPoint& );
+    void slotShowRMBMenu( Q3ListBoxItem *, const QPoint & );
     void shortCutSelected( int );
     void slotStopHighlight();
 
@@ -173,9 +187,9 @@ class Navigator : public K3ListBox
     SidePaneBase *mSidePane;
     IconViewMode mViewMode;
 
-    Q3ListBoxItem* mMouseOn;
+    Q3ListBoxItem *mMouseOn;
 
-    EntryItem*    mHighlightItem;
+    EntryItem *mHighlightItem;
 
     QSignalMapper *mMapper;
     QList<QAction*> mActions;
@@ -185,18 +199,18 @@ class Navigator : public K3ListBox
 
 class IconSidePane : public SidePaneBase
 {
-    Q_OBJECT
+  Q_OBJECT
   public:
     IconSidePane( Core *core, QWidget *parent );
     ~IconSidePane();
 
-    virtual void indicateForegrunding( Kontact::Plugin* );
+    virtual void indicateForegrunding( Plugin * );
 
   public slots:
     virtual void updatePlugins();
-    virtual void selectPlugin( Kontact::Plugin* );
+    virtual void selectPlugin( Plugin * );
     virtual void selectPlugin( const QString &name );
-    const QList<QAction*> & actions() { return mNavigator->actions(); }
+    const QList<QAction*> &actions() { return mNavigator->actions(); }
 
   private:
     Navigator *mNavigator;

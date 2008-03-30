@@ -1,74 +1,74 @@
 /*
-    This file is part of KDE Kontact.
+  This file is part of KDE Kontact.
 
-    Copyright (c) 2003 Cornelius Schumacher <schumacher@kde.org>
+  Copyright (c) 2003 Cornelius Schumacher <schumacher@kde.org>
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
 
 #include "aboutdialog.h"
-
 #include "core.h"
 #include "plugin.h"
 
+#include <kdebug.h>
 #include <klocale.h>
 #include <kcomponentdata.h>
 #include <kaboutdata.h>
 #include <ktextbrowser.h>
 #include <kicon.h>
+
 #include <QLayout>
 #include <QLabel>
-
-#include <kdebug.h>
+#include <QTextEdit>
 
 using namespace Kontact;
 
 AboutDialog::AboutDialog( Kontact::Core *core )
-  : KPageDialog( core )
-    ,mCore( core )
+  : KPageDialog( core ), mCore( core )
 {
-  setCaption(i18n("About Kontact"));
-  setButtons(Ok);
-  setDefaultButton(Ok);
-  setModal(false);
-  showButtonSeparator(true);
-  setFaceType(KPageDialog::List);
+  setCaption( i18n( "About Kontact" ) );
+  setButtons( Ok );
+  setDefaultButton( Ok );
+  setModal( false );
+  showButtonSeparator( true );
+  setFaceType( KPageDialog::List );
   addAboutData( i18n( "Kontact Container" ), QString( "kontact" ),
                 KGlobal::mainComponent().aboutData() );
 
   QList<Plugin*> plugins = mCore->pluginList();
   QList<Plugin*>::ConstIterator end = plugins.end();
   QList<Plugin*>::ConstIterator it = plugins.begin();
-  for ( ; it != end; ++it )
+  for ( ; it != end; ++it ) {
     addAboutPlugin( *it );
+  }
 
   addLicenseText( KGlobal::mainComponent().aboutData() );
 
-  setInitialSize(QSize(600, 400));
-  restoreDialogSize(KConfigGroup(KGlobal::config(), "AboutDialog"));
-  connect(this, SIGNAL(finished(int)), this, SLOT(saveSize()));
+  setInitialSize( QSize( 600, 400 ) );
+  restoreDialogSize( KConfigGroup( KGlobal::config(), "AboutDialog" ) );
+  connect( this, SIGNAL(finished(int)), this, SLOT(saveSize()) );
 }
 
 void AboutDialog::saveSize()
 {
-  KConfigGroup group(KGlobal::config(), "AboutDialog");
-  saveDialogSize(group);
+  KConfigGroup group( KGlobal::config(), "AboutDialog" );
+  saveDialogSize( group );
   group.sync();
 }
 
@@ -84,22 +84,24 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
   QFrame *topFrame = new QFrame();
   KPageWidgetItem *pageItem = new KPageWidgetItem( topFrame, title );
-  pageItem->setIcon(KIcon(pixmap));
+  pageItem->setIcon( KIcon( pixmap ) );
 
   addPage( pageItem );
 
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
   if ( !about ) {
-    QLabel *label = new QLabel( i18n( "No about information available." ),
-                                topFrame );
+    QLabel *label = new QLabel( i18n( "No about information available." ), topFrame );
     topLayout->addWidget( label );
   } else {
     QString text;
 
-    text += "<p><b>" + about->programName() + "</b><br>";
+    text += "<p>";
+    text += "<b>" + about->programName() + "</b>";
+    text += "<br>";
 
-    text += i18n( "Version %1</p>", about->version() );
+    text += i18n( "Version %1", about->version() );
+    text += "</p>";
 
     if ( !about->shortDescription().isEmpty() ) {
       text += "<p>" + about->shortDescription() + "<br>" +
@@ -116,11 +118,11 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     QLabel *label = new QLabel( text, topFrame );
     label->setAlignment( Qt::AlignTop );
     label->setOpenExternalLinks(true);
-    label->setTextInteractionFlags(Qt::TextSelectableByMouse|Qt::TextSelectableByKeyboard|Qt::LinksAccessibleByMouse);
+    label->setTextInteractionFlags(
+      Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard | Qt::LinksAccessibleByMouse );
     topLayout->addWidget( label );
 
-
-    QTextEdit *personView = new QTextEdit( topFrame );
+    QTextEdit *personView = new QTextEdit( topFrame ); //krazy:exclude=qclasses
     personView->setReadOnly( true );
     topLayout->addWidget( personView, 1 );
 
@@ -133,8 +135,9 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       QList<KAboutPerson>::ConstIterator it;
       for ( it = authors.begin(); it != authors.end(); ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
-        if ( !(*it).task().isEmpty() )
+        if ( !(*it).task().isEmpty() ) {
           text += "<i>" + (*it).task() + "</i><br>";
+        }
       }
     }
 
@@ -145,14 +148,15 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       QList<KAboutPerson>::ConstIterator it;
       for ( it = credits.begin(); it != credits.end(); ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
-        if ( !(*it).task().isEmpty() )
+        if ( !(*it).task().isEmpty() ) {
           text += "<i>" + (*it).task() + "</i><br>";
+        }
       }
     }
 
     const QList<KAboutPerson> translators = about->translators();
     if ( !translators.isEmpty() ) {
-      text += i18n("<p><b>Translators:</b></p>");
+      text += i18n( "<p><b>Translators:</b></p>" );
 
       QList<KAboutPerson>::ConstIterator it;
       for ( it = translators.begin(); it != translators.end(); ++it ) {
@@ -177,8 +181,9 @@ QString AboutDialog::formatPerson( const QString &name, const QString &email )
 
 void AboutDialog::addLicenseText( const KAboutData *about )
 {
-  if ( !about || about->license().isEmpty() )
+  if ( !about || about->license().isEmpty() ) {
     return;
+  }
 
   QPixmap pixmap = KIconLoader::global()->loadIcon( "help-about",
                                                     KIconLoader::Desktop, 48 );
@@ -187,7 +192,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
 
   QFrame *topFrame = new QFrame();
   KPageWidgetItem *page = new KPageWidgetItem( topFrame, title );
-  page->setIcon(KIcon(pixmap));
+  page->setIcon( KIcon( pixmap ) );
   addPage( page );
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 

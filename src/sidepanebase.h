@@ -21,10 +21,11 @@
 #ifndef KONTACT_SIDEPANEBASE_H
 #define KONTACT_SIDEPANEBASE_H
 
-
-//Added by qt3to4:
-#include <QList>
+#include <kactioncollection.h>
 #include <kvbox.h>
+
+#include <QList>
+
 namespace KParts { class Part; }
 
 namespace Kontact
@@ -35,7 +36,7 @@ class Plugin;
 
 class SidePaneBase : public KVBox
 {
-    Q_OBJECT
+  Q_OBJECT
   public:
     SidePaneBase( Core *core, QWidget *parent );
     virtual ~SidePaneBase();
@@ -46,7 +47,7 @@ class SidePaneBase : public KVBox
     virtual const QList<QAction*> & actions() = 0;
 
   signals:
-    void pluginSelected( Kontact::Plugin* );
+    void pluginSelected( Kontact::Plugin * );
 
   public slots:
     /**
@@ -59,7 +60,7 @@ class SidePaneBase : public KVBox
       Select the current plugin without emmiting a signal.
       This is used to sync with the core.
      */
-    virtual void selectPlugin( Kontact::Plugin* ) = 0;
+    virtual void selectPlugin( Kontact::Plugin * ) = 0;
 
     /**
       This is an overloaded member function. It behaves essentially like the
@@ -67,12 +68,13 @@ class SidePaneBase : public KVBox
      */
     virtual void selectPlugin( const QString &name ) = 0;
 
-    virtual void indicateForegrunding( Kontact::Plugin* ) = 0;
+    virtual void indicateForegrunding( Kontact::Plugin * ) = 0;
+
   protected:
-    Core* core() const;
+    Core *core() const;
 
   private:
-    Core* mCore;
+    Core *mCore;
     KActionCollection *mActionCollection;
 };
 
