@@ -20,28 +20,29 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <QObject>
-#include <QDBusConnection>
+#include "plugin.h"
+#include "core.h"
+
+#include <kparts/componentfactory.h>
 #include <kxmlguifactory.h>
 #include <klocale.h>
 #include <kaboutdata.h>
 #include <kglobal.h>
-#include <kparts/componentfactory.h>
 #include <kdebug.h>
 #include <kcomponentdata.h>
 #include <krun.h>
 
-#include "core.h"
-#include "plugin.h"
+#include <QObject>
+#include <QDBusConnection>
 
 using namespace Kontact;
 
 class Plugin::Private
 {
   public:
-      
+
     void partDestroyed();
-      
+
     Kontact::Core *core;
     QList<KAction*> *newActions;
     QList<KAction*> *syncActions;
@@ -56,13 +57,12 @@ class Plugin::Private
     bool disabled;
 };
 
-
 Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
-  : KXMLGUIClient(  core ), QObject(  parent ), d(  new Private )
+  : KXMLGUIClient( core ), QObject( parent ), d( new Private )
 {
   setObjectName( name );
   core->factory()->addClient( this );
-  KGlobal::locale()->insertCatalog(name);
+  KGlobal::locale()->insertCatalog( name );
 
   d->core = core;
   d->newActions = new QList<KAction*>;
@@ -71,7 +71,6 @@ Plugin::Plugin( Kontact::Core *core, QObject *parent, const char *name )
   d->part = 0;
   d->disabled = false;
 }
-
 
 Plugin::~Plugin()
 {
@@ -109,7 +108,7 @@ QString Plugin::icon() const
   return d->icon;
 }
 
-void Plugin::setExecutableName( const QString& bin )
+void Plugin::setExecutableName( const QString &bin )
 {
   d->executableName = bin;
 }
@@ -137,22 +136,23 @@ const KAboutData *Plugin::aboutData()
   kDebug(5601) << "libname:" << d->partLibraryName;
 
   if ( factory ) {
-    if ( factory->componentData().isValid() )
+    if ( factory->componentData().isValid() ) {
       return factory->componentData().aboutData();
+    } else {
+      // If the componentData of the factory is invalid, the likely cause is that
+      // the part has not been ported to use K_PLUGIN_FACTORY/K_EXPORT_PLUGIN yet.
+      // In that case, fallback to the old method of loading component data, which
+      // does only work for old-style parts.
 
-    // If the componentData of the factory is invalid, the likely cause is that
-    // the part has not been ported to use K_PLUGIN_FACTORY/K_EXPORT_PLUGIN yet.
-    // In that case, fallback to the old method of loading component data, which
-    // does only work for old-style parts.
-    else {
       kDebug(5601) << "Unable to load component data for" << loader.fileName()
                    << "trying to use the old style plugin system now.";
       const KComponentData instance =
           KParts::Factory::partComponentDataFromLibrary( d->partLibraryName );
-      if ( instance.isValid() )
+      if ( instance.isValid() ) {
         return instance.aboutData();
-      else
+      } else {
         kDebug(5601) << "Invalid instance, unable to get about information!";
+      }
     }
   }
 
@@ -179,10 +179,9 @@ QString Plugin::tipFile() const
 
 QString Plugin::registerClient()
 {
-  if( d->serviceName.isEmpty())
-  {
-      d->serviceName = "org.kde." + objectName().toLatin1();
-      QDBusConnection::sessionBus().registerService( d->serviceName );
+  if ( d->serviceName.isEmpty() ) {
+    d->serviceName = "org.kde." + objectName().toLatin1();
+    QDBusConnection::sessionBus().registerService( d->serviceName );
   }
   return d->serviceName;
 }
@@ -232,8 +231,9 @@ void Plugin::slotConfigUpdated()
 
 void Plugin::bringToForeground()
 {
-  if (!d->executableName.isEmpty())
-    KRun::runCommand(d->executableName,0);
+  if ( !d->executableName.isEmpty() ) {
+    KRun::runCommand( d->executableName, 0 );
+  }
 }
 
 bool Kontact::Plugin::showInSideBar() const
@@ -248,16 +248,17 @@ void Kontact::Plugin::setShowInSideBar( bool hasPart )
 
 void Kontact::Plugin::setDisabled( bool disabled )
 {
-    d->disabled = disabled;
+  d->disabled = disabled;
 }
 
 bool Kontact::Plugin::disabled() const
 {
-    return d->disabled;
+  return d->disabled;
 }
 
-void Plugin::virtual_hook( int, void* ) {
-	//BASE::virtual_hook( id, data );
+void Plugin::virtual_hook( int, void * )
+{
+  //BASE::virtual_hook( id, data );
 }
 
 #include "plugin.moc"

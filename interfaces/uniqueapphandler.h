@@ -38,7 +38,7 @@ namespace Kontact
 class KPINTERFACES_EXPORT UniqueAppHandler
 {
   public:
-    UniqueAppHandler( Plugin* plugin );
+    UniqueAppHandler( Plugin *plugin );
     virtual ~UniqueAppHandler();
     /// This must be reimplemented so that app-specific command line options can be parsed
     virtual void loadCommandLineOptions() = 0;
@@ -47,21 +47,21 @@ class KPINTERFACES_EXPORT UniqueAppHandler
     /// to newInstance can't be expressed in terms of normal data types.
     virtual int newInstance();
 
-    Plugin* plugin() const { return mPlugin; }
+    Plugin *plugin() const { return mPlugin; }
 
     /// Load the kontact command line options.
     static void loadKontactCommandLineOptions();
 
   private:
-    Plugin* mPlugin;
+    Plugin *mPlugin;
 };
 
 /// Base class for UniqueAppHandler
 class UniqueAppHandlerFactoryBase
 {
   public:
-	virtual ~UniqueAppHandlerFactoryBase(){}
-    virtual UniqueAppHandler* createHandler( Plugin* ) = 0;
+    virtual ~UniqueAppHandlerFactoryBase(){}
+    virtual UniqueAppHandler *createHandler( Plugin * ) = 0;
 };
 
 /**
@@ -73,12 +73,11 @@ class UniqueAppHandlerFactoryBase
 template <class T> class UniqueAppHandlerFactory : public UniqueAppHandlerFactoryBase
 {
   public:
-    virtual UniqueAppHandler* createHandler( Plugin* plugin ) {
-        plugin->registerClient();
-        return new T( plugin );
+    virtual UniqueAppHandler *createHandler( Plugin *plugin ) {
+      plugin->registerClient();
+      return new T( plugin );
     }
 };
-
 
 /**
  * If the standalone application is running by itself, we need to watch
@@ -101,19 +100,19 @@ class KPINTERFACES_EXPORT UniqueAppWatcher : public QObject
      * ...   Note that the watcher takes ownership of the factory.
      * @param plugin is the plugin application
      */
-    UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin* plugin );
+    UniqueAppWatcher( UniqueAppHandlerFactoryBase *factory, Plugin *plugin );
 
     virtual ~UniqueAppWatcher();
 
     bool isRunningStandalone() const { return mRunningStandalone; }
 
   protected slots:
-    void unregisteredFromDCOP( const QByteArray& appId );
+    void unregisteredFromDCOP( const QByteArray &appId );
 
   private:
     bool mRunningStandalone;
-    UniqueAppHandlerFactoryBase* mFactory;
-    Plugin* mPlugin;
+    UniqueAppHandlerFactoryBase *mFactory;
+    Plugin *mPlugin;
 };
 
 } // namespace

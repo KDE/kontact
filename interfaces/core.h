@@ -69,13 +69,13 @@ class KPINTERFACES_EXPORT Core : public KParts::MainWindow
      @internal (for Plugin)
      Tell kontact that a part was loaded
      */
-    virtual void partLoaded( Plugin* plugin, KParts::ReadOnlyPart * part ) = 0;
+    virtual void partLoaded( Plugin *plugin, KParts::ReadOnlyPart *part ) = 0;
 
   Q_SIGNALS:
     /**
       Emitted when a new day starts
       */
-    void dayChanged( const QDate& );
+    void dayChanged( const QDate & );
 
   protected:
     explicit Core( QWidget *parentWidget = 0, Qt::WindowFlags f = KDE_DEFAULT_WINDOWFLAGS );

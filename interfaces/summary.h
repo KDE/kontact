@@ -56,8 +56,7 @@ class KPINTERFACES_EXPORT Summary : public QWidget
     /**
       Creates a heading for a typical summary view with an icon and a heading.
      */
-    QWidget *createHeader( QWidget* parent, const QPixmap &icon,
-                           const QString& heading );
+    QWidget *createHeader( QWidget *parent, const QPixmap &icon, const QString &heading );
 
     /**
       Return list of strings identifying configuration modules for this summary
@@ -80,10 +79,10 @@ class KPINTERFACES_EXPORT Summary : public QWidget
     void summaryWidgetDropped( QWidget *target, QWidget *widget, int alignment );
 
   protected:
-    virtual void mousePressEvent( QMouseEvent* );
-    virtual void mouseMoveEvent( QMouseEvent* );
-    virtual void dragEnterEvent( QDragEnterEvent* );
-    virtual void dropEvent( QDropEvent* );
+    virtual void mousePressEvent( QMouseEvent * );
+    virtual void mouseMoveEvent( QMouseEvent * );
+    virtual void dragEnterEvent( QDragEnterEvent * );
+    virtual void dropEvent( QDropEvent * );
 
   private:
     class Private;

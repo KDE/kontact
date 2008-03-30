@@ -44,10 +44,14 @@ namespace KParts { class ReadOnlyPart; }
   Exports Kontact plugin.
  */
 #define EXPORT_KONTACT_PLUGIN( pluginclass, pluginname ) \
-  class Instance { public: static QObject* createInstance(QWidget *, QObject *parent, const QVariantList &list) \
-    { return new pluginclass( static_cast<Kontact::Core*>(parent), list ); } }; \
-  K_PLUGIN_FACTORY( KontactPluginFactory, registerPlugin< pluginclass >( QString(), Instance::createInstance ); ) \
-  K_EXPORT_PLUGIN( KontactPluginFactory( "kontact_" #pluginname "plugin" ) )
+class Instance                                                        \
+{                                                                     \
+  public:                                                             \
+    static QObject *createInstance( QWidget *, QObject *parent, const QVariantList &list ) \
+    { return new pluginclass( static_cast<Kontact::Core*>( parent ), list ); } \
+};                                                                    \
+K_PLUGIN_FACTORY( KontactPluginFactory, registerPlugin< pluginclass >( QString(), Instance::createInstance ); ) \
+K_EXPORT_PLUGIN( KontactPluginFactory( "kontact_" #pluginname "plugin" ) )
 
 /**
   Increase this version number whenever you make a change
@@ -133,10 +137,10 @@ class KPINTERFACES_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
       Create the D-Bus interface for the given @p serviceType, if this
       plugin provides it. Return false otherwise.
     */
-    virtual bool createDBUSInterface( const QString& /*serviceType*/ ) { return false; }
+    virtual bool createDBUSInterface( const QString & /*serviceType*/) { return false; }
 
     /**
-      Reimplement this method and return wether a standalone application is still running
+      Reimplement this method and return whether a standalone application is still running
       This is only required if your part is also available as standalone application.
     */
     virtual bool isRunningStandalone() { return false; }
@@ -182,10 +186,10 @@ class KPINTERFACES_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
       Reimplement this method if you want to add a widget for your application
       to Kontact's summary page.
     */
-    virtual Summary *createSummaryWidget( QWidget * /*parent*/ ) { return 0; }
+    virtual Summary *createSummaryWidget( QWidget * /*parent*/) { return 0; }
 
     /**
-      Returns wether the plugin provides a part that should be shown in the sidebar.
+      Returns whether the plugin provides a part that should be shown in the sidebar.
     */
     virtual bool showInSideBar() const;
 
@@ -195,13 +199,15 @@ class KPINTERFACES_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     void setShowInSideBar( bool hasPart );
 
     /**
-      Reimplement this method if you want to add checks before closing down the main kontact
-      window.  Return true if it's OK to close the window.  If any loaded plugin returns false
-      from this method, then the main kontact window will not close.
+      Reimplement this method if you want to add checks before closing the
+      main kontact window. Return true if it's OK to close the window.
+      If any loaded plugin returns false from this method, then the
+      main kontact window will not close.
     */
     virtual bool queryClose() const { return true; }
 
     QString registerClient();
+
     /**
       Return the weight of the plugin. The higher the weight the lower it will
       be displayed in the sidebar. The default implementation returns 0.
@@ -246,7 +252,7 @@ class KPINTERFACES_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     /**
      * Session management: read properties
      */
-    virtual void readProperties( const KConfigGroup&  ) {}
+    virtual void readProperties( const KConfigGroup & ) {}
 
     /**
      * Session management: save properties
@@ -273,7 +279,7 @@ class KPINTERFACES_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
 
     KParts::ReadOnlyPart *loadPart();
 
-    virtual void virtual_hook(  int id, void* data );
+    virtual void virtual_hook( int id, void *data );
 
   private:
     class Private;

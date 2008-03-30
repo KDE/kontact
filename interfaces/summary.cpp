@@ -52,9 +52,9 @@ class SummaryMimeData : public QMimeData
 
 class Summary::Private
 {
-public:
-  KStatusBar *mStatusBar;
-  QPoint mDragStartPoint;
+  public:
+    KStatusBar *mStatusBar;
+    QPoint mDragStartPoint;
 };
 
 Summary::Summary( QWidget *parent )
@@ -68,9 +68,9 @@ Summary::~Summary()
   delete d;
 }
 
-QWidget* Summary::createHeader(QWidget *parent, const QPixmap& icon, const QString& heading)
+QWidget *Summary::createHeader( QWidget *parent, const QPixmap &icon, const QString &heading )
 {
-  KHBox* hbox = new KHBox( parent );
+  KHBox *hbox = new KHBox( parent );
   hbox->setMargin( 2 );
   hbox->setBackgroundRole( QPalette::Window );
   hbox->setForegroundRole( QPalette::WindowText );
@@ -105,17 +105,18 @@ void Summary::mousePressEvent( QMouseEvent *event )
 
 void Summary::mouseMoveEvent( QMouseEvent *event )
 {
-  if ( (event->buttons() & Qt::LeftButton) &&
-       (event->pos() - d->mDragStartPoint).manhattanLength() > 4 ) {
+  if ( ( event->buttons() & Qt::LeftButton ) &&
+       ( event->pos() - d->mDragStartPoint ).manhattanLength() > 4 ) {
 
-
-    QDrag *drag = new QDrag(this);
-    drag->setMimeData(new SummaryMimeData());
-    drag->setObjectName("SummaryWidgetDrag");
+    QDrag *drag = new QDrag( this );
+    drag->setMimeData( new SummaryMimeData() );
+    drag->setObjectName( "SummaryWidgetDrag" );
 
     QPixmap pm = QPixmap::grabWidget( this );
-    if ( pm.width() > 300 )
-      pm = QPixmap::fromImage( pm.toImage().scaled( 300, 300, Qt::KeepAspectRatio, Qt::SmoothTransformation ) );
+    if ( pm.width() > 300 ) {
+      pm = QPixmap::fromImage(
+        pm.toImage().scaled( 300, 300, Qt::KeepAspectRatio, Qt::SmoothTransformation ) );
+    }
 
     QPainter painter;
     painter.begin( &pm );
@@ -123,20 +124,22 @@ void Summary::mouseMoveEvent( QMouseEvent *event )
     painter.drawRect( 0, 0, pm.width(), pm.height() );
     painter.end();
     drag->setPixmap( pm );
-    drag->start(Qt::MoveAction);
-  } else
+    drag->start( Qt::MoveAction );
+  } else {
     QWidget::mouseMoveEvent( event );
+  }
 }
 
 void Summary::dragEnterEvent( QDragEnterEvent *event )
 {
-  if (event->mimeData()->hasFormat("application/x-kontact-summary"))
+  if ( event->mimeData()->hasFormat( "application/x-kontact-summary" ) ) {
     event->acceptProposedAction();
+  }
 }
 
 void Summary::dropEvent( QDropEvent *event )
 {
-  int alignment = (event->pos().y() < (height() / 2) ? Qt::AlignTop : Qt::AlignBottom);
+  int alignment = ( event->pos().y() < ( height() / 2 ) ? Qt::AlignTop : Qt::AlignBottom );
   emit summaryWidgetDropped( this, event->source(), alignment );
 }
 

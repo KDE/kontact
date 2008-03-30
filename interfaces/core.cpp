@@ -33,28 +33,30 @@ using namespace Kontact;
 
 class Core::Private
 {
-  Core* const q;
-public:
-  explicit Private( Core* qq );
+  Core *const q;
 
-  void slotPartDestroyed( QObject * );
-  void checkNewDay();
+  public:
+    explicit Private( Core *qq );
 
-  QString lastErrorMessage;
-  QDate mLastDate;
-  QMap<QByteArray,KParts::ReadOnlyPart *> mParts;
+    void slotPartDestroyed( QObject * );
+    void checkNewDay();
+
+    QString lastErrorMessage;
+    QDate mLastDate;
+    QMap<QByteArray,KParts::ReadOnlyPart *> mParts;
 };
 
-Core::Private::Private( Core* qq ) : q( qq ), mLastDate( QDate::currentDate() )
+Core::Private::Private( Core *qq )
+  : q( qq ), mLastDate( QDate::currentDate() )
 {
 }
 
 Core::Core( QWidget *parent, Qt::WindowFlags f )
   : KParts::MainWindow( parent, f ), d( new Private( this ) )
 {
-  QTimer* timer = new QTimer( this );
-  connect(timer, SIGNAL( timeout() ), SLOT( checkNewDay() ) );
-  timer->start( 1000*60 );
+  QTimer *timer = new QTimer( this );
+  connect( timer, SIGNAL(timeout()), SLOT(checkNewDay()) );
+  timer->start( 1000 * 60 );
 }
 
 Core::~Core()
@@ -68,21 +70,24 @@ KParts::ReadOnlyPart *Core::createPart( const char *libname )
 
   QMap<QByteArray,KParts::ReadOnlyPart *>::ConstIterator it;
   it = d->mParts.find( libname );
-  if ( it != d->mParts.end() ) return it.value();
+  if ( it != d->mParts.end() ) {
+    return it.value();
+  }
 
-  kDebug(5601) <<"Creating new KPart";
+  kDebug(5601) << "Creating new KPart";
 
   KPluginLoader loader( libname );
   kDebug(5601) << loader.fileName();
   KPluginFactory *factory = loader.factory();
   KParts::ReadOnlyPart *part = 0;
-  if (factory)
-    part = factory->create<KParts::ReadOnlyPart>(this);
+  if ( factory ) {
+    part = factory->create<KParts::ReadOnlyPart>( this );
+  }
 
   if (part) {
     d->mParts.insert( libname, part );
-    QObject::connect( part, SIGNAL( destroyed( QObject * ) ),
-                      SLOT( slotPartDestroyed( QObject * ) ) );
+    QObject::connect( part, SIGNAL(destroyed(QObject *)),
+                      SLOT(slotPartDestroyed(QObject *)) );
   } else {
     d->lastErrorMessage = loader.errorString();
     kWarning(5601) << d->lastErrorMessage;
@@ -107,8 +112,9 @@ void Core::Private::slotPartDestroyed( QObject * obj )
 
 void Core::Private::checkNewDay()
 {
-  if ( mLastDate != QDate::currentDate() )
+  if ( mLastDate != QDate::currentDate() ) {
     emit q->dayChanged( QDate::currentDate() );
+  }
 
   mLastDate = QDate::currentDate();
 }

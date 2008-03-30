@@ -1,32 +1,34 @@
 /*
-   This file is part of KDE Kontact.
+  This file is part of KDE Kontact.
 
-   Copyright (c) 2003 David Faure <faure@kde.org>
+  Copyright (c) 2003 David Faure <faure@kde.org>
 
-   This library is free software; you can redistribute it and/or
-   modify it under the terms of the GNU Library General Public
-   License as published by the Free Software Foundation; either
-   version 2 of the License, or (at your option) any later version.
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Library General Public
+  License as published by the Free Software Foundation; either
+  version 2 of the License, or (at your option) any later version.
 
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Library General Public License for more details.
 
-   You should have received a copy of the GNU Library General Public License
-   along with this library; see the file COPYING.LIB.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
+  You should have received a copy of the GNU Library General Public License
+  along with this library; see the file COPYING.LIB.  If not, write to
+  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  Boston, MA 02110-1301, USA.
 */
 
 #include "uniqueapphandler.h"
+#include "core.h"
+
 #include <kstartupinfo.h>
 #include <kcmdlineargs.h>
-#include "core.h"
 #include <kwindowsystem.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kuniqueapplication.h>
+
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 
@@ -76,10 +78,10 @@
 
 using namespace Kontact;
 
-UniqueAppHandler::UniqueAppHandler( Plugin* plugin )
+UniqueAppHandler::UniqueAppHandler( Plugin *plugin )
  : mPlugin( plugin )
 {
-  kDebug()<<" plugin->objectName().toLatin1() :"<<plugin->objectName().toLatin1();
+  kDebug() << " plugin->objectName().toLatin1() :"<<plugin->objectName().toLatin1();
   QDBusConnection::sessionBus().registerService( "org.kde." + plugin->objectName().toLatin1() );
 }
 
@@ -155,26 +157,28 @@ DCOPCStringList UniqueAppHandler::functions()
   return funcs;
 }*/
 
-UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase* factory, Plugin* plugin )
-    : QObject( plugin ), mFactory( factory ), mPlugin( plugin )
+UniqueAppWatcher::UniqueAppWatcher( UniqueAppHandlerFactoryBase *factory, Plugin *plugin )
+  : QObject( plugin ), mFactory( factory ), mPlugin( plugin )
 {
   // The app is running standalone if 1) that name is known to D-Bus
-    QString serviceName = "org.kde."+plugin->objectName().toLatin1();
-    mRunningStandalone = QDBusConnection::sessionBus().interface()->isServiceRegistered(serviceName);
-    kDebug()<<" plugin->objectName() :"<<plugin->objectName()<<" isServiceRegistered ? :"<<mRunningStandalone;
+  QString serviceName = "org.kde." + plugin->objectName().toLatin1();
+  mRunningStandalone =
+    QDBusConnection::sessionBus().interface()->isServiceRegistered( serviceName );
+  kDebug() << " plugin->objectName() :" << plugin->objectName()
+           << " isServiceRegistered ? :" << mRunningStandalone;
 
-    QString owner = QDBusConnection::sessionBus().interface()->serviceOwner(serviceName);
-    if( mRunningStandalone && (owner == QDBusConnection::sessionBus().baseService()))
-       mRunningStandalone = false;
+  QString owner = QDBusConnection::sessionBus().interface()->serviceOwner( serviceName );
+  if ( mRunningStandalone && ( owner == QDBusConnection::sessionBus().baseService() ) ) {
+    mRunningStandalone = false;
+  }
 
-    if(mRunningStandalone)
-    {
-      //TODO port it
-      //kapp->dcopClient()->setNotifications( true );
-      //connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ), this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
-    }
-    else
-	mFactory->createHandler( mPlugin );
+  if ( mRunningStandalone ) {
+    //TODO port it
+    //kapp->dcopClient()->setNotifications( true );
+    //connect( kapp->dcopClient(), SIGNAL( applicationRemoved( const QByteArray& ) ), this, SLOT( unregisteredFromDCOP( const QByteArray& ) ) );
+  } else {
+    mFactory->createHandler( mPlugin );
+  }
 }
 
 UniqueAppWatcher::~UniqueAppWatcher()
@@ -188,7 +192,7 @@ UniqueAppWatcher::~UniqueAppWatcher()
   delete mFactory;
 }
 
-void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray& appId )
+void UniqueAppWatcher::unregisteredFromDCOP( const QByteArray &appId )
 {
   if ( appId == mPlugin->objectName() && mRunningStandalone ) {
 #ifdef __GNUC__
@@ -207,9 +211,9 @@ void Kontact::UniqueAppHandler::loadKontactCommandLineOptions()
 {
 
   KCmdLineOptions options;
-  options.add("module <module>", ki18n( "Start with a specific Kontact module" ));
-  options.add("iconify", ki18n( "Start in iconified (minimized) mode" ));
-  options.add("list", ki18n( "List all possible modules and exit" ));
+  options.add( "module <module>", ki18n( "Start with a specific Kontact module" ) );
+  options.add( "iconify", ki18n( "Start in iconified (minimized) mode" ) );
+  options.add( "list", ki18n( "List all possible modules and exit" ) );
   KCmdLineArgs::addCmdLineOptions( options );
   KUniqueApplication::addCmdLineOptions();
   KCmdLineArgs::addStdCmdLineOptions();
