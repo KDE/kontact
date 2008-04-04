@@ -20,7 +20,7 @@
 */
 
 #include "prefs.h"
-#include "alarmclient.h"
+#include "reminderclient.h"
 #include "mainwindow.h"
 #include "plugin.h"
 #include "uniqueapphandler.h"
@@ -118,8 +118,8 @@ int KontactApp::newInstance()
     }
   }
 
-  KPIM::AlarmClient alarmclient;
-  alarmclient.startDaemon();
+  KPIM::ReminderClient reminderclient;
+  reminderclient.startDaemon();
 
   // Handle startup notification and window activation
   // (The first time it will do nothing except note that it was called)
