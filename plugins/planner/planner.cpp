@@ -323,7 +323,7 @@ int Planner::showEvents( int counter, const QDate &date )
     KCal::Event::List::ConstIterator it;
     QDate currentDate = QDate::currentDate();
     QString datestr;
-    QDate sD = QDate::QDate( date.year(), date.month(), date.day() );
+    QDate sD = QDate( date.year(), date.month(), date.day() );
     QLabel *label;
 
     ++counter;
@@ -404,10 +404,10 @@ int Planner::showEvents( int counter, const QDate &date )
         QTime sET = ev->dtEnd().time();
         if ( ev->isMultiDay() ){
           if ( ev->dtStart().date() < date ){
-            sST = QTime::QTime( 0, 0 );
+            sST = QTime( 0, 0 );
           }
           if ( ev->dtEnd().date() > date ){
-            sET = QTime::QTime( 23, 59 );
+            sET = QTime( 23, 59 );
           }
         }
 
@@ -504,7 +504,7 @@ void Planner::updateView()
       QString datestr;
 
       // Modify event date for printing
-      QDate sD = QDate::QDate( dt.year(), dt.month(), dt.day() );
+      QDate sD = QDate( dt.year(), dt.month(), dt.day() );
       if ( ( sD.month() == currentDate.month() ) &&
            ( sD.day() == currentDate.day() ) ) {
         datestr = i18nc( "today", "Today" );
