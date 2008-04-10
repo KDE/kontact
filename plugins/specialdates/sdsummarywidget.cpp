@@ -88,7 +88,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QPixmap icon = KIconLoader::global()->loadIcon( "kontact_date",
+  QPixmap icon = KIconLoader::global()->loadIcon( "go-jump-today",
                     KIconLoader::Desktop, KIconLoader::SizeMedium );
 
   QWidget *header = createHeader( this, icon, i18n( "Upcoming Special Dates" ) );
