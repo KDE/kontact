@@ -120,35 +120,29 @@ void TodoSummaryWidget::updateView()
   //    days to go before to-do is due
   //    which types of to-dos to hide
 
-  KCal::Todo::List todos = mCalendar->todos();
   KCal::Todo::List prList;
-  KCal::Todo::List::ConstIterator it;
-  KCal::Todo *todo;
 
-  if ( todos.count() > 0 ) {
-    for ( it = todos.begin(); it != todos.end(); ++it ) {
-      todo = *it;
-
-      if ( todo->hasDueDate() ) {
-        int daysTo = QDate::currentDate().daysTo( todo->dtDue().date() );
-        if ( daysTo >= mDaysToGo )
-          continue;
-      }
-
-      if ( mHideOverdue && overdue( todo ) )
+  Q_FOREACH ( KCal::Todo *todo, mCalendar->todos() ) {
+    if ( todo->hasDueDate() ) {
+      int daysTo = QDate::currentDate().daysTo( todo->dtDue().date() );
+      if ( daysTo >= mDaysToGo )
         continue;
-      if ( mHideInProgress && inProgress( todo ) )
-        continue;
-      if ( mHideCompleted && completed( todo ) )
-        continue;
-      if ( mHideOpenEnded && openEnded( todo ) )
-        continue;
-      if ( mHideNotStarted && notStarted( todo ) )
-        continue;
-
-      prList.append( todo );
     }
 
+    if ( mHideOverdue && overdue( todo ) )
+      continue;
+    if ( mHideInProgress && inProgress( todo ) )
+      continue;
+    if ( mHideCompleted && completed( todo ) )
+      continue;
+    if ( mHideOpenEnded && openEnded( todo ) )
+      continue;
+    if ( mHideNotStarted && notStarted( todo ) )
+      continue;
+
+    prList.append( todo );
+  }
+  if ( !prList.isEmpty() ) {
     prList = KCal::Calendar::sortTodos( &prList,
                                         KCal::TodoSortSummary,
                                         KCal::SortDirectionAscending );
@@ -184,15 +178,14 @@ void TodoSummaryWidget::updateView()
   int counter = 0;
   QLabel *label = 0;
 
-  if ( prList.count() > 0 ) {
+  if ( !prList.isEmpty() ) {
 
     KIconLoader loader( "korganizer" );
     QPixmap pm = loader.loadIcon( "view-calendar-tasks", KIconLoader::Small );
 
     QString str;
 
-    for ( it = prList.begin(); it != prList.end(); ++it ) {
-      todo = *it;
+    Q_FOREACH ( KCal::Todo *todo, prList ) {
       bool makeBold = false;
       int daysTo = -1;
 
@@ -284,7 +277,7 @@ void TodoSummaryWidget::updateView()
 
       counter++;
     }
-  }
+  } //foreach
 
   if ( counter == 0 ) {
     QLabel *noTodos = new QLabel(
