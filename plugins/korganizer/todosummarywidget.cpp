@@ -198,7 +198,7 @@ void TodoSummaryWidget::updateView()
 
       // Due date label
       str = "";
-      if ( todo->hasDueDate() ) {
+      if ( todo->hasDueDate() && todo->dtDue().date().isValid() ) {
         daysTo = QDate::currentDate().daysTo( todo->dtDue().date() );
 
         if ( daysTo == 0 ) {
@@ -223,7 +223,7 @@ void TodoSummaryWidget::updateView()
 
       // Days togo/ago label
       str = "";
-      if ( todo->hasDueDate() ) {
+      if ( todo->hasDueDate() && todo->dtDue().date().isValid() ) {
         if ( daysTo > 0 ) {
           str = i18np( "in 1 day", "in %1 days", daysTo );
         } else if ( daysTo < 0 ) {
