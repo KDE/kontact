@@ -14,6 +14,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Name=Planner
+Name[de]=Planer
 Name[ga]=Pleanálaí
 Name[km]=កម្មវិធីធ្វើ​គម្រោង
 Name[lv]=Plānotājs
@@ -22,6 +23,7 @@ Name[x-test]=xxPlannerxx
 Name[zh_TW]=行事曆
 Comment=Planner Plugin
 Comment[ca]=Connector del Planner
+Comment[de]=Planer-Modul
 Comment[el]=Πρόσθετο Planner
 Comment[ga]=Breiseán Pleanálaí
 Comment[km]=កម្មវិធី​ជំនួយ​​របស់​កម្មវិធី​ធ្វើ​គម្រោង

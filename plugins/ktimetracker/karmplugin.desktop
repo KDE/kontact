@@ -15,6 +15,7 @@ X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=TimeTracker Plugin
 Comment[ca]=Connector de registre horari
+Comment[de]=Modul für die persönliche Zeiterfassung
 Comment[el]=Πρόσθετο χρονικού προγραμματισμού
 Comment[ga]=Breiseán TimeTracker
 Comment[ja]=タイムトラッカープラグイン
@@ -27,6 +28,7 @@ Comment[zh_TW]=時間追蹤器外掛程式
 
 Name=Time Tracker
 Name[ca]=Seguiment horari
+Name[de]=Persönliche Zeiterfassung
 Name[el]=Χρονικός προγραμματισμός
 Name[ga]=TimeTracker
 Name[ja]=タイムトラッカー

@@ -11,6 +11,7 @@ X-KDE-ParentComponents=kontact_plannerplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Planner
+Name[de]=Planer
 Name[ga]=Pleanálaí
 Name[km]=កម្មវិធីធ្វើ​គម្រោង
 Name[lv]=Plānotājs
@@ -19,6 +20,7 @@ Name[x-test]=xxPlannerxx
 Name[zh_TW]=行事曆
 Comment=Planner Setup
 Comment[ca]=Arranjament del Planner
+Comment[de]=Planer-Einrichtung
 Comment[el]=Ρύθμιση του Planner
 Comment[ga]=Socrú Pleanálaí
 Comment[km]=កា​ររៀបចំ​កម្មវិធី​ធ្វើ​គម្រោង
