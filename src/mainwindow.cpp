@@ -227,7 +227,7 @@ void MainWindow::initObject()
     selectPlugin( mCurrentPlugin );
   }
 
-//  paintAboutScreen( introductionString() );
+  paintAboutScreen( introductionString() );
   Prefs::setLastVersionSeen( KGlobal::mainComponent().aboutData()->version() );
 }
 
@@ -297,15 +297,13 @@ void MainWindow::initWidgets()
   mPartsStack = new QStackedWidget( vBox );
   mPartsStack->layout()->setSpacing( 0 );
 
-/*
   initAboutScreen();
 
   QString loading =
-    i18n( "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>" ).
-    arg( i18n( "Loading Kontact..." ) );
+    i18n( "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>", i18n( "Loading Kontact..." ) );
 
   paintAboutScreen( loading );
-*/
+
   /* Create a progress dialog and hide it. */
   KPIM::ProgressDialog *progressDialog = new KPIM::ProgressDialog( statusBar(), this );
   progressDialog->hide();
@@ -361,11 +359,13 @@ void MainWindow::initAboutScreen()
   mIntroPart->view()->setLineWidth( 0 );
 
   connect( mIntroPart->browserExtension(),
-           SIGNAL(openUrlRequest(const KUrl &,const KParts::OpenUrlArguments &,const KParts::BrowserArguments &)),
+           SIGNAL(openUrlRequest(const KUrl &,const KParts::OpenUrlArguments &,
+                                 const KParts::BrowserArguments &)),
            SLOT(slotOpenUrl(const KUrl &)) );
 
   connect( mIntroPart->browserExtension(),
-           SIGNAL(createNewWindow(const KUrl &,const KParts::OpenUrlArguments &,const KParts::BrowserArguments &)),
+           SIGNAL(createNewWindow(const KUrl &,const KParts::OpenUrlArguments &,
+                                  const KParts::BrowserArguments &)),
            SLOT(slotOpenUrl(const KUrl&)) );
 }
 
@@ -825,7 +825,7 @@ void MainWindow::slotShowTip()
 
 void MainWindow::slotShowIntroduction()
 {
-  mPartsStack->setCurrentWidget( 0 ); // ###
+  mPartsStack->setCurrentIndex( 0 );
 }
 
 void MainWindow::showTip( bool force )
