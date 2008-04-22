@@ -57,9 +57,8 @@ SummaryWidget::SummaryWidget( QWidget *parent )
     QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.KWeatherService")
     || 0 == KToolInvocation::startServiceByDesktopName( "kweatherservice", QStringList(), &error, &appID );
 
-  QPixmap icon = KIconLoader::global()->loadIcon(
-    serviceAvailable ? "kweather" : "dialog-cancel", KIconLoader::Desktop, KIconLoader::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "Weather Information" ) );
+  QString iconname = serviceAvailable ? "kweather" : "dialog-cancel";
+  QWidget *header = createHeader( this, iconname, i18n( "Weather Information" ) );
   mLayout->addWidget( header );
 
   if ( serviceAvailable ) {

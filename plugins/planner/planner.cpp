@@ -65,10 +65,8 @@ Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
 
-  QPixmap icon =
-    KIconLoader::global()->loadIcon( "view-calendar-tasks", //TODO we want our own icon
-                                     KIconLoader::Desktop, KIconLoader::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "Planner" ) );
+  //TODO we want our own icon
+  QWidget *header = createHeader( this, "view-calendar-tasks", i18n( "Planner" ) );
   mainLayout->addWidget( header );
   mainLayout->addStretch();
 

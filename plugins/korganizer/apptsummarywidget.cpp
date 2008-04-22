@@ -63,10 +63,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QPixmap icon =
-    KIconLoader::global()->loadIcon( "view-pim-calendar",
-                                     KIconLoader::Desktop, KIconLoader::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "Upcoming Events" ) );
+  QWidget *header = createHeader( this, "view-pim-calendar", i18n( "Upcoming Events" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();

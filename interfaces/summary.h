@@ -56,7 +56,7 @@ class KPINTERFACES_EXPORT Summary : public QWidget
     /**
       Creates a heading for a typical summary view with an icon and a heading.
      */
-    QWidget *createHeader( QWidget *parent, const QPixmap &icon, const QString &heading );
+    QWidget *createHeader( QWidget *parent, const QString &iconname, const QString &heading );
 
     /**
       Return list of strings identifying configuration modules for this summary

@@ -47,18 +47,14 @@
 
 #include "summarywidget.h"
 
-KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin,
-                                          QWidget *parent )
+KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mLayout( 0 ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QPixmap icon =
-    KIconLoader::global()->loadIcon( "view-pim-notes",
-                                     KIconLoader::Desktop, KIconLoader::SizeMedium );
-  QWidget* header = createHeader( this, icon, i18n( "Notes" ) );
+  QWidget *header = createHeader( this, "view-pim-notes", i18n( "Notes" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();

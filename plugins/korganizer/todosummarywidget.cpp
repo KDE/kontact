@@ -59,18 +59,14 @@
 #include "todosummarywidget.h"
 #include "korganizerinterface.h"
 
-TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
-                                      QWidget *parent )
+TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QPixmap icon =
-    KIconLoader::global()->loadIcon( "view-pim-tasks",
-                                     KIconLoader::Desktop, KIconLoader::SizeMedium );
-  QWidget *header = createHeader( this, icon, i18n( "Pending To-dos" ) );
+  QWidget *header = createHeader( this, "view-pim-tasks", i18n( "Pending To-dos" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();

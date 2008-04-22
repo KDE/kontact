@@ -68,7 +68,7 @@ Summary::~Summary()
   delete d;
 }
 
-QWidget *Summary::createHeader( QWidget *parent, const QPixmap &icon, const QString &heading )
+QWidget *Summary::createHeader( QWidget *parent, const QString &iconname, const QString &heading )
 {
   KHBox *hbox = new KHBox( parent );
   hbox->setMargin( 2 );
@@ -82,7 +82,8 @@ QWidget *Summary::createHeader( QWidget *parent, const QPixmap &icon, const QStr
 
   QLabel *label = new QLabel( hbox );
   label->setBackgroundRole( QPalette::AlternateBase );
-  label->setPixmap( icon );
+  label->setPixmap( KIconLoader::global()->loadIcon( iconname, KIconLoader::Toolbar ) );
+
   label->setFixedSize( label->sizeHint() );
   label->setAcceptDrops( true );
 
