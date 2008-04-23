@@ -395,10 +395,10 @@ void MainWindow::setupActions()
   actionCollection()->addAction( "settings_configure_kontact", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
-  action = new KAction( i18n( "&Kontact Introduction" ), this );
+  action = new KAction( KIcon( "kontact" ), i18n( "&Kontact Introduction" ), this );
   actionCollection()->addAction( "help_introduction", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowIntroduction()) );
-  action = new KAction( i18n( "&Tip of the Day" ), this );
+  action = new KAction( KIcon( "ktip" ), i18n( "&Tip of the Day" ), this );
   actionCollection()->addAction( "help_tipofday", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowTip()) );
 
