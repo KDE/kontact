@@ -21,14 +21,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include <QLabel>
-#include <QLayout>
-#include <QTimer>
+#include "summaryview_part.h"
+#include "summary.h"
+#include "plugin.h"
 
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QScrollArea>
+#include "libkdepim/broadcaststatus.h"
+using KPIM::BroadcastStatus;
 
+#include <kpimidentities/identity.h>
+#include <kpimidentities/identitymanager.h>
+
+#include <kparts/componentfactory.h>
+#include <kparts/event.h>
 #include <kaction.h>
 #include <kactioncollection.h>
 #include <kconfig.h>
@@ -40,35 +44,26 @@
 #include <kmessagebox.h>
 #include <kservice.h>
 #include <kstandarddirs.h>
-#include <q3scrollview.h>
 #include <kglobal.h>
 #include <kglobalsettings.h>
 #include <kcmultidialog.h>
 #include <kicon.h>
-#include <kparts/componentfactory.h>
-#include <kparts/event.h>
 
-#include <kpimidentities/identity.h>
-#include <kpimidentities/identitymanager.h>
-
-#include "plugin.h"
-#include "summary.h"
-
-#include "summaryview_part.h"
-
-#include "broadcaststatus.h"
-using KPIM::BroadcastStatus;
+#include <QLabel>
+#include <QLayout>
+#include <QTimer>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QScrollArea>
 
 namespace Kontact
 {
   class MainWindow;
 }
 
-SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
-                                  const KAboutData *aboutData,
-                                  QObject *parent )
-  : KParts::ReadOnlyPart( parent ),
-    mCore( core ), mFrame( 0 ), mConfigAction( 0 )
+SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *,
+                                  const KAboutData *aboutData, QObject *parent )
+  : KParts::ReadOnlyPart( parent ), mCore( core ), mFrame( 0 ), mConfigAction( 0 )
 {
   setComponentData( KComponentData( aboutData ) );
 
@@ -76,20 +71,20 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char*,
 
   initGUI( core );
 
-  connect( KGlobalSettings::self(), SIGNAL( kdisplayPaletteChanged() ), SLOT( slotAdjustPalette() ) );
+  connect( KGlobalSettings::self(), SIGNAL(kdisplayPaletteChanged()), SLOT(slotAdjustPalette()) );
   slotAdjustPalette();
 
   setDate( QDate::currentDate() );
-  connect( mCore, SIGNAL( dayChanged( const QDate& ) ),
-           SLOT( setDate( const QDate& ) ) );
+  connect( mCore, SIGNAL(dayChanged(const QDate&)),
+           SLOT(setDate(const QDate&)) );
 
-  mConfigAction  = new KAction(KIcon("configure"), i18n("&Configure Summary View..."), this);
-  actionCollection()->addAction("summaryview_configure", mConfigAction );
-  connect(mConfigAction, SIGNAL(triggered(bool) ), SLOT( slotConfigure() ));
+  mConfigAction = new KAction( KIcon( "configure" ), i18n( "&Configure Summary View..." ), this );
+  actionCollection()->addAction( "summaryview_configure", mConfigAction );
+  connect( mConfigAction, SIGNAL(triggered(bool)), SLOT(slotConfigure()) );
 
   setXMLFile( "kontactsummary_part.rc" );
 
-  QTimer::singleShot( 0, this, SLOT( slotTextChanged() ) );
+  QTimer::singleShot( 0, this, SLOT(slotTextChanged()) );
 }
 
 SummaryViewPart::~SummaryViewPart()
@@ -99,7 +94,7 @@ SummaryViewPart::~SummaryViewPart()
 
 bool SummaryViewPart::openFile()
 {
-  kDebug(5006) <<"SummaryViewPart:openFile()";
+  kDebug(5006) << "SummaryViewPart:openFile()";
   return true;
 }
 
@@ -117,8 +112,9 @@ void SummaryViewPart::partActivateEvent( KParts::PartActivateEvent *event )
 void SummaryViewPart::updateSummaries()
 {
   QMap<QString, Kontact::Summary*>::Iterator it;
-  for ( it = mSummaries.begin(); it != mSummaries.end(); ++it )
+  for ( it = mSummaries.begin(); it != mSummaries.end(); ++it ) {
     it.value()->updateSummary( false );
+  }
 }
 
 void SummaryViewPart::updateWidgets()
@@ -136,8 +132,8 @@ void SummaryViewPart::updateWidgets()
   mSummaries.clear();
 
   mFrame = new DropWidget( mMainWidget );
-  connect( mFrame, SIGNAL( summaryWidgetDropped( QWidget*, QWidget*, int ) ),
-           this, SLOT( summaryWidgetMoved( QWidget*, QWidget*, int ) ) );
+  connect( mFrame, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int) ),
+           this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
 
   mMainLayout->insertWidget( 2, mFrame );
 
@@ -154,7 +150,7 @@ void SummaryViewPart::updateWidgets()
     activeSummaries << "kontact_newstickerplugin";
     activeSummaries << "kontact_plannerplugin";
   } else {
-    activeSummaries = grp.readEntry( "ActiveSummaries" , QStringList() );
+    activeSummaries = grp.readEntry( "ActiveSummaries", QStringList() );
   }
 
   // Collect all summary widgets with a summaryHeight > 0
@@ -165,8 +161,9 @@ void SummaryViewPart::updateWidgets()
   QList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
   for ( ; it != end; ++it ) {
     Kontact::Plugin *plugin = *it;
-    if ( !activeSummaries.contains( plugin->identifier() )  )
+    if ( !activeSummaries.contains( plugin->identifier() ) ) {
       continue;
+    }
 
     Kontact::Summary *summary = plugin->createSummaryWidget( mFrame );
     if ( summary ) {
@@ -175,10 +172,10 @@ void SummaryViewPart::updateWidgets()
         summary->layout()->setContentsMargins( 3, 3, 3, 3 );
         mSummaries.insert( plugin->identifier(), summary );
 
-        connect( summary, SIGNAL( message( const QString& ) ),
-                 BroadcastStatus::instance(), SLOT( setStatusMsg( const QString& ) ) );
-        connect( summary, SIGNAL( summaryWidgetDropped( QWidget*, QWidget*, int ) ),
-                 this, SLOT( summaryWidgetMoved( QWidget*, QWidget*, int ) ) );
+        connect( summary, SIGNAL(message(const QString&)),
+                 BroadcastStatus::instance(), SLOT(setStatusMsg(const QString&)) );
+        connect( summary, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
+                 this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
 
         if ( !mLeftColumnSummaries.contains( plugin->identifier() ) &&
              !mRightColumnSummaries.contains( plugin->identifier() ) ) {
@@ -196,13 +193,13 @@ void SummaryViewPart::updateWidgets()
   {
     QStringList::Iterator strIt;
     for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
-      if ( !loadedSummaries.contains( *strIt )  ) {
+      if ( !loadedSummaries.contains( *strIt ) ) {
         strIt = mLeftColumnSummaries.erase( strIt );
         --strIt;
       }
     }
     for ( strIt = mRightColumnSummaries.begin(); strIt != mRightColumnSummaries.end(); ++strIt ) {
-      if ( !loadedSummaries.contains( *strIt )  ) {
+      if ( !loadedSummaries.contains( *strIt ) ) {
         strIt = mRightColumnSummaries.erase( strIt );
         --strIt;
       }
@@ -223,16 +220,17 @@ void SummaryViewPart::updateWidgets()
   layout->addLayout( mRightColumn );
   mRightColumn->setSpacing( KDialog::spacingHint() );
 
-
   QStringList::Iterator strIt;
   for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
-    if ( mSummaries.contains( *strIt )  )
+    if ( mSummaries.contains( *strIt ) ) {
       mLeftColumn->addWidget( mSummaries[ *strIt ] );
+    }
   }
 
   for ( strIt = mRightColumnSummaries.begin(); strIt != mRightColumnSummaries.end(); ++strIt ) {
-    if ( mSummaries.contains( *strIt )  )
+    if ( mSummaries.contains( *strIt ) ) {
       mRightColumn->addWidget( mSummaries[ *strIt ] );
+    }
   }
 
   mFrame->show();
@@ -246,16 +244,19 @@ void SummaryViewPart::updateWidgets()
 
 void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int alignment )
 {
-  if ( target == widget )
+  if ( target == widget ) {
     return;
+  }
 
   if ( target == mFrame ) {
-    if ( mLeftColumn->indexOf( widget ) == -1 && mRightColumn->indexOf( widget ) == -1 )
+    if ( mLeftColumn->indexOf( widget ) == -1 && mRightColumn->indexOf( widget ) == -1 ) {
       return;
+    }
   } else {
     if ( mLeftColumn->indexOf( target ) == -1 && mRightColumn->indexOf( target ) == -1 ||
-         mLeftColumn->indexOf( widget ) == -1 && mRightColumn->indexOf( widget ) == -1 )
+         mLeftColumn->indexOf( widget ) == -1 && mRightColumn->indexOf( widget ) == -1 ) {
       return;
+    }
   }
 
   if ( mLeftColumn->indexOf( widget ) != -1 ) {
@@ -269,18 +270,21 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
   if ( target == mFrame ) {
     int pos = 0;
 
-    if ( alignment & Qt::AlignTop )
+    if ( alignment & Qt::AlignTop ) {
       pos = 0;
+    }
 
     if ( alignment & Qt::AlignLeft ) {
-      if ( alignment & Qt::AlignBottom )
+      if ( alignment & Qt::AlignBottom ) {
         pos = mLeftColumnSummaries.count();
+      }
 
       mLeftColumn->insertWidget( pos, widget );
       mLeftColumnSummaries.insert( pos, widgetName( widget ) );
     } else {
-      if ( alignment & Qt::AlignBottom )
+      if ( alignment & Qt::AlignBottom ) {
         pos = mRightColumnSummaries.count();
+      }
 
       mRightColumn->insertWidget( pos, widget );
       mRightColumnSummaries.insert( pos, widgetName( widget ) );
@@ -292,16 +296,18 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
 
   int targetPos = mLeftColumn->indexOf( target );
   if ( targetPos != -1 ) {
-    if ( alignment == Qt::AlignBottom )
+    if ( alignment == Qt::AlignBottom ) {
       targetPos++;
+    }
 
     mLeftColumn->insertWidget( targetPos, widget );
     mLeftColumnSummaries.insert( targetPos, widgetName( widget ) );
   } else {
     targetPos = mRightColumn->indexOf( target );
 
-    if ( alignment == Qt::AlignBottom )
+    if ( alignment == Qt::AlignBottom ) {
       targetPos++;
+    }
 
     mRightColumn->insertWidget( targetPos, widget );
     mRightColumnSummaries.insert( targetPos, widgetName( widget ) );
@@ -316,10 +322,10 @@ void SummaryViewPart::slotTextChanged()
 
 void SummaryViewPart::slotAdjustPalette()
 {
-  mMainWidget->setBackgroundRole( QPalette::Base );
+  mMainWidget->setBackgroundRole( QPalette::Background );
 }
 
-void SummaryViewPart::setDate( const QDate& newDate )
+void SummaryViewPart::setDate( const QDate &newDate )
 {
   QString date( "<b>%1</b>" );
   date = date.arg( KGlobal::locale()->formatDate( newDate ) );
@@ -334,12 +340,13 @@ void SummaryViewPart::slotConfigure()
 
   QStringList modules = configModules();
   modules.prepend( "kcmkontactsummary.desktop" );
-  connect( &dlg, SIGNAL( configCommitted() ),
-           this, SLOT( updateWidgets() ) );
+  connect( &dlg, SIGNAL(configCommitted()),
+           this, SLOT(updateWidgets()) );
 
   QStringList::ConstIterator strIt;
-  for ( strIt = modules.begin(); strIt != modules.end(); ++strIt )
+  for ( strIt = modules.begin(); strIt != modules.end(); ++strIt ) {
     dlg.addModule( *strIt );
+  }
 
   dlg.exec();
 }
@@ -352,9 +359,11 @@ QStringList SummaryViewPart::configModules() const
   for ( it = mSummaries.begin(); it != mSummaries.end(); ++it ) {
     QStringList cm = it.value()->configModules();
     QStringList::ConstIterator strIt;
-    for ( strIt = cm.begin(); strIt != cm.end(); ++strIt )
-      if ( !(*strIt).isEmpty() && !modules.contains( *strIt ) )
+    for ( strIt = cm.begin(); strIt != cm.end(); ++strIt ) {
+      if ( !(*strIt).isEmpty() && !modules.contains( *strIt ) ) {
         modules.append( *strIt );
+      }
+    }
   }
 
   return modules;
@@ -365,7 +374,7 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   QScrollArea *sa = new QScrollArea( core );
 
   sa->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
-  sa->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken );
+  sa->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
   sa->setWidgetResizable( true );
 
   mMainWidget = new QFrame;
@@ -392,8 +401,8 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   mFrame = new DropWidget( mMainWidget );
   mMainLayout->insertWidget( 2, mFrame );
 
-  connect( mFrame, SIGNAL( summaryWidgetDropped( QWidget*, QWidget*, int ) ),
-           this, SLOT( summaryWidgetMoved( QWidget*, QWidget*, int ) ) );
+  connect( mFrame, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
+           this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
 
   updateWidgets();
 }
@@ -410,13 +419,13 @@ void SummaryViewPart::loadLayout()
     mLeftColumnSummaries << "kontact_specialdatesplugin";
     mLeftColumnSummaries << "kontact_plannerplugin";
   } else {
-    mLeftColumnSummaries = grp.readEntry( "LeftColumnSummaries" , QStringList() );
+    mLeftColumnSummaries = grp.readEntry( "LeftColumnSummaries", QStringList() );
   }
 
   if ( !grp.hasKey( "RightColumnSummaries" ) ) {
     mRightColumnSummaries << "kontact_newstickerplugin";
   } else {
-    mRightColumnSummaries = grp.readEntry( "RightColumnSummaries" , QStringList() );
+    mRightColumnSummaries = grp.readEntry( "RightColumnSummaries", QStringList() );
   }
 }
 
@@ -435,8 +444,9 @@ QString SummaryViewPart::widgetName( QWidget *widget ) const
 {
   QMap<QString, Kontact::Summary*>::ConstIterator it;
   for ( it = mSummaries.begin(); it != mSummaries.end(); ++it ) {
-    if ( it.value() == widget )
+    if ( it.value() == widget ) {
       return it.key();
+    }
   }
 
   return QString();

@@ -24,16 +24,16 @@
 #ifndef SUMMARYVIEW_PART_H
 #define SUMMARYVIEW_PART_H
 
-#include <QMap>
-
-#include <kparts/part.h>
-
 #include "core.h"
 #include "dropwidget.h"
 
+#include <kparts/part.h>
+
+#include <QMap>
+
 namespace Kontact
 {
-    class Summary;
+  class Summary;
 }
 
 namespace KParts
@@ -45,6 +45,7 @@ class QFrame;
 class QLabel;
 class QVBoxLayout;
 class KAction;
+class KAboutData;
 
 class SummaryViewPart : public KParts::ReadOnlyPart
 {
@@ -58,11 +59,11 @@ class SummaryViewPart : public KParts::ReadOnlyPart
   public slots:
     void slotTextChanged();
     void slotAdjustPalette();
-    void setDate( const QDate& newDate );
+    void setDate( const QDate &newDate );
     void updateSummaries();
 
   signals:
-    void textChanged( const QString& );
+    void textChanged( const QString & );
 
   protected:
     virtual bool openFile();
@@ -77,7 +78,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     void initGUI( Kontact::Core *core );
     void loadLayout();
     void saveLayout();
-    QString widgetName( QWidget* ) const;
+    QString widgetName( QWidget * ) const;
 
     QStringList configModules() const;
 
