@@ -323,10 +323,10 @@ void MainWindow::paintAboutScreen( const QString &msg )
 {
   QString location = KStandardDirs::locate( "data", "kontact/about/main.html" );
   QString content = KPIMUtils::kFileToByteArray( location );
-  content = content.arg( KStandardDirs::locate( "data", "libkdepim/about/kde_infopage.css" ) );
+  content = content.arg( KStandardDirs::locate( "data", "kdeui/about/kde_infopage.css" ) );
   if ( QApplication::isRightToLeft() ) {
     content = content.arg( "@import \"%1\";" ).
-              arg( KStandardDirs::locate( "data", "libkdepim/about/kde_infopage_rtl.css" ) );
+              arg( KStandardDirs::locate( "data", "kdeui/about/kde_infopage_rtl.css" ) );
   } else {
     content = content.arg( "" );
   }
