@@ -300,7 +300,8 @@ void MainWindow::initWidgets()
   initAboutScreen();
 
   QString loading =
-    i18n( "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>", i18n( "Loading Kontact..." ) );
+    i18n( "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>",
+          i18n( "Loading Kontact..." ) );
 
   paintAboutScreen( loading );
 
@@ -359,13 +360,11 @@ void MainWindow::initAboutScreen()
   mIntroPart->view()->setLineWidth( 0 );
 
   connect( mIntroPart->browserExtension(),
-           SIGNAL(openUrlRequest(const KUrl &,const KParts::OpenUrlArguments &,
-                                 const KParts::BrowserArguments &)),
+           SIGNAL(openUrlRequest(const KUrl &,const KParts::OpenUrlArguments &,const KParts::BrowserArguments &)),
            SLOT(slotOpenUrl(const KUrl &)) );
 
   connect( mIntroPart->browserExtension(),
-           SIGNAL(createNewWindow(const KUrl &,const KParts::OpenUrlArguments &,
-                                  const KParts::BrowserArguments &)),
+           SIGNAL(createNewWindow(const KUrl &,const KParts::OpenUrlArguments &,const KParts::BrowserArguments &)),
            SLOT(slotOpenUrl(const KUrl&)) );
 }
 
@@ -601,8 +600,8 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
     return;
   }
 
-  kDebug(5600) <<"Part activated:" << part << "with stack id."
-      << mPartsStack->indexOf( part->widget() );
+  kDebug(5600) << "Part activated:" << part << "with stack id."
+               << mPartsStack->indexOf( part->widget() );
 
   //createGUI( part ); // moved to selectPlugin()
 
@@ -941,7 +940,7 @@ void MainWindow::slotOpenUrl( const KUrl &url )
 {
   if ( url.protocol() == "exec" ) {
     if ( url.path() == "/switch" ) {
-      selectPlugin( mCurrentPlugin );
+      mPartsStack->setCurrentIndex( mPartsStack->indexOf( mCurrentPlugin->part()->widget() ) );
     }
     if ( url.path() == "/gwwizard" ) {
       KRun::runCommand( "groupwarewizard", this );
