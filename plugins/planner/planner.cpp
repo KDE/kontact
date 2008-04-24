@@ -68,6 +68,7 @@ Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
   //TODO we want our own icon
   QWidget *header = createHeader( this, "view-calendar-tasks", i18n( "Planner" ) );
   mainLayout->addWidget( header );
+  mainLayout->addStretch();
 
   mLayout = new QGridLayout( mainLayout, 8, 5, 3 );
   mLayout->setRowStretch( 6, 1 );
