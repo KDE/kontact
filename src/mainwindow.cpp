@@ -131,8 +131,7 @@ int ServiceStarter::startServiceFor( const QString &serviceType,
         if ( dbusService ) {
           *dbusService = (*it)->registerClient();
         }
-        //kDebug(5600) <<"appId=" << (*it)->dcopClient()->appId();
-        return 0; // success
+        return 0;
       }
     }
   }
@@ -427,7 +426,6 @@ Plugin *MainWindow::pluginFromInfo( const KPluginInfo &info )
 void MainWindow::loadPlugins()
 {
   QList<Plugin*> plugins;
-//  QList<KParts::Part*> loadDelayed;
 
   int i;
   KPluginInfo::List::ConstIterator it;
@@ -602,8 +600,6 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
 
   kDebug(5600) << "Part activated:" << part << "with stack id."
                << mPartsStack->indexOf( part->widget() );
-
-  //createGUI( part ); // moved to selectPlugin()
 
   statusBar()->clearMessage();
 }
