@@ -1,60 +1,46 @@
 /*
-    This file is part of Kontact.
-    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-    Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
+  This file is part of Kontact.
+  Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+  Copyright (c) 2005-2006,2008 Allen Winter <winter@kde.org>
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
 
-#include <QCursor>
-#include <QLabel>
-#include <QLayout>
-#include <QPixmap>
-#include <QVBoxLayout>
-#include <QGridLayout>
-#include <QEvent>
-
-
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kparts/part.h>
-#include <kmenu.h>
-#include <kstandarddirs.h>
-#include <kurllabel.h>
-
-#include <kcal/event.h>
-#include <kcal/resourcecalendar.h>
-#include <kcal/resourcelocal.h>
-#include <kcal/incidenceformatter.h>
-#include <libkdepim/kpimprefs.h>
-
+#include "apptsummarywidget.h"
 #include "core.h"
-#include "plugin.h"
+#include "korganizer/stdcalendar.h"
+#include "korganizerinterface.h"
 #include "korganizerplugin.h"
 
-#include "korganizer/stdcalendar.h"
+#include <kcal/incidenceformatter.h>
+#include <kcal/resourcecalendar.h>
 
-#include "apptsummarywidget.h"
-#include "korganizerinterface.h"
+#include <kconfiggroup.h>
+#include <kiconloader.h>
+#include <klocale.h>
+#include <kmenu.h>
+#include <kurllabel.h>
+
+#include <QDateTime>
+#include <QGridLayout>
+#include <QLabel>
+#include <QVBoxLayout>
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
@@ -151,13 +137,14 @@ void ApptSummaryWidget::updateView()
                                          KCal::EventSortStartDate,
                                          KCal::SortDirectionAscending );
 
-    for ( it=events.begin(); it!=events.end(); ++it ) {
+    for ( it=events.begin(); it != events.end(); ++it ) {
       ev = *it;
       bool makeBold = false;
       int daysTo = -1;
 
       // Count number of days remaining in multiday event
-      int span=1; int dayof=1;
+      int span = 1;
+      int dayof = 1;
       if ( ev->isMultiDay() ) {
         QDate d = ev->dtStart().date();
         if ( d < currentDate ) {
@@ -174,7 +161,9 @@ void ApptSummaryWidget::updateView()
 
       // If this date is part of a floating, multiday event, then we
       // only make a print for the first day of the event.
-      if ( ev->isMultiDay() && ev->allDay() && dayof != 1 )continue;
+      if ( ev->isMultiDay() && ev->allDay() && dayof != 1 ) {
+        continue;
+      }
 
       // Icon label
       label = new QLabel( this );
@@ -188,11 +177,11 @@ void ApptSummaryWidget::updateView()
       QDate sD = QDate( dt.year(), dt.month(), dt.day() );
       if ( ( sD.month() == currentDate.month() ) &&
            ( sD.day()   == currentDate.day() ) ) {
-        str = i18n( "Today" );
+        str = i18nc( "@label the appointment is today", "Today" );
         makeBold = true;
       } else if ( ( sD.month() == currentDate.addDays( 1 ).month() ) &&
                   ( sD.day()   == currentDate.addDays( 1 ).day() ) ) {
-        str = i18n( "Tomorrow" );
+        str = i18nc( "@label the appointment is tomorrow", "Tomorrow" );
       } else {
         str = KGlobal::locale()->formatDate( sD );
       }
@@ -201,8 +190,7 @@ void ApptSummaryWidget::updateView()
       // first day of the event only.
       if ( ev->isMultiDay() && ev->allDay() && dayof == 1 && span > 1 ) {
         str = KGlobal::locale()->formatDate( ev->dtStart().date() );
-        str += " -\n " +
-               KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
+        str += " -\n " + KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
       }
 
       label = new QLabel( str, this );
@@ -231,7 +219,7 @@ void ApptSummaryWidget::updateView()
       // Summary label
       str = ev->summary();
       if ( ev->isMultiDay() &&  !ev->allDay() ) {
-        str.append( QString(" (%1/%2)").arg( dayof ).arg( span ) );
+        str.append( QString( " (%1/%2)" ).arg( dayof ).arg( span ) );
       }
 
       KUrlLabel *urlLabel = new KUrlLabel( this );
@@ -249,7 +237,7 @@ void ApptSummaryWidget::updateView()
 
       QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
       if ( !tipText.isEmpty() ) {
-        urlLabel->setToolTip(tipText );
+        urlLabel->setToolTip( tipText );
       }
 
       // Time range label (only for non-floating events)
@@ -265,9 +253,9 @@ void ApptSummaryWidget::updateView()
             sET = QTime( 23, 59 );
           }
         }
-        str = i18nc( "Time from - to", "%1 - %2" ,
-                KGlobal::locale()->formatTime( sST ) ,
-                KGlobal::locale()->formatTime( sET ) );
+        str = i18nc( "Time from - to", "%1 - %2",
+                     KGlobal::locale()->formatTime( sST ),
+                     KGlobal::locale()->formatTime( sET ) );
         label = new QLabel( str, this );
         label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
         mLayout->addWidget( label, counter, 4 );
@@ -290,7 +278,7 @@ void ApptSummaryWidget::updateView()
   }
 
   Q_FOREACH( label, mLabels )
-    label->show();
+  label->show();
 
   KGlobal::locale()->setDateFormat( savefmt );
 }
@@ -298,14 +286,16 @@ void ApptSummaryWidget::updateView()
 void ApptSummaryWidget::viewEvent( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
-  OrgKdeKorganizerKorganizerInterface korganizer( "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus());
+  OrgKdeKorganizerKorganizerInterface korganizer(
+    "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
   korganizer.editIncidence( uid );
 }
 
 void ApptSummaryWidget::removeEvent( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
-  OrgKdeKorganizerKorganizerInterface korganizer( "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus());
+  OrgKdeKorganizerKorganizerInterface korganizer(
+    "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
   korganizer.deleteIncidence( uid, false );
 }
 
@@ -325,14 +315,16 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
   }
 }
 
-bool ApptSummaryWidget::eventFilter( QObject *obj, QEvent* e )
+bool ApptSummaryWidget::eventFilter( QObject *obj, QEvent *e )
 {
   if ( obj->inherits( "KUrlLabel" ) ) {
-    KUrlLabel* label = static_cast<KUrlLabel*>( obj );
-    if ( e->type() == QEvent::Enter )
+    KUrlLabel *label = static_cast<KUrlLabel*>( obj );
+    if ( e->type() == QEvent::Enter ) {
       emit message( i18n( "Edit Event: \"%1\"", label->text() ) );
-    if ( e->type() == QEvent::Leave )
-      emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
+    }
+    if ( e->type() == QEvent::Leave ) {
+      emit message( QString::null ); //krazy:exclude=nullstrassign for old broken gcc
+    }
   }
 
   return Kontact::Summary::eventFilter( obj, e );
@@ -346,13 +338,13 @@ void ApptSummaryWidget::dateDiff( const QDate &date, int &days )
   if ( QDate::isLeapYear( date.year() ) && date.month() == 2 && date.day() == 29 ) {
     currentDate =
       QDate( date.year(), QDate::currentDate().month(), QDate::currentDate().day() );
-    if ( !QDate::isLeapYear( QDate::currentDate().year() ) )
+    if ( !QDate::isLeapYear( QDate::currentDate().year() ) ) {
       eventDate = QDate( date.year(), date.month(), 28 );
-    else
+    } else {
       eventDate = QDate( date.year(), date.month(), date.day() );
+    }
   } else {
-    currentDate =
-      QDate( 0, QDate::currentDate().month(), QDate::currentDate().day() );
+    currentDate = QDate( 0, QDate::currentDate().month(), QDate::currentDate().day() );
     eventDate = QDate( 0, date.month(), date.day() );
   }
 

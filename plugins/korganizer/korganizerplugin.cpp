@@ -1,75 +1,75 @@
 /*
-    This file is part of Kontact.
+  This file is part of Kontact.
 
-    Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
+  Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
+
+#include "korganizerplugin.h"
+#include "core.h"
+#include "apptsummarywidget.h"
+#include "korg_uniqueapp.h"
+#include "calendarinterface.h"
+
+#include <libkdepim/kvcarddrag.h>
+#include <libkdepim/maillistdrag.h>
+#include <libkdepim/kdepimprotocols.h>
+
+#include <kaction.h>
+#include <kactioncollection.h>
+#include <kdebug.h>
+#include <kicon.h>
+#include <kiconloader.h>
+#include <klocale.h>
+#include <kmessagebox.h>
+#include <kstandarddirs.h>
+#include <ktemporaryfile.h>
 
 #include <QWidget>
 #include <QDropEvent>
 #include <QtDBus/QtDBus>
 
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kiconloader.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <kicon.h>
-#include <ktemporaryfile.h>
-#include <libkdepim/kdepimprotocols.h>
-#include <kmime/kmime_message.h>
+EXPORT_KONTACT_PLUGIN( KOrganizerPlugin, korganizer )
 
-#include <libkdepim/kvcarddrag.h>
-#include <libkdepim/maillistdrag.h>
-
-#include "core.h"
-#include "apptsummarywidget.h"
-#include "korganizerplugin.h"
-#include "korg_uniqueapp.h"
-#include "calendarinterface.h"
-
-EXPORT_KONTACT_PLUGIN(KOrganizerPlugin, korganizer)
-
-KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QVariantList& )
-  : Kontact::Plugin( core, core, "korganizer" ),
-    mIface( 0 )
+KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QVariantList & )
+  : Kontact::Plugin( core, core, "korganizer" ), mIface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
-  KIconLoader::global()->addAppDir("korganizer");
-  KIconLoader::global()->addAppDir("kdepim");
+  KIconLoader::global()->addAppDir( "korganizer" );
+  KIconLoader::global()->addAppDir( "kdepim" );
 
-  KAction *action  = new KAction(KIcon("view-calendar-day"), i18n("New Event..."), this);
-  actionCollection()->addAction("new_event", action );
-  action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_E));
-  connect(action, SIGNAL(triggered(bool)), SLOT( slotNewEvent() ));
-  insertNewAction(action);
+  KAction *action  =
+    new KAction( KIcon( "view-calendar-day" ), i18n( "New Event..." ), this );
+  actionCollection()->addAction( "new_event", action );
+  action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT+Qt::Key_E ) );
+  connect( action, SIGNAL(triggered(bool)), SLOT(slotNewEvent()) );
+  insertNewAction( action );
 
-  KAction* syncAction = new KAction(KIcon("view-refresh"), i18n( "Synchronize Calendar" ), this);
-  actionCollection()->addAction("korganizer_sync", syncAction);
-  connect(action, SIGNAL(triggered(bool)), SLOT( slotSyncEvents()));
+  KAction *syncAction =
+    new KAction( KIcon( "view-refresh" ), i18n( "Synchronize Calendar" ), this );
+  actionCollection()->addAction( "korganizer_sync", syncAction );
+  connect( action, SIGNAL(triggered(bool)), SLOT(slotSyncEvents()) );
   insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-      new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
+    new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
 }
 
 KOrganizerPlugin::~KOrganizerPlugin()
@@ -85,20 +85,23 @@ KParts::ReadOnlyPart *KOrganizerPlugin::createPart()
 {
   KParts::ReadOnlyPart *part = loadPart();
 
-  if ( !part )
+  if ( !part ) {
     return 0;
+  }
 
 #ifdef __GNUC__
-  #warning "Once we have a running korganizer, make sure that this dbus call really does what it should! Where is it needed, anyway?"
+#warning "Once we have a running korganizer, make sure that this dbus call really works
+#warning Where is it needed, anyway?"
 #endif
-  mIface = new OrgKdeKorganizerCalendarInterface( "org.kde.korganizer", "/Calendar", QDBusConnection::sessionBus(), this );
+  mIface = new OrgKdeKorganizerCalendarInterface(
+    "org.kde.korganizer", "/Calendar", QDBusConnection::sessionBus(), this );
 
   return part;
 }
 
 QString KOrganizerPlugin::tipFile() const
 {
-  QString file = KStandardDirs::locate("data", "korganizer/tips");
+  QString file = KStandardDirs::locate( "data", "korganizer/tips" );
   return file;
 }
 
@@ -143,15 +146,16 @@ void KOrganizerPlugin::slotSyncEvents()
   QDBusConnection::sessionBus().send( message );
 }
 
-bool KOrganizerPlugin::createDBUSInterface( const QString& serviceType )
+bool KOrganizerPlugin::createDBUSInterface( const QString &serviceType )
 {
-  kDebug(5602) << serviceType;
+  kDebug() << serviceType;
 #ifdef __GNUC__
   #warning "What is this needed for, and do we still need it with DBUS?"
 #endif
   if ( serviceType == "DBUS/Organizer" || serviceType == "DBUS/Calendar" ) {
-    if ( part() )
+    if ( part() ) {
       return true;
+    }
   }
 
   return false;
@@ -180,50 +184,49 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
     QStringList attendees;
     for ( it = contacts.begin(); it != contacts.end(); ++it ) {
       QString email = (*it).fullEmail();
-      if ( email.isEmpty() )
+      if ( email.isEmpty() ) {
         attendees.append( (*it).realName() + "<>" );
-      else
+      } else {
         attendees.append( email );
+      }
     }
 
-    interface()->openEventEditor( i18n( "Meeting" ), QString(), QStringList(),
-                                  attendees );
+    interface()->openEventEditor( i18n( "Meeting" ), QString(), QStringList(), attendees );
     return;
   }
 
   if ( md->hasText() ) {
     QString text = md->text();
-    kDebug(5602) <<"DROP:" << text;
+    kDebug() << "DROP:" << text;
     interface()->openEventEditor( text );
     return;
   }
-
 
   if ( KPIM::MailList::canDecode( md ) ) {
     KPIM::MailList mails = KPIM::MailList::fromMimeData( md );
     event->accept();
     if ( mails.count() != 1 ) {
       KMessageBox::sorry( core(),
-                          i18n("Drops of multiple mails are not supported." ) );
+                          i18n( "Drops of multiple mails are not supported." ) );
     } else {
       KPIM::MailSummary mail = mails.first();
-      QString txt = i18n("From: %1\nTo: %2\nSubject: %3", mail.from() ,
-                      mail.to(), mail.subject() );
+      QString txt = i18n( "From: %1\nTo: %2\nSubject: %3",
+                          mail.from(), mail.to(), mail.subject() );
 
       KTemporaryFile tf;
       tf.setAutoRemove( true );
       tf.open();
       QString uri = KDEPIMPROTOCOL_EMAIL + QString::number( mail.serialNumber() );
       tf.write( event->encodedData( "message/rfc822" ) );
-      interface()->openEventEditor( i18n("Mail: %1", mail.subject() ), txt,
+      interface()->openEventEditor( i18n( "Mail: %1", mail.subject() ), txt,
                                     uri, tf.fileName(), QStringList(), "message/rfc822" );
       tf.close();
     }
     return;
   }
 
-  KMessageBox::sorry( core(), i18n("Cannot handle drop events of type '%1'.",
-                                event->format() ) );
+  KMessageBox::sorry( core(),
+                      i18n( "Cannot handle drop events of type '%1'.", event->format() ) );
 }
 
 #include "korganizerplugin.moc"
