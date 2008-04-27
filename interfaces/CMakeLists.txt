@@ -1,3 +1,6 @@
+remove_definitions(-DKDE_DEFAULT_DEBUG_AREA=5600) #remove kontact debug area
+add_definitions(-DKDE_DEFAULT_DEBUG_AREA=5601)
+
 set(kpinterfaces_LIB_SRCS 
    core.cpp 
    plugin.cpp 
