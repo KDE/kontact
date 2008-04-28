@@ -380,7 +380,7 @@ void MainWindow::setupActions()
 
   KConfig *_cfg = Prefs::self()->config();
   KConfigGroup cfg( _cfg, "Kontact Groupware Settings" );
-  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", false );
+  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", true );
 
   if ( mSyncActionsEnabled ) {
     mSyncActions = new KToolBarPopupAction( KIcon( "view-refresh" ), i18n( "Synchronize" ), this );
@@ -486,14 +486,14 @@ void MainWindow::loadPlugins()
     QList<KAction*>::const_iterator listIt;
 
     for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-      kDebug(5600) << "Plugging" << (*listIt)->objectName();
+      kDebug(5600) << "Plugging New Actions" << (*listIt)->objectName();
       mNewActions->menu()->addAction( (*listIt) );
     }
 
     actionList = plugin->syncActions();
     if ( mSyncActionsEnabled ) {
       Q_FOREACH( KAction *listIt, *actionList ) {
-        kDebug(5600) << "Plugging" << listIt->objectName();
+        kDebug(5600) << "Plugging Sync Actions" << listIt->objectName();
         mSyncActions->menu()->addAction( listIt );
       }
     }
