@@ -127,7 +127,7 @@ int ServiceStarter::startServiceFor( const QString &serviceType,
     PluginList::ConstIterator end = mPlugins->end();
     for ( PluginList::ConstIterator it = mPlugins->begin(); it != end; ++it ) {
       if ( (*it)->createDBUSInterface( serviceType ) ) {
-        kDebug(5600) << "found interface for" << serviceType;
+        kDebug() << "found interface for" << serviceType;
         if ( dbusService ) {
           *dbusService = (*it)->registerClient();
         }
@@ -136,7 +136,7 @@ int ServiceStarter::startServiceFor( const QString &serviceType,
     }
   }
 
-  kDebug(5600) << "Didn't find dbus interface, falling back to external process";
+  kDebug() << "Didn't find dbus interface, falling back to external process";
   return KDBusServiceStarter::startServiceFor( serviceType, constraint,
                                                error, dbusService, flags );
 }
@@ -441,7 +441,7 @@ void MainWindow::loadPlugins()
       continue;
     }
 
-    kDebug(5600) << "Loading Plugin:" << it->name();
+    kDebug() << "Loading Plugin:" << it->name();
     Kontact::Plugin *plugin =  KService::createInstance<Kontact::Plugin>( it->service(), this );
 
     if ( !plugin ) {
@@ -461,7 +461,7 @@ void MainWindow::loadPlugins()
       mDelayedPreload.append( plugin );
     }
 
-    kDebug(5600) << "LIBNAMEPART:" << libNameProp.toString();
+    kDebug() << "LIBNAMEPART:" << libNameProp.toString();
 
     plugin->setPartLibraryName( libNameProp.toString().toUtf8() );
     plugin->setExecutableName( exeNameProp.toString() );
@@ -486,14 +486,14 @@ void MainWindow::loadPlugins()
     QList<KAction*>::const_iterator listIt;
 
     for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-      kDebug(5600) << "Plugging New Actions" << (*listIt)->objectName();
+      kDebug() << "Plugging New actions" << (*listIt)->objectName();
       mNewActions->menu()->addAction( (*listIt) );
     }
 
     actionList = plugin->syncActions();
     if ( mSyncActionsEnabled ) {
       Q_FOREACH( KAction *listIt, *actionList ) {
-        kDebug(5600) << "Plugging Sync Actions" << listIt->objectName();
+        kDebug() << "Plugging Sync actions" << listIt->objectName();
         mSyncActions->menu()->addAction( listIt );
       }
     }
@@ -528,14 +528,14 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
       QList<KAction*>::const_iterator listIt;
 
       for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-        kDebug(5600) <<"Unplugging" << (*listIt)->objectName();
+        kDebug() << "Unplugging New actions" << (*listIt)->objectName();
         mNewActions->menu()->removeAction( *listIt );
       }
 
       if ( mSyncActionsEnabled ) {
         actionList = plugin->syncActions();
         for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
-            kDebug(5600) <<"Unplugging" << (*listIt)->objectName();
+            kDebug() << "Unplugging Sync actions" << (*listIt)->objectName();
             mSyncActions->menu()->removeAction( *listIt );
         }
       }
@@ -567,7 +567,7 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
 
 void MainWindow::addPlugin( Kontact::Plugin *plugin )
 {
-  kDebug(5600) << "Added plugin";
+  kDebug();
 
   mPlugins.append( plugin );
 
@@ -598,8 +598,8 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
     return;
   }
 
-  kDebug(5600) << "Part activated:" << part << "with stack id."
-               << mPartsStack->indexOf( part->widget() );
+  kDebug() << "Part activated:" << part
+           << "with stack id."<< mPartsStack->indexOf( part->widget() );
 
   statusBar()->clearMessage();
 }
@@ -883,7 +883,7 @@ void MainWindow::pluginsChanged()
 
 void MainWindow::updateConfig()
 {
-  kDebug( 5600 ) ;
+  kDebug();
 
   saveSettings();
   loadSettings();
