@@ -74,14 +74,15 @@
 
 #include <QComboBox>
 #include <QCursor>
+#include <QDBusConnection>
 #include <QImage>
+#include <QLayout>
+#include <QList>
 #include <QObject>
 #include <QPushButton>
 #include <QSplitter>
+#include <QStackedWidget>
 #include <QTimer>
-#include <QList>
-#include <QLayout>
-#include <QDBusConnection>
 
 using namespace Kontact;
 

@@ -21,12 +21,14 @@
 #ifndef KONTACT_SIDEPANEBASE_H
 #define KONTACT_SIDEPANEBASE_H
 
-#include <kactioncollection.h>
 #include <kvbox.h>
-
 #include <QList>
 
-namespace KParts { class Part; }
+class KActionCollection;
+
+namespace KParts {
+  class Part;
+}
 
 namespace Kontact
 {

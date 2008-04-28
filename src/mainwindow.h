@@ -25,16 +25,14 @@
 
 #include "core.h"
 
-#include <kparts/mainwindow.h>
 #include <kparts/part.h>
 #include <kparts/partmanager.h>
-#include <kvbox.h>
 
 #include <QPointer>
-#include <q3ptrlist.h>
-#include <QStackedWidget>
 
+class QFrame;
 class QSplitter;
+class QStackedWidget;
 
 class KConfig;
 class KPluginInfo;
@@ -124,7 +122,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     KToolBarPopupAction *mNewActions;
     KToolBarPopupAction *mSyncActions;
     SidePaneBase *mSidePane;
-    QStackedWidget  *mPartsStack;
+    QStackedWidget *mPartsStack;
     Plugin *mCurrentPlugin;
     KParts::PartManager *mPartManager;
     PluginList mPlugins;
