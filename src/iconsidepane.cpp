@@ -374,16 +374,16 @@ void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
 
 void Navigator::dragEnterEvent( QDragEnterEvent *event )
 {
-  kDebug(5600) << "Navigator::dragEnterEvent()";
+  kDebug();
 
   dragMoveEvent( event );
 }
 
 void Navigator::dragMoveEvent( QDragMoveEvent *event )
 {
-  kDebug(5600) << "Navigator::dragEnterEvent()";
+  kDebug();
 
-  kDebug(5600) << "  Format:" << event->format();
+  kDebug() << "  Format:" << event->format();
 
   Q3ListBoxItem *item = itemAt( event->pos() );
 
@@ -394,14 +394,16 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
 
   EntryItem *entry = static_cast<EntryItem*>( item );
 
-  kDebug(5600) << "  PLUGIN:" << entry->plugin()->identifier();
+  kDebug() << "  PLUGIN:" << entry->plugin()->identifier();
 
   event->setAccepted( entry->plugin()->canDecodeMimeData( event->mimeData() ) );
 }
 
 void Navigator::dropEvent( QDropEvent *event )
 {
-  kDebug(5600) << "Navigator::dropEvent()";
+  kDebug();
+
+  kDebug() << "  Format:" << event->format();
 
   Q3ListBoxItem *item = itemAt( event->pos() );
 
@@ -411,7 +413,7 @@ void Navigator::dropEvent( QDropEvent *event )
 
   EntryItem *entry = static_cast<EntryItem*>( item );
 
-  kDebug(5600) << "  PLUGIN:" << entry->plugin()->identifier();
+  kDebug() << "  PLUGIN:" << entry->plugin()->identifier();
 
   entry->plugin()->processDropEvent( event );
 }
