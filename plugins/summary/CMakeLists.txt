@@ -35,7 +35,7 @@ kde4_add_plugin(kcm_kontactsummary ${kcm_kontactsummary_PART_SRCS})
 
 
 
-kdepim4_link_unique_libraries(kcm_kontactsummary  ${KDE4_KUTILS_LIBS} ${KDE4_KDE3SUPPORT_LIBS})
+kdepim4_link_unique_libraries(kcm_kontactsummary  ${KDE4_KUTILS_LIBS})
 
 install(TARGETS kcm_kontactsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 
