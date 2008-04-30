@@ -33,6 +33,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kdemacros.h>
+#include <kdeversion.h>
 #include <kplugininfo.h>
 #include <kservicetypetrader.h>
 #include <kcomponentdata.h>
@@ -95,7 +96,9 @@ PluginView::~PluginView()
 KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *parent )
   : KCModule( inst, parent )
 {
+#if KDE_IS_VERSION(4,0,71 )
   setButtons( NoAdditionalButton );
+#endif
   QVBoxLayout *layout = new QVBoxLayout( this );
   layout->setSpacing( KDialog::spacingHint() );
   layout->setMargin( 0 );
