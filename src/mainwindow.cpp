@@ -434,8 +434,10 @@ void MainWindow::loadPlugins()
     if ( !it->isPluginEnabled() ) {
       continue;
     }
+
+    Plugin *plugin = 0;
     if ( isPluginLoaded( *it ) ) {
-      Plugin *plugin = pluginFromInfo( *it );
+      plugin = pluginFromInfo( *it );
       if ( plugin ) {
         plugin->configUpdated();
       }
@@ -443,9 +445,10 @@ void MainWindow::loadPlugins()
     }
 
     kDebug() << "Loading Plugin:" << it->name();
-    Kontact::Plugin *plugin =  KService::createInstance<Kontact::Plugin>( it->service(), this );
+    plugin =  KService::createInstance<Kontact::Plugin>( it->service(), this );
 
     if ( !plugin ) {
+      kDebug() << "Unable to create plugin for " << it->name();
       continue;
     }
 
