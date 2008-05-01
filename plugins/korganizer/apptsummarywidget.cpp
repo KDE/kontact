@@ -60,9 +60,9 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mCalendar = KOrg::StdCalendar::self();
   mCalendar->load();
 
-  connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
-  connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
-           SLOT( updateView() ) );
+  connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
+  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)),
+           SLOT(updateView()) );
 
   updateView();
 }
@@ -120,7 +120,7 @@ void ApptSummaryWidget::updateView()
     // replacing the QDate with the currentDate
     for ( ; it != events_orig.end(); ++it ) {
       ev = (*it)->clone();
-      if ( ev->recursOn( dt, KDateTime::Invalid ) ) { //FIXME: what should the timespec be?
+      if ( ev->recursOn( dt, mCalendar->timeSpec() ) ) {
         qdt = ev->dtStart();
         qdt.setDate( dt );
         ev->setDtStart( qdt );
@@ -230,10 +230,10 @@ void ApptSummaryWidget::updateView()
       mLayout->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
 
-      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
-               this, SLOT( viewEvent( const QString& ) ) );
-      connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
-               this, SLOT( popupMenu( const QString& ) ) );
+      connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
+               this, SLOT(viewEvent(const QString&)) );
+      connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
+               this, SLOT(popupMenu(const QString&)) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
       if ( !tipText.isEmpty() ) {
