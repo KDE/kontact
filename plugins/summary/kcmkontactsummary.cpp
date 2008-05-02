@@ -113,6 +113,8 @@ KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *paren
   layout->setStretchFactor( mPluginView, 1 );
 
   load();
+  connect( mPluginView, SIGNAL( itemChanged( QTreeWidgetItem *, int ) ),
+           this, SLOT( changed() ) );
 
   KAboutData *about = new KAboutData( I18N_NOOP( "kontactsummary" ), 0,
                                       ki18n( "KDE Kontact Summary" ),
