@@ -90,8 +90,8 @@ KParts::ReadOnlyPart *KOrganizerPlugin::createPart()
   }
 
 #ifdef __GNUC__
-#warning "Once we have a running korganizer, make sure that this dbus call really works
-#warning Where is it needed, anyway?"
+#warning "Once we have a running korganizer, make sure that this dbus call really works"
+#warning "Where is it needed, anyway?"
 #endif
   mIface = new OrgKdeKorganizerCalendarInterface(
     "org.kde.korganizer", "/Calendar", QDBusConnection::sessionBus(), this );
