@@ -1,21 +1,18 @@
 <ui version="4.0" >
  <author>Allen Winter &lt;winter@kde.org></author>
  <comment>Configuration page for the Korganizer Special Dates Summary</comment>
- <exportmacro></exportmacro>
  <class>SDSummaryConfig_Base</class>
  <widget class="QWidget" name="SDSummaryConfig_Base" >
   <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>256</width>
-    <height>373</height>
+    <width>371</width>
+    <height>372</height>
    </rect>
   </property>
   <property name="sizePolicy" >
-   <sizepolicy>
-    <hsizetype>5</hsizetype>
-    <vsizetype>5</vsizetype>
+   <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -24,22 +21,28 @@
    <string>Special Dates Summary Configuration</string>
   </property>
   <layout class="QVBoxLayout" >
-   <property name="margin" >
-    <number>9</number>
-   </property>
-   <property name="spacing" >
-    <number>6</number>
-   </property>
    <item>
-    <widget class="Q3ButtonGroup" name="mDaysGroup" >
+    <widget class="QGroupBox" name="mDaysGroupBox" >
      <property name="title" >
       <string>Show Special Dates Starting</string>
      </property>
      <layout class="QGridLayout" >
-      <property name="margin" >
+      <property name="leftMargin" >
        <number>0</number>
       </property>
-      <property name="spacing" >
+      <property name="topMargin" >
+       <number>0</number>
+      </property>
+      <property name="rightMargin" >
+       <number>0</number>
+      </property>
+      <property name="bottomMargin" >
+       <number>0</number>
+      </property>
+      <property name="horizontalSpacing" >
+       <number>0</number>
+      </property>
+      <property name="verticalSpacing" >
        <number>0</number>
       </property>
       <item row="2" column="1" >
@@ -50,11 +53,11 @@
         <property name="suffix" >
          <string> days</string>
         </property>
-        <property name="maximum" >
-         <number>365</number>
-        </property>
         <property name="minimum" >
          <number>1</number>
+        </property>
+        <property name="maximum" >
+         <number>365</number>
         </property>
         <property name="singleStep" >
          <number>1</number>
@@ -101,15 +104,24 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="mShowFromCalGroup" >
+    <widget class="QGroupBox" name="mShowFromCalGroupBox" >
      <property name="title" >
       <string>Show These Special Dates From Your Calendar</string>
      </property>
      <layout class="QVBoxLayout" >
-      <property name="margin" >
+      <property name="spacing" >
        <number>0</number>
       </property>
-      <property name="spacing" >
+      <property name="leftMargin" >
+       <number>0</number>
+      </property>
+      <property name="topMargin" >
+       <number>0</number>
+      </property>
+      <property name="rightMargin" >
+       <number>0</number>
+      </property>
+      <property name="bottomMargin" >
        <number>0</number>
       </property>
       <item>
@@ -183,15 +195,24 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="mShowFromKABGroup" >
+    <widget class="QGroupBox" name="mShowFromKABGroupBox" >
      <property name="title" >
       <string>Show These Special Dates From Your Contact List</string>
      </property>
      <layout class="QVBoxLayout" >
-      <property name="margin" >
+      <property name="spacing" >
        <number>0</number>
       </property>
-      <property name="spacing" >
+      <property name="leftMargin" >
+       <number>0</number>
+      </property>
+      <property name="topMargin" >
+       <number>0</number>
+      </property>
+      <property name="rightMargin" >
+       <number>0</number>
+      </property>
+      <property name="bottomMargin" >
        <number>0</number>
       </property>
       <item>
@@ -232,19 +253,23 @@
      </layout>
     </widget>
    </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
- <customwidgets>
-  <customwidget>
-   <class>Q3ButtonGroup</class>
-   <extends></extends>
-   <header>Qt3Support/Q3ButtonGroup</header>
-   <container>1</container>
-   <pixmap></pixmap>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

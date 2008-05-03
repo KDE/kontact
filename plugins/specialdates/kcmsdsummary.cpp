@@ -22,7 +22,6 @@
     without including the source code for Qt in the source distribution.
 */
 
-#include <Q3ButtonGroup>
 #include <QCheckBox>
 #include <QLabel>
 #include <QLayout>
@@ -57,16 +56,31 @@ KCMSDSummary::KCMSDSummary( const KComponentData &inst, QWidget *parent )
 {
   setupUi( this );
 
+  mDaysButtonGroup = new QButtonGroup( this );
+  mDaysButtonGroup->addButton( mDateTodayButton, 0 );
+  mDaysButtonGroup->addButton( mDateMonthButton, 1 );
+  mDaysButtonGroup->addButton( mDateRangeButton, 2 );
+  mShowFromCalButtonGroup = new QButtonGroup( this );
+  mShowFromCalButtonGroup->setExclusive( false );
+  mShowFromCalButtonGroup->addButton( mShowBirthdaysFromCalBox );
+  mShowFromCalButtonGroup->addButton( mShowAnniversariesFromCalBox );
+  mShowFromCalButtonGroup->addButton( mShowHolidaysFromCalBox );
+  mShowFromCalButtonGroup->addButton( mShowSpecialsFromCalBox );
+  mShowFromKABButtonGroup = new QButtonGroup( this );
+  mShowFromKABButtonGroup->setExclusive( false );
+  mShowFromKABButtonGroup->addButton( mShowBirthdaysFromKABBox );
+  mShowFromKABButtonGroup->addButton( mShowAnniversariesFromKABBox );
+
   customDaysChanged( 7 );
 
-  connect( mDaysGroup,
-           SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mDaysGroup,
-           SIGNAL( clicked( int ) ), SLOT( buttonClicked( int ) ) );
-  connect( mShowFromCalGroup,
-           SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mShowFromKABGroup,
-           SIGNAL( clicked( int ) ), SLOT( modified() ) );
+  connect( mDaysButtonGroup,
+           SIGNAL( buttonClicked( int ) ), SLOT( modified() ) );
+  connect( mDaysButtonGroup,
+           SIGNAL( buttonClicked( int ) ), SLOT( buttonClicked( int ) ) );
+  connect( mShowFromCalButtonGroup,
+           SIGNAL( buttonClicked( int ) ), SLOT( modified() ) );
+  connect( mShowFromKABButtonGroup,
+           SIGNAL( buttonClicked( int ) ), SLOT( modified() ) );
   connect( mCustomDays,
            SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
   connect( mCustomDays,
@@ -99,11 +113,11 @@ void KCMSDSummary::load()
   KConfigGroup group = config.group( "Days" );
   int days = group.readEntry( "DaysToShow", 7 );
   if ( days == 1 )
-    mDaysGroup->setButton( 0 );
+    mDateTodayButton->setChecked( true );
   else if ( days == 31 )
-    mDaysGroup->setButton( 1 );
+    mDateMonthButton->setChecked( true );
   else {
-    mDaysGroup->setButton( 2 );
+    mDateRangeButton->setChecked( true );
     mCustomDays->setValue( days );
     mCustomDays->setEnabled( true );
   }
@@ -136,7 +150,7 @@ void KCMSDSummary::save()
   KConfigGroup group = config.group( "Days" );
 
   int days;
-  switch ( mDaysGroup->selectedId() ) {
+  switch ( mDaysButtonGroup->checkedId() ) {
     case 0: days = 1; break;
     case 1: days = 31; break;
     case 2:

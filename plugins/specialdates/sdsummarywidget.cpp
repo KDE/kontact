@@ -30,7 +30,6 @@
 #include <QGridLayout>
 #include <QEvent>
 #include <QVBoxLayout>
-#include <Q3ValueList>
 
 #include <kabc/stdaddressbook.h>
 #include <korganizer/stdcalendar.h>
@@ -367,8 +366,8 @@ void SDSummaryWidget::updateView()
       for ( dt=QDate::currentDate();
             dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
             dt=dt.addDays(1) ) {
-        Q3ValueList<LibKHolidays::KHoliday> holidays = mHolidays->getHolidays( dt );
-        Q3ValueList<LibKHolidays::KHoliday>::ConstIterator it = holidays.begin();
+        QList<LibKHolidays::KHoliday> holidays = mHolidays->getHolidays( dt );
+        QList<LibKHolidays::KHoliday>::ConstIterator it = holidays.begin();
         for ( ; it != holidays.end(); ++it ) {
           SDEntry entry;
           entry.type = IncidenceTypeEvent;
