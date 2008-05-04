@@ -24,6 +24,7 @@ Comment[pt]='Plugin' do KTimeTracker
 Comment[pt_BR]=Plug-in do TimeTracker
 Comment[sv]=Insticksprogram för tidmätning
 Comment[tr]=Zaman İzleyici Eklentisi
+Comment[uk]=Втулок TimeTracker
 Comment[x-test]=xxTimeTracker Pluginxx
 Comment[zh_TW]=時間追蹤器外掛程式
 
@@ -38,5 +39,6 @@ Name[pt]=Gestor de Tempo
 Name[pt_BR]=Gerenciador de Tempo
 Name[sv]=Tidmätning
 Name[tr]=Zaman İzleyici
+Name[uk]=Слідкування за часом
 Name[x-test]=xxTime Trackerxx
 Name[zh_TW]=時間追蹤器
