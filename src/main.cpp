@@ -40,6 +40,7 @@
 #include "alarmclient.h"
 #include "mainwindow.h"
 #include <uniqueapphandler.h> // in ../interfaces
+#include "profilemanager.h"
 
 using namespace std;
 
@@ -84,6 +85,15 @@ static void listPlugins()
   }
 }
 
+static void listProfiles()
+{
+    KInstance *instance = new KInstance( "kontact" ); // Can't use KontactApp since it's too late for adding cmdline options
+    QValueList<Kontact::Profile> profiles = Kontact::ProfileManager::self()->profiles();
+    for( QValueListIterator<Kontact::Profile> it = profiles.begin() ; it != profiles.end(); ++it ) {
+        cout << (*it).name().latin1() << endl;
+    }
+}
+
 int KontactApp::newInstance()
 {
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
@@ -111,6 +121,10 @@ int KontactApp::newInstance()
         mMainWindow->setActivePluginModule( moduleName );
     }
   }
+
+    if ( args->isSet( "profile" ) ) {
+        Kontact::ProfileManager::self()->loadProfile( args->getOption("profile") );
+    }
 
   AlarmClient alarmclient;
   alarmclient.startDaemon();
@@ -143,6 +157,11 @@ int main( int argc, char **argv )
     return 0;
   }
 
+  if ( args->isSet( "listprofiles" ) ) {
+    listProfiles();
+    return 0;
+  }
+ 
   if ( !KontactApp::start() ) {
     // Already running, brought to the foreground.
     return 0;

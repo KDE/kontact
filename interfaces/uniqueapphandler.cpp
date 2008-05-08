@@ -188,6 +188,8 @@ static KCmdLineOptions options[] =
     { "module <module>",   I18N_NOOP( "Start with a specific Kontact module" ), 0 },
     { "iconify",   I18N_NOOP( "Start in iconified (minimized) mode" ), 0 },
     { "list", I18N_NOOP( "List all possible modules and exit" ), 0 },
+    { "listprofiles", I18N_NOOP( "List all possible profiles and exit" ), 0 },
+    { "profile <profile>", I18N_NOOP( "Start with a specific Kontact profile" ), 0 },
     KCmdLineLastOption
 };
 
