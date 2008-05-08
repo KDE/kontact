@@ -123,7 +123,11 @@ int KontactApp::newInstance()
   }
 
     if ( args->isSet( "profile" ) ) {
-        Kontact::ProfileManager::self()->loadProfile( args->getOption("profile") );
+        QValueList<Kontact::Profile>  profiles = Kontact::ProfileManager::self()->profiles();
+        for( QValueListIterator<Kontact::Profile> it = profiles.begin(); it != profiles.end(); ++it ){
+           if( args->getOption("profile") == (*it).name().latin1() )
+           Kontact::ProfileManager::self()->loadProfile( (*it).id() );
+        }
     }
 
   AlarmClient alarmclient;
