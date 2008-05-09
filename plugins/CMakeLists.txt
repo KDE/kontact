@@ -24,5 +24,6 @@ endif(KTIMETRACKER_SUPPORTED)
 if(KMOBILETOOLS_SUPPORTED)
   add_subdirectory( kmobiletools ) 
 endif(KMOBILETOOLS_SUPPORTED)
-add_subdirectory( weather )
+message(STATUS "Disable Weather Summary until KWeather is ported to Plasma")
+#add_subdirectory( weather )
 
