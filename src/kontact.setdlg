@@ -109,7 +109,7 @@ Comment[x-test]=xxSummary Viewxx
 Comment[zh_CN]=摘要视图
 Comment[zh_TW]=摘要檢視
 Weight=100
-Icon=kontact_summary
+Icon=view-pim-summary
 
 [KMail]
 Name=Mail
@@ -224,7 +224,7 @@ Comment[x-test]=xxMail Componentxx
 Comment[zh_CN]=邮件组件
 Comment[zh_TW]=郵件元件
 Weight=200
-Icon=kontact_mail
+Icon=view-pim-mail
 
 [KAB]
 Name=Contacts
@@ -334,7 +334,7 @@ Comment[x-test]=xxAddress Book Componentxx
 Comment[zh_CN]=地址簿组件
 Comment[zh_TW]=通訊錄元件
 Weight=300
-Icon=kontact_contacts
+Icon=view-pim-contacts
 
 [Special Dates]
 Name=Special Dates Summary
@@ -579,7 +579,7 @@ Comment[x-test]=xxCalendar Componentxx
 Comment[zh_CN]=日历组件
 Comment[zh_TW]=行事曆元件
 Weight=400
-Icon=kontact_date
+Icon=view-pim-calendar
 
 [KNode]
 Name=Usenet
@@ -616,7 +616,7 @@ Comment[x-test]=xxUsenet Componentxx
 Comment[zh_CN]=新闻组件
 Comment[zh_TW]=Usenet 元件
 Weight=500
-Icon=kontact_news
+Icon=view-pim-news
 
 [KWeather]
 Name=Weather
