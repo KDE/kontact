@@ -87,7 +87,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QWidget *header = createHeader( this, "go-jump-today", i18n( "Upcoming Special Dates" ) );
+  QWidget *header = createHeader( this, "view-calendar-upcoming-events", i18n( "Upcoming Special Dates" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();

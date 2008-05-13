@@ -49,7 +49,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QWidget *header = createHeader( this, "view-pim-calendar", i18n( "Upcoming Events" ) );
+  QWidget *header = createHeader( this, "view-calendar-upcoming-events", i18n( "Upcoming Events" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();
