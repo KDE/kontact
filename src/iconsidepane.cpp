@@ -305,7 +305,7 @@ void Navigator::highlightItem( EntryItem * item )
 
   setPaintActiveItem( mHighlightItem, true );
 
-  QTimer::singleShot( 2000, this, SLOT( slotStopHighlight() ) );
+  QTimer::singleShot( 2000, this, SLOT(slotStopHighlight()) );
 }
 
 void Navigator::slotStopHighlight()

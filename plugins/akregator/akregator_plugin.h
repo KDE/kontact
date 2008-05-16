@@ -25,11 +25,10 @@
 #ifndef AKREGATOR_PLUGIN_H
 #define AKREGATOR_PLUGIN_H
 
-#include <klocale.h>
-#include <kparts/part.h>
+#include <kontactinterfaces/plugin.h>
+#include <kontactinterfaces/uniqueapphandler.h>
 
-#include <plugin.h>
-#include <uniqueapphandler.h>
+#include <kparts/part.h>
 
 class OrgKdeAkregatorPartInterface;
 
@@ -39,10 +38,10 @@ typedef KParts::ReadOnlyPart MyBasePart;
 
 class UniqueAppHandler : public Kontact::UniqueAppHandler
 {
-    public:
-        UniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
-        virtual void loadCommandLineOptions();
-        virtual int newInstance();
+  public:
+    UniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    virtual void loadCommandLineOptions();
+    virtual int newInstance();
 };
 
 class Plugin : public Kontact::Plugin
@@ -75,4 +74,5 @@ class Plugin : public Kontact::Plugin
 };
 
 } // namespace Akregator
+
 #endif

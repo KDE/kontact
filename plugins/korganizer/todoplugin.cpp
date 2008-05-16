@@ -23,10 +23,11 @@
 */
 
 #include "todoplugin.h"
-#include "core.h"
 #include "todosummarywidget.h"
 #include "korg_uniqueapp.h"
 #include "calendarinterface.h"
+
+#include <kontactinterfaces/core.h>
 
 #include <libkdepim/maillistdrag.h>
 #include <libkdepim/kdepimprotocols.h>

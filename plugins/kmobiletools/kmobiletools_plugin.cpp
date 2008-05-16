@@ -18,17 +18,18 @@
  ***************************************************************************/
 
 #include "kmobiletools_plugin.h"
-#include <core.h>
-#include <maininterface.h>
 
-#include <kparts/componentfactory.h>
+#include <maininterface.h>
+#include <kontactinterfaces/core.h>
+
 #include <kaboutdata.h>
 #include <kaction.h>
-#include <kapplication.h>
 #include <kactioncollection.h>
+#include <kapplication.h>
 #include <kgenericfactory.h>
+#include <kparts/componentfactory.h>
 
-EXPORT_KONTACT_PLUGIN(KMobileToolsPlugin, kmobiletools)
+EXPORT_KONTACT_PLUGIN( KMobileToolsPlugin, kmobiletools )
 
 KMobileToolsPlugin::KMobileToolsPlugin( Kontact::Core *core, const QVariantList & )
   : Kontact::Plugin( core, core, "KMobileTools" ), partLoaded( false )

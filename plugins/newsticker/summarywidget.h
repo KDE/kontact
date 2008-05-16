@@ -1,43 +1,41 @@
 /*
-    This file is part of Kontact.
-    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+  This file is part of Kontact.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
 
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <QMap>
-#include <QTimer>
-#include <QWidget>
+#include <kontactinterfaces/summary.h>
 
+#include <kurl.h>
+
+#include <QTimer>
 #include <QList>
 #include <QPixmap>
-#include <QLabel>
-#include <QVBoxLayout>
-
-#include "summary.h"
-#include <kurl.h>
 
 class QVBoxLayout;
 class QLabel;
+class QWidget;
 
 typedef QList< QPair<QString, KUrl> > ArticleMap;
 
@@ -99,7 +97,7 @@ class SummaryWidget : public Kontact::Summary //, public DCOPObject
 
   protected slots:
     void updateDocuments();
-    void rmbMenu( const QString& );
+    void rmbMenu( const QString & );
 
   protected:
     virtual bool eventFilter( QObject *obj, QEvent *e );
@@ -109,7 +107,7 @@ class SummaryWidget : public Kontact::Summary //, public DCOPObject
 
   private:
     QVBoxLayout *mLayout;
-    QWidget* mBaseWidget;
+    QWidget *mBaseWidget;
 
     QList<QLabel*> mLabels;
 

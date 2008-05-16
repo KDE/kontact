@@ -23,10 +23,11 @@
 */
 
 #include "korganizerplugin.h"
-#include "core.h"
 #include "apptsummarywidget.h"
 #include "korg_uniqueapp.h"
 #include "calendarinterface.h"
+
+#include <kontactinterfaces/core.h>
 
 #include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>

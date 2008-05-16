@@ -1,43 +1,43 @@
 /*
-    This file is part of Kontact.
-    Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
-    Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
+  This file is part of Kontact.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
+  Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
+
+#include "kcmtodosummary.h"
+
+#include <kaboutdata.h>
+#include <kacceleratormanager.h>
+#include <kcomponentdata.h>
+#include <kconfig.h>
+#include <kdebug.h>
+#include <klocale.h>
+#include <kdemacros.h>
 
 #include <QCheckBox>
 #include <QLabel>
 #include <QLayout>
 #include <QRadioButton>
 #include <QSpinBox>
-
-#include <kaboutdata.h>
-#include <kacceleratormanager.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <klocale.h>
-#include <kcomponentdata.h>
-
-#include "kcmtodosummary.h"
-
-#include <kdemacros.h>
 
 extern "C"
 {
@@ -48,31 +48,31 @@ extern "C"
   }
 }
 
-KCMTodoSummary::KCMTodoSummary( const KComponentData &inst,  QWidget *parent )
+KCMTodoSummary::KCMTodoSummary( const KComponentData &inst, QWidget *parent )
   : KCModule( inst, parent )
 {
   setupUi( this );
 
   customDaysChanged( 7 );
 
-  connect( mDateTodayButton, SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mDateMonthButton, SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mDateRangeButton, SIGNAL( clicked( int ) ), SLOT( modified() ) );
+  connect( mDateTodayButton, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mDateMonthButton, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mDateRangeButton, SIGNAL(clicked(int)), SLOT(modified()) );
 
-  connect( mHideCompletedBox, SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mHideOpenEndedBox, SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mHideUnstartedBox, SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mHideInProgressBox, SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mHideOverdueBox, SIGNAL( clicked( int ) ), SLOT( modified() ) );
+  connect( mHideCompletedBox, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mHideOpenEndedBox, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mHideUnstartedBox, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mHideInProgressBox, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mHideOverdueBox, SIGNAL(clicked(int)), SLOT(modified()) );
 
-  connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
-  connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( customDaysChanged( int ) ) );
-
+  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
+  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
 
   KAcceleratorManager::manage( this );
 
   load();
 }
+
 KCMTodoSummary::~KCMTodoSummary()
 {
 }
@@ -93,11 +93,11 @@ void KCMTodoSummary::load()
   KConfigGroup grp( &config, "Days" );
 
   int days = grp.readEntry( "DaysToShow", 7 );
-  if ( days == 1 )
+  if ( days == 1 ) {
     mDateTodayButton->setChecked( true );
-  else if ( days == 31 )
+  } else if ( days == 31 ) {
     mDateMonthButton->setChecked( true );
-  else {
+  } else {
     mDateRangeButton->setChecked( true );
     mCustomDays->setValue( days );
     mCustomDays->setEnabled( true );
@@ -154,7 +154,7 @@ void KCMTodoSummary::defaults()
   emit changed( true );
 }
 
-const KAboutData* KCMTodoSummary::aboutData() const
+const KAboutData *KCMTodoSummary::aboutData() const
 {
   KAboutData *about = new KAboutData(
     I18N_NOOP( "kcmtodosummary" ), 0,
@@ -162,8 +162,10 @@ const KAboutData* KCMTodoSummary::aboutData() const
     0, KLocalizedString(), KAboutData::License_GPL,
     ki18n( "(c) 2003 - 2004 Tobias Koenig" ) );
 
-  about->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
-  about->addAuthor( ki18n("Allen Winter"), KLocalizedString(), "winter@kde.org" );
+  about->addAuthor( ki18n( "Tobias Koenig" ),
+                    KLocalizedString(), "tokoe@kde.org" );
+  about->addAuthor( ki18n( "Allen Winter" ),
+                    KLocalizedString(), "winter@kde.org" );
 
   return about;
 }

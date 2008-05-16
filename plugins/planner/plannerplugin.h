@@ -1,5 +1,6 @@
 /*
   This file is part of Kontact.
+
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
   Copyright (c) 2004 Allen Winter <winter@kde.org>
 
@@ -25,7 +26,7 @@
 #ifndef PLANNER_PLUGIN_H
 #define PLANNER_PLUGIN_H
 
-#include "plugin.h"
+#include <kontactinterfaces/plugin.h>
 
 class Planner;
 
@@ -35,7 +36,7 @@ class PlannerPlugin : public Kontact::Plugin
     PlannerPlugin( Kontact::Core *core, const QVariantList & );
     ~PlannerPlugin();
 
-    int weight() const { return 310; }
+    int weight() const { return 350; }
     const KAboutData *aboutData();
 
     virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );

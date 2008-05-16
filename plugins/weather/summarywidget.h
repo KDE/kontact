@@ -1,47 +1,41 @@
 /*
-    This file is part of Kontact.
-    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+  This file is part of Kontact.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
 
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include "summary.h"
+#include <kontactinterfaces/summary.h>
 
 #include <QMap>
 #include <QPixmap>
 #include <QStringList>
 #include <QTimer>
-#include <QWidget>
-
-#include <QList>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QGridLayout>
-#include <QEvent>
-
 
 class QGridLayout;
 class QLabel;
 class QVBoxLayout;
+class QWidget;
 
 class WeatherData
 {
@@ -52,7 +46,7 @@ class WeatherData
     void setName( const QString &name ) { mName = name; }
     QString name() const { return mName; }
 
-    void setCover( const QStringList& cover ) { mCover = cover; }
+    void setCover( const QStringList &cover ) { mCover = cover; }
     QStringList cover() const { return mCover; }
 
     void setDate( const QString &date ) { mDate = date; }
@@ -64,7 +58,8 @@ class WeatherData
     void setWindSpeed( const QString &windSpeed ) { mWindSpeed = windSpeed; }
     QString windSpeed() const { return mWindSpeed; }
 
-    void setRelativeHumidity( const QString &relativeHumidity ) { mRelativeHumidity = relativeHumidity; }
+    void setRelativeHumidity( const QString &relativeHumidity )
+    { mRelativeHumidity = relativeHumidity; }
     QString relativeHumidity() const { return mRelativeHumidity; }
 
     void setStationID( const QString &station ) { mStationID = station;}
@@ -107,7 +102,7 @@ class SummaryWidget : public Kontact::Summary
   private slots:
     void updateView();
     void timeout();
-    void showReport( const QString& );
+    void showReport( const QString & );
 
   private:
     QStringList mStations;

@@ -58,11 +58,11 @@ KCMPlanner::KCMPlanner( const KComponentData &inst, QWidget *parent )
 
   customDaysChanged( 1 );
 
-  connect( mCalendarGroup, SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mCalendarGroup, SIGNAL( clicked( int ) ), SLOT( buttonClicked( int ) ) );
-  connect( mTodoGroup, SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
-  connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( customDaysChanged( int ) ) );
+  connect( mCalendarGroup, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mCalendarGroup, SIGNAL(clicked(int)), SLOT(buttonClicked(int)) );
+  connect( mTodoGroup, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
+  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
 
   KAcceleratorManager::manage( this );
 
@@ -197,16 +197,15 @@ void KCMPlanner::initTodoPage()
 
   hbox->addStretch( 2 );
 
-  connect( mTodoGroup, SIGNAL( toggled( bool ) ), SLOT( setTodo( bool ) ) );
-  connect( mTodoGroup, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
-  connect( mShowAllTodos, SIGNAL( toggled( bool ) ), SLOT( disableAll( bool ) ) );
-  connect( mShowTodayEndingTodos, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
-  connect( mShowTodosInProgress, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
-  connect( mShowTodayStartingTodos, SIGNAL( toggled( bool ) ),
-                                            SLOT( modified() ) );
-  connect( mShowOverdueTodos, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
-  connect( mShowCompleted, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
-  connect( mPriority, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
+  connect( mTodoGroup, SIGNAL(toggled(bool)), SLOT(setTodo(bool)) );
+  connect( mTodoGroup, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mShowAllTodos, SIGNAL(toggled(bool)), SLOT(disableAll(bool)) );
+  connect( mShowTodayEndingTodos, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mShowTodosInProgress, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mShowTodayStartingTodos, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mShowOverdueTodos, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mShowCompleted, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mPriority, SIGNAL(valueChanged(int)), SLOT(modified()) );
 
   layout->addWidget( mTodoGroup );
   layout->addStretch();
@@ -219,8 +218,8 @@ void KCMPlanner::initSdPage()
   mSdGroup = new Q3GroupBox( 5, Qt::Vertical, i18n( "Show Special Dates" ), mSdPage );
   mSdGroup->setCheckable( true );
 
-  connect( mSdGroup, SIGNAL( toggled( bool ) ), SLOT( modified() ) );
-  connect( mSdGroup, SIGNAL( toggled( bool ) ), SLOT( setSd( bool ) ) );
+  connect( mSdGroup, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mSdGroup, SIGNAL(toggled(bool)), SLOT(setSd(bool)) );
 
   layout->addWidget( mSdGroup );
   layout->addStretch();

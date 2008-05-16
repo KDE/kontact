@@ -24,20 +24,19 @@
 #ifndef SUMMARYVIEW_PART_H
 #define SUMMARYVIEW_PART_H
 
-#include "core.h"
 #include "dropwidget.h"
+
+#include <kontactinterfaces/core.h>
 
 #include <kparts/part.h>
 
 #include <QMap>
 
-namespace Kontact
-{
+namespace Kontact {
   class Summary;
 }
 
-namespace KParts
-{
+namespace KParts {
   class PartActivateEvent;
 }
 

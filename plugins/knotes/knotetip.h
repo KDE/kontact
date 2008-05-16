@@ -1,44 +1,44 @@
 /*
-   This file is part of the KDE project
-   Copyright (C) 2004 Michael Brade <brade@kde.org>
+  This file is part of the KDE project
 
-   This program is free software; you can redistribute it and/or
-   modify it under the terms of the GNU General Public
-   License as published by the Free Software Foundation; either
-   version 2 of the License, or (at your option) any later version.
+  Copyright (C) 2004 Michael Brade <brade@kde.org>
 
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   General Public License for more details.
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public
+  License as published by the Free Software Foundation; either
+  version 2 of the License, or (at your option) any later version.
 
-   You should have received a copy of the GNU General Public License
-   along with this program; see the file COPYING.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
 
-   In addition, as a special exception, the copyright holders give
-   permission to link the code of this program with any edition of
-   the Qt library by Trolltech AS, Norway (or with modified versions
-   of Qt that use the same license as Qt), and distribute linked
-   combinations including the two.  You must obey the GNU General
-   Public License in all respects for all of the code used other than
-   Qt.  If you modify this file, you may extend this exception to
-   your version of the file, but you are not obligated to do so.  If
-   you do not wish to do so, delete this exception statement from
-   your version.
+  You should have received a copy of the GNU General Public License
+  along with this program; see the file COPYING.  If not, write to
+  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  Boston, MA 02110-1301, USA.
+
+  In addition, as a special exception, the copyright holders give
+  permission to link the code of this program with any edition of
+  the Qt library by Trolltech AS, Norway (or with modified versions
+  of Qt that use the same license as Qt), and distribute linked
+  combinations including the two.  You must obey the GNU General
+  Public License in all respects for all of the code used other than
+  Qt.  If you modify this file, you may extend this exception to
+  your version of the file, but you are not obligated to do so.  If
+  you do not wish to do so, delete this exception statement from
+  your version.
 */
 
 #ifndef KNOTETIP_H
 #define KNOTETIP_H
 
 #include <q3frame.h>
-//Added by qt3to4:
-#include <QTimerEvent>
-#include <QResizeEvent>
-#include <QEvent>
 
+class QEvent;
+class QReszieEvent;
 class QTextEdit;
+class QTimerEvent;
 class K3IconView;
 class KNotesIconViewItem;
 
@@ -62,10 +62,8 @@ class KNoteTip : public Q3Frame
 
   private:
     bool mFilter;
-
     K3IconView *mView;
     KNotesIconViewItem *mNoteIVI;
-
     QTextEdit *mPreview;
 };
 

@@ -1,55 +1,54 @@
 /*
-   This file is part of the KDE project
-   Copyright (C) 2004 Michael Brade <brade@kde.org>
+  This file is part of the KDE project
 
-   This program is free software; you can redistribute it and/or
-   modify it under the terms of the GNU General Public
-   License as published by the Free Software Foundation; either
-   version 2 of the License, or (at your option) any later version.
+  Copyright (C) 2004 Michael Brade <brade@kde.org>
 
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   General Public License for more details.
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public
+  License as published by the Free Software Foundation; either
+  version 2 of the License, or (at your option) any later version.
 
-   You should have received a copy of the GNU General Public License
-   along with this program; see the file COPYING.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
 
-   In addition, as a special exception, the copyright holders give
-   permission to link the code of this program with any edition of
-   the Qt library by Trolltech AS, Norway (or with modified versions
-   of Qt that use the same license as Qt), and distribute linked
-   combinations including the two.  You must obey the GNU General
-   Public License in all respects for all of the code used other than
-   Qt.  If you modify this file, you may extend this exception to
-   your version of the file, but you are not obligated to do so.  If
-   you do not wish to do so, delete this exception statement from
-   your version.
+  You should have received a copy of the GNU General Public License
+  along with this program; see the file COPYING.  If not, write to
+  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  Boston, MA 02110-1301, USA.
+
+  In addition, as a special exception, the copyright holders give
+  permission to link the code of this program with any edition of
+  the Qt library by Trolltech AS, Norway (or with modified versions
+  of Qt that use the same license as Qt), and distribute linked
+  combinations including the two.  You must obey the GNU General
+  Public License in all respects for all of the code used other than
+  Qt.  If you modify this file, you may extend this exception to
+  your version of the file, but you are not obligated to do so.  If
+  you do not wish to do so, delete this exception statement from
+  your version.
 */
-
-#include <QToolTip>
-#include <QLayout>
-#include <QTextEdit>
-//Added by qt3to4:
-#include <QEvent>
-#include <Q3Frame>
-#include <QTimerEvent>
-#include <QResizeEvent>
-#include <QVBoxLayout>
-
-#include <kglobalsettings.h>
-#include <QAbstractEventDispatcher>
-#include <QApplication>
 
 #include "knotetip.h"
 #include "knotes_part_p.h"
 
+#include <kglobalsettings.h>
+
+#include <Q3Frame>
+#include <QAbstractEventDispatcher>
+#include <QApplication>
+#include <QToolTip>
+#include <QLayout>
+#include <QTextEdit>
+#include <QEvent>
+#include <QTimerEvent>
+#include <QResizeEvent>
+#include <QVBoxLayout>
 
 KNoteTip::KNoteTip( K3IconView *parent )
   : Q3Frame( 0, 0, Qt::WX11BypassWM |   // this will make Seli happy >:-P
-            Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
+             Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
     mFilter( false ),
     mView( parent ),
     mNoteIVI( 0 ),
@@ -76,8 +75,9 @@ KNoteTip::~KNoteTip()
 
 void KNoteTip::setNote( KNotesIconViewItem *item )
 {
-  if ( mNoteIVI == item )
+  if ( mNoteIVI == item ) {
     return;
+  }
 
   mNoteIVI = item;
 
@@ -89,10 +89,11 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
     }
   } else {
     KCal::Journal *journal = item->journal();
-    if ( journal->customProperty( "KNotes", "RichText" ) == "true" )
+    if ( journal->customProperty( "KNotes", "RichText" ) == "true" ) {
       mPreview->setTextFormat( Qt::RichText );
-    else
+    } else {
       mPreview->setTextFormat( Qt::PlainText );
+    }
 
     QColor fg( journal->customProperty( "KNotes", "FgColor" ) );
     QColor bg( journal->customProperty( "KNotes", "BgColor" ) );
@@ -104,19 +105,19 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
 
     int w = 400;
     int h = mPreview->heightForWidth( w );
-    while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) )
-        w -= 20;
+    while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) ) {
+      w -= 20;
+    }
 
     QRect desk = KGlobalSettings::desktopGeometry( mNoteIVI->rect().center() );
     resize( w, qMin( h, desk.height() / 2 - 20 ) );
 
     hide();
-    QAbstractEventDispatcher::instance()->unregisterTimers(this);
+    QAbstractEventDispatcher::instance()->unregisterTimers( this );
     setFilter( true );
     startTimer( 600 );  // delay showing the tooltip for 0.7 sec
   }
 }
-
 
 // protected, virtual methods
 
@@ -128,7 +129,7 @@ void KNoteTip::resizeEvent( QResizeEvent *ev )
 
 void KNoteTip::timerEvent( QTimerEvent * )
 {
-  QAbstractEventDispatcher::instance()->unregisterTimers(this);
+  QAbstractEventDispatcher::instance()->unregisterTimers( this );
 
   if ( !isVisible() ) {
     startTimer( 15000 ); // show the tooltip for 15 sec
@@ -143,24 +144,23 @@ void KNoteTip::timerEvent( QTimerEvent * )
 bool KNoteTip::eventFilter( QObject *, QEvent *e )
 {
   switch ( e->type() ) {
-    case QEvent::Leave:
-    case QEvent::MouseButtonPress:
-    case QEvent::MouseButtonRelease:
-    case QEvent::KeyPress:
-    case QEvent::KeyRelease:
-    case QEvent::FocusIn:
-    case QEvent::FocusOut:
-    case QEvent::Wheel:
-      QAbstractEventDispatcher::instance()->unregisterTimers(this);
-      setFilter( false );
-      hide();
-    default:
-      break;
+  case QEvent::Leave:
+  case QEvent::MouseButtonPress:
+  case QEvent::MouseButtonRelease:
+  case QEvent::KeyPress:
+  case QEvent::KeyRelease:
+  case QEvent::FocusIn:
+  case QEvent::FocusOut:
+  case QEvent::Wheel:
+    QAbstractEventDispatcher::instance()->unregisterTimers(this);
+    setFilter( false );
+    hide();
+  default:
+    break;
   }
 
   return false;
 }
-
 
 // private stuff
 
@@ -169,9 +169,9 @@ void KNoteTip::setColor( const QColor &fg, const QColor &bg )
   QPalette newpalette = palette();
   newpalette.setColor( QPalette::Background, bg );
   newpalette.setColor( QPalette::Foreground, fg );
-  newpalette.setColor( QPalette::Base,       bg ); // text background
-  newpalette.setColor( QPalette::Text,       fg ); // text color
-  newpalette.setColor( QPalette::Button,     bg );
+  newpalette.setColor( QPalette::Base, bg ); // text background
+  newpalette.setColor( QPalette::Text, fg ); // text color
+  newpalette.setColor( QPalette::Button, bg );
 
   // the shadow
   newpalette.setColor( QPalette::Midlight, bg.light(110) );
@@ -184,11 +184,11 @@ void KNoteTip::setColor( const QColor &fg, const QColor &bg )
   mPreview->setColor( fg );
 }
 
-
 void KNoteTip::setFilter( bool enable )
 {
-  if ( enable == mFilter )
+  if ( enable == mFilter ) {
     return;
+  }
 
   if ( enable ) {
     qApp->installEventFilter( this );
@@ -203,8 +203,9 @@ void KNoteTip::setFilter( bool enable )
 
 void KNoteTip::reposition()
 {
-  if ( !mNoteIVI )
+  if ( !mNoteIVI ) {
     return;
+  }
 
   QRect rect = mNoteIVI->rect();
   QPoint off = mView->mapToGlobal( mView->contentsToViewport( QPoint( 0, 0 ) ) );
@@ -216,18 +217,20 @@ void KNoteTip::reposition()
   QRect desk = KGlobalSettings::desktopGeometry( pos );
   if ( rect.center().x() + width() > desk.right() ) {
     // to the left
-    if ( pos.x() - width() < 0 )
-        pos.setX( 0 );
-    else
-        pos.setX( pos.x() - width() );
+    if ( pos.x() - width() < 0 ) {
+      pos.setX( 0 );
+    } else {
+      pos.setX( pos.x() - width() );
+    }
   }
 
   // should the tooltip be shown above or below the ivi ?
   if ( rect.bottom() + height() > desk.bottom() ) {
     // above
     pos.setY( rect.top() - height() );
-  } else
+  } else {
     pos.setY( rect.bottom() );
+  }
 
   move( pos );
   update();

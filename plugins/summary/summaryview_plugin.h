@@ -22,16 +22,12 @@
 #ifndef SUMMARYVIEW_PLUGIN_H
 #define SUMMARYVIEW_PLUGIN_H
 
-#include "plugin.h"
+#include <kontactinterfaces/plugin.h>
 
-#include <klocale.h>
 #include <kparts/part.h>
 
-#include <qmap.h>
-
-class KSelectAction;
-
 class SummaryViewPart;
+class KSelectAction;
 
 class SummaryView : public Kontact::Plugin
 {

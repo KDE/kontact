@@ -374,7 +374,7 @@ void MainWindow::setupActions()
 
   mNewActions = new KToolBarPopupAction(
     KIcon( "" ),
-    i18nc( "@title:menu create new pim item (message,calendar,to-do,etc.)", "New" ), this );
+    i18nc( "@title:menu create new pim items (message,calendar,to-do,etc.)", "New" ), this );
   actionCollection()->addAction( "action_new", mNewActions );
   mNewActions->setShortcut( KStandardShortcut::openNew() );
   connect( mNewActions, SIGNAL(triggered(bool)), this, SLOT(slotNewClicked()) );
@@ -387,9 +387,11 @@ void MainWindow::setupActions()
   mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", false );
 
   if ( mSyncActionsEnabled ) {
-    mSyncActions = new KToolBarPopupAction( KIcon( "view-refresh" ), i18n( "Synchronize" ), this );
-    mSyncActions->setShortcut( KStandardShortcut::reload() );
+    mSyncActions = new KToolBarPopupAction(
+      KIcon( "view-refresh" ),
+      i18nc( "@title:menu synchronize pim items (message,calendar,to-do,etc.)", "Sync" ), this );
     actionCollection()->addAction( "action_sync", mSyncActions );
+    mSyncActions->setShortcut( KStandardShortcut::reload() );
     connect( mSyncActions, SIGNAL(triggered(bool)), this, SLOT(slotSyncClicked()) );
   }
 

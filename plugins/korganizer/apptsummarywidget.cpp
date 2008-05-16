@@ -1,5 +1,6 @@
 /*
   This file is part of Kontact.
+
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
   Copyright (c) 2005-2006,2008 Allen Winter <winter@kde.org>
 
@@ -23,10 +24,11 @@
 */
 
 #include "apptsummarywidget.h"
-#include "core.h"
-#include "korganizer/stdcalendar.h"
-#include "korganizerinterface.h"
 #include "korganizerplugin.h"
+#include "korganizerinterface.h"
+
+#include <korganizer/stdcalendar.h>
+#include <kontactinterfaces/core.h>
 
 #include <kcal/incidenceformatter.h>
 #include <kcal/resourcecalendar.h>
@@ -49,7 +51,8 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QWidget *header = createHeader( this, "view-calendar-upcoming-events", i18n( "Upcoming Events" ) );
+  QWidget *header = createHeader(
+    this, "view-calendar-upcoming-events", i18n( "Upcoming Events" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();

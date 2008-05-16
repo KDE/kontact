@@ -20,11 +20,11 @@
 #ifndef KMOBILETOOLS_PLUGIN_H
 #define KMOBILETOOLS_PLUGIN_H
 
+#include <kontactinterfaces/plugin.h>
+#include <kontactinterfaces/uniqueapphandler.h>
+
 #include <kparts/part.h>
 #include <klocale.h>
-
-#include <plugin.h>
-#include <uniqueapphandler.h>
 
 class OrgKdeKmobiletoolsMainInterface;
 
@@ -36,7 +36,7 @@ class KMobileToolsPlugin : public Kontact::Plugin
     KMobileToolsPlugin( Kontact::Core *core, const QVariantList & );
     ~KMobileToolsPlugin();
 
-    int weight() const { return 700; }
+    int weight() const { return 800; }
     bool isRunningStandalone();
 
   protected:
@@ -44,7 +44,7 @@ class KMobileToolsPlugin : public Kontact::Plugin
     bool partLoaded;
     OrgKdeKmobiletoolsMainInterface *m_interface;
     public slots:
-        void slotNewSMS();
+    void slotNewSMS();
 };
 
 #endif

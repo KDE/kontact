@@ -1,34 +1,36 @@
 /*
-    This file is part of Kontact.
-    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+  This file is part of Kontact.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
 
-#include <QObject>
-#include <QLabel>
-#include <QLayout>
+#include "summarywidget.h"
 
-#include <QVBoxLayout>
-#include <QPixmap>
-#include <QGridLayout>
-#include <QEvent>
+#include <kontactinterfaces/core.h>
+#include <kontactinterfaces/plugin.h>
+
+#include <knotes/resourcenotes.h>
+#include <knotes/resourcemanager.h>
+
+#include <kcal/calendarlocal.h>
 
 #include <kdebug.h>
 #include <kglobal.h>
@@ -37,15 +39,13 @@
 #include <kurllabel.h>
 #include <kstandarddirs.h>
 
-#include <kcal/calendarlocal.h>
-
-#include <knotes/resourcenotes.h>
-#include <knotes/resourcemanager.h>
-
-#include "core.h"
-#include "plugin.h"
-
-#include "summarywidget.h"
+#include <QObject>
+#include <QLabel>
+#include <QLayout>
+#include <QVBoxLayout>
+#include <QPixmap>
+#include <QGridLayout>
+#include <QEvent>
 
 KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mLayout( 0 ), mPlugin( plugin )
@@ -62,15 +62,14 @@ KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin, QWidget *pare
   mLayout->setMargin( 3 );
   mLayout->setRowStretch( 6, 1 );
 
-  mCalendar = new KCal::CalendarLocal( QString::fromLatin1("UTC") );
+  mCalendar = new KCal::CalendarLocal( QString::fromLatin1( "UTC" ) );
   KNotesResourceManager *manager = new KNotesResourceManager();
 
-  QObject::connect( manager, SIGNAL( sigRegisteredNote( KCal::Journal* ) ),
-                    this, SLOT( addNote( KCal::Journal* ) ) );
-  QObject::connect( manager, SIGNAL( sigDeregisteredNote( KCal::Journal* ) ),
-                    this, SLOT( removeNote( KCal::Journal* ) ) );
+  QObject::connect( manager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
+                    this, SLOT(addNote(KCal::Journal*)) );
+  QObject::connect( manager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
+                    this, SLOT(removeNote(KCal::Journal*)) );
   manager->load();
-
 
   updateView();
 }
@@ -80,8 +79,9 @@ void KNotesSummaryWidget::updateView()
   mNotes = mCalendar->journals();
   QLabel *label = 0;
 
-  Q_FOREACH (label, mLabels)
+  Q_FOREACH ( label, mLabels ) {
     label->deleteLater();
+  }
   mLabels.clear();
 
   KIconLoader loader( "knotes" );
@@ -91,7 +91,7 @@ void KNotesSummaryWidget::updateView()
 
   KCal::Journal::List::Iterator it;
   if ( mNotes.count() ) {
-    for (it = mNotes.begin(); it != mNotes.end(); ++it) {
+    for ( it = mNotes.begin(); it != mNotes.end(); ++it ) {
 
       // Fill Note Pixmap Field
       label = new QLabel( this );
@@ -106,7 +106,7 @@ void KNotesSummaryWidget::updateView()
 
       KUrlLabel *urlLabel = new KUrlLabel( (*it)->uid(), newtext, this );
       urlLabel->installEventFilter( this );
-      urlLabel->setTextFormat(Qt::RichText);
+      urlLabel->setTextFormat( Qt::RichText );
       urlLabel->setWordWrap( true );
       mLayout->addWidget( urlLabel, counter, 1 );
       mLabels.append( urlLabel );
@@ -115,8 +115,8 @@ void KNotesSummaryWidget::updateView()
         urlLabel->setToolTip( (*it)->description().left( 80 ) );
       }
 
-      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
-               this, SLOT( urlClicked( const QString& ) ) );
+      connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
+               this, SLOT(urlClicked(const QString&)) );
       counter++;
     }
 
@@ -127,26 +127,30 @@ void KNotesSummaryWidget::updateView()
       mLabels.append( noNotes );
   }
 
-  Q_FOREACH( label, mLabels )
+  Q_FOREACH( label, mLabels ) {
     label->show();
+  }
 }
 
 void KNotesSummaryWidget::urlClicked( const QString &/*uid*/ )
 {
-  if ( !mPlugin->isRunningStandalone() )
+  if ( !mPlugin->isRunningStandalone() ) {
     mPlugin->core()->selectPlugin( mPlugin );
-  else
+  } else {
     mPlugin->bringToForeground();
+  }
 }
 
-bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent* e )
+bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent *e )
 {
   if ( obj->inherits( "KUrlLabel" ) ) {
     KUrlLabel* label = static_cast<KUrlLabel*>( obj );
-    if ( e->type() == QEvent::Enter )
+    if ( e->type() == QEvent::Enter ) {
       emit message( i18n( "Read Note: \"%1\"", label->text() ) );
-    if ( e->type() == QEvent::Leave )
+    }
+    if ( e->type() == QEvent::Leave ) {
       emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
+    }
   }
 
   return Kontact::Summary::eventFilter( obj, e );
@@ -163,6 +167,5 @@ void KNotesSummaryWidget::removeNote( KCal::Journal *j )
   mCalendar->deleteJournal( j );
   updateView();
 }
-
 
 #include "summarywidget.moc"

@@ -25,7 +25,7 @@
 #ifndef KORGANIZER_PLUGIN_H
 #define KORGANIZER_PLUGIN_H
 
-#include "plugin.h"
+#include <kontactinterfaces/plugin.h>
 #include <kparts/part.h>
 
 namespace Kontact {

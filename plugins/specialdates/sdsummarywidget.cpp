@@ -1,26 +1,50 @@
 /*
-    This file is part of Kontact.
-    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-    Copyright (c) 2004 Allen Winter <winter@kde.org>
+  This file is part of Kontact.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+  Copyright (c) 2004 Allen Winter <winter@kde.org>
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
+
+#include "sdsummarywidget.h"
+#include "coreinterface.h"
+
+#include <libkdepim/kpimprefs.h>
+#include <kontactinterfaces/core.h>
+#include <kontactinterfaces/plugin.h>
+#include <korganizer/stdcalendar.h>
+
+#include <kabc/stdaddressbook.h>
+#include <kcal/event.h>
+#include <kcal/resourcecalendar.h>
+#include <kcal/resourcelocal.h>
+
+#include <kdialog.h>
+#include <kglobal.h>
+#include <kiconloader.h>
+#include <klocale.h>
+#include <kparts/part.h>
+#include <kmenu.h>
+#include <kstandarddirs.h>
+#include <ktoolinvocation.h>
+#include <kurllabel.h>
 
 #include <QCursor>
 #include <QLabel>
@@ -31,33 +55,15 @@
 #include <QEvent>
 #include <QVBoxLayout>
 
-#include <kabc/stdaddressbook.h>
-#include <korganizer/stdcalendar.h>
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kparts/part.h>
-#include <kmenu.h>
-#include <kstandarddirs.h>
-#include <kurllabel.h>
-#include <kcal/event.h>
-#include <kcal/resourcecalendar.h>
-#include <kcal/resourcelocal.h>
-#include <libkdepim/kpimprefs.h>
-#include <ktoolinvocation.h>
-
-#include "core.h"
-#include "plugin.h"
-#include "coreinterface.h"
-
-#include "sdsummarywidget.h"
-
 enum SDIncidenceType {
-  IncidenceTypeContact, IncidenceTypeEvent
+  IncidenceTypeContact,
+  IncidenceTypeEvent
 };
 enum SDCategory {
-  CategoryBirthday, CategoryAnniversary, CategoryHoliday, CategoryOther
+  CategoryBirthday,
+  CategoryAnniversary,
+  CategoryHoliday,
+  CategoryOther
 };
 
 class SDEntry
@@ -87,7 +93,8 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QWidget *header = createHeader( this, "view-calendar-upcoming-events", i18n( "Upcoming Special Dates" ) );
+  QWidget *header = createHeader(
+    this, "view-calendar-upcoming-events", i18n( "Upcoming Special Dates" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();
@@ -97,10 +104,10 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
 
   // Setup the Addressbook
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
-  connect( ab, SIGNAL( addressBookChanged( AddressBook* ) ),
-           this, SLOT( updateView() ) );
-  connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
-           this, SLOT( updateView() ) );
+  connect( ab, SIGNAL(addressBookChanged(AddressBook*)),
+           this, SLOT(updateView()) );
+  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)),
+           this, SLOT(updateView()) );
 
   // Setup the Calendar
   mCalendar = new KCal::CalendarResources( KPIM::KPimPrefs::timeSpec() );
@@ -109,7 +116,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
   if ( manager->isEmpty() ) {
     KConfig _config( "korganizerrc" );
-    KConfigGroup config(&_config, "General" );
+    KConfigGroup config( &_config, "General" );
     QString fileName = config.readPathEntry( "Active Calendar", QString() );
 
     QString resourceName;
@@ -120,8 +127,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
       resourceName = i18n( "Active Calendar" );
     }
 
-    KCal::ResourceCalendar *defaultResource =
-      new KCal::ResourceLocal( fileName );
+    KCal::ResourceCalendar *defaultResource = new KCal::ResourceLocal( fileName );
 
     defaultResource->setResourceName( resourceName );
 
@@ -131,10 +137,10 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mCalendar = KOrg::StdCalendar::self();
   mCalendar->load();
 
-  connect( mCalendar, SIGNAL( calendarChanged() ),
-           this, SLOT( updateView() ) );
-  connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
-           this, SLOT( updateView() ) );
+  connect( mCalendar, SIGNAL(calendarChanged()),
+           this, SLOT(updateView()) );
+  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)),
+           this, SLOT(updateView()) );
 
   // Update Configuration
   configUpdated();
@@ -148,21 +154,15 @@ void SDSummaryWidget::configUpdated()
   mDaysAhead = group.readEntry( "DaysToShow", 7 );
 
   group = config.group( "Show" );
-  mShowBirthdaysFromKAB =
-    group.readEntry( "BirthdaysFromContacts", true );
-  mShowBirthdaysFromCal =
-    group.readEntry( "BirthdaysFromCalendar", true );
+  mShowBirthdaysFromKAB = group.readEntry( "BirthdaysFromContacts", true );
+  mShowBirthdaysFromCal = group.readEntry( "BirthdaysFromCalendar", true );
 
-  mShowAnniversariesFromKAB =
-    group.readEntry( "AnniversariesFromContacts", true );
-  mShowAnniversariesFromCal =
-    group.readEntry( "AnniversariesFromCalendar", true );
+  mShowAnniversariesFromKAB = group.readEntry( "AnniversariesFromContacts", true );
+  mShowAnniversariesFromCal = group.readEntry( "AnniversariesFromCalendar", true );
 
-  mShowHolidays =
-    group.readEntry( "HolidaysFromCalendar", true );
+  mShowHolidays = group.readEntry( "HolidaysFromCalendar", true );
 
-  mShowSpecialsFromCal =
-    group.readEntry( "SpecialsFromCalendar", true );
+  mShowSpecialsFromCal = group.readEntry( "SpecialsFromCalendar", true );
 
   updateView();
 }
@@ -170,10 +170,12 @@ void SDSummaryWidget::configUpdated()
 bool SDSummaryWidget::initHolidays()
 {
   KConfig _hconfig( "korganizerrc" );
-  KConfigGroup hconfig(&_hconfig, "Time & Date" );
+  KConfigGroup hconfig( &_hconfig, "Time & Date" );
   QString location = hconfig.readEntry( "Holidays" );
   if ( !location.isEmpty() ) {
-    if ( mHolidays ) delete mHolidays;
+    if ( mHolidays ) {
+      delete mHolidays;
+    }
     mHolidays = new LibKHolidays::KHolidays( location );
     return true;
   }
@@ -191,16 +193,16 @@ int SDSummaryWidget::span( KCal::Event *event )
     }
     while ( d < event->dtEnd().date() ) {
       span++;
-      d=d.addDays( 1 );
+      d = d.addDays( 1 );
     }
   }
   return span;
 }
 
 // day of a multiday Event
-int SDSummaryWidget::dayof( KCal::Event *event, const QDate& date )
+int SDSummaryWidget::dayof( KCal::Event *event, const QDate &date )
 {
-  int dayof=1;
+  int dayof = 1;
   QDate d = event->dtStart().date();
   if ( d < QDate::currentDate() ) {
     d = QDate::currentDate();
@@ -214,8 +216,6 @@ int SDSummaryWidget::dayof( KCal::Event *event, const QDate& date )
   return dayof;
 }
 
-
-
 void SDSummaryWidget::updateView()
 {
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
@@ -225,7 +225,7 @@ void SDSummaryWidget::updateView()
   // Remove all special date labels from the layout and delete them, as we
   // will re-create all labels below.
   setUpdatesEnabled( false );
-  foreach( label, mLabels ) {
+  foreach ( label, mLabels ) {
     mLayout->removeWidget( label );
     delete( label );
   }
@@ -233,8 +233,7 @@ void SDSummaryWidget::updateView()
 
   // No reason to show the date year
   QString savefmt = KGlobal::locale()->dateFormat();
-  KGlobal::locale()->setDateFormat( KGlobal::locale()->
-                                    dateFormat().replace( 'Y', ' ' ) );
+  KGlobal::locale()->setDateFormat( KGlobal::locale()->dateFormat().replace( 'Y', ' ' ) );
 
   // Search for Birthdays and Anniversaries in the Addressbook
   KABC::AddressBook::Iterator it;
@@ -249,12 +248,12 @@ void SDSummaryWidget::updateView()
       entry.date = birthday;
       entry.addressee = *it;
       entry.span = 1;
-      if ( entry.daysTo <= mDaysAhead )
+      if ( entry.daysTo <= mDaysAhead ) {
         dates.append( entry );
+      }
     }
 
-    QString anniversaryAsString =
-      (*it).custom( "KADDRESSBOOK" , "X-Anniversary" );
+    QString anniversaryAsString = (*it).custom( "KADDRESSBOOK", "X-Anniversary" );
     if ( !anniversaryAsString.isEmpty() ) {
       QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
       if ( anniversary.isValid() && mShowAnniversariesFromKAB ) {
@@ -266,8 +265,9 @@ void SDSummaryWidget::updateView()
         entry.date = anniversary;
         entry.addressee = *it;
         entry.span = 1;
-        if ( entry.daysTo <= mDaysAhead )
+        if ( entry.daysTo <= mDaysAhead ) {
           dates.append( entry );
+        }
       }
     }
   }
@@ -283,16 +283,15 @@ void SDSummaryWidget::updateView()
                                                   KCal::SortDirectionAscending );
     KCal::Event *ev;
     KCal::Event::List::ConstIterator it;
-    for ( it=events.begin(); it!=events.end(); ++it ) {
+    for ( it = events.begin(); it != events.end(); ++it ) {
       ev = *it;
       if ( !ev->categoriesStr().isEmpty() ) {
         QStringList::ConstIterator it2;
         QStringList c = ev->categories();
-        for ( it2=c.begin(); it2!=c.end(); ++it2 ) {
+        for ( it2 = c.begin(); it2 != c.end(); ++it2 ) {
 
           // Append Birthday Event?
-          if ( mShowBirthdaysFromCal &&
-               ( ( *it2 ).toUpper() == i18n( "BIRTHDAY" ) ) ) {
+          if ( mShowBirthdaysFromCal && ( ( *it2 ).toUpper() == i18n( "BIRTHDAY" ) ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryBirthday;
@@ -306,8 +305,7 @@ void SDSummaryWidget::updateView()
           }
 
           // Append Anniversary Event?
-          if ( mShowAnniversariesFromCal &&
-               ( ( *it2 ).toUpper() == i18n( "ANNIVERSARY" ) ) ) {
+          if ( mShowAnniversariesFromCal && ( ( *it2 ).toUpper() == i18n( "ANNIVERSARY" ) ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryAnniversary;
@@ -321,8 +319,7 @@ void SDSummaryWidget::updateView()
           }
 
           // Append Holiday Event?
-          if ( mShowHolidays &&
-               ( ( *it2 ).toUpper() == i18n( "HOLIDAY" ) ) ) {
+          if ( mShowHolidays && ( ( *it2 ).toUpper() == i18n( "HOLIDAY" ) ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryHoliday;
@@ -332,15 +329,15 @@ void SDSummaryWidget::updateView()
             dateDiff( dt, entry.daysTo, entry.yearsOld );
             entry.yearsOld = -1; //ignore age of holidays
             entry.span = span( ev );
-            if ( entry.span > 1 && dayof( ev, dt ) > 1 ) // skip days 2,3,...
+            if ( entry.span > 1 && dayof( ev, dt ) > 1 ) { // skip days 2,3,...
               break;
+            }
             dates.append( entry );
             break;
           }
 
           // Append Special Occasion Event?
-          if ( mShowSpecialsFromCal &&
-               ( ( *it2 ).toUpper() == i18n( "SPECIAL OCCASION" ) ) ) {
+          if ( mShowSpecialsFromCal && ( ( *it2 ).toUpper() == i18n( "SPECIAL OCCASION" ) ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryOther;
@@ -350,8 +347,9 @@ void SDSummaryWidget::updateView()
             dateDiff( dt, entry.daysTo, entry.yearsOld );
             entry.yearsOld = -1; //ignore age of special occasions
             entry.span = span( ev );
-            if ( entry.span > 1 && dayof( ev, dt ) > 1 ) // skip days 2,3,...
+            if ( entry.span > 1 && dayof( ev, dt ) > 1 ) { // skip days 2,3,...
               break;
+            }
             dates.append( entry );
             break;
           }
@@ -371,7 +369,8 @@ void SDSummaryWidget::updateView()
         for ( ; it != holidays.end(); ++it ) {
           SDEntry entry;
           entry.type = IncidenceTypeEvent;
-          entry.category = ((*it).Category==LibKHolidays::KHolidays::HOLIDAY)?CategoryHoliday:CategoryOther;
+          entry.category = ( (*it).Category == LibKHolidays::KHolidays::HOLIDAY )?
+                           CategoryHoliday : CategoryOther;
           entry.date = dt;
           entry.summary = (*it).text;
           dateDiff( dt, entry.daysTo, entry.yearsOld );
@@ -423,16 +422,17 @@ void SDSummaryWidget::updateView()
         }
         break;
       case CategoryHoliday:
-        icon_name = "favorites"; break;
+        icon_name = "favorites";
+        break;
       case CategoryOther:
-        icon_name = "user-identity"; break;
+        icon_name = "user-identity";
+        break;
       }
       label = new QLabel( this );
       if ( icon_img.isNull() ) {
-        label->setPixmap( KIconLoader::global()->loadIcon( icon_name,
-                                                           KIconLoader::Small ) );
+        label->setPixmap( KIconLoader::global()->loadIcon( icon_name, KIconLoader::Small ) );
       } else {
-        label->setPixmap( QPixmap::fromImage(icon_img) );
+        label->setPixmap( QPixmap::fromImage( icon_img ) );
       }
       label->setMaximumWidth( label->minimumSizeHint().width() );
       label->setAlignment( Qt::AlignVCenter );
@@ -444,8 +444,7 @@ void SDSummaryWidget::updateView()
 
       //Muck with the year -- change to the year 'daysTo' days away
       int year = QDate::currentDate().addDays( (*addrIt).daysTo ).year();
-      QDate sD = QDate( year,
-                           (*addrIt).date.month(), (*addrIt).date.day() );
+      QDate sD = QDate( year, (*addrIt).date.month(), (*addrIt).date.day() );
 
       if ( (*addrIt).daysTo == 0 ) {
         datestr = i18n( "Today" );
@@ -488,13 +487,17 @@ void SDSummaryWidget::updateView()
       QString what;
       switch( (*addrIt).category ) {
       case CategoryBirthday:
-        what = i18n( "Birthday" ); break;
+        what = i18n( "Birthday" );
+        break;
       case CategoryAnniversary:
-        what = i18n( "Anniversary" ); break;
+        what = i18n( "Anniversary" );
+        break;
       case CategoryHoliday:
-        what = i18n( "Holiday" ); break;
+        what = i18n( "Holiday" );
+        break;
       case CategoryOther:
-        what = i18n( "Special Occasion" ); break;
+        what = i18n( "Special Occasion" );
+        break;
       }
       label = new QLabel( this );
       label->setText( what );
@@ -512,10 +515,10 @@ void SDSummaryWidget::updateView()
         mLayout->addWidget( urlLabel, counter, 4 );
         mLabels.append( urlLabel );
 
-        connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
-                 this, SLOT( mailContact( const QString& ) ) );
-        connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
-                 this, SLOT( popupMenu( const QString& ) ) );
+        connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
+                 this, SLOT(mailContact(const QString&)) );
+        connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
+                 this, SLOT(popupMenu(const QString&)) );
       } else {
         label = new QLabel( this );
         label->setText( (*addrIt).summary );
@@ -534,7 +537,7 @@ void SDSummaryWidget::updateView()
         if ( (*addrIt).yearsOld <= 0 ) {
           label->setText( "" );
         } else {
-          label->setText( i18np( "one year", "%1 years", (*addrIt).yearsOld  ) );
+          label->setText( i18np( "one year", "%1 years", (*addrIt).yearsOld ) );
         }
         label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
         mLayout->addWidget( label, counter, 5 );
@@ -554,8 +557,9 @@ void SDSummaryWidget::updateView()
   }
 
   QList<QLabel*>::iterator lit;
-  for ( lit = mLabels.begin(); lit != mLabels.end() ; ++lit )
+  for ( lit = mLabels.begin(); lit != mLabels.end(); ++lit ) {
     (*lit)->show();
+  }
 
   setUpdatesEnabled( true );
   KGlobal::locale()->setDateFormat( savefmt );
@@ -571,38 +575,45 @@ void SDSummaryWidget::mailContact( const QString &uid )
 
 void SDSummaryWidget::viewContact( const QString &uid )
 {
-  if ( !mPlugin->isRunningStandalone() )
+  if ( !mPlugin->isRunningStandalone() ) {
     mPlugin->core()->selectPlugin( "kontact_kaddressbookplugin" );
-  else
+  } else {
     mPlugin->bringToForeground();
+  }
 
-  org::kde::KAddressbook::Core kaddressbook("org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus());
-  kaddressbook.showContactEditor(uid);
+  org::kde::KAddressbook::Core kaddressbook(
+    "org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus() );
+  kaddressbook.showContactEditor( uid );
 }
 
 void SDSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
-  QAction *sendMailAction = popup.addAction( KIconLoader::global()->loadIcon( "internet-mail", KIconLoader::Small ),
-                    i18n( "Send &Mail" ));
-  QAction * viewContactAction = popup.addAction( KIconLoader::global()->loadIcon( "office-address-book", KIconLoader::Small ),
-                    i18n( "View &Contact" ) );
+  QAction *sendMailAction = popup.addAction(
+    KIconLoader::global()->loadIcon( "internet-mail", KIconLoader::Small ),
+    i18n( "Send &Mail" ) );
+  QAction * viewContactAction = popup.addAction(
+    KIconLoader::global()->loadIcon( "office-address-book", KIconLoader::Small ),
+    i18n( "View &Contact" ) );
 
   QAction *ret = popup.exec( QCursor::pos() );
-  if( ret == sendMailAction)
-		  mailContact( uid );
-  else if( ret == viewContactAction )
-		  viewContact( uid );
+  if ( ret == sendMailAction ) {
+    mailContact( uid );
+  } else if ( ret == viewContactAction ) {
+    viewContact( uid );
+  }
 }
 
-bool SDSummaryWidget::eventFilter( QObject *obj, QEvent* e )
+bool SDSummaryWidget::eventFilter( QObject *obj, QEvent *e )
 {
   if ( obj->inherits( "KUrlLabel" ) ) {
     KUrlLabel* label = static_cast<KUrlLabel*>( obj );
-    if ( e->type() == QEvent::Enter )
+    if ( e->type() == QEvent::Enter ) {
       emit message( i18n( "Mail to:\"%1\"", label->text() ) );
-    if ( e->type() == QEvent::Leave )
+    }
+    if ( e->type() == QEvent::Leave ) {
       emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
+    }
   }
 
   return Kontact::Summary::eventFilter( obj, e );
@@ -615,10 +626,11 @@ void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
 
   if ( QDate::isLeapYear( date.year() ) && date.month() == 2 && date.day() == 29 ) {
     currentDate = QDate( date.year(), QDate::currentDate().month(), QDate::currentDate().day() );
-    if ( !QDate::isLeapYear( QDate::currentDate().year() ) )
+    if ( !QDate::isLeapYear( QDate::currentDate().year() ) ) {
       eventDate = QDate( date.year(), date.month(), 28 ); // celebrate one day earlier ;)
-    else
+    } else {
       eventDate = QDate( date.year(), date.month(), date.day() );
+    }
   } else {
     currentDate = QDate( QDate::currentDate().year(),
                          QDate::currentDate().month(),

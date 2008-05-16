@@ -23,7 +23,8 @@
 #ifndef KONTACT_MAINWINDOW_H
 #define KONTACT_MAINWINDOW_H
 
-#include "core.h"
+#include "kontact_export.h"
+#include <kontactinterfaces/core.h>
 
 #include <kparts/part.h>
 #include <kparts/partmanager.h>

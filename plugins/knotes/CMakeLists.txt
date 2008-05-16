@@ -1,7 +1,4 @@
 
-include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces  )
-
-
 ########### next target ###############
 
 set(kontact_knotesplugin_PART_SRCS ${libknotesresources_SRCS} ${libknoteseditor_SRCS} 
@@ -9,24 +6,19 @@ set(kontact_knotesplugin_PART_SRCS ${libknotesresources_SRCS} ${libknoteseditor_
    knotes_part.cpp 
    summarywidget.cpp 
    knotetip.cpp
-   ${CMAKE_SOURCE_DIR}/knotes/knoteprinter.cpp )
+   ${CMAKE_SOURCE_DIR}/knotes/knoteprinter.cpp)
 
-qt4_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml knotes_part.h KNotesPart  )
-
+qt4_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml knotes_part.h KNotesPart)
 
 kde4_add_plugin(kontact_knotesplugin ${kontact_knotesplugin_PART_SRCS})
 
-
-
-kdepim4_link_unique_libraries(kontact_knotesplugin  kpinterfaces kdepim ${KDE4_KCAL_LIBS} ${KDE4_KRESOURCES_LIBS} ${KDE4_KDEPRINT_LIBS})
-
-install(TARGETS kontact_knotesplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
-
+kdepim4_link_unique_libraries(kontact_knotesplugin  kontactinterfaces kdepim ${KDE4_KCAL_LIBS} ${KDE4_KRESOURCES_LIBS} ${KDE4_KDEPRINT_LIBS})
 
 ########### install files ###############
 
-install( FILES knotes_part.rc  DESTINATION ${DATA_INSTALL_DIR}/knotes)
-install( FILES knotesplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-install( FILES org.kde.kontact.KNotes.xml DESTINATION ${KDE4_DBUS_INTERFACES_DIR})
+install(TARGETS kontact_knotesplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
+install(FILES knotes_part.rc  DESTINATION ${DATA_INSTALL_DIR}/knotes)
+install(FILES knotesplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install(FILES org.kde.kontact.KNotes.xml DESTINATION ${KDE4_DBUS_INTERFACES_DIR})
 
 

@@ -1,74 +1,71 @@
 /*
-    This file is part of Kontact.
-    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+  This file is part of Kontact.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
+
+#include "kcmkontactknt.h"
+#include "newsfeeds.h"
 
 #include <q3groupbox.h>
 #include <QLabel>
 #include <QLayout>
 #include <QLineEdit>
-#include <QVector>
-#include <QSpinBox>
-//Added by qt3to4:
-#include <QVBoxLayout>
 #include <QGridLayout>
-
+#include <QSpinBox>
+#include <QVBoxLayout>
+#include <QVector>
 #include <QtDBus/QtDBus>
 
+#include <k3listview.h>
 #include <kaboutdata.h>
 #include <kacceleratormanager.h>
 #include <kcomponentdata.h>
 #include <kconfig.h>
 #include <kdebug.h>
-#include <k3listview.h>
+#include <kdemacros.h>
 #include <klocale.h>
 #include <kpushbutton.h>
-
-#include "kcmkontactknt.h"
-
-#include "newsfeeds.h"
-
-#include <kdemacros.h>
 #include <ktoolinvocation.h>
 
 extern "C"
 {
   KDE_EXPORT KCModule *create_kontactknt( QWidget *parent, const char * )
   {
-	KComponentData inst("kcmkontactknt" );
-    return new KCMKontactKNT( inst,parent );
+    KComponentData inst( "kcmkontactknt" );
+    return new KCMKontactKNT( inst, parent );
   }
 }
 
-NewsEditDialog::NewsEditDialog( const QString& title, const QString& url, QWidget *parent )
-  : KDialog( parent)
+NewsEditDialog::NewsEditDialog( const QString &title, const QString &url, QWidget *parent )
+  : KDialog( parent )
 {
-  setCaption(i18n( "New News Feed" ));
-  setButtons(Ok | Cancel);
-  setDefaultButton(Ok);
-  setModal(true);
-  showButtonSeparator(true);
+  setCaption( i18n( "New News Feed" ) );
+  setButtons( Ok | Cancel );
+  setDefaultButton( Ok );
+  setModal( true );
+  showButtonSeparator( true );
 
-  QWidget *page = new QWidget(this);
-  setMainWidget(page);
+  QWidget *page = new QWidget( this );
+  setMainWidget( page );
   QGridLayout *layout = new QGridLayout( page );
   layout->setSpacing( spacingHint() );
   layout->setMargin( marginHint() );
@@ -90,10 +87,10 @@ NewsEditDialog::NewsEditDialog( const QString& title, const QString& url, QWidge
   mTitle->setText( title );
   mURL->setText( url );
   mTitle->setFocus();
-  connect( mTitle, SIGNAL( textChanged( const QString& ) ),
-           this, SLOT( modified() ) );
-  connect( mURL, SIGNAL( textChanged( const QString& ) ),
-           this, SLOT( modified() ) );
+  connect( mTitle, SIGNAL(textChanged(const QString&)),
+           this, SLOT(modified()) );
+  connect( mURL, SIGNAL(textChanged(const QString&)),
+           this, SLOT(modified()) );
 
   modified();
 }
@@ -116,13 +113,13 @@ QString NewsEditDialog::url() const
 class NewsItem : public Q3ListViewItem
 {
   public:
-    NewsItem( Q3ListView *parent, const QString& title, const QString& url, bool custom )
+    NewsItem( Q3ListView *parent, const QString &title, const QString &url, bool custom )
       : Q3ListViewItem( parent ), mTitle( title ), mUrl( url ), mCustom( custom )
     {
       setText( 0, mTitle );
     }
 
-    NewsItem( Q3ListViewItem *parent, const QString& title, const QString& url, bool custom )
+    NewsItem( Q3ListViewItem *parent, const QString &title, const QString &url, bool custom )
       : Q3ListViewItem( parent ), mTitle( title ), mUrl( url ), mCustom( custom )
     {
       setText( 0, mTitle );
@@ -138,23 +135,23 @@ class NewsItem : public Q3ListViewItem
     bool mCustom;
 };
 
-KCMKontactKNT::KCMKontactKNT( const KComponentData &inst,QWidget *parent )
+KCMKontactKNT::KCMKontactKNT( const KComponentData &inst, QWidget *parent )
   : KCModule( inst, parent )
 {
   initGUI();
 
-  connect( mAllNews, SIGNAL( currentChanged( Q3ListViewItem* ) ),
-           this, SLOT( allCurrentChanged( Q3ListViewItem* ) ) );
-  connect( mSelectedNews, SIGNAL( selectionChanged( Q3ListViewItem* ) ),
-           this, SLOT( selectedChanged( Q3ListViewItem* ) ) );
+  connect( mAllNews, SIGNAL(currentChanged(Q3ListViewItem*)),
+           this, SLOT(allCurrentChanged(Q3ListViewItem*)) );
+  connect( mSelectedNews, SIGNAL(selectionChanged(Q3ListViewItem*)),
+           this, SLOT(selectedChanged(Q3ListViewItem*)) );
 
-  connect( mUpdateInterval, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
-  connect( mArticleCount, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
+  connect( mUpdateInterval, SIGNAL(valueChanged(int)), SLOT(modified()) );
+  connect( mArticleCount, SIGNAL(valueChanged(int)), SLOT(modified()) );
 
-  connect( mAddButton, SIGNAL( clicked() ), this, SLOT( addNews() ) );
-  connect( mRemoveButton, SIGNAL( clicked() ), this, SLOT( removeNews() ) );
-  connect( mNewButton, SIGNAL( clicked() ), this, SLOT( newFeed() ) );
-  connect( mDeleteButton, SIGNAL( clicked() ), this, SLOT( deleteFeed() ) );
+  connect( mAddButton, SIGNAL(clicked()), this, SLOT(addNews()) );
+  connect( mRemoveButton, SIGNAL(clicked()), this, SLOT(removeNews()) );
+  connect( mNewButton, SIGNAL(clicked()), this, SLOT(newFeed()) );
+  connect( mDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFeed()) );
 
   KAcceleratorManager::manage( this );
 
@@ -173,8 +170,9 @@ void KCMKontactKNT::loadNews()
   parents.append( new Q3ListViewItem( mAllNews, i18n( "Recreation" ) ) );
   parents.append( new Q3ListViewItem( mAllNews, i18n( "Society" ) ) );
 
-  for ( it = parents.begin(); it != parents.end(); ++it )
+  for ( it = parents.begin(); it != parents.end(); ++it ) {
     (*it)->setSelectable( false );
+  }
 
   for ( int i = 0; i < DEFAULT_NEWSSOURCES; ++i ) {
     NewsSourceData data = NewsSourceDefault[ i ];
@@ -192,8 +190,9 @@ void KCMKontactKNT::loadCustomNews()
   mCustomItem = new Q3ListViewItem( mAllNews, i18n( "Custom" ) );
   mCustomItem->setSelectable( false );
 
-  if ( customFeeds.count() == 0 )
+  if ( customFeeds.count() == 0 ) {
     mCustomItem->setVisible( false );
+  }
 
   QStringList::ConstIterator it;
   for ( it = customFeeds.begin(); it != customFeeds.end(); ++it ) {
@@ -225,12 +224,14 @@ void KCMKontactKNT::storeCustomNews()
 
 void KCMKontactKNT::addNews()
 {
-  if ( !dbusActive() )
+  if ( !dbusActive() ) {
     return;
+  }
 
   NewsItem *item = dynamic_cast<NewsItem*>( mAllNews->selectedItem() );
-  if ( item == 0 )
+  if ( item == 0 ) {
     return;
+  }
 
 #ifdef __GNUC__
   #warning "insert the right dbus path/interface here, once knewsticker has been ported"
@@ -245,12 +246,14 @@ void KCMKontactKNT::addNews()
 
 void KCMKontactKNT::removeNews()
 {
-  if ( !dbusActive() )
+  if ( !dbusActive() ) {
     return;
+  }
 
   NewsItem *item = dynamic_cast<NewsItem*>( mSelectedNews->selectedItem() );
-  if ( item == 0 )
+  if ( item == 0 ) {
     return;
+  }
 
 #ifdef __GNUC__
   #warning "insert the right dbus path/interface here, once knewsticker has been ported"
@@ -284,26 +287,30 @@ void KCMKontactKNT::newFeed()
 void KCMKontactKNT::deleteFeed()
 {
   NewsItem *item = dynamic_cast<NewsItem*>( mAllNews->selectedItem() );
-  if ( !item )
+  if ( !item ) {
     return;
+  }
 
-  if ( !mCustomFeeds.contains( item )  )
+  if ( !mCustomFeeds.contains( item ) ) {
     return;
+  }
 
   mCustomFeeds.removeAll( item );
   mFeedMap.remove( item->url() );
   delete item;
 
-  if ( mCustomFeeds.count() == 0 )
+  if ( mCustomFeeds.count() == 0 ) {
     mCustomItem->setVisible( false );
+  }
 
   emit changed( true );
 }
 
 void KCMKontactKNT::scanNews()
 {
-  if ( !dbusActive() )
+  if ( !dbusActive() ) {
     return;
+  }
 
   mSelectedNews->clear();
 
@@ -314,12 +321,12 @@ void KCMKontactKNT::scanNews()
   QDBusReply<QStringList> reply = service.call( "list()" );
   QStringList urls = reply.value();
 
-  for ( int i = 0; i < urls.count(); ++i )
-  {
+  for ( int i = 0; i < urls.count(); ++i ) {
     QString url = urls[ i ];
     QString feedName = mFeedMap[ url ];
-    if ( feedName.isEmpty() )
+    if ( feedName.isEmpty() ) {
       feedName = url;
+    }
     new NewsItem( mSelectedNews, feedName, url, false );
   }
 }
@@ -337,7 +344,7 @@ void KCMKontactKNT::allCurrentChanged( Q3ListViewItem *item )
   bool delState = false;
   if ( newsItem && newsItem->isSelected() ) {
     addState = true;
-    delState = (mCustomFeeds.contains( newsItem ) );
+    delState = ( mCustomFeeds.contains( newsItem ) );
   }
 
   mAddButton->setEnabled( addState );
@@ -423,8 +430,10 @@ bool KCMKontactKNT::dbusActive() const
 #endif
   QDBusInterface service( "org.kde.rssservice", "/", "org.kde.rssservice.RSSService" );
   if ( !service.isValid() ) {
-    if ( KToolInvocation::startServiceByDesktopName( "rssservice", QStringList(), &error, &appID ) )
+    if ( KToolInvocation::startServiceByDesktopName(
+           "rssservice", QStringList(), &error, &appID ) ) {
       isGood = false;
+    }
   }
 
   return isGood;
@@ -466,14 +475,15 @@ void KCMKontactKNT::defaults()
 {
 }
 
-const KAboutData* KCMKontactKNT::aboutData() const
+const KAboutData *KCMKontactKNT::aboutData() const
 {
   KAboutData *about = new KAboutData( I18N_NOOP( "kcmkontactknt" ), 0,
                                       ki18n( "Newsticker Configuration Dialog" ),
                                       0, KLocalizedString(), KAboutData::License_GPL,
                                       ki18n( "(c) 2003 - 2004 Tobias Koenig" ) );
 
-  about->addAuthor( ki18n("Tobias Koenig"), KLocalizedString(), "tokoe@kde.org" );
+  about->addAuthor( ki18n( "Tobias Koenig" ),
+                    KLocalizedString(), "tokoe@kde.org" );
 
   return about;
 }

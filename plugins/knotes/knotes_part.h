@@ -1,36 +1,33 @@
 /*
-   This file is part of the KDE project
-   Copyright (C) 2002 Daniel Molkentin <molkentin@kde.org>
-   Copyright (C) 2004 Michael Brade <brade@kde.org>
+  This file is part of the KDE project
 
-   This program is free software; you can redistribute it and/or
-   modify it under the terms of the GNU General Public
-   License as published by the Free Software Foundation; either
-   version 2 of the License, or (at your option) any later version.
+  Copyright (C) 2002 Daniel Molkentin <molkentin@kde.org>
+  Copyright (C) 2004 Michael Brade <brade@kde.org>
 
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   General Public License for more details.
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public
+  License as published by the Free Software Foundation; either
+  version 2 of the License, or (at your option) any later version.
 
-   You should have received a copy of the GNU General Public License
-   along with this program; see the file COPYING.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; see the file COPYING.  If not, write to
+  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  Boston, MA 02110-1301, USA.
 */
 
 #ifndef KNOTES_PART_H
 #define KNOTES_PART_H
 
-#include <q3dict.h>
-
-#include <k3iconview.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-
 #include <kcal/journal.h>
+
 #include <kparts/part.h>
 
+#include <q3dict.h>
 
 class K3IconView;
 class Q3IconViewItem;
@@ -40,33 +37,33 @@ class KNoteEditDlg;
 class KNotesResourceManager;
 
 namespace KCal {
-class Journal;
+  class Journal;
 }
 
-class KNotesPart : public KParts::ReadOnlyPart 
+class KNotesPart : public KParts::ReadOnlyPart
 {
   Q_OBJECT
 
   public:
     KNotesPart( QObject *parent = 0 );
-   ~KNotesPart();
+    ~KNotesPart();
 
     bool openFile();
 
   public slots:
-    QString newNote( const QString& name = QString(),
-                     const QString& text = QString() );
-    QString newNoteFromClipboard( const QString& name = QString() );
+    QString newNote( const QString &name = QString(),
+                     const QString &text = QString() );
+    QString newNoteFromClipboard( const QString &name = QString() );
 
   public:
-    void killNote( const QString& id );
-    void killNote( const QString& id, bool force );
+    void killNote( const QString &id );
+    void killNote( const QString &id, bool force );
 
-    QString name( const QString& id ) const;
-    QString text( const QString& id ) const;
+    QString name( const QString &id ) const;
+    QString text( const QString &id ) const;
 
-    void setName( const QString& id, const QString& newName );
-    void setText( const QString& id, const QString& newText );
+    void setName( const QString &id, const QString &newName );
+    void setText( const QString &id, const QString &newText );
 
     QMap<QString, QString> notes() const;
 
@@ -83,7 +80,7 @@ class KNotesPart : public KParts::ReadOnlyPart
     void slotOnViewport();
     void slotOnCurrentChanged( Q3IconViewItem *item );
 
-    void popupRMB( Q3IconViewItem *item, const QPoint& pos );
+    void popupRMB( Q3IconViewItem *item, const QPoint &pos );
     void killSelectedNotes();
 
     void printSelectedNotes();

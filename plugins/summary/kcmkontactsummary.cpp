@@ -24,19 +24,20 @@
 */
 
 #include "kcmkontactsummary.h"
-#include "plugin.h"
+
+#include <kontactinterfaces/plugin.h>
 
 #include <kaboutdata.h>
+#include <kcomponentdata.h>
 #include <kconfig.h>
 #include <kdebug.h>
+#include <kdeversion.h>
 #include <kdialog.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kdemacros.h>
-#include <kdeversion.h>
 #include <kplugininfo.h>
 #include <kservicetypetrader.h>
-#include <kcomponentdata.h>
 
 #include <QLabel>
 #include <QVBoxLayout>
@@ -113,8 +114,8 @@ KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *paren
   layout->setStretchFactor( mPluginView, 1 );
 
   load();
-  connect( mPluginView, SIGNAL( itemChanged( QTreeWidgetItem *, int ) ),
-           this, SLOT( changed() ) );
+  connect( mPluginView, SIGNAL(itemChanged(QTreeWidgetItem*,int)),
+           this, SLOT(changed()) );
 
   KAboutData *about = new KAboutData( I18N_NOOP( "kontactsummary" ), 0,
                                       ki18n( "KDE Kontact Summary" ),

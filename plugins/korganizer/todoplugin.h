@@ -24,7 +24,7 @@
 #ifndef KONTACT_TODOPLUGIN_H
 #define KONTACT_TODOPLUGIN_H
 
-#include "plugin.h"
+#include <kontactinterfaces/plugin.h>
 
 namespace Kontact {
   class UniqueAppWatcher;

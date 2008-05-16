@@ -1,5 +1,6 @@
 /*
   This file is part of Kontact.
+
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
   Copyright (c) 2004-2005 Allen Winter <winter@kde.org>
 
@@ -25,14 +26,14 @@
 #include "plannerplugin.h"
 #include "planner.h"
 
-#include "core.h"
+#include <kontactinterfaces/core.h>
 
-#include <kparts/componentfactory.h>
 #include <kaboutdata.h>
 #include <kgenericfactory.h>
 #include <klocale.h>
+#include <kparts/componentfactory.h>
 
-EXPORT_KONTACT_PLUGIN(PlannerPlugin, planner)
+EXPORT_KONTACT_PLUGIN( PlannerPlugin, planner )
 
 PlannerPlugin::PlannerPlugin( Kontact::Core *core, const QVariantList & )
   : Kontact::Plugin( core, core, 0 ),

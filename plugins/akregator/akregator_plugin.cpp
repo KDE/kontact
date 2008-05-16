@@ -22,29 +22,29 @@
   without including the source code for Qt in the source distribution.
 */
 
-#include <QWidget>
+#include "akregator_plugin.h"
+#include "partinterface.h"
+
+#include <akregator_options.h>
+#include <akregator_part.h>
+
+#include <kontactinterfaces/core.h>
+#include <kontactinterfaces/plugin.h>
 
 #include <kaboutdata.h>
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <kcmdlineargs.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
-#include <kactioncollection.h>
+#include <kicon.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
 
-#include <core.h>
-#include <plugin.h>
-#include <kicon.h>
-#include <akregator_options.h>
-#include <akregator_part.h>
-#include "akregator_plugin.h"
-#include "partinterface.h"
-
 using namespace Akregator;
 
-EXPORT_KONTACT_PLUGIN(Akregator::Plugin, akregator)
+EXPORT_KONTACT_PLUGIN( Akregator::Plugin, akregator )
 
 Plugin::Plugin( Kontact::Core *core, const QVariantList & )
   : Kontact::Plugin( core, core, "akregator" ), m_interface( 0 )
@@ -148,7 +148,7 @@ void UniqueAppHandler::loadCommandLineOptions()
 
 int UniqueAppHandler::newInstance()
 {
-  kDebug(5602) ;
+  kDebug() ;
   // Ensure part is loaded
   (void)plugin()->part();
 #ifdef __GNUC__
@@ -158,7 +158,7 @@ int UniqueAppHandler::newInstance()
 //    DCOPReply reply = kAB.call( "handleCommandLine" );
   //  if ( reply.isValid() ) {
     //    bool handled = reply;
-     //   kDebug(5602) <<"handled=" << handled;
+     //   kDebug() <<"handled=" << handled;
      //   if ( !handled ) // no args -> simply bring kaddressbook plugin to front
   return Kontact::UniqueAppHandler::newInstance();
    // }

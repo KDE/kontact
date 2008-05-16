@@ -47,12 +47,12 @@ KCMApptSummary::KCMApptSummary( const KComponentData &inst, QWidget *parent )
 
   customDaysChanged( 7 );
 
-  connect( mDateTodayButton, SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mDateMonthButton, SIGNAL( clicked( int ) ), SLOT( modified() ) );
-  connect( mDateRangeButton, SIGNAL( clicked( int ) ), SLOT( modified() ) );
+  connect( mDateTodayButton, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mDateMonthButton, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mDateRangeButton, SIGNAL(clicked(int)), SLOT(modified()) );
 
-  connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( modified() ) );
-  connect( mCustomDays, SIGNAL( valueChanged( int ) ), SLOT( customDaysChanged( int ) ) );
+  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
+  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
 
   KAcceleratorManager::manage( this );
 

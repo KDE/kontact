@@ -1,5 +1,6 @@
 /*
   This file is part of Kontact.
+
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
   Copyright (c) 2005-2006,2008 Allen Winter <winter@kde.org>
 
@@ -25,7 +26,7 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include "summary.h"
+#include <kontactinterfaces/summary.h>
 #include <QList>
 
 namespace KCal {
@@ -34,6 +35,7 @@ namespace KCal {
 
 class KOrganizerPlugin;
 
+class QDate;
 class QEvent;
 class QGridLayout;
 class QLabel;

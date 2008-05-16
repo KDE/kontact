@@ -22,17 +22,15 @@
 */
 
 #include "summaryview_part.h"
-#include "summary.h"
-#include "plugin.h"
 
+#include <kontactinterfaces/summary.h>
+#include <kontactinterfaces/plugin.h>
 #include <libkdepim/broadcaststatus.h>
 using KPIM::BroadcastStatus;
 
 #include <kpimidentities/identity.h>
 #include <kpimidentities/identitymanager.h>
 
-#include <kparts/componentfactory.h>
-#include <kparts/event.h>
 #include <kaction.h>
 #include <kactioncollection.h>
 #include <kconfig.h>
@@ -40,14 +38,16 @@ using KPIM::BroadcastStatus;
 #include <kdebug.h>
 #include <kdialog.h>
 #include <kcomponentdata.h>
+#include <kglobal.h>
+#include <kglobalsettings.h>
+#include <kicon.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kservice.h>
 #include <kstandarddirs.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
 #include <kcmultidialog.h>
-#include <kicon.h>
+#include <kparts/componentfactory.h>
+#include <kparts/event.h>
 
 #include <QLabel>
 #include <QLayout>

@@ -1,35 +1,36 @@
 /*
-    This file is part of Kontact.
-    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+  This file is part of Kontact.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
 
+#include "summarywidget.h"
+
 #include <QClipboard>
-#include <QEventLoop>
-#include <khbox.h>
-#include <QLayout>
-#include <QPixmap>
-#include <QMenu>
 #include <QCursor>
-//Added by qt3to4:
+#include <QEventLoop>
 #include <QLabel>
+#include <QLayout>
+#include <QMenu>
+#include <QPixmap>
 #include <QVBoxLayout>
 
 #include <kapplication.h>
@@ -38,12 +39,11 @@
 #include <kconfiggroup.h>
 #include <kdebug.h>
 #include <kglobal.h>
+#include <khbox.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kurllabel.h>
 #include <ktoolinvocation.h>
-
-#include "summarywidget.h"
 
 SummaryWidget::SummaryWidget( QWidget *parent )
   : Kontact::Summary( parent ),
@@ -65,8 +65,10 @@ SummaryWidget::SummaryWidget( QWidget *parent )
 
   bool dcopAvailable = true;
   if ( !kapp->dcopClient()->isApplicationRegistered( "rssservice" ) ) {
-    if ( KToolInvocation::startServiceByDesktopName( "rssservice", QStringList(), &error, &appID ) ) {
-      QLabel *label = new QLabel( i18n( "No rss dcop service available.\nYou need rssservice to use this plugin." ), this );
+    if ( KToolInvocation::startServiceByDesktopName(
+           "rssservice", QStringList(), &error, &appID ) ) {
+      QLabel *label = new QLabel(
+        i18n( "No rss dcop service available.\nYou need rssservice to use this plugin." ), this );
       vlay->addWidget( label, Qt::AlignHCenter );
       dcopAvailable = false;
     }
@@ -77,7 +79,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
   mBaseWidget->setObjectName( "baseWidget" );
   vlay->addWidget( mBaseWidget );
 
-  connect( &mTimer, SIGNAL( timeout() ), this, SLOT( updateDocuments() ) );
+  connect( &mTimer, SIGNAL(timeout()), this, SLOT(updateDocuments()) );
 
   readConfig();
 
@@ -85,10 +87,12 @@ SummaryWidget::SummaryWidget( QWidget *parent )
 #warning Port me!
 #endif
 #if 0
-  connectDCOPSignal( 0, 0, "documentUpdateError(DCOPRef,int)", "documentUpdateError(DCOPRef, int)", false );
+  connectDCOPSignal(
+    0, 0, "documentUpdateError(DCOPRef,int)", "documentUpdateError(DCOPRef, int)", false );
 
-  if ( dcopAvailable )
+  if ( dcopAvailable ) {
     initDocuments();
+  }
 
   connectDCOPSignal( 0, 0, "added(QString)", "documentAdded(const QString &)", false );
   connectDCOPSignal( 0, 0, "removed(QString)", "documentRemoved(const QString &)", false );
@@ -158,9 +162,9 @@ void SummaryWidget::initDocuments()
     connectDCOPSignal( "rssservice", feedRef.obj(), "documentUpdated(DCOPRef)",
                        "documentUpdated(DCOPRef)", false );
 
-    if ( qApp )
-      qApp->processEvents( QEventLoop::ExcludeUserInput |
-                           QEventLoop::ExcludeSocketNotifiers );
+    if ( qApp ) {
+      qApp->processEvents( QEventLoop::ExcludeUserInput | QEventLoop::ExcludeSocketNotifiers );
+    }
   }
 #endif
 
@@ -176,8 +180,9 @@ void SummaryWidget::updateDocuments()
 #warning Port me!
 #endif
 #if 0
-  for ( it = mFeeds.begin(); it != mFeeds.end(); ++it )
+  for ( it = mFeeds.begin(); it != mFeeds.end(); ++it ) {
     (*it).ref.send( "refresh()" );
+  }
 #endif
 
   mTimer.start( 1000 * mUpdateInterval );
@@ -196,28 +201,32 @@ void SummaryWidget::documentUpdated( DCOPRef feedRef )
     DCOPRef artRef = feedRef.call( "article(int)", i );
     QString title, url;
 
-    if ( qApp )
-      qApp->processEvents( QEventLoop::ExcludeUserInput |
-                           QEventLoop::ExcludeSocketNotifiers );
+    if ( qApp ) {
+      qApp->processEvents( QEventLoop::ExcludeUserInput | QEventLoop::ExcludeSocketNotifiers );
+    }
 
     artRef.call( "title()" ).get( title );
     artRef.call( "link()" ).get( url );
 
-    QPair<QString, KUrl> article(title, KUrl( url ));
+    QPair<QString, KUrl> article( title, KUrl( url ) );
     map.append( article );
   }
 
   FeedList::Iterator it;
-  for ( it = mFeeds.begin(); it != mFeeds.end(); ++it )
+  for ( it = mFeeds.begin(); it != mFeeds.end(); ++it ) {
     if ( (*it).ref.obj() == feedRef.obj() ) {
       (*it).map = map;
-      if ( (*it).title.isEmpty() )
+      if ( (*it).title.isEmpty() ) {
         feedRef.call( "title()" ).get( (*it).title );
-      if ( (*it).url.isEmpty() )
+      }
+      if ( (*it).url.isEmpty() ) {
         feedRef.call( "link()" ).get( (*it).url );
-      if ( (*it).logo.isNull() )
+      }
+      if ( (*it).logo.isNull() ) {
         feedRef.call( "pixmap()" ).get( (*it).logo );
+      }
     }
+  }
 
   mFeedCounter++;
   if ( mFeedCounter == mFeeds.count() ) {
@@ -252,10 +261,10 @@ void SummaryWidget::updateView()
     urlLabel->setMaximumSize( urlLabel->minimumSizeHint() );
     mLabels.append( urlLabel );
 
-    connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
-             kapp, SLOT( invokeBrowser( const QString& ) ) );
-    connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
-             this, SLOT( rmbMenu( const QString& ) ) );
+    connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
+             kapp, SLOT(invokeBrowser(const QString&)) );
+    connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
+             this, SLOT(rmbMenu(const QString&)) );
 
     // header
     QLabel *label = new QLabel( hbox );
@@ -273,7 +282,8 @@ void SummaryWidget::updateView()
     ArticleMap articles = (*it).map;
     ArticleMap::Iterator artIt;
     int numArticles = 0;
-    for ( artIt = articles.begin(); artIt != articles.end() && numArticles < mArticleCount; ++artIt ) {
+    for ( artIt = articles.begin();
+          artIt != articles.end() && numArticles < mArticleCount; ++artIt ) {
       urlLabel = new KUrlLabel( (*artIt).second.url(), (*artIt).first, mBaseWidget );
       urlLabel->installEventFilter( this );
       //TODO: RichText causes too much horizontal space between articles
@@ -281,18 +291,18 @@ void SummaryWidget::updateView()
       mLabels.append( urlLabel );
       mLayout->addWidget( urlLabel );
 
-      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
-               kapp, SLOT( invokeBrowser( const QString& ) ) );
-      connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
-               this, SLOT( rmbMenu( const QString& ) ) );
-
+      connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
+               kapp, SLOT(invokeBrowser(const QString&)) );
+      connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
+               this, SLOT(rmbMenu(const QString&)) );
 
       numArticles++;
     }
   }
 
-  Q_FOREACH( QLabel *label, mLabels )
+  Q_FOREACH( QLabel *label, mLabels ) {
     label->show();
+  }
 }
 
 #ifdef __GNUC__
@@ -320,7 +330,7 @@ void SummaryWidget::documentUpdateError( DCOPRef feedRef, int errorCode )
 
 QStringList SummaryWidget::configModules() const
 {
-  return QStringList("kcmkontactknt.desktop");
+  return QStringList( "kcmkontactknt.desktop" );
 }
 
 void SummaryWidget::updateSummary( bool )
@@ -328,22 +338,25 @@ void SummaryWidget::updateSummary( bool )
   updateDocuments();
 }
 
-void SummaryWidget::rmbMenu( const QString& url )
+void SummaryWidget::rmbMenu( const QString &url )
 {
   QMenu menu;
   menu.addMenu( i18n( "Copy URL to Clipboard" ) );
-  if ( menu.exec( QCursor::pos() ) )
+  if ( menu.exec( QCursor::pos() ) ) {
     QApplication::clipboard()->setText( url, QClipboard::Clipboard );
+  }
 }
 
-bool SummaryWidget::eventFilter( QObject *obj, QEvent* e )
+bool SummaryWidget::eventFilter( QObject *obj, QEvent *e )
 {
   if ( obj->inherits( "KURLLabel" ) ) {
     KUrlLabel* label = static_cast<KUrlLabel*>( obj );
-    if ( e->type() == QEvent::Enter )
+    if ( e->type() == QEvent::Enter ) {
       emit message( label->text() );
-    if ( e->type() == QEvent::Leave )
+    }
+    if ( e->type() == QEvent::Leave ) {
       emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
+    }
   }
 
   return Kontact::Summary::eventFilter( obj, e );

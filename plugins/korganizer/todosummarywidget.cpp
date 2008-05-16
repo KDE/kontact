@@ -1,63 +1,62 @@
 /*
-    This file is part of Kontact.
-    Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-    Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
+  This file is part of Kontact.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+  Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    As a special exception, permission is given to link this program
-    with any edition of Qt, and distribute the resulting executable,
-    without including the source code for Qt in the source distribution.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+  As a special exception, permission is given to link this program
+  with any edition of Qt, and distribute the resulting executable,
+  without including the source code for Qt in the source distribution.
 */
 
-#include <QCursor>
-#include <QLabel>
-#include <QLayout>
-#include <QPixmap>
-#include <QVBoxLayout>
-#include <QGridLayout>
-#include <QEvent>
+#include "todosummarywidget.h"
+#include "todoplugin.h"
+#include "korganizerinterface.h"
 
+#include <korganizer/stdcalendar.h>
+#include <korganizer/koglobals.h>
+#include <korganizer/incidencechanger.h>
+#include <kontactinterfaces/core.h>
 
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kparts/part.h>
-#include <kmenu.h>
-#include <kstandarddirs.h>
-#include <kurllabel.h>
+#include <libkdepim/kpimprefs.h>
 
 #include <kcal/calendar.h>
 #include <kcal/resourcecalendar.h>
 #include <kcal/resourcelocal.h>
 #include <kcal/todo.h>
 #include <kcal/incidenceformatter.h>
-#include <libkdepim/kpimprefs.h>
 
-#include "core.h"
-#include "plugin.h"
-#include "todoplugin.h"
+#include <kdialog.h>
+#include <kglobal.h>
+#include <kicon.h>
+#include <kiconloader.h>
+#include <klocale.h>
+#include <kmenu.h>
+#include <kstandarddirs.h>
+#include <kurllabel.h>
+#include <kparts/part.h>
 
-#include "korganizer/stdcalendar.h"
-#include "korganizer/koglobals.h"
-#include "korganizer/incidencechanger.h"
-
-#include "todosummarywidget.h"
-#include "korganizerinterface.h"
+#include <QCursor>
+#include <QEvent>
+#include <QGridLayout>
+#include <QLabel>
+#include <QLayout>
+#include <QPixmap>
+#include <QVBoxLayout>
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mPlugin( plugin )
@@ -77,9 +76,8 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   mCalendar = KOrg::StdCalendar::self();
   mCalendar->load();
 
-  connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
-  connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
-           SLOT( updateView() ) );
+  connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
+  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), SLOT(updateView()) );
 
   updateView();
 }
@@ -94,7 +92,7 @@ void TodoSummaryWidget::updateView()
   mLabels.clear();
 
   KConfig _config( "kcmtodosummaryrc" );
-  KConfigGroup config(&_config, "Days" );
+  KConfigGroup config( &_config, "Days" );
   int mDaysToGo = config.readEntry( "DaysToShow", 7 );
 
   config.changeGroup( "Hide" );
@@ -121,20 +119,26 @@ void TodoSummaryWidget::updateView()
   Q_FOREACH ( KCal::Todo *todo, mCalendar->todos() ) {
     if ( todo->hasDueDate() ) {
       int daysTo = QDate::currentDate().daysTo( todo->dtDue().date() );
-      if ( daysTo >= mDaysToGo )
+      if ( daysTo >= mDaysToGo ) {
         continue;
+      }
     }
 
-    if ( mHideOverdue && overdue( todo ) )
+    if ( mHideOverdue && overdue( todo ) ) {
       continue;
-    if ( mHideInProgress && inProgress( todo ) )
+    }
+    if ( mHideInProgress && inProgress( todo ) ) {
       continue;
-    if ( mHideCompleted && completed( todo ) )
+    }
+    if ( mHideCompleted && completed( todo ) ) {
       continue;
-    if ( mHideOpenEnded && openEnded( todo ) )
+    }
+    if ( mHideOpenEnded && openEnded( todo ) ) {
       continue;
-    if ( mHideNotStarted && notStarted( todo ) )
+    }
+    if ( mHideNotStarted && notStarted( todo ) ) {
       continue;
+    }
 
     prList.append( todo );
   }
@@ -224,7 +228,7 @@ void TodoSummaryWidget::updateView()
           str = i18np( "in 1 day", "in %1 days", daysTo );
         } else if ( daysTo < 0 ) {
           str = i18np( "1 day ago", "%1 days ago", -daysTo );
-        } else{
+        } else {
           str = i18n( "due" );
         }
       }
@@ -254,10 +258,10 @@ void TodoSummaryWidget::updateView()
       mLayout->addWidget( urlLabel, counter, 4 );
       mLabels.append( urlLabel );
 
-      connect( urlLabel, SIGNAL( leftClickedUrl( const QString& ) ),
-               this, SLOT( viewTodo( const QString& ) ) );
-      connect( urlLabel, SIGNAL( rightClickedUrl( const QString& ) ),
-               this, SLOT( popupMenu( const QString& ) ) );
+      connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
+               this, SLOT(viewTodo(const QString&)) );
+      connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
+               this, SLOT(popupMenu(const QString&)) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipString( todo, true ) );
       if ( !tipText.isEmpty() ) {
@@ -278,15 +282,16 @@ void TodoSummaryWidget::updateView()
   if ( counter == 0 ) {
     QLabel *noTodos = new QLabel(
       i18np( "No pending to-dos due within the next day",
-            "No pending to-dos due within the next %1 days",
-            mDaysToGo ), this );
+             "No pending to-dos due within the next %1 days",
+             mDaysToGo ), this );
     noTodos->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( noTodos, 0, 2 );
     mLabels.append( noTodos );
   }
 
-  Q_FOREACH( label, mLabels )
+  Q_FOREACH( label, mLabels ) {
     label->show();
+  }
 
   KGlobal::locale()->setDateFormat( savefmt );
 }
@@ -294,14 +299,16 @@ void TodoSummaryWidget::updateView()
 void TodoSummaryWidget::viewTodo( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
-  OrgKdeKorganizerKorganizerInterface korganizer( "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus());
+  OrgKdeKorganizerKorganizerInterface korganizer(
+    "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
   korganizer.editIncidence( uid );
 }
 
 void TodoSummaryWidget::removeTodo( const QString &uid )
 {
   mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
-  OrgKdeKorganizerKorganizerInterface korganizer( "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus());
+  OrgKdeKorganizerKorganizerInterface korganizer(
+    "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
   korganizer.deleteIncidence( uid, false );
 }
 
@@ -324,14 +331,12 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   KMenu popup( this );
   QAction *editIt = popup.addAction( i18n( "&Edit To-do..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
-  delIt->setIcon( KIconLoader::global()->
-                  loadIcon( "edit-delete", KIconLoader::Small) );
+  delIt->setIcon( KIconLoader::global()->loadIcon( "edit-delete", KIconLoader::Small ) );
   QAction *doneIt = 0;
   KCal::Todo *todo = mCalendar->todo( uid );
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
-    doneIt->setIcon( KIconLoader::global()->
-                     loadIcon( "task-complete", KIconLoader::Small) );
+    doneIt->setIcon( KIconLoader::global()->loadIcon( "task-complete", KIconLoader::Small ) );
   }
   // TODO: add icons to the menu actions
 
@@ -345,16 +350,17 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   }
 }
 
-bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent* e )
+bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent *e )
 {
   if ( obj->inherits( "KUrlLabel" ) ) {
     KUrlLabel* label = static_cast<KUrlLabel*>( obj );
-    if ( e->type() == QEvent::Enter )
+    if ( e->type() == QEvent::Enter ) {
       emit message( i18n( "Edit To-do: \"%1\"", label->text() ) );
-    if ( e->type() == QEvent::Leave )
+    }
+    if ( e->type() == QEvent::Leave ) {
       emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
+    }
   }
-
   return Kontact::Summary::eventFilter( obj, e );
 }
 
@@ -366,18 +372,18 @@ QStringList TodoSummaryWidget::configModules() const
 bool TodoSummaryWidget::overdue( KCal::Todo *todo )
 {
   if ( todo->hasDueDate() && !todo->isCompleted() &&
-       todo->dtDue().date() < QDate::currentDate() )
+       todo->dtDue().date() < QDate::currentDate() ) {
     return true;
-
+  }
   return false;
 }
 
 bool TodoSummaryWidget::starts( KCal::Todo *todo )
 {
   if ( todo->hasStartDate() &&
-       todo->dtStart().date() == QDate::currentDate() )
+       todo->dtStart().date() == QDate::currentDate() ) {
     return true;
-
+  }
   return false;
 }
 
@@ -388,35 +394,40 @@ bool TodoSummaryWidget::completed( KCal::Todo *todo )
 
 bool TodoSummaryWidget::openEnded( KCal::Todo *todo )
 {
-  if ( !todo->hasDueDate() && !todo->isCompleted() )
+  if ( !todo->hasDueDate() && !todo->isCompleted() ) {
     return true;
-  else
-    return false;
+  }
+  return false;
 }
 
 bool TodoSummaryWidget::inProgress( KCal::Todo *todo )
 {
-  if ( todo->percentComplete() > 0 )
+  if ( todo->percentComplete() > 0 ) {
     return true;
+  }
 
   if ( todo->hasStartDate() && todo->hasDueDate() &&
        todo->dtStart().date() < QDate::currentDate() &&
-       QDate::currentDate() < todo->dtDue().date() )
+       QDate::currentDate() < todo->dtDue().date() ) {
     return true;
+  }
 
   return false;
 }
 
 bool TodoSummaryWidget::notStarted( KCal::Todo *todo )
 {
-  if ( todo->percentComplete() > 0 )
+  if ( todo->percentComplete() > 0 ) {
     return false;
+  }
 
-  if ( !todo->hasStartDate() )
+  if ( !todo->hasStartDate() ) {
     return false;
+  }
 
-  if ( todo->dtStart().date() >= QDate::currentDate() )
+  if ( todo->dtStart().date() >= QDate::currentDate() ) {
     return false;
+  }
 
   return true;
 }
@@ -442,8 +453,9 @@ const QString TodoSummaryWidget::stateStr( KCal::Todo *todo )
     str2 += " (" + QString::number( todo->percentComplete() ) + "%)";
   }
 
-  if ( !str1.isEmpty() && !str2.isEmpty() )
+  if ( !str1.isEmpty() && !str2.isEmpty() ) {
     str1 += i18nc( "Separator for status like this: overdue, completed", "," );
+  }
 
   return str1 + str2;
 }

@@ -1,5 +1,6 @@
 /*
   This file is part of Kontact.
+
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
   Copyright (c) 2006 Oral Timocin <oral.timocin@kdemail.net>
   Copyright (c) 2008 Allen Winter <winter@kde.org>
@@ -24,12 +25,14 @@
 */
 
 #include "planner.h"
-
-#include "core.h"
-#include "plugin.h"
 #include "plannerplugin.h"
-#include "korganizer/stdcalendar.h"
 #include "korganizerinterface.h"
+
+#include <korganizer/stdcalendar.h>
+#include <kontactinterfaces/core.h>
+#include <kontactinterfaces/plugin.h>
+#include <libkdepim/kpimprefs.h>
+#include <libkholidays/kholidays.h>
 
 #include <kcal/event.h>
 #include <kcal/todo.h>
@@ -38,10 +41,6 @@
 #include <kcal/resourcelocal.h>
 #include <kcal/incidenceformatter.h>
 
-#include <libkdepim/kpimprefs.h>
-#include <libkholidays/kholidays.h>
-
-#include <kparts/part.h>
 #include <kdialog.h>
 #include <kdatetime.h>
 #include <kglobal.h>
@@ -50,14 +49,15 @@
 #include <kmenu.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
+#include <kparts/part.h>
 
-#include <qcursor.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qtooltip.h>
+#include <QCursor>
 #include <QGridLayout>
-#include <QPixmap>
 #include <QEvent>
+#include <QLabel>
+#include <QLayout>
+#include <QPixmap>
+#include <QToolTip>
 #include <QVBoxLayout>
 
 Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )

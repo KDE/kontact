@@ -1,5 +1,6 @@
 /*
   This file is part of Kontact.
+
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
 
   This program is free software; you can redistribute it and/or modify
@@ -24,13 +25,12 @@
 #ifndef PLANNERWIDGET_H
 #define PLANNERWIDGET_H
 
-#include "summary.h"
-
-#include <kcal/calendarresources.h>
+#include <kontactinterfaces/summary.h>
 #include <libkholidays/kholidays.h>
 
+#include <kcal/calendarresources.h>
+
 #include <QList>
-#include <QLabel>
 
 class QWidget;
 class QEvent;

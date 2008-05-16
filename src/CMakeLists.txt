@@ -1,7 +1,7 @@
 
 add_subdirectory( about ) 
 
-include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces  )
+include_directories( ${CMAKE_SOURCE_DIR}/kontactinterfaces  )
 
 
 ########### next target ###############
@@ -17,7 +17,7 @@ kde4_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc )
 
 kde4_add_library(kontactprivate SHARED ${kontactprivate_LIB_SRCS})
 
-kdepim4_link_unique_libraries(kontactprivate  ${KDE4_KPARTS_LIBS} kdepim kpinterfaces ${KDE4_KUTILS_LIBRARY} ${KDE4_KHTML_LIBRARY} )
+kdepim4_link_unique_libraries(kontactprivate  ${KDE4_KPARTS_LIBS} kdepim kontactinterfaces ${KDE4_KUTILS_LIBRARY} ${KDE4_KHTML_LIBRARY} )
 
 set_target_properties(kontactprivate PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS kontactprivate  DESTINATION ${LIB_INSTALL_DIR})

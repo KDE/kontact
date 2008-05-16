@@ -1,24 +1,21 @@
 
-include_directories( ${CMAKE_SOURCE_DIR}/kontact/interfaces ${CMAKE_SOURCE_DIR}/akregator/src  )
-
+include_directories(${CMAKE_SOURCE_DIR}/akregator/src)
 
 ########### next target ###############
 
-set(kontact_akregator_PART_SRCS akregator_plugin.cpp )
+set(kontact_akregator_PART_SRCS akregator_plugin.cpp)
 
-qt4_add_dbus_interfaces(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregator/src/org.kde.akregator.part.xml ) 
+qt4_add_dbus_interfaces(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregator/src/org.kde.akregator.part.xml) 
 
 
 kde4_add_plugin(kontact_akregatorplugin ${kontact_akregator_PART_SRCS})
 
 
-
-kdepim4_link_unique_libraries(kontact_akregatorplugin ${KDE4_KPARTS_LIBS} kpinterfaces)
-
-install(TARGETS kontact_akregatorplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
-
+kdepim4_link_unique_libraries(kontact_akregatorplugin ${KDE4_KPARTS_LIBS} kontactinterfaces)
 
 ########### install files ###############
 
-install( FILES akregatorplugin.desktop akregatorplugin3.2.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install(TARGETS kontact_akregatorplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
+
+install(FILES akregatorplugin.desktop akregatorplugin3.2.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
