@@ -1,0 +1,36 @@
+[Desktop Entry]
+Type=Service
+Icon=kjots
+X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=kontact_kjotsplugin
+X-KDE-KontactPluginVersion=7
+X-KDE-KontactPartLibraryName=kjotspart
+X-KDE-KontactPartExecutableName=kjots
+X-KDE-KontactPartLoadOnStart=false
+X-KDE-KontactPluginHasSummary=false
+
+X-KDE-PluginInfo-Name=kontact_kjotsplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
+Comment=Kontact KJots Plugin
+Comment[es]=Complemento KJots para Kontact
+Comment[ga]=Breiseán KJots Kontact
+Comment[km]=កម្មវិធី​ជំនួយ Kontact KJots
+Comment[pt]='Plugin' do KJots para o Kontact
+Comment[pt_BR]=Plug-in do Kjots para o Kontact
+Comment[sv]=Kontact Kjots-insticksprogram
+Comment[uk]=Додаток KJots для Kontact
+Comment[zh_CN]=Kontact KJots 插件
+Comment[zh_TW]=Kontact KJots 外掛程式
+Name=Notebooks
+Name[es]=Libros de notas
+Name[ga]=Leabhair Nótaí
+Name[km]=សៀវភៅ​សរសេរ
+Name[pt]=Blocos de notas
+Name[sv]=Anteckningsböcker
+Name[uk]=Записники
+Name[zh_CN]=笔记本
+Name[zh_TW]=筆記
