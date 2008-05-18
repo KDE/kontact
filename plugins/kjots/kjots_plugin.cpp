@@ -41,22 +41,37 @@
 EXPORT_KONTACT_PLUGIN(KJotsPlugin, kjots)
 
 KJotsPlugin::KJotsPlugin( Kontact::Core *core, const QVariantList& )
-  : Kontact::Plugin( core, core, "KJots" )//, m_interface(0)
+  : Kontact::Plugin( core, core, "kjots" )//, m_interface(0)
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-//   KAction *action = new KAction(KIcon("mail-message-new"), i18n("New Article..."), this);
-//   actionCollection()->addAction("post_article", action );
-//   action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_A));
-//   connect(action, SIGNAL(triggered(bool)), SLOT( slotPostArticle()));
-//   insertNewAction( action );
-// 
-//   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-//       new Kontact::UniqueAppHandlerFactory<KJotsUniqueAppHandler>(), this );
+  KAction *action = new KAction(KIcon("document-new"), i18n("New KJots Page"), this);
+  actionCollection()->addAction("new_kjots_page", action );
+  action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_J));
+  connect(action, SIGNAL(triggered(bool)), SLOT( newPage()));
+  insertNewAction( action );
+
+  action = new KAction(KIcon("x-office-address-book"), i18n("New KJots Book"), this);
+  actionCollection()->addAction("new_kjots_book", action );
+//   connect(action, SIGNAL(triggered(bool)), SLOT( newBook()));
+  insertNewAction( action );
+
+  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
+      new Kontact::UniqueAppHandlerFactory<KJotsUniqueAppHandler>(), this );
 }
 
 KJotsPlugin::~KJotsPlugin()
 {
+}
+
+bool KJotsPlugin::isRunningStandalone()
+{
+  return mUniqueAppWatcher->isRunningStandalone();
+}
+
+QStringList KJotsPlugin::invisibleToolbarActions() const
+{
+  return QStringList() << "new_page" << "new_book" ;
 }
 
 KParts::ReadOnlyPart* KJotsPlugin::createPart()
@@ -69,9 +84,24 @@ KParts::ReadOnlyPart* KJotsPlugin::createPart()
   return part;
 }
 
+void KJotsPlugin::newPage()
+{
+  KParts::ReadOnlyPart *part = loadPart();
+  if ( !part ) return;
+
+  KJotsPart* kjotsPart = dynamic_cast<KJotsPart*>(part);
+  if(kjotsPart) {
+//     kjotsPart->newPage();
+  }
+}
+
 void KJotsPlugin::showPart()
 {
   core()->selectPlugin(this);
 }
 
+void KJotsUniqueAppHandler::loadCommandLineOptions()
+{
+//  No command line args to load.
+}
 

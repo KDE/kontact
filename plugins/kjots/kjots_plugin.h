@@ -29,6 +29,14 @@
 #include <kparts/part.h>
 
 #include <kontactinterfaces/plugin.h>
+#include <kontactinterfaces/uniqueapphandler.h>
+
+class KJotsUniqueAppHandler : public Kontact::UniqueAppHandler
+{
+  public:
+    KJotsUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    virtual void loadCommandLineOptions();
+};
 
 class KJotsPlugin : public Kontact::Plugin
 {
@@ -38,14 +46,18 @@ class KJotsPlugin : public Kontact::Plugin
     KJotsPlugin( Kontact::Core *core, const QVariantList& );
     ~KJotsPlugin();
     int weight() const { return 700; }
+    virtual QStringList invisibleToolbarActions() const;
+    virtual bool isRunningStandalone();
 
 
   private slots:
     void showPart();
+    void newPage();
 
 
   protected:
     KParts::ReadOnlyPart* createPart();
+    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
 
 
 };
