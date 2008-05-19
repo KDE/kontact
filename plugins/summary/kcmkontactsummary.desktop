@@ -11,4 +11,12 @@ X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Summaries
+Name[ga]=Achoimrí
+Name[pt]=Resumos
+Name[pt_BR]=Resumos
+Name[uk]=Резюме
 Comment=Summary Selection
+Comment[ga]=Roghnú Achoimrí
+Comment[pt]=Selecção de Resumos
+Comment[pt_BR]=Seleção do Resumo
+Comment[uk]=Вибір резюме

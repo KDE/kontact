@@ -16,4 +16,11 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KJots Plugin
+Comment[ga]=Breiseán KJots le haghaidh Kontact
+Comment[pt]='Plugin' do KJots para o Kontact
+Comment[pt_BR]=Plug-in do Kjots para o Kontact
+Comment[uk]=Додаток KJots для Kontact
 Name=Notebooks
+Name[ga]=Leabhair Nótaí
+Name[pt]=Blocos de Notas
+Name[uk]=Записники
