@@ -1,7 +1,7 @@
 /*
     This file is part of KJots.
 
-    Copyright (c) 2008 Stephen Kelly
+    Copyright (c) 2008 Stephen Kelly <steveire@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
