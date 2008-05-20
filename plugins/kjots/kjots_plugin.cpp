@@ -37,11 +37,13 @@
 
 #include "kjotspart.h"
 
+class OrgKdeKJotsComponentInterface;
+
 
 EXPORT_KONTACT_PLUGIN(KJotsPlugin, kjots)
 
 KJotsPlugin::KJotsPlugin( Kontact::Core *core, const QVariantList& )
-  : Kontact::Plugin( core, core, "kjots" )//, m_interface(0)
+  : Kontact::Plugin( core, core, "kjots" ), m_interface(0)
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -53,7 +55,8 @@ KJotsPlugin::KJotsPlugin( Kontact::Core *core, const QVariantList& )
 
   action = new KAction(KIcon("x-office-address-book"), i18n("New KJots Book"), this);
   actionCollection()->addAction("new_kjots_book", action );
-//   connect(action, SIGNAL(triggered(bool)), SLOT( newBook()));
+  action->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_B));
+  connect(action, SIGNAL(triggered(bool)), SLOT( newBook()));
   insertNewAction( action );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
@@ -79,25 +82,31 @@ KParts::ReadOnlyPart* KJotsPlugin::createPart()
   KParts::ReadOnlyPart *part = loadPart();
   if ( !part ) return 0;
 
-  connect( part, SIGNAL(showPart()), this, SLOT(showPart()) );
+  m_interface = new OrgKdeKJotsComponentInterface(
+    "org.kde.kjots", "/KJotsComponent", QDBusConnection::sessionBus() );
 
   return part;
 }
 
-void KJotsPlugin::newPage()
+OrgKdeKJotsComponentInterface* KJotsPlugin::interface()
 {
-  KParts::ReadOnlyPart *part = loadPart();
-  if ( !part ) return;
-
-  KJotsPart* kjotsPart = dynamic_cast<KJotsPart*>(part);
-  if(kjotsPart) {
-//     kjotsPart->newPage();
+  if ( !m_interface ) {
+    part();
   }
+  Q_ASSERT( m_interface );
+  return m_interface;
 }
 
-void KJotsPlugin::showPart()
+void KJotsPlugin::newPage()
 {
-  core()->selectPlugin(this);
+    core()->selectPlugin(this);
+    interface()->newPage();
+}
+
+void KJotsPlugin::newBook()
+{
+    core()->selectPlugin(this);
+    interface()->createNewBook();
 }
 
 void KJotsUniqueAppHandler::loadCommandLineOptions()
