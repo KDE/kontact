@@ -12,12 +12,14 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Summaries
 Name[ga]=Achoimrí
+Name[km]=សេចក្ដីសង្ខេប
 Name[pt]=Resumos
 Name[pt_BR]=Resumos
 Name[uk]=Резюме
 Name[zh_TW]=摘要
 Comment=Summary Selection
 Comment[ga]=Roghnú Achoimrí
+Comment[km]=ជម្រើស​សេចក្ដី​សង្ខេប
 Comment[pt]=Selecção de Resumos
 Comment[pt_BR]=Seleção do Resumo
 Comment[uk]=Вибір резюме
