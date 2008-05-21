@@ -25,6 +25,8 @@
 #ifndef KJOTS_PLUGIN_H
 #define KJOTS_PLUGIN_H
 
+#include "kjotscomponentinterface.h"
+
 #include <klocale.h>
 #include <kparts/part.h>
 
@@ -49,15 +51,18 @@ class KJotsPlugin : public Kontact::Plugin
     virtual QStringList invisibleToolbarActions() const;
     virtual bool isRunningStandalone();
 
+    OrgKdeKJotsComponentInterface* interface();
+
 
   private slots:
-    void showPart();
     void newPage();
+    void newBook();
 
 
   protected:
     KParts::ReadOnlyPart* createPart();
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+    OrgKdeKJotsComponentInterface *m_interface;
 
 
 };

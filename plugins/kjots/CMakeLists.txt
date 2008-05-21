@@ -1,0 +1,19 @@
+
+include_directories(${CMAKE_SOURCE_DIR}/kjots)
+include_directories(${CMAKE_BINARY_DIR}/kjots)
+
+set(kontact_kjotsplugin_PART_SRCS
+  kjots_plugin.cpp
+)
+
+qt4_add_dbus_interfaces(kontact_kjotsplugin_PART_SRCS ${CMAKE_BINARY_DIR}/kjots/org.kde.KJotsComponent.xml)
+
+kde4_add_plugin(kontact_kjotsplugin ${kontact_kjotsplugin_PART_SRCS} )
+
+kdepim4_link_unique_libraries(kontact_kjotsplugin ${KDE4_KPARTS_LIBS} kontactinterfaces)
+
+install(TARGETS kontact_kjotsplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
+
+install( FILES kjots_plugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+
+
