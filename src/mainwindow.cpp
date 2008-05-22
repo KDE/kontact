@@ -800,10 +800,10 @@ void MainWindow::selectPlugin( const QString &pluginName )
 void MainWindow::loadSettings()
 {
   if ( mSplitter ) {
-    // if the preferences do not contain useful values, the side pane part of the splitter 
+    // if the preferences do not contain useful values, the side pane part of the splitter
     // takes up the full width of the window, so leave the splitter sizing at the widget defaults
     QList<int> sizes = Prefs::self()->sidePaneSplitter();
-    if ( sizes.count() == mSplitter.count() ) {
+    if ( sizes.count() == mSplitter->count() ) {
       mSplitter->setSizes( sizes );
     }
   }
