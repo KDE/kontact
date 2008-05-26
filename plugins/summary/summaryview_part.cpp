@@ -322,7 +322,8 @@ void SummaryViewPart::slotTextChanged()
 
 void SummaryViewPart::slotAdjustPalette()
 {
-  mMainWidget->setBackgroundRole( QPalette::Background );
+  mMainWidget->setBackgroundRole( QPalette::Base );
+  mMainWidget->setForegroundRole( QPalette::Text );
 }
 
 void SummaryViewPart::setDate( const QDate &newDate )
