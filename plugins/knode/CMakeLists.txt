@@ -17,3 +17,4 @@ install(TARGETS kontact_knodeplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 install(FILES knodeplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
+install(FILES knode.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)

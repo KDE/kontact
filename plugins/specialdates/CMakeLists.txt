@@ -28,4 +28,5 @@ install(TARGETS kcm_sdsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES specialdatesplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 install(FILES kcmsdsummary.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
+install(FILES specialdates.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
 

@@ -28,3 +28,4 @@ install(TARGETS kcm_planner DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES plannerplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 install(FILES kcmplanner.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
+install(FILES planner.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)

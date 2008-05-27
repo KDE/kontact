@@ -15,3 +15,5 @@ install(TARGETS kontact_weatherplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 install(FILES weatherplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
+install(FILES weather.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
+

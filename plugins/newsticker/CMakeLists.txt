@@ -23,3 +23,4 @@ install(TARGETS kcm_kontactknt DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES newstickerplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 install(FILES kcmkontactknt.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
+install(FILES newsticker.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)

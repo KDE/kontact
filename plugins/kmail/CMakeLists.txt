@@ -38,3 +38,5 @@ install(TARGETS kcm_kmailsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
 install( FILES kmailplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
 install( FILES kcmkmailsummary.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
+
+install(FILES kmail.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
