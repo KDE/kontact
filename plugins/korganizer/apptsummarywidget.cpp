@@ -339,16 +339,17 @@ void ApptSummaryWidget::dateDiff( const QDate &date, int &days )
   QDate eventDate;
 
   if ( QDate::isLeapYear( date.year() ) && date.month() == 2 && date.day() == 29 ) {
-    currentDate =
-      QDate( date.year(), QDate::currentDate().month(), QDate::currentDate().day() );
+    currentDate = QDate( date.year(), QDate::currentDate().month(), QDate::currentDate().day() );
     if ( !QDate::isLeapYear( QDate::currentDate().year() ) ) {
-      eventDate = QDate( date.year(), date.month(), 28 );
+      eventDate = QDate( date.year(), date.month(), 28 ); // celebrate one day earlier ;)
     } else {
       eventDate = QDate( date.year(), date.month(), date.day() );
     }
   } else {
-    currentDate = QDate( 0, QDate::currentDate().month(), QDate::currentDate().day() );
-    eventDate = QDate( 0, date.month(), date.day() );
+    currentDate = QDate( QDate::currentDate().year(),
+                         QDate::currentDate().month(),
+                         QDate::currentDate().day() );
+    eventDate = QDate( QDate::currentDate().year(), date.month(), date.day() );
   }
 
   int offset = currentDate.daysTo( eventDate );
