@@ -46,7 +46,7 @@ using namespace std;
 static const char description[] =
   I18N_NOOP( "KDE personal information manager" );
 
-static const char version[] = "1.2";
+static const char version[] = "1.3";
 
 class KontactApp : public KUniqueApplication
 {
@@ -130,7 +130,7 @@ int main( int argc, char **argv )
 {
   KAboutData about( "kontact", 0, ki18n( "Kontact" ), version, ki18n(description),
                     KAboutData::License_GPL,
-                    ki18n( "(C) 2001-2004 The Kontact developers" ),
+                    ki18n( "(C) 2001-2008 The Kontact developers" ),
                     KLocalizedString(), "http://kontact.org" );
 
   about.addAuthor( ki18n( "Daniel Molkentin" ), KLocalizedString(), "molkentin@kde.org" );
