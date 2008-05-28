@@ -1,5 +1,14 @@
 [Notebooks]
 Name=Notebooks
+Name[de]=Notizblöcke
+Name[ga]=Leabhair Nótaí
+Name[km]=សៀវភៅ​ចំណាំ
+Name[nds]=Notizböker
+Name[pl]=Notatki
+Name[pt]=Blocos de Notas
+Name[sv]=Anteckningsböcker
+Name[uk]=Записники
+Name[zh_TW]=筆記本
 Comment=Notebooks Component
 Weight=720
 Icon=kjots

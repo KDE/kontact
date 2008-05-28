@@ -1,5 +1,21 @@
 [KTimeTracker]
 Name=Time Tracker
+Name[ca]=Seguiment horari
+Name[de]=Persönliche Zeiterfassung
+Name[el]=Χρονικός προγραμματισμός
+Name[ga]=TimeTracker
+Name[ja]=タイムトラッカー
+Name[km]=កម្មវិធី​តាមដាន​ពេលវេលា
+Name[lv]=Patērētā laika uzskatītājs
+Name[nds]=Tietlogbook
+Name[pl]=Osobisty czasomierz
+Name[pt]=Gestor de Tempo
+Name[pt_BR]=Gerenciador de Tempo
+Name[sv]=Tidmätning
+Name[tr]=Zaman İzleyici
+Name[uk]=Слідкування за часом
+Name[x-test]=xxTime Trackerxx
+Name[zh_TW]=時間追蹤器
 Comment=Time Tracker Component
 Weight=710
 Icon=ktimetracker

@@ -16,6 +16,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KJots Plugin
+Comment[de]=KJots-Modul für Kontact
 Comment[ga]=Breiseán KJots le haghaidh Kontact
 Comment[km]=កម្មវិធី​ជំនួយ​ទំនាក់ទំនង KJots
 Comment[nds]=KJots-Moduul för Kontact
@@ -26,6 +27,7 @@ Comment[sv]=Kontact insticksdelprogram för Kjots
 Comment[uk]=Додаток KJots для Kontact
 Comment[zh_TW]=Kontact KJots 外掛程式
 Name=Notebooks
+Name[de]=Notizblöcke
 Name[ga]=Leabhair Nótaí
 Name[km]=សៀវភៅ​ចំណាំ
 Name[nds]=Notizböker
