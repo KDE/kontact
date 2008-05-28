@@ -50,20 +50,25 @@ static const char version[] = "1.3";
 
 class KontactApp : public KUniqueApplication
 {
+  Q_OBJECT
   public:
     KontactApp() : mMainWindow( 0 ), mSessionRestored( false ) {
       KIconLoader::global()->addAppDir( "kdepim" );
     }
     ~KontactApp() {}
 
-    int newInstance();
+    /*reimp*/ int newInstance();
+
     void setMainWindow( Kontact::MainWindow *window ) {
         mMainWindow = window;
-        setMainWidget( window );
+        Kontact::UniqueAppHandler::setMainWidget( window );
     }
     void setSessionRestored( bool restored ) {
         mSessionRestored = restored;
     }
+
+  public Q_SLOTS:
+    void loadCommandLineOptionsForNewInstance();
 
   private:
     Kontact::MainWindow *mMainWindow;
@@ -88,6 +93,23 @@ static void listPlugins()
   }
 }
 
+static void loadCommandLineOptions()
+{
+  KCmdLineOptions options;
+  options.add( "module <module>", ki18n( "Start with a specific Kontact module" ) );
+  options.add( "iconify", ki18n( "Start in iconified (minimized) mode" ) );
+  options.add( "list", ki18n( "List all possible modules and exit" ) );
+  KCmdLineArgs::addCmdLineOptions( options );
+}
+
+// Called by KUniqueApplication
+void KontactApp::loadCommandLineOptionsForNewInstance()
+{
+  kDebug();
+  KCmdLineArgs::reset(); // forget options defined by other "applications"
+  loadCommandLineOptions(); // re-add the kontact options
+}
+
 int KontactApp::newInstance()
 {
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
@@ -105,9 +127,9 @@ int KontactApp::newInstance()
         mMainWindow->setActivePluginModule( moduleName );
       }
       mMainWindow->show();
-      setMainWidget( mMainWindow );
+      Kontact::UniqueAppHandler::setMainWidget( mMainWindow );
       // --iconify is needed in kontact, although kstart can do that too,
-      // because kstart returns immediately so it's too early to talk DCOP to the app.
+      // because kstart returns immediately so it's too early to talk D-Bus to the app.
       if ( args->isSet( "iconify" ) ) {
         KWindowSystem::minimizeWindow( mMainWindow->winId(), false /*no animation*/);
       }
@@ -146,7 +168,10 @@ int main( int argc, char **argv )
   about.setOrganizationDomain( "kde.org" );
 
   KCmdLineArgs::init( argc, argv, &about );
-  Kontact::UniqueAppHandler::loadKontactCommandLineOptions();
+
+  loadCommandLineOptions();
+  KUniqueApplication::addCmdLineOptions();
+  KCmdLineArgs::addStdCmdLineOptions();
 
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   if ( args->isSet( "list" ) ) {
@@ -176,3 +201,5 @@ int main( int argc, char **argv )
 
   return ret;
 }
+
+#include "main.moc"

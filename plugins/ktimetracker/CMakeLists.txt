@@ -17,3 +17,4 @@ install(TARGETS kontact_karmplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 install(FILES karmplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
+install(FILES ktimetracker.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)

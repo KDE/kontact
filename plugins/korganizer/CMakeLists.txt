@@ -63,6 +63,8 @@ install(TARGETS kontact_journalplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES korganizerplugin.desktop todoplugin.desktop journalplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 install(FILES kcmapptsummary.desktop kcmtodosummary.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
+install(FILES korganizer.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
+
 kde4_install_icons(${ICON_INSTALL_DIR})
 
 

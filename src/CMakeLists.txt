@@ -35,7 +35,7 @@ set_target_properties(kontact_bin  PROPERTIES OUTPUT_NAME kontact)
 
 kdepim4_link_unique_libraries(kontact_bin  ${KDE4_KHTML_LIBS} ${KDE4_KDE3SUPPORT_LIBS} kontactprivate)
 
-install(TARGETS kontact_bin  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS kontact_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### next target ###############
@@ -57,7 +57,6 @@ install(TARGETS kcm_kontact  DESTINATION ${PLUGIN_INSTALL_DIR})
 install( FILES Kontact.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
 install( FILES kontact.kcfg  DESTINATION ${KCFG_INSTALL_DIR})
 install( FILES kontactconfig.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
-install( FILES kontactui.rc  kontact.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact)
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
 

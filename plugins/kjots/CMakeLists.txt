@@ -19,4 +19,5 @@ install(TARGETS kontact_kjotsplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 install( FILES kjots_plugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
+install(FILES kjots.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
 
