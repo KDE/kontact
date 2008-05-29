@@ -390,8 +390,11 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   QHBoxLayout *hbl = new QHBoxLayout();
   mMainLayout->addItem( hbl );
   mUsernameLabel = new QLabel( mMainWidget );
+  mUsernameLabel->setFont( KGlobalSettings::generalFont() );
+  mUsernameLabel->setAlignment( Qt::AlignLeft );
   hbl->addWidget( mUsernameLabel );
   mDateLabel = new QLabel( mMainWidget );
+  mDateLabel->setFont( KGlobalSettings::generalFont() );
   mDateLabel->setAlignment( Qt::AlignRight );
   hbl->addWidget( mDateLabel );
 
