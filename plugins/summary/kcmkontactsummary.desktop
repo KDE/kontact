@@ -11,6 +11,7 @@ X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Summaries
+Name[de]=Übersichten
 Name[ga]=Achoimrí
 Name[km]=សេចក្ដីសង្ខេប
 Name[nds]=Tosamenfaten
@@ -21,6 +22,7 @@ Name[sv]=Översikter
 Name[uk]=Резюме
 Name[zh_TW]=摘要
 Comment=Summary Selection
+Comment[de]=Zusammenstellung der Übersicht
 Comment[ga]=Roghnú Achoimrí
 Comment[km]=ជម្រើស​សេចក្ដី​សង្ខេប
 Comment[nds]=Tosamenfaten utsöken

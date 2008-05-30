@@ -28,7 +28,6 @@
 #include "ktimetrackerinterface.h"
 
 #include <karm_part.h>
-#include <timetrackerwidget.h>
 
 #include <kontactinterfaces/core.h>
 #include <kontactinterfaces/plugin.h>
@@ -60,7 +59,8 @@ KarmPlugin::~KarmPlugin()
 
 OrgKdeKtimetrackerKtimetrackerInterface *KarmPlugin::interface()
 {
-  if ( !mInterface ) {
+  if ( !mInterface ) 
+  {
     part();
   }
   Q_ASSERT( mInterface );
@@ -93,22 +93,6 @@ QStringList KarmPlugin::configModules() const
   return modules;
 }
 
-void KarmPlugin::readProperties( const KConfigGroup &config )
-{
-  if ( part() ) {
-    karmPart *myPart = static_cast<karmPart*>( part() );
-    myPart->MainWidget()->readProperties( config );
-  }
-}
-
-void KarmPlugin::saveProperties( KConfigGroup &config )
-{
-  if ( part() ) {
-    karmPart *myPart = static_cast<karmPart*>( part() );
-    myPart->MainWidget()->saveProperties( config );
-  }
-}
-
 void KarmPlugin::showPart()
 {
   core()->selectPlugin( this );
@@ -117,7 +101,7 @@ void KarmPlugin::showPart()
 void KarmPlugin::newTask()
 {
   kDebug() << "Entering newTask";
-  interface()->addTask( "New Task" );
+  mInterface->addTask( "New Task" );
 }
 
 #include "karm_plugin.moc"
