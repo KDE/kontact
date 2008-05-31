@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
+  Copyright (c) 2005-2006,2008 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -57,6 +57,7 @@
 #include <QLayout>
 #include <QPixmap>
 #include <QVBoxLayout>
+#include <QTextDocument>
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mPlugin( plugin )
@@ -248,6 +249,9 @@ void TodoSummaryWidget::updateView()
       str = todo->summary();
       if ( todo->relatedTo() ) { // show parent only, not entire ancestry
         str = todo->relatedTo()->summary() + ':' + str;
+      }
+      if ( !Qt::mightBeRichText( str ) ) {
+        str = Qt::escape( str );
       }
 
       KUrlLabel *urlLabel = new KUrlLabel( this );
