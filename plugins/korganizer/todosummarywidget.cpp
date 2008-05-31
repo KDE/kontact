@@ -117,9 +117,10 @@ void TodoSummaryWidget::updateView()
 
   KCal::Todo::List prList;
 
+  QDate currDate = QDate::currentDate();
   Q_FOREACH ( KCal::Todo *todo, mCalendar->todos() ) {
     if ( todo->hasDueDate() ) {
-      int daysTo = QDate::currentDate().daysTo( todo->dtDue().date() );
+      int daysTo = currDate.daysTo( todo->dtDue().date() );
       if ( daysTo >= mDaysToGo ) {
         continue;
       }
@@ -200,7 +201,7 @@ void TodoSummaryWidget::updateView()
       // Due date label
       str = "";
       if ( todo->hasDueDate() && todo->dtDue().date().isValid() ) {
-        daysTo = QDate::currentDate().daysTo( todo->dtDue().date() );
+        daysTo = currDate.daysTo( todo->dtDue().date() );
 
         if ( daysTo == 0 ) {
           makeBold = true;
@@ -410,9 +411,10 @@ bool TodoSummaryWidget::inProgress( KCal::Todo *todo )
     return true;
   }
 
+  QDate currDate = QDate::currentDate();
   if ( todo->hasStartDate() && todo->hasDueDate() &&
-       todo->dtStart().date() < QDate::currentDate() &&
-       QDate::currentDate() < todo->dtDue().date() ) {
+       todo->dtStart().date() < currDate &&
+       currDate < todo->dtDue().date() ) {
     return true;
   }
 
