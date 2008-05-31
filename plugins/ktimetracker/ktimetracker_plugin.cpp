@@ -24,7 +24,7 @@
   without including the source code for Qt in the source distribution.
 */
 
-#include "karm_plugin.h"
+#include "ktimetracker_plugin.h"
 #include "ktimetrackerinterface.h"
 
 #include <karm_part.h>
@@ -104,4 +104,4 @@ void KarmPlugin::newTask()
   mInterface->addTask( "New Task" );
 }
 
-#include "karm_plugin.moc"
+#include "ktimetracker_plugin.moc"
