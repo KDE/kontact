@@ -89,7 +89,7 @@ KParts::ReadOnlyPart *KarmPlugin::createPart()
 QStringList KarmPlugin::configModules() const
 {
   QStringList modules;
-  modules << "PIM/karmplugin.desktop";
+  modules << "PIM/ktimetrackerconfig.desktop";
   return modules;
 }
 
