@@ -43,6 +43,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QTextDocument>
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
@@ -223,6 +224,9 @@ void ApptSummaryWidget::updateView()
       str = ev->summary();
       if ( ev->isMultiDay() &&  !ev->allDay() ) {
         str.append( QString( " (%1/%2)" ).arg( dayof ).arg( span ) );
+      }
+      if ( !Qt::mightBeRichText( str ) ) {
+        str = Qt::escape( str );
       }
 
       KUrlLabel *urlLabel = new KUrlLabel( this );
