@@ -22,6 +22,7 @@ Comment[nds]=Tietlogbook-Komponent
 Comment[pt]=Componente de Gestão do Tempo
 Comment[pt_BR]=Componente do Gerenciador de Tempo
 Comment[sv]=Tidmätningskomponent
+Comment[uk]=Компонент слідкування за часом
 Comment[zh_TW]=時間追蹤器元件
 Weight=710
 Icon=ktimetracker
