@@ -36,10 +36,10 @@ class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
     explicit KCMApptSummary( const KComponentData &inst, QWidget *parent = 0 );
     virtual ~KCMApptSummary();
 
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
-    virtual const KAboutData *aboutData() const;
+    void load();
+    void save();
+    void defaults();
+    const KAboutData *aboutData() const;
 
   private slots:
     void modified();
