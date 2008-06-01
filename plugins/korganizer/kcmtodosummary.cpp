@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
+  Copyright (c) 2005-2006,2008 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -55,15 +55,15 @@ KCMTodoSummary::KCMTodoSummary( const KComponentData &inst, QWidget *parent )
 
   customDaysChanged( 7 );
 
-  connect( mDateTodayButton, SIGNAL(clicked(int)), SLOT(modified()) );
-  connect( mDateMonthButton, SIGNAL(clicked(int)), SLOT(modified()) );
-  connect( mDateRangeButton, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mDateTodayButton, SIGNAL(clicked(bool)), SLOT(modified()) );
+  connect( mDateMonthButton, SIGNAL(clicked(bool)), SLOT(modified()) );
+  connect( mDateRangeButton, SIGNAL(clicked(bool)), SLOT(modified()) );
 
-  connect( mHideCompletedBox, SIGNAL(clicked(int)), SLOT(modified()) );
-  connect( mHideOpenEndedBox, SIGNAL(clicked(int)), SLOT(modified()) );
-  connect( mHideUnstartedBox, SIGNAL(clicked(int)), SLOT(modified()) );
-  connect( mHideInProgressBox, SIGNAL(clicked(int)), SLOT(modified()) );
-  connect( mHideOverdueBox, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mHideCompletedBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect( mHideOpenEndedBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect( mHideUnstartedBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect( mHideInProgressBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect( mHideOverdueBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
 
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
@@ -90,9 +90,9 @@ void KCMTodoSummary::customDaysChanged( int value )
 void KCMTodoSummary::load()
 {
   KConfig config( "kcmtodosummaryrc" );
-  KConfigGroup grp( &config, "Days" );
+  KConfigGroup daysGroup( &config, "Days" );
 
-  int days = grp.readEntry( "DaysToShow", 7 );
+  int days = daysGroup.readEntry( "DaysToShow", 7 );
   if ( days == 1 ) {
     mDateTodayButton->setChecked( true );
   } else if ( days == 31 ) {
@@ -103,12 +103,12 @@ void KCMTodoSummary::load()
     mCustomDays->setEnabled( true );
   }
 
-  grp.changeGroup( "Hide" );
-  mHideInProgressBox->setChecked( grp.readEntry( "InProgress", false ) );
-  mHideOverdueBox->setChecked( grp.readEntry( "Overdue", false ) );
-  mHideCompletedBox->setChecked( grp.readEntry( "Completed", true ) );
-  mHideOpenEndedBox->setChecked( grp.readEntry( "OpenEnded", false ) );
-  mHideUnstartedBox->setChecked( grp.readEntry( "NotStarted", false ) );
+  KConfigGroup hideGroup( &config, "Hide" );
+  mHideInProgressBox->setChecked( hideGroup.readEntry( "InProgress", false ) );
+  mHideOverdueBox->setChecked( hideGroup.readEntry( "Overdue", false ) );
+  mHideCompletedBox->setChecked( hideGroup.readEntry( "Completed", true ) );
+  mHideOpenEndedBox->setChecked( hideGroup.readEntry( "OpenEnded", false ) );
+  mHideUnstartedBox->setChecked( hideGroup.readEntry( "NotStarted", false ) );
 
   emit changed( false );
 }
@@ -116,7 +116,7 @@ void KCMTodoSummary::load()
 void KCMTodoSummary::save()
 {
   KConfig config( "kcmtodosummaryrc" );
-  KConfigGroup grp( &config, "Days" );
+  KConfigGroup daysGroup( &config, "Days" );
 
   int days;
   if ( mDateTodayButton->isChecked() ) {
@@ -126,14 +126,14 @@ void KCMTodoSummary::save()
   } else {
     days = mCustomDays->value();
   }
-  grp.writeEntry( "DaysToShow", days );
+  daysGroup.writeEntry( "DaysToShow", days );
 
-  grp.changeGroup( "Hide" );
-  grp.writeEntry( "InProgress", mHideInProgressBox->isChecked() );
-  grp.writeEntry( "Overdue", mHideOverdueBox->isChecked() );
-  grp.writeEntry( "Completed", mHideCompletedBox->isChecked() );
-  grp.writeEntry( "OpenEnded", mHideOpenEndedBox->isChecked() );
-  grp.writeEntry( "NotStarted", mHideUnstartedBox->isChecked() );
+  KConfigGroup hideGroup( &config, "Hide" );
+  hideGroup.writeEntry( "InProgress", mHideInProgressBox->isChecked() );
+  hideGroup.writeEntry( "Overdue", mHideOverdueBox->isChecked() );
+  hideGroup.writeEntry( "Completed", mHideCompletedBox->isChecked() );
+  hideGroup.writeEntry( "OpenEnded", mHideOpenEndedBox->isChecked() );
+  hideGroup.writeEntry( "NotStarted", mHideUnstartedBox->isChecked() );
 
   config.sync();
   emit changed( false );

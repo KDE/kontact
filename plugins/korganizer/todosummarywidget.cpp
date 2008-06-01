@@ -92,16 +92,16 @@ void TodoSummaryWidget::updateView()
   qDeleteAll( mLabels );
   mLabels.clear();
 
-  KConfig _config( "kcmtodosummaryrc" );
-  KConfigGroup config( &_config, "Days" );
-  int mDaysToGo = config.readEntry( "DaysToShow", 7 );
+  KConfig config( "kcmtodosummaryrc" );
+  KConfigGroup daysGroup( &config, "Days" );
+  int mDaysToGo = daysGroup.readEntry( "DaysToShow", 7 );
 
-  config.changeGroup( "Hide" );
-  mHideInProgress = config.readEntry( "InProgress", false );
-  mHideOverdue = config.readEntry( "Overdue", false );
-  mHideCompleted = config.readEntry( "Completed", true );
-  mHideOpenEnded = config.readEntry( "OpenEnded", true );
-  mHideNotStarted = config.readEntry( "NotStarted", false );
+  KConfigGroup hideGroup( &config, "Hide" );
+  mHideInProgress = hideGroup.readEntry( "InProgress", false );
+  mHideOverdue = hideGroup.readEntry( "Overdue", false );
+  mHideCompleted = hideGroup.readEntry( "Completed", true );
+  mHideOpenEnded = hideGroup.readEntry( "OpenEnded", true );
+  mHideNotStarted = hideGroup.readEntry( "NotStarted", false );
 
   // for each todo,
   //   if it passes the filter, append to a list
