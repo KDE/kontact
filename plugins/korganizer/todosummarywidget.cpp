@@ -445,7 +445,7 @@ const QString TodoSummaryWidget::stateStr( KCal::Todo *todo )
   if ( openEnded( todo ) ) {
     str1 = i18n( "open-ended" );
   } else if ( overdue( todo ) ) {
-    str1 = i18n( "overdue" );
+    str1 = "<font color=\"red\">" + i18n( "overdue" ) + "</font>";
   } else if ( starts( todo ) ) {
     str1 = i18n( "starts today" );
   }
