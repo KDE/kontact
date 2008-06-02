@@ -25,6 +25,8 @@
 #include "plugin.h"
 #include "uniqueapphandler.h"
 
+#include <pimapplication.h>
+
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <kdebug.h>
@@ -48,7 +50,14 @@ static const char description[] =
 
 static const char version[] = "1.3";
 
-class KontactApp : public KUniqueApplication
+
+
+class KontactApp : public
+#ifdef Q_WS_WIN
+KPIM::PimApplication
+#else
+KUniqueApplication
+#endif
 {
   Q_OBJECT
   public:
