@@ -53,6 +53,7 @@
 #include <QDropEvent>
 #include <QResizeEvent>
 #include <QDragEnterEvent>
+#include <QStyleOptionViewItemV4>
 
 namespace Kontact
 {
@@ -147,15 +148,18 @@ int EntryItem::width( const Q3ListBox *listbox ) const
 
 int EntryItem::height( const Q3ListBox *listbox ) const
 {
+  // the vertical margins consist of 2px outside the PE_PanelItemViewItem
+  // to provide space between items and 2px inside the background
+  const int verticalMargins = 8;
   int h = 0;
   if ( navigator()->showIcons() ) {
-    h = (int)navigator()->viewMode() + 4;
+    h = (int)navigator()->viewMode() + verticalMargins;
   }
   if ( navigator()->showText() ) {
     if ( navigator()->viewMode() == SmallIcons || !navigator()->showIcons() ) {
       h = qMax( h, listbox->fontMetrics().lineSpacing() ) + KDialog::spacingHint() * 2;
     } else {
-      h = (int)navigator()->viewMode() + listbox->fontMetrics().lineSpacing() + 4;
+      h = (int)navigator()->viewMode() + listbox->fontMetrics().lineSpacing() + verticalMargins;
     }
   }
   return h;
@@ -168,42 +172,32 @@ void EntryItem::paint( QPainter *p )
   Q3ListBox *box = listBox();
   bool iconAboveText = ( navigator()->viewMode() > SmallIcons ) && navigator()->showIcons();
   int w = box->viewport()->width();
-  int y = iconAboveText ? 2 : ( ( height( box ) - mPixmap.height() ) / 2 );
+  int y = iconAboveText ? 4 : ( ( height( box ) - mPixmap.height() ) / 2 );
+  int h = height( box );
+  int spacing = KDialog::spacingHint();
+  int pixmapSize = navigator()->viewMode();
 
-  // draw selected
+  // draw background
+  p->fillRect( QRect( 0, 0, w, h ), box->palette().background() );
   if ( isCurrent() || isSelected() || mHasHover || mPaintActive ) {
-    int h = height( box );
+    QStyleOptionViewItemV4 o;
+    o.initFrom( box );
+    o.rect = QRect( 2, 1, w - 4, h - 3 );
+    o.viewItemPosition = QStyleOptionViewItemV4::OnlyOne;
 
-    QBrush brush;
-    if ( isCurrent() || isSelected() || mPaintActive ) {
-      brush = box->palette().color( QPalette::Highlight );
-    } else {
-      brush = QBrush( box->palette().color( QPalette::Highlight ).light( 115 ) );
+    if ( isCurrent() || isSelected() ) {
+      o.state |= QStyle::State_Selected;
+    } else if ( mHasHover || mPaintActive ) {
+      o.state |= QStyle::State_MouseOver;
     }
 
-    p->fillRect( 1, 0, w - 2, h - 1, brush );
-    QPen pen = p->pen();
-    QPen oldPen = pen;
-    pen.setColor( box->palette().color( QPalette::Mid ) );
-    p->setPen( pen );
-
-    p->drawPoint( 1, 0 );
-    p->drawPoint( 1, h - 2 );
-    p->drawPoint( w - 2, 0 );
-    p->drawPoint( w - 2, h - 2 );
-
-    p->setPen( oldPen );
+    box->style()->drawPrimitive( QStyle::PE_PanelItemViewItem, &o, p, box );
   }
 
   if ( !mPixmap.isNull() && navigator()->showIcons() ) {
-      int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) :
-                              KDialog::marginHint();
+    int x = iconAboveText ? ( ( w - mPixmap.width() ) / 2 ) :
+                              spacing;
     p->drawPixmap( x, y, mPixmap );
-  }
-
-  QColor shadowColor = listBox()->palette().color( QPalette::Background ).dark(115);
-  if ( isCurrent() || isSelected() ) {
-    p->setPen( box->palette().color( QPalette::HighlightedText ) );
   }
 
   if ( !text().isEmpty() && navigator()->showText() ) {
@@ -217,9 +211,9 @@ void EntryItem::paint( QPainter *p )
         y += mPixmap.height();
       }
     } else {
-      x = KDialog::marginHint() + 4;
+      x = spacing;
       if( navigator()->showIcons() ) {
-        x += mPixmap.width();
+        x += ( mPixmap.isNull() ? pixmapSize : mPixmap.width() ) + spacing;
       }
 
       if ( !navigator()->showIcons() || mPixmap.height() < fm.height() ) {
@@ -231,11 +225,6 @@ void EntryItem::paint( QPainter *p )
 
     if ( plugin()->disabled() ) {
       p->setPen( box->palette().disabled().text( ) );
-    } else if ( isCurrent() || isSelected() || mHasHover ) {
-      p->setPen( box->palette().color( QPalette::Highlight ).dark(115) );
-      p->drawText( x + ( QApplication::isRightToLeft() ? -1 : 1 ),
-                   y + 1, text() );
-      p->setPen( box->palette().color( QPalette::HighlightedText ) );
     } else {
       p->setPen( box->palette().color( QPalette::Text ) );
     }
@@ -262,6 +251,7 @@ Navigator::Navigator( SidePaneBase *parent, const char *name )
   : K3ListBox( parent, name ), mSidePane( parent ),
     mShowIcons( true ), mShowText( true )
 {
+  setFrameStyle( QFrame::NoFrame );
   mMouseOn = 0;
   mHighlightItem = 0;
   mViewMode = sizeIntToEnum( Prefs::self()->sidePaneIconSize() );
