@@ -29,6 +29,7 @@ Name[x-test]=xxMobile Phonesxx
 Name[zh_CN]=移动电话
 Name[zh_TW]=行動電話
 Comment=Mobile Phone Component
+Comment[ga]=Comhpháirt Fón Póca
 Comment[km]=សមាសភាគ​ទូរស័ព្ទ​ចល័ត
 Comment[nds]=Mobiltelefoon-Komponent
 Comment[pt]=Componente de Telemóvel
