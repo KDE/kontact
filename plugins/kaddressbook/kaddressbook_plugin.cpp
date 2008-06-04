@@ -162,7 +162,7 @@ bool KAddressbookPlugin::isRunningStandalone()
 
 bool KAddressbookPlugin::canDecodeMimeData( const QMimeData * mimeData )
 {
-  return mimeData->hasText() || KPIM::MailList::canDecode( mimeData );
+  return KPIM::MailList::canDecode( mimeData );
 }
 
 void KAddressbookPlugin::processDropEvent( QDropEvent *event )
