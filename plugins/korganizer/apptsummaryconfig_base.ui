@@ -7,110 +7,103 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>252</height>
+    <width>562</width>
+    <height>162</height>
    </rect>
   </property>
   <property name="windowTitle" >
    <string>Event Summary Configuration</string>
   </property>
-  <layout class="QVBoxLayout" >
-   <property name="spacing" >
-    <number>6</number>
+  <widget class="QGroupBox" name="mDaysGroup" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>554</width>
+     <height>234</height>
+    </rect>
    </property>
-   <property name="leftMargin" >
-    <number>9</number>
+   <property name="title" >
+    <string>Show Events Starting</string>
    </property>
-   <property name="topMargin" >
-    <number>9</number>
+   <property name="alignment" >
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
-   <property name="rightMargin" >
-    <number>9</number>
-   </property>
-   <property name="bottomMargin" >
-    <number>9</number>
-   </property>
-   <item>
-    <widget class="QGroupBox" name="mDaysGroup" >
-     <property name="title" >
-      <string>Show Events Starting</string>
-     </property>
-     <layout class="QVBoxLayout" >
-      <item>
-       <widget class="QRadioButton" name="mDateTodayButton" >
-        <property name="text" >
-         <string>&amp;Today</string>
-        </property>
-        <property name="checked" >
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="mDateMonthButton" >
-        <property name="text" >
-         <string>Within the next &amp;month (31 days)</string>
-        </property>
-        <property name="checked" >
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="mCustomDays" >
-        <property name="enabled" >
-         <bool>false</bool>
-        </property>
-        <property name="specialValueText" >
-         <string>1 day</string>
-        </property>
-        <property name="suffix" >
-         <string> days</string>
-        </property>
-        <property name="minimum" >
-         <number>1</number>
-        </property>
-        <property name="maximum" >
-         <number>365</number>
-        </property>
-        <property name="singleStep" >
-         <number>1</number>
-        </property>
-        <property name="value" >
-         <number>7</number>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="mDateRangeButton" >
-        <property name="enabled" >
-         <bool>true</bool>
-        </property>
-        <property name="text" >
-         <string>Within the &amp;next</string>
-        </property>
-        <property name="checked" >
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer>
-        <property name="orientation" >
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" >
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </widget>
-   </item>
-  </layout>
+   <widget class="QWidget" name="" >
+    <property name="geometry" >
+     <rect>
+      <x>11</x>
+      <y>34</y>
+      <width>200</width>
+      <height>88</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout" >
+     <item row="0" column="0" >
+      <widget class="QRadioButton" name="mDateTodayButton" >
+       <property name="text" >
+        <string>&amp;Today</string>
+       </property>
+       <property name="checked" >
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" >
+      <widget class="QRadioButton" name="mDateMonthButton" >
+       <property name="text" >
+        <string>Within the next &amp;month (31 days)</string>
+       </property>
+       <property name="checked" >
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" >
+      <layout class="QHBoxLayout" name="horizontalLayout" >
+       <item>
+        <widget class="QRadioButton" name="mDateRangeButton" >
+         <property name="enabled" >
+          <bool>true</bool>
+         </property>
+         <property name="text" >
+          <string>Within the &amp;next</string>
+         </property>
+         <property name="checked" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="mCustomDays" >
+         <property name="enabled" >
+          <bool>true</bool>
+         </property>
+         <property name="specialValueText" >
+          <string>1 day</string>
+         </property>
+         <property name="suffix" >
+          <string> days</string>
+         </property>
+         <property name="minimum" >
+          <number>1</number>
+         </property>
+         <property name="maximum" >
+          <number>365</number>
+         </property>
+         <property name="singleStep" >
+          <number>1</number>
+         </property>
+         <property name="value" >
+          <number>7</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <resources/>

@@ -24,7 +24,7 @@
   without including the source code for Qt in the source distribution.
 */
 
-#include "karm_plugin.h"
+#include "ktimetracker_plugin.h"
 #include "ktimetrackerinterface.h"
 
 #include <karm_part.h>
@@ -89,7 +89,7 @@ KParts::ReadOnlyPart *KarmPlugin::createPart()
 QStringList KarmPlugin::configModules() const
 {
   QStringList modules;
-  modules << "PIM/karmplugin.desktop";
+  modules << "PIM/ktimetrackerconfig.desktop";
   return modules;
 }
 
@@ -104,4 +104,4 @@ void KarmPlugin::newTask()
   mInterface->addTask( "New Task" );
 }
 
-#include "karm_plugin.moc"
+#include "ktimetracker_plugin.moc"

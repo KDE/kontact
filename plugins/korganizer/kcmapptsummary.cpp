@@ -47,9 +47,9 @@ KCMApptSummary::KCMApptSummary( const KComponentData &inst, QWidget *parent )
 
   customDaysChanged( 7 );
 
-  connect( mDateTodayButton, SIGNAL(clicked(int)), SLOT(modified()) );
-  connect( mDateMonthButton, SIGNAL(clicked(int)), SLOT(modified()) );
-  connect( mDateRangeButton, SIGNAL(clicked(int)), SLOT(modified()) );
+  connect( mDateTodayButton, SIGNAL(clicked(bool)), SLOT(modified()) );
+  connect( mDateMonthButton, SIGNAL(clicked(bool)), SLOT(modified()) );
+  connect( mDateRangeButton, SIGNAL(clicked(bool)), SLOT(modified()) );
 
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
@@ -64,6 +64,11 @@ KCMApptSummary::~KCMApptSummary()
 
 void KCMApptSummary::modified()
 {
+  if ( mDateRangeButton->isChecked() ) {
+    mCustomDays->setEnabled( true );
+  } else {
+    mCustomDays->setEnabled( false );
+  }
   emit changed( true );
 }
 
@@ -80,8 +85,10 @@ void KCMApptSummary::load()
   int days = grp.readEntry( "DaysToShow", 7 );
   if ( days == 1 ) {
     mDateTodayButton->setChecked( true );
+    mCustomDays->setEnabled( false );
   } else if ( days == 31 ) {
     mDateMonthButton->setChecked( true );
+    mCustomDays->setEnabled( false );
   } else {
     mDateRangeButton->setChecked( true );
     mCustomDays->setValue( days );

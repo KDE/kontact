@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
+  Copyright (c) 2005-2006,2008 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -57,6 +57,7 @@
 #include <QLayout>
 #include <QPixmap>
 #include <QVBoxLayout>
+#include <QTextDocument>
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mPlugin( plugin )
@@ -91,16 +92,16 @@ void TodoSummaryWidget::updateView()
   qDeleteAll( mLabels );
   mLabels.clear();
 
-  KConfig _config( "kcmtodosummaryrc" );
-  KConfigGroup config( &_config, "Days" );
-  int mDaysToGo = config.readEntry( "DaysToShow", 7 );
+  KConfig config( "kcmtodosummaryrc" );
+  KConfigGroup daysGroup( &config, "Days" );
+  int mDaysToGo = daysGroup.readEntry( "DaysToShow", 7 );
 
-  config.changeGroup( "Hide" );
-  mHideInProgress = config.readEntry( "InProgress", false );
-  mHideOverdue = config.readEntry( "Overdue", false );
-  mHideCompleted = config.readEntry( "Completed", true );
-  mHideOpenEnded = config.readEntry( "OpenEnded", true );
-  mHideNotStarted = config.readEntry( "NotStarted", false );
+  KConfigGroup hideGroup( &config, "Hide" );
+  mHideInProgress = hideGroup.readEntry( "InProgress", false );
+  mHideOverdue = hideGroup.readEntry( "Overdue", false );
+  mHideCompleted = hideGroup.readEntry( "Completed", true );
+  mHideOpenEnded = hideGroup.readEntry( "OpenEnded", true );
+  mHideNotStarted = hideGroup.readEntry( "NotStarted", false );
 
   // for each todo,
   //   if it passes the filter, append to a list
@@ -116,9 +117,10 @@ void TodoSummaryWidget::updateView()
 
   KCal::Todo::List prList;
 
+  QDate currDate = QDate::currentDate();
   Q_FOREACH ( KCal::Todo *todo, mCalendar->todos() ) {
     if ( todo->hasDueDate() ) {
-      int daysTo = QDate::currentDate().daysTo( todo->dtDue().date() );
+      int daysTo = currDate.daysTo( todo->dtDue().date() );
       if ( daysTo >= mDaysToGo ) {
         continue;
       }
@@ -199,7 +201,7 @@ void TodoSummaryWidget::updateView()
       // Due date label
       str = "";
       if ( todo->hasDueDate() && todo->dtDue().date().isValid() ) {
-        daysTo = QDate::currentDate().daysTo( todo->dtDue().date() );
+        daysTo = currDate.daysTo( todo->dtDue().date() );
 
         if ( daysTo == 0 ) {
           makeBold = true;
@@ -248,6 +250,9 @@ void TodoSummaryWidget::updateView()
       str = todo->summary();
       if ( todo->relatedTo() ) { // show parent only, not entire ancestry
         str = todo->relatedTo()->summary() + ':' + str;
+      }
+      if ( !Qt::mightBeRichText( str ) ) {
+        str = Qt::escape( str );
       }
 
       KUrlLabel *urlLabel = new KUrlLabel( this );
@@ -406,9 +411,10 @@ bool TodoSummaryWidget::inProgress( KCal::Todo *todo )
     return true;
   }
 
+  QDate currDate = QDate::currentDate();
   if ( todo->hasStartDate() && todo->hasDueDate() &&
-       todo->dtStart().date() < QDate::currentDate() &&
-       QDate::currentDate() < todo->dtDue().date() ) {
+       todo->dtStart().date() < currDate &&
+       currDate < todo->dtDue().date() ) {
     return true;
   }
 
@@ -439,7 +445,7 @@ const QString TodoSummaryWidget::stateStr( KCal::Todo *todo )
   if ( openEnded( todo ) ) {
     str1 = i18n( "open-ended" );
   } else if ( overdue( todo ) ) {
-    str1 = i18n( "overdue" );
+    str1 = "<font color=\"red\">" + i18n( "overdue" ) + "</font>";
   } else if ( starts( todo ) ) {
     str1 = i18n( "starts today" );
   }
