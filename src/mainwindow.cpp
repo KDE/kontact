@@ -205,7 +205,7 @@ void MainWindow::initObject()
     mSidePane->updatePlugins();
   }
 
-  KSettings::Dispatcher::registerComponent( componentData(), this, SLOT(updateConfig()) );
+  KSettings::Dispatcher::registerComponent( componentData(), this, "updateConfig" );
 
   loadSettings();
 
