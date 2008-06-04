@@ -74,10 +74,6 @@ KParts::ReadOnlyPart *JournalPlugin::createPart()
     return 0;
   }
 
-#ifdef __GNUC__
-#warning "Once we have a running korganizer, make sure that this dbus call really works"
-#warning "Where is it needed, anyway?"
-#endif
   mIface = new OrgKdeKorganizerCalendarInterface(
     "org.kde.korganizer", "/Calendar", QDBusConnection::sessionBus(), this );
 
@@ -132,16 +128,11 @@ void JournalPlugin::slotSyncJournal()
 
 bool JournalPlugin::createDBUSInterface( const QString &serviceType )
 {
-  kDebug() << serviceType;
-#ifdef __GNUC__
-  #warning "What is this needed for, and do we still need it with DBUS?"
-#endif
   if ( serviceType == "DBUS/Organizer" || serviceType == "DBUS/Calendar" ) {
     if ( part() ) {
       return true;
     }
   }
-
   return false;
 }
 
