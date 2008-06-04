@@ -203,7 +203,6 @@ void MainWindow::initObject()
 
   if ( mSidePane ) {
     mSidePane->updatePlugins();
-    plugActionList( "navigator_actionlist", mSidePane->actions() );
   }
 
   KSettings::Dispatcher::registerComponent( componentData(), this, SLOT(updateConfig()) );
@@ -285,8 +284,6 @@ void MainWindow::initWidgets()
   sizes << 0;
   mSplitter->setSizes(sizes);
 */
-  mSidePane->setActionCollection( actionCollection() );
-
   connect( mSidePane, SIGNAL(pluginSelected(Kontact::Plugin *)),
            SLOT(selectPlugin(Kontact::Plugin *)) );
 
@@ -657,7 +654,6 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   if ( plugin->isRunningStandalone() ) {
     statusBar()->showMessage( i18n( "Application is running standalone. Foregrounding..." ), 1000 );
-    mSidePane->indicateForegrunding( plugin );
     plugin->bringToForeground();
     return;
   }
@@ -689,7 +685,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   }
 
   if ( mSidePane ) {
-    mSidePane->selectPlugin( plugin );
+    mSidePane->setCurrentPlugin( plugin->identifier() );
   }
 
   plugin->select();
@@ -892,7 +888,6 @@ void MainWindow::pluginsChanged()
   unloadPlugins();
   loadPlugins();
   mSidePane->updatePlugins();
-  plugActionList( "navigator_actionlist", mSidePane->actions() );
 }
 
 void MainWindow::updateConfig()

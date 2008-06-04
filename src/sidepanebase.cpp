@@ -2,6 +2,7 @@
   This file is part of the KDE Kontact.
 
   Copyright (C) 2003 Cornelius Schumacher <schumacher@kde.org>
+  Copyright (C) 2008 Rafael Fernández López <ereslibre@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public
@@ -36,16 +37,6 @@ SidePaneBase::~SidePaneBase()
 Core *SidePaneBase::core() const
 {
   return mCore;
-}
-
-void SidePaneBase::setActionCollection( KActionCollection *actionCollection )
-{
-  mActionCollection = actionCollection;
-}
-
-KActionCollection *SidePaneBase::actionCollection() const
-{
-  return mActionCollection;
 }
 
 #include "sidepanebase.moc"
