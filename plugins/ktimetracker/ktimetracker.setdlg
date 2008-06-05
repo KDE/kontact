@@ -1,8 +1,9 @@
 [KTimeTracker]
 Name=Time Tracker
 Name[ca]=Seguiment horari
-Name[de]=Persönliche Zeiterfassung
+Name[de]=Zeiterfassung
 Name[el]=Χρονικός προγραμματισμός
+Name[et]=Ajaarvesti
 Name[ga]=TimeTracker
 Name[ja]=タイムトラッカー
 Name[km]=កម្មវិធី​តាមដាន​ពេលវេលា
@@ -18,7 +19,11 @@ Name[x-test]=xxTime Trackerxx
 Name[zh_CN]=时间追踪器
 Name[zh_TW]=時間追蹤器
 Comment=Time Tracker Component
+Comment[ca]=Component de seguiment horari
+Comment[de]=Zeiterfassungs-Komponente
+Comment[et]=Ajaarvesti komponent
 Comment[ga]=Comhpháirt TimeTracker
+Comment[ja]=タイムトラッカーコンポーネント
 Comment[km]=សមាសភាគ​កម្មវិធី​តាមដាន​ពេលវេលា
 Comment[nds]=Tietlogbook-Komponent
 Comment[pt]=Componente de Gestão do Tempo
