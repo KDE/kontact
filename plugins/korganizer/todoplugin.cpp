@@ -198,8 +198,12 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       if ( !incidences.isEmpty() ) {
         event->accept();
         KCal::Incidence *i = incidences.first();
-        interface()->openTodoEditor(
-          i18n( "Note: %1", i->summary() ), i->description(), QStringList() );
+        QString summary;
+        if ( dynamic_cast<KCal::Journal*>( i ) )
+          summary = i18n( "Note: %1", i->summary() );
+        else
+          summary = i->summary();
+        interface()->openTodoEditor( summary, i->description(), QStringList() );
         return;
       }
       // else fall through to text decoding
