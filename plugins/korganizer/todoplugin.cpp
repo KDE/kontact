@@ -156,7 +156,8 @@ bool TodoPlugin::createDBUSInterface( const QString &serviceType )
 
 bool TodoPlugin::canDecodeMimeData( const QMimeData *mimeData )
 {
-  return mimeData->hasText() || KPIM::MailList::canDecode( mimeData );
+  return mimeData->hasText() || KPIM::MailList::canDecode( mimeData ) ||
+         KPIM::KVCardDrag::canDecode( mimeData ) || KCal::ICalDrag::canDecode( mimeData );
 }
 
 bool TodoPlugin::isRunningStandalone()

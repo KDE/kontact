@@ -1,7 +1,9 @@
 [Planner]
 Name=Planner
 Name[de]=Planer
+Name[et]=Planeerija
 Name[ga]=Pleanálaí
+Name[ja]=スケジュール帳
 Name[km]=កម្មវិធីធ្វើ​គម្រោង
 Name[lv]=Plānotājs
 Name[pl]=Planowanie
@@ -15,7 +17,9 @@ Comment=Planner Summary
 Comment[ca]=Resum del Planner
 Comment[de]=Planer-Übersicht
 Comment[el]=Σύνοψη Planner
+Comment[et]=Planeerija kokkuvõte
 Comment[ga]=Achoimre Pleanálaí
+Comment[ja]=スケジュール帳の要約
 Comment[km]=សេចក្ដី​សង្ខេប​របស់​កម្មវិធីធ្វើ​គម្រោង
 Comment[lv]=Plānotāja kopsavilkums
 Comment[nds]=Planer-Översicht

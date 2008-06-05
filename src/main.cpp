@@ -164,6 +164,8 @@ int main( int argc, char **argv )
                     ki18n( "(C) 2001-2008 The Kontact developers" ),
                     KLocalizedString(), "http://kontact.org" );
 
+  about.addAuthor( ki18n( "Allen Winter" ), KLocalizedString(), "winter@kde.org" );
+  about.addAuthor( ki18n( "Rafael Fernández López" ), KLocalizedString(), "ereslibre@kde.org" );
   about.addAuthor( ki18n( "Daniel Molkentin" ), KLocalizedString(), "molkentin@kde.org" );
   about.addAuthor( ki18n( "Don Sanders" ), KLocalizedString(), "sanders@kde.org" );
   about.addAuthor( ki18n( "Cornelius Schumacher" ), KLocalizedString(), "schumacher@kde.org" );

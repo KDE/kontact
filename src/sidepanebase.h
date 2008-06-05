@@ -2,6 +2,7 @@
   This file is part of the KDE Kontact.
 
   Copyright (C) 2003 Cornelius Schumacher <schumacher@kde.org>
+  Copyright (C) 2008 Rafael Fernández López <ereslibre@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public
@@ -43,10 +44,7 @@ class SidePaneBase : public KVBox
     SidePaneBase( Core *core, QWidget *parent );
     virtual ~SidePaneBase();
 
-    void setActionCollection( KActionCollection *actionCollection );
-    KActionCollection *actionCollection() const;
-
-    virtual const QList<QAction*> & actions() = 0;
+    virtual void setCurrentPlugin( const QString & ) = 0;
 
   signals:
     void pluginSelected( Kontact::Plugin * );
@@ -57,20 +55,6 @@ class SidePaneBase : public KVBox
       of plugins has changed.
      */
     virtual void updatePlugins() = 0;
-
-    /**
-      Select the current plugin without emmiting a signal.
-      This is used to sync with the core.
-     */
-    virtual void selectPlugin( Kontact::Plugin * ) = 0;
-
-    /**
-      This is an overloaded member function. It behaves essentially like the
-      above function.
-     */
-    virtual void selectPlugin( const QString &name ) = 0;
-
-    virtual void indicateForegrunding( Kontact::Plugin * ) = 0;
 
   protected:
     Core *core() const;
