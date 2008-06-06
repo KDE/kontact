@@ -42,11 +42,9 @@
 #include <kmessagebox.h>
 #include <kparts/componentfactory.h>
 
-using namespace Akregator;
+EXPORT_KONTACT_PLUGIN( AkregatorPlugin, akregator )
 
-EXPORT_KONTACT_PLUGIN( Akregator::Plugin, akregator )
-
-Plugin::Plugin( Kontact::Core *core, const QVariantList & )
+AkregatorPlugin::AkregatorPlugin( Kontact::Core *core, const QVariantList & )
   : Kontact::Plugin( core, core, "akregator" ), m_interface( 0 )
 {
 
@@ -58,25 +56,25 @@ Plugin::Plugin( Kontact::Core *core, const QVariantList & )
   connect( action, SIGNAL(triggered(bool)), SLOT(addFeed()) );
   insertNewAction( action );
 
-  m_uniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<Akregator::UniqueAppHandler>(), this );
+  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
+    new Kontact::UniqueAppHandlerFactory<AkregatorUniqueAppHandler>(), this );
 }
 
-Plugin::~Plugin()
+AkregatorPlugin::~AkregatorPlugin()
 {
 }
 
-bool Plugin::isRunningStandalone()
+bool AkregatorPlugin::isRunningStandalone()
 {
-  return m_uniqueAppWatcher->isRunningStandalone();
+  return mUniqueAppWatcher->isRunningStandalone();
 }
 
-QStringList Plugin::invisibleToolbarActions() const
+QStringList AkregatorPlugin::invisibleToolbarActions() const
 {
   return QStringList( "file_new_contact" );
 }
 
-OrgKdeAkregatorPartInterface *Plugin::interface()
+OrgKdeAkregatorPartInterface *AkregatorPlugin::interface()
 {
   if ( !m_interface ) {
     part();
@@ -86,7 +84,7 @@ OrgKdeAkregatorPartInterface *Plugin::interface()
 
 }
 
-QString Plugin::tipFile() const
+QString AkregatorPlugin::tipFile() const
 {
   // TODO: tips file
   //QString file = KStandardDirs::locate("data", "akregator/tips");
@@ -94,38 +92,41 @@ QString Plugin::tipFile() const
   return file;
 }
 
-MyBasePart *Plugin::createPart()
+KParts::ReadOnlyPart *AkregatorPlugin::createPart()
 {
-  MyBasePart *p = loadPart();
+  KParts::ReadOnlyPart *part = loadPart();
+  if ( !part ) {
+    return 0;
+  }
 
-  connect( p, SIGNAL(showPart()), this, SLOT(showPart()) );
-  m_interface = new OrgKdeAkregatorPartInterface( "org.kde.akregator",
-                                                  "/Akregator", QDBusConnection::sessionBus() );
-
+  connect( part, SIGNAL(showPart()), this, SLOT(showPart()) );
+  m_interface = new OrgKdeAkregatorPartInterface(
+    "org.kde.akregator", "/Akregator", QDBusConnection::sessionBus() );
   m_interface->openStandardFeedList();
-  return p;
+
+  return part;
 }
 
-void Plugin::showPart()
+void AkregatorPlugin::showPart()
 {
-  core()->selectPlugin(this);
+  core()->selectPlugin( this );
 }
 
-void Plugin::addFeed()
+void AkregatorPlugin::addFeed()
 {
   (void) part(); // ensure part is loaded
-  Q_ASSERT(m_interface);
+  Q_ASSERT( m_interface );
   m_interface->addFeed();
 }
 
-QStringList Plugin::configModules() const
+QStringList AkregatorPlugin::configModules() const
 {
   QStringList modules;
   modules << "PIM/akregator.desktop";
   return modules;
 }
 
-void Plugin::readProperties( const KConfigGroup &config )
+void AkregatorPlugin::readProperties( const KConfigGroup &config )
 {
   if ( part() ) {
     Akregator::Part *myPart = static_cast<Akregator::Part*>( part() );
@@ -133,7 +134,7 @@ void Plugin::readProperties( const KConfigGroup &config )
   }
 }
 
-void Plugin::saveProperties( KConfigGroup &config )
+void AkregatorPlugin::saveProperties( KConfigGroup &config )
 {
   if ( part() ) {
     Akregator::Part *myPart = static_cast<Akregator::Part*>( part() );
@@ -141,28 +142,23 @@ void Plugin::saveProperties( KConfigGroup &config )
   }
 }
 
-void UniqueAppHandler::loadCommandLineOptions()
+#include "../../../akregator/src/akregator_options.h"
+void AkregatorUniqueAppHandler::loadCommandLineOptions()
 {
-  KCmdLineArgs::addCmdLineOptions( akregator_options() );
+  KCmdLineArgs::addCmdLineOptions( Akregator::akregator_options() );
 }
 
-int UniqueAppHandler::newInstance()
+int AkregatorUniqueAppHandler::newInstance()
 {
-  kDebug() ;
+  kDebug();
   // Ensure part is loaded
   (void)plugin()->part();
-#ifdef __GNUC__
-#warning Port me to DBus!
-#endif
-//    DCOPRef akr( "akregator", "AkregatorIface" );
-//    DCOPReply reply = kAB.call( "handleCommandLine" );
-  //  if ( reply.isValid() ) {
-    //    bool handled = reply;
-     //   kDebug() <<"handled=" << handled;
-     //   if ( !handled ) // no args -> simply bring kaddressbook plugin to front
+
+  org::kde::akregator::part akregator(
+    "org.kde.akregator", "/Akregator", QDBusConnection::sessionBus() );
+  akregator.openStandardFeedList();
+
   return Kontact::UniqueAppHandler::newInstance();
-   // }
-   // return 0;
 }
 
 #include "akregator_plugin.moc"

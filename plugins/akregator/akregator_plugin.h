@@ -32,25 +32,21 @@
 
 class OrgKdeAkregatorPartInterface;
 
-namespace Akregator {
-
-typedef KParts::ReadOnlyPart MyBasePart;
-
-class UniqueAppHandler : public Kontact::UniqueAppHandler
+class AkregatorUniqueAppHandler : public Kontact::UniqueAppHandler
 {
   public:
-    UniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    AkregatorUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
 
-class Plugin : public Kontact::Plugin
+class AkregatorPlugin : public Kontact::Plugin
 {
   Q_OBJECT
 
   public:
-    Plugin( Kontact::Core *core, const QVariantList & );
-    ~Plugin();
+    AkregatorPlugin( Kontact::Core *core, const QVariantList & );
+    ~AkregatorPlugin();
 
     virtual QString tipFile() const;
     int weight() const { return 700; }
@@ -68,11 +64,9 @@ class Plugin : public Kontact::Plugin
     void addFeed();
 
   protected:
-    MyBasePart *createPart();
+    KParts::ReadOnlyPart *createPart();
+    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
     OrgKdeAkregatorPartInterface *m_interface;
-    Kontact::UniqueAppWatcher *m_uniqueAppWatcher;
 };
-
-} // namespace Akregator
 
 #endif
