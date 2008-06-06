@@ -29,6 +29,7 @@
 
 #include <kactioncollection.h>
 #include <kaction.h>
+#include <kcmdlineargs.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kicon.h>
@@ -110,6 +111,18 @@ void KJotsPlugin::newBook()
 
 void KJotsUniqueAppHandler::loadCommandLineOptions()
 {
-//  No command line args to load.
+  //  No command line args to load.
+  KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
+}
+
+int KJotsUniqueAppHandler::newInstance()
+{
+  kDebug();
+  // Ensure part is loaded
+  (void)plugin()->part();
+  org::kde::KJotsComponent kjots(
+    "org.kde.kjots", "/KJotsComponent", QDBusConnection::sessionBus() );
+  return Kontact::UniqueAppHandler::newInstance();
+
 }
 

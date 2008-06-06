@@ -37,6 +37,7 @@ class KJotsUniqueAppHandler : public Kontact::UniqueAppHandler
   public:
     KJotsUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
+    virtual int newInstance();
 };
 
 class KJotsPlugin : public Kontact::Plugin
