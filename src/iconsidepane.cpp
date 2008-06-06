@@ -352,7 +352,7 @@ void Navigator::slotActionTriggered( bool checked )
   } else if ( object == mNormalIconsAction ) {
     mIconSize = KIconLoader::SizeMedium;
   } else if ( object == mSmallIconsAction ) {
-    mIconSize = KIconLoader::SizeSmall;
+    mIconSize = KIconLoader::SizeSmallMedium;
   }
 
   Prefs::self()->setSidePaneIconSize( mIconSize );
