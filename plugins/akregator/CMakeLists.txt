@@ -17,7 +17,7 @@ kdepim4_link_unique_libraries(kontact_akregatorplugin ${KDE4_KPARTS_LIBS} kontac
 
 install(TARGETS kontact_akregatorplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
-install(FILES akregatorplugin.desktop akregatorplugin3.2.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install(FILES akregatorplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
 install(FILES akregator.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
 
