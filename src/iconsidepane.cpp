@@ -29,9 +29,9 @@
 #include <QtGui/QSortFilterProxyModel>
 #include <QtGui/QDragEnterEvent>
 #include <QtGui/QDragMoveEvent>
+#include <QtGui/QStyledItemDelegate>
 
 #include <KLocalizedString>
-#include <KFileItemDelegate>
 #include <KDialog>
 #include <KIcon>
 
@@ -99,6 +99,11 @@ class Model : public QStringListModel
         return KIcon( static_cast<Kontact::Plugin*>( index.internalPointer() )->icon() );
       } else if ( role == Qt::TextAlignmentRole ) {
         return Qt::AlignCenter;
+      } else if ( role == Qt::ToolTipRole ) {
+        if ( !mNavigator->showText() ) {
+          return static_cast<Kontact::Plugin*>( index.internalPointer() )->title();
+        }
+        return QVariant();
       } else if ( role == PluginName ) {
         return static_cast<Kontact::Plugin*>( index.internalPointer() )->identifier();
       }
@@ -128,11 +133,11 @@ class SortFilterProxyModel
     }
 };
 
-class Delegate : public KFileItemDelegate
+class Delegate : public QStyledItemDelegate
 {
   public:
     Delegate( Navigator *parentNavigator = 0 )
-      : KFileItemDelegate( parentNavigator ), mNavigator( parentNavigator )
+      : QStyledItemDelegate( parentNavigator ), mNavigator( parentNavigator )
     {
     }
 
@@ -142,7 +147,7 @@ class Delegate : public KFileItemDelegate
       QStyleOptionViewItemV4 optionCopy( *static_cast<const QStyleOptionViewItemV4*>( &option ) );
       optionCopy.decorationPosition = QStyleOptionViewItem::Top;
       optionCopy.decorationSize = QSize( mNavigator->iconSize(), mNavigator->iconSize() );
-      KFileItemDelegate::paint( painter, optionCopy, index );
+      QStyledItemDelegate::paint( painter, optionCopy, index );
     }
 
     QSize sizeHint( const QStyleOptionViewItem &option, const QModelIndex &index ) const
