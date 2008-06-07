@@ -49,7 +49,7 @@ class AkregatorPlugin : public Kontact::Plugin
     ~AkregatorPlugin();
 
     virtual QString tipFile() const;
-    int weight() const { return 700; }
+    int weight() const { return 475; }
 
     OrgKdeAkregatorPartInterface *interface();
 
