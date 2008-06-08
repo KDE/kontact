@@ -41,7 +41,7 @@
 EXPORT_KONTACT_PLUGIN( KarmPlugin, karm )
 
 KarmPlugin::KarmPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "KArm" ), mInterface( 0 )
+  : Kontact::Plugin( core, core, "ktimetracker" ), mInterface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
