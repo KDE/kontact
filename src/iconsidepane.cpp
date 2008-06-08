@@ -156,9 +156,10 @@ class Delegate : public QStyledItemDelegate
     {
       QStyleOptionViewItemV4 optionCopy( *static_cast<const QStyleOptionViewItemV4*>( &option ) );
       optionCopy.decorationPosition = QStyleOptionViewItem::Top;
-      optionCopy.decorationSize = mNavigator->showIcons() ? QSize( mNavigator->iconSize(), mNavigator->iconSize() ) : QSize();
+      optionCopy.decorationSize =
+        mNavigator->showIcons() ? QSize( mNavigator->iconSize(), mNavigator->iconSize() ) : QSize();
       optionCopy.textElideMode = Qt::ElideNone;
-      return QStyledItemDelegate::sizeHint(optionCopy, index);
+      return QStyledItemDelegate::sizeHint( optionCopy, index );
     }
 
   private:
