@@ -38,7 +38,7 @@
 #include <kicon.h>
 #include <kparts/componentfactory.h>
 
-EXPORT_KONTACT_PLUGIN( KarmPlugin, karm )
+EXPORT_KONTACT_PLUGIN( KarmPlugin, ktimetracker )
 
 KarmPlugin::KarmPlugin( Kontact::Core *core, const QVariantList & )
   : Kontact::Plugin( core, core, "ktimetracker" ), mInterface( 0 )
@@ -109,7 +109,7 @@ QStringList KarmPlugin::configModules() const
 void KarmPlugin::newTask()
 {
   core()->selectPlugin( this );
-  interface()->addTask( i18n( "New Task" ) );
+  interface()->newTask();
 }
 
 void KarmUniqueAppHandler::loadCommandLineOptions()
@@ -123,19 +123,7 @@ int KarmUniqueAppHandler::newInstance()
   kDebug();
   // Ensure part is loaded
   (void)plugin()->part();
-  org::kde::ktimetracker::ktimetracker ktimetracker(
-    "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
-  // TODO:
-  // QDBusReply<bool> reply = ktimetracker.doSomethingUseful();
-  //
-  // if ( reply.isValid() ) {
-  //   bool handled = reply;
-  //   kDebug() << "handled=" << handled;
-  //   if ( !handled ) { // no args -> simply bring plugin to front
-        return Kontact::UniqueAppHandler::newInstance();
-  //  }
-  // }
-  // return 0;
+  return Kontact::UniqueAppHandler::newInstance();
 }
 
 #include "ktimetracker_plugin.moc"
