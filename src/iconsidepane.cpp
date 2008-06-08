@@ -30,6 +30,7 @@
 #include <QtGui/QDragEnterEvent>
 #include <QtGui/QDragMoveEvent>
 #include <QtGui/QStyledItemDelegate>
+#include <QtGui/QScrollBar>
 
 #include <KLocalizedString>
 #include <KDialog>
@@ -147,24 +148,17 @@ class Delegate : public QStyledItemDelegate
       QStyleOptionViewItemV4 optionCopy( *static_cast<const QStyleOptionViewItemV4*>( &option ) );
       optionCopy.decorationPosition = QStyleOptionViewItem::Top;
       optionCopy.decorationSize = QSize( mNavigator->iconSize(), mNavigator->iconSize() );
+      optionCopy.textElideMode = Qt::ElideNone;
       QStyledItemDelegate::paint( painter, optionCopy, index );
     }
 
     QSize sizeHint( const QStyleOptionViewItem &option, const QModelIndex &index ) const
     {
-      QString title = index.model()->data( index ).toString();
-
-      if ( !mNavigator->showText() ) {
-        return QSize( mNavigator->iconSize(), mNavigator->iconSize() + KDialog::spacingHint() );
-      }
-
-      if ( !mNavigator->showIcons() ) {
-        return QSize( option.fontMetrics.width( title ),
-                      option.fontMetrics.height() + KDialog::spacingHint() );
-      }
-
-      return QSize( qMax( mNavigator->iconSize(), option.fontMetrics.width( title ) ),
-                   mNavigator->iconSize() + option.fontMetrics.height() + KDialog::spacingHint() );
+      QStyleOptionViewItemV4 optionCopy( *static_cast<const QStyleOptionViewItemV4*>( &option ) );
+      optionCopy.decorationPosition = QStyleOptionViewItem::Top;
+      optionCopy.decorationSize = mNavigator->showIcons() ? QSize( mNavigator->iconSize(), mNavigator->iconSize() ) : QSize();
+      optionCopy.textElideMode = Qt::ElideNone;
+      return QStyledItemDelegate::sizeHint(optionCopy, index);
     }
 
   private:
@@ -274,6 +268,28 @@ void Navigator::setCurrentPlugin( const QString &plugin )
   }
 }
 
+QSize Navigator::sizeHint() const
+{
+  //### TODO: We can cache this value, so this reply is faster. Since here we won't
+  //          have too many elements, it is not that important. When caching this value
+  //          make sure it is updated correctly when new rows have been added or
+  //          removed. (ereslibre)
+
+  int maxWidth = 0;
+  for ( int i = 0; i < model()->rowCount(); i++ ) {
+    const QModelIndex index = model()->index( i, 0 );
+    maxWidth = qMax( maxWidth, sizeHintForIndex( index ).width() );
+  }
+
+  if ( !verticalScrollBar()->isVisible() ) {
+    maxWidth += style()->pixelMetric( QStyle::PM_ScrollBarExtent ) * 2;
+  }
+
+  int viewHeight = QListView::sizeHint().height();
+
+  return QSize( maxWidth + rect().width() - contentsRect().width(), viewHeight );
+}
+
 void Navigator::dragEnterEvent( QDragEnterEvent *event )
 {
   if ( event->proposedAction() == Qt::IgnoreAction ) {
@@ -365,6 +381,9 @@ void Navigator::slotActionTriggered( bool checked )
   Prefs::self()->setSidePaneShowText( mShowText );
 
   scheduleDelayedItemsLayout();
+
+  parentWidget()->setMaximumWidth( sizeHint().width() );
+  parentWidget()->setMinimumWidth( sizeHint().width() );
 }
 
 IconSidePane::IconSidePane( Core *core, QWidget *parent )
