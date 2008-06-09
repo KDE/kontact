@@ -88,6 +88,10 @@ class Model : public QStringListModel
 
     virtual QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const
     {
+      if ( !index.isValid() || !index.internalPointer() ) {
+        return QVariant();
+      }
+
       if ( role == Qt::DisplayRole ) {
         if ( !mNavigator->showText() ) {
           return QVariant();
@@ -145,6 +149,10 @@ class Delegate : public QStyledItemDelegate
     void paint( QPainter *painter, const QStyleOptionViewItem &option,
                 const QModelIndex &index ) const
     {
+      if ( !index.isValid() || !index.internalPointer() ) {
+        return;
+      }
+
       QStyleOptionViewItemV4 optionCopy( *static_cast<const QStyleOptionViewItemV4*>( &option ) );
       optionCopy.decorationPosition = QStyleOptionViewItem::Top;
       optionCopy.decorationSize = QSize( mNavigator->iconSize(), mNavigator->iconSize() );
@@ -154,6 +162,10 @@ class Delegate : public QStyledItemDelegate
 
     QSize sizeHint( const QStyleOptionViewItem &option, const QModelIndex &index ) const
     {
+      if ( !index.isValid() || !index.internalPointer() ) {
+        return QSize();
+      }
+
       QStyleOptionViewItemV4 optionCopy( *static_cast<const QStyleOptionViewItemV4*>( &option ) );
       optionCopy.decorationPosition = QStyleOptionViewItem::Top;
       optionCopy.decorationSize =
@@ -346,7 +358,8 @@ void Navigator::dropEvent( QDropEvent *event )
 
 void Navigator::slotCurrentChanged( const QModelIndex &current )
 {
-  if ( !( current.model()->flags( current ) & Qt::ItemIsEnabled ) ) {
+  if ( !current.isValid() || !current.internalPointer() ||
+       !( current.model()->flags( current ) & Qt::ItemIsEnabled ) ) {
     return;
   }
 

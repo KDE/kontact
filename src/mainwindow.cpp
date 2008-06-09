@@ -551,7 +551,7 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
         createGUI( 0 );
       }
 
-      delete plugin; // removes the part automatically
+      plugin->deleteLater(); // removes the part automatically
       mPlugins.erase( it );
 
       if ( mCurrentPlugin == 0 ) {
