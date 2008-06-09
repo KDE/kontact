@@ -276,7 +276,7 @@ void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
 
   // Restore the previous selected index, if any
   if ( !currentPlugin.isEmpty() ) {
-    setCurrentPlugin(currentPlugin);
+    setCurrentPlugin( currentPlugin );
   }
 }
 
