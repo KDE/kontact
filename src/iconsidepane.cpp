@@ -181,6 +181,8 @@ class Delegate : public QStyledItemDelegate
 Navigator::Navigator( SidePaneBase *parent )
   : QListView( parent ), mSidePane( parent )
 {
+  setViewport( new QWidget( this ) );
+
   setVerticalScrollMode( ScrollPerPixel );
   setHorizontalScrollMode( ScrollPerPixel );
 
