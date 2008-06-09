@@ -257,6 +257,11 @@ Navigator::Navigator( SidePaneBase *parent )
 
 void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
 {
+  QString currentPlugin;
+  if ( currentIndex().isValid() ) {
+    currentPlugin = currentIndex().model()->data( currentIndex(), Model::PluginName ).toString();
+  }
+
   QList<Kontact::Plugin*> pluginsToShow;
   foreach ( Kontact::Plugin *plugin, plugins_ ) {
     if ( plugin->showInSideBar() ) {
@@ -268,6 +273,11 @@ void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
 
   mModel->removeRows( 0, mModel->rowCount() );
   mModel->insertRows( 0, pluginsToShow.count() );
+
+  // Restore the previous selected index, if any
+  if ( !currentPlugin.isEmpty() ) {
+    setCurrentPlugin(currentPlugin);
+  }
 }
 
 void Navigator::setCurrentPlugin( const QString &plugin )
