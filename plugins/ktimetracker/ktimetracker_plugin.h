@@ -23,15 +23,23 @@
   without including the source code for Qt in the source distribution.
 */
 
-#ifndef KARM_PLUGIN_H
-#define KARM_PLUGIN_H
+#ifndef KTIMETRACKER_PLUGIN_H
+#define KTIMETRACKER_PLUGIN_H
 
 #include <kontactinterfaces/plugin.h>
+#include <kontactinterfaces/uniqueapphandler.h>
+
 #include <kparts/part.h>
 
 class OrgKdeKtimetrackerKtimetrackerInterface;
 
-namespace KTimeTracker {
+class KarmUniqueAppHandler : public Kontact::UniqueAppHandler
+{
+  public:
+    KarmUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    virtual void loadCommandLineOptions();
+    virtual int newInstance();
+};
 
 class KarmPlugin : public Kontact::Plugin
 {
@@ -40,26 +48,24 @@ class KarmPlugin : public Kontact::Plugin
   public:
     KarmPlugin( Kontact::Core *core, const QVariantList & );
     ~KarmPlugin();
-
     virtual QString tipFile() const;
     int weight() const { return 700; }
+    virtual QStringList invisibleToolbarActions() const;
+    virtual bool isRunningStandalone();
 
     OrgKdeKtimetrackerKtimetrackerInterface *interface();
 
     virtual QStringList configModules() const;
 
   private slots:
-    void showPart();
+    void newTask();
 
   protected:
     KParts::ReadOnlyPart *createPart();
+
+  private:
+    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
     OrgKdeKtimetrackerKtimetrackerInterface *mInterface;
-
-  public slots:
-    void newTask();
-
 };
-
-} // namespace KTimeTracker
 
 #endif

@@ -143,8 +143,8 @@ int ServiceStarter::startServiceFor( const QString &serviceType,
 }
 
 MainWindow::MainWindow()
-  : Kontact::Core(), mTopWidget( 0 ), mSplitter( 0 ),
-    mCurrentPlugin( 0 ), mAboutDialog( 0 ), mReallyClose( false ), mSyncActionsEnabled( true )
+  : Kontact::Core(), mSplitter( 0 ), mCurrentPlugin( 0 ), mAboutDialog( 0 ),
+    mReallyClose( false ), mSyncActionsEnabled( true )
 {
   // The ServiceStarter created here will be deleted by the KDbusServiceStarter
   // base class, which is a global static.
@@ -159,6 +159,9 @@ MainWindow::MainWindow()
 
   initGUI();
   initObject();
+
+  mSidePane->setMaximumWidth( mSidePane->sizeHint().width() );
+  mSidePane->setMinimumWidth( mSidePane->sizeHint().width() );
 }
 
 void MainWindow::initGUI()
@@ -267,16 +270,14 @@ void MainWindow::activatePluginModule()
 
 void MainWindow::initWidgets()
 {
-  // includes sidebar and part stack
-  mTopWidget = new KHBox( this );
-  mTopWidget->setFrameStyle( QFrame::NoFrame );
+  QWidget *mTopWidget = new QWidget( this );
+  QVBoxLayout *layout = new QVBoxLayout;
+  mTopWidget->setLayout( layout );
   setCentralWidget( mTopWidget );
 
-  KHBox *mBox = 0;
   mSplitter = new QSplitter( mTopWidget );
-  mBox = new KHBox( mTopWidget );
+  layout->addWidget( mSplitter );
   mSidePane = new IconSidePane( this, mSplitter );
-  mSidePane->setSizePolicy( QSizePolicy( QSizePolicy::Maximum, QSizePolicy::Preferred ) );
 /*
   // don't occupy screen estate on load
 
@@ -287,11 +288,7 @@ void MainWindow::initWidgets()
   connect( mSidePane, SIGNAL(pluginSelected(Kontact::Plugin *)),
            SLOT(selectPlugin(Kontact::Plugin *)) );
 
-  KVBox *vBox = new KVBox( mSplitter );
-
-  vBox->setSpacing( 0 );
-
-  mPartsStack = new QStackedWidget( vBox );
+  mPartsStack = new QStackedWidget( mSplitter );
   mPartsStack->layout()->setSpacing( 0 );
 
   initAboutScreen();
@@ -315,6 +312,8 @@ void MainWindow::initWidgets()
   statusBar()->addWidget( mStatusMsgLabel, 10 );
   statusBar()->addPermanentWidget( mLittleProgress, 0 );
   mLittleProgress->show();
+
+  mSplitter->setCollapsible( 1, false );
 }
 
 void MainWindow::paintAboutScreen( const QString &msg )

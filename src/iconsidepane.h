@@ -67,6 +67,8 @@ class Navigator : public QListView
       return mShowText;
     }
 
+    virtual QSize sizeHint() const;
+
   signals:
     void pluginActivated( Kontact::Plugin *plugin );
 

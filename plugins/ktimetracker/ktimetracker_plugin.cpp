@@ -33,16 +33,15 @@
 #include <kontactinterfaces/plugin.h>
 
 #include <kactioncollection.h>
+#include <kcmdlineargs.h>
 #include <kgenericfactory.h>
 #include <kicon.h>
 #include <kparts/componentfactory.h>
 
-using namespace KTimeTracker;
-
-EXPORT_KONTACT_PLUGIN( KarmPlugin, karm )
+EXPORT_KONTACT_PLUGIN( KarmPlugin, ktimetracker )
 
 KarmPlugin::KarmPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "KArm" ), mInterface( 0 )
+  : Kontact::Plugin( core, core, "ktimetracker" ), mInterface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -51,16 +50,41 @@ KarmPlugin::KarmPlugin( Kontact::Core *core, const QVariantList & )
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_W ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(newTask()) );
   insertNewAction( action );
+
+  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
+    new Kontact::UniqueAppHandlerFactory<KarmUniqueAppHandler>(), this );
 }
 
 KarmPlugin::~KarmPlugin()
 {
 }
 
+bool KarmPlugin::isRunningStandalone()
+{
+  return mUniqueAppWatcher->isRunningStandalone();
+}
+
+QStringList KarmPlugin::invisibleToolbarActions() const
+{
+  return QStringList() << "new_task" << "new_sub_task" ;
+}
+
+KParts::ReadOnlyPart *KarmPlugin::createPart()
+{
+  KParts::ReadOnlyPart *part = loadPart();
+  if ( !part ) {
+    return 0;
+  }
+
+  mInterface = new OrgKdeKtimetrackerKtimetrackerInterface(
+    "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
+
+  return part;
+}
+
 OrgKdeKtimetrackerKtimetrackerInterface *KarmPlugin::interface()
 {
-  if ( !mInterface ) 
-  {
+  if ( !mInterface ) {
     part();
   }
   Q_ASSERT( mInterface );
@@ -75,17 +99,6 @@ QString KarmPlugin::tipFile() const
   return file;
 }
 
-KParts::ReadOnlyPart *KarmPlugin::createPart()
-{
-  KParts::ReadOnlyPart *part = loadPart();
-
-  connect( part, SIGNAL(showPart()), this, SLOT(showPart()) );
-  mInterface = new OrgKdeKtimetrackerKtimetrackerInterface(
-    "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
-
-  return part;
-}
-
 QStringList KarmPlugin::configModules() const
 {
   QStringList modules;
@@ -93,15 +106,25 @@ QStringList KarmPlugin::configModules() const
   return modules;
 }
 
-void KarmPlugin::showPart()
-{
-  core()->selectPlugin( this );
-}
-
 void KarmPlugin::newTask()
 {
-  kDebug() << "Entering newTask";
-  mInterface->addTask( "New Task" );
+  core()->selectPlugin( this );
+  interface()->newTask();
+}
+
+void KarmUniqueAppHandler::loadCommandLineOptions()
+{
+  // TODO: handle command line options
+  KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
+}
+
+int KarmUniqueAppHandler::newInstance()
+{
+  kDebug();
+  // Ensure part is loaded
+  (void)plugin()->part();
+  return Kontact::UniqueAppHandler::newInstance();
 }
 
 #include "ktimetracker_plugin.moc"
+
