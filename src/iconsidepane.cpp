@@ -41,6 +41,34 @@ namespace Kontact
 
 class Navigator;
 
+class SelectionModel : public QItemSelectionModel
+{
+  public:
+    SelectionModel( QAbstractItemModel *model, QObject *parent )
+      : QItemSelectionModel( model, parent )
+    {
+    }
+
+  public slots:
+    virtual void select( const QModelIndex &index, QItemSelectionModel::SelectionFlags command )
+    {
+      // Don't allow the current selection to be cleared
+      if ( !index.isValid() && ( command & QItemSelectionModel::Clear ) ) {
+        return;
+      }
+      QItemSelectionModel::select( index, command );
+    }
+
+    virtual void select( const QItemSelection &selection, QItemSelectionModel::SelectionFlags command )
+    {
+      // Don't allow the current selection to be cleared
+      if ( !selection.indexes().count() && ( command & QItemSelectionModel::Clear ) ) {
+        return;
+      }
+      QItemSelectionModel::select( selection, command );
+    }
+};
+
 class Model : public QStringListModel
 {
   public:
@@ -246,6 +274,7 @@ Navigator::Navigator( SidePaneBase *parent )
   SortFilterProxyModel *sortFilterProxyModel = new SortFilterProxyModel;
   sortFilterProxyModel->setSourceModel( mModel );
   setModel( sortFilterProxyModel );
+  setSelectionModel( new SelectionModel( sortFilterProxyModel, this ) );
 
   setDragDropMode( DropOnly );
   viewport()->setAcceptDrops( true );
