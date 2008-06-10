@@ -1,7 +1,9 @@
 [Notebooks]
 Name=Notebooks
 Name[de]=Notizbücher
+Name[el]=Σημειωματάρια
 Name[et]=Märkmed
+Name[fr]=Carnets de notes
 Name[ga]=Leabhair Nótaí
 Name[ja]=メモ帳
 Name[km]=សៀវភៅ​ចំណាំ
@@ -17,7 +19,9 @@ Name[zh_TW]=筆記本
 Comment=Notebooks Component
 Comment[ca]=Component del Notebooks
 Comment[de]=Notizblock-Komponente
+Comment[el]=Συστατικό σημειωματάριου
 Comment[et]=Märkmete komponent
+Comment[fr]=Composant de carnet de notes
 Comment[ga]=Comhpháirt Leabhair Nótaí
 Comment[ja]=メモ帳コンポーネント
 Comment[km]=សមាសភាគ​សៀវភៅ​
