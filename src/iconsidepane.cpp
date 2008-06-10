@@ -88,6 +88,10 @@ class Model : public QStringListModel
 
     virtual QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const
     {
+      if ( !index.isValid() || !index.internalPointer() ) {
+        return QVariant();
+      }
+
       if ( role == Qt::DisplayRole ) {
         if ( !mNavigator->showText() ) {
           return QVariant();
@@ -145,6 +149,10 @@ class Delegate : public QStyledItemDelegate
     void paint( QPainter *painter, const QStyleOptionViewItem &option,
                 const QModelIndex &index ) const
     {
+      if ( !index.isValid() || !index.internalPointer() ) {
+        return;
+      }
+
       QStyleOptionViewItemV4 optionCopy( *static_cast<const QStyleOptionViewItemV4*>( &option ) );
       optionCopy.decorationPosition = QStyleOptionViewItem::Top;
       optionCopy.decorationSize = QSize( mNavigator->iconSize(), mNavigator->iconSize() );
@@ -154,6 +162,10 @@ class Delegate : public QStyledItemDelegate
 
     QSize sizeHint( const QStyleOptionViewItem &option, const QModelIndex &index ) const
     {
+      if ( !index.isValid() || !index.internalPointer() ) {
+        return QSize();
+      }
+
       QStyleOptionViewItemV4 optionCopy( *static_cast<const QStyleOptionViewItemV4*>( &option ) );
       optionCopy.decorationPosition = QStyleOptionViewItem::Top;
       optionCopy.decorationSize =
@@ -169,6 +181,8 @@ class Delegate : public QStyledItemDelegate
 Navigator::Navigator( SidePaneBase *parent )
   : QListView( parent ), mSidePane( parent )
 {
+  setViewport( new QWidget( this ) );
+
   setVerticalScrollMode( ScrollPerPixel );
   setHorizontalScrollMode( ScrollPerPixel );
 
@@ -243,6 +257,11 @@ Navigator::Navigator( SidePaneBase *parent )
 
 void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
 {
+  QString currentPlugin;
+  if ( currentIndex().isValid() ) {
+    currentPlugin = currentIndex().model()->data( currentIndex(), Model::PluginName ).toString();
+  }
+
   QList<Kontact::Plugin*> pluginsToShow;
   foreach ( Kontact::Plugin *plugin, plugins_ ) {
     if ( plugin->showInSideBar() ) {
@@ -254,6 +273,11 @@ void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
 
   mModel->removeRows( 0, mModel->rowCount() );
   mModel->insertRows( 0, pluginsToShow.count() );
+
+  // Restore the previous selected index, if any
+  if ( !currentPlugin.isEmpty() ) {
+    setCurrentPlugin( currentPlugin );
+  }
 }
 
 void Navigator::setCurrentPlugin( const QString &plugin )
@@ -346,7 +370,8 @@ void Navigator::dropEvent( QDropEvent *event )
 
 void Navigator::slotCurrentChanged( const QModelIndex &current )
 {
-  if ( !( current.model()->flags( current ) & Qt::ItemIsEnabled ) ) {
+  if ( !current.isValid() || !current.internalPointer() ||
+       !( current.model()->flags( current ) & Qt::ItemIsEnabled ) ) {
     return;
   }
 
