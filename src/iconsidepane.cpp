@@ -50,6 +50,13 @@ class SelectionModel : public QItemSelectionModel
     }
 
   public slots:
+    virtual void clear()
+    {
+      // Don't allow the current selection to be cleared. QListView doesn't call to this method
+      // nowadays, but just to cover of future change of implementation, since QTreeView does call
+      // to this one when clearing the selection.
+    }
+
     virtual void select( const QModelIndex &index, QItemSelectionModel::SelectionFlags command )
     {
       // Don't allow the current selection to be cleared
