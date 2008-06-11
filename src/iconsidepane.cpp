@@ -406,10 +406,12 @@ void Navigator::dropEvent( QDropEvent *event )
   }
 }
 
-void Navigator::showEvent( QShowEvent * )
+void Navigator::showEvent( QShowEvent *event )
 {
   parentWidget()->setMaximumWidth( sizeHint().width() );
   parentWidget()->setMinimumWidth( sizeHint().width() );
+
+  QListView::showEvent( event );
 }
 
 void Navigator::slotCurrentChanged( const QModelIndex &current )
