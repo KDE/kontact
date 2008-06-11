@@ -96,6 +96,8 @@ class Model : public QStringListModel
     {
       Qt::ItemFlags flags = QStringListModel::flags( index );
 
+      flags &= ~Qt::ItemIsEditable;
+
       if ( index.isValid() ) {
         if ( static_cast<Kontact::Plugin*>( index.internalPointer() )->disabled() ) {
           flags &= ~Qt::ItemIsEnabled;
