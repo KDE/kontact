@@ -34,8 +34,7 @@ class SpecialdatesPlugin : public Kontact::Plugin
     SpecialdatesPlugin( Kontact::Core *core, const QVariantList & );
     ~SpecialdatesPlugin();
 
-    int weight() const
-    { return 310; }
+    int weight() const { return 325; }
 
     const KAboutData *aboutData();
 

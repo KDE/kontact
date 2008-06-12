@@ -108,5 +108,5 @@ Comment[uz@cyrillic]=Об-ҳаво ҳақида маълумот
 Comment[x-test]=xxWeather Informationxx
 Comment[zh_CN]=天气信息
 Comment[zh_TW]=天氣資訊
-Weight=1000
+Weight=900
 Icon=kweather

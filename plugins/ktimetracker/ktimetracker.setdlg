@@ -36,5 +36,5 @@ Comment[tr]=Zaman İzleyici Bileşeni
 Comment[uk]=Компонент слідкування за часом
 Comment[zh_CN]=时间追踪器组件
 Comment[zh_TW]=時間追蹤器元件
-Weight=710
+Weight=700
 Icon=ktimetracker
