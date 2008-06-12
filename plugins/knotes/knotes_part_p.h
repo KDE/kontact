@@ -130,7 +130,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
     KNoteEditDlg( QWidget *parent = 0 )
       : KDialog( parent )
     {
-      setCaption( i18n( "Edit Note" ) );
+      setCaption( i18n( "Edit Popup Note" ) );
       setButtons( Ok | Cancel );
       setDefaultButton( Ok );
       setModal( true );
