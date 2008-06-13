@@ -130,7 +130,7 @@ void KNotesPart::printSelectedNotes()
     KMessageBox::information(
       mNotesView,
       i18n( "To print notes, first select the notes to print from the list." ),
-      i18n( "Print Notes" ) );
+      i18n( "Print Popup Notes" ) );
     return;
   }
 

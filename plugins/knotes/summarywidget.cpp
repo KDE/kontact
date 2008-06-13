@@ -54,7 +54,7 @@ KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin, QWidget *pare
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QWidget *header = createHeader( this, "view-pim-notes", i18n( "Notes" ) );
+  QWidget *header = createHeader( this, "view-pim-notes", i18n( "Popup Notes" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();
@@ -146,7 +146,7 @@ bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent *e )
   if ( obj->inherits( "KUrlLabel" ) ) {
     KUrlLabel* label = static_cast<KUrlLabel*>( obj );
     if ( e->type() == QEvent::Enter ) {
-      emit message( i18n( "Read Note: \"%1\"", label->text() ) );
+      emit message( i18n( "Read Popup Note: \"%1\"", label->text() ) );
     }
     if ( e->type() == QEvent::Leave ) {
       emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc

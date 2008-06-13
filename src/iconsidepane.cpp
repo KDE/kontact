@@ -96,6 +96,8 @@ class Model : public QStringListModel
     {
       Qt::ItemFlags flags = QStringListModel::flags( index );
 
+      flags &= ~Qt::ItemIsEditable;
+
       if ( index.isValid() ) {
         if ( static_cast<Kontact::Plugin*>( index.internalPointer() )->disabled() ) {
           flags &= ~Qt::ItemIsEnabled;
@@ -265,7 +267,7 @@ Navigator::Navigator( SidePaneBase *parent )
   mSmallIconsAction = new KAction( i18n( "Small Icons" ), this );
   mSmallIconsAction->setCheckable( true );
   mSmallIconsAction->setActionGroup( iconSize );
-  mSmallIconsAction->setChecked( mIconSize == KIconLoader::SizeSmall );
+  mSmallIconsAction->setChecked( mIconSize == KIconLoader::SizeSmallMedium );
   connect( mSmallIconsAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
   QList<QAction*> actionList;
@@ -402,6 +404,14 @@ void Navigator::dropEvent( QDropEvent *event )
       static_cast<Kontact::Plugin*>( sourceIndex.internalPointer() );
     plugin->processDropEvent( event );
   }
+}
+
+void Navigator::showEvent( QShowEvent *event )
+{
+  parentWidget()->setMaximumWidth( sizeHint().width() );
+  parentWidget()->setMinimumWidth( sizeHint().width() );
+
+  QListView::showEvent( event );
 }
 
 void Navigator::slotCurrentChanged( const QModelIndex &current )

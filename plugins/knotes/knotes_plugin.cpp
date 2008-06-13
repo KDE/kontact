@@ -43,13 +43,13 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QVariantList & )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  KAction *action = new KAction( KIcon( "knotes" ), i18n( "New Note..." ), this );
+  KAction *action = new KAction( KIcon( "knotes" ), i18n( "New Popup Note..." ), this );
   actionCollection()->addAction( "new_note", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewNote()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_N ) );
   insertNewAction( action );
 
-  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Synchronize Notes" ), this );
+  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Synchronize Popup Notes" ), this );
   actionCollection()->addAction( "knotes_sync", syncAction );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotSyncNotes()) );
   insertSyncAction( syncAction );
@@ -80,8 +80,8 @@ Kontact::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
 const KAboutData *KNotesPlugin::aboutData()
 {
   if ( !mAboutData ) {
-    mAboutData = new KAboutData( "knotes", 0, ki18n( "Notes Management" ),
-                                 "0.5", ki18n( "Notes Management" ),
+    mAboutData = new KAboutData( "knotes", 0, ki18n( "KNotes" ),
+                                 "0.5", ki18n( "Popup Notes" ),
                                  KAboutData::License_GPL_V2,
                                  ki18n( "(c) 2003-2004 The Kontact developers" ) );
     mAboutData->addAuthor( ki18n( "Michael Brade" ),
@@ -106,7 +106,7 @@ void KNotesPlugin::slotSyncNotes()
 {
   QDBusMessage message = QDBusMessage::createMethodCall(
     "org.kde.kmail", "/Groupware", "org.kde.kmail.groupware", "triggerSync" );
-  message << QString( "Note" );
+  message << QString( "Popup Note" );
   QDBusConnection::sessionBus().send( message );
 }
 

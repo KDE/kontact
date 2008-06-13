@@ -76,6 +76,7 @@ class Navigator : public QListView
     virtual void dragEnterEvent( QDragEnterEvent *event );
     virtual void dragMoveEvent( QDragMoveEvent *event );
     virtual void dropEvent( QDropEvent *event );
+    virtual void showEvent( QShowEvent * event );
 
   private slots:
     void slotCurrentChanged( const QModelIndex &current );

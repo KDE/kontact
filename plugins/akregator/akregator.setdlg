@@ -69,5 +69,5 @@ Comment[uk]=Програма для читання розсилок
 Comment[x-test]=xxFeed Readerxx
 Comment[zh_CN]=RSS 种子阅读器
 Comment[zh_TW]=Feed 閱讀器
-Weight=700
+Weight=475
 Icon=akregator
