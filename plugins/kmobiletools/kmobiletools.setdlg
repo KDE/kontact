@@ -43,6 +43,7 @@ Comment[pt_BR]=Componente de Celular
 Comment[sv]=Mobiltelefonkomponent
 Comment[tr]=Cep Telefonu Bileşeni
 Comment[uk]=Компонент мобільного телефона
+Comment[x-test]=xxMobile Phone Componentxx
 Comment[zh_CN]=移动电话组件
 Comment[zh_TW]=行動電話元件
 Weight=800
