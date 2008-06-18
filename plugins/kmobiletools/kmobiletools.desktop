@@ -13,10 +13,15 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=KMobileTools Plugin
+Comment[ca]=Connector del KMmobileTools
 Comment[el]=Πρόσθετο KMmobileTools
+Comment[et]=KMobileToolsi plugin
 Comment[km]=កម្មវិធី​ជំនួយ​របស់ KMmobileTools
+Comment[lv]=KMobileTools spraudnis
+Comment[nds]=KMobileTools-Moduul
 Comment[pt]='Plugin' do KMobileTools
 Comment[pt_BR]=Plug-in do KMobileTools
+Comment[tr]=KMobileTools Eklentisi
 Comment[uk]=Втулка KMobileTools
 Comment[x-test]=xxKMobileTools Pluginxx
 Comment[zh_TW]=KMobileTools 外掛程式
