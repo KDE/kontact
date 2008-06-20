@@ -1,5 +1,25 @@
 [Popup Notes]
 Name=Popup Notes
+Name[ca]=Notes emergents
+Name[et]=Sedelid
+Name[km]=ចំណាំ​លេច​ឡើង
+Name[lv]=Izlecošās piezīmes
+Name[nds]=Opduk-Notizen
+Name[pt]=Notas
+Name[pt_BR]=Notas
+Name[tr]=Seyyar Notlar
+Name[uk]=Записник
+Name[zh_TW]=彈出式便條
 Comment=Popup Notes Component
+Comment[ca]=Component de notes emergents
+Comment[et]=Sedelite komponent
+Comment[km]=សមាសភាគ​ចំណាំលេចឡើង​
+Comment[lv]=Izlecošo piezīmju grāmatas komponente
+Comment[nds]=Opduknotiz-Komponent
+Comment[pt]=Componente de Notas
+Comment[pt_BR]=Componente de Notas
+Comment[tr]=Seyyar Notlar Bileşeni
+Comment[uk]=Компонент записника
+Comment[zh_TW]=彈出式便條元件
 Weight=600
 Icon=view-pim-notes
