@@ -2,6 +2,8 @@
 Name=Popup Notes
 Name[ca]=Notes emergents
 Name[et]=Sedelid
+Name[ga]=Preabnótaí
+Name[ja]=ポップアップメモ
 Name[km]=ចំណាំ​លេច​ឡើង
 Name[lv]=Izlecošās piezīmes
 Name[nds]=Opduk-Notizen
@@ -13,6 +15,8 @@ Name[zh_TW]=彈出式便條
 Comment=Popup Notes Component
 Comment[ca]=Component de notes emergents
 Comment[et]=Sedelite komponent
+Comment[ga]=Comhpháirt Preabnótaí
+Comment[ja]=ポップアップメモコンポーネント
 Comment[km]=សមាសភាគ​ចំណាំលេចឡើង​
 Comment[lv]=Izlecošo piezīmju grāmatas komponente
 Comment[nds]=Opduknotiz-Komponent
