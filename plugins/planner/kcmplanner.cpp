@@ -190,7 +190,7 @@ void KCMPlanner::initTodoPage()
 
   Q3HBoxLayout *hbox = new Q3HBoxLayout( layout, KDialog::spacingHint() );
 
-  QLabel *label = new QLabel( "Priority limit:", mTodoGroup );
+  QLabel *label = new QLabel( i18n("Priority limit:"), mTodoGroup );
   hbox->addWidget( label );
   mPriority = new QSpinBox( 0, 9, 1, mTodoGroup );
   hbox->addWidget( mPriority );
