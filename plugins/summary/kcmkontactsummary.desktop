@@ -12,6 +12,7 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Summaries
 Name[ca]=Resums
+Name[da]=Sammendrag
 Name[de]=Übersichten
 Name[el]=Συνόψεις
 Name[et]=Kokkuvõtted
@@ -32,6 +33,7 @@ Name[zh_CN]=摘要
 Name[zh_TW]=摘要
 Comment=Summary Selection
 Comment[ca]=Selecció de resum
+Comment[da]=Valg af sammendrag
 Comment[de]=Zusammenstellung der Übersicht
 Comment[el]=Επιλογή σύνοψης
 Comment[et]=Kokkuvõtete valik

@@ -1,5 +1,6 @@
 [Planner]
 Name=Planner
+Name[da]=Planlægningskalender
 Name[de]=Planer
 Name[et]=Planeerija
 Name[fr]=Agenda
@@ -16,6 +17,7 @@ Name[zh_CN]=安排计划
 Name[zh_TW]=行事曆
 Comment=Planner Summary
 Comment[ca]=Resum del Planner
+Comment[da]=Sammendrag af planlægningskalender
 Comment[de]=Planer-Übersicht
 Comment[el]=Σύνοψη Planner
 Comment[et]=Planeerija kokkuvõte

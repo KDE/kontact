@@ -14,6 +14,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Name=Planner
+Name[da]=Planlægningskalender
 Name[de]=Planer
 Name[et]=Planeerija
 Name[fr]=Agenda
@@ -30,6 +31,7 @@ Name[zh_CN]=安排计划
 Name[zh_TW]=行事曆
 Comment=Planner Plugin
 Comment[ca]=Connector del Planner
+Comment[da]=Plugin til planlægningskalender
 Comment[de]=Planer-Modul
 Comment[el]=Πρόσθετο Planner
 Comment[et]=Planeerija plugin

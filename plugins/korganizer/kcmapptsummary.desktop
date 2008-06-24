@@ -12,6 +12,7 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Upcoming Events
 Name[ca]=Propers esdeveniments
+Name[da]=Kommende begivenheder
 Name[de]=Anstehende Ereignisse
 Name[el]=Σημαντικά γεγονότα
 Name[es]=Próximos eventos
@@ -41,6 +42,7 @@ Name[zh_TW]=將發生的事件
 Comment=Upcoming Events Summary Setup
 Comment[bg]=Настройки на обобщението на писмата
 Comment[ca]=Configuració del resum dels propers esdeveniments
+Comment[da]=Indstilling af sammendraget af kommende begivenheder
 Comment[de]=Einstellung der Übersicht über anstehende Ereignisse
 Comment[el]=Ρύθμιση σύνοψης σημαντικών ημερομηνιών
 Comment[es]=Configuración del resumen de los eventos próximos

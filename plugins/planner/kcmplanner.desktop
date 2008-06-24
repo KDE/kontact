@@ -11,6 +11,7 @@ X-KDE-ParentComponents=kontact_plannerplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Planner
+Name[da]=Planlægningskalender
 Name[de]=Planer
 Name[et]=Planeerija
 Name[fr]=Agenda
@@ -27,6 +28,7 @@ Name[zh_CN]=安排计划
 Name[zh_TW]=行事曆
 Comment=Planner Setup
 Comment[ca]=Arranjament del Planner
+Comment[da]=Indstilling af planlægningskalender
 Comment[de]=Planer-Einrichtung
 Comment[el]=Ρύθμιση του Planner
 Comment[et]=Planeerija seadistamine

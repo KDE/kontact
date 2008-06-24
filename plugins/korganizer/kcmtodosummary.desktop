@@ -12,6 +12,7 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Pending To-dos
 Name[ca]=Tasques pendents
+Name[da]=Ventende gøremål
 Name[de]=Zu erledigende Aufgaben
 Name[el]=Εργασίες προς υλοποίηση
 Name[es]=Tareas pendientes
@@ -41,6 +42,7 @@ Name[zh_TW]=未決定的待辦事項
 Comment=Pending To-dos Summary Setup
 Comment[bg]=Приставка за обобщен преглед на срещите и задачите
 Comment[ca]=Configuració del resum de tasques pendents
+Comment[da]=Indstilling af sammendraget af afventende gøremål
 Comment[de]=Einstellung der Übersicht über zu erledigende Aufgaben
 Comment[el]=Ρύθμιση ραντεβού και προς υλοποίηση εργασιών
 Comment[es]=Configuración del resumen de tareas pendientes

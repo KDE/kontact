@@ -1,6 +1,7 @@
 [Popup Notes]
 Name=Popup Notes
 Name[ca]=Notes emergents
+Name[da]=Pop-op-noter
 Name[et]=Sedelid
 Name[ga]=Preabnótaí
 Name[ja]=ポップアップメモ
@@ -14,6 +15,7 @@ Name[uk]=Записник
 Name[zh_TW]=彈出式便條
 Comment=Popup Notes Component
 Comment[ca]=Component de notes emergents
+Comment[da]=Pop-op-notekomponent
 Comment[et]=Sedelite komponent
 Comment[ga]=Comhpháirt Preabnótaí
 Comment[ja]=ポップアップメモコンポーネント

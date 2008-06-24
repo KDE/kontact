@@ -1,6 +1,7 @@
 [Mobile Phones]
 Name=Mobile Phones
 Name[ca]=Telèfons mòbils
+Name[da]=Mobiltelefoner
 Name[de]=Mobiltelefone
 Name[el]=Κινητά τηλέφωνα
 Name[es]=Teléfonos móviles
@@ -30,6 +31,7 @@ Name[zh_CN]=移动电话
 Name[zh_TW]=行動電話
 Comment=Mobile Phone Component
 Comment[ca]=Component de telèfons mòbils
+Comment[da]=Mobiltelefonkomponent
 Comment[de]=Mobiltelefon-Komponente
 Comment[el]=Συστατικό κινητού τηλεφώνου
 Comment[et]=Mobiiltelefonide komponent

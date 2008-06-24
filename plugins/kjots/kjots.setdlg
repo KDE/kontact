@@ -1,5 +1,6 @@
 [Notebooks]
 Name=Notebooks
+Name[da]=Notesbøger
 Name[de]=Notizbücher
 Name[el]=Σημειωματάρια
 Name[et]=Märkmed
@@ -20,6 +21,7 @@ Name[zh_CN]=笔记本
 Name[zh_TW]=筆記本
 Comment=Notebooks Component
 Comment[ca]=Component del Notebooks
+Comment[da]=Notesbogkomponent
 Comment[de]=Notizblock-Komponente
 Comment[el]=Συστατικό σημειωματάριου
 Comment[et]=Märkmete komponent
