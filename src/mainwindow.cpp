@@ -944,7 +944,9 @@ void MainWindow::slotOpenUrl( const KUrl &url )
 {
   if ( url.protocol() == "exec" ) {
     if ( url.path() == "/switch" ) {
-      mPartsStack->setCurrentIndex( mPartsStack->indexOf( mCurrentPlugin->part()->widget() ) );
+      if ( mCurrentPlugin ) {
+        mPartsStack->setCurrentIndex( mPartsStack->indexOf( mCurrentPlugin->part()->widget() ) );
+      }
     }
     if ( url.path() == "/gwwizard" ) {
       KRun::runCommand( "groupwarewizard", this );
