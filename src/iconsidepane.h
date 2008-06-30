@@ -111,6 +111,9 @@ class IconSidePane : public SidePaneBase
   public slots:
     virtual void updatePlugins();
 
+  protected:
+    virtual void resizeEvent( QResizeEvent *event ); 
+
   private:
     Navigator *mNavigator;
 };
