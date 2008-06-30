@@ -66,7 +66,8 @@ class SelectionModel : public QItemSelectionModel
       QItemSelectionModel::select( index, command );
     }
 
-    virtual void select( const QItemSelection &selection, QItemSelectionModel::SelectionFlags command )
+    virtual void select( const QItemSelection &selection,
+                         QItemSelectionModel::SelectionFlags command )
     {
       // Don't allow the current selection to be cleared
       if ( !selection.count() && ( command & QItemSelectionModel::Clear ) ) {
