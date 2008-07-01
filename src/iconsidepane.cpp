@@ -485,6 +485,7 @@ void IconSidePane::updatePlugins()
 
 void IconSidePane::resizeEvent( QResizeEvent *event )
 {
+  Q_UNUSED( event );
   setMaximumWidth( mNavigator->sizeHint().width() );
   setMinimumWidth( mNavigator->sizeHint().width() );
 }
