@@ -537,7 +537,6 @@ void MainWindow::updateShortcuts()
     action->setShortcut( KShortcut( shortcut ) );
     i++;
   }
-  factory()->unplugActionList( this, QString( "navigator_actionlist" ) );
   factory()->plugActionList( this, QString( "navigator_actionlist" ),
                              *reinterpret_cast<QList<QAction*>*>( &mActionPlugins ) );
 }
