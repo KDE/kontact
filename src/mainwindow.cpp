@@ -164,8 +164,7 @@ MainWindow::MainWindow()
   mSidePane->setMaximumWidth( mSidePane->sizeHint().width() );
   mSidePane->setMinimumWidth( mSidePane->sizeHint().width() );
 
-  factory()->plugActionList( this, QString( "navigator_actionlist" ),
-                             *reinterpret_cast<QList<QAction*>*>( &mActionPlugins ) );
+  factory()->plugActionList( this, QString( "navigator_actionlist" ), mActionPlugins );
 }
 
 void MainWindow::initGUI()
@@ -532,13 +531,12 @@ void MainWindow::updateShortcuts()
   ActionPluginList::ConstIterator it;
   int i = 1;
   for ( it = mActionPlugins.begin(); it != end; ++it ) {
-    KAction *action = *it;
+    KAction *action = static_cast<KAction*>( *it );
     QString shortcut = QString( "Ctrl+%1" ).arg( i );
     action->setShortcut( KShortcut( shortcut ) );
     i++;
   }
-  factory()->plugActionList( this, QString( "navigator_actionlist" ),
-                             *reinterpret_cast<QList<QAction*>*>( &mActionPlugins ) );
+  factory()->plugActionList( this, QString( "navigator_actionlist" ), mActionPlugins );
 }
 
 bool MainWindow::removePlugin( const KPluginInfo &info )

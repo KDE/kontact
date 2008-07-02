@@ -52,7 +52,7 @@ class SidePaneBase;
 class AboutDialog;
 
 typedef QList<Kontact::Plugin*> PluginList;
-typedef QList<KAction*> ActionPluginList;
+typedef QList<QAction*> ActionPluginList;
 
 class KONTACT_EXPORT MainWindow : public Kontact::Core
 {
