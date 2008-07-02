@@ -52,6 +52,7 @@ class SidePaneBase;
 class AboutDialog;
 
 typedef QList<Kontact::Plugin*> PluginList;
+typedef QList<KAction*> ActionPluginList;
 
 class KONTACT_EXPORT MainWindow : public Kontact::Core
 {
@@ -63,11 +64,13 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     ~MainWindow();
 
     virtual PluginList pluginList() const { return mPlugins; }
+    virtual ActionPluginList actionPluginList() const { return mActionPlugins; }
     void setActivePluginModule( const QString & );
 
   public slots:
     virtual void selectPlugin( Kontact::Plugin *plugin );
     Q_SCRIPTABLE virtual void selectPlugin( const QString &pluginName );
+    void slotActionTriggered();
 
     void updateConfig();
 
@@ -97,6 +100,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     Kontact::Plugin *pluginFromInfo( const KPluginInfo & );
     void loadPlugins();
     void unloadPlugins();
+    void updateShortcuts();
     bool removePlugin( const KPluginInfo & );
     void addPlugin( Kontact::Plugin *plugin );
     void partLoaded( Kontact::Plugin *plugin, KParts::ReadOnlyPart *part );
@@ -128,6 +132,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     KParts::PartManager *mPartManager;
     PluginList mPlugins;
     PluginList mDelayedPreload;
+    ActionPluginList mActionPlugins;
     QList<KPluginInfo> mPluginInfos;
     KHTMLPart *mIntroPart;
 
