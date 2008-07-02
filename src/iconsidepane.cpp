@@ -33,6 +33,7 @@
 #include <QtGui/QScrollBar>
 
 #include <KLocalizedString>
+#include <KStringHandler>
 #include <KDialog>
 #include <KIcon>
 
@@ -177,6 +178,11 @@ class SortFilterProxyModel
     {
       Kontact::Plugin *leftPlugin = static_cast<Kontact::Plugin*>( left.internalPointer() );
       Kontact::Plugin *rightPlugin = static_cast<Kontact::Plugin*>( right.internalPointer() );
+
+      if ( leftPlugin->weight() == rightPlugin->weight() ) {
+        return KStringHandler::naturalCompare( leftPlugin->title(), rightPlugin->title() ) < 0;
+      }
+
       return leftPlugin->weight() < rightPlugin->weight();
     }
 };
