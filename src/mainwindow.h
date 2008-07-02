@@ -64,7 +64,6 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     ~MainWindow();
 
     virtual PluginList pluginList() const { return mPlugins; }
-    virtual ActionPluginList actionPluginList() const { return mActionPlugins; }
     void setActivePluginModule( const QString & );
 
   public slots:
