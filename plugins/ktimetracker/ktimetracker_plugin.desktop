@@ -15,7 +15,7 @@ X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=TimeTracker Plugin
 Comment[ca]=Connector de registre horari
-Comment[da]=Tidssporings-plugin
+Comment[da]=Tidsstyrings-plugin
 Comment[de]=Modul für die persönliche Zeiterfassung
 Comment[el]=Πρόσθετο χρονικού προγραμματισμού
 Comment[et]=Ajaarvesti plugin
@@ -37,7 +37,7 @@ Comment[zh_TW]=時間追蹤器外掛程式
 
 Name=Time Tracker
 Name[ca]=Seguiment horari
-Name[da]=Tidssporing
+Name[da]=Tidsstyring
 Name[de]=Zeiterfassung
 Name[el]=Χρονικός προγραμματισμός
 Name[et]=Ajaarvesti

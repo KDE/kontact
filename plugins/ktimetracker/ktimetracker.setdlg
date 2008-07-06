@@ -1,7 +1,7 @@
 [KTimeTracker]
 Name=Time Tracker
 Name[ca]=Seguiment horari
-Name[da]=Tidssporing
+Name[da]=Tidsstyring
 Name[de]=Zeiterfassung
 Name[el]=Χρονικός προγραμματισμός
 Name[et]=Ajaarvesti
@@ -22,7 +22,7 @@ Name[zh_CN]=时间追踪器
 Name[zh_TW]=時間追蹤器
 Comment=Time Tracker Component
 Comment[ca]=Component de seguiment horari
-Comment[da]=Tidssporingskomponent
+Comment[da]=Tidsstyringskomponent
 Comment[de]=Zeiterfassungs-Komponente
 Comment[el]=Συστατικό χρονικού προγραμματισμού
 Comment[et]=Ajaarvesti komponent
