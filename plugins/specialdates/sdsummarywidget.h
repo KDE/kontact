@@ -29,19 +29,18 @@
 #include <kontactinterfaces/summary.h>
 #include <libkholidays/kholidays.h>
 
-#include <kcal/calendarresources.h>
-
-#include <QWidget>
-#include <QLabel>
-#include <QGridLayout>
-#include <QEvent>
-
 namespace Kontact {
   class Plugin;
 }
-
+namespace KCal {
+  class Event;
+  class CalendarResources;
+  class ResourceCalendar;
+}
+class QEvent;
 class QGridLayout;
 class QLabel;
+class QWidget;
 
 class SDSummaryWidget : public Kontact::Summary
 {
@@ -72,6 +71,8 @@ class SDSummaryWidget : public Kontact::Summary
     int dayof( KCal::Event *event, const QDate &date );
     bool initHolidays();
     void dateDiff( const QDate &date, int &days, int &years );
+    KCal::ResourceCalendar *usingBirthdayResource();
+    bool check( KCal::ResourceCalendar *cal, const QDate &date, const QString &summary );
     QGridLayout *mLayout;
     QList<QLabel*> mLabels;
     Kontact::Plugin *mPlugin;
