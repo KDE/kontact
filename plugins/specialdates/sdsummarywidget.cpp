@@ -93,6 +93,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
+  //TODO: we want our own special dates icon
   QWidget *header = createHeader(
     this, "view-calendar-upcoming-events", i18n( "Upcoming Special Dates" ) );
   mainLayout->addWidget( header );
@@ -549,10 +550,10 @@ void SDSummaryWidget::updateView()
   } else {
     label = new QLabel(
         i18np( "No special dates within the next 1 day",
-              "No special dates pending within the next %1 days",
-              mDaysAhead ), this );
+               "No special dates pending within the next %1 days",
+               mDaysAhead ), this );
     label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addWidget( label, 0, 0, 0, 4 );
+    mLayout->addWidget( label, 0, 2 );
     mLabels.append( label );
   }
 
