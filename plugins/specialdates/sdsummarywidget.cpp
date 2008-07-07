@@ -95,7 +95,7 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
 
   //TODO: we want our own special dates icon
   QWidget *header = createHeader(
-    this, "face-smile", i18n( "Upcoming Special Dates" ) );
+    this, "favorites", i18n( "Upcoming Special Dates" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();

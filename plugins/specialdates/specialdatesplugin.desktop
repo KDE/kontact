@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-Icon=face-smile
+Icon=favorites
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_specialdatesplugin
