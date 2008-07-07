@@ -4,6 +4,7 @@
   Copyright (C) 2003 Sven Lüppken <sven@kde.org>
   Copyright (C) 2003 Tobias König <tokoe@kde.org>
   Copyright (C) 2003 Daniel Molkentin <molkentin@kde.org>
+  Copyright (C) 2008 Allen Winter <winter@kde.org>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -35,7 +36,6 @@ using KPIM::BroadcastStatus;
 #include <kactioncollection.h>
 #include <kconfig.h>
 #include <kdbusservicestarter.h>
-#include <kdebug.h>
 #include <kdialog.h>
 #include <kcomponentdata.h>
 #include <kglobal.h>
@@ -49,6 +49,7 @@ using KPIM::BroadcastStatus;
 #include <kparts/componentfactory.h>
 #include <kparts/event.h>
 
+#include <QApplication>
 #include <QLabel>
 #include <QLayout>
 #include <QTimer>
@@ -94,7 +95,6 @@ SummaryViewPart::~SummaryViewPart()
 
 bool SummaryViewPart::openFile()
 {
-  kDebug();
   return true;
 }
 
@@ -253,12 +253,21 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
       return;
     }
   } else {
-    if ( mLeftColumn->indexOf( target ) == -1 && mRightColumn->indexOf( target ) == -1 ||
-         mLeftColumn->indexOf( widget ) == -1 && mRightColumn->indexOf( widget ) == -1 ) {
+    if ( ( mLeftColumn->indexOf( target ) == -1 && mRightColumn->indexOf( target ) == -1 ) ||
+         ( mLeftColumn->indexOf( widget ) == -1 && mRightColumn->indexOf( widget ) == -1 ) ) {
       return;
     }
   }
 
+  if ( !QApplication::isRightToLeft() ) {
+    drawLtoR( target, widget, alignment );
+  } else {
+    drawRtoL( target, widget, alignment );
+  }
+}
+
+void SummaryViewPart::drawLtoR( QWidget *target, QWidget *widget, int alignment )
+{
   if ( mLeftColumn->indexOf( widget ) != -1 ) {
     mLeftColumn->removeWidget( widget );
     mLeftColumnSummaries.removeAll( widgetName( widget ) );
@@ -311,6 +320,64 @@ void SummaryViewPart::summaryWidgetMoved( QWidget *target, QWidget *widget, int 
 
     mRightColumn->insertWidget( targetPos, widget );
     mRightColumnSummaries.insert( targetPos, widgetName( widget ) );
+  }
+  mFrame->updateGeometry();
+}
+
+void SummaryViewPart::drawRtoL( QWidget *target, QWidget *widget, int alignment )
+{
+  if ( mRightColumn->indexOf( widget ) != -1 ) {
+    mRightColumn->removeWidget( widget );
+    mRightColumnSummaries.removeAll( widgetName( widget ) );
+  } else if ( mLeftColumn->indexOf( widget ) != -1 ) {
+    mLeftColumn->removeWidget( widget );
+    mLeftColumnSummaries.removeAll( widgetName( widget ) );
+  }
+
+  if ( target == mFrame ) {
+    int pos = 0;
+
+    if ( alignment & Qt::AlignTop ) {
+      pos = 0;
+    }
+
+    if ( alignment & Qt::AlignLeft ) {
+      if ( alignment & Qt::AlignBottom ) {
+        pos = mRightColumnSummaries.count();
+      }
+
+      mRightColumn->insertWidget( pos, widget );
+      mRightColumnSummaries.insert( pos, widgetName( widget ) );
+    } else {
+      if ( alignment & Qt::AlignBottom ) {
+        pos = mLeftColumnSummaries.count();
+      }
+
+      mLeftColumn->insertWidget( pos, widget );
+      mLeftColumnSummaries.insert( pos, widgetName( widget ) );
+    }
+
+    mFrame->updateGeometry();
+    return;
+  }
+
+  int targetPos = mRightColumn->indexOf( target );
+  if ( targetPos != -1 ) {
+    if ( alignment == Qt::AlignBottom ) {
+      targetPos++;
+    }
+
+    mRightColumn->insertWidget( targetPos, widget );
+    mRightColumnSummaries.insert( targetPos, widgetName( widget ) );
+  } else {
+    targetPos = mLeftColumn->indexOf( target );
+
+    if ( alignment == Qt::AlignBottom ) {
+      targetPos++;
+    }
+
+    mLeftColumn->insertWidget( targetPos, widget );
+    mLeftColumnSummaries.insert( targetPos, widgetName( widget ) );
   }
   mFrame->updateGeometry();
 }
