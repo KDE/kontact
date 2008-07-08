@@ -232,10 +232,6 @@ void SDSummaryWidget::updateView()
   }
   mLabels.clear();
 
-  // No reason to show the date year
-  QString savefmt = KGlobal::locale()->dateFormat();
-  KGlobal::locale()->setDateFormat( KGlobal::locale()->dateFormat().replace( 'Y', ' ' ) );
-
   // Search for Birthdays and Anniversaries in the Addressbook
   KABC::AddressBook::Iterator it;
   for ( it = ab->begin(); it != ab->end(); ++it ) {
@@ -465,7 +461,7 @@ void SDSummaryWidget::updateView()
       } else if ( (*addrIt).daysTo == 1 ) {
         datestr = i18n( "Tomorrow" );
       } else {
-        datestr = KGlobal::locale()->formatDate( sD );
+        datestr = KGlobal::locale()->formatDate( sD, KLocale::FancyLongDate );
       }
       // Print the date span for multiday, floating events, for the
       // first day of the event only.
@@ -576,7 +572,6 @@ void SDSummaryWidget::updateView()
   }
 
   setUpdatesEnabled( true );
-  KGlobal::locale()->setDateFormat( savefmt );
 }
 
 void SDSummaryWidget::mailContact( const QString &uid )
