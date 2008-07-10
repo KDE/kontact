@@ -50,12 +50,13 @@ using KPIM::BroadcastStatus;
 #include <kparts/event.h>
 
 #include <QApplication>
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QLayout>
+#include <QScrollArea>
+#include <QSpacerItem>
 #include <QTimer>
 #include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QScrollArea>
 
 namespace Kontact
 {
@@ -142,13 +143,11 @@ void SummaryViewPart::updateWidgets()
   KConfig config( "kontact_summaryrc" );
   KConfigGroup grp( &config, QString() );
   if ( !grp.hasKey( "ActiveSummaries" ) ) {
-    activeSummaries << "kontact_kmailplugin";
-    activeSummaries << "kontact_specialdatesplugin";
-    activeSummaries << "kontact_knotesplugin";
     activeSummaries << "kontact_korganizerplugin";
     activeSummaries << "kontact_todoplugin";
-    activeSummaries << "kontact_newstickerplugin";
-    activeSummaries << "kontact_plannerplugin";
+    activeSummaries << "kontact_specialdatesplugin";
+    activeSummaries << "kontact_kmailplugin";
+    activeSummaries << "kontact_knotesplugin";
   } else {
     activeSummaries = grp.readEntry( "ActiveSummaries", QStringList() );
   }
@@ -219,6 +218,7 @@ void SummaryViewPart::updateWidgets()
   mRightColumn = new QVBoxLayout();
   layout->addLayout( mRightColumn );
   mRightColumn->setSpacing( KDialog::spacingHint() );
+  mRightColumn->addSpacerItem( new QSpacerItem( 200, 1 ) );
 
   QStringList::Iterator strIt;
   for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
@@ -493,15 +493,14 @@ void SummaryViewPart::loadLayout()
   if ( !grp.hasKey( "LeftColumnSummaries" ) ) {
     mLeftColumnSummaries << "kontact_korganizerplugin";
     mLeftColumnSummaries << "kontact_todoplugin";
-    mLeftColumnSummaries << "kontact_kaddressbookplugin";
     mLeftColumnSummaries << "kontact_specialdatesplugin";
-    mLeftColumnSummaries << "kontact_plannerplugin";
   } else {
     mLeftColumnSummaries = grp.readEntry( "LeftColumnSummaries", QStringList() );
   }
 
   if ( !grp.hasKey( "RightColumnSummaries" ) ) {
-    mRightColumnSummaries << "kontact_newstickerplugin";
+    mRightColumnSummaries << "kontact_kmailplugin";
+    mRightColumnSummaries << "kontact_knotesplugin";
   } else {
     mRightColumnSummaries = grp.readEntry( "RightColumnSummaries", QStringList() );
   }
