@@ -2,6 +2,7 @@
 Name=Planner
 Name[da]=Planlægningskalender
 Name[de]=Planer
+Name[es]=Calendario
 Name[et]=Planeerija
 Name[fr]=Agenda
 Name[ga]=Pleanálaí
@@ -21,6 +22,7 @@ Comment[ca]=Resum del Planner
 Comment[da]=Sammendrag af planlægningskalender
 Comment[de]=Planer-Übersicht
 Comment[el]=Σύνοψη Planner
+Comment[es]=Resumen de calendario
 Comment[et]=Planeerija kokkuvõte
 Comment[fr]=Résumé de l'agenda
 Comment[ga]=Achoimre Pleanálaí
