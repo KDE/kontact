@@ -9,6 +9,7 @@ X-KDE-FactoryName=kontactknt
 X-KDE-ParentApp=kontact_summaryplugin
 X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
+X-KDE-Weight=500
 
 Name=News Feeds
 Name[bg]=Новини
