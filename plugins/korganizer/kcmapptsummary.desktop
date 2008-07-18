@@ -6,8 +6,8 @@ X-KDE-ServiceTypes=KCModule
 X-KDE-ModuleType=Library
 X-KDE-Library=kcm_apptsummary
 X-KDE-FactoryName=apptsummary
-X-KDE-ParentApp=kontact_korganizerplugin
-X-KDE-ParentComponents=kontact_korganizerplugin
+X-KDE-ParentApp=kontact_summaryplugin
+X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Upcoming Events

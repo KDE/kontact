@@ -6,8 +6,8 @@ X-KDE-ServiceTypes=KCModule
 X-KDE-ModuleType=Library
 X-KDE-Library=kcm_kontactknt
 X-KDE-FactoryName=kontactknt
-X-KDE-ParentApp=kontact_newstickerplugin
-X-KDE-ParentComponents=kontact_newstickerplugin
+X-KDE-ParentApp=kontact_summaryplugin
+X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=News Feeds

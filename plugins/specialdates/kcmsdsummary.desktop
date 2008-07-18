@@ -6,8 +6,8 @@ X-KDE-ServiceTypes=KCModule
 X-KDE-ModuleType=Library
 X-KDE-Library=kcm_sdsummary
 X-KDE-FactoryName=sdsummary
-X-KDE-ParentApp=kontact_specialdatesplugin
-X-KDE-ParentComponents=kontact_specialdatesplugin
+X-KDE-ParentApp=kontact_summaryplugin
+X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Upcoming Special Dates
