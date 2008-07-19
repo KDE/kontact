@@ -71,6 +71,7 @@
 #include <khbox.h>
 #include <kvbox.h>
 #include <kicon.h>
+#include <kxmlguifactory.h>
 
 #include <QComboBox>
 #include <QCursor>
@@ -162,6 +163,9 @@ MainWindow::MainWindow()
 
   mSidePane->setMaximumWidth( mSidePane->sizeHint().width() );
   mSidePane->setMinimumWidth( mSidePane->sizeHint().width() );
+
+  factory()->plugActionList( this, QString( "navigator_actionlist" ),
+                             *reinterpret_cast<QList<QAction*>*>( &mActionPlugins ) );
 }
 
 void MainWindow::initGUI()
@@ -522,13 +526,29 @@ void MainWindow::unloadPlugins()
   }
 }
 
+void MainWindow::updateShortcuts()
+{
+  ActionPluginList::ConstIterator end = mActionPlugins.end();
+  ActionPluginList::ConstIterator it;
+  int i = 1;
+  for ( it = mActionPlugins.begin(); it != end; ++it ) {
+    KAction *action = *it;
+    QString shortcut = QString( "Ctrl+%1" ).arg( i );
+    action->setShortcut( KShortcut( shortcut ) );
+    i++;
+  }
+  factory()->unplugActionList( this, QString( "navigator_actionlist" ) );
+  factory()->plugActionList( this, QString( "navigator_actionlist" ),
+                             *reinterpret_cast<QList<QAction*>*>( &mActionPlugins ) );
+}
+
 bool MainWindow::removePlugin( const KPluginInfo &info )
 {
   PluginList::Iterator end = mPlugins.end();
+  ActionPluginList::Iterator it2 = mActionPlugins.begin();
   for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it ) {
+    Plugin *plugin = *it;
     if ( ( *it )->identifier() == info.pluginName() ) {
-      Plugin *plugin = *it;
-
       const QList<KAction*> *actionList = plugin->newActions();
       QList<KAction*>::const_iterator listIt;
 
@@ -553,6 +573,10 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
 
       plugin->deleteLater(); // removes the part automatically
       mPlugins.erase( it );
+      if ( plugin->showInSideBar() ) {
+        delete *it2; // remove the KAction, so we free the shortcut for later us
+        mActionPlugins.erase( it2 );
+      }
 
       if ( mCurrentPlugin == 0 ) {
         PluginList::Iterator it;
@@ -565,6 +589,10 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
       }
       return true;
     }
+
+    if ( plugin->showInSideBar() ) {
+      it2++;
+    }
   }
 
   return false;
@@ -575,6 +603,17 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
   kDebug();
 
   mPlugins.append( plugin );
+
+  if ( plugin->showInSideBar() ) {
+    QString shortcut = QString( "Ctrl+%1" ).arg( mActionPlugins.count() + 1 );
+    KAction *action = new KAction( KIcon( plugin->icon() ), plugin->title(), this );
+    action->setData( plugin->identifier() ); // on the slot we can decode which action was
+                                             // triggered
+    action->setShortcut( KShortcut( shortcut ) );
+    connect( action, SIGNAL(triggered(bool)), SLOT(slotActionTriggered()) );
+    actionCollection()->addAction( plugin->title(), action );
+    mActionPlugins.append( action );
+  }
 
   // merge the plugins GUI into the main window
   insertChildClient( plugin );
@@ -781,6 +820,12 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   QApplication::restoreOverrideCursor();
 }
 
+void MainWindow::slotActionTriggered()
+{
+  KAction *actionSender = static_cast<KAction*>( sender() );
+  mSidePane->setCurrentPlugin( actionSender->data().toString() );
+}
+
 void MainWindow::selectPlugin( const QString &pluginName )
 {
   PluginList::ConstIterator end = mPlugins.end();
@@ -887,6 +932,7 @@ void MainWindow::pluginsChanged()
   unloadPlugins();
   loadPlugins();
   mSidePane->updatePlugins();
+  updateShortcuts();
 }
 
 void MainWindow::updateConfig()
