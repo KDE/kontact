@@ -152,7 +152,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
 
 }
 
-Q_DECLARE_METATYPE( Kontact::Plugin* )
+Q_DECLARE_METATYPE( Kontact::Plugin * )
 
 #endif
 // vim: sw=2 sts=2 et
