@@ -58,11 +58,12 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->setMargin( 3 );
 
   QWidget *header = createHeader( this, "view-pim-mail", i18n( "New Messages" ) );
-  mLayout = new QGridLayout();
-  mLayout->setSpacing( 3 );
-
   mainLayout->addWidget( header );
-  mainLayout->addLayout( mLayout );
+
+  mLayout = new QGridLayout();
+  mainLayout->addItem( mLayout );
+  mLayout->setSpacing( 3 );
+  mLayout->setRowStretch( 6, 1 );
 
   slotUnreadCountChanged();
   QDBusConnection::sessionBus().connect(
