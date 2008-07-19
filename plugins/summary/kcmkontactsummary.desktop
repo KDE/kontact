@@ -6,7 +6,9 @@ X-KDE-ServiceTypes=KCModule
 X-KDE-ModuleType=Library
 X-KDE-Library=kcm_kontactsummary
 X-KDE-FactoryName=kontactsummary
-X-KDE-CfgDlgHierarchy=Kontact
+X-KDE-ParentApp=kontact_summaryplugin
+X-KDE-ParentComponents=kontact_summaryplugin
+X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Summaries
 Name[ca]=Resums
