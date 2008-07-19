@@ -275,6 +275,7 @@ void SDSummaryWidget::updateView()
 
   // Search for Birthdays, Anniversaries, Holidays, and Special Occasions
   // in the Calendar
+  KCal::ResourceCalendar *bdayRes = usingBirthdayResource();
   QDate dt;
   for ( dt=QDate::currentDate();
         dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
@@ -301,7 +302,9 @@ void SDSummaryWidget::updateView()
             entry.desc = ev->description();
             dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
             entry.span = 1;
-            dates.append( entry );
+            if ( !check( bdayRes, dt, ev->summary() ) ) {
+              dates.append( entry );
+            }
             break;
           }
 
@@ -315,7 +318,9 @@ void SDSummaryWidget::updateView()
             entry.desc = ev->description();
             dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
             entry.span = 1;
-            dates.append( entry );
+            if ( !check( bdayRes, dt, ev->summary() ) ) {
+              dates.append( entry );
+            }
             break;
           }
 
@@ -647,6 +652,40 @@ void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
     days = offset;
     years = QDate::currentDate().year() - date.year();
   }
+}
+
+KCal::ResourceCalendar *SDSummaryWidget::usingBirthdayResource()
+{
+  KCal::ResourceCalendar *resource = 0;
+
+  KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
+  if ( !manager->isEmpty() ) {
+    KCal::CalendarResourceManager::Iterator it;
+    for ( it = manager->begin(); it != manager->end(); ++it ) {
+      if ( (*it)->type() == QLatin1String( "birthdays" ) ) {
+        resource = (*it);
+        break;
+      }
+    }
+  }
+  return resource;
+}
+
+bool SDSummaryWidget::check( KCal::ResourceCalendar *cal, const QDate &date,
+                             const QString &summary )
+{
+  if ( !cal ) {
+    return false;
+  }
+
+  KCal::Event::List events = cal->rawEventsForDate( date );
+  KCal::Event::List::ConstIterator it;
+  for ( it = events.begin(); it != events.end(); ++it ) {
+    if ( (*it)->summary() == summary ) {
+      return true;
+    }
+  }
+  return false;
 }
 
 QStringList SDSummaryWidget::configModules() const
