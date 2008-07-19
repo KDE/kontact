@@ -88,6 +88,11 @@ class Model : public QStringListModel
     {
     }
 
+    void emitLayoutChanged()
+    {
+        emit layoutChanged();
+    }
+
     void setPluginList( const QList<Kontact::Plugin*> &list ) {
       pluginList = list;
     }
@@ -344,10 +349,6 @@ QSize Navigator::sizeHint() const
     maxWidth = qMax( maxWidth, sizeHintForIndex( index ).width() );
   }
 
-  if ( !verticalScrollBar()->isVisible() ) {
-    maxWidth += style()->pixelMetric( QStyle::PM_ScrollBarExtent ) * 2;
-  }
-
   int viewHeight = QListView::sizeHint().height();
 
   return QSize( maxWidth + rect().width() - contentsRect().width(), viewHeight );
@@ -452,7 +453,7 @@ void Navigator::slotActionTriggered( bool checked )
   Prefs::self()->setSidePaneShowIcons( mShowIcons );
   Prefs::self()->setSidePaneShowText( mShowText );
 
-  scheduleDelayedItemsLayout();
+  mModel->emitLayoutChanged();
 
   parentWidget()->setMaximumWidth( sizeHint().width() );
   parentWidget()->setMinimumWidth( sizeHint().width() );
@@ -462,6 +463,7 @@ IconSidePane::IconSidePane( Core *core, QWidget *parent )
   : SidePaneBase( core, parent )
 {
   mNavigator = new Navigator( this );
+  mNavigator->setFocusPolicy( Qt::NoFocus );
   connect( mNavigator, SIGNAL(pluginActivated(Kontact::Plugin*)),
            SIGNAL(pluginSelected(Kontact::Plugin*)) );
 }
@@ -478,6 +480,12 @@ void IconSidePane::setCurrentPlugin( const QString &plugin )
 void IconSidePane::updatePlugins()
 {
   mNavigator->updatePlugins( core()->pluginList() );
+}
+
+void IconSidePane::resizeEvent( QResizeEvent *event )
+{
+  setMaximumWidth( mNavigator->sizeHint().width() );
+  setMinimumWidth( mNavigator->sizeHint().width() );
 }
 
 }
