@@ -276,6 +276,14 @@ void SDSummaryWidget::updateView()
   // Search for Birthdays, Anniversaries, Holidays, and Special Occasions
   // in the Calendar
   KCal::ResourceCalendar *bdayRes = usingBirthdayResource();
+  KCal::ResourceCalendar *annvRes = bdayRes;
+  if ( !mShowBirthdaysFromKAB ) {
+    bdayRes = 0;
+  }
+  if ( !mShowAnniversariesFromKAB ) {
+    annvRes = 0;
+  }
+
   QDate dt;
   for ( dt=QDate::currentDate();
         dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
@@ -318,7 +326,7 @@ void SDSummaryWidget::updateView()
             entry.desc = ev->description();
             dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
             entry.span = 1;
-            if ( !check( bdayRes, dt, ev->summary() ) ) {
+            if ( !check( annvRes, dt, ev->summary() ) ) {
               dates.append( entry );
             }
             break;
