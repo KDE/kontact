@@ -29,7 +29,6 @@
 
 #include <korganizer/stdcalendar.h>
 #include <korganizer/koglobals.h>
-#include <korganizer/incidencechanger.h>
 #include <kontactinterfaces/core.h>
 
 #include <libkdepim/kpimprefs.h>
@@ -320,13 +319,9 @@ void TodoSummaryWidget::removeTodo( const QString &uid )
 void TodoSummaryWidget::completeTodo( const QString &uid )
 {
   KCal::Todo *todo = mCalendar->todo( uid );
-  IncidenceChanger *changer = new IncidenceChanger( mCalendar, this );
-  if ( !todo->isReadOnly() && changer->beginChange( todo ) ) {
-    KCal::Todo *oldTodo = todo->clone();
+  if ( !todo->isReadOnly() ) {
     todo->setCompleted( KDateTime::currentLocalDateTime() );
-    changer->changeIncidence( oldTodo, todo, KOGlobals::COMPLETION_MODIFIED );
-    changer->endChange( todo );
-    delete oldTodo;
+    mCalendar->save();
     updateView();
   }
 }
