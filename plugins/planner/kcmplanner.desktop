@@ -6,8 +6,8 @@ X-KDE-ServiceTypes=KCModule
 X-KDE-ModuleType=Library
 X-KDE-Library=kcm_planner
 X-KDE-FactoryName=planner
-X-KDE-ParentApp=kontact_plannerplugin
-X-KDE-ParentComponents=kontact_plannerplugin
+X-KDE-ParentApp=kontact_summaryplugin
+X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
 
 Name=Planner
