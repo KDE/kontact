@@ -171,11 +171,6 @@ void TodoSummaryWidget::updateView()
   //     open-ended
   //     not-started (no start date and 0% completed)
 
-  // No reason to show the date year
-  QString savefmt = KGlobal::locale()->dateFormat();
-  KGlobal::locale()->setDateFormat( KGlobal::locale()->
-                                    dateFormat().replace( 'Y', ' ' ) );
-
   int counter = 0;
   QLabel *label = 0;
 
@@ -208,7 +203,7 @@ void TodoSummaryWidget::updateView()
         } else if ( daysTo == 1 ) {
           str = i18n( "Tomorrow" );
         } else {
-          str = KGlobal::locale()->formatDate( todo->dtDue().date() );
+          str = KGlobal::locale()->formatDate( todo->dtDue().date(), KLocale::FancyLongDate );
         }
       }
 
@@ -296,8 +291,6 @@ void TodoSummaryWidget::updateView()
   Q_FOREACH( label, mLabels ) {
     label->show();
   }
-
-  KGlobal::locale()->setDateFormat( savefmt );
 }
 
 void TodoSummaryWidget::viewTodo( const QString &uid )

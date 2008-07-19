@@ -93,11 +93,6 @@ void ApptSummaryWidget::updateView()
   //   the summary is the event summary
   //   the time range is the start-end time (only for non-floating events)
 
-  // No reason to show the date year
-  QString savefmt = KGlobal::locale()->dateFormat();
-  KGlobal::locale()->setDateFormat( KGlobal::locale()->
-                                    dateFormat().replace( 'Y', ' ' ) );
-
   QLabel *label = 0;
   int counter = 0;
 
@@ -187,14 +182,15 @@ void ApptSummaryWidget::updateView()
                   ( sD.day()   == currentDate.addDays( 1 ).day() ) ) {
         str = i18nc( "@label the appointment is tomorrow", "Tomorrow" );
       } else {
-        str = KGlobal::locale()->formatDate( sD );
+        str = KGlobal::locale()->formatDate( sD, KLocale::FancyLongDate );
       }
 
       // Print the date span for multiday, floating events, for the
       // first day of the event only.
       if ( ev->isMultiDay() && ev->allDay() && dayof == 1 && span > 1 ) {
-        str = KGlobal::locale()->formatDate( ev->dtStart().date() );
-        str += " -\n " + KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
+        str = KGlobal::locale()->formatDate( ev->dtStart().date(), KLocale::FancyLongDate );
+        str += " -\n " +
+               KGlobal::locale()->formatDate( sD.addDays( span-1 ), KLocale::FancyLongDate );
       }
 
       label = new QLabel( str, this );
@@ -283,8 +279,6 @@ void ApptSummaryWidget::updateView()
 
   Q_FOREACH( label, mLabels )
   label->show();
-
-  KGlobal::locale()->setDateFormat( savefmt );
 }
 
 void ApptSummaryWidget::viewEvent( const QString &uid )
