@@ -196,6 +196,14 @@ int main( int argc, char **argv )
   }
 
   KontactApp app;
+
+  // Qt doesn't treat the system tray as a window, and therefore Qt would quit
+  // the event loop when an error message is clicked away while Kontact is in the
+  // tray.
+  // Rely on KGlobal::ref() and KGlobal::deref() instead, like we did in KDE3.
+  // See http://bugs.kde.org/show_bug.cgi?id=163479
+  QApplication::setQuitOnLastWindowClosed( false );
+
   if ( app.restoringSession() ) {
      // There can only be one main window
     if ( KMainWindow::canBeRestored( 1 ) ) {
