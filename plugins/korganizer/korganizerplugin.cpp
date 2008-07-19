@@ -57,7 +57,7 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QVariantList & )
   KIconLoader::global()->addAppDir( "kdepim" );
 
   KAction *action  =
-    new KAction( KIcon( "view-calendar-day" ), i18n( "New Event..." ), this );
+    new KAction( KIcon( "appointment-new" ), i18n( "New Event..." ), this );
   actionCollection()->addAction( "new_event", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT+Qt::Key_E ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewEvent()) );
