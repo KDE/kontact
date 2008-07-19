@@ -51,7 +51,7 @@ KJotsPlugin::KJotsPlugin( Kontact::Core *core, const QVariantList & )
   connect( action, SIGNAL(triggered(bool)), SLOT( newPage()) );
   insertNewAction( action );
 
-  action = new KAction( KIcon( "x-office-address-book" ), i18n( "New KJots Book" ), this );
+  action = new KAction( KIcon( "address-book-new" ), i18n( "New KJots Book" ), this );
   actionCollection()->addAction( "new_kjots_book", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_B ) );
   connect( action, SIGNAL(triggered(bool)), SLOT( newBook()) );
