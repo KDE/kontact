@@ -258,6 +258,17 @@ void MainWindow::setActivePluginModule( const QString &module )
   activatePluginModule();
 }
 
+bool MainWindow::pluginActionWeightLessThan( const QAction *left, const QAction *right )
+{
+  return pluginWeightLessThan( left->data().value<Kontact::Plugin*>(),
+                               right->data().value<Kontact::Plugin*>() );
+}
+
+bool MainWindow::pluginWeightLessThan( const Kontact::Plugin *left, const Kontact::Plugin *right )
+{
+  return left->weight() < right->weight();
+}
+
 void MainWindow::activatePluginModule()
 {
   if ( !mActiveModule.isEmpty() ) {
@@ -602,11 +613,9 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
   mPlugins.append( plugin );
 
   if ( plugin->showInSideBar() ) {
-    QString shortcut = QString( "Ctrl+%1" ).arg( mActionPlugins.count() + 1 );
     KAction *action = new KAction( KIcon( plugin->icon() ), plugin->title(), this );
-    action->setData( plugin->identifier() ); // on the slot we can decode which action was
-                                             // triggered
-    action->setShortcut( KShortcut( shortcut ) );
+    action->setData( QVariant::fromValue( plugin ) ); // on the slot we can decode which action was
+                                                      // triggered
     connect( action, SIGNAL(triggered(bool)), SLOT(slotActionTriggered()) );
     actionCollection()->addAction( plugin->title(), action );
     mActionPlugins.append( action );
@@ -614,6 +623,18 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
 
   // merge the plugins GUI into the main window
   insertChildClient( plugin );
+
+  // sort the action plugins again and reset shortcuts. If we removed and then readded some plugins
+  // we need to take in count their weights for setting shortcuts again
+  qSort( mActionPlugins.begin(), mActionPlugins.end(), pluginActionWeightLessThan );
+  qSort( mPlugins.begin(), mPlugins.end(), pluginWeightLessThan );
+  int i = 1;
+  foreach ( QAction *qaction, mActionPlugins ) {
+    KAction *action = static_cast<KAction*>( qaction );
+    QString shortcut = QString( "Ctrl+%1" ).arg( i );
+    action->setShortcut( KShortcut( shortcut ) );
+    i++;
+  }
 }
 
 void MainWindow::partLoaded( Kontact::Plugin *plugin, KParts::ReadOnlyPart *part )
@@ -820,7 +841,11 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 void MainWindow::slotActionTriggered()
 {
   KAction *actionSender = static_cast<KAction*>( sender() );
-  mSidePane->setCurrentPlugin( actionSender->data().toString() );
+  Kontact::Plugin *plugin = actionSender->data().value<Kontact::Plugin*>();
+  if ( !plugin ) {
+    return;
+  }
+  mSidePane->setCurrentPlugin( plugin->identifier() );
 }
 
 void MainWindow::selectPlugin( const QString &pluginName )

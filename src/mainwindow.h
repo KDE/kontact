@@ -66,6 +66,9 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     virtual PluginList pluginList() const { return mPlugins; }
     void setActivePluginModule( const QString & );
 
+    static bool pluginActionWeightLessThan( const QAction *left, const QAction *right );
+    static bool pluginWeightLessThan( const Kontact::Plugin *left, const Kontact::Plugin *right );
+
   public slots:
     virtual void selectPlugin( Kontact::Plugin *plugin );
     Q_SCRIPTABLE virtual void selectPlugin( const QString &pluginName );
@@ -148,6 +151,8 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
 };
 
 }
+
+Q_DECLARE_METATYPE( Kontact::Plugin* )
 
 #endif
 // vim: sw=2 sts=2 et
