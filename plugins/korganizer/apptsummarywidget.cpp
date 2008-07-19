@@ -221,12 +221,9 @@ void ApptSummaryWidget::updateView()
       mLabels.append( label );
 
       // Summary label
-      str = ev->summary();
+      str = ev->richSummary();
       if ( ev->isMultiDay() &&  !ev->allDay() ) {
         str.append( QString( " (%1/%2)" ).arg( dayof ).arg( span ) );
-      }
-      if ( !Qt::mightBeRichText( str ) ) {
-        str = Qt::escape( str );
       }
 
       KUrlLabel *urlLabel = new KUrlLabel( this );
