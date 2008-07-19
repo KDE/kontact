@@ -9,6 +9,7 @@ X-KDE-FactoryName=planner
 X-KDE-ParentApp=kontact_summaryplugin
 X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
+X-KDE-Weight=10
 
 Name=Planner
 Name[de]=Planer

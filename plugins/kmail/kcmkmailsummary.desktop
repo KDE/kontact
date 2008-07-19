@@ -9,6 +9,7 @@ X-KDE-FactoryName=kmailsummary
 X-KDE-ParentApp=kontact_summaryplugin
 X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
+X-KDE-Weight=200
 
 Name=New Messages
 Name[be]=Новыя паведамленні

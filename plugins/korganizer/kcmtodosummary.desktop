@@ -9,6 +9,7 @@ X-KDE-FactoryName=todosummary
 X-KDE-ParentApp=kontact_summaryplugin
 X-KDE-ParentComponents=kontact_summaryplugin
 X-KDE-CfgDlgHierarchy=KontactSummary
+X-KDE-Weight=450
 
 Name=Pending To-dos
 Name[ca]=Tasques pendents
