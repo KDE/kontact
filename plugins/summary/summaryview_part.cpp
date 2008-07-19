@@ -458,12 +458,19 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   mMainLayout->addItem( hbl );
   mUsernameLabel = new QLabel( mMainWidget );
   mUsernameLabel->setFont( KGlobalSettings::generalFont() );
-  mUsernameLabel->setAlignment( Qt::AlignLeft );
-  hbl->addWidget( mUsernameLabel );
   mDateLabel = new QLabel( mMainWidget );
   mDateLabel->setFont( KGlobalSettings::generalFont() );
-  mDateLabel->setAlignment( Qt::AlignRight );
-  hbl->addWidget( mDateLabel );
+  if ( !QApplication::isRightToLeft() ) {
+    mUsernameLabel->setAlignment( Qt::AlignLeft );
+    hbl->addWidget( mUsernameLabel );
+    mDateLabel->setAlignment( Qt::AlignRight );
+    hbl->addWidget( mDateLabel );
+  } else {
+    mDateLabel->setAlignment( Qt::AlignRight );
+    hbl->addWidget( mDateLabel );
+    mUsernameLabel->setAlignment( Qt::AlignLeft );
+    hbl->addWidget( mUsernameLabel );
+  }
 
   QFrame *hline = new QFrame( mMainWidget );
   hline->setFrameStyle( QFrame::HLine | QFrame::Plain );
