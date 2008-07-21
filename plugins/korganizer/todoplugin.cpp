@@ -185,11 +185,16 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
   if ( KCal::ICalDrag::canDecode( event) ) {
     KCal::CalendarLocal cal( KPimPrefs::timezone() );
     if ( KCal::ICalDrag::decode( event, &cal ) ) {
-      KCal::Journal::List journals = cal.journals();
-      if ( !journals.isEmpty() ) {
+      KCal::Incidence::List incidences = cal.incidences();
+      if ( !incidences.isEmpty() ) {
         event->accept();
-        KCal::Journal *j = journals.first();
-        interface()->openTodoEditor( i18n("Note: %1").arg( j->summary() ), j->description(), QString() );
+        KCal::Incidence *i = incidences.first();
+        QString summary;
+        if ( dynamic_cast<KCal::Journal*>( i ) )
+          summary = i18n( "Note: %1" ).arg( i->summary() );
+        else
+          summary = i->summary();
+        interface()->openTodoEditor( summary, i->description(), QString() );
         return;
       }
       // else fall through to text decoding
