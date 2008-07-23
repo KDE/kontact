@@ -25,6 +25,14 @@
 #include <kontactinterfaces/core.h>
 #include <kontactinterfaces/plugin.h>
 
+#include <libkdepim/maillistdrag.h>
+#include <libkdepim/kdepimprotocols.h>
+#include <libkdepim/kvcarddrag.h>
+#include <libkdepim/kpimprefs.h>
+
+#include <kcal/calendarlocal.h>
+#include <kcal/icaldrag.h>
+
 #include <kaboutdata.h>
 #include <kaction.h>
 #include <kdebug.h>
@@ -33,8 +41,10 @@
 #include <kiconloader.h>
 #include <kstatusbar.h>
 #include <kicon.h>
+#include <kmessagebox.h>
 
 #include <QtDBus/QtDBus>
+#include <QtGui/QDropEvent>
 
 EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
 
@@ -91,6 +101,73 @@ const KAboutData *KNotesPlugin::aboutData()
   }
 
   return mAboutData;
+}
+
+bool KNotesPlugin::canDecodeMimeData( const QMimeData *mimeData )
+{
+  return mimeData->hasText() || KPIM::MailList::canDecode( mimeData ) ||
+         KPIM::KVCardDrag::canDecode( mimeData ) || KCal::ICalDrag::canDecode( mimeData );
+}
+
+void KNotesPlugin::processDropEvent( QDropEvent *event )
+{
+  const QMimeData *md = event->mimeData();
+
+  if ( KPIM::KVCardDrag::canDecode( md ) ) {
+    KABC::Addressee::List contacts;
+
+    KPIM::KVCardDrag::fromMimeData( md, contacts );
+
+    KABC::Addressee::List::Iterator it;
+
+    QStringList attendees;
+    for ( it = contacts.begin(); it != contacts.end(); ++it ) {
+      QString email = (*it).fullEmail();
+      if ( email.isEmpty() ) {
+        attendees.append( (*it).realName() + "<>" );
+      } else {
+        attendees.append( email );
+      }
+    }
+
+    static_cast<KNotesPart *>( part() )->newNote( i18n( "Meeting" ), attendees.join(", ") );
+    return;
+  }
+
+  if ( KCal::ICalDrag::canDecode( event->mimeData() ) ) {
+    KCal::CalendarLocal cal( KPIM::KPimPrefs::timeSpec() );
+    if ( KCal::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
+      KCal::Journal::List journals = cal.journals();
+      if ( !journals.isEmpty() ) {
+        event->accept();
+        KCal::Journal *j = journals.first();
+        static_cast<KNotesPart *>( part() )->newNote( i18n( "Note: %1", j->summary() ), j->description() );
+        return;
+      }
+      // else fall through to text decoding
+    }
+  }
+
+  if ( md->hasText() ) {
+    static_cast<KNotesPart *>( part() )->newNote( i18n( "New Note" ), md->text() );
+    return;
+  }
+
+  if ( KPIM::MailList::canDecode( md ) ) {
+    KPIM::MailList mails = KPIM::MailList::fromMimeData( md );
+    event->accept();
+    if ( mails.count() != 1 ) {
+      KMessageBox::sorry( core(),
+                          i18n( "Drops of multiple mails is not supported." ) );
+    } else {
+      KPIM::MailSummary mail = mails.first();
+      QString txt = i18n( "From: %1\nTo: %2\nSubject: %3", mail.from(), mail.to(), mail.subject() );
+      static_cast<KNotesPart *>( part() )->newNote( i18n( "Mail: %1", mail.subject() ), txt );
+    }
+    return;
+  }
+
+  KMessageBox::sorry( core(), i18n( "Cannot handle drop events of type '%1'.", event->format() ) );
 }
 
 // private slots

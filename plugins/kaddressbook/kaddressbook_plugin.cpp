@@ -173,7 +173,7 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
     KPIM::MailList mails = KPIM::MailList::fromMimeData( md );
     if ( mails.count() != 1 ) {
       KMessageBox::sorry( core(),
-                          i18n( "Drops of multiple mails are not supported." ) );
+                          i18n( "Drops of multiple mails is not supported." ) );
     } else {
       KPIM::MailSummary mail = mails.first();
       org::kde::kmail::kmail kmail(

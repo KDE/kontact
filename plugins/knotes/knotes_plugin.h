@@ -41,6 +41,9 @@ class KNotesPlugin : public Kontact::Plugin
 
     const KAboutData *aboutData();
 
+    virtual bool canDecodeMimeData( const QMimeData *data );
+    virtual void processDropEvent( QDropEvent * );
+
   protected:
     KParts::ReadOnlyPart *createPart();
 
