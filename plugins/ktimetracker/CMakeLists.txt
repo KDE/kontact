@@ -9,7 +9,7 @@ qt4_add_dbus_interfaces(kontact_karm_PART_SRCS ${CMAKE_SOURCE_DIR}/ktimetracker/
 
 kde4_add_plugin(kontact_karmplugin ${kontact_karm_PART_SRCS})
 
-kdepim4_link_unique_libraries(kontact_karmplugin  ${KDE4_KDECORE_LIBS} kontactinterfaces)
+kdepim4_link_unique_libraries(kontact_karmplugin  ${KDE4_KDEUI_LIBS} kontactinterfaces)
 
 ########### install files ###############
 

@@ -17,7 +17,7 @@ kde4_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc )
 
 kde4_add_library(kontactprivate SHARED ${kontactprivate_LIB_SRCS})
 
-kdepim4_link_unique_libraries(kontactprivate  ${KDE4_KPARTS_LIBS} kdepim kontactinterfaces ${KDE4_KUTILS_LIBRARY} ${KDE4_KHTML_LIBRARY} )
+kdepim4_link_unique_libraries(kontactprivate  ${KDE4_KPARTS_LIBS} kdepim kontactinterfaces ${KDE4_KUTILS_LIBRARY} ${KDE4_KHTML_LIBRARY} ${KDE4_KPIMUTILS_LIBS} )
 
 set_target_properties(kontactprivate PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS kontactprivate  DESTINATION ${LIB_INSTALL_DIR})
@@ -47,7 +47,7 @@ kde4_add_plugin(kcm_kontact ${kcm_kontact_PART_SRCS})
 
 
 
-kdepim4_link_unique_libraries(kcm_kontact  ${KDE4_KDECORE_LIBS} kontactprivate kdepim)
+kdepim4_link_unique_libraries(kcm_kontact  ${KDE4_KDECORE_LIBS} ${QT_QTGUI_LIBRARY} ${KDE4_KUTILS_LIBS} kontactprivate kdepim ${QT_QT3SUPPORT_LIBRARY})
 
 install(TARGETS kcm_kontact  DESTINATION ${PLUGIN_INSTALL_DIR})
 
