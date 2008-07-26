@@ -106,6 +106,7 @@ void KMailPlugin::processDropEvent( QDropEvent *de )
     openComposer( to.join( ", " ) );
   }
 
+  kWarning() << QString( "Cannot handle drop events of type '%1'." ).arg( de->format() );
 }
 
 void KMailPlugin::openComposer( const KUrl &attach )

@@ -158,7 +158,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
     event->accept();
     if ( mails.count() != 1 ) {
       KMessageBox::sorry( core(),
-                          i18n( "Drops of multiple mails is not supported." ) );
+                          i18n( "Dropping multiple mails is not supported." ) );
     } else {
       KPIM::MailSummary mail = mails.first();
       QString txt = i18n( "From: %1\nTo: %2\nSubject: %3", mail.from(), mail.to(), mail.subject() );
@@ -167,7 +167,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  KMessageBox::sorry( core(), i18n( "Cannot handle drop events of type '%1'.", event->format() ) );
+  kWarning() << QString( "Cannot handle drop events of type '%1'." ).arg( event->format() );
 }
 
 // private slots
