@@ -2,6 +2,7 @@
 Name=Usenet
 Name[ko]=유즈넷
 Name[ne]=युजनेट
+Name[sl]=Novičarske skupine
 Name[x-test]=xxUsenetxx
 Comment=Usenet Component
 Comment[bg]=Модул за е-поща
@@ -27,6 +28,7 @@ Comment[nl]=Nieuwscomponent
 Comment[pl]=Składnik wiadomości Usenet
 Comment[pt]=Componente da Usenet
 Comment[pt_BR]=Componente do Usenet
+Comment[sl]=Komponenta za novičarske skupine
 Comment[sv]=Diskussionsgruppskomponent
 Comment[tr]=Usenet Bileşeni
 Comment[uk]=Компонент новин
