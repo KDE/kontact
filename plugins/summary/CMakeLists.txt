@@ -20,7 +20,7 @@ set(kcm_kontactsummary_PART_SRCS kcmkontactsummary.cpp)
 
 kde4_add_plugin(kcm_kontactsummary ${kcm_kontactsummary_PART_SRCS})
 
-kdepim4_link_unique_libraries(kcm_kontactsummary  ${KDE4_KUTILS_LIBS})
+kdepim4_link_unique_libraries(kcm_kontactsummary  ${KDE4_KDEUI_LIBS})
 
 ########### install files ###############
 

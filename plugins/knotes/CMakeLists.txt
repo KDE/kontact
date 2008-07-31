@@ -12,7 +12,7 @@ qt4_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml k
 
 kde4_add_plugin(kontact_knotesplugin ${kontact_knotesplugin_PART_SRCS})
 
-kdepim4_link_unique_libraries(kontact_knotesplugin  kontactinterfaces kdepim ${KDE4_KCAL_LIBS} ${KDE4_KRESOURCES_LIBS} ${KDE4_KDEPRINT_LIBS})
+kdepim4_link_unique_libraries(kontact_knotesplugin  kontactinterfaces kdepim ${KDE4_KCAL_LIBS} ${KDE4_KRESOURCES_LIBS} ${KDE4_KDEPRINT_LIBS} ${QT_QT3SUPPORT_LIBRARY} ${KDE4_KPARTS_LIBS})
 
 ########### install files ###############
 

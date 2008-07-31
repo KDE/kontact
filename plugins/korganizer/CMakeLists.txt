@@ -10,7 +10,7 @@ qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/k
 
 kde4_add_plugin(kontact_korganizerplugin ${kontact_korganizerplugin_PART_SRCS})
 
-kdepim4_link_unique_libraries(kontact_korganizerplugin ${KDE4_KPARTS_LIBS} kontactinterfaces korganizer_calendar)
+kdepim4_link_unique_libraries(kontact_korganizerplugin ${KDE4_KPARTS_LIBS} ${KDE4_KABC_LIBS} ${KDE4_KCAL_LIBS} kdepim kontactinterfaces korganizer_calendar)
 
 ########### next target ###############
 
@@ -20,7 +20,7 @@ qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korgani
 
 kde4_add_plugin(kontact_todoplugin ${kontact_todoplugin_PART_SRCS})
 
-kdepim4_link_unique_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} kontactinterfaces korganizer_calendar)
+kdepim4_link_unique_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} ${KDE4_KABC_LIBS} kdepim kontactinterfaces korganizer_calendar ${KDE4_KCAL_LIBS})
 
 ########### next target ###############
 
