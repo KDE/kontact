@@ -42,6 +42,10 @@
 
 #include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
+#include <libkdepim/kpimprefs.h>
+
+#include <libkcal/calendarlocal.h>
+#include <libkcal/icaldrag.h>
 
 #include "core.h"
 #include "summarywidget.h"
@@ -179,6 +183,25 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
     interface()->openEventEditor( i18n( "Meeting" ), QString::null, QString::null,
                                   attendees );
     return;
+  }
+
+  if ( KCal::ICalDrag::canDecode( event) ) {
+      KCal::CalendarLocal cal( KPimPrefs::timezone() );
+      if ( KCal::ICalDrag::decode( event, &cal ) ) {
+          KCal::Incidence::List incidences = cal.incidences();
+          if ( !incidences.isEmpty() ) {
+              event->accept();
+              KCal::Incidence *i = incidences.first();
+              QString summary;
+              if ( dynamic_cast<KCal::Journal*>( i ) )
+                  summary = i18n( "Note: %1" ).arg( i->summary() );
+              else
+                  summary = i->summary();
+              interface()->openEventEditor( summary, i->description(), QString() );
+              return;
+          }
+      // else fall through to text decoding
+      }
   }
 
   if ( QTextDrag::decode( event, text ) ) {
