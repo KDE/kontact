@@ -14,6 +14,7 @@ X-KDE-PluginInfo-Name=kontact_kjotsplugin
 X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=false
+X-KDE-PluginInfo-AllowEmptySettings=true
 
 Comment=Kontact KJots Plugin
 Comment[ca]=Connector del KJots per al Kontact
