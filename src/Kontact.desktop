@@ -2,6 +2,7 @@
 Name=Kontact
 Name[mk]=Контакт
 Name[ne]=सम्पर्क गर्नुहोस्
+Name[nn]=Kontakt
 Name[pa]=ਕੇ-ਸੰਪਰਕ
 Name[sv]=Kontakt
 Name[ta]=தொடர்பு கொள்
@@ -44,6 +45,7 @@ GenericName[ms]=Pengurus Makumat Peribadi
 GenericName[nb]=Personlig informasjonsbehandler
 GenericName[nds]=Pleger för persöönliche Informatschonen
 GenericName[ne]=व्यक्तिगत सूचना प्रबन्धक
+GenericName[nn]=Handtering av personleg informasjon
 GenericName[pa]=ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਮੈਨੇਜਰ
 GenericName[pl]=Program do zarządzania informacjami osobistymi
 GenericName[pt]=Gestor Pessoal de Informações
