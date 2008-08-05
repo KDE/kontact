@@ -47,7 +47,7 @@ kde4_add_plugin(kcm_kontact ${kcm_kontact_PART_SRCS})
 
 
 
-kdepim4_link_unique_libraries(kcm_kontact  ${KDE4_KDECORE_LIBS} ${QT_QTGUI_LIBRARY} ${KDE4_KUTILS_LIBS} kontactprivate kdepim ${QT_QT3SUPPORT_LIBRARY})
+kdepim4_link_unique_libraries(kcm_kontact  ${KDE4_KDEUI_LIBS} ${QT_QTGUI_LIBRARY} ${KDE4_KUTILS_LIBS} kontactprivate kdepim ${QT_QT3SUPPORT_LIBRARY})
 
 install(TARGETS kcm_kontact  DESTINATION ${PLUGIN_INSTALL_DIR})
 
