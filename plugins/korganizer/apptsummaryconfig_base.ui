@@ -7,49 +7,41 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>559</height>
+    <width>352</width>
+    <height>241</height>
    </rect>
   </property>
   <property name="windowTitle" >
    <string>Event Summary Configuration</string>
   </property>
-  <widget class="QGroupBox" name="mDaysButtonGroup" >
-   <property name="geometry" >
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>341</width>
-     <height>133</height>
-    </rect>
-   </property>
-   <property name="title" >
-    <string>Show Upcoming Events Starting</string>
-   </property>
-   <layout class="QGridLayout" name="gridLayout" >
-    <item row="0" column="0" >
-     <widget class="QRadioButton" name="mDateTodayButton" >
-      <property name="text" >
-       <string>&amp;Today only</string>
-      </property>
-      <property name="checked" >
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" >
-     <widget class="QRadioButton" name="mDateMonthButton" >
-      <property name="text" >
-       <string>Within the next &amp;month (31 days)</string>
-      </property>
-      <property name="checked" >
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0" >
-     <layout class="QHBoxLayout" name="horizontalLayout" >
-      <item>
+  <layout class="QVBoxLayout" name="verticalLayout_2" >
+   <item>
+    <widget class="QGroupBox" name="mDaysButtonGroup" >
+     <property name="title" >
+      <string>Show Upcoming Events Starting</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout" >
+      <item row="0" column="0" colspan="2" >
+       <widget class="QRadioButton" name="mDateTodayButton" >
+        <property name="text" >
+         <string>&amp;Today only</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2" >
+       <widget class="QRadioButton" name="mDateMonthButton" >
+        <property name="text" >
+         <string>Within the next &amp;month (31 days)</string>
+        </property>
+        <property name="checked" >
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" >
        <widget class="QRadioButton" name="mDateRangeButton" >
         <property name="enabled" >
          <bool>true</bool>
@@ -62,7 +54,7 @@
         </property>
        </widget>
       </item>
-      <item>
+      <item row="2" column="1" >
        <widget class="QSpinBox" name="mCustomDays" >
         <property name="enabled" >
          <bool>false</bool>
@@ -71,7 +63,7 @@
          <string>1 day</string>
         </property>
         <property name="suffix" >
-         <string comment="days to show in summary"> days</string>
+         <string comment="days to show in summary" > days</string>
         </property>
         <property name="minimum" >
          <number>1</number>
@@ -88,60 +80,57 @@
        </widget>
       </item>
      </layout>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QGroupBox" name="mShowButtonGroup" >
-   <property name="geometry" >
-    <rect>
-     <x>0</x>
-     <y>130</y>
-     <width>341</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <property name="title" >
-    <string>Show These Upcoming Events From Your Calendar</string>
-   </property>
-   <widget class="QWidget" name="layoutWidget" >
-    <property name="geometry" >
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>133</width>
-      <height>52</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout" >
-     <item>
-      <widget class="QCheckBox" name="mShowBirthdaysFromCal" >
-       <property name="toolTip" >
-        <string>Show birthdays from your calendar when also using the Birthday resource</string>
-       </property>
-       <property name="whatsThis" >
-        <string>Enable this option to include birthdays from your calendar in the upcoming Events summary. This option is only available if you are using the Birthdays resource in your calendar.</string>
-       </property>
-       <property name="text" >
-        <string>Show &amp;birthdays</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="mShowAnniversariesFromCal" >
-       <property name="toolTip" >
-        <string>Shows anniversaries from your calendar when using the Birthdays resource</string>
-       </property>
-       <property name="whatsThis" >
-        <string>Enable this option to include anniversaries from your calendar in the Upcoming Events summary. This option is only available if you are using the Birthdays resource in your calendar.</string>
-       </property>
-       <property name="text" >
-        <string>Show &amp;anniveraries</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="mShowButtonGroup" >
+     <property name="title" >
+      <string>Show These Upcoming Events From Your Calendar</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout" >
+      <item>
+       <widget class="QCheckBox" name="mShowBirthdaysFromCal" >
+        <property name="toolTip" >
+         <string>Show birthdays from your calendar when also using the Birthday resource</string>
+        </property>
+        <property name="whatsThis" >
+         <string>Enable this option to include birthdays from your calendar in the upcoming Events summary. This option is only available if you are using the Birthdays resource in your calendar.</string>
+        </property>
+        <property name="text" >
+         <string>Show &amp;birthdays</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mShowAnniversariesFromCal" >
+        <property name="toolTip" >
+         <string>Shows anniversaries from your calendar when using the Birthdays resource</string>
+        </property>
+        <property name="whatsThis" >
+         <string>Enable this option to include anniversaries from your calendar in the Upcoming Events summary. This option is only available if you are using the Birthdays resource in your calendar.</string>
+        </property>
+        <property name="text" >
+         <string>Show &amp;anniveraries</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer" >
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <resources/>
