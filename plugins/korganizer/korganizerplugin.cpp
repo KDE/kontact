@@ -160,7 +160,9 @@ bool KOrganizerPlugin::isRunningStandalone()
 
 bool KOrganizerPlugin::canDecodeMimeData( const QMimeData *mimeData )
 {
-  return mimeData->hasText() || KPIM::MailList::canDecode( mimeData ) || KPIM::KVCardDrag::canDecode( mimeData );
+  return mimeData->hasText() ||
+    KPIM::MailList::canDecode( mimeData ) ||
+    KPIM::KVCardDrag::canDecode( mimeData );
 }
 
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )

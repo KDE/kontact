@@ -34,7 +34,6 @@ class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
 
   public:
     explicit KCMApptSummary( const KComponentData &inst, QWidget *parent = 0 );
-    virtual ~KCMApptSummary();
 
     void load();
     void save();
@@ -43,8 +42,12 @@ class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
 
   private slots:
     void modified();
+    void buttonClicked( int id );
     void customDaysChanged( int value );
 
+  private:
+    QButtonGroup *mDaysButtonGroup;
+    QButtonGroup *mShowButtonGroup;
 };
 
 #endif

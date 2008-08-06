@@ -45,11 +45,20 @@ KCMApptSummary::KCMApptSummary( const KComponentData &inst, QWidget *parent )
 {
   setupUi( this );
 
+  mDaysButtonGroup = new QButtonGroup( this );
+  mDaysButtonGroup->addButton( mDateTodayButton, 0 );
+  mDaysButtonGroup->addButton( mDateMonthButton, 1 );
+  mDaysButtonGroup->addButton( mDateRangeButton, 2 );
+  mShowButtonGroup = new QButtonGroup( this );
+  mShowButtonGroup->setExclusive( false );
+  mShowButtonGroup->addButton( mShowBirthdaysFromCal );
+  mShowButtonGroup->addButton( mShowAnniversariesFromCal );
+
   customDaysChanged( 7 );
 
-  connect( mDateTodayButton, SIGNAL(clicked(bool)), SLOT(modified()) );
-  connect( mDateMonthButton, SIGNAL(clicked(bool)), SLOT(modified()) );
-  connect( mDateRangeButton, SIGNAL(clicked(bool)), SLOT(modified()) );
+  connect( mDaysButtonGroup, SIGNAL(buttonClicked(int)), SLOT(modified()) );
+  connect( mDaysButtonGroup, SIGNAL(buttonClicked(int)), SLOT(buttonClicked(int)) );
+  connect( mShowButtonGroup, SIGNAL(buttonClicked(int)), SLOT(modified()) );
 
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
@@ -58,18 +67,15 @@ KCMApptSummary::KCMApptSummary( const KComponentData &inst, QWidget *parent )
 
   load();
 }
-KCMApptSummary::~KCMApptSummary()
-{
-}
 
 void KCMApptSummary::modified()
 {
-  if ( mDateRangeButton->isChecked() ) {
-    mCustomDays->setEnabled( true );
-  } else {
-    mCustomDays->setEnabled( false );
-  }
   emit changed( true );
+}
+
+void KCMApptSummary::buttonClicked( int id )
+{
+  mCustomDays->setEnabled( id == 2 );
 }
 
 void KCMApptSummary::customDaysChanged( int value )
@@ -80,20 +86,23 @@ void KCMApptSummary::customDaysChanged( int value )
 void KCMApptSummary::load()
 {
   KConfig config( "kcmapptsummaryrc" );
-  KConfigGroup grp( &config, "Days" );
+  KConfigGroup group = config.group( "Days" );
 
-  int days = grp.readEntry( "DaysToShow", 7 );
+  int days = group.readEntry( "DaysToShow", 7 );
   if ( days == 1 ) {
     mDateTodayButton->setChecked( true );
-    mCustomDays->setEnabled( false );
   } else if ( days == 31 ) {
     mDateMonthButton->setChecked( true );
-    mCustomDays->setEnabled( false );
   } else {
     mDateRangeButton->setChecked( true );
     mCustomDays->setValue( days );
     mCustomDays->setEnabled( true );
   }
+
+  group = config.group( "Show" );
+
+  mShowBirthdaysFromCal->setChecked( group.readEntry( "BirthdaysFromCalendar", true ) );
+  mShowAnniversariesFromCal->setChecked( group.readEntry( "AnniversariesFromCalendar", true ) );
 
   emit changed( false );
 }
@@ -101,20 +110,29 @@ void KCMApptSummary::load()
 void KCMApptSummary::save()
 {
   KConfig config( "kcmapptsummaryrc" );
-  KConfigGroup grp( &config, "Days" );
+  KConfigGroup group = config.group( "Days" );
 
   int days;
-  if ( mDateTodayButton->isChecked() ) {
+  switch ( mDaysButtonGroup->checkedId() ) {
+  case 0:
     days = 1;
-  } else if ( mDateMonthButton->isChecked() ) {
+    break;
+  case 1:
     days = 31;
-  } else {
+    break;
+  case 2:
+  default:
     days = mCustomDays->value();
+    break;
   }
-  grp.writeEntry( "DaysToShow", days );
+
+  group.writeEntry( "DaysToShow", days );
+
+  group = config.group( "Show" );
+  group.writeEntry( "BirthdaysFromCalendar", mShowBirthdaysFromCal->isChecked() );
+  group.writeEntry( "AnniversariesFromCalendar", mShowAnniversariesFromCal->isChecked() );
 
   config.sync();
-
   emit changed( false );
 }
 
@@ -123,6 +141,9 @@ void KCMApptSummary::defaults()
   mDateRangeButton->setChecked( true );
   mCustomDays->setValue( 7 );
   mCustomDays->setEnabled( true );
+
+  mShowBirthdaysFromCal->setChecked( true );
+  mShowAnniversariesFromCal->setChecked( true );
 
   emit changed( true );
 }

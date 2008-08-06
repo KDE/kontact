@@ -7,99 +7,137 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>562</width>
-    <height>162</height>
+    <width>601</width>
+    <height>559</height>
    </rect>
   </property>
   <property name="windowTitle" >
    <string>Event Summary Configuration</string>
   </property>
-  <widget class="QGroupBox" name="mDaysGroup" >
+  <widget class="QGroupBox" name="mDaysButtonGroup" >
    <property name="geometry" >
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>554</width>
-     <height>234</height>
+     <width>341</width>
+     <height>133</height>
     </rect>
    </property>
    <property name="title" >
-    <string>Show Events Starting</string>
+    <string>Show Upcoming Events Starting</string>
    </property>
-   <property name="alignment" >
-    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   <layout class="QGridLayout" name="gridLayout" >
+    <item row="0" column="0" >
+     <widget class="QRadioButton" name="mDateTodayButton" >
+      <property name="text" >
+       <string>&amp;Today only</string>
+      </property>
+      <property name="checked" >
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" >
+     <widget class="QRadioButton" name="mDateMonthButton" >
+      <property name="text" >
+       <string>Within the next &amp;month (31 days)</string>
+      </property>
+      <property name="checked" >
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" >
+     <layout class="QHBoxLayout" name="horizontalLayout" >
+      <item>
+       <widget class="QRadioButton" name="mDateRangeButton" >
+        <property name="enabled" >
+         <bool>true</bool>
+        </property>
+        <property name="text" >
+         <string>Within the &amp;next</string>
+        </property>
+        <property name="checked" >
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="mCustomDays" >
+        <property name="enabled" >
+         <bool>false</bool>
+        </property>
+        <property name="specialValueText" >
+         <string>1 day</string>
+        </property>
+        <property name="suffix" >
+         <string comment="days to show in summary"> days</string>
+        </property>
+        <property name="minimum" >
+         <number>1</number>
+        </property>
+        <property name="maximum" >
+         <number>365</number>
+        </property>
+        <property name="singleStep" >
+         <number>1</number>
+        </property>
+        <property name="value" >
+         <number>7</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="mShowButtonGroup" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>130</y>
+     <width>341</width>
+     <height>111</height>
+    </rect>
    </property>
-   <widget class="QWidget" name="" >
+   <property name="title" >
+    <string>Show These Upcoming Events From Your Calendar</string>
+   </property>
+   <widget class="QWidget" name="layoutWidget" >
     <property name="geometry" >
      <rect>
-      <x>11</x>
-      <y>34</y>
-      <width>200</width>
-      <height>88</height>
+      <x>10</x>
+      <y>30</y>
+      <width>133</width>
+      <height>52</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout" >
-     <item row="0" column="0" >
-      <widget class="QRadioButton" name="mDateTodayButton" >
-       <property name="text" >
-        <string>&amp;Today</string>
+    <layout class="QVBoxLayout" name="verticalLayout" >
+     <item>
+      <widget class="QCheckBox" name="mShowBirthdaysFromCal" >
+       <property name="toolTip" >
+        <string>Show birthdays from your calendar when also using the Birthday resource</string>
        </property>
-       <property name="checked" >
-        <bool>true</bool>
+       <property name="whatsThis" >
+        <string>Enable this option to include birthdays from your calendar in the upcoming Events summary. This option is only available if you are using the Birthdays resource in your calendar.</string>
+       </property>
+       <property name="text" >
+        <string>Show &amp;birthdays</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0" >
-      <widget class="QRadioButton" name="mDateMonthButton" >
-       <property name="text" >
-        <string>Within the next &amp;month (31 days)</string>
+     <item>
+      <widget class="QCheckBox" name="mShowAnniversariesFromCal" >
+       <property name="toolTip" >
+        <string>Shows anniversaries from your calendar when using the Birthdays resource</string>
        </property>
-       <property name="checked" >
-        <bool>false</bool>
+       <property name="whatsThis" >
+        <string>Enable this option to include anniversaries from your calendar in the Upcoming Events summary. This option is only available if you are using the Birthdays resource in your calendar.</string>
+       </property>
+       <property name="text" >
+        <string>Show &amp;anniveraries</string>
        </property>
       </widget>
-     </item>
-     <item row="2" column="0" >
-      <layout class="QHBoxLayout" name="horizontalLayout" >
-       <item>
-        <widget class="QRadioButton" name="mDateRangeButton" >
-         <property name="enabled" >
-          <bool>true</bool>
-         </property>
-         <property name="text" >
-          <string>Within the &amp;next</string>
-         </property>
-         <property name="checked" >
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="mCustomDays" >
-         <property name="enabled" >
-          <bool>true</bool>
-         </property>
-         <property name="specialValueText" >
-          <string>1 day</string>
-         </property>
-         <property name="suffix" >
-          <string> days</string>
-         </property>
-         <property name="minimum" >
-          <number>1</number>
-         </property>
-         <property name="maximum" >
-          <number>365</number>
-         </property>
-         <property name="singleStep" >
-          <number>1</number>
-         </property>
-         <property name="value" >
-          <number>7</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </item>
     </layout>
    </widget>
@@ -107,22 +145,5 @@
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <resources/>
- <connections>
-  <connection>
-   <sender>mDateRangeButton</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>mCustomDays</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>122</x>
-     <y>127</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>156</x>
-     <y>125</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

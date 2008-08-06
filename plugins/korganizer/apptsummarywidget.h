@@ -31,6 +31,7 @@
 
 namespace KCal {
   class CalendarResources;
+  class Event;
 }
 
 class KOrganizerPlugin;
@@ -51,8 +52,7 @@ class ApptSummaryWidget : public Kontact::Summary
 
     int summaryHeight() const { return 3; }
     QStringList configModules() const;
-
-  public slots:
+    void configUpdated();
     void updateSummary( bool force = false )
     {
       Q_UNUSED( force );
@@ -69,12 +69,16 @@ class ApptSummaryWidget : public Kontact::Summary
     void removeEvent( const QString &uid );
 
   private:
-    KOrganizerPlugin *mPlugin;
     void dateDiff( const QDate &date, int &days );
-    QGridLayout *mLayout;
+    bool skip( KCal::Event *event );
 
+    QGridLayout *mLayout;
     QList<QLabel *> mLabels;
+    KOrganizerPlugin *mPlugin;
     KCal::CalendarResources *mCalendar;
+    int mDaysAhead;
+    bool mShowBirthdaysFromCal;
+    bool mShowAnniversariesFromCal;
 };
 
 #endif

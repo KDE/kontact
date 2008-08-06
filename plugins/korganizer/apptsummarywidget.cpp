@@ -64,25 +64,35 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mCalendar = KOrg::StdCalendar::self();
   mCalendar->load();
 
-  connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
-  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)),
-           SLOT(updateView()) );
+  connect( mCalendar, SIGNAL(calendarChanged()), this, SLOT(updateView()) );
+  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), this, SLOT(updateView()) );
 
-  updateView();
+  // Update Configuration
+  configUpdated();
 }
 
 ApptSummaryWidget::~ApptSummaryWidget()
 {
 }
 
+void ApptSummaryWidget::configUpdated()
+{
+  KConfig config( "kcmapptsummaryrc" );
+
+  KConfigGroup group = config.group( "Days" );
+  mDaysAhead = group.readEntry( "DaysToShow", 7 );
+
+  group = config.group( "Show" );
+  mShowBirthdaysFromCal = group.readEntry( "BirthdaysFromCalendar", true );
+  mShowAnniversariesFromCal = group.readEntry( "AnniversariesFromCalendar", true );
+
+  updateView();
+}
+
 void ApptSummaryWidget::updateView()
 {
   qDeleteAll( mLabels );
   mLabels.clear();
-
-  KConfig _config( "kcmapptsummaryrc" );
-  KConfigGroup config(&_config, "Days" );
-  int days = config.readEntry( "DaysToShow", 7 );
 
   // The event print consists of the following fields:
   //  icon:start date:days-to-go:summary:time range
@@ -102,9 +112,9 @@ void ApptSummaryWidget::updateView()
   QString str;
   QDate dt;
   QDate currentDate = QDate::currentDate();
-  for ( dt=currentDate;
-        dt<=currentDate.addDays( days - 1 );
-        dt=dt.addDays(1) ) {
+  for ( dt = currentDate;
+        dt <= currentDate.addDays( mDaysAhead - 1 );
+        dt = dt.addDays( 1 ) ) {
 
     KCal::Event *ev;
 
@@ -124,7 +134,9 @@ void ApptSummaryWidget::updateView()
         qdt.setDate( dt );
         ev->setDtStart( qdt );
       }
-      events.append( ev );
+      if ( !skip( ev ) ) {
+        events.append( ev );
+      }
     }
 
     // sort the events for this date by summary
@@ -269,16 +281,17 @@ void ApptSummaryWidget::updateView()
   if ( !counter ) {
     QLabel *noEvents = new QLabel(
       i18np( "No upcoming events starting within the next day",
-            "No upcoming events starting within the next %1 days",
-            days ), this );
+             "No upcoming events starting within the next %1 days",
+             mDaysAhead ), this );
     noEvents->setObjectName( "nothing to see" );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( noEvents, 0, 2 );
     mLabels.append( noEvents );
   }
 
-  Q_FOREACH( label, mLabels )
-  label->show();
+  Q_FOREACH( label, mLabels ) {
+    label->show();
+  }
 }
 
 void ApptSummaryWidget::viewEvent( const QString &uid )
@@ -353,6 +366,23 @@ void ApptSummaryWidget::dateDiff( const QDate &date, int &days )
   } else {
     days = offset;
   }
+}
+
+bool ApptSummaryWidget::skip( KCal::Event *event )
+{
+  //simply check categories because the birthdays resource always adds
+  //the appropriate category to the event.
+  QStringList c = event->categories();
+  if ( !mShowBirthdaysFromCal &&
+       c.contains( i18n( "BIRTHDAY" ), Qt::CaseInsensitive ) ) {
+    return true;
+  }
+  if ( !mShowAnniversariesFromCal &&
+       c.contains( i18n( "ANNIVERSARY" ), Qt::CaseInsensitive ) ) {
+    return true;
+  }
+
+  return false;
 }
 
 QStringList ApptSummaryWidget::configModules() const
