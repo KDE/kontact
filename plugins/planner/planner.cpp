@@ -65,8 +65,7 @@ Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
 
-  //TODO we want our own icon
-  QWidget *header = createHeader( this, "view-calendar-tasks", i18n( "Planner" ) );
+  QWidget *header = createHeader( this, "view-pim-summary", i18n( "Planner" ) );
   mainLayout->addWidget( header );
   mainLayout->addStretch();
 
@@ -490,7 +489,7 @@ void Planner::updateView()
 
       QPixmap pm = loader.loadIcon( "view-pim-calendar", KIconLoader::Small );
       label = new QLabel( this );
-      label->setPixmap( pm );
+//       label->setPixmap( pm );
       label->setMaximumWidth( label->minimumSizeHint().width() );
       label->setAlignment( Qt::AlignLeft | Qt::AlignTop );
       label->setPaletteBackgroundColor( Qt::lightGray );
@@ -521,6 +520,10 @@ void Planner::updateView()
         QFont font = label->font();
         font.setBold( true );
         label->setFont( font );
+      } else {
+        QFont font = label->font();
+        font.setItalic( true );
+        label->setFont( font );
       }
       mLayout->addWidget( label, counter, 1 );
       mLabels.append( label );
@@ -528,7 +531,7 @@ void Planner::updateView()
       ++counter;
       QVBoxLayout *todoLayout = new QVBoxLayout( this );
       mPlannerGrid = new QGridLayout ( todoLayout, 7, 6, 3 );
-      mPlannerGrid->setRowStretch( 6, 1 );
+      mPlannerGrid->setRowStretch( 6, 4 );
       todoLayout->addStretch();
       mLayout->addMultiCellLayout( todoLayout, counter, counter, 0, 4 );
 
