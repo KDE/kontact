@@ -39,7 +39,6 @@
   <Action name="help_whats_this"/>
 </ToolBar>
 <ToolBar position="Top" hidden="true" name="navigatorToolBar"><text>Navigator</text>
-  <Action name="navigator_spacer_item"/>
   <ActionList name="navigator_actionlist" />
 </ToolBar>
 </gui>
