@@ -30,6 +30,7 @@ class QButtonGroup;
 class QCheckBox;
 class QGroupBox;
 class QSpinBox;
+class QRadioButton;
 
 class KCMPlanner : public KCModule
 {
@@ -59,10 +60,16 @@ class KCMPlanner : public KCModule
     QWidget *mCalendarPage;
     QWidget *mTodoPage;
     QWidget *mSdPage;
-    QButtonGroup *mCalendarGroup;
-    QButtonGroup *mTodoGroup;
+    QGroupBox *mCalendarGroup;
+    QGroupBox *mTodoGroup;
     QSpinBox *mCustomDays;
     QGroupBox *mSdGroup;
+
+    QRadioButton *mDay;
+    QRadioButton *mFiveDays;
+    QRadioButton *mWeek;
+    QRadioButton *mMonth;
+    QRadioButton *mCalendarSpin;
 
     bool mTodo;
     QCheckBox *mShowAllTodos;

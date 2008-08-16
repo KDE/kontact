@@ -69,7 +69,8 @@ Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
   mainLayout->addWidget( header );
   mainLayout->addStretch();
 
-  mLayout = new QGridLayout( mainLayout, 8, 5, 3 );
+//   mLayout = new QGridLayout( mainLayout, 8, 5, 3 );
+  mLayout = new QGridLayout( mainLayout );
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = KOrg::StdCalendar::self();
@@ -427,7 +428,9 @@ int Planner::showEvents( int counter, const QDate &date )
       urlLabel->setText( newtext );
       urlLabel->setUrl( ev->uid() );
       urlLabel->installEventFilter( this );
-      urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop | Qt::WordBreak );
+//       urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop | Qt::WordBreak );
+      // TODO Set config item if urls be underlined or not
+      urlLabel->setUnderline( false );
       mPlannerGrid->addWidget( urlLabel, counter, 4 );
       mLabels.append( urlLabel );
 
@@ -438,7 +441,7 @@ int Planner::showEvents( int counter, const QDate &date )
 
       QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
       if ( !tipText.isEmpty() ) {
-        QToolTip::add( urlLabel, tipText );
+         QToolTip::add( urlLabel, tipText );
       }
 
       counter++;
@@ -483,7 +486,8 @@ void Planner::updateView()
     if ( !mEvents.empty() || ( !mTodos.empty() && mShowTodos ) ) {
       ++counter;
       label = new QLabel( this );
-      label->setPaletteBackgroundColor( Qt::lightGray );
+//       label->setPaletteBackgroundColor( Qt::lightGray );
+      label->setBackgroundRole( QPalette::Light );
       mLayout->addMultiCellWidget( label, counter, counter, 0, 4 );
       mLabels.append( label );
 
@@ -531,7 +535,7 @@ void Planner::updateView()
       ++counter;
       QVBoxLayout *todoLayout = new QVBoxLayout( this );
       mPlannerGrid = new QGridLayout ( todoLayout, 7, 6, 3 );
-      mPlannerGrid->setRowStretch( 6, 4 );
+      mPlannerGrid->setRowStretch( 6, 1 );
       todoLayout->addStretch();
       mLayout->addMultiCellLayout( todoLayout, counter, counter, 0, 4 );
 
