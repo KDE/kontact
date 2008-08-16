@@ -98,9 +98,9 @@ void KCMPlanner::modified()
   emit changed( true );
 }
 
-void KCMPlanner::buttonClicked( int id )
+void KCMPlanner::buttonClicked( bool state )
 {
-  mCustomDays->setEnabled( id == 4 );
+  mCustomDays->setEnabled( state );
 }
 
 void KCMPlanner::customDaysChanged( int value )
@@ -166,49 +166,45 @@ void KCMPlanner::initGUI()
 void KCMPlanner::initCalendarPage()
 {
   mCalendarPage = new QWidget( this );
-
   QVBoxLayout *layout = new QVBoxLayout( mCalendarPage );
 
+  //Add a GroupBox with Radiobuttons to Calendarpage
   mCalendarGroup = new QGroupBox( i18n( "Days to show Selection" ), mCalendarPage );
+  QVBoxLayout *groupLayout = new QVBoxLayout( mCalendarGroup );
 
-  QVBoxLayout *groupLayout = new QVBoxLayout( this );
-  
   mDay = new QRadioButton( i18n( "One day" ) );
   mFiveDays = new QRadioButton( i18n( "Five days" ) );
   mWeek = new QRadioButton( i18n( "One week" ) );
   mMonth = new QRadioButton( i18n( "One month" ) );
-  
+
   groupLayout->addWidget( mDay );
   groupLayout->addWidget( mFiveDays );
   groupLayout->addWidget( mWeek );
   groupLayout->addWidget( mMonth );
 
-  QHBoxLayout *hbox = new QHBoxLayout( groupLayout );
-
+  //Add Spinbox for choosing the days to show in summary 
+  QHBoxLayout *hbox = new QHBoxLayout( );
   mCalendarSpin = new QRadioButton( "" );
-
   hbox->addWidget( mCalendarSpin );
 
   mCustomDays = new QSpinBox( this );
   mCustomDays->setRange( 1, 365 );
   mCustomDays->setValue( 1 );
   mCustomDays->setEnabled( false );
+  hbox->addWidget( mCustomDays );
 
   connect( mDay, SIGNAL(toggled(bool)), SLOT(modified()) );
   connect( mFiveDays, SIGNAL(toggled(bool)), SLOT(modified()) );
   connect( mWeek, SIGNAL(toggled(bool)), SLOT(modified()) );
   connect( mMonth, SIGNAL(toggled(bool)), SLOT(modified()) );
   connect( mCalendarSpin, SIGNAL(toggled(bool)), SLOT(modified()) );
-  connect( mCalendarSpin, SIGNAL(toggled(bool)), SLOT(mCustomDays->setEnabled( true )) );
+  connect( mCalendarSpin, SIGNAL(toggled(bool)), SLOT(buttonClicked( bool )) );
 
-  hbox->addWidget( mCustomDays );
-  hbox->addStretch( 3 );
-
+  groupLayout->addLayout( hbox );
   mCalendarGroup->setLayout( groupLayout );
 
   layout->addWidget( mCalendarGroup );
   layout->addStretch();
-
 }
  
 void KCMPlanner::initTodoPage()
@@ -217,15 +213,9 @@ void KCMPlanner::initTodoPage()
   QVBoxLayout *layout = new QVBoxLayout( mTodoPage );
   layout->setSpacing( KDialog::spacingHint() );
 
-
-//   mTodoGroup = new QGroupBox( 8, Qt::Vertical, i18n( "Show To-dos" ), mTodoPage );
-//   mTodoGroup = new QGroupBox( i18n( "Show To-dos" ), mTodoPage);
-//   mTodoGroup->setCheckable( true );
-//   mTodoGroup->setLayoutDirection( QT::Vertical );
-
   mTodoGroup = new QGroupBox( i18n( "Show To-dos" ), mTodoPage );
   mTodoGroup->setCheckable( true );
-  QVBoxLayout *todoLayout = new QVBoxLayout( this );
+  QVBoxLayout *todoLayout = new QVBoxLayout( mTodoGroup );
 
   mShowAllTodos = new QCheckBox( i18n( "Show all to-dos" ) );
   todoLayout->addWidget( mShowAllTodos );
@@ -240,7 +230,7 @@ void KCMPlanner::initTodoPage()
   mShowCompleted = new QCheckBox( i18n( "Completed to-dos" ) );
   todoLayout->addWidget( mShowCompleted );
 
-  QHBoxLayout *hbox = new QHBoxLayout( todoLayout );
+  QHBoxLayout *hbox = new QHBoxLayout( );
   hbox->setSpacing( KDialog::spacingHint() );
 
   QLabel *label = new QLabel( i18n("Priority limit:") );
@@ -251,8 +241,8 @@ void KCMPlanner::initTodoPage()
   hbox->addWidget( mPriority );
   hbox->addStretch( 2 );
 
-  connect( mTodoGroup, SIGNAL(toggled(bool)), SLOT(setTodo(bool)) );
   connect( mTodoGroup, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mTodoGroup, SIGNAL(toggled(bool)), SLOT(setTodo(bool)) );
   connect( mShowAllTodos, SIGNAL(toggled(bool)), SLOT(disableAll(bool)) );
   connect( mShowTodayEndingTodos, SIGNAL(toggled(bool)), SLOT(modified()) );
   connect( mShowTodosInProgress, SIGNAL(toggled(bool)), SLOT(modified()) );
@@ -261,6 +251,7 @@ void KCMPlanner::initTodoPage()
   connect( mShowCompleted, SIGNAL(toggled(bool)), SLOT(modified()) );
   connect( mPriority, SIGNAL(valueChanged(int)), SLOT(modified()) );
 
+  todoLayout->addLayout( hbox );
   mTodoGroup->setLayout( todoLayout );
  
   layout->addWidget( mTodoGroup );
@@ -295,6 +286,7 @@ void KCMPlanner::load()
   //Read Calendar Config
   KConfigGroup calendar = config.group( "Calendar" );
 
+  //Set the count of Days from config 
   int days = calendar.readEntry( "DaysToShow", 1 );
   if ( days == 1 ) {
     mDay->setChecked( true );
@@ -310,12 +302,11 @@ void KCMPlanner::load()
     mCustomDays->setEnabled( true );
   }
 
-
-
   //Read Todo Config
   KConfigGroup todo = config.group( "Todo" );
 
-  mTodoGroup->setChecked( mTodo );
+  //Set Todos to show from config
+  mTodoGroup->setChecked( todo.readEntry( "Todo", true ) );
   mShowAllTodos->setChecked( todo.readEntry( "ShowAllTodos", false ) );
   mShowTodayEndingTodos->setChecked( todo.readEntry( "ShowTodayEndingTodos", false ) );
   mShowTodosInProgress->setChecked( todo.readEntry( "ShowTodosInProgress", false ) );
@@ -357,24 +348,6 @@ void KCMPlanner::save()
   } else {
     days = mCustomDays->value();
   }
-//   switch ( mCalendarGroup->selectedId() ) {
-//   case 0:
-//     days = 1;
-//     break;
-//   case 1:
-//     days = 5;
-//     break;
-//   case 2:
-//     days = 7;
-//     break;
-//   case 3:
-//     days = 31;
-//     break;
-//   case 4:
-//   default:
-//     days = mCustomDays->value();
-//     break;
-//   }
   calendar.writeEntry( "DaysToShow", days );
 
 /*

@@ -45,7 +45,7 @@ class KCMPlanner : public KCModule
 
   private slots:
     void modified();
-    void buttonClicked( int );
+    void buttonClicked( bool );
     void customDaysChanged( int );
     void disableAll( bool );
     void setTodo( bool );
