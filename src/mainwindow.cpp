@@ -266,8 +266,10 @@ void MainWindow::setActivePluginModule( const QString &module )
 
 bool MainWindow::pluginActionWeightLessThan( const QAction *left, const QAction *right )
 {
-  return pluginWeightLessThan( left->data().value<Kontact::Plugin*>(),
-                               right->data().value<Kontact::Plugin*>() );
+  // Since this lessThan method is used only for the toolbar (which is on the inverse layout direction
+  // than the rest of the system), we add the elements on the exactly inverse order. (ereslibre)
+  return !pluginWeightLessThan( left->data().value<Kontact::Plugin*>(),
+                                right->data().value<Kontact::Plugin*>() );
 }
 
 bool MainWindow::pluginWeightLessThan( const Kontact::Plugin *left, const Kontact::Plugin *right )
