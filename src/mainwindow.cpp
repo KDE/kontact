@@ -780,15 +780,17 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     createGUI( plugin->part() );
 
     KToolBar *navigatorToolBar = findToolBar( "navigatorToolBar" );
-    // Let the navigator toolbar be always the last one, if it's in the top dockwindow
-    if ( navigatorToolBar && !navigatorToolBar->isHidden() &&
-         ( toolBarArea( navigatorToolBar ) == Qt::TopToolBarArea ||
-           toolBarArea( navigatorToolBar ) == Qt::BottomToolBarArea ) ) {
+    if ( navigatorToolBar ) {
       if ( layoutDirection() == Qt::LeftToRight ) {
         navigatorToolBar->setLayoutDirection( Qt::RightToLeft );
       } else {
         navigatorToolBar->setLayoutDirection( Qt::LeftToRight );
       }
+    }
+    // Let the navigator toolbar be always the last one, if it's in the top dockwindow
+    if ( navigatorToolBar && !navigatorToolBar->isHidden() &&
+         ( toolBarArea( navigatorToolBar ) == Qt::TopToolBarArea ||
+           toolBarArea( navigatorToolBar ) == Qt::BottomToolBarArea ) ) {
       addToolBar( toolBarArea( navigatorToolBar ), navigatorToolBar );
     }
 
