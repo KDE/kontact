@@ -145,6 +145,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     QString mActiveModule;
 
     QMap<QString, QPointer<QWidget> > mFocusWidgets;
+    QMap<Plugin*, KAction*> mPluginAction;
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;

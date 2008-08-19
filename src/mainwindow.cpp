@@ -618,11 +618,13 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
 
   if ( plugin->showInSideBar() ) {
     KAction *action = new KAction( KIcon( plugin->icon() ), plugin->title(), this );
+    action->setCheckable( true );
     action->setData( QVariant::fromValue( plugin ) ); // on the slot we can decode which action was
                                                       // triggered
     connect( action, SIGNAL(triggered(bool)), SLOT(slotActionTriggered()) );
     actionCollection()->addAction( plugin->title(), action );
     mActionPlugins.append( action );
+    mPluginAction.insert( plugin, action );
   }
 
   // merge the plugins GUI into the main window
@@ -720,6 +722,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   QApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
+  saveMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
+
   KParts::Part *part = plugin->part();
 
   if ( !part ) {
@@ -730,6 +734,11 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     mSidePane->updatePlugins();
     return;
   }
+
+  if ( mCurrentPlugin ) {
+    mPluginAction[ mCurrentPlugin ]->setChecked( false );
+  }
+  mPluginAction[ plugin ]->setChecked( true );
 
   // store old focus widget
   QWidget *focusWidget = kapp->focusWidget();
@@ -846,6 +855,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       }
     }
   }
+
+  applyMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
 
   QApplication::restoreOverrideCursor();
 }
@@ -1010,8 +1021,6 @@ void MainWindow::configureShortcuts()
 
 void MainWindow::configureToolbars()
 {
-  saveMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
-
   KEditToolBar edit( factory() );
   connect( &edit, SIGNAL(newToolbarConfig()), this, SLOT(slotNewToolbarConfig()) );
   edit.exec();
@@ -1022,7 +1031,6 @@ void MainWindow::slotNewToolbarConfig()
   if ( mCurrentPlugin && mCurrentPlugin->part() ) {
     createGUI( mCurrentPlugin->part() );
   }
-  applyMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
 }
 
 void MainWindow::slotOpenUrl( const KUrl &url )
