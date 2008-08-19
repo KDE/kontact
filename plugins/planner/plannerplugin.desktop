@@ -4,7 +4,7 @@ Icon=cookies
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_plannerplugin
-X-KDE-KontactPluginVersion=7
+X-KDE-KontactPluginVersion=8
 X-KDE-KontactPluginHasPart=false
 X-KDE-KontactPluginHasSummary=true
 

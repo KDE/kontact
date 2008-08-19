@@ -42,6 +42,7 @@
 #include <QLabel>
 
 #include <iostream>
+#include "profilemanager.h"
 
 using namespace std;
 
@@ -108,6 +109,8 @@ static void loadCommandLineOptions()
   options.add( "module <module>", ki18n( "Start with a specific Kontact module" ) );
   options.add( "iconify", ki18n( "Start in iconified (minimized) mode" ) );
   options.add( "list", ki18n( "List all possible modules and exit" ) );
+  options.add( "listprofiles", ki18n( "List all possible profiles and exit" ) );
+  options.add( "profile <profile>", ki18n( "Start with a specific Kontact profile" ) );
   KCmdLineArgs::addCmdLineOptions( options );
 }
 
@@ -117,6 +120,15 @@ void KontactApp::loadCommandLineOptionsForNewInstance()
   kDebug();
   KCmdLineArgs::reset(); // forget options defined by other "applications"
   loadCommandLineOptions(); // re-add the kontact options
+}
+
+static void listProfiles()
+{
+    KComponentData instance( "kontact" ); // Can't use KontactApp since it's too late for adding cmdline options
+    QList<Kontact::Profile> profiles = Kontact::ProfileManager::self()->profiles();
+    for( QList<Kontact::Profile>::iterator it = profiles.begin() ; it != profiles.end(); ++it ) {
+        cout << (*it).name().latin1() << endl;
+    }
 }
 
 int KontactApp::newInstance()
@@ -145,6 +157,16 @@ int KontactApp::newInstance()
     } else {
       if ( !moduleName.isEmpty() ) {
         mMainWindow->setActivePluginModule( moduleName );
+      }
+    }
+  }
+
+  if ( args->isSet( "profile" ) ) {
+    QList<Kontact::Profile>  profiles = Kontact::ProfileManager::self()->profiles();
+    for( QList<Kontact::Profile>::iterator it = profiles.begin(); it != profiles.end(); ++it ){
+      if( args->getOption("profile") == (*it).name().latin1() ) {
+        Kontact::ProfileManager::self()->loadProfile( (*it).id() );
+        break;
       }
     }
   }
@@ -187,6 +209,11 @@ int main( int argc, char **argv )
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   if ( args->isSet( "list" ) ) {
     listPlugins();
+    return 0;
+  }
+
+  if ( args->isSet( "listprofiles" ) ) {
+    listProfiles();
     return 0;
   }
 

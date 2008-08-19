@@ -189,6 +189,17 @@ void KAddressbookPlugin::processDropEvent( QDropEvent *event )
   KMessageBox::sorry( core(), i18n( "Cannot handle drop events of type '%1'.", event->format() ) );
 }
 
+
+void KAddressbookPlugin::loadProfile( const QString& directory )
+{
+  m_interface->loadProfile( directory );
+}
+
+void KAddressbookPlugin::saveToProfile( const QString& directory ) const
+{
+  m_interface->saveToProfile( directory );
+}
+
 ////
 
 #include "../../../kaddressbook/kaddressbook_options.h"

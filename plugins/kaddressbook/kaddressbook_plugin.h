@@ -65,6 +65,12 @@ class KAddressbookPlugin : public Kontact::Plugin
 
     OrgKdeKAddressbookCoreInterface *interface();
 
+    //override
+    void loadProfile( const QString& directory );
+
+    //override
+    void saveToProfile( const QString& directory ) const;
+
   protected:
     KParts::ReadOnlyPart *createPart();
 

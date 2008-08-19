@@ -25,6 +25,8 @@
 #include "iconsidepane.h"
 #include "plugin.h"
 #include "prefs.h"
+#include "profiledialog.h"
+#include "profilemanager.h"
 #include "progressdialog.h"
 #include "statusbarprogresswidget.h"
 #include "broadcaststatus.h"
@@ -41,6 +43,7 @@
 #include <kdebug.h>
 #include <kdbusservicestarter.h>
 #include <kedittoolbar.h>
+#include <kglobalsettings.h>
 #include <kguiitem.h>
 #include <khelpmenu.h>
 #include <kiconloader.h>
@@ -72,6 +75,7 @@
 #include <kvbox.h>
 #include <kicon.h>
 #include <kxmlguifactory.h>
+#include <kcmultidialog.h>
 
 #include <QComboBox>
 #include <QCursor>
@@ -185,6 +189,11 @@ void MainWindow::initGUI()
 
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
+
+  connect( Kontact::ProfileManager::self(), SIGNAL( profileLoaded( const QString& ) ),
+           this, SLOT( slotLoadProfile( const QString& ) ) );
+  connect( Kontact::ProfileManager::self(), SIGNAL( saveToProfileRequested( const QString& ) ),
+           this, SLOT( slotSaveToProfile( const QString& ) ) );
 }
 
 void MainWindow::initObject()
@@ -417,6 +426,10 @@ void MainWindow::setupActions()
   actionCollection()->addAction( "settings_configure_kontact", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
+  action = new KAction( i18n( "Configure &Profiles..." ), this );
+  actionCollection()->addAction( "settings_configure_kontact_profiles", action );
+  connect( action, SIGNAL(triggered(bool)), SLOT(slotConfigureProfiles()) );
+
   action = new KAction( KIcon( "kontact" ), i18n( "&Kontact Introduction" ), this );
   actionCollection()->addAction( "help_introduction", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowIntroduction()) );
@@ -429,6 +442,105 @@ void MainWindow::setupActions()
   stretchWidget->setSizePolicy( QSizePolicy( QSizePolicy::Expanding, QSizePolicy::Preferred ) );
   spacerAction->setDefaultWidget( stretchWidget );
   actionCollection()->addAction( "navigator_spacer_item", spacerAction );
+}
+
+void MainWindow::slotConfigureProfiles()
+{
+  Kontact::ProfileDialog *dlg = new Kontact::ProfileDialog( this );
+  dlg->setModal( true );
+  dlg->exec();
+  delete dlg;
+}
+
+namespace {
+    void copyConfigEntry( KConfig* source, KConfig* dest, const QString& group, const QString& key, const QString& defaultValue=QString() )
+    {
+        KConfigGroup src = source->group( group );
+        KConfigGroup dst = dest->group( group );
+        dst.writeEntry( key, src.readEntry( key, defaultValue ) );
+    }
+
+    void copyConfigEntry( KConfig* source, KConfig* dest, const QString& group, const QString& subgroup, const QString& key, const QString& defaultValue=QString() )
+    {
+        KConfigGroup src = source->group( group );
+        KConfigGroup dst = dest->group( group );
+        KConfigGroup subsrc = src.group( subgroup );
+        KConfigGroup subdst = dst.group( subgroup );
+        subdst.writeEntry( key, subsrc.readEntry( key, defaultValue ) );
+    }
+}
+
+void MainWindow::slotSaveToProfile( const QString& id )
+{
+  const QString path = Kontact::ProfileManager::self()->profileById( id ).saveLocation();
+  if ( path.isNull() )
+    return;
+
+  KConfig* const cfg = Prefs::self()->config();
+  Prefs::self()->writeConfig();
+  saveMainWindowSettings( cfg->group("MainWindow") );
+  saveSettings();
+
+  KConfig profile( path+"/kontactrc", KConfig::NoGlobals );
+  ::copyConfigEntry( cfg, &profile, "MainWindow", "Toolbar navigatorToolBar", "Hidden", "true" );
+  ::copyConfigEntry( cfg, &profile, "View", "SidePaneSplitter" );
+  ::copyConfigEntry( cfg, &profile, "Icons", "Theme" );
+
+  for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+    if ( !(*it)->isRunningStandalone() ) {
+        (*it)->part();
+    }
+    (*it)->saveToProfile( path );
+  }
+}
+
+void MainWindow::slotLoadProfile( const QString& id )
+{
+  const QString path = Kontact::ProfileManager::self()->profileById( id ).saveLocation();
+  if ( path.isNull() )
+    return;
+
+  KConfig* const cfg = Prefs::self()->config();
+  Prefs::self()->writeConfig();
+  saveMainWindowSettings( cfg->group("MainWindow") );
+  saveSettings();
+
+  const KConfig profile( path+"/kontactrc", KConfig::NoGlobals );
+  const QStringList groups = profile.groupList();
+  for ( QStringList::ConstIterator it = groups.begin(), end = groups.end(); it != end; ++it )
+  {
+    KConfigGroup group = cfg->group( *it );
+    typedef QMap<QString, QString> StringMap;
+    const StringMap entries = profile.entryMap( *it );
+    for ( StringMap::ConstIterator it2 = entries.begin(), end = entries.end(); it2 != end; ++it2 )
+    {
+      if ( it2.data() == "KONTACT_PROFILE_DELETE_KEY" )
+        group.deleteEntry( it2.key() );
+      else
+        group.writeEntry( it2.key(), it2.data() );
+    }
+  }
+
+  cfg->sync();
+  Prefs::self()->readConfig();
+  applyMainWindowSettings( cfg->group("MainWindow") );
+  KIconTheme::reconfigure();
+  KGlobalSettings::emitChange( KGlobalSettings::PaletteChanged );
+  KGlobalSettings::emitChange( KGlobalSettings::FontChanged );
+  KGlobalSettings::emitChange( KGlobalSettings::StyleChanged );
+  KGlobalSettings::emitChange( KGlobalSettings::SettingsChanged );
+  for ( int i = 0; i < KIconLoader::LastGroup; ++i )
+      KGlobalSettings::emitChange( KGlobalSettings::IconChanged, i );
+
+  loadSettings();
+
+  for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+    if ( !(*it)->isRunningStandalone() ) {
+        kdDebug() << "Ensure loaded: " << (*it)->identifier() << endl;
+        (*it)->part();
+    }
+    (*it)->loadProfile( path );
+  }
 }
 
 bool MainWindow::isPluginLoaded( const KPluginInfo &info )

@@ -226,4 +226,12 @@ bool KMailPlugin::queryClose() const
   return canClose;
 }
 
+void KMailPlugin::loadProfile( const QString& profileDirectory ) {
+  m_instance->loadProfile( profileDirectory );
+}
+
+void KMailPlugin::saveToProfile( const QString& profileDirectory ) {
+  m_instance->saveToProfile( profileDirectory );
+}
+
 #include "kmail_plugin.moc"

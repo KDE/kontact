@@ -59,6 +59,10 @@ class KOrganizerPlugin : public Kontact::Plugin
 
     OrgKdeKorganizerCalendarInterface *interface();
 
+
+    void loadProfile( const QString& path );
+    void saveToProfile( const QString& path ) const;
+
   protected:
     KParts::ReadOnlyPart *createPart();
 

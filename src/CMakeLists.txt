@@ -10,7 +10,9 @@ set(kontactprivate_LIB_SRCS
    mainwindow.cpp 
    sidepanebase.cpp 
    iconsidepane.cpp 
-   aboutdialog.cpp )
+   aboutdialog.cpp 
+   profiledialog.cpp 
+   profilemanager.cpp )
 
 
 kde4_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc )

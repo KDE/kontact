@@ -5,7 +5,7 @@ X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 TryExec=rssservice
 
 X-KDE-Library=kontact_newstickerplugin
-X-KDE-KontactPluginVersion=7
+X-KDE-KontactPluginVersion=8
 X-KDE-KontactPluginHasSummary=true
 X-KDE-KontactPluginHasPart=false
 

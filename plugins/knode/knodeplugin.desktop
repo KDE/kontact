@@ -4,7 +4,7 @@ Icon=view-pim-news
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_knodeplugin
-X-KDE-KontactPluginVersion=7
+X-KDE-KontactPluginVersion=8
 X-KDE-KontactPartLibraryName=knodepart
 X-KDE-KontactPartExecutableName=knode
 X-KDE-KontactPartLoadOnStart=false

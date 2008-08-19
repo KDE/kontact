@@ -4,7 +4,7 @@ Icon=view-pim-contacts
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_kaddressbookplugin
-X-KDE-KontactPluginVersion=7
+X-KDE-KontactPluginVersion=8
 X-KDE-KontactPartLibraryName=kaddressbookpart
 X-KDE-KontactPartExecutableName=kaddressbook
 X-KDE-KontactPluginHasSummary=false

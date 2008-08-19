@@ -221,4 +221,14 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
                       i18n( "Cannot handle drop events of type '%1'.", event->format() ) );
 }
 
+void KOrganizerPlugin::loadProfile( const QString& directory )
+{
+  mIface->loadProfile( directory );
+}
+
+void KOrganizerPlugin::saveToProfile( const QString& directory ) const
+{
+  mIface->saveToProfile( directory );
+}
+
 #include "korganizerplugin.moc"
