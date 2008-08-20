@@ -185,6 +185,11 @@ void MainWindow::initGUI()
 
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
+
+  KToolBar *navigatorToolBar = findToolBar( "navigatorToolBar" );
+  if ( navigatorToolBar ) {
+    navigatorToolBar->setMinimumWidth( navigatorToolBar->sizeHint().width() );
+  }
 }
 
 void MainWindow::initObject()
