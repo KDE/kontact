@@ -188,7 +188,14 @@ void MainWindow::initGUI()
 
   KToolBar *navigatorToolBar = findToolBar( "navigatorToolBar" );
   if ( navigatorToolBar ) {
+    if ( layoutDirection() == Qt::LeftToRight ) {
+      navigatorToolBar->setLayoutDirection( Qt::RightToLeft );
+    } else {
+      navigatorToolBar->setLayoutDirection( Qt::LeftToRight );
+    }
     navigatorToolBar->setMinimumWidth( navigatorToolBar->sizeHint().width() );
+  } else {
+    Q_ASSERT( false ); // this should not happen
   }
 }
 
@@ -802,13 +809,6 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     createGUI( plugin->part() );
 
     KToolBar *navigatorToolBar = findToolBar( "navigatorToolBar" );
-    if ( navigatorToolBar ) {
-      if ( layoutDirection() == Qt::LeftToRight ) {
-        navigatorToolBar->setLayoutDirection( Qt::RightToLeft );
-      } else {
-        navigatorToolBar->setLayoutDirection( Qt::LeftToRight );
-      }
-    }
     // Let the navigator toolbar be always the last one, if it's in the top dockwindow
     if ( navigatorToolBar && !navigatorToolBar->isHidden() &&
          ( toolBarArea( navigatorToolBar ) == Qt::TopToolBarArea ||
