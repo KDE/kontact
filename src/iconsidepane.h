@@ -81,6 +81,7 @@ class Navigator : public QListView
   private slots:
     void slotCurrentChanged( const QModelIndex &current );
     void slotActionTriggered( bool checked );
+    void updateNavigatorSize();
 
   private:
     SidePaneBase *mSidePane;
