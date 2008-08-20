@@ -736,9 +736,15 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   }
 
   if ( mCurrentPlugin ) {
-    mPluginAction[ mCurrentPlugin ]->setChecked( false );
+    KAction *action = mPluginAction[ mCurrentPlugin ];
+    if ( action ) {
+      action->setChecked( false );
+    }
   }
-  mPluginAction[ plugin ]->setChecked( true );
+  KAction *selectedPluginAction = mPluginAction[ plugin ];
+  if ( selectedPluginAction ) {
+    selectedPluginAction->setChecked( true );
+  }
 
   // store old focus widget
   QWidget *focusWidget = kapp->focusWidget();
@@ -864,6 +870,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 void MainWindow::slotActionTriggered()
 {
   KAction *actionSender = static_cast<KAction*>( sender() );
+  actionSender->setChecked( true );
   Kontact::Plugin *plugin = actionSender->data().value<Kontact::Plugin*>();
   if ( !plugin ) {
     return;
