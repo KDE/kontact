@@ -201,7 +201,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
               KCal::Incidence *i = incidences.first();
               QString summary;
               if ( dynamic_cast<KCal::Journal*>( i ) )
-                  summary = i18n( "Note: %1" ).arg( i->summary() );
+                  summary = i18n( "Note: %1", i->summary() );
               else
                   summary = i->summary();
               interface()->openEventEditor( summary, i->description(), QStringList() );
