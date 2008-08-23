@@ -441,6 +441,7 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
 {
   QScrollArea *sa = new QScrollArea( core );
 
+  sa->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
   sa->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
   sa->setWidgetResizable( true );
 
