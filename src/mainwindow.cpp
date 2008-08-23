@@ -436,12 +436,6 @@ void MainWindow::setupActions()
   action = new KAction( KIcon( "ktip" ), i18n( "&Tip of the Day" ), this );
   actionCollection()->addAction( "help_tipofday", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowTip()) );
-
-  QWidgetAction *spacerAction = new QWidgetAction( this );
-  QWidget *stretchWidget = new QWidget( this );
-  stretchWidget->setSizePolicy( QSizePolicy( QSizePolicy::Expanding, QSizePolicy::Preferred ) );
-  spacerAction->setDefaultWidget( stretchWidget );
-  actionCollection()->addAction( "navigator_spacer_item", spacerAction );
 }
 
 void MainWindow::slotConfigureProfiles()
