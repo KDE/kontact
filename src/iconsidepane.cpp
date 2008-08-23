@@ -25,6 +25,7 @@
 #include "plugin.h"
 #include "prefs.h"
 
+#include <QtCore/QTimer>
 #include <QtGui/QStringListModel>
 #include <QtGui/QSortFilterProxyModel>
 #include <QtGui/QDragEnterEvent>
@@ -462,6 +463,11 @@ void Navigator::slotActionTriggered( bool checked )
 
   mModel->emitLayoutChanged();
 
+  QTimer::singleShot( 0, this, SLOT(updateNavigatorSize()) );
+}
+
+void Navigator::updateNavigatorSize()
+{
   parentWidget()->setMaximumWidth( sizeHint().width() );
   parentWidget()->setMinimumWidth( sizeHint().width() );
 }
