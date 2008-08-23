@@ -88,6 +88,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     void slotConfigureProfiles();
     void slotLoadProfile( const QString& id );
     void slotSaveToProfile( const QString& id );
+    void slotShowTipOnStart();
     void slotNewToolbarConfig();
     void slotShowIntroduction();
     void showAboutDialog();
