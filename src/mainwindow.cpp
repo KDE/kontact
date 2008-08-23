@@ -217,7 +217,7 @@ void MainWindow::initObject()
 
   statusBar()->show();
 
-  showTip( false );
+  QTimer::singleShot( 200, this, SLOT( slotShowTipOnStart() ) );
 
   // done initializing
   slotShowStatusMsg( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
@@ -894,6 +894,11 @@ void MainWindow::saveSettings()
 void MainWindow::slotShowTip()
 {
   showTip( true );
+}
+
+void MainWindow::slotShowTipOnStart()
+{
+  showTip( false );
 }
 
 void MainWindow::slotShowIntroduction()
