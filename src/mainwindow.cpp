@@ -732,7 +732,9 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
   QApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
-  saveMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
+  if ( mCurrentPlugin ) {
+    saveMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+  }
 
   KParts::Part *part = plugin->part();
 
@@ -806,14 +808,6 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 
     createGUI( plugin->part() );
 
-    // Let the navigator toolbar be always the last one, if it's in the top dockwindow
-    KToolBar *navigatorToolBar = findToolBar( "navigatorToolBar" );
-    if ( navigatorToolBar && !navigatorToolBar->isHidden() &&
-         ( toolBarArea( navigatorToolBar ) == Qt::TopToolBarArea ||
-           toolBarArea( navigatorToolBar ) == Qt::BottomToolBarArea ) ) {
-      addToolBar( toolBarArea( navigatorToolBar ), navigatorToolBar );
-    }
-
     setCaption( i18nc( "Plugin dependent window title", "%1 - Kontact", plugin->title() ) );
 
     if ( newAction ) {
@@ -865,7 +859,14 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     }
   }
 
-  applyMainWindowSettings( KGlobal::config()->group( "MainWindow" ) );
+  KToolBar *navigatorToolBar = findToolBar( "navigatorToolBar" );
+  if ( navigatorToolBar && !navigatorToolBar->isHidden() &&
+       ( toolBarArea( navigatorToolBar ) == Qt::TopToolBarArea ||
+         toolBarArea( navigatorToolBar ) == Qt::BottomToolBarArea ) ) {
+    addToolBar( toolBarArea( navigatorToolBar ), navigatorToolBar );
+  }
+
+  applyMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( plugin->identifier() ) ) );
 
   QApplication::restoreOverrideCursor();
 }
