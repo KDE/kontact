@@ -348,8 +348,6 @@ void MainWindow::setupActions()
                actionCollection(), "help_introduction" );
   new KAction( i18n( "&Tip of the Day" ), 0, this, SLOT( slotShowTip() ),
                actionCollection(), "help_tipofday" );
-  new KAction( i18n( "&Request Feature..." ), 0, this, SLOT( slotRequestFeature() ),
-               actionCollection(), "help_requestfeature" );
   
   KWidgetAction* spacerAction = new KWidgetAction( new QWidget( this ), "SpacerAction", "", 0, 0, actionCollection(), "navigator_spacer_item" );
   spacerAction->setAutoSized( true );
@@ -830,12 +828,6 @@ void MainWindow::saveSettings()
 void MainWindow::slotShowTip()
 {
   showTip( true );
-}
-
-void MainWindow::slotRequestFeature()
-{
-  if ( kapp )
-    kapp->invokeBrowser( "http://kontact.org/shopping" );
 }
 
 void MainWindow::slotShowIntroduction()
