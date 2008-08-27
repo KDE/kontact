@@ -1010,6 +1010,9 @@ void MainWindow::configureShortcuts()
 
 void MainWindow::configureToolbars()
 {
+  if ( mCurrentPlugin ) {
+    saveMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+  }
   KEditToolBar edit( factory() );
   connect( &edit, SIGNAL(newToolbarConfig()), this, SLOT(slotNewToolbarConfig()) );
   edit.exec();
@@ -1019,6 +1022,9 @@ void MainWindow::slotNewToolbarConfig()
 {
   if ( mCurrentPlugin && mCurrentPlugin->part() ) {
     createGUI( mCurrentPlugin->part() );
+  }
+  if ( mCurrentPlugin ) {
+    applyMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
 }
 
