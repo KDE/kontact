@@ -238,6 +238,10 @@ void MainWindow::initObject()
 
 MainWindow::~MainWindow()
 {
+  if ( mCurrentPlugin ) {
+    saveMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+  }
+
   createGUI( 0 );
   ServiceStarter::setPluginList( 0 );
   saveSettings();
