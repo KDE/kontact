@@ -74,7 +74,7 @@ void SummaryView::fillSyncActionSubEntries()
 
 void SummaryView::syncAccount( const QString &account )
 {
-  if ( account == account == i18nc( "sync everything", "All" ) ) {
+  if ( account == i18nc( "sync everything", "All" ) ) {
     doSync();
   } else {
 #ifdef KMAIL_SUPPORTED
