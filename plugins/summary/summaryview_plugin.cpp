@@ -74,10 +74,15 @@ void SummaryView::fillSyncActionSubEntries()
 
 void SummaryView::syncAccount( const QString &account )
 {
+  if ( account == i18nc( "sync everything", "All" ) ) {
+    doSync();
+  } else {
 #ifdef KMAIL_SUPPORTED
-  org::kde::kmail::kmail kmail( "org.kde.kmail", "/KMail", QDBusConnection::sessionBus() );
-  kmail.checkAccount( ( account == i18nc( "sync everything", "All" ) ? QString() : account ) );
+    org::kde::kmail::kmail kmail( "org.kde.kmail", "/KMail",
+                                  QDBusConnection::sessionBus() );
+    kmail.checkAccount( account );
 #endif
+  }
   fillSyncActionSubEntries();
 }
 
