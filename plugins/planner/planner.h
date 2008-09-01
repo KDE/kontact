@@ -36,6 +36,7 @@ class QWidget;
 class QEvent;
 class QGridLayout;
 class QLabel;
+class QVBoxLayout;
 
 namespace Kontact {
   class Plugin;
@@ -47,7 +48,7 @@ class Planner : public Kontact::Summary
 
   public:
     Planner( Kontact::Plugin *plugin, QWidget *parent );
-    ~Planner();
+    
 
     int summaryHeight() const { return 3; }
     QStringList configModules() const;
@@ -95,7 +96,7 @@ class Planner : public Kontact::Summary
 
     bool mShowSd;
     Kontact::Plugin *mPlugin;
-    QGridLayout *mLayout;
+    QVBoxLayout *mLayout;
     QGridLayout *mPlannerGrid;
     QList<QLabel *> mLabels;
     KCal::CalendarResources *mCalendar;
