@@ -203,7 +203,22 @@ void KCMPlanner::initCalendarPage()
   groupLayout->addLayout( hbox );
   mCalendarGroup->setLayout( groupLayout );
 
+  QGroupBox *groupBox = new QGroupBox( mCalendarPage );
+  QVBoxLayout *boxLayout = new QVBoxLayout( groupBox );
+
+  mShowEventRecurrence = new QCheckBox( i18n( "Show event recurrence" ) );
+  mShowEventReminder = new QCheckBox( i18n( "Show events with reminder" ) );
+
+  boxLayout->addWidget( mShowEventRecurrence );
+  boxLayout->addWidget( mShowEventReminder );
+
+  connect( mShowEventRecurrence, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mShowEventReminder, SIGNAL(toggled(bool)), SLOT(modified()) );
+
+  groupBox->setLayout( boxLayout );
+
   layout->addWidget( mCalendarGroup );
+  layout->addWidget( groupBox );
   layout->addStretch();
 }
  
@@ -253,8 +268,23 @@ void KCMPlanner::initTodoPage()
 
   todoLayout->addLayout( hbox );
   mTodoGroup->setLayout( todoLayout );
- 
+
+  QGroupBox *groupBox = new QGroupBox( mTodoPage );
+  QVBoxLayout *boxLayout = new QVBoxLayout( groupBox );
+
+  mShowTodoRecurrence = new QCheckBox( i18n( "Show todo recurrence") );
+  mShowTodoReminder = new QCheckBox( i18n( "Show todo reminder") );
+
+  boxLayout->addWidget( mShowTodoRecurrence );
+  boxLayout->addWidget( mShowTodoReminder );
+
+  connect( mShowTodoRecurrence, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mShowTodoReminder, SIGNAL(toggled(bool)), SLOT(modified()) );
+
+  groupBox->setLayout( boxLayout );
+
   layout->addWidget( mTodoGroup );
+  layout->addWidget( groupBox );
   layout->addStretch();
 }
  
@@ -302,6 +332,10 @@ void KCMPlanner::load()
     mCustomDays->setEnabled( true );
   }
 
+  mShowEventRecurrence->setChecked( calendar.readEntry( "ShowEventRecurrence", false ) );
+  mShowEventReminder->setChecked( calendar.readEntry( "ShowEventReminder", false ) );
+
+
   //Read Todo Config
   KConfigGroup todo = config.group( "Todo" );
 
@@ -314,6 +348,9 @@ void KCMPlanner::load()
   mShowOverdueTodos->setChecked( todo.readEntry( "ShowOverdueTodos", false ) );
   mShowCompleted->setChecked( todo.readEntry( "ShowCompleted", false ) );
   mPriority->setValue( todo.readEntry( "MaxPriority", 0 ) );
+
+  mShowTodoRecurrence->setChecked( todo.readEntry( "ShowTodoRecurrence", false ) );
+  mShowTodoReminder->setChecked( todo.readEntry( "ShowTodoReminder", false ) );
 
   //Read Special Dates Config
   KConfigGroup sd = config.group( "SpecialDates" );
@@ -350,6 +387,9 @@ void KCMPlanner::save()
   }
   calendar.writeEntry( "DaysToShow", days );
 
+  calendar.writeEntry( "ShowEventRecurrence", mShowEventRecurrence->isChecked() );
+  calendar.writeEntry( "ShowEventReminder", mShowEventReminder->isChecked() );
+
 /*
  * Todo Section
  */
@@ -363,6 +403,9 @@ void KCMPlanner::save()
   todo.writeEntry( "ShowOverdueTodos", mShowOverdueTodos->isChecked() );
   todo.writeEntry( "ShowCompleted", mShowCompleted->isChecked() );
   todo.writeEntry( "MaxPriority", mPriority->value() );
+
+  todo.writeEntry( "ShowTodoRecurrence", mShowTodoRecurrence->isChecked() );
+  todo.writeEntry( "ShowTodoReminder", mShowTodoReminder->isChecked() );
 
 /*
  * Special Dates Section
@@ -383,6 +426,9 @@ void KCMPlanner::save()
  void KCMPlanner::defaults()
 {
 //   mCalendarGroup->setButton( 0 );
+  mShowEventRecurrence->setChecked( false );
+  mShowEventReminder->setChecked( false );
+
 
   mTodo = true;
   mShowAllTodos->setChecked( false );
@@ -392,6 +438,9 @@ void KCMPlanner::save()
   mShowOverdueTodos->setChecked( true );
   mShowCompleted->setChecked( true );
   mPriority->setValue( 5 );
+
+  mShowTodoRecurrence->setChecked( false );
+  mShowTodoReminder->setChecked( false );
 
   mSd = true ;
 

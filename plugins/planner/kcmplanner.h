@@ -70,6 +70,8 @@ class KCMPlanner : public KCModule
     QRadioButton *mWeek;
     QRadioButton *mMonth;
     QRadioButton *mCalendarSpin;
+    QCheckBox *mShowEventRecurrence;
+    QCheckBox *mShowEventReminder;
 
     bool mTodo;
     QCheckBox *mShowAllTodos;
@@ -78,6 +80,8 @@ class KCMPlanner : public KCModule
     QCheckBox *mShowTodayStartingTodos;
     QCheckBox *mShowOverdueTodos;
     QCheckBox *mShowCompleted;
+    QCheckBox *mShowTodoRecurrence;
+    QCheckBox *mShowTodoReminder;
     QSpinBox *mPriority;
 
     bool mSd;

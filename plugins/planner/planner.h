@@ -83,6 +83,8 @@ class Planner : public Kontact::Summary
 
   private:
     int mDays;
+    bool mShowEventRecurrence;
+    bool mShowEventReminder;
     int mPriority;
     bool mShowTodos;
     bool mShowAllTodos;
@@ -91,6 +93,8 @@ class Planner : public Kontact::Summary
     bool mShowTodayStartingTodos;
     bool mShowOverdueTodos;
     bool mShowCompleted;
+    bool mShowTodoRecurrence;
+    bool mShowTodoReminder;
 
     KCal::Event::List mEvents;
 

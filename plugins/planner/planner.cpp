@@ -93,29 +93,34 @@ void Planner::configUpdated()
 {
   KConfig config( "plannerrc" );
 
-  KConfigGroup group = config.group( "Calendar" );
-  mDays = group.readEntry( "DaysToShow", 1 );
+  KConfigGroup calendar = config.group( "Calendar" );
+  mDays = calendar.readEntry( "DaysToShow", 1 );
+  mShowEventRecurrence = calendar.readEntry( "ShowEventRecurrence", false );
+  mShowEventReminder = calendar.readEntry( "ShowEventReminder", false );
 
-  group = config.group( "Todo" );
+  KConfigGroup todo = config.group( "Todo" );
   mShowTodos = false;
-  mPriority = group.readEntry( "MaxPriority", 0 );
-  mShowAllTodos = group.readEntry( "ShowAllTodos", false );
-  mShowTodayEndingTodos = group.readEntry( "ShowTodayEndingTodos", false );
-  mShowTodosInProgress = group.readEntry( "ShowTodosInProgress", false );
-  mShowTodayStartingTodos = group.readEntry( "ShowTodayStartingTodos", false );
-  mShowOverdueTodos = group.readEntry( "ShowOverdueTodos", false );
-  mShowCompleted = group.readEntry( "ShowCompleted", false );
+  mPriority = todo.readEntry( "MaxPriority", 0 );
+  mShowAllTodos = todo.readEntry( "ShowAllTodos", false );
+  mShowTodayEndingTodos = todo.readEntry( "ShowTodayEndingTodos", false );
+  mShowTodosInProgress = todo.readEntry( "ShowTodosInProgress", false );
+  mShowTodayStartingTodos = todo.readEntry( "ShowTodayStartingTodos", false );
+  mShowOverdueTodos = todo.readEntry( "ShowOverdueTodos", false );
+  mShowCompleted = todo.readEntry( "ShowCompleted", false );
 
   if ( mShowAllTodos || mShowTodayEndingTodos || mShowTodosInProgress ||
        mShowTodayStartingTodos || mShowOverdueTodos || mShowCompleted ||
        mPriority ){
-    if ( group.readEntry( "Todo", false ) ){
+    if ( todo.readEntry( "Todo", false ) ){
       mShowTodos = true;
     }
   }
 
-  group = config.group( "SpecialDates" );
-  mShowSd = group.readEntry( "SpecialDates", false );
+  mShowTodoRecurrence = todo.readEntry( "ShowTodoRecurrence", false );
+  mShowTodoReminder = todo.readEntry( "ShowTodoReminder", false );
+
+  KConfigGroup sd = config.group( "SpecialDates" );
+  mShowSd = sd.readEntry( "SpecialDates", false );
 
   updateView();
 }
@@ -349,27 +354,29 @@ int Planner::showTodos( int counter, const QDate &date )
       mPlannerGrid->addWidget( label, counter, 7 );
       mLabels.append( label );
 
-       // TODO make this configurable
-      QPixmap alarm;
-      if( todo->isAlarmEnabled() ){
-        alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
+      if( mShowTodoReminder ){
+        QPixmap alarm;
+        if( todo->isAlarmEnabled() ){
+          alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
+        }
+        label = new QLabel( this );
+        label->setPixmap( alarm );
+        label->setMaximumWidth( label->minimumSizeHint().width() );
+        mPlannerGrid->addWidget( label, counter, 9 );
+        mLabels.append( label );
       }
-      label = new QLabel( this );
-      label->setPixmap( alarm );
-      label->setMaximumWidth( label->minimumSizeHint().width() );
-      mPlannerGrid->addWidget( label, counter, 9 );
-      mLabels.append( label );
 
-      // TODO:make this configurable
-      QPixmap recur;
-      if( todo->isAlarmEnabled() ){
-        recur = loader.loadIcon( "task-recurring", KIconLoader::Small );
+      if( mShowTodoRecurrence ){
+        QPixmap recur;
+        if( todo->isAlarmEnabled() ){
+          recur = loader.loadIcon( "task-recurring", KIconLoader::Small );
+        }
+        label = new QLabel( this );
+        label->setPixmap( recur );
+        label->setMaximumWidth( label->minimumSizeHint().width() );
+        mPlannerGrid->addWidget( label, counter, 11 );
+        mLabels.append( label );
       }
-      label = new QLabel( this );
-      label->setPixmap( recur );
-      label->setMaximumWidth( label->minimumSizeHint().width() );
-      mPlannerGrid->addWidget( label, counter, 11 );
-      mLabels.append( label );
 
 
       if ( td != mTodos.end() ) {
@@ -451,7 +458,7 @@ int Planner::showEvents( int counter, const QDate &date )
         continue;
       }
 
-      mPlannerGrid->setColumnMinimumWidth( 0, 10 );
+      mPlannerGrid->setColumnMinimumWidth( 0, 20 );
 
       //Show Event icon
       QPixmap re = loader.loadIcon( "view-calendar-day", KIconLoader::Small );
@@ -521,30 +528,36 @@ int Planner::showEvents( int counter, const QDate &date )
       mPlannerGrid->setColumnMinimumWidth( 8, 10 );
 
        //Show icon if Alarm is enabled
-      QPixmap alarm;
-      if( ev->isAlarmEnabled () ){
-        alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
+      if( mShowEventReminder ){
+        QPixmap alarm;
+        if( ev->isAlarmEnabled () ){
+          alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
+        }
+        label = new QLabel( this );
+        label->setPixmap( alarm );
+        label->setMaximumWidth( label->minimumSizeHint().width() );
+        label->setAlignment( Qt::AlignTop );
+        mPlannerGrid->addWidget( label, counter, 9 );
+        mLabels.append( label );
+      } else {
+        mPlannerGrid->setColumnMinimumWidth( 9, 10 );
       }
-      label = new QLabel( this );
-      label->setPixmap( alarm );
-      label->setMaximumWidth( label->minimumSizeHint().width() );
-      label->setAlignment( Qt::AlignTop );
-      mPlannerGrid->addWidget( label, counter, 9 );
-      mLabels.append( label );
 
       mPlannerGrid->setColumnMinimumWidth( 10, 10 );
 
       //Show icon if Event recurs
-      QPixmap recur;
-      if( ev->recurs() ){
-        recur = loader.loadIcon( "appointment-recurring", KIconLoader::Small );
+      if( mShowEventRecurrence ){
+        QPixmap recur;
+        if( ev->recurs() ){
+          recur = loader.loadIcon( "appointment-recurring", KIconLoader::Small );
+        }
+        label = new QLabel( this );
+        label->setPixmap( recur );
+        label->setMaximumWidth( label->minimumSizeHint().width() );
+        label->setAlignment( Qt::AlignTop );
+        mPlannerGrid->addWidget( label, counter, 11 );
+        mLabels.append( label );
       }
-      label = new QLabel( this );
-      label->setPixmap( recur );
-      label->setMaximumWidth( label->minimumSizeHint().width() );
-      label->setAlignment( Qt::AlignTop );
-      mPlannerGrid->addWidget( label, counter, 11 );
-      mLabels.append( label );
 
 
       connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
@@ -642,7 +655,7 @@ QString Planner::initStateText( const KCal::Todo *todo, const QDate &date )
   }
 
   // all todos which end today
-  if ( todo->hasDueDate() && todo->dtDue().date() == date ) {
+  if ( todo->hasDueDate() && todo->dtDue().date() == date && todo->dtDue().date() == currentDate) {
     stateText = i18nc( "to-do ends today", "ends today" );
   }
   if ( todo->isCompleted() ) {
