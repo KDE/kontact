@@ -64,6 +64,7 @@ class KCMPlanner : public KCModule
     QGroupBox *mTodoGroup;
     QSpinBox *mCustomDays;
     QGroupBox *mSdGroup;
+    QCheckBox *mUnderlineEvent;
 
     QRadioButton *mDay;
     QRadioButton *mFiveDays;
@@ -83,6 +84,7 @@ class KCMPlanner : public KCModule
     QCheckBox *mShowTodoRecurrence;
     QCheckBox *mShowTodoReminder;
     QSpinBox *mPriority;
+    QCheckBox *mUnderlineTodo;
 
     bool mSd;
 };

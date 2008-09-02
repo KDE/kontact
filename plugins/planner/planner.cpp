@@ -63,21 +63,12 @@
 Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
 {
-//   QVBoxLayout *mainLayout = new QVBoxLayout( this );
-//   mainLayout->setSpacing( 3 );
-//   mainLayout->setMargin( 3 );
-//   
   mLayout = new QVBoxLayout( this );
   mLayout->setSpacing( 3 );
   mLayout->setMargin( 3 );
 
   QWidget *header = createHeader( this, "view-pim-summary", i18n( "Planner" ) );
   mLayout->addWidget( header );
-
-//   mLayout = new QGridLayout();
-//   mainLayout->addItem( mLayout );
-//   mLayout->setMargin( 3 );
-//   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = KOrg::StdCalendar::self();
   mCalendar->load();
@@ -97,10 +88,11 @@ void Planner::configUpdated()
   mDays = calendar.readEntry( "DaysToShow", 1 );
   mShowEventRecurrence = calendar.readEntry( "ShowEventRecurrence", false );
   mShowEventReminder = calendar.readEntry( "ShowEventReminder", false );
+  mUnderlineEvent = calendar.readEntry( "underlineEvent", false );
 
   KConfigGroup todo = config.group( "Todo" );
-  mShowTodos = false;
-  mPriority = todo.readEntry( "MaxPriority", 0 );
+  mShowTodos = todo.readEntry( "Todo", false );
+  mPriority = todo.readEntry( "MaxPriority", 1 );
   mShowAllTodos = todo.readEntry( "ShowAllTodos", false );
   mShowTodayEndingTodos = todo.readEntry( "ShowTodayEndingTodos", false );
   mShowTodosInProgress = todo.readEntry( "ShowTodosInProgress", false );
@@ -118,6 +110,7 @@ void Planner::configUpdated()
 
   mShowTodoRecurrence = todo.readEntry( "ShowTodoRecurrence", false );
   mShowTodoReminder = todo.readEntry( "ShowTodoReminder", false );
+  mUnderlineTodo = todo.readEntry( "underlineTodo", false );
 
   KConfigGroup sd = config.group( "SpecialDates" );
   mShowSd = sd.readEntry( "SpecialDates", false );
@@ -180,7 +173,7 @@ void Planner::updateView()
         font.setItalic( true );
         label->setFont( font );
       }
-//       mLayout->addWidget( labe;l, counter, 0 );
+
       mLayout->addWidget( label );
       mLabels.append( label );
 
@@ -206,7 +199,6 @@ void Planner::updateView()
              "No appointments pending within the next %1 days", mDays ),
       this, "nothing to see" );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-//     mLayout->addWidget( noEvents, 0, 2 );
     mLayout->addWidget( noEvents );
     mLabels.append( noEvents );
   }
@@ -317,6 +309,9 @@ int Planner::showTodos( int counter, const QDate &date )
         urlLabel->setText( "<font color = red >" + percent + "</font>" );
       }
       urlLabel->setAlignment( Qt::AlignHCenter | Qt::AlignTop );
+      if( !mUnderlineTodo ){
+        urlLabel->setUnderline( false );
+      }
       urlLabel->setMaximumWidth( urlLabel->minimumSizeHint().width() );
       mPlannerGrid->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
@@ -336,6 +331,9 @@ int Planner::showTodos( int counter, const QDate &date )
       urlLabel2->setAlignment( Qt::AlignLeft | Qt::AlignTop );
       if( stateText == i18nc( "to-do is overdue", "overdue" ) ){
         urlLabel2->setText( "<font color = red >" + string + "</font>" );
+      }
+      if( !mUnderlineTodo ){
+        urlLabel2->setUnderline( false );
       }
       mPlannerGrid->addWidget( urlLabel2, counter, 5 );
       mLabels.append( urlLabel2 );
@@ -458,7 +456,7 @@ int Planner::showEvents( int counter, const QDate &date )
         continue;
       }
 
-      mPlannerGrid->setColumnMinimumWidth( 0, 20 );
+      mPlannerGrid->setColumnMinimumWidth( 0, 40 );
 
       //Show Event icon
       QPixmap re = loader.loadIcon( "view-calendar-day", KIconLoader::Small );
@@ -506,7 +504,7 @@ int Planner::showEvents( int counter, const QDate &date )
         mLabels.append( label );
       }
 
-      mPlannerGrid->setColumnMinimumWidth( 4, 10 );
+      mPlannerGrid->setColumnMinimumWidth( 4, 15 );
 
       // Fill Event Summary Field
       QString newtext = ev->summary();
@@ -518,14 +516,15 @@ int Planner::showEvents( int counter, const QDate &date )
       urlLabel->setUrl( ev->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop | Qt::WordBreak );
-      // TODO Set config item if urls be underlined or not
-//       urlLabel->setUnderline( false );
+      if( !mUnderlineEvent ){
+        urlLabel->setUnderline( false );
+      }
       mPlannerGrid->addWidget( urlLabel, counter, 5 );
       mLabels.append( urlLabel );
 
-      mPlannerGrid->setColumnMinimumWidth( 6, 10 );
-      mPlannerGrid->setColumnMinimumWidth( 7, 10 );
-      mPlannerGrid->setColumnMinimumWidth( 8, 10 );
+      mPlannerGrid->setColumnMinimumWidth( 6, 15 );
+      mPlannerGrid->setColumnMinimumWidth( 7, 15 );
+      mPlannerGrid->setColumnMinimumWidth( 8, 15 );
 
        //Show icon if Alarm is enabled
       if( mShowEventReminder ){
@@ -579,7 +578,7 @@ int Planner::showEvents( int counter, const QDate &date )
 void Planner::initSdList( const QDate &date )
 {
 }
-// 
+
 int Planner::showSd( int counter )
 {
 //   return counter;

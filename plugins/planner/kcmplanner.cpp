@@ -56,13 +56,10 @@ extern "C"
 KCMPlanner::KCMPlanner( const KComponentData &inst, QWidget *parent )
   : KCModule( inst, parent )
 {
-  //QWidget *widget = new QWidget( parent );
   initGUI();
 
   customDaysChanged( 1 );
 
-  
-//   connect( mTodoGroup, SIGNAL(clicked(int)), SLOT(modified()) );
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
 
@@ -208,12 +205,15 @@ void KCMPlanner::initCalendarPage()
 
   mShowEventRecurrence = new QCheckBox( i18n( "Show event recurrence" ) );
   mShowEventReminder = new QCheckBox( i18n( "Show events with reminder" ) );
+  mUnderlineEvent = new QCheckBox( i18n( "underline Event label" ) );
 
   boxLayout->addWidget( mShowEventRecurrence );
   boxLayout->addWidget( mShowEventReminder );
+  boxLayout->addWidget( mUnderlineEvent);
 
   connect( mShowEventRecurrence, SIGNAL(toggled(bool)), SLOT(modified()) );
   connect( mShowEventReminder, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mUnderlineEvent, SIGNAL(toggled(bool)), SLOT(modified()) );
 
   groupBox->setLayout( boxLayout );
 
@@ -274,12 +274,15 @@ void KCMPlanner::initTodoPage()
 
   mShowTodoRecurrence = new QCheckBox( i18n( "Show todo recurrence") );
   mShowTodoReminder = new QCheckBox( i18n( "Show todo reminder") );
+  mUnderlineTodo = new QCheckBox( i18n( "undeline Todo" ) );
 
   boxLayout->addWidget( mShowTodoRecurrence );
   boxLayout->addWidget( mShowTodoReminder );
+  boxLayout->addWidget( mUnderlineTodo );
 
   connect( mShowTodoRecurrence, SIGNAL(toggled(bool)), SLOT(modified()) );
   connect( mShowTodoReminder, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mUnderlineTodo, SIGNAL(toggled(bool)), SLOT(modified()) );
 
   groupBox->setLayout( boxLayout );
 
@@ -334,6 +337,7 @@ void KCMPlanner::load()
 
   mShowEventRecurrence->setChecked( calendar.readEntry( "ShowEventRecurrence", false ) );
   mShowEventReminder->setChecked( calendar.readEntry( "ShowEventReminder", false ) );
+  mUnderlineEvent->setChecked( calendar.readEntry( "underlineEvent", false ) );
 
 
   //Read Todo Config
@@ -351,6 +355,7 @@ void KCMPlanner::load()
 
   mShowTodoRecurrence->setChecked( todo.readEntry( "ShowTodoRecurrence", false ) );
   mShowTodoReminder->setChecked( todo.readEntry( "ShowTodoReminder", false ) );
+  mUnderlineTodo->setChecked( todo.readEntry( "underlineTodo", false) );
 
   //Read Special Dates Config
   KConfigGroup sd = config.group( "SpecialDates" );
@@ -389,6 +394,7 @@ void KCMPlanner::save()
 
   calendar.writeEntry( "ShowEventRecurrence", mShowEventRecurrence->isChecked() );
   calendar.writeEntry( "ShowEventReminder", mShowEventReminder->isChecked() );
+  calendar.writeEntry( "underlineEvent", mUnderlineEvent->isChecked() );
 
 /*
  * Todo Section
@@ -406,6 +412,7 @@ void KCMPlanner::save()
 
   todo.writeEntry( "ShowTodoRecurrence", mShowTodoRecurrence->isChecked() );
   todo.writeEntry( "ShowTodoReminder", mShowTodoReminder->isChecked() );
+  todo.writeEntry( "underlineTodo", mUnderlineTodo->isChecked() );
 
 /*
  * Special Dates Section
@@ -428,6 +435,7 @@ void KCMPlanner::save()
 //   mCalendarGroup->setButton( 0 );
   mShowEventRecurrence->setChecked( false );
   mShowEventReminder->setChecked( false );
+  mUnderlineEvent->setChecked( false );
 
 
   mTodo = true;
@@ -441,6 +449,7 @@ void KCMPlanner::save()
 
   mShowTodoRecurrence->setChecked( false );
   mShowTodoReminder->setChecked( false );
+  mUnderlineTodo->setChecked( false );
 
   mSd = true ;
 
