@@ -558,10 +558,10 @@ void MainWindow::updateShortcuts()
 {
   ActionPluginList::ConstIterator end = mActionPlugins.end();
   ActionPluginList::ConstIterator it;
-  int i = 1;
+  int i = 0;
   for ( it = mActionPlugins.begin(); it != end; ++it ) {
     KAction *action = static_cast<KAction*>( *it );
-    QString shortcut = QString( "Ctrl+%1" ).arg( i );
+    QString shortcut = QString( "Ctrl+%1" ).arg( mActionPlugins.count() - i );
     action->setShortcut( KShortcut( shortcut ) );
     i++;
   }
@@ -648,10 +648,10 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
   // we need to take in count their weights for setting shortcuts again
   qSort( mActionPlugins.begin(), mActionPlugins.end(), pluginActionWeightLessThan );
   qSort( mPlugins.begin(), mPlugins.end(), pluginWeightLessThan );
-  int i = 1;
+  int i = 0;
   foreach ( QAction *qaction, mActionPlugins ) {
     KAction *action = static_cast<KAction*>( qaction );
-    QString shortcut = QString( "Ctrl+%1" ).arg( i );
+    QString shortcut = QString( "Ctrl+%1" ).arg( mActionPlugins.count() - i );
     action->setShortcut( KShortcut( shortcut ) );
     i++;
   }
