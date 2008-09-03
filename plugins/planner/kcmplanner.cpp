@@ -274,7 +274,7 @@ void KCMPlanner::initTodoPage()
 
   mShowTodoRecurrence = new QCheckBox( i18n( "Show todo recurrence") );
   mShowTodoReminder = new QCheckBox( i18n( "Show todo reminder") );
-  mUnderlineTodo = new QCheckBox( i18n( "undeline Todo" ) );
+  mUnderlineTodo = new QCheckBox( i18n( "Underline Todo" ) );
 
   boxLayout->addWidget( mShowTodoRecurrence );
   boxLayout->addWidget( mShowTodoReminder );
