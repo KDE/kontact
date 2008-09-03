@@ -512,10 +512,10 @@ void MainWindow::slotLoadProfile( const QString& id )
     const StringMap entries = profile.entryMap( *it );
     for ( StringMap::ConstIterator it2 = entries.begin(), end = entries.end(); it2 != end; ++it2 )
     {
-      if ( it2.data() == "KONTACT_PROFILE_DELETE_KEY" )
+      if ( it2.value() == "KONTACT_PROFILE_DELETE_KEY" )
         group.deleteEntry( it2.key() );
       else
-        group.writeEntry( it2.key(), it2.data() );
+        group.writeEntry( it2.key(), it2.value() );
     }
   }
 
@@ -534,7 +534,7 @@ void MainWindow::slotLoadProfile( const QString& id )
 
   for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
     if ( !(*it)->isRunningStandalone() ) {
-        kdDebug() << "Ensure loaded: " << (*it)->identifier() << endl;
+        kDebug() << "Ensure loaded: " << (*it)->identifier();
         (*it)->part();
     }
     (*it)->loadProfile( path );
