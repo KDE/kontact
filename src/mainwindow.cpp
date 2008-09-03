@@ -415,7 +415,7 @@ void MainWindow::setupActions()
   // misleading.
   KConfig *_cfg = Prefs::self()->config();
   KConfigGroup cfg( _cfg, "Kontact Groupware Settings" );
-  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", false );
+  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", true );
 
   if ( mSyncActionsEnabled ) {
     mSyncActions = new KToolBarPopupAction(
