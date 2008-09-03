@@ -55,7 +55,7 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const QVariantList & )
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Synchronize Journal" ), this );
   actionCollection()->addAction( "journal_sync", syncAction );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotSyncJournal()) );
+  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncJournal()) );
   insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(

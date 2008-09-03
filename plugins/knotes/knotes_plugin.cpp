@@ -51,7 +51,7 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QVariantList & )
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Synchronize Popup Notes" ), this );
   actionCollection()->addAction( "knotes_sync", syncAction );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotSyncNotes()) );
+  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncNotes()) );
   insertSyncAction( syncAction );
 }
 
@@ -106,7 +106,7 @@ void KNotesPlugin::slotSyncNotes()
 {
   QDBusMessage message = QDBusMessage::createMethodCall(
     "org.kde.kmail", "/Groupware", "org.kde.kmail.groupware", "triggerSync" );
-  message << QString( "Popup Note" );
+  message << QString( "Note" );
   QDBusConnection::sessionBus().send( message );
 }
 
