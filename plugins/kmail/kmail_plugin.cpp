@@ -138,10 +138,9 @@ void KMailPlugin::slotNewMail()
 void KMailPlugin::slotSyncFolders()
 {
   QDBusMessage message =
-      QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
-                                      "org.kde.kmail.groupware",
-                                      "triggerSync" );
-  message << QString( "Mail" );
+      QDBusMessage::createMethodCall( "org.kde.kmail", "/KMail",
+                                      "org.kde.kmail.kmail",
+                                      "checkMail" );
   QDBusConnection::sessionBus().send( message );
 }
 
