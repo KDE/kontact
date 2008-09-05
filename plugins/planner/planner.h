@@ -48,7 +48,7 @@ class Planner : public Kontact::Summary
 
   public:
     Planner( Kontact::Plugin *plugin, QWidget *parent );
-    
+
 
     int summaryHeight() const { return 3; }
     QStringList configModules() const;
@@ -83,18 +83,16 @@ class Planner : public Kontact::Summary
 
   private:
     int mDays;
-    bool mShowEventRecurrence;
-    bool mShowEventReminder;
-    bool mUnderlineEvent;
+    bool mShowRecurrence;
+    bool mShowReminder;
+    bool mUnderline;
 
     int mPriority;
     bool mShowTodos;
-    bool mShowAllTodos;
     bool mShowTodayEndingTodos;
     bool mShowTodosInProgress;
     bool mShowTodayStartingTodos;
     bool mShowOverdueTodos;
-    bool mShowCompleted;
     bool mShowTodoRecurrence;
     bool mShowTodoReminder;
     bool mUnderlineTodo;

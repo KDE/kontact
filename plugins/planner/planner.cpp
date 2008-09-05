@@ -84,33 +84,28 @@ void Planner::configUpdated()
 {
   KConfig config( "plannerrc" );
 
+  KConfigGroup general = config.group( "General" );
+  mShowRecurrence = general.readEntry( "ShowRecurrence", true );
+  mShowReminder = general.readEntry( "ShowReminder", true );
+  mUnderline = general.readEntry( "underlineLink", true );
+
   KConfigGroup calendar = config.group( "Calendar" );
   mDays = calendar.readEntry( "DaysToShow", 1 );
-  mShowEventRecurrence = calendar.readEntry( "ShowEventRecurrence", false );
-  mShowEventReminder = calendar.readEntry( "ShowEventReminder", false );
-  mUnderlineEvent = calendar.readEntry( "underlineEvent", false );
 
   KConfigGroup todo = config.group( "Todo" );
   mShowTodos = todo.readEntry( "Todo", false );
-  mPriority = todo.readEntry( "MaxPriority", 1 );
-  mShowAllTodos = todo.readEntry( "ShowAllTodos", false );
   mShowTodayEndingTodos = todo.readEntry( "ShowTodayEndingTodos", false );
   mShowTodosInProgress = todo.readEntry( "ShowTodosInProgress", false );
   mShowTodayStartingTodos = todo.readEntry( "ShowTodayStartingTodos", false );
   mShowOverdueTodos = todo.readEntry( "ShowOverdueTodos", false );
-  mShowCompleted = todo.readEntry( "ShowCompleted", false );
 
-  if ( mShowAllTodos || mShowTodayEndingTodos || mShowTodosInProgress ||
-       mShowTodayStartingTodos || mShowOverdueTodos || mShowCompleted ||
-       mPriority ){
+  if ( mShowTodayEndingTodos || mShowTodosInProgress || mShowTodayStartingTodos ||
+    mShowOverdueTodos ){
     if ( todo.readEntry( "Todo", false ) ){
       mShowTodos = true;
     }
   }
 
-  mShowTodoRecurrence = todo.readEntry( "ShowTodoRecurrence", false );
-  mShowTodoReminder = todo.readEntry( "ShowTodoReminder", false );
-  mUnderlineTodo = todo.readEntry( "underlineTodo", false );
 
   KConfigGroup sd = config.group( "SpecialDates" );
   mShowSd = sd.readEntry( "SpecialDates", false );
@@ -221,19 +216,6 @@ void Planner::initTodoList( const QDate &date )
   KCal::Todo::List todos = mCalendar->todos();
   KCal::Todo::List::ConstIterator td;
 
-  if( mShowAllTodos && date == currentDate ){
-    mTodos = mCalendar->todos();
-  }
-  if( mPriority > 0 ){
-    KCal::Todo::List priorityList;
-    for ( td = todos.begin(); td != todos.end(); ++td ) {
-      todo = *td;
-      if ( todo->priority() <= mPriority ) {
-        priorityList.append( todo );
-      }
-    }
-    todos = priorityList;
-  }
   if ( mShowOverdueTodos ) {
     for ( td = todos.begin(); td != todos.end(); ++td ) {
       todo = *td;
@@ -270,14 +252,6 @@ void Planner::initTodoList( const QDate &date )
       }
     }
   }
-  if ( mShowCompleted ) {
-    for ( td = todos.begin(); td != todos.end(); ++td ) {
-      todo = *td;
-      if ( todo->isCompleted() && date == currentDate ) {
-        mTodos.append( todo );
-      }
-    }
-  }
 }
 
 int Planner::showTodos( int counter, const QDate &date )
@@ -309,7 +283,7 @@ int Planner::showTodos( int counter, const QDate &date )
         urlLabel->setText( "<font color = red >" + percent + "</font>" );
       }
       urlLabel->setAlignment( Qt::AlignHCenter | Qt::AlignTop );
-      if( !mUnderlineTodo ){
+      if( !mUnderline ){
         urlLabel->setUnderline( false );
       }
       urlLabel->setMaximumWidth( urlLabel->minimumSizeHint().width() );
@@ -332,7 +306,7 @@ int Planner::showTodos( int counter, const QDate &date )
       if( stateText == i18nc( "to-do is overdue", "overdue" ) ){
         urlLabel2->setText( "<font color = red >" + string + "</font>" );
       }
-      if( !mUnderlineTodo ){
+      if( !mUnderline ){
         urlLabel2->setUnderline( false );
       }
       mPlannerGrid->addWidget( urlLabel2, counter, 5 );
@@ -352,7 +326,7 @@ int Planner::showTodos( int counter, const QDate &date )
       mPlannerGrid->addWidget( label, counter, 7 );
       mLabels.append( label );
 
-      if( mShowTodoReminder ){
+      if( mShowReminder ){
         QPixmap alarm;
         if( todo->isAlarmEnabled() ){
           alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
@@ -364,7 +338,7 @@ int Planner::showTodos( int counter, const QDate &date )
         mLabels.append( label );
       }
 
-      if( mShowTodoRecurrence ){
+      if( mShowRecurrence ){
         QPixmap recur;
         if( todo->isAlarmEnabled() ){
           recur = loader.loadIcon( "task-recurring", KIconLoader::Small );
@@ -384,7 +358,7 @@ int Planner::showTodos( int counter, const QDate &date )
   }
   return counter;
 }
-// 
+//
 void Planner::initEventList( const QDate &date )
 {
   mEvents.setAutoDelete( true );
@@ -516,7 +490,7 @@ int Planner::showEvents( int counter, const QDate &date )
       urlLabel->setUrl( ev->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop | Qt::WordBreak );
-      if( !mUnderlineEvent ){
+      if( !mUnderline ){
         urlLabel->setUnderline( false );
       }
       mPlannerGrid->addWidget( urlLabel, counter, 5 );
@@ -527,7 +501,7 @@ int Planner::showEvents( int counter, const QDate &date )
       mPlannerGrid->setColumnMinimumWidth( 8, 15 );
 
        //Show icon if Alarm is enabled
-      if( mShowEventReminder ){
+      if( mShowReminder ){
         QPixmap alarm;
         if( ev->isAlarmEnabled () ){
           alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
@@ -545,7 +519,7 @@ int Planner::showEvents( int counter, const QDate &date )
       mPlannerGrid->setColumnMinimumWidth( 10, 10 );
 
       //Show icon if Event recurs
-      if( mShowEventRecurrence ){
+      if( mShowRecurrence ){
         QPixmap recur;
         if( ev->recurs() ){
           recur = loader.loadIcon( "appointment-recurring", KIconLoader::Small );
@@ -558,9 +532,8 @@ int Planner::showEvents( int counter, const QDate &date )
         mLabels.append( label );
       }
 
-
       connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
-               this, SLOT(viewEvent(const QString&)) );
+                this, SLOT(viewEvent(const QString&)) );
       connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
                this, SLOT(eventPopupMenu(const QString&)) );
 
@@ -615,7 +588,7 @@ void Planner::eventPopupMenu( const QString &uid )
     removeEvent( uid );
   }
 }
- 
+
 bool Planner::eventFilter( QObject *obj, QEvent *e )
 {
   if ( obj->inherits( "KUrlLabel" ) ) {
@@ -630,7 +603,7 @@ bool Planner::eventFilter( QObject *obj, QEvent *e )
 
   return Kontact::Summary::eventFilter( obj, e );
 }
- 
+
 QString Planner::initStateText( const KCal::Todo *todo, const QDate &date )
 {
   QDate currentDate = QDate::currentDate();

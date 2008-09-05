@@ -46,47 +46,40 @@ class KCMPlanner : public KCModule
   private slots:
     void modified();
     void buttonClicked( bool );
-    void customDaysChanged( int );
-    void disableAll( bool );
+//     void customDaysChanged( int );
     void setTodo( bool );
-    void setSd( bool );
+//     void setSd( bool );
 
   private:
     void initGUI();
-    void initCalendarPage();
-    void initTodoPage();
-    void initSdPage();
+//     void initCalendarPage();
+//     void initTodoPage();
+//     void initSdPage();
 
-    QWidget *mCalendarPage;
-    QWidget *mTodoPage;
-    QWidget *mSdPage;
+//     QWidget *mCalendarPage;
+//     QWidget *mTodoPage;
+//     QWidget *mSdPage;
     QGroupBox *mCalendarGroup;
     QGroupBox *mTodoGroup;
     QSpinBox *mCustomDays;
-    QGroupBox *mSdGroup;
-    QCheckBox *mUnderlineEvent;
-
+//     QGroupBox *mSdGroup;
+    QCheckBox *mUnderline;
+//
     QRadioButton *mDay;
-    QRadioButton *mFiveDays;
-    QRadioButton *mWeek;
-    QRadioButton *mMonth;
     QRadioButton *mCalendarSpin;
-    QCheckBox *mShowEventRecurrence;
-    QCheckBox *mShowEventReminder;
-
+    QCheckBox *mShowRecurrence;
+    QCheckBox *mShowReminder;
+//
     bool mTodo;
-    QCheckBox *mShowAllTodos;
     QCheckBox *mShowTodayEndingTodos;
     QCheckBox *mShowTodosInProgress;
     QCheckBox *mShowTodayStartingTodos;
     QCheckBox *mShowOverdueTodos;
-    QCheckBox *mShowCompleted;
-    QCheckBox *mShowTodoRecurrence;
-    QCheckBox *mShowTodoReminder;
-    QSpinBox *mPriority;
-    QCheckBox *mUnderlineTodo;
-
-    bool mSd;
+//     QCheckBox *mShowTodoRecurrence;
+//     QCheckBox *mShowTodoReminder;
+//     QCheckBox *mUnderlineTodo;
+//
+//     bool mSd;
 };
 
 #endif
