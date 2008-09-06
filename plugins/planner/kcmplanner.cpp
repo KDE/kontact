@@ -58,12 +58,8 @@ KCMPlanner::KCMPlanner( const KComponentData &inst, QWidget *parent )
 {
   initGUI();
 
-//   customDaysChanged( 1 );
-// 
-//   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
-//   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
-// 
-//   load();
+
+  load();
 
   KAboutData *about = new KAboutData( I18N_NOOP( "kcmplanner" ), 0,
                                       ki18n( "Planner Summary Configuration Dialog" ),
@@ -95,13 +91,6 @@ void KCMPlanner::buttonClicked( bool state )
 {
   mCustomDays->setEnabled( state );
 }
-
-// void KCMPlanner::customDaysChanged( int value )
-// {
-//   mCustomDays->setSuffix( i18np( " day", " days", value ) );
-// }
-// 
-
 
 void KCMPlanner::initGUI()
 {
@@ -181,176 +170,54 @@ void KCMPlanner::initGUI()
 
   mTodoGroup->setLayout( todoLayout );
 
+  //GroupBox for special Dates options
+  mSdGroup = new QGroupBox( i18n( "Show Special Dates" ), widget );
+  mSdGroup->setCheckable( true );
+  QVBoxLayout *sdLayout = new QVBoxLayout( mSdGroup );
+
+  QHBoxLayout *hbox2 = new QHBoxLayout( );
+  mBirthdayCal = new QCheckBox( i18n( "Show Birthdays from Calendar" ) );
+  hbox2->addWidget( mBirthdayCal );
+  mBirthdayConList = new QCheckBox( i18n( "Show Birthdays from Contact List" ) );
+  hbox2->addWidget( mBirthdayConList );
+
+  sdLayout->addLayout( hbox2 );
+
+  QHBoxLayout *hbox3 = new QHBoxLayout( );
+  mAnniversariesCal = new QCheckBox( i18n( "Show Anniversaries from Calendar" ) );
+  hbox3->addWidget( mAnniversariesCal );
+
+  mAnniversariesConList = new QCheckBox( i18n( "Show Anniversaries from Contact List" ) );
+  hbox3->addWidget( mAnniversariesConList );
+
+  sdLayout->addLayout( hbox3 );
+
+  mHolidaysCal = new QCheckBox( i18n( "Show Holidays from Calendar" ) );
+  sdLayout->addWidget( mHolidaysCal );
+  mSpecialOccasionsCal = new QCheckBox( i18n( "Show Special Occasions from Calendar" ) );
+  sdLayout->addWidget( mSpecialOccasionsCal );
+
+  connect( mSdGroup, SIGNAL(toggled(bool)), SLOT(modified()) );
+  connect( mSdGroup, SIGNAL(toggled(bool)), SLOT(setTodo(bool)) );
+  connect( mBirthdayCal, SIGNAL(toggled(bool)), SLOT(modified())  );
+  connect( mBirthdayConList, SIGNAL(toggled(bool)), SLOT(modified())  );
+  connect( mAnniversariesCal, SIGNAL(toggled(bool)), SLOT(modified())  );
+  connect( mAnniversariesConList, SIGNAL(toggled(bool)), SLOT(modified())  );
+  connect( mHolidaysCal, SIGNAL(toggled(bool)), SLOT(modified())  );
+  connect( mSpecialOccasionsCal, SIGNAL(toggled(bool)), SLOT(modified())  );
+
+  mSdGroup->setLayout( sdLayout );
+
   layout->addWidget( groupBox );
   layout->addWidget( mCalendarGroup );
   layout->addWidget( mTodoGroup );
+  layout->addWidget( mSdGroup );
 
   topLayout->addWidget( widget );
   topLayout->addStretch();
 
-//   QTabWidget *tabWidget = new QTabWidget( this );
-//   topLayout->addWidget( tabWidget );
-// 
-//   //Build Calendar Page
-//    initCalendarPage();
-//   //Build Todo Page
-//   initTodoPage();
-//   //Build Special Dates Pages
-//   initSdPage();
-// 
-//   tabWidget->addTab( mCalendarPage, i18n( "Calendar" ) );
-//   tabWidget->addTab( mTodoPage, i18n( "To-dos" ) );
-//   tabWidget->addTab( mSdPage, i18n( "Special Dates" ) );
 }
 
-// void KCMPlanner::initCalendarPage()
-// {
-//   mCalendarPage = new QWidget( this );
-//   QVBoxLayout *layout = new QVBoxLayout( mCalendarPage );
-// 
-//   //Add a GroupBox with Radiobuttons to Calendarpage
-//   mCalendarGroup = new QGroupBox( i18n( "Show Upcoming Events Starting" ), mCalendarPage );
-//   QVBoxLayout *groupLayout = new QVBoxLayout( mCalendarGroup );
-// 
-//   mDay = new QRadioButton( i18n( "Today only" ) );
-//   mFiveDays = new QRadioButton( i18n( "Five days" ) );
-//   mWeek = new QRadioButton( i18n( "One week" ) );
-//   mMonth = new QRadioButton( i18n( "One month" ) );
-// 
-//   groupLayout->addWidget( mDay );
-//   groupLayout->addWidget( mFiveDays );
-//   groupLayout->addWidget( mWeek );
-//   groupLayout->addWidget( mMonth );
-// 
-//   //Add Spinbox for choosing the days to show in summary
-//   QHBoxLayout *hbox = new QHBoxLayout( );
-//   mCalendarSpin = new QRadioButton( "Within the next" );
-//   hbox->addWidget( mCalendarSpin );
-// 
-//   mCustomDays = new QSpinBox( this );
-//   mCustomDays->setRange( 1, 365 );
-//   mCustomDays->setValue( 1 );
-//   mCustomDays->setEnabled( false );
-//   hbox->addWidget( mCustomDays );
-// 
-//   connect( mDay, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mFiveDays, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mWeek, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mMonth, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mCalendarSpin, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mCalendarSpin, SIGNAL(toggled(bool)), SLOT(buttonClicked( bool )) );
-// 
-//   groupLayout->addLayout( hbox );
-//   mCalendarGroup->setLayout( groupLayout );
-// 
-//   QGroupBox *groupBox = new QGroupBox( mCalendarPage );
-//   QVBoxLayout *boxLayout = new QVBoxLayout( groupBox );
-// 
-//   mShowEventRecurrence = new QCheckBox( i18n( "Show event recurrence" ) );
-//   mShowEventReminder = new QCheckBox( i18n( "Show events with reminder" ) );
-//   mUnderlineEvent = new QCheckBox( i18n( "underline Event label" ) );
-// 
-//   boxLayout->addWidget( mShowEventRecurrence );
-//   boxLayout->addWidget( mShowEventReminder );
-//   boxLayout->addWidget( mUnderlineEvent);
-// 
-//   connect( mShowEventRecurrence, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mShowEventReminder, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mUnderlineEvent, SIGNAL(toggled(bool)), SLOT(modified()) );
-// 
-//   groupBox->setLayout( boxLayout );
-// 
-//   layout->addWidget( mCalendarGroup );
-//   layout->addWidget( groupBox );
-//   layout->addStretch();
-// }
-// 
-// void KCMPlanner::initTodoPage()
-// {
-//   mTodoPage = new QWidget( this );
-//   QVBoxLayout *layout = new QVBoxLayout( mTodoPage );
-//   layout->setSpacing( KDialog::spacingHint() );
-// 
-//   mTodoGroup = new QGroupBox( i18n( "Show To-dos" ), mTodoPage );
-//   mTodoGroup->setCheckable( true );
-//   QVBoxLayout *todoLayout = new QVBoxLayout( mTodoGroup );
-// 
-//   mShowAllTodos = new QCheckBox( i18n( "Show all to-dos" ) );
-//   todoLayout->addWidget( mShowAllTodos );
-//   mShowOverdueTodos = new QCheckBox( i18n( "Overdue to-dos" ) );
-//   todoLayout->addWidget( mShowOverdueTodos );
-//   mShowTodayStartingTodos = new QCheckBox( i18n( "Starting to-dos" ) );
-//   todoLayout->addWidget( mShowTodayStartingTodos );
-//   mShowTodayEndingTodos = new QCheckBox( i18n( "Ending to-dos" ) );
-//   todoLayout->addWidget( mShowTodayEndingTodos );
-//   mShowTodosInProgress = new QCheckBox( i18n( "To-dos in progress" ) );
-//   todoLayout->addWidget( mShowTodosInProgress );
-//   mShowCompleted = new QCheckBox( i18n( "Completed to-dos" ) );
-//   todoLayout->addWidget( mShowCompleted );
-// 
-//   QHBoxLayout *hbox = new QHBoxLayout( );
-//   hbox->setSpacing( KDialog::spacingHint() );
-// 
-//   QLabel *label = new QLabel( i18n("Priority limit:") );
-//   hbox->addWidget( label );
-//   mPriority = new QSpinBox( this );
-//   mPriority->setRange( 0, 9 );
-//   mPriority->setValue( 1 );
-//   hbox->addWidget( mPriority );
-//   hbox->addStretch( 2 );
-// 
-//   connect( mTodoGroup, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mTodoGroup, SIGNAL(toggled(bool)), SLOT(setTodo(bool)) );
-//   connect( mShowAllTodos, SIGNAL(toggled(bool)), SLOT(disableAll(bool)) );
-//   connect( mShowTodayEndingTodos, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mShowTodosInProgress, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mShowTodayStartingTodos, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mShowOverdueTodos, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mShowCompleted, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mPriority, SIGNAL(valueChanged(int)), SLOT(modified()) );
-// 
-//   todoLayout->addLayout( hbox );
-//   mTodoGroup->setLayout( todoLayout );
-// 
-//   QGroupBox *groupBox = new QGroupBox( mTodoPage );
-//   QVBoxLayout *boxLayout = new QVBoxLayout( groupBox );
-// 
-//   mShowTodoRecurrence = new QCheckBox( i18n( "Show todo recurrence") );
-//   mShowTodoReminder = new QCheckBox( i18n( "Show todo reminder") );
-//   mUnderlineTodo = new QCheckBox( i18n( "Underline Todo" ) );
-// 
-//   boxLayout->addWidget( mShowTodoRecurrence );
-//   boxLayout->addWidget( mShowTodoReminder );
-//   boxLayout->addWidget( mUnderlineTodo );
-// 
-//   connect( mShowTodoRecurrence, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mShowTodoReminder, SIGNAL(toggled(bool)), SLOT(modified()) );
-//   connect( mUnderlineTodo, SIGNAL(toggled(bool)), SLOT(modified()) );
-// 
-//   groupBox->setLayout( boxLayout );
-// 
-//   layout->addWidget( mTodoGroup );
-//   layout->addWidget( groupBox );
-//   layout->addStretch();
-// }
-// 
-// void KCMPlanner::initSdPage()
-// {
-//   mSdPage = new QWidget( this );
-// 
-//   QVBoxLayout *layout = new QVBoxLayout( mSdPage );
-//   layout->setSpacing( KDialog::spacingHint() );
-// 
-// //   mSdGroup = new QGroupBox( 5, Qt::Vertical, i18n( "Show Special Dates" ), mSdPage );
-// //   mSdGroup->setCheckable( true );
-// //
-// //   connect( mSdGroup, SIGNAL(toggled(bool)), SLOT(modified()) );
-// //   connect( mSdGroup, SIGNAL(toggled(bool)), SLOT(setSd(bool)) );
-// //
-// //   layout->addWidget( mSdGroup );
-//   layout->addStretch();
-// }
-// 
 void KCMPlanner::load()
 {
   KConfig config( "plannerrc" );
@@ -378,17 +245,22 @@ void KCMPlanner::load()
   //Read Todo Config
   KConfigGroup todo = config.group( "Todo" );
 
-  //Set todos to show from config
   mTodoGroup->setChecked( todo.readEntry( "Todo", true ) );
-  mShowTodayEndingTodos->setChecked( todo.readEntry( "ShowTodayEndingTodos", false ) );
-  mShowTodosInProgress->setChecked( todo.readEntry( "ShowTodosInProgress", false ) );
-  mShowTodayStartingTodos->setChecked( todo.readEntry( "ShowTodayStartingTodos", false ) );
-  mShowOverdueTodos->setChecked( todo.readEntry( "ShowOverdueTodos", false ) );
+  mShowTodayEndingTodos->setChecked( todo.readEntry( "ShowTodayEndingTodos", true ) );
+  mShowTodosInProgress->setChecked( todo.readEntry( "ShowTodosInProgress", true ) );
+  mShowTodayStartingTodos->setChecked( todo.readEntry( "ShowTodayStartingTodos", true ) );
+  mShowOverdueTodos->setChecked( todo.readEntry( "ShowOverdueTodos", true ) );
 
   //Read Special Dates Config
-//   KConfigGroup sd = config.group( "SpecialDates" );
-//   mSd = sd.readEntry( "SpecialDates", false ) ;
+  KConfigGroup sd = config.group( "SpecialDates" );
 
+  mSdGroup->setChecked( sd.readEntry( "SpecialDates", true ) );
+  mBirthdayCal->setChecked( sd.readEntry( "BirthdayCal", true ) );
+  mBirthdayConList->setChecked( sd.readEntry( "BirthdayConList", true ) );
+  mAnniversariesCal->setChecked( sd.readEntry( "AnniversariesCal", true ) );
+  mAnniversariesConList->setChecked( sd.readEntry( "AnniversariesConList", true ) );
+  mHolidaysCal->setChecked( sd.readEntry ( "HolidaysCal", true ) );
+  mSpecialOccasionsCal->setChecked( sd.readEntry( "SpecialOccasionsCal", true ) );
   emit changed( false );
 }
 
@@ -424,8 +296,15 @@ void KCMPlanner::save()
   todo.writeEntry( "ShowOverdueTodos", mShowOverdueTodos->isChecked() );
 
   //SpecialDates Section
-//   KConfigGroup sd = config.group( "SpecialDates" );
-//   sd.writeEntry( "SpecialDates", mSd );
+  KConfigGroup sd = config.group( "SpecialDates" );
+
+  sd.writeEntry( "SpecialDates", mSd );
+  sd.writeEntry( "BirthdayCal", mBirthdayCal->isChecked() );
+  sd.writeEntry( "BirthdayConList", mBirthdayConList->isChecked() );
+  sd.writeEntry( "AnniversariesCal", mAnniversariesCal->isChecked() );
+  sd.writeEntry( "AnniversariesConList", mAnniversariesConList->isChecked() );
+  sd.writeEntry( "HolidaysCal", mHolidaysCal->isChecked() );
+  sd.writeEntry( "SpecialOccasionsCal", mSpecialOccasionsCal->isChecked() );
 
   config.sync();
 
@@ -444,7 +323,13 @@ void KCMPlanner::save()
   mShowTodayStartingTodos->setChecked( true );
   mShowOverdueTodos->setChecked( true );
 
-//   mSd = true ;
+  mSd = true ;
+  mBirthdayCal->setChecked( true );
+  mBirthdayConList->setChecked( true );
+  mAnniversariesCal->setChecked( true );
+  mAnniversariesConList->setChecked( true );
+  mHolidaysCal->setChecked( true );
+  mSpecialOccasionsCal->setChecked( true );
 
   emit changed( true );
 }

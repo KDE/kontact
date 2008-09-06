@@ -46,40 +46,35 @@ class KCMPlanner : public KCModule
   private slots:
     void modified();
     void buttonClicked( bool );
-//     void customDaysChanged( int );
     void setTodo( bool );
-//     void setSd( bool );
 
   private:
     void initGUI();
-//     void initCalendarPage();
-//     void initTodoPage();
-//     void initSdPage();
-
-//     QWidget *mCalendarPage;
-//     QWidget *mTodoPage;
-//     QWidget *mSdPage;
     QGroupBox *mCalendarGroup;
     QGroupBox *mTodoGroup;
+    QGroupBox *mSdGroup;
     QSpinBox *mCustomDays;
-//     QGroupBox *mSdGroup;
     QCheckBox *mUnderline;
-//
+
     QRadioButton *mDay;
     QRadioButton *mCalendarSpin;
     QCheckBox *mShowRecurrence;
     QCheckBox *mShowReminder;
-//
+
     bool mTodo;
     QCheckBox *mShowTodayEndingTodos;
     QCheckBox *mShowTodosInProgress;
     QCheckBox *mShowTodayStartingTodos;
     QCheckBox *mShowOverdueTodos;
-//     QCheckBox *mShowTodoRecurrence;
-//     QCheckBox *mShowTodoReminder;
-//     QCheckBox *mUnderlineTodo;
-//
-//     bool mSd;
+
+    bool mSd;
+    QCheckBox *mBirthdayCal;
+    QCheckBox *mAnniversariesCal;
+    QCheckBox *mHolidaysCal;
+    QCheckBox *mSpecialOccasionsCal;
+
+    QCheckBox *mBirthdayConList;
+    QCheckBox *mAnniversariesConList;
 };
 
 #endif
