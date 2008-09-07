@@ -70,7 +70,8 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QVariantList 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ),
                                      i18n( "Synchronize Contacts" ), this );
   actionCollection()->addAction( "kaddressbook_sync", syncAction );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
+  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
+  insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
     new Kontact::UniqueAppHandlerFactory<KABUniqueAppHandler>(), this );

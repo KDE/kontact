@@ -70,7 +70,7 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QVariantList & )
   KAction *syncAction =
     new KAction( KIcon( "view-refresh" ), i18n( "Synchronize Calendar" ), this );
   actionCollection()->addAction( "korganizer_sync", syncAction );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotSyncEvents()) );
+  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncEvents()) );
   insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(

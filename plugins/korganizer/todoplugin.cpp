@@ -68,7 +68,7 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QVariantList & )
 
   KAction *syncAction =
     new KAction( KIcon( "view-refresh" ), i18n( "Sync To-do List" ), this );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotSyncTodos()) );
+  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncTodos()) );
   insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
