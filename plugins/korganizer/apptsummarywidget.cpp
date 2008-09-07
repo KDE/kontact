@@ -146,6 +146,7 @@ void ApptSummaryWidget::updateView()
       int dayof = 1;
       if ( ev->isMultiDay() ) {
         QDate d = ev->dtStart().date();
+        dayof = d.daysTo( currentDate ) + 1;
         if ( d < currentDate ) {
           d = currentDate;
         }
@@ -154,7 +155,7 @@ void ApptSummaryWidget::updateView()
             dayof++;
           }
           span++;
-          d=d.addDays( 1 );
+          d = d.addDays( 1 );
         }
       }
 
