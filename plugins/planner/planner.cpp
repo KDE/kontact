@@ -554,7 +554,7 @@ void Planner::initSdList( const QDate &date )
 
 int Planner::showSd( int counter )
 {
-//   return counter;
+   return counter;
 }
 
 void Planner::viewEvent( const QString &uid )
