@@ -58,6 +58,27 @@ void SummaryEventTester::test_Multiday()
     qDeleteAll( events4 );
   }
 
+  // Test date a multiday event in the future has to correct DaysTo set
+  QString multiDayWithTimeFuture = "Multiday, with time, in the future";
+  event = new KCal::Event();
+  event->setDtStart( KDateTime( today.addDays( 100 ), QTime::fromString("12:00","hh:mm") ) );
+  event->setDtEnd( KDateTime( today.addDays( 106 ), QTime::fromString("12:00","hh:mm") ) );
+  event->setSummary( multiDayWithTimeFuture );
+  QVERIFY( cal->addEvent( event ) );
+  for ( int i = 100; i <= 106; i++ ) {
+    SummaryEventInfo::List events5 = SummaryEventInfo::eventsForDate( today.addDays( i ), cal );
+    QCOMPARE( 1, events5.size() );
+    SummaryEventInfo *ev5 = events5.at(0);
+    /*qDebug() << ev5->summaryText;
+    qDebug() << ev5->daysToGo;
+    qDebug() << i;*/
+
+    QCOMPARE( ev5->summaryText, QString(multiDayWithTimeFuture + " (%1/7)").arg(i-100+1));
+    QCOMPARE( ev5->daysToGo, QString("in %1 days").arg(i) );
+
+    qDeleteAll( events5 );
+  }
+
   QString multiDayAllDayInFuture = "Multiday, allday, in future";
   int multiDayFuture = 30;
   event = new KCal::Event();

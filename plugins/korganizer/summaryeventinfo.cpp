@@ -195,7 +195,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate(
     // Days to go label
     str = "";
     dateDiff( startOfMultiday, daysTo );
-    if ( ev->isMultiDay() && !ev->allDay() && daysTo == 0 )
+    if ( ev->isMultiDay() && !ev->allDay() )
       dateDiff( date, daysTo );
     if ( daysTo > 0 ) {
       str = i18np( "in 1 day", "in %1 days", daysTo );
