@@ -1,0 +1,124 @@
+/* This file is part of the KDE project
+   Copyright 2008 Thomas McGuire <mcguire@kde.org>
+
+   This library is free software; you can redistribute it and/or modify
+   it under the terms of the GNU Library General Public License as published
+   by the Free Software Foundation; either version 2 of the License or
+   ( at your option ) version 3 or, at the discretion of KDE e.V.
+   ( which shall act as a proxy as in section 14 of the GPLv3 ), any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public License
+   along with this library; see the file COPYING.LIB.  If not, write to
+   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+   Boston, MA 02110-1301, USA.
+*/
+
+#include "qtest_kde.h"
+#include "summaryeventtest.h"
+#include "../summaryeventinfo.h"
+
+#include <kcal/event.h>
+#include <kcal/calendarlocal.h>
+
+QTEST_KDEMAIN_CORE( SummaryEventTester )
+
+void SummaryEventTester::test_Multiday()
+{
+  QDate today = QDate::currentDate();
+  QString multidayWithTimeInProgress = "Multiday, time specified, in progress";
+
+  KCal::CalendarLocal *cal = new KCal::CalendarLocal( KDateTime().timeSpec() );
+
+  KCal::Event *event = new KCal::Event();
+  event->setDtStart( KDateTime( today.addDays( -1 ) ) );
+  event->setDtEnd( KDateTime( today.addDays( 5 ) ) );
+  event->setSummary( "Multiday, allday, in progress (day 2/6)" );
+  QVERIFY( cal->addEvent( event ) );
+
+  event = new KCal::Event();
+  event->setDtStart( KDateTime( today.addDays( -1 ), QTime::fromString("12:00","hh:mm") ) );
+  event->setDtEnd( KDateTime( today.addDays( 5 ), QTime::fromString("12:00","hh:mm") ) );
+  event->setSummary( multidayWithTimeInProgress  );
+  QVERIFY( cal->addEvent( event ) );
+    for ( int i = 0; i < 5; i++ ) {
+    SummaryEventInfo::List events4 = SummaryEventInfo::eventsForDate( today.addDays( i ), cal );
+    QCOMPARE( 1, events4.size() );
+    SummaryEventInfo *ev4 = events4.at(0);
+
+    QCOMPARE( ev4->summaryText, QString(multidayWithTimeInProgress + " (%1/7)").arg(i+2));
+    QCOMPARE( ev4->timeRange, QString("00:00 - 23:59") );
+//    QCOMPARE( ev4->startDate, KGlobal::locale()->formatDate( QDate( today.addDays( i ) ), KLocale::FancyLongDate ) );
+    QCOMPARE( ev4->makeBold, i == 0 );
+
+    qDeleteAll( events4 );
+  }
+
+  QString multiDayAllDayInFuture = "Multiday, allday, in future";
+  int multiDayFuture = 30;
+  event = new KCal::Event();
+  event->setDtStart( KDateTime( today.addDays( multiDayFuture ) ) );
+  event->setDtEnd( KDateTime( today.addDays( multiDayFuture + 5 ) ) );
+  event->setSummary( multiDayAllDayInFuture );
+  QVERIFY( cal->addEvent( event ) );
+
+  event = new KCal::Event();
+  event->setDtStart( KDateTime( today.addDays( 2 ), QTime::fromString("12:00","hh:mm") ) );
+  event->setDtEnd( KDateTime( today.addDays( 5 ), QTime::fromString("12:00","hh:mm") ) );
+  event->setSummary( "Multiday, time specified, in future" );
+  QVERIFY( cal->addEvent( event ) );
+
+  QString multiDayAllDayStartingToday = "Multiday, allday, starting today";
+  event = new KCal::Event();
+  event->setDtStart( KDateTime( today ) );
+  event->setDtEnd( KDateTime( today.addDays( 5 ) ) );
+  event->setSummary( multiDayAllDayStartingToday );
+  QVERIFY( cal->addEvent( event ) );
+
+  event = new KCal::Event();
+  event->setDtStart( KDateTime( today.addDays(-10), QTime::fromString("12:00","hh:mm") ) );
+  event->setDtEnd( KDateTime( today.addDays( -5 ), QTime::fromString("10:00","hh:mm") ) );
+  event->setSummary( "Some event in the past" );
+  QVERIFY( cal->addEvent( event ) );  
+
+  SummaryEventInfo::List eventsToday = SummaryEventInfo::eventsForDate( today, cal );
+  QCOMPARE( 2, eventsToday.size() );
+  SummaryEventInfo *ev1 = eventsToday.at( 0 );
+  QCOMPARE( ev1->summaryText, multidayWithTimeInProgress + " (2/7)");
+  QCOMPARE( ev1->timeRange, QString("00:00 - 23:59") );
+  QCOMPARE( ev1->startDate, QString("Today") );
+  QCOMPARE( ev1->daysToGo, QString("now") );
+  QCOMPARE( ev1->makeBold, true );
+  SummaryEventInfo *ev2 = eventsToday.at( 1 );
+  QCOMPARE( ev2->summaryText, multiDayAllDayStartingToday );
+  QVERIFY( ev2->timeRange.isEmpty() );
+  QCOMPARE( ev2->startDate, QString("Today") );
+  QCOMPARE( ev2->daysToGo, QString("now") );
+  QCOMPARE( ev2->makeBold, true );
+
+  SummaryEventInfo::List events2 = SummaryEventInfo::eventsForDate( today.addDays( multiDayFuture ), cal );
+  QCOMPARE( 1, events2.size() );
+  ev1 = events2.at( 0 );
+  QCOMPARE( ev1->summaryText, multiDayAllDayInFuture );
+  QVERIFY( ev1->timeRange.isEmpty() );
+  QCOMPARE( ev1->startDate, KGlobal::locale()->formatDate( QDate( today.addDays( multiDayFuture ) ) ) );
+  QCOMPARE( ev1->daysToGo, QString("in %1 days").arg(multiDayFuture) );
+  QCOMPARE( ev1->makeBold, false );
+  // Make sure multiday is only displayed once
+  for ( int i = 1; i < 30; i++ ) {
+    SummaryEventInfo::List events3 = SummaryEventInfo::eventsForDate( today.addDays( multiDayFuture + i ), cal );
+    foreach(SummaryEventInfo *ev, events3 ) {
+      QVERIFY( ev->summaryText.contains( multiDayAllDayInFuture ) );
+    }
+    qDeleteAll( events3 );
+  }
+
+  qDeleteAll( eventsToday );
+  qDeleteAll( events2 );
+  delete cal;
+  
+}

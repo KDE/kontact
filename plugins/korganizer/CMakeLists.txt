@@ -4,7 +4,7 @@ include_directories(${CMAKE_SOURCE_DIR}/korganizer ${CMAKE_SOURCE_DIR}/korganize
 ########### next target ###############
 set(libcommon_SRCS korg_uniqueapp.cpp)
 
-set(kontact_korganizerplugin_PART_SRCS korganizerplugin.cpp apptsummarywidget.cpp ${libcommon_SRCS})
+set(kontact_korganizerplugin_PART_SRCS korganizerplugin.cpp apptsummarywidget.cpp summaryeventinfo.cpp ${libcommon_SRCS})
 
 qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml  ${CMAKE_SOURCE_DIR}/korganizer/org.kde.korganizer.Korganizer.xml)
 
@@ -51,6 +51,9 @@ kde4_add_ui_files(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui)
 kde4_add_plugin(kcm_todosummary ${kcm_todosummary_PART_SRCS})
 
 kdepim4_link_unique_libraries(kcm_todosummary  ${KDE4_KDEUI_LIBS})
+
+########## Unit Test ###########
+add_subdirectory( tests )
 
 ########### install files ###############
 
