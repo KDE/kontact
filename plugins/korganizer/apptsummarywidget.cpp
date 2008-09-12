@@ -141,13 +141,21 @@ void ApptSummaryWidget::updateView()
       bool makeBold = false;
       int daysTo = -1;
 
+      // ### If you change anything in the multiday logic below, make sure
+      //     you test it with:
+      //     - a multiday, all-day event currently in progress
+      //     - a multiday, all-day event in the future
+      //     - a multiday event with associated time which is in progress
+      //     - a multiday event with associated time which is in the future
+
       // Count number of days remaining in multiday event
       int span = 1;
       int dayof = 1;
       if ( ev->isMultiDay() ) {
         QDate d = ev->dtStart().date();
-        dayof = d.daysTo( currentDate ) + 1;
         if ( d < currentDate ) {
+          dayof += d.daysTo( currentDate );
+          span += d.daysTo( currentDate );
           d = currentDate;
         }
         while ( d < ev->dtEnd().date() ) {
@@ -159,9 +167,15 @@ void ApptSummaryWidget::updateView()
         }
       }
 
+      QDate startOfMultiday = ev->dtStart().date();
+      if ( startOfMultiday < currentDate )
+        startOfMultiday = currentDate;
+      bool firstDayOfMultiday = ( dt == startOfMultiday );
+
       // If this date is part of a floating, multiday event, then we
       // only make a print for the first day of the event.
-      if ( ev->isMultiDay() && ev->allDay() && dayof != 1 ) {
+    if ( ev->isMultiDay() && ev->allDay() &&
+         ( currentDate > ev->dtStart().date() || !firstDayOfMultiday ) ) {
         continue;
       }
 
@@ -188,10 +202,10 @@ void ApptSummaryWidget::updateView()
 
       // Print the date span for multiday, floating events, for the
       // first day of the event only.
-      if ( ev->isMultiDay() && ev->allDay() && dayof == 1 && span > 1 ) {
+      if ( ev->isMultiDay() && ev->allDay() && firstDayOfMultiday && span > 1 ) {
         str = KGlobal::locale()->formatDate( ev->dtStart().date(), KLocale::FancyLongDate );
         str += " -\n " +
-               KGlobal::locale()->formatDate( sD.addDays( span-1 ), KLocale::FancyLongDate );
+               KGlobal::locale()->formatDate( ev->dtEnd().date(), KLocale::FancyLongDate );
       }
 
       label = new QLabel( str, this );
@@ -204,9 +218,11 @@ void ApptSummaryWidget::updateView()
         label->setFont( font );
       }
 
-      // Days togo label
+      // Days to go label
       str = "";
-      dateDiff( ev->dtStart().date(), daysTo );
+      dateDiff( startOfMultiday, daysTo );
+      if ( ev->isMultiDay() && !ev->allDay() && daysTo == 0 )
+        dateDiff( dt, daysTo );
       if ( daysTo > 0 ) {
         str = i18np( "in 1 day", "in %1 days", daysTo );
       } else {
