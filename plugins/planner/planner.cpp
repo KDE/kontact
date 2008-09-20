@@ -214,7 +214,6 @@ void Planner::updateView()
 void Planner::initTodoList( const QDate &date )
 {
   mTodos.setAutoDelete( true );
-  qDeleteAll( mTodos );
   mTodos.clear();
   mTodos.setAutoDelete( false );
   QDate currentDate = QDate::currentDate();
@@ -282,12 +281,16 @@ int Planner::showTodos( int counter, const QDate &date )
       todo = *td;
       QString stateText = initStateText ( todo, date );
 
+      mPlannerGrid->setColumnMinimumWidth( 0, 40 );
+
       QPixmap todoPm = loader.loadIcon( "view-pim-tasks", KIconLoader::Small );
       QLabel *label = new QLabel( this );
       label->setPixmap( todoPm );
       label->setMaximumWidth( label->minimumSizeHint().width() );
       mPlannerGrid->addWidget( label, counter, 1 );
       mLabels.append( label );
+
+      mPlannerGrid->setColumnMinimumWidth( 2, 15 );
 
       QString percent = QString::number( todo->percentComplete() ) + '%';
       KUrlLabel *urlLabel = new KUrlLabel( this );
@@ -312,6 +315,8 @@ int Planner::showTodos( int counter, const QDate &date )
         string = todo->relatedTo()->summary() + ':' + todo->summary();
       }
 
+      mPlannerGrid->setColumnMinimumWidth( 4, 15 );
+
       KUrlLabel *urlLabel2 = new KUrlLabel( this );
       urlLabel2->setText( string );
       urlLabel2->setUrl( todo->uid() );
@@ -331,6 +336,8 @@ int Planner::showTodos( int counter, const QDate &date )
       connect( urlLabel2, SIGNAL(rightClickedUrl(const QString&)),
                this, SLOT(todoPopupMenu(const QString&)) );
 
+      mPlannerGrid->setColumnMinimumWidth( 6, 15 );
+
       label = new QLabel( stateText, this );
       if ( stateText == i18nc( "to-do is overdue", "overdue" ) ) {
         label->setText( "<font color = red >" + stateText + " </font>" );
@@ -339,6 +346,8 @@ int Planner::showTodos( int counter, const QDate &date )
       label->setMaximumWidth( label->minimumSizeHint().width() );
       mPlannerGrid->addWidget( label, counter, 7 );
       mLabels.append( label );
+
+      mPlannerGrid->setColumnMinimumWidth( 8, 15 );
 
       if( mShowReminder ){
         QPixmap alarm;
@@ -352,6 +361,8 @@ int Planner::showTodos( int counter, const QDate &date )
         mLabels.append( label );
       }
 
+      mPlannerGrid->setColumnMinimumWidth( 10, 15 );
+
       if( mShowRecurrence ){
         QPixmap recur;
         if( todo->isAlarmEnabled() ){
@@ -363,7 +374,6 @@ int Planner::showTodos( int counter, const QDate &date )
         mPlannerGrid->addWidget( label, counter, 11 );
         mLabels.append( label );
       }
-
 
       if ( td != mTodos.end() ) {
         ++counter;
@@ -455,7 +465,7 @@ int Planner::showEvents( int counter, const QDate &date )
       mPlannerGrid->addWidget( label, counter, 1 );
       mLabels.append( label );
 
-      mPlannerGrid->setColumnMinimumWidth( 2, 10 );
+      mPlannerGrid->setColumnMinimumWidth( 2, 15 );
 
       // Print the date span for multiday, allDay events, for the
       // first day of the event only.
@@ -527,10 +537,10 @@ int Planner::showEvents( int counter, const QDate &date )
         mPlannerGrid->addWidget( label, counter, 9 );
         mLabels.append( label );
       } else {
-        mPlannerGrid->setColumnMinimumWidth( 9, 10 );
+        mPlannerGrid->setColumnMinimumWidth( 9, 15 );
       }
 
-      mPlannerGrid->setColumnMinimumWidth( 10, 10 );
+      mPlannerGrid->setColumnMinimumWidth( 10, 15 );
 
       //Show icon if Event recurs
       if( mShowRecurrence ){
