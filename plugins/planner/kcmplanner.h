@@ -24,57 +24,28 @@
 #ifndef KCMPLANNER_H
 #define KCMPLANNER_H
 
+#include "ui_plannerconfig_base.h"
 #include <kcmodule.h>
 
-class QButtonGroup;
-class QCheckBox;
-class QGroupBox;
-class QSpinBox;
-class QRadioButton;
-
-class KCMPlanner : public KCModule
+class KCMPlanner : public KCModule, public Ui::PlannerSummaryConfig_Base
 {
   Q_OBJECT
 
   public:
     explicit KCMPlanner( const KComponentData &inst, QWidget *parent = 0 );
+    virtual ~KCMPlanner();
 
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
+    void load();
+    void save();
+    void defaults();
+    const KAboutData *aboutData() const;
 
   private slots:
     void modified();
     void buttonClicked( bool );
-    void setTodo( bool );
-
-  private:
-    void initGUI();
-    QGroupBox *mCalendarGroup;
-    QGroupBox *mTodoGroup;
-    QGroupBox *mSdGroup;
-    QSpinBox *mCustomDays;
-    QCheckBox *mUnderline;
-
-    QRadioButton *mDay;
-    QRadioButton *mCalendarSpin;
-    QCheckBox *mShowRecurrence;
-    QCheckBox *mShowReminder;
-
-    bool mTodo;
-    QCheckBox *mShowTodayEndingTodos;
-    QCheckBox *mShowTodosInProgress;
-    QCheckBox *mShowTodayStartingTodos;
-    QCheckBox *mShowOverdueTodos;
-
-    bool mSd;
-    QCheckBox *mBirthdayCal;
-    QCheckBox *mAnniversariesCal;
-    QCheckBox *mHolidaysCal;
-    QCheckBox *mSpecialOccasionsCal;
-
-    QCheckBox *mBirthdayConList;
-    QCheckBox *mAnniversariesConList;
+    void setTodo( int );
+    void setSd( int );
+    void customDaysChanged( int value );
 };
 
 #endif

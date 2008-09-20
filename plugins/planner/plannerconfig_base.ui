@@ -1,0 +1,363 @@
+<ui version="4.0" >
+ <author>Allen Winter &lt;winter@kde.org></author>
+ <comment>Configuration page for the Korganizer To-do Summary</comment>
+ <class>PlannerSummaryConfig_Base</class>
+ <widget class="QWidget" name="PlannerSummaryConfig_Base" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>519</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle" >
+   <string>Planner Summary Configuration</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <property name="margin" >
+    <number>9</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="mGeneralBox" >
+     <property name="title" >
+      <string/>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout" >
+      <item>
+       <widget class="QCheckBox" name="mShowRecurrence" >
+        <property name="sizePolicy" >
+         <sizepolicy vsizetype="Minimum" hsizetype="Minimum" >
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text" >
+         <string>Show recurrence Icon</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mShowReminder" >
+        <property name="text" >
+         <string>Show Reminder Icon</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mUnderline" >
+        <property name="text" >
+         <string>Underline Links</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mTodo" >
+        <property name="text" >
+         <string>Show To-dos in Planner</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mSd" >
+        <property name="text" >
+         <string>Show Special Dates in Planner</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="mDaysGroup" >
+     <property name="title" >
+      <string>Show To-dos Due</string>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="0" colspan="2" >
+       <widget class="QRadioButton" name="mDateTodayButton" >
+        <property name="text" >
+         <string>&amp;Today only</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2" >
+       <widget class="QRadioButton" name="mDateMonthButton" >
+        <property name="text" >
+         <string>Within the next &amp;month (31 days)</string>
+        </property>
+        <property name="checked" >
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" >
+       <widget class="QRadioButton" name="mDateRangeButton" >
+        <property name="enabled" >
+         <bool>true</bool>
+        </property>
+        <property name="text" >
+         <string>Within the &amp;next</string>
+        </property>
+        <property name="checked" >
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" >
+       <widget class="QSpinBox" name="mCustomDays" >
+        <property name="enabled" >
+         <bool>false</bool>
+        </property>
+        <property name="specialValueText" >
+         <string>1 day</string>
+        </property>
+        <property name="suffix" >
+         <string> days</string>
+        </property>
+        <property name="minimum" >
+         <number>1</number>
+        </property>
+        <property name="maximum" >
+         <number>365</number>
+        </property>
+        <property name="singleStep" >
+         <number>1</number>
+        </property>
+        <property name="value" >
+         <number>7</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="mHideGroup" >
+     <property name="title" >
+      <string>Hide Following To-do Types</string>
+     </property>
+     <layout class="QVBoxLayout" >
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <item>
+       <widget class="QCheckBox" name="mHideCompletedBox" >
+        <property name="acceptDrops" >
+         <bool>true</bool>
+        </property>
+        <property name="text" >
+         <string>&amp;Completed</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mHideOpenEndedBox" >
+        <property name="text" >
+         <string>&amp;Open-ended (no due date)</string>
+        </property>
+        <property name="checked" >
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mHideUnstartedBox" >
+        <property name="text" >
+         <string>&amp;Unstarted (start date is in the future)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mHideInProgressBox" >
+        <property name="text" >
+         <string>&amp;In-progress (started but not completed)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mHideOverdueBox" >
+        <property name="text" >
+         <string>Over&amp;due (not completed and beyond due-date)</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="mSdBox" >
+     <property name="title" >
+      <string/>
+     </property>
+     <property name="checkable" >
+      <bool>false</bool>
+     </property>
+     <layout class="QGridLayout" name="gridLayout" >
+      <item row="0" column="0" >
+       <widget class="QCheckBox" name="mBirthdayCal" >
+        <property name="text" >
+         <string>Show Brithdays from Calendar</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" >
+       <widget class="QCheckBox" name="mBirthdayConList" >
+        <property name="text" >
+         <string>Show Birthdays from Contact List</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" >
+       <widget class="QCheckBox" name="mAnniversariesCal" >
+        <property name="text" >
+         <string>Show Anniversaries from Calendar</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" >
+       <widget class="QCheckBox" name="mAnniversariesConList" >
+        <property name="text" >
+         <string>Show Anniversaries from Contact List</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" >
+       <widget class="QCheckBox" name="mHolidaysCal" >
+        <property name="text" >
+         <string>Show Holidays from Calendar</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" >
+       <widget class="QCheckBox" name="mSpecialOccasionsCal" >
+        <property name="text" >
+         <string>Show Special Occasions from Calendar</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer" >
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <tabstops>
+  <tabstop>mShowRecurrence</tabstop>
+  <tabstop>mDateTodayButton</tabstop>
+  <tabstop>mDateMonthButton</tabstop>
+  <tabstop>mDateRangeButton</tabstop>
+  <tabstop>mCustomDays</tabstop>
+  <tabstop>mHideCompletedBox</tabstop>
+  <tabstop>mHideOpenEndedBox</tabstop>
+  <tabstop>mHideUnstartedBox</tabstop>
+  <tabstop>mHideInProgressBox</tabstop>
+  <tabstop>mHideOverdueBox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>mDateRangeButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mCustomDays</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>140</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>472</x>
+     <y>203</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <designerdata>
+  <property name="gridDeltaX" >
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY" >
+   <number>10</number>
+  </property>
+  <property name="gridSnapX" >
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY" >
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible" >
+   <bool>true</bool>
+  </property>
+ </designerdata>
+</ui>

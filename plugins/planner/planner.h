@@ -42,6 +42,7 @@ namespace Kontact {
   class Plugin;
 }
 
+
 class Planner : public Kontact::Summary
 {
   Q_OBJECT
@@ -82,24 +83,29 @@ class Planner : public Kontact::Summary
     void changePercentage( const QString &uid );
 
   private:
-    int mDays;
     bool mShowRecurrence;
     bool mShowReminder;
     bool mUnderline;
+    bool mTodo;
+    bool mSd;
 
-    int mPriority;
-    bool mShowTodos;
-    bool mShowTodayEndingTodos;
-    bool mShowTodosInProgress;
-    bool mShowTodayStartingTodos;
-    bool mShowOverdueTodos;
-    bool mShowTodoRecurrence;
-    bool mShowTodoReminder;
-    bool mUnderlineTodo;
+    int mCustomDays;
+
+    bool mHideCompleted;
+    bool mHideOpenEnded;
+    bool mHideNotStarted;
+    bool mHideInProgress;
+    bool mHideOverdue;
+
+    bool mBirthdayCal;
+    bool mBirthdayConList;
+    bool mAnniversariesCal;
+    bool mAnniversariesConList;
+    bool mHolidaysCal;
+    bool mSpecialOccasionsCal;
+
 
     KCal::Event::List mEvents;
-
-    bool mShowSd;
     Kontact::Plugin *mPlugin;
     QVBoxLayout *mLayout;
     QGridLayout *mPlannerGrid;

@@ -16,6 +16,8 @@ kdepim4_link_unique_libraries(kontact_plannerplugin  ${KDE4_KDECORE_LIBS} kontac
 
 set(kcm_planner_PART_SRCS kcmplanner.cpp)
 
+kde4_add_ui_files(kcm_planner_PART_SRCS plannerconfig_base.ui)
+
 kde4_add_plugin(kcm_planner ${kcm_planner_PART_SRCS})
 
 kdepim4_link_unique_libraries(kcm_planner ${KDE4_KDEUI_LIBS} ${QT_QT3SUPPORT_LIBRARY})

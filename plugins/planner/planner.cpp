@@ -34,6 +34,7 @@
 #include <libkdepim/kpimprefs.h>
 #include <libkholidays/kholidays.h>
 
+#include <kcal/calendar.h>
 #include <kcal/event.h>
 #include <kcal/todo.h>
 #include <kcal/incidence.h>
@@ -84,31 +85,35 @@ void Planner::configUpdated()
 {
   KConfig config( "plannerrc" );
 
+  //Read general config
   KConfigGroup general = config.group( "General" );
   mShowRecurrence = general.readEntry( "ShowRecurrence", true );
   mShowReminder = general.readEntry( "ShowReminder", true );
   mUnderline = general.readEntry( "underlineLink", true );
+  mTodo = general.readEntry( "ShowTodo", true );
+  mSd = general.readEntry( "ShowSd", true );
 
+  //Read Calendar config
   KConfigGroup calendar = config.group( "Calendar" );
-  mDays = calendar.readEntry( "DaysToShow", 1 );
+  mCustomDays = calendar.readEntry( "DaysToShow", 1 );
 
+  //Read Todo config
   KConfigGroup todo = config.group( "Todo" );
-  mShowTodos = todo.readEntry( "Todo", false );
-  mShowTodayEndingTodos = todo.readEntry( "ShowTodayEndingTodos", false );
-  mShowTodosInProgress = todo.readEntry( "ShowTodosInProgress", false );
-  mShowTodayStartingTodos = todo.readEntry( "ShowTodayStartingTodos", false );
-  mShowOverdueTodos = todo.readEntry( "ShowOverdueTodos", false );
+  mHideCompleted = todo.readEntry( "Completed", true );
+  mHideOpenEnded = todo.readEntry( "OpenEnded", false );
+  mHideInProgress = todo.readEntry( "InProgress", false );
+  mHideOverdue = todo.readEntry( "Overdue", false );
 
-  if ( mShowTodayEndingTodos || mShowTodosInProgress || mShowTodayStartingTodos ||
-    mShowOverdueTodos ){
-    if ( todo.readEntry( "Todo", false ) ){
-      mShowTodos = true;
-    }
-  }
+//   if ( mShowTodayEndingTodos || mShowTodosInProgress || mShowTodayStartingTodos ||
+//     mShowOverdueTodos ){
+//     if ( todo.readEntry( "Todo", false ) ){
+//       mTodo = true;
+//     }
+//   }
 
-
+  //Read Special Dates config
   KConfigGroup sd = config.group( "SpecialDates" );
-  mShowSd = sd.readEntry( "SpecialDates", false );
+//   mShowSd = sd.readEntry( "SpecialDates", false );
 
   updateView();
 }
@@ -128,7 +133,7 @@ void Planner::updateView()
   QDate currentDate = QDate::currentDate();
 
   for ( dt = currentDate;
-        dt <= currentDate.addDays( mDays - 1 );
+        dt <= currentDate.addDays( mCustomDays - 1 );
         dt = dt.addDays( 1 ) ) {
 
     //Initialize Todo List
@@ -137,7 +142,7 @@ void Planner::updateView()
     initEventList( dt );
 
     // Fill Appointment Pixmap Field
-    if ( !mEvents.empty() || ( !mTodos.empty() && mShowTodos ) ) {
+    if ( !mEvents.empty() || ( !mTodos.empty() && mTodo ) ) {
 
       // Fill Event Date Field
       bool makeBold = false;
@@ -179,7 +184,7 @@ void Planner::updateView()
 
       mLayout->addLayout( gridLayout );
 
-      if ( !mTodos.empty() && mShowTodos ) {
+      if ( !mTodos.empty() && mTodo ) {
         counter = showTodos( counter, dt );
       }
       if ( !mEvents.empty() ) {
@@ -191,7 +196,7 @@ void Planner::updateView()
   if ( !counter ) {
     QLabel *noEvents = new QLabel(
       i18np( "No appointments pending within the next day",
-             "No appointments pending within the next %1 days", mDays ),
+             "No appointments pending within the next %1 days", mCustomDays ),
       this, "nothing to see" );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( noEvents );
@@ -209,49 +214,58 @@ void Planner::updateView()
 void Planner::initTodoList( const QDate &date )
 {
   mTodos.setAutoDelete( true );
+  qDeleteAll( mTodos );
   mTodos.clear();
   mTodos.setAutoDelete( false );
   QDate currentDate = QDate::currentDate();
-  KCal::Todo *todo;
-  KCal::Todo::List todos = mCalendar->todos();
-  KCal::Todo::List::ConstIterator td;
 
-  if ( mShowOverdueTodos ) {
-    for ( td = todos.begin(); td != todos.end(); ++td ) {
-      todo = *td;
-      if ( todo->hasDueDate() && !todo->isCompleted() &&
-           todo->dtDue().date() < date && date == currentDate ) {
-        mTodos.append( todo );
-      }
+//   KCal::Todo *todo;
+//   KCal::Todo::List todos = mCalendar->todos();
+//   KCal::Todo::List::ConstIterator td;
+
+  Q_FOREACH( KCal::Todo *todo, mCalendar->todos() ){
+    if( !todo->hasDueDate() && date != currentDate ){
+      continue;
     }
+    mTodos.append( todo );
   }
-  if ( mShowTodayEndingTodos ) {
-    for ( td = todos.begin(); td != todos.end(); ++td ) {
-      todo = *td;
-      if ( todo->hasDueDate() && todo->dtDue().date() == date && !todo->isCompleted() ){
-        mTodos.append( todo );
-      }
-    }
-  }
-  if ( mShowTodayStartingTodos ) {
-    for ( td = todos.begin(); td != todos.end(); ++td ) {
-      todo = *td;
-      if ( todo->hasStartDate() && todo->dtStart().date() == date && !todo->isCompleted() ) {
-        mTodos.append( todo );
-      }
-    }
-  }
-  if ( mShowTodosInProgress ) {
-    for ( td = todos.begin(); td != todos.end(); ++td ) {
-      todo = *td;
-      if ( todo->hasStartDate() && todo->hasDueDate() &&
-       todo->dtStart().date() < date &&
-       date < todo->dtDue().date() && !todo->isCompleted() &&
-          date == currentDate ){
-        mTodos.append( todo );
-      }
-    }
-  }
+
+//   if ( !mHideOverdue ) {
+//     for ( td = todos.begin(); td != todos.end(); ++td ) {
+//       todo = *td;
+//       if ( todo->hasDueDate() && !todo->isCompleted() &&
+//            todo->dtDue().date() < date && date == currentDate ) {
+//         mTodos.append( todo );
+//       }
+//     }
+//   }
+// //   if ( mShowTodayEndingTodos ) {
+// //     for ( td = todos.begin(); td != todos.end(); ++td ) {
+// //       todo = *td;
+// //       if ( todo->hasDueDate() && todo->dtDue().date() == date && !todo->isCompleted() ){
+// //         mTodos.append( todo );
+// //       }
+// //     }
+// //   }
+// //   if ( mShowTodayStartingTodos ) {
+// //     for ( td = todos.begin(); td != todos.end(); ++td ) {
+// //       todo = *td;
+// //       if ( todo->hasStartDate() && todo->dtStart().date() == date && !todo->isCompleted() ) {
+// //         mTodos.append( todo );
+// //       }
+// //     }
+// //   }
+//   if ( !mHideInProgress ) {
+//     for ( td = todos.begin(); td != todos.end(); ++td ) {
+//       todo = *td;
+//       if ( todo->hasStartDate() && todo->hasDueDate() &&
+//        todo->dtStart().date() < date &&
+//        date < todo->dtDue().date() && !todo->isCompleted() &&
+//           date == currentDate ){
+//         mTodos.append( todo );
+//       }
+//     }
+//   }
 }
 
 int Planner::showTodos( int counter, const QDate &date )
@@ -753,5 +767,6 @@ QStringList Planner::configModules() const
 {
   return QStringList( "kcmplanner.desktop" );
 }
+
 
 #include "planner.moc"
