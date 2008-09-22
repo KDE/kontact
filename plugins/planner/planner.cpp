@@ -103,6 +103,7 @@ void Planner::configUpdated()
   mHideOpenEnded = todo.readEntry( "OpenEnded", false );
   mHideInProgress = todo.readEntry( "InProgress", false );
   mHideOverdue = todo.readEntry( "Overdue", false );
+  mHideNotStarted = todo.readEntry( "NotStarted", false);
 
 //   if ( mShowTodayEndingTodos || mShowTodosInProgress || mShowTodayStartingTodos ||
 //     mShowOverdueTodos ){
@@ -218,20 +219,23 @@ void Planner::initTodoList( const QDate &date )
   mTodos.setAutoDelete( false );
   QDate currentDate = QDate::currentDate();
 
-//   KCal::Todo *todo;
-//   KCal::Todo::List todos = mCalendar->todos();
-//   KCal::Todo::List::ConstIterator td;
-
   Q_FOREACH( KCal::Todo *todo, mCalendar->todos() ){
     //throw todos out of List that don't belong to specified date
     if( todo->hasDueDate() && todo->dtDue().date() != date ){
       continue;
     }
     if( mHideCompleted ){
-      
+      if( todo->isCompleted() ){
+        continue;
+      }
     }
     if( mHideInProgress ){
-
+      if( todo->percentComplete() > 0 ){
+        if( todo->hasStartDate() && todo->hasDueDate() && todo->dtStart().date() < currentDate &&
+            currentDate < todo->dtDue().date() ){
+          continue;
+        }
+      }
     }
     if( mHideOpenEnded ){
       if( !todo->hasDueDate() && !todo->isCompleted() ){
@@ -239,47 +243,19 @@ void Planner::initTodoList( const QDate &date )
       }
     }
     if( mHideOverdue ){
-
+      if( todo->hasDueDate() && !todo->isCompleted() &&
+          todo->dtDue().date() < QDate::currentDate() ){
+        continue;
+      }
+    }
+    if( mHideNotStarted ){
+      if( todo->percentComplete() == 0 || todo->hasStartDate() ||
+          todo->dtStart().date() >= QDate::currentDate() ){
+        continue;
+      }
     }
     mTodos.append( todo );
   }
-
-//   if ( !mHideOverdue ) {
-//     for ( td = todos.begin(); td != todos.end(); ++td ) {
-//       todo = *td;
-//       if ( todo->hasDueDate() && !todo->isCompleted() &&
-//            todo->dtDue().date() < date && date == currentDate ) {
-//         mTodos.append( todo );
-//       }
-//     }
-//   }
-// //   if ( mShowTodayEndingTodos ) {
-// //     for ( td = todos.begin(); td != todos.end(); ++td ) {
-// //       todo = *td;
-// //       if ( todo->hasDueDate() && todo->dtDue().date() == date && !todo->isCompleted() ){
-// //         mTodos.append( todo );
-// //       }
-// //     }
-// //   }
-// //   if ( mShowTodayStartingTodos ) {
-// //     for ( td = todos.begin(); td != todos.end(); ++td ) {
-// //       todo = *td;
-// //       if ( todo->hasStartDate() && todo->dtStart().date() == date && !todo->isCompleted() ) {
-// //         mTodos.append( todo );
-// //       }
-// //     }
-// //   }
-//   if ( !mHideInProgress ) {
-//     for ( td = todos.begin(); td != todos.end(); ++td ) {
-//       todo = *td;
-//       if ( todo->hasStartDate() && todo->hasDueDate() &&
-//        todo->dtStart().date() < date &&
-//        date < todo->dtDue().date() && !todo->isCompleted() &&
-//           date == currentDate ){
-//         mTodos.append( todo );
-//       }
-//     }
-//   }
 }
 
 int Planner::showTodos( int counter, const QDate &date )
