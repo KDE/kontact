@@ -29,6 +29,7 @@
 #include <libkholidays/kholidays.h>
 
 #include <kcal/calendarresources.h>
+#include <kcal/todo.h>
 
 #include <QList>
 

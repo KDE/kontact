@@ -98,7 +98,7 @@ void Planner::configUpdated()
   mCustomDays = calendar.readEntry( "DaysToShow", 1 );
 
   //Read Todo config
-  KConfigGroup todo = config.group( "Todo" );
+  KConfigGroup todo = config.group( "Hide" );
   mHideCompleted = todo.readEntry( "Completed", true );
   mHideOpenEnded = todo.readEntry( "OpenEnded", false );
   mHideInProgress = todo.readEntry( "InProgress", false );
@@ -223,8 +223,23 @@ void Planner::initTodoList( const QDate &date )
 //   KCal::Todo::List::ConstIterator td;
 
   Q_FOREACH( KCal::Todo *todo, mCalendar->todos() ){
-    if( !todo->hasDueDate() && date != currentDate ){
+    //throw todos out of List that don't belong to specified date
+    if( todo->hasDueDate() && todo->dtDue().date() != date ){
       continue;
+    }
+    if( mHideCompleted ){
+      
+    }
+    if( mHideInProgress ){
+
+    }
+    if( mHideOpenEnded ){
+      if( !todo->hasDueDate() && !todo->isCompleted() ){
+        continue;
+      }
+    }
+    if( mHideOverdue ){
+
     }
     mTodos.append( todo );
   }
