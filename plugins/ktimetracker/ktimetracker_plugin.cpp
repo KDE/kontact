@@ -27,7 +27,7 @@
 #include "ktimetracker_plugin.h"
 #include "ktimetrackerinterface.h"
 
-#include <karm_part.h>
+#include <ktimetrackerpart.h>
 
 #include <kontactinterfaces/core.h>
 #include <kontactinterfaces/plugin.h>
