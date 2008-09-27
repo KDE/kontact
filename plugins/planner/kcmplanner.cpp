@@ -57,9 +57,7 @@ KCMPlanner::KCMPlanner( const KComponentData &inst, QWidget *parent )
   connect( mShowReminder, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mUnderline, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mTodo, SIGNAL(stateChanged(int)), SLOT(modified()) );
-//   connect( mTodo, SIGNAL(stateChanged(int)), SLOT(setTodo(int)) );
   connect( mSd, SIGNAL(stateChanged(int)), SLOT(modified()) );
-//   connect( mSd, SIGNAL(stateChanged(int)), SLOT(setSd(int)) );
 
   connect( mDateTodayButton, SIGNAL(clicked(bool)), SLOT(modified()) );
   connect( mDateMonthButton, SIGNAL(clicked(bool)), SLOT(modified()) );

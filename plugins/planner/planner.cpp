@@ -34,6 +34,7 @@
 #include <libkdepim/kpimprefs.h>
 #include <libkholidays/kholidays.h>
 
+#include <kabc/stdaddressbook.h>
 #include <kcal/calendar.h>
 #include <kcal/event.h>
 #include <kcal/todo.h>
@@ -60,6 +61,37 @@
 #include <QPixmap>
 #include <QToolTip>
 #include <QVBoxLayout>
+
+enum SDIncidenceType {
+  IncidenceTypeContact,
+  IncidenceTypeEvent
+};
+
+enum SDCategory {
+  CategoryBirthday,
+  CategoryAnniversary,
+  CategoryHoliday,
+  CategoryOther
+};
+
+class SDEntry
+{
+  public:
+    SDIncidenceType type;
+    SDCategory category;
+    int yearsOld;
+    int daysTo;
+    QDate date;
+    QString summary;
+    QString desc;
+    int span; // #days in the special occassion.
+    KABC::Addressee addressee;
+
+    bool operator<( const SDEntry &entry ) const
+    {
+      return daysTo < entry.daysTo;
+    }
+};
 
 Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
   : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
@@ -105,16 +137,14 @@ void Planner::configUpdated()
   mHideOverdue = todo.readEntry( "Overdue", false );
   mHideNotStarted = todo.readEntry( "NotStarted", false);
 
-//   if ( mShowTodayEndingTodos || mShowTodosInProgress || mShowTodayStartingTodos ||
-//     mShowOverdueTodos ){
-//     if ( todo.readEntry( "Todo", false ) ){
-//       mTodo = true;
-//     }
-//   }
-
   //Read Special Dates config
   KConfigGroup sd = config.group( "SpecialDates" );
-//   mShowSd = sd.readEntry( "SpecialDates", false );
+  mBirthdayCal = sd.readEntry( "BirthdayCal", true );
+  mBirthdayConList = sd.readEntry( "BirthdayConList", true );
+  mAnniversariesCal = sd.readEntry( "AnniversariesCal", true );
+  mAnniversariesConList = sd.readEntry( "AnniversariesConList", true );
+  mHolidaysCal = sd.readEntry( "HolidaysCal", true );
+  mSpecialOccasionsCal = sd.readEntry( "SpecialOccasionsCal", true );
 
   updateView();
 }
@@ -141,9 +171,11 @@ void Planner::updateView()
     initTodoList( dt );
     //Initialize Event List
     initEventList( dt );
+    //Initialize SD List
+    initSdList( dt );
 
     // Fill Appointment Pixmap Field
-    if ( !mEvents.empty() || ( !mTodos.empty() && mTodo ) ) {
+    if ( !mEvents.empty() || ( !mTodos.empty() && mTodo ) || ( !mDates.empty() && mSd ) ) {
 
       // Fill Event Date Field
       bool makeBold = false;
@@ -151,8 +183,7 @@ void Planner::updateView()
 
       // Modify event date for printing
       QDate sD = QDate( dt.year(), dt.month(), dt.day() );
-      if ( ( sD.month() == currentDate.month() ) &&
-           ( sD.day() == currentDate.day() ) ) {
+      if ( ( sD.month() == currentDate.month() ) && ( sD.day() == currentDate.day() ) ) {
         datestr = i18nc( "today", "Today" );
         makeBold = true;
       } else if ( ( sD.month() == currentDate.addDays( 1 ).month() ) &&
@@ -164,10 +195,10 @@ void Planner::updateView()
 
       label = new QLabel( datestr, this );
       label->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-      label->setBackgroundRole( QPalette::Midlight );
       if ( makeBold ){
         QFont font = label->font();
         font.setBold( true );
+        font.setItalic( true );
         label->setFont( font );
       } else {
         QFont font = label->font();
@@ -185,6 +216,9 @@ void Planner::updateView()
 
       mLayout->addLayout( gridLayout );
 
+      if ( !mDates.empty() && mSd ) {
+        counter = showSd( counter, dt );
+      }
       if ( !mTodos.empty() && mTodo ) {
         counter = showTodos( counter, dt );
       }
@@ -197,18 +231,14 @@ void Planner::updateView()
   if ( !counter ) {
     QLabel *noEvents = new QLabel(
       i18np( "No appointments pending within the next day",
-             "No appointments pending within the next %1 days", mCustomDays ),
-      this, "nothing to see" );
+             "No appointments pending within the next %1 days", mCustomDays ), this );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
     mLayout->addWidget( noEvents );
     mLabels.append( noEvents );
   }
 
-  QListIterator<QLabel *> i( mLabels );
-  QLabel *l;
-  while ( i.hasNext() ) {
-    l = i.next();
-    l->show();
+  Q_FOREACH( label, mLabels ){
+    label->show();
   }
 }
 
@@ -220,48 +250,64 @@ void Planner::initTodoList( const QDate &date )
   QDate currentDate = QDate::currentDate();
 
   Q_FOREACH( KCal::Todo *todo, mCalendar->todos() ){
-    //throw todos out of List that don't belong to specified date
-    if( todo->hasDueDate() && todo->dtDue().date() != date ){
+    //Hide Overdue or not
+    if( !mHideOverdue && overdue( todo ) && date != currentDate ){
       continue;
     }
-    if( mHideCompleted ){
-      if( todo->isCompleted() ){
-        continue;
-      }
+    if( mHideOverdue && overdue( todo ) ) {
+      continue;
     }
-    if( mHideInProgress ){
-      if( todo->percentComplete() > 0 ){
-        if( todo->hasStartDate() && todo->hasDueDate() && todo->dtStart().date() < currentDate &&
-            currentDate < todo->dtDue().date() ){
-          continue;
-        }
-      }
+    //Hide in Progress or not
+    if( !mHideInProgress && inProgress( todo ) && date != currentDate ){
+      continue;
     }
-    if( mHideOpenEnded ){
-      if( !todo->hasDueDate() && !todo->isCompleted() ){
-        continue;
-      }
+    if( mHideInProgress && inProgress( todo ) ) {
+      continue;
     }
-    if( mHideOverdue ){
-      if( todo->hasDueDate() && !todo->isCompleted() &&
-          todo->dtDue().date() < QDate::currentDate() ){
-        continue;
-      }
+    //Hide Completed or not
+    if( !mHideCompleted && completed( todo ) && date != currentDate ){
+      continue;
     }
-    if( mHideNotStarted ){
-      if( todo->percentComplete() == 0 || todo->hasStartDate() ||
-          todo->dtStart().date() >= QDate::currentDate() ){
-        continue;
-      }
+    if( mHideCompleted && completed( todo ) ) {
+      continue;
+    }
+    //Hide OpenEnded or not
+    if( !mHideOpenEnded && openEnded( todo) && date != currentDate ){
+      continue;
+    }
+    if( mHideOpenEnded && openEnded( todo ) ) {
+      continue;
+    }
+    //Hide NotStarted or not
+    if( !mHideNotStarted && notStarted( todo ) && date != currentDate ){
+      continue;
+    }
+    if( mHideNotStarted && notStarted( todo ) ) {
+      continue;
+    }
+    if( !overdue( todo ) && !inProgress( todo ) && !completed( todo ) && !openEnded( todo ) &&
+        !notStarted( todo ) && todo->hasDueDate() && todo->dtDue().date() != date ){
+      continue;
     }
     mTodos.append( todo );
+  }
+
+  if ( !mTodos.isEmpty() ) {
+    mTodos = KCal::Calendar::sortTodos( &mTodos,
+                                        KCal::TodoSortSummary,
+                                        KCal::SortDirectionAscending );
+    mTodos = KCal::Calendar::sortTodos( &mTodos,
+                                        KCal::TodoSortPriority,
+                                        KCal::SortDirectionAscending );
+    mTodos = KCal::Calendar::sortTodos( &mTodos,
+                                        KCal::TodoSortDueDate,
+                                        KCal::SortDirectionAscending );
   }
 }
 
 int Planner::showTodos( int counter, const QDate &date )
 {
   KIconLoader loader( "kdepim" );
-  initTodoList( date );
 
   if ( !mTodos.empty() ) {
     KCal::Todo *todo;
@@ -408,7 +454,6 @@ void Planner::initEventList( const QDate &date )
 int Planner::showEvents( int counter, const QDate &date )
 {
   KIconLoader loader( "kdepim" );
-  initEventList( date );
 
   if ( !mEvents.empty() ) {
     KCal::Event *ev;
@@ -563,13 +608,72 @@ int Planner::showEvents( int counter, const QDate &date )
   return counter;
 }
 
-void Planner::initSdList( const QDate &date )
+bool Planner::initHolidays()
 {
+  KConfig _hconfig( "korganizerrc" );
+  KConfigGroup hconfig( &_hconfig, "Time & Date" );
+  QString location = hconfig.readEntry( "Holidays" );
+  if ( !location.isEmpty() ) {
+    if ( mHolidays ) {
+      delete mHolidays;
+    }
+    mHolidays = new LibKHolidays::KHolidays( location );
+    return true;
+  }
+  return false;
 }
 
-int Planner::showSd( int counter )
+void Planner::initSdList( const QDate &date )
 {
-   return counter;
+
+  mDates.clear();
+  
+  KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
+  QLabel *label = 0;
+
+  KABC::AddressBook::Iterator it;
+  for ( it = ab->begin(); it != ab->end(); ++it ) {
+    QDate birthday = (*it).birthday().date();
+    if ( birthday.isValid() && mBirthdayConList ) {
+      SDEntry entry;
+      entry.type = IncidenceTypeContact;
+      entry.category = CategoryBirthday;
+//       dateDiff( birthday, entry.daysTo, entry.yearsOld );
+
+      entry.date = birthday;
+      entry.addressee = *it;
+      entry.span = 1;
+      if ( entry.daysTo <= mCustomDays ) {
+        mDates.append( entry );
+      }
+    }
+
+  QString anniversaryAsString = (*it).custom( "KADDRESSBOOK", "X-Anniversary" );
+    if ( !anniversaryAsString.isEmpty() ) {
+      QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
+      if ( anniversary.isValid() && mAnniversariesConList ) {
+        SDEntry entry;
+        entry.type = IncidenceTypeContact;
+        entry.category = CategoryAnniversary;
+//         dateDiff( anniversary, entry.daysTo, entry.yearsOld );
+
+        entry.date = anniversary;
+        entry.addressee = *it;
+        entry.span = 1;
+        if ( entry.daysTo <= mCustomDays ) {
+          mDates.append( entry );
+        }
+      }
+    }
+  }
+}
+
+int Planner::showSd( int counter, const QDate &date )
+{
+  KIconLoader loader( "kdepim" );
+  initSdList( date );
+
+  return counter;
 }
 
 void Planner::viewEvent( const QString &uid )
@@ -612,7 +716,7 @@ bool Planner::eventFilter( QObject *obj, QEvent *e )
       emit message( i18n( "Edit Appointment: \"%1\"", label->text() ) );
     }
     if ( e->type() == QEvent::Leave ) {
-      emit message( QString() );
+      emit message( QString::null );
     }
   }
 
@@ -656,14 +760,12 @@ void Planner::todoPopupMenu( const QString &uid )
   KMenu popup( this );
   QAction *editIt = popup.addAction( i18n( "&Edit To-do..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
-  delIt->setIcon( KIconLoader::global()->
-                  loadIcon( "edit-delete", KIconLoader::Small ) );
+  delIt->setIcon( KIconLoader::global()->loadIcon( "edit-delete", KIconLoader::Small ) );
   QAction *doneIt = 0;
   KCal::Todo *todo = mCalendar->todo( uid );
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
-    doneIt->setIcon( KIconLoader::global()->
-    loadIcon( "task-complete", KIconLoader::Small ) );
+    doneIt->setIcon( KIconLoader::global()->loadIcon( "task-complete", KIconLoader::Small ) );
   }
   // TODO: add icons to the menu actions
 
@@ -696,9 +798,9 @@ void Planner::removeTodo( const QString &uid )
 void Planner::completeTodo( const QString &uid )
 {
   KCal::Todo *todo = mCalendar->todo( uid );
-  if ( !todo->isReadOnly() && mCalendar->beginChange( todo ) ) {
+  if ( !todo->isReadOnly() ) {
     todo->setCompleted( KDateTime::currentLocalDateTime() );
-    mCalendar->endChange( todo );
+    mCalendar->save();
     updateView();
   }
 }
@@ -769,5 +871,62 @@ QStringList Planner::configModules() const
   return QStringList( "kcmplanner.desktop" );
 }
 
+bool Planner::overdue( KCal::Todo *todo )
+{
+  if ( todo->hasDueDate() && !todo->isCompleted() &&
+        todo->dtDue().date() < QDate::currentDate() ){
+    return true;
+  }
+  return false;
+}
 
+bool Planner::completed( KCal::Todo *todo )
+{
+  return todo->isCompleted();
+}
+
+bool Planner::openEnded( KCal::Todo *todo )
+{
+  if ( !todo->hasDueDate() && !todo->isCompleted() ) {
+    return true;
+  }
+  return false;
+}
+
+bool Planner::inProgress( KCal::Todo *todo )
+{
+  if( overdue( todo ) ){
+    return false;
+  }
+
+  if ( todo->percentComplete() > 0 ) {
+    return true;
+  }
+
+  QDate currDate = QDate::currentDate();
+  if ( todo->hasStartDate() && todo->hasDueDate() &&
+       todo->dtStart().date() < currDate &&
+       currDate < todo->dtDue().date() ) {
+    return true;
+  }
+
+  return false;
+}
+
+bool Planner::notStarted( KCal::Todo *todo )
+{
+  if ( todo->percentComplete() > 0 ) {
+    return false;
+  }
+
+  if ( !todo->hasStartDate() ) {
+    return false;
+  }
+
+  if ( todo->dtStart().date() >= QDate::currentDate() ) {
+    return false;
+  }
+
+  return true;
+}
 #include "planner.moc"

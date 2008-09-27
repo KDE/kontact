@@ -38,11 +38,16 @@ class QEvent;
 class QGridLayout;
 class QLabel;
 class QVBoxLayout;
+class SDEntry;
 
 namespace Kontact {
   class Plugin;
 }
-
+namespace KCal {
+  class Event;
+  class CalendarResources;
+  class ResourceCalendar;
+}
 
 class Planner : public Kontact::Summary
 {
@@ -71,7 +76,7 @@ class Planner : public Kontact::Summary
     void initEventList( const QDate &date );
     int showEvents( int counter, const QDate &date );
     void initSdList( const QDate &date );
-    int showSd( int counter );
+    int showSd( int counter, const QDate &date );
     void updateView();
 
     void eventPopupMenu( const QString &uid );
@@ -82,6 +87,12 @@ class Planner : public Kontact::Summary
     void removeTodo( const QString &uid );
     void completeTodo( const QString &uid );
     void changePercentage( const QString &uid );
+
+    bool inProgress( KCal::Todo *todo );
+    bool overdue( KCal::Todo *todo );
+    bool completed( KCal::Todo *todo );
+    bool openEnded( KCal::Todo *todo );
+    bool notStarted( KCal::Todo *todo );
 
   private:
     bool mShowRecurrence;
@@ -98,6 +109,7 @@ class Planner : public Kontact::Summary
     bool mHideInProgress;
     bool mHideOverdue;
 
+    bool initHolidays();
     bool mBirthdayCal;
     bool mBirthdayConList;
     bool mAnniversariesCal;
@@ -114,6 +126,8 @@ class Planner : public Kontact::Summary
     KCal::CalendarResources *mCalendar;
     KCal::Todo::List mTodos;
     QString initStateText( const KCal::Todo *todo, const QDate &date );
+    LibKHolidays::KHolidays *mHolidays;
+    QList<SDEntry> mDates;
 };
 
 #endif
