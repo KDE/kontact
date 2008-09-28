@@ -38,9 +38,9 @@
 #include <kicon.h>
 #include <kparts/componentfactory.h>
 
-EXPORT_KONTACT_PLUGIN( KarmPlugin, ktimetracker )
+EXPORT_KONTACT_PLUGIN( ktimetrackerplugin, ktimetracker )
 
-KarmPlugin::KarmPlugin( Kontact::Core *core, const QVariantList & )
+ktimetrackerplugin::ktimetrackerplugin( Kontact::Core *core, const QVariantList & )
   : Kontact::Plugin( core, core, "ktimetracker" ), mInterface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
@@ -55,21 +55,21 @@ KarmPlugin::KarmPlugin( Kontact::Core *core, const QVariantList & )
     new Kontact::UniqueAppHandlerFactory<KarmUniqueAppHandler>(), this );
 }
 
-KarmPlugin::~KarmPlugin()
+ktimetrackerplugin::~ktimetrackerplugin()
 {
 }
 
-bool KarmPlugin::isRunningStandalone()
+bool ktimetrackerplugin::isRunningStandalone()
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }
 
-QStringList KarmPlugin::invisibleToolbarActions() const
+QStringList ktimetrackerplugin::invisibleToolbarActions() const
 {
   return QStringList() << "new_task" << "new_sub_task" ;
 }
 
-KParts::ReadOnlyPart *KarmPlugin::createPart()
+KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
 {
   KParts::ReadOnlyPart *part = loadPart();
   if ( !part ) {
@@ -82,7 +82,7 @@ KParts::ReadOnlyPart *KarmPlugin::createPart()
   return part;
 }
 
-OrgKdeKtimetrackerKtimetrackerInterface *KarmPlugin::interface()
+OrgKdeKtimetrackerKtimetrackerInterface *ktimetrackerplugin::interface()
 {
   if ( !mInterface ) {
     part();
@@ -91,7 +91,7 @@ OrgKdeKtimetrackerKtimetrackerInterface *KarmPlugin::interface()
   return mInterface;
 }
 
-QString KarmPlugin::tipFile() const
+QString ktimetrackerplugin::tipFile() const
 {
   // TODO: tips file
   //QString file = KStandardDirs::locate("data", "karm/tips");
@@ -99,14 +99,14 @@ QString KarmPlugin::tipFile() const
   return file;
 }
 
-QStringList KarmPlugin::configModules() const
+QStringList ktimetrackerplugin::configModules() const
 {
   QStringList modules;
   modules << "PIM/ktimetrackerconfig.desktop";
   return modules;
 }
 
-void KarmPlugin::newTask()
+void ktimetrackerplugin::newTask()
 {
   core()->selectPlugin( this );
   interface()->newTask();

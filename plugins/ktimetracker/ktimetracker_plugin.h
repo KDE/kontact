@@ -41,13 +41,13 @@ class KarmUniqueAppHandler : public Kontact::UniqueAppHandler
     virtual int newInstance();
 };
 
-class KarmPlugin : public Kontact::Plugin
+class ktimetrackerplugin : public Kontact::Plugin
 {
   Q_OBJECT
 
   public:
-    KarmPlugin( Kontact::Core *core, const QVariantList & );
-    ~KarmPlugin();
+    ktimetrackerplugin( Kontact::Core *core, const QVariantList & );
+    ~ktimetrackerplugin();
     virtual QString tipFile() const;
     int weight() const { return 700; }
     virtual QStringList invisibleToolbarActions() const;
