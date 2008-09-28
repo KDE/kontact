@@ -3,17 +3,17 @@ include_directories(${CMAKE_SOURCE_DIR}/ktimetracker)
 
 ########### next target ###############
 
-set(kontact_karm_PART_SRCS ktimetracker_plugin.cpp)
+set(kontact_ktimetracker_PART_SRCS ktimetracker_plugin.cpp)
 
-qt4_add_dbus_interfaces(kontact_karm_PART_SRCS ${CMAKE_SOURCE_DIR}/ktimetracker/org.kde.ktimetracker.ktimetracker.xml)
+qt4_add_dbus_interfaces(kontact_ktimetracker_PART_SRCS ${CMAKE_SOURCE_DIR}/ktimetracker/org.kde.ktimetracker.ktimetracker.xml)
 
-kde4_add_plugin(kontact_karmplugin ${kontact_karm_PART_SRCS})
+kde4_add_plugin(kontact_ktimetrackerplugin ${kontact_ktimetracker_PART_SRCS})
 
-kdepim4_link_unique_libraries(kontact_karmplugin  ${KDE4_KDEUI_LIBS} kontactinterfaces)
+kdepim4_link_unique_libraries(kontact_ktimetrackerplugin  ${KDE4_KDEUI_LIBS} kontactinterfaces)
 
 ########### install files ###############
 
-install(TARGETS kontact_karmplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_ktimetrackerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 install(FILES ktimetracker_plugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 

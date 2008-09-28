@@ -3,12 +3,12 @@ Type=Service
 Icon=ktimetracker
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=kontact_karmplugin
+X-KDE-Library=kontact_ktimetrackerplugin
 X-KDE-KontactPluginVersion=7
 X-KDE-KontactPartLibraryName=ktimetrackerpart
 X-KDE-KontactPluginHasSummary=false
 
-X-KDE-PluginInfo-Name=kontact_karmplugin
+X-KDE-PluginInfo-Name=kontact_ktimetrackerplugin
 X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
