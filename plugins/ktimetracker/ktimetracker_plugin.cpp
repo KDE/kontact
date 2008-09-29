@@ -52,7 +52,7 @@ ktimetrackerplugin::ktimetrackerplugin( Kontact::Core *core, const QVariantList 
   insertNewAction( action );
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<KarmUniqueAppHandler>(), this );
+    new Kontact::UniqueAppHandlerFactory<KtimetrackerUniqueAppHandler>(), this );
 }
 
 ktimetrackerplugin::~ktimetrackerplugin()
@@ -72,9 +72,7 @@ QStringList ktimetrackerplugin::invisibleToolbarActions() const
 KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
 {
   KParts::ReadOnlyPart *part = loadPart();
-  if ( !part ) {
-    return 0;
-  }
+  if ( !part ) return 0;
 
   mInterface = new OrgKdeKtimetrackerKtimetrackerInterface(
     "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
@@ -84,19 +82,9 @@ KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
 
 OrgKdeKtimetrackerKtimetrackerInterface *ktimetrackerplugin::interface()
 {
-  if ( !mInterface ) {
-    part();
-  }
+  if ( !mInterface ) part();
   Q_ASSERT( mInterface );
   return mInterface;
-}
-
-QString ktimetrackerplugin::tipFile() const
-{
-  // TODO: tips file
-  //QString file = KStandardDirs::locate("data", "karm/tips");
-  QString file;
-  return file;
 }
 
 QStringList ktimetrackerplugin::configModules() const
@@ -112,13 +100,13 @@ void ktimetrackerplugin::newTask()
   interface()->newTask();
 }
 
-void KarmUniqueAppHandler::loadCommandLineOptions()
+void KtimetrackerUniqueAppHandler::loadCommandLineOptions()
 {
   // TODO: handle command line options
   KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
 }
 
-int KarmUniqueAppHandler::newInstance()
+int KtimetrackerUniqueAppHandler::newInstance()
 {
   kDebug();
   // Ensure part is loaded

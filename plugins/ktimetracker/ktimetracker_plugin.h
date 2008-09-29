@@ -33,10 +33,10 @@
 
 class OrgKdeKtimetrackerKtimetrackerInterface;
 
-class KarmUniqueAppHandler : public Kontact::UniqueAppHandler
+class KtimetrackerUniqueAppHandler : public Kontact::UniqueAppHandler
 {
   public:
-    KarmUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    KtimetrackerUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
@@ -48,7 +48,6 @@ class ktimetrackerplugin : public Kontact::Plugin
   public:
     ktimetrackerplugin( Kontact::Core *core, const QVariantList & );
     ~ktimetrackerplugin();
-    virtual QString tipFile() const;
     int weight() const { return 700; }
     virtual QStringList invisibleToolbarActions() const;
     virtual bool isRunningStandalone();
