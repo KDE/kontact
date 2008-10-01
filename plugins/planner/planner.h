@@ -28,6 +28,7 @@
 #include <kontactinterfaces/summary.h>
 #include <libkholidays/kholidays.h>
 
+#include <kabc/resource.h>
 #include <kcal/calendarresources.h>
 #include <kcal/todo.h>
 
@@ -123,7 +124,10 @@ class Planner : public Kontact::Summary
     QVBoxLayout *mLayout;
     QGridLayout *mPlannerGrid;
     QList<QLabel *> mLabels;
+
     KCal::CalendarResources *mCalendar;
+    KABC::AddressBook *mAddressBook;
+
     KCal::Todo::List mTodos;
     QString initStateText( const KCal::Todo *todo, const QDate &date );
     LibKHolidays::KHolidays *mHolidays;

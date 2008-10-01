@@ -35,6 +35,7 @@
 #include <libkholidays/kholidays.h>
 
 #include <kabc/stdaddressbook.h>
+#include <kabc/addressee.h>
 #include <kcal/calendar.h>
 #include <kcal/event.h>
 #include <kcal/todo.h>
@@ -105,6 +106,9 @@ Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
 
   mCalendar = KOrg::StdCalendar::self();
   mCalendar->load();
+
+  mAddressBook = KABC::StdAddressBook::self();
+  mAddressBook->load();
 
   connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), SLOT(updateView()) );
@@ -625,54 +629,74 @@ bool Planner::initHolidays()
 
 void Planner::initSdList( const QDate &date )
 {
-
   mDates.clear();
-  
-  KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QLabel *label = 0;
 
-  KABC::AddressBook::Iterator it;
-  for ( it = ab->begin(); it != ab->end(); ++it ) {
-    QDate birthday = (*it).birthday().date();
-    if ( birthday.isValid() && mBirthdayConList ) {
+  Q_FOREACH( KABC::Addressee addressee, mAddressBook->allAddressees() ){
+    QDate birthday = addressee.birthday().date();
+    if ( birthday.isValid() && mBirthdayConList && birthday == date ) {
       SDEntry entry;
       entry.type = IncidenceTypeContact;
       entry.category = CategoryBirthday;
-//       dateDiff( birthday, entry.daysTo, entry.yearsOld );
-
       entry.date = birthday;
-      entry.addressee = *it;
-      entry.span = 1;
-      if ( entry.daysTo <= mCustomDays ) {
-        mDates.append( entry );
-      }
-    }
-
-  QString anniversaryAsString = (*it).custom( "KADDRESSBOOK", "X-Anniversary" );
-    if ( !anniversaryAsString.isEmpty() ) {
-      QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
-      if ( anniversary.isValid() && mAnniversariesConList ) {
-        SDEntry entry;
-        entry.type = IncidenceTypeContact;
-        entry.category = CategoryAnniversary;
-//         dateDiff( anniversary, entry.daysTo, entry.yearsOld );
-
-        entry.date = anniversary;
-        entry.addressee = *it;
-        entry.span = 1;
-        if ( entry.daysTo <= mCustomDays ) {
-          mDates.append( entry );
-        }
-      }
+      entry.addressee = addressee;
+      mDates.append( entry );
     }
   }
+
+//   QString anniversaryAsString = (*it).custom( "KADDRESSBOOK", "X-Anniversary" );
+//     if ( !anniversaryAsString.isEmpty() ) {
+//       QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
+//       if ( anniversary.isValid() && mAnniversariesConList ) {
+//         SDEntry entry;
+//         entry.type = IncidenceTypeContact;
+//         entry.category = CategoryAnniversary;
+// //         dateDiff( anniversary, entry.daysTo, entry.yearsOld );
+// 
+//         entry.date = anniversary;
+//         entry.addressee = *it;
+//         entry.span = 1;
+//         if ( entry.daysTo <= mCustomDays ) {
+//           mDates.append( entry );
+//         }
+//       }
+//     }
+//   }
 }
 
 int Planner::showSd( int counter, const QDate &date )
 {
   KIconLoader loader( "kdepim" );
-  initSdList( date );
+//   initSdList( date );
 
+  ++counter;
+  Q_FOREACH( SDEntry entry, mDates ){
+
+    mPlannerGrid->setColumnMinimumWidth( 0, 40 );
+
+    //Show Sd icon
+    QPixmap re = loader.loadIcon( "user-identity", KIconLoader::Small );
+    QLabel *label = new QLabel( this );
+    label->setPixmap( re );
+    label->setMaximumWidth( label->minimumSizeHint().width() );
+    label->setAlignment( Qt::AlignTop );
+    mPlannerGrid->addWidget( label, counter, 1 );
+    mLabels.append( label );
+
+    mPlannerGrid->setColumnMinimumWidth( 2, 15 );
+    mPlannerGrid->setColumnMinimumWidth( 3, 15 );
+    mPlannerGrid->setColumnMinimumWidth( 4, 15 );
+
+    KUrlLabel *urlLabel = new KUrlLabel( this );
+    urlLabel->installEventFilter( this );
+    urlLabel->setUrl( entry.addressee.uid() );
+    urlLabel->setText( entry.addressee.realName() );
+    urlLabel->setTextFormat( Qt::RichText );
+    mPlannerGrid->addWidget( urlLabel, counter, 5 );
+    mLabels.append( urlLabel );
+
+    ++counter;
+  }
   return counter;
 }
 
