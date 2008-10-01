@@ -634,12 +634,14 @@ void Planner::initSdList( const QDate &date )
 
   Q_FOREACH( KABC::Addressee addressee, mAddressBook->allAddressees() ){
     QDate birthday = addressee.birthday().date();
-    if ( birthday.isValid() && mBirthdayConList && birthday == date ) {
+    if ( birthday.isValid() && mBirthdayConList &&
+          birthday.day() == date.day() && birthday.month() == date.month() ) {
       SDEntry entry;
       entry.type = IncidenceTypeContact;
       entry.category = CategoryBirthday;
       entry.date = birthday;
       entry.addressee = addressee;
+      entry.yearsOld = QDate::currentDate().year() - birthday.year();
       mDates.append( entry );
     }
   }
@@ -669,31 +671,96 @@ int Planner::showSd( int counter, const QDate &date )
   KIconLoader loader( "kdepim" );
 //   initSdList( date );
 
+  QPixmap birthdayIcon = loader.loadIcon( "user-identity", KIconLoader::Small );
+  QPixmap anniversaryIcon = loader.loadIcon( "favorites", KIconLoader::Small );
+  QPixmap holidayIcon = loader.loadIcon( "favorites", KIconLoader::Small );
+  QPixmap specialOccasionsIcon = loader.loadIcon( "user-identity", KIconLoader::Small );
   ++counter;
   Q_FOREACH( SDEntry entry, mDates ){
 
     mPlannerGrid->setColumnMinimumWidth( 0, 40 );
 
     //Show Sd icon
-    QPixmap re = loader.loadIcon( "user-identity", KIconLoader::Small );
     QLabel *label = new QLabel( this );
-    label->setPixmap( re );
+    switch( entry.category ){
+      case CategoryBirthday:
+        label->setPixmap( birthdayIcon );
+        break;
+      case CategoryAnniversary:
+        label->setPixmap( anniversaryIcon );
+        break;
+      case CategoryHoliday:
+        label->setPixmap( holidayIcon );
+        break;
+      case CategoryOther:
+        label->setPixmap( specialOccasionsIcon );
+      break;
+    }
     label->setMaximumWidth( label->minimumSizeHint().width() );
     label->setAlignment( Qt::AlignTop );
     mPlannerGrid->addWidget( label, counter, 1 );
     mLabels.append( label );
 
     mPlannerGrid->setColumnMinimumWidth( 2, 15 );
-    mPlannerGrid->setColumnMinimumWidth( 3, 15 );
+
+    QString catName;
+    switch( entry.category ){
+      case CategoryBirthday:
+        catName = i18n( "Birthday" );
+        break;
+      case CategoryAnniversary:
+        catName = i18n( "Anniversary" );
+        break;
+      case CategoryHoliday:
+        catName = i18n( "Holiday" );
+        break;
+      case CategoryOther:
+        catName = i18n( "Special Occasion" );
+        break;
+    }
+    label = new QLabel( this );
+    label->setText( catName );
+    label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+    mPlannerGrid->addWidget( label, counter, 3 );
+    mLabels.append( label );
+
     mPlannerGrid->setColumnMinimumWidth( 4, 15 );
 
-    KUrlLabel *urlLabel = new KUrlLabel( this );
-    urlLabel->installEventFilter( this );
-    urlLabel->setUrl( entry.addressee.uid() );
-    urlLabel->setText( entry.addressee.realName() );
-    urlLabel->setTextFormat( Qt::RichText );
-    mPlannerGrid->addWidget( urlLabel, counter, 5 );
-    mLabels.append( urlLabel );
+    if( entry.type == IncidenceTypeContact){
+      KUrlLabel *urlLabel = new KUrlLabel( this );
+      urlLabel->installEventFilter( this );
+      urlLabel->setUrl( entry.addressee.uid() );
+      urlLabel->setText( entry.addressee.realName() );
+      urlLabel->setTextFormat( Qt::RichText );
+      if( !mUnderline ){
+          urlLabel->setUnderline( false );
+        }
+      mPlannerGrid->addWidget( urlLabel, counter, 5 );
+      mLabels.append( urlLabel );
+    } else {
+      label = new QLabel( this );
+      label->setText( entry.summary );
+      label->setTextFormat( Qt::RichText );
+      mPlannerGrid->addWidget( label, counter, 5 );
+      mLabels.append( label );
+      if ( !entry.desc.isEmpty() ) {
+        label->setToolTip( entry.desc );
+      }
+    }
+
+    mPlannerGrid->setColumnMinimumWidth( 6, 15 );
+
+    if( entry.category == CategoryBirthday || entry.category == CategoryAnniversary ){
+      label = new QLabel( this );
+      if( entry.yearsOld <= 0 ){
+        label->setText( "" );
+      } else {
+        label->setText( i18np( "one year", "%1 years", entry.yearsOld) );
+      }
+      label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+      mPlannerGrid->addWidget( label, counter, 7 );
+      mLabels.append( label );
+    }
 
     ++counter;
   }
