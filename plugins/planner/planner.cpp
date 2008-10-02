@@ -613,9 +613,6 @@ bool Planner::initHolidays()
   KConfigGroup hconfig( &_hconfig, "Time & Date" );
   QString location = hconfig.readEntry( "Holidays" );
   if ( !location.isEmpty() ) {
-    if ( mHolidays ) {
-      delete mHolidays;
-    }
     mHolidays = new LibKHolidays::KHolidays( location );
     return true;
   }
@@ -651,6 +648,20 @@ void Planner::initSdList( const QDate &date )
         entry.date = anniversary;
         entry.addressee = addressee;
         entry.yearsOld = QDate::currentDate().year() - anniversary.year();
+        mDates.append( entry );
+      }
+    }
+  }
+
+  if( mHolidaysCal ){
+    if( initHolidays() ){
+      Q_FOREACH( LibKHolidays::KHoliday holiday, mHolidays->getHolidays( date ) ){
+        SDEntry entry;
+        entry.type = IncidenceTypeEvent;
+        entry.category = ( holiday.Category == LibKHolidays::KHolidays::HOLIDAY )?
+                          CategoryHoliday : CategoryOther;
+        entry.date = date;
+        entry.summary = holiday.text;
         mDates.append( entry );
       }
     }
