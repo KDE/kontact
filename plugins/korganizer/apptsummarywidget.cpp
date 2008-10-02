@@ -367,6 +367,8 @@ void ApptSummaryWidget::dateDiff( const QDate &date, int &days )
   int offset = currentDate.daysTo( eventDate );
   if ( offset < 0 ) {
     days = 365 + offset;
+    if ( QDate::isLeapYear( QDate::currentDate().year() ) )
+      days++;
   } else {
     days = offset;
   }
