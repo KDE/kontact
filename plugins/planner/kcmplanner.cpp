@@ -72,9 +72,9 @@ KCMPlanner::KCMPlanner( const KComponentData &inst, QWidget *parent )
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
 
-  connect( mBirthdayCal, SIGNAL(stateChanged(int)), SLOT(modified()) );
+//   connect( mBirthdayCal, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mBirthdayConList, SIGNAL(stateChanged(int)), SLOT(modified()) );
-  connect( mAnniversariesCal, SIGNAL(stateChanged(int)), SLOT(modified()) );
+//   connect( mAnniversariesCal, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mAnniversariesConList, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mHolidaysCal, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mSpecialOccasionsCal, SIGNAL(stateChanged(int)), SLOT(modified()) );
@@ -86,16 +86,6 @@ KCMPlanner::KCMPlanner( const KComponentData &inst, QWidget *parent )
 
 KCMPlanner::~KCMPlanner()
 {
-}
-
-void KCMPlanner::setTodo( int state )
-{
-//   mTodo = state;
-}
-
-void KCMPlanner::setSd( int state )
-{
-//   mSd = state;
 }
 
 void KCMPlanner::modified()
@@ -152,9 +142,9 @@ void KCMPlanner::load()
   KConfigGroup sd = config.group( "SpecialDates" );
 
 //   mSdGroup->setChecked( sd.readEntry( "SpecialDates", true ) );
-  mBirthdayCal->setChecked( sd.readEntry( "BirthdayCal", true ) );
+//   mBirthdayCal->setChecked( sd.readEntry( "BirthdayCal", true ) );
   mBirthdayConList->setChecked( sd.readEntry( "BirthdayConList", true ) );
-  mAnniversariesCal->setChecked( sd.readEntry( "AnniversariesCal", true ) );
+//   mAnniversariesCal->setChecked( sd.readEntry( "AnniversariesCal", true ) );
   mAnniversariesConList->setChecked( sd.readEntry( "AnniversariesConList", true ) );
   mHolidaysCal->setChecked( sd.readEntry ( "HolidaysCal", true ) );
   mSpecialOccasionsCal->setChecked( sd.readEntry( "SpecialOccasionsCal", true ) );
@@ -199,9 +189,9 @@ if ( mDateTodayButton->isChecked() ) {
   //SpecialDates Section
   KConfigGroup sd = config.group( "SpecialDates" );
 
-  sd.writeEntry( "BirthdayCal", mBirthdayCal->isChecked() );
+//   sd.writeEntry( "BirthdayCal", mBirthdayCal->isChecked() );
   sd.writeEntry( "BirthdayConList", mBirthdayConList->isChecked() );
-  sd.writeEntry( "AnniversariesCal", mAnniversariesCal->isChecked() );
+//   sd.writeEntry( "AnniversariesCal", mAnniversariesCal->isChecked() );
   sd.writeEntry( "AnniversariesConList", mAnniversariesConList->isChecked() );
   sd.writeEntry( "HolidaysCal", mHolidaysCal->isChecked() );
   sd.writeEntry( "SpecialOccasionsCal", mSpecialOccasionsCal->isChecked() );
@@ -229,9 +219,9 @@ if ( mDateTodayButton->isChecked() ) {
   mHideOpenEndedBox->setChecked( false );
   mHideUnstartedBox->setChecked( false );
 
-  mBirthdayCal->setChecked( true );
+//   mBirthdayCal->setChecked( true );
   mBirthdayConList->setChecked( true );
-  mAnniversariesCal->setChecked( true );
+//   mAnniversariesCal->setChecked( true );
   mAnniversariesConList->setChecked( true );
   mHolidaysCal->setChecked( true );
   mSpecialOccasionsCal->setChecked( true );

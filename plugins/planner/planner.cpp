@@ -143,9 +143,9 @@ void Planner::configUpdated()
 
   //Read Special Dates config
   KConfigGroup sd = config.group( "SpecialDates" );
-  mBirthdayCal = sd.readEntry( "BirthdayCal", true );
+//   mBirthdayCal = sd.readEntry( "BirthdayCal", true );
   mBirthdayConList = sd.readEntry( "BirthdayConList", true );
-  mAnniversariesCal = sd.readEntry( "AnniversariesCal", true );
+//   mAnniversariesCal = sd.readEntry( "AnniversariesCal", true );
   mAnniversariesConList = sd.readEntry( "AnniversariesConList", true );
   mHolidaysCal = sd.readEntry( "HolidaysCal", true );
   mSpecialOccasionsCal = sd.readEntry( "SpecialOccasionsCal", true );
@@ -314,12 +314,10 @@ int Planner::showTodos( int counter, const QDate &date )
   KIconLoader loader( "kdepim" );
 
   if ( !mTodos.empty() ) {
-    KCal::Todo *todo;
-    KCal::Todo::List::ConstIterator td = mTodos.begin();
 
     ++counter;
-    for ( ; td != mTodos.end() ; ++td ) {
-      todo = *td;
+
+    Q_FOREACH( KCal::Todo *todo, mTodos ){
       QString stateText = initStateText ( todo, date );
 
       mPlannerGrid->setColumnMinimumWidth( 0, 40 );
@@ -415,10 +413,7 @@ int Planner::showTodos( int counter, const QDate &date )
         mPlannerGrid->addWidget( label, counter, 11 );
         mLabels.append( label );
       }
-
-      if ( td != mTodos.end() ) {
-        ++counter;
-      }
+      counter++;
     }
   }
   return counter;
@@ -430,15 +425,17 @@ void Planner::initEventList( const QDate &date )
   mEvents.clear();
   mEvents.setAutoDelete( false );
 
-  KCal::Event *ev;
-  KCal::Event::List events_orig = mCalendar->events( date );
-  KCal::Event::List::ConstIterator it = events_orig.begin();
+//   KCal::Event *ev;
+/*  KCal::Event::List events_orig = mCalendar->events( date );
+  KCal::Event::List::ConstIterator it = events_orig.begin();*/
   KDateTime kdt;
 
   // prevent implicitely sharing while finding recurring events
   // replacing the QDate with the currentDate
-  for ( ; it != events_orig.end(); ++it ) {
-    ev = ( *it )->clone();
+
+//   for ( ; it != events_orig.end(); ++it ) {
+//     ev = ( *it )->clone();
+  Q_FOREACH( KCal::Event *ev, mCalendar->events( date ) ){
     if ( ev->recursOn( date, KDateTime::LocalZone ) ) {
       kdt = ev->dtStart();
       kdt.setDate( date );
@@ -460,17 +457,15 @@ int Planner::showEvents( int counter, const QDate &date )
   KIconLoader loader( "kdepim" );
 
   if ( !mEvents.empty() ) {
-    KCal::Event *ev;
-    KCal::Event::List::ConstIterator it;
+
     QDate currentDate = QDate::currentDate();
     QString datestr;
     QDate sD = QDate( date.year(), date.month(), date.day() );
     QLabel *label;
 
     ++counter;
-    for ( it = mEvents.begin(); it != mEvents.end(); ++it ) {
-      ev = *it;
 
+    Q_FOREACH( KCal::Event *ev, mEvents ){
       // Count number of days remaining in multiday event
       int span = 1;
       int dayof = 1;
@@ -644,26 +639,22 @@ void Planner::initSdList( const QDate &date )
       entry.yearsOld = QDate::currentDate().year() - birthday.year();
       mDates.append( entry );
     }
-  }
 
-//   QString anniversaryAsString = (*it).custom( "KADDRESSBOOK", "X-Anniversary" );
-//     if ( !anniversaryAsString.isEmpty() ) {
-//       QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
-//       if ( anniversary.isValid() && mAnniversariesConList ) {
-//         SDEntry entry;
-//         entry.type = IncidenceTypeContact;
-//         entry.category = CategoryAnniversary;
-// //         dateDiff( anniversary, entry.daysTo, entry.yearsOld );
-// 
-//         entry.date = anniversary;
-//         entry.addressee = *it;
-//         entry.span = 1;
-//         if ( entry.daysTo <= mCustomDays ) {
-//           mDates.append( entry );
-//         }
-//       }
-//     }
-//   }
+    QString anniversaryAsString = addressee.custom( "KADDRESSBOOK", "X-Anniversary" );
+    if ( !anniversaryAsString.isEmpty() ) {
+      QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
+      if ( anniversary.isValid() && mAnniversariesConList &&
+          anniversary.day() == date.day() && anniversary.month() == date.month() ) {
+        SDEntry entry;
+        entry.type = IncidenceTypeContact;
+        entry.category = CategoryAnniversary;
+        entry.date = anniversary;
+        entry.addressee = addressee;
+        entry.yearsOld = QDate::currentDate().year() - anniversary.year();
+        mDates.append( entry );
+      }
+    }
+  }
 }
 
 int Planner::showSd( int counter, const QDate &date )
@@ -762,7 +753,7 @@ int Planner::showSd( int counter, const QDate &date )
       mLabels.append( label );
     }
 
-    ++counter;
+    counter++;
   }
   return counter;
 }

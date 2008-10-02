@@ -43,8 +43,6 @@ class KCMPlanner : public KCModule, public Ui::PlannerSummaryConfig_Base
   private slots:
     void modified();
     void buttonClicked( bool );
-    void setTodo( int );
-    void setSd( int );
     void customDaysChanged( int value );
 };
 
