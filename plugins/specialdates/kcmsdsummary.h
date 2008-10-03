@@ -46,10 +46,10 @@ class KCMSDSummary : public KCModule, public Ui::SDSummaryConfig_Base
     void buttonClicked( int id );
     void customDaysChanged( int value );
 
-  private:
-    QButtonGroup *mDaysButtonGroup;
-    QButtonGroup *mShowFromCalButtonGroup;
-    QButtonGroup *mShowFromKABButtonGroup;
+//   private:
+//     QButtonGroup *mDaysButtonGroup;
+//     QButtonGroup *mShowFromCalButtonGroup;
+//     QButtonGroup *mShowFromKABButtonGroup;
 };
 
 #endif

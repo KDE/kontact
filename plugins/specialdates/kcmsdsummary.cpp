@@ -56,35 +56,23 @@ KCMSDSummary::KCMSDSummary( const KComponentData &inst, QWidget *parent )
 {
   setupUi( this );
 
-  mDaysButtonGroup = new QButtonGroup( this );
-  mDaysButtonGroup->addButton( mDateTodayButton, 0 );
-  mDaysButtonGroup->addButton( mDateMonthButton, 1 );
-  mDaysButtonGroup->addButton( mDateRangeButton, 2 );
-  mShowFromCalButtonGroup = new QButtonGroup( this );
-  mShowFromCalButtonGroup->setExclusive( false );
-  mShowFromCalButtonGroup->addButton( mShowBirthdaysFromCalBox );
-  mShowFromCalButtonGroup->addButton( mShowAnniversariesFromCalBox );
-  mShowFromCalButtonGroup->addButton( mShowHolidaysFromCalBox );
-  mShowFromCalButtonGroup->addButton( mShowSpecialsFromCalBox );
-  mShowFromKABButtonGroup = new QButtonGroup( this );
-  mShowFromKABButtonGroup->setExclusive( false );
-  mShowFromKABButtonGroup->addButton( mShowBirthdaysFromKABBox );
-  mShowFromKABButtonGroup->addButton( mShowAnniversariesFromKABBox );
-
   customDaysChanged( 7 );
 
-  connect( mDaysButtonGroup,
-           SIGNAL(buttonClicked(int)), SLOT(modified()) );
-  connect( mDaysButtonGroup,
-           SIGNAL(buttonClicked(int)), SLOT(buttonClicked(int)) );
-  connect( mShowFromCalButtonGroup,
-           SIGNAL(buttonClicked(int)), SLOT(modified()) );
-  connect( mShowFromKABButtonGroup,
-           SIGNAL(buttonClicked(int)), SLOT(modified()) );
-  connect( mCustomDays,
-           SIGNAL(valueChanged(int)), SLOT(modified()) );
-  connect( mCustomDays,
-           SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
+  connect( mDateTodayButton, SIGNAL(clicked(bool)), SLOT(modified()) );
+  connect( mDateMonthButton, SIGNAL(clicked(bool)), SLOT(modified()) );
+  connect( mDateRangeButton, SIGNAL(clicked(bool)), SLOT(modified()) );
+
+  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
+  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
+
+  connect( mShowBirthdaysFromCalBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect( mShowAnniversariesFromCalBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect( mShowHolidaysFromCalBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect( mShowSpecialsFromCalBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+
+  connect( mShowBirthdaysFromKABBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect( mShowAnniversariesFromKABBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+
 
   KAcceleratorManager::manage( this );
 
@@ -144,19 +132,13 @@ void KCMSDSummary::save()
   KConfigGroup group = config.group( "Days" );
 
   int days;
-  switch ( mDaysButtonGroup->checkedId() ) {
-  case 0:
+if ( mDateTodayButton->isChecked() ) {
     days = 1;
-    break;
-  case 1:
+  } else if ( mDateMonthButton->isChecked() ) {
     days = 31;
-    break;
-  case 2:
-  default:
+  } else {
     days = mCustomDays->value();
-    break;
   }
-
   group.writeEntry( "DaysToShow", days );
 
   group = config.group( "Show" );
