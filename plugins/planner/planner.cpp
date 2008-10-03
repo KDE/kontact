@@ -656,6 +656,9 @@ void Planner::initSdList( const QDate &date )
   if( mHolidaysCal ){
     if( initHolidays() ){
       Q_FOREACH( LibKHolidays::KHoliday holiday, mHolidays->getHolidays( date ) ){
+        if( !mSpecialOccasionsCal && holiday.Category != LibKHolidays::KHolidays::HOLIDAY){
+          continue;
+        }
         SDEntry entry;
         entry.type = IncidenceTypeEvent;
         entry.category = ( holiday.Category == LibKHolidays::KHolidays::HOLIDAY )?

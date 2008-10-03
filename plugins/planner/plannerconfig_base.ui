@@ -38,7 +38,7 @@
         <x>0</x>
         <y>0</y>
         <width>519</width>
-        <height>308</height>
+        <height>322</height>
        </rect>
       </property>
       <attribute name="title" >
@@ -48,7 +48,7 @@
        <item>
         <widget class="QGroupBox" name="mGeneralBox" >
          <property name="title" >
-          <string/>
+          <string>General Configuration</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout" >
           <item>
@@ -78,9 +78,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="mTodo" >
+           <widget class="QCheckBox" name="mUnderline" >
             <property name="text" >
-             <string>Show To-dos in Planner</string>
+             <string>Underline Links</string>
             </property>
             <property name="checked" >
              <bool>true</bool>
@@ -88,9 +88,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="mUnderline" >
+           <widget class="QCheckBox" name="mTodo" >
             <property name="text" >
-             <string>Underline Links</string>
+             <string>Show To-dos in Planner</string>
             </property>
             <property name="checked" >
              <bool>true</bool>
@@ -113,7 +113,7 @@
        <item>
         <widget class="QGroupBox" name="mDaysGroup" >
          <property name="title" >
-          <string>Show To-dos Due</string>
+          <string>Show Calendar Days</string>
          </property>
          <layout class="QGridLayout" >
           <property name="margin" >
@@ -191,11 +191,11 @@
         <x>0</x>
         <y>0</y>
         <width>519</width>
-        <height>308</height>
+        <height>322</height>
        </rect>
       </property>
       <attribute name="title" >
-       <string>To-do's/Special Dates</string>
+       <string>To-do's / Special Dates</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3" >
        <item>
@@ -260,7 +260,7 @@
        <item>
         <widget class="QGroupBox" name="mSdBox" >
          <property name="title" >
-          <string/>
+          <string>Show these Special Dates</string>
          </property>
          <property name="checkable" >
           <bool>false</bool>
