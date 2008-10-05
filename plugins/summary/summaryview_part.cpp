@@ -73,9 +73,6 @@ SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *,
 
   initGUI( core );
 
-  connect( KGlobalSettings::self(), SIGNAL(kdisplayPaletteChanged()), SLOT(slotAdjustPalette()) );
-  slotAdjustPalette();
-
   setDate( QDate::currentDate() );
   connect( mCore, SIGNAL(dayChanged(const QDate&)),
            SLOT(setDate(const QDate&)) );
@@ -386,8 +383,12 @@ void SummaryViewPart::slotTextChanged()
 
 void SummaryViewPart::slotAdjustPalette()
 {
-  mMainWidget->setBackgroundRole( QPalette::Base );
-  mMainWidget->setForegroundRole( QPalette::Text );
+    mMainWidget->setStyleSheet( 
+      "#mMainWidget { "
+      " background: palette(base);"
+      " background-image: url(:/summaryview/kontact_bg.png);"
+      " background-position: bottom right;" 
+      " background-repeat: no-repeat; }" );
 }
 
 void SummaryViewPart::setDate( const QDate &newDate )
@@ -443,9 +444,13 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   sa->setWidgetResizable( true );
 
   mMainWidget = new QFrame;
+  mMainWidget->setObjectName("mMainWidget");
   sa->setWidget( mMainWidget );
   mMainWidget->setFocusPolicy( Qt::StrongFocus );
   setWidget( sa );
+
+  connect( KGlobalSettings::self(), SIGNAL(kdisplayPaletteChanged()), SLOT(slotAdjustPalette()) );
+  slotAdjustPalette();
 
   mMainLayout = new QVBoxLayout( mMainWidget );
   mMainLayout->setSpacing( KDialog::spacingHint() );
@@ -454,9 +459,7 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   QHBoxLayout *hbl = new QHBoxLayout();
   mMainLayout->addItem( hbl );
   mUsernameLabel = new QLabel( mMainWidget );
-  mUsernameLabel->setFont( KGlobalSettings::generalFont() );
   mDateLabel = new QLabel( mMainWidget );
-  mDateLabel->setFont( KGlobalSettings::generalFont() );
   if ( !QApplication::isRightToLeft() ) {
     mUsernameLabel->setAlignment( Qt::AlignLeft );
     hbl->addWidget( mUsernameLabel );
