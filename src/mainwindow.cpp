@@ -308,6 +308,8 @@ void MainWindow::initWidgets()
 {
   QWidget *mTopWidget = new QWidget( this );
   QVBoxLayout *layout = new QVBoxLayout;
+  layout->setMargin(0);
+  layout->setSpacing(0);
   mTopWidget->setLayout( layout );
   setCentralWidget( mTopWidget );
 
