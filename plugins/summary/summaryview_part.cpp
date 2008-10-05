@@ -167,8 +167,6 @@ void SummaryViewPart::updateWidgets()
     Kontact::Summary *summary = plugin->createSummaryWidget( mFrame );
     if ( summary ) {
       if ( summary->summaryHeight() > 0 ) {
-        summary->layout()->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-        summary->layout()->setContentsMargins( 3, 3, 3, 3 );
         mSummaries.insert( plugin->identifier(), summary );
 
         connect( summary, SIGNAL(message(const QString&)),
@@ -218,7 +216,6 @@ void SummaryViewPart::updateWidgets()
   mRightColumn = new QVBoxLayout();
   layout->addLayout( mRightColumn );
   mRightColumn->setSpacing( KDialog::spacingHint() );
-  mRightColumn->addSpacerItem( new QSpacerItem( 200, 1 ) );
 
   QStringList::Iterator strIt;
   for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
