@@ -142,8 +142,10 @@ void KCMKontactSummary::load()
 
   mPluginList = KPluginInfo::fromServices( offers, &config, "Plugins" );
   KPluginInfo::List::Iterator it;
+  KConfig *config = new KConfig("kontactrc");
+  KConfigGroup *cg = new KConfigGroup( conf, "Plugins" );
   for ( it = mPluginList.begin(); it != mPluginList.end(); ++it ) {
-    (*it)->load();
+      (*it)->load( cg );
 
     if ( !(*it)->isPluginEnabled() )
       continue;
