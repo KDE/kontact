@@ -26,6 +26,7 @@
 
 #include "summaryeventinfo.h"
 
+#include <libkdepim/kpimprefs.h>
 #include <korganizer/stdcalendar.h>
 #include <kcal/incidenceformatter.h>
 
@@ -81,21 +82,21 @@ void SummaryEventInfo::dateDiff( const QDate &date, int &days )
   int offset = currentDate.daysTo( eventDate );
   if ( offset < 0 ) {
     days = 365 + offset;
-    if ( QDate::isLeapYear( QDate::currentDate().year() ) )
+    if ( QDate::isLeapYear( QDate::currentDate().year() ) ) {
       days++;
+    }
   } else {
     days = offset;
   }
 }
-
 
 SummaryEventInfo::SummaryEventInfo()
   : makeBold( false )
 {
 }
 
-SummaryEventInfo::List SummaryEventInfo::eventsForDate(
-    const QDate &date, KCal::Calendar *calendar )
+SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
+                                                        KCal::Calendar *calendar )
 {
   KCal::Event *ev;
 
@@ -105,6 +106,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate(
   KCal::Event::List events;
   events.setAutoDelete( true );
   KDateTime qdt;
+  KDateTime::Spec spec = KPIM::KPimPrefs::timeSpec();
   QDate currentDate = QDate::currentDate();
 
   // prevent implicitely sharing while finding recurring events
@@ -156,8 +158,9 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate(
     }
 
     QDate startOfMultiday = ev->dtStart().date();
-    if ( startOfMultiday < currentDate )
+    if ( startOfMultiday < currentDate ) {
       startOfMultiday = currentDate;
+    }
     bool firstDayOfMultiday = ( date == startOfMultiday );
 
     // If this date is part of a floating, multiday event, then we
@@ -175,11 +178,11 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate(
     QDate sD = QDate( date.year(), date.month(), date.day() );
     if ( ( sD.month() == currentDate.month() ) &&
           ( sD.day()   == currentDate.day() ) ) {
-      str = i18nc( "@label the appointment is today", "Today" );
+      str = i18nc( "the appointment is today", "Today" );
       summaryEvent->makeBold = true;
     } else if ( ( sD.month() == currentDate.addDays( 1 ).month() ) &&
                 ( sD.day()   == currentDate.addDays( 1 ).day() ) ) {
-      str = i18nc( "@label the appointment is tomorrow", "Tomorrow" );
+      str = i18nc( "the appointment is tomorrow", "Tomorrow" );
     } else {
       str = KGlobal::locale()->formatDate( sD, KLocale::FancyLongDate );
     }
@@ -188,17 +191,18 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate(
     // Print the date span for multiday, floating events, for the
     // first day of the event only.
     if ( ev->isMultiDay() && ev->allDay() && firstDayOfMultiday && span > 1 ) {
-      str = KGlobal::locale()->formatDate( ev->dtStart().date(), KLocale::FancyLongDate );
-      str += " -\n " +
-              KGlobal::locale()->formatDate( ev->dtEnd().date(), KLocale::FancyLongDate );
+      str = ev->dtStartDateStr( false, spec ) +
+            " -\n " +
+            ev->dtEndDateStr( false, spec );
     }
     summaryEvent->dateSpan = str;
 
     // Days to go label
     str = "";
     dateDiff( startOfMultiday, daysTo );
-    if ( ev->isMultiDay() && !ev->allDay() )
+    if ( ev->isMultiDay() && !ev->allDay() ) {
       dateDiff( date, daysTo );
+    }
     if ( daysTo > 0 ) {
       str = i18np( "in 1 day", "in %1 days", daysTo );
     } else {
@@ -213,7 +217,8 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate(
     }
     summaryEvent->summaryText = str;
     summaryEvent->summaryUrl = ev->uid();
-    QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
+    QString tipText(
+      KCal::IncidenceFormatter::toolTipStr( ev, true, KPIM::KPimPrefs::timeSpec() ) );
     if ( !tipText.isEmpty() ) {
       summaryEvent->summaryTooltip = tipText;
     }
@@ -221,8 +226,8 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate(
     // Time range label (only for non-floating events)
     str = "";
     if ( !ev->allDay() ) {
-      QTime sST = ev->dtStart().time();
-      QTime sET = ev->dtEnd().time();
+      QTime sST = ev->dtStart().toTimeSpec( spec ).time();
+      QTime sET = ev->dtEnd().toTimeSpec( spec ).time();
       if ( ev->isMultiDay() ) {
         if ( ev->dtStart().date() < date ) {
           sST = QTime( 0, 0 );
