@@ -67,6 +67,5 @@ Terminal=false
 X-KDE-StartupNotify=true
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.kontact
-X-KDE-ServiceTypes=DBUS/ResourceBackend/IMAP,DBUS/Mailer
 Categories=Qt;KDE;Office;
 X-DocPath=kontact/index.html
