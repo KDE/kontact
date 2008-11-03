@@ -408,6 +408,7 @@ void MainWindow::initAboutScreen()
 void MainWindow::setupActions()
 {
   actionCollection()->addAction( KStandardAction::Quit, this, SLOT(slotQuit()) );
+  connect( qApp, SIGNAL(lastWindowClosed()), qApp, SLOT(quit()));
 
   mNewActions = new KToolBarPopupAction(
     KIcon( "" ),
