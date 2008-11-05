@@ -63,6 +63,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mLayout = new QGridLayout();
   mainLayout->addItem( mLayout );
   mLayout->setSpacing( 3 );
+  mLayout->setColumnStretch( 1, 1 );
   mLayout->setRowStretch( 6, 1 );
 
   slotUnreadCountChanged();
@@ -95,7 +96,6 @@ void SummaryWidget::updateSummary( bool )
 
 void SummaryWidget::slotUnreadCountChanged()
 {
-  kDebug();
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
   QDBusReply<QStringList> reply = kmail.folderList();
   if ( reply.isValid() ) {
@@ -122,6 +122,7 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
     activeFolders = config.readEntry( "ActiveFolders", QStringList() );
   }
 
+  QLabel *label = 0;
   int counter = 0;
   QStringList::ConstIterator it;
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
@@ -151,18 +152,17 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
         KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
         urlLabel->installEventFilter( this );
         urlLabel->setAlignment( Qt::AlignLeft );
-        urlLabel->show();
-        connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
-                 SLOT(selectFolder(const QString&)) );
         mLayout->addWidget( urlLabel, counter, 0 );
         mLabels.append( urlLabel );
 
-        QLabel *label = new QLabel( i18nc( "%1: number of unread messages "
-                                           "%2: total number of messages", "%1 / %2",
-                                           numUnreadMsg, numMsg ), this );
+        connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
+                 SLOT(selectFolder(const QString&)) );
+
+        label = new QLabel( i18nc( "%1: number of unread messages "
+                                   "%2: total number of messages",
+                                   "%1 / %2", numUnreadMsg, numMsg ), this );
         label->setAlignment( Qt::AlignLeft );
-        label->show();
-        mLayout->addWidget( label, counter, 2 );
+        mLayout->addWidget( label, counter, 1 );
         mLabels.append( label );
 
         counter++;
@@ -171,11 +171,15 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
   }
 
   if ( counter == 0 ) {
-    QLabel *label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );
+    label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );
     label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addWidget( label, 0, 0, 1, 3 );
-    label->show();
+    mLayout->addWidget( label, 0, 2 );
     mLabels.append( label );
+  }
+
+  QList<QLabel*>::iterator lit;
+  for ( lit = mLabels.begin(); lit != mLabels.end(); ++lit ) {
+    (*lit)->show();
   }
 }
 
