@@ -38,12 +38,13 @@
 #include <kurllabel.h>
 #include <kparts/part.h>
 
+#include <QEvent>
+#include <QGridLayout>
 #include <QLabel>
 #include <QLayout>
 #include <QPixmap>
+#include <QToolTip>
 #include <QVBoxLayout>
-#include <QGridLayout>
-#include <QEvent>
 
 #include <time.h>
 
@@ -63,7 +64,7 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mLayout = new QGridLayout();
   mainLayout->addItem( mLayout );
   mLayout->setSpacing( 3 );
-  mLayout->setColumnStretch( 1, 1 );
+  mLayout->setColumnStretch( 2, 1 );
   mLayout->setRowStretch( 6, 1 );
 
   slotUnreadCountChanged();
@@ -122,6 +123,7 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
     activeFolders = config.readEntry( "ActiveFolders", QStringList() );
   }
 
+  QString defName = "view-pim-mail";
   QLabel *label = 0;
   int counter = 0;
   QStringList::ConstIterator it;
@@ -141,6 +143,19 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
           continue;
         }
 
+        // folder icon
+        QString name = folderInterface.unreadIconPath();
+        if ( name.isEmpty() ) {
+          name = defName;
+        }
+        label = new QLabel( this );
+        label->setPixmap( KIconLoader::global()->loadIcon( name, KIconLoader::Small ) );
+        label->setMaximumWidth( label->minimumSizeHint().width() );
+        label->setAlignment( Qt::AlignVCenter );
+        mLayout->addWidget( label, counter, 0 );
+        mLabels.append( label );
+
+        // folder path
         QString folderPath;
         QDBusReply<QString> replyFolderPath;
         if ( config.readEntry( "ShowFullPath", true ) ) {
@@ -152,19 +167,29 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
         KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
         urlLabel->installEventFilter( this );
         urlLabel->setAlignment( Qt::AlignLeft );
-        mLayout->addWidget( urlLabel, counter, 0 );
+        mLayout->addWidget( urlLabel, counter, 1 );
         mLabels.append( urlLabel );
 
         connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
                  SLOT(selectFolder(const QString&)) );
 
+        // unread of total
         label = new QLabel( i18nc( "%1: number of unread messages "
                                    "%2: total number of messages",
                                    "%1 / %2", numUnreadMsg, numMsg ), this );
         label->setAlignment( Qt::AlignLeft );
-        mLayout->addWidget( label, counter, 1 );
+        mLayout->addWidget( label, counter, 2 );
         mLabels.append( label );
 
+        // tooltip
+        urlLabel->setToolTip( i18n( "<qt><b>%1</b>"
+                                    "<br/>Total: %2<br/>"
+                                    "Unread: %3</qt>",
+                                    folderPath,
+                                    numMsg,
+                                    numUnreadMsg ) );
+        //TODO: put the folder size in the tooltip
+        //so we need to add a folderSize() to the interface
         counter++;
       }
     }
