@@ -258,13 +258,17 @@ MainWindow::~MainWindow()
 
   QList<KParts::Part*> parts = mPartManager->parts();
 
-  Q_FOREACH( KParts::Part *p, parts ) {
-    delete p;
-    p = 0;
-  }
+//  Q_FOREACH( KParts::Part *p, parts ) {
+//    delete p;
+//    p = 0;
+//  }
 
   Prefs::self()->writeConfig();
 
+  PluginList::ConstIterator end = mPlugins.end();
+  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
+    delete *it;
+  }
   // Make sure we really return from the event loop. It could happen that a KJob
   // somewhere is still running because a part forgot to delete it. And a running
   // KJob still has a reference to a KGlobal.
