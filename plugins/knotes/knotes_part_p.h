@@ -55,7 +55,6 @@
 #include <kxmlguiclient.h>
 #include <kxmlguifactory.h>
 #include <kxmlguibuilder.h>
-#include <kdeversion.h>
 
 #include <QLayout>
 #include <QLabel>
