@@ -249,7 +249,8 @@ void MainWindow::initObject()
 MainWindow::~MainWindow()
 {
   if ( mCurrentPlugin ) {
-    saveMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+    saveMainWindowSettings( KGlobal::config()->group(
+                              QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
 
   createGUI( 0 );
@@ -284,8 +285,9 @@ void MainWindow::setActivePluginModule( const QString &module )
 
 bool MainWindow::pluginActionWeightLessThan( const QAction *left, const QAction *right )
 {
-  // Since this lessThan method is used only for the toolbar (which is on the inverse layout direction
-  // than the rest of the system), we add the elements on the exactly inverse order. (ereslibre)
+  // Since this lessThan method is used only for the toolbar (which is on
+  // the inverse layout direction than the rest of the system), we add the
+  // elements on the exactly inverse order. (ereslibre)
   return !pluginWeightLessThan( left->data().value<Kontact::Plugin*>(),
                                 right->data().value<Kontact::Plugin*>() );
 }
@@ -743,7 +745,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   QApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
   if ( mCurrentPlugin ) {
-    saveMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+    saveMainWindowSettings( KGlobal::config()->group(
+                              QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
 
   KParts::Part *part = plugin->part();
@@ -876,7 +879,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     addToolBar( toolBarArea( navigatorToolBar ), navigatorToolBar );
   }
 
-  applyMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( plugin->identifier() ) ) );
+  applyMainWindowSettings( KGlobal::config()->group(
+                             QString( "MainWindow%1" ).arg( plugin->identifier() ) ) );
 
   QApplication::restoreOverrideCursor();
 }
@@ -990,6 +994,7 @@ void MainWindow::slotPreferences()
       }
     }
 
+    dlg->setHelp( "main-config", "kontact" );
     dlg->addPluginInfos( filteredPlugins );
     connect( dlg, SIGNAL(pluginSelectionChanged()), SLOT(pluginsChanged()) );
   }
@@ -1043,7 +1048,8 @@ void MainWindow::configureShortcuts()
 void MainWindow::configureToolbars()
 {
   if ( mCurrentPlugin ) {
-    saveMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+    saveMainWindowSettings( KGlobal::config()->group(
+                              QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
   KEditToolBar edit( factory() );
   connect( &edit, SIGNAL(newToolbarConfig()), this, SLOT(slotNewToolbarConfig()) );
@@ -1056,7 +1062,8 @@ void MainWindow::slotNewToolbarConfig()
     createGUI( mCurrentPlugin->part() );
   }
   if ( mCurrentPlugin ) {
-    applyMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+    applyMainWindowSettings( KGlobal::config()->group(
+                               QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
 }
 
