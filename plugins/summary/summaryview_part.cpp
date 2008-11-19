@@ -153,8 +153,8 @@ void SummaryViewPart::updateWidgets()
   QStringList loadedSummaries;
 
   QList<Kontact::Plugin*> plugins = mCore->pluginList();
-  QList<Kontact::Plugin*>::ConstIterator end = plugins.end();
-  QList<Kontact::Plugin*>::ConstIterator it = plugins.begin();
+  QList<Kontact::Plugin*>::ConstIterator end = plugins.constEnd();
+  QList<Kontact::Plugin*>::ConstIterator it = plugins.constBegin();
   for ( ; it != end; ++it ) {
     Kontact::Plugin *plugin = *it;
     if ( !activeSummaries.contains( plugin->identifier() ) ) {
@@ -410,7 +410,7 @@ void SummaryViewPart::slotConfigure()
            this, SLOT(updateWidgets()) );
 
   QStringList::ConstIterator strIt;
-  for ( strIt = modules.begin(); strIt != modules.end(); ++strIt ) {
+  for ( strIt = modules.constBegin(); strIt != modules.constEnd(); ++strIt ) {
     dlg.addModule( *strIt );
   }
 
@@ -422,10 +422,10 @@ QStringList SummaryViewPart::configModules() const
   QStringList modules;
 
   QMap<QString, Kontact::Summary*>::ConstIterator it;
-  for ( it = mSummaries.begin(); it != mSummaries.end(); ++it ) {
+  for ( it = mSummaries.constBegin(); it != mSummaries.constEnd(); ++it ) {
     QStringList cm = it.value()->configModules();
     QStringList::ConstIterator strIt;
-    for ( strIt = cm.begin(); strIt != cm.end(); ++strIt ) {
+    for ( strIt = cm.constBegin(); strIt != cm.constEnd(); ++strIt ) {
       if ( !(*strIt).isEmpty() && !modules.contains( *strIt ) ) {
         modules.append( *strIt );
       }
@@ -520,7 +520,7 @@ void SummaryViewPart::saveLayout()
 QString SummaryViewPart::widgetName( QWidget *widget ) const
 {
   QMap<QString, Kontact::Summary*>::ConstIterator it;
-  for ( it = mSummaries.begin(); it != mSummaries.end(); ++it ) {
+  for ( it = mSummaries.constBegin(); it != mSummaries.constEnd(); ++it ) {
     if ( it.value() == widget ) {
       return it.key();
     }

@@ -101,7 +101,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
   KCal::Event *ev;
 
   KCal::Event::List events_orig = calendar->events( date, calendar->timeSpec() );
-  KCal::Event::List::ConstIterator it = events_orig.begin();
+  KCal::Event::List::ConstIterator it = events_orig.constBegin();
 
   KCal::Event::List events;
   events.setAutoDelete( true );
@@ -111,7 +111,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
 
   // prevent implicitely sharing while finding recurring events
   // replacing the QDate with the currentDate
-  for ( ; it != events_orig.end(); ++it ) {
+  for ( ; it != events_orig.constEnd(); ++it ) {
     ev = (*it)->clone();
     if ( ev->recursOn( date, calendar->timeSpec() ) ) {
       qdt = ev->dtStart();
@@ -134,7 +134,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
 
   List eventInfoList;
 
-  for ( it=events.begin(); it != events.end(); ++it ) {
+  for ( it=events.constBegin(); it != events.constEnd(); ++it ) {
     ev = *it;
     int daysTo = -1;
 

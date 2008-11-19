@@ -289,12 +289,12 @@ void SDSummaryWidget::updateView()
                                                   KCal::SortDirectionAscending );
     KCal::Event *ev;
     KCal::Event::List::ConstIterator it;
-    for ( it = events.begin(); it != events.end(); ++it ) {
+    for ( it = events.constBegin(); it != events.constEnd(); ++it ) {
       ev = *it;
       if ( !ev->categoriesStr().isEmpty() ) {
         QStringList::ConstIterator it2;
         QStringList c = ev->categories();
-        for ( it2 = c.begin(); it2 != c.end(); ++it2 ) {
+        for ( it2 = c.constBegin(); it2 != c.constEnd(); ++it2 ) {
 
           // Append Birthday Event?
           if ( mShowBirthdaysFromCal && ( ( *it2 ).toUpper() == i18n( "BIRTHDAY" ) ) ) {
@@ -375,8 +375,8 @@ void SDSummaryWidget::updateView()
             dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
             dt=dt.addDays(1) ) {
         QList<LibKHolidays::KHoliday> holidays = mHolidays->getHolidays( dt );
-        QList<LibKHolidays::KHoliday>::ConstIterator it = holidays.begin();
-        for ( ; it != holidays.end(); ++it ) {
+        QList<LibKHolidays::KHoliday>::ConstIterator it = holidays.constBegin();
+        for ( ; it != holidays.constEnd(); ++it ) {
           SDEntry entry;
           entry.type = IncidenceTypeEvent;
           entry.category = ( (*it).Category == LibKHolidays::KHolidays::HOLIDAY )?
@@ -566,8 +566,8 @@ void SDSummaryWidget::updateView()
     mLabels.append( label );
   }
 
-  QList<QLabel*>::iterator lit;
-  for ( lit = mLabels.begin(); lit != mLabels.end(); ++lit ) {
+  QList<QLabel*>::ConstIterator lit;
+  for ( lit = mLabels.constBegin(); lit != mLabels.constEnd(); ++lit ) {
     (*lit)->show();
   }
 
@@ -683,7 +683,7 @@ bool SDSummaryWidget::check( KCal::ResourceCalendar *cal, const QDate &date,
 
   KCal::Event::List events = cal->rawEventsForDate( date );
   KCal::Event::List::ConstIterator it;
-  for ( it = events.begin(); it != events.end(); ++it ) {
+  for ( it = events.constBegin(); it != events.constEnd(); ++it ) {
     if ( (*it)->summary() == summary ) {
       return true;
     }
