@@ -126,8 +126,8 @@ int ServiceStarter::startServiceFor( const QString &serviceType,
                                      int flags )
 {
   if ( mPlugins ) {
-    PluginList::ConstIterator end = mPlugins->end();
-    for ( PluginList::ConstIterator it = mPlugins->begin(); it != end; ++it ) {
+    PluginList::ConstIterator end = mPlugins->constEnd();
+    for ( PluginList::ConstIterator it = mPlugins->constBegin(); it != end; ++it ) {
       if ( (*it)->createDBUSInterface( serviceType ) ) {
         kDebug() << "found interface for" << serviceType;
         if ( dbusService ) {
@@ -266,8 +266,8 @@ MainWindow::~MainWindow()
 
   Prefs::self()->writeConfig();
 
-  PluginList::ConstIterator end = mPlugins.end();
-  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
+  PluginList::ConstIterator end = mPlugins.constEnd();
+  for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
     delete *it;
   }
   // Make sure we really return from the event loop. It could happen that a KJob
@@ -300,8 +300,8 @@ bool MainWindow::pluginWeightLessThan( const Kontact::Plugin *left, const Kontac
 void MainWindow::activatePluginModule()
 {
   if ( !mActiveModule.isEmpty() ) {
-    PluginList::ConstIterator end = mPlugins.end();
-    for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
+    PluginList::ConstIterator end = mPlugins.constEnd();
+    for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
       if ( ( *it )->identifier().contains( mActiveModule ) ) {
         selectPlugin( *it );
         return;
@@ -456,8 +456,8 @@ bool MainWindow::isPluginLoaded( const KPluginInfo &info )
 
 Plugin *MainWindow::pluginFromInfo( const KPluginInfo &info )
 {
-  PluginList::ConstIterator end = mPlugins.end();
-  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
+  PluginList::ConstIterator end = mPlugins.constEnd();
+  for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
     if ( (*it)->identifier() == info.pluginName() ) {
       return *it;
     }
@@ -471,7 +471,7 @@ void MainWindow::loadPlugins()
 
   int i;
   KPluginInfo::List::ConstIterator it;
-  for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
+  for ( it = mPluginInfos.constBegin(); it != mPluginInfos.constEnd(); ++it ) {
     if ( !it->isPluginEnabled() ) {
       continue;
     }
@@ -553,9 +553,9 @@ void MainWindow::loadPlugins()
 
 void MainWindow::unloadPlugins()
 {
-  KPluginInfo::List::ConstIterator end = mPluginInfos.end();
+  KPluginInfo::List::ConstIterator end = mPluginInfos.constEnd();
   KPluginInfo::List::ConstIterator it;
-  for ( it = mPluginInfos.begin(); it != end; ++it ) {
+  for ( it = mPluginInfos.constBegin(); it != end; ++it ) {
     if ( !it->isPluginEnabled() ) {
       removePlugin( *it );
     }
@@ -564,10 +564,10 @@ void MainWindow::unloadPlugins()
 
 void MainWindow::updateShortcuts()
 {
-  ActionPluginList::ConstIterator end = mActionPlugins.end();
+  ActionPluginList::ConstIterator end = mActionPlugins.constEnd();
   ActionPluginList::ConstIterator it;
   int i = 0;
-  for ( it = mActionPlugins.begin(); it != end; ++it ) {
+  for ( it = mActionPlugins.constBegin(); it != end; ++it ) {
     KAction *action = static_cast<KAction*>( *it );
     QString shortcut = QString( "Ctrl+%1" ).arg( mActionPlugins.count() - i );
     action->setShortcut( KShortcut( shortcut ) );
@@ -862,7 +862,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   QStringList invisibleActions = plugin->invisibleToolbarActions();
 
   QStringList::ConstIterator it;
-  for ( it = invisibleActions.begin(); it != invisibleActions.end(); ++it ) {
+  for ( it = invisibleActions.constBegin(); it != invisibleActions.constEnd(); ++it ) {
     QAction *action = part->actionCollection()->action( (*it) );
     if ( action ) {
       QList<KToolBar*> toolbars = toolBars();
@@ -898,8 +898,8 @@ void MainWindow::slotActionTriggered()
 
 void MainWindow::selectPlugin( const QString &pluginName )
 {
-  PluginList::ConstIterator end = mPlugins.end();
-  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
+  PluginList::ConstIterator end = mPlugins.constEnd();
+  for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
     if ( ( *it )->identifier() == pluginName ) {
       selectPlugin( *it );
       return;
@@ -920,7 +920,7 @@ void MainWindow::loadSettings()
 
   // Preload Plugins. This _must_ happen before the default part is loaded
   PluginList::ConstIterator it;
-  for ( it = mDelayedPreload.begin(); it != mDelayedPreload.end(); ++it ) {
+  for ( it = mDelayedPreload.constBegin(); it != mDelayedPreload.constEnd(); ++it ) {
     selectPlugin( *it );
   }
   selectPlugin( Prefs::self()->mActivePlugin );
@@ -955,8 +955,8 @@ void MainWindow::slotShowIntroduction()
 void MainWindow::showTip( bool force )
 {
   QStringList tips;
-  PluginList::ConstIterator end = mPlugins.end();
-  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
+  PluginList::ConstIterator end = mPlugins.constEnd();
+  for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
     QString file = (*it)->tipFile();
     if ( !file.isEmpty() ) {
       tips.append( file );
@@ -982,10 +982,10 @@ void MainWindow::slotPreferences()
     // do not show settings of components running standalone
     KPluginInfo::List filteredPlugins = mPluginInfos;
     PluginList::ConstIterator it;
-    for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
+    for ( it = mPlugins.constBegin(); it != mPlugins.constEnd(); ++it ) {
       if ( (*it)->isRunningStandalone() ) {
         KPluginInfo::List::ConstIterator infoIt;
-        for ( infoIt = filteredPlugins.begin(); infoIt != filteredPlugins.end(); ++infoIt ) {
+        for ( infoIt = filteredPlugins.constBegin(); infoIt != filteredPlugins.constEnd(); ++infoIt ) {
           if ( infoIt->pluginName() == (*it)->identifier() ) {
             filteredPlugins.removeAll( *infoIt );
             break;

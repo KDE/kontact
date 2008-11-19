@@ -52,8 +52,8 @@ AboutDialog::AboutDialog( Kontact::Core *core )
                 KGlobal::mainComponent().aboutData() );
 
   QList<Plugin*> plugins = mCore->pluginList();
-  QList<Plugin*>::ConstIterator end = plugins.end();
-  QList<Plugin*>::ConstIterator it = plugins.begin();
+  QList<Plugin*>::ConstIterator end = plugins.constEnd();
+  QList<Plugin*>::ConstIterator it = plugins.constBegin();
   for ( ; it != end; ++it ) {
     addAboutPlugin( *it );
   }
