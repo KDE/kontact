@@ -117,12 +117,6 @@
         <property name="acceptDrops" >
          <bool>true</bool>
         </property>
-        <property name="toolTip" >
-         <string>Check this box to hide to-dos that are 100% complete.</string>
-        </property>
-        <property name="whatsThis" >
-         <string>Check this box to hide to-dos that are 100% complete</string>
-        </property>
         <property name="text" >
          <string>Show &amp;birthdays</string>
         </property>
@@ -133,12 +127,6 @@
       </item>
       <item>
        <widget class="QCheckBox" name="mShowAnniversariesFromCalBox" >
-        <property name="toolTip" >
-         <string>Check this box to hide to-dos that do not have a due date set</string>
-        </property>
-        <property name="whatsThis" >
-         <string>Check this box to hide to-dos that do not have a due date set</string>
-        </property>
         <property name="text" >
          <string>Show &amp;anniversaries</string>
         </property>
@@ -149,12 +137,6 @@
       </item>
       <item>
        <widget class="QCheckBox" name="mShowHolidaysFromCalBox" >
-        <property name="toolTip" >
-         <string>Check this box to hide to-dos that have been started but are not complete yet</string>
-        </property>
-        <property name="whatsThis" >
-         <string>Check this box to hide to-dos that have been started but are not complete yet</string>
-        </property>
         <property name="text" >
          <string>Show &amp;holidays</string>
         </property>
@@ -165,12 +147,6 @@
       </item>
       <item>
        <widget class="QCheckBox" name="mShowSpecialsFromCalBox" >
-        <property name="toolTip" >
-         <string>Check this box to hide to-dos that have been started but are not complete yet</string>
-        </property>
-        <property name="whatsThis" >
-         <string>Check this box to hide to-dos that have been started but are not complete yet</string>
-        </property>
         <property name="text" >
          <string>Show s&amp;pecial occasions</string>
         </property>
@@ -199,12 +175,6 @@
         <property name="acceptDrops" >
          <bool>true</bool>
         </property>
-        <property name="toolTip" >
-         <string>Check this box to hide to-dos that are 100% complete.</string>
-        </property>
-        <property name="whatsThis" >
-         <string>Check this box to hide to-dos that are 100% complete</string>
-        </property>
         <property name="text" >
          <string>Show birth&amp;days</string>
         </property>
@@ -215,12 +185,6 @@
       </item>
       <item>
        <widget class="QCheckBox" name="mShowAnniversariesFromKABBox" >
-        <property name="toolTip" >
-         <string>Check this box to hide to-dos that do not have a due date set</string>
-        </property>
-        <property name="whatsThis" >
-         <string>Check this box to hide to-dos that do not have a due date set</string>
-        </property>
         <property name="text" >
          <string>Show anni&amp;versaries</string>
         </property>
