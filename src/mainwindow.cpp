@@ -239,7 +239,8 @@ void MainWindow::initObject()
 MainWindow::~MainWindow()
 {
   if ( mCurrentPlugin ) {
-    saveMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+    saveMainWindowSettings( KGlobal::config()->group(
+                              QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
 
   createGUI( 0 );
@@ -725,7 +726,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
   QApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
   if ( mCurrentPlugin ) {
-    saveMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+    saveMainWindowSettings( KGlobal::config()->group(
+                              QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
 
   KParts::Part *part = plugin->part();
@@ -847,7 +849,8 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     }
   }
 
-  applyMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( plugin->identifier() ) ) );
+  applyMainWindowSettings( KGlobal::config()->group(
+                             QString( "MainWindow%1" ).arg( plugin->identifier() ) ) );
 
   QApplication::restoreOverrideCursor();
 }
@@ -960,6 +963,7 @@ void MainWindow::slotPreferences()
       }
     }
 
+    dlg->setHelp( "main-config", "kontact" );
     dlg->addPluginInfos( filteredPlugins );
     connect( dlg, SIGNAL(pluginSelectionChanged()), SLOT(pluginsChanged()) );
   }
@@ -1013,7 +1017,8 @@ void MainWindow::configureShortcuts()
 void MainWindow::configureToolbars()
 {
   if ( mCurrentPlugin ) {
-    saveMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+    saveMainWindowSettings( KGlobal::config()->group(
+                              QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
   KEditToolBar edit( factory() );
   connect( &edit, SIGNAL(newToolbarConfig()), this, SLOT(slotNewToolbarConfig()) );
@@ -1026,7 +1031,8 @@ void MainWindow::slotNewToolbarConfig()
     createGUI( mCurrentPlugin->part() );
   }
   if ( mCurrentPlugin ) {
-    applyMainWindowSettings( KGlobal::config()->group( QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+    applyMainWindowSettings( KGlobal::config()->group(
+                               QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
 }
 
