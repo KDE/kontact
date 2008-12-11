@@ -20,7 +20,7 @@ kde4_add_library(kontactprivate SHARED ${kontactprivate_LIB_SRCS})
 kdepim4_link_unique_libraries(kontactprivate  ${KDE4_KPARTS_LIBS} kdepim kontactinterfaces ${KDE4_KUTILS_LIBS} ${KDE4_KHTML_LIBRARY} ${KDE4_KPIMUTILS_LIBS} ${KDE4_KDE3SUPPORT_LIBRARY} ${QT_QT3SUPPORT_LIBRARY})
 
 set_target_properties(kontactprivate PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
-install(TARGETS kontactprivate ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kontactprivate ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 
 ########### next target ###############
