@@ -103,6 +103,15 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
+  // Default settings
+  mDaysAhead = 7;
+  mShowBirthdaysFromKAB = true;
+  mShowBirthdaysFromCal = true;
+  mShowAnniversariesFromKAB = true;
+  mShowAnniversariesFromCal = true;
+  mShowHolidays = true;
+  mShowSpecialsFromCal = true;
+
   // Setup the Addressbook
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   connect( ab, SIGNAL(addressBookChanged(AddressBook*)),
