@@ -128,6 +128,102 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
 
     text = "";
 
+    text +="\
+    <i>This Free Software product was improved as part of a commercial project:</i>\
+    <h3>Credits</h3>\
+    v20080902.2  Project Kowi (March 2007 - )<br /><br />\
+    \
+    <b>Production / Project Coordination</b><br />\
+    Bernhard Reiter<br />\
+    <b>Director of Development</b><br />\
+    Till Adam\
+    <br /><br />\
+    \
+    <table border=\"0\" width=\"100%\"> \
+    <tr>\
+     <td colspan=\"2\">\
+      <b>Osnabr&uuml;ck Unit, Intevation GmbH</b>\
+     </td>\
+    </tr>\
+    <tr>\
+     <td width=\"60%\">\
+      Unit Lead<br />\
+      Senior QA, Packaging<br />\
+      QA, Packaging<br />\
+      Additional NSIS<br />\
+      Backup Coordinator\
+     </td>\
+     <td>\
+      Bernhard Reiter<br />\
+      Bernhard Herzog<br />\
+      Ludwig Reiter<br />\
+      Emanuel Sch&uuml;tze<br />\
+      Dr. Jan-Oliver Wagner\
+     </td>\
+    </tr>\
+    </table>\
+    <br /><br />\
+    \
+    <table border=\"0\" width=\"100%\">\
+    <tr>\
+     <td colspan=\"2\">\
+        <b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>\
+     </td>\
+    </tr>\
+    <tr>\
+     <td width=\"60%\">\
+      Unit Lead<br />\
+      Development<br />\
+      Development<br />\
+      Additional D. + Crypto<br />\
+      Crypto GUI Development\
+     </td>\
+     <td>\
+      Till Adam<br />\
+      Jaroslaw Staniek<br />\
+      Volker Krause<br />\
+      Frank Osterfeld<br />\
+      Marc Mutz\
+     </td>\
+    </tr>\
+    </table>\
+    <br /><br />\
+    \
+    <table border=\"0\" width=\"100%\">\
+    <tr>\
+     <td colspan=\"2\">\
+      <b>D&uuml;sseldorf Unit, g10 Code GmbH</b>\
+     </td>\
+    </tr>\
+    <tr>\
+     <td width=\"60%\">\
+      Crypto-Backend Porting<br />\
+      Crypto-Backend\
+     </td>\
+     <td>\
+      Werner Koch<br />\
+      Marcus Brinkmann\
+     </td>\
+    </tr>\
+    </table>\
+    <br /><br />\
+    \
+    <table border=\"0\" width=\"100%\">\
+    <tr>\
+     <td colspan=\"2\">\
+      <b>External QA Darmstadt, basysKom GmbH</b>\
+     </td>\
+    </tr>\
+    <tr>\
+     <td width=\"60%\">\
+      Unit-Lead\
+     </td>\
+     <td>\
+      Dr. Stefan Werden\
+     </td>\
+    </tr>\
+    </table><br /><br />";
+
     const QList<KAboutPerson> authors = about->authors();
     if ( !authors.isEmpty() ) {
       text += i18n( "<p><b>Authors:</b></p>" );
