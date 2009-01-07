@@ -414,6 +414,12 @@ void MainWindow::setupActions()
 {
   actionCollection()->addAction( KStandardAction::Quit, this, SLOT(slotQuit()) );
 
+#ifdef Q_WS_MACX
+ // ### This quits the application prematurely, for example when the composer window
+ // ### is closed while the main application is minimized to the systray
+  connect( qApp, SIGNAL(lastWindowClosed()), qApp, SLOT(quit()));
+#endif
+
   mNewActions = new KToolBarPopupAction(
     KIcon( "" ),
     i18nc( "@title:menu create new pim items (message,calendar,to-do,etc.)", "New" ), this );
