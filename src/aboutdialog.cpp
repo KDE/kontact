@@ -127,8 +127,43 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     topLayout->addWidget( personView, 1 );
 
     text = "";
+    const QList<KAboutPerson> authors = about->authors();
+    if ( !authors.isEmpty() ) {
+      text += i18n( "<p><b>Authors:</b></p>" );
 
-    text +="\
+      QList<KAboutPerson>::ConstIterator it;
+      for ( it = authors.begin(); it != authors.end(); ++it ) {
+        text += formatPerson( (*it).name(), (*it).emailAddress() );
+        if ( !(*it).task().isEmpty() ) {
+          text += "<i>" + (*it).task() + "</i><br>";
+        }
+      }
+    }
+
+    const QList<KAboutPerson> credits = about->credits();
+    if ( !credits.isEmpty() ) {
+      text += i18n( "<p><b>Thanks to:</b></p>" );
+
+      QList<KAboutPerson>::ConstIterator it;
+      for ( it = credits.begin(); it != credits.end(); ++it ) {
+        text += formatPerson( (*it).name(), (*it).emailAddress() );
+        if ( !(*it).task().isEmpty() ) {
+          text += "<i>" + (*it).task() + "</i><br>";
+        }
+      }
+    }
+
+    const QList<KAboutPerson> translators = about->translators();
+    if ( !translators.isEmpty() ) {
+      text += i18n( "<p><b>Translators:</b></p>" );
+
+      QList<KAboutPerson>::ConstIterator it;
+      for ( it = translators.begin(); it != translators.end(); ++it ) {
+       text += formatPerson( (*it).name(), (*it).emailAddress() );
+      }
+    }
+
+    text += "<br /><br />\
     <i>This Free Software product was improved as part of a commercial project:</i>\
     <h3>Credits</h3>\
     Project Kowi (March 2007 - )<br /><br />\
@@ -223,42 +258,6 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
      </td>\
     </tr>\
     </table><br /><br />";
-
-    const QList<KAboutPerson> authors = about->authors();
-    if ( !authors.isEmpty() ) {
-      text += i18n( "<p><b>Authors:</b></p>" );
-
-      QList<KAboutPerson>::ConstIterator it;
-      for ( it = authors.begin(); it != authors.end(); ++it ) {
-        text += formatPerson( (*it).name(), (*it).emailAddress() );
-        if ( !(*it).task().isEmpty() ) {
-          text += "<i>" + (*it).task() + "</i><br>";
-        }
-      }
-    }
-
-    const QList<KAboutPerson> credits = about->credits();
-    if ( !credits.isEmpty() ) {
-      text += i18n( "<p><b>Thanks to:</b></p>" );
-
-      QList<KAboutPerson>::ConstIterator it;
-      for ( it = credits.begin(); it != credits.end(); ++it ) {
-        text += formatPerson( (*it).name(), (*it).emailAddress() );
-        if ( !(*it).task().isEmpty() ) {
-          text += "<i>" + (*it).task() + "</i><br>";
-        }
-      }
-    }
-
-    const QList<KAboutPerson> translators = about->translators();
-    if ( !translators.isEmpty() ) {
-      text += i18n( "<p><b>Translators:</b></p>" );
-
-      QList<KAboutPerson>::ConstIterator it;
-      for ( it = translators.begin(); it != translators.end(); ++it ) {
-       text += formatPerson( (*it).name(), (*it).emailAddress() );
-      }
-    }
 
     personView->setText( text );
   }
