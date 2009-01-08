@@ -131,7 +131,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     text +="\
     <i>This Free Software product was improved as part of a commercial project:</i>\
     <h3>Credits</h3>\
-    v20080902.2  Project Kowi (March 2007 - )<br /><br />\
+    Project Kowi (March 2007 - )<br /><br />\
     \
     <b>Production / Project Coordination</b><br />\
     Bernhard Reiter<br />\
