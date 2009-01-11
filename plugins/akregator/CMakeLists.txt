@@ -1,5 +1,6 @@
 
 include_directories(${CMAKE_SOURCE_DIR}/akregator/src)
+include_directories( ${Boost_INCLUDE_DIRS} )
 
 ########### next target ###############
 
