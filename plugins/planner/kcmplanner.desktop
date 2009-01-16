@@ -12,6 +12,7 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 X-KDE-Weight=10
 
 Name=Planner
+Name[cs]=Plánovač
 Name[da]=Planlægningskalender
 Name[de]=Planer
 Name[es]=Calendario
@@ -39,6 +40,7 @@ Name[zh_CN]=安排计划
 Name[zh_TW]=行事曆
 Comment=Planner Setup
 Comment[ca]=Arranjament del Planner
+Comment[cs]=Nastavení plánovače
 Comment[da]=Indstilling af planlægningskalender
 Comment[de]=Planer-Einrichtung
 Comment[el]=Ρύθμιση του Planner

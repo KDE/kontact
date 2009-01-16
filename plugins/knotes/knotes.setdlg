@@ -1,6 +1,7 @@
 [Popup Notes]
 Name=Popup Notes
 Name[ca]=Notes emergents
+Name[cs]=Vyskakovací poznámky
 Name[da]=Pop-op-noter
 Name[de]=Haftnotizen
 Name[el]=Αναδυόμενες σημειώσεις
@@ -34,6 +35,7 @@ Name[zh_CN]=弹出式记事本
 Name[zh_TW]=彈出式便條
 Comment=Popup Notes Component
 Comment[ca]=Component de notes emergents
+Comment[cs]=Komponenta vyskakovacích poznámek
 Comment[da]=Pop-op-notekomponent
 Comment[de]=Haftnotizen-Komponente
 Comment[el]=Συστατικό αναδυόμενων σημειώσεων

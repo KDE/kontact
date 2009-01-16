@@ -14,6 +14,7 @@ X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=KMobileTools Plugin
 Comment[ca]=Connector del KMmobileTools
+Comment[cs]=KMobileTools modul
 Comment[da]=KMobileTools-plugin
 Comment[de]=Modul für Mobiltelefonverwaltung
 Comment[el]=Πρόσθετο KMmobileTools
@@ -44,6 +45,7 @@ Comment[zh_CN]=KMobileTools 插件
 Comment[zh_TW]=KMobileTools 外掛程式
 Name=Mobile Phones
 Name[ca]=Telèfons mòbils
+Name[cs]=Mobilní telefony
 Name[da]=Mobiltelefoner
 Name[de]=Mobiltelefone
 Name[el]=Κινητά τηλέφωνα
