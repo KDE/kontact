@@ -19,7 +19,7 @@ set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp ${kontact_k
 kde4_add_plugin(kontact_kmailplugin ${kontact_kmailplugin_PART_SRCS})
 add_dependencies(kontact_kmailplugin kmail)
 
-kdepim4_link_unique_libraries(kontact_kmailplugin ${KDE4_KPARTS_LIBS} kontactinterfaces kdepim ${KDE4_KCAL_LIBS})
+target_link_libraries(kontact_kmailplugin ${KDE4_KPARTS_LIBS} kontactinterfaces kdepim ${KDE4_KCAL_LIBS})
 
 ########### next target ###############
 
@@ -27,7 +27,7 @@ set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp ${kontact_kmail_plugins_inter
 
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 
-kdepim4_link_unique_libraries(kcm_kmailsummary ${KDE4_KDEUI_LIBS})
+target_link_libraries(kcm_kmailsummary ${KDE4_KDEUI_LIBS})
 
 ########### install files ###############
 

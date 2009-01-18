@@ -13,7 +13,7 @@ if(KMAIL_SUPPORTED)
    add_dependencies(kontact_summaryplugin kmail_xml)
 endif(KMAIL_SUPPORTED)
 
-kdepim4_link_unique_libraries(kontact_summaryplugin ${KDE4_KUTILS_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_KPIMIDENTITIES_LIBS} kontactinterfaces kdepim)
+target_link_libraries(kontact_summaryplugin ${KDE4_KUTILS_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_KPIMIDENTITIES_LIBS} kontactinterfaces kdepim)
 
 ########### next target ###############
 
@@ -21,7 +21,7 @@ set(kcm_kontactsummary_PART_SRCS kcmkontactsummary.cpp)
 
 kde4_add_plugin(kcm_kontactsummary ${kcm_kontactsummary_PART_SRCS})
 
-kdepim4_link_unique_libraries(kcm_kontactsummary  ${KDE4_KDEUI_LIBS})
+target_link_libraries(kcm_kontactsummary  ${KDE4_KDEUI_LIBS})
 
 ########### install files ###############
 

@@ -7,7 +7,7 @@ qt4_add_dbus_interfaces(kontact_weatherplugin_PART_SRCS org.kde.kweather.service
 
 kde4_add_plugin(kontact_weatherplugin ${kontact_weatherplugin_PART_SRCS})
 
-kdepim4_link_unique_libraries(kontact_weatherplugin ${KDE4_KPARTS_LIBS} kontactinterfaces kdepim)
+target_link_libraries(kontact_weatherplugin ${KDE4_KPARTS_LIBS} kontactinterfaces kdepim)
 
 ########### install files ###############
 

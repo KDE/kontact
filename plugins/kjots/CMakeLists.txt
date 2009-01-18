@@ -13,7 +13,7 @@ kde4_add_plugin(kontact_kjotsplugin ${kontact_kjotsplugin_PART_SRCS} )
 # We need the generated file org.kde.KJotsComponent.xml to exist
 add_dependencies(kontact_kjotsplugin kjots)
 
-kdepim4_link_unique_libraries(kontact_kjotsplugin ${KDE4_KPARTS_LIBS} kontactinterfaces)
+target_link_libraries(kontact_kjotsplugin ${KDE4_KPARTS_LIBS} kontactinterfaces)
 
 install(TARGETS kontact_kjotsplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 

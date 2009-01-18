@@ -10,7 +10,7 @@ qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/k
 
 kde4_add_plugin(kontact_korganizerplugin ${kontact_korganizerplugin_PART_SRCS})
 
-kdepim4_link_unique_libraries(kontact_korganizerplugin ${KDE4_KPARTS_LIBS} ${KDE4_KABC_LIBS} ${KDE4_KCAL_LIBS} kdepim kontactinterfaces korganizer_calendar)
+target_link_libraries(kontact_korganizerplugin ${KDE4_KPARTS_LIBS} ${KDE4_KABC_LIBS} ${KDE4_KCAL_LIBS} kdepim kontactinterfaces korganizer_calendar)
 
 ########### next target ###############
 
@@ -20,7 +20,7 @@ qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korgani
 
 kde4_add_plugin(kontact_todoplugin ${kontact_todoplugin_PART_SRCS})
 
-kdepim4_link_unique_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} ${KDE4_KABC_LIBS} kdepim kontactinterfaces korganizer_calendar ${KDE4_KCAL_LIBS})
+target_link_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} ${KDE4_KABC_LIBS} kdepim kontactinterfaces korganizer_calendar ${KDE4_KCAL_LIBS})
 
 ########### next target ###############
 
@@ -30,7 +30,7 @@ qt4_add_dbus_interfaces(kontact_journalplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korg
 
 kde4_add_plugin(kontact_journalplugin ${kontact_journalplugin_PART_SRCS})
 
-kdepim4_link_unique_libraries(kontact_journalplugin ${KDE4_KPARTS_LIBS} kontactinterfaces korganizer_calendar)
+target_link_libraries(kontact_journalplugin ${KDE4_KPARTS_LIBS} kontactinterfaces korganizer_calendar)
 
 ########### next target ###############
 
@@ -40,7 +40,7 @@ kde4_add_ui_files(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui)
 
 kde4_add_plugin(kcm_apptsummary ${kcm_apptsummary_PART_SRCS})
 
-kdepim4_link_unique_libraries(kcm_apptsummary  ${KDE4_KDEUI_LIBS})
+target_link_libraries(kcm_apptsummary  ${KDE4_KDEUI_LIBS})
 
 ########### next target ###############
 
@@ -50,7 +50,7 @@ kde4_add_ui_files(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui)
 
 kde4_add_plugin(kcm_todosummary ${kcm_todosummary_PART_SRCS})
 
-kdepim4_link_unique_libraries(kcm_todosummary  ${KDE4_KDEUI_LIBS})
+target_link_libraries(kcm_todosummary  ${KDE4_KDEUI_LIBS})
 
 ########## Unit Test ###########
 add_subdirectory( tests )

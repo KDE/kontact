@@ -10,7 +10,7 @@ qt4_add_dbus_interfaces(kontact_plannerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korg
 
 kde4_add_plugin(kontact_plannerplugin ${kontact_plannerplugin_PART_SRCS})
 
-kdepim4_link_unique_libraries(kontact_plannerplugin  ${KDE4_KDECORE_LIBS} kontactinterfaces kdepim kholidays korganizer_calendar kaddressbookprivate ${KDE4_KCAL_LIBS})
+target_link_libraries(kontact_plannerplugin  ${KDE4_KDECORE_LIBS} kontactinterfaces kdepim kholidays korganizer_calendar kaddressbookprivate ${KDE4_KCAL_LIBS})
 
 ########### next target ###############
 
@@ -20,7 +20,7 @@ kde4_add_ui_files(kcm_planner_PART_SRCS plannerconfig_base.ui)
 
 kde4_add_plugin(kcm_planner ${kcm_planner_PART_SRCS})
 
-kdepim4_link_unique_libraries(kcm_planner ${KDE4_KDEUI_LIBS} ${QT_QT3SUPPORT_LIBRARY})
+target_link_libraries(kcm_planner ${KDE4_KDEUI_LIBS} ${QT_QT3SUPPORT_LIBRARY})
 
 ########### install files ###############
 
