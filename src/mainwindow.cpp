@@ -1168,7 +1168,7 @@ QString MainWindow::introductionString()
       "</table>"
       "<p style=\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>" )
       .subs( KGlobal::mainComponent().aboutData()->version() )
-      .subs( i18n( "Kontact handles your e-mail, addressbook, calendar, to-do list and more." ) )
+      .subs( i18n( "Kontact handles your e-mail, address book, calendar, to-do list and more." ) )
       .subs( "help:/kontact" )
       .subs( iconSize )
       .subs( iconSize )
