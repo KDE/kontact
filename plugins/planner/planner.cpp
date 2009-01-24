@@ -904,17 +904,17 @@ void Planner::completeTodo( const QString &uid )
 void Planner::changePercentage( const QString &uid )
 {
   KMenu popup( this );
-  QAction *per00 = popup.addAction( i18n( "0%" ) );
-  QAction *per10 = popup.addAction( i18n( "10%" ) );
-  QAction *per20 = popup.addAction( i18n( "20%" ) );
-  QAction *per30 = popup.addAction( i18n( "30%" ) );
-  QAction *per40 = popup.addAction( i18n( "40%" ) );
-  QAction *per50 = popup.addAction( i18n( "50%" ) );
-  QAction *per60 = popup.addAction( i18n( "60%" ) );
-  QAction *per70 = popup.addAction( i18n( "70%" ) );
-  QAction *per80 = popup.addAction( i18n( "80%" ) );
-  QAction *per90 = popup.addAction( i18n( "90%" ) );
-  QAction *per100 = popup.addAction( i18n( "100%" ) );
+  QAction *per00 = popup.addAction( i18n( "%1%", "0" ) );
+  QAction *per10 = popup.addAction( i18n( "%1%", "10" ) );
+  QAction *per20 = popup.addAction( i18n( "%1%", "20" ) );
+  QAction *per30 = popup.addAction( i18n( "%1%", "30" ) );
+  QAction *per40 = popup.addAction( i18n( "%1%", "40" ) );
+  QAction *per50 = popup.addAction( i18n( "%1%", "50" ) );
+  QAction *per60 = popup.addAction( i18n( "%1%", "60" ) );
+  QAction *per70 = popup.addAction( i18n( "%1%", "70" ) );
+  QAction *per80 = popup.addAction( i18n( "%1%", "80" ) );
+  QAction *per90 = popup.addAction( i18n( "%1%", "90" ) );
+  QAction *per100= popup.addAction( i18n( "%1%", "100") );
 
   KCal::Todo *todo = mCalendar->todo( uid );
   if ( !todo->isReadOnly() && mCalendar->beginChange( todo ) ) {
