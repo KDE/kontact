@@ -597,7 +597,7 @@ int Planner::showEvents( int counter, const QDate &date )
 
       QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
       if ( !tipText.isEmpty() ) {
-         QToolTip::add( urlLabel, tipText );
+        urlLabel->setToolTip( tipText );
       }
 
       counter++;
@@ -621,7 +621,6 @@ bool Planner::initHolidays()
 void Planner::initSdList( const QDate &date )
 {
   mDates.clear();
-  QLabel *label = 0;
 
   Q_FOREACH( KABC::Addressee addressee, mAddressBook->allAddressees() ){
     QDate birthday = addressee.birthday().date();
@@ -654,16 +653,16 @@ void Planner::initSdList( const QDate &date )
 
   if( mHolidaysCal ){
     if( initHolidays() ){
-      Q_FOREACH( LibKHolidays::KHoliday holiday, mHolidays->getHolidays( date ) ){
-        if( !mSpecialOccasionsCal && holiday.Category != LibKHolidays::KHoliday::Holiday){
+      Q_FOREACH( LibKHolidays::KHoliday holiday, mHolidays->holidays( date ) ){
+        if( !mSpecialOccasionsCal && holiday.dayType() != LibKHolidays::KHoliday::Holiday){
           continue;
         }
         SDEntry entry;
         entry.type = IncidenceTypeEvent;
-        entry.category = ( holiday.Category == LibKHolidays::KHoliday::Holiday )?
+        entry.category = ( holiday.dayType() == LibKHolidays::KHoliday::Holiday )?
                           CategoryHoliday : CategoryOther;
         entry.date = date;
-        entry.summary = holiday.text;
+        entry.summary = holiday.text();
         mDates.append( entry );
       }
     }
