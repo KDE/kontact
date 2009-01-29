@@ -364,7 +364,7 @@ void SDSummaryWidget::updateView()
         for ( ; it != holidays.constEnd(); ++it ) {
           SDEntry entry;
           entry.type = IncidenceTypeEvent;
-          entry.category = ( (*it).Category == LibKHolidays::KHolidays::HOLIDAY )?
+          entry.category = ( (*it).Category == LibKHolidays::KHoliday::Holiday )?
                            CategoryHoliday : CategoryOther;
           entry.date = dt;
           entry.summary = (*it).text;
