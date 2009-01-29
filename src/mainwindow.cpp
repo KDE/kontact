@@ -1242,7 +1242,7 @@ QString MainWindow::introductionString()
   QString wizard_icon_path = iconloader->iconPath( "tools-wizard", KIconLoader::Desktop );
 
   QString info = ki18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
-      "<p>%2</p>"
+      "<p align=\"center\">%2</p>"
       "<table align=\"center\">"
       "<tr><td><a href=\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td>"
       "<td><a href=\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></tr>"
