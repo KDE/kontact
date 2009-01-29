@@ -32,7 +32,6 @@
 #include <kontactinterfaces/core.h>
 #include <kontactinterfaces/plugin.h>
 #include <libkdepim/kpimprefs.h>
-#include <libkholidays/kholidays.h>
 
 #include <kabc/stdaddressbook.h>
 #include <kabc/addressee.h>

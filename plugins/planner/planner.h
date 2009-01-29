@@ -26,7 +26,7 @@
 #define PLANNERWIDGET_H
 
 #include <kontactinterfaces/summary.h>
-#include <libkholidays/kholidays.h>
+#include <kholidays/kholidays.h>
 
 #include <kabc/resource.h>
 #include <kcal/calendarresources.h>

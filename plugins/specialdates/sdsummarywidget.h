@@ -27,7 +27,7 @@
 #define SDSUMMARYWIDGET_H
 
 #include <kontactinterfaces/summary.h>
-#include <libkholidays/kholidays.h>
+#include <kholidays/kholidays.h>
 
 namespace Kontact {
   class Plugin;
