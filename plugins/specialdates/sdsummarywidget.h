@@ -85,7 +85,7 @@ class SDSummaryWidget : public Kontact::Summary
     bool mShowHolidays;
     bool mShowSpecialsFromCal;
 
-    LibKHolidays::KHolidays *mHolidays;
+    KHolidays::KHolidayRegion *mHolidays;
 };
 
 #endif

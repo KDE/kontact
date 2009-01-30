@@ -612,7 +612,7 @@ bool Planner::initHolidays()
   KConfigGroup hconfig( &_hconfig, "Time & Date" );
   QString location = hconfig.readEntry( "Holidays" );
   if ( !location.isEmpty() ) {
-    mHolidays = new LibKHolidays::KHolidays( location );
+    mHolidays = new KHolidays::KHolidayRegion( location );
     return true;
   }
   return false;
@@ -653,13 +653,13 @@ void Planner::initSdList( const QDate &date )
 
   if( mHolidaysCal ){
     if( initHolidays() ){
-      Q_FOREACH( LibKHolidays::KHoliday holiday, mHolidays->holidays( date ) ){
-        if( !mSpecialOccasionsCal && holiday.dayType() != LibKHolidays::KHoliday::Holiday){
+      Q_FOREACH( KHolidays::KHoliday holiday, mHolidays->holidays( date ) ){
+        if( !mSpecialOccasionsCal && holiday.dayType() != KHolidays::KHoliday::Holiday){
           continue;
         }
         SDEntry entry;
         entry.type = IncidenceTypeEvent;
-        entry.category = ( holiday.dayType() == LibKHolidays::KHoliday::Holiday )?
+        entry.category = ( holiday.dayType() == KHolidays::KHoliday::Holiday )?
                           CategoryHoliday : CategoryOther;
         entry.date = date;
         entry.summary = holiday.text();

@@ -130,7 +130,7 @@ class Planner : public Kontact::Summary
 
     KCal::Todo::List mTodos;
     QString initStateText( const KCal::Todo *todo, const QDate &date );
-    LibKHolidays::KHolidays *mHolidays;
+    KHolidays::KHolidayRegion *mHolidays;
     QList<SDEntry> mDates;
 };
 
