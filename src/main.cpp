@@ -49,7 +49,7 @@ using namespace std;
 static const char description[] =
   I18N_NOOP( "KDE personal information manager" );
 
-static const char version[] = "1.3 (enterprise4 0.20090120.914273)";
+static const char version[] = "1.3 (enterprise4 0.20090130.918775)";
 
 
 
