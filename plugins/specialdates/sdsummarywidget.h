@@ -27,7 +27,7 @@
 #define SDSUMMARYWIDGET_H
 
 #include <kontactinterfaces/summary.h>
-#include <kholidays/kholidays.h>
+#include <kholidays/holidays.h>
 
 namespace Kontact {
   class Plugin;
@@ -85,7 +85,7 @@ class SDSummaryWidget : public Kontact::Summary
     bool mShowHolidays;
     bool mShowSpecialsFromCal;
 
-    KHolidays::KHolidayRegion *mHolidays;
+    KHolidays::HolidayRegion *mHolidays;
 };
 
 #endif

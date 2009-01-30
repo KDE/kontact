@@ -26,7 +26,7 @@
 #define PLANNERWIDGET_H
 
 #include <kontactinterfaces/summary.h>
-#include <kholidays/kholidays.h>
+#include <kholidays/holidays.h>
 
 #include <kabc/resource.h>
 #include <kcal/calendarresources.h>
@@ -130,7 +130,7 @@ class Planner : public Kontact::Summary
 
     KCal::Todo::List mTodos;
     QString initStateText( const KCal::Todo *todo, const QDate &date );
-    KHolidays::KHolidayRegion *mHolidays;
+    KHolidays::HolidayRegion *mHolidays;
     QList<SDEntry> mDates;
 };
 
