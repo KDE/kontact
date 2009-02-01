@@ -36,7 +36,7 @@
        </rect>
       </property>
       <attribute name="title" >
-       <string>General</string>
+       <string comment="general settings for the planner">General</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2" >
        <item>
@@ -165,7 +165,7 @@
              <string>1 day</string>
             </property>
             <property name="suffix" >
-             <string> days</string>
+             <string comment="days to show in summary"> days</string>
             </property>
             <property name="minimum" >
              <number>1</number>
