@@ -57,7 +57,6 @@ class Planner : public Kontact::Summary
   public:
     Planner( Kontact::Plugin *plugin, QWidget *parent );
 
-
     int summaryHeight() const { return 3; }
     QStringList configModules() const;
     void configUpdated();
@@ -117,7 +116,6 @@ class Planner : public Kontact::Summary
     bool mAnniversariesConList;
     bool mHolidaysCal;
     bool mSpecialOccasionsCal;
-
 
     KCal::Event::List mEvents;
     Kontact::Plugin *mPlugin;

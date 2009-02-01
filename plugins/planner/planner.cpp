@@ -198,7 +198,7 @@ void Planner::updateView()
 
       label = new QLabel( datestr, this );
       label->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-      if ( makeBold ){
+      if ( makeBold ) {
         QFont font = label->font();
         font.setBold( true );
         font.setItalic( true );
@@ -240,7 +240,7 @@ void Planner::updateView()
     mLabels.append( noEvents );
   }
 
-  Q_FOREACH( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
+  Q_FOREACH ( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
     label->show();
   }
 }
@@ -252,44 +252,44 @@ void Planner::initTodoList( const QDate &date )
   mTodos.setAutoDelete( false );
   QDate currentDate = QDate::currentDate();
 
-  Q_FOREACH( KCal::Todo *todo, mCalendar->todos() ){
+  Q_FOREACH ( KCal::Todo *todo, mCalendar->todos() ) {
     //Hide Overdue or not
-    if( !mHideOverdue && overdue( todo ) && date != currentDate ){
+    if ( !mHideOverdue && overdue( todo ) && date != currentDate ) {
       continue;
     }
-    if( mHideOverdue && overdue( todo ) ) {
+    if ( mHideOverdue && overdue( todo ) ) {
       continue;
     }
     //Hide in Progress or not
-    if( !mHideInProgress && inProgress( todo ) && date != currentDate ){
+    if ( !mHideInProgress && inProgress( todo ) && date != currentDate ) {
       continue;
     }
-    if( mHideInProgress && inProgress( todo ) ) {
+    if ( mHideInProgress && inProgress( todo ) ) {
       continue;
     }
     //Hide Completed or not
-    if( !mHideCompleted && completed( todo ) && date != currentDate ){
+    if ( !mHideCompleted && completed( todo ) && date != currentDate ) {
       continue;
     }
-    if( mHideCompleted && completed( todo ) ) {
+    if ( mHideCompleted && completed( todo ) ) {
       continue;
     }
     //Hide OpenEnded or not
-    if( !mHideOpenEnded && openEnded( todo ) && date != currentDate ){
+    if ( !mHideOpenEnded && openEnded( todo ) && date != currentDate ) {
       continue;
     }
-    if( mHideOpenEnded && openEnded( todo ) ) {
+    if ( mHideOpenEnded && openEnded( todo ) ) {
       continue;
     }
     //Hide NotStarted or not
-    if( !mHideNotStarted && notStarted( todo ) && date != currentDate ){
+    if ( !mHideNotStarted && notStarted( todo ) && date != currentDate ) {
       continue;
     }
-    if( mHideNotStarted && notStarted( todo ) ) {
+    if ( mHideNotStarted && notStarted( todo ) ) {
       continue;
     }
-    if( !overdue( todo ) && !inProgress( todo ) && !completed( todo ) && !openEnded( todo ) &&
-        !notStarted( todo ) && todo->hasDueDate() && todo->dtDue().date() != date ){
+    if ( !overdue( todo ) && !inProgress( todo ) && !completed( todo ) && !openEnded( todo ) &&
+        !notStarted( todo ) && todo->hasDueDate() && todo->dtDue().date() != date ) {
       continue;
     }
     mTodos.append( todo );
@@ -316,7 +316,7 @@ int Planner::showTodos( int counter, const QDate &date )
 
     ++counter;
 
-    Q_FOREACH( KCal::Todo *todo, mTodos ){
+    Q_FOREACH ( KCal::Todo *todo, mTodos ) {
       QString stateText = initStateText ( todo, date );
 
       mPlannerGrid->setColumnMinimumWidth( 0, 40 );
@@ -334,11 +334,11 @@ int Planner::showTodos( int counter, const QDate &date )
       KUrlLabel *urlLabel = new KUrlLabel( this );
       urlLabel->setText( percent );
       urlLabel->setUrl( todo->uid() );
-      if( stateText == i18nc( "to-do is overdue", "overdue" ) ){
+      if ( stateText == i18nc( "to-do is overdue", "overdue" ) ) {
         urlLabel->setText( "<font color = red >" + percent + "</font>" );
       }
       urlLabel->setAlignment( Qt::AlignHCenter | Qt::AlignTop );
-      if( !mUnderline ){
+      if ( !mUnderline ) {
         urlLabel->setUnderline( false );
       }
       urlLabel->setWordWrap( true );
@@ -362,10 +362,10 @@ int Planner::showTodos( int counter, const QDate &date )
       urlLabel2->installEventFilter( this );
       urlLabel2->setAlignment( Qt::AlignLeft | Qt::AlignTop );
       urlLabel->setWordWrap( true );
-      if( stateText == i18nc( "to-do is overdue", "overdue" ) ){
+      if ( stateText == i18nc( "to-do is overdue", "overdue" ) ) {
         urlLabel2->setText( "<font color = red >" + string + "</font>" );
       }
-      if( !mUnderline ){
+      if ( !mUnderline ) {
         urlLabel2->setUnderline( false );
       }
       mPlannerGrid->addWidget( urlLabel2, counter, 5 );
@@ -389,9 +389,9 @@ int Planner::showTodos( int counter, const QDate &date )
 
       mPlannerGrid->setColumnMinimumWidth( 8, 15 );
 
-      if( mShowReminder ){
+      if ( mShowReminder ) {
         QPixmap alarm;
-        if( todo->isAlarmEnabled() ){
+        if ( todo->isAlarmEnabled() ) {
           alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
         }
         label = new QLabel( this );
@@ -403,9 +403,9 @@ int Planner::showTodos( int counter, const QDate &date )
 
       mPlannerGrid->setColumnMinimumWidth( 10, 15 );
 
-      if( mShowRecurrence ){
+      if ( mShowRecurrence ) {
         QPixmap recur;
-        if( todo->isAlarmEnabled() ){
+        if ( todo->isAlarmEnabled() ) {
           recur = loader.loadIcon( "task-recurring", KIconLoader::Small );
         }
         label = new QLabel( this );
@@ -436,7 +436,7 @@ void Planner::initEventList( const QDate &date )
 
 //   for ( ; it != events_orig.end(); ++it ) {
 //     ev = ( *it )->clone();
-  Q_FOREACH( KCal::Event *ev, mCalendar->events( date ) ){
+  Q_FOREACH ( KCal::Event *ev, mCalendar->events( date ) ) {
     if ( ev->recursOn( date, KDateTime::LocalZone ) ) {
       kdt = ev->dtStart();
       kdt.setDate( date );
@@ -466,7 +466,7 @@ int Planner::showEvents( int counter, const QDate &date )
 
     ++counter;
 
-    Q_FOREACH( KCal::Event *ev, mEvents ){
+    Q_FOREACH ( KCal::Event *ev, mEvents ) {
       // Count number of days remaining in multiday event
       int span = 1;
       int dayof = 1;
@@ -516,14 +516,14 @@ int Planner::showEvents( int counter, const QDate &date )
       }
 
       // Fill Event Time Range Field (only for non-allDay Events)
-      if ( !ev->allDay() ){
+      if ( !ev->allDay() ) {
         QTime sST = ev->dtStart().time();
         QTime sET = ev->dtEnd().time();
-        if ( ev->isMultiDay() ){
-          if ( ev->dtStart().date() < date ){
+        if ( ev->isMultiDay() ) {
+          if ( ev->dtStart().date() < date ) {
             sST = QTime( 0, 0 );
           }
-          if ( ev->dtEnd().date() > date ){
+          if ( ev->dtEnd().date() > date ) {
             sET = QTime( 23, 59 );
           }
         }
@@ -542,7 +542,7 @@ int Planner::showEvents( int counter, const QDate &date )
 
       // Fill Event Summary Field
       QString newtext = ev->summary();
-      if ( ev->isMultiDay() &&  !ev->allDay() ){
+      if ( ev->isMultiDay() &&  !ev->allDay() ) {
         newtext.append( QString( " (%1/%2)" ).arg( dayof ).arg( span ) );
       }
       KUrlLabel *urlLabel = new KUrlLabel( this );
@@ -551,7 +551,7 @@ int Planner::showEvents( int counter, const QDate &date )
       urlLabel->installEventFilter( this );
       urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop );
       urlLabel->setWordWrap( true );
-      if( !mUnderline ){
+      if ( !mUnderline ) {
         urlLabel->setUnderline( false );
       }
       mPlannerGrid->addWidget( urlLabel, counter, 5 );
@@ -562,9 +562,9 @@ int Planner::showEvents( int counter, const QDate &date )
       mPlannerGrid->setColumnMinimumWidth( 8, 15 );
 
        //Show icon if Alarm is enabled
-      if( mShowReminder ){
+      if ( mShowReminder ) {
         QPixmap alarm;
-        if( ev->isAlarmEnabled () ){
+        if ( ev->isAlarmEnabled () ) {
           alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
         }
         label = new QLabel( this );
@@ -580,9 +580,9 @@ int Planner::showEvents( int counter, const QDate &date )
       mPlannerGrid->setColumnMinimumWidth( 10, 15 );
 
       //Show icon if Event recurs
-      if( mShowRecurrence ){
+      if ( mShowRecurrence ) {
         QPixmap recur;
-        if( ev->recurs() ){
+        if ( ev->recurs() ) {
           recur = loader.loadIcon( "appointment-recurring", KIconLoader::Small );
         }
         label = new QLabel( this );
@@ -626,7 +626,7 @@ void Planner::initSdList( const QDate &date )
 {
   mDates.clear();
 
-  Q_FOREACH( const KABC::Addressee &addressee, mAddressBook->allAddressees() ){
+  Q_FOREACH ( const KABC::Addressee &addressee, mAddressBook->allAddressees() ) {
     QDate birthday = addressee.birthday().date();
     if ( birthday.isValid() && mBirthdayConList &&
           birthday.day() == date.day() && birthday.month() == date.month() ) {
@@ -655,10 +655,10 @@ void Planner::initSdList( const QDate &date )
     }
   }
 
-  if( mHolidaysCal ){
-    if( initHolidays() ){
-      Q_FOREACH( const KHolidays::Holiday &holiday, mHolidays->holidays( date ) ){
-        if( !mSpecialOccasionsCal && holiday.dayType() != KHolidays::Holiday::NonWorkday ){
+  if ( mHolidaysCal ) {
+    if ( initHolidays() ) {
+      Q_FOREACH ( const KHolidays::Holiday &holiday, mHolidays->holidays( date ) ) {
+        if ( !mSpecialOccasionsCal && holiday.dayType() != KHolidays::Holiday::NonWorkday ) {
           continue;
         }
         SDEntry entry;
@@ -684,24 +684,24 @@ int Planner::showSd( int counter, const QDate &date )
   QPixmap holidayIcon = loader.loadIcon( "favorites", KIconLoader::Small );
   QPixmap specialOccasionsIcon = loader.loadIcon( "user-identity", KIconLoader::Small );
   ++counter;
-  Q_FOREACH( const SDEntry &entry, mDates ){
+  Q_FOREACH ( const SDEntry &entry, mDates ) {
 
     mPlannerGrid->setColumnMinimumWidth( 0, 40 );
 
     //Show Sd icon
     QLabel *label = new QLabel( this );
-    switch( entry.category ){
-      case CategoryBirthday:
-        label->setPixmap( birthdayIcon );
-        break;
-      case CategoryAnniversary:
-        label->setPixmap( anniversaryIcon );
-        break;
-      case CategoryHoliday:
-        label->setPixmap( holidayIcon );
-        break;
-      case CategoryOther:
-        label->setPixmap( specialOccasionsIcon );
+    switch ( entry.category ) {
+    case CategoryBirthday:
+      label->setPixmap( birthdayIcon );
+      break;
+    case CategoryAnniversary:
+      label->setPixmap( anniversaryIcon );
+      break;
+    case CategoryHoliday:
+      label->setPixmap( holidayIcon );
+      break;
+    case CategoryOther:
+      label->setPixmap( specialOccasionsIcon );
       break;
     }
     label->setMaximumWidth( label->minimumSizeHint().width() );
@@ -712,19 +712,19 @@ int Planner::showSd( int counter, const QDate &date )
     mPlannerGrid->setColumnMinimumWidth( 2, 15 );
 
     QString catName;
-    switch( entry.category ){
-      case CategoryBirthday:
-        catName = i18n( "Birthday" );
-        break;
-      case CategoryAnniversary:
-        catName = i18n( "Anniversary" );
-        break;
-      case CategoryHoliday:
-        catName = i18n( "Holiday" );
-        break;
-      case CategoryOther:
-        catName = i18n( "Special Occasion" );
-        break;
+    switch ( entry.category ) {
+    case CategoryBirthday:
+      catName = i18n( "Birthday" );
+      break;
+    case CategoryAnniversary:
+      catName = i18n( "Anniversary" );
+      break;
+    case CategoryHoliday:
+      catName = i18n( "Holiday" );
+      break;
+    case CategoryOther:
+      catName = i18n( "Special Occasion" );
+      break;
     }
     label = new QLabel( this );
     label->setText( catName );
@@ -734,16 +734,16 @@ int Planner::showSd( int counter, const QDate &date )
 
     mPlannerGrid->setColumnMinimumWidth( 4, 15 );
 
-    if ( entry.type == IncidenceTypeContact ){
+    if ( entry.type == IncidenceTypeContact ) {
       KUrlLabel *urlLabel = new KUrlLabel( this );
       urlLabel->installEventFilter( this );
       urlLabel->setUrl( entry.addressee.uid() );
       urlLabel->setText( entry.addressee.realName() );
       urlLabel->setTextFormat( Qt::RichText );
       urlLabel->setWordWrap( true );
-      if( !mUnderline ){
-          urlLabel->setUnderline( false );
-        }
+      if ( !mUnderline ) {
+        urlLabel->setUnderline( false );
+      }
       mPlannerGrid->addWidget( urlLabel, counter, 5 );
       mLabels.append( urlLabel );
     } else {
@@ -759,9 +759,9 @@ int Planner::showSd( int counter, const QDate &date )
 
     mPlannerGrid->setColumnMinimumWidth( 6, 15 );
 
-    if( entry.category == CategoryBirthday || entry.category == CategoryAnniversary ){
+    if ( entry.category == CategoryBirthday || entry.category == CategoryAnniversary ) {
       label = new QLabel( this );
-      if( entry.yearsOld <= 0 ){
+      if ( entry.yearsOld <= 0 ) {
         label->setText( "" );
       } else {
         label->setText( i18np( "one year", "%1 years", entry.yearsOld ) );
@@ -974,7 +974,7 @@ QStringList Planner::configModules() const
 bool Planner::overdue( KCal::Todo *todo )
 {
   if ( todo->hasDueDate() && !todo->isCompleted() &&
-        todo->dtDue().date() < QDate::currentDate() ){
+       todo->dtDue().date() < QDate::currentDate() ) {
     return true;
   }
   return false;
@@ -995,7 +995,7 @@ bool Planner::openEnded( KCal::Todo *todo )
 
 bool Planner::inProgress( KCal::Todo *todo )
 {
-  if( overdue( todo ) ){
+  if ( overdue( todo ) ) {
     return false;
   }
 

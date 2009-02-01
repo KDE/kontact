@@ -201,7 +201,7 @@ if ( mDateTodayButton->isChecked() ) {
   emit changed( false );
 }
 
- void KCMPlanner::defaults()
+void KCMPlanner::defaults()
 {
   mShowRecurrence->setChecked( true );
   mShowReminder->setChecked( true );
