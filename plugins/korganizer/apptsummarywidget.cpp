@@ -161,7 +161,7 @@ void ApptSummaryWidget::updateView()
                this, SLOT(viewEvent(const QString&)) );
       connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
                this, SLOT(popupMenu(const QString&)) );
-      if ( event->summaryTooltip.isEmpty() ) {
+      if ( !event->summaryTooltip.isEmpty() ) {
         urlLabel->setToolTip( event->summaryTooltip );
       }
 
