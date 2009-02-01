@@ -24,7 +24,6 @@
 #include "kcmplanner.h"
 
 #include <kaboutdata.h>
-#include <kacceleratormanager.h>
 #include <kcomponentdata.h>
 #include <kconfig.h>
 #include <kdebug.h>
@@ -78,8 +77,6 @@ KCMPlanner::KCMPlanner( const KComponentData &inst, QWidget *parent )
   connect( mAnniversariesConList, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mHolidaysCal, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mSpecialOccasionsCal, SIGNAL(stateChanged(int)), SLOT(modified()) );
-
-  KAcceleratorManager::manage( this );
 
   load();
 }
