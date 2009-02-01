@@ -3,7 +3,7 @@
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
   Copyright (c) 2006 Oral Timocin <oral.timocin@kdemail.net>
-  Copyright (c) 2008 Allen Winter <winter@kde.org>
+  Copyright (c) 2008-2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -138,7 +138,7 @@ void Planner::configUpdated()
   mHideOpenEnded = todo.readEntry( "OpenEnded", false );
   mHideInProgress = todo.readEntry( "InProgress", false );
   mHideOverdue = todo.readEntry( "Overdue", false );
-  mHideNotStarted = todo.readEntry( "NotStarted", false);
+  mHideNotStarted = todo.readEntry( "NotStarted", false );
 
   //Read Special Dates config
   KConfigGroup sd = config.group( "SpecialDates" );
@@ -240,7 +240,7 @@ void Planner::updateView()
     mLabels.append( noEvents );
   }
 
-  Q_FOREACH( label, mLabels ){
+  Q_FOREACH( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
     label->show();
   }
 }
@@ -275,7 +275,7 @@ void Planner::initTodoList( const QDate &date )
       continue;
     }
     //Hide OpenEnded or not
-    if( !mHideOpenEnded && openEnded( todo) && date != currentDate ){
+    if( !mHideOpenEnded && openEnded( todo ) && date != currentDate ){
       continue;
     }
     if( mHideOpenEnded && openEnded( todo ) ) {
@@ -549,7 +549,7 @@ int Planner::showEvents( int counter, const QDate &date )
       urlLabel->setText( newtext );
       urlLabel->setUrl( ev->uid() );
       urlLabel->installEventFilter( this );
-      urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop | Qt::WordBreak );
+      urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop );
       urlLabel->setWordWrap( true );
       if( !mUnderline ){
         urlLabel->setUnderline( false );
@@ -598,7 +598,8 @@ int Planner::showEvents( int counter, const QDate &date )
       connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
                this, SLOT(eventPopupMenu(const QString&)) );
 
-      QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
+      QString tipText( KCal::IncidenceFormatter::toolTipStr(
+                         ev, true, KPIM::KPimPrefs::timeSpec() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }
@@ -625,7 +626,7 @@ void Planner::initSdList( const QDate &date )
 {
   mDates.clear();
 
-  Q_FOREACH( KABC::Addressee addressee, mAddressBook->allAddressees() ){
+  Q_FOREACH( const KABC::Addressee &addressee, mAddressBook->allAddressees() ){
     QDate birthday = addressee.birthday().date();
     if ( birthday.isValid() && mBirthdayConList &&
           birthday.day() == date.day() && birthday.month() == date.month() ) {
@@ -656,8 +657,8 @@ void Planner::initSdList( const QDate &date )
 
   if( mHolidaysCal ){
     if( initHolidays() ){
-      Q_FOREACH( KHolidays::Holiday holiday, mHolidays->holidays( date ) ){
-        if( !mSpecialOccasionsCal && holiday.dayType() != KHolidays::Holiday::NonWorkday){
+      Q_FOREACH( const KHolidays::Holiday &holiday, mHolidays->holidays( date ) ){
+        if( !mSpecialOccasionsCal && holiday.dayType() != KHolidays::Holiday::NonWorkday ){
           continue;
         }
         SDEntry entry;
@@ -675,6 +676,7 @@ void Planner::initSdList( const QDate &date )
 int Planner::showSd( int counter, const QDate &date )
 {
   KIconLoader loader( "kdepim" );
+  Q_UNUSED( date );
 //   initSdList( date );
 
   QPixmap birthdayIcon = loader.loadIcon( "user-identity", KIconLoader::Small );
@@ -682,7 +684,7 @@ int Planner::showSd( int counter, const QDate &date )
   QPixmap holidayIcon = loader.loadIcon( "favorites", KIconLoader::Small );
   QPixmap specialOccasionsIcon = loader.loadIcon( "user-identity", KIconLoader::Small );
   ++counter;
-  Q_FOREACH( SDEntry entry, mDates ){
+  Q_FOREACH( const SDEntry &entry, mDates ){
 
     mPlannerGrid->setColumnMinimumWidth( 0, 40 );
 
@@ -732,7 +734,7 @@ int Planner::showSd( int counter, const QDate &date )
 
     mPlannerGrid->setColumnMinimumWidth( 4, 15 );
 
-    if( entry.type == IncidenceTypeContact){
+    if ( entry.type == IncidenceTypeContact ){
       KUrlLabel *urlLabel = new KUrlLabel( this );
       urlLabel->installEventFilter( this );
       urlLabel->setUrl( entry.addressee.uid() );
@@ -762,7 +764,7 @@ int Planner::showSd( int counter, const QDate &date )
       if( entry.yearsOld <= 0 ){
         label->setText( "" );
       } else {
-        label->setText( i18np( "one year", "%1 years", entry.yearsOld) );
+        label->setText( i18np( "one year", "%1 years", entry.yearsOld ) );
       }
       label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
       mPlannerGrid->addWidget( label, counter, 7 );
@@ -814,7 +816,7 @@ bool Planner::eventFilter( QObject *obj, QEvent *e )
       emit message( i18n( "Edit Appointment: \"%1\"", label->text() ) );
     }
     if ( e->type() == QEvent::Leave ) {
-      emit message( QString::null );
+      emit message( QString::null ); //krazy:exclude=nullstrassign for old broken gcc
     }
   }
 
@@ -844,7 +846,7 @@ QString Planner::initStateText( const KCal::Todo *todo, const QDate &date )
   }
 
   // all todos which end today
-  if ( todo->hasDueDate() && todo->dtDue().date() == date && todo->dtDue().date() == currentDate) {
+  if ( todo->hasDueDate() && todo->dtDue().date() == date && todo->dtDue().date() == currentDate ) {
     stateText = i18nc( "to-do ends today", "ends today" );
   }
   if ( todo->isCompleted() ) {
