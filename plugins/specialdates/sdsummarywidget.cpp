@@ -507,6 +507,7 @@ void SDSummaryWidget::updateView()
         urlLabel->setUrl( (*addrIt).addressee.uid() );
         urlLabel->setText( (*addrIt).addressee.realName() );
         urlLabel->setTextFormat( Qt::RichText );
+        urlLabel->setWordWrap( true );
         mLayout->addWidget( urlLabel, counter, 4 );
         mLabels.append( urlLabel );
 

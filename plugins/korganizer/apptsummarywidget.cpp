@@ -153,6 +153,7 @@ void ApptSummaryWidget::updateView()
       urlLabel->setUrl( event->summaryUrl );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
+      urlLabel->setWordWrap( true );
       mLayout->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
 

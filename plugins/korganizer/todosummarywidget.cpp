@@ -254,6 +254,7 @@ void TodoSummaryWidget::updateView()
       urlLabel->setUrl( todo->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
+      urlLabel->setWordWrap( true );
       mLayout->addWidget( urlLabel, counter, 4 );
       mLabels.append( urlLabel );
 
