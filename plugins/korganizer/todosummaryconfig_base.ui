@@ -81,7 +81,7 @@
          <string>1 day</string>
         </property>
         <property name="suffix" >
-         <string> days</string>
+         <string comment="days to show in summary" > days</string>
         </property>
         <property name="minimum" >
          <number>1</number>

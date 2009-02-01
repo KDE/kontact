@@ -199,9 +199,9 @@ void TodoSummaryWidget::updateView()
 
         if ( daysTo == 0 ) {
           makeBold = true;
-          str = i18n( "Today" );
+          str = i18nc( "the to-do is due today", "Today" );
         } else if ( daysTo == 1 ) {
-          str = i18n( "Tomorrow" );
+          str = i18nc( "the to-do is due tomorrow", "Tomorrow" );
         } else {
           str = KGlobal::locale()->formatDate( todo->dtDue().date(), KLocale::FancyLongDate );
         }
@@ -225,7 +225,7 @@ void TodoSummaryWidget::updateView()
         } else if ( daysTo < 0 ) {
           str = i18np( "1 day ago", "%1 days ago", -daysTo );
         } else {
-          str = i18n( "due" );
+          str = i18nc( "the to-do is due", "due" );
         }
       }
       label = new QLabel( str, this );
@@ -435,17 +435,19 @@ const QString TodoSummaryWidget::stateStr( KCal::Todo *todo )
   if ( openEnded( todo ) ) {
     str1 = i18n( "open-ended" );
   } else if ( overdue( todo ) ) {
-    str1 = "<font color=\"red\">" + i18n( "overdue" ) + "</font>";
+    str1 = "<font color=\"red\">" +
+           i18nc( "the to-do is overdue", "overdue" ) +
+           "</font>";
   } else if ( starts( todo ) ) {
-    str1 = i18n( "starts today" );
+    str1 = i18nc( "the to-do starts today", "starts today" );
   }
 
   if ( notStarted( todo ) ) {
-    str2 += i18n( "not-started" );
+    str2 += i18nc( "the to-do has not been started yet", "not-started" );
   } else if ( completed( todo ) ) {
-    str2 += i18n( "completed" );
+    str2 += i18nc( "the to-do is completed", "completed" );
   } else if ( inProgress( todo ) ) {
-    str2 += i18n( "in-progress " );
+    str2 += i18nc( "the to-do is in-progress", "in-progress " );
     str2 += " (" + QString::number( todo->percentComplete() ) + "%)";
   }
 
