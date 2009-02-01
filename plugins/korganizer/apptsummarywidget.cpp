@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2005-2006,2008 Allen Winter <winter@kde.org>
+  Copyright (c) 2005-2006,2008-2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -114,11 +114,10 @@ void ApptSummaryWidget::updateView()
         dt <= currentDate.addDays( mDaysAhead - 1 );
         dt = dt.addDays( 1 ) ) {
 
-
     SummaryEventInfo::List events =
         SummaryEventInfo::eventsForDate( dt, mCalendar );
 
-    foreach( SummaryEventInfo *event, events ) {
+    foreach ( SummaryEventInfo *event, events ) {
 
       // Icon label
       label = new QLabel( this );
@@ -129,8 +128,9 @@ void ApptSummaryWidget::updateView()
 
       // Start date or date span label
       QString dateToDisplay = event->startDate;
-      if ( !event->dateSpan.isEmpty() )
+      if ( !event->dateSpan.isEmpty() ) {
         dateToDisplay = event->dateSpan;
+      }
       label = new QLabel( dateToDisplay, this );
       label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 1 );
@@ -191,7 +191,7 @@ void ApptSummaryWidget::updateView()
     mLabels.append( noEvents );
   }
 
-  Q_FOREACH( label, mLabels ) {
+  Q_FOREACH( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
     label->show();
   }
 }
