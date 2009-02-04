@@ -270,11 +270,6 @@ MainWindow::~MainWindow()
   for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
     delete *it;
   }
-  // Make sure we really return from the event loop. It could happen that a KJob
-  // somewhere is still running because a part forgot to delete it. And a running
-  // KJob still has a reference to a KGlobal.
-  // Normally KGlobal::deref() calls this when the last reference goes away.
-  QCoreApplication::instance()->quit();
 }
 
 void MainWindow::setActivePluginModule( const QString &module )

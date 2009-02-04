@@ -20,7 +20,11 @@ kde4_add_ui_files(kcm_planner_PART_SRCS plannerconfig_base.ui)
 
 kde4_add_plugin(kcm_planner ${kcm_planner_PART_SRCS})
 
-target_link_libraries(kcm_planner ${KDE4_KDEUI_LIBS} ${QT_QT3SUPPORT_LIBRARY})
+target_link_libraries(kcm_planner
+  ${KDE4_KDEUI_LIBS}
+  ${QT_QT3SUPPORT_LIBRARY}
+  ${KDE4_KHOLIDAYS_LIBS}
+)
 
 ########### install files ###############
 
