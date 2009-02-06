@@ -49,9 +49,7 @@ using namespace std;
 static const char description[] =
   I18N_NOOP( "KDE personal information manager" );
 
-static const char version[] = "1.3 (enterprise4 0.20090130.918775)";
-
-
+static const char version[] = "1.3 (enterprise4 0.20090206.922266)";
 
 class KontactApp : public
 #ifdef Q_WS_WIN
@@ -127,7 +125,7 @@ static void listProfiles()
     KComponentData instance( "kontact" ); // Can't use KontactApp since it's too late for adding cmdline options
     QList<Kontact::Profile> profiles = Kontact::ProfileManager::self()->profiles();
     for( QList<Kontact::Profile>::iterator it = profiles.begin() ; it != profiles.end(); ++it ) {
-        cout << (*it).name().latin1() << endl;
+        cout << (*it).name().toLatin1().data() << endl;
     }
 }
 
@@ -164,7 +162,7 @@ int KontactApp::newInstance()
   if ( args->isSet( "profile" ) ) {
     QList<Kontact::Profile>  profiles = Kontact::ProfileManager::self()->profiles();
     for( QList<Kontact::Profile>::iterator it = profiles.begin(); it != profiles.end(); ++it ){
-      if( args->getOption("profile") == (*it).name().latin1() ) {
+      if( args->getOption("profile") == (*it).name().toLatin1() ) {
         Kontact::ProfileManager::self()->loadProfile( (*it).id() );
         break;
       }
