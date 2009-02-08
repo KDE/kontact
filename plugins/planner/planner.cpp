@@ -377,6 +377,12 @@ int Planner::showTodos( int counter, const QDate &date )
       connect( urlLabel2, SIGNAL(rightClickedUrl(const QString&)),
                this, SLOT(todoPopupMenu(const QString&)) );
 
+      QString tipText( KCal::IncidenceFormatter::toolTipStr(
+                         todo, true, KPIM::KPimPrefs::timeSpec() ) );
+      if ( !tipText.isEmpty() ) {
+        urlLabel2->setToolTip( tipText );
+      }
+
       mPlannerGrid->setColumnMinimumWidth( 6, 15 );
 
       label = new QLabel( stateText, this );
