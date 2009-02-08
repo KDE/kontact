@@ -443,8 +443,8 @@ void Planner::initEventList( const QDate &date )
 
 //   for ( ; it != events_orig.end(); ++it ) {
 //     ev = ( *it )->clone();
-  Q_FOREACH( KCal::Event *ev, mCalendar->events( date ) ){
-    if ( ev->recursOn( date, KDateTime::LocalZone ) ) {
+  Q_FOREACH ( KCal::Event *ev, mCalendar->events( date, mCalendar->timeSpec() ) ) {
+    if ( ev->recursOn( date, mCalendar->timeSpec() ) ) {
       kdt = ev->dtStart();
       kdt.setDate( date );
       ev->setDtStart( kdt );
@@ -468,7 +468,7 @@ int Planner::showEvents( int counter, const QDate &date )
 
     QDate currentDate = QDate::currentDate();
     QString datestr;
-    QDate sD = QDate( date.year(), date.month(), date.day() );
+    QDate sD = date;
     QLabel *label;
 
     ++counter;
@@ -512,10 +512,12 @@ int Planner::showEvents( int counter, const QDate &date )
 
       // Print the date span for multiday, allDay events, for the
       // first day of the event only.
+      KDateTime::Spec spec = KPIM::KPimPrefs::timeSpec();
       if ( ev->isMultiDay() && ev->allDay() && dayof == 1 && span > 1 ) {
-        datestr = KGlobal::locale()->formatDate( ev->dtStart().date() );
-        datestr += " -\n " +
-                    KGlobal::locale()->formatDate( sD.addDays( span-1 ) );
+        KDateTime ksD( sD.addDays( span - 1 ), spec );
+        datestr = ev->dtStartDateStr( false, spec ) +
+                  " -\n " +
+                  KGlobal::locale()->formatDate( ksD.date(), KLocale::LongDate );
         label = new QLabel( datestr, this );
         label->setAlignment( Qt::AlignLeft | Qt::AlignTop );
         mPlannerGrid->addWidget( label, counter, 3 );
@@ -524,8 +526,8 @@ int Planner::showEvents( int counter, const QDate &date )
 
       // Fill Event Time Range Field (only for non-allDay Events)
       if ( !ev->allDay() ){
-        QTime sST = ev->dtStart().time();
-        QTime sET = ev->dtEnd().time();
+        QTime sST = ev->dtStart().toTimeSpec( spec ).time();
+        QTime sET = ev->dtEnd().toTimeSpec( spec ).time();
         if ( ev->isMultiDay() ){
           if ( ev->dtStart().date() < date ){
             sST = QTime( 0, 0 );
