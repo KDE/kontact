@@ -85,6 +85,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
     QLabel *label = new QLabel(
       i18n( "No weather D-Bus service available;\nyou need KWeather to use this plugin." ), this );
     mLayout->addWidget( label, Qt::AlignHCenter | Qt::AlignVCenter );
+    mLayout->addWidget( label );
   }
 }
 
@@ -151,7 +152,7 @@ void SummaryWidget::updateView()
                          .arg( i18n( "Rel. Humidity" ) )
                          .arg( (*it).relativeHumidity() );
 
-    label->setToolTip( labelText.replace( " ", "&nbsp;" ) );
+    label->setToolTip( labelText.replace( ' ', "&nbsp;" ) );
 
     label = new QLabel( cover, this );
     label->setAlignment( Qt::AlignLeft );

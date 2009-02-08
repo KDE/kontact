@@ -107,7 +107,7 @@ void ApptSummaryWidget::updateView()
   QPixmap pm = loader.loadIcon( "view-calendar-day", KIconLoader::Small );
 
   SummaryEventInfo::setShowSpecialEvents( mShowBirthdaysFromCal,
-                                                 mShowAnniversariesFromCal );
+                                          mShowAnniversariesFromCal );
   QDate currentDate = QDate::currentDate();
   QDate dt;
   for ( dt = currentDate;
@@ -185,9 +185,8 @@ void ApptSummaryWidget::updateView()
       i18np( "No upcoming events starting within the next day",
              "No upcoming events starting within the next %1 days",
              mDaysAhead ), this );
-    noEvents->setObjectName( "nothing to see" );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addWidget( noEvents, 0, 2 );
+    mLayout->addWidget( noEvents );
     mLabels.append( noEvents );
   }
 

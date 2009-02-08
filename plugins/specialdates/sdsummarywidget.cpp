@@ -442,9 +442,9 @@ void SDSummaryWidget::updateView()
       QDate sD = QDate( year, (*addrIt).date.month(), (*addrIt).date.day() );
 
       if ( (*addrIt).daysTo == 0 ) {
-        datestr = i18n( "Today" );
+        datestr = i18nc( "the special day is today", "Today" );
       } else if ( (*addrIt).daysTo == 1 ) {
-        datestr = i18n( "Tomorrow" );
+        datestr = i18nc( "the special day is tomorrow", "Tomorrow" );
       } else {
         datestr = KGlobal::locale()->formatDate( sD, KLocale::FancyLongDate );
       }
@@ -548,7 +548,7 @@ void SDSummaryWidget::updateView()
                "No special dates pending within the next %1 days",
                mDaysAhead ), this );
     label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addWidget( label, 0, 2 );
+    mLayout->addWidget( label );
     mLabels.append( label );
   }
 

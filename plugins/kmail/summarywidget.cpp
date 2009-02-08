@@ -64,7 +64,6 @@ SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
   mLayout = new QGridLayout();
   mainLayout->addItem( mLayout );
   mLayout->setSpacing( 3 );
-  mLayout->setColumnStretch( 2, 1 );
   mLayout->setRowStretch( 6, 1 );
 
   slotUnreadCountChanged();
@@ -199,7 +198,7 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
   if ( counter == 0 ) {
     label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );
     label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addWidget( label, 0, 2 );
+    mLayout->addWidget( label );
     mLabels.append( label );
   }
 
