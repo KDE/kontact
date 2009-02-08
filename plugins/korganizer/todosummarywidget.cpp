@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2005-2006,2008 Allen Winter <winter@kde.org>
+  Copyright (c) 2005-2006,2008-2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -263,7 +263,8 @@ void TodoSummaryWidget::updateView()
       connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
                this, SLOT(popupMenu(const QString&)) );
 
-      QString tipText( KCal::IncidenceFormatter::toolTipString( todo, true ) );
+      QString tipText( KCal::IncidenceFormatter::toolTipStr(
+                         todo, true, KPIM::KPimPrefs::timeSpec() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }
@@ -289,7 +290,7 @@ void TodoSummaryWidget::updateView()
     mLabels.append( noTodos );
   }
 
-  Q_FOREACH( label, mLabels ) {
+  Q_FOREACH( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
     label->show();
   }
 }
