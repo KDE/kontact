@@ -125,6 +125,7 @@ void SummaryWidget::updateView()
       QPixmap::fromImage( img.scaled( 32, 32, Qt::IgnoreAspectRatio, Qt::SmoothTransformation ) ) );
     urlLabel->setMaximumSize( urlLabel->sizeHint() );
     urlLabel->setAlignment( Qt::AlignTop );
+    urlLabel->setWordWrap( true );
     layout->addWidget( urlLabel, 0, 0, 2, 1 );
     mLabels.append( urlLabel );
     connect ( urlLabel, SIGNAL(leftClickedUrl(const QString&)),

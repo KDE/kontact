@@ -342,6 +342,7 @@ int Planner::showTodos( int counter, const QDate &date )
       if( !mUnderline ){
         urlLabel->setUnderline( false );
       }
+      urlLabel->setWordWrap( true );
       urlLabel->setMaximumWidth( urlLabel->minimumSizeHint().width() );
       mPlannerGrid->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
@@ -361,6 +362,7 @@ int Planner::showTodos( int counter, const QDate &date )
       urlLabel2->setUrl( todo->uid() );
       urlLabel2->installEventFilter( this );
       urlLabel2->setAlignment( Qt::AlignLeft | Qt::AlignTop );
+      urlLabel->setWordWrap( true );
       if( stateText == i18nc( "to-do is overdue", "overdue" ) ){
         urlLabel2->setText( "<font color = red >" + string + "</font>" );
       }
@@ -549,6 +551,7 @@ int Planner::showEvents( int counter, const QDate &date )
       urlLabel->setUrl( ev->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop | Qt::WordBreak );
+      urlLabel->setWordWrap( true );
       if( !mUnderline ){
         urlLabel->setUnderline( false );
       }
@@ -737,6 +740,7 @@ int Planner::showSd( int counter, const QDate &date )
       urlLabel->setUrl( entry.addressee.uid() );
       urlLabel->setText( entry.addressee.realName() );
       urlLabel->setTextFormat( Qt::RichText );
+      urlLabel->setWordWrap( true );
       if( !mUnderline ){
           urlLabel->setUnderline( false );
         }
