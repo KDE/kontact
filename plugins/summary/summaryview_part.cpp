@@ -206,6 +206,10 @@ void SummaryViewPart::updateWidgets()
 
   QHBoxLayout *layout = new QHBoxLayout( mFrame );
 
+  int margin = 20; // margin width: insert margins so there is space to dnd a
+                   // summary when either column is empty. looks nicer too.
+
+  layout->insertSpacing( 0, margin );
   mLeftColumn = new QVBoxLayout();
   layout->addLayout( mLeftColumn );
   mLeftColumn->setSpacing( KDialog::spacingHint() );
@@ -213,6 +217,7 @@ void SummaryViewPart::updateWidgets()
   mRightColumn = new QVBoxLayout();
   layout->addLayout( mRightColumn );
   mRightColumn->setSpacing( KDialog::spacingHint() );
+  layout->insertSpacing( -1, margin );
 
   QStringList::Iterator strIt;
   for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
@@ -383,11 +388,11 @@ void SummaryViewPart::slotTextChanged()
 
 void SummaryViewPart::slotAdjustPalette()
 {
-    mMainWidget->setStyleSheet( 
+    mMainWidget->setStyleSheet(
       "#mMainWidget { "
       " background: palette(base);"
       " background-image: url(:/summaryview/kontact_bg.png);"
-      " background-position: bottom right;" 
+      " background-position: bottom right;"
       " background-repeat: no-repeat; }" );
 }
 
@@ -444,7 +449,7 @@ void SummaryViewPart::initGUI( Kontact::Core *core )
   sa->setWidgetResizable( true );
 
   mMainWidget = new QFrame;
-  mMainWidget->setObjectName("mMainWidget");
+  mMainWidget->setObjectName( "mMainWidget" );
   sa->setWidget( mMainWidget );
   mMainWidget->setFocusPolicy( Qt::StrongFocus );
   setWidget( sa );
