@@ -123,11 +123,11 @@ void KNotesSummaryWidget::updateView()
   } else {
       QLabel *noNotes = new QLabel( i18n( "No Notes Available" ), this );
       noNotes->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-      mLayout->addWidget( noNotes, 0, 1 );
+      mLayout->addWidget( noNotes );
       mLabels.append( noNotes );
   }
 
-  Q_FOREACH( label, mLabels ) {
+  Q_FOREACH( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
     label->show();
   }
 }
