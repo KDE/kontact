@@ -258,6 +258,7 @@ void SummaryWidget::updateView()
     KUrlLabel *urlLabel = new KUrlLabel( hbox );
     urlLabel->setUrl( (*it).url );
     urlLabel->setPixmap( (*it).logo );
+    urlLabel->setWordWrap( true );
     urlLabel->setMaximumSize( urlLabel->minimumSizeHint() );
     mLabels.append( urlLabel );
 

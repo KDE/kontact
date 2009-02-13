@@ -235,6 +235,7 @@ int Planner::showTodos( int counter, const QDate &date )
         urlLabel->setText( "<font color = red >" + percent + "</font>" );
       }
       urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop );
+      urlLabel->setWordWrap( true );
       urlLabel->setMaximumWidth( urlLabel->minimumSizeHint().width() );
       mPlannerGrid->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
@@ -252,6 +253,7 @@ int Planner::showTodos( int counter, const QDate &date )
       urlLabel2->setUrl( todo->uid() );
       urlLabel2->installEventFilter( this );
       urlLabel2->setAlignment( Qt::AlignLeft | Qt::AlignTop );
+      urlLabel->setWordWrap( true );
       if( stateText == i18nc( "to-do is overdue", "overdue" ) ){
         urlLabel2->setText( "<font color = red >" + string + "</font>" );
       }
@@ -429,6 +431,7 @@ int Planner::showEvents( int counter, const QDate &date )
       urlLabel->setUrl( ev->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setAlignment( Qt::AlignLeft | Qt::AlignTop | Qt::WordBreak );
+      urlLabel->setWordWrap( true );
       mPlannerGrid->addWidget( urlLabel, counter, 4 );
       mLabels.append( urlLabel );
 

@@ -152,6 +152,7 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
         KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
         urlLabel->installEventFilter( this );
         urlLabel->setAlignment( Qt::AlignLeft );
+        urlLabel->setWordWrap( true );
         mLayout->addWidget( urlLabel, counter, 0 );
         mLabels.append( urlLabel );
 

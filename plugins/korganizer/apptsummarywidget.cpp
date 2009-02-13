@@ -244,6 +244,7 @@ void ApptSummaryWidget::updateView()
       urlLabel->setUrl( ev->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
+      urlLabel->setWordWrap( true );
       mLayout->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
 
