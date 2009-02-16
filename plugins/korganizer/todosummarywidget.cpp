@@ -288,7 +288,7 @@ void TodoSummaryWidget::updateView()
              "No pending to-dos due within the next %1 days",
              mDaysToGo ), this );
     noTodos->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addWidget( noTodos );
+    mLayout->addWidget( noTodos, 0, 0 );
     mLabels.append( noTodos );
   }
 

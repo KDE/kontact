@@ -237,7 +237,7 @@ void Planner::updateView()
       i18np( "No appointments pending within the next day",
              "No appointments pending within the next %1 days", mCustomDays ), this );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addWidget( noEvents );
+    mLayout->addWidget( noEvents, 0, 0 );
     mLabels.append( noEvents );
   }
 
