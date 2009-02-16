@@ -199,7 +199,7 @@
      </widget>
      <widget class="QWidget" name="TodoTab" >
       <attribute name="title" >
-       <string>To-do's</string>
+       <string>To-dos</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout" >
        <item>
