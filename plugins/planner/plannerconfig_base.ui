@@ -293,7 +293,7 @@
            <item>
             <widget class="QCheckBox" name="mBirthdayConList" >
              <property name="text" >
-              <string>Show Birthdays from KAdressBook</string>
+              <string>Show Birthdays from KAddressBook</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
@@ -303,7 +303,7 @@
            <item>
             <widget class="QCheckBox" name="mAnniversariesConList" >
              <property name="text" >
-              <string>Show Anniversaries from KAdressBook</string>
+              <string>Show Anniversaries from KAddressBook</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
