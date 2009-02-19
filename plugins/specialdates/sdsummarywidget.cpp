@@ -548,7 +548,7 @@ void SDSummaryWidget::updateView()
                "No special dates pending within the next %1 days",
                mDaysAhead ), this );
     label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addWidget( label );
+    mLayout->addWidget( label, 0, 0 );
     mLabels.append( label );
   }
 

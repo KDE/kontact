@@ -85,7 +85,7 @@ SummaryWidget::SummaryWidget( QWidget *parent )
     QLabel *label = new QLabel(
       i18n( "No weather D-Bus service available;\nyou need KWeather to use this plugin." ), this );
     mLayout->addWidget( label, Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addWidget( label );
+    mLayout->addWidget( label, 0, 0 );
   }
 }
 

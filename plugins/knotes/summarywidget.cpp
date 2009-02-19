@@ -123,7 +123,7 @@ void KNotesSummaryWidget::updateView()
   } else {
       QLabel *noNotes = new QLabel( i18n( "No Notes Available" ), this );
       noNotes->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-      mLayout->addWidget( noNotes );
+      mLayout->addWidget( noNotes, 0, 0 );
       mLabels.append( noNotes );
   }
 

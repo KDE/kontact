@@ -291,7 +291,7 @@ void ApptSummaryWidget::updateView()
             "No upcoming events starting within the next %1 days",
             days ), this );
     noEvents->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    mLayout->addWidget( noEvents );
+    mLayout->addWidget( noEvents, 0, 0 );
     mLabels.append( noEvents );
   }
 
