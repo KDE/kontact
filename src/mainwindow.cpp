@@ -165,6 +165,9 @@ MainWindow::MainWindow()
   mSidePane->setMinimumWidth( mSidePane->sizeHint().width() );
 
   factory()->plugActionList( this, QString( "navigator_actionlist" ), mActionPlugins );
+
+  restoreWindowSize( KConfigGroup( KGlobal::config(), "MainWindow" ) );
+  setAutoSaveSettings();
 }
 
 void MainWindow::initGUI()
@@ -182,9 +185,6 @@ void MainWindow::initGUI()
   setStandardToolBarMenuEnabled( true );
 
   createGUI( 0 );
-
-  resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
-  setAutoSaveSettings();
 
   KToolBar *navigatorToolBar = findToolBar( "navigatorToolBar" );
   Q_ASSERT( navigatorToolBar );
