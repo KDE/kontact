@@ -25,6 +25,9 @@
 #include "plugin.h"
 #include "uniqueapphandler.h"
 
+// Use the kdepim version
+#include "kdepim-version.h"
+
 #include <pimapplication.h>
 
 #include <kaboutdata.h>
@@ -42,15 +45,12 @@
 #include <QLabel>
 
 #include <iostream>
-
 using namespace std;
 
 static const char description[] =
   I18N_NOOP( "KDE personal information manager" );
 
-static const char version[] = "1.4.90";
-
-
+static const char version[] = KDEPIM_VERSION;
 
 class KontactApp : public
 #ifdef Q_WS_WIN
@@ -161,7 +161,7 @@ int main( int argc, char **argv )
 {
   KAboutData about( "kontact", 0, ki18n( "Kontact" ), version, ki18n(description),
                     KAboutData::License_GPL,
-                    ki18n( "(C) 2001-2008 The Kontact developers" ),
+                    ki18n( "(C) 2001-2009 The Kontact developers" ),
                     KLocalizedString(), "http://kontact.org" );
 
   about.addAuthor( ki18n( "Allen Winter" ), KLocalizedString(), "winter@kde.org" );
