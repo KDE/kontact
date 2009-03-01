@@ -131,70 +131,82 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
   int counter = 0;
   QStringList::ConstIterator it;
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
-  for ( it = folders.begin(); it != folders.end(); ++it ) {
-    if ( activeFolders.contains( *it ) ) {
-      QDBusReply<QString> ref = kmail.getFolder( *it );
-      if ( ref.isValid() && !ref.value().isEmpty() ) {
-        OrgKdeKmailFolderInterface folderInterface(
-          DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus() );
-        QDBusReply<int> replyNumMsg = folderInterface.messages();
-        const int numMsg = replyNumMsg;
-        QDBusReply<int> replyUnreadNumMsg = folderInterface.unreadMessages();
-        const int numUnreadMsg=replyUnreadNumMsg;
+  if ( kmail.isValid() ) {
+    for ( it = folders.begin(); it != folders.end(); ++it ) {
+      if ( activeFolders.contains( *it ) ) {
+        QDBusReply<QString> ref = kmail.getFolder( *it );
+        if ( ref.isValid() && !ref.value().isEmpty() ) {
+          OrgKdeKmailFolderInterface folderInterface(
+            DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus() );
+          if ( !folderInterface.isValid() )
+            continue;
 
-        if ( numUnreadMsg == 0 ) {
-          continue;
+          QDBusReply<int> replyNumMsg = folderInterface.messages();
+          if ( !replyNumMsg.isValid() )
+            continue;
+
+          const int numMsg = replyNumMsg;
+          QDBusReply<int> replyUnreadNumMsg = folderInterface.unreadMessages();
+          if ( !replyUnreadNumMsg.isValid() )
+            continue;
+
+          const int numUnreadMsg = replyUnreadNumMsg;
+          if ( numUnreadMsg == 0 ) {
+            continue;
+          }
+
+          // folder icon
+          QDBusReply<QString> name = folderInterface.unreadIconPath();
+          if ( !name.isValid() || name.isEmpty() ) {
+            name = defName;
+          }
+          label = new QLabel( this );
+          label->setPixmap( KIconLoader::global()->loadIcon( name, KIconLoader::Small ) );
+          label->setMaximumWidth( label->minimumSizeHint().width() );
+          label->setAlignment( Qt::AlignVCenter );
+          mLayout->addWidget( label, counter, 0 );
+          mLabels.append( label );
+
+          // folder path
+          QString folderPath;
+          QDBusReply<QString> replyFolderPath;
+          if ( config.readEntry( "ShowFullPath", true ) ) {
+            replyFolderPath= folderInterface.displayPath();
+          } else {
+            replyFolderPath= folderInterface.displayName();
+          }
+          if ( replyFolderPath.isValid )
+            folderPath = replyFolderPath;
+
+          KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
+          urlLabel->installEventFilter( this );
+          urlLabel->setAlignment( Qt::AlignLeft );
+          urlLabel->setWordWrap( true );
+          mLayout->addWidget( urlLabel, counter, 1 );
+          mLabels.append( urlLabel );
+
+          connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
+                  SLOT(selectFolder(const QString&)) );
+
+          // unread of total
+          label = new QLabel( i18nc( "%1: number of unread messages "
+                                    "%2: total number of messages",
+                                    "%1 / %2", numUnreadMsg, numMsg ), this );
+          label->setAlignment( Qt::AlignLeft );
+          mLayout->addWidget( label, counter, 2 );
+          mLabels.append( label );
+
+          // tooltip
+          urlLabel->setToolTip( i18n( "<qt><b>%1</b>"
+                                      "<br/>Total: %2<br/>"
+                                      "Unread: %3</qt>",
+                                      folderPath,
+                                      numMsg,
+                                      numUnreadMsg ) );
+          //TODO: put the folder size in the tooltip
+          //so we need to add a folderSize() to the interface
+          counter++;
         }
-
-        // folder icon
-        QString name = folderInterface.unreadIconPath();
-        if ( name.isEmpty() ) {
-          name = defName;
-        }
-        label = new QLabel( this );
-        label->setPixmap( KIconLoader::global()->loadIcon( name, KIconLoader::Small ) );
-        label->setMaximumWidth( label->minimumSizeHint().width() );
-        label->setAlignment( Qt::AlignVCenter );
-        mLayout->addWidget( label, counter, 0 );
-        mLabels.append( label );
-
-        // folder path
-        QString folderPath;
-        QDBusReply<QString> replyFolderPath;
-        if ( config.readEntry( "ShowFullPath", true ) ) {
-          replyFolderPath= folderInterface.displayPath();
-        } else {
-          replyFolderPath= folderInterface.displayName();
-        }
-        folderPath = replyFolderPath;
-        KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
-        urlLabel->installEventFilter( this );
-        urlLabel->setAlignment( Qt::AlignLeft );
-        urlLabel->setWordWrap( true );
-        mLayout->addWidget( urlLabel, counter, 1 );
-        mLabels.append( urlLabel );
-
-        connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
-                 SLOT(selectFolder(const QString&)) );
-
-        // unread of total
-        label = new QLabel( i18nc( "%1: number of unread messages "
-                                   "%2: total number of messages",
-                                   "%1 / %2", numUnreadMsg, numMsg ), this );
-        label->setAlignment( Qt::AlignLeft );
-        mLayout->addWidget( label, counter, 2 );
-        mLabels.append( label );
-
-        // tooltip
-        urlLabel->setToolTip( i18n( "<qt><b>%1</b>"
-                                    "<br/>Total: %2<br/>"
-                                    "Unread: %3</qt>",
-                                    folderPath,
-                                    numMsg,
-                                    numUnreadMsg ) );
-        //TODO: put the folder size in the tooltip
-        //so we need to add a folderSize() to the interface
-        counter++;
       }
     }
   }
