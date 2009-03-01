@@ -156,10 +156,15 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
           }
 
           // folder icon
-          QDBusReply<QString> name = folderInterface.unreadIconPath();
-          if ( !name.isValid() || name.isEmpty() ) {
-            name = defName;
+          QDBusReply<QString> dbusName = folderInterface.unreadIconPath();
+          QString name;
+          if ( dbusName.isValid() ) {
+            name = dbusName;
+            if ( name.isEmpty() )
+              name = defName;
           }
+          else
+            name = defName;
           label = new QLabel( this );
           label->setPixmap( KIconLoader::global()->loadIcon( name, KIconLoader::Small ) );
           label->setMaximumWidth( label->minimumSizeHint().width() );
@@ -175,7 +180,7 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
           } else {
             replyFolderPath= folderInterface.displayName();
           }
-          if ( replyFolderPath.isValid )
+          if ( replyFolderPath.isValid() )
             folderPath = replyFolderPath;
 
           KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
