@@ -88,9 +88,11 @@ void SummaryWidget::updateSummary( bool )
 {
   // check whether we need to update the message counts
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
-  const int timeOfLastMessageCountChange = kmail.timeOfLastMessageCountChange();
-  if ( timeOfLastMessageCountChange > mTimeOfLastMessageCountUpdate ) {
-    slotUnreadCountChanged();
+  if ( kmail.isValid() ) {
+    const int timeOfLastMessageCountChange = kmail.timeOfLastMessageCountChange();
+    if ( timeOfLastMessageCountChange > mTimeOfLastMessageCountUpdate ) {
+      slotUnreadCountChanged();
+    }
   }
 }
 
