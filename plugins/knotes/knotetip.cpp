@@ -31,6 +31,7 @@
 */
 
 #include "knotetip.h"
+#include <kdebug.h>
 #include "knotes_part_p.h"
 
 #include <kglobalsettings.h>
@@ -89,11 +90,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
     }
   } else {
     KCal::Journal *journal = item->journal();
-    if ( journal->customProperty( "KNotes", "RichText" ) == "true" ) {
-      mPreview->setTextFormat( Qt::RichText );
-    } else {
-      mPreview->setTextFormat( Qt::PlainText );
-    }
+    mPreview->setAcceptRichText( journal->customProperty( "KNotes", "RichText" ) == "true" );
 
     QColor fg( journal->customProperty( "KNotes", "FgColor" ) );
     QColor bg( journal->customProperty( "KNotes", "BgColor" ) );
@@ -103,12 +100,12 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
     //mPreview->zoomTo( 8 );
     mPreview->sync();
 
-    int w = 400;
-    int h = mPreview->heightForWidth( w );
+    mPreview->document()->adjustSize ();
+    int w = mPreview->document () ->size().width();
+    int h = mPreview->document () ->size().height();
     while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) ) {
       w -= 20;
     }
-
     QRect desk = KGlobalSettings::desktopGeometry( mNoteIVI->rect().center() );
     resize( w, qMin( h, desk.height() / 2 - 20 ) );
 
