@@ -59,7 +59,7 @@ KNoteTip::KNoteTip( K3IconView *parent )
 
   QBoxLayout *layout = new QVBoxLayout( this );
   layout->addWidget( mPreview );
-
+  layout->setMargin( 1 );
   setPalette( QToolTip::palette() );
   setFrameStyle( QFrame::Plain | QFrame::Box );
   hide();
