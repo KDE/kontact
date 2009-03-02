@@ -33,7 +33,7 @@
 #ifndef KNOTETIP_H
 #define KNOTETIP_H
 
-#include <q3frame.h>
+#include <qframe.h>
 
 class QEvent;
 class QReszieEvent;
@@ -42,7 +42,7 @@ class QTimerEvent;
 class K3IconView;
 class KNotesIconViewItem;
 
-class KNoteTip : public Q3Frame
+class KNoteTip : public QFrame
 {
   public:
     KNoteTip( K3IconView *parent );

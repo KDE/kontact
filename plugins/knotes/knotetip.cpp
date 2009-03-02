@@ -35,7 +35,6 @@
 
 #include <kglobalsettings.h>
 
-#include <Q3Frame>
 #include <QAbstractEventDispatcher>
 #include <QApplication>
 #include <QToolTip>
@@ -47,7 +46,7 @@
 #include <QVBoxLayout>
 
 KNoteTip::KNoteTip( K3IconView *parent )
-  : Q3Frame( 0, 0, Qt::WX11BypassWM |   // this will make Seli happy >:-P
+  : QFrame( 0, Qt::WX11BypassWM |   // this will make Seli happy >:-P
              Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
     mFilter( false ),
     mView( parent ),
@@ -62,7 +61,6 @@ KNoteTip::KNoteTip( K3IconView *parent )
   layout->addWidget( mPreview );
 
   setPalette( QToolTip::palette() );
-  setMargin( 1 );
   setFrameStyle( QFrame::Plain | QFrame::Box );
   hide();
 }
@@ -123,7 +121,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
 
 void KNoteTip::resizeEvent( QResizeEvent *ev )
 {
-  Q3Frame::resizeEvent( ev );
+  QFrame::resizeEvent( ev );
   reposition();
 }
 
