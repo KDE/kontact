@@ -72,6 +72,7 @@ class KNotesPart : public KParts::ReadOnlyPart
     void killNote( KCal::Journal *journal );
 
     void editNote( Q3IconViewItem *item );
+  void editNote();
 
     void renameNote();
     void renamedNote( Q3IconViewItem *item );

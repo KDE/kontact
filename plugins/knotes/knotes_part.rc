@@ -1,17 +1,19 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="knotes" version="391">
+<kpartgui name="knotes" version="392">
   <MenuBar>
     <Menu name="file"><text>&amp;File</text>
       <Merge/>
       <Action name="print_note"/>
     </Menu>
     <Menu name="edit"><text>&amp;Edit</text>
+      <Action name="edit_note"/>
       <Action name="edit_rename"/>
       <Action name="edit_delete"/>
     </Menu>
   </MenuBar>
   <Menu name="note_context">
     <Action name="file_new"/>
+    <Action name="edit_note"/>
     <Action name="edit_rename"/>
     <Action name="edit_delete"/>
     <Action name="print_note"/>

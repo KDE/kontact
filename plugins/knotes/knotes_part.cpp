@@ -54,6 +54,10 @@ KNotesPart::KNotesPart( QObject *parent )
   connect( action, SIGNAL(triggered(bool)), SLOT(newNote()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_N ) );
 
+  action = new KAction( KIcon( "document-edit" ), i18n( "Edit..." ), this );
+  actionCollection()->addAction( "edit_note", action );
+  connect( action, SIGNAL(triggered(bool)), SLOT(editNote()) );
+
   action = new KAction( KIcon( "edit-rename" ), i18n( "Rename..." ), this );
   actionCollection()->addAction( "edit_rename", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(renameNote()) );
@@ -380,6 +384,14 @@ void KNotesPart::editNote( Q3IconViewItem *item )
   }
 }
 
+void KNotesPart::editNote()
+{
+  if ( mNotesView->currentItem() )
+  {
+    editNote( mNotesView->currentItem() );
+  }
+}
+
 void KNotesPart::renameNote()
 {
   mNotesView->currentItem()->rename();
@@ -394,13 +406,15 @@ void KNotesPart::slotOnCurrentChanged( Q3IconViewItem * )
 {
   QAction *renameAction = actionCollection()->action( "edit_rename" );
   QAction *deleteAction = actionCollection()->action( "edit_delete" );
-
+  QAction *editAction = actionCollection()->action( "edit_note" );
   if ( !mNotesView->currentItem() ) {
     renameAction->setEnabled( false );
     deleteAction->setEnabled( false );
+    editAction->setEnabled( false );
   } else {
     renameAction->setEnabled( true );
     deleteAction->setEnabled( true );
+    editAction->setEnabled( true );
   }
 }
 
