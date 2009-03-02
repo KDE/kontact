@@ -386,12 +386,14 @@ void KNotesPart::editNote( QIconViewItem *item )
 
 void KNotesPart::renameNote()
 {
+  mOldName = mNotesView->currentItem()->text();
   mNotesView->currentItem()->rename();
 }
 
 void KNotesPart::renamedNote( QIconViewItem* )
 {
-  mManager->save();
+  if ( mOldName != mNotesView->currentItem()->text() )
+    mManager->save();
 }
 
 void KNotesPart::slotOnCurrentChanged( QIconViewItem* )
