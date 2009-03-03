@@ -129,7 +129,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
         attendees.append( email );
       }
     }
-
+    event->accept();
     static_cast<KNotesPart *>( part() )->newNote( i18n( "Meeting" ), attendees.join(", ") );
     return;
   }
