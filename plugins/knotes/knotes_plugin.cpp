@@ -118,10 +118,10 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
 
     KPIM::KVCardDrag::fromMimeData( md, contacts );
 
-    KABC::Addressee::List::Iterator it;
+    KABC::Addressee::List::ConstIterator it;
 
     QStringList attendees;
-    for ( it = contacts.begin(); it != contacts.end(); ++it ) {
+    for ( it = contacts.constBegin(); it != contacts.constEnd(); ++it ) {
       QString email = (*it).fullEmail();
       if ( email.isEmpty() ) {
         attendees.append( (*it).realName() + "<>" );
