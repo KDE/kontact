@@ -382,12 +382,14 @@ void KNotesPart::editNote( Q3IconViewItem *item )
 
 void KNotesPart::renameNote()
 {
+  mOldName = mNotesView->currentItem()->text();
   mNotesView->currentItem()->rename();
 }
 
 void KNotesPart::renamedNote( Q3IconViewItem * )
 {
-  mManager->save();
+  if ( mOldName != mNotesView->currentItem()->text() )
+    mManager->save();
 }
 
 void KNotesPart::slotOnCurrentChanged( Q3IconViewItem * )
