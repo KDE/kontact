@@ -164,7 +164,8 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
       factory.addClient( this );
 
       mTool = static_cast<KToolBar *>( factory.container( "note_tool", this ) );
-
+      mNoteEdit->setContextMenu( dynamic_cast<KMenu *>(
+                                   factory.container( "note_edit", this ) ) );
       layout->addWidget( mTool );
       layout->addWidget( mNoteEdit );
 
