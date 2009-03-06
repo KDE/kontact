@@ -133,9 +133,13 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
         OrgKdeKmailFolderInterface folderInterface(
           DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus() );
         QDBusReply<int> replyNumMsg = folderInterface.messages();
+        if ( !replyNumMsg.isValid() )
+          continue;
         const int numMsg = replyNumMsg;
         QDBusReply<int> replyUnreadNumMsg = folderInterface.unreadMessages();
-        const int numUnreadMsg=replyUnreadNumMsg;
+        if ( !replyUnreadNumMsg.isValid() )
+          continue;
+        const int numUnreadMsg = replyUnreadNumMsg;
 
         if ( numUnreadMsg == 0 ) {
           continue;
@@ -148,7 +152,8 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
         } else {
           replyFolderPath= folderInterface.displayName();
         }
-        folderPath = replyFolderPath;
+        if ( replyFolderPath.isValid() )
+          folderPath = replyFolderPath;
         KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
         urlLabel->installEventFilter( this );
         urlLabel->setAlignment( Qt::AlignLeft );
