@@ -174,6 +174,7 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
     mNoteEditDlg->setTitle( journal->summary() );
     mNoteEditDlg->setText( journal->description() );
 
+    mNoteEditDlg->noteEdit()->setFocus();
     if ( mNoteEditDlg->exec() == QDialog::Accepted ) {
       journal->setSummary( mNoteEditDlg->title() );
       journal->setDescription( mNoteEditDlg->text() );
@@ -377,6 +378,7 @@ void KNotesPart::editNote( Q3IconViewItem *item )
   mNoteEditDlg->setTitle( journal->summary() );
   mNoteEditDlg->setText( journal->description() );
 
+  mNoteEditDlg->noteEdit()->setFocus();
   if ( mNoteEditDlg->exec() == QDialog::Accepted ) {
     item->setText( mNoteEditDlg->title() );
     journal->setDescription( mNoteEditDlg->text() );

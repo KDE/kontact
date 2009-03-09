@@ -191,7 +191,10 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
     {
       mTitleEdit->setText( text );
     }
-
+    KNoteEdit *noteEdit()
+    {
+      return mNoteEdit;
+    }
   private:
     KLineEdit *mTitleEdit;
     KNoteEdit *mNoteEdit;
