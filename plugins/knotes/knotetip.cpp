@@ -62,7 +62,7 @@ KNoteTip::KNoteTip( K3IconView *parent )
   layout->addWidget( mPreview );
   layout->setMargin( 1 );
   setPalette( QToolTip::palette() );
-  setFrameStyle( QFrame::Plain | QFrame::Box );
+  setFrameStyle( QFrame::Plain );
   hide();
 }
 
