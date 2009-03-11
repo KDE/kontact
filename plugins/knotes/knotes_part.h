@@ -93,6 +93,7 @@ class KNotesPart : public KParts::ReadOnlyPart
 
     KNotesResourceManager *mManager;
     Q3Dict<KNotesIconViewItem> mNoteList;
+    QString mOldName;
 };
 
 #endif
