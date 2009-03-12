@@ -31,6 +31,7 @@
   <Menu name="help"><text>&amp;Help</text>
      <Action name="help_introduction"/>
      <Action name="help_tipofday"/>
+     <Action name="help_saveiconusage"/>
   </Menu>
 </MenuBar>
 <ToolBar position="Top" noMerge="1" name="mainToolBar"><text>Main Toolbar</text>

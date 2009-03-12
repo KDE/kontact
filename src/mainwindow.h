@@ -124,6 +124,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
 
     void configureShortcuts();
     void configureToolbars();
+    void slotSaveIconUsageLog();
 
   private:
     QFrame *mTopWidget;

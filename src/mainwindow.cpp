@@ -88,6 +88,7 @@
 #include <QSplitter>
 #include <QStackedWidget>
 #include <QTimer>
+#include <QFileDialog>
 
 using namespace Kontact;
 
@@ -172,6 +173,7 @@ MainWindow::MainWindow()
 
   restoreWindowSize( KConfigGroup( KGlobal::config(), "MainWindow" ) );
   setAutoSaveSettings();
+  KIconLoader::setLogIconUse(true);
 }
 
 void MainWindow::initGUI()
@@ -453,6 +455,26 @@ void MainWindow::setupActions()
   action = new KAction( KIcon( "ktip" ), i18n( "&Tip of the Day" ), this );
   actionCollection()->addAction( "help_tipofday", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowTip()) );
+  // debugging helper
+  action = new KAction( KIcon( "kontact" ), i18n( "&Save Icon Usage Log" ), this );
+  actionCollection()->addAction( "help_saveiconusage", action );
+  connect( action, SIGNAL(triggered(bool)), SLOT(slotSaveIconUsageLog()) );
+}
+
+void MainWindow::slotSaveIconUsageLog()
+{
+  const QString filename = QFileDialog::getSaveFileName( this );
+  if ( filename.isEmpty() )
+    return;
+  QFile file( filename );
+  if ( !file.open( QIODevice::WriteOnly ) ) {
+    KMessageBox::error( this, 
+		    i18nc( "@info", "Could not open <filename>%1</filename> for writing: <message>%2</message>",
+	  filename, file.errorString() ),
+	i18nc("@title","Error Writing Icon Usage Log") );
+    return;
+  }
+  QTextStream( &file ) << KIconLoader::iconUsageLog() << '\n';
 }
 
 void MainWindow::slotConfigureProfiles()
