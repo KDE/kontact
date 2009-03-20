@@ -163,9 +163,8 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
 
   // Edit the new note if text is empty
   if ( text.isNull() ) {
-    if ( !mNoteEditDlg ) {
-      mNoteEditDlg = new KNoteEditDlg( widget() );
-    }
+    delete mNoteEditDlg;
+    mNoteEditDlg = new KNoteEditDlg( widget() );
 
     mNoteEditDlg->setTitle( journal->summary() );
     mNoteEditDlg->setText( journal->description() );
