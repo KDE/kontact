@@ -103,6 +103,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
     while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) ) {
       w -= 20;
     }
+
     QRect desk = KGlobalSettings::desktopGeometry( mView->visualItemRect(mNoteIVI ).center() );
     resize( w, qMin( h, desk.height() / 2 - 20 ) );
 

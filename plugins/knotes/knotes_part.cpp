@@ -46,6 +46,7 @@ KNotesIconView::KNotesIconView(KNotesPart *part)
   setSortingEnabled( true );
   setSelectionMode( QAbstractItemView::ExtendedSelection );
   setWordWrap( true );
+  setMouseTracking ( true );
 }
 
 void KNotesIconView::mousePressEvent( QMouseEvent *e )
@@ -57,11 +58,6 @@ void KNotesIconView::mousePressEvent( QMouseEvent *e )
   }
   else
     KListWidget::mousePressEvent( e );
-}
-
-void KNotesIconView::mouseMoveEvent ( QMouseEvent * e )
-{
-  m_part->mouseMoveOnListWidget( e->globalPos() );
 }
 
 KNotesPart::KNotesPart( QObject *parent )
@@ -106,10 +102,13 @@ KNotesPart::KNotesPart( QObject *parent )
   connect( mNotesView, SIGNAL(executed( QListWidgetItem *)),
            this, SLOT(editNote(QListWidgetItem*)) );
 
-  //connect( mNotesView, SIGNAL(onItem(Q3IconViewItem*)),
-  //         this, SLOT(slotOnItem(Q3IconViewItem*)) );
-  //connect( mNotesView, SIGNAL(onViewport()),
-  //         this, SLOT(slotOnViewport()) );
+
+  connect( mNotesView, SIGNAL(entered(const QModelIndex&)),
+            this, SLOT(requestToolTip(const QModelIndex&)));
+
+  connect( mNotesView, SIGNAL(viewportEntered()),
+            this, SLOT(hideToolTip()));
+
   connect( mNotesView, SIGNAL(currentItemChanged ( QListWidgetItem *, QListWidgetItem *) ),
            this, SLOT(slotOnCurrentChanged()) );
 
@@ -135,6 +134,17 @@ KNotesPart::~KNotesPart()
 
   delete mManager;
   mManager = 0;
+}
+
+void KNotesPart::requestToolTip(const QModelIndex& index)
+{
+  QRect m_itemRect = mNotesView->visualRect(index);
+  mNoteTip->setNote( dynamic_cast<KNotesIconViewItem *>( mNotesView->itemAt(m_itemRect.topLeft() ) ) );
+}
+
+void KNotesPart::hideToolTip()
+{
+  mNoteTip->setNote( 0 );
 }
 
 void KNotesPart::printSelectedNotes()
