@@ -46,7 +46,7 @@
 #include <QResizeEvent>
 #include <QVBoxLayout>
 
-KNoteTip::KNoteTip( K3IconView *parent )
+KNoteTip::KNoteTip( QListWidget *parent )
   : QFrame( 0, Qt::WX11BypassWM |   // this will make Seli happy >:-P
              Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
     mFilter( false ),
@@ -79,7 +79,6 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
   }
 
   mNoteIVI = item;
-
   if ( !mNoteIVI ) {
     QAbstractEventDispatcher::instance()->unregisterTimers(this);
     if ( isVisible() ) {
@@ -104,7 +103,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
     while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) ) {
       w -= 20;
     }
-    QRect desk = KGlobalSettings::desktopGeometry( mNoteIVI->rect().center() );
+    QRect desk = KGlobalSettings::desktopGeometry( mView->visualItemRect(mNoteIVI ).center() );
     resize( w, qMin( h, desk.height() / 2 - 20 ) );
 
     hide();
@@ -202,9 +201,9 @@ void KNoteTip::reposition()
     return;
   }
 
-  QRect rect = mNoteIVI->rect();
-  QPoint off = mView->mapToGlobal( mView->contentsToViewport( QPoint( 0, 0 ) ) );
-  rect.translate( off.x(), off.y() );
+  QRect rect = mView->visualItemRect( mNoteIVI);
+  //QPoint off = mView->mapToGlobal( mView->contentsToViewport( QPoint( 0, 0 ) ) );
+  //rect.translate( off.x(), off.y() );
 
   QPoint pos = rect.center();
 

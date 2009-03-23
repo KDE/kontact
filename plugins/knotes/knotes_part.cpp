@@ -22,6 +22,7 @@
 
 #include "knotes_part.h"
 #include "knotes_part_p.h"
+#include <kinputdialog.h>
 #include "knotetip.h"
 #include "knotesadaptor.h"
 
@@ -37,8 +38,28 @@
 #include <QClipboard>
 #include <QApplication>
 
+KNotesIconView::KNotesIconView(KNotesPart *part)
+  : KListWidget(), m_part( part )
+{
+  setViewMode(QListView::IconMode);
+  setMovement( QListView::Static );
+  setSortingEnabled( true );
+  setSelectionMode( QAbstractItemView::ExtendedSelection );
+}
+
+void KNotesIconView::mousePressEvent( QMouseEvent *e )
+{
+  if ( e->button() == Qt::RightButton )
+  {
+    m_part->popupRMB( currentItem(), e->globalPos () );
+  }
+  else
+    KListWidget::mousePressEvent( e );
+}
+
+
 KNotesPart::KNotesPart( QObject *parent )
-  :  KParts::ReadOnlyPart( parent ), mNotesView( new KNotesIconView() ),
+  :  KParts::ReadOnlyPart( parent ), mNotesView( new KNotesIconView(this) ),
      mNoteTip( new KNoteTip( mNotesView ) ), mNoteEditDlg( 0 ),
      mManager( new KNotesResourceManager() )
 {
@@ -76,27 +97,20 @@ KNotesPart::KNotesPart( QObject *parent )
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
   // set the view up
-  mNotesView->setSelectionMode( Q3IconView::Extended );
-  mNotesView->setItemsMovable( false );
-  mNotesView->setResizeMode( Q3IconView::Adjust );
-  mNotesView->setSorting( true );
 
-  connect( mNotesView, SIGNAL(executed(Q3IconViewItem*)),
-           this, SLOT(editNote(Q3IconViewItem*)) );
-  connect( mNotesView, SIGNAL(returnPressed(Q3IconViewItem*)),
-           this, SLOT(editNote(Q3IconViewItem*)) );
-  connect( mNotesView, SIGNAL(itemRenamed(Q3IconViewItem*)),
-           this, SLOT(renamedNote(Q3IconViewItem*)) );
-  connect( mNotesView, SIGNAL(contextMenuRequested(Q3IconViewItem*,const QPoint&)),
-           this, SLOT(popupRMB(Q3IconViewItem*,const QPoint&)) );
-  connect( mNotesView, SIGNAL(onItem(Q3IconViewItem*)),
-           this, SLOT(slotOnItem(Q3IconViewItem*)) );
-  connect( mNotesView, SIGNAL(onViewport()),
-           this, SLOT(slotOnViewport()) );
-  connect( mNotesView, SIGNAL(currentChanged(Q3IconViewItem*)),
-           this, SLOT(slotOnCurrentChanged(Q3IconViewItem*)) );
+  connect( mNotesView, SIGNAL(executed( QListWidgetItem *)),
+           this, SLOT(editNote(QListWidgetItem*)) );
 
-  slotOnCurrentChanged( 0 );
+  //connect( mNotesView, SIGNAL(contextMenuRequested(Q3IconViewItem*,const QPoint&)),
+  //         this, SLOT(popupRMB(Q3IconViewItem*,const QPoint&)) );
+  //connect( mNotesView, SIGNAL(onItem(Q3IconViewItem*)),
+  //         this, SLOT(slotOnItem(Q3IconViewItem*)) );
+  //connect( mNotesView, SIGNAL(onViewport()),
+  //         this, SLOT(slotOnViewport()) );
+  connect( mNotesView, SIGNAL(itemSelectionChanged()),
+           this, SLOT(slotOnCurrentChanged()) );
+
+  slotOnCurrentChanged();
 
   setWidget( mNotesView );
   setXMLFile( "knotes_part.rc" );
@@ -123,14 +137,8 @@ KNotesPart::~KNotesPart()
 void KNotesPart::printSelectedNotes()
 {
   QList<KCal::Journal*> journals;
-
-  for ( Q3IconViewItem *it = mNotesView->firstItem(); it; it = it->nextItem() ) {
-    if ( it->isSelected() ) {
-      journals.append( static_cast<KNotesIconViewItem *>( it )->journal() );
-    }
-  }
-
-  if ( journals.isEmpty() ) {
+  QList<QListWidgetItem *> lst = mNotesView->selectedItems ();
+  if ( lst.isEmpty() ) {
     KMessageBox::information(
       mNotesView,
       i18n( "To print notes, first select the notes to print from the list." ),
@@ -138,9 +146,12 @@ void KNotesPart::printSelectedNotes()
     return;
   }
 
+  foreach( QListWidgetItem *item, lst ) {
+    journals.append( static_cast<KNotesIconViewItem *>( item )->journal() );
+  }
+
   KNotePrinter printer;
   printer.printNotes( journals );
-
 }
 
 bool KNotesPart::openFile()
@@ -187,7 +198,8 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
   mManager->save();
 
   KNotesIconViewItem *note = mNoteList[ journal->uid() ];
-  mNotesView->ensureItemVisible( note );
+  #warning "port me"
+  //mNotesView->ensureItemVisible( note );
   mNotesView->setCurrentItem( note );
 
   return journal->uid();
@@ -276,18 +288,16 @@ void KNotesPart::killSelectedNotes()
 {
   QList<KNotesIconViewItem*> items;
   QStringList notes;
-
-  KNotesIconViewItem *knivi;
-  for ( Q3IconViewItem *it = mNotesView->firstItem(); it; it = it->nextItem() ) {
-    if ( it->isSelected() ) {
-      knivi = static_cast<KNotesIconViewItem *>( it );
-      items.append( knivi );
-      notes.append( knivi->text() );
-    }
+  QList<QListWidgetItem *> lst = mNotesView->selectedItems ();
+  if ( lst.isEmpty() ) {
+    return;
   }
 
-  if ( items.isEmpty() ) {
-    return;
+  foreach( QListWidgetItem *item, lst )
+  {
+    KNotesIconViewItem *knivi = static_cast<KNotesIconViewItem *>( item );
+    items.append( knivi );
+    notes.append( knivi->text() );
   }
 
   int ret = KMessageBox::warningContinueCancelList(
@@ -307,7 +317,7 @@ void KNotesPart::killSelectedNotes()
   }
 }
 
-void KNotesPart::popupRMB( Q3IconViewItem *item, const QPoint &pos )
+void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos )
 {
   QMenu *contextMenu = 0;
 
@@ -326,15 +336,19 @@ void KNotesPart::popupRMB( Q3IconViewItem *item, const QPoint &pos )
 
 void KNotesPart::slotOnItem( Q3IconViewItem *i )
 {
+#if 0
   // TODO: disable (i.e. setNote( QString::null )) when mouse button pressed
 
   KNotesIconViewItem *item = static_cast<KNotesIconViewItem *>( i );
   mNoteTip->setNote( item );
+#endif
 }
 
 void KNotesPart::slotOnViewport()
 {
+#if 0
   mNoteTip->setNote( 0 );
+#endif
 }
 
 // TODO: also with takeItem, clear(),
@@ -367,7 +381,7 @@ void KNotesPart::killNote( KCal::Journal *journal )
   mNoteList.remove( journal->uid() );
 }
 
-void KNotesPart::editNote( Q3IconViewItem *item )
+void KNotesPart::editNote( QListWidgetItem *item )
 {
   if ( !mNoteEditDlg ) {
     mNoteEditDlg = new KNoteEditDlg( widget() );
@@ -395,17 +409,18 @@ void KNotesPart::editNote()
 
 void KNotesPart::renameNote()
 {
-  mOldName = mNotesView->currentItem()->text();
-  mNotesView->currentItem()->rename();
-}
-
-void KNotesPart::renamedNote( Q3IconViewItem * )
-{
-  if ( mOldName != mNotesView->currentItem()->text() )
+  QString oldName = mNotesView->currentItem()->text();
+  bool ok = false;
+  QString newName = KInputDialog::getText( i18n( "Rename" ), i18n( "Name:" ), oldName, &ok, mNotesView );
+  if ( ok && ( newName != oldName ) )
+  {
+    mNotesView->currentItem()->setText( newName );
     mManager->save();
+  }
 }
 
-void KNotesPart::slotOnCurrentChanged( Q3IconViewItem * )
+
+void KNotesPart::slotOnCurrentChanged( )
 {
   QAction *renameAction = actionCollection()->action( "edit_rename" );
   QAction *deleteAction = actionCollection()->action( "edit_delete" );

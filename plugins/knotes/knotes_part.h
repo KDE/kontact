@@ -23,13 +23,13 @@
 #ifndef KNOTES_PART_H
 #define KNOTES_PART_H
 
+#include <QListWidget>
 #include <kcal/journal.h>
 
 #include <kparts/part.h>
 
 #include <q3dict.h>
 
-class K3IconView;
 class Q3IconViewItem;
 class KNotesIconViewItem;
 class KNoteTip;
@@ -66,34 +66,32 @@ class KNotesPart : public KParts::ReadOnlyPart
     void setText( const QString &id, const QString &newText );
 
     QMap<QString, QString> notes() const;
-
+  void popupRMB( QListWidgetItem *item, const QPoint &pos );
   private slots:
     void createNote( KCal::Journal *journal );
     void killNote( KCal::Journal *journal );
 
-    void editNote( Q3IconViewItem *item );
+    void editNote( QListWidgetItem *item );
   void editNote();
 
     void renameNote();
-    void renamedNote( Q3IconViewItem *item );
 
     void slotOnItem( Q3IconViewItem *item );
     void slotOnViewport();
-    void slotOnCurrentChanged( Q3IconViewItem *item );
+    void slotOnCurrentChanged( );
 
-    void popupRMB( Q3IconViewItem *item, const QPoint &pos );
+
     void killSelectedNotes();
 
     void printSelectedNotes();
 
   private:
-    K3IconView *mNotesView;
+    QListWidget *mNotesView;
     KNoteTip *mNoteTip;
     KNoteEditDlg *mNoteEditDlg;
 
     KNotesResourceManager *mManager;
-    Q3Dict<KNotesIconViewItem> mNoteList;
-    QString mOldName;
+  Q3Dict<KNotesIconViewItem> mNoteList;
 };
 
 #endif

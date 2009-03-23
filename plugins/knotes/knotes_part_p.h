@@ -33,6 +33,7 @@
 #ifndef KNOTES_PART_P_H
 #define KNOTES_PART_P_H
 
+#include <KListWidget>
 #include <knotes/knoteedit.h>
 
 #include <libkdepim/kpimprefs.h>
@@ -41,7 +42,6 @@
 #include <kcal/calendarlocal.h>
 #include <kcal/icaldrag.h>
 
-#include <k3iconview.h>
 #include <kactioncollection.h>
 #include <kcomponentdata.h>
 #include <klocale.h>
@@ -61,66 +61,47 @@
 #include <QVBoxLayout>
 #include <QPixmap>
 #include <QHBoxLayout>
-
-class KNotesIconViewItem : public K3IconViewItem
+class KNotesPart;
+class KNotesIconView : public KListWidget
 {
   public:
-    KNotesIconViewItem( K3IconView *parent, KCal::Journal *journal )
-      : K3IconViewItem( parent ), mJournal( journal )
-    {
-      setRenameEnabled( true );
+  KNotesIconView(KNotesPart *);
+  protected:
+  void mousePressEvent( QMouseEvent* );
+  private:
+  KNotesPart *m_part;
+};
 
+class KNotesIconViewItem : public QListWidgetItem
+{
+  public:
+  KNotesIconViewItem( QListWidget *parent, KCal::Journal *journal )
+      : QListWidgetItem( parent ), mJournal( journal )
+    {
       KIconEffect effect;
       QColor color( journal->customProperty( "KNotes", "BgColor" ) );
       QPixmap icon = KIconLoader::global()->loadIcon( "knotes", KIconLoader::Desktop );
       icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
-      setPixmap( icon );
+      setIcon( icon );
       setText( journal->summary() );
     }
 
-    KCal::Journal *journal()
+  KCal::Journal *journal()
     {
       return mJournal;
     }
+//TODO
+  //  virtual void setText( const QString &text )
+  // {
+  //    K3IconViewItem::setText( text );
+  //    mJournal->setSummary( text );
+  //  }
 
-    virtual void setText( const QString &text )
-    {
-      K3IconViewItem::setText( text );
-      mJournal->setSummary( text );
-    }
 
   private:
-    KCal::Journal *mJournal;
+  KCal::Journal *mJournal;
 };
 
-class KNotesIconView : public K3IconView
-{
-  protected:
-    Q3DragObject *dragObject()
-    {
-      QList<KNotesIconViewItem*> selectedItems;
-      for ( Q3IconViewItem *it = firstItem(); it; it = it->nextItem() ) {
-        if ( it->isSelected() ) {
-          selectedItems.append( static_cast<KNotesIconViewItem *>( it ) );
-        }
-      }
-      if ( selectedItems.count() != 1 ) {
-        return K3IconView::dragObject();
-      }
-
-      KCal::CalendarLocal cal( KPIM::KPimPrefs::timeSpec() );
-      KCal::Incidence *i = selectedItems.first()->journal()->clone();
-      cal.addIncidence( i );
-#ifdef __GNUC__
-#warning Port me!
-#endif
-#if 0
-      KCal::ICalDrag *icd = new KCal::ICalDrag( &cal, this );
-      return icd;
-#endif
-      return 0;
-    }
-};
 
 class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
 {

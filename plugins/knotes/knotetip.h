@@ -39,13 +39,13 @@ class QEvent;
 class QReszieEvent;
 class QTextEdit;
 class QTimerEvent;
-class K3IconView;
 class KNotesIconViewItem;
+class QListWidget;
 
 class KNoteTip : public QFrame
 {
   public:
-    KNoteTip( K3IconView *parent );
+    KNoteTip( QListWidget *parent );
     ~KNoteTip();
 
     void setNote( KNotesIconViewItem *item );
@@ -62,7 +62,7 @@ class KNoteTip : public QFrame
 
   private:
     bool mFilter;
-    K3IconView *mView;
+    QListWidget *mView;
     KNotesIconViewItem *mNoteIVI;
     QTextEdit *mPreview;
 };
