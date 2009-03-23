@@ -64,6 +64,8 @@ class KNotesPart : public KParts::ReadOnlyPart
 
     QMap<QString, QString> notes() const;
   void popupRMB( QListWidgetItem *item, const QPoint &pos,const QPoint &globalPos );
+  void mouseMoveOnListWidget( const QPoint & pos );
+
   private slots:
     void createNote( KCal::Journal *journal );
     void killNote( KCal::Journal *journal );
@@ -73,8 +75,6 @@ class KNotesPart : public KParts::ReadOnlyPart
 
     void renameNote();
 
-    //void slotOnItem( Q3IconViewItem *item );
-    void slotOnViewport();
     void slotOnCurrentChanged( );
 
 

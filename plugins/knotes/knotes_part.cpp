@@ -59,6 +59,10 @@ void KNotesIconView::mousePressEvent( QMouseEvent *e )
     KListWidget::mousePressEvent( e );
 }
 
+void KNotesIconView::mouseMoveEvent ( QMouseEvent * e )
+{
+  m_part->mouseMoveOnListWidget( e->globalPos() );
+}
 
 KNotesPart::KNotesPart( QObject *parent )
   :  KParts::ReadOnlyPart( parent ), mNotesView( new KNotesIconView(this) ),
@@ -330,22 +334,11 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos,const QPoint
 
   contextMenu->popup( mNotesView->mapFromParent(  globalPos ) );
 }
-#if 0
-void KNotesPart::slotOnItem( Q3IconViewItem *i )
-{
-#if 0
-  // TODO: disable (i.e. setNote( QString::null )) when mouse button pressed
 
-  KNotesIconViewItem *item = static_cast<KNotesIconViewItem *>( i );
-  mNoteTip->setNote( item );
-#endif
-}
-#endif
-void KNotesPart::slotOnViewport()
+void KNotesPart::mouseMoveOnListWidget( const QPoint & pos )
 {
-#if 0
-  mNoteTip->setNote( 0 );
-#endif
+  QListWidgetItem *item = mNotesView->itemAt( pos );
+  mNoteTip->setNote( dynamic_cast<KNotesIconViewItem *>( item ) );
 }
 
 // TODO: also with takeItem, clear(),

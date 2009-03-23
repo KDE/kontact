@@ -68,6 +68,7 @@ class KNotesIconView : public KListWidget
   KNotesIconView(KNotesPart *);
   protected:
   void mousePressEvent( QMouseEvent* );
+  void mouseMoveEvent( QMouseEvent * );
   private:
   KNotesPart *m_part;
 };
