@@ -65,7 +65,6 @@ KNotesPart::KNotesPart( QObject *parent )
 {
   (void) new KNotesAdaptor( this );
   QDBusConnection::sessionBus().registerObject( "/KNotes", this );
-  //mNoteList.setAutoDelete( true );
 
   setComponentData( KComponentData( "knotes" ) );
 
@@ -101,8 +100,6 @@ KNotesPart::KNotesPart( QObject *parent )
   connect( mNotesView, SIGNAL(executed( QListWidgetItem *)),
            this, SLOT(editNote(QListWidgetItem*)) );
 
-  //connect( mNotesView, SIGNAL(contextMenuRequested(Q3IconViewItem*,const QPoint&)),
-  //         this, SLOT(popupRMB(Q3IconViewItem*,const QPoint&)) );
   //connect( mNotesView, SIGNAL(onItem(Q3IconViewItem*)),
   //         this, SLOT(slotOnItem(Q3IconViewItem*)) );
   //connect( mNotesView, SIGNAL(onViewport()),
@@ -198,8 +195,7 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
   mManager->save();
 
   KNotesIconViewItem *note = mNoteList.value(  journal->uid() );
-  #warning "port me"
-  //mNotesView->ensureItemVisible( note );
+  mNotesView->scrollToItem( note );
   mNotesView->setCurrentItem( note );
 
   return journal->uid();
