@@ -53,7 +53,7 @@ void KNotesIconView::mousePressEvent( QMouseEvent *e )
   if ( e->button() == Qt::RightButton )
   {
     QListWidget::mousePressEvent( e );
-    m_part->popupRMB( currentItem(), e->globalPos () );
+    m_part->popupRMB( currentItem(), e->pos (),e->globalPos() );
   }
   else
     KListWidget::mousePressEvent( e );
@@ -106,7 +106,7 @@ KNotesPart::KNotesPart( QObject *parent )
   //         this, SLOT(slotOnItem(Q3IconViewItem*)) );
   //connect( mNotesView, SIGNAL(onViewport()),
   //         this, SLOT(slotOnViewport()) );
-  connect( mNotesView, SIGNAL(itemSelectionChanged()),
+  connect( mNotesView, SIGNAL(currentItemChanged ( QListWidgetItem *, QListWidgetItem *) ),
            this, SLOT(slotOnCurrentChanged()) );
 
   slotOnCurrentChanged();
@@ -315,11 +315,10 @@ void KNotesPart::killSelectedNotes()
   }
 }
 
-void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos )
+void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos,const QPoint &globalPos )
 {
   QMenu *contextMenu = 0;
-
-  if ( item ) {
+  if ( mNotesView->itemAt ( pos ) ) {
     contextMenu = static_cast<QMenu *>( factory()->container( "note_context", this ) );
   } else {
     contextMenu = static_cast<QMenu *>( factory()->container( "notepart_context", this ) );
@@ -329,7 +328,7 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos )
     return;
   }
 
-  contextMenu->popup( pos );
+  contextMenu->popup( mNotesView->mapFromParent(  globalPos ) );
 }
 #if 0
 void KNotesPart::slotOnItem( Q3IconViewItem *i )

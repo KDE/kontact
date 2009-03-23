@@ -63,7 +63,7 @@ class KNotesPart : public KParts::ReadOnlyPart
     void setText( const QString &id, const QString &newText );
 
     QMap<QString, QString> notes() const;
-  void popupRMB( QListWidgetItem *item, const QPoint &pos );
+  void popupRMB( QListWidgetItem *item, const QPoint &pos,const QPoint &globalPos );
   private slots:
     void createNote( KCal::Journal *journal );
     void killNote( KCal::Journal *journal );
