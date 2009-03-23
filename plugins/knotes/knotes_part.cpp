@@ -65,7 +65,7 @@ KNotesPart::KNotesPart( QObject *parent )
 {
   (void) new KNotesAdaptor( this );
   QDBusConnection::sessionBus().registerObject( "/KNotes", this );
-  mNoteList.setAutoDelete( true );
+  //mNoteList.setAutoDelete( true );
 
   setComponentData( KComponentData( "knotes" ) );
 
@@ -197,7 +197,7 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
   mManager->addNewNote( journal );
   mManager->save();
 
-  KNotesIconViewItem *note = mNoteList[ journal->uid() ];
+  KNotesIconViewItem *note = mNoteList.value(  journal->uid() );
   #warning "port me"
   //mNotesView->ensureItemVisible( note );
   mNotesView->setCurrentItem( note );
@@ -218,23 +218,23 @@ void KNotesPart::killNote( const QString &id )
 
 void KNotesPart::killNote( const QString &id, bool force )
 {
-  KNotesIconViewItem *note = mNoteList[ id ];
+  KNotesIconViewItem *note = mNoteList.value(id );
 
   if ( note &&
        ( (!force && KMessageBox::warningContinueCancelList(
             mNotesView,
             i18n( "Do you really want to delete this note?" ),
-            QStringList( mNoteList[ id ]->text() ), i18n( "Confirm Delete" ),
+            QStringList( mNoteList.value( id )->text() ), i18n( "Confirm Delete" ),
             KStandardGuiItem::del() ) == KMessageBox::Continue )
          || force ) ) {
-    mManager->deleteNote( mNoteList[id]->journal() );
+    mManager->deleteNote( mNoteList.value(id )->journal() );
     mManager->save();
   }
 }
 
 QString KNotesPart::name( const QString &id ) const
 {
-  KNotesIconViewItem *note = mNoteList[ id ];
+  KNotesIconViewItem *note = mNoteList.value( id );
   if ( note ) {
     return note->text();
   } else {
@@ -244,7 +244,7 @@ QString KNotesPart::name( const QString &id ) const
 
 QString KNotesPart::text( const QString &id ) const
 {
-  KNotesIconViewItem *note = mNoteList[ id ];
+  KNotesIconViewItem *note = mNoteList.value(  id );
   if ( note ) {
     return note->journal()->description();
   } else {
@@ -254,7 +254,7 @@ QString KNotesPart::text( const QString &id ) const
 
 void KNotesPart::setName( const QString &id, const QString &newName )
 {
-  KNotesIconViewItem *note = mNoteList[ id ];
+  KNotesIconViewItem *note = mNoteList.value(  id );
   if ( note ) {
     note->setText( newName );
     mManager->save();
@@ -263,7 +263,7 @@ void KNotesPart::setName( const QString &id, const QString &newName )
 
 void KNotesPart::setText( const QString &id, const QString &newText )
 {
-  KNotesIconViewItem *note = mNoteList[ id ];
+  KNotesIconViewItem *note = mNoteList.value( id );
   if ( note ) {
     note->journal()->setDescription( newText );
     mManager->save();
@@ -273,12 +273,12 @@ void KNotesPart::setText( const QString &id, const QString &newText )
 QMap<QString, QString> KNotesPart::notes() const
 {
   QMap<QString, QString> notes;
-  Q3DictIterator<KNotesIconViewItem> it( mNoteList );
 
-  for ( ; it.current(); ++it ) {
-    notes.insert( (*it)->journal()->uid(), (*it)->journal()->summary() );
+  QHashIterator<QString, KNotesIconViewItem*> i(mNoteList);
+  while (i.hasNext()) {
+    i.next();
+    notes.insert( i.value()->journal()->uid(), i.value()->journal()->summary() );
   }
-
   return notes;
 }
 
@@ -378,7 +378,8 @@ void KNotesPart::createNote( KCal::Journal *journal )
 
 void KNotesPart::killNote( KCal::Journal *journal )
 {
-  mNoteList.remove( journal->uid() );
+  KNotesIconViewItem*item = mNoteList.take( journal->uid() );
+  delete item;
 }
 
 void KNotesPart::editNote( QListWidgetItem *item )

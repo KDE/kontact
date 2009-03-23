@@ -28,8 +28,6 @@
 
 #include <kparts/part.h>
 
-#include <q3dict.h>
-
 class KNotesIconViewItem;
 class KNoteTip;
 class KNoteEditDlg;
@@ -90,7 +88,7 @@ class KNotesPart : public KParts::ReadOnlyPart
     KNoteEditDlg *mNoteEditDlg;
 
     KNotesResourceManager *mManager;
-  Q3Dict<KNotesIconViewItem> mNoteList;
+  QMultiHash<QString, KNotesIconViewItem*> mNoteList;
 };
 
 #endif
