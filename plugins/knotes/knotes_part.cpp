@@ -254,7 +254,7 @@ void KNotesPart::setName( const QString &id, const QString &newName )
 {
   KNotesIconViewItem *note = mNoteList.value(  id );
   if ( note ) {
-    note->setText( newName );
+    note->setIconText( newName );
     mManager->save();
   }
 }
@@ -391,7 +391,7 @@ void KNotesPart::editNote( QListWidgetItem *item )
 
   mNoteEditDlg->noteEdit()->setFocus();
   if ( mNoteEditDlg->exec() == QDialog::Accepted ) {
-    item->setText( mNoteEditDlg->title() );
+    static_cast<KNotesIconViewItem *>( item )->setIconText( mNoteEditDlg->title() );
     journal->setDescription( mNoteEditDlg->text() );
     mManager->save();
   }
@@ -412,7 +412,7 @@ void KNotesPart::renameNote()
   QString newName = KInputDialog::getText( i18n( "Rename" ), i18n( "Name:" ), oldName, &ok, mNotesView );
   if ( ok && ( newName != oldName ) )
   {
-    mNotesView->currentItem()->setText( newName );
+    static_cast<KNotesIconViewItem *>( mNotesView->currentItem() )->setIconText( newName );
     mManager->save();
   }
 }

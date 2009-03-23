@@ -83,19 +83,18 @@ class KNotesIconViewItem : public QListWidgetItem
       QPixmap icon = KIconLoader::global()->loadIcon( "knotes", KIconLoader::Desktop );
       icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
       setIcon( icon );
-      setText( journal->summary() );
+      setIconText( journal->summary() );
     }
 
   KCal::Journal *journal()
     {
       return mJournal;
     }
-//TODO
-  //  virtual void setText( const QString &text )
-  // {
-  //    K3IconViewItem::setText( text );
-  //    mJournal->setSummary( text );
-  //  }
+  void setIconText( const QString &text )
+    {
+      setText( text );
+      mJournal->setSummary( text );
+    }
 
 
   private:
