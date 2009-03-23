@@ -45,6 +45,7 @@ KNotesIconView::KNotesIconView(KNotesPart *part)
   setMovement( QListView::Static );
   setSortingEnabled( true );
   setSelectionMode( QAbstractItemView::ExtendedSelection );
+  setWordWrap( true );
 }
 
 void KNotesIconView::mousePressEvent( QMouseEvent *e )
