@@ -52,6 +52,7 @@ void KNotesIconView::mousePressEvent( QMouseEvent *e )
 {
   if ( e->button() == Qt::RightButton )
   {
+    QListWidget::mousePressEvent( e );
     m_part->popupRMB( currentItem(), e->globalPos () );
   }
   else
