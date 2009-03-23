@@ -30,7 +30,6 @@
 
 #include <q3dict.h>
 
-class Q3IconViewItem;
 class KNotesIconViewItem;
 class KNoteTip;
 class KNoteEditDlg;
@@ -76,7 +75,7 @@ class KNotesPart : public KParts::ReadOnlyPart
 
     void renameNote();
 
-    void slotOnItem( Q3IconViewItem *item );
+    //void slotOnItem( Q3IconViewItem *item );
     void slotOnViewport();
     void slotOnCurrentChanged( );
 

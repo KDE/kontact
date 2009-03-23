@@ -333,7 +333,7 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos )
 
   contextMenu->popup( pos );
 }
-
+#if 0
 void KNotesPart::slotOnItem( Q3IconViewItem *i )
 {
 #if 0
@@ -343,7 +343,7 @@ void KNotesPart::slotOnItem( Q3IconViewItem *i )
   mNoteTip->setNote( item );
 #endif
 }
-
+#endif
 void KNotesPart::slotOnViewport()
 {
 #if 0
