@@ -203,11 +203,10 @@ void KNoteTip::reposition()
   }
 
   QRect rect = mView->visualItemRect( mNoteIVI);
-  //QPoint off = mView->mapToGlobal( mView->contentsToViewport( QPoint( 0, 0 ) ) );
-  //rect.translate( off.x(), off.y() );
+  QPoint off = mView->mapFromParent( mView->viewport()->mapToGlobal( QPoint( 0,0 ) ) );
+  rect.translate( off.x(), off.y() );
 
   QPoint pos = rect.center();
-
   // should the tooltip be shown to the left or to the right of the ivi?
   QRect desk = KGlobalSettings::desktopGeometry( pos );
   if ( rect.center().x() + width() > desk.right() ) {
@@ -226,7 +225,6 @@ void KNoteTip::reposition()
   } else {
     pos.setY( rect.bottom() );
   }
-
   move( pos );
   update();
 }
