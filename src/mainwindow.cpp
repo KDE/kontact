@@ -860,7 +860,7 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
       }
     }
   }
-  QStringList invisibleActions = plugin->invisibleToolbarActions();
+  const QStringList invisibleActions = plugin->invisibleToolbarActions();
 
   QStringList::ConstIterator it;
   for ( it = invisibleActions.constBegin(); it != invisibleActions.constEnd(); ++it ) {
