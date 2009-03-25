@@ -811,12 +811,12 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     mCurrentPlugin = plugin;
 
     QAction *newAction = 0;
-    if ( plugin->newActions()->count() > 0 ) {
+    if ( !plugin->newActions()->isEmpty() ) {
       newAction = plugin->newActions()->first();
     }
 
     QAction *syncAction = 0;
-    if ( plugin->syncActions()->count() > 0 ) {
+    if ( !plugin->syncActions()->isEmpty() ) {
       syncAction = plugin->syncActions()->first();
     }
 
