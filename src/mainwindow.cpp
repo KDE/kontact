@@ -580,7 +580,6 @@ void MainWindow::updateShortcuts()
 bool MainWindow::removePlugin( const KPluginInfo &info )
 {
   PluginList::Iterator end = mPlugins.end();
-  ActionPluginList::Iterator it2 = mActionPlugins.begin();
   for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it ) {
     Plugin *plugin = *it;
     if ( ( *it )->identifier() == info.pluginName() ) {
@@ -609,8 +608,10 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
       plugin->deleteLater(); // removes the part automatically
       mPlugins.erase( it );
       if ( plugin->showInSideBar() ) {
-        delete *it2; // remove the KAction, so we free the shortcut for later us
-        mActionPlugins.erase( it2 );
+        QAction *q = mPluginAction[plugin]; // remove the KAction, so we free the shortcut for later us
+        mActionPlugins.remove( q );
+        mPluginAction.remove(plugin);
+        delete q;
       }
 
       if ( mCurrentPlugin == 0 ) {
@@ -625,9 +626,6 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
       return true;
     }
 
-    if ( plugin->showInSideBar() ) {
-      it2++;
-    }
   }
 
   return false;
