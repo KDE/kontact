@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui version="411" name="kontact" >
+<gui version="412" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -38,7 +38,6 @@
   <Action name="action_new"/>
   <Action name="action_sync"/>
   <Merge/>
-  <Action name="help_whats_this"/>
 </ToolBar>
 <ToolBar position="Top" noMerge="1" hidden="true" name="navigatorToolBar"><text>Navigator</text>
   <ActionList name="navigator_actionlist" />
