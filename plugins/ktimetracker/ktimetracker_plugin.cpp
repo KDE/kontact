@@ -57,6 +57,7 @@ ktimetrackerplugin::ktimetrackerplugin( Kontact::Core *core, const QVariantList 
 
 ktimetrackerplugin::~ktimetrackerplugin()
 {
+  delete mInterface;
 }
 
 bool ktimetrackerplugin::isRunningStandalone()
