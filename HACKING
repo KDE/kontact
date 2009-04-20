@@ -84,7 +84,7 @@ Class and File Names
 
 - Put classes in files, which have the same name as the class, but only
   lower-case letters.
-- Designer-generated files should have a name classname_base.ui and shoul
+- Designer-generated files should have a name classname_base.ui and should
   contain a class called ClassnameBase.
 - Classes inheriting from designer-generated classes have the same name as the
   generated class, but without the Base suffix.
