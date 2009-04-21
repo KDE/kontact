@@ -3,6 +3,8 @@ set(kontact_kcontactmanagerplugin_PART_SRCS
   kcontactmanager_plugin.cpp
 )
 
+qt4_add_dbus_interfaces(kontact_kcontactmanagerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kcontactmanager/org.kde.KContactmanager.MainWidget.xml )
+
 kde4_add_plugin(kontact_kcontactmanagerplugin ${kontact_kcontactmanagerplugin_PART_SRCS} )
 
 target_link_libraries(kontact_kcontactmanagerplugin ${KDE4_KPARTS_LIBS} kontactinterfaces)

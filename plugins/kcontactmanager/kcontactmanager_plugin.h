@@ -27,6 +27,8 @@
 
 #include <kparts/part.h>
 
+class OrgKdeKContactmanagerMainWidgetInterface;
+
 class KContactManagerUniqueAppHandler : public Kontact::UniqueAppHandler
 {
   public:
@@ -42,10 +44,25 @@ class KContactManagerPlugin : public Kontact::Plugin
   public:
     KContactManagerPlugin( Kontact::Core *core, const QVariantList & );
     ~KContactManagerPlugin();
+
+    virtual QString tipFile() const;
+    virtual bool isRunningStandalone();
     int weight() const { return 550; }
+
+    OrgKdeKContactmanagerMainWidgetInterface *interface();
 
   protected:
     KParts::ReadOnlyPart *createPart();
+
+
+
+  private slots:
+    void slotNewContact();
+
+  private:
+    OrgKdeKContactmanagerMainWidgetInterface *m_interface;
+    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+
 };
 
 #endif

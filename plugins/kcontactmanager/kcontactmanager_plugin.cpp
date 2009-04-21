@@ -19,6 +19,7 @@
 */
 
 #include "kcontactmanager_plugin.h"
+#include "mainwidgetinterface.h"
 
 #include <kontactinterfaces/core.h>
 
@@ -31,17 +32,42 @@
 #include <kiconloader.h>
 #include <kparts/componentfactory.h>
 
+
 EXPORT_KONTACT_PLUGIN( KContactManagerPlugin, kcontactmanager )
 
 KContactManagerPlugin::KContactManagerPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "kcontactmanager" )
+  : Kontact::Plugin( core, core, "kcontactmanager" ), m_interface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
+
+  KAction *action  = new KAction( KIcon( "contact-new" ),
+                                  i18n( "New Contact..." ), this );
+  actionCollection()->addAction( "new_contact", action );
+  connect( action, SIGNAL(triggered(bool)), SLOT(slotNewContact()) );
+  action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
+  insertNewAction( action );
+
+
+  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
+    new Kontact::UniqueAppHandlerFactory<KContactManagerUniqueAppHandler>(), this );
 
 }
 
 KContactManagerPlugin::~KContactManagerPlugin()
 {
+}
+
+void KContactManagerPlugin::slotNewContact()
+{
+  interface()->newContact();
+}
+
+QString KContactManagerPlugin::tipFile() const
+{
+  // TODO: tips file
+  //QString file = KStandardDirs::locate("data", "kcontactmanager/tips");
+  QString file;
+  return file;
 }
 
 KParts::ReadOnlyPart *KContactManagerPlugin::createPart()
@@ -50,9 +76,28 @@ KParts::ReadOnlyPart *KContactManagerPlugin::createPart()
   if ( !part ) {
     return 0;
   }
-
+  // Create the stub that allows us to talk to the part
+  m_interface = new OrgKdeKContactmanagerMainWidgetInterface(
+    "org.kde.kcontactmanager", "/KContactManager", QDBusConnection::sessionBus() );
+//     org.kde.KContactmanager.MainWidget                                      /KContactManager
   return part;
 }
+
+OrgKdeKContactmanagerMainWidgetInterface *KContactManagerPlugin::interface()
+{
+  if ( !m_interface ) {
+    part();
+  }
+  Q_ASSERT( m_interface );
+  return m_interface;
+}
+
+
+bool KContactManagerPlugin::isRunningStandalone()
+{
+  return mUniqueAppWatcher->isRunningStandalone();
+}
+
 
 void KContactManagerUniqueAppHandler::loadCommandLineOptions()
 {
@@ -65,17 +110,5 @@ int KContactManagerUniqueAppHandler::newInstance()
     // Ensure part is loaded
     (void)plugin()->part();
     return Kontact::UniqueAppHandler::newInstance();
-#if 0
-    org::kde::KAddressbook::Core kaddressbook(
-      "org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus() );
-    QDBusReply<bool> reply = kaddressbook.handleCommandLine();
-    if ( reply.isValid() ) {
-        bool handled = reply;
-        kDebug() << "handled=" << handled;
-        if ( !handled ) { // no args -> simply bring kaddressbook plugin to front
-          return Kontact::UniqueAppHandler::newInstance();
-        }
-    }
-#endif
-    return 0;
 }
+
