@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Service
+Icon=kcontactmanager
+X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
+
+X-KDE-Library=kontact_kcontactmanagerplugin
+X-KDE-KontactPluginVersion=7
+X-KDE-KontactPartLibraryName=kcontactmanagerpart
+X-KDE-KontactPartExecutableName=kcontactmanager
+X-KDE-KontactPartLoadOnStart=false
+X-KDE-KontactPluginHasSummary=false
+
+X-KDE-PluginInfo-Name=kontact_kcontactmanagerplugin
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-AllowEmptySettings=true
+
+Comment=Kontact KContactManager Plugin
+Name=Contacts manager
