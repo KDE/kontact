@@ -47,6 +47,12 @@ KContactManagerPlugin::KContactManagerPlugin( Kontact::Core *core, const QVarian
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
   insertNewAction( action );
 
+  KAction *syncAction = new KAction( KIcon( "view-refresh" ),
+                                     i18n( "Synchronize Contacts" ), this );
+  actionCollection()->addAction( "kaddressbook_sync", syncAction );
+  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
+  insertSyncAction( syncAction );
+
 
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
     new Kontact::UniqueAppHandlerFactory<KContactManagerUniqueAppHandler>(), this );
@@ -102,6 +108,16 @@ bool KContactManagerPlugin::isRunningStandalone()
 QStringList KContactManagerPlugin::invisibleToolbarActions() const
 {
   return QStringList( "file_new_contact" );
+}
+
+void KContactManagerPlugin::slotSyncContacts()
+{
+  QDBusMessage message =
+      QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
+                                      "org.kde.kmail.groupware",
+                                      "triggerSync" );
+  message << QString( "Contact" );
+  QDBusConnection::sessionBus().send( message );
 }
 
 void KContactManagerUniqueAppHandler::loadCommandLineOptions()

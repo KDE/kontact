@@ -58,6 +58,7 @@ class KContactManagerPlugin : public Kontact::Plugin
 
   private slots:
     void slotNewContact();
+    void slotSyncContacts();
 
   private:
     OrgKdeKContactmanagerMainWidgetInterface *m_interface;
