@@ -50,7 +50,7 @@ class KContactManagerPlugin : public Kontact::Plugin
     int weight() const { return 550; }
 
     OrgKdeKContactmanagerMainWidgetInterface *interface();
-
+    virtual QStringList invisibleToolbarActions() const;
   protected:
     KParts::ReadOnlyPart *createPart();
 

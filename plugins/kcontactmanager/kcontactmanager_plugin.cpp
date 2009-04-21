@@ -99,6 +99,11 @@ bool KContactManagerPlugin::isRunningStandalone()
 }
 
 
+QStringList KContactManagerPlugin::invisibleToolbarActions() const
+{
+  return QStringList( "file_new_contact" );
+}
+
 void KContactManagerUniqueAppHandler::loadCommandLineOptions()
 {
   KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
