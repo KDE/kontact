@@ -47,7 +47,7 @@ class KContactManagerPlugin : public Kontact::Plugin
 
     virtual QString tipFile() const;
     virtual bool isRunningStandalone();
-    int weight() const { return 550; }
+    int weight() const { return 300; }
 
     OrgKdeKContactmanagerMainWidgetInterface *interface();
     virtual QStringList invisibleToolbarActions() const;
