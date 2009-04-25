@@ -17,8 +17,9 @@ X-KDE-PluginInfo-EnabledByDefault=true
 X-KDE-PluginInfo-AllowEmptySettings=true
 
 Comment=Kontact KContactManager Plugin
+Comment[el]=Πρόσθετο KContactManager του Kontact
 Comment[pt]='Plugin' do KContactManager para o Kontact
-Comment[pt_BR]='Plugin' do KContactManager para o Kontact
+Comment[pt_BR]=Plug-in KContactManager do Kontact
 Comment[sv]=Kontacts insticksprogram för kontakthantering
 Comment[uk]=Додаток до Kontact KContactManager
 Name=Contacts
