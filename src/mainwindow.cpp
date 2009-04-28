@@ -67,7 +67,7 @@
 #include <kmenubar.h>
 #include <kstandardshortcut.h>
 #include <ktoolinvocation.h>
-#include <ktoolbarpopupaction.h>
+#include <kactionmenu.h>
 #include <khbox.h>
 #include <kvbox.h>
 #include <kicon.h>
@@ -414,7 +414,7 @@ void MainWindow::setupActions()
 {
   actionCollection()->addAction( KStandardAction::Quit, this, SLOT(slotQuit()) );
 
-  mNewActions = new KToolBarPopupAction(
+  mNewActions = new KActionMenu(
     KIcon( "" ),
     i18nc( "@title:menu create new pim items (message,calendar,to-do,etc.)", "New" ), this );
   actionCollection()->addAction( "action_new", mNewActions );
@@ -429,7 +429,7 @@ void MainWindow::setupActions()
   mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", false );
 
   if ( mSyncActionsEnabled ) {
-    mSyncActions = new KToolBarPopupAction(
+    mSyncActions = new KActionMenu(
       KIcon( "view-refresh" ),
       i18nc( "@title:menu synchronize pim items (message,calendar,to-do,etc.)", "Sync" ), this );
     actionCollection()->addAction( "action_sync", mSyncActions );
