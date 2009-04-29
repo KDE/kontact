@@ -23,6 +23,7 @@ Comment[pt]='Plugin' do KContactManager para o Kontact
 Comment[pt_BR]=Plug-in KContactManager do Kontact
 Comment[sv]=Kontacts insticksprogram för kontakthantering
 Comment[uk]=Додаток до Kontact KContactManager
+Comment[zh_TW]=Kontact KContactManager 外掛程式
 Name=Contacts
 Name[af]=Kontakte
 Name[be]=Кантакты
