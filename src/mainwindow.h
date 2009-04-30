@@ -39,7 +39,7 @@ class KConfig;
 class KPluginInfo;
 class KSqueezedTextLabel;
 class KHTMLPart;
-class KToolBarPopupAction;
+class KActionMenu;
 
 namespace KPIM {
   class StatusbarProgressWidget;
@@ -131,8 +131,8 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
 
     QSplitter *mSplitter;
 
-    KToolBarPopupAction *mNewActions;
-    KToolBarPopupAction *mSyncActions;
+    KActionMenu *mNewActions;
+    KActionMenu *mSyncActions;
     SidePaneBase *mSidePane;
     QStackedWidget *mPartsStack;
     Plugin *mCurrentPlugin;
