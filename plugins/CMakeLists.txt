@@ -40,4 +40,7 @@ message(STATUS "Newsticker Summary is disabled until we can use the plasmoid")
 message(STATUS "Weather Summary is disabled until we can use the plasmoid")
 #add_subdirectory( weather )
 
-add_subdirectory(kcontactmanager)
+if(KDEPIM_BUILD_KCONTACTMANAGER)
+  add_subdirectory(kcontactmanager)
+endif(KDEPIM_BUILD_KCONTACTMANAGER)
+
