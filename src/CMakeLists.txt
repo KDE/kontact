@@ -35,7 +35,8 @@ kde4_add_executable(kontact_bin ${kontact_bin_SRCS})
 
 set_target_properties(kontact_bin  PROPERTIES OUTPUT_NAME kontact)
 
-kdepim4_link_unique_libraries(kontact_bin  ${KDE4_KHTML_LIBS} ${KDE4_KDE3SUPPORT_LIBS} kontactprivate)
+kdepim4_link_unique_libraries(kontact_bin  ${KDE4_KHTML_LIBS} ${KDE4_KDE3SUPPORT_LIBS} kontactprivate kontactinterfaces kdepim)
+
 
 install(TARGETS kontact_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
