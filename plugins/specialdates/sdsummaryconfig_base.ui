@@ -52,7 +52,7 @@
          <bool>true</bool>
         </property>
         <property name="text" >
-         <string>Within the &amp;next</string>
+         <string>Within the &amp;next:</string>
         </property>
         <property name="checked" >
          <bool>false</bool>

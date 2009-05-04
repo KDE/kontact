@@ -55,7 +55,7 @@
               </sizepolicy>
              </property>
              <property name="text" >
-              <string>Show recurrence Icon</string>
+              <string>Show recurrence icon</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
@@ -65,7 +65,7 @@
            <item>
             <widget class="QCheckBox" name="mShowReminder" >
              <property name="text" >
-              <string>Show Reminder Icon</string>
+              <string>Show reminder icon</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
@@ -75,7 +75,7 @@
            <item>
             <widget class="QCheckBox" name="mUnderline" >
              <property name="text" >
-              <string>Underline Links</string>
+              <string>Underline links</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
@@ -85,7 +85,7 @@
            <item>
             <widget class="QCheckBox" name="mTodo" >
              <property name="text" >
-              <string>Show To-dos in Planner</string>
+              <string>Show to-dos in planner</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
@@ -95,7 +95,7 @@
            <item>
             <widget class="QCheckBox" name="mSd" >
              <property name="text" >
-              <string>Show Special Dates in Planner</string>
+              <string>Show special dates in planner</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
@@ -156,7 +156,7 @@
                 <bool>true</bool>
                </property>
                <property name="text" >
-                <string>Within the &amp;next</string>
+                <string>Within the &amp;next:</string>
                </property>
                <property name="checked" >
                 <bool>false</bool>
@@ -293,7 +293,7 @@
            <item>
             <widget class="QCheckBox" name="mBirthdayConList" >
              <property name="text" >
-              <string>Show Birthdays from KAddressBook</string>
+              <string>Show birthdays from KAddressBook</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
@@ -303,7 +303,7 @@
            <item>
             <widget class="QCheckBox" name="mAnniversariesConList" >
              <property name="text" >
-              <string>Show Anniversaries from KAddressBook</string>
+              <string>Show anniversaries from KAddressBook</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
@@ -313,7 +313,7 @@
            <item>
             <widget class="QCheckBox" name="mHolidaysCal" >
              <property name="text" >
-              <string>Show Holidays from Calendar</string>
+              <string>Show holidays from calendar</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
@@ -323,7 +323,7 @@
            <item>
             <widget class="QCheckBox" name="mSpecialOccasionsCal" >
              <property name="text" >
-              <string>Show Special Occasions from Calendar</string>
+              <string>Show special occasions from calendar</string>
              </property>
              <property name="checked" >
               <bool>true</bool>
