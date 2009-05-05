@@ -254,7 +254,7 @@ Navigator::Navigator( SidePaneBase *parent )
   mShowTextAction->setChecked( mShowText && !mShowIcons );
   connect( mShowTextAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
-  mShowBothAction = new KAction( i18n( "Show Icons and Text" ), this );
+  mShowBothAction = new KAction( i18n( "Show Icons && Text" ), this );
   mShowBothAction->setCheckable( true );
   mShowBothAction->setActionGroup( viewMode );
   mShowBothAction->setChecked( mShowText && mShowIcons );
