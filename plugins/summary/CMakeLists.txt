@@ -13,7 +13,7 @@ if(KMAIL_SUPPORTED)
    add_dependencies(kontact_summaryplugin kmail_xml)
 endif(KMAIL_SUPPORTED)
 
-target_link_libraries(kontact_summaryplugin ${KDE4_KUTILS_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_KPIMIDENTITIES_LIBS} kontactinterfaces kdepim)
+target_link_libraries(kontact_summaryplugin ${KDE4_KUTILS_LIBS} ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KPIMIDENTITIES_LIBS} kontactinterfaces kdepim)
 
 ########### next target ###############
 

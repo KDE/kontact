@@ -9,7 +9,7 @@ qt4_add_dbus_interfaces(kontact_kaddressbookplugin_PART_SRCS ${CMAKE_BINARY_DIR}
 kde4_add_plugin(kontact_kaddressbookplugin ${kontact_kaddressbookplugin_PART_SRCS})
 add_dependencies(kontact_kaddressbookplugin kmail_xml)
 
-target_link_libraries(kontact_kaddressbookplugin  ${KDE4_KDECORE_LIBS} ${KDE4_KABC_LIBS} kontactinterfaces kdepim)
+target_link_libraries(kontact_kaddressbookplugin  ${KDE4_KDECORE_LIBS} ${KDEPIMLIBS_KABC_LIBS} kontactinterfaces kdepim)
 
 
 

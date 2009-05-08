@@ -7,7 +7,7 @@ qt4_add_dbus_interfaces(kontact_specialdatesplugin_PART_SRCS ${CMAKE_SOURCE_DIR}
 
 kde4_add_plugin(kontact_specialdatesplugin ${kontact_specialdatesplugin_PART_SRCS})
 
-target_link_libraries(kontact_specialdatesplugin  ${KDE4_KDEUI_LIBS} ${KDE4_KCAL_LIBS} ${KDE4_KABC_LIBS} ${KDE4_KHOLIDAYS_LIBS} kontactinterfaces kdepim korganizer_calendar kaddressbookprivate)
+target_link_libraries(kontact_specialdatesplugin  ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KCAL_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KHOLIDAYS_LIBS} kontactinterfaces kdepim korganizer_calendar kaddressbookprivate)
 
 
 ########### next target ###############
