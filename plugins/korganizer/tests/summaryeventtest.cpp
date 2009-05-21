@@ -108,22 +108,26 @@ void SummaryEventTester::test_Multiday()
 
   SummaryEventInfo::List eventsToday = SummaryEventInfo::eventsForDate( today, cal );
   QCOMPARE( 2, eventsToday.size() );
-  SummaryEventInfo *ev1 = eventsToday.at( 0 );
-  QCOMPARE( ev1->summaryText, multidayWithTimeInProgress + " (2/7)");
-  QCOMPARE( ev1->timeRange, QString("00:00 - 23:59") );
-  QCOMPARE( ev1->startDate, QString("Today") );
-  QCOMPARE( ev1->daysToGo, QString("now") );
-  QCOMPARE( ev1->makeBold, true );
-  SummaryEventInfo *ev2 = eventsToday.at( 1 );
-  QCOMPARE( ev2->summaryText, multiDayAllDayStartingToday );
-  QVERIFY( ev2->timeRange.isEmpty() );
-  QCOMPARE( ev2->startDate, QString("Today") );
-  QCOMPARE( ev2->daysToGo, QString("now") );
-  QCOMPARE( ev2->makeBold, true );
+  foreach( const SummaryEventInfo *ev, eventsToday ) {
+    if ( ev->summaryText == multidayWithTimeInProgress + " (2/7)" ) {
+      QCOMPARE( ev->timeRange, QString("00:00 - 23:59") );
+      QCOMPARE( ev->startDate, QString("Today") );
+      QCOMPARE( ev->daysToGo, QString("now") );
+      QCOMPARE( ev->makeBold, true );
+    }
+    else if ( ev->summaryText == multiDayAllDayStartingToday ) { 
+      QVERIFY( ev->timeRange.isEmpty() );
+      QCOMPARE( ev->startDate, QString("Today") );
+      QCOMPARE( ev->daysToGo, QString("now") );
+      QCOMPARE( ev->makeBold, true );
+    }
+    else
+      Q_ASSERT( false ); // unexpected event!
+  }
 
   SummaryEventInfo::List events2 = SummaryEventInfo::eventsForDate( today.addDays( multiDayFuture ), cal );
   QCOMPARE( 1, events2.size() );
-  ev1 = events2.at( 0 );
+  SummaryEventInfo *ev1 = events2.at( 0 );
   QCOMPARE( ev1->summaryText, multiDayAllDayInFuture );
   QVERIFY( ev1->timeRange.isEmpty() );
   QCOMPARE( ev1->startDate, KGlobal::locale()->formatDate( QDate( today.addDays( multiDayFuture ) ) ) );
