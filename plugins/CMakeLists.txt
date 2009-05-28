@@ -32,11 +32,6 @@ if(BUILD_ktimetracker)
   add_subdirectory( ktimetracker )
 endif(BUILD_ktimetracker)
 
-message(STATUS "Newsticker Summary is disabled until we can use the plasmoid")
-#add_subdirectory( newsticker )
-message(STATUS "Weather Summary is disabled until we can use the plasmoid")
-#add_subdirectory( weather )
-
 if(KDEPIM_BUILD_KCONTACTMANAGER)
   add_subdirectory(kcontactmanager)
 endif(KDEPIM_BUILD_KCONTACTMANAGER)
