@@ -33,8 +33,4 @@ endif (BUILD_akregator)
 if(KTIMETRACKER_SUPPORTED AND BUILD_ktimetracker)
   add_subdirectory( ktimetracker ) 
 endif(KTIMETRACKER_SUPPORTED AND BUILD_ktimetracker)
-message(STATUS "Newsticker Summary is disabled until we can use the plasmoid")
-#add_subdirectory( newsticker ) 
-message(STATUS "Weather Summary is disabled until we can use the plasmoid")
-#add_subdirectory( weather )
 
