@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-Icon=cookies
+Icon=view-pim-calendar
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_plannerplugin
