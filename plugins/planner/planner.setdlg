@@ -63,4 +63,4 @@ Comment[x-test]=xxPlanner Summaryxx
 Comment[zh_CN]=安排计划摘要
 Comment[zh_TW]=計畫表設定
 Weight=350
-Icon=cookie
+Icon=view-pim-calendar
