@@ -53,7 +53,7 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const QVariantList & )
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewJournal()) );
   insertNewAction( action );
 
-  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Synchronize Journal" ), this );
+  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Sync Journal" ), this );
   actionCollection()->addAction( "journal_sync", syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncJournal()) );
   insertSyncAction( syncAction );

@@ -66,7 +66,7 @@ KMailPlugin::KMailPlugin( Kontact::Core *core, const QVariantList & )
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewMail()) );
   insertNewAction( action );
 
-  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Synchronize Mail" ), this );
+  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Sync Mail" ), this );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncFolders()) );
   actionCollection()->addAction( "sync_mail", syncAction );
   insertSyncAction( syncAction );
