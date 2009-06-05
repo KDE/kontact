@@ -49,7 +49,7 @@ using namespace std;
 static const char description[] =
   I18N_NOOP( "KDE personal information manager" );
 
-static const char version[] = "1.3 (enterprise4 0.20090529.974430)";
+static const char version[] = "1.3 (enterprise4 0.20090605.977804)";
 
 class KontactApp : public
 #ifdef Q_WS_WIN
