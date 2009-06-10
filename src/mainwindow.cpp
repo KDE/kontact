@@ -609,7 +609,7 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
       mPlugins.erase( it );
       if ( plugin->showInSideBar() ) {
         QAction *q = mPluginAction[plugin]; // remove the KAction, so we free the shortcut for later us
-        mActionPlugins.remove( q );
+        mActionPlugins.removeAll( q );
         mPluginAction.remove(plugin);
         delete q;
       }
