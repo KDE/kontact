@@ -34,7 +34,6 @@
 #include <libkdepim/kpimprefs.h>
 
 #include <kcal/calendar.h>
-#include <kcal/resourcecalendar.h>
 #include <kcal/resourcelocal.h>
 #include <kcal/todo.h>
 #include <kcal/incidenceformatter.h>

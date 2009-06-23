@@ -30,7 +30,7 @@
 #include <QList>
 
 namespace KCal {
-  class CalendarResources;
+  class Calendar;
   class Todo;
 }
 
@@ -81,7 +81,7 @@ class TodoSummaryWidget : public Kontact::Summary
     bool mHideNotStarted;
 
     QList<QLabel*> mLabels;
-    KCal::CalendarResources *mCalendar;
+    KCal::Calendar *mCalendar;
 
     // FIXME: could the following methods be moved into the KCal::Todo class?
 
