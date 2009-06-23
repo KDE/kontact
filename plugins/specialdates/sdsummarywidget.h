@@ -34,8 +34,7 @@ namespace Kontact {
 }
 namespace KCal {
   class Event;
-  class CalendarResources;
-  class ResourceCalendar;
+  class Calendar;
 }
 class QEvent;
 class QGridLayout;
@@ -71,12 +70,14 @@ class SDSummaryWidget : public Kontact::Summary
     int dayof( KCal::Event *event, const QDate &date );
     bool initHolidays();
     void dateDiff( const QDate &date, int &days, int &years );
+#if 0 //sebsauer
     KCal::ResourceCalendar *usingBirthdayResource();
     bool check( KCal::ResourceCalendar *cal, const QDate &date, const QString &summary );
+#endif
     QGridLayout *mLayout;
     QList<QLabel*> mLabels;
     Kontact::Plugin *mPlugin;
-    KCal::CalendarResources *mCalendar;
+    KCal::Calendar *mCalendar;
     int mDaysAhead;
     bool mShowBirthdaysFromKAB;
     bool mShowBirthdaysFromCal;

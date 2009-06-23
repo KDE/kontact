@@ -33,7 +33,6 @@
 
 #include <kabc/stdaddressbook.h>
 #include <kcal/event.h>
-#include <kcal/resourcecalendar.h>
 #include <kcal/resourcelocal.h>
 
 #include <kdialog.h>
@@ -121,7 +120,9 @@ SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
 
   // Setup the Calendar
   mCalendar = KOrg::StdCalendar::self();
+#if 0 //sebsauer
   mCalendar->load();
+#endif
 
   connect( mCalendar, SIGNAL(calendarChanged()),
            this, SLOT(updateView()) );
@@ -254,6 +255,7 @@ void SDSummaryWidget::updateView()
     }
   }
 
+#if 0 //sebsauer
   // Search for Birthdays, Anniversaries, Holidays, and Special Occasions
   // in the Calendar
   KCal::ResourceCalendar *bdayRes = usingBirthdayResource();
@@ -556,7 +558,9 @@ void SDSummaryWidget::updateView()
   for ( lit = mLabels.constBegin(); lit != mLabels.constEnd(); ++lit ) {
     (*lit)->show();
   }
-
+#else
+  kWarning()<<"TODO";
+#endif
   setUpdatesEnabled( true );
 }
 
@@ -643,10 +647,10 @@ void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
   }
 }
 
+#if 0 //sebsauer
 KCal::ResourceCalendar *SDSummaryWidget::usingBirthdayResource()
 {
   KCal::ResourceCalendar *resource = 0;
-
   KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
   if ( !manager->isEmpty() ) {
     KCal::CalendarResourceManager::Iterator it;
@@ -676,6 +680,7 @@ bool SDSummaryWidget::check( KCal::ResourceCalendar *cal, const QDate &date,
   }
   return false;
 }
+#endif
 
 QStringList SDSummaryWidget::configModules() const
 {

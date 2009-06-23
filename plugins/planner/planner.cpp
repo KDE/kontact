@@ -39,7 +39,6 @@
 #include <kcal/event.h>
 #include <kcal/todo.h>
 #include <kcal/incidence.h>
-#include <kcal/resourcecalendar.h>
 #include <kcal/resourcelocal.h>
 #include <kcal/incidenceformatter.h>
 
@@ -104,7 +103,9 @@ Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
   mLayout->addWidget( header );
 
   mCalendar = KOrg::StdCalendar::self();
+#if 0 //sebsauer
   mCalendar->load();
+#endif
 
   mAddressBook = KABC::StdAddressBook::self();
   mAddressBook->load();
