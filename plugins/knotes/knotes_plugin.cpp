@@ -59,7 +59,7 @@ KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QVariantList & )
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_N ) );
   insertNewAction( action );
 
-  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Synchronize Popup Notes" ), this );
+  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Sync Popup Notes" ), this );
   actionCollection()->addAction( "knotes_sync", syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncNotes()) );
   insertSyncAction( syncAction );

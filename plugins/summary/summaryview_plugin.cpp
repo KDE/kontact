@@ -46,7 +46,7 @@ SummaryView::SummaryView( Kontact::Core *core, const QVariantList & )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  mSyncAction = new KSelectAction( KIcon( "view-refresh" ), i18n( "Synchronize All" ), this );
+  mSyncAction = new KSelectAction( KIcon( "view-refresh" ), i18n( "Sync All" ), this );
   actionCollection()->addAction( "kontact_summary_sync", mSyncAction );
   connect( mSyncAction, SIGNAL(triggered(QString)), SLOT(syncAccount(QString)) );
   connect( mSyncAction->menu(), SIGNAL(aboutToShow()), this, SLOT(fillSyncActionSubEntries()) );
