@@ -266,6 +266,9 @@ MainWindow::~MainWindow()
 
   Prefs::self()->writeConfig();
 
+  // During deletion of plugins, we should not access the plugin list (bug #182176)
+  delete mSidePane;
+
   PluginList::ConstIterator end = mPlugins.constEnd();
   for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
     delete *it;
