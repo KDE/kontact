@@ -12,7 +12,7 @@ if(QGPGME_FOUND)
 # FIXME: remove dependency on kaddressbook
 #  add_subdirectory( specialdates )
 #re-enable planner for 4.2 if we have people who want to develop it
-  add_subdirectory( planner )
+#  add_subdirectory( planner )
 endif(QGPGME_FOUND)
 if (BUILD_knotes)
   add_subdirectory( knotes )
