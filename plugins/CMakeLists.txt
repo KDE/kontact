@@ -9,7 +9,8 @@ if(QGPGME_FOUND)
     add_subdirectory( korganizer )
   endif (BUILD_kmail AND BUILD_korganizer)
   add_subdirectory( summary )
-  add_subdirectory( specialdates )
+# FIXME: remove dependency on kaddressbook
+#  add_subdirectory( specialdates )
 #re-enable planner for 4.2 if we have people who want to develop it
   add_subdirectory( planner )
 endif(QGPGME_FOUND)
