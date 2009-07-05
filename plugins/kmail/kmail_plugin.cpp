@@ -115,7 +115,7 @@ void KMailPlugin::openComposer( const KUrl &attach )
   Q_ASSERT( m_instance );
   if ( m_instance ) {
     if ( attach.isValid() ) {
-      m_instance->newMessage( "", "", "", false, true, QString(), attach.path() );
+      m_instance->newMessage( "", "", "", false, true, QString(), attach.isLocalFile() ? attach.toLocalFile() : attach.path() );
     } else {
       m_instance->newMessage( "", "", "", false, true, QString(), QString() );
     }
