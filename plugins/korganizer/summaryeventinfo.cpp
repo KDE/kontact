@@ -32,6 +32,8 @@
 #include <kglobal.h>
 #include <klocale.h>
 
+using namespace KCal;
+
 #include <QDate>
 #include <QStringList>
 
@@ -193,9 +195,9 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     // Print the date span for multiday, floating events, for the
     // first day of the event only.
     if ( ev->isMultiDay() && ev->allDay() && firstDayOfMultiday && span > 1 ) {
-      str = ev->dtStartDateStr( false, spec ) +
+      str = IncidenceFormatter::dateToString( ev->dtStart(), false, spec ) +
             " -\n " +
-            ev->dtEndDateStr( false, spec );
+            IncidenceFormatter::dateToString( ev->dtEnd(), false, spec );
     }
     summaryEvent->dateSpan = str;
 
