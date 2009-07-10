@@ -29,8 +29,6 @@ endif (BUILD_akregator)
 if(BUILD_ktimetracker)
   add_subdirectory( ktimetracker )
 endif(BUILD_ktimetracker)
-
-if(KDEPIM_BUILD_KCONTACTMANAGER)
+if(BUILD_kcontactmanager)
   add_subdirectory(kcontactmanager)
-endif(KDEPIM_BUILD_KCONTACTMANAGER)
-
+endif(BUILD_kcontactmanager)
