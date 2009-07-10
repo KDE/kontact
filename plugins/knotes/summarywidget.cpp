@@ -59,7 +59,7 @@ KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin, QWidget *pare
 
   mLayout = new QGridLayout();
   mainLayout->addItem( mLayout );
-  mLayout->setMargin( 3 );
+  mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = new KCal::CalendarLocal( QString::fromLatin1( "UTC" ) );
@@ -107,6 +107,7 @@ void KNotesSummaryWidget::updateView()
       KUrlLabel *urlLabel = new KUrlLabel( (*it)->uid(), newtext, this );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
+      urlLabel->setAlignment( Qt::AlignLeft );
       urlLabel->setWordWrap( true );
       mLayout->addWidget( urlLabel, counter, 1 );
       mLabels.append( urlLabel );
