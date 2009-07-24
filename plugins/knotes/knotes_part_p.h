@@ -35,8 +35,6 @@
 
 #include <knotes/knoteedit.h>
 
-#include <libkdepim/kpimprefs.h>
-
 #include <kcal/journal.h>
 #include <kcal/calendarlocal.h>
 #include <kcal/icaldrag.h>
@@ -52,6 +50,7 @@
 #include <ktoolbar.h>
 #include <kmenu.h>
 #include <kdialog.h>
+#include <ksystemtimezone.h>
 #include <kxmlguiclient.h>
 #include <kxmlguifactory.h>
 #include <kxmlguibuilder.h>
@@ -109,7 +108,7 @@ class KNotesIconView : public K3IconView
         return K3IconView::dragObject();
       }
 
-      KCal::CalendarLocal cal( KPIM::KPimPrefs::timeSpec() );
+      KCal::CalendarLocal cal( KSystemTimeZones::local() );
       KCal::Incidence *i = selectedItems.first()->journal()->clone();
       cal.addIncidence( i );
 #ifdef __GNUC__
