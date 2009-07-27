@@ -388,12 +388,31 @@ void SummaryViewPart::slotTextChanged()
 
 void SummaryViewPart::slotAdjustPalette()
 {
+  if ( !QApplication::isRightToLeft() ) {
     mMainWidget->setStyleSheet(
       "#mMainWidget { "
       " background: palette(base);"
+      " color: palette(text);"
       " background-image: url(:/summaryview/kontact_bg.png);"
       " background-position: bottom right;"
-      " background-repeat: no-repeat; }" );
+      " background-repeat: no-repeat; }"
+      "QLabel { "
+      " color: palette(text); }"
+      "KUrlLabel { "
+      " color: palette(link); }" );
+  } else {
+    mMainWidget->setStyleSheet(
+      "#mMainWidget { "
+      " background: palette(base);"
+      " color: palette(text);"
+      " background-image: url(:/summaryview/kontact_bg.png);"
+      " background-position: bottom left;"
+      " background-repeat: no-repeat; }"
+      "QLabel { "
+      " color: palette(text); }"
+      "KUrlLabel { "
+      " color: palette(link); }" );
+  }
 }
 
 void SummaryViewPart::setDate( const QDate &newDate )
