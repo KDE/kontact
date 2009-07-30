@@ -31,6 +31,8 @@
 #include <kcal/incidenceformatter.h>
 using namespace KCal;
 
+#include <KSystemTimeZones>
+
 #include <QDate>
 #include <QStringList>
 
@@ -107,7 +109,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
   KCal::Event::List events;
   events.setAutoDelete( true );
   KDateTime qdt;
-  KDateTime::Spec spec = KPIM::KPimPrefs::timeSpec();
+  KDateTime::Spec spec = KSystemTimeZones::local();
   QDate currentDate = QDate::currentDate();
 
   // prevent implicitely sharing while finding recurring events
@@ -219,7 +221,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     summaryEvent->summaryText = str;
     summaryEvent->summaryUrl = ev->uid();
     QString tipText(
-      KCal::IncidenceFormatter::toolTipStr( ev, true, KPIM::KPimPrefs::timeSpec() ) );
+      KCal::IncidenceFormatter::toolTipStr( ev, true, KSystemTimeZones::local() ) );
     if ( !tipText.isEmpty() ) {
       summaryEvent->summaryTooltip = tipText;
     }

@@ -49,6 +49,8 @@
 #include <kurllabel.h>
 #include <kparts/part.h>
 
+#include <KSystemTimeZones>
+
 #include <QCursor>
 #include <QEvent>
 #include <QGridLayout>
@@ -74,7 +76,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = KOrg::StdCalendar::self();
-  
+
   //If the kpart isn't created yet, it's created now, and mCalendar is loaded
   mPlugin->part();
 
@@ -266,7 +268,7 @@ void TodoSummaryWidget::updateView()
                this, SLOT(popupMenu(const QString&)) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipStr(
-                         todo, true, KPIM::KPimPrefs::timeSpec() ) );
+                         todo, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }
