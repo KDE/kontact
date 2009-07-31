@@ -50,6 +50,7 @@
 #include <klocale.h>
 #include <kmenu.h>
 #include <kstandarddirs.h>
+#include <KSystemTimeZones>
 #include <kurllabel.h>
 #include <kparts/part.h>
 
@@ -377,7 +378,7 @@ int Planner::showTodos( int counter, const QDate &date )
                this, SLOT(todoPopupMenu(const QString&)) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipStr(
-                         todo, true, KPIM::KPimPrefs::timeSpec() ) );
+                         todo, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel2->setToolTip( tipText );
       }
@@ -512,7 +513,7 @@ int Planner::showEvents( int counter, const QDate &date )
 
       // Print the date span for multiday, allDay events, for the
       // first day of the event only.
-      KDateTime::Spec spec = KPIM::KPimPrefs::timeSpec();
+      KDateTime::Spec spec = KSystemTimeZones::local();
       if ( ev->isMultiDay() && ev->allDay() && dayof == 1 && span > 1 ) {
         KDateTime ksD( sD.addDays( span - 1 ), spec );
         datestr = ev->dtStartDateStr( false, spec ) +
@@ -608,7 +609,7 @@ int Planner::showEvents( int counter, const QDate &date )
                this, SLOT(eventPopupMenu(const QString&)) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipStr(
-                         ev, true, KPIM::KPimPrefs::timeSpec() ) );
+                         ev, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }
