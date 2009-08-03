@@ -35,13 +35,14 @@
 
 #include <kaboutdata.h>
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
-#include <kactioncollection.h>
-#include <kiconloader.h>
-#include <kstatusbar.h>
 #include <kicon.h>
+#include <kiconloader.h>
 #include <kmessagebox.h>
+#include <kstatusbar.h>
+#include <KSystemTimeZones>
 
 #include <QtDBus/QtDBus>
 #include <QtGui/QDropEvent>
@@ -135,7 +136,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
   }
 
   if ( KCal::ICalDrag::canDecode( event->mimeData() ) ) {
-    KCal::CalendarLocal cal( KPIM::KPimPrefs::timeSpec() );
+    KCal::CalendarLocal cal( KSystemTimeZones::local() );
     if ( KCal::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
       KCal::Journal::List journals = cal.journals();
       if ( !journals.isEmpty() ) {

@@ -32,7 +32,6 @@
 #include <libkdepim/maillistdrag.h>
 #include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
-#include <libkdepim/kpimprefs.h>
 
 #include <kcal/calendarlocal.h>
 #include <kcal/icaldrag.h>
@@ -44,6 +43,7 @@
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kicon.h>
+#include <ksystemtimezone.h>
 #include <ktemporaryfile.h>
 
 #include <QWidget>
@@ -196,7 +196,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
   }
 
   if ( KCal::ICalDrag::canDecode( event->mimeData() ) ) {
-    KCal::CalendarLocal cal( KPIM::KPimPrefs::timeSpec() );
+    KCal::CalendarLocal cal( KSystemTimeZones::local() );
     if ( KCal::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
       KCal::Incidence::List incidences = cal.incidences();
       Q_ASSERT( incidences.count() );
@@ -239,7 +239,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openTodoEditor(
         i18n( "Mail: %1", mail.subject() ),
-        txt, uri, tf.fileName(), QStringList(), "message/rfc822" );
+        txt, uri, tf.fileName(), QStringList(), "message/rfc822", false );
       tf.close();
     }
     return;
