@@ -19,7 +19,6 @@
 */
 
 #include "kaddressbook_plugin.h"
-#include "mainwidgetinterface.h"
 
 #include <kontactinterfaces/core.h>
 
@@ -32,11 +31,14 @@
 #include <kiconloader.h>
 #include <kparts/componentfactory.h>
 
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusMessage>
 
-EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kcontactmanager )
+
+EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kaddressbook )
 
 KAddressBookPlugin::KAddressBookPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "kcontactmanager" ), m_interface( 0 )
+  : Kontact::Plugin( core, core, "kaddressbook" )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -65,13 +67,14 @@ KAddressBookPlugin::~KAddressBookPlugin()
 
 void KAddressBookPlugin::slotNewContact()
 {
-  interface()->newContact();
+  //FIXME: should be done by external editor
+  // interface()->newContact();
 }
 
 QString KAddressBookPlugin::tipFile() const
 {
   // TODO: tips file
-  //QString file = KStandardDirs::locate("data", "kcontactmanager/tips");
+  //QString file = KStandardDirs::locate("data", "kaddressbook/tips");
   QString file;
   return file;
 }
@@ -82,28 +85,14 @@ KParts::ReadOnlyPart *KAddressBookPlugin::createPart()
   if ( !part ) {
     return 0;
   }
-  // Create the stub that allows us to talk to the part
-  m_interface = new OrgKdeKAddressBookMainWidgetInterface(
-    "org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus() );
-//     org.kde.KContactmanager.MainWidget                                      /KAddressBook
+
   return part;
 }
-
-OrgKdeKAddressBookMainWidgetInterface *KAddressBookPlugin::interface()
-{
-  if ( !m_interface ) {
-    part();
-  }
-  Q_ASSERT( m_interface );
-  return m_interface;
-}
-
 
 bool KAddressBookPlugin::isRunningStandalone()
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }
-
 
 QStringList KAddressBookPlugin::invisibleToolbarActions() const
 {

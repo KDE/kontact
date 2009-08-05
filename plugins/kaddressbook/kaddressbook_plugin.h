@@ -27,8 +27,6 @@
 
 #include <kparts/part.h>
 
-class OrgKdeKAddressBookMainWidgetInterface;
-
 class KAddressBookUniqueAppHandler : public Kontact::UniqueAppHandler
 {
   public:
@@ -49,7 +47,6 @@ class KAddressBookPlugin : public Kontact::Plugin
     virtual bool isRunningStandalone();
     int weight() const { return 300; }
 
-    OrgKdeKAddressBookMainWidgetInterface *interface();
     virtual QStringList invisibleToolbarActions() const;
 
   protected:
@@ -60,9 +57,7 @@ class KAddressBookPlugin : public Kontact::Plugin
     void slotSyncContacts();
 
   private:
-    OrgKdeKAddressBookMainWidgetInterface *m_interface;
     Kontact::UniqueAppWatcher *mUniqueAppWatcher;
-
 };
 
 #endif

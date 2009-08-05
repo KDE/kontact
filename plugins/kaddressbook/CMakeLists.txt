@@ -3,8 +3,6 @@ set(kontact_kaddressbookplugin_PART_SRCS
   kaddressbook_plugin.cpp
 )
 
-qt4_add_dbus_interfaces(kontact_kaddressbookplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kaddressbook/org.kde.KAddressBook.MainWidget.xml )
-
 kde4_add_plugin(kontact_kaddressbookplugin ${kontact_kaddressbookplugin_PART_SRCS} )
 
 target_link_libraries(kontact_kaddressbookplugin ${KDE4_KPARTS_LIBS} kontactinterfaces)
