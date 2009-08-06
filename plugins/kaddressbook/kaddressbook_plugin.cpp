@@ -1,56 +1,44 @@
 /*
-  This file is part of Kontact.
+    This file is part of KAddressBook Kontact Plugin.
 
-  Copyright (c) 2001 Matthias Hoelzer-Kluepfel <mhk@kde.org>
+    Copyright (c) 2009 Laurent Montel <montel@kde.org>
 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or
-  (at your option) any later version.
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-  GNU General Public License for more details.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
 
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
-
-  As a special exception, permission is given to link this program
-  with any edition of Qt, and distribute the resulting executable,
-  without including the source code for Qt in the source distribution.
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
 #include "kaddressbook_plugin.h"
-#include "coreinterface.h"
-#include "kmailinterface.h"
-
-#include <kaddrbookexternal.h>
 
 #include <kontactinterfaces/core.h>
-#include <kontactinterfaces/plugin.h>
-#include <libkdepim/maillistdrag.h>
 
-#include <kabc/addressbook.h>
-#include <kabc/stdaddressbook.h>
-
-#include <kaction.h>
 #include <kactioncollection.h>
+#include <kaction.h>
+#include <kcmdlineargs.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
 #include <kicon.h>
 #include <kiconloader.h>
-#include <kmessagebox.h>
 #include <kparts/componentfactory.h>
 
-#include <QDropEvent>
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusMessage>
 
-EXPORT_KONTACT_PLUGIN( KAddressbookPlugin, kaddressbook )
 
-KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "kaddressbook" ),
-    m_interface( 0 )
+EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kaddressbook )
+
+KAddressBookPlugin::KAddressBookPlugin( Kontact::Core *core, const QVariantList & )
+  : Kontact::Plugin( core, core, "kaddressbook" )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -61,27 +49,29 @@ KAddressbookPlugin::KAddressbookPlugin( Kontact::Core *core, const QVariantList 
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
   insertNewAction( action );
 
-  action = new KAction( KIcon( "view-pim-contacts" ),
-                        i18n( "New Distribution List..." ), this );
-  actionCollection()->addAction( "new_distributionlist", action );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotNewDistributionList()) );
-  insertNewAction( action );
-
   KAction *syncAction = new KAction( KIcon( "view-refresh" ),
-                                     i18n( "Sync Contacts" ), this );
+                                     i18n( "Synchronize Contacts" ), this );
   actionCollection()->addAction( "kaddressbook_sync", syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
   insertSyncAction( syncAction );
 
+
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<KABUniqueAppHandler>(), this );
+    new Kontact::UniqueAppHandlerFactory<KAddressBookUniqueAppHandler>(), this );
+
 }
 
-KAddressbookPlugin::~KAddressbookPlugin()
+KAddressBookPlugin::~KAddressBookPlugin()
 {
 }
 
-QString KAddressbookPlugin::tipFile() const
+void KAddressBookPlugin::slotNewContact()
+{
+  //FIXME: should be done by external editor
+  // interface()->newContact();
+}
+
+QString KAddressBookPlugin::tipFile() const
 {
   // TODO: tips file
   //QString file = KStandardDirs::locate("data", "kaddressbook/tips");
@@ -89,51 +79,27 @@ QString KAddressbookPlugin::tipFile() const
   return file;
 }
 
-KParts::ReadOnlyPart *KAddressbookPlugin::createPart()
+KParts::ReadOnlyPart *KAddressBookPlugin::createPart()
 {
   KParts::ReadOnlyPart *part = loadPart();
   if ( !part ) {
     return 0;
   }
 
-  // Create the stub that allows us to talk to the part
-  m_interface = new OrgKdeKAddressbookCoreInterface(
-    "org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus() );
   return part;
 }
 
-QStringList KAddressbookPlugin::configModules() const
+bool KAddressBookPlugin::isRunningStandalone()
 {
-  QStringList modules;
-  modules << "PIM/kabconfig.desktop" << "PIM/kabldapconfig.desktop";
-  return modules;
+  return mUniqueAppWatcher->isRunningStandalone();
 }
 
-QStringList KAddressbookPlugin::invisibleToolbarActions() const
+QStringList KAddressBookPlugin::invisibleToolbarActions() const
 {
   return QStringList( "file_new_contact" );
 }
 
-OrgKdeKAddressbookCoreInterface *KAddressbookPlugin::interface()
-{
-  if ( !m_interface ) {
-    part();
-  }
-  Q_ASSERT( m_interface );
-  return m_interface;
-}
-
-void KAddressbookPlugin::slotNewContact()
-{
-  interface()->newContact();
-}
-
-void KAddressbookPlugin::slotNewDistributionList()
-{
-  interface()->newDistributionList();
-}
-
-void KAddressbookPlugin::slotSyncContacts()
+void KAddressBookPlugin::slotSyncContacts()
 {
   QDBusMessage message =
       QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
@@ -143,82 +109,16 @@ void KAddressbookPlugin::slotSyncContacts()
   QDBusConnection::sessionBus().send( message );
 }
 
-bool KAddressbookPlugin::createDBUSInterface( const QString &serviceType )
+void KAddressBookUniqueAppHandler::loadCommandLineOptions()
 {
-  if ( serviceType == "DBUS/AddressBook" )  {
-    Q_ASSERT( m_interface );
-    return true;
-  }
-  return false;
+  KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
 }
 
-void KAddressbookPlugin::configUpdated()
-{
-}
-
-bool KAddressbookPlugin::isRunningStandalone()
-{
-  return mUniqueAppWatcher->isRunningStandalone();
-}
-
-bool KAddressbookPlugin::canDecodeMimeData( const QMimeData * mimeData )
-{
-  return KPIM::MailList::canDecode( mimeData );
-}
-
-void KAddressbookPlugin::processDropEvent( QDropEvent *event )
-{
-  const QMimeData *md = event->mimeData();
-  if ( KPIM::MailList::canDecode( md ) ) {
-    event->accept();
-    KPIM::MailList mails = KPIM::MailList::fromMimeData( md );
-    if ( mails.count() != 1 ) {
-      KMessageBox::sorry( core(),
-                          i18n( "Dropping multiple mails is not supported." ) );
-    } else {
-      KPIM::MailSummary mail = mails.first();
-      org::kde::kmail::kmail kmail(
-        "org.kde.kmail", "/KMail", QDBusConnection::sessionBus() );
-      QString sFrom = kmail.getFrom( mail.serialNumber() );
-      if ( !sFrom.isEmpty() ) {
-        KPIM::KAddrBookExternal::addEmail( sFrom, core() );
-      }
-    }
-    return;
-  }
-
-  kWarning() << QString( "Cannot handle drop events of type '%1'." ).arg( event->format() );
-}
-
-////
-
-#include "../../../kaddressbook/kaddressbook_options.h"
-
-void KABUniqueAppHandler::loadCommandLineOptions()
-{
-    KCmdLineArgs::addCmdLineOptions( kaddressbook_options() );
-}
-
-int KABUniqueAppHandler::newInstance()
+int KAddressBookUniqueAppHandler::newInstance()
 {
     kDebug() ;
     // Ensure part is loaded
     (void)plugin()->part();
-
-    org::kde::KAddressbook::Core kaddressbook(
-      "org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus() );
-    QDBusReply<bool> reply = kaddressbook.handleCommandLine();
-    if ( reply.isValid() ) {
-        bool handled = reply;
-        kDebug() << "handled=" << handled;
-        if ( !handled ) { // no args -> simply bring kaddressbook plugin to front
-          return Kontact::UniqueAppHandler::newInstance();
-        }
-    }
-
-    return 0;
+    return Kontact::UniqueAppHandler::newInstance();
 }
 
-#include "kaddressbook_plugin.moc"
-
-// vim: sw=2 sts=2 tw=80 et

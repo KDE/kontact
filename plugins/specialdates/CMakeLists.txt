@@ -3,8 +3,6 @@
 
 set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget.cpp)
 
-qt4_add_dbus_interfaces(kontact_specialdatesplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kaddressbook/org.kde.KAddressbook.Core.xml)
-
 kde4_add_plugin(kontact_specialdatesplugin ${kontact_specialdatesplugin_PART_SRCS})
 
 target_link_libraries(kontact_specialdatesplugin  ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KCAL_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KHOLIDAYS_LIBS} kontactinterfaces kdepim 

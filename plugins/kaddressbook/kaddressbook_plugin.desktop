@@ -1,44 +1,23 @@
 [Desktop Entry]
 Type=Service
-Icon=kcontactmanager
+Icon=kaddressbook
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
-X-KDE-Library=kontact_kcontactmanagerplugin
+X-KDE-Library=kontact_kaddressbookplugin
 X-KDE-KontactPluginVersion=7
-X-KDE-KontactPartLibraryName=kcontactmanagerpart
-X-KDE-KontactPartExecutableName=kcontactmanager
+X-KDE-KontactPartLibraryName=kaddressbookpart
+X-KDE-KontactPartExecutableName=kaddressbook
 X-KDE-KontactPartLoadOnStart=false
 X-KDE-KontactPluginHasSummary=false
 
-X-KDE-PluginInfo-Name=kontact_kcontactmanagerplugin
+X-KDE-PluginInfo-Name=kontact_kaddressbookplugin
 X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 X-KDE-PluginInfo-AllowEmptySettings=true
 
-Comment=Kontact KContactManager Plugin
-Comment[da]=Kontact KContactManager-plugin
-Comment[de]=KContactManager-Modul für Kontact
-Comment[el]=Πρόσθετο KContactManager του Kontact
-Comment[es]=Complemento KContactManager para Kontact
-Comment[et]=Kontacti KContactManageri plugin
-Comment[gl]=Engadido do KContactManager para o Kontact
-Comment[it]=Estensione per Kontact di KContactManager
-Comment[km]=កម្មវិធី​ជំនួយ Kontact KContactManager
-Comment[lv]=Kontact KContactManager spraudnis
-Comment[nb]=KContactManager programtillegg for Kontact
-Comment[nds]=Kontaktpleeg-Moduul vun Kontact
-Comment[nl]=KContactmanager-plugin van Kontact
-Comment[nn]=Kontakt-programtillegg for KContactManager
-Comment[pt]='Plugin' do KContactManager para o Kontact
-Comment[pt_BR]=Plug-in KContactManager do Kontact
-Comment[ru]=KContactManager — модуль Kontact
-Comment[sv]=Kontacts insticksprogram för kontakthantering
-Comment[tr]=Kontact KContactManager Eklentisi
-Comment[uk]=Додаток до Kontact KContactManager
-Comment[x-test]=xxKontact KContactManager Pluginxx
-Comment[zh_CN]=Kontact KContactManager 插件
-Comment[zh_TW]=Kontact KContactManager 外掛程式
+Comment=Kontact KAddressBook Plugin
+Comment[x-test]=xxKontact KAddressBook Pluginxx
 Name=Contacts
 Name[af]=Kontakte
 Name[be]=Кантакты

@@ -24,7 +24,6 @@
 */
 
 #include "sdsummarywidget.h"
-#include "coreinterface.h"
 
 #include <libkdepim/kpimprefs.h>
 #include <kontactinterfaces/core.h>
@@ -579,10 +578,11 @@ void SDSummaryWidget::viewContact( const QString &uid )
   } else {
     mPlugin->bringToForeground();
   }
-
+/*
   org::kde::KAddressbook::Core kaddressbook(
     "org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus() );
   kaddressbook.showContactEditor( uid );
+  */
 }
 
 void SDSummaryWidget::popupMenu( const QString &uid )
