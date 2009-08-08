@@ -61,19 +61,23 @@ KUniqueApplication
 {
   Q_OBJECT
   public:
-    KontactApp() : mMainWindow( 0 ), mSessionRestored( false ) {
+    KontactApp() : mMainWindow( 0 ), mSessionRestored( false )
+    {
       KIconLoader::global()->addAppDir( "kdepim" );
     }
     ~KontactApp() {}
 
-    /*reimp*/ int newInstance();
+    /*reimp*/
+    int newInstance();
 
-    void setMainWindow( Kontact::MainWindow *window ) {
-        mMainWindow = window;
-        Kontact::UniqueAppHandler::setMainWidget( window );
+    void setMainWindow( Kontact::MainWindow *window )
+    {
+      mMainWindow = window;
+      Kontact::UniqueAppHandler::setMainWidget( window );
     }
-    void setSessionRestored( bool restored ) {
-        mSessionRestored = restored;
+    void setSessionRestored( bool restored )
+    {
+      mSessionRestored = restored;
     }
 
   public Q_SLOTS:

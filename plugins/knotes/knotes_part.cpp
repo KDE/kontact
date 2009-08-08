@@ -38,10 +38,10 @@
 #include <QClipboard>
 #include <QApplication>
 
-KNotesIconView::KNotesIconView(KNotesPart *part)
+KNotesIconView::KNotesIconView( KNotesPart *part )
   : KListWidget(), m_part( part )
 {
-  setViewMode(QListView::IconMode);
+  setViewMode( QListView::IconMode );
   setMovement( QListView::Static );
   setSortingEnabled( true );
   setSelectionMode( QAbstractItemView::ExtendedSelection );
@@ -51,13 +51,12 @@ KNotesIconView::KNotesIconView(KNotesPart *part)
 
 void KNotesIconView::mousePressEvent( QMouseEvent *e )
 {
-  if ( e->button() == Qt::RightButton )
-  {
+  if ( e->button() == Qt::RightButton ) {
     QListWidget::mousePressEvent( e );
-    m_part->popupRMB( currentItem(), e->pos (),e->globalPos() );
-  }
-  else
+    m_part->popupRMB( currentItem(), e->pos (), e->globalPos() );
+  } else {
     KListWidget::mousePressEvent( e );
+  }
 }
 
 KNotesPart::KNotesPart( QObject *parent )
@@ -102,7 +101,6 @@ KNotesPart::KNotesPart( QObject *parent )
   connect( mNotesView, SIGNAL(executed( QListWidgetItem *)),
            this, SLOT(editNote(QListWidgetItem*)) );
 
-
   connect( mNotesView, SIGNAL(entered(const QModelIndex&)),
             this, SLOT(requestToolTip(const QModelIndex&)));
 
@@ -136,10 +134,11 @@ KNotesPart::~KNotesPart()
   mManager = 0;
 }
 
-void KNotesPart::requestToolTip(const QModelIndex& index)
+void KNotesPart::requestToolTip( const QModelIndex &index )
 {
-  QRect m_itemRect = mNotesView->visualRect(index);
-  mNoteTip->setNote( dynamic_cast<KNotesIconViewItem *>( mNotesView->itemAt(m_itemRect.topLeft() ) ) );
+  QRect m_itemRect = mNotesView->visualRect( index );
+  mNoteTip->setNote(
+    dynamic_cast<KNotesIconViewItem *>( mNotesView->itemAt( m_itemRect.topLeft() ) ) );
 }
 
 void KNotesPart::hideToolTip()
@@ -150,7 +149,7 @@ void KNotesPart::hideToolTip()
 void KNotesPart::printSelectedNotes()
 {
   QList<KCal::Journal*> journals;
-  QList<QListWidgetItem *> lst = mNotesView->selectedItems ();
+  QList<QListWidgetItem *> lst = mNotesView->selectedItems();
   if ( lst.isEmpty() ) {
     KMessageBox::information(
       mNotesView,
@@ -159,7 +158,7 @@ void KNotesPart::printSelectedNotes()
     return;
   }
 
-  foreach( QListWidgetItem *item, lst ) {
+  foreach ( QListWidgetItem *item, lst ) {
     journals.append( static_cast<KNotesIconViewItem *>( item )->journal() );
   }
 
@@ -210,7 +209,7 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
   mManager->addNewNote( journal );
   mManager->save();
 
-  KNotesIconViewItem *note = mNoteList.value(  journal->uid() );
+  KNotesIconViewItem *note = mNoteList.value( journal->uid() );
   mNotesView->scrollToItem( note );
   mNotesView->setCurrentItem( note );
 
@@ -230,7 +229,7 @@ void KNotesPart::killNote( const QString &id )
 
 void KNotesPart::killNote( const QString &id, bool force )
 {
-  KNotesIconViewItem *note = mNoteList.value(id );
+  KNotesIconViewItem *note = mNoteList.value( id );
 
   if ( note &&
        ( (!force && KMessageBox::warningContinueCancelList(
@@ -239,7 +238,7 @@ void KNotesPart::killNote( const QString &id, bool force )
             QStringList( mNoteList.value( id )->text() ), i18n( "Confirm Delete" ),
             KStandardGuiItem::del() ) == KMessageBox::Continue )
          || force ) ) {
-    mManager->deleteNote( mNoteList.value(id )->journal() );
+    mManager->deleteNote( mNoteList.value( id )->journal() );
     mManager->save();
   }
 }
@@ -256,7 +255,7 @@ QString KNotesPart::name( const QString &id ) const
 
 QString KNotesPart::text( const QString &id ) const
 {
-  KNotesIconViewItem *note = mNoteList.value(  id );
+  KNotesIconViewItem *note = mNoteList.value( id );
   if ( note ) {
     return note->journal()->description();
   } else {
@@ -266,7 +265,7 @@ QString KNotesPart::text( const QString &id ) const
 
 void KNotesPart::setName( const QString &id, const QString &newName )
 {
-  KNotesIconViewItem *note = mNoteList.value(  id );
+  KNotesIconViewItem *note = mNoteList.value( id );
   if ( note ) {
     note->setIconText( newName );
     mManager->save();
@@ -287,7 +286,7 @@ QMap<QString, QString> KNotesPart::notes() const
   QMap<QString, QString> notes;
 
   QHashIterator<QString, KNotesIconViewItem*> i(mNoteList);
-  while (i.hasNext()) {
+  while ( i.hasNext() ) {
     i.next();
     notes.insert( i.value()->journal()->uid(), i.value()->journal()->summary() );
   }
@@ -305,8 +304,7 @@ void KNotesPart::killSelectedNotes()
     return;
   }
 
-  foreach( QListWidgetItem *item, lst )
-  {
+  foreach ( QListWidgetItem *item, lst ) {
     KNotesIconViewItem *knivi = static_cast<KNotesIconViewItem *>( item );
     items.append( knivi );
     notes.append( knivi->text() );
@@ -329,7 +327,7 @@ void KNotesPart::killSelectedNotes()
   }
 }
 
-void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos,const QPoint &globalPos )
+void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos )
 {
   QMenu *contextMenu = 0;
   if ( mNotesView->itemAt ( pos ) ) {
@@ -342,7 +340,7 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos,const QPoint
     return;
   }
 
-  contextMenu->popup( mNotesView->mapFromParent(  globalPos ) );
+  contextMenu->popup( mNotesView->mapFromParent( globalPos ) );
 }
 
 void KNotesPart::mouseMoveOnListWidget( const QPoint & pos )
@@ -378,7 +376,7 @@ void KNotesPart::createNote( KCal::Journal *journal )
 
 void KNotesPart::killNote( KCal::Journal *journal )
 {
-  KNotesIconViewItem*item = mNoteList.take( journal->uid() );
+  KNotesIconViewItem *item = mNoteList.take( journal->uid() );
   delete item;
 }
 
@@ -402,8 +400,7 @@ void KNotesPart::editNote( QListWidgetItem *item )
 
 void KNotesPart::editNote()
 {
-  if ( mNotesView->currentItem() )
-  {
+  if ( mNotesView->currentItem() ) {
     editNote( mNotesView->currentItem() );
   }
 }
@@ -412,14 +409,13 @@ void KNotesPart::renameNote()
 {
   QString oldName = mNotesView->currentItem()->text();
   bool ok = false;
-  QString newName = KInputDialog::getText( i18n( "Rename" ), i18n( "Name:" ), oldName, &ok, mNotesView );
-  if ( ok && ( newName != oldName ) )
-  {
+  QString newName = KInputDialog::getText( i18n( "Rename" ), i18n( "Name:" ),
+                                           oldName, &ok, mNotesView );
+  if ( ok && ( newName != oldName ) ) {
     static_cast<KNotesIconViewItem *>( mNotesView->currentItem() )->setIconText( newName );
     mManager->save();
   }
 }
-
 
 void KNotesPart::slotOnCurrentChanged( )
 {

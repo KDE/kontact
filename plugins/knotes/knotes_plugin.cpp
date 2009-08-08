@@ -131,7 +131,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
       }
     }
     event->accept();
-    static_cast<KNotesPart *>( part() )->newNote( i18n( "Meeting" ), attendees.join(", ") );
+    static_cast<KNotesPart *>( part() )->newNote( i18n( "Meeting" ), attendees.join( ", " ) );
     return;
   }
 
@@ -142,7 +142,8 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
       if ( !journals.isEmpty() ) {
         event->accept();
         KCal::Journal *j = journals.first();
-        static_cast<KNotesPart *>( part() )->newNote( i18n( "Note: %1", j->summary() ), j->description() );
+        static_cast<KNotesPart *>( part() )->
+          newNote( i18n( "Note: %1", j->summary() ), j->description() );
         return;
       }
       // else fall through to text decoding

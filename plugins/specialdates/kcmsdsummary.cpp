@@ -73,7 +73,6 @@ KCMSDSummary::KCMSDSummary( const KComponentData &inst, QWidget *parent )
   connect( mShowBirthdaysFromKABBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mShowAnniversariesFromKABBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
 
-
   KAcceleratorManager::manage( this );
 
   load();

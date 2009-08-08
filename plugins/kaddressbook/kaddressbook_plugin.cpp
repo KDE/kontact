@@ -34,7 +34,6 @@
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusMessage>
 
-
 EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kaddressbook )
 
 KAddressBookPlugin::KAddressBookPlugin( Kontact::Core *core, const QVariantList & )
@@ -55,10 +54,8 @@ KAddressBookPlugin::KAddressBookPlugin( Kontact::Core *core, const QVariantList 
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
   insertSyncAction( syncAction );
 
-
   mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
     new Kontact::UniqueAppHandlerFactory<KAddressBookUniqueAppHandler>(), this );
-
 }
 
 KAddressBookPlugin::~KAddressBookPlugin()

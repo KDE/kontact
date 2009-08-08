@@ -73,7 +73,9 @@ QStringList ktimetrackerplugin::invisibleToolbarActions() const
 KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
 {
   KParts::ReadOnlyPart *part = loadPart();
-  if ( !part ) return 0;
+  if ( !part ) {
+    return 0;
+  }
 
   mInterface = new OrgKdeKtimetrackerKtimetrackerInterface(
     "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
@@ -83,7 +85,9 @@ KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
 
 OrgKdeKtimetrackerKtimetrackerInterface *ktimetrackerplugin::interface()
 {
-  if ( !mInterface ) part();
+  if ( !mInterface ) {
+    part();
+  }
   Q_ASSERT( mInterface );
   return mInterface;
 }

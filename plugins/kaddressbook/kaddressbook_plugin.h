@@ -21,7 +21,6 @@
 #ifndef KADDRESSBOOK_PLUGIN_H
 #define KADDRESSBOOK_PLUGIN_H
 
-
 #include <kontactinterfaces/plugin.h>
 #include <kontactinterfaces/uniqueapphandler.h>
 

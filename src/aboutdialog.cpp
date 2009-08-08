@@ -162,7 +162,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
        text += formatPerson( (*it).name(), (*it).emailAddress() );
       }
     }
-
+//krazy:excludeall=style (really need krazy conditional code sections)
     text += "<br /><br />\
     <i>This Free Software product was improved as part of a commercial project:</i>\
     <h3>Credits</h3>\

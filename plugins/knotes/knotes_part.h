@@ -63,34 +63,34 @@ class KNotesPart : public KParts::ReadOnlyPart
     void setText( const QString &id, const QString &newText );
 
     QMap<QString, QString> notes() const;
-  void popupRMB( QListWidgetItem *item, const QPoint &pos,const QPoint &globalPos );
-  void mouseMoveOnListWidget( const QPoint & pos );
+    void popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos );
+    void mouseMoveOnListWidget( const QPoint &pos );
 
   private slots:
     void createNote( KCal::Journal *journal );
     void killNote( KCal::Journal *journal );
 
     void editNote( QListWidgetItem *item );
-  void editNote();
+    void editNote();
 
     void renameNote();
 
     void slotOnCurrentChanged( );
 
-
     void killSelectedNotes();
 
     void printSelectedNotes();
-  void requestToolTip(const QModelIndex&);
+    void requestToolTip( const QModelIndex & );
 
-  void hideToolTip();
+    void hideToolTip();
+
   private:
     QListWidget *mNotesView;
     KNoteTip *mNoteTip;
     KNoteEditDlg *mNoteEditDlg;
 
     KNotesResourceManager *mManager;
-  QMultiHash<QString, KNotesIconViewItem*> mNoteList;
+    QMultiHash<QString, KNotesIconViewItem*> mNoteList;
 };
 
 #endif
