@@ -611,7 +611,7 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
       plugin->deleteLater(); // removes the part automatically
       mPlugins.erase( it );
       if ( plugin->showInSideBar() ) {
-        QAction *q = mPluginAction[plugin]; // remove the KAction, so we free the shortcut for later us
+        QAction *q = mPluginAction[plugin]; // remove KAction, to free the shortcut for later use
         mActionPlugins.removeAll( q );
         mPluginAction.remove(plugin);
         delete q;
@@ -987,7 +987,8 @@ void MainWindow::slotPreferences()
     for ( it = mPlugins.constBegin(); it != mPlugins.constEnd(); ++it ) {
       if ( (*it)->isRunningStandalone() ) {
         KPluginInfo::List::ConstIterator infoIt;
-        for ( infoIt = filteredPlugins.constBegin(); infoIt != filteredPlugins.constEnd(); ++infoIt ) {
+        for ( infoIt = filteredPlugins.constBegin();
+              infoIt != filteredPlugins.constEnd(); ++infoIt ) {
           if ( infoIt->pluginName() == (*it)->identifier() ) {
             filteredPlugins.removeAll( *infoIt );
             break;

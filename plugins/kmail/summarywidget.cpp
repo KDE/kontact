@@ -138,17 +138,20 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
         if ( ref.isValid() && !ref.value().isEmpty() ) {
           OrgKdeKmailFolderInterface folderInterface(
             DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus() );
-          if ( !folderInterface.isValid() )
+          if ( !folderInterface.isValid() ) {
             continue;
+          }
 
           QDBusReply<int> replyNumMsg = folderInterface.messages();
-          if ( !replyNumMsg.isValid() )
+          if ( !replyNumMsg.isValid() ) {
             continue;
+          }
 
           const int numMsg = replyNumMsg;
           QDBusReply<int> replyUnreadNumMsg = folderInterface.unreadMessages();
-          if ( !replyUnreadNumMsg.isValid() )
+          if ( !replyUnreadNumMsg.isValid() ) {
             continue;
+          }
 
           const int numUnreadMsg = replyUnreadNumMsg;
           if ( numUnreadMsg == 0 ) {
@@ -160,11 +163,12 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
           QString name;
           if ( dbusName.isValid() ) {
             name = dbusName;
-            if ( name.isEmpty() )
+            if ( name.isEmpty() ) {
               name = defName;
-          }
-          else
+            }
+          } else {
             name = defName;
+          }
           label = new QLabel( this );
           label->setPixmap( KIconLoader::global()->loadIcon( name, KIconLoader::Small ) );
           label->setMaximumWidth( label->minimumSizeHint().width() );
@@ -180,8 +184,9 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
           } else {
             replyFolderPath= folderInterface.displayName();
           }
-          if ( replyFolderPath.isValid() )
+          if ( replyFolderPath.isValid() ) {
             folderPath = replyFolderPath;
+          }
 
           KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
           urlLabel->installEventFilter( this );

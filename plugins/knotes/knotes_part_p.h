@@ -64,17 +64,19 @@ class KNotesPart;
 class KNotesIconView : public KListWidget
 {
   public:
-  KNotesIconView(KNotesPart *);
+    KNotesIconView( KNotesPart * );
+
   protected:
-  void mousePressEvent( QMouseEvent* );
+    void mousePressEvent( QMouseEvent * );
+
   private:
-  KNotesPart *m_part;
+    KNotesPart *m_part;
 };
 
 class KNotesIconViewItem : public QListWidgetItem
 {
   public:
-  KNotesIconViewItem( QListWidget *parent, KCal::Journal *journal )
+    KNotesIconViewItem( QListWidget *parent, KCal::Journal *journal )
       : QListWidgetItem( parent ), mJournal( journal )
     {
       KIconEffect effect;
@@ -85,21 +87,19 @@ class KNotesIconViewItem : public QListWidgetItem
       setIconText( journal->summary() );
     }
 
-  KCal::Journal *journal()
+    KCal::Journal *journal()
     {
       return mJournal;
     }
-  void setIconText( const QString &text )
+    void setIconText( const QString &text )
     {
       setText( text );
       mJournal->setSummary( text );
     }
 
-
   private:
-  KCal::Journal *mJournal;
+    KCal::Journal *mJournal;
 };
-
 
 class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
 {

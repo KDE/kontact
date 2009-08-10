@@ -104,7 +104,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
       w -= 20;
     }
 
-    QRect desk = KGlobalSettings::desktopGeometry( mView->visualItemRect(mNoteIVI ).center() );
+    QRect desk = KGlobalSettings::desktopGeometry( mView->visualItemRect( mNoteIVI ).center() );
     resize( w, qMin( h, desk.height() / 2 - 20 ) );
 
     hide();
@@ -202,8 +202,8 @@ void KNoteTip::reposition()
     return;
   }
 
-  QRect rect = mView->visualItemRect( mNoteIVI);
-  QPoint off = mView->mapFromParent( mView->viewport()->mapToGlobal( QPoint( 0,0 ) ) );
+  QRect rect = mView->visualItemRect( mNoteIVI );
+  QPoint off = mView->mapFromParent( mView->viewport()->mapToGlobal( QPoint( 0, 0 ) ) );
   rect.translate( off.x(), off.y() );
 
   QPoint pos = rect.center();
