@@ -51,8 +51,9 @@ class KAddressBookPlugin : public Kontact::Plugin
   protected:
     KParts::ReadOnlyPart *createPart();
 
-  private slots:
+  private Q_SLOTS:
     void slotNewContact();
+    void slotNewContactGroup();
     void slotSyncContacts();
 
   private:
