@@ -20,6 +20,9 @@
 
 #include "kaddressbook_plugin.h"
 
+#include "akonadi/contact/contacteditordialog.h"
+#include "akonadi/contact/contactgroupeditordialog.h"
+
 #include <kontactinterfaces/core.h>
 
 #include <kactioncollection.h>
@@ -44,8 +47,15 @@ KAddressBookPlugin::KAddressBookPlugin( Kontact::Core *core, const QVariantList 
   KAction *action  = new KAction( KIcon( "contact-new" ),
                                   i18n( "New Contact..." ), this );
   actionCollection()->addAction( "new_contact", action );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotNewContact()) );
+  connect( action, SIGNAL( triggered( bool) ), SLOT( slotNewContact() ) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
+  insertNewAction( action );
+
+  action  = new KAction( KIcon( "user-group-new" ),
+                         i18n( "New Contact Group..." ), this );
+  actionCollection()->addAction( "new_contactgroup", action );
+  connect( action, SIGNAL( triggered( bool ) ), SLOT( slotNewContactGroup() ) );
+  action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_G ) );
   insertNewAction( action );
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ),
@@ -64,8 +74,14 @@ KAddressBookPlugin::~KAddressBookPlugin()
 
 void KAddressBookPlugin::slotNewContact()
 {
-  //FIXME: should be done by external editor
-  // interface()->newContact();
+  Akonadi::ContactEditorDialog dlg( Akonadi::ContactEditorDialog::CreateMode );
+  dlg.exec();
+}
+
+void KAddressBookPlugin::slotNewContactGroup()
+{
+  Akonadi::ContactGroupEditorDialog dlg( Akonadi::ContactGroupEditorDialog::CreateMode );
+  dlg.exec();
 }
 
 QString KAddressBookPlugin::tipFile() const
@@ -93,7 +109,10 @@ bool KAddressBookPlugin::isRunningStandalone()
 
 QStringList KAddressBookPlugin::invisibleToolbarActions() const
 {
-  return QStringList( "file_new_contact" );
+  QStringList actions;
+  actions << "akonadi_contact_create" << "akonadi_contact_group_create";
+
+  return actions;
 }
 
 void KAddressBookPlugin::slotSyncContacts()
