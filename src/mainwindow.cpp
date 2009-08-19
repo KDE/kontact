@@ -425,12 +425,16 @@ void MainWindow::setupActions()
   mNewActions->setShortcut( KStandardShortcut::openNew() );
   connect( mNewActions, SIGNAL(triggered(bool)), this, SLOT(slotNewClicked()) );
 
-  // If the user is using disconnected imap mail folders as groupware, we add plugins' Synchronize
-  // actions to the toolbar which trigger an imap sync.  Otherwise it's redundant and
-  // misleading.
+  // If the user is using disconnected imap mail folders as groupware, we add
+  // plugins' Synchronize actions to the toolbar which trigger an imap sync.
+  // Otherwise it's redundant and misleading.
   KConfig *_cfg = Prefs::self()->config();
   KConfigGroup cfg( _cfg, "Kontact Groupware Settings" );
+#if defined(KDEPIM_ENTERPRISE_BUILD)
+  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", true );
+#else
   mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", false );
+#endif
 
   if ( mSyncActionsEnabled ) {
     mSyncActions = new KActionMenu(
