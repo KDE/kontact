@@ -9,7 +9,7 @@ target_link_libraries(kontact_kaddressbookplugin ${KDE4_KPARTS_LIBS} kontactinte
 
 install(TARGETS kontact_kaddressbookplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
-install( FILES kaddressbook_plugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install( FILES kaddressbookplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
 install(FILES kaddressbook.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
 
