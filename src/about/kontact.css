@@ -15,13 +15,6 @@
   right: 125px;
 }
 
-#boxCenter {
-  background-image: url(box-center-kontact.png);
-  background-repeat: no-repeat;
-  background-color: #dfe7f3;
-  background-position: bottom right;
-}
-
 #subtext {
   font-style: italic;
 }
