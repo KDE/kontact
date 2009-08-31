@@ -20,6 +20,8 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
+#include <config-enterprise.h>
+
 #include "mainwindow.h"
 #include "aboutdialog.h"
 #include "iconsidepane.h"
