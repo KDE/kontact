@@ -99,6 +99,13 @@ KParts::ReadOnlyPart *KAddressBookPlugin::createPart()
     return 0;
   }
 
+  // disable the Ctrl+N shortcut, as it is used by Kontact already
+  if ( part->action( "akonadi_contact_create" ) ) {
+    KAction *newAction = qobject_cast<KAction*>( part->action( "akonadi_contact_create" ) );
+    if ( newAction )
+      newAction->setShortcut( QKeySequence() );
+  }
+
   return part;
 }
 
