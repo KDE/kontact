@@ -609,7 +609,7 @@ int Planner::showEvents( int counter, const QDate &date )
                this, SLOT(eventPopupMenu(const QString&)) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipStr(
-                         ev, true, KSystemTimeZones::local() ) );
+                         mCalendar, ev, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }
