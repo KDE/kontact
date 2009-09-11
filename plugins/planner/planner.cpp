@@ -440,7 +440,7 @@ int Planner::showEvents( int counter, const QDate &date )
       connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
                this, SLOT(eventPopupMenu(const QString&)) );
 
-      QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
+      QString tipText( KCal::IncidenceFormatter::toolTipStr( mCalendar, ev, true ) );
       if ( !tipText.isEmpty() ) {
         QToolTip::add( urlLabel, tipText );
       }
