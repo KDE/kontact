@@ -169,7 +169,7 @@ void TodoSummaryWidget::updateView()
       connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
                this, SLOT( popupMenu( const QString& ) ) );
 
-      QString tipText( KCal::IncidenceFormatter::toolTipString( todo, true ) );
+      QString tipText( KCal::IncidenceFormatter::toolTipStr( mCalendar, todo, true ) );
       if ( !tipText.isEmpty() ) {
         QToolTip::add( urlLabel, tipText );
       }

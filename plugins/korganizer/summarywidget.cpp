@@ -216,7 +216,7 @@ void SummaryWidget::updateView()
       connect( urlLabel, SIGNAL( rightClickedURL( const QString& ) ),
                this, SLOT( popupMenu( const QString& ) ) );
 
-      QString tipText( KCal::IncidenceFormatter::toolTipString( ev, true ) );
+      QString tipText( KCal::IncidenceFormatter::toolTipStr( mCalendar, ev, true ) );
       if ( !tipText.isEmpty() ) {
         QToolTip::add( urlLabel, tipText );
       }
