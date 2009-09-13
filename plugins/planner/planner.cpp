@@ -362,7 +362,7 @@ int Planner::showTodos( int counter, const QDate &date )
       urlLabel2->setUrl( todo->uid() );
       urlLabel2->installEventFilter( this );
       urlLabel2->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-      urlLabel->setWordWrap( true );
+      urlLabel2->setWordWrap( true );
       if ( stateText == i18nc( "to-do is overdue", "overdue" ) ) {
         urlLabel2->setText( "<font color = red >" + string + "</font>" );
       }
