@@ -39,13 +39,10 @@
 #include <QRadioButton>
 #include <QSpinBox>
 
-extern "C"
+KCModule *create_todosummary( QWidget *parent, const char * )
 {
-  KDE_EXPORT KCModule *create_todosummary( QWidget *parent, const char * )
-  {
-    KComponentData inst( "kcmtodosummary" );
-    return new KCMTodoSummary( inst, parent );
-  }
+  KComponentData inst( "kcmtodosummary" );
+  return new KCMTodoSummary( inst, parent );
 }
 
 KCMTodoSummary::KCMTodoSummary( const KComponentData &inst, QWidget *parent )
@@ -67,6 +64,8 @@ KCMTodoSummary::KCMTodoSummary( const KComponentData &inst, QWidget *parent )
 
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
+
+  connect( mShowMineOnly, SIGNAL(stateChanged(int)), SLOT(modified()) );
 
   KAcceleratorManager::manage( this );
 
@@ -90,9 +89,9 @@ void KCMTodoSummary::customDaysChanged( int value )
 void KCMTodoSummary::load()
 {
   KConfig config( "kcmtodosummaryrc" );
-  KConfigGroup daysGroup( &config, "Days" );
+  KConfigGroup group = config.group( "Days" );
 
-  int days = daysGroup.readEntry( "DaysToShow", 7 );
+  int days = group.readEntry( "DaysToShow", 7 );
   if ( days == 1 ) {
     mDateTodayButton->setChecked( true );
   } else if ( days == 31 ) {
@@ -103,12 +102,15 @@ void KCMTodoSummary::load()
     mCustomDays->setEnabled( true );
   }
 
-  KConfigGroup hideGroup( &config, "Hide" );
-  mHideInProgressBox->setChecked( hideGroup.readEntry( "InProgress", false ) );
-  mHideOverdueBox->setChecked( hideGroup.readEntry( "Overdue", false ) );
-  mHideCompletedBox->setChecked( hideGroup.readEntry( "Completed", true ) );
-  mHideOpenEndedBox->setChecked( hideGroup.readEntry( "OpenEnded", false ) );
-  mHideUnstartedBox->setChecked( hideGroup.readEntry( "NotStarted", false ) );
+  group = config.group( "Hide" );
+  mHideInProgressBox->setChecked( group.readEntry( "InProgress", false ) );
+  mHideOverdueBox->setChecked( group.readEntry( "Overdue", false ) );
+  mHideCompletedBox->setChecked( group.readEntry( "Completed", true ) );
+  mHideOpenEndedBox->setChecked( group.readEntry( "OpenEnded", false ) );
+  mHideUnstartedBox->setChecked( group.readEntry( "NotStarted", false ) );
+
+  group = config.group( "Groupware" );
+  mShowMineOnly->setChecked( group.readEntry( "ShowMineOnly", false ) );
 
   emit changed( false );
 }
@@ -116,7 +118,7 @@ void KCMTodoSummary::load()
 void KCMTodoSummary::save()
 {
   KConfig config( "kcmtodosummaryrc" );
-  KConfigGroup daysGroup( &config, "Days" );
+  KConfigGroup group = config.group( "Days" );
 
   int days;
   if ( mDateTodayButton->isChecked() ) {
@@ -126,14 +128,17 @@ void KCMTodoSummary::save()
   } else {
     days = mCustomDays->value();
   }
-  daysGroup.writeEntry( "DaysToShow", days );
+  group.writeEntry( "DaysToShow", days );
 
-  KConfigGroup hideGroup( &config, "Hide" );
-  hideGroup.writeEntry( "InProgress", mHideInProgressBox->isChecked() );
-  hideGroup.writeEntry( "Overdue", mHideOverdueBox->isChecked() );
-  hideGroup.writeEntry( "Completed", mHideCompletedBox->isChecked() );
-  hideGroup.writeEntry( "OpenEnded", mHideOpenEndedBox->isChecked() );
-  hideGroup.writeEntry( "NotStarted", mHideUnstartedBox->isChecked() );
+  group = config.group( "Hide" );
+  group.writeEntry( "InProgress", mHideInProgressBox->isChecked() );
+  group.writeEntry( "Overdue", mHideOverdueBox->isChecked() );
+  group.writeEntry( "Completed", mHideCompletedBox->isChecked() );
+  group.writeEntry( "OpenEnded", mHideOpenEndedBox->isChecked() );
+  group.writeEntry( "NotStarted", mHideUnstartedBox->isChecked() );
+
+  group = config.group( "Groupware" );
+  group.writeEntry( "ShowMineOnly", mShowMineOnly->isChecked() );
 
   config.sync();
   emit changed( false );
@@ -150,6 +155,8 @@ void KCMTodoSummary::defaults()
   mHideCompletedBox->setChecked( true );
   mHideOpenEndedBox->setChecked( false );
   mHideUnstartedBox->setChecked( false );
+
+  mShowMineOnly->setChecked( false );
 
   emit changed( true );
 }

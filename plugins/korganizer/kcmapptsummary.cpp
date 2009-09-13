@@ -31,13 +31,10 @@
 #include <klocale.h>
 #include <kdemacros.h>
 
-extern "C"
+KCModule *create_apptsummary( QWidget *parent, const char * )
 {
-  KDE_EXPORT KCModule *create_apptsummary( QWidget *parent, const char * )
-  {
-    KComponentData inst( "kcmapptsummary" );
-    return new KCMApptSummary( inst, parent );
-  }
+  KComponentData inst( "kcmapptsummary" );
+  return new KCMApptSummary( inst, parent );
 }
 
 KCMApptSummary::KCMApptSummary( const KComponentData &inst, QWidget *parent )
@@ -49,16 +46,22 @@ KCMApptSummary::KCMApptSummary( const KComponentData &inst, QWidget *parent )
   mDaysButtonGroup->addButton( mDateTodayButton, 0 );
   mDaysButtonGroup->addButton( mDateMonthButton, 1 );
   mDaysButtonGroup->addButton( mDateRangeButton, 2 );
+
   mShowButtonGroup = new QButtonGroup( this );
   mShowButtonGroup->setExclusive( false );
   mShowButtonGroup->addButton( mShowBirthdaysFromCal );
   mShowButtonGroup->addButton( mShowAnniversariesFromCal );
+
+  mGroupwareButtonGroup = new QButtonGroup( this );
+  mGroupwareButtonGroup->setExclusive( false );
+  mGroupwareButtonGroup->addButton( mShowMineOnly );
 
   customDaysChanged( 7 );
 
   connect( mDaysButtonGroup, SIGNAL(buttonClicked(int)), SLOT(modified()) );
   connect( mDaysButtonGroup, SIGNAL(buttonClicked(int)), SLOT(buttonClicked(int)) );
   connect( mShowButtonGroup, SIGNAL(buttonClicked(int)), SLOT(modified()) );
+  connect( mGroupwareButtonGroup, SIGNAL(buttonClicked(int)), SLOT(modified()) );
 
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
   connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
@@ -104,6 +107,9 @@ void KCMApptSummary::load()
   mShowBirthdaysFromCal->setChecked( group.readEntry( "BirthdaysFromCalendar", true ) );
   mShowAnniversariesFromCal->setChecked( group.readEntry( "AnniversariesFromCalendar", true ) );
 
+  group = config.group( "Groupware" );
+  mShowMineOnly->setChecked( group.readEntry( "ShowMineOnly", false ) );
+
   emit changed( false );
 }
 
@@ -132,6 +138,9 @@ void KCMApptSummary::save()
   group.writeEntry( "BirthdaysFromCalendar", mShowBirthdaysFromCal->isChecked() );
   group.writeEntry( "AnniversariesFromCalendar", mShowAnniversariesFromCal->isChecked() );
 
+  group = config.group( "Groupware" );
+  group.writeEntry( "ShowMineOnly", mShowMineOnly->isChecked() );
+
   config.sync();
   emit changed( false );
 }
@@ -144,6 +153,8 @@ void KCMApptSummary::defaults()
 
   mShowBirthdaysFromCal->setChecked( true );
   mShowAnniversariesFromCal->setChecked( true );
+
+  mShowMineOnly->setChecked( false );
 
   emit changed( true );
 }

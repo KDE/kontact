@@ -79,6 +79,7 @@ class TodoSummaryWidget : public Kontact::Summary
     bool mHideCompleted;
     bool mHideOpenEnded;
     bool mHideNotStarted;
+    bool mShowMineOnly;
 
     QList<QLabel*> mLabels;
     KCal::CalendarResources *mCalendar;

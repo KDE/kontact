@@ -176,6 +176,9 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     SummaryEventInfo *summaryEvent = new SummaryEventInfo();
     eventInfoList.append( summaryEvent );
 
+    // Event
+    summaryEvent->ev = ev;
+
     // Start date label
     QString str = "";
     QDate sD = QDate( date.year(), date.month(), date.day() );
