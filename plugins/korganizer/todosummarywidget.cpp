@@ -34,8 +34,10 @@
 #include <libkdepim/kpimprefs.h>
 
 #include <kcal/calendar.h>
+#include <KCal/CalHelper>
 #include <kcal/todo.h>
 #include <kcal/incidenceformatter.h>
+using namespace KCal;
 
 #include <kdialog.h>
 #include <kglobal.h>
@@ -94,15 +96,18 @@ void TodoSummaryWidget::updateView()
   mLabels.clear();
 
   KConfig config( "kcmtodosummaryrc" );
-  KConfigGroup daysGroup( &config, "Days" );
-  int mDaysToGo = daysGroup.readEntry( "DaysToShow", 7 );
+  KConfigGroup group = config.group( "Days" );
+  int mDaysToGo = group.readEntry( "DaysToShow", 7 );
 
-  KConfigGroup hideGroup( &config, "Hide" );
-  mHideInProgress = hideGroup.readEntry( "InProgress", false );
-  mHideOverdue = hideGroup.readEntry( "Overdue", false );
-  mHideCompleted = hideGroup.readEntry( "Completed", true );
-  mHideOpenEnded = hideGroup.readEntry( "OpenEnded", true );
-  mHideNotStarted = hideGroup.readEntry( "NotStarted", false );
+  group = config.group( "Hide" );
+  mHideInProgress = group.readEntry( "InProgress", false );
+  mHideOverdue = group.readEntry( "Overdue", false );
+  mHideCompleted = group.readEntry( "Completed", true );
+  mHideOpenEnded = group.readEntry( "OpenEnded", true );
+  mHideNotStarted = group.readEntry( "NotStarted", false );
+
+  group = config.group( "Groupware" );
+  mShowMineOnly = group.readEntry( "ShowMineOnly", false );
 
   // for each todo,
   //   if it passes the filter, append to a list
@@ -116,10 +121,10 @@ void TodoSummaryWidget::updateView()
   //    days to go before to-do is due
   //    which types of to-dos to hide
 
-  KCal::Todo::List prList;
+  Todo::List prList;
 
   QDate currDate = QDate::currentDate();
-  Q_FOREACH ( KCal::Todo *todo, mCalendar->todos() ) {
+  Q_FOREACH ( Todo *todo, mCalendar->todos() ) {
     if ( todo->hasDueDate() ) {
       int daysTo = currDate.daysTo( todo->dtDue().date() );
       if ( daysTo >= mDaysToGo ) {
@@ -146,15 +151,15 @@ void TodoSummaryWidget::updateView()
     prList.append( todo );
   }
   if ( !prList.isEmpty() ) {
-    prList = KCal::Calendar::sortTodos( &prList,
-                                        KCal::TodoSortSummary,
-                                        KCal::SortDirectionAscending );
-    prList = KCal::Calendar::sortTodos( &prList,
-                                        KCal::TodoSortPriority,
-                                        KCal::SortDirectionAscending );
-    prList = KCal::Calendar::sortTodos( &prList,
-                                        KCal::TodoSortDueDate,
-                                        KCal::SortDirectionAscending );
+    prList = Calendar::sortTodos( &prList,
+                                  TodoSortSummary,
+                                  SortDirectionAscending );
+    prList = Calendar::sortTodos( &prList,
+                                  TodoSortPriority,
+                                  SortDirectionAscending );
+    prList = Calendar::sortTodos( &prList,
+                                  TodoSortDueDate,
+                                  SortDirectionAscending );
   }
 
   // The to-do print consists of the following fields:
@@ -183,9 +188,14 @@ void TodoSummaryWidget::updateView()
 
     QString str;
 
-    Q_FOREACH ( KCal::Todo *todo, prList ) {
+    Q_FOREACH ( Todo *todo, prList ) {
       bool makeBold = false;
       int daysTo = -1;
+
+      // Optionally, show only my To-dos
+      if ( mShowMineOnly && !CalHelper::isMyCalendarIncidence( mCalendar, todo ) ) {
+        continue;
+      }
 
       // Icon label
       label = new QLabel( this );
@@ -265,8 +275,8 @@ void TodoSummaryWidget::updateView()
       connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
                this, SLOT(popupMenu(const QString&)) );
 
-      QString tipText( KCal::IncidenceFormatter::toolTipStr(
-                         todo, true, KSystemTimeZones::local() ) );
+      QString tipText( IncidenceFormatter::toolTipStr(
+                         mCalendar, todo, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }
@@ -315,7 +325,7 @@ void TodoSummaryWidget::removeTodo( const QString &uid )
 
 void TodoSummaryWidget::completeTodo( const QString &uid )
 {
-  KCal::Todo *todo = mCalendar->todo( uid );
+  Todo *todo = mCalendar->todo( uid );
   if ( !todo->isReadOnly() ) {
     todo->setCompleted( KDateTime::currentLocalDateTime() );
     mCalendar->save();
@@ -330,7 +340,7 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
   delIt->setIcon( KIconLoader::global()->loadIcon( "edit-delete", KIconLoader::Small ) );
   QAction *doneIt = 0;
-  KCal::Todo *todo = mCalendar->todo( uid );
+  Todo *todo = mCalendar->todo( uid );
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
     doneIt->setIcon( KIconLoader::global()->loadIcon( "task-complete", KIconLoader::Small ) );
@@ -366,7 +376,7 @@ QStringList TodoSummaryWidget::configModules() const
   return QStringList( "kcmtodosummary.desktop" );
 }
 
-bool TodoSummaryWidget::overdue( KCal::Todo *todo )
+bool TodoSummaryWidget::overdue( Todo *todo )
 {
   if ( todo->hasDueDate() && !todo->isCompleted() &&
        todo->dtDue().date() < QDate::currentDate() ) {
@@ -375,7 +385,7 @@ bool TodoSummaryWidget::overdue( KCal::Todo *todo )
   return false;
 }
 
-bool TodoSummaryWidget::starts( KCal::Todo *todo )
+bool TodoSummaryWidget::starts( Todo *todo )
 {
   if ( todo->hasStartDate() &&
        todo->dtStart().date() == QDate::currentDate() ) {
@@ -384,12 +394,12 @@ bool TodoSummaryWidget::starts( KCal::Todo *todo )
   return false;
 }
 
-bool TodoSummaryWidget::completed( KCal::Todo *todo )
+bool TodoSummaryWidget::completed( Todo *todo )
 {
   return todo->isCompleted();
 }
 
-bool TodoSummaryWidget::openEnded( KCal::Todo *todo )
+bool TodoSummaryWidget::openEnded( Todo *todo )
 {
   if ( !todo->hasDueDate() && !todo->isCompleted() ) {
     return true;
@@ -397,7 +407,7 @@ bool TodoSummaryWidget::openEnded( KCal::Todo *todo )
   return false;
 }
 
-bool TodoSummaryWidget::inProgress( KCal::Todo *todo )
+bool TodoSummaryWidget::inProgress( Todo *todo )
 {
   if ( todo->percentComplete() > 0 ) {
     return true;
@@ -413,7 +423,7 @@ bool TodoSummaryWidget::inProgress( KCal::Todo *todo )
   return false;
 }
 
-bool TodoSummaryWidget::notStarted( KCal::Todo *todo )
+bool TodoSummaryWidget::notStarted( Todo *todo )
 {
   if ( todo->percentComplete() > 0 ) {
     return false;
@@ -430,7 +440,7 @@ bool TodoSummaryWidget::notStarted( KCal::Todo *todo )
   return true;
 }
 
-const QString TodoSummaryWidget::stateStr( KCal::Todo *todo )
+const QString TodoSummaryWidget::stateStr( Todo *todo )
 {
   QString str1, str2;
 

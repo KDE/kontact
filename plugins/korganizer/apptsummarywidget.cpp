@@ -31,6 +31,9 @@
 #include <korganizer/stdcalendar.h>
 #include <kontactinterfaces/core.h>
 
+#include <KCal/CalHelper>
+using namespace KCal;
+
 #include <kconfiggroup.h>
 #include <kiconloader.h>
 #include <klocale.h>
@@ -85,6 +88,9 @@ void ApptSummaryWidget::configUpdated()
   mShowBirthdaysFromCal = group.readEntry( "BirthdaysFromCalendar", true );
   mShowAnniversariesFromCal = group.readEntry( "AnniversariesFromCalendar", true );
 
+  group = config.group( "Groupware" );
+  mShowMineOnly = group.readEntry( "ShowMineOnly", false );
+
   updateView();
 }
 
@@ -120,6 +126,11 @@ void ApptSummaryWidget::updateView()
         SummaryEventInfo::eventsForDate( dt, mCalendar );
 
     foreach ( SummaryEventInfo *event, events ) {
+
+      // Optionally, show only my Events
+      if ( mShowMineOnly && !CalHelper::isMyCalendarIncidence( mCalendar, event->ev ) ) {
+        continue;
+      }
 
       // Icon label
       label = new QLabel( this );

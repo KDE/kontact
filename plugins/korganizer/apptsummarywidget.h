@@ -79,6 +79,7 @@ class ApptSummaryWidget : public Kontact::Summary
     int mDaysAhead;
     bool mShowBirthdaysFromCal;
     bool mShowAnniversariesFromCal;
+    bool mShowMineOnly;
 };
 
 #endif

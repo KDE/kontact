@@ -29,6 +29,11 @@
 #include "ui_todosummaryconfig_base.h"
 #include <kcmodule.h>
 
+extern "C"
+{
+  KDE_EXPORT KCModule *create_todosummary( QWidget *parent, const char * );
+}
+
 class KCMTodoSummary : public KCModule, public Ui::TodoSummaryConfig_Base
 {
   Q_OBJECT

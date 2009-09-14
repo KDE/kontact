@@ -28,6 +28,11 @@
 #include "ui_apptsummaryconfig_base.h"
 #include <kcmodule.h>
 
+extern "C"
+{
+  KDE_EXPORT KCModule *create_apptsummary( QWidget *parent, const char * );
+}
+
 class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
 {
   Q_OBJECT
@@ -48,6 +53,7 @@ class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
   private:
     QButtonGroup *mDaysButtonGroup;
     QButtonGroup *mShowButtonGroup;
+    QButtonGroup *mGroupwareButtonGroup;
 };
 
 #endif

@@ -48,6 +48,7 @@ class SummaryEventInfo
                                KCal::Calendar *calendar );
     static void setShowSpecialEvents( bool skipBirthdays, bool skipAnniversaries );
 
+    KCal::Event *ev;
     QString startDate;
     QString dateSpan;
     QString daysToGo;

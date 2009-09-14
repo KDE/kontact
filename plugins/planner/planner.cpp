@@ -363,7 +363,7 @@ int Planner::showTodos( int counter, const QDate &date )
       urlLabel2->setUrl( todo->uid() );
       urlLabel2->installEventFilter( this );
       urlLabel2->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-      urlLabel->setWordWrap( true );
+      urlLabel2->setWordWrap( true );
       if ( stateText == i18nc( "to-do is overdue", "overdue" ) ) {
         urlLabel2->setText( "<font color = red >" + string + "</font>" );
       }
@@ -610,7 +610,7 @@ int Planner::showEvents( int counter, const QDate &date )
                this, SLOT(eventPopupMenu(const QString&)) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipStr(
-                         ev, true, KSystemTimeZones::local() ) );
+                         mCalendar, ev, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }
