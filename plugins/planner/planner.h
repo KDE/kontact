@@ -29,8 +29,8 @@
 #include <kholidays/holidays.h>
 
 #include <kabc/resource.h>
-#include <kcal/calendarresources.h>
 #include <kcal/todo.h>
+#include <kcal/event.h>
 
 #include <QList>
 
@@ -46,8 +46,7 @@ namespace Kontact {
 }
 namespace KCal {
   class Event;
-  class CalendarResources;
-  class ResourceCalendar;
+  class Calendar;
 }
 
 class Planner : public Kontact::Summary
@@ -123,7 +122,7 @@ class Planner : public Kontact::Summary
     QGridLayout *mPlannerGrid;
     QList<QLabel *> mLabels;
 
-    KCal::CalendarResources *mCalendar;
+    KCal::Calendar *mCalendar;
     KABC::AddressBook *mAddressBook;
 
     KCal::Todo::List mTodos;

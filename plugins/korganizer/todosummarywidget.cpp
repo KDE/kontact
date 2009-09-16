@@ -35,8 +35,6 @@
 
 #include <kcal/calendar.h>
 #include <KCal/CalHelper>
-#include <kcal/resourcecalendar.h>
-#include <kcal/resourcelocal.h>
 #include <kcal/todo.h>
 #include <kcal/incidenceformatter.h>
 using namespace KCal;

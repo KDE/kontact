@@ -29,6 +29,9 @@
 #include <libkdepim/kpimprefs.h>
 #include <korganizer/stdcalendar.h>
 #include <kcal/incidenceformatter.h>
+#include <kglobal.h>
+#include <klocale.h>
+
 using namespace KCal;
 
 #include <KSystemTimeZones>
