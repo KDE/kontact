@@ -29,7 +29,7 @@
 #include "korganizerinterface.h"
 
 #include <korganizer/stdcalendar.h>
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <KCal/CalHelper>
 using namespace KCal;
@@ -46,7 +46,7 @@ using namespace KCal;
 #include <QTextDocument>
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
-  : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
+  : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
@@ -252,7 +252,7 @@ bool ApptSummaryWidget::eventFilter( QObject *obj, QEvent *e )
     }
   }
 
-  return Kontact::Summary::eventFilter( obj, e );
+  return KontactInterface::Summary::eventFilter( obj, e );
 }
 
 QStringList ApptSummaryWidget::configModules() const

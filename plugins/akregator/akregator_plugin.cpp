@@ -28,8 +28,8 @@
 #include <akregator_options.h>
 #include <akregator_part.h>
 
-#include <kontactinterfaces/core.h>
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/core.h>
+#include <kontactinterface/plugin.h>
 
 #include <kaboutdata.h>
 #include <kaction.h>
@@ -44,8 +44,8 @@
 
 EXPORT_KONTACT_PLUGIN( AkregatorPlugin, akregator )
 
-AkregatorPlugin::AkregatorPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "akregator" ), m_interface( 0 )
+AkregatorPlugin::AkregatorPlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, "akregator" ), m_interface( 0 )
 {
 
   setComponentData( KontactPluginFactory::componentData() );
@@ -56,8 +56,8 @@ AkregatorPlugin::AkregatorPlugin( Kontact::Core *core, const QVariantList & )
   connect( action, SIGNAL(triggered(bool)), SLOT(addFeed()) );
   insertNewAction( action );
 
-  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<AkregatorUniqueAppHandler>(), this );
+  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+    new KontactInterface::UniqueAppHandlerFactory<AkregatorUniqueAppHandler>(), this );
 }
 
 AkregatorPlugin::~AkregatorPlugin()
@@ -158,7 +158,7 @@ int AkregatorUniqueAppHandler::newInstance()
     "org.kde.akregator", "/Akregator", QDBusConnection::sessionBus() );
   akregator.openStandardFeedList();
 
-  return Kontact::UniqueAppHandler::newInstance();
+  return KontactInterface::UniqueAppHandler::newInstance();
 }
 
 #include "akregator_plugin.moc"

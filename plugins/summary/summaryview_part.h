@@ -26,13 +26,13 @@
 
 #include "dropwidget.h"
 
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <kparts/part.h>
 
 #include <QMap>
 
-namespace Kontact {
+namespace KontactInterface {
   class Summary;
 }
 
@@ -51,7 +51,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
   Q_OBJECT
 
   public:
-    SummaryViewPart( Kontact::Core *core, const char *widgetName,
+    SummaryViewPart( KontactInterface::Core *core, const char *widgetName,
                      const KAboutData *aboutData, QObject *parent = 0 );
     ~SummaryViewPart();
 
@@ -74,7 +74,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     void summaryWidgetMoved( QWidget *target, QWidget *widget, int alignment );
 
   private:
-    void initGUI( Kontact::Core *core );
+    void initGUI( KontactInterface::Core *core );
     void loadLayout();
     void saveLayout();
     QString widgetName( QWidget * ) const;
@@ -83,8 +83,8 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     void drawLtoR( QWidget *target, QWidget *widget, int alignment );
     void drawRtoL( QWidget *target, QWidget *widget, int alignment );
 
-    QMap<QString, Kontact::Summary*> mSummaries;
-    Kontact::Core *mCore;
+    QMap<QString, KontactInterface::Summary*> mSummaries;
+    KontactInterface::Core *mCore;
     DropWidget *mFrame;
     QFrame *mMainWidget;
     QVBoxLayout *mMainLayout;

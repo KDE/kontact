@@ -25,7 +25,7 @@
 #include "knode_plugin.h"
 
 #include <knodeinterface.h>
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <kactioncollection.h>
 #include <kaction.h>
@@ -37,8 +37,8 @@
 
 EXPORT_KONTACT_PLUGIN( KNodePlugin, knode )
 
-KNodePlugin::KNodePlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "knode" ), m_interface( 0 )
+KNodePlugin::KNodePlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, "knode" ), m_interface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -48,8 +48,8 @@ KNodePlugin::KNodePlugin( Kontact::Core *core, const QVariantList & )
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPostArticle()) );
   insertNewAction( action );
 
-  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<KNodeUniqueAppHandler>(), this );
+  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+    new KontactInterface::UniqueAppHandlerFactory<KNodeUniqueAppHandler>(), this );
 }
 
 KNodePlugin::~KNodePlugin()
@@ -121,7 +121,7 @@ int KNodeUniqueAppHandler::newInstance()
     bool handled = reply;
     kDebug() << "handled=" << handled;
     if ( !handled ) { // no args -> simply bring knode plugin to front
-      return Kontact::UniqueAppHandler::newInstance();
+      return KontactInterface::UniqueAppHandler::newInstance();
     }
   }
   return 0;

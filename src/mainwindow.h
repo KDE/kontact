@@ -24,7 +24,7 @@
 #define KONTACT_MAINWINDOW_H
 
 #include "kontact_export.h"
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <kparts/part.h>
 #include <kparts/partmanager.h>
@@ -45,16 +45,16 @@ namespace KPIM {
   class StatusbarProgressWidget;
 }
 
-namespace Kontact {
+namespace KontactInterface {
 
 class Plugin;
 class SidePaneBase;
 class AboutDialog;
 
-typedef QList<Kontact::Plugin*> PluginList;
+typedef QList<KontactInterface::Plugin*> PluginList;
 typedef QList<QAction*> ActionPluginList;
 
-class KONTACT_EXPORT MainWindow : public Kontact::Core
+class KONTACT_EXPORT MainWindow : public KontactInterface::Core
 {
   Q_OBJECT
   Q_CLASSINFO( "D-Bus Interface", "org.kde.kontact.KontactInterface" )
@@ -67,10 +67,10 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     void setActivePluginModule( const QString & );
 
     static bool pluginActionWeightLessThan( const QAction *left, const QAction *right );
-    static bool pluginWeightLessThan( const Kontact::Plugin *left, const Kontact::Plugin *right );
+    static bool pluginWeightLessThan( const KontactInterface::Plugin *left, const KontactInterface::Plugin *right );
 
   public slots:
-    virtual void selectPlugin( Kontact::Plugin *plugin );
+    virtual void selectPlugin( KontactInterface::Plugin *plugin );
     Q_SCRIPTABLE virtual void selectPlugin( const QString &pluginName );
     void slotActionTriggered();
 
@@ -100,13 +100,13 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
     void saveSettings();
 
     bool isPluginLoaded( const KPluginInfo & );
-    Kontact::Plugin *pluginFromInfo( const KPluginInfo & );
+    KontactInterface::Plugin *pluginFromInfo( const KPluginInfo & );
     void loadPlugins();
     void unloadPlugins();
     void updateShortcuts();
     bool removePlugin( const KPluginInfo & );
-    void addPlugin( Kontact::Plugin *plugin );
-    void partLoaded( Kontact::Plugin *plugin, KParts::ReadOnlyPart *part );
+    void addPlugin( KontactInterface::Plugin *plugin );
+    void partLoaded( KontactInterface::Plugin *plugin, KParts::ReadOnlyPart *part );
     void setupActions();
     void showTip( bool );
     virtual bool queryClose();
@@ -154,7 +154,7 @@ class KONTACT_EXPORT MainWindow : public Kontact::Core
 
 }
 
-Q_DECLARE_METATYPE( Kontact::Plugin * )
+Q_DECLARE_METATYPE( KontactInterface::Plugin * )
 
 #endif
 // vim: sw=2 sts=2 et

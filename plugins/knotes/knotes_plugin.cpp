@@ -22,8 +22,8 @@
 #include "knotes_part.h"
 #include "summarywidget.h"
 
-#include <kontactinterfaces/core.h>
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/core.h>
+#include <kontactinterface/plugin.h>
 
 #include <libkdepim/maillistdrag.h>
 #include <libkdepim/kdepimprotocols.h>
@@ -49,8 +49,8 @@
 
 EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
 
-KNotesPlugin::KNotesPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "knotes" ), mAboutData( 0 )
+KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, "knotes" ), mAboutData( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -83,7 +83,7 @@ KParts::ReadOnlyPart *KNotesPlugin::createPart()
   return new KNotesPart( this );
 }
 
-Kontact::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
+KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
 {
   return new KNotesSummaryWidget( this, parentWidget );
 }

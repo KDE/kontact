@@ -25,7 +25,7 @@
 #ifndef PLANNERWIDGET_H
 #define PLANNERWIDGET_H
 
-#include <kontactinterfaces/summary.h>
+#include <kontactinterface/summary.h>
 #include <kholidays/holidays.h>
 
 #include <kabc/resource.h>
@@ -41,7 +41,7 @@ class QLabel;
 class QVBoxLayout;
 class SDEntry;
 
-namespace Kontact {
+namespace KontactInterface {
   class Plugin;
 }
 namespace KCal {
@@ -50,12 +50,12 @@ namespace KCal {
   class ResourceCalendar;
 }
 
-class Planner : public Kontact::Summary
+class Planner : public KontactInterface::Summary
 {
   Q_OBJECT
 
   public:
-    Planner( Kontact::Plugin *plugin, QWidget *parent );
+    Planner( KontactInterface::Plugin *plugin, QWidget *parent );
 
     int summaryHeight() const { return 3; }
     QStringList configModules() const;
@@ -118,7 +118,7 @@ class Planner : public Kontact::Summary
     bool mSpecialOccasionsCal;
 
     KCal::Event::List mEvents;
-    Kontact::Plugin *mPlugin;
+    KontactInterface::Plugin *mPlugin;
     QVBoxLayout *mLayout;
     QGridLayout *mPlannerGrid;
     QList<QLabel *> mLabels;

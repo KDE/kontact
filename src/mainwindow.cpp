@@ -25,11 +25,13 @@
 #include "mainwindow.h"
 #include "aboutdialog.h"
 #include "iconsidepane.h"
-#include "plugin.h"
 #include "prefs.h"
 #include "progressdialog.h"
 #include "statusbarprogresswidget.h"
 #include "broadcaststatus.h"
+
+#include <kontactinterface/plugin.h>
+using namespace KontactInterface;
 
 #include <kpimutils/kfileio.h>
 
@@ -146,7 +148,7 @@ int ServiceStarter::startServiceFor( const QString &serviceType,
 }
 
 MainWindow::MainWindow()
-  : Kontact::Core(), mSplitter( 0 ), mCurrentPlugin( 0 ), mAboutDialog( 0 ),
+  : KontactInterface::Core(), mSplitter( 0 ), mCurrentPlugin( 0 ), mAboutDialog( 0 ),
     mReallyClose( false ), mSyncActionsEnabled( true )
 {
   // The ServiceStarter created here will be deleted by the KDbusServiceStarter
@@ -288,11 +290,12 @@ bool MainWindow::pluginActionWeightLessThan( const QAction *left, const QAction 
   // Since this lessThan method is used only for the toolbar (which is on
   // the inverse layout direction than the rest of the system), we add the
   // elements on the exactly inverse order. (ereslibre)
-  return !pluginWeightLessThan( left->data().value<Kontact::Plugin*>(),
-                                right->data().value<Kontact::Plugin*>() );
+  return !pluginWeightLessThan( left->data().value<KontactInterface::Plugin*>(),
+                                right->data().value<KontactInterface::Plugin*>() );
 }
 
-bool MainWindow::pluginWeightLessThan( const Kontact::Plugin *left, const Kontact::Plugin *right )
+bool MainWindow::pluginWeightLessThan( const KontactInterface::Plugin *left,
+                                       const KontactInterface::Plugin *right )
 {
   return left->weight() < right->weight();
 }
@@ -329,8 +332,8 @@ void MainWindow::initWidgets()
   sizes << 0;
   mSplitter->setSizes(sizes);
 */
-  connect( mSidePane, SIGNAL(pluginSelected(Kontact::Plugin *)),
-           SLOT(selectPlugin(Kontact::Plugin *)) );
+  connect( mSidePane, SIGNAL(pluginSelected(KontactInterface::Plugin *)),
+           SLOT(selectPlugin(KontactInterface::Plugin *)) );
 
   mPartsStack = new QStackedWidget( mSplitter );
   mPartsStack->layout()->setSpacing( 0 );
@@ -496,7 +499,7 @@ void MainWindow::loadPlugins()
     }
 
     kDebug() << "Loading Plugin:" << it->name();
-    plugin =  KService::createInstance<Kontact::Plugin>( it->service(), this );
+    plugin =  KService::createInstance<KontactInterface::Plugin>( it->service(), this );
 
     if ( !plugin ) {
       kDebug() << "Unable to create plugin for " << it->name();
@@ -640,7 +643,7 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
   return false;
 }
 
-void MainWindow::addPlugin( Kontact::Plugin *plugin )
+void MainWindow::addPlugin( KontactInterface::Plugin *plugin )
 {
   kDebug();
 
@@ -673,7 +676,7 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
   }
 }
 
-void MainWindow::partLoaded( Kontact::Plugin *plugin, KParts::ReadOnlyPart *part )
+void MainWindow::partLoaded( KontactInterface::Plugin *plugin, KParts::ReadOnlyPart *part )
 {
   Q_UNUSED( plugin );
 
@@ -732,13 +735,13 @@ void MainWindow::slotSyncClicked()
   }
 }
 
-KToolBar *Kontact::MainWindow::findToolBar( const char *name )
+KToolBar *KontactInterface::MainWindow::findToolBar( const char *name )
 {
   // like KMainWindow::toolBar, but which doesn't create the toolbar if not found
   return findChild<KToolBar *>( name );
 }
 
-void MainWindow::selectPlugin( Kontact::Plugin *plugin )
+void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
 {
   if ( !plugin ) {
     return;
@@ -897,7 +900,7 @@ void MainWindow::slotActionTriggered()
 {
   KAction *actionSender = static_cast<KAction*>( sender() );
   actionSender->setChecked( true );
-  Kontact::Plugin *plugin = actionSender->data().value<Kontact::Plugin*>();
+  KontactInterface::Plugin *plugin = actionSender->data().value<KontactInterface::Plugin*>();
   if ( !plugin ) {
     return;
   }

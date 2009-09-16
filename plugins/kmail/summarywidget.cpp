@@ -27,7 +27,7 @@
 #include "kmailinterface.h"
 #include "kmail_folder_interface.h"
 
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <kconfig.h>
 #include <kdebug.h>
@@ -50,8 +50,8 @@
 
 #define DBUS_KMAIL "org.kde.kmail"
 
-SummaryWidget::SummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
-  : Kontact::Summary( parent ), mPlugin( plugin )
+SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
+  : KontactInterface::Summary( parent ), mPlugin( plugin )
 {
   QDBusConnection::sessionBus().registerObject( "/MailSummary", this );
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
@@ -245,7 +245,7 @@ bool SummaryWidget::eventFilter( QObject *obj, QEvent *e )
     }
   }
 
-  return Kontact::Summary::eventFilter( obj, e );
+  return KontactInterface::Summary::eventFilter( obj, e );
 }
 
 QStringList SummaryWidget::configModules() const

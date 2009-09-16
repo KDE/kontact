@@ -29,7 +29,7 @@
 
 #include <korganizer/stdcalendar.h>
 #include <korganizer/koglobals.h>
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <libkdepim/kpimprefs.h>
 
@@ -63,7 +63,7 @@ using namespace KCal;
 #include <QTextDocument>
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
-  : Kontact::Summary( parent ), mPlugin( plugin )
+  : KontactInterface::Summary( parent ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
@@ -370,7 +370,7 @@ bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent *e )
       emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
     }
   }
-  return Kontact::Summary::eventFilter( obj, e );
+  return KontactInterface::Summary::eventFilter( obj, e );
 }
 
 QStringList TodoSummaryWidget::configModules() const

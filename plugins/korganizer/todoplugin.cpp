@@ -27,7 +27,7 @@
 #include "korg_uniqueapp.h"
 #include "calendarinterface.h"
 
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <libkdepim/maillistdrag.h>
 #include <libkdepim/kdepimprotocols.h>
@@ -52,8 +52,8 @@
 
 EXPORT_KONTACT_PLUGIN( TodoPlugin, todo )
 
-TodoPlugin::TodoPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "korganizer" ), mIface( 0 )
+TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, "korganizer" ), mIface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir( "korganizer" );
@@ -71,15 +71,15 @@ TodoPlugin::TodoPlugin( Kontact::Core *core, const QVariantList & )
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncTodos()) );
   insertSyncAction( syncAction );
 
-  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
+  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+    new KontactInterface::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
 }
 
 TodoPlugin::~TodoPlugin()
 {
 }
 
-Kontact::Summary *TodoPlugin::createSummaryWidget( QWidget *parent )
+KontactInterface::Summary *TodoPlugin::createSummaryWidget( QWidget *parent )
 {
   return new TodoSummaryWidget( this, parent );
 }

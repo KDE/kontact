@@ -24,19 +24,19 @@
 #ifndef KONTACT_JOURNALPLUGIN_H
 #define KONTACT_JOURNALPLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/plugin.h>
 
-namespace Kontact {
+namespace KontactInterface {
   class UniqueAppWatcher;
 }
 
 class OrgKdeKorganizerCalendarInterface;
 
-class JournalPlugin : public Kontact::Plugin
+class JournalPlugin : public KontactInterface::Plugin
 {
   Q_OBJECT
   public:
-    JournalPlugin( Kontact::Core *core, const QVariantList & );
+    JournalPlugin( KontactInterface::Core *core, const QVariantList & );
     ~JournalPlugin();
 
     virtual bool createDBUSInterface( const QString &serviceType );
@@ -58,7 +58,7 @@ class JournalPlugin : public Kontact::Plugin
 
   private:
     OrgKdeKorganizerCalendarInterface *mIface;
-    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+    KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif

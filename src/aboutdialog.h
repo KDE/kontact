@@ -28,7 +28,7 @@
 #include <kpagedialog.h>
 
 class KAboutData;
-namespace Kontact {
+namespace KontactInterface {
 
 class Core;
 class Plugin;
@@ -37,10 +37,10 @@ class AboutDialog : public KPageDialog
 {
   Q_OBJECT
   public:
-    AboutDialog( Kontact::Core *core );
+    AboutDialog( KontactInterface::Core *core );
 
   protected:
-    void addAboutPlugin( Kontact::Plugin *plugin );
+    void addAboutPlugin( KontactInterface::Plugin *plugin );
 
     void addAboutData( const QString &title, const QString &icon,
                        const KAboutData *about );

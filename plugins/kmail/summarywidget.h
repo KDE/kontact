@@ -25,8 +25,8 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <kontactinterfaces/plugin.h>
-#include <kontactinterfaces/summary.h>
+#include <kontactinterface/plugin.h>
+#include <kontactinterface/summary.h>
 
 #include <QList>
 
@@ -36,12 +36,12 @@ class QLabel;
 class QString;
 class QWidget;
 
-class SummaryWidget : public Kontact::Summary
+class SummaryWidget : public KontactInterface::Summary
 {
   Q_OBJECT
 
   public:
-    SummaryWidget( Kontact::Plugin *plugin, QWidget *parent );
+    SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent );
 
     int summaryHeight() const { return 1; }
     QStringList configModules() const;
@@ -61,7 +61,7 @@ class SummaryWidget : public Kontact::Summary
 
     QList<QLabel*> mLabels;
     QGridLayout *mLayout;
-    Kontact::Plugin *mPlugin;
+    KontactInterface::Plugin *mPlugin;
     int mTimeOfLastMessageCountUpdate;
 };
 

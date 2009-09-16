@@ -27,25 +27,25 @@
 
 #include "kjotscomponentinterface.h"
 
-#include <kontactinterfaces/plugin.h>
-#include <kontactinterfaces/uniqueapphandler.h>
+#include <kontactinterface/plugin.h>
+#include <kontactinterface/uniqueapphandler.h>
 
 #include <kparts/part.h>
 
-class KJotsUniqueAppHandler : public Kontact::UniqueAppHandler
+class KJotsUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KJotsUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    KJotsUniqueAppHandler( KontactInterface::Plugin *plugin ) : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
 
-class KJotsPlugin : public Kontact::Plugin
+class KJotsPlugin : public KontactInterface::Plugin
 {
   Q_OBJECT
 
   public:
-    KJotsPlugin( Kontact::Core *core, const QVariantList & );
+    KJotsPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KJotsPlugin();
     int weight() const { return 550; }
     virtual QStringList invisibleToolbarActions() const;
@@ -59,7 +59,7 @@ class KJotsPlugin : public Kontact::Plugin
 
   protected:
     KParts::ReadOnlyPart *createPart();
-    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+    KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
     OrgKdeKJotsComponentInterface *m_interface;
 };
 

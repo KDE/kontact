@@ -24,8 +24,8 @@
 
 #include "summarywidget.h"
 
-#include <kontactinterfaces/core.h>
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/core.h>
+#include <kontactinterface/plugin.h>
 
 #include <knotes/resourcenotes.h>
 #include <knotes/resourcemanager.h>
@@ -47,8 +47,8 @@
 #include <QGridLayout>
 #include <QEvent>
 
-KNotesSummaryWidget::KNotesSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
-  : Kontact::Summary( parent ), mLayout( 0 ), mPlugin( plugin )
+KNotesSummaryWidget::KNotesSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
+  : KontactInterface::Summary( parent ), mLayout( 0 ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
@@ -154,7 +154,7 @@ bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent *e )
     }
   }
 
-  return Kontact::Summary::eventFilter( obj, e );
+  return KontactInterface::Summary::eventFilter( obj, e );
 }
 
 void KNotesSummaryWidget::addNote( KCal::Journal *j )

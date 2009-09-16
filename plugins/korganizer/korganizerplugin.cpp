@@ -27,7 +27,7 @@
 #include "korg_uniqueapp.h"
 #include "calendarinterface.h"
 
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
@@ -53,8 +53,8 @@
 
 EXPORT_KONTACT_PLUGIN( KOrganizerPlugin, korganizer )
 
-KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "korganizer" ), mIface( 0 )
+KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, "korganizer" ), mIface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir( "korganizer" );
@@ -73,15 +73,15 @@ KOrganizerPlugin::KOrganizerPlugin( Kontact::Core *core, const QVariantList & )
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncEvents()) );
   insertSyncAction( syncAction );
 
-  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
+  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+    new KontactInterface::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
 }
 
 KOrganizerPlugin::~KOrganizerPlugin()
 {
 }
 
-Kontact::Summary *KOrganizerPlugin::createSummaryWidget( QWidget *parent )
+KontactInterface::Summary *KOrganizerPlugin::createSummaryWidget( QWidget *parent )
 {
   return new ApptSummaryWidget( this, parent );
 }

@@ -22,11 +22,12 @@
 #include "prefs.h"
 #include "reminderclient.h"
 #include "mainwindow.h"
-#include "plugin.h"
-#include "uniqueapphandler.h"
 
 // Use the kdepim version
 #include "kdepim-version.h"
+
+#include <kontactinterface/plugin.h>
+#include <kontactinterface/uniqueapphandler.h>
 
 #include <pimapplication.h>
 
@@ -70,10 +71,10 @@ KUniqueApplication
     /*reimp*/
     int newInstance();
 
-    void setMainWindow( Kontact::MainWindow *window )
+    void setMainWindow( KontactInterface::MainWindow *window )
     {
       mMainWindow = window;
-      Kontact::UniqueAppHandler::setMainWidget( window );
+      KontactInterface::UniqueAppHandler::setMainWidget( window );
     }
     void setSessionRestored( bool restored )
     {
@@ -84,7 +85,7 @@ KUniqueApplication
     void loadCommandLineOptionsForNewInstance();
 
   private:
-    Kontact::MainWindow *mMainWindow;
+    KontactInterface::MainWindow *mMainWindow;
     bool mSessionRestored;
 };
 
@@ -135,12 +136,12 @@ int KontactApp::newInstance()
   }
   if ( !mSessionRestored ) {
     if ( !mMainWindow ) {
-      mMainWindow = new Kontact::MainWindow();
+      mMainWindow = new KontactInterface::MainWindow();
       if ( !moduleName.isEmpty() ) {
         mMainWindow->setActivePluginModule( moduleName );
       }
       mMainWindow->show();
-      Kontact::UniqueAppHandler::setMainWidget( mMainWindow );
+      KontactInterface::UniqueAppHandler::setMainWidget( mMainWindow );
       // --iconify is needed in kontact, although kstart can do that too,
       // because kstart returns immediately so it's too early to talk D-Bus to the app.
       if ( args->isSet( "iconify" ) ) {
@@ -211,7 +212,7 @@ int main( int argc, char **argv )
   if ( app.restoringSession() ) {
      // There can only be one main window
     if ( KMainWindow::canBeRestored( 1 ) ) {
-      Kontact::MainWindow *mainWindow = new Kontact::MainWindow();
+      KontactInterface::MainWindow *mainWindow = new KontactInterface::MainWindow();
       app.setMainWindow( mainWindow );
       app.setSessionRestored( true );
       mainWindow->show();

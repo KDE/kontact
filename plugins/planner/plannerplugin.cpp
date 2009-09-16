@@ -26,7 +26,7 @@
 #include "plannerplugin.h"
 #include "planner.h"
 
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <kaboutdata.h>
 #include <kgenericfactory.h>
@@ -35,8 +35,8 @@
 
 EXPORT_KONTACT_PLUGIN( PlannerPlugin, planner )
 
-PlannerPlugin::PlannerPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, 0 ),
+PlannerPlugin::PlannerPlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, 0 ),
     mAboutData( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
@@ -46,7 +46,7 @@ PlannerPlugin::~PlannerPlugin()
 {
 }
 
-Kontact::Summary *PlannerPlugin::createSummaryWidget( QWidget *parentWidget )
+KontactInterface::Summary *PlannerPlugin::createSummaryWidget( QWidget *parentWidget )
 {
   return new Planner( this, parentWidget );
 }

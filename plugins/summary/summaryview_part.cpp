@@ -24,8 +24,8 @@
 
 #include "summaryview_part.h"
 
-#include <kontactinterfaces/summary.h>
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/summary.h>
+#include <kontactinterface/plugin.h>
 #include <libkdepim/broadcaststatus.h>
 using KPIM::BroadcastStatus;
 
@@ -58,12 +58,12 @@ using KPIM::BroadcastStatus;
 #include <QTimer>
 #include <QVBoxLayout>
 
-namespace Kontact
+namespace KontactInterface
 {
   class MainWindow;
 }
 
-SummaryViewPart::SummaryViewPart( Kontact::Core *core, const char *,
+SummaryViewPart::SummaryViewPart( KontactInterface::Core *core, const char *,
                                   const KAboutData *aboutData, QObject *parent )
   : KParts::ReadOnlyPart( parent ), mCore( core ), mFrame( 0 ), mConfigAction( 0 )
 {
@@ -109,7 +109,7 @@ void SummaryViewPart::partActivateEvent( KParts::PartActivateEvent *event )
 
 void SummaryViewPart::updateSummaries()
 {
-  QMap<QString, Kontact::Summary*>::Iterator it;
+  QMap<QString, KontactInterface::Summary*>::Iterator it;
   for ( it = mSummaries.begin(); it != mSummaries.end(); ++it ) {
     it.value()->updateSummary( false );
   }
@@ -152,16 +152,16 @@ void SummaryViewPart::updateWidgets()
   // Collect all summary widgets with a summaryHeight > 0
   QStringList loadedSummaries;
 
-  QList<Kontact::Plugin*> plugins = mCore->pluginList();
-  QList<Kontact::Plugin*>::ConstIterator end = plugins.constEnd();
-  QList<Kontact::Plugin*>::ConstIterator it = plugins.constBegin();
+  QList<KontactInterface::Plugin*> plugins = mCore->pluginList();
+  QList<KontactInterface::Plugin*>::ConstIterator end = plugins.constEnd();
+  QList<KontactInterface::Plugin*>::ConstIterator it = plugins.constBegin();
   for ( ; it != end; ++it ) {
-    Kontact::Plugin *plugin = *it;
+    KontactInterface::Plugin *plugin = *it;
     if ( !activeSummaries.contains( plugin->identifier() ) ) {
       continue;
     }
 
-    Kontact::Summary *summary = plugin->createSummaryWidget( mFrame );
+    KontactInterface::Summary *summary = plugin->createSummaryWidget( mFrame );
     if ( summary ) {
       if ( summary->summaryHeight() > 0 ) {
         mSummaries.insert( plugin->identifier(), summary );
@@ -445,7 +445,7 @@ QStringList SummaryViewPart::configModules() const
 {
   QStringList modules;
 
-  QMap<QString, Kontact::Summary*>::ConstIterator it;
+  QMap<QString, KontactInterface::Summary*>::ConstIterator it;
   for ( it = mSummaries.constBegin(); it != mSummaries.constEnd(); ++it ) {
     QStringList cm = it.value()->configModules();
     QStringList::ConstIterator strIt;
@@ -459,7 +459,7 @@ QStringList SummaryViewPart::configModules() const
   return modules;
 }
 
-void SummaryViewPart::initGUI( Kontact::Core *core )
+void SummaryViewPart::initGUI( KontactInterface::Core *core )
 {
   QScrollArea *sa = new QScrollArea( core );
 
@@ -543,7 +543,7 @@ void SummaryViewPart::saveLayout()
 
 QString SummaryViewPart::widgetName( QWidget *widget ) const
 {
-  QMap<QString, Kontact::Summary*>::ConstIterator it;
+  QMap<QString, KontactInterface::Summary*>::ConstIterator it;
   for ( it = mSummaries.constBegin(); it != mSummaries.constEnd(); ++it ) {
     if ( it.value() == widget ) {
       return it.key();

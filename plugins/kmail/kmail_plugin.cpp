@@ -30,7 +30,7 @@
 #include <kmail/kmkernel.h>
 
 #include <libkdepim/kvcarddrag.h>
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <kabc/addressee.h>
 #include <kcal/vcaldrag.h>
@@ -55,8 +55,8 @@ using namespace KPIM;
 
 EXPORT_KONTACT_PLUGIN( KMailPlugin, kmail )
 
-KMailPlugin::KMailPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "kmail" ), m_instance( 0 )
+KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, "kmail" ), m_instance( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -71,8 +71,8 @@ KMailPlugin::KMailPlugin( Kontact::Core *core, const QVariantList & )
   actionCollection()->addAction( "sync_mail", syncAction );
   insertSyncAction( syncAction );
 
-  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-      new Kontact::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
+  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+      new KontactInterface::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
 }
 
 bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData )
@@ -189,7 +189,7 @@ bool KMailPlugin::isRunningStandalone()
   return mUniqueAppWatcher->isRunningStandalone();
 }
 
-Kontact::Summary *KMailPlugin::createSummaryWidget( QWidget *parent )
+KontactInterface::Summary *KMailPlugin::createSummaryWidget( QWidget *parent )
 {
   return new SummaryWidget( this, parent );
 }
@@ -214,7 +214,7 @@ int KMailUniqueAppHandler::newInstance()
       bool handled = reply;
       kDebug() << "handled=" << handled;
       if ( !handled ) { // no args -> simply bring kmail plugin to front
-        return Kontact::UniqueAppHandler::newInstance();
+        return KontactInterface::UniqueAppHandler::newInstance();
       }
     }
     return 0;

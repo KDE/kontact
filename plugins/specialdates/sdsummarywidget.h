@@ -26,10 +26,10 @@
 #ifndef SDSUMMARYWIDGET_H
 #define SDSUMMARYWIDGET_H
 
-#include <kontactinterfaces/summary.h>
+#include <kontactinterface/summary.h>
 #include <kholidays/holidays.h>
 
-namespace Kontact {
+namespace KontactInterface {
   class Plugin;
 }
 namespace KCal {
@@ -42,12 +42,12 @@ class QGridLayout;
 class QLabel;
 class QWidget;
 
-class SDSummaryWidget : public Kontact::Summary
+class SDSummaryWidget : public KontactInterface::Summary
 {
   Q_OBJECT
 
   public:
-    SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent );
+    SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent );
 
     QStringList configModules() const;
     void configUpdated();
@@ -75,7 +75,7 @@ class SDSummaryWidget : public Kontact::Summary
     bool check( KCal::ResourceCalendar *cal, const QDate &date, const QString &summary );
     QGridLayout *mLayout;
     QList<QLabel*> mLabels;
-    Kontact::Plugin *mPlugin;
+    KontactInterface::Plugin *mPlugin;
     KCal::CalendarResources *mCalendar;
     int mDaysAhead;
     bool mShowBirthdaysFromKAB;

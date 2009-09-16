@@ -25,7 +25,7 @@
 
 #include "kcmkontactsummary.h"
 
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/plugin.h>
 
 #include <kaboutdata.h>
 #include <kcomponentdata.h>

@@ -25,27 +25,27 @@
 #ifndef KNODE_PLUGIN_H
 #define KNODE_PLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
-#include <kontactinterfaces/uniqueapphandler.h>
+#include <kontactinterface/plugin.h>
+#include <kontactinterface/uniqueapphandler.h>
 
 #include <kparts/part.h>
 
 class OrgKdeKnodeInterface;
 
-class KNodeUniqueAppHandler : public Kontact::UniqueAppHandler
+class KNodeUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KNodeUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    KNodeUniqueAppHandler( KontactInterface::Plugin *plugin ) : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
 
-class KNodePlugin : public Kontact::Plugin
+class KNodePlugin : public KontactInterface::Plugin
 {
   Q_OBJECT
 
   public:
-    KNodePlugin( Kontact::Core *core, const QVariantList & );
+    KNodePlugin( KontactInterface::Core *core, const QVariantList & );
     ~KNodePlugin();
 
     virtual bool createDBUSInterface( const QString &serviceType );
@@ -63,7 +63,7 @@ class KNodePlugin : public Kontact::Plugin
 
   private:
     OrgKdeKnodeInterface *m_interface;
-    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+    KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif

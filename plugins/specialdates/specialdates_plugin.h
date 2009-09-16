@@ -26,19 +26,19 @@
 #ifndef SPECIALDATES_PLUGIN_H
 #define SPECIALDATES_PLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/plugin.h>
 
-class SpecialdatesPlugin : public Kontact::Plugin
+class SpecialdatesPlugin : public KontactInterface::Plugin
 {
   public:
-    SpecialdatesPlugin( Kontact::Core *core, const QVariantList & );
+    SpecialdatesPlugin( KontactInterface::Core *core, const QVariantList & );
     ~SpecialdatesPlugin();
 
     int weight() const { return 325; }
 
     const KAboutData *aboutData();
 
-    virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
+    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parentWidget );
 
   protected:
     virtual KParts::ReadOnlyPart *createPart()

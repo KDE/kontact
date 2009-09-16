@@ -22,19 +22,19 @@
 #ifndef SUMMARYVIEW_PLUGIN_H
 #define SUMMARYVIEW_PLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/plugin.h>
 
 #include <kparts/part.h>
 
 class SummaryViewPart;
 class KSelectAction;
 
-class SummaryView : public Kontact::Plugin
+class SummaryView : public KontactInterface::Plugin
 {
   Q_OBJECT
 
   public:
-    SummaryView( Kontact::Core *core, const QVariantList & );
+    SummaryView( KontactInterface::Core *core, const QVariantList & );
     ~SummaryView();
 
     int weight() const { return 100; }

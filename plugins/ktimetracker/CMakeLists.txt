@@ -9,7 +9,7 @@ qt4_add_dbus_interfaces(kontact_ktimetracker_PART_SRCS ${CMAKE_SOURCE_DIR}/ktime
 
 kde4_add_plugin(kontact_ktimetrackerplugin ${kontact_ktimetracker_PART_SRCS})
 
-target_link_libraries(kontact_ktimetrackerplugin  ${KDE4_KDEUI_LIBS} kontactinterfaces)
+target_link_libraries(kontact_ktimetrackerplugin  ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS})
 
 ########### install files ###############
 

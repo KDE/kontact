@@ -34,5 +34,5 @@ int KOrganizerUniqueAppHandler::newInstance()
     // Ensure part is loaded
     (void)plugin()->part();
     // TODO handle command line options
-    return Kontact::UniqueAppHandler::newInstance();
+    return KontactInterface::UniqueAppHandler::newInstance();
 }

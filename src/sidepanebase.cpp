@@ -21,9 +21,9 @@
 */
 
 #include "sidepanebase.h"
-#include "core.h"
 
-using namespace Kontact;
+#include <kontactinterface/core.h>
+using namespace KontactInterface;
 
 SidePaneBase::SidePaneBase( Core *core, QWidget *parent )
   : KVBox( parent ), mCore( core )

@@ -27,7 +27,7 @@
      <property name="title">
       <string>Show To-dos Due</string>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>14</x>
@@ -135,7 +135,7 @@
      <property name="title">
       <string>Hide Following To-do Types</string>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>14</x>
@@ -231,7 +231,7 @@
      <property name="title">
       <string>Groupware Settings</string>
      </property>
-     <layout class="QFormLayout" name="formLayout">
+     <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
        <widget class="QCheckBox" name="mShowMineOnly">
         <property name="toolTip">

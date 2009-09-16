@@ -26,7 +26,7 @@
 #include "korg_uniqueapp.h"
 #include "calendarinterface.h"
 
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <kaction.h>
 #include <kactioncollection.h>
@@ -40,8 +40,8 @@
 
 EXPORT_KONTACT_PLUGIN( JournalPlugin, journal )
 
-JournalPlugin::JournalPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "korganizer" ), mIface( 0 )
+JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, "korganizer" ), mIface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir( "korganizer" );
@@ -58,8 +58,8 @@ JournalPlugin::JournalPlugin( Kontact::Core *core, const QVariantList & )
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncJournal()) );
   insertSyncAction( syncAction );
 
-  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
+  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+    new KontactInterface::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
 }
 
 JournalPlugin::~JournalPlugin()

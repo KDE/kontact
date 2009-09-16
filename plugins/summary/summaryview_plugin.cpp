@@ -25,8 +25,8 @@
 # include "kmailinterface.h"
 #endif
 
-#include <kontactinterfaces/core.h>
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/core.h>
+#include <kontactinterface/plugin.h>
 
 #include <KAboutData>
 #include <KAction>
@@ -41,8 +41,8 @@
 
 EXPORT_KONTACT_PLUGIN( SummaryView, summary )
 
-SummaryView::SummaryView( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, 0 ), mAboutData( 0 ), mPart( 0 )
+SummaryView::SummaryView( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, 0 ), mAboutData( 0 ), mPart( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -96,8 +96,8 @@ void SummaryView::doSync()
     mPart->updateSummaries();
   }
 
-  const QList<Kontact::Plugin *> pluginList = core()->pluginList();
-  Q_FOREACH( const Kontact::Plugin *i, pluginList ) {
+  const QList<KontactInterface::Plugin *> pluginList = core()->pluginList();
+  Q_FOREACH( const KontactInterface::Plugin *i, pluginList ) {
     // execute all sync actions but our own
     const QList<KAction *>* actions = i->syncActions();
     Q_FOREACH( KAction *j, *actions ) {

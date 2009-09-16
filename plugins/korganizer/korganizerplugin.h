@@ -25,22 +25,22 @@
 #ifndef KORGANIZER_PLUGIN_H
 #define KORGANIZER_PLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/plugin.h>
 #include <kparts/part.h>
 
-namespace Kontact {
+namespace KontactInterface {
   class UniqueAppWatcher;
 }
 
 class QDropEvent;
 class OrgKdeKorganizerCalendarInterface;
 
-class KOrganizerPlugin : public Kontact::Plugin
+class KOrganizerPlugin : public KontactInterface::Plugin
 {
   Q_OBJECT
 
   public:
-    KOrganizerPlugin( Kontact::Core *core, const QVariantList & );
+    KOrganizerPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KOrganizerPlugin();
 
     virtual bool createDBUSInterface( const QString &serviceType );
@@ -50,7 +50,7 @@ class KOrganizerPlugin : public Kontact::Plugin
     bool canDecodeMimeData( const QMimeData * );
     void processDropEvent( QDropEvent * );
 
-    virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
+    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
 
     virtual QString tipFile() const;
     virtual QStringList invisibleToolbarActions() const;
@@ -68,7 +68,7 @@ class KOrganizerPlugin : public Kontact::Plugin
 
   private:
     OrgKdeKorganizerCalendarInterface *mIface;
-    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+    KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif
