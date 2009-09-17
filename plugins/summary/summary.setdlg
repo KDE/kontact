@@ -1,6 +1,7 @@
 [KontactSummary]
 Name=Summary
 Name[af]=Opsomming
+Name[bg]=Summary
 Name[br]=Diverrañ
 Name[ca]=Resum
 Name[cs]=Souhrn
@@ -8,6 +9,7 @@ Name[cy]=Crynodeb
 Name[da]=Oversigt
 Name[de]=Übersicht
 Name[el]=Σύνοψη
+Name[en_GB]=Summary
 Name[eo]=Resumo
 Name[es]=Resumen
 Name[et]=Kokkuvõte
@@ -66,6 +68,7 @@ Comment[cs]=Souhrný pohled
 Comment[da]=Oversigtsvisning
 Comment[de]=Zusammenfassungsansicht
 Comment[el]=Προβολή σύνοψης
+Comment[en_GB]=Summary View
 Comment[eo]=Resumrigardo
 Comment[es]=Vista de resumen
 Comment[et]=Kokkuvõttevaade
