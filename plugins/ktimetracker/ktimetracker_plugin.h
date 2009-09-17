@@ -26,27 +26,27 @@
 #ifndef KTIMETRACKER_PLUGIN_H
 #define KTIMETRACKER_PLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
-#include <kontactinterfaces/uniqueapphandler.h>
+#include <kontactinterface/plugin.h>
+#include <kontactinterface/uniqueapphandler.h>
 
 #include <kparts/part.h>
 
 class OrgKdeKtimetrackerKtimetrackerInterface;
 
-class KtimetrackerUniqueAppHandler : public Kontact::UniqueAppHandler
+class KtimetrackerUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KtimetrackerUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    KtimetrackerUniqueAppHandler( KontactInterface::Plugin *plugin ) : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
 
-class ktimetrackerplugin : public Kontact::Plugin
+class ktimetrackerplugin : public KontactInterface::Plugin
 {
   Q_OBJECT
 
   public:
-    ktimetrackerplugin( Kontact::Core *core, const QVariantList & );
+    ktimetrackerplugin( KontactInterface::Core *core, const QVariantList & );
     ~ktimetrackerplugin();
     int weight() const { return 700; }
     virtual QStringList invisibleToolbarActions() const;
@@ -63,7 +63,7 @@ class ktimetrackerplugin : public Kontact::Plugin
     KParts::ReadOnlyPart *createPart();
 
   private:
-    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+    KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
     OrgKdeKtimetrackerKtimetrackerInterface *mInterface;
 };
 

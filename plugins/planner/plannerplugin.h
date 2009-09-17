@@ -26,20 +26,20 @@
 #ifndef PLANNER_PLUGIN_H
 #define PLANNER_PLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/plugin.h>
 
 class Planner;
 
-class PlannerPlugin : public Kontact::Plugin
+class PlannerPlugin : public KontactInterface::Plugin
 {
   public:
-    PlannerPlugin( Kontact::Core *core, const QVariantList & );
+    PlannerPlugin( KontactInterface::Core *core, const QVariantList & );
     ~PlannerPlugin();
 
     int weight() const { return 350; }
     const KAboutData *aboutData();
 
-    virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
+    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parentWidget );
 
   protected:
     virtual KParts::ReadOnlyPart *createPart()

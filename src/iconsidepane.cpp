@@ -22,8 +22,10 @@
 
 #include "iconsidepane.h"
 #include "mainwindow.h"
-#include "plugin.h"
 #include "prefs.h"
+
+#include <kontactinterface/plugin.h>
+using namespace KontactInterface;
 
 #include <QtCore/QTimer>
 #include <QtGui/QStringListModel>
@@ -38,8 +40,9 @@
 #include <KDialog>
 #include <KIcon>
 
-namespace Kontact
-{
+using namespace Kontact;
+
+namespace KontactInterface {
 
 class Navigator;
 
@@ -96,7 +99,7 @@ class Model : public QStringListModel
         emit layoutChanged();
     }
 
-    void setPluginList( const QList<Kontact::Plugin*> &list ) {
+    void setPluginList( const QList<KontactInterface::Plugin*> &list ) {
       pluginList = list;
     }
 
@@ -107,7 +110,7 @@ class Model : public QStringListModel
       flags &= ~Qt::ItemIsEditable;
 
       if ( index.isValid() ) {
-        if ( static_cast<Kontact::Plugin*>( index.internalPointer() )->disabled() ) {
+        if ( static_cast<KontactInterface::Plugin*>( index.internalPointer() )->disabled() ) {
           flags &= ~Qt::ItemIsEnabled;
           flags &= ~Qt::ItemIsSelectable;
           flags &= ~Qt::ItemIsDropEnabled;
@@ -141,27 +144,27 @@ class Model : public QStringListModel
         if ( !mNavigator->showText() ) {
           return QVariant();
         }
-        return static_cast<Kontact::Plugin*>( index.internalPointer() )->title();
+        return static_cast<KontactInterface::Plugin*>( index.internalPointer() )->title();
       } else if ( role == Qt::DecorationRole ) {
         if ( !mNavigator->showIcons() ) {
           return QVariant();
         }
-        return KIcon( static_cast<Kontact::Plugin*>( index.internalPointer() )->icon() );
+        return KIcon( static_cast<KontactInterface::Plugin*>( index.internalPointer() )->icon() );
       } else if ( role == Qt::TextAlignmentRole ) {
         return Qt::AlignCenter;
       } else if ( role == Qt::ToolTipRole ) {
         if ( !mNavigator->showText() ) {
-          return static_cast<Kontact::Plugin*>( index.internalPointer() )->title();
+          return static_cast<KontactInterface::Plugin*>( index.internalPointer() )->title();
         }
         return QVariant();
       } else if ( role == PluginName ) {
-        return static_cast<Kontact::Plugin*>( index.internalPointer() )->identifier();
+        return static_cast<KontactInterface::Plugin*>( index.internalPointer() )->identifier();
       }
       return QStringListModel::data( index, role );
     }
 
   private:
-    QList<Kontact::Plugin*> pluginList;
+    QList<KontactInterface::Plugin*> pluginList;
     Navigator *mNavigator;
 };
 
@@ -177,8 +180,8 @@ class SortFilterProxyModel
   protected:
     bool lessThan( const QModelIndex &left, const QModelIndex &right ) const
     {
-      Kontact::Plugin *leftPlugin = static_cast<Kontact::Plugin*>( left.internalPointer() );
-      Kontact::Plugin *rightPlugin = static_cast<Kontact::Plugin*>( right.internalPointer() );
+      KontactInterface::Plugin *leftPlugin = static_cast<KontactInterface::Plugin*>( left.internalPointer() );
+      KontactInterface::Plugin *rightPlugin = static_cast<KontactInterface::Plugin*>( right.internalPointer() );
 
       if ( leftPlugin->weight() == rightPlugin->weight() ) {
         return KStringHandler::naturalCompare( leftPlugin->title(), rightPlugin->title() ) < 0;
@@ -306,15 +309,15 @@ Navigator::Navigator( SidePaneBase *parent )
            this, SLOT(slotCurrentChanged(QModelIndex)) );
 }
 
-void Navigator::updatePlugins( QList<Kontact::Plugin*> plugins_ )
+void Navigator::updatePlugins( QList<KontactInterface::Plugin*> plugins_ )
 {
   QString currentPlugin;
   if ( currentIndex().isValid() ) {
     currentPlugin = currentIndex().model()->data( currentIndex(), Model::PluginName ).toString();
   }
 
-  QList<Kontact::Plugin*> pluginsToShow;
-  foreach ( Kontact::Plugin *plugin, plugins_ ) {
+  QList<KontactInterface::Plugin*> pluginsToShow;
+  foreach ( KontactInterface::Plugin *plugin, plugins_ ) {
     if ( plugin->showInSideBar() ) {
       pluginsToShow << plugin;
     }
@@ -385,8 +388,8 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
   } else {
     const QModelIndex sourceIndex =
       static_cast<const QSortFilterProxyModel*>( model() )->mapToSource( dropIndex );
-    Kontact::Plugin *plugin =
-      static_cast<Kontact::Plugin*>( sourceIndex.internalPointer() );
+    KontactInterface::Plugin *plugin =
+      static_cast<KontactInterface::Plugin*>( sourceIndex.internalPointer() );
     if ( !plugin->canDecodeMimeData( event->mimeData() ) ) {
       event->setAccepted( false );
       return;
@@ -409,8 +412,8 @@ void Navigator::dropEvent( QDropEvent *event )
   } else {
     const QModelIndex sourceIndex =
       static_cast<const QSortFilterProxyModel*>( model() )->mapToSource( dropIndex );
-    Kontact::Plugin *plugin =
-      static_cast<Kontact::Plugin*>( sourceIndex.internalPointer() );
+    KontactInterface::Plugin *plugin =
+      static_cast<KontactInterface::Plugin*>( sourceIndex.internalPointer() );
     plugin->processDropEvent( event );
   }
 }
@@ -433,7 +436,7 @@ void Navigator::slotCurrentChanged( const QModelIndex &current )
   QModelIndex source =
     static_cast<const QSortFilterProxyModel*>( current.model() )->mapToSource( current );
 
-  emit pluginActivated( static_cast<Kontact::Plugin*>( source.internalPointer() ) );
+  emit pluginActivated( static_cast<KontactInterface::Plugin*>( source.internalPointer() ) );
 }
 
 void Navigator::slotActionTriggered( bool checked )
@@ -477,8 +480,8 @@ IconSidePane::IconSidePane( Core *core, QWidget *parent )
 {
   mNavigator = new Navigator( this );
   mNavigator->setFocusPolicy( Qt::NoFocus );
-  connect( mNavigator, SIGNAL(pluginActivated(Kontact::Plugin*)),
-           SIGNAL(pluginSelected(Kontact::Plugin*)) );
+  connect( mNavigator, SIGNAL(pluginActivated(KontactInterface::Plugin*)),
+           SIGNAL(pluginSelected(KontactInterface::Plugin*)) );
 }
 
 IconSidePane::~IconSidePane()

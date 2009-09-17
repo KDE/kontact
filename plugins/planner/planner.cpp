@@ -29,8 +29,8 @@
 #include "korganizerinterface.h"
 
 #include <korganizer/stdcalendar.h>
-#include <kontactinterfaces/core.h>
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/core.h>
+#include <kontactinterface/plugin.h>
 #include <libkdepim/kpimprefs.h>
 
 #include <kabc/stdaddressbook.h>
@@ -93,8 +93,8 @@ class SDEntry
     }
 };
 
-Planner::Planner( Kontact::Plugin *plugin, QWidget *parent )
-  : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
+Planner::Planner( KontactInterface::Plugin *plugin, QWidget *parent )
+  : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
 {
   mLayout = new QVBoxLayout( this );
   mLayout->setSpacing( 3 );
@@ -831,7 +831,7 @@ bool Planner::eventFilter( QObject *obj, QEvent *e )
     }
   }
 
-  return Kontact::Summary::eventFilter( obj, e );
+  return KontactInterface::Summary::eventFilter( obj, e );
 }
 
 QString Planner::initStateText( const KCal::Todo *todo, const QDate &date )
@@ -974,7 +974,7 @@ bool Planner::todoEventFilter( QObject *obj, QEvent *e )
     }
   }
 
-  return Kontact::Summary::eventFilter( obj, e );
+  return KontactInterface::Summary::eventFilter( obj, e );
 }
 
 QStringList Planner::configModules() const

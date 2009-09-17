@@ -23,18 +23,18 @@
 #ifndef KNOTES_PLUGIN_H
 #define KNOTES_PLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/plugin.h>
 
 class SummaryWidget;
 
-class KNotesPlugin : public Kontact::Plugin
+class KNotesPlugin : public KontactInterface::Plugin
 {
   Q_OBJECT
   public:
-    KNotesPlugin( Kontact::Core *core, const QVariantList & );
+    KNotesPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KNotesPlugin();
 
-    virtual Kontact::Summary *createSummaryWidget( QWidget *parentWidget );
+    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parentWidget );
 
     virtual QString tipFile() const;
     int weight() const { return 600; }

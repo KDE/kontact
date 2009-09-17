@@ -24,6 +24,7 @@
 
 #include "kcmkontact.h"
 #include "prefs.h"
+using namespace Kontact;
 
 #include <kdemacros.h>
 #include <kcomponentdata.h>
@@ -69,7 +70,7 @@ class PluginItem : public Q3ListViewItem
 };
 
 KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
-  : KPrefsModule( Kontact::Prefs::self(), inst, parent )
+  : KPrefsModule( Prefs::self(), inst, parent )
 {
   QBoxLayout *topLayout = new QVBoxLayout( this );
   QBoxLayout *pluginStartupLayout = new QHBoxLayout();
@@ -77,11 +78,11 @@ KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
   topLayout->addStretch();
 
   KPrefsWidBool *forceStartupPlugin =
-    addWidBool( Kontact::Prefs::self()->forceStartupPluginItem(), this );
+    addWidBool( Prefs::self()->forceStartupPluginItem(), this );
   pluginStartupLayout->addWidget( forceStartupPlugin->checkBox() );
 
   PluginSelection *selection =
-    new PluginSelection( Kontact::Prefs::self()->forcedStartupPluginItem(), this );
+    new PluginSelection( Prefs::self()->forcedStartupPluginItem(), this );
   addWid( selection );
 
   pluginStartupLayout->addWidget( selection->comboBox() );

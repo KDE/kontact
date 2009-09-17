@@ -25,27 +25,27 @@
 #ifndef AKREGATOR_PLUGIN_H
 #define AKREGATOR_PLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
-#include <kontactinterfaces/uniqueapphandler.h>
+#include <kontactinterface/plugin.h>
+#include <kontactinterface/uniqueapphandler.h>
 
 #include <kparts/part.h>
 
 class OrgKdeAkregatorPartInterface;
 
-class AkregatorUniqueAppHandler : public Kontact::UniqueAppHandler
+class AkregatorUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    AkregatorUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    AkregatorUniqueAppHandler( KontactInterface::Plugin *plugin ) : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
 
-class AkregatorPlugin : public Kontact::Plugin
+class AkregatorPlugin : public KontactInterface::Plugin
 {
   Q_OBJECT
 
   public:
-    AkregatorPlugin( Kontact::Core *core, const QVariantList & );
+    AkregatorPlugin( KontactInterface::Core *core, const QVariantList & );
     ~AkregatorPlugin();
 
     virtual QString tipFile() const;
@@ -65,7 +65,7 @@ class AkregatorPlugin : public Kontact::Plugin
 
   protected:
     KParts::ReadOnlyPart *createPart();
-    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+    KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
     OrgKdeAkregatorPartInterface *m_interface;
 };
 

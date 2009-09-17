@@ -34,8 +34,7 @@ namespace KParts {
 
 class KAction;
 
-namespace Kontact
-{
+namespace KontactInterface {
 
 class Core;
 class Plugin;
@@ -70,7 +69,7 @@ class Navigator : public QListView
     virtual QSize sizeHint() const;
 
   signals:
-    void pluginActivated( Kontact::Plugin *plugin );
+    void pluginActivated( KontactInterface::Plugin *plugin );
 
   protected:
     virtual void dragEnterEvent( QDragEnterEvent *event );

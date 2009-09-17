@@ -26,7 +26,7 @@
 #ifndef TODO_SUMMARYWIDGET_H
 #define TODO_SUMMARYWIDGET_H
 
-#include <kontactinterfaces/summary.h>
+#include <kontactinterface/summary.h>
 #include <QList>
 
 namespace KCal {
@@ -41,7 +41,7 @@ class QGridLayout;
 class QLabel;
 class QWidget;
 
-class TodoSummaryWidget : public Kontact::Summary
+class TodoSummaryWidget : public KontactInterface::Summary
 {
   Q_OBJECT
 

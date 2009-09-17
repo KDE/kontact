@@ -29,8 +29,8 @@
 
 #include <ktimetrackerpart.h>
 
-#include <kontactinterfaces/core.h>
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/core.h>
+#include <kontactinterface/plugin.h>
 
 #include <kactioncollection.h>
 #include <kcmdlineargs.h>
@@ -40,8 +40,8 @@
 
 EXPORT_KONTACT_PLUGIN( ktimetrackerplugin, ktimetracker )
 
-ktimetrackerplugin::ktimetrackerplugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "ktimetracker" ), mInterface( 0 )
+ktimetrackerplugin::ktimetrackerplugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, "ktimetracker" ), mInterface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -51,8 +51,8 @@ ktimetrackerplugin::ktimetrackerplugin( Kontact::Core *core, const QVariantList 
   connect( action, SIGNAL(triggered(bool)), SLOT(newTask()) );
   insertNewAction( action );
 
-  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<KtimetrackerUniqueAppHandler>(), this );
+  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+    new KontactInterface::UniqueAppHandlerFactory<KtimetrackerUniqueAppHandler>(), this );
 }
 
 ktimetrackerplugin::~ktimetrackerplugin()
@@ -116,7 +116,7 @@ int KtimetrackerUniqueAppHandler::newInstance()
   kDebug();
   // Ensure part is loaded
   (void)plugin()->part();
-  return Kontact::UniqueAppHandler::newInstance();
+  return KontactInterface::UniqueAppHandler::newInstance();
 }
 
 #include "ktimetracker_plugin.moc"

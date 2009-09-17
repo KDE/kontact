@@ -25,7 +25,7 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <kontactinterfaces/summary.h>
+#include <kontactinterface/summary.h>
 #include <kcal/journal.h>
 
 class QEvent;
@@ -36,15 +36,15 @@ class QWidget;
 namespace KCal {
   class CalendarLocal;
 }
-namespace Kontact {
+namespace KontactInterface {
   class Plugin;
 }
 
-class KNotesSummaryWidget : public Kontact::Summary
+class KNotesSummaryWidget : public KontactInterface::Summary
 {
   Q_OBJECT
   public:
-    KNotesSummaryWidget( Kontact::Plugin *plugin, QWidget *parent );
+    KNotesSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent );
 
     void updateSummary( bool force = false )
     {
@@ -68,7 +68,7 @@ class KNotesSummaryWidget : public Kontact::Summary
     QGridLayout *mLayout;
 
     QList<QLabel*> mLabels;
-    Kontact::Plugin *mPlugin;
+    KontactInterface::Plugin *mPlugin;
 };
 
 #endif

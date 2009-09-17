@@ -24,7 +24,7 @@
 
 #include "kjots_plugin.h"
 
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 #include <kjotspart.h>
 
 #include <kactioncollection.h>
@@ -40,8 +40,8 @@ class OrgKdeKJotsComponentInterface;
 
 EXPORT_KONTACT_PLUGIN( KJotsPlugin, kjots )
 
-KJotsPlugin::KJotsPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "kjots" ), m_interface( 0 )
+KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, "kjots" ), m_interface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -57,8 +57,8 @@ KJotsPlugin::KJotsPlugin( Kontact::Core *core, const QVariantList & )
   connect( action, SIGNAL(triggered(bool)), SLOT( newBook()) );
   insertNewAction( action );
 
-  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<KJotsUniqueAppHandler>(), this );
+  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+    new KontactInterface::UniqueAppHandlerFactory<KJotsUniqueAppHandler>(), this );
 }
 
 KJotsPlugin::~KJotsPlugin()
@@ -122,7 +122,7 @@ int KJotsUniqueAppHandler::newInstance()
   (void)plugin()->part();
   org::kde::KJotsComponent kjots(
     "org.kde.kjots", "/KJotsComponent", QDBusConnection::sessionBus() );
-  return Kontact::UniqueAppHandler::newInstance();
+  return KontactInterface::UniqueAppHandler::newInstance();
 
 }
 

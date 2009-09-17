@@ -26,7 +26,7 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <kontactinterfaces/summary.h>
+#include <kontactinterface/summary.h>
 #include <QList>
 
 namespace KCal {
@@ -42,7 +42,7 @@ class QGridLayout;
 class QLabel;
 class QWidget;
 
-class ApptSummaryWidget : public Kontact::Summary
+class ApptSummaryWidget : public KontactInterface::Summary
 {
   Q_OBJECT
 

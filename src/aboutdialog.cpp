@@ -23,8 +23,10 @@
 */
 
 #include "aboutdialog.h"
-#include "core.h"
-#include "plugin.h"
+
+#include <kontactinterface/core.h>
+#include <kontactinterface/plugin.h>
+using namespace KontactInterface;
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -37,9 +39,7 @@
 #include <QLabel>
 #include <QTextEdit>
 
-using namespace Kontact;
-
-AboutDialog::AboutDialog( Kontact::Core *core )
+AboutDialog::AboutDialog( KontactInterface::Core *core )
   : KPageDialog( core ), mCore( core )
 {
   setCaption( i18n( "About Kontact" ) );
@@ -72,7 +72,7 @@ void AboutDialog::saveSize()
   group.sync();
 }
 
-void AboutDialog::addAboutPlugin( Kontact::Plugin *plugin )
+void AboutDialog::addAboutPlugin( KontactInterface::Plugin *plugin )
 {
   addAboutData( plugin->title(), plugin->icon(), plugin->aboutData() );
 }

@@ -23,7 +23,7 @@
 #include "akonadi/contact/contacteditordialog.h"
 #include "akonadi/contact/contactgroupeditordialog.h"
 
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <kactioncollection.h>
 #include <kaction.h>
@@ -39,8 +39,8 @@
 
 EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kaddressbook )
 
-KAddressBookPlugin::KAddressBookPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, "kaddressbook" )
+KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, "kaddressbook" )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
@@ -64,8 +64,8 @@ KAddressBookPlugin::KAddressBookPlugin( Kontact::Core *core, const QVariantList 
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
   insertSyncAction( syncAction );
 
-  mUniqueAppWatcher = new Kontact::UniqueAppWatcher(
-    new Kontact::UniqueAppHandlerFactory<KAddressBookUniqueAppHandler>(), this );
+  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+    new KontactInterface::UniqueAppHandlerFactory<KAddressBookUniqueAppHandler>(), this );
 }
 
 KAddressBookPlugin::~KAddressBookPlugin()
@@ -142,6 +142,6 @@ int KAddressBookUniqueAppHandler::newInstance()
     kDebug() ;
     // Ensure part is loaded
     (void)plugin()->part();
-    return Kontact::UniqueAppHandler::newInstance();
+    return KontactInterface::UniqueAppHandler::newInstance();
 }
 

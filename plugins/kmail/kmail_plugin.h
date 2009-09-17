@@ -25,34 +25,34 @@
 #ifndef KMAIL_PLUGIN_H
 #define KMAIL_PLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
-#include <kontactinterfaces/summary.h>
-#include <kontactinterfaces/uniqueapphandler.h>
+#include <kontactinterface/plugin.h>
+#include <kontactinterface/summary.h>
+#include <kontactinterface/uniqueapphandler.h>
 
 #include <kparts/part.h>
 
 class QDropEvent;
 class OrgKdeKmailKmailInterface;
 
-class KMailUniqueAppHandler : public Kontact::UniqueAppHandler
+class KMailUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KMailUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    KMailUniqueAppHandler( KontactInterface::Plugin *plugin ) : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
 
-class KMailPlugin : public Kontact::Plugin
+class KMailPlugin : public KontactInterface::Plugin
 {
   Q_OBJECT
 
   public:
-    KMailPlugin( Kontact::Core *core, const QVariantList & );
+    KMailPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KMailPlugin();
 
     virtual bool isRunningStandalone();
     virtual bool createDBUSInterface( const QString &serviceType );
-    virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
+    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
     virtual QString tipFile() const;
     int weight() const { return 200; }
 
@@ -72,7 +72,7 @@ class KMailPlugin : public Kontact::Plugin
 
   private:
     OrgKdeKmailKmailInterface *m_instance;
-    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+    KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif

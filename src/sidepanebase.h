@@ -31,8 +31,7 @@ namespace KParts {
   class Part;
 }
 
-namespace Kontact
-{
+namespace KontactInterface {
 
 class Core;
 class Plugin;
@@ -47,7 +46,7 @@ class SidePaneBase : public KVBox
     virtual void setCurrentPlugin( const QString & ) = 0;
 
   signals:
-    void pluginSelected( Kontact::Plugin * );
+    void pluginSelected( KontactInterface::Plugin * );
 
   public slots:
     /**

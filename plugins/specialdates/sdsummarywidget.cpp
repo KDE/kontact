@@ -26,8 +26,8 @@
 #include "sdsummarywidget.h"
 
 #include <libkdepim/kpimprefs.h>
-#include <kontactinterfaces/core.h>
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/core.h>
+#include <kontactinterface/plugin.h>
 #include <korganizer/stdcalendar.h>
 
 #include <kabc/stdaddressbook.h>
@@ -83,8 +83,8 @@ class SDEntry
     }
 };
 
-SDSummaryWidget::SDSummaryWidget( Kontact::Plugin *plugin, QWidget *parent )
-  : Kontact::Summary( parent ), mPlugin( plugin ), mCalendar( 0 ), mHolidays( 0 )
+SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
+  : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 ), mHolidays( 0 )
 {
   // Create the Summary Layout
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
@@ -615,7 +615,7 @@ bool SDSummaryWidget::eventFilter( QObject *obj, QEvent *e )
     }
   }
 
-  return Kontact::Summary::eventFilter( obj, e );
+  return KontactInterface::Summary::eventFilter( obj, e );
 }
 
 void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )

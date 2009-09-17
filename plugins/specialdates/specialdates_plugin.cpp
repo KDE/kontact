@@ -26,7 +26,7 @@
 #include "specialdates_plugin.h"
 #include "sdsummarywidget.h"
 
-#include <kontactinterfaces/core.h>
+#include <kontactinterface/core.h>
 
 #include <kaboutdata.h>
 #include <kgenericfactory.h>
@@ -35,8 +35,8 @@
 
 EXPORT_KONTACT_PLUGIN( SpecialdatesPlugin, specialdates )
 
-SpecialdatesPlugin::SpecialdatesPlugin( Kontact::Core *core, const QVariantList & )
-  : Kontact::Plugin( core, core, 0 ), mAboutData( 0 )
+SpecialdatesPlugin::SpecialdatesPlugin( KontactInterface::Core *core, const QVariantList & )
+  : KontactInterface::Plugin( core, core, 0 ), mAboutData( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
 }
@@ -45,7 +45,7 @@ SpecialdatesPlugin::~SpecialdatesPlugin()
 {
 }
 
-Kontact::Summary *SpecialdatesPlugin::createSummaryWidget( QWidget *parentWidget )
+KontactInterface::Summary *SpecialdatesPlugin::createSummaryWidget( QWidget *parentWidget )
 {
   return new SDSummaryWidget( this, parentWidget );
 }

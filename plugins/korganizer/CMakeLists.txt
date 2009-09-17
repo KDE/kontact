@@ -10,7 +10,7 @@ qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/k
 
 kde4_add_plugin(kontact_korganizerplugin ${kontact_korganizerplugin_PART_SRCS})
 
-target_link_libraries(kontact_korganizerplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KCAL_LIBS} kdepim kontactinterfaces korganizerprivate)
+target_link_libraries(kontact_korganizerplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KCAL_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} korganizerprivate)
 
 ########### next target ###############
 
@@ -20,7 +20,7 @@ qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korgani
 
 kde4_add_plugin(kontact_todoplugin ${kontact_todoplugin_PART_SRCS})
 
-target_link_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} kdepim kontactinterfaces ${KDEPIMLIBS_KCAL_LIBS} korganizerprivate)
+target_link_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_KCAL_LIBS} korganizerprivate)
 
 ########### next target ###############
 
@@ -30,7 +30,7 @@ qt4_add_dbus_interfaces(kontact_journalplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korg
 
 kde4_add_plugin(kontact_journalplugin ${kontact_journalplugin_PART_SRCS})
 
-target_link_libraries(kontact_journalplugin ${KDE4_KPARTS_LIBS} kontactinterfaces)
+target_link_libraries(kontact_journalplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS})
 
 ########### next target ###############
 

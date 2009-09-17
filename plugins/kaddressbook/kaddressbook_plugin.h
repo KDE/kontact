@@ -21,25 +21,25 @@
 #ifndef KADDRESSBOOK_PLUGIN_H
 #define KADDRESSBOOK_PLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
-#include <kontactinterfaces/uniqueapphandler.h>
+#include <kontactinterface/plugin.h>
+#include <kontactinterface/uniqueapphandler.h>
 
 #include <kparts/part.h>
 
-class KAddressBookUniqueAppHandler : public Kontact::UniqueAppHandler
+class KAddressBookUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KAddressBookUniqueAppHandler( Kontact::Plugin *plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    KAddressBookUniqueAppHandler( KontactInterface::Plugin *plugin ) : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
 
-class KAddressBookPlugin : public Kontact::Plugin
+class KAddressBookPlugin : public KontactInterface::Plugin
 {
   Q_OBJECT
 
   public:
-    KAddressBookPlugin( Kontact::Core *core, const QVariantList & );
+    KAddressBookPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KAddressBookPlugin();
 
     virtual QString tipFile() const;
@@ -57,7 +57,7 @@ class KAddressBookPlugin : public Kontact::Plugin
     void slotSyncContacts();
 
   private:
-    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+    KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif

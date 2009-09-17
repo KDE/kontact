@@ -24,19 +24,19 @@
 #ifndef KONTACT_TODOPLUGIN_H
 #define KONTACT_TODOPLUGIN_H
 
-#include <kontactinterfaces/plugin.h>
+#include <kontactinterface/plugin.h>
 
-namespace Kontact {
+namespace KontactInterface {
   class UniqueAppWatcher;
 }
 class OrgKdeKorganizerCalendarInterface;
 class QDropEvent;
 
-class TodoPlugin : public Kontact::Plugin
+class TodoPlugin : public KontactInterface::Plugin
 {
   Q_OBJECT
   public:
-    TodoPlugin( Kontact::Core *core, const QVariantList & );
+    TodoPlugin( KontactInterface::Core *core, const QVariantList & );
     ~TodoPlugin();
 
     virtual bool createDBUSInterface( const QString &serviceType );
@@ -48,7 +48,7 @@ class TodoPlugin : public Kontact::Plugin
 
     virtual QStringList invisibleToolbarActions() const;
 
-    virtual Kontact::Summary *createSummaryWidget( QWidget *parent );
+    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
 
     void select();
 
@@ -63,7 +63,7 @@ class TodoPlugin : public Kontact::Plugin
 
   private:
     OrgKdeKorganizerCalendarInterface *mIface;
-    Kontact::UniqueAppWatcher *mUniqueAppWatcher;
+    KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };
 
 #endif
