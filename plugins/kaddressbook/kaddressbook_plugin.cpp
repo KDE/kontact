@@ -46,6 +46,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
   actionCollection()->addAction( "new_contact", action );
   connect( action, SIGNAL( triggered( bool) ), SLOT( slotNewContact() ) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
+  action->setWhatsThis( i18n( "Create a new contact<p>You will be presented with a dialog where you can add all data about a person, including addresses and phone numbers.</p>" ) );
   insertNewAction( action );
 
   action  = new KAction( KIcon( "user-group-new" ),
@@ -53,6 +54,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
   actionCollection()->addAction( "new_contactgroup", action );
   connect( action, SIGNAL( triggered( bool ) ), SLOT( slotNewContactGroup() ) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_G ) );
+  action->setWhatsThis( i18n( "Create a new group<p>You will be presented with a dialog where you can add a new group of contacts.</p>" ) );
   insertNewAction( action );
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ),
