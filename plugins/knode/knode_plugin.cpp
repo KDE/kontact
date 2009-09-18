@@ -62,7 +62,7 @@ bool KNodePlugin::createDBUSInterface( const QString &serviceType )
   return false;
 }
 
-bool KNodePlugin::isRunningStandalone()
+bool KNodePlugin::isRunningStandalone() const
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }

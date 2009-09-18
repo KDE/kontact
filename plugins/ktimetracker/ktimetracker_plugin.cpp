@@ -60,7 +60,7 @@ ktimetrackerplugin::~ktimetrackerplugin()
   delete mInterface;
 }
 
-bool ktimetrackerplugin::isRunningStandalone()
+bool ktimetrackerplugin::isRunningStandalone() const
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }

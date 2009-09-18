@@ -44,10 +44,10 @@ class KOrganizerPlugin : public KontactInterface::Plugin
     ~KOrganizerPlugin();
 
     virtual bool createDBUSInterface( const QString &serviceType );
-    virtual bool isRunningStandalone();
+    virtual bool isRunningStandalone() const;
     int weight() const { return 400; }
 
-    bool canDecodeMimeData( const QMimeData * );
+    bool canDecodeMimeData( const QMimeData * ) const;
     void processDropEvent( QDropEvent * );
 
     virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );

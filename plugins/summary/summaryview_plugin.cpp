@@ -115,7 +115,7 @@ KParts::ReadOnlyPart *SummaryView::createPart()
   return mPart;
 }
 
-const KAboutData *SummaryView::aboutData()
+const KAboutData *SummaryView::aboutData() const
 {
   if ( !mAboutData ) {
     mAboutData = new KAboutData(

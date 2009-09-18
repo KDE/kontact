@@ -64,7 +64,7 @@ AkregatorPlugin::~AkregatorPlugin()
 {
 }
 
-bool AkregatorPlugin::isRunningStandalone()
+bool AkregatorPlugin::isRunningStandalone() const
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }

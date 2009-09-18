@@ -109,7 +109,7 @@ KParts::ReadOnlyPart *KAddressBookPlugin::createPart()
   return part;
 }
 
-bool KAddressBookPlugin::isRunningStandalone()
+bool KAddressBookPlugin::isRunningStandalone() const
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }

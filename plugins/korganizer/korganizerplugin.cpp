@@ -157,12 +157,12 @@ bool KOrganizerPlugin::createDBUSInterface( const QString &serviceType )
   return false;
 }
 
-bool KOrganizerPlugin::isRunningStandalone()
+bool KOrganizerPlugin::isRunningStandalone() const
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }
 
-bool KOrganizerPlugin::canDecodeMimeData( const QMimeData *mimeData )
+bool KOrganizerPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
   return mimeData->hasText() ||
     KPIM::MailList::canDecode( mimeData ) ||

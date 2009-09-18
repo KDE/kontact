@@ -39,9 +39,9 @@ class KNotesPlugin : public KontactInterface::Plugin
     virtual QString tipFile() const;
     int weight() const { return 600; }
 
-    const KAboutData *aboutData();
+    const KAboutData *aboutData() const;
 
-    virtual bool canDecodeMimeData( const QMimeData *data );
+    virtual bool canDecodeMimeData( const QMimeData *data ) const;
     virtual void processDropEvent( QDropEvent * );
 
   protected:
@@ -52,7 +52,7 @@ class KNotesPlugin : public KontactInterface::Plugin
     void slotSyncNotes();
 
   private:
-    KAboutData *mAboutData;
+    mutable KAboutData *mAboutData;
 };
 
 #endif

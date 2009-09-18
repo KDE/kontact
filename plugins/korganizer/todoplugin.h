@@ -40,10 +40,10 @@ class TodoPlugin : public KontactInterface::Plugin
     ~TodoPlugin();
 
     virtual bool createDBUSInterface( const QString &serviceType );
-    virtual bool isRunningStandalone();
+    virtual bool isRunningStandalone() const;
     int weight() const { return 450; }
 
-    bool canDecodeMimeData( const QMimeData * );
+    bool canDecodeMimeData( const QMimeData * ) const;
     void processDropEvent( QDropEvent * );
 
     virtual QStringList invisibleToolbarActions() const;

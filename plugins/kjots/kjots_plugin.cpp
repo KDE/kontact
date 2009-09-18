@@ -65,7 +65,7 @@ KJotsPlugin::~KJotsPlugin()
 {
 }
 
-bool KJotsPlugin::isRunningStandalone()
+bool KJotsPlugin::isRunningStandalone() const
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }

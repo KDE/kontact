@@ -50,7 +50,7 @@ class KMailPlugin : public KontactInterface::Plugin
     KMailPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KMailPlugin();
 
-    virtual bool isRunningStandalone();
+    virtual bool isRunningStandalone() const;
     virtual bool createDBUSInterface( const QString &serviceType );
     virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
     virtual QString tipFile() const;
@@ -63,7 +63,7 @@ class KMailPlugin : public KontactInterface::Plugin
     virtual KParts::ReadOnlyPart *createPart();
     void openComposer( const KUrl &attach = KUrl() );
     void openComposer( const QString &to );
-    bool canDecodeMimeData( const QMimeData * );
+    bool canDecodeMimeData( const QMimeData * ) const;
     void processDropEvent( QDropEvent * );
 
   protected slots:

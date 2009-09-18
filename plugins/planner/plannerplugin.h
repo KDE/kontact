@@ -37,7 +37,7 @@ class PlannerPlugin : public KontactInterface::Plugin
     ~PlannerPlugin();
 
     int weight() const { return 350; }
-    const KAboutData *aboutData();
+    const KAboutData *aboutData() const;
 
     virtual KontactInterface::Summary *createSummaryWidget( QWidget *parentWidget );
 
@@ -46,7 +46,7 @@ class PlannerPlugin : public KontactInterface::Plugin
     { return false; }
 
   private:
-    KAboutData *mAboutData;
+    mutable KAboutData *mAboutData;
 
 };
 

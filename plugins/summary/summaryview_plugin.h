@@ -39,7 +39,7 @@ class SummaryView : public KontactInterface::Plugin
 
     int weight() const { return 100; }
 
-    const KAboutData *aboutData();
+    const KAboutData *aboutData() const;
 
   protected:
     virtual KParts::ReadOnlyPart *createPart();
@@ -51,7 +51,7 @@ class SummaryView : public KontactInterface::Plugin
     void fillSyncActionSubEntries();
 
   private:
-    KAboutData *mAboutData;
+    mutable KAboutData *mAboutData;
     SummaryViewPart *mPart;
     KSelectAction *mSyncAction;
 };
