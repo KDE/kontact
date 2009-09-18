@@ -1,9 +1,11 @@
 [Notebooks]
 Name=Notebooks
+Name[ca]=Notebooks
 Name[cs]=Poznámky
 Name[da]=Notesbøger
 Name[de]=Notizbücher
 Name[el]=Σημειωματάρια
+Name[en_GB]=Notebooks
 Name[es]=Cuadernos de notas
 Name[et]=Märkmed
 Name[fr]=Carnets de notes
@@ -39,6 +41,7 @@ Comment[cs]=Komponenta poznámek
 Comment[da]=Notesbogkomponent
 Comment[de]=Notizblock-Komponente
 Comment[el]=Συστατικό σημειωματάριου
+Comment[en_GB]=Notebooks Component
 Comment[es]=Componente de los cuadernos de notas
 Comment[et]=Märkmete komponent
 Comment[fr]=Composant de carnet de notes

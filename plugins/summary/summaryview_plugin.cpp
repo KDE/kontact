@@ -99,8 +99,7 @@ void SummaryView::doSync()
   const QList<KontactInterface::Plugin *> pluginList = core()->pluginList();
   Q_FOREACH( const KontactInterface::Plugin *i, pluginList ) {
     // execute all sync actions but our own
-    const QList<KAction *>* actions = i->syncActions();
-    Q_FOREACH( KAction *j, *actions ) {
+    Q_FOREACH( KAction *j, i->syncActions() ) {
       if ( j != mSyncAction ) {
         j->trigger();
       }

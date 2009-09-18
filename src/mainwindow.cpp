@@ -540,17 +540,16 @@ void MainWindow::loadPlugins()
   for ( i = 0; i < plugins.count(); ++ i ) {
     Plugin *plugin = plugins.at( i );
 
-    const QList<KAction*> *actionList = plugin->newActions();
+    const QList<KAction*> actionList = plugin->newActions();
     QList<KAction*>::const_iterator listIt;
 
-    for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
+    for ( listIt = actionList.begin(); listIt != actionList.end(); ++listIt ) {
       kDebug() << "Plugging New actions" << (*listIt)->objectName();
       mNewActions->menu()->addAction( (*listIt) );
     }
 
-    actionList = plugin->syncActions();
     if ( mSyncActionsEnabled ) {
-      Q_FOREACH( KAction *listIt, *actionList ) {
+      Q_FOREACH( KAction *listIt, plugin->syncActions() ) {
         kDebug() << "Plugging Sync actions" << listIt->objectName();
         mSyncActions->menu()->addAction( listIt );
       }
@@ -595,17 +594,17 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
   for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it ) {
     Plugin *plugin = *it;
     if ( ( *it )->identifier() == info.pluginName() ) {
-      const QList<KAction*> *actionList = plugin->newActions();
+      QList<KAction*> actionList = plugin->newActions();
       QList<KAction*>::const_iterator listIt;
 
-      for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
+      for ( listIt = actionList.begin(); listIt != actionList.end(); ++listIt ) {
         kDebug() << "Unplugging New actions" << (*listIt)->objectName();
         mNewActions->menu()->removeAction( *listIt );
       }
 
       if ( mSyncActionsEnabled ) {
         actionList = plugin->syncActions();
-        for ( listIt = actionList->begin(); listIt != actionList->end(); ++listIt ) {
+        for ( listIt = actionList.begin(); listIt != actionList.end(); ++listIt ) {
             kDebug() << "Unplugging Sync actions" << (*listIt)->objectName();
             mSyncActions->menu()->removeAction( *listIt );
         }
@@ -707,13 +706,13 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
 
 void MainWindow::slotNewClicked()
 {
-  if ( !mCurrentPlugin->newActions()->isEmpty() ) {
-    mCurrentPlugin->newActions()->first()->trigger();
+  if ( !mCurrentPlugin->newActions().isEmpty() ) {
+    mCurrentPlugin->newActions().first()->trigger();
   } else {
     PluginList::Iterator it;
     for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
-      if ( !(*it)->newActions()->isEmpty() ) {
-        (*it)->newActions()->first()->trigger();
+      if ( !(*it)->newActions().isEmpty() ) {
+        (*it)->newActions().first()->trigger();
         return;
       }
     }
@@ -722,13 +721,13 @@ void MainWindow::slotNewClicked()
 
 void MainWindow::slotSyncClicked()
 {
-  if ( !mCurrentPlugin->syncActions()->isEmpty() ) {
-    mCurrentPlugin->syncActions()->first()->trigger();
+  if ( !mCurrentPlugin->syncActions().isEmpty() ) {
+    mCurrentPlugin->syncActions().first()->trigger();
   } else {
     PluginList::Iterator it;
     for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
-      if ( !(*it)->syncActions()->isEmpty() ) {
-        (*it)->syncActions()->first()->trigger();
+      if ( !(*it)->syncActions().isEmpty() ) {
+        (*it)->syncActions().first()->trigger();
         return;
       }
     }
@@ -821,13 +820,13 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
     mCurrentPlugin = plugin;
 
     QAction *newAction = 0;
-    if ( !plugin->newActions()->isEmpty() ) {
-      newAction = plugin->newActions()->first();
+    if ( !plugin->newActions().isEmpty() ) {
+      newAction = plugin->newActions().first();
     }
 
     QAction *syncAction = 0;
-    if ( !plugin->syncActions()->isEmpty() ) {
-      syncAction = plugin->syncActions()->first();
+    if ( !plugin->syncActions().isEmpty() ) {
+      syncAction = plugin->syncActions().first();
     }
 
     createGUI( plugin->part() );
@@ -840,8 +839,8 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
     } else { // we'll use the action of the first plugin which offers one
       PluginList::Iterator it;
       for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
-        if ( (*it)->newActions()->count() > 0 ) {
-          newAction = (*it)->newActions()->first();
+        if ( (*it)->newActions().count() > 0 ) {
+          newAction = (*it)->newActions().first();
         }
         if ( newAction ) {
           static_cast<QAction*>( mNewActions )->setIcon( newAction->icon() );
@@ -858,8 +857,8 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
       } else { // we'll use the action of the first plugin which offers one
         PluginList::Iterator it;
         for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
-          if ( (*it)->syncActions()->count() > 0 ) {
-            syncAction = (*it)->syncActions()->first();
+          if ( (*it)->syncActions().count() > 0 ) {
+            syncAction = (*it)->syncActions().first();
           }
           if ( syncAction ) {
             static_cast<QAction*>( mSyncActions )->setIcon( syncAction->icon() );

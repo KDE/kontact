@@ -1,11 +1,13 @@
 [Special Dates]
 Name=Special Dates Summary
 Name[af]=Spesiale datums opsomming
+Name[bg]=Special Dates Summary
 Name[ca]=Resum de dates especials
 Name[cs]=Souhrn speciálních datumů
 Name[da]=Oversigt over særlige datoer
 Name[de]=Übersicht über besondere Termine
 Name[el]=Σύνοψη σημαντικών ημερομηνιών
+Name[en_GB]=Special Dates Summary
 Name[eo]=Resumo pri Specialaj Datoj
 Name[es]=Resumen de fechas especiales
 Name[et]=Tähtpäevade kokkuvõte
@@ -58,6 +60,7 @@ Comment[cs]=Komponenta souhrnu speciálních příležitostí
 Comment[da]=Oversigtskomponent for særlige datoer
 Comment[de]=Komponente für Übersicht über besondere Termine
 Comment[el]=Στοιχείο σύνοψης Σημαντικών Ημερομηνιών
+Comment[en_GB]=Special Dates Summary Component
 Comment[eo]=Specialdatresuma Komponanto
 Comment[es]=Componente de resumen de fechas especiales
 Comment[et]=Tähtpäevade kokkuvõtte komponent
