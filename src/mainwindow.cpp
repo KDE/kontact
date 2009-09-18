@@ -545,13 +545,13 @@ void MainWindow::loadPlugins()
 
     for ( listIt = actionList.begin(); listIt != actionList.end(); ++listIt ) {
       kDebug() << "Plugging New actions" << (*listIt)->objectName();
-      mNewActions->menu()->addAction( (*listIt) );
+      mNewActions->addAction( (*listIt) );
     }
 
     if ( mSyncActionsEnabled ) {
       Q_FOREACH( KAction *listIt, plugin->syncActions() ) {
         kDebug() << "Plugging Sync actions" << listIt->objectName();
-        mSyncActions->menu()->addAction( listIt );
+        mSyncActions->addAction( listIt );
       }
     }
     addPlugin( plugin );
@@ -599,14 +599,14 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
 
       for ( listIt = actionList.constBegin(); listIt != actionList.constEnd(); ++listIt ) {
         kDebug() << "Unplugging New actions" << (*listIt)->objectName();
-        mNewActions->menu()->removeAction( *listIt );
+        mNewActions->removeAction( *listIt );
       }
 
       if ( mSyncActionsEnabled ) {
         actionList = plugin->syncActions();
         for ( listIt = actionList.constBegin(); listIt != actionList.constEnd(); ++listIt ) {
             kDebug() << "Unplugging Sync actions" << (*listIt)->objectName();
-            mSyncActions->menu()->removeAction( *listIt );
+            mSyncActions->removeAction( *listIt );
         }
       }
       removeChildClient( plugin );
@@ -836,6 +836,7 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
     if ( newAction ) {
       mNewActions->setIcon( newAction->icon() );
       static_cast<QAction*>( mNewActions )->setText( newAction->text() );
+      mNewActions->setWhatsThis( newAction->whatsThis() );
     } else { // we'll use the action of the first plugin which offers one
       PluginList::Iterator it;
       for ( it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
@@ -845,6 +846,7 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
         if ( newAction ) {
           static_cast<QAction*>( mNewActions )->setIcon( newAction->icon() );
           mNewActions->setText( newAction->text() );
+          mNewActions->setWhatsThis( newAction->whatsThis() );
           break;
         }
       }
