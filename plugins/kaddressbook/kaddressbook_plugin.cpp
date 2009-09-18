@@ -20,9 +20,6 @@
 
 #include "kaddressbook_plugin.h"
 
-#include "akonadi/contact/contacteditordialog.h"
-#include "akonadi/contact/contactgroupeditordialog.h"
-
 #include <kontactinterface/core.h>
 
 #include <kactioncollection.h>
@@ -74,14 +71,30 @@ KAddressBookPlugin::~KAddressBookPlugin()
 
 void KAddressBookPlugin::slotNewContact()
 {
-  Akonadi::ContactEditorDialog dlg( Akonadi::ContactEditorDialog::CreateMode );
-  dlg.exec();
+  KParts::ReadOnlyPart *part = createPart();
+  if ( !part )
+    return;
+
+  if ( part->metaObject()->indexOfMethod( "newContact()" ) == -1 ) {
+    kWarning() << "KAddressBook part is missing slot newContact()";
+    return;
+  }
+
+  QMetaObject::invokeMethod( part, "newContact" );
 }
 
 void KAddressBookPlugin::slotNewContactGroup()
 {
-  Akonadi::ContactGroupEditorDialog dlg( Akonadi::ContactGroupEditorDialog::CreateMode );
-  dlg.exec();
+  KParts::ReadOnlyPart *part = createPart();
+  if ( !part )
+    return;
+
+  if ( part->metaObject()->indexOfMethod( "newGroup()" ) == -1 ) {
+    kWarning() << "KAddressBook part is missing slot newGroup()";
+    return;
+  }
+
+  QMetaObject::invokeMethod( part, "newGroup" );
 }
 
 QString KAddressBookPlugin::tipFile() const

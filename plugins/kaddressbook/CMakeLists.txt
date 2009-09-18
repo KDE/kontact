@@ -5,7 +5,7 @@ set(kontact_kaddressbookplugin_PART_SRCS
 
 kde4_add_plugin(kontact_kaddressbookplugin ${kontact_kaddressbookplugin_PART_SRCS} )
 
-target_link_libraries(kontact_kaddressbookplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_AKONADI_CONTACT_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS})
+target_link_libraries(kontact_kaddressbookplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS})
 
 install(TARGETS kontact_kaddressbookplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 
