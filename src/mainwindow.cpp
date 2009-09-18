@@ -597,14 +597,14 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
       QList<KAction*> actionList = plugin->newActions();
       QList<KAction*>::const_iterator listIt;
 
-      for ( listIt = actionList.begin(); listIt != actionList.end(); ++listIt ) {
+      for ( listIt = actionList.constBegin(); listIt != actionList.constEnd(); ++listIt ) {
         kDebug() << "Unplugging New actions" << (*listIt)->objectName();
         mNewActions->menu()->removeAction( *listIt );
       }
 
       if ( mSyncActionsEnabled ) {
         actionList = plugin->syncActions();
-        for ( listIt = actionList.begin(); listIt != actionList.end(); ++listIt ) {
+        for ( listIt = actionList.constBegin(); listIt != actionList.constEnd(); ++listIt ) {
             kDebug() << "Unplugging Sync actions" << (*listIt)->objectName();
             mSyncActions->menu()->removeAction( *listIt );
         }
