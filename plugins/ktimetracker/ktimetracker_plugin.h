@@ -50,7 +50,7 @@ class ktimetrackerplugin : public KontactInterface::Plugin
     ~ktimetrackerplugin();
     int weight() const { return 700; }
     virtual QStringList invisibleToolbarActions() const;
-    virtual bool isRunningStandalone();
+    virtual bool isRunningStandalone() const;
 
     OrgKdeKtimetrackerKtimetrackerInterface *interface();
 

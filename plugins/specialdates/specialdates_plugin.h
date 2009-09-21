@@ -36,7 +36,7 @@ class SpecialdatesPlugin : public KontactInterface::Plugin
 
     int weight() const { return 325; }
 
-    const KAboutData *aboutData();
+    const KAboutData *aboutData() const;
 
     virtual KontactInterface::Summary *createSummaryWidget( QWidget *parentWidget );
 
@@ -45,8 +45,7 @@ class SpecialdatesPlugin : public KontactInterface::Plugin
     { return 0; }
 
   private:
-    KAboutData *mAboutData;
-
+    mutable KAboutData *mAboutData;
 };
 
 #endif

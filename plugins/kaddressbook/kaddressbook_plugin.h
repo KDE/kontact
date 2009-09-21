@@ -43,7 +43,7 @@ class KAddressBookPlugin : public KontactInterface::Plugin
     ~KAddressBookPlugin();
 
     virtual QString tipFile() const;
-    virtual bool isRunningStandalone();
+    virtual bool isRunningStandalone() const;
     int weight() const { return 300; }
 
     virtual QStringList invisibleToolbarActions() const;

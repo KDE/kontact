@@ -55,7 +55,7 @@ class AkregatorPlugin : public KontactInterface::Plugin
 
     virtual QStringList configModules() const;
     virtual QStringList invisibleToolbarActions() const;
-    virtual bool isRunningStandalone();
+    virtual bool isRunningStandalone() const;
     virtual void readProperties( const KConfigGroup &config );
     virtual void saveProperties( KConfigGroup &config );
 

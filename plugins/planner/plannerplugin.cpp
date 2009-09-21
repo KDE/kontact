@@ -51,7 +51,7 @@ KontactInterface::Summary *PlannerPlugin::createSummaryWidget( QWidget *parentWi
   return new Planner( this, parentWidget );
 }
 
-const KAboutData *PlannerPlugin::aboutData()
+const KAboutData *PlannerPlugin::aboutData() const
 {
   if ( !mAboutData ) {
     mAboutData = new KAboutData( "planner", 0,

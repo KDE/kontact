@@ -50,7 +50,7 @@ KontactInterface::Summary *SpecialdatesPlugin::createSummaryWidget( QWidget *par
   return new SDSummaryWidget( this, parentWidget );
 }
 
-const KAboutData *SpecialdatesPlugin::aboutData()
+const KAboutData *SpecialdatesPlugin::aboutData() const
 {
   if ( !mAboutData ) {
     mAboutData = new KAboutData( "specialdates", 0,

@@ -141,7 +141,7 @@ bool JournalPlugin::createDBUSInterface( const QString &serviceType )
   return false;
 }
 
-bool JournalPlugin::isRunningStandalone()
+bool JournalPlugin::isRunningStandalone() const
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }

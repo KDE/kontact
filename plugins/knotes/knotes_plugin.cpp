@@ -88,7 +88,7 @@ KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWid
   return new KNotesSummaryWidget( this, parentWidget );
 }
 
-const KAboutData *KNotesPlugin::aboutData()
+const KAboutData *KNotesPlugin::aboutData() const
 {
   if ( !mAboutData ) {
     mAboutData = new KAboutData( "knotes", 0, ki18n( "KNotes" ),
@@ -104,7 +104,7 @@ const KAboutData *KNotesPlugin::aboutData()
   return mAboutData;
 }
 
-bool KNotesPlugin::canDecodeMimeData( const QMimeData *mimeData )
+bool KNotesPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
   return mimeData->hasText() || KPIM::MailList::canDecode( mimeData ) ||
          KPIM::KVCardDrag::canDecode( mimeData ) || KCal::ICalDrag::canDecode( mimeData );

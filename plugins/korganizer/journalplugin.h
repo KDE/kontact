@@ -40,7 +40,7 @@ class JournalPlugin : public KontactInterface::Plugin
     ~JournalPlugin();
 
     virtual bool createDBUSInterface( const QString &serviceType );
-    virtual bool isRunningStandalone();
+    virtual bool isRunningStandalone() const;
     int weight() const { return 525; }
 
     virtual QStringList invisibleToolbarActions() const;

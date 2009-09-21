@@ -75,7 +75,7 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
       new KontactInterface::UniqueAppHandlerFactory<KMailUniqueAppHandler>(), this );
 }
 
-bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData )
+bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
   return ( ICalDrag::canDecode( mimeData ) ||
            VCalDrag::canDecode( mimeData ) ||
@@ -184,7 +184,7 @@ QStringList KMailPlugin::invisibleToolbarActions() const
   return QStringList( "new_message" );
 }
 
-bool KMailPlugin::isRunningStandalone()
+bool KMailPlugin::isRunningStandalone() const
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }

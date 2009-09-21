@@ -159,13 +159,13 @@ bool TodoPlugin::createDBUSInterface( const QString &serviceType )
   return false;
 }
 
-bool TodoPlugin::canDecodeMimeData( const QMimeData *mimeData )
+bool TodoPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
   return mimeData->hasText() || KPIM::MailList::canDecode( mimeData ) ||
          KPIM::KVCardDrag::canDecode( mimeData ) || KCal::ICalDrag::canDecode( mimeData );
 }
 
-bool TodoPlugin::isRunningStandalone()
+bool TodoPlugin::isRunningStandalone() const
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }
