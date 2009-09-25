@@ -129,13 +129,11 @@ bool KAddressBookPlugin::isRunningStandalone() const
   return mUniqueAppWatcher->isRunningStandalone();
 }
 
-QStringList KAddressBookPlugin::invisibleToolbarActions() const
-{
-  QStringList actions;
-  actions << "akonadi_contact_create" << "akonadi_contact_group_create";
-
-  return actions;
-}
+//QStringList KAddressBookPlugin::invisibleToolbarActions() const
+//{
+  //QStringList actions;
+  //return actions;
+//}
 
 void KAddressBookPlugin::slotSyncContacts()
 {

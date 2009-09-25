@@ -98,6 +98,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     void initAboutScreen();
     void loadSettings();
     void saveSettings();
+    void removeInvisibleToolbarActions(Plugin* plugin);
 
     bool isPluginLoaded( const KPluginInfo & );
     KontactInterface::Plugin *pluginFromInfo( const KPluginInfo & );

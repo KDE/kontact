@@ -829,6 +829,8 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
       syncAction = plugin->syncActions().first();
     }
 
+    removeInvisibleToolbarActions(plugin);
+
     createGUI( plugin->part() );
 
     setCaption( i18nc( "Plugin dependent window title", "%1 - Kontact", plugin->title() ) );
@@ -871,18 +873,6 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
       }
     }
   }
-  const QStringList invisibleActions = plugin->invisibleToolbarActions();
-
-  QStringList::ConstIterator it;
-  for ( it = invisibleActions.constBegin(); it != invisibleActions.constEnd(); ++it ) {
-    QAction *action = part->actionCollection()->action( (*it) );
-    if ( action ) {
-      QList<KToolBar*> toolbars = toolBars();
-      for ( QList<KToolBar*>::Iterator it = toolbars.begin(); it != toolbars.end(); ++it ) {
-        ( *it )->removeAction( action );
-      }
-    }
-  }
 
   KToolBar *navigatorToolBar = findToolBar( "navigatorToolBar" );
   if ( navigatorToolBar && !navigatorToolBar->isHidden() &&
@@ -895,6 +885,50 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
                              QString( "MainWindow%1" ).arg( plugin->identifier() ) ) );
 
   QApplication::restoreOverrideCursor();
+}
+
+// Hack to access KXMLGUIClient::setDOMDocument which should be public...
+class ReadOnlyPartAccess : public KParts::ReadOnlyPart
+{
+  public:
+  using KParts::ReadOnlyPart::setDOMDocument;
+};
+
+void MainWindow::removeInvisibleToolbarActions(Plugin* plugin)
+{
+  // Hide unwanted toolbar action by modifying the XML before createGUI, rather than
+  // doing it by calling removeAction on the toolbar after createGUI. Both solutions
+  // work visually, but only modifying the XML ensures that the actions don't appear
+  // in "edit toolbars". #207296
+  KParts::Part *part = plugin->part();
+  const QStringList hideActions = plugin->invisibleToolbarActions();
+  //kDebug() << "Hiding actions" << hideActions;
+  QDomDocument doc = part->domDocument();
+  QDomElement docElem = doc.documentElement();
+  // 1. Iterate over containers
+  for (QDomElement containerElem = docElem.firstChildElement();
+       !containerElem.isNull(); containerElem = containerElem.nextSiblingElement()) {
+    if (QString::compare(containerElem.tagName(), "ToolBar", Qt::CaseInsensitive) == 0) {
+      // 2. Iterate over actions in toolbars
+      QDomElement actionElem = containerElem.firstChildElement();
+      while (!actionElem.isNull()) {
+        QDomElement nextActionElem = actionElem.nextSiblingElement();
+        if (actionElem.attribute("remove_in_kontact") == "true") {
+            containerElem.removeChild(actionElem);
+        }
+        if (QString::compare(actionElem.tagName(), "Action", Qt::CaseInsensitive) == 0) {
+          //kDebug() << "Looking at action" << actionElem.attribute("name");
+          if (hideActions.contains(actionElem.attribute("name"))) {
+            //kDebug() << "REMOVING";
+            containerElem.removeChild(actionElem);
+          }
+        }
+        actionElem = nextActionElem;
+      }
+    }
+  }
+  //kDebug() << doc.toString();
+  static_cast<ReadOnlyPartAccess *>(part)->setDOMDocument(doc);
 }
 
 void MainWindow::slotActionTriggered()
@@ -1072,6 +1106,7 @@ void MainWindow::configureToolbars()
 void MainWindow::slotNewToolbarConfig()
 {
   if ( mCurrentPlugin && mCurrentPlugin->part() ) {
+    removeInvisibleToolbarActions(mCurrentPlugin);
     createGUI( mCurrentPlugin->part() );
   }
   if ( mCurrentPlugin ) {

@@ -46,7 +46,7 @@ class KAddressBookPlugin : public KontactInterface::Plugin
     virtual bool isRunningStandalone() const;
     int weight() const { return 300; }
 
-    virtual QStringList invisibleToolbarActions() const;
+    //virtual QStringList invisibleToolbarActions() const;
 
   protected:
     KParts::ReadOnlyPart *createPart();
