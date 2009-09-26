@@ -53,7 +53,7 @@
 EXPORT_KONTACT_PLUGIN( TodoPlugin, todo )
 
 TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
-  : KontactInterface::Plugin( core, core, "korganizer" ), mIface( 0 )
+  : KontactInterface::Plugin( core, core, "korganizer", "todo" ), mIface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir( "korganizer" );
