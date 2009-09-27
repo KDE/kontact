@@ -107,7 +107,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
   KCal::Event::List::ConstIterator it = events_orig.constBegin();
 
   KCal::Event::List events;
-  events.setAutoDelete( true );
+  events.setAutoDelete( false ); //do not autodelete. we need these active
   KDateTime qdt;
   KDateTime::Spec spec = KSystemTimeZones::local();
   QDate currentDate = QDate::currentDate();
