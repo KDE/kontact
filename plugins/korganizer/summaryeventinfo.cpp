@@ -25,10 +25,9 @@
 */
 
 #include "summaryeventinfo.h"
+#include "korganizer/stdcalendar.h"
 
-#include <libkdepim/kpimprefs.h>
-#include <korganizer/stdcalendar.h>
-#include <kcal/incidenceformatter.h>
+#include <KCal/IncidenceFormatter>
 using namespace KCal;
 
 #include <KSystemTimeZones>
@@ -212,7 +211,24 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     if ( daysTo > 0 ) {
       str = i18np( "in 1 day", "in %1 days", daysTo );
     } else {
-      str = i18n( "now" );
+      if ( !ev->allDay() ) {
+        str = i18nc( "eg. in 1 hour 2 minutes", "in " );
+        int secs = KDateTime::currentDateTime( spec ).secsTo( ev->dtStart() );
+        int hours = secs / 3600;
+        if ( hours > 0 ) {
+          str += i18ncp( "use abbreviation for hour to keep the text short",
+                         "1 hr", "%1 hrs", hours );
+          str += ' ';
+          secs -= ( hours * 3600 );
+        }
+        int mins = secs / 60;
+        if ( mins > 0 ) {
+          str += i18ncp( "use abbreviation for minute to keep the text short",
+                         "1 min", "%1 mins", mins );
+        }
+      } else {
+        str = i18n( "all day" );
+      }
     }
     summaryEvent->daysToGo = str;
 
@@ -223,8 +239,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     }
     summaryEvent->summaryText = str;
     summaryEvent->summaryUrl = ev->uid();
-    QString tipText(
-      KCal::IncidenceFormatter::toolTipStr( calendar, ev, date, true, KSystemTimeZones::local() ) );
+    QString tipText( KCal::IncidenceFormatter::toolTipStr( calendar, ev, date, true, spec ) );
     if ( !tipText.isEmpty() ) {
       summaryEvent->summaryTooltip = tipText;
     }
