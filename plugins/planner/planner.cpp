@@ -378,7 +378,7 @@ int Planner::showTodos( int counter, const QDate &date )
                this, SLOT(todoPopupMenu(const QString&)) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipStr(
-                         todo, true, KSystemTimeZones::local() ) );
+                         mCalendar, todo, date, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel2->setToolTip( tipText );
       }
@@ -609,7 +609,7 @@ int Planner::showEvents( int counter, const QDate &date )
                this, SLOT(eventPopupMenu(const QString&)) );
 
       QString tipText( KCal::IncidenceFormatter::toolTipStr(
-                         mCalendar, ev, true, KSystemTimeZones::local() ) );
+                         mCalendar, ev, date, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }

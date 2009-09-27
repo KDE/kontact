@@ -224,7 +224,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     summaryEvent->summaryText = str;
     summaryEvent->summaryUrl = ev->uid();
     QString tipText(
-      KCal::IncidenceFormatter::toolTipStr( calendar, ev, true, KSystemTimeZones::local() ) );
+      KCal::IncidenceFormatter::toolTipStr( calendar, ev, date, true, KSystemTimeZones::local() ) );
     if ( !tipText.isEmpty() ) {
       summaryEvent->summaryTooltip = tipText;
     }

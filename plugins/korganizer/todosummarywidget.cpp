@@ -278,7 +278,7 @@ void TodoSummaryWidget::updateView()
                this, SLOT(popupMenu(const QString&)) );
 
       QString tipText( IncidenceFormatter::toolTipStr(
-                         mCalendar, todo, true, KSystemTimeZones::local() ) );
+                         mCalendar, todo, currDate, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }
