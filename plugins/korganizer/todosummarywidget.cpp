@@ -25,42 +25,28 @@
 
 #include "todosummarywidget.h"
 #include "todoplugin.h"
-#include "korganizerinterface.h"
+#include "korganizer/korganizerinterface.h"
+#include "korganizer/stdcalendar.h"
 
-#include <korganizer/stdcalendar.h>
-#include <korganizer/koglobals.h>
-#include <kontactinterface/core.h>
-
-#include <libkdepim/kpimprefs.h>
-
-#include <kcal/calendar.h>
+#include <KCal/CalendarResources>
 #include <KCal/CalHelper>
-#include <kcal/resourcecalendar.h>
-#include <kcal/resourcelocal.h>
-#include <kcal/todo.h>
-#include <kcal/incidenceformatter.h>
-using namespace KCal;
+#include <KCal/IncidenceFormatter>
+#include <KCal/Todo>
 
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kstandarddirs.h>
-#include <kurllabel.h>
-#include <kparts/part.h>
+#include <KontactInterface/Core>
 
+#include <KConfigGroup>
+#include <KIconLoader>
+#include <KLocale>
+#include <KMenu>
 #include <KSystemTimeZones>
+#include <KUrlLabel>
 
-#include <QCursor>
 #include <QEvent>
 #include <QGridLayout>
 #include <QLabel>
-#include <QLayout>
-#include <QPixmap>
+#include <QTextDocument>  // for Qt::mightBeRichText
 #include <QVBoxLayout>
-#include <QTextDocument>
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   : KontactInterface::Summary( parent ), mPlugin( plugin )
@@ -134,19 +120,19 @@ void TodoSummaryWidget::updateView()
       }
     }
 
-    if ( mHideOverdue && overdue( todo ) ) {
+    if ( mHideOverdue && todo->isOverdue() ) {
       continue;
     }
-    if ( mHideInProgress && inProgress( todo ) ) {
+    if ( mHideInProgress && todo->isInProgress( false ) ) {
       continue;
     }
-    if ( mHideCompleted && completed( todo ) ) {
+    if ( mHideCompleted && todo->isCompleted() ) {
       continue;
     }
-    if ( mHideOpenEnded && openEnded( todo ) ) {
+    if ( mHideOpenEnded && todo->isOpenEnded() ) {
       continue;
     }
-    if ( mHideNotStarted && notStarted( todo ) ) {
+    if ( mHideNotStarted && todo->isNotStarted( false ) ) {
       continue;
     }
 
@@ -378,16 +364,7 @@ QStringList TodoSummaryWidget::configModules() const
   return QStringList( "kcmtodosummary.desktop" );
 }
 
-bool TodoSummaryWidget::overdue( Todo *todo )
-{
-  if ( todo->hasDueDate() && !todo->isCompleted() &&
-       todo->dtDue().date() < QDate::currentDate() ) {
-    return true;
-  }
-  return false;
-}
-
-bool TodoSummaryWidget::starts( Todo *todo )
+bool TodoSummaryWidget::startsToday( Todo *todo )
 {
   if ( todo->hasStartDate() &&
        todo->dtStart().date() == QDate::currentDate() ) {
@@ -396,71 +373,25 @@ bool TodoSummaryWidget::starts( Todo *todo )
   return false;
 }
 
-bool TodoSummaryWidget::completed( Todo *todo )
-{
-  return todo->isCompleted();
-}
-
-bool TodoSummaryWidget::openEnded( Todo *todo )
-{
-  if ( !todo->hasDueDate() && !todo->isCompleted() ) {
-    return true;
-  }
-  return false;
-}
-
-bool TodoSummaryWidget::inProgress( Todo *todo )
-{
-  if ( todo->percentComplete() > 0 ) {
-    return true;
-  }
-
-  QDate currDate = QDate::currentDate();
-  if ( todo->hasStartDate() && todo->hasDueDate() &&
-       todo->dtStart().date() < currDate &&
-       currDate < todo->dtDue().date() ) {
-    return true;
-  }
-
-  return false;
-}
-
-bool TodoSummaryWidget::notStarted( Todo *todo )
-{
-  if ( todo->percentComplete() > 0 ) {
-    return false;
-  }
-
-  if ( !todo->hasStartDate() ) {
-    return false;
-  }
-
-  if ( todo->dtStart().date() >= QDate::currentDate() ) {
-    return false;
-  }
-
-  return true;
-}
-
 const QString TodoSummaryWidget::stateStr( Todo *todo )
 {
   QString str1, str2;
 
-  if ( openEnded( todo ) ) {
+  if ( todo->isOpenEnded() ) {
     str1 = i18n( "open-ended" );
-  } else if ( overdue( todo ) ) {
+  } else if ( todo->isOverdue() ) {
     str1 = "<font color=\"red\">" +
            i18nc( "the to-do is overdue", "overdue" ) +
            "</font>";
-  } else if ( starts( todo ) ) {
+  } else if ( startsToday( todo ) ) {
     str1 = i18nc( "the to-do starts today", "starts today" );
   }
 
-  if ( notStarted( todo ) ) {
+  if ( todo->isNotStarted( false ) ) {
     str2 += i18nc( "the to-do has not been started yet", "not-started" );
-  } else if ( completed( todo ) ) {
+  } else if ( todo->isCompleted() ) {
     str2 += i18nc( "the to-do is completed", "completed" );
-  } else if ( inProgress( todo ) ) {
+  } else if ( todo->isInProgress( false ) ) {
     str2 += i18nc( "the to-do is in-progress", "in-progress " );
     str2 += " (" + QString::number( todo->percentComplete() ) + "%)";
   }
