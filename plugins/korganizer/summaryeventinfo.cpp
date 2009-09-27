@@ -109,7 +109,8 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
   events.setAutoDelete( false ); //do not autodelete. we need these active
   KDateTime qdt;
   KDateTime::Spec spec = KSystemTimeZones::local();
-  QDate currentDate = QDate::currentDate();
+  KDateTime currentDateTime = KDateTime::currentDateTime( spec );
+  QDate currentDate = currentDateTime.date();
 
   // prevent implicitely sharing while finding recurring events
   // replacing the QDate with the currentDate
@@ -171,6 +172,10 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
          ( currentDate > ev->dtStart().date() || !firstDayOfMultiday ) ) {
       continue;
     }
+    // If the event is already over, then it isn't upcoming. so don't print it.
+    if ( !ev->allDay() && currentDateTime > ev->dtEnd() ) {
+      continue;
+    }
 
     SummaryEventInfo *summaryEvent = new SummaryEventInfo();
     eventInfoList.append( summaryEvent );
@@ -212,7 +217,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
       str = i18np( "in 1 day", "in %1 days", daysTo );
     } else {
       if ( !ev->allDay() ) {
-        int secs = KDateTime::currentDateTime( spec ).secsTo( ev->dtStart() );
+        int secs = currentDateTime.secsTo( ev->dtStart() );
         if ( secs > 0 ) {
           str = i18nc( "eg. in 1 hour 2 minutes", "in " );
           int hours = secs / 3600;
