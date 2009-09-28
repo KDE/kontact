@@ -104,7 +104,7 @@ void SummaryEventTester::test_Multiday()
   event->setDtStart( KDateTime( today.addDays(-10), QTime::fromString("12:00","hh:mm") ) );
   event->setDtEnd( KDateTime( today.addDays( -5 ), QTime::fromString("10:00","hh:mm") ) );
   event->setSummary( "Some event in the past" );
-  QVERIFY( cal->addEvent( event ) );  
+  QVERIFY( cal->addEvent( event ) );
 
   SummaryEventInfo::List eventsToday = SummaryEventInfo::eventsForDate( today, cal );
   QCOMPARE( 2, eventsToday.size() );
@@ -115,10 +115,10 @@ void SummaryEventTester::test_Multiday()
       QCOMPARE( ev->daysToGo, QString("now") );
       QCOMPARE( ev->makeBold, true );
     }
-    else if ( ev->summaryText == multiDayAllDayStartingToday ) { 
+    else if ( ev->summaryText == multiDayAllDayStartingToday ) {
       QVERIFY( ev->timeRange.isEmpty() );
       QCOMPARE( ev->startDate, QString("Today") );
-      QCOMPARE( ev->daysToGo, QString("now") );
+      QCOMPARE( ev->daysToGo, QString("all day") );
       QCOMPARE( ev->makeBold, true );
     }
     else
@@ -145,5 +145,5 @@ void SummaryEventTester::test_Multiday()
   qDeleteAll( eventsToday );
   qDeleteAll( events2 );
   delete cal;
-  
+
 }
