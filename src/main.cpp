@@ -51,7 +51,10 @@ static const char version[] = "1.2.9 (enterprise35 0.20090925.1027933)";
 
 class KontactApp : public KUniqueApplication {
   public:
-    KontactApp() : mMainWindow( 0 ), mSessionRestored( false ) {}
+    KontactApp() : mMainWindow( 0 ), mSessionRestored( false )
+    {
+      KGlobal::iconLoader()->addAppDir( "kdepim" );
+    }
     ~KontactApp() {}
 
     int newInstance();
@@ -167,7 +170,7 @@ int main( int argc, char **argv )
     listProfiles();
     return 0;
   }
- 
+
   if ( !KontactApp::start() ) {
     // Already running, brought to the foreground.
     return 0;

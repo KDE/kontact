@@ -220,6 +220,8 @@ void SDSummaryWidget::updateView()
   mLabels.clear();
   mLabels.setAutoDelete( false );
 
+  KIconLoader loader( "kdepim" );
+
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QValueList<SDEntry> dates;
   QLabel *label = 0;
@@ -391,9 +393,9 @@ void SDSummaryWidget::updateView()
       QImage icon_img;
       QString icon_name;
       KABC::Picture pic;
-      switch( (*addrIt).category ) {  // TODO: better icons
+      switch( (*addrIt).category ) {
       case CategoryBirthday:
-        icon_name = "cookie";
+        icon_name = "calendarbirthday";
         pic = (*addrIt).addressee.photo();
         if ( pic.isIntern() && !pic.data().isNull() ) {
           QImage img = pic.data();
@@ -405,7 +407,7 @@ void SDSummaryWidget::updateView()
         }
         break;
       case CategoryAnniversary:
-        icon_name = "kdmconfig";
+        icon_name = "calendaranniversary";
         pic = (*addrIt).addressee.photo();
         if ( pic.isIntern() && !pic.data().isNull() ) {
           QImage img = pic.data();
@@ -417,7 +419,7 @@ void SDSummaryWidget::updateView()
         }
         break;
       case CategoryHoliday:
-        icon_name = "kdmconfig"; break;
+        icon_name = "calendarholiday"; break;
       case CategoryOther:
         icon_name = "cookie"; break;
       }

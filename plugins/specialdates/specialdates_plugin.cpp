@@ -24,6 +24,7 @@
 
 #include <kaboutdata.h>
 #include <kgenericfactory.h>
+#include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/componentfactory.h>
 
@@ -41,6 +42,7 @@ SpecialdatesPlugin::SpecialdatesPlugin( Kontact::Core *core, const char *name, c
     mAboutData( 0 )
 {
   setInstance( SpecialdatesPluginFactory::instance() );
+  instance()->iconLoader()->addAppDir( "kdepim" );
 }
 
 SpecialdatesPlugin::~SpecialdatesPlugin()
