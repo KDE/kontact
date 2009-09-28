@@ -38,6 +38,7 @@
 #include <klocale.h>
 #include <kmenu.h>
 #include <kurllabel.h>
+#include <ksystemtimezone.h>
 
 #include <QDateTime>
 #include <QGridLayout>
@@ -254,7 +255,8 @@ void ApptSummaryWidget::updateView()
       connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
                this, SLOT(popupMenu(const QString&)) );
 
-      QString tipText( KCal::IncidenceFormatter::toolTipStr( mCalendar, ev, true ) );
+      QString tipText( KCal::IncidenceFormatter::toolTipStr(
+                         mCalendar, ev, dt, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }
