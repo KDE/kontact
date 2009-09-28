@@ -60,7 +60,8 @@ KUniqueApplication
 {
   Q_OBJECT
   public:
-    KontactApp() : mMainWindow( 0 ), mSessionRestored( false ) {
+    KontactApp() : mMainWindow( 0 ), mSessionRestored( false )
+    {
       KIconLoader::global()->addAppDir( "kdepim" );
     }
     ~KontactApp() {}

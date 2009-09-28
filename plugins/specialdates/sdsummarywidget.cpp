@@ -204,6 +204,8 @@ int SDSummaryWidget::dayof( KCal::Event *event, const QDate &date )
 
 void SDSummaryWidget::updateView()
 {
+  KIconLoader loader( "kdepim" );
+
   KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QList<SDEntry> dates;
   QLabel *label = 0;
@@ -391,9 +393,9 @@ void SDSummaryWidget::updateView()
       QImage icon_img;
       QString icon_name;
       KABC::Picture pic;
-      switch( (*addrIt).category ) {  // TODO: better icons
+      switch( (*addrIt).category ) {
       case CategoryBirthday:
-        icon_name = "user-identity";
+        icon_name = "view-calendar-birthday";
         pic = (*addrIt).addressee.photo();
         if ( pic.isIntern() && !pic.data().isNull() ) {
           QImage img = pic.data();
@@ -405,7 +407,7 @@ void SDSummaryWidget::updateView()
         }
         break;
       case CategoryAnniversary:
-        icon_name = "favorites";
+        icon_name = "view-calendar-wedding-anniversary";
         pic = (*addrIt).addressee.photo();
         if ( pic.isIntern() && !pic.data().isNull() ) {
           QImage img = pic.data();
@@ -417,7 +419,7 @@ void SDSummaryWidget::updateView()
         }
         break;
       case CategoryHoliday:
-        icon_name = "favorites";
+        icon_name = "view-calendar-holiday";
         break;
       case CategoryOther:
         icon_name = "user-identity";

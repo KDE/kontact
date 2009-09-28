@@ -30,6 +30,7 @@
 
 #include <kaboutdata.h>
 #include <kgenericfactory.h>
+#include <kiconloader.h>
 #include <klocale.h>
 #include <kparts/componentfactory.h>
 
@@ -39,6 +40,7 @@ SpecialdatesPlugin::SpecialdatesPlugin( Kontact::Core *core, const QVariantList 
   : Kontact::Plugin( core, core, 0 ), mAboutData( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
+  KIconLoader::global()->addAppDir( "kdepim" );
 }
 
 SpecialdatesPlugin::~SpecialdatesPlugin()
