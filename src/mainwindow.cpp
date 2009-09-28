@@ -871,18 +871,6 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
       }
     }
   }
-  const QStringList invisibleActions = plugin->invisibleToolbarActions();
-
-  QStringList::ConstIterator it;
-  for ( it = invisibleActions.constBegin(); it != invisibleActions.constEnd(); ++it ) {
-    QAction *action = part->actionCollection()->action( (*it) );
-    if ( action ) {
-      QList<KToolBar*> toolbars = toolBars();
-      for ( QList<KToolBar*>::Iterator it = toolbars.begin(); it != toolbars.end(); ++it ) {
-        ( *it )->removeAction( action );
-      }
-    }
-  }
 
   KToolBar *navigatorToolBar = findToolBar( "navigatorToolBar" );
   if ( navigatorToolBar && !navigatorToolBar->isHidden() &&

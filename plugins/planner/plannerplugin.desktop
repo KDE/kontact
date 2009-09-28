@@ -4,7 +4,7 @@ Icon=view-pim-calendar
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_plannerplugin
-X-KDE-KontactPluginVersion=8
+X-KDE-KontactPluginVersion=9
 X-KDE-KontactPluginHasPart=false
 X-KDE-KontactPluginHasSummary=true
 

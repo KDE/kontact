@@ -41,7 +41,7 @@
 EXPORT_KONTACT_PLUGIN( JournalPlugin, journal )
 
 JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList & )
-  : KontactInterface::Plugin( core, core, "korganizer" ), mIface( 0 )
+  : KontactInterface::Plugin( core, core, "korganizer", "journal" ), mIface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir( "korganizer" );

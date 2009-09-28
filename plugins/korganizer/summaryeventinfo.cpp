@@ -25,10 +25,9 @@
 */
 
 #include "summaryeventinfo.h"
+#include "korganizer/stdcalendar.h"
 
-#include <libkdepim/kpimprefs.h>
-#include <korganizer/stdcalendar.h>
-#include <kcal/incidenceformatter.h>
+#include <KCal/IncidenceFormatter>
 #include <kglobal.h>
 #include <klocale.h>
 
@@ -110,10 +109,11 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
   KCal::Event::List::ConstIterator it = events_orig.constBegin();
 
   KCal::Event::List events;
-  events.setAutoDelete( true );
+  events.setAutoDelete( false ); //do not autodelete. we need these active
   KDateTime qdt;
   KDateTime::Spec spec = KSystemTimeZones::local();
-  QDate currentDate = QDate::currentDate();
+  KDateTime currentDateTime = KDateTime::currentDateTime( spec );
+  QDate currentDate = currentDateTime.date();
 
   // prevent implicitely sharing while finding recurring events
   // replacing the QDate with the currentDate
@@ -175,6 +175,10 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
          ( currentDate > ev->dtStart().date() || !firstDayOfMultiday ) ) {
       continue;
     }
+    // If the event is already over, then it isn't upcoming. so don't print it.
+    if ( !ev->allDay() && currentDateTime > ev->dtEnd() ) {
+      continue;
+    }
 
     SummaryEventInfo *summaryEvent = new SummaryEventInfo();
     eventInfoList.append( summaryEvent );
@@ -215,7 +219,28 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     if ( daysTo > 0 ) {
       str = i18np( "in 1 day", "in %1 days", daysTo );
     } else {
-      str = i18n( "now" );
+      if ( !ev->allDay() ) {
+        int secs = currentDateTime.secsTo( ev->dtStart() );
+        if ( secs > 0 ) {
+          str = i18nc( "eg. in 1 hour 2 minutes", "in " );
+          int hours = secs / 3600;
+          if ( hours > 0 ) {
+            str += i18ncp( "use abbreviation for hour to keep the text short",
+                           "1 hr", "%1 hrs", hours );
+            str += ' ';
+            secs -= ( hours * 3600 );
+          }
+          int mins = secs / 60;
+          if ( mins > 0 ) {
+            str += i18ncp( "use abbreviation for minute to keep the text short",
+                           "1 min", "%1 mins", mins );
+          }
+        } else {
+          str = i18n( "now" );
+        }
+      } else {
+        str = i18n( "all day" );
+      }
     }
     summaryEvent->daysToGo = str;
 
@@ -226,8 +251,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     }
     summaryEvent->summaryText = str;
     summaryEvent->summaryUrl = ev->uid();
-    QString tipText(
-      KCal::IncidenceFormatter::toolTipStr( calendar, ev, true, KSystemTimeZones::local() ) );
+    QString tipText( KCal::IncidenceFormatter::toolTipStr( calendar, ev, date, true, spec ) );
     if ( !tipText.isEmpty() ) {
       summaryEvent->summaryTooltip = tipText;
     }

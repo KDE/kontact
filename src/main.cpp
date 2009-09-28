@@ -42,6 +42,7 @@
 #include <kstandarddirs.h>
 #include <ktoolinvocation.h>
 #include <kservicetypetrader.h>
+#include <akonadi/control.h>
 
 #include <QLabel>
 
@@ -141,6 +142,7 @@ int KontactApp::newInstance()
         mMainWindow->setActivePluginModule( moduleName );
       }
       mMainWindow->show();
+      Akonadi::Control::start( mMainWindow );
       KontactInterface::UniqueAppHandler::setMainWidget( mMainWindow );
       // --iconify is needed in kontact, although kstart can do that too,
       // because kstart returns immediately so it's too early to talk D-Bus to the app.

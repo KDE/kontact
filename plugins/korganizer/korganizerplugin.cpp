@@ -54,7 +54,7 @@
 EXPORT_KONTACT_PLUGIN( KOrganizerPlugin, korganizer )
 
 KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariantList & )
-  : KontactInterface::Plugin( core, core, "korganizer" ), mIface( 0 )
+  : KontactInterface::Plugin( core, core, "korganizer", "calendar" ), mIface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir( "korganizer" );

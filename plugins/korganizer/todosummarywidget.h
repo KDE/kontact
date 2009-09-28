@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2005-2006 Allen Winter <winter@kde.org>
+  Copyright (c) 2005-2006,2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,20 +26,19 @@
 #ifndef TODO_SUMMARYWIDGET_H
 #define TODO_SUMMARYWIDGET_H
 
-#include <kontactinterface/summary.h>
+#include <KontactInterface/Summary>
 #include <QList>
+
+class TodoPlugin;
 
 namespace KCal {
   class Calendar;
   class Todo;
 }
+using namespace KCal;
 
-class TodoPlugin;
-
-class QEvent;
 class QGridLayout;
 class QLabel;
-class QWidget;
 
 class TodoSummaryWidget : public KontactInterface::Summary
 {
@@ -84,51 +83,19 @@ class TodoSummaryWidget : public KontactInterface::Summary
     QList<QLabel*> mLabels;
     KCal::Calendar *mCalendar;
 
-    // FIXME: could the following methods be moved into the KCal::Todo class?
+    /**
+      Test if the To-do starts today.
+      @param todo is a pointer to a To-do object to test.
+      @return if the To-do starts on the current date.
+    */
+    bool startsToday( Todo *todo );
 
     /**
-       Test if a To-do is in-progress.
-       @param todo is a pointer to a To-do object to test.
-       @return if the To-do is in-progress.
+      Create a text string containing the states of the To-do.
+      @param todo is a pointer to a To-do object to test.
+      @return a QString containing a comma-separated list of To-do states.
     */
-    bool inProgress( KCal::Todo *todo );
-    /**
-       Test if a To-do is overdue.
-       @param todo is a pointer to a To-do object to test.
-       @return if the To-do is overdue.
-    */
-    bool overdue( KCal::Todo *todo );
-    /**
-       Test if a To-do is completed.
-       @param todo is a pointer to a To-do object to test.
-       @return if the To-do is overdue.
-    */
-    bool starts( KCal::Todo *todo );
-    /**
-       Test if a To-do starts on the current date.
-       @param todo is a pointer to a To-do object to test.
-       @return if the To-do starts today.
-    */
-    bool completed( KCal::Todo *todo );
-    /**
-       Test if a To-do is open-ended.
-       @param todo is a pointer to a To-do object to test.
-       @return if the To-do is completed.
-    */
-    bool openEnded( KCal::Todo *todo );
-    /**
-       Test if a To-do has yet to be started.
-       @param todo is a pointer to a To-do object to test.
-       @return if the To-do is yet to be started.
-    */
-    bool notStarted( KCal::Todo *todo );
-
-    /**
-       Create a text string containing the states of the To-do.
-       @param todo is a pointer to a To-do object to test.
-       @return a QString containing a comma-separated list of To-do states.
-    */
-    const QString stateStr( KCal::Todo *todo );
+    const QString stateStr( Todo *todo );
 };
 
 #endif
