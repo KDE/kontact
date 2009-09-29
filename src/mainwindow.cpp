@@ -800,7 +800,7 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
     mSidePane->setCurrentPlugin( plugin->identifier() );
   }
 
-  plugin->select();
+  plugin->aboutToSelect();
 
   mPartManager->setActivePart( part );
   QWidget *view = part->widget();
