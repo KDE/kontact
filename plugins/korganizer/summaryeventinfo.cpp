@@ -102,29 +102,13 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
 {
   KCal::Event *ev;
 
-  KCal::Event::List events_orig = calendar->events( date, calendar->timeSpec() );
-  KCal::Event::List::ConstIterator it = events_orig.constBegin();
+  KCal::Event::List events = calendar->events( date, calendar->timeSpec() );
+  KCal::Event::List::ConstIterator it = events.constBegin();
 
-  KCal::Event::List events;
-  events.setAutoDelete( false ); //do not autodelete. we need these active
   KDateTime qdt;
   KDateTime::Spec spec = KSystemTimeZones::local();
   KDateTime currentDateTime = KDateTime::currentDateTime( spec );
   QDate currentDate = currentDateTime.date();
-
-  // prevent implicitely sharing while finding recurring events
-  // replacing the QDate with the currentDate
-  for ( ; it != events_orig.constEnd(); ++it ) {
-    ev = (*it)->clone();
-    if ( ev->recursOn( date, calendar->timeSpec() ) ) {
-      qdt = ev->dtStart();
-      qdt.setDate( date );
-      ev->setDtStart( qdt );
-    }
-    if ( !skip( ev ) ) {
-      events.append( ev );
-    }
-  }
 
   // sort the events for this date by summary
   events = KCal::Calendar::sortEvents( &events,
@@ -227,7 +211,15 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
       str = i18np( "in 1 day", "in %1 days", daysTo );
     } else {
       if ( !ev->allDay() ) {
-        int secs = currentDateTime.secsTo( ev->dtStart() );
+        int secs;
+        if ( !ev->recurs() ) {
+          secs = currentDateTime.secsTo( ev->dtStart() );
+        } else {
+          KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
+          kdt = kdt.addSecs( -1 );
+          KDateTime next = ev->recurrence()->getNextDateTime( kdt );
+          secs = currentDateTime.secsTo( next );
+        }
         if ( secs > 0 ) {
           str = i18nc( "eg. in 1 hour 2 minutes", "in " );
           int hours = secs / 3600;
@@ -280,6 +272,22 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
                     KGlobal::locale()->formatTime( sST ),
                     KGlobal::locale()->formatTime( sET ) );
       summaryEvent->timeRange = str;
+    }
+
+    // For recurring events, append the next occurrence to the time range label
+    if ( ev->recurs() ) {
+      KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
+      kdt = kdt.addSecs( -1 );
+      KDateTime next = ev->recurrence()->getNextDateTime( kdt );
+      QString tmp = IncidenceFormatter::dateTimeToString(
+        ev->recurrence()->getNextDateTime( next ), ev->allDay(),
+        true, KSystemTimeZones::local() );
+      if ( !summaryEvent->timeRange.isEmpty() ) {
+        summaryEvent->timeRange += "<br>";
+      }
+      summaryEvent->timeRange += "<font size=\"small\"><i>" +
+                                 i18nc( "next occurrence", "Next: %1", tmp ) +
+                                 "</i></font>";
     }
   }
 
