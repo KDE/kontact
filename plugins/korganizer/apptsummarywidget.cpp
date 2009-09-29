@@ -113,6 +113,8 @@ void ApptSummaryWidget::updateView()
 
   KIconLoader loader( "korganizer" );
   QPixmap pm = loader.loadIcon( "view-calendar-day", KIconLoader::Small );
+  QPixmap pmb = loader.loadIcon( "view-calendar-birthday", KIconLoader::Small );
+  QPixmap pma = loader.loadIcon( "view-calendar-wedding-anniversary", KIconLoader::Small );
 
   QStringList uidList;
   SummaryEventInfo::setShowSpecialEvents( mShowBirthdaysFromCal,
@@ -144,7 +146,13 @@ void ApptSummaryWidget::updateView()
 
       // Icon label
       label = new QLabel( this );
-      label->setPixmap( pm );
+      if ( ev->categories().contains( "BIRTHDAY", Qt::CaseInsensitive ) ) {
+        label->setPixmap( pmb );
+      } else if ( ev->categories().contains( "ANNIVERSARY", Qt::CaseInsensitive ) ) {
+        label->setPixmap( pma );
+      } else {
+        label->setPixmap( pm );
+      }
       label->setMaximumWidth( label->minimumSizeHint().width() );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
