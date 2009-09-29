@@ -176,8 +176,18 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
       continue;
     }
     // If the event is already over, then it isn't upcoming. so don't print it.
-    if ( !ev->allDay() && currentDateTime > ev->dtEnd() ) {
-      continue;
+    if ( !ev->allDay() ) {
+      if ( ev->recurs() ) {
+        KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
+        kdt = kdt.addSecs( -1 );
+        if ( currentDateTime > ev->recurrence()->getNextDateTime( kdt ) ) {
+          continue;
+        }
+      } else {
+        if ( currentDateTime > ev->dtEnd() ) {
+          continue;
+        }
+      }
     }
 
     SummaryEventInfo *summaryEvent = new SummaryEventInfo();
