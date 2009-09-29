@@ -26,21 +26,20 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <kontactinterface/summary.h>
+#include <KontactInterface/Summary>
 #include <QList>
+
+class KOrganizerPlugin;
 
 namespace KCal {
   class CalendarResources;
   class Event;
 }
-
-class KOrganizerPlugin;
+using namespace KCal;
 
 class QDate;
-class QEvent;
 class QGridLayout;
 class QLabel;
-class QWidget;
 
 class ApptSummaryWidget : public KontactInterface::Summary
 {
@@ -70,12 +69,12 @@ class ApptSummaryWidget : public KontactInterface::Summary
 
   private:
     void dateDiff( const QDate &date, int &days );
-    bool skip( KCal::Event *event );
+    bool skip( Event *event );
 
     QGridLayout *mLayout;
     QList<QLabel *> mLabels;
     KOrganizerPlugin *mPlugin;
-    KCal::CalendarResources *mCalendar;
+    CalendarResources *mCalendar;
     int mDaysAhead;
     bool mShowBirthdaysFromCal;
     bool mShowAnniversariesFromCal;

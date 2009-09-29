@@ -24,26 +24,28 @@
 */
 
 #include "apptsummarywidget.h"
-#include "summaryeventinfo.h"
 #include "korganizerplugin.h"
-#include "korganizerinterface.h"
+#include "summaryeventinfo.h"
 
-#include <korganizer/stdcalendar.h>
-#include <kontactinterface/core.h>
+#include "korganizer/korganizerinterface.h"
+#include "korganizer/stdcalendar.h"
 
+#include <KCal/Calendar>
 #include <KCal/CalHelper>
-using namespace KCal;
+#include <KCal/Incidence>
 
-#include <kconfiggroup.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kurllabel.h>
+#include <KontactInterface/Core>
 
+#include <KConfigGroup>
+#include <KIconLoader>
+#include <KLocale>
+#include <KMenu>
+#include <KUrlLabel>
+
+#include <QDate>
 #include <QGridLayout>
 #include <QLabel>
 #include <QVBoxLayout>
-#include <QTextDocument>
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
   : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
