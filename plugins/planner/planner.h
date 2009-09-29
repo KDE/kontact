@@ -49,6 +49,7 @@ namespace KCal {
   class CalendarResources;
   class ResourceCalendar;
 }
+using namespace KCal;
 
 class Planner : public KontactInterface::Summary
 {
@@ -88,11 +89,11 @@ class Planner : public KontactInterface::Summary
     void completeTodo( const QString &uid );
     void changePercentage( const QString &uid );
 
-    bool inProgress( KCal::Todo *todo );
-    bool overdue( KCal::Todo *todo );
-    bool completed( KCal::Todo *todo );
-    bool openEnded( KCal::Todo *todo );
-    bool notStarted( KCal::Todo *todo );
+    bool inProgress( Todo *todo );
+    bool overdue( Todo *todo );
+    bool completed( Todo *todo );
+    bool openEnded( Todo *todo );
+    bool notStarted( Todo *todo );
 
   private:
     bool mShowRecurrence;
@@ -117,17 +118,20 @@ class Planner : public KontactInterface::Summary
     bool mHolidaysCal;
     bool mSpecialOccasionsCal;
 
-    KCal::Event::List mEvents;
+    bool mShowMyEventsOnly;
+    bool mShowMyTodosOnly;
+
+    Event::List mEvents;
     KontactInterface::Plugin *mPlugin;
     QVBoxLayout *mLayout;
     QGridLayout *mPlannerGrid;
     QList<QLabel *> mLabels;
 
-    KCal::CalendarResources *mCalendar;
+    CalendarResources *mCalendar;
     KABC::AddressBook *mAddressBook;
 
-    KCal::Todo::List mTodos;
-    QString initStateText( const KCal::Todo *todo, const QDate &date );
+    Todo::List mTodos;
+    QString initStateText( const Todo *todo, const QDate &date );
     KHolidays::HolidayRegion *mHolidays;
     QList<SDEntry> mDates;
 };

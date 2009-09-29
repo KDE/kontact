@@ -25,7 +25,7 @@
    <item>
     <widget class="KTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="GeneralTab">
       <attribute name="title">
@@ -111,13 +111,13 @@
      </widget>
      <widget class="QWidget" name="CalendarTab">
       <attribute name="title">
-       <string>Calendar</string>
+       <string>Events</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
         <widget class="QGroupBox" name="mDaysGroup">
          <property name="title">
-          <string>Show Calendar Days</string>
+          <string>Show Calendar Events</string>
          </property>
          <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
