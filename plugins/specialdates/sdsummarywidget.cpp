@@ -422,7 +422,7 @@ void SDSummaryWidget::updateView()
         icon_name = "view-calendar-holiday";
         break;
       case CategoryOther:
-        icon_name = "user-identity";
+        icon_name = "favorites";
         break;
       }
       label = new QLabel( this );
