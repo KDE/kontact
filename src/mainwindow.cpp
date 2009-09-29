@@ -500,10 +500,11 @@ void MainWindow::loadPlugins()
     }
 
     kDebug() << "Loading Plugin:" << it->name();
-    plugin =  KService::createInstance<KontactInterface::Plugin>( it->service(), this );
+    QString error;
+    plugin =  it->service()->createInstance<KontactInterface::Plugin>( this, QVariantList(), &error );
 
     if ( !plugin ) {
-      kDebug() << "Unable to create plugin for " << it->name();
+      kDebug() << "Unable to create plugin for" << it->name() << error;
       continue;
     }
 
