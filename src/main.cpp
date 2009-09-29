@@ -139,7 +139,7 @@ int KontactApp::newInstance()
     if ( !mMainWindow ) {
       mMainWindow = new KontactInterface::MainWindow();
       if ( !moduleName.isEmpty() ) {
-        mMainWindow->setActivePluginModule( moduleName );
+        mMainWindow->setInitialActivePluginModule( moduleName );
       }
       mMainWindow->show();
       Akonadi::Control::start( mMainWindow );
@@ -151,7 +151,7 @@ int KontactApp::newInstance()
       }
     } else {
       if ( !moduleName.isEmpty() ) {
-        mMainWindow->setActivePluginModule( moduleName );
+        mMainWindow->setInitialActivePluginModule( moduleName );
       }
     }
   }
