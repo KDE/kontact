@@ -4,20 +4,6 @@
  <comment>Configuration page for the Korganizer To-do Summary</comment>
  <class>PlannerSummaryConfig_Base</class>
  <widget class="QWidget" name="PlannerSummaryConfig_Base">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>374</width>
-    <height>268</height>
-   </rect>
-  </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
-  </property>
   <property name="windowTitle">
    <string>Planner Summary Configuration</string>
   </property>
@@ -37,74 +23,71 @@
          <property name="title">
           <string>General Configuration</string>
          </property>
-         <widget class="QWidget" name="layoutWidget">
-          <property name="geometry">
-           <rect>
-            <x>9</x>
-            <y>37</y>
-            <width>223</width>
-            <height>133</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_6">
-           <item>
-            <widget class="QCheckBox" name="mShowRecurrence">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>Show recurrence icon</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mShowReminder">
-             <property name="text">
-              <string>Show reminder icon</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mUnderline">
-             <property name="text">
-              <string>Underline links</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mTodo">
-             <property name="text">
-              <string>Show to-dos in planner</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mSd">
-             <property name="text">
-              <string>Show special dates in planner</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QCheckBox" name="mShowRecurrence">
+            <property name="text">
+             <string>Show recurrence icon</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mShowReminder">
+            <property name="text">
+             <string>Show reminder icon</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mUnderline">
+            <property name="text">
+             <string>Underline links</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mTodo">
+            <property name="text">
+             <string>Show To-dos in planner</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mSd">
+            <property name="text">
+             <string>Show special dates in planner</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>1</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -119,99 +102,116 @@
          <property name="title">
           <string>Show Calendar Events</string>
          </property>
-         <widget class="QWidget" name="layoutWidget">
-          <property name="geometry">
-           <rect>
-            <x>14</x>
-            <y>54</y>
-            <width>233</width>
-            <height>92</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_8">
-           <item>
-            <widget class="QRadioButton" name="mDateTodayButton">
-             <property name="text">
-              <string>&amp;Today only</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="mDateMonthButton">
-             <property name="text">
-              <string>Within the next &amp;month (31 days)</string>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout">
-             <item>
-              <widget class="QRadioButton" name="mDateRangeButton">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="text">
-                <string>Within the &amp;next:</string>
-               </property>
-               <property name="checked">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QSpinBox" name="mCustomDays">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="specialValueText">
-                <string>1 day</string>
-               </property>
-               <property name="suffix">
-                <string comment="days to show in summary"> days</string>
-               </property>
-               <property name="minimum">
-                <number>1</number>
-               </property>
-               <property name="maximum">
-                <number>365</number>
-               </property>
-               <property name="singleStep">
-                <number>1</number>
-               </property>
-               <property name="value">
-                <number>7</number>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QCheckBox" name="mShowMyEventsOnly">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>160</y>
-            <width>171</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="toolTip">
-           <string>Show Events belonging to my calendars only</string>
-          </property>
-          <property name="whatsThis">
-           <string>Check this box if you want the summary to show events belonging to your calendars only.</string>
-          </property>
-          <property name="text">
-           <string>Show &amp;my Events only</string>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QRadioButton" name="mDateTodayButton">
+            <property name="text">
+             <string>&amp;Today only</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="mDateMonthButton">
+            <property name="text">
+             <string>Within the next &amp;month (31 days)</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QRadioButton" name="mDateRangeButton">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string>Within the &amp;next:</string>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="mCustomDays">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="specialValueText">
+               <string>1 day</string>
+              </property>
+              <property name="suffix">
+               <string comment="days to show in summary"> days</string>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>365</number>
+              </property>
+              <property name="singleStep">
+               <number>1</number>
+              </property>
+              <property name="value">
+               <number>7</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>1</width>
+                <height>0</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mShowMyEventsOnly">
+            <property name="toolTip">
+             <string>Show events belonging to my calendars only</string>
+            </property>
+            <property name="whatsThis">
+             <string>Check this box if you want the summary to show events belonging to your calendars only.</string>
+            </property>
+            <property name="text">
+             <string>Show &amp;my events only</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>1</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -226,81 +226,82 @@
          <property name="title">
           <string>Hide Following To-do Types</string>
          </property>
-         <widget class="QWidget" name="layoutWidget">
-          <property name="geometry">
-           <rect>
-            <x>14</x>
-            <y>42</y>
-            <width>328</width>
-            <height>133</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_9">
-           <item>
-            <widget class="QCheckBox" name="mHideCompletedBox">
-             <property name="acceptDrops">
-              <bool>true</bool>
-             </property>
-             <property name="text">
-              <string>&amp;Completed</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mHideOpenEndedBox">
-             <property name="text">
-              <string>&amp;Open-ended (no due date)</string>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mHideUnstartedBox">
-             <property name="text">
-              <string>&amp;Unstarted (start date is in the future)</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mHideInProgressBox">
-             <property name="text">
-              <string>&amp;In-progress (started but not completed)</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mHideOverdueBox">
-             <property name="text">
-              <string>Over&amp;due (not completed and beyond due-date)</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QCheckBox" name="mShowMyTodosOnly">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>190</y>
-            <width>171</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="toolTip">
-           <string>Show To-dos belonging to my calendars only</string>
-          </property>
-          <property name="whatsThis">
-           <string>Check this box if you want the summary to show to-dos belonging to your calendars only.</string>
-          </property>
-          <property name="text">
-           <string>Show &amp;my To-dos only</string>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <item>
+           <widget class="QCheckBox" name="mHideCompletedBox">
+            <property name="text">
+             <string>&amp;Completed</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mHideOpenEndedBox">
+            <property name="text">
+             <string>&amp;Open-ended (no due date)</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mHideUnstartedBox">
+            <property name="text">
+             <string>&amp;Unstarted (start date is in the future)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mHideInProgressBox">
+            <property name="text">
+             <string>&amp;In-progress (started but not completed)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mHideOverdueBox">
+            <property name="text">
+             <string>Over&amp;due (not completed and beyond due-date)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mShowMyTodosOnly">
+            <property name="toolTip">
+             <string>Show To-dos belonging to my calendars only</string>
+            </property>
+            <property name="whatsThis">
+             <string>Check this box if you want the summary to show To-dos belonging to your calendars only.</string>
+            </property>
+            <property name="text">
+             <string>Show &amp;my To-dos only</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>1</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -318,58 +319,61 @@
          <property name="checkable">
           <bool>false</bool>
          </property>
-         <widget class="QWidget" name="layoutWidget">
-          <property name="geometry">
-           <rect>
-            <x>9</x>
-            <y>46</y>
-            <width>279</width>
-            <height>106</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_4">
-           <item>
-            <widget class="QCheckBox" name="mBirthdayConList">
-             <property name="text">
-              <string>Show birthdays from KAddressBook</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mAnniversariesConList">
-             <property name="text">
-              <string>Show anniversaries from KAddressBook</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mHolidaysCal">
-             <property name="text">
-              <string>Show holidays from calendar</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="mSpecialOccasionsCal">
-             <property name="text">
-              <string>Show special occasions from calendar</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QCheckBox" name="mBirthdayConList">
+            <property name="text">
+             <string>Show birthdays from address book</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mAnniversariesConList">
+            <property name="text">
+             <string>Show anniversaries from address book</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mHolidaysCal">
+            <property name="text">
+             <string>Show holidays from calendar</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mSpecialOccasionsCal">
+            <property name="text">
+             <string>Show special occasions from calendar</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>1</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -391,21 +395,4 @@
  </tabstops>
  <resources/>
  <connections/>
- <designerdata>
-  <property name="gridDeltaX">
-   <number>10</number>
-  </property>
-  <property name="gridDeltaY">
-   <number>10</number>
-  </property>
-  <property name="gridSnapX">
-   <bool>true</bool>
-  </property>
-  <property name="gridSnapY">
-   <bool>true</bool>
-  </property>
-  <property name="gridVisible">
-   <bool>true</bool>
-  </property>
- </designerdata>
 </ui>
