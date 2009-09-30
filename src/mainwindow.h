@@ -64,7 +64,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     ~MainWindow();
 
     virtual PluginList pluginList() const { return mPlugins; }
-    void setActivePluginModule( const QString & );
+    void setInitialActivePluginModule( const QString & );
 
     static bool pluginActionWeightLessThan( const QAction *left, const QAction *right );
     static bool pluginWeightLessThan( const KontactInterface::Plugin *left, const KontactInterface::Plugin *right );
@@ -90,7 +90,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     void slotShowIntroduction();
     void showAboutDialog();
     void slotShowStatusMsg( const QString & );
-    void activatePluginModule();
+    void activateInitialPluginModule();
     void slotOpenUrl( const KUrl &url );
 
   private:
@@ -142,7 +142,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     KSqueezedTextLabel *mStatusMsgLabel;
     KPIM::StatusbarProgressWidget *mLittleProgress;
 
-    QString mActiveModule;
+    QString mInitialActiveModule;
 
     QMap<QString, QPointer<QWidget> > mFocusWidgets;
     QMap<Plugin*, KAction*> mPluginAction;

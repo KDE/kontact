@@ -240,7 +240,7 @@ void MainWindow::initObject()
            this, SLOT(slotShowStatusMsg(const QString &)) );
 
   // launch commandline specified module if any
-  activatePluginModule();
+  activateInitialPluginModule();
 
   if ( Prefs::lastVersionSeen() == KGlobal::mainComponent().aboutData()->version() ) {
     selectPlugin( mCurrentPlugin );
@@ -279,10 +279,11 @@ MainWindow::~MainWindow()
   }
 }
 
-void MainWindow::setActivePluginModule( const QString &module )
+// Called by main().
+void MainWindow::setInitialActivePluginModule( const QString &module )
 {
-  mActiveModule = module;
-  activatePluginModule();
+  mInitialActiveModule = module;
+  activateInitialPluginModule();
 }
 
 bool MainWindow::pluginActionWeightLessThan( const QAction *left, const QAction *right )
@@ -300,12 +301,12 @@ bool MainWindow::pluginWeightLessThan( const KontactInterface::Plugin *left,
   return left->weight() < right->weight();
 }
 
-void MainWindow::activatePluginModule()
+void MainWindow::activateInitialPluginModule()
 {
-  if ( !mActiveModule.isEmpty() ) {
+  if ( !mInitialActiveModule.isEmpty() ) {
     PluginList::ConstIterator end = mPlugins.constEnd();
     for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
-      if ( ( *it )->identifier().contains( mActiveModule ) ) {
+      if ( ( *it )->identifier().contains( mInitialActiveModule ) ) {
         selectPlugin( *it );
         return;
       }
@@ -499,10 +500,11 @@ void MainWindow::loadPlugins()
     }
 
     kDebug() << "Loading Plugin:" << it->name();
-    plugin =  KService::createInstance<KontactInterface::Plugin>( it->service(), this );
+    QString error;
+    plugin =  it->service()->createInstance<KontactInterface::Plugin>( this, QVariantList(), &error );
 
     if ( !plugin ) {
-      kDebug() << "Unable to create plugin for " << it->name();
+      kDebug() << "Unable to create plugin for" << it->name() << error;
       continue;
     }
 
@@ -798,7 +800,7 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
     mSidePane->setCurrentPlugin( plugin->identifier() );
   }
 
-  plugin->select();
+  plugin->aboutToSelect();
 
   mPartManager->setActivePart( part );
   QWidget *view = part->widget();

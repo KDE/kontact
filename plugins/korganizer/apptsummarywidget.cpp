@@ -24,26 +24,28 @@
 */
 
 #include "apptsummarywidget.h"
-#include "summaryeventinfo.h"
 #include "korganizerplugin.h"
-#include "korganizerinterface.h"
+#include "summaryeventinfo.h"
 
-#include <korganizer/stdcalendar.h>
-#include <kontactinterface/core.h>
+#include "korganizer/korganizerinterface.h"
+#include "korganizer/stdcalendar.h"
 
+#include <KCal/Calendar>
 #include <KCal/CalHelper>
-using namespace KCal;
+#include <KCal/Incidence>
 
-#include <kconfiggroup.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kurllabel.h>
+#include <KontactInterface/Core>
 
+#include <KConfigGroup>
+#include <KIconLoader>
+#include <KLocale>
+#include <KMenu>
+#include <KUrlLabel>
+
+#include <QDate>
 #include <QGridLayout>
 #include <QLabel>
 #include <QVBoxLayout>
-#include <QTextDocument>
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
   : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
@@ -113,7 +115,10 @@ void ApptSummaryWidget::updateView()
 
   KIconLoader loader( "korganizer" );
   QPixmap pm = loader.loadIcon( "view-calendar-day", KIconLoader::Small );
+  QPixmap pmb = loader.loadIcon( "view-calendar-birthday", KIconLoader::Small );
+  QPixmap pma = loader.loadIcon( "view-calendar-wedding-anniversary", KIconLoader::Small );
 
+  QStringList uidList;
   SummaryEventInfo::setShowSpecialEvents( mShowBirthdaysFromCal,
                                           mShowAnniversariesFromCal );
   QDate currentDate = QDate::currentDate();
@@ -132,9 +137,24 @@ void ApptSummaryWidget::updateView()
         continue;
       }
 
+      Event *ev = event->ev;
+      // print the first of the recurring event series only
+      if ( ev->recurs() ) {
+        if ( uidList.contains( ev->uid() ) ) {
+          continue;
+        }
+        uidList.append( ev->uid() );
+      }
+
       // Icon label
       label = new QLabel( this );
-      label->setPixmap( pm );
+      if ( ev->categories().contains( "BIRTHDAY", Qt::CaseInsensitive ) ) {
+        label->setPixmap( pmb );
+      } else if ( ev->categories().contains( "ANNIVERSARY", Qt::CaseInsensitive ) ) {
+        label->setPixmap( pma );
+      } else {
+        label->setPixmap( pm );
+      }
       label->setMaximumWidth( label->minimumSizeHint().width() );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );

@@ -1,6 +1,8 @@
 /*
   This file is part of Kontact.
   Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
+  Copyright (c) 2006-2008 Oral Timocin <oral.timocin@kdemail.net>
+  Copyright (C) 2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -78,6 +80,9 @@ KCMPlanner::KCMPlanner( const KComponentData &inst, QWidget *parent )
   connect( mHolidaysCal, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mSpecialOccasionsCal, SIGNAL(stateChanged(int)), SLOT(modified()) );
 
+  connect( mShowMyEventsOnly, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect( mShowMyTodosOnly, SIGNAL(stateChanged(int)), SLOT(modified()) );
+
   load();
 }
 
@@ -105,19 +110,19 @@ void KCMPlanner::load()
   KConfig config( "plannerrc" );
 
   //Read general config
-  KConfigGroup general = config.group( "General" );
+  KConfigGroup group = config.group( "General" );
 
-  mShowRecurrence->setChecked( general.readEntry( "ShowRecurrence", true ) );
-  mShowReminder->setChecked( general.readEntry( "ShowReminder", true ) );
-  mUnderline->setChecked( general.readEntry( "underlineLink", true ) );
-  mTodo->setChecked( general.readEntry( "ShowTodo", true ) );
-  mSd->setChecked( general.readEntry( "ShowSd", true ) );
+  mShowRecurrence->setChecked( group.readEntry( "ShowRecurrence", true ) );
+  mShowReminder->setChecked( group.readEntry( "ShowReminder", true ) );
+  mUnderline->setChecked( group.readEntry( "underlineLink", true ) );
+  mTodo->setChecked( group.readEntry( "ShowTodo", true ) );
+  mSd->setChecked( group.readEntry( "ShowSd", true ) );
 
   //Read Calendar Config
-  KConfigGroup calendar = config.group( "Calendar" );
+  group = config.group( "Calendar" );
 
   //Set the count of Days from config
-  int days = calendar.readEntry( "DaysToShow", 7 );
+  int days = group.readEntry( "DaysToShow", 7 );
   if ( days == 1 ) {
     mDateTodayButton->setChecked( true );
   } else if( days == 31 ) {
@@ -129,22 +134,27 @@ void KCMPlanner::load()
   }
 
   //Read Todo Config
-  KConfigGroup hideGroup( &config, "Hide" );
-  mHideInProgressBox->setChecked( hideGroup.readEntry( "InProgress", false ) );
-  mHideOverdueBox->setChecked( hideGroup.readEntry( "Overdue", false ) );
-  mHideCompletedBox->setChecked( hideGroup.readEntry( "Completed", true ) );
-  mHideOpenEndedBox->setChecked( hideGroup.readEntry( "OpenEnded", false ) );
-  mHideUnstartedBox->setChecked( hideGroup.readEntry( "NotStarted", false ) );
-  //Read Special Dates Config
-  KConfigGroup sd = config.group( "SpecialDates" );
+  group = config.group( "Hide" );
+  mHideInProgressBox->setChecked( group.readEntry( "InProgress", false ) );
+  mHideOverdueBox->setChecked( group.readEntry( "Overdue", false ) );
+  mHideCompletedBox->setChecked( group.readEntry( "Completed", true ) );
+  mHideOpenEndedBox->setChecked( group.readEntry( "OpenEnded", false ) );
+  mHideUnstartedBox->setChecked( group.readEntry( "NotStarted", false ) );
 
-//   mSdGroup->setChecked( sd.readEntry( "SpecialDates", true ) );
-//   mBirthdayCal->setChecked( sd.readEntry( "BirthdayCal", true ) );
-  mBirthdayConList->setChecked( sd.readEntry( "BirthdayConList", true ) );
-//   mAnniversariesCal->setChecked( sd.readEntry( "AnniversariesCal", true ) );
-  mAnniversariesConList->setChecked( sd.readEntry( "AnniversariesConList", true ) );
-  mHolidaysCal->setChecked( sd.readEntry ( "HolidaysCal", true ) );
-  mSpecialOccasionsCal->setChecked( sd.readEntry( "SpecialOccasionsCal", true ) );
+  //Read Special Dates Config
+  group = config.group( "SpecialDates" );
+//   mSdGroup->setChecked( group.readEntry( "SpecialDates", true ) );
+//   mBirthdayCal->setChecked( group.readEntry( "BirthdayCal", true ) );
+  mBirthdayConList->setChecked( group.readEntry( "BirthdayConList", true ) );
+//   mAnniversariesCal->setChecked( group.readEntry( "AnniversariesCal", true ) );
+  mAnniversariesConList->setChecked( group.readEntry( "AnniversariesConList", true ) );
+  mHolidaysCal->setChecked( group.readEntry ( "HolidaysCal", true ) );
+  mSpecialOccasionsCal->setChecked( group.readEntry( "SpecialOccasionsCal", true ) );
+
+  //Read Groupware Config
+  group = config.group( "Groupware" );
+  mShowMyEventsOnly->setChecked( group.readEntry( "ShowMyEventsOnly", false ) );
+  mShowMyTodosOnly->setChecked( group.readEntry( "ShowMyTodosOnly", false ) );
 
   emit changed( false );
 }
@@ -154,44 +164,49 @@ void KCMPlanner::save()
   KConfig config( "plannerrc" );
 
   //General Setion
-  KConfigGroup general = config.group( "General" );
+  KConfigGroup group = config.group( "General" );
 
-  general.writeEntry( "ShowRecurrence", mShowRecurrence->isChecked() );
-  general.writeEntry( "ShowReminder", mShowReminder->isChecked() );
-  general.writeEntry( "underlineLink", mUnderline->isChecked() );
-  general.writeEntry( "ShowTodo", mTodo->isChecked() );
-  general.writeEntry( "ShowSd", mSd->isChecked() );
+  group.writeEntry( "ShowRecurrence", mShowRecurrence->isChecked() );
+  group.writeEntry( "ShowReminder", mShowReminder->isChecked() );
+  group.writeEntry( "underlineLink", mUnderline->isChecked() );
+  group.writeEntry( "ShowTodo", mTodo->isChecked() );
+  group.writeEntry( "ShowSd", mSd->isChecked() );
 
   //Calendar Section
-  KConfigGroup calendar = config.group( "Calendar" );
+  group = config.group( "Calendar" );
 
   int days ;
-if ( mDateTodayButton->isChecked() ) {
+  if ( mDateTodayButton->isChecked() ) {
     days = 1;
   } else if ( mDateMonthButton->isChecked() ) {
     days = 31;
   } else {
     days = mCustomDays->value();
   }
-  calendar.writeEntry( "DaysToShow", days );
+  group.writeEntry( "DaysToShow", days );
 
   //Todo Section
-  KConfigGroup hideGroup( &config, "Hide" );
-  hideGroup.writeEntry( "InProgress", mHideInProgressBox->isChecked() );
-  hideGroup.writeEntry( "Overdue", mHideOverdueBox->isChecked() );
-  hideGroup.writeEntry( "Completed", mHideCompletedBox->isChecked() );
-  hideGroup.writeEntry( "OpenEnded", mHideOpenEndedBox->isChecked() );
-  hideGroup.writeEntry( "NotStarted", mHideUnstartedBox->isChecked() );
+  group = config.group( "Hide" );
+  group.writeEntry( "InProgress", mHideInProgressBox->isChecked() );
+  group.writeEntry( "Overdue", mHideOverdueBox->isChecked() );
+  group.writeEntry( "Completed", mHideCompletedBox->isChecked() );
+  group.writeEntry( "OpenEnded", mHideOpenEndedBox->isChecked() );
+  group.writeEntry( "NotStarted", mHideUnstartedBox->isChecked() );
 
   //SpecialDates Section
-  KConfigGroup sd = config.group( "SpecialDates" );
+  group = config.group( "SpecialDates" );
 
 //   sd.writeEntry( "BirthdayCal", mBirthdayCal->isChecked() );
-  sd.writeEntry( "BirthdayConList", mBirthdayConList->isChecked() );
-//   sd.writeEntry( "AnniversariesCal", mAnniversariesCal->isChecked() );
-  sd.writeEntry( "AnniversariesConList", mAnniversariesConList->isChecked() );
-  sd.writeEntry( "HolidaysCal", mHolidaysCal->isChecked() );
-  sd.writeEntry( "SpecialOccasionsCal", mSpecialOccasionsCal->isChecked() );
+  group.writeEntry( "BirthdayConList", mBirthdayConList->isChecked() );
+//   group.writeEntry( "AnniversariesCal", mAnniversariesCal->isChecked() );
+  group.writeEntry( "AnniversariesConList", mAnniversariesConList->isChecked() );
+  group.writeEntry( "HolidaysCal", mHolidaysCal->isChecked() );
+  group.writeEntry( "SpecialOccasionsCal", mSpecialOccasionsCal->isChecked() );
+
+  //Groupware Section
+  group = config.group( "Groupware" );
+  group.writeEntry( "ShowMyEventsOnly", mShowMyEventsOnly->isChecked() );
+  group.writeEntry( "ShowMyTodosOnly", mShowMyTodosOnly->isChecked() );
 
   config.sync();
 
@@ -222,6 +237,9 @@ void KCMPlanner::defaults()
   mAnniversariesConList->setChecked( true );
   mHolidaysCal->setChecked( true );
   mSpecialOccasionsCal->setChecked( true );
+
+  mShowMyEventsOnly->setChecked( false );
+  mShowMyTodosOnly->setChecked( false );
 
   emit changed( true );
 }
