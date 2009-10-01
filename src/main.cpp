@@ -28,8 +28,7 @@
 
 #include <kontactinterface/plugin.h>
 #include <kontactinterface/uniqueapphandler.h>
-
-#include <pimapplication.h>
+#include <kontactinterface/pimuniqueapplication.h>
 
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
@@ -56,7 +55,7 @@ static const char version[] = KDEPIM_VERSION;
 
 class KontactApp : public
 #ifdef Q_WS_WIN
-KPIM::PimApplication
+KontactInterface::PimUniqueApplication
 #else
 KUniqueApplication
 #endif
