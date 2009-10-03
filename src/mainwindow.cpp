@@ -455,13 +455,17 @@ void MainWindow::setupActions()
   }
 
   KAction *action = new KAction( KIcon( "configure" ), i18n( "Configure Kontact..." ), this );
+  action->setHelpText( i18n( "Configure Kontact" ) );
   actionCollection()->addAction( "settings_configure_kontact", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
   action = new KAction( KIcon( "kontact" ), i18n( "&Kontact Introduction" ), this );
+  action->setHelpText( i18n( "Show the Kontact Introduction page" ) );
   actionCollection()->addAction( "help_introduction", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowIntroduction()) );
+
   action = new KAction( KIcon( "ktip" ), i18n( "&Tip of the Day" ), this );
+  action->setHelpText( i18n( "Show the Tip-of-the-Day dialog" ) );
   actionCollection()->addAction( "help_tipofday", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowTip()) );
 }
@@ -656,9 +660,10 @@ void MainWindow::addPlugin( KontactInterface::Plugin *plugin )
 
   if ( plugin->showInSideBar() ) {
     KAction *action = new KAction( KIcon( plugin->icon() ), plugin->title(), this );
+    action->setHelpText( i18n( "Add plugin %1", plugin->title() ) );
     action->setCheckable( true );
-    action->setData( QVariant::fromValue( plugin ) ); // on the slot we can decode which action was
-                                                      // triggered
+    action->setData( QVariant::fromValue( plugin ) ); // on the slot we can decode
+                                                      // which action was triggered
     connect( action, SIGNAL(triggered(bool)), SLOT(slotActionTriggered()) );
     actionCollection()->addAction( plugin->title(), action );
     mActionPlugins.append( action );
