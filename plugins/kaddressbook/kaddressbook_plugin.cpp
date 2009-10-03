@@ -58,7 +58,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
   insertNewAction( action );
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ),
-                                     i18n( "Synchronize Contacts" ), this );
+                                     i18n( "Sync Contacts" ), this );
   actionCollection()->addAction( "kaddressbook_sync", syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
   insertSyncAction( syncAction );
