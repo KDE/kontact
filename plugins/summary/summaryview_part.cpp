@@ -178,7 +178,9 @@ void SummaryViewPart::updateWidgets()
           mLeftColumnSummaries.append( plugin->identifier() );
         }
 
-        loadedSummaries.append( plugin->identifier() );
+        if ( activeSummaries.contains( plugin->identifier() ) ) {
+          loadedSummaries.append( plugin->identifier() );
+        }
       } else {
         summary->hide();
       }
