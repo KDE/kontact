@@ -229,6 +229,10 @@ void SummaryViewPart::updateWidgets()
       mRightColumn->addWidget( mSummaries[ *strIt ] );
     }
   }
+  QSpacerItem *lspacer = new QSpacerItem( 1, 1000 );
+  QSpacerItem *rspacer = new QSpacerItem( 1, 1000 );
+  mLeftColumn->addSpacerItem( lspacer );
+  mRightColumn->addSpacerItem( rspacer );
 
   mFrame->show();
 
