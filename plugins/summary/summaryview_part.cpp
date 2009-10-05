@@ -21,7 +21,6 @@
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-
 #include "summaryview_part.h"
 
 #include <kontactinterface/summary.h>
@@ -157,9 +156,12 @@ void SummaryViewPart::updateWidgets()
   QList<KontactInterface::Plugin*>::ConstIterator it = plugins.constBegin();
   for ( ; it != end; ++it ) {
     KontactInterface::Plugin *plugin = *it;
-    if ( !activeSummaries.contains( plugin->identifier() ) ) {
-      continue;
-    }
+    //winterz: comment out the next block because I think showing the
+    //configuration page for all summaries, even if they aren't active,
+    //is less confusing for the user.
+    //if ( !activeSummaries.contains( plugin->identifier() ) ) {
+    //  continue;
+    //}
 
     KontactInterface::Summary *summary = plugin->createSummaryWidget( mFrame );
     if ( summary ) {
@@ -176,7 +178,9 @@ void SummaryViewPart::updateWidgets()
           mLeftColumnSummaries.append( plugin->identifier() );
         }
 
-        loadedSummaries.append( plugin->identifier() );
+        if ( activeSummaries.contains( plugin->identifier() ) ) {
+          loadedSummaries.append( plugin->identifier() );
+        }
       } else {
         summary->hide();
       }

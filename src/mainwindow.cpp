@@ -434,13 +434,16 @@ void MainWindow::setupActions()
   // If the user is using disconnected imap mail folders as groupware, we add
   // plugins' Synchronize actions to the toolbar which trigger an imap sync.
   // Otherwise it's redundant and misleading.
+  KConfig _config( "kmailrc" );
+  KConfigGroup config( &_config, "Groupware" );
+#if defined(KDEPIM_ENTERPRISE_BUILD)
+  bool defGW = config.readEntry( "Enabled", true );
+#else
+  bool defGW = config.readEntry( "Enabled", false );
+#endif
   KConfig *_cfg = Prefs::self()->config();
   KConfigGroup cfg( _cfg, "Kontact Groupware Settings" );
-#if defined(KDEPIM_ENTERPRISE_BUILD)
-  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", true );
-#else
-  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", false );
-#endif
+  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", defGW );
 
   if ( mSyncActionsEnabled ) {
     mSyncActions = new KActionMenu(
@@ -452,13 +455,17 @@ void MainWindow::setupActions()
   }
 
   KAction *action = new KAction( KIcon( "configure" ), i18n( "Configure Kontact..." ), this );
+  action->setHelpText( i18n( "Configure Kontact" ) );
   actionCollection()->addAction( "settings_configure_kontact", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
   action = new KAction( KIcon( "kontact" ), i18n( "&Kontact Introduction" ), this );
+  action->setHelpText( i18n( "Show the Kontact Introduction page" ) );
   actionCollection()->addAction( "help_introduction", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowIntroduction()) );
+
   action = new KAction( KIcon( "ktip" ), i18n( "&Tip of the Day" ), this );
+  action->setHelpText( i18n( "Show the Tip-of-the-Day dialog" ) );
   actionCollection()->addAction( "help_tipofday", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowTip()) );
 }
@@ -501,7 +508,8 @@ void MainWindow::loadPlugins()
 
     kDebug() << "Loading Plugin:" << it->name();
     QString error;
-    plugin =  it->service()->createInstance<KontactInterface::Plugin>( this, QVariantList(), &error );
+    plugin =
+      it->service()->createInstance<KontactInterface::Plugin>( this, QVariantList(), &error );
 
     if ( !plugin ) {
       kDebug() << "Unable to create plugin for" << it->name() << error;
@@ -652,9 +660,10 @@ void MainWindow::addPlugin( KontactInterface::Plugin *plugin )
 
   if ( plugin->showInSideBar() ) {
     KAction *action = new KAction( KIcon( plugin->icon() ), plugin->title(), this );
+    action->setHelpText( i18n( "Add plugin %1", plugin->title() ) );
     action->setCheckable( true );
-    action->setData( QVariant::fromValue( plugin ) ); // on the slot we can decode which action was
-                                                      // triggered
+    action->setData( QVariant::fromValue( plugin ) ); // on the slot we can decode
+                                                      // which action was triggered
     connect( action, SIGNAL(triggered(bool)), SLOT(slotActionTriggered()) );
     actionCollection()->addAction( plugin->title(), action );
     mActionPlugins.append( action );
