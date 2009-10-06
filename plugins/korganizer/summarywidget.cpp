@@ -94,6 +94,8 @@ void SummaryWidget::updateView()
   QLabel *label = 0;
   int counter = 0;
   QPixmap pm = loader.loadIcon( "appointment", KIcon::Small );
+  QPixmap pmb = loader.loadIcon( "calendarbirthday", KIcon::Small );
+  QPixmap pma = loader.loadIcon( "calendaranniversary", KIcon::Small );
 
   QDate dt;
   QDate currentDate = QDate::currentDate();
@@ -156,7 +158,13 @@ void SummaryWidget::updateView()
 
       // Fill Appointment Pixmap Field
       label = new QLabel( this );
-      label->setPixmap( pm );
+      if ( ev->categories().contains( "Birthday" ) ) {
+        label->setPixmap( pmb );
+      } else if ( ev->categories().contains( "Anniversary" ) ) {
+        label->setPixmap( pma );
+      } else {
+        label->setPixmap( pm );
+      }
       label->setMaximumWidth( label->minimumSizeHint().width() );
       label->setAlignment( AlignVCenter );
       mLayout->addWidget( label, counter, 0 );
