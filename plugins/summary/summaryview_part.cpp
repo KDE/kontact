@@ -156,33 +156,27 @@ void SummaryViewPart::updateWidgets()
   QList<KontactInterface::Plugin*>::ConstIterator it = plugins.constBegin();
   for ( ; it != end; ++it ) {
     KontactInterface::Plugin *plugin = *it;
-    //winterz: comment out the next block because I think showing the
-    //configuration page for all summaries, even if they aren't active,
-    //is less confusing for the user.
-    //if ( !activeSummaries.contains( plugin->identifier() ) ) {
-    //  continue;
-    //}
+    if ( activeSummaries.contains( plugin->identifier() ) ) {
+      KontactInterface::Summary *summary = plugin->createSummaryWidget( mFrame );
 
-    KontactInterface::Summary *summary = plugin->createSummaryWidget( mFrame );
-    if ( summary ) {
-      if ( summary->summaryHeight() > 0 ) {
-        mSummaries.insert( plugin->identifier(), summary );
+      if ( summary ) {
+        if ( summary->summaryHeight() > 0 ) {
+          mSummaries.insert( plugin->identifier(), summary );
 
-        connect( summary, SIGNAL(message(const QString&)),
-                 BroadcastStatus::instance(), SLOT(setStatusMsg(const QString&)) );
-        connect( summary, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
-                 this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
+          connect( summary, SIGNAL(message(const QString&)),
+                   BroadcastStatus::instance(), SLOT(setStatusMsg(const QString&)) );
+          connect( summary, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
+                   this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
 
-        if ( !mLeftColumnSummaries.contains( plugin->identifier() ) &&
-             !mRightColumnSummaries.contains( plugin->identifier() ) ) {
-          mLeftColumnSummaries.append( plugin->identifier() );
-        }
+          if ( !mLeftColumnSummaries.contains( plugin->identifier() ) &&
+               !mRightColumnSummaries.contains( plugin->identifier() ) ) {
+            mLeftColumnSummaries.append( plugin->identifier() );
+          }
 
-        if ( activeSummaries.contains( plugin->identifier() ) ) {
           loadedSummaries.append( plugin->identifier() );
+        } else {
+          summary->hide();
         }
-      } else {
-        summary->hide();
       }
     }
   }
@@ -235,6 +229,10 @@ void SummaryViewPart::updateWidgets()
       mRightColumn->addWidget( mSummaries[ *strIt ] );
     }
   }
+  QSpacerItem *lspacer = new QSpacerItem( 1, 1000 );
+  QSpacerItem *rspacer = new QSpacerItem( 1, 1000 );
+  mLeftColumn->addSpacerItem( lspacer );
+  mRightColumn->addSpacerItem( rspacer );
 
   mFrame->show();
 

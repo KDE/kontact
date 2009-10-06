@@ -856,9 +856,9 @@ QString Planner::initStateText( const Todo *todo, const QDate &date )
     stateText = i18nc( "to-do starts today", "starts today" );
   }
 
-  // all todos which end today
+  // all todos which are due today
   if ( todo->hasDueDate() && todo->dtDue().date() == date && todo->dtDue().date() == currentDate ) {
-    stateText = i18nc( "to-do ends today", "ends today" );
+    stateText = i18nc( "to-do due today", "due today" );
   }
   if ( todo->isCompleted() ) {
     stateText = i18nc( "to-do is completed", "completed" );
