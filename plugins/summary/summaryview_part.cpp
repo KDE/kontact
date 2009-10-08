@@ -19,8 +19,9 @@
   You should have received a copy of the GNU Library General Public License
   along with this library; see the file COPYING.LIB.  If not, write to
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
+  Boston, MA 02110-1301, USA.
 */
+
 #include "summaryview_part.h"
 
 #include <kontactinterface/summary.h>
@@ -156,27 +157,28 @@ void SummaryViewPart::updateWidgets()
   QList<KontactInterface::Plugin*>::ConstIterator it = plugins.constBegin();
   for ( ; it != end; ++it ) {
     KontactInterface::Plugin *plugin = *it;
-    if ( activeSummaries.contains( plugin->identifier() ) ) {
-      KontactInterface::Summary *summary = plugin->createSummaryWidget( mFrame );
+    if ( !activeSummaries.contains( plugin->identifier() ) ) {
+      continue;
+    }
 
-      if ( summary ) {
-        if ( summary->summaryHeight() > 0 ) {
-          mSummaries.insert( plugin->identifier(), summary );
+    KontactInterface::Summary *summary = plugin->createSummaryWidget( mFrame );
+    if ( summary ) {
+      if ( summary->summaryHeight() > 0 ) {
+        mSummaries.insert( plugin->identifier(), summary );
 
-          connect( summary, SIGNAL(message(const QString&)),
-                   BroadcastStatus::instance(), SLOT(setStatusMsg(const QString&)) );
-          connect( summary, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
-                   this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
+        connect( summary, SIGNAL(message(const QString&)),
+                 BroadcastStatus::instance(), SLOT(setStatusMsg(const QString&)) );
+        connect( summary, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
+                 this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
 
-          if ( !mLeftColumnSummaries.contains( plugin->identifier() ) &&
-               !mRightColumnSummaries.contains( plugin->identifier() ) ) {
-            mLeftColumnSummaries.append( plugin->identifier() );
-          }
-
-          loadedSummaries.append( plugin->identifier() );
-        } else {
-          summary->hide();
+        if ( !mLeftColumnSummaries.contains( plugin->identifier() ) &&
+             !mRightColumnSummaries.contains( plugin->identifier() ) ) {
+          mLeftColumnSummaries.append( plugin->identifier() );
         }
+
+        loadedSummaries.append( plugin->identifier() );
+      } else {
+        summary->hide();
       }
     }
   }
@@ -229,8 +231,13 @@ void SummaryViewPart::updateWidgets()
       mRightColumn->addWidget( mSummaries[ *strIt ] );
     }
   }
-  QSpacerItem *lspacer = new QSpacerItem( 1, 1000 );
-  QSpacerItem *rspacer = new QSpacerItem( 1, 1000 );
+
+  QSpacerItem *lspacer = new QSpacerItem( 1, 10,
+                                          QSizePolicy::MinimumExpanding,
+                                          QSizePolicy::MinimumExpanding );
+  QSpacerItem *rspacer = new QSpacerItem( 1, 10,
+                                          QSizePolicy::MinimumExpanding,
+                                          QSizePolicy::MinimumExpanding );
   mLeftColumn->addSpacerItem( lspacer );
   mRightColumn->addSpacerItem( rspacer );
 
