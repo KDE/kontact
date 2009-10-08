@@ -232,6 +232,15 @@ void SummaryViewPart::updateWidgets()
     }
   }
 
+  QSpacerItem *lspacer = new QSpacerItem( 1, 10,
+                                          QSizePolicy::MinimumExpanding,
+                                          QSizePolicy::MinimumExpanding );
+  QSpacerItem *rspacer = new QSpacerItem( 1, 10,
+                                          QSizePolicy::MinimumExpanding,
+                                          QSizePolicy::MinimumExpanding );
+  mLeftColumn->addSpacerItem( lspacer );
+  mRightColumn->addSpacerItem( rspacer );
+
   mFrame->show();
 
   mMainWidget->setUpdatesEnabled( true );
