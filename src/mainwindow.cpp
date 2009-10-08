@@ -430,13 +430,17 @@ void MainWindow::setupActions()
   // If the user is using disconnected imap mail folders as groupware, we add
   // plugins' Synchronize actions to the toolbar which trigger an imap sync.
   // Otherwise it's redundant and misleading.
+  KConfig _config( "kmailrc" );
+  KConfigGroup config( &_config, "Groupware" );
+#if defined(KDEPIM_ENTERPRISE_BUILD)
+  bool defGW = config.readEntry( "Enabled", true );
+#else
+  bool defGW = config.readEntry( "Enabled", false );
+#endif
   KConfig *_cfg = Prefs::self()->config();
   KConfigGroup cfg( _cfg, "Kontact Groupware Settings" );
-#if defined(KDEPIM_ENTERPRISE_BUILD)
-  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", true );
-#else
-  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", false );
-#endif
+  mSyncActionsEnabled = cfg.readEntry( "GroupwareMailFoldersEnabled", defGW );
+
   if ( mSyncActionsEnabled ) {
     mSyncActions = new KActionMenu(
       KIcon( "view-refresh" ),
