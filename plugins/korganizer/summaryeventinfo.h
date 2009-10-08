@@ -3,6 +3,7 @@
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
   Copyright (c) 2005-2006,2008 Allen Winter <winter@kde.org>
+  Copyright (c) 2008 Thomas McGuire <mcguire@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -22,63 +23,46 @@
   with any edition of Qt, and distribute the resulting executable,
   without including the source code for Qt in the source distribution.
 */
+#ifndef SUMMARYEVENTINFO_H
+#define SUMMARYEVENTINFO_H
 
-#ifndef SUMMARYWIDGET_H
-#define SUMMARYWIDGET_H
-
-#include <kontactinterfaces/summary.h>
 #include <QList>
-
-class KOrganizerPlugin;
+#include <QString>
 
 namespace KCal {
-  class CalendarResources;
+  class Calendar;
   class Event;
 }
-using namespace KCal;
 
 class QDate;
-class QGridLayout;
-class QLabel;
 
-class ApptSummaryWidget : public Kontact::Summary
+class SummaryEventInfo
 {
-  Q_OBJECT
-
   public:
-    ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent );
-    ~ApptSummaryWidget();
 
-    int summaryHeight() const { return 3; }
-    QStringList configModules() const;
-    void configUpdated();
-    void updateSummary( bool force = false )
-    {
-      Q_UNUSED( force );
-      updateView();
-    }
+    typedef QList<SummaryEventInfo*> List;
 
-  protected:
-    virtual bool eventFilter( QObject *obj, QEvent *e );
+    SummaryEventInfo();
 
-  private slots:
-    void updateView();
-    void popupMenu( const QString &uid );
-    void viewEvent( const QString &uid );
-    void removeEvent( const QString &uid );
+    static List eventsForDate( const QDate &date,
+                               KCal::Calendar *calendar );
+    static void setShowSpecialEvents( bool skipBirthdays, bool skipAnniversaries );
+
+    KCal::Event *ev;
+    QString startDate;
+    QString dateSpan;
+    QString daysToGo;
+    QString timeRange;
+    QString summaryText;
+    QString summaryUrl;
+    QString summaryTooltip;
+    bool makeBold;
 
   private:
-    void dateDiff( const QDate &date, int &days );
-    bool skip( Event *event );
 
-    QGridLayout *mLayout;
-    QList<QLabel *> mLabels;
-    KOrganizerPlugin *mPlugin;
-    CalendarResources *mCalendar;
-    int mDaysAhead;
-    bool mShowBirthdaysFromCal;
-    bool mShowAnniversariesFromCal;
-    bool mShowMineOnly;
+    static void dateDiff( const QDate &date, int &days );
+    static bool skip( KCal::Event *event );
+    static bool mShowBirthdays, mShowAnniversaries;
 };
 
 #endif
