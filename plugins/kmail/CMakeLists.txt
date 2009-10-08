@@ -1,5 +1,5 @@
 
-include_directories(${CMAKE_SOURCE_DIR}/kmail ${CMAKE_BINARY_DIR}/kmail ${CMAKE_SOURCE_DIR}/libmessageviewer)
+include_directories(${CMAKE_SOURCE_DIR}/kmail ${CMAKE_BINARY_DIR}/kmail ${CMAKE_SOURCE_DIR}/messageviewer)
 
 ########### next target ###############
 
