@@ -433,6 +433,7 @@ void MainWindow::setupActions()
   KConfig _config( "kmailrc" );
   KConfigGroup config( &_config, "Groupware" );
 #if defined(KDEPIM_ENTERPRISE_BUILD)
+#error here
   bool defGW = config.readEntry( "Enabled", true );
 #else
   bool defGW = config.readEntry( "Enabled", false );
