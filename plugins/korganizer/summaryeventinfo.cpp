@@ -27,7 +27,7 @@
 #include "summaryeventinfo.h"
 #include "korganizer/stdcalendar.h"
 
-#include <KCal/IncidenceFormatter>
+#include <kcal/incidenceformatter.h>
 using namespace KCal;
 
 #include <KSystemTimeZones>

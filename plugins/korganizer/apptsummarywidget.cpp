@@ -31,7 +31,7 @@
 #include "korganizer/stdcalendar.h"
 
 #include <kcal/calendar.h>
-#include <KCal/Incidence>
+#include <kcal/incidence.h>
 
 #include <kontactinterfaces/core.h>
 
