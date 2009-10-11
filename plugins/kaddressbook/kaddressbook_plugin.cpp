@@ -43,7 +43,11 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
   actionCollection()->addAction( "new_contact", action );
   connect( action, SIGNAL( triggered( bool) ), SLOT( slotNewContact() ) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
-  action->setWhatsThis( i18n( "Create a new contact<p>You will be presented with a dialog where you can add all data about a person, including addresses and phone numbers.</p>" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Create a new contact"
+           "<p>You will be presented with a dialog where you can add all data "
+           "about a person, including addresses and phone numbers.</p>" ) );
   insertNewAction( action );
 
   action  = new KAction( KIcon( "user-group-new" ),
@@ -51,7 +55,11 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
   actionCollection()->addAction( "new_contactgroup", action );
   connect( action, SIGNAL( triggered( bool ) ), SLOT( slotNewContactGroup() ) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_G ) );
-  action->setWhatsThis( i18n( "Create a new group<p>You will be presented with a dialog where you can add a new group of contacts.</p>" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Create a new group"
+           "<p>You will be presented with a dialog where you can add "
+           "a new group of contacts.</p>" ) );
   insertNewAction( action );
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ),
@@ -71,8 +79,9 @@ KAddressBookPlugin::~KAddressBookPlugin()
 void KAddressBookPlugin::slotNewContact()
 {
   KParts::ReadOnlyPart *part = createPart();
-  if ( !part )
+  if ( !part ) {
     return;
+  }
 
   if ( part->metaObject()->indexOfMethod( "newContact()" ) == -1 ) {
     kWarning() << "KAddressBook part is missing slot newContact()";
@@ -85,8 +94,9 @@ void KAddressBookPlugin::slotNewContact()
 void KAddressBookPlugin::slotNewContactGroup()
 {
   KParts::ReadOnlyPart *part = createPart();
-  if ( !part )
+  if ( !part ) {
     return;
+  }
 
   if ( part->metaObject()->indexOfMethod( "newGroup()" ) == -1 ) {
     kWarning() << "KAddressBook part is missing slot newGroup()";
@@ -114,8 +124,9 @@ KParts::ReadOnlyPart *KAddressBookPlugin::createPart()
   // disable the Ctrl+N shortcut, as it is used by Kontact already
   if ( part->action( "akonadi_contact_create" ) ) {
     KAction *newAction = qobject_cast<KAction*>( part->action( "akonadi_contact_create" ) );
-    if ( newAction )
+    if ( newAction ) {
       newAction->setShortcut( QKeySequence() );
+    }
   }
 
   return part;
