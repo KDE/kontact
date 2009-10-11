@@ -1,7 +1,7 @@
 /*
   This file is part of Kontact.
   Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2005-2006,2008 Allen Winter <winter@kde.org>
+  Copyright (c) 2005-2006,2008-2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -39,17 +39,17 @@ KCMApptSummary::KCMApptSummary( const KComponentData &inst, QWidget *parent )
 {
   setupUi( this );
 
-  mDaysButtonGroup = new QButtonGroup( this );
+  mDaysButtonGroup = new QButtonGroup( this ); //krazy:exclude=tipsandthis
   mDaysButtonGroup->addButton( mDateTodayButton, 0 );
   mDaysButtonGroup->addButton( mDateMonthButton, 1 );
   mDaysButtonGroup->addButton( mDateRangeButton, 2 );
 
-  mShowButtonGroup = new QButtonGroup( this );
+  mShowButtonGroup = new QButtonGroup( this ); //krazy:exclude=tipsandthis
   mShowButtonGroup->setExclusive( false );
   mShowButtonGroup->addButton( mShowBirthdaysFromCal );
   mShowButtonGroup->addButton( mShowAnniversariesFromCal );
 
-  mGroupwareButtonGroup = new QButtonGroup( this );
+  mGroupwareButtonGroup = new QButtonGroup( this ); //krazy:exclude=tipsandthis
   mGroupwareButtonGroup->setExclusive( false );
   mGroupwareButtonGroup->addButton( mShowMineOnly );
 

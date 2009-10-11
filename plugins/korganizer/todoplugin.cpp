@@ -61,11 +61,13 @@ TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
     new KAction( KIcon( "task-new" ), i18n( "New To-do..." ), this );
   actionCollection()->addAction( "new_todo", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_T ) );
+  action->setHelpText( i18n( "Create a new to-do" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewTodo()) );
   insertNewAction( action );
 
   KAction *syncAction =
     new KAction( KIcon( "view-refresh" ), i18n( "Sync To-do List" ), this );
+  syncAction->setHelpText( i18n( "Synchronize groupware to-do list" ) );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncTodos()) );
   insertSyncAction( syncAction );
 

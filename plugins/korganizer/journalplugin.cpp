@@ -1,7 +1,7 @@
 /*
   This file is part of Kontact.
 
-  Copyright (c) 2004 Allen Winter <winter@kde.org>
+  Copyright (c) 2004,2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -46,10 +46,12 @@ JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList &
   KAction *action = new KAction( KIcon( "journal-new" ), i18n( "New Journal..." ), this );
   actionCollection()->addAction( "new_journal", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_J ) );
+  action->setHelpText( i18n( "Create a new journal" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewJournal()) );
   insertNewAction( action );
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Sync Journal" ), this );
+  syncAction->setHelpText( i18n( "Synchronize groupware journal" ) );
   actionCollection()->addAction( "journal_sync", syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncJournal()) );
   insertSyncAction( syncAction );

@@ -62,12 +62,14 @@ KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariant
     new KAction( KIcon( "appointment-new" ), i18n( "New Event..." ), this );
   actionCollection()->addAction( "new_event", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT+Qt::Key_E ) );
+  action->setHelpText( i18n( "Create a new event" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewEvent()) );
   insertNewAction( action );
 
   KAction *syncAction =
     new KAction( KIcon( "view-refresh" ), i18n( "Sync Calendar" ), this );
   actionCollection()->addAction( "korganizer_sync", syncAction );
+  syncAction->setHelpText( i18n( "Synchronize groupware calendar" ) );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncEvents()) );
   insertSyncAction( syncAction );
 
