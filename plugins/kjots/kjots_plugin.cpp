@@ -24,19 +24,13 @@
 
 #include "kjots_plugin.h"
 
-#include <kontactinterface/core.h>
-#include <kjotspart.h>
+#include <KontactInterface/Core>
 
-#include <kactioncollection.h>
-#include <kaction.h>
-#include <kcmdlineargs.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kparts/componentfactory.h>
-
-class OrgKdeKJotsComponentInterface;
+#include <KAction>
+#include <KActionCollection>
+#include <KCmdLineArgs>
+#include <KIcon>
+#include <KLocale>
 
 EXPORT_KONTACT_PLUGIN( KJotsPlugin, kjots )
 
@@ -117,7 +111,6 @@ void KJotsUniqueAppHandler::loadCommandLineOptions()
 
 int KJotsUniqueAppHandler::newInstance()
 {
-  kDebug();
   // Ensure part is loaded
   (void)plugin()->part();
   org::kde::KJotsComponent kjots(
