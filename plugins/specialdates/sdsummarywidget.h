@@ -84,6 +84,7 @@ class SDSummaryWidget : public KontactInterface::Summary
     bool mShowAnniversariesFromCal;
     bool mShowHolidays;
     bool mShowSpecialsFromCal;
+    bool mShowMineOnly;
 
     KHolidays::HolidayRegion *mHolidays;
 };

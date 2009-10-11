@@ -73,6 +73,8 @@ KCMSDSummary::KCMSDSummary( const KComponentData &inst, QWidget *parent )
   connect( mShowBirthdaysFromKABBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mShowAnniversariesFromKABBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
 
+  connect( mShowMineOnly, SIGNAL(stateChanged(int)), SLOT(modified()) );
+
   KAcceleratorManager::manage( this );
 
   load();
@@ -121,6 +123,9 @@ void KCMSDSummary::load()
 
   mShowSpecialsFromCalBox->setChecked( group.readEntry( "SpecialsFromCalendar", true ) );
 
+  group = config.group( "Groupware" );
+  mShowMineOnly->setChecked( group.readEntry( "ShowMineOnly", false ) );
+
   emit changed( false );
 }
 
@@ -152,6 +157,9 @@ if ( mDateTodayButton->isChecked() ) {
 
   group.writeEntry( "SpecialsFromCalendar", mShowSpecialsFromCalBox->isChecked() );
 
+  group = config.group( "Groupware" );
+  group.writeEntry( "ShowMineOnly", mShowMineOnly->isChecked() );
+
   group.sync();
   emit changed( false );
 }
@@ -168,6 +176,8 @@ void KCMSDSummary::defaults()
   mShowAnniversariesFromCalBox->setChecked( true );
   mShowHolidaysFromCalBox->setChecked( true );
   mShowSpecialsFromCalBox->setChecked( true );
+
+  mShowMineOnly->setChecked( false );
 
   emit changed( true );
 }

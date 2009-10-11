@@ -31,6 +31,7 @@
 #include <korganizer/stdcalendar.h>
 
 #include <kabc/stdaddressbook.h>
+#include <kcal/calhelper.h>
 #include <kcal/event.h>
 #include <kcal/resourcecalendar.h>
 #include <kcal/resourcelocal.h>
@@ -148,6 +149,9 @@ void SDSummaryWidget::configUpdated()
   mShowHolidays = group.readEntry( "HolidaysFromCalendar", true );
 
   mShowSpecialsFromCal = group.readEntry( "SpecialsFromCalendar", true );
+
+  group = config.group( "Groupware" );
+  mShowMineOnly = group.readEntry( "ShowMineOnly", false );
 
   updateView();
 }
@@ -277,6 +281,12 @@ void SDSummaryWidget::updateView()
     KCal::Event::List::ConstIterator it;
     for ( it = events.constBegin(); it != events.constEnd(); ++it ) {
       ev = *it;
+
+      // Optionally, show only my Events
+      if ( mShowMineOnly && !KCal::CalHelper::isMyCalendarIncidence( mCalendar, ev ) ) {
+        continue;
+      }
+
       if ( !ev->categoriesStr().isEmpty() ) {
         QStringList::ConstIterator it2;
         QStringList c = ev->categories();
@@ -587,10 +597,10 @@ void SDSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
   QAction *sendMailAction = popup.addAction(
-    KIconLoader::global()->loadIcon( "internet-mail", KIconLoader::Small ),
+    KIconLoader::global()->loadIcon( "mail-message-new", KIconLoader::Small ),
     i18n( "Send &Mail" ) );
-  QAction * viewContactAction = popup.addAction(
-    KIconLoader::global()->loadIcon( "office-address-book", KIconLoader::Small ),
+  QAction *viewContactAction = popup.addAction(
+    KIconLoader::global()->loadIcon( "view-pim-contacts", KIconLoader::Small ),
     i18n( "View &Contact" ) );
 
   QAction *ret = popup.exec( QCursor::pos() );
