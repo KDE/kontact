@@ -23,18 +23,14 @@
 */
 
 #include "journalplugin.h"
-#include "korg_uniqueapp.h"
 #include "calendarinterface.h"
+#include "korg_uniqueapp.h"
 
-#include <kontactinterface/core.h>
+#include <KontactInterface/Core>
 
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kmessagebox.h>
+#include <KActionCollection>
+#include <KIconLoader>
+#include <KLocale>
 
 #include <QtDBus/QtDBus>
 

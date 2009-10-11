@@ -27,7 +27,6 @@
 #define TODO_SUMMARYWIDGET_H
 
 #include <KontactInterface/Summary>
-#include <QList>
 
 class TodoPlugin;
 

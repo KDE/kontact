@@ -25,19 +25,9 @@
 
 #include "kcmtodosummary.h"
 
-#include <kaboutdata.h>
-#include <kacceleratormanager.h>
-#include <kcomponentdata.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <klocale.h>
-#include <kdemacros.h>
-
-#include <QCheckBox>
-#include <QLabel>
-#include <QLayout>
-#include <QRadioButton>
-#include <QSpinBox>
+#include <KAboutData>
+#include <KAcceleratorManager>
+#include <KComponentData>
 
 KCModule *create_todosummary( QWidget *parent, const char * )
 {

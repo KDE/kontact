@@ -27,7 +27,6 @@
 #define SUMMARYWIDGET_H
 
 #include <KontactInterface/Summary>
-#include <QList>
 
 class KOrganizerPlugin;
 

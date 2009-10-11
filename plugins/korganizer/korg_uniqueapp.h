@@ -22,12 +22,13 @@
 #ifndef KORG_UNIQUEAPP_H
 #define KORG_UNIQUEAPP_H
 
-#include <kontactinterface/uniqueapphandler.h>
+#include <KontactInterface/UniqueAppHandler>
 
 class KOrganizerUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KOrganizerUniqueAppHandler( KontactInterface::Plugin *plugin ) : KontactInterface::UniqueAppHandler( plugin ) {}
+    KOrganizerUniqueAppHandler( KontactInterface::Plugin *plugin )
+      : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual ~KOrganizerUniqueAppHandler() {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();

@@ -27,7 +27,7 @@
 #define KCMTODOSUMMARY_H
 
 #include "ui_todosummaryconfig_base.h"
-#include <kcmodule.h>
+#include <KCModule>
 
 extern "C"
 {

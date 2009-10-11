@@ -4,6 +4,14 @@
  <comment>Configuration page for the Korganizer To-do Summary</comment>
  <class>TodoSummaryConfig_Base</class>
  <widget class="QWidget" name="TodoSummaryConfig_Base">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>360</width>
+    <height>424</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>To-do Summary Configuration</string>
   </property>
@@ -203,7 +211,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="mGroupwareGroup">
      <property name="title">
       <string>Groupware Settings</string>
      </property>

@@ -24,12 +24,9 @@
 
 #include "kcmapptsummary.h"
 
-#include <kaboutdata.h>
-#include <kacceleratormanager.h>
-#include <kconfig.h>
-#include <kcomponentdata.h>
-#include <klocale.h>
-#include <kdemacros.h>
+#include <KAboutData>
+#include <KAcceleratorManager>
+#include <KComponentData>
 
 KCModule *create_apptsummary( QWidget *parent, const char * )
 {

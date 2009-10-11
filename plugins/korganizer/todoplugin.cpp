@@ -23,32 +23,30 @@
 */
 
 #include "todoplugin.h"
-#include "todosummarywidget.h"
-#include "korg_uniqueapp.h"
 #include "calendarinterface.h"
+#include "korg_uniqueapp.h"
+#include "todosummarywidget.h"
 
-#include <kontactinterface/core.h>
-
-#include <libkdepim/maillistdrag.h>
 #include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
+#include <libkdepim/maillistdrag.h>
 
-#include <kcal/calendarlocal.h>
-#include <kcal/icaldrag.h>
+#include <KCal/CalendarLocal>
+#include <KCal/ICalDrag>
 
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kiconloader.h>
-#include <kmessagebox.h>
-#include <kicon.h>
-#include <ksystemtimezone.h>
-#include <ktemporaryfile.h>
+#include <KontactInterface/Core>
 
-#include <QWidget>
+#include <KAction>
+#include <KActionCollection>
+#include <KDebug>
+#include <KIcon>
+#include <KIconLoader>
+#include <KLocale>
+#include <KMessageBox>
+#include <KSystemTimeZone>
+#include <KTemporaryFile>
+
 #include <QDropEvent>
-#include <QtDBus/QtDBus>
 
 EXPORT_KONTACT_PLUGIN( TodoPlugin, todo )
 
@@ -161,8 +159,11 @@ bool TodoPlugin::createDBUSInterface( const QString &serviceType )
 
 bool TodoPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
-  return mimeData->hasText() || KPIM::MailList::canDecode( mimeData ) ||
-         KPIM::KVCardDrag::canDecode( mimeData ) || KCal::ICalDrag::canDecode( mimeData );
+  return
+    mimeData->hasText() ||
+    KPIM::MailList::canDecode( mimeData ) ||
+    KPIM::KVCardDrag::canDecode( mimeData ) ||
+    KCal::ICalDrag::canDecode( mimeData );
 }
 
 bool TodoPlugin::isRunningStandalone() const

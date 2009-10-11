@@ -26,7 +26,7 @@
 #define KCMAPPTSUMMARY_H
 
 #include "ui_apptsummaryconfig_base.h"
-#include <kcmodule.h>
+#include <KCModule>
 
 extern "C"
 {

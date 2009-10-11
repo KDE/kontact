@@ -26,13 +26,10 @@
 #include "apptsummarywidget.h"
 #include "korganizerplugin.h"
 #include "summaryeventinfo.h"
-
 #include "korganizer/korganizerinterface.h"
 #include "korganizer/stdcalendar.h"
 
-#include <KCal/Calendar>
 #include <KCal/CalHelper>
-#include <KCal/Incidence>
 
 #include <KontactInterface/Core>
 
@@ -42,9 +39,8 @@
 #include <KMenu>
 #include <KUrlLabel>
 
-#include <QDate>
-#include <QGridLayout>
 #include <QLabel>
+#include <QGridLayout>
 #include <QVBoxLayout>
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
