@@ -43,6 +43,7 @@ KNodePlugin::KNodePlugin( KontactInterface::Core *core, const QVariantList & )
   KAction *action = new KAction( KIcon( "mail-message-new" ), i18n( "New Article..." ), this );
   actionCollection()->addAction( "post_article", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_A ) );
+  action->setHelpText( i18n( "Create a new Usenet article" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPostArticle()) );
   insertNewAction( action );
 
