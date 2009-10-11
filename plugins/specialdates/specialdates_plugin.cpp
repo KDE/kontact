@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2004-2005 Allen Winter <winter@kde.org>
+  Copyright (c) 2004-2005,2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,13 +26,10 @@
 #include "specialdates_plugin.h"
 #include "sdsummarywidget.h"
 
-#include <kontactinterface/core.h>
+#include <KontactInterface/Core>
 
-#include <kaboutdata.h>
-#include <kgenericfactory.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kparts/componentfactory.h>
+#include <KAboutData>
+#include <KLocale>
 
 EXPORT_KONTACT_PLUGIN( SpecialdatesPlugin, specialdates )
 

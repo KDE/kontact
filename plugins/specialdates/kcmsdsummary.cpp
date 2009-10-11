@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2004-2006 Allen Winter <winter@kde.org>
+  Copyright (c) 2004-2006,2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -25,22 +25,9 @@
 
 #include "kcmsdsummary.h"
 
-#include <kaboutdata.h>
-#include <kacceleratormanager.h>
-#include <kcomponentdata.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kdemacros.h>
-#include <klocale.h>
-
-#include <QCheckBox>
-#include <QLabel>
-#include <QLayout>
-#include <QRadioButton>
-#include <QSpinBox>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QGridLayout>
+#include <KAboutData>
+#include <KAcceleratorManager>
+#include <KComponentData>
 
 extern "C"
 {

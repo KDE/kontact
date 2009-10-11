@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2004 Allen Winter <winter@kde.org>
+  Copyright (c) 2004,2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -24,36 +24,28 @@
 */
 
 #include "sdsummarywidget.h"
+#include "korganizer/stdcalendar.h"
 
-#include <libkdepim/kpimprefs.h>
-#include <kontactinterface/core.h>
-#include <kontactinterface/plugin.h>
-#include <korganizer/stdcalendar.h>
+#include <KABC/StdAddressBook>
 
-#include <kabc/stdaddressbook.h>
-#include <kcal/calhelper.h>
-#include <kcal/event.h>
-#include <kcal/resourcecalendar.h>
-#include <kcal/resourcelocal.h>
+#include <KCal/CalendarResources>
+#include <KCal/CalHelper>
 
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kparts/part.h>
-#include <kmenu.h>
-#include <kstandarddirs.h>
-#include <ktoolinvocation.h>
-#include <kurllabel.h>
+#include <KHolidays/Holidays>
 
-#include <QCursor>
-#include <QLabel>
-#include <QLayout>
-#include <QImage>
-#include <QPixmap>
-#include <QGridLayout>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
+
+#include <KConfigGroup>
+#include <KIconLoader>
+#include <KMenu>
+#include <KToolInvocation>
+#include <KUrlLabel>
+
+#include <QDate>
 #include <QEvent>
-#include <QVBoxLayout>
+#include <QGridLayout>
+#include <QLabel>
 
 enum SDIncidenceType {
   IncidenceTypeContact,
@@ -165,14 +157,14 @@ bool SDSummaryWidget::initHolidays()
     if ( mHolidays ) {
       delete mHolidays;
     }
-    mHolidays = new KHolidays::HolidayRegion( location );
+    mHolidays = new HolidayRegion( location );
     return true;
   }
   return false;
 }
 
 // number of days remaining in an Event
-int SDSummaryWidget::span( KCal::Event *event )
+int SDSummaryWidget::span( Event *event )
 {
   int span=1;
   if ( event->isMultiDay() && event->allDay() ) {
@@ -189,7 +181,7 @@ int SDSummaryWidget::span( KCal::Event *event )
 }
 
 // day of a multiday Event
-int SDSummaryWidget::dayof( KCal::Event *event, const QDate &date )
+int SDSummaryWidget::dayof( Event *event, const QDate &date )
 {
   int dayof = 1;
   QDate d = event->dtStart().date();
@@ -261,8 +253,8 @@ void SDSummaryWidget::updateView()
 
   // Search for Birthdays, Anniversaries, Holidays, and Special Occasions
   // in the Calendar
-  KCal::ResourceCalendar *bdayRes = usingBirthdayResource();
-  KCal::ResourceCalendar *annvRes = bdayRes;
+  ResourceCalendar *bdayRes = usingBirthdayResource();
+  ResourceCalendar *annvRes = bdayRes;
   if ( !mShowBirthdaysFromKAB ) {
     bdayRes = 0;
   }
@@ -274,16 +266,16 @@ void SDSummaryWidget::updateView()
   for ( dt=QDate::currentDate();
         dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
         dt=dt.addDays(1) ) {
-    KCal::Event::List events = mCalendar->events( dt, mCalendar->timeSpec(),
-                                                  KCal::EventSortStartDate,
-                                                  KCal::SortDirectionAscending );
-    KCal::Event *ev;
-    KCal::Event::List::ConstIterator it;
+    Event::List events = mCalendar->events( dt, mCalendar->timeSpec(),
+                                            EventSortStartDate,
+                                            SortDirectionAscending );
+    Event *ev;
+    Event::List::ConstIterator it;
     for ( it = events.constBegin(); it != events.constEnd(); ++it ) {
       ev = *it;
 
       // Optionally, show only my Events
-      if ( mShowMineOnly && !KCal::CalHelper::isMyCalendarIncidence( mCalendar, ev ) ) {
+      if ( mShowMineOnly && !CalHelper::isMyCalendarIncidence( mCalendar, ev ) ) {
         continue;
       }
 
@@ -370,12 +362,12 @@ void SDSummaryWidget::updateView()
       for ( dt=QDate::currentDate();
             dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
             dt=dt.addDays(1) ) {
-        QList<KHolidays::Holiday> holidays = mHolidays->holidays( dt );
-        QList<KHolidays::Holiday>::ConstIterator it = holidays.constBegin();
+        QList<Holiday> holidays = mHolidays->holidays( dt );
+        QList<Holiday>::ConstIterator it = holidays.constBegin();
         for ( ; it != holidays.constEnd(); ++it ) {
           SDEntry entry;
           entry.type = IncidenceTypeEvent;
-          entry.category = ( (*it).dayType() == KHolidays::Holiday::NonWorkday )?
+          entry.category = ( (*it).dayType() == Holiday::NonWorkday )?
                            CategoryHoliday : CategoryOther;
           entry.date = dt;
           entry.summary = (*it).text();
@@ -655,13 +647,13 @@ void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
   }
 }
 
-KCal::ResourceCalendar *SDSummaryWidget::usingBirthdayResource()
+ResourceCalendar *SDSummaryWidget::usingBirthdayResource()
 {
-  KCal::ResourceCalendar *resource = 0;
+  ResourceCalendar *resource = 0;
 
-  KCal::CalendarResourceManager *manager = mCalendar->resourceManager();
+  CalendarResourceManager *manager = mCalendar->resourceManager();
   if ( !manager->isEmpty() ) {
-    KCal::CalendarResourceManager::Iterator it;
+    CalendarResourceManager::Iterator it;
     for ( it = manager->begin(); it != manager->end(); ++it ) {
       if ( (*it)->type() == QLatin1String( "birthdays" ) ) {
         resource = (*it);
@@ -672,15 +664,15 @@ KCal::ResourceCalendar *SDSummaryWidget::usingBirthdayResource()
   return resource;
 }
 
-bool SDSummaryWidget::check( KCal::ResourceCalendar *cal, const QDate &date,
+bool SDSummaryWidget::check( ResourceCalendar *cal, const QDate &date,
                              const QString &summary )
 {
   if ( !cal ) {
     return false;
   }
 
-  KCal::Event::List events = cal->rawEventsForDate( date );
-  KCal::Event::List::ConstIterator it;
+  Event::List events = cal->rawEventsForDate( date );
+  Event::List::ConstIterator it;
   for ( it = events.constBegin(); it != events.constEnd(); ++it ) {
     if ( (*it)->summary() == summary ) {
       return true;
