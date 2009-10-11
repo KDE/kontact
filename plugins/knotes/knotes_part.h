@@ -23,19 +23,18 @@
 #ifndef KNOTES_PART_H
 #define KNOTES_PART_H
 
-#include <QListWidget>
-#include <kcal/journal.h>
+#include <KParts/ReadOnlyPart>
+#include <QListWidgetItem>
 
-#include <kparts/part.h>
-
-class KNotesIconViewItem;
-class KNoteTip;
 class KNoteEditDlg;
+class KNotesIconViewItem;
 class KNotesResourceManager;
+class KNoteTip;
 
 namespace KCal {
   class Journal;
 }
+using namespace KCal;
 
 class KNotesPart : public KParts::ReadOnlyPart
 {

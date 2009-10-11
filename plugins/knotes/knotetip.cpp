@@ -31,24 +31,17 @@
 */
 
 #include "knotetip.h"
-#include <kdebug.h>
 #include "knotes_part_p.h"
-
-#include <kglobalsettings.h>
 
 #include <QAbstractEventDispatcher>
 #include <QApplication>
-#include <QToolTip>
-#include <QLayout>
+#include <QBoxLayout>
 #include <QTextEdit>
-#include <QEvent>
-#include <QTimerEvent>
-#include <QResizeEvent>
-#include <QVBoxLayout>
+#include <QToolTip>
 
 KNoteTip::KNoteTip( QListWidget *parent )
   : QFrame( 0, Qt::WX11BypassWM |   // this will make Seli happy >:-P
-             Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
+            Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
     mFilter( false ),
     mView( parent ),
     mNoteIVI( 0 ),
@@ -86,7 +79,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
       hide();
     }
   } else {
-    KCal::Journal *journal = item->journal();
+    Journal *journal = item->journal();
     mPreview->setAcceptRichText( journal->customProperty( "KNotes", "RichText" ) == "true" );
 
     QColor fg( journal->customProperty( "KNotes", "FgColor" ) );
@@ -98,8 +91,8 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
     mPreview->sync();
 
     mPreview->document()->adjustSize ();
-    int w = mPreview->document () ->size().width();
-    int h = mPreview->document () ->size().height();
+    int w = int( mPreview->document ()->size().width() );
+    int h = int( mPreview->document ()->size().height() );
     while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) ) {
       w -= 20;
     }

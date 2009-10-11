@@ -23,29 +23,21 @@
 */
 
 #include "summarywidget.h"
+#include "knotes/resourcemanager.h"
 
-#include <kontactinterface/core.h>
-#include <kontactinterface/plugin.h>
+#include <KCal/CalendarLocal>
 
-#include <knotes/resourcenotes.h>
-#include <knotes/resourcemanager.h>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
-#include <kcal/calendarlocal.h>
+#include <KIconLoader>
+#include <KLocale>
+#include <KUrlLabel>
 
-#include <kdebug.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kurllabel.h>
-#include <kstandarddirs.h>
-
-#include <QObject>
-#include <QLabel>
-#include <QLayout>
-#include <QVBoxLayout>
-#include <QPixmap>
-#include <QGridLayout>
 #include <QEvent>
+#include <QGridLayout>
+#include <QLabel>
+#include <QVBoxLayout>
 
 KNotesSummaryWidget::KNotesSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
   : KontactInterface::Summary( parent ), mLayout( 0 ), mPlugin( plugin )
@@ -62,7 +54,7 @@ KNotesSummaryWidget::KNotesSummaryWidget( KontactInterface::Plugin *plugin, QWid
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
-  mCalendar = new KCal::CalendarLocal( QString::fromLatin1( "UTC" ) );
+  mCalendar = new CalendarLocal( QString::fromLatin1( "UTC" ) );
   KNotesResourceManager *manager = new KNotesResourceManager();
 
   QObject::connect( manager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
@@ -89,7 +81,7 @@ void KNotesSummaryWidget::updateView()
   int counter = 0;
   QPixmap pm = loader.loadIcon( "knotes", KIconLoader::Small );
 
-  KCal::Journal::List::Iterator it;
+  Journal::List::Iterator it;
   if ( mNotes.count() ) {
     for ( it = mNotes.begin(); it != mNotes.end(); ++it ) {
 

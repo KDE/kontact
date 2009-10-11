@@ -22,21 +22,18 @@
 
 #include "knotes_part.h"
 #include "knotes_part_p.h"
-#include <kinputdialog.h>
-#include "knotetip.h"
 #include "knotesadaptor.h"
-
-#include <kactioncollection.h>
-#include <kdebug.h>
-#include <kaction.h>
-#include <kmessagebox.h>
-#include <kicon.h>
+#include "knotetip.h"
 #include "knotes/knoteprinter.h"
 #include "knotes/resourcemanager.h"
 
-#include <QMenu>
-#include <QClipboard>
+#include <KAction>
+#include <KInputDialog>
+#include <KMessageBox>
+
 #include <QApplication>
+#include <QClipboard>
+#include <QMenu>
 
 KNotesIconView::KNotesIconView( KNotesPart *part )
   : KListWidget(), m_part( part )
@@ -148,7 +145,7 @@ void KNotesPart::hideToolTip()
 
 void KNotesPart::printSelectedNotes()
 {
-  QList<KCal::Journal*> journals;
+  QList<Journal*> journals;
   QList<QListWidgetItem *> lst = mNotesView->selectedItems();
   if ( lst.isEmpty() ) {
     KMessageBox::information(
@@ -176,7 +173,7 @@ bool KNotesPart::openFile()
 QString KNotesPart::newNote( const QString &name, const QString &text )
 {
   // create the new note
-  KCal::Journal *journal = new KCal::Journal();
+  Journal *journal = new Journal();
 
   // new notes have the current date/time as title if none was given
   if ( !name.isEmpty() ) {
@@ -329,6 +326,8 @@ void KNotesPart::killSelectedNotes()
 
 void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos )
 {
+  Q_UNUSED( item );
+
   QMenu *contextMenu = 0;
   if ( mNotesView->itemAt ( pos ) ) {
     contextMenu = static_cast<QMenu *>( factory()->container( "note_context", this ) );
@@ -386,7 +385,7 @@ void KNotesPart::editNote( QListWidgetItem *item )
     mNoteEditDlg = new KNoteEditDlg( widget() );
   }
 
-  KCal::Journal *journal = static_cast<KNotesIconViewItem *>( item )->journal();
+  Journal *journal = static_cast<KNotesIconViewItem *>( item )->journal();
   mNoteEditDlg->setTitle( journal->summary() );
   mNoteEditDlg->setText( journal->description() );
 

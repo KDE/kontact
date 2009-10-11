@@ -25,20 +25,20 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <kontactinterface/summary.h>
-#include <kcal/journal.h>
-
-class QEvent;
-class QLabel;
-class QGridLayout;
-class QWidget;
+#include <KCal/Journal>
+#include <KontactInterface/Summary>
 
 namespace KCal {
   class CalendarLocal;
 }
+using namespace KCal;
+
 namespace KontactInterface {
   class Plugin;
 }
+
+class QGridLayout;
+class QLabel;
 
 class KNotesSummaryWidget : public KontactInterface::Summary
 {
@@ -62,12 +62,12 @@ class KNotesSummaryWidget : public KontactInterface::Summary
     void removeNote( KCal::Journal * );
 
   private:
-    KCal::CalendarLocal *mCalendar;
-    KCal::Journal::List mNotes;
+    CalendarLocal *mCalendar;
+    Journal::List mNotes;
 
     QGridLayout *mLayout;
 
-    QList<QLabel*> mLabels;
+    QList<QLabel *> mLabels;
     KontactInterface::Plugin *mPlugin;
 };
 
