@@ -677,13 +677,17 @@ int Planner::showSd( int counter, const QDate &date )
   Q_UNUSED( date );
 //   initSdList( date );
 
-  QPixmap birthdayIcon = loader.loadIcon( "view-calendar-birthday", KIconLoader::Small );
-  QPixmap anniversaryIcon = loader.loadIcon( "view-calendar-wedding-anniversary", KIconLoader::Small );
-  QPixmap holidayIcon = loader.loadIcon( "view-calendar-holiday", KIconLoader::Small );
-  QPixmap specialOccasionsIcon = loader.loadIcon( "favorites", KIconLoader::Small );
+  QPixmap birthdayIcon =
+    loader.loadIcon( "view-calendar-birthday", KIconLoader::Small );
+  QPixmap anniversaryIcon =
+    loader.loadIcon( "view-calendar-wedding-anniversary", KIconLoader::Small );
+  QPixmap holidayIcon =
+    loader.loadIcon( "view-calendar-holiday", KIconLoader::Small );
+  QPixmap specialOccasionsIcon =
+    loader.loadIcon( "favorites", KIconLoader::Small );
+
   ++counter;
   Q_FOREACH ( const SDEntry &entry, mDates ) {
-
     mPlannerGrid->setColumnMinimumWidth( 0, 40 );
 
     //Show Sd icon
