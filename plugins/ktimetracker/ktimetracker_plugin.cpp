@@ -43,6 +43,7 @@ ktimetrackerplugin::ktimetrackerplugin( KontactInterface::Core *core, const QVar
   KAction *action  = new KAction( KIcon( "ktimetracker" ), i18n( "New Task" ), this );
   actionCollection()->addAction( "new_task", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_W ) );
+  action->setHelpText( i18n( "Create a new time tracking" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(newTask()) );
   insertNewAction( action );
 
