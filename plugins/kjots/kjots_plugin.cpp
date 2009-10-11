@@ -42,12 +42,14 @@ KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
   KAction *action = new KAction( KIcon( "document-new" ), i18n( "New KJots Page" ), this );
   actionCollection()->addAction( "new_kjots_page", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_P ) );
+  action->setHelpText( i18n( "Create a new jots page" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT( newPage()) );
   insertNewAction( action );
 
   action = new KAction( KIcon( "address-book-new" ), i18n( "New KJots Book" ), this );
   actionCollection()->addAction( "new_kjots_book", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_B ) );
+  action->setHelpText( i18n( "Create a new jots book" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT( newBook()) );
   insertNewAction( action );
 
