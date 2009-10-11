@@ -44,6 +44,7 @@ AkregatorPlugin::AkregatorPlugin( KontactInterface::Core *core, const QVariantLi
   KAction *action  = new KAction( KIcon( "bookmark-new" ), i18n( "New Feed..." ), this );
   actionCollection()->addAction( "feed_new", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_F ) );
+  action->setHelpText( i18n( "Create a new feed" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(addFeed()) );
   insertNewAction( action );
 
