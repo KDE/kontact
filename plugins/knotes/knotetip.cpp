@@ -88,7 +88,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
 
     mPreview->setText( journal->description() );
     //mPreview->zoomTo( 8 );
-    mPreview->sync();
+    //mPreview->sync(); this is deprecated in Qt4, but there is no replacement
 
     mPreview->document()->adjustSize ();
     int w = int( mPreview->document ()->size().width() );
@@ -169,7 +169,7 @@ void KNoteTip::setColor( const QColor &fg, const QColor &bg )
   setPalette( newpalette );
 
   // set the text color
-  mPreview->setColor( fg );
+  mPreview->setTextColor( fg );
 }
 
 void KNoteTip::setFilter( bool enable )
@@ -180,9 +180,9 @@ void KNoteTip::setFilter( bool enable )
 
   if ( enable ) {
     qApp->installEventFilter( this );
-    QApplication::setGlobalMouseTracking( true );
+    setMouseTracking( true );
   } else {
-    QApplication::setGlobalMouseTracking( false );
+    setMouseTracking( false );
     qApp->removeEventFilter( this );
   }
 
