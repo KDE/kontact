@@ -24,6 +24,12 @@
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QRadioButton" name="mDateTodayButton">
+        <property name="toolTip">
+         <string>Show special occasions for today only</string>
+        </property>
+        <property name="whatsThis">
+         <string>Check this box if you want to see special occasions occurring on this date only.</string>
+        </property>
         <property name="text">
          <string>&amp;Today only</string>
         </property>
@@ -34,6 +40,12 @@
       </item>
       <item>
        <widget class="QRadioButton" name="mDateMonthButton">
+        <property name="toolTip">
+         <string>Show special occasions starting within the next month</string>
+        </property>
+        <property name="whatsThis">
+         <string>Check this box if you want to see special occasions that start sometime during the next 31 days.</string>
+        </property>
         <property name="text">
          <string>Within the next &amp;month (31 days)</string>
         </property>
@@ -49,6 +61,12 @@
           <property name="enabled">
            <bool>true</bool>
           </property>
+          <property name="toolTip">
+           <string>Select the days for showing upcoming special occasions</string>
+          </property>
+          <property name="whatsThis">
+           <string>Check this box if you want to specify the number of days in the future for upcoming special occasions.</string>
+          </property>
           <property name="text">
            <string>Within the &amp;next:</string>
           </property>
@@ -61,6 +79,12 @@
          <widget class="QSpinBox" name="mCustomDays">
           <property name="enabled">
            <bool>false</bool>
+          </property>
+          <property name="toolTip">
+           <string>Set the number of days to show upcoming special occasions</string>
+          </property>
+          <property name="whatsThis">
+           <string>Use this spinbox to set the number of days to show upcoming special occasions up t o1 year in the future.</string>
           </property>
           <property name="specialValueText">
            <string>1 day</string>
@@ -108,6 +132,12 @@
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QCheckBox" name="mShowBirthdaysFromCalBox">
+        <property name="toolTip">
+         <string>Show birthdays from your calendar</string>
+        </property>
+        <property name="whatsThis">
+         <string>Enable this option to include birthdays from your calendar in the upcoming special occasions summary. Typically, these are events with the &quot;Birthday&quot; category.</string>
+        </property>
         <property name="text">
          <string>Show &amp;birthdays</string>
         </property>
@@ -118,6 +148,12 @@
       </item>
       <item>
        <widget class="QCheckBox" name="mShowAnniversariesFromCalBox">
+        <property name="toolTip">
+         <string>Show anniversaries from your calendar</string>
+        </property>
+        <property name="whatsThis">
+         <string>Enable this option to include anniveraries from your calendar in the upcoming special occasions summary. Typically, these are events with the &quot;Anniversary&quot; category.</string>
+        </property>
         <property name="text">
          <string>Show &amp;anniversaries</string>
         </property>
@@ -128,6 +164,12 @@
       </item>
       <item>
        <widget class="QCheckBox" name="mShowHolidaysFromCalBox">
+        <property name="toolTip">
+         <string>Show holidays from your calendar</string>
+        </property>
+        <property name="whatsThis">
+         <string>Enable this option to include holidays from your calendar in the upcoming special occasions summary. These are events from your configured holiday region, or events with the &quot;Holiday&quot; category.</string>
+        </property>
         <property name="text">
          <string>Show &amp;holidays</string>
         </property>
@@ -138,6 +180,12 @@
       </item>
       <item>
        <widget class="QCheckBox" name="mShowSpecialsFromCalBox">
+        <property name="toolTip">
+         <string>Show special occasions from your calendar</string>
+        </property>
+        <property name="whatsThis">
+         <string>Enable this option to include events from your calendar with the &quot;special occasion&quot; category.</string>
+        </property>
         <property name="text">
          <string>Show s&amp;pecial occasions</string>
         </property>
@@ -157,6 +205,12 @@
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
        <widget class="QCheckBox" name="mShowBirthdaysFromKABBox">
+        <property name="toolTip">
+         <string>Show birthdays from your address book</string>
+        </property>
+        <property name="whatsThis">
+         <string>Enable this option to include birthdays from your address book in the upcoming special occasions summary.</string>
+        </property>
         <property name="text">
          <string>Show birth&amp;days</string>
         </property>
@@ -167,6 +221,12 @@
       </item>
       <item>
        <widget class="QCheckBox" name="mShowAnniversariesFromKABBox">
+        <property name="toolTip">
+         <string>Show anniversaries from your address book</string>
+        </property>
+        <property name="whatsThis">
+         <string>Enable this option to include anniversaries from your address book in the upcoming special occasions summary.</string>
+        </property>
         <property name="text">
          <string>Show anni&amp;versaries</string>
         </property>
