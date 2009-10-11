@@ -26,17 +26,14 @@
 #include "kmailinterface.h"
 #include "kmail_folder_interface.h"
 
-#include <kaboutdata.h>
-#include <kacceleratormanager.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kdemacros.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kcomponentdata.h>
+#include <KAboutData>
+#include <KAcceleratorManager>
+#include <KComponentData>
+#include <KDebug>
+#include <KDialog>
+#include <KLocale>
 
 #include <QCheckBox>
-#include <QLayout>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 

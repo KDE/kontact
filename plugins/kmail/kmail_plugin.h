@@ -25,19 +25,22 @@
 #ifndef KMAIL_PLUGIN_H
 #define KMAIL_PLUGIN_H
 
-#include <kontactinterface/plugin.h>
-#include <kontactinterface/summary.h>
-#include <kontactinterface/uniqueapphandler.h>
+#include <KontactInterface/Plugin>
+#include <KontactInterface/UniqueAppHandler>
 
-#include <kparts/part.h>
+#include <KUrl>
 
-class QDropEvent;
 class OrgKdeKmailKmailInterface;
+
+namespace KontactInterface {
+  class UniqueAppWatcher;
+}
 
 class KMailUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KMailUniqueAppHandler( KontactInterface::Plugin *plugin ) : KontactInterface::UniqueAppHandler( plugin ) {}
+    KMailUniqueAppHandler( KontactInterface::Plugin *plugin )
+      : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };

@@ -27,26 +27,20 @@
 #include "kmailinterface.h"
 #include "kmail_folder_interface.h"
 
-#include <kontactinterface/core.h>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kurllabel.h>
-#include <kparts/part.h>
+#include <KConfigGroup>
+#include <KDebug>
+#include <KIconLoader>
+#include <KLocale>
+#include <KUrlLabel>
 
 #include <QEvent>
 #include <QGridLayout>
-#include <QLabel>
-#include <QLayout>
-#include <QPixmap>
-#include <QToolTip>
 #include <QVBoxLayout>
 
-#include <time.h>
+#include <ctime>
 
 #define DBUS_KMAIL "org.kde.kmail"
 
@@ -106,7 +100,7 @@ void SummaryWidget::slotUnreadCountChanged()
     QStringList folderList = reply;
     updateFolderList( folderList );
   } else {
-    kDebug() << "Calling kmail->KMailIface->folderList() via D-Bus failed.";
+    kWarning() << "Calling kmail->KMailIface->folderList() via D-Bus failed.";
   }
   mTimeOfLastMessageCountUpdate = ::time( 0 );
 }

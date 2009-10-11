@@ -25,7 +25,7 @@
 #ifndef KCMKMAILSUMMARY_H
 #define KCMKMAILSUMMARY_H
 
-#include <kcmodule.h>
+#include <KCModule>
 
 class QCheckBox;
 class QTreeWidget;
