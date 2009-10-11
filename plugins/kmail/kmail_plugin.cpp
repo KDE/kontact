@@ -56,10 +56,12 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
   KAction *action  = new KAction( KIcon( "mail-message-new" ), i18n( "New Message..." ), this );
   actionCollection()->addAction( "new_mail", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_M ) );
+  action->setHelpText( i18n( "Create a new mail message" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewMail()) );
   insertNewAction( action );
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Sync Mail" ), this );
+  syncAction->setHelpText( i18n( "Synchronize groupware mail" ) );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncFolders()) );
   actionCollection()->addAction( "sync_mail", syncAction );
   insertSyncAction( syncAction );
@@ -70,9 +72,10 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
 
 bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
-  return ( ICalDrag::canDecode( mimeData ) ||
-           VCalDrag::canDecode( mimeData ) ||
-           KVCardDrag::canDecode( mimeData ) );
+  return
+    ICalDrag::canDecode( mimeData ) ||
+    VCalDrag::canDecode( mimeData ) ||
+    KVCardDrag::canDecode( mimeData );
 }
 
 void KMailPlugin::processDropEvent( QDropEvent *de )

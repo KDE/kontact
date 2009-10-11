@@ -61,10 +61,11 @@ KCMKMailSummary::KCMKMailSummary( const KComponentData &inst, QWidget *parent )
 
   load();
 
-  KAboutData *about = new KAboutData( I18N_NOOP( "kcmkmailsummary" ), 0,
-                                      ki18n( "Mail Summary Configuration Dialog" ),
-                                      0, KLocalizedString(), KAboutData::License_GPL,
-                                      ki18n( "(c) 2004 Tobias Koenig" ) );
+  KAboutData *about =
+    new KAboutData( I18N_NOOP( "kcmkmailsummary" ), 0,
+                    ki18n( "Mail Summary Configuration Dialog" ),
+                    0, KLocalizedString(), KAboutData::License_GPL,
+                    ki18n( "(c) 2004 Tobias Koenig" ) );
 
   about->addAuthor( ki18n( "Tobias Koenig" ),
                     KLocalizedString(), "tokoe@kde.org" );
@@ -86,7 +87,13 @@ void KCMKMailSummary::initGUI()
   mFolderView->setHeaderLabels( QStringList() << i18n( "Summary" ) );
 
   mFullPath = new QCheckBox( i18n( "Show full path for folders" ), this );
-
+  mFullPath->setToolTip(
+    i18nc( "@info:tooltip", "Show full path for each folder" ) );
+  mFullPath->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Enable this option if you want to see the full path "
+           "for each folder listed in the summary. If this option is "
+           "not enabled, then only the base folder path will be shown." ) );
   layout->addWidget( mFolderView );
   layout->addWidget( mFullPath );
 }
