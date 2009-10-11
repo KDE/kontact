@@ -33,10 +33,11 @@
 #include "knotetip.h"
 #include "knotes_part_p.h"
 
+#include <KTextEdit>
+
 #include <QAbstractEventDispatcher>
 #include <QApplication>
 #include <QBoxLayout>
-#include <QTextEdit>
 #include <QToolTip>
 
 KNoteTip::KNoteTip( QListWidget *parent )
@@ -45,7 +46,7 @@ KNoteTip::KNoteTip( QListWidget *parent )
     mFilter( false ),
     mView( parent ),
     mNoteIVI( 0 ),
-    mPreview( new QTextEdit( this ) )
+    mPreview( new KTextEdit( this ) )
 {
   mPreview->setReadOnly( true );
   mPreview->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
