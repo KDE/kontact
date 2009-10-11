@@ -109,7 +109,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
     KNoteEditDlg( QWidget *parent = 0 )
       : KDialog( parent )
     {
-      setCaption( i18n( "Edit Popup Note" ) );
+      setCaption( i18nc( "@title:window", "Edit Popup Note" ) );
       setButtons( Ok | Cancel );
       setDefaultButton( Ok );
       setModal( true );
@@ -128,7 +128,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
       layout->addItem( hbl );
       hbl->setSpacing( marginHint() );
       QLabel *label = new QLabel( page );
-      label->setText( i18n( "Name:" ) );
+      label->setText( i18nc( "@label popup note name", "Name:" ) );
       hbl->addWidget( label, 0 );
       mTitleEdit= new KLineEdit( page );
       mTitleEdit->setObjectName( "name" );
