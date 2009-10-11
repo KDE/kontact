@@ -26,17 +26,19 @@
 #ifndef KTIMETRACKER_PLUGIN_H
 #define KTIMETRACKER_PLUGIN_H
 
-#include <kontactinterface/plugin.h>
-#include <kontactinterface/uniqueapphandler.h>
+#include <KontactInterface/UniqueAppHandler>
 
-#include <kparts/part.h>
+namespace KontactInterface {
+  class Plugin;
+}
 
 class OrgKdeKtimetrackerKtimetrackerInterface;
 
 class KtimetrackerUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KtimetrackerUniqueAppHandler( KontactInterface::Plugin *plugin ) : KontactInterface::UniqueAppHandler( plugin ) {}
+    KtimetrackerUniqueAppHandler( KontactInterface::Plugin *plugin )
+      : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };

@@ -27,16 +27,11 @@
 #include "ktimetracker_plugin.h"
 #include "ktimetrackerinterface.h"
 
-#include <ktimetrackerpart.h>
+#include <KontactInterface/Core>
 
-#include <kontactinterface/core.h>
-#include <kontactinterface/plugin.h>
-
-#include <kactioncollection.h>
-#include <kcmdlineargs.h>
-#include <kgenericfactory.h>
-#include <kicon.h>
-#include <kparts/componentfactory.h>
+#include <KActionCollection>
+#include <KCmdLineArgs>
+#include <KIcon>
 
 EXPORT_KONTACT_PLUGIN( ktimetrackerplugin, ktimetracker )
 
@@ -113,7 +108,6 @@ void KtimetrackerUniqueAppHandler::loadCommandLineOptions()
 
 int KtimetrackerUniqueAppHandler::newInstance()
 {
-  kDebug();
   // Ensure part is loaded
   (void)plugin()->part();
   return KontactInterface::UniqueAppHandler::newInstance();
