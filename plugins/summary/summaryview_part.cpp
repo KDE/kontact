@@ -23,45 +23,36 @@
 */
 
 #include "summaryview_part.h"
+#include "dropwidget.h"
 
-#include <kontactinterface/summary.h>
-#include <kontactinterface/plugin.h>
 #include <libkdepim/broadcaststatus.h>
 using KPIM::BroadcastStatus;
 
-#include <kpimidentities/identity.h>
-#include <kpimidentities/identitymanager.h>
+#include <KPIMIdentities/Identity>
+#include <KPIMIdentities/IdentityManager>
 
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kconfig.h>
-#include <kdbusservicestarter.h>
-#include <kdialog.h>
-#include <kcomponentdata.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kicon.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kservice.h>
-#include <kstandarddirs.h>
-#include <kcmultidialog.h>
-#include <kparts/componentfactory.h>
-#include <kparts/event.h>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
+#include <KontactInterface/Summary>
+
+#include <KAction>
+#include <KActionCollection>
+#include <KCMultiDialog>
+#include <KComponentData>
+#include <KConfigGroup>
+#include <KDialog>
+#include <KGlobalSettings>
+#include <KIcon>
+#include <KLocale>
+#include <KParts/PartActivateEvent>
 
 #include <QApplication>
+#include <QDate>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <QLayout>
 #include <QScrollArea>
-#include <QSpacerItem>
 #include <QTimer>
 #include <QVBoxLayout>
-
-namespace KontactInterface
-{
-  class MainWindow;
-}
 
 SummaryViewPart::SummaryViewPart( KontactInterface::Core *core, const char *,
                                   const KAboutData *aboutData, QObject *parent )

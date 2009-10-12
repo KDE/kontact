@@ -22,9 +22,7 @@
 #ifndef SUMMARYVIEW_PLUGIN_H
 #define SUMMARYVIEW_PLUGIN_H
 
-#include <kontactinterface/plugin.h>
-
-#include <kparts/part.h>
+#include <KontactInterface/Plugin>
 
 class SummaryViewPart;
 class KSelectAction;

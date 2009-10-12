@@ -22,22 +22,18 @@
 #include "summaryview_plugin.h"
 #include "summaryview_part.h"
 #ifdef KMAIL_SUPPORTED
-# include "kmailinterface.h"
+#include "kmailinterface.h"
 #endif
 
-#include <kontactinterface/core.h>
-#include <kontactinterface/plugin.h>
+#include <KontactInterface/Core>
 
 #include <KAboutData>
-#include <KAction>
 #include <KActionCollection>
-#include <KGenericFactory>
+#include <KIcon>
+#include <KLocale>
 #include <KSelectAction>
-#include <kparts/componentfactory.h>
 
-#include <QList>
 #include <QMenu>
-#include <QtDBus/QtDBus>
 
 EXPORT_KONTACT_PLUGIN( SummaryView, summary )
 

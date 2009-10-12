@@ -25,22 +25,19 @@
 
 #include "kcmkontactsummary.h"
 
-#include <kontactinterface/plugin.h>
+#include <KontactInterface/Plugin>
 
-#include <kaboutdata.h>
-#include <kcomponentdata.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kdialog.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kdemacros.h>
-#include <kplugininfo.h>
-#include <kservicetypetrader.h>
+#include <KAboutData>
+#include <KComponentData>
+#include <KDialog>
+#include <KIcon>
+#include <KLocale>
+#include <KPluginInfo>
+#include <KService>
+#include <KServiceTypeTrader>
 
 #include <QLabel>
 #include <QVBoxLayout>
-#include <QTreeWidgetItem>
 
 extern "C"
 {
@@ -174,7 +171,6 @@ void KCMKontactSummary::load()
 
 void KCMKontactSummary::save()
 {
-  kDebug();
   QStringList activeSummaries;
 
   QTreeWidgetItemIterator it( mPluginView );
@@ -188,7 +184,6 @@ void KCMKontactSummary::save()
 
   KConfig config( "kontact_summaryrc" );
   KConfigGroup grp( &config, QString() );
-  kDebug() << "saving activesummaries " << activeSummaries;
   grp.writeEntry( "ActiveSummaries", activeSummaries );
 }
 
