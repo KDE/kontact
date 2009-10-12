@@ -67,7 +67,6 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin,
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = KOrg::StdCalendar::self();
-  mCalendar->load();
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
   connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
