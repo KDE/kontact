@@ -25,17 +25,19 @@
 #ifndef KNODE_PLUGIN_H
 #define KNODE_PLUGIN_H
 
-#include <kontactinterface/plugin.h>
-#include <kontactinterface/uniqueapphandler.h>
+#include <KontactInterface/UniqueAppHandler>
 
-#include <kparts/part.h>
+namespace KontactInterface {
+  class Plugin;
+}
 
 class OrgKdeKnodeInterface;
 
 class KNodeUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KNodeUniqueAppHandler( KontactInterface::Plugin *plugin ) : KontactInterface::UniqueAppHandler( plugin ) {}
+    KNodeUniqueAppHandler( KontactInterface::Plugin *plugin )
+      : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };

@@ -25,7 +25,7 @@
 #define KCMPLANNER_H
 
 #include "ui_plannerconfig_base.h"
-#include <kcmodule.h>
+#include <KCModule>
 
 class KCMPlanner : public KCModule, public Ui::PlannerSummaryConfig_Base
 {

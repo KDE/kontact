@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2004 Allen Winter <winter@kde.org>
+  Copyright (c) 2004,2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,20 +26,27 @@
 #ifndef SDSUMMARYWIDGET_H
 #define SDSUMMARYWIDGET_H
 
-#include <kontactinterface/summary.h>
-#include <kholidays/holidays.h>
+#include <KontactInterface/Summary>
+
+namespace KCal {
+  class CalendarResources;
+  class Event;
+  class Calendar;
+}
+using namespace KCal;
+
+namespace KHolidays {
+  class HolidayRegion;
+}
+using namespace KHolidays;
 
 namespace KontactInterface {
   class Plugin;
 }
-namespace KCal {
-  class Event;
-  class Calendar;
-}
-class QEvent;
+
+class QDate;
 class QGridLayout;
 class QLabel;
-class QWidget;
 
 class SDSummaryWidget : public KontactInterface::Summary
 {
@@ -66,13 +73,13 @@ class SDSummaryWidget : public KontactInterface::Summary
     void viewContact( const QString &uid );
 
   private:
-    int span( KCal::Event *event );
-    int dayof( KCal::Event *event, const QDate &date );
+    int span( Event *event );
+    int dayof( Event *event, const QDate &date );
     bool initHolidays();
     void dateDiff( const QDate &date, int &days, int &years );
 #if 0 //sebsauer
-    KCal::ResourceCalendar *usingBirthdayResource();
-    bool check( KCal::ResourceCalendar *cal, const QDate &date, const QString &summary );
+    ResourceCalendar *usingBirthdayResource();
+    bool check( ResourceCalendar *cal, const QDate &date, const QString &summary );
 #endif
     QGridLayout *mLayout;
     QList<QLabel*> mLabels;
@@ -85,8 +92,9 @@ class SDSummaryWidget : public KontactInterface::Summary
     bool mShowAnniversariesFromCal;
     bool mShowHolidays;
     bool mShowSpecialsFromCal;
+    bool mShowMineOnly;
 
-    KHolidays::HolidayRegion *mHolidays;
+    HolidayRegion *mHolidays;
 };
 
 #endif

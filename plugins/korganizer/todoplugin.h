@@ -24,13 +24,13 @@
 #ifndef KONTACT_TODOPLUGIN_H
 #define KONTACT_TODOPLUGIN_H
 
-#include <kontactinterface/plugin.h>
+#include <KontactInterface/Plugin>
+
+class OrgKdeKorganizerCalendarInterface;
 
 namespace KontactInterface {
   class UniqueAppWatcher;
 }
-class OrgKdeKorganizerCalendarInterface;
-class QDropEvent;
 
 class TodoPlugin : public KontactInterface::Plugin
 {

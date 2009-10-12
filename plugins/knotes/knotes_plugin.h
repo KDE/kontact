@@ -23,9 +23,7 @@
 #ifndef KNOTES_PLUGIN_H
 #define KNOTES_PLUGIN_H
 
-#include <kontactinterface/plugin.h>
-
-class SummaryWidget;
+#include <KontactInterface/Plugin>
 
 class KNotesPlugin : public KontactInterface::Plugin
 {

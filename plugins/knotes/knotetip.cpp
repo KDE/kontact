@@ -31,28 +31,22 @@
 */
 
 #include "knotetip.h"
-#include <kdebug.h>
 #include "knotes_part_p.h"
 
-#include <kglobalsettings.h>
+#include <KTextEdit>
 
 #include <QAbstractEventDispatcher>
 #include <QApplication>
+#include <QBoxLayout>
 #include <QToolTip>
-#include <QLayout>
-#include <QTextEdit>
-#include <QEvent>
-#include <QTimerEvent>
-#include <QResizeEvent>
-#include <QVBoxLayout>
 
 KNoteTip::KNoteTip( QListWidget *parent )
   : QFrame( 0, Qt::WX11BypassWM |   // this will make Seli happy >:-P
-             Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
+            Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
     mFilter( false ),
     mView( parent ),
     mNoteIVI( 0 ),
-    mPreview( new QTextEdit( this ) )
+    mPreview( new KTextEdit( this ) )
 {
   mPreview->setReadOnly( true );
   mPreview->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
@@ -86,7 +80,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
       hide();
     }
   } else {
-    KCal::Journal *journal = item->journal();
+    Journal *journal = item->journal();
     mPreview->setAcceptRichText( journal->customProperty( "KNotes", "RichText" ) == "true" );
 
     QColor fg( journal->customProperty( "KNotes", "FgColor" ) );
@@ -95,11 +89,11 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
 
     mPreview->setText( journal->description() );
     //mPreview->zoomTo( 8 );
-    mPreview->sync();
+    //mPreview->sync(); this is deprecated in Qt4, but there is no replacement
 
     mPreview->document()->adjustSize ();
-    int w = mPreview->document () ->size().width();
-    int h = mPreview->document () ->size().height();
+    int w = int( mPreview->document ()->size().width() );
+    int h = int( mPreview->document ()->size().height() );
     while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) ) {
       w -= 20;
     }
@@ -176,7 +170,7 @@ void KNoteTip::setColor( const QColor &fg, const QColor &bg )
   setPalette( newpalette );
 
   // set the text color
-  mPreview->setColor( fg );
+  mPreview->setTextColor( fg );
 }
 
 void KNoteTip::setFilter( bool enable )
@@ -187,9 +181,9 @@ void KNoteTip::setFilter( bool enable )
 
   if ( enable ) {
     qApp->installEventFilter( this );
-    QApplication::setGlobalMouseTracking( true );
+    setMouseTracking( true );
   } else {
-    QApplication::setGlobalMouseTracking( false );
+    setMouseTracking( false );
     qApp->removeEventFilter( this );
   }
 

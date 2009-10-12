@@ -23,24 +23,15 @@
 */
 
 #include "akregator_plugin.h"
+#include "akregator_part.h"
+#include "akregator_options.h"
 #include "partinterface.h"
 
-#include <akregator_options.h>
-#include <akregator_part.h>
+#include <KontactInterface/Core>
 
-#include <kontactinterface/core.h>
-#include <kontactinterface/plugin.h>
-
-#include <kaboutdata.h>
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kcmdlineargs.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kmessagebox.h>
-#include <kparts/componentfactory.h>
+#include <KAction>
+#include <KActionCollection>
+#include <KLocale>
 
 EXPORT_KONTACT_PLUGIN( AkregatorPlugin, akregator )
 
@@ -53,6 +44,7 @@ AkregatorPlugin::AkregatorPlugin( KontactInterface::Core *core, const QVariantLi
   KAction *action  = new KAction( KIcon( "bookmark-new" ), i18n( "New Feed..." ), this );
   actionCollection()->addAction( "feed_new", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_F ) );
+  action->setHelpText( i18n( "Create a new feed" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(addFeed()) );
   insertNewAction( action );
 
@@ -142,7 +134,6 @@ void AkregatorPlugin::saveProperties( KConfigGroup &config )
   }
 }
 
-#include "../../../akregator/src/akregator_options.h"
 void AkregatorUniqueAppHandler::loadCommandLineOptions()
 {
   KCmdLineArgs::addCmdLineOptions( Akregator::akregator_options() );
@@ -150,7 +141,6 @@ void AkregatorUniqueAppHandler::loadCommandLineOptions()
 
 int AkregatorUniqueAppHandler::newInstance()
 {
-  kDebug();
   // Ensure part is loaded
   (void)plugin()->part();
 

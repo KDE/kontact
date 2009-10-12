@@ -22,30 +22,27 @@
 #include "knotes_part.h"
 #include "summarywidget.h"
 
-#include <kontactinterface/core.h>
-#include <kontactinterface/plugin.h>
-
-#include <libkdepim/maillistdrag.h>
-#include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
-#include <libkdepim/kpimprefs.h>
+#include <libkdepim/maillistdrag.h>
+using namespace KPIM;
 
-#include <kcal/calendarlocal.h>
-#include <kcal/icaldrag.h>
+#include <KCal/CalendarLocal>
+#include <KCal/ICalDrag>
 
-#include <kaboutdata.h>
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kmessagebox.h>
-#include <kstatusbar.h>
+#include <KontactInterface/Core>
+
+#include <KAboutData>
+#include <KAction>
+#include <KActionCollection>
+#include <KDebug>
+#include <KIcon>
+#include <KLocale>
+#include <KMessageBox>
 #include <KSystemTimeZones>
 
-#include <QtDBus/QtDBus>
-#include <QtGui/QDropEvent>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDropEvent>
 
 EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
 
@@ -58,11 +55,13 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
   actionCollection()->addAction( "new_note", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewNote()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_N ) );
+  action->setHelpText( i18n( "Create new popup note" ) );
   insertNewAction( action );
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Sync Popup Notes" ), this );
   actionCollection()->addAction( "knotes_sync", syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncNotes()) );
+  syncAction->setHelpText( i18n( "Synchronize groupware notes" ) );
   insertSyncAction( syncAction );
 }
 
@@ -106,18 +105,21 @@ const KAboutData *KNotesPlugin::aboutData() const
 
 bool KNotesPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
-  return mimeData->hasText() || KPIM::MailList::canDecode( mimeData ) ||
-         KPIM::KVCardDrag::canDecode( mimeData ) || KCal::ICalDrag::canDecode( mimeData );
+  return
+    mimeData->hasText() ||
+    MailList::canDecode( mimeData ) ||
+    KVCardDrag::canDecode( mimeData ) ||
+    ICalDrag::canDecode( mimeData );
 }
 
 void KNotesPlugin::processDropEvent( QDropEvent *event )
 {
   const QMimeData *md = event->mimeData();
 
-  if ( KPIM::KVCardDrag::canDecode( md ) ) {
+  if ( KVCardDrag::canDecode( md ) ) {
     KABC::Addressee::List contacts;
 
-    KPIM::KVCardDrag::fromMimeData( md, contacts );
+    KVCardDrag::fromMimeData( md, contacts );
 
     KABC::Addressee::List::ConstIterator it;
 
@@ -135,13 +137,13 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  if ( KCal::ICalDrag::canDecode( event->mimeData() ) ) {
-    KCal::CalendarLocal cal( KSystemTimeZones::local() );
-    if ( KCal::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
-      KCal::Journal::List journals = cal.journals();
+  if ( ICalDrag::canDecode( event->mimeData() ) ) {
+    CalendarLocal cal( KSystemTimeZones::local() );
+    if ( ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
+      Journal::List journals = cal.journals();
       if ( !journals.isEmpty() ) {
         event->accept();
-        KCal::Journal *j = journals.first();
+        Journal *j = journals.first();
         static_cast<KNotesPart *>( part() )->
           newNote( i18n( "Note: %1", j->summary() ), j->description() );
         return;
@@ -155,14 +157,14 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  if ( KPIM::MailList::canDecode( md ) ) {
-    KPIM::MailList mails = KPIM::MailList::fromMimeData( md );
+  if ( MailList::canDecode( md ) ) {
+    MailList mails = MailList::fromMimeData( md );
     event->accept();
     if ( mails.count() != 1 ) {
       KMessageBox::sorry( core(),
                           i18n( "Dropping multiple mails is not supported." ) );
     } else {
-      KPIM::MailSummary mail = mails.first();
+      MailSummary mail = mails.first();
       QString txt = i18n( "From: %1\nTo: %2\nSubject: %3", mail.from(), mail.to(), mail.subject() );
       static_cast<KNotesPart *>( part() )->newNote( i18n( "Mail: %1", mail.subject() ), txt );
     }

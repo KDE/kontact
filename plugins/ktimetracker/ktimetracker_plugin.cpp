@@ -27,16 +27,11 @@
 #include "ktimetracker_plugin.h"
 #include "ktimetrackerinterface.h"
 
-#include <ktimetrackerpart.h>
+#include <KontactInterface/Core>
 
-#include <kontactinterface/core.h>
-#include <kontactinterface/plugin.h>
-
-#include <kactioncollection.h>
-#include <kcmdlineargs.h>
-#include <kgenericfactory.h>
-#include <kicon.h>
-#include <kparts/componentfactory.h>
+#include <KActionCollection>
+#include <KCmdLineArgs>
+#include <KIcon>
 
 EXPORT_KONTACT_PLUGIN( ktimetrackerplugin, ktimetracker )
 
@@ -48,6 +43,7 @@ ktimetrackerplugin::ktimetrackerplugin( KontactInterface::Core *core, const QVar
   KAction *action  = new KAction( KIcon( "ktimetracker" ), i18n( "New Task" ), this );
   actionCollection()->addAction( "new_task", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_W ) );
+  action->setHelpText( i18n( "Create a new time tracking" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(newTask()) );
   insertNewAction( action );
 
@@ -113,7 +109,6 @@ void KtimetrackerUniqueAppHandler::loadCommandLineOptions()
 
 int KtimetrackerUniqueAppHandler::newInstance()
 {
-  kDebug();
   // Ensure part is loaded
   (void)plugin()->part();
   return KontactInterface::UniqueAppHandler::newInstance();

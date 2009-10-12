@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2004-2006 Allen Winter <winter@kde.org>
+  Copyright (c) 2004-2006,2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -25,22 +25,9 @@
 
 #include "kcmsdsummary.h"
 
-#include <kaboutdata.h>
-#include <kacceleratormanager.h>
-#include <kcomponentdata.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kdemacros.h>
-#include <klocale.h>
-
-#include <QCheckBox>
-#include <QLabel>
-#include <QLayout>
-#include <QRadioButton>
-#include <QSpinBox>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QGridLayout>
+#include <KAboutData>
+#include <KAcceleratorManager>
+#include <KComponentData>
 
 extern "C"
 {
@@ -72,6 +59,8 @@ KCMSDSummary::KCMSDSummary( const KComponentData &inst, QWidget *parent )
 
   connect( mShowBirthdaysFromKABBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
   connect( mShowAnniversariesFromKABBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+
+  connect( mShowMineOnly, SIGNAL(stateChanged(int)), SLOT(modified()) );
 
   KAcceleratorManager::manage( this );
 
@@ -121,6 +110,9 @@ void KCMSDSummary::load()
 
   mShowSpecialsFromCalBox->setChecked( group.readEntry( "SpecialsFromCalendar", true ) );
 
+  group = config.group( "Groupware" );
+  mShowMineOnly->setChecked( group.readEntry( "ShowMineOnly", false ) );
+
   emit changed( false );
 }
 
@@ -152,6 +144,9 @@ if ( mDateTodayButton->isChecked() ) {
 
   group.writeEntry( "SpecialsFromCalendar", mShowSpecialsFromCalBox->isChecked() );
 
+  group = config.group( "Groupware" );
+  group.writeEntry( "ShowMineOnly", mShowMineOnly->isChecked() );
+
   group.sync();
   emit changed( false );
 }
@@ -168,6 +163,8 @@ void KCMSDSummary::defaults()
   mShowAnniversariesFromCalBox->setChecked( true );
   mShowHolidaysFromCalBox->setChecked( true );
   mShowSpecialsFromCalBox->setChecked( true );
+
+  mShowMineOnly->setChecked( false );
 
   emit changed( true );
 }

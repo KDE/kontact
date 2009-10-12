@@ -26,41 +26,29 @@
 
 #include "planner.h"
 #include "plannerplugin.h"
-#include "korganizerinterface.h"
+#include "korganizer/korganizerinterface.h"
+#include "korganizer/stdcalendar.h"
 
-#include <korganizer/stdcalendar.h>
-#include <kontactinterface/core.h>
-#include <kontactinterface/plugin.h>
-#include <libkdepim/kpimprefs.h>
+#include <KABC/StdAddressBook>
 
-#include <kabc/stdaddressbook.h>
-#include <kabc/addressee.h>
-#include <kcal/calendar.h>
-#include <kcal/calhelper.h>
-#include <kcal/event.h>
-#include <kcal/todo.h>
-#include <kcal/incidence.h>
-#include <kcal/resourcelocal.h>
-#include <kcal/incidenceformatter.h>
+#include <KCal/Calendar>
+#include <KCal/CalHelper>
+#include <KCal/IncidenceFormatter>
 
-#include <kdialog.h>
-#include <kdatetime.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kstandarddirs.h>
+#include <KHolidays/Holidays>
+
+#include <KontactInterface/Core>
+
+#include <KConfig>
+#include <KConfigGroup>
+#include <KIconLoader>
+#include <KLocale>
+#include <KMenu>
 #include <KSystemTimeZones>
-#include <kurllabel.h>
-#include <kparts/part.h>
+#include <KUrlLabel>
 
-#include <QCursor>
-#include <QGridLayout>
 #include <QEvent>
 #include <QLabel>
-#include <QLayout>
-#include <QPixmap>
-#include <QToolTip>
 #include <QVBoxLayout>
 
 enum SDIncidenceType {
@@ -86,7 +74,7 @@ class SDEntry
     QString summary;
     QString desc;
     int span; // #days in the special occassion.
-    KABC::Addressee addressee;
+    Addressee addressee;
 
     bool operator<( const SDEntry &entry ) const
     {
@@ -109,7 +97,7 @@ Planner::Planner( KontactInterface::Plugin *plugin, QWidget *parent )
   mCalendar->load();
 #endif
 
-  mAddressBook = KABC::StdAddressBook::self();
+  mAddressBook = StdAddressBook::self();
   mAddressBook->load();
 
   connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
@@ -638,7 +626,7 @@ void Planner::initSdList( const QDate &date )
 {
   mDates.clear();
 
-  Q_FOREACH ( const KABC::Addressee &addressee, mAddressBook->allAddressees() ) {
+  Q_FOREACH ( const Addressee &addressee, mAddressBook->allAddressees() ) {
     QDate birthday = addressee.birthday().date();
     if ( birthday.isValid() && mBirthdayConList &&
           birthday.day() == date.day() && birthday.month() == date.month() ) {
@@ -691,13 +679,17 @@ int Planner::showSd( int counter, const QDate &date )
   Q_UNUSED( date );
 //   initSdList( date );
 
-  QPixmap birthdayIcon = loader.loadIcon( "view-calendar-birthday", KIconLoader::Small );
-  QPixmap anniversaryIcon = loader.loadIcon( "view-calendar-wedding-anniversary", KIconLoader::Small );
-  QPixmap holidayIcon = loader.loadIcon( "view-calendar-holiday", KIconLoader::Small );
-  QPixmap specialOccasionsIcon = loader.loadIcon( "favorites", KIconLoader::Small );
+  QPixmap birthdayIcon =
+    loader.loadIcon( "view-calendar-birthday", KIconLoader::Small );
+  QPixmap anniversaryIcon =
+    loader.loadIcon( "view-calendar-wedding-anniversary", KIconLoader::Small );
+  QPixmap holidayIcon =
+    loader.loadIcon( "view-calendar-holiday", KIconLoader::Small );
+  QPixmap specialOccasionsIcon =
+    loader.loadIcon( "favorites", KIconLoader::Small );
+
   ++counter;
   Q_FOREACH ( const SDEntry &entry, mDates ) {
-
     mPlannerGrid->setColumnMinimumWidth( 0, 40 );
 
     //Show Sd icon

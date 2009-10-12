@@ -23,17 +23,15 @@
 */
 
 #include "knode_plugin.h"
+#include "knodeinterface.h"
+#include "knode_options.h"
 
-#include <knodeinterface.h>
-#include <kontactinterface/core.h>
+#include <KontactInterface/Core>
 
-#include <kactioncollection.h>
-#include <kaction.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kparts/componentfactory.h>
+#include <KAction>
+#include <KActionCollection>
+#include <KIcon>
+#include <KLocale>
 
 EXPORT_KONTACT_PLUGIN( KNodePlugin, knode )
 
@@ -45,6 +43,7 @@ KNodePlugin::KNodePlugin( KontactInterface::Core *core, const QVariantList & )
   KAction *action = new KAction( KIcon( "mail-message-new" ), i18n( "New Article..." ), this );
   actionCollection()->addAction( "post_article", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_A ) );
+  action->setHelpText( i18n( "Create a new Usenet article" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPostArticle()) );
   insertNewAction( action );
 
@@ -103,7 +102,6 @@ KParts::ReadOnlyPart *KNodePlugin::createPart()
 
 ////
 
-#include "../../../knode/knode_options.h"
 void KNodeUniqueAppHandler::loadCommandLineOptions()
 {
   KCmdLineArgs::addCmdLineOptions( knode_options() );
@@ -111,7 +109,6 @@ void KNodeUniqueAppHandler::loadCommandLineOptions()
 
 int KNodeUniqueAppHandler::newInstance()
 {
-  kDebug();
   // Ensure part is loaded
   (void)plugin()->part();
   org::kde::knode knode( "org.kde.knode", "/KNode", QDBusConnection::sessionBus() );
@@ -119,7 +116,6 @@ int KNodeUniqueAppHandler::newInstance()
 
   if ( reply.isValid() ) {
     bool handled = reply;
-    kDebug() << "handled=" << handled;
     if ( !handled ) { // no args -> simply bring knode plugin to front
       return KontactInterface::UniqueAppHandler::newInstance();
     }

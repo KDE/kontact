@@ -33,34 +33,35 @@
 #ifndef KNOTES_PART_P_H
 #define KNOTES_PART_P_H
 
+#include "knotes/knoteedit.h"
+
+#include <KCal/Journal>
+using namespace KCal;
+
+#include <KActionCollection>
+#include <KComponentData>
+#include <KDialog>
+#include <KIconEffect>
+#include <KIconLoader>
+#include <KLineEdit>
 #include <KListWidget>
-#include <knotes/knoteedit.h>
+#include <KLocale>
+#include <KToolBar>
+#include <KXMLGUIBuilder>
+#include <KXMLGUIClient>
+#include <KXMLGUIFactory>
 
-#include <kcal/journal.h>
-#include <kcal/calendarlocal.h>
-#include <kcal/icaldrag.h>
-
-#include <kactioncollection.h>
-#include <kcomponentdata.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <kiconeffect.h>
-#include <klineedit.h>
-#include <ktoolbar.h>
-#include <kmenu.h>
-#include <kdialog.h>
-#include <ksystemtimezone.h>
-#include <kxmlguiclient.h>
-#include <kxmlguifactory.h>
-#include <kxmlguibuilder.h>
-
-#include <QLayout>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QPixmap>
+#include <QAction>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QMouseEvent>
+#include <QVBoxLayout>
+
 class KNotesPart;
+
+class KMenu;
+class KTextEdit;
+
 class KNotesIconView : public KListWidget
 {
   public:
@@ -76,7 +77,7 @@ class KNotesIconView : public KListWidget
 class KNotesIconViewItem : public QListWidgetItem
 {
   public:
-    KNotesIconViewItem( QListWidget *parent, KCal::Journal *journal )
+    KNotesIconViewItem( QListWidget *parent, Journal *journal )
       : QListWidgetItem( parent ), mJournal( journal )
     {
       KIconEffect effect;
@@ -87,7 +88,7 @@ class KNotesIconViewItem : public QListWidgetItem
       setIconText( journal->summary() );
     }
 
-    KCal::Journal *journal()
+    Journal *journal()
     {
       return mJournal;
     }
@@ -98,7 +99,7 @@ class KNotesIconViewItem : public QListWidgetItem
     }
 
   private:
-    KCal::Journal *mJournal;
+    Journal *mJournal;
 };
 
 class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
@@ -108,7 +109,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
     KNoteEditDlg( QWidget *parent = 0 )
       : KDialog( parent )
     {
-      setCaption( i18n( "Edit Popup Note" ) );
+      setCaption( i18nc( "@title:window", "Edit Popup Note" ) );
       setButtons( Ok | Cancel );
       setDefaultButton( Ok );
       setModal( true );
@@ -127,7 +128,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
       layout->addItem( hbl );
       hbl->setSpacing( marginHint() );
       QLabel *label = new QLabel( page );
-      label->setText( i18n( "Name:" ) );
+      label->setText( i18nc( "@label popup note name", "Name:" ) );
       hbl->addWidget( label, 0 );
       mTitleEdit= new KLineEdit( page );
       mTitleEdit->setObjectName( "name" );

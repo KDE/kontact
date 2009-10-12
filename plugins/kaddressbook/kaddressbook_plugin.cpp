@@ -1,38 +1,35 @@
 /*
-    This file is part of KAddressBook Kontact Plugin.
+  This file is part of KAddressBook Kontact Plugin.
 
-    Copyright (c) 2009 Laurent Montel <montel@kde.org>
+  Copyright (c) 2009 Laurent Montel <montel@kde.org>
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License along
-    with this program; if not, write to the Free Software Foundation, Inc.,
-    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
 #include "kaddressbook_plugin.h"
 
-#include <kontactinterface/core.h>
+#include <KontactInterface/Core>
 
-#include <kactioncollection.h>
-#include <kaction.h>
-#include <kcmdlineargs.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kparts/componentfactory.h>
+#include <KAction>
+#include <KActionCollection>
+#include <KCmdLineArgs>
+#include <KDebug>
+#include <KLocale>
 
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusMessage>
+#include <QDBusConnection>
+#include <QDBusMessage>
 
 EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kaddressbook )
 
@@ -41,26 +38,27 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  KAction *action  = new KAction( KIcon( "contact-new" ),
-                                  i18n( "New Contact..." ), this );
+  KAction *action = new KAction( KIcon( "contact-new" ),
+                                 i18nc( "@action:inmenu", "New Contact..." ), this );
   actionCollection()->addAction( "new_contact", action );
   connect( action, SIGNAL( triggered( bool) ), SLOT( slotNewContact() ) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
-  action->setWhatsThis( i18n( "Create a new contact<p>You will be presented with a dialog where you can add all data about a person, including addresses and phone numbers.</p>" ) );
+  action->setHelpText( i18nc( "@info:status", "Create a new contact" ) );
   insertNewAction( action );
 
-  action  = new KAction( KIcon( "user-group-new" ),
-                         i18n( "New Contact Group..." ), this );
+  action = new KAction( KIcon( "user-group-new" ),
+                        i18nc( "@action:inmenu", "New Contact Group..." ), this );
   actionCollection()->addAction( "new_contactgroup", action );
   connect( action, SIGNAL( triggered( bool ) ), SLOT( slotNewContactGroup() ) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_G ) );
-  action->setWhatsThis( i18n( "Create a new group<p>You will be presented with a dialog where you can add a new group of contacts.</p>" ) );
+  action->setHelpText( i18nc( "@info:status", "Create a new contact group" ) );
   insertNewAction( action );
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ),
-                                     i18n( "Sync Contacts" ), this );
+                                     i18nc( "@action:inmenu", "Sync Contacts" ), this );
   actionCollection()->addAction( "kaddressbook_sync", syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
+  syncAction->setHelpText( i18nc( "@info:status", "Synchronize groupware contacts" ) );
   insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
@@ -74,8 +72,9 @@ KAddressBookPlugin::~KAddressBookPlugin()
 void KAddressBookPlugin::slotNewContact()
 {
   KParts::ReadOnlyPart *part = createPart();
-  if ( !part )
+  if ( !part ) {
     return;
+  }
 
   if ( part->metaObject()->indexOfMethod( "newContact()" ) == -1 ) {
     kWarning() << "KAddressBook part is missing slot newContact()";
@@ -88,8 +87,9 @@ void KAddressBookPlugin::slotNewContact()
 void KAddressBookPlugin::slotNewContactGroup()
 {
   KParts::ReadOnlyPart *part = createPart();
-  if ( !part )
+  if ( !part ) {
     return;
+  }
 
   if ( part->metaObject()->indexOfMethod( "newGroup()" ) == -1 ) {
     kWarning() << "KAddressBook part is missing slot newGroup()";
@@ -117,8 +117,9 @@ KParts::ReadOnlyPart *KAddressBookPlugin::createPart()
   // disable the Ctrl+N shortcut, as it is used by Kontact already
   if ( part->action( "akonadi_contact_create" ) ) {
     KAction *newAction = qobject_cast<KAction*>( part->action( "akonadi_contact_create" ) );
-    if ( newAction )
+    if ( newAction ) {
       newAction->setShortcut( QKeySequence() );
+    }
   }
 
   return part;

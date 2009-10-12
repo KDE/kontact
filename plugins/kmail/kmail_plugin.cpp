@@ -23,35 +23,28 @@
 */
 
 #include "kmail_plugin.h"
-#include "summarywidget.h"
 #include "kmailinterface.h"
-
-#include <kmail/kmail_part.h>
-#include <kmail/kmkernel.h>
+#include "summarywidget.h"
 
 #include <libkdepim/kvcarddrag.h>
-#include <kontactinterface/core.h>
-
-#include <kabc/addressee.h>
-#include <kcal/vcaldrag.h>
-#include <kcal/icaldrag.h>
-#include <kcal/calendarlocal.h>
-
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kstandarddirs.h>
-#include <ktemporaryfile.h>
-#include <kparts/componentfactory.h>
-
-#include <QWidget>
-#include <QDropEvent>
-
-using namespace KCal;
 using namespace KPIM;
+
+#include <KCal/CalendarLocal>
+#include <KCal/ICalDrag>
+#include <KCal/VCalDrag>
+using namespace KCal;
+
+#include <KontactInterface/Core>
+
+#include <KAction>
+#include <KActionCollection>
+#include <KDebug>
+#include <KIcon>
+#include <KLocale>
+#include <KStandardDirs>
+#include <KTemporaryFile>
+
+#include <QDropEvent>
 
 EXPORT_KONTACT_PLUGIN( KMailPlugin, kmail )
 
@@ -63,10 +56,12 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
   KAction *action  = new KAction( KIcon( "mail-message-new" ), i18n( "New Message..." ), this );
   actionCollection()->addAction( "new_mail", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_M ) );
+  action->setHelpText( i18n( "Create a new mail message" ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewMail()) );
   insertNewAction( action );
 
   KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Sync Mail" ), this );
+  syncAction->setHelpText( i18n( "Synchronize groupware mail" ) );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncFolders()) );
   actionCollection()->addAction( "sync_mail", syncAction );
   insertSyncAction( syncAction );
@@ -77,14 +72,14 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
 
 bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
-  return ( ICalDrag::canDecode( mimeData ) ||
-           VCalDrag::canDecode( mimeData ) ||
-           KVCardDrag::canDecode( mimeData ) );
+  return
+    ICalDrag::canDecode( mimeData ) ||
+    VCalDrag::canDecode( mimeData ) ||
+    KVCardDrag::canDecode( mimeData );
 }
 
 void KMailPlugin::processDropEvent( QDropEvent *de )
 {
-  kDebug();
   CalendarLocal cal( QString::fromLatin1( "UTC" ) );
   KABC::Addressee::List list;
   const QMimeData *md = de->mimeData();
@@ -204,7 +199,6 @@ void KMailUniqueAppHandler::loadCommandLineOptions()
 
 int KMailUniqueAppHandler::newInstance()
 {
-    kDebug();
     // Ensure part is loaded
     (void)plugin()->part();
     org::kde::kmail::kmail kmail( "org.kde.kmail", "/KMail", QDBusConnection::sessionBus() );
@@ -212,7 +206,6 @@ int KMailUniqueAppHandler::newInstance()
 
     if ( reply.isValid() ) {
       bool handled = reply;
-      kDebug() << "handled=" << handled;
       if ( !handled ) { // no args -> simply bring kmail plugin to front
         return KontactInterface::UniqueAppHandler::newInstance();
       }

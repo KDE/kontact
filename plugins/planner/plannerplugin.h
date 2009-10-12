@@ -2,7 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
-  Copyright (c) 2004 Allen Winter <winter@kde.org>
+  Copyright (c) 2004,2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,9 +26,7 @@
 #ifndef PLANNER_PLUGIN_H
 #define PLANNER_PLUGIN_H
 
-#include <kontactinterface/plugin.h>
-
-class Planner;
+#include <KontactInterface/Plugin>
 
 class PlannerPlugin : public KontactInterface::Plugin
 {

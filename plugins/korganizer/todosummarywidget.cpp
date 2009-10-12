@@ -43,7 +43,6 @@ using namespace KCal;
 #include <KSystemTimeZones>
 #include <KUrlLabel>
 
-#include <QEvent>
 #include <QGridLayout>
 #include <QLabel>
 #include <QTextDocument>  // for Qt::mightBeRichText

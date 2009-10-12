@@ -25,16 +25,14 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <kontactinterface/plugin.h>
-#include <kontactinterface/summary.h>
+#include <KontactInterface/Summary>
 
-#include <QList>
+namespace KontactInterface {
+  class Plugin;
+}
 
-class QEvent;
 class QGridLayout;
 class QLabel;
-class QString;
-class QWidget;
 
 class SummaryWidget : public KontactInterface::Summary
 {

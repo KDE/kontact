@@ -22,21 +22,18 @@
 
 #include "knotes_part.h"
 #include "knotes_part_p.h"
-#include <kinputdialog.h>
-#include "knotetip.h"
 #include "knotesadaptor.h"
-
-#include <kactioncollection.h>
-#include <kdebug.h>
-#include <kaction.h>
-#include <kmessagebox.h>
-#include <kicon.h>
+#include "knotetip.h"
 #include "knotes/knoteprinter.h"
 #include "knotes/resourcemanager.h"
 
-#include <QMenu>
-#include <QClipboard>
+#include <KAction>
+#include <KInputDialog>
+#include <KMessageBox>
+
 #include <QApplication>
+#include <QClipboard>
+#include <QMenu>
 
 KNotesIconView::KNotesIconView( KNotesPart *part )
   : KListWidget(), m_part( part )
@@ -70,29 +67,34 @@ KNotesPart::KNotesPart( QObject *parent )
   setComponentData( KComponentData( "knotes" ) );
 
   // create the actions
-  KAction *action = new KAction( KIcon( "knotes" ), i18n( "&New" ), this );
+  KAction *action = new KAction( KIcon( "knotes" ),
+                                 i18nc( "create new popup note", "&New" ), this );
   actionCollection()->addAction( "file_new", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(newNote()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_N ) );
+  action->setHelpText( i18n( "Create a new popup note" ) );
 
   action = new KAction( KIcon( "document-edit" ), i18n( "Edit..." ), this );
   actionCollection()->addAction( "edit_note", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(editNote()) );
+  action->setHelpText( i18n( "Edit popup note" ) );
 
   action = new KAction( KIcon( "edit-rename" ), i18n( "Rename..." ), this );
   actionCollection()->addAction( "edit_rename", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(renameNote()) );
+  action->setHelpText( i18n( "Rename popup note" ) );
 
   action = new KAction( KIcon( "edit-delete" ), i18n( "Delete" ), this );
   actionCollection()->addAction( "edit_delete", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(killSelectedNotes()) );
   action->setShortcut( QKeySequence( Qt::Key_Delete ) );
+  action->setHelpText( i18n( "Delete popup note" ) );
 
   action = new KAction( KIcon( "document-print" ), i18n( "Print Selected Notes..." ), this );
   actionCollection()->addAction( "print_note", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(printSelectedNotes()) );
-
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_Delete ) );
+  action->setHelpText( i18n( "Print popup note" ) );
 
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -148,7 +150,7 @@ void KNotesPart::hideToolTip()
 
 void KNotesPart::printSelectedNotes()
 {
-  QList<KCal::Journal*> journals;
+  QList<Journal*> journals;
   QList<QListWidgetItem *> lst = mNotesView->selectedItems();
   if ( lst.isEmpty() ) {
     KMessageBox::information(
@@ -176,7 +178,7 @@ bool KNotesPart::openFile()
 QString KNotesPart::newNote( const QString &name, const QString &text )
 {
   // create the new note
-  KCal::Journal *journal = new KCal::Journal();
+  Journal *journal = new Journal();
 
   // new notes have the current date/time as title if none was given
   if ( !name.isEmpty() ) {
@@ -329,6 +331,8 @@ void KNotesPart::killSelectedNotes()
 
 void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos )
 {
+  Q_UNUSED( item );
+
   QMenu *contextMenu = 0;
   if ( mNotesView->itemAt ( pos ) ) {
     contextMenu = static_cast<QMenu *>( factory()->container( "note_context", this ) );
@@ -386,7 +390,7 @@ void KNotesPart::editNote( QListWidgetItem *item )
     mNoteEditDlg = new KNoteEditDlg( widget() );
   }
 
-  KCal::Journal *journal = static_cast<KNotesIconViewItem *>( item )->journal();
+  Journal *journal = static_cast<KNotesIconViewItem *>( item )->journal();
   mNoteEditDlg->setTitle( journal->summary() );
   mNoteEditDlg->setText( journal->description() );
 
@@ -409,8 +413,10 @@ void KNotesPart::renameNote()
 {
   QString oldName = mNotesView->currentItem()->text();
   bool ok = false;
-  QString newName = KInputDialog::getText( i18n( "Rename" ), i18n( "Name:" ),
-                                           oldName, &ok, mNotesView );
+  QString newName =
+    KInputDialog::getText( i18n( "Rename Popup Note" ),
+                           i18n( "New Name:" ),
+                           oldName, &ok, mNotesView );
   if ( ok && ( newName != oldName ) ) {
     static_cast<KNotesIconViewItem *>( mNotesView->currentItem() )->setIconText( newName );
     mManager->save();

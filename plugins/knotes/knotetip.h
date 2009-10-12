@@ -33,13 +33,11 @@
 #ifndef KNOTETIP_H
 #define KNOTETIP_H
 
-#include <qframe.h>
+#include <QFrame>
 
-class QEvent;
-class QReszieEvent;
-class QTextEdit;
-class QTimerEvent;
 class KNotesIconViewItem;
+
+class KTextEdit;
 class QListWidget;
 
 class KNoteTip : public QFrame
@@ -64,7 +62,7 @@ class KNoteTip : public QFrame
     bool mFilter;
     QListWidget *mView;
     KNotesIconViewItem *mNoteIVI;
-    QTextEdit *mPreview;
+    KTextEdit *mPreview;
 };
 
 #endif

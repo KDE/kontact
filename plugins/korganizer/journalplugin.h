@@ -1,7 +1,7 @@
 /*
   This file is part of KDE Kontact.
 
-  Copyright (c) 2004 Allen Winter <winter@kde.org>
+  Copyright (c) 2004,2009 Allen Winter <winter@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -24,13 +24,13 @@
 #ifndef KONTACT_JOURNALPLUGIN_H
 #define KONTACT_JOURNALPLUGIN_H
 
-#include <kontactinterface/plugin.h>
+#include <KontactInterface/Plugin>
+
+class OrgKdeKorganizerCalendarInterface;
 
 namespace KontactInterface {
   class UniqueAppWatcher;
 }
-
-class OrgKdeKorganizerCalendarInterface;
 
 class JournalPlugin : public KontactInterface::Plugin
 {

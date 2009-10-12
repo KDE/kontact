@@ -25,18 +25,8 @@
 
 #include "kcmplanner.h"
 
-#include <kaboutdata.h>
-#include <kcomponentdata.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <klocale.h>
-#include <kdemacros.h>
-
-#include <QCheckBox>
-#include <QLabel>
-#include <QLayout>
-#include <QRadioButton>
-#include <QSpinBox>
+#include <KAboutData>
+#include <KComponentData>
 
 extern "C"
 {

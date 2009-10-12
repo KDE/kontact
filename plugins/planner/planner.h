@@ -25,30 +25,36 @@
 #ifndef PLANNERWIDGET_H
 #define PLANNERWIDGET_H
 
-#include <kontactinterface/summary.h>
-#include <kholidays/holidays.h>
+#include <KontactInterface/Summary>
 
-#include <kabc/resource.h>
-#include <kcal/todo.h>
-#include <kcal/event.h>
+#include <KCal/Event>
+#include <KCal/Todo>
 
 #include <QList>
 
-class QWidget;
-class QEvent;
-class QGridLayout;
-class QLabel;
-class QVBoxLayout;
 class SDEntry;
+
+namespace KABC {
+  class AddressBook;
+}
+using namespace KABC;
+
+namespace KCal {
+  class Calendar;
+}
+using namespace KCal;
+
+namespace KHolidays {
+  class HolidayRegion;
+}
 
 namespace KontactInterface {
   class Plugin;
 }
-namespace KCal {
-  class Event;
-  class Calendar;
-}
-using namespace KCal;
+
+class QGridLayout;
+class QLabel;
+class QVBoxLayout;
 
 class Planner : public KontactInterface::Summary
 {
@@ -127,7 +133,7 @@ class Planner : public KontactInterface::Summary
     QList<QLabel *> mLabels;
 
     KCal::Calendar *mCalendar;
-    KABC::AddressBook *mAddressBook;
+    AddressBook *mAddressBook;
 
     Todo::List mTodos;
     QString initStateText( const Todo *todo, const QDate &date );

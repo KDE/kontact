@@ -25,15 +25,13 @@
 #ifndef KORGANIZER_PLUGIN_H
 #define KORGANIZER_PLUGIN_H
 
-#include <kontactinterface/plugin.h>
-#include <kparts/part.h>
+#include <KontactInterface/Plugin>
+
+class OrgKdeKorganizerCalendarInterface;
 
 namespace KontactInterface {
   class UniqueAppWatcher;
 }
-
-class QDropEvent;
-class OrgKdeKorganizerCalendarInterface;
 
 class KOrganizerPlugin : public KontactInterface::Plugin
 {
