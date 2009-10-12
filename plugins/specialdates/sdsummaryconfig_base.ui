@@ -84,7 +84,7 @@
            <string>Set the number of days to show upcoming special occasions</string>
           </property>
           <property name="whatsThis">
-           <string>Use this spinbox to set the number of days to show upcoming special occasions up t o1 year in the future.</string>
+           <string>Use this spinbox to set the number of days to show upcoming special occasions up to one year in the future.</string>
           </property>
           <property name="specialValueText">
            <string>1 day</string>
@@ -152,7 +152,7 @@
          <string>Show anniversaries from your calendar</string>
         </property>
         <property name="whatsThis">
-         <string>Enable this option to include anniveraries from your calendar in the upcoming special occasions summary. Typically, these are events with the &quot;Anniversary&quot; category.</string>
+         <string>Enable this option to include anniversaries from your calendar in the upcoming special occasions summary. Typically, these are events with the &quot;Anniversary&quot; category.</string>
         </property>
         <property name="text">
          <string>Show &amp;anniversaries</string>
