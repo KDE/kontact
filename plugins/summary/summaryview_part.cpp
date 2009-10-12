@@ -65,12 +65,17 @@ SummaryViewPart::SummaryViewPart( KontactInterface::Core *core, const char *,
   initGUI( core );
 
   setDate( QDate::currentDate() );
-  connect( mCore, SIGNAL(dayChanged(const QDate&)),
-           SLOT(setDate(const QDate&)) );
+  connect( mCore, SIGNAL(dayChanged(const QDate&)), SLOT(setDate(const QDate&)) );
 
   mConfigAction = new KAction( KIcon( "configure" ), i18n( "&Configure Summary View..." ), this );
   actionCollection()->addAction( "summaryview_configure", mConfigAction );
   connect( mConfigAction, SIGNAL(triggered(bool)), SLOT(slotConfigure()) );
+  mConfigAction->setHelpText( i18n( "Configure the summary view" ) );
+  mConfigAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choosing this will show a dialog where you can select which "
+           "summaries you want to see and also allow you to configure "
+           "the summaries to your liking." ) );
 
   setXMLFile( "kontactsummary_part.rc" );
 
