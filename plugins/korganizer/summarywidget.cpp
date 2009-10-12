@@ -65,7 +65,6 @@ SummaryWidget::SummaryWidget( KOrganizerPlugin *plugin, QWidget *parent,
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = KOrg::StdCalendar::self();
-  mCalendar->load();
 
   connect( mCalendar, SIGNAL( calendarChanged() ), SLOT( updateView() ) );
   connect( mPlugin->core(), SIGNAL( dayChanged( const QDate& ) ),
@@ -103,12 +102,7 @@ void SummaryWidget::updateView()
         dt<=currentDate.addDays( days - 1 );
         dt=dt.addDays(1) ) {
 
-    KCal::Event *ev;
-
     KCal::Event::List events = mCalendar->events( dt );
-    KCal::Event::List::ConstIterator it = events.begin();
-
-    QDateTime qdt;
 
     // sort the events for this date by summary
     events = KCal::Calendar::sortEvents( &events,
@@ -119,8 +113,9 @@ void SummaryWidget::updateView()
                                          KCal::EventSortStartDate,
                                          KCal::SortDirectionAscending );
 
+    KCal::Event::List::ConstIterator it = events.begin();
     for ( it=events.begin(); it!=events.end(); ++it ) {
-      ev = *it;
+      KCal::Event *ev = *it;
 
       // Count number of days remaining in multiday event
       int span=1; int dayof=1;
