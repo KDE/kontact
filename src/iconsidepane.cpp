@@ -245,22 +245,40 @@ Navigator::Navigator( SidePaneBase *parent )
 
   QActionGroup *viewMode = new QActionGroup( this );
 
-  mShowIconsAction = new KAction( i18n( "Show Icons Only" ), this );
+  mShowIconsAction = new KAction( i18nc( "@action:inmenu", "Show Icons Only" ), this );
   mShowIconsAction->setCheckable( true );
   mShowIconsAction->setActionGroup( viewMode );
   mShowIconsAction->setChecked( !mShowText && mShowIcons );
+  mShowIconsAction->setHelpText(
+    i18nc( "@info:status",
+           "Show sidebar items with icons and without text" ) );
+  mShowIconsAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar items to have icons without text." ) );
   connect( mShowIconsAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
-  mShowTextAction = new KAction( i18n( "Show Text Only" ), this );
+  mShowTextAction = new KAction( i18nc( "@action:inmenu", "Show Text Only" ), this );
   mShowTextAction->setCheckable( true );
   mShowTextAction->setActionGroup( viewMode );
   mShowTextAction->setChecked( mShowText && !mShowIcons );
+  mShowTextAction->setHelpText(
+    i18nc( "@info:status",
+           "Show sidebar items with text and without icons" ) );
+  mShowTextAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar items to have text without icons." ) );
   connect( mShowTextAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
-  mShowBothAction = new KAction( i18n( "Show Icons && Text" ), this );
+  mShowBothAction = new KAction( i18nc( "@action:inmenu", "Show Icons && Text" ), this );
   mShowBothAction->setCheckable( true );
   mShowBothAction->setActionGroup( viewMode );
   mShowBothAction->setChecked( mShowText && mShowIcons );
+  mShowBothAction->setHelpText(
+    i18nc( "@info:status",
+           "Show sidebar items with icons and text" ) );
+  mShowBothAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar items to have icons and text." ) );
   connect( mShowBothAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
   KAction *sep = new KAction( this );
@@ -268,22 +286,40 @@ Navigator::Navigator( SidePaneBase *parent )
 
   QActionGroup *iconSize = new QActionGroup( this );
 
-  mBigIconsAction = new KAction( i18n( "Big Icons" ), this );
+  mBigIconsAction = new KAction( i18nc( "@action:inmenu", "Big Icons" ), this );
   mBigIconsAction->setCheckable( iconSize );
   mBigIconsAction->setActionGroup( iconSize );
   mBigIconsAction->setChecked( mIconSize == KIconLoader::SizeLarge );
+  mBigIconsAction->setHelpText(
+    i18nc( "@info:status",
+           "Show large size sidebar icons" ) );
+  mBigIconsAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar icons to be extra big." ) );
   connect( mBigIconsAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
-  mNormalIconsAction = new KAction( i18n( "Normal Icons" ), this );
+  mNormalIconsAction = new KAction( i18nc( "@action:inmenu", "Normal Icons" ), this );
   mNormalIconsAction->setCheckable( true );
   mNormalIconsAction->setActionGroup( iconSize );
   mNormalIconsAction->setChecked( mIconSize == KIconLoader::SizeMedium );
+  mNormalIconsAction->setHelpText(
+    i18nc( "@info:status",
+           "Show normal size sidebar icons" ) );
+  mNormalIconsAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar icons to be normal size." ) );
   connect( mNormalIconsAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
-  mSmallIconsAction = new KAction( i18n( "Small Icons" ), this );
+  mSmallIconsAction = new KAction( i18nc( "@action:inmenu", "Small Icons" ), this );
   mSmallIconsAction->setCheckable( true );
   mSmallIconsAction->setActionGroup( iconSize );
   mSmallIconsAction->setChecked( mIconSize == KIconLoader::SizeSmallMedium );
+  mSmallIconsAction->setHelpText(
+    i18nc( "@info:status",
+           "Show small size sidebar icons" ) );
+  mSmallIconsAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar icons to be extra small." ) );
   connect( mSmallIconsAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
   QList<QAction*> actionList;
