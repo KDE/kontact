@@ -24,35 +24,33 @@
 #define KONTACT_MAINWINDOW_H
 
 #include "kontact_export.h"
-#include <kontactinterface/core.h>
 
-#include <kparts/part.h>
-#include <kparts/partmanager.h>
-
-#include <QPointer>
-
-class QFrame;
-class QSplitter;
-class QStackedWidget;
-
-class KConfig;
-class KPluginInfo;
-class KSqueezedTextLabel;
-class KHTMLPart;
-class KActionMenu;
+#include <KontactInterface/Core>
 
 namespace KPIM {
   class StatusbarProgressWidget;
 }
 
 namespace KontactInterface {
+  class Plugin;
+}
 
-class Plugin;
-class SidePaneBase;
-class AboutDialog;
+class KActionMenu;
+class KHTMLPart;
+class KPluginInfo;
+class KSqueezedTextLabel;
 
-typedef QList<KontactInterface::Plugin*> PluginList;
+class QFrame;
+class QSplitter;
+class QStackedWidget;
+
+typedef QList<KontactInterface::Plugin *> PluginList;
 typedef QList<QAction*> ActionPluginList;
+
+namespace Kontact {
+
+class AboutDialog;
+class SidePaneBase;
 
 class KONTACT_EXPORT MainWindow : public KontactInterface::Core
 {
@@ -67,7 +65,8 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     void setInitialActivePluginModule( const QString & );
 
     static bool pluginActionWeightLessThan( const QAction *left, const QAction *right );
-    static bool pluginWeightLessThan( const KontactInterface::Plugin *left, const KontactInterface::Plugin *right );
+    static bool pluginWeightLessThan( const KontactInterface::Plugin *left,
+                                      const KontactInterface::Plugin *right );
 
   public slots:
     virtual void selectPlugin( KontactInterface::Plugin *plugin );
@@ -131,7 +130,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     KActionMenu *mSyncActions;
     SidePaneBase *mSidePane;
     QStackedWidget *mPartsStack;
-    Plugin *mCurrentPlugin;
+    KontactInterface::Plugin *mCurrentPlugin;
     KParts::PartManager *mPartManager;
     PluginList mPlugins;
     PluginList mDelayedPreload;
@@ -145,7 +144,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     QString mInitialActiveModule;
 
     QMap<QString, QPointer<QWidget> > mFocusWidgets;
-    QMap<Plugin*, KAction*> mPluginAction;
+    QMap<KontactInterface::Plugin *, KAction *> mPluginAction;
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;

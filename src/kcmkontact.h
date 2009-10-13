@@ -25,18 +25,12 @@
 #ifndef KCMKONTACT_H
 #define KCMKONTACT_H
 
-#include <kontactinterface/plugin.h>
-using namespace KontactInterface;
-
 #include <libkdepim/kprefsdialog.h>
 using namespace KPIM;
 
-#include <kservice.h>
+#include <KService>
 
-#include <QList>
-
-class KComboBox;
-class KAboutData;
+namespace Kontact {
 
 class KcmKontact : public KPrefsModule
 {
@@ -67,5 +61,7 @@ class PluginSelection : public KPrefsWid
     KService::List mPluginList;
     KConfigSkeleton::ItemString *mItem;
 };
+
+}
 
 #endif

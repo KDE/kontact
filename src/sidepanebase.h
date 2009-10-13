@@ -22,25 +22,23 @@
 #ifndef KONTACT_SIDEPANEBASE_H
 #define KONTACT_SIDEPANEBASE_H
 
-#include <kvbox.h>
-#include <QList>
+#include <KVBox>
+
+namespace KontactInterface {
+  class Core;
+  class Plugin;
+}
 
 class KActionCollection;
 
-namespace KParts {
-  class Part;
-}
-
-namespace KontactInterface {
-
-class Core;
-class Plugin;
+namespace Kontact {
 
 class SidePaneBase : public KVBox
 {
   Q_OBJECT
+
   public:
-    SidePaneBase( Core *core, QWidget *parent );
+    SidePaneBase( KontactInterface::Core *core, QWidget *parent );
     virtual ~SidePaneBase();
 
     virtual void setCurrentPlugin( const QString & ) = 0;
@@ -56,10 +54,10 @@ class SidePaneBase : public KVBox
     virtual void updatePlugins() = 0;
 
   protected:
-    Core *core() const;
+    KontactInterface::Core *core() const;
 
   private:
-    Core *mCore;
+    KontactInterface::Core *mCore;
     KActionCollection *mActionCollection;
 };
 

@@ -21,30 +21,26 @@
 */
 
 #include "iconsidepane.h"
-#include "mainwindow.h"
 #include "prefs.h"
-
-#include <kontactinterface/plugin.h>
-using namespace KontactInterface;
-
-#include <QtCore/QTimer>
-#include <QtGui/QStringListModel>
-#include <QtGui/QSortFilterProxyModel>
-#include <QtGui/QDragEnterEvent>
-#include <QtGui/QDragMoveEvent>
-#include <QtGui/QStyledItemDelegate>
-#include <QtGui/QScrollBar>
-
-#include <KLocalizedString>
-#include <KStringHandler>
-#include <KDialog>
-#include <KIcon>
-
 using namespace Kontact;
 
-namespace KontactInterface {
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
-class Navigator;
+#include <KAction>
+#include <KIcon>
+#include <KLocale>
+#include <KStringHandler>
+
+#include <QDragEnterEvent>
+#include <QDragMoveEvent>
+#include <QDropEvent>
+#include <QSortFilterProxyModel>
+#include <QStringListModel>
+#include <QStyledItemDelegate>
+#include <QTimer>
+
+namespace Kontact {
 
 class SelectionModel : public QItemSelectionModel
 {
@@ -180,8 +176,10 @@ class SortFilterProxyModel
   protected:
     bool lessThan( const QModelIndex &left, const QModelIndex &right ) const
     {
-      KontactInterface::Plugin *leftPlugin = static_cast<KontactInterface::Plugin*>( left.internalPointer() );
-      KontactInterface::Plugin *rightPlugin = static_cast<KontactInterface::Plugin*>( right.internalPointer() );
+      KontactInterface::Plugin *leftPlugin =
+        static_cast<KontactInterface::Plugin*>( left.internalPointer() );
+      KontactInterface::Plugin *rightPlugin =
+        static_cast<KontactInterface::Plugin*>( right.internalPointer() );
 
       if ( leftPlugin->weight() == rightPlugin->weight() ) {
         return KStringHandler::naturalCompare( leftPlugin->title(), rightPlugin->title() ) < 0;
@@ -230,6 +228,8 @@ class Delegate : public QStyledItemDelegate
   private:
     Navigator *mNavigator;
 };
+
+}
 
 Navigator::Navigator( SidePaneBase *parent )
   : QListView( parent ), mSidePane( parent )
@@ -475,7 +475,7 @@ void Navigator::updateNavigatorSize()
   parentWidget()->setMinimumWidth( sizeHint().width() );
 }
 
-IconSidePane::IconSidePane( Core *core, QWidget *parent )
+IconSidePane::IconSidePane( KontactInterface::Core *core, QWidget *parent )
   : SidePaneBase( core, parent )
 {
   mNavigator = new Navigator( this );
@@ -503,8 +503,6 @@ void IconSidePane::resizeEvent( QResizeEvent *event )
   Q_UNUSED( event );
   setMaximumWidth( mNavigator->sizeHint().width() );
   setMinimumWidth( mNavigator->sizeHint().width() );
-}
-
 }
 
 #include "iconsidepane.moc"

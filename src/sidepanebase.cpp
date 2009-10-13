@@ -21,11 +21,11 @@
 */
 
 #include "sidepanebase.h"
+using namespace Kontact;
 
-#include <kontactinterface/core.h>
-using namespace KontactInterface;
+#include <KontactInterface/Core>
 
-SidePaneBase::SidePaneBase( Core *core, QWidget *parent )
+SidePaneBase::SidePaneBase( KontactInterface::Core *core, QWidget *parent )
   : KVBox( parent ), mCore( core )
 {
 }
@@ -34,7 +34,7 @@ SidePaneBase::~SidePaneBase()
 {
 }
 
-Core *SidePaneBase::core() const
+KontactInterface::Core *SidePaneBase::core() const
 {
   return mCore;
 }
