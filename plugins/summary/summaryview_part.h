@@ -24,27 +24,21 @@
 #ifndef SUMMARYVIEW_PART_H
 #define SUMMARYVIEW_PART_H
 
-#include "dropwidget.h"
+#include <KParts/ReadOnlyPart>
 
-#include <kontactinterface/core.h>
-
-#include <kparts/part.h>
-
-#include <QMap>
+class DropWidget;
 
 namespace KontactInterface {
+  class Core;
   class Summary;
 }
 
-namespace KParts {
-  class PartActivateEvent;
-}
+class KAboutData;
+class KAction;
 
 class QFrame;
 class QLabel;
 class QVBoxLayout;
-class KAction;
-class KAboutData;
 
 class SummaryViewPart : public KParts::ReadOnlyPart
 {

@@ -26,7 +26,7 @@
 #ifndef KCMKONTACTSUMMARY_H
 #define KCMKONTACTSUMMARY_H
 
-#include <kcmodule.h>
+#include <KCModule>
 #include <QTreeWidget>
 
 class KPluginInfo;
