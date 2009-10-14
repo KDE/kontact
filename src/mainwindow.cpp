@@ -24,72 +24,51 @@
 
 #include "mainwindow.h"
 #include "aboutdialog.h"
-#include "iconsidepane.h"
 #include "prefs.h"
-#include "progressdialog.h"
-#include "statusbarprogresswidget.h"
-#include "broadcaststatus.h"
+#include "iconsidepane.h"
+using namespace Kontact;
 
-#include <kontactinterface/plugin.h>
-using namespace KontactInterface;
+#include <libkdepim/broadcaststatus.h>
+#include <libkdepim/progressdialog.h>
+#include <libkdepim/statusbarprogresswidget.h>
 
-#include <kpimutils/kfileio.h>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
-#include <kparts/componentfactory.h>
-#include <ksettings/dialog.h>
-#include <ksettings/dispatcher.h>
-#include <kactioncollection.h>
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <kdebug.h>
-#include <kdbusservicestarter.h>
-#include <kedittoolbar.h>
-#include <kguiitem.h>
-#include <khelpmenu.h>
-#include <kiconloader.h>
-#include <kshortcutsdialog.h>
-#include <klibloader.h>
-#include <ktoolbar.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kplugininfo.h>
-#include <kmenu.h>
-#include <kshortcut.h>
-#include <kstandarddirs.h>
-#include <kstatusbar.h>
-#include <kstandardaction.h>
-#include <ktip.h>
-#include <kservice.h>
-#include <kservicetypetrader.h>
-#include <kstringhandler.h>
-#include <ksqueezedtextlabel.h>
-#include <khtml_part.h>
-#include <khtmlview.h>
-#include <krun.h>
-#include <kaboutdata.h>
-#include <kmenubar.h>
-#include <kstandardshortcut.h>
-#include <ktoolinvocation.h>
-#include <kactionmenu.h>
-#include <khbox.h>
-#include <kvbox.h>
-#include <kicon.h>
-#include <kxmlguifactory.h>
+#include <KPIMUtils/KFileIO>
 
-#include <QComboBox>
-#include <QCursor>
+#include <KActionCollection>
+#include <KActionMenu>
+#include <KApplication>
+#include <KComponentData>
+#include <KConfigGroup>
+#include <KDBusServiceStarter>
+#include <KDebug>
+#include <KEditToolBar>
+#include <KHelpMenu>
+#include <KHTMLPart>
+#include <KHTMLView>
+#include <KMessageBox>
+#include <KPluginInfo>
+#include <KRun>
+#include <KServiceTypeTrader>
+#include <KShortcutsDialog>
+#include <KSqueezedTextLabel>
+#include <KStandardAction>
+#include <KStandardDirs>
+#include <KStatusBar>
+#include <KTipDialog>
+#include <KToolBar>
+#include <KXMLGUIFactory>
+#include <KParts/PartManager>
+#include <KSettings/Dispatcher>
+#include <KSettings/Dialog>
+
 #include <QDBusConnection>
-#include <QImage>
-#include <QLayout>
-#include <QList>
-#include <QObject>
-#include <QPushButton>
 #include <QSplitter>
 #include <QStackedWidget>
 #include <QTimer>
-
-using namespace Kontact;
+#include <QVBoxLayout>
 
 // This class extends the normal KDBusServiceStarter.
 //
@@ -475,7 +454,7 @@ bool MainWindow::isPluginLoaded( const KPluginInfo &info )
   return ( pluginFromInfo( info ) != 0 );
 }
 
-Plugin *MainWindow::pluginFromInfo( const KPluginInfo &info )
+KontactInterface::Plugin *MainWindow::pluginFromInfo( const KPluginInfo &info )
 {
   PluginList::ConstIterator end = mPlugins.constEnd();
   for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
@@ -488,7 +467,7 @@ Plugin *MainWindow::pluginFromInfo( const KPluginInfo &info )
 
 void MainWindow::loadPlugins()
 {
-  QList<Plugin*> plugins;
+  QList<KontactInterface::Plugin *> plugins;
 
   int i;
   KPluginInfo::List::ConstIterator it;
@@ -497,7 +476,7 @@ void MainWindow::loadPlugins()
       continue;
     }
 
-    Plugin *plugin = 0;
+    KontactInterface::Plugin *plugin = 0;
     if ( isPluginLoaded( *it ) ) {
       plugin = pluginFromInfo( *it );
       if ( plugin ) {
@@ -538,7 +517,7 @@ void MainWindow::loadPlugins()
     }
 
     for ( i = 0; i < plugins.count(); ++i ) {
-      Plugin *p = plugins.at( i );
+      KontactInterface::Plugin *p = plugins.at( i );
       if ( plugin->weight() < p->weight() ) {
         break;
       }
@@ -548,7 +527,7 @@ void MainWindow::loadPlugins()
   }
 
   for ( i = 0; i < plugins.count(); ++ i ) {
-    Plugin *plugin = plugins.at( i );
+    KontactInterface::Plugin *plugin = plugins.at( i );
 
     const QList<KAction*> actionList = plugin->newActions();
     QList<KAction*>::const_iterator listIt;
@@ -602,7 +581,7 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
 {
   PluginList::Iterator end = mPlugins.end();
   for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it ) {
-    Plugin *plugin = *it;
+    KontactInterface::Plugin *plugin = *it;
     if ( ( *it )->identifier() == info.pluginName() ) {
       QList<KAction*> actionList = plugin->newActions();
       QList<KAction*>::const_iterator listIt;
@@ -745,7 +724,7 @@ void MainWindow::slotSyncClicked()
   }
 }
 
-KToolBar *KontactInterface::MainWindow::findToolBar( const char *name )
+KToolBar *MainWindow::findToolBar( const char *name )
 {
   // like KMainWindow::toolBar, but which doesn't create the toolbar if not found
   return findChild<KToolBar *>( name );
@@ -1103,7 +1082,7 @@ void MainWindow::readProperties( const KConfigGroup &config )
 
   QSet<QString> activePlugins =
     QSet<QString>::fromList( config.readEntry( "ActivePlugins", QStringList() ) );
-  foreach ( Plugin *plugin, mPlugins ) {
+  foreach ( KontactInterface::Plugin *plugin, mPlugins ) {
     if ( !plugin->isRunningStandalone() && activePlugins.contains( plugin->identifier() ) ) {
       plugin->readProperties( config );
     }
@@ -1118,7 +1097,7 @@ void MainWindow::saveProperties( KConfigGroup &config )
 
   foreach ( const KPluginInfo &pluginInfo, mPluginInfos ) {
     if ( pluginInfo.isPluginEnabled() ) {
-      Plugin *plugin = pluginFromInfo( pluginInfo );
+      KontactInterface::Plugin *plugin = pluginFromInfo( pluginInfo );
       if ( plugin ) {
         activePlugins.append( plugin->identifier() );
         plugin->saveProperties( config );
@@ -1135,7 +1114,7 @@ bool MainWindow::queryClose()
     return true;
   }
 
-  foreach ( Plugin *plugin, mPlugins ) {
+  foreach ( KontactInterface::Plugin *plugin, mPlugins ) {
     if ( !plugin->isRunningStandalone() ) {
       if ( !plugin->queryClose() ) {
         return false;

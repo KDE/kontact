@@ -24,22 +24,20 @@
 #define KONTACT_ICONSIDEPANEBASE_H
 
 #include "sidepanebase.h"
-#include "prefs.h"
 
-#include <QtGui/QListView>
+#include <QListView>
 
-namespace KParts {
-  class Part;
+namespace KontactInterface {
+  class Core;
+  class Plugin;
 }
 
 class KAction;
 
-namespace KontactInterface {
+namespace Kontact {
 
-class Core;
-class Plugin;
-class Navigator;
 class Model;
+class Navigator;
 
 class Navigator : public QListView
 {
@@ -48,7 +46,7 @@ class Navigator : public QListView
   public:
     explicit Navigator( SidePaneBase *parent = 0 );
 
-    void updatePlugins( QList<Plugin*> plugins );
+    void updatePlugins( QList<KontactInterface::Plugin*> plugins );
     void setCurrentPlugin( const QString &plugin );
 
     int iconSize() const
@@ -103,7 +101,7 @@ class IconSidePane : public SidePaneBase
   Q_OBJECT
 
   public:
-    IconSidePane( Core *core, QWidget *parent );
+    IconSidePane( KontactInterface::Core *core, QWidget *parent );
     ~IconSidePane();
 
     void setCurrentPlugin( const QString &plugin );

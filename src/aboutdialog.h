@@ -25,17 +25,21 @@
 #ifndef KONTACT_ABOUTDIALOG_H
 #define KONTACT_ABOUTDIALOG_H
 
-#include <kpagedialog.h>
+#include <KPageDialog>
+
+namespace KontactInterface {
+  class Core;
+  class Plugin;
+}
 
 class KAboutData;
-namespace KontactInterface {
 
-class Core;
-class Plugin;
+namespace Kontact {
 
 class AboutDialog : public KPageDialog
 {
   Q_OBJECT
+
   public:
     AboutDialog( KontactInterface::Core *core );
 
@@ -53,7 +57,7 @@ class AboutDialog : public KPageDialog
     void saveSize();
 
   private:
-    Core *mCore;
+    KontactInterface::Core *mCore;
 };
 
 }

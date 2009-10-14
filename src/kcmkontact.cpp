@@ -26,26 +26,21 @@
 #include "prefs.h"
 using namespace Kontact;
 
-#include <kdemacros.h>
-#include <kcomponentdata.h>
-#include <kaboutdata.h>
-#include <kdebug.h>
-#include <k3listview.h>
-#include <klocale.h>
-#include <kservicetypetrader.h>
-#include <kcombobox.h>
+#include <KontactInterface/Plugin>
 
-#include <q3buttongroup.h>
+#include <KAboutData>
+#include <KComboBox>
+#include <KServiceTypeTrader>
+
+#include <Q3ListViewItem>
 #include <QCheckBox>
-#include <QLabel>
-#include <QLayout>
-#include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QBoxLayout>
+#include <QVBoxLayout>
 
 extern "C"
 {
-  KDE_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * ) {
+  KDE_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * )
+  {
     KComponentData inst( "kcmkontact" );
     return new KcmKontact( inst, parent );
   }
@@ -95,10 +90,11 @@ KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
 
 const KAboutData *KcmKontact::aboutData() const
 {
-  KAboutData *about = new KAboutData( I18N_NOOP( "kontactconfig" ), 0,
-                                      ki18n( "KDE Kontact" ),
-                                      0, KLocalizedString(), KAboutData::License_GPL,
-                                      ki18n( "(c), 2003 Cornelius Schumacher" ) );
+  KAboutData *about = new KAboutData(
+    I18N_NOOP( "kontactconfig" ), 0,
+    ki18n( "KDE Kontact" ),
+    0, KLocalizedString(), KAboutData::License_GPL,
+    ki18n( "(c), 2003 Cornelius Schumacher" ) );
 
   about->addAuthor( ki18n( "Cornelius Schumacher" ), KLocalizedString(), "schumacher@kde.org" );
   about->addAuthor( ki18n( "Tobias Koenig" ), KLocalizedString(), "tokoe@kde.org" );

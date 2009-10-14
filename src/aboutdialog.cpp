@@ -23,19 +23,17 @@
 */
 
 #include "aboutdialog.h"
+using namespace Kontact;
 
-#include <kontactinterface/core.h>
-#include <kontactinterface/plugin.h>
-using namespace KontactInterface;
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
-#include <kdebug.h>
-#include <klocale.h>
-#include <kcomponentdata.h>
-#include <kaboutdata.h>
-#include <ktextbrowser.h>
-#include <kicon.h>
+#include <KAboutData>
+#include <KComponentData>
+#include <KLocale>
+#include <KTextBrowser>
 
-#include <QLayout>
+#include <QBoxLayout>
 #include <QLabel>
 #include <QTextEdit>
 
@@ -51,9 +49,9 @@ AboutDialog::AboutDialog( KontactInterface::Core *core )
   addAboutData( i18n( "Kontact Container" ), QString( "kontact" ),
                 KGlobal::mainComponent().aboutData() );
 
-  QList<Plugin*> plugins = mCore->pluginList();
-  QList<Plugin*>::ConstIterator end = plugins.constEnd();
-  QList<Plugin*>::ConstIterator it = plugins.constBegin();
+  QList<KontactInterface::Plugin*> plugins = mCore->pluginList();
+  QList<KontactInterface::Plugin*>::ConstIterator end = plugins.constEnd();
+  QList<KontactInterface::Plugin*>::ConstIterator it = plugins.constBegin();
   for ( ; it != end; ++it ) {
     addAboutPlugin( *it );
   }
@@ -113,7 +111,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       text += "<a href=\"" + home + "\">" + home + "</a><br>";
     }
 
-    text.replace( "\n", "<br>" );
+    text.replace( '\n', "<br>" );
 
     QLabel *label = new QLabel( text, topFrame );
     label->setAlignment( Qt::AlignTop );

@@ -21,30 +21,26 @@
 */
 
 #include "iconsidepane.h"
-#include "mainwindow.h"
 #include "prefs.h"
-
-#include <kontactinterface/plugin.h>
-using namespace KontactInterface;
-
-#include <QtCore/QTimer>
-#include <QtGui/QStringListModel>
-#include <QtGui/QSortFilterProxyModel>
-#include <QtGui/QDragEnterEvent>
-#include <QtGui/QDragMoveEvent>
-#include <QtGui/QStyledItemDelegate>
-#include <QtGui/QScrollBar>
-
-#include <KLocalizedString>
-#include <KStringHandler>
-#include <KDialog>
-#include <KIcon>
-
 using namespace Kontact;
 
-namespace KontactInterface {
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
-class Navigator;
+#include <KAction>
+#include <KIcon>
+#include <KLocale>
+#include <KStringHandler>
+
+#include <QDragEnterEvent>
+#include <QDragMoveEvent>
+#include <QDropEvent>
+#include <QSortFilterProxyModel>
+#include <QStringListModel>
+#include <QStyledItemDelegate>
+#include <QTimer>
+
+namespace Kontact {
 
 class SelectionModel : public QItemSelectionModel
 {
@@ -180,8 +176,10 @@ class SortFilterProxyModel
   protected:
     bool lessThan( const QModelIndex &left, const QModelIndex &right ) const
     {
-      KontactInterface::Plugin *leftPlugin = static_cast<KontactInterface::Plugin*>( left.internalPointer() );
-      KontactInterface::Plugin *rightPlugin = static_cast<KontactInterface::Plugin*>( right.internalPointer() );
+      KontactInterface::Plugin *leftPlugin =
+        static_cast<KontactInterface::Plugin*>( left.internalPointer() );
+      KontactInterface::Plugin *rightPlugin =
+        static_cast<KontactInterface::Plugin*>( right.internalPointer() );
 
       if ( leftPlugin->weight() == rightPlugin->weight() ) {
         return KStringHandler::naturalCompare( leftPlugin->title(), rightPlugin->title() ) < 0;
@@ -231,6 +229,8 @@ class Delegate : public QStyledItemDelegate
     Navigator *mNavigator;
 };
 
+}
+
 Navigator::Navigator( SidePaneBase *parent )
   : QListView( parent ), mSidePane( parent )
 {
@@ -245,22 +245,40 @@ Navigator::Navigator( SidePaneBase *parent )
 
   QActionGroup *viewMode = new QActionGroup( this );
 
-  mShowIconsAction = new KAction( i18n( "Show Icons Only" ), this );
+  mShowIconsAction = new KAction( i18nc( "@action:inmenu", "Show Icons Only" ), this );
   mShowIconsAction->setCheckable( true );
   mShowIconsAction->setActionGroup( viewMode );
   mShowIconsAction->setChecked( !mShowText && mShowIcons );
+  mShowIconsAction->setHelpText(
+    i18nc( "@info:status",
+           "Show sidebar items with icons and without text" ) );
+  mShowIconsAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar items to have icons without text." ) );
   connect( mShowIconsAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
-  mShowTextAction = new KAction( i18n( "Show Text Only" ), this );
+  mShowTextAction = new KAction( i18nc( "@action:inmenu", "Show Text Only" ), this );
   mShowTextAction->setCheckable( true );
   mShowTextAction->setActionGroup( viewMode );
   mShowTextAction->setChecked( mShowText && !mShowIcons );
+  mShowTextAction->setHelpText(
+    i18nc( "@info:status",
+           "Show sidebar items with text and without icons" ) );
+  mShowTextAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar items to have text without icons." ) );
   connect( mShowTextAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
-  mShowBothAction = new KAction( i18n( "Show Icons && Text" ), this );
+  mShowBothAction = new KAction( i18nc( "@action:inmenu", "Show Icons && Text" ), this );
   mShowBothAction->setCheckable( true );
   mShowBothAction->setActionGroup( viewMode );
   mShowBothAction->setChecked( mShowText && mShowIcons );
+  mShowBothAction->setHelpText(
+    i18nc( "@info:status",
+           "Show sidebar items with icons and text" ) );
+  mShowBothAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar items to have icons and text." ) );
   connect( mShowBothAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
   KAction *sep = new KAction( this );
@@ -268,22 +286,40 @@ Navigator::Navigator( SidePaneBase *parent )
 
   QActionGroup *iconSize = new QActionGroup( this );
 
-  mBigIconsAction = new KAction( i18n( "Big Icons" ), this );
+  mBigIconsAction = new KAction( i18nc( "@action:inmenu", "Big Icons" ), this );
   mBigIconsAction->setCheckable( iconSize );
   mBigIconsAction->setActionGroup( iconSize );
   mBigIconsAction->setChecked( mIconSize == KIconLoader::SizeLarge );
+  mBigIconsAction->setHelpText(
+    i18nc( "@info:status",
+           "Show large size sidebar icons" ) );
+  mBigIconsAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar icons to be extra big." ) );
   connect( mBigIconsAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
-  mNormalIconsAction = new KAction( i18n( "Normal Icons" ), this );
+  mNormalIconsAction = new KAction( i18nc( "@action:inmenu", "Normal Icons" ), this );
   mNormalIconsAction->setCheckable( true );
   mNormalIconsAction->setActionGroup( iconSize );
   mNormalIconsAction->setChecked( mIconSize == KIconLoader::SizeMedium );
+  mNormalIconsAction->setHelpText(
+    i18nc( "@info:status",
+           "Show normal size sidebar icons" ) );
+  mNormalIconsAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar icons to be normal size." ) );
   connect( mNormalIconsAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
-  mSmallIconsAction = new KAction( i18n( "Small Icons" ), this );
+  mSmallIconsAction = new KAction( i18nc( "@action:inmenu", "Small Icons" ), this );
   mSmallIconsAction->setCheckable( true );
   mSmallIconsAction->setActionGroup( iconSize );
   mSmallIconsAction->setChecked( mIconSize == KIconLoader::SizeSmallMedium );
+  mSmallIconsAction->setHelpText(
+    i18nc( "@info:status",
+           "Show small size sidebar icons" ) );
+  mSmallIconsAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option if you want the sidebar icons to be extra small." ) );
   connect( mSmallIconsAction, SIGNAL(triggered(bool)), this, SLOT(slotActionTriggered(bool)) );
 
   QList<QAction*> actionList;
@@ -475,7 +511,7 @@ void Navigator::updateNavigatorSize()
   parentWidget()->setMinimumWidth( sizeHint().width() );
 }
 
-IconSidePane::IconSidePane( Core *core, QWidget *parent )
+IconSidePane::IconSidePane( KontactInterface::Core *core, QWidget *parent )
   : SidePaneBase( core, parent )
 {
   mNavigator = new Navigator( this );
@@ -503,8 +539,6 @@ void IconSidePane::resizeEvent( QResizeEvent *event )
   Q_UNUSED( event );
   setMaximumWidth( mNavigator->sizeHint().width() );
   setMinimumWidth( mNavigator->sizeHint().width() );
-}
-
 }
 
 #include "iconsidepane.moc"

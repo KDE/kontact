@@ -19,37 +19,35 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
-#include "prefs.h"
-#include "reminderclient.h"
-#include "mainwindow.h"
-
 // Use the kdepim version
 #include "kdepim-version.h"
 
-#include <kontactinterface/plugin.h>
-#include <kontactinterface/uniqueapphandler.h>
-#include <kontactinterface/pimuniqueapplication.h>
+#include "mainwindow.h"
+#include "prefs.h"
+using namespace Kontact;
 
-#include <kaboutdata.h>
-#include <kcmdlineargs.h>
-#include <kdebug.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kstartupinfo.h>
-#include <kuniqueapplication.h>
-#include <kwindowsystem.h>
-#include <kstandarddirs.h>
-#include <ktoolinvocation.h>
-#include <kservicetypetrader.h>
-#include <akonadi/control.h>
+#include <libkdepimdbusinterfaces/reminderclient.h>
 
-#include <QLabel>
+#include <Akonadi/Control>
+
+#include <KontactInterface/Plugin>
+#include <KontactInterface/UniqueAppHandler>
+#ifdef Q_WS_WIN
+#include <KontactInterface/PimUniqueApplication>
+#endif
+
+#include <KAboutData>
+#include <KCmdLineArgs>
+#include <KLocale>
+#include <KService>
+#include <KServiceTypeTrader>
+#include <KUniqueApplication>
+#include <KWindowSystem>
 
 #include <iostream>
 using namespace std;
 
-static const char description[] =
-  I18N_NOOP( "KDE personal information manager" );
+static const char description[] = I18N_NOOP( "KDE personal information manager" );
 
 static const char version[] = KDEPIM_VERSION;
 
@@ -71,7 +69,7 @@ KUniqueApplication
     /*reimp*/
     int newInstance();
 
-    void setMainWindow( KontactInterface::MainWindow *window )
+    void setMainWindow( MainWindow *window )
     {
       mMainWindow = window;
       KontactInterface::UniqueAppHandler::setMainWidget( window );
@@ -85,7 +83,7 @@ KUniqueApplication
     void loadCommandLineOptionsForNewInstance();
 
   private:
-    KontactInterface::MainWindow *mMainWindow;
+    MainWindow *mMainWindow;
     bool mSessionRestored;
 };
 
@@ -119,7 +117,6 @@ static void loadCommandLineOptions()
 // Called by KUniqueApplication
 void KontactApp::loadCommandLineOptionsForNewInstance()
 {
-  kDebug();
   KCmdLineArgs::reset(); // forget options defined by other "applications"
   loadCommandLineOptions(); // re-add the kontact options
 }
@@ -128,15 +125,15 @@ int KontactApp::newInstance()
 {
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   QString moduleName;
-  if ( Kontact::Prefs::self()->forceStartupPlugin() ) {
-    moduleName = Kontact::Prefs::self()->forcedStartupPlugin();
+  if ( Prefs::self()->forceStartupPlugin() ) {
+    moduleName = Prefs::self()->forcedStartupPlugin();
   }
   if ( args->isSet( "module" ) ) {
     moduleName = args->getOption( "module" );
   }
   if ( !mSessionRestored ) {
     if ( !mMainWindow ) {
-      mMainWindow = new KontactInterface::MainWindow();
+      mMainWindow = new MainWindow();
       if ( !moduleName.isEmpty() ) {
         mMainWindow->setInitialActivePluginModule( moduleName );
       }
@@ -213,7 +210,7 @@ int main( int argc, char **argv )
   if ( app.restoringSession() ) {
      // There can only be one main window
     if ( KMainWindow::canBeRestored( 1 ) ) {
-      KontactInterface::MainWindow *mainWindow = new KontactInterface::MainWindow();
+      MainWindow *mainWindow = new MainWindow();
       app.setMainWindow( mainWindow );
       app.setSessionRestored( true );
       mainWindow->show();
