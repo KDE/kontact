@@ -59,17 +59,27 @@ KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariant
   KIconLoader::global()->addAppDir( "kdepim" );
 
   KAction *action  =
-    new KAction( KIcon( "appointment-new" ), i18n( "New Event..." ), this );
+    new KAction( KIcon( "appointment-new" ),
+                 i18nc( "@action:inmenu", "New Event..." ), this );
   actionCollection()->addAction( "new_event", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT+Qt::Key_E ) );
-  action->setHelpText( i18n( "Create a new event" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new event" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can create a new event item." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewEvent()) );
   insertNewAction( action );
 
   KAction *syncAction =
-    new KAction( KIcon( "view-refresh" ), i18n( "Sync Calendar" ), this );
+    new KAction( KIcon( "view-refresh" ),
+                 i18nc( "@action:inmenu", "Sync Calendar" ), this );
   actionCollection()->addAction( "korganizer_sync", syncAction );
-  syncAction->setHelpText( i18n( "Synchronize groupware calendar" ) );
+  syncAction->setHelpText(
+    i18nc( "@info:status", "Synchronize groupware calendar" ) );
+  syncAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option to synchronize your groupware events." ) );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncEvents()) );
   insertSyncAction( syncAction );
 
@@ -189,7 +199,8 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       }
     }
 
-    interface()->openEventEditor( i18n( "Meeting" ), QString(), QStringList(), attendees );
+    interface()->openEventEditor( i18nc( "@item", "Meeting" ),
+                                  QString(), QStringList(), attendees );
     return;
   }
 
@@ -203,7 +214,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
               KCal::Incidence *i = incidences.first();
               QString summary;
               if ( dynamic_cast<KCal::Journal*>( i ) ) {
-                summary = i18n( "Note: %1", i->summary() );
+                summary = i18nc( "@item", "Note: %1", i->summary() );
               } else {
                 summary = i->summary();
               }
@@ -225,11 +236,12 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
     KPIM::MailList mails = KPIM::MailList::fromMimeData( md );
     event->accept();
     if ( mails.count() != 1 ) {
-      KMessageBox::sorry( core(),
-                          i18n( "Dropping multiple mails is not supported." ) );
+      KMessageBox::sorry(
+        core(),
+        i18nc( "@info", "Dropping multiple mails is not supported." ) );
     } else {
       KPIM::MailSummary mail = mails.first();
-      QString txt = i18n( "From: %1\nTo: %2\nSubject: %3",
+      QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
                           mail.from(), mail.to(), mail.subject() );
 
       KTemporaryFile tf;
@@ -237,8 +249,9 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       tf.open();
       QString uri = KDEPIMPROTOCOL_EMAIL + QString::number( mail.serialNumber() );
       tf.write( event->encodedData( "message/rfc822" ) );
-      interface()->openEventEditor( i18n( "Mail: %1", mail.subject() ), txt,
-                                    uri, tf.fileName(), QStringList(), "message/rfc822" );
+      interface()->openEventEditor(
+        i18nc( "@item", "Mail: %1", mail.subject() ), txt,
+        uri, tf.fileName(), QStringList(), "message/rfc822" );
       tf.close();
     }
     return;

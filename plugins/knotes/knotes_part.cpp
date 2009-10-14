@@ -67,34 +67,60 @@ KNotesPart::KNotesPart( QObject *parent )
   setComponentData( KComponentData( "knotes" ) );
 
   // create the actions
-  KAction *action = new KAction( KIcon( "knotes" ),
-                                 i18nc( "create new popup note", "&New" ), this );
+  KAction *action =
+    new KAction( KIcon( "knotes" ),
+                 i18nc( "@action:inmenu create new popup note", "&New" ), this );
   actionCollection()->addAction( "file_new", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(newNote()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_N ) );
-  action->setHelpText( i18n( "Create a new popup note" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new popup note" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can add a new popup note." ) );
 
-  action = new KAction( KIcon( "document-edit" ), i18n( "Edit..." ), this );
+  action = new KAction( KIcon( "document-edit" ),
+                        i18nc( "@action:inmenu", "Edit..." ), this );
   actionCollection()->addAction( "edit_note", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(editNote()) );
-  action->setHelpText( i18n( "Edit popup note" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Edit popup note" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can modify an existing popup note." ) );
 
-  action = new KAction( KIcon( "edit-rename" ), i18n( "Rename..." ), this );
+  action = new KAction( KIcon( "edit-rename" ),
+                        i18nc( "@action:inmenu", "Rename..." ), this );
   actionCollection()->addAction( "edit_rename", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(renameNote()) );
-  action->setHelpText( i18n( "Rename popup note" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Rename popup note" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can rename an existing popup note." ) );
 
-  action = new KAction( KIcon( "edit-delete" ), i18n( "Delete" ), this );
+  action = new KAction( KIcon( "edit-delete" ),
+                        i18nc( "@action:inmenu", "Delete" ), this );
   actionCollection()->addAction( "edit_delete", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(killSelectedNotes()) );
   action->setShortcut( QKeySequence( Qt::Key_Delete ) );
-  action->setHelpText( i18n( "Delete popup note" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Delete popup note" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be prompted if you really want to permanently remove "
+           "the selected popup note." ) );
 
-  action = new KAction( KIcon( "document-print" ), i18n( "Print Selected Notes..." ), this );
+  action = new KAction( KIcon( "document-print" ),
+                        i18nc( "@action:inmenu", "Print Selected Notes..." ), this );
   actionCollection()->addAction( "print_note", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(printSelectedNotes()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_Delete ) );
-  action->setHelpText( i18n( "Print popup note" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Print popup note" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be prompted to print the selected popup note." ) );
 
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -155,8 +181,9 @@ void KNotesPart::printSelectedNotes()
   if ( lst.isEmpty() ) {
     KMessageBox::information(
       mNotesView,
-      i18n( "To print notes, first select the notes to print from the list." ),
-      i18n( "Print Popup Notes" ) );
+      i18nc( "@info",
+             "To print notes, first select the notes to print from the list." ),
+      i18nc( "@title:window", "Print Popup Notes" ) );
     return;
   }
 
@@ -236,8 +263,9 @@ void KNotesPart::killNote( const QString &id, bool force )
   if ( note &&
        ( (!force && KMessageBox::warningContinueCancelList(
             mNotesView,
-            i18n( "Do you really want to delete this note?" ),
-            QStringList( mNoteList.value( id )->text() ), i18n( "Confirm Delete" ),
+            i18nc( "@info", "Do you really want to delete this note?" ),
+            QStringList( mNoteList.value( id )->text() ),
+            i18nc( "@title:window", "Confirm Delete" ),
             KStandardGuiItem::del() ) == KMessageBox::Continue )
          || force ) ) {
     mManager->deleteNote( mNoteList.value( id )->journal() );
@@ -314,9 +342,10 @@ void KNotesPart::killSelectedNotes()
 
   int ret = KMessageBox::warningContinueCancelList(
     mNotesView,
-    i18np( "Do you really want to delete this note?",
-           "Do you really want to delete these %1 notes?", items.count() ),
-    notes, i18n( "Confirm Delete" ),
+    i18ncp( "@info",
+            "Do you really want to delete this note?",
+            "Do you really want to delete these %1 notes?", items.count() ),
+    notes, i18nc( "@title:window", "Confirm Delete" ),
     KStandardGuiItem::del() );
 
   if ( ret == KMessageBox::Continue ) {
@@ -414,8 +443,8 @@ void KNotesPart::renameNote()
   QString oldName = mNotesView->currentItem()->text();
   bool ok = false;
   QString newName =
-    KInputDialog::getText( i18n( "Rename Popup Note" ),
-                           i18n( "New Name:" ),
+    KInputDialog::getText( i18nc( "@title:window", "Rename Popup Note" ),
+                           i18nc( "@label:textbox", "New Name:" ),
                            oldName, &ok, mNotesView );
   if ( ok && ( newName != oldName ) ) {
     static_cast<KNotesIconViewItem *>( mNotesView->currentItem() )->setIconText( newName );

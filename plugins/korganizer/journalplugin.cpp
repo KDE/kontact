@@ -43,16 +43,29 @@ JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList &
   KIconLoader::global()->addAppDir( "korganizer" );
   KIconLoader::global()->addAppDir( "kdepim" );
 
-  KAction *action = new KAction( KIcon( "journal-new" ), i18n( "New Journal..." ), this );
+  KAction *action =
+    new KAction( KIcon( "journal-new" ),
+                 i18nc( "@action:inmenu", "New Journal..." ), this );
   actionCollection()->addAction( "new_journal", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_J ) );
-  action->setHelpText( i18n( "Create a new journal" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new journal" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can create "
+           "a new journal entry." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewJournal()) );
   insertNewAction( action );
 
-  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Sync Journal" ), this );
-  syncAction->setHelpText( i18n( "Synchronize groupware journal" ) );
+  KAction *syncAction =
+    new KAction( KIcon( "view-refresh" ),
+                 i18nc( "@action:inmenu", "Sync Journal" ), this );
   actionCollection()->addAction( "journal_sync", syncAction );
+  syncAction->setHelpText(
+    i18nc( "@info:status", "Synchronize groupware journal" ) );
+  syncAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option to synchronize your groupware journal entries." ) );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncJournal()) );
   insertSyncAction( syncAction );
 

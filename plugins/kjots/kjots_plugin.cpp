@@ -39,17 +39,28 @@ KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  KAction *action = new KAction( KIcon( "document-new" ), i18n( "New KJots Page" ), this );
+  KAction *action =
+    new KAction( KIcon( "document-new" ),
+                 i18nc( "@action:inmenu", "New KJots Page" ), this );
   actionCollection()->addAction( "new_kjots_page", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_P ) );
-  action->setHelpText( i18n( "Create a new jots page" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new jots page" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can create a new jots page." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT( newPage()) );
   insertNewAction( action );
 
-  action = new KAction( KIcon( "address-book-new" ), i18n( "New KJots Book" ), this );
+  action = new KAction( KIcon( "address-book-new" ),
+                        i18nc( "@action:inmenu", "New KJots Book" ), this );
   actionCollection()->addAction( "new_kjots_book", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_B ) );
-  action->setHelpText( i18n( "Create a new jots book" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new jots book" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can create a new jots book." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT( newBook()) );
   insertNewAction( action );
 
