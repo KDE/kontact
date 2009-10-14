@@ -8,25 +8,37 @@
   <group name="View">
     <entry type="String" name="ActivePlugin">
       <default>kontact_summaryplugin</default>
+      <tooltip>The currently active plugin</tooltip>
+      <whatsthis>The currently active plugin</whatsthis>
     </entry>
     <entry type="Bool" name="ForceStartupPlugin">
       <default>false</default>
-      <label>Always start with specified component:</label>
-      <whatsthis>Usually Kontact will come up with the component used before shutdown. Check this box if you would like a specific component to come up on start instead.</whatsthis>
+      <label>Always start with specified plugin:</label>
+      <tooltip>Set the initial plugin on each start</tooltip>
+      <whatsthis>Usually Kontact will come up with the plugin used before shutdown. Check this box if you would like the specified plugin to come up on start instead.</whatsthis>
     </entry>
     <entry type="String" name="ForcedStartupPlugin">
+      <tooltip></tooltip>
+      <whatsthis></whatsthis>
     </entry>
 
-    <entry type="IntList" name="SidePaneSplitter">
+    <entry type="IntList" name="SidePaneSplitter" hidden="true">
       <default>1</default>
     </entry>
 
-    <entry type="Int" name="SidePaneIconSize">
+    <entry type="Int" name="SidePaneIconSize" hidden="true">
       <default>32</default>
     </entry>
-    <entry type="Bool" name="SidePaneShowIcons"><default>true</default></entry>
-    <entry type="Bool" name="SidePaneShowText"><default>true</default></entry>
-    <entry type="String" name="LastVersionSeen">
+
+    <entry type="Bool" name="SidePaneShowIcons" hidden="true">
+      <default>true</default>
+    </entry>
+
+    <entry type="Bool" name="SidePaneShowText" hidden="true">
+      <default>true</default>
+    </entry>
+
+    <entry type="String" name="LastVersionSeen" hidden="true">
     </entry>
   </group>
 </kcfg>
