@@ -83,6 +83,8 @@ KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
   pluginStartupLayout->addWidget( selection->comboBox() );
   selection->comboBox()->setEnabled( false );
 
+  pluginStartupLayout->addStretch( 1 );
+
   connect( forceStartupPlugin->checkBox(), SIGNAL(toggled(bool)),
            selection->comboBox(), SLOT(setEnabled(bool)) );
   load();
@@ -91,13 +93,19 @@ KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
 const KAboutData *KcmKontact::aboutData() const
 {
   KAboutData *about = new KAboutData(
-    I18N_NOOP( "kontactconfig" ), 0,
-    ki18n( "KDE Kontact" ),
-    0, KLocalizedString(), KAboutData::License_GPL,
-    ki18n( "(c), 2003 Cornelius Schumacher" ) );
+    "kontactconfig", 0,
+    ki18nc( "@title", "KDE Kontact" ),
+    0,
+    KLocalizedString(),
+    KAboutData::License_GPL,
+    ki18nc( "@info:credit", "(c), 2003 Cornelius Schumacher" ) );
 
-  about->addAuthor( ki18n( "Cornelius Schumacher" ), KLocalizedString(), "schumacher@kde.org" );
-  about->addAuthor( ki18n( "Tobias Koenig" ), KLocalizedString(), "tokoe@kde.org" );
+  about->addAuthor( ki18nc( "@info:credit", "Cornelius Schumacher" ),
+                    ki18nc( "@info:credit", "Developer" ),
+                            "schumacher@kde.org" );
+  about->addAuthor( ki18nc( "@info:credit", "Tobias Koenig" ),
+                    ki18nc( "@info:credit", "Developer" ),
+                    "tokoe@kde.org" );
 
   return about;
 }
@@ -106,6 +114,13 @@ PluginSelection::PluginSelection( KConfigSkeleton::ItemString *item, QWidget *pa
 {
   mItem = item;
   mPluginCombo = new KComboBox( parent );
+  mPluginCombo->setToolTip(
+    i18nc( "@info:tooltip", "Select the initial plugin to use on each start" ) );
+  mPluginCombo->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Select the plugin from this drop down list to be used as the "
+           "initial plugin each time Kontact is started. Otherwise, Kontact "
+           "will restore the last active plugin from the previous usage." ) );
   connect( mPluginCombo, SIGNAL(currentIndexChanged(int)), SIGNAL(changed()) );
 }
 

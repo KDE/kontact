@@ -13,7 +13,7 @@
     </entry>
     <entry type="Bool" name="ForceStartupPlugin">
       <default>false</default>
-      <label>Always start with specified plugin:</label>
+      <label>Always start with plugin:</label>
       <tooltip>Set the initial plugin on each start</tooltip>
       <whatsthis>Usually Kontact will come up with the plugin used before shutdown. Check this box if you would like the specified plugin to come up on start instead.</whatsthis>
     </entry>

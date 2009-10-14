@@ -321,8 +321,9 @@ void MainWindow::initWidgets()
   initAboutScreen();
 
   QString loading =
-    i18n( "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>",
-          i18n( "Loading Kontact..." ) );
+    i18nc( "@item",
+           "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>",
+           i18nc( "@item:intext", "Loading Kontact..." ) );
 
   paintAboutScreen( loading );
 
@@ -332,7 +333,8 @@ void MainWindow::initWidgets()
 
   mLittleProgress = new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
 
-  mStatusMsgLabel = new KSqueezedTextLabel( i18n( " Initializing..." ), statusBar() );
+  mStatusMsgLabel =
+    new KSqueezedTextLabel( i18nc( "@info:status", " Initializing..." ), statusBar() );
   mStatusMsgLabel->setTextElideMode( Qt::ElideRight );
   mStatusMsgLabel->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
 
@@ -356,14 +358,12 @@ void MainWindow::paintAboutScreen( const QString &msg )
   }
 
   mIntroPart->begin( KUrl( location ) );
-
-  QString appName( i18n( "KDE Kontact" ) );
-  QString catchPhrase( i18n( "Get Organized!" ) );
-  QString quickDescription( i18n( "The KDE Personal Information Management Suite" ) );
-
   mIntroPart->write(
     content.arg( QFont().pointSize() + 2 ).
-    arg( appName ).arg( catchPhrase ).arg( quickDescription ).arg( msg ) );
+    arg( i18nc( "@item:intext", "KDE Kontact" ) ).
+    arg( i18nc( "@item:intext", "Get Organized!" ) ).
+    arg( i18nc( "@item:intext", "The KDE Personal Information Management Suite" ) ).
+    arg( msg ) );
   mIntroPart->end();
 }
 
@@ -433,18 +433,37 @@ void MainWindow::setupActions()
     connect( mSyncActions, SIGNAL(triggered(bool)), this, SLOT(slotSyncClicked()) );
   }
 
-  KAction *action = new KAction( KIcon( "configure" ), i18n( "Configure Kontact..." ), this );
-  action->setHelpText( i18n( "Configure Kontact" ) );
+  KAction *action =
+    new KAction( KIcon( "configure" ),
+                 i18nc( "@action:inmenu", "Configure Kontact..." ), this );
+  action->setHelpText(
+    i18nc( "@info:status", "Configure Kontact" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented a dialog where you can configure Kontact." ) );
   actionCollection()->addAction( "settings_configure_kontact", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
-  action = new KAction( KIcon( "kontact" ), i18n( "&Kontact Introduction" ), this );
-  action->setHelpText( i18n( "Show the Kontact Introduction page" ) );
+  action =
+    new KAction( KIcon( "kontact" ),
+                 i18nc( "@action:inmenu", "&Kontact Introduction" ), this );
+  action->setHelpText(
+    i18nc( "@info:status", "Show the Kontact Introduction page" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option too see the Kontact Introduction page." ) );
   actionCollection()->addAction( "help_introduction", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowIntroduction()) );
 
-  action = new KAction( KIcon( "ktip" ), i18n( "&Tip of the Day" ), this );
-  action->setHelpText( i18n( "Show the Tip-of-the-Day dialog" ) );
+  action =
+    new KAction( KIcon( "ktip" ),
+                 i18nc( "@action:inmenu", "&Tip of the Day" ), this );
+  action->setHelpText(
+    i18nc( "@info:status", "Show the Tip-of-the-Day dialog" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented a dialog showing small tips to help "
+           "you use this program more effectively." ) );
   actionCollection()->addAction( "help_tipofday", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowTip()) );
 }
@@ -639,7 +658,11 @@ void MainWindow::addPlugin( KontactInterface::Plugin *plugin )
 
   if ( plugin->showInSideBar() ) {
     KAction *action = new KAction( KIcon( plugin->icon() ), plugin->title(), this );
-    action->setHelpText( i18n( "Add plugin %1", plugin->title() ) );
+    action->setHelpText(
+      i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+    action->setWhatsThis(
+      i18nc( "@info:whatsthis",
+             "Switch to plugin %1", plugin->title() ) );
     action->setCheckable( true );
     action->setData( QVariant::fromValue( plugin ) ); // on the slot we can decode
                                                       // which action was triggered
@@ -737,7 +760,9 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
   }
 
   if ( plugin->isRunningStandalone() ) {
-    statusBar()->showMessage( i18n( "Application is running standalone. Foregrounding..." ), 1000 );
+    statusBar()->showMessage(
+      i18nc( "@info:status",
+             "Application is running standalone. Foregrounding..." ), 1000 );
     plugin->bringToForeground();
     return;
   }
@@ -753,8 +778,11 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
 
   if ( !part ) {
     QApplication::restoreOverrideCursor();
-    KMessageBox::error( this, i18n( "Cannot load part for %1.",
-                                    plugin->title() ) + '\n' + lastErrorMessage() );
+    KMessageBox::error(
+      this,
+      i18nc( "@info",
+             "Cannot load part for %1.",
+             plugin->title() ) + '\n' + lastErrorMessage() );
     plugin->setDisabled( true );
     mSidePane->updatePlugins();
     return;
@@ -821,7 +849,8 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
 
     createGUI( plugin->part() );
 
-    setCaption( i18nc( "Plugin dependent window title", "%1 - Kontact", plugin->title() ) );
+    setCaption( i18nc( "@title:window Plugin dependent window title",
+                       "%1 - Kontact", plugin->title() ) );
 
     if ( newAction ) {
       mNewActions->setIcon( newAction->icon() );
@@ -1142,7 +1171,10 @@ QString MainWindow::introductionString()
   QString html_icon_path = iconloader->iconPath( "text-html", KIconLoader::Desktop );
   QString wizard_icon_path = iconloader->iconPath( "tools-wizard", KIconLoader::Desktop );
 
-  QString info = ki18n( "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
+  QString info =
+    ki18nc(
+      "@info",
+      "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
       "<p align=\"center\">%2</p>"
       "<table align=\"center\">"
       "<tr><td><a href=\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td>"
@@ -1152,32 +1184,33 @@ QString MainWindow::introductionString()
       "<tr><td><a href=\"%17\"><img width=\"%18\" height=\"%19\" src=\"%20\" /></a></td>"
       "<td><a href=\"%21\">%22</a><br /><span id=\"subtext\"><nobr>%23</nobr></span></td></tr>"
       "</table>"
-      "<p style=\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>" )
-      .subs( KGlobal::mainComponent().aboutData()->version() )
-      .subs( i18n( "Kontact handles your e-mail, address book, calendar, to-do list and more." ) )
-      .subs( "help:/kontact" )
-      .subs( iconSize )
-      .subs( iconSize )
-      .subs( handbook_icon_path )
-      .subs( "help:/kontact" )
-      .subs( i18n( "Read Manual" ) )
-      .subs( i18n( "Learn more about Kontact and its components" ) )
-      .subs( "http://kontact.org" )
-      .subs( iconSize )
-      .subs( iconSize )
-      .subs( html_icon_path )
-      .subs( "http://kontact.org" )
-      .subs( i18n( "Visit Kontact Website" ) )
-      .subs( i18n( "Access online resources and tutorials" ) )
-      .subs( "exec:/gwwizard" )
-      .subs( iconSize )
-      .subs( iconSize )
-      .subs( wizard_icon_path )
-      .subs( "exec:/gwwizard" )
-      .subs( i18n( "Configure Kontact as Groupware Client" ) )
-      .subs( i18n( "Prepare Kontact for use in corporate networks" ) )
-      .subs( "exec:/switch" )
-      .toString();
+      "<p style=\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>" ).
+    subs( KGlobal::mainComponent().aboutData()->version() ).
+    subs( i18nc( "@item:intext",
+                 "Kontact handles your e-mail, address book, calendar, to-do list and more." ) ).
+    subs( "help:/kontact" ).
+    subs( iconSize ).
+    subs( iconSize ).
+    subs( handbook_icon_path ).
+    subs( "help:/kontact" ).
+    subs( i18nc( "@item:intext", "Read Manual" ) ).
+    subs( i18nc( "@item:intext", "Learn more about Kontact and its components" ) ).
+    subs( "http://kontact.org" ).
+    subs( iconSize ).
+    subs( iconSize ).
+    subs( html_icon_path ).
+    subs( "http://kontact.org" ).
+    subs( i18nc( "@item:intext", "Visit Kontact Website" ) ).
+    subs( i18nc( "@item:intext", "Access online resources and tutorials" ) ).
+    subs( "exec:/gwwizard" ).
+    subs( iconSize ).
+    subs( iconSize ).
+    subs( wizard_icon_path ).
+    subs( "exec:/gwwizard" ).
+    subs( i18nc( "@item:intext", "Configure Kontact as Groupware Client" ) ).
+    subs( i18nc( "@item:intext", "Prepare Kontact for use in corporate networks" ) ).
+    subs( "exec:/switch" ).
+    toString();
   return info;
 }
 
