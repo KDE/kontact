@@ -61,7 +61,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
     i18nc( "@info:status", "Create a new contact group" ) );
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
-           "You will be presented with a dialog where you an create a new contact group." ) );
+           "You will be presented with a dialog where you can create a new contact group." ) );
   insertNewAction( action );
 
   KAction *syncAction =
