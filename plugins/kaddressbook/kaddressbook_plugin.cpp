@@ -48,7 +48,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
     i18nc( "@info:status", "Create a new contact" ) );
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
-           "You will be presented with a dialog where you an create a new contact." ) );
+           "You will be presented with a dialog where you can create a new contact." ) );
   insertNewAction( action );
 
   action =

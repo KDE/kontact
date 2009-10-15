@@ -440,7 +440,7 @@ void MainWindow::setupActions()
     i18nc( "@info:status", "Configure Kontact" ) );
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
-           "You will be presented a dialog where you can configure Kontact." ) );
+           "You will be presented with a dialog where you can configure Kontact." ) );
   actionCollection()->addAction( "settings_configure_kontact", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
@@ -451,7 +451,7 @@ void MainWindow::setupActions()
     i18nc( "@info:status", "Show the Kontact Introduction page" ) );
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
-           "Choose this option too see the Kontact Introduction page." ) );
+           "Choose this option to see the Kontact Introduction page." ) );
   actionCollection()->addAction( "help_introduction", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowIntroduction()) );
 
@@ -462,7 +462,7 @@ void MainWindow::setupActions()
     i18nc( "@info:status", "Show the Tip-of-the-Day dialog" ) );
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
-           "You will be presented a dialog showing small tips to help "
+           "You will be presented with a dialog showing small tips to help "
            "you use this program more effectively." ) );
   actionCollection()->addAction( "help_tipofday", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowTip()) );
