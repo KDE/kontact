@@ -53,15 +53,28 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  KAction *action  = new KAction( KIcon( "mail-message-new" ), i18n( "New Message..." ), this );
+  KAction *action =
+    new KAction( KIcon( "mail-message-new" ),
+                 i18nc( "@action:inmenu", "New Message..." ), this );
   actionCollection()->addAction( "new_mail", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_M ) );
-  action->setHelpText( i18n( "Create a new mail message" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new mail message" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can create "
+           "and send a new email message." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewMail()) );
   insertNewAction( action );
 
-  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Sync Mail" ), this );
-  syncAction->setHelpText( i18n( "Synchronize groupware mail" ) );
+  KAction *syncAction =
+    new KAction( KIcon( "view-refresh" ),
+                 i18nc( "@action:inmenu", "Sync Mail" ), this );
+  syncAction->setHelpText(
+    i18nc( "@info:status", "Synchronize groupware mail" ) );
+  syncAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option to synchronize your groupware email." ) );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncFolders()) );
   actionCollection()->addAction( "sync_mail", syncAction );
   insertSyncAction( syncAction );

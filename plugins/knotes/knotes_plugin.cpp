@@ -51,17 +51,29 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  KAction *action = new KAction( KIcon( "knotes" ), i18n( "New Popup Note..." ), this );
+  KAction *action =
+    new KAction( KIcon( "knotes" ),
+                 i18nc( "@action:inmenu", "New Popup Note..." ), this );
   actionCollection()->addAction( "new_note", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewNote()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_N ) );
-  action->setHelpText( i18n( "Create new popup note" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create new popup note" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can create a new popup note." ) );
   insertNewAction( action );
 
-  KAction *syncAction = new KAction( KIcon( "view-refresh" ), i18n( "Sync Popup Notes" ), this );
+  KAction *syncAction =
+    new KAction( KIcon( "view-refresh" ),
+                 i18nc( "@action:inmenu", "Sync Popup Notes" ), this );
   actionCollection()->addAction( "knotes_sync", syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncNotes()) );
-  syncAction->setHelpText( i18n( "Synchronize groupware notes" ) );
+  syncAction->setHelpText(
+    i18nc( "@info:status", "Synchronize groupware notes" ) );
+  syncAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option to synchronize your groupware notes." ) );
   insertSyncAction( syncAction );
 }
 
@@ -90,14 +102,20 @@ KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWid
 const KAboutData *KNotesPlugin::aboutData() const
 {
   if ( !mAboutData ) {
-    mAboutData = new KAboutData( "knotes", 0, ki18n( "KNotes" ),
-                                 "0.5", ki18n( "Popup Notes" ),
-                                 KAboutData::License_GPL_V2,
-                                 ki18n( "(c) 2003-2004 The Kontact developers" ) );
-    mAboutData->addAuthor( ki18n( "Michael Brade" ),
-                           ki18n( "Current Maintainer" ), "brade@kde.org" );
-    mAboutData->addAuthor( ki18n( "Tobias Koenig" ),
-                           KLocalizedString(), "tokoe@kde.org" );
+    mAboutData =
+      new KAboutData( "knotes", 0,
+                      ki18nc( "@title", "KNotes" ),
+                      "0.5",
+                      ki18nc( "@title", "Popup Notes" ),
+                      KAboutData::License_GPL_V2,
+                      ki18nc( "@info:credit", "(c) 2003-2004 The Kontact developers" ) );
+
+    mAboutData->addAuthor( ki18nc( "@info:credit", "Michael Brade" ),
+                           ki18nc( "@info:credit", "Current Maintainer" ),
+                           "brade@kde.org" );
+    mAboutData->addAuthor( ki18nc( "@info:credit", "Tobias Koenig" ),
+                           ki18nc( "@info:credit", "Developer" ),
+                           "tokoe@kde.org" );
   }
 
   return mAboutData;
@@ -133,7 +151,8 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
       }
     }
     event->accept();
-    static_cast<KNotesPart *>( part() )->newNote( i18n( "Meeting" ), attendees.join( ", " ) );
+    static_cast<KNotesPart *>( part() )->newNote(
+      i18nc( "@item", "Meeting" ), attendees.join( ", " ) );
     return;
   }
 
@@ -145,7 +164,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
         event->accept();
         Journal *j = journals.first();
         static_cast<KNotesPart *>( part() )->
-          newNote( i18n( "Note: %1", j->summary() ), j->description() );
+          newNote( i18nc( "@item", "Note: %1", j->summary() ), j->description() );
         return;
       }
       // else fall through to text decoding
@@ -153,7 +172,8 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
   }
 
   if ( md->hasText() ) {
-    static_cast<KNotesPart *>( part() )->newNote( i18n( "New Note" ), md->text() );
+    static_cast<KNotesPart *>( part() )->newNote(
+      i18nc( "@item", "New Note" ), md->text() );
     return;
   }
 
@@ -161,12 +181,15 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
     MailList mails = MailList::fromMimeData( md );
     event->accept();
     if ( mails.count() != 1 ) {
-      KMessageBox::sorry( core(),
-                          i18n( "Dropping multiple mails is not supported." ) );
+      KMessageBox::sorry(
+        core(),
+        i18nc( "@info", "Dropping multiple mails is not supported." ) );
     } else {
       MailSummary mail = mails.first();
-      QString txt = i18n( "From: %1\nTo: %2\nSubject: %3", mail.from(), mail.to(), mail.subject() );
-      static_cast<KNotesPart *>( part() )->newNote( i18n( "Mail: %1", mail.subject() ), txt );
+      QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
+                           mail.from(), mail.to(), mail.subject() );
+      static_cast<KNotesPart *>( part() )->newNote(
+        i18nc( "@item", "Mail: %1", mail.subject() ), txt );
     }
     return;
   }

@@ -58,16 +58,26 @@ TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
   KIconLoader::global()->addAppDir( "kdepim" );
 
   KAction *action =
-    new KAction( KIcon( "task-new" ), i18n( "New To-do..." ), this );
+    new KAction( KIcon( "task-new" ),
+                 i18nc( "@action:inmenu", "New To-do..." ), this );
   actionCollection()->addAction( "new_todo", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_T ) );
-  action->setHelpText( i18n( "Create a new to-do" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new to-do" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can create a new to-do item." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewTodo()) );
   insertNewAction( action );
 
   KAction *syncAction =
-    new KAction( KIcon( "view-refresh" ), i18n( "Sync To-do List" ), this );
-  syncAction->setHelpText( i18n( "Synchronize groupware to-do list" ) );
+    new KAction( KIcon( "view-refresh" ),
+                 i18nc( "@action:inmenu", "Sync To-do List" ), this );
+  syncAction->setHelpText(
+    i18nc( "@info:status", "Synchronize groupware to-do list" ) );
+  syncAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option to synchronize your groupware to-do list." ) );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncTodos()) );
   insertSyncAction( syncAction );
 
@@ -194,7 +204,8 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       }
     }
 
-    interface()->openTodoEditor( i18n( "Meeting" ), QString(), QStringList(), attendees );
+    interface()->openTodoEditor( i18nc( "@item", "Meeting" ),
+                                 QString(), QStringList(), attendees );
     return;
   }
 
@@ -208,7 +219,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
         KCal::Incidence *i = incidences.first();
         QString summary;
         if ( dynamic_cast<KCal::Journal*>( i ) ) {
-          summary = i18n( "Note: %1", i->summary() );
+          summary = i18nc( "@item", "Note: %1", i->summary() );
         } else {
           summary = i->summary();
         }
@@ -229,11 +240,13 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     KPIM::MailList mails = KPIM::MailList::fromMimeData( md );
     event->accept();
     if ( mails.count() != 1 ) {
-      KMessageBox::sorry( core(),
-                          i18n( "Dropping multiple mails is not supported." ) );
+      KMessageBox::sorry(
+        core(),
+        i18nc( "@info", "Dropping multiple mails is not supported." ) );
     } else {
       KPIM::MailSummary mail = mails.first();
-      QString txt = i18n( "From: %1\nTo: %2\nSubject: %3", mail.from(), mail.to(), mail.subject() );
+      QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
+                           mail.from(), mail.to(), mail.subject() );
       QString uri = KDEPIMPROTOCOL_EMAIL +
                     QString::number( mail.serialNumber() ) + '/' +
                     mail.messageId();
@@ -241,7 +254,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       tf.setAutoRemove( true );
       tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openTodoEditor(
-        i18n( "Mail: %1", mail.subject() ),
+        i18nc( "@item", "Mail: %1", mail.subject() ),
         txt, uri, tf.fileName(), QStringList(), "message/rfc822", false );
       tf.close();
     }

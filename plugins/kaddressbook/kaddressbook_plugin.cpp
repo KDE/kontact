@@ -38,27 +38,42 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  KAction *action = new KAction( KIcon( "contact-new" ),
-                                 i18nc( "@action:inmenu", "New Contact..." ), this );
+  KAction *action =
+    new KAction( KIcon( "contact-new" ),
+                 i18nc( "@action:inmenu", "New Contact..." ), this );
   actionCollection()->addAction( "new_contact", action );
   connect( action, SIGNAL( triggered( bool) ), SLOT( slotNewContact() ) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
-  action->setHelpText( i18nc( "@info:status", "Create a new contact" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new contact" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you an create a new contact." ) );
   insertNewAction( action );
 
-  action = new KAction( KIcon( "user-group-new" ),
-                        i18nc( "@action:inmenu", "New Contact Group..." ), this );
+  action =
+    new KAction( KIcon( "user-group-new" ),
+                 i18nc( "@action:inmenu", "New Contact Group..." ), this );
   actionCollection()->addAction( "new_contactgroup", action );
   connect( action, SIGNAL( triggered( bool ) ), SLOT( slotNewContactGroup() ) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_G ) );
-  action->setHelpText( i18nc( "@info:status", "Create a new contact group" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new contact group" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you an create a new contact group." ) );
   insertNewAction( action );
 
-  KAction *syncAction = new KAction( KIcon( "view-refresh" ),
-                                     i18nc( "@action:inmenu", "Sync Contacts" ), this );
+  KAction *syncAction =
+    new KAction( KIcon( "view-refresh" ),
+                 i18nc( "@action:inmenu", "Sync Contacts" ), this );
   actionCollection()->addAction( "kaddressbook_sync", syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
-  syncAction->setHelpText( i18nc( "@info:status", "Synchronize groupware contacts" ) );
+  syncAction->setHelpText(
+    i18nc( "@info:status", "Synchronize groupware contacts" ) );
+  syncAction->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "Choose this option to synchronize your groupware contacts." ) );
   insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(

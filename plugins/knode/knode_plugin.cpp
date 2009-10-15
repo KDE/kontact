@@ -40,10 +40,17 @@ KNodePlugin::KNodePlugin( KontactInterface::Core *core, const QVariantList & )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  KAction *action = new KAction( KIcon( "mail-message-new" ), i18n( "New Article..." ), this );
+  KAction *action =
+    new KAction( KIcon( "mail-message-new" ),
+                 i18nc( "@action:inmenu", "New Article..." ), this );
   actionCollection()->addAction( "post_article", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_A ) );
-  action->setHelpText( i18n( "Create a new Usenet article" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new Usenet article" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can create "
+           "a new article to post on Usenet." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPostArticle()) );
   insertNewAction( action );
 

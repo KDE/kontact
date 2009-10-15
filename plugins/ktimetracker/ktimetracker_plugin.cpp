@@ -40,10 +40,17 @@ ktimetrackerplugin::ktimetrackerplugin( KontactInterface::Core *core, const QVar
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  KAction *action  = new KAction( KIcon( "ktimetracker" ), i18n( "New Task" ), this );
+  KAction *action =
+    new KAction( KIcon( "ktimetracker" ),
+                 i18nc( "@action:inmenu", "New Task" ), this );
   actionCollection()->addAction( "new_task", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_W ) );
-  action->setHelpText( i18n( "Create a new time tracking" ) );
+  action->setHelpText(
+    i18nc( "@info:status", "Create a new time tracking" ) );
+  action->setWhatsThis(
+    i18nc( "@info:whatsthis",
+           "You will be presented with a dialog where you can create "
+           "and start a new time tracking." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(newTask()) );
   insertNewAction( action );
 
