@@ -46,11 +46,11 @@ ktimetrackerplugin::ktimetrackerplugin( KontactInterface::Core *core, const QVar
   actionCollection()->addAction( "new_task", action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_W ) );
   action->setHelpText(
-    i18nc( "@info:status", "Create a new time tracking" ) );
+    i18nc( "@info:status", "Create a new time tracker" ) );
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can create "
-           "and start a new time tracking." ) );
+           "and start a new time tracker." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(newTask()) );
   insertNewAction( action );
 
