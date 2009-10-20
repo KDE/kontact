@@ -26,7 +26,6 @@
 #include "todosummarywidget.h"
 #include "todoplugin.h"
 #include "korganizer/korganizerinterface.h"
-#include "korganizer/stdcalendar.h"
 
 #include <KCal/CalendarResources>
 #include <KCal/CalHelper>
@@ -49,7 +48,7 @@ using namespace KCal;
 #include <QVBoxLayout>
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
-  : KontactInterface::Summary( parent ), mPlugin( plugin )
+  : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
@@ -63,7 +62,9 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
+#ifdef AKONADI_PORT_DISABLED
   mCalendar = KOrg::StdCalendar::self();
+#endif
 
   //If the kpart isn't created yet, it's created now, and mCalendar is loaded
   mPlugin->part();

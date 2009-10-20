@@ -25,9 +25,10 @@
 */
 
 #include "summaryeventinfo.h"
-#include "korganizer/stdcalendar.h"
 
+#include <KCal/Calendar>
 #include <KCal/IncidenceFormatter>
+#include <KCal/Event>
 #include <kglobal.h>
 #include <klocale.h>
 
