@@ -215,7 +215,7 @@ void TodoSummaryWidget::completeTodo( const QString &uid )
   if ( !todo->isReadOnly() && changer->beginChange( todo ) ) {
     KCal::Todo *oldTodo = todo->clone();
     todo->setCompleted( QDateTime::currentDateTime() );
-    changer->changeIncidence( oldTodo, todo, KOGlobals::COMPLETION_MODIFIED );
+    changer->changeIncidence( oldTodo, todo, KOGlobals::COMPLETION_MODIFIED, this );
     changer->endChange( todo );
     delete oldTodo;
     updateView();
