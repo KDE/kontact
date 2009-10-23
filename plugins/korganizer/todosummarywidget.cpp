@@ -113,7 +113,12 @@ void TodoSummaryWidget::updateView()
   Todo::List prList;
 
   QDate currDate = QDate::currentDate();
+#ifdef AKONADI_PORT_DISABLED
   Q_FOREACH ( Todo *todo, mCalendar->todos() ) {
+#else
+  QList<Todo*> todos;
+  Q_FOREACH( Todo *todo, todos ) {
+#endif
     if ( todo->hasDueDate() ) {
       int daysTo = currDate.daysTo( todo->dtDue().date() );
       if ( daysTo >= mDaysToGo ) {
