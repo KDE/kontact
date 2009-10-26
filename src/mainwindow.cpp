@@ -133,9 +133,9 @@ void MainWindow::initGUI()
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
 
-  connect( Kontact::ProfileManager::self(), SIGNAL( profileLoaded( const QString& ) ), 
+  connect( Kontact::ProfileManager::self(), SIGNAL( profileLoaded( const QString& ) ),
            this, SLOT( slotLoadProfile( const QString& ) ) );
-  connect( Kontact::ProfileManager::self(), SIGNAL( saveToProfileRequested( const QString& ) ), 
+  connect( Kontact::ProfileManager::self(), SIGNAL( saveToProfileRequested( const QString& ) ),
            this, SLOT( slotSaveToProfile( const QString& ) ) );
 }
 
@@ -348,7 +348,7 @@ void MainWindow::setupActions()
                actionCollection(), "help_introduction" );
   new KAction( i18n( "&Tip of the Day" ), 0, this, SLOT( slotShowTip() ),
                actionCollection(), "help_tipofday" );
-  
+
   KWidgetAction* spacerAction = new KWidgetAction( new QWidget( this ), "SpacerAction", "", 0, 0, actionCollection(), "navigator_spacer_item" );
   spacerAction->setAutoSized( true );
 }
@@ -385,7 +385,7 @@ void MainWindow::slotSaveToProfile( const QString& id )
   ::copyConfigEntry( cfg, &profile, "MainWindow Toolbar navigatorToolBar", "Hidden", "true" );
   ::copyConfigEntry( cfg, &profile, "View", "SidePaneSplitter" );
   ::copyConfigEntry( cfg, &profile, "Icons", "Theme" );
-  
+
   for ( PluginList::Iterator it = mPlugins.begin(); it != mPlugins.end(); ++it ) {
     if ( !(*it)->isRunningStandalone() ) {
         (*it)->part();
@@ -972,8 +972,17 @@ void MainWindow::slotOpenUrl( const KURL &url )
       KRun::runCommand( "groupwarewizard" );
       slotQuit();
     }
-  } else
+    if ( url.path().startsWith( "/help" ) ) {
+      QString command = "khelpcenter";
+      if ( !url.query().isEmpty() ) {
+        command += " help:/";
+        command += url.query().mid( 1 );
+      }
+      KRun::runCommand( command );
+    }
+  } else {
     new KRun( url, this );
+  }
 }
 
 void MainWindow::readProperties( KConfig *config )
@@ -1064,11 +1073,11 @@ QString MainWindow::introductionString()
       "<p style=\"margin-bottom: 0px\"> <a href=\"%1\">Skip this introduction</a></p>" )
       .arg( kapp->aboutData()->version() )
       .arg( i18n( "Kontact handles your e-mail, addressbook, calendar, to-do list and more." ) )
-      .arg( "help:/kontact" )
+      .arg( "exec:/help?kontact" )
       .arg( iconSize )
       .arg( iconSize )
       .arg( handbook_icon_path )
-      .arg( "help:/kontact" )
+      .arg( "exec:/help?kontact" )
       .arg( i18n( "Read Manual" ) )
       .arg( i18n( "Learn more about Kontact and its components" ) )
       .arg( "http://kontact.org" )
