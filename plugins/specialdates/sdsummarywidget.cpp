@@ -113,7 +113,6 @@ SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *par
 
   // Setup the Calendar
   mCalendar = KOrg::StdCalendar::self();
-  mCalendar->load();
 
   connect( mCalendar, SIGNAL(calendarChanged()),
            this, SLOT(updateView()) );
