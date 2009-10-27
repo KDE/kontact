@@ -1100,6 +1100,14 @@ void MainWindow::slotOpenUrl( const KUrl &url )
       KRun::runCommand( "groupwarewizard", this );
       slotQuit();
     }
+    if ( url.path().startsWith( QLatin1String( "/help" ) ) ) {
+      QString command = "khelpcenter";
+      if ( !url.query().isEmpty() ) {
+        command += " help:/";
+        command += url.query().mid( 1 );
+      }
+      KRun::runCommand( command, this );
+    }
   } else {
     new KRun( url, this );
   }
@@ -1188,11 +1196,11 @@ QString MainWindow::introductionString()
     subs( KGlobal::mainComponent().aboutData()->version() ).
     subs( i18nc( "@item:intext",
                  "Kontact handles your e-mail, address book, calendar, to-do list and more." ) ).
-    subs( "help:/kontact" ).
+    subs( "exec:/help?kontact" ).
     subs( iconSize ).
     subs( iconSize ).
     subs( handbook_icon_path ).
-    subs( "help:/kontact" ).
+    subs( "exec:/help?kontact" ).
     subs( i18nc( "@item:intext", "Read Manual" ) ).
     subs( i18nc( "@item:intext", "Learn more about Kontact and its components" ) ).
     subs( "http://kontact.org" ).
