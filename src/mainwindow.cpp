@@ -973,12 +973,11 @@ void MainWindow::slotOpenUrl( const KURL &url )
       slotQuit();
     }
     if ( url.path().startsWith( "/help" ) ) {
-      QString command = "khelpcenter";
+      QString app( "kontact" );
       if ( !url.query().isEmpty() ) {
-        command += " help:/";
-        command += url.query().mid( 1 );
+        app = url.query().mid( 1 );
       }
-      KRun::runCommand( command );
+      kapp->invokeHelp( QString::null, app );
     }
   } else {
     new KRun( url, this );
