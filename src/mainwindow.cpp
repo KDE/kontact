@@ -59,6 +59,7 @@ using namespace Kontact;
 #include <KStatusBar>
 #include <KTipDialog>
 #include <KToolBar>
+#include <KToolInvocation>
 #include <KXMLGUIFactory>
 #include <KParts/PartManager>
 #include <KSettings/Dispatcher>
@@ -1101,12 +1102,11 @@ void MainWindow::slotOpenUrl( const KUrl &url )
       slotQuit();
     }
     if ( url.path().startsWith( QLatin1String( "/help" ) ) ) {
-      QString command = "khelpcenter";
+      QString app( "kontact" );
       if ( !url.query().isEmpty() ) {
-        command += " help:/";
-        command += url.query().mid( 1 );
+        app = url.query().mid( 1 );
       }
-      KRun::runCommand( command, this );
+      KToolInvocation::invokeHelp( QString(), app );
     }
   } else {
     new KRun( url, this );
