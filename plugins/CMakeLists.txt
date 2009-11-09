@@ -3,7 +3,7 @@ add_definitions(-DKDE_DEFAULT_DEBUG_AREA=5602)
 
 if(QGPGME_FOUND)
   if(BUILD_kmail)
-#add_subdirectory( kmail )
+    add_subdirectory( kmail )
   endif(BUILD_kmail)
   if (BUILD_kmail AND BUILD_korganizer)
     add_subdirectory( korganizer )
