@@ -25,7 +25,6 @@
 
 #include "summarywidget.h"
 #include "kmailinterface.h"
-#include "kmail_folder_interface.h"
 
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
@@ -130,6 +129,7 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
       if ( activeFolders.contains( *it ) ) {
         QDBusReply<QString> ref = kmail.getFolder( *it );
         if ( ref.isValid() && !ref.value().isEmpty() ) {
+#if 0 // TODO port to Akonadi
           OrgKdeKmailFolderInterface folderInterface(
             DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus() );
           if ( !folderInterface.isValid() ) {
@@ -210,6 +210,9 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
           //TODO: put the folder size in the tooltip
           //so we need to add a folderSize() to the interface
           counter++;
+#else
+        kDebug() << "AKONADI PORT: Disabled code in  " << Q_FUNC_INFO;
+#endif
         }
       }
     }

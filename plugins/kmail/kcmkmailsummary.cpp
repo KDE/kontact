@@ -24,7 +24,6 @@
 
 #include "kcmkmailsummary.h"
 #include "kmailinterface.h"
-#include "kmail_folder_interface.h"
 
 #include <KAboutData>
 #include <KAcceleratorManager>
@@ -116,9 +115,13 @@ void KCMKMailSummary::initFolders()
       org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
       QDBusReply<QString> ref = kmail.getFolder( *it );
       if ( ref.isValid() && !ref.value().isEmpty() ) {
+#if 0 // TODO port to Akonadi
           OrgKdeKmailFolderInterface folderInterface(
             DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus() );
           displayName = folderInterface.displayName();
+#else
+          kDebug() << "AKONADI PORT: Disabled code in  " << Q_FUNC_INFO;
+#endif
       } else {
         kWarning() << "Got invalid reply for" << (*it);
       }
