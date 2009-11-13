@@ -26,6 +26,7 @@
 #include "todosummarywidget.h"
 #include "todoplugin.h"
 #include "korganizer/korganizerinterface.h"
+#include "stdcalendar.h"
 
 #include <KCal/CalendarResources>
 #include <KCal/CalHelper>
@@ -62,9 +63,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
-#ifdef AKONADI_PORT_DISABLED
   mCalendar = KOrg::StdCalendar::self();
-#endif
 
   //If the kpart isn't created yet, it's created now, and mCalendar is loaded
   mPlugin->part();
@@ -113,12 +112,7 @@ void TodoSummaryWidget::updateView()
   Todo::List prList;
 
   QDate currDate = QDate::currentDate();
-#ifdef AKONADI_PORT_DISABLED
   Q_FOREACH ( Todo *todo, mCalendar->todos() ) {
-#else
-  QList<Todo*> todos;
-  Q_FOREACH( Todo *todo, todos ) {
-#endif
     if ( todo->hasDueDate() ) {
       int daysTo = currDate.daysTo( todo->dtDue().date() );
       if ( daysTo >= mDaysToGo ) {

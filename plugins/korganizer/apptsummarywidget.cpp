@@ -125,10 +125,7 @@ void ApptSummaryWidget::updateView()
         dt <= currentDate.addDays( mDaysAhead - 1 );
         dt = dt.addDays( 1 ) ) {
 
-    SummaryEventInfo::List events; // =
-#ifdef AKONADI_PORT_DISABLED
-        SummaryEventInfo::eventsForDate( dt, mCalendar );
-#endif
+    SummaryEventInfo::List events = SummaryEventInfo::eventsForDate( dt, mCalendar );
 
     foreach ( SummaryEventInfo *event, events ) {
 
