@@ -26,7 +26,8 @@
 #include "apptsummarywidget.h"
 #include "korganizerplugin.h"
 #include "summaryeventinfo.h"
-#include "korganizer/korganizerinterface.h"
+#include <korganizer/korganizerinterface.h>
+#include "stdcalendar.h"
 
 #include <KCal/Calendar>
 #include <KCal/CalHelper>
@@ -60,9 +61,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
-#ifdef AKONADI_PORT_DISABLED
   mCalendar = KOrg::StdCalendar::self();
-#endif
 
   //If the kpart isn't created yet, it's created now, and mCalendar is loaded
   mPlugin->part();
