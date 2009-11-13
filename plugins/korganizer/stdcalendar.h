@@ -21,12 +21,11 @@
 #ifndef KORG_STDCALENDAR_H
 #define KORG_STDCALENDAR_H
 
-#include "korganizer_export.h"
 #include <KCal/CalendarResources>
 
 namespace KOrg {
 
-class KORGANIZER_CALENDAR_EXPORT StdCalendar : public KCal::CalendarResources
+class StdCalendar : public KCal::CalendarResources
 {
   public:
     static StdCalendar *self();

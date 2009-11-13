@@ -24,7 +24,7 @@
 */
 
 #include "sdsummarywidget.h"
-#include "korganizer/stdcalendar.h"
+#include "../korganizer/stdcalendar.h"
 
 #include <KABC/StdAddressBook>
 
@@ -113,9 +113,7 @@ SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *par
 
   // Setup the Calendar
   mCalendar = KOrg::StdCalendar::self();
-#if 0 //sebsauer
   mCalendar->load();
-#endif
 
   connect( mCalendar, SIGNAL(calendarChanged()),
            this, SLOT(updateView()) );
@@ -264,6 +262,11 @@ void SDSummaryWidget::updateView()
   if ( !mShowAnniversariesFromKAB ) {
     annvRes = 0;
   }
+#else
+  ResourceCalendar *bdayRes = 0;
+  ResourceCalendar *annvRes = 0;
+  kDebug() << "Disabled code";
+#endif
 
   QDate dt;
   for ( dt=QDate::currentDate();
@@ -562,9 +565,6 @@ void SDSummaryWidget::updateView()
   for ( lit = mLabels.constBegin(); lit != mLabels.constEnd(); ++lit ) {
     (*lit)->show();
   }
-#else
-  kWarning()<<"TODO";
-#endif
   setUpdatesEnabled( true );
 }
 
@@ -652,7 +652,6 @@ void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
   }
 }
 
-#if 0 //sebsauer
 ResourceCalendar *SDSummaryWidget::usingBirthdayResource()
 {
   ResourceCalendar *resource = 0;
@@ -685,7 +684,6 @@ bool SDSummaryWidget::check( ResourceCalendar *cal, const QDate &date,
   }
   return false;
 }
-#endif
 
 QStringList SDSummaryWidget::configModules() const
 {

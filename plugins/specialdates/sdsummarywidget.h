@@ -32,6 +32,7 @@ namespace KCal {
   class CalendarResources;
   class Event;
   class Calendar;
+  class ResourceCalendar;
 }
 using namespace KCal;
 
@@ -77,14 +78,12 @@ class SDSummaryWidget : public KontactInterface::Summary
     int dayof( Event *event, const QDate &date );
     bool initHolidays();
     void dateDiff( const QDate &date, int &days, int &years );
-#if 0 //sebsauer
     ResourceCalendar *usingBirthdayResource();
     bool check( ResourceCalendar *cal, const QDate &date, const QString &summary );
-#endif
     QGridLayout *mLayout;
     QList<QLabel*> mLabels;
     KontactInterface::Plugin *mPlugin;
-    KCal::Calendar *mCalendar;
+    KCal::CalendarResources *mCalendar;
     int mDaysAhead;
     bool mShowBirthdaysFromKAB;
     bool mShowBirthdaysFromCal;

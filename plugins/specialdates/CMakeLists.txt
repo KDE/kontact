@@ -1,12 +1,12 @@
 
 ########### next target ###############
 
-set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget.cpp)
+set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget.cpp ../korganizer/stdcalendar.cpp)
 
 kde4_add_plugin(kontact_specialdatesplugin ${kontact_specialdatesplugin_PART_SRCS})
 
 target_link_libraries(kontact_specialdatesplugin  ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KCAL_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KHOLIDAYS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} kdepim 
-korganizerprivate kaddressbookprivate)
+korganizerprivate ${KDE4_KDE3SUPPORT_LIBS})
 
 
 ########### next target ###############
