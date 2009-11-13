@@ -62,6 +62,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = KOrg::StdCalendar::self();
+  mCalendar->load();
 
   //If the kpart isn't created yet, it's created now, and mCalendar is loaded
   mPlugin->part();

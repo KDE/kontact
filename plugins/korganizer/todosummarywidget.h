@@ -31,7 +31,7 @@
 class TodoPlugin;
 
 namespace KCal {
-  class Calendar;
+  class CalendarResources;
   class Todo;
 }
 using namespace KCal;
@@ -80,7 +80,7 @@ class TodoSummaryWidget : public KontactInterface::Summary
     bool mShowMineOnly;
 
     QList<QLabel*> mLabels;
-    KCal::Calendar *mCalendar;
+    KCal::CalendarResources *mCalendar;
 
     /**
       Test if the To-do starts today.
