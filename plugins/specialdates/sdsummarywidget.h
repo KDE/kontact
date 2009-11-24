@@ -69,9 +69,9 @@ class SDSummaryWidget : public KontactInterface::Summary
 
   private slots:
     void updateView();
-    void popupMenu( const QString &uid );
-    void mailContact( const QString &uid );
-    void viewContact( const QString &uid );
+    void popupMenu( const QString &url );
+    void mailContact( const QString &url );
+    void viewContact( const QString &url );
 
   private:
     int span( Event *event );
