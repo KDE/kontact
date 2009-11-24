@@ -26,7 +26,10 @@
 #include "sdsummarywidget.h"
 #include "korganizer/stdcalendar.h"
 
-#include <KABC/StdAddressBook>
+#include <akonadi/contact/contactsearchjob.h>
+#include <akonadi/contact/contactviewerdialog.h>
+#include <akonadi/itemfetchjob.h>
+#include <akonadi/itemfetchscope.h>
 
 #include <KCal/CalendarResources>
 #include <KCal/CalHelper>
@@ -70,6 +73,7 @@ class SDEntry
     QString desc;
     int span; // #days in the special occassion.
     KABC::Addressee addressee;
+    Akonadi::Item item;
 
     bool operator<( const SDEntry &entry ) const
     {
@@ -105,9 +109,6 @@ SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *par
   mShowSpecialsFromCal = true;
 
   // Setup the Addressbook
-  KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
-  connect( ab, SIGNAL(addressBookChanged(AddressBook*)),
-           this, SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)),
            this, SLOT(updateView()) );
 
@@ -200,7 +201,6 @@ void SDSummaryWidget::updateView()
 {
   KIconLoader loader( "kdepim" );
 
-  KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
   QList<SDEntry> dates;
   QLabel *label = 0;
 
@@ -214,9 +214,18 @@ void SDSummaryWidget::updateView()
   mLabels.clear();
 
   // Search for Birthdays and Anniversaries in the Addressbook
-  KABC::AddressBook::Iterator it;
-  for ( it = ab->begin(); it != ab->end(); ++it ) {
-    QDate birthday = (*it).birthday().date();
+  //TODO: change into a search folder with date range
+  Akonadi::ContactSearchJob *job = new Akonadi::ContactSearchJob( this );
+  job->exec();
+
+  const Akonadi::Item::List items = job->items();
+  foreach ( const Akonadi::Item &item, items ) {
+    if ( !item.hasPayload<KABC::Addressee>() ) // skip contact groups
+      continue;
+
+    const KABC::Addressee contact = item.payload<KABC::Addressee>();
+
+    const QDate birthday = contact.birthday().date();
     if ( birthday.isValid() && mShowBirthdaysFromKAB ) {
       SDEntry entry;
       entry.type = IncidenceTypeContact;
@@ -224,16 +233,17 @@ void SDSummaryWidget::updateView()
       dateDiff( birthday, entry.daysTo, entry.yearsOld );
 
       entry.date = birthday;
-      entry.addressee = *it;
+      entry.addressee = contact;
+      entry.item = item;
       entry.span = 1;
       if ( entry.daysTo <= mDaysAhead ) {
         dates.append( entry );
       }
     }
 
-    QString anniversaryAsString = (*it).custom( "KADDRESSBOOK", "X-Anniversary" );
+    const QString anniversaryAsString = contact.custom( "KADDRESSBOOK", "X-Anniversary" );
     if ( !anniversaryAsString.isEmpty() ) {
-      QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
+      const QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
       if ( anniversary.isValid() && mShowAnniversariesFromKAB ) {
         SDEntry entry;
         entry.type = IncidenceTypeContact;
@@ -241,7 +251,8 @@ void SDSummaryWidget::updateView()
         dateDiff( anniversary, entry.daysTo, entry.yearsOld );
 
         entry.date = anniversary;
-        entry.addressee = *it;
+        entry.addressee = contact;
+        entry.item = item;
         entry.span = 1;
         if ( entry.daysTo <= mDaysAhead ) {
           dates.append( entry );
@@ -506,7 +517,7 @@ void SDSummaryWidget::updateView()
       if ( (*addrIt).type == IncidenceTypeContact ) {
         KUrlLabel *urlLabel = new KUrlLabel( this );
         urlLabel->installEventFilter( this );
-        urlLabel->setUrl( (*addrIt).addressee.uid() );
+        urlLabel->setUrl( (*addrIt).item.url( Akonadi::Item::UrlWithMimeType ).url() );
         urlLabel->setText( (*addrIt).addressee.realName() );
         urlLabel->setTextFormat( Qt::RichText );
         urlLabel->setWordWrap( true );
@@ -562,43 +573,55 @@ void SDSummaryWidget::updateView()
   setUpdatesEnabled( true );
 }
 
-void SDSummaryWidget::mailContact( const QString &uid )
+void SDSummaryWidget::mailContact( const QString &url )
 {
-  KABC::StdAddressBook *ab = KABC::StdAddressBook::self( true );
-  QString email = ab->findByUid( uid ).fullEmail();
-
-  KToolInvocation::invokeMailer( email, QString() );
-}
-
-void SDSummaryWidget::viewContact( const QString &uid )
-{
-  if ( !mPlugin->isRunningStandalone() ) {
-    mPlugin->core()->selectPlugin( "kontact_kaddressbookplugin" );
-  } else {
-    mPlugin->bringToForeground();
+  const Akonadi::Item item = Akonadi::Item::fromUrl( url );
+  if ( !item.isValid() ) {
+    qDebug( "Invalid item found" );
+    return;
   }
-/*
-  org::kde::KAddressbook::Core kaddressbook(
-    "org.kde.kaddressbook", "/KAddressBook", QDBusConnection::sessionBus() );
-  kaddressbook.showContactEditor( uid );
-  */
+
+  Akonadi::ItemFetchJob *job = new Akonadi::ItemFetchJob( item, this );
+  job->fetchScope().fetchFullPayload();
+  if ( !job->exec() )
+    return;
+
+  if ( job->items().isEmpty() )
+    return;
+
+  const KABC::Addressee contact = job->items().first().payload<KABC::Addressee>();
+
+  KToolInvocation::invokeMailer( contact.fullEmail(), QString() );
 }
 
-void SDSummaryWidget::popupMenu( const QString &uid )
+void SDSummaryWidget::viewContact( const QString &url )
+{
+  const Akonadi::Item item = Akonadi::Item::fromUrl( url );
+  if ( !item.isValid() ) {
+    qDebug( "Invalid item found" );
+    return;
+  }
+
+  Akonadi::ContactViewerDialog dlg( this );
+  dlg.setContact( item );
+  dlg.exec();
+}
+
+void SDSummaryWidget::popupMenu( const QString &url )
 {
   KMenu popup( this );
-  QAction *sendMailAction = popup.addAction(
+  const QAction *sendMailAction = popup.addAction(
     KIconLoader::global()->loadIcon( "mail-message-new", KIconLoader::Small ),
     i18n( "Send &Mail" ) );
-  QAction *viewContactAction = popup.addAction(
+  const QAction *viewContactAction = popup.addAction(
     KIconLoader::global()->loadIcon( "view-pim-contacts", KIconLoader::Small ),
     i18n( "View &Contact" ) );
 
-  QAction *ret = popup.exec( QCursor::pos() );
+  const QAction *ret = popup.exec( QCursor::pos() );
   if ( ret == sendMailAction ) {
-    mailContact( uid );
+    mailContact( url );
   } else if ( ret == viewContactAction ) {
-    viewContact( uid );
+    viewContact( url );
   }
 }
 
