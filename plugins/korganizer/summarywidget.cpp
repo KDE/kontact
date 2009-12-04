@@ -105,13 +105,15 @@ void SummaryWidget::updateView()
     KCal::Event::List events = mCalendar->events( dt );
 
     // sort the events for this date by summary
-    events = KCal::Calendar::sortEvents( &events,
-                                         KCal::EventSortSummary,
-                                         KCal::SortDirectionAscending );
+    events = KCal::Calendar::sortEventsForDate( &events,
+                                                dt,
+                                                KCal::EventSortSummary,
+                                                KCal::SortDirectionAscending );
     // sort the events for this date by start date
-    events = KCal::Calendar::sortEvents( &events,
-                                         KCal::EventSortStartDate,
-                                         KCal::SortDirectionAscending );
+    events = KCal::Calendar::sortEventsForDate( &events,
+                                                dt,
+                                                KCal::EventSortStartDate,
+                                                KCal::SortDirectionAscending );
 
     KCal::Event::List::ConstIterator it = events.begin();
     for ( it=events.begin(); it!=events.end(); ++it ) {
