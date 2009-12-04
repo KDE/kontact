@@ -111,13 +111,17 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
   QDate currentDate = currentDateTime.date();
 
   // sort the events for this date by summary
-  events = KCal::Calendar::sortEvents( &events,
-                                       KCal::EventSortSummary,
-                                       KCal::SortDirectionAscending );
+  events = KCal::Calendar::sortEventsForDate( &events,
+                                              date,
+                                              spec,
+                                              KCal::EventSortSummary,
+                                              KCal::SortDirectionAscending );
   // sort the events for this date by start date
-  events = KCal::Calendar::sortEvents( &events,
-                                       KCal::EventSortStartDate,
-                                       KCal::SortDirectionAscending );
+  events = KCal::Calendar::sortEventsForDate( &events,
+                                              date,
+                                              spec,
+                                              KCal::EventSortStartDate,
+                                              KCal::SortDirectionAscending );
 
   List eventInfoList;
 
