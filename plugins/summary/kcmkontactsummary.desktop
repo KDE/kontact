@@ -12,6 +12,7 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 X-KDE-Weight=1
 
 Name=Summaries
+Name[ar]=الملخّصات
 Name[ca]=Resums
 Name[cs]=Souhrny
 Name[da]=Oversigter
@@ -49,6 +50,7 @@ Name[x-test]=xxSummariesxx
 Name[zh_CN]=摘要
 Name[zh_TW]=摘要
 Comment=Summary Selection
+Comment[ar]=اختيار الملخّصات
 Comment[ca]=Selecció de resum
 Comment[cs]=Výběr souhrnu
 Comment[da]=Valg af oversigt

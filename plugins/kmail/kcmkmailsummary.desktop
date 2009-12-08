@@ -12,6 +12,7 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 X-KDE-Weight=200
 
 Name=New Messages
+Name[ar]=رسائل جديدة
 Name[be]=Новыя паведамленні
 Name[bg]=MSN
 Name[ca]=Missatges nous
@@ -56,6 +57,7 @@ Name[zh_CN]=新邮件
 Name[zh_TW]=新訊息
 Comment=Mail Summary Setup
 Comment[af]=Pos opsomming opstelling
+Comment[ar]=تهيئة ملخص البريد
 Comment[bg]=Настройки на обобщението на писмата
 Comment[ca]=Configuració del resum de correu
 Comment[cs]=Nastavení souhrnu pošty

@@ -12,6 +12,7 @@ X-KDE-CfgDlgHierarchy=KontactSummary
 X-KDE-Weight=450
 
 Name=Pending To-dos
+Name[ar]=المهام التي في الإنتظار
 Name[ca]=Tasques pendents
 Name[cs]=Nevyřízené úkoly
 Name[da]=Forestående gøremål
@@ -52,6 +53,7 @@ Name[x-test]=xxPending To-dosxx
 Name[zh_CN]=未决的待办事项
 Name[zh_TW]=未決定的待辦事項
 Comment=Pending To-dos Summary Setup
+Comment[ar]=تهيئة ملخص المهام التي في الإنتظار
 Comment[bg]=Приставка за обобщен преглед на срещите и задачите
 Comment[ca]=Configuració del resum de tasques pendents
 Comment[cs]=Nastavení souhrnu nevyřízených úkolů

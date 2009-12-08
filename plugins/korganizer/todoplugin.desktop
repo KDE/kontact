@@ -17,6 +17,7 @@ X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Kontact KOrganizer To-do List Plugin
 Comment[af]=Kontact KOrganizer te-doen lys inprop module
+Comment[ar]=ملحق قائمة مهام المنظم Kontact 
 Comment[bg]=Приставка за списък със задачи и връзка с KOrganizer
 Comment[ca]=Connector de la llista de pendents del KOrganizer - Kontact
 Comment[cs]=Modul úkolů KOrganizeru pro aplikaci Kontact
@@ -65,6 +66,7 @@ Comment[zh_CN]=Kontact KOrganizer 待办清单插件
 Comment[zh_TW]=Kontact KOrganizer 待辦事項外掛程式
 Name=To-do List
 Name[af]=Te-doen lys
+Name[ar]=قائمة المهام
 Name[bg]=To-do List
 Name[br]=Roll an traoù d'ober
 Name[ca]=Pendents
