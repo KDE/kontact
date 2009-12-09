@@ -1,6 +1,6 @@
 add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 
-include_directories(${CMAKE_SOURCE_DIR}/korganizer ${CMAKE_SOURCE_DIR}/korganizer/interfaces)
+include_directories(${CMAKE_SOURCE_DIR}/korganizer ${CMAKE_SOURCE_DIR}/korganizer/interfaces ${Boost_INCLUDE_DIRS})
 
 ########### next target ###############
 
