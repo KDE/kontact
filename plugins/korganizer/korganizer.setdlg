@@ -1,6 +1,7 @@
 [KOrganizer]
 Name=Calendar
 Name[af]=Kalender
+Name[ar]=التقويم
 Name[bg]=Calendar
 Name[br]=Deiziadur
 Name[ca]=Calendari
@@ -62,6 +63,7 @@ Name[zh_CN]=日历
 Name[zh_TW]=行事曆
 Comment=Calendar Component
 Comment[af]=Kalender komponent
+Comment[ar]=مكوّن التقويم
 Comment[bg]=Модул за календара
 Comment[ca]=Component de calendari
 Comment[cs]=Komponenta kalendáře

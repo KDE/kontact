@@ -18,6 +18,7 @@ X-KDE-PluginInfo-AllowEmptySettings=true
 
 Comment=Kontact KAddressBook Plugin
 Comment[af]=Kontact adresboek inprop module
+Comment[ar]=ملحق دفتر عناوين Kontact
 Comment[be]=Утулка Kontact KAddressBook
 Comment[bg]=Приставка за адресника
 Comment[br]=Lugent Kontact KAddressBook
@@ -74,6 +75,7 @@ Comment[zh_CN]=Kontact KAddressbook 插件
 Comment[zh_TW]=Kontact KAddressBook 外掛程式
 Name=Contacts
 Name[af]=Kontakte
+Name[ar]=جهات الإتصال
 Name[be]=Кантакты
 Name[bg]=Contacts
 Name[br]=Darempredoù

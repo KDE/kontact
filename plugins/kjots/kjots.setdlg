@@ -1,5 +1,6 @@
 [Notebooks]
 Name=Notebooks
+Name[ar]=دفاتر الملاحظات
 Name[ca]=Notebooks
 Name[cs]=Poznámky
 Name[da]=Notesbøger
@@ -36,6 +37,7 @@ Name[x-test]=xxNotebooksxx
 Name[zh_CN]=笔记本
 Name[zh_TW]=筆記本
 Comment=Notebooks Component
+Comment[ar]=مكون دفاتر الملاحظات
 Comment[ca]=Component del Notebooks
 Comment[cs]=Komponenta poznámek
 Comment[da]=Notesbogkomponent

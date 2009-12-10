@@ -15,6 +15,7 @@ X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=Akregator Plugin
 Comment[af]=Akregator inprop module
+Comment[ar]=ملحق اكريغاتور 
 Comment[be]=Утулка Akregator
 Comment[bg]=Приставка за Akregator
 Comment[br]=Lugant Akregator
@@ -71,6 +72,7 @@ Comment[zh_CN]=Akregator 插件
 Comment[zh_TW]=Akregator 外掛程式
 Name=Feeds
 Name[af]=Strome
+Name[ar]=التلقيمات
 Name[be]=Стужкі
 Name[bg]=Новини
 Name[ca]=Enllaços
