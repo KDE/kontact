@@ -94,7 +94,18 @@ class KNotesIconViewItem : public QListWidgetItem
     }
     void setIconText( const QString &text )
     {
-      setText( text );
+      QString replaceText ;
+      if (text.count() > 5 ) 
+      {
+        replaceText = text.left(5) + "..." ;
+      }
+      else 
+      {
+        replaceText = text ;
+      }
+
+      setText( replaceText );
+
       mJournal->setSummary( text );
     }
 
