@@ -82,8 +82,7 @@ class SDEntry
 };
 
 SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
-  : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 ),
-    mIsUpdatingView( false ), mHolidays( 0 )
+  : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 ), mHolidays( 0 )
 {
   // Create the Summary Layout
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
@@ -201,13 +200,6 @@ int SDSummaryWidget::dayof( Event *event, const QDate &date )
 
 void SDSummaryWidget::updateView()
 {
-  // Protect against eventloop reentrancy from the ContactSearchJob below, which can result in
-  // Bad Things happening.
-  if ( mIsUpdatingView ) {
-    return;
-  }
-  mIsUpdatingView = true;
-
   KIconLoader loader( "kdepim" );
 
   QList<SDEntry> dates;
@@ -585,7 +577,6 @@ void SDSummaryWidget::updateView()
     (*lit)->show();
   }
   setUpdatesEnabled( true );
-  mIsUpdatingView = false;
 }
 
 void SDSummaryWidget::mailContact( const QString &url )

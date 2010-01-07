@@ -92,7 +92,6 @@ class SDSummaryWidget : public KontactInterface::Summary
     bool mShowHolidays;
     bool mShowSpecialsFromCal;
     bool mShowMineOnly;
-    bool mIsUpdatingView;
 
     HolidayRegion *mHolidays;
 };
