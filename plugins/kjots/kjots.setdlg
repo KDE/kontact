@@ -2,6 +2,7 @@
 Name=Notebooks
 Name[ar]=دفاتر الملاحظات
 Name[ca]=Notebooks
+Name[ca@valencia]=Notebooks
 Name[cs]=Poznámky
 Name[da]=Notesbøger
 Name[de]=Notizbücher
@@ -39,6 +40,7 @@ Name[zh_TW]=筆記本
 Comment=Notebooks Component
 Comment[ar]=مكون دفاتر الملاحظات
 Comment[ca]=Component del Notebooks
+Comment[ca@valencia]=Component del Notebooks
 Comment[cs]=Komponenta poznámek
 Comment[da]=Notesbogkomponent
 Comment[de]=Notizblock-Komponente

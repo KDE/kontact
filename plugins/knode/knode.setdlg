@@ -2,6 +2,7 @@
 Name=Usenet
 Name[ar]=اليوزنت
 Name[ca]=Usenet
+Name[ca@valencia]=Usenet
 Name[cs]=Usenet
 Name[da]=Usenet
 Name[de]=Usenet
@@ -44,6 +45,7 @@ Comment=Usenet Component
 Comment[ar]=مكون اليوزنت
 Comment[bg]=Модул за е-поща
 Comment[ca]=Component de notícies
+Comment[ca@valencia]=Component de notícies
 Comment[cs]=Komponenta novinek
 Comment[da]=Usenet-komponent
 Comment[de]=Usenet-Komponente

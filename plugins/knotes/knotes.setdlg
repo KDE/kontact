@@ -2,6 +2,7 @@
 Name=Popup Notes
 Name[ar]=الملاحظات المنبثقة
 Name[ca]=Notes emergents
+Name[ca@valencia]=Notes emergents
 Name[cs]=Vyskakovací poznámky
 Name[da]=Pop-op-noter
 Name[de]=Haftnotizen
@@ -40,6 +41,7 @@ Name[zh_TW]=彈出式便條
 Comment=Popup Notes Component
 Comment[ar]=مكون الملاحظات المنبثقة
 Comment[ca]=Component de notes emergents
+Comment[ca@valencia]=Component de notes emergents
 Comment[cs]=Komponenta vyskakovacích poznámek
 Comment[da]=Pop-op-notekomponent
 Comment[de]=Haftnotizen-Komponente
