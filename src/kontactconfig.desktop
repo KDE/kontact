@@ -72,6 +72,7 @@ Name[x-test]=xxKontactxx
 Name[zh_CN]=Kontact
 Name[zh_TW]=Kontact 個人資訊管理
 Comment=Default KDE Kontact Component
+Comment[ca]=Component per omissió del Kontact del KDE
 Comment[da]=Standardkomponent i KDE Kontact
 Comment[de]=Standard-Komponente von Kontact
 Comment[en_GB]=Default KDE Kontact Component
