@@ -10,7 +10,7 @@ qt4_add_dbus_interfaces(kontact_plannerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korg
 
 kde4_add_plugin(kontact_plannerplugin ${kontact_plannerplugin_PART_SRCS})
 
-target_link_libraries(kontact_plannerplugin  ${KDE4_KDECORE_LIBS} ${KDEPIMLIBS_KCAL_LIBS} ${KDEPIMLIBS_KHOLIDAYS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} korganizer_calendar ${KDE4_AKONADI_CONTACT_LIBS})
+target_link_libraries(kontact_plannerplugin  ${KDE4_KDECORE_LIBS} ${KDEPIMLIBS_KCAL_LIBS} ${KDEPIMLIBS_KHOLIDAYS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} kdepim korganizerprivate kaddressbookprivate ${KDE4_AKONADI_CONTACT_LIBS})
 
 ########### next target ###############
 

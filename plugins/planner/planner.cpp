@@ -31,7 +31,7 @@
 
 #include <akonadi/contact/contactsearchjob.h>
 
-#include <KCal/CalendarResources>
+#include <KCal/Calendar>
 #include <KCal/CalHelper>
 #include <KCal/IncidenceFormatter>
 
@@ -93,7 +93,9 @@ Planner::Planner( KontactInterface::Plugin *plugin, QWidget *parent )
   mLayout->addWidget( header );
 
   mCalendar = KOrg::StdCalendar::self();
+#if 0 //sebsauer
   mCalendar->load();
+#endif
 
   connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), SLOT(updateView()) );
