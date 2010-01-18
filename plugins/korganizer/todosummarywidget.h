@@ -79,8 +79,8 @@ class TodoSummaryWidget : public KontactInterface::Summary
     bool mHideNotStarted;
     bool mShowMineOnly;
 
-    QList<QLabel*> mLabels;
-    KCal::CalendarResources *mCalendar;
+    QList<QLabel *> mLabels;
+    CalendarResources *mCalendar;
 
     /**
       Test if the To-do starts today.

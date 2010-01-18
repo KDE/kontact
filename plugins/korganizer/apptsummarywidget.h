@@ -31,8 +31,8 @@
 class KOrganizerPlugin;
 
 namespace KCal {
-  class Event;
   class CalendarResources;
+  class Event;
 }
 using namespace KCal;
 
@@ -73,7 +73,7 @@ class ApptSummaryWidget : public KontactInterface::Summary
     QGridLayout *mLayout;
     QList<QLabel *> mLabels;
     KOrganizerPlugin *mPlugin;
-    KCal::CalendarResources *mCalendar;
+    CalendarResources *mCalendar;
     int mDaysAhead;
     bool mShowBirthdaysFromCal;
     bool mShowAnniversariesFromCal;

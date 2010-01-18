@@ -40,7 +40,7 @@ namespace KABC {
 using namespace KABC;
 
 namespace KCal {
-  class Calendar;
+  class CalendarResources;
 }
 using namespace KCal;
 
@@ -132,7 +132,7 @@ class Planner : public KontactInterface::Summary
     QGridLayout *mPlannerGrid;
     QList<QLabel *> mLabels;
 
-    KCal::Calendar *mCalendar;
+    CalendarResources *mCalendar;
     AddressBook *mAddressBook;
 
     Todo::List mTodos;

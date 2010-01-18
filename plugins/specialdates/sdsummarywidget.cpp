@@ -24,14 +24,14 @@
 */
 
 #include "sdsummarywidget.h"
-#include "../korganizer/stdcalendar.h"
+#include "korganizer/stdcalendar.h"
 
 #include <akonadi/contact/contactsearchjob.h>
 #include <akonadi/contact/contactviewerdialog.h>
 #include <akonadi/itemfetchjob.h>
 #include <akonadi/itemfetchscope.h>
 
-#include <KCal/Calendar>
+#include <KCal/CalendarResources>
 #include <KCal/CalHelper>
 
 #include <KHolidays/Holidays>
@@ -114,7 +114,6 @@ SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *par
 
   // Setup the Calendar
   mCalendar = KOrg::StdCalendar::self();
-  mCalendar->load();
 
   connect( mCalendar, SIGNAL(calendarChanged()),
            this, SLOT(updateView()) );
@@ -262,7 +261,6 @@ void SDSummaryWidget::updateView()
     }
   }
 
-#if 0 //sebsauer
   // Search for Birthdays, Anniversaries, Holidays, and Special Occasions
   // in the Calendar
   ResourceCalendar *bdayRes = usingBirthdayResource();
@@ -273,11 +271,6 @@ void SDSummaryWidget::updateView()
   if ( !mShowAnniversariesFromKAB ) {
     annvRes = 0;
   }
-#else
-  ResourceCalendar *bdayRes = 0;
-  ResourceCalendar *annvRes = 0;
-  kDebug() << "Disabled code";
-#endif
 
   QDate dt;
   for ( dt=QDate::currentDate();
@@ -576,6 +569,7 @@ void SDSummaryWidget::updateView()
   for ( lit = mLabels.constBegin(); lit != mLabels.constEnd(); ++lit ) {
     (*lit)->show();
   }
+
   setUpdatesEnabled( true );
 }
 
@@ -678,6 +672,7 @@ void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
 ResourceCalendar *SDSummaryWidget::usingBirthdayResource()
 {
   ResourceCalendar *resource = 0;
+
   CalendarResourceManager *manager = mCalendar->resourceManager();
   if ( !manager->isEmpty() ) {
     CalendarResourceManager::Iterator it;

@@ -26,7 +26,7 @@
 #include "prefs.h"
 using namespace Kontact;
 
-#include <libkdepimdbusinterfaces/reminderclient.h>
+#include <libkdepim/reminderclient.h>
 
 #include <Akonadi/Control>
 
