@@ -26,6 +26,7 @@ target_link_libraries(kontact_kmailplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KONTA
 set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp ${kontact_kmail_plugins_interface_SRCS})
 
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
+add_dependencies(kcm_kmailsummary kmail_xml)
 
 target_link_libraries(kcm_kmailsummary ${KDE4_KDEUI_LIBS})
 
