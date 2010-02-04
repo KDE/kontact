@@ -23,7 +23,6 @@
 */
 
 #include "kcmkmailsummary.h"
-#include "kmailinterface.h"
 
 #include <KAboutData>
 #include <KAcceleratorManager>
@@ -35,8 +34,6 @@
 #include <QCheckBox>
 #include <QTreeWidget>
 #include <QVBoxLayout>
-
-#define DBUS_KMAIL "org.kde.kmail"
 
 extern "C"
 {
@@ -99,6 +96,7 @@ void KCMKMailSummary::initGUI()
 
 void KCMKMailSummary::initFolders()
 {
+#if 0 // TODO: Port to Akonadi
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
   QDBusReply<QStringList> lst = kmail.folderList();
 
@@ -143,10 +141,14 @@ void KCMKMailSummary::initFolders()
       mFolderMap.insert( *it, item );
     }
   }
+#else
+  kWarning() << "Port to Akonadi";
+#endif
 }
 
 void KCMKMailSummary::loadFolders()
 {
+#if 0 // TODO: Port to Akonadi
   KConfig _config( "kcmkmailsummaryrc" );
   KConfigGroup config(&_config, "General" );
 
@@ -169,10 +171,14 @@ void KCMKMailSummary::loadFolders()
     }
   }
   mFullPath->setChecked( config.readEntry( "ShowFullPath", true ) );
+#else
+  kWarning() << "Port to Akonadi";
+#endif
 }
 
 void KCMKMailSummary::storeFolders()
 {
+#if 0 // TODO: Port to Akonadi
   KConfig _config( "kcmkmailsummaryrc" );
   KConfigGroup config(&_config, "General" );
 
@@ -191,6 +197,9 @@ void KCMKMailSummary::storeFolders()
   config.writeEntry( "ShowFullPath", mFullPath->isChecked() );
 
   config.sync();
+#else
+  kWarning() << "Port to Akonadi";
+#endif
 }
 
 void KCMKMailSummary::load()

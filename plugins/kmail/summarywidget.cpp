@@ -24,7 +24,6 @@
 */
 
 #include "summarywidget.h"
-#include "kmailinterface.h"
 
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
@@ -41,12 +40,9 @@
 
 #include <ctime>
 
-#define DBUS_KMAIL "org.kde.kmail"
-
 SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
   : KontactInterface::Summary( parent ), mPlugin( plugin )
 {
-  QDBusConnection::sessionBus().registerObject( "/MailSummary", this );
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
@@ -60,9 +56,6 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   mLayout->setRowStretch( 6, 1 );
 
   slotUnreadCountChanged();
-  QDBusConnection::sessionBus().connect(
-    QString(), "/KMail","org.kde.kmail.kmail", "unreadCountChanged",
-    this, SLOT(slotUnreadCountChanged()) );
 }
 
 void SummaryWidget::selectFolder( const QString &folder )
@@ -73,12 +66,17 @@ void SummaryWidget::selectFolder( const QString &folder )
     mPlugin->core()->selectPlugin( mPlugin );
   }
 
+#if 0 // TODO: Port to Akonadi
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
   kmail.selectFolder( folder );
+#else
+  kWarning() << "Port to Akonadi";
+#endif
 }
 
 void SummaryWidget::updateSummary( bool )
 {
+#if 0 // TODO: Port to Akonadi
   // check whether we need to update the message counts
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
   if ( kmail.isValid() ) {
@@ -89,10 +87,14 @@ void SummaryWidget::updateSummary( bool )
       }
     }
   }
+#else
+  kWarning() << "Port to Akonadi";
+#endif
 }
 
 void SummaryWidget::slotUnreadCountChanged()
 {
+#if 0 // TODO: Port to Akonadi
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
   QDBusReply<QStringList> reply = kmail.folderList();
   if ( reply.isValid() ) {
@@ -102,6 +104,9 @@ void SummaryWidget::slotUnreadCountChanged()
     kWarning() << "Calling kmail->KMailIface->folderList() via D-Bus failed.";
   }
   mTimeOfLastMessageCountUpdate = ::time( 0 );
+#else
+  kWarning() << "Port to Akonadi";
+#endif
 }
 
 void SummaryWidget::updateFolderList( const QStringList &folders )
@@ -123,13 +128,13 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
   QLabel *label = 0;
   int counter = 0;
   QStringList::ConstIterator it;
+#if 0 // TODO port to Akonadi
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
   if ( kmail.isValid() ) {
     for ( it = folders.begin(); it != folders.end(); ++it ) {
       if ( activeFolders.contains( *it ) ) {
         QDBusReply<QString> ref = kmail.getFolder( *it );
         if ( ref.isValid() && !ref.value().isEmpty() ) {
-#if 0 // TODO port to Akonadi
           OrgKdeKmailFolderInterface folderInterface(
             DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus() );
           if ( !folderInterface.isValid() ) {
@@ -210,13 +215,13 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
           //TODO: put the folder size in the tooltip
           //so we need to add a folderSize() to the interface
           counter++;
-#else
-        kDebug() << "AKONADI PORT: Disabled code in  " << Q_FUNC_INFO;
-#endif
         }
       }
     }
   }
+#else
+        kDebug() << "AKONADI PORT: Disabled code in  " << Q_FUNC_INFO;
+#endif
 
   if ( counter == 0 ) {
     label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );

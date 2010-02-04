@@ -5,12 +5,6 @@ include_directories(${CMAKE_SOURCE_DIR}/kmail ${CMAKE_BINARY_DIR}/kmail ${CMAKE_
 
 set(interface_SRCS)
 
-#set(folder_adaptor ${CMAKE_SOURCE_DIR}/kmail/folderadaptor.h)
-#set(folder_adaptor_xml ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kmail.folder.xml)
-
-#qt4_generate_dbus_interface(${folder_adaptor} org.kde.kmail.folder.xml)
-#qt4_add_dbus_interface(interface_SRCS ${folder_adaptor_xml} kmail_folder_interface)
-
 set(kontact_kmail_plugins_interface_SRCS ${interface_SRCS})
 qt4_add_dbus_interfaces(kontact_kmail_plugins_interface_SRCS ${CMAKE_BINARY_DIR}/kmail/org.kde.kmail.kmail.xml)
 
