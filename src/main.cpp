@@ -28,8 +28,6 @@ using namespace Kontact;
 
 #include <libkdepimdbusinterfaces/reminderclient.h>
 
-#include <Akonadi/Control>
-
 #include <KontactInterface/Plugin>
 #include <KontactInterface/UniqueAppHandler>
 #ifdef Q_WS_WIN
@@ -138,7 +136,6 @@ int KontactApp::newInstance()
         mMainWindow->setInitialActivePluginModule( moduleName );
       }
       mMainWindow->show();
-      Akonadi::Control::start( mMainWindow );
       KontactInterface::UniqueAppHandler::setMainWidget( mMainWindow );
       // --iconify is needed in kontact, although kstart can do that too,
       // because kstart returns immediately so it's too early to talk D-Bus to the app.
