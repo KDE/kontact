@@ -19,7 +19,7 @@ kde4_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc )
 
 kde4_add_library(kontactprivate SHARED ${kontactprivate_LIB_SRCS})
 
-target_link_libraries(kontactprivate  ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDE4_KUTILS_LIBS} ${KDE4_KHTML_LIBRARY} ${KDEPIMLIBS_KPIMUTILS_LIBS} kdepim ${KDE4_KDE3SUPPORT_LIBRARY} ${QT_QT3SUPPORT_LIBRARY} kdepimdbusinterfaces)
+target_link_libraries(kontactprivate  ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${QT_QTWEBKIT_LIBRARY} ${KDE4_KDEWEBKIT_LIBRARY} ${KDE4_KUTILS_LIBS} ${KDEPIMLIBS_KPIMUTILS_LIBS} kdepim ${KDE4_KDE3SUPPORT_LIBRARY} ${QT_QT3SUPPORT_LIBRARY} kdepimdbusinterfaces)
 
 set_target_properties(kontactprivate PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS kontactprivate ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
@@ -36,7 +36,8 @@ kde4_add_executable(kontact_bin ${kontact_bin_SRCS})
 set_target_properties(kontact_bin  PROPERTIES OUTPUT_NAME kontact)
 
 target_link_libraries(kontact_bin
-      	${KDE4_KHTML_LIBS} 
+  ${QT_QTWEBKIT_LIBRARY}
+  ${KDE4_KDEWEBKIT_LIBRARY}
 	${KDE4_KDE3SUPPORT_LIBS} 
 	kontactprivate 
 	kdepim 

@@ -36,7 +36,7 @@ namespace KontactInterface {
 }
 
 class KActionMenu;
-class KHTMLPart;
+class KWebView;
 class KPluginInfo;
 class KSqueezedTextLabel;
 
@@ -91,6 +91,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     void slotShowStatusMsg( const QString & );
     void activateInitialPluginModule();
     void slotOpenUrl( const KUrl &url );
+    void slotOpenUrl( const QUrl &url );
 
   private:
     void initWidgets();
@@ -136,7 +137,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     PluginList mDelayedPreload;
     ActionPluginList mActionPlugins;
     QList<KPluginInfo> mPluginInfos;
-    KHTMLPart *mIntroPart;
+    KWebView *mIntroPart;
 
     KSqueezedTextLabel *mStatusMsgLabel;
     KPIM::StatusbarProgressWidget *mLittleProgress;

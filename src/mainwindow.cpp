@@ -46,8 +46,7 @@ using namespace Kontact;
 #include <KDebug>
 #include <KEditToolBar>
 #include <KHelpMenu>
-#include <KHTMLPart>
-#include <KHTMLView>
+#include <KWebView>
 #include <KMessageBox>
 #include <KPluginInfo>
 #include <KRun>
@@ -70,6 +69,7 @@ using namespace Kontact;
 #include <QStackedWidget>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <QWebSettings>
 
 // This class extends the normal KDBusServiceStarter.
 //
@@ -358,14 +358,13 @@ void MainWindow::paintAboutScreen( const QString &msg )
     content = content.arg( "" );
   }
 
-  mIntroPart->begin( KUrl( location ) );
-  mIntroPart->write(
+  mIntroPart->setHtml(
     content.arg( QFont().pointSize() + 2 ).
     arg( i18nc( "@item:intext", "KDE Kontact" ) ).
     arg( i18nc( "@item:intext", "Get Organized!" ) ).
     arg( i18nc( "@item:intext", "The KDE Personal Information Management Suite" ) ).
-    arg( msg ) );
-  mIntroPart->end();
+    arg( msg ),
+    QUrl( location ) );
 }
 
 void MainWindow::initAboutScreen()
@@ -373,25 +372,15 @@ void MainWindow::initAboutScreen()
   KHBox *introbox = new KHBox( mPartsStack );
   mPartsStack->addWidget( introbox );
   mPartsStack->setCurrentWidget( introbox );
-  mIntroPart = new KHTMLPart( introbox );
-  mIntroPart->widget()->setFocusPolicy( Qt::WheelFocus );
+  mIntroPart = new KWebView( introbox );
+  mIntroPart->setFocusPolicy( Qt::WheelFocus );
   // Let's better be paranoid and disable plugins (it defaults to enabled):
-  mIntroPart->setPluginsEnabled( false );
-  mIntroPart->setJScriptEnabled( false ); // just make this explicit
-  mIntroPart->setJavaEnabled( false );    // just make this explicit
-  mIntroPart->setMetaRefreshEnabled( false );
-  mIntroPart->setURLCursor( QCursor( Qt::PointingHandCursor ) );
-  mIntroPart->view()->setLineWidth( 0 );
+  mIntroPart->settings()->setAttribute( QWebSettings::JavascriptEnabled, false );
+  mIntroPart->settings()->setAttribute( QWebSettings::JavaEnabled, false );
+  mIntroPart->settings()->setAttribute( QWebSettings::PluginsEnabled, false );
 
-  connect( mIntroPart->browserExtension(),
-           SIGNAL(openUrlRequest(const KUrl &,const KParts::OpenUrlArguments &,
-                                 const KParts::BrowserArguments &)),
-           SLOT(slotOpenUrl(const KUrl &)) );
-
-  connect( mIntroPart->browserExtension(),
-           SIGNAL(createNewWindow(const KUrl &,const KParts::OpenUrlArguments &,
-                                  const KParts::BrowserArguments &)),
-           SLOT(slotOpenUrl(const KUrl&)) );
+  connect( mIntroPart->page(), SIGNAL( linkClicked( const QUrl & ) ), this,
+           SLOT( slotUrlOpen( const QUrl & ) ), Qt::QueuedConnection);
 }
 
 void MainWindow::setupActions()
@@ -1087,6 +1076,11 @@ void MainWindow::slotNewToolbarConfig()
                                QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
   updateShortcuts(); // for the plugActionList call
+}
+
+void MainWindow::slotOpenUrl( const QUrl &url )
+{
+  slotOpenUrl( KUrl( url ) );
 }
 
 void MainWindow::slotOpenUrl( const KUrl &url )
