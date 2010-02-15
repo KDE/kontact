@@ -27,8 +27,3 @@ endif (BUILD_kjots)
 if (BUILD_akregator)
   add_subdirectory( akregator ) 
 endif (BUILD_akregator)
-
-if(KTIMETRACKER_SUPPORTED AND BUILD_ktimetracker)
-  add_subdirectory( ktimetracker ) 
-endif(KTIMETRACKER_SUPPORTED AND BUILD_ktimetracker)
-
