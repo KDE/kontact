@@ -89,13 +89,13 @@ KParts::ReadOnlyPart *KJotsPlugin::createPart()
     return 0;
   }
 
-  m_interface = new OrgKdeKJotsComponentInterface(
+  m_interface = new OrgKdeKJotsWidgetInterface(
     "org.kde.kjots", "/KJotsComponent", QDBusConnection::sessionBus() );
 
   return part;
 }
 
-OrgKdeKJotsComponentInterface *KJotsPlugin::interface()
+OrgKdeKJotsWidgetInterface *KJotsPlugin::interface()
 {
   if ( !m_interface ) {
     part();
@@ -113,7 +113,7 @@ void KJotsPlugin::newPage()
 void KJotsPlugin::newBook()
 {
   core()->selectPlugin( this );
-  interface()->createNewBook();
+  interface()->newBook();
 }
 
 void KJotsUniqueAppHandler::loadCommandLineOptions()
@@ -126,8 +126,8 @@ int KJotsUniqueAppHandler::newInstance()
 {
   // Ensure part is loaded
   (void)plugin()->part();
-  org::kde::KJotsComponent kjots(
-    "org.kde.kjots", "/KJotsComponent", QDBusConnection::sessionBus() );
+  org::kde::KJotsWidget kjots(
+    "org.kde.kjots", "/KJotsWidget", QDBusConnection::sessionBus() );
   return KontactInterface::UniqueAppHandler::newInstance();
 
 }

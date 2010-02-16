@@ -25,7 +25,7 @@
 #ifndef KJOTS_PLUGIN_H
 #define KJOTS_PLUGIN_H
 
-#include "kjotscomponentinterface.h"
+#include "kjotswidgetinterface.h"
 
 #include <KontactInterface/UniqueAppHandler>
 
@@ -53,7 +53,7 @@ class KJotsPlugin : public KontactInterface::Plugin
     virtual QStringList invisibleToolbarActions() const;
     virtual bool isRunningStandalone() const;
 
-    OrgKdeKJotsComponentInterface *interface();
+    OrgKdeKJotsWidgetInterface *interface();
 
   private slots:
     void newPage();
@@ -62,7 +62,7 @@ class KJotsPlugin : public KontactInterface::Plugin
   protected:
     KParts::ReadOnlyPart *createPart();
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
-    OrgKdeKJotsComponentInterface *m_interface;
+    OrgKdeKJotsWidgetInterface *m_interface;
 };
 
 #endif
