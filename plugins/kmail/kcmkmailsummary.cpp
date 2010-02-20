@@ -32,7 +32,7 @@
 #include <KLocale>
 
 #include <QCheckBox>
-#include <QTreeWidget>
+#include <QTreeView>
 #include <QVBoxLayout>
 
 extern "C"
@@ -79,8 +79,7 @@ void KCMKMailSummary::initGUI()
   layout->setSpacing( KDialog::spacingHint() );
   layout->setMargin( 0 );
 
-  mFolderView = new QTreeWidget( this );
-  mFolderView->setHeaderLabels( QStringList() << i18n( "Summary" ) );
+  mFolderView = new QTreeView( this );
 
   mFullPath = new QCheckBox( i18n( "Show full path for folders" ), this );
   mFullPath->setToolTip(
@@ -96,6 +95,12 @@ void KCMKMailSummary::initGUI()
 
 void KCMKMailSummary::initFolders()
 {
+  //mModel = new EntityTreeModel;
+  mChangeRecorder = new Akonadi::ChangeRecorder( this );
+  mChangeRecorder->setMimeTypeMonitored( "Message/rfc822" );
+  mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
+  mFolderView->setModel( mModel );
+  
 #if 0 // TODO: Port to Akonadi
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
   QDBusReply<QStringList> lst = kmail.folderList();
