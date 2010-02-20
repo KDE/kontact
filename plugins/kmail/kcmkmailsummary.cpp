@@ -115,55 +115,6 @@ void KCMKMailSummary::initFolders()
   mCheckProxy->setSourceModel( mModel );
 
   mFolderView->setModel( mCheckProxy );
-  
-#if 0 // TODO: Port to Akonadi
-  org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
-  QDBusReply<QStringList> lst = kmail.folderList();
-
-  QStringList folderList(lst);
-  mFolderView->clear();
-  mFolderMap.clear();
-
-  QStringList::Iterator it;
-  for ( it = folderList.begin(); it != folderList.end(); ++it ) {
-    QString displayName;
-    if ( (*it) == "/Local" ) {
-      displayName = i18nc( "prefix for local folders", "Local" );
-    } else {
-      org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
-      QDBusReply<QString> ref = kmail.getFolder( *it );
-      if ( ref.isValid() && !ref.value().isEmpty() ) {
-#if 0 // TODO port to Akonadi
-          OrgKdeKmailFolderInterface folderInterface(
-            DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus() );
-          displayName = folderInterface.displayName();
-#else
-          kDebug() << "AKONADI PORT: Disabled code in  " << Q_FUNC_INFO;
-#endif
-      } else {
-        kWarning() << "Got invalid reply for" << (*it);
-      }
-    }
-    if ( (*it).count( '/' ) == 1 ) {
-      if ( mFolderMap.find( *it ) == mFolderMap.end() ) {
-        QTreeWidgetItem *item = new QTreeWidgetItem( mFolderView,
-                                                     QStringList() << displayName );
-        item->setFlags( item->flags() & ~Qt::ItemIsUserCheckable );
-        mFolderMap.insert( *it, item );
-      }
-    } else {
-      const int pos = (*it).lastIndexOf( '/' );
-      const QString parentFolder = (*it).left( pos );
-      QTreeWidgetItem *item =
-          new QTreeWidgetItem( mFolderMap[ parentFolder ],
-                               QStringList() << displayName );
-      item->setFlags( item->flags() | Qt::ItemIsUserCheckable );
-      mFolderMap.insert( *it, item );
-    }
-  }
-#else
-  kWarning() << "Port to Akonadi";
-#endif
 }
 
 void KCMKMailSummary::loadFolders()
