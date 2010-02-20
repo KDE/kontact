@@ -22,7 +22,7 @@ kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 add_dependencies(kcm_kmailsummary kmail_xml)
 
 target_link_libraries(kcm_kmailsummary ${KDE4_KDEUI_LIBS}
-${KDEPIMLIBS_AKONADI_LIBS} 'akonadi_next' )
+${KDEPIMLIBS_AKONADI_LIBS} akonadi_next )
 
 ########### install files ###############
 
