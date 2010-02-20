@@ -95,10 +95,15 @@ void KCMKMailSummary::initGUI()
 
 void KCMKMailSummary::initFolders()
 {
-  //mModel = new EntityTreeModel;
+  // Create a new change recorder.
   mChangeRecorder = new Akonadi::ChangeRecorder( this );
   mChangeRecorder->setMimeTypeMonitored( "Message/rfc822" );
+
   mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
+  
+  // Set the model to show only collections, not items.
+  mModel->setItemPopulationStrategy( Akonadi::EntityTreeModel::NoItemPopulation );
+  
   mFolderView->setModel( mModel );
   
 #if 0 // TODO: Port to Akonadi
