@@ -23,6 +23,7 @@
 */
 
 #include "kcmkmailsummary.h"
+#include "akonadi_next/checkableitemproxymodel.h"
 
 #include <KAboutData>
 #include <KAcceleratorManager>
@@ -30,6 +31,9 @@
 #include <KDebug>
 #include <KDialog>
 #include <KLocale>
+
+#include <Akonadi/EntityTreeModel>
+#include <Akonadi/ChangeRecorder>
 
 #include <QCheckBox>
 #include <QTreeView>
@@ -103,8 +107,14 @@ void KCMKMailSummary::initFolders()
   
   // Set the model to show only collections, not items.
   mModel->setItemPopulationStrategy( Akonadi::EntityTreeModel::NoItemPopulation );
-  
-  mFolderView->setModel( mModel );
+
+  // Create the Check proxy model.
+  mSelectionModel = new QItemSelectionModel( mModel );
+  mCheckProxy = new CheckableItemProxyModel( this );
+  mCheckProxy->setSelectionModel( mSelectionModel );
+  mCheckProxy->setSourceModel( mModel );
+
+  mFolderView->setModel( mCheckProxy );
   
 #if 0 // TODO: Port to Akonadi
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );

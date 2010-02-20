@@ -1,8 +1,7 @@
-
-include_directories(${CMAKE_SOURCE_DIR}/kmail ${CMAKE_BINARY_DIR}/kmail ${CMAKE_SOURCE_DIR}/messageviewer ${Boost_INCLUDE_DIRS})
+include_directories(${CMAKE_SOURCE_DIR}/kmail ${CMAKE_BINARY_DIR}/kmail
+	${CMAKE_SOURCE_DIR}/messageviewer  ${CMAKE_SOURCE_DIR}/akonadi ${Boost_INCLUDE_DIRS})
 
 ########### next target ###############
-
 set(interface_SRCS)
 
 set(kontact_kmail_plugins_interface_SRCS ${interface_SRCS})
@@ -22,7 +21,8 @@ set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp ${kontact_kmail_plugins_inter
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 add_dependencies(kcm_kmailsummary kmail_xml)
 
-target_link_libraries(kcm_kmailsummary ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_AKONADI_LIBS})
+target_link_libraries(kcm_kmailsummary ${KDE4_KDEUI_LIBS}
+${KDEPIMLIBS_AKONADI_LIBS} 'akonadi_next' )
 
 ########### install files ###############
 

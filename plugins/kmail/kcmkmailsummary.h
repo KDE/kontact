@@ -27,12 +27,15 @@
 
 #include <KCModule>
 
-#include <Akonadi/EntityTreeModel>
-#include <Akonadi/ChangeRecorder>
-
 class QCheckBox;
 class QTreeWidgetItem;
 class QTreeView;
+class QItemSelectionModel;
+class CheckableItemProxyModel;
+namespace Akonadi{
+  class EntityTreeModel;
+  class ChangeRecorder;
+}
 
 class KCMKMailSummary : public KCModule
 {
@@ -56,8 +59,11 @@ class KCMKMailSummary : public KCModule
 
     QTreeView *mFolderView;
     QCheckBox *mFullPath;
+    QItemSelectionModel *mSelectionModel;
     Akonadi::EntityTreeModel *mModel;
     Akonadi::ChangeRecorder *mChangeRecorder;
+    CheckableItemProxyModel *mCheckProxy;
+
     QMap<QString, QTreeWidgetItem*> mFolderMap;
 };
 
