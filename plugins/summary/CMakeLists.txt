@@ -1,4 +1,6 @@
 
+include_directories( ${Boost_INCLUDE_DIRS} )
+
 ########### next target ###############
 
 set(kontact_summaryplugin_PART_SRCS summaryview_plugin.cpp summaryview_part.cpp dropwidget.cpp)
