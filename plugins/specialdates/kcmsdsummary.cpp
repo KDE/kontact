@@ -123,7 +123,7 @@ void KCMSDSummary::save()
   KConfigGroup group = config.group( "Days" );
 
   int days;
-if ( mDateTodayButton->isChecked() ) {
+  if ( mDateTodayButton->isChecked() ) {
     days = 1;
   } else if ( mDateMonthButton->isChecked() ) {
     days = 31;
