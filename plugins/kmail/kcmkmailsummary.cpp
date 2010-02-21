@@ -53,7 +53,7 @@ KCMKMailSummary::KCMKMailSummary( const KComponentData &inst, QWidget *parent )
 {
   initGUI();
 
-  connect( mFolderView, SIGNAL(itemClicked(QTreeWidgetItem *,int)),
+  connect( mFolderView, SIGNAL(clicked(const QModelIndex &)),
            SLOT(modified()) );
   connect( mFullPath, SIGNAL(toggled(bool)), SLOT(modified()) );
 
