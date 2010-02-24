@@ -50,6 +50,36 @@
 #include <QGridLayout>
 #include <QLabel>
 
+class BirthdaySearchJob : public Akonadi::ItemSearchJob
+{
+  public:
+    BirthdaySearchJob( QObject *parent, int daysInAdvance );
+};
+
+BirthdaySearchJob::BirthdaySearchJob( QObject *parent, int daysInAdvance )
+  : ItemSearchJob( QString(), parent )
+{
+  fetchScope().fetchFullPayload();
+  const QString query = QString::fromLatin1(
+      "prefix nco:<http://www.semanticdesktop.org/ontologies/2007/03/22/nco#> "
+      "prefix xsd:<http://www.w3.org/2001/XMLSchema#> "
+      ""
+      "SELECT ?r "
+      "WHERE { "
+      "  graph ?g { "
+      "    ?r a nco:PersonContact . "
+      "    ?r <%1> ?akonadiItemId . "
+      "    ?r nco:birthDate ?birthDate . "
+      "    FILTER( bif:dayofyear(?birthDate) >= bif:dayofyear(xsd:date(\"%2\")) ) "
+      "    FILTER( bif:dayofyear(?birthDate) <= bif:dayofyear(xsd:date(\"%2\")) + %3 ) "
+      "  } "
+      "}"
+      ).arg( QString::fromLatin1( Akonadi::ItemSearchJob::akonadiItemIdUri().toEncoded() ) )
+     .arg( QDate::currentDate().toString( Qt::ISODate ) )
+     .arg( daysInAdvance );
+  ItemSearchJob::setQuery( query );
+}
+
 enum SDIncidenceType {
   IncidenceTypeContact,
   IncidenceTypeEvent
@@ -214,26 +244,19 @@ void SDSummaryWidget::updateView()
   }
   mLabels.clear();
 
-  // Search for Birthdays and Anniversaries in the Addressbook
-  //TODO: change into a search folder with date range
-  Akonadi::ContactSearchJob *job = new Akonadi::ContactSearchJob( this );
-  job->exec();
-
-  const Akonadi::Item::List items = job->items();
-  foreach ( const Akonadi::Item &item, items ) {
-    if ( !item.hasPayload<KABC::Addressee>() ) // skip contact groups
-      continue;
-
-    const KABC::Addressee contact = item.payload<KABC::Addressee>();
-
-    const QDate birthday = contact.birthday().date();
-    if ( birthday.isValid() && mShowBirthdaysFromKAB ) {
+#if 0 // TODO: Port me!
+  // Search for Anniversaries
+  // <same code as in the birthday case here>
+  const QString anniversaryAsString = contact.custom( "KADDRESSBOOK", "X-Anniversary" );
+  if ( !anniversaryAsString.isEmpty() ) {
+    const QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
+    if ( anniversary.isValid() && mShowAnniversariesFromKAB ) {
       SDEntry entry;
       entry.type = IncidenceTypeContact;
-      entry.category = CategoryBirthday;
-      dateDiff( birthday, entry.daysTo, entry.yearsOld );
+      entry.category = CategoryAnniversary;
+      dateDiff( anniversary, entry.daysTo, entry.yearsOld );
 
-      entry.date = birthday;
+      entry.date = anniversary;
       entry.addressee = contact;
       entry.item = item;
       entry.span = 1;
@@ -241,21 +264,31 @@ void SDSummaryWidget::updateView()
         dates.append( entry );
       }
     }
+  }
 
-    const QString anniversaryAsString = contact.custom( "KADDRESSBOOK", "X-Anniversary" );
-    if ( !anniversaryAsString.isEmpty() ) {
-      const QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
-      if ( anniversary.isValid() && mShowAnniversariesFromKAB ) {
-        SDEntry entry;
-        entry.type = IncidenceTypeContact;
-        entry.category = CategoryAnniversary;
-        dateDiff( anniversary, entry.daysTo, entry.yearsOld );
+#else
+  kWarning() << "Disabled code for anniversary searching, needs new S.D.O release";
+#endif
 
-        entry.date = anniversary;
-        entry.addressee = contact;
-        entry.item = item;
-        entry.span = 1;
-        if ( entry.daysTo <= mDaysAhead ) {
+  // Search for Birthdays
+  if ( mShowBirthdaysFromKAB ) {
+    BirthdaySearchJob *job = new BirthdaySearchJob( this, mDaysAhead );
+    job->exec();
+
+    foreach ( const Akonadi::Item &item, job->items() ) {
+      if ( item.hasPayload<KABC::Addressee>() ) {
+        const KABC::Addressee addressee = item.payload<KABC::Addressee>();
+        const QDate birthday = addressee.birthday().date();
+        if ( birthday.isValid() ) {
+          SDEntry entry;
+          entry.type = IncidenceTypeContact;
+          entry.category = CategoryBirthday;
+          dateDiff( birthday, entry.daysTo, entry.yearsOld );
+
+          entry.date = birthday;
+          entry.addressee = addressee;
+          entry.item = item;
+          entry.span = 1;
           dates.append( entry );
         }
       }
