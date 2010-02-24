@@ -380,7 +380,7 @@ void MainWindow::initAboutScreen()
   mIntroPart->settings()->setAttribute( QWebSettings::PluginsEnabled, false );
 
   connect( mIntroPart->page(), SIGNAL( linkClicked( const QUrl & ) ), this,
-           SLOT( slotUrlOpen( const QUrl & ) ), Qt::QueuedConnection);
+           SLOT( slotOpenUrl( const QUrl & ) ), Qt::QueuedConnection);
 }
 
 void MainWindow::setupActions()
