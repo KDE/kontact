@@ -35,6 +35,7 @@ class CheckableItemProxyModel;
 namespace Akonadi{
   class EntityTreeModel;
   class ChangeRecorder;
+  class EntityModelStateSaver;
 }
 
 class KCMKMailSummary : public KCModule
@@ -63,6 +64,7 @@ class KCMKMailSummary : public KCModule
     Akonadi::EntityTreeModel *mModel;
     Akonadi::ChangeRecorder *mChangeRecorder;
     CheckableItemProxyModel *mCheckProxy;
+    Akonadi::EntityModelStateSaver *mCollectionSelectionModelStateSaver;
 
     QMap<QString, QTreeWidgetItem*> mFolderMap;
 };

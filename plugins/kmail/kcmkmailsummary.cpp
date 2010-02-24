@@ -34,6 +34,7 @@
 
 #include <Akonadi/EntityTreeModel>
 #include <Akonadi/ChangeRecorder>
+#include <akonadi/akonadi_next/entitymodelstatesaver.h>
 
 #include <QCheckBox>
 #include <QTreeView>
@@ -104,7 +105,7 @@ void KCMKMailSummary::initFolders()
   mChangeRecorder->setMimeTypeMonitored( "Message/rfc822" );
 
   mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
-  
+
   // Set the model to show only collections, not items.
   mModel->setItemPopulationStrategy( Akonadi::EntityTreeModel::NoItemPopulation );
 
@@ -115,62 +116,27 @@ void KCMKMailSummary::initFolders()
   mCheckProxy->setSourceModel( mModel );
 
   mFolderView->setModel( mCheckProxy );
+
+  mCollectionSelectionModelStateSaver = new Akonadi::EntityModelStateSaver( mCheckProxy, this );
+  mCollectionSelectionModelStateSaver->addRole( Qt::CheckStateRole, "CheckState" );
+
+
 }
 
 void KCMKMailSummary::loadFolders()
 {
-#if 0 // TODO: Port to Akonadi
   KConfig _config( "kcmkmailsummaryrc" );
   KConfigGroup config(&_config, "General" );
-
-  QStringList folders;
-  if ( !config.hasKey( "ActiveFolders" ) ) {
-    folders << "/Local/inbox";
-  } else {
-    folders = config.readEntry( "ActiveFolders", QStringList() );
-  }
-
-  QMap<QString, QTreeWidgetItem*>::Iterator it;
-  for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it ) {
-    if ( it.value()->flags() & Qt::ItemIsUserCheckable ) {
-      if ( folders.contains( it.key() ) ) {
-        it.value()->setCheckState( 0, Qt::Checked );
-        mFolderView->scrollToItem( it.value() );
-      } else {
-        it.value()->setCheckState( 0, Qt::Unchecked );
-      }
-    }
-  }
-  mFullPath->setChecked( config.readEntry( "ShowFullPath", true ) );
-#else
-  kWarning() << "Port to Akonadi";
-#endif
+  mCollectionSelectionModelStateSaver->restoreConfig( config );
 }
 
 void KCMKMailSummary::storeFolders()
 {
-#if 0 // TODO: Port to Akonadi
   KConfig _config( "kcmkmailsummaryrc" );
   KConfigGroup config(&_config, "General" );
-
-  QStringList folders;
-
-  QMap<QString, QTreeWidgetItem*>::Iterator it;
-  for ( it = mFolderMap.begin(); it != mFolderMap.end(); ++it ) {
-    if ( it.value()->flags() & Qt::ItemIsUserCheckable ) {
-      if ( it.value()->checkState( 0 ) == Qt::Checked ) {
-        folders.append( it.key() );
-      }
-    }
-  }
-
-  config.writeEntry( "ActiveFolders", folders );
-  config.writeEntry( "ShowFullPath", mFullPath->isChecked() );
-
+  mCollectionSelectionModelStateSaver->saveConfig( config );
   config.sync();
-#else
-  kWarning() << "Port to Akonadi";
-#endif
+
 }
 
 void KCMKMailSummary::load()
