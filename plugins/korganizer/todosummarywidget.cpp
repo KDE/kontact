@@ -212,11 +212,11 @@ void TodoSummaryWidget::completeTodo( const QString &uid )
 {
   KCal::Todo *todo = mCalendar->todo( uid );
   IncidenceChanger *changer = new IncidenceChanger( mCalendar, this );
-  if ( !todo->isReadOnly() && changer->beginChange( todo ) ) {
+  if ( !todo->isReadOnly() && changer->beginChange( todo, 0, QString() ) ) {
     KCal::Todo *oldTodo = todo->clone();
     todo->setCompleted( QDateTime::currentDateTime() );
     changer->changeIncidence( oldTodo, todo, KOGlobals::COMPLETION_MODIFIED, this );
-    changer->endChange( todo );
+    changer->endChange( todo, 0, QString() );
     delete oldTodo;
     updateView();
   }
