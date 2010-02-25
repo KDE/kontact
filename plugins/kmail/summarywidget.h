@@ -33,6 +33,7 @@ namespace KontactInterface {
 
 namespace Akonadi {
   class ChangeRecorder;
+  class Collection;
 }
 
 class QGridLayout;
@@ -57,6 +58,7 @@ class SummaryWidget : public KontactInterface::Summary
   private slots:
     void selectFolder( const QString & );
     void slotUnreadCountChanged();
+    void slotCollectionChanged( const Akonadi::Collection& );
 
   private:
     void updateFolderList( const QStringList &folders );

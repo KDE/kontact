@@ -60,9 +60,17 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   // Create a new change recorder.
   mChangeRecorder = new Akonadi::ChangeRecorder( this );
   mChangeRecorder->setMimeTypeMonitored( "Message/rfc822" );
+  mChangeRecorder->setAllMonitored( true );
 
+  connect( mChangeRecorder, SIGNAL( collectionChanged( const Akonadi::Collection & ) ), SLOT( slotCollectionChanged( const Akonadi::Collection& ) ) );
   slotUnreadCountChanged();
 }
+
+void SummaryWidget::slotCollectionChanged( const Akonadi::Collection& col )
+{
+  kDebug()<<" collection was changing "<<col;
+}
+
 
 void SummaryWidget::selectFolder( const QString &folder )
 {
