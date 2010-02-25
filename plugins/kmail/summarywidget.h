@@ -31,6 +31,10 @@ namespace KontactInterface {
   class Plugin;
 }
 
+namespace Akonadi {
+  class ChangeRecorder;
+}
+
 class QGridLayout;
 class QLabel;
 
@@ -60,6 +64,7 @@ class SummaryWidget : public KontactInterface::Summary
     QList<QLabel*> mLabels;
     QGridLayout *mLayout;
     KontactInterface::Plugin *mPlugin;
+    Akonadi::ChangeRecorder *mChangeRecorder;
     int mTimeOfLastMessageCountUpdate;
 };
 

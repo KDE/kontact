@@ -28,6 +28,8 @@
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
 
+#include <Akonadi/ChangeRecorder>
+
 #include <KConfigGroup>
 #include <KDebug>
 #include <KIconLoader>
@@ -54,6 +56,10 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   mainLayout->addItem( mLayout );
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
+
+  // Create a new change recorder.
+  mChangeRecorder = new Akonadi::ChangeRecorder( this );
+  mChangeRecorder->setMimeTypeMonitored( "Message/rfc822" );
 
   slotUnreadCountChanged();
 }
@@ -116,6 +122,9 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
 
   KConfig _config( "kcmkmailsummaryrc" );
   KConfigGroup config( &_config, "General" );
+  QLabel *label = 0;
+  int counter = 0;
+
 #if 0 // TODO port to Akonadi
   QStringList activeFolders;
   if ( !config.hasKey( "ActiveFolders" ) ) {
@@ -125,8 +134,6 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
   }
 
   QString defName = "view-pim-mail";
-  QLabel *label = 0;
-  int counter = 0;
   QStringList::ConstIterator it;
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
   if ( kmail.isValid() ) {
