@@ -116,7 +116,7 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
 
   KConfig _config( "kcmkmailsummaryrc" );
   KConfigGroup config( &_config, "General" );
-
+#if 0 // TODO port to Akonadi
   QStringList activeFolders;
   if ( !config.hasKey( "ActiveFolders" ) ) {
     activeFolders << "/Local/inbox";
@@ -128,7 +128,6 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
   QLabel *label = 0;
   int counter = 0;
   QStringList::ConstIterator it;
-#if 0 // TODO port to Akonadi
   org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
   if ( kmail.isValid() ) {
     for ( it = folders.begin(); it != folders.end(); ++it ) {
