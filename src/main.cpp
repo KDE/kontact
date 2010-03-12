@@ -47,7 +47,7 @@ using namespace std;
 static const char description[] =
     I18N_NOOP( "KDE personal information manager" );
 
-static const char version[] = "1.2.9 (enterprise35 0.20100305.1099257)";
+static const char version[] = "1.2.9 (enterprise35 0.20100312.1102367)";
 
 class KontactApp : public KUniqueApplication {
   public:
