@@ -19,6 +19,6 @@ target_link_libraries(kontact_knotesplugin ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} $
 install(TARGETS kontact_knotesplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES knotes_part.rc  DESTINATION ${DATA_INSTALL_DIR}/knotes)
 install(FILES knotesplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-install(FILES org.kde.kontact.KNotes.xml DESTINATION ${KDE4_DBUS_INTERFACES_DIR})
+install(FILES org.kde.kontact.KNotes.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
 
 install(FILES knotes.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
