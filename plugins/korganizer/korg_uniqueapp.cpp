@@ -20,19 +20,22 @@
 */
 
 #include "korg_uniqueapp.h"
-#include <kdebug.h>
 #include "../../korganizer/korganizer_options.h"
+
+#include <dcopref.h>
 
 void KOrganizerUniqueAppHandler::loadCommandLineOptions()
 {
-    KCmdLineArgs::addCmdLineOptions( korganizer_options );
+  KCmdLineArgs::addCmdLineOptions( korganizer_options );
 }
 
 int KOrganizerUniqueAppHandler::newInstance()
 {
-    //kdDebug(5602) << k_funcinfo << endl;
-    // Ensure part is loaded
-    (void)plugin()->part();
-    // TODO handle command line options
-    return Kontact::UniqueAppHandler::newInstance();
+  // Ensure part is loaded
+  (void)plugin()->part();
+  DCOPRef korganizer( "korganizer", "KOrganizerIface" );
+  korganizer.send( "handleCommandLine" );
+
+  // Bring korganizer's plugin to front
+  return Kontact::UniqueAppHandler::newInstance();
 }
