@@ -175,7 +175,8 @@ const KAboutData *KCMSDSummary::aboutData() const
     I18N_NOOP( "kcmsdsummary" ), 0,
     ki18n( "Upcoming Special Dates Configuration Dialog" ),
     0, KLocalizedString(), KAboutData::License_GPL,
-    ki18n( "(c) 2004-2006 Allen Winter" ) );
+    ki18n( "Copyright © 2004 Tobias Koenig\n"
+           "Copyright © 2004–2010 Allen Winter" ) );
 
   about->addAuthor( ki18n( "Allen Winter" ), KLocalizedString(), "winter@kde.org" );
   about->addAuthor( ki18n( "Tobias Koenig" ), KLocalizedString(), "tokoe@kde.org" );

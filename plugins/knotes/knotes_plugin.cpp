@@ -108,7 +108,7 @@ const KAboutData *KNotesPlugin::aboutData() const
                       "0.5",
                       ki18nc( "@title", "Popup Notes" ),
                       KAboutData::License_GPL_V2,
-                      ki18nc( "@info:credit", "(c) 2003-2004 The Kontact developers" ) );
+                      ki18nc( "@info:credit", "Copyright © 2003–2010 Kontact authors" ) );
 
     mAboutData->addAuthor( ki18nc( "@info:credit", "Michael Brade" ),
                            ki18nc( "@info:credit", "Current Maintainer" ),

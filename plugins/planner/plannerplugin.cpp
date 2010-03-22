@@ -57,7 +57,8 @@ const KAboutData *PlannerPlugin::aboutData() const
                                  "1.0",
                                  ki18n( "Kontact Planner Summary" ),
                                  KAboutData::License_LGPL,
-                                 ki18n( "(c) 2004-2005 The KDE PIM Team" ) );
+                                 ki18n( "Copyright © 2003 Tobias Koenig\n"
+                                        "Copyright © 2004–2010 Allen Winter" ) );
     mAboutData->addAuthor( ki18n( "Allen Winter" ),
                            ki18n( "Current Maintainer" ), "winter@kde.org" );
     mAboutData->addAuthor( ki18n( "Tobias Koenig" ),

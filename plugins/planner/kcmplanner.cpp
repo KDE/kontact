@@ -238,7 +238,9 @@ const KAboutData *KCMPlanner::aboutData() const
 {
   KAboutData *about = new KAboutData(
     I18N_NOOP( "kcmplanner" ), 0, ki18n( "Planner Summary Configuration Dialog" ),
-    0, KLocalizedString(), KAboutData::License_GPL, ki18n( "(c) 2007-2008 Oral Timocin" ) );
+    0, KLocalizedString(), KAboutData::License_GPL, ki18n( "Copyright © 2004 Tobias Koenig\n"
+                                                           "Copyright © 2006–2008 Oral Timocin\n"
+                                                           "Copyright © 2009–2010 Allen Winter") );
 
   about->addAuthor( ki18n( "Tobias Koenig" ), KLocalizedString(), "tokoe@kde.org" );
   about->addAuthor( ki18n( "Allen Winter" ), KLocalizedString(), "winter@kde.org" );

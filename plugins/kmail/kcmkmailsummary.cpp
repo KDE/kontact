@@ -66,7 +66,7 @@ KCMKMailSummary::KCMKMailSummary( const KComponentData &inst, QWidget *parent )
     new KAboutData( I18N_NOOP( "kcmkmailsummary" ), 0,
                     ki18n( "Mail Summary Configuration Dialog" ),
                     0, KLocalizedString(), KAboutData::License_GPL,
-                    ki18n( "(c) 2004 Tobias Koenig" ) );
+                    ki18n( "Copyright © 2004–2010 Tobias Koenig" ) );
 
   about->addAuthor( ki18n( "Tobias Koenig" ),
                     KLocalizedString(), "tokoe@kde.org" );

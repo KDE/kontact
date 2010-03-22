@@ -157,7 +157,8 @@ const KAboutData *KCMTodoSummary::aboutData() const
     I18N_NOOP( "kcmtodosummary" ), 0,
     ki18n( "Pending To-dos Configuration Dialog" ),
     0, KLocalizedString(), KAboutData::License_GPL,
-    ki18n( "(c) 2003 - 2004 Tobias Koenig" ) );
+    ki18n( "Copyright © 2003–2004 Tobias Koenig\n
+           "Copyright © 2005–2010 Allen Winter" ) );
 
   about->addAuthor( ki18n( "Tobias Koenig" ),
                     KLocalizedString(), "tokoe@kde.org" );
