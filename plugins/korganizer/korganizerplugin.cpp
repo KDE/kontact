@@ -27,7 +27,6 @@
 #include "calendarinterface.h"
 #include "korg_uniqueapp.h"
 
-#include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
 
@@ -247,7 +246,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       KTemporaryFile tf;
       tf.setAutoRemove( true );
       tf.open();
-      QString uri = KDEPIMPROTOCOL_EMAIL + QString::number( mail.serialNumber() );
+      QString uri = QLatin1String( "kmail:" ) + QString::number( mail.serialNumber() );
       tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openEventEditor(
         i18nc( "@item", "Mail: %1", mail.subject() ), txt,

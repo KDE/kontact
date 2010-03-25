@@ -27,7 +27,6 @@
 #include "korg_uniqueapp.h"
 #include "todosummarywidget.h"
 
-#include <libkdepim/kdepimprotocols.h>
 #include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
 
@@ -247,7 +246,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       KPIM::MailSummary mail = mails.first();
       QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
                            mail.from(), mail.to(), mail.subject() );
-      QString uri = KDEPIMPROTOCOL_EMAIL +
+      QString uri = QLatin1String( "kmail:" ) +
                     QString::number( mail.serialNumber() ) + '/' +
                     mail.messageId();
       KTemporaryFile tf;
