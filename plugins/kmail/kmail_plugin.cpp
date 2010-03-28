@@ -158,16 +158,6 @@ KMailPlugin::~KMailPlugin()
 {
 }
 
-bool KMailPlugin::createDBUSInterface( const QString &serviceType )
-{
-  if ( serviceType == "DBUS/ResourceBackend/IMAP" ) {
-    if ( part() ) {
-      return true;
-    }
-  }
-  return false;
-}
-
 QString KMailPlugin::tipFile() const
 {
   QString file = KStandardDirs::locate( "data", "kmail/tips" );

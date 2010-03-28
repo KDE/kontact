@@ -54,7 +54,6 @@ class KMailPlugin : public KontactInterface::Plugin
     ~KMailPlugin();
 
     virtual bool isRunningStandalone() const;
-    virtual bool createDBUSInterface( const QString &serviceType );
     virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
     virtual QString tipFile() const;
     int weight() const { return 200; }
