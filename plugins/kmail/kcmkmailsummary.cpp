@@ -23,7 +23,6 @@
 */
 
 #include "kcmkmailsummary.h"
-#include "akonadi_next/checkableitemproxymodel.h"
 
 #include <KAboutData>
 #include <KAcceleratorManager>
@@ -35,6 +34,7 @@
 #include <Akonadi/EntityTreeModel>
 #include <Akonadi/ChangeRecorder>
 #include <akonadi/akonadi_next/entitymodelstatesaver.h>
+#include <akonadi/akonadi_next/checkableitemproxymodel.h>
 
 #include <QCheckBox>
 #include <QTreeView>
@@ -119,8 +119,6 @@ void KCMKMailSummary::initFolders()
 
   mCollectionSelectionModelStateSaver = new Akonadi::EntityModelStateSaver( mCheckProxy, this );
   mCollectionSelectionModelStateSaver->addRole( Qt::CheckStateRole, "CheckState" );
-
-
 }
 
 void KCMKMailSummary::loadFolders()
@@ -136,7 +134,6 @@ void KCMKMailSummary::storeFolders()
   KConfigGroup config(&_config, "General" );
   mCollectionSelectionModelStateSaver->saveConfig( config );
   config.sync();
-
 }
 
 void KCMKMailSummary::load()
