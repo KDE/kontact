@@ -22,6 +22,9 @@
 #include "korg_uniqueapp.h"
 #include "korganizer/korganizer_options.h"
 
+#include <QDBusMessage>
+#include <QDBusConnection>
+
 void KOrganizerUniqueAppHandler::loadCommandLineOptions()
 {
   KCmdLineArgs::addCmdLineOptions( korganizer_options() );
@@ -31,6 +34,13 @@ int KOrganizerUniqueAppHandler::newInstance()
 {
   // Ensure part is loaded
   (void)plugin()->part();
-  // TODO handle command line options
+
+  QDBusMessage message = QDBusMessage::createMethodCall( "org.kde.korganizer",
+                                                         "/Korganizer",
+                                                         "org.kde.korganizer.Korganizer",
+                                                         "handleCommandLine" );
+  QDBusConnection::sessionBus().send( message );
+
+  // Bring korganizer's plugin to front
   return KontactInterface::UniqueAppHandler::newInstance();
 }
