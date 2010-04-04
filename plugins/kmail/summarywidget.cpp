@@ -29,6 +29,7 @@
 #include <KontactInterface/Plugin>
 
 #include <Akonadi/ChangeRecorder>
+#include <Akonadi/EntityTreeModel>
 
 #include <KConfigGroup>
 #include <KDebug>
@@ -62,15 +63,23 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   mChangeRecorder->setMimeTypeMonitored( "Message/rfc822" );
   mChangeRecorder->setAllMonitored( true );
 
+  mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
+  
+
   connect( mChangeRecorder, SIGNAL( collectionChanged( const Akonadi::Collection & ) ), SLOT( slotCollectionChanged( const Akonadi::Collection& ) ) );
+  connect( mModel, SIGNAL( rowsInserted ( const QModelIndex&, int , int )), SLOT( slotRowInserted( const QModelIndex& , int, int)));
   slotUnreadCountChanged();
 }
 
 void SummaryWidget::slotCollectionChanged( const Akonadi::Collection& col )
 {
-  kDebug()<<" collection was changing "<<col;
+  updateFolderList();
 }
 
+void SummaryWidget::slotRowInserted( const QModelIndex & parent, int start, int end )
+{
+  updateFolderList();
+}
 
 void SummaryWidget::selectFolder( const QString &folder )
 {
@@ -116,14 +125,14 @@ void SummaryWidget::slotUnreadCountChanged()
     updateFolderList( folderList );
   } else {
     kWarning() << "Calling kmail->KMailIface->folderList() via D-Bus failed.";
-  }
+  } 
   mTimeOfLastMessageCountUpdate = ::time( 0 );
 #else
   kWarning() << "Port to Akonadi";
 #endif
 }
 
-void SummaryWidget::updateFolderList( const QStringList &folders )
+void SummaryWidget::updateFolderList()
 {
   qDeleteAll( mLabels );
   mLabels.clear();
@@ -132,7 +141,19 @@ void SummaryWidget::updateFolderList( const QStringList &folders )
   KConfigGroup config( &_config, "General" );
   QLabel *label = 0;
   int counter = 0;
+  kDebug() << "Iterating over" << mModel->rowCount() << "collections.";
+  for( int i = 0; i < mModel->rowCount(); i ++ )
+  {
+    Akonadi::Collection col =
+      mModel->index( i, 0 ).data( Akonadi::EntityTreeModel::CollectionRole ).value<Akonadi::Collection>();
 
+      
+    label = new QLabel( this );
+    label->setText( col.name() );
+    label->setAlignment( Qt::AlignVCenter );
+    mLayout->addWidget( label );
+    mLabels.append( label );
+  }
 #if 0 // TODO port to Akonadi
   QStringList activeFolders;
   if ( !config.hasKey( "ActiveFolders" ) ) {

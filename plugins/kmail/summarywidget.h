@@ -34,10 +34,12 @@ namespace KontactInterface {
 namespace Akonadi {
   class ChangeRecorder;
   class Collection;
+  class EntityTreeModel;
 }
 
 class QGridLayout;
 class QLabel;
+class QModelIndex;
 
 class SummaryWidget : public KontactInterface::Summary
 {
@@ -59,14 +61,16 @@ class SummaryWidget : public KontactInterface::Summary
     void selectFolder( const QString & );
     void slotUnreadCountChanged();
     void slotCollectionChanged( const Akonadi::Collection& );
+    void slotRowInserted( const QModelIndex & parent, int start, int end );
 
   private:
-    void updateFolderList( const QStringList &folders );
+    void updateFolderList();
 
     QList<QLabel*> mLabels;
     QGridLayout *mLayout;
     KontactInterface::Plugin *mPlugin;
     Akonadi::ChangeRecorder *mChangeRecorder;
+    Akonadi::EntityTreeModel *mModel;
     int mTimeOfLastMessageCountUpdate;
 };
 
