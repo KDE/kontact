@@ -132,28 +132,37 @@ void SummaryWidget::slotUnreadCountChanged()
 #endif
 }
 
+void SummaryWidget::displayModel( const QModelIndex& parent )
+{
+  QLabel *label = 0;
+  for( int i = 0; i < mModel->rowCount(); i ++ )
+  {
+    const QModelIndex child = mModel->index( i, 0, parent );
+    Akonadi::Collection col =
+      mModel->data( child, Akonadi::EntityTreeModel::CollectionRole ).value<Akonadi::Collection>();
+    if( col.isValid() )
+    {
+      label = new QLabel( this );
+      label->setText( col.name() );
+      label->setAlignment( Qt::AlignVCenter );
+      mLayout->addWidget( label );
+      mLabels.append( label );
+      displayModel( child );
+    }
+  }
+}
+
 void SummaryWidget::updateFolderList()
 {
   qDeleteAll( mLabels );
   mLabels.clear();
-
+  QLabel *label = 0;
   KConfig _config( "kcmkmailsummaryrc" );
   KConfigGroup config( &_config, "General" );
-  QLabel *label = 0;
   int counter = 0;
   kDebug() << "Iterating over" << mModel->rowCount() << "collections.";
-  for( int i = 0; i < mModel->rowCount(); i ++ )
-  {
-    Akonadi::Collection col =
-      mModel->index( i, 0 ).data( Akonadi::EntityTreeModel::CollectionRole ).value<Akonadi::Collection>();
+  displayModel( QModelIndex() );
 
-      
-    label = new QLabel( this );
-    label->setText( col.name() );
-    label->setAlignment( Qt::AlignVCenter );
-    mLayout->addWidget( label );
-    mLabels.append( label );
-  }
 #if 0 // TODO port to Akonadi
   QStringList activeFolders;
   if ( !config.hasKey( "ActiveFolders" ) ) {
