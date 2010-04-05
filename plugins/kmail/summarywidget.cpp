@@ -64,7 +64,7 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   mChangeRecorder->setAllMonitored( true );
 
   mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
-  
+  mModel->setItemPopulationStrategy( Akonadi::EntityTreeModel::NoItemPopulation );
 
   connect( mChangeRecorder, SIGNAL( collectionChanged( const Akonadi::Collection & ) ), SLOT( slotCollectionChanged( const Akonadi::Collection& ) ) );
   connect( mModel, SIGNAL( rowsInserted ( const QModelIndex&, int , int )), SLOT( slotRowInserted( const QModelIndex& , int, int)));
