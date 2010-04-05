@@ -161,6 +161,16 @@ void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
       mLayout->addWidget( label, counter, 2 );
       mLabels.append( label );
 
+      // Folder icon.
+      QIcon icon =
+        mModel->data( child, Qt::DecorationRole ).value<QIcon>();
+      label = new QLabel( this );
+      label->setPixmap( icon.pixmap() );
+      label->setMaximumWidth( label->minimumSizeHint().width() );
+      label->setAlignment( Qt::AlignVCenter );
+      mLayout->addWidget( label, counter, 0 );
+      mLabels.append( label );
+      
       counter ++;
       displayModel( child, counter );
     }
