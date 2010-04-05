@@ -65,7 +65,7 @@ class SummaryWidget : public KontactInterface::Summary
 
   private:
     void updateFolderList();
-    void displayModel( const QModelIndex & );
+    void displayModel( const QModelIndex &, int& );
 
     QList<QLabel*> mLabels;
     QGridLayout *mLayout;

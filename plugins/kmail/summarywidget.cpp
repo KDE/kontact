@@ -30,6 +30,7 @@
 
 #include <Akonadi/ChangeRecorder>
 #include <Akonadi/EntityTreeModel>
+#include <Akonadi/CollectionStatistics>
 
 #include <KConfigGroup>
 #include <KDebug>
@@ -132,7 +133,7 @@ void SummaryWidget::slotUnreadCountChanged()
 #endif
 }
 
-void SummaryWidget::displayModel( const QModelIndex& parent )
+void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
 {
   QLabel *label = 0;
   for( int i = 0; i < mModel->rowCount(); i ++ )
@@ -142,12 +143,26 @@ void SummaryWidget::displayModel( const QModelIndex& parent )
       mModel->data( child, Akonadi::EntityTreeModel::CollectionRole ).value<Akonadi::Collection>();
     if( col.isValid() )
     {
+      // Collection Name.
       label = new QLabel( this );
       label->setText( col.name() );
       label->setAlignment( Qt::AlignVCenter );
-      mLayout->addWidget( label );
+      mLayout->addWidget( label, counter, 1 );
       mLabels.append( label );
-      displayModel( child );
+      
+
+      // Read and unread count.
+      const Akonadi::CollectionStatistics stats = col.statistics();
+      label = new QLabel( i18nc( "%1: number of unread messages "
+                                 "%2: total number of messages",
+                                 "%1 / %2", stats.unreadCount(), stats.count() ), this );
+
+      label->setAlignment( Qt::AlignLeft );
+      mLayout->addWidget( label, counter, 2 );
+      mLabels.append( label );
+
+      counter ++;
+      displayModel( child, counter );
     }
   }
 }
@@ -161,7 +176,7 @@ void SummaryWidget::updateFolderList()
   KConfigGroup config( &_config, "General" );
   int counter = 0;
   kDebug() << "Iterating over" << mModel->rowCount() << "collections.";
-  displayModel( QModelIndex() );
+  displayModel( QModelIndex(), counter );
 
 #if 0 // TODO port to Akonadi
   QStringList activeFolders;
