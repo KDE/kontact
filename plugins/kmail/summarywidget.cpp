@@ -62,6 +62,7 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   // Create a new change recorder.
   mChangeRecorder = new Akonadi::ChangeRecorder( this );
   mChangeRecorder->setMimeTypeMonitored( "Message/rfc822" );
+  mChangeRecorder->fetchCollectionStatistics( true );
   mChangeRecorder->setAllMonitored( true );
 
   mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
@@ -143,35 +144,38 @@ void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
       mModel->data( child, Akonadi::EntityTreeModel::CollectionRole ).value<Akonadi::Collection>();
     if( col.isValid() )
     {
-      // Collection Name.
-      label = new QLabel( this );
-      label->setText( col.name() );
-      label->setAlignment( Qt::AlignVCenter );
-      mLayout->addWidget( label, counter, 1 );
-      mLabels.append( label );
-      
-
-      // Read and unread count.
       const Akonadi::CollectionStatistics stats = col.statistics();
-      label = new QLabel( i18nc( "%1: number of unread messages "
-                                 "%2: total number of messages",
-                                 "%1 / %2", stats.unreadCount(), stats.count() ), this );
+      if( ( stats.unreadCount() ) != Q_INT64_C(0) )
+      {
+        // Collection Name.
+        label = new QLabel( this );
+        label->setText( col.name() );
+        label->setAlignment( Qt::AlignVCenter );
+        mLayout->addWidget( label, counter, 1 );
+        mLabels.append( label );
 
-      label->setAlignment( Qt::AlignLeft );
-      mLayout->addWidget( label, counter, 2 );
-      mLabels.append( label );
 
-      // Folder icon.
-      QIcon icon =
-        mModel->data( child, Qt::DecorationRole ).value<QIcon>();
-      label = new QLabel( this );
-      label->setPixmap( icon.pixmap() );
-      label->setMaximumWidth( label->minimumSizeHint().width() );
-      label->setAlignment( Qt::AlignVCenter );
-      mLayout->addWidget( label, counter, 0 );
-      mLabels.append( label );
-      
-      counter ++;
+        // Read and unread count.
+        label = new QLabel( i18nc( "%1: number of unread messages "
+                                  "%2: total number of messages",
+                                  "%1 / %2", stats.unreadCount(), stats.count() ), this );
+
+        label->setAlignment( Qt::AlignLeft );
+        mLayout->addWidget( label, counter, 2 );
+        mLabels.append( label );
+
+        // Folder icon.
+        QIcon icon =
+          mModel->data( child, Qt::DecorationRole ).value<QIcon>();
+        label = new QLabel( this );
+        label->setPixmap( icon.pixmap() );
+        label->setMaximumWidth( label->minimumSizeHint().width() );
+        label->setAlignment( Qt::AlignVCenter );
+        mLayout->addWidget( label, counter, 0 );
+        mLabels.append( label );
+
+        counter ++;
+      }
       displayModel( child, counter );
     }
   }
