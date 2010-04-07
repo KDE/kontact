@@ -35,11 +35,14 @@ namespace Akonadi {
   class ChangeRecorder;
   class Collection;
   class EntityTreeModel;
+  class EntityModelStateSaver;
 }
 
+class CheckableItemProxyModel;
 class QGridLayout;
 class QLabel;
 class QModelIndex;
+class QItemSelectionModel;
 
 class SummaryWidget : public KontactInterface::Summary
 {
@@ -72,6 +75,9 @@ class SummaryWidget : public KontactInterface::Summary
     KontactInterface::Plugin *mPlugin;
     Akonadi::ChangeRecorder *mChangeRecorder;
     Akonadi::EntityTreeModel *mModel;
+    Akonadi::EntityModelStateSaver *mModelState;
+    CheckableItemProxyModel *mModelProxy;
+    QItemSelectionModel *mSelectionModel;
     int mTimeOfLastMessageCountUpdate;
 };
 

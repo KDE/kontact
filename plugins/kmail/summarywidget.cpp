@@ -32,6 +32,8 @@
 #include <Akonadi/ChangeRecorder>
 #include <Akonadi/EntityTreeModel>
 #include <Akonadi/CollectionStatistics>
+#include <akonadi_next/entitymodelstatesaver.h>
+#include <akonadi_next/checkableitemproxymodel.h>
 
 #include <KConfigGroup>
 #include <KDebug>
@@ -42,6 +44,7 @@
 #include <QEvent>
 #include <QGridLayout>
 #include <QVBoxLayout>
+#include <QItemSelectionModel>
 
 #include <ctime>
 
@@ -69,6 +72,13 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
   mModel->setItemPopulationStrategy( Akonadi::EntityTreeModel::NoItemPopulation );
 
+  mSelectionModel = new QItemSelectionModel( mModel );
+  mModelProxy = new CheckableItemProxyModel( this );
+  mModelProxy->setSelectionModel( mSelectionModel );
+  mModelProxy->setSourceModel( mModel );
+  mModelState = new Akonadi::EntityModelStateSaver( mModelProxy, this );
+  mModelState->addRole( Qt::CheckStateRole, "CheckState" );
+  
   connect( mChangeRecorder, SIGNAL( collectionChanged( const Akonadi::Collection & ) ), SLOT( slotCollectionChanged( const Akonadi::Collection& ) ) );
   connect( mModel, SIGNAL( rowsInserted ( const QModelIndex&, int , int )), SLOT( slotRowInserted( const QModelIndex& , int, int)));
   slotUnreadCountChanged();
@@ -134,15 +144,18 @@ void SummaryWidget::slotUnreadCountChanged()
 void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
 {
   QLabel *label = 0;
-  for( int i = 0; i < mModel->rowCount( parent ); i ++ )
+  for( int i = 0; i < mModelProxy->rowCount( parent ); i ++ )
   {
-    const QModelIndex child = mModel->index( i, 0, parent );
+    const QModelIndex child = mModelProxy->index( i, 0, parent );
     Akonadi::Collection col =
-      mModel->data( child, Akonadi::EntityTreeModel::CollectionRole ).value<Akonadi::Collection>();
+      mModelProxy->data( child, Akonadi::EntityTreeModel::CollectionRole ).value<Akonadi::Collection>();
+    int showCollection =
+      mModelProxy->data( child, Qt::CheckStateRole ).value<int>();
+      
     if( col.isValid() )
     {
       const Akonadi::CollectionStatistics stats = col.statistics();
-      if( ( stats.unreadCount() ) != Q_INT64_C(0) )
+      if( ( ( stats.unreadCount() ) != Q_INT64_C(0) ) && showCollection )
       {
         // Collection Name.
         KUrlLabel *urlLabel = new KUrlLabel( QString::number( col.id() ), col.name(), this );
@@ -188,6 +201,7 @@ void SummaryWidget::updateFolderList()
   QLabel *label = 0;
   KConfig _config( "kcmkmailsummaryrc" );
   KConfigGroup config( &_config, "General" );
+  mModelState->restoreConfig( config );
   int counter = 0;
   kDebug() << "Iterating over" << mModel->rowCount() << "collections.";
   displayModel( QModelIndex(), counter );
