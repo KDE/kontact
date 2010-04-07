@@ -24,6 +24,7 @@
 */
 
 #include "summarywidget.h"
+#include "kmailinterface.h"
 
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
@@ -90,13 +91,9 @@ void SummaryWidget::selectFolder( const QString &folder )
   } else {
     mPlugin->core()->selectPlugin( mPlugin );
   }
-
-#if 0 // TODO: Port to Akonadi
-  org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
+ 
+  org::kde::kmail::kmail kmail( "org.kde.kmail", "/KMail", QDBusConnection::sessionBus() );
   kmail.selectFolder( folder );
-#else
-  kWarning() << "Port to Akonadi";
-#endif
 }
 
 void SummaryWidget::updateSummary( bool )
@@ -148,12 +145,15 @@ void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
       if( ( stats.unreadCount() ) != Q_INT64_C(0) )
       {
         // Collection Name.
-        label = new QLabel( this );
-        label->setText( col.name() );
-        label->setAlignment( Qt::AlignVCenter );
-        mLayout->addWidget( label, counter, 1 );
-        mLabels.append( label );
+        KUrlLabel *urlLabel = new KUrlLabel( QString::number( col.id() ), col.name(), this );
+        urlLabel->installEventFilter( this );
+        urlLabel->setAlignment( Qt::AlignLeft );
+        urlLabel->setWordWrap( true );
+        mLayout->addWidget( urlLabel, counter, 1 );
+        mLabels.append( urlLabel );
 
+        connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
+                SLOT(selectFolder(const QString&)) );
 
         // Read and unread count.
         label = new QLabel( i18nc( "%1: number of unread messages "
