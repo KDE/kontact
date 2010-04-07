@@ -137,7 +137,7 @@ void SummaryWidget::slotUnreadCountChanged()
 void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
 {
   QLabel *label = 0;
-  for( int i = 0; i < mModel->rowCount(); i ++ )
+  for( int i = 0; i < mModel->rowCount( parent ); i ++ )
   {
     const QModelIndex child = mModel->index( i, 0, parent );
     Akonadi::Collection col =
