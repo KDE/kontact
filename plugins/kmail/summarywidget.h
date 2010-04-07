@@ -62,7 +62,6 @@ class SummaryWidget : public KontactInterface::Summary
 
   private slots:
     void selectFolder( const QString & );
-    void slotUnreadCountChanged();
     void slotCollectionChanged( const Akonadi::Collection& );
     void slotRowInserted( const QModelIndex & parent, int start, int end );
 

@@ -81,16 +81,26 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   
   connect( mChangeRecorder, SIGNAL( collectionChanged( const Akonadi::Collection & ) ), SLOT( slotCollectionChanged( const Akonadi::Collection& ) ) );
   connect( mModel, SIGNAL( rowsInserted ( const QModelIndex&, int , int )), SLOT( slotRowInserted( const QModelIndex& , int, int)));
-  slotUnreadCountChanged();
+  updateFolderList();
 }
 
 void SummaryWidget::slotCollectionChanged( const Akonadi::Collection& col )
 {
+  Q_UNUSED( col );
   updateFolderList();
 }
 
 void SummaryWidget::slotRowInserted( const QModelIndex & parent, int start, int end )
 {
+  Q_UNUSED( parent );
+  Q_UNUSED( start );
+  Q_UNUSED( end );
+  updateFolderList();
+}
+
+void SummaryWidget::updateSummary( bool force )
+{
+  Q_UNUSED( force );
   updateFolderList();
 }
 
@@ -104,41 +114,6 @@ void SummaryWidget::selectFolder( const QString &folder )
  
   org::kde::kmail::kmail kmail( "org.kde.kmail", "/KMail", QDBusConnection::sessionBus() );
   kmail.selectFolder( folder );
-}
-
-void SummaryWidget::updateSummary( bool )
-{
-#if 0 // TODO: Port to Akonadi
-  // check whether we need to update the message counts
-  org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
-  if ( kmail.isValid() ) {
-    QDBusReply<int> timeOfLastMessageCountChange = kmail.timeOfLastMessageCountChange();
-    if ( timeOfLastMessageCountChange.isValid() ) {
-      if ( timeOfLastMessageCountChange > mTimeOfLastMessageCountUpdate ) {
-        slotUnreadCountChanged();
-      }
-    }
-  }
-#else
-  kWarning() << "Port to Akonadi";
-#endif
-}
-
-void SummaryWidget::slotUnreadCountChanged()
-{
-#if 0 // TODO: Port to Akonadi
-  org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
-  QDBusReply<QStringList> reply = kmail.folderList();
-  if ( reply.isValid() ) {
-    QStringList folderList = reply;
-    updateFolderList( folderList );
-  } else {
-    kWarning() << "Calling kmail->KMailIface->folderList() via D-Bus failed.";
-  } 
-  mTimeOfLastMessageCountUpdate = ::time( 0 );
-#else
-  kWarning() << "Port to Akonadi";
-#endif
 }
 
 void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
@@ -179,9 +154,9 @@ void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
 
         // Folder icon.
         QIcon icon =
-          mModel->data( child, Qt::DecorationRole ).value<QIcon>();
+          mModelProxy->data( child, Qt::DecorationRole ).value<QIcon>();
         label = new QLabel( this );
-        label->setPixmap( icon.pixmap() );
+        label->setPixmap( icon.pixmap( label->height() ) );
         label->setMaximumWidth( label->minimumSizeHint().width() );
         label->setAlignment( Qt::AlignVCenter );
         mLayout->addWidget( label, counter, 0 );
@@ -205,110 +180,6 @@ void SummaryWidget::updateFolderList()
   int counter = 0;
   kDebug() << "Iterating over" << mModel->rowCount() << "collections.";
   displayModel( QModelIndex(), counter );
-
-#if 0 // TODO port to Akonadi
-  QStringList activeFolders;
-  if ( !config.hasKey( "ActiveFolders" ) ) {
-    activeFolders << "/Local/inbox";
-  } else {
-    activeFolders = config.readEntry( "ActiveFolders", QStringList() );
-  }
-
-  QString defName = "view-pim-mail";
-  QStringList::ConstIterator it;
-  org::kde::kmail::kmail kmail( DBUS_KMAIL, "/KMail", QDBusConnection::sessionBus() );
-  if ( kmail.isValid() ) {
-    for ( it = folders.begin(); it != folders.end(); ++it ) {
-      if ( activeFolders.contains( *it ) ) {
-        QDBusReply<QString> ref = kmail.getFolder( *it );
-        if ( ref.isValid() && !ref.value().isEmpty() ) {
-          OrgKdeKmailFolderInterface folderInterface(
-            DBUS_KMAIL, "/Folder", QDBusConnection::sessionBus() );
-          if ( !folderInterface.isValid() ) {
-            continue;
-          }
-
-          QDBusReply<int> replyNumMsg = folderInterface.messages();
-          if ( !replyNumMsg.isValid() ) {
-            continue;
-          }
-
-          const int numMsg = replyNumMsg;
-          QDBusReply<int> replyUnreadNumMsg = folderInterface.unreadMessages();
-          if ( !replyUnreadNumMsg.isValid() ) {
-            continue;
-          }
-
-          const int numUnreadMsg = replyUnreadNumMsg;
-          if ( numUnreadMsg == 0 ) {
-            continue;
-          }
-
-          // folder icon
-          QDBusReply<QString> dbusName = folderInterface.unreadIconPath();
-          QString name;
-          if ( dbusName.isValid() ) {
-            name = dbusName;
-            if ( name.isEmpty() ) {
-              name = defName;
-            }
-          } else {
-            name = defName;
-          }
-          label = new QLabel( this );
-          label->setPixmap( KIconLoader::global()->loadIcon( name, KIconLoader::Small ) );
-          label->setMaximumWidth( label->minimumSizeHint().width() );
-          label->setAlignment( Qt::AlignVCenter );
-          mLayout->addWidget( label, counter, 0 );
-          mLabels.append( label );
-
-          // folder path
-          QString folderPath;
-          QDBusReply<QString> replyFolderPath;
-          if ( config.readEntry( "ShowFullPath", true ) ) {
-            replyFolderPath= folderInterface.displayPath();
-          } else {
-            replyFolderPath= folderInterface.displayName();
-          }
-          if ( replyFolderPath.isValid() ) {
-            folderPath = replyFolderPath;
-          }
-
-          KUrlLabel *urlLabel = new KUrlLabel( *it, folderPath, this );
-          urlLabel->installEventFilter( this );
-          urlLabel->setAlignment( Qt::AlignLeft );
-          urlLabel->setWordWrap( true );
-          mLayout->addWidget( urlLabel, counter, 1 );
-          mLabels.append( urlLabel );
-
-          connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
-                  SLOT(selectFolder(const QString&)) );
-
-          // unread of total
-          label = new QLabel( i18nc( "%1: number of unread messages "
-                                    "%2: total number of messages",
-                                    "%1 / %2", numUnreadMsg, numMsg ), this );
-          label->setAlignment( Qt::AlignLeft );
-          mLayout->addWidget( label, counter, 2 );
-          mLabels.append( label );
-
-          // tooltip
-          urlLabel->setToolTip( i18n( "<qt><b>%1</b>"
-                                      "<br/>Total: %2<br/>"
-                                      "Unread: %3</qt>",
-                                      folderPath,
-                                      numMsg,
-                                      numUnreadMsg ) );
-          //TODO: put the folder size in the tooltip
-          //so we need to add a folderSize() to the interface
-          counter++;
-        }
-      }
-    }
-  }
-#else
-        kDebug() << "AKONADI PORT: Disabled code in  " << Q_FUNC_INFO;
-#endif
 
   if ( counter == 0 ) {
     label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );
