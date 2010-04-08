@@ -37,11 +37,11 @@
 
 #include <KConfigGroup>
 #include <KDebug>
-#include <KIconLoader>
 #include <KLocale>
 #include <KUrlLabel>
 
 #include <QEvent>
+#include <QIcon>
 #include <QGridLayout>
 #include <QVBoxLayout>
 #include <QItemSelectionModel>
