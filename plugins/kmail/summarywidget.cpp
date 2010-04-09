@@ -156,7 +156,7 @@ void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
         QIcon icon =
           mModelProxy->data( child, Qt::DecorationRole ).value<QIcon>();
         label = new QLabel( this );
-        label->setPixmap( icon.pixmap( label->height() ) );
+        label->setPixmap( icon.pixmap( label->height()/1.5 ) );
         label->setMaximumWidth( label->minimumSizeHint().width() );
         label->setAlignment( Qt::AlignVCenter );
         mLayout->addWidget( label, counter, 0 );
