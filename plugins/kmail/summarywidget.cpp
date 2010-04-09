@@ -116,7 +116,10 @@ void SummaryWidget::selectFolder( const QString &folder )
   kmail.selectFolder( folder );
 }
 
-void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
+void SummaryWidget::displayModel( const QModelIndex& parent,
+                                  int &counter,
+                                  const bool showFolderPaths,
+                                  QStringList parentTreeNames )
 {
   QLabel *label = 0;
   for( int i = 0; i < mModelProxy->rowCount( parent ); i ++ )
@@ -128,12 +131,23 @@ void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
       mModelProxy->data( child, Qt::CheckStateRole ).value<int>();
       
     if( col.isValid() )
-    {
+    {    
       const Akonadi::CollectionStatistics stats = col.statistics();
       if( ( ( stats.unreadCount() ) != Q_INT64_C(0) ) && showCollection )
       {
         // Collection Name.
-        KUrlLabel *urlLabel = new KUrlLabel( QString::number( col.id() ), col.name(), this );
+        KUrlLabel *urlLabel;
+        
+        if( showFolderPaths )
+        {
+          // Construct the full path string.
+          parentTreeNames.insert( parentTreeNames.size(), col.name() );
+          urlLabel = new KUrlLabel( QString::number( col.id() ),
+                                    parentTreeNames.join( "/" ), this );
+        }
+        else
+           urlLabel = new KUrlLabel( QString::number( col.id() ), col.name(), this );
+        
         urlLabel->installEventFilter( this );
         urlLabel->setAlignment( Qt::AlignLeft );
         urlLabel->setWordWrap( true );
@@ -172,7 +186,10 @@ void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
 
         counter ++;
       }
-      displayModel( child, counter );
+      parentTreeNames.insert( parentTreeNames.size(), col.name() );
+      displayModel( child, counter, showFolderPaths, parentTreeNames );
+      // Remove the last parent collection name for the next iteration.
+      parentTreeNames.removeLast();
     }
   }
 }
@@ -187,7 +204,8 @@ void SummaryWidget::updateFolderList()
   mModelState->restoreConfig( config );
   int counter = 0;
   kDebug() << "Iterating over" << mModel->rowCount() << "collections.";
-  displayModel( QModelIndex(), counter );
+  bool showFolderPaths = config.readEntry( "showFolderPaths", false );
+  displayModel( QModelIndex(), counter, showFolderPaths, QStringList() );
 
   if ( counter == 0 ) {
     label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );
