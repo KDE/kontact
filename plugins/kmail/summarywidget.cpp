@@ -144,6 +144,7 @@ void SummaryWidget::displayModel( const QModelIndex& parent,
           parentTreeNames.insert( parentTreeNames.size(), col.name() );
           urlLabel = new KUrlLabel( QString::number( col.id() ),
                                     parentTreeNames.join( "/" ), this );
+          parentTreeNames.removeLast();
         }
         else
            urlLabel = new KUrlLabel( QString::number( col.id() ), col.name(), this );
