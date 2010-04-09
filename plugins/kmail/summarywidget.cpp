@@ -140,6 +140,14 @@ void SummaryWidget::displayModel( const QModelIndex& parent, int &counter )
         mLayout->addWidget( urlLabel, counter, 1 );
         mLabels.append( urlLabel );
 
+        // tooltip
+        urlLabel->setToolTip( i18n( "<qt><b>%1</b>"
+                                    "<br/>Total: %2<br/>"
+                                    "Unread: %3</qt>",
+                                    col.name(),
+                                    stats.count(),
+                                    stats.unreadCount() ) );
+
         connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
                 SLOT(selectFolder(const QString&)) );
 
