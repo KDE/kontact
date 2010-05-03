@@ -22,10 +22,10 @@
 #include "knotes_part.h"
 #include "summarywidget.h"
 
-#include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
 using namespace KPIM;
 
+#include <KABC/VCardDrag>
 #include <KCal/CalendarLocal>
 #include <KCal/ICalDrag>
 
@@ -126,7 +126,7 @@ bool KNotesPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
   return
     mimeData->hasText() ||
     MailList::canDecode( mimeData ) ||
-    KVCardDrag::canDecode( mimeData ) ||
+    KABC::VCardDrag::canDecode( mimeData ) ||
     ICalDrag::canDecode( mimeData );
 }
 
@@ -134,10 +134,10 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
 {
   const QMimeData *md = event->mimeData();
 
-  if ( KVCardDrag::canDecode( md ) ) {
+  if ( KABC::VCardDrag::canDecode( md ) ) {
     KABC::Addressee::List contacts;
 
-    KVCardDrag::fromMimeData( md, contacts );
+    KABC::VCardDrag::fromMimeData( md, contacts );
 
     KABC::Addressee::List::ConstIterator it;
 

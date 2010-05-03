@@ -27,9 +27,9 @@
 #include "calendarinterface.h"
 #include "korg_uniqueapp.h"
 
-#include <libkdepim/kvcarddrag.h>
 #include <libkdepim/maillistdrag.h>
 
+#include <KABC/VCardDrag>
 #include <KCal/CalendarLocal>
 #include <KCal/ICalDrag>
 
@@ -175,16 +175,16 @@ bool KOrganizerPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
   return mimeData->hasText() ||
     KPIM::MailList::canDecode( mimeData ) ||
-    KPIM::KVCardDrag::canDecode( mimeData );
+    KABC::VCardDrag::canDecode( mimeData );
 }
 
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
   const QMimeData *md = event->mimeData();
-  if ( KPIM::KVCardDrag::canDecode( md ) ) {
+  if ( KABC::VCardDrag::canDecode( md ) ) {
     KABC::Addressee::List contacts;
 
-    KPIM::KVCardDrag::fromMimeData( md, contacts );
+    KABC::VCardDrag::fromMimeData( md, contacts );
 
     KABC::Addressee::List::Iterator it;
 

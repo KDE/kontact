@@ -26,9 +26,7 @@
 #include "kmailinterface.h"
 #include "summarywidget.h"
 
-#include <libkdepim/kvcarddrag.h>
-using namespace KPIM;
-
+#include <KABC/VCardDrag>
 #include <KCal/CalendarLocal>
 #include <KCal/ICalDrag>
 #include <KCal/VCalDrag>
@@ -88,7 +86,7 @@ bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
   return
     ICalDrag::canDecode( mimeData ) ||
     VCalDrag::canDecode( mimeData ) ||
-    KVCardDrag::canDecode( mimeData );
+    KABC::VCardDrag::canDecode( mimeData );
 }
 
 void KMailPlugin::processDropEvent( QDropEvent *de )
@@ -105,7 +103,7 @@ void KMailPlugin::processDropEvent( QDropEvent *de )
     tmp.open();
     cal.save( tmp.fileName() );
     openComposer( KUrl( tmp.fileName() ) );
-  } else if ( KVCardDrag::fromMimeData( md, list ) ) {
+  } else if ( KABC::VCardDrag::fromMimeData( md, list ) ) {
     KABC::Addressee::List::Iterator it;
     QStringList to;
     for ( it = list.begin(); it != list.end(); ++it ) {
