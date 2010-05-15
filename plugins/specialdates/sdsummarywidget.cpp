@@ -268,7 +268,7 @@ void SDSummaryWidget::slotBirthdayJobFinished(KJob* job)
   }
 }
 
-void SDSummaryWidget::updateViewStageTwo()
+void SDSummaryWidget::createLabels()
 {
   KIconLoader loader( "kdepim" );
 
