@@ -48,6 +48,8 @@ namespace KontactInterface {
 class QDate;
 class QGridLayout;
 class QLabel;
+class SDEntry;
+class KJob;
 
 class SDSummaryWidget : public KontactInterface::Summary
 {
@@ -72,6 +74,7 @@ class SDSummaryWidget : public KontactInterface::Summary
     void popupMenu( const QString &url );
     void mailContact( const QString &url );
     void viewContact( const QString &url );
+    void slotBirthdayJobFinished( KJob* job );
 
   private:
     int span( Event *event );
@@ -92,6 +95,8 @@ class SDSummaryWidget : public KontactInterface::Summary
     bool mShowHolidays;
     bool mShowSpecialsFromCal;
     bool mShowMineOnly;
+    QList<SDEntry> mDates;
+    void createLabels();
 
     HolidayRegion *mHolidays;
 };

@@ -239,54 +239,13 @@ int SDSummaryWidget::dayof( Event *event, const QDate &date )
   return dayof;
 }
 
-void SDSummaryWidget::updateView()
+void SDSummaryWidget::slotBirthdayJobFinished(KJob* job)
 {
-  KIconLoader loader( "kdepim" );
-
-  QList<SDEntry> dates;
-  QLabel *label = 0;
-
-  // Remove all special date labels from the layout and delete them, as we
-  // will re-create all labels below.
-  setUpdatesEnabled( false );
-  foreach ( label, mLabels ) {
-    mLayout->removeWidget( label );
-    delete( label );
-  }
-  mLabels.clear();
-
-#if 0 // TODO: Port me!
-  // Search for Anniversaries
-  // <same code as in the birthday case here>
-  const QString anniversaryAsString = contact.custom( "KADDRESSBOOK", "X-Anniversary" );
-  if ( !anniversaryAsString.isEmpty() ) {
-    const QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
-    if ( anniversary.isValid() && mShowAnniversariesFromKAB ) {
-      SDEntry entry;
-      entry.type = IncidenceTypeContact;
-      entry.category = CategoryAnniversary;
-      dateDiff( anniversary, entry.daysTo, entry.yearsOld );
-
-      entry.date = anniversary;
-      entry.addressee = contact;
-      entry.item = item;
-      entry.span = 1;
-      if ( entry.daysTo <= mDaysAhead ) {
-        dates.append( entry );
-      }
-    }
-  }
-
-#else
-  kWarning() << "Disabled code for anniversary searching, needs new S.D.O release";
-#endif
-
-  // Search for Birthdays
-  if ( mShowBirthdaysFromKAB ) {
-    BirthdaySearchJob *job = new BirthdaySearchJob( this, mDaysAhead );
-    job->exec();
-
-    foreach ( const Akonadi::Item &item, job->items() ) {
+  // ;)
+  BirthdaySearchJob* bJob = dynamic_cast< BirthdaySearchJob* >( job );
+  if(bJob)
+  {
+    foreach ( const Akonadi::Item &item, bJob->items() ) {
       if ( item.hasPayload<KABC::Addressee>() ) {
         const KABC::Addressee addressee = item.payload<KABC::Addressee>();
         const QDate birthday = addressee.birthday().date();
@@ -300,11 +259,30 @@ void SDSummaryWidget::updateView()
           entry.addressee = addressee;
           entry.item = item;
           entry.span = 1;
-          dates.append( entry );
+          mDates.append( entry );
         }
       }
     }
+    // Carry on.
+    createLabels();;
   }
+}
+
+void SDSummaryWidget::updateViewStageTwo()
+{
+  KIconLoader loader( "kdepim" );
+
+
+  QLabel *label = 0;
+
+  // Remove all special date labels from the layout and delete them, as we
+  // will re-create all labels below.
+  setUpdatesEnabled( false );
+  foreach ( label, mLabels ) {
+    mLayout->removeWidget( label );
+    delete( label );
+  }
+  mLabels.clear();
 
 #if 0 //sebsauer
   // Search for Birthdays, Anniversaries, Holidays, and Special Occasions
@@ -356,7 +334,7 @@ void SDSummaryWidget::updateView()
             dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
             entry.span = 1;
             if ( !check( bdayRes, dt, ev->summary() ) ) {
-              dates.append( entry );
+              mDates.append( entry );
             }
             break;
           }
@@ -372,7 +350,7 @@ void SDSummaryWidget::updateView()
             dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
             entry.span = 1;
             if ( !check( annvRes, dt, ev->summary() ) ) {
-              dates.append( entry );
+              mDates.append( entry );
             }
             break;
           }
@@ -391,7 +369,7 @@ void SDSummaryWidget::updateView()
             if ( entry.span > 1 && dayof( ev, dt ) > 1 ) { // skip days 2,3,...
               break;
             }
-            dates.append( entry );
+            mDates.append( entry );
             break;
           }
 
@@ -409,7 +387,7 @@ void SDSummaryWidget::updateView()
             if ( entry.span > 1 && dayof( ev, dt ) > 1 ) { // skip days 2,3,...
               break;
             }
-            dates.append( entry );
+            mDates.append( entry );
             break;
           }
         }
@@ -435,20 +413,20 @@ void SDSummaryWidget::updateView()
           dateDiff( dt, entry.daysTo, entry.yearsOld );
           entry.yearsOld = -1; //ignore age of holidays
           entry.span = 1;
-          dates.append( entry );
+          mDates.append( entry );
         }
       }
     }
   }
 
   // Sort, then Print the Special Dates
-  qSort( dates );
+  qSort( mDates );
 
-  if ( !dates.isEmpty() ) {
+  if ( !mDates.isEmpty() ) {
     int counter = 0;
     QList<SDEntry>::Iterator addrIt;
     QString lines;
-    for ( addrIt = dates.begin(); addrIt != dates.end(); ++addrIt ) {
+    for ( addrIt = mDates.begin(); addrIt != mDates.end(); ++addrIt ) {
       bool makeBold = (*addrIt).daysTo == 0; // i.e., today
 
       // Pixmap
@@ -621,6 +599,48 @@ void SDSummaryWidget::updateView()
     (*lit)->show();
   }
   setUpdatesEnabled( true );
+}
+
+
+void SDSummaryWidget::updateView()
+{
+
+  mDates.clear();
+#if 0 // TODO: Port me!
+  // Search for Anniversaries
+  // <same code as in the birthday case here>
+  const QString anniversaryAsString = contact.custom( "KADDRESSBOOK", "X-Anniversary" );
+  if ( !anniversaryAsString.isEmpty() ) {
+    const QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
+    if ( anniversary.isValid() && mShowAnniversariesFromKAB ) {
+      SDEntry entry;
+      entry.type = IncidenceTypeContact;
+      entry.category = CategoryAnniversary;
+      dateDiff( anniversary, entry.daysTo, entry.yearsOld );
+
+      entry.date = anniversary;
+      entry.addressee = contact;
+      entry.item = item;
+      entry.span = 1;
+      if ( entry.daysTo <= mDaysAhead ) {
+        dates.append( entry );
+      }
+    }
+  }
+
+#else
+  kWarning() << "Disabled code for anniversary searching, needs new S.D.O release";
+#endif
+
+ 
+  // Search for Birthdays
+  if ( mShowBirthdaysFromKAB ) {
+    BirthdaySearchJob *job = new BirthdaySearchJob( this, mDaysAhead );
+
+    connect( job, SIGNAL( result( KJob * ) ), this, SLOT( slotBirthdayJobFinished( KJob* ) ) );
+    job->start();
+  }
+
 }
 
 void SDSummaryWidget::mailContact( const QString &url )
