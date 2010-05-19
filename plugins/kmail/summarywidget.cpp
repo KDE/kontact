@@ -121,8 +121,8 @@ void SummaryWidget::displayModel( const QModelIndex& parent,
                                   const bool showFolderPaths,
                                   QStringList parentTreeNames )
 {
-  QLabel *label = 0;
-  for( int i = 0; i < mModelProxy->rowCount( parent ); i ++ )
+  const int nbCol = mModelProxy->rowCount( parent );
+  for( int i = 0; i < nbCol; ++i )
   {
     const QModelIndex child = mModelProxy->index( i, 0, parent );
     Akonadi::Collection col =
@@ -167,7 +167,7 @@ void SummaryWidget::displayModel( const QModelIndex& parent,
                 SLOT(selectFolder(const QString&)) );
 
         // Read and unread count.
-        label = new QLabel( i18nc( "%1: number of unread messages "
+        QLabel *label = new QLabel( i18nc( "%1: number of unread messages "
                                   "%2: total number of messages",
                                   "%1 / %2", stats.unreadCount(), stats.count() ), this );
 
