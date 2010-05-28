@@ -27,6 +27,7 @@
 #include <QListWidgetItem>
 
 class KNoteEditDlg;
+class KNotesIconView;
 class KNotesIconViewItem;
 class KNotesResourceManager;
 class KNoteTip;
@@ -84,7 +85,7 @@ class KNotesPart : public KParts::ReadOnlyPart
     void hideToolTip();
 
   private:
-    QListWidget *mNotesView;
+    KNotesIconView *mNotesView;
     KNoteTip *mNoteTip;
     KNoteEditDlg *mNoteEditDlg;
 
