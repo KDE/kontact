@@ -161,22 +161,18 @@ bool TodoPlugin::isRunningStandalone()
 
 void TodoPlugin::processDropEvent( QDropEvent *event )
 {
-  QString text;
-
-  KABC::VCardConverter converter;
-  if ( KVCardDrag::canDecode( event ) && KVCardDrag::decode( event, text ) ) {
-    KABC::Addressee::List contacts = converter.parseVCards( text );
-    KABC::Addressee::List::Iterator it;
-
+  KABC::Addressee::List list;
+  if ( KVCardDrag::decode( event, list ) ) {
     QStringList attendees;
-    for ( it = contacts.begin(); it != contacts.end(); ++it ) {
+    KABC::Addressee::List::Iterator it;
+    for ( it = list.begin(); it != list.end(); ++it ) {
       QString email = (*it).fullEmail();
-      if ( email.isEmpty() )
+      if ( email.isEmpty() ) {
         attendees.append( (*it).realName() + "<>" );
-      else
+      } else {
         attendees.append( email );
+      }
     }
-
     interface()->openTodoEditor( i18n( "Meeting" ), QString::null, QString::null,
                                  attendees );
     return;
@@ -201,6 +197,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     }
   }
 
+  QString text;
   if ( QTextDrag::decode( event, text ) ) {
     interface()->openTodoEditor( text );
     return;

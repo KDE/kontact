@@ -164,22 +164,18 @@ bool KOrganizerPlugin::canDecodeDrag( QMimeSource *mimeSource )
 
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
-  QString text;
-
-  KABC::VCardConverter converter;
-  if ( KVCardDrag::canDecode( event ) && KVCardDrag::decode( event, text ) ) {
-    KABC::Addressee::List contacts = converter.parseVCards( text );
-    KABC::Addressee::List::Iterator it;
-
+  KABC::Addressee::List list;
+  if ( KVCardDrag::decode( event, list ) ) {
     QStringList attendees;
-    for ( it = contacts.begin(); it != contacts.end(); ++it ) {
+    KABC::Addressee::List::Iterator it;
+    for ( it = list.begin(); it != list.end(); ++it ) {
       QString email = (*it).fullEmail();
-      if ( email.isEmpty() )
+      if ( email.isEmpty() ) {
         attendees.append( (*it).realName() + "<>" );
-      else
+      } else {
         attendees.append( email );
+      }
     }
-
     interface()->openEventEditor( i18n( "Meeting" ), QString::null, QString::null,
                                   attendees );
     return;
@@ -204,6 +200,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       }
   }
 
+  QString text;
   if ( QTextDrag::decode( event, text ) ) {
     kdDebug(5602) << "DROP:" << text << endl;
     interface()->openEventEditor( text );
