@@ -439,8 +439,7 @@ void SDSummaryWidget::updateView()
 
       //Muck with the year -- change to the year 'daysTo' days away
       int year = currentDate.addDays( (*addrIt).daysTo ).year();
-      QDate sD = QDate::QDate( year,
-                           (*addrIt).date.month(), (*addrIt).date.day() );
+      QDate sD = QDate( year, (*addrIt).date.month(), (*addrIt).date.day() );
 
       if ( (*addrIt).daysTo == 0 ) {
         datestr = i18n( "Today" );

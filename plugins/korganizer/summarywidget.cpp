@@ -158,7 +158,7 @@ void SummaryWidget::updateView()
       QString datestr;
 
       // Modify event date for printing
-      QDate sD = QDate::QDate( dt.year(), dt.month(), dt.day() );
+      QDate sD = QDate( dt.year(), dt.month(), dt.day() );
       if ( ( sD.month() == currentDate.month() ) &&
            ( sD.day()   == currentDate.day() ) ) {
         datestr = i18n( "Today" );
@@ -218,10 +218,10 @@ void SummaryWidget::updateView()
         QTime sET = ev->dtEnd().time();
         if ( ev->isMultiDay() ) {
           if ( ev->dtStart().date() < dt ) {
-            sST = QTime::QTime( 0, 0 );
+            sST = QTime( 0, 0 );
           }
           if ( ev->dtEnd().date() > dt ) {
-            sET = QTime::QTime( 23, 59 );
+            sET = QTime( 23, 59 );
           }
         }
         datestr = i18n( "Time from - to", "%1 - %2" )
