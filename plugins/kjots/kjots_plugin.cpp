@@ -90,7 +90,7 @@ KParts::ReadOnlyPart *KJotsPlugin::createPart()
   }
 
   m_interface = new OrgKdeKJotsWidgetInterface(
-    "org.kde.kjots", "/KJotsComponent", QDBusConnection::sessionBus() );
+    "org.kde.kjots", "/KJotsWidget", QDBusConnection::sessionBus() );
 
   return part;
 }
