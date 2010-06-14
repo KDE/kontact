@@ -90,7 +90,6 @@ static void listPlugins()
 
 static void listProfiles()
 {
-    KInstance *instance = new KInstance( "kontact" ); // Can't use KontactApp since it's too late for adding cmdline options
     QValueList<Kontact::Profile> profiles = Kontact::ProfileManager::self()->profiles();
     for( QValueListIterator<Kontact::Profile> it = profiles.begin() ; it != profiles.end(); ++it ) {
         cout << (*it).name().latin1() << endl;
