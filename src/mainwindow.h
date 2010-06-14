@@ -56,11 +56,12 @@ namespace KPIM
 namespace Kontact
 {
 
-class Plugin;
-class SidePaneBase;
 class AboutDialog;
+class IconSidePane;
+class Plugin;
 
 typedef QValueList<Kontact::Plugin*> PluginList;
+typedef QPtrList<KAction> ActionPluginList;
 
 class MainWindow : public Kontact::Core, public KDCOPServiceStarter, public KontactIface
 {
@@ -83,6 +84,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter, public Kont
   public slots:
     virtual void selectPlugin( Kontact::Plugin *plugin );
     virtual void selectPlugin( const QString &pluginName );
+    void slotActionTriggered();
 
     void updateConfig();
 
@@ -115,6 +117,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter, public Kont
     Kontact::Plugin *pluginFromInfo( const KPluginInfo * );
     void loadPlugins();
     void unloadPlugins();
+    void updateShortcuts();
     bool removePlugin( const KPluginInfo * );
     void addPlugin( Kontact::Plugin *plugin );
     void partLoaded( Kontact::Plugin *plugin, KParts::ReadOnlyPart *part );
@@ -140,12 +143,13 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter, public Kont
 
     KToolBarPopupAction *mNewActions;
     KToolBarPopupAction *mSyncActions;
-    SidePaneBase *mSidePane;
+    IconSidePane *mSidePane;
     QWidgetStack *mPartsStack;
     Plugin *mCurrentPlugin;
     KParts::PartManager *mPartManager;
     PluginList mPlugins;
     PluginList mDelayedPreload;
+    ActionPluginList mActionPlugins;
     QValueList<KPluginInfo*> mPluginInfos;
     KHTMLPart *mIntroPart;
 
@@ -155,6 +159,7 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter, public Kont
     QString mActiveModule;
 
     QMap<QString, QGuardedPtr<QWidget> > mFocusWidgets;
+    QMap<Kontact::Plugin *, KAction *> mPluginAction;
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;

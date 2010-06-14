@@ -122,6 +122,27 @@ void MainWindow::initGUI()
   connect( helpMenu, SIGNAL( showAboutApplication() ),
            SLOT( showAboutDialog() ) );
 
+  KTrader::OfferList offers = KTrader::self()->query(
+      QString::fromLatin1( "Kontact/Plugin" ),
+      QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
+  mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(), "Plugins" );
+
+  KPluginInfo::List::Iterator it;
+  for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
+    (*it)->load();
+
+    KAction *action = new KAction( (*it)->name(), (*it)->icon(), KShortcut(),
+                                   this, SLOT(slotActionTriggered()),
+                                   actionCollection(), (*it)->pluginName().latin1() );
+    action->setName( (*it)->pluginName().latin1() );
+    action->setWhatsThis( i18n( "Switch to plugin %1" ).arg( (*it)->name() ) );
+
+    QVariant hasPartProp = (*it)->property( "X-KDE-KontactPluginHasPart" );
+    if ( !hasPartProp.isValid() || hasPartProp.toBool() ) {
+      mActionPlugins.append( action );
+    }
+  }
+
   KStdAction::keyBindings( this, SLOT( configureShortcuts() ), actionCollection() );
   KStdAction::configureToolbars( this, SLOT( configureToolbars() ), actionCollection() );
   setXMLFile( "kontactui.rc" );
@@ -129,6 +150,8 @@ void MainWindow::initGUI()
   setStandardToolBarMenuEnabled( true );
 
   createGUI( 0 );
+
+  factory()->plugActionList( this, QString( "navigator_actionlist" ), mActionPlugins );
 
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
@@ -142,16 +165,6 @@ void MainWindow::initGUI()
 
 void MainWindow::initObject()
 {
-  KTrader::OfferList offers = KTrader::self()->query(
-      QString::fromLatin1( "Kontact/Plugin" ),
-      QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
-  mPluginInfos = KPluginInfo::fromServices( offers, Prefs::self()->config(), "Plugins" );
-
-  KPluginInfo::List::Iterator it;
-  for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
-    ( *it )->load();
-  }
-
   // prepare the part manager
   mPartManager = new KParts::PartManager( this );
   connect( mPartManager, SIGNAL( activePartChanged( KParts::Part* ) ),
@@ -161,7 +174,6 @@ void MainWindow::initObject()
 
   if ( mSidePane ) {
     mSidePane->updatePlugins();
-    plugActionList( "navigator_actionlist", mSidePane->actions() );
   }
 
   KSettings::Dispatcher::self()->registerInstance( instance(), this,
@@ -239,8 +251,6 @@ void MainWindow::initWidgets()
   QValueList<int> sizes;
   sizes << 0;
   mSplitter->setSizes(sizes);
-
-  mSidePane->setActionCollection( actionCollection() );
 
   connect( mSidePane, SIGNAL( pluginSelected( Kontact::Plugin * ) ),
            SLOT( selectPlugin( Kontact::Plugin * ) ) );
@@ -540,12 +550,26 @@ void MainWindow::loadPlugins()
 
 void MainWindow::unloadPlugins()
 {
-  KPluginInfo::List::ConstIterator end = mPluginInfos.end();
+  KPluginInfo::List::ConstIterator end = mPluginInfos.constEnd();
   KPluginInfo::List::ConstIterator it;
-  for ( it = mPluginInfos.begin(); it != end; ++it ) {
+  for ( it = mPluginInfos.constBegin(); it != end; ++it ) {
     if ( !(*it)->isPluginEnabled() )
       removePlugin( *it );
   }
+}
+
+void MainWindow::updateShortcuts()
+{
+  QPtrListIterator<KAction> it( mActionPlugins );
+  int i = 0;
+  KAction *action;
+  while ( ( action = it.current() ) != 0 ) {
+    ++it;
+    QString shortcut = QString( "CTRL+%1" ).arg( mActionPlugins.count() - i );
+    action->setShortcut( KShortcut( shortcut ) );
+    i++;
+  }
+  factory()->plugActionList( this, QString( "navigator_actionlist" ), mActionPlugins );
 }
 
 bool MainWindow::removePlugin( const KPluginInfo *info )
@@ -575,8 +599,15 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
       if ( mCurrentPlugin == plugin )
         mCurrentPlugin = 0;
 
-      delete plugin; // removes the part automatically
+      plugin->deleteLater(); // removes the part automatically
       mPlugins.remove( it );
+
+      if ( plugin->showInSideBar() ) {
+        KAction *q = mPluginAction[plugin]; // remove KAction, to free the shortcut for later use
+        mActionPlugins.remove( q );
+        mPluginAction.remove( plugin );
+        delete q;
+      }
 
       if ( mCurrentPlugin == 0 ) {
         PluginList::Iterator it;
@@ -602,6 +633,20 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
 
   // merge the plugins GUI into the main window
   insertChildClient( plugin );
+
+  QPtrListIterator<KAction> it( mActionPlugins );
+  int i = 0;
+  KAction *action;
+  while ( ( action = it.current() ) != 0 ) {
+    ++it;
+    QString shortcut = QString( "CTRL+%1" ).arg( mActionPlugins.count() - i );
+    action->setShortcut( KShortcut( shortcut ) );
+    if ( action->name() == plugin->identifier() ) {
+      mPluginAction.insert( plugin, action );
+    }
+    i++;
+  }
+
 }
 
 void MainWindow::partLoaded( Kontact::Plugin*, KParts::ReadOnlyPart *part )
@@ -672,6 +717,15 @@ KToolBar* Kontact::MainWindow::findToolBar(const char* name)
   return static_cast<KToolBar *>(child(name, "KToolBar"));
 }
 
+void MainWindow::slotActionTriggered()
+{
+  const KAction *actionSender = static_cast<const KAction*>( sender() );
+  QString identifier = actionSender->name();
+  if ( !identifier.isEmpty() ) {
+    selectPlugin( identifier );
+  }
+}
+
 void MainWindow::selectPlugin( Kontact::Plugin *plugin )
 {
   if ( !plugin )
@@ -711,8 +765,9 @@ void MainWindow::selectPlugin( Kontact::Plugin *plugin )
     }
   }
 
-  if ( mSidePane )
-    mSidePane->selectPlugin( plugin );
+  if ( mSidePane ) {
+    mSidePane->selectPlugin( plugin->identifier() );
+  }
 
   plugin->select();
 
@@ -911,7 +966,7 @@ void MainWindow::pluginsChanged()
   unloadPlugins();
   loadPlugins();
   mSidePane->updatePlugins();
-  plugActionList( "navigator_actionlist", mSidePane->actions() );
+  updateShortcuts();
 }
 
 void MainWindow::updateConfig()
@@ -957,9 +1012,13 @@ void MainWindow::configureToolbars()
 
 void MainWindow::slotNewToolbarConfig()
 {
-  if ( mCurrentPlugin && mCurrentPlugin->part() )
+  if ( mCurrentPlugin && mCurrentPlugin->part() ) {
     createGUI( mCurrentPlugin->part() );
-  applyMainWindowSettings( KGlobal::config(), "MainWindow" );
+  }
+  if ( mCurrentPlugin ) {
+    applyMainWindowSettings( KGlobal::config(), "MainWindow" );
+  }
+  updateShortcuts(); // for the plugActionList call
 }
 
 void MainWindow::slotOpenUrl( const KURL &url )

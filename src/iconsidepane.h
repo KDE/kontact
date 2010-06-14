@@ -37,6 +37,7 @@ namespace Kontact
 {
 
 class Core;
+class IconSidePane;
 class Plugin;
 class Navigator;
 
@@ -118,7 +119,7 @@ class Navigator : public KListBox
 {
     Q_OBJECT
   public:
-    Navigator( SidePaneBase *parent = 0, const char *name = 0 );
+    Navigator( IconSidePane *parent = 0, const char *name = 0 );
 
     virtual void setSelected( QListBoxItem *, bool );
 
@@ -156,7 +157,7 @@ class Navigator : public KListBox
     void slotStopHighlight();
 
   private:
-    SidePaneBase *mSidePane;
+    IconSidePane *mSidePane;
     IconViewMode mViewMode;
 
     QListBoxItem* mMouseOn;

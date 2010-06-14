@@ -39,14 +39,4 @@ Core* SidePaneBase::core() const
   return mCore;
 }
 
-void SidePaneBase::setActionCollection( KActionCollection *actionCollection )
-{
-  mActionCollection = actionCollection;
-}
-
-KActionCollection *SidePaneBase::actionCollection() const
-{
-  return mActionCollection;
-}
-
 #include "sidepanebase.moc"

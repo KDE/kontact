@@ -38,11 +38,6 @@ class SidePaneBase : public QVBox
     SidePaneBase( Core *core, QWidget *parent, const char *name = 0 );
     virtual ~SidePaneBase();
 
-    void setActionCollection( KActionCollection *actionCollection );
-    KActionCollection *actionCollection() const;
-
-    virtual const QPtrList<KAction> & actions() = 0;
-
   signals:
     void pluginSelected( Kontact::Plugin* );
 
@@ -53,17 +48,6 @@ class SidePaneBase : public QVBox
      */
     virtual void updatePlugins() = 0;
 
-    /**
-      Select the current plugin without emmiting a signal.
-      This is used to sync with the core.
-     */
-    virtual void selectPlugin( Kontact::Plugin* ) = 0;
-
-    /**
-      This is an overloaded member function. It behaves essentially like the
-      above function.
-     */
-    virtual void selectPlugin( const QString &name ) = 0;
 
     virtual void indicateForegrunding( Kontact::Plugin* ) = 0;
   protected:
