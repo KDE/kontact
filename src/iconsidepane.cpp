@@ -113,8 +113,8 @@ void EntryItem::reloadPixmap()
   if ( size != 0 )
     mPixmap = KGlobal::iconLoader()->loadIcon( mPlugin->icon(),
                                                KIcon::Desktop, size,
-                                               mPlugin->disabled() ? 
-                                                 KIcon::DisabledState 
+                                               mPlugin->disabled() ?
+                                                 KIcon::DisabledState
                                                : KIcon::DefaultState);
   else
     mPixmap = QPixmap();
@@ -344,10 +344,12 @@ void Navigator::updatePlugins( QValueList<Kontact::Plugin*> plugins_ )
     if ( item->width( this ) > minWidth )
       minWidth = item->width( this );
 
-    QString name = QString( "CTRL+%1" ).arg( counter + 1 );
-    KAction *action = new KAction( plugin->title(), plugin->icon(), KShortcut( name ),
+    QString shortcut = QString( "CTRL+%1" ).arg( counter + 1 );
+    KAction *action = new KAction( plugin->title(), plugin->icon(), KShortcut( shortcut ),
                                    mMapper, SLOT( map() ),
-                                   mSidePane->actionCollection(), name.latin1() );
+                                   mSidePane->actionCollection(), plugin->identifier().latin1() );
+    action->setName( plugin->identifier().latin1() );
+    action->setWhatsThis( i18n( "Switch to plugin %1" ).arg( plugin->title() ) );
     mActions.append( action );
     mMapper->setMapping( action, counter );
     counter++;
