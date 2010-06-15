@@ -82,6 +82,11 @@ KOrganizerPlugin::~KOrganizerPlugin()
 
 Kontact::Summary *KOrganizerPlugin::createSummaryWidget( QWidget *parent )
 {
+  // korg part must be loaded, otherwise when starting kontact on summary view
+  // it won't display our stuff.
+  // If the part is already loaded loadPart() is harmless and just returns
+  loadPart();
+
   return new SummaryWidget( this, parent );
 }
 
