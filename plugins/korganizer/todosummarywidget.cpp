@@ -78,7 +78,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   createCalendar();
 
   mChanger = new IncidenceChanger( mCalendar, parent );
-  mChanger->setGroupware( Groupware::instance() );
+  mChanger->setGroupware( Groupware::create( mCalendar, 0 ) );
 
   connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), SLOT(updateView()) );
