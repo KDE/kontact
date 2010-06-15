@@ -421,7 +421,7 @@ const QString TodoSummaryWidget::stateStr( KCal::Todo::Ptr todo )
 
 void TodoSummaryWidget::createCalendar()
 {
-  Session *session = new Session( "KOrganizerETM", this );
+  Session *session = new Session( "TodoSummaryWidget", this );
   ChangeRecorder *monitor = new ChangeRecorder( this );
 
   ItemFetchScope scope;
