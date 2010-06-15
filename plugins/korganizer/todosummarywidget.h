@@ -64,7 +64,7 @@ class TodoSummaryWidget : public KontactInterface::Summary
 
   private slots:
     void updateView();
-    void popupMenu( const Akonadi::Item::Id &id );
+    void popupMenu( const QString &uid );
     void viewTodo( const QString &uid );
     void removeTodo( const QString &uid );
     void completeTodo( const Akonadi::Item::Id &id );

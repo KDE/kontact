@@ -260,7 +260,7 @@ void TodoSummaryWidget::updateView()
 
       KUrlLabel *urlLabel = new KUrlLabel( this );
       urlLabel->setText( str );
-      urlLabel->setUrl( QString::number( todoItem.id() ) );
+      urlLabel->setUrl( todo->uid() );
       urlLabel->installEventFilter( this );
       urlLabel->setTextFormat( Qt::RichText );
       urlLabel->setWordWrap( true );
@@ -335,17 +335,16 @@ void TodoSummaryWidget::completeTodo( const Item::Id &id )
   }
 }
 
-void TodoSummaryWidget::popupMenu( const Item::Id &id )
+void TodoSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
   QAction *editIt = popup.addAction( i18n( "&Edit To-do..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
   delIt->setIcon( KIconLoader::global()->loadIcon( "edit-delete", KIconLoader::Small ) );
   QAction *doneIt = 0;
+  Item::Id id= mCalendar->itemIdForIncidenceUid( uid );
   Item todoItem = mCalendar->todo( id );
   KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
-
-  QString uid = todo->uid();
   
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
