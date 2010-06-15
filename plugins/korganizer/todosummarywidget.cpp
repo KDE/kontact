@@ -345,7 +345,6 @@ void TodoSummaryWidget::popupMenu( const Item::Id &id )
   Item todoItem = mCalendar->todo( id );
   KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
 
-  // TODO:
   QString uid = todo->uid();
   
   if ( !todo->isCompleted() ) {
