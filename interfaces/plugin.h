@@ -125,7 +125,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     virtual bool createDCOPInterface( const QString& /*serviceType*/ ) { return false; }
 
     /**
-      Reimplement this method and return wether a standalone application is still running
+      Reimplement this method and return whether a standalone application is still running
       This is only required if your part is also available as standalone application.
     */
     virtual bool isRunningStandalone() { return false; }
@@ -174,7 +174,7 @@ class KDE_EXPORT Plugin : public QObject, virtual public KXMLGUIClient
     virtual Summary *createSummaryWidget( QWidget * /*parent*/ ) { return 0; }
 
     /**
-      Returns wether the plugin provides a part that should be shown in the sidebar.
+      Returns whether the plugin provides a part that should be shown in the sidebar.
     */
     virtual bool showInSideBar() const;
 
