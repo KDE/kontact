@@ -248,12 +248,9 @@ void ApptSummaryWidget::viewEvent( const QString &uid )
   korganizer.editIncidence( uid );
 }
 
-void ApptSummaryWidget::removeEvent( const QString &uid )
+void ApptSummaryWidget::removeEvent( const Item &item )
 {
-  mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
-  OrgKdeKorganizerKorganizerInterface korganizer(
-    "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
-  korganizer.deleteIncidence( uid, false );
+  mChanger->deleteIncidence( item );
 }
 
 void ApptSummaryWidget::popupMenu( const QString &uid )
@@ -268,7 +265,9 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
   if ( selectedAction == editIt ) {
     viewEvent( uid );
   } else if ( selectedAction == delIt ) {
-    removeEvent( uid );
+    Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+    Item eventItem = mCalendar->event( id );
+    removeEvent( eventItem );
   }
 }
 

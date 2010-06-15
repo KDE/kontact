@@ -344,7 +344,7 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
   delIt->setIcon( KIconLoader::global()->loadIcon( "edit-delete", KIconLoader::Small ) );
   QAction *doneIt = 0;
-  Item::Id id= mCalendar->itemIdForIncidenceUid( uid );
+  Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
   Item todoItem = mCalendar->todo( id );
   KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
   

@@ -37,6 +37,7 @@ namespace KCal {
 }
 
 namespace Akonadi {
+  class Item;
   class Calendar;
   class CalendarAdaptor;
   class IncidenceChanger;
@@ -70,7 +71,7 @@ class ApptSummaryWidget : public KontactInterface::Summary
     void updateView();
     void popupMenu( const QString &uid );
     void viewEvent( const QString &uid );
-    void removeEvent( const QString &uid );
+    void removeEvent( const Akonadi::Item &item );
 
   private:
     void dateDiff( const QDate &date, int &days );
