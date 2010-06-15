@@ -36,14 +36,15 @@
 #include <akonadi/kcal/calendar.h>
 #include <akonadi/kcal/calendaradaptor.h>
 #include <akonadi/kcal/calendarmodel.h>
+#include <akonadi/kcal/incidencemimetypevisitor.h>
+#include <akonadi/kcal/utils.h>
+#include <akonadi/kcal/incidencechanger.h>
+
 #include <Akonadi/ChangeRecorder>
 #include <Akonadi/Session>
 #include <Akonadi/Collection>
 #include <Akonadi/ItemFetchScope>
-#include <akonadi/entitydisplayattribute.h>
-#include <akonadi/kcal/incidencemimetypevisitor.h>
-#include <akonadi/kcal/utils.h>
-#include <akonadi/kcal/incidencechanger.h>
+#include <Akonadi/EntityDisplayAttribute>
 
 #include <KConfigGroup>
 #include <KIconLoader>
