@@ -122,11 +122,11 @@ void TodoSummaryWidget::updateView()
 
   Item::List prList;
 
-  QDate currDate = QDate::currentDate();
+  const QDate currDate = QDate::currentDate();
   Q_FOREACH ( const Item &todoItem, mCalendar->todos() ) {
     KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
     if ( todo->hasDueDate() ) {
-      int daysTo = currDate.daysTo( todo->dtDue().date() );
+      const int daysTo = currDate.daysTo( todo->dtDue().date() );
       if ( daysTo >= mDaysToGo ) {
         continue;
       }
