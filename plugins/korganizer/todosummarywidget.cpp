@@ -43,6 +43,7 @@
 #include <akonadi/entitydisplayattribute.h>
 #include <akonadi/kcal/incidencemimetypevisitor.h>
 #include <akonadi/kcal/utils.h>
+#include <akonadi/kcal/incidencechanger.h>
 
 #include <KConfigGroup>
 #include <KIconLoader>
@@ -74,6 +75,9 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   mLayout->setRowStretch( 6, 1 );
 
   createCalendar();
+
+  mChanger = new IncidenceChanger( mCalendar, parent );
+  mChanger->setGroupware( Groupware::instance() );
 
   connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), SLOT(updateView()) );
@@ -312,12 +316,9 @@ void TodoSummaryWidget::viewTodo( const QString &uid )
   korganizer.editIncidence( uid );
 }
 
-void TodoSummaryWidget::removeTodo( const QString &uid )
+void TodoSummaryWidget::removeTodo( const Item &item )
 {
-  mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
-  OrgKdeKorganizerKorganizerInterface korganizer(
-    "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
-  korganizer.deleteIncidence( uid, false );
+  mChanger->deleteIncidence( item );
 }
 
 void TodoSummaryWidget::completeTodo( const Item::Id &id )
@@ -356,7 +357,7 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   if ( selectedAction == editIt ) {
     viewTodo( uid );
   } else if ( selectedAction == delIt ) {
-    removeTodo( uid );
+    removeTodo( todoItem );
   } else if ( doneIt && selectedAction == doneIt ) {
     completeTodo( todoItem.id() );
   }

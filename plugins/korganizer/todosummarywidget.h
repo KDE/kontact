@@ -36,6 +36,7 @@ class TodoPlugin;
 namespace Akonadi {
   class Calendar;
   class CalendarAdaptor;
+  class IncidenceChanger;
 }
 
 class QGridLayout;
@@ -66,11 +67,12 @@ class TodoSummaryWidget : public KontactInterface::Summary
     void updateView();
     void popupMenu( const QString &uid );
     void viewTodo( const QString &uid );
-    void removeTodo( const QString &uid );
+    void removeTodo( const Akonadi::Item &item );
     void completeTodo( const Akonadi::Item::Id &id );
 
   private:
     void createCalendar();
+
     TodoPlugin *mPlugin;
     QGridLayout *mLayout;
 
@@ -85,6 +87,7 @@ class TodoSummaryWidget : public KontactInterface::Summary
     QList<QLabel*> mLabels;
     Akonadi::Calendar *mCalendar;
     Akonadi::CalendarAdaptor *mCalendarAdaptor;
+    Akonadi::IncidenceChanger *mChanger;
 
     /**
       Test if the To-do starts today.
