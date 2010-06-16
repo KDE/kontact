@@ -509,19 +509,6 @@ bool MainWindow::isPluginLoadedByAction( const KAction *action )
   return false;
 }
 
-#if 0
-summary=100
-kmail=200
-kaddressbook=300
-korganizer=400
-todo=450
-journal=500
-knode=500
-knotes=600
-akregator=700
-karm=700
-kitchensync=800
-#endif
 void MainWindow::sortActionsByWeight()
 {
   QPtrList<KAction> sorted;
@@ -639,7 +626,6 @@ void MainWindow::updateShortcuts()
 {
   QPtrList<KAction> loadedActions;
 
-  sortActionsByWeight();
   QPtrListIterator<KAction> it( mActionPlugins );
   int i = 1;
   KAction *action;
@@ -687,7 +673,6 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
 
       if ( plugin->showInSideBar() ) {
         KAction *q = mPluginAction[plugin]; // remove KAction, to free the shortcut for later use
-        mActionPlugins.remove( q );
         mPluginAction.remove( plugin );
         delete q;
       }
@@ -730,6 +715,8 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
         mPluginAction.insert( plugin, action );
       }
       i++;
+    } else {
+      action->setShortcut( KShortcut() );
     }
   }
 
