@@ -26,15 +26,18 @@
 #ifndef TODO_SUMMARYWIDGET_H
 #define TODO_SUMMARYWIDGET_H
 
+#include <KCal/Todo>
+#include <Akonadi/Item>
+
 #include <KontactInterface/Summary>
 
 class TodoPlugin;
 
-namespace KCal {
-  class CalendarResources;
-  class Todo;
+namespace Akonadi {
+  class Calendar;
+  class CalendarAdaptor;
+  class IncidenceChanger;
 }
-using namespace KCal;
 
 class QGridLayout;
 class QLabel;
@@ -64,10 +67,12 @@ class TodoSummaryWidget : public KontactInterface::Summary
     void updateView();
     void popupMenu( const QString &uid );
     void viewTodo( const QString &uid );
-    void removeTodo( const QString &uid );
-    void completeTodo( const QString &uid );
+    void removeTodo( const Akonadi::Item &item );
+    void completeTodo( Akonadi::Item::Id id );
 
   private:
+    void createCalendar();
+
     TodoPlugin *mPlugin;
     QGridLayout *mLayout;
 
@@ -80,21 +85,23 @@ class TodoSummaryWidget : public KontactInterface::Summary
     bool mShowMineOnly;
 
     QList<QLabel*> mLabels;
-    KCal::CalendarResources *mCalendar;
+    Akonadi::Calendar *mCalendar;
+    Akonadi::CalendarAdaptor *mCalendarAdaptor;
+    Akonadi::IncidenceChanger *mChanger;
 
     /**
       Test if the To-do starts today.
       @param todo is a pointer to a To-do object to test.
       @return if the To-do starts on the current date.
     */
-    bool startsToday( Todo *todo );
+    bool startsToday( KCal::Todo::Ptr todo );
 
     /**
       Create a text string containing the states of the To-do.
       @param todo is a pointer to a To-do object to test.
       @return a QString containing a comma-separated list of To-do states.
     */
-    const QString stateStr( Todo *todo );
+    const QString stateStr( KCal::Todo::Ptr todo );
 };
 
 #endif

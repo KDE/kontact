@@ -26,15 +26,28 @@
 #include "apptsummarywidget.h"
 #include "korganizerplugin.h"
 #include "summaryeventinfo.h"
+
 #include <korganizer/korganizerinterface.h>
-#include "stdcalendar.h"
+#include <KontactInterface/Core>
 
 #include <KCal/Calendar>
 #include <KCal/CalHelper>
 #include <KCal/Event>
 
-#include <KontactInterface/Core>
+#include <akonadi/kcal/calendar.h>
+#include <akonadi/kcal/calendaradaptor.h>
+#include <akonadi/kcal/calendarmodel.h>
+#include <akonadi/kcal/incidencemimetypevisitor.h>
+#include <akonadi/kcal/utils.h>
+#include <akonadi/kcal/incidencechanger.h>
 
+#include <Akonadi/ChangeRecorder>
+#include <Akonadi/Session>
+#include <Akonadi/Collection>
+#include <Akonadi/ItemFetchScope>
+#include <Akonadi/EntityDisplayAttribute>
+
+#include <KSystemTimeZones>
 #include <KConfigGroup>
 #include <KIconLoader>
 #include <KLocale>
@@ -44,6 +57,8 @@
 #include <QLabel>
 #include <QGridLayout>
 #include <QVBoxLayout>
+
+using namespace Akonadi;
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
   : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
@@ -61,11 +76,10 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
-  mCalendar = KOrg::StdCalendar::self();
-  mCalendar->load();
+  createCalendar();
 
-  //If the kpart isn't created yet, it's created now, and mCalendar is loaded
-  mPlugin->part();
+  mChanger = new IncidenceChanger( mCalendar, parent );
+  mChanger->setGroupware( Groupware::create( mCalendar, 0 ) );
 
   connect( mCalendar, SIGNAL(calendarChanged()), this, SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), this, SLOT(updateView()) );
@@ -126,16 +140,16 @@ void ApptSummaryWidget::updateView()
         dt <= currentDate.addDays( mDaysAhead - 1 );
         dt = dt.addDays( 1 ) ) {
 
-    SummaryEventInfo::List events = SummaryEventInfo::eventsForDate( dt, mCalendar );
+    SummaryEventInfo::List events = SummaryEventInfo::eventsForDate( dt, mCalendarAdaptor );
 
     foreach ( SummaryEventInfo *event, events ) {
 
       // Optionally, show only my Events
-      if ( mShowMineOnly && !CalHelper::isMyCalendarIncidence( mCalendar, event->ev ) ) {
+      if ( mShowMineOnly && !KCal::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, event->ev ) ) {
         continue;
       }
 
-      Event *ev = event->ev;
+      KCal::Event *ev = event->ev;
       // print the first of the recurring event series only
       if ( ev->recurs() ) {
         if ( uidList.contains( ev->uid() ) ) {
@@ -228,33 +242,42 @@ void ApptSummaryWidget::updateView()
 
 void ApptSummaryWidget::viewEvent( const QString &uid )
 {
-  mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
-  OrgKdeKorganizerKorganizerInterface korganizer(
-    "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
-  korganizer.editIncidence( uid );
+  Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+
+  if ( id != -1 ) {
+    mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
+    OrgKdeKorganizerKorganizerInterface korganizer(
+      "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
+    korganizer.editIncidence( QString::number( id ) );
+  }
 }
 
-void ApptSummaryWidget::removeEvent( const QString &uid )
+void ApptSummaryWidget::removeEvent( const Item &item )
 {
-  mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
-  OrgKdeKorganizerKorganizerInterface korganizer(
-    "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
-  korganizer.deleteIncidence( uid, false );
+  mChanger->deleteIncidence( item );
 }
 
 void ApptSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
+
+  // FIXME: Should say "Show Appointment" if we don't have rights to edit
+  // Doesn't make sense to edit events from birthday resource for example
   QAction *editIt = popup.addAction( i18n( "&Edit Appointment..." ) );
+
   QAction *delIt = popup.addAction( i18n( "&Delete Appointment" ) );
   delIt->setIcon( KIconLoader::global()->
                   loadIcon( "edit-delete", KIconLoader::Small ) );
 
+  Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+  Item eventItem = mCalendar->event( id );
+  delIt->setEnabled( Akonadi::hasDeleteRights( eventItem ) );
+  
   const QAction *selectedAction = popup.exec( QCursor::pos() );
   if ( selectedAction == editIt ) {
     viewEvent( uid );
   } else if ( selectedAction == delIt ) {
-    removeEvent( uid );
+    removeEvent( eventItem );
   }
 }
 
@@ -277,5 +300,26 @@ QStringList ApptSummaryWidget::configModules() const
 {
   return QStringList( "kcmapptsummary.desktop" );
 }
+
+void ApptSummaryWidget::createCalendar()
+{
+  Session *session = new Session( "ApptsSummaryWidget", this );
+  ChangeRecorder *monitor = new ChangeRecorder( this );
+
+  ItemFetchScope scope;
+  scope.fetchFullPayload( true );
+  scope.fetchAttribute<EntityDisplayAttribute>();
+
+  monitor->setSession( session );
+  monitor->setCollectionMonitored( Collection::root() );
+  monitor->fetchCollection( true );
+  monitor->setItemFetchScope( scope );
+  monitor->setMimeTypeMonitored( Akonadi::IncidenceMimeTypeVisitor::eventMimeType(), true );
+  CalendarModel *calendarModel = new CalendarModel( monitor, this );
+
+  mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
+  mCalendarAdaptor = new CalendarAdaptor( mCalendar, this );
+}
+
 
 #include "apptsummarywidget.moc"

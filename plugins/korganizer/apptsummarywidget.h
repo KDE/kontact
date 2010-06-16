@@ -28,13 +28,20 @@
 
 #include <KontactInterface/Summary>
 
+#include <KCal/Event>
+
 class KOrganizerPlugin;
 
 namespace KCal {
   class Event;
-  class CalendarResources;
 }
-using namespace KCal;
+
+namespace Akonadi {
+  class Item;
+  class Calendar;
+  class CalendarAdaptor;
+  class IncidenceChanger;
+}
 
 class QDate;
 class QGridLayout;
@@ -64,16 +71,19 @@ class ApptSummaryWidget : public KontactInterface::Summary
     void updateView();
     void popupMenu( const QString &uid );
     void viewEvent( const QString &uid );
-    void removeEvent( const QString &uid );
+    void removeEvent( const Akonadi::Item &item );
 
   private:
     void dateDiff( const QDate &date, int &days );
-    bool skip( Event *event );
+    void createCalendar();
+
+    Akonadi::Calendar *mCalendar;
+    Akonadi::CalendarAdaptor *mCalendarAdaptor;
+    Akonadi::IncidenceChanger *mChanger;
 
     QGridLayout *mLayout;
     QList<QLabel *> mLabels;
     KOrganizerPlugin *mPlugin;
-    KCal::CalendarResources *mCalendar;
     int mDaysAhead;
     bool mShowBirthdaysFromCal;
     bool mShowAnniversariesFromCal;
