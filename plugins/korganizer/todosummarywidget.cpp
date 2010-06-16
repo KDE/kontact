@@ -330,8 +330,11 @@ void TodoSummaryWidget::completeTodo( Item::Id id )
     KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
   
     if ( !todo->isReadOnly() ) {
+      KCal::Todo::Ptr oldTodo = KCal::Todo::Ptr( todo->clone() );
       todo->setCompleted( KDateTime::currentLocalDateTime() );
       // TODO, use incidenceChanger
+      mChanger->changeIncidence( oldTodo, todoItem,
+                                 IncidenceChanger::COMPLETION_MODIFIED, 0 );
       updateView();
     }
   }
