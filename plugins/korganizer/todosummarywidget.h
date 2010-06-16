@@ -68,7 +68,7 @@ class TodoSummaryWidget : public KontactInterface::Summary
     void popupMenu( const QString &uid );
     void viewTodo( const QString &uid );
     void removeTodo( const Akonadi::Item &item );
-    void completeTodo( const Akonadi::Item::Id &id );
+    void completeTodo( Akonadi::Item::Id id );
 
   private:
     void createCalendar();

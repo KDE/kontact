@@ -293,7 +293,7 @@ QStringList ApptSummaryWidget::configModules() const
 
 void ApptSummaryWidget::createCalendar()
 {
-  Session *session = new Session( "TodoSummaryWidget", this );
+  Session *session = new Session( "ApptsSummaryWidget", this );
   ChangeRecorder *monitor = new ChangeRecorder( this );
 
   ItemFetchScope scope;
@@ -309,7 +309,6 @@ void ApptSummaryWidget::createCalendar()
 
   mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
   mCalendarAdaptor = new CalendarAdaptor( mCalendar, this );
-
 }
 
 

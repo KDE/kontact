@@ -322,7 +322,7 @@ void TodoSummaryWidget::removeTodo( const Item &item )
   mChanger->deleteIncidence( item );
 }
 
-void TodoSummaryWidget::completeTodo( const Item::Id &id )
+void TodoSummaryWidget::completeTodo( Item::Id id )
 {
   Item todoItem = mCalendar->todo( id );
 
@@ -437,7 +437,6 @@ void TodoSummaryWidget::createCalendar()
 
   mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
   mCalendarAdaptor = new CalendarAdaptor( mCalendar, this );
-  
 }
 
 #include "todosummarywidget.moc"

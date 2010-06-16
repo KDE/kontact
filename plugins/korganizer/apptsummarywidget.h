@@ -75,7 +75,6 @@ class ApptSummaryWidget : public KontactInterface::Summary
 
   private:
     void dateDiff( const QDate &date, int &days );
-    bool skip( KCal::Event::Ptr *event );
     void createCalendar();
 
     Akonadi::Calendar *mCalendar;
