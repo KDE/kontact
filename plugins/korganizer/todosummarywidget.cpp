@@ -343,14 +343,18 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   QAction *editIt = popup.addAction( i18n( "&Edit To-do..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
   delIt->setIcon( KIconLoader::global()->loadIcon( "edit-delete", KIconLoader::Small ) );
+
   QAction *doneIt = 0;
   Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
   Item todoItem = mCalendar->todo( id );
   KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
+
+  delIt->setEnabled( Akonadi::hasDeleteRights( todoItem ) );
   
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
     doneIt->setIcon( KIconLoader::global()->loadIcon( "task-complete", KIconLoader::Small ) );
+    doneIt->setEnabled( Akonadi::hasChangeRights( todoItem ) );
   }
   // TODO: add icons to the menu actions
 

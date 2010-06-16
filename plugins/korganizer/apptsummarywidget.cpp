@@ -261,12 +261,14 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
   delIt->setIcon( KIconLoader::global()->
                   loadIcon( "edit-delete", KIconLoader::Small ) );
 
+  Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+  Item eventItem = mCalendar->event( id );
+  delIt->setEnabled( Akonadi::hasDeleteRights( eventItem ) );
+  
   const QAction *selectedAction = popup.exec( QCursor::pos() );
   if ( selectedAction == editIt ) {
     viewEvent( uid );
   } else if ( selectedAction == delIt ) {
-    Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
-    Item eventItem = mCalendar->event( id );
     removeEvent( eventItem );
   }
 }
