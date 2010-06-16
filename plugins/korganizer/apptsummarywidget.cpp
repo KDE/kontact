@@ -256,7 +256,11 @@ void ApptSummaryWidget::removeEvent( const Item &item )
 void ApptSummaryWidget::popupMenu( const QString &uid )
 {
   KMenu popup( this );
+
+  // FIXME: Should say "Show Appointment" if we don't have rights to edit
+  // Doesn't make sense to edit events from birthday resource for example
   QAction *editIt = popup.addAction( i18n( "&Edit Appointment..." ) );
+
   QAction *delIt = popup.addAction( i18n( "&Delete Appointment" ) );
   delIt->setIcon( KIconLoader::global()->
                   loadIcon( "edit-delete", KIconLoader::Small ) );
