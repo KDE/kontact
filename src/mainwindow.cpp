@@ -20,6 +20,7 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
+#include <qaction.h>
 #include <qcombobox.h>
 #include <qdockarea.h>
 #include <qguardedptr.h>
@@ -151,7 +152,19 @@ void MainWindow::initGUI()
 
   createGUI( 0 );
 
-  factory()->plugActionList( this, QString( "navigator_actionlist" ), mActionPlugins );
+  loadPlugins();
+  sortActionsByWeight();
+
+  QPtrList<KAction> loadedActions;
+  QPtrListIterator<KAction> il( mActionPlugins );
+  KAction *action;
+  while ( ( action = il.current() ) != 0 ) {
+    ++il;
+    if ( isPluginLoadedByAction( action ) ) {
+      loadedActions.append( action );
+    }
+  }
+  factory()->plugActionList( this, QString( "navigator_actionlist" ), loadedActions );
 
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
@@ -169,8 +182,6 @@ void MainWindow::initObject()
   mPartManager = new KParts::PartManager( this );
   connect( mPartManager, SIGNAL( activePartChanged( KParts::Part* ) ),
            this, SLOT( slotActivePartChanged( KParts::Part* ) ) );
-
-  loadPlugins();
 
   if ( mSidePane ) {
     mSidePane->updatePlugins();
@@ -469,6 +480,72 @@ Plugin *MainWindow::pluginFromInfo( const KPluginInfo *info )
   return 0;
 }
 
+Plugin *MainWindow::pluginFromAction( const KAction *action )
+{
+  PluginList::ConstIterator end = mPlugins.end();
+  for ( PluginList::ConstIterator it = mPlugins.begin(); it != end; ++it ) {
+    if ( (*it)->identifier() == action->name() ) {
+      return *it;
+    }
+  }
+  return 0;
+}
+
+bool MainWindow::isPluginLoadedByAction( const KAction *action )
+{
+  KPluginInfo::List::ConstIterator it;
+  for ( it = mPluginInfos.begin(); it != mPluginInfos.end(); ++it ) {
+    if ( !(*it)->isPluginEnabled() )
+      continue;
+    if ( isPluginLoaded( *it ) ) {
+      Plugin *plugin = pluginFromInfo( *it );
+      if ( plugin ) {
+        if ( plugin->identifier() == action->name() ) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+#if 0
+summary=100
+kmail=200
+kaddressbook=300
+korganizer=400
+todo=450
+journal=500
+knode=500
+knotes=600
+akregator=700
+karm=700
+kitchensync=800
+#endif
+void MainWindow::sortActionsByWeight()
+{
+  QPtrList<KAction> sorted;
+
+  QPtrListIterator<KAction> it( mActionPlugins );
+  KAction *action;
+  while ( ( action = it.current() ) != 0 ) {
+    ++it;
+    KAction *saction;
+    int index=0;
+    for ( saction = sorted.first(); saction; saction = sorted.next() ) {
+      Plugin *p1 = pluginFromAction( action );
+      Plugin *p2 = pluginFromAction( saction );
+      if ( p1 && p2 ) {
+        if (  p1->weight() > p2->weight() ) {
+          index++;
+        }
+      }
+    }
+    sorted.insert( index, action );
+  }
+  mActionPlugins = sorted;
+}
+
 void MainWindow::loadPlugins()
 {
   QPtrList<Plugin> plugins;
@@ -560,16 +637,22 @@ void MainWindow::unloadPlugins()
 
 void MainWindow::updateShortcuts()
 {
+  QPtrList<KAction> loadedActions;
+
+  sortActionsByWeight();
   QPtrListIterator<KAction> it( mActionPlugins );
-  int i = 0;
+  int i = 1;
   KAction *action;
   while ( ( action = it.current() ) != 0 ) {
     ++it;
-    QString shortcut = QString( "CTRL+%1" ).arg( mActionPlugins.count() - i );
-    action->setShortcut( KShortcut( shortcut ) );
-    i++;
+    if ( isPluginLoadedByAction( action ) ) {
+      loadedActions.append( action );
+      QString shortcut = QString( "CTRL+%1" ).arg( i );
+      action->setShortcut( KShortcut( shortcut ) );
+      i++;
+    }
   }
-  factory()->plugActionList( this, QString( "navigator_actionlist" ), mActionPlugins );
+  factory()->plugActionList( this, QString( "navigator_actionlist" ), loadedActions );
 }
 
 bool MainWindow::removePlugin( const KPluginInfo *info )
@@ -634,17 +717,20 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
   // merge the plugins GUI into the main window
   insertChildClient( plugin );
 
+  sortActionsByWeight();
   QPtrListIterator<KAction> it( mActionPlugins );
-  int i = 0;
+  int i = 1;
   KAction *action;
   while ( ( action = it.current() ) != 0 ) {
     ++it;
-    QString shortcut = QString( "CTRL+%1" ).arg( mActionPlugins.count() - i );
-    action->setShortcut( KShortcut( shortcut ) );
-    if ( action->name() == plugin->identifier() ) {
-      mPluginAction.insert( plugin, action );
+    if ( isPluginLoadedByAction( action ) ) {
+      QString shortcut = QString( "CTRL+%1" ).arg( i );
+      action->setShortcut( KShortcut( shortcut ) );
+      if ( action->name() == plugin->identifier() ) {
+        mPluginAction.insert( plugin, action );
+      }
+      i++;
     }
-    i++;
   }
 
 }

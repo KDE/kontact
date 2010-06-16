@@ -36,6 +36,7 @@
 #include "core.h"
 #include "kontactiface.h"
 
+class QAction;
 class QHBox;
 class QSplitter;
 class QVBox;
@@ -113,8 +114,11 @@ class MainWindow : public Kontact::Core, public KDCOPServiceStarter, public Kont
     void loadSettings();
     void saveSettings();
 
+    void sortActionsByWeight();
     bool isPluginLoaded( const KPluginInfo * );
+    bool isPluginLoadedByAction( const KAction *action );
     Kontact::Plugin *pluginFromInfo( const KPluginInfo * );
+    Kontact::Plugin *pluginFromAction( const KAction * );
     void loadPlugins();
     void unloadPlugins();
     void updateShortcuts();
