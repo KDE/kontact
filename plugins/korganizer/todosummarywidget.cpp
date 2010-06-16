@@ -311,10 +311,15 @@ void TodoSummaryWidget::updateView()
 
 void TodoSummaryWidget::viewTodo( const QString &uid )
 {
-  mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
-  OrgKdeKorganizerKorganizerInterface korganizer(
-    "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
-  korganizer.editIncidence( uid );
+  Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+
+  if ( id != -1 ) {
+    mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
+    OrgKdeKorganizerKorganizerInterface korganizer(
+      "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
+
+    korganizer.editIncidence( QString::number( id ) );
+  }
 }
 
 void TodoSummaryWidget::removeTodo( const Item &item )

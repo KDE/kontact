@@ -242,10 +242,14 @@ void ApptSummaryWidget::updateView()
 
 void ApptSummaryWidget::viewEvent( const QString &uid )
 {
-  mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
-  OrgKdeKorganizerKorganizerInterface korganizer(
-    "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
-  korganizer.editIncidence( uid );
+  Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+
+  if ( id != -1 ) {
+    mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
+    OrgKdeKorganizerKorganizerInterface korganizer(
+      "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
+    korganizer.editIncidence( QString::number( id ) );
+  }
 }
 
 void ApptSummaryWidget::removeEvent( const Item &item )
