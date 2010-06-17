@@ -61,7 +61,7 @@
 using namespace Akonadi;
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
-  : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
+  : KontactInterface::Summary( parent ), mCalendar( 0 ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
