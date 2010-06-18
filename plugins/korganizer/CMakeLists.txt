@@ -6,7 +6,7 @@ set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}" )
 ########### next target ###############
 set(libcommon_SRCS korg_uniqueapp.cpp)
 
-set(kontact_korganizerplugin_PART_SRCS korganizerplugin.cpp apptsummarywidget.cpp stdcalendar.cpp summaryeventinfo.cpp ${libcommon_SRCS})
+set(kontact_korganizerplugin_PART_SRCS korganizerplugin.cpp apptsummarywidget.cpp summaryeventinfo.cpp ${libcommon_SRCS})
 
 qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml  ${CMAKE_SOURCE_DIR}/korganizer/org.kde.korganizer.Korganizer.xml)
 
@@ -16,7 +16,7 @@ target_link_libraries(kontact_korganizerplugin ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_K
 
 ########### next target ###############
 
-set(kontact_todoplugin_PART_SRCS todoplugin.cpp todosummarywidget.cpp stdcalendar.cpp ${libcommon_SRCS})
+set(kontact_todoplugin_PART_SRCS todoplugin.cpp todosummarywidget.cpp ${libcommon_SRCS})
 
 qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml  ${CMAKE_SOURCE_DIR}/korganizer/org.kde.korganizer.Korganizer.xml)
 
