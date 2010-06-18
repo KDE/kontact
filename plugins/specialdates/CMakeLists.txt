@@ -13,7 +13,7 @@ set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget
 
 kde4_add_plugin(kontact_specialdatesplugin ${kontact_specialdatesplugin_PART_SRCS})
 
-target_link_libraries(kontact_specialdatesplugin  ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KCAL_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KHOLIDAYS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_AKONADI_LIBS} ${KDEPIMLIBS_AKONADI_CONTACT_LIBS} kdepim korganizerprivate ${KDE4_KDE3SUPPORT_LIBS})
+target_link_libraries(kontact_specialdatesplugin  ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KCAL_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KHOLIDAYS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_AKONADI_LIBS} ${KDEPIMLIBS_AKONADI_CONTACT_LIBS} kdepim korganizerprivate ${KDE4_KDE3SUPPORT_LIBS} akonadi-kcal_next ${KDEPIMLIBS_AKONADI_KCAL_LIBS})
 
 
 ########### next target ###############

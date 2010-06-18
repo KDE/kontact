@@ -28,21 +28,19 @@
 
 #include <KontactInterface/Summary>
 
-namespace KCal {
-  class CalendarResources;
-  class Event;
-  class Calendar;
-  class ResourceCalendar;
-}
-using namespace KCal;
+#include <KCal/Event>
 
 namespace KHolidays {
   class HolidayRegion;
 }
-using namespace KHolidays;
 
 namespace KontactInterface {
   class Plugin;
+}
+
+namespace Akonadi {
+  class Calendar;
+  class CalendarAdaptor;
 }
 
 class QDate;
@@ -77,16 +75,19 @@ class SDSummaryWidget : public KontactInterface::Summary
     void slotBirthdayJobFinished( KJob* job );
 
   private:
-    int span( Event *event );
-    int dayof( Event *event, const QDate &date );
+    int span( KCal::Event::Ptr event );
+    int dayof( KCal::Event::Ptr event, const QDate &date );
     bool initHolidays();
     void dateDiff( const QDate &date, int &days, int &years );
-    ResourceCalendar *usingBirthdayResource();
-    bool check( ResourceCalendar *cal, const QDate &date, const QString &summary );
+    void createCalendar();
+
+    Akonadi::Calendar *mCalendar;
+    Akonadi::CalendarAdaptor *mCalendarAdaptor;
+    
     QGridLayout *mLayout;
     QList<QLabel*> mLabels;
     KontactInterface::Plugin *mPlugin;
-    KCal::CalendarResources *mCalendar;
+
     int mDaysAhead;
     bool mShowBirthdaysFromKAB;
     bool mShowBirthdaysFromCal;
@@ -95,10 +96,11 @@ class SDSummaryWidget : public KontactInterface::Summary
     bool mShowHolidays;
     bool mShowSpecialsFromCal;
     bool mShowMineOnly;
+    bool mJobRunning;
     QList<SDEntry> mDates;
     void createLabels();
 
-    HolidayRegion *mHolidays;
+    KHolidays::HolidayRegion *mHolidays;
 };
 
 #endif
