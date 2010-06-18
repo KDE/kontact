@@ -96,7 +96,6 @@ void KCMKMailSummary::initGUI()
            "not enabled, then only the base folder path will be shown." ) );
   layout->addWidget( mFolderView );
   layout->addWidget( mFullPath );
-  mFullPath->hide();
 }
 
 void KCMKMailSummary::initFolders()
