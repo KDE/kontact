@@ -75,10 +75,10 @@ class SDSummaryWidget : public KontactInterface::Summary
     void slotBirthdayJobFinished( KJob* job );
 
   private:
-    int span( KCal::Event::Ptr event );
-    int dayof( KCal::Event::Ptr event, const QDate &date );
+    int span( KCal::Event::Ptr event ) const;
+    int dayof( KCal::Event::Ptr event, const QDate &date ) const;
     bool initHolidays();
-    void dateDiff( const QDate &date, int &days, int &years );
+    void dateDiff( const QDate &date, int &days, int &years ) const;
     void createCalendar();
 
     Akonadi::Calendar *mCalendar;

@@ -219,7 +219,7 @@ bool SDSummaryWidget::initHolidays()
 }
 
 // number of days remaining in an Event
-int SDSummaryWidget::span( KCal::Event::Ptr event )
+int SDSummaryWidget::span( KCal::Event::Ptr event ) const
 {
   int span = 1;
   if ( event->isMultiDay() && event->allDay() ) {
@@ -236,7 +236,7 @@ int SDSummaryWidget::span( KCal::Event::Ptr event )
 }
 
 // day of a multiday Event
-int SDSummaryWidget::dayof( KCal::Event::Ptr event, const QDate &date )
+int SDSummaryWidget::dayof( KCal::Event::Ptr event, const QDate &date ) const
 {
   int dayof = 1;
   QDate d = event->dtStart().date();
@@ -621,7 +621,7 @@ void SDSummaryWidget::updateView()
    * for calendar entries that have birthday/anniversary categories too.
    *
    * Also, we can't get KABC Anniversaries through nepomuk because the
-   * current S.D.O doesn't support it, so i get them through the ETM too.
+   * current S.D.O doesn't support it, so i also them through the ETM.
    *
    * So basically we have:
    * Calendar anniversaries - ETM
@@ -629,7 +629,7 @@ void SDSummaryWidget::updateView()
    * KABC birthdays - BirthdaySearchJob
    * KABC anniversaries - ETM ( needs Birthday Agent running )
    *
-   * We could remove thomas' BirthdaySearchJob and use the ETM for that too
+   * We could remove thomas' BirthdaySearchJob and use the ETM for that
    * but it has the advantage that we don't need a Birthday agent running.
    * 
    **/
@@ -715,7 +715,7 @@ bool SDSummaryWidget::eventFilter( QObject *obj, QEvent *e )
   return KontactInterface::Summary::eventFilter( obj, e );
 }
 
-void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
+void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years ) const
 {
   QDate currentDate;
   QDate eventDate;
