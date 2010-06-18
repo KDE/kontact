@@ -24,31 +24,45 @@
 */
 
 #include "sdsummarywidget.h"
-#include "../korganizer/stdcalendar.h"
-
-#include <akonadi/contact/contactsearchjob.h>
-#include <akonadi/contact/contactviewerdialog.h>
-#include <akonadi/itemfetchjob.h>
-#include <akonadi/itemfetchscope.h>
-
-#include <KCal/Calendar>
-#include <KCal/CalHelper>
-
-#include <KHolidays/Holidays>
 
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
 
-#include <KConfigGroup>
-#include <KIconLoader>
+#include <akonadi/kcal/utils.h>
+#include <akonadi/kcal/calendar.h>
+#include <akonadi/kcal/calendarmodel.h>
+#include <akonadi/kcal/calendaradaptor.h>
+#include <akonadi/kcal/incidencechanger.h>
+#include <akonadi/kcal/incidencemimetypevisitor.h>
+
+#include <Akonadi/Session>
+#include <Akonadi/Collection>
+#include <Akonadi/ItemFetchJob>
+#include <Akonadi/ChangeRecorder>
+#include <Akonadi/ItemFetchScope>
+#include <Akonadi/EntityDisplayAttribute>
+#include <Akonadi/Contact/ContactSearchJob>
+#include <Akonadi/Contact/ContactViewerDialog>
+
+#include <KCal/Calendar>
+#include <KCal/CalHelper>
+
 #include <KMenu>
-#include <KToolInvocation>
+#include <KLocale>
 #include <KUrlLabel>
+#include <KIconLoader>
+#include <KConfigGroup>
+#include <KToolInvocation>
+#include <KSystemTimeZones>
+#include <KHolidays/Holidays>
 
 #include <QDate>
 #include <QEvent>
-#include <QGridLayout>
 #include <QLabel>
+#include <QGridLayout>
+
+using namespace Akonadi;
+using namespace KHolidays;
 
 class BirthdaySearchJob : public Akonadi::ItemSearchJob
 {
@@ -123,7 +137,7 @@ class SDEntry
 };
 
 SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
-  : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 ), mHolidays( 0 )
+  : KontactInterface::Summary( parent ), mCalendar( 0 ), mPlugin( plugin ), mHolidays( 0 )
 {
   // Create the Summary Layout
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
@@ -147,15 +161,14 @@ SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *par
   mShowAnniversariesFromKAB = true;
   mShowAnniversariesFromCal = true;
   mShowHolidays = true;
+  mJobRunning = false;
   mShowSpecialsFromCal = true;
 
   // Setup the Addressbook
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)),
            this, SLOT(updateView()) );
 
-  // Setup the Calendar
-  mCalendar = KOrg::StdCalendar::self();
-  mCalendar->load();
+  createCalendar();
 
   connect( mCalendar, SIGNAL(calendarChanged()),
            this, SLOT(updateView()) );
@@ -186,7 +199,7 @@ void SDSummaryWidget::configUpdated()
 
   group = config.group( "Groupware" );
   mShowMineOnly = group.readEntry( "ShowMineOnly", false );
-
+  
   updateView();
 }
 
@@ -206,9 +219,9 @@ bool SDSummaryWidget::initHolidays()
 }
 
 // number of days remaining in an Event
-int SDSummaryWidget::span( Event *event )
+int SDSummaryWidget::span( KCal::Event::Ptr event ) const
 {
-  int span=1;
+  int span = 1;
   if ( event->isMultiDay() && event->allDay() ) {
     QDate d = event->dtStart().date();
     if ( d < QDate::currentDate() ) {
@@ -223,7 +236,7 @@ int SDSummaryWidget::span( Event *event )
 }
 
 // day of a multiday Event
-int SDSummaryWidget::dayof( Event *event, const QDate &date )
+int SDSummaryWidget::dayof( KCal::Event::Ptr event, const QDate &date ) const
 {
   int dayof = 1;
   QDate d = event->dtStart().date();
@@ -239,12 +252,11 @@ int SDSummaryWidget::dayof( Event *event, const QDate &date )
   return dayof;
 }
 
-void SDSummaryWidget::slotBirthdayJobFinished(KJob* job)
+void SDSummaryWidget::slotBirthdayJobFinished( KJob* job )
 {
   // ;)
   BirthdaySearchJob* bJob = dynamic_cast< BirthdaySearchJob* >( job );
-  if(bJob)
-  {
+  if ( bJob ) {
     foreach ( const Akonadi::Item &item, bJob->items() ) {
       if ( item.hasPayload<KABC::Addressee>() ) {
         const KABC::Addressee addressee = item.payload<KABC::Addressee>();
@@ -264,14 +276,15 @@ void SDSummaryWidget::slotBirthdayJobFinished(KJob* job)
       }
     }
     // Carry on.
-    createLabels();;
+    createLabels();
   }
+
+  mJobRunning = false;
 }
 
 void SDSummaryWidget::createLabels()
 {
   KIconLoader loader( "kdepim" );
-
 
   QLabel *label = 0;
 
@@ -281,41 +294,30 @@ void SDSummaryWidget::createLabels()
   foreach ( label, mLabels ) {
     mLayout->removeWidget( label );
     delete( label );
+    update();
   }
   mLabels.clear();
 
-#if 0 //sebsauer
-  // Search for Birthdays, Anniversaries, Holidays, and Special Occasions
-  // in the Calendar
-  ResourceCalendar *bdayRes = usingBirthdayResource();
-  ResourceCalendar *annvRes = bdayRes;
-  if ( !mShowBirthdaysFromKAB ) {
-    bdayRes = 0;
-  }
-  if ( !mShowAnniversariesFromKAB ) {
-    annvRes = 0;
-  }
-#else
-  ResourceCalendar *bdayRes = 0;
-  ResourceCalendar *annvRes = 0;
-  kDebug() << "Disabled code";
-#endif
-
   QDate dt;
-  for ( dt=QDate::currentDate();
-        dt<=QDate::currentDate().addDays( mDaysAhead - 1 );
-        dt=dt.addDays(1) ) {
-    Event::List events = mCalendar->events( dt, mCalendar->timeSpec(),
-                                            EventSortStartDate,
-                                            SortDirectionAscending );
-    Event *ev;
-    Event::List::ConstIterator it;
-    for ( it = events.constBegin(); it != events.constEnd(); ++it ) {
-      ev = *it;
+  for ( dt = QDate::currentDate();
+        dt <= QDate::currentDate().addDays( mDaysAhead - 1 );
+        dt = dt.addDays( 1 ) ) {
+    Item::List items  = mCalendar->events( dt, mCalendar->timeSpec(),
+                                           EventSortStartDate,
+                                           SortDirectionAscending );
+    foreach ( const Item &item, items ) {
+      KCal::Event::Ptr ev = Akonadi::event( item );
 
       // Optionally, show only my Events
-      if ( mShowMineOnly && !CalHelper::isMyCalendarIncidence( mCalendar, ev ) ) {
+      if ( mShowMineOnly && !KCal::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, ev.get() ) ) {
+        // FIXME; does isMyCalendarIncidence work !? It's deprecated too.
         continue;
+      }
+
+      if ( ev->customProperty("KABC","BIRTHDAY" ) == "YES" ) {
+        // Skipping, because these are got by the BirthdaySearchJob
+        // See comments in updateView()
+        continue; 
       }
 
       if ( !ev->categoriesStr().isEmpty() ) {
@@ -333,7 +335,13 @@ void SDSummaryWidget::createLabels()
             entry.desc = ev->description();
             dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
             entry.span = 1;
-            if ( !check( bdayRes, dt, ev->summary() ) ) {
+
+            /* The following check is to prevent duplicate entries,
+             * so in case of having a KCal incidence with category birthday
+             * with summary and date equal to some KABC Atendee we don't show it
+             * FIXME: port to akonadi, it's kresource based
+             * */
+            if ( /*!check( bdayRes, dt, ev->summary() )*/ true ) {
               mDates.append( entry );
             }
             break;
@@ -349,7 +357,7 @@ void SDSummaryWidget::createLabels()
             entry.desc = ev->description();
             dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
             entry.span = 1;
-            if ( !check( annvRes, dt, ev->summary() ) ) {
+            if ( /*!check( annvRes, dt, ev->summary() )*/ true ) {
               mDates.append( entry );
             }
             break;
@@ -413,6 +421,7 @@ void SDSummaryWidget::createLabels()
           dateDiff( dt, entry.daysTo, entry.yearsOld );
           entry.yearsOld = -1; //ignore age of holidays
           entry.span = 1;
+
           mDates.append( entry );
         }
       }
@@ -427,7 +436,7 @@ void SDSummaryWidget::createLabels()
     QList<SDEntry>::Iterator addrIt;
     QString lines;
     for ( addrIt = mDates.begin(); addrIt != mDates.end(); ++addrIt ) {
-      bool makeBold = (*addrIt).daysTo == 0; // i.e., today
+      const bool makeBold = (*addrIt).daysTo == 0; // i.e., today
 
       // Pixmap
       QImage icon_img;
@@ -595,6 +604,7 @@ void SDSummaryWidget::createLabels()
   }
 
   QList<QLabel*>::ConstIterator lit;
+
   for ( lit = mLabels.constBegin(); lit != mLabels.constEnd(); ++lit ) {
     (*lit)->show();
   }
@@ -604,43 +614,36 @@ void SDSummaryWidget::createLabels()
 
 void SDSummaryWidget::updateView()
 {
-
   mDates.clear();
-#if 0 // TODO: Port me!
-  // Search for Anniversaries
-  // <same code as in the birthday case here>
-  const QString anniversaryAsString = contact.custom( "KADDRESSBOOK", "X-Anniversary" );
-  if ( !anniversaryAsString.isEmpty() ) {
-    const QDate anniversary = QDate::fromString( anniversaryAsString, Qt::ISODate );
-    if ( anniversary.isValid() && mShowAnniversariesFromKAB ) {
-      SDEntry entry;
-      entry.type = IncidenceTypeContact;
-      entry.category = CategoryAnniversary;
-      dateDiff( anniversary, entry.daysTo, entry.yearsOld );
 
-      entry.date = anniversary;
-      entry.addressee = contact;
-      entry.item = item;
-      entry.span = 1;
-      if ( entry.daysTo <= mDaysAhead ) {
-        dates.append( entry );
-      }
-    }
-  }
+  /* KABC Birthdays are got through a ItemSearchJob/SPARQL Query
+   * I then added an ETM/CalendarModel because we need to search
+   * for calendar entries that have birthday/anniversary categories too.
+   *
+   * Also, we can't get KABC Anniversaries through nepomuk because the
+   * current S.D.O doesn't support it, so i also them through the ETM.
+   *
+   * So basically we have:
+   * Calendar anniversaries - ETM
+   * Calendar birthdays - ETM
+   * KABC birthdays - BirthdaySearchJob
+   * KABC anniversaries - ETM ( needs Birthday Agent running )
+   *
+   * We could remove thomas' BirthdaySearchJob and use the ETM for that
+   * but it has the advantage that we don't need a Birthday agent running.
+   * 
+   **/
 
-#else
-  kWarning() << "Disabled code for anniversary searching, needs new S.D.O release";
-#endif
-
- 
   // Search for Birthdays
-  if ( mShowBirthdaysFromKAB ) {
+  if ( mShowBirthdaysFromKAB && !mJobRunning ) {
     BirthdaySearchJob *job = new BirthdaySearchJob( this, mDaysAhead );
 
     connect( job, SIGNAL( result( KJob * ) ), this, SLOT( slotBirthdayJobFinished( KJob* ) ) );
     job->start();
-  }
+    mJobRunning = true;
 
+    // The result slot will trigger the rest of the update
+  }
 }
 
 void SDSummaryWidget::mailContact( const QString &url )
@@ -653,11 +656,13 @@ void SDSummaryWidget::mailContact( const QString &url )
 
   Akonadi::ItemFetchJob *job = new Akonadi::ItemFetchJob( item, this );
   job->fetchScope().fetchFullPayload();
-  if ( !job->exec() )
+  if ( !job->exec() ) {
     return;
+  }
 
-  if ( job->items().isEmpty() )
+  if ( job->items().isEmpty() ) {
     return;
+  }
 
   const KABC::Addressee contact = job->items().first().payload<KABC::Addressee>();
 
@@ -703,14 +708,14 @@ bool SDSummaryWidget::eventFilter( QObject *obj, QEvent *e )
       emit message( i18n( "Mail to:\"%1\"", label->text() ) );
     }
     if ( e->type() == QEvent::Leave ) {
-      emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
+      emit message( QString::null ); //krazy:exclude=nullstrassign for old broken gcc
     }
   }
 
   return KontactInterface::Summary::eventFilter( obj, e );
 }
 
-void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
+void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years ) const
 {
   QDate currentDate;
   QDate eventDate;
@@ -739,42 +744,29 @@ void SDSummaryWidget::dateDiff( const QDate &date, int &days, int &years )
   }
 }
 
-ResourceCalendar *SDSummaryWidget::usingBirthdayResource()
-{
-  ResourceCalendar *resource = 0;
-  CalendarResourceManager *manager = mCalendar->resourceManager();
-  if ( !manager->isEmpty() ) {
-    CalendarResourceManager::Iterator it;
-    for ( it = manager->begin(); it != manager->end(); ++it ) {
-      if ( (*it)->type() == QLatin1String( "birthdays" ) ) {
-        resource = (*it);
-        break;
-      }
-    }
-  }
-  return resource;
-}
-
-bool SDSummaryWidget::check( ResourceCalendar *cal, const QDate &date,
-                             const QString &summary )
-{
-  if ( !cal ) {
-    return false;
-  }
-
-  Event::List events = cal->rawEventsForDate( date );
-  Event::List::ConstIterator it;
-  for ( it = events.constBegin(); it != events.constEnd(); ++it ) {
-    if ( (*it)->summary() == summary ) {
-      return true;
-    }
-  }
-  return false;
-}
-
 QStringList SDSummaryWidget::configModules() const
 {
   return QStringList( "kcmsdsummary.desktop" );
+}
+
+void SDSummaryWidget::createCalendar()
+{
+  Session *session = new Session( "SDSummaryWidget", this );
+  ChangeRecorder *monitor = new ChangeRecorder( this );
+
+  ItemFetchScope scope;
+  scope.fetchFullPayload( true );
+  scope.fetchAttribute<EntityDisplayAttribute>();
+
+  monitor->setSession( session );
+  monitor->setCollectionMonitored( Collection::root() );
+  monitor->fetchCollection( true );
+  monitor->setItemFetchScope( scope );
+  monitor->setMimeTypeMonitored( Akonadi::IncidenceMimeTypeVisitor::eventMimeType(), true );
+  CalendarModel *calendarModel = new CalendarModel( monitor, this );
+
+  mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
+  mCalendarAdaptor = new CalendarAdaptor( mCalendar, this );
 }
 
 #include "sdsummarywidget.moc"
