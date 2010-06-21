@@ -12,7 +12,7 @@ if(QGPGME_FOUND)
   if (KDEPIMLIBS_KRESOURCES_LIBRARY)
     add_subdirectory( specialdates )
   endif (KDEPIMLIBS_KRESOURCES_LIBRARY)
-#re-enable planner for 4.2 if we have people who want to develop it
+#AKONADI_PORT: planner
 #  add_subdirectory( planner )
 endif(QGPGME_FOUND)
 if (BUILD_knotes AND KDEPIMLIBS_KRESOURCES_LIBRARY)

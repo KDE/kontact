@@ -27,7 +27,7 @@
 #include "planner.h"
 #include "plannerplugin.h"
 #include "korganizer/korganizerinterface.h"
-#include "korganizer/stdcalendar.h"
+#include "stdcalendar.h"
 
 #include <akonadi/contact/contactsearchjob.h>
 

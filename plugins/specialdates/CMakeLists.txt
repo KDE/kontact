@@ -9,7 +9,7 @@ include_directories(
     ${Boost_INCLUDE_DIR}
     )
 
-set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget.cpp ../korganizer/stdcalendar.cpp)
+set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget.cpp)
 
 kde4_add_plugin(kontact_specialdatesplugin ${kontact_specialdatesplugin_PART_SRCS})
 
