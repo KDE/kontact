@@ -30,8 +30,10 @@
 #include <libkdepim/maillistdrag.h>
 
 #include <KABC/VCardDrag>
-#include <KCal/CalendarLocal>
-#include <KCal/ICalDrag>
+
+#include <kcalcore/incidence.h>
+#include <kcalcore/memorycalendar.h>
+#include <kcalutils/icaldrag.h>
 
 #include <KontactInterface/Core>
 
@@ -203,16 +205,16 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  if ( KCal::ICalDrag::canDecode( event->mimeData() ) ) {
-      KCal::CalendarLocal cal( KSystemTimeZones::local() );
-      if ( KCal::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
-          KCal::Incidence::List incidences = cal.incidences();
+  if ( KCalUtils::ICalDrag::canDecode( event->mimeData() ) ) {
+      KCalCore::MemoryCalendar cal( KSystemTimeZones::local() );
+      if ( KCalUtils::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
+          KCalCore::Incidence::List incidences = cal.incidences();
           Q_ASSERT( incidences.count() );
           if ( !incidences.isEmpty() ) {
               event->accept();
-              KCal::Incidence *i = incidences.first();
+              KCalCore::Incidence::Ptr i = incidences.first();
               QString summary;
-              if ( dynamic_cast<KCal::Journal*>( i ) ) {
+              if ( i->type() == KCalCore::Incidence::TypeJournal ) {
                 summary = i18nc( "@item", "Note: %1", i->summary() );
               } else {
                 summary = i->summary();

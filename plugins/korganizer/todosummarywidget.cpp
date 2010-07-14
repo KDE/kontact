@@ -29,9 +29,7 @@
 
 #include <KontactInterface/Core>
 
-#include <KCal/CalHelper>
-#include <KCal/IncidenceFormatter>
-#include <KCal/Todo>
+#include <kcalutils/incidenceformatter.h>
 
 #include <akonadi/kcal/calendar.h>
 #include <akonadi/kcal/calendaradaptor.h>
@@ -59,6 +57,7 @@
 #include <QVBoxLayout>
 
 using namespace Akonadi;
+using namespace KCalUtils;
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
@@ -125,7 +124,7 @@ void TodoSummaryWidget::updateView()
 
   const QDate currDate = QDate::currentDate();
   Q_FOREACH ( const Item &todoItem, mCalendar->todos() ) {
-    KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
+    KCalCore::Todo::Ptr todo = Akonadi::todo( todoItem );
     if ( todo->hasDueDate() ) {
       const int daysTo = currDate.daysTo( todo->dtDue().date() );
       if ( daysTo >= mDaysToGo ) {
@@ -190,14 +189,16 @@ void TodoSummaryWidget::updateView()
     QString str;
 
     Q_FOREACH ( const Item &todoItem, prList ) {
-      KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
+      KCalCore::Todo::Ptr todo = Akonadi::todo( todoItem );
       bool makeBold = false;
       int daysTo = -1;
 
       // Optionally, show only my To-dos
-      if ( mShowMineOnly && !KCal::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, todo.get() ) ) {
+/*      if ( mShowMineOnly && !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, todo.get() ) ) {
         continue;
       }
+TODO: calhelper is deprecated, remove this?
+*/
 
       // Icon label
       label = new QLabel( this );
@@ -256,8 +257,12 @@ void TodoSummaryWidget::updateView()
 
       // Summary label
       str = todo->summary();
-      if ( todo->relatedTo() ) { // show parent only, not entire ancestry
-        str = todo->relatedTo()->summary() + ':' + str;
+      if ( !todo->relatedTo().isEmpty() ) { // show parent only, not entire ancestry
+        Akonadi::Item parentItem = mCalendar->itemForIncidenceUid( todo->relatedTo() );
+        KCalCore::Incidence::Ptr inc = Akonadi::incidence( parentItem );
+        if ( inc ) {
+          str = inc->summary() + ':' + str;
+        }
       }
       if ( !Qt::mightBeRichText( str ) ) {
         str = Qt::escape( str );
@@ -277,8 +282,9 @@ void TodoSummaryWidget::updateView()
       connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
                this, SLOT(popupMenu(const QString&)) );
 
-      QString tipText( KCal::IncidenceFormatter::toolTipStr(
-                         mCalendarAdaptor, todo.get(), currDate, true, KSystemTimeZones::local() ) );
+      // where did the toolTipStr signature that takes a calendar went?
+      QString tipText( IncidenceFormatter::toolTipStr( IncidenceFormatter::resourceString( mCalendarAdaptor, todo ),
+                                                       todo, currDate, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }
@@ -332,10 +338,10 @@ void TodoSummaryWidget::completeTodo( Item::Id id )
   Item todoItem = mCalendar->todo( id );
 
   if ( todoItem.isValid() ) {
-    KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
-  
+    KCalCore::Todo::Ptr todo = Akonadi::todo( todoItem );
+
     if ( !todo->isReadOnly() ) {
-      KCal::Todo::Ptr oldTodo = KCal::Todo::Ptr( todo->clone() );
+      KCalCore::Todo::Ptr oldTodo( todo->clone() );
       todo->setCompleted( KDateTime::currentLocalDateTime() );
       // TODO, use incidenceChanger
       mChanger->changeIncidence( oldTodo, todoItem,
@@ -355,10 +361,10 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   QAction *doneIt = 0;
   Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
   Item todoItem = mCalendar->todo( id );
-  KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
+  KCalCore::Todo::Ptr todo = Akonadi::todo( todoItem );
 
   delIt->setEnabled( Akonadi::hasDeleteRights( todoItem ) );
-  
+
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
     doneIt->setIcon( KIconLoader::global()->loadIcon( "task-complete", KIconLoader::Small ) );
@@ -395,13 +401,13 @@ QStringList TodoSummaryWidget::configModules() const
   return QStringList( "kcmtodosummary.desktop" );
 }
 
-bool TodoSummaryWidget::startsToday( KCal::Todo::Ptr todo )
+bool TodoSummaryWidget::startsToday( const KCalCore::Todo::Ptr &todo )
 {
   return todo->hasStartDate() &&
          todo->dtStart().date() == QDate::currentDate();
 }
 
-const QString TodoSummaryWidget::stateStr( KCal::Todo::Ptr todo )
+const QString TodoSummaryWidget::stateStr( const KCalCore::Todo::Ptr &todo )
 {
   QString str1, str2;
 

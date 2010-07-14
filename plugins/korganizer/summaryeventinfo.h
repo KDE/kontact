@@ -29,10 +29,11 @@
 #include <QList>
 #include <QString>
 
-namespace KCal {
+#include <kcalcore/event.h>
+
+namespace KCalCore {
   class Calendar;
-  class Event;
-}
+};
 
 class QDate;
 
@@ -45,10 +46,10 @@ class SummaryEventInfo
     SummaryEventInfo();
 
     static List eventsForDate( const QDate &date,
-                               KCal::Calendar *calendar );
+                               KCalCore::Calendar *calendar );
     static void setShowSpecialEvents( bool skipBirthdays, bool skipAnniversaries );
 
-    KCal::Event *ev;
+    KCalCore::Event::Ptr ev;
     QString startDate;
     QString dateSpan;
     QString daysToGo;
@@ -61,7 +62,7 @@ class SummaryEventInfo
   private:
 
     static void dateDiff( const QDate &date, int &days );
-    static bool skip( KCal::Event *event );
+    static bool skip( const KCalCore::Event::Ptr &event );
     static bool mShowBirthdays, mShowAnniversaries;
 };
 

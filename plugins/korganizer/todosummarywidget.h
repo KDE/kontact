@@ -26,7 +26,7 @@
 #ifndef TODO_SUMMARYWIDGET_H
 #define TODO_SUMMARYWIDGET_H
 
-#include <KCal/Todo>
+#include <kcalcore/todo.h>
 #include <Akonadi/Item>
 
 #include <KontactInterface/Summary>
@@ -94,14 +94,14 @@ class TodoSummaryWidget : public KontactInterface::Summary
       @param todo is a pointer to a To-do object to test.
       @return if the To-do starts on the current date.
     */
-    bool startsToday( KCal::Todo::Ptr todo );
+    bool startsToday( const KCalCore::Todo::Ptr &todo );
 
     /**
       Create a text string containing the states of the To-do.
       @param todo is a pointer to a To-do object to test.
       @return a QString containing a comma-separated list of To-do states.
     */
-    const QString stateStr( KCal::Todo::Ptr todo );
+    const QString stateStr( const KCalCore::Todo::Ptr &todo );
 };
 
 #endif

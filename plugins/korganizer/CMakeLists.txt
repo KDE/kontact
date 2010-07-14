@@ -12,7 +12,7 @@ qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/k
 
 kde4_add_plugin(kontact_korganizerplugin ${kontact_korganizerplugin_PART_SRCS})
 
-target_link_libraries(kontact_korganizerplugin ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KCAL_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} korganizerprivate akonadi-kcal_next ${KDEPIMLIBS_AKONADI_KCAL_LIBS})
+target_link_libraries(kontact_korganizerplugin kcalutils ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} kcalcore kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} korganizerprivate akonadi-kcal_next ${KDEPIMLIBS_AKONADI_KCAL_LIBS})
 
 ########### next target ###############
 
@@ -22,7 +22,7 @@ qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korgani
 
 kde4_add_plugin(kontact_todoplugin ${kontact_todoplugin_PART_SRCS})
 
-target_link_libraries(kontact_todoplugin ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_KCAL_LIBS} korganizerprivate akonadi-kcal_next ${KDEPIMLIBS_AKONADI_KCAL_LIBS})
+target_link_libraries(kontact_todoplugin ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} kcalcore kcalutils korganizerprivate akonadi-kcal_next ${KDEPIMLIBS_AKONADI_KCAL_LIBS})
 
 ########### next target ###############
 
@@ -42,7 +42,7 @@ kde4_add_ui_files(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui)
 
 kde4_add_plugin(kcm_apptsummary ${kcm_apptsummary_PART_SRCS})
 
-target_link_libraries(kcm_apptsummary ${KDE4_KDEUI_LIBS} korganizerprivate)
+target_link_libraries(kcm_apptsummary ${KDE4_KDEUI_LIBS} korganizerprivate kcalutils)
 
 ########### next target ###############
 

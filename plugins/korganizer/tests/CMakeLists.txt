@@ -6,5 +6,6 @@ target_link_libraries(
   ${QT_QTTEST_LIBRARY}
   ${QT_QTCORE_LIBRARY}
   ${KDE4_KDECORE_LIBS}
-  ${KDEPIMLIBS_KCAL_LIBS}
+  kcalcore
+  kcalutils
 )
