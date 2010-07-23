@@ -271,8 +271,8 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
 
   Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
   Item eventItem = mCalendar->event( id );
-  delIt->setEnabled( Akonadi::hasDeleteRights( eventItem ) );
-  
+  delIt->setEnabled( mCalendar->hasDeleteRights( eventItem ) );
+
   const QAction *selectedAction = popup.exec( QCursor::pos() );
   if ( selectedAction == editIt ) {
     viewEvent( uid );

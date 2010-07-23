@@ -333,7 +333,7 @@ void TodoSummaryWidget::completeTodo( Item::Id id )
 
   if ( todoItem.isValid() ) {
     KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
-  
+
     if ( !todo->isReadOnly() ) {
       KCal::Todo::Ptr oldTodo = KCal::Todo::Ptr( todo->clone() );
       todo->setCompleted( KDateTime::currentLocalDateTime() );
@@ -357,12 +357,12 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   Item todoItem = mCalendar->todo( id );
   KCal::Todo::Ptr todo = Akonadi::todo( todoItem );
 
-  delIt->setEnabled( Akonadi::hasDeleteRights( todoItem ) );
-  
+  delIt->setEnabled( mCalendar->hasDeleteRights( todoItem ) );
+
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
     doneIt->setIcon( KIconLoader::global()->loadIcon( "task-complete", KIconLoader::Small ) );
-    doneIt->setEnabled( Akonadi::hasChangeRights( todoItem ) );
+    doneIt->setEnabled( mCalendar->hasChangeRights( todoItem ) );
   }
   // TODO: add icons to the menu actions
 
