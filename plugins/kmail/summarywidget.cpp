@@ -29,6 +29,8 @@
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
 
+#include <kmime/kmime_message.h>
+
 #include <Akonadi/ChangeRecorder>
 #include <Akonadi/EntityTreeModel>
 #include <Akonadi/CollectionStatistics>
@@ -67,7 +69,7 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
 
   // Create a new change recorder.
   mChangeRecorder = new Akonadi::ChangeRecorder( this );
-  mChangeRecorder->setMimeTypeMonitored( "Message/rfc822" );
+  mChangeRecorder->setMimeTypeMonitored( KMime::Message::mimeType() );
   mChangeRecorder->fetchCollectionStatistics( true );
   mChangeRecorder->setAllMonitored( true );
   mChangeRecorder->collectionFetchScope().setIncludeStatistics( true );

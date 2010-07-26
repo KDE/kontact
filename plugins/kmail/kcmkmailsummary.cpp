@@ -36,6 +36,8 @@
 #include <akonadi/akonadi_next/entitymodelstatesaver.h>
 #include <akonadi/akonadi_next/checkableitemproxymodel.h>
 
+#include <kmime/kmime_message.h>
+
 #include <QCheckBox>
 #include <QTreeView>
 #include <QVBoxLayout>
@@ -102,7 +104,7 @@ void KCMKMailSummary::initFolders()
 {
   // Create a new change recorder.
   mChangeRecorder = new Akonadi::ChangeRecorder( this );
-  mChangeRecorder->setMimeTypeMonitored( "Message/rfc822" );
+  mChangeRecorder->setMimeTypeMonitored( KMime::Message::mimeType() );
 
   mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
 

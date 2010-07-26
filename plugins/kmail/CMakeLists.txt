@@ -12,7 +12,7 @@ set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp ${kontact_k
 kde4_add_plugin(kontact_kmailplugin ${kontact_kmailplugin_PART_SRCS})
 add_dependencies(kontact_kmailplugin kmail_xml)
 
-target_link_libraries(kontact_kmailplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_KCAL_LIBS} kdepim akonadi_next)
+target_link_libraries(kontact_kmailplugin ${KDEPIMLIBS_KMIME_LIBRARY} ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_KCAL_LIBS} kdepim akonadi_next)
 
 ########### next target ###############
 
@@ -21,7 +21,7 @@ set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp ${kontact_kmail_plugins_inter
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 add_dependencies(kcm_kmailsummary kmail_xml)
 
-target_link_libraries(kcm_kmailsummary ${KDE4_KDEUI_LIBS}
+target_link_libraries(kcm_kmailsummary ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KMIME_LIBRARY} 
 ${KDEPIMLIBS_AKONADI_LIBS} akonadi_next akonadi-kcal_next)
 
 ########### install files ###############
