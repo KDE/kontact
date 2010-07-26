@@ -168,7 +168,7 @@ bool KMailPlugin::createDBUSInterface( const QString &serviceType )
 
 QString KMailPlugin::tipFile() const
 {
-  QString file = KStandardDirs::locate( "data", "kmail/tips" );
+  const QString file = KStandardDirs::locate( "data", "kmail/tips" );
   return file;
 }
 

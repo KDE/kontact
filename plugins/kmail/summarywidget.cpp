@@ -208,7 +208,7 @@ void SummaryWidget::updateFolderList()
   mModelState->restoreConfig( config );
   int counter = 0;
   kDebug() << "Iterating over" << mModel->rowCount() << "collections.";
-  bool showFolderPaths = config.readEntry( "showFolderPaths", false );
+  const bool showFolderPaths = config.readEntry( "showFolderPaths", false );
   displayModel( QModelIndex(), counter, showFolderPaths, QStringList() );
 
   if ( counter == 0 ) {
@@ -218,8 +218,8 @@ void SummaryWidget::updateFolderList()
     mLabels.append( label );
   }
 
-  QList<QLabel*>::iterator lit;
-  for ( lit = mLabels.begin(); lit != mLabels.end(); ++lit ) {
+  QList<QLabel*>::const_iterator lit;
+  for ( lit = mLabels.constBegin(); lit != mLabels.constEnd(); ++lit ) {
     (*lit)->show();
   }
 }
