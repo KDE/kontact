@@ -210,9 +210,9 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
   }
 
   if ( KCalUtils::ICalDrag::canDecode( event->mimeData() ) ) {
-    KCalCore::MemoryCalendar cal( KSystemTimeZones::local() );
-    if ( KCalUtils::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
-      KCalCore::Incidence::List incidences = cal.incidences();
+    KCalCore::MemoryCalendar::Ptr cal( new KCalCore::MemoryCalendar( KSystemTimeZones::local() ) );
+    if ( KCalUtils::ICalDrag::fromMimeData( event->mimeData(), cal ) ) {
+      KCalCore::Incidence::List incidences = cal->incidences();
       Q_ASSERT( incidences.count() );
       if ( !incidences.isEmpty() ) {
         event->accept();

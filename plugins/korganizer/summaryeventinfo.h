@@ -30,10 +30,7 @@
 #include <QString>
 
 #include <kcalcore/event.h>
-
-namespace KCalCore {
-  class Calendar;
-};
+#include <kcalcore/calendar.h>
 
 class QDate;
 
@@ -46,7 +43,7 @@ class SummaryEventInfo
     SummaryEventInfo();
 
     static List eventsForDate( const QDate &date,
-                               KCalCore::Calendar *calendar );
+                               const KCalCore::Calendar::Ptr &calendar );
     static void setShowSpecialEvents( bool skipBirthdays, bool skipAnniversaries );
 
     KCalCore::Event::Ptr ev;

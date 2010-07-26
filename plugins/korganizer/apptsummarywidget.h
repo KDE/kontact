@@ -26,6 +26,8 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
+#include <akonadi/kcal/calendaradaptor.h>
+
 #include <KontactInterface/Summary>
 
 class KOrganizerPlugin;
@@ -33,7 +35,6 @@ class KOrganizerPlugin;
 namespace Akonadi {
   class Item;
   class Calendar;
-  class CalendarAdaptor;
   class IncidenceChanger;
 }
 
@@ -72,7 +73,7 @@ class ApptSummaryWidget : public KontactInterface::Summary
     void createCalendar();
 
     Akonadi::Calendar *mCalendar;
-    Akonadi::CalendarAdaptor *mCalendarAdaptor;
+    Akonadi::CalendarAdaptor::Ptr mCalendarAdaptor;
     Akonadi::IncidenceChanger *mChanger;
 
     QGridLayout *mLayout;

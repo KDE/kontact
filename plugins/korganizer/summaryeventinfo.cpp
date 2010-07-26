@@ -105,7 +105,7 @@ SummaryEventInfo::SummaryEventInfo()
 }
 
 SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
-                                                        KCalCore::Calendar *calendar )
+                                                        const KCalCore::Calendar::Ptr &calendar )
 {
   KCalCore::Event::Ptr ev;
 

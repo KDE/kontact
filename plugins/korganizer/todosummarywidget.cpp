@@ -454,7 +454,7 @@ void TodoSummaryWidget::createCalendar()
   CalendarModel *calendarModel = new CalendarModel( monitor, this );
 
   mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
-  mCalendarAdaptor = new CalendarAdaptor( mCalendar, this );
+  mCalendarAdaptor = CalendarAdaptor::Ptr( new CalendarAdaptor( mCalendar, this ) );
 }
 
 #include "todosummarywidget.moc"

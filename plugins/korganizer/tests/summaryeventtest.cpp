@@ -32,7 +32,7 @@ void SummaryEventTester::test_Multiday()
   QDate today = QDate::currentDate();
   QString multidayWithTimeInProgress = "Multiday, time specified, in progress";
 
-  KCalCore::MemoryCalendar *cal = new KCalCore::MemoryCalendar( KDateTime().timeSpec() );
+  KCalCore::MemoryCalendar::Ptr cal( new KCalCore::MemoryCalendar( KDateTime().timeSpec() ) );
 
   KCalCore::Event::Ptr event( new KCalCore::Event() );
   event->setDtStart( KDateTime( today.addDays( -1 ) ) );
@@ -144,6 +144,4 @@ void SummaryEventTester::test_Multiday()
 
   qDeleteAll( eventsToday );
   qDeleteAll( events2 );
-  delete cal;
-
 }

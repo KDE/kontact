@@ -26,6 +26,8 @@
 #ifndef TODO_SUMMARYWIDGET_H
 #define TODO_SUMMARYWIDGET_H
 
+#include <akonadi/kcal/calendaradaptor.h>
+
 #include <kcalcore/todo.h>
 #include <Akonadi/Item>
 
@@ -35,7 +37,6 @@ class TodoPlugin;
 
 namespace Akonadi {
   class Calendar;
-  class CalendarAdaptor;
   class IncidenceChanger;
 }
 
@@ -86,7 +87,7 @@ class TodoSummaryWidget : public KontactInterface::Summary
 
     QList<QLabel*> mLabels;
     Akonadi::Calendar *mCalendar;
-    Akonadi::CalendarAdaptor *mCalendarAdaptor;
+    Akonadi::CalendarAdaptor::Ptr mCalendarAdaptor;
     Akonadi::IncidenceChanger *mChanger;
 
     /**
