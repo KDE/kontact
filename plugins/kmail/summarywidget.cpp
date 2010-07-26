@@ -32,8 +32,10 @@
 #include <Akonadi/ChangeRecorder>
 #include <Akonadi/EntityTreeModel>
 #include <Akonadi/CollectionStatistics>
+#include <Akonadi/CollectionFetchScope>
 #include <akonadi_next/entitymodelstatesaver.h>
 #include <akonadi_next/checkableitemproxymodel.h>
+
 
 #include <KConfigGroup>
 #include <KDebug>
@@ -68,6 +70,8 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   mChangeRecorder->setMimeTypeMonitored( "Message/rfc822" );
   mChangeRecorder->fetchCollectionStatistics( true );
   mChangeRecorder->setAllMonitored( true );
+  mChangeRecorder->collectionFetchScope().setIncludeStatistics( true );
+
 
   mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
   mModel->setItemPopulationStrategy( Akonadi::EntityTreeModel::NoItemPopulation );
