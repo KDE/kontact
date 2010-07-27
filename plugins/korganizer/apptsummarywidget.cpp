@@ -30,8 +30,9 @@
 #include <korganizer/korganizerinterface.h>
 #include <KontactInterface/Core>
 
-#include <kcalcore/calendar.h>
-#include <kcalcore/event.h>
+#include <KCal/Calendar>
+#include <KCal/CalHelper>
+#include <KCal/Event>
 
 #include <akonadi/kcal/calendar.h>
 #include <akonadi/kcal/calendaradaptor.h>
@@ -144,13 +145,11 @@ void ApptSummaryWidget::updateView()
     foreach ( SummaryEventInfo *event, events ) {
 
       // Optionally, show only my Events
-/*      if ( mShowMineOnly && !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, event->ev ) ) {
+      if ( mShowMineOnly && !KCal::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, event->ev ) ) {
         continue;
       }
-      TODO: CalHelper is deprecated, remove this?
-*/
 
-      KCalCore::Event::Ptr ev = event->ev;
+      KCal::Event *ev = event->ev;
       // print the first of the recurring event series only
       if ( ev->recurs() ) {
         if ( uidList.contains( ev->uid() ) ) {
@@ -272,7 +271,7 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
 
   Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
   Item eventItem = mCalendar->event( id );
-  delIt->setEnabled( Akonadi::hasDeleteRights( eventItem ) );
+  delIt->setEnabled( mCalendar->hasDeleteRights( eventItem ) );
 
   const QAction *selectedAction = popup.exec( QCursor::pos() );
   if ( selectedAction == editIt ) {
@@ -319,7 +318,7 @@ void ApptSummaryWidget::createCalendar()
   CalendarModel *calendarModel = new CalendarModel( monitor, this );
 
   mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
-  mCalendarAdaptor = CalendarAdaptor::Ptr( new CalendarAdaptor( mCalendar, this ) );
+  mCalendarAdaptor = new CalendarAdaptor( mCalendar, this );
 }
 
 
