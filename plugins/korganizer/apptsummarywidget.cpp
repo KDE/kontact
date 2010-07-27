@@ -30,9 +30,8 @@
 #include <korganizer/korganizerinterface.h>
 #include <KontactInterface/Core>
 
-#include <KCal/Calendar>
-#include <KCal/CalHelper>
-#include <KCal/Event>
+#include <kcalcore/calendar.h>
+#include <kcalcore/event.h>
 
 #include <akonadi/kcal/calendar.h>
 #include <akonadi/kcal/calendaradaptor.h>
@@ -145,11 +144,13 @@ void ApptSummaryWidget::updateView()
     foreach ( SummaryEventInfo *event, events ) {
 
       // Optionally, show only my Events
-      if ( mShowMineOnly && !KCal::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, event->ev ) ) {
+/*      if ( mShowMineOnly && !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, event->ev ) ) {
         continue;
       }
+      TODO: CalHelper is deprecated, remove this?
+*/
 
-      KCal::Event *ev = event->ev;
+      KCalCore::Event::Ptr ev = event->ev;
       // print the first of the recurring event series only
       if ( ev->recurs() ) {
         if ( uidList.contains( ev->uid() ) ) {
@@ -318,7 +319,7 @@ void ApptSummaryWidget::createCalendar()
   CalendarModel *calendarModel = new CalendarModel( monitor, this );
 
   mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
-  mCalendarAdaptor = new CalendarAdaptor( mCalendar, this );
+  mCalendarAdaptor = CalendarAdaptor::Ptr( new CalendarAdaptor( mCalendar, this ) );
 }
 
 
