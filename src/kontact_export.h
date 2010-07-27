@@ -24,7 +24,10 @@
 #include <kdemacros.h>
 
 #ifndef KONTACT_EXPORT
-# if defined(MAKE_KONTACTPRIVATE_LIB)
+# if defined(KDEPIM_STATIC_LIBS)
+   /* No export/import for static libraries */
+#  define KONTACT_EXPORT
+# elif defined(MAKE_KONTACTPRIVATE_LIB)
    /* We are building this library */
 #  define KONTACT_EXPORT KDE_EXPORT
 # else

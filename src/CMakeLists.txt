@@ -17,7 +17,7 @@ set(kontactprivate_LIB_SRCS
 
 kde4_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc )
 
-kde4_add_library(kontactprivate SHARED ${kontactprivate_LIB_SRCS})
+kde4_add_library(kontactprivate ${LIBRARY_TYPE} ${kontactprivate_LIB_SRCS})
 
 target_link_libraries(kontactprivate  ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${QT_QTWEBKIT_LIBRARY} ${KDE4_KDEWEBKIT_LIBRARY} ${KDE4_KCMUTILS_LIBS} ${KDEPIMLIBS_KPIMUTILS_LIBS} kdepim ${KDE4_KDE3SUPPORT_LIBRARY} ${QT_QT3SUPPORT_LIBRARY} kdepimdbusinterfaces)
 
