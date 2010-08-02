@@ -30,10 +30,8 @@
 #include <libkdepim/maillistdrag.h>
 
 #include <KABC/VCardDrag>
-
-#include <kcalcore/incidence.h>
-#include <kcalcore/memorycalendar.h>
-#include <kcalutils/icaldrag.h>
+#include <KCal/CalendarLocal>
+#include <KCal/ICalDrag>
 
 #include <KontactInterface/Core>
 
@@ -150,12 +148,16 @@ void KOrganizerPlugin::slotNewEvent()
 
 void KOrganizerPlugin::slotSyncEvents()
 {
+#if 0
   QDBusMessage message =
       QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
                                       "org.kde.kmail.groupware",
                                       "triggerSync" );
   message << QString( "Calendar" );
   QDBusConnection::sessionBus().send( message );
+#else
+  kWarning()<<" KOrganizerPlugin::slotSyncEvents : need to port to Akonadi";
+#endif
 }
 
 bool KOrganizerPlugin::createDBUSInterface( const QString &serviceType )
@@ -205,16 +207,16 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  if ( KCalUtils::ICalDrag::canDecode( event->mimeData() ) ) {
-      KCalCore::MemoryCalendar::Ptr cal( new KCalCore::MemoryCalendar( KSystemTimeZones::local() ) );
-      if ( KCalUtils::ICalDrag::fromMimeData( event->mimeData(), cal ) ) {
-          KCalCore::Incidence::List incidences = cal->incidences();
+  if ( KCal::ICalDrag::canDecode( event->mimeData() ) ) {
+      KCal::CalendarLocal cal( KSystemTimeZones::local() );
+      if ( KCal::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
+          KCal::Incidence::List incidences = cal.incidences();
           Q_ASSERT( incidences.count() );
           if ( !incidences.isEmpty() ) {
               event->accept();
-              KCalCore::Incidence::Ptr i = incidences.first();
+              KCal::Incidence *i = incidences.first();
               QString summary;
-              if ( i->type() == KCalCore::Incidence::TypeJournal ) {
+              if ( dynamic_cast<KCal::Journal*>( i ) ) {
                 summary = i18nc( "@item", "Note: %1", i->summary() );
               } else {
                 summary = i->summary();
