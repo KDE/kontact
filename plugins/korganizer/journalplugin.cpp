@@ -31,7 +31,7 @@
 #include <KActionCollection>
 #include <KIconLoader>
 #include <KLocale>
-
+#include <KDebug>
 #include <QtDBus/QtDBus>
 
 EXPORT_KONTACT_PLUGIN( JournalPlugin, journal )
@@ -134,12 +134,16 @@ void JournalPlugin::slotNewJournal()
 
 void JournalPlugin::slotSyncJournal()
 {
+#if 0 //TODO porting !!!!
   QDBusMessage message =
       QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
                                       "org.kde.kmail.groupware",
                                       "triggerSync" );
   message << QString( "Journal" );
   QDBusConnection::sessionBus().send( message );
+#else
+  kWarning()<<" JournalPlugin::slotSyncJournal : need to port to Akonadi";
+#endif
 }
 
 bool JournalPlugin::createDBUSInterface( const QString &serviceType )
