@@ -44,8 +44,7 @@
 #include <Akonadi/Contact/ContactSearchJob>
 #include <Akonadi/Contact/ContactViewerDialog>
 
-#include <KCal/Calendar>
-#include <KCal/CalHelper>
+#include <kcalcore/calendar.h>
 
 #include <KMenu>
 #include <KLocale>
@@ -199,7 +198,7 @@ void SDSummaryWidget::configUpdated()
 
   group = config.group( "Groupware" );
   mShowMineOnly = group.readEntry( "ShowMineOnly", false );
-  
+
   updateView();
 }
 
@@ -217,7 +216,7 @@ bool SDSummaryWidget::initHolidays()
 }
 
 // number of days remaining in an Event
-int SDSummaryWidget::span( KCal::Event::Ptr event ) const
+int SDSummaryWidget::span( const KCalCore::Event::Ptr &event ) const
 {
   int span = 1;
   if ( event->isMultiDay() && event->allDay() ) {
@@ -234,7 +233,7 @@ int SDSummaryWidget::span( KCal::Event::Ptr event ) const
 }
 
 // day of a multiday Event
-int SDSummaryWidget::dayof( KCal::Event::Ptr event, const QDate &date ) const
+int SDSummaryWidget::dayof( const KCalCore::Event::Ptr &event, const QDate &date ) const
 {
   int dayof = 1;
   QDate d = event->dtStart().date();
@@ -304,18 +303,20 @@ void SDSummaryWidget::createLabels()
                                            EventSortStartDate,
                                            SortDirectionAscending );
     foreach ( const Item &item, items ) {
-      KCal::Event::Ptr ev = Akonadi::event( item );
+      KCalCore::Event::Ptr ev = Akonadi::event( item );
 
       // Optionally, show only my Events
-      if ( mShowMineOnly && !KCal::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, ev.get() ) ) {
+      /* if ( mShowMineOnly && !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, ev. ) ) {
         // FIXME; does isMyCalendarIncidence work !? It's deprecated too.
         continue;
-      }
+        }
+        // TODO: CalHelper is deprecated, remove this?
+        */
 
       if ( ev->customProperty("KABC","BIRTHDAY" ) == "YES" ) {
         // Skipping, because these are got by the BirthdaySearchJob
         // See comments in updateView()
-        continue; 
+        continue;
       }
 
       if ( !ev->categoriesStr().isEmpty() ) {
@@ -629,7 +630,7 @@ void SDSummaryWidget::updateView()
    *
    * We could remove thomas' BirthdaySearchJob and use the ETM for that
    * but it has the advantage that we don't need a Birthday agent running.
-   * 
+   *
    **/
 
   // Search for Birthdays

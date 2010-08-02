@@ -30,8 +30,9 @@
 #include <libkdepim/maillistdrag.h>
 
 #include <KABC/VCardDrag>
-#include <KCal/CalendarLocal>
-#include <KCal/ICalDrag>
+
+#include <kcalcore/memorycalendar.h>
+#include <kcalutils/icaldrag.h>
 
 #include <KontactInterface/Core>
 
@@ -178,7 +179,7 @@ bool TodoPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
     mimeData->hasText() ||
     KPIM::MailList::canDecode( mimeData ) ||
     KABC::VCardDrag::canDecode( mimeData ) ||
-    KCal::ICalDrag::canDecode( mimeData );
+    KCalUtils::ICalDrag::canDecode( mimeData );
 }
 
 bool TodoPlugin::isRunningStandalone() const
@@ -212,16 +213,16 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  if ( KCal::ICalDrag::canDecode( event->mimeData() ) ) {
-    KCal::CalendarLocal cal( KSystemTimeZones::local() );
-    if ( KCal::ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
-      KCal::Incidence::List incidences = cal.incidences();
+  if ( KCalUtils::ICalDrag::canDecode( event->mimeData() ) ) {
+    KCalCore::MemoryCalendar::Ptr cal( new KCalCore::MemoryCalendar( KSystemTimeZones::local() ) );
+    if ( KCalUtils::ICalDrag::fromMimeData( event->mimeData(), cal ) ) {
+      KCalCore::Incidence::List incidences = cal->incidences();
       Q_ASSERT( incidences.count() );
       if ( !incidences.isEmpty() ) {
         event->accept();
-        KCal::Incidence *i = incidences.first();
+        KCalCore::Incidence::Ptr i = incidences.first();
         QString summary;
-        if ( dynamic_cast<KCal::Journal*>( i ) ) {
+        if ( i->type() == KCalCore::Incidence::TypeJournal ) {
           summary = i18nc( "@item", "Note: %1", i->summary() );
         } else {
           summary = i->summary();
