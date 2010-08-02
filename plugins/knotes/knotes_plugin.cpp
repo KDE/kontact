@@ -208,10 +208,14 @@ void KNotesPlugin::slotNewNote()
 
 void KNotesPlugin::slotSyncNotes()
 {
+#if 0
   QDBusMessage message = QDBusMessage::createMethodCall(
     "org.kde.kmail", "/Groupware", "org.kde.kmail.groupware", "triggerSync" );
   message << QString( "Note" );
   QDBusConnection::sessionBus().send( message );
+#else
+  kWarning()<<" Need to port to AKONADI: KNotesPlugin::slotSyncNotes";
+#endif
 }
 
 #include "knotes_plugin.moc"
