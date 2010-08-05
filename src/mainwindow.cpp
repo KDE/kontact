@@ -513,22 +513,24 @@ void MainWindow::sortActionsByWeight()
 {
   QPtrList<KAction> sorted;
 
-  QPtrListIterator<KAction> it( mActionPlugins );
+  QPtrListIterator<KAction> eit( mActionPlugins );
   KAction *action;
-  while ( ( action = it.current() ) != 0 ) {
-    ++it;
+  while ( ( action = eit.current() ) != 0 ) {
+    ++eit;
+    QPtrListIterator<KAction> sortIt( sorted );
+    uint at = 0;
     KAction *saction;
-    int index=0;
-    for ( saction = sorted.first(); saction; saction = sorted.next() ) {
-      Plugin *p1 = pluginFromAction( action );
+    Plugin *p1 = pluginFromAction( action );
+    while ( ( saction = sortIt.current() ) != 0 ) {
       Plugin *p2 = pluginFromAction( saction );
-      if ( p1 && p2 ) {
-        if (  p1->weight() > p2->weight() ) {
-          index++;
-        }
+      if ( p1 && p2 && p1->weight() >= p2->weight() ) {
+        ++sortIt;
+        ++at;
+      } else {
+        break;
       }
     }
-    sorted.insert( index, action );
+    sorted.insert( at, action );
   }
   mActionPlugins = sorted;
 }
@@ -636,6 +638,8 @@ void MainWindow::updateShortcuts()
       QString shortcut = QString( "CTRL+%1" ).arg( i );
       action->setShortcut( KShortcut( shortcut ) );
       i++;
+    } else {
+      action->setShortcut( KShortcut() );
     }
   }
   factory()->plugActionList( this, QString( "navigator_actionlist" ), loadedActions );
@@ -644,13 +648,12 @@ void MainWindow::updateShortcuts()
 bool MainWindow::removePlugin( const KPluginInfo *info )
 {
   PluginList::Iterator end = mPlugins.end();
-  for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it )
+  for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it ) {
     if ( ( *it )->identifier() == info->pluginName() ) {
       Plugin *plugin = *it;
 
       KAction *action;
       QPtrList<KAction> *actionList = plugin->newActions();
-
       for ( action = actionList->first(); action; action = actionList->next() ) {
         kdDebug(5600) << "Unplugging " << action->name() << endl;
         action->unplug( mNewActions->popupMenu() );
@@ -672,9 +675,7 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
       mPlugins.remove( it );
 
       if ( plugin->showInSideBar() ) {
-        KAction *q = mPluginAction[plugin]; // remove KAction, to free the shortcut for later use
         mPluginAction.remove( plugin );
-        delete q;
       }
 
       if ( mCurrentPlugin == 0 ) {
@@ -686,10 +687,9 @@ bool MainWindow::removePlugin( const KPluginInfo *info )
           }
         }
       }
-
       return true;
     }
-
+  }
   return false;
 }
 
@@ -719,7 +719,6 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
       action->setShortcut( KShortcut() );
     }
   }
-
 }
 
 void MainWindow::partLoaded( Kontact::Plugin*, KParts::ReadOnlyPart *part )
