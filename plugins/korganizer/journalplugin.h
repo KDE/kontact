@@ -40,7 +40,7 @@ class JournalPlugin : public Kontact::Plugin
 
     virtual bool createDCOPInterface( const QString& serviceType );
     virtual bool isRunningStandalone();
-    int weight() const { return 500; }
+    int weight() const { return 525; }
 
     virtual QStringList invisibleToolbarActions() const;
 
