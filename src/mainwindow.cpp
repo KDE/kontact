@@ -153,18 +153,6 @@ void MainWindow::initGUI()
   createGUI( 0 );
 
   loadPlugins();
-  sortActionsByWeight();
-
-  QPtrList<KAction> loadedActions;
-  QPtrListIterator<KAction> il( mActionPlugins );
-  KAction *action;
-  while ( ( action = il.current() ) != 0 ) {
-    ++il;
-    if ( isPluginLoadedByAction( action ) ) {
-      loadedActions.append( action );
-    }
-  }
-  factory()->plugActionList( this, QString( "navigator_actionlist" ), loadedActions );
 
   resize( 700, 520 ); // initial size to prevent a scrollbar in sidepane
   setAutoSaveSettings();
@@ -597,6 +585,9 @@ void MainWindow::loadPlugins()
     for ( action = actionList->first(); action; action = actionList->next() ) {
       kdDebug(5600) << "Plugging " << action->name() << endl;
       action->plug( mNewActions->popupMenu() );
+      if ( action->name() == plugin->identifier() ) {
+        mPluginAction.insert( plugin, action );
+      }
     }
 
     if ( mSyncActionsEnabled ) {
@@ -608,6 +599,7 @@ void MainWindow::loadPlugins()
     }
     addPlugin( plugin );
   }
+  updateShortcuts();
 
   mNewActions->setEnabled( mPlugins.size() != 0 );
   if ( mSyncActionsEnabled )
@@ -628,6 +620,8 @@ void MainWindow::updateShortcuts()
 {
   QPtrList<KAction> loadedActions;
 
+  sortActionsByWeight();
+
   QPtrListIterator<KAction> it( mActionPlugins );
   int i = 1;
   KAction *action;
@@ -642,6 +636,7 @@ void MainWindow::updateShortcuts()
       action->setShortcut( KShortcut() );
     }
   }
+  unplugActionList( "navigator_actionlist" );
   factory()->plugActionList( this, QString( "navigator_actionlist" ), loadedActions );
 }
 
@@ -701,24 +696,6 @@ void MainWindow::addPlugin( Kontact::Plugin *plugin )
 
   // merge the plugins GUI into the main window
   insertChildClient( plugin );
-
-  sortActionsByWeight();
-  QPtrListIterator<KAction> it( mActionPlugins );
-  int i = 1;
-  KAction *action;
-  while ( ( action = it.current() ) != 0 ) {
-    ++it;
-    if ( isPluginLoadedByAction( action ) ) {
-      QString shortcut = QString( "CTRL+%1" ).arg( i );
-      action->setShortcut( KShortcut( shortcut ) );
-      if ( action->name() == plugin->identifier() ) {
-        mPluginAction.insert( plugin, action );
-      }
-      i++;
-    } else {
-      action->setShortcut( KShortcut() );
-    }
-  }
 }
 
 void MainWindow::partLoaded( Kontact::Plugin*, KParts::ReadOnlyPart *part )
@@ -1034,7 +1011,6 @@ int MainWindow::startServiceFor( const QString& serviceType,
 
 void MainWindow::pluginsChanged()
 {
-  unplugActionList( "navigator_actionlist" );
   unloadPlugins();
   loadPlugins();
   mSidePane->updatePlugins();
