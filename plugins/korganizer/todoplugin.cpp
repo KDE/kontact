@@ -259,7 +259,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openTodoEditor(
         i18nc( "@item", "Mail: %1", mail.subject() ),
-        txt, uri, tf.fileName(), QStringList(), "message/rfc822", false );
+        txt, uri, tf.fileName(), QStringList(), "message/rfc822" );
       tf.close();
     }
     return;
