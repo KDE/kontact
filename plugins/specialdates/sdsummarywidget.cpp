@@ -325,7 +325,7 @@ void SDSummaryWidget::createLabels()
         for ( it2 = c.constBegin(); it2 != c.constEnd(); ++it2 ) {
 
           // Append Birthday Event?
-          if ( mShowBirthdaysFromCal && ( ( *it2 ).toUpper() == i18n( "BIRTHDAY" ) ) ) {
+          if ( mShowBirthdaysFromCal && ( ( *it2 ).toUpper() == "BIRTHDAY" ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryBirthday;
@@ -347,7 +347,7 @@ void SDSummaryWidget::createLabels()
           }
 
           // Append Anniversary Event?
-          if ( mShowAnniversariesFromCal && ( ( *it2 ).toUpper() == i18n( "ANNIVERSARY" ) ) ) {
+          if ( mShowAnniversariesFromCal && ( ( *it2 ).toUpper() == "ANNIVERSARY"  ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryAnniversary;
@@ -363,7 +363,7 @@ void SDSummaryWidget::createLabels()
           }
 
           // Append Holiday Event?
-          if ( mShowHolidays && ( ( *it2 ).toUpper() == i18n( "HOLIDAY" ) ) ) {
+          if ( mShowHolidays && ( ( *it2 ).toUpper() == "HOLIDAY" ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryHoliday;
@@ -381,7 +381,7 @@ void SDSummaryWidget::createLabels()
           }
 
           // Append Special Occasion Event?
-          if ( mShowSpecialsFromCal && ( ( *it2 ).toUpper() == i18n( "SPECIAL OCCASION" ) ) ) {
+          if ( mShowSpecialsFromCal && ( ( *it2 ).toUpper() == "SPECIAL OCCASION"  ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryOther;
