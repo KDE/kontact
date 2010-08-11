@@ -1,6 +1,5 @@
 
-include_directories(${CMAKE_SOURCE_DIR}/kjots)
-include_directories(${CMAKE_BINARY_DIR}/kjots)
+include_directories(${CMAKE_SOURCE_DIR}/kjots ${CMAKE_BINARY_DIR}/kjots)
 
 set(kontact_kjotsplugin_PART_SRCS
   kjots_plugin.cpp
