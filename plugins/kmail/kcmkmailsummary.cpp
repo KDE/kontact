@@ -128,7 +128,7 @@ void KCMKMailSummary::loadFolders()
   KConfig _config( "kcmkmailsummaryrc" );
   KConfigGroup config(&_config, "General" );
   mCollectionSelectionModelStateSaver->restoreConfig( config );
-  bool showFolderPaths = config.readEntry( "showFolderPaths", false );
+  const bool showFolderPaths = config.readEntry( "showFolderPaths", false );
   mFullPath->setChecked( showFolderPaths );
 }
 
