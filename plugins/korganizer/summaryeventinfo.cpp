@@ -58,11 +58,11 @@ bool SummaryEventInfo::skip( const KCalCore::Event::Ptr &event )
   //the appropriate category to the event.
   QStringList c = event->categories();
   if ( !mShowBirthdays &&
-       c.contains( i18n( "BIRTHDAY" ), Qt::CaseInsensitive ) ) {
+       c.contains( "BIRTHDAY", Qt::CaseInsensitive ) ) {
     return true;
   }
   if ( !mShowAnniversaries &&
-       c.contains( i18n( "ANNIVERSARY" ), Qt::CaseInsensitive ) ) {
+       c.contains( "ANNIVERSARY", Qt::CaseInsensitive ) ) {
     return true;
   }
 
