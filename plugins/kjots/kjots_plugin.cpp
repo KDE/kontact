@@ -128,8 +128,10 @@ int KJotsUniqueAppHandler::newInstance()
 {
   // Ensure part is loaded
   (void)plugin()->part();
+#if 0  
   org::kde::KJotsWidget kjots(
     "org.kde.kjots", "/KJotsWidget", QDBusConnection::sessionBus() );
+#endif  
   return KontactInterface::UniqueAppHandler::newInstance();
 
 }
