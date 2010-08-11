@@ -60,6 +60,8 @@ KNodePlugin::KNodePlugin( KontactInterface::Core *core, const QVariantList & )
 
 KNodePlugin::~KNodePlugin()
 {
+  delete m_interface;
+  m_interface = 0;
 }
 
 bool KNodePlugin::createDBUSInterface( const QString &serviceType )

@@ -60,6 +60,8 @@ AkregatorPlugin::AkregatorPlugin( KontactInterface::Core *core, const QVariantLi
 
 AkregatorPlugin::~AkregatorPlugin()
 {
+  delete m_interface;
+  m_interface = 0; 
 }
 
 bool AkregatorPlugin::isRunningStandalone() const

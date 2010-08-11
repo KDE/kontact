@@ -70,6 +70,8 @@ KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
 
 KJotsPlugin::~KJotsPlugin()
 {
+  delete m_interface;
+  m_interface = 0;
 }
 
 bool KJotsPlugin::isRunningStandalone() const
