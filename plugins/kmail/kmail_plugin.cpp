@@ -154,6 +154,8 @@ void KMailPlugin::slotSyncFolders()
 
 KMailPlugin::~KMailPlugin()
 {
+  delete m_instance;
+  m_instance = 0;
 }
 
 bool KMailPlugin::createDBUSInterface( const QString &serviceType )
