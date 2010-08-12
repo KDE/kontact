@@ -33,7 +33,6 @@
 #include <akonadi/kcal/calendarmodel.h>
 #include <akonadi/kcal/calendaradaptor.h>
 #include <akonadi/kcal/incidencechanger.h>
-#include <akonadi/kcal/incidencemimetypevisitor.h>
 
 #include <Akonadi/Session>
 #include <Akonadi/Collection>
@@ -44,7 +43,7 @@
 #include <Akonadi/Contact/ContactSearchJob>
 #include <Akonadi/Contact/ContactViewerDialog>
 
-#include <kcalcore/calendar.h>
+#include <KCalCore/Calendar>
 
 #include <KMenu>
 #include <KLocale>
@@ -761,7 +760,7 @@ void SDSummaryWidget::createCalendar()
   monitor->setCollectionMonitored( Collection::root() );
   monitor->fetchCollection( true );
   monitor->setItemFetchScope( scope );
-  monitor->setMimeTypeMonitored( Akonadi::IncidenceMimeTypeVisitor::eventMimeType(), true );
+  monitor->setMimeTypeMonitored( KCalCore::Event::eventMimeType(), true );
   CalendarModel *calendarModel = new CalendarModel( monitor, this );
 
   mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );

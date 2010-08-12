@@ -34,7 +34,6 @@
 #include <akonadi/kcal/calendar.h>
 #include <akonadi/kcal/calendaradaptor.h>
 #include <akonadi/kcal/calendarmodel.h>
-#include <akonadi/kcal/incidencemimetypevisitor.h>
 #include <akonadi/kcal/utils.h>
 #include <akonadi/kcal/incidencechanger.h>
 
@@ -449,7 +448,7 @@ void TodoSummaryWidget::createCalendar()
   monitor->setCollectionMonitored( Collection::root() );
   monitor->fetchCollection( true );
   monitor->setItemFetchScope( scope );
-  monitor->setMimeTypeMonitored( Akonadi::IncidenceMimeTypeVisitor::todoMimeType(), true );
+  monitor->setMimeTypeMonitored( KCalCore::Todo::todoMimeType(), true );
   CalendarModel *calendarModel = new CalendarModel( monitor, this );
 
   mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
