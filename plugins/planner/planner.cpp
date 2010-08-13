@@ -395,7 +395,7 @@ int Planner::showTodos( int counter, const QDate &date )
 
       if ( mShowReminder ) {
         QPixmap alarm;
-        if ( todo->isAlarmEnabled() ) {
+        if ( todo->hasEnabledAlarms() ) {
           alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
         }
         label = new QLabel( this );
@@ -409,7 +409,7 @@ int Planner::showTodos( int counter, const QDate &date )
 
       if ( mShowRecurrence ) {
         QPixmap recur;
-        if ( todo->isAlarmEnabled() ) {
+        if ( todo->hasEnabledAlarms() ) {
           recur = loader.loadIcon( "task-recurring", KIconLoader::Small );
         }
         label = new QLabel( this );
@@ -561,7 +561,7 @@ int Planner::showEvents( int counter, const QDate &date )
        //Show icon if Alarm is enabled
       if ( mShowReminder ) {
         QPixmap alarm;
-        if ( ev->isAlarmEnabled () ) {
+        if ( ev->hasEnabledAlarms () ) {
           alarm = loader.loadIcon( "task-reminder", KIconLoader::Small );
         }
         label = new QLabel( this );
