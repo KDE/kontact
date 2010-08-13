@@ -27,10 +27,10 @@
 #include "summarywidget.h"
 
 #include <KABC/VCardDrag>
-#include <KCal/CalendarLocal>
-#include <KCal/ICalDrag>
-#include <KCal/VCalDrag>
-using namespace KCal;
+#include <KCalCore/MemoryCalendar>
+#include <KCalCore/FileStorage>
+#include <KCalUtils/ICalDrag>
+#include <KCalUtils/VCalDrag>
 
 #include <KontactInterface/Core>
 
@@ -43,6 +43,9 @@ using namespace KCal;
 #include <KTemporaryFile>
 
 #include <QDropEvent>
+
+using namespace KCalUtils;
+using namespace KCalCore;
 
 EXPORT_KONTACT_PLUGIN( KMailPlugin, kmail )
 
@@ -91,17 +94,18 @@ bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 
 void KMailPlugin::processDropEvent( QDropEvent *de )
 {
-  CalendarLocal cal( QString::fromLatin1( "UTC" ) );
+  MemoryCalendar::Ptr cal( new MemoryCalendar( QString::fromLatin1( "UTC" ) ) );
   KABC::Addressee::List list;
   const QMimeData *md = de->mimeData();
 
-  if ( VCalDrag::fromMimeData( md, &cal ) || ICalDrag::fromMimeData( md, &cal ) ) {
+  if ( VCalDrag::fromMimeData( md, cal ) || ICalDrag::fromMimeData( md, cal ) ) {
     KTemporaryFile tmp;
     tmp.setPrefix( "incidences-" );
     tmp.setSuffix( ".ics" );
     tmp.setAutoRemove( false );
     tmp.open();
-    cal.save( tmp.fileName() );
+    FileStorage storage( cal, tmp.fileName() );
+    storage.save();
     openComposer( KUrl( tmp.fileName() ) );
   } else if ( KABC::VCardDrag::fromMimeData( md, list ) ) {
     KABC::Addressee::List::Iterator it;
