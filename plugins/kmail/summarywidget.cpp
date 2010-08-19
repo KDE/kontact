@@ -213,6 +213,8 @@ void SummaryWidget::updateFolderList()
   mModelState->restoreState();
   int counter = 0;
   kDebug() << "Iterating over" << mModel->rowCount() << "collections.";
+  KConfig _config("kcmkmailsummaryrc");
+  KConfigGroup config( &_config, "General" );
   const bool showFolderPaths = config.readEntry( "showFolderPaths", false );
   displayModel( QModelIndex(), counter, showFolderPaths, QStringList() );
 
