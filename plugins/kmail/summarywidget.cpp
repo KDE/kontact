@@ -35,7 +35,7 @@
 #include <Akonadi/EntityTreeModel>
 #include <Akonadi/CollectionStatistics>
 #include <Akonadi/CollectionFetchScope>
-#include <akonadi_next/entitymodelstatesaver.h>
+#include <akonadi/etmviewstatesaver.h>
 #include <akonadi_next/checkableitemproxymodel.h>
 
 
@@ -82,8 +82,11 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   mModelProxy = new CheckableItemProxyModel( this );
   mModelProxy->setSelectionModel( mSelectionModel );
   mModelProxy->setSourceModel( mModel );
-  mModelState = new Akonadi::EntityModelStateSaver( mModelProxy, this );
-  mModelState->addRole( Qt::CheckStateRole, "CheckState" );
+
+  KSharedConfigPtr _config = KSharedConfig::openConfig("kcmkmailsummaryrc");
+
+  mModelState = new Future::KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config, "CheckState", this );
+  mModelState->setSelectionModel( mSelectionModel );
 
   connect( mChangeRecorder, SIGNAL( collectionChanged( const Akonadi::Collection & ) ), SLOT( slotCollectionChanged( const Akonadi::Collection& ) ) );
   connect( mChangeRecorder, SIGNAL( collectionRemoved( const Akonadi::Collection & ) ), SLOT( slotCollectionChanged( const Akonadi::Collection& ) ) );
@@ -207,9 +210,7 @@ void SummaryWidget::updateFolderList()
 {
   qDeleteAll( mLabels );
   mLabels.clear();
-  KConfig _config( "kcmkmailsummaryrc" );
-  KConfigGroup config( &_config, "General" );
-  mModelState->restoreConfig( config );
+  mModelState->restoreState();
   int counter = 0;
   kDebug() << "Iterating over" << mModel->rowCount() << "collections.";
   const bool showFolderPaths = config.readEntry( "showFolderPaths", false );
