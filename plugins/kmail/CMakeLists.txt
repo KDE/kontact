@@ -1,5 +1,5 @@
 include_directories(${CMAKE_SOURCE_DIR}/kmail ${CMAKE_BINARY_DIR}/kmail
-	${CMAKE_SOURCE_DIR}/messageviewer  ${CMAKE_SOURCE_DIR}/akonadi ${Boost_INCLUDE_DIRS})
+	${CMAKE_SOURCE_DIR}/messageviewer ${Boost_INCLUDE_DIRS})
 
 ########### next target ###############
 set(interface_SRCS)
