@@ -31,11 +31,12 @@
 
 #include <kcalutils/incidenceformatter.h>
 
-#include <akonadi/kcal/calendar.h>
-#include <akonadi/kcal/calendaradaptor.h>
-#include <akonadi/kcal/calendarmodel.h>
-#include <akonadi/kcal/utils.h>
-#include <akonadi/kcal/incidencechanger.h>
+#include <calendarsupport/calendar.h>
+#include <calendarsupport/calendaradaptor.h>
+#include <calendarsupport/calendarmodel.h>
+#include <calendarsupport/groupware.h>
+#include <calendarsupport/incidencechanger.h>
+#include <calendarsupport/utils.h>
 
 #include <Akonadi/ChangeRecorder>
 #include <Akonadi/Session>
@@ -55,7 +56,6 @@
 #include <QTextDocument>  // for Qt::mightBeRichText
 #include <QVBoxLayout>
 
-using namespace Akonadi;
 using namespace KCalUtils;
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
@@ -75,8 +75,8 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
 
   createCalendar();
 
-  mChanger = new IncidenceChanger( mCalendar, parent );
-  mChanger->setGroupware( Groupware::create( mCalendar, 0 ) );
+  mChanger = new CalendarSupport::IncidenceChanger( mCalendar, parent );
+  mChanger->setGroupware( CalendarSupport::Groupware::create( mCalendar, 0 ) );
 
   connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), SLOT(updateView()) );
@@ -119,11 +119,11 @@ void TodoSummaryWidget::updateView()
   //    days to go before to-do is due
   //    which types of to-dos to hide
 
-  Item::List prList;
+  Akonadi::Item::List prList;
 
   const QDate currDate = QDate::currentDate();
-  Q_FOREACH ( const Item &todoItem, mCalendar->todos() ) {
-    KCalCore::Todo::Ptr todo = Akonadi::todo( todoItem );
+  Q_FOREACH ( const Akonadi::Item &todoItem, mCalendar->todos() ) {
+    KCalCore::Todo::Ptr todo = CalendarSupport::todo( todoItem );
     if ( todo->hasDueDate() ) {
       const int daysTo = currDate.daysTo( todo->dtDue().date() );
       if ( daysTo >= mDaysToGo ) {
@@ -150,15 +150,15 @@ void TodoSummaryWidget::updateView()
     prList.append( todoItem );
   }
   if ( !prList.isEmpty() ) {
-    prList = Calendar::sortTodos( prList,
-                                  TodoSortSummary,
-                                  SortDirectionAscending );
-    prList = Calendar::sortTodos( prList,
-                                  TodoSortPriority,
-                                  SortDirectionAscending );
-    prList = Calendar::sortTodos( prList,
-                                  TodoSortDueDate,
-                                  SortDirectionAscending );
+    prList = CalendarSupport::Calendar::sortTodos( prList,
+                                                   CalendarSupport::TodoSortSummary,
+                                                   CalendarSupport::SortDirectionAscending );
+    prList = CalendarSupport::Calendar::sortTodos( prList,
+                                                   CalendarSupport::TodoSortPriority,
+                                                   CalendarSupport::SortDirectionAscending );
+    prList = CalendarSupport::Calendar::sortTodos( prList,
+                                                   CalendarSupport::TodoSortDueDate,
+                                                   CalendarSupport::SortDirectionAscending );
   }
 
   // The to-do print consists of the following fields:
@@ -187,8 +187,8 @@ void TodoSummaryWidget::updateView()
 
     QString str;
 
-    Q_FOREACH ( const Item &todoItem, prList ) {
-      KCalCore::Todo::Ptr todo = Akonadi::todo( todoItem );
+    Q_FOREACH ( const Akonadi::Item &todoItem, prList ) {
+      KCalCore::Todo::Ptr todo = CalendarSupport::todo( todoItem );
       bool makeBold = false;
       int daysTo = -1;
 
@@ -258,7 +258,7 @@ TODO: calhelper is deprecated, remove this?
       str = todo->summary();
       if ( !todo->relatedTo().isEmpty() ) { // show parent only, not entire ancestry
         Akonadi::Item parentItem = mCalendar->itemForIncidenceUid( todo->relatedTo() );
-        KCalCore::Incidence::Ptr inc = Akonadi::incidence( parentItem );
+        KCalCore::Incidence::Ptr inc = CalendarSupport::incidence( parentItem );
         if ( inc ) {
           str = inc->summary() + ':' + str;
         }
@@ -316,7 +316,7 @@ TODO: calhelper is deprecated, remove this?
 
 void TodoSummaryWidget::viewTodo( const QString &uid )
 {
-  Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+  Akonadi::Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
 
   if ( id != -1 ) {
     mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
@@ -327,23 +327,23 @@ void TodoSummaryWidget::viewTodo( const QString &uid )
   }
 }
 
-void TodoSummaryWidget::removeTodo( const Item &item )
+void TodoSummaryWidget::removeTodo( const Akonadi::Item &item )
 {
   mChanger->deleteIncidence( item );
 }
 
-void TodoSummaryWidget::completeTodo( Item::Id id )
+void TodoSummaryWidget::completeTodo( Akonadi::Item::Id id )
 {
-  Item todoItem = mCalendar->todo( id );
+  Akonadi::Item todoItem = mCalendar->todo( id );
 
   if ( todoItem.isValid() ) {
-    KCalCore::Todo::Ptr todo = Akonadi::todo( todoItem );
+    KCalCore::Todo::Ptr todo = CalendarSupport::todo( todoItem );
     if ( !todo->isReadOnly() ) {
       KCalCore::Todo::Ptr oldTodo( todo->clone() );
       todo->setCompleted( KDateTime::currentLocalDateTime() );
       // TODO, use incidenceChanger
       mChanger->changeIncidence( oldTodo, todoItem,
-                                 IncidenceChanger::COMPLETION_MODIFIED, 0 );
+                                 CalendarSupport::IncidenceChanger::COMPLETION_MODIFIED, 0 );
       updateView();
     }
   }
@@ -357,9 +357,9 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   delIt->setIcon( KIconLoader::global()->loadIcon( "edit-delete", KIconLoader::Small ) );
 
   QAction *doneIt = 0;
-  Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
-  Item todoItem = mCalendar->todo( id );
-  KCalCore::Todo::Ptr todo = Akonadi::todo( todoItem );
+  Akonadi::Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+  Akonadi::Item todoItem = mCalendar->todo( id );
+  KCalCore::Todo::Ptr todo = CalendarSupport::todo( todoItem );
 
   delIt->setEnabled( mCalendar->hasDeleteRights( todoItem ) );
 
@@ -437,22 +437,27 @@ const QString TodoSummaryWidget::stateStr( const KCalCore::Todo::Ptr &todo )
 
 void TodoSummaryWidget::createCalendar()
 {
-  Session *session = new Session( "TodoSummaryWidget", this );
-  ChangeRecorder *monitor = new ChangeRecorder( this );
+  Akonadi::Session *session = new Akonadi::Session( "TodoSummaryWidget", this );
+  Akonadi::ChangeRecorder *monitor = new Akonadi::ChangeRecorder( this );
 
-  ItemFetchScope scope;
+  Akonadi::ItemFetchScope scope;
   scope.fetchFullPayload( true );
-  scope.fetchAttribute<EntityDisplayAttribute>();
+  scope.fetchAttribute<Akonadi::EntityDisplayAttribute>();
 
   monitor->setSession( session );
-  monitor->setCollectionMonitored( Collection::root() );
+  monitor->setCollectionMonitored( Akonadi::Collection::root() );
   monitor->fetchCollection( true );
   monitor->setItemFetchScope( scope );
   monitor->setMimeTypeMonitored( KCalCore::Todo::todoMimeType(), true );
-  CalendarModel *calendarModel = new CalendarModel( monitor, this );
 
-  mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
-  mCalendarAdaptor = CalendarAdaptor::Ptr( new CalendarAdaptor( mCalendar, this ) );
+  CalendarSupport::CalendarModel *calendarModel =
+    new CalendarSupport::CalendarModel( monitor, this );
+
+  mCalendar =
+    new CalendarSupport::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
+
+  mCalendarAdaptor = CalendarSupport::CalendarAdaptor::Ptr(
+    new CalendarSupport::CalendarAdaptor( mCalendar, this ) );
 }
 
 #include "todosummarywidget.moc"

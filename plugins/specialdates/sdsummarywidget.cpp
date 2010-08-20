@@ -28,11 +28,11 @@
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
 
-#include <akonadi/kcal/utils.h>
-#include <akonadi/kcal/calendar.h>
-#include <akonadi/kcal/calendarmodel.h>
-#include <akonadi/kcal/calendaradaptor.h>
-#include <akonadi/kcal/incidencechanger.h>
+#include <calendarsupport/utils.h>
+#include <calendarsupport/calendar.h>
+#include <calendarsupport/calendarmodel.h>
+#include <calendarsupport/calendaradaptor.h>
+#include <calendarsupport/incidencechanger.h>
 
 #include <Akonadi/Session>
 #include <Akonadi/Collection>
@@ -59,7 +59,6 @@
 #include <QLabel>
 #include <QGridLayout>
 
-using namespace Akonadi;
 using namespace KHolidays;
 
 class BirthdaySearchJob : public Akonadi::ItemSearchJob
@@ -100,7 +99,7 @@ BirthdaySearchJob::BirthdaySearchJob( QObject *parent, int daysInAdvance )
       ).arg( QString::fromLatin1( Akonadi::ItemSearchJob::akonadiItemIdUri().toEncoded() ) )
      .arg( QDate::currentDate().toString( Qt::ISODate ) )
      .arg( daysInAdvance );
-  ItemSearchJob::setQuery( query );
+  Akonadi::ItemSearchJob::setQuery( query );
 }
 
 enum SDIncidenceType {
@@ -298,11 +297,11 @@ void SDSummaryWidget::createLabels()
   for ( dt = QDate::currentDate();
         dt <= QDate::currentDate().addDays( mDaysAhead - 1 );
         dt = dt.addDays( 1 ) ) {
-    Item::List items  = mCalendar->events( dt, mCalendar->timeSpec(),
-                                           EventSortStartDate,
-                                           SortDirectionAscending );
-    foreach ( const Item &item, items ) {
-      KCalCore::Event::Ptr ev = Akonadi::event( item );
+    Akonadi::Item::List items  = mCalendar->events( dt, mCalendar->timeSpec(),
+                                                    CalendarSupport::EventSortStartDate,
+                                                    CalendarSupport::SortDirectionAscending );
+    foreach ( const Akonadi::Item &item, items ) {
+      KCalCore::Event::Ptr ev = CalendarSupport::event( item );
 
       // Optionally, show only my Events
       /* if ( mShowMineOnly && !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, ev. ) ) {
@@ -749,22 +748,26 @@ QStringList SDSummaryWidget::configModules() const
 
 void SDSummaryWidget::createCalendar()
 {
-  Session *session = new Session( "SDSummaryWidget", this );
-  ChangeRecorder *monitor = new ChangeRecorder( this );
+  Akonadi::Session *session = new Akonadi::Session( "SDSummaryWidget", this );
+  Akonadi::ChangeRecorder *monitor = new Akonadi::ChangeRecorder( this );
 
-  ItemFetchScope scope;
+  Akonadi::ItemFetchScope scope;
   scope.fetchFullPayload( true );
-  scope.fetchAttribute<EntityDisplayAttribute>();
+  scope.fetchAttribute<Akonadi::EntityDisplayAttribute>();
 
   monitor->setSession( session );
-  monitor->setCollectionMonitored( Collection::root() );
+  monitor->setCollectionMonitored( Akonadi::Collection::root() );
   monitor->fetchCollection( true );
   monitor->setItemFetchScope( scope );
   monitor->setMimeTypeMonitored( KCalCore::Event::eventMimeType(), true );
-  CalendarModel *calendarModel = new CalendarModel( monitor, this );
 
-  mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
-  mCalendarAdaptor = new CalendarAdaptor( mCalendar, this );
+  CalendarSupport::CalendarModel *calendarModel =
+    new CalendarSupport::CalendarModel( monitor, this );
+
+  mCalendar =
+    new CalendarSupport::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
+
+  mCalendarAdaptor = new CalendarSupport::CalendarAdaptor( mCalendar, this );
 }
 
 #include "sdsummarywidget.moc"

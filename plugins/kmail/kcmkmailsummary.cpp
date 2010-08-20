@@ -34,7 +34,7 @@
 #include <Akonadi/EntityTreeModel>
 #include <Akonadi/ChangeRecorder>
 #include <akonadi/etmviewstatesaver.h>
-#include <akonadi/akonadi_next/checkableitemproxymodel.h>
+#include <akonadi_next/checkableitemproxymodel.h>
 
 #include <kmime/kmime_message.h>
 

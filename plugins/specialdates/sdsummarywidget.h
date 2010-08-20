@@ -38,7 +38,7 @@ namespace KontactInterface {
   class Plugin;
 }
 
-namespace Akonadi {
+namespace CalendarSupport {
   class Calendar;
   class CalendarAdaptor;
 }
@@ -81,8 +81,8 @@ class SDSummaryWidget : public KontactInterface::Summary
     void dateDiff( const QDate &date, int &days, int &years ) const;
     void createCalendar();
 
-    Akonadi::Calendar *mCalendar;
-    Akonadi::CalendarAdaptor *mCalendarAdaptor;
+    CalendarSupport::Calendar *mCalendar;
+    CalendarSupport::CalendarAdaptor *mCalendarAdaptor;
 
     QGridLayout *mLayout;
     QList<QLabel*> mLabels;

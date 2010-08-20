@@ -26,7 +26,7 @@
 #ifndef TODO_SUMMARYWIDGET_H
 #define TODO_SUMMARYWIDGET_H
 
-#include <akonadi/kcal/calendaradaptor.h>
+#include <calendarsupport/calendaradaptor.h>
 
 #include <kcalcore/todo.h>
 #include <Akonadi/Item>
@@ -35,7 +35,7 @@
 
 class TodoPlugin;
 
-namespace Akonadi {
+namespace CalendarSupport {
   class Calendar;
   class IncidenceChanger;
 }
@@ -86,9 +86,9 @@ class TodoSummaryWidget : public KontactInterface::Summary
     bool mShowMineOnly;
 
     QList<QLabel*> mLabels;
-    Akonadi::Calendar *mCalendar;
-    Akonadi::CalendarAdaptor::Ptr mCalendarAdaptor;
-    Akonadi::IncidenceChanger *mChanger;
+    CalendarSupport::Calendar *mCalendar;
+    CalendarSupport::CalendarAdaptor::Ptr mCalendarAdaptor;
+    CalendarSupport::IncidenceChanger *mChanger;
 
     /**
       Test if the To-do starts today.

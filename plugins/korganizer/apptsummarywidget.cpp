@@ -33,11 +33,12 @@
 #include <kcalcore/calendar.h>
 #include <kcalcore/event.h>
 
-#include <akonadi/kcal/calendar.h>
-#include <akonadi/kcal/calendaradaptor.h>
-#include <akonadi/kcal/calendarmodel.h>
-#include <akonadi/kcal/utils.h>
-#include <akonadi/kcal/incidencechanger.h>
+#include <calendarsupport/calendar.h>
+#include <calendarsupport/calendaradaptor.h>
+#include <calendarsupport/calendarmodel.h>
+#include <calendarsupport/groupware.h>
+#include <calendarsupport/incidencechanger.h>
+#include <calendarsupport/utils.h>
 
 #include <Akonadi/ChangeRecorder>
 #include <Akonadi/Session>
@@ -55,8 +56,6 @@
 #include <QLabel>
 #include <QGridLayout>
 #include <QVBoxLayout>
-
-using namespace Akonadi;
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
   : KontactInterface::Summary( parent ), mCalendar( 0 ), mPlugin( plugin )
@@ -76,8 +75,8 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
 
   createCalendar();
 
-  mChanger = new IncidenceChanger( mCalendar, parent );
-  mChanger->setGroupware( Groupware::create( mCalendar, 0 ) );
+  mChanger = new CalendarSupport::IncidenceChanger( mCalendar, parent );
+  mChanger->setGroupware( CalendarSupport::Groupware::create( mCalendar, 0 ) );
 
   connect( mCalendar, SIGNAL(calendarChanged()), this, SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), this, SLOT(updateView()) );
@@ -242,7 +241,7 @@ void ApptSummaryWidget::updateView()
 
 void ApptSummaryWidget::viewEvent( const QString &uid )
 {
-  Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+  Akonadi::Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
 
   if ( id != -1 ) {
     mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
@@ -252,7 +251,7 @@ void ApptSummaryWidget::viewEvent( const QString &uid )
   }
 }
 
-void ApptSummaryWidget::removeEvent( const Item &item )
+void ApptSummaryWidget::removeEvent( const Akonadi::Item &item )
 {
   mChanger->deleteIncidence( item );
 }
@@ -269,8 +268,8 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
   delIt->setIcon( KIconLoader::global()->
                   loadIcon( "edit-delete", KIconLoader::Small ) );
 
-  Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
-  Item eventItem = mCalendar->event( id );
+  Akonadi::Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+  Akonadi::Item eventItem = mCalendar->event( id );
   delIt->setEnabled( mCalendar->hasDeleteRights( eventItem ) );
 
   const QAction *selectedAction = popup.exec( QCursor::pos() );
@@ -303,22 +302,27 @@ QStringList ApptSummaryWidget::configModules() const
 
 void ApptSummaryWidget::createCalendar()
 {
-  Session *session = new Session( "ApptsSummaryWidget", this );
-  ChangeRecorder *monitor = new ChangeRecorder( this );
+  Akonadi::Session *session = new Akonadi::Session( "ApptsSummaryWidget", this );
+  Akonadi::ChangeRecorder *monitor = new Akonadi::ChangeRecorder( this );
 
-  ItemFetchScope scope;
+  Akonadi::ItemFetchScope scope;
   scope.fetchFullPayload( true );
-  scope.fetchAttribute<EntityDisplayAttribute>();
+  scope.fetchAttribute<Akonadi::EntityDisplayAttribute>();
 
   monitor->setSession( session );
-  monitor->setCollectionMonitored( Collection::root() );
+  monitor->setCollectionMonitored( Akonadi::Collection::root() );
   monitor->fetchCollection( true );
   monitor->setItemFetchScope( scope );
   monitor->setMimeTypeMonitored( KCalCore::Event::eventMimeType(), true );
-  CalendarModel *calendarModel = new CalendarModel( monitor, this );
 
-  mCalendar = new Akonadi::Calendar( calendarModel, calendarModel, KSystemTimeZones::local() );
-  mCalendarAdaptor = CalendarAdaptor::Ptr( new CalendarAdaptor( mCalendar, this ) );
+  CalendarSupport::CalendarModel *calendarModel =
+    new CalendarSupport::CalendarModel( monitor, this );
+
+  mCalendar = new CalendarSupport::Calendar(
+    calendarModel, calendarModel, KSystemTimeZones::local() );
+
+  mCalendarAdaptor = CalendarSupport::CalendarAdaptor::Ptr(
+    new CalendarSupport::CalendarAdaptor( mCalendar, this ) );
 }
 
 
