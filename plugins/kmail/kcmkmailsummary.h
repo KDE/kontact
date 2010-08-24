@@ -32,11 +32,14 @@
 class QCheckBox;
 class QTreeView;
 class QItemSelectionModel;
-class CheckableItemProxyModel;
 namespace Akonadi{
   class EntityTreeModel;
   class ChangeRecorder;
   class ETMViewStateSaver;
+}
+
+namespace Future {
+  class KCheckableProxyModel;
 }
 
 class KCMKMailSummary : public KCModule
@@ -64,7 +67,7 @@ class KCMKMailSummary : public KCModule
     QItemSelectionModel *mSelectionModel;
     Akonadi::EntityTreeModel *mModel;
     Akonadi::ChangeRecorder *mChangeRecorder;
-    CheckableItemProxyModel *mCheckProxy;
+    Future::KCheckableProxyModel *mCheckProxy;
     Future::KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
 };
 

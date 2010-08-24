@@ -36,7 +36,7 @@
 #include <Akonadi/CollectionStatistics>
 #include <Akonadi/CollectionFetchScope>
 #include <akonadi/etmviewstatesaver.h>
-#include <akonadi_next/checkableitemproxymodel.h>
+#include <akonadi_next/kcheckableproxymodel.h>
 
 
 #include <KConfigGroup>
@@ -79,7 +79,7 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   mModel->setItemPopulationStrategy( Akonadi::EntityTreeModel::NoItemPopulation );
 
   mSelectionModel = new QItemSelectionModel( mModel );
-  mModelProxy = new CheckableItemProxyModel( this );
+  mModelProxy = new Future::KCheckableProxyModel( this );
   mModelProxy->setSelectionModel( mSelectionModel );
   mModelProxy->setSourceModel( mModel );
 
