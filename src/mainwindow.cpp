@@ -1062,7 +1062,7 @@ void MainWindow::configureToolbars()
                               QString( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
   KEditToolBar edit( factory() );
-  connect( &edit, SIGNAL(newToolbarConfig()), this, SLOT(slotNewToolbarConfig()) );
+  connect( &edit, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()) );
   edit.exec();
 }
 
