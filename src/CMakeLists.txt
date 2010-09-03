@@ -43,6 +43,7 @@ target_link_libraries(kontact_bin
 	kdepim 
 	kdepimdbusinterfaces 
 	${KDEPIMLIBS_KONTACTINTERFACE_LIBS}
+    ${KDE4_KPARTS_LIBRARY}
 )
 
 install(TARGETS kontact_bin  ${INSTALL_TARGETS_DEFAULT_ARGS} )
