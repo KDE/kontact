@@ -35,7 +35,7 @@
 
 class KAboutData;
 
-namespace Akregator {
+namespace AkregatorPart {
 
 typedef KParts::ReadOnlyPart MyBasePart;
 

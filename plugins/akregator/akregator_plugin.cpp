@@ -42,9 +42,9 @@
 #include <akregator_options.h>
 #include <akregator_part.h>
 #include "akregator_plugin.h"
-namespace Akregator {
+namespace AkregatorPart {
 
-typedef KGenericFactory<Akregator::Plugin, Kontact::Core > PluginFactory;
+typedef KGenericFactory<AkregatorPart::Plugin, Kontact::Core > PluginFactory;
 K_EXPORT_COMPONENT_FACTORY( libkontact_akregator,
                             PluginFactory( "kontact_akregator" ) )
 
@@ -57,7 +57,7 @@ Plugin::Plugin( Kontact::Core *core, const char *, const QStringList& )
     insertNewAction( new KAction( i18n( "New Feed..." ), "bookmark_add", CTRL+SHIFT+Key_F, this, SLOT( addFeed() ), actionCollection(), "feed_new" ) );
 
     m_uniqueAppWatcher = new Kontact::UniqueAppWatcher(
-	new Kontact::UniqueAppHandlerFactory<Akregator::UniqueAppHandler>(), this );
+	new Kontact::UniqueAppHandlerFactory<AkregatorPart::UniqueAppHandler>(), this );
 }
 
 Plugin::~Plugin()
@@ -75,7 +75,7 @@ QStringList Plugin::invisibleToolbarActions() const
 }
 
 
-Akregator::AkregatorPartIface_stub *Plugin::interface()
+AkregatorPart::AkregatorPartIface_stub *Plugin::interface()
 {
     if ( !m_stub ) {
         part();
@@ -91,7 +91,7 @@ MyBasePart* Plugin::createPart()
     MyBasePart* p = loadPart();
 
     connect(p, SIGNAL(showPart()), this, SLOT(showPart()));
-    m_stub = new Akregator::AkregatorPartIface_stub( dcopClient(), "akregator",
+    m_stub = new AkregatorPart::AkregatorPartIface_stub( dcopClient(), "akregator",
                                       "AkregatorIface" );
     m_stub->openStandardFeedList();
     return p;
@@ -118,7 +118,7 @@ QStringList Plugin::configModules() const
 void Plugin::readProperties( KConfig *config )
 {
     if ( part() ) {
-        Akregator::Part *myPart = static_cast<Akregator::Part*>( part() );    
+        Akregator::Part *myPart = static_cast<Akregator::Part*>( part() );
         myPart->readProperties( config );
     }
 }
@@ -126,14 +126,14 @@ void Plugin::readProperties( KConfig *config )
 void Plugin::saveProperties( KConfig *config )
 {
     if ( part() ) {
-        Akregator::Part *myPart = static_cast<Akregator::Part*>( part() );    
+        Akregator::Part *myPart = static_cast<Akregator::Part*>( part() );
         myPart->saveProperties( config );
     }
 }
 
 void UniqueAppHandler::loadCommandLineOptions()
 {
-    KCmdLineArgs::addCmdLineOptions( akregator_options );
+  KCmdLineArgs::addCmdLineOptions( Akregator::akregator_options );
 }
 
 int UniqueAppHandler::newInstance()
