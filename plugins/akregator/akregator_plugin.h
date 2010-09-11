@@ -28,7 +28,6 @@
 #include <klocale.h>
 #include <kparts/part.h>
 
-#include <kparts/part.h>
 #include <plugin.h>
 #include "akregator_partiface_stub.h"
 #include <uniqueapphandler.h>
@@ -41,12 +40,11 @@ typedef KParts::ReadOnlyPart MyBasePart;
 
 class UniqueAppHandler : public Kontact::UniqueAppHandler
 {
-    public:
-        UniqueAppHandler( Kontact::Plugin* plugin ) : Kontact::UniqueAppHandler( plugin ) {}
-        virtual void loadCommandLineOptions();
-        virtual int newInstance();
+  public:
+    UniqueAppHandler( Kontact::Plugin* plugin ) : Kontact::UniqueAppHandler( plugin ) {}
+    virtual void loadCommandLineOptions();
+    virtual int newInstance();
 };
-
 
 class Plugin : public Kontact::Plugin
 {
@@ -59,7 +57,7 @@ class Plugin : public Kontact::Plugin
 
     int weight() const { return 475; }
 
-    AkregatorPartIface_stub *interface();
+    Akregator::AkregatorPartIface_stub *interface();
 
     virtual QStringList configModules() const;
     virtual QStringList invisibleToolbarActions() const;
@@ -73,9 +71,9 @@ class Plugin : public Kontact::Plugin
 
   protected:
     MyBasePart *createPart();
-    AkregatorPartIface_stub *m_stub;
+    Akregator::AkregatorPartIface_stub *m_stub;
     Kontact::UniqueAppWatcher *m_uniqueAppWatcher;
 };
 
-} // namespace Akregator
+} // namespace AkregatorPart
 #endif

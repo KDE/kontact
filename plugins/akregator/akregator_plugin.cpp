@@ -75,7 +75,7 @@ QStringList Plugin::invisibleToolbarActions() const
 }
 
 
-AkregatorPart::AkregatorPartIface_stub *Plugin::interface()
+Akregator::AkregatorPartIface_stub *Plugin::interface()
 {
     if ( !m_stub ) {
         part();
@@ -91,8 +91,7 @@ MyBasePart* Plugin::createPart()
     MyBasePart* p = loadPart();
 
     connect(p, SIGNAL(showPart()), this, SLOT(showPart()));
-    m_stub = new AkregatorPart::AkregatorPartIface_stub( dcopClient(), "akregator",
-                                      "AkregatorIface" );
+    m_stub = new Akregator::AkregatorPartIface_stub( dcopClient(), "akregator", "AkregatorIface" );
     m_stub->openStandardFeedList();
     return p;
 }
