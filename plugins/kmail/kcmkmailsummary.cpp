@@ -121,7 +121,7 @@ void KCMKMailSummary::initFolders()
 
   KSharedConfigPtr _config = KSharedConfig::openConfig("kcmkmailsummaryrc");
 
-  mModelState = new Future::KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config, "CheckState", this );
+  mModelState = new Future::KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
   mModelState->setSelectionModel( mSelectionModel );
 }
 
