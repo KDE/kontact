@@ -149,8 +149,7 @@ int KontactApp::newInstance()
     }
   }
 
-  KPIM::ReminderClient reminderclient;
-  reminderclient.startDaemon();
+  KPIM::ReminderClient::startDaemon();
 
   // Handle startup notification and window activation
   // (The first time it will do nothing except note that it was called)
