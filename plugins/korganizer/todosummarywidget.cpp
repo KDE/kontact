@@ -76,7 +76,6 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   createCalendar();
 
   mChanger = new CalendarSupport::IncidenceChanger( mCalendar, parent );
-  mChanger->setGroupware( CalendarSupport::Groupware::create( mCalendar, 0 ) );
 
   connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), SLOT(updateView()) );

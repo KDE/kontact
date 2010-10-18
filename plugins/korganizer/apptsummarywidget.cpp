@@ -76,7 +76,6 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   createCalendar();
 
   mChanger = new CalendarSupport::IncidenceChanger( mCalendar, parent );
-  mChanger->setGroupware( CalendarSupport::Groupware::create( mCalendar, 0 ) );
 
   connect( mCalendar, SIGNAL(calendarChanged()), this, SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), this, SLOT(updateView()) );
