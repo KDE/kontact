@@ -67,7 +67,7 @@ install(TARGETS kcm_kontact  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 ########### install files ###############
 
-install( FILES Kontact.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
+install( PROGRAMS Kontact.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
 install( FILES kontact.kcfg  DESTINATION ${KCFG_INSTALL_DIR})
 install( FILES kontactconfig.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 install( FILES kontactui.rc DESTINATION ${DATA_INSTALL_DIR}/kontact)
