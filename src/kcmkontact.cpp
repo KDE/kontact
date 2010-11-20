@@ -32,7 +32,6 @@ using namespace Kontact;
 #include <KComboBox>
 #include <KServiceTypeTrader>
 
-#include <Q3ListViewItem>
 #include <QCheckBox>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -45,24 +44,6 @@ extern "C"
     return new KcmKontact( inst, parent );
   }
 }
-
-class PluginItem : public Q3ListViewItem
-{
-  public:
-    PluginItem( Q3ListView *parent, const KService::Ptr &ptr )
-      : Q3ListViewItem( parent, ptr->name(), ptr->comment(), ptr->library() ),
-        mPtr( ptr )
-    {
-    }
-
-    KService::Ptr servicePtr() const
-    {
-      return mPtr;
-    }
-
-  private:
-    KService::Ptr mPtr;
-};
 
 KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
   : KPrefsModule( Prefs::self(), inst, parent )
