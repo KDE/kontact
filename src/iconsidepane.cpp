@@ -90,9 +90,9 @@ class Model : public QStringListModel
     {
     }
 
-    void emitLayoutChanged()
+    void emitReset()
     {
-        emit layoutChanged();
+        emit reset();
     }
 
     void setPluginList( const QList<KontactInterface::Plugin*> &list ) {
@@ -500,7 +500,7 @@ void Navigator::slotActionTriggered( bool checked )
   Prefs::self()->setSidePaneShowIcons( mShowIcons );
   Prefs::self()->setSidePaneShowText( mShowText );
 
-  mModel->emitLayoutChanged();
+  mModel->emitReset();
 
   QTimer::singleShot( 0, this, SLOT(updateNavigatorSize()) );
 }
