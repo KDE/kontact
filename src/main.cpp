@@ -175,6 +175,7 @@ int main( int argc, char **argv )
   about.addAuthor( ki18n( "Zack Rusin" ), KLocalizedString(), "zack@kde.org" );
   about.addAuthor( ki18n( "Matthias Hoelzer-Kluepfel" ),
                    ki18n( "Original Author" ), "mhk@kde.org" );
+  about.addCredit( ki18n( "Torgny Nyblom" ), ki18n("Git Migration"), "kde@nyblom.org" );
   about.setOrganizationDomain( "kde.org" );
 
   KCmdLineArgs::init( argc, argv, &about );
