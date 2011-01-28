@@ -82,4 +82,4 @@ Comment[x-test]=xxPopup Notes Componentxx
 Comment[zh_CN]=弹出式记事本组件
 Comment[zh_TW]=彈出式便條元件
 Weight=600
-Icon=view-pim-notes
+Icon=knotes

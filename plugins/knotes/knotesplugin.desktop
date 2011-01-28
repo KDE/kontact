@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-Icon=view-pim-notes
+Icon=knotes
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_knotesplugin
