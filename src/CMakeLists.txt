@@ -29,7 +29,7 @@ install(TARGETS kontactprivate ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_
 
 set(kontact_bin_SRCS main.cpp )
 
-kde4_add_app_icon(kontact_bin_SRCS "${KDE4_ICON_DIR}/oxygen/*/apps/kontact.png")
+kde4_add_app_icon(kontact_bin_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/icons/hi*-apps-kontact.png")
 
 kde4_add_executable(kontact_bin ${kontact_bin_SRCS})
 
@@ -70,5 +70,5 @@ install( FILES kontact.kcfg  DESTINATION ${KCFG_INSTALL_DIR})
 install( FILES kontactconfig.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 install( FILES kontactui.rc DESTINATION ${DATA_INSTALL_DIR}/kontact)
 
-kde4_install_icons( ${ICON_INSTALL_DIR}   )
+add_subdirectory(icons)
 
