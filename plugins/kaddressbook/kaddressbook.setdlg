@@ -119,4 +119,5 @@ Comment[x-test]=xxAddress Book Componentxx
 Comment[zh_CN]=地址簿组件
 Comment[zh_TW]=通訊錄元件
 Weight=300
-Icon=view-pim-contacts
+Icon=kaddressbook
+
