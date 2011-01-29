@@ -86,4 +86,4 @@ Comment[x-test]=xxUsenet Componentxx
 Comment[zh_CN]=新闻组件
 Comment[zh_TW]=Usenet 元件
 Weight=500
-Icon=view-pim-news
+Icon=knode

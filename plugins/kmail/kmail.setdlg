@@ -124,4 +124,4 @@ Comment[x-test]=xxMail Componentxx
 Comment[zh_CN]=邮件组件
 Comment[zh_TW]=郵件元件
 Weight=200
-Icon=view-pim-mail
+Icon=kmail

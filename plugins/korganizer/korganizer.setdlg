@@ -121,4 +121,4 @@ Comment[x-test]=xxCalendar Componentxx
 Comment[zh_CN]=日历组件
 Comment[zh_TW]=行事曆元件
 Weight=400
-Icon=view-pim-calendar
+Icon=korganizer
