@@ -32,6 +32,7 @@
 #include <KActionCollection>
 #include <KCmdLineArgs>
 #include <KIcon>
+#include <kdebug.h>
 
 EXPORT_KONTACT_PLUGIN( ktimetrackerplugin, ktimetracker )
 
@@ -106,6 +107,7 @@ QStringList ktimetrackerplugin::configModules() const
 
 void ktimetrackerplugin::newTask()
 {
+  kDebug(5970) << "entering function";
   core()->selectPlugin( this );
   interface()->newTask();
 }
