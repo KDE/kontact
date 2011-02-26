@@ -76,7 +76,8 @@ QStringList ktimetrackerplugin::invisibleToolbarActions() const
 KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
 {
   KParts::ReadOnlyPart *part = loadPart();
-  if ( !part ) {
+  if ( !part ) 
+  {
     return 0;
   }
 
@@ -88,7 +89,8 @@ KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
 
 OrgKdeKtimetrackerKtimetrackerInterface *ktimetrackerplugin::interface()
 {
-  if ( !mInterface ) {
+  if ( !mInterface ) 
+  {
     part();
   }
   Q_ASSERT( mInterface );
