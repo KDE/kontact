@@ -24,10 +24,12 @@
   without including the source code for Qt in the source distribution.
 */
 
+#include <QMenu>
 #include "ktimetracker_plugin.h"
 #include "ktimetrackerinterface.h"
 
 #include <KontactInterface/Core>
+#include <KXMLGUIFactory>
 
 #include <KActionCollection>
 #include <KCmdLineArgs>
@@ -82,7 +84,21 @@ KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
     }
     mInterface = new OrgKdeKtimetrackerKtimetrackerInterface(
       "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
+    // Setup context menu request handling
+    connect( part->widget(),
+           SIGNAL( contextMenuRequested( const QPoint& ) ),
+           this,
+           SLOT( taskViewCustomContextMenuRequested( const QPoint& ) ) );
+
     return part;
+}
+
+void ktimetrackerplugin::taskViewCustomContextMenuRequested( const QPoint& point )
+{
+    kDebug(5970) << "entering function";
+    QMenu* pop = dynamic_cast<QMenu*>( factory()->container( i18n( "task_popup" ), part() ) );
+    if ( pop )
+        pop->popup( point );
 }
 
 OrgKdeKtimetrackerKtimetrackerInterface *ktimetrackerplugin::interface()

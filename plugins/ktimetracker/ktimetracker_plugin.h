@@ -64,6 +64,9 @@ class ktimetrackerplugin : public KontactInterface::Plugin
   protected:
     KParts::ReadOnlyPart *createPart();
 
+  protected Q_SLOTS:
+    void taskViewCustomContextMenuRequested( const QPoint& );
+
   private:
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
     OrgKdeKtimetrackerKtimetrackerInterface *mInterface;
