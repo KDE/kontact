@@ -39,91 +39,87 @@ EXPORT_KONTACT_PLUGIN( ktimetrackerplugin, ktimetracker )
 ktimetrackerplugin::ktimetrackerplugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "ktimetracker" ), mInterface( 0 )
 {
-  setComponentData( KontactPluginFactory::componentData() );
+    setComponentData( KontactPluginFactory::componentData() );
 
-  KAction *action =
-    new KAction( KIcon( "ktimetracker" ),
-                 i18nc( "@action:inmenu", "New Task" ), this );
-  actionCollection()->addAction( "new_task", action );
-  action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_W ) );
-  action->setHelpText(
-    i18nc( "@info:status", "Create a new time tracker" ) );
-  action->setWhatsThis(
-    i18nc( "@info:whatsthis",
-           "You will be presented with a dialog where you can create "
-           "and start a new time tracker." ) );
-  connect( action, SIGNAL(triggered(bool)), SLOT(newTask()) );
-  insertNewAction( action );
+    KAction *action =
+        new KAction( KIcon( "ktimetracker" ),
+            i18nc( "@action:inmenu", "New Task" ), this );
+    actionCollection()->addAction( "new_task", action );
+    action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_W ) );
+    action->setHelpText(i18nc( "@info:status", "Create a new time tracker" ) );
+    action->setWhatsThis(
+      i18nc( "@info:whatsthis",
+             "You will be presented with a dialog where you can create "
+             "and start a new time tracker." ) );
+    connect( action, SIGNAL(triggered(bool)), SLOT(newTask()) );
+    insertNewAction( action );
 
-  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
-    new KontactInterface::UniqueAppHandlerFactory<KtimetrackerUniqueAppHandler>(), this );
+    mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+      new KontactInterface::UniqueAppHandlerFactory<KtimetrackerUniqueAppHandler>(), this );
 }
 
 ktimetrackerplugin::~ktimetrackerplugin()
 {
-  delete mInterface;
+    delete mInterface;
 }
 
 bool ktimetrackerplugin::isRunningStandalone() const
 {
-  return mUniqueAppWatcher->isRunningStandalone();
+    return mUniqueAppWatcher->isRunningStandalone();
 }
 
 QStringList ktimetrackerplugin::invisibleToolbarActions() const
 {
-  return QStringList() << "new_task" << "new_sub_task" ;
+    return QStringList() << "new_task" << "new_sub_task" ;
 }
 
 KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
 {
-  KParts::ReadOnlyPart *part = loadPart();
-  if ( !part ) 
-  {
-    return 0;
-  }
-
-  mInterface = new OrgKdeKtimetrackerKtimetrackerInterface(
-    "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
-
-  return part;
+    KParts::ReadOnlyPart *part = loadPart();
+    if ( !part )
+    {
+        return 0;
+    }
+    mInterface = new OrgKdeKtimetrackerKtimetrackerInterface(
+      "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
+    return part;
 }
 
 OrgKdeKtimetrackerKtimetrackerInterface *ktimetrackerplugin::interface()
 {
-  if ( !mInterface ) 
-  {
-    part();
-  }
-  Q_ASSERT( mInterface );
-  return mInterface;
+    if ( !mInterface )
+    {
+        part();
+    }
+    Q_ASSERT( mInterface );
+    return mInterface;
 }
 
 QStringList ktimetrackerplugin::configModules() const
 {
-  QStringList modules;
-  modules << "PIM/ktimetrackerconfig.desktop";
-  return modules;
+    QStringList modules;
+    modules << "PIM/ktimetrackerconfig.desktop";
+    return modules;
 }
 
 void ktimetrackerplugin::newTask()
 {
-  kDebug(5970) << "entering function";
-  core()->selectPlugin( this );
-  interface()->newTask();
+    kDebug(5970) << "entering function";
+    core()->selectPlugin( this );
+    interface()->newTask();
 }
 
 void KtimetrackerUniqueAppHandler::loadCommandLineOptions()
 {
-  // TODO: handle command line options
-  KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
+    // TODO: handle command line options
+    KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
 }
 
 int KtimetrackerUniqueAppHandler::newInstance()
 {
-  // Ensure part is loaded
-  (void)plugin()->part();
-  return KontactInterface::UniqueAppHandler::newInstance();
+    // Ensure part is loaded
+    (void)plugin()->part();
+    return KontactInterface::UniqueAppHandler::newInstance();
 }
 
 #include "ktimetracker_plugin.moc"
-
