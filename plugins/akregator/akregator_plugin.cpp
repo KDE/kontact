@@ -99,17 +99,11 @@ KParts::ReadOnlyPart *AkregatorPlugin::createPart()
     return 0;
   }
 
-  connect( part, SIGNAL(showPart()), this, SLOT(showPart()) );
   m_interface = new OrgKdeAkregatorPartInterface(
     "org.kde.akregator", "/Akregator", QDBusConnection::sessionBus() );
   m_interface->openStandardFeedList();
 
   return part;
-}
-
-void AkregatorPlugin::showPart()
-{
-  core()->selectPlugin( this );
 }
 
 void AkregatorPlugin::addFeed()

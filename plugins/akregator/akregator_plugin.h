@@ -62,7 +62,6 @@ class AkregatorPlugin : public KontactInterface::Plugin
     virtual void saveProperties( KConfigGroup &config );
 
   private slots:
-    void showPart();
     void addFeed();
 
   protected:
