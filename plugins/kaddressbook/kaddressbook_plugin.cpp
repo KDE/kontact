@@ -38,6 +38,11 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
 {
   setComponentData( KontactPluginFactory::componentData() );
 
+  KGlobal::locale()->insertCatalog( "libkdepim" );
+  KGlobal::locale()->insertCatalog( "kabc" );
+  KGlobal::locale()->insertCatalog( "libakonadi" );
+  KGlobal::locale()->insertCatalog( "kabcakonadi" );
+
   KAction *action =
     new KAction( KIcon( "contact-new" ),
                  i18nc( "@action:inmenu", "New Contact..." ), this );
