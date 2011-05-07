@@ -52,6 +52,7 @@ class KJotsPlugin : public KontactInterface::Plugin
     int weight() const { return 550; }
     virtual QStringList invisibleToolbarActions() const;
     virtual bool isRunningStandalone() const;
+    virtual bool queryClose() const;
 
     OrgKdeKJotsWidgetInterface *interface();
 

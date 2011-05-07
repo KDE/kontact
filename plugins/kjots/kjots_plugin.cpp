@@ -118,6 +118,13 @@ void KJotsPlugin::newBook()
   interface()->newBook();
 }
 
+bool KJotsPlugin::queryClose() const
+{
+  if ( m_interface )
+    return m_interface->queryClose();
+  return true;
+}
+
 void KJotsUniqueAppHandler::loadCommandLineOptions()
 {
   //  No command line args to load.
