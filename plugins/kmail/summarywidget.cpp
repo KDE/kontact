@@ -85,7 +85,7 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
 
   KSharedConfigPtr _config = KSharedConfig::openConfig("kcmkmailsummaryrc");
 
-  mModelState = new Future::KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
+  mModelState = new KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
   mModelState->setSelectionModel( mSelectionModel );
 
   connect( mChangeRecorder, SIGNAL( collectionChanged( const Akonadi::Collection & ) ), SLOT( slotCollectionChanged( const Akonadi::Collection& ) ) );

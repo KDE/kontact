@@ -27,7 +27,7 @@
 
 #include <KCModule>
 
-#include <akonadi_next/kviewstatemaintainer.h>
+#include <kviewstatemaintainer.h>
 
 class QCheckBox;
 class QTreeView;
@@ -68,7 +68,7 @@ class KCMKMailSummary : public KCModule
     Akonadi::EntityTreeModel *mModel;
     Akonadi::ChangeRecorder *mChangeRecorder;
     Future::KCheckableProxyModel *mCheckProxy;
-    Future::KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
+    KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
 };
 
 #endif
