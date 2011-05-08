@@ -34,7 +34,7 @@
 #include <Akonadi/EntityTreeModel>
 #include <Akonadi/ChangeRecorder>
 #include <akonadi/etmviewstatesaver.h>
-#include <akonadi_next/kcheckableproxymodel.h>
+#include <kcheckableproxymodel.h>
 
 #include <kmime/kmime_message.h>
 
@@ -113,7 +113,7 @@ void KCMKMailSummary::initFolders()
 
   // Create the Check proxy model.
   mSelectionModel = new QItemSelectionModel( mModel );
-  mCheckProxy = new Future::KCheckableProxyModel( this );
+  mCheckProxy = new KCheckableProxyModel( this );
   mCheckProxy->setSelectionModel( mSelectionModel );
   mCheckProxy->setSourceModel( mModel );
 

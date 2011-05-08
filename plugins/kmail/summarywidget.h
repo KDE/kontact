@@ -40,9 +40,7 @@ namespace Akonadi {
   class ETMViewStateSaver;
 }
 
-namespace Future {
-  class KCheckableProxyModel;
-}
+class KCheckableProxyModel;
 
 class QGridLayout;
 class QLabel;
@@ -80,7 +78,7 @@ class SummaryWidget : public KontactInterface::Summary
     Akonadi::ChangeRecorder *mChangeRecorder;
     Akonadi::EntityTreeModel *mModel;
     KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
-    Future::KCheckableProxyModel *mModelProxy;
+    KCheckableProxyModel *mModelProxy;
     QItemSelectionModel *mSelectionModel;
     int mTimeOfLastMessageCountUpdate;
 };

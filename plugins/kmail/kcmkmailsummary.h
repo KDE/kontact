@@ -38,9 +38,7 @@ namespace Akonadi{
   class ETMViewStateSaver;
 }
 
-namespace Future {
-  class KCheckableProxyModel;
-}
+class KCheckableProxyModel;
 
 class KCMKMailSummary : public KCModule
 {
@@ -67,7 +65,7 @@ class KCMKMailSummary : public KCModule
     QItemSelectionModel *mSelectionModel;
     Akonadi::EntityTreeModel *mModel;
     Akonadi::ChangeRecorder *mChangeRecorder;
-    Future::KCheckableProxyModel *mCheckProxy;
+    KCheckableProxyModel *mCheckProxy;
     KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
 };
 
