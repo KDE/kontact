@@ -1,6 +1,7 @@
 [Notebooks]
 Name=Notebooks
 Name[ar]=دفاتر الملاحظات
+Name[bs]=Sveske
 Name[ca]=Notebooks
 Name[ca@valencia]=Notebooks
 Name[cs]=Poznámky
@@ -42,6 +43,7 @@ Name[zh_CN]=笔记本
 Name[zh_TW]=筆記本
 Comment=Notebooks Component
 Comment[ar]=مكون دفاتر الملاحظات
+Comment[bs]=Komponenta sveski
 Comment[ca]=Component del Notebooks
 Comment[ca@valencia]=Component del Notebooks
 Comment[cs]=Komponenta poznámek
