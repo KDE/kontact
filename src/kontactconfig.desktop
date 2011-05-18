@@ -3,6 +3,7 @@ Exec=kcmshell4 kontactconfig
 Icon=kontact
 Type=Service
 X-KDE-ServiceTypes=KCModule
+NoDisplay=true
 
 X-KDE-ModuleType=Library
 X-KDE-Library=kcm_kontact
