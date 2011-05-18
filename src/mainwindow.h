@@ -98,6 +98,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     void initAboutScreen();
     void loadSettings();
     void saveSettings();
+    void waitForKSycoca();
 
     bool isPluginLoaded( const KPluginInfo & );
     KontactInterface::Plugin *pluginFromInfo( const KPluginInfo & );

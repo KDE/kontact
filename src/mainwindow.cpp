@@ -28,6 +28,8 @@
 #include "iconsidepane.h"
 using namespace Kontact;
 
+#include <unistd.h>
+
 #include <libkdepim/broadcaststatus.h>
 #include <libkdepim/progressdialog.h>
 #include <libkdepim/statusbarprogresswidget.h>
@@ -63,6 +65,7 @@ using namespace Kontact;
 #include <KParts/PartManager>
 #include <KSettings/Dispatcher>
 #include <KSettings/Dialog>
+#include <KSycoca>
 
 #include <QDBusConnection>
 #include <QSplitter>
@@ -70,6 +73,9 @@ using namespace Kontact;
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QWebSettings>
+
+//Define the maximum time Kontact waits for KSycoca to become available
+#define KSYCOCA_WAIT_TIMEOUT 10
 
 // This class extends the normal KDBusServiceStarter.
 //
@@ -181,8 +187,31 @@ void MainWindow::initGUI()
   navigatorToolBar->setMinimumWidth( navigatorToolBar->sizeHint().width() );
 }
 
+void MainWindow::waitForKSycoca()
+{
+  int i = 0;
+  while ( i < KSYCOCA_WAIT_TIMEOUT ) {
+    if ( KSycoca::isAvailable() )
+      return;
+    // When KSycoca is not availabe that usually means Kontact
+    // was started before kded is done with it's first run
+    // we want to block Kontact execution to
+    // give Kded time to initalize and create the
+    // System Configuration database neccessary for further
+    // Kontact startup
+    kDebug() << "Waiting for KSycoca";
+    sleep(1);
+    i++;
+  }
+  // This should only happen if the distribution is broken
+  kFatal() << "KSycoca unavailable. Kontact will be unable to find plugins.";
+}
+
 void MainWindow::initObject()
 {
+  if ( !KSycoca::isAvailable() ) {
+      waitForKSycoca();
+  }
   KService::List offers = KServiceTypeTrader::self()->query(
     QString::fromLatin1( "Kontact/Plugin" ),
     QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
