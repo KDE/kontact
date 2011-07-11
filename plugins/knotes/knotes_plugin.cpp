@@ -22,6 +22,8 @@
 #include "knotes_part.h"
 #include "summarywidget.h"
 
+#include "kdepim-version.h"
+
 #include <libkdepim/maillistdrag.h>
 using namespace KPIM;
 
@@ -105,7 +107,7 @@ const KAboutData *KNotesPlugin::aboutData() const
     mAboutData =
       new KAboutData( "knotes", 0,
                       ki18nc( "@title", "KNotes" ),
-                      "0.5",
+                      KDEPIM_VERSION,
                       ki18nc( "@title", "Popup Notes" ),
                       KAboutData::License_GPL_V2,
                       ki18nc( "@info:credit", "Copyright © 2003–2010 Kontact authors" ) );
