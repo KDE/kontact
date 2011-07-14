@@ -50,7 +50,7 @@ using namespace KCalCore;
 EXPORT_KONTACT_PLUGIN( KMailPlugin, kmail )
 
 KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
-  : KontactInterface::Plugin( core, core, "kmail" ), m_instance( 0 )
+  : KontactInterface::Plugin( core, core, "kmail2" ), m_instance( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
