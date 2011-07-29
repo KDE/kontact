@@ -65,7 +65,7 @@ SummaryViewPart::SummaryViewPart( KontactInterface::Core *core, const char *,
   initGUI( core );
 
   setDate( QDate::currentDate() );
-  connect( mCore, SIGNAL(dayChanged(const QDate&)), SLOT(setDate(const QDate&)) );
+  connect( mCore, SIGNAL(dayChanged(QDate)), SLOT(setDate(QDate)) );
 
   mConfigAction = new KAction( KIcon( "configure" ), i18n( "&Configure Summary View..." ), this );
   actionCollection()->addAction( "summaryview_configure", mConfigAction );
@@ -126,7 +126,7 @@ void SummaryViewPart::updateWidgets()
   mSummaries.clear();
 
   mFrame = new DropWidget( mMainWidget );
-  connect( mFrame, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int) ),
+  connect( mFrame, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
            this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
 
   mMainLayout->insertWidget( 2, mFrame );
@@ -162,8 +162,8 @@ void SummaryViewPart::updateWidgets()
       if ( summary->summaryHeight() > 0 ) {
         mSummaries.insert( plugin->identifier(), summary );
 
-        connect( summary, SIGNAL(message(const QString&)),
-                 BroadcastStatus::instance(), SLOT(setStatusMsg(const QString&)) );
+        connect( summary, SIGNAL(message(QString)),
+                 BroadcastStatus::instance(), SLOT(setStatusMsg(QString)) );
         connect( summary, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
                  this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
 

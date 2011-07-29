@@ -162,14 +162,14 @@ SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *par
   mShowSpecialsFromCal = true;
 
   // Setup the Addressbook
-  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)),
+  connect( mPlugin->core(), SIGNAL(dayChanged(QDate)),
            this, SLOT(updateView()) );
 
   createCalendar();
 
   connect( mCalendar, SIGNAL(calendarChanged()),
            this, SLOT(updateView()) );
-  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)),
+  connect( mPlugin->core(), SIGNAL(dayChanged(QDate)),
            this, SLOT(updateView()) );
 
   // Update Configuration
@@ -559,10 +559,10 @@ void SDSummaryWidget::createLabels()
         mLayout->addWidget( urlLabel, counter, 4 );
         mLabels.append( urlLabel );
 
-        connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
-                 this, SLOT(mailContact(const QString&)) );
-        connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
-                 this, SLOT(popupMenu(const QString&)) );
+        connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
+                 this, SLOT(mailContact(QString)) );
+        connect( urlLabel, SIGNAL(rightClickedUrl(QString)),
+                 this, SLOT(popupMenu(QString)) );
       } else {
         label = new QLabel( this );
         label->setText( (*addrIt).summary );
@@ -635,7 +635,7 @@ void SDSummaryWidget::updateView()
   if ( mShowBirthdaysFromKAB && !mJobRunning ) {
     BirthdaySearchJob *job = new BirthdaySearchJob( this, mDaysAhead );
 
-    connect( job, SIGNAL( result( KJob * ) ), this, SLOT( slotBirthdayJobFinished( KJob* ) ) );
+    connect( job, SIGNAL(result(KJob*)), this, SLOT(slotBirthdayJobFinished(KJob*)) );
     job->start();
     mJobRunning = true;
 

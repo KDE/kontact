@@ -49,7 +49,7 @@ KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can create a new jots page." ) );
-  connect( action, SIGNAL(triggered(bool)), SLOT( newPage()) );
+  connect( action, SIGNAL(triggered(bool)), SLOT(newPage()) );
   insertNewAction( action );
 
   action = new KAction( KIcon( "address-book-new" ),
@@ -61,7 +61,7 @@ KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can create a new jots book." ) );
-  connect( action, SIGNAL(triggered(bool)), SLOT( newBook()) );
+  connect( action, SIGNAL(triggered(bool)), SLOT(newBook()) );
   insertNewAction( action );
 
   mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(

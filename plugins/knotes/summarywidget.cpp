@@ -108,8 +108,8 @@ void KNotesSummaryWidget::updateView()
         urlLabel->setToolTip( (*it)->description().left( 80 ) );
       }
 
-      connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
-               this, SLOT(urlClicked(const QString&)) );
+      connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
+               this, SLOT(urlClicked(QString)) );
       counter++;
     }
 

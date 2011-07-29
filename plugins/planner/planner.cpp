@@ -98,7 +98,7 @@ Planner::Planner( KontactInterface::Plugin *plugin, QWidget *parent )
 #endif
 
   connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
-  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), SLOT(updateView()) );
+  connect( mPlugin->core(), SIGNAL(dayChanged(QDate)), SLOT(updateView()) );
 
   // Update Configuration
   configUpdated();
@@ -344,8 +344,8 @@ int Planner::showTodos( int counter, const QDate &date )
       mPlannerGrid->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
 
-      connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
-               this, SLOT(changePercentage(const QString&)) );
+      connect( urlLabel, SIGNAL(rightClickedUrl(QString)),
+               this, SLOT(changePercentage(QString)) );
 
       QString string = todo->summary();
       if ( todo->relatedTo() ) { // show parent only, not entire ancestry
@@ -369,10 +369,10 @@ int Planner::showTodos( int counter, const QDate &date )
       mPlannerGrid->addWidget( urlLabel2, counter, 5 );
       mLabels.append( urlLabel2 );
 
-      connect( urlLabel2, SIGNAL(leftClickedUrl(const QString&)),
-               this, SLOT(viewTodo(const QString&)) );
-      connect( urlLabel2, SIGNAL(rightClickedUrl(const QString&)),
-               this, SLOT(todoPopupMenu(const QString&)) );
+      connect( urlLabel2, SIGNAL(leftClickedUrl(QString)),
+               this, SLOT(viewTodo(QString)) );
+      connect( urlLabel2, SIGNAL(rightClickedUrl(QString)),
+               this, SLOT(todoPopupMenu(QString)) );
 
       QString tipText( IncidenceFormatter::toolTipStr(
                          mCalendar, todo, date, true, KSystemTimeZones::local() ) );
@@ -590,10 +590,10 @@ int Planner::showEvents( int counter, const QDate &date )
         mLabels.append( label );
       }
 
-      connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
-                this, SLOT(viewEvent(const QString&)) );
-      connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
-               this, SLOT(eventPopupMenu(const QString&)) );
+      connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
+                this, SLOT(viewEvent(QString)) );
+      connect( urlLabel, SIGNAL(rightClickedUrl(QString)),
+               this, SLOT(eventPopupMenu(QString)) );
 
       QString tipText( IncidenceFormatter::toolTipStr(
                          mCalendar, ev, date, true, KSystemTimeZones::local() ) );

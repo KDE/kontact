@@ -88,10 +88,10 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
   mModelState = new KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
   mModelState->setSelectionModel( mSelectionModel );
 
-  connect( mChangeRecorder, SIGNAL( collectionChanged( const Akonadi::Collection & ) ), SLOT( slotCollectionChanged( const Akonadi::Collection& ) ) );
-  connect( mChangeRecorder, SIGNAL( collectionRemoved( const Akonadi::Collection & ) ), SLOT( slotCollectionChanged( const Akonadi::Collection& ) ) );
+  connect( mChangeRecorder, SIGNAL(collectionChanged(Akonadi::Collection)), SLOT(slotCollectionChanged(Akonadi::Collection)) );
+  connect( mChangeRecorder, SIGNAL(collectionRemoved(Akonadi::Collection)), SLOT(slotCollectionChanged(Akonadi::Collection)) );
 
-  connect( mModel, SIGNAL( rowsInserted ( const QModelIndex&, int , int )), SLOT( slotRowInserted( const QModelIndex& , int, int)));
+  connect( mModel, SIGNAL(rowsInserted(QModelIndex,int,int)), SLOT(slotRowInserted(QModelIndex,int,int)));
   updateFolderList();
 }
 
@@ -174,8 +174,8 @@ void SummaryWidget::displayModel( const QModelIndex& parent,
                                     stats.count(),
                                     stats.unreadCount() ) );
 
-        connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
-                SLOT(selectFolder(const QString&)) );
+        connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
+                SLOT(selectFolder(QString)) );
 
         // Read and unread count.
         QLabel *label = new QLabel( i18nc( "%1: number of unread messages "

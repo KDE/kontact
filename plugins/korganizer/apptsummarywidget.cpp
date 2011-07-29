@@ -78,7 +78,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mChanger = new CalendarSupport::IncidenceChanger( mCalendar, parent );
 
   connect( mCalendar, SIGNAL(calendarChanged()), this, SLOT(updateView()) );
-  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), this, SLOT(updateView()) );
+  connect( mPlugin->core(), SIGNAL(dayChanged(QDate)), this, SLOT(updateView()) );
 
   // Update Configuration
   configUpdated();
@@ -200,10 +200,10 @@ void ApptSummaryWidget::updateView()
       mLayout->addWidget( urlLabel, counter, 3 );
       mLabels.append( urlLabel );
 
-      connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
-               this, SLOT(viewEvent(const QString&)) );
-      connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
-               this, SLOT(popupMenu(const QString&)) );
+      connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
+               this, SLOT(viewEvent(QString)) );
+      connect( urlLabel, SIGNAL(rightClickedUrl(QString)),
+               this, SLOT(popupMenu(QString)) );
       if ( !event->summaryTooltip.isEmpty() ) {
         urlLabel->setToolTip( event->summaryTooltip );
       }

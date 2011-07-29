@@ -86,9 +86,9 @@ KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
       "org.kde.ktimetracker", "/KTimeTracker", QDBusConnection::sessionBus() );
     // Setup context menu request handling
     connect( part->widget(),
-           SIGNAL( contextMenuRequested( const QPoint& ) ),
+           SIGNAL(contextMenuRequested(QPoint)),
            this,
-           SLOT( taskViewCustomContextMenuRequested( const QPoint& ) ) );
+           SLOT(taskViewCustomContextMenuRequested(QPoint)) );
 
     return part;
 }

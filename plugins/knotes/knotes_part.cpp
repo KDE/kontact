@@ -126,16 +126,16 @@ KNotesPart::KNotesPart( QObject *parent )
 
   // set the view up
 
-  connect( mNotesView, SIGNAL(executed( QListWidgetItem *)),
+  connect( mNotesView, SIGNAL(executed(QListWidgetItem*)),
            this, SLOT(editNote(QListWidgetItem*)) );
 
-  connect( mNotesView, SIGNAL(entered(const QModelIndex&)),
-            this, SLOT(requestToolTip(const QModelIndex&)));
+  connect( mNotesView, SIGNAL(entered(QModelIndex)),
+            this, SLOT(requestToolTip(QModelIndex)));
 
   connect( mNotesView, SIGNAL(viewportEntered()),
             this, SLOT(hideToolTip()));
 
-  connect( mNotesView, SIGNAL(currentItemChanged ( QListWidgetItem *, QListWidgetItem *) ),
+  connect( mNotesView, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
            this, SLOT(slotOnCurrentChanged()) );
 
   slotOnCurrentChanged();

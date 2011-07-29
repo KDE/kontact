@@ -78,7 +78,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   mChanger = new CalendarSupport::IncidenceChanger( mCalendar, parent );
 
   connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
-  connect( mPlugin->core(), SIGNAL(dayChanged(const QDate&)), SLOT(updateView()) );
+  connect( mPlugin->core(), SIGNAL(dayChanged(QDate)), SLOT(updateView()) );
 
   updateView();
 }
@@ -275,10 +275,10 @@ TODO: calhelper is deprecated, remove this?
       mLayout->addWidget( urlLabel, counter, 4 );
       mLabels.append( urlLabel );
 
-      connect( urlLabel, SIGNAL(leftClickedUrl(const QString&)),
-               this, SLOT(viewTodo(const QString&)) );
-      connect( urlLabel, SIGNAL(rightClickedUrl(const QString&)),
-               this, SLOT(popupMenu(const QString&)) );
+      connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
+               this, SLOT(viewTodo(QString)) );
+      connect( urlLabel, SIGNAL(rightClickedUrl(QString)),
+               this, SLOT(popupMenu(QString)) );
 
       // where did the toolTipStr signature that takes a calendar went?
       QString tipText( IncidenceFormatter::toolTipStr( IncidenceFormatter::resourceString( mCalendarAdaptor, todo ),
