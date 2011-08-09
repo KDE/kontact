@@ -87,7 +87,7 @@ void KCMKMailSummary::initGUI()
   layout->setMargin( 0 );
 
   mFolderView = new QTreeView( this );
-
+  mFolderView->setEditTriggers(QAbstractItemView::NoEditTriggers);
   mFullPath = new QCheckBox( i18n( "Show full path for folders" ), this );
   mFullPath->setToolTip(
     i18nc( "@info:tooltip", "Show full path for each folder" ) );
