@@ -65,7 +65,7 @@ class ktimetrackerplugin : public KontactInterface::Plugin
     KParts::ReadOnlyPart *createPart();
 
   protected Q_SLOTS:
-    void taskViewCustomContextMenuRequested( const QPoint& );
+    void taskViewCustomContextMenuRequested( const QPoint & );
 
   private:
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;

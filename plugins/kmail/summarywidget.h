@@ -65,12 +65,12 @@ class SummaryWidget : public KontactInterface::Summary
 
   private slots:
     void selectFolder( const QString & );
-    void slotCollectionChanged( const Akonadi::Collection& );
+    void slotCollectionChanged( const Akonadi::Collection & );
     void slotRowInserted( const QModelIndex & parent, int start, int end );
 
   private:
     void updateFolderList();
-    void displayModel( const QModelIndex &, int&, const bool, QStringList );
+    void displayModel( const QModelIndex &, int &, const bool, QStringList );
 
     QList<QLabel*> mLabels;
     QGridLayout *mLayout;

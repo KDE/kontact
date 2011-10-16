@@ -142,7 +142,7 @@ void JournalPlugin::slotSyncJournal()
   message << QString( "Journal" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning()<<" JournalPlugin::slotSyncJournal : need to port to Akonadi";
+  kWarning() << " JournalPlugin::slotSyncJournal : need to port to Akonadi";
 #endif
 }
 

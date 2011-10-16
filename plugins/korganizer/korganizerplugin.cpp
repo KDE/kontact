@@ -158,7 +158,7 @@ void KOrganizerPlugin::slotSyncEvents()
   message << QString( "Calendar" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning()<<" KOrganizerPlugin::slotSyncEvents : need to port to Akonadi";
+  kWarning() << " KOrganizerPlugin::slotSyncEvents : need to port to Akonadi";
 #endif
 }
 
@@ -210,7 +210,8 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
   }
 
   if ( KCalUtils::ICalDrag::canDecode( event->mimeData() ) ) {
-      KCalCore::MemoryCalendar::Ptr cal( new KCalCore::MemoryCalendar( KSystemTimeZones::local() ) );
+      KCalCore::MemoryCalendar::Ptr cal(
+        new KCalCore::MemoryCalendar( KSystemTimeZones::local() ) );
       if ( KCalUtils::ICalDrag::fromMimeData( event->mimeData(), cal ) ) {
           KCalCore::Incidence::List incidences = cal->incidences();
           Q_ASSERT( incidences.count() );

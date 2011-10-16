@@ -159,7 +159,7 @@ void TodoPlugin::slotSyncTodos()
   message << QString( "Todo" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning()<<" TodoPlugin::slotSyncTodos : need to port to Akonadi";
+  kWarning() << "TodoPlugin::slotSyncTodos : need to port to Akonadi";
 #endif
 }
 

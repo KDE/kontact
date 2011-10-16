@@ -141,7 +141,8 @@ void ApptSummaryWidget::updateView()
     foreach ( SummaryEventInfo *event, events ) {
 
       // Optionally, show only my Events
-/*      if ( mShowMineOnly && !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, event->ev ) ) {
+/*      if ( mShowMineOnly &&
+            !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, event->ev ) ) {
         continue;
       }
       TODO: CalHelper is deprecated, remove this?
@@ -323,6 +324,5 @@ void ApptSummaryWidget::createCalendar()
   mCalendarAdaptor = CalendarSupport::CalendarAdaptor::Ptr(
     new CalendarSupport::CalendarAdaptor( mCalendar, this ) );
 }
-
 
 #include "apptsummarywidget.moc"

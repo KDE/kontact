@@ -92,15 +92,13 @@ class KNotesIconViewItem : public QListWidgetItem
     {
       return mJournal;
     }
+
     void setIconText( const QString &text )
     {
       QString replaceText ;
-      if (text.count() > 5 ) 
-      {
+      if ( text.count() > 5 ) {
         replaceText = text.left(5) + "..." ;
-      }
-      else 
-      {
+      } else {
         replaceText = text ;
       }
 
@@ -186,6 +184,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
     {
       return mNoteEdit;
     }
+
   private:
     KLineEdit *mTitleEdit;
     KNoteEdit *mNoteEdit;

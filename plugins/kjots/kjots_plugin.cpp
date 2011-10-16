@@ -120,8 +120,9 @@ void KJotsPlugin::newBook()
 
 bool KJotsPlugin::queryClose() const
 {
-  if ( m_interface )
+  if ( m_interface ) {
     return m_interface->queryClose();
+  }
   return true;
 }
 
@@ -135,10 +136,10 @@ int KJotsUniqueAppHandler::newInstance()
 {
   // Ensure part is loaded
   (void)plugin()->part();
-#if 0  
+#if 0
   org::kde::KJotsWidget kjots(
     "org.kde.kjots", "/KJotsWidget", QDBusConnection::sessionBus() );
-#endif  
+#endif
   return KontactInterface::UniqueAppHandler::newInstance();
 
 }

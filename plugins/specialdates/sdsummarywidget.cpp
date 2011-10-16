@@ -72,33 +72,33 @@ BirthdaySearchJob::BirthdaySearchJob( QObject *parent, int daysInAdvance )
 {
   fetchScope().fetchFullPayload();
   const QString query = QString::fromLatin1(
-      "prefix nco:<http://www.semanticdesktop.org/ontologies/2007/03/22/nco#> "
-      "prefix xsd:<http://www.w3.org/2001/XMLSchema#> "
-      ""
-      "SELECT DISTINCT ?r "
-      "WHERE { "
-      "  graph ?g "
-      "  { "
-      "    { "
-      "      ?r a nco:PersonContact . "
-      "      ?r <%1> ?akonadiItemId . "
-      "      ?r nco:birthDate ?birthDate . "
-      "      FILTER( bif:dayofyear(?birthDate) >= bif:dayofyear(xsd:date(\"%2\")) ) "
-      "      FILTER( bif:dayofyear(?birthDate) <= bif:dayofyear(xsd:date(\"%2\")) + %3 ) "
-      "    } "
-      "    UNION "
-      "    { "
-      "      ?r a nco:PersonContact . "
-      "      ?r <%1> ?akonadiItemId . "
-      "      ?r nco:birthDate ?birthDate . "
-      "      FILTER( bif:dayofyear(?birthDate) + 365 >= bif:dayofyear(xsd:date(\"%2\")) ) "
-      "      FILTER( bif:dayofyear(?birthDate) + 365 <= bif:dayofyear(xsd:date(\"%2\")) + %3 ) "
-      "    } "
-      "  } "
-      "}"
-      ).arg( QString::fromLatin1( Akonadi::ItemSearchJob::akonadiItemIdUri().toEncoded() ) )
-     .arg( QDate::currentDate().toString( Qt::ISODate ) )
-     .arg( daysInAdvance );
+    "prefix nco:<http://www.semanticdesktop.org/ontologies/2007/03/22/nco#> "
+    "prefix xsd:<http://www.w3.org/2001/XMLSchema#> "
+    ""
+    "SELECT DISTINCT ?r "
+    "WHERE { "
+    "  graph ?g "
+    "  { "
+    "    { "
+    "      ?r a nco:PersonContact . "
+    "      ?r <%1> ?akonadiItemId . "
+    "      ?r nco:birthDate ?birthDate . "
+    "      FILTER( bif:dayofyear(?birthDate) >= bif:dayofyear(xsd:date(\"%2\")) ) "
+    "      FILTER( bif:dayofyear(?birthDate) <= bif:dayofyear(xsd:date(\"%2\")) + %3 ) "
+    "    } "
+    "    UNION "
+    "    { "
+    "      ?r a nco:PersonContact . "
+    "      ?r <%1> ?akonadiItemId . "
+    "      ?r nco:birthDate ?birthDate . "
+    "      FILTER( bif:dayofyear(?birthDate) + 365 >= bif:dayofyear(xsd:date(\"%2\")) ) "
+    "      FILTER( bif:dayofyear(?birthDate) + 365 <= bif:dayofyear(xsd:date(\"%2\")) + %3 ) "
+    "    } "
+    "  } "
+    "}" ).
+    arg( QString::fromLatin1( Akonadi::ItemSearchJob::akonadiItemIdUri().toEncoded() ) ).
+    arg( QDate::currentDate().toString( Qt::ISODate ) ).
+    arg( daysInAdvance );
   Akonadi::ItemSearchJob::setQuery( query );
 }
 
@@ -106,6 +106,7 @@ enum SDIncidenceType {
   IncidenceTypeContact,
   IncidenceTypeEvent
 };
+
 enum SDCategory {
   CategoryBirthday,
   CategoryAnniversary,
@@ -247,10 +248,10 @@ int SDSummaryWidget::dayof( const KCalCore::Event::Ptr &event, const QDate &date
   return dayof;
 }
 
-void SDSummaryWidget::slotBirthdayJobFinished( KJob* job )
+void SDSummaryWidget::slotBirthdayJobFinished( KJob *job )
 {
   // ;)
-  BirthdaySearchJob* bJob = dynamic_cast< BirthdaySearchJob* >( job );
+  BirthdaySearchJob* bJob = dynamic_cast< BirthdaySearchJob *>( job );
   if ( bJob ) {
     foreach ( const Akonadi::Item &item, bJob->items() ) {
       if ( item.hasPayload<KABC::Addressee>() ) {
@@ -304,14 +305,15 @@ void SDSummaryWidget::createLabels()
       KCalCore::Event::Ptr ev = CalendarSupport::event( item );
 
       // Optionally, show only my Events
-      /* if ( mShowMineOnly && !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, ev. ) ) {
+      /* if ( mShowMineOnly &&
+              !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, ev. ) ) {
         // FIXME; does isMyCalendarIncidence work !? It's deprecated too.
         continue;
         }
         // TODO: CalHelper is deprecated, remove this?
         */
 
-      if ( ev->customProperty("KABC","BIRTHDAY" ) == "YES" ) {
+      if ( ev->customProperty( "KABC","BIRTHDAY" ) == "YES" ) {
         // Skipping, because these are got by the BirthdaySearchJob
         // See comments in updateView()
         continue;
@@ -323,7 +325,7 @@ void SDSummaryWidget::createLabels()
         for ( it2 = c.constBegin(); it2 != c.constEnd(); ++it2 ) {
 
           // Append Birthday Event?
-          if ( mShowBirthdaysFromCal && ( ( *it2 ).toUpper() == "BIRTHDAY" ) ) {
+          if ( mShowBirthdaysFromCal && ( (*it2).toUpper() == "BIRTHDAY" ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryBirthday;
@@ -338,14 +340,14 @@ void SDSummaryWidget::createLabels()
              * with summary and date equal to some KABC Atendee we don't show it
              * FIXME: port to akonadi, it's kresource based
              * */
-            if ( /*!check( bdayRes, dt, ev->summary() )*/ true ) {
+            if ( /*!check( bdayRes, dt, ev->summary() )*/true ) {
               mDates.append( entry );
             }
             break;
           }
 
           // Append Anniversary Event?
-          if ( mShowAnniversariesFromCal && ( ( *it2 ).toUpper() == "ANNIVERSARY"  ) ) {
+          if ( mShowAnniversariesFromCal && ( (*it2).toUpper() == "ANNIVERSARY" ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryAnniversary;
@@ -354,14 +356,14 @@ void SDSummaryWidget::createLabels()
             entry.desc = ev->description();
             dateDiff( ev->dtStart().date(), entry.daysTo, entry.yearsOld );
             entry.span = 1;
-            if ( /*!check( annvRes, dt, ev->summary() )*/ true ) {
+            if ( /*!check( annvRes, dt, ev->summary() )*/true ) {
               mDates.append( entry );
             }
             break;
           }
 
           // Append Holiday Event?
-          if ( mShowHolidays && ( ( *it2 ).toUpper() == "HOLIDAY" ) ) {
+          if ( mShowHolidays && ( (*it2).toUpper() == "HOLIDAY" ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryHoliday;
@@ -379,7 +381,7 @@ void SDSummaryWidget::createLabels()
           }
 
           // Append Special Occasion Event?
-          if ( mShowSpecialsFromCal && ( ( *it2 ).toUpper() == "SPECIAL OCCASION"  ) ) {
+          if ( mShowSpecialsFromCal && ( (*it2).toUpper() == "SPECIAL OCCASION" ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryOther;
@@ -608,7 +610,6 @@ void SDSummaryWidget::createLabels()
   setUpdatesEnabled( true );
 }
 
-
 void SDSummaryWidget::updateView()
 {
   mDates.clear();
@@ -647,7 +648,7 @@ void SDSummaryWidget::mailContact( const QString &url )
 {
   const Akonadi::Item item = Akonadi::Item::fromUrl( url );
   if ( !item.isValid() ) {
-    kDebug()<< "Invalid item found";
+    kDebug() << "Invalid item found";
     return;
   }
 
@@ -670,7 +671,7 @@ void SDSummaryWidget::viewContact( const QString &url )
 {
   const Akonadi::Item item = Akonadi::Item::fromUrl( url );
   if ( !item.isValid() ) {
-    kDebug()<< "Invalid item found";
+    kDebug() << "Invalid item found";
     return;
   }
 

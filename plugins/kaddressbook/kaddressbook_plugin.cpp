@@ -159,7 +159,7 @@ QStringList KAddressBookPlugin::invisibleToolbarActions() const
 
 void KAddressBookPlugin::slotSyncContacts()
 {
-#if 0	
+#if 0
   QDBusMessage message =
       QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
                                       "org.kde.kmail.groupware",
@@ -167,8 +167,8 @@ void KAddressBookPlugin::slotSyncContacts()
   message << QString( "Contact" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning()<<" Need to port to AKONADI: KAddressBookPlugin::slotSyncNotes";
-#endif  
+  kWarning() << " Need to port to AKONADI: KAddressBookPlugin::slotSyncNotes";
+#endif
 }
 
 void KAddressBookUniqueAppHandler::loadCommandLineOptions()

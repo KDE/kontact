@@ -258,7 +258,8 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     summaryEvent->summaryText = str;
     summaryEvent->summaryUrl = ev->uid();
     QString tipText( KCalUtils::IncidenceFormatter::toolTipStr(
-                       KCalUtils::IncidenceFormatter::resourceString( calendar, ev ), ev, date, true, spec ) );
+                       KCalUtils::IncidenceFormatter::resourceString(
+                         calendar, ev ), ev, date, true, spec ) );
     if ( !tipText.isEmpty() ) {
       summaryEvent->summaryTooltip = tipText;
     }

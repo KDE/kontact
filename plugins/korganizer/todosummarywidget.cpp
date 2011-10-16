@@ -192,7 +192,8 @@ void TodoSummaryWidget::updateView()
       int daysTo = -1;
 
       // Optionally, show only my To-dos
-/*      if ( mShowMineOnly && !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, todo.get() ) ) {
+/*      if ( mShowMineOnly &&
+             !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, todo.get() ) ) {
         continue;
       }
 TODO: calhelper is deprecated, remove this?
@@ -281,8 +282,9 @@ TODO: calhelper is deprecated, remove this?
                this, SLOT(popupMenu(QString)) );
 
       // where did the toolTipStr signature that takes a calendar went?
-      QString tipText( IncidenceFormatter::toolTipStr( IncidenceFormatter::resourceString( mCalendarAdaptor, todo ),
-                                                       todo, currDate, true, KSystemTimeZones::local() ) );
+      QString tipText( IncidenceFormatter::toolTipStr(
+                         IncidenceFormatter::resourceString( mCalendarAdaptor, todo ),
+                         todo, currDate, true, KSystemTimeZones::local() ) );
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
       }

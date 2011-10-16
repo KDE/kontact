@@ -216,7 +216,7 @@ void KNotesPlugin::slotSyncNotes()
   message << QString( "Note" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning()<<" Need to port to AKONADI: KNotesPlugin::slotSyncNotes";
+  kWarning() << " Need to port to AKONADI: KNotesPlugin::slotSyncNotes";
 #endif
 }
 
