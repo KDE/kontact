@@ -26,9 +26,9 @@
 #ifndef SDSUMMARYWIDGET_H
 #define SDSUMMARYWIDGET_H
 
-#include <KontactInterface/Summary>
+#include <KCalCore/Event>
 
-#include <kcalcore/event.h>
+#include <KontactInterface/Summary>
 
 namespace KHolidays {
   class HolidayRegion;

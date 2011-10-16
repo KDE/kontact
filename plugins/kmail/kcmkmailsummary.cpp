@@ -24,19 +24,19 @@
 
 #include "kcmkmailsummary.h"
 
+#include <Akonadi/EntityTreeModel>
+#include <Akonadi/ETMViewStateSaver>
+#include <Akonadi/ChangeRecorder>
+
+#include <KMime/KMimeMessage>
+
 #include <KAboutData>
 #include <KAcceleratorManager>
+#include <kcheckableproxymodel.h> //krazy:exclude=camelcase TODO wait for kdelibs4.8
 #include <KComponentData>
 #include <KDebug>
 #include <KDialog>
 #include <KLocale>
-
-#include <Akonadi/EntityTreeModel>
-#include <Akonadi/ChangeRecorder>
-#include <akonadi/etmviewstatesaver.h>
-#include <kcheckableproxymodel.h>
-
-#include <kmime/kmime_message.h>
 
 #include <QCheckBox>
 #include <QTreeView>

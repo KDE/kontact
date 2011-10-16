@@ -28,8 +28,9 @@
 
 #include <calendarsupport/calendaradaptor.h>
 
-#include <kcalcore/todo.h>
 #include <Akonadi/Item>
+
+#include <KCalCore/Todo>
 
 #include <KontactInterface/Summary>
 

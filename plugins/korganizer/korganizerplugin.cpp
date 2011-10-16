@@ -31,9 +31,10 @@
 
 #include <KABC/VCardDrag>
 
-#include <kcalcore/incidence.h>
-#include <kcalcore/memorycalendar.h>
-#include <kcalutils/icaldrag.h>
+#include <KCalCore/Incidence>
+#include <KCalCore/MemoryCalendar>
+
+#include <KCalUtils/ICalDrag>
 
 #include <KontactInterface/Core>
 

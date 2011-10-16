@@ -26,10 +26,10 @@
 
 #include "planner.h"
 #include "plannerplugin.h"
-#include "korganizer/korganizerinterface.h"
 #include "stdcalendar.h"
+#include "korganizer/korganizerinterface.h"
 
-#include <akonadi/contact/contactsearchjob.h>
+#include <Akonadi/Contact/ContactSearchJob>
 
 #include <KCal/Calendar>
 #include <KCal/CalHelper>

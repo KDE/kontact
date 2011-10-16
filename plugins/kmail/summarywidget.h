@@ -27,11 +27,7 @@
 
 #include <KontactInterface/Summary>
 
-#include <kviewstatemaintainer.h>
-
-namespace KontactInterface {
-  class Plugin;
-}
+#include <kviewstatemaintainer.h> //krazy:exclude=camelcase TODO wait for kdelibs4.8
 
 namespace Akonadi {
   class ChangeRecorder;
@@ -40,12 +36,16 @@ namespace Akonadi {
   class ETMViewStateSaver;
 }
 
+namespace KontactInterface {
+  class Plugin;
+}
+
 class KCheckableProxyModel;
 
 class QGridLayout;
+class QItemSelectionModel;
 class QLabel;
 class QModelIndex;
-class QItemSelectionModel;
 
 class SummaryWidget : public KontactInterface::Summary
 {

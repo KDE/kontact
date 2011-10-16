@@ -26,21 +26,19 @@
 
 #include "summaryeventinfo.h"
 
-#include <kcalcore/calendar.h>
-#include <kcalcore/event.h>
+#include <KCalCore/Calendar>
+#include <KCalCore/Event>
+using namespace KCalCore;
 
-#include <kcalutils/incidenceformatter.h>
+#include <KCalUtils/IncidenceFormatter>
+using namespace KCalUtils;
 
-#include <kglobal.h>
-#include <klocale.h>
-
+#include <KGlobal>
+#include <KLocale>
 #include <KSystemTimeZones>
 
 #include <QDate>
 #include <QStringList>
-
-using namespace KCalCore;
-using namespace KCalUtils;
 
 bool SummaryEventInfo::mShowBirthdays = true;
 bool SummaryEventInfo::mShowAnniversaries = true;

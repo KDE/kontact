@@ -29,19 +29,19 @@
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
 
-#include <kmime/kmime_message.h>
-
 #include <Akonadi/ChangeRecorder>
-#include <Akonadi/EntityTreeModel>
-#include <Akonadi/CollectionStatistics>
 #include <Akonadi/CollectionFetchScope>
-#include <akonadi/etmviewstatesaver.h>
+#include <Akonadi/CollectionStatistics>
+#include <Akonadi/EntityTreeModel>
+#include <Akonadi/ETMViewStateSaver>
 
+#include <KMime/KMimeMessage>
+
+#include <kcheckableproxymodel.h> //krazy:exclude=camelcase TODO wait for kdelibs4.8
 #include <KConfigGroup>
 #include <KDebug>
 #include <KLocale>
 #include <KUrlLabel>
-#include <kcheckableproxymodel.h>
 
 #include <QEvent>
 #include <QIcon>

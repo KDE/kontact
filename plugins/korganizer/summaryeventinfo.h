@@ -26,11 +26,11 @@
 #ifndef SUMMARYEVENTINFO_H
 #define SUMMARYEVENTINFO_H
 
+#include <KCalCore/Calendar>
+#include <KCalCore/Event>
+
 #include <QList>
 #include <QString>
-
-#include <kcalcore/event.h>
-#include <kcalcore/calendar.h>
 
 class QDate;
 

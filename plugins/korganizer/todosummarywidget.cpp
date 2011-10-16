@@ -27,10 +27,6 @@
 #include "todoplugin.h"
 #include "korganizer/korganizerinterface.h"
 
-#include <KontactInterface/Core>
-
-#include <kcalutils/incidenceformatter.h>
-
 #include <calendarsupport/calendar.h>
 #include <calendarsupport/calendaradaptor.h>
 #include <calendarsupport/calendarmodel.h>
@@ -43,6 +39,10 @@
 #include <Akonadi/Collection>
 #include <Akonadi/ItemFetchScope>
 #include <Akonadi/EntityDisplayAttribute>
+
+#include <KCalUtils/IncidenceFormatter>
+
+#include <KontactInterface/Core>
 
 #include <KConfigGroup>
 #include <KIconLoader>

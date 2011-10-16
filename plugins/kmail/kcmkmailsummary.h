@@ -26,19 +26,19 @@
 #define KCMKMAILSUMMARY_H
 
 #include <KCModule>
+#include <kviewstatemaintainer.h> //krazy:exclude=camelcase TODO wait for kdelibs4.8
 
-#include <kviewstatemaintainer.h>
-
-class QCheckBox;
-class QTreeView;
-class QItemSelectionModel;
-namespace Akonadi{
+namespace Akonadi {
   class EntityTreeModel;
   class ChangeRecorder;
   class ETMViewStateSaver;
 }
 
 class KCheckableProxyModel;
+
+class QCheckBox;
+class QTreeView;
+class QItemSelectionModel;
 
 class KCMKMailSummary : public KCModule
 {

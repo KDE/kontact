@@ -24,8 +24,8 @@
 #include <K3StaticDeleter>
 #include <KConfigGroup>
 #include <KStandardDirs>
+#include <KSystemTimeZone>
 #include <KUrl>
-#include <ksystemtimezone.h>
 
 using namespace KOrg;
 
