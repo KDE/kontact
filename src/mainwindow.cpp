@@ -191,8 +191,9 @@ void MainWindow::waitForKSycoca()
 {
   int i = 0;
   while ( i < KSYCOCA_WAIT_TIMEOUT ) {
-    if ( KSycoca::isAvailable() )
+    if ( KSycoca::isAvailable() ) {
       return;
+    }
     // When KSycoca is not availabe that usually means Kontact
     // was started before kded is done with it's first run
     // we want to block Kontact execution to
