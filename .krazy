@@ -1,2 +1,2 @@
-EXTRA style,kdebug,tipsandthis,camelcase
+EXTRA camelcase,defines,kdebug,null,qenums,style,tipsandthis
 SKIP /tests/
