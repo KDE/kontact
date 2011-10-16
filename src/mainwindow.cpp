@@ -74,8 +74,8 @@ using namespace Kontact;
 #include <QVBoxLayout>
 #include <QWebSettings>
 
-//Define the maximum time Kontact waits for KSycoca to become available
-#define KSYCOCA_WAIT_TIMEOUT 10
+// Define the maximum time Kontact waits for KSycoca to become available.
+static const int KSYCOCA_WAIT_TIMEOUT = 10;
 
 // This class extends the normal KDBusServiceStarter.
 //
