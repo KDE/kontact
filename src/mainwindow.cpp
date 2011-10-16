@@ -197,8 +197,8 @@ void MainWindow::waitForKSycoca()
     // When KSycoca is not availabe that usually means Kontact
     // was started before kded is done with it's first run
     // we want to block Kontact execution to
-    // give Kded time to initalize and create the
-    // System Configuration database neccessary for further
+    // give Kded time to initialize and create the
+    // System Configuration database necessary for further
     // Kontact startup
     kDebug() << "Waiting for KSycoca";
     sleep(1);
