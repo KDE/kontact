@@ -1,1 +1,2 @@
 EXTRA style,kdebug,tipsandthis,camelcase
+SKIP /tests/
