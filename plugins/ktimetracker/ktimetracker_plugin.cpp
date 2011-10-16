@@ -24,17 +24,18 @@
   without including the source code for Qt in the source distribution.
 */
 
-#include <QMenu>
 #include "ktimetracker_plugin.h"
 #include "ktimetrackerinterface.h"
 
 #include <KontactInterface/Core>
-#include <KXMLGUIFactory>
 
 #include <KActionCollection>
 #include <KCmdLineArgs>
+#include <KDebug>
 #include <KIcon>
-#include <kdebug.h>
+#include <KXMLGUIFactory>
+
+#include <QMenu>
 
 EXPORT_KONTACT_PLUGIN( ktimetrackerplugin, ktimetracker )
 
