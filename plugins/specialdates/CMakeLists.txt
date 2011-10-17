@@ -3,11 +3,9 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 ########### next target ###############
 
-set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}" )
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
 
-include_directories(
-    ${Boost_INCLUDE_DIR}
-    )
+include_directories(${Boost_INCLUDE_DIR})
 
 set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget.cpp)
 
@@ -15,16 +13,20 @@ kde4_add_plugin(kontact_specialdatesplugin ${kontact_specialdatesplugin_PART_SRC
 
 if(BUILD_korganizer)
   set(_korganizerprivate_lib "korganizerprivate")
-endif(BUILD_korganizer)
+endif()
 
 target_link_libraries(kontact_specialdatesplugin
   ${KDE4_KDEUI_LIBS}
-  ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KHOLIDAYS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS}
-  ${KDEPIMLIBS_AKONADI_LIBS} ${KDEPIMLIBS_AKONADI_CONTACT_LIBS}
-  kdepim ${_korganizerprivate_lib}
-  calendarsupport  ${KDEPIMLIBS_KCALCORE_LIBS}
+  ${KDEPIMLIBS_KABC_LIBS}
+  ${KDEPIMLIBS_KCALCORE_LIBS}
+  ${KDEPIMLIBS_KHOLIDAYS_LIBS}
+  ${KDEPIMLIBS_KONTACTINTERFACE_LIBS}
+  ${KDEPIMLIBS_AKONADI_LIBS}
+  ${KDEPIMLIBS_AKONADI_CONTACT_LIBS}
+  kdepim
+  calendarsupport
+  ${_korganizerprivate_lib}
 )
-
 
 ########### next target ###############
 
@@ -38,11 +40,11 @@ target_link_libraries(kcm_sdsummary  ${KDE4_KDEUI_LIBS} ${QT_QT3SUPPORT_LIBRARY}
 
 ########### install files ###############
 
-install(TARGETS kontact_specialdatesplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kcm_sdsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_specialdatesplugin DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_sdsummary DESTINATION ${PLUGIN_INSTALL_DIR})
 
-install(FILES specialdatesplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-install(FILES kcmsdsummary.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES specialdatesplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install(FILES kcmsdsummary.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 install(FILES specialdates.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
 

@@ -1,7 +1,7 @@
 
 include_directories(${CMAKE_SOURCE_DIR}/korganizer ${CMAKE_SOURCE_DIR}/korganizer/interfaces ${Boost_INCLUDE_DIRS})
 
-set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}" )
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
 
 ########### next target ###############
 set(libcommon_SRCS korg_uniqueapp.cpp)
@@ -12,7 +12,7 @@ qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/k
 
 kde4_add_plugin(kontact_korganizerplugin ${kontact_korganizerplugin_PART_SRCS})
 
-target_link_libraries(kontact_korganizerplugin ${KDEPIMLIBS_KCALUTILS_LIBS} ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KCALCORE_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} korganizerprivate calendarsupport )
+target_link_libraries(kontact_korganizerplugin ${KDEPIMLIBS_KCALUTILS_LIBS} ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KCALCORE_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} korganizerprivate calendarsupport)
 
 ########### next target ###############
 
@@ -22,7 +22,7 @@ qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korgani
 
 kde4_add_plugin(kontact_todoplugin ${kontact_todoplugin_PART_SRCS})
 
-target_link_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_KCALCORE_LIBS} ${KDEPIMLIBS_KCALUTILS_LIBS} korganizerprivate calendarsupport )
+target_link_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_KCALCORE_LIBS} ${KDEPIMLIBS_KCALUTILS_LIBS} korganizerprivate calendarsupport)
 
 ########### next target ###############
 
@@ -52,21 +52,21 @@ kde4_add_ui_files(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui)
 
 kde4_add_plugin(kcm_todosummary ${kcm_todosummary_PART_SRCS})
 
-target_link_libraries(kcm_todosummary  ${KDE4_KDEUI_LIBS})
+target_link_libraries(kcm_todosummary ${KDE4_KDEUI_LIBS})
 
 ########## Unit Test ###########
-add_subdirectory( tests )
+add_subdirectory(tests)
 
 ########### install files ###############
 
-install(TARGETS kcm_apptsummary  DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kcm_todosummary  DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kontact_korganizerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kontact_todoplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kontact_journalplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_apptsummary DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_todosummary DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_korganizerplugin DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_todoplugin DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_journalplugin DESTINATION ${PLUGIN_INSTALL_DIR})
 
-install(FILES korganizerplugin.desktop todoplugin.desktop journalplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-install(FILES kcmapptsummary.desktop kcmtodosummary.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES korganizerplugin.desktop todoplugin.desktop journalplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install(FILES kcmapptsummary.desktop kcmtodosummary.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 install(FILES korganizer.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
 
