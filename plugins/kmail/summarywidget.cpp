@@ -224,7 +224,8 @@ void SummaryWidget::updateFolderList()
   }
 
   QList<QLabel*>::const_iterator lit;
-  for ( lit = mLabels.constBegin(); lit != mLabels.constEnd(); ++lit ) {
+  QList<QLabel*>::const_iterator lend( mLabels.constEnd() );
+  for ( lit = mLabels.constBegin(); lit != lend; ++lit ) {
     (*lit)->show();
   }
 }
