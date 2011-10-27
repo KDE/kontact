@@ -380,15 +380,12 @@ void MainWindow::paintAboutScreen( const QString &msg )
 {
   QString location = KStandardDirs::locate( "data", "kontact/about/main.html" );
   QString content = KPIMUtils::kFileToByteArray( location );
-  //TODO: "file:" must be prepended to the paths returned by locate() so QWebView
-  //      loads the page properly. However, at this time the stylesheet looks ugly.
-  //      So, do not uncomment the "file:" until the stylesheets are fixed.
-  content = content.arg( /*"file:" + */KStandardDirs::locate(
+  content = content.arg( "file:" + KStandardDirs::locate(
                            "data", "kdeui/about/kde_infopage.css" ) );
   if ( QApplication::isRightToLeft() ) {
     content =
       content.arg( "@import \"%1\";" ).
-              arg( /*"file:" + */KStandardDirs::locate(
+              arg( "file:" + KStandardDirs::locate(
                      "data", "kdeui/about/kde_infopage_rtl.css" ) );
   } else {
     content = content.arg( "" );
