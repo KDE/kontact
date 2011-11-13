@@ -313,7 +313,7 @@ bool MainWindow::pluginWeightLessThan( const KontactInterface::Plugin *left,
 
 void MainWindow::activateInitialPluginModule()
 {
-  if ( !mInitialActiveModule.isEmpty() ) {
+  if ( !mInitialActiveModule.isEmpty() && !mPlugins.isEmpty() ) {
     PluginList::ConstIterator end = mPlugins.constEnd();
     for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
       if ( ( *it )->identifier().contains( mInitialActiveModule ) ) {
@@ -574,7 +574,7 @@ void MainWindow::loadPlugins()
     }
 
     if ( mSyncActionsEnabled ) {
-      Q_FOREACH( KAction *listIt, plugin->syncActions() ) {
+      Q_FOREACH ( KAction *listIt, plugin->syncActions() ) {
         kDebug() << "Plugging Sync actions" << listIt->objectName();
         mSyncActions->addAction( listIt );
       }
@@ -843,7 +843,7 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
     mPartsStack->setCurrentWidget( view );
     view->show();
 
-    if ( mFocusWidgets.contains( plugin->identifier() ) ) {
+    if ( !mFocusWidgets.isEmpty() && mFocusWidgets.contains( plugin->identifier() ) ) {
       focusWidget = mFocusWidgets[ plugin->identifier() ];
       if ( focusWidget ) {
         focusWidget->setFocus();
@@ -1140,9 +1140,12 @@ void MainWindow::readProperties( const KConfigGroup &config )
 
   QSet<QString> activePlugins =
     QSet<QString>::fromList( config.readEntry( "ActivePlugins", QStringList() ) );
-  foreach ( KontactInterface::Plugin *plugin, mPlugins ) {
-    if ( !plugin->isRunningStandalone() && activePlugins.contains( plugin->identifier() ) ) {
-      plugin->readProperties( config );
+
+  if ( !activePlugins.isEmpty() ) {
+    foreach ( KontactInterface::Plugin *plugin, mPlugins ) {
+      if ( !plugin->isRunningStandalone() && activePlugins.contains( plugin->identifier() ) ) {
+        plugin->readProperties( config );
+      }
     }
   }
 }
