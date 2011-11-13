@@ -310,7 +310,7 @@ TODO: calhelper is deprecated, remove this?
     mLabels.append( noTodos );
   }
 
-  Q_FOREACH( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
+  Q_FOREACH ( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
     label->show();
   }
 }

@@ -235,7 +235,7 @@ void ApptSummaryWidget::updateView()
     mLabels.append( noEvents );
   }
 
-  Q_FOREACH( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
+  Q_FOREACH ( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
     label->show();
   }
 }
