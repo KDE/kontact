@@ -316,7 +316,8 @@ void MainWindow::activateInitialPluginModule()
   if ( !mInitialActiveModule.isEmpty() && !mPlugins.isEmpty() ) {
     PluginList::ConstIterator end = mPlugins.constEnd();
     for ( PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it ) {
-      if ( ( *it )->identifier().contains( mInitialActiveModule ) ) {
+      if ( !(*it)->identifier().isEmpty() &&
+           (*it)->identifier().contains( mInitialActiveModule ) ) {
         selectPlugin( *it );
         return;
       }
