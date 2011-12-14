@@ -126,6 +126,7 @@ Comment[x-test]=xxMail Summary Setupxx
 Comment[zh_CN]=邮件摘要设置
 Comment[zh_TW]=郵件摘要設定
 X-KDE-Keywords=email, summary, configure, settings
+X-KDE-Keywords[de]=E-Mail,email,Übersicht,einstellen,konfigurieren,Konfiguration,Einrichtung,Einstellungen
 X-KDE-Keywords[es]=email, resumen, configurar, preferencias
 X-KDE-Keywords[hu]=e-mail, összegzés, beállítás, beállítások
 X-KDE-Keywords[ia]=e-posta,summario,configura,preferentias

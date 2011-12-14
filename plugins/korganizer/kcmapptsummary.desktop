@@ -109,6 +109,7 @@ Comment[x-test]=xxUpcoming Events Summary Setupxx
 Comment[zh_CN]=近期事件摘要设置
 Comment[zh_TW]=將發生的事件摘要設定
 X-KDE-Keywords=calendar, events, configure, settings
+X-KDE-Keywords[de]=Ereignisse,Kalendar,einstellen,konfigurieren,Konfiguration,Einrichtung,Einstellungen
 X-KDE-Keywords[es]=calendario, eventos, configurar, preferencias
 X-KDE-Keywords[hu]=naptár, események, beállítás, beállítások
 X-KDE-Keywords[ia]=calendario,eventos,configura,preferentias

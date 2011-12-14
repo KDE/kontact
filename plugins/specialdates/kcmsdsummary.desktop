@@ -112,6 +112,7 @@ Comment[x-test]=xxUpcoming Special Dates Summary Setupxx
 Comment[zh_CN]=近期日期摘要设置
 Comment[zh_TW]=將來臨的特殊日期摘要設定
 X-KDE-Keywords=birthday, anniversary, holiday, configure, settings
+X-KDE-Keywords[de]=Geburtstag,Jahrestag,Feiertag,einstellen,konfigurieren,Konfiguration,Einrichtung,Einstellungen
 X-KDE-Keywords[es]=cumpleaños, aniversario, vacaciones, configurar, preferencias
 X-KDE-Keywords[hu]=születésnap, évforduló, ünnepnap, beállítás, beállítások
 X-KDE-Keywords[ia]=anniversario de nascite,anniversario,die feriate, configura, preferentias
