@@ -108,9 +108,12 @@ KParts::ReadOnlyPart *AkregatorPlugin::createPart()
 
 void AkregatorPlugin::addFeed()
 {
-  (void) part(); // ensure part is loaded
-  Q_ASSERT( m_interface );
-  m_interface->addFeed();
+  // Ensure part is loaded
+  (void)part();
+
+  org::kde::akregator::part akregator(
+    "org.kde.akregator", "/Akregator", QDBusConnection::sessionBus() );
+  akregator.addFeed();
 }
 
 QStringList AkregatorPlugin::configModules() const
