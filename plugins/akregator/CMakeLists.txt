@@ -16,7 +16,7 @@ target_link_libraries(kontact_akregatorplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_K
 
 ########### install files ###############
 
-install(TARGETS kontact_akregatorplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_akregatorplugin DESTINATION ${PLUGIN_INSTALL_DIR})
 
 install(FILES akregatorplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 

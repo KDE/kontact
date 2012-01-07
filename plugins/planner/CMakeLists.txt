@@ -6,11 +6,11 @@ include_directories(${CMAKE_SOURCE_DIR}/korganizer ${CMAKE_SOURCE_DIR}/korganize
 
 set(kontact_plannerplugin_PART_SRCS plannerplugin.cpp planner.cpp stdcalendar.cpp)
 
-qt4_add_dbus_interfaces(kontact_plannerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml  ${CMAKE_SOURCE_DIR}/korganizer/org.kde.korganizer.Korganizer.xml)
+qt4_add_dbus_interfaces(kontact_plannerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korganizer/org.kde.Korganizer.Calendar.xml ${CMAKE_SOURCE_DIR}/korganizer/org.kde.korganizer.Korganizer.xml)
 
 kde4_add_plugin(kontact_plannerplugin ${kontact_plannerplugin_PART_SRCS})
 
-target_link_libraries(kontact_plannerplugin  ${KDE4_KDECORE_LIBS} ${KDEPIMLIBS_KCAL_LIBS} ${KDEPIMLIBS_KHOLIDAYS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} kdepim korganizerprivate kaddressbookprivate ${KDEPIMLIBS_AKONADI_CONTACT_LIBS} ${KDE4_KDE3SUPPORT_LIBS})
+target_link_libraries(kontact_plannerplugin ${KDE4_KDECORE_LIBS} ${KDEPIMLIBS_KCAL_LIBS} ${KDEPIMLIBS_KHOLIDAYS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} kdepim korganizerprivate kaddressbookprivate ${KDEPIMLIBS_AKONADI_CONTACT_LIBS} ${KDE4_KDE3SUPPORT_LIBS})
 
 ########### next target ###############
 
@@ -28,10 +28,10 @@ target_link_libraries(kcm_planner
 
 ########### install files ###############
 
-install(TARGETS kontact_plannerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_plannerplugin DESTINATION ${PLUGIN_INSTALL_DIR})
 install(TARGETS kcm_planner DESTINATION ${PLUGIN_INSTALL_DIR})
 
-install(FILES plannerplugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-install(FILES kcmplanner.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES plannerplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install(FILES kcmplanner.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 install(FILES planner.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)

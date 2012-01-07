@@ -13,11 +13,11 @@ target_link_libraries(kontact_ktimetrackerplugin ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS
 
 ########### install files ###############
 
-install(TARGETS kontact_ktimetrackerplugin  DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_ktimetrackerplugin DESTINATION ${PLUGIN_INSTALL_DIR})
 
-install(FILES ktimetracker_plugin.desktop  DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install(FILES ktimetracker_plugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
 install(FILES ktimetracker.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
 
-install(FILES ../../../ktimetracker/ktimetrackerui.rc  DESTINATION ${DATA_INSTALL_DIR}/kontact)
+install(FILES ../../../ktimetracker/ktimetrackerui.rc DESTINATION ${DATA_INSTALL_DIR}/kontact)
 
