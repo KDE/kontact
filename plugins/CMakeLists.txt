@@ -20,7 +20,7 @@ if(BUILD_knotes AND KDEPIMLIBS_KRESOURCES_LIBS AND QT_QT3SUPPORT_FOUND)
   add_subdirectory(knotes)
 endif()
 
-if(BUILD_knode AND QT_QT3SUPPORT_FOUND)
+if(BUILD_knode)
   add_subdirectory(knode)
 endif()
 
