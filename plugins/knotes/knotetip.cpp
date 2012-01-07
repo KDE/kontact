@@ -41,8 +41,9 @@
 #include <QToolTip>
 
 KNoteTip::KNoteTip( QListWidget *parent )
-  : QFrame( 0, Qt::WX11BypassWM |   // this will make Seli happy >:-P
-            Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_Tool | Qt::WStyle_StaysOnTop ),
+  : QFrame( 0,
+            Qt::Tool |
+            Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint ),
     mFilter( false ),
     mView( parent ),
     mNoteIVI( 0 ),

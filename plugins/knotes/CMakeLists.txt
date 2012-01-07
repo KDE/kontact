@@ -1,7 +1,6 @@
 
 ########### next target ###############
 
-add_definitions(-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 set(kontact_knotesplugin_PART_SRCS ${libknotesresources_SRCS} ${libknoteseditor_SRCS}
   knotes_plugin.cpp
   knotes_part.cpp

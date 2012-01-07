@@ -16,7 +16,7 @@ if(QGPGME_FOUND)
 #  add_subdirectory(planner)
 endif()
 
-if(BUILD_knotes AND KDEPIMLIBS_KRESOURCES_LIBS AND QT_QT3SUPPORT_FOUND)
+if(BUILD_knotes AND KDEPIMLIBS_KRESOURCES_LIBS)
   add_subdirectory(knotes)
 endif()
 
