@@ -184,3 +184,5 @@ int KAddressBookUniqueAppHandler::newInstance()
     return KontactInterface::UniqueAppHandler::newInstance();
 }
 
+
+#include "kaddressbook_plugin.moc"
