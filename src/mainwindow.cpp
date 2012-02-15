@@ -26,6 +26,7 @@
 #include "aboutdialog.h"
 #include "prefs.h"
 #include "iconsidepane.h"
+#include "kontactconfiguredialog.h"
 using namespace Kontact;
 
 #include <unistd.h>
@@ -1011,9 +1012,9 @@ void MainWindow::slotQuit()
 
 void MainWindow::slotPreferences()
 {
-  static KSettings::Dialog *dlg = 0;
+  static Kontact::KontactConfigureDialog *dlg = 0;
   if ( !dlg ) {
-    dlg = new KSettings::Dialog( this );
+    dlg = new Kontact::KontactConfigureDialog( this );
     dlg->setAllowComponentSelection( true );
 
     // do not show settings of components running standalone
