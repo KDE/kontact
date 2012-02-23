@@ -32,7 +32,7 @@
 
 #include <KAboutData>
 #include <KAcceleratorManager>
-#include <kcheckableproxymodel.h> //krazy:exclude=camelcase TODO wait for kdelibs4.8
+#include <KCheckableProxyModel>
 #include <KComponentData>
 #include <KDebug>
 #include <KDialog>
