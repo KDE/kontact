@@ -1121,7 +1121,7 @@ void MainWindow::slotOpenUrl( const KUrl &url )
       }
     }
     if ( url.path() == "/gwwizard" ) {
-      KRun::runCommand( "groupwarewizard", this );
+      KRun::runCommand( "accountwizard", this );
       slotQuit();
     }
     if ( url.path().startsWith( QLatin1String( "/help" ) ) ) {
@@ -1241,8 +1241,8 @@ QString MainWindow::introductionString()
     subs( iconSize ).
     subs( "file:" + wizard_icon_path ).
     subs( "exec:/gwwizard" ).
-    subs( i18nc( "@item:intext", "Configure Kontact as Groupware Client" ) ).
-    subs( i18nc( "@item:intext", "Prepare Kontact for use in corporate networks" ) ).
+    subs( i18nc( "@item:intext", "Setup your Accounts" ) ).
+    subs( i18nc( "@item:intext", "Prepare Kontact for use" ) ).
     subs( "exec:/switch" ).
     toString();
   return info;
