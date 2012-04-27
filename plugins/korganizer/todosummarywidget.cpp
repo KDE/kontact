@@ -352,16 +352,17 @@ void TodoSummaryWidget::completeTodo( Akonadi::Item::Id id )
 
 void TodoSummaryWidget::popupMenu( const QString &uid )
 {
+  Akonadi::Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+  Akonadi::Item todoItem = mCalendar->todo( id );
+  KCalCore::Todo::Ptr todo = CalendarSupport::todo( todoItem );
+  if( !todo )
+    return;
   KMenu popup( this );
   QAction *editIt = popup.addAction( i18n( "&Edit To-do..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
   delIt->setIcon( KIconLoader::global()->loadIcon( "edit-delete", KIconLoader::Small ) );
 
   QAction *doneIt = 0;
-  Akonadi::Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
-  Akonadi::Item todoItem = mCalendar->todo( id );
-  KCalCore::Todo::Ptr todo = CalendarSupport::todo( todoItem );
-
   delIt->setEnabled( mCalendar->hasDeleteRights( todoItem ) );
 
   if ( !todo->isCompleted() ) {
