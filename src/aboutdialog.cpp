@@ -130,7 +130,8 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       text += i18n( "<p><b>Authors:</b></p>" );
 
       QList<KAboutPerson>::ConstIterator it;
-      for ( it = authors.begin(); it != authors.end(); ++it ) {
+      QList<KAboutPerson>::ConstIterator end(authors.end());
+      for ( it = authors.begin(); it != end; ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
         if ( !(*it).task().isEmpty() ) {
           text += "<i>" + (*it).task() + "</i><br>";
@@ -143,7 +144,8 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       text += i18n( "<p><b>Thanks to:</b></p>" );
 
       QList<KAboutPerson>::ConstIterator it;
-      for ( it = credits.begin(); it != credits.end(); ++it ) {
+      QList<KAboutPerson>::ConstIterator end(credits.end());
+      for ( it = credits.begin(); it != end; ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
         if ( !(*it).task().isEmpty() ) {
           text += "<i>" + (*it).task() + "</i><br>";
@@ -156,7 +158,8 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       text += i18n( "<p><b>Translators:</b></p>" );
 
       QList<KAboutPerson>::ConstIterator it;
-      for ( it = translators.begin(); it != translators.end(); ++it ) {
+      QList<KAboutPerson>::ConstIterator end(translators.end());
+      for ( it = translators.begin(); it != end; ++it ) {
        text += formatPerson( (*it).name(), (*it).emailAddress() );
       }
     }

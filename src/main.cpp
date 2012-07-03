@@ -91,8 +91,9 @@ static void listPlugins()
 
   KService::List offers = KServiceTypeTrader::self()->query(
     QString::fromLatin1( "Kontact/Plugin" ),
-    QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
-  for ( KService::List::Iterator it = offers.begin(); it != offers.end(); ++it ) {
+    QString::fromLatin1( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
+  KService::List::ConstIterator end(offers.end());
+  for ( KService::List::ConstIterator it = offers.begin(); it != end; ++it ) {
     KService::Ptr service = (*it);
     // skip summary only plugins
     QVariant var = service->property( "X-KDE-KontactPluginHasPart" );

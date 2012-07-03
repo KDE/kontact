@@ -113,12 +113,13 @@ void PluginSelection::readConfig()
 {
   const KService::List offers = KServiceTypeTrader::self()->query(
       QString::fromLatin1( "Kontact/Plugin" ),
-      QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
+      QString::fromLatin1( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
 
   int activeComponent = 0;
   mPluginCombo->clear();
   mPluginList.clear();
-  for ( KService::List::ConstIterator it = offers.begin(); it != offers.end(); ++it ) {
+  KService::List::ConstIterator end(offers.end());
+  for ( KService::List::ConstIterator it = offers.begin(); it != end; ++it ) {
     KService::Ptr service = *it;
     // skip summary only plugins
     QVariant var = service->property( "X-KDE-KontactPluginHasPart" );
