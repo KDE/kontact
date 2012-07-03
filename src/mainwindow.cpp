@@ -1114,17 +1114,18 @@ void MainWindow::slotOpenUrl( const QUrl &url )
 
 void MainWindow::slotOpenUrl( const KUrl &url )
 {
-  if ( url.protocol() == "exec" ) {
-    if ( url.path() == "/switch" ) {
+  if ( url.protocol() == QLatin1String("exec") ) {
+    const QString path(url.path());
+    if ( path == QLatin1String("/switch") ) {
       if ( mCurrentPlugin ) {
         mPartsStack->setCurrentIndex( mPartsStack->indexOf( mCurrentPlugin->part()->widget() ) );
       }
     }
-    if ( url.path() == "/gwwizard" ) {
-      KRun::runCommand( "accountwizard", this );
+    else if ( path == QLatin1String("/accountwizard") ) {
+      KRun::runCommand( QLatin1String("accountwizard"), this );
       slotQuit();
     }
-    if ( url.path().startsWith( QLatin1String( "/help" ) ) ) {
+    else if ( path.startsWith( QLatin1String( "/help" ) ) ) {
       QString app( "kontact" );
       if ( !url.query().isEmpty() ) {
         app = url.query().mid( 1 );
@@ -1236,11 +1237,11 @@ QString MainWindow::introductionString()
     subs( "http://kontact.org" ).
     subs( i18nc( "@item:intext", "Visit Kontact Website" ) ).
     subs( i18nc( "@item:intext", "Access online resources and tutorials" ) ).
-    subs( "exec:/gwwizard" ).
+    subs( "exec:/accountwizard" ).
     subs( iconSize ).
     subs( iconSize ).
     subs( "file:" + wizard_icon_path ).
-    subs( "exec:/gwwizard" ).
+    subs( "exec:/accountwizard" ).
     subs( i18nc( "@item:intext", "Setup your Accounts" ) ).
     subs( i18nc( "@item:intext", "Prepare Kontact for use" ) ).
     subs( "exec:/switch" ).
