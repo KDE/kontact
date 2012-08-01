@@ -34,11 +34,11 @@ class KOrganizerPlugin;
 
 namespace CalendarSupport {
   class Calendar;
-  class IncidenceChanger;
 }
 
 namespace Akonadi {
   class Item;
+  class IncidenceChanger;
 }
 
 class QDate;
@@ -77,7 +77,7 @@ class ApptSummaryWidget : public KontactInterface::Summary
 
     CalendarSupport::Calendar *mCalendar;
     CalendarSupport::CalendarAdaptor::Ptr mCalendarAdaptor;
-    CalendarSupport::IncidenceChanger *mChanger;
+    Akonadi::IncidenceChanger *mChanger;
 
     QGridLayout *mLayout;
     QList<QLabel *> mLabels;

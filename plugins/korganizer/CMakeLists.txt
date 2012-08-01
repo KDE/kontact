@@ -12,7 +12,7 @@ qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/k
 
 kde4_add_plugin(kontact_korganizerplugin ${kontact_korganizerplugin_PART_SRCS})
 
-target_link_libraries(kontact_korganizerplugin ${KDEPIMLIBS_KCALUTILS_LIBS} ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KCALCORE_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} korganizerprivate calendarsupport)
+target_link_libraries(kontact_korganizerplugin ${KDEPIMLIBS_KCALUTILS_LIBS} ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KCALCORE_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} korganizerprivate calendarsupport akonadi-calendar)
 
 ########### next target ###############
 
@@ -22,7 +22,7 @@ qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korgani
 
 kde4_add_plugin(kontact_todoplugin ${kontact_todoplugin_PART_SRCS})
 
-target_link_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_KCALCORE_LIBS} ${KDEPIMLIBS_KCALUTILS_LIBS} korganizerprivate calendarsupport)
+target_link_libraries(kontact_todoplugin ${KDE4_KPARTS_LIBS} ${KDEPIMLIBS_KABC_LIBS} kdepim ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_KCALCORE_LIBS} ${KDEPIMLIBS_KCALUTILS_LIBS} korganizerprivate calendarsupport akonadi-calendar)
 
 ########### next target ###############
 

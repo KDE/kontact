@@ -32,7 +32,6 @@
 #include <calendarsupport/calendar.h>
 #include <calendarsupport/calendarmodel.h>
 #include <calendarsupport/calendaradaptor.h>
-#include <calendarsupport/incidencechanger.h>
 
 #include <Akonadi/Session>
 #include <Akonadi/Collection>

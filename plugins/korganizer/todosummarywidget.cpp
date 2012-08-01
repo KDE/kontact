@@ -31,7 +31,6 @@
 #include <calendarsupport/calendaradaptor.h>
 #include <calendarsupport/calendarmodel.h>
 #include <calendarsupport/groupware.h>
-#include <calendarsupport/incidencechanger.h>
 #include <calendarsupport/utils.h>
 
 #include <Akonadi/ChangeRecorder>
@@ -39,6 +38,7 @@
 #include <Akonadi/Collection>
 #include <Akonadi/ItemFetchScope>
 #include <Akonadi/EntityDisplayAttribute>
+#include <akonadi/calendar/incidencechanger.h>
 
 #include <KCalUtils/IncidenceFormatter>
 
@@ -75,7 +75,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
 
   createCalendar();
 
-  mChanger = new CalendarSupport::IncidenceChanger( mCalendar, parent );
+  mChanger = new Akonadi::IncidenceChanger( parent );
 
   connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(QDate)), SLOT(updateView()) );
@@ -342,9 +342,7 @@ void TodoSummaryWidget::completeTodo( Akonadi::Item::Id id )
     if ( !todo->isReadOnly() ) {
       KCalCore::Todo::Ptr oldTodo( todo->clone() );
       todo->setCompleted( KDateTime::currentLocalDateTime() );
-      // TODO, use incidenceChanger
-      mChanger->changeIncidence( oldTodo, todoItem,
-                                 CalendarSupport::IncidenceChanger::COMPLETION_MODIFIED, 0 );
+      mChanger->modifyIncidence( todoItem, oldTodo );
       updateView();
     }
   }

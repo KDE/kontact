@@ -33,7 +33,6 @@
 #include <calendarsupport/calendaradaptor.h>
 #include <calendarsupport/calendarmodel.h>
 #include <calendarsupport/groupware.h>
-#include <calendarsupport/incidencechanger.h>
 #include <calendarsupport/utils.h>
 
 #include <Akonadi/Collection>
@@ -41,6 +40,7 @@
 #include <Akonadi/EntityDisplayAttribute>
 #include <Akonadi/ItemFetchScope>
 #include <Akonadi/Session>
+#include <akonadi/calendar/incidencechanger.h>
 
 #include <KCalCore/Calendar>
 #include <KCalCore/Event>
@@ -76,7 +76,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
 
   createCalendar();
 
-  mChanger = new CalendarSupport::IncidenceChanger( mCalendar, parent );
+  mChanger = new Akonadi::IncidenceChanger( parent );
 
   connect( mCalendar, SIGNAL(calendarChanged()), this, SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(QDate)), this, SLOT(updateView()) );

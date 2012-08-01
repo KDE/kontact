@@ -38,6 +38,9 @@ class TodoPlugin;
 
 namespace CalendarSupport {
   class Calendar;
+}
+
+namespace Akonadi {
   class IncidenceChanger;
 }
 
@@ -89,7 +92,7 @@ class TodoSummaryWidget : public KontactInterface::Summary
     QList<QLabel*> mLabels;
     CalendarSupport::Calendar *mCalendar;
     CalendarSupport::CalendarAdaptor::Ptr mCalendarAdaptor;
-    CalendarSupport::IncidenceChanger *mChanger;
+    Akonadi::IncidenceChanger *mChanger;
 
     /**
       Test if the To-do starts today.
