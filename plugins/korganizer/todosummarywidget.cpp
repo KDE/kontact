@@ -30,11 +30,8 @@
 #include <calendarsupport/groupware.h>
 #include <calendarsupport/utils.h>
 
-#include <Akonadi/ChangeRecorder>
-#include <Akonadi/Session>
 #include <Akonadi/Collection>
 #include <Akonadi/ItemFetchScope>
-#include <Akonadi/EntityDisplayAttribute>
 #include <akonadi/calendar/incidencechanger.h>
 
 #include <KCalUtils/IncidenceFormatter>
