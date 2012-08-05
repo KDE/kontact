@@ -29,17 +29,10 @@
 
 #include "korganizer/korganizerinterface.h"
 
-#include <calendarsupport/calendar.h>
-#include <calendarsupport/calendaradaptor.h>
-#include <calendarsupport/calendarmodel.h>
 #include <calendarsupport/groupware.h>
 #include <calendarsupport/utils.h>
 
 #include <Akonadi/Collection>
-#include <Akonadi/ChangeRecorder>
-#include <Akonadi/EntityDisplayAttribute>
-#include <Akonadi/ItemFetchScope>
-#include <Akonadi/Session>
 #include <akonadi/calendar/incidencechanger.h>
 
 #include <KCalCore/Calendar>
@@ -59,7 +52,7 @@
 #include <QVBoxLayout>
 
 ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent )
-  : KontactInterface::Summary( parent ), mCalendar( 0 ), mPlugin( plugin )
+  : KontactInterface::Summary( parent ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
@@ -74,11 +67,11 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
-  createCalendar();
+  mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar() );
 
   mChanger = new Akonadi::IncidenceChanger( parent );
 
-  connect( mCalendar, SIGNAL(calendarChanged()), this, SLOT(updateView()) );
+  connect( mCalendar.data(), SIGNAL(calendarChanged()), this, SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(QDate)), this, SLOT(updateView()) );
 
   // Update Configuration
@@ -137,7 +130,7 @@ void ApptSummaryWidget::updateView()
         dt <= currentDate.addDays( mDaysAhead - 1 );
         dt = dt.addDays( 1 ) ) {
 
-    SummaryEventInfo::List events = SummaryEventInfo::eventsForDate( dt, mCalendarAdaptor );
+    SummaryEventInfo::List events = SummaryEventInfo::eventsForDate( dt, mCalendar );
 
     foreach ( SummaryEventInfo *event, events ) {
 
@@ -242,7 +235,7 @@ void ApptSummaryWidget::updateView()
 
 void ApptSummaryWidget::viewEvent( const QString &uid )
 {
-  Akonadi::Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
+  Akonadi::Item::Id id = mCalendar->item( uid ).id();
 
   if ( id != -1 ) {
     mPlugin->core()->selectPlugin( "kontact_korganizerplugin" ); //ensure loaded
@@ -269,15 +262,14 @@ void ApptSummaryWidget::popupMenu( const QString &uid )
   delIt->setIcon( KIconLoader::global()->
                   loadIcon( "edit-delete", KIconLoader::Small ) );
 
-  Akonadi::Item::Id id = mCalendar->itemIdForIncidenceUid( uid );
-  Akonadi::Item eventItem = mCalendar->event( id );
-  delIt->setEnabled( mCalendar->hasDeleteRights( eventItem ) );
+  Akonadi::Item item = mCalendar->item( uid );
+  delIt->setEnabled( mCalendar->hasRight( item, Akonadi::Collection::CanDeleteItem ) );
 
   const QAction *selectedAction = popup.exec( QCursor::pos() );
   if ( selectedAction == editIt ) {
     viewEvent( uid );
   } else if ( selectedAction == delIt ) {
-    removeEvent( eventItem );
+    removeEvent( item );
   }
 }
 
@@ -299,31 +291,6 @@ bool ApptSummaryWidget::eventFilter( QObject *obj, QEvent *e )
 QStringList ApptSummaryWidget::configModules() const
 {
   return QStringList( "kcmapptsummary.desktop" );
-}
-
-void ApptSummaryWidget::createCalendar()
-{
-  Akonadi::Session *session = new Akonadi::Session( "ApptsSummaryWidget", this );
-  Akonadi::ChangeRecorder *monitor = new Akonadi::ChangeRecorder( this );
-
-  Akonadi::ItemFetchScope scope;
-  scope.fetchFullPayload( true );
-  scope.fetchAttribute<Akonadi::EntityDisplayAttribute>();
-
-  monitor->setSession( session );
-  monitor->setCollectionMonitored( Akonadi::Collection::root() );
-  monitor->fetchCollection( true );
-  monitor->setItemFetchScope( scope );
-  monitor->setMimeTypeMonitored( KCalCore::Event::eventMimeType(), true );
-
-  CalendarSupport::CalendarModel *calendarModel =
-    new CalendarSupport::CalendarModel( monitor, this );
-
-  mCalendar = new CalendarSupport::Calendar(
-    calendarModel, calendarModel, KSystemTimeZones::local() );
-
-  mCalendarAdaptor = CalendarSupport::CalendarAdaptor::Ptr(
-    new CalendarSupport::CalendarAdaptor( mCalendar, this ) );
 }
 
 #include "apptsummarywidget.moc"

@@ -26,15 +26,12 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <calendarsupport/calendaradaptor.h>
+#include <akonadi/calendar/etmcalendar.h>
 
 #include <KontactInterface/Summary>
 
 class KOrganizerPlugin;
 
-namespace CalendarSupport {
-  class Calendar;
-}
 
 namespace Akonadi {
   class Item;
@@ -73,10 +70,8 @@ class ApptSummaryWidget : public KontactInterface::Summary
 
   private:
     void dateDiff( const QDate &date, int &days );
-    void createCalendar();
 
-    CalendarSupport::Calendar *mCalendar;
-    CalendarSupport::CalendarAdaptor::Ptr mCalendarAdaptor;
+    Akonadi::ETMCalendar::Ptr mCalendar;
     Akonadi::IncidenceChanger *mChanger;
 
     QGridLayout *mLayout;
