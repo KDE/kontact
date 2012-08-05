@@ -26,7 +26,7 @@
 #ifndef TODO_SUMMARYWIDGET_H
 #define TODO_SUMMARYWIDGET_H
 
-#include <calendarsupport/calendaradaptor.h>
+#include <akonadi/calendar/etmcalendar.h>
 
 #include <Akonadi/Item>
 
@@ -35,10 +35,6 @@
 #include <KontactInterface/Summary>
 
 class TodoPlugin;
-
-namespace CalendarSupport {
-  class Calendar;
-}
 
 namespace Akonadi {
   class IncidenceChanger;
@@ -76,8 +72,6 @@ class TodoSummaryWidget : public KontactInterface::Summary
     void completeTodo( Akonadi::Item::Id id );
 
   private:
-    void createCalendar();
-
     TodoPlugin *mPlugin;
     QGridLayout *mLayout;
 
@@ -90,8 +84,7 @@ class TodoSummaryWidget : public KontactInterface::Summary
     bool mShowMineOnly;
 
     QList<QLabel*> mLabels;
-    CalendarSupport::Calendar *mCalendar;
-    CalendarSupport::CalendarAdaptor::Ptr mCalendarAdaptor;
+    Akonadi::ETMCalendar::Ptr mCalendar;
     Akonadi::IncidenceChanger *mChanger;
 
     /**
