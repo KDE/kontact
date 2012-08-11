@@ -32,7 +32,7 @@
 
 #include <Akonadi/Collection>
 #include <Akonadi/ItemFetchScope>
-#include <akonadi/calendar/incidencechanger.h>
+#include <Akonadi/Calendar/IncidenceChanger>
 
 #include <KCalUtils/IncidenceFormatter>
 

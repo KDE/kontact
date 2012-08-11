@@ -33,7 +33,7 @@
 #include <calendarsupport/utils.h>
 
 #include <Akonadi/Collection>
-#include <akonadi/calendar/incidencechanger.h>
+#include <Akonadi/Calendar/IncidenceChanger>
 
 #include <KCalCore/Calendar>
 #include <KCalCore/Event>
