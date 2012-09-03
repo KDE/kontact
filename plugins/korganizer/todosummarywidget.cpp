@@ -27,7 +27,6 @@
 #include "todoplugin.h"
 #include "korganizer/korganizerinterface.h"
 
-#include <calendarsupport/groupware.h>
 #include <calendarsupport/utils.h>
 
 #include <Akonadi/Collection>
