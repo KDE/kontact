@@ -65,7 +65,7 @@ class KTextEdit;
 class KNotesIconView : public KListWidget
 {
   public:
-    KNotesIconView( KNotesPart * );
+    explicit KNotesIconView( KNotesPart * );
 
   protected:
     void mousePressEvent( QMouseEvent * );
@@ -115,7 +115,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
 {
   Q_OBJECT
   public:
-    KNoteEditDlg( QWidget *parent = 0 )
+    explicit KNoteEditDlg( QWidget *parent = 0 )
       : KDialog( parent )
     {
       setCaption( i18nc( "@title:window", "Edit Popup Note" ) );

@@ -43,7 +43,7 @@ class QListWidget;
 class KNoteTip : public QFrame
 {
   public:
-    KNoteTip( QListWidget *parent );
+    explicit KNoteTip( QListWidget *parent );
     ~KNoteTip();
 
     void setNote( KNotesIconViewItem *item );

@@ -30,7 +30,7 @@ namespace KontactInterface {
 class KAddressBookUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KAddressBookUniqueAppHandler( KontactInterface::Plugin *plugin )
+    explicit KAddressBookUniqueAppHandler( KontactInterface::Plugin *plugin )
       : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();

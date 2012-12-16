@@ -41,7 +41,7 @@ class AboutDialog : public KPageDialog
   Q_OBJECT
 
   public:
-    AboutDialog( KontactInterface::Core *core );
+    explicit AboutDialog( KontactInterface::Core *core );
 
   protected:
     void addAboutPlugin( KontactInterface::Plugin *plugin );

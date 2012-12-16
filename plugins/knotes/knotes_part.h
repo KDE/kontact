@@ -42,7 +42,7 @@ class KNotesPart : public KParts::ReadOnlyPart
   Q_OBJECT
 
   public:
-    KNotesPart( QObject *parent = 0 );
+    explicit KNotesPart( QObject *parent = 0 );
     ~KNotesPart();
 
     bool openFile();

@@ -39,7 +39,7 @@ namespace KontactInterface {
 class KMailUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KMailUniqueAppHandler( KontactInterface::Plugin *plugin )
+    explicit KMailUniqueAppHandler( KontactInterface::Plugin *plugin )
       : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();

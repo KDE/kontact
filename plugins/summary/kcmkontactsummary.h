@@ -36,7 +36,7 @@ class PluginView : public QTreeWidget
   Q_OBJECT
 
   public:
-    PluginView( QWidget *parent );
+    explicit PluginView( QWidget *parent );
     ~PluginView();
 };
 
