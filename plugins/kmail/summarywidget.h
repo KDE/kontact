@@ -27,7 +27,7 @@
 
 #include <KontactInterface/Summary>
 
-#include <kviewstatemaintainer.h> //krazy:exclude=camelcase TODO wait for kdelibs4.8
+#include <KViewStateMaintainer>
 
 namespace Akonadi {
   class ChangeRecorder;

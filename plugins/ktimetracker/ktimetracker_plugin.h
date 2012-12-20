@@ -37,7 +37,7 @@ class OrgKdeKtimetrackerKtimetrackerInterface;
 class KtimetrackerUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KtimetrackerUniqueAppHandler( KontactInterface::Plugin *plugin )
+    explicit KtimetrackerUniqueAppHandler( KontactInterface::Plugin *plugin )
       : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();

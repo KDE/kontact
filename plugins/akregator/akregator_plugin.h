@@ -36,7 +36,7 @@ class OrgKdeAkregatorPartInterface;
 class AkregatorUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    AkregatorUniqueAppHandler( KontactInterface::Plugin *plugin )
+    explicit AkregatorUniqueAppHandler( KontactInterface::Plugin *plugin )
       : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();

@@ -36,7 +36,7 @@ namespace KontactInterface {
 class KJotsUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KJotsUniqueAppHandler( KontactInterface::Plugin *plugin )
+    explicit KJotsUniqueAppHandler( KontactInterface::Plugin *plugin )
       : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();

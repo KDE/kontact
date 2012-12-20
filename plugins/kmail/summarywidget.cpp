@@ -37,7 +37,7 @@
 
 #include <KMime/KMimeMessage>
 
-#include <kcheckableproxymodel.h> //krazy:exclude=camelcase TODO wait for kdelibs4.8
+#include <KCheckableProxyModel>
 #include <KConfigGroup>
 #include <KDebug>
 #include <KLocale>

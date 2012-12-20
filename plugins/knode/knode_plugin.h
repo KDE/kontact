@@ -36,7 +36,7 @@ class OrgKdeKnodeInterface;
 class KNodeUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
   public:
-    KNodeUniqueAppHandler( KontactInterface::Plugin *plugin )
+    explicit KNodeUniqueAppHandler( KontactInterface::Plugin *plugin )
       : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
