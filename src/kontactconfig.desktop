@@ -12,6 +12,7 @@ X-KDE-ParentComponents=kontact
 X-KDE-Weight=0
 
 Name=Kontact Configuration
+Name[bs]=Konfiguracija programa Kontakt
 Name[ca]=Configuració de Kontact
 Name[ca@valencia]=Configuració de Kontact
 Name[cs]=Nastavení Kontact
@@ -95,6 +96,7 @@ Comment[x-test]=xxDefault KDE Kontact Componentxx
 Comment[zh_CN]=默认 KDE Kontact 组件
 Comment[zh_TW]=預設 KDE Kontact 元件
 X-KDE-Keywords=kontact
+X-KDE-Keywords[bs]=Kontact
 X-KDE-Keywords[ca]=kontact
 X-KDE-Keywords[cs]=kontact
 X-KDE-Keywords[da]=kontact
