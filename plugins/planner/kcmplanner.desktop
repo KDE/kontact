@@ -109,6 +109,7 @@ Comment[x-test]=xxPlanner Setupxx
 Comment[zh_CN]=安排计划设定
 Comment[zh_TW]=行事曆設定
 X-KDE-Keywords=calendar, todos, configure, settings
+X-KDE-Keywords[bs]=kalendar, zadaci , konfigurirati,  postavke
 X-KDE-Keywords[ca]=calendari, tasques pendents, configura, arranjament
 X-KDE-Keywords[da]=kalender, gøremål, indstil, indstillinger
 X-KDE-Keywords[de]=Kalendar,Aufgaben,einstellen,konfigurieren,Konfiguration,Einrichtung,Einstellungen
