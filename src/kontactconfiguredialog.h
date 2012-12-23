@@ -24,22 +24,21 @@ namespace Kontact {
 
 class KontactConfigureDialog : public KSettings::Dialog
 {
-   Q_OBJECT
+  Q_OBJECT
 
-public:
-  explicit KontactConfigureDialog( QWidget *parent=0 );
-  ~KontactConfigureDialog();
+  public:
+    explicit KontactConfigureDialog( QWidget *parent = 0 );
+    ~KontactConfigureDialog();
 
-protected slots:
-  /** @reimplemented
-   */
-  void slotApply();
+  protected slots:
+    /** @reimplemented */
+    void slotApply();
 
-  /** @reimplemented
-   */
-  void slotOk();
-  void emitConfigChanged();
+    /** @reimplemented */
+    void slotOk();
+    void emitConfigChanged();
 };
+
 }
 
 #endif /* KONTACTCONFIGUREDIALOG_H */
