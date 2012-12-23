@@ -16,7 +16,6 @@ X-KDE-PluginInfo-AllowEmptySettings=true
 
 Comment=TimeTracker Plugin
 Comment[ar]=ملحق مقتفي الوقت
-Comment[bs]=Dodatak za Praćenje Vremena
 Comment[ca]=Connector de registre horari
 Comment[ca@valencia]=Connector de registre horari
 Comment[cs]=Komponenta měřiče času
@@ -63,7 +62,6 @@ Comment[zh_TW]=時間追蹤器外掛程式
 
 Name=Time Tracker
 Name[ar]=مقتفي الوقت
-Name[bs]=Praćenje vremena
 Name[ca]=Seguiment horari
 Name[ca@valencia]=Seguiment horari
 Name[cs]=Měřič času
