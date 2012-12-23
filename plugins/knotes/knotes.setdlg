@@ -1,7 +1,6 @@
 [KNotes]
 Name=Popup Notes
 Name[ar]=الملاحظات المنبثقة
-Name[bs]=Iskočne napomene
 Name[ca]=Notes emergents
 Name[ca@valencia]=Notes emergents
 Name[cs]=Vyskakovací poznámky
@@ -50,7 +49,6 @@ Name[zh_CN]=弹出式记事本
 Name[zh_TW]=彈出式便條
 Comment=Popup Notes Component
 Comment[ar]=مكون الملاحظات المنبثقة
-Comment[bs]=Komponenta Iskočne napomene
 Comment[ca]=Component de notes emergents
 Comment[ca@valencia]=Component de notes emergents
 Comment[cs]=Komponenta vyskakovacích poznámek

@@ -178,14 +178,17 @@ void MainWindow::initGUI()
   createGUI( 0 );
 
   KToolBar *navigatorToolBar = findToolBar( "navigatorToolBar" );
-  Q_ASSERT( navigatorToolBar );
-  if ( layoutDirection() == Qt::LeftToRight ) {
-    navigatorToolBar->setLayoutDirection( Qt::RightToLeft );
+  if ( navigatorToolBar ) {
+    if ( layoutDirection() == Qt::LeftToRight ) {
+      navigatorToolBar->setLayoutDirection( Qt::RightToLeft );
+    } else {
+      navigatorToolBar->setLayoutDirection( Qt::LeftToRight );
+    }
+    Q_ASSERT( navigatorToolBar->sizeHint().isValid() );
+    navigatorToolBar->setMinimumWidth( navigatorToolBar->sizeHint().width() );
   } else {
-    navigatorToolBar->setLayoutDirection( Qt::LeftToRight );
+    kError() << "Unable to find navigatorToolBar, probably kontactui.rc is missing";
   }
-  Q_ASSERT( navigatorToolBar->sizeHint().isValid() );
-  navigatorToolBar->setMinimumWidth( navigatorToolBar->sizeHint().width() );
 }
 
 void MainWindow::waitForKSycoca()

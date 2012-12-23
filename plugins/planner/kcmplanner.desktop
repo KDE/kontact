@@ -13,7 +13,6 @@ X-KDE-Weight=10
 
 Name=Planner
 Name[ar]=المُخطِط
-Name[bs]=Planer
 Name[ca]=Planner
 Name[ca@valencia]=Planner
 Name[cs]=Plánovač
@@ -62,7 +61,6 @@ Name[zh_CN]=安排计划
 Name[zh_TW]=行事曆
 Comment=Planner Setup
 Comment[ar]=إعداد المُخطِط
-Comment[bs]=Postavke planera
 Comment[ca]=Arranjament del Planner
 Comment[ca@valencia]=Arranjament del Planner
 Comment[cs]=Nastavení plánovače

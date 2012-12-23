@@ -18,7 +18,6 @@ X-KDE-PluginInfo-AllowEmptySettings=true
 
 Comment=Kontact KJots Plugin
 Comment[ar]=ملحق Kontact KJots
-Comment[bs]=KJots Dodatak za Kontakte
 Comment[ca]=Connector del KJots per al Kontact
 Comment[ca@valencia]=Connector del KJots per al Kontact
 Comment[cs]=Modul KJots pro aplikaci Kontact
@@ -65,7 +64,6 @@ Comment[zh_CN]=Kontact KJots 插件
 Comment[zh_TW]=Kontact KJots 外掛程式
 Name=Notebooks
 Name[ar]=دفاتر الملاحظات
-Name[bs]=Sveske
 Name[ca]=Notebooks
 Name[ca@valencia]=Notebooks
 Name[cs]=Poznámky

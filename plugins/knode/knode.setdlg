@@ -1,7 +1,6 @@
 [KNode]
 Name=Usenet
 Name[ar]=اليوزنت
-Name[bs]=Usenet
 Name[ca]=Usenet
 Name[ca@valencia]=Usenet
 Name[cs]=Usenet
@@ -51,7 +50,6 @@ Name[zh_TW]=Usenet
 Comment=Usenet Component
 Comment[ar]=مكون اليوزنت
 Comment[bg]=Модул за е-поща
-Comment[bs]=Komponenta Usenet-a
 Comment[ca]=Component de notícies
 Comment[ca@valencia]=Component de notícies
 Comment[cs]=Komponenta novinek

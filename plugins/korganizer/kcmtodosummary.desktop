@@ -13,7 +13,6 @@ X-KDE-Weight=450
 
 Name=Pending To-dos
 Name[ar]=المهام التي في الإنتظار
-Name[bs]=Očekivanje zadataka
 Name[ca]=Tasques pendents
 Name[ca@valencia]=Tasques pendents
 Name[cs]=Nevyřízené úkoly
@@ -64,7 +63,6 @@ Name[zh_TW]=未決定的待辦事項
 Comment=Pending To-dos Summary Setup
 Comment[ar]=تهيئة ملخص المهام التي في الإنتظار
 Comment[bg]=Приставка за обобщен преглед на срещите и задачите
-Comment[bs]=Postavke sadržaja očekivanih zadataka
 Comment[ca]=Configuració del resum de tasques pendents
 Comment[ca@valencia]=Configuració del resum de tasques pendents
 Comment[cs]=Nastavení souhrnu nevyřízených úkolů

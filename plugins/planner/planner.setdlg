@@ -1,7 +1,6 @@
 [Planner]
 Name=Planner
 Name[ar]=المُخطِط
-Name[bs]=Planer
 Name[ca]=Planner
 Name[ca@valencia]=Planner
 Name[cs]=Plánovač
@@ -50,7 +49,6 @@ Name[zh_CN]=安排计划
 Name[zh_TW]=行事曆
 Comment=Planner Summary
 Comment[ar]=ملخّص المُخطِط
-Comment[bs]=Kratak sadržaj planera
 Comment[ca]=Resum del Planner
 Comment[ca@valencia]=Resum del Planner
 Comment[cs]=Souhrn plánovače

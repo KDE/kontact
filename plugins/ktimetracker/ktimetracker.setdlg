@@ -1,7 +1,6 @@
 [KTimeTracker]
 Name=Time Tracker
 Name[ar]=مقتفي الوقت
-Name[bs]=Praćenje vremena
 Name[ca]=Seguiment horari
 Name[ca@valencia]=Seguiment horari
 Name[cs]=Měřič času
@@ -49,7 +48,6 @@ Name[zh_CN]=时间追踪器
 Name[zh_TW]=時間追蹤器
 Comment=Time Tracker Component
 Comment[ar]=مكون مقتفي الوقت
-Comment[bs]=Komponenta praćenja vremena
 Comment[ca]=Component de seguiment horari
 Comment[ca@valencia]=Component de seguiment horari
 Comment[cs]=Komponenta měřiče času

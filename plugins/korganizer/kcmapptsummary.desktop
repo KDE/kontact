@@ -13,7 +13,6 @@ X-KDE-Weight=400
 
 Name=Upcoming Events
 Name[ar]=أحداث قادمة
-Name[bs]=Nastupajući događaji
 Name[ca]=Propers esdeveniments
 Name[ca@valencia]=Propers esdeveniments
 Name[cs]=Nadcházející události
@@ -63,7 +62,6 @@ Name[zh_TW]=將發生的事件
 Comment=Upcoming Events Summary Setup
 Comment[ar]=تهيئة ملخص الأحداث القادمة
 Comment[bg]=Настройки на обобщението на писмата
-Comment[bs]=Postavke kratkog sadržaja nastupajućih događaja
 Comment[ca]=Configuració del resum dels propers esdeveniments
 Comment[ca@valencia]=Configuració del resum dels propers esdeveniments
 Comment[cs]=Nastavení souhrnu nadcházejících událostí
