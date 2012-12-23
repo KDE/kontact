@@ -1103,9 +1103,10 @@ void MainWindow::configureToolbars()
     saveMainWindowSettings( KGlobal::config()->group(
                               QString::fromLatin1( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
   }
-  KEditToolBar edit( factory() );
-  connect( &edit, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()) );
-  edit.exec();
+  QPointer<KEditToolBar> edit = new KEditToolBar( factory() );
+  connect( edit, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()) );
+  edit->exec();
+  delete edit;
 }
 
 void MainWindow::slotNewToolbarConfig()
