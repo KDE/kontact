@@ -17,9 +17,7 @@
       <tooltip>Set the initial plugin on each start</tooltip>
       <whatsthis>Usually Kontact will come up with the plugin used before shutdown. Check this box if you would like the specified plugin to come up on start instead.</whatsthis>
     </entry>
-    <entry type="String" name="ForcedStartupPlugin">
-      <tooltip></tooltip>
-      <whatsthis></whatsthis>
+    <entry type="String" name="ForcedStartupPlugin" hidden="true">
     </entry>
 
     <entry type="IntList" name="SidePaneSplitter" hidden="true">
