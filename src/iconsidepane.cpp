@@ -372,7 +372,7 @@ void Navigator::updatePlugins( QList<KontactInterface::Plugin*> plugins_ )
 
 void Navigator::setCurrentPlugin( const QString &plugin )
 {
-  const int numberOfRows(model()->rowCount());
+  const int numberOfRows( model()->rowCount() );
   for ( int i = 0; i < numberOfRows; ++i ) {
     const QModelIndex index = model()->index( i, 0 );
     const QString pluginName = model()->data( index, Model::PluginName ).toString();
@@ -392,7 +392,7 @@ QSize Navigator::sizeHint() const
   //          removed. (ereslibre)
 
   int maxWidth = 0;
-  const int numberOfRows(model()->rowCount());
+  const int numberOfRows( model()->rowCount() );
   for ( int i = 0; i < numberOfRows; ++i ) {
     const QModelIndex index = model()->index( i, 0 );
     maxWidth = qMax( maxWidth, sizeHintForIndex( index ).width() );

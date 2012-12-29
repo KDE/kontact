@@ -22,7 +22,6 @@
 #include <QDBusReply>
 #include <QDBusInterface>
 
-
 using namespace Kontact;
 
 KontactConfigureDialog::KontactConfigureDialog( QWidget *parent )
@@ -39,15 +38,14 @@ KontactConfigureDialog::~KontactConfigureDialog()
 void KontactConfigureDialog::emitConfigChanged()
 {
   //Add code from plugins which needs to be call when we close kontact dialog config
-  QDBusInterface iface( "org.kde.kmail", "/KMail",
-                        "org.kde.kmail.kmail",
-                        QDBusConnection::sessionBus());
-  if ( !iface.isValid() )
+  QDBusInterface iface( "org.kde.kmail", "/KMail", "org.kde.kmail.kmail",
+                        QDBusConnection::sessionBus() );
+  if ( !iface.isValid() ) {
     return;
-  
+  }
+
   QDBusReply<void> reply;
-  if ( !( reply = iface.call( "updateConfig" ) ).isValid() )
-  {
+  if ( !( reply = iface.call( "updateConfig" ) ).isValid() ) {
     QDBusError err = iface.lastError();
     kError() << "Communication problem with KMail. "
              << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
