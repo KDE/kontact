@@ -125,8 +125,8 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
                                            KCalCore::SortDirectionAscending );
 
   List eventInfoList;
-
-  for ( it=events.constBegin(); it != events.constEnd(); ++it ) {
+  KCalCore::Event::List::ConstIterator end = events.constEnd();
+  for ( KCalCore::Event::List::ConstIterator it=events.constBegin(); it != end; ++it ) {
     ev = *it;
     int daysTo = -1;
 
