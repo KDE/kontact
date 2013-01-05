@@ -58,7 +58,6 @@ class SidePaneBase : public KVBox
 
   private:
     KontactInterface::Core *mCore;
-    KActionCollection *mActionCollection;
 };
 
 }
