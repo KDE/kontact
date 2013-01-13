@@ -52,7 +52,7 @@
 using namespace KCalUtils;
 
 TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
-  : KontactInterface::Summary( parent ), mPlugin( plugin ), mCalendar( 0 )
+  : KontactInterface::Summary( parent ), mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
@@ -67,6 +67,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar() );
+  mCalendar->setCollectionFilteringEnabled( false );
 
   mChanger = new Akonadi::IncidenceChanger( parent );
 

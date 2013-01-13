@@ -130,6 +130,7 @@ SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *par
   : KontactInterface::Summary( parent ), mPlugin( plugin ), mHolidays( 0 )
 {
   mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar() );
+  mCalendar->setCollectionFilteringEnabled( false );
   // Create the Summary Layout
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );

@@ -67,6 +67,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar() );
+  mCalendar->setCollectionFilteringEnabled( false );
 
   mChanger = new Akonadi::IncidenceChanger( parent );
 
