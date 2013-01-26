@@ -108,7 +108,6 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
   KCalCore::Event::Ptr ev;
 
   KCalCore::Event::List events = calendar->events( date, calendar->timeSpec() );
-  KCalCore::Event::List::ConstIterator it = events.constBegin();
 
   KDateTime qdt;
   KDateTime::Spec spec = KSystemTimeZones::local();
