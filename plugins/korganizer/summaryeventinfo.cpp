@@ -108,7 +108,6 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
   KCalCore::Event::Ptr ev;
 
   KCalCore::Event::List events = calendar->events( date, calendar->timeSpec() );
-  KCalCore::Event::List::ConstIterator it = events.constBegin();
 
   KDateTime qdt;
   KDateTime::Spec spec = KSystemTimeZones::local();
@@ -125,8 +124,8 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
                                            KCalCore::SortDirectionAscending );
 
   List eventInfoList;
-
-  for ( it=events.constBegin(); it != events.constEnd(); ++it ) {
+  KCalCore::Event::List::ConstIterator end = events.constEnd();
+  for ( KCalCore::Event::List::ConstIterator it=events.constBegin(); it != end; ++it ) {
     ev = *it;
     int daysTo = -1;
 
