@@ -32,8 +32,8 @@ using namespace Kontact;
 #include <unistd.h>
 
 #include <libkdepim/broadcaststatus.h>
-#include <libkdepim/progressdialog.h>
-#include <libkdepim/statusbarprogresswidget.h>
+#include <libkdepim/progresswidget/progressdialog.h>
+#include <libkdepim/progresswidget/statusbarprogresswidget.h>
 
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
