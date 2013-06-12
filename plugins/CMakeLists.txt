@@ -1,6 +1,11 @@
 remove_definitions(-DKDE_DEFAULT_DEBUG_AREA=5600) #remove kontact debug area
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=5602)
 
+include_directories(
+    ${CMAKE_SOURCE_DIR}/libkdepim/
+)
+
+
 if(QGPGME_FOUND)
   if(BUILD_kmail)
     add_subdirectory(kmail)

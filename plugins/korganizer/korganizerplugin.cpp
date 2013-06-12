@@ -27,7 +27,7 @@
 #include "calendarinterface.h"
 #include "korg_uniqueapp.h"
 
-#include <libkdepim/maillistdrag.h>
+#include <libkdepim/misc/maillistdrag.h>
 
 #include <KABC/VCardDrag>
 

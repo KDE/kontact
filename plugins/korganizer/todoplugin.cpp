@@ -27,7 +27,7 @@
 #include "korg_uniqueapp.h"
 #include "todosummarywidget.h"
 
-#include <libkdepim/maillistdrag.h>
+#include <libkdepim/misc/maillistdrag.h>
 
 #include <KABC/VCardDrag>
 

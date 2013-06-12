@@ -24,7 +24,7 @@
 
 #include "kdepim-version.h"
 
-#include <libkdepim/maillistdrag.h>
+#include <libkdepim/misc/maillistdrag.h>
 using namespace KPIM;
 
 #include <KABC/VCardDrag>
