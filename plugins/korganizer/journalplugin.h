@@ -39,11 +39,11 @@ class JournalPlugin : public KontactInterface::Plugin
     JournalPlugin( KontactInterface::Core *core, const QVariantList & );
     ~JournalPlugin();
 
-    virtual bool createDBUSInterface( const QString &serviceType );
-    virtual bool isRunningStandalone() const;
+    bool createDBUSInterface( const QString &serviceType );
+    bool isRunningStandalone() const;
     int weight() const { return 525; }
 
-    virtual QStringList invisibleToolbarActions() const;
+    QStringList invisibleToolbarActions() const;
 
     void select();
 

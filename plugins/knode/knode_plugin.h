@@ -50,12 +50,12 @@ class KNodePlugin : public KontactInterface::Plugin
     KNodePlugin( KontactInterface::Core *core, const QVariantList & );
     ~KNodePlugin();
 
-    virtual bool createDBUSInterface( const QString &serviceType );
-    virtual bool isRunningStandalone() const;
-    virtual QString tipFile() const;
+    bool createDBUSInterface( const QString &serviceType );
+    bool isRunningStandalone() const;
+    QString tipFile() const;
     int weight() const { return 500; }
 
-    virtual QStringList invisibleToolbarActions() const;
+    QStringList invisibleToolbarActions() const;
 
   protected:
     virtual KParts::ReadOnlyPart *createPart();

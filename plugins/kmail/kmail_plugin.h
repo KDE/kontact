@@ -53,13 +53,13 @@ class KMailPlugin : public KontactInterface::Plugin
     KMailPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KMailPlugin();
 
-    virtual bool isRunningStandalone() const;
-    virtual bool createDBUSInterface( const QString &serviceType );
+    bool isRunningStandalone() const;
+    bool createDBUSInterface( const QString &serviceType );
     virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
-    virtual QString tipFile() const;
+    QString tipFile() const;
     int weight() const { return 200; }
 
-    virtual QStringList invisibleToolbarActions() const;
+    QStringList invisibleToolbarActions() const;
     virtual bool queryClose() const;
 
   protected:

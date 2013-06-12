@@ -44,11 +44,11 @@ class KAddressBookPlugin : public KontactInterface::Plugin
     KAddressBookPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KAddressBookPlugin();
 
-    virtual QString tipFile() const;
-    virtual bool isRunningStandalone() const;
+    QString tipFile() const;
+    bool isRunningStandalone() const;
     int weight() const { return 300; }
 
-    virtual QStringList invisibleToolbarActions() const;
+    QStringList invisibleToolbarActions() const;
 
   protected:
     KParts::ReadOnlyPart *createPart();

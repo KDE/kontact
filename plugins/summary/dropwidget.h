@@ -38,8 +38,8 @@ class DropWidget : public QWidget
     void summaryWidgetDropped( QWidget *target, QWidget *widget, int alignment );
 
   protected:
-    virtual void dragEnterEvent( QDragEnterEvent * );
-    virtual void dropEvent( QDropEvent * );
+    void dragEnterEvent( QDragEnterEvent * );
+    void dropEvent( QDropEvent * );
 };
 
 #endif

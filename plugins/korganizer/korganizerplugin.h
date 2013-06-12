@@ -41,8 +41,8 @@ class KOrganizerPlugin : public KontactInterface::Plugin
     KOrganizerPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KOrganizerPlugin();
 
-    virtual bool createDBUSInterface( const QString &serviceType );
-    virtual bool isRunningStandalone() const;
+    bool createDBUSInterface( const QString &serviceType );
+    bool isRunningStandalone() const;
     int weight() const { return 400; }
 
     bool canDecodeMimeData( const QMimeData * ) const;
@@ -50,8 +50,8 @@ class KOrganizerPlugin : public KontactInterface::Plugin
 
     virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
 
-    virtual QString tipFile() const;
-    virtual QStringList invisibleToolbarActions() const;
+    QString tipFile() const;
+    QStringList invisibleToolbarActions() const;
 
     void select();
 

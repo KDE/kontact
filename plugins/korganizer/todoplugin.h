@@ -39,14 +39,14 @@ class TodoPlugin : public KontactInterface::Plugin
     TodoPlugin( KontactInterface::Core *core, const QVariantList & );
     ~TodoPlugin();
 
-    virtual bool createDBUSInterface( const QString &serviceType );
-    virtual bool isRunningStandalone() const;
+    bool createDBUSInterface( const QString &serviceType );
+    bool isRunningStandalone() const;
     int weight() const { return 450; }
 
     bool canDecodeMimeData( const QMimeData * ) const;
     void processDropEvent( QDropEvent * );
 
-    virtual QStringList invisibleToolbarActions() const;
+    QStringList invisibleToolbarActions() const;
 
     virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
 

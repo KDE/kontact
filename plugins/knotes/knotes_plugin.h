@@ -34,13 +34,13 @@ class KNotesPlugin : public KontactInterface::Plugin
 
     virtual KontactInterface::Summary *createSummaryWidget( QWidget *parentWidget );
 
-    virtual QString tipFile() const;
+    QString tipFile() const;
     int weight() const { return 600; }
 
     const KAboutData *aboutData() const;
 
-    virtual bool canDecodeMimeData( const QMimeData *data ) const;
-    virtual void processDropEvent( QDropEvent * );
+    bool canDecodeMimeData( const QMimeData *data ) const;
+    void processDropEvent( QDropEvent * );
 
   protected:
     KParts::ReadOnlyPart *createPart();
