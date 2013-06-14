@@ -206,7 +206,7 @@ void MainWindow::waitForKSycoca()
     // Kontact startup
     kDebug() << "Waiting for KSycoca";
     sleep(1);
-    i++;
+    ++i;
   }
   // This should only happen if the distribution is broken
   kFatal() << "KSycoca unavailable. Kontact will be unable to find plugins.";
@@ -714,7 +714,7 @@ void MainWindow::addPlugin( KontactInterface::Plugin *plugin )
     KAction *action = static_cast<KAction*>( qaction );
     QString shortcut = QString( "Ctrl+%1" ).arg( mActionPlugins.count() - i );
     action->setShortcut( KShortcut( shortcut ) );
-    i++;
+    ++i;
   }
 }
 

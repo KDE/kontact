@@ -45,7 +45,7 @@ void SummaryEventTester::test_Multiday()
   event->setDtEnd( KDateTime( today.addDays( 5 ), QTime::fromString("12:00","hh:mm") ) );
   event->setSummary( multidayWithTimeInProgress  );
   QVERIFY( cal->addEvent( event ) );
-    for ( int i = 0; i < 5; i++ ) {
+    for ( int i = 0; i < 5; ++i ) {
     SummaryEventInfo::List events4 = SummaryEventInfo::eventsForDate( today.addDays( i ), cal );
     QCOMPARE( 1, events4.size() );
     SummaryEventInfo *ev4 = events4.at(0);
@@ -65,7 +65,7 @@ void SummaryEventTester::test_Multiday()
   event->setDtEnd( KDateTime( today.addDays( 106 ), QTime::fromString("12:00","hh:mm") ) );
   event->setSummary( multiDayWithTimeFuture );
   QVERIFY( cal->addEvent( event ) );
-  for ( int i = 100; i <= 106; i++ ) {
+  for ( int i = 100; i <= 106; ++i ) {
     SummaryEventInfo::List events5 = SummaryEventInfo::eventsForDate( today.addDays( i ), cal );
     QCOMPARE( 1, events5.size() );
     SummaryEventInfo *ev5 = events5.at(0);
@@ -134,7 +134,7 @@ void SummaryEventTester::test_Multiday()
   QCOMPARE( ev1->daysToGo, QString("in %1 days").arg(multiDayFuture) );
   QCOMPARE( ev1->makeBold, false );
   // Make sure multiday is only displayed once
-  for ( int i = 1; i < 30; i++ ) {
+  for ( int i = 1; i < 30; ++i ) {
     SummaryEventInfo::List events3 = SummaryEventInfo::eventsForDate( today.addDays( multiDayFuture + i ), cal );
     foreach(SummaryEventInfo *ev, events3 ) {
       QVERIFY( ev->summaryText.contains( multiDayAllDayInFuture ) );
