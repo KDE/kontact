@@ -38,10 +38,38 @@ using namespace KCalUtils;
 #include <KSystemTimeZones>
 
 #include <QDate>
+#include <QDebug>
 #include <QStringList>
 
 bool SummaryEventInfo::mShowBirthdays = true;
 bool SummaryEventInfo::mShowAnniversaries = true;
+
+static QHash<QString, KDateTime> sDateTimeByUid;
+
+static bool eventLessThan(const KCalCore::Event::Ptr &event1, const KCalCore::Event::Ptr &event2)
+{
+  KDateTime kdt1 = sDateTimeByUid.value(event1->instanceIdentifier());
+  KDateTime kdt2 = sDateTimeByUid.value(event2->instanceIdentifier());
+  if (kdt1.date() < kdt2.date()) { // Compare dates first since comparing all day with non-all-day doesn't work
+    return true;
+  } else if (kdt1.date() > kdt2.date()) {
+    return false;
+  } else {
+    if (kdt1.isDateOnly() && !kdt2.isDateOnly()) {
+      return false;
+    } else if (!kdt1.isDateOnly() && kdt2.isDateOnly())  {
+      return true;
+    } else {
+      if (kdt1 > kdt2) {
+        return true;
+      } else if (kdt1 < kdt2) {
+        return false;
+      } else {
+        return event1->summary() > event2->summary();
+      }
+    }
+  }
+}
 
 void SummaryEventInfo::setShowSpecialEvents( bool showBirthdays,
                                              bool showAnniversaries )
@@ -102,78 +130,63 @@ SummaryEventInfo::SummaryEventInfo()
 {
 }
 
-SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
-                                                        const KCalCore::Calendar::Ptr &calendar )
+/**static*/
+SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, const QDate &end,
+                                                         const KCalCore::Calendar::Ptr &calendar )
 {
-  KCalCore::Event::Ptr ev;
-
-  KCalCore::Event::List events = calendar->events( date, calendar->timeSpec() );
-
-  KDateTime qdt;
+  KCalCore::Event::List allEvents = calendar->events(); // calendar->rawEvents() isn't exactly what we want, doesn't handle recurrence right
+  KCalCore::Event::List events;
   KDateTime::Spec spec = KSystemTimeZones::local();
-  KDateTime currentDateTime = KDateTime::currentDateTime( spec );
-  QDate currentDate = currentDateTime.date();
+  const KDateTime currentDateTime = KDateTime::currentDateTime( spec );
+  const QDate currentDate = currentDateTime.date();
 
-  // sort the events for this date by summary
-  events = KCalCore::Calendar::sortEvents( events,
-                                           KCalCore::EventSortSummary,
-                                           KCalCore::SortDirectionAscending );
-  // sort the events for this date by start date
-  events = KCalCore::Calendar::sortEvents( events,
-                                           KCalCore::EventSortStartDate,
-                                           KCalCore::SortDirectionAscending );
+  sDateTimeByUid.clear();
 
-  List eventInfoList;
-  KCalCore::Event::List::ConstIterator end = events.constEnd();
-  for ( KCalCore::Event::List::ConstIterator it=events.constBegin(); it != end; ++it ) {
+  for (int i=0; i<allEvents.count(); i++) {
+    KCalCore::Event::Ptr event = allEvents.at(i);
+    if (skip(event))
+      continue;
+
+    KDateTime eventStart = event->dtStart().toTimeSpec(spec);
+    KDateTime eventEnd = event->dtEnd().toTimeSpec(spec);
+    if (event->recurs()) {
+      KCalCore::DateTimeList occurrences = event->recurrence()->timesInInterval(KDateTime(start, spec), KDateTime(end, spec));
+      if (!occurrences.isEmpty()) {
+        events << event;
+        sDateTimeByUid.insert(event->instanceIdentifier(), occurrences.first());
+      }
+    } else {
+      if ((eventStart.date() >= start && eventStart.date() <= end) ||
+          (eventEnd.date() >= start && eventEnd.date() <= end)) {
+        events << event;
+        if ( eventStart.date() < start ) {
+          sDateTimeByUid.insert(event->instanceIdentifier(), KDateTime(start,spec));
+        } else {
+          sDateTimeByUid.insert(event->instanceIdentifier(), eventStart);
+        }
+      }
+    }
+  }
+
+  qSort(events.begin(), events.end(), eventLessThan);
+
+  SummaryEventInfo::List eventInfoList;
+  KCalCore::Event::Ptr ev;
+  KCalCore::Event::List::ConstIterator itEnd = events.constEnd();
+  for ( KCalCore::Event::List::ConstIterator it=events.constBegin(); it != itEnd; ++it ) {
     ev = *it;
-    int daysTo = -1;
-
     // Count number of days remaining in multiday event
     int span = 1;
     int dayof = 1;
-    if ( ev->isMultiDay() ) {
-      QDate d = ev->dtStart().date();
-      if ( d < currentDate ) {
-        dayof += d.daysTo( currentDate );
-        span += d.daysTo( currentDate );
-        d = currentDate;
-      }
-      while ( d < ev->dtEnd().date() ) {
-        if ( d < date ) {
-          dayof++;
-        }
-        span++;
-        d = d.addDays( 1 );
-      }
-    }
+    const KDateTime eventStart = ev->dtStart().toTimeSpec(spec);
+    const KDateTime eventEnd = ev->dtEnd().toTimeSpec(spec);
+    const QDate occurrenceStartDate = sDateTimeByUid.value(ev->instanceIdentifier()).date();
 
-    QDate startOfMultiday = ev->dtStart().date();
+    QDate startOfMultiday = eventStart.date();
     if ( startOfMultiday < currentDate ) {
       startOfMultiday = currentDate;
     }
-    bool firstDayOfMultiday = ( date == startOfMultiday );
-
-    // If this date is part of a floating, multiday event, then we
-    // only make a print for the first day of the event.
-    if ( ev->isMultiDay() && ev->allDay() &&
-         ( currentDate > ev->dtStart().date() || !firstDayOfMultiday ) ) {
-      continue;
-    }
-    // If the event is already over, then it isn't upcoming. so don't print it.
-    if ( !ev->allDay() ) {
-      if ( ev->recurs() ) {
-        KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
-        kdt = kdt.addSecs( -1 );
-        if ( currentDateTime > ev->recurrence()->getNextDateTime( kdt ) ) {
-          continue;
-        }
-      } else {
-        if ( currentDateTime > ev->dtEnd() ) {
-          continue;
-        }
-      }
-    }
+    bool firstDayOfMultiday = ( start == startOfMultiday );
 
     SummaryEventInfo *summaryEvent = new SummaryEventInfo();
     eventInfoList.append( summaryEvent );
@@ -182,20 +195,23 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     summaryEvent->ev = ev;
 
     // Start date label
-    QString str = "";
-    QDate sD = QDate( date.year(), date.month(), date.day() );
-    if ( ( sD.month() == currentDate.month() ) &&
-          ( sD.day()   == currentDate.day() ) ) {
+    QString str;
+    QDate sD = occurrenceStartDate;
+    if (currentDate >= sD) {
       str = i18nc( "the appointment is today", "Today" );
       summaryEvent->makeBold = true;
-    } else if ( ( sD.month() == currentDate.addDays( 1 ).month() ) &&
-                ( sD.day()   == currentDate.addDays( 1 ).day() ) ) {
+    } else if ( sD == currentDate.addDays(1) ) {
       str = i18nc( "the appointment is tomorrow", "Tomorrow" );
     } else {
       str = KGlobal::locale()->formatDate( sD, KLocale::FancyLongDate );
     }
     summaryEvent->startDate = str;
 
+    if ( ev->isMultiDay() ) {
+      dayof = eventStart.date().daysTo(start)+1;
+      dayof = dayof <= 0 ? 1 : dayof;
+      span = eventStart.date().daysTo(eventEnd.date()) + 1;
+    }
     // Print the date span for multiday, floating events, for the
     // first day of the event only.
     if ( ev->isMultiDay() && ev->allDay() && firstDayOfMultiday && span > 1 ) {
@@ -207,10 +223,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
 
     // Days to go label
     str = "";
-    dateDiff( startOfMultiday, daysTo );
-    if ( ev->isMultiDay() && !ev->allDay() ) {
-      dateDiff( date, daysTo );
-    }
+    const int daysTo = start.daysTo(occurrenceStartDate);
     if ( daysTo > 0 ) {
       str = i18np( "in 1 day", "in %1 days", daysTo );
     } else {
@@ -219,7 +232,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
         if ( !ev->recurs() ) {
           secs = currentDateTime.secsTo( ev->dtStart() );
         } else {
-          KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
+          KDateTime kdt( start, QTime( 0, 0, 0 ), spec );
           kdt = kdt.addSecs( -1 );
           KDateTime next = ev->recurrence()->getNextDateTime( kdt );
           secs = currentDateTime.secsTo( next );
@@ -249,14 +262,14 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
 
     // Summary label
     str = ev->richSummary();
-    if ( ev->isMultiDay() &&  !ev->allDay() ) {
+    if ( ev->isMultiDay() && !ev->allDay() ) {
       str.append( QString( " (%1/%2)" ).arg( dayof ).arg( span ) );
     }
     summaryEvent->summaryText = str;
     summaryEvent->summaryUrl = ev->uid();
     QString tipText( KCalUtils::IncidenceFormatter::toolTipStr(
                        KCalUtils::IncidenceFormatter::resourceString(
-                         calendar, ev ), ev, date, true, spec ) );
+                         calendar, ev ), ev, start, true, spec ) );
     if ( !tipText.isEmpty() ) {
       summaryEvent->summaryTooltip = tipText;
     }
@@ -264,13 +277,13 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
     // Time range label (only for non-floating events)
     str = "";
     if ( !ev->allDay() ) {
-      QTime sST = ev->dtStart().toTimeSpec( spec ).time();
-      QTime sET = ev->dtEnd().toTimeSpec( spec ).time();
+      QTime sST = eventStart.time();
+      QTime sET = eventEnd.time();
       if ( ev->isMultiDay() ) {
-        if ( ev->dtStart().date() < date ) {
+        if ( eventStart.date() < start ) {
           sST = QTime( 0, 0 );
         }
-        if ( ev->dtEnd().date() > date ) {
+        if ( eventEnd.date() > end ) {
           sET = QTime( 23, 59 );
         }
       }
@@ -282,12 +295,12 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
 
     // For recurring events, append the next occurrence to the time range label
     if ( ev->recurs() ) {
-      KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
+      KDateTime kdt( start, QTime( 0, 0, 0 ), spec );
       kdt = kdt.addSecs( -1 );
       KDateTime next = ev->recurrence()->getNextDateTime( kdt );
       QString tmp = IncidenceFormatter::dateTimeToString(
         ev->recurrence()->getNextDateTime( next ), ev->allDay(),
-        true, KSystemTimeZones::local() );
+        true, spec );
       if ( !summaryEvent->timeRange.isEmpty() ) {
         summaryEvent->timeRange += "<br>";
       }
@@ -298,4 +311,10 @@ SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
   }
 
   return eventInfoList;
+}
+
+SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
+                                                        const KCalCore::Calendar::Ptr &calendar )
+{
+  return eventsForRange(date, date, calendar);
 }

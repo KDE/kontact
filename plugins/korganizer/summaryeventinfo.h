@@ -44,6 +44,8 @@ class SummaryEventInfo
 
     static List eventsForDate( const QDate &date,
                                const KCalCore::Calendar::Ptr &calendar );
+    static List eventsForRange( const QDate &start, const QDate &end, // range is inclusive
+                                const KCalCore::Calendar::Ptr &calendar );
     static void setShowSpecialEvents( bool skipBirthdays, bool skipAnniversaries );
 
     KCalCore::Event::Ptr ev;

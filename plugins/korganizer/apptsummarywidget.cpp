@@ -125,98 +125,92 @@ void ApptSummaryWidget::updateView()
   SummaryEventInfo::setShowSpecialEvents( mShowBirthdaysFromCal,
                                           mShowAnniversariesFromCal );
   QDate currentDate = QDate::currentDate();
-  QDate dt;
-  for ( dt = currentDate;
-        dt <= currentDate.addDays( mDaysAhead - 1 );
-        dt = dt.addDays( 1 ) ) {
 
-    SummaryEventInfo::List events = SummaryEventInfo::eventsForDate( dt, mCalendar );
+  SummaryEventInfo::List events = SummaryEventInfo::eventsForRange( currentDate, currentDate.addDays( mDaysAhead - 1 ), mCalendar );
 
-    foreach ( SummaryEventInfo *event, events ) {
+  foreach ( SummaryEventInfo *event, events ) {
 
-      // Optionally, show only my Events
+    // Optionally, show only my Events
 /*      if ( mShowMineOnly &&
-            !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, event->ev ) ) {
-        continue;
-      }
-      TODO: CalHelper is deprecated, remove this?
+          !KCalCore::CalHelper::isMyCalendarIncidence( mCalendarAdaptor, event->ev ) ) {
+      continue;
+    }
+    TODO: CalHelper is deprecated, remove this?
 */
 
-      KCalCore::Event::Ptr ev = event->ev;
-      // print the first of the recurring event series only
-      if ( ev->recurs() ) {
-        if ( uidList.contains( ev->uid() ) ) {
-          continue;
-        }
-        uidList.append( ev->uid() );
+    KCalCore::Event::Ptr ev = event->ev;
+    // print the first of the recurring event series only
+    if ( ev->recurs() ) {
+      if ( uidList.contains( ev->instanceIdentifier() ) ) {
+        continue;
       }
-
-      // Icon label
-      label = new QLabel( this );
-      if ( ev->categories().contains( "BIRTHDAY", Qt::CaseInsensitive ) ) {
-        label->setPixmap( pmb );
-      } else if ( ev->categories().contains( "ANNIVERSARY", Qt::CaseInsensitive ) ) {
-        label->setPixmap( pma );
-      } else {
-        label->setPixmap( pm );
-      }
-      label->setMaximumWidth( label->minimumSizeHint().width() );
-      mLayout->addWidget( label, counter, 0 );
-      mLabels.append( label );
-
-      // Start date or date span label
-      QString dateToDisplay = event->startDate;
-      if ( !event->dateSpan.isEmpty() ) {
-        dateToDisplay = event->dateSpan;
-      }
-      label = new QLabel( dateToDisplay, this );
-      label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
-      mLayout->addWidget( label, counter, 1 );
-      mLabels.append( label );
-      if ( event->makeBold ) {
-        QFont font = label->font();
-        font.setBold( true );
-        label->setFont( font );
-      }
-
-      // Days to go label
-      label = new QLabel( event->daysToGo, this );
-      label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
-      mLayout->addWidget( label, counter, 2 );
-      mLabels.append( label );
-
-      // Summary label
-      KUrlLabel *urlLabel = new KUrlLabel( this );
-      urlLabel->setText( event->summaryText );
-      urlLabel->setUrl( event->summaryUrl );
-      urlLabel->installEventFilter( this );
-      urlLabel->setTextFormat( Qt::RichText );
-      urlLabel->setWordWrap( true );
-      mLayout->addWidget( urlLabel, counter, 3 );
-      mLabels.append( urlLabel );
-
-      connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
-               this, SLOT(viewEvent(QString)) );
-      connect( urlLabel, SIGNAL(rightClickedUrl(QString)),
-               this, SLOT(popupMenu(QString)) );
-      if ( !event->summaryTooltip.isEmpty() ) {
-        urlLabel->setToolTip( event->summaryTooltip );
-      }
-
-      // Time range label (only for non-floating events)
-      if ( !event->timeRange.isEmpty() ) {
-        label = new QLabel( event->timeRange, this );
-        label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
-        mLayout->addWidget( label, counter, 4 );
-        mLabels.append( label );
-      }
-
-      counter++;
+      uidList.append( ev->instanceIdentifier() );
     }
 
-    qDeleteAll( events );
-    events.clear();
+    // Icon label
+    label = new QLabel( this );
+    if ( ev->categories().contains( "BIRTHDAY", Qt::CaseInsensitive ) ) {
+      label->setPixmap( pmb );
+    } else if ( ev->categories().contains( "ANNIVERSARY", Qt::CaseInsensitive ) ) {
+      label->setPixmap( pma );
+    } else {
+      label->setPixmap( pm );
+    }
+    label->setMaximumWidth( label->minimumSizeHint().width() );
+    mLayout->addWidget( label, counter, 0 );
+    mLabels.append( label );
+
+    // Start date or date span label
+    QString dateToDisplay = event->startDate;
+    if ( !event->dateSpan.isEmpty() ) {
+      dateToDisplay = event->dateSpan;
+    }
+    label = new QLabel( dateToDisplay, this );
+    label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+    mLayout->addWidget( label, counter, 1 );
+    mLabels.append( label );
+    if ( event->makeBold ) {
+      QFont font = label->font();
+      font.setBold( true );
+      label->setFont( font );
+    }
+
+    // Days to go label
+    label = new QLabel( event->daysToGo, this );
+    label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+    mLayout->addWidget( label, counter, 2 );
+    mLabels.append( label );
+
+    // Summary label
+    KUrlLabel *urlLabel = new KUrlLabel( this );
+    urlLabel->setText( event->summaryText );
+    urlLabel->setUrl( event->summaryUrl );
+    urlLabel->installEventFilter( this );
+    urlLabel->setTextFormat( Qt::RichText );
+    urlLabel->setWordWrap( true );
+    mLayout->addWidget( urlLabel, counter, 3 );
+    mLabels.append( urlLabel );
+
+    connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
+              this, SLOT(viewEvent(QString)) );
+    connect( urlLabel, SIGNAL(rightClickedUrl(QString)),
+              this, SLOT(popupMenu(QString)) );
+    if ( !event->summaryTooltip.isEmpty() ) {
+      urlLabel->setToolTip( event->summaryTooltip );
+    }
+
+    // Time range label (only for non-floating events)
+    if ( !event->timeRange.isEmpty() ) {
+      label = new QLabel( event->timeRange, this );
+      label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+      mLayout->addWidget( label, counter, 4 );
+      mLabels.append( label );
+    }
+
+    counter++;
   }
+
+  qDeleteAll( events );
 
   if ( !counter ) {
     QLabel *noEvents = new QLabel(
