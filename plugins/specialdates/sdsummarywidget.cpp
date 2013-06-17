@@ -129,7 +129,9 @@ class SDEntry
 SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
   : KontactInterface::Summary( parent ), mPlugin( plugin ), mHolidays( 0 )
 {
-  mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar() );
+  QStringList mimeTypes;
+  mimeTypes << KCalCore::Event::eventMimeType();
+  mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar( mimeTypes ) );
   mCalendar->setCollectionFilteringEnabled( false );
   // Create the Summary Layout
   QVBoxLayout *mainLayout = new QVBoxLayout( this );

@@ -66,7 +66,9 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
-  mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar() );
+  QStringList mimeTypes;
+  mimeTypes << KCalCore::Event::eventMimeType();
+  mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar( mimeTypes ) );
   mCalendar->setCollectionFilteringEnabled( false );
 
   mChanger = new Akonadi::IncidenceChanger( parent );
