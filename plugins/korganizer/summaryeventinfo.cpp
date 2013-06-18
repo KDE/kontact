@@ -142,7 +142,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
 
   sDateTimeByUid.clear();
 
-  for (int i=0; i<allEvents.count(); i++) {
+  for (int i=0; i<allEvents.count(); ++i) {
     KCalCore::Event::Ptr event = allEvents.at(i);
     if (skip(event))
       continue;

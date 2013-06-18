@@ -300,8 +300,10 @@ MainWindow::~MainWindow()
 // Called by main().
 void MainWindow::setInitialActivePluginModule( const QString &module )
 {
-  mInitialActiveModule = module;
-  activateInitialPluginModule();
+    if (mInitialActiveModule != module) {
+        mInitialActiveModule = module;
+        activateInitialPluginModule();
+    }
 }
 
 bool MainWindow::pluginActionWeightLessThan( const QAction *left, const QAction *right )
@@ -597,7 +599,7 @@ void MainWindow::loadPlugins()
     addPlugin( plugin );
   }
 
-  const bool state = ( mPlugins.size() != 0 );
+  const bool state = ( !mPlugins.isEmpty() );
   mNewActions->setEnabled( state );
   if ( mSyncActionsEnabled ) {
     mSyncActions->setEnabled( state );
