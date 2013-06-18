@@ -51,14 +51,14 @@ class SelectionModel : public QItemSelectionModel
     }
 
   public slots:
-    virtual void clear()
+    void clear()
     {
       // Don't allow the current selection to be cleared. QListView doesn't call to this method
       // nowadays, but just to cover of future change of implementation, since QTreeView does call
       // to this one when clearing the selection.
     }
 
-    virtual void select( const QModelIndex &index, QItemSelectionModel::SelectionFlags command )
+    void select( const QModelIndex &index, QItemSelectionModel::SelectionFlags command )
     {
       // Don't allow the current selection to be cleared
       if ( !index.isValid() && ( command & QItemSelectionModel::Clear ) ) {
@@ -67,7 +67,7 @@ class SelectionModel : public QItemSelectionModel
       QItemSelectionModel::select( index, command );
     }
 
-    virtual void select( const QItemSelection &selection,
+    void select( const QItemSelection &selection,
                          QItemSelectionModel::SelectionFlags command )
     {
       // Don't allow the current selection to be cleared
@@ -99,7 +99,7 @@ class Model : public QStringListModel
       pluginList = list;
     }
 
-    virtual Qt::ItemFlags flags( const QModelIndex &index ) const
+    Qt::ItemFlags flags( const QModelIndex &index ) const
     {
       Qt::ItemFlags flags = QStringListModel::flags( index );
 
@@ -120,7 +120,7 @@ class Model : public QStringListModel
       return flags;
     }
 
-    virtual QModelIndex index( int row, int column,
+    QModelIndex index( int row, int column,
                                const QModelIndex &parent = QModelIndex() ) const
     {
       Q_UNUSED( parent );
@@ -130,7 +130,7 @@ class Model : public QStringListModel
       return createIndex( row, column, pluginList[row] );
     }
 
-    virtual QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const
+    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const
     {
       if ( !index.isValid() || !index.internalPointer() ) {
         return QVariant();
