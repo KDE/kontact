@@ -120,7 +120,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard | Qt::LinksAccessibleByMouse );
     topLayout->addWidget( label );
 
-    QTextEdit *personView = new QTextEdit( topFrame ); //krazy:exclude=qclasses
+    KTextBrowser *personView = new KTextBrowser( topFrame );
     personView->setReadOnly( true );
     topLayout->addWidget( personView, 1 );
 
