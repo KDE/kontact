@@ -41,8 +41,8 @@ AboutDialog::AboutDialog( KontactInterface::Core *core )
   : KPageDialog( core ), mCore( core )
 {
   setCaption( i18n( "About Kontact" ) );
-  setButtons( Ok );
-  setDefaultButton( Ok );
+  setButtons( Close );
+  setDefaultButton( Close );
   setModal( false );
   showButtonSeparator( true );
   setFaceType( KPageDialog::List );
