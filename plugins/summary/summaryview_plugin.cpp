@@ -21,6 +21,7 @@
 
 #include "summaryview_plugin.h"
 #include "summaryview_part.h"
+#include "kdepim-version.h"
 #ifdef KMAIL_SUPPORTED
 #include "kmailinterface.h"
 #endif
@@ -116,7 +117,7 @@ const KAboutData *SummaryView::aboutData() const
   if ( !mAboutData ) {
     mAboutData = new KAboutData(
       "kontactsummary", 0, ki18n( "Kontact Summary" ),
-      "1.1",
+      KDEPIM_VERSION,
       ki18n( "Kontact Summary View" ),
       KAboutData::License_LGPL,
       ki18n( "(c) 2003 The Kontact developers" ) );
