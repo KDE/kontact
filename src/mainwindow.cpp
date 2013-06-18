@@ -278,7 +278,7 @@ MainWindow::~MainWindow()
   ServiceStarter::setPluginList( 0 );
   saveSettings();
 
-  QList<KParts::Part*> parts = mPartManager->parts();
+  //QList<KParts::Part*> parts = mPartManager->parts();
 
 //  Q_FOREACH( KParts::Part *p, parts ) {
 //    delete p;
@@ -572,7 +572,7 @@ void MainWindow::loadPlugins()
   }
 
   const int numberOfPlugins( plugins.count() );
-  for ( i = 0; i < numberOfPlugins; ++ i ) {
+  for ( i = 0; i < numberOfPlugins; ++i ) {
     KontactInterface::Plugin *plugin = plugins.at( i );
 
     const QList<KAction*> actionList = plugin->newActions();
