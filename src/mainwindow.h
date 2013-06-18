@@ -122,6 +122,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
 
     void configureShortcuts();
     void configureToolbars();
+    void slotShowHideSideBar();
 
   private:
     QFrame *mTopWidget;

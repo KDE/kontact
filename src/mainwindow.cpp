@@ -74,6 +74,7 @@ using namespace Kontact;
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QWebSettings>
+#include <QShortcut>
 
 // Define the maximum time Kontact waits for KSycoca to become available.
 static const int KSYCOCA_WAIT_TIMEOUT = 10;
@@ -491,6 +492,9 @@ void MainWindow::setupActions()
            "you use this program more effectively." ) );
   actionCollection()->addAction( "help_tipofday", action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotShowTip()) );
+  //TODO 4.12: add description
+  QShortcut *shortcut = new QShortcut( QKeySequence(Qt::Key_F9), this );
+  connect(shortcut, SIGNAL(activated()), this, SLOT(slotShowHideSideBar()));
 }
 
 bool MainWindow::isPluginLoaded( const KPluginInfo &info )
@@ -1265,6 +1269,19 @@ QString MainWindow::introductionString()
     subs( "exec:/switch" ).
     toString();
   return info;
+}
+
+void MainWindow::slotShowHideSideBar()
+{
+    QList<int> sizes = mSplitter->sizes();
+    if (!sizes.isEmpty()) {
+        if (sizes.at(0) != 0) {
+            sizes[0] = 0;
+        } else {
+            sizes[0] = 10;
+        }
+        mSplitter->setSizes(sizes);
+    }
 }
 
 #include "mainwindow.moc"
