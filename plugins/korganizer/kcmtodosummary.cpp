@@ -78,7 +78,7 @@ void KCMTodoSummary::customDaysChanged( int value )
 
 void KCMTodoSummary::load()
 {
-  KConfig config( "kcmtodosummaryrc" );
+  KConfig config( QLatin1String("kcmtodosummaryrc") );
   KConfigGroup group = config.group( "Days" );
 
   int days = group.readEntry( "DaysToShow", 7 );
@@ -107,7 +107,7 @@ void KCMTodoSummary::load()
 
 void KCMTodoSummary::save()
 {
-  KConfig config( "kcmtodosummaryrc" );
+  KConfig config( QLatin1String("kcmtodosummaryrc") );
   KConfigGroup group = config.group( "Days" );
 
   int days;

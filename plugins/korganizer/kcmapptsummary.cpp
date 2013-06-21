@@ -85,7 +85,7 @@ void KCMApptSummary::customDaysChanged( int value )
 
 void KCMApptSummary::load()
 {
-  KConfig config( "kcmapptsummaryrc" );
+  KConfig config( QLatin1String("kcmapptsummaryrc") );
   KConfigGroup group = config.group( "Days" );
 
   int days = group.readEntry( "DaysToShow", 7 );
@@ -112,7 +112,7 @@ void KCMApptSummary::load()
 
 void KCMApptSummary::save()
 {
-  KConfig config( "kcmapptsummaryrc" );
+  KConfig config(QLatin1String( "kcmapptsummaryrc") );
   KConfigGroup group = config.group( "Days" );
 
   int days;
