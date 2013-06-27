@@ -29,6 +29,8 @@
 #include <KontactInterface/Plugin>
 
 #include <calendarsupport/utils.h>
+#include <calendarsupport/calendarsingleton.h>
+
 #include <Akonadi/ItemFetchJob>
 #include <Akonadi/ItemFetchScope>
 #include <Akonadi/EntityDisplayAttribute>
@@ -129,10 +131,7 @@ class SDEntry
 SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
   : KontactInterface::Summary( parent ), mPlugin( plugin ), mHolidays( 0 )
 {
-  QStringList mimeTypes;
-  mimeTypes << KCalCore::Event::eventMimeType();
-  mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar( mimeTypes ) );
-  mCalendar->setCollectionFilteringEnabled( false );
+  mCalendar = CalendarSupport::calendarSingleton();
   // Create the Summary Layout
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );

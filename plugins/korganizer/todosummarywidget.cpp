@@ -28,6 +28,7 @@
 #include "korganizer/korganizerinterface.h"
 
 #include <calendarsupport/utils.h>
+#include <calendarsupport/calendarsingleton.h>
 
 #include <Akonadi/Collection>
 #include <Akonadi/ItemFetchScope>
@@ -65,10 +66,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   mainLayout->addItem( mLayout );
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
-  QStringList mimeTypes;
-  mimeTypes << KCalCore::Todo::todoMimeType();
-  mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar( mimeTypes ) );
-  mCalendar->setCollectionFilteringEnabled( false );
+  mCalendar = CalendarSupport::calendarSingleton();
 
   mChanger = new Akonadi::IncidenceChanger( parent );
 

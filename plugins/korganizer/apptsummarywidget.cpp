@@ -30,6 +30,7 @@
 #include "korganizer/korganizerinterface.h"
 
 #include <calendarsupport/utils.h>
+#include <calendarsupport/calendarsingleton.h>
 
 #include <Akonadi/Collection>
 #include <Akonadi/Calendar/IncidenceChanger>
@@ -68,8 +69,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
 
   QStringList mimeTypes;
   mimeTypes << KCalCore::Event::eventMimeType();
-  mCalendar = Akonadi::ETMCalendar::Ptr( new Akonadi::ETMCalendar( mimeTypes ) );
-  mCalendar->setCollectionFilteringEnabled( false );
+  mCalendar = CalendarSupport::calendarSingleton();
 
   mChanger = new Akonadi::IncidenceChanger( parent );
 
