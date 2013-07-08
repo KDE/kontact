@@ -84,7 +84,7 @@ void KCMSDSummary::customDaysChanged( int value )
 
 void KCMSDSummary::load()
 {
-  KConfig config( "kcmsdsummaryrc" );
+  KConfig config( QLatin1String("kcmsdsummaryrc") );
 
   KConfigGroup group = config.group( "Days" );
   int days = group.readEntry( "DaysToShow", 7 );
@@ -118,7 +118,7 @@ void KCMSDSummary::load()
 
 void KCMSDSummary::save()
 {
-  KConfig config( "kcmsdsummaryrc" );
+  KConfig config( QLatin1String("kcmsdsummaryrc") );
 
   KConfigGroup group = config.group( "Days" );
 

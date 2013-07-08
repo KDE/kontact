@@ -32,7 +32,7 @@ DropWidget::DropWidget( QWidget *parent )
 
 void DropWidget::dragEnterEvent( QDragEnterEvent *event )
 {
-  if ( event->mimeData()->hasFormat( "application/x-kontact-summary" ) ) {
+  if ( event->mimeData()->hasFormat( QLatin1String("application/x-kontact-summary") ) ) {
     event->acceptProposedAction();
   }
 }

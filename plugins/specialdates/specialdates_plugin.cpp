@@ -37,7 +37,7 @@ SpecialdatesPlugin::SpecialdatesPlugin( KontactInterface::Core *core, const QVar
   : KontactInterface::Plugin( core, core, 0 ), mAboutData( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
-  KIconLoader::global()->addAppDir( "kdepim" );
+  KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
 }
 
 SpecialdatesPlugin::~SpecialdatesPlugin()

@@ -124,22 +124,22 @@ void KCMKontactSummary::load()
 {
   KService::List offers = KServiceTypeTrader::self()->query(
       QString::fromLatin1( "Kontact/Plugin" ),
-      QString( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
+      QString::fromLatin1( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
 
   QStringList activeSummaries;
 
-  KConfig config( "kontact_summaryrc" );
+  KConfig config( QLatin1String("kontact_summaryrc") );
   KConfigGroup grp( &config, QString() );
   if ( !grp.hasKey( "ActiveSummaries" ) ) {
-    activeSummaries << "kontact_kaddressbookplugin";
-    activeSummaries << "kontact_specialdatesplugin";
-    activeSummaries << "kontact_korganizerplugin";
-    activeSummaries << "kontact_todoplugin";
-    activeSummaries << "kontact_knotesplugin";
-    activeSummaries << "kontact_kmailplugin";
-    activeSummaries << "kontact_weatherplugin";
-    activeSummaries << "kontact_newstickerplugin";
-    activeSummaries << "kontact_plannerplugin";
+    activeSummaries << QLatin1String("kontact_kaddressbookplugin");
+    activeSummaries << QLatin1String("kontact_specialdatesplugin");
+    activeSummaries << QLatin1String("kontact_korganizerplugin");
+    activeSummaries << QLatin1String("kontact_todoplugin");
+    activeSummaries << QLatin1String("kontact_knotesplugin");
+    activeSummaries << QLatin1String("kontact_kmailplugin");
+    activeSummaries << QLatin1String("kontact_weatherplugin");
+    activeSummaries << QLatin1String("kontact_newstickerplugin");
+    activeSummaries << QLatin1String("kontact_plannerplugin");
   } else {
     activeSummaries = grp.readEntry( "ActiveSummaries", QStringList() );
   }
@@ -157,7 +157,7 @@ void KCMKontactSummary::load()
       continue;
     }
 
-    QVariant var = it->property( "X-KDE-KontactPluginHasSummary" );
+    QVariant var = it->property( QLatin1String("X-KDE-KontactPluginHasSummary") );
     if ( var.isValid() && var.toBool() == true ) {
       PluginItem *item = new PluginItem( *it, mPluginView );
 
@@ -183,7 +183,7 @@ void KCMKontactSummary::save()
     ++it;
   }
 
-  KConfig config( "kontact_summaryrc" );
+  KConfig config( QLatin1String("kontact_summaryrc") );
   KConfigGroup grp( &config, QString() );
   grp.writeEntry( "ActiveSummaries", activeSummaries );
 }

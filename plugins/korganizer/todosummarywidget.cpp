@@ -59,7 +59,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QWidget *header = createHeader( this, "korg-todo", i18n( "Pending To-dos" ) );
+  QWidget *header = createHeader( this, QLatin1String("korg-todo"), i18n( "Pending To-dos" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();
@@ -85,7 +85,7 @@ void TodoSummaryWidget::updateView()
   qDeleteAll( mLabels );
   mLabels.clear();
 
-  KConfig config( "kcmtodosummaryrc" );
+  KConfig config( QLatin1String("kcmtodosummaryrc") );
   KConfigGroup group = config.group( "Days" );
   int mDaysToGo = group.readEntry( "DaysToShow", 7 );
 
@@ -174,8 +174,8 @@ void TodoSummaryWidget::updateView()
 
   if ( !prList.isEmpty() ) {
 
-    KIconLoader loader( "korganizer" );
-    QPixmap pm = loader.loadIcon( "view-calendar-tasks", KIconLoader::Small );
+    KIconLoader loader( QLatin1String("korganizer") );
+    QPixmap pm = loader.loadIcon( QLatin1String("view-calendar-tasks"), KIconLoader::Small );
 
     QString str;
 
@@ -199,7 +199,7 @@ TODO: calhelper is deprecated, remove this?
       mLabels.append( label );
 
       // Due date label
-      str = "";
+      str.clear();
       if ( todo->hasDueDate() && todo->dtDue().date().isValid() ) {
         daysTo = currDate.daysTo( todo->dtDue().date() );
 
@@ -224,7 +224,7 @@ TODO: calhelper is deprecated, remove this?
       }
 
       // Days togo/ago label
-      str = "";
+      str.clear();
       if ( todo->hasDueDate() && todo->dtDue().date().isValid() ) {
         if ( daysTo > 0 ) {
           str = i18np( "in 1 day", "in %1 days", daysTo );
@@ -240,7 +240,7 @@ TODO: calhelper is deprecated, remove this?
       mLabels.append( label );
 
       // Priority label
-      str = '[' + QString::number( todo->priority() ) + ']';
+      str = QLatin1Char('[') + QString::number( todo->priority() ) + QLatin1Char(']');
       label = new QLabel( str, this );
       label->setAlignment( Qt::AlignRight | Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 3 );
@@ -251,7 +251,7 @@ TODO: calhelper is deprecated, remove this?
       if ( !todo->relatedTo().isEmpty() ) { // show parent only, not entire ancestry
         KCalCore::Incidence::Ptr inc = mCalendar->incidence( todo->relatedTo() );
         if ( inc ) {
-          str = inc->summary() + ':' + str;
+          str = inc->summary() + QLatin1Char(':') + str;
         }
       }
       if ( !Qt::mightBeRichText( str ) ) {
@@ -311,9 +311,9 @@ void TodoSummaryWidget::viewTodo( const QString &uid )
   Akonadi::Item::Id id = mCalendar->item( uid ).id();
 
   if ( id != -1 ) {
-    mPlugin->core()->selectPlugin( "kontact_todoplugin" );//ensure loaded
+    mPlugin->core()->selectPlugin(QLatin1String( "kontact_todoplugin") );//ensure loaded
     OrgKdeKorganizerKorganizerInterface korganizer(
-      "org.kde.korganizer", "/Korganizer", QDBusConnection::sessionBus() );
+      QLatin1String("org.kde.korganizer"), QLatin1String("/Korganizer"), QDBusConnection::sessionBus() );
 
     korganizer.editIncidence( QString::number( id ) );
   }
@@ -348,14 +348,14 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   KMenu popup( this );
   QAction *editIt = popup.addAction( i18n( "&Edit To-do..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
-  delIt->setIcon( KIconLoader::global()->loadIcon( "edit-delete", KIconLoader::Small ) );
+  delIt->setIcon( KIconLoader::global()->loadIcon( QLatin1String("edit-delete"), KIconLoader::Small ) );
 
   QAction *doneIt = 0;
   delIt->setEnabled( mCalendar->hasRight( item, Akonadi::Collection::CanDeleteItem ) );
 
   if ( !todo->isCompleted() ) {
     doneIt = popup.addAction( i18n( "&Mark To-do Completed" ) );
-    doneIt->setIcon( KIconLoader::global()->loadIcon( "task-complete", KIconLoader::Small ) );
+    doneIt->setIcon( KIconLoader::global()->loadIcon( QLatin1String("task-complete"), KIconLoader::Small ) );
     doneIt->setEnabled( mCalendar->hasRight( item, Akonadi::Collection::CanChangeItem ) );
   }
   // TODO: add icons to the menu actions
@@ -386,7 +386,7 @@ bool TodoSummaryWidget::eventFilter( QObject *obj, QEvent *e )
 
 QStringList TodoSummaryWidget::configModules() const
 {
-  return QStringList( "kcmtodosummary.desktop" );
+  return QStringList() << QLatin1String( "kcmtodosummary.desktop" );
 }
 
 bool TodoSummaryWidget::startsToday( const KCalCore::Todo::Ptr &todo )
@@ -402,9 +402,9 @@ const QString TodoSummaryWidget::stateStr( const KCalCore::Todo::Ptr &todo )
   if ( todo->isOpenEnded() ) {
     str1 = i18n( "open-ended" );
   } else if ( todo->isOverdue() ) {
-    str1 = "<font color=\"red\">" +
+    str1 = QLatin1String("<font color=\"red\">") +
            i18nc( "the to-do is overdue", "overdue" ) +
-           "</font>";
+           QLatin1String("</font>");
   } else if ( startsToday( todo ) ) {
     str1 = i18nc( "the to-do starts today", "starts today" );
   }
@@ -415,7 +415,7 @@ const QString TodoSummaryWidget::stateStr( const KCalCore::Todo::Ptr &todo )
     str2 += i18nc( "the to-do is completed", "completed" );
   } else if ( todo->isInProgress( false ) ) {
     str2 += i18nc( "the to-do is in-progress", "in-progress " );
-    str2 += " (" + QString::number( todo->percentComplete() ) + "%)";
+    str2 += QLatin1String(" (") + QString::number( todo->percentComplete() ) + QLatin1String("%)");
   }
 
   if ( !str1.isEmpty() && !str2.isEmpty() ) {

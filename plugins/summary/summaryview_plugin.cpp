@@ -43,8 +43,8 @@ SummaryView::SummaryView( KontactInterface::Core *core, const QVariantList & )
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  mSyncAction = new KSelectAction( KIcon( "view-refresh" ), i18n( "Sync All" ), this );
-  actionCollection()->addAction( "kontact_summary_sync", mSyncAction );
+  mSyncAction = new KSelectAction( KIcon( QLatin1String("view-refresh") ), i18n( "Sync All" ), this );
+  actionCollection()->addAction( QLatin1String("kontact_summary_sync"), mSyncAction );
   connect( mSyncAction, SIGNAL(triggered(QString)), SLOT(syncAccount(QString)) );
   connect( mSyncAction->menu(), SIGNAL(aboutToShow()), this, SLOT(fillSyncActionSubEntries()) );
 
@@ -58,7 +58,7 @@ void SummaryView::fillSyncActionSubEntries()
   menuItems.append( i18nc( "@action:inmenu sync everything", "All" ) );
 
 #ifdef KMAIL_SUPPORTED
-  org::kde::kmail::kmail kmail( "org.kde.kmail", "/KMail", QDBusConnection::sessionBus() );
+  org::kde::kmail::kmail kmail( QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QDBusConnection::sessionBus() );
   const QDBusReply<QStringList> reply = kmail.accounts();
   if ( reply.isValid() ) {
     menuItems << reply.value();
@@ -75,7 +75,7 @@ void SummaryView::syncAccount( const QString &account )
     doSync();
   } else {
 #ifdef KMAIL_SUPPORTED
-    org::kde::kmail::kmail kmail( "org.kde.kmail", "/KMail",
+    org::kde::kmail::kmail kmail( QLatin1String("org.kde.kmail"), QLatin1String("/KMail"),
                                   QDBusConnection::sessionBus() );
     kmail.checkAccount( account );
 #endif
@@ -108,7 +108,7 @@ void SummaryView::doSync()
 KParts::ReadOnlyPart *SummaryView::createPart()
 {
   mPart = new SummaryViewPart( core(), "summarypartframe", aboutData(), this );
-  mPart->setObjectName( "summaryPart" );
+  mPart->setObjectName( QLatin1String("summaryPart") );
   return mPart;
 }
 
