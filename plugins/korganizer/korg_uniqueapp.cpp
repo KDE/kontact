@@ -40,10 +40,10 @@ int KOrganizerUniqueAppHandler::newInstance()
   // Ensure part is loaded
   (void)plugin()->part();
 
-  QDBusMessage message = QDBusMessage::createMethodCall( "org.kde.korganizer",
-                                                         "/Korganizer",
-                                                         "org.kde.korganizer.Korganizer",
-                                                         "handleCommandLine" );
+  QDBusMessage message = QDBusMessage::createMethodCall( QLatin1String("org.kde.korganizer"),
+                                                         QLatin1String("/Korganizer"),
+                                                         QLatin1String("org.kde.korganizer.Korganizer"),
+                                                         QLatin1String("handleCommandLine") );
   QDBusConnection::sessionBus().send( message );
 
   // Bring korganizer's plugin to front
@@ -61,6 +61,6 @@ int KOrganizerUniqueAppHandler::newInstance()
   // the command line options are empty; else we'd need to examine the
   // options and then figure out which plugin we should show.
   // kolab/issue3971
-  plugin()->core()->selectPlugin( "kontact_korganizerplugin" );
+  plugin()->core()->selectPlugin( QLatin1String("kontact_korganizerplugin") );
   return 0;
 }

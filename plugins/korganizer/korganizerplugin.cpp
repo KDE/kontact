@@ -57,13 +57,13 @@ KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariant
   : KontactInterface::Plugin( core, core, "korganizer", "calendar" ), mIface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
-  KIconLoader::global()->addAppDir( "korganizer" );
-  KIconLoader::global()->addAppDir( "kdepim" );
+  KIconLoader::global()->addAppDir( QLatin1String("korganizer") );
+  KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
 
   KAction *action  =
-    new KAction( KIcon( "appointment-new" ),
+    new KAction( KIcon( QLatin1String("appointment-new") ),
                  i18nc( "@action:inmenu", "New Event..." ), this );
-  actionCollection()->addAction( "new_event", action );
+  actionCollection()->addAction( QLatin1String("new_event"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT+Qt::Key_E ) );
   action->setHelpText(
     i18nc( "@info:status", "Create a new event" ) );
@@ -74,9 +74,9 @@ KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariant
   insertNewAction( action );
 
   KAction *syncAction =
-    new KAction( KIcon( "view-refresh" ),
+    new KAction( KIcon( QLatin1String("view-refresh") ),
                  i18nc( "@action:inmenu", "Sync Calendar" ), this );
-  actionCollection()->addAction( "korganizer_sync", syncAction );
+  actionCollection()->addAction( QLatin1String("korganizer_sync"), syncAction );
   syncAction->setHelpText(
     i18nc( "@info:status", "Synchronize groupware calendar" ) );
   syncAction->setWhatsThis(
@@ -107,26 +107,26 @@ KParts::ReadOnlyPart *KOrganizerPlugin::createPart()
   }
 
   mIface = new OrgKdeKorganizerCalendarInterface(
-    "org.kde.korganizer", "/Calendar", QDBusConnection::sessionBus(), this );
+    QLatin1String("org.kde.korganizer"), QLatin1String("/Calendar"), QDBusConnection::sessionBus(), this );
 
   return part;
 }
 
 QString KOrganizerPlugin::tipFile() const
 {
-  QString file = KStandardDirs::locate( "data", "korganizer/tips" );
+  QString file = KStandardDirs::locate( "data", QLatin1String("korganizer/tips") );
   return file;
 }
 
 QStringList KOrganizerPlugin::invisibleToolbarActions() const
 {
   QStringList invisible;
-  invisible += "new_event";
-  invisible += "new_todo";
-  invisible += "new_journal";
+  invisible += QLatin1String("new_event");
+  invisible += QLatin1String("new_todo");
+  invisible += QLatin1String("new_journal");
 
-  invisible += "view_todo";
-  invisible += "view_journal";
+  invisible += QLatin1String("view_todo");
+  invisible += QLatin1String("view_journal");
   return invisible;
 }
 
@@ -146,7 +146,7 @@ OrgKdeKorganizerCalendarInterface *KOrganizerPlugin::interface()
 
 void KOrganizerPlugin::slotNewEvent()
 {
-  interface()->openEventEditor( "" );
+    interface()->openEventEditor( QString() );
 }
 
 void KOrganizerPlugin::slotSyncEvents()
@@ -165,7 +165,7 @@ void KOrganizerPlugin::slotSyncEvents()
 
 bool KOrganizerPlugin::createDBUSInterface( const QString &serviceType )
 {
-  if ( serviceType == "DBUS/Organizer" || serviceType == "DBUS/Calendar" ) {
+  if ( serviceType == QLatin1String("DBUS/Organizer") || serviceType == QLatin1String("DBUS/Calendar") ) {
     if ( part() ) {
       return true;
     }
@@ -193,13 +193,14 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 
     KABC::VCardDrag::fromMimeData( md, contacts );
 
-    KABC::Addressee::List::Iterator it;
+    KABC::Addressee::List::ConstIterator it;
 
+    KABC::Addressee::List::ConstIterator end(contacts.constEnd());
     QStringList attendees;
-    for ( it = contacts.begin(); it != contacts.end(); ++it ) {
+    for ( it = contacts.constBegin(); it != end; ++it ) {
       QString email = (*it).fullEmail();
       if ( email.isEmpty() ) {
-        attendees.append( (*it).realName() + "<>" );
+        attendees.append( (*it).realName() + QLatin1String("<>") );
       } else {
         attendees.append( email );
       }
@@ -258,13 +259,13 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openEventEditor(
         i18nc( "@item", "Mail: %1", mail.subject() ), txt,
-        uri, tf.fileName(), QStringList(), "message/rfc822" );
+        uri, tf.fileName(), QStringList(), QLatin1String("message/rfc822") );
       tf.close();
     }
     return;
   }
 
-  kWarning() << QString( "Cannot handle drop events of type '%1'." ).arg( event->format() );
+  kWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
 
 #include "korganizerplugin.moc"

@@ -55,13 +55,13 @@ TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "korganizer", "todo" ), mIface( 0 )
 {
   setComponentData( KontactPluginFactory::componentData() );
-  KIconLoader::global()->addAppDir( "korganizer" );
-  KIconLoader::global()->addAppDir( "kdepim" );
+  KIconLoader::global()->addAppDir( QLatin1String("korganizer") );
+  KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
 
   KAction *action =
-    new KAction( KIcon( "task-new" ),
+    new KAction( KIcon( QLatin1String("task-new") ),
                  i18nc( "@action:inmenu", "New To-do..." ), this );
-  actionCollection()->addAction( "new_todo", action );
+  actionCollection()->addAction( QLatin1String("new_todo"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_T ) );
   action->setHelpText(
     i18nc( "@info:status", "Create a new to-do" ) );
@@ -72,7 +72,7 @@ TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
   insertNewAction( action );
 
   KAction *syncAction =
-    new KAction( KIcon( "view-refresh" ),
+    new KAction( KIcon( QLatin1String("view-refresh") ),
                  i18nc( "@action:inmenu", "Sync To-do List" ), this );
   syncAction->setHelpText(
     i18nc( "@info:status", "Synchronize groupware to-do list" ) );
@@ -104,7 +104,7 @@ KParts::ReadOnlyPart *TodoPlugin::createPart()
   }
 
   mIface = new OrgKdeKorganizerCalendarInterface(
-    "org.kde.korganizer", "/Calendar", QDBusConnection::sessionBus(), this );
+    QLatin1String("org.kde.korganizer"), QLatin1String("/Calendar"), QDBusConnection::sessionBus(), this );
 
   return part;
 }
@@ -117,21 +117,21 @@ void TodoPlugin::select()
 QStringList TodoPlugin::invisibleToolbarActions() const
 {
   QStringList invisible;
-  invisible += "new_event";
-  invisible += "new_todo";
-  invisible += "new_journal";
+  invisible += QLatin1String("new_event");
+  invisible += QLatin1String("new_todo");
+  invisible += QLatin1String("new_journal");
 
-  invisible += "view_whatsnext";
-  invisible += "view_day";
-  invisible += "view_nextx";
-  invisible += "view_month";
-  invisible += "view_workweek";
-  invisible += "view_week";
-  invisible += "view_list";
-  invisible += "view_todo";
-  invisible += "view_journal";
-  invisible += "view_timeline";
-  invisible += "view_timespent";
+  invisible += QLatin1String("view_whatsnext");
+  invisible += QLatin1String("view_day");
+  invisible += QLatin1String("view_nextx");
+  invisible += QLatin1String("view_month");
+  invisible += QLatin1String("view_workweek");
+  invisible += QLatin1String("view_week");
+  invisible += QLatin1String("view_list");
+  invisible += QLatin1String("view_todo");
+  invisible += QLatin1String("view_journal");
+  invisible += QLatin1String("view_timeline");
+  invisible += QLatin1String("view_timespent");
 
   return invisible;
 }
@@ -147,7 +147,7 @@ OrgKdeKorganizerCalendarInterface *TodoPlugin::interface()
 
 void TodoPlugin::slotNewTodo()
 {
-  interface()->openTodoEditor( "" );
+    interface()->openTodoEditor( QString() );
 }
 
 void TodoPlugin::slotSyncTodos()
@@ -166,7 +166,7 @@ void TodoPlugin::slotSyncTodos()
 
 bool TodoPlugin::createDBUSInterface( const QString &serviceType )
 {
-  if ( serviceType == "DBUS/Organizer" || serviceType == "DBUS/Calendar" ) {
+  if ( serviceType == QLatin1String("DBUS/Organizer") || serviceType == QLatin1String("DBUS/Calendar") ) {
     if ( part() ) {
       return true;
     }
@@ -197,13 +197,14 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
 
     KABC::VCardDrag::fromMimeData( md, contacts );
 
-    KABC::Addressee::List::Iterator it;
+    KABC::Addressee::List::ConstIterator it;
 
     QStringList attendees;
-    for ( it = contacts.begin(); it != contacts.end(); ++it ) {
+    KABC::Addressee::List::ConstIterator end(contacts.constEnd());
+    for ( it = contacts.constBegin(); it != end; ++it ) {
       QString email = (*it).fullEmail();
       if ( email.isEmpty() ) {
-        attendees.append( (*it).realName() + "<>" );
+        attendees.append( (*it).realName() + QLatin1String("<>") );
       } else {
         attendees.append( email );
       }
@@ -253,20 +254,20 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
                            mail.from(), mail.to(), mail.subject() );
       QString uri = QLatin1String( "kmail:" ) +
-                    QString::number( mail.serialNumber() ) + '/' +
+                    QString::number( mail.serialNumber() ) + QLatin1Char('/') +
                     mail.messageId();
       KTemporaryFile tf;
       tf.setAutoRemove( true );
       tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openTodoEditor(
         i18nc( "@item", "Mail: %1", mail.subject() ),
-        txt, uri, tf.fileName(), QStringList(), "message/rfc822" );
+        txt, uri, tf.fileName(), QStringList(), QLatin1String("message/rfc822") );
       tf.close();
     }
     return;
   }
 
-  kWarning() << QString( "Cannot handle drop events of type '%1'." ).arg( event->format() );
+  kWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
 
 #include "todoplugin.moc"

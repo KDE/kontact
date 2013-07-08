@@ -84,11 +84,11 @@ bool SummaryEventInfo::skip( const KCalCore::Event::Ptr &event )
   //the appropriate category to the event.
   QStringList c = event->categories();
   if ( !mShowBirthdays &&
-       c.contains( "BIRTHDAY", Qt::CaseInsensitive ) ) {
+       c.contains( QLatin1String("BIRTHDAY"), Qt::CaseInsensitive ) ) {
     return true;
   }
   if ( !mShowAnniversaries &&
-       c.contains( "ANNIVERSARY", Qt::CaseInsensitive ) ) {
+       c.contains( QLatin1String("ANNIVERSARY"), Qt::CaseInsensitive ) ) {
     return true;
   }
 
@@ -216,13 +216,13 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
     // first day of the event only.
     if ( ev->isMultiDay() && ev->allDay() && firstDayOfMultiday && span > 1 ) {
       str = IncidenceFormatter::dateToString( ev->dtStart(), false, spec ) +
-            " -\n " +
+            QLatin1String(" -\n ") +
             IncidenceFormatter::dateToString( ev->dtEnd(), false, spec );
     }
     summaryEvent->dateSpan = str;
 
     // Days to go label
-    str = "";
+    str.clear();
     const int daysTo = start.daysTo(occurrenceStartDate);
     if ( daysTo > 0 ) {
       str = i18np( "in 1 day", "in %1 days", daysTo );
@@ -243,7 +243,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
           if ( hours > 0 ) {
             str += i18ncp( "use abbreviation for hour to keep the text short",
                            "1 hr", "%1 hrs", hours );
-            str += ' ';
+            str += QLatin1Char(' ');
             secs -= ( hours * 3600 );
           }
           int mins = secs / 60;
@@ -263,7 +263,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
     // Summary label
     str = ev->richSummary();
     if ( ev->isMultiDay() && !ev->allDay() ) {
-      str.append( QString( " (%1/%2)" ).arg( dayof ).arg( span ) );
+      str.append( QString::fromLatin1( " (%1/%2)" ).arg( dayof ).arg( span ) );
     }
     summaryEvent->summaryText = str;
     summaryEvent->summaryUrl = ev->uid();
@@ -275,7 +275,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
     }
 
     // Time range label (only for non-floating events)
-    str = "";
+    str.clear();
     if ( !ev->allDay() ) {
       QTime sST = eventStart.time();
       QTime sET = eventEnd.time();
@@ -302,11 +302,11 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
         ev->recurrence()->getNextDateTime( next ), ev->allDay(),
         true, spec );
       if ( !summaryEvent->timeRange.isEmpty() ) {
-        summaryEvent->timeRange += "<br>";
+        summaryEvent->timeRange += QLatin1String("<br>");
       }
-      summaryEvent->timeRange += "<font size=\"small\"><i>" +
+      summaryEvent->timeRange += QLatin1String("<font size=\"small\"><i>") +
                                  i18nc( "next occurrence", "Next: %1", tmp ) +
-                                 "</i></font>";
+                                 QLatin1String("</i></font>");
     }
   }
 
