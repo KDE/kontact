@@ -70,6 +70,7 @@ class SDSummaryWidget : public KontactInterface::Summary
     void mailContact( const QString &url );
     void viewContact( const QString &url );
     void slotBirthdayJobFinished( KJob *job );
+    void slotItemFetchJobDone(KJob* job);
 
   private:
     int span( const KCalCore::Event::Ptr &event ) const;

@@ -651,17 +651,22 @@ void SDSummaryWidget::mailContact( const QString &url )
 
   Akonadi::ItemFetchJob *job = new Akonadi::ItemFetchJob( item, this );
   job->fetchScope().fetchFullPayload();
-  if ( !job->exec() ) {
-    return;
-  }
+  connect( job, SIGNAL(result(KJob*)), SLOT(slotItemFetchJobDone(KJob*)) );
+}
 
-  if ( job->items().isEmpty() ) {
-    return;
-  }
+void SDSummaryWidget::slotItemFetchJobDone(KJob* job)
+{
+    if ( job->error() ) {
+        kWarning() << job->errorString();
+        return;
+    }
+    const Akonadi::Item::List lst = qobject_cast<Akonadi::ItemFetchJob*>( job )->items();
+    if ( lst.isEmpty() ) {
+      return;
+    }
+    const KABC::Addressee contact = lst.first().payload<KABC::Addressee>();
 
-  const KABC::Addressee contact = job->items().first().payload<KABC::Addressee>();
-
-  KToolInvocation::invokeMailer( contact.fullEmail(), QString() );
+    KToolInvocation::invokeMailer( contact.fullEmail(), QString() );
 }
 
 void SDSummaryWidget::viewContact( const QString &url )
