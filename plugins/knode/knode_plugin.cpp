@@ -41,9 +41,9 @@ KNodePlugin::KNodePlugin( KontactInterface::Core *core, const QVariantList & )
   setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action =
-    new KAction( KIcon( "mail-message-new" ),
+    new KAction( KIcon( QLatin1String("mail-message-new") ),
                  i18nc( "@action:inmenu", "New Article..." ), this );
-  actionCollection()->addAction( "post_article", action );
+  actionCollection()->addAction( QLatin1String("post_article"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_A ) );
   action->setHelpText(
     i18nc( "@info:status", "Create a new Usenet article" ) );
@@ -77,7 +77,7 @@ bool KNodePlugin::isRunningStandalone() const
 
 QStringList KNodePlugin::invisibleToolbarActions() const
 {
-  return QStringList( "article_postNew" );
+  return QStringList() <<QLatin1String( "article_postNew" );
 }
 
 void KNodePlugin::slotPostArticle()
@@ -105,7 +105,7 @@ KParts::ReadOnlyPart *KNodePlugin::createPart()
   }
 
   m_interface = new OrgKdeKnodeInterface(
-    "org.kde.knode", "/KNode", QDBusConnection::sessionBus() );
+    QLatin1String("org.kde.knode"), QLatin1String("/KNode"), QDBusConnection::sessionBus() );
   return part;
 }
 
@@ -120,7 +120,7 @@ int KNodeUniqueAppHandler::newInstance()
 {
   // Ensure part is loaded
   (void)plugin()->part();
-  org::kde::knode knode( "org.kde.knode", "/KNode", QDBusConnection::sessionBus() );
+  org::kde::knode knode( QLatin1String("org.kde.knode"), QLatin1String("/KNode"), QDBusConnection::sessionBus() );
   QDBusReply<bool> reply = knode.handleCommandLine();
 
   if ( reply.isValid() ) {

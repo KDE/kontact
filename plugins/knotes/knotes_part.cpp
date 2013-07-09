@@ -62,15 +62,15 @@ KNotesPart::KNotesPart( QObject *parent )
      mManager( new KNotesResourceManager() )
 {
   (void) new KNotesAdaptor( this );
-  QDBusConnection::sessionBus().registerObject( "/KNotes", this );
+  QDBusConnection::sessionBus().registerObject( QLatin1String("/KNotes"), this );
 
   setComponentData( KComponentData( "knotes" ) );
 
   // create the actions
   KAction *action =
-    new KAction( KIcon( "knotes" ),
+    new KAction( KIcon( QLatin1String("knotes") ),
                  i18nc( "@action:inmenu create new popup note", "&New" ), this );
-  actionCollection()->addAction( "file_new", action );
+  actionCollection()->addAction( QLatin1String("file_new"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(newNote()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_N ) );
   action->setHelpText(
@@ -79,9 +79,9 @@ KNotesPart::KNotesPart( QObject *parent )
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can add a new popup note." ) );
 
-  action = new KAction( KIcon( "document-edit" ),
+  action = new KAction( KIcon( QLatin1String("document-edit") ),
                         i18nc( "@action:inmenu", "Edit..." ), this );
-  actionCollection()->addAction( "edit_note", action );
+  actionCollection()->addAction( QLatin1String("edit_note"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(editNote()) );
   action->setHelpText(
     i18nc( "@info:status", "Edit popup note" ) );
@@ -89,9 +89,9 @@ KNotesPart::KNotesPart( QObject *parent )
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can modify an existing popup note." ) );
 
-  action = new KAction( KIcon( "edit-rename" ),
+  action = new KAction( KIcon( QLatin1String("edit-rename") ),
                         i18nc( "@action:inmenu", "Rename..." ), this );
-  actionCollection()->addAction( "edit_rename", action );
+  actionCollection()->addAction( QLatin1String("edit_rename"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(renameNote()) );
   action->setHelpText(
     i18nc( "@info:status", "Rename popup note" ) );
@@ -99,9 +99,9 @@ KNotesPart::KNotesPart( QObject *parent )
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can rename an existing popup note." ) );
 
-  action = new KAction( KIcon( "edit-delete" ),
+  action = new KAction( KIcon( QLatin1String("edit-delete") ),
                         i18nc( "@action:inmenu", "Delete" ), this );
-  actionCollection()->addAction( "edit_delete", action );
+  actionCollection()->addAction( QLatin1String("edit_delete"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(killSelectedNotes()) );
   action->setShortcut( QKeySequence( Qt::Key_Delete ) );
   action->setHelpText(
@@ -111,9 +111,9 @@ KNotesPart::KNotesPart( QObject *parent )
            "You will be prompted if you really want to permanently remove "
            "the selected popup note." ) );
 
-  action = new KAction( KIcon( "document-print" ),
+  action = new KAction( KIcon( QLatin1String("document-print") ),
                         i18nc( "@action:inmenu", "Print Selected Notes..." ), this );
-  actionCollection()->addAction( "print_note", action );
+  actionCollection()->addAction( QLatin1String("print_note"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(printSelectedNotes()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_Delete ) );
   action->setHelpText(
@@ -141,7 +141,7 @@ KNotesPart::KNotesPart( QObject *parent )
   slotOnCurrentChanged();
 
   setWidget( mNotesView );
-  setXMLFile( "knotes_part.rc" );
+  setXMLFile( QLatin1String("knotes_part.rc") );
 
   // connect the resource manager
   connect( mManager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
@@ -166,7 +166,7 @@ void KNotesPart::requestToolTip( const QModelIndex &index )
 {
   QRect m_itemRect = mNotesView->visualRect( index );
   mNoteTip->setNote(
-    dynamic_cast<KNotesIconViewItem *>( mNotesView->itemAt( m_itemRect.topLeft() ) ) );
+    static_cast<KNotesIconViewItem *>( mNotesView->itemAt( m_itemRect.topLeft() ) ) );
 }
 
 void KNotesPart::hideToolTip()
@@ -231,7 +231,7 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
       journal->setDescription( mNoteEditDlg->text() );
     } else {
       delete journal;
-      return "";
+        return QString();
     }
   }
 
@@ -364,9 +364,9 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
 
   QMenu *contextMenu = 0;
   if ( mNotesView->itemAt ( pos ) ) {
-    contextMenu = static_cast<QMenu *>( factory()->container( "note_context", this ) );
+    contextMenu = static_cast<QMenu *>( factory()->container( QLatin1String("note_context"), this ) );
   } else {
-    contextMenu = static_cast<QMenu *>( factory()->container( "notepart_context", this ) );
+    contextMenu = static_cast<QMenu *>( factory()->container( QLatin1String("notepart_context"), this ) );
   }
 
   if ( !contextMenu ) {
@@ -391,17 +391,17 @@ void KNotesPart::createNote( KCal::Journal *journal )
   // make sure all fields are existent, initialize them with default values
   QString property = journal->customProperty( "KNotes", "BgColor" );
   if ( property.isNull() ) {
-    journal->setCustomProperty( "KNotes", "BgColor", "#ffff00" );
+    journal->setCustomProperty( "KNotes", "BgColor", QLatin1String("#ffff00") );
   }
 
   property = journal->customProperty( "KNotes", "FgColor" );
   if ( property.isNull() ) {
-    journal->setCustomProperty( "KNotes", "FgColor", "#000000" );
+    journal->setCustomProperty( "KNotes", "FgColor", QLatin1String("#000000" ));
   }
 
   property = journal->customProperty( "KNotes", "RichText" );
   if ( property.isNull() ) {
-    journal->setCustomProperty( "KNotes", "RichText", "true" );
+    journal->setCustomProperty( "KNotes", "RichText", QLatin1String("true") );
   }
 
   mNoteList.insert( journal->uid(), new KNotesIconViewItem( mNotesView, journal ) );
@@ -454,9 +454,9 @@ void KNotesPart::renameNote()
 
 void KNotesPart::slotOnCurrentChanged( )
 {
-  QAction *renameAction = actionCollection()->action( "edit_rename" );
-  QAction *deleteAction = actionCollection()->action( "edit_delete" );
-  QAction *editAction = actionCollection()->action( "edit_note" );
+  QAction *renameAction = actionCollection()->action( QLatin1String("edit_rename") );
+  QAction *deleteAction = actionCollection()->action( QLatin1String("edit_delete") );
+  QAction *editAction = actionCollection()->action( QLatin1String("edit_note") );
   if ( !mNotesView->currentItem() ) {
     renameAction->setEnabled( false );
     deleteAction->setEnabled( false );

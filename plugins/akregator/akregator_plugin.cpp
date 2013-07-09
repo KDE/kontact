@@ -42,9 +42,9 @@ AkregatorPlugin::AkregatorPlugin( KontactInterface::Core *core, const QVariantLi
   setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action =
-    new KAction( KIcon( "bookmark-new" ),
+    new KAction( KIcon( QLatin1String("bookmark-new") ),
                  i18nc( "@action:inmenu", "New Feed..." ), this );
-  actionCollection()->addAction( "feed_new", action );
+  actionCollection()->addAction( QLatin1String("feed_new"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_F ) );
   action->setHelpText(
     i18nc( "@info:status", "Create a new feed" ) );
@@ -71,7 +71,7 @@ bool AkregatorPlugin::isRunningStandalone() const
 
 QStringList AkregatorPlugin::invisibleToolbarActions() const
 {
-  return QStringList( "file_new_contact" );
+  return QStringList() <<QLatin1String("file_new_contact" );
 }
 
 OrgKdeAkregatorPartInterface *AkregatorPlugin::interface()
@@ -100,7 +100,7 @@ KParts::ReadOnlyPart *AkregatorPlugin::createPart()
   }
 
   m_interface = new OrgKdeAkregatorPartInterface(
-    "org.kde.akregator", "/Akregator", QDBusConnection::sessionBus() );
+    QLatin1String("org.kde.akregator"), QLatin1String("/Akregator"), QDBusConnection::sessionBus() );
   m_interface->openStandardFeedList();
 
   return part;
@@ -112,14 +112,14 @@ void AkregatorPlugin::addFeed()
   (void)part();
 
   org::kde::akregator::part akregator(
-    "org.kde.akregator", "/Akregator", QDBusConnection::sessionBus() );
+    QLatin1String("org.kde.akregator"), QLatin1String("/Akregator"), QDBusConnection::sessionBus() );
   akregator.addFeed();
 }
 
 QStringList AkregatorPlugin::configModules() const
 {
   QStringList modules;
-  modules << "PIM/akregator.desktop";
+  modules << QLatin1String("PIM/akregator.desktop");
   return modules;
 }
 
@@ -150,7 +150,7 @@ int AkregatorUniqueAppHandler::newInstance()
   (void)plugin()->part();
 
   org::kde::akregator::part akregator(
-    "org.kde.akregator", "/Akregator", QDBusConnection::sessionBus() );
+    QLatin1String("org.kde.akregator"), QLatin1String("/Akregator"), QDBusConnection::sessionBus() );
   akregator.openStandardFeedList();
   akregator.handleCommandLine();
 

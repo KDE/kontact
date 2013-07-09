@@ -46,7 +46,7 @@ KNotesSummaryWidget::KNotesSummaryWidget( KontactInterface::Plugin *plugin, QWid
   mainLayout->setSpacing( 3 );
   mainLayout->setMargin( 3 );
 
-  QWidget *header = createHeader( this, "view-pim-notes", i18n( "Popup Notes" ) );
+  QWidget *header = createHeader( this, QLatin1String("view-pim-notes"), i18n( "Popup Notes" ) );
   mainLayout->addWidget( header );
 
   mLayout = new QGridLayout();
@@ -76,14 +76,15 @@ void KNotesSummaryWidget::updateView()
   }
   mLabels.clear();
 
-  KIconLoader loader( "knotes" );
+  KIconLoader loader( QLatin1String("knotes") );
 
   int counter = 0;
-  QPixmap pm = loader.loadIcon( "knotes", KIconLoader::Small );
+  QPixmap pm = loader.loadIcon( QLatin1String("knotes"), KIconLoader::Small );
 
-  Journal::List::Iterator it;
+  Journal::List::ConstIterator it;
+  Journal::List::ConstIterator end(mNotes.constEnd());
   if ( mNotes.count() ) {
-    for ( it = mNotes.begin(); it != mNotes.end(); ++it ) {
+    for ( it = mNotes.constBegin(); it != end; ++it ) {
 
       // Fill Note Pixmap Field
       label = new QLabel( this );

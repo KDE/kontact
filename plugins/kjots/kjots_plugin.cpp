@@ -40,9 +40,9 @@ KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
   setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action =
-    new KAction( KIcon( "document-new" ),
+    new KAction( KIcon( QLatin1String("document-new") ),
                  i18nc( "@action:inmenu", "New KJots Page" ), this );
-  actionCollection()->addAction( "new_kjots_page", action );
+  actionCollection()->addAction( QLatin1String("new_kjots_page"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_P ) );
   action->setHelpText(
     i18nc( "@info:status", "Create a new jots page" ) );
@@ -52,9 +52,9 @@ KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
   connect( action, SIGNAL(triggered(bool)), SLOT(newPage()) );
   insertNewAction( action );
 
-  action = new KAction( KIcon( "address-book-new" ),
+  action = new KAction( KIcon( QLatin1String("address-book-new") ),
                         i18nc( "@action:inmenu", "New KJots Book" ), this );
-  actionCollection()->addAction( "new_kjots_book", action );
+  actionCollection()->addAction( QLatin1String("new_kjots_book"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_B ) );
   action->setHelpText(
     i18nc( "@info:status", "Create a new jots book" ) );
@@ -81,7 +81,7 @@ bool KJotsPlugin::isRunningStandalone() const
 
 QStringList KJotsPlugin::invisibleToolbarActions() const
 {
-  return QStringList() << "new_page" << "new_book" ;
+  return QStringList() << QLatin1String("new_page") << QLatin1String("new_book") ;
 }
 
 KParts::ReadOnlyPart *KJotsPlugin::createPart()
@@ -92,7 +92,7 @@ KParts::ReadOnlyPart *KJotsPlugin::createPart()
   }
 
   m_interface = new OrgKdeKJotsWidgetInterface(
-    "org.kde.kjots", "/KJotsWidget", QDBusConnection::sessionBus() );
+    QLatin1String("org.kde.kjots"), QLatin1String("/KJotsWidget"), QDBusConnection::sessionBus() );
 
   return part;
 }

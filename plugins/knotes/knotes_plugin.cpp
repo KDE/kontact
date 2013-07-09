@@ -54,9 +54,9 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
   setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action =
-    new KAction( KIcon( "knotes" ),
+    new KAction( KIcon( QLatin1String("knotes") ),
                  i18nc( "@action:inmenu", "New Popup Note..." ), this );
-  actionCollection()->addAction( "new_note", action );
+  actionCollection()->addAction( QLatin1String("new_note"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewNote()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_N ) );
   action->setHelpText(
@@ -67,9 +67,9 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
   insertNewAction( action );
 
   KAction *syncAction =
-    new KAction( KIcon( "view-refresh" ),
+    new KAction( KIcon( QLatin1String("view-refresh") ),
                  i18nc( "@action:inmenu", "Sync Popup Notes" ), this );
-  actionCollection()->addAction( "knotes_sync", syncAction );
+  actionCollection()->addAction( QLatin1String("knotes_sync"), syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncNotes()) );
   syncAction->setHelpText(
     i18nc( "@info:status", "Synchronize groupware notes" ) );
@@ -144,17 +144,18 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
     KABC::Addressee::List::ConstIterator it;
 
     QStringList attendees;
-    for ( it = contacts.constBegin(); it != contacts.constEnd(); ++it ) {
-      QString email = (*it).fullEmail();
+    KABC::Addressee::List::ConstIterator end(contacts.constEnd());
+    for ( it = contacts.constBegin(); it != end; ++it ) {
+      const QString email = (*it).fullEmail();
       if ( email.isEmpty() ) {
-        attendees.append( (*it).realName() + "<>" );
+        attendees.append( (*it).realName() + QLatin1String("<>") );
       } else {
         attendees.append( email );
       }
     }
     event->accept();
     static_cast<KNotesPart *>( part() )->newNote(
-      i18nc( "@item", "Meeting" ), attendees.join( ", " ) );
+      i18nc( "@item", "Meeting" ), attendees.join( QLatin1String(", ") ) );
     return;
   }
 
@@ -196,7 +197,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  kWarning() << QString( "Cannot handle drop events of type '%1'." ).arg( event->format() );
+  kWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
 
 // private slots
@@ -216,7 +217,7 @@ void KNotesPlugin::slotSyncNotes()
   message << QString( "Note" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning() << " Need to port to AKONADI: KNotesPlugin::slotSyncNotes";
+  kWarning() << QLatin1String(" Need to port to AKONADI: KNotesPlugin::slotSyncNotes");
 #endif
 }
 

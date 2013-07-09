@@ -82,7 +82,7 @@ class KNotesIconViewItem : public QListWidgetItem
     {
       KIconEffect effect;
       QColor color( journal->customProperty( "KNotes", "BgColor" ) );
-      QPixmap icon = KIconLoader::global()->loadIcon( "knotes", KIconLoader::Desktop );
+      QPixmap icon = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
       icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
       setIcon( icon );
       setIconText( journal->summary() );
@@ -97,7 +97,7 @@ class KNotesIconViewItem : public QListWidgetItem
     {
       QString replaceText ;
       if ( text.count() > 5 ) {
-        replaceText = text.left(5) + "..." ;
+        replaceText = text.left(5) + QLatin1String("...") ;
       } else {
         replaceText = text ;
       }
@@ -127,7 +127,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
       // in two different windows
 
       setComponentData( KComponentData( "knotes" ) ); // TODO: memleak
-      setXMLFile( "knotesui.rc" );
+      setXMLFile( QLatin1String("knotesui.rc") );
 
       QWidget *page = new QWidget( this );
       setMainWidget( page );
@@ -140,7 +140,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
       label->setText( i18nc( "@label popup note name", "Name:" ) );
       hbl->addWidget( label, 0 );
       mTitleEdit= new KLineEdit( page );
-      mTitleEdit->setObjectName( "name" );
+      mTitleEdit->setObjectName( QLatin1String("name") );
       hbl->addWidget( mTitleEdit, 1, Qt::AlignVCenter );
 
       mNoteEdit = new KNoteEdit( actionCollection(), page );
@@ -151,7 +151,7 @@ class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
       KXMLGUIFactory factory( &builder, this );
       factory.addClient( this );
 
-      mTool = static_cast<KToolBar *>( factory.container( "note_tool", this ) );
+      mTool = static_cast<KToolBar *>( factory.container( QLatin1String("note_tool"), this ) );
       layout->addWidget( mTool );
       layout->addWidget( mNoteEdit );
 

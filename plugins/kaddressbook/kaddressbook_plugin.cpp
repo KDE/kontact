@@ -38,15 +38,15 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
 {
   setComponentData( KontactPluginFactory::componentData() );
 
-  KGlobal::locale()->insertCatalog( "libkdepim" );
-  KGlobal::locale()->insertCatalog( "kabc" );
-  KGlobal::locale()->insertCatalog( "libakonadi" );
-  KGlobal::locale()->insertCatalog( "kabcakonadi" );
+  KGlobal::locale()->insertCatalog( QLatin1String("libkdepim") );
+  KGlobal::locale()->insertCatalog( QLatin1String("kabc") );
+  KGlobal::locale()->insertCatalog( QLatin1String("libakonadi") );
+  KGlobal::locale()->insertCatalog( QLatin1String("kabcakonadi" ));
 
   KAction *action =
-    new KAction( KIcon( "contact-new" ),
+    new KAction( KIcon( QLatin1String("contact-new") ),
                  i18nc( "@action:inmenu", "New Contact..." ), this );
-  actionCollection()->addAction( "new_contact", action );
+  actionCollection()->addAction( QLatin1String("new_contact"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewContact()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
   action->setHelpText(
@@ -57,9 +57,9 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
   insertNewAction( action );
 
   action =
-    new KAction( KIcon( "user-group-new" ),
+    new KAction( KIcon( QLatin1String("user-group-new") ),
                  i18nc( "@action:inmenu", "New Contact Group..." ), this );
-  actionCollection()->addAction( "new_contactgroup", action );
+  actionCollection()->addAction( QLatin1String("new_contactgroup"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewContactGroup()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_G ) );
   action->setHelpText(
@@ -70,9 +70,9 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
   insertNewAction( action );
 
   KAction *syncAction =
-    new KAction( KIcon( "view-refresh" ),
+    new KAction( KIcon( QLatin1String("view-refresh") ),
                  i18nc( "@action:inmenu", "Sync Contacts" ), this );
-  actionCollection()->addAction( "kaddressbook_sync", syncAction );
+  actionCollection()->addAction( QLatin1String("kaddressbook_sync"), syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
   syncAction->setHelpText(
     i18nc( "@info:status", "Synchronize groupware contacts" ) );
@@ -153,7 +153,7 @@ bool KAddressBookPlugin::isRunningStandalone() const
 QStringList KAddressBookPlugin::invisibleToolbarActions() const
 {
   QStringList actions;
-  actions << "akonadi_contact_create" << "akonadi_contact_group_create";
+  actions << QLatin1String("akonadi_contact_create") << QLatin1String("akonadi_contact_group_create");
   return actions;
 }
 
@@ -167,7 +167,7 @@ void KAddressBookPlugin::slotSyncContacts()
   message << QString( "Contact" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning() << " Need to port to AKONADI: KAddressBookPlugin::slotSyncNotes";
+  kWarning() << QLatin1String(" Need to port to AKONADI: KAddressBookPlugin::slotSyncNotes");
 #endif
 }
 
