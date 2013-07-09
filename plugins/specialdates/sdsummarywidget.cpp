@@ -600,8 +600,8 @@ void SDSummaryWidget::createLabels()
   }
 
   QList<QLabel*>::ConstIterator lit;
-
-  for ( lit = mLabels.constBegin(); lit != mLabels.constEnd(); ++lit ) {
+  QList<QLabel*>::ConstIterator endLit(mLabels.constEnd());
+  for ( lit = mLabels.constBegin(); lit != endLit; ++lit ) {
     (*lit)->show();
   }
   setUpdatesEnabled( true );
