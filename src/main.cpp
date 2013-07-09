@@ -60,7 +60,7 @@ KUniqueApplication
   public:
     KontactApp() : mMainWindow( 0 ), mSessionRestored( false )
     {
-      KIconLoader::global()->addAppDir( "kdepim" );
+      KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
     }
     ~KontactApp() {}
 
@@ -96,11 +96,11 @@ static void listPlugins()
   for ( KService::List::ConstIterator it = offers.begin(); it != end; ++it ) {
     KService::Ptr service = (*it);
     // skip summary only plugins
-    QVariant var = service->property( "X-KDE-KontactPluginHasPart" );
+    QVariant var = service->property( QLatin1String("X-KDE-KontactPluginHasPart") );
     if ( var.isValid() && var.toBool() == false ) {
       continue;
     }
-    cout << service->library().remove( "kontact_" ).toLatin1().data() << endl;
+    cout << service->library().remove( QLatin1String("kontact_") ).toLatin1().data() << endl;
   }
 }
 

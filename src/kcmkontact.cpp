@@ -122,14 +122,14 @@ void PluginSelection::readConfig()
   for ( KService::List::ConstIterator it = offers.begin(); it != end; ++it ) {
     KService::Ptr service = *it;
     // skip summary only plugins
-    QVariant var = service->property( "X-KDE-KontactPluginHasPart" );
+    QVariant var = service->property( QLatin1String("X-KDE-KontactPluginHasPart") );
     if ( var.isValid() && var.toBool() == false ) {
       continue;
     }
     mPluginCombo->addItem( service->name() );
     mPluginList.append( service );
 
-    if ( service->property( "X-KDE-PluginInfo-Name" ).toString() == mItem->value() ) {
+    if ( service->property( QLatin1String("X-KDE-PluginInfo-Name") ).toString() == mItem->value() ) {
       activeComponent = mPluginList.count() - 1;
     }
   }
@@ -140,7 +140,7 @@ void PluginSelection::readConfig()
 void PluginSelection::writeConfig()
 {
   KService::Ptr ptr =  mPluginList.at( mPluginCombo->currentIndex() );
-  mItem->setValue( ptr->property( "X-KDE-PluginInfo-Name" ).toString() );
+  mItem->setValue( ptr->property( QLatin1String("X-KDE-PluginInfo-Name") ).toString() );
 }
 
 QList<QWidget *> PluginSelection::widgets() const

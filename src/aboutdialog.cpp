@@ -46,7 +46,7 @@ AboutDialog::AboutDialog( KontactInterface::Core *core )
   setModal( false );
   showButtonSeparator( true );
   setFaceType( KPageDialog::List );
-  addAboutData( i18n( "Kontact Container" ), QString( "kontact" ),
+  addAboutData( i18n( "Kontact Container" ), QLatin1String( "kontact" ),
                 KGlobal::mainComponent().aboutData() );
 
   QList<KontactInterface::Plugin*> plugins = mCore->pluginList();
@@ -94,24 +94,24 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
   } else {
     QString text;
 
-    text += "<p>";
-    text += "<b>" + about->programName() + "</b>";
-    text += "<br>";
+    text += QLatin1String("<p>");
+    text += QLatin1String("<b>") + about->programName() + QLatin1String("</b>");
+    text += QLatin1String("<br>");
 
     text += i18n( "Version %1", about->version() );
-    text += "</p>";
+    text += QLatin1String("</p>");
 
     if ( !about->shortDescription().isEmpty() ) {
-      text += "<p>" + about->shortDescription() + "<br>" +
-               about->copyrightStatement() + "</p>";
+      text += QLatin1String("<p>") + about->shortDescription() +QLatin1String( "<br>") +
+               about->copyrightStatement() + QLatin1String("</p>");
     }
 
     QString home = about->homepage();
     if ( !home.isEmpty() ) {
-      text += "<a href=\"" + home + "\">" + home + "</a><br>";
+      text += QLatin1String("<a href=\"") + home + QLatin1String("\">") + home + QLatin1String("</a><br>");
     }
 
-    text.replace( '\n', "<br>" );
+    text.replace( QLatin1Char('\n'), QLatin1String("<br>") );
 
     QLabel *label = new QLabel( text, topFrame );
     label->setAlignment( Qt::AlignTop );
@@ -124,7 +124,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
     personView->setReadOnly( true );
     topLayout->addWidget( personView, 1 );
 
-    text = "";
+    text.clear();
     const QList<KAboutPerson> authors = about->authors();
     if ( !authors.isEmpty() ) {
       text += i18n( "<p><b>Authors:</b></p>" );
@@ -134,7 +134,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       for ( it = authors.begin(); it != end; ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
         if ( !(*it).task().isEmpty() ) {
-          text += "<i>" + (*it).task() + "</i><br>";
+          text += QLatin1String("<i>") + (*it).task() + QLatin1String("</i><br>");
         }
       }
     }
@@ -148,7 +148,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       for ( it = credits.begin(); it != end; ++it ) {
         text += formatPerson( (*it).name(), (*it).emailAddress() );
         if ( !(*it).task().isEmpty() ) {
-          text += "<i>" + (*it).task() + "</i><br>";
+          text += QLatin1String("<i>") + (*it).task() + QLatin1String("</i><br>");
         }
       }
     }
@@ -164,7 +164,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       }
     }
 //krazy:excludeall=style (really need krazy conditional code sections)
-    text += "<br /><br />\
+    text += QLatin1String("<br /><br />\
     <i>This Free Software product was improved as part of a commercial project:</i>\
     <h3>Credits</h3>\
     Project Kowi (March 2007 - )<br /><br />\
@@ -258,7 +258,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       Dr. Stefan Werden\
      </td>\
     </tr>\
-    </table><br /><br />";
+    </table><br /><br />");
 
     personView->setText( text );
   }
@@ -268,10 +268,10 @@ QString AboutDialog::formatPerson( const QString &name, const QString &email )
 {
   QString text = name;
   if ( !email.isEmpty() ) {
-    text += " &lt;<a href=\"mailto:" + email + "\">" + email + "</a>&gt;";
+    text += QLatin1String(" &lt;<a href=\"mailto:") + email + QLatin1String("\">") + email + QLatin1String("</a>&gt;");
   }
 
-  text += "<br>";
+  text += QLatin1String("<br>");
   return text;
 }
 
@@ -281,7 +281,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
     return;
   }
 
-  QPixmap pixmap = KIconLoader::global()->loadIcon( "help-about",
+  QPixmap pixmap = KIconLoader::global()->loadIcon( QLatin1String("help-about"),
                                                     KIconLoader::Desktop, 48 );
 
   QString title = i18n( "%1 License", about->programName() );
@@ -293,7 +293,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
   QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
   KTextBrowser *textBrowser = new KTextBrowser( topFrame );
-  textBrowser->setHtml( QString( "<pre>%1</pre>" ).arg( about->license() ) );
+  textBrowser->setHtml( QString::fromLatin1( "<pre>%1</pre>" ).arg( about->license() ) );
 
   topLayout->addWidget( textBrowser );
 }

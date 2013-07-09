@@ -38,14 +38,14 @@ KontactConfigureDialog::~KontactConfigureDialog()
 void KontactConfigureDialog::emitConfigChanged()
 {
   //Add code from plugins which needs to be call when we close kontact dialog config
-  QDBusInterface iface( "org.kde.kmail", "/KMail", "org.kde.kmail.kmail",
+  QDBusInterface iface( QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QLatin1String("org.kde.kmail.kmail"),
                         QDBusConnection::sessionBus() );
   if ( !iface.isValid() ) {
     return;
   }
 
   QDBusReply<void> reply;
-  if ( !( reply = iface.call( "updateConfig" ) ).isValid() ) {
+  if ( !( reply = iface.call( QLatin1String("updateConfig") ) ).isValid() ) {
     QDBusError err = iface.lastError();
     kError() << "Communication problem with KMail. "
              << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
