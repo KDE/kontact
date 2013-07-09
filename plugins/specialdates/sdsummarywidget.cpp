@@ -170,6 +170,11 @@ SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *par
   configUpdated();
 }
 
+SDSummaryWidget::~SDSummaryWidget()
+{
+  delete mHolidays;
+}
+
 void SDSummaryWidget::configUpdated()
 {
   KConfig config( QLatin1String("kcmsdsummaryrc") );
@@ -425,7 +430,8 @@ void SDSummaryWidget::createLabels()
   if ( !mDates.isEmpty() ) {
     int counter = 0;
     QList<SDEntry>::Iterator addrIt;
-    for ( addrIt = mDates.begin(); addrIt != mDates.end(); ++addrIt ) {
+    QList<SDEntry>::Iterator addrEnd(mDates.end());
+    for ( addrIt = mDates.begin(); addrIt != addrEnd; ++addrIt ) {
       const bool makeBold = (*addrIt).daysTo == 0; // i.e., today
 
       // Pixmap
