@@ -216,14 +216,15 @@ void SummaryViewPart::updateWidgets()
   mRightColumn->setSpacing( KDialog::spacingHint() );
   layout->insertSpacing( -1, margin );
 
-  QStringList::Iterator strIt;
-  for ( strIt = mLeftColumnSummaries.begin(); strIt != mLeftColumnSummaries.end(); ++strIt ) {
+  QStringList::ConstIterator strIt;
+  QStringList::ConstIterator strEnd(mLeftColumnSummaries.constEnd());
+  for ( strIt = mLeftColumnSummaries.constBegin(); strIt != strEnd; ++strIt ) {
     if ( mSummaries.contains( *strIt ) ) {
       mLeftColumn->addWidget( mSummaries[ *strIt ] );
     }
   }
-
-  for ( strIt = mRightColumnSummaries.begin(); strIt != mRightColumnSummaries.end(); ++strIt ) {
+  strEnd = mRightColumnSummaries.constEnd();
+  for ( strIt = mRightColumnSummaries.constBegin(); strIt != strEnd; ++strIt ) {
     if ( mSummaries.contains( *strIt ) ) {
       mRightColumn->addWidget( mSummaries[ *strIt ] );
     }
@@ -453,10 +454,12 @@ QStringList SummaryViewPart::configModules() const
   QStringList modules;
 
   QMap<QString, KontactInterface::Summary*>::ConstIterator it;
-  for ( it = mSummaries.constBegin(); it != mSummaries.constEnd(); ++it ) {
+  QMap<QString, KontactInterface::Summary*>::ConstIterator end(mSummaries.constEnd());
+  for ( it = mSummaries.constBegin(); it != end; ++it ) {
     QStringList cm = it.value()->configModules();
     QStringList::ConstIterator strIt;
-    for ( strIt = cm.constBegin(); strIt != cm.constEnd(); ++strIt ) {
+    QStringList::ConstIterator strEnd(cm.constEnd());
+    for ( strIt = cm.constBegin(); strIt != strEnd; ++strIt ) {
       if ( !(*strIt).isEmpty() && !modules.contains( *strIt ) ) {
         modules.append( *strIt );
       }

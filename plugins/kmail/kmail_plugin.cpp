@@ -108,9 +108,10 @@ void KMailPlugin::processDropEvent( QDropEvent *de )
     storage.save();
     openComposer( KUrl( tmp.fileName() ) );
   } else if ( KABC::VCardDrag::fromMimeData( md, list ) ) {
-    KABC::Addressee::List::Iterator it;
+    KABC::Addressee::List::ConstIterator it;
     QStringList to;
-    for ( it = list.begin(); it != list.end(); ++it ) {
+    KABC::Addressee::List::ConstIterator end(list.constEnd());
+    for ( it = list.constBegin(); it != end; ++it ) {
       to.append( ( *it ).fullEmail() );
     }
     openComposer( to.join( QLatin1String(", ") ) );

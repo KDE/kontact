@@ -202,7 +202,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     QStringList attendees;
     KABC::Addressee::List::ConstIterator end(contacts.constEnd());
     for ( it = contacts.constBegin(); it != end; ++it ) {
-      QString email = (*it).fullEmail();
+      const QString email = (*it).fullEmail();
       if ( email.isEmpty() ) {
         attendees.append( (*it).realName() + QLatin1String("<>") );
       } else {
@@ -237,7 +237,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
   }
 
   if ( md->hasText() ) {
-    QString text = md->text();
+    const QString text = md->text();
     interface()->openTodoEditor( text );
     return;
   }

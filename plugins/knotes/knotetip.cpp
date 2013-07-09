@@ -84,8 +84,8 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
     Journal *journal = item->journal();
     mPreview->setAcceptRichText( journal->customProperty( "KNotes", "RichText" ) == QLatin1String("true") );
 
-    QColor fg( journal->customProperty( "KNotes", "FgColor" ) );
-    QColor bg( journal->customProperty( "KNotes", "BgColor" ) );
+    const QColor fg( journal->customProperty( "KNotes", "FgColor" ) );
+    const QColor bg( journal->customProperty( "KNotes", "BgColor" ) );
     setColor( fg, bg );
 
     mPreview->setText( journal->description() );

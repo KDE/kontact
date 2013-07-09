@@ -234,7 +234,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
   }
 
   if ( md->hasText() ) {
-    QString text = md->text();
+    const QString text = md->text();
     kDebug() << "DROP:" << text;
     interface()->openEventEditor( text );
     return;

@@ -321,8 +321,9 @@ void SDSummaryWidget::createLabels()
         QStringList::ConstIterator end(c.constEnd());
         for ( it2 = c.constBegin(); it2 != end; ++it2 ) {
 
+            const QString itUpper((*it2).toUpper());
           // Append Birthday Event?
-          if ( mShowBirthdaysFromCal && ( (*it2).toUpper() == QLatin1String("BIRTHDAY") ) ) {
+          if ( mShowBirthdaysFromCal && ( itUpper == QLatin1String("BIRTHDAY") ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryBirthday;
@@ -344,7 +345,7 @@ void SDSummaryWidget::createLabels()
           }
 
           // Append Anniversary Event?
-          if ( mShowAnniversariesFromCal && ( (*it2).toUpper() == QLatin1String("ANNIVERSARY") ) ) {
+          if ( mShowAnniversariesFromCal && ( itUpper == QLatin1String("ANNIVERSARY") ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryAnniversary;
@@ -360,7 +361,7 @@ void SDSummaryWidget::createLabels()
           }
 
           // Append Holiday Event?
-          if ( mShowHolidays && ( (*it2).toUpper() == QLatin1String("HOLIDAY") ) ) {
+          if ( mShowHolidays && ( itUpper == QLatin1String("HOLIDAY") ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryHoliday;
@@ -378,7 +379,7 @@ void SDSummaryWidget::createLabels()
           }
 
           // Append Special Occasion Event?
-          if ( mShowSpecialsFromCal && ( (*it2).toUpper() == QLatin1String("SPECIAL OCCASION") ) ) {
+          if ( mShowSpecialsFromCal && ( itUpper == QLatin1String("SPECIAL OCCASION") ) ) {
             SDEntry entry;
             entry.type = IncidenceTypeEvent;
             entry.category = CategoryOther;
