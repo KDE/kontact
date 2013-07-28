@@ -237,7 +237,7 @@ bool SummaryWidget::eventFilter( QObject *obj, QEvent *e )
     if ( e->type() == QEvent::Enter ) {
       emit message( i18n( "Open Folder: \"%1\"", label->text() ) );
     } else if ( e->type() == QEvent::Leave ) {
-      emit message( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
+      emit message( QString::null );        //krazy:exclude=nullstrassign for old broken gcc
     }
   }
 

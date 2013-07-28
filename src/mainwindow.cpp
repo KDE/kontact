@@ -251,7 +251,7 @@ void MainWindow::initObject()
   QTimer::singleShot( 200, this, SLOT(slotShowTipOnStart()) );
 
   // done initializing
-  slotShowStatusMsg( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
+  slotShowStatusMsg( QString::null );        //krazy:exclude=nullstrassign for old broken gcc
 
   connect( KPIM::BroadcastStatus::instance(), SIGNAL(statusMsg(QString)),
            this, SLOT(slotShowStatusMsg(QString)) );
