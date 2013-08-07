@@ -156,8 +156,8 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
         sDateTimeByUid.insert(event->instanceIdentifier(), occurrences.first());
       }
     } else {
-      if ((eventStart.date() >= start && eventStart.date() <= end) ||
-          (eventEnd.date() >= start && eventEnd.date() <= end)) {
+      if ( ( start >= eventStart.date() && start <= eventEnd.date() ) ||
+           ( end >= eventStart.date() && end <= eventEnd.date() ) ) {
         events << event;
         if ( eventStart.date() < start ) {
           sDateTimeByUid.insert(event->instanceIdentifier(), KDateTime(start,spec));
@@ -223,7 +223,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
 
     // Days to go label
     str.clear();
-    const int daysTo = start.daysTo(occurrenceStartDate);
+    const int daysTo = currentDate.daysTo(occurrenceStartDate);
     if ( daysTo > 0 ) {
       str = i18np( "in 1 day", "in %1 days", daysTo );
     } else {
