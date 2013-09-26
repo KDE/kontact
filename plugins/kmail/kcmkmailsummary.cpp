@@ -27,6 +27,7 @@
 #include <Akonadi/EntityTreeModel>
 #include <Akonadi/ETMViewStateSaver>
 #include <Akonadi/ChangeRecorder>
+#include <Akonadi/CollectionFilterProxyModel>
 
 #include <KMime/KMimeMessage>
 
@@ -107,15 +108,19 @@ void KCMKMailSummary::initFolders()
   mChangeRecorder->setMimeTypeMonitored( KMime::Message::mimeType() );
 
   mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
-
   // Set the model to show only collections, not items.
   mModel->setItemPopulationStrategy( Akonadi::EntityTreeModel::NoItemPopulation );
 
+  Akonadi::CollectionFilterProxyModel *mimeTypeProxy = new Akonadi::CollectionFilterProxyModel( this );
+  mimeTypeProxy->setExcludeVirtualCollections( true );
+  mimeTypeProxy->addMimeTypeFilters( QStringList() << KMime::Message::mimeType() );
+  mimeTypeProxy->setSourceModel( mModel );
+
   // Create the Check proxy model.
-  mSelectionModel = new QItemSelectionModel( mModel );
+  mSelectionModel = new QItemSelectionModel( mimeTypeProxy );
   mCheckProxy = new KCheckableProxyModel( this );
   mCheckProxy->setSelectionModel( mSelectionModel );
-  mCheckProxy->setSourceModel( mModel );
+  mCheckProxy->setSourceModel( mimeTypeProxy );
 
   mFolderView->setModel( mCheckProxy );
 
