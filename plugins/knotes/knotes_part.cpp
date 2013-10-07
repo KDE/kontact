@@ -236,12 +236,11 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
   }
 
   mManager->addNewNote( journal );
-  mManager->save();
 
   KNotesIconViewItem *note = mNoteList.value( journal->uid() );
   mNotesView->scrollToItem( note );
   mNotesView->setCurrentItem( note );
-
+  mManager->save();
   return journal->uid();
 }
 
