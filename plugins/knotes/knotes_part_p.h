@@ -93,6 +93,11 @@ class KNotesIconViewItem : public QListWidgetItem
       return mJournal;
     }
 
+    QString realName() const
+    {
+        return mJournal->summary();
+    }
+
     void setIconText( const QString &text )
     {
       QString replaceText ;

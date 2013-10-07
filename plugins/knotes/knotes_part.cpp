@@ -440,14 +440,16 @@ void KNotesPart::editNote()
 
 void KNotesPart::renameNote()
 {
-  QString oldName = mNotesView->currentItem()->text();
+  KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesView->currentItem());
+
+  QString oldName = knoteItem->realName();
   bool ok = false;
   QString newName =
     KInputDialog::getText( i18nc( "@title:window", "Rename Popup Note" ),
                            i18nc( "@label:textbox", "New Name:" ),
                            oldName, &ok, mNotesView );
   if ( ok && ( newName != oldName ) ) {
-    static_cast<KNotesIconViewItem *>( mNotesView->currentItem() )->setIconText( newName );
+    knoteItem->setIconText( newName );
     mManager->save();
   }
 }
