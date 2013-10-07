@@ -437,6 +437,10 @@ void MainWindow::setupActions()
   mNewActions->setShortcut( KStandardShortcut::openNew() );
   connect( mNewActions, SIGNAL(triggered(bool)), this, SLOT(slotNewClicked()) );
 
+  mNewActionsInMenu = new KActionMenu(
+    i18nc( "@title:menu create new pim items (message,calendar,to-do,etc.)", "New" ), this );
+  actionCollection()->addAction( QLatin1String("action_new_menu"), mNewActionsInMenu );
+
   // If the user is using disconnected imap mail folders as groupware, we add
   // plugins' Synchronize actions to the toolbar which trigger an imap sync.
   // Otherwise it's redundant and misleading.
@@ -587,6 +591,7 @@ void MainWindow::loadPlugins()
     for ( listIt = actionList.begin(); listIt != end; ++listIt ) {
       kDebug() << QLatin1String("Plugging New actions") << (*listIt)->objectName();
       mNewActions->addAction( (*listIt) );
+      mNewActionsInMenu->addAction( (*listIt) );
     }
 
     if ( mSyncActionsEnabled ) {
@@ -600,6 +605,7 @@ void MainWindow::loadPlugins()
 
   const bool state = ( !mPlugins.isEmpty() );
   mNewActions->setEnabled( state );
+  mNewActionsInMenu->setEnabled( state );
   if ( mSyncActionsEnabled ) {
     mSyncActions->setEnabled( state );
   }
@@ -642,6 +648,7 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
       for ( listIt = actionList.constBegin(); listIt != listEnd; ++listIt ) {
         kDebug() << QLatin1String("Unplugging New actions") << (*listIt)->objectName();
         mNewActions->removeAction( *listIt );
+        mNewActionsInMenu->removeAction( *listIt );
       }
 
       if ( mSyncActionsEnabled ) {
