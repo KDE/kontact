@@ -130,7 +130,6 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     QSplitter *mSplitter;
 
     KActionMenu *mNewActions;
-    KActionMenu *mNewActionsInMenu;
     KActionMenu *mSyncActions;
     SidePaneBase *mSidePane;
     QStackedWidget *mPartsStack;
