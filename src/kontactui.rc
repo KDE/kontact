@@ -1,12 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui version="413" name="kontact" >
+<gui version="414" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
     <Merge/>
-    <Separator/>
-    <Action name="action_new_menu"/>
     <Separator/>
     <Action name="file_quit"/>
     <Merge/>
