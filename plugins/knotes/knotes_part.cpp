@@ -336,7 +336,7 @@ void KNotesPart::killSelectedNotes()
   foreach ( QListWidgetItem *item, lst ) {
     KNotesIconViewItem *knivi = static_cast<KNotesIconViewItem *>( item );
     items.append( knivi );
-    notes.append( knivi->text() );
+    notes.append( knivi->realName() );
   }
 
   int ret = KMessageBox::warningContinueCancelList(
