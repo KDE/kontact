@@ -23,7 +23,7 @@
 */
 
 #include "summarywidget.h"
-#include "knotes/resourcemanager.h"
+#include "knotes/resource/resourcemanager.h"
 
 #include <KCal/CalendarLocal>
 

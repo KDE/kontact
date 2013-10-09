@@ -25,7 +25,7 @@
 #include "knotesadaptor.h"
 #include "knotetip.h"
 #include "knotes/knoteprinter.h"
-#include "knotes/resourcemanager.h"
+#include "knotes/resource/resourcemanager.h"
 
 #include <KAction>
 #include <KInputDialog>
