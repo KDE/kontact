@@ -37,7 +37,7 @@
 
 class KNotesIconViewItem;
 
-class KTextEdit;
+class QTextEdit;
 class QListWidget;
 
 class KNoteTip : public QFrame
@@ -62,7 +62,7 @@ class KNoteTip : public QFrame
     bool mFilter;
     QListWidget *mView;
     KNotesIconViewItem *mNoteIVI;
-    KTextEdit *mPreview;
+    QTextEdit *mPreview;
 };
 
 #endif

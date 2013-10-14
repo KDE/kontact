@@ -48,7 +48,7 @@ KNoteTip::KNoteTip( QListWidget *parent )
     mFilter( false ),
     mView( parent ),
     mNoteIVI( 0 ),
-    mPreview( new KTextEdit( this ) )
+    mPreview( new QTextEdit( this ) )
 {
   mPreview->setReadOnly( true );
   mPreview->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );

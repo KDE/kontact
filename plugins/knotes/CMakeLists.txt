@@ -10,6 +10,8 @@ set(kontact_knotesplugin_PART_SRCS ${libknotesresources_SRCS} ${libknoteseditor_
   summarywidget.cpp
   knotetip.cpp
   knotesiconview.cpp
+  knoteslistwidgetsearchline.cpp
+  knoteswidget.cpp
   ${CMAKE_SOURCE_DIR}/knotes/knoteprinter.cpp
 )
 
