@@ -55,15 +55,20 @@ KNotesSummaryWidget::KNotesSummaryWidget( KontactInterface::Plugin *plugin, QWid
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = new CalendarLocal( QString::fromLatin1( "UTC" ) );
-  KNotesResourceManager *manager = new KNotesResourceManager();
+  mManager = new KNotesResourceManager();
 
-  QObject::connect( manager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
+  QObject::connect( mManager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
                     this, SLOT(addNote(KCal::Journal*)) );
-  QObject::connect( manager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
+  QObject::connect( mManager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
                     this, SLOT(removeNote(KCal::Journal*)) );
-  manager->load();
+  mManager->load();
 
   updateView();
+}
+
+KNotesSummaryWidget::~KNotesSummaryWidget()
+{
+    delete mManager;
 }
 
 void KNotesSummaryWidget::updateView()
