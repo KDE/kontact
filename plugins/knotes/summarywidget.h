@@ -37,6 +37,7 @@ namespace KontactInterface {
   class Plugin;
 }
 
+class KNotesResourceManager;
 class QGridLayout;
 class QLabel;
 
@@ -45,6 +46,7 @@ class KNotesSummaryWidget : public KontactInterface::Summary
   Q_OBJECT
   public:
     KNotesSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent );
+    ~KNotesSummaryWidget();
 
     void updateSummary( bool force = false )
     {
@@ -69,6 +71,7 @@ class KNotesSummaryWidget : public KontactInterface::Summary
 
     QList<QLabel *> mLabels;
     KontactInterface::Plugin *mPlugin;
+    KNotesResourceManager *mManager;
 };
 
 #endif
