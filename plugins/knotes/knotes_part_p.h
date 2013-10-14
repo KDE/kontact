@@ -62,59 +62,6 @@ class KNotesPart;
 class KMenu;
 class KTextEdit;
 
-class KNotesIconView : public KListWidget
-{
-  public:
-    explicit KNotesIconView( KNotesPart * );
-
-  protected:
-    void mousePressEvent( QMouseEvent * );
-
-  private:
-    KNotesPart *m_part;
-};
-
-class KNotesIconViewItem : public QListWidgetItem
-{
-  public:
-    KNotesIconViewItem( QListWidget *parent, Journal *journal )
-      : QListWidgetItem( parent ), mJournal( journal )
-    {
-      KIconEffect effect;
-      QColor color( journal->customProperty( "KNotes", "BgColor" ) );
-      QPixmap icon = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
-      icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
-      setIcon( icon );
-      setIconText( journal->summary() );
-    }
-
-    Journal *journal()
-    {
-      return mJournal;
-    }
-
-    QString realName() const
-    {
-        return mJournal->summary();
-    }
-
-    void setIconText( const QString &text )
-    {
-      QString replaceText ;
-      if ( text.count() > 5 ) {
-        replaceText = text.left(5) + QLatin1String("...") ;
-      } else {
-        replaceText = text ;
-      }
-
-      setText( replaceText );
-
-      mJournal->setSummary( text );
-    }
-
-  private:
-    Journal *mJournal;
-};
 
 class KNoteEditDlg : public KDialog, virtual public KXMLGUIClient
 {

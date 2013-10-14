@@ -23,6 +23,7 @@
 #include "knotes_part.h"
 #include "knotes_part_p.h"
 #include "knotesadaptor.h"
+#include "knotesiconview.h"
 #include "knotetip.h"
 #include "knotes/knoteprinter.h"
 #include "knotes/resource/resourcemanager.h"
@@ -35,31 +36,13 @@
 #include <QClipboard>
 #include <QMenu>
 
-KNotesIconView::KNotesIconView( KNotesPart *part )
-  : KListWidget(), m_part( part )
-{
-  setViewMode( QListView::IconMode );
-  setMovement( QListView::Static );
-  setSortingEnabled( true );
-  setSelectionMode( QAbstractItemView::ExtendedSelection );
-  setWordWrap( true );
-  setMouseTracking ( true );
-}
-
-void KNotesIconView::mousePressEvent( QMouseEvent *e )
-{
-  if ( e->button() == Qt::RightButton ) {
-    QListWidget::mousePressEvent( e );
-    m_part->popupRMB( currentItem(), e->pos (), e->globalPos() );
-  } else {
-    KListWidget::mousePressEvent( e );
-  }
-}
 
 KNotesPart::KNotesPart( QObject *parent )
-  :  KParts::ReadOnlyPart( parent ), mNotesView( new KNotesIconView(this) ),
-     mNoteTip( new KNoteTip( mNotesView ) ), mNoteEditDlg( 0 ),
-     mManager( new KNotesResourceManager() )
+  : KParts::ReadOnlyPart( parent ),
+    mNotesView( new KNotesIconView(this) ),
+    mNoteTip( new KNoteTip( mNotesView ) ),
+    mNoteEditDlg( 0 ),
+    mManager( new KNotesResourceManager() )
 {
   (void) new KNotesAdaptor( this );
   QDBusConnection::sessionBus().registerObject( QLatin1String("/KNotes"), this );

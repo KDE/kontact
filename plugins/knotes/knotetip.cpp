@@ -32,6 +32,7 @@
 
 #include "knotetip.h"
 #include "knotes_part_p.h"
+#include "knotesiconview.h"
 
 #include <KTextEdit>
 
