@@ -28,6 +28,7 @@
 
 class KNoteEditDlg;
 class KNotesIconView;
+class KNotesWidget;
 class KNotesIconViewItem;
 class KNotesResourceManager;
 class KNoteTip;
@@ -85,7 +86,7 @@ class KNotesPart : public KParts::ReadOnlyPart
     void hideToolTip();
 
   private:
-    KNotesIconView *mNotesView;
+    KNotesWidget *mNotesWidget;
     KNoteTip *mNoteTip;
     KNoteEditDlg *mNoteEditDlg;
 

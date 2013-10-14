@@ -24,6 +24,7 @@
 #include "knotes_part_p.h"
 #include "knotesadaptor.h"
 #include "knotesiconview.h"
+#include "knoteswidget.h"
 #include "knotetip.h"
 #include "knotes/knoteprinter.h"
 #include "knotes/resource/resourcemanager.h"
@@ -39,8 +40,8 @@
 
 KNotesPart::KNotesPart( QObject *parent )
   : KParts::ReadOnlyPart( parent ),
-    mNotesView( new KNotesIconView(this) ),
-    mNoteTip( new KNoteTip( mNotesView ) ),
+    mNotesWidget( new KNotesWidget(this) ),
+    mNoteTip( new KNoteTip( mNotesWidget->notesView() ) ),
     mNoteEditDlg( 0 ),
     mManager( new KNotesResourceManager() )
 {
@@ -109,21 +110,21 @@ KNotesPart::KNotesPart( QObject *parent )
 
   // set the view up
 
-  connect( mNotesView, SIGNAL(executed(QListWidgetItem*)),
+  connect( mNotesWidget->notesView(), SIGNAL(executed(QListWidgetItem*)),
            this, SLOT(editNote(QListWidgetItem*)) );
 
-  connect( mNotesView, SIGNAL(entered(QModelIndex)),
+  connect( mNotesWidget->notesView(), SIGNAL(entered(QModelIndex)),
             this, SLOT(requestToolTip(QModelIndex)));
 
-  connect( mNotesView, SIGNAL(viewportEntered()),
+  connect( mNotesWidget->notesView(), SIGNAL(viewportEntered()),
             this, SLOT(hideToolTip()));
 
-  connect( mNotesView, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
+  connect( mNotesWidget->notesView(), SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
            this, SLOT(slotOnCurrentChanged()) );
 
   slotOnCurrentChanged();
 
-  setWidget( mNotesView );
+  setWidget( mNotesWidget );
   setXMLFile( QLatin1String("knotes_part.rc") );
 
   // connect the resource manager
@@ -147,9 +148,9 @@ KNotesPart::~KNotesPart()
 
 void KNotesPart::requestToolTip( const QModelIndex &index )
 {
-  QRect m_itemRect = mNotesView->visualRect( index );
+  QRect m_itemRect = mNotesWidget->notesView()->visualRect( index );
   mNoteTip->setNote(
-    static_cast<KNotesIconViewItem *>( mNotesView->itemAt( m_itemRect.topLeft() ) ) );
+    static_cast<KNotesIconViewItem *>( mNotesWidget->notesView()->itemAt( m_itemRect.topLeft() ) ) );
 }
 
 void KNotesPart::hideToolTip()
@@ -160,10 +161,10 @@ void KNotesPart::hideToolTip()
 void KNotesPart::printSelectedNotes()
 {
   QList<Journal*> journals;
-  QList<QListWidgetItem *> lst = mNotesView->selectedItems();
+  QList<QListWidgetItem *> lst = mNotesWidget->notesView()->selectedItems();
   if ( lst.isEmpty() ) {
     KMessageBox::information(
-      mNotesView,
+      mNotesWidget,
       i18nc( "@info",
              "To print notes, first select the notes to print from the list." ),
       i18nc( "@title:window", "Print Popup Notes" ) );
@@ -221,8 +222,8 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
   mManager->addNewNote( journal );
 
   KNotesIconViewItem *note = mNoteList.value( journal->uid() );
-  mNotesView->scrollToItem( note );
-  mNotesView->setCurrentItem( note );
+  mNotesWidget->notesView()->scrollToItem( note );
+  mNotesWidget->notesView()->setCurrentItem( note );
   mManager->save();
   return journal->uid();
 }
@@ -244,7 +245,7 @@ void KNotesPart::killNote( const QString &id, bool force )
 
   if ( note &&
        ( (!force && KMessageBox::warningContinueCancelList(
-            mNotesView,
+            mNotesWidget,
             i18nc( "@info", "Do you really want to delete this note?" ),
             QStringList( mNoteList.value( id )->text() ),
             i18nc( "@title:window", "Confirm Delete" ),
@@ -311,7 +312,7 @@ void KNotesPart::killSelectedNotes()
 {
   QList<KNotesIconViewItem*> items;
   QStringList notes;
-  QList<QListWidgetItem *> lst = mNotesView->selectedItems ();
+  QList<QListWidgetItem *> lst = mNotesWidget->notesView()->selectedItems ();
   if ( lst.isEmpty() ) {
     return;
   }
@@ -323,7 +324,7 @@ void KNotesPart::killSelectedNotes()
   }
 
   int ret = KMessageBox::warningContinueCancelList(
-    mNotesView,
+    mNotesWidget,
     i18ncp( "@info",
             "Do you really want to delete this note?",
             "Do you really want to delete these %1 notes?", items.count() ),
@@ -345,7 +346,7 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
   Q_UNUSED( item );
 
   QMenu *contextMenu = 0;
-  if ( mNotesView->itemAt ( pos ) ) {
+  if ( mNotesWidget->notesView()->itemAt ( pos ) ) {
     contextMenu = static_cast<QMenu *>( factory()->container( QLatin1String("note_context"), this ) );
   } else {
     contextMenu = static_cast<QMenu *>( factory()->container( QLatin1String("notepart_context"), this ) );
@@ -355,12 +356,12 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
     return;
   }
 
-  contextMenu->popup( mNotesView->mapFromParent( globalPos ) );
+  contextMenu->popup( mNotesWidget->notesView()->mapFromParent( globalPos ) );
 }
 
 void KNotesPart::mouseMoveOnListWidget( const QPoint & pos )
 {
-  QListWidgetItem *item = mNotesView->itemAt( pos );
+  QListWidgetItem *item = mNotesWidget->notesView()->itemAt( pos );
   mNoteTip->setNote( dynamic_cast<KNotesIconViewItem *>( item ) );
 }
 
@@ -386,7 +387,7 @@ void KNotesPart::createNote( KCal::Journal *journal )
     journal->setCustomProperty( "KNotes", "RichText", QLatin1String("true") );
   }
 
-  mNoteList.insert( journal->uid(), new KNotesIconViewItem( mNotesView, journal ) );
+  mNoteList.insert( journal->uid(), new KNotesIconViewItem( mNotesWidget->notesView(), journal ) );
 }
 
 void KNotesPart::killNote( KCal::Journal *journal )
@@ -415,21 +416,22 @@ void KNotesPart::editNote( QListWidgetItem *item )
 
 void KNotesPart::editNote()
 {
-  if ( mNotesView->currentItem() ) {
-    editNote( mNotesView->currentItem() );
-  }
+    QListWidgetItem *item = mNotesWidget->notesView()->currentItem();
+    if ( item ) {
+        editNote( item );
+    }
 }
 
 void KNotesPart::renameNote()
 {
-  KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesView->currentItem());
+  KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
 
   QString oldName = knoteItem->realName();
   bool ok = false;
   QString newName =
     KInputDialog::getText( i18nc( "@title:window", "Rename Popup Note" ),
                            i18nc( "@label:textbox", "New Name:" ),
-                           oldName, &ok, mNotesView );
+                           oldName, &ok, mNotesWidget );
   if ( ok && ( newName != oldName ) ) {
     knoteItem->setIconText( newName );
     mManager->save();
@@ -441,7 +443,7 @@ void KNotesPart::slotOnCurrentChanged( )
   QAction *renameAction = actionCollection()->action( QLatin1String("edit_rename") );
   QAction *deleteAction = actionCollection()->action( QLatin1String("edit_delete") );
   QAction *editAction = actionCollection()->action( QLatin1String("edit_note") );
-  if ( !mNotesView->currentItem() ) {
+  if ( !mNotesWidget->notesView()->currentItem() ) {
     renameAction->setEnabled( false );
     deleteAction->setEnabled( false );
     editAction->setEnabled( false );

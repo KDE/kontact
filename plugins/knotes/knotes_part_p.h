@@ -41,10 +41,7 @@ using namespace KCal;
 #include <KActionCollection>
 #include <KComponentData>
 #include <KDialog>
-#include <KIconEffect>
-#include <KIconLoader>
 #include <KLineEdit>
-#include <KListWidget>
 #include <KLocale>
 #include <KToolBar>
 #include <KXMLGUIBuilder>
@@ -54,7 +51,6 @@ using namespace KCal;
 #include <QAction>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <QMouseEvent>
 #include <QVBoxLayout>
 
 class KNotesPart;
