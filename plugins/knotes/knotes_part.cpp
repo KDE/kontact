@@ -21,17 +21,23 @@
 */
 
 #include "knotes_part.h"
-#include "knotes_part_p.h"
+#include "knoteseditdialog.h"
 #include "knotesadaptor.h"
 #include "knotesiconview.h"
 #include "knoteswidget.h"
 #include "knotetip.h"
 #include "knotes/knoteprinter.h"
 #include "knotes/resource/resourcemanager.h"
+#include "knotes/knoteedit.h"
 
+#include <KCal/Journal>
+using namespace KCal;
+
+#include <KActionCollection>
 #include <KAction>
 #include <KInputDialog>
 #include <KMessageBox>
+#include <KXMLGUIFactory>
 
 #include <QApplication>
 #include <QClipboard>
@@ -204,7 +210,7 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
   // Edit the new note if text is empty
   if ( text.isNull() ) {
     delete mNoteEditDlg;
-    mNoteEditDlg = new KNoteEditDlg( widget() );
+    mNoteEditDlg = new KNoteEditDialog( widget() );
 
     mNoteEditDlg->setTitle( journal->summary() );
     mNoteEditDlg->setText( journal->description() );
@@ -399,7 +405,7 @@ void KNotesPart::killNote( KCal::Journal *journal )
 void KNotesPart::editNote( QListWidgetItem *item )
 {
   if ( !mNoteEditDlg ) {
-    mNoteEditDlg = new KNoteEditDlg( widget() );
+    mNoteEditDlg = new KNoteEditDialog( widget() );
   }
 
   Journal *journal = static_cast<KNotesIconViewItem *>( item )->journal();
@@ -455,5 +461,3 @@ void KNotesPart::slotOnCurrentChanged( )
 }
 
 #include "knotes_part.moc"
-#include "knotes_part_p.moc"
-

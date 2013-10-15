@@ -31,10 +31,14 @@
 */
 
 #include "knotetip.h"
-#include "knotes_part_p.h"
 #include "knotesiconview.h"
 
+#include <KCal/Journal>
+using namespace KCal;
+
+
 #include <KTextEdit>
+#include <KGlobalSettings>
 
 #include <QAbstractEventDispatcher>
 #include <QApplication>

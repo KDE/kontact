@@ -26,7 +26,7 @@
 #include <KParts/ReadOnlyPart>
 #include <QListWidgetItem>
 
-class KNoteEditDlg;
+class KNoteEditDialog;
 class KNotesIconView;
 class KNotesWidget;
 class KNotesIconViewItem;
@@ -88,7 +88,7 @@ class KNotesPart : public KParts::ReadOnlyPart
   private:
     KNotesWidget *mNotesWidget;
     KNoteTip *mNoteTip;
-    KNoteEditDlg *mNoteEditDlg;
+    KNoteEditDialog *mNoteEditDlg;
 
     KNotesResourceManager *mManager;
     QMultiHash<QString, KNotesIconViewItem*> mNoteList;
