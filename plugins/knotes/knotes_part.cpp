@@ -29,6 +29,7 @@
 #include "knotes/knoteprinter.h"
 #include "knotes/resource/resourcemanager.h"
 #include "knotes/knoteedit.h"
+#include "knotes/knotesglobalconfig.h"
 
 #include <KCal/Journal>
 using namespace KCal;
@@ -390,15 +391,16 @@ void KNotesPart::mouseMoveOnListWidget( const QPoint & pos )
 
 void KNotesPart::createNote( KCal::Journal *journal )
 {
+    KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
   // make sure all fields are existent, initialize them with default values
   QString property = journal->customProperty( "KNotes", "BgColor" );
   if ( property.isNull() ) {
-    journal->setCustomProperty( "KNotes", "BgColor", QLatin1String("#ffff00") );
+      journal->setCustomProperty( "KNotes", "BgColor", globalConfig->bgColor().name() );
   }
 
   property = journal->customProperty( "KNotes", "FgColor" );
   if ( property.isNull() ) {
-    journal->setCustomProperty( "KNotes", "FgColor", QLatin1String("#000000" ));
+      journal->setCustomProperty( "KNotes", "FgColor", globalConfig->fgColor().name());
   }
 
   property = journal->customProperty( "KNotes", "RichText" );
