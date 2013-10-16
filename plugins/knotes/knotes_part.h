@@ -80,12 +80,14 @@ class KNotesPart : public KParts::ReadOnlyPart
 
     void killSelectedNotes();
 
-    void printSelectedNotes();
+    void slotPrintSelectedNotes();
+    void slotPrintPreviewSelectedNotes();
     void requestToolTip( const QModelIndex & );
 
     void hideToolTip();
 
   private:
+    void printSelectedNotes(bool preview);
     KNotesWidget *mNotesWidget;
     KNoteTip *mNoteTip;
     KNoteEditDialog *mNoteEditDlg;

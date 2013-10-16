@@ -104,13 +104,18 @@ KNotesPart::KNotesPart( QObject *parent )
   action = new KAction( KIcon( QLatin1String("document-print") ),
                         i18nc( "@action:inmenu", "Print Selected Notes..." ), this );
   actionCollection()->addAction( QLatin1String("print_note"), action );
-  connect( action, SIGNAL(triggered(bool)), SLOT(printSelectedNotes()) );
+  connect( action, SIGNAL(triggered(bool)), SLOT(slotPrintSelectedNotes()) );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_Delete ) );
   action->setHelpText(
     i18nc( "@info:status", "Print popup note" ) );
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
            "You will be prompted to print the selected popup note." ) );
+
+  action = new KAction( i18nc( "@action:inmenu", "Print Preview Selected Notes..." ), this );
+  actionCollection()->addAction( QLatin1String("print_preview_note"), action );
+
+  connect( action, SIGNAL(triggered(bool)), SLOT(slotPrintPreviewSelectedNotes()) );
 
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -164,7 +169,17 @@ void KNotesPart::hideToolTip()
   mNoteTip->setNote( 0 );
 }
 
-void KNotesPart::printSelectedNotes()
+void KNotesPart::slotPrintPreviewSelectedNotes()
+{
+    printSelectedNotes(true);
+}
+
+void KNotesPart::slotPrintSelectedNotes()
+{
+    printSelectedNotes(false);
+}
+
+void KNotesPart::printSelectedNotes(bool preview)
 {
   QList<Journal*> journals;
   QList<QListWidgetItem *> lst = mNotesWidget->notesView()->selectedItems();
@@ -182,7 +197,7 @@ void KNotesPart::printSelectedNotes()
   }
 
   KNotePrinter printer;
-  printer.printNotes( journals );
+  printer.printNotes( journals, preview );
 }
 
 bool KNotesPart::openFile()
