@@ -229,6 +229,16 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
     mNoteEditDlg->setTitle( journal->summary() );
     mNoteEditDlg->setText( journal->description() );
 
+
+    const QString property = journal->customProperty("KNotes", "RichText");
+    if ( !property.isNull() ) {
+        mNoteEditDlg->setAcceptRichText( property == QLatin1String("true") ? true : false );
+    } else {
+        KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
+        mNoteEditDlg->setAcceptRichText( globalConfig->richText());
+    }
+
+
     mNoteEditDlg->noteEdit()->setFocus();
     if ( mNoteEditDlg->exec() == QDialog::Accepted ) {
       journal->setSummary( mNoteEditDlg->title() );
@@ -426,6 +436,14 @@ void KNotesPart::editNote( QListWidgetItem *item )
   Journal *journal = static_cast<KNotesIconViewItem *>( item )->journal();
   mNoteEditDlg->setTitle( journal->summary() );
   mNoteEditDlg->setText( journal->description() );
+
+  const QString property = journal->customProperty("KNotes", "RichText");
+  if ( !property.isNull() ) {
+      mNoteEditDlg->setAcceptRichText( property == QLatin1String("true") ? true : false );
+  } else {
+      KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
+      mNoteEditDlg->setAcceptRichText( globalConfig->richText());
+  }
 
   mNoteEditDlg->noteEdit()->setFocus();
   if ( mNoteEditDlg->exec() == QDialog::Accepted ) {

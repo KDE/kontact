@@ -36,6 +36,7 @@ class KNoteEditDialog : public KDialog, virtual public KXMLGUIClient
 public:
     explicit KNoteEditDialog( QWidget *parent = 0 );
 
+    void setAcceptRichText(bool b);
     QString text() const
     {
         return mNoteEdit->text();

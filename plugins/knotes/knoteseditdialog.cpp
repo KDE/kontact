@@ -33,6 +33,7 @@ using namespace KCal;
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QDebug>
 
 
 KNoteEditDialog::KNoteEditDialog(QWidget *parent)
@@ -80,6 +81,12 @@ KNoteEditDialog::KNoteEditDialog(QWidget *parent)
     foreach ( QAction *action, actionCollection()->actions() ) {
       action->setShortcutContext( Qt::WidgetWithChildrenShortcut );
     }
+}
+
+void KNoteEditDialog::setAcceptRichText(bool b)
+{
+    mNoteEdit->setAcceptRichText( b );
+    mTool->setVisible(b);
 }
 
 #include "knoteseditdialog.moc"
