@@ -24,7 +24,7 @@
 #define KNOTES_PLUGIN_H
 
 #include <KontactInterface/Plugin>
-
+class KNotesResourceManager;
 class KNotesPlugin : public KontactInterface::Plugin
 {
   Q_OBJECT
@@ -51,6 +51,7 @@ class KNotesPlugin : public KontactInterface::Plugin
 
   private:
     mutable KAboutData *mAboutData;
+    KNotesResourceManager *mManager;
 };
 
 #endif

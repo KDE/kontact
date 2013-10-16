@@ -23,6 +23,7 @@
 */
 
 #include "summarywidget.h"
+#include "knotes_plugin.h"
 #include "knotes/resource/resourcemanager.h"
 
 #include <KCal/CalendarLocal>
@@ -39,8 +40,10 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-KNotesSummaryWidget::KNotesSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
-  : KontactInterface::Summary( parent ), mLayout( 0 ), mPlugin( plugin )
+KNotesSummaryWidget::KNotesSummaryWidget(KNotesResourceManager *manager, KNotesPlugin *plugin, QWidget *parent )
+  : KontactInterface::Summary( parent ),
+    mLayout( 0 ),
+    mPlugin( plugin )
 {
   QVBoxLayout *mainLayout = new QVBoxLayout( this );
   mainLayout->setSpacing( 3 );
@@ -55,20 +58,15 @@ KNotesSummaryWidget::KNotesSummaryWidget( KontactInterface::Plugin *plugin, QWid
   mLayout->setRowStretch( 6, 1 );
 
   mCalendar = new CalendarLocal( QString::fromLatin1( "UTC" ) );
-  mManager = new KNotesResourceManager();
 
-  QObject::connect( mManager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
+  QObject::connect( manager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
                     this, SLOT(addNote(KCal::Journal*)) );
-  QObject::connect( mManager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
+  QObject::connect( manager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
                     this, SLOT(removeNote(KCal::Journal*)) );
-  mManager->load();
-
-  updateView();
 }
 
 KNotesSummaryWidget::~KNotesSummaryWidget()
 {
-    delete mManager;
 }
 
 void KNotesSummaryWidget::updateView()

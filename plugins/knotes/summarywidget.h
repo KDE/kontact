@@ -33,10 +33,7 @@ namespace KCal {
 }
 using namespace KCal;
 
-namespace KontactInterface {
-  class Plugin;
-}
-
+class KNotesPlugin;
 class KNotesResourceManager;
 class QGridLayout;
 class QLabel;
@@ -45,7 +42,7 @@ class KNotesSummaryWidget : public KontactInterface::Summary
 {
   Q_OBJECT
   public:
-    KNotesSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent );
+    KNotesSummaryWidget(KNotesResourceManager *manager, KNotesPlugin *plugin, QWidget *parent );
     ~KNotesSummaryWidget();
 
     void updateSummary( bool force = false )
@@ -70,7 +67,7 @@ class KNotesSummaryWidget : public KontactInterface::Summary
     QGridLayout *mLayout;
 
     QList<QLabel *> mLabels;
-    KontactInterface::Plugin *mPlugin;
+    KNotesPlugin *mPlugin;
     KNotesResourceManager *mManager;
 };
 

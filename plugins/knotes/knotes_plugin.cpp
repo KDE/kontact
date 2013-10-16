@@ -20,6 +20,7 @@
 
 #include "knotes_plugin.h"
 #include "knotes_part.h"
+#include "knotes/resource/resourcemanager.h"
 #include "summarywidget.h"
 
 #include "kdepim-version.h"
@@ -51,6 +52,7 @@ EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
 KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "knotes" ), mAboutData( 0 )
 {
+  mManager = new KNotesResourceManager();
   setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action =
@@ -81,6 +83,7 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
 
 KNotesPlugin::~KNotesPlugin()
 {
+    delete mManager;
 }
 
 QString KNotesPlugin::tipFile() const
@@ -93,12 +96,12 @@ QString KNotesPlugin::tipFile() const
 
 KParts::ReadOnlyPart *KNotesPlugin::createPart()
 {
-  return new KNotesPart( this );
+  return new KNotesPart( mManager, this );
 }
 
 KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
 {
-  return new KNotesSummaryWidget( this, parentWidget );
+  return new KNotesSummaryWidget( mManager, this, parentWidget );
 }
 
 const KAboutData *KNotesPlugin::aboutData() const

@@ -45,12 +45,12 @@ using namespace KCal;
 #include <QMenu>
 
 
-KNotesPart::KNotesPart( QObject *parent )
+KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
   : KParts::ReadOnlyPart( parent ),
     mNotesWidget( new KNotesWidget(this) ),
     mNoteTip( new KNoteTip( mNotesWidget->notesView() ) ),
     mNoteEditDlg( 0 ),
-    mManager( new KNotesResourceManager() )
+    mManager( manager )
 {
   (void) new KNotesAdaptor( this );
   QDBusConnection::sessionBus().registerObject( QLatin1String("/KNotes"), this );
@@ -146,8 +146,6 @@ KNotesPart::KNotesPart( QObject *parent )
            this, SLOT(createNote(KCal::Journal*)) );
   connect( mManager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
            this, SLOT(killNote(KCal::Journal*)) );
-
-  // read the notes
   mManager->load();
 }
 
@@ -155,9 +153,6 @@ KNotesPart::~KNotesPart()
 {
   delete mNoteTip;
   mNoteTip = 0;
-
-  delete mManager;
-  mManager = 0;
 }
 
 void KNotesPart::requestToolTip( const QModelIndex &index )
