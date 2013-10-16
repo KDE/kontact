@@ -38,6 +38,7 @@ using namespace KCal;
 #include <KInputDialog>
 #include <KMessageBox>
 #include <KXMLGUIFactory>
+#include <KPrintPreview>
 
 #include <QApplication>
 #include <QClipboard>
@@ -111,10 +112,13 @@ KNotesPart::KNotesPart( QObject *parent )
     i18nc( "@info:whatsthis",
            "You will be prompted to print the selected popup note." ) );
 
-  action = new KAction( i18nc( "@action:inmenu", "Print Preview Selected Notes..." ), this );
-  actionCollection()->addAction( QLatin1String("print_preview_note"), action );
+  if(KPrintPreview::isAvailable()) {
 
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotPrintPreviewSelectedNotes()) );
+      action = new KAction( i18nc( "@action:inmenu", "Print Preview Selected Notes..." ), this );
+      actionCollection()->addAction( QLatin1String("print_preview_note"), action );
+
+      connect( action, SIGNAL(triggered(bool)), SLOT(slotPrintPreviewSelectedNotes()) );
+  }
 
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
