@@ -56,7 +56,7 @@ public:
         mTitleEdit->setText( text );
     }
 
-    KNoteEdit *noteEdit()
+    KNoteEdit *noteEdit() const
     {
         return mNoteEdit;
     }
@@ -65,7 +65,6 @@ private:
     KLineEdit *mTitleEdit;
     KNoteEdit *mNoteEdit;
     KToolBar *mTool;
-    KMenu *mEditMenu;
 };
 
 #endif // KNOTESEDITDIALOG_H
