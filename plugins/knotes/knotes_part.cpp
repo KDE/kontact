@@ -392,23 +392,23 @@ void KNotesPart::mouseMoveOnListWidget( const QPoint & pos )
 void KNotesPart::createNote( KCal::Journal *journal )
 {
     KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
-  // make sure all fields are existent, initialize them with default values
-  QString property = journal->customProperty( "KNotes", "BgColor" );
-  if ( property.isNull() ) {
-      journal->setCustomProperty( "KNotes", "BgColor", globalConfig->bgColor().name() );
-  }
+    // make sure all fields are existent, initialize them with default values
+    QString property = journal->customProperty( "KNotes", "BgColor" );
+    if ( property.isNull() ) {
+        journal->setCustomProperty( "KNotes", "BgColor", globalConfig->bgColor().name() );
+    }
 
-  property = journal->customProperty( "KNotes", "FgColor" );
-  if ( property.isNull() ) {
-      journal->setCustomProperty( "KNotes", "FgColor", globalConfig->fgColor().name());
-  }
+    property = journal->customProperty( "KNotes", "FgColor" );
+    if ( property.isNull() ) {
+        journal->setCustomProperty( "KNotes", "FgColor", globalConfig->fgColor().name());
+    }
 
-  property = journal->customProperty( "KNotes", "RichText" );
-  if ( property.isNull() ) {
-    journal->setCustomProperty( "KNotes", "RichText", QLatin1String("true") );
-  }
+    property = journal->customProperty( "KNotes", "RichText" );
+    if ( property.isNull() ) {
+        journal->setCustomProperty( "KNotes", "RichText", globalConfig->richText() == true ? QLatin1String("true") : QLatin1String("false") );
+    }
 
-  mNoteList.insert( journal->uid(), new KNotesIconViewItem( mNotesWidget->notesView(), journal ) );
+    mNoteList.insert( journal->uid(), new KNotesIconViewItem( mNotesWidget->notesView(), journal ) );
 }
 
 void KNotesPart::killNote( KCal::Journal *journal )
