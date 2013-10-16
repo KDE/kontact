@@ -105,7 +105,6 @@ KNotesPart::KNotesPart( QObject *parent )
                         i18nc( "@action:inmenu", "Print Selected Notes..." ), this );
   actionCollection()->addAction( QLatin1String("print_note"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotPrintSelectedNotes()) );
-  action->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_Delete ) );
   action->setHelpText(
     i18nc( "@info:status", "Print popup note" ) );
   action->setWhatsThis(
