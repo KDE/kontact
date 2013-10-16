@@ -111,7 +111,7 @@ void KNotesSummaryWidget::updateView()
       mLabels.append( urlLabel );
 
       if ( !(*it)->description().isEmpty() ) {
-        urlLabel->setToolTip( (*it)->description().left( 80 ) );
+        urlLabel->setToolTip( (*it)->description() );
       }
 
       connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
