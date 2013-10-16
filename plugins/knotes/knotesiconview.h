@@ -21,7 +21,7 @@
 #include "knotes_part.h"
 #include <KListWidget>
 #include <QListWidgetItem>
-
+class KNoteConfig;
 class KNotesIconView : public KListWidget
 {
 public:
@@ -38,13 +38,15 @@ class KNotesIconViewItem : public QListWidgetItem
 {
 public:
     KNotesIconViewItem( QListWidget *parent, Journal *journal );
-
+    ~KNotesIconViewItem();
     Journal *journal() const;
     QString realName() const;
     void setIconText( const QString &text );
-
+    KNoteConfig *config();
+    void updateColor();
 private:
     Journal *mJournal;
+    KNoteConfig *mConfig;
 };
 
 #endif // KNOTESICONVIEW_H

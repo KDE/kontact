@@ -16,6 +16,8 @@
 */
 
 #include "knotesiconview.h"
+#include "knoteutils.h"
+#include "knoteconfig.h"
 
 #include <KCal/Journal>
 using namespace KCal;
@@ -50,19 +52,42 @@ void KNotesIconView::mousePressEvent( QMouseEvent *e )
 
 KNotesIconViewItem::KNotesIconViewItem( QListWidget *parent, Journal *journal )
     : QListWidgetItem( parent ),
-      mJournal( journal )
+      mJournal( journal ),
+      mConfig(0)
+{
+    QString configPath;
+
+    mConfig = KNoteUtils::createConfig(journal, configPath);
+    qDebug()<<" configPath"<<configPath;
+    KNoteUtils::setProperty(journal, mConfig);
+
+    updateColor();
+    setIconText( journal->summary() );
+}
+
+void KNotesIconViewItem::updateColor()
 {
     KIconEffect effect;
-    QColor color( journal->customProperty( "KNotes", "BgColor" ) );
+    QColor color( mConfig->bgColor() );
     QPixmap icon = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
     icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
+    mConfig->writeConfig();
     setIcon( icon );
-    setIconText( journal->summary() );
 }
 
 Journal *KNotesIconViewItem::journal() const
 {
     return mJournal;
+}
+
+KNotesIconViewItem::~KNotesIconViewItem()
+{
+    delete mConfig;
+}
+
+KNoteConfig *KNotesIconViewItem::config()
+{
+    return mConfig;
 }
 
 QString KNotesIconViewItem::realName() const

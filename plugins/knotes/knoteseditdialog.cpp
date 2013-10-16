@@ -66,7 +66,6 @@ KNoteEditDialog::KNoteEditDialog(QWidget *parent)
 
     //TODO customize it
     mNoteEdit = new KNoteEdit( QLatin1String("knotesrc"), actionCollection(), page );
-    mNoteEdit->setAcceptRichText( true );
     mNoteEdit->setFocus();
 
     KXMLGUIBuilder builder( page );

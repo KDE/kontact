@@ -3,6 +3,7 @@
 
   Copyright (C) 2002-2003 Daniel Molkentin <molkentin@kde.org>
   Copyright (C) 2004-2006 Michael Brade <brade@kde.org>
+  Copyright (C) 2013 Laurent Montel <montel@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public
@@ -30,7 +31,8 @@
 #include "knotes/resource/resourcemanager.h"
 #include "knotes/knoteedit.h"
 #include "knotes/knotesglobalconfig.h"
-
+#include "knotesimpleconfigdialog.h"
+#include "knoteutils.h"
 #include <KCal/Journal>
 using namespace KCal;
 
@@ -120,6 +122,11 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
 
       connect( action, SIGNAL(triggered(bool)), SLOT(slotPrintPreviewSelectedNotes()) );
   }
+
+  action  = new KAction( KIcon( QLatin1String("configure") ), i18n( "Preferences..." ), this );
+  actionCollection()->addAction( QLatin1String("configure_note"), action );
+  connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
+
 
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -281,6 +288,7 @@ void KNotesPart::killNote( const QString &id, bool force )
             i18nc( "@title:window", "Confirm Delete" ),
             KStandardGuiItem::del() ) == KMessageBox::Continue )
          || force ) ) {
+    KNoteUtils::removeNote(mNoteList.value( id )->journal(), 0);
     mManager->deleteNote( mNoteList.value( id )->journal() );
     mManager->save();
   }
@@ -364,9 +372,10 @@ void KNotesPart::killSelectedNotes()
   if ( ret == KMessageBox::Continue ) {
     QListIterator<KNotesIconViewItem*> kniviIt( items );
     while ( kniviIt.hasNext() ) {
-      mManager->deleteNote( kniviIt.next()->journal() );
+        Journal *journal = kniviIt.next()->journal();
+        KNoteUtils::removeNote(journal, 0);
+      mManager->deleteNote( journal );
     }
-
     mManager->save();
   }
 }
@@ -401,23 +410,6 @@ void KNotesPart::mouseMoveOnListWidget( const QPoint & pos )
 
 void KNotesPart::createNote( KCal::Journal *journal )
 {
-    KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
-    // make sure all fields are existent, initialize them with default values
-    QString property = journal->customProperty( "KNotes", "BgColor" );
-    if ( property.isNull() ) {
-        journal->setCustomProperty( "KNotes", "BgColor", globalConfig->bgColor().name() );
-    }
-
-    property = journal->customProperty( "KNotes", "FgColor" );
-    if ( property.isNull() ) {
-        journal->setCustomProperty( "KNotes", "FgColor", globalConfig->fgColor().name());
-    }
-
-    property = journal->customProperty( "KNotes", "RichText" );
-    if ( property.isNull() ) {
-        journal->setCustomProperty( "KNotes", "RichText", globalConfig->richText() == true ? QLatin1String("true") : QLatin1String("false") );
-    }
-
     mNoteList.insert( journal->uid(), new KNotesIconViewItem( mNotesWidget->notesView(), journal ) );
 }
 
@@ -482,15 +474,33 @@ void KNotesPart::slotOnCurrentChanged( )
   QAction *renameAction = actionCollection()->action( QLatin1String("edit_rename") );
   QAction *deleteAction = actionCollection()->action( QLatin1String("edit_delete") );
   QAction *editAction = actionCollection()->action( QLatin1String("edit_note") );
-  if ( !mNotesWidget->notesView()->currentItem() ) {
-    renameAction->setEnabled( false );
-    deleteAction->setEnabled( false );
-    editAction->setEnabled( false );
-  } else {
-    renameAction->setEnabled( true );
-    deleteAction->setEnabled( true );
-    editAction->setEnabled( true );
-  }
+  QAction *configureAction = actionCollection()->action( QLatin1String("configure_note") );
+
+  const bool enabled(mNotesWidget->notesView()->currentItem());
+  renameAction->setEnabled( enabled );
+  deleteAction->setEnabled( enabled );
+  editAction->setEnabled( enabled );
+  configureAction->setEnabled( enabled );
 }
+
+void KNotesPart::slotPreferences()
+{
+    KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
+    const QString name = knoteItem->realName();
+    QPointer<KNoteSimpleConfigDialog> dialog = new KNoteSimpleConfigDialog( knoteItem->config(), name, widget(), knoteItem->journal()->uid() );
+    connect( dialog, SIGNAL(settingsChanged(QString)) , this,
+             SLOT(slotApplyConfig()) );
+    connect( this, SIGNAL(sigNameChanged(QString)), dialog,
+             SLOT(slotUpdateCaption(QString)) );
+    dialog->exec();
+    delete dialog;
+}
+
+void KNotesPart::slotApplyConfig()
+{
+    KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
+    knoteItem->updateColor();
+}
+
 
 #include "knotes_part.moc"
