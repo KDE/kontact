@@ -29,7 +29,7 @@
 #include <KontactInterface/Summary>
 
 namespace KCal {
-  class CalendarLocal;
+class CalendarLocal;
 }
 using namespace KCal;
 
@@ -40,27 +40,23 @@ class QLabel;
 
 class KNotesSummaryWidget : public KontactInterface::Summary
 {
-  Q_OBJECT
-  public:
+    Q_OBJECT
+public:
     KNotesSummaryWidget(KNotesResourceManager *manager, KNotesPlugin *plugin, QWidget *parent );
     ~KNotesSummaryWidget();
 
-    void updateSummary( bool force = false )
-    {
-      Q_UNUSED( force );
-      updateView();
-    }
+    void updateSummary( bool force = false );
 
-  protected:
+protected:
     virtual bool eventFilter( QObject *obj, QEvent *e );
 
-  protected slots:
+protected slots:
     void urlClicked( const QString & );
     void updateView();
     void addNote( KCal::Journal * );
     void removeNote( KCal::Journal * );
 
-  private:
+private:
     CalendarLocal *mCalendar;
     Journal::List mNotes;
 

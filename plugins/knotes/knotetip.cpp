@@ -46,185 +46,185 @@ using namespace KCal;
 #include <QToolTip>
 
 KNoteTip::KNoteTip( QListWidget *parent )
-  : QFrame( 0,
-            Qt::Tool |
-            Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint ),
-    mFilter( false ),
-    mView( parent ),
-    mNoteIVI( 0 ),
-    mPreview( new QTextEdit( this ) )
+    : QFrame( 0,
+              Qt::Tool |
+              Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint ),
+      mFilter( false ),
+      mView( parent ),
+      mNoteIVI( 0 ),
+      mPreview( new QTextEdit( this ) )
 {
-  mPreview->setReadOnly( true );
-  mPreview->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
-  mPreview->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+    mPreview->setReadOnly( true );
+    mPreview->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+    mPreview->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
 
-  QBoxLayout *layout = new QVBoxLayout( this );
-  layout->addWidget( mPreview );
-  layout->setMargin( 1 );
-  setPalette( QToolTip::palette() );
-  setFrameStyle( QFrame::Plain );
-  hide();
+    QBoxLayout *layout = new QVBoxLayout( this );
+    layout->addWidget( mPreview );
+    layout->setMargin( 1 );
+    setPalette( QToolTip::palette() );
+    setFrameStyle( QFrame::Plain );
+    hide();
 }
 
 KNoteTip::~KNoteTip()
 {
-  delete mPreview;
-  mPreview = 0;
+    delete mPreview;
+    mPreview = 0;
 }
 
 void KNoteTip::setNote( KNotesIconViewItem *item )
 {
-  if ( mNoteIVI == item ) {
-    return;
-  }
-
-  mNoteIVI = item;
-  if ( !mNoteIVI ) {
-    QAbstractEventDispatcher::instance()->unregisterTimers(this);
-    if ( isVisible() ) {
-      setFilter( false );
-      hide();
-    }
-  } else {
-    Journal *journal = item->journal();
-    mPreview->setAcceptRichText( journal->customProperty( "KNotes", "RichText" ) == QLatin1String("true") );
-
-    const QColor fg( journal->customProperty( "KNotes", "FgColor" ) );
-    const QColor bg( journal->customProperty( "KNotes", "BgColor" ) );
-    setColor( fg, bg );
-
-    mPreview->setText( journal->description() );
-    //mPreview->zoomTo( 8 );
-    //mPreview->sync(); this is deprecated in Qt4, but there is no replacement
-
-    mPreview->document()->adjustSize ();
-    int w = int( mPreview->document ()->size().width() );
-    int h = int( mPreview->document ()->size().height() );
-    while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) ) {
-      w -= 20;
+    if ( mNoteIVI == item ) {
+        return;
     }
 
-    QRect desk = KGlobalSettings::desktopGeometry( mView->visualItemRect( mNoteIVI ).center() );
-    resize( w, qMin( h, desk.height() / 2 - 20 ) );
+    mNoteIVI = item;
+    if ( !mNoteIVI ) {
+        QAbstractEventDispatcher::instance()->unregisterTimers(this);
+        if ( isVisible() ) {
+            setFilter( false );
+            hide();
+        }
+    } else {
+        Journal *journal = item->journal();
+        mPreview->setAcceptRichText( journal->customProperty( "KNotes", "RichText" ) == QLatin1String("true") );
 
-    hide();
-    QAbstractEventDispatcher::instance()->unregisterTimers( this );
-    setFilter( true );
-    startTimer( 600 );  // delay showing the tooltip for 0.7 sec
-  }
+        const QColor fg( journal->customProperty( "KNotes", "FgColor" ) );
+        const QColor bg( journal->customProperty( "KNotes", "BgColor" ) );
+        setColor( fg, bg );
+
+        mPreview->setText( journal->description() );
+        //mPreview->zoomTo( 8 );
+        //mPreview->sync(); this is deprecated in Qt4, but there is no replacement
+
+        mPreview->document()->adjustSize ();
+        int w = int( mPreview->document ()->size().width() );
+        int h = int( mPreview->document ()->size().height() );
+        while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) ) {
+            w -= 20;
+        }
+
+        const QRect desk = KGlobalSettings::desktopGeometry( mView->visualItemRect( mNoteIVI ).center() );
+        resize( w, qMin( h, desk.height() / 2 - 20 ) );
+
+        hide();
+        QAbstractEventDispatcher::instance()->unregisterTimers( this );
+        setFilter( true );
+        startTimer( 600 );  // delay showing the tooltip for 0.7 sec
+    }
 }
 
 // protected, virtual methods
 
 void KNoteTip::resizeEvent( QResizeEvent *ev )
 {
-  QFrame::resizeEvent( ev );
-  reposition();
+    QFrame::resizeEvent( ev );
+    reposition();
 }
 
 void KNoteTip::timerEvent( QTimerEvent * )
 {
-  QAbstractEventDispatcher::instance()->unregisterTimers( this );
+    QAbstractEventDispatcher::instance()->unregisterTimers( this );
 
-  if ( !isVisible() ) {
-    startTimer( 15000 ); // show the tooltip for 15 sec
-    reposition();
-    show();
-  } else {
-    setFilter( false );
-    hide();
-  }
+    if ( !isVisible() ) {
+        startTimer( 15000 ); // show the tooltip for 15 sec
+        reposition();
+        show();
+    } else {
+        setFilter( false );
+        hide();
+    }
 }
 
 bool KNoteTip::eventFilter( QObject *, QEvent *e )
 {
-  switch ( e->type() ) {
-  case QEvent::Leave:
-  case QEvent::MouseButtonPress:
-  case QEvent::MouseButtonRelease:
-  case QEvent::KeyPress:
-  case QEvent::KeyRelease:
-  case QEvent::FocusIn:
-  case QEvent::FocusOut:
-  case QEvent::Wheel:
-    QAbstractEventDispatcher::instance()->unregisterTimers(this);
-    setFilter( false );
-    hide();
-  default:
-    break;
-  }
+    switch ( e->type() ) {
+    case QEvent::Leave:
+    case QEvent::MouseButtonPress:
+    case QEvent::MouseButtonRelease:
+    case QEvent::KeyPress:
+    case QEvent::KeyRelease:
+    case QEvent::FocusIn:
+    case QEvent::FocusOut:
+    case QEvent::Wheel:
+        QAbstractEventDispatcher::instance()->unregisterTimers(this);
+        setFilter( false );
+        hide();
+    default:
+        break;
+    }
 
-  return false;
+    return false;
 }
 
 // private stuff
 
 void KNoteTip::setColor( const QColor &fg, const QColor &bg )
 {
-  QPalette newpalette = palette();
-  newpalette.setColor( QPalette::Background, bg );
-  newpalette.setColor( QPalette::Foreground, fg );
-  newpalette.setColor( QPalette::Base, bg ); // text background
-  newpalette.setColor( QPalette::Text, fg ); // text color
-  newpalette.setColor( QPalette::Button, bg );
+    QPalette newpalette = palette();
+    newpalette.setColor( QPalette::Background, bg );
+    newpalette.setColor( QPalette::Foreground, fg );
+    newpalette.setColor( QPalette::Base, bg ); // text background
+    newpalette.setColor( QPalette::Text, fg ); // text color
+    newpalette.setColor( QPalette::Button, bg );
 
-  // the shadow
-  newpalette.setColor( QPalette::Midlight, bg.light(110) );
-  newpalette.setColor( QPalette::Shadow, bg.dark(116) );
-  newpalette.setColor( QPalette::Light, bg.light(180) );
-  newpalette.setColor( QPalette::Dark, bg.dark(108) );
-  setPalette( newpalette );
+    // the shadow
+    newpalette.setColor( QPalette::Midlight, bg.light(110) );
+    newpalette.setColor( QPalette::Shadow, bg.dark(116) );
+    newpalette.setColor( QPalette::Light, bg.light(180) );
+    newpalette.setColor( QPalette::Dark, bg.dark(108) );
+    setPalette( newpalette );
 
-  // set the text color
-  mPreview->setTextColor( fg );
+    // set the text color
+    mPreview->setTextColor( fg );
 }
 
 void KNoteTip::setFilter( bool enable )
 {
-  if ( enable == mFilter ) {
-    return;
-  }
+    if ( enable == mFilter ) {
+        return;
+    }
 
-  if ( enable ) {
-    qApp->installEventFilter( this );
-    setMouseTracking( true );
-  } else {
-    setMouseTracking( false );
-    qApp->removeEventFilter( this );
-  }
+    if ( enable ) {
+        qApp->installEventFilter( this );
+        setMouseTracking( true );
+    } else {
+        setMouseTracking( false );
+        qApp->removeEventFilter( this );
+    }
 
-  mFilter = enable;
+    mFilter = enable;
 }
 
 void KNoteTip::reposition()
 {
-  if ( !mNoteIVI ) {
-    return;
-  }
-
-  QRect rect = mView->visualItemRect( mNoteIVI );
-  QPoint off = mView->mapFromParent( mView->viewport()->mapToGlobal( QPoint( 0, 0 ) ) );
-  rect.translate( off.x(), off.y() );
-
-  QPoint pos = rect.center();
-  // should the tooltip be shown to the left or to the right of the ivi?
-  QRect desk = KGlobalSettings::desktopGeometry( pos );
-  if ( rect.center().x() + width() > desk.right() ) {
-    // to the left
-    if ( pos.x() - width() < 0 ) {
-      pos.setX( 0 );
-    } else {
-      pos.setX( pos.x() - width() );
+    if ( !mNoteIVI ) {
+        return;
     }
-  }
 
-  // should the tooltip be shown above or below the ivi ?
-  if ( rect.bottom() + height() > desk.bottom() ) {
-    // above
-    pos.setY( rect.top() - height() );
-  } else {
-    pos.setY( rect.bottom() );
-  }
-  move( pos );
-  update();
+    QRect rect = mView->visualItemRect( mNoteIVI );
+    QPoint off = mView->mapFromParent( mView->viewport()->mapToGlobal( QPoint( 0, 0 ) ) );
+    rect.translate( off.x(), off.y() );
+
+    QPoint pos = rect.center();
+    // should the tooltip be shown to the left or to the right of the ivi?
+    const QRect desk = KGlobalSettings::desktopGeometry( pos );
+    if ( rect.center().x() + width() > desk.right() ) {
+        // to the left
+        if ( pos.x() - width() < 0 ) {
+            pos.setX( 0 );
+        } else {
+            pos.setX( pos.x() - width() );
+        }
+    }
+
+    // should the tooltip be shown above or below the ivi ?
+    if ( rect.bottom() + height() > desk.bottom() ) {
+        // above
+        pos.setY( rect.top() - height() );
+    } else {
+        pos.setY( rect.bottom() );
+    }
+    move( pos );
+    update();
 }

@@ -42,23 +42,23 @@ class QListWidget;
 
 class KNoteTip : public QFrame
 {
-  public:
+public:
     explicit KNoteTip( QListWidget *parent );
     ~KNoteTip();
 
     void setNote( KNotesIconViewItem *item );
 
-  protected:
+protected:
     bool eventFilter( QObject *, QEvent *e );
     void timerEvent( QTimerEvent * );
     void resizeEvent( QResizeEvent * );
 
-  private:
+private:
     void setColor( const QColor &fg, const QColor &bg );
     void setFilter( bool enable );
     void reposition();
 
-  private:
+private:
     bool mFilter;
     QListWidget *mView;
     KNotesIconViewItem *mNoteIVI;
