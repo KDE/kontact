@@ -69,6 +69,7 @@ class KNotesSummaryWidget : public KontactInterface::Summary
     QList<QLabel *> mLabels;
     KNotesPlugin *mPlugin;
     KNotesResourceManager *mManager;
+    QPixmap mPixmap;
 };
 
 #endif

@@ -57,6 +57,9 @@ KNotesSummaryWidget::KNotesSummaryWidget(KNotesResourceManager *manager, KNotesP
   mLayout->setSpacing( 3 );
   mLayout->setRowStretch( 6, 1 );
 
+  KIconLoader loader( QLatin1String("knotes") );
+
+  mPixmap = loader.loadIcon( QLatin1String("knotes"), KIconLoader::Small );
   mCalendar = new CalendarLocal( QString::fromLatin1( "UTC" ) );
 
   QObject::connect( manager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
@@ -78,12 +81,7 @@ void KNotesSummaryWidget::updateView()
     label->deleteLater();
   }
   mLabels.clear();
-
-  KIconLoader loader( QLatin1String("knotes") );
-
   int counter = 0;
-  QPixmap pm = loader.loadIcon( QLatin1String("knotes"), KIconLoader::Small );
-
   Journal::List::ConstIterator it;
   Journal::List::ConstIterator end(mNotes.constEnd());
   if ( mNotes.count() ) {
@@ -91,14 +89,14 @@ void KNotesSummaryWidget::updateView()
 
       // Fill Note Pixmap Field
       label = new QLabel( this );
-      label->setPixmap( pm );
+      label->setPixmap( mPixmap );
       label->setMaximumWidth( label->minimumSizeHint().width() );
       label->setAlignment( Qt::AlignVCenter );
       mLayout->addWidget( label, counter, 0 );
       mLabels.append( label );
 
       // File Note Summary Field
-      QString newtext = (*it)->summary();
+      const QString newtext = (*it)->summary();
 
       KUrlLabel *urlLabel = new KUrlLabel( (*it)->uid(), newtext, this );
       urlLabel->installEventFilter( this );
@@ -114,7 +112,7 @@ void KNotesSummaryWidget::updateView()
 
       connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
                this, SLOT(urlClicked(QString)) );
-      counter++;
+      ++counter;
     }
 
   } else {
