@@ -500,6 +500,7 @@ void KNotesPart::slotApplyConfig()
 {
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
     knoteItem->updateColor();
+    mManager->save();
 }
 
 
