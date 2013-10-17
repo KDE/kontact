@@ -20,12 +20,9 @@
 
 #include <KDialog>
 #include <KXMLGUIClient>
-#include <KLineEdit>
 #include "knotes/knoteedit.h"
 
-class KNotesPart;
 class KNoteEdit;
-class KMenu;
 class KTextEdit;
 class KToolBar;
 class KLineEdit;
@@ -38,30 +35,15 @@ public:
     ~KNoteEditDialog();
 
     void setAcceptRichText(bool b);
-    QString text() const
-    {
-        return mNoteEdit->text();
-    }
+    QString text() const;
 
-    void setText( const QString &text )
-    {
-        mNoteEdit->setText( text );
-    }
+    void setText( const QString &text );
 
-    QString title() const
-    {
-        return mTitleEdit->text();
-    }
+    QString title() const;
 
-    void setTitle( const QString &text )
-    {
-        mTitleEdit->setText( text );
-    }
+    void setTitle( const QString &text );
 
-    KNoteEdit *noteEdit() const
-    {
-        return mNoteEdit;
-    }
+    KNoteEdit *noteEdit() const;
 
 private:
     void readConfig();

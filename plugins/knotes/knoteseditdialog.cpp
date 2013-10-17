@@ -25,8 +25,9 @@ using namespace KCal;
 #include <KDialog>
 #include <KLocale>
 #include <KToolBar>
+#include <KLineEdit>
+
 #include <KXMLGUIBuilder>
-#include <KXMLGUIClient>
 #include <KXMLGUIFactory>
 
 #include <QAction>
@@ -108,6 +109,31 @@ void KNoteEditDialog::writeConfig()
     KConfigGroup grp( KGlobal::config(), "KNoteEditDialog" );
     grp.writeEntry( "Size", size() );
     grp.sync();
+}
+
+QString KNoteEditDialog::text() const
+{
+    return mNoteEdit->text();
+}
+
+void KNoteEditDialog::setText( const QString &text )
+{
+    mNoteEdit->setText( text );
+}
+
+QString KNoteEditDialog::title() const
+{
+    return mTitleEdit->text();
+}
+
+void KNoteEditDialog::setTitle( const QString &text )
+{
+    mTitleEdit->setText( text );
+}
+
+KNoteEdit *KNoteEditDialog::noteEdit() const
+{
+    return mNoteEdit;
 }
 
 
