@@ -58,7 +58,6 @@ KNotesIconViewItem::KNotesIconViewItem( QListWidget *parent, Journal *journal )
     QString configPath;
 
     mConfig = KNoteUtils::createConfig(journal, configPath);
-    qDebug()<<" configPath"<<configPath;
     KNoteUtils::setProperty(journal, mConfig);
 
     updateColor();
