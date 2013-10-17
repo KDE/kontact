@@ -35,6 +35,7 @@ class KNoteEditDialog : public KDialog, virtual public KXMLGUIClient
     Q_OBJECT
 public:
     explicit KNoteEditDialog( QWidget *parent = 0 );
+    ~KNoteEditDialog();
 
     void setAcceptRichText(bool b);
     QString text() const
@@ -63,6 +64,8 @@ public:
     }
 
 private:
+    void readConfig();
+    void writeConfig();
     KLineEdit *mTitleEdit;
     KNoteEdit *mNoteEdit;
     KToolBar *mTool;

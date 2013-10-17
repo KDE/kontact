@@ -78,8 +78,14 @@ KNoteEditDialog::KNoteEditDialog(QWidget *parent)
 
     actionCollection()->addAssociatedWidget( this );
     foreach ( QAction *action, actionCollection()->actions() ) {
-      action->setShortcutContext( Qt::WidgetWithChildrenShortcut );
+        action->setShortcutContext( Qt::WidgetWithChildrenShortcut );
     }
+    readConfig();
+}
+
+KNoteEditDialog::~KNoteEditDialog()
+{
+    writeConfig();
 }
 
 void KNoteEditDialog::setAcceptRichText(bool b)
@@ -87,6 +93,23 @@ void KNoteEditDialog::setAcceptRichText(bool b)
     mNoteEdit->setAcceptRichText( b );
     mTool->setVisible(b);
 }
+
+void KNoteEditDialog::readConfig()
+{
+    KConfigGroup grp( KGlobal::config(), "KNoteEditDialog" );
+    const QSize size = grp.readEntry( "Size", QSize(300, 200) );
+    if ( size.isValid() ) {
+        resize( size );
+    }
+}
+
+void KNoteEditDialog::writeConfig()
+{
+    KConfigGroup grp( KGlobal::config(), "KNoteEditDialog" );
+    grp.writeEntry( "Size", size() );
+    grp.sync();
+}
+
 
 #include "knoteseditdialog.moc"
 
