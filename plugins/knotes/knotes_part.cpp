@@ -490,8 +490,6 @@ void KNotesPart::slotPreferences()
     QPointer<KNoteSimpleConfigDialog> dialog = new KNoteSimpleConfigDialog( knoteItem->config(), name, widget(), knoteItem->journal()->uid() );
     connect( dialog, SIGNAL(settingsChanged(QString)) , this,
              SLOT(slotApplyConfig()) );
-    connect( this, SIGNAL(sigNameChanged(QString)), dialog,
-             SLOT(slotUpdateCaption(QString)) );
     dialog->exec();
     delete dialog;
 }
