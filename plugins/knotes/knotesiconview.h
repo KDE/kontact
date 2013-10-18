@@ -39,11 +39,13 @@ class KNotesIconViewItem : public QListWidgetItem
 public:
     KNotesIconViewItem( QListWidget *parent, Journal *journal );
     ~KNotesIconViewItem();
+
     Journal *journal() const;
     QString realName() const;
     void setIconText( const QString &text );
     KNoteConfig *config();
     void updateColor();
+
 private:
     Journal *mJournal;
     KNoteConfig *mConfig;

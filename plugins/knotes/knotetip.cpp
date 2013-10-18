@@ -99,7 +99,7 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
 
         mPreview->document()->adjustSize ();
         int w = int( mPreview->document ()->size().width() );
-        int h = int( mPreview->document ()->size().height() );
+        const int h = int( mPreview->document ()->size().height() );
         while ( w > 60 && h == mPreview->heightForWidth( w - 20 ) ) {
             w -= 20;
         }
