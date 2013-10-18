@@ -27,7 +27,7 @@
 #include "knotesiconview.h"
 #include "knoteswidget.h"
 #include "knotetip.h"
-#include "knotes/knoteprinter.h"
+#include "knotes/print/knoteprinter.h"
 #include "knotes/resource/resourcemanager.h"
 #include "knotes/knoteedit.h"
 #include "knotes/knotesglobalconfig.h"
