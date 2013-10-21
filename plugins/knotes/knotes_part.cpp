@@ -28,6 +28,8 @@
 #include "knoteswidget.h"
 #include "knotetip.h"
 #include "knotes/print/knoteprinter.h"
+#include "knotes/print/knoteprintobject.h"
+#include "knotes/print/knoteprintselectthemedialog.h"
 #include "knotes/resource/resourcemanager.h"
 #include "knotes/knoteedit.h"
 #include "knotes/knotesglobalconfig.h"
@@ -187,23 +189,35 @@ void KNotesPart::slotPrintSelectedNotes()
 
 void KNotesPart::printSelectedNotes(bool preview)
 {
-  QList<Journal*> journals;
-  QList<QListWidgetItem *> lst = mNotesWidget->notesView()->selectedItems();
-  if ( lst.isEmpty() ) {
-    KMessageBox::information(
-      mNotesWidget,
-      i18nc( "@info",
-             "To print notes, first select the notes to print from the list." ),
-      i18nc( "@title:window", "Print Popup Notes" ) );
-    return;
-  }
+    QList<QListWidgetItem *> lst = mNotesWidget->notesView()->selectedItems();
+    if ( lst.isEmpty() ) {
+        KMessageBox::information(
+                    mNotesWidget,
+                    i18nc( "@info",
+                           "To print notes, first select the notes to print from the list." ),
+                    i18nc( "@title:window", "Print Popup Notes" ) );
+        return;
+    }
 
-  foreach ( QListWidgetItem *item, lst ) {
-    journals.append( static_cast<KNotesIconViewItem *>( item )->journal() );
-  }
+    KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
+    QString printingTheme = globalConfig->theme();
+    if (printingTheme.isEmpty()) {
+        QPointer<KNotePrintSelectThemeDialog> dlg = new KNotePrintSelectThemeDialog(widget());
+        if (dlg->exec()) {
+            printingTheme = dlg->selectedTheme();
+        }
+        delete dlg;
+    }
+    if (!printingTheme.isEmpty()) {
 
-  KNotePrinter printer;
-  printer.printNotes( journals, preview );
+        QList<KNotePrintObject *> listPrintObj;
+        foreach ( QListWidgetItem *item, lst ) {
+            listPrintObj.append(new KNotePrintObject(static_cast<KNotesIconViewItem *>( item )->journal()));
+        }
+        KNotePrinter printer;
+        printer.printNotes( listPrintObj, printingTheme, preview );
+        qDeleteAll(listPrintObj);
+    }
 }
 
 bool KNotesPart::openFile()
