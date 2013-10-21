@@ -4,6 +4,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/pimcommon/
     ${CMAKE_SOURCE_DIR}/knotes/
     ${CMAKE_BINARY_DIR}/knotes/
+    ${Grantlee_INCLUDE_DIRS}
 )
 
 set(kontact_knotesplugin_PART_SRCS 
