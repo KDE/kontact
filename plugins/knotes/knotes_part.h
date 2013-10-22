@@ -85,6 +85,7 @@ class KNotesPart : public KParts::ReadOnlyPart
     void requestToolTip( const QModelIndex & );
 
     void hideToolTip();
+    void slotNotePreferences();
     void slotPreferences();
     void slotApplyConfig();
 

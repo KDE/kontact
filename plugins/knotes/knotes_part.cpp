@@ -27,6 +27,7 @@
 #include "knotesiconview.h"
 #include "knoteswidget.h"
 #include "knotetip.h"
+#include "knotes/knoteconfigdlg.h"
 #include "knotes/print/knoteprinter.h"
 #include "knotes/print/knoteprintobject.h"
 #include "knotes/print/knoteprintselectthemedialog.h"
@@ -125,10 +126,13 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
       connect( action, SIGNAL(triggered(bool)), SLOT(slotPrintPreviewSelectedNotes()) );
   }
 
-  action  = new KAction( KIcon( QLatin1String("configure") ), i18n( "Preferences..." ), this );
+  action  = new KAction( KIcon( QLatin1String("configure") ), i18n( "Note settings..." ), this );
   actionCollection()->addAction( QLatin1String("configure_note"), action );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
+  connect( action, SIGNAL(triggered(bool)), SLOT(slotNotePreferences()) );
 
+  action  = new KAction( KIcon( QLatin1String("configure") ), i18n( "Preferences KNotes..." ), this );
+  actionCollection()->addAction( QLatin1String("knotes_configure"), action );
+  connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
   // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -497,8 +501,11 @@ void KNotesPart::slotOnCurrentChanged( )
   configureAction->setEnabled( enabled );
 }
 
-void KNotesPart::slotPreferences()
+void KNotesPart::slotNotePreferences()
 {
+    if (!mNotesWidget->notesView()->currentItem())
+        return;
+
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
     const QString name = knoteItem->realName();
     QPointer<KNoteSimpleConfigDialog> dialog = new KNoteSimpleConfigDialog( knoteItem->config(), name, widget(), knoteItem->journal()->uid() );
@@ -515,5 +522,12 @@ void KNotesPart::slotApplyConfig()
     mManager->save();
 }
 
+void KNotesPart::slotPreferences()
+{
+    // create a new preferences dialog...
+    KNoteConfigDlg *dialog = new KNoteConfigDlg( i18n( "Settings" ), widget());
+    //connect( dialog, SIGNAL(configWrote()), this, SLOT(slotConfigUpdated()));
+    dialog->show();
+}
 
 #include "knotes_part.moc"
