@@ -119,7 +119,7 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
 
   if(KPrintPreview::isAvailable()) {
 
-      action = new KAction( i18nc( "@action:inmenu", "Print Preview Selected Notes..." ), this );
+      action = new KAction( KIcon( QLatin1String("document-print-preview") ),i18nc( "@action:inmenu", "Print Preview Selected Notes..." ), this );
       actionCollection()->addAction( QLatin1String("print_preview_note"), action );
 
       connect( action, SIGNAL(triggered(bool)), SLOT(slotPrintPreviewSelectedNotes()) );
