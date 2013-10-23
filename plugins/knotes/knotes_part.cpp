@@ -138,6 +138,11 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     actionCollection()->addAction( QLatin1String("mail_note"), action );
     connect( action, SIGNAL(triggered(bool)), SLOT(slotMail()) );
 
+    action  = new KAction( KIcon( QLatin1String("network-wired") ), i18n( "Send..." ), this );
+    actionCollection()->addAction( QLatin1String("send_note"), action );
+    connect( action, SIGNAL(triggered(bool)), SLOT(slotSendToNetwork()) );
+
+
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
     // set the view up
@@ -498,6 +503,8 @@ void KNotesPart::slotOnCurrentChanged( )
     QAction *editAction = actionCollection()->action( QLatin1String("edit_note") );
     QAction *configureAction = actionCollection()->action( QLatin1String("configure_note") );
     QAction *sendMailAction = actionCollection()->action( QLatin1String("mail_note") );
+    QAction *sendToNetworkAction = actionCollection()->action( QLatin1String("send_note") );
+
 
     const bool uniqueNoteSelected = (mNotesWidget->notesView()->selectedItems().count() == 1);
     const bool enabled(mNotesWidget->notesView()->currentItem());
@@ -506,6 +513,7 @@ void KNotesPart::slotOnCurrentChanged( )
     editAction->setEnabled( enabled );
     configureAction->setEnabled( uniqueNoteSelected );
     sendMailAction->setEnabled(uniqueNoteSelected);
+    sendToNetworkAction->setEnabled(uniqueNoteSelected);
 }
 
 void KNotesPart::slotNotePreferences()
@@ -543,6 +551,14 @@ void KNotesPart::slotMail()
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
     KNoteUtils::sendMail(widget(),knoteItem->realName(), knoteItem->journal()->description());
+}
+
+void KNotesPart::slotSendToNetwork()
+{
+    if (!mNotesWidget->notesView()->currentItem())
+        return;
+    KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
+    KNoteUtils::sendToNetwork(widget(),knoteItem->realName(), knoteItem->journal()->description());
 }
 
 #include "knotes_part.moc"
