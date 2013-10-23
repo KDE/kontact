@@ -27,8 +27,8 @@
 class KNotesResourceManager;
 class KNotesPlugin : public KontactInterface::Plugin
 {
-  Q_OBJECT
-  public:
+    Q_OBJECT
+public:
     KNotesPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KNotesPlugin();
 
@@ -42,14 +42,14 @@ class KNotesPlugin : public KontactInterface::Plugin
     bool canDecodeMimeData( const QMimeData *data ) const;
     void processDropEvent( QDropEvent * );
 
-  protected:
+protected:
     KParts::ReadOnlyPart *createPart();
 
-  private slots:
+private slots:
     void slotNewNote();
     void slotSyncNotes();
 
-  private:
+private:
     mutable KAboutData *mAboutData;
     KNotesResourceManager *mManager;
 };

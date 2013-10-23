@@ -34,26 +34,26 @@ class KNotesResourceManager;
 class KNoteTip;
 
 namespace KCal {
-  class Journal;
+class Journal;
 }
 using namespace KCal;
 
 class KNotesPart : public KParts::ReadOnlyPart
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     explicit KNotesPart(KNotesResourceManager *manager, QObject *parent = 0 );
     ~KNotesPart();
 
     bool openFile();
 
-  public slots:
+public slots:
     QString newNote( const QString &name = QString(),
                      const QString &text = QString() );
     QString newNoteFromClipboard( const QString &name = QString() );
 
-  public:
+public:
     void killNote( const QString &id );
     void killNote( const QString &id, bool force );
 
@@ -67,7 +67,7 @@ class KNotesPart : public KParts::ReadOnlyPart
     void popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos );
     void mouseMoveOnListWidget( const QPoint &pos );
 
-  private slots:
+private slots:
     void createNote( KCal::Journal *journal );
     void killNote( KCal::Journal *journal );
 
@@ -89,7 +89,7 @@ class KNotesPart : public KParts::ReadOnlyPart
     void slotPreferences();
     void slotApplyConfig();
 
-  private:
+private:
     void printSelectedNotes(bool preview);
     KNotesWidget *mNotesWidget;
     KNoteTip *mNoteTip;
