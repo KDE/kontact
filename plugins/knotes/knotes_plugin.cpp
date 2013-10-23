@@ -37,6 +37,7 @@ using namespace KPIM;
 #include <KontactInterface/Core>
 
 #include <KAboutData>
+#include <KCmdLineArgs>
 #include <KAction>
 #include <KActionCollection>
 #include <KDebug>
@@ -87,12 +88,22 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
                 i18nc( "@info:whatsthis",
                        "Choose this option to synchronize your groupware notes." ) );
     insertSyncAction( syncAction );
+
+    mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+      new KontactInterface::UniqueAppHandlerFactory<KNotesUniqueAppHandler>(), this );
+
 }
 
 KNotesPlugin::~KNotesPlugin()
 {
     delete mManager;
 }
+
+bool KNotesPlugin::isRunningStandalone() const
+{
+    return mUniqueAppWatcher->isRunningStandalone();
+}
+
 
 QString KNotesPlugin::tipFile() const
 {
@@ -234,5 +245,19 @@ void KNotesPlugin::slotSyncNotes()
     kWarning() << QLatin1String(" Need to port to AKONADI: KNotesPlugin::slotSyncNotes");
 #endif
 }
+
+void KNotesUniqueAppHandler::loadCommandLineOptions()
+{
+    KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
+}
+
+int KNotesUniqueAppHandler::newInstance()
+{
+    kDebug() ;
+    // Ensure part is loaded
+    (void)plugin()->part();
+    return KontactInterface::UniqueAppHandler::newInstance();
+}
+
 
 #include "knotes_plugin.moc"
