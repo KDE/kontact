@@ -37,8 +37,8 @@
 #include "knotes/knotesglobalconfig.h"
 #include "knotesimpleconfigdialog.h"
 #include "knoteutils.h"
-#include "knotealarmdlg.h"
-#include "knotesalarm.h"
+#include "alarms/knotealarmdlg.h"
+#include "alarms/knotesalarm.h"
 #include <KCal/Journal>
 using namespace KCal;
 
