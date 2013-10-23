@@ -19,6 +19,8 @@
 
 #include "knotesiconview.h"
 
+#include <KLocale>
+
 #include <KCal/Journal>
 using namespace KCal;
 
@@ -26,6 +28,7 @@ using namespace KCal;
 KNotesListWidgetSearchLine::KNotesListWidgetSearchLine(QWidget *parent)
     : KListWidgetSearchLine(parent)
 {
+    setClickMessage(i18n("Search notes..."));
 }
 
 KNotesListWidgetSearchLine::~KNotesListWidgetSearchLine()
