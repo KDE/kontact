@@ -32,6 +32,11 @@ class KNotesWidget;
 class KNotesIconViewItem;
 class KNotesResourceManager;
 class KNoteTip;
+class QTcpServer;
+
+namespace DNSSD {
+class PublicService;
+}
 
 namespace KCal {
 class Journal;
@@ -90,8 +95,11 @@ private slots:
     void slotApplyConfig();
     void slotMail();
     void slotSendToNetwork();
+    void slotConfigUpdated();
+    void slotAcceptConnection();
 
 private:
+    void updateNetworkListener();
     void printSelectedNotes(bool preview);
     KNotesWidget *mNotesWidget;
     KNoteTip *mNoteTip;
@@ -99,6 +107,9 @@ private:
 
     KNotesResourceManager *mManager;
     QMultiHash<QString, KNotesIconViewItem*> mNoteList;
+    QTcpServer *mListener;
+    DNSSD::PublicService *mPublisher;
+
 };
 
 #endif

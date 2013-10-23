@@ -28,6 +28,7 @@
 #include "knoteswidget.h"
 #include "knotetip.h"
 #include "knotes/knoteconfigdlg.h"
+#include "knotes/network/knotesnetrecv.h"
 #include "knotes/print/knoteprinter.h"
 #include "knotes/print/knoteprintobject.h"
 #include "knotes/print/knoteprintselectthemedialog.h"
@@ -45,18 +46,23 @@ using namespace KCal;
 #include <KMessageBox>
 #include <KXMLGUIFactory>
 #include <KPrintPreview>
+#include <ksocketfactory.h>
 
 #include <QApplication>
 #include <QClipboard>
+#include <QTcpServer>
 #include <QMenu>
 
+#include <dnssd/publicservice.h>
 
 KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     : KParts::ReadOnlyPart( parent ),
       mNotesWidget( new KNotesWidget(this) ),
       mNoteTip( new KNoteTip( mNotesWidget->notesView() ) ),
       mNoteEditDlg( 0 ),
-      mManager( manager )
+      mManager( manager ),
+      mListener(0),
+      mPublisher(0)
 {
     (void) new KNotesAdaptor( this );
     QDBusConnection::sessionBus().registerObject( QLatin1String("/KNotes"), this );
@@ -170,10 +176,15 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     connect( mManager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
              this, SLOT(killNote(KCal::Journal*)) );
     mManager->load();
+    updateNetworkListener();
 }
 
 KNotesPart::~KNotesPart()
 {
+    delete mListener;
+    mListener=0;
+    delete mPublisher;
+    mPublisher=0;
     delete mNoteTip;
     mNoteTip = 0;
 }
@@ -541,8 +552,13 @@ void KNotesPart::slotPreferences()
 {
     // create a new preferences dialog...
     KNoteConfigDlg *dialog = new KNoteConfigDlg( i18n( "Settings" ), widget());
-    //connect( dialog, SIGNAL(configWrote()), this, SLOT(slotConfigUpdated()));
+    connect( dialog, SIGNAL(configWrote()), this, SLOT(slotConfigUpdated()));
     dialog->show();
+}
+
+void KNotesPart::slotConfigUpdated()
+{
+    updateNetworkListener();
 }
 
 void KNotesPart::slotMail()
@@ -559,6 +575,34 @@ void KNotesPart::slotSendToNetwork()
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
     KNoteUtils::sendToNetwork(widget(),knoteItem->realName(), knoteItem->journal()->description());
+}
+
+void KNotesPart::updateNetworkListener()
+{
+    delete mListener;
+    mListener=0;
+    delete mPublisher;
+    mPublisher=0;
+
+    if ( KNotesGlobalConfig::receiveNotes() ) {
+        // create the socket and start listening for connections
+        mListener = KSocketFactory::listen( QLatin1String("knotes") , QHostAddress::Any,
+                                           KNotesGlobalConfig::port() );
+        connect( mListener, SIGNAL(newConnection()), SLOT(slotAcceptConnection()) );
+        mPublisher=new DNSSD::PublicService(KNotesGlobalConfig::senderID(), QLatin1String("_knotes._tcp"), KNotesGlobalConfig::port());
+        mPublisher->publishAsync();
+    }
+}
+
+void KNotesPart::slotAcceptConnection()
+{
+    // Accept the connection and make KNotesNetworkReceiver do the job
+    QTcpSocket *s = mListener->nextPendingConnection();
+
+    if ( s ) {
+        KNotesNetworkReceiver *recv = new KNotesNetworkReceiver( s );
+        connect( recv,SIGNAL(sigNoteReceived(QString,QString)), SLOT(newNote(QString,QString)) );
+    }
 }
 
 #include "knotes_part.moc"
