@@ -134,6 +134,10 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     actionCollection()->addAction( QLatin1String("knotes_configure"), action );
     connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
+    action  = new KAction( KIcon( QLatin1String("mail-send") ), i18n( "Mail..." ), this );
+    actionCollection()->addAction( QLatin1String("mail_note"), action );
+    connect( action, SIGNAL(triggered(bool)), SLOT(slotMail()) );
+
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
     // set the view up
@@ -528,6 +532,14 @@ void KNotesPart::slotPreferences()
     KNoteConfigDlg *dialog = new KNoteConfigDlg( i18n( "Settings" ), widget());
     //connect( dialog, SIGNAL(configWrote()), this, SLOT(slotConfigUpdated()));
     dialog->show();
+}
+
+void KNotesPart::slotMail()
+{
+    if (!mNotesWidget->notesView()->currentItem())
+        return;
+    KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
+    KNoteUtils::sendMail(widget(),knoteItem->realName(), knoteItem->journal()->description());
 }
 
 #include "knotes_part.moc"

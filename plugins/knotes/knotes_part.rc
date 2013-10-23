@@ -22,6 +22,8 @@
     <Action name="edit_note"/>
     <Action name="edit_rename"/>
     <Separator/>
+    <Action name="mail_note"/>
+    <Separator/>
     <Action name="print_note"/>
     <Separator/>
     <Action name="configure_note"/>

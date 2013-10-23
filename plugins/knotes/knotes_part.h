@@ -88,6 +88,7 @@ private slots:
     void slotNotePreferences();
     void slotPreferences();
     void slotApplyConfig();
+    void slotMail();
 
 private:
     void printSelectedNotes(bool preview);
