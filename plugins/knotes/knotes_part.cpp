@@ -151,7 +151,7 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     connect( mNotesWidget->notesView(), SIGNAL(viewportEntered()),
              this, SLOT(hideToolTip()));
 
-    connect( mNotesWidget->notesView(), SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
+    connect( mNotesWidget->notesView(), SIGNAL(itemSelectionChanged()),
              this, SLOT(slotOnCurrentChanged()) );
 
     slotOnCurrentChanged();
@@ -497,12 +497,15 @@ void KNotesPart::slotOnCurrentChanged( )
     QAction *deleteAction = actionCollection()->action( QLatin1String("edit_delete") );
     QAction *editAction = actionCollection()->action( QLatin1String("edit_note") );
     QAction *configureAction = actionCollection()->action( QLatin1String("configure_note") );
+    QAction *sendMailAction = actionCollection()->action( QLatin1String("mail_note") );
 
+    const bool uniqueNoteSelected = (mNotesWidget->notesView()->selectedItems().count() == 1);
     const bool enabled(mNotesWidget->notesView()->currentItem());
     renameAction->setEnabled( enabled );
     deleteAction->setEnabled( enabled );
     editAction->setEnabled( enabled );
-    configureAction->setEnabled( enabled );
+    configureAction->setEnabled( uniqueNoteSelected );
+    sendMailAction->setEnabled(uniqueNoteSelected);
 }
 
 void KNotesPart::slotNotePreferences()
