@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="knotes" version="404">
+<kpartgui name="knotes" version="405">
   <MenuBar>
     <Menu name="file"><text>&amp;File</text>
       <Merge/>
@@ -24,6 +24,7 @@
     <Separator/>
     <Action name="mail_note"/>
     <Separator/>
+    <Action name="set_alarm"/>
     <Separator/>
     <Action name="send_note"/>
     <Separator/>

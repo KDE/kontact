@@ -32,6 +32,7 @@ class KNotesWidget;
 class KNotesIconViewItem;
 class KNotesResourceManager;
 class KNoteTip;
+class KNotesAlarm;
 class QTcpServer;
 
 namespace DNSSD {
@@ -97,6 +98,7 @@ private slots:
     void slotSendToNetwork();
     void slotConfigUpdated();
     void slotAcceptConnection();
+    void slotSetAlarm();
 
 private:
     void updateNetworkListener();
@@ -109,7 +111,7 @@ private:
     QMultiHash<QString, KNotesIconViewItem*> mNoteList;
     QTcpServer *mListener;
     DNSSD::PublicService *mPublisher;
-
+    KNotesAlarm *mAlarm;
 };
 
 #endif

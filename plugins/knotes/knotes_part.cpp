@@ -37,6 +37,8 @@
 #include "knotes/knotesglobalconfig.h"
 #include "knotesimpleconfigdialog.h"
 #include "knoteutils.h"
+#include "knotealarmdlg.h"
+#include "knotesalarm.h"
 #include <KCal/Journal>
 using namespace KCal;
 
@@ -62,7 +64,8 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
       mNoteEditDlg( 0 ),
       mManager( manager ),
       mListener(0),
-      mPublisher(0)
+      mPublisher(0),
+      mAlarm(0)
 {
     (void) new KNotesAdaptor( this );
     QDBusConnection::sessionBus().registerObject( QLatin1String("/KNotes"), this );
@@ -148,6 +151,10 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     actionCollection()->addAction( QLatin1String("send_note"), action );
     connect( action, SIGNAL(triggered(bool)), SLOT(slotSendToNetwork()) );
 
+    action  = new KAction( KIcon( QLatin1String("knotes_alarm") ), i18n( "Set Alarm..." ), this );
+    actionCollection()->addAction( QLatin1String("set_alarm"), action );
+    connect( action, SIGNAL(triggered(bool)), SLOT(slotSetAlarm()) );
+
 
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -176,6 +183,7 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     connect( mManager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
              this, SLOT(killNote(KCal::Journal*)) );
     mManager->load();
+    mAlarm = new KNotesAlarm( mManager, this );
     updateNetworkListener();
 }
 
@@ -515,7 +523,7 @@ void KNotesPart::slotOnCurrentChanged( )
     QAction *configureAction = actionCollection()->action( QLatin1String("configure_note") );
     QAction *sendMailAction = actionCollection()->action( QLatin1String("mail_note") );
     QAction *sendToNetworkAction = actionCollection()->action( QLatin1String("send_note") );
-
+    QAction *setAlarmAction = actionCollection()->action( QLatin1String("set_alarm") );
 
     const bool uniqueNoteSelected = (mNotesWidget->notesView()->selectedItems().count() == 1);
     const bool enabled(mNotesWidget->notesView()->currentItem());
@@ -525,6 +533,7 @@ void KNotesPart::slotOnCurrentChanged( )
     configureAction->setEnabled( uniqueNoteSelected );
     sendMailAction->setEnabled(uniqueNoteSelected);
     sendToNetworkAction->setEnabled(uniqueNoteSelected);
+    setAlarmAction->setEnabled(uniqueNoteSelected);
 }
 
 void KNotesPart::slotNotePreferences()
@@ -604,5 +613,20 @@ void KNotesPart::slotAcceptConnection()
         connect( recv,SIGNAL(sigNoteReceived(QString,QString)), SLOT(newNote(QString,QString)) );
     }
 }
+
+void KNotesPart::slotSetAlarm()
+{
+    if (!mNotesWidget->notesView()->currentItem())
+        return;
+    KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
+
+    QPointer<KNoteAlarmDlg> dlg = new KNoteAlarmDlg( knoteItem->realName(), widget() );
+    dlg->setIncidence( knoteItem->journal() );
+    if ( dlg->exec() ) {
+        mManager->save();
+    }
+    delete dlg;
+}
+
 
 #include "knotes_part.moc"
