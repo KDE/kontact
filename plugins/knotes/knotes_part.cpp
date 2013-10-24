@@ -534,9 +534,9 @@ void KNotesPart::slotOnCurrentChanged( )
 
     const bool uniqueNoteSelected = (mNotesWidget->notesView()->selectedItems().count() == 1);
     const bool enabled(mNotesWidget->notesView()->currentItem());
-    renameAction->setEnabled( enabled );
-    deleteAction->setEnabled( enabled );
-    editAction->setEnabled( enabled );
+    renameAction->setEnabled( enabled && uniqueNoteSelected);
+    deleteAction->setEnabled( enabled && uniqueNoteSelected);
+    editAction->setEnabled( enabled && uniqueNoteSelected);
     configureAction->setEnabled( uniqueNoteSelected );
     sendMailAction->setEnabled(uniqueNoteSelected);
     sendToNetworkAction->setEnabled(uniqueNoteSelected);
