@@ -50,6 +50,7 @@ using namespace KCal;
 #include <KPrintPreview>
 #include <ksocketfactory.h>
 #include <KApplication>
+#include <KFileDialog>
 
 #include <QApplication>
 #include <QClipboard>
@@ -163,6 +164,9 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     connect( act, SIGNAL(triggered()), SLOT(slotNewNoteFromClipboard()) );
 
 
+    mSaveAs  = new KAction( KIcon( QLatin1String("document-save-as") ), i18n( "Save As..." ), this );
+    actionCollection()->addAction( QLatin1String("save_note"), mSaveAs );
+    connect( mSaveAs, SIGNAL(triggered(bool)), SLOT(slotSaveAs()) );
 
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -444,6 +448,9 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
         contextMenu->addAction(mNewNote);
         const bool uniqueNoteSelected = (mNotesWidget->notesView()->selectedItems().count() == 1);
         if (uniqueNoteSelected) {
+            contextMenu->addSeparator();
+            contextMenu->addAction(mSaveAs);
+            contextMenu->addSeparator();
             contextMenu->addAction(mNoteEdit);
             contextMenu->addAction(mNoteRename);
             contextMenu->addSeparator();
@@ -549,6 +556,7 @@ void KNotesPart::slotOnCurrentChanged( )
     mNoteSendMail->setEnabled(uniqueNoteSelected);
     mNoteSendNetwork->setEnabled(uniqueNoteSelected);
     mNoteSetAlarm->setEnabled(uniqueNoteSelected);
+    mSaveAs->setEnabled(uniqueNoteSelected);
 }
 
 void KNotesPart::slotNotePreferences()
@@ -647,6 +655,44 @@ void KNotesPart::slotNewNoteFromClipboard()
 {
     const QString &text = KApplication::clipboard()->text();
     newNote( QString(), text );
+}
+
+void KNotesPart::slotSaveAs()
+{
+    if (!mNotesWidget->notesView()->currentItem())
+        return;
+    KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
+
+    KUrl url;
+    QPointer<KFileDialog> dlg = new KFileDialog( url, QString(), widget() );
+    dlg->setOperationMode( KFileDialog::Saving );
+    dlg->setCaption( i18n( "Save As" ) );
+    if( !dlg->exec() ) {
+        delete dlg;
+        return;
+    }
+
+    const QString fileName = dlg->selectedFile();
+    delete dlg;
+    if ( fileName.isEmpty() ) {
+        return;
+    }
+
+    QFile file( fileName );
+    if ( file.exists() &&
+         KMessageBox::warningContinueCancel( widget(),
+                                             i18n( "<qt>A file named <b>%1</b> already exists.<br />"
+                                                   "Are you sure you want to overwrite it?</qt>",
+                                                   QFileInfo( file ).fileName() ) ) != KMessageBox::Continue ) {
+        return;
+    }
+
+    if ( file.open( QIODevice::WriteOnly ) ) {
+        QTextStream stream( &file );
+        stream<<knoteItem->realName() + QLatin1Char('\n');
+        //TODO verify richtext
+        stream<<knoteItem->journal()->description();
+    }
 }
 
 #include "knotes_part.moc"

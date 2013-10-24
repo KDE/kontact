@@ -101,6 +101,7 @@ private slots:
     void slotAcceptConnection();
     void slotSetAlarm();
     void slotNewNoteFromClipboard();
+    void slotSaveAs();
 
 private:
     void updateNetworkListener();
@@ -124,6 +125,7 @@ private:
     KAction *mNoteSendNetwork;
     KAction *mNoteSetAlarm;
     KAction *mNewNote;
+    KAction *mSaveAs;
 };
 
 #endif
