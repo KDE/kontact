@@ -75,15 +75,15 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     setComponentData( KComponentData( "knotes" ) );
 
     // create the actions
-    KAction *act =
-            new KAction( KIcon( QLatin1String("knotes") ),
-                         i18nc( "@action:inmenu create new popup note", "&New" ), this );
+    KAction *act = 0;
+    mNewNote = new KAction( KIcon( QLatin1String("knotes") ),
+                            i18nc( "@action:inmenu create new popup note", "&New" ), this );
     actionCollection()->addAction( QLatin1String("file_new"), act );
-    connect( act, SIGNAL(triggered(bool)), SLOT(newNote()) );
-    act->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_N ) );
-    act->setHelpText(
+    connect( mNewNote, SIGNAL(triggered(bool)), SLOT(newNote()) );
+    mNewNote->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_N ) );
+    mNewNote->setHelpText(
                 i18nc( "@info:status", "Create a new popup note" ) );
-    act->setWhatsThis(
+    mNewNote->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can add a new popup note." ) );
 
@@ -438,18 +438,30 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
 {
     Q_UNUSED( item );
 
-    QMenu *contextMenu = 0;
+    QMenu *contextMenu = new QMenu(widget());
     if ( mNotesWidget->notesView()->itemAt ( pos ) ) {
-        contextMenu = static_cast<QMenu *>( factory()->container( QLatin1String("note_context"), this ) );
+        contextMenu->addAction(mNewNote);
+        const bool uniqueNoteSelected = (mNotesWidget->notesView()->selectedItems().count() == 1);
+        if (uniqueNoteSelected) {
+            contextMenu->addAction(mNoteEdit);
+            contextMenu->addAction(mNoteRename);
+            contextMenu->addSeparator();
+            contextMenu->addAction(mNoteSendMail);
+            contextMenu->addSeparator();
+            contextMenu->addAction(mNoteSendNetwork);
+            contextMenu->addSeparator();
+            contextMenu->addAction(mNotePrint);
+            contextMenu->addSeparator();
+            contextMenu->addAction(mNoteConfigure);
+        }
+        contextMenu->addSeparator();
+        contextMenu->addAction(mNoteDelete);
     } else {
-        contextMenu = static_cast<QMenu *>( factory()->container( QLatin1String("notepart_context"), this ) );
+        contextMenu->addAction(mNewNote);
     }
 
-    if ( !contextMenu ) {
-        return;
-    }
-
-    contextMenu->popup( mNotesWidget->notesView()->mapFromParent( globalPos ) );
+    contextMenu->exec( mNotesWidget->notesView()->mapFromParent( globalPos ) );
+    delete contextMenu;
 }
 
 void KNotesPart::mouseMoveOnListWidget( const QPoint & pos )
@@ -528,7 +540,6 @@ void KNotesPart::slotOnCurrentChanged( )
     const bool uniqueNoteSelected = (mNotesWidget->notesView()->selectedItems().count() == 1);
     const bool enabled(mNotesWidget->notesView()->currentItem());
     mNoteRename->setEnabled( enabled && uniqueNoteSelected);
-    mNoteDelete->setEnabled( enabled && uniqueNoteSelected);
     mNoteEdit->setEnabled( enabled && uniqueNoteSelected);
     mNoteConfigure->setEnabled( uniqueNoteSelected );
     mNoteSendMail->setEnabled(uniqueNoteSelected);

@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="knotes" version="406">
+<kpartgui name="knotes" version="407">
   <MenuBar>
     <Menu name="file"><text>&amp;File</text>
       <Merge/>
@@ -19,25 +19,4 @@
      <Action name="knotes_configure" group="settings_configure"/>
     </Menu>
   </MenuBar>
-  <Menu name="note_context">
-    <Action name="file_new"/>
-    <Action name="edit_note"/>
-    <Action name="edit_rename"/>
-    <Separator/>
-    <Action name="mail_note"/>
-    <Separator/>
-    <Action name="set_alarm"/>
-    <Separator/>
-    <Action name="send_note"/>
-    <Separator/>
-    <Action name="print_note"/>
-    <Separator/>
-    <Action name="configure_note"/>
-    <Separator/>
-    <Action name="edit_delete"/>
-  </Menu>
-  <Menu name="notepart_context">
-    <Action name="file_new"/>
-  </Menu>
-
 </kpartgui>

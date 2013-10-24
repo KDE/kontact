@@ -123,6 +123,7 @@ private:
     KAction *mNoteSendMail;
     KAction *mNoteSendNetwork;
     KAction *mNoteSetAlarm;
+    KAction *mNewNote;
 };
 
 #endif
