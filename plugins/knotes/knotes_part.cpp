@@ -449,8 +449,11 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
             contextMenu->addAction(mNoteSendMail);
             contextMenu->addSeparator();
             contextMenu->addAction(mNoteSendNetwork);
-            contextMenu->addSeparator();
-            contextMenu->addAction(mNotePrint);
+        }
+        contextMenu->addSeparator();
+        contextMenu->addAction(mNotePrint);
+
+        if (uniqueNoteSelected) {
             contextMenu->addSeparator();
             contextMenu->addAction(mNoteConfigure);
         }
