@@ -63,7 +63,6 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     : KParts::ReadOnlyPart( parent ),
       mNotesWidget( new KNotesWidget(this) ),
       mNoteTip( new KNoteTip( mNotesWidget->notesView() ) ),
-      mNoteEditDlg( 0 ),
       mManager( manager ),
       mListener(0),
       mPublisher(0),
@@ -76,10 +75,9 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     setComponentData( KComponentData( "knotes" ) );
 
     // create the actions
-    KAction *act = 0;
     mNewNote = new KAction( KIcon( QLatin1String("knotes") ),
                             i18nc( "@action:inmenu create new popup note", "&New" ), this );
-    actionCollection()->addAction( QLatin1String("file_new"), act );
+    actionCollection()->addAction( QLatin1String("file_new"), mNewNote );
     connect( mNewNote, SIGNAL(triggered(bool)), SLOT(newNote()) );
     mNewNote->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_N ) );
     mNewNote->setHelpText(
@@ -142,7 +140,7 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     actionCollection()->addAction( QLatin1String("configure_note"), mNoteConfigure );
     connect( mNoteConfigure, SIGNAL(triggered(bool)), SLOT(slotNotePreferences()) );
 
-    act  = new KAction( KIcon( QLatin1String("configure") ), i18n( "Preferences KNotes..." ), this );
+    KAction *act  = new KAction( KIcon( QLatin1String("configure") ), i18n( "Preferences KNotes..." ), this );
     actionCollection()->addAction( QLatin1String("knotes_configure"), act );
     connect( act, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
@@ -201,7 +199,6 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
 
 KNotesPart::~KNotesPart()
 {
-    delete mNoteEditDlg;
     delete mListener;
     mListener=0;
     delete mPublisher;
@@ -289,27 +286,28 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
 
     // Edit the new note if text is empty
     if ( text.isNull() ) {
-        delete mNoteEditDlg;
-        mNoteEditDlg = new KNoteEditDialog( widget() );
+        QPointer<KNoteEditDialog> dlg = new KNoteEditDialog( widget() );
 
-        mNoteEditDlg->setTitle( journal->summary() );
-        mNoteEditDlg->setText( journal->description() );
+        dlg->setTitle( journal->summary() );
+        dlg->setText( journal->description() );
 
 
         const QString property = journal->customProperty("KNotes", "RichText");
         if ( !property.isNull() ) {
-            mNoteEditDlg->setAcceptRichText( property == QLatin1String("true") ? true : false );
+            dlg->setAcceptRichText( property == QLatin1String("true") ? true : false );
         } else {
             KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
-            mNoteEditDlg->setAcceptRichText( globalConfig->richText());
+            dlg->setAcceptRichText( globalConfig->richText());
         }
 
 
-        mNoteEditDlg->noteEdit()->setFocus();
-        if ( mNoteEditDlg->exec() == QDialog::Accepted ) {
-            journal->setSummary( mNoteEditDlg->title() );
-            journal->setDescription( mNoteEditDlg->text() );
+        dlg->noteEdit()->setFocus();
+        if ( dlg->exec() == QDialog::Accepted ) {
+            journal->setSummary( dlg->title() );
+            journal->setDescription( dlg->text() );
+            delete dlg;
         } else {
+            delete dlg;
             delete journal;
             return QString();
         }
@@ -498,28 +496,29 @@ void KNotesPart::killNote( KCal::Journal *journal )
 
 void KNotesPart::editNote( QListWidgetItem *item )
 {
-    if ( !mNoteEditDlg ) {
-        mNoteEditDlg = new KNoteEditDialog( widget() );
-    }
+    QPointer<KNoteEditDialog> dlg = new KNoteEditDialog( widget() );
+    KNotesIconViewItem * knotesItem = static_cast<KNotesIconViewItem *>( item );
 
-    Journal *journal = static_cast<KNotesIconViewItem *>( item )->journal();
-    mNoteEditDlg->setTitle( journal->summary() );
-    mNoteEditDlg->setText( journal->description() );
+    Journal *journal = knotesItem->journal();
+    dlg->setTitle( journal->summary() );
+    dlg->setText( journal->description() );
+    dlg->setReadOnly(knotesItem->readOnly());
 
     const QString property = journal->customProperty("KNotes", "RichText");
     if ( !property.isNull() ) {
-        mNoteEditDlg->setAcceptRichText( property == QLatin1String("true") ? true : false );
+        dlg->setAcceptRichText( property == QLatin1String("true") ? true : false );
     } else {
         KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
-        mNoteEditDlg->setAcceptRichText( globalConfig->richText());
+        dlg->setAcceptRichText( globalConfig->richText());
     }
 
-    mNoteEditDlg->noteEdit()->setFocus();
-    if ( mNoteEditDlg->exec() == QDialog::Accepted ) {
-        static_cast<KNotesIconViewItem *>( item )->setIconText( mNoteEditDlg->title() );
-        journal->setDescription( mNoteEditDlg->text() );
+    dlg->noteEdit()->setFocus();
+    if ( dlg->exec() == QDialog::Accepted ) {
+        static_cast<KNotesIconViewItem *>( item )->setIconText( dlg->title() );
+        journal->setDescription( dlg->text() );
         mManager->save();
     }
+    delete dlg;
 }
 
 void KNotesPart::editNote()

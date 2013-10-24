@@ -45,6 +45,8 @@ public:
     void setIconText( const QString &text );
     KNoteConfig *config();
     void updateColor();
+    bool readOnly() const;
+    void setReadOnly(bool b);
 
 private:
     Journal *mJournal;

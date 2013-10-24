@@ -44,6 +44,8 @@ public:
 
     KNoteEdit *noteEdit() const;
 
+    void setReadOnly(bool b);
+
 private:
     void readConfig();
     void writeConfig();

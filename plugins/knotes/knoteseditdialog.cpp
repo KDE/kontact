@@ -96,6 +96,13 @@ void KNoteEditDialog::setAcceptRichText(bool b)
     mTool->setVisible(b);
 }
 
+void KNoteEditDialog::setReadOnly(bool b)
+{
+    mNoteEdit->setEnabled( !b );
+    mTool->setEnabled(!b);
+    mTitleEdit->setEnabled(!b);
+}
+
 void KNoteEditDialog::readConfig()
 {
     KConfigGroup grp( KGlobal::config(), "KNoteEditDialog" );

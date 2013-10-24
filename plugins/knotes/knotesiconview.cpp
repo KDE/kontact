@@ -29,7 +29,8 @@ using namespace KCal;
 #include <QMouseEvent>
 
 KNotesIconView::KNotesIconView( KNotesPart *part )
-    : KListWidget(), m_part( part )
+    : KListWidget(),
+      m_part( part )
 {
     setViewMode( QListView::IconMode );
     setMovement( QListView::Static );
@@ -99,7 +100,7 @@ void KNotesIconViewItem::setIconText( const QString &text )
 {
     QString replaceText ;
     if ( text.count() > 50 ) {
-        replaceText = text.left(50) + QLatin1String("...") ;
+        replaceText = text.left(50) + QLatin1String("...");
     } else {
         replaceText = text ;
     }
@@ -107,4 +108,15 @@ void KNotesIconViewItem::setIconText( const QString &text )
     setText( replaceText );
 
     mJournal->setSummary( text );
+}
+
+bool KNotesIconViewItem::readOnly() const
+{
+    return mConfig->readOnly();
+}
+
+void KNotesIconViewItem::setReadOnly(bool b)
+{
+    mConfig->setReadOnly(b);
+    mConfig->writeConfig();
 }

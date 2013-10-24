@@ -108,7 +108,6 @@ private:
     void printSelectedNotes(bool preview);
     KNotesWidget *mNotesWidget;
     KNoteTip *mNoteTip;
-    KNoteEditDialog *mNoteEditDlg;
 
     KNotesResourceManager *mManager;
     QMultiHash<QString, KNotesIconViewItem*> mNoteList;
