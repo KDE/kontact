@@ -66,7 +66,8 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
       mManager( manager ),
       mListener(0),
       mPublisher(0),
-      mAlarm(0)
+      mAlarm(0),
+      mNotePrintPreview(0)
 {
     (void) new KNotesAdaptor( this );
     QDBusConnection::sessionBus().registerObject( QLatin1String("/KNotes"), this );
@@ -74,92 +75,92 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     setComponentData( KComponentData( "knotes" ) );
 
     // create the actions
-    KAction *action =
+    KAction *act =
             new KAction( KIcon( QLatin1String("knotes") ),
                          i18nc( "@action:inmenu create new popup note", "&New" ), this );
-    actionCollection()->addAction( QLatin1String("file_new"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(newNote()) );
-    action->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_N ) );
-    action->setHelpText(
+    actionCollection()->addAction( QLatin1String("file_new"), act );
+    connect( act, SIGNAL(triggered(bool)), SLOT(newNote()) );
+    act->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_N ) );
+    act->setHelpText(
                 i18nc( "@info:status", "Create a new popup note" ) );
-    action->setWhatsThis(
+    act->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can add a new popup note." ) );
 
-    action = new KAction( KIcon( QLatin1String("document-edit") ),
+    mNoteEdit = new KAction( KIcon( QLatin1String("document-edit") ),
                           i18nc( "@action:inmenu", "Edit..." ), this );
-    actionCollection()->addAction( QLatin1String("edit_note"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(editNote()) );
-    action->setHelpText(
+    actionCollection()->addAction( QLatin1String("edit_note"), mNoteEdit );
+    connect( mNoteEdit, SIGNAL(triggered(bool)), SLOT(editNote()) );
+    mNoteEdit->setHelpText(
                 i18nc( "@info:status", "Edit popup note" ) );
-    action->setWhatsThis(
+    mNoteEdit->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can modify an existing popup note." ) );
 
-    action = new KAction( KIcon( QLatin1String("edit-rename") ),
+    mNoteRename = new KAction( KIcon( QLatin1String("edit-rename") ),
                           i18nc( "@action:inmenu", "Rename..." ), this );
-    actionCollection()->addAction( QLatin1String("edit_rename"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(renameNote()) );
-    action->setHelpText(
+    actionCollection()->addAction( QLatin1String("edit_rename"), mNoteRename );
+    connect( mNoteRename, SIGNAL(triggered(bool)), SLOT(renameNote()) );
+    mNoteRename->setHelpText(
                 i18nc( "@info:status", "Rename popup note" ) );
-    action->setWhatsThis(
+    mNoteRename->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can rename an existing popup note." ) );
 
-    action = new KAction( KIcon( QLatin1String("edit-delete") ),
+    mNoteDelete = new KAction( KIcon( QLatin1String("edit-delete") ),
                           i18nc( "@action:inmenu", "Delete" ), this );
-    actionCollection()->addAction( QLatin1String("edit_delete"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(killSelectedNotes()) );
-    action->setShortcut( QKeySequence( Qt::Key_Delete ) );
-    action->setHelpText(
+    actionCollection()->addAction( QLatin1String("edit_delete"), mNoteDelete );
+    connect( mNoteDelete, SIGNAL(triggered(bool)), SLOT(killSelectedNotes()) );
+    mNoteDelete->setShortcut( QKeySequence( Qt::Key_Delete ) );
+    mNoteDelete->setHelpText(
                 i18nc( "@info:status", "Delete popup note" ) );
-    action->setWhatsThis(
+    mNoteDelete->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "You will be prompted if you really want to permanently remove "
                        "the selected popup note." ) );
 
-    action = new KAction( KIcon( QLatin1String("document-print") ),
+    mNotePrint = new KAction( KIcon( QLatin1String("document-print") ),
                           i18nc( "@action:inmenu", "Print Selected Notes..." ), this );
-    actionCollection()->addAction( QLatin1String("print_note"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotPrintSelectedNotes()) );
-    action->setHelpText(
+    actionCollection()->addAction( QLatin1String("print_note"), mNotePrint );
+    connect( mNotePrint, SIGNAL(triggered(bool)), SLOT(slotPrintSelectedNotes()) );
+    mNotePrint->setHelpText(
                 i18nc( "@info:status", "Print popup note" ) );
-    action->setWhatsThis(
+    mNotePrint->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "You will be prompted to print the selected popup note." ) );
 
     if(KPrintPreview::isAvailable()) {
 
-        action = new KAction( KIcon( QLatin1String("document-print-preview") ),i18nc( "@action:inmenu", "Print Preview Selected Notes..." ), this );
-        actionCollection()->addAction( QLatin1String("print_preview_note"), action );
+        mNotePrintPreview = new KAction( KIcon( QLatin1String("document-print-preview") ),i18nc( "@action:inmenu", "Print Preview Selected Notes..." ), this );
+        actionCollection()->addAction( QLatin1String("print_preview_note"), mNotePrintPreview );
 
-        connect( action, SIGNAL(triggered(bool)), SLOT(slotPrintPreviewSelectedNotes()) );
+        connect( mNotePrintPreview, SIGNAL(triggered(bool)), SLOT(slotPrintPreviewSelectedNotes()) );
     }
 
-    action  = new KAction( KIcon( QLatin1String("configure") ), i18n( "Note settings..." ), this );
-    actionCollection()->addAction( QLatin1String("configure_note"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotNotePreferences()) );
+    mNoteConfigure  = new KAction( KIcon( QLatin1String("configure") ), i18n( "Note settings..." ), this );
+    actionCollection()->addAction( QLatin1String("configure_note"), mNoteConfigure );
+    connect( mNoteConfigure, SIGNAL(triggered(bool)), SLOT(slotNotePreferences()) );
 
-    action  = new KAction( KIcon( QLatin1String("configure") ), i18n( "Preferences KNotes..." ), this );
-    actionCollection()->addAction( QLatin1String("knotes_configure"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
+    act  = new KAction( KIcon( QLatin1String("configure") ), i18n( "Preferences KNotes..." ), this );
+    actionCollection()->addAction( QLatin1String("knotes_configure"), act );
+    connect( act, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
-    action  = new KAction( KIcon( QLatin1String("mail-send") ), i18n( "Mail..." ), this );
-    actionCollection()->addAction( QLatin1String("mail_note"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotMail()) );
+    mNoteSendMail = new KAction( KIcon( QLatin1String("mail-send") ), i18n( "Mail..." ), this );
+    actionCollection()->addAction( QLatin1String("mail_note"), mNoteSendMail );
+    connect( mNoteSendMail, SIGNAL(triggered(bool)), SLOT(slotMail()) );
 
-    action  = new KAction( KIcon( QLatin1String("network-wired") ), i18n( "Send..." ), this );
-    actionCollection()->addAction( QLatin1String("send_note"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotSendToNetwork()) );
+    mNoteSendNetwork  = new KAction( KIcon( QLatin1String("network-wired") ), i18n( "Send..." ), this );
+    actionCollection()->addAction( QLatin1String("send_note"), mNoteSendNetwork );
+    connect( mNoteSendNetwork, SIGNAL(triggered(bool)), SLOT(slotSendToNetwork()) );
 
-    action  = new KAction( KIcon( QLatin1String("knotes_alarm") ), i18n( "Set Alarm..." ), this );
-    actionCollection()->addAction( QLatin1String("set_alarm"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotSetAlarm()) );
+    mNoteSetAlarm  = new KAction( KIcon( QLatin1String("knotes_alarm") ), i18n( "Set Alarm..." ), this );
+    actionCollection()->addAction( QLatin1String("set_alarm"), mNoteSetAlarm );
+    connect( mNoteSetAlarm, SIGNAL(triggered(bool)), SLOT(slotSetAlarm()) );
 
-    action  = new KAction( KIcon( QLatin1String("edit-paste") ),
+    act  = new KAction( KIcon( QLatin1String("edit-paste") ),
                            i18n( "New Note From Clipboard" ), this );
-    actionCollection()->addAction( QLatin1String("new_note_clipboard"), action );
-    connect( action, SIGNAL(triggered()), SLOT(slotNewNoteFromClipboard()) );
+    actionCollection()->addAction( QLatin1String("new_note_clipboard"), act );
+    connect( act, SIGNAL(triggered()), SLOT(slotNewNoteFromClipboard()) );
 
 
 
@@ -524,23 +525,15 @@ void KNotesPart::renameNote()
 
 void KNotesPart::slotOnCurrentChanged( )
 {
-    QAction *renameAction = actionCollection()->action( QLatin1String("edit_rename") );
-    QAction *deleteAction = actionCollection()->action( QLatin1String("edit_delete") );
-    QAction *editAction = actionCollection()->action( QLatin1String("edit_note") );
-    QAction *configureAction = actionCollection()->action( QLatin1String("configure_note") );
-    QAction *sendMailAction = actionCollection()->action( QLatin1String("mail_note") );
-    QAction *sendToNetworkAction = actionCollection()->action( QLatin1String("send_note") );
-    QAction *setAlarmAction = actionCollection()->action( QLatin1String("set_alarm") );
-
     const bool uniqueNoteSelected = (mNotesWidget->notesView()->selectedItems().count() == 1);
     const bool enabled(mNotesWidget->notesView()->currentItem());
-    renameAction->setEnabled( enabled && uniqueNoteSelected);
-    deleteAction->setEnabled( enabled && uniqueNoteSelected);
-    editAction->setEnabled( enabled && uniqueNoteSelected);
-    configureAction->setEnabled( uniqueNoteSelected );
-    sendMailAction->setEnabled(uniqueNoteSelected);
-    sendToNetworkAction->setEnabled(uniqueNoteSelected);
-    setAlarmAction->setEnabled(uniqueNoteSelected);
+    mNoteRename->setEnabled( enabled && uniqueNoteSelected);
+    mNoteDelete->setEnabled( enabled && uniqueNoteSelected);
+    mNoteEdit->setEnabled( enabled && uniqueNoteSelected);
+    mNoteConfigure->setEnabled( uniqueNoteSelected );
+    mNoteSendMail->setEnabled(uniqueNoteSelected);
+    mNoteSendNetwork->setEnabled(uniqueNoteSelected);
+    mNoteSetAlarm->setEnabled(uniqueNoteSelected);
 }
 
 void KNotesPart::slotNotePreferences()

@@ -33,6 +33,7 @@ class KNotesIconViewItem;
 class KNotesResourceManager;
 class KNoteTip;
 class KNotesAlarm;
+class KAction;
 class QTcpServer;
 
 namespace DNSSD {
@@ -113,6 +114,15 @@ private:
     QTcpServer *mListener;
     DNSSD::PublicService *mPublisher;
     KNotesAlarm *mAlarm;
+    KAction *mNoteEdit;
+    KAction *mNoteRename;
+    KAction *mNoteDelete;
+    KAction *mNotePrint;
+    KAction *mNotePrintPreview;
+    KAction *mNoteConfigure;
+    KAction *mNoteSendMail;
+    KAction *mNoteSendNetwork;
+    KAction *mNoteSetAlarm;
 };
 
 #endif
