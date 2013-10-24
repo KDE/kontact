@@ -1,8 +1,10 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="knotes" version="405">
+<kpartgui name="knotes" version="406">
   <MenuBar>
     <Menu name="file"><text>&amp;File</text>
       <Merge/>
+      <Action name="new_note_clipboard"/>
+      <Separator/>
       <Action name="print_note"/>
       <Action name="print_preview_note"/>
     </Menu>

@@ -99,6 +99,7 @@ private slots:
     void slotConfigUpdated();
     void slotAcceptConnection();
     void slotSetAlarm();
+    void slotNewNoteFromClipboard();
 
 private:
     void updateNetworkListener();

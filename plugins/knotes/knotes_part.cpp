@@ -49,6 +49,7 @@ using namespace KCal;
 #include <KXMLGUIFactory>
 #include <KPrintPreview>
 #include <ksocketfactory.h>
+#include <KApplication>
 
 #include <QApplication>
 #include <QClipboard>
@@ -154,6 +155,12 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     action  = new KAction( KIcon( QLatin1String("knotes_alarm") ), i18n( "Set Alarm..." ), this );
     actionCollection()->addAction( QLatin1String("set_alarm"), action );
     connect( action, SIGNAL(triggered(bool)), SLOT(slotSetAlarm()) );
+
+    action  = new KAction( KIcon( QLatin1String("edit-paste") ),
+                           i18n( "New Note From Clipboard" ), this );
+    actionCollection()->addAction( QLatin1String("new_note_clipboard"), action );
+    connect( action, SIGNAL(triggered()), SLOT(slotNewNoteFromClipboard()) );
+
 
 
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
@@ -628,5 +635,10 @@ void KNotesPart::slotSetAlarm()
     delete dlg;
 }
 
+void KNotesPart::slotNewNoteFromClipboard()
+{
+    const QString &text = KApplication::clipboard()->text();
+    newNote( QString(), text );
+}
 
 #include "knotes_part.moc"
