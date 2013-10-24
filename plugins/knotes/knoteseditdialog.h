@@ -20,7 +20,6 @@
 
 #include <KDialog>
 #include <KXMLGUIClient>
-#include "knotes/knoteedit.h"
 
 class KNoteEdit;
 class KTextEdit;

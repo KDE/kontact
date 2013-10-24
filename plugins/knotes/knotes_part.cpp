@@ -197,6 +197,7 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
 
 KNotesPart::~KNotesPart()
 {
+    delete mNoteEditDlg;
     delete mListener;
     mListener=0;
     delete mPublisher;

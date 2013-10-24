@@ -16,6 +16,7 @@
 */
 
 #include "knoteseditdialog.h"
+#include "knotes/knoteedit.h"
 
 #include <KCal/Journal>
 using namespace KCal;
