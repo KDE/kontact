@@ -51,6 +51,7 @@ using namespace KCal;
 #include <ksocketfactory.h>
 #include <KApplication>
 #include <KFileDialog>
+#include <KToggleAction>
 
 #include <QApplication>
 #include <QClipboard>
@@ -165,6 +166,12 @@ KNotesPart::KNotesPart( KNotesResourceManager *manager, QObject *parent )
     mSaveAs  = new KAction( KIcon( QLatin1String("document-save-as") ), i18n( "Save As..." ), this );
     actionCollection()->addAction( QLatin1String("save_note"), mSaveAs );
     connect( mSaveAs, SIGNAL(triggered(bool)), SLOT(slotSaveAs()) );
+
+    mReadOnly  = new KToggleAction( KIcon( QLatin1String("object-locked") ), i18n( "Lock" ), this );
+    actionCollection()->addAction( QLatin1String("lock_note"), mReadOnly );
+    connect( mReadOnly, SIGNAL(triggered(bool)), SLOT(slotUpdateReadOnly()) );
+    mReadOnly->setCheckedState( KGuiItem( i18n( "Unlock" ), QLatin1String("object-unlocked") ) );
+
 
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -450,6 +457,7 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
             contextMenu->addAction(mSaveAs);
             contextMenu->addSeparator();
             contextMenu->addAction(mNoteEdit);
+            contextMenu->addAction(mReadOnly);
             contextMenu->addAction(mNoteRename);
             contextMenu->addSeparator();
             contextMenu->addAction(mNoteSendMail);
@@ -554,6 +562,10 @@ void KNotesPart::slotOnCurrentChanged( )
     mNoteSendNetwork->setEnabled(uniqueNoteSelected);
     mNoteSetAlarm->setEnabled(uniqueNoteSelected);
     mSaveAs->setEnabled(uniqueNoteSelected);
+    mReadOnly->setEnabled(uniqueNoteSelected);
+    if (uniqueNoteSelected) {
+        mReadOnly->setChecked(static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->selectedItems().at(0))->readOnly());
+    }
 }
 
 void KNotesPart::slotNotePreferences()
@@ -690,6 +702,11 @@ void KNotesPart::slotSaveAs()
         //TODO verify richtext
         stream<<knoteItem->journal()->description();
     }
+}
+
+void KNotesPart::slotUpdateReadOnly()
+{
+    //TODO
 }
 
 #include "knotes_part.moc"

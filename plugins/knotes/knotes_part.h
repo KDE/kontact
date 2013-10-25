@@ -34,6 +34,7 @@ class KNotesResourceManager;
 class KNoteTip;
 class KNotesAlarm;
 class KAction;
+class KToggleAction;
 class QTcpServer;
 
 namespace DNSSD {
@@ -102,6 +103,7 @@ private slots:
     void slotSetAlarm();
     void slotNewNoteFromClipboard();
     void slotSaveAs();
+    void slotUpdateReadOnly();
 
 private:
     void updateNetworkListener();
@@ -125,6 +127,7 @@ private:
     KAction *mNoteSetAlarm;
     KAction *mNewNote;
     KAction *mSaveAs;
+    KToggleAction *mReadOnly;
 };
 
 #endif
