@@ -120,7 +120,7 @@ const KAboutData *SummaryView::aboutData() const
       KDEPIM_VERSION,
       ki18n( "Kontact Summary View" ),
       KAboutData::License_LGPL,
-      ki18n( "(c) 2003 The Kontact developers" ) );
+      ki18n( "(c) 2003-2013 The Kontact developers" ) );
 
     mAboutData->addAuthor( ki18n( "Sven Lueppken" ),
                            KLocalizedString(), "sven@kde.org" );
