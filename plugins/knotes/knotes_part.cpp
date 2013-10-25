@@ -286,7 +286,7 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
 
     // Edit the new note if text is empty
     if ( text.isNull() ) {
-        QPointer<KNoteEditDialog> dlg = new KNoteEditDialog( widget() );
+        QPointer<KNoteEditDialog> dlg = new KNoteEditDialog( false, widget() );
 
         dlg->setTitle( journal->summary() );
         dlg->setText( journal->description() );
@@ -496,13 +496,11 @@ void KNotesPart::killNote( KCal::Journal *journal )
 
 void KNotesPart::editNote( QListWidgetItem *item )
 {
-    QPointer<KNoteEditDialog> dlg = new KNoteEditDialog( widget() );
     KNotesIconViewItem * knotesItem = static_cast<KNotesIconViewItem *>( item );
-
+    QPointer<KNoteEditDialog> dlg = new KNoteEditDialog( knotesItem->readOnly(), widget() );
     Journal *journal = knotesItem->journal();
     dlg->setTitle( journal->summary() );
     dlg->setText( journal->description() );
-    dlg->setReadOnly(knotesItem->readOnly());
 
     const QString property = journal->customProperty("KNotes", "RichText");
     if ( !property.isNull() ) {
