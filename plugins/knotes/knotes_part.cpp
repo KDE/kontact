@@ -421,11 +421,16 @@ void KNotesPart::killSelectedNotes()
 
     foreach ( QListWidgetItem *item, lst ) {
         KNotesIconViewItem *knivi = static_cast<KNotesIconViewItem *>( item );
-        items.append( knivi );
-        notes.append( knivi->realName() );
+        if (!knivi->readOnly()) {
+            items.append( knivi );
+            notes.append( knivi->realName() );
+        }
     }
 
-    int ret = KMessageBox::warningContinueCancelList(
+    if (items.isEmpty())
+        return;
+
+    const int ret = KMessageBox::warningContinueCancelList(
                 mNotesWidget,
                 i18ncp( "@info",
                         "Do you really want to delete this note?",
