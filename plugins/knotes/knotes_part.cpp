@@ -37,7 +37,7 @@
 #include "knotes/knotesglobalconfig.h"
 #include "knotes/configdialog/knotesimpleconfigdialog.h"
 #include "knoteutils.h"
-#include "alarms/knotealarmdlg.h"
+#include "alarms/knotealarmdialog.h"
 #include "alarms/knotesalarm.h"
 #include <KCal/Journal>
 using namespace KCal;
@@ -642,7 +642,7 @@ void KNotesPart::slotSetAlarm()
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
 
-    QPointer<KNoteAlarmDlg> dlg = new KNoteAlarmDlg( knoteItem->realName(), widget() );
+    QPointer<KNoteAlarmDialog> dlg = new KNoteAlarmDialog( knoteItem->realName(), widget() );
     dlg->setIncidence( knoteItem->journal() );
     if ( dlg->exec() ) {
         mManager->save();
