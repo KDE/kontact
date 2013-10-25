@@ -564,7 +564,7 @@ void KNotesPart::slotOnCurrentChanged( )
     mSaveAs->setEnabled(uniqueNoteSelected);
     mReadOnly->setEnabled(uniqueNoteSelected);
     if (uniqueNoteSelected) {
-        mReadOnly->setChecked(static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->selectedItems().at(0))->readOnly());
+        mReadOnly->setChecked(static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem())->readOnly());
     }
 }
 
@@ -706,7 +706,13 @@ void KNotesPart::slotSaveAs()
 
 void KNotesPart::slotUpdateReadOnly()
 {
-    //TODO
+    if (!mNotesWidget->notesView()->currentItem())
+        return;
+    KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
+
+    const bool readOnly = mReadOnly->isChecked();
+
+    knoteItem->setReadOnly( readOnly );
 }
 
 #include "knotes_part.moc"
