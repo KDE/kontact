@@ -30,16 +30,14 @@
 #include <KViewStateMaintainer>
 
 namespace Akonadi {
-  class EntityTreeModel;
-  class ChangeRecorder;
-  class ETMViewStateSaver;
+class ETMViewStateSaver;
 }
-class KRecursiveFilterProxyModel;
-class KCheckableProxyModel;
 
 class QCheckBox;
-class QTreeView;
-class QItemSelectionModel;
+
+namespace MailCommon {
+class CheckedCollectionWidget;
+}
 
 class KCMKMailSummary : public KCModule
 {
@@ -54,7 +52,6 @@ class KCMKMailSummary : public KCModule
 
   private slots:
     void modified();
-    void slotSetCollectionFilter(const QString &filter);
 
   private:
     void initGUI();
@@ -62,14 +59,9 @@ class KCMKMailSummary : public KCModule
     void loadFolders();
     void storeFolders();
 
-    QTreeView *mFolderView;
+    MailCommon::CheckedCollectionWidget *mCheckedCollectionWidget;
     QCheckBox *mFullPath;
-    QItemSelectionModel *mSelectionModel;
-    Akonadi::EntityTreeModel *mModel;
-    Akonadi::ChangeRecorder *mChangeRecorder;
-    KCheckableProxyModel *mCheckProxy;
     KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
-    KRecursiveFilterProxyModel *mCollectionFilter;
 };
 
 #endif
