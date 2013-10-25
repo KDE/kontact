@@ -2,6 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
+  Copyright (c) 2013 Laurent Montel <montel@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -28,6 +29,7 @@
 #include <Akonadi/ETMViewStateSaver>
 #include <Akonadi/ChangeRecorder>
 #include <Akonadi/CollectionFilterProxyModel>
+#include <KRecursiveFilterProxyModel>
 
 #include <KMime/KMimeMessage>
 
@@ -38,6 +40,7 @@
 #include <KDebug>
 #include <KDialog>
 #include <KLocale>
+#include <KLineEdit>
 
 #include <QCheckBox>
 #include <QTreeView>
@@ -87,6 +90,13 @@ void KCMKMailSummary::initGUI()
   layout->setSpacing( KDialog::spacingHint() );
   layout->setMargin( 0 );
 
+  KLineEdit *searchLine = new KLineEdit(this);
+  searchLine->setPlaceholderText(i18n("Search..."));
+  searchLine->setClearButtonShown(true);
+  connect(searchLine, SIGNAL(textChanged(QString)),
+          this, SLOT(slotSetCollectionFilter(QString)));
+
+
   mFolderView = new QTreeView( this );
   mFolderView->setEditTriggers( QAbstractItemView::NoEditTriggers );
   mFullPath = new QCheckBox( i18n( "Show full path for folders" ), this );
@@ -97,8 +107,15 @@ void KCMKMailSummary::initGUI()
            "Enable this option if you want to see the full path "
            "for each folder listed in the summary. If this option is "
            "not enabled, then only the base folder path will be shown." ) );
+  layout->addWidget(searchLine);
   layout->addWidget( mFolderView );
   layout->addWidget( mFullPath );
+}
+
+void KCMKMailSummary::slotSetCollectionFilter(const QString &filter)
+{
+    mCollectionFilter->setFilterWildcard(filter);
+    mFolderView->expandAll();
 }
 
 void KCMKMailSummary::initFolders()
@@ -122,7 +139,13 @@ void KCMKMailSummary::initFolders()
   mCheckProxy->setSelectionModel( mSelectionModel );
   mCheckProxy->setSourceModel( mimeTypeProxy );
 
-  mFolderView->setModel( mCheckProxy );
+  mCollectionFilter = new KRecursiveFilterProxyModel(this);
+  mCollectionFilter->setSourceModel(mCheckProxy);
+  mCollectionFilter->setDynamicSortFilter(true);
+  mCollectionFilter->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+
+  mFolderView->setModel( mCollectionFilter );
 
   KSharedConfigPtr _config = KSharedConfig::openConfig( QLatin1String("kcmkmailsummaryrc") );
 

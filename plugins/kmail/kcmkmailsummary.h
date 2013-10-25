@@ -2,6 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2004 Tobias Koenig <tokoe@kde.org>
+  Copyright (c) 2013 Laurent Montel <montel@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -33,7 +34,7 @@ namespace Akonadi {
   class ChangeRecorder;
   class ETMViewStateSaver;
 }
-
+class KRecursiveFilterProxyModel;
 class KCheckableProxyModel;
 
 class QCheckBox;
@@ -53,6 +54,7 @@ class KCMKMailSummary : public KCModule
 
   private slots:
     void modified();
+    void slotSetCollectionFilter(const QString &filter);
 
   private:
     void initGUI();
@@ -67,6 +69,7 @@ class KCMKMailSummary : public KCModule
     Akonadi::ChangeRecorder *mChangeRecorder;
     KCheckableProxyModel *mCheckProxy;
     KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
+    KRecursiveFilterProxyModel *mCollectionFilter;
 };
 
 #endif
