@@ -27,7 +27,7 @@
 #include "knotesiconview.h"
 #include "knoteswidget.h"
 #include "knotetip.h"
-#include "knotes/configdialog/knoteconfigdlg.h"
+#include "knotes/configdialog/knoteconfigdialog.h"
 #include "knotes/network/knotesnetrecv.h"
 #include "knotes/print/knoteprinter.h"
 #include "knotes/print/knoteprintobject.h"
@@ -582,7 +582,7 @@ void KNotesPart::slotApplyConfig()
 void KNotesPart::slotPreferences()
 {
     // create a new preferences dialog...
-    KNoteConfigDlg *dialog = new KNoteConfigDlg( i18n( "Settings" ), widget());
+    KNoteConfigDialog *dialog = new KNoteConfigDialog( i18n( "Settings" ), widget());
     connect( dialog, SIGNAL(configWrote()), this, SLOT(slotConfigUpdated()));
     dialog->show();
 }
