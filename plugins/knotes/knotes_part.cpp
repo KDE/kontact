@@ -570,7 +570,7 @@ void KNotesPart::slotOnCurrentChanged( )
     mSaveAs->setEnabled(uniqueNoteSelected);
     mReadOnly->setEnabled(uniqueNoteSelected);
     if (uniqueNoteSelected) {
-        const bool readOnly = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem())->readOnly();
+        const bool readOnly = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->selectedItems().at(0))->readOnly();
         mReadOnly->setChecked(readOnly);
         mNoteEdit->setText(readOnly ? i18n("Show Note...") : i18nc( "@action:inmenu", "Edit..." ));
     } else {
