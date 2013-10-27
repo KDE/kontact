@@ -67,10 +67,28 @@ KNotesSelectDeleteNotesDialog::KNotesSelectDeleteNotesDialog(const QList<KNotesI
     setMainWidget(w);
     mSelectedListWidget->setItems(items);
     setButtonText(Ok, KStandardGuiItem::del().text() );
+    readConfig();
 }
 
 KNotesSelectDeleteNotesDialog::~KNotesSelectDeleteNotesDialog()
 {
+    writeConfig();
+}
+
+void KNotesSelectDeleteNotesDialog::readConfig()
+{
+    KConfigGroup grp( KGlobal::config(), "KNotesSelectDeleteNotesDialog" );
+    const QSize size = grp.readEntry( "Size", QSize(300, 200) );
+    if ( size.isValid() ) {
+        resize( size );
+    }
+}
+
+void KNotesSelectDeleteNotesDialog::writeConfig()
+{
+    KConfigGroup grp( KGlobal::config(), "KNotesSelectDeleteNotesDialog" );
+    grp.writeEntry( "Size", size() );
+    grp.sync();
 }
 
 #include "knotesselectdeletenotesdialog.moc"

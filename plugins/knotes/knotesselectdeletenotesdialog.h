@@ -40,6 +40,8 @@ public:
     ~KNotesSelectDeleteNotesDialog();
 
 private:
+    void writeConfig();
+    void readConfig();
     KNotesSelectDeleteNotesListWidget *mSelectedListWidget;
 };
 
