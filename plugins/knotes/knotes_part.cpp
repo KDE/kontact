@@ -218,7 +218,7 @@ KNotesPart::~KNotesPart()
 
 void KNotesPart::requestToolTip( const QModelIndex &index )
 {
-    QRect m_itemRect = mNotesWidget->notesView()->visualRect( index );
+    const QRect m_itemRect = mNotesWidget->notesView()->visualRect( index );
     mNoteTip->setNote(
                 static_cast<KNotesIconViewItem *>( mNotesWidget->notesView()->itemAt( m_itemRect.topLeft() ) ) );
 }
@@ -541,9 +541,9 @@ void KNotesPart::renameNote()
 {
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
 
-    QString oldName = knoteItem->realName();
+    const QString oldName = knoteItem->realName();
     bool ok = false;
-    QString newName =
+    const QString newName =
             KInputDialog::getText( i18nc( "@title:window", "Rename Popup Note" ),
                                    i18nc( "@label:textbox", "New Name:" ),
                                    oldName, &ok, mNotesWidget );

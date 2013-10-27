@@ -203,7 +203,7 @@ void KNoteTip::reposition()
     }
 
     QRect rect = mView->visualItemRect( mNoteIVI );
-    QPoint off = mView->mapFromParent( mView->viewport()->mapToGlobal( QPoint( 0, 0 ) ) );
+    const QPoint off = mView->mapFromParent( mView->viewport()->mapToGlobal( QPoint( 0, 0 ) ) );
     rect.translate( off.x(), off.y() );
 
     QPoint pos = rect.center();

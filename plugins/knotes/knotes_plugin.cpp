@@ -53,7 +53,8 @@ using namespace KPIM;
 EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
 
 KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
-    : KontactInterface::Plugin( core, core, "knotes" ), mAboutData( 0 )
+    : KontactInterface::Plugin( core, core, "knotes" ),
+      mAboutData( 0 )
 {
     const bool needConvert = (KNotesGlobalConfig::self()->notesVersion()<1);
     if ( needConvert ) {
