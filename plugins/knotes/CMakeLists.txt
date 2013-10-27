@@ -16,6 +16,7 @@ set(kontact_knotesplugin_PART_SRCS
   knoteslistwidgetsearchline.cpp
   knoteswidget.cpp
   knoteseditdialog.cpp  
+  knotesselectdeletenotesdialog.cpp
 )
 
 qt4_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml knotes_part.h KNotesPart)

@@ -26,6 +26,7 @@
 #include "knotesadaptor.h"
 #include "knotesiconview.h"
 #include "knoteswidget.h"
+#include "knotesselectdeletenotesdialog.h"
 #include "knotetip.h"
 #include "knotes/configdialog/knoteconfigdialog.h"
 #include "knotes/network/knotesnetrecv.h"
@@ -57,6 +58,7 @@ using namespace KCal;
 #include <QClipboard>
 #include <QTcpServer>
 #include <QMenu>
+#include <QPointer>
 
 #include <dnssd/publicservice.h>
 
@@ -412,41 +414,35 @@ QMap<QString, QString> KNotesPart::notes() const
 
 void KNotesPart::killSelectedNotes()
 {
-    QList<QListWidgetItem *> lst = mNotesWidget->notesView()->selectedItems ();
+    QList<QListWidgetItem *> lst = mNotesWidget->notesView()->selectedItems();
     if ( lst.isEmpty() ) {
         return;
     }
-    QStringList notes;
     QList<KNotesIconViewItem*> items;
 
     foreach ( QListWidgetItem *item, lst ) {
         KNotesIconViewItem *knivi = static_cast<KNotesIconViewItem *>( item );
-        if (!knivi->readOnly()) {
-            items.append( knivi );
-            notes.append( knivi->realName() );
-        }
+        items.append( knivi );
     }
 
     if (items.isEmpty())
         return;
 
-    const int ret = KMessageBox::warningContinueCancelList(
-                mNotesWidget,
-                i18ncp( "@info",
-                        "Do you really want to delete this note?",
-                        "Do you really want to delete these %1 notes?", items.count() ),
-                notes, i18nc( "@title:window", "Confirm Delete" ),
-                KStandardGuiItem::del() );
-
-    if ( ret == KMessageBox::Continue ) {
+    QPointer<KNotesSelectDeleteNotesDialog> dlg = new KNotesSelectDeleteNotesDialog(items, widget());
+    if (dlg->exec()) {
         QListIterator<KNotesIconViewItem*> kniviIt( items );
         while ( kniviIt.hasNext() ) {
-            Journal *journal = kniviIt.next()->journal();
-            KNoteUtils::removeNote(journal, 0);
-            mManager->deleteNote( journal );
+            KNotesIconViewItem *iconViewIcon = kniviIt.next();
+            if (!iconViewIcon->readOnly()) {
+                Journal *journal = iconViewIcon->journal();
+                KNoteUtils::removeNote(journal, 0);
+                mManager->deleteNote( journal );
+            }
         }
         mManager->save();
     }
+
+    delete dlg;
 }
 
 void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos )
