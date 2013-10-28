@@ -84,6 +84,7 @@ PluginView::PluginView( QWidget *parent )
 {
   setColumnCount( 1 );
   setHeaderLabel( i18nc( "@title:column plugin name", "Summary Plugin Name" ) );
+  setRootIsDecorated(false);
 }
 
 PluginView::~PluginView()
