@@ -46,6 +46,9 @@ public:
 
     void setReadOnly(bool b);
 
+private slots:
+    void slotTextChanged(const QString &text);
+
 private:
     void init(bool readOnly);
     void readConfig();

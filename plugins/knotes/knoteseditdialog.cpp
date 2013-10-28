@@ -69,6 +69,8 @@ void KNoteEditDialog::init(bool readOnly)
     hbl->addWidget( label, 0 );
     mTitleEdit= new KLineEdit( page );
     mTitleEdit->setObjectName( QLatin1String("name") );
+    if (!readOnly)
+        connect(mTitleEdit, SIGNAL(textChanged(QString)), this, SLOT(slotTextChanged(QString)));
     hbl->addWidget( mTitleEdit, 1, Qt::AlignVCenter );
 
     //TODO customize it
@@ -143,6 +145,8 @@ QString KNoteEditDialog::title() const
 void KNoteEditDialog::setTitle( const QString &text )
 {
     mTitleEdit->setText( text );
+    if (mTitleEdit->isEnabled())
+        enableButtonOk(!text.isEmpty());
 }
 
 KNoteEdit *KNoteEditDialog::noteEdit() const
@@ -150,6 +154,10 @@ KNoteEdit *KNoteEditDialog::noteEdit() const
     return mNoteEdit;
 }
 
+void KNoteEditDialog::slotTextChanged(const QString &text)
+{
+     enableButtonOk(!text.isEmpty());
+}
 
 #include "knoteseditdialog.moc"
 
