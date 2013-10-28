@@ -44,7 +44,7 @@ public:
     QString realName() const;
     void setIconText( const QString &text );
     KNoteConfig *config();
-    void updateColor();
+    void updateSettings();
     bool readOnly() const;
     void setReadOnly(bool b);
     int tabSize() const;

@@ -598,7 +598,7 @@ void KNotesPart::slotNotePreferences()
 void KNotesPart::slotApplyConfig()
 {
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
-    knoteItem->updateColor();
+    knoteItem->updateSettings();
     mManager->save();
 }
 
