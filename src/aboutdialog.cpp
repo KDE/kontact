@@ -164,7 +164,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
       }
     }
 //krazy:excludeall=style (really need krazy conditional code sections)
-    text += QLatin1String("<br /><br />\
+    text += i18n("<br /><br />\
     <i>This Free Software product was improved as part of a commercial project:</i>\
     <h3>Credits</h3>\
     Project Kowi (March 2007 - )<br /><br />\
@@ -284,7 +284,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
   QPixmap pixmap = KIconLoader::global()->loadIcon( QLatin1String("help-about"),
                                                     KIconLoader::Desktop, 48 );
 
-  QString title = i18n( "%1 License", about->programName() );
+  const QString title = i18n( "%1 License", about->programName() );
 
   QFrame *topFrame = new QFrame();
   KPageWidgetItem *page = new KPageWidgetItem( topFrame, title );
