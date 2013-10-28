@@ -159,5 +159,20 @@ void KNoteEditDialog::slotTextChanged(const QString &text)
      enableButtonOk(!text.isEmpty());
 }
 
+void KNoteEditDialog::setTabSize(int size)
+{
+    mNoteEdit->setTabStop(size);
+}
+
+void KNoteEditDialog::setAutoIndentMode( bool newmode )
+{
+    mNoteEdit->setAutoIndentMode(newmode);
+}
+
+void KNoteEditDialog::setTextFont( const QFont &font )
+{
+    mNoteEdit->setTextFont(font);
+}
+
 #include "knoteseditdialog.moc"
 

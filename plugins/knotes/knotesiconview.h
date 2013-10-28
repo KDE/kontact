@@ -47,6 +47,11 @@ public:
     void updateColor();
     bool readOnly() const;
     void setReadOnly(bool b);
+    int tabSize() const;
+
+    bool autoIndent() const;
+
+    QFont textFont() const;
 
 private:
     Journal *mJournal;

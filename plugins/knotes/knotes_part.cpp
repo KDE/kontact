@@ -523,6 +523,9 @@ void KNotesPart::editNote( QListWidgetItem *item )
         KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
         dlg->setAcceptRichText( globalConfig->richText());
     }
+    dlg->setTabSize(knotesItem->tabSize());
+    dlg->setAutoIndentMode(knotesItem->autoIndent());
+    dlg->setTextFont(knotesItem->textFont());
 
     dlg->noteEdit()->setFocus();
     if ( dlg->exec() == QDialog::Accepted ) {

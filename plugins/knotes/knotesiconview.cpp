@@ -120,3 +120,18 @@ void KNotesIconViewItem::setReadOnly(bool b)
     mConfig->setReadOnly(b);
     mConfig->writeConfig();
 }
+
+int KNotesIconViewItem::tabSize() const
+{
+    return mConfig->tabSize();
+}
+
+bool KNotesIconViewItem::autoIndent() const
+{
+    return mConfig->autoIndent();
+}
+
+QFont KNotesIconViewItem::textFont() const
+{
+    return mConfig->font();
+}

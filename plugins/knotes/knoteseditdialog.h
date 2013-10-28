@@ -46,6 +46,12 @@ public:
 
     void setReadOnly(bool b);
 
+    void setTabSize(int size);
+
+    void setAutoIndentMode(bool newmode);
+
+    void setTextFont(const QFont &font);
+
 private slots:
     void slotTextChanged(const QString &text);
 
