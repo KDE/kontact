@@ -41,19 +41,19 @@ class CheckedCollectionWidget;
 
 class KCMKMailSummary : public KCModule
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     explicit KCMKMailSummary( const KComponentData &inst, QWidget *parent = 0 );
 
     virtual void load();
     virtual void save();
     virtual void defaults();
 
-  private slots:
+private slots:
     void modified();
 
-  private:
+private:
     void initGUI();
     void initFolders();
     void loadFolders();

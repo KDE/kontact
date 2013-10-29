@@ -2,6 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+  Copyright (c) 2013 Laurent Montel <montel@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -30,14 +31,14 @@
 #include <KViewStateMaintainer>
 
 namespace Akonadi {
-  class ChangeRecorder;
-  class Collection;
-  class EntityTreeModel;
-  class ETMViewStateSaver;
+class ChangeRecorder;
+class Collection;
+class EntityTreeModel;
+class ETMViewStateSaver;
 }
 
 namespace KontactInterface {
-  class Plugin;
+class Plugin;
 }
 
 class KCheckableProxyModel;
@@ -49,26 +50,26 @@ class QModelIndex;
 
 class SummaryWidget : public KontactInterface::Summary
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent );
 
     int summaryHeight() const { return 1; }
     QStringList configModules() const;
 
-  protected:
+protected:
     virtual bool eventFilter( QObject *obj, QEvent *e );
 
-  public slots:
+public slots:
     virtual void updateSummary( bool force );
 
-  private slots:
+private slots:
     void selectFolder( const QString & );
     void slotCollectionChanged( const Akonadi::Collection & );
     void slotRowInserted( const QModelIndex & parent, int start, int end );
 
-  private:
+private:
     void updateFolderList();
     void displayModel( const QModelIndex &, int &, const bool, QStringList );
 

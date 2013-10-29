@@ -1,7 +1,7 @@
 /*
   This file is part of Kontact.
 
-  Copyright (c) 2003 Kontact Developer <kde-pim@kde.org>
+  Copyright (c) 2003-2013 Kontact Developer <kde-pim@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -33,23 +33,23 @@
 class OrgKdeKmailKmailInterface;
 
 namespace KontactInterface {
-  class UniqueAppWatcher;
+class UniqueAppWatcher;
 }
 
 class KMailUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
-  public:
+public:
     explicit KMailUniqueAppHandler( KontactInterface::Plugin *plugin )
-      : KontactInterface::UniqueAppHandler( plugin ) {}
+        : KontactInterface::UniqueAppHandler( plugin ) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
 
 class KMailPlugin : public KontactInterface::Plugin
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     KMailPlugin( KontactInterface::Core *core, const QVariantList & );
     ~KMailPlugin();
 
@@ -62,18 +62,18 @@ class KMailPlugin : public KontactInterface::Plugin
     QStringList invisibleToolbarActions() const;
     virtual bool queryClose() const;
 
-  protected:
+protected:
     virtual KParts::ReadOnlyPart *createPart();
     void openComposer( const KUrl &attach = KUrl() );
     void openComposer( const QString &to );
     bool canDecodeMimeData( const QMimeData * ) const;
     void processDropEvent( QDropEvent * );
 
-  protected slots:
+protected slots:
     void slotNewMail();
     void slotSyncFolders();
 
-  private:
+private:
     OrgKdeKmailKmailInterface *m_instance;
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };
