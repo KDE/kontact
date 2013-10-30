@@ -16,7 +16,7 @@
 */
 
 #include "knotesiconview.h"
-#include "knoteutils.h"
+#include "utils/knoteutils.h"
 #include "knoteconfig.h"
 
 #include <KCal/Journal>
