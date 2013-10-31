@@ -65,6 +65,12 @@ KNotesIconViewItem::KNotesIconViewItem( QListWidget *parent, Journal *journal )
     setIconText( journal->summary() );
 }
 
+KNotesIconViewItem::~KNotesIconViewItem()
+{
+    delete mConfig;
+}
+
+
 void KNotesIconViewItem::updateSettings()
 {
     KNoteUtils::savePreferences(mJournal, mConfig);
@@ -80,11 +86,6 @@ void KNotesIconViewItem::updateSettings()
 Journal *KNotesIconViewItem::journal() const
 {
     return mJournal;
-}
-
-KNotesIconViewItem::~KNotesIconViewItem()
-{
-    delete mConfig;
 }
 
 KNoteConfig *KNotesIconViewItem::config()
