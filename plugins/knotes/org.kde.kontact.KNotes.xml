@@ -38,5 +38,8 @@
       <arg name="id" type="s" direction="in"/>
       <arg type="s" direction="out"/>
     </method>
+    <method name="notesList">
+      <arg type="as" direction="out"/>
+    </method>
   </interface>
 </node>

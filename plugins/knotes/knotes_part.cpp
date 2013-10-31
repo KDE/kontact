@@ -216,6 +216,18 @@ KNotesPart::~KNotesPart()
     mNoteTip = 0;
 }
 
+QStringList KNotesPart::notesList() const
+{
+    QStringList notes;
+
+    QHashIterator<QString, KNotesIconViewItem*> i(mNoteList);
+    while ( i.hasNext() ) {
+        i.next();
+        notes.append(i.value()->journal()->uid());
+    }
+    return notes;
+}
+
 void KNotesPart::requestToolTip( const QModelIndex &index )
 {
     const QRect m_itemRect = mNotesWidget->notesView()->visualRect( index );
