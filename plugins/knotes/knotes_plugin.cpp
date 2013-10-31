@@ -54,13 +54,16 @@ EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
 
 KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
     : KontactInterface::Plugin( core, core, "knotes" ),
-      mAboutData( 0 )
+      mAboutData( 0 ),
+      mNotesSummary( 0 )
 {
     const bool needConvert = (KNotesGlobalConfig::self()->notesVersion()<1);
     if ( needConvert ) {
         // clean up old config files
         KNotesLegacy::cleanUp();
     }
+
+    mCalendar = new CalendarLocal( QString::fromLatin1( "UTC" ) );
 
     mManager = new KNotesResourceManager();
     setComponentData( KontactPluginFactory::componentData() );
@@ -81,6 +84,10 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
     mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
       new KontactInterface::UniqueAppHandlerFactory<KNotesUniqueAppHandler>(), this );
 
+    QObject::connect( mManager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
+                      this, SLOT(addNote(KCal::Journal*)) );
+    QObject::connect( mManager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
+                      this, SLOT(removeNote(KCal::Journal*)) );
 }
 
 KNotesPlugin::~KNotesPlugin()
@@ -92,7 +99,6 @@ bool KNotesPlugin::isRunningStandalone() const
 {
     return mUniqueAppWatcher->isRunningStandalone();
 }
-
 
 QString KNotesPlugin::tipFile() const
 {
@@ -109,7 +115,8 @@ KParts::ReadOnlyPart *KNotesPlugin::createPart()
 
 KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
 {
-    return new KNotesSummaryWidget( mManager, this, parentWidget );
+    mNotesSummary = new KNotesSummaryWidget( mCalendar, this, parentWidget );
+    return mNotesSummary;
 }
 
 const KAboutData *KNotesPlugin::aboutData() const
@@ -223,6 +230,20 @@ void KNotesPlugin::slotNewNote()
     }
 }
 
+void KNotesPlugin::addNote( KCal::Journal *j )
+{
+    mCalendar->addJournal( j );
+    if (mNotesSummary)
+        mNotesSummary->updateSummary(true);
+}
+
+void KNotesPlugin::removeNote( KCal::Journal *j )
+{
+    mCalendar->deleteJournal( j );
+    if (mNotesSummary)
+        mNotesSummary->updateSummary(true);
+}
+
 void KNotesUniqueAppHandler::loadCommandLineOptions()
 {
     KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
@@ -235,6 +256,8 @@ int KNotesUniqueAppHandler::newInstance()
     (void)plugin()->part();
     return KontactInterface::UniqueAppHandler::newInstance();
 }
+
+
 
 
 #include "knotes_plugin.moc"

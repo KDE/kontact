@@ -26,7 +26,14 @@
 #include <KontactInterface/Plugin>
 #include <KontactInterface/UniqueAppHandler>
 
+namespace KCal {
+class CalendarLocal;
+class Journal;
+}
+using namespace KCal;
+
 class KNotesResourceManager;
+class KNotesSummaryWidget;
 
 class KNotesUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
@@ -56,16 +63,22 @@ public:
     bool canDecodeMimeData( const QMimeData *data ) const;
     void processDropEvent( QDropEvent * );
 
+
 protected:
     KParts::ReadOnlyPart *createPart();
 
 private slots:
     void slotNewNote();
+    void addNote( KCal::Journal *j );
+    void removeNote( KCal::Journal *j );
+
 
 private:
     mutable KAboutData *mAboutData;
     KNotesResourceManager *mManager;
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
+    CalendarLocal *mCalendar;
+    KNotesSummaryWidget *mNotesSummary;
 };
 
 #endif

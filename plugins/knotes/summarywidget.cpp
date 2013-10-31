@@ -24,7 +24,6 @@
 
 #include "summarywidget.h"
 #include "knotes_plugin.h"
-#include "knotes/resource/resourcemanager.h"
 
 #include <KCal/CalendarLocal>
 
@@ -40,10 +39,11 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-KNotesSummaryWidget::KNotesSummaryWidget(KNotesResourceManager *manager, KNotesPlugin *plugin, QWidget *parent )
+KNotesSummaryWidget::KNotesSummaryWidget(KCal::CalendarLocal *calendar, KNotesPlugin *plugin, QWidget *parent )
     : KontactInterface::Summary( parent ),
       mLayout( 0 ),
-      mPlugin( plugin )
+      mPlugin( plugin ),
+      mCalendar(calendar)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout( this );
     mainLayout->setSpacing( 3 );
@@ -60,12 +60,7 @@ KNotesSummaryWidget::KNotesSummaryWidget(KNotesResourceManager *manager, KNotesP
     KIconLoader loader( QLatin1String("knotes") );
 
     mPixmap = loader.loadIcon( QLatin1String("knotes"), KIconLoader::Small );
-    mCalendar = new CalendarLocal( QString::fromLatin1( "UTC" ) );
-
-    QObject::connect( manager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
-                      this, SLOT(addNote(KCal::Journal*)) );
-    QObject::connect( manager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
-                      this, SLOT(removeNote(KCal::Journal*)) );
+    updateView();
 }
 
 KNotesSummaryWidget::~KNotesSummaryWidget()
@@ -80,7 +75,7 @@ void KNotesSummaryWidget::updateSummary( bool force )
 
 void KNotesSummaryWidget::updateView()
 {
-    mNotes = mCalendar->journals();
+    const Journal::List notes = mCalendar->journals();
     QLabel *label = 0;
 
     Q_FOREACH ( label, mLabels ) {
@@ -89,9 +84,9 @@ void KNotesSummaryWidget::updateView()
     mLabels.clear();
     int counter = 0;
     Journal::List::ConstIterator it;
-    Journal::List::ConstIterator end(mNotes.constEnd());
-    if ( mNotes.count() ) {
-        for ( it = mNotes.constBegin(); it != end; ++it ) {
+    Journal::List::ConstIterator end(notes.constEnd());
+    if ( notes.count() ) {
+        for ( it = notes.constBegin(); it != end; ++it ) {
 
             // Fill Note Pixmap Field
             label = new QLabel( this );
@@ -154,18 +149,6 @@ bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent *e )
     }
 
     return KontactInterface::Summary::eventFilter( obj, e );
-}
-
-void KNotesSummaryWidget::addNote( KCal::Journal *j )
-{
-    mCalendar->addJournal( j );
-    updateView();
-}
-
-void KNotesSummaryWidget::removeNote( KCal::Journal *j )
-{
-    mCalendar->deleteJournal( j );
-    updateView();
 }
 
 #include "summarywidget.moc"

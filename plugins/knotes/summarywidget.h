@@ -34,7 +34,6 @@ class CalendarLocal;
 using namespace KCal;
 
 class KNotesPlugin;
-class KNotesResourceManager;
 class QGridLayout;
 class QLabel;
 
@@ -42,7 +41,7 @@ class KNotesSummaryWidget : public KontactInterface::Summary
 {
     Q_OBJECT
 public:
-    KNotesSummaryWidget(KNotesResourceManager *manager, KNotesPlugin *plugin, QWidget *parent );
+    KNotesSummaryWidget(KCal::CalendarLocal *calendar, KNotesPlugin *plugin, QWidget *parent );
     ~KNotesSummaryWidget();
 
     void updateSummary( bool force = false );
@@ -53,19 +52,14 @@ protected:
 protected slots:
     void urlClicked( const QString & );
     void updateView();
-    void addNote( KCal::Journal * );
-    void removeNote( KCal::Journal * );
 
 private:
-    CalendarLocal *mCalendar;
-    Journal::List mNotes;
-
     QGridLayout *mLayout;
 
     QList<QLabel *> mLabels;
     KNotesPlugin *mPlugin;
-    KNotesResourceManager *mManager;
     QPixmap mPixmap;
+    KCal::CalendarLocal *mCalendar;
 };
 
 #endif
