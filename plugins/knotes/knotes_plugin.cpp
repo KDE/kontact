@@ -78,18 +78,6 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
                        "You will be presented with a dialog where you can create a new popup note." ) );
     insertNewAction( action );
 
-    KAction *syncAction =
-            new KAction( KIcon( QLatin1String("view-refresh") ),
-                         i18nc( "@action:inmenu", "Sync Popup Notes" ), this );
-    actionCollection()->addAction( QLatin1String("knotes_sync"), syncAction );
-    connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncNotes()) );
-    syncAction->setHelpText(
-                i18nc( "@info:status", "Synchronize groupware notes" ) );
-    syncAction->setWhatsThis(
-                i18nc( "@info:whatsthis",
-                       "Choose this option to synchronize your groupware notes." ) );
-    insertSyncAction( syncAction );
-
     mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
       new KontactInterface::UniqueAppHandlerFactory<KNotesUniqueAppHandler>(), this );
 
@@ -233,18 +221,6 @@ void KNotesPlugin::slotNewNote()
     if ( part() ) {
         static_cast<KNotesPart *>( part() )->newNote();
     }
-}
-
-void KNotesPlugin::slotSyncNotes()
-{
-#if 0
-    QDBusMessage message = QDBusMessage::createMethodCall(
-                "org.kde.kmail", "/Groupware", "org.kde.kmail.groupware", "triggerSync" );
-    message << QString( "Note" );
-    QDBusConnection::sessionBus().send( message );
-#else
-    kWarning() << QLatin1String(" Need to port to AKONADI: KNotesPlugin::slotSyncNotes");
-#endif
 }
 
 void KNotesUniqueAppHandler::loadCommandLineOptions()

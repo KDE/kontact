@@ -61,7 +61,6 @@ protected:
 
 private slots:
     void slotNewNote();
-    void slotSyncNotes();
 
 private:
     mutable KAboutData *mAboutData;
