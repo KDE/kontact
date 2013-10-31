@@ -487,12 +487,6 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
     delete contextMenu;
 }
 
-void KNotesPart::mouseMoveOnListWidget( const QPoint & pos )
-{
-    QListWidgetItem *item = mNotesWidget->notesView()->itemAt( pos );
-    mNoteTip->setNote( dynamic_cast<KNotesIconViewItem *>( item ) );
-}
-
 // TODO: also with takeItem, clear(),
 
 // create and kill the icon view item corresponding to the note, edit the note
