@@ -483,7 +483,7 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
         contextMenu->addAction(mNotePrint);
         contextMenu->addAction(mNotePrintPreview);
 
-        if (uniqueNoteSelected) {
+        if (!readOnly) {
             contextMenu->addSeparator();
             contextMenu->addAction(mNoteConfigure);
         }
