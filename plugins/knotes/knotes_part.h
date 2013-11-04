@@ -26,7 +26,6 @@
 #include <KParts/ReadOnlyPart>
 #include <QListWidgetItem>
 
-class KNoteEditDialog;
 class KNotesIconView;
 class KNotesWidget;
 class KNotesIconViewItem;

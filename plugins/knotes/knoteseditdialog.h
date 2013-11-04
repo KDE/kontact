@@ -22,7 +22,6 @@
 #include <KXMLGUIClient>
 
 class KNoteEdit;
-class KTextEdit;
 class KToolBar;
 class KLineEdit;
 
