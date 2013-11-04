@@ -82,10 +82,10 @@ void KNotesSummaryWidget::updateView()
         label->deleteLater();
     }
     mLabels.clear();
-    int counter = 0;
     Journal::List::ConstIterator it;
     Journal::List::ConstIterator end(notes.constEnd());
     if ( notes.count() ) {
+        int counter = 0;
         for ( it = notes.constBegin(); it != end; ++it ) {
 
             // Fill Note Pixmap Field
