@@ -29,7 +29,6 @@ namespace KontactInterface {
   class Plugin;
 }
 
-class KActionCollection;
 
 namespace Kontact {
 
