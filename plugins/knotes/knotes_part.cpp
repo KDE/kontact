@@ -467,6 +467,10 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
         const bool uniqueNoteSelected = (mNotesWidget->notesView()->selectedItems().count() == 1);
         const bool readOnly = uniqueNoteSelected ? static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->selectedItems().at(0))->readOnly() : false;
         if (uniqueNoteSelected) {
+            if (!readOnly) {
+                contextMenu->addSeparator();
+                contextMenu->addAction(mNoteSetAlarm);
+            }
             contextMenu->addSeparator();
             contextMenu->addAction(mSaveAs);
             contextMenu->addSeparator();
@@ -486,8 +490,6 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
         if (!readOnly) {
             contextMenu->addSeparator();
             contextMenu->addAction(mNoteConfigure);
-        }
-        if (!readOnly) {
             contextMenu->addSeparator();
             contextMenu->addAction(mNoteDelete);
         }
