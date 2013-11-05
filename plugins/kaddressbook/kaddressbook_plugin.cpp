@@ -185,4 +185,3 @@ int KAddressBookUniqueAppHandler::newInstance()
 }
 
 
-#include "kaddressbook_plugin.moc"

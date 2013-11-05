@@ -64,4 +64,3 @@ void KontactConfigureDialog::slotOk()
   emitConfigChanged();
 }
 
-#include "kontactconfiguredialog.moc"

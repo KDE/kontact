@@ -298,4 +298,3 @@ void AboutDialog::addLicenseText( const KAboutData *about )
   topLayout->addWidget( textBrowser );
 }
 
-#include "aboutdialog.moc"

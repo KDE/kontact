@@ -238,4 +238,3 @@ bool KMailPlugin::queryClose() const
     return canClose;
 }
 
-#include "kmail_plugin.moc"

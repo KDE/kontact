@@ -738,4 +738,3 @@ void KNotesPart::slotUpdateReadOnly()
     knoteItem->setReadOnly( readOnly );
 }
 
-#include "knotes_part.moc"

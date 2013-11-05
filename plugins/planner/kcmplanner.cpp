@@ -254,4 +254,3 @@ const KAboutData *KCMPlanner::aboutData() const
   return about;
 }
 
-#include "kcmplanner.moc"

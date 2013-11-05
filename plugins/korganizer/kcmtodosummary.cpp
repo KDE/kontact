@@ -168,4 +168,3 @@ const KAboutData *KCMTodoSummary::aboutData() const
   return about;
 }
 
-#include "kcmtodosummary.moc"

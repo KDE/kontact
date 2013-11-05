@@ -151,4 +151,3 @@ bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent *e )
     return KontactInterface::Summary::eventFilter( obj, e );
 }
 
-#include "summarywidget.moc"

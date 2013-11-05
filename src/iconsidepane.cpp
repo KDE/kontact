@@ -543,6 +543,5 @@ void IconSidePane::resizeEvent( QResizeEvent *event )
   setMinimumWidth( mNavigator->sizeHint().width() );
 }
 
-#include "iconsidepane.moc"
 
 // vim: sw=2 sts=2 et tw=80

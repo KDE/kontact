@@ -155,4 +155,3 @@ void KCMKMailSummary::defaults()
     emit changed( true );
 }
 
-#include "kcmkmailsummary.moc"

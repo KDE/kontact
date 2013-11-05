@@ -260,4 +260,3 @@ int KNotesUniqueAppHandler::newInstance()
 
 
 
-#include "knotes_plugin.moc"

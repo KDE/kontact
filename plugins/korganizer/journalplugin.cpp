@@ -161,4 +161,3 @@ bool JournalPlugin::isRunningStandalone() const
   return mUniqueAppWatcher->isRunningStandalone();
 }
 
-#include "journalplugin.moc"

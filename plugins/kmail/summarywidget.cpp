@@ -250,4 +250,3 @@ QStringList SummaryWidget::configModules() const
     return QStringList()<<QLatin1String( "kcmkmailsummary.desktop" );
 }
 
-#include "summarywidget.moc"

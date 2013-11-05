@@ -137,4 +137,3 @@ int KtimetrackerUniqueAppHandler::newInstance()
   return KontactInterface::UniqueAppHandler::newInstance();
 }
 
-#include "ktimetracker_plugin.moc"

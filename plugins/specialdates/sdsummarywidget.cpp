@@ -750,4 +750,3 @@ QStringList SDSummaryWidget::configModules() const
   return QStringList() << QLatin1String("kcmsdsummary.desktop" );
 }
 
-#include "sdsummarywidget.moc"

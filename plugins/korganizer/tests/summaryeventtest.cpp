@@ -153,4 +153,3 @@ void SummaryEventTester::test_Multiday()
   qDeleteAll( events2 );
 }
 
-#include "summaryeventtest.moc"

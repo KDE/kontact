@@ -132,4 +132,3 @@ int KNodeUniqueAppHandler::newInstance()
   return 0;
 }
 
-#include "knode_plugin.moc"

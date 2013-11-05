@@ -1289,4 +1289,3 @@ void MainWindow::slotShowHideSideBar()
     }
 }
 
-#include "mainwindow.moc"

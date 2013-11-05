@@ -134,4 +134,3 @@ const KAboutData *SummaryView::aboutData() const
   return mAboutData;
 }
 
-#include "summaryview_plugin.moc"

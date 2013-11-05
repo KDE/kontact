@@ -44,4 +44,3 @@ void DropWidget::dropEvent( QDropEvent *event )
   emit summaryWidgetDropped( this, event->source(), alignment );
 }
 
-#include "dropwidget.moc"

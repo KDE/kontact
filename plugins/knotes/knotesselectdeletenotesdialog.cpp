@@ -91,5 +91,4 @@ void KNotesSelectDeleteNotesDialog::writeConfig()
     grp.sync();
 }
 
-#include "knotesselectdeletenotesdialog.moc"
 
