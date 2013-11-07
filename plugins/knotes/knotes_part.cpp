@@ -719,9 +719,11 @@ void KNotesPart::slotSaveAs()
 
     if ( file.open( QIODevice::WriteOnly ) ) {
         QTextStream stream( &file );
+        QTextDocument doc;
+        doc.setHtml(knoteItem->journal()->description());
         stream<<knoteItem->realName() + QLatin1Char('\n');
         //TODO verify richtext
-        stream<<knoteItem->journal()->description();
+        stream<<doc.toPlainText();
     }
 }
 
