@@ -137,3 +137,9 @@ QFont KNotesIconViewItem::textFont() const
 {
     return mConfig->font();
 }
+
+bool KNotesIconViewItem::isRichText() const
+{
+    const QString property = mJournal->customProperty("KNotes", "RichText");
+    return (property == QLatin1String("true") ? true : false );
+}
