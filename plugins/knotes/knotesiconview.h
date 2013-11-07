@@ -50,6 +50,7 @@ public:
     int tabSize() const;
 
     bool autoIndent() const;
+    bool isRichText() const;
 
     QFont textFont() const;
 
