@@ -130,15 +130,16 @@ const KAboutData *KNotesPlugin::aboutData() const
                                 KAboutData::License_GPL_V2,
                                 ki18nc( "@info:credit", "Copyright © 2003–2013 Kontact authors" ) );
 
-        mAboutData->addAuthor( ki18nc( "@info:credit", "Michael Brade" ),
+        mAboutData->addAuthor( ki18nc( "@info:credit", "Laurent Montel" ),
                                ki18nc( "@info:credit", "Current Maintainer" ),
+                               "montel@kde.org" );
+ 
+        mAboutData->addAuthor( ki18nc( "@info:credit", "Michael Brade" ),
+                               ki18nc( "@info:credit", "Previous Maintainer" ),
                                "brade@kde.org" );
         mAboutData->addAuthor( ki18nc( "@info:credit", "Tobias Koenig" ),
                                ki18nc( "@info:credit", "Developer" ),
                                "tokoe@kde.org" );
-        mAboutData->addAuthor( ki18nc( "@info:credit", "Laurent Montel" ),
-                               ki18nc( "@info:credit", "Developer" ),
-                               "montel@kde.org" );
     }
 
     return mAboutData;
