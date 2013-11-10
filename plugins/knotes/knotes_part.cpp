@@ -29,7 +29,7 @@
 #include "knotesselectdeletenotesdialog.h"
 #include "knotetip.h"
 #include "knotes/configdialog/knoteconfigdialog.h"
-#include "knotes/network/knotesnetrecv.h"
+#include "noteshared/network/notesnetworkreceiver.h"
 #include "knotes/print/knoteprinter.h"
 #include "knotes/print/knoteprintobject.h"
 #include "knotes/print/knoteprintselectthemedialog.h"
@@ -663,8 +663,8 @@ void KNotesPart::slotAcceptConnection()
     QTcpSocket *s = mListener->nextPendingConnection();
 
     if ( s ) {
-        KNotesNetworkReceiver *recv = new KNotesNetworkReceiver( s );
-        connect( recv,SIGNAL(sigNoteReceived(QString,QString)), SLOT(newNote(QString,QString)) );
+        NoteShared::NotesNetworkReceiver *recv = new NoteShared::NotesNetworkReceiver( s );
+        connect( recv,SIGNAL(noteReceived(QString,QString)), SLOT(newNote(QString,QString)) );
     }
 }
 
