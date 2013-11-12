@@ -22,6 +22,8 @@
 */
 
 #include "knotes_part.h"
+#include "notesharedglobalconfig.h"
+#include "noteshared/noteutils.h"
 #include "knoteseditdialog.h"
 #include "knotesadaptor.h"
 #include "knotesiconview.h"
@@ -629,7 +631,7 @@ void KNotesPart::slotMail()
     if (!mNotesWidget->notesView()->currentItem())
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
-    KNoteUtils::sendMail(widget(),knoteItem->realName(), knoteItem->journal()->description());
+    NoteShared::NoteUtils::sendToMail(widget(),knoteItem->realName(), knoteItem->journal()->description());
 }
 
 void KNotesPart::slotSendToNetwork()
@@ -647,12 +649,12 @@ void KNotesPart::updateNetworkListener()
     delete mPublisher;
     mPublisher=0;
 
-    if ( KNotesGlobalConfig::receiveNotes() ) {
+    if ( NoteSharedGlobalConfig::receiveNotes() ) {
         // create the socket and start listening for connections
         mListener = KSocketFactory::listen( QLatin1String("knotes") , QHostAddress::Any,
-                                           KNotesGlobalConfig::port() );
+                                           NoteSharedGlobalConfig::port() );
         connect( mListener, SIGNAL(newConnection()), SLOT(slotAcceptConnection()) );
-        mPublisher=new DNSSD::PublicService(KNotesGlobalConfig::senderID(), QLatin1String("_knotes._tcp"), KNotesGlobalConfig::port());
+        mPublisher=new DNSSD::PublicService(NoteSharedGlobalConfig::senderID(), QLatin1String("_knotes._tcp"), NoteSharedGlobalConfig::port());
         mPublisher->publishAsync();
     }
 }
