@@ -639,7 +639,7 @@ void KNotesPart::slotSendToNetwork()
     if (!mNotesWidget->notesView()->currentItem())
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
-    KNoteUtils::sendToNetwork(widget(),knoteItem->realName(), knoteItem->journal()->description());
+    NoteShared::NoteUtils::sendToNetwork(widget(),knoteItem->realName(), knoteItem->journal()->description());
 }
 
 void KNotesPart::updateNetworkListener()
