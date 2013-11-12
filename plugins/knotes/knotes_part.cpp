@@ -649,12 +649,12 @@ void KNotesPart::updateNetworkListener()
     delete mPublisher;
     mPublisher=0;
 
-    if ( NoteSharedGlobalConfig::receiveNotes() ) {
+    if ( NoteShared::NoteSharedGlobalConfig::receiveNotes() ) {
         // create the socket and start listening for connections
         mListener = KSocketFactory::listen( QLatin1String("knotes") , QHostAddress::Any,
-                                           NoteSharedGlobalConfig::port() );
+                                           NoteShared::NoteSharedGlobalConfig::port() );
         connect( mListener, SIGNAL(newConnection()), SLOT(slotAcceptConnection()) );
-        mPublisher=new DNSSD::PublicService(NoteSharedGlobalConfig::senderID(), QLatin1String("_knotes._tcp"), NoteSharedGlobalConfig::port());
+        mPublisher=new DNSSD::PublicService(NoteShared::NoteSharedGlobalConfig::senderID(), QLatin1String("_knotes._tcp"), NoteShared::NoteSharedGlobalConfig::port());
         mPublisher->publishAsync();
     }
 }
