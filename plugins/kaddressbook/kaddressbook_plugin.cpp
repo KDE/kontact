@@ -20,6 +20,7 @@
 
 #include "kaddressbook_plugin.h"
 #include "kaddressbook_options.h"
+#include "kaddressbookinterface.h"
 
 #include <KontactInterface/Core>
 
@@ -31,6 +32,7 @@
 
 #include <QDBusConnection>
 #include <QDBusMessage>
+#include <QDBusReply>
 
 EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kaddressbook )
 
@@ -182,6 +184,8 @@ int KAddressBookUniqueAppHandler::newInstance()
     kDebug() ;
     // Ensure part is loaded
     (void)plugin()->part();
+    org::kde::kaddressbook kaddressbook( QLatin1String("org.kde.kaddressbook"), QLatin1String("/KAddressBook"), QDBusConnection::sessionBus() );
+    QDBusReply<bool> reply = kaddressbook.handleCommandLine();
     return KontactInterface::UniqueAppHandler::newInstance();
 }
 
