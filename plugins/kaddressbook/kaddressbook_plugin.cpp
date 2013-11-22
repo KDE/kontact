@@ -19,6 +19,7 @@
 */
 
 #include "kaddressbook_plugin.h"
+#include "kaddressbook_options.h"
 
 #include <KontactInterface/Core>
 
@@ -173,7 +174,7 @@ void KAddressBookPlugin::slotSyncContacts()
 
 void KAddressBookUniqueAppHandler::loadCommandLineOptions()
 {
-  KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
+  KCmdLineArgs::addCmdLineOptions( kaddressbook_options() );
 }
 
 int KAddressBookUniqueAppHandler::newInstance()
