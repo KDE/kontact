@@ -1,0 +1,16 @@
+[Desktop Entry]
+Icon=knotes
+Type=Service
+X-KDE-ServiceTypes=KCModule
+
+X-KDE-ModuleType=Library
+X-KDE-Library=kcm_knotessummary
+X-KDE-FactoryName=knotessummary
+X-KDE-ParentApp=kontact_summaryplugin
+X-KDE-ParentComponents=kontact_summaryplugin
+X-KDE-CfgDlgHierarchy=KontactSummary
+X-KDE-Weight=200
+
+Name=New Notes
+Comment=Notes Summary Setup
+X-KDE-Keywords=notes, summary, configure, settings
