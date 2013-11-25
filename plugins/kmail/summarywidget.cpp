@@ -138,10 +138,10 @@ void SummaryWidget::displayModel( const QModelIndex &parent,
     const int nbCol = mModelProxy->rowCount( parent );
     for ( int i = 0; i < nbCol; ++i ) {
         const QModelIndex child = mModelProxy->index( i, 0, parent );
-        Akonadi::Collection col =
+        const Akonadi::Collection col =
                 mModelProxy->data( child,
                                    Akonadi::EntityTreeModel::CollectionRole ).value<Akonadi::Collection>();
-        int showCollection =
+        const int showCollection =
                 mModelProxy->data( child, Qt::CheckStateRole ).value<int>();
 
         if ( col.isValid() ) {
