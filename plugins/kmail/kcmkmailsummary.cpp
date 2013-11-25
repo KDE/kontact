@@ -27,12 +27,7 @@
 
 #include "mailcommon/folderdialog/checkedcollectionwidget.h"
 
-#include <Akonadi/EntityTreeModel>
 #include <Akonadi/ETMViewStateSaver>
-#include <Akonadi/ChangeRecorder>
-#include <Akonadi/CollectionFilterProxyModel>
-#include <KRecursiveFilterProxyModel>
-
 #include <KMime/KMimeMessage>
 
 #include <KAboutData>
@@ -92,7 +87,7 @@ void KCMKMailSummary::initGUI()
     layout->setSpacing( KDialog::spacingHint() );
     layout->setMargin( 0 );
 
-    mCheckedCollectionWidget = new MailCommon::CheckedCollectionWidget;
+    mCheckedCollectionWidget = new MailCommon::CheckedCollectionWidget(KMime::Message::mimeType());
 
     mFullPath = new QCheckBox( i18n( "Show full path for folders" ), this );
     mFullPath->setToolTip(
