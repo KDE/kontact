@@ -94,15 +94,12 @@ void KCMKNotesSummary::initFolders()
 
 void KCMKNotesSummary::loadFolders()
 {
-    KConfig _config( QLatin1String("kcmknotessummaryrc") );
-    KConfigGroup config(&_config, "General" );
     mModelState->restoreState();
 }
 
 void KCMKNotesSummary::storeFolders()
 {
-    KConfig _config( QLatin1String("kcmknotessummaryrc") );
-    KConfigGroup config(&_config, "General" );
+    KConfig config( QLatin1String("kcmknotessummaryrc") );
     mModelState->saveState();
     config.sync();
 }
