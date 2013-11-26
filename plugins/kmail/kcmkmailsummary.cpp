@@ -25,7 +25,7 @@
 
 #include "kcmkmailsummary.h"
 
-#include "mailcommon/folderdialog/checkedcollectionwidget.h"
+#include "pimcommon/folderdialog/checkedcollectionwidget.h"
 
 #include <Akonadi/ETMViewStateSaver>
 #include <KMime/KMimeMessage>
@@ -87,7 +87,7 @@ void KCMKMailSummary::initGUI()
     layout->setSpacing( KDialog::spacingHint() );
     layout->setMargin( 0 );
 
-    mCheckedCollectionWidget = new MailCommon::CheckedCollectionWidget(KMime::Message::mimeType());
+    mCheckedCollectionWidget = new PimCommon::CheckedCollectionWidget(KMime::Message::mimeType());
 
     mFullPath = new QCheckBox( i18n( "Show full path for folders" ), this );
     mFullPath->setToolTip(

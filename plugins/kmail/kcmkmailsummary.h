@@ -35,7 +35,7 @@ class ETMViewStateSaver;
 
 class QCheckBox;
 
-namespace MailCommon {
+namespace PimCommon {
 class CheckedCollectionWidget;
 }
 
@@ -59,7 +59,7 @@ private:
     void loadFolders();
     void storeFolders();
 
-    MailCommon::CheckedCollectionWidget *mCheckedCollectionWidget;
+    PimCommon::CheckedCollectionWidget *mCheckedCollectionWidget;
     QCheckBox *mFullPath;
     KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
 };

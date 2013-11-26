@@ -39,7 +39,7 @@ set(kcm_knotessummary_PART_SRCS kcmknotessummary.cpp )
 kde4_add_plugin(kcm_knotessummary ${kcm_knotessummary_PART_SRCS})
 #add_dependencies(kcm_knotessummary kmail_xml)
 
-target_link_libraries(kcm_knotessummary ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KMIME_LIBS} ${KDEPIMLIBS_AKONADI_LIBS} akonadi_next mailcommon)
+target_link_libraries(kcm_knotessummary ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KMIME_LIBS} ${KDEPIMLIBS_AKONADI_LIBS} akonadi_next pimcommon)
 
 ########### install files ###############
 

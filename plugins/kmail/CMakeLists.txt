@@ -2,7 +2,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/kmail
   ${CMAKE_BINARY_DIR}/kmail
   ${CMAKE_SOURCE_DIR}/messageviewer
-  ${CMAKE_SOURCE_DIR}/mailcommon
+  ${CMAKE_SOURCE_DIR}/pimcommon
   ${Boost_INCLUDE_DIRS}
 )
 
@@ -26,7 +26,7 @@ set(kcm_kmailsummary_PART_SRCS kcmkmailsummary.cpp ${kontact_kmail_plugins_inter
 kde4_add_plugin(kcm_kmailsummary ${kcm_kmailsummary_PART_SRCS})
 add_dependencies(kcm_kmailsummary kmail_xml)
 
-target_link_libraries(kcm_kmailsummary ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KMIME_LIBS} ${KDEPIMLIBS_AKONADI_LIBS} akonadi_next mailcommon)
+target_link_libraries(kcm_kmailsummary ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KMIME_LIBS} ${KDEPIMLIBS_AKONADI_LIBS} akonadi_next pimcommon)
 
 ########### install files ###############
 

@@ -19,7 +19,7 @@
 
 #include "akonadi_next/note.h"
 
-#include "mailcommon/folderdialog/checkedcollectionwidget.h"
+#include "pimcommon/folderdialog/checkedcollectionwidget.h"
 
 #include <Akonadi/ETMViewStateSaver>
 
@@ -79,7 +79,7 @@ void KCMKNotesSummary::initGUI()
     layout->setSpacing( KDialog::spacingHint() );
     layout->setMargin( 0 );
 
-    mCheckedCollectionWidget = new MailCommon::CheckedCollectionWidget(Akonotes::Note::mimeType());
+    mCheckedCollectionWidget = new PimCommon::CheckedCollectionWidget(Akonotes::Note::mimeType());
     layout->addWidget( mCheckedCollectionWidget );
 }
 
