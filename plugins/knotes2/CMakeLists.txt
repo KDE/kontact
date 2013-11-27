@@ -16,17 +16,17 @@ include_directories(
 
 set(kontact_knotes2plugin_PART_SRCS 
   knotes_plugin.cpp
-  #knotes_part.cpp
+  knotes_part.cpp
   summarywidget.cpp
-  #../knotes/knotetip.cpp
+  knotetip.cpp
   #../knotes/knotesiconview.cpp
-  #../knotes/knoteslistwidgetsearchline.cpp
-  #../knotes/knoteswidget.cpp
+  knoteslistwidgetsearchline.cpp
+  ../knotes/knoteswidget.cpp
   #../knotes/knoteseditdialog.cpp  
   #../knotes/knotesselectdeletenotesdialog.cpp
 )
 
-#qt4_add_dbus_adaptor(kontact_knotes2plugin_PART_SRCS ../knotes/org.kde.kontact.KNotes.xml ../knotes/knotes_part.h KNotesPart)
+qt4_add_dbus_adaptor(kontact_knotes2plugin_PART_SRCS ../knotes/org.kde.kontact.KNotes.xml ../knotes/knotes_part.h KNotesPart)
 
 kde4_add_plugin(kontact_knotes2plugin ${kontact_knotes2plugin_PART_SRCS})
 

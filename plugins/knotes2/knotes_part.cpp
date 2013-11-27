@@ -26,7 +26,7 @@
 #include "noteshared/noteutils.h"
 #include "knoteseditdialog.h"
 #include "knotesadaptor.h"
-#include "knotesiconview.h"
+//#include "knotesiconview.h"
 #include "knoteswidget.h"
 #include "knotesselectdeletenotesdialog.h"
 #include "knotetip.h"
@@ -42,8 +42,6 @@
 #include "utils/knoteutils.h"
 #include "alarms/knotealarmdialog.h"
 #include "alarms/knotesalarm.h"
-#include <KCal/Journal>
-using namespace KCal;
 
 #include <KActionCollection>
 #include <KAction>
@@ -68,7 +66,7 @@ using namespace KCal;
 KNotesPart::KNotesPart( QObject *parent )
     : KParts::ReadOnlyPart( parent ),
       mNotesWidget( new KNotesWidget(this) ),
-      mNoteTip( new KNoteTip( mNotesWidget->notesView() ) ),
+      mNoteTip( new KNoteTip( /*mNotesWidget->notesView()*/0 ) ),
       mListener(0),
       mPublisher(0),
       mAlarm(0),
@@ -181,6 +179,7 @@ KNotesPart::KNotesPart( QObject *parent )
 
     // set the view up
 
+#if 0
     connect( mNotesWidget->notesView(), SIGNAL(executed(QListWidgetItem*)),
              this, SLOT(editNote(QListWidgetItem*)) );
 
@@ -192,7 +191,7 @@ KNotesPart::KNotesPart( QObject *parent )
 
     connect( mNotesWidget->notesView(), SIGNAL(itemSelectionChanged()),
              this, SLOT(slotOnCurrentChanged()) );
-
+#endif
     slotOnCurrentChanged();
 
     setWidget( mNotesWidget );
@@ -237,7 +236,7 @@ void KNotesPart::requestToolTip( const QModelIndex &index )
 
 void KNotesPart::hideToolTip()
 {
-    mNoteTip->setNote( 0 );
+    //FIXME mNoteTip->setNote( 0 );
 }
 
 void KNotesPart::slotPrintPreviewSelectedNotes()
@@ -252,6 +251,7 @@ void KNotesPart::slotPrintSelectedNotes()
 
 void KNotesPart::printSelectedNotes(bool preview)
 {
+#if 0
     QList<QListWidgetItem *> lst = mNotesWidget->notesView()->selectedItems();
     if ( lst.isEmpty() ) {
         KMessageBox::information(
@@ -272,7 +272,6 @@ void KNotesPart::printSelectedNotes(bool preview)
         delete dlg;
     }
     if (!printingTheme.isEmpty()) {
-#if 0
         QList<KNotePrintObject *> listPrintObj;
         foreach ( QListWidgetItem *item, lst ) {
             listPrintObj.append(new KNotePrintObject(static_cast<KNotesIconViewItem *>( item )->journal()));
@@ -280,8 +279,8 @@ void KNotesPart::printSelectedNotes(bool preview)
         KNotePrinter printer;
         printer.printNotes( listPrintObj, printingTheme, preview );
         qDeleteAll(listPrintObj);
-#endif
     }
+#endif
 }
 
 bool KNotesPart::openFile()
@@ -293,6 +292,7 @@ bool KNotesPart::openFile()
 
 QString KNotesPart::newNote( const QString &name, const QString &text )
 {
+#if 0
     // create the new note
     Journal *journal = new Journal();
 
@@ -342,6 +342,8 @@ QString KNotesPart::newNote( const QString &name, const QString &text )
     mNotesWidget->notesView()->setCurrentItem( note );
     //mManager->save();
     return journal->uid();
+#endif
+    return QString();
 }
 
 QString KNotesPart::newNoteFromClipboard( const QString &name )
@@ -377,12 +379,15 @@ void KNotesPart::killNote( const QString &id, bool force )
 
 QString KNotesPart::name( const QString &id ) const
 {
+#if 0
     KNotesIconViewItem *note = mNoteList.value( id );
     if ( note ) {
         return note->text();
     } else {
         return QString();
     }
+#endif
+    return QString();
 }
 
 QString KNotesPart::text( const QString &id ) const
@@ -473,6 +478,7 @@ void KNotesPart::killSelectedNotes()
 
 void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos )
 {
+#if 0
     Q_UNUSED( item );
 
     QMenu *contextMenu = new QMenu(widget());
@@ -513,6 +519,7 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
 
     contextMenu->exec( mNotesWidget->notesView()->mapFromParent( globalPos ) );
     delete contextMenu;
+#endif
 }
 
 // TODO: also with takeItem, clear(),
@@ -563,14 +570,17 @@ void KNotesPart::editNote( QListWidgetItem *item )
 
 void KNotesPart::editNote()
 {
+#if 0
     QListWidgetItem *item = mNotesWidget->notesView()->currentItem();
     if ( item ) {
         editNote( item );
     }
+#endif
 }
 
 void KNotesPart::renameNote()
 {
+#if 0
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
 
     const QString oldName = knoteItem->realName();
@@ -583,10 +593,12 @@ void KNotesPart::renameNote()
         knoteItem->setIconText( newName );
         //mManager->save();
     }
+#endif
 }
 
 void KNotesPart::slotOnCurrentChanged( )
 {
+#if 0
     const bool uniqueNoteSelected = (mNotesWidget->notesView()->selectedItems().count() == 1);
     const bool enabled(mNotesWidget->notesView()->currentItem());
     mNoteRename->setEnabled( enabled && uniqueNoteSelected);
@@ -604,16 +616,16 @@ void KNotesPart::slotOnCurrentChanged( )
     } else {
         mNoteEdit->setText(i18nc( "@action:inmenu", "Edit..." ));
     }
+#endif
 }
 
 void KNotesPart::slotNotePreferences()
 {
+#if 0
     if (!mNotesWidget->notesView()->currentItem())
         return;
-
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
     const QString name = knoteItem->realName();
-#if 0
     QPointer<KNoteSimpleConfigDialog> dialog = new KNoteSimpleConfigDialog( knoteItem->config(), name, widget(), knoteItem->journal()->uid() );
     connect( dialog, SIGNAL(settingsChanged(QString)) , this,
              SLOT(slotApplyConfig()) );
@@ -624,9 +636,11 @@ void KNotesPart::slotNotePreferences()
 
 void KNotesPart::slotApplyConfig()
 {
+#if 0
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
     knoteItem->updateSettings();
     //mManager->save();
+#endif
 }
 
 void KNotesPart::slotPreferences()
@@ -644,9 +658,9 @@ void KNotesPart::slotConfigUpdated()
 
 void KNotesPart::slotMail()
 {
+#if 0
     if (!mNotesWidget->notesView()->currentItem())
         return;
-#if 0
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
     NoteShared::NoteUtils::sendToMail(widget(),knoteItem->realName(), knoteItem->journal()->description());
 #endif
@@ -654,9 +668,9 @@ void KNotesPart::slotMail()
 
 void KNotesPart::slotSendToNetwork()
 {
+#if 0
     if (!mNotesWidget->notesView()->currentItem())
         return;
-#if 0
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
     NoteShared::NoteUtils::sendToNetwork(widget(),knoteItem->realName(), knoteItem->journal()->description());
 #endif
@@ -714,6 +728,7 @@ void KNotesPart::slotNewNoteFromClipboard()
 
 void KNotesPart::slotSaveAs()
 {
+#if 0
     if (!mNotesWidget->notesView()->currentItem())
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
@@ -759,10 +774,12 @@ void KNotesPart::slotSaveAs()
             stream << doc.toPlainText();
         }
     }
+#endif
 }
 
 void KNotesPart::slotUpdateReadOnly()
 {
+#if 0
     if (!mNotesWidget->notesView()->currentItem())
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
@@ -772,5 +789,6 @@ void KNotesPart::slotUpdateReadOnly()
     mNoteEdit->setText(readOnly ? i18n("Show Note...") : i18nc( "@action:inmenu", "Edit..." ));
 
     knoteItem->setReadOnly( readOnly );
+#endif
 }
 
