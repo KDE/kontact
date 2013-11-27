@@ -19,11 +19,11 @@ set(kontact_knotes2plugin_PART_SRCS
   knotes_part.cpp
   summarywidget.cpp
   knotetip.cpp
-  #../knotes/knotesiconview.cpp
+  knotesiconview.cpp
   knoteslistwidgetsearchline.cpp
   knoteswidget.cpp
   ../knotes/knoteseditdialog.cpp  
-  #../knotes/knotesselectdeletenotesdialog.cpp
+  knotesselectdeletenotesdialog.cpp
 )
 
 qt4_add_dbus_adaptor(kontact_knotes2plugin_PART_SRCS ../knotes/org.kde.kontact.KNotes.xml ../knotes/knotes_part.h KNotesPart)

@@ -132,7 +132,6 @@ KNotesPart::KNotesPart( QObject *parent )
                        "You will be prompted to print the selected popup note." ) );
 
     if(KPrintPreview::isAvailable()) {
-
         mNotePrintPreview = new KAction( KIcon( QLatin1String("document-print-preview") ),i18nc( "@action:inmenu", "Print Preview Selected Notes..." ), this );
         actionCollection()->addAction( QLatin1String("print_preview_note"), mNotePrintPreview );
 
