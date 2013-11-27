@@ -37,11 +37,10 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-KNotesSummaryWidget::KNotesSummaryWidget(KNotesPlugin *plugin, QWidget *parent )
+KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent )
     : KontactInterface::Summary( parent ),
       mLayout( 0 ),
-      mPlugin( plugin ),
-      mCalendar(calendar)
+      mPlugin( plugin )
 {
     QVBoxLayout *mainLayout = new QVBoxLayout( this );
     mainLayout->setSpacing( 3 );
@@ -73,6 +72,7 @@ void KNotesSummaryWidget::updateSummary( bool force )
 
 void KNotesSummaryWidget::updateView()
 {
+    /*
     const Journal::List notes = mCalendar->journals();
     QLabel *label = 0;
 
@@ -124,6 +124,7 @@ void KNotesSummaryWidget::updateView()
     Q_FOREACH ( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
         label->show();
     }
+    */
 }
 
 void KNotesSummaryWidget::urlClicked( const QString &/*uid*/ )

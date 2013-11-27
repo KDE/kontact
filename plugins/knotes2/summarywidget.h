@@ -25,21 +25,22 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <KCal/Journal>
 #include <KontactInterface/Summary>
 
-class KNotesPlugin;
 class QGridLayout;
 class QLabel;
-
+namespace KontactInterface {
+class Plugin;
+}
 class KNotesSummaryWidget : public KontactInterface::Summary
 {
     Q_OBJECT
 public:
-    KNotesSummaryWidget(KNotesPlugin *plugin, QWidget *parent );
+    KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent );
     ~KNotesSummaryWidget();
 
     void updateSummary( bool force = false );
+    QStringList configModules() const;
 
 protected:
     virtual bool eventFilter( QObject *obj, QEvent *e );
@@ -50,9 +51,8 @@ protected slots:
 
 private:
     QGridLayout *mLayout;
-
+    KontactInterface::Plugin *mPlugin;
     QList<QLabel *> mLabels;
-    KNotesPlugin *mPlugin;
     QPixmap mPixmap;
 };
 
