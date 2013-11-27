@@ -21,8 +21,8 @@ set(kontact_knotes2plugin_PART_SRCS
   knotetip.cpp
   #../knotes/knotesiconview.cpp
   knoteslistwidgetsearchline.cpp
-  ../knotes/knoteswidget.cpp
-  #../knotes/knoteseditdialog.cpp  
+  knoteswidget.cpp
+  ../knotes/knoteseditdialog.cpp  
   #../knotes/knotesselectdeletenotesdialog.cpp
 )
 
