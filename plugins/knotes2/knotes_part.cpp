@@ -35,7 +35,6 @@
 #include "knotes/print/knoteprinter.h"
 #include "knotes/print/knoteprintobject.h"
 #include "knotes/print/knoteprintselectthemedialog.h"
-#include "knotes/resource/resourcemanager.h"
 #include "knotes/knoteedit.h"
 #include "knotes/knotesglobalconfig.h"
 #include "knotes/configdialog/knotesimpleconfigdialog.h"

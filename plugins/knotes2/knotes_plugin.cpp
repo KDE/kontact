@@ -20,9 +20,8 @@
 
 #include "knotes_plugin.h"
 #include "knotes_part.h"
-#include "knotes/resource/resourcemanager.h"
+#include "knotes2/apps/knotes_options.h"
 #include "summarywidget.h"
-#include "migrations/knoteslegacy.h"
 #include "knotes/knotesglobalconfig.h"
 #include <KCalUtils/ICalDrag>
 #include <KCalUtils/VCalDrag>
@@ -163,11 +162,9 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
             }
         }
         event->accept();
-#if 0 //FIXME
         static_cast<KNotesPart *>( part() )->newNote(
                     i18nc( "@item", "Meeting" ), attendees.join( QLatin1String(", ") ) );
         return;
-#endif
     }
 #if 0
     if ( ICalDrag::canDecode( event->mimeData() ) ) {
@@ -186,11 +183,9 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
     }
 #endif
     if ( md->hasText() ) {
-#if 0 //FIXME
         static_cast<KNotesPart *>( part() )->newNote(
                     i18nc( "@item", "New Note" ), md->text() );
         return;
-#endif
     }
 
     if ( MailList::canDecode( md ) ) {
@@ -202,12 +197,10 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
                         i18nc( "@info", "Dropping multiple mails is not supported." ) );
         } else {
             MailSummary mail = mails.first();
-            QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
+            const QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
                                  mail.from(), mail.to(), mail.subject() );
-#if 0
             static_cast<KNotesPart *>( part() )->newNote(
                         i18nc( "@item", "Mail: %1", mail.subject() ), txt );
-#endif
         }
         return;
     }
@@ -219,16 +212,14 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
 
 void KNotesPlugin::slotNewNote()
 {
-#if 0 //FIXME
     if ( part() ) {
         static_cast<KNotesPart *>( part() )->newNote();
     }
-#endif
 }
 
 void KNotesUniqueAppHandler::loadCommandLineOptions()
 {
-    KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
+    KCmdLineArgs::addCmdLineOptions( knotesOptions() );
 }
 
 int KNotesUniqueAppHandler::newInstance()
