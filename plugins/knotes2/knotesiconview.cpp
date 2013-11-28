@@ -16,6 +16,7 @@
 */
 
 #include "knotesiconview.h"
+#include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "utils/knoteutils.h"
 
 #include <KIconEffect>
@@ -25,24 +26,30 @@
 #include <QMouseEvent>
 
 KNotesIconView::KNotesIconView( KNotesPart *part )
-    : KListWidget(),
+    : QListView(),
       m_part( part )
 {
     setViewMode( QListView::IconMode );
     setMovement( QListView::Static );
-    setSortingEnabled( true );
+    setModel(m_part->noteTreeModel());
+    //setSortingEnabled( true );
     setSelectionMode( QAbstractItemView::ExtendedSelection );
     setWordWrap( true );
     setMouseTracking ( true );
 }
 
+KNotesIconView::~KNotesIconView()
+{
+
+}
+
 void KNotesIconView::mousePressEvent( QMouseEvent *e )
 {
     if ( e->button() == Qt::RightButton ) {
-        QListWidget::mousePressEvent( e );
-        m_part->popupRMB( currentItem(), e->pos (), e->globalPos() );
+        QListView::mousePressEvent( e );
+        //m_part->popupRMB( currentItem(), e->pos (), e->globalPos() );
     } else {
-        KListWidget::mousePressEvent( e );
+        QListView::mousePressEvent( e );
     }
 }
 
@@ -140,3 +147,4 @@ bool KNotesIconViewItem::isRichText() const
     return (property == QLatin1String("true") ? true : false );
 }
 #endif
+#include "moc_knotesiconview.cpp"

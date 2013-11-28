@@ -25,6 +25,8 @@
 
 #include <KParts/ReadOnlyPart>
 #include <QListWidgetItem>
+#include <KViewStateMaintainer>
+
 
 class KNotesIconView;
 class KNotesWidget;
@@ -38,6 +40,17 @@ class QTcpServer;
 namespace DNSSD {
 class PublicService;
 }
+namespace Akonadi {
+class ChangeRecorder;
+class Collection;
+class EntityTreeModel;
+class ETMViewStateSaver;
+}
+namespace NoteShared {
+class NotesChangeRecorder;
+class NotesAkonadiTreeModel;
+}
+class KCheckableProxyModel;
 
 class KNotesPart : public KParts::ReadOnlyPart
 {
@@ -49,11 +62,14 @@ public:
 
     bool openFile();
 
+    NoteShared::NotesAkonadiTreeModel *noteTreeModel() const {return mNoteTreeModel;}
+
 public slots:
     QString newNote( const QString &name = QString(),
                      const QString &text = QString() );
     QString newNoteFromClipboard( const QString &name = QString() );
     QStringList notesList() const;
+
 
 public:
     void killNote( const QString &id );
@@ -117,6 +133,11 @@ private:
     KAction *mNewNote;
     KAction *mSaveAs;
     KToggleAction *mReadOnly;
+    NoteShared::NotesChangeRecorder *mNoteRecorder;
+    NoteShared::NotesAkonadiTreeModel *mNoteTreeModel;
+    QItemSelectionModel *mSelectionModel;
+    KCheckableProxyModel *mModelProxy;
+    KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
 };
 
 #endif

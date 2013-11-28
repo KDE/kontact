@@ -42,6 +42,15 @@
 #include "alarms/knotealarmdialog.h"
 #include "alarms/knotesalarm.h"
 
+#include "noteshared/akonadi/notesakonaditreemodel.h"
+#include "noteshared/akonadi/noteschangerecorder.h"
+
+#include <Akonadi/Session>
+#include <Akonadi/ChangeRecorder>
+#include <Akonadi/ETMViewStateSaver>
+#include <KCheckableProxyModel>
+
+
 #include <KActionCollection>
 #include <KAction>
 #include <KInputDialog>
@@ -171,6 +180,37 @@ KNotesPart::KNotesPart( QObject *parent )
     actionCollection()->addAction( QLatin1String("lock_note"), mReadOnly );
     connect( mReadOnly, SIGNAL(triggered(bool)), SLOT(slotUpdateReadOnly()) );
     mReadOnly->setCheckedState( KGuiItem( i18n( "Unlock" ), QLatin1String("object-unlocked") ) );
+
+
+    Akonadi::Session *session = new Akonadi::Session( "KNotes Session", this );
+    mNoteRecorder = new NoteShared::NotesChangeRecorder(this);
+    mNoteRecorder->changeRecorder()->setSession(session);
+    mNoteTreeModel = new NoteShared::NotesAkonadiTreeModel(mNoteRecorder->changeRecorder(), this);
+
+    connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
+             SLOT(slotRowInserted(QModelIndex,int,int)));
+
+    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemChanged(Akonadi::Item,QSet<QByteArray>)), SLOT(slotItemChanged(Akonadi::Item,QSet<QByteArray>)));
+    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemRemoved(Akonadi::Item)), SLOT(slotItemRemoved(Akonadi::Item)) );
+
+    mSelectionModel = new QItemSelectionModel( mNoteTreeModel );
+    mModelProxy = new KCheckableProxyModel( this );
+    mModelProxy->setSelectionModel( mSelectionModel );
+    mModelProxy->setSourceModel( mNoteTreeModel );
+
+    KSharedConfigPtr _config = KSharedConfig::openConfig( QLatin1String("kcmknotessummaryrc") );
+
+    mModelState =
+            new KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
+    mModelState->setSelectionModel( mSelectionModel );
+
+    connect( mNoteRecorder, SIGNAL(collectionChanged(Akonadi::Collection)),
+             SLOT(slotCollectionChanged(Akonadi::Collection)) );
+    connect( mNoteRecorder, SIGNAL(collectionRemoved(Akonadi::Collection)),
+             SLOT(slotCollectionChanged(Akonadi::Collection)) );
+
+    connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
+             SLOT(slotRowInserted(QModelIndex,int,int)));
 
 
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
