@@ -97,7 +97,7 @@ QString KNotesPlugin::tipFile() const
 
 KParts::ReadOnlyPart *KNotesPlugin::createPart()
 {
-    return 0;//FIXME new KNotesPart( this );
+    return new KNotesPart( this );
 }
 
 KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )

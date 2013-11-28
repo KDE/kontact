@@ -73,12 +73,13 @@
 
 KNotesPart::KNotesPart( QObject *parent )
     : KParts::ReadOnlyPart( parent ),
-      mNotesWidget( new KNotesWidget(this) ),
+      mNotesWidget( 0 ) ,
       mNoteTip( new KNoteTip( /*mNotesWidget->notesView()*/0 ) ),
       mListener(0),
       mPublisher(0),
       mAlarm(0),
-      mNotePrintPreview(0)
+      mNotePrintPreview(0),
+      mNoteTreeModel(0)
 {
     (void) new KNotesAdaptor( this );
     QDBusConnection::sessionBus().registerObject( QLatin1String("/KNotes"), this );
@@ -212,6 +213,7 @@ KNotesPart::KNotesPart( QObject *parent )
     connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
              SLOT(slotRowInserted(QModelIndex,int,int)));
 
+    mNotesWidget = new KNotesWidget(this);
 
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
