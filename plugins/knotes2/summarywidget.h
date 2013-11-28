@@ -26,12 +26,27 @@
 #define SUMMARYWIDGET_H
 
 #include <KontactInterface/Summary>
+#include <KViewStateMaintainer>
 
 class QGridLayout;
+class QItemSelectionModel;
 class QLabel;
 namespace KontactInterface {
 class Plugin;
 }
+
+namespace Akonadi {
+class ChangeRecorder;
+class Collection;
+class EntityTreeModel;
+class ETMViewStateSaver;
+}
+namespace NoteShared {
+class NotesChangeRecorder;
+class NotesAkonadiTreeModel;
+}
+class KCheckableProxyModel;
+
 class KNotesSummaryWidget : public KontactInterface::Summary
 {
     Q_OBJECT
@@ -47,13 +62,23 @@ protected:
 
 protected slots:
     void urlClicked( const QString & );
-    void updateView();
+
+
+private slots:
+    void slotCollectionChanged(const Akonadi::Collection &col);
+    void slotRowInserted(const QModelIndex &parent, int start, int end);
 
 private:
+    void updateFolderList();
     QGridLayout *mLayout;
     KontactInterface::Plugin *mPlugin;
     QList<QLabel *> mLabels;
     QPixmap mPixmap;
+    NoteShared::NotesChangeRecorder *mNoteRecorder;
+    NoteShared::NotesAkonadiTreeModel *mNoteTreeModel;
+    QItemSelectionModel *mSelectionModel;
+    KCheckableProxyModel *mModelProxy;
+    KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
 };
 
 #endif
