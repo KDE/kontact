@@ -22,11 +22,11 @@ if(QGPGME_FOUND)
 endif()
 
 if(BUILD_knotes AND KDEPIMLIBS_KRESOURCES_LIBS)
-  add_subdirectory(knotes)
+  #add_subdirectory(knotes)
 endif()
 
 if(BUILD_knotes)
-  add_subdirectory(knotes2)
+  #add_subdirectory(knotes2)
 endif()
 
 
