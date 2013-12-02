@@ -25,7 +25,14 @@
 #include "summarywidget.h"
 #include "knotes_plugin.h"
 
-#include <KCal/CalendarLocal>
+#include "noteshared/akonadi/notesakonaditreemodel.h"
+#include "noteshared/akonadi/noteschangerecorder.h"
+
+#include <Akonadi/Session>
+#include <Akonadi/ChangeRecorder>
+#include <Akonadi/ETMViewStateSaver>
+#include <KCheckableProxyModel>
+
 
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
@@ -38,12 +45,13 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QItemSelectionModel>
 
-KNotesSummaryWidget::KNotesSummaryWidget(KCal::CalendarLocal *calendar, KNotesPlugin *plugin, QWidget *parent )
+
+KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent )
     : KontactInterface::Summary( parent ),
       mLayout( 0 ),
-      mPlugin( plugin ),
-      mCalendar(calendar)
+      mPlugin( plugin )
 {
     QVBoxLayout *mainLayout = new QVBoxLayout( this );
     mainLayout->setSpacing( 3 );
@@ -60,72 +68,69 @@ KNotesSummaryWidget::KNotesSummaryWidget(KCal::CalendarLocal *calendar, KNotesPl
     KIconLoader loader( QLatin1String("knotes") );
 
     mPixmap = loader.loadIcon( QLatin1String("knotes"), KIconLoader::Small );
-    updateView();
+
+    Akonadi::Session *session = new Akonadi::Session( "KNotes Session", this );
+    mNoteRecorder = new NoteShared::NotesChangeRecorder(this);
+    mNoteRecorder->changeRecorder()->setSession(session);
+    mNoteTreeModel = new NoteShared::NotesAkonadiTreeModel(mNoteRecorder->changeRecorder(), this);
+
+    connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
+             SLOT(slotRowInserted(QModelIndex,int,int)));
+
+    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemChanged(Akonadi::Item,QSet<QByteArray>)), SLOT(slotItemChanged(Akonadi::Item,QSet<QByteArray>)));
+    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemRemoved(Akonadi::Item)), SLOT(slotItemRemoved(Akonadi::Item)) );
+
+    mSelectionModel = new QItemSelectionModel( mNoteTreeModel );
+    mModelProxy = new KCheckableProxyModel( this );
+    mModelProxy->setSelectionModel( mSelectionModel );
+    mModelProxy->setSourceModel( mNoteTreeModel );
+
+    KSharedConfigPtr _config = KSharedConfig::openConfig( QLatin1String("kcmknotessummaryrc") );
+
+    mModelState =
+            new KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
+    mModelState->setSelectionModel( mSelectionModel );
+
+    connect( mNoteRecorder, SIGNAL(collectionChanged(Akonadi::Collection)),
+             SLOT(slotCollectionChanged(Akonadi::Collection)) );
+    connect( mNoteRecorder, SIGNAL(collectionRemoved(Akonadi::Collection)),
+             SLOT(slotCollectionChanged(Akonadi::Collection)) );
+
+    connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
+             SLOT(slotRowInserted(QModelIndex,int,int)));
+    updateFolderList();
 }
 
 KNotesSummaryWidget::~KNotesSummaryWidget()
 {
 }
 
+void KNotesSummaryWidget::updateFolderList()
+{
+    qDeleteAll( mLabels );
+    mLabels.clear();
+    mModelState->restoreState();
+
+}
+
+void KNotesSummaryWidget::slotCollectionChanged( const Akonadi::Collection &col )
+{
+    Q_UNUSED( col );
+    updateFolderList();
+}
+
+void KNotesSummaryWidget::slotRowInserted( const QModelIndex & parent, int start, int end )
+{
+    Q_UNUSED( parent );
+    Q_UNUSED( start );
+    Q_UNUSED( end );
+    updateFolderList();
+}
+
 void KNotesSummaryWidget::updateSummary( bool force )
 {
     Q_UNUSED( force );
-    updateView();
-}
-
-void KNotesSummaryWidget::updateView()
-{
-    const Journal::List notes = mCalendar->journals();
-    QLabel *label = 0;
-
-    Q_FOREACH ( label, mLabels ) {
-        label->deleteLater();
-    }
-    mLabels.clear();
-    Journal::List::ConstIterator it;
-    Journal::List::ConstIterator end(notes.constEnd());
-    if ( notes.count() ) {
-        int counter = 0;
-        for ( it = notes.constBegin(); it != end; ++it ) {
-
-            // Fill Note Pixmap Field
-            label = new QLabel( this );
-            label->setPixmap( mPixmap );
-            label->setMaximumWidth( label->minimumSizeHint().width() );
-            label->setAlignment( Qt::AlignVCenter );
-            mLayout->addWidget( label, counter, 0 );
-            mLabels.append( label );
-
-            // File Note Summary Field
-            const QString newtext = (*it)->summary();
-
-            KUrlLabel *urlLabel = new KUrlLabel( (*it)->uid(), newtext, this );
-            urlLabel->installEventFilter( this );
-            urlLabel->setTextFormat( Qt::RichText );
-            urlLabel->setAlignment( Qt::AlignLeft );
-            urlLabel->setWordWrap( true );
-            mLayout->addWidget( urlLabel, counter, 1 );
-            mLabels.append( urlLabel );
-
-            if ( !(*it)->description().isEmpty() ) {
-                urlLabel->setToolTip( (*it)->description() );
-            }
-
-            connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
-                     this, SLOT(urlClicked(QString)) );
-            ++counter;
-        }
-
-    } else {
-        QLabel *noNotes = new QLabel( i18n( "No Notes Available" ), this );
-        noNotes->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-        mLayout->addWidget( noNotes, 0, 0 );
-        mLabels.append( noNotes );
-    }
-
-    Q_FOREACH ( label, mLabels ) { //krazy:exclude=foreach as label is a pointer
-        label->show();
-    }
+    updateFolderList();
 }
 
 void KNotesSummaryWidget::urlClicked( const QString &/*uid*/ )
@@ -151,3 +156,8 @@ bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent *e )
     return KontactInterface::Summary::eventFilter( obj, e );
 }
 
+
+QStringList KNotesSummaryWidget::configModules() const
+{
+    return QStringList()<<QLatin1String( "kcmknotessummary.desktop" );
+}

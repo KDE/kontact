@@ -28,7 +28,7 @@ KNotesWidget::KNotesWidget(KNotesPart *part, QWidget *parent)
     KNotesListWidgetSearchLine *searchLine = new KNotesListWidgetSearchLine;
     lay->addWidget(searchLine);
     mIconView = new KNotesIconView(part);
-    searchLine->setListWidget(mIconView);
+    //searchLine->setListWidget(mIconView);
     lay->addWidget(mIconView);
     setLayout(lay);
 }

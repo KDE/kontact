@@ -16,11 +16,8 @@
 */
 
 #include "knotesiconview.h"
+#include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "utils/knoteutils.h"
-#include "knoteconfig.h"
-
-#include <KCal/Journal>
-using namespace KCal;
 
 #include <KIconEffect>
 #include <KIconLoader>
@@ -29,28 +26,34 @@ using namespace KCal;
 #include <QMouseEvent>
 
 KNotesIconView::KNotesIconView( KNotesPart *part )
-    : KListWidget(),
+    : QListView(),
       m_part( part )
 {
     setViewMode( QListView::IconMode );
     setMovement( QListView::Static );
-    setSortingEnabled( true );
+    setModel(m_part->noteTreeModel());
+    //setSortingEnabled( true );
     setSelectionMode( QAbstractItemView::ExtendedSelection );
     setWordWrap( true );
     setMouseTracking ( true );
 }
 
+KNotesIconView::~KNotesIconView()
+{
+
+}
+
 void KNotesIconView::mousePressEvent( QMouseEvent *e )
 {
     if ( e->button() == Qt::RightButton ) {
-        QListWidget::mousePressEvent( e );
-        m_part->popupRMB( currentItem(), e->pos (), e->globalPos() );
+        QListView::mousePressEvent( e );
+        //m_part->popupRMB( currentItem(), e->pos (), e->globalPos() );
     } else {
-        KListWidget::mousePressEvent( e );
+        QListView::mousePressEvent( e );
     }
 }
 
-
+#if 0
 KNotesIconViewItem::KNotesIconViewItem( QListWidget *parent, Journal *journal )
     : QListWidgetItem( parent ),
       mJournal( journal ),
@@ -143,3 +146,5 @@ bool KNotesIconViewItem::isRichText() const
     const QString property = mJournal->customProperty("KNotes", "RichText");
     return (property == QLatin1String("true") ? true : false );
 }
+#endif
+#include "moc_knotesiconview.cpp"

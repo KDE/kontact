@@ -28,15 +28,16 @@ class KNotesSelectDeleteNotesListWidget : public QListWidget
 public:
     explicit KNotesSelectDeleteNotesListWidget(QWidget *parent=0);
     ~KNotesSelectDeleteNotesListWidget();
-
+/*
     void setItems(const QList<KNotesIconViewItem*> &items);
+    */
 };
 
 class KNotesSelectDeleteNotesDialog : public KDialog
 {
     Q_OBJECT
 public:
-    explicit KNotesSelectDeleteNotesDialog(const QList<KNotesIconViewItem *> &items, QWidget *parent=0);
+    explicit KNotesSelectDeleteNotesDialog(/*const QList<KNotesIconViewItem *> &items,*/ QWidget *parent=0);
     ~KNotesSelectDeleteNotesDialog();
 
 private:

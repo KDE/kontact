@@ -25,11 +25,12 @@
 
 #include <KParts/ReadOnlyPart>
 #include <QListWidgetItem>
+#include <KViewStateMaintainer>
+
 
 class KNotesIconView;
 class KNotesWidget;
 class KNotesIconViewItem;
-class KNotesResourceManager;
 class KNoteTip;
 class KNotesAlarm;
 class KAction;
@@ -39,27 +40,36 @@ class QTcpServer;
 namespace DNSSD {
 class PublicService;
 }
-
-namespace KCal {
-class Journal;
+namespace Akonadi {
+class ChangeRecorder;
+class Collection;
+class EntityTreeModel;
+class ETMViewStateSaver;
 }
-using namespace KCal;
+namespace NoteShared {
+class NotesChangeRecorder;
+class NotesAkonadiTreeModel;
+}
+class KCheckableProxyModel;
 
 class KNotesPart : public KParts::ReadOnlyPart
 {
     Q_OBJECT
 
 public:
-    explicit KNotesPart(KNotesResourceManager *manager, QObject *parent = 0 );
+    explicit KNotesPart(QObject *parent = 0 );
     ~KNotesPart();
 
     bool openFile();
+
+    NoteShared::NotesAkonadiTreeModel *noteTreeModel() const {return mNoteTreeModel;}
 
 public slots:
     QString newNote( const QString &name = QString(),
                      const QString &text = QString() );
     QString newNoteFromClipboard( const QString &name = QString() );
     QStringList notesList() const;
+
 
 public:
     void killNote( const QString &id );
@@ -75,9 +85,6 @@ public:
     void popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos );
 
 private slots:
-    void createNote( KCal::Journal *journal );
-    void killNote( KCal::Journal *journal );
-
     void editNote( QListWidgetItem *item );
     void editNote();
 
@@ -110,7 +117,6 @@ private:
     KNotesWidget *mNotesWidget;
     KNoteTip *mNoteTip;
 
-    KNotesResourceManager *mManager;
     QMultiHash<QString, KNotesIconViewItem*> mNoteList;
     QTcpServer *mListener;
     DNSSD::PublicService *mPublisher;
@@ -127,6 +133,11 @@ private:
     KAction *mNewNote;
     KAction *mSaveAs;
     KToggleAction *mReadOnly;
+    NoteShared::NotesChangeRecorder *mNoteRecorder;
+    NoteShared::NotesAkonadiTreeModel *mNoteTreeModel;
+    QItemSelectionModel *mSelectionModel;
+    KCheckableProxyModel *mModelProxy;
+    KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
 };
 
 #endif

@@ -20,19 +20,21 @@
 
 #include "knotes_plugin.h"
 #include "knotes_part.h"
-#include "knotes/resource/resourcemanager.h"
+#include "knotes/apps/knotes_options.h"
 #include "summarywidget.h"
-#include "migrations/knoteslegacy.h"
 #include "knotes/knotesglobalconfig.h"
+#include <KCalUtils/ICalDrag>
+#include <KCalUtils/VCalDrag>
+
 
 #include "kdepim-version.h"
 
 #include <libkdepim/misc/maillistdrag.h>
 using namespace KPIM;
+using namespace KCalUtils;
+using namespace KCalCore;
 
 #include <KABC/VCardDrag>
-#include <KCal/CalendarLocal>
-#include <KCal/ICalDrag>
 
 #include <KontactInterface/Core>
 
@@ -54,18 +56,8 @@ EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
 
 KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
     : KontactInterface::Plugin( core, core, "knotes" ),
-      mAboutData( 0 ),
-      mNotesSummary( 0 )
+      mAboutData( 0 )
 {
-    const bool needConvert = (KNotesGlobalConfig::self()->notesVersion()<1);
-    if ( needConvert ) {
-        // clean up old config files
-        KNotesLegacy::cleanUp();
-    }
-
-    mCalendar = new CalendarLocal( QString::fromLatin1( "UTC" ) );
-
-    mManager = new KNotesResourceManager();
     setComponentData( KontactPluginFactory::componentData() );
 
     KAction *action =
@@ -84,15 +76,10 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
     mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
       new KontactInterface::UniqueAppHandlerFactory<KNotesUniqueAppHandler>(), this );
 
-    QObject::connect( mManager, SIGNAL(sigRegisteredNote(KCal::Journal*)),
-                      this, SLOT(addNote(KCal::Journal*)) );
-    QObject::connect( mManager, SIGNAL(sigDeregisteredNote(KCal::Journal*)),
-                      this, SLOT(removeNote(KCal::Journal*)) );
 }
 
 KNotesPlugin::~KNotesPlugin()
 {
-    delete mManager;
 }
 
 bool KNotesPlugin::isRunningStandalone() const
@@ -110,13 +97,12 @@ QString KNotesPlugin::tipFile() const
 
 KParts::ReadOnlyPart *KNotesPlugin::createPart()
 {
-    return new KNotesPart( mManager, this );
+    return new KNotesPart( this );
 }
 
 KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
 {
-    mNotesSummary = new KNotesSummaryWidget( mCalendar, this, parentWidget );
-    return mNotesSummary;
+    return new KNotesSummaryWidget( this, parentWidget );
 }
 
 const KAboutData *KNotesPlugin::aboutData() const
@@ -180,7 +166,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
                     i18nc( "@item", "Meeting" ), attendees.join( QLatin1String(", ") ) );
         return;
     }
-
+#if 0
     if ( ICalDrag::canDecode( event->mimeData() ) ) {
         CalendarLocal cal( KSystemTimeZones::local() );
         if ( ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
@@ -195,7 +181,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
             // else fall through to text decoding
         }
     }
-
+#endif
     if ( md->hasText() ) {
         static_cast<KNotesPart *>( part() )->newNote(
                     i18nc( "@item", "New Note" ), md->text() );
@@ -211,7 +197,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
                         i18nc( "@info", "Dropping multiple mails is not supported." ) );
         } else {
             MailSummary mail = mails.first();
-            QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
+            const QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
                                  mail.from(), mail.to(), mail.subject() );
             static_cast<KNotesPart *>( part() )->newNote(
                         i18nc( "@item", "Mail: %1", mail.subject() ), txt );
@@ -231,23 +217,9 @@ void KNotesPlugin::slotNewNote()
     }
 }
 
-void KNotesPlugin::addNote( KCal::Journal *j )
-{
-    mCalendar->addJournal( j );
-    if (mNotesSummary)
-        mNotesSummary->updateSummary(true);
-}
-
-void KNotesPlugin::removeNote( KCal::Journal *j )
-{
-    mCalendar->deleteJournal( j );
-    if (mNotesSummary)
-        mNotesSummary->updateSummary(true);
-}
-
 void KNotesUniqueAppHandler::loadCommandLineOptions()
 {
-    KCmdLineArgs::addCmdLineOptions( KCmdLineOptions() );
+    KCmdLineArgs::addCmdLineOptions( knotesOptions() );
 }
 
 int KNotesUniqueAppHandler::newInstance()
@@ -257,7 +229,3 @@ int KNotesUniqueAppHandler::newInstance()
     (void)plugin()->part();
     return KontactInterface::UniqueAppHandler::newInstance();
 }
-
-
-
-

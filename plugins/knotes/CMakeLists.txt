@@ -25,9 +25,21 @@ qt4_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml k
 
 kde4_add_plugin(kontact_knotesplugin ${kontact_knotesplugin_PART_SRCS})
 
-target_link_libraries(kontact_knotesplugin knotesprivate ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDEPIMLIBS_KCAL_LIBS} ${KDEPIMLIBS_KRESOURCES_LIBS} ${KDE4_KDEPRINT_LIBS} ${KDE4_KPARTS_LIBS} kdepim ${KDE4_KPRINTUTILS_LIBS} pimcommon ${KDE4_KDNSSD_LIBS} noteshared)
+target_link_libraries(kontact_knotesplugin knotesprivate ${KDEPIMLIBS_KCALCORE_LIBS} ${KDEPIMLIBS_KCALUTILS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDE4_KDEPRINT_LIBS} ${KDE4_KPARTS_LIBS} kdepim ${KDE4_KPRINTUTILS_LIBS} pimcommon ${KDE4_KDNSSD_LIBS} noteshared)
 
 ########### install files ###############
+
+set(kcm_knotessummary_PART_SRCS kcmknotessummary.cpp )
+
+kde4_add_plugin(kcm_knotessummary ${kcm_knotessummary_PART_SRCS})
+
+target_link_libraries(kcm_knotessummary ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KMIME_LIBS} ${KDEPIMLIBS_AKONADI_LIBS} akonadi_next pimcommon)
+
+
+install(TARGETS kcm_knotessummary DESTINATION ${PLUGIN_INSTALL_DIR})
+
+install(FILES kcmknotessummary.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+
 
 install(TARGETS kontact_knotesplugin DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES knotes_part.rc DESTINATION ${DATA_INSTALL_DIR}/knotes)

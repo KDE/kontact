@@ -25,41 +25,60 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <KCal/Journal>
 #include <KontactInterface/Summary>
+#include <KViewStateMaintainer>
 
-namespace KCal {
-class CalendarLocal;
-}
-using namespace KCal;
-
-class KNotesPlugin;
 class QGridLayout;
+class QItemSelectionModel;
 class QLabel;
+namespace KontactInterface {
+class Plugin;
+}
+
+namespace Akonadi {
+class ChangeRecorder;
+class Collection;
+class EntityTreeModel;
+class ETMViewStateSaver;
+}
+namespace NoteShared {
+class NotesChangeRecorder;
+class NotesAkonadiTreeModel;
+}
+class KCheckableProxyModel;
 
 class KNotesSummaryWidget : public KontactInterface::Summary
 {
     Q_OBJECT
 public:
-    KNotesSummaryWidget(KCal::CalendarLocal *calendar, KNotesPlugin *plugin, QWidget *parent );
+    KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent );
     ~KNotesSummaryWidget();
 
     void updateSummary( bool force = false );
+    QStringList configModules() const;
 
 protected:
     virtual bool eventFilter( QObject *obj, QEvent *e );
 
 protected slots:
     void urlClicked( const QString & );
-    void updateView();
+
+
+private slots:
+    void slotCollectionChanged(const Akonadi::Collection &col);
+    void slotRowInserted(const QModelIndex &parent, int start, int end);
 
 private:
+    void updateFolderList();
     QGridLayout *mLayout;
-
+    KontactInterface::Plugin *mPlugin;
     QList<QLabel *> mLabels;
-    KNotesPlugin *mPlugin;
     QPixmap mPixmap;
-    KCal::CalendarLocal *mCalendar;
+    NoteShared::NotesChangeRecorder *mNoteRecorder;
+    NoteShared::NotesAkonadiTreeModel *mNoteTreeModel;
+    QItemSelectionModel *mSelectionModel;
+    KCheckableProxyModel *mModelProxy;
+    KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
 };
 
 #endif

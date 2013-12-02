@@ -21,9 +21,6 @@
 
 #include <KLocale>
 
-#include <KCal/Journal>
-using namespace KCal;
-
 
 KNotesListWidgetSearchLine::KNotesListWidgetSearchLine(QWidget *parent)
     : KListWidgetSearchLine(parent)
@@ -41,6 +38,7 @@ bool KNotesListWidgetSearchLine::itemMatches( const QListWidgetItem *item, const
     if (!item) {
         return false;
     }
+#if 0
     const KNotesIconViewItem *iconView = dynamic_cast<const KNotesIconViewItem *>( item );
     if (!iconView) {
         return false;
@@ -55,5 +53,6 @@ bool KNotesListWidgetSearchLine::itemMatches( const QListWidgetItem *item, const
     if (journal->description().contains(s)) {
         return true;
     }
+#endif
     return KListWidgetSearchLine::itemMatches(item, s);
 }

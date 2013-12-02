@@ -21,14 +21,9 @@ if(QGPGME_FOUND)
 #  add_subdirectory(planner)
 endif()
 
-if(BUILD_knotes AND KDEPIMLIBS_KRESOURCES_LIBS)
-  #add_subdirectory(knotes)
-endif()
-
 if(BUILD_knotes)
-  #add_subdirectory(knotes2)
+  add_subdirectory(knotes)
 endif()
-
 
 if(BUILD_knode)
   add_subdirectory(knode)
