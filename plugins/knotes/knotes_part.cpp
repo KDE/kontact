@@ -236,9 +236,7 @@ KNotesPart::KNotesPart( QObject *parent )
 
     setWidget( mNotesWidget );
     setXMLFile( QLatin1String("knotes_part.rc") );
-#if 0
-    mAlarm = new KNotesAlarm( mManager, this );
-#endif
+    mAlarm = new KNotesAlarm( this );
     updateNetworkListener();
 }
 
