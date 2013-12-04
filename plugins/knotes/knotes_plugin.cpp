@@ -21,6 +21,7 @@
 #include "knotes_plugin.h"
 #include "knotes_part.h"
 #include "knotes/apps/knotes_options.h"
+#include "knotes/utils/knoteutils.h"
 #include "summarywidget.h"
 #include "knotes/knotesglobalconfig.h"
 #include <KCalUtils/ICalDrag>
@@ -58,6 +59,7 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
     : KontactInterface::Plugin( core, core, "knotes" ),
       mAboutData( 0 )
 {
+    KNoteUtils::migrateToAkonadi();
     setComponentData( KontactPluginFactory::componentData() );
 
     KAction *action =
