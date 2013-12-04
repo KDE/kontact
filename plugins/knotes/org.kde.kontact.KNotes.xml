@@ -5,11 +5,9 @@
     <method name="newNote">
       <arg name="name" type="s" direction="in"/>
       <arg name="text" type="s" direction="in"/>
-      <arg type="s" direction="out"/>
     </method>
     <method name="newNoteFromClipboard">
       <arg name="name" type="s" direction="in"/>
-      <arg type="s" direction="out"/>
     </method>
     <method name="killNote">
     <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>

@@ -1,3 +1,5 @@
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
+
 
 ########### next target ###############
 include_directories(
@@ -25,7 +27,20 @@ qt4_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml k
 
 kde4_add_plugin(kontact_knotesplugin ${kontact_knotesplugin_PART_SRCS})
 
-target_link_libraries(kontact_knotesplugin knotesprivate ${KDEPIMLIBS_KCALCORE_LIBS} ${KDEPIMLIBS_KCALUTILS_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} ${KDE4_KDEPRINT_LIBS} ${KDE4_KPARTS_LIBS} kdepim ${KDE4_KPRINTUTILS_LIBS} pimcommon ${KDE4_KDNSSD_LIBS} noteshared)
+target_link_libraries(kontact_knotesplugin 
+                      knotesprivate 
+                      ${KDEPIMLIBS_KCALCORE_LIBS} 
+                      ${KDEPIMLIBS_KCALUTILS_LIBS} 
+                      ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} 
+                      ${KDE4_KDEPRINT_LIBS} 
+                      ${KDE4_KPARTS_LIBS} 
+                      kdepim 
+                      ${KDE4_KPRINTUTILS_LIBS} 
+                      pimcommon 
+                      ${KDE4_KDNSSD_LIBS} 
+                      noteshared 
+                      akonadi_next
+)
 
 ########### install files ###############
 

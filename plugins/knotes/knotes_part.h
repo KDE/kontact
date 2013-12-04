@@ -65,9 +65,9 @@ public:
     NoteShared::NotesAkonadiTreeModel *noteTreeModel() const {return mNoteTreeModel;}
 
 public slots:
-    QString newNote( const QString &name = QString(),
+    void newNote( const QString &name = QString(),
                      const QString &text = QString() );
-    QString newNoteFromClipboard( const QString &name = QString() );
+    void newNoteFromClipboard( const QString &name = QString() );
     QStringList notesList() const;
 
 
@@ -111,6 +111,7 @@ private slots:
     void slotSaveAs();
     void slotUpdateReadOnly();
 
+    void slotNoteCreationFinished(KJob *job);
 private:
     void updateNetworkListener();
     void printSelectedNotes(bool preview);
