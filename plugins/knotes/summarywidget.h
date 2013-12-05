@@ -69,6 +69,7 @@ private slots:
     void slotRowInserted(const QModelIndex &parent, int start, int end);
 
 private:
+    void displayNotes( const QModelIndex &parent, int &counter);
     void updateFolderList();
     QGridLayout *mLayout;
     KontactInterface::Plugin *mPlugin;

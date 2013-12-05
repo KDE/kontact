@@ -195,7 +195,7 @@ void SummaryWidget::displayModel( const QModelIndex &parent,
                 mLayout->addWidget( label, counter, 0 );
                 mLabels.append( label );
 
-                counter ++;
+                ++counter;
             }
             parentTreeNames.insert( parentTreeNames.size(), col.name() );
             displayModel( child, counter, showFolderPaths, parentTreeNames );
