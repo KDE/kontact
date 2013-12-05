@@ -445,7 +445,13 @@ void KNotesPart::newNote( const QString &name, const QString &text )
 
 void KNotesPart::slotNoteCreationFinished(KJob* job)
 {
-   //TODO
+    if (job->error()) {
+        kWarning() << job->errorString();
+        KNotesGlobalConfig::self()->setDefaultFolder(-1);
+        KNotesGlobalConfig::self()->writeConfig();
+        KMessageBox::error(widget(), i18n("Note was not created."), i18n("Create new note"));
+        return;
+    }
 }
 
 void KNotesPart::newNoteFromClipboard( const QString &name )
@@ -479,7 +485,7 @@ void KNotesPart::killNote( const QString &id, bool force )
 #endif
 }
 
-QString KNotesPart::name( const QString &id ) const
+QString KNotesPart::name( const Akonadi::Item::Id &id ) const
 {
 #if 0
     KNotesIconViewItem *note = mNoteList.value( id );
@@ -492,7 +498,7 @@ QString KNotesPart::name( const QString &id ) const
     return QString();
 }
 
-QString KNotesPart::text( const QString &id ) const
+QString KNotesPart::text( const Akonadi::Item::Id &id ) const
 {
 #if 0
     KNotesIconViewItem *note = mNoteList.value( id );
@@ -506,7 +512,7 @@ QString KNotesPart::text( const QString &id ) const
 #endif
 }
 
-void KNotesPart::setName( const QString &id, const QString &newName )
+void KNotesPart::setName( const Akonadi::Item::Id &id, const QString &newName )
 {
 #if 0
     KNotesIconViewItem *note = mNoteList.value( id );
@@ -517,7 +523,7 @@ void KNotesPart::setName( const QString &id, const QString &newName )
 #endif
 }
 
-void KNotesPart::setText( const QString &id, const QString &newText )
+void KNotesPart::setText( const Akonadi::Item::Id &id, const QString &newText )
 {
 #if 0
     KNotesIconViewItem *note = mNoteList.value( id );
@@ -627,18 +633,6 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
 // TODO: also with takeItem, clear(),
 
 // create and kill the icon view item corresponding to the note, edit the note
-#if 0
-void KNotesPart::createNote( KCal::Journal *journal )
-{
-    mNoteList.insert( journal->uid(), new KNotesIconViewItem( mNotesWidget->notesView(), journal ) );
-}
-
-void KNotesPart::killNote( KCal::Journal *journal )
-{
-    KNotesIconViewItem *item = mNoteList.take( journal->uid() );
-    delete item;
-}
-#endif
 
 void KNotesPart::editNote( QListWidgetItem *item )
 {

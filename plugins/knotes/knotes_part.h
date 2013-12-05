@@ -26,7 +26,7 @@
 #include <KParts/ReadOnlyPart>
 #include <QListWidgetItem>
 #include <KViewStateMaintainer>
-
+#include <Akonadi/Item>
 
 class KNotesIconView;
 class KNotesWidget;
@@ -75,11 +75,11 @@ public:
     void killNote( const QString &id );
     void killNote( const QString &id, bool force );
 
-    QString name( const QString &id ) const;
-    QString text( const QString &id ) const;
+    QString name(const Akonadi::Item::Id &id ) const;
+    QString text( const Akonadi::Item::Id &id ) const;
 
-    void setName( const QString &id, const QString &newName );
-    void setText( const QString &id, const QString &newText );
+    void setName( const Akonadi::Item::Id &id, const QString &newName );
+    void setText( const Akonadi::Item::Id &id, const QString &newText );
 
     QMap<QString, QString> notes() const;
     void popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos );

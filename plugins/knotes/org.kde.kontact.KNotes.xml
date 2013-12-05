@@ -20,20 +20,20 @@
     </method>
     <method name="setName">
     <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
-      <arg name="noteId" type="s" direction="in"/>
+      <arg name="noteId" type="x" direction="in"/>
       <arg name="newText" type="s" direction="in"/>
     </method>
     <method name="setText">
     <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
-      <arg name="noteId" type="s" direction="in"/>
+      <arg name="noteId" type="x" direction="in"/>
       <arg name="newText" type="s" direction="in"/>
     </method>
     <method name="name">
-      <arg name="id" type="s" direction="in"/>
+      <arg name="id" type="x" direction="in"/>
       <arg type="s" direction="out"/>
     </method>
     <method name="text">
-      <arg name="id" type="s" direction="in"/>
+      <arg name="id" type="x" direction="in"/>
       <arg type="s" direction="out"/>
     </method>
     <method name="notesList">
