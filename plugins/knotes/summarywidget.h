@@ -67,10 +67,10 @@ protected slots:
 private slots:
     void slotCollectionChanged(const Akonadi::Collection &col);
     void slotRowInserted(const QModelIndex &parent, int start, int end);
+    void updateFolderList();
 
 private:
     void displayNotes( const QModelIndex &parent, int &counter);
-    void updateFolderList();
     QGridLayout *mLayout;
     KontactInterface::Plugin *mPlugin;
     QList<QLabel *> mLabels;
