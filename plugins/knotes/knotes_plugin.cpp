@@ -26,6 +26,7 @@
 #include "knotes/knotesglobalconfig.h"
 #include <KCalUtils/ICalDrag>
 #include <KCalUtils/VCalDrag>
+#include <KCalCore/FileStorage>
 
 
 #include "kdepim-version.h"
@@ -48,6 +49,7 @@ using namespace KCalCore;
 #include <KLocale>
 #include <KMessageBox>
 #include <KSystemTimeZones>
+#include <KTemporaryFile>
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -168,22 +170,21 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
                     i18nc( "@item", "Meeting" ), attendees.join( QLatin1String(", ") ) );
         return;
     }
+
+    MemoryCalendar::Ptr cal( new MemoryCalendar( QString::fromLatin1( "UTC" ) ) );
+    if ( ICalDrag::canDecode( md ) ) {
+        KTemporaryFile tmp;
+        tmp.setPrefix( QLatin1String("incidences-") );
+        tmp.setSuffix( QLatin1String(".ics") );
+        tmp.setAutoRemove( false );
+        tmp.open();
+        FileStorage storage( cal, tmp.fileName() );
+        storage.save();
 #if 0
-    if ( ICalDrag::canDecode( event->mimeData() ) ) {
-        CalendarLocal cal( KSystemTimeZones::local() );
-        if ( ICalDrag::fromMimeData( event->mimeData(), &cal ) ) {
-            Journal::List journals = cal.journals();
-            if ( !journals.isEmpty() ) {
-                event->accept();
-                Journal *j = journals.first();
-                static_cast<KNotesPart *>( part() )->
-                        newNote( i18nc( "@item", "Note: %1", j->summary() ), j->description() );
-                return;
-            }
-            // else fall through to text decoding
-        }
-    }
+        static_cast<KNotesPart *>( part() )->
+                newNote( i18nc( "@item", "Note: %1", j->summary() ), j->description() );
 #endif
+    }
     if ( md->hasText() ) {
         static_cast<KNotesPart *>( part() )->newNote(
                     i18nc( "@item", "New Note" ), md->text() );
