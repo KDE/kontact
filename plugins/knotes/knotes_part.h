@@ -32,7 +32,6 @@ class KNotesIconView;
 class KNotesWidget;
 class KNotesIconViewItem;
 class KNoteTip;
-class KNotesAlarm;
 class KAction;
 class KToggleAction;
 class QTcpServer;
@@ -121,7 +120,6 @@ private:
     QMultiHash<QString, KNotesIconViewItem*> mNoteList;
     QTcpServer *mListener;
     DNSSD::PublicService *mPublisher;
-    KNotesAlarm *mAlarm;
     KAction *mNoteEdit;
     KAction *mNoteRename;
     KAction *mNoteDelete;

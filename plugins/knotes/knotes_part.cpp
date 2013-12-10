@@ -41,7 +41,6 @@
 #include "knotes/configdialog/knotesimpleconfigdialog.h"
 #include "utils/knoteutils.h"
 #include "alarms/knotealarmdialog.h"
-#include "alarms/knotesalarm.h"
 
 #include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "noteshared/akonadi/noteschangerecorder.h"
@@ -85,7 +84,6 @@ KNotesPart::KNotesPart( QObject *parent )
       mNoteTip( new KNoteTip( /*mNotesWidget->notesView()*/0 ) ),
       mListener(0),
       mPublisher(0),
-      mAlarm(0),
       mNotePrintPreview(0),
       mNoteTreeModel(0)
 {
@@ -244,7 +242,6 @@ KNotesPart::KNotesPart( QObject *parent )
 
     setWidget( mNotesWidget );
     setXMLFile( QLatin1String("knotes_part.rc") );
-    mAlarm = new KNotesAlarm( this );
     updateNetworkListener();
 }
 
