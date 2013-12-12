@@ -26,7 +26,7 @@
 #include "noteshared/noteutils.h"
 #include "knoteseditdialog.h"
 #include "knotesadaptor.h"
-#include "knotes/dialog/selectednotefolderdialog.h"
+#include "noteshared/job/createnewnotejob.h"
 //#include "knotesiconview.h"
 #include "knoteswidget.h"
 #include "knotesselectdeletenotesdialog.h"
@@ -330,58 +330,10 @@ bool KNotesPart::openFile()
 
 void KNotesPart::newNote( const QString &name, const QString &text )
 {
-    Akonadi::Collection col;
-    Akonadi::Collection::Id id = NoteShared::NoteSharedGlobalConfig::self()->defaultFolder();
-    if (id == -1) {
-        QPointer<SelectedNotefolderDialog> dlg = new SelectedNotefolderDialog(widget());
-        if (dlg->exec()) {
-            col = dlg->selectedCollection();
-        }
-        if (dlg->useFolderByDefault()) {
-            NoteShared::NoteSharedGlobalConfig::self()->setDefaultFolder(col.id());
-            NoteShared::NoteSharedGlobalConfig::self()->writeConfig();
-        }
-        delete dlg;
-    } else {
-        col = Akonadi::Collection(id);
-    }
-    if (col.isValid()) {
-        Akonadi::Item newItem;
-        newItem.setMimeType( Akonotes::Note::mimeType() );
-
-        KMime::Message::Ptr newPage = KMime::Message::Ptr( new KMime::Message() );
-
-        QString title;
-        if (name.isEmpty()) {
-            title = KGlobal::locale()->formatDateTime( QDateTime::currentDateTime() );
-        } else {
-            title = name;
-        }
-        QByteArray encoding( "utf-8" );
-
-        newPage->subject( true )->fromUnicodeString( title, encoding );
-        newPage->contentType( true )->setMimeType( KNotesGlobalConfig::self()->richText() ? "text/html" : "text/plain" );
-        newPage->contentType()->setCharset("utf-8");
-        newPage->contentTransferEncoding(true)->setEncoding(KMime::Headers::CEquPr);
-        newPage->date( true )->setDateTime( KDateTime::currentLocalDateTime() );
-        newPage->from( true )->fromUnicodeString( QString::fromLatin1( "knotes@kde4" ), encoding );
-        // Need a non-empty body part so that the serializer regards this as a valid message.
-        newPage->mainBodyPart()->fromUnicodeString( text.isEmpty() ? QString::fromLatin1( " " ) : text);
-
-        newPage->assemble();
-
-        newItem.setPayload( newPage );
-
-        Akonadi::EntityDisplayAttribute *eda = new Akonadi::EntityDisplayAttribute();
-
-
-        eda->setIconName( QString::fromLatin1( "text-plain" ) );
-        newItem.addAttribute(eda);
-
-        Akonadi::ItemCreateJob *job = new Akonadi::ItemCreateJob( newItem, col, this );
-        connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteCreationFinished(KJob*)) );
-    }
-
+    NoteShared::CreateNewNoteJob *job = new NoteShared::CreateNewNoteJob(this, widget());
+    job->setRichText(KNotesGlobalConfig::self()->richText());
+    job->setNote(name, text);
+    job->start();
 #if 0
     // create the new note
     Journal *journal = new Journal();
