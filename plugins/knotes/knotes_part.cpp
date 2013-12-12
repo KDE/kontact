@@ -331,15 +331,15 @@ bool KNotesPart::openFile()
 void KNotesPart::newNote( const QString &name, const QString &text )
 {
     Akonadi::Collection col;
-    Akonadi::Collection::Id id = KNotesGlobalConfig::self()->defaultFolder();
+    Akonadi::Collection::Id id = NoteShared::NoteSharedGlobalConfig::self()->defaultFolder();
     if (id == -1) {
         QPointer<SelectedNotefolderDialog> dlg = new SelectedNotefolderDialog(widget());
         if (dlg->exec()) {
             col = dlg->selectedCollection();
         }
         if (dlg->useFolderByDefault()) {
-            KNotesGlobalConfig::self()->setDefaultFolder(col.id());
-            KNotesGlobalConfig::self()->writeConfig();
+            NoteShared::NoteSharedGlobalConfig::self()->setDefaultFolder(col.id());
+            NoteShared::NoteSharedGlobalConfig::self()->writeConfig();
         }
         delete dlg;
     } else {
@@ -439,8 +439,8 @@ void KNotesPart::slotNoteCreationFinished(KJob* job)
 {
     if (job->error()) {
         kWarning() << job->errorString();
-        KNotesGlobalConfig::self()->setDefaultFolder(-1);
-        KNotesGlobalConfig::self()->writeConfig();
+        NoteShared::NoteSharedGlobalConfig::self()->setDefaultFolder(-1);
+        NoteShared::NoteSharedGlobalConfig::self()->writeConfig();
         KMessageBox::error(widget(), i18n("Note was not created."), i18n("Create new note"));
         return;
     }
