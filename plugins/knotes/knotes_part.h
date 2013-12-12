@@ -34,7 +34,6 @@ class KNotesIconViewItem;
 class KNoteTip;
 class KAction;
 class KToggleAction;
-class QTcpServer;
 
 namespace DNSSD {
 class PublicService;
@@ -104,7 +103,6 @@ private slots:
     void slotMail();
     void slotSendToNetwork();
     void slotConfigUpdated();
-    void slotAcceptConnection();
     void slotSetAlarm();
     void slotNewNoteFromClipboard();
     void slotSaveAs();
@@ -118,7 +116,6 @@ private:
     KNoteTip *mNoteTip;
 
     QMultiHash<QString, KNotesIconViewItem*> mNoteList;
-    QTcpServer *mListener;
     DNSSD::PublicService *mPublisher;
     KAction *mNoteEdit;
     KAction *mNoteRename;

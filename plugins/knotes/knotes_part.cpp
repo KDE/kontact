@@ -32,7 +32,6 @@
 #include "knotesselectdeletenotesdialog.h"
 #include "knotetip.h"
 #include "knotes/configdialog/knoteconfigdialog.h"
-#include "noteshared/network/notesnetworkreceiver.h"
 #include "knotes/print/knoteprinter.h"
 #include "knotes/print/knoteprintobject.h"
 #include "knotes/print/knoteprintselectthemedialog.h"
@@ -71,7 +70,6 @@
 
 #include <QApplication>
 #include <QClipboard>
-#include <QTcpServer>
 #include <QMenu>
 #include <QPointer>
 #include <QCheckBox>
@@ -82,7 +80,6 @@ KNotesPart::KNotesPart( QObject *parent )
     : KParts::ReadOnlyPart( parent ),
       mNotesWidget( 0 ) ,
       mNoteTip( new KNoteTip( /*mNotesWidget->notesView()*/0 ) ),
-      mListener(0),
       mPublisher(0),
       mNotePrintPreview(0),
       mNoteTreeModel(0)
@@ -247,8 +244,6 @@ KNotesPart::KNotesPart( QObject *parent )
 
 KNotesPart::~KNotesPart()
 {
-    delete mListener;
-    mListener=0;
     delete mPublisher;
     mPublisher=0;
     delete mNoteTip;
@@ -771,29 +766,13 @@ void KNotesPart::slotSendToNetwork()
 
 void KNotesPart::updateNetworkListener()
 {
-    delete mListener;
-    mListener=0;
     delete mPublisher;
     mPublisher=0;
 
     if ( NoteShared::NoteSharedGlobalConfig::receiveNotes() ) {
         // create the socket and start listening for connections
-        mListener = KSocketFactory::listen( QLatin1String("knotes") , QHostAddress::Any,
-                                           NoteShared::NoteSharedGlobalConfig::port() );
-        connect( mListener, SIGNAL(newConnection()), SLOT(slotAcceptConnection()) );
         mPublisher=new DNSSD::PublicService(NoteShared::NoteSharedGlobalConfig::senderID(), QLatin1String("_knotes._tcp"), NoteShared::NoteSharedGlobalConfig::port());
         mPublisher->publishAsync();
-    }
-}
-
-void KNotesPart::slotAcceptConnection()
-{
-    // Accept the connection and make KNotesNetworkReceiver do the job
-    QTcpSocket *s = mListener->nextPendingConnection();
-
-    if ( s ) {
-        NoteShared::NotesNetworkReceiver *recv = new NoteShared::NotesNetworkReceiver( s );
-        connect( recv,SIGNAL(noteReceived(QString,QString)), SLOT(newNote(QString,QString)) );
     }
 }
 
