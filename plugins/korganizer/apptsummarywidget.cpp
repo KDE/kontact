@@ -44,7 +44,6 @@
 #include <KIconLoader>
 #include <KLocale>
 #include <KMenu>
-#include <KSystemTimeZones>
 #include <KUrlLabel>
 
 #include <QGridLayout>

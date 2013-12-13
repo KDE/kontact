@@ -38,7 +38,6 @@ using namespace KCalUtils;
 #include <KSystemTimeZones>
 
 #include <QDate>
-#include <QDebug>
 #include <QStringList>
 
 bool SummaryEventInfo::mShowBirthdays = true;

@@ -45,7 +45,6 @@
 #include <KIconLoader>
 #include <KConfigGroup>
 #include <KToolInvocation>
-#include <KSystemTimeZones>
 #include <KHolidays/Holidays>
 
 #include <QDate>
