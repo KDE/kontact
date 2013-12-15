@@ -41,7 +41,7 @@
 #include <KCheckableProxyModel>
 #include <KConfigGroup>
 #include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KUrlLabel>
 
 #include <QEvent>

@@ -43,7 +43,7 @@ using KPIM::BroadcastStatus;
 #include <KDialog>
 #include <KGlobalSettings>
 #include <KIcon>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KParts/PartActivateEvent>
 
 #include <QApplication>

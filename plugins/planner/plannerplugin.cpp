@@ -29,7 +29,7 @@
 #include <KontactInterface/Core>
 
 #include <KAboutData>
-#include <KLocale>
+#include <KLocalizedString>
 
 EXPORT_KONTACT_PLUGIN( PlannerPlugin, planner )
 

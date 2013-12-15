@@ -36,7 +36,7 @@
 #include <KComponentData>
 #include <KDebug>
 #include <KDialog>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KLineEdit>
 
 #include <QCheckBox>

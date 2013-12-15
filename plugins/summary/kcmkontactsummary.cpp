@@ -31,7 +31,7 @@
 #include <KComponentData>
 #include <KDialog>
 #include <KIcon>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KPluginInfo>
 #include <KService>
 #include <KServiceTypeTrader>

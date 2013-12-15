@@ -43,7 +43,7 @@
 #include <KDebug>
 #include <KIcon>
 #include <KIconLoader>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardDirs>
 #include <KSystemTimeZone>

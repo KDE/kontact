@@ -31,7 +31,7 @@
 #include <KAction>
 #include <KActionCollection>
 #include <KIcon>
-#include <KLocale>
+#include <KLocalizedString>
 
 EXPORT_KONTACT_PLUGIN( KNodePlugin, knode )
 

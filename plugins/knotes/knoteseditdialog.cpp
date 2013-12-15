@@ -21,7 +21,7 @@
 #include <KActionCollection>
 #include <KComponentData>
 #include <KDialog>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KToolBar>
 #include <KLineEdit>
 

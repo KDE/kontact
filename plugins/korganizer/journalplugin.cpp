@@ -30,7 +30,7 @@
 
 #include <KActionCollection>
 #include <KIconLoader>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KDebug>
 #include <QtDBus/QtDBus>
 

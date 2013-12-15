@@ -18,7 +18,7 @@
 #include "knotesselectdeletenotesdialog.h"
 #include "knotesiconview.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KStandardGuiItem>
 
 #include <QHBoxLayout>

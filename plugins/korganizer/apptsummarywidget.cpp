@@ -42,7 +42,7 @@
 
 #include <KConfigGroup>
 #include <KIconLoader>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMenu>
 #include <KUrlLabel>
 

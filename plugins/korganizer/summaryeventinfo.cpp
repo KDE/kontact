@@ -34,8 +34,9 @@ using namespace KCalCore;
 using namespace KCalUtils;
 
 #include <KGlobal>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KSystemTimeZones>
+#include <KLocale>
 
 #include <QDate>
 #include <QStringList>

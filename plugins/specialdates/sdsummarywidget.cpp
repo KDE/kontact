@@ -40,6 +40,7 @@
 #include <KCalCore/Calendar>
 
 #include <KMenu>
+#include <KLocalizedString>
 #include <KLocale>
 #include <KUrlLabel>
 #include <KIconLoader>

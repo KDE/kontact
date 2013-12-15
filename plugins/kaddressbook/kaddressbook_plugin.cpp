@@ -28,7 +28,7 @@
 #include <KActionCollection>
 #include <KCmdLineArgs>
 #include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <QDBusConnection>
 #include <QDBusMessage>

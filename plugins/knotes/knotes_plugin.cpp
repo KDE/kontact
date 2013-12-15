@@ -46,7 +46,7 @@ using namespace KCalCore;
 #include <KActionCollection>
 #include <KDebug>
 #include <KIcon>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KSystemTimeZones>
 #include <KTemporaryFile>

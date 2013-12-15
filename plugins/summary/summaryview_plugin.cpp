@@ -31,7 +31,7 @@
 #include <KAboutData>
 #include <KActionCollection>
 #include <KIcon>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KSelectAction>
 
 #include <QMenu>

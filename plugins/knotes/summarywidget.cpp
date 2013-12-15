@@ -39,7 +39,7 @@
 #include <KontactInterface/Plugin>
 
 #include <KIconLoader>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KUrlLabel>
 
 #include <QEvent>

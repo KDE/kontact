@@ -31,7 +31,7 @@
 
 #include <KAction>
 #include <KActionCollection>
-#include <KLocale>
+#include <KLocalizedString>
 
 EXPORT_KONTACT_PLUGIN( AkregatorPlugin, akregator )
 

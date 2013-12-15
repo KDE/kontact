@@ -19,7 +19,7 @@
 
 #include "knotesiconview.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 
 KNotesListWidgetSearchLine::KNotesListWidgetSearchLine(QWidget *parent)

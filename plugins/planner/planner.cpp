@@ -42,7 +42,7 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KIconLoader>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMenu>
 #include <KSystemTimeZones>
 #include <KUrlLabel>
