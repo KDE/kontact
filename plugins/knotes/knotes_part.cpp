@@ -39,7 +39,7 @@
 #include "knotes/knotesglobalconfig.h"
 #include "knotes/configdialog/knotesimpleconfigdialog.h"
 #include "utils/knoteutils.h"
-#include "alarms/knotealarmdialog.h"
+#include "alarms/notealarmdialog.h"
 
 #include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "noteshared/akonadi/noteschangerecorder.h"
@@ -735,7 +735,7 @@ void KNotesPart::slotSetAlarm()
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
 
-    QPointer<KNoteAlarmDialog> dlg = new KNoteAlarmDialog( knoteItem->realName(), widget() );
+    QPointer<NoteShared::NoteAlarmDialog> dlg = new NoteShared::KNoteAlarmDialog( knoteItem->realName(), widget() );
     dlg->setIncidence( knoteItem->journal() );
     if ( dlg->exec() ) {
         mManager->save();
