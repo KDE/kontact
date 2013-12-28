@@ -267,12 +267,16 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
     }
     summaryEvent->summaryText = str;
     summaryEvent->summaryUrl = ev->uid();
-    QString tipText( KCalUtils::IncidenceFormatter::toolTipStr(
+    /*
+     Commented out because a ETMCalendar doesn't have any name, it's a group of selected
+     calendars, not an individual one.
+
+     QString tipText( KCalUtils::IncidenceFormatter::toolTipStr(
                        KCalUtils::IncidenceFormatter::resourceString(
                          calendar, ev ), ev, start, true, spec ) );
     if ( !tipText.isEmpty() ) {
       summaryEvent->summaryTooltip = tipText;
-    }
+    }*/
 
     // Time range label (only for non-floating events)
     str.clear();

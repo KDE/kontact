@@ -273,13 +273,17 @@ TODO: calhelper is deprecated, remove this?
       connect( urlLabel, SIGNAL(rightClickedUrl(QString)),
                this, SLOT(popupMenu(QString)) );
 
-      // where did the toolTipStr signature that takes a calendar went?
-      QString tipText( IncidenceFormatter::toolTipStr(
-                         IncidenceFormatter::resourceString( mCalendar, todo ),
+      /*
+         Commented out because a ETMCalendar doesn't have any name, it's a group of selected
+         calendars, not an individual one.
+
+       QString tipText( IncidenceFormatter::toolTipStr(
+                           IncidenceFormatter::resourceString( mCalendar, todo ),
                          todo, currDate, true, KSystemTimeZones::local() ) );
+      // FIXME: IncidenceFormatter::resourceString() isn't implemented
       if ( !tipText.isEmpty() ) {
         urlLabel->setToolTip( tipText );
-      }
+      }*/
 
       // State text label
       str = stateStr( todo );
