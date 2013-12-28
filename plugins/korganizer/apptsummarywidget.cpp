@@ -34,6 +34,7 @@
 
 #include <Akonadi/Collection>
 #include <Akonadi/Calendar/IncidenceChanger>
+#include <Akonadi/Calendar/ETMCalendar>
 
 #include <KCalCore/Calendar>
 #include <KCalCore/Event>
@@ -72,7 +73,7 @@ ApptSummaryWidget::ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent 
 
   mChanger = new Akonadi::IncidenceChanger( parent );
 
-  connect( mCalendar.data(), SIGNAL(calendarChanged()), this, SLOT(updateView()) );
+  connect( mCalendar, SIGNAL(calendarChanged()), this, SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(QDate)), this, SLOT(updateView()) );
 
   // Update Configuration

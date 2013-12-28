@@ -132,7 +132,7 @@ SummaryEventInfo::SummaryEventInfo()
 
 /**static*/
 SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, const QDate &end,
-                                                         const KCalCore::Calendar::Ptr &calendar )
+                                                         KCalCore::Calendar *calendar )
 {
   KCalCore::Event::List allEvents = calendar->events(); // calendar->rawEvents() isn't exactly what we want, doesn't handle recurrence right
   KCalCore::Event::List events;
@@ -318,7 +318,7 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
 }
 
 SummaryEventInfo::List SummaryEventInfo::eventsForDate( const QDate &date,
-                                                        const KCalCore::Calendar::Ptr &calendar )
+                                                        KCalCore::Calendar *calendar )
 {
   return eventsForRange(date, date, calendar);
 }

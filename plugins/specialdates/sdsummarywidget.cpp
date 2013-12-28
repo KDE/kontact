@@ -30,7 +30,7 @@
 
 #include <calendarsupport/utils.h>
 #include <calendarsupport/calendarsingleton.h>
-
+#include <Akonadi/Calendar/ETMCalendar>
 #include <Akonadi/ItemFetchJob>
 #include <Akonadi/ItemFetchScope>
 #include <Akonadi/EntityDisplayAttribute>
@@ -161,7 +161,7 @@ SDSummaryWidget::SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *par
   connect( mPlugin->core(), SIGNAL(dayChanged(QDate)),
            this, SLOT(updateView()) );
 
-  connect( mCalendar.data(), SIGNAL(calendarChanged()),
+  connect( mCalendar, SIGNAL(calendarChanged()),
            this, SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(QDate)),
            this, SLOT(updateView()) );

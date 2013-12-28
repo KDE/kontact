@@ -26,7 +26,6 @@
 #ifndef SDSUMMARYWIDGET_H
 #define SDSUMMARYWIDGET_H
 
-#include <Akonadi/Calendar/ETMCalendar>
 #include <KCalCore/Event>
 
 #include <KontactInterface/Summary>
@@ -37,6 +36,10 @@ namespace KHolidays {
 
 namespace KontactInterface {
   class Plugin;
+}
+
+namespace Akonadi {
+  class ETMCalendar;
 }
 
 class QDate;
@@ -78,7 +81,7 @@ class SDSummaryWidget : public KontactInterface::Summary
     bool initHolidays();
     void dateDiff( const QDate &date, int &days, int &years ) const;
 
-    Akonadi::ETMCalendar::Ptr mCalendar;
+    Akonadi::ETMCalendar *mCalendar;
 
     QGridLayout *mLayout;
     QList<QLabel*> mLabels;
