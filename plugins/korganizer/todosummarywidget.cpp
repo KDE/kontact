@@ -431,3 +431,5 @@ const QString TodoSummaryWidget::stateStr( const KCalCore::Todo::Ptr &todo )
   return str1 + str2;
 }
 
+
+#include "moc_todosummarywidget.cpp"

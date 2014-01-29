@@ -189,3 +189,5 @@ void KCMKontactSummary::save()
   grp.writeEntry( "ActiveSummaries", activeSummaries );
 }
 
+
+#include "moc_kcmkontactsummary.cpp"

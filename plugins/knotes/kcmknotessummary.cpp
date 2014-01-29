@@ -123,3 +123,5 @@ void KCMKNotesSummary::defaults()
 {
     emit changed( true );
 }
+
+#include "moc_kcmknotessummary.cpp"

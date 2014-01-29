@@ -39,3 +39,5 @@ KontactInterface::Core *SidePaneBase::core() const
   return mCore;
 }
 
+
+#include "moc_sidepanebase.cpp"

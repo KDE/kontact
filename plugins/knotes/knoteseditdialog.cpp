@@ -172,3 +172,5 @@ void KNoteEditDialog::setTextFont( const QFont &font )
 }
 
 
+
+#include "moc_knoteseditdialog.cpp"

@@ -289,3 +289,5 @@ QStringList ApptSummaryWidget::configModules() const
   return QStringList()<< QLatin1String("kcmapptsummary.desktop");
 }
 
+
+#include "moc_apptsummarywidget.cpp"

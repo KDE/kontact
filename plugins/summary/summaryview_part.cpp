@@ -564,3 +564,5 @@ QString SummaryViewPart::widgetName( QWidget *widget ) const
   return QString();
 }
 
+
+#include "moc_summaryview_part.cpp"

@@ -150,3 +150,5 @@ void KCMKMailSummary::defaults()
     emit changed( true );
 }
 
+
+#include "moc_kcmkmailsummary.cpp"

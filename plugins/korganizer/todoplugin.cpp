@@ -270,3 +270,5 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
   kWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
 
+
+#include "moc_todoplugin.cpp"

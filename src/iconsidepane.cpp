@@ -545,3 +545,5 @@ void IconSidePane::resizeEvent( QResizeEvent *event )
 
 
 // vim: sw=2 sts=2 et tw=80
+
+#include "moc_iconsidepane.cpp"

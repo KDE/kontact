@@ -816,3 +816,5 @@ void KNotesPart::slotUpdateReadOnly()
 #endif
 }
 
+
+#include "moc_knotes_part.cpp"

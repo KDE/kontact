@@ -232,3 +232,5 @@ int KNotesUniqueAppHandler::newInstance()
     (void)plugin()->part();
     return KontactInterface::UniqueAppHandler::newInstance();
 }
+
+#include "moc_knotes_plugin.cpp"

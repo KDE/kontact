@@ -1032,3 +1032,5 @@ bool Planner::notStarted( Todo *todo )
 
   return true;
 }
+
+#include "moc_planner.cpp"

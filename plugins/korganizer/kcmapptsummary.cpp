@@ -171,3 +171,5 @@ const KAboutData *KCMApptSummary::aboutData() const
   return about;
 }
 
+
+#include "moc_kcmapptsummary.cpp"
