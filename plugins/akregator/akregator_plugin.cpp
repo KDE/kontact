@@ -157,5 +157,3 @@ int AkregatorUniqueAppHandler::newInstance()
   return KontactInterface::UniqueAppHandler::newInstance();
 }
 
-
-#include "moc_akregator_plugin.cpp"

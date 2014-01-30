@@ -145,5 +145,3 @@ int KJotsUniqueAppHandler::newInstance()
 }
 
 
-
-#include "moc_kjots_plugin.cpp"

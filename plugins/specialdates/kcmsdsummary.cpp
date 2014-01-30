@@ -184,5 +184,3 @@ const KAboutData *KCMSDSummary::aboutData() const
   return about;
 }
 
-
-#include "moc_kcmsdsummary.cpp"

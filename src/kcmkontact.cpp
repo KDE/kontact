@@ -151,5 +151,3 @@ QList<QWidget *> PluginSelection::widgets() const
   return widgets;
 }
 
-
-#include "moc_kcmkontact.cpp"

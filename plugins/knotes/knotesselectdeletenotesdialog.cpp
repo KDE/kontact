@@ -93,5 +93,3 @@ void KNotesSelectDeleteNotesDialog::writeConfig()
 }
 
 
-
-#include "moc_knotesselectdeletenotesdialog.cpp"
