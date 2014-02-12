@@ -61,7 +61,7 @@ KCMKNotesSummary::KCMKNotesSummary( const KComponentData &inst, QWidget *parent 
             new KAboutData( I18N_NOOP( "kcmknotessummary" ), 0,
                             ki18n( "Notes Summary Configuration Dialog" ),
                             0, KLocalizedString(), KAboutData::License_GPL,
-                            ki18n( "Copyright © 2013 Laurent Montel <montel@kde.org>" ) );
+                            ki18n( "Copyright © 2013-2014 Laurent Montel <montel@kde.org>" ) );
 
     about->addAuthor( ki18n( "Laurent Montel" ),
                       KLocalizedString(), "montel@kde.org" );

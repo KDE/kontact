@@ -118,7 +118,7 @@ const KAboutData *KNotesPlugin::aboutData() const
                                 KDEPIM_VERSION,
                                 ki18nc( "@title", "Popup Notes" ),
                                 KAboutData::License_GPL_V2,
-                                ki18nc( "@info:credit", "Copyright © 2003–2013 Kontact authors" ) );
+                                ki18nc( "@info:credit", "Copyright © 2003–2014 Kontact authors" ) );
 
         mAboutData->addAuthor( ki18nc( "@info:credit", "Laurent Montel" ),
                                ki18nc( "@info:credit", "Current Maintainer" ),
