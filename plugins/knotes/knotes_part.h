@@ -109,6 +109,7 @@ private slots:
     void slotUpdateReadOnly();
 
     void slotNoteCreationFinished(KJob *job);
+    void slotRowInserted(const QModelIndex &parent, int start, int end);
 private:
     void updateNetworkListener();
     void printSelectedNotes(bool preview);

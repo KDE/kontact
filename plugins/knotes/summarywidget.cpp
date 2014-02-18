@@ -129,6 +129,48 @@ void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
         if ( col.isValid() ) {
             const Akonadi::CollectionStatistics stats = col.statistics();
             if ( ( ( stats.unreadCount() ) != Q_INT64_C(0) ) && showCollection ) {
+                // Collection Name.
+                KUrlLabel *urlLabel;
+
+                urlLabel = new KUrlLabel( QString::number( col.id() ), col.name(), this );
+
+                urlLabel->installEventFilter( this );
+                urlLabel->setAlignment( Qt::AlignLeft );
+                urlLabel->setWordWrap( true );
+                mLayout->addWidget( urlLabel, counter, 1 );
+                mLabels.append( urlLabel );
+
+                // tooltip
+                urlLabel->setToolTip( i18n( "<qt><b>%1</b>"
+                                            "<br/>Total: %2<br/>"
+                                            "Unread: %3</qt>",
+                                            col.name(),
+                                            stats.count(),
+                                            stats.unreadCount() ) );
+
+                connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
+                         SLOT(selectFolder(QString)) );
+
+                // Read and unread count.
+                QLabel *label = new QLabel( i18nc( "%1: number of unread messages "
+                                                   "%2: total number of messages",
+                                                   "%1 / %2", stats.unreadCount(), stats.count() ), this );
+
+                label->setAlignment( Qt::AlignLeft );
+                mLayout->addWidget( label, counter, 2 );
+                mLabels.append( label );
+
+                // Folder icon.
+                QIcon icon = mModelProxy->data( child, Qt::DecorationRole ).value<QIcon>();
+                label = new QLabel( this );
+                label->setPixmap( icon.pixmap( label->height() / 1.5 ) );
+                label->setMaximumWidth( label->minimumSizeHint().width() );
+                label->setAlignment( Qt::AlignVCenter );
+                mLayout->addWidget( label, counter, 0 );
+                mLabels.append( label );
+
+                ++counter;
+
                 //TODO
             }
         }

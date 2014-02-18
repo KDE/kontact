@@ -27,7 +27,7 @@
 #include "knoteseditdialog.h"
 #include "knotesadaptor.h"
 #include "noteshared/job/createnewnotejob.h"
-//#include "knotesiconview.h"
+#include "knotesiconview.h"
 #include "knoteswidget.h"
 #include "knotesselectdeletenotesdialog.h"
 #include "knotetip.h"
@@ -213,10 +213,7 @@ KNotesPart::KNotesPart( QObject *parent )
     connect( mNoteRecorder, SIGNAL(collectionRemoved(Akonadi::Collection)),
              SLOT(slotCollectionChanged(Akonadi::Collection)) );
 
-    connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-             SLOT(slotRowInserted(QModelIndex,int,int)));
-
-    mNotesWidget = new KNotesWidget(this);
+    mNotesWidget = new KNotesWidget(this,widget());
 
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -249,6 +246,43 @@ KNotesPart::~KNotesPart()
     delete mNoteTip;
     mNoteTip = 0;
 }
+
+void KNotesPart::slotRowInserted(const QModelIndex &parent, int start, int end)
+{
+    qDebug()<<" void KNotesPart::slotRowInserted(const QModelIndex &parent, int start, int end)";
+    for ( int i = start; i <= end; ++i) {
+        if ( mNoteTreeModel->hasIndex( i, 0, parent ) ) {
+            const QModelIndex child = mNoteTreeModel->index( i, 0, parent );
+            Akonadi::Item item =
+                    mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
+            Akonadi::Collection parentCollection = mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ParentCollectionRole).value<Akonadi::Collection>();
+            if (/*parentCollection.hasAttribute<NoteShared::ShowFolderNotesAttribute>()*/1) {
+                if ( !item.hasPayload<KMime::Message::Ptr>() )
+                    continue;
+                qDebug()<<" xxxxxxxxxxxxxxxxxx";
+                mNotesWidget->notesView()->addNote();
+                /*
+                KNote *note = new KNote(m_noteGUI,item, 0);
+                mNotes.insert(item.id(), note);
+                connect( note, SIGNAL(sigShowNextNote()),
+                         SLOT(slotWalkThroughNotes()) ) ;
+                connect( note, SIGNAL(sigRequestNewNote()),
+                         SLOT(newNote()) );
+                connect( note, SIGNAL(sigNameChanged(QString)),
+                         SLOT(updateNoteActions()) );
+                connect( note, SIGNAL(sigColorChanged()),
+                         SLOT(updateNoteActions()) );
+                connect( note, SIGNAL(sigKillNote(Akonadi::Item::Id)),
+                         SLOT(slotNoteKilled(Akonadi::Item::Id)) );
+                updateNoteActions();
+                updateSystray();
+                */
+            }
+        }
+    }
+}
+
+
 
 QStringList KNotesPart::notesList() const
 {
