@@ -59,8 +59,18 @@ void KNotesIconView::mousePressEvent( QMouseEvent *e )
 void KNotesIconView::addNote()
 {
     qDebug()<<" void KNotesIconView::addNote()";
-    QListWidgetItem *item = new QListWidgetItem(i18n("Note"));
-    addItem(item);
+    new KNotesIconViewItem(this);
+}
+
+KNotesIconViewItem::KNotesIconViewItem( QListWidget *parent )
+    : QListWidgetItem( parent )
+{
+    setText(i18n("Note"));
+    //TODO
+}
+
+KNotesIconViewItem::~KNotesIconViewItem()
+{
 }
 
 #if 0

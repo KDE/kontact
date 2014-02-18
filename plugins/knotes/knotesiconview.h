@@ -36,6 +36,14 @@ protected:
 private:
     //KNotesPart *m_part;
 };
+
+class KNotesIconViewItem : public QListWidgetItem
+{
+public:
+    KNotesIconViewItem( QListWidget *parent);
+    ~KNotesIconViewItem();
+};
+
 #if 0
 class KNotesIconViewItem : public QListWidgetItem
 {
