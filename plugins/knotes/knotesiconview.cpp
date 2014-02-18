@@ -17,9 +17,16 @@
 
 #include "knotesiconview.h"
 #include "noteshared/akonadi/notesakonaditreemodel.h"
+#include "noteshared/attributes/notedisplayattribute.h"
+#include "noteshared/attributes/notelockattribute.h"
+#include "knotes/notes/knotedisplaysettings.h"
 #include "utils/knoteutils.h"
 
 #include <KLocalizedString>
+
+#include <Akonadi/ItemModifyJob>
+
+#include <KMime/KMimeMessage>
 
 #include <KIconEffect>
 #include <KIconLoader>
@@ -30,8 +37,9 @@
 #include <QListWidgetItem>
 #include <QDebug>
 
-KNotesIconView::KNotesIconView( QWidget *parent )
-    : QListWidget(parent)
+KNotesIconView::KNotesIconView( KNotesPart *part, QWidget *parent )
+    : KListWidget(parent),
+      m_part(part)
 {
     setViewMode( QListView::IconMode );
     setMovement( QListView::Static );
@@ -50,75 +58,85 @@ void KNotesIconView::mousePressEvent( QMouseEvent *e )
 {
     if ( e->button() == Qt::RightButton ) {
         QListView::mousePressEvent( e );
-        //m_part->popupRMB( currentItem(), e->pos (), e->globalPos() );
+        m_part->popupRMB( currentItem(), e->pos (), e->globalPos() );
     } else {
         QListView::mousePressEvent( e );
     }
 }
 
-void KNotesIconView::addNote()
+void KNotesIconView::addNote(const Akonadi::Item &item)
 {
-    qDebug()<<" void KNotesIconView::addNote()";
-    new KNotesIconViewItem(this);
+    KNotesIconViewItem *iconView = new KNotesIconViewItem(item, this);
+    mNoteList.insert(item.id(), iconView);
 }
 
-KNotesIconViewItem::KNotesIconViewItem( QListWidget *parent )
-    : QListWidgetItem( parent )
+KNotesIconViewItem *KNotesIconView::iconView(Akonadi::Item::Id id) const
 {
-    setText(i18n("Note"));
-    //TODO
+    if (mNoteList.contains(id)) {
+        return mNoteList.value(id);
+    }
+    return 0;
 }
 
-KNotesIconViewItem::~KNotesIconViewItem()
-{
-}
-
-#if 0
-KNotesIconViewItem::KNotesIconViewItem( QListWidget *parent, Journal *journal )
+KNotesIconViewItem::KNotesIconViewItem( const Akonadi::Item &item, QListWidget *parent )
     : QListWidgetItem( parent ),
-      mJournal( journal ),
-      mConfig(0)
+      mDisplayAttribute(new KNoteDisplaySettings),
+      mItem(item),
+      mReadOnly(false)
 {
-    QString configPath;
-
-    mConfig = KNoteUtils::createConfig(journal, configPath);
-    KNoteUtils::setProperty(journal, mConfig);
-
-    updateSettings();
-    setIconText( journal->summary() );
+    if ( mItem.hasAttribute<NoteShared::NoteDisplayAttribute>()) {
+        mDisplayAttribute->setDisplayAttribute(mItem.attribute<NoteShared::NoteDisplayAttribute>());
+    } else {
+        setDisplayDefaultValue();
+        //save default display value
+    }
+    prepare();
 }
 
 KNotesIconViewItem::~KNotesIconViewItem()
 {
-    delete mConfig;
+    delete mDisplayAttribute;
 }
 
-
-void KNotesIconViewItem::updateSettings()
+void KNotesIconViewItem::prepare()
 {
-    KNoteUtils::savePreferences(mJournal, mConfig);
+    KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
+    setText(noteMessage->subject(false)->asUnicodeString());
+
+    if ( mItem.hasAttribute<NoteShared::NoteLockAttribute>() ) {
+        mReadOnly = true;
+    } else {
+        mReadOnly = false;
+    }
+    //TODO slotUpdateReadOnly();
+    // HACK: update the icon color - again after showing the note, to make kicker
+    // aware of the new colors
+
     KIconEffect effect;
-    QColor color( mConfig->bgColor() );
+    QColor color( mDisplayAttribute->backgroundColor() );
     QPixmap icon = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
     icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
-    setFont(mConfig->titleFont());
-    mConfig->writeConfig();
+    setFont(mDisplayAttribute->titleFont());
     setIcon( icon );
 }
 
-Journal *KNotesIconViewItem::journal() const
+bool KNotesIconViewItem::readOnly() const
 {
-    return mJournal;
+    return mReadOnly;
 }
 
-KNoteConfig *KNotesIconViewItem::config()
+void KNotesIconViewItem::setReadOnly(bool b)
 {
-    return mConfig;
+    mReadOnly = b;
+    //TODO update it.
 }
 
-QString KNotesIconViewItem::realName() const
+
+void KNotesIconViewItem::setDisplayDefaultValue()
 {
-    return mJournal->summary();
+    KNoteUtils::setDefaultValue(mItem);
+    Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
+    connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
 }
 
 void KNotesIconViewItem::setIconText( const QString &text )
@@ -132,39 +150,59 @@ void KNotesIconViewItem::setIconText( const QString &text )
 
     setText( replaceText );
 
-    mJournal->setSummary( text );
+    //TODO
+    //mJournal->setSummary( text );
 }
 
-bool KNotesIconViewItem::readOnly() const
+QString KNotesIconViewItem::realName() const
 {
-    return mConfig->readOnly();
-}
-
-void KNotesIconViewItem::setReadOnly(bool b)
-{
-    mConfig->setReadOnly(b);
-    mConfig->writeConfig();
+    const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
+    return noteMessage->subject(false)->asUnicodeString();
 }
 
 int KNotesIconViewItem::tabSize() const
 {
-    return mConfig->tabSize();
+    return mDisplayAttribute->tabSize();
 }
 
 bool KNotesIconViewItem::autoIndent() const
 {
-    return mConfig->autoIndent();
+    return mDisplayAttribute->autoIndent();
 }
 
 QFont KNotesIconViewItem::textFont() const
 {
-    return mConfig->font();
+    return mDisplayAttribute->font();
 }
 
 bool KNotesIconViewItem::isRichText() const
 {
-    const QString property = mJournal->customProperty("KNotes", "RichText");
-    return (property == QLatin1String("true") ? true : false );
+    const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
+    return noteMessage->contentType()->isHTMLText();
 }
+
+QString KNotesIconViewItem::description() const
+{
+    const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
+    return QString(); //TODO
+}
+
+
+
+#if 0
+void KNotesIconViewItem::updateSettings()
+{
+    KNoteUtils::savePreferences(mJournal, mConfig);
+    KIconEffect effect;
+    QColor color( mConfig->bgColor() );
+    QPixmap icon = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
+    icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
+    setFont(mConfig->titleFont());
+    mConfig->writeConfig();
+    setIcon( icon );
+}
+
+
+
 #endif
 #include "moc_knotesiconview.cpp"

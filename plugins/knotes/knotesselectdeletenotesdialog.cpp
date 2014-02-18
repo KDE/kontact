@@ -35,7 +35,6 @@ KNotesSelectDeleteNotesListWidget::~KNotesSelectDeleteNotesListWidget()
 
 }
 
-#if 0
 void KNotesSelectDeleteNotesListWidget::setItems(const QList<KNotesIconViewItem*> &items)
 {
     Q_FOREACH (KNotesIconViewItem *item, items) {
@@ -48,9 +47,8 @@ void KNotesSelectDeleteNotesListWidget::setItems(const QList<KNotesIconViewItem*
         }
     }
 }
-#endif
 
-KNotesSelectDeleteNotesDialog::KNotesSelectDeleteNotesDialog(/*const QList<KNotesIconViewItem*> &items,*/ QWidget *parent)
+KNotesSelectDeleteNotesDialog::KNotesSelectDeleteNotesDialog(const QList<KNotesIconViewItem *> &items, /*const QList<KNotesIconViewItem*> &items,*/ QWidget *parent)
     : KDialog(parent)
 {
     setCaption( i18nc( "@title:window", "Confirm Delete" ) );
@@ -66,7 +64,7 @@ KNotesSelectDeleteNotesDialog::KNotesSelectDeleteNotesDialog(/*const QList<KNote
     mSelectedListWidget = new KNotesSelectDeleteNotesListWidget;
     lay->addWidget(mSelectedListWidget);
     setMainWidget(w);
-    //FIXME mSelectedListWidget->setItems(items);
+    mSelectedListWidget->setItems(items);
     setButtonText(Ok, KStandardGuiItem::del().text() );
     readConfig();
 }

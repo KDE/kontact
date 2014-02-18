@@ -38,11 +38,11 @@ bool KNotesListWidgetSearchLine::itemMatches( const QListWidgetItem *item, const
     if (!item) {
         return false;
     }
-#if 0
     const KNotesIconViewItem *iconView = dynamic_cast<const KNotesIconViewItem *>( item );
     if (!iconView) {
         return false;
     }
+#if 0
     Journal *journal = iconView->journal();
     if (!journal) {
         return false;

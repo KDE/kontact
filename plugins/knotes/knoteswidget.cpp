@@ -27,8 +27,8 @@ KNotesWidget::KNotesWidget(KNotesPart *part, QWidget *parent)
     QVBoxLayout *lay = new QVBoxLayout;
     KNotesListWidgetSearchLine *searchLine = new KNotesListWidgetSearchLine;
     lay->addWidget(searchLine);
-    mIconView = new KNotesIconView(parent);
-    //searchLine->setListWidget(mIconView);
+    mIconView = new KNotesIconView(part, parent);
+    searchLine->setListWidget(mIconView);
     lay->addWidget(mIconView);
     setLayout(lay);
 }

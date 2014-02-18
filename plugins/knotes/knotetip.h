@@ -35,7 +35,7 @@
 
 #include <QFrame>
 
-//class KNotesIconViewItem;
+class KNotesIconViewItem;
 
 class QTextEdit;
 class QListWidget;
@@ -46,7 +46,7 @@ public:
     explicit KNoteTip( QListWidget *parent );
     ~KNoteTip();
 
-    //void setNote( KNotesIconViewItem *item );
+    void setNote( KNotesIconViewItem *item );
 
 protected:
     bool eventFilter( QObject *, QEvent *e );
@@ -61,7 +61,7 @@ private:
 private:
     bool mFilter;
     QListWidget *mView;
-    //KNotesIconViewItem *mNoteIVI;
+    KNotesIconViewItem *mNoteIVI;
     QTextEdit *mPreview;
 };
 

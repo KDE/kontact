@@ -19,29 +19,53 @@
 #define KNOTESICONVIEW_H
 
 #include "knotes_part.h"
-#include <QListWidget>
+#include <KListWidget>
+#include <QMultiHash>
 class KNoteConfig;
-class KNotesIconView : public QListWidget
+class KNoteDisplaySettings;
+class KNotesIconView : public KListWidget
 {
     Q_OBJECT
 public:
-    explicit KNotesIconView(QWidget *parent );
+    explicit KNotesIconView(KNotesPart *part, QWidget *parent );
     ~KNotesIconView();
 
-    void addNote();
+    void addNote(const Akonadi::Item &item);
 
+    KNotesIconViewItem *iconView(Akonadi::Item::Id id) const;
 protected:
     void mousePressEvent( QMouseEvent * );
 
 private:
-    //KNotesPart *m_part;
+    KNotesPart *m_part;
+    QMultiHash<Akonadi::Item::Id, KNotesIconViewItem*> mNoteList;
 };
 
-class KNotesIconViewItem : public QListWidgetItem
+class KNotesIconViewItem : public QObject, public QListWidgetItem
 {
+    Q_OBJECT
 public:
-    KNotesIconViewItem( QListWidget *parent);
+    KNotesIconViewItem(const Akonadi::Item &item, QListWidget *parent);
     ~KNotesIconViewItem();
+
+    bool readOnly() const;
+    void setReadOnly(bool b);
+
+    void setIconText( const QString &text );
+    QString realName() const;
+
+    int tabSize() const;
+    bool autoIndent() const;
+    QFont textFont() const;
+    bool isRichText() const;
+    QString description() const;
+
+private:
+    void prepare();
+    void setDisplayDefaultValue();
+    KNoteDisplaySettings *mDisplayAttribute;
+    Akonadi::Item mItem;
+    bool mReadOnly;
 };
 
 #if 0
@@ -51,19 +75,8 @@ public:
     KNotesIconViewItem( QListWidget *parent, Journal *journal );
     ~KNotesIconViewItem();
 
-    Journal *journal() const;
-    QString realName() const;
-    void setIconText( const QString &text );
-    KNoteConfig *config();
     void updateSettings();
-    bool readOnly() const;
-    void setReadOnly(bool b);
-    int tabSize() const;
 
-    bool autoIndent() const;
-    bool isRichText() const;
-
-    QFont textFont() const;
 
 private:
     Journal *mJournal;

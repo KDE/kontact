@@ -115,8 +115,6 @@ private:
     void printSelectedNotes(bool preview);
     KNotesWidget *mNotesWidget;
     KNoteTip *mNoteTip;
-
-    QMultiHash<QString, KNotesIconViewItem*> mNoteList;
     DNSSD::PublicService *mPublisher;
     KAction *mNoteEdit;
     KAction *mNoteRename;
