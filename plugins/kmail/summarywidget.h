@@ -30,11 +30,13 @@
 
 #include <KViewStateMaintainer>
 
+
 namespace Akonadi {
 class ChangeRecorder;
 class Collection;
 class EntityTreeModel;
 class ETMViewStateSaver;
+class CollectionStatistics;
 }
 
 namespace KontactInterface {
@@ -66,11 +68,11 @@ public slots:
 
 private slots:
     void selectFolder( const QString & );
-    void slotCollectionChanged( const Akonadi::Collection & );
+    void slotCollectionChanged();
     void slotRowInserted( const QModelIndex & parent, int start, int end );
+    void slotUpdateFolderList();
 
-private:
-    void updateFolderList();
+private:    
     void displayModel( const QModelIndex &, int &, const bool, QStringList );
 
     QList<QLabel*> mLabels;

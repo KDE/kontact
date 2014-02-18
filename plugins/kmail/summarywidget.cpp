@@ -89,19 +89,17 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
     mModelState->setSelectionModel( mSelectionModel );
 
     connect( mChangeRecorder, SIGNAL(collectionChanged(Akonadi::Collection)),
-             SLOT(slotCollectionChanged(Akonadi::Collection)) );
+             SLOT(slotCollectionChanged()) );
     connect( mChangeRecorder, SIGNAL(collectionRemoved(Akonadi::Collection)),
-             SLOT(slotCollectionChanged(Akonadi::Collection)) );
-
-    connect( mModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-             SLOT(slotRowInserted(QModelIndex,int,int)));
-    updateFolderList();
+             SLOT(slotCollectionChanged()) );
+    connect( mChangeRecorder, SIGNAL(collectionStatisticsChanged(Akonadi::Collection::Id,Akonadi::CollectionStatistics)),
+             SLOT(slotCollectionChanged()));
+    QTimer::singleShot(0, this, SLOT(slotUpdateFolderList()));
 }
 
-void SummaryWidget::slotCollectionChanged( const Akonadi::Collection &col )
+void SummaryWidget::slotCollectionChanged()
 {
-    Q_UNUSED( col );
-    updateFolderList();
+    QTimer::singleShot(0, this, SLOT(slotUpdateFolderList()));
 }
 
 void SummaryWidget::slotRowInserted( const QModelIndex & parent, int start, int end )
@@ -109,13 +107,13 @@ void SummaryWidget::slotRowInserted( const QModelIndex & parent, int start, int 
     Q_UNUSED( parent );
     Q_UNUSED( start );
     Q_UNUSED( end );
-    updateFolderList();
+    QTimer::singleShot(0, this, SLOT(slotUpdateFolderList()));
 }
 
 void SummaryWidget::updateSummary( bool force )
 {
     Q_UNUSED( force );
-    updateFolderList();
+    QTimer::singleShot(0, this, SLOT(slotUpdateFolderList()));
 }
 
 void SummaryWidget::selectFolder( const QString &folder )
@@ -205,7 +203,7 @@ void SummaryWidget::displayModel( const QModelIndex &parent,
     }
 }
 
-void SummaryWidget::updateFolderList()
+void SummaryWidget::slotUpdateFolderList()
 {
     qDeleteAll( mLabels );
     mLabels.clear();
