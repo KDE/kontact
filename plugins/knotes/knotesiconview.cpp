@@ -79,8 +79,8 @@ KNotesIconViewItem *KNotesIconView::iconView(Akonadi::Item::Id id) const
 
 KNotesIconViewItem::KNotesIconViewItem( const Akonadi::Item &item, QListWidget *parent )
     : QListWidgetItem( parent ),
-      mDisplayAttribute(new KNoteDisplaySettings),
       mItem(item),
+      mDisplayAttribute(new KNoteDisplaySettings),
       mReadOnly(false)
 {
     if ( mItem.hasAttribute<NoteShared::NoteDisplayAttribute>()) {
@@ -185,7 +185,7 @@ QString KNotesIconViewItem::description() const
 
 void KNotesIconViewItem::setDescription(const QString &)
 {
-    //TODO
+    //TODO save
 }
 
 KNoteDisplaySettings *KNotesIconViewItem::displayAttribute() const
@@ -197,6 +197,24 @@ Akonadi::Item KNotesIconViewItem::item()
 {
     return mItem;
 }
+
+void KNotesIconViewItem::saveNoteContent()
+{
+    KMime::Message::Ptr message = mItem.payload<KMime::Message::Ptr>();
+    const QByteArray encoding( "utf-8" );
+    message->subject( true )->fromUnicodeString( realName(), encoding );
+    message->contentType( true )->setMimeType( isRichText() ? "text/html" : "text/plain" );
+    message->contentType()->setCharset(encoding);
+    message->contentTransferEncoding(true)->setEncoding(KMime::Headers::CEquPr);
+    message->date( true )->setDateTime( KDateTime::currentLocalDateTime() );
+    //TODO
+    //message->mainBodyPart()->fromUnicodeString( text().isEmpty() ? QString::fromLatin1( " " ) : text());
+
+    message->assemble();
+
+    mItem.setPayload( message );
+}
+
 
 void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QByteArray> & set)
 {
@@ -218,11 +236,10 @@ void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QBy
     }
 
 }
-
-
-#if 0
 void KNotesIconViewItem::updateSettings()
 {
+    //TODO
+#if 0
     KNoteUtils::savePreferences(mJournal, mConfig);
     KIconEffect effect;
     QColor color( mConfig->bgColor() );
@@ -231,9 +248,7 @@ void KNotesIconViewItem::updateSettings()
     setFont(mConfig->titleFont());
     mConfig->writeConfig();
     setIcon( icon );
+#endif
 }
 
-
-
-#endif
 #include "moc_knotesiconview.cpp"

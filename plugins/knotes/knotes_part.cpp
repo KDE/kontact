@@ -315,7 +315,6 @@ void KNotesPart::printSelectedNotes(bool preview)
                     i18nc( "@title:window", "Print Popup Notes" ) );
         return;
     }
-#if 0
     KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
     QString printingTheme = globalConfig->theme();
     if (printingTheme.isEmpty()) {
@@ -325,10 +324,11 @@ void KNotesPart::printSelectedNotes(bool preview)
         }
         delete dlg;
     }
+#if 0
     if (!printingTheme.isEmpty()) {
         QList<KNotePrintObject *> listPrintObj;
         foreach ( QListWidgetItem *item, lst ) {
-            listPrintObj.append(new KNotePrintObject(static_cast<KNotesIconViewItem *>( item )->journal()));
+            listPrintObj.append(new KNotePrintObject(static_cast<KNotesIconViewItem *>( item )->description()));
         }
         KNotePrinter printer;
         printer.printNotes( listPrintObj, printingTheme, preview );
@@ -369,32 +369,29 @@ void KNotesPart::newNoteFromClipboard( const QString &name )
     newNote( name, text );
 }
 
-void KNotesPart::killNote( const QString &id )
+void KNotesPart::killNote( Akonadi::Item::Id id )
 {
     killNote( id, false );
 }
 
-void KNotesPart::killNote( const QString &id, bool force )
+void KNotesPart::killNote( Akonadi::Item::Id id, bool force )
 {
-#if 0
-    KNotesIconViewItem *note = mNoteList.value( id );
-
+    KNotesIconViewItem *note = mNotesWidget->notesView()->iconView(id);
     if ( note &&
          ( (!force && KMessageBox::warningContinueCancelList(
                 mNotesWidget,
                 i18nc( "@info", "Do you really want to delete this note?" ),
-                QStringList( mNoteList.value( id )->text() ),
+                QStringList( note->realName() ),
                 i18nc( "@title:window", "Confirm Delete" ),
                 KStandardGuiItem::del() ) == KMessageBox::Continue )
            || force ) ) {
-        KNoteUtils::removeNote(mNoteList.value( id )->journal(), 0);
-        mManager->deleteNote( mNoteList.value( id )->journal() );
-        mManager->save();
+        //KNoteUtils::removeNote(mNoteList.value( id )->journal(), 0);
+        //mManager->deleteNote( mNoteList.value( id )->journal() );
+        //mManager->save();
     }
-#endif
 }
 
-QString KNotesPart::name( const Akonadi::Item::Id &id ) const
+QString KNotesPart::name( Akonadi::Item::Id id ) const
 {
     KNotesIconViewItem *note = mNotesWidget->notesView()->iconView(id);
     if ( note ) {
@@ -404,7 +401,7 @@ QString KNotesPart::name( const Akonadi::Item::Id &id ) const
     }
 }
 
-QString KNotesPart::text( const Akonadi::Item::Id &id ) const
+QString KNotesPart::text( Akonadi::Item::Id id ) const
 {
     //TODO return plaintext ?
     KNotesIconViewItem *note = mNotesWidget->notesView()->iconView( id );
@@ -415,7 +412,7 @@ QString KNotesPart::text( const Akonadi::Item::Id &id ) const
     }
 }
 
-void KNotesPart::setName( const Akonadi::Item::Id &id, const QString &newName )
+void KNotesPart::setName(Akonadi::Entity::Id id, const QString &newName )
 {
     KNotesIconViewItem *note = mNotesWidget->notesView()->iconView(id);
     if ( note ) {
@@ -423,7 +420,7 @@ void KNotesPart::setName( const Akonadi::Item::Id &id, const QString &newName )
     }
 }
 
-void KNotesPart::setText( const Akonadi::Item::Id &id, const QString &newText )
+void KNotesPart::setText( Akonadi::Item::Id id, const QString &newText )
 {
     KNotesIconViewItem *note = mNotesWidget->notesView()->iconView( id );
     if ( note ) {
@@ -543,8 +540,6 @@ void KNotesPart::editNote( QListWidgetItem *item )
     if ( dlg->exec() == QDialog::Accepted ) {
         knotesItem->setIconText( dlg->title() );
         knotesItem->setDescription( dlg->text() );
-        //TODO
-        //mManager->save();
     }
     delete dlg;
 }

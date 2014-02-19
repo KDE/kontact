@@ -64,29 +64,15 @@ public:
     Akonadi::Item item();
 
     void setChangeItem(const Akonadi::Item &item, const QSet<QByteArray> &set);
-
+    void saveNoteContent();
+    void updateSettings();
 private:
     void prepare();
     void setDisplayDefaultValue();
-    KNoteDisplaySettings *mDisplayAttribute;
+
     Akonadi::Item mItem;
+    KNoteDisplaySettings *mDisplayAttribute;
     bool mReadOnly;
 };
-
-#if 0
-class KNotesIconViewItem : public QListWidgetItem
-{
-public:
-    KNotesIconViewItem( QListWidget *parent, Journal *journal );
-    ~KNotesIconViewItem();
-
-    void updateSettings();
-
-
-private:
-    Journal *mJournal;
-    KNoteConfig *mConfig;
-};
-#endif
 
 #endif // KNOTESICONVIEW_H

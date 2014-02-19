@@ -11,11 +11,11 @@
     </method>
     <method name="killNote">
     <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
-      <arg name="name" type="s" direction="in"/>
+      <arg name="name" type="x" direction="in"/>
     </method>
     <method name="killNote">
     <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
-      <arg name="name" type="s" direction="in"/>
+      <arg name="name" type="x" direction="in"/>
       <arg name="force" type="b" direction="in"/>
     </method>
     <method name="setName">
