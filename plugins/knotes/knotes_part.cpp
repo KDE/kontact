@@ -284,7 +284,7 @@ void KNotesPart::requestToolTip( const QModelIndex &index )
 
 void KNotesPart::hideToolTip()
 {
-    //FIXME mNoteTip->setNote( 0 );
+    mNoteTip->setNote( 0 );
 }
 
 void KNotesPart::slotPrintPreviewSelectedNotes()
@@ -399,16 +399,13 @@ QString KNotesPart::name( const Akonadi::Item::Id &id ) const
 
 QString KNotesPart::text( const Akonadi::Item::Id &id ) const
 {
-#if 0
-    KNotesIconViewItem *note = mNoteList.value( id );
+    //TODO return plaintext ?
+    KNotesIconViewItem *note = mNotesWidget->notesView()->iconView( id );
     if ( note ) {
-        return note->journal()->description();
+        return note->description();
     } else {
         return QString();
     }
-#else
-    return QString();
-#endif
 }
 
 void KNotesPart::setName( const Akonadi::Item::Id &id, const QString &newName )
