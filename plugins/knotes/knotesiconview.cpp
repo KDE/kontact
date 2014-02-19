@@ -187,6 +187,11 @@ QString KNotesIconViewItem::description() const
     return QString(); //TODO
 }
 
+KNoteDisplaySettings *KNotesIconViewItem::displayAttribute() const
+{
+    return mDisplayAttribute;
+}
+
 
 
 #if 0

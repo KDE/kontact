@@ -79,7 +79,6 @@
 KNotesPart::KNotesPart( QObject *parent )
     : KParts::ReadOnlyPart( parent ),
       mNotesWidget( 0 ) ,
-      mNoteTip( new KNoteTip( /*mNotesWidget->notesView()*/0 ) ),
       mPublisher(0),
       mNotePrintPreview(0),
       mNoteTreeModel(0)
@@ -214,6 +213,7 @@ KNotesPart::KNotesPart( QObject *parent )
              SLOT(slotCollectionChanged(Akonadi::Collection)) );
 
     mNotesWidget = new KNotesWidget(this,widget());
+    mNoteTip = new KNoteTip( mNotesWidget->notesView() );
 
     // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
 
@@ -532,32 +532,24 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
 void KNotesPart::editNote( QListWidgetItem *item )
 {
     qDebug()<<" void KNotesPart::editNote( QListWidgetItem *item )";
-#if 0
     KNotesIconViewItem * knotesItem = static_cast<KNotesIconViewItem *>( item );
     QPointer<KNoteEditDialog> dlg = new KNoteEditDialog( knotesItem->readOnly(), widget() );
-    Journal *journal = knotesItem->journal();
-    dlg->setTitle( journal->summary() );
-    dlg->setText( journal->description() );
+    dlg->setTitle( knotesItem->realName() );
+    dlg->setText( knotesItem->description() );
 
-    const QString property = journal->customProperty("KNotes", "RichText");
-    if ( !property.isNull() ) {
-        dlg->setAcceptRichText( property == QLatin1String("true") ? true : false );
-    } else {
-        KNotesGlobalConfig *globalConfig = KNotesGlobalConfig::self();
-        dlg->setAcceptRichText( globalConfig->richText());
-    }
+    dlg->setAcceptRichText(knotesItem->isRichText());
     dlg->setTabSize(knotesItem->tabSize());
     dlg->setAutoIndentMode(knotesItem->autoIndent());
     dlg->setTextFont(knotesItem->textFont());
 
     dlg->noteEdit()->setFocus();
     if ( dlg->exec() == QDialog::Accepted ) {
-        static_cast<KNotesIconViewItem *>( item )->setIconText( dlg->title() );
-        journal->setDescription( dlg->text() );
-        mManager->save();
+        //TODO
+        //static_cast<KNotesIconViewItem *>( item )->setIconText( dlg->title() );
+        //journal->setDescription( dlg->text() );
+        //mManager->save();
     }
     delete dlg;
-#endif
 }
 
 void KNotesPart::editNote()
@@ -691,7 +683,6 @@ void KNotesPart::slotNewNoteFromClipboard()
 
 void KNotesPart::slotSaveAs()
 {
-#if 0
     if (!mNotesWidget->notesView()->currentItem())
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
@@ -729,7 +720,7 @@ void KNotesPart::slotSaveAs()
     if ( file.open( QIODevice::WriteOnly ) ) {
         QTextStream stream( &file );
         QTextDocument doc;
-        //FIXME doc.setHtml(knoteItem->journal()->description());
+        doc.setHtml(knoteItem->description());
         if ( convert && !convert->isChecked() ) {
             stream << doc.toHtml();
         } else {
@@ -737,7 +728,6 @@ void KNotesPart::slotSaveAs()
             stream << doc.toPlainText();
         }
     }
-#endif
 }
 
 void KNotesPart::slotUpdateReadOnly()

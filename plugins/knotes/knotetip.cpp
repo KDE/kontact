@@ -32,7 +32,7 @@
 
 #include "knotetip.h"
 #include "knotesiconview.h"
-
+#include "knotes/notes/knotedisplaysettings.h"
 
 #include <KTextEdit>
 #include <KGlobalSettings>
@@ -83,15 +83,11 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
             hide();
         }
     } else {
-#if 0
-        Journal *journal = item->journal();
-        mPreview->setAcceptRichText( journal->customProperty( "KNotes", "RichText" ) == QLatin1String("true") );
-
-        const QColor fg( journal->customProperty( "KNotes", "FgColor" ) );
-        const QColor bg( journal->customProperty( "KNotes", "BgColor" ) );
+        mPreview->setAcceptRichText(item->isRichText());
+        const QColor fg( item->displayAttribute()->foregroundColor() );
+        const QColor bg( item->displayAttribute()->backgroundColor() );
         setColor( fg, bg );
-
-        mPreview->setText( journal->description() );
+        mPreview->setText(item->description());
         //mPreview->zoomTo( 8 );
         //mPreview->sync(); this is deprecated in Qt4, but there is no replacement
 
@@ -109,7 +105,6 @@ void KNoteTip::setNote( KNotesIconViewItem *item )
         QAbstractEventDispatcher::instance()->unregisterTimers( this );
         setFilter( true );
         startTimer( 600 );  // delay showing the tooltip for 0.7 sec
-#endif
     }
 }
 // protected, virtual methods
