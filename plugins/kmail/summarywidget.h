@@ -69,7 +69,6 @@ public slots:
 private slots:
     void selectFolder( const QString & );
     void slotCollectionChanged();
-    void slotRowInserted( const QModelIndex & parent, int start, int end );
     void slotUpdateFolderList();
 
 private:    

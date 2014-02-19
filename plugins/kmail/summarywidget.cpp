@@ -102,14 +102,6 @@ void SummaryWidget::slotCollectionChanged()
     QTimer::singleShot(0, this, SLOT(slotUpdateFolderList()));
 }
 
-void SummaryWidget::slotRowInserted( const QModelIndex & parent, int start, int end )
-{
-    Q_UNUSED( parent );
-    Q_UNUSED( start );
-    Q_UNUSED( end );
-    QTimer::singleShot(0, this, SLOT(slotUpdateFolderList()));
-}
-
 void SummaryWidget::updateSummary( bool force )
 {
     Q_UNUSED( force );
