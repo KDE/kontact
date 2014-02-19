@@ -598,15 +598,19 @@ void KNotesPart::slotNotePreferences()
 {
     if (!mNotesWidget->notesView()->currentItem())
         return;
-#if 0
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
-    const QString name = knoteItem->realName();
-    QPointer<KNoteSimpleConfigDialog> dialog = new KNoteSimpleConfigDialog( knoteItem->config(), name, widget(), knoteItem->journal()->uid() );
-    connect( dialog, SIGNAL(settingsChanged(QString)) , this,
-             SLOT(slotApplyConfig()) );
-    dialog->exec();
+    QPointer<KNoteSimpleConfigDialog> dialog = new KNoteSimpleConfigDialog( knoteItem->realName(), widget() );
+    Akonadi::Item item = knoteItem->item();
+    dialog->load(item, knoteItem->isRichText());
+    if (dialog->exec() ) {
+        bool isRichText;
+        dialog->save(item, isRichText);
+        //TODO
+        //saveNoteContent();
+        //Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
+        //connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
+    }
     delete dialog;
-#endif
 }
 
 void KNotesPart::slotApplyConfig()
@@ -742,3 +746,10 @@ void KNotesPart::slotUpdateReadOnly()
 #endif
 }
 
+void KNotesPart::slotItemChanged(const Akonadi::Item &item, const QSet<QByteArray> & set)
+{
+    KNotesIconViewItem *knoteItem = mNotesWidget->notesView()->iconView(item.id());
+    if (knoteItem) {
+        knoteItem->setChangeItem(item, set);
+    }
+}

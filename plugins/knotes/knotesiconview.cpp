@@ -192,6 +192,31 @@ KNoteDisplaySettings *KNotesIconViewItem::displayAttribute() const
     return mDisplayAttribute;
 }
 
+Akonadi::Item KNotesIconViewItem::item()
+{
+    return mItem;
+}
+
+void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QByteArray> & set)
+{
+    mItem = item;
+    if ( item.hasAttribute<NoteShared::NoteDisplayAttribute>()) {
+        mDisplayAttribute->setDisplayAttribute(item.attribute<NoteShared::NoteDisplayAttribute>());
+    }
+    if (set.contains("ATR:KJotsLockAttribute")) {
+        setReadOnly(item.hasAttribute<NoteShared::NoteLockAttribute>());
+    }
+    if (set.contains("PLD:RFC822")) {
+        KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
+        setIconText(noteMessage->subject(false)->asUnicodeString());
+    }
+    if (set.contains("ATR:NoteDisplayAttribute")) {
+        qDebug()<<" ATR:NoteDisplayAttribute";
+        //TODO
+        //slotApplyConfig();
+    }
+
+}
 
 
 #if 0

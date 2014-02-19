@@ -60,6 +60,9 @@ public:
     bool isRichText() const;
     QString description() const;
     KNoteDisplaySettings *displayAttribute() const;
+    Akonadi::Item item();
+
+    void setChangeItem(const Akonadi::Item &item, const QSet<QByteArray> &set);
 
 private:
     void prepare();
