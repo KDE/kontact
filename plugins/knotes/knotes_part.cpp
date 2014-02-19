@@ -44,6 +44,7 @@
 #include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "noteshared/akonadi/noteschangerecorder.h"
 #include "noteshared/attributes/notealarmattribute.h"
+#include "noteshared/attributes/showfoldernotesattribute.h"
 
 #include "akonadi_next/note.h"
 
@@ -254,11 +255,14 @@ void KNotesPart::slotRowInserted(const QModelIndex &parent, int start, int end)
     for ( int i = start; i <= end; ++i) {
         if ( mNoteTreeModel->hasIndex( i, 0, parent ) ) {
             const QModelIndex child = mNoteTreeModel->index( i, 0, parent );
-            Akonadi::Item item =
-                    mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
-            if ( !item.hasPayload<KMime::Message::Ptr>() )
-                continue;
-            mNotesWidget->notesView()->addNote(item);
+            Akonadi::Collection parentCollection = mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ParentCollectionRole).value<Akonadi::Collection>();
+            if (parentCollection.hasAttribute<NoteShared::ShowFolderNotesAttribute>()) {
+                Akonadi::Item item =
+                        mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
+                if ( !item.hasPayload<KMime::Message::Ptr>() )
+                    continue;
+                mNotesWidget->notesView()->addNote(item);
+            }
         }
     }
 }
@@ -416,19 +420,15 @@ void KNotesPart::setName( const Akonadi::Item::Id &id, const QString &newName )
     KNotesIconViewItem *note = mNotesWidget->notesView()->iconView(id);
     if ( note ) {
         note->setIconText( newName );
-        //TODO ??? mManager->save();
     }
 }
 
 void KNotesPart::setText( const Akonadi::Item::Id &id, const QString &newText )
 {
-#if 0
-    KNotesIconViewItem *note = mNoteList.value( id );
+    KNotesIconViewItem *note = mNotesWidget->notesView()->iconView( id );
     if ( note ) {
-        note->journal()->setDescription( newText );
-        mManager->save();
+        note->setDescription( newText );
     }
-#endif
 }
 
 QMap<QString, QString> KNotesPart::notes() const
@@ -448,7 +448,6 @@ QMap<QString, QString> KNotesPart::notes() const
 
 void KNotesPart::killSelectedNotes()
 {
-#if 0
     QList<QListWidgetItem *> lst = mNotesWidget->notesView()->selectedItems();
     if ( lst.isEmpty() ) {
         return;
@@ -462,23 +461,22 @@ void KNotesPart::killSelectedNotes()
 
     if (items.isEmpty())
         return;
-
     QPointer<KNotesSelectDeleteNotesDialog> dlg = new KNotesSelectDeleteNotesDialog(items, widget());
     if (dlg->exec()) {
         QListIterator<KNotesIconViewItem*> kniviIt( items );
         while ( kniviIt.hasNext() ) {
             KNotesIconViewItem *iconViewIcon = kniviIt.next();
             if (!iconViewIcon->readOnly()) {
+#if 0
                 Journal *journal = iconViewIcon->journal();
                 KNoteUtils::removeNote(journal, 0);
                 mManager->deleteNote( journal );
+#endif
             }
         }
-        mManager->save();
+        //TODO mManager->save();
     }
-
     delete dlg;
-#endif
 }
 
 void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos )
@@ -531,7 +529,6 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
 
 void KNotesPart::editNote( QListWidgetItem *item )
 {
-    qDebug()<<" void KNotesPart::editNote( QListWidgetItem *item )";
     KNotesIconViewItem * knotesItem = static_cast<KNotesIconViewItem *>( item );
     QPointer<KNoteEditDialog> dlg = new KNoteEditDialog( knotesItem->readOnly(), widget() );
     dlg->setTitle( knotesItem->realName() );
@@ -544,7 +541,6 @@ void KNotesPart::editNote( QListWidgetItem *item )
 
     dlg->noteEdit()->setFocus();
     if ( dlg->exec() == QDialog::Accepted ) {
-        //TODO
         knotesItem->setIconText( dlg->title() );
         knotesItem->setDescription( dlg->text() );
         //TODO

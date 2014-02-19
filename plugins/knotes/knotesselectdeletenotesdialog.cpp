@@ -48,7 +48,7 @@ void KNotesSelectDeleteNotesListWidget::setItems(const QList<KNotesIconViewItem*
     }
 }
 
-KNotesSelectDeleteNotesDialog::KNotesSelectDeleteNotesDialog(const QList<KNotesIconViewItem *> &items, /*const QList<KNotesIconViewItem*> &items,*/ QWidget *parent)
+KNotesSelectDeleteNotesDialog::KNotesSelectDeleteNotesDialog(const QList<KNotesIconViewItem *> &items, QWidget *parent)
     : KDialog(parent)
 {
     setCaption( i18nc( "@title:window", "Confirm Delete" ) );
