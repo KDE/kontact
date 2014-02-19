@@ -3,7 +3,7 @@
 
   Copyright (C) 2002-2003 Daniel Molkentin <molkentin@kde.org>
   Copyright (C) 2004-2006 Michael Brade <brade@kde.org>
-  Copyright (C) 2013 Laurent Montel <montel@kde.org>
+  Copyright (C) 2013-2014 Laurent Montel <montel@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public
@@ -43,6 +43,7 @@
 
 #include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "noteshared/akonadi/noteschangerecorder.h"
+#include "noteshared/attributes/notealarmattribute.h"
 
 #include "akonadi_next/note.h"
 
@@ -55,6 +56,8 @@
 
 
 #include <KMime/KMimeMessage>
+
+#include <Akonadi/ItemModifyJob>
 
 
 #include <KActionCollection>
@@ -542,8 +545,9 @@ void KNotesPart::editNote( QListWidgetItem *item )
     dlg->noteEdit()->setFocus();
     if ( dlg->exec() == QDialog::Accepted ) {
         //TODO
-        //static_cast<KNotesIconViewItem *>( item )->setIconText( dlg->title() );
-        //journal->setDescription( dlg->text() );
+        knotesItem->setIconText( dlg->title() );
+        knotesItem->setDescription( dlg->text() );
+        //TODO
         //mManager->save();
     }
     delete dlg;
@@ -607,16 +611,16 @@ void KNotesPart::slotNotePreferences()
         dialog->save(item, isRichText);
         //TODO
         //saveNoteContent();
-        //Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
-        //connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
+        Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(item);
+        connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
     }
     delete dialog;
 }
 
 void KNotesPart::slotApplyConfig()
 {
-#if 0
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
+#if 0
     knoteItem->updateSettings();
     //mManager->save();
 #endif
@@ -669,11 +673,37 @@ void KNotesPart::slotSetAlarm()
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
     QPointer<NoteShared::NoteAlarmDialog> dlg = new NoteShared::NoteAlarmDialog( knoteItem->realName(), widget() );
+    Akonadi::Item item = knoteItem->item();
+    if (item.hasAttribute<NoteShared::NoteAlarmAttribute>()) {
+        dlg->setAlarm(item.attribute<NoteShared::NoteAlarmAttribute>()->dateTime());
+    }
     if ( dlg->exec() ) {
-        //TODO
-        //mManager->save();
+        bool needToModify = true;
+        KDateTime dateTime = dlg->alarm();
+        if (dateTime.isValid()) {
+            NoteShared::NoteAlarmAttribute *attribute =  item.attribute<NoteShared::NoteAlarmAttribute>( Akonadi::Entity::AddIfMissing );
+            attribute->setDateTime(dateTime);
+        } else {
+            if (item.hasAttribute<NoteShared::NoteAlarmAttribute>()) {
+                item.removeAttribute<NoteShared::NoteAlarmAttribute>();
+            } else {
+                needToModify = false;
+            }
+        }
+        if (needToModify) {
+            Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(item);
+            connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
+        }
     }
     delete dlg;
+}
+
+void KNotesPart::slotNoteSaved(KJob *job)
+{
+    qDebug()<<" void KNote::slotNoteSaved(KJob *job)";
+    if ( job->error() ) {
+        qDebug()<<" problem during save note:"<<job->errorString();
+    }
 }
 
 void KNotesPart::slotNewNoteFromClipboard()
@@ -733,15 +763,15 @@ void KNotesPart::slotSaveAs()
 
 void KNotesPart::slotUpdateReadOnly()
 {
-#if 0
-    if (!mNotesWidget->notesView()->currentItem())
+    QListWidgetItem *item = mNotesWidget->notesView()->currentItem();
+    if (!item)
         return;
-    KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
+    KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(item);
 
     const bool readOnly = mReadOnly->isChecked();
 
     mNoteEdit->setText(readOnly ? i18n("Show Note...") : i18nc( "@action:inmenu", "Edit..." ));
-
+#if 0 //FIXME
     knoteItem->setReadOnly( readOnly );
 #endif
 }

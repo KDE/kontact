@@ -59,6 +59,7 @@ public:
     QFont textFont() const;
     bool isRichText() const;
     QString description() const;
+    void setDescription(const QString &);
     KNoteDisplaySettings *displayAttribute() const;
     Akonadi::Item item();
 

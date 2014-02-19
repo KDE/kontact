@@ -42,17 +42,11 @@ bool KNotesListWidgetSearchLine::itemMatches( const QListWidgetItem *item, const
     if (!iconView) {
         return false;
     }
-#if 0
-    Journal *journal = iconView->journal();
-    if (!journal) {
-        return false;
-    }
-    if (journal->summary().contains(s)) {
+    if (iconView->realName().contains(s)) {
         return true;
     }
-    if (journal->description().contains(s)) {
+    if (iconView->description().contains(s)) {
         return true;
     }
-#endif
     return KListWidgetSearchLine::itemMatches(item, s);
 }

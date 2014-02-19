@@ -130,7 +130,6 @@ void KNotesIconViewItem::setReadOnly(bool b)
     //TODO update it.
 }
 
-
 void KNotesIconViewItem::setDisplayDefaultValue()
 {
     KNoteUtils::setDefaultValue(mItem);
@@ -148,9 +147,7 @@ void KNotesIconViewItem::setIconText( const QString &text )
     }
 
     setText( replaceText );
-
-    //TODO
-    //mJournal->setSummary( text );
+    //TODO save subject ?
 }
 
 QString KNotesIconViewItem::realName() const
@@ -184,6 +181,11 @@ QString KNotesIconViewItem::description() const
 {
     const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
     return QString(); //TODO
+}
+
+void KNotesIconViewItem::setDescription(const QString &)
+{
+    //TODO
 }
 
 KNoteDisplaySettings *KNotesIconViewItem::displayAttribute() const
