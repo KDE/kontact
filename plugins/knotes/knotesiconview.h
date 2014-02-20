@@ -33,12 +33,13 @@ public:
     void addNote(const Akonadi::Item &item);
 
     KNotesIconViewItem *iconView(Akonadi::Item::Id id) const;
+    QHash<Akonadi::Item::Id, KNotesIconViewItem*> noteList() const;
 protected:
     void mousePressEvent( QMouseEvent * );
 
 private:
     KNotesPart *m_part;
-    QMultiHash<Akonadi::Item::Id, KNotesIconViewItem*> mNoteList;
+    QHash<Akonadi::Item::Id, KNotesIconViewItem*> mNoteList;
 };
 
 class KNotesIconViewItem : public QObject, public QListWidgetItem

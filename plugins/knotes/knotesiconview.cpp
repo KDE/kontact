@@ -77,6 +77,11 @@ KNotesIconViewItem *KNotesIconView::iconView(Akonadi::Item::Id id) const
     return 0;
 }
 
+QHash<Akonadi::Entity::Id, KNotesIconViewItem *> KNotesIconView::noteList() const
+{
+    return mNoteList;
+}
+
 KNotesIconViewItem::KNotesIconViewItem( const Akonadi::Item &item, QListWidget *parent )
     : QListWidgetItem( parent ),
       mItem(item),

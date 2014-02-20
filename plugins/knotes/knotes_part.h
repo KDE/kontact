@@ -99,7 +99,6 @@ private slots:
     void hideToolTip();
     void slotNotePreferences();
     void slotPreferences();
-    void slotApplyConfig();
     void slotMail();
     void slotSendToNetwork();
     void slotConfigUpdated();

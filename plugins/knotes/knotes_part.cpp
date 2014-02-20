@@ -253,14 +253,12 @@ KNotesPart::~KNotesPart()
 void KNotesPart::slotItemRemoved(const Akonadi::Item &item)
 {
     KNotesIconViewItem *iconView = mNotesWidget->notesView()->iconView(item.id());
-    if (iconView) {
-        delete iconView;
-    }
+    delete iconView;
 }
 
 void KNotesPart::slotRowInserted(const QModelIndex &parent, int start, int end)
 {
-    qDebug()<<" void KNotesPart::slotRowInserted(const QModelIndex &parent, int start, int end)";
+    //qDebug()<<" void KNotesPart::slotRowInserted(const QModelIndex &parent, int start, int end)";
     for ( int i = start; i <= end; ++i) {
         if ( mNoteTreeModel->hasIndex( i, 0, parent ) ) {
             const QModelIndex child = mNoteTreeModel->index( i, 0, parent );
@@ -281,13 +279,11 @@ void KNotesPart::slotRowInserted(const QModelIndex &parent, int start, int end)
 QStringList KNotesPart::notesList() const
 {
     QStringList notes;
-#if 0
-    QHashIterator<QString, KNotesIconViewItem*> i(mNoteList);
+    QHashIterator<Akonadi::Item::Id, KNotesIconViewItem*> i(mNotesWidget->notesView()->noteList());
     while ( i.hasNext() ) {
         i.next();
-        notes.append(i.value()->journal()->uid());
+        notes.append(QString::number(i.key()));
     }
-#endif
     return notes;
 }
 
@@ -440,13 +436,11 @@ void KNotesPart::setText( Akonadi::Item::Id id, const QString &newText )
 QMap<QString, QString> KNotesPart::notes() const
 {
     QMap<QString, QString> notes;
-#if 0
-    QHashIterator<QString, KNotesIconViewItem*> i(mNoteList);
+    QHashIterator<Akonadi::Item::Id, KNotesIconViewItem*> i(mNotesWidget->notesView()->noteList());
     while ( i.hasNext() ) {
         i.next();
-        notes.insert( i.value()->journal()->uid(), i.value()->journal()->summary() );
+        notes.insert(QString::number(i.key()), i.value()->realName());
     }
-#endif
     return notes;
 }
 
@@ -622,15 +616,6 @@ void KNotesPart::slotNotePreferences()
         connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
     }
     delete dialog;
-}
-
-void KNotesPart::slotApplyConfig()
-{
-    KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
-#if 0
-    knoteItem->updateSettings();
-    //mManager->save();
-#endif
 }
 
 void KNotesPart::slotPreferences()
