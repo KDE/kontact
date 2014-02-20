@@ -112,6 +112,7 @@ private slots:
     void slotRowInserted(const QModelIndex &parent, int start, int end);
     void slotItemChanged(const Akonadi::Item &id, const QSet<QByteArray> &set);
     void slotNoteSaved(KJob *);
+    void slotDeleteNotesFinished(KJob *job);
 private:
     void updateNetworkListener();
     void printSelectedNotes(bool preview);

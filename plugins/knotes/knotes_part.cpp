@@ -54,6 +54,7 @@
 #include <Akonadi/EntityDisplayAttribute>
 #include <Akonadi/ItemCreateJob>
 #include <KCheckableProxyModel>
+#include <akonadi/itemdeletejob.h>
 
 
 #include <KMime/KMimeMessage>
@@ -385,9 +386,9 @@ void KNotesPart::killNote( Akonadi::Item::Id id, bool force )
                 i18nc( "@title:window", "Confirm Delete" ),
                 KStandardGuiItem::del() ) == KMessageBox::Continue )
            || force ) ) {
-        //KNoteUtils::removeNote(mNoteList.value( id )->journal(), 0);
-        //mManager->deleteNote( mNoteList.value( id )->journal() );
-        //mManager->save();
+
+            Akonadi::ItemDeleteJob *job = new Akonadi::ItemDeleteJob(note->item());
+            connect(job, SIGNAL(result(KJob*)), SLOT(slotDeleteNotesFinished(KJob*)) );
     }
 }
 
@@ -460,20 +461,27 @@ void KNotesPart::killSelectedNotes()
         return;
     QPointer<KNotesSelectDeleteNotesDialog> dlg = new KNotesSelectDeleteNotesDialog(items, widget());
     if (dlg->exec()) {
+        Akonadi::Item::List lst;
         QListIterator<KNotesIconViewItem*> kniviIt( items );
         while ( kniviIt.hasNext() ) {
             KNotesIconViewItem *iconViewIcon = kniviIt.next();
             if (!iconViewIcon->readOnly()) {
-#if 0
-                Journal *journal = iconViewIcon->journal();
-                KNoteUtils::removeNote(journal, 0);
-                mManager->deleteNote( journal );
-#endif
+                lst.append(iconViewIcon->item());
             }
         }
-        //TODO mManager->save();
+        if (!lst.isEmpty()) {
+            Akonadi::ItemDeleteJob *job = new Akonadi::ItemDeleteJob(lst);
+            connect(job, SIGNAL(result(KJob*)), SLOT(slotDeleteNotesFinished(KJob*)) );
+        }
     }
     delete dlg;
+}
+
+void KNotesPart::slotDeleteNotesFinished(KJob* job)
+{
+    if ( job->error() ) {
+        qDebug()<<" problem during delete job note:"<<job->errorString();
+    }
 }
 
 void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos )
