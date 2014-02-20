@@ -778,9 +778,7 @@ void KNotesPart::slotUpdateReadOnly()
     const bool readOnly = mReadOnly->isChecked();
 
     mNoteEdit->setText(readOnly ? i18n("Show Note...") : i18nc( "@action:inmenu", "Edit..." ));
-#if 0 //FIXME
     knoteItem->setReadOnly( readOnly );
-#endif
 }
 
 void KNotesPart::slotItemChanged(const Akonadi::Item &item, const QSet<QByteArray> & set)

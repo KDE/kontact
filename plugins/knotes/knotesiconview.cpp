@@ -111,12 +111,7 @@ void KNotesIconViewItem::prepare()
     // HACK: update the icon color - again after showing the note, to make kicker
     // aware of the new colors
 
-    KIconEffect effect;
-    QColor color( mDisplayAttribute->backgroundColor() );
-    QPixmap icon = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
-    icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
-    setFont(mDisplayAttribute->titleFont());
-    setIcon( icon );
+    updateSettings();
 }
 
 bool KNotesIconViewItem::readOnly() const
@@ -127,7 +122,17 @@ bool KNotesIconViewItem::readOnly() const
 void KNotesIconViewItem::setReadOnly(bool b)
 {
     mReadOnly = b;
-    //TODO update it.
+    if (mItem.hasAttribute<NoteShared::NoteLockAttribute>()) {
+        if (!mReadOnly) {
+            mItem.removeAttribute<NoteShared::NoteLockAttribute>();
+        }
+    } else {
+        if (mReadOnly) {
+            mItem.attribute<NoteShared::NoteLockAttribute>( Akonadi::Entity::AddIfMissing );
+        }
+    }
+    Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
+    connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
 }
 
 void KNotesIconViewItem::setDisplayDefaultValue()
@@ -247,25 +252,18 @@ void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QBy
         setIconText(noteMessage->subject(false)->asUnicodeString(), false);
     }
     if (set.contains("ATR:NoteDisplayAttribute")) {
-        qDebug()<<" ATR:NoteDisplayAttribute";
-        //TODO
-        //slotApplyConfig();
+        updateSettings();
     }
 
 }
 void KNotesIconViewItem::updateSettings()
 {
-    //TODO
-#if 0
-    KNoteUtils::savePreferences(mJournal, mConfig);
     KIconEffect effect;
-    QColor color( mConfig->bgColor() );
+    const QColor color( mDisplayAttribute->backgroundColor() );
     QPixmap icon = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
     icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
-    setFont(mConfig->titleFont());
-    mConfig->writeConfig();
+    setFont(mDisplayAttribute->titleFont());
     setIcon( icon );
-#endif
 }
 
 #include "moc_knotesiconview.cpp"
