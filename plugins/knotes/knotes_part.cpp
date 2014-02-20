@@ -329,17 +329,15 @@ void KNotesPart::printSelectedNotes(bool preview)
         }
         delete dlg;
     }
-#if 0
     if (!printingTheme.isEmpty()) {
         QList<KNotePrintObject *> listPrintObj;
         foreach ( QListWidgetItem *item, lst ) {
-            listPrintObj.append(new KNotePrintObject(static_cast<KNotesIconViewItem *>( item )->description()));
+            listPrintObj.append(new KNotePrintObject(static_cast<KNotesIconViewItem *>( item )->item()));
         }
         KNotePrinter printer;
         printer.printNotes( listPrintObj, printingTheme, preview );
         qDeleteAll(listPrintObj);
     }
-#endif
 }
 
 bool KNotesPart::openFile()
@@ -530,10 +528,6 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
     delete contextMenu;
 }
 
-// TODO: also with takeItem, clear(),
-
-// create and kill the icon view item corresponding to the note, edit the note
-
 void KNotesPart::editNote( QListWidgetItem *item )
 {
     KNotesIconViewItem * knotesItem = static_cast<KNotesIconViewItem *>( item );
@@ -574,7 +568,6 @@ void KNotesPart::renameNote()
                                    oldName, &ok, mNotesWidget );
     if ( ok && ( newName != oldName ) ) {
         knoteItem->setIconText( newName );
-        //mManager->save();
     }
 }
 
@@ -610,8 +603,6 @@ void KNotesPart::slotNotePreferences()
     if (dialog->exec() ) {
         bool isRichText;
         dialog->save(item, isRichText);
-        //TODO
-        //saveNoteContent();
         Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(item);
         connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
     }

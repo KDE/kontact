@@ -112,10 +112,6 @@ void KNotesIconViewItem::prepare()
     } else {
         mReadOnly = false;
     }
-    //TODO slotUpdateReadOnly();
-    // HACK: update the icon color - again after showing the note, to make kicker
-    // aware of the new colors
-
     updateSettings();
 }
 
