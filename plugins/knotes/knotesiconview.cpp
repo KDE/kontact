@@ -137,7 +137,16 @@ void KNotesIconViewItem::setDisplayDefaultValue()
     connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
 }
 
-void KNotesIconViewItem::setIconText( const QString &text )
+void KNotesIconViewItem::slotNoteSaved(KJob *job)
+{
+    qDebug()<<" void KNotesIconViewItem::slotNoteSaved(KJob *job)";
+    if ( job->error() ) {
+        qDebug()<<" problem during save note:"<<job->errorString();
+    }
+}
+
+
+void KNotesIconViewItem::setIconText( const QString &text, bool save )
 {
     QString replaceText ;
     if ( text.count() > 50 ) {
@@ -147,7 +156,8 @@ void KNotesIconViewItem::setIconText( const QString &text )
     }
 
     setText( replaceText );
-    //TODO save subject ?
+    if (save)
+        saveNoteContent(text);
 }
 
 QString KNotesIconViewItem::realName() const
@@ -180,12 +190,12 @@ bool KNotesIconViewItem::isRichText() const
 QString KNotesIconViewItem::description() const
 {
     const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
-    return QString(); //TODO
+    return QString::fromLatin1(noteMessage->mainBodyPart()->decodedContent());
 }
 
-void KNotesIconViewItem::setDescription(const QString &)
+void KNotesIconViewItem::setDescription(const QString &description)
 {
-    //TODO save
+    saveNoteContent(QString(), description);
 }
 
 KNoteDisplaySettings *KNotesIconViewItem::displayAttribute() const
@@ -198,21 +208,28 @@ Akonadi::Item KNotesIconViewItem::item()
     return mItem;
 }
 
-void KNotesIconViewItem::saveNoteContent()
+void KNotesIconViewItem::saveNoteContent(const QString &subject, const QString &description)
 {
     KMime::Message::Ptr message = mItem.payload<KMime::Message::Ptr>();
     const QByteArray encoding( "utf-8" );
-    message->subject( true )->fromUnicodeString( realName(), encoding );
+    if (!subject.isEmpty()) {
+        message->subject( true )->fromUnicodeString( subject, encoding );
+    }
     message->contentType( true )->setMimeType( isRichText() ? "text/html" : "text/plain" );
     message->contentType()->setCharset(encoding);
     message->contentTransferEncoding(true)->setEncoding(KMime::Headers::CEquPr);
     message->date( true )->setDateTime( KDateTime::currentLocalDateTime() );
-    //TODO
-    //message->mainBodyPart()->fromUnicodeString( text().isEmpty() ? QString::fromLatin1( " " ) : text());
+    if (!description.isEmpty()) {
+        message->mainBodyPart()->fromUnicodeString( description );
+    } else if (message->mainBodyPart()->decodedText().isEmpty()) {
+        message->mainBodyPart()->fromUnicodeString( QString::fromLatin1( " " ) );
+    }
 
     message->assemble();
 
     mItem.setPayload( message );
+    Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
+    connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
 }
 
 
@@ -227,7 +244,7 @@ void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QBy
     }
     if (set.contains("PLD:RFC822")) {
         KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
-        setIconText(noteMessage->subject(false)->asUnicodeString());
+        setIconText(noteMessage->subject(false)->asUnicodeString(), false);
     }
     if (set.contains("ATR:NoteDisplayAttribute")) {
         qDebug()<<" ATR:NoteDisplayAttribute";

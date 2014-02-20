@@ -51,7 +51,7 @@ public:
     bool readOnly() const;
     void setReadOnly(bool b);
 
-    void setIconText( const QString &text );
+    void setIconText(const QString &text , bool save = true);
     QString realName() const;
 
     int tabSize() const;
@@ -64,8 +64,10 @@ public:
     Akonadi::Item item();
 
     void setChangeItem(const Akonadi::Item &item, const QSet<QByteArray> &set);
-    void saveNoteContent();
+    void saveNoteContent(const QString &subject = QString(), const QString &description = QString());
     void updateSettings();
+private slots:
+    void slotNoteSaved(KJob *job);
 private:
     void prepare();
     void setDisplayDefaultValue();

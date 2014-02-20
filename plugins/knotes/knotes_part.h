@@ -113,6 +113,7 @@ private slots:
     void slotItemChanged(const Akonadi::Item &id, const QSet<QByteArray> &set);
     void slotNoteSaved(KJob *);
     void slotDeleteNotesFinished(KJob *job);
+    void slotItemRemoved(const Akonadi::Item &item);
 private:
     void updateNetworkListener();
     void printSelectedNotes(bool preview);

@@ -250,6 +250,14 @@ KNotesPart::~KNotesPart()
     mNoteTip = 0;
 }
 
+void KNotesPart::slotItemRemoved(const Akonadi::Item &item)
+{
+    KNotesIconViewItem *iconView = mNotesWidget->notesView()->iconView(item.id());
+    if (iconView) {
+        delete iconView;
+    }
+}
+
 void KNotesPart::slotRowInserted(const QModelIndex &parent, int start, int end)
 {
     qDebug()<<" void KNotesPart::slotRowInserted(const QModelIndex &parent, int start, int end)";
