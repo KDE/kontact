@@ -603,6 +603,9 @@ void KNotesPart::slotNotePreferences()
     if (dialog->exec() ) {
         bool isRichText;
         dialog->save(item, isRichText);
+        KMime::Message::Ptr message = item.payload<KMime::Message::Ptr>();
+        message->contentType( true )->setMimeType( isRichText ? "text/html" : "text/plain" );
+        message->assemble();
         Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(item);
         connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
     }
