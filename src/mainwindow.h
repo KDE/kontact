@@ -27,10 +27,6 @@
 
 #include <KontactInterface/Core>
 
-namespace KPIM {
-  class StatusbarProgressWidget;
-}
-
 namespace KontactInterface {
   class Plugin;
 }
@@ -142,7 +138,6 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
     KWebView *mIntroPart;
 
     KSqueezedTextLabel *mStatusMsgLabel;
-    KPIM::StatusbarProgressWidget *mLittleProgress;
 
     QString mInitialActiveModule;
 

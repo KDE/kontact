@@ -32,7 +32,7 @@ using namespace Kontact;
 #include <unistd.h>
 
 #include <libkdepim/misc/broadcaststatus.h>
-#include <libkdepim/progresswidget/progressdialog.h>
+#include <libkdepim/progresswidget/progressstatusbarwidget.h>
 #include <libkdepim/progresswidget/statusbarprogresswidget.h>
 
 #include <KontactInterface/Core>
@@ -369,11 +369,7 @@ void MainWindow::initWidgets()
 
   paintAboutScreen( loading );
 
-  /* Create a progress dialog and hide it. */
-  KPIM::ProgressDialog *progressDialog = new KPIM::ProgressDialog( statusBar(), this );
-  progressDialog->hide();
-
-  mLittleProgress = new KPIM::StatusbarProgressWidget( progressDialog, statusBar() );
+  KPIM::ProgressStatusBarWidget * progressStatusBarWidget = new KPIM::ProgressStatusBarWidget(statusBar(), this);
 
   mStatusMsgLabel =
     new KSqueezedTextLabel( i18nc( "@info:status", " Initializing..." ), statusBar() );
@@ -381,8 +377,7 @@ void MainWindow::initWidgets()
   mStatusMsgLabel->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
 
   statusBar()->addWidget( mStatusMsgLabel, 10 );
-  statusBar()->addPermanentWidget( mLittleProgress, 0 );
-  mLittleProgress->show();
+  statusBar()->addPermanentWidget( progressStatusBarWidget->littleProgress(), 0 );
 
   mSplitter->setCollapsible( 1, false );
 }
