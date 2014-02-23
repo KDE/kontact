@@ -220,10 +220,6 @@ KNotesPart::KNotesPart( QObject *parent )
     mNotesWidget = new KNotesWidget(this,widget());
     mNoteTip = new KNoteTip( mNotesWidget->notesView() );
 
-    // TODO icons: s/editdelete/knotes_delete/ or the other way round in knotes
-
-    // set the view up
-
     connect( mNotesWidget->notesView(), SIGNAL(executed(QListWidgetItem*)),
              this, SLOT(editNote(QListWidgetItem*)) );
 

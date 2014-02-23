@@ -2,6 +2,7 @@
   This file is part of Kontact.
 
   Copyright (c) 2003 Tobias Koenig <tokoe@kde.org>
+  Copyright (c) 2014 Laurent Montel <montel@kde.org>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -78,8 +79,8 @@ KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidg
     connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
              SLOT(slotRowInserted(QModelIndex,int,int)));
 
-    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemChanged(Akonadi::Item,QSet<QByteArray>)), SLOT(updateFolderList()));
-    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemRemoved(Akonadi::Item)), SLOT(updateFolderList()) );
+    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemChanged(Akonadi::Item,QSet<QByteArray>)), SLOT(slotItemChanged(Akonadi::Item,QSet<QByteArray>)));
+    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemRemoved(Akonadi::Item)), SLOT(slotItemRemoved(Akonadi::Item)) );
 
     mSelectionModel = new QItemSelectionModel( mNoteTreeModel );
     mModelProxy = new KCheckableProxyModel( this );
@@ -92,13 +93,6 @@ KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidg
             new KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
     mModelState->setSelectionModel( mSelectionModel );
 
-    connect( mNoteRecorder, SIGNAL(collectionChanged(Akonadi::Collection)),
-             SLOT(slotCollectionChanged(Akonadi::Collection)) );
-    connect( mNoteRecorder, SIGNAL(collectionRemoved(Akonadi::Collection)),
-             SLOT(slotCollectionChanged(Akonadi::Collection)) );
-
-    connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-             SLOT(slotRowInserted(QModelIndex,int,int)));
     updateFolderList();
 }
 
@@ -106,15 +100,28 @@ KNotesSummaryWidget::~KNotesSummaryWidget()
 {
 }
 
+void KNotesSummaryWidget::slotItemRemoved(const Akonadi::Item &item)
+{
+    //TODO
+}
+
+void KNotesSummaryWidget::slotItemChanged(const Akonadi::Item &item, const QSet<QByteArray> & set)
+{
+    //TODO
+}
+
 void KNotesSummaryWidget::updateFolderList()
 {
+#if 0
     qDeleteAll( mLabels );
     int counter = 0;
     mLabels.clear();
     mModelState->restoreState();
     displayNotes(QModelIndex(), counter);
+#endif
 }
 
+#if 0
 void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
 {
     const int nbCol = mModelProxy->rowCount( parent );
@@ -177,7 +184,7 @@ void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
         displayNotes( child, counter );
     }
 }
-
+#endif
 void KNotesSummaryWidget::slotCollectionChanged( const Akonadi::Collection &col )
 {
     Q_UNUSED( col );
@@ -186,10 +193,21 @@ void KNotesSummaryWidget::slotCollectionChanged( const Akonadi::Collection &col 
 
 void KNotesSummaryWidget::slotRowInserted( const QModelIndex & parent, int start, int end )
 {
-    Q_UNUSED( parent );
-    Q_UNUSED( start );
-    Q_UNUSED( end );
-    updateFolderList();
+    for ( int i = start; i <= end; ++i) {
+        if ( mNoteTreeModel->hasIndex( i, 0, parent ) ) {
+            const QModelIndex child = mNoteTreeModel->index( i, 0, parent );
+            Akonadi::Collection parentCollection = mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ParentCollectionRole).value<Akonadi::Collection>();
+#if 0
+            if (parentCollection.hasAttribute<NoteShared::ShowFolderNotesAttribute>()) {
+                Akonadi::Item item =
+                        mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
+                if ( !item.hasPayload<KMime::Message::Ptr>() )
+                    continue;
+                //mNotesWidget->notesView()->addNote(item);
+            }
+#endif
+        }
+    }
 }
 
 void KNotesSummaryWidget::updateSummary( bool force )
