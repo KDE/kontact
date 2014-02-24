@@ -81,6 +81,7 @@ public:
 
     QMap<QString, QString> notes() const;
     void popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos );
+    void editNote(Akonadi::Entity::Id id);
 
 private slots:
     void editNote( QListWidgetItem *item );

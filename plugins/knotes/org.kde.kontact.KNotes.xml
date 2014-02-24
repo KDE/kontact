@@ -9,6 +9,10 @@
     <method name="newNoteFromClipboard">
       <arg name="name" type="s" direction="in"/>
     </method>
+    <method name="editNote">
+    <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+      <arg name="name" type="x" direction="in"/>
+    </method>
     <method name="killNote">
     <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
       <arg name="name" type="x" direction="in"/>

@@ -524,6 +524,14 @@ void KNotesPart::popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoin
     delete contextMenu;
 }
 
+void KNotesPart::editNote(Akonadi::Entity::Id id)
+{
+    KNotesIconViewItem *knoteItem = mNotesWidget->notesView()->iconView(id);
+    if (knoteItem) {
+        editNote(knoteItem);
+    }
+}
+
 void KNotesPart::editNote( QListWidgetItem *item )
 {
     KNotesIconViewItem * knotesItem = static_cast<KNotesIconViewItem *>( item );

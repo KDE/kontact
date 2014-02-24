@@ -25,6 +25,7 @@
 
 #include "summarywidget.h"
 #include "knotes_plugin.h"
+#include "knotesinterface.h"
 
 #include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "noteshared/akonadi/noteschangerecorder.h"
@@ -123,15 +124,10 @@ void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
                                   Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
         if (item.isValid()) {
             createNote(item, counter);
-            counter++;
+            ++counter;
         }
         displayNotes( child, counter );
     }
-}
-
-void KNotesSummaryWidget::slotSelectNote(const QString &note)
-{
-    //TODO
 }
 
 void KNotesSummaryWidget::slotPopupMenu(const QString &note)
@@ -148,18 +144,14 @@ void KNotesSummaryWidget::slotPopupMenu(const QString &note)
     if ( ret == deleteNoteAction ) {
         deleteNote( note );
     } else if ( ret == modifyNoteAction ) {
-        modifyNote( note );
+        slotSelectNote( note );
     }
 }
 
 void KNotesSummaryWidget::deleteNote(const QString &note)
 {
-    //TODO
-}
-
-void KNotesSummaryWidget::modifyNote(const QString &note)
-{
-    //TODO
+    org::kde::kontact::KNotes knotes( QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QDBusConnection::sessionBus() );
+    knotes.killNote(note.toLongLong());
 }
 
 void KNotesSummaryWidget::createNote(const Akonadi::Item &item, int counter)
@@ -185,13 +177,15 @@ void KNotesSummaryWidget::updateSummary( bool force )
     updateFolderList();
 }
 
-void KNotesSummaryWidget::urlClicked( const QString &/*uid*/ )
+void KNotesSummaryWidget::slotSelectNote( const QString &note )
 {
     if ( !mPlugin->isRunningStandalone() ) {
         mPlugin->core()->selectPlugin( mPlugin );
     } else {
         mPlugin->bringToForeground();
     }
+    org::kde::kontact::KNotes knotes( QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QDBusConnection::sessionBus() );
+    knotes.editNote(note.toLongLong());
 }
 
 bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent *e )

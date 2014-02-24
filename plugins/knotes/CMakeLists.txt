@@ -24,8 +24,11 @@ set(kontact_knotesplugin_PART_SRCS
 )
 
 qt4_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml knotes_part.h KNotesPart)
+qt4_add_dbus_interfaces(kontact_knotesplugin_interface_SRCS org.kde.kontact.KNotes.xml)
 
-kde4_add_plugin(kontact_knotesplugin ${kontact_knotesplugin_PART_SRCS})
+
+
+kde4_add_plugin(kontact_knotesplugin ${kontact_knotesplugin_PART_SRCS} ${kontact_knotesplugin_interface_SRCS} )
 
 target_link_libraries(kontact_knotesplugin 
                       knotesprivate 
