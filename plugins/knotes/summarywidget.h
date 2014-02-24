@@ -66,7 +66,8 @@ protected slots:
     void urlClicked( const QString & );
 
 private slots:
-    void updateFolderList();
+    void updateFolderList();    
+    void slotSelectNote(const QString &note);
 
 private:
     void displayNotes(const QModelIndex &parent, int &counter);

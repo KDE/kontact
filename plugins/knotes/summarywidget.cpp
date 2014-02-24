@@ -128,6 +128,11 @@ void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
     }
 }
 
+void KNotesSummaryWidget::slotSelectNote(const QString &note)
+{
+    //TODO
+}
+
 void KNotesSummaryWidget::createNote(const Akonadi::Item &item, int counter)
 {
     //TODO add icons.
@@ -138,6 +143,7 @@ void KNotesSummaryWidget::createNote(const Akonadi::Item &item, int counter)
     urlLabel->installEventFilter( this );
     urlLabel->setAlignment( Qt::AlignLeft );
     urlLabel->setWordWrap( true );
+    connect( urlLabel, SIGNAL(leftClickedUrl(QString)), SLOT(slotSelectNote(QString)) );
 
     mLayout->addWidget( urlLabel, counter, 1 );
     mLabels.append( urlLabel );
