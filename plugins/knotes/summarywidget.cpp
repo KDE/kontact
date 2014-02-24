@@ -28,13 +28,16 @@
 
 #include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "noteshared/akonadi/noteschangerecorder.h"
+#include "noteshared/attributes/showfoldernotesattribute.h"
 
+#include <Akonadi/Item>
 #include <Akonadi/Session>
 #include <Akonadi/ChangeRecorder>
 #include <Akonadi/ETMViewStateSaver>
 #include <Akonadi/CollectionStatistics>
 #include <KCheckableProxyModel>
 
+#include <KMime/KMimeMessage>
 
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
@@ -53,7 +56,8 @@
 KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent )
     : KontactInterface::Summary( parent ),
       mLayout( 0 ),
-      mPlugin( plugin )
+      mPlugin( plugin ),
+      mCounter( 0 )
 {
     QVBoxLayout *mainLayout = new QVBoxLayout( this );
     mainLayout->setSpacing( 3 );
@@ -197,17 +201,28 @@ void KNotesSummaryWidget::slotRowInserted( const QModelIndex & parent, int start
         if ( mNoteTreeModel->hasIndex( i, 0, parent ) ) {
             const QModelIndex child = mNoteTreeModel->index( i, 0, parent );
             Akonadi::Collection parentCollection = mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ParentCollectionRole).value<Akonadi::Collection>();
-#if 0
             if (parentCollection.hasAttribute<NoteShared::ShowFolderNotesAttribute>()) {
                 Akonadi::Item item =
                         mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
                 if ( !item.hasPayload<KMime::Message::Ptr>() )
                     continue;
-                //mNotesWidget->notesView()->addNote(item);
+                createNote(item);
             }
-#endif
         }
     }
+}
+
+void KNotesSummaryWidget::createNote(const Akonadi::Item &item)
+{
+    KUrlLabel *urlLabel;
+
+    urlLabel = new KUrlLabel( QString::number( item.id() ), QLatin1String("Note"), this );
+
+    urlLabel->installEventFilter( this );
+    urlLabel->setAlignment( Qt::AlignLeft );
+    urlLabel->setWordWrap( true );
+    mLayout->addWidget( urlLabel, mCounter++, 1 );
+    mLabels.append( urlLabel );
 }
 
 void KNotesSummaryWidget::updateSummary( bool force )

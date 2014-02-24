@@ -74,6 +74,7 @@ private slots:
     void slotItemRemoved(const Akonadi::Item &item);
     void slotItemChanged(const Akonadi::Item &item, const QSet<QByteArray> &set);
 private:
+    void createNote(const Akonadi::Item &item);
     QGridLayout *mLayout;
     KontactInterface::Plugin *mPlugin;
     QList<QLabel *> mLabels;
@@ -83,6 +84,7 @@ private:
     QItemSelectionModel *mSelectionModel;
     KCheckableProxyModel *mModelProxy;
     KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
+    int mCounter;
 };
 
 #endif
