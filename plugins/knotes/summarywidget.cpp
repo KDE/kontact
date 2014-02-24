@@ -30,6 +30,7 @@
 #include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "noteshared/akonadi/noteschangerecorder.h"
 #include "noteshared/attributes/showfoldernotesattribute.h"
+#include "noteshared/attributes/notedisplayattribute.h"
 
 #include <Akonadi/Item>
 #include <Akonadi/Session>
@@ -47,6 +48,8 @@
 #include <KLocalizedString>
 #include <KUrlLabel>
 #include <KMenu>
+#include <KIconEffect>
+
 
 #include <QEvent>
 #include <QGridLayout>
@@ -60,6 +63,7 @@ KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidg
       mLayout( 0 ),
       mPlugin( plugin )
 {
+    mDefaultPixmap = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
     QVBoxLayout *mainLayout = new QVBoxLayout( this );
     mainLayout->setSpacing( 3 );
     mainLayout->setMargin( 3 );
@@ -156,10 +160,9 @@ void KNotesSummaryWidget::deleteNote(const QString &note)
 
 void KNotesSummaryWidget::createNote(const Akonadi::Item &item, int counter)
 {
-    //TODO add icons.
-    KUrlLabel *urlLabel;
+
     KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
-    urlLabel = new KUrlLabel( QString::number( item.id() ), noteMessage->subject(false)->asUnicodeString(), this );
+    KUrlLabel *urlLabel = new KUrlLabel( QString::number( item.id() ), noteMessage->subject(false)->asUnicodeString(), this );
 
     urlLabel->installEventFilter( this );
     urlLabel->setAlignment( Qt::AlignLeft );
@@ -168,6 +171,22 @@ void KNotesSummaryWidget::createNote(const Akonadi::Item &item, int counter)
     connect( urlLabel, SIGNAL(rightClickedUrl(QString)), this, SLOT(slotPopupMenu(QString)) );
 
     mLayout->addWidget( urlLabel, counter, 1 );
+
+    QColor color;
+    if ( item.hasAttribute<NoteShared::NoteDisplayAttribute>()) {
+        color = item.attribute<NoteShared::NoteDisplayAttribute>()->backgroundColor();
+    }
+    // Folder icon.
+    KIconEffect effect;
+    QPixmap pixmap = effect.apply( mDefaultPixmap, KIconEffect::Colorize, 1, color, false );
+
+    QLabel *label = new QLabel( this );
+    label->setAlignment( Qt::AlignVCenter );
+    QIcon icon(pixmap);
+    label->setPixmap( icon.pixmap( label->height() / 1.5 ) );
+    label->setMaximumWidth( label->minimumSizeHint().width() );
+    mLayout->addWidget( label, counter, 0 );
+    mLabels.append( label );
     mLabels.append( urlLabel );
 }
 

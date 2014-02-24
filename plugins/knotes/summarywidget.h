@@ -70,6 +70,7 @@ private:
     void deleteNote(const QString &note);
     void displayNotes(const QModelIndex &parent, int &counter);
     void createNote(const Akonadi::Item &item, int counter);
+    QPixmap mDefaultPixmap;
     QGridLayout *mLayout;
     KontactInterface::Plugin *mPlugin;
     QList<QLabel *> mLabels;
