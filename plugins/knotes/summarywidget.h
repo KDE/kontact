@@ -66,10 +66,12 @@ protected slots:
     void urlClicked( const QString & );
 
 private slots:
-    void updateFolderList();    
+    void updateFolderList();
     void slotSelectNote(const QString &note);
-
+    void slotPopupMenu(const QString &);
 private:
+    void deleteNote(const QString &note);
+    void modifyNote(const QString &note);
     void displayNotes(const QModelIndex &parent, int &counter);
     void createNote(const Akonadi::Item &item, int counter);
     QGridLayout *mLayout;

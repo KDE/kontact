@@ -45,6 +45,7 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KUrlLabel>
+#include <KMenu>
 
 #include <QEvent>
 #include <QGridLayout>
@@ -133,6 +134,34 @@ void KNotesSummaryWidget::slotSelectNote(const QString &note)
     //TODO
 }
 
+void KNotesSummaryWidget::slotPopupMenu(const QString &note)
+{
+    KMenu popup( this );
+    const QAction *deleteNoteAction = popup.addAction(
+                KIconLoader::global()->loadIcon( QLatin1String("mail-message-new"), KIconLoader::Small ),
+                i18n( "Delete Note" ) );
+    const QAction *modifyNoteAction = popup.addAction(
+                KIconLoader::global()->loadIcon( QLatin1String("view-pim-contacts"), KIconLoader::Small ),
+                i18n( "Modify Note" ) );
+
+    const QAction *ret = popup.exec( QCursor::pos() );
+    if ( ret == deleteNoteAction ) {
+        deleteNote( note );
+    } else if ( ret == modifyNoteAction ) {
+        modifyNote( note );
+    }
+}
+
+void KNotesSummaryWidget::deleteNote(const QString &note)
+{
+    //TODO
+}
+
+void KNotesSummaryWidget::modifyNote(const QString &note)
+{
+    //TODO
+}
+
 void KNotesSummaryWidget::createNote(const Akonadi::Item &item, int counter)
 {
     //TODO add icons.
@@ -143,7 +172,8 @@ void KNotesSummaryWidget::createNote(const Akonadi::Item &item, int counter)
     urlLabel->installEventFilter( this );
     urlLabel->setAlignment( Qt::AlignLeft );
     urlLabel->setWordWrap( true );
-    connect( urlLabel, SIGNAL(leftClickedUrl(QString)), SLOT(slotSelectNote(QString)) );
+    connect( urlLabel, SIGNAL(leftClickedUrl(QString)), this, SLOT(slotSelectNote(QString)) );
+    connect( urlLabel, SIGNAL(rightClickedUrl(QString)), this, SLOT(slotPopupMenu(QString)) );
 
     mLayout->addWidget( urlLabel, counter, 1 );
     mLabels.append( urlLabel );
