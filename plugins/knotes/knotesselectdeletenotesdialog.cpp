@@ -59,7 +59,7 @@ KNotesSelectDeleteNotesDialog::KNotesSelectDeleteNotesDialog(const QList<KNotesI
     QWidget *w = new QWidget;
     QVBoxLayout *lay = new QVBoxLayout;
     w->setLayout(lay);
-    QLabel *lab = new QLabel( i18ncp( "@info", "Do you really want to delete this note?", "Do you really want to delete these %1 notes?", /*items.count()*/0 ));
+    QLabel *lab = new QLabel( i18ncp( "@info", "Do you really want to delete this note?", "Do you really want to delete these %1 notes?", items.count() ));
     lay->addWidget(lab);
     mSelectedListWidget = new KNotesSelectDeleteNotesListWidget;
     lay->addWidget(mSelectedListWidget);
