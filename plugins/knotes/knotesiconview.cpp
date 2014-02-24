@@ -120,7 +120,7 @@ bool KNotesIconViewItem::readOnly() const
     return mReadOnly;
 }
 
-void KNotesIconViewItem::setReadOnly(bool b)
+void KNotesIconViewItem::setReadOnly(bool b, bool save)
 {
     mReadOnly = b;
     if (mItem.hasAttribute<NoteShared::NoteLockAttribute>()) {
@@ -132,8 +132,10 @@ void KNotesIconViewItem::setReadOnly(bool b)
             mItem.attribute<NoteShared::NoteLockAttribute>( Akonadi::Entity::AddIfMissing );
         }
     }
-    Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
-    connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
+    if (save) {
+        Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
+        connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
+    }
 }
 
 void KNotesIconViewItem::setDisplayDefaultValue()
@@ -246,7 +248,7 @@ void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QBy
         mDisplayAttribute->setDisplayAttribute(item.attribute<NoteShared::NoteDisplayAttribute>());
     }
     if (set.contains("ATR:KJotsLockAttribute")) {
-        setReadOnly(item.hasAttribute<NoteShared::NoteLockAttribute>());
+        setReadOnly(item.hasAttribute<NoteShared::NoteLockAttribute>(), false);
     }
     if (set.contains("PLD:RFC822")) {
         KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
