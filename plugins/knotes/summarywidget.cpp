@@ -56,8 +56,7 @@
 KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent )
     : KontactInterface::Summary( parent ),
       mLayout( 0 ),
-      mPlugin( plugin ),
-      mCounter( 0 )
+      mPlugin( plugin )
 {
     QVBoxLayout *mainLayout = new QVBoxLayout( this );
     mainLayout->setSpacing( 3 );
@@ -81,10 +80,10 @@ KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidg
     mNoteTreeModel = new NoteShared::NotesAkonadiTreeModel(mNoteRecorder->changeRecorder(), this);
 
     connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-             SLOT(slotRowInserted(QModelIndex,int,int)));
+             SLOT(updateFolderList()));
 
-    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemChanged(Akonadi::Item,QSet<QByteArray>)), SLOT(slotItemChanged(Akonadi::Item,QSet<QByteArray>)));
-    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemRemoved(Akonadi::Item)), SLOT(slotItemRemoved(Akonadi::Item)) );
+    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemChanged(Akonadi::Item,QSet<QByteArray>)), SLOT(updateFolderList()));
+    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemRemoved(Akonadi::Item)), SLOT(updateFolderList()) );
 
     mSelectionModel = new QItemSelectionModel( mNoteTreeModel );
     mModelProxy = new KCheckableProxyModel( this );
@@ -104,124 +103,43 @@ KNotesSummaryWidget::~KNotesSummaryWidget()
 {
 }
 
-void KNotesSummaryWidget::slotItemRemoved(const Akonadi::Item &item)
-{
-    //TODO
-}
-
-void KNotesSummaryWidget::slotItemChanged(const Akonadi::Item &item, const QSet<QByteArray> & set)
-{
-    //TODO
-}
-
 void KNotesSummaryWidget::updateFolderList()
 {
-#if 0
     qDeleteAll( mLabels );
     int counter = 0;
     mLabels.clear();
     mModelState->restoreState();
     displayNotes(QModelIndex(), counter);
-#endif
 }
 
-#if 0
 void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
 {
     const int nbCol = mModelProxy->rowCount( parent );
     for ( int i = 0; i < nbCol; ++i ) {
         const QModelIndex child = mModelProxy->index( i, 0, parent );
-        const Akonadi::Collection col =
+        const Akonadi::Item item =
                 mModelProxy->data( child,
-                                   Akonadi::EntityTreeModel::CollectionRole ).value<Akonadi::Collection>();
-        const int showCollection =
-                mModelProxy->data( child, Qt::CheckStateRole ).value<int>();
-
-        if ( col.isValid() ) {
-            const Akonadi::CollectionStatistics stats = col.statistics();
-            if ( ( ( stats.unreadCount() ) != Q_INT64_C(0) ) && showCollection ) {
-                // Collection Name.
-                KUrlLabel *urlLabel;
-
-                urlLabel = new KUrlLabel( QString::number( col.id() ), col.name(), this );
-
-                urlLabel->installEventFilter( this );
-                urlLabel->setAlignment( Qt::AlignLeft );
-                urlLabel->setWordWrap( true );
-                mLayout->addWidget( urlLabel, counter, 1 );
-                mLabels.append( urlLabel );
-
-                // tooltip
-                urlLabel->setToolTip( i18n( "<qt><b>%1</b>"
-                                            "<br/>Total: %2<br/>"
-                                            "Unread: %3</qt>",
-                                            col.name(),
-                                            stats.count(),
-                                            stats.unreadCount() ) );
-
-                connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
-                         SLOT(selectFolder(QString)) );
-
-                // Read and unread count.
-                QLabel *label = new QLabel( i18nc( "%1: number of unread messages "
-                                                   "%2: total number of messages",
-                                                   "%1 / %2", stats.unreadCount(), stats.count() ), this );
-
-                label->setAlignment( Qt::AlignLeft );
-                mLayout->addWidget( label, counter, 2 );
-                mLabels.append( label );
-
-                // Folder icon.
-                QIcon icon = mModelProxy->data( child, Qt::DecorationRole ).value<QIcon>();
-                label = new QLabel( this );
-                label->setPixmap( icon.pixmap( label->height() / 1.5 ) );
-                label->setMaximumWidth( label->minimumSizeHint().width() );
-                label->setAlignment( Qt::AlignVCenter );
-                mLayout->addWidget( label, counter, 0 );
-                mLabels.append( label );
-
-                ++counter;
-
-                //TODO
-            }
+                                  Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
+        if (item.isValid()) {
+            createNote(item, counter);
+            counter++;
         }
         displayNotes( child, counter );
     }
 }
-#endif
-void KNotesSummaryWidget::slotCollectionChanged( const Akonadi::Collection &col )
-{
-    Q_UNUSED( col );
-    updateFolderList();
-}
 
-void KNotesSummaryWidget::slotRowInserted( const QModelIndex & parent, int start, int end )
+void KNotesSummaryWidget::createNote(const Akonadi::Item &item, int counter)
 {
-    for ( int i = start; i <= end; ++i) {
-        if ( mNoteTreeModel->hasIndex( i, 0, parent ) ) {
-            const QModelIndex child = mNoteTreeModel->index( i, 0, parent );
-            Akonadi::Collection parentCollection = mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ParentCollectionRole).value<Akonadi::Collection>();
-            if (parentCollection.hasAttribute<NoteShared::ShowFolderNotesAttribute>()) {
-                Akonadi::Item item =
-                        mNoteTreeModel->data( child, Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
-                if ( !item.hasPayload<KMime::Message::Ptr>() )
-                    continue;
-                createNote(item);
-            }
-        }
-    }
-}
-
-void KNotesSummaryWidget::createNote(const Akonadi::Item &item)
-{
+    //TODO add icons.
     KUrlLabel *urlLabel;
-
-    urlLabel = new KUrlLabel( QString::number( item.id() ), QLatin1String("Note"), this );
+    KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
+    urlLabel = new KUrlLabel( QString::number( item.id() ), noteMessage->subject(false)->asUnicodeString(), this );
 
     urlLabel->installEventFilter( this );
     urlLabel->setAlignment( Qt::AlignLeft );
     urlLabel->setWordWrap( true );
-    mLayout->addWidget( urlLabel, mCounter++, 1 );
+
+    mLayout->addWidget( urlLabel, counter, 1 );
     mLabels.append( urlLabel );
 }
 

@@ -65,16 +65,12 @@ protected:
 protected slots:
     void urlClicked( const QString & );
 
-
 private slots:
-    void slotCollectionChanged(const Akonadi::Collection &col);
-    void slotRowInserted(const QModelIndex &parent, int start, int end);
     void updateFolderList();
 
-    void slotItemRemoved(const Akonadi::Item &item);
-    void slotItemChanged(const Akonadi::Item &item, const QSet<QByteArray> &set);
 private:
-    void createNote(const Akonadi::Item &item);
+    void displayNotes(const QModelIndex &parent, int &counter);
+    void createNote(const Akonadi::Item &item, int counter);
     QGridLayout *mLayout;
     KontactInterface::Plugin *mPlugin;
     QList<QLabel *> mLabels;
@@ -84,7 +80,6 @@ private:
     QItemSelectionModel *mSelectionModel;
     KCheckableProxyModel *mModelProxy;
     KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
-    int mCounter;
 };
 
 #endif
