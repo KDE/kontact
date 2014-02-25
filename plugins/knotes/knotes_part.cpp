@@ -40,6 +40,8 @@
 #include "knotes/configdialog/knotesimpleconfigdialog.h"
 #include "utils/knoteutils.h"
 #include "alarms/notealarmdialog.h"
+#include "noteshared/resources/localresourcecreator.h"
+#include "noteshared/job/createnewnotejob.h"
 
 #include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "noteshared/akonadi/noteschangerecorder.h"
@@ -60,7 +62,7 @@
 #include <KMime/KMimeMessage>
 
 #include <Akonadi/ItemModifyJob>
-
+#include <Akonadi/Control>
 
 #include <KActionCollection>
 #include <KAction>
@@ -88,6 +90,15 @@ KNotesPart::KNotesPart( QObject *parent )
       mNotePrintPreview(0),
       mNoteTreeModel(0)
 {
+    Akonadi::Control::widgetNeedsAkonadi(widget());
+
+    KNoteUtils::migrateToAkonadi();
+
+    if (KNotesGlobalConfig::self()->autoCreateResourceOnStart()) {
+        NoteShared::LocalResourceCreator *creator = new NoteShared::LocalResourceCreator( this );
+        creator->createIfMissing();
+    }
+
     (void) new KNotesAdaptor( this );
     QDBusConnection::sessionBus().registerObject( QLatin1String("/KNotes"), this );
 
