@@ -38,6 +38,7 @@
 #include "knotes/knoteedit.h"
 #include "knotes/knotesglobalconfig.h"
 #include "knotes/configdialog/knotesimpleconfigdialog.h"
+#include "knotes/finddialog/knotefinddialog.h"
 #include "utils/knoteutils.h"
 #include "alarms/notealarmdialog.h"
 #include "noteshared/resources/localresourcecreator.h"
@@ -200,6 +201,7 @@ KNotesPart::KNotesPart( QObject *parent )
     connect( mReadOnly, SIGNAL(triggered(bool)), SLOT(slotUpdateReadOnly()) );
     mReadOnly->setCheckedState( KGuiItem( i18n( "Unlock" ), QLatin1String("object-unlocked") ) );
 
+    KStandardAction::find( this, SLOT(slotOpenFindDialog()), actionCollection());
 
     Akonadi::Session *session = new Akonadi::Session( "KNotes Session", this );
     mNoteRecorder = new NoteShared::NotesChangeRecorder(this);
@@ -773,4 +775,11 @@ void KNotesPart::slotItemChanged(const Akonadi::Item &item, const QSet<QByteArra
     if (knoteItem) {
         knoteItem->setChangeItem(item, set);
     }
+}
+
+void KNotesPart::slotOpenFindDialog()
+{
+    QPointer<KNoteFindDialog> dlg = new KNoteFindDialog(widget());
+    dlg->exec();
+    delete dlg;
 }

@@ -114,6 +114,7 @@ private slots:
     void slotNoteSaved(KJob *);
     void slotDeleteNotesFinished(KJob *job);
     void slotItemRemoved(const Akonadi::Item &item);
+    void slotOpenFindDialog();
 private:
     void updateNetworkListener();
     void printSelectedNotes(bool preview);
