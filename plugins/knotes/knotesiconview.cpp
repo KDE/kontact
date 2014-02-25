@@ -263,8 +263,9 @@ void KNotesIconViewItem::updateSettings()
 {
     KIconEffect effect;
     const QColor color( mDisplayAttribute->backgroundColor() );
-    QPixmap icon = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
-    icon = effect.apply( icon, KIconEffect::Colorize, 1, color, false );
+    if (mDefaultPixmap.isNull())
+        mDefaultPixmap = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
+    QPixmap icon = effect.apply( mDefaultPixmap, KIconEffect::Colorize, 1, color, false );
     setFont(mDisplayAttribute->titleFont());
     setIcon( icon );
 }

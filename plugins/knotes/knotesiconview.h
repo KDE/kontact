@@ -72,6 +72,7 @@ private slots:
 private:
     void prepare();
     void setDisplayDefaultValue();
+    QPixmap mDefaultPixmap;
 
     Akonadi::Item mItem;
     KNoteDisplaySettings *mDisplayAttribute;
