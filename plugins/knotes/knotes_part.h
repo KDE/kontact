@@ -27,7 +27,9 @@
 #include <QListWidgetItem>
 #include <KViewStateMaintainer>
 #include <Akonadi/Item>
+#include <QPointer>
 
+class KNoteFindDialog;
 class KNotesIconView;
 class KNotesWidget;
 class KNotesIconViewItem;
@@ -115,6 +117,7 @@ private slots:
     void slotDeleteNotesFinished(KJob *job);
     void slotItemRemoved(const Akonadi::Item &item);
     void slotOpenFindDialog();
+    void slotSelectNote(Akonadi::Item::Id id);
 private:
     void updateNetworkListener();
     void printSelectedNotes(bool preview);
@@ -138,6 +141,7 @@ private:
     QItemSelectionModel *mSelectionModel;
     KCheckableProxyModel *mModelProxy;
     KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
+    QPointer<KNoteFindDialog> mNoteFindDialog;
 };
 
 #endif

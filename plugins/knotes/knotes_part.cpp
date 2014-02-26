@@ -779,7 +779,21 @@ void KNotesPart::slotItemChanged(const Akonadi::Item &item, const QSet<QByteArra
 
 void KNotesPart::slotOpenFindDialog()
 {
-    QPointer<KNoteFindDialog> dlg = new KNoteFindDialog(widget());
-    dlg->exec();
-    delete dlg;
+    if (!mNoteFindDialog) {
+        mNoteFindDialog = new KNoteFindDialog(widget());
+        connect(mNoteFindDialog, SIGNAL(noteSelected(Akonadi::Item::Id)), this, SLOT(slotSelectNote(Akonadi::Item::Id)));
+    }
+    QHash<Akonadi::Item::Id , Akonadi::Item> lst;
+    QHashIterator<Akonadi::Item::Id, KNotesIconViewItem*> i(mNotesWidget->notesView()->noteList());
+    while (i.hasNext()) {
+        i.next();
+        lst.insert(i.key(), i.value()->item());
+    }
+    mNoteFindDialog->setExistingNotes(lst);
+    mNoteFindDialog->show();
+}
+
+void KNotesPart::slotSelectNote(Akonadi::Item::Id id)
+{
+    editNote(id);
 }
