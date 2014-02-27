@@ -67,7 +67,11 @@ Comment=Pending To-dos Summary Setup
 Comment[ar]=تهيئة ملخص المهام التي في الإنتظار
 Comment[bg]=Приставка за обобщен преглед на срещите и задачите
 Comment[bs]=Postavke sadržaja očekivanih zadataka
+<<<<<<< HEAD
 Comment[ca]=Configuració del resum de tasques pendents inacabades
+=======
+Comment[ca]=Configuració del resum de pendents inacabades
+>>>>>>> origin/KDE/4.12
 Comment[ca@valencia]=Configuració del resum de tasques pendents
 Comment[cs]=Nastavení souhrnu nevyřízených úkolů
 Comment[da]=Indstilling af oversigt over forestående gøremål
@@ -117,7 +121,7 @@ Comment[zh_CN]=未决待办事项摘要设置
 Comment[zh_TW]=未決定的待辦事項摘要設定
 X-KDE-Keywords=calendar, todos, configure, settings
 X-KDE-Keywords[bs]=kalendar, zadaci , konfigurirati,  postavke
-X-KDE-Keywords[ca]=calendari, tasques pendents, configura, arranjament
+X-KDE-Keywords[ca]=calendari, pendents, configura, arranjament
 X-KDE-Keywords[ca@valencia]=calendari, tasques pendents, configura, arranjament
 X-KDE-Keywords[da]=kalender, gøremål, indstil, indstillinger
 X-KDE-Keywords[de]=Kalender,Aufgaben,einstellen,konfigurieren,Konfiguration,Einrichtung,Einstellungen
