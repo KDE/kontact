@@ -129,6 +129,7 @@ KNotesPart::KNotesPart( QObject *parent )
 
     mNoteRename = new KAction( KIcon( QLatin1String("edit-rename") ),
                           i18nc( "@action:inmenu", "Rename..." ), this );
+    mNoteRename->setShortcut( QKeySequence( Qt::Key_F2 ) );
     actionCollection()->addAction( QLatin1String("edit_rename"), mNoteRename );
     connect( mNoteRename, SIGNAL(triggered(bool)), SLOT(renameNote()) );
     mNoteRename->setHelpText(
