@@ -533,6 +533,7 @@ void KNotesPart::editNote(Akonadi::Entity::Id id)
 {
     KNotesIconViewItem *knoteItem = mNotesWidget->notesView()->iconView(id);
     if (knoteItem) {
+        mNotesWidget->notesView()->setCurrentItem(knoteItem);
         editNote(knoteItem);
     }
 }
