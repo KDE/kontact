@@ -137,12 +137,13 @@ void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
 void KNotesSummaryWidget::slotPopupMenu(const QString &note)
 {
     KMenu popup( this );
-    const QAction *deleteNoteAction = popup.addAction(
-                KIconLoader::global()->loadIcon( QLatin1String("mail-message-new"), KIconLoader::Small ),
-                i18n( "Delete Note" ) );
     const QAction *modifyNoteAction = popup.addAction(
-                KIconLoader::global()->loadIcon( QLatin1String("view-pim-contacts"), KIconLoader::Small ),
-                i18n( "Modify Note" ) );
+                KIconLoader::global()->loadIcon( QLatin1String("document-edit"), KIconLoader::Small ),
+                i18n( "Modify Note..." ) );
+    popup.addSeparator();
+    const QAction *deleteNoteAction = popup.addAction(
+                KIconLoader::global()->loadIcon( QLatin1String("edit-delete"), KIconLoader::Small ),
+                i18n( "Delete Note..." ) );
 
     const QAction *ret = popup.exec( QCursor::pos() );
     if ( ret == deleteNoteAction ) {
