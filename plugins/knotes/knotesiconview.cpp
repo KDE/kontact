@@ -198,7 +198,7 @@ bool KNotesIconViewItem::isRichText() const
 QString KNotesIconViewItem::description() const
 {
     const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
-    return QString::fromLatin1(noteMessage->mainBodyPart()->decodedContent());
+    return QString::fromUtf8(noteMessage->mainBodyPart()->decodedContent());
 }
 
 void KNotesIconViewItem::setDescription(const QString &description)
