@@ -729,6 +729,7 @@ void KNotesPart::slotSaveAs()
     }
 
     const QString fileName = dlg->selectedFile();
+    const bool htmlFormatAndSaveAsHtml = (convert && !convert->isChecked());
     delete dlg;
     if ( fileName.isEmpty() ) {
         return;
@@ -747,7 +748,7 @@ void KNotesPart::slotSaveAs()
         QTextStream stream( &file );
         QTextDocument doc;
         doc.setHtml(knoteItem->description());
-        if ( convert && !convert->isChecked() ) {
+        if ( htmlFormatAndSaveAsHtml ) {
             stream << doc.toHtml();
         } else {
             stream << knoteItem->realName() + QLatin1Char('\n');
