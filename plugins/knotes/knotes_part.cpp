@@ -751,7 +751,9 @@ void KNotesPart::slotSaveAs()
         QTextDocument doc;
         doc.setHtml(knoteItem->description());
         if ( htmlFormatAndSaveAsHtml ) {
-            stream << doc.toHtml();
+            QString htmlStr = doc.toHtml();
+            htmlStr.replace(QLatin1String("meta name=\"qrichtext\" content=\"1\""), QLatin1String("meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\""));
+            stream <<  htmlStr;
         } else {
             stream << knoteItem->realName() + QLatin1Char('\n');
             stream << doc.toPlainText();
