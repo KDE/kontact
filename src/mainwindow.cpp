@@ -1101,6 +1101,9 @@ void MainWindow::configureShortcuts()
   }
 
   dialog.configure();
+  if ( mCurrentPlugin && mCurrentPlugin->part() ) {
+    mCurrentPlugin->shortcutChanged();
+  }
 }
 
 void MainWindow::configureToolbars()
