@@ -62,6 +62,8 @@ public:
     QStringList invisibleToolbarActions() const;
     virtual bool queryClose() const;
 
+    void shortcutChanged();
+
 protected:
     virtual KParts::ReadOnlyPart *createPart();
     void openComposer( const KUrl &attach = KUrl() );

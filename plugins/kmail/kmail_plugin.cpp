@@ -92,6 +92,19 @@ bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
             KABC::VCardDrag::canDecode( mimeData );
 }
 
+void KMailPlugin::shortcutChanged()
+{
+    KParts::ReadOnlyPart *localPart = part();
+    if ( localPart ) {
+        if ( localPart->metaObject()->indexOfMethod( "updateQuickSearchText()" ) == -1 ) {
+            kWarning() << "KMailPart part is missing slot updateQuickSearchText()";
+            return;
+        }
+        QMetaObject::invokeMethod( localPart, "updateQuickSearchText" );
+    }
+}
+
+
 void KMailPlugin::processDropEvent( QDropEvent *de )
 {
     MemoryCalendar::Ptr cal( new MemoryCalendar( QString::fromLatin1( "UTC" ) ) );
