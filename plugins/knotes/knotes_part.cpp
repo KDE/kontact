@@ -202,6 +202,7 @@ KNotesPart::KNotesPart( QObject *parent )
     connect( mReadOnly, SIGNAL(triggered(bool)), SLOT(slotUpdateReadOnly()) );
     mReadOnly->setCheckedState( KGuiItem( i18n( "Unlock" ), QLatin1String("object-unlocked") ) );
 
+
     KStandardAction::find( this, SLOT(slotOpenFindDialog()), actionCollection());
 
     Akonadi::Session *session = new Akonadi::Session( "KNotes Session", this );
@@ -229,6 +230,12 @@ KNotesPart::KNotesPart( QObject *parent )
     mNotesWidget = new KNotesWidget(this,widget());
     mNoteTip = new KNoteTip( mNotesWidget->notesView() );
 
+    mQuickSearchAction = new KAction( i18n("Set Focus to Quick Search"), this );
+    //If change shortcut change in quicksearchwidget->lineedit->setClickMessage
+    mQuickSearchAction->setShortcut( QKeySequence( Qt::ALT + Qt::Key_Q ) );
+    actionCollection()->addAction( QLatin1String("focus_to_quickseach"), mQuickSearchAction );
+    connect( mQuickSearchAction, SIGNAL(triggered(bool)), mNotesWidget, SLOT(slotFocusQuickSearch()) );
+
     connect( mNotesWidget->notesView(), SIGNAL(executed(QListWidgetItem*)),
              this, SLOT(editNote(QListWidgetItem*)) );
 
@@ -245,6 +252,7 @@ KNotesPart::KNotesPart( QObject *parent )
     setWidget( mNotesWidget );
     setXMLFile( QLatin1String("knotes_part.rc") );
     updateNetworkListener();
+    mNotesWidget->updateClickMessage(mQuickSearchAction->shortcut().toString());
 }
 
 KNotesPart::~KNotesPart()

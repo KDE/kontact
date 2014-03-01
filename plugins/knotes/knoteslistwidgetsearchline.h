@@ -26,6 +26,8 @@ public:
     explicit KNotesListWidgetSearchLine(QWidget *parent=0);
     ~KNotesListWidgetSearchLine();
 
+    void updateClickMessage(const QString &shortcutStr);
+
 protected:
     bool itemMatches( const QListWidgetItem *item, const QString &s ) const;
 

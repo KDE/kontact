@@ -25,10 +25,10 @@ KNotesWidget::KNotesWidget(KNotesPart *part, QWidget *parent)
     : QWidget(parent)
 {
     QVBoxLayout *lay = new QVBoxLayout;
-    KNotesListWidgetSearchLine *searchLine = new KNotesListWidgetSearchLine;
-    lay->addWidget(searchLine);
+    mSearchLine = new KNotesListWidgetSearchLine;
+    lay->addWidget(mSearchLine);
     mIconView = new KNotesIconView(part, parent);
-    searchLine->setListWidget(mIconView);
+    mSearchLine->setListWidget(mIconView);
     lay->addWidget(mIconView);
     setLayout(lay);
 }
@@ -36,6 +36,16 @@ KNotesWidget::KNotesWidget(KNotesPart *part, QWidget *parent)
 KNotesWidget::~KNotesWidget()
 {
 
+}
+
+void KNotesWidget::slotFocusQuickSearch()
+{
+    mSearchLine->setFocus();
+}
+
+void KNotesWidget::updateClickMessage(const QString &shortcutStr)
+{
+    mSearchLine->updateClickMessage(shortcutStr);
 }
 
 KNotesIconView *KNotesWidget::notesView() const

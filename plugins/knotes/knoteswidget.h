@@ -21,7 +21,7 @@
 #include <QWidget>
 class KNotesIconView;
 class KNotesPart;
-
+class KNotesListWidgetSearchLine;
 class KNotesWidget : public QWidget
 {
     Q_OBJECT
@@ -31,8 +31,13 @@ public:
 
     KNotesIconView *notesView() const;
 
+    void updateClickMessage(const QString &shortcutStr);
+public slots:
+    void slotFocusQuickSearch();
+
 private:
     KNotesIconView *mIconView;
+    KNotesListWidgetSearchLine *mSearchLine;
 };
 
 #endif // KNOTESWIDGET_H

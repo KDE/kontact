@@ -135,6 +135,7 @@ private:
     KAction *mNoteSetAlarm;
     KAction *mNewNote;
     KAction *mSaveAs;
+    KAction *mQuickSearchAction;
     KToggleAction *mReadOnly;
     NoteShared::NotesChangeRecorder *mNoteRecorder;
     NoteShared::NotesAkonadiTreeModel *mNoteTreeModel;

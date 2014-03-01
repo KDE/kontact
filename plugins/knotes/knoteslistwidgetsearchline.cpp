@@ -33,6 +33,11 @@ KNotesListWidgetSearchLine::~KNotesListWidgetSearchLine()
 
 }
 
+void KNotesListWidgetSearchLine::updateClickMessage(const QString &shortcutStr)
+{
+    setClickMessage(i18n("Search notes...<%1>", shortcutStr));
+}
+
 bool KNotesListWidgetSearchLine::itemMatches( const QListWidgetItem *item, const QString &s ) const
 {
     if (!item) {
