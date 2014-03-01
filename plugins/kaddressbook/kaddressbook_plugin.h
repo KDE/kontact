@@ -49,6 +49,7 @@ class KAddressBookPlugin : public KontactInterface::Plugin
     int weight() const { return 300; }
 
     QStringList invisibleToolbarActions() const;
+    void shortcutChanged();
 
   protected:
     KParts::ReadOnlyPart *createPart();
@@ -60,6 +61,7 @@ class KAddressBookPlugin : public KontactInterface::Plugin
 
   private:
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
+
 };
 
 #endif

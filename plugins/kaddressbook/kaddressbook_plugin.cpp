@@ -160,6 +160,18 @@ QStringList KAddressBookPlugin::invisibleToolbarActions() const
   return actions;
 }
 
+void KAddressBookPlugin::shortcutChanged()
+{
+  KParts::ReadOnlyPart *localPart = part();
+  if ( localPart ) {
+    if ( localPart->metaObject()->indexOfMethod( "updateQuickSearchText()" ) == -1 ) {
+      kWarning() << "KAddressBook part is missing slot updateQuickSearchText()";
+      return;
+    }
+    QMetaObject::invokeMethod( localPart, "updateQuickSearchText" );
+  }
+}
+
 void KAddressBookPlugin::slotSyncContacts()
 {
 #if 0
