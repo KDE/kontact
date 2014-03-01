@@ -62,8 +62,6 @@ public:
 
     bool openFile();
 
-    NoteShared::NotesAkonadiTreeModel *noteTreeModel() const {return mNoteTreeModel;}
-
 public slots:
     void newNote( const QString &name = QString(),
                      const QString &text = QString() );
