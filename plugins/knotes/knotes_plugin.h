@@ -55,6 +55,7 @@ public:
 
     bool canDecodeMimeData( const QMimeData *data ) const;
     void processDropEvent( QDropEvent * );
+    void shortcutChanged();
 
 
 protected:
@@ -66,6 +67,7 @@ private slots:
 private:
     mutable KAboutData *mAboutData;
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
+
 };
 
 #endif

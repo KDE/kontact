@@ -62,8 +62,6 @@ public:
 
     bool openFile();
 
-    NoteShared::NotesAkonadiTreeModel *noteTreeModel() const {return mNoteTreeModel;}
-
 public slots:
     void newNote( const QString &name = QString(),
                      const QString &text = QString() );
@@ -85,6 +83,7 @@ public:
     void popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos );
     void editNote(Akonadi::Entity::Id id);
 
+    void updateClickMessage();
 private slots:
     void editNote( QListWidgetItem *item );
     void editNote();

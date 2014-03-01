@@ -252,7 +252,7 @@ KNotesPart::KNotesPart( QObject *parent )
     setWidget( mNotesWidget );
     setXMLFile( QLatin1String("knotes_part.rc") );
     updateNetworkListener();
-    mNotesWidget->updateClickMessage(mQuickSearchAction->shortcut().toString());
+    updateClickMessage();
 }
 
 KNotesPart::~KNotesPart()
@@ -261,6 +261,11 @@ KNotesPart::~KNotesPart()
     mPublisher=0;
     delete mNoteTip;
     mNoteTip = 0;
+}
+
+void KNotesPart::updateClickMessage()
+{
+    mNotesWidget->updateClickMessage(mQuickSearchAction->shortcut().toString());
 }
 
 void KNotesPart::slotItemRemoved(const Akonadi::Item &item)

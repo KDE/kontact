@@ -211,6 +211,13 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
     kWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
 
+void KNotesPlugin::shortcutChanged()
+{
+    if ( part() ) {
+        static_cast<KNotesPart *>( part() )->updateClickMessage();
+    }
+}
+
 // private slots
 
 void KNotesPlugin::slotNewNote()
