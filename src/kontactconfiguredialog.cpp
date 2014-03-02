@@ -38,17 +38,27 @@ KontactConfigureDialog::~KontactConfigureDialog()
 void KontactConfigureDialog::emitConfigChanged()
 {
   //Add code from plugins which needs to be call when we close kontact dialog config
-  QDBusInterface iface( QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QLatin1String("org.kde.kmail.kmail"),
+  QDBusInterface kmailIface( QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QLatin1String("org.kde.kmail.kmail"),
                         QDBusConnection::sessionBus() );
-  if ( !iface.isValid() ) {
-    return;
+  if ( kmailIface.isValid() ) {
+      QDBusReply<void> reply;
+      if ( !( reply = kmailIface.call( QLatin1String("updateConfig") ) ).isValid() ) {
+          QDBusError err = kmailIface.lastError();
+          kError() << "Communication problem with KMail. "
+                   << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
+      }
   }
+  QDBusInterface knotesIface( QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QLatin1String("org.kde.kontact.KNotes"),
+                        QDBusConnection::sessionBus() );
+  if ( knotesIface.isValid() ) {
+      QDBusReply<void> reply;
+      if ( !( reply = knotesIface.call( QLatin1String("updateConfig") ) ).isValid() ) {
+          QDBusError err = knotesIface.lastError();
+          kError() << "Communication problem with KNotes. "
+                   << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
+      }
 
-  QDBusReply<void> reply;
-  if ( !( reply = iface.call( QLatin1String("updateConfig") ) ).isValid() ) {
-    QDBusError err = iface.lastError();
-    kError() << "Communication problem with KMail. "
-             << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
+
   }
 }
 

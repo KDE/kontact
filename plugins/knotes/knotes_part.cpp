@@ -644,6 +644,11 @@ void KNotesPart::slotPreferences()
     dialog->show();
 }
 
+void KNotesPart::updateConfig()
+{
+    updateNetworkListener();
+}
+
 void KNotesPart::slotConfigUpdated()
 {
     updateNetworkListener();

@@ -70,6 +70,7 @@ public slots:
 
 
 public:
+    void updateConfig();
     void killNote( Akonadi::Item::Id id );
     void killNote( Akonadi::Item::Id id, bool force );
 
