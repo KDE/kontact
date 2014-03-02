@@ -43,5 +43,6 @@
     <method name="notesList">
       <arg type="as" direction="out"/>
     </method>
+    <method name="updateConfig"/>
   </interface>
 </node>
