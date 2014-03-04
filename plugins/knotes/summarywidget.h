@@ -80,6 +80,7 @@ private:
     QItemSelectionModel *mSelectionModel;
     KCheckableProxyModel *mModelProxy;
     KViewStateMaintainer<Akonadi::ETMViewStateSaver> *mModelState;
+    bool mInProgress;
 };
 
 #endif
