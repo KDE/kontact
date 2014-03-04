@@ -612,6 +612,7 @@ void KNotesPart::slotNotePreferences()
     Akonadi::Item item = knoteItem->item();
     dialog->load(item, knoteItem->isRichText());
     if (dialog->exec() ) {
+        KNoteUtils::updateConfiguration();
         bool isRichText;
         dialog->save(item, isRichText);
         KMime::Message::Ptr message = item.payload<KMime::Message::Ptr>();
