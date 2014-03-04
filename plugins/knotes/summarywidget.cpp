@@ -61,7 +61,8 @@
 KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent )
     : KontactInterface::Summary( parent ),
       mLayout( 0 ),
-      mPlugin( plugin )
+      mPlugin( plugin ),
+      mInProgress( false )
 {
     mDefaultPixmap = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
     QVBoxLayout *mainLayout = new QVBoxLayout( this );
@@ -101,8 +102,6 @@ KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidg
     mModelState =
             new KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
     mModelState->setSelectionModel( mSelectionModel );
-
-    updateFolderList();
 }
 
 KNotesSummaryWidget::~KNotesSummaryWidget()
@@ -111,11 +110,16 @@ KNotesSummaryWidget::~KNotesSummaryWidget()
 
 void KNotesSummaryWidget::updateFolderList()
 {
+    if (mInProgress)
+        return;
+    mInProgress = true;
     qDeleteAll( mLabels );
     int counter = 0;
     mLabels.clear();
     mModelState->restoreState();
     displayNotes(QModelIndex(), counter);
+    qDebug()<<"void KNotesSummaryWidget::updateFolderList() ";
+    mInProgress = false;
 }
 
 void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
@@ -127,6 +131,7 @@ void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
                 mModelProxy->data( child,
                                   Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
         if (item.isValid()) {
+            qDebug()<<" createNote ";
             createNote(item, counter);
             ++counter;
         }

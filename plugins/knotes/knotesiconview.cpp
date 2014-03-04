@@ -43,6 +43,8 @@ KNotesIconView::KNotesIconView( KNotesPart *part, QWidget *parent )
 {
     setViewMode( QListView::IconMode );
     setMovement( QListView::Static );
+    setResizeMode( QListView::Adjust );
+
     setSelectionMode( QAbstractItemView::ExtendedSelection );
     setWordWrap( true );
     setMouseTracking ( true );
