@@ -171,19 +171,25 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
         return;
     }
 
-    MemoryCalendar::Ptr cal( new MemoryCalendar( QString::fromLatin1( "UTC" ) ) );
-    if ( ICalDrag::canDecode( md ) ) {
-        KTemporaryFile tmp;
-        tmp.setPrefix( QLatin1String("incidences-") );
-        tmp.setSuffix( QLatin1String(".ics") );
-        tmp.setAutoRemove( false );
-        tmp.open();
-        FileStorage storage( cal, tmp.fileName() );
-        storage.save();
-#if 0
-        static_cast<KNotesPart *>( part() )->
-                newNote( i18nc( "@item", "Note: %1", j->summary() ), j->description() );
-#endif
+    if ( KCalUtils::ICalDrag::canDecode( md ) ) {
+        KCalCore::MemoryCalendar::Ptr cal( new KCalCore::MemoryCalendar( KSystemTimeZones::local() ) );
+        if ( KCalUtils::ICalDrag::fromMimeData( md, cal ) ) {
+            KCalCore::Incidence::List incidences = cal->incidences();
+            Q_ASSERT( incidences.count() );
+            if ( !incidences.isEmpty() ) {
+                event->accept();
+                KCalCore::Incidence::Ptr i = incidences.first();
+                QString summary;
+                if ( i->type() == KCalCore::Incidence::TypeJournal ) {
+                    summary = i18nc( "@item", "Note: %1", i->summary() );
+                } else {
+                    summary = i->summary();
+                }
+                static_cast<KNotesPart *>( part() )->
+                        newNote( i18nc( "@item", "Note: %1", summary ), i->description() );
+                return;
+            }
+        }
     }
     if ( md->hasText() ) {
         static_cast<KNotesPart *>( part() )->newNote(
