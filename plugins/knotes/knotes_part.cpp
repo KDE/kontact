@@ -553,7 +553,8 @@ void KNotesPart::editNote( QListWidgetItem *item )
 
     dlg->noteEdit()->setFocus();
     if ( dlg->exec() == QDialog::Accepted ) {
-        knotesItem->setIconText( dlg->title() );
+        //Don't save we save in description
+        knotesItem->setIconText( dlg->title(), false );
         knotesItem->setDescription( dlg->text() );
     }
     delete dlg;

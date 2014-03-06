@@ -37,6 +37,8 @@
 #include <QListWidgetItem>
 #include <QDebug>
 
+//#define DEBUG_SAVE_NOTE 1
+
 KNotesIconView::KNotesIconView( KNotesPart *part, QWidget *parent )
     : KListWidget(parent),
       m_part(part)
@@ -136,6 +138,9 @@ void KNotesIconViewItem::setReadOnly(bool b, bool save)
     }
     if (save) {
         Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
+#ifdef DEBUG_SAVE_NOTE
+        qDebug()<<" KNotesIconViewItem::setReadOnly savenote";
+#endif
         connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
     }
 }
@@ -239,6 +244,9 @@ void KNotesIconViewItem::saveNoteContent(const QString &subject, const QString &
 
     mItem.setPayload( message );
     Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
+#ifdef DEBUG_SAVE_NOTE
+    qDebug()<<" KNotesIconViewItem::saveNoteContent savenote";
+#endif
     connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
 }
 
