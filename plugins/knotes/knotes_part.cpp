@@ -48,6 +48,9 @@
 #include "noteshared/akonadi/noteschangerecorder.h"
 #include "noteshared/attributes/notealarmattribute.h"
 #include "noteshared/attributes/showfoldernotesattribute.h"
+#include "noteshared/attributes/notealarmattribute.h"
+#include "noteshared/attributes/notedisplayattribute.h"
+#include "noteshared/attributes/notelockattribute.h"
 
 #include "akonadi_next/note.h"
 
@@ -56,8 +59,10 @@
 #include <Akonadi/ETMViewStateSaver>
 #include <Akonadi/EntityDisplayAttribute>
 #include <Akonadi/ItemCreateJob>
+#include <Akonadi/ItemFetchJob>
 #include <KCheckableProxyModel>
 #include <akonadi/itemdeletejob.h>
+#include <Akonadi/ItemFetchScope>
 
 
 #include <KMime/KMimeMessage>
@@ -830,7 +835,7 @@ void KNotesPart::slotCollectionChanged(const Akonadi::Collection &col, const QSe
     if (set.contains("showfoldernotesattribute")) {
         //qDebug()<<" collection Changed "<<set<<" col "<<col;
         if (col.hasAttribute<NoteShared::ShowFolderNotesAttribute>()) {
-            qDebug()<<" add note show note attribute";
+            fetchNotesFromCollection(col);
         } else {
             QHashIterator<Akonadi::Item::Id, KNotesIconViewItem*> i(mNotesWidget->notesView()->noteList());
             while (i.hasNext()) {
@@ -844,3 +849,30 @@ void KNotesPart::slotCollectionChanged(const Akonadi::Collection &col, const QSe
     }
 }
 
+void KNotesPart::fetchNotesFromCollection(const Akonadi::Collection &col)
+{
+    Akonadi::ItemFetchJob *job = new Akonadi::ItemFetchJob( col );
+    job->fetchScope().fetchFullPayload(true);
+    job->fetchScope().fetchAttribute<NoteShared::NoteLockAttribute>();
+    job->fetchScope().fetchAttribute<NoteShared::NoteDisplayAttribute>();
+    job->fetchScope().fetchAttribute<NoteShared::NoteAlarmAttribute>();
+    job->fetchScope().setAncestorRetrieval(Akonadi::ItemFetchScope::Parent);
+    connect( job, SIGNAL( result( KJob* ) ), SLOT( slotItemFetchFinished(KJob*)) );
+}
+
+void KNotesPart::slotItemFetchFinished(KJob *job)
+{
+    if ( job->error() ) {
+        qDebug() << "Error occurred during item fetch:"<<job->errorString();
+        return;
+    }
+
+    Akonadi::ItemFetchJob *fetchJob = qobject_cast<Akonadi::ItemFetchJob*>( job );
+
+    const Akonadi::Item::List items = fetchJob->items();
+    foreach ( const Akonadi::Item &item, items ) {
+        if ( !item.hasPayload<KMime::Message::Ptr>() )
+            continue;
+        mNotesWidget->notesView()->addNote(item);
+    }
+}
