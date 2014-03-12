@@ -96,6 +96,11 @@ KNotesPart::KNotesPart( QObject *parent )
       mNotePrintPreview(0),
       mNoteTreeModel(0)
 {
+    (void) new KNotesAdaptor( this );
+    QDBusConnection::sessionBus().registerObject( QLatin1String("/KNotes"), this );
+
+    setComponentData( KComponentData( "knotes" ) );
+
     Akonadi::Control::widgetNeedsAkonadi(widget());
 
     KNoteUtils::migrateToAkonadi();
@@ -104,11 +109,6 @@ KNotesPart::KNotesPart( QObject *parent )
         NoteShared::LocalResourceCreator *creator = new NoteShared::LocalResourceCreator( this );
         creator->createIfMissing();
     }
-
-    (void) new KNotesAdaptor( this );
-    QDBusConnection::sessionBus().registerObject( QLatin1String("/KNotes"), this );
-
-    setComponentData( KComponentData( "knotes" ) );
 
     // create the actions
     mNewNote = new KAction( KIcon( QLatin1String("knotes") ),
