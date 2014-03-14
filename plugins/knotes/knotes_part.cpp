@@ -30,7 +30,6 @@
 #include "knotesiconview.h"
 #include "knoteswidget.h"
 #include "knotesselectdeletenotesdialog.h"
-#include "knotetip.h"
 #include "knotes/configdialog/knoteconfigdialog.h"
 #include "knotes/print/knoteprinter.h"
 #include "knotes/print/knoteprintobject.h"
@@ -234,16 +233,9 @@ KNotesPart::KNotesPart( QObject *parent )
     mModelState->setSelectionModel( mSelectionModel );
 
     mNotesWidget = new KNotesWidget(this,widget());
-    mNoteTip = new KNoteTip( mNotesWidget->notesView() );
 
     connect( mNotesWidget->notesView(), SIGNAL(executed(QListWidgetItem*)),
              this, SLOT(editNote(QListWidgetItem*)) );
-
-    connect( mNotesWidget->notesView(), SIGNAL(entered(QModelIndex)),
-             this, SLOT(requestToolTip(QModelIndex)));
-
-    connect( mNotesWidget->notesView(), SIGNAL(viewportEntered()),
-             this, SLOT(hideToolTip()));
 
     connect( mNotesWidget->notesView(), SIGNAL(itemSelectionChanged()),
              this, SLOT(slotOnCurrentChanged()) );
@@ -258,8 +250,6 @@ KNotesPart::~KNotesPart()
 {
     delete mPublisher;
     mPublisher=0;
-    delete mNoteTip;
-    mNoteTip = 0;
 }
 
 void KNotesPart::slotItemRemoved(const Akonadi::Item &item)
@@ -294,18 +284,6 @@ QStringList KNotesPart::notesList() const
         notes.append(QString::number(i.key()));
     }
     return notes;
-}
-
-void KNotesPart::requestToolTip( const QModelIndex &index )
-{
-    const QRect m_itemRect = mNotesWidget->notesView()->visualRect( index );
-    mNoteTip->setNote(
-                static_cast<KNotesIconViewItem *>( mNotesWidget->notesView()->itemAt( m_itemRect.topLeft() ) ) );
-}
-
-void KNotesPart::hideToolTip()
-{
-    mNoteTip->setNote( 0 );
 }
 
 void KNotesPart::slotPrintPreviewSelectedNotes()

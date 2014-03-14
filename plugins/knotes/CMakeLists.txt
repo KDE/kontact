@@ -15,7 +15,6 @@ set(kontact_knotesplugin_PART_SRCS
   knotes_plugin.cpp
   knotes_part.cpp
   summarywidget.cpp
-  knotetip.cpp
   knotesiconview.cpp
   knoteslistwidgetsearchline.cpp
   knoteswidget.cpp

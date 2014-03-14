@@ -37,6 +37,8 @@ public:
 protected:
     void mousePressEvent( QMouseEvent * );
 
+    bool event(QEvent *e);
+
 private:
     KNotesPart *m_part;
     QHash<Akonadi::Item::Id, KNotesIconViewItem*> mNoteList;
@@ -68,6 +70,7 @@ public:
     void saveNoteContent(const QString &subject = QString(), const QString &description = QString());
     void updateSettings();
     void setChangeIconTextAndDescription(const QString &iconText, const QString &description);
+    QString createToolTip();
 private slots:
     void slotNoteSaved(KJob *job);
 private:
