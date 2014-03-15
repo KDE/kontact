@@ -330,16 +330,17 @@ QString KNotesIconViewItem::createToolTip()
     const QString htmlCodeForStandardRow = QString::fromLatin1(
                 "<tr>" \
                 "<td bgcolor=\"%1\" align=\"left\" valign=\"top\">" \
-                "%2" \
+                "<div style=\"color: %2;\">" \
+                "%3" \
                 "</td>" \
                 "</tr>" );
 
     QString content = description();
     if ( !content.trimmed().isEmpty() ) {
         if ( textIsLeftToRight ) {
-            tip += htmlCodeForStandardRow.arg(bckColorName).arg( isRichText() ? content : content.replace( QLatin1Char( '\n' ), QLatin1String( "<br>" ) ) );
+            tip += htmlCodeForStandardRow.arg(bckColorName).arg( txtColorName ).arg( isRichText() ? content : content.replace( QLatin1Char( '\n' ), QLatin1String( "<br>" ) ) );
         } else {
-            tip += htmlCodeForStandardRow.arg(bckColorName).arg( isRichText() ? content : content.replace( QLatin1Char( '\n' ), QLatin1String( "<br>" ) ) );
+            tip += htmlCodeForStandardRow.arg(bckColorName).arg( txtColorName ).arg( isRichText() ? content : content.replace( QLatin1Char( '\n' ), QLatin1String( "<br>" ) ) );
         }
     }
 
