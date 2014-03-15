@@ -332,6 +332,7 @@ QString KNotesIconViewItem::createToolTip()
                 "<td bgcolor=\"%1\" align=\"left\" valign=\"top\">" \
                 "<div style=\"color: %2;\">" \
                 "%3" \
+                "</div>" \
                 "</td>" \
                 "</tr>" );
 
