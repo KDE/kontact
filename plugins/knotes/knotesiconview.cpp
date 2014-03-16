@@ -19,8 +19,10 @@
 #include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "noteshared/attributes/notedisplayattribute.h"
 #include "noteshared/attributes/notelockattribute.h"
+#include "noteshared/noteutils.h"
 #include "knotes/notes/knotedisplaysettings.h"
 #include "utils/knoteutils.h"
+
 
 #include <KLocalizedString>
 
@@ -37,8 +39,6 @@
 #include <QListWidgetItem>
 #include <QDebug>
 #include <QToolTip>
-#include <QApplication>
-#include <QTextDocument>
 
 //#define DEBUG_SAVE_NOTE 1
 
@@ -74,7 +74,7 @@ bool KNotesIconView::event(QEvent *e)
     QListWidgetItem *item = itemAt( pnt );
     if (item) {
         KNotesIconViewItem *noteItem = static_cast<KNotesIconViewItem*>(item);
-        const QString toolTip = noteItem->createToolTip();
+        const QString toolTip = NoteShared::NoteUtils::createToolTip(noteItem->item());
         QToolTip::showText( he->globalPos(), toolTip, viewport(), visualItemRect( item ) );
     }
     return true;
@@ -306,51 +306,6 @@ void KNotesIconViewItem::updateSettings()
     QPixmap icon = effect.apply( mDefaultPixmap, KIconEffect::Colorize, 1, color, false );
     setFont(mDisplayAttribute->titleFont());
     setIcon( icon );
-}
-
-QString KNotesIconViewItem::createToolTip()
-{
-    const QString bckColorName = mDisplayAttribute->backgroundColor().name();
-    const QString txtColorName = mDisplayAttribute->foregroundColor().name();;
-    const bool textIsLeftToRight = ( QApplication::layoutDirection() == Qt::LeftToRight );
-    const QString textDirection =  textIsLeftToRight ? QLatin1String( "left" ) : QLatin1String( "right" );
-
-    QString tip = QString::fromLatin1(
-                "<table width=\"100%\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\">"
-                );
-    tip += QString::fromLatin1(
-                "<tr>" \
-                "<td bgcolor=\"%1\" align=\"%4\" valign=\"middle\">" \
-                "<div style=\"color: %2; font-weight: bold;\">" \
-                "%3" \
-                "</div>" \
-                "</td>" \
-                "</tr>"
-                ).arg( bckColorName ).arg( txtColorName ).arg( Qt::escape( realName() ) ).arg( textDirection );
-    const QString htmlCodeForStandardRow = QString::fromLatin1(
-                "<tr>" \
-                "<td bgcolor=\"%1\" align=\"left\" valign=\"top\">" \
-                "<div style=\"color: %2;\">" \
-                "%3" \
-                "</div>" \
-                "</td>" \
-                "</tr>" );
-
-    QString content = description();
-    if ( !content.trimmed().isEmpty() ) {
-        if ( textIsLeftToRight ) {
-            tip += htmlCodeForStandardRow.arg(bckColorName).arg( txtColorName ).arg( isRichText() ? content : content.replace( QLatin1Char( '\n' ), QLatin1String( "<br>" ) ) );
-        } else {
-            tip += htmlCodeForStandardRow.arg(bckColorName).arg( txtColorName ).arg( isRichText() ? content : content.replace( QLatin1Char( '\n' ), QLatin1String( "<br>" ) ) );
-        }
-    }
-
-    tip += QString::fromLatin1(
-                "</table" \
-                "</td>" \
-                "</tr>"
-                );
-    return tip;
 }
 
 #include "moc_knotesiconview.cpp"
