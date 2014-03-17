@@ -96,6 +96,11 @@ KNoteEditDialog::~KNoteEditDialog()
     writeConfig();
 }
 
+void KNoteEditDialog::setColor(const QColor &fg, const QColor &bg)
+{
+    mNoteEdit->setColor( fg, bg );
+}
+
 void KNoteEditDialog::setAcceptRichText(bool b)
 {
     mNoteEdit->setAcceptRichText( b );

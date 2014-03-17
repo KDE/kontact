@@ -530,6 +530,7 @@ void KNotesPart::editNote( QListWidgetItem *item )
     QPointer<KNoteEditDialog> dlg = new KNoteEditDialog( knotesItem->readOnly(), widget() );
     dlg->setTitle( knotesItem->realName() );
     dlg->setText( knotesItem->description() );
+    dlg->setColor( knotesItem->textForegroundColor(), knotesItem->textBackgroundColor() );
 
     dlg->setAcceptRichText(knotesItem->isRichText());
     dlg->setTabSize(knotesItem->tabSize());
