@@ -51,6 +51,7 @@ public:
 
     void setTextFont(const QFont &font);
 
+    void setColor(const QColor &fg, const QColor &bg);
 private slots:
     void slotTextChanged(const QString &text);
 

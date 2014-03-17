@@ -70,6 +70,9 @@ public:
     void saveNoteContent(const QString &subject = QString(), const QString &description = QString());
     void updateSettings();
     void setChangeIconTextAndDescription(const QString &iconText, const QString &description);
+    QColor textBackgroundColor() const;
+    QColor textForegroundColor() const;
+
 private slots:
     void slotNoteSaved(KJob *job);
 private:

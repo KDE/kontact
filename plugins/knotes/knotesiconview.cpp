@@ -214,6 +214,16 @@ int KNotesIconViewItem::tabSize() const
     return mDisplayAttribute->tabSize();
 }
 
+QColor KNotesIconViewItem::textBackgroundColor() const
+{
+    return mDisplayAttribute->backgroundColor();
+}
+
+QColor KNotesIconViewItem::textForegroundColor() const
+{
+    return mDisplayAttribute->foregroundColor();
+}
+
 bool KNotesIconViewItem::autoIndent() const
 {
     return mDisplayAttribute->autoIndent();
