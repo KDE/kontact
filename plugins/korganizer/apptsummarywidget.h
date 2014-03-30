@@ -27,6 +27,7 @@
 #define SUMMARYWIDGET_H
 
 #include <KontactInterface/Summary>
+#include <Akonadi/Calendar/ETMCalendar>
 
 class KOrganizerPlugin;
 
@@ -34,7 +35,6 @@ class KOrganizerPlugin;
 namespace Akonadi {
   class Item;
   class IncidenceChanger;
-  class ETMCalendar;
 }
 
 class QDate;
@@ -70,7 +70,7 @@ class ApptSummaryWidget : public KontactInterface::Summary
   private:
     void dateDiff( const QDate &date, int &days );
 
-    Akonadi::ETMCalendar *mCalendar;
+    Akonadi::ETMCalendar::Ptr mCalendar;
     Akonadi::IncidenceChanger *mChanger;
 
     QGridLayout *mLayout;

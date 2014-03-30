@@ -33,7 +33,6 @@
 #include <Akonadi/Collection>
 #include <Akonadi/ItemFetchScope>
 #include <Akonadi/Calendar/IncidenceChanger>
-#include <Akonadi/Calendar/ETMCalendar>
 
 #include <KCalUtils/IncidenceFormatter>
 
@@ -72,7 +71,7 @@ TodoSummaryWidget::TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent )
 
   mChanger = new Akonadi::IncidenceChanger( parent );
 
-  connect( mCalendar, SIGNAL(calendarChanged()), SLOT(updateView()) );
+  connect( mCalendar.data(), SIGNAL(calendarChanged()), SLOT(updateView()) );
   connect( mPlugin->core(), SIGNAL(dayChanged(QDate)), SLOT(updateView()) );
 
   updateView();

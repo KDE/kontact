@@ -29,6 +29,7 @@
 #include <KCalCore/Event>
 
 #include <KontactInterface/Summary>
+#include <Akonadi/Calendar/ETMCalendar>
 
 namespace KHolidays {
   class HolidayRegion;
@@ -36,10 +37,6 @@ namespace KHolidays {
 
 namespace KontactInterface {
   class Plugin;
-}
-
-namespace Akonadi {
-  class ETMCalendar;
 }
 
 class QDate;
@@ -81,7 +78,7 @@ class SDSummaryWidget : public KontactInterface::Summary
     bool initHolidays();
     void dateDiff( const QDate &date, int &days, int &years ) const;
 
-    Akonadi::ETMCalendar *mCalendar;
+    Akonadi::ETMCalendar::Ptr mCalendar;
 
     QGridLayout *mLayout;
     QList<QLabel*> mLabels;

@@ -31,12 +31,12 @@
 #include <KCalCore/Todo>
 
 #include <KontactInterface/Summary>
+#include <Akonadi/Calendar/ETMCalendar>
 
 class TodoPlugin;
 
 namespace Akonadi {
   class IncidenceChanger;
-  class ETMCalendar;
 }
 
 class QGridLayout;
@@ -83,7 +83,7 @@ class TodoSummaryWidget : public KontactInterface::Summary
     bool mShowMineOnly;
 
     QList<QLabel*> mLabels;
-    Akonadi::ETMCalendar *mCalendar;
+    Akonadi::ETMCalendar::Ptr mCalendar;
     Akonadi::IncidenceChanger *mChanger;
 
     /**
