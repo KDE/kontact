@@ -881,6 +881,8 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
     }
 
     createGUI( plugin->part() );
+    plugin->shortcutChanged();
+
 
     setCaption( i18nc( "@title:window Plugin dependent window title",
                        "%1 - Kontact", plugin->title() ) );
