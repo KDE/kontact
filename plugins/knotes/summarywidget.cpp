@@ -120,6 +120,13 @@ void KNotesSummaryWidget::updateFolderList()
     mModelState->restoreState();
     displayNotes(QModelIndex(), counter);
     mInProgress = false;
+
+    if ( counter == 0 ) {
+        QLabel *label = new QLabel( i18n( "No note found" ), this );
+        label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
+        mLayout->addWidget( label, 0, 0 );
+        mLabels.append( label );
+    }
     QList<QLabel*>::const_iterator lit;
     QList<QLabel*>::const_iterator lend( mLabels.constEnd() );
     for ( lit = mLabels.constBegin(); lit != lend; ++lit ) {
