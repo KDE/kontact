@@ -132,7 +132,8 @@ KNotesIconViewItem::~KNotesIconViewItem()
 void KNotesIconViewItem::prepare()
 {
     KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
-    setText(noteMessage->subject(false)->asUnicodeString());
+    const KMime::Headers::Subject * const subject = noteMessage ? noteMessage->subject(false) : 0;
+    setText(subject ? subject->asUnicodeString() : QString());
 
     if ( mItem.hasAttribute<NoteShared::NoteLockAttribute>() ) {
         mReadOnly = true;
@@ -206,7 +207,8 @@ void KNotesIconViewItem::setIconText( const QString &text, bool save )
 QString KNotesIconViewItem::realName() const
 {
     const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
-    return noteMessage->subject(false)->asUnicodeString();
+    const KMime::Headers::Subject * const subject = noteMessage ? noteMessage->subject(false) : 0;
+    return subject ? subject->asUnicodeString() : QString();
 }
 
 int KNotesIconViewItem::tabSize() const
@@ -300,7 +302,8 @@ void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QBy
     }
     if (set.contains("PLD:RFC822")) {
         KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
-        setIconText(noteMessage->subject(false)->asUnicodeString(), false);
+        const KMime::Headers::Subject * const subject = noteMessage ? noteMessage->subject(false) : 0;
+        setIconText(subject ? subject->asUnicodeString() : QString(), false);
     }
     if (set.contains("ATR:NoteDisplayAttribute")) {
         updateSettings();
