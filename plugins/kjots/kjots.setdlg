@@ -2,7 +2,7 @@
 Name=Notebooks
 Name[ar]=دفاتر الملاحظات
 Name[bs]=Sveske
-Name[ca]=Notebooks
+Name[ca]=Llibres de notes
 Name[ca@valencia]=Notebooks
 Name[cs]=Poznámky
 Name[da]=Notesbøger
@@ -52,7 +52,7 @@ Name[zh_TW]=筆記本
 Comment=Notebooks Component
 Comment[ar]=مكون دفاتر الملاحظات
 Comment[bs]=Komponenta sveski
-Comment[ca]=Component del Notebooks
+Comment[ca]=Component dels llibres de notes
 Comment[ca@valencia]=Component del Notebooks
 Comment[cs]=Komponenta poznámek
 Comment[da]=Notesbogkomponent
