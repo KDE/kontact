@@ -38,71 +38,71 @@ using namespace Kontact;
 
 extern "C"
 {
-  KDE_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * )
-  {
+KDE_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * )
+{
     KComponentData inst( "kcmkontact" );
     return new KcmKontact( inst, parent );
-  }
+}
 }
 
 KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
-  : KPrefsModule( Prefs::self(), inst, parent )
+    : KPrefsModule( Prefs::self(), inst, parent )
 {
-  QBoxLayout *topLayout = new QVBoxLayout( this );
-  QBoxLayout *pluginStartupLayout = new QHBoxLayout();
-  topLayout->addItem( pluginStartupLayout );
-  topLayout->addStretch();
+    QBoxLayout *topLayout = new QVBoxLayout( this );
+    QBoxLayout *pluginStartupLayout = new QHBoxLayout();
+    topLayout->addItem( pluginStartupLayout );
+    topLayout->addStretch();
 
-  KPrefsWidBool *forceStartupPlugin =
-    addWidBool( Prefs::self()->forceStartupPluginItem(), this );
-  pluginStartupLayout->addWidget( forceStartupPlugin->checkBox() );
+    KPrefsWidBool *forceStartupPlugin =
+            addWidBool( Prefs::self()->forceStartupPluginItem(), this );
+    pluginStartupLayout->addWidget( forceStartupPlugin->checkBox() );
 
-  PluginSelection *selection =
-    new PluginSelection( Prefs::self()->forcedStartupPluginItem(), this );
-  addWid( selection );
+    PluginSelection *selection =
+            new PluginSelection( Prefs::self()->forcedStartupPluginItem(), this );
+    addWid( selection );
 
-  pluginStartupLayout->addWidget( selection->comboBox() );
-  selection->comboBox()->setEnabled( false );
+    pluginStartupLayout->addWidget( selection->comboBox() );
+    selection->comboBox()->setEnabled( false );
 
-  pluginStartupLayout->addStretch( 1 );
+    pluginStartupLayout->addStretch( 1 );
 
-  connect( forceStartupPlugin->checkBox(), SIGNAL(toggled(bool)),
-           selection->comboBox(), SLOT(setEnabled(bool)) );
-  load();
+    connect( forceStartupPlugin->checkBox(), SIGNAL(toggled(bool)),
+             selection->comboBox(), SLOT(setEnabled(bool)) );
+    load();
 }
 
 const KAboutData *KcmKontact::aboutData() const
 {
-  KAboutData *about = new KAboutData(
-    "kontactconfig", 0,
-    ki18nc( "@title", "KDE Kontact" ),
-    0,
-    KLocalizedString(),
-    KAboutData::License_GPL,
-    ki18nc( "@info:credit", "(c), 2003 Cornelius Schumacher" ) );
+    KAboutData *about = new KAboutData(
+                "kontactconfig", 0,
+                ki18nc( "@title", "KDE Kontact" ),
+                0,
+                KLocalizedString(),
+                KAboutData::License_GPL,
+                ki18nc( "@info:credit", "(c), 2003 Cornelius Schumacher" ) );
 
-  about->addAuthor( ki18nc( "@info:credit", "Cornelius Schumacher" ),
-                    ki18nc( "@info:credit", "Developer" ),
-                            "schumacher@kde.org" );
-  about->addAuthor( ki18nc( "@info:credit", "Tobias Koenig" ),
-                    ki18nc( "@info:credit", "Developer" ),
-                    "tokoe@kde.org" );
+    about->addAuthor( ki18nc( "@info:credit", "Cornelius Schumacher" ),
+                      ki18nc( "@info:credit", "Developer" ),
+                      "schumacher@kde.org" );
+    about->addAuthor( ki18nc( "@info:credit", "Tobias Koenig" ),
+                      ki18nc( "@info:credit", "Developer" ),
+                      "tokoe@kde.org" );
 
-  return about;
+    return about;
 }
 
 PluginSelection::PluginSelection( KConfigSkeleton::ItemString *item, QWidget *parent )
 {
-  mItem = item;
-  mPluginCombo = new KComboBox( parent );
-  mPluginCombo->setToolTip(
-    i18nc( "@info:tooltip", "Select the initial plugin to use on each start" ) );
-  mPluginCombo->setWhatsThis(
-    i18nc( "@info:whatsthis",
-           "Select the plugin from this drop down list to be used as the "
-           "initial plugin each time Kontact is started. Otherwise, Kontact "
-           "will restore the last active plugin from the previous usage." ) );
-  connect( mPluginCombo, SIGNAL(currentIndexChanged(int)), SIGNAL(changed()) );
+    mItem = item;
+    mPluginCombo = new KComboBox( parent );
+    mPluginCombo->setToolTip(
+                i18nc( "@info:tooltip", "Select the initial plugin to use on each start" ) );
+    mPluginCombo->setWhatsThis(
+                i18nc( "@info:whatsthis",
+                       "Select the plugin from this drop down list to be used as the "
+                       "initial plugin each time Kontact is started. Otherwise, Kontact "
+                       "will restore the last active plugin from the previous usage." ) );
+    connect( mPluginCombo, SIGNAL(currentIndexChanged(int)), SIGNAL(changed()) );
 }
 
 PluginSelection::~PluginSelection()
@@ -111,43 +111,43 @@ PluginSelection::~PluginSelection()
 
 void PluginSelection::readConfig()
 {
-  const KService::List offers = KServiceTypeTrader::self()->query(
-      QString::fromLatin1( "Kontact/Plugin" ),
-      QString::fromLatin1( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
+    const KService::List offers = KServiceTypeTrader::self()->query(
+                QString::fromLatin1( "Kontact/Plugin" ),
+                QString::fromLatin1( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
 
-  int activeComponent = 0;
-  mPluginCombo->clear();
-  mPluginList.clear();
-  KService::List::ConstIterator end( offers.end() );
-  for ( KService::List::ConstIterator it = offers.begin(); it != end; ++it ) {
-    KService::Ptr service = *it;
-    // skip summary only plugins
-    QVariant var = service->property( QLatin1String("X-KDE-KontactPluginHasPart") );
-    if ( var.isValid() && var.toBool() == false ) {
-      continue;
+    int activeComponent = 0;
+    mPluginCombo->clear();
+    mPluginList.clear();
+    KService::List::ConstIterator end( offers.end() );
+    for ( KService::List::ConstIterator it = offers.begin(); it != end; ++it ) {
+        KService::Ptr service = *it;
+        // skip summary only plugins
+        QVariant var = service->property( QLatin1String("X-KDE-KontactPluginHasPart") );
+        if ( var.isValid() && var.toBool() == false ) {
+            continue;
+        }
+        mPluginCombo->addItem( service->name() );
+        mPluginList.append( service );
+
+        if ( service->property( QLatin1String("X-KDE-PluginInfo-Name") ).toString() == mItem->value() ) {
+            activeComponent = mPluginList.count() - 1;
+        }
     }
-    mPluginCombo->addItem( service->name() );
-    mPluginList.append( service );
 
-    if ( service->property( QLatin1String("X-KDE-PluginInfo-Name") ).toString() == mItem->value() ) {
-      activeComponent = mPluginList.count() - 1;
-    }
-  }
-
-  mPluginCombo->setCurrentIndex( activeComponent );
+    mPluginCombo->setCurrentIndex( activeComponent );
 }
 
 void PluginSelection::writeConfig()
 {
-  KService::Ptr ptr =  mPluginList.at( mPluginCombo->currentIndex() );
-  mItem->setValue( ptr->property( QLatin1String("X-KDE-PluginInfo-Name") ).toString() );
+    KService::Ptr ptr =  mPluginList.at( mPluginCombo->currentIndex() );
+    mItem->setValue( ptr->property( QLatin1String("X-KDE-PluginInfo-Name") ).toString() );
 }
 
 QList<QWidget *> PluginSelection::widgets() const
 {
-  QList<QWidget *> widgets;
-  widgets.append( mPluginCombo );
+    QList<QWidget *> widgets;
+    widgets.append( mPluginCombo );
 
-  return widgets;
+    return widgets;
 }
 

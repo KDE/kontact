@@ -25,10 +25,10 @@
 using namespace Kontact;
 
 KontactConfigureDialog::KontactConfigureDialog( QWidget *parent )
-  : KSettings::Dialog( parent )
+    : KSettings::Dialog( parent )
 {
-  connect( this, SIGNAL(okClicked()), SLOT(slotOk()) );
-  connect( this, SIGNAL(applyClicked()), SLOT(slotApply()) );
+    connect( this, SIGNAL(okClicked()), SLOT(slotOk()) );
+    connect( this, SIGNAL(applyClicked()), SLOT(slotApply()) );
 }
 
 KontactConfigureDialog::~KontactConfigureDialog()
@@ -37,40 +37,40 @@ KontactConfigureDialog::~KontactConfigureDialog()
 
 void KontactConfigureDialog::emitConfigChanged()
 {
-  //Add code from plugins which needs to be call when we close kontact dialog config
-  QDBusInterface kmailIface( QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QLatin1String("org.kde.kmail.kmail"),
-                        QDBusConnection::sessionBus() );
-  if ( kmailIface.isValid() ) {
-      QDBusReply<void> reply;
-      if ( !( reply = kmailIface.call( QLatin1String("updateConfig") ) ).isValid() ) {
-          QDBusError err = kmailIface.lastError();
-          kError() << "Communication problem with KMail. "
-                   << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
-      }
-  }
-  QDBusInterface knotesIface( QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QLatin1String("org.kde.kontact.KNotes"),
-                        QDBusConnection::sessionBus() );
-  if ( knotesIface.isValid() ) {
-      QDBusReply<void> reply;
-      if ( !( reply = knotesIface.call( QLatin1String("updateConfig") ) ).isValid() ) {
-          QDBusError err = knotesIface.lastError();
-          kError() << "Communication problem with KNotes. "
-                   << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
-      }
+    //Add code from plugins which needs to be call when we close kontact dialog config
+    QDBusInterface kmailIface( QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QLatin1String("org.kde.kmail.kmail"),
+                               QDBusConnection::sessionBus() );
+    if ( kmailIface.isValid() ) {
+        QDBusReply<void> reply;
+        if ( !( reply = kmailIface.call( QLatin1String("updateConfig") ) ).isValid() ) {
+            QDBusError err = kmailIface.lastError();
+            kError() << "Communication problem with KMail. "
+                     << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
+        }
+    }
+    QDBusInterface knotesIface( QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QLatin1String("org.kde.kontact.KNotes"),
+                                QDBusConnection::sessionBus() );
+    if ( knotesIface.isValid() ) {
+        QDBusReply<void> reply;
+        if ( !( reply = knotesIface.call( QLatin1String("updateConfig") ) ).isValid() ) {
+            const QDBusError err = knotesIface.lastError();
+            kError() << "Communication problem with KNotes. "
+                     << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
+        }
 
 
-  }
+    }
 }
 
 void KontactConfigureDialog::slotApply()
 {
-  slotApplyClicked();
-  emitConfigChanged();
+    slotApplyClicked();
+    emitConfigChanged();
 }
 
 void KontactConfigureDialog::slotOk()
 {
-  slotOkClicked();
-  emitConfigChanged();
+    slotOkClicked();
+    emitConfigChanged();
 }
 
