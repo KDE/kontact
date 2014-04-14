@@ -34,9 +34,9 @@ namespace Kontact {
 
 class KcmKontact : public KPrefsModule
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     explicit KcmKontact( const KComponentData &inst, QWidget *parent = 0 );
 
     virtual const KAboutData *aboutData() const;
@@ -44,9 +44,9 @@ class KcmKontact : public KPrefsModule
 
 class PluginSelection : public KPrefsWid
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     PluginSelection( KConfigSkeleton::ItemString *item, QWidget *parent );
     ~PluginSelection();
 
@@ -56,7 +56,7 @@ class PluginSelection : public KPrefsWid
     QList<QWidget *> widgets() const;
     KComboBox *comboBox() const { return mPluginCombo; }
 
-  private:
+private:
     KComboBox *mPluginCombo;
     KService::List mPluginList;
     KConfigSkeleton::ItemString *mItem;

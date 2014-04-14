@@ -28,8 +28,8 @@
 #include <KPageDialog>
 
 namespace KontactInterface {
-  class Core;
-  class Plugin;
+class Core;
+class Plugin;
 }
 
 class KAboutData;
@@ -38,12 +38,12 @@ namespace Kontact {
 
 class AboutDialog : public KPageDialog
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     explicit AboutDialog( KontactInterface::Core *core );
 
-  protected:
+protected:
     void addAboutPlugin( KontactInterface::Plugin *plugin );
 
     void addAboutData( const QString &title, const QString &icon,
@@ -53,10 +53,10 @@ class AboutDialog : public KPageDialog
 
     QString formatPerson( const QString &name, const QString &email );
 
-  private slots:
+private slots:
     void saveSize();
 
-  private:
+private:
     KontactInterface::Core *mCore;
 };
 

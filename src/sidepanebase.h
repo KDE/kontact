@@ -25,8 +25,8 @@
 #include <KVBox>
 
 namespace KontactInterface {
-  class Core;
-  class Plugin;
+class Core;
+class Plugin;
 }
 
 
@@ -34,28 +34,28 @@ namespace Kontact {
 
 class SidePaneBase : public KVBox
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     SidePaneBase( KontactInterface::Core *core, QWidget *parent );
     virtual ~SidePaneBase();
 
     virtual void setCurrentPlugin( const QString & ) = 0;
 
-  signals:
+signals:
     void pluginSelected( KontactInterface::Plugin * );
 
-  public slots:
+public slots:
     /**
       This method is called by the core whenever the count
       of plugins has changed.
      */
     virtual void updatePlugins() = 0;
 
-  protected:
+protected:
     KontactInterface::Core *core() const;
 
-  private:
+private:
     KontactInterface::Core *mCore;
 };
 

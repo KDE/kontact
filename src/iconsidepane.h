@@ -28,8 +28,8 @@
 #include <QListView>
 
 namespace KontactInterface {
-  class Core;
-  class Plugin;
+class Core;
+class Plugin;
 }
 
 class KAction;
@@ -41,9 +41,9 @@ class Navigator;
 
 class Navigator : public QListView
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     explicit Navigator( SidePaneBase *parent = 0 );
 
     void updatePlugins( QList<KontactInterface::Plugin*> plugins );
@@ -51,36 +51,36 @@ class Navigator : public QListView
 
     int iconSize() const
     {
-      return mIconSize;
+        return mIconSize;
     }
 
     bool showIcons() const
     {
-      return mShowIcons;
+        return mShowIcons;
     }
 
     bool showText() const
     {
-      return mShowText;
+        return mShowText;
     }
 
     virtual QSize sizeHint() const;
 
-  signals:
+signals:
     void pluginActivated( KontactInterface::Plugin *plugin );
 
-  protected:
+protected:
     virtual void dragEnterEvent( QDragEnterEvent *event );
     virtual void dragMoveEvent( QDragMoveEvent *event );
     virtual void dropEvent( QDropEvent *event );
     virtual void showEvent( QShowEvent * event );
 
-  private slots:
+private slots:
     void slotCurrentChanged( const QModelIndex &current );
     void slotActionTriggered( bool checked );
     void updateNavigatorSize();
 
-  private:
+private:
     SidePaneBase *mSidePane;
     Model *mModel;
 
@@ -98,21 +98,21 @@ class Navigator : public QListView
 
 class IconSidePane : public SidePaneBase
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     IconSidePane( KontactInterface::Core *core, QWidget *parent );
     ~IconSidePane();
 
     void setCurrentPlugin( const QString &plugin );
 
-  public slots:
+public slots:
     virtual void updatePlugins();
 
-  protected:
+protected:
     void resizeEvent( QResizeEvent *event );
 
-  private:
+private:
     Navigator *mNavigator;
 };
 
