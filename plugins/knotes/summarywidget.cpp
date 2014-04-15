@@ -143,7 +143,6 @@ void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
                 mModelProxy->data( child,
                                   Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
         if (item.isValid()) {
-            qDebug()<<" createNote "<<counter;
             createNote(item, counter);
             ++counter;
         }
