@@ -32,7 +32,7 @@
 #include <calendarsupport/utils.h>
 #include <calendarsupport/calendarsingleton.h>
 
-#include <Akonadi/Collection>
+#include <AkonadiCore/Collection>
 #include <Akonadi/Calendar/IncidenceChanger>
 
 #include <KCalCore/Calendar>

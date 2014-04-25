@@ -32,10 +32,10 @@
 #include "noteshared/attributes/showfoldernotesattribute.h"
 #include "noteshared/attributes/notedisplayattribute.h"
 
-#include <Akonadi/Item>
-#include <Akonadi/Session>
-#include <Akonadi/ChangeRecorder>
-#include <Akonadi/ETMViewStateSaver>
+#include <AkonadiCore/Item>
+#include <AkonadiCore/Session>
+#include <AkonadiCore/ChangeRecorder>
+#include <AkonadiWidgets/ETMViewStateSaver>
 #include <Akonadi/CollectionStatistics>
 #include <KCheckableProxyModel>
 

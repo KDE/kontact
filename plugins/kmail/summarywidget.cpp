@@ -30,11 +30,11 @@
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
 
-#include <Akonadi/ChangeRecorder>
+#include <AkonadiCore/ChangeRecorder>
 #include <Akonadi/CollectionFetchScope>
 #include <Akonadi/CollectionStatistics>
-#include <Akonadi/EntityTreeModel>
-#include <Akonadi/ETMViewStateSaver>
+#include <AkonadiCore/EntityTreeModel>
+#include <AkonadiWidgets/ETMViewStateSaver>
 
 #include <KMime/KMimeMessage>
 

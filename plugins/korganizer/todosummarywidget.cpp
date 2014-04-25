@@ -30,8 +30,8 @@
 #include <calendarsupport/utils.h>
 #include <calendarsupport/calendarsingleton.h>
 
-#include <Akonadi/Collection>
-#include <Akonadi/ItemFetchScope>
+#include <AkonadiCore/Collection>
+#include <AkonadiCore/ItemFetchScope>
 #include <Akonadi/Calendar/IncidenceChanger>
 
 #include <KCalUtils/IncidenceFormatter>

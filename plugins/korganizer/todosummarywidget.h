@@ -26,7 +26,7 @@
 #ifndef TODO_SUMMARYWIDGET_H
 #define TODO_SUMMARYWIDGET_H
 
-#include <Akonadi/Item>
+#include <AkonadiCore/Item>
 
 #include <KCalCore/Todo>
 

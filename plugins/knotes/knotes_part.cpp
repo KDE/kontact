@@ -53,21 +53,21 @@
 
 #include "akonadi_next/note.h"
 
-#include <Akonadi/Session>
-#include <Akonadi/ChangeRecorder>
-#include <Akonadi/ETMViewStateSaver>
-#include <Akonadi/EntityDisplayAttribute>
-#include <Akonadi/ItemCreateJob>
+#include <AkonadiCore/Session>
+#include <AkonadiCore/ChangeRecorder>
+#include <AkonadiWidgets/ETMViewStateSaver>
+#include <AkonadiCore/EntityDisplayAttribute>
+#include <AkonadiCore/ItemCreateJob>
 #include <Akonadi/ItemFetchJob>
 #include <KCheckableProxyModel>
-#include <akonadi/itemdeletejob.h>
-#include <Akonadi/ItemFetchScope>
+#include <AkonadiCore/itemdeletejob.h>
+#include <AkonadiCore/ItemFetchScope>
 
 
 #include <KMime/KMimeMessage>
 
-#include <Akonadi/ItemModifyJob>
-#include <Akonadi/Control>
+#include <AkonadiCore/ItemModifyJob>
+#include <AkonadiCore/Control>
 
 #include <KActionCollection>
 #include <KAction>

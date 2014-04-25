@@ -26,7 +26,7 @@
 
 #include <KLocalizedString>
 
-#include <Akonadi/ItemModifyJob>
+#include <AkonadiCore/ItemModifyJob>
 
 #include <KMime/KMimeMessage>
 

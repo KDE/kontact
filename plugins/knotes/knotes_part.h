@@ -26,7 +26,7 @@
 #include <KParts/ReadOnlyPart>
 #include <QListWidgetItem>
 #include <KViewStateMaintainer>
-#include <Akonadi/Item>
+#include <AkonadiCore/Item>
 #include <QPointer>
 
 class KNoteFindDialog;

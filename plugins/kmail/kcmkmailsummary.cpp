@@ -27,7 +27,7 @@
 
 #include "pimcommon/folderdialog/checkedcollectionwidget.h"
 
-#include <Akonadi/ETMViewStateSaver>
+#include <AkonadiWidgets/ETMViewStateSaver>
 #include <KMime/KMimeMessage>
 
 #include <KAboutData>
