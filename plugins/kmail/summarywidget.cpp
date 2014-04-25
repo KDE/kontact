@@ -31,7 +31,7 @@
 #include <KontactInterface/Plugin>
 
 #include <AkonadiCore/ChangeRecorder>
-#include <Akonadi/CollectionFetchScope>
+#include <AkonadiCore/CollectionFetchScope>
 #include <Akonadi/CollectionStatistics>
 #include <AkonadiCore/EntityTreeModel>
 #include <AkonadiWidgets/ETMViewStateSaver>

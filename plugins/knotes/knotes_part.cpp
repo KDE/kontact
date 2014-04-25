@@ -58,7 +58,7 @@
 #include <AkonadiWidgets/ETMViewStateSaver>
 #include <AkonadiCore/EntityDisplayAttribute>
 #include <AkonadiCore/ItemCreateJob>
-#include <Akonadi/ItemFetchJob>
+#include <AkonadiCore/ItemFetchJob>
 #include <KCheckableProxyModel>
 #include <AkonadiCore/itemdeletejob.h>
 #include <AkonadiCore/ItemFetchScope>

@@ -30,7 +30,7 @@
 
 #include <calendarsupport/utils.h>
 #include <calendarsupport/calendarsingleton.h>
-#include <Akonadi/ItemFetchJob>
+#include <AkonadiCore/ItemFetchJob>
 #include <AkonadiCore/ItemFetchScope>
 #include <AkonadiCore/EntityDisplayAttribute>
 #include <Akonadi/Contact/ContactSearchJob>
