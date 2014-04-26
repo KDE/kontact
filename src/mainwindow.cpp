@@ -67,7 +67,11 @@ using namespace Kontact;
 #include <KSettings/Dispatcher>
 #include <KSettings/Dialog>
 #include <KSycoca>
-
+#include <KIconLoader>
+#include <KGlobal>
+#include <KShortcut>
+#include <k4aboutdata.h>
+#include <KLocalizedString>
 #include <QDBusConnection>
 #include <QSplitter>
 #include <QStackedWidget>
@@ -75,6 +79,8 @@ using namespace Kontact;
 #include <QVBoxLayout>
 #include <QWebSettings>
 #include <QShortcut>
+#include <KIcon>
+#include <KHelpClient>
 
 // Define the maximum time Kontact waits for KSycoca to become available.
 static const int KSYCOCA_WAIT_TIMEOUT = 10;
@@ -802,9 +808,9 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
     QApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
     if ( mCurrentPlugin ) {
-        saveMainWindowSettings(
-                    KGlobal::config()->group(
-                        QString::fromLatin1( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+        KConfigGroup grp = KGlobal::config()->group(
+                        QString::fromLatin1( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) );
+        saveMainWindowSettings( grp );
     }
 
     KParts::Part *part = plugin->part();
@@ -1111,9 +1117,9 @@ void MainWindow::configureShortcuts()
 void MainWindow::configureToolbars()
 {
     if ( mCurrentPlugin ) {
-        saveMainWindowSettings(
-                    KGlobal::config()->group(
+        KConfigGroup grp (KGlobal::config()->group(
                         QString::fromLatin1( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+        saveMainWindowSettings( grp );
     }
     QPointer<KEditToolBar> edit = new KEditToolBar( factory() );
     connect( edit, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()) );
@@ -1157,7 +1163,7 @@ void MainWindow::slotOpenUrl( const KUrl &url )
             if ( !url.query().isEmpty() ) {
                 app = url.query().mid( 1 );
             }
-            KToolInvocation::invokeHelp( QString(), app );
+            KHelpClient::invokeHelp( QString(), app );
         }
     } else {
         new KRun( url, this );

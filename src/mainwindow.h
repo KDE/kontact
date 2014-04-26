@@ -26,6 +26,8 @@
 #include "kontact_export.h"
 
 #include <KontactInterface/Core>
+#include <KUrl>
+#include <KAction>
 
 namespace KontactInterface {
 class Plugin;
