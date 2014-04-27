@@ -1,4 +1,4 @@
-set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
+kde_enable_exceptions()
 
 
 ########### next target ###############
@@ -22,18 +22,18 @@ set(kontact_knotesplugin_PART_SRCS
   knotesselectdeletenotesdialog.cpp
 )
 
-qt4_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml knotes_part.h KNotesPart)
+qt5_add_dbus_adaptor(kontact_knotesplugin_PART_SRCS org.kde.kontact.KNotes.xml knotes_part.h KNotesPart)
 qt4_add_dbus_interfaces(kontact_knotesplugin_interface_SRCS org.kde.kontact.KNotes.xml)
 
 
 
-kde4_add_plugin(kontact_knotesplugin ${kontact_knotesplugin_PART_SRCS} ${kontact_knotesplugin_interface_SRCS} )
+add_library(kontact_knotesplugin MODULE ${kontact_knotesplugin_PART_SRCS} ${kontact_knotesplugin_interface_SRCS} )
 
 target_link_libraries(kontact_knotesplugin 
                       knotesprivate 
-                      ${KDEPIMLIBS_KCALCORE_LIBS} 
-                      ${KDEPIMLIBS_KCALUTILS_LIBS} 
-                      ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} 
+                      KF5::CalendarCore 
+                      KF5::CalendarUtils 
+                      KF5::KontactInterface 
                       ${KDE4_KDEPRINT_LIBS} 
                       ${KDE4_KPARTS_LIBS} 
                       kdepim 
@@ -48,9 +48,9 @@ target_link_libraries(kontact_knotesplugin
 
 set(kcm_knotessummary_PART_SRCS kcmknotessummary.cpp )
 
-kde4_add_plugin(kcm_knotessummary ${kcm_knotessummary_PART_SRCS})
+add_library(kcm_knotessummary MODULE ${kcm_knotessummary_PART_SRCS})
 
-target_link_libraries(kcm_knotessummary ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KMIME_LIBS} ${KDEPIMLIBS_AKONADI_LIBS} akonadi_next pimcommon)
+target_link_libraries(kcm_knotessummary  KF5::KMime KF5::AkonadiCore akonadi_next pimcommon)
 
 
 install(TARGETS kcm_knotessummary DESTINATION ${PLUGIN_INSTALL_DIR})
