@@ -153,7 +153,7 @@ private:
 
 }
 
-Q_DECLARE_METATYPE( KontactInterface::Plugin * )
+//QT5 Q_DECLARE_METATYPE( KontactInterface::Plugin * )
 
 #endif
 // vim: sw=2 sts=2 et

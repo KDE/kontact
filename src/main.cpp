@@ -34,13 +34,14 @@ using namespace Kontact;
 #include <KontactInterface/PimUniqueApplication>
 #endif
 
-#include <KAboutData>
+#include <k4aboutdata.h>
 #include <KCmdLineArgs>
 #include <KLocale>
 #include <KService>
 #include <KServiceTypeTrader>
 #include <KUniqueApplication>
 #include <KWindowSystem>
+#include <KIconLoader>
 
 #include <iostream>
 using namespace std;
@@ -159,8 +160,8 @@ int KontactApp::newInstance()
 
 int main( int argc, char **argv )
 {
-    KAboutData about( "kontact", 0, ki18n( "Kontact" ), version, ki18n(description),
-                      KAboutData::License_GPL,
+    K4AboutData about( "kontact", 0, ki18n( "Kontact" ), version, ki18n(description),
+                      K4AboutData::License_GPL,
                       ki18n( "Copyright © 2001–2014 Kontact authors" ),
                       KLocalizedString(), "http://kontact.org" );
 

@@ -31,6 +31,8 @@ using namespace Kontact;
 #include <KAboutData>
 #include <KComboBox>
 #include <KServiceTypeTrader>
+#include <KLocalizedString>
+#include <KComponentData>
 
 #include <QCheckBox>
 #include <QHBoxLayout>
@@ -73,6 +75,7 @@ KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
 
 const KAboutData *KcmKontact::aboutData() const
 {
+#if 0 //QT5
     KAboutData *about = new KAboutData(
                 "kontactconfig", 0,
                 ki18nc( "@title", "KDE Kontact" ),
@@ -89,6 +92,9 @@ const KAboutData *KcmKontact::aboutData() const
                       "tokoe@kde.org" );
 
     return about;
+#else
+    return 0;
+#endif
 }
 
 PluginSelection::PluginSelection( KConfigSkeleton::ItemString *item, QWidget *parent )

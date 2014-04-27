@@ -34,6 +34,8 @@ using namespace Kontact;
 #include <KTextBrowser>
 #include <KGlobal>
 #include <KConfigGroup>
+#include <KIcon>
+#include <KIconLoader>
 
 #include <QBoxLayout>
 #include <QLabel>
@@ -42,15 +44,16 @@ using namespace Kontact;
 AboutDialog::AboutDialog( KontactInterface::Core *core )
     : KPageDialog( core ), mCore( core )
 {
-    setCaption( i18n( "About Kontact" ) );
-    setButtons( Close );
-    setDefaultButton( Close );
+    //QT5 setCaption( i18n( "About Kontact" ) );
+    //QT5 setButtons( Close );
+    //QT5 setDefaultButton( Close );
     setModal( false );
-    showButtonSeparator( true );
+    //QT5 showButtonSeparator( true );
     setFaceType( KPageDialog::List );
+#if 0 //QT5
     addAboutData( i18n( "Kontact Container" ), QLatin1String( "kontact" ),
                   KGlobal::mainComponent().aboutData() );
-
+#endif
     QList<KontactInterface::Plugin*> plugins = mCore->pluginList();
     QList<KontactInterface::Plugin*>::ConstIterator end = plugins.constEnd();
     QList<KontactInterface::Plugin*>::ConstIterator it = plugins.constBegin();
@@ -58,23 +61,25 @@ AboutDialog::AboutDialog( KontactInterface::Core *core )
         addAboutPlugin( *it );
     }
 
-    addLicenseText( KGlobal::mainComponent().aboutData() );
+    //QT5 addLicenseText( KGlobal::mainComponent().aboutData() );
 
-    setInitialSize( QSize( 600, 400 ) );
-    restoreDialogSize( KConfigGroup( KGlobal::config(), "AboutDialog" ) );
+    //QT5 setInitialSize( QSize( 600, 400 ) );
+    //QT5 restoreDialogSize( KConfigGroup( KGlobal::config(), "AboutDialog" ) );
     connect( this, SIGNAL(finished(int)), this, SLOT(saveSize()) );
 }
 
 void AboutDialog::saveSize()
 {
+#if 0 //QT5
     KConfigGroup group( KGlobal::config(), "AboutDialog" );
     saveDialogSize( group );
     group.sync();
+#endif
 }
 
 void AboutDialog::addAboutPlugin( KontactInterface::Plugin *plugin )
 {
-    addAboutData( plugin->title(), plugin->icon(), plugin->aboutData() );
+    //QT5 addAboutData( plugin->title(), plugin->icon(), plugin->aboutData() );
 }
 
 void AboutDialog::addAboutData( const QString &title, const QString &icon,
@@ -97,7 +102,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
         QString text;
 
         text += QLatin1String("<p>");
-        text += QLatin1String("<b>") + about->programName() + QLatin1String("</b>");
+        //QT5 text += QLatin1String("<b>") + about->programName() + QLatin1String("</b>");
         text += QLatin1String("<br>");
 
         text += i18n( "Version %1", about->version() );
@@ -279,6 +284,7 @@ QString AboutDialog::formatPerson( const QString &name, const QString &email )
 
 void AboutDialog::addLicenseText( const KAboutData *about )
 {
+#if 0 //QT5
     if ( !about || about->license().isEmpty() ) {
         return;
     }
@@ -298,5 +304,6 @@ void AboutDialog::addLicenseText( const KAboutData *about )
     textBrowser->setHtml( QString::fromLatin1( "<pre>%1</pre>" ).arg( about->license() ) );
 
     topLayout->addWidget( textBrowser );
+#endif
 }
 
