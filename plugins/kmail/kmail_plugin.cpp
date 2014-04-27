@@ -52,7 +52,7 @@ EXPORT_KONTACT_PLUGIN( KMailPlugin, kmail )
 KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
     : KontactInterface::Plugin( core, core, "kmail2" ), m_instance( 0 )
 {
-    setComponentData( KontactPluginFactory::componentData() );
+    //QT5 setComponentData( KontactPluginFactory::componentData() );
 
     KAction *action =
             new KAction( KIcon( QLatin1String("mail-message-new") ),
@@ -130,7 +130,7 @@ void KMailPlugin::processDropEvent( QDropEvent *de )
         openComposer( to.join( QLatin1String(", ") ) );
     }
 
-    kWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(de->format()) );
+    //QT5 kWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(de->format()) );
 }
 
 void KMailPlugin::openComposer( const KUrl &attach )

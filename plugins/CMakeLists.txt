@@ -6,38 +6,17 @@ include_directories(
 )
 
 
-if(QGPGME_FOUND)
-  if(BUILD_kmail)
-    add_subdirectory(kmail)
-  endif()
+add_subdirectory(kmail)
+add_subdirectory(korganizer)
 
-  if(BUILD_kmail AND BUILD_korganizer)
-    add_subdirectory(korganizer)
-  endif()
+add_subdirectory(summary)
+add_subdirectory(specialdates)
 
-  add_subdirectory(summary)
-  add_subdirectory(specialdates)
-#AKONADI_PORT: planner
-#  add_subdirectory(planner)
-endif()
+add_subdirectory(knotes)
 
-if(BUILD_knotes)
-  add_subdirectory(knotes)
-endif()
+add_subdirectory(kjots)
 
-if(BUILD_kjots)
-  add_subdirectory(kjots)
-endif()
+add_subdirectory(akregator)
 
-if(BUILD_akregator)
-  add_subdirectory(akregator)
-endif()
-
-#if(BUILD_ktimetracker)
-#  add_subdirectory(ktimetracker)
-#endif()
-
-if(BUILD_kaddressbook)
-  add_subdirectory(kaddressbook)
-endif()
+add_subdirectory(kaddressbook)
 

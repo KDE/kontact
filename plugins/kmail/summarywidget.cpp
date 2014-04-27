@@ -32,7 +32,7 @@
 
 #include <AkonadiCore/ChangeRecorder>
 #include <AkonadiCore/CollectionFetchScope>
-#include <Akonadi/CollectionStatistics>
+#include <AkonadiCore/collectionstatistics.h>
 #include <AkonadiCore/EntityTreeModel>
 #include <AkonadiWidgets/ETMViewStateSaver>
 

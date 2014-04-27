@@ -53,7 +53,7 @@ KDE_EXPORT KCModule *create_kmailsummary( QWidget *parent, const char * )
 }
 
 KCMKMailSummary::KCMKMailSummary( const KComponentData &inst, QWidget *parent )
-    : KCModule( inst, parent )
+    : KCModule( /*inst,*/ parent )
 {
     initGUI();
 
@@ -64,7 +64,7 @@ KCMKMailSummary::KCMKMailSummary( const KComponentData &inst, QWidget *parent )
     KAcceleratorManager::manage( this );
 
     load();
-
+#if 0 //QT5
     KAboutData *about =
             new KAboutData( I18N_NOOP( "kcmkmailsummary" ), 0,
                             ki18n( "Mail Summary Configuration Dialog" ),
@@ -74,6 +74,7 @@ KCMKMailSummary::KCMKMailSummary( const KComponentData &inst, QWidget *parent )
     about->addAuthor( ki18n( "Tobias Koenig" ),
                       KLocalizedString(), "tokoe@kde.org" );
     setAboutData( about );
+#endif
 }
 
 void KCMKMailSummary::modified()

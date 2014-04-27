@@ -36,7 +36,7 @@
 #include <AkonadiCore/Session>
 #include <AkonadiCore/ChangeRecorder>
 #include <AkonadiWidgets/ETMViewStateSaver>
-#include <Akonadi/CollectionStatistics>
+#include <AkonadiCore/collectionstatistics.h>
 #include <KCheckableProxyModel>
 
 #include <KMime/KMimeMessage>
