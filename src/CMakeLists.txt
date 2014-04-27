@@ -33,8 +33,8 @@ target_link_libraries(kontactprivate
 )
 
 set_target_properties(kontactprivate PROPERTIES
-  VERSION ${GENERIC_LIB_VERSION}
-  SOVERSION ${GENERIC_LIB_SOVERSION}
+  VERSION ${KDEPIM_LIB_VERSION}
+  SOVERSION ${KDEPIM_LIB_SOVERSION}
 )
 
 install(TARGETS kontactprivate ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
