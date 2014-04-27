@@ -32,6 +32,8 @@ using namespace Kontact;
 #include <KComponentData>
 #include <KLocale>
 #include <KTextBrowser>
+#include <KGlobal>
+#include <KConfigGroup>
 
 #include <QBoxLayout>
 #include <QLabel>

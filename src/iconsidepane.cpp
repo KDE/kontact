@@ -31,6 +31,7 @@ using namespace Kontact;
 #include <KIcon>
 #include <KLocale>
 #include <KStringHandler>
+#include <KIconLoader>
 
 #include <QDragEnterEvent>
 #include <QDragMoveEvent>
@@ -182,7 +183,7 @@ protected:
                 static_cast<KontactInterface::Plugin*>( right.internalPointer() );
 
         if ( leftPlugin->weight() == rightPlugin->weight() ) {
-            return KStringHandler::naturalCompare( leftPlugin->title(), rightPlugin->title() ) < 0;
+            //QT5 return KStringHandler::naturalCompare( leftPlugin->title(), rightPlugin->title() ) < 0;
         }
 
         return leftPlugin->weight() < rightPlugin->weight();

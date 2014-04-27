@@ -173,8 +173,8 @@ void MainWindow::initGUI()
     initWidgets();
     setupActions();
     setHelpMenuEnabled( false );
-    KHelpMenu *helpMenu = new KHelpMenu( this, 0, true, actionCollection() );
-    connect( helpMenu, SIGNAL(showAboutApplication()), SLOT(showAboutDialog()) );
+    //QT5 KHelpMenu *helpMenu = new KHelpMenu( this, 0, true, actionCollection() );
+    //QT5 connect( helpMenu, SIGNAL(showAboutApplication()), SLOT(showAboutDialog()) );
 
     KStandardAction::keyBindings( this, SLOT(configureShortcuts()), actionCollection() );
     KStandardAction::configureToolbars( this, SLOT(configureToolbars()), actionCollection() );
@@ -227,9 +227,10 @@ void MainWindow::initObject()
     KService::List offers = KServiceTypeTrader::self()->query(
                 QString::fromLatin1( "Kontact/Plugin" ),
                 QString::fromLatin1( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
+#if 0 //QT5
     mPluginInfos = KPluginInfo::fromServices(
                 offers, KConfigGroup( Prefs::self()->config(), "Plugins" ) );
-
+#endif
     KPluginInfo::List::Iterator it;
     KPluginInfo::List::Iterator end( mPluginInfos.end() );
 
@@ -248,7 +249,7 @@ void MainWindow::initObject()
         mSidePane->updatePlugins();
     }
 
-    KSettings::Dispatcher::registerComponent( componentData(), this, "updateConfig" );
+    //QT5 KSettings::Dispatcher::registerComponent( componentData(), this, "updateConfig" );
 
     loadSettings();
 
@@ -276,9 +277,10 @@ void MainWindow::initObject()
 MainWindow::~MainWindow()
 {
     if ( mCurrentPlugin ) {
-        saveMainWindowSettings(
+        KConfigGroup grp(
                     KGlobal::config()->group(
                         QString::fromLatin1( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
+        saveMainWindowSettings( grp );
     }
 
     createGUI( 0 );
@@ -435,7 +437,7 @@ void MainWindow::setupActions()
     mNewActions = new KActionMenu(
                 i18nc( "@title:menu create new pim items (message,calendar,to-do,etc.)", "New" ), this );
     actionCollection()->addAction( QLatin1String("action_new"), mNewActions );
-    mNewActions->setShortcut( KStandardShortcut::openNew() );
+    //QT5 mNewActions->setShortcut( KStandardShortcut::openNew() );
     connect( mNewActions, SIGNAL(triggered(bool)), this, SLOT(slotNewClicked()) );
 
     // If the user is using disconnected imap mail folders as groupware, we add
@@ -457,7 +459,7 @@ void MainWindow::setupActions()
                     KIcon( QLatin1String("view-refresh") ),
                     i18nc( "@title:menu synchronize pim items (message,calendar,to-do,etc.)", "Sync" ), this );
         actionCollection()->addAction( QLatin1String("action_sync"), mSyncActions );
-        mSyncActions->setShortcut( KStandardShortcut::reload() );
+        //QT5 mSyncActions->setShortcut( KStandardShortcut::reload() );
         connect( mSyncActions, SIGNAL(triggered(bool)), this, SLOT(slotSyncClicked()) );
     }
 
@@ -581,9 +583,9 @@ void MainWindow::loadPlugins()
     for ( i = 0; i < numberOfPlugins; ++i ) {
         KontactInterface::Plugin *plugin = plugins.at( i );
 
-        const QList<KAction*> actionList = plugin->newActions();
-        QList<KAction*>::const_iterator listIt;
-        QList<KAction*>::const_iterator end( actionList.end() );
+        const QList<QAction*> actionList = plugin->newActions();
+        QList<QAction*>::const_iterator listIt;
+        QList<QAction*>::const_iterator end( actionList.end() );
 
         for ( listIt = actionList.begin(); listIt != end; ++listIt ) {
             kDebug() << QLatin1String("Plugging New actions") << (*listIt)->objectName();
@@ -591,7 +593,7 @@ void MainWindow::loadPlugins()
         }
 
         if ( mSyncActionsEnabled ) {
-            Q_FOREACH ( KAction *listIt, plugin->syncActions() ) {
+            Q_FOREACH ( QAction *listIt, plugin->syncActions() ) {
                 kDebug() << QLatin1String("Plugging Sync actions") << listIt->objectName();
                 mSyncActions->addAction( listIt );
             }
@@ -637,9 +639,9 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
     for ( PluginList::Iterator it = mPlugins.begin(); it != end; ++it ) {
         KontactInterface::Plugin *plugin = *it;
         if ( ( *it )->identifier() == info.pluginName() ) {
-            QList<KAction*> actionList = plugin->newActions();
-            QList<KAction*>::const_iterator listIt;
-            QList<KAction*>::const_iterator listEnd( actionList.constEnd() );
+            QList<QAction*> actionList = plugin->newActions();
+            QList<QAction*>::const_iterator listIt;
+            QList<QAction*>::const_iterator listEnd( actionList.constEnd() );
             for ( listIt = actionList.constBegin(); listIt != listEnd; ++listIt ) {
                 kDebug() << QLatin1String("Unplugging New actions") << (*listIt)->objectName();
                 mNewActions->removeAction( *listIt );
@@ -1060,7 +1062,7 @@ void MainWindow::slotPreferences()
             }
         }
 
-        dlg->setHelp( QLatin1String("main-config"), QLatin1String("kontact") );
+        //QT5 dlg->setHelp( QLatin1String("main-config"), QLatin1String("kontact") );
         dlg->addPluginInfos( filteredPlugins );
         connect( dlg, SIGNAL(pluginSelectionChanged()), SLOT(pluginsChanged()) );
     }
