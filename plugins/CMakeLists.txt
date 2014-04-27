@@ -25,10 +25,6 @@ if(BUILD_knotes)
   add_subdirectory(knotes)
 endif()
 
-if(BUILD_knode)
-  add_subdirectory(knode)
-endif()
-
 if(BUILD_kjots)
   add_subdirectory(kjots)
 endif()
