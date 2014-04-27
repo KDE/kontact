@@ -43,6 +43,7 @@
 #include <KDebug>
 #include <KLocalizedString>
 #include <KUrlLabel>
+#include <KSharedConfig>
 
 #include <QEvent>
 #include <QIcon>

@@ -12,7 +12,7 @@ qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/k
 
 add_library(kontact_korganizerplugin MODULE ${kontact_korganizerplugin_PART_SRCS})
 
-target_link_libraries(kontact_korganizerplugin KF5::AkonadiCalendar KF5::CalendarUtils ${KDE4_KPARTS_LIBS} KF5::Abc KF5::CalendarCore kdepim KF5::KontactInterface korganizerprivate calendarsupport akonadi-calendar)
+target_link_libraries(kontact_korganizerplugin KF5::AkonadiCalendar KF5::CalendarUtils ${KDE4_KPARTS_LIBS} KF5::Abc KF5::CalendarCore kdepim KF5::KontactInterface korganizerprivate calendarsupport KF5::AkonadiCalendar)
 
 ########### next target ###############
 
@@ -22,7 +22,7 @@ qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korgani
 
 add_library(kontact_todoplugin MODULE ${kontact_todoplugin_PART_SRCS})
 
-target_link_libraries(kontact_todoplugin KF5::AkonadiCalendar ${KDE4_KPARTS_LIBS} KF5::Abc kdepim KF5::KontactInterface KF5::CalendarCore KF5::CalendarUtils korganizerprivate calendarsupport akonadi-calendar)
+target_link_libraries(kontact_todoplugin KF5::AkonadiCalendar ${KDE4_KPARTS_LIBS} KF5::Abc kdepim KF5::KontactInterface KF5::CalendarCore KF5::CalendarUtils korganizerprivate calendarsupport KF5::AkonadiCalendar)
 
 ########### next target ###############
 

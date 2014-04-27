@@ -27,6 +27,8 @@
 #include <KAboutData>
 #include <KAcceleratorManager>
 #include <KComponentData>
+#include <KConfigGroup>
+#include <KLocalizedString>
 
 KCModule *create_apptsummary( QWidget *parent, const char * )
 {
