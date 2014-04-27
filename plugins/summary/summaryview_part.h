@@ -25,6 +25,7 @@
 #define SUMMARYVIEW_PART_H
 
 #include <KParts/ReadOnlyPart>
+#include <kparts/readonlypart.h>
 
 class DropWidget;
 

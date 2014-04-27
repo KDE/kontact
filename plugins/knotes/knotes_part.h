@@ -28,6 +28,7 @@
 #include <KViewStateMaintainer>
 #include <AkonadiCore/Item>
 #include <QPointer>
+#include <kparts/readonlypart.h>
 
 class KNoteFindDialog;
 class KNotesIconView;
