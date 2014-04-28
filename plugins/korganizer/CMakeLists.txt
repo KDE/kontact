@@ -42,7 +42,7 @@ qt5_wrap_ui(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui)
 
 add_library(kcm_apptsummary MODULE ${kcm_apptsummary_PART_SRCS})
 
-target_link_libraries(kcm_apptsummary  korganizerprivate KF5::CalendarUtils)
+target_link_libraries(kcm_apptsummary  korganizerprivate KF5::CalendarUtils KF5::KDELibs4Support)
 
 ########### next target ###############
 

@@ -37,7 +37,7 @@ KCModule *create_apptsummary( QWidget *parent, const char * )
 }
 
 KCMApptSummary::KCMApptSummary( const KComponentData &inst, QWidget *parent )
-  : KCModule( inst, parent )
+  : KCModule( /*inst,*/ parent )
 {
   setupUi( this );
 
@@ -160,6 +160,7 @@ void KCMApptSummary::defaults()
 
 const KAboutData *KCMApptSummary::aboutData() const
 {
+#if 0 //QT5
   KAboutData *about = new KAboutData(
     I18N_NOOP( "kcmapptsummary" ), 0,
     ki18n( "Upcoming Events Configuration Dialog" ),
@@ -171,5 +172,8 @@ const KAboutData *KCMApptSummary::aboutData() const
   about->addAuthor( ki18n( "Allen Winter" ), KLocalizedString(), "winter@kde.org" );
 
   return about;
+#else
+  return 0;
+#endif
 }
 
