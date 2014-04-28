@@ -27,7 +27,7 @@
 #include <KAction>
 #include <KActionCollection>
 #include <KCmdLineArgs>
-#include <KDebug>
+#include <QDebug>
 #include <KLocalizedString>
 
 #include <QDBusConnection>
@@ -100,7 +100,7 @@ void KAddressBookPlugin::slotNewContact()
   }
 
   if ( part->metaObject()->indexOfMethod( "newContact()" ) == -1 ) {
-    kWarning() << "KAddressBook part is missing slot newContact()";
+    qWarning() << "KAddressBook part is missing slot newContact()";
     return;
   }
 
@@ -115,7 +115,7 @@ void KAddressBookPlugin::slotNewContactGroup()
   }
 
   if ( part->metaObject()->indexOfMethod( "newGroup()" ) == -1 ) {
-    kWarning() << "KAddressBook part is missing slot newGroup()";
+    qWarning() << "KAddressBook part is missing slot newGroup()";
     return;
   }
 
@@ -165,7 +165,7 @@ void KAddressBookPlugin::shortcutChanged()
   KParts::ReadOnlyPart *localPart = part();
   if ( localPart ) {
     if ( localPart->metaObject()->indexOfMethod( "updateQuickSearchText()" ) == -1 ) {
-      kWarning() << "KAddressBook part is missing slot updateQuickSearchText()";
+      qWarning() << "KAddressBook part is missing slot updateQuickSearchText()";
       return;
     }
     QMetaObject::invokeMethod( localPart, "updateQuickSearchText" );
@@ -182,7 +182,7 @@ void KAddressBookPlugin::slotSyncContacts()
   message << QString( "Contact" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning() << QLatin1String(" Need to port to AKONADI: KAddressBookPlugin::slotSyncNotes");
+  qWarning() << QLatin1String(" Need to port to AKONADI: KAddressBookPlugin::slotSyncNotes");
 #endif
 }
 
@@ -193,7 +193,7 @@ void KAddressBookUniqueAppHandler::loadCommandLineOptions()
 
 int KAddressBookUniqueAppHandler::newInstance()
 {
-    kDebug() ;
+    qDebug() ;
     // Ensure part is loaded
     (void)plugin()->part();
     org::kde::kaddressbook kaddressbook( QLatin1String("org.kde.kaddressbook"), QLatin1String("/KAddressBook"), QDBusConnection::sessionBus() );

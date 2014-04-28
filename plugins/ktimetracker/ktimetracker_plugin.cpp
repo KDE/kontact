@@ -31,7 +31,7 @@
 
 #include <KActionCollection>
 #include <KCmdLineArgs>
-#include <KDebug>
+#include <QDebug>
 #include <KIcon>
 #include <KXMLGUIFactory>
 
@@ -94,7 +94,7 @@ KParts::ReadOnlyPart *ktimetrackerplugin::createPart()
 
 void ktimetrackerplugin::taskViewCustomContextMenuRequested( const QPoint &point )
 {
-  kDebug() << "entering function";
+  qDebug() << "entering function";
   QMenu *pop = dynamic_cast<QMenu*>( factory()->container( i18n( "task_popup" ), part() ) );
   if ( pop ) {
     pop->popup( point );
@@ -119,7 +119,7 @@ QStringList ktimetrackerplugin::configModules() const
 
 void ktimetrackerplugin::newTask()
 {
-  kDebug() << "entering function";
+  qDebug() << "entering function";
   core()->selectPlugin( this );
   interface()->newTask();
 }

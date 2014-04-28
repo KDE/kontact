@@ -31,7 +31,7 @@
 #include <KActionCollection>
 #include <KIconLoader>
 #include <KLocalizedString>
-#include <KDebug>
+#include <QDebug>
 #include <QtDBus/QtDBus>
 
 EXPORT_KONTACT_PLUGIN( JournalPlugin, journal )
@@ -142,7 +142,7 @@ void JournalPlugin::slotSyncJournal()
   message << QString( "Journal" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning() << " JournalPlugin::slotSyncJournal : need to port to Akonadi";
+  qWarning() << " JournalPlugin::slotSyncJournal : need to port to Akonadi";
 #endif
 }
 

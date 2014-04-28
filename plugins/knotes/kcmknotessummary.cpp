@@ -27,7 +27,7 @@
 #include <KAcceleratorManager>
 #include <KCheckableProxyModel>
 #include <KComponentData>
-#include <KDebug>
+#include <QDebug>
 #include <KDialog>
 #include <KLocalizedString>
 #include <KLineEdit>

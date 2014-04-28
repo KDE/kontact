@@ -44,7 +44,7 @@ using namespace KCalCore;
 #include <KCmdLineArgs>
 #include <KAction>
 #include <KActionCollection>
-#include <KDebug>
+#include <QDebug>
 #include <KIcon>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -214,7 +214,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
         return;
     }
 
-    kWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
+    qWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
 
 void KNotesPlugin::shortcutChanged()
@@ -240,7 +240,7 @@ void KNotesUniqueAppHandler::loadCommandLineOptions()
 
 int KNotesUniqueAppHandler::newInstance()
 {
-    kDebug() ;
+    qDebug() ;
     // Ensure part is loaded
     (void)plugin()->part();
     return KontactInterface::UniqueAppHandler::newInstance();

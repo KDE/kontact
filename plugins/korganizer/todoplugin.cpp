@@ -39,7 +39,7 @@
 
 #include <KAction>
 #include <KActionCollection>
-#include <KDebug>
+#include <QDebug>
 #include <KIcon>
 #include <KIconLoader>
 #include <KLocalizedString>
@@ -160,7 +160,7 @@ void TodoPlugin::slotSyncTodos()
   message << QString( "Todo" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning() << "TodoPlugin::slotSyncTodos : need to port to Akonadi";
+  qWarning() << "TodoPlugin::slotSyncTodos : need to port to Akonadi";
 #endif
 }
 
@@ -267,6 +267,6 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  kWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
+  qWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
 

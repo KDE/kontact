@@ -40,7 +40,7 @@
 
 #include <KAction>
 #include <KActionCollection>
-#include <KDebug>
+#include <QDebug>
 #include <KIcon>
 #include <KIconLoader>
 #include <KLocalizedString>
@@ -159,7 +159,7 @@ void KOrganizerPlugin::slotSyncEvents()
   message << QString( "Calendar" );
   QDBusConnection::sessionBus().send( message );
 #else
-  kWarning() << " KOrganizerPlugin::slotSyncEvents : need to port to Akonadi";
+  qWarning() << " KOrganizerPlugin::slotSyncEvents : need to port to Akonadi";
 #endif
 }
 
@@ -235,7 +235,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 
   if ( md->hasText() ) {
     const QString text = md->text();
-    kDebug() << "DROP:" << text;
+    qDebug() << "DROP:" << text;
     interface()->openEventEditor( text );
     return;
   }
@@ -265,6 +265,6 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  kWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
+  qWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
 

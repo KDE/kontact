@@ -40,7 +40,7 @@
 
 #include <KCheckableProxyModel>
 #include <KConfigGroup>
-#include <KDebug>
+#include <QDebug>
 #include <KLocalizedString>
 #include <KUrlLabel>
 #include <KSharedConfig>
@@ -202,7 +202,7 @@ void SummaryWidget::slotUpdateFolderList()
     mLabels.clear();
     mModelState->restoreState();
     int counter = 0;
-    kDebug() << QLatin1String("Iterating over") << mModel->rowCount() << QLatin1String("collections.");
+    qDebug() << QLatin1String("Iterating over") << mModel->rowCount() << QLatin1String("collections.");
     KConfig _config( QLatin1String("kcmkmailsummaryrc") );
     KConfigGroup config( &_config, "General" );
     const bool showFolderPaths = config.readEntry( "showFolderPaths", false );
