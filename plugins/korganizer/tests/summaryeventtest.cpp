@@ -22,8 +22,8 @@
 #include "summaryeventtest.h"
 #include "../summaryeventinfo.h"
 
-#include <kcalcore/event.h>
-#include <kcalcore/memorycalendar.h>
+#include <KCalCore/event.h>
+#include <KCalCore/memorycalendar.h>
 
 QTEST_KDEMAIN_CORE( SummaryEventTester )
 
