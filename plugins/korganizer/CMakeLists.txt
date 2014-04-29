@@ -12,7 +12,7 @@ qt4_add_dbus_interfaces(kontact_korganizerplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/k
 
 add_library(kontact_korganizerplugin MODULE ${kontact_korganizerplugin_PART_SRCS})
 
-target_link_libraries(kontact_korganizerplugin KF5::AkonadiCalendar KF5::CalendarUtils ${KDE4_KPARTS_LIBS} KF5::Abc KF5::CalendarCore kdepim KF5::KontactInterface korganizerprivate calendarsupport KF5::AkonadiCalendar)
+target_link_libraries(kontact_korganizerplugin KF5::AkonadiCalendar KF5::CalendarUtils  KF5::Abc KF5::CalendarCore kdepim KF5::KontactInterface korganizerprivate calendarsupport KF5::AkonadiCalendar)
 
 ########### next target ###############
 
@@ -22,7 +22,7 @@ qt4_add_dbus_interfaces(kontact_todoplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korgani
 
 add_library(kontact_todoplugin MODULE ${kontact_todoplugin_PART_SRCS})
 
-target_link_libraries(kontact_todoplugin KF5::AkonadiCalendar ${KDE4_KPARTS_LIBS} KF5::Abc kdepim KF5::KontactInterface KF5::CalendarCore KF5::CalendarUtils korganizerprivate calendarsupport KF5::AkonadiCalendar)
+target_link_libraries(kontact_todoplugin KF5::AkonadiCalendar  KF5::Abc kdepim KF5::KontactInterface KF5::CalendarCore KF5::CalendarUtils korganizerprivate calendarsupport KF5::AkonadiCalendar)
 
 ########### next target ###############
 
@@ -32,7 +32,7 @@ qt4_add_dbus_interfaces(kontact_journalplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/korg
 
 add_library(kontact_journalplugin MODULE ${kontact_journalplugin_PART_SRCS})
 
-target_link_libraries(kontact_journalplugin ${KDE4_KPARTS_LIBS} KF5::KontactInterface)
+target_link_libraries(kontact_journalplugin  KF5::KontactInterface)
 
 ########### next target ###############
 
@@ -42,7 +42,7 @@ qt5_wrap_ui(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui)
 
 add_library(kcm_apptsummary MODULE ${kcm_apptsummary_PART_SRCS})
 
-target_link_libraries(kcm_apptsummary  korganizerprivate KF5::CalendarUtils KF5::KDELibs4Support)
+target_link_libraries(kcm_apptsummary  korganizerprivate KF5::CalendarUtils KF5::KDELibs4Support KF5::KCMUtils)
 
 ########### next target ###############
 
@@ -52,7 +52,7 @@ qt5_wrap_ui(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui)
 
 add_library(kcm_todosummary MODULE ${kcm_todosummary_PART_SRCS})
 
-target_link_libraries(kcm_todosummary )
+target_link_libraries(kcm_todosummary Qt5::Widgets KF5::KCMUtils KF5::KDELibs4Support)
 
 ########## Unit Test ###########
 add_subdirectory(tests)

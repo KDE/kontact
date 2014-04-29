@@ -28,6 +28,7 @@
 
 #include "ui_sdsummaryconfig_base.h"
 #include <KCModule>
+#include <KComponentData>
 
 class KCMSDSummary : public KCModule, public Ui::SDSummaryConfig_Base
 {

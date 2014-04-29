@@ -21,7 +21,7 @@
 
 #include <KCModule>
 #include <KViewStateMaintainer>
-
+#include <KComponentData>
 namespace Akonadi {
 class ETMViewStateSaver;
 }

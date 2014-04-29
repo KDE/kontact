@@ -28,7 +28,7 @@
 
 #include <KCModule>
 #include <QTreeWidget>
-
+#include <KComponentData>
 
 class PluginView : public QTreeWidget
 {

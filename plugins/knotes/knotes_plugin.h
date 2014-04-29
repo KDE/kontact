@@ -25,7 +25,7 @@
 
 #include <KontactInterface/Plugin>
 #include <KontactInterface/UniqueAppHandler>
-
+#include <KAboutData>
 class KNotesSummaryWidget;
 
 class KNotesUniqueAppHandler : public KontactInterface::UniqueAppHandler
@@ -51,7 +51,7 @@ public:
     QString tipFile() const;
     int weight() const { return 600; }
 
-    const KAboutData *aboutData() const;
+    //QT5 const KAboutData *aboutData() const;
 
     bool canDecodeMimeData( const QMimeData *data ) const;
     void processDropEvent( QDropEvent * );

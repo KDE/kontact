@@ -37,7 +37,7 @@ class KNotesIconViewItem;
 class KAction;
 class KToggleAction;
 
-namespace DNSSD {
+namespace KDNSSD {
 class PublicService;
 }
 namespace Akonadi {
@@ -123,7 +123,7 @@ private:
     void updateNetworkListener();
     void printSelectedNotes(bool preview);
     KNotesWidget *mNotesWidget;
-    DNSSD::PublicService *mPublisher;
+    KDNSSD::PublicService *mPublisher;
     KAction *mNoteEdit;
     KAction *mNoteRename;
     KAction *mNoteDelete;

@@ -27,6 +27,7 @@
 #define SPECIALDATES_PLUGIN_H
 
 #include <KontactInterface/Plugin>
+class KAboutData;
 
 class SpecialdatesPlugin : public KontactInterface::Plugin
 {
@@ -36,7 +37,7 @@ class SpecialdatesPlugin : public KontactInterface::Plugin
 
     int weight() const { return 325; }
 
-    const KAboutData *aboutData() const;
+    //QT5 const KAboutData *aboutData() const;
 
     virtual KontactInterface::Summary *createSummaryWidget( QWidget *parentWidget );
 

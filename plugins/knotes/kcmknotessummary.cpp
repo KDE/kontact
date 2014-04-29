@@ -23,7 +23,7 @@
 
 #include <AkonadiWidgets/ETMViewStateSaver>
 
-#include <KAboutData>
+#include <K4AboutData>
 #include <KAcceleratorManager>
 #include <KCheckableProxyModel>
 #include <KComponentData>
@@ -46,7 +46,7 @@ KDE_EXPORT KCModule *create_knotessummary( QWidget *parent, const char * )
 }
 
 KCMKNotesSummary::KCMKNotesSummary( const KComponentData &inst, QWidget *parent )
-    : KCModule( inst, parent )
+    : KCModule( /*inst,*/ parent )
 {
     initGUI();
 
@@ -57,15 +57,15 @@ KCMKNotesSummary::KCMKNotesSummary( const KComponentData &inst, QWidget *parent 
 
     load();
 
-    KAboutData *about =
-            new KAboutData( I18N_NOOP( "kcmknotessummary" ), 0,
+    K4AboutData *about =
+            new K4AboutData( I18N_NOOP( "kcmknotessummary" ), 0,
                             ki18n( "Notes Summary Configuration Dialog" ),
-                            0, KLocalizedString(), KAboutData::License_GPL,
+                            0, KLocalizedString(), K4AboutData::License_GPL,
                             ki18n( "Copyright © 2013-2014 Laurent Montel <montel@kde.org>" ) );
 
     about->addAuthor( ki18n( "Laurent Montel" ),
                       KLocalizedString(), "montel@kde.org" );
-    setAboutData( about );
+    //QT5 setAboutData( about );
 }
 
 void KCMKNotesSummary::modified()

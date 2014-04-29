@@ -49,7 +49,7 @@
 #include <KUrlLabel>
 #include <KMenu>
 #include <KIconEffect>
-
+#include <KSharedConfig>
 
 #include <QEvent>
 #include <QGridLayout>

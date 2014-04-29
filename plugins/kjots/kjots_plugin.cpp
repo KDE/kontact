@@ -32,12 +32,12 @@
 #include <KIcon>
 #include <KLocalizedString>
 
-EXPORT_KONTACT_PLUGIN( KJotsPlugin, kjots )
+//QT5 EXPORT_KONTACT_PLUGIN( KJotsPlugin, kjots )
 
 KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "kjots" ), m_interface( 0 )
 {
-  setComponentData( KontactPluginFactory::componentData() );
+  //QT5 setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action =
     new KAction( KIcon( QLatin1String("document-new") ),

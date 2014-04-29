@@ -17,7 +17,7 @@ set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp ${kontact_k
 add_library(kontact_kmailplugin MODULE ${kontact_kmailplugin_PART_SRCS})
 add_dependencies(kontact_kmailplugin kmail_xml)
 
-target_link_libraries(kontact_kmailplugin KF5::Mime ${KDE4_KPARTS_LIBS} KF5::KontactInterface KF5::CalendarCore KF5::CalendarUtils kdepim)
+target_link_libraries(kontact_kmailplugin KF5::Mime  KF5::KontactInterface KF5::CalendarCore KF5::CalendarUtils kdepim)
 
 ########### next target ###############
 

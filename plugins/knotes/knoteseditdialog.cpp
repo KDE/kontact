@@ -24,6 +24,7 @@
 #include <KLocalizedString>
 #include <KToolBar>
 #include <KLineEdit>
+#include <KGlobal>
 
 #include <KXMLGUIBuilder>
 #include <KXMLGUIFactory>
@@ -51,7 +52,7 @@ void KNoteEditDialog::init(bool readOnly)
     // this dialog is modal to prevent one from editing the same note twice
     // in two different windows
 
-    setComponentData( KComponentData( "knotes" ) ); // TODO: memleak
+    //QT5 setComponentData( KComponentData( "knotes" ) ); // TODO: memleak
     setXMLFile( QLatin1String("knotesui.rc") );
 
     QWidget *page = new QWidget( this );

@@ -12,7 +12,7 @@ qt4_add_dbus_interfaces(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregato
 
 add_library(kontact_akregatorplugin MODULE ${kontact_akregator_PART_SRCS})
 
-target_link_libraries(kontact_akregatorplugin ${KDE4_KPARTS_LIBS} KF5::KontactInterface)
+target_link_libraries(kontact_akregatorplugin  KF5::KontactInterface)
 
 ########### install files ###############
 

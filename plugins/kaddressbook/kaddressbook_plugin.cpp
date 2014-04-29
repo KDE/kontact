@@ -29,17 +29,19 @@
 #include <KCmdLineArgs>
 #include <QDebug>
 #include <KLocalizedString>
+#include <KGlobal>
+#include <KIcon>
 
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusReply>
 
-EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kaddressbook )
+//QT5 EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kaddressbook )
 
 KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "kaddressbook" )
 {
-  setComponentData( KontactPluginFactory::componentData() );
+  //QT5 setComponentData( KontactPluginFactory::componentData() );
 
   KGlobal::locale()->insertCatalog( QLatin1String("libkdepim") );
   KGlobal::locale()->insertCatalog( QLatin1String("kabc") );

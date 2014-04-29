@@ -20,6 +20,7 @@
 
 #include <KLocalizedString>
 #include <KStandardGuiItem>
+#include <KGlobal>
 
 #include <QHBoxLayout>
 #include <QLabel>

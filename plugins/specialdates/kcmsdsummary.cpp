@@ -28,7 +28,9 @@
 #include <KAboutData>
 #include <KAcceleratorManager>
 #include <KComponentData>
-
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <kdemacros.h>
 extern "C"
 {
   KDE_EXPORT KCModule *create_sdsummary( QWidget *parent, const char * )
@@ -39,7 +41,7 @@ extern "C"
 }
 
 KCMSDSummary::KCMSDSummary( const KComponentData &inst, QWidget *parent )
-  : KCModule( inst, parent )
+  : KCModule( /*inst,*/ parent )
 {
   setupUi( this );
 
@@ -171,6 +173,7 @@ void KCMSDSummary::defaults()
 
 const KAboutData *KCMSDSummary::aboutData() const
 {
+#if 0 //QT5
   KAboutData *about = new KAboutData(
     I18N_NOOP( "kcmsdsummary" ), 0,
     ki18n( "Upcoming Special Dates Configuration Dialog" ),
@@ -182,5 +185,8 @@ const KAboutData *KCMSDSummary::aboutData() const
   about->addAuthor( ki18n( "Tobias Koenig" ), KLocalizedString(), "tokoe@kde.org" );
 
   return about;
+#else
+  return 0;
+#endif
 }
 

@@ -30,13 +30,14 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KIconLoader>
 
-EXPORT_KONTACT_PLUGIN( SpecialdatesPlugin, specialdates )
+//QT5 EXPORT_KONTACT_PLUGIN( SpecialdatesPlugin, specialdates )
 
 SpecialdatesPlugin::SpecialdatesPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, 0 ), mAboutData( 0 )
 {
-  setComponentData( KontactPluginFactory::componentData() );
+  //QT5 setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
 }
 
@@ -48,9 +49,10 @@ KontactInterface::Summary *SpecialdatesPlugin::createSummaryWidget( QWidget *par
 {
   return new SDSummaryWidget( this, parentWidget );
 }
-
+#if 0
 const KAboutData *SpecialdatesPlugin::aboutData() const
 {
+#if 0 //QT5
   if ( !mAboutData ) {
     mAboutData = new KAboutData( "specialdates", 0,
                                  ki18n( "Special Dates Summary" ),
@@ -65,6 +67,9 @@ const KAboutData *SpecialdatesPlugin::aboutData() const
                            KLocalizedString(), "tokoe@kde.org" );
     mAboutData->setProductName( "kontact/specialdates" );
   }
-
   return mAboutData;
+#else
+  return new KAboutData();
+#endif
 }
+#endif

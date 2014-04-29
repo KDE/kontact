@@ -3,13 +3,13 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 ########### next target ###############
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
+kde_enable_exceptions()
 
 include_directories(${Boost_INCLUDE_DIR})
 
 set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget.cpp)
 
-kde4_add_plugin(kontact_specialdatesplugin ${kontact_specialdatesplugin_PART_SRCS})
+add_library(kontact_specialdatesplugin MODULE ${kontact_specialdatesplugin_PART_SRCS})
 
 if(BUILD_korganizer)
   set(_korganizerprivate_lib "korganizerprivate")
@@ -17,13 +17,13 @@ endif()
 
 target_link_libraries(kontact_specialdatesplugin
   KF5::AkonadiCalendar
-  ${KDE4_KDEUI_LIBS}
-  ${KDEPIMLIBS_KABC_LIBS}
-  ${KDEPIMLIBS_KCALCORE_LIBS}
-  ${KDEPIMLIBS_KHOLIDAYS_LIBS}
-  ${KDEPIMLIBS_KONTACTINTERFACE_LIBS}
-  ${KDEPIMLIBS_AKONADI_LIBS}
-  ${KDEPIMLIBS_AKONADI_CONTACT_LIBS}
+  
+  KF5::Abc
+  KF5::CalendarCore
+  KF5::Holidays
+  KF5::KontactInterface
+  KF5::AkonadiCore
+  KF5::AkonadiContact
   kdepim
   calendarsupport
   ${_korganizerprivate_lib}
@@ -33,11 +33,11 @@ target_link_libraries(kontact_specialdatesplugin
 
 set(kcm_sdsummary_PART_SRCS kcmsdsummary.cpp)
 
-kde4_add_ui_files(kcm_sdsummary_PART_SRCS sdsummaryconfig_base.ui)
+qt5_wrap_ui(kcm_sdsummary_PART_SRCS sdsummaryconfig_base.ui)
 
-kde4_add_plugin(kcm_sdsummary ${kcm_sdsummary_PART_SRCS})
+add_library(kcm_sdsummary MODULE ${kcm_sdsummary_PART_SRCS})
 
-target_link_libraries(kcm_sdsummary ${KDE4_KDEUI_LIBS})
+target_link_libraries(kcm_sdsummary Qt5::Widgets KF5::KCMUtils KF5::KDELibs4Support)
 
 ########### install files ###############
 

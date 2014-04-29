@@ -35,7 +35,7 @@ target_link_libraries(kontact_knotesplugin
                       KF5::CalendarUtils 
                       KF5::KontactInterface 
                       ${KDE4_KDEPRINT_LIBS} 
-                      ${KDE4_KPARTS_LIBS} 
+                       
                       kdepim 
                       ${KDE4_KPRINTUTILS_LIBS} 
                       pimcommon 

@@ -79,6 +79,9 @@
 #include <KApplication>
 #include <KFileDialog>
 #include <KToggleAction>
+#include <KLocalizedString>
+#include <KShortcut>
+#include <KIcon>
 
 #include <QApplication>
 #include <QClipboard>
@@ -663,7 +666,7 @@ void KNotesPart::updateNetworkListener()
 
     if ( NoteShared::NoteSharedGlobalConfig::receiveNotes() ) {
         // create the socket and start listening for connections
-        mPublisher=new DNSSD::PublicService(NoteShared::NoteSharedGlobalConfig::senderID(), QLatin1String("_knotes._tcp"), NoteShared::NoteSharedGlobalConfig::port());
+        mPublisher=new KDNSSD::PublicService(NoteShared::NoteSharedGlobalConfig::senderID(), QLatin1String("_knotes._tcp"), NoteShared::NoteSharedGlobalConfig::port());
         mPublisher->publishAsync();
     }
 }
@@ -728,7 +731,7 @@ void KNotesPart::slotSaveAs()
     }
     QPointer<KFileDialog> dlg = new KFileDialog( url, QString(), widget(), convert );
     dlg->setOperationMode( KFileDialog::Saving );
-    dlg->setCaption( i18n( "Save As" ) );
+    //QT5 dlg->setCaption( i18n( "Save As" ) );
     if( !dlg->exec() ) {
         delete dlg;
         return;

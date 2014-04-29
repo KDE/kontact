@@ -46,6 +46,7 @@
 #include <KConfigGroup>
 #include <KToolInvocation>
 #include <KHolidays/Holidays>
+#include <KGlobal>
 
 #include <QDate>
 #include <QEvent>

@@ -28,6 +28,8 @@
 #include <KAboutData>
 #include <KAcceleratorManager>
 #include <KComponentData>
+#include <KConfigGroup>
+#include <KLocalizedString>
 
 KCModule *create_todosummary( QWidget *parent, const char * )
 {
@@ -36,7 +38,7 @@ KCModule *create_todosummary( QWidget *parent, const char * )
 }
 
 KCMTodoSummary::KCMTodoSummary( const KComponentData &inst, QWidget *parent )
-  : KCModule( inst, parent )
+  : KCModule( /*inst,*/ parent )
 {
   setupUi( this );
 

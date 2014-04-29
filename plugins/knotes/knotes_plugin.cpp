@@ -55,14 +55,14 @@ using namespace KCalCore;
 #include <QDBusMessage>
 #include <QDropEvent>
 
-EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
+//QT5 EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
 
 KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
     : KontactInterface::Plugin( core, core, "knotes" ),
       mAboutData( 0 )
 {
     KNoteUtils::migrateToAkonadi();
-    setComponentData( KontactPluginFactory::componentData() );
+    //QT5 setComponentData( KontactPluginFactory::componentData() );
 
     KAction *action =
             new KAction( KIcon( QLatin1String("knotes") ),
@@ -108,7 +108,7 @@ KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWid
 {
     return new KNotesSummaryWidget( this, parentWidget );
 }
-
+#if 0 //QT5
 const KAboutData *KNotesPlugin::aboutData() const
 {
     if ( !mAboutData ) {
@@ -134,7 +134,7 @@ const KAboutData *KNotesPlugin::aboutData() const
 
     return mAboutData;
 }
-
+#endif
 bool KNotesPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
     return
@@ -214,7 +214,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
         return;
     }
 
-    qWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
+    //QT5 qWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
 
 void KNotesPlugin::shortcutChanged()

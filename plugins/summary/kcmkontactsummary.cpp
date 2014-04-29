@@ -35,6 +35,8 @@
 #include <KPluginInfo>
 #include <KService>
 #include <KServiceTypeTrader>
+#include <KGlobal>
+#include <kdemacros.h>
 
 #include <QLabel>
 #include <QVBoxLayout>
@@ -92,7 +94,7 @@ PluginView::~PluginView()
 }
 
 KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *parent )
-  : KCModule( inst, parent )
+  : KCModule( /*inst,*/ parent )
 {
   setButtons( NoAdditionalButton );
   QVBoxLayout *layout = new QVBoxLayout( this );
@@ -111,7 +113,7 @@ KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *paren
   load();
   connect( mPluginView, SIGNAL(itemChanged(QTreeWidgetItem*,int)),
            this, SLOT(changed()) );
-
+#if 0 //QT5
   KAboutData *about = new KAboutData( I18N_NOOP( "kontactsummary" ), 0,
                                       ki18n( "KDE Kontact Summary" ),
                                       0, KLocalizedString(), KAboutData::License_GPL,
@@ -119,6 +121,7 @@ KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *paren
 
   about->addAuthor( ki18n( "Tobias Koenig" ), KLocalizedString(), "tokoe@kde.org" );
   setAboutData( about );
+#endif
 }
 
 void KCMKontactSummary::load()
