@@ -28,7 +28,8 @@
 
 #include "ui_todosummaryconfig_base.h"
 #include <KCModule>
-
+#include <kdemacros.h>
+#include <KComponentData>
 extern "C"
 {
   KDE_EXPORT KCModule *create_todosummary( QWidget *parent, const char * );
@@ -45,7 +46,7 @@ class KCMTodoSummary : public KCModule, public Ui::TodoSummaryConfig_Base
     void load();
     void save();
     void defaults();
-    const KAboutData *aboutData() const;
+    //QT5 const KAboutData *aboutData() const;
 
   private slots:
     void modified();

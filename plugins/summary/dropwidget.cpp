@@ -23,6 +23,7 @@
 
 #include <QDragEnterEvent>
 #include <QDropEvent>
+#include <QMimeData>
 
 DropWidget::DropWidget( QWidget *parent )
   : QWidget( parent )
@@ -41,6 +42,6 @@ void DropWidget::dropEvent( QDropEvent *event )
 {
   int alignment = ( event->pos().x() < ( width() / 2 ) ? Qt::AlignLeft : Qt::AlignRight );
   alignment |= ( event->pos().y() < ( height() / 2 ) ? Qt::AlignTop : Qt::AlignBottom );
-  emit summaryWidgetDropped( this, event->source(), alignment );
+  //QT5 emit summaryWidgetDropped( this, event->source(), alignment );
 }
 

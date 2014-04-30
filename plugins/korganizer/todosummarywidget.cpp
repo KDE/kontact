@@ -45,6 +45,7 @@
 #include <KMenu>
 #include <KSystemTimeZones>
 #include <KUrlLabel>
+#include <KGlobal>
 
 #include <QGridLayout>
 #include <QLabel>

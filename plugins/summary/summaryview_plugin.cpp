@@ -36,12 +36,12 @@
 
 #include <QMenu>
 
-EXPORT_KONTACT_PLUGIN( SummaryView, summary )
+//QT5 EXPORT_KONTACT_PLUGIN( SummaryView, summary )
 
 SummaryView::SummaryView( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, 0 ), mAboutData( 0 ), mPart( 0 )
 {
-  setComponentData( KontactPluginFactory::componentData() );
+  //QT5 setComponentData( KontactPluginFactory::componentData() );
 
   mSyncAction = new KSelectAction( KIcon( QLatin1String("view-refresh") ), i18n( "Sync All" ), this );
   actionCollection()->addAction( QLatin1String("kontact_summary_sync"), mSyncAction );
@@ -96,10 +96,12 @@ void SummaryView::doSync()
   const QList<KontactInterface::Plugin *> pluginList = core()->pluginList();
   Q_FOREACH ( const KontactInterface::Plugin *i, pluginList ) {
     // execute all sync actions but our own
-    Q_FOREACH ( KAction *j, i->syncActions() ) {
+    Q_FOREACH ( QAction *j, i->syncActions() ) {
+#if 0 //QT5
       if ( j != mSyncAction ) {
         j->trigger();
       }
+#endif
     }
   }
   fillSyncActionSubEntries();
@@ -107,11 +109,11 @@ void SummaryView::doSync()
 
 KParts::ReadOnlyPart *SummaryView::createPart()
 {
-  mPart = new SummaryViewPart( core(), "summarypartframe", aboutData(), this );
+  //QT5 mPart = new SummaryViewPart( core(), "summarypartframe", aboutData(), this );
   mPart->setObjectName( QLatin1String("summaryPart") );
   return mPart;
 }
-
+#if 0 //QT5
 const KAboutData *SummaryView::aboutData() const
 {
   if ( !mAboutData ) {
@@ -134,3 +136,4 @@ const KAboutData *SummaryView::aboutData() const
   return mAboutData;
 }
 
+#endif

@@ -26,7 +26,7 @@
 
 class SummaryViewPart;
 class KSelectAction;
-
+class KAboutData;
 class SummaryView : public KontactInterface::Plugin
 {
   Q_OBJECT
@@ -37,7 +37,7 @@ class SummaryView : public KontactInterface::Plugin
 
     int weight() const { return 100; }
 
-    const KAboutData *aboutData() const;
+    //QT5 const KAboutData *aboutData() const;
 
   protected:
     virtual KParts::ReadOnlyPart *createPart();

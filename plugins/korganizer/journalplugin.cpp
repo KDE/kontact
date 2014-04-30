@@ -33,13 +33,15 @@
 #include <KLocalizedString>
 #include <QDebug>
 #include <QtDBus/QtDBus>
+#include <KAction>
+#include <KIcon>
 
-EXPORT_KONTACT_PLUGIN( JournalPlugin, journal )
+//QT5 EXPORT_KONTACT_PLUGIN( JournalPlugin, journal )
 
 JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "korganizer", "journal" ), mIface( 0 )
 {
-  setComponentData( KontactPluginFactory::componentData() );
+  //QT5 setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir( QLatin1String("korganizer") );
   KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
 

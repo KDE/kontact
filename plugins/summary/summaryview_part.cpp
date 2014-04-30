@@ -45,6 +45,7 @@ using KPIM::BroadcastStatus;
 #include <KIcon>
 #include <KLocalizedString>
 #include <KParts/PartActivateEvent>
+#include <KGlobal>
 
 #include <QApplication>
 #include <QDate>
@@ -58,7 +59,7 @@ SummaryViewPart::SummaryViewPart( KontactInterface::Core *core, const char *,
                                   const KAboutData *aboutData, QObject *parent )
   : KParts::ReadOnlyPart( parent ), mCore( core ), mFrame( 0 ), mConfigAction( 0 )
 {
-  setComponentData( KComponentData( aboutData ) );
+  //QT5 setComponentData( KComponentData( aboutData ) );
 
   loadLayout();
 

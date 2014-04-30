@@ -152,7 +152,7 @@ void KCMTodoSummary::defaults()
 
   emit changed( true );
 }
-
+#if 0 //QT5
 const KAboutData *KCMTodoSummary::aboutData() const
 {
   KAboutData *about = new KAboutData(
@@ -169,4 +169,4 @@ const KAboutData *KCMTodoSummary::aboutData() const
 
   return about;
 }
-
+#endif

@@ -45,6 +45,7 @@
 #include <KLocalizedString>
 #include <KMenu>
 #include <KUrlLabel>
+#include <KConfig>
 
 #include <QGridLayout>
 #include <QLabel>

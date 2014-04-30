@@ -32,14 +32,15 @@
 #include <KAction>
 #include <KActionCollection>
 #include <KLocalizedString>
+#include <KIcon>
 
-EXPORT_KONTACT_PLUGIN( AkregatorPlugin, akregator )
+//QT5 EXPORT_KONTACT_PLUGIN( AkregatorPlugin, akregator )
 
 AkregatorPlugin::AkregatorPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "akregator" ), m_interface( 0 )
 {
 
-  setComponentData( KontactPluginFactory::componentData() );
+  //QT5 setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action =
     new KAction( KIcon( QLatin1String("bookmark-new") ),

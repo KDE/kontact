@@ -49,12 +49,12 @@
 
 #include <QDropEvent>
 
-EXPORT_KONTACT_PLUGIN( TodoPlugin, todo )
+//QT5 EXPORT_KONTACT_PLUGIN( TodoPlugin, todo )
 
 TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "korganizer", "todo" ), mIface( 0 )
 {
-  setComponentData( KontactPluginFactory::componentData() );
+  //QT5 setComponentData( KontactPluginFactory::componentData() );
   KIconLoader::global()->addAppDir( QLatin1String("korganizer") );
   KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
 
@@ -258,7 +258,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
                     mail.messageId();
       KTemporaryFile tf;
       tf.setAutoRemove( true );
-      tf.write( event->encodedData( "message/rfc822" ) );
+      //QT5 tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openTodoEditor(
         i18nc( "@item", "Mail: %1", mail.subject() ),
         txt, uri, tf.fileName(), QStringList(), QLatin1String("message/rfc822") );
@@ -267,6 +267,6 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
     return;
   }
 
-  qWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
+  //QT5 qWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
 
