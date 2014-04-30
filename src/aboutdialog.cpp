@@ -44,7 +44,7 @@ using namespace Kontact;
 AboutDialog::AboutDialog( KontactInterface::Core *core )
     : KPageDialog( core ), mCore( core )
 {
-    //QT5 setCaption( i18n( "About Kontact" ) );
+    setWindowTitle( i18n( "About Kontact" ) );
     //QT5 setButtons( Close );
     //QT5 setDefaultButton( Close );
     setModal( false );
