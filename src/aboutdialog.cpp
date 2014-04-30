@@ -34,7 +34,7 @@ using namespace Kontact;
 #include <KTextBrowser>
 #include <KGlobal>
 #include <KConfigGroup>
-#include <KIcon>
+#include <QIcon>
 #include <KIconLoader>
 
 #include <QBoxLayout>
@@ -85,11 +85,11 @@ void AboutDialog::addAboutPlugin( KontactInterface::Plugin *plugin )
 void AboutDialog::addAboutData( const QString &title, const QString &icon,
                                 const KAboutData *about )
 {
-    QIcon pixmap = KIcon( icon );
+    QIcon pixmap = QIcon::fromTheme( icon );
 
     QFrame *topFrame = new QFrame();
     KPageWidgetItem *pageItem = new KPageWidgetItem( topFrame, title );
-    pageItem->setIcon( KIcon( pixmap ) );
+    pageItem->setIcon( pixmap );
 
     addPage( pageItem );
 
@@ -296,7 +296,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
 
     QFrame *topFrame = new QFrame();
     KPageWidgetItem *page = new KPageWidgetItem( topFrame, title );
-    page->setIcon( KIcon( pixmap ) );
+    page->setIcon( QIcon::fromTheme( pixmap ) );
     addPage( page );
     QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 

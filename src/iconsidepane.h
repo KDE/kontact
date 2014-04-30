@@ -32,7 +32,7 @@ class Core;
 class Plugin;
 }
 
-class KAction;
+class QAction;
 
 namespace Kontact {
 
@@ -88,12 +88,12 @@ private:
     bool mShowIcons;
     bool mShowText;
 
-    KAction *mShowIconsAction;
-    KAction *mShowTextAction;
-    KAction *mShowBothAction;
-    KAction *mBigIconsAction;
-    KAction *mNormalIconsAction;
-    KAction *mSmallIconsAction;
+    QAction *mShowIconsAction;
+    QAction *mShowTextAction;
+    QAction *mShowBothAction;
+    QAction *mBigIconsAction;
+    QAction *mNormalIconsAction;
+    QAction *mSmallIconsAction;
 };
 
 class IconSidePane : public SidePaneBase

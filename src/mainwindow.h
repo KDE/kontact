@@ -27,7 +27,7 @@
 
 #include <KontactInterface/Core>
 #include <KUrl>
-#include <KAction>
+#include <QAction>
 
 namespace KontactInterface {
 class Plugin;
@@ -144,7 +144,7 @@ private:
     QString mInitialActiveModule;
 
     QMap<QString, QPointer<QWidget> > mFocusWidgets;
-    QMap<KontactInterface::Plugin *, KAction *> mPluginAction;
+    QMap<KontactInterface::Plugin *, QAction *> mPluginAction;
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;

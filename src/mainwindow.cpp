@@ -79,7 +79,7 @@ using namespace Kontact;
 #include <QVBoxLayout>
 #include <QWebSettings>
 #include <QShortcut>
-#include <KIcon>
+#include <QIcon>
 #include <KHelpClient>
 
 // Define the maximum time Kontact waits for KSycoca to become available.
@@ -127,7 +127,7 @@ int ServiceStarter::startServiceFor( const QString &serviceType,
         PluginList::ConstIterator end = mPlugins->constEnd();
         for ( PluginList::ConstIterator it = mPlugins->constBegin(); it != end; ++it ) {
             if ( (*it)->createDBUSInterface( serviceType ) ) {
-                kDebug() << "found interface for" << serviceType;
+                qDebug() << "found interface for" << serviceType;
                 if ( dbusService ) {
                     *dbusService = (*it)->registerClient();
                 }
@@ -136,7 +136,7 @@ int ServiceStarter::startServiceFor( const QString &serviceType,
         }
     }
 
-    kDebug() << "Didn't find dbus interface, falling back to external process";
+    qDebug() << "Didn't find dbus interface, falling back to external process";
     return KDBusServiceStarter::startServiceFor( serviceType, constraint,
                                                  error, dbusService, flags );
 }
@@ -194,7 +194,7 @@ void MainWindow::initGUI()
         Q_ASSERT( navigatorToolBar->sizeHint().isValid() );
         navigatorToolBar->setMinimumWidth( navigatorToolBar->sizeHint().width() );
     } else {
-        kError() << "Unable to find navigatorToolBar, probably kontactui.rc is missing";
+        qCritical() << "Unable to find navigatorToolBar, probably kontactui.rc is missing";
     }
 }
 
@@ -211,12 +211,12 @@ void MainWindow::waitForKSycoca()
         // give Kded time to initialize and create the
         // System Configuration database necessary for further
         // Kontact startup
-        kDebug() << "Waiting for KSycoca";
+        qDebug() << "Waiting for KSycoca";
         sleep(1);
         ++i;
     }
     // This should only happen if the distribution is broken
-    kFatal() << "KSycoca unavailable. Kontact will be unable to find plugins.";
+    qFatal("KSycoca unavailable. Kontact will be unable to find plugins.");
 }
 
 void MainWindow::initObject()
@@ -456,18 +456,18 @@ void MainWindow::setupActions()
 
     if ( mSyncActionsEnabled ) {
         mSyncActions = new KActionMenu(
-                    KIcon( QLatin1String("view-refresh") ),
+                    QIcon::fromTheme( QLatin1String("view-refresh") ),
                     i18nc( "@title:menu synchronize pim items (message,calendar,to-do,etc.)", "Sync" ), this );
         actionCollection()->addAction( QLatin1String("action_sync"), mSyncActions );
         //QT5 mSyncActions->setShortcut( KStandardShortcut::reload() );
         connect( mSyncActions, SIGNAL(triggered(bool)), this, SLOT(slotSyncClicked()) );
     }
 
-    KAction *action =
-            new KAction( KIcon( QLatin1String("configure") ),
+    QAction *action =
+            new QAction( QIcon::fromTheme( QLatin1String("configure") ),
                          i18nc( "@action:inmenu", "Configure Kontact..." ), this );
-    action->setHelpText(
-                i18nc( "@info:status", "Configure Kontact" ) );
+    //QT5action->setHelpText(
+    //            i18nc( "@info:status", "Configure Kontact" ) );
     action->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can configure Kontact." ) );
@@ -475,10 +475,10 @@ void MainWindow::setupActions()
     connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
     action =
-            new KAction( KIcon( QLatin1String("kontact") ),
+            new QAction( QIcon::fromTheme( QLatin1String("kontact") ),
                          i18nc( "@action:inmenu", "&Kontact Introduction" ), this );
-    action->setHelpText(
-                i18nc( "@info:status", "Show the Kontact Introduction page" ) );
+    //action->setHelpText(
+    //            i18nc( "@info:status", "Show the Kontact Introduction page" ) );
     action->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "Choose this option to see the Kontact Introduction page." ) );
@@ -486,10 +486,10 @@ void MainWindow::setupActions()
     connect( action, SIGNAL(triggered(bool)), SLOT(slotShowIntroduction()) );
 
     action =
-            new KAction( KIcon( QLatin1String("ktip") ),
+            new QAction( QIcon::fromTheme( QLatin1String("ktip") ),
                          i18nc( "@action:inmenu", "&Tip of the Day" ), this );
-    action->setHelpText(
-                i18nc( "@info:status", "Show the Tip-of-the-Day dialog" ) );
+    //action->setHelpText(
+    //            i18nc( "@info:status", "Show the Tip-of-the-Day dialog" ) );
     action->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog showing small tips to help "
@@ -538,13 +538,13 @@ void MainWindow::loadPlugins()
             continue;
         }
 
-        kDebug() << "Loading Plugin:" << it->name();
+        qDebug() << "Loading Plugin:" << it->name();
         QString error;
         plugin =
                 it->service()->createInstance<KontactInterface::Plugin>( this, QVariantList(), &error );
 
         if ( !plugin ) {
-            kDebug() << "Unable to create plugin for" << it->name() << error;
+            qDebug() << "Unable to create plugin for" << it->name() << error;
             continue;
         }
 
@@ -561,7 +561,7 @@ void MainWindow::loadPlugins()
             mDelayedPreload.append( plugin );
         }
 
-        kDebug() << "LIBNAMEPART:" << libNameProp.toString();
+        qDebug() << "LIBNAMEPART:" << libNameProp.toString();
 
         plugin->setPartLibraryName( libNameProp.toString().toUtf8() );
         plugin->setExecutableName( exeNameProp.toString() );
@@ -588,13 +588,13 @@ void MainWindow::loadPlugins()
         QList<QAction*>::const_iterator end( actionList.end() );
 
         for ( listIt = actionList.begin(); listIt != end; ++listIt ) {
-            kDebug() << QLatin1String("Plugging New actions") << (*listIt)->objectName();
+            qDebug() << QLatin1String("Plugging New actions") << (*listIt)->objectName();
             mNewActions->addAction( (*listIt) );
         }
 
         if ( mSyncActionsEnabled ) {
             Q_FOREACH ( QAction *listIt, plugin->syncActions() ) {
-                kDebug() << QLatin1String("Plugging Sync actions") << listIt->objectName();
+                qDebug() << QLatin1String("Plugging Sync actions") << listIt->objectName();
                 mSyncActions->addAction( listIt );
             }
         }
@@ -625,9 +625,9 @@ void MainWindow::updateShortcuts()
     ActionPluginList::ConstIterator it;
     int i = 0;
     for ( it = mActionPlugins.constBegin(); it != end; ++it ) {
-        KAction *action = static_cast<KAction*>( *it );
+        QAction *action = static_cast<QAction*>( *it );
         const QString shortcut = QString::fromLatin1( "Ctrl+%1" ).arg( mActionPlugins.count() - i );
-        action->setShortcut( KShortcut( shortcut ) );
+        //QT5 action->setShortcut( KShortcut( shortcut ) );
         ++i;
     }
     factory()->plugActionList( this, QLatin1String( "navigator_actionlist" ), mActionPlugins );
@@ -643,14 +643,14 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
             QList<QAction*>::const_iterator listIt;
             QList<QAction*>::const_iterator listEnd( actionList.constEnd() );
             for ( listIt = actionList.constBegin(); listIt != listEnd; ++listIt ) {
-                kDebug() << QLatin1String("Unplugging New actions") << (*listIt)->objectName();
+                qDebug() << QLatin1String("Unplugging New actions") << (*listIt)->objectName();
                 mNewActions->removeAction( *listIt );
             }
 
             if ( mSyncActionsEnabled ) {
                 actionList = plugin->syncActions();
                 for ( listIt = actionList.constBegin(); listIt != actionList.constEnd(); ++listIt ) {
-                    kDebug() << QLatin1String("Unplugging Sync actions") << (*listIt)->objectName();
+                    qDebug() << QLatin1String("Unplugging Sync actions") << (*listIt)->objectName();
                     mSyncActions->removeAction( *listIt );
                 }
             }
@@ -690,14 +690,14 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
 
 void MainWindow::addPlugin( KontactInterface::Plugin *plugin )
 {
-    kDebug();
+    qDebug();
 
     mPlugins.append( plugin );
 
     if ( plugin->showInSideBar() ) {
-        KAction *action = new KAction( KIcon( plugin->icon() ), plugin->title(), this );
-        action->setHelpText(
-                    i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+        QAction *action = new QAction( QIcon::fromTheme( plugin->icon() ), plugin->title(), this );
+        //action->setHelpText(
+        //            i18nc( "@info:status", "Plugin %1", plugin->title() ) );
         action->setWhatsThis(
                     i18nc( "@info:whatsthis",
                            "Switch to plugin %1", plugin->title() ) );
@@ -719,9 +719,9 @@ void MainWindow::addPlugin( KontactInterface::Plugin *plugin )
     qSort( mPlugins.begin(), mPlugins.end(), pluginWeightLessThan );
     int i = 0;
     foreach ( QAction *qaction, mActionPlugins ) {
-        KAction *action = static_cast<KAction*>( qaction );
+        QAction *action = static_cast<QAction*>( qaction );
         QString shortcut = QString::fromLatin1( "Ctrl+%1" ).arg( mActionPlugins.count() - i );
-        action->setShortcut( KShortcut( shortcut ) );
+        //QT5 action->setShortcut( KShortcut( shortcut ) );
         ++i;
     }
 }
@@ -749,7 +749,7 @@ void MainWindow::slotActivePartChanged( KParts::Part *part )
         return;
     }
 
-    kDebug() << QLatin1String("Part activated:") << part
+    qDebug() << QLatin1String("Part activated:") << part
              << QLatin1String("with stack id.")<< mPartsStack->indexOf( part->widget() );
 
     statusBar()->clearMessage();
@@ -830,12 +830,12 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
     }
 
     if ( mCurrentPlugin ) {
-        KAction *action = mPluginAction[ mCurrentPlugin ];
+        QAction *action = mPluginAction[ mCurrentPlugin ];
         if ( action ) {
             action->setChecked( false );
         }
     }
-    KAction *selectedPluginAction = mPluginAction[ plugin ];
+    QAction *selectedPluginAction = mPluginAction[ plugin ];
     if ( selectedPluginAction ) {
         selectedPluginAction->setChecked( true );
     }
@@ -951,7 +951,7 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
 
 void MainWindow::slotActionTriggered()
 {
-    KAction *actionSender = static_cast<KAction*>( sender() );
+    QAction *actionSender = static_cast<QAction*>( sender() );
     actionSender->setChecked( true );
     KontactInterface::Plugin *plugin = actionSender->data().value<KontactInterface::Plugin*>();
     if ( !plugin ) {
@@ -1081,7 +1081,7 @@ void MainWindow::pluginsChanged()
 
 void MainWindow::updateConfig()
 {
-    kDebug();
+    qDebug();
 
     saveSettings();
     loadSettings();
