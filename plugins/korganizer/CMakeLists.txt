@@ -70,6 +70,4 @@ install(FILES kcmapptsummary.desktop kcmtodosummary.desktop DESTINATION ${SERVIC
 
 install(FILES korganizer.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
 
-ecm_install_icons(${ICON_INSTALL_DIR})
-
 
