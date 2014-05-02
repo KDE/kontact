@@ -5,7 +5,7 @@ set(kontact_kjotsplugin_PART_SRCS
   kjots_plugin.cpp
 )
 
-qt4_add_dbus_interfaces(kontact_kjotsplugin_PART_SRCS ${CMAKE_BINARY_DIR}/kjots/org.kde.KJotsWidget.xml)
+qt5_add_dbus_interfaces(kontact_kjotsplugin_PART_SRCS ${CMAKE_BINARY_DIR}/kjots/org.kde.KJotsWidget.xml)
 
 add_library(kontact_kjotsplugin MODULE ${kontact_kjotsplugin_PART_SRCS})
 

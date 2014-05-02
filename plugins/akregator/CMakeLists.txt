@@ -8,7 +8,7 @@ include_directories(
 
 set(kontact_akregator_PART_SRCS akregator_plugin.cpp)
 
-qt4_add_dbus_interfaces(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregator/src/org.kde.akregator.part.xml)
+qt5_add_dbus_interfaces(kontact_akregator_PART_SRCS ${CMAKE_SOURCE_DIR}/akregator/src/org.kde.akregator.part.xml)
 
 add_library(kontact_akregatorplugin MODULE ${kontact_akregator_PART_SRCS})
 

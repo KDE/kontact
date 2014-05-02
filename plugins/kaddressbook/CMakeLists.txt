@@ -5,7 +5,7 @@ set(kontact_kaddressbookplugin_PART_SRCS
   kaddressbook_plugin.cpp
 )
 
-qt4_add_dbus_interfaces(kontact_kaddressbookplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kaddressbook/org.kde.kaddressbook.xml)
+qt5_add_dbus_interfaces(kontact_kaddressbookplugin_PART_SRCS ${CMAKE_SOURCE_DIR}/kaddressbook/org.kde.kaddressbook.xml)
 
 
 add_library(kontact_kaddressbookplugin MODULE ${kontact_kaddressbookplugin_PART_SRCS})

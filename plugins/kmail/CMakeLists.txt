@@ -10,7 +10,7 @@ include_directories(
 set(interface_SRCS)
 
 set(kontact_kmail_plugins_interface_SRCS ${interface_SRCS})
-qt4_add_dbus_interfaces(kontact_kmail_plugins_interface_SRCS ${CMAKE_BINARY_DIR}/kmail/org.kde.kmail.kmail.xml)
+qt5_add_dbus_interfaces(kontact_kmail_plugins_interface_SRCS ${CMAKE_BINARY_DIR}/kmail/org.kde.kmail.kmail.xml)
 
 set(kontact_kmailplugin_PART_SRCS kmail_plugin.cpp summarywidget.cpp ${kontact_kmail_plugins_interface_SRCS})
 
