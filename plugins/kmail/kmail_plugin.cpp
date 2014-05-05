@@ -26,7 +26,7 @@
 #include "kmailinterface.h"
 #include "summarywidget.h"
 
-#include <KABC/VCardDrag>
+#include <KABC/kabc/VCardDrag>
 #include <KCalCore/MemoryCalendar>
 #include <KCalCore/FileStorage>
 #include <KCalUtils/ICalDrag>

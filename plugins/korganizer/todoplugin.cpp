@@ -29,7 +29,7 @@
 
 #include <libkdepim/misc/maillistdrag.h>
 
-#include <KABC/VCardDrag>
+#include <KABC/kabc/VCardDrag>
 
 #include <KCalCore/MemoryCalendar>
 
