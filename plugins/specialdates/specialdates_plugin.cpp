@@ -26,7 +26,7 @@
 #include "specialdates_plugin.h"
 #include "sdsummarywidget.h"
 
-#include <KontactInterface/kontactinterface/Core>
+#include <KontactInterface/Core>
 
 #include <KAboutData>
 #include <KLocalizedString>

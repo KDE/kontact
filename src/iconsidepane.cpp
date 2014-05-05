@@ -24,8 +24,8 @@
 #include "prefs.h"
 using namespace Kontact;
 
-#include <KontactInterface/kontactinterface/Core>
-#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
 #include <QAction>
 #include <QIcon>

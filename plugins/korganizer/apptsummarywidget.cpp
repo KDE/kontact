@@ -38,7 +38,7 @@
 #include <KCalCore/Calendar>
 #include <KCalCore/Event>
 
-#include <KontactInterface/kontactinterface/Core>
+#include <KontactInterface/Core>
 
 #include <KConfigGroup>
 #include <KIconLoader>

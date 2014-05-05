@@ -25,7 +25,7 @@
 #ifndef KORGANIZER_PLUGIN_H
 #define KORGANIZER_PLUGIN_H
 
-#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/Plugin>
 
 class OrgKdeKorganizerCalendarInterface;
 

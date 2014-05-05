@@ -26,7 +26,7 @@
 #include "calendarinterface.h"
 #include "korg_uniqueapp.h"
 
-#include <KontactInterface/kontactinterface/Core>
+#include <KontactInterface/Core>
 
 #include <KActionCollection>
 #include <KIconLoader>

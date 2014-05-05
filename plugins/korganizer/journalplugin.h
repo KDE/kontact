@@ -24,7 +24,7 @@
 #ifndef KONTACT_JOURNALPLUGIN_H
 #define KONTACT_JOURNALPLUGIN_H
 
-#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/Plugin>
 
 class OrgKdeKorganizerCalendarInterface;
 

@@ -27,8 +27,8 @@
 #include "summarywidget.h"
 #include "kmailinterface.h"
 
-#include <KontactInterface/kontactinterface/Core>
-#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
 #include <AkonadiCore/ChangeRecorder>
 #include <AkonadiCore/CollectionFetchScope>

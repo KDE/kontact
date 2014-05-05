@@ -22,7 +22,7 @@
 #include "korg_uniqueapp.h"
 #include "korganizer/korganizer_options.h"
 
-#include <KontactInterface/kontactinterface/Core>
+#include <KontactInterface/Core>
 
 #include <KStartupInfo>
 #include <KWindowSystem>

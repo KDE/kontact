@@ -41,8 +41,8 @@
 
 #include <KMime/KMimeMessage>
 
-#include <KontactInterface/kontactinterface/Core>
-#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
 #include <KIconLoader>
 #include <KLocalizedString>

@@ -25,7 +25,7 @@
 #ifndef AKREGATOR_PLUGIN_H
 #define AKREGATOR_PLUGIN_H
 
-#include <KontactInterface/kontactinterface/UniqueAppHandler>
+#include <KontactInterface/UniqueAppHandler>
 
 namespace KontactInterface {
   class Plugin;

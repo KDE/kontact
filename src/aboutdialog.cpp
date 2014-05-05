@@ -25,8 +25,8 @@
 #include "aboutdialog.h"
 using namespace Kontact;
 
-#include <KontactInterface/kontactinterface/Core>
-#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
 #include <KAboutData>
 #include <KComponentData>

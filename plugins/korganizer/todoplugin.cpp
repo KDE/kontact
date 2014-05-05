@@ -29,13 +29,13 @@
 
 #include <libkdepim/misc/maillistdrag.h>
 
-#include <KABC/kabc/VCardDrag>
+#include <KABC/VCardDrag>
 
 #include <KCalCore/MemoryCalendar>
 
 #include <KCalUtils/kcalutils/ICalDrag>
 
-#include <KontactInterface/kontactinterface/Core>
+#include <KontactInterface/Core>
 
 #include <KAction>
 #include <KActionCollection>

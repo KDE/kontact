@@ -36,9 +36,9 @@ using namespace KPIM;
 using namespace KCalUtils;
 using namespace KCalCore;
 
-#include <KABC/kabc/VCardDrag>
+#include <KABC/VCardDrag>
 
-#include <KontactInterface/kontactinterface/Core>
+#include <KontactInterface/Core>
 
 #include <KAboutData>
 #include <KCmdLineArgs>

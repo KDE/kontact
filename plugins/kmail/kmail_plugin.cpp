@@ -26,13 +26,13 @@
 #include "kmailinterface.h"
 #include "summarywidget.h"
 
-#include <KABC/kabc/VCardDrag>
+#include <KABC/VCardDrag>
 #include <KCalCore/MemoryCalendar>
 #include <KCalCore/FileStorage>
-#include <KCalUtils/kcalutils/ICalDrag>
-#include <KCalUtils/kcalutils/VCalDrag>
+#include <KCalUtils/ICalDrag>
+#include <KCalUtils/VCalDrag>
 
-#include <KontactInterface/kontactinterface/Core>
+#include <KontactInterface/Core>
 
 #include <KAction>
 #include <KActionCollection>

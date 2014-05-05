@@ -22,7 +22,7 @@
 #include "kaddressbook_options.h"
 #include "kaddressbookinterface.h"
 
-#include <KontactInterface/kontactinterface/Core>
+#include <KontactInterface/Core>
 
 #include <KAction>
 #include <KActionCollection>

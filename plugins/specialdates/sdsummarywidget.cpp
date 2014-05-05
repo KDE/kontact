@@ -25,8 +25,8 @@
 
 #include "sdsummarywidget.h"
 
-#include <KontactInterface/kontactinterface/Core>
-#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 
 #include <calendarsupport/utils.h>
 #include <calendarsupport/calendarsingleton.h>

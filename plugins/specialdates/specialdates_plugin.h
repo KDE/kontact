@@ -26,7 +26,7 @@
 #ifndef SPECIALDATES_PLUGIN_H
 #define SPECIALDATES_PLUGIN_H
 
-#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/Plugin>
 class KAboutData;
 
 class SpecialdatesPlugin : public KontactInterface::Plugin

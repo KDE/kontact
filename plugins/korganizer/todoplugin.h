@@ -24,7 +24,7 @@
 #ifndef KONTACT_TODOPLUGIN_H
 #define KONTACT_TODOPLUGIN_H
 
-#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/Plugin>
 
 class OrgKdeKorganizerCalendarInterface;
 

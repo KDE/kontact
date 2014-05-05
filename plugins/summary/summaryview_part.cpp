@@ -28,12 +28,12 @@
 #include <libkdepim/misc/broadcaststatus.h>
 using KPIM::BroadcastStatus;
 
-#include <KPIMIdentities/kpimidentities/Identity>
-#include <KPIMIdentities/kpimidentities/IdentityManager>
+#include <KPIMIdentities/Identity>
+#include <KPIMIdentities/IdentityManager>
 
-#include <KontactInterface/kontactinterface/Core>
-#include <KontactInterface/kontactinterface/Plugin>
-#include <KontactInterface/kontactinterface/Summary>
+#include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
+#include <KontactInterface/Summary>
 
 #include <KAction>
 #include <KActionCollection>

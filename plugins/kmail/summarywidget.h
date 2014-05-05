@@ -26,7 +26,7 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <KontactInterface/kontactinterface/Summary>
+#include <KontactInterface/Summary>
 
 #include <KViewStateMaintainer>
 
