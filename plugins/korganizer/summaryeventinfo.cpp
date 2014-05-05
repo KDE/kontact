@@ -30,7 +30,7 @@
 #include <KCalCore/Event>
 using namespace KCalCore;
 
-#include <KCalUtils/IncidenceFormatter>
+#include <KCalUtils/kcalutils/IncidenceFormatter>
 using namespace KCalUtils;
 
 #include <KGlobal>

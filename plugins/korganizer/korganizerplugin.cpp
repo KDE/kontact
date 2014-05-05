@@ -34,7 +34,7 @@
 #include <KCalCore/Incidence>
 #include <KCalCore/MemoryCalendar>
 
-#include <KCalUtils/ICalDrag>
+#include <KCalUtils/kcalutils/ICalDrag>
 
 #include <KontactInterface/kontactinterface/Core>
 

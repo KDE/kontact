@@ -29,8 +29,8 @@
 #include <KABC/kabc/VCardDrag>
 #include <KCalCore/MemoryCalendar>
 #include <KCalCore/FileStorage>
-#include <KCalUtils/ICalDrag>
-#include <KCalUtils/VCalDrag>
+#include <KCalUtils/kcalutils/ICalDrag>
+#include <KCalUtils/kcalutils/VCalDrag>
 
 #include <KontactInterface/kontactinterface/Core>
 

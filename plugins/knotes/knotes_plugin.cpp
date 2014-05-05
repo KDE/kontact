@@ -24,8 +24,8 @@
 #include "knotes/utils/knoteutils.h"
 #include "summarywidget.h"
 #include "knotes/knotesglobalconfig.h"
-#include <KCalUtils/ICalDrag>
-#include <KCalUtils/VCalDrag>
+#include <KCalUtils/kcalutils/ICalDrag>
+#include <KCalUtils/kcalutils/VCalDrag>
 #include <KCalCore/FileStorage>
 
 
