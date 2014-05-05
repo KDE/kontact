@@ -230,6 +230,7 @@ void KNotesPlugin::slotNewNote()
 {
     if ( part() ) {
         static_cast<KNotesPart *>( part() )->newNote();
+        core()->selectPlugin( this );
     }
 }
 
