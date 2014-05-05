@@ -34,7 +34,7 @@
 #include <AkonadiCore/ItemFetchScope>
 #include <Akonadi/Calendar/IncidenceChanger>
 
-#include <KCalUtils/kcalutils/IncidenceFormatter>
+#include <KCalUtils/IncidenceFormatter>
 
 #include <KontactInterface/Core>
 
