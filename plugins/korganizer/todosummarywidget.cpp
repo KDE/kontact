@@ -42,7 +42,7 @@
 #include <KConfigGroup>
 #include <KIconLoader>
 #include <KLocalizedString>
-#include <KMenu>
+#include <QMenu>
 #include <KSystemTimeZones>
 #include <KUrlLabel>
 #include <KGlobal>
@@ -351,7 +351,7 @@ void TodoSummaryWidget::popupMenu( const QString &uid )
   if( !todo )
     return;
   Akonadi::Item item = mCalendar->item( uid );
-  KMenu popup( this );
+  QMenu popup( this );
   QAction *editIt = popup.addAction( i18n( "&Edit To-do..." ) );
   QAction *delIt = popup.addAction( i18n( "&Delete To-do" ) );
   delIt->setIcon( KIconLoader::global()->loadIcon( QLatin1String("edit-delete"), KIconLoader::Small ) );

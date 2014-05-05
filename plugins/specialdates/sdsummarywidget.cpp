@@ -38,7 +38,7 @@
 
 #include <KCalCore/Calendar>
 
-#include <KMenu>
+#include <QMenu>
 #include <KLocalizedString>
 #include <KLocale>
 #include <KUrlLabel>
@@ -685,7 +685,7 @@ void SDSummaryWidget::viewContact( const QString &url )
 
 void SDSummaryWidget::popupMenu( const QString &url )
 {
-  KMenu popup( this );
+  QMenu popup( this );
   const QAction *sendMailAction = popup.addAction(
     KIconLoader::global()->loadIcon( QLatin1String("mail-message-new"), KIconLoader::Small ),
     i18n( "Send &Mail" ) );

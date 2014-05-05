@@ -47,7 +47,7 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KUrlLabel>
-#include <KMenu>
+#include <QMenu>
 #include <KIconEffect>
 #include <KSharedConfig>
 
@@ -152,7 +152,7 @@ void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
 
 void KNotesSummaryWidget::slotPopupMenu(const QString &note)
 {
-    KMenu popup( this );
+    QMenu popup( this );
     const QAction *modifyNoteAction = popup.addAction(
                 KIconLoader::global()->loadIcon( QLatin1String("document-edit"), KIconLoader::Small ),
                 i18n( "Modify Note..." ) );

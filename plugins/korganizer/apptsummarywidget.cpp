@@ -43,7 +43,7 @@
 #include <KConfigGroup>
 #include <KIconLoader>
 #include <KLocalizedString>
-#include <KMenu>
+#include <QMenu>
 #include <KUrlLabel>
 #include <KConfig>
 
@@ -248,7 +248,7 @@ void ApptSummaryWidget::removeEvent( const Akonadi::Item &item )
 
 void ApptSummaryWidget::popupMenu( const QString &uid )
 {
-  KMenu popup( this );
+  QMenu popup( this );
 
   // FIXME: Should say "Show Appointment" if we don't have rights to edit
   // Doesn't make sense to edit events from birthday resource for example
