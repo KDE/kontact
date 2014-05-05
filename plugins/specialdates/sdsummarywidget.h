@@ -28,7 +28,7 @@
 
 #include <KCalCore/Event>
 
-#include <KontactInterface/Summary>
+#include <KontactInterface/kontactinterface/Summary>
 #include <Akonadi/Calendar/ETMCalendar>
 
 namespace KHolidays {

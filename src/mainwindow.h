@@ -25,7 +25,7 @@
 
 #include "kontact_export.h"
 
-#include <KontactInterface/Core>
+#include <KontactInterface/kontactinterface/Core>
 #include <KUrl>
 #include <QAction>
 

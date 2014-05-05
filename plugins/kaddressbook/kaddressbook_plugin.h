@@ -21,7 +21,7 @@
 #ifndef KADDRESSBOOK_PLUGIN_H
 #define KADDRESSBOOK_PLUGIN_H
 
-#include <KontactInterface/UniqueAppHandler>
+#include <KontactInterface/kontactinterface/UniqueAppHandler>
 
 namespace KontactInterface {
   class Plugin;

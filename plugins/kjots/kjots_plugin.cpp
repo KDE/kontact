@@ -24,7 +24,7 @@
 
 #include "kjots_plugin.h"
 
-#include <KontactInterface/Core>
+#include <KontactInterface/kontactinterface/Core>
 
 #include <KAction>
 #include <KActionCollection>

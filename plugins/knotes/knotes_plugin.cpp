@@ -38,7 +38,7 @@ using namespace KCalCore;
 
 #include <KABC/kabc/VCardDrag>
 
-#include <KontactInterface/Core>
+#include <KontactInterface/kontactinterface/Core>
 
 #include <KAboutData>
 #include <KCmdLineArgs>

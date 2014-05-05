@@ -26,7 +26,7 @@
 #include "kmailinterface.h"
 #endif
 
-#include <KontactInterface/Core>
+#include <KontactInterface/kontactinterface/Core>
 
 #include <KAboutData>
 #include <KActionCollection>

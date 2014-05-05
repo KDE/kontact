@@ -26,7 +26,7 @@
 #include "prefs.h"
 using namespace Kontact;
 
-#include <KontactInterface/Plugin>
+#include <KontactInterface/kontactinterface/Plugin>
 
 #include <KAboutData>
 #include <KComboBox>

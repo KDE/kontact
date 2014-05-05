@@ -28,10 +28,10 @@ using namespace Kontact;
 
 #include <libkdepimdbusinterfaces/reminderclient.h>
 
-#include <KontactInterface/Plugin>
-#include <KontactInterface/UniqueAppHandler>
+#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/kontactinterface/UniqueAppHandler>
 #ifdef Q_WS_WIN
-#include <KontactInterface/PimUniqueApplication>
+#include <KontactInterface/kontactinterface/PimUniqueApplication>
 #endif
 
 #include <k4aboutdata.h>

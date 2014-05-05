@@ -30,7 +30,7 @@
 
 #include <KCalCore/Todo>
 
-#include <KontactInterface/Summary>
+#include <KontactInterface/kontactinterface/Summary>
 #include <Akonadi/Calendar/ETMCalendar>
 
 class TodoPlugin;

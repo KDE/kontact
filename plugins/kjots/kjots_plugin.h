@@ -27,7 +27,7 @@
 
 #include "kjotswidgetinterface.h"
 
-#include <KontactInterface/UniqueAppHandler>
+#include <KontactInterface/kontactinterface/UniqueAppHandler>
 
 namespace KontactInterface {
   class Plugin;

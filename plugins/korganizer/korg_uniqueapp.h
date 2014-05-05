@@ -22,7 +22,7 @@
 #ifndef KORG_UNIQUEAPP_H
 #define KORG_UNIQUEAPP_H
 
-#include <KontactInterface/UniqueAppHandler>
+#include <KontactInterface/kontactinterface/UniqueAppHandler>
 
 class KOrganizerUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {

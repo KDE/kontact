@@ -23,7 +23,7 @@
 #include "sidepanebase.h"
 using namespace Kontact;
 
-#include <KontactInterface/Core>
+#include <KontactInterface/kontactinterface/Core>
 
 SidePaneBase::SidePaneBase( KontactInterface::Core *core, QWidget *parent )
     : KVBox( parent ), mCore( core )

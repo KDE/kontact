@@ -26,7 +26,7 @@
 #ifndef SUMMARYWIDGET_H
 #define SUMMARYWIDGET_H
 
-#include <KontactInterface/Summary>
+#include <KontactInterface/kontactinterface/Summary>
 #include <Akonadi/Calendar/ETMCalendar>
 
 class KOrganizerPlugin;

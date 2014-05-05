@@ -36,7 +36,7 @@
 
 #include <KCalUtils/IncidenceFormatter>
 
-#include <KontactInterface/Core>
+#include <KontactInterface/kontactinterface/Core>
 
 #include <KLocale>
 #include <KConfigGroup>

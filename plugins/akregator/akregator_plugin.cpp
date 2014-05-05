@@ -27,7 +27,7 @@
 #include "akregator_options.h"
 #include "partinterface.h"
 
-#include <KontactInterface/Core>
+#include <KontactInterface/kontactinterface/Core>
 
 #include <KAction>
 #include <KActionCollection>

@@ -25,8 +25,8 @@
 #ifndef KMAIL_PLUGIN_H
 #define KMAIL_PLUGIN_H
 
-#include <KontactInterface/Plugin>
-#include <KontactInterface/UniqueAppHandler>
+#include <KontactInterface/kontactinterface/Plugin>
+#include <KontactInterface/kontactinterface/UniqueAppHandler>
 
 #include <KUrl>
 

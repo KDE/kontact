@@ -32,7 +32,7 @@
 #include <KCalUtils/ICalDrag>
 #include <KCalUtils/VCalDrag>
 
-#include <KontactInterface/Core>
+#include <KontactInterface/kontactinterface/Core>
 
 #include <KAction>
 #include <KActionCollection>
