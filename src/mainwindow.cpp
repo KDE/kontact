@@ -81,6 +81,7 @@ using namespace Kontact;
 #include <QShortcut>
 #include <QIcon>
 #include <KHelpClient>
+#include <KSharedConfig>
 
 // Define the maximum time Kontact waits for KSycoca to become available.
 static const int KSYCOCA_WAIT_TIMEOUT = 10;
@@ -164,7 +165,7 @@ MainWindow::MainWindow()
 
     factory()->plugActionList( this, QLatin1String( "navigator_actionlist" ), mActionPlugins );
 
-    restoreWindowSize( KConfigGroup( KGlobal::config(), "MainWindow" ) );
+    restoreWindowSize( KConfigGroup( KSharedConfig::openConfig(), "MainWindow" ) );
     setAutoSaveSettings();
 }
 
@@ -278,7 +279,7 @@ MainWindow::~MainWindow()
 {
     if ( mCurrentPlugin ) {
         KConfigGroup grp(
-                    KGlobal::config()->group(
+                    KSharedConfig::openConfig()->group(
                         QString::fromLatin1( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
         saveMainWindowSettings( grp );
     }
@@ -810,7 +811,7 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
     QApplication::setOverrideCursor( QCursor( Qt::WaitCursor ) );
 
     if ( mCurrentPlugin ) {
-        KConfigGroup grp = KGlobal::config()->group(
+        KConfigGroup grp = KSharedConfig::openConfig()->group(
                         QString::fromLatin1( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) );
         saveMainWindowSettings( grp );
     }
@@ -943,7 +944,7 @@ void MainWindow::selectPlugin( KontactInterface::Plugin *plugin )
         addToolBar( toolBarArea( navigatorToolBar ), navigatorToolBar );
     }
 
-    applyMainWindowSettings( KGlobal::config()->group(
+    applyMainWindowSettings( KSharedConfig::openConfig()->group(
                                  QString::fromLatin1( "MainWindow%1" ).arg( plugin->identifier() ) ) );
 
     QApplication::restoreOverrideCursor();
@@ -1119,7 +1120,7 @@ void MainWindow::configureShortcuts()
 void MainWindow::configureToolbars()
 {
     if ( mCurrentPlugin ) {
-        KConfigGroup grp (KGlobal::config()->group(
+        KConfigGroup grp (KSharedConfig::openConfig()->group(
                         QString::fromLatin1( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
         saveMainWindowSettings( grp );
     }
@@ -1136,7 +1137,7 @@ void MainWindow::slotNewToolbarConfig()
     }
     if ( mCurrentPlugin ) {
         applyMainWindowSettings(
-                    KGlobal::config()->group(
+                    KSharedConfig::openConfig()->group(
                         QString::fromLatin1( "MainWindow%1" ).arg( mCurrentPlugin->identifier() ) ) );
     }
     updateShortcuts(); // for the plugActionList call

@@ -34,6 +34,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QDebug>
+#include <KSharedConfig>
 
 
 KNoteEditDialog::KNoteEditDialog(bool readOnly, QWidget *parent)
@@ -117,7 +118,7 @@ void KNoteEditDialog::setReadOnly(bool b)
 
 void KNoteEditDialog::readConfig()
 {
-    KConfigGroup grp( KGlobal::config(), "KNoteEditDialog" );
+    KConfigGroup grp( KSharedConfig::openConfig(), "KNoteEditDialog" );
     const QSize size = grp.readEntry( "Size", QSize(300, 200) );
     if ( size.isValid() ) {
         resize( size );
@@ -126,7 +127,7 @@ void KNoteEditDialog::readConfig()
 
 void KNoteEditDialog::writeConfig()
 {
-    KConfigGroup grp( KGlobal::config(), "KNoteEditDialog" );
+    KConfigGroup grp( KSharedConfig::openConfig(), "KNoteEditDialog" );
     grp.writeEntry( "Size", size() );
     grp.sync();
 }

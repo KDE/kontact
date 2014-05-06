@@ -24,6 +24,7 @@
 
 #include <QHBoxLayout>
 #include <QLabel>
+#include <KSharedConfig>
 
 KNotesSelectDeleteNotesListWidget::KNotesSelectDeleteNotesListWidget(QWidget *parent)
     : QListWidget(parent)
@@ -77,7 +78,7 @@ KNotesSelectDeleteNotesDialog::~KNotesSelectDeleteNotesDialog()
 
 void KNotesSelectDeleteNotesDialog::readConfig()
 {
-    KConfigGroup grp( KGlobal::config(), "KNotesSelectDeleteNotesDialog" );
+    KConfigGroup grp( KSharedConfig::openConfig(), "KNotesSelectDeleteNotesDialog" );
     const QSize size = grp.readEntry( "Size", QSize(300, 200) );
     if ( size.isValid() ) {
         resize( size );
@@ -86,7 +87,7 @@ void KNotesSelectDeleteNotesDialog::readConfig()
 
 void KNotesSelectDeleteNotesDialog::writeConfig()
 {
-    KConfigGroup grp( KGlobal::config(), "KNotesSelectDeleteNotesDialog" );
+    KConfigGroup grp( KSharedConfig::openConfig(), "KNotesSelectDeleteNotesDialog" );
     grp.writeEntry( "Size", size() );
     grp.sync();
 }
