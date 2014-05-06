@@ -11,9 +11,7 @@ set(kontact_specialdatesplugin_PART_SRCS specialdates_plugin.cpp sdsummarywidget
 
 add_library(kontact_specialdatesplugin MODULE ${kontact_specialdatesplugin_PART_SRCS})
 
-if(BUILD_korganizer)
-  set(_korganizerprivate_lib "korganizerprivate")
-endif()
+set(_korganizerprivate_lib "korganizerprivate")
 
 target_link_libraries(kontact_specialdatesplugin
   KF5::AkonadiCalendar
