@@ -294,7 +294,7 @@ MainWindow::~MainWindow()
     //    p = 0;
     //  }
 
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
 
     // During deletion of plugins, we should not access the plugin list (bug #182176)
     delete mSidePane;

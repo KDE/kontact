@@ -363,7 +363,7 @@ void KNotesPart::slotNoteCreationFinished(KJob* job)
     if (job->error()) {
         qWarning() << job->errorString();
         NoteShared::NoteSharedGlobalConfig::self()->setDefaultFolder(-1);
-        NoteShared::NoteSharedGlobalConfig::self()->writeConfig();
+        NoteShared::NoteSharedGlobalConfig::self()->save();
         KMessageBox::error(widget(), i18n("Note was not created."), i18n("Create new note"));
         return;
     }

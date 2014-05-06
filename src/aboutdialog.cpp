@@ -40,13 +40,14 @@ using namespace Kontact;
 #include <QBoxLayout>
 #include <QLabel>
 #include <QTextEdit>
+#include <QPushButton>
 
 AboutDialog::AboutDialog( KontactInterface::Core *core )
     : KPageDialog( core ), mCore( core )
 {
     setWindowTitle( i18n( "About Kontact" ) );
-    //QT5 setButtons( Close );
-    //QT5 setDefaultButton( Close );
+    setStandardButtons( QDialogButtonBox::Close );
+    button( QDialogButtonBox::Close )->setDefault(true);
     setModal( false );
     //QT5 showButtonSeparator( true );
     setFaceType( KPageDialog::List );
