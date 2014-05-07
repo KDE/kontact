@@ -43,10 +43,6 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
 {
   //QT5 setComponentData( KontactPluginFactory::componentData() );
 
-  KGlobal::locale()->insertCatalog( QLatin1String("libkdepim") );
-  KGlobal::locale()->insertCatalog( QLatin1String("kabc") );
-  KGlobal::locale()->insertCatalog( QLatin1String("libakonadi") );
-  KGlobal::locale()->insertCatalog( QLatin1String("kabcakonadi" ));
 
   KAction *action =
     new KAction( KIcon( QLatin1String("contact-new") ),
