@@ -40,7 +40,7 @@ using namespace KCalCore;
 
 #include <KontactInterface/Core>
 
-#include <KAboutData>
+#include <K4AboutData>
 #include <KCmdLineArgs>
 #include <KAction>
 #include <KActionCollection>
@@ -109,15 +109,15 @@ KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWid
     return new KNotesSummaryWidget( this, parentWidget );
 }
 #if 0 //QT5
-const KAboutData *KNotesPlugin::aboutData() const
+const K4AboutData *KNotesPlugin::aboutData() const
 {
     if ( !mAboutData ) {
         mAboutData =
-                new KAboutData( "knotes", 0,
+                new K4AboutData( "knotes", 0,
                                 ki18nc( "@title", "KNotes" ),
                                 KDEPIM_VERSION,
                                 ki18nc( "@title", "Popup Notes" ),
-                                KAboutData::License_GPL_V2,
+                                K4AboutData::License_GPL_V2,
                                 ki18nc( "@info:credit", "Copyright © 2003–2014 Kontact authors" ) );
 
         mAboutData->addAuthor( ki18nc( "@info:credit", "Laurent Montel" ),

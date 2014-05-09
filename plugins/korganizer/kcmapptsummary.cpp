@@ -161,10 +161,10 @@ void KCMApptSummary::defaults()
 const KAboutData *KCMApptSummary::aboutData() const
 {
 #if 0 //QT5
-  KAboutData *about = new KAboutData(
+  K4AboutData *about = new K4AboutData(
     I18N_NOOP( "kcmapptsummary" ), 0,
     ki18n( "Upcoming Events Configuration Dialog" ),
-    0, KLocalizedString(), KAboutData::License_GPL,
+    0, KLocalizedString(), K4AboutData::License_GPL,
     ki18n( "Copyright © 2003–2004 Tobias Koenig\n"
            "Copyright © 2005–2010 Allen Winter" ) );
 

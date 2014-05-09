@@ -27,7 +27,7 @@
 
 #include <KontactInterface/Plugin>
 
-#include <KAboutData>
+#include <K4AboutData>
 #include <KComponentData>
 #include <KDialog>
 #include <KIcon>
@@ -114,9 +114,9 @@ KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *paren
   connect( mPluginView, SIGNAL(itemChanged(QTreeWidgetItem*,int)),
            this, SLOT(changed()) );
 #if 0 //QT5
-  KAboutData *about = new KAboutData( I18N_NOOP( "kontactsummary" ), 0,
+  K4AboutData *about = new K4AboutData( I18N_NOOP( "kontactsummary" ), 0,
                                       ki18n( "KDE Kontact Summary" ),
-                                      0, KLocalizedString(), KAboutData::License_GPL,
+                                      0, KLocalizedString(), K4AboutData::License_GPL,
                                       ki18n( "(c), 2004 Tobias Koenig" ) );
 
   about->addAuthor( ki18n( "Tobias Koenig" ), KLocalizedString(), "tokoe@kde.org" );

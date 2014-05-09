@@ -28,7 +28,7 @@
 
 #include <KontactInterface/Core>
 
-#include <KAboutData>
+#include <K4AboutData>
 #include <KActionCollection>
 #include <KIcon>
 #include <KLocalizedString>
@@ -114,14 +114,14 @@ KParts::ReadOnlyPart *SummaryView::createPart()
   return mPart;
 }
 #if 0 //QT5
-const KAboutData *SummaryView::aboutData() const
+const K4AboutData *SummaryView::aboutData() const
 {
   if ( !mAboutData ) {
-    mAboutData = new KAboutData(
+    mAboutData = new K4AboutData(
       "kontactsummary", 0, ki18n( "Kontact Summary" ),
       KDEPIM_VERSION,
       ki18n( "Kontact Summary View" ),
-      KAboutData::License_LGPL,
+      K4AboutData::License_LGPL,
       ki18n( "(c) 2003-2014 The Kontact developers" ) );
 
     mAboutData->addAuthor( ki18n( "Sven Lueppken" ),

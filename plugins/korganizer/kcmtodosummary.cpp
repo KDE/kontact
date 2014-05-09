@@ -25,7 +25,7 @@
 
 #include "kcmtodosummary.h"
 
-#include <KAboutData>
+#include <K4AboutData>
 #include <KAcceleratorManager>
 #include <KComponentData>
 #include <KConfigGroup>
@@ -153,12 +153,12 @@ void KCMTodoSummary::defaults()
   emit changed( true );
 }
 #if 0 //QT5
-const KAboutData *KCMTodoSummary::aboutData() const
+const K4AboutData *KCMTodoSummary::aboutData() const
 {
-  KAboutData *about = new KAboutData(
+  K4AboutData *about = new K4AboutData(
     I18N_NOOP( "kcmtodosummary" ), 0,
     ki18n( "Pending To-dos Configuration Dialog" ),
-    0, KLocalizedString(), KAboutData::License_GPL,
+    0, KLocalizedString(), K4AboutData::License_GPL,
     ki18n( "Copyright © 2003–2004 Tobias Koenig\n"
            "Copyright © 2005–2010 Allen Winter" ) );
 

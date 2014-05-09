@@ -30,7 +30,7 @@
 #include <AkonadiWidgets/ETMViewStateSaver>
 #include <KMime/KMimeMessage>
 
-#include <KAboutData>
+#include <K4AboutData>
 #include <KAcceleratorManager>
 #include <KCheckableProxyModel>
 #include <KComponentData>
@@ -65,10 +65,10 @@ KCMKMailSummary::KCMKMailSummary( const KComponentData &inst, QWidget *parent )
 
     load();
 #if 0 //QT5
-    KAboutData *about =
-            new KAboutData( I18N_NOOP( "kcmkmailsummary" ), 0,
+    K4AboutData *about =
+            new K4AboutData( I18N_NOOP( "kcmkmailsummary" ), 0,
                             ki18n( "Mail Summary Configuration Dialog" ),
-                            0, KLocalizedString(), KAboutData::License_GPL,
+                            0, KLocalizedString(), K4AboutData::License_GPL,
                             ki18n( "Copyright © 2004–2010 Tobias Koenig" ) );
 
     about->addAuthor( ki18n( "Tobias Koenig" ),

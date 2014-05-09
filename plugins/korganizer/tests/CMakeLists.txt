@@ -6,4 +6,5 @@ target_link_libraries(
   summaryeventtest
   KF5::CalendarCore
   KF5::CalendarUtils
+  Qt5::Test
 )

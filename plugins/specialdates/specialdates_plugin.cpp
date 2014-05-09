@@ -28,7 +28,7 @@
 
 #include <KontactInterface/Core>
 
-#include <KAboutData>
+#include <K4AboutData>
 #include <KLocalizedString>
 #include <KIconLoader>
 
@@ -50,15 +50,15 @@ KontactInterface::Summary *SpecialdatesPlugin::createSummaryWidget( QWidget *par
   return new SDSummaryWidget( this, parentWidget );
 }
 #if 0
-const KAboutData *SpecialdatesPlugin::aboutData() const
+const K4AboutData *SpecialdatesPlugin::aboutData() const
 {
 #if 0 //QT5
   if ( !mAboutData ) {
-    mAboutData = new KAboutData( "specialdates", 0,
+    mAboutData = new K4AboutData( "specialdates", 0,
                                  ki18n( "Special Dates Summary" ),
                                  "1.0",
                                  ki18n( "Kontact Special Dates Summary" ),
-                                 KAboutData::License_LGPL,
+                                 K4AboutData::License_LGPL,
                                  ki18n( "Copyright © 2003 Tobias Koenig\n"
                                         "Copyright © 2004–2010 Allen Winter" ) );
     mAboutData->addAuthor( ki18n( "Allen Winter" ),
@@ -69,7 +69,7 @@ const KAboutData *SpecialdatesPlugin::aboutData() const
   }
   return mAboutData;
 #else
-  return new KAboutData();
+  return new K4AboutData();
 #endif
 }
 #endif
