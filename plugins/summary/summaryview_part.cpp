@@ -54,6 +54,7 @@ using KPIM::BroadcastStatus;
 #include <QScrollArea>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <KLocale>
 
 SummaryViewPart::SummaryViewPart( KontactInterface::Core *core, const char *,
                                   const KAboutData *aboutData, QObject *parent )
@@ -426,7 +427,7 @@ void SummaryViewPart::slotAdjustPalette()
 void SummaryViewPart::setDate( const QDate &newDate )
 {
   QString date( QLatin1String("<b>%1</b>") );
-  date = date.arg( KGlobal::locale()->formatDate( newDate ) );
+  date = date.arg( KLocale::global()->formatDate( newDate ) );
   mDateLabel->setText( date );
 }
 

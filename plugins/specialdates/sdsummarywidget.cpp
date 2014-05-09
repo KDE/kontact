@@ -494,13 +494,13 @@ void SDSummaryWidget::createLabels()
       } else if ( (*addrIt).daysTo == 1 ) {
         datestr = i18nc( "the special day is tomorrow", "Tomorrow" );
       } else {
-        datestr = KGlobal::locale()->formatDate( sD, KLocale::FancyLongDate );
+        datestr = KLocale::global()->formatDate( sD, KLocale::FancyLongDate );
       }
       // Print the date span for multiday, floating events, for the
       // first day of the event only.
       if ( (*addrIt).span > 1 ) {
         QString endstr =
-          KGlobal::locale()->formatDate( sD.addDays( (*addrIt).span - 1 ) );
+          KLocale::global()->formatDate( sD.addDays( (*addrIt).span - 1 ) );
         datestr += QLatin1String(" -\n ") + endstr;
       }
 

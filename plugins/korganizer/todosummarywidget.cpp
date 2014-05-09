@@ -211,7 +211,7 @@ TODO: calhelper is deprecated, remove this?
         } else if ( daysTo == 1 ) {
           str = i18nc( "the to-do is due tomorrow", "Tomorrow" );
         } else {
-          str = KGlobal::locale()->formatDate( todo->dtDue().date(), KLocale::FancyLongDate );
+          str = KLocale::global()->formatDate( todo->dtDue().date(), KLocale::FancyLongDate );
         }
       }
 

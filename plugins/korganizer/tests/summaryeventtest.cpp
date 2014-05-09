@@ -24,6 +24,7 @@
 
 #include <KCalCore/Event>
 #include <KCalCore/MemoryCalendar>
+#include <KLocale>
 
 QTEST_KDEMAIN_CORE( SummaryEventTester )
 
@@ -53,7 +54,7 @@ void SummaryEventTester::test_Multiday()
 
     QCOMPARE( ev4->summaryText, QString(multidayWithTimeInProgress + QString::fromLatin1(" (%1/7)").arg(i+2)));
     QCOMPARE( ev4->timeRange, QString::fromLatin1("00:00 - 23:59") );
-//    QCOMPARE( ev4->startDate, KGlobal::locale()->formatDate( QDate( today.addDays( i ) ), KLocale::FancyLongDate ) );
+//    QCOMPARE( ev4->startDate, KLocale::global()->formatDate( QDate( today.addDays( i ) ), KLocale::FancyLongDate ) );
     QCOMPARE( ev4->makeBold, i == 0 );
 
     qDeleteAll( events4 );
@@ -137,7 +138,7 @@ void SummaryEventTester::test_Multiday()
   SummaryEventInfo *ev1 = events2.at( 0 );
   QCOMPARE( ev1->summaryText, multiDayAllDayInFuture );
   QVERIFY( ev1->timeRange.isEmpty() );
-  QCOMPARE( ev1->startDate, KGlobal::locale()->formatDate( QDate( today.addDays( multiDayFuture ) ) ) );
+  QCOMPARE( ev1->startDate, KLocale::global()->formatDate( QDate( today.addDays( multiDayFuture ) ) ) );
   QCOMPARE( ev1->daysToGo, QString::fromLatin1("in %1 days").arg(multiDayFuture) );
   QCOMPARE( ev1->makeBold, false );
   // Make sure multiday is only displayed once
