@@ -37,7 +37,7 @@
 #include <QDebug>
 #include <KDialog>
 #include <KLocalizedString>
-#include <KLineEdit>
+#include <QLineEdit>
 
 #include <QCheckBox>
 #include <QTreeView>

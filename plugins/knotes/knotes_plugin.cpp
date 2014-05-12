@@ -42,7 +42,7 @@ using namespace KCalCore;
 
 #include <K4AboutData>
 #include <KCmdLineArgs>
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
 #include <QDebug>
 #include <KIcon>
@@ -64,14 +64,14 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
     KNoteUtils::migrateToAkonadi();
     //QT5 setComponentData( KontactPluginFactory::componentData() );
 
-    KAction *action =
-            new KAction( KIcon( QLatin1String("knotes") ),
+    QAction *action =
+            new QAction( KIcon( QLatin1String("knotes") ),
                          i18nc( "@action:inmenu", "New Popup Note..." ), this );
     actionCollection()->addAction( QLatin1String("new_note"), action );
     connect( action, SIGNAL(triggered(bool)), SLOT(slotNewNote()) );
     action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_N ) );
-    action->setHelpText(
-                i18nc( "@info:status", "Create new popup note" ) );
+    //action->setHelpText(
+    //            i18nc( "@info:status", "Create new popup note" ) );
     action->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can create a new popup note." ) );
