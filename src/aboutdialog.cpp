@@ -286,26 +286,27 @@ QString AboutDialog::formatPerson( const QString &name, const QString &email )
 
 void AboutDialog::addLicenseText( const KAboutData *about )
 {
-#if 0 //QT5
-    if ( !about || about->license().isEmpty() ) {
+    if ( !about || about->licenses().isEmpty() ) {
         return;
     }
-
     QPixmap pixmap = KIconLoader::global()->loadIcon( QLatin1String("help-about"),
                                                       KIconLoader::Desktop, 48 );
 
-    const QString title = i18n( "%1 License", about->programName() );
+    const QString title = i18n( "%1 License", about->displayName() );
 
     QFrame *topFrame = new QFrame();
     KPageWidgetItem *page = new KPageWidgetItem( topFrame, title );
-    page->setIcon( QIcon::fromTheme( pixmap ) );
+    page->setIcon( QIcon( pixmap ) );
     addPage( page );
     QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
     KTextBrowser *textBrowser = new KTextBrowser( topFrame );
-    textBrowser->setHtml( QString::fromLatin1( "<pre>%1</pre>" ).arg( about->license() ) );
+    QString licenseStr;
+    Q_FOREACH (const KAboutLicense &license,  about->licenses()) {
+       licenseStr += QString::fromLatin1( "<pre>%1</pre>" ).arg( license.text() );
+    }
+    textBrowser->setHtml( licenseStr );
 
     topLayout->addWidget( textBrowser );
-#endif
 }
 
