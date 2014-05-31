@@ -38,7 +38,7 @@ target_link_libraries(kontact_journalplugin  KF5::KontactInterface)
 
 set(kcm_apptsummary_PART_SRCS kcmapptsummary.cpp)
 
-qt5_wrap_ui(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui)
+ki18n_wrap_ui(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui)
 
 add_library(kcm_apptsummary MODULE ${kcm_apptsummary_PART_SRCS})
 
@@ -48,7 +48,7 @@ target_link_libraries(kcm_apptsummary  korganizerprivate KF5::CalendarUtils KF5:
 
 set(kcm_todosummary_PART_SRCS kcmtodosummary.cpp)
 
-qt5_wrap_ui(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui)
+ki18n_wrap_ui(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui)
 
 add_library(kcm_todosummary MODULE ${kcm_todosummary_PART_SRCS})
 
