@@ -21,7 +21,6 @@
 
 #include <KCModule>
 #include <KViewStateMaintainer>
-#include <KComponentData>
 namespace Akonadi {
 class ETMViewStateSaver;
 }
@@ -37,7 +36,7 @@ class KCMKNotesSummary : public KCModule
     Q_OBJECT
 
 public:
-    explicit KCMKNotesSummary( const KComponentData &inst, QWidget *parent = 0 );
+    explicit KCMKNotesSummary( QWidget *parent = 0 );
 
     virtual void load();
     virtual void save();

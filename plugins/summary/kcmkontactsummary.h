@@ -28,7 +28,6 @@
 
 #include <KCModule>
 #include <QTreeWidget>
-#include <KComponentData>
 
 class PluginView : public QTreeWidget
 {
@@ -44,7 +43,7 @@ class KCMKontactSummary : public KCModule
   Q_OBJECT
 
   public:
-    explicit KCMKontactSummary( const KComponentData &inst, QWidget *parent = 0 );
+    explicit KCMKontactSummary( QWidget *parent = 0 );
 
     void load();
     void save();

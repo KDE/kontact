@@ -23,7 +23,7 @@
 
 #include <AkonadiWidgets/ETMViewStateSaver>
 
-#include <K4AboutData>
+#include <KAboutData>
 #include <KAcceleratorManager>
 #include <KCheckableProxyModel>
 #include <KComponentData>
@@ -40,13 +40,12 @@ extern "C"
 {
 KDE_EXPORT KCModule *create_knotessummary( QWidget *parent, const char * )
 {
-    KComponentData inst( "kcmknotessummary" );
-    return new KCMKNotesSummary( inst, parent );
+    return new KCMKNotesSummary( parent );
 }
 }
 
-KCMKNotesSummary::KCMKNotesSummary( const KComponentData &inst, QWidget *parent )
-    : KCModule( /*inst,*/ parent )
+KCMKNotesSummary::KCMKNotesSummary( QWidget *parent )
+    : KCModule( parent )
 {
     initGUI();
 
@@ -57,15 +56,14 @@ KCMKNotesSummary::KCMKNotesSummary( const KComponentData &inst, QWidget *parent 
 
     load();
 
-    K4AboutData *about =
-            new K4AboutData( I18N_NOOP( "kcmknotessummary" ), 0,
-                            ki18n( "Notes Summary Configuration Dialog" ),
-                            0, KLocalizedString(), K4AboutData::License_GPL,
-                            ki18n( "Copyright © 2013-2014 Laurent Montel <montel@kde.org>" ) );
-
-    about->addAuthor( ki18n( "Laurent Montel" ),
-                      KLocalizedString(), "montel@kde.org" );
-    //QT5 setAboutData( about );
+    KAboutData *about = new KAboutData(QStringLiteral("kcmknotessummary"),
+                                      i18n("kcmknotessummary"),
+                                      QString(),
+                                      i18n("Notes Summary Configuration Dialog"),
+                                      KAboutLicense::GPL,
+                                      i18n("Copyright © 2013-2014 Laurent Montel <montel@kde.org>"));
+    about->addAuthor( ki18n( "Laurent Montel" ).toString(), QString(), QStringLiteral("montel@kde.org") );
+    setAboutData(about);
 }
 
 void KCMKNotesSummary::modified()

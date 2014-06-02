@@ -27,7 +27,7 @@
 
 #include <KontactInterface/Plugin>
 
-#include <K4AboutData>
+#include <KAboutData>
 #include <KComponentData>
 #include <KDialog>
 #include <KIcon>
@@ -44,8 +44,7 @@
 extern "C"
 {
   KDE_EXPORT KCModule *create_kontactsummary( QWidget *parent, const char * ) {
-    KComponentData inst( "kcmkontactsummary" );
-    return new KCMKontactSummary( inst, parent );
+    return new KCMKontactSummary( parent );
   }
 }
 
@@ -93,8 +92,8 @@ PluginView::~PluginView()
 {
 }
 
-KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *parent )
-  : KCModule( /*inst,*/ parent )
+KCMKontactSummary::KCMKontactSummary( QWidget *parent )
+  : KCModule( parent )
 {
   setButtons( NoAdditionalButton );
   QVBoxLayout *layout = new QVBoxLayout( this );
@@ -113,15 +112,15 @@ KCMKontactSummary::KCMKontactSummary( const KComponentData &inst, QWidget *paren
   load();
   connect( mPluginView, SIGNAL(itemChanged(QTreeWidgetItem*,int)),
            this, SLOT(changed()) );
-#if 0 //QT5
-  K4AboutData *about = new K4AboutData( I18N_NOOP( "kontactsummary" ), 0,
-                                      ki18n( "KDE Kontact Summary" ),
-                                      0, KLocalizedString(), K4AboutData::License_GPL,
-                                      ki18n( "(c), 2004 Tobias Koenig" ) );
 
-  about->addAuthor( ki18n( "Tobias Koenig" ), KLocalizedString(), "tokoe@kde.org" );
-  setAboutData( about );
-#endif
+  KAboutData *about = new KAboutData(QStringLiteral("kontactsummary"),
+                                      i18n("kontactsummary"),
+                                      QString(),
+                                      i18n("KDE Kontact Summary"),
+                                      KAboutLicense::GPL,
+                                      i18n("(c), 2004 Tobias Koenig"));
+   about->addAuthor( ki18n( "Tobias Koenig" ).toString(), QString(), QStringLiteral("tokoe@kde.org") );
+   setAboutData(about);
 }
 
 void KCMKontactSummary::load()

@@ -33,12 +33,11 @@
 
 KCModule *create_todosummary( QWidget *parent, const char * )
 {
-  KComponentData inst( "kcmtodosummary" );
-  return new KCMTodoSummary( inst, parent );
+  return new KCMTodoSummary( parent );
 }
 
-KCMTodoSummary::KCMTodoSummary( const KComponentData &inst, QWidget *parent )
-  : KCModule( /*inst,*/ parent )
+KCMTodoSummary::KCMTodoSummary( QWidget *parent )
+  : KCModule( parent )
 {
   setupUi( this );
 
