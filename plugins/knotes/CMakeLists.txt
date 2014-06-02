@@ -34,12 +34,8 @@ target_link_libraries(kontact_knotesplugin
                       KF5::CalendarCore 
                       KF5::CalendarUtils 
                       KF5::KontactInterface 
-                      ${KDE4_KDEPRINT_LIBS} 
-                       
                       kdepim 
-                      ${KDE4_KPRINTUTILS_LIBS} 
                       pimcommon 
-                      ${KDE4_KDNSSD_LIBS} 
                       noteshared 
                       akonadi_next
 )

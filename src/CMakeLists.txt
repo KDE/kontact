@@ -24,10 +24,8 @@ add_library(kontactprivate ${LIBRARY_TYPE} ${kontactprivate_LIB_SRCS})
 target_link_libraries(kontactprivate
   KF5::KCMUtils
   KF5::WebKit
-  ${KDE4_KPARTS_LIBS}
   KF5::KontactInterface
   KF5::PimUtils
-  ${QT_QTWEBKIT_LIBRARY}
   kdepim
   kdepimdbusinterfaces
 )
@@ -52,9 +50,7 @@ set_target_properties(kontact_bin PROPERTIES OUTPUT_NAME kontact)
 target_link_libraries(kontact_bin
   KF5::WebKit
   KF5::Service
-  ${KDE4_KPARTS_LIBRARY}
   KF5::KontactInterface
-  ${QT_QTWEBKIT_LIBRARY}
   kdepimdbusinterfaces
   kontactprivate
 )
