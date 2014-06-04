@@ -45,7 +45,7 @@ using namespace KCalCore;
 #include <QAction>
 #include <KActionCollection>
 #include <QDebug>
-#include <KIcon>
+#include <QIcon>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSystemTimeZones>
@@ -65,7 +65,7 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
     //QT5 setComponentData( KontactPluginFactory::componentData() );
 
     QAction *action =
-            new QAction( KIcon( QLatin1String("knotes") ),
+            new QAction( QIcon::fromTheme( QLatin1String("knotes") ),
                          i18nc( "@action:inmenu", "New Popup Note..." ), this );
     actionCollection()->addAction( QLatin1String("new_note"), action );
     connect( action, SIGNAL(triggered(bool)), SLOT(slotNewNote()) );

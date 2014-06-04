@@ -30,7 +30,7 @@
 #include <QDebug>
 #include <KLocalizedString>
 #include <KGlobal>
-#include <KIcon>
+#include <QIcon>
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -45,7 +45,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
 
 
   KAction *action =
-    new KAction( KIcon( QLatin1String("contact-new") ),
+    new KAction( QIcon::fromTheme( QLatin1String("contact-new") ),
                  i18nc( "@action:inmenu", "New Contact..." ), this );
   actionCollection()->addAction( QLatin1String("new_contact"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewContact()) );
@@ -58,7 +58,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
   insertNewAction( action );
 
   action =
-    new KAction( KIcon( QLatin1String("user-group-new") ),
+    new KAction( QIcon::fromTheme( QLatin1String("user-group-new") ),
                  i18nc( "@action:inmenu", "New Contact Group..." ), this );
   actionCollection()->addAction( QLatin1String("new_contactgroup"), action );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewContactGroup()) );
@@ -71,7 +71,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
   insertNewAction( action );
 
   KAction *syncAction =
-    new KAction( KIcon( QLatin1String("view-refresh") ),
+    new KAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
                  i18nc( "@action:inmenu", "Sync Contacts" ), this );
   actionCollection()->addAction( QLatin1String("kaddressbook_sync"), syncAction );
   connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );

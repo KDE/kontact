@@ -34,7 +34,7 @@
 #include <QDebug>
 #include <QtDBus/QtDBus>
 #include <KAction>
-#include <KIcon>
+#include <QIcon>
 
 //QT5 EXPORT_KONTACT_PLUGIN( JournalPlugin, journal )
 
@@ -46,7 +46,7 @@ JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList &
   KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
 
   KAction *action =
-    new KAction( KIcon( QLatin1String("journal-new") ),
+    new KAction( QIcon::fromTheme( QLatin1String("journal-new") ),
                  i18nc( "@action:inmenu", "New Journal..." ), this );
   actionCollection()->addAction( QLatin1String("new_journal"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_J ) );
@@ -60,7 +60,7 @@ JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList &
   insertNewAction( action );
 
   KAction *syncAction =
-    new KAction( KIcon( QLatin1String("view-refresh") ),
+    new KAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
                  i18nc( "@action:inmenu", "Sync Journal" ), this );
   actionCollection()->addAction( QLatin1String("journal_sync"), syncAction );
   syncAction->setHelpText(

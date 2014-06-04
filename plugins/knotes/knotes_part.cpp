@@ -81,7 +81,7 @@
 #include <KToggleAction>
 #include <KLocalizedString>
 #include <KShortcut>
-#include <KIcon>
+#include <QIcon>
 
 #include <QApplication>
 #include <QClipboard>
@@ -113,7 +113,7 @@ KNotesPart::KNotesPart( QObject *parent )
     }
 
     // create the actions
-    mNewNote = new QAction( KIcon( QLatin1String("knotes") ),
+    mNewNote = new QAction( QIcon::fromTheme( QLatin1String("knotes") ),
                             i18nc( "@action:inmenu create new popup note", "&New" ), this );
     actionCollection()->addAction( QLatin1String("file_new"), mNewNote );
     connect( mNewNote, SIGNAL(triggered(bool)), SLOT(newNote()) );
@@ -124,7 +124,7 @@ KNotesPart::KNotesPart( QObject *parent )
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can add a new popup note." ) );
 
-    mNoteEdit = new QAction( KIcon( QLatin1String("document-edit") ),
+    mNoteEdit = new QAction( QIcon::fromTheme( QLatin1String("document-edit") ),
                           i18nc( "@action:inmenu", "Edit..." ), this );
     actionCollection()->addAction( QLatin1String("edit_note"), mNoteEdit );
     connect( mNoteEdit, SIGNAL(triggered(bool)), SLOT(editNote()) );
@@ -134,7 +134,7 @@ KNotesPart::KNotesPart( QObject *parent )
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can modify an existing popup note." ) );
 
-    mNoteRename = new QAction( KIcon( QLatin1String("edit-rename") ),
+    mNoteRename = new QAction( QIcon::fromTheme( QLatin1String("edit-rename") ),
                           i18nc( "@action:inmenu", "Rename..." ), this );
     mNoteRename->setShortcut( QKeySequence( Qt::Key_F2 ) );
     actionCollection()->addAction( QLatin1String("edit_rename"), mNoteRename );
@@ -145,7 +145,7 @@ KNotesPart::KNotesPart( QObject *parent )
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can rename an existing popup note." ) );
 
-    mNoteDelete = new QAction( KIcon( QLatin1String("edit-delete") ),
+    mNoteDelete = new QAction( QIcon::fromTheme( QLatin1String("edit-delete") ),
                           i18nc( "@action:inmenu", "Delete" ), this );
     actionCollection()->addAction( QLatin1String("edit_delete"), mNoteDelete );
     connect( mNoteDelete, SIGNAL(triggered(bool)), SLOT(killSelectedNotes()) );
@@ -157,7 +157,7 @@ KNotesPart::KNotesPart( QObject *parent )
                        "You will be prompted if you really want to permanently remove "
                        "the selected popup note." ) );
 
-    mNotePrint = new QAction( KIcon( QLatin1String("document-print") ),
+    mNotePrint = new QAction( QIcon::fromTheme( QLatin1String("document-print") ),
                           i18nc( "@action:inmenu", "Print Selected Notes..." ), this );
     actionCollection()->addAction( QLatin1String("print_note"), mNotePrint );
     connect( mNotePrint, SIGNAL(triggered(bool)), SLOT(slotPrintSelectedNotes()) );
@@ -168,43 +168,43 @@ KNotesPart::KNotesPart( QObject *parent )
                        "You will be prompted to print the selected popup note." ) );
 
     if(KPrintPreview::isAvailable()) {
-        mNotePrintPreview = new QAction( KIcon( QLatin1String("document-print-preview") ),i18nc( "@action:inmenu", "Print Preview Selected Notes..." ), this );
+        mNotePrintPreview = new QAction( QIcon::fromTheme( QLatin1String("document-print-preview") ),i18nc( "@action:inmenu", "Print Preview Selected Notes..." ), this );
         actionCollection()->addAction( QLatin1String("print_preview_note"), mNotePrintPreview );
 
         connect( mNotePrintPreview, SIGNAL(triggered(bool)), SLOT(slotPrintPreviewSelectedNotes()) );
     }
 
-    mNoteConfigure  = new QAction( KIcon( QLatin1String("configure") ), i18n( "Note settings..." ), this );
+    mNoteConfigure  = new QAction( QIcon::fromTheme( QLatin1String("configure") ), i18n( "Note settings..." ), this );
     actionCollection()->addAction( QLatin1String("configure_note"), mNoteConfigure );
     connect( mNoteConfigure, SIGNAL(triggered(bool)), SLOT(slotNotePreferences()) );
 
-    QAction *act  = new QAction( KIcon( QLatin1String("configure") ), i18n( "Preferences KNotes..." ), this );
+    QAction *act  = new QAction( QIcon::fromTheme( QLatin1String("configure") ), i18n( "Preferences KNotes..." ), this );
     actionCollection()->addAction( QLatin1String("knotes_configure"), act );
     connect( act, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
 
-    mNoteSendMail = new QAction( KIcon( QLatin1String("mail-send") ), i18n( "Mail..." ), this );
+    mNoteSendMail = new QAction( QIcon::fromTheme( QLatin1String("mail-send") ), i18n( "Mail..." ), this );
     actionCollection()->addAction( QLatin1String("mail_note"), mNoteSendMail );
     connect( mNoteSendMail, SIGNAL(triggered(bool)), SLOT(slotMail()) );
 
-    mNoteSendNetwork  = new QAction( KIcon( QLatin1String("network-wired") ), i18n( "Send..." ), this );
+    mNoteSendNetwork  = new QAction( QIcon::fromTheme( QLatin1String("network-wired") ), i18n( "Send..." ), this );
     actionCollection()->addAction( QLatin1String("send_note"), mNoteSendNetwork );
     connect( mNoteSendNetwork, SIGNAL(triggered(bool)), SLOT(slotSendToNetwork()) );
 
-    mNoteSetAlarm  = new QAction( KIcon( QLatin1String("knotes_alarm") ), i18n( "Set Alarm..." ), this );
+    mNoteSetAlarm  = new QAction( QIcon::fromTheme( QLatin1String("knotes_alarm") ), i18n( "Set Alarm..." ), this );
     actionCollection()->addAction( QLatin1String("set_alarm"), mNoteSetAlarm );
     connect( mNoteSetAlarm, SIGNAL(triggered(bool)), SLOT(slotSetAlarm()) );
 
-    act  = new QAction( KIcon( QLatin1String("edit-paste") ),
+    act  = new QAction( QIcon::fromTheme( QLatin1String("edit-paste") ),
                            i18n( "New Note From Clipboard" ), this );
     actionCollection()->addAction( QLatin1String("new_note_clipboard"), act );
     connect( act, SIGNAL(triggered()), SLOT(slotNewNoteFromClipboard()) );
 
 
-    mSaveAs  = new QAction( KIcon( QLatin1String("document-save-as") ), i18n( "Save As..." ), this );
+    mSaveAs  = new QAction( QIcon::fromTheme( QLatin1String("document-save-as") ), i18n( "Save As..." ), this );
     actionCollection()->addAction( QLatin1String("save_note"), mSaveAs );
     connect( mSaveAs, SIGNAL(triggered(bool)), SLOT(slotSaveAs()) );
 
-    mReadOnly  = new KToggleAction( KIcon( QLatin1String("object-locked") ), i18n( "Lock" ), this );
+    mReadOnly  = new KToggleAction( QIcon::fromTheme( QLatin1String("object-locked") ), i18n( "Lock" ), this );
     actionCollection()->addAction( QLatin1String("lock_note"), mReadOnly );
     connect( mReadOnly, SIGNAL(triggered(bool)), SLOT(slotUpdateReadOnly()) );
     mReadOnly->setCheckedState( KGuiItem( i18n( "Unlock" ), QLatin1String("object-unlocked") ) );

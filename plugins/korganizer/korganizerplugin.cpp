@@ -41,7 +41,7 @@
 #include <KAction>
 #include <KActionCollection>
 #include <QDebug>
-#include <KIcon>
+#include <QIcon>
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -61,7 +61,7 @@ KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariant
   KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
 
   KAction *action  =
-    new KAction( KIcon( QLatin1String("appointment-new") ),
+    new KAction( QIcon::fromTheme( QLatin1String("appointment-new") ),
                  i18nc( "@action:inmenu", "New Event..." ), this );
   actionCollection()->addAction( QLatin1String("new_event"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT+Qt::Key_E ) );
@@ -74,7 +74,7 @@ KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariant
   insertNewAction( action );
 
   KAction *syncAction =
-    new KAction( KIcon( QLatin1String("view-refresh") ),
+    new KAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
                  i18nc( "@action:inmenu", "Sync Calendar" ), this );
   actionCollection()->addAction( QLatin1String("korganizer_sync"), syncAction );
   syncAction->setHelpText(

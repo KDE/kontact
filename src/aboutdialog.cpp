@@ -31,7 +31,7 @@ using namespace Kontact;
 #include <KAboutData>
 #include <KComponentData>
 #include <KLocale>
-#include <KTextBrowser>
+#include <QTextBrowser>
 #include <KGlobal>
 #include <KConfigGroup>
 #include <QIcon>
@@ -129,7 +129,7 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
                     Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard | Qt::LinksAccessibleByMouse );
         topLayout->addWidget( label );
 
-        KTextBrowser *personView = new KTextBrowser( topFrame );
+        QTextBrowser *personView = new QTextBrowser( topFrame );
         personView->setReadOnly( true );
         topLayout->addWidget( personView, 1 );
 
@@ -300,7 +300,7 @@ void AboutDialog::addLicenseText( const KAboutData *about )
     addPage( page );
     QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
-    KTextBrowser *textBrowser = new KTextBrowser( topFrame );
+    QTextBrowser *textBrowser = new QTextBrowser( topFrame );
     QString licenseStr;
     Q_FOREACH (const KAboutLicense &license,  about->licenses()) {
        licenseStr += QString::fromLatin1( "<pre>%1</pre>" ).arg( license.text() );

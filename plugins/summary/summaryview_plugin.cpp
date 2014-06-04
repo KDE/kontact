@@ -30,7 +30,7 @@
 
 #include <K4AboutData>
 #include <KActionCollection>
-#include <KIcon>
+#include <QIcon>
 #include <KLocalizedString>
 #include <KSelectAction>
 
@@ -43,7 +43,7 @@ SummaryView::SummaryView( KontactInterface::Core *core, const QVariantList & )
 {
   //QT5 setComponentData( KontactPluginFactory::componentData() );
 
-  mSyncAction = new KSelectAction( KIcon( QLatin1String("view-refresh") ), i18n( "Sync All" ), this );
+  mSyncAction = new KSelectAction( QIcon::fromTheme( QLatin1String("view-refresh") ), i18n( "Sync All" ), this );
   actionCollection()->addAction( QLatin1String("kontact_summary_sync"), mSyncAction );
   connect( mSyncAction, SIGNAL(triggered(QString)), SLOT(syncAccount(QString)) );
   connect( mSyncAction->menu(), SIGNAL(aboutToShow()), this, SLOT(fillSyncActionSubEntries()) );

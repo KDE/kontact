@@ -42,7 +42,7 @@ using KPIM::BroadcastStatus;
 #include <KConfigGroup>
 #include <KDialog>
 #include <KGlobalSettings>
-#include <KIcon>
+#include <QIcon>
 #include <KLocalizedString>
 #include <KParts/PartActivateEvent>
 #include <KGlobal>
@@ -69,7 +69,7 @@ SummaryViewPart::SummaryViewPart( KontactInterface::Core *core, const char *,
   setDate( QDate::currentDate() );
   connect( mCore, SIGNAL(dayChanged(QDate)), SLOT(setDate(QDate)) );
 
-  mConfigAction = new KAction( KIcon( QLatin1String("configure") ), i18n( "&Configure Summary View..." ), this );
+  mConfigAction = new KAction( QIcon::fromTheme( QLatin1String("configure") ), i18n( "&Configure Summary View..." ), this );
   actionCollection()->addAction( QLatin1String("summaryview_configure"), mConfigAction );
   connect( mConfigAction, SIGNAL(triggered(bool)), SLOT(slotConfigure()) );
   mConfigAction->setHelpText( i18n( "Configure the summary view" ) );
