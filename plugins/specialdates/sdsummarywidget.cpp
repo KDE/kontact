@@ -93,7 +93,7 @@ BirthdaySearchJob::BirthdaySearchJob( QObject *parent, int daysInAdvance )
     arg( QString::fromLatin1( Akonadi::ItemSearchJob::akonadiItemIdUri().toEncoded() ) ).
     arg( QDate::currentDate().toString( Qt::ISODate ) ).
     arg( daysInAdvance );
-  Akonadi::ItemSearchJob::setQuery( query );
+  //QT5 Akonadi::ItemSearchJob::setQuery( query );
 }
 
 enum SDIncidenceType {
