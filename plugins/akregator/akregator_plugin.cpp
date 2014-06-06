@@ -32,7 +32,7 @@
 #include <KAction>
 #include <KActionCollection>
 #include <KLocalizedString>
-#include <KIcon>
+#include <QIcon>
 
 //QT5 EXPORT_KONTACT_PLUGIN( AkregatorPlugin, akregator )
 
@@ -43,7 +43,7 @@ AkregatorPlugin::AkregatorPlugin( KontactInterface::Core *core, const QVariantLi
   //QT5 setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action =
-    new KAction( KIcon( QLatin1String("bookmark-new") ),
+    new KAction( QIcon::fromTheme( QLatin1String("bookmark-new") ),
                  i18nc( "@action:inmenu", "New Feed..." ), this );
   actionCollection()->addAction( QLatin1String("feed_new"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_F ) );

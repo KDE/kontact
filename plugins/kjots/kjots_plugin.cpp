@@ -29,7 +29,7 @@
 #include <KAction>
 #include <KActionCollection>
 #include <KCmdLineArgs>
-#include <KIcon>
+#include <QIcon>
 #include <KLocalizedString>
 
 //QT5 EXPORT_KONTACT_PLUGIN( KJotsPlugin, kjots )
@@ -40,7 +40,7 @@ KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
   //QT5 setComponentData( KontactPluginFactory::componentData() );
 
   KAction *action =
-    new KAction( KIcon( QLatin1String("document-new") ),
+    new KAction( QIcon::fromTheme( QLatin1String("document-new") ),
                  i18nc( "@action:inmenu", "New KJots Page" ), this );
   actionCollection()->addAction( QLatin1String("new_kjots_page"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_P ) );
@@ -52,7 +52,7 @@ KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
   connect( action, SIGNAL(triggered(bool)), SLOT(newPage()) );
   insertNewAction( action );
 
-  action = new KAction( KIcon( QLatin1String("address-book-new") ),
+  action = new KAction( QIcon::fromTheme( QLatin1String("address-book-new") ),
                         i18nc( "@action:inmenu", "New KJots Book" ), this );
   actionCollection()->addAction( QLatin1String("new_kjots_book"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_B ) );

@@ -37,7 +37,7 @@
 #include <KAction>
 #include <KActionCollection>
 #include <QDebug>
-#include <KIcon>
+#include <QIcon>
 #include <KLocalizedString>
 #include <KStandardDirs>
 #include <KTemporaryFile>
@@ -55,7 +55,7 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
     //QT5 setComponentData( KontactPluginFactory::componentData() );
 
     KAction *action =
-            new KAction( KIcon( QLatin1String("mail-message-new") ),
+            new KAction( QIcon::fromTheme( QLatin1String("mail-message-new") ),
                          i18nc( "@action:inmenu", "New Message..." ), this );
     actionCollection()->addAction( QLatin1String("new_mail"), action );
     action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_M ) );
@@ -69,7 +69,7 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
     insertNewAction( action );
 
     KAction *syncAction =
-            new KAction( KIcon( QLatin1String("view-refresh") ),
+            new KAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
                          i18nc( "@action:inmenu", "Sync Mail" ), this );
     syncAction->setHelpText(
                 i18nc( "@info:status", "Synchronize groupware mail" ) );
