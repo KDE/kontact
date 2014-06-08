@@ -30,7 +30,7 @@
 #include <KAboutData>
 #include <KComponentData>
 #include <KDialog>
-#include <KIcon>
+#include <QIcon>
 #include <KLocalizedString>
 #include <KPluginInfo>
 #include <KService>
@@ -54,7 +54,7 @@ class PluginItem : public QTreeWidgetItem
     PluginItem( const KPluginInfo &info, QTreeWidget *parent )
       : QTreeWidgetItem( parent ), mInfo( info )
     {
-      setIcon( 0, KIcon( mInfo.icon() ) );
+      setIcon( 0, QIcon::fromTheme( mInfo.icon() ) );
       setText( 0, mInfo.name() );
       setToolTip( 0, mInfo.comment() );
       setFlags( Qt::ItemIsEnabled | Qt::ItemIsUserCheckable );
