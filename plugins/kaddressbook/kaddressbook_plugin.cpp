@@ -29,7 +29,7 @@
 #include <KCmdLineArgs>
 #include <QDebug>
 #include <KLocalizedString>
-#include <KGlobal>
+
 #include <QIcon>
 
 #include <QDBusConnection>

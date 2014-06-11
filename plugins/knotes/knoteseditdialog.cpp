@@ -24,7 +24,7 @@
 #include <KLocalizedString>
 #include <KToolBar>
 #include <QLineEdit>
-#include <KGlobal>
+
 
 #include <KXMLGUIBuilder>
 #include <KXMLGUIFactory>

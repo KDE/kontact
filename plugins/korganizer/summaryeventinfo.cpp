@@ -33,7 +33,7 @@ using namespace KCalCore;
 #include <KCalUtils/IncidenceFormatter>
 using namespace KCalUtils;
 
-#include <KGlobal>
+
 #include <KLocalizedString>
 #include <KSystemTimeZones>
 #include <KLocale>

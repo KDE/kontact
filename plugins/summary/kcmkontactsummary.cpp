@@ -35,7 +35,7 @@
 #include <KPluginInfo>
 #include <KService>
 #include <KServiceTypeTrader>
-#include <KGlobal>
+
 #include <kdemacros.h>
 
 #include <QLabel>

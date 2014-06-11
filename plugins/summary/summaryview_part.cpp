@@ -45,7 +45,7 @@ using KPIM::BroadcastStatus;
 #include <QIcon>
 #include <KLocalizedString>
 #include <KParts/PartActivateEvent>
-#include <KGlobal>
+
 
 #include <QApplication>
 #include <QDate>
