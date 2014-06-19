@@ -197,6 +197,11 @@ KNotesPart::KNotesPart( QObject *parent )
     connect( act, SIGNAL(triggered()), SLOT(slotNewNoteFromClipboard()) );
 
 
+    act  = new KAction( KIcon( QLatin1String("document-open") ),
+                           i18n( "New Note From Text File..." ), this );
+    actionCollection()->addAction( QLatin1String("new_note_from_text_file"), act );
+    connect( act, SIGNAL(triggered()), SLOT(slotNewNoteFromTextFile()) );
+
     mSaveAs  = new KAction( KIcon( QLatin1String("document-save-as") ), i18n( "Save As..." ), this );
     actionCollection()->addAction( QLatin1String("save_note"), mSaveAs );
     connect( mSaveAs, SIGNAL(triggered(bool)), SLOT(slotSaveAs()) );
@@ -851,5 +856,24 @@ void KNotesPart::slotItemFetchFinished(KJob *job)
         if ( !item.hasPayload<KMime::Message::Ptr>() )
             continue;
         mNotesWidget->notesView()->addNote(item);
+    }
+}
+
+void KNotesPart::slotNewNoteFromTextFile()
+{
+    QString text;
+    const QString filename = KFileDialog::getOpenFileName( KUrl(),
+                                     QLatin1String("*.txt"),
+                                     widget(),
+                                     i18n("Select Text File") );
+    if (!filename.isEmpty()) {
+        QFile f(filename);
+        if (f.open(QIODevice::ReadOnly|QIODevice::Text)) {
+            text = QString::fromUtf8(f.readAll());
+        } else {
+            KMessageBox::error(widget(), i18n("Error during open text file: %1", f.errorString()), i18n("Open Text File"));
+            return;
+        }
+        newNote( i18n("Note from file '%1'",filename), text);
     }
 }

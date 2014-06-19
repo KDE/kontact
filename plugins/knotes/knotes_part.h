@@ -117,6 +117,7 @@ private slots:
     void slotSelectNote(Akonadi::Item::Id id);
     void slotCollectionChanged(const Akonadi::Collection &col, const QSet<QByteArray> &set);
     void slotItemFetchFinished(KJob *job);
+    void slotNewNoteFromTextFile();
 private:
     void fetchNotesFromCollection(const Akonadi::Collection &col);
     void updateNetworkListener();
