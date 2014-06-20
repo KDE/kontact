@@ -200,7 +200,7 @@ KNotesPart::KNotesPart( QObject *parent )
     connect( act, SIGNAL(triggered()), SLOT(slotNewNoteFromClipboard()) );
 
 
-    act  = new KAction( KIcon( QLatin1String("document-open") ),
+    act  = new QAction( QIcon::fromTheme( QLatin1String("document-open") ),
                            i18n( "New Note From Text File..." ), this );
     actionCollection()->addAction( QLatin1String("new_note_from_text_file"), act );
     connect( act, SIGNAL(triggered()), SLOT(slotNewNoteFromTextFile()) );
