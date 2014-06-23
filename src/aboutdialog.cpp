@@ -42,6 +42,7 @@ using namespace Kontact;
 #include <QTextEdit>
 #include <QPushButton>
 #include <KSharedConfig>
+#include <KWindowConfig>
 
 AboutDialog::AboutDialog( KontactInterface::Core *core )
     : KPageDialog( core ), mCore( core )
@@ -64,19 +65,17 @@ AboutDialog::AboutDialog( KontactInterface::Core *core )
     }
 
     //QT5 addLicenseText( KGlobal::mainComponent().aboutData() );
-
-    //QT5 setInitialSize( QSize( 600, 400 ) );
-    //QT5 restoreDialogSize( KConfigGroup( KSharedConfig::openConfig(), "AboutDialog" ) );
+    resize(QSize( 600, 400 ));
+    KConfigGroup grp = KConfigGroup( KSharedConfig::openConfig(), "AboutDialog" );
+    KWindowConfig::restoreWindowSize( windowHandle(), grp);
     connect( this, SIGNAL(finished(int)), this, SLOT(saveSize()) );
 }
 
 void AboutDialog::saveSize()
 {
-#if 0 //QT5
     KConfigGroup group( KSharedConfig::openConfig(), "AboutDialog" );
-    saveDialogSize( group );
+    KWindowConfig::saveWindowSize(windowHandle(), group);
     group.sync();
-#endif
 }
 
 void AboutDialog::addAboutPlugin( KontactInterface::Plugin *plugin )

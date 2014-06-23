@@ -438,7 +438,7 @@ void MainWindow::setupActions()
     mNewActions = new KActionMenu(
                 i18nc( "@title:menu create new pim items (message,calendar,to-do,etc.)", "New" ), this );
     actionCollection()->addAction( QLatin1String("action_new"), mNewActions );
-    //QT5 mNewActions->setShortcut( KStandardShortcut::openNew() );
+    mNewActions->setShortcuts( KStandardShortcut::openNew() );
     connect( mNewActions, SIGNAL(triggered(bool)), this, SLOT(slotNewClicked()) );
 
     // If the user is using disconnected imap mail folders as groupware, we add
@@ -460,7 +460,7 @@ void MainWindow::setupActions()
                     QIcon::fromTheme( QLatin1String("view-refresh") ),
                     i18nc( "@title:menu synchronize pim items (message,calendar,to-do,etc.)", "Sync" ), this );
         actionCollection()->addAction( QLatin1String("action_sync"), mSyncActions );
-        //QT5 mSyncActions->setShortcut( KStandardShortcut::reload() );
+        mSyncActions->setShortcuts( KStandardShortcut::reload() );
         connect( mSyncActions, SIGNAL(triggered(bool)), this, SLOT(slotSyncClicked()) );
     }
 
@@ -628,7 +628,7 @@ void MainWindow::updateShortcuts()
     for ( it = mActionPlugins.constBegin(); it != end; ++it ) {
         QAction *action = static_cast<QAction*>( *it );
         const QString shortcut = QString::fromLatin1( "Ctrl+%1" ).arg( mActionPlugins.count() - i );
-        //QT5 action->setShortcut( KShortcut( shortcut ) );
+        action->setShortcut( QKeySequence( shortcut ) );
         ++i;
     }
     factory()->plugActionList( this, QLatin1String( "navigator_actionlist" ), mActionPlugins );
@@ -722,7 +722,7 @@ void MainWindow::addPlugin( KontactInterface::Plugin *plugin )
     foreach ( QAction *qaction, mActionPlugins ) {
         QAction *action = static_cast<QAction*>( qaction );
         QString shortcut = QString::fromLatin1( "Ctrl+%1" ).arg( mActionPlugins.count() - i );
-        //QT5 action->setShortcut( KShortcut( shortcut ) );
+        action->setShortcut( QKeySequence( shortcut ) );
         ++i;
     }
 }
