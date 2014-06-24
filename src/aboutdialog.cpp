@@ -29,7 +29,6 @@ using namespace Kontact;
 #include <KontactInterface/Plugin>
 
 #include <KAboutData>
-#include <KComponentData>
 #include <KLocale>
 #include <QTextBrowser>
 #include <KGlobal>
@@ -39,7 +38,6 @@ using namespace Kontact;
 
 #include <QBoxLayout>
 #include <QLabel>
-#include <QTextEdit>
 #include <QPushButton>
 #include <KSharedConfig>
 #include <KWindowConfig>

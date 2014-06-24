@@ -17,10 +17,10 @@
 */
 #include "kontactconfiguredialog.h"
 
-#include <QDebug>
 
 #include <QDBusReply>
 #include <QDBusInterface>
+#include <QDebug>
 
 using namespace Kontact;
 

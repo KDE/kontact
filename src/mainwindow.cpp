@@ -40,10 +40,11 @@ using namespace Kontact;
 
 #include <KPIMUtils/KFileIO>
 
+#include <QStatusBar>
+#include <KXMLGUIFactory>
 #include <KActionCollection>
 #include <KActionMenu>
 #include <KApplication>
-#include <KComponentData>
 #include <KConfigGroup>
 #include <KDBusServiceStarter>
 #include <KDebug>
@@ -58,14 +59,10 @@ using namespace Kontact;
 #include <KSqueezedTextLabel>
 #include <KStandardAction>
 #include <KStandardDirs>
-#include <KStatusBar>
 #include <KTipDialog>
 #include <KToolBar>
-#include <KToolInvocation>
-#include <KXMLGUIFactory>
 #include <KParts/PartManager>
 #include <KSettings/Dispatcher>
-#include <KSettings/Dialog>
 #include <KSycoca>
 #include <KIconLoader>
 #include <KGlobal>
