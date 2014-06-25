@@ -71,7 +71,7 @@
 
 #include <KActionCollection>
 #include <QAction>
-#include <KInputDialog>
+#include <QInputDialog>
 #include <KMessageBox>
 #include <KXMLGUIFactory>
 #include <KPrintPreview>
@@ -580,9 +580,9 @@ void KNotesPart::renameNote()
     const QString oldName = knoteItem->realName();
     bool ok = false;
     const QString newName =
-            KInputDialog::getText( i18nc( "@title:window", "Rename Popup Note" ),
+            QInputDialog::getText( mNotesWidget, i18nc( "@title:window", "Rename Popup Note" ),
                                    i18nc( "@label:textbox", "New Name:" ),
-                                   oldName, &ok, mNotesWidget );
+                                   QLineEdit::Normal, oldName, &ok );
     if ( ok && ( newName != oldName ) ) {
         knoteItem->setIconText( newName );
     }
