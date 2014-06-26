@@ -1,7 +1,7 @@
 
 include_directories(${CMAKE_SOURCE_DIR}/korganizer ${CMAKE_SOURCE_DIR}/korganizer/interfaces ${Boost_INCLUDE_DIRS})
 
-kde_enable_exceptions()
+
 
 ########### next target ###############
 set(libcommon_SRCS korg_uniqueapp.cpp)

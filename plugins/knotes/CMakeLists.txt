@@ -1,4 +1,4 @@
-kde_enable_exceptions()
+
 
 
 ########### next target ###############

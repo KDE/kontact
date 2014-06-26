@@ -3,7 +3,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 ########### next target ###############
 
-kde_enable_exceptions()
+
 
 include_directories(${Boost_INCLUDE_DIR})
 
