@@ -36,7 +36,6 @@ using namespace Kontact;
 #include <libkdepim/progresswidget/statusbarprogresswidget.h>
 
 #include <KontactInterface/Core>
-#include <KontactInterface/Plugin>
 
 #include <KPIMUtils/KFileIO>
 

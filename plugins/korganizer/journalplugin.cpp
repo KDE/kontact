@@ -36,7 +36,7 @@
 #include <KAction>
 #include <QIcon>
 
-//QT5 EXPORT_KONTACT_PLUGIN( JournalPlugin, journal )
+EXPORT_KONTACT_PLUGIN( JournalPlugin, journal )
 
 JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "korganizer", "journal" ), mIface( 0 )
@@ -162,4 +162,4 @@ bool JournalPlugin::isRunningStandalone() const
 {
   return mUniqueAppWatcher->isRunningStandalone();
 }
-
+#include "journalplugin.moc"

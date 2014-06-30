@@ -26,12 +26,9 @@
 #include "kontact_export.h"
 
 #include <KontactInterface/Core>
+#include <KontactInterface/Plugin>
 #include <KUrl>
 #include <QAction>
-
-namespace KontactInterface {
-class Plugin;
-}
 
 class KActionMenu;
 class KWebView;
@@ -153,7 +150,7 @@ private:
 
 }
 
-//QT5 Q_DECLARE_METATYPE( KontactInterface::Plugin * )
+Q_DECLARE_METATYPE( KontactInterface::Plugin * )
 
 #endif
 // vim: sw=2 sts=2 et

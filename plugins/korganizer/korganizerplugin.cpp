@@ -51,7 +51,7 @@
 
 #include <QDropEvent>
 
-//QT5 EXPORT_KONTACT_PLUGIN( KOrganizerPlugin, korganizer )
+EXPORT_KONTACT_PLUGIN( KOrganizerPlugin, korganizer )
 
 KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "korganizer", "calendar" ), mIface( 0 )
@@ -267,4 +267,4 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 
   //QT5 qWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
-
+#include "korganizerplugin.moc"

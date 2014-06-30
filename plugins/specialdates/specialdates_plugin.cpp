@@ -32,7 +32,7 @@
 #include <KLocalizedString>
 #include <KIconLoader>
 
-//QT5 EXPORT_KONTACT_PLUGIN( SpecialdatesPlugin, specialdates )
+EXPORT_KONTACT_PLUGIN( SpecialdatesPlugin, specialdates )
 
 SpecialdatesPlugin::SpecialdatesPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, 0 ), mAboutData( 0 )
@@ -73,3 +73,4 @@ const K4AboutData *SpecialdatesPlugin::aboutData() const
 #endif
 }
 #endif
+#include "specialdates_plugin.moc"

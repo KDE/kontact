@@ -36,7 +36,7 @@
 
 #include <QMenu>
 
-//QT5 EXPORT_KONTACT_PLUGIN( SummaryView, summary )
+EXPORT_KONTACT_PLUGIN( SummaryView, summary )
 
 SummaryView::SummaryView( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, 0 ), mAboutData( 0 ), mPart( 0 )
@@ -137,3 +137,4 @@ const K4AboutData *SummaryView::aboutData() const
 }
 
 #endif
+#include "summaryview_plugin.moc"

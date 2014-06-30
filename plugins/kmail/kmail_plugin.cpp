@@ -34,7 +34,7 @@
 
 #include <KontactInterface/Core>
 
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
 #include <QDebug>
 #include <QIcon>
@@ -47,20 +47,20 @@
 using namespace KCalUtils;
 using namespace KCalCore;
 
-//QT5 EXPORT_KONTACT_PLUGIN( KMailPlugin, kmail )
+EXPORT_KONTACT_PLUGIN( KMailPlugin, kmail )
 
 KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
     : KontactInterface::Plugin( core, core, "kmail2" ), m_instance( 0 )
 {
     //QT5 setComponentData( KontactPluginFactory::componentData() );
 
-    KAction *action =
-            new KAction( QIcon::fromTheme( QLatin1String("mail-message-new") ),
+    QAction *action =
+            new QAction( QIcon::fromTheme( QLatin1String("mail-message-new") ),
                          i18nc( "@action:inmenu", "New Message..." ), this );
     actionCollection()->addAction( QLatin1String("new_mail"), action );
     action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_M ) );
-    action->setHelpText(
-                i18nc( "@info:status", "Create a new mail message" ) );
+    //action->setHelpText(
+    //            i18nc( "@info:status", "Create a new mail message" ) );
     action->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can create "
@@ -68,11 +68,11 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
     connect( action, SIGNAL(triggered(bool)), SLOT(slotNewMail()) );
     insertNewAction( action );
 
-    KAction *syncAction =
-            new KAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
+    QAction *syncAction =
+            new QAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
                          i18nc( "@action:inmenu", "Sync Mail" ), this );
-    syncAction->setHelpText(
-                i18nc( "@info:status", "Synchronize groupware mail" ) );
+    //syncAction->setHelpText(
+    //            i18nc( "@info:status", "Synchronize groupware mail" ) );
     syncAction->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "Choose this option to synchronize your groupware email." ) );
@@ -250,4 +250,4 @@ bool KMailPlugin::queryClose() const
     QDBusReply<bool> canClose = kmail.canQueryClose();
     return canClose;
 }
-
+#include "kmail_plugin.moc"

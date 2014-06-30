@@ -49,7 +49,7 @@
 
 #include <QDropEvent>
 
-//QT5 EXPORT_KONTACT_PLUGIN( TodoPlugin, todo )
+EXPORT_KONTACT_PLUGIN( TodoPlugin, todo )
 
 TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "korganizer", "todo" ), mIface( 0 )
@@ -269,4 +269,4 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
 
   //QT5 qWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
 }
-
+#include "todoplugin.moc"

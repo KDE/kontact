@@ -34,7 +34,7 @@
 #include <KLocalizedString>
 #include <QIcon>
 
-//QT5 EXPORT_KONTACT_PLUGIN( AkregatorPlugin, akregator )
+EXPORT_KONTACT_PLUGIN( AkregatorPlugin, akregator )
 
 AkregatorPlugin::AkregatorPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "akregator" ), m_interface( 0 )
@@ -157,4 +157,4 @@ int AkregatorUniqueAppHandler::newInstance()
 
   return KontactInterface::UniqueAppHandler::newInstance();
 }
-
+#include "akregator_plugin.moc"

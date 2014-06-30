@@ -55,7 +55,7 @@ using namespace KCalCore;
 #include <QDBusMessage>
 #include <QDropEvent>
 
-//QT5 EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
+EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
 
 KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
     : KontactInterface::Plugin( core, core, "knotes" ),
@@ -246,3 +246,6 @@ int KNotesUniqueAppHandler::newInstance()
     (void)plugin()->part();
     return KontactInterface::UniqueAppHandler::newInstance();
 }
+
+#include "knotes_plugin.moc"
+

@@ -32,7 +32,7 @@
 #include <QIcon>
 #include <KLocalizedString>
 
-//QT5 EXPORT_KONTACT_PLUGIN( KJotsPlugin, kjots )
+EXPORT_KONTACT_PLUGIN( KJotsPlugin, kjots )
 
 KJotsPlugin::KJotsPlugin( KontactInterface::Core *core, const QVariantList & )
   : KontactInterface::Plugin( core, core, "kjots" ), m_interface( 0 )
@@ -144,4 +144,4 @@ int KJotsUniqueAppHandler::newInstance()
 
 }
 
-
+#include "kjots_plugin.moc"
