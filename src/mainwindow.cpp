@@ -661,7 +661,7 @@ bool MainWindow::removePlugin( const KPluginInfo &info )
             plugin->deleteLater(); // removes the part automatically
             mPlugins.erase( it );
             if ( plugin->showInSideBar() ) {
-                QAction *q = mPluginAction[plugin]; // remove KAction, to free the shortcut for later use
+                QAction *q = mPluginAction[plugin]; // remove QAction, to free the shortcut for later use
                 mActionPlugins.removeAll( q );
                 mPluginAction.remove(plugin);
                 delete q;
