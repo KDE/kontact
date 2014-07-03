@@ -28,7 +28,7 @@
 
 #include <KontactInterface/Core>
 
-#include <K4AboutData>
+#include <KAboutData>
 #include <KLocalizedString>
 #include <KIconLoader>
 
@@ -49,28 +49,23 @@ KontactInterface::Summary *SpecialdatesPlugin::createSummaryWidget( QWidget *par
 {
   return new SDSummaryWidget( this, parentWidget );
 }
-#if 0
-const K4AboutData *SpecialdatesPlugin::aboutData() const
+
+const KAboutData *SpecialdatesPlugin::aboutData() const
 {
-#if 0 //QT5
   if ( !mAboutData ) {
-    mAboutData = new K4AboutData( "specialdates", 0,
-                                 ki18n( "Special Dates Summary" ),
-                                 "1.0",
-                                 ki18n( "Kontact Special Dates Summary" ),
-                                 K4AboutData::License_LGPL,
-                                 ki18n( "Copyright © 2003 Tobias Koenig\n"
+    mAboutData = new KAboutData( QLatin1String("specialdates"),
+                                 i18n( "Special Dates Summary" ),
+                                 QLatin1String("1.0"),
+                                 i18n( "Kontact Special Dates Summary" ),
+                                 KAboutLicense::LGPL,
+                                 i18n( "Copyright © 2003 Tobias Koenig\n"
                                         "Copyright © 2004–2010 Allen Winter" ) );
-    mAboutData->addAuthor( ki18n( "Allen Winter" ),
-                           ki18n( "Current Maintainer" ), "winter@kde.org" );
-    mAboutData->addAuthor( ki18n( "Tobias Koenig" ),
-                           KLocalizedString(), "tokoe@kde.org" );
-    mAboutData->setProductName( "kontact/specialdates" );
+    mAboutData->addAuthor( i18n( "Allen Winter" ),
+                           i18n( "Current Maintainer" ), QLatin1String("winter@kde.org") );
+    mAboutData->addAuthor( i18n( "Tobias Koenig" ),
+                           QString(), QLatin1String("tokoe@kde.org") );
+    mAboutData->setProductName( "kontact/specialdates");
   }
   return mAboutData;
-#else
-  return new K4AboutData();
-#endif
 }
-#endif
 #include "specialdates_plugin.moc"

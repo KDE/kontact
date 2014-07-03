@@ -51,7 +51,7 @@ public:
     QString tipFile() const;
     int weight() const { return 600; }
 
-    //QT5 const KAboutData *aboutData() const;
+    const KAboutData *aboutData() const;
 
     bool canDecodeMimeData( const QMimeData *data ) const;
     void processDropEvent( QDropEvent * );

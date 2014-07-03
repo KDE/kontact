@@ -40,7 +40,6 @@ using namespace KCalCore;
 
 #include <KontactInterface/Core>
 
-#include <K4AboutData>
 #include <KCmdLineArgs>
 #include <QAction>
 #include <KActionCollection>
@@ -108,33 +107,33 @@ KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWid
 {
     return new KNotesSummaryWidget( this, parentWidget );
 }
-#if 0 //QT5
-const K4AboutData *KNotesPlugin::aboutData() const
+
+const KAboutData *KNotesPlugin::aboutData() const
 {
     if ( !mAboutData ) {
         mAboutData =
-                new K4AboutData( "knotes", 0,
-                                ki18nc( "@title", "KNotes" ),
-                                KDEPIM_VERSION,
-                                ki18nc( "@title", "Popup Notes" ),
-                                K4AboutData::License_GPL_V2,
-                                ki18nc( "@info:credit", "Copyright © 2003–2014 Kontact authors" ) );
+                new KAboutData( QLatin1String("knotes"),
+                                xi18nc( "@title", "KNotes" ),
+                                QLatin1String(KDEPIM_VERSION),
+                                xi18nc( "@title", "Popup Notes" ),
+                                KAboutLicense::GPL_V2,
+                                xi18nc( "@info:credit", "Copyright © 2003–2014 Kontact authors" ) );
 
-        mAboutData->addAuthor( ki18nc( "@info:credit", "Laurent Montel" ),
-                               ki18nc( "@info:credit", "Current Maintainer" ),
-                               "montel@kde.org" );
+        mAboutData->addAuthor( xi18nc( "@info:credit", "Laurent Montel" ),
+                               xi18nc( "@info:credit", "Current Maintainer" ),
+                               QStringLiteral("montel@kde.org") );
  
-        mAboutData->addAuthor( ki18nc( "@info:credit", "Michael Brade" ),
-                               ki18nc( "@info:credit", "Previous Maintainer" ),
-                               "brade@kde.org" );
-        mAboutData->addAuthor( ki18nc( "@info:credit", "Tobias Koenig" ),
-                               ki18nc( "@info:credit", "Developer" ),
-                               "tokoe@kde.org" );
+        mAboutData->addAuthor( xi18nc( "@info:credit", "Michael Brade" ),
+                               xi18nc( "@info:credit", "Previous Maintainer" ),
+                               QStringLiteral("brade@kde.org") );
+        mAboutData->addAuthor( xi18nc( "@info:credit", "Tobias Koenig" ),
+                               xi18nc( "@info:credit", "Developer" ),
+                               QStringLiteral("tokoe@kde.org") );
     }
 
     return mAboutData;
 }
-#endif
+
 bool KNotesPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
     return
