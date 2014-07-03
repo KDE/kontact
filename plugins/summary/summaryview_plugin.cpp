@@ -28,7 +28,7 @@
 
 #include <KontactInterface/Core>
 
-#include <K4AboutData>
+#include <KAboutData>
 #include <KActionCollection>
 #include <QIcon>
 #include <KLocalizedString>
@@ -113,28 +113,28 @@ KParts::ReadOnlyPart *SummaryView::createPart()
   mPart->setObjectName( QLatin1String("summaryPart") );
   return mPart;
 }
-#if 0 //QT5
-const K4AboutData *SummaryView::aboutData() const
+
+const KAboutData *SummaryView::aboutData() const
 {
   if ( !mAboutData ) {
-    mAboutData = new K4AboutData(
-      "kontactsummary", 0, ki18n( "Kontact Summary" ),
-      KDEPIM_VERSION,
-      ki18n( "Kontact Summary View" ),
-      K4AboutData::License_LGPL,
-      ki18n( "(c) 2003-2014 The Kontact developers" ) );
+    mAboutData = new KAboutData(
+      QLatin1String("kontactsummary"), 
+      i18n( "Kontact Summary" ),
+      QLatin1String(KDEPIM_VERSION),
+      i18n( "Kontact Summary View" ),
+      KAboutLicense::LGPL,
+      i18n( "(c) 2003-2014 The Kontact developers" ) );
 
-    mAboutData->addAuthor( ki18n( "Sven Lueppken" ),
-                           KLocalizedString(), "sven@kde.org" );
-    mAboutData->addAuthor( ki18n( "Cornelius Schumacher" ),
-                           KLocalizedString(), "schumacher@kde.org" );
-    mAboutData->addAuthor( ki18n( "Tobias Koenig" ),
-                           KLocalizedString(), "tokoe@kde.org" );
+    mAboutData->addAuthor( i18n( "Sven Lueppken" ),
+                           QString(), QLatin1String("sven@kde.org") );
+    mAboutData->addAuthor( i18n( "Cornelius Schumacher" ),
+                           QString(), QLatin1String("schumacher@kde.org") );
+    mAboutData->addAuthor( i18n( "Tobias Koenig" ),
+                           QString(), QLatin1String("tokoe@kde.org") );
     mAboutData->setProductName( "kontact/summary" );
   }
 
   return mAboutData;
 }
 
-#endif
 #include "summaryview_plugin.moc"

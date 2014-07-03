@@ -37,7 +37,7 @@ class SummaryView : public KontactInterface::Plugin
 
     int weight() const { return 100; }
 
-    //QT5 const KAboutData *aboutData() const;
+    const KAboutData *aboutData() const;
 
   protected:
     virtual KParts::ReadOnlyPart *createPart();

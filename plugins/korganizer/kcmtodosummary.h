@@ -46,7 +46,7 @@ class KCMTodoSummary : public KCModule, public Ui::TodoSummaryConfig_Base
     void load();
     void save();
     void defaults();
-    //QT5 const KAboutData *aboutData() const;
+    const KAboutData *aboutData() const;
 
   private slots:
     void modified();
