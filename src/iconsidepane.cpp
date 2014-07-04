@@ -40,6 +40,7 @@ using namespace Kontact;
 #include <QStringListModel>
 #include <QStyledItemDelegate>
 #include <QTimer>
+#include <QCollator>
 
 namespace Kontact {
 
@@ -183,7 +184,9 @@ protected:
                 static_cast<KontactInterface::Plugin*>( right.internalPointer() );
 
         if ( leftPlugin->weight() == rightPlugin->weight() ) {
-            //QT5 return KStringHandler::naturalCompare( leftPlugin->title(), rightPlugin->title() ) < 0;
+            //Optimize it
+            QCollator col;
+            return col.compare( leftPlugin->title(), rightPlugin->title() ) < 0;
         }
 
         return leftPlugin->weight() < rightPlugin->weight();

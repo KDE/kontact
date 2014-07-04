@@ -97,11 +97,9 @@ void SummaryView::doSync()
   Q_FOREACH ( const KontactInterface::Plugin *i, pluginList ) {
     // execute all sync actions but our own
     Q_FOREACH ( QAction *j, i->syncActions() ) {
-#if 0 //QT5
       if ( j != mSyncAction ) {
         j->trigger();
       }
-#endif
     }
   }
   fillSyncActionSubEntries();
