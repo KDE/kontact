@@ -170,8 +170,8 @@ void MainWindow::initGUI()
     initWidgets();
     setupActions();
     setHelpMenuEnabled( false );
-    //QT5 KHelpMenu *helpMenu = new KHelpMenu( this, 0, true, actionCollection() );
-    //QT5 connect( helpMenu, SIGNAL(showAboutApplication()), SLOT(showAboutDialog()) );
+    KHelpMenu *helpMenu = new KHelpMenu( this, QString(), true/*, actionCollection() QT5*/ );
+    connect( helpMenu, SIGNAL(showAboutApplication()), SLOT(showAboutDialog()) );
 
     KStandardAction::keyBindings( this, SLOT(configureShortcuts()), actionCollection() );
     KStandardAction::configureToolbars( this, SLOT(configureToolbars()), actionCollection() );
