@@ -75,26 +75,22 @@ KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
 
 const KAboutData *KcmKontact::aboutData() const
 {
-#if 0 //QT5
     KAboutData *about = new KAboutData(
-                "kontactconfig", 0,
-                ki18nc( "@title", "KDE Kontact" ),
-                0,
-                KLocalizedString(),
-                KAboutData::License_GPL,
-                ki18nc( "@info:credit", "(c), 2003 Cornelius Schumacher" ) );
+                QLatin1String("kontactconfig"),
+                i18nc( "@title", "KDE Kontact" ),
+                QString(),
+                QString(),
+                KAboutLicense::GPL,
+                i18nc( "@info:credit", "(c), 2003 Cornelius Schumacher" ) );
 
-    about->addAuthor( ki18nc( "@info:credit", "Cornelius Schumacher" ),
-                      ki18nc( "@info:credit", "Developer" ),
-                      "schumacher@kde.org" );
-    about->addAuthor( ki18nc( "@info:credit", "Tobias Koenig" ),
-                      ki18nc( "@info:credit", "Developer" ),
-                      "tokoe@kde.org" );
+    about->addAuthor( i18nc( "@info:credit", "Cornelius Schumacher" ),
+                      i18nc( "@info:credit", "Developer" ),
+                      QLatin1String("schumacher@kde.org") );
+    about->addAuthor( i18nc( "@info:credit", "Tobias Koenig" ),
+                      i18nc( "@info:credit", "Developer" ),
+                      QLatin1String("tokoe@kde.org") );
 
     return about;
-#else
-    return 0;
-#endif
 }
 
 PluginSelection::PluginSelection( KConfigSkeleton::ItemString *item, QWidget *parent )
