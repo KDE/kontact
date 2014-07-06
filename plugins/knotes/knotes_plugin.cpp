@@ -53,6 +53,7 @@ using namespace KCalCore;
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDropEvent>
+#include <QStandardPaths>
 
 EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
 
@@ -93,7 +94,7 @@ bool KNotesPlugin::isRunningStandalone() const
 QString KNotesPlugin::tipFile() const
 {
     // TODO: tips file
-    //QString file = KStandardDirs::locate("data", "knotes/tips");
+    //QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "knotes/tips");
     QString file;
     return file;
 }

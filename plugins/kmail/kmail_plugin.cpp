@@ -43,6 +43,7 @@
 #include <KTemporaryFile>
 
 #include <QDropEvent>
+#include <QStandardPaths>
 
 using namespace KCalUtils;
 using namespace KCalCore;
@@ -188,7 +189,7 @@ bool KMailPlugin::createDBUSInterface( const QString &serviceType )
 
 QString KMailPlugin::tipFile() const
 {
-    const QString file = KStandardDirs::locate( "data", QLatin1String("kmail2/tips") );
+    const QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kmail2/tips") );
     return file;
 }
 

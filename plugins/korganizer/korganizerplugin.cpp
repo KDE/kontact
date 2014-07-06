@@ -50,6 +50,7 @@
 #include <KTemporaryFile>
 
 #include <QDropEvent>
+#include <QStandardPaths>
 
 EXPORT_KONTACT_PLUGIN( KOrganizerPlugin, korganizer )
 
@@ -114,7 +115,7 @@ KParts::ReadOnlyPart *KOrganizerPlugin::createPart()
 
 QString KOrganizerPlugin::tipFile() const
 {
-  QString file = KStandardDirs::locate( "data", QLatin1String("korganizer/tips") );
+  QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("korganizer/tips") );
   return file;
 }
 

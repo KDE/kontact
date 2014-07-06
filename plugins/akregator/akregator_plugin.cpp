@@ -33,6 +33,7 @@
 #include <KActionCollection>
 #include <KLocalizedString>
 #include <QIcon>
+#include <QStandardPaths>
 
 EXPORT_KONTACT_PLUGIN( AkregatorPlugin, akregator )
 
@@ -88,7 +89,7 @@ OrgKdeAkregatorPartInterface *AkregatorPlugin::interface()
 QString AkregatorPlugin::tipFile() const
 {
   // TODO: tips file
-  //QString file = KStandardDirs::locate("data", "akregator/tips");
+  //QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "akregator/tips");
   QString file;
   return file;
 }

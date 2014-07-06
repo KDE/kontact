@@ -78,6 +78,7 @@ using namespace Kontact;
 #include <QIcon>
 #include <KHelpClient>
 #include <KSharedConfig>
+#include <QStandardPaths>
 
 // Define the maximum time Kontact waits for KSycoca to become available.
 static const int KSYCOCA_WAIT_TIMEOUT = 10;
@@ -389,7 +390,7 @@ void MainWindow::initWidgets()
 
 void MainWindow::paintAboutScreen( const QString &msg )
 {
-    QString location = KStandardDirs::locate( "data", QLatin1String("kontact/about/main.html") );
+    QString location = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kontact/about/main.html") );
     QString content = QLatin1String(KPIMUtils::kFileToByteArray( location ));
     content = content.arg( QLatin1String("file:") + KStandardDirs::locate(
                                "data", QLatin1String("kdeui/about/kde_infopage.css") ) );

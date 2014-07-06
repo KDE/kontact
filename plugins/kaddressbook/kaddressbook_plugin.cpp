@@ -35,6 +35,7 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusReply>
+#include <QStandardPaths>
 
 EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kaddressbook )
 
@@ -123,7 +124,7 @@ void KAddressBookPlugin::slotNewContactGroup()
 QString KAddressBookPlugin::tipFile() const
 {
   // TODO: tips file
-  //QString file = KStandardDirs::locate("data", "kaddressbook/tips");
+  //QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kaddressbook/tips");
   QString file;
   return file;
 }
