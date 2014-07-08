@@ -21,14 +21,15 @@
 #include <QDBusReply>
 #include <QDBusInterface>
 #include <QDebug>
+#include <QPushButton>
 
 using namespace Kontact;
 
 KontactConfigureDialog::KontactConfigureDialog( QWidget *parent )
     : KSettings::Dialog( parent )
 {
-    connect( this, SIGNAL(okClicked()), SLOT(slotOk()) );
-    connect( this, SIGNAL(applyClicked()), SLOT(slotApply()) );
+    connect( button(QDialogButtonBox::Ok), SIGNAL(clicked()), SLOT(slotOk()) );
+    connect( button(QDialogButtonBox::Apply), SIGNAL(clicked()), SLOT(slotApply()) );
 }
 
 KontactConfigureDialog::~KontactConfigureDialog()
