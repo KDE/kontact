@@ -273,7 +273,7 @@ void KNotesIconViewItem::saveNoteContent(const QString &subject, const QString &
     message->contentType( true )->setMimeType( isRichText() ? "text/html" : "text/plain" );
     message->contentType()->setCharset(encoding);
     message->contentTransferEncoding(true)->setEncoding(KMime::Headers::CEquPr);
-    message->date( true )->setDateTime( KDateTime::currentLocalDateTime() );
+    message->date( true )->setDateTime( QDateTime::currentDateTime() );
     if (!description.isEmpty()) {
         message->mainBodyPart()->fromUnicodeString( description );
     } else if (message->mainBodyPart()->decodedText().isEmpty()) {
