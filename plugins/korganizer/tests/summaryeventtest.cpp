@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "qtest_kde.h"
+#include "qtest.h"
 #include "summaryeventtest.h"
 #include "../summaryeventinfo.h"
 
@@ -26,7 +26,7 @@
 #include <KCalCore/MemoryCalendar>
 #include <KLocale>
 
-QTEST_KDEMAIN_CORE( SummaryEventTester )
+QTEST_GUILESS_MAIN( SummaryEventTester )
 
 void SummaryEventTester::test_Multiday()
 {

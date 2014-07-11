@@ -1,6 +1,8 @@
-set(summaryeventtest_SRCS summaryeventtest.cpp ../summaryeventinfo.cpp)
+set(summaryeventtest_SRCS  summaryeventtest.cpp ../summaryeventinfo.cpp)
 
-kde4_add_unit_test(summaryeventtest TESTNAME summaryeventtest ${summaryeventtest_SRCS})
+add_executable( summaryeventtest ${summaryeventtest_SRCS} )
+add_test( summaryeventtest summaryeventtest)
+ecm_mark_as_test(summaryeventtest)
 
 target_link_libraries(
   summaryeventtest
