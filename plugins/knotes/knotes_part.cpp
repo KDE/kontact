@@ -80,7 +80,6 @@
 #include <KFileDialog>
 #include <KToggleAction>
 #include <KLocalizedString>
-#include <KShortcut>
 #include <QIcon>
 
 #include <QApplication>
