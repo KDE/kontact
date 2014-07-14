@@ -35,7 +35,7 @@ using KPIM::BroadcastStatus;
 #include <KontactInterface/Plugin>
 #include <KontactInterface/Summary>
 
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
 #include <KCMultiDialog>
 #include <KComponentData>
@@ -69,10 +69,10 @@ SummaryViewPart::SummaryViewPart( KontactInterface::Core *core, const char *,
   setDate( QDate::currentDate() );
   connect( mCore, SIGNAL(dayChanged(QDate)), SLOT(setDate(QDate)) );
 
-  mConfigAction = new KAction( QIcon::fromTheme( QLatin1String("configure") ), i18n( "&Configure Summary View..." ), this );
+  mConfigAction = new QAction( QIcon::fromTheme( QLatin1String("configure") ), i18n( "&Configure Summary View..." ), this );
   actionCollection()->addAction( QLatin1String("summaryview_configure"), mConfigAction );
   connect( mConfigAction, SIGNAL(triggered(bool)), SLOT(slotConfigure()) );
-  mConfigAction->setHelpText( i18n( "Configure the summary view" ) );
+  //QT5 mConfigAction->setHelpText( i18n( "Configure the summary view" ) );
   mConfigAction->setWhatsThis(
     i18nc( "@info:whatsthis",
            "Choosing this will show a dialog where you can select which "
