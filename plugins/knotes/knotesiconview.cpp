@@ -131,7 +131,7 @@ KNotesIconViewItem::~KNotesIconViewItem()
 
 void KNotesIconViewItem::prepare()
 {
-    KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
+    const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
     const KMime::Headers::Subject * const subject = noteMessage ? noteMessage->subject(false) : 0;
     setText(subject ? subject->asUnicodeString() : QString());
 
@@ -184,10 +184,10 @@ void KNotesIconViewItem::slotNoteSaved(KJob *job)
     }
 }
 
-void KNotesIconViewItem::setChangeIconTextAndDescription( const QString &iconText, const QString &description)
+void KNotesIconViewItem::setChangeIconTextAndDescription( const QString &iconText, const QString &description, int position)
 {
     setIconText(iconText, false);
-    saveNoteContent(iconText, description);
+    saveNoteContent(iconText, description, position);
 }
 
 void KNotesIconViewItem::setIconText( const QString &text, bool save )
@@ -248,6 +248,17 @@ QString KNotesIconViewItem::description() const
     return QString::fromUtf8(noteMessage->mainBodyPart()->decodedContent());
 }
 
+int KNotesIconViewItem::cursorPositionFromStart() const
+{
+    int pos = 0;
+    const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
+    if ( noteMessage->headerByType( "X-Cursor-Position" ) ) {
+        pos = noteMessage->headerByType( "X-Cursor-Position" )->asUnicodeString().toInt();
+    }
+    return pos;
+}
+
+
 void KNotesIconViewItem::setDescription(const QString &description)
 {
     saveNoteContent(QString(), description);
@@ -263,7 +274,7 @@ Akonadi::Item KNotesIconViewItem::item()
     return mItem;
 }
 
-void KNotesIconViewItem::saveNoteContent(const QString &subject, const QString &description)
+void KNotesIconViewItem::saveNoteContent(const QString &subject, const QString &description, int position)
 {
     KMime::Message::Ptr message = mItem.payload<KMime::Message::Ptr>();
     const QByteArray encoding( "utf-8" );
@@ -278,6 +289,11 @@ void KNotesIconViewItem::saveNoteContent(const QString &subject, const QString &
         message->mainBodyPart()->fromUnicodeString( description );
     } else if (message->mainBodyPart()->decodedText().isEmpty()) {
         message->mainBodyPart()->fromUnicodeString( QString::fromLatin1( " " ) );
+    }
+
+    if (position >=0 ) {
+        KMime::Headers::Generic *header = new KMime::Headers::Generic( "X-Cursor-Position", message.get(), QString::number( position ), "utf-8" );
+        message->setHeader( header );
     }
 
     message->assemble();
@@ -301,7 +317,7 @@ void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QBy
         setReadOnly(item.hasAttribute<NoteShared::NoteLockAttribute>(), false);
     }
     if (set.contains("PLD:RFC822")) {
-        KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
+        const KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
         const KMime::Headers::Subject * const subject = noteMessage ? noteMessage->subject(false) : 0;
         setIconText(subject ? subject->asUnicodeString() : QString(), false);
     }
