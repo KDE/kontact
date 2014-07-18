@@ -131,7 +131,7 @@ KNotesIconViewItem::~KNotesIconViewItem()
 
 void KNotesIconViewItem::prepare()
 {
-    KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
+    const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
     const KMime::Headers::Subject * const subject = noteMessage ? noteMessage->subject(false) : 0;
     setText(subject ? subject->asUnicodeString() : QString());
 
@@ -301,7 +301,7 @@ void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QBy
         setReadOnly(item.hasAttribute<NoteShared::NoteLockAttribute>(), false);
     }
     if (set.contains("PLD:RFC822")) {
-        KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
+        const KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
         const KMime::Headers::Subject * const subject = noteMessage ? noteMessage->subject(false) : 0;
         setIconText(subject ? subject->asUnicodeString() : QString(), false);
     }
