@@ -177,4 +177,13 @@ void KNoteEditDialog::setTextFont( const QFont &font )
     mNoteEdit->setTextFont(font);
 }
 
+void KNoteEditDialog::setCursorPositionFromStart( int pos )
+{
+    mNoteEdit->setCursorPositionFromStart(pos);
+}
+
+int KNoteEditDialog::cursorPositionFromStart() const
+{
+    return mNoteEdit->cursorPositionFromStart();
+}
 
