@@ -52,6 +52,10 @@ public:
     void setTextFont(const QFont &font);
 
     void setColor(const QColor &fg, const QColor &bg);
+
+    void setCursorPositionFromStart(int pos);
+
+    int cursorPositionFromStart() const;
 private slots:
     void slotTextChanged(const QString &text);
 

@@ -67,11 +67,14 @@ public:
     Akonadi::Item item();
 
     void setChangeItem(const Akonadi::Item &item, const QSet<QByteArray> &set);
-    void saveNoteContent(const QString &subject = QString(), const QString &description = QString());
+    void saveNoteContent(const QString &subject = QString(), const QString &description = QString(), int position = -1);
     void updateSettings();
-    void setChangeIconTextAndDescription(const QString &iconText, const QString &description);
+    void setChangeIconTextAndDescription(const QString &iconText, const QString &description, int position);
     QColor textBackgroundColor() const;
     QColor textForegroundColor() const;
+
+    void setCursorPositionFromStart(int pos);
+    int cursorPositionFromStart() const;
 
 private slots:
     void slotNoteSaved(KJob *job);

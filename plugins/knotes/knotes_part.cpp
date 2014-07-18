@@ -555,9 +555,11 @@ void KNotesPart::editNote( QListWidgetItem *item )
     dlg->setAutoIndentMode(knotesItem->autoIndent());
     dlg->setTextFont(knotesItem->textFont());
 
+    dlg->setCursorPositionFromStart(knotesItem->cursorPositionFromStart());
+
     dlg->noteEdit()->setFocus();
     if ( dlg->exec() == QDialog::Accepted ) {
-        knotesItem->setChangeIconTextAndDescription(dlg->title(), dlg->text());
+        knotesItem->setChangeIconTextAndDescription(dlg->title(), dlg->text(), dlg->cursorPositionFromStart());
     }
     delete dlg;
 }
