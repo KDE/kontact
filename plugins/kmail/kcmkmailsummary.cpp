@@ -26,7 +26,6 @@
 #include "kcmkmailsummary.h"
 
 #include "pimcommon/folderdialog/checkedcollectionwidget.h"
-
 #include <AkonadiWidgets/ETMViewStateSaver>
 #include <KMime/KMimeMessage>
 
@@ -45,7 +44,7 @@
 
 extern "C"
 {
-KDE_EXPORT KCModule *create_kmailsummary( QWidget *parent, const char * )
+Q_DECL_EXPORT KCModule *create_kmailsummary( QWidget *parent, const char * )
 {
     KComponentData inst( "kcmkmailsummary" );
     return new KCMKMailSummary( inst, parent );

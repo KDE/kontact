@@ -36,14 +36,14 @@
 #include <KService>
 #include <KServiceTypeTrader>
 
-#include <kdemacros.h>
+
 
 #include <QLabel>
 #include <QVBoxLayout>
 
 extern "C"
 {
-  KDE_EXPORT KCModule *create_kontactsummary( QWidget *parent, const char * ) {
+  Q_DECL_EXPORT KCModule *create_kontactsummary( QWidget *parent, const char * ) {
     return new KCMKontactSummary( parent );
   }
 }

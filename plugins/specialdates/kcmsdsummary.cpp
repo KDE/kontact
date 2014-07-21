@@ -30,10 +30,10 @@
 #include <KComponentData>
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <kdemacros.h>
+
 extern "C"
 {
-  KDE_EXPORT KCModule *create_sdsummary( QWidget *parent, const char * )
+  Q_DECL_EXPORT KCModule *create_sdsummary( QWidget *parent, const char * )
   {
     KComponentData inst( "kcmsdsummary" );
     return new KCMSDSummary( inst, parent );

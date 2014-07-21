@@ -38,7 +38,7 @@
 
 extern "C"
 {
-KDE_EXPORT KCModule *create_knotessummary( QWidget *parent, const char * )
+Q_DECL_EXPORT KCModule *create_knotessummary( QWidget *parent, const char * )
 {
     return new KCMKNotesSummary( parent );
 }
