@@ -40,7 +40,7 @@ using namespace Kontact;
 
 extern "C"
 {
-KDE_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * )
+Q_DECL_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * )
 {
     KComponentData inst( "kcmkontact" );
     return new KcmKontact( inst, parent );

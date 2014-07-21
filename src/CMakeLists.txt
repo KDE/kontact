@@ -20,6 +20,7 @@ set(kontactprivate_LIB_SRCS
 kconfig_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc)
 
 add_library(kontactprivate ${LIBRARY_TYPE} ${kontactprivate_LIB_SRCS})
+generate_export_header(kontactprivate BASE_NAME kontact)
 
 target_link_libraries(kontactprivate
   KF5::KCMUtils
