@@ -43,7 +43,7 @@
 //#define DEBUG_SAVE_NOTE 1
 
 KNotesIconView::KNotesIconView( KNotesPart *part, QWidget *parent )
-    : KListWidget(parent),
+    : QListWidget(parent),
       m_part(part)
 {
     setViewMode( QListView::IconMode );
@@ -63,7 +63,7 @@ KNotesIconView::~KNotesIconView()
 bool KNotesIconView::event(QEvent *e)
 {
     if( e->type() != QEvent::ToolTip )
-      return KListWidget::event( e );
+      return QListWidget::event( e );
     QHelpEvent * he = static_cast< QHelpEvent * >( e );
 
     QPoint pnt = viewport()->mapFromGlobal( mapToGlobal( he->pos() ) );

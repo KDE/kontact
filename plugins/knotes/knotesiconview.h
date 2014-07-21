@@ -19,11 +19,11 @@
 #define KNOTESICONVIEW_H
 
 #include "knotes_part.h"
-#include <KListWidget>
+#include <QListWidget>
 #include <QMultiHash>
 class KNoteConfig;
 class KNoteDisplaySettings;
-class KNotesIconView : public KListWidget
+class KNotesIconView : public QListWidget
 {
     Q_OBJECT
 public:
