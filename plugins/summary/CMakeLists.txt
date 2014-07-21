@@ -32,6 +32,6 @@ install(TARGETS kcm_kontactsummary DESTINATION ${PLUGIN_INSTALL_DIR})
 
 install(FILES summaryplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 install(FILES kcmkontactsummary.desktop DESTINATION ${SERVICES_INSTALL_DIR})
-install(FILES kontactsummary_part.rc DESTINATION ${DATA_INSTALL_DIR}/kontactsummary)
+install(FILES kontactsummary_part.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kontactsummary)
 
 install(FILES summary.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
