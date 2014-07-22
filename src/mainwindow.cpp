@@ -264,12 +264,12 @@ void MainWindow::initObject()
     // launch commandline specified module if any
     activateInitialPluginModule();
 
-    if ( Prefs::lastVersionSeen() == KGlobal::mainComponent().aboutData()->version() ) {
+    if ( Prefs::lastVersionSeen() == KComponentData::mainComponent().aboutData()->version() ) {
         selectPlugin( mCurrentPlugin );
     }
 
     paintAboutScreen( introductionString() );
-    Prefs::setLastVersionSeen( KGlobal::mainComponent().aboutData()->version() );
+    Prefs::setLastVersionSeen( KComponentData::mainComponent().aboutData()->version() );
 }
 
 MainWindow::~MainWindow()
@@ -1253,7 +1253,7 @@ QString MainWindow::introductionString()
                 "<td><a href=\"%21\">%22</a><br /><span id=\"subtext\"><nobr>%23</nobr></span></td></tr>"
                 "</table>"
                 "<p style=\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>" ).
-            subs( KGlobal::mainComponent().aboutData()->version() ).
+            subs( KComponentData::mainComponent().aboutData()->version() ).
             subs( i18nc( "@item:intext",
                          "Kontact handles your e-mail, address book, calendar, to-do list and more." ) ).
             subs( QLatin1String("exec:/help?kontact") ).

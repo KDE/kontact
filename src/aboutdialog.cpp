@@ -53,7 +53,7 @@ AboutDialog::AboutDialog( KontactInterface::Core *core )
     setFaceType( KPageDialog::List );
 #if 0 //QT5
     addAboutData( i18n( "Kontact Container" ), QLatin1String( "kontact" ),
-                  KGlobal::mainComponent().aboutData() );
+                  KComponentData::mainComponent().aboutData() );
 #endif
     QList<KontactInterface::Plugin*> plugins = mCore->pluginList();
     QList<KontactInterface::Plugin*>::ConstIterator end = plugins.constEnd();
@@ -62,7 +62,7 @@ AboutDialog::AboutDialog( KontactInterface::Core *core )
         addAboutPlugin( *it );
     }
 
-    //QT5 addLicenseText( KGlobal::mainComponent().aboutData() );
+    //QT5 addLicenseText( KComponentData::mainComponent().aboutData() );
     resize(QSize( 600, 400 ));
     KConfigGroup grp = KConfigGroup( KSharedConfig::openConfig(), "AboutDialog" );
     KWindowConfig::restoreWindowSize( windowHandle(), grp);
