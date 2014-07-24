@@ -866,7 +866,7 @@ void KNotesPart::slotItemFetchFinished(KJob *job)
 void KNotesPart::slotNewNoteFromTextFile()
 {
     QString text;
-    const QString filename = KFileDialog::getOpenFileName( KUrl(),
+    const QString filename = KFileDialog::getOpenFileName( QUrl(),
                                      QLatin1String("*.txt"),
                                      widget(),
                                      i18n("Select Text File") );
