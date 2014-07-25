@@ -30,7 +30,7 @@ using namespace Kontact;
 
 #include <KontactInterface/Plugin>
 #include <KontactInterface/UniqueAppHandler>
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
 #include <KontactInterface/PimUniqueApplication>
 #endif
 
@@ -51,7 +51,7 @@ static const char description[] = I18N_NOOP( "KDE personal information manager" 
 static const char version[] = KDEPIM_VERSION;
 
 class KontactApp : public
-        #ifdef Q_WS_WIN
+        #ifdef Q_OS_WIN
         KontactInterface::PimUniqueApplication
         #else
         KUniqueApplication
