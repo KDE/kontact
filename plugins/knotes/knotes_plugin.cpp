@@ -48,7 +48,7 @@ using namespace KCalCore;
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSystemTimeZones>
-#include <KTemporaryFile>
+#include <QTemporaryFile>
 
 #include <QDBusConnection>
 #include <QDBusMessage>

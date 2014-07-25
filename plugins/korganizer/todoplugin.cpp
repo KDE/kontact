@@ -45,7 +45,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSystemTimeZone>
-#include <KTemporaryFile>
+#include <QTemporaryFile>
 
 #include <QDropEvent>
 
@@ -256,7 +256,7 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
       QString uri = QLatin1String( "kmail:" ) +
                     QString::number( mail.serialNumber() ) + QLatin1Char('/') +
                     mail.messageId();
-      KTemporaryFile tf;
+      QTemporaryFile tf;
       tf.setAutoRemove( true );
       //QT5 tf.write( event->encodedData( "message/rfc822" ) );
       interface()->openTodoEditor(

@@ -47,7 +47,7 @@
 #include <KMessageBox>
 #include <KStandardDirs>
 #include <KSystemTimeZone>
-#include <KTemporaryFile>
+#include <QTemporaryFile>
 
 #include <QDropEvent>
 #include <QStandardPaths>
@@ -253,7 +253,7 @@ void KOrganizerPlugin::processDropEvent( QDropEvent *event )
       QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
                           mail.from(), mail.to(), mail.subject() );
 
-      KTemporaryFile tf;
+      QTemporaryFile tf;
       tf.setAutoRemove( true );
       tf.open();
       QString uri = QLatin1String( "kmail:" ) + QString::number( mail.serialNumber() );

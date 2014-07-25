@@ -40,7 +40,7 @@
 #include <QIcon>
 #include <KLocalizedString>
 #include <KStandardDirs>
-#include <KTemporaryFile>
+#include <QTemporaryFile>
 
 #include <QDropEvent>
 #include <QStandardPaths>
@@ -113,9 +113,7 @@ void KMailPlugin::processDropEvent( QDropEvent *de )
     const QMimeData *md = de->mimeData();
 
     if ( VCalDrag::fromMimeData( md, cal ) || ICalDrag::fromMimeData( md, cal ) ) {
-        KTemporaryFile tmp;
-        tmp.setPrefix( QLatin1String("incidences-") );
-        tmp.setSuffix( QLatin1String(".ics") );
+        QTemporaryFile tmp(QLatin1String("incidences-kmail_XXXXXX.ics"));
         tmp.setAutoRemove( false );
         tmp.open();
         FileStorage storage( cal, tmp.fileName() );
