@@ -79,6 +79,7 @@ using namespace Kontact;
 #include <KHelpClient>
 #include <KSharedConfig>
 #include <QStandardPaths>
+#include <QHBoxLayout>
 
 // Define the maximum time Kontact waits for KSycoca to become available.
 static const int KSYCOCA_WAIT_TIMEOUT = 10;
@@ -413,10 +414,13 @@ void MainWindow::paintAboutScreen( const QString &msg )
 
 void MainWindow::initAboutScreen()
 {
-    KHBox *introbox = new KHBox( mPartsStack );
+    QWidget *introbox = new QWidget( mPartsStack );
+    QHBoxLayout *introboxHBoxLayout = new QHBoxLayout(introbox);
+    introboxHBoxLayout->setMargin(0);
     mPartsStack->addWidget( introbox );
     mPartsStack->setCurrentWidget( introbox );
     mIntroPart = new KWebView( introbox );
+    introboxHBoxLayout->addWidget(mIntroPart);
     mIntroPart->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
     mIntroPart->setFocusPolicy( Qt::WheelFocus );
     // Let's better be paranoid and disable plugins (it defaults to enabled):
