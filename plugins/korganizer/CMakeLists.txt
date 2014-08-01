@@ -55,7 +55,7 @@ add_library(kcm_todosummary MODULE ${kcm_todosummary_PART_SRCS})
 target_link_libraries(kcm_todosummary Qt5::Widgets KF5::KCMUtils KF5::KDELibs4Support)
 
 ########## Unit Test ###########
-add_subdirectory(tests)
+add_subdirectory(autotests)
 
 ########### install files ###############
 
