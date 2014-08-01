@@ -718,7 +718,7 @@ void KNotesPart::slotNoteSaved(KJob *job)
 
 void KNotesPart::slotNewNoteFromClipboard()
 {
-    const QString &text = KApplication::clipboard()->text();
+    const QString &text = QApplication::clipboard()->text();
     newNote( QString(), text );
 }
 
