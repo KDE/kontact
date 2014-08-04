@@ -42,7 +42,7 @@ ki18n_wrap_ui(kcm_apptsummary_PART_SRCS apptsummaryconfig_base.ui)
 
 add_library(kcm_apptsummary MODULE ${kcm_apptsummary_PART_SRCS})
 
-target_link_libraries(kcm_apptsummary  korganizerprivate KF5::CalendarUtils KF5::KDELibs4Support KF5::KCMUtils)
+target_link_libraries(kcm_apptsummary  korganizerprivate KF5::CalendarUtils KF5::KCMUtils)
 
 ########### next target ###############
 
@@ -52,7 +52,7 @@ ki18n_wrap_ui(kcm_todosummary_PART_SRCS todosummaryconfig_base.ui)
 
 add_library(kcm_todosummary MODULE ${kcm_todosummary_PART_SRCS})
 
-target_link_libraries(kcm_todosummary Qt5::Widgets KF5::KCMUtils KF5::KDELibs4Support)
+target_link_libraries(kcm_todosummary Qt5::Widgets KF5::KCMUtils KF5::I18n)
 
 ########## Unit Test ###########
 add_subdirectory(autotests)

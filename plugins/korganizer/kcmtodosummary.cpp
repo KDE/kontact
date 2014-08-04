@@ -27,9 +27,9 @@
 
 #include <KAboutData>
 #include <KAcceleratorManager>
-#include <KComponentData>
 #include <KConfigGroup>
 #include <KLocalizedString>
+#include <KConfig>
 
 KCModule *create_todosummary( QWidget *parent, const char * )
 {

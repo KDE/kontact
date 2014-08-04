@@ -27,21 +27,20 @@
 
 #include <KAboutData>
 #include <KAcceleratorManager>
-#include <KComponentData>
 #include <KConfigGroup>
 #include <KLocalizedString>
+#include <KConfig>
 
 extern "C"
 {
   Q_DECL_EXPORT KCModule *create_sdsummary( QWidget *parent, const char * )
   {
-    KComponentData inst( "kcmsdsummary" );
-    return new KCMSDSummary( inst, parent );
+    return new KCMSDSummary( parent );
   }
 }
 
-KCMSDSummary::KCMSDSummary( const KComponentData &inst, QWidget *parent )
-  : KCModule( /*inst,*/ parent )
+KCMSDSummary::KCMSDSummary(QWidget *parent )
+  : KCModule( parent )
 {
   setupUi( this );
 

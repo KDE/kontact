@@ -29,7 +29,6 @@
 #include "ui_todosummaryconfig_base.h"
 #include <KCModule>
 
-#include <KComponentData>
 extern "C"
 {
   Q_DECL_EXPORT KCModule *create_todosummary( QWidget *parent, const char * );
