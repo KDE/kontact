@@ -13,7 +13,7 @@ X-KDE-Weight=0
 
 Name=Kontact Configuration
 Name[bs]=Konfiguracija programa Kontakt
-Name[ca]=Configuració de Kontact
+Name[ca]=Configuració del Kontact
 Name[ca@valencia]=Configuració de Kontact
 Name[cs]=Nastavení Kontact
 Name[da]=Indstilling af Kontact
@@ -58,7 +58,7 @@ Name[zh_CN]=Kontact 配置
 Name[zh_TW]=Kontact 設定
 Comment=Default KDE Kontact Component
 Comment[bs]=Podrazumijevana KDE Kontakt Komponenta
-Comment[ca]=Component per omissió pel Kontact del KDE
+Comment[ca]=Component per omissió del Kontact pel KDE
 Comment[ca@valencia]=Component per omissió pel Kontact del KDE
 Comment[cs]=Výchozí komponenta KDE Kontact
 Comment[da]=Standardkomponent i KDE Kontact
