@@ -32,7 +32,6 @@ using namespace Kontact;
 #include <KComboBox>
 #include <KServiceTypeTrader>
 #include <KLocalizedString>
-#include <KComponentData>
 
 #include <QCheckBox>
 #include <QHBoxLayout>
@@ -42,13 +41,12 @@ extern "C"
 {
 Q_DECL_EXPORT KCModule *create_kontactconfig( QWidget *parent, const char * )
 {
-    KComponentData inst( "kcmkontact" );
-    return new KcmKontact( inst, parent );
+    return new KcmKontact( parent );
 }
 }
 
-KcmKontact::KcmKontact( const KComponentData &inst, QWidget *parent )
-    : KPrefsModule( Prefs::self(), inst, parent )
+KcmKontact::KcmKontact( QWidget *parent )
+    : KPrefsModule( Prefs::self(), parent )
 {
     QBoxLayout *topLayout = new QVBoxLayout( this );
     QBoxLayout *pluginStartupLayout = new QHBoxLayout();
