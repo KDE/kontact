@@ -34,7 +34,7 @@
 #include <KCheckableProxyModel>
 #include <KComponentData>
 #include <QDebug>
-#include <KDialog>
+#include <QDialog>
 #include <KLocalizedString>
 #include <QLineEdit>
 
@@ -81,7 +81,7 @@ void KCMKMailSummary::modified()
 void KCMKMailSummary::initGUI()
 {
     QVBoxLayout *layout = new QVBoxLayout( this );
-    layout->setSpacing( KDialog::spacingHint() );
+//TODO PORT QT5     layout->setSpacing( QDialog::spacingHint() );
     layout->setMargin( 0 );
 
     mCheckedCollectionWidget = new PimCommon::CheckedCollectionWidget(KMime::Message::mimeType());

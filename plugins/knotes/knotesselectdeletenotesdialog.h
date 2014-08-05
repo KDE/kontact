@@ -18,7 +18,7 @@
 #ifndef KNOTESSELECTDELETENOTESDIALOG_H
 #define KNOTESSELECTDELETENOTESDIALOG_H
 
-#include <KDialog>
+#include <QDialog>
 #include <QListWidget>
 class KNotesIconViewItem;
 
@@ -32,7 +32,7 @@ public:
     void setItems(const QList<KNotesIconViewItem*> &items);
 };
 
-class KNotesSelectDeleteNotesDialog : public KDialog
+class KNotesSelectDeleteNotesDialog : public QDialog
 {
     Q_OBJECT
 public:
