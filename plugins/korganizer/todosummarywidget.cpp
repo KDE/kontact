@@ -257,7 +257,7 @@ TODO: calhelper is deprecated, remove this?
         }
       }
       if ( !Qt::mightBeRichText( str ) ) {
-        str = Qt::escape( str );
+        str = str.toHtmlEscaped();
       }
 
       KUrlLabel *urlLabel = new KUrlLabel( this );
