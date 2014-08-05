@@ -77,7 +77,7 @@ KNotesSelectDeleteNotesDialog::KNotesSelectDeleteNotesDialog(const QList<KNotesI
     lay->addWidget(mSelectedListWidget);
     mainLayout->addWidget(w);
     mSelectedListWidget->setItems(items);
-    okButton->setText(KStandardGuiItem::del(.text());
+    okButton->setText(KStandardGuiItem::del().text());
     
     mainLayout->addWidget(buttonBox);
     readConfig();
