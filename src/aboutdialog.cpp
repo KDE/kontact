@@ -66,7 +66,7 @@ AboutDialog::AboutDialog( KontactInterface::Core *core )
     resize(QSize( 600, 400 ));
     KConfigGroup grp = KConfigGroup( KSharedConfig::openConfig(), "AboutDialog" );
     KWindowConfig::restoreWindowSize( windowHandle(), grp);
-    connect( this, SIGNAL(finished(int)), this, SLOT(saveSize()) );
+    connect(this, &AboutDialog::finished, this, &AboutDialog::saveSize);
 }
 
 void AboutDialog::saveSize()
