@@ -634,7 +634,7 @@ void SDSummaryWidget::updateView()
   if ( mShowBirthdaysFromKAB && !mJobRunning ) {
     BirthdaySearchJob *job = new BirthdaySearchJob( this, mDaysAhead );
 
-    connect( job, SIGNAL(result(KJob*)), this, SLOT(slotBirthdayJobFinished(KJob*)) );
+    connect(job, &BirthdaySearchJob::result, this, &SDSummaryWidget::slotBirthdayJobFinished);
     job->start();
     mJobRunning = true;
 
@@ -652,7 +652,7 @@ void SDSummaryWidget::mailContact( const QString &url )
 
   Akonadi::ItemFetchJob *job = new Akonadi::ItemFetchJob( item, this );
   job->fetchScope().fetchFullPayload();
-  connect( job, SIGNAL(result(KJob*)), SLOT(slotItemFetchJobDone(KJob*)) );
+  connect(job, &Akonadi::ItemFetchJob::result, this, &SDSummaryWidget::slotItemFetchJobDone);
 }
 
 void SDSummaryWidget::slotItemFetchJobDone(KJob* job)

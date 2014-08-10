@@ -165,7 +165,7 @@ void KNotesIconViewItem::setReadOnly(bool b, bool save)
 #ifdef DEBUG_SAVE_NOTE
         qDebug()<<" KNotesIconViewItem::setReadOnly savenote";
 #endif
-        connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
+        connect(job, &Akonadi::ItemModifyJob::result, this, &KNotesIconViewItem::slotNoteSaved);
     }
 }
 
@@ -173,7 +173,7 @@ void KNotesIconViewItem::setDisplayDefaultValue()
 {
     KNoteUtils::setDefaultValue(mItem);
     Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
-    connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
+    connect(job, &Akonadi::ItemModifyJob::result, this, &KNotesIconViewItem::slotNoteSaved);
 }
 
 void KNotesIconViewItem::slotNoteSaved(KJob *job)
@@ -303,7 +303,7 @@ void KNotesIconViewItem::saveNoteContent(const QString &subject, const QString &
 #ifdef DEBUG_SAVE_NOTE
     qDebug()<<" KNotesIconViewItem::saveNoteContent savenote";
 #endif
-    connect( job, SIGNAL(result(KJob*)), SLOT(slotNoteSaved(KJob*)) );
+    connect(job, &Akonadi::ItemModifyJob::result, this, &KNotesIconViewItem::slotNoteSaved);
 }
 
 

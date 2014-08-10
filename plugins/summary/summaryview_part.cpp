@@ -67,11 +67,11 @@ SummaryViewPart::SummaryViewPart( KontactInterface::Core *core, const char *,
   initGUI( core );
 
   setDate( QDate::currentDate() );
-  connect( mCore, SIGNAL(dayChanged(QDate)), SLOT(setDate(QDate)) );
+  connect(mCore, &KontactInterface::Core::dayChanged, this, &SummaryViewPart::setDate);
 
   mConfigAction = new QAction( QIcon::fromTheme( QLatin1String("configure") ), i18n( "&Configure Summary View..." ), this );
   actionCollection()->addAction( QLatin1String("summaryview_configure"), mConfigAction );
-  connect( mConfigAction, SIGNAL(triggered(bool)), SLOT(slotConfigure()) );
+  connect(mConfigAction, &QAction::triggered, this, &SummaryViewPart::slotConfigure);
   //QT5 mConfigAction->setHelpText( i18n( "Configure the summary view" ) );
   mConfigAction->setWhatsThis(
     i18nc( "@info:whatsthis",

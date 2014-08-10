@@ -70,7 +70,7 @@ void KNoteEditDialog::init(bool readOnly)
     mTitleEdit->setClearButtonEnabled(true);
     mTitleEdit->setObjectName( QLatin1String("name") );
     if (!readOnly)
-        connect(mTitleEdit, SIGNAL(textChanged(QString)), this, SLOT(slotTextChanged(QString)));
+        connect(mTitleEdit, &QLineEdit::textChanged, this, &KNoteEditDialog::slotTextChanged);
     hbl->addWidget( mTitleEdit, 1, Qt::AlignVCenter );
 
     //TODO customize it
