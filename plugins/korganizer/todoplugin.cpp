@@ -37,7 +37,7 @@
 
 #include <KontactInterface/Core>
 
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
 #include <QDebug>
 #include <QIcon>
@@ -58,24 +58,24 @@ TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
   KIconLoader::global()->addAppDir( QLatin1String("korganizer") );
   KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
 
-  KAction *action =
-    new KAction( QIcon::fromTheme( QLatin1String("task-new") ),
+  QAction *action =
+    new QAction( QIcon::fromTheme( QLatin1String("task-new") ),
                  i18nc( "@action:inmenu", "New To-do..." ), this );
   actionCollection()->addAction( QLatin1String("new_todo"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_T ) );
-  action->setHelpText(
-    i18nc( "@info:status", "Create a new to-do" ) );
+  //QT5 action->setHelpText(
+    //i18nc( "@info:status", "Create a new to-do" ) );
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can create a new to-do item." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewTodo()) );
   insertNewAction( action );
 
-  KAction *syncAction =
-    new KAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
+  QAction *syncAction =
+    new QAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
                  i18nc( "@action:inmenu", "Sync To-do List" ), this );
-  syncAction->setHelpText(
-    i18nc( "@info:status", "Synchronize groupware to-do list" ) );
+  //QT5 syncAction->setHelpText(
+    //i18nc( "@info:status", "Synchronize groupware to-do list" ) );
   syncAction->setWhatsThis(
     i18nc( "@info:whatsthis",
            "Choose this option to synchronize your groupware to-do list." ) );

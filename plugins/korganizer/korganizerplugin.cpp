@@ -38,7 +38,7 @@
 
 #include <KontactInterface/Core>
 
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
 #include <QDebug>
 #include <QIcon>
@@ -61,25 +61,25 @@ KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariant
   KIconLoader::global()->addAppDir( QLatin1String("korganizer") );
   KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
 
-  KAction *action  =
-    new KAction( QIcon::fromTheme( QLatin1String("appointment-new") ),
+  QAction *action  =
+    new QAction( QIcon::fromTheme( QLatin1String("appointment-new") ),
                  i18nc( "@action:inmenu", "New Event..." ), this );
   actionCollection()->addAction( QLatin1String("new_event"), action );
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT+Qt::Key_E ) );
-  action->setHelpText(
-    i18nc( "@info:status", "Create a new event" ) );
+  //QT5 action->setHelpText(
+    //i18nc( "@info:status", "Create a new event" ) );
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can create a new event item." ) );
   connect( action, SIGNAL(triggered(bool)), SLOT(slotNewEvent()) );
   insertNewAction( action );
 
-  KAction *syncAction =
-    new KAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
+  QAction *syncAction =
+    new QAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
                  i18nc( "@action:inmenu", "Sync Calendar" ), this );
   actionCollection()->addAction( QLatin1String("korganizer_sync"), syncAction );
-  syncAction->setHelpText(
-    i18nc( "@info:status", "Synchronize groupware calendar" ) );
+  //QT5 syncAction->setHelpText(
+    //i18nc( "@info:status", "Synchronize groupware calendar" ) );
   syncAction->setWhatsThis(
     i18nc( "@info:whatsthis",
            "Choose this option to synchronize your groupware events." ) );
