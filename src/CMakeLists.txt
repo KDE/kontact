@@ -77,6 +77,7 @@ install(TARGETS kcm_kontact DESTINATION ${PLUGIN_INSTALL_DIR})
 ########### install files ###############
 
 install(PROGRAMS Kontact.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES Kontact.appdata.xml DESTINATION ${CMAKE_INSTALL_METAINFODIR})
 install(FILES kontact.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install(FILES kontactconfig.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 install(FILES kontactui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kontact)
