@@ -63,7 +63,7 @@
 #include <AkonadiCore/itemdeletejob.h>
 #include <AkonadiCore/ItemFetchScope>
 
-
+#include <KUrl>
 #include <KMime/KMimeMessage>
 
 #include <AkonadiCore/ItemModifyJob>

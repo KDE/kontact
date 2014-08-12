@@ -40,6 +40,7 @@ using namespace Kontact;
 #include <KPIMUtils/KFileIO>
 
 #include <QStatusBar>
+#include <KWindowConfig>
 #include <KXMLGUIFactory>
 #include <KActionCollection>
 #include <KActionMenu>
@@ -163,7 +164,8 @@ MainWindow::MainWindow()
 
     factory()->plugActionList( this, QLatin1String( "navigator_actionlist" ), mActionPlugins );
 
-    restoreWindowSize( KConfigGroup( KSharedConfig::openConfig(), "MainWindow" ) );
+    KConfigGroup grp( KSharedConfig::openConfig(), "MainWindow" );
+    KWindowConfig::restoreWindowSize( windowHandle(), grp );
     setAutoSaveSettings();
 }
 
@@ -226,10 +228,8 @@ void MainWindow::initObject()
     KService::List offers = KServiceTypeTrader::self()->query(
                 QString::fromLatin1( "Kontact/Plugin" ),
                 QString::fromLatin1( "[X-KDE-KontactPluginVersion] == %1" ).arg( KONTACT_PLUGIN_VERSION ) );
-#if 0 //QT5
     mPluginInfos = KPluginInfo::fromServices(
                 offers, KConfigGroup( Prefs::self()->config(), "Plugins" ) );
-#endif
     KPluginInfo::List::Iterator it;
     KPluginInfo::List::Iterator end( mPluginInfos.end() );
 
