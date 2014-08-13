@@ -63,7 +63,7 @@
 #include <AkonadiCore/itemdeletejob.h>
 #include <AkonadiCore/ItemFetchScope>
 
-#include <KUrl>
+#include <QUrl>
 #include <KMime/KMimeMessage>
 
 #include <AkonadiCore/ItemModifyJob>
@@ -728,7 +728,7 @@ void KNotesPart::slotSaveAs()
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
 
-    KUrl url;
+    QUrl url;
     QCheckBox *convert = 0;
 
     if ( knoteItem->isRichText() ) {
