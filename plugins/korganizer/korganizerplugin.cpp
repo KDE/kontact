@@ -45,7 +45,6 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KStandardDirs>
 #include <KSystemTimeZone>
 #include <QTemporaryFile>
 

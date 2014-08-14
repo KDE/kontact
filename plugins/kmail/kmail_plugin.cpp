@@ -39,7 +39,6 @@
 #include <QDebug>
 #include <QIcon>
 #include <KLocalizedString>
-#include <KStandardDirs>
 #include <QTemporaryFile>
 
 #include <QDropEvent>
