@@ -53,6 +53,7 @@
 
 #include "akonadi_next/note.h"
 
+#include <KDateTime>
 #include <AkonadiCore/Session>
 #include <AkonadiCore/ChangeRecorder>
 #include <AkonadiWidgets/ETMViewStateSaver>
