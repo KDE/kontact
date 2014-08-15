@@ -29,7 +29,7 @@ using namespace Kontact;
 #include <KontactInterface/Plugin>
 
 #include <KAboutData>
-#include <KLocale>
+#include <KLocalizedString>
 #include <QTextBrowser>
 #include <KGlobal>
 #include <KConfigGroup>

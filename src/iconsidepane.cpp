@@ -29,7 +29,7 @@ using namespace Kontact;
 
 #include <QAction>
 #include <QIcon>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KStringHandler>
 #include <KIconLoader>
 

@@ -36,7 +36,7 @@ using namespace Kontact;
 
 #include <k4aboutdata.h>
 #include <KCmdLineArgs>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KService>
 #include <KServiceTypeTrader>
 #include <KUniqueApplication>
