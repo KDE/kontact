@@ -30,6 +30,7 @@
 #include <KDialog>
 #include <KLocalizedString>
 #include <QLineEdit>
+#include <KSharedConfig>
 
 #include <QCheckBox>
 #include <QTreeView>

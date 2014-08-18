@@ -34,7 +34,7 @@
 #include <KPluginInfo>
 #include <KService>
 #include <KServiceTypeTrader>
-
+#include <KConfig>
 
 
 #include <QLabel>

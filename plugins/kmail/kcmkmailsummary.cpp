@@ -35,6 +35,8 @@
 #include <QDebug>
 #include <QDialog>
 #include <KLocalizedString>
+#include <KSharedConfig>
+#include <KConfig>
 #include <QLineEdit>
 
 #include <QCheckBox>
