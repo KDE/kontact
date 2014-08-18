@@ -26,18 +26,16 @@
 
 #include <KAboutData>
 #include <KAcceleratorManager>
-#include <KComponentData>
 #include <KConfigGroup>
 #include <KLocalizedString>
 
 KCModule *create_apptsummary( QWidget *parent, const char * )
 {
-  KComponentData inst( "kcmapptsummary" );
-  return new KCMApptSummary( inst, parent );
+  return new KCMApptSummary( parent );
 }
 
-KCMApptSummary::KCMApptSummary( const KComponentData &inst, QWidget *parent )
-  : KCModule( /*inst,*/ parent )
+KCMApptSummary::KCMApptSummary( QWidget *parent )
+  : KCModule( parent )
 {
   setupUi( this );
 

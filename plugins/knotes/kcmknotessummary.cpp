@@ -26,7 +26,6 @@
 #include <KAboutData>
 #include <KAcceleratorManager>
 #include <KCheckableProxyModel>
-#include <KComponentData>
 #include <QDebug>
 #include <KDialog>
 #include <KLocalizedString>

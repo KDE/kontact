@@ -32,7 +32,6 @@
 #include <KAboutData>
 #include <KAcceleratorManager>
 #include <KCheckableProxyModel>
-#include <KComponentData>
 #include <QDebug>
 #include <QDialog>
 #include <KLocalizedString>
@@ -46,13 +45,12 @@ extern "C"
 {
 Q_DECL_EXPORT KCModule *create_kmailsummary( QWidget *parent, const char * )
 {
-    KComponentData inst( "kcmkmailsummary" );
-    return new KCMKMailSummary( inst, parent );
+    return new KCMKMailSummary( parent );
 }
 }
 
-KCMKMailSummary::KCMKMailSummary( const KComponentData &inst, QWidget *parent )
-    : KCModule( /*inst,*/ parent )
+KCMKMailSummary::KCMKMailSummary( QWidget *parent )
+    : KCModule( parent )
 {
     initGUI();
 

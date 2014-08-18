@@ -28,7 +28,6 @@
 #include <KontactInterface/Plugin>
 
 #include <KAboutData>
-#include <KComponentData>
 #include <KDialog>
 #include <QIcon>
 #include <KLocalizedString>
