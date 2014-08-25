@@ -18,14 +18,14 @@
 #ifndef KNOTESEDITDIALOG_H
 #define KNOTESEDITDIALOG_H
 
-#include <KDialog>
+#include <QDialog>
 #include <KXMLGUIClient>
 
 class KNoteEdit;
 class KToolBar;
 class QLineEdit;
-
-class KNoteEditDialog : public KDialog, virtual public KXMLGUIClient
+class QPushButton;
+class KNoteEditDialog : public QDialog, virtual public KXMLGUIClient
 {
     Q_OBJECT
 public:
@@ -66,6 +66,7 @@ private:
     QLineEdit *mTitleEdit;
     KNoteEdit *mNoteEdit;
     KToolBar *mTool;
+    QPushButton *mOkButton;
 };
 
 #endif // KNOTESEDITDIALOG_H

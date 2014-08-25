@@ -20,7 +20,7 @@
 
 #include <KActionCollection>
 #include <KComponentData>
-#include <KDialog>
+#include <QDialog>
 #include <KLocalizedString>
 #include <KToolBar>
 #include <QLineEdit>
@@ -35,21 +35,35 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <KSharedConfig>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
 
 
 KNoteEditDialog::KNoteEditDialog(bool readOnly, QWidget *parent)
-    : KDialog(parent)
+    : QDialog(parent)
 {
     init(readOnly);
 }
 
 void KNoteEditDialog::init(bool readOnly)
 {
-    setCaption( readOnly ? i18nc( "@title:window", "Show Popup Note" ) : i18nc( "@title:window", "Edit Popup Note" ) );
-    setButtons( readOnly ? Close : Ok | Cancel );
-    setDefaultButton( readOnly ? Close : Ok );
+    setWindowTitle( readOnly ? i18nc( "@title:window", "Show Popup Note" ) : i18nc( "@title:window", "Edit Popup Note" ) );
+    QDialogButtonBox *buttonBox = new QDialogButtonBox( readOnly ? QDialogButtonBox::Close : QDialogButtonBox::Ok | QDialogButtonBox::Cancel );
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    if (readOnly) {
+       buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
+    } else {
+       buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
+       mOkButton = buttonBox->button(QDialogButtonBox::Ok);
+       mOkButton->setDefault(true);
+       mOkButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    }
+
     setModal( true );
-    showButtonSeparator( true );
     // this dialog is modal to prevent one from editing the same note twice
     // in two different windows
 
@@ -57,12 +71,14 @@ void KNoteEditDialog::init(bool readOnly)
     setXMLFile( QLatin1String("knotesui.rc") );
 
     QWidget *page = new QWidget( this );
-    setMainWidget( page );
+    mainLayout->addWidget(page);
+    mainLayout->addWidget(buttonBox);
+
     QVBoxLayout *layout = new QVBoxLayout( page );
 
     QHBoxLayout *hbl = new QHBoxLayout();
     layout->addItem( hbl );
-    hbl->setSpacing( marginHint() );
+    //QT5 hbl->setSpacing( marginHint() );
     QLabel *label = new QLabel( page );
     label->setText( i18nc( "@label popup note name", "Name:" ) );
     hbl->addWidget( label, 0 );
@@ -150,8 +166,8 @@ QString KNoteEditDialog::title() const
 void KNoteEditDialog::setTitle( const QString &text )
 {
     mTitleEdit->setText( text );
-    if (mTitleEdit->isEnabled())
-        enableButtonOk(!text.isEmpty());
+    if (mTitleEdit->isEnabled() && mOkButton)
+        mOkButton->setEnabled(!text.isEmpty());
 }
 
 KNoteEdit *KNoteEditDialog::noteEdit() const
@@ -161,7 +177,8 @@ KNoteEdit *KNoteEditDialog::noteEdit() const
 
 void KNoteEditDialog::slotTextChanged(const QString &text)
 {
-     enableButtonOk(!text.isEmpty());
+     if (mOkButton)
+        mOkButton->setEnabled(!text.isEmpty());
 }
 
 void KNoteEditDialog::setTabSize(int size)
