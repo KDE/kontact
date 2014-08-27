@@ -15,7 +15,7 @@ if(KMAIL_SUPPORTED)
   add_dependencies(kontact_summaryplugin kmail_xml)
 endif()
 
-target_link_libraries(kontact_summaryplugin KF5::KCMUtils  KF5::PimIdentities KF5::KontactInterface kdepim)
+target_link_libraries(kontact_summaryplugin KF5::KCMUtils  KF5::IdentityManagement KF5::KontactInterface kdepim)
 
 ########### next target ###############
 

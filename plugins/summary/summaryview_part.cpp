@@ -28,8 +28,8 @@
 #include <libkdepim/misc/broadcaststatus.h>
 using KPIM::BroadcastStatus;
 
-#include <KPIMIdentities/Identity>
-#include <KPIMIdentities/IdentityManager>
+#include <KIdentityManagement/Identity>
+#include <KIdentityManagement/IdentityManager>
 
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
@@ -120,8 +120,8 @@ void SummaryViewPart::updateWidgets()
 
   delete mFrame;
 
-  KPIMIdentities::IdentityManager idm( true, this );
-  const KPIMIdentities::Identity &id = idm.defaultIdentity();
+  KIdentityManagement::IdentityManager idm( true, this );
+  const KIdentityManagement::Identity &id = idm.defaultIdentity();
 
   QString currentUser = i18n( "Summary for %1", id.fullName() );
   mUsernameLabel->setText( QString::fromLatin1( "<b>%1</b>" ).arg( currentUser ) );
