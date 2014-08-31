@@ -52,8 +52,8 @@ void KNoteEditDialog::init(bool readOnly)
     QDialogButtonBox *buttonBox = new QDialogButtonBox( readOnly ? QDialogButtonBox::Close : QDialogButtonBox::Ok | QDialogButtonBox::Cancel );
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &KNoteEditDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &KNoteEditDialog::reject);
     if (readOnly) {
        buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
     } else {

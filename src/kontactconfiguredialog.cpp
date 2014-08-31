@@ -28,8 +28,8 @@ using namespace Kontact;
 KontactConfigureDialog::KontactConfigureDialog( QWidget *parent )
     : KSettings::Dialog( parent )
 {
-    connect( button(QDialogButtonBox::Ok), SIGNAL(clicked()), SLOT(slotOk()) );
-    connect( button(QDialogButtonBox::Apply), SIGNAL(clicked()), SLOT(slotApply()) );
+    connect(button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &KontactConfigureDialog::slotOk);
+    connect(button(QDialogButtonBox::Apply), &QPushButton::clicked, this, &KontactConfigureDialog::slotApply);
 }
 
 KontactConfigureDialog::~KontactConfigureDialog()

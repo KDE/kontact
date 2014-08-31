@@ -65,7 +65,7 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can create "
                        "and send a new email message." ) );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotNewMail()) );
+    connect(action, &QAction::triggered, this, &KMailPlugin::slotNewMail);
     insertNewAction( action );
 
     QAction *syncAction =
@@ -76,7 +76,7 @@ KMailPlugin::KMailPlugin( KontactInterface::Core *core, const QVariantList & )
     syncAction->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "Choose this option to synchronize your groupware email." ) );
-    connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncFolders()) );
+    connect(syncAction, &QAction::triggered, this, &KMailPlugin::slotSyncFolders);
     actionCollection()->addAction( QLatin1String("sync_mail"), syncAction );
     insertSyncAction( syncAction );
 

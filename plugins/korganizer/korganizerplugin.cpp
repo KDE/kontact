@@ -70,7 +70,7 @@ KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariant
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can create a new event item." ) );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotNewEvent()) );
+  connect(action, &QAction::triggered, this, &KOrganizerPlugin::slotNewEvent);
   insertNewAction( action );
 
   QAction *syncAction =
@@ -82,7 +82,7 @@ KOrganizerPlugin::KOrganizerPlugin( KontactInterface::Core *core, const QVariant
   syncAction->setWhatsThis(
     i18nc( "@info:whatsthis",
            "Choose this option to synchronize your groupware events." ) );
-  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncEvents()) );
+  connect(syncAction, &QAction::triggered, this, &KOrganizerPlugin::slotSyncEvents);
   insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(

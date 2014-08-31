@@ -49,7 +49,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
     new QAction( QIcon::fromTheme( QLatin1String("contact-new") ),
                  i18nc( "@action:inmenu", "New Contact..." ), this );
   actionCollection()->addAction( QLatin1String("new_contact"), action );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotNewContact()) );
+  connect(action, &QAction::triggered, this, &KAddressBookPlugin::slotNewContact);
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
   //action->setHelpText(
   //  i18nc( "@info:status", "Create a new contact" ) );
@@ -62,7 +62,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
     new QAction( QIcon::fromTheme( QLatin1String("user-group-new") ),
                  i18nc( "@action:inmenu", "New Contact Group..." ), this );
   actionCollection()->addAction( QLatin1String("new_contactgroup"), action );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotNewContactGroup()) );
+  connect(action, &QAction::triggered, this, &KAddressBookPlugin::slotNewContactGroup);
   action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_G ) );
   //action->setHelpText(
   //  i18nc( "@info:status", "Create a new contact group" ) );
@@ -75,7 +75,7 @@ KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVar
     new QAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
                  i18nc( "@action:inmenu", "Sync Contacts" ), this );
   actionCollection()->addAction( QLatin1String("kaddressbook_sync"), syncAction );
-  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncContacts()) );
+  connect(syncAction, &QAction::triggered, this, &KAddressBookPlugin::slotSyncContacts);
   //syncAction->setHelpText(
   //  i18nc( "@info:status", "Synchronize groupware contacts" ) );
   syncAction->setWhatsThis(

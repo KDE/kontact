@@ -43,20 +43,20 @@ KCMTodoSummary::KCMTodoSummary( QWidget *parent )
 
   customDaysChanged( 7 );
 
-  connect( mDateTodayButton, SIGNAL(clicked(bool)), SLOT(modified()) );
-  connect( mDateMonthButton, SIGNAL(clicked(bool)), SLOT(modified()) );
-  connect( mDateRangeButton, SIGNAL(clicked(bool)), SLOT(modified()) );
+  connect(mDateTodayButton, &QRadioButton::clicked, this, &KCMTodoSummary::modified);
+  connect(mDateMonthButton, &QRadioButton::clicked, this, &KCMTodoSummary::modified);
+  connect(mDateRangeButton, &QRadioButton::clicked, this, &KCMTodoSummary::modified);
 
-  connect( mHideCompletedBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
-  connect( mHideOpenEndedBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
-  connect( mHideUnstartedBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
-  connect( mHideInProgressBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
-  connect( mHideOverdueBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect(mHideCompletedBox, &QCheckBox::stateChanged, this, &KCMTodoSummary::modified);
+  connect(mHideOpenEndedBox, &QCheckBox::stateChanged, this, &KCMTodoSummary::modified);
+  connect(mHideUnstartedBox, &QCheckBox::stateChanged, this, &KCMTodoSummary::modified);
+  connect(mHideInProgressBox, &QCheckBox::stateChanged, this, &KCMTodoSummary::modified);
+  connect(mHideOverdueBox, &QCheckBox::stateChanged, this, &KCMTodoSummary::modified);
 
-  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
-  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
+  connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMTodoSummary::modified);
+  connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMTodoSummary::customDaysChanged);
 
-  connect( mShowMineOnly, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect(mShowMineOnly, &QCheckBox::stateChanged, this, &KCMTodoSummary::modified);
 
   KAcceleratorManager::manage( this );
 

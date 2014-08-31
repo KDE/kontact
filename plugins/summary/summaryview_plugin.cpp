@@ -45,8 +45,8 @@ SummaryView::SummaryView( KontactInterface::Core *core, const QVariantList & )
 
   mSyncAction = new KSelectAction( QIcon::fromTheme( QLatin1String("view-refresh") ), i18n( "Sync All" ), this );
   actionCollection()->addAction( QLatin1String("kontact_summary_sync"), mSyncAction );
-  connect( mSyncAction, SIGNAL(triggered(QString)), SLOT(syncAccount(QString)) );
-  connect( mSyncAction->menu(), SIGNAL(aboutToShow()), this, SLOT(fillSyncActionSubEntries()) );
+  connect(mSyncAction, static_cast<void (KSelectAction::*)(const QString &)>(&KSelectAction::triggered), this, &SummaryView::syncAccount);
+  connect(mSyncAction->menu(), &QMenu::aboutToShow, this, &SummaryView::fillSyncActionSubEntries);
 
   insertSyncAction( mSyncAction );
   fillSyncActionSubEntries();

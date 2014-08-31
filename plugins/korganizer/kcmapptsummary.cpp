@@ -56,13 +56,13 @@ KCMApptSummary::KCMApptSummary( QWidget *parent )
 
   customDaysChanged( 7 );
 
-  connect( mDaysButtonGroup, SIGNAL(buttonClicked(int)), SLOT(modified()) );
-  connect( mDaysButtonGroup, SIGNAL(buttonClicked(int)), SLOT(buttonClicked(int)) );
-  connect( mShowButtonGroup, SIGNAL(buttonClicked(int)), SLOT(modified()) );
-  connect( mGroupwareButtonGroup, SIGNAL(buttonClicked(int)), SLOT(modified()) );
+  connect(mDaysButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::modified);
+  connect(mDaysButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::buttonClicked);
+  connect(mShowButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::modified);
+  connect(mGroupwareButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::modified);
 
-  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
-  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
+  connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMApptSummary::modified);
+  connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMApptSummary::customDaysChanged);
 
   KAcceleratorManager::manage( this );
 

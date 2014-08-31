@@ -56,7 +56,7 @@ JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList &
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can create "
            "a new journal entry." ) );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotNewJournal()) );
+  connect(action, &QAction::triggered, this, &JournalPlugin::slotNewJournal);
   insertNewAction( action );
 
   QAction *syncAction =
@@ -68,7 +68,7 @@ JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList &
   syncAction->setWhatsThis(
     i18nc( "@info:whatsthis",
            "Choose this option to synchronize your groupware journal entries." ) );
-  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncJournal()) );
+  connect(syncAction, &QAction::triggered, this, &JournalPlugin::slotSyncJournal);
   insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(

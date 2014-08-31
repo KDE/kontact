@@ -46,22 +46,22 @@ KCMSDSummary::KCMSDSummary(QWidget *parent )
 
   customDaysChanged( 7 );
 
-  connect( mDateTodayButton, SIGNAL(clicked(bool)), SLOT(modified()) );
-  connect( mDateMonthButton, SIGNAL(clicked(bool)), SLOT(modified()) );
-  connect( mDateRangeButton, SIGNAL(clicked(bool)), SLOT(modified()) );
+  connect(mDateTodayButton, &QRadioButton::clicked, this, &KCMSDSummary::modified);
+  connect(mDateMonthButton, &QRadioButton::clicked, this, &KCMSDSummary::modified);
+  connect(mDateRangeButton, &QRadioButton::clicked, this, &KCMSDSummary::modified);
 
-  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(modified()) );
-  connect( mCustomDays, SIGNAL(valueChanged(int)), SLOT(customDaysChanged(int)) );
+  connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMSDSummary::modified);
+  connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMSDSummary::customDaysChanged);
 
-  connect( mShowBirthdaysFromCalBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
-  connect( mShowAnniversariesFromCalBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
-  connect( mShowHolidaysFromCalBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
-  connect( mShowSpecialsFromCalBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect(mShowBirthdaysFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+  connect(mShowAnniversariesFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+  connect(mShowHolidaysFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+  connect(mShowSpecialsFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
 
-  connect( mShowBirthdaysFromKABBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
-  connect( mShowAnniversariesFromKABBox, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect(mShowBirthdaysFromKABBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+  connect(mShowAnniversariesFromKABBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
 
-  connect( mShowMineOnly, SIGNAL(stateChanged(int)), SLOT(modified()) );
+  connect(mShowMineOnly, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
 
   KAcceleratorManager::manage( this );
 

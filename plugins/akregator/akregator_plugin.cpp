@@ -53,7 +53,7 @@ AkregatorPlugin::AkregatorPlugin( KontactInterface::Core *core, const QVariantLi
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can add a new feed." ) );
-  connect( action, SIGNAL(triggered(bool)), SLOT(addFeed()) );
+  connect(action, &QAction::triggered, this, &AkregatorPlugin::addFeed);
   insertNewAction( action );
 
   mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(

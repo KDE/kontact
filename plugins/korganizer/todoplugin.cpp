@@ -68,7 +68,7 @@ TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
   action->setWhatsThis(
     i18nc( "@info:whatsthis",
            "You will be presented with a dialog where you can create a new to-do item." ) );
-  connect( action, SIGNAL(triggered(bool)), SLOT(slotNewTodo()) );
+  connect(action, &QAction::triggered, this, &TodoPlugin::slotNewTodo);
   insertNewAction( action );
 
   QAction *syncAction =
@@ -79,7 +79,7 @@ TodoPlugin::TodoPlugin( KontactInterface::Core *core, const QVariantList & )
   syncAction->setWhatsThis(
     i18nc( "@info:whatsthis",
            "Choose this option to synchronize your groupware to-do list." ) );
-  connect( syncAction, SIGNAL(triggered(bool)), SLOT(slotSyncTodos()) );
+  connect(syncAction, &QAction::triggered, this, &TodoPlugin::slotSyncTodos);
   insertSyncAction( syncAction );
 
   mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
