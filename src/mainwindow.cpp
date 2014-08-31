@@ -175,7 +175,7 @@ void MainWindow::initGUI()
     setupActions();
     setHelpMenuEnabled( false );
     KHelpMenu *helpMenu = new KHelpMenu( this, QString(), true/*, actionCollection() QT5*/ );
-    connect( helpMenu, SIGNAL(showAboutApplication()), SLOT(showAboutDialog()) );
+    connect(helpMenu, &KHelpMenu::showAboutApplication, this, &MainWindow::showAboutDialog);
 
     KStandardAction::keyBindings( this, SLOT(configureShortcuts()), actionCollection() );
     KStandardAction::configureToolbars( this, SLOT(configureToolbars()), actionCollection() );
@@ -440,7 +440,7 @@ void MainWindow::setupActions()
                 i18nc( "@title:menu create new pim items (message,calendar,to-do,etc.)", "New" ), this );
     actionCollection()->addAction( QLatin1String("action_new"), mNewActions );
     mNewActions->setShortcuts( KStandardShortcut::openNew() );
-    connect( mNewActions, SIGNAL(triggered(bool)), this, SLOT(slotNewClicked()) );
+    connect(mNewActions, &KActionMenu::triggered, this, &MainWindow::slotNewClicked);
 
     // If the user is using disconnected imap mail folders as groupware, we add
     // plugins' Synchronize actions to the toolbar which trigger an imap sync.
@@ -462,7 +462,7 @@ void MainWindow::setupActions()
                     i18nc( "@title:menu synchronize pim items (message,calendar,to-do,etc.)", "Sync" ), this );
         actionCollection()->addAction( QLatin1String("action_sync"), mSyncActions );
         mSyncActions->setShortcuts( KStandardShortcut::reload() );
-        connect( mSyncActions, SIGNAL(triggered(bool)), this, SLOT(slotSyncClicked()) );
+        connect(mSyncActions, &KActionMenu::triggered, this, &MainWindow::slotSyncClicked);
     }
 
     QAction *action =
@@ -474,7 +474,7 @@ void MainWindow::setupActions()
                 i18nc( "@info:whatsthis",
                        "You will be presented with a dialog where you can configure Kontact." ) );
     actionCollection()->addAction( QLatin1String("settings_configure_kontact"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotPreferences()) );
+    connect(action, &QAction::triggered, this, &MainWindow::slotPreferences);
 
     action =
             new QAction( QIcon::fromTheme( QLatin1String("kontact") ),
@@ -485,7 +485,7 @@ void MainWindow::setupActions()
                 i18nc( "@info:whatsthis",
                        "Choose this option to see the Kontact Introduction page." ) );
     actionCollection()->addAction( QLatin1String("help_introduction"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotShowIntroduction()) );
+    connect(action, &QAction::triggered, this, &MainWindow::slotShowIntroduction);
 
     action =
             new QAction( QIcon::fromTheme( QLatin1String("ktip") ),
@@ -497,10 +497,10 @@ void MainWindow::setupActions()
                        "You will be presented with a dialog showing small tips to help "
                        "you use this program more effectively." ) );
     actionCollection()->addAction( QLatin1String("help_tipofday"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotShowTip()) );
+    connect(action, &QAction::triggered, this, &MainWindow::slotShowTip);
     //TODO 4.12: add description
     QShortcut *shortcut = new QShortcut( QKeySequence(Qt::Key_F9), this );
-    connect(shortcut, SIGNAL(activated()), this, SLOT(slotShowHideSideBar()));
+    connect(shortcut, &QShortcut::activated, this, &MainWindow::slotShowHideSideBar);
 }
 
 bool MainWindow::isPluginLoaded( const KPluginInfo &info )
@@ -706,7 +706,7 @@ void MainWindow::addPlugin( KontactInterface::Plugin *plugin )
         action->setCheckable( true );
         action->setData( QVariant::fromValue( plugin ) ); // on the slot we can decode
         // which action was triggered
-        connect( action, SIGNAL(triggered(bool)), SLOT(slotActionTriggered()) );
+        connect(action, &QAction::triggered, this, &MainWindow::slotActionTriggered);
         actionCollection()->addAction( plugin->title(), action );
         mActionPlugins.append( action );
         mPluginAction.insert( plugin, action );
@@ -1066,7 +1066,7 @@ void MainWindow::slotPreferences()
 
         //QT5 dlg->setHelp( QLatin1String("main-config"), QLatin1String("kontact") );
         dlg->addPluginInfos( filteredPlugins );
-        connect( dlg, SIGNAL(pluginSelectionChanged()), SLOT(pluginsChanged()) );
+        connect(dlg, &Kontact::KontactConfigureDialog::pluginSelectionChanged, this, &MainWindow::pluginsChanged);
     }
 
     dlg->show();
@@ -1126,7 +1126,7 @@ void MainWindow::configureToolbars()
         saveMainWindowSettings( grp );
     }
     QPointer<KEditToolBar> edit = new KEditToolBar( factory() );
-    connect( edit, SIGNAL(newToolBarConfig()), this, SLOT(slotNewToolbarConfig()) );
+    connect(edit.data(), &KEditToolBar::newToolBarConfig, this, &MainWindow::slotNewToolbarConfig);
     edit->exec();
     delete edit;
 }
