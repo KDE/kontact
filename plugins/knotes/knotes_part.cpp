@@ -633,7 +633,7 @@ void KNotesPart::slotPreferences()
 {
     // create a new preferences dialog...
     KNoteConfigDialog *dialog = new KNoteConfigDialog( i18n( "Settings" ), widget());
-    connect( dialog, SIGNAL(configWrote()), this, SLOT(slotConfigUpdated()));
+    connect( dialog, SIGNAL(configCommitted()), this, SLOT(slotConfigUpdated()));
     dialog->show();
 }
 
