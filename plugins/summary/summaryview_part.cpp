@@ -485,7 +485,7 @@ void SummaryViewPart::initGUI( KontactInterface::Core *core )
   mMainWidget->setFocusPolicy( Qt::StrongFocus );
   setWidget( sa );
 
-  connect( KGlobalSettings::self(), SIGNAL(kdisplayPaletteChanged()), SLOT(slotAdjustPalette()) );
+  connect(KGlobalSettings::self(), &KGlobalSettings::kdisplayPaletteChanged, this, &SummaryViewPart::slotAdjustPalette);
   slotAdjustPalette();
 
   mMainLayout = new QVBoxLayout( mMainWidget );
