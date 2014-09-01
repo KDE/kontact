@@ -91,10 +91,8 @@ SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent 
 
     connect( mChangeRecorder, SIGNAL(collectionChanged(Akonadi::Collection)),
              SLOT(slotCollectionChanged()) );
-    connect( mChangeRecorder, SIGNAL(collectionRemoved(Akonadi::Collection)),
-             SLOT(slotCollectionChanged()) );
-    connect( mChangeRecorder, SIGNAL(collectionStatisticsChanged(Akonadi::Collection::Id,Akonadi::CollectionStatistics)),
-             SLOT(slotCollectionChanged()));
+    connect(mChangeRecorder, &Akonadi::ChangeRecorder::collectionRemoved, this, &SummaryWidget::slotCollectionChanged);
+    connect(mChangeRecorder, &Akonadi::ChangeRecorder::collectionStatisticsChanged, this, &SummaryWidget::slotCollectionChanged);
     QTimer::singleShot(0, this, SLOT(slotUpdateFolderList()));
 }
 

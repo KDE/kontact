@@ -559,10 +559,8 @@ void SDSummaryWidget::createLabels()
         mLayout->addWidget( urlLabel, counter, 4 );
         mLabels.append( urlLabel );
 
-        connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
-                 this, SLOT(mailContact(QString)) );
-        connect( urlLabel, SIGNAL(rightClickedUrl(QString)),
-                 this, SLOT(popupMenu(QString)) );
+        connect(urlLabel, static_cast<void (KUrlLabel::*)(const QString &)>(&KUrlLabel::leftClickedUrl), this, &SDSummaryWidget::mailContact);
+        connect(urlLabel, static_cast<void (KUrlLabel::*)(const QString &)>(&KUrlLabel::rightClickedUrl), this, &SDSummaryWidget::popupMenu);
       } else {
         label = new QLabel( this );
         label->setText( (*addrIt).summary );
