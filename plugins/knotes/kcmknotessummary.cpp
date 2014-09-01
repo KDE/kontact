@@ -27,7 +27,7 @@
 #include <KAcceleratorManager>
 #include <KCheckableProxyModel>
 #include <QDebug>
-#include <KDialog>
+#include <QDialog>
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <KSharedConfig>
@@ -35,6 +35,7 @@
 #include <QCheckBox>
 #include <QTreeView>
 #include <QVBoxLayout>
+#include <KConfigGroup>
 
 extern "C"
 {
@@ -74,7 +75,7 @@ void KCMKNotesSummary::modified()
 void KCMKNotesSummary::initGUI()
 {
     QVBoxLayout *layout = new QVBoxLayout( this );
-    layout->setSpacing( KDialog::spacingHint() );
+//TODO PORT QT5     layout->setSpacing( QDialog::spacingHint() );
     layout->setMargin( 0 );
 
     mCheckedCollectionWidget = new PimCommon::CheckedCollectionWidget(Akonotes::Note::mimeType());

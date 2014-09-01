@@ -40,7 +40,7 @@ using KPIM::BroadcastStatus;
 #include <KCMultiDialog>
 #include <KComponentData>
 #include <KConfigGroup>
-#include <KDialog>
+#include <QDialog>
 #include <KGlobalSettings>
 #include <QIcon>
 #include <KLocalizedString>
@@ -211,11 +211,11 @@ void SummaryViewPart::updateWidgets()
   layout->insertSpacing( 0, margin );
   mLeftColumn = new QVBoxLayout();
   layout->addLayout( mLeftColumn );
-  mLeftColumn->setSpacing( KDialog::spacingHint() );
+//TODO PORT QT5   mLeftColumn->setSpacing( QDialog::spacingHint() );
   layout->addWidget( vline );
   mRightColumn = new QVBoxLayout();
   layout->addLayout( mRightColumn );
-  mRightColumn->setSpacing( KDialog::spacingHint() );
+//TODO PORT QT5   mRightColumn->setSpacing( QDialog::spacingHint() );
   layout->insertSpacing( -1, margin );
 
   QStringList::ConstIterator strIt;
@@ -489,8 +489,8 @@ void SummaryViewPart::initGUI( KontactInterface::Core *core )
   slotAdjustPalette();
 
   mMainLayout = new QVBoxLayout( mMainWidget );
-  mMainLayout->setSpacing( KDialog::spacingHint() );
-  mMainLayout->setMargin( KDialog::marginHint() );
+//TODO PORT QT5   mMainLayout->setSpacing( QDialog::spacingHint() );
+//TODO PORT QT5   mMainLayout->setMargin( QDialog::marginHint() );
 
   QHBoxLayout *hbl = new QHBoxLayout();
   mMainLayout->addItem( hbl );
