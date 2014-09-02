@@ -68,7 +68,7 @@ KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
             new QAction( QIcon::fromTheme( QLatin1String("knotes") ),
                          i18nc( "@action:inmenu", "New Popup Note..." ), this );
     actionCollection()->addAction( QLatin1String("new_note"), action );
-    connect( action, SIGNAL(triggered(bool)), SLOT(slotNewNote()) );
+    connect(action, &QAction::triggered, this, &KNotesPlugin::slotNewNote);
     action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_N ) );
     //action->setHelpText(
     //            i18nc( "@info:status", "Create new popup note" ) );

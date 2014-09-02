@@ -86,8 +86,7 @@ KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidg
     mNoteRecorder->changeRecorder()->setSession(session);
     mNoteTreeModel = new NoteShared::NotesAkonadiTreeModel(mNoteRecorder->changeRecorder(), this);
 
-    connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-             SLOT(updateFolderList()));
+    connect(mNoteTreeModel, &NoteShared::NotesAkonadiTreeModel::rowsInserted, this, &KNotesSummaryWidget::updateFolderList);
 
     connect( mNoteRecorder->changeRecorder(), SIGNAL(itemChanged(Akonadi::Item,QSet<QByteArray>)), SLOT(updateFolderList()));
     connect( mNoteRecorder->changeRecorder(), SIGNAL(itemRemoved(Akonadi::Item)), SLOT(updateFolderList()) );
