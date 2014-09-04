@@ -129,8 +129,7 @@ void SummaryViewPart::updateWidgets()
   mSummaries.clear();
 
   mFrame = new DropWidget( mMainWidget );
-  connect( mFrame, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
-           this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
+  connect(mFrame, &DropWidget::summaryWidgetDropped, this, &SummaryViewPart::summaryWidgetMoved);
 
   mMainLayout->insertWidget( 2, mFrame );
 
