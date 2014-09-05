@@ -269,10 +269,8 @@ TODO: calhelper is deprecated, remove this?
       mLayout->addWidget( urlLabel, counter, 4 );
       mLabels.append( urlLabel );
 
-      connect( urlLabel, SIGNAL(leftClickedUrl(QString)),
-               this, SLOT(viewTodo(QString)) );
-      connect( urlLabel, SIGNAL(rightClickedUrl(QString)),
-               this, SLOT(popupMenu(QString)) );
+      connect(urlLabel, static_cast<void (KUrlLabel::*)(const QString &)>(&KUrlLabel::leftClickedUrl), this, &TodoSummaryWidget::viewTodo);
+      connect(urlLabel, static_cast<void (KUrlLabel::*)(const QString &)>(&KUrlLabel::rightClickedUrl), this, &TodoSummaryWidget::popupMenu);
 
       /*
          Commented out because a ETMCalendar doesn't have any name, it's a group of selected
