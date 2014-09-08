@@ -514,8 +514,7 @@ void SummaryViewPart::initGUI( KontactInterface::Core *core )
   mFrame = new DropWidget( mMainWidget );
   mMainLayout->insertWidget( 2, mFrame );
 
-  connect( mFrame, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
-           this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)) );
+  connect(mFrame, &DropWidget::summaryWidgetDropped, this, &SummaryViewPart::summaryWidgetMoved);
 
   updateWidgets();
 }
