@@ -154,3 +154,37 @@ void SummaryEventTester::test_Multiday()
   qDeleteAll( events2 );
 }
 
+void SummaryEventTester::test_eventsForRange_data()
+{
+  QTest::addColumn<int>("start"); // event start, in days from now
+  QTest::addColumn<int>("end"); // event end, in days from now
+  QTest::addColumn<bool>("inside"); // is the event inside the range (today until 7 days from now)?
+
+  QTest::newRow("completely in the past") <<  -5 << -2 << false;
+  QTest::newRow("fully inside the range") << 1 << 3 << true;
+  QTest::newRow("completely after the range") << 8 << 10 << false;
+  QTest::newRow("start in the past, end inside") << -2 << 3 << true;
+  QTest::newRow("start inside, end after the range") << 2 << 10 << true;
+  QTest::newRow("start in the past, end after the range") << -2 << 10 << true;
+}
+
+void SummaryEventTester::test_eventsForRange()
+{
+  QFETCH( int, start );
+  QFETCH( int, end );
+  QFETCH( bool, inside );
+
+  QDate today = QDate::currentDate();
+
+  KCalCore::MemoryCalendar *cal = new KCalCore::MemoryCalendar( KDateTime().timeSpec() );
+
+  KCalCore::Event::Ptr event( new KCalCore::Event() );
+  event->setDtStart( KDateTime( today.addDays( start ) ) );
+  event->setDtEnd( KDateTime( today.addDays( end ) ) );
+  QVERIFY( cal->addEvent( event ) );
+
+  SummaryEventInfo::List events = SummaryEventInfo::eventsForRange( today, today.addDays( 7 ), cal );
+  QCOMPARE( events.count() == 1, inside );
+
+  qDeleteAll( events );
+}

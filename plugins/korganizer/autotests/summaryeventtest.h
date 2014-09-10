@@ -28,6 +28,9 @@ class SummaryEventTester : public QObject
 
 private slots:
   void test_Multiday();
+
+  void test_eventsForRange_data();
+  void test_eventsForRange();
 };
 
 #endif

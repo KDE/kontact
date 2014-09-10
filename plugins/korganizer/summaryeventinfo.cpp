@@ -156,8 +156,8 @@ SummaryEventInfo::List SummaryEventInfo::eventsForRange( const QDate &start, con
         sDateTimeByUid.insert(event->instanceIdentifier(), occurrences.first());
       }
     } else {
-      if ( ( start >= eventStart.date() && start <= eventEnd.date() ) ||
-           ( end >= eventStart.date() && end <= eventEnd.date() ) ) {
+      if ( ( end >= eventStart.date() && start <= eventEnd.date() ) ||
+           ( start >= eventStart.date() && end <= eventEnd.date() ) ) {
         events << event;
         if ( eventStart.date() < start ) {
           sDateTimeByUid.insert(event->instanceIdentifier(), KDateTime(start,spec));
