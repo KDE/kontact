@@ -28,7 +28,6 @@
 #include <KontactInterface/Plugin>
 
 #include <KAboutData>
-#include <KDialog>
 #include <QIcon>
 #include <KLocalizedString>
 #include <KPluginInfo>
@@ -96,7 +95,7 @@ KCMKontactSummary::KCMKontactSummary( QWidget *parent )
 {
   setButtons( NoAdditionalButton );
   QVBoxLayout *layout = new QVBoxLayout( this );
-  layout->setSpacing( KDialog::spacingHint() );
+  //QT5 layout->setSpacing( KDialog::spacingHint() );
   layout->setMargin( 0 );
 
   QLabel *label =
