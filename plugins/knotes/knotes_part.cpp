@@ -691,7 +691,7 @@ void KNotesPart::slotSetAlarm()
     }
     if ( dlg->exec() ) {
         bool needToModify = true;
-        KDateTime dateTime = dlg->alarm();
+        QDateTime dateTime = dlg->alarm();
         if (dateTime.isValid()) {
             NoteShared::NoteAlarmAttribute *attribute =  item.attribute<NoteShared::NoteAlarmAttribute>( Akonadi::Entity::AddIfMissing );
             attribute->setDateTime(dateTime);
