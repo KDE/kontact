@@ -239,7 +239,7 @@ void MainWindow::initObject()
 
     // prepare the part manager
     mPartManager = new KParts::PartManager( this );
-    connect( mPartManager, SIGNAL(activePartChanged(KParts::Part*)), this, SLOT(slotActivePartChanged(KParts::Part*)) );
+    connect(mPartManager, &KParts::PartManager::activePartChanged, this, &MainWindow::slotActivePartChanged);
 
     loadPlugins();
 
