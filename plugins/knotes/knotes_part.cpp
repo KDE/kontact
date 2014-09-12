@@ -117,7 +117,7 @@ KNotesPart::KNotesPart( QObject *parent )
     mNewNote = new QAction( QIcon::fromTheme( QLatin1String("knotes") ),
                             i18nc( "@action:inmenu create new popup note", "&New" ), this );
     actionCollection()->addAction( QLatin1String("file_new"), mNewNote );
-    connect(mNewNote, &QAction::triggered, this, &KNotesPart::newNote);
+    connect( mNewNote, SIGNAL(triggered(bool)), SLOT(newNote()) );
     mNewNote->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_N ) );
     //mNewNote->setHelpText(
     //            i18nc( "@info:status", "Create a new popup note" ) );
@@ -128,7 +128,7 @@ KNotesPart::KNotesPart( QObject *parent )
     mNoteEdit = new QAction( QIcon::fromTheme( QLatin1String("document-edit") ),
                           i18nc( "@action:inmenu", "Edit..." ), this );
     actionCollection()->addAction( QLatin1String("edit_note"), mNoteEdit );
-    connect(mNoteEdit, &QAction::triggered, this, &KNotesPart::editNote);
+    connect( mNoteEdit, SIGNAL(triggered(bool)), SLOT(editNote()) );
     //mNoteEdit->setHelpText(
     //            i18nc( "@info:status", "Edit popup note" ) );
     mNoteEdit->setWhatsThis(
@@ -637,7 +637,7 @@ void KNotesPart::slotPreferences()
 {
     // create a new preferences dialog...
     KNoteConfigDialog *dialog = new KNoteConfigDialog( i18n( "Settings" ), widget());
-    connect(dialog, &KNoteConfigDialog::configCommitted, this, &KNotesPart::slotConfigUpdated);
+    connect( dialog, SIGNAL(configCommitted()), this, SLOT(slotConfigUpdated()));
     dialog->show();
 }
 
