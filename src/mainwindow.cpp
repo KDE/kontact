@@ -247,7 +247,7 @@ void MainWindow::initObject()
         mSidePane->updatePlugins();
     }
 
-    //QT5 KSettings::Dispatcher::registerComponent( componentData(), this, "updateConfig" );
+    //QT5 Port to KAboutData KSettings::Dispatcher::registerComponent( aboutData(), this, "updateConfig" );
 
     loadSettings();
 
