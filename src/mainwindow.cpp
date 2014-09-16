@@ -435,7 +435,7 @@ void MainWindow::setupActions()
     mNewActions = new KActionMenu(
                 i18nc( "@title:menu create new pim items (message,calendar,to-do,etc.)", "New" ), this );
     actionCollection()->addAction( QLatin1String("action_new"), mNewActions );
-    mNewActions->setShortcuts( KStandardShortcut::openNew() );
+    actionCollection()->setDefaultShortcuts(mNewActions, KStandardShortcut::openNew() );
     connect(mNewActions, &KActionMenu::triggered, this, &MainWindow::slotNewClicked);
 
     // If the user is using disconnected imap mail folders as groupware, we add
