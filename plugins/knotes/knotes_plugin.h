@@ -51,7 +51,7 @@ public:
     QString tipFile() const;
     int weight() const { return 600; }
 
-    const KAboutData *aboutData() const;
+    const KAboutData aboutData();
 
     bool canDecodeMimeData( const QMimeData *data ) const;
     void processDropEvent( QDropEvent * );
@@ -65,7 +65,6 @@ private slots:
     void slotNewNote();
 
 private:
-    mutable KAboutData *mAboutData;
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 
 };

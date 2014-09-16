@@ -39,7 +39,7 @@
 EXPORT_KONTACT_PLUGIN( SummaryView, summary )
 
 SummaryView::SummaryView( KontactInterface::Core *core, const QVariantList & )
-  : KontactInterface::Plugin( core, core, 0 ), mAboutData( 0 ), mPart( 0 )
+  : KontactInterface::Plugin( core, core, 0 ), mPart( 0 )
 {
   //QT5 setComponentData( KontactPluginFactory::componentData() );
 
@@ -112,10 +112,9 @@ KParts::ReadOnlyPart *SummaryView::createPart()
   return mPart;
 }
 
-const KAboutData *SummaryView::aboutData() const
+const KAboutData SummaryView::aboutData()
 {
-  if ( !mAboutData ) {
-    mAboutData = new KAboutData(
+    KAboutData aboutData = KAboutData(
       QLatin1String("kontactsummary"), 
       i18n( "Kontact Summary" ),
       QLatin1String(KDEPIM_VERSION),
@@ -123,16 +122,14 @@ const KAboutData *SummaryView::aboutData() const
       KAboutLicense::LGPL,
       i18n( "(c) 2003-2014 The Kontact developers" ) );
 
-    mAboutData->addAuthor( i18n( "Sven Lueppken" ),
+    aboutData.addAuthor( i18n( "Sven Lueppken" ),
                            QString(), QLatin1String("sven@kde.org") );
-    mAboutData->addAuthor( i18n( "Cornelius Schumacher" ),
+    aboutData.addAuthor( i18n( "Cornelius Schumacher" ),
                            QString(), QLatin1String("schumacher@kde.org") );
-    mAboutData->addAuthor( i18n( "Tobias Koenig" ),
+    aboutData.addAuthor( i18n( "Tobias Koenig" ),
                            QString(), QLatin1String("tokoe@kde.org") );
-    mAboutData->setProductName( "kontact/summary" );
-  }
-
-  return mAboutData;
+    aboutData.setProductName( "kontact/summary" );
+  return aboutData;
 }
 
 #include "summaryview_plugin.moc"
