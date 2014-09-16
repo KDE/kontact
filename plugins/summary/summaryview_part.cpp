@@ -57,7 +57,7 @@ using KPIM::BroadcastStatus;
 #include <KLocale>
 
 SummaryViewPart::SummaryViewPart( KontactInterface::Core *core, const char *,
-                                  const KAboutData *aboutData, QObject *parent )
+                                  const KAboutData &aboutData, QObject *parent )
   : KParts::ReadOnlyPart( parent ), mCore( core ), mFrame( 0 ), mConfigAction( 0 )
 {
   //QT5 setComponentData( KComponentData( aboutData ) );
