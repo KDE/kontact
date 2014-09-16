@@ -4,7 +4,7 @@ Icon=korganizer
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_korganizerplugin
-X-KDE-KontactPluginVersion=9
+X-KDE-KontactPluginVersion=10
 X-KDE-KontactPartLibraryName=korganizerpart
 X-KDE-KontactPartExecutableName=korganizer
 X-KDE-KontactPluginHasSummary=true

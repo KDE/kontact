@@ -4,7 +4,7 @@ Icon=favorites
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_specialdatesplugin
-X-KDE-KontactPluginVersion=9
+X-KDE-KontactPluginVersion=10
 X-KDE-KontactPluginHasPart=false
 X-KDE-KontactPluginHasSummary=true
 

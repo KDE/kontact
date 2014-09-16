@@ -4,7 +4,7 @@ Icon=korg-journal
 X-KDE-ServiceTypes=Kontact/Plugin
 
 X-KDE-Library=kontact_journalplugin
-X-KDE-KontactPluginVersion=9
+X-KDE-KontactPluginVersion=10
 X-KDE-KontactPartLibraryName=korganizerpart
 X-KDE-KontactPartExecutableName=korganizer
 X-KDE-KontactPluginHasSummary=false

@@ -4,7 +4,7 @@ Icon=kontact
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_summaryplugin
-X-KDE-KontactPluginVersion=9
+X-KDE-KontactPluginVersion=10
 
 X-KDE-PluginInfo-Name=kontact_summaryplugin
 X-KDE-PluginInfo-Version=0.1

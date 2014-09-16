@@ -4,7 +4,7 @@ Icon=knotes
 X-KDE-ServiceTypes=Kontact/Plugin,KPluginInfo
 
 X-KDE-Library=kontact_knotesplugin
-X-KDE-KontactPluginVersion=9
+X-KDE-KontactPluginVersion=10
 X-KDE-KontactPluginHasSummary=true
 
 X-KDE-PluginInfo-Website=http://pim.kde.org/components/knotes.php
