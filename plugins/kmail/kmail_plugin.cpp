@@ -128,7 +128,7 @@ void KMailPlugin::processDropEvent( QDropEvent *de )
         openComposer( to.join( QLatin1String(", ") ) );
     }
 
-    //QT5 qWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(de->format()) );
+    qWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( de->mimeData()->formats().join(QLatin1Char(';')) );
 }
 
 void KMailPlugin::openComposer( const KUrl &attach )

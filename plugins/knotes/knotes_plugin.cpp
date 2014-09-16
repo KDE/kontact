@@ -210,7 +210,7 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
         return;
     }
 
-    //QT5 qWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( QLatin1String(event->format()) );
+    qWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( event->mimeData()->formats().join(QLatin1Char(';')) );
 }
 
 void KNotesPlugin::shortcutChanged()
