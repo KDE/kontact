@@ -33,7 +33,6 @@
 class KNoteFindDialog;
 class KNotesIconView;
 class KNotesWidget;
-class KNotesIconViewItem;
 class QAction;
 class KToggleAction;
 
@@ -43,7 +42,6 @@ class PublicService;
 namespace Akonadi {
 class ChangeRecorder;
 class Collection;
-class EntityTreeModel;
 class ETMViewStateSaver;
 }
 namespace NoteShared {

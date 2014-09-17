@@ -38,8 +38,6 @@ class Plugin;
 
 namespace Akonadi {
 class ChangeRecorder;
-class Collection;
-class EntityTreeModel;
 class ETMViewStateSaver;
 class Item;
 }

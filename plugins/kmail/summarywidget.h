@@ -36,7 +36,6 @@ class ChangeRecorder;
 class Collection;
 class EntityTreeModel;
 class ETMViewStateSaver;
-class CollectionStatistics;
 }
 
 namespace KontactInterface {

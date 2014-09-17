@@ -23,6 +23,7 @@
 #include <QMultiHash>
 class KNoteConfig;
 class KNoteDisplaySettings;
+class KNotesIconViewItem;
 class KNotesIconView : public QListWidget
 {
     Q_OBJECT
