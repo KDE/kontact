@@ -81,6 +81,7 @@ private slots:
     void updateNavigatorSize();
 
 private:
+    void setHelpText(QAction *act, const QString &text);
     SidePaneBase *mSidePane;
     Model *mModel;
 

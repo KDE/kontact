@@ -253,9 +253,9 @@ Navigator::Navigator( SidePaneBase *parent )
     mShowIconsAction->setCheckable( true );
     mShowIconsAction->setActionGroup( viewMode );
     mShowIconsAction->setChecked( !mShowText && mShowIcons );
-    //QT5 mShowIconsAction->setHelpText(
-    //            i18nc( "@info:status",
-    //                   "Show sidebar items with icons and without text" ) );
+    setHelpText(mShowIconsAction,
+                i18nc( "@info:status",
+                       "Show sidebar items with icons and without text" ) );
     mShowIconsAction->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "Choose this option if you want the sidebar items to have icons without text." ) );
@@ -265,9 +265,9 @@ Navigator::Navigator( SidePaneBase *parent )
     mShowTextAction->setCheckable( true );
     mShowTextAction->setActionGroup( viewMode );
     mShowTextAction->setChecked( mShowText && !mShowIcons );
-    //QT5 mShowTextAction->setHelpText(
-    //            i18nc( "@info:status",
-    //                   "Show sidebar items with text and without icons" ) );
+    setHelpText(mShowTextAction,
+                i18nc( "@info:status",
+                       "Show sidebar items with text and without icons" ) );
     mShowTextAction->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "Choose this option if you want the sidebar items to have text without icons." ) );
@@ -277,9 +277,9 @@ Navigator::Navigator( SidePaneBase *parent )
     mShowBothAction->setCheckable( true );
     mShowBothAction->setActionGroup( viewMode );
     mShowBothAction->setChecked( mShowText && mShowIcons );
-    //QT5 mShowBothAction->setHelpText(
-    //            i18nc( "@info:status",
-    //                   "Show sidebar items with icons and text" ) );
+    setHelpText(mShowBothAction,
+                i18nc( "@info:status",
+                       "Show sidebar items with icons and text" ) );
     mShowBothAction->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "Choose this option if you want the sidebar items to have icons and text." ) );
@@ -294,9 +294,9 @@ Navigator::Navigator( SidePaneBase *parent )
     mBigIconsAction->setCheckable( iconSize );
     mBigIconsAction->setActionGroup( iconSize );
     mBigIconsAction->setChecked( mIconSize == KIconLoader::SizeLarge );
-    //QT5 mBigIconsAction->setHelpText(
-    //            i18nc( "@info:status",
-    //                   "Show large size sidebar icons" ) );
+    setHelpText(mBigIconsAction,
+                i18nc( "@info:status",
+                       "Show large size sidebar icons" ) );
     mBigIconsAction->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "Choose this option if you want the sidebar icons to be extra big." ) );
@@ -306,9 +306,9 @@ Navigator::Navigator( SidePaneBase *parent )
     mNormalIconsAction->setCheckable( true );
     mNormalIconsAction->setActionGroup( iconSize );
     mNormalIconsAction->setChecked( mIconSize == KIconLoader::SizeMedium );
-    //QT5 mNormalIconsAction->setHelpText(
-    //            i18nc( "@info:status",
-    //                   "Show normal size sidebar icons" ) );
+    setHelpText(mNormalIconsAction,
+                i18nc( "@info:status",
+                       "Show normal size sidebar icons" ) );
     mNormalIconsAction->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "Choose this option if you want the sidebar icons to be normal size." ) );
@@ -318,9 +318,9 @@ Navigator::Navigator( SidePaneBase *parent )
     mSmallIconsAction->setCheckable( true );
     mSmallIconsAction->setActionGroup( iconSize );
     mSmallIconsAction->setChecked( mIconSize == KIconLoader::SizeSmallMedium );
-    //QT5 mSmallIconsAction->setHelpText(
-    //            i18nc( "@info:status",
-    //                   "Show small size sidebar icons" ) );
+    setHelpText(mSmallIconsAction,
+                i18nc( "@info:status",
+                       "Show small size sidebar icons" ) );
     mSmallIconsAction->setWhatsThis(
                 i18nc( "@info:whatsthis",
                        "Choose this option if you want the sidebar icons to be extra small." ) );
@@ -459,6 +459,16 @@ void Navigator::dropEvent( QDropEvent *event )
         plugin->processDropEvent( event );
     }
 }
+
+void Navigator::setHelpText(QAction *act, const QString &text)
+{
+    act->setStatusTip(text);
+    act->setToolTip(text);
+    if (act->whatsThis().isEmpty()) {
+        act->setWhatsThis(text);
+    }
+}
+
 
 void Navigator::showEvent( QShowEvent *event )
 {
