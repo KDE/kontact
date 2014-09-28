@@ -22,7 +22,7 @@
 #ifndef KONTACT_SIDEPANEBASE_H
 #define KONTACT_SIDEPANEBASE_H
 
-#include <KVBox>
+#include <QWidget>
 
 namespace KontactInterface {
 class Core;
@@ -32,7 +32,7 @@ class Plugin;
 
 namespace Kontact {
 
-class SidePaneBase : public KVBox
+class SidePaneBase : public QWidget
 {
     Q_OBJECT
 

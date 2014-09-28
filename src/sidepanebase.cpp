@@ -24,10 +24,13 @@
 using namespace Kontact;
 
 #include <KontactInterface/Core>
+#include <QVBoxLayout>
 
 SidePaneBase::SidePaneBase( KontactInterface::Core *core, QWidget *parent )
-    : KVBox( parent ), mCore( core )
+    : QWidget( parent ), mCore( core )
 {
+    QVBoxLayout *layout = new QVBoxLayout;
+    setLayout(layout);
 }
 
 SidePaneBase::~SidePaneBase()

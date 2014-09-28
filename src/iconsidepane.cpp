@@ -41,6 +41,7 @@ using namespace Kontact;
 #include <QStyledItemDelegate>
 #include <QTimer>
 #include <QCollator>
+#include <QLayout>
 
 namespace Kontact {
 
@@ -531,6 +532,7 @@ IconSidePane::IconSidePane( KontactInterface::Core *core, QWidget *parent )
     : SidePaneBase( core, parent )
 {
     mNavigator = new Navigator( this );
+    layout()->addWidget(mNavigator);
     mNavigator->setFocusPolicy( Qt::NoFocus );
     connect( mNavigator, SIGNAL(pluginActivated(KontactInterface::Plugin*)),
              SIGNAL(pluginSelected(KontactInterface::Plugin*)) );
