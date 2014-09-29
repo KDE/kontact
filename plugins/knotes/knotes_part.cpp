@@ -223,8 +223,7 @@ KNotesPart::KNotesPart( QObject *parent )
     mNoteRecorder->changeRecorder()->setSession(session);
     mNoteTreeModel = new NoteShared::NotesAkonadiTreeModel(mNoteRecorder->changeRecorder(), this);
 
-    connect( mNoteTreeModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-             SLOT(slotRowInserted(QModelIndex,int,int)));
+    connect(mNoteTreeModel, &NoteShared::NotesAkonadiTreeModel::rowsInserted, this, &KNotesPart::slotRowInserted);
 
     connect( mNoteRecorder->changeRecorder(), SIGNAL(itemChanged(Akonadi::Item,QSet<QByteArray>)), SLOT(slotItemChanged(Akonadi::Item,QSet<QByteArray>)));
     connect( mNoteRecorder->changeRecorder(), SIGNAL(itemRemoved(Akonadi::Item)), SLOT(slotItemRemoved(Akonadi::Item)) );
