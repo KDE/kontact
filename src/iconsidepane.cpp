@@ -534,8 +534,7 @@ IconSidePane::IconSidePane( KontactInterface::Core *core, QWidget *parent )
     mNavigator = new Navigator( this );
     layout()->addWidget(mNavigator);
     mNavigator->setFocusPolicy( Qt::NoFocus );
-    connect( mNavigator, SIGNAL(pluginActivated(KontactInterface::Plugin*)),
-             SIGNAL(pluginSelected(KontactInterface::Plugin*)) );
+    connect(mNavigator, &Navigator::pluginActivated, this, &IconSidePane::pluginSelected);
 }
 
 IconSidePane::~IconSidePane()
