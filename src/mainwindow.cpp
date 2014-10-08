@@ -65,8 +65,6 @@ using namespace Kontact;
 #include <KSettings/Dispatcher>
 #include <KSycoca>
 #include <KIconLoader>
-#include <KGlobal>
-#include <KShortcut>
 #include <k4aboutdata.h>
 #include <KLocalizedString>
 #include <QDBusConnection>
