@@ -29,7 +29,7 @@
 
 #include <libkdepim/misc/maillistdrag.h>
 
-#include <KABC/VCardDrag>
+#include <KContacts/VCardDrag>
 
 #include <KCalCore/Incidence>
 #include <KCalCore/MemoryCalendar>
@@ -182,20 +182,20 @@ bool KOrganizerPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
 {
   return mimeData->hasText() ||
     KPIM::MailList::canDecode( mimeData ) ||
-    KABC::VCardDrag::canDecode( mimeData );
+    KContacts::VCardDrag::canDecode( mimeData );
 }
 
 void KOrganizerPlugin::processDropEvent( QDropEvent *event )
 {
   const QMimeData *md = event->mimeData();
-  if ( KABC::VCardDrag::canDecode( md ) ) {
-    KABC::Addressee::List contacts;
+  if ( KContacts::VCardDrag::canDecode( md ) ) {
+    KContacts::Addressee::List contacts;
 
-    KABC::VCardDrag::fromMimeData( md, contacts );
+    KContacts::VCardDrag::fromMimeData( md, contacts );
 
-    KABC::Addressee::List::ConstIterator it;
+    KContacts::Addressee::List::ConstIterator it;
 
-    KABC::Addressee::List::ConstIterator end(contacts.constEnd());
+    KContacts::Addressee::List::ConstIterator end(contacts.constEnd());
     QStringList attendees;
     for ( it = contacts.constBegin(); it != end; ++it ) {
       QString email = (*it).fullEmail();

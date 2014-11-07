@@ -29,7 +29,7 @@
 
 #include <libkdepim/misc/maillistdrag.h>
 
-#include <KABC/VCardDrag>
+#include <KContacts/VCardDrag>
 
 #include <KCalCore/MemoryCalendar>
 
@@ -179,7 +179,7 @@ bool TodoPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
   return
     mimeData->hasText() ||
     KPIM::MailList::canDecode( mimeData ) ||
-    KABC::VCardDrag::canDecode( mimeData ) ||
+    KContacts::VCardDrag::canDecode( mimeData ) ||
     KCalUtils::ICalDrag::canDecode( mimeData );
 }
 
@@ -192,15 +192,15 @@ void TodoPlugin::processDropEvent( QDropEvent *event )
 {
   const QMimeData *md = event->mimeData();
 
-  if ( KABC::VCardDrag::canDecode( md ) ) {
-    KABC::Addressee::List contacts;
+  if ( KContacts::VCardDrag::canDecode( md ) ) {
+    KContacts::Addressee::List contacts;
 
-    KABC::VCardDrag::fromMimeData( md, contacts );
+    KContacts::VCardDrag::fromMimeData( md, contacts );
 
-    KABC::Addressee::List::ConstIterator it;
+    KContacts::Addressee::List::ConstIterator it;
 
     QStringList attendees;
-    KABC::Addressee::List::ConstIterator end(contacts.constEnd());
+    KContacts::Addressee::List::ConstIterator end(contacts.constEnd());
     for ( it = contacts.constBegin(); it != end; ++it ) {
       const QString email = (*it).fullEmail();
       if ( email.isEmpty() ) {

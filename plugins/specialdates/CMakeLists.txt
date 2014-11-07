@@ -16,7 +16,7 @@ set(_korganizerprivate_lib "korganizerprivate")
 target_link_libraries(kontact_specialdatesplugin
   KF5::AkonadiCalendar
   
-  KF5::Abc
+  KF5::Contacts
   KF5::CalendarCore
   KF5::Holidays
   KF5::KontactInterface

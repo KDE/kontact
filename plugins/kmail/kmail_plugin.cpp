@@ -26,7 +26,7 @@
 #include "kmailinterface.h"
 #include "summarywidget.h"
 
-#include <KABC/VCardDrag>
+#include <KContacts/VCardDrag>
 #include <KCalCore/MemoryCalendar>
 #include <KCalCore/FileStorage>
 #include <KCalUtils/ICalDrag>
@@ -89,7 +89,7 @@ bool KMailPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
     return
             ICalDrag::canDecode( mimeData ) ||
             VCalDrag::canDecode( mimeData ) ||
-            KABC::VCardDrag::canDecode( mimeData );
+            KContacts::VCardDrag::canDecode( mimeData );
 }
 
 void KMailPlugin::shortcutChanged()
@@ -108,7 +108,7 @@ void KMailPlugin::shortcutChanged()
 void KMailPlugin::processDropEvent( QDropEvent *de )
 {
     MemoryCalendar::Ptr cal( new MemoryCalendar( QString::fromLatin1( "UTC" ) ) );
-    KABC::Addressee::List list;
+    KContacts::Addressee::List list;
     const QMimeData *md = de->mimeData();
 
     if ( VCalDrag::fromMimeData( md, cal ) || ICalDrag::fromMimeData( md, cal ) ) {
@@ -118,10 +118,10 @@ void KMailPlugin::processDropEvent( QDropEvent *de )
         FileStorage storage( cal, tmp.fileName() );
         storage.save();
         openComposer( KUrl( tmp.fileName() ) );
-    } else if ( KABC::VCardDrag::fromMimeData( md, list ) ) {
-        KABC::Addressee::List::ConstIterator it;
+    } else if ( KContacts::VCardDrag::fromMimeData( md, list ) ) {
+        KContacts::Addressee::List::ConstIterator it;
         QStringList to;
-        KABC::Addressee::List::ConstIterator end(list.constEnd());
+        KContacts::Addressee::List::ConstIterator end(list.constEnd());
         for ( it = list.constBegin(); it != end; ++it ) {
             to.append( ( *it ).fullEmail() );
         }

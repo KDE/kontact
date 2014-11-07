@@ -36,7 +36,7 @@ using namespace KPIM;
 using namespace KCalUtils;
 using namespace KCalCore;
 
-#include <KABC/VCardDrag>
+#include <KContacts/VCardDrag>
 
 #include <KontactInterface/Core>
 
@@ -136,7 +136,7 @@ bool KNotesPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
     return
             mimeData->hasText() ||
             MailList::canDecode( mimeData ) ||
-            KABC::VCardDrag::canDecode( mimeData ) ||
+            KContacts::VCardDrag::canDecode( mimeData ) ||
             ICalDrag::canDecode( mimeData );
 }
 
@@ -144,15 +144,15 @@ void KNotesPlugin::processDropEvent( QDropEvent *event )
 {
     const QMimeData *md = event->mimeData();
 
-    if ( KABC::VCardDrag::canDecode( md ) ) {
-        KABC::Addressee::List contacts;
+    if ( KContacts::VCardDrag::canDecode( md ) ) {
+        KContacts::Addressee::List contacts;
 
-        KABC::VCardDrag::fromMimeData( md, contacts );
+        KContacts::VCardDrag::fromMimeData( md, contacts );
 
-        KABC::Addressee::List::ConstIterator it;
+        KContacts::Addressee::List::ConstIterator it;
 
         QStringList attendees;
-        KABC::Addressee::List::ConstIterator end(contacts.constEnd());
+        KContacts::Addressee::List::ConstIterator end(contacts.constEnd());
         for ( it = contacts.constBegin(); it != end; ++it ) {
             const QString email = (*it).fullEmail();
             if ( email.isEmpty() ) {

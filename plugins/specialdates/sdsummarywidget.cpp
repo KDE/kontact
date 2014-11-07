@@ -119,7 +119,7 @@ class SDEntry
     QString summary;
     QString desc;
     int span; // #days in the special occassion.
-    KABC::Addressee addressee;
+    KContacts::Addressee addressee;
     Akonadi::Item item;
 
     bool operator<( const SDEntry &entry ) const
@@ -252,8 +252,8 @@ void SDSummaryWidget::slotBirthdayJobFinished( KJob *job )
   BirthdaySearchJob* bJob = dynamic_cast< BirthdaySearchJob *>( job );
   if ( bJob ) {
     foreach ( const Akonadi::Item &item, bJob->items() ) {
-      if ( item.hasPayload<KABC::Addressee>() ) {
-        const KABC::Addressee addressee = item.payload<KABC::Addressee>();
+      if ( item.hasPayload<KContacts::Addressee>() ) {
+        const KContacts::Addressee addressee = item.payload<KContacts::Addressee>();
         const QDate birthday = addressee.birthday().date();
         if ( birthday.isValid() ) {
           SDEntry entry;
@@ -438,7 +438,7 @@ void SDSummaryWidget::createLabels()
       // Pixmap
       QImage icon_img;
       QString icon_name;
-      KABC::Picture pic;
+      KContacts::Picture pic;
       switch( (*addrIt).category ) {
       case CategoryBirthday:
         icon_name = QLatin1String("view-calendar-birthday");
@@ -663,7 +663,7 @@ void SDSummaryWidget::slotItemFetchJobDone(KJob* job)
     if ( lst.isEmpty() ) {
       return;
     }
-    const KABC::Addressee contact = lst.first().payload<KABC::Addressee>();
+    const KContacts::Addressee contact = lst.first().payload<KContacts::Addressee>();
 
     KToolInvocation::invokeMailer( contact.fullEmail(), QString() );
 }
