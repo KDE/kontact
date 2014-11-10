@@ -37,8 +37,6 @@ using namespace Kontact;
 
 #include <KontactInterface/Core>
 
-#include <KPIMUtils/KFileIO>
-
 #include <QStatusBar>
 #include <KWindowConfig>
 #include <KXMLGUIFactory>
@@ -78,6 +76,7 @@ using namespace Kontact;
 #include <KHelpClient>
 #include <KSharedConfig>
 #include <QStandardPaths>
+#include <QFile>
 #include <QHBoxLayout>
 
 // Define the maximum time Kontact waits for KSycoca to become available.
@@ -387,7 +386,13 @@ void MainWindow::initWidgets()
 void MainWindow::paintAboutScreen( const QString &msg )
 {
     QString location = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kontact/about/main.html") );
-    QString content = QLatin1String(KPIMUtils::kFileToByteArray( location ));
+    QFile f(location);
+    if (!f.open(QIODevice::ReadOnly)) {
+        qWarning() << "Failed to load about page: " << f.errorString();
+        return;
+    }
+    QString content = QString::fromLocal8Bit(f.readAll());
+    f.close();
     content = content.arg( QLatin1String("file:") + KStandardDirs::locate(
                                "data", QLatin1String("kdeui/about/kde_infopage.css") ) );
     if ( QApplication::isRightToLeft() ) {
