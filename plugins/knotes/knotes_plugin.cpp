@@ -28,7 +28,6 @@
 #include <KCalUtils/VCalDrag>
 #include <KCalCore/FileStorage>
 
-
 #include "kdepim-version.h"
 
 #include <libkdepim/misc/maillistdrag.h>
@@ -55,29 +54,29 @@ using namespace KCalCore;
 #include <QDropEvent>
 #include <QStandardPaths>
 
-EXPORT_KONTACT_PLUGIN( KNotesPlugin, knotes )
+EXPORT_KONTACT_PLUGIN(KNotesPlugin, knotes)
 
-KNotesPlugin::KNotesPlugin( KontactInterface::Core *core, const QVariantList & )
-    : KontactInterface::Plugin( core, core, "knotes" )
+KNotesPlugin::KNotesPlugin(KontactInterface::Core *core, const QVariantList &)
+    : KontactInterface::Plugin(core, core, "knotes")
 {
     KNoteUtils::migrateToAkonadi();
     //QT5 setComponentData( KontactPluginFactory::componentData() );
 
     QAction *action =
-            new QAction( QIcon::fromTheme( QLatin1String("knotes") ),
-                         i18nc( "@action:inmenu", "New Popup Note..." ), this );
-    actionCollection()->addAction( QLatin1String("new_note"), action );
+        new QAction(QIcon::fromTheme(QLatin1String("knotes")),
+                    i18nc("@action:inmenu", "New Popup Note..."), this);
+    actionCollection()->addAction(QLatin1String("new_note"), action);
     connect(action, &QAction::triggered, this, &KNotesPlugin::slotNewNote);
-    action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_N ) );
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_N));
     //action->setHelpText(
     //            i18nc( "@info:status", "Create new popup note" ) );
     action->setWhatsThis(
-                i18nc( "@info:whatsthis",
-                       "You will be presented with a dialog where you can create a new popup note." ) );
-    insertNewAction( action );
+        i18nc("@info:whatsthis",
+              "You will be presented with a dialog where you can create a new popup note."));
+    insertNewAction(action);
 
     mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
-      new KontactInterface::UniqueAppHandlerFactory<KNotesUniqueAppHandler>(), this );
+        new KontactInterface::UniqueAppHandlerFactory<KNotesUniqueAppHandler>(), this);
 
 }
 
@@ -100,123 +99,123 @@ QString KNotesPlugin::tipFile() const
 
 KParts::ReadOnlyPart *KNotesPlugin::createPart()
 {
-    return new KNotesPart( this );
+    return new KNotesPart(this);
 }
 
-KontactInterface::Summary *KNotesPlugin::createSummaryWidget( QWidget *parentWidget )
+KontactInterface::Summary *KNotesPlugin::createSummaryWidget(QWidget *parentWidget)
 {
-    return new KNotesSummaryWidget( this, parentWidget );
+    return new KNotesSummaryWidget(this, parentWidget);
 }
 
 const KAboutData KNotesPlugin::aboutData()
 {
-     KAboutData aboutData = KAboutData(QLatin1String("knotes"),
-                                xi18nc( "@title", "KNotes" ),
-                                QLatin1String(KDEPIM_VERSION),
-                                xi18nc( "@title", "Popup Notes" ),
-                                KAboutLicense::GPL_V2,
-                                xi18nc( "@info:credit", "Copyright © 2003–2014 Kontact authors" ) );
+    KAboutData aboutData = KAboutData(QLatin1String("knotes"),
+                                      xi18nc("@title", "KNotes"),
+                                      QLatin1String(KDEPIM_VERSION),
+                                      xi18nc("@title", "Popup Notes"),
+                                      KAboutLicense::GPL_V2,
+                                      xi18nc("@info:credit", "Copyright © 2003–2014 Kontact authors"));
 
-    aboutData.addAuthor( xi18nc( "@info:credit", "Laurent Montel" ),
-                               xi18nc( "@info:credit", "Current Maintainer" ),
-                               QStringLiteral("montel@kde.org") );
- 
-    aboutData.addAuthor( xi18nc( "@info:credit", "Michael Brade" ),
-                               xi18nc( "@info:credit", "Previous Maintainer" ),
-                               QStringLiteral("brade@kde.org") );
-    aboutData.addAuthor( xi18nc( "@info:credit", "Tobias Koenig" ),
-                               xi18nc( "@info:credit", "Developer" ),
-                               QStringLiteral("tokoe@kde.org") );
+    aboutData.addAuthor(xi18nc("@info:credit", "Laurent Montel"),
+                        xi18nc("@info:credit", "Current Maintainer"),
+                        QStringLiteral("montel@kde.org"));
+
+    aboutData.addAuthor(xi18nc("@info:credit", "Michael Brade"),
+                        xi18nc("@info:credit", "Previous Maintainer"),
+                        QStringLiteral("brade@kde.org"));
+    aboutData.addAuthor(xi18nc("@info:credit", "Tobias Koenig"),
+                        xi18nc("@info:credit", "Developer"),
+                        QStringLiteral("tokoe@kde.org"));
 
     return aboutData;
 }
 
-bool KNotesPlugin::canDecodeMimeData( const QMimeData *mimeData ) const
+bool KNotesPlugin::canDecodeMimeData(const QMimeData *mimeData) const
 {
     return
-            mimeData->hasText() ||
-            MailList::canDecode( mimeData ) ||
-            KContacts::VCardDrag::canDecode( mimeData ) ||
-            ICalDrag::canDecode( mimeData );
+        mimeData->hasText() ||
+        MailList::canDecode(mimeData) ||
+        KContacts::VCardDrag::canDecode(mimeData) ||
+        ICalDrag::canDecode(mimeData);
 }
 
-void KNotesPlugin::processDropEvent( QDropEvent *event )
+void KNotesPlugin::processDropEvent(QDropEvent *event)
 {
     const QMimeData *md = event->mimeData();
 
-    if ( KContacts::VCardDrag::canDecode( md ) ) {
+    if (KContacts::VCardDrag::canDecode(md)) {
         KContacts::Addressee::List contacts;
 
-        KContacts::VCardDrag::fromMimeData( md, contacts );
+        KContacts::VCardDrag::fromMimeData(md, contacts);
 
         KContacts::Addressee::List::ConstIterator it;
 
         QStringList attendees;
         KContacts::Addressee::List::ConstIterator end(contacts.constEnd());
-        for ( it = contacts.constBegin(); it != end; ++it ) {
+        for (it = contacts.constBegin(); it != end; ++it) {
             const QString email = (*it).fullEmail();
-            if ( email.isEmpty() ) {
-                attendees.append( (*it).realName() + QLatin1String("<>") );
+            if (email.isEmpty()) {
+                attendees.append((*it).realName() + QLatin1String("<>"));
             } else {
-                attendees.append( email );
+                attendees.append(email);
             }
         }
         event->accept();
-        static_cast<KNotesPart *>( part() )->newNote(
-                    i18nc( "@item", "Meeting" ), attendees.join( QLatin1String(", ") ) );
+        static_cast<KNotesPart *>(part())->newNote(
+            i18nc("@item", "Meeting"), attendees.join(QLatin1String(", ")));
         return;
     }
 
-    if ( KCalUtils::ICalDrag::canDecode( md ) ) {
-        KCalCore::MemoryCalendar::Ptr cal( new KCalCore::MemoryCalendar( KSystemTimeZones::local() ) );
-        if ( KCalUtils::ICalDrag::fromMimeData( md, cal ) ) {
+    if (KCalUtils::ICalDrag::canDecode(md)) {
+        KCalCore::MemoryCalendar::Ptr cal(new KCalCore::MemoryCalendar(KSystemTimeZones::local()));
+        if (KCalUtils::ICalDrag::fromMimeData(md, cal)) {
             KCalCore::Incidence::List incidences = cal->incidences();
-            Q_ASSERT( incidences.count() );
-            if ( !incidences.isEmpty() ) {
+            Q_ASSERT(incidences.count());
+            if (!incidences.isEmpty()) {
                 event->accept();
                 KCalCore::Incidence::Ptr i = incidences.first();
                 QString summary;
-                if ( i->type() == KCalCore::Incidence::TypeJournal ) {
-                    summary = i18nc( "@item", "Note: %1", i->summary() );
+                if (i->type() == KCalCore::Incidence::TypeJournal) {
+                    summary = i18nc("@item", "Note: %1", i->summary());
                 } else {
                     summary = i->summary();
                 }
-                static_cast<KNotesPart *>( part() )->
-                        newNote( i18nc( "@item", "Note: %1", summary ), i->description() );
+                static_cast<KNotesPart *>(part())->
+                newNote(i18nc("@item", "Note: %1", summary), i->description());
                 return;
             }
         }
     }
-    if ( md->hasText() ) {
-        static_cast<KNotesPart *>( part() )->newNote(
-                    i18nc( "@item", "New Note" ), md->text() );
+    if (md->hasText()) {
+        static_cast<KNotesPart *>(part())->newNote(
+            i18nc("@item", "New Note"), md->text());
         return;
     }
 
-    if ( MailList::canDecode( md ) ) {
-        MailList mails = MailList::fromMimeData( md );
+    if (MailList::canDecode(md)) {
+        MailList mails = MailList::fromMimeData(md);
         event->accept();
-        if ( mails.count() != 1 ) {
+        if (mails.count() != 1) {
             KMessageBox::sorry(
-                        core(),
-                        i18nc( "@info", "Dropping multiple mails is not supported." ) );
+                core(),
+                i18nc("@info", "Dropping multiple mails is not supported."));
         } else {
             MailSummary mail = mails.first();
-            const QString txt = i18nc( "@item", "From: %1\nTo: %2\nSubject: %3",
-                                 mail.from(), mail.to(), mail.subject() );
-            static_cast<KNotesPart *>( part() )->newNote(
-                        i18nc( "@item", "Mail: %1", mail.subject() ), txt );
+            const QString txt = i18nc("@item", "From: %1\nTo: %2\nSubject: %3",
+                                      mail.from(), mail.to(), mail.subject());
+            static_cast<KNotesPart *>(part())->newNote(
+                i18nc("@item", "Mail: %1", mail.subject()), txt);
         }
         return;
     }
 
-    qWarning() << QString::fromLatin1( "Cannot handle drop events of type '%1'." ).arg( event->mimeData()->formats().join(QLatin1Char(';')) );
+    qWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'.").arg(event->mimeData()->formats().join(QLatin1Char(';')));
 }
 
 void KNotesPlugin::shortcutChanged()
 {
-    if ( part() ) {
-        static_cast<KNotesPart *>( part() )->updateClickMessage();
+    if (part()) {
+        static_cast<KNotesPart *>(part())->updateClickMessage();
     }
 }
 
@@ -224,15 +223,15 @@ void KNotesPlugin::shortcutChanged()
 
 void KNotesPlugin::slotNewNote()
 {
-    if ( part() ) {
-        static_cast<KNotesPart *>( part() )->newNote();
-        core()->selectPlugin( this );
+    if (part()) {
+        static_cast<KNotesPart *>(part())->newNote();
+        core()->selectPlugin(this);
     }
 }
 
 void KNotesUniqueAppHandler::loadCommandLineOptions()
 {
-    KCmdLineArgs::addCmdLineOptions( knotesOptions() );
+    KCmdLineArgs::addCmdLineOptions(knotesOptions());
 }
 
 int KNotesUniqueAppHandler::newInstance()

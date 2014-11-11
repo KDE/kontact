@@ -28,20 +28,24 @@
 
 class OrgKdeKorganizerCalendarInterface;
 
-namespace KontactInterface {
-  class UniqueAppWatcher;
+namespace KontactInterface
+{
+class UniqueAppWatcher;
 }
 
 class JournalPlugin : public KontactInterface::Plugin
 {
-  Q_OBJECT
-  public:
-    JournalPlugin( KontactInterface::Core *core, const QVariantList & );
+    Q_OBJECT
+public:
+    JournalPlugin(KontactInterface::Core *core, const QVariantList &);
     ~JournalPlugin();
 
-    bool createDBUSInterface( const QString &serviceType );
+    bool createDBUSInterface(const QString &serviceType);
     bool isRunningStandalone() const;
-    int weight() const { return 525; }
+    int weight() const
+    {
+        return 525;
+    }
 
     QStringList invisibleToolbarActions() const;
 
@@ -49,14 +53,14 @@ class JournalPlugin : public KontactInterface::Plugin
 
     OrgKdeKorganizerCalendarInterface *interface();
 
-  protected:
+protected:
     KParts::ReadOnlyPart *createPart();
 
-  private slots:
+private slots:
     void slotNewJournal();
     void slotSyncJournal();
 
-  private:
+private:
     OrgKdeKorganizerCalendarInterface *mIface;
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };

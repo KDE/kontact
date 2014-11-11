@@ -39,56 +39,56 @@
 
 extern "C"
 {
-Q_DECL_EXPORT KCModule *create_knotessummary( QWidget *parent, const char * )
-{
-    return new KCMKNotesSummary( parent );
-}
+    Q_DECL_EXPORT KCModule *create_knotessummary(QWidget *parent, const char *)
+    {
+        return new KCMKNotesSummary(parent);
+    }
 }
 
-KCMKNotesSummary::KCMKNotesSummary( QWidget *parent )
-    : KCModule( parent )
+KCMKNotesSummary::KCMKNotesSummary(QWidget *parent)
+    : KCModule(parent)
 {
     initGUI();
 
-    connect( mCheckedCollectionWidget->folderTreeView(), SIGNAL(clicked(QModelIndex)),
-             SLOT(modified()) );
+    connect(mCheckedCollectionWidget->folderTreeView(), SIGNAL(clicked(QModelIndex)),
+            SLOT(modified()));
 
-    KAcceleratorManager::manage( this );
+    KAcceleratorManager::manage(this);
 
     load();
 
     KAboutData *about = new KAboutData(QStringLiteral("kcmknotessummary"),
-                                      i18n("kcmknotessummary"),
-                                      QString(),
-                                      i18n("Notes Summary Configuration Dialog"),
-                                      KAboutLicense::GPL,
-                                      i18n("Copyright © 2013-2014 Laurent Montel <montel@kde.org>"));
-    about->addAuthor( ki18n( "Laurent Montel" ).toString(), QString(), QStringLiteral("montel@kde.org") );
+                                       i18n("kcmknotessummary"),
+                                       QString(),
+                                       i18n("Notes Summary Configuration Dialog"),
+                                       KAboutLicense::GPL,
+                                       i18n("Copyright © 2013-2014 Laurent Montel <montel@kde.org>"));
+    about->addAuthor(ki18n("Laurent Montel").toString(), QString(), QStringLiteral("montel@kde.org"));
     setAboutData(about);
 }
 
 void KCMKNotesSummary::modified()
 {
-    emit changed( true );
+    emit changed(true);
 }
 
 void KCMKNotesSummary::initGUI()
 {
-    QVBoxLayout *layout = new QVBoxLayout( this );
+    QVBoxLayout *layout = new QVBoxLayout(this);
 //TODO PORT QT5     layout->setSpacing( QDialog::spacingHint() );
-    layout->setMargin( 0 );
+    layout->setMargin(0);
 
     mCheckedCollectionWidget = new PimCommon::CheckedCollectionWidget(Akonotes::Note::mimeType());
-    layout->addWidget( mCheckedCollectionWidget );
+    layout->addWidget(mCheckedCollectionWidget);
 }
 
 void KCMKNotesSummary::initFolders()
 {
-    KSharedConfigPtr _config = KSharedConfig::openConfig( QLatin1String("kcmknotessummaryrc") );
+    KSharedConfigPtr _config = KSharedConfig::openConfig(QLatin1String("kcmknotessummaryrc"));
 
     mModelState =
-            new KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
-    mModelState->setSelectionModel( mCheckedCollectionWidget->selectionModel() );
+        new KViewStateMaintainer<Akonadi::ETMViewStateSaver>(_config->group("CheckState"), this);
+    mModelState->setSelectionModel(mCheckedCollectionWidget->selectionModel());
 }
 
 void KCMKNotesSummary::loadFolders()
@@ -98,7 +98,7 @@ void KCMKNotesSummary::loadFolders()
 
 void KCMKNotesSummary::storeFolders()
 {
-    KConfig config( QLatin1String("kcmknotessummaryrc") );
+    KConfig config(QLatin1String("kcmknotessummaryrc"));
     mModelState->saveState();
     config.sync();
 }
@@ -108,17 +108,17 @@ void KCMKNotesSummary::load()
     initFolders();
     loadFolders();
 
-    emit changed( false );
+    emit changed(false);
 }
 
 void KCMKNotesSummary::save()
 {
     storeFolders();
 
-    emit changed( false );
+    emit changed(false);
 }
 
 void KCMKNotesSummary::defaults()
 {
-    emit changed( true );
+    emit changed(true);
 }

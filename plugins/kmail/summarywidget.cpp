@@ -53,41 +53,41 @@
 
 #include <ctime>
 
-SummaryWidget::SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent )
-    : KontactInterface::Summary( parent ), mPlugin( plugin )
+SummaryWidget::SummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent)
+    : KontactInterface::Summary(parent), mPlugin(plugin)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout( this );
-    mainLayout->setSpacing( 3 );
-    mainLayout->setMargin( 3 );
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setSpacing(3);
+    mainLayout->setMargin(3);
 
-    QWidget *header = createHeader( this, QLatin1String("view-pim-mail"), i18n( "New Messages" ) );
-    mainLayout->addWidget( header );
+    QWidget *header = createHeader(this, QLatin1String("view-pim-mail"), i18n("New Messages"));
+    mainLayout->addWidget(header);
 
     mLayout = new QGridLayout();
-    mainLayout->addItem( mLayout );
-    mLayout->setSpacing( 3 );
-    mLayout->setRowStretch( 6, 1 );
+    mainLayout->addItem(mLayout);
+    mLayout->setSpacing(3);
+    mLayout->setRowStretch(6, 1);
 
     // Create a new change recorder.
-    mChangeRecorder = new Akonadi::ChangeRecorder( this );
-    mChangeRecorder->setMimeTypeMonitored( KMime::Message::mimeType() );
-    mChangeRecorder->fetchCollectionStatistics( true );
-    mChangeRecorder->setAllMonitored( true );
-    mChangeRecorder->collectionFetchScope().setIncludeStatistics( true );
+    mChangeRecorder = new Akonadi::ChangeRecorder(this);
+    mChangeRecorder->setMimeTypeMonitored(KMime::Message::mimeType());
+    mChangeRecorder->fetchCollectionStatistics(true);
+    mChangeRecorder->setAllMonitored(true);
+    mChangeRecorder->collectionFetchScope().setIncludeStatistics(true);
 
-    mModel = new Akonadi::EntityTreeModel( mChangeRecorder, this );
-    mModel->setItemPopulationStrategy( Akonadi::EntityTreeModel::NoItemPopulation );
+    mModel = new Akonadi::EntityTreeModel(mChangeRecorder, this);
+    mModel->setItemPopulationStrategy(Akonadi::EntityTreeModel::NoItemPopulation);
 
-    mSelectionModel = new QItemSelectionModel( mModel );
-    mModelProxy = new KCheckableProxyModel( this );
-    mModelProxy->setSelectionModel( mSelectionModel );
-    mModelProxy->setSourceModel( mModel );
+    mSelectionModel = new QItemSelectionModel(mModel);
+    mModelProxy = new KCheckableProxyModel(this);
+    mModelProxy->setSelectionModel(mSelectionModel);
+    mModelProxy->setSourceModel(mModel);
 
-    KSharedConfigPtr _config = KSharedConfig::openConfig( QLatin1String("kcmkmailsummaryrc") );
+    KSharedConfigPtr _config = KSharedConfig::openConfig(QLatin1String("kcmkmailsummaryrc"));
 
     mModelState =
-            new KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
-    mModelState->setSelectionModel( mSelectionModel );
+        new KViewStateMaintainer<Akonadi::ETMViewStateSaver>(_config->group("CheckState"), this);
+    mModelState->setSelectionModel(mSelectionModel);
 
     connect(mChangeRecorder, static_cast<void (Akonadi::ChangeRecorder::*)(const Akonadi::Collection &)>(&Akonadi::ChangeRecorder::collectionChanged), this, &SummaryWidget::slotCollectionChanged);
     connect(mChangeRecorder, &Akonadi::ChangeRecorder::collectionRemoved, this, &SummaryWidget::slotCollectionChanged);
@@ -100,92 +100,92 @@ void SummaryWidget::slotCollectionChanged()
     QTimer::singleShot(0, this, SLOT(slotUpdateFolderList()));
 }
 
-void SummaryWidget::updateSummary( bool force )
+void SummaryWidget::updateSummary(bool force)
 {
-    Q_UNUSED( force );
+    Q_UNUSED(force);
     QTimer::singleShot(0, this, SLOT(slotUpdateFolderList()));
 }
 
-void SummaryWidget::selectFolder( const QString &folder )
+void SummaryWidget::selectFolder(const QString &folder)
 {
-    if ( mPlugin->isRunningStandalone() ) {
+    if (mPlugin->isRunningStandalone()) {
         mPlugin->bringToForeground();
     } else {
-        mPlugin->core()->selectPlugin( mPlugin );
+        mPlugin->core()->selectPlugin(mPlugin);
     }
 
-    org::kde::kmail::kmail kmail( QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QDBusConnection::sessionBus() );
-    kmail.selectFolder( folder );
+    org::kde::kmail::kmail kmail(QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QDBusConnection::sessionBus());
+    kmail.selectFolder(folder);
 }
 
-void SummaryWidget::displayModel( const QModelIndex &parent,
-                                  int &counter,
-                                  const bool showFolderPaths,
-                                  QStringList parentTreeNames )
+void SummaryWidget::displayModel(const QModelIndex &parent,
+                                 int &counter,
+                                 const bool showFolderPaths,
+                                 QStringList parentTreeNames)
 {
-    const int nbCol = mModelProxy->rowCount( parent );
-    for ( int i = 0; i < nbCol; ++i ) {
-        const QModelIndex child = mModelProxy->index( i, 0, parent );
+    const int nbCol = mModelProxy->rowCount(parent);
+    for (int i = 0; i < nbCol; ++i) {
+        const QModelIndex child = mModelProxy->index(i, 0, parent);
         const Akonadi::Collection col =
-                mModelProxy->data( child,
-                                   Akonadi::EntityTreeModel::CollectionRole ).value<Akonadi::Collection>();
+            mModelProxy->data(child,
+                              Akonadi::EntityTreeModel::CollectionRole).value<Akonadi::Collection>();
         const int showCollection =
-                mModelProxy->data( child, Qt::CheckStateRole ).value<int>();
+            mModelProxy->data(child, Qt::CheckStateRole).value<int>();
 
-        if ( col.isValid() ) {
+        if (col.isValid()) {
             const Akonadi::CollectionStatistics stats = col.statistics();
-            if ( ( ( stats.unreadCount() ) != Q_INT64_C(0) ) && showCollection ) {
+            if (((stats.unreadCount()) != Q_INT64_C(0)) && showCollection) {
                 // Collection Name.
                 KUrlLabel *urlLabel;
 
-                if ( showFolderPaths ) {
+                if (showFolderPaths) {
                     // Construct the full path string.
-                    parentTreeNames.insert( parentTreeNames.size(), col.name() );
-                    urlLabel = new KUrlLabel( QString::number( col.id() ),
-                                              parentTreeNames.join( QLatin1String("/") ), this );
+                    parentTreeNames.insert(parentTreeNames.size(), col.name());
+                    urlLabel = new KUrlLabel(QString::number(col.id()),
+                                             parentTreeNames.join(QLatin1String("/")), this);
                     parentTreeNames.removeLast();
                 } else {
-                    urlLabel = new KUrlLabel( QString::number( col.id() ), col.name(), this );
+                    urlLabel = new KUrlLabel(QString::number(col.id()), col.name(), this);
                 }
 
-                urlLabel->installEventFilter( this );
-                urlLabel->setAlignment( Qt::AlignLeft );
-                urlLabel->setWordWrap( true );
-                mLayout->addWidget( urlLabel, counter, 1 );
-                mLabels.append( urlLabel );
+                urlLabel->installEventFilter(this);
+                urlLabel->setAlignment(Qt::AlignLeft);
+                urlLabel->setWordWrap(true);
+                mLayout->addWidget(urlLabel, counter, 1);
+                mLabels.append(urlLabel);
 
                 // tooltip
-                urlLabel->setToolTip( i18n( "<qt><b>%1</b>"
-                                            "<br/>Total: %2<br/>"
-                                            "Unread: %3</qt>",
-                                            col.name(),
-                                            stats.count(),
-                                            stats.unreadCount() ) );
+                urlLabel->setToolTip(i18n("<qt><b>%1</b>"
+                                          "<br/>Total: %2<br/>"
+                                          "Unread: %3</qt>",
+                                          col.name(),
+                                          stats.count(),
+                                          stats.unreadCount()));
 
                 connect(urlLabel, static_cast<void (KUrlLabel::*)(const QString &)>(&KUrlLabel::leftClickedUrl), this, &SummaryWidget::selectFolder);
 
                 // Read and unread count.
-                QLabel *label = new QLabel( i18nc( "%1: number of unread messages "
-                                                   "%2: total number of messages",
-                                                   "%1 / %2", stats.unreadCount(), stats.count() ), this );
+                QLabel *label = new QLabel(i18nc("%1: number of unread messages "
+                                                 "%2: total number of messages",
+                                                 "%1 / %2", stats.unreadCount(), stats.count()), this);
 
-                label->setAlignment( Qt::AlignLeft );
-                mLayout->addWidget( label, counter, 2 );
-                mLabels.append( label );
+                label->setAlignment(Qt::AlignLeft);
+                mLayout->addWidget(label, counter, 2);
+                mLabels.append(label);
 
                 // Folder icon.
-                QIcon icon = mModelProxy->data( child, Qt::DecorationRole ).value<QIcon>();
-                label = new QLabel( this );
-                label->setPixmap( icon.pixmap( label->height() / 1.5 ) );
-                label->setMaximumWidth( label->minimumSizeHint().width() );
-                label->setAlignment( Qt::AlignVCenter );
-                mLayout->addWidget( label, counter, 0 );
-                mLabels.append( label );
+                QIcon icon = mModelProxy->data(child, Qt::DecorationRole).value<QIcon>();
+                label = new QLabel(this);
+                label->setPixmap(icon.pixmap(label->height() / 1.5));
+                label->setMaximumWidth(label->minimumSizeHint().width());
+                label->setAlignment(Qt::AlignVCenter);
+                mLayout->addWidget(label, counter, 0);
+                mLabels.append(label);
 
                 ++counter;
             }
-            parentTreeNames.insert( parentTreeNames.size(), col.name() );
-            displayModel( child, counter, showFolderPaths, parentTreeNames );
+            parentTreeNames.insert(parentTreeNames.size(), col.name());
+            displayModel(child, counter, showFolderPaths, parentTreeNames);
             // Remove the last parent collection name for the next iteration.
             parentTreeNames.removeLast();
         }
@@ -194,46 +194,46 @@ void SummaryWidget::displayModel( const QModelIndex &parent,
 
 void SummaryWidget::slotUpdateFolderList()
 {
-    qDeleteAll( mLabels );
+    qDeleteAll(mLabels);
     mLabels.clear();
     mModelState->restoreState();
     int counter = 0;
     qDebug() << QLatin1String("Iterating over") << mModel->rowCount() << QLatin1String("collections.");
-    KConfig _config( QLatin1String("kcmkmailsummaryrc") );
-    KConfigGroup config( &_config, "General" );
-    const bool showFolderPaths = config.readEntry( "showFolderPaths", false );
-    displayModel( QModelIndex(), counter, showFolderPaths, QStringList() );
+    KConfig _config(QLatin1String("kcmkmailsummaryrc"));
+    KConfigGroup config(&_config, "General");
+    const bool showFolderPaths = config.readEntry("showFolderPaths", false);
+    displayModel(QModelIndex(), counter, showFolderPaths, QStringList());
 
-    if ( counter == 0 ) {
-        QLabel *label = new QLabel( i18n( "No unread messages in your monitored folders" ), this );
-        label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-        mLayout->addWidget( label, 0, 0 );
-        mLabels.append( label );
+    if (counter == 0) {
+        QLabel *label = new QLabel(i18n("No unread messages in your monitored folders"), this);
+        label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+        mLayout->addWidget(label, 0, 0);
+        mLabels.append(label);
     }
 
-    QList<QLabel*>::const_iterator lit;
-    QList<QLabel*>::const_iterator lend( mLabels.constEnd() );
-    for ( lit = mLabels.constBegin(); lit != lend; ++lit ) {
+    QList<QLabel *>::const_iterator lit;
+    QList<QLabel *>::const_iterator lend(mLabels.constEnd());
+    for (lit = mLabels.constBegin(); lit != lend; ++lit) {
         (*lit)->show();
     }
 }
 
-bool SummaryWidget::eventFilter( QObject *obj, QEvent *e )
+bool SummaryWidget::eventFilter(QObject *obj, QEvent *e)
 {
-    if ( obj->inherits( "KUrlLabel" ) ) {
-        KUrlLabel* label = static_cast<KUrlLabel*>( obj );
-        if ( e->type() == QEvent::Enter ) {
-            emit message( i18n( "Open Folder: \"%1\"", label->text() ) );
-        } else if ( e->type() == QEvent::Leave ) {
-            emit message( QString::null );        //krazy:exclude=nullstrassign for old broken gcc
+    if (obj->inherits("KUrlLabel")) {
+        KUrlLabel *label = static_cast<KUrlLabel *>(obj);
+        if (e->type() == QEvent::Enter) {
+            emit message(i18n("Open Folder: \"%1\"", label->text()));
+        } else if (e->type() == QEvent::Leave) {
+            emit message(QString::null);          //krazy:exclude=nullstrassign for old broken gcc
         }
     }
 
-    return KontactInterface::Summary::eventFilter( obj, e );
+    return KontactInterface::Summary::eventFilter(obj, e);
 }
 
 QStringList SummaryWidget::configModules() const
 {
-    return QStringList()<<QLatin1String( "kcmkmailsummary.desktop" );
+    return QStringList() << QLatin1String("kcmkmailsummary.desktop");
 }
 

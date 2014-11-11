@@ -29,17 +29,17 @@ class QDropEvent;
 
 class DropWidget : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    explicit DropWidget( QWidget *parent );
+public:
+    explicit DropWidget(QWidget *parent);
 
-  signals:
-    void summaryWidgetDropped( QWidget *target, QWidget *widget, int alignment );
+signals:
+    void summaryWidgetDropped(QWidget *target, QWidget *widget, int alignment);
 
-  protected:
-    void dragEnterEvent( QDragEnterEvent * );
-    void dropEvent( QDropEvent * );
+protected:
+    void dragEnterEvent(QDragEnterEvent *);
+    void dropEvent(QDropEvent *);
 };
 
 #endif

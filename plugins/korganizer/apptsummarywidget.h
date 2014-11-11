@@ -31,10 +31,10 @@
 
 class KOrganizerPlugin;
 
-
-namespace Akonadi {
-  class Item;
-  class IncidenceChanger;
+namespace Akonadi
+{
+class Item;
+class IncidenceChanger;
 }
 
 class QDate;
@@ -43,32 +43,35 @@ class QLabel;
 
 class ApptSummaryWidget : public KontactInterface::Summary
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    ApptSummaryWidget( KOrganizerPlugin *plugin, QWidget *parent );
+public:
+    ApptSummaryWidget(KOrganizerPlugin *plugin, QWidget *parent);
     ~ApptSummaryWidget();
 
-    int summaryHeight() const { return 3; }
+    int summaryHeight() const
+    {
+        return 3;
+    }
     QStringList configModules() const;
     void configUpdated();
-    void updateSummary( bool force = false )
+    void updateSummary(bool force = false)
     {
-      Q_UNUSED( force );
-      updateView();
+        Q_UNUSED(force);
+        updateView();
     }
 
-  protected:
-    virtual bool eventFilter( QObject *obj, QEvent *e );
+protected:
+    virtual bool eventFilter(QObject *obj, QEvent *e);
 
-  private slots:
+private slots:
     void updateView();
-    void popupMenu( const QString &uid );
-    void viewEvent( const QString &uid );
-    void removeEvent( const Akonadi::Item &item );
+    void popupMenu(const QString &uid);
+    void viewEvent(const QString &uid);
+    void removeEvent(const Akonadi::Item &item);
 
-  private:
-    void dateDiff( const QDate &date, int &days );
+private:
+    void dateDiff(const QDate &date, int &days);
 
     Akonadi::ETMCalendar::Ptr mCalendar;
     Akonadi::IncidenceChanger *mChanger;

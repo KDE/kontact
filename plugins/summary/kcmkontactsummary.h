@@ -31,24 +31,24 @@
 
 class PluginView : public QTreeWidget
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    explicit PluginView( QWidget *parent );
+public:
+    explicit PluginView(QWidget *parent);
     ~PluginView();
 };
 
 class KCMKontactSummary : public KCModule
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    explicit KCMKontactSummary( QWidget *parent = 0 );
+public:
+    explicit KCMKontactSummary(QWidget *parent = 0);
 
     void load();
     void save();
 
-  private:
+private:
     PluginView *mPluginView;
 };
 

@@ -15,18 +15,18 @@
   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef KCMKNOTESSUMMARY_H
 #define KCMKNOTESSUMMARY_H
 
 #include <KCModule>
 #include <KViewStateMaintainer>
-namespace Akonadi {
+namespace Akonadi
+{
 class ETMViewStateSaver;
 }
 
-
-namespace PimCommon {
+namespace PimCommon
+{
 class CheckedCollectionWidget;
 }
 
@@ -35,7 +35,7 @@ class KCMKNotesSummary : public KCModule
     Q_OBJECT
 
 public:
-    explicit KCMKNotesSummary( QWidget *parent = 0 );
+    explicit KCMKNotesSummary(QWidget *parent = 0);
 
     virtual void load();
     virtual void save();

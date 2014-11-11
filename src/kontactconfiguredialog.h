@@ -20,14 +20,15 @@
 
 #include <KSettings/Dialog>
 
-namespace Kontact {
+namespace Kontact
+{
 
 class KontactConfigureDialog : public KSettings::Dialog
 {
     Q_OBJECT
 
 public:
-    explicit KontactConfigureDialog( QWidget *parent = 0 );
+    explicit KontactConfigureDialog(QWidget *parent = 0);
     ~KontactConfigureDialog();
 
 protected slots:

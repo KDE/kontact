@@ -36,43 +36,43 @@
 #include <QAction>
 #include <QIcon>
 
-EXPORT_KONTACT_PLUGIN( JournalPlugin, journal )
+EXPORT_KONTACT_PLUGIN(JournalPlugin, journal)
 
-JournalPlugin::JournalPlugin( KontactInterface::Core *core, const QVariantList & )
-  : KontactInterface::Plugin( core, core, "korganizer", "journal" ), mIface( 0 )
+JournalPlugin::JournalPlugin(KontactInterface::Core *core, const QVariantList &)
+    : KontactInterface::Plugin(core, core, "korganizer", "journal"), mIface(0)
 {
-  //QT5 setComponentData( KontactPluginFactory::componentData() );
-  KIconLoader::global()->addAppDir( QLatin1String("korganizer") );
-  KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
+    //QT5 setComponentData( KontactPluginFactory::componentData() );
+    KIconLoader::global()->addAppDir(QLatin1String("korganizer"));
+    KIconLoader::global()->addAppDir(QLatin1String("kdepim"));
 
-  QAction *action =
-    new QAction( QIcon::fromTheme( QLatin1String("journal-new") ),
-                 i18nc( "@action:inmenu", "New Journal..." ), this );
-  actionCollection()->addAction( QLatin1String("new_journal"), action );
-  action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_J ) );
-  //QT5 action->setHelpText(
+    QAction *action =
+        new QAction(QIcon::fromTheme(QLatin1String("journal-new")),
+                    i18nc("@action:inmenu", "New Journal..."), this);
+    actionCollection()->addAction(QLatin1String("new_journal"), action);
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_J));
+    //QT5 action->setHelpText(
     //i18nc( "@info:status", "Create a new journal" ) );
-  action->setWhatsThis(
-    i18nc( "@info:whatsthis",
-           "You will be presented with a dialog where you can create "
-           "a new journal entry." ) );
-  connect(action, &QAction::triggered, this, &JournalPlugin::slotNewJournal);
-  insertNewAction( action );
+    action->setWhatsThis(
+        i18nc("@info:whatsthis",
+              "You will be presented with a dialog where you can create "
+              "a new journal entry."));
+    connect(action, &QAction::triggered, this, &JournalPlugin::slotNewJournal);
+    insertNewAction(action);
 
-  QAction *syncAction =
-    new QAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
-                 i18nc( "@action:inmenu", "Sync Journal" ), this );
-  actionCollection()->addAction( QLatin1String("journal_sync"), syncAction );
-  //QT5 syncAction->setHelpText(
+    QAction *syncAction =
+        new QAction(QIcon::fromTheme(QLatin1String("view-refresh")),
+                    i18nc("@action:inmenu", "Sync Journal"), this);
+    actionCollection()->addAction(QLatin1String("journal_sync"), syncAction);
+    //QT5 syncAction->setHelpText(
     //i18nc( "@info:status", "Synchronize groupware journal" ) );
-  syncAction->setWhatsThis(
-    i18nc( "@info:whatsthis",
-           "Choose this option to synchronize your groupware journal entries." ) );
-  connect(syncAction, &QAction::triggered, this, &JournalPlugin::slotSyncJournal);
-  insertSyncAction( syncAction );
+    syncAction->setWhatsThis(
+        i18nc("@info:whatsthis",
+              "Choose this option to synchronize your groupware journal entries."));
+    connect(syncAction, &QAction::triggered, this, &JournalPlugin::slotSyncJournal);
+    insertSyncAction(syncAction);
 
-  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
-    new KontactInterface::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this );
+    mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+        new KontactInterface::UniqueAppHandlerFactory<KOrganizerUniqueAppHandler>(), this);
 }
 
 JournalPlugin::~JournalPlugin()
@@ -81,85 +81,85 @@ JournalPlugin::~JournalPlugin()
 
 KParts::ReadOnlyPart *JournalPlugin::createPart()
 {
-  KParts::ReadOnlyPart *part = loadPart();
+    KParts::ReadOnlyPart *part = loadPart();
 
-  if ( !part ) {
-    return 0;
-  }
+    if (!part) {
+        return 0;
+    }
 
-  mIface = new OrgKdeKorganizerCalendarInterface(
-    QLatin1String("org.kde.korganizer"), QLatin1String("/Calendar"), QDBusConnection::sessionBus(), this );
+    mIface = new OrgKdeKorganizerCalendarInterface(
+        QLatin1String("org.kde.korganizer"), QLatin1String("/Calendar"), QDBusConnection::sessionBus(), this);
 
-  return part;
+    return part;
 }
 
 void JournalPlugin::select()
 {
-  interface()->showJournalView();
+    interface()->showJournalView();
 }
 
 QStringList JournalPlugin::invisibleToolbarActions() const
 {
-  QStringList invisible;
-  invisible += QLatin1String("new_event");
-  invisible += QLatin1String("new_todo");
-  invisible += QLatin1String("new_journal");
+    QStringList invisible;
+    invisible += QLatin1String("new_event");
+    invisible += QLatin1String("new_todo");
+    invisible += QLatin1String("new_journal");
 
-  invisible += QLatin1String("view_whatsnext");
-  invisible += QLatin1String("view_day");
-  invisible += QLatin1String("view_nextx");
-  invisible += QLatin1String("view_month");
-  invisible += QLatin1String("view_workweek");
-  invisible += QLatin1String("view_week");
-  invisible += QLatin1String("view_list");
-  invisible += QLatin1String("view_todo");
-  invisible += QLatin1String("view_journal");
-  invisible += QLatin1String("view_timeline");
-  invisible += QLatin1String("view_timespent");
+    invisible += QLatin1String("view_whatsnext");
+    invisible += QLatin1String("view_day");
+    invisible += QLatin1String("view_nextx");
+    invisible += QLatin1String("view_month");
+    invisible += QLatin1String("view_workweek");
+    invisible += QLatin1String("view_week");
+    invisible += QLatin1String("view_list");
+    invisible += QLatin1String("view_todo");
+    invisible += QLatin1String("view_journal");
+    invisible += QLatin1String("view_timeline");
+    invisible += QLatin1String("view_timespent");
 
-  return invisible;
+    return invisible;
 }
 
 OrgKdeKorganizerCalendarInterface *JournalPlugin::interface()
 {
-  if ( !mIface ) {
-    part();
-  }
-  Q_ASSERT( mIface );
-  return mIface;
+    if (!mIface) {
+        part();
+    }
+    Q_ASSERT(mIface);
+    return mIface;
 }
 
 void JournalPlugin::slotNewJournal()
 {
-    interface()->openJournalEditor( QString(), QDate() );
+    interface()->openJournalEditor(QString(), QDate());
 }
 
 void JournalPlugin::slotSyncJournal()
 {
 #if 0 //TODO porting !!!!
-  QDBusMessage message =
-      QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
-                                      "org.kde.kmail.groupware",
-                                      "triggerSync" );
-  message << QString( "Journal" );
-  QDBusConnection::sessionBus().send( message );
+    QDBusMessage message =
+        QDBusMessage::createMethodCall("org.kde.kmail", "/Groupware",
+                                       "org.kde.kmail.groupware",
+                                       "triggerSync");
+    message << QString("Journal");
+    QDBusConnection::sessionBus().send(message);
 #else
-  qWarning() << " JournalPlugin::slotSyncJournal : need to port to Akonadi";
+    qWarning() << " JournalPlugin::slotSyncJournal : need to port to Akonadi";
 #endif
 }
 
-bool JournalPlugin::createDBUSInterface( const QString &serviceType )
+bool JournalPlugin::createDBUSInterface(const QString &serviceType)
 {
-  if ( serviceType == QLatin1String("DBUS/Organizer") || serviceType == QLatin1String("DBUS/Calendar") ) {
-    if ( part() ) {
-      return true;
+    if (serviceType == QLatin1String("DBUS/Organizer") || serviceType == QLatin1String("DBUS/Calendar")) {
+        if (part()) {
+            return true;
+        }
     }
-  }
-  return false;
+    return false;
 }
 
 bool JournalPlugin::isRunningStandalone() const
 {
-  return mUniqueAppWatcher->isRunningStandalone();
+    return mUniqueAppWatcher->isRunningStandalone();
 }
 #include "journalplugin.moc"

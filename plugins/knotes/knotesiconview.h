@@ -28,21 +28,21 @@ class KNotesIconView : public QListWidget
 {
     Q_OBJECT
 public:
-    explicit KNotesIconView(KNotesPart *part, QWidget *parent );
+    explicit KNotesIconView(KNotesPart *part, QWidget *parent);
     ~KNotesIconView();
 
     void addNote(const Akonadi::Item &item);
 
     KNotesIconViewItem *iconView(Akonadi::Item::Id id) const;
-    QHash<Akonadi::Item::Id, KNotesIconViewItem*> noteList() const;
+    QHash<Akonadi::Item::Id, KNotesIconViewItem *> noteList() const;
 protected:
-    void mousePressEvent( QMouseEvent * );
+    void mousePressEvent(QMouseEvent *);
 
     bool event(QEvent *e);
 
 private:
     KNotesPart *m_part;
-    QHash<Akonadi::Item::Id, KNotesIconViewItem*> mNoteList;
+    QHash<Akonadi::Item::Id, KNotesIconViewItem *> mNoteList;
 };
 
 class KNotesIconViewItem : public QObject, public QListWidgetItem

@@ -31,19 +31,24 @@ class KAboutData;
 
 class SpecialdatesPlugin : public KontactInterface::Plugin
 {
-  public:
-    SpecialdatesPlugin( KontactInterface::Core *core, const QVariantList & );
+public:
+    SpecialdatesPlugin(KontactInterface::Core *core, const QVariantList &);
     ~SpecialdatesPlugin();
 
-    int weight() const { return 325; }
+    int weight() const
+    {
+        return 325;
+    }
 
     const KAboutData aboutData();
 
-    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parentWidget );
+    virtual KontactInterface::Summary *createSummaryWidget(QWidget *parentWidget);
 
-  protected:
+protected:
     virtual KParts::ReadOnlyPart *createPart()
-    { return 0; }
+    {
+        return 0;
+    }
 
 };
 

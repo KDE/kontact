@@ -30,15 +30,16 @@
 
 #include <KViewStateMaintainer>
 
-
-namespace Akonadi {
+namespace Akonadi
+{
 class ChangeRecorder;
 class Collection;
 class EntityTreeModel;
 class ETMViewStateSaver;
 }
 
-namespace KontactInterface {
+namespace KontactInterface
+{
 class Plugin;
 }
 
@@ -54,26 +55,29 @@ class SummaryWidget : public KontactInterface::Summary
     Q_OBJECT
 
 public:
-    SummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent );
+    SummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent);
 
-    int summaryHeight() const { return 1; }
+    int summaryHeight() const
+    {
+        return 1;
+    }
     QStringList configModules() const;
 
 protected:
-    virtual bool eventFilter( QObject *obj, QEvent *e );
+    virtual bool eventFilter(QObject *obj, QEvent *e);
 
 public slots:
-    virtual void updateSummary( bool force );
+    virtual void updateSummary(bool force);
 
 private slots:
-    void selectFolder( const QString & );
+    void selectFolder(const QString &);
     void slotCollectionChanged();
     void slotUpdateFolderList();
 
-private:    
-    void displayModel( const QModelIndex &, int &, const bool, QStringList );
+private:
+    void displayModel(const QModelIndex &, int &, const bool, QStringList);
 
-    QList<QLabel*> mLabels;
+    QList<QLabel *> mLabels;
     QGridLayout *mLayout;
     KontactInterface::Plugin *mPlugin;
     Akonadi::ChangeRecorder *mChangeRecorder;

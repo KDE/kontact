@@ -45,83 +45,83 @@
 
 extern "C"
 {
-Q_DECL_EXPORT KCModule *create_kmailsummary( QWidget *parent, const char * )
-{
-    return new KCMKMailSummary( parent );
-}
+    Q_DECL_EXPORT KCModule *create_kmailsummary(QWidget *parent, const char *)
+    {
+        return new KCMKMailSummary(parent);
+    }
 }
 
-KCMKMailSummary::KCMKMailSummary( QWidget *parent )
-    : KCModule( parent )
+KCMKMailSummary::KCMKMailSummary(QWidget *parent)
+    : KCModule(parent)
 {
     initGUI();
 
-    connect( mCheckedCollectionWidget->folderTreeView(), SIGNAL(clicked(QModelIndex)),
-             SLOT(modified()) );
+    connect(mCheckedCollectionWidget->folderTreeView(), SIGNAL(clicked(QModelIndex)),
+            SLOT(modified()));
     connect(mFullPath, &QCheckBox::toggled, this, &KCMKMailSummary::modified);
 
-    KAcceleratorManager::manage( this );
+    KAcceleratorManager::manage(this);
 
     load();
     KAboutData *about = new KAboutData(QStringLiteral("kcmkmailsummary"),
-                                      i18n("kcmkmailsummary"),
-                                      QString(),
-                                      i18n("Mail Summary Configuration Dialog"),
-                                      KAboutLicense::GPL,
-                                      i18n("Copyright © 2004–2010 Tobias Koenig"));
-    about->addAuthor( ki18n( "Tobias Koenig" ).toString(), QString(), QStringLiteral("tokoe@kde.org") );
+                                       i18n("kcmkmailsummary"),
+                                       QString(),
+                                       i18n("Mail Summary Configuration Dialog"),
+                                       KAboutLicense::GPL,
+                                       i18n("Copyright © 2004–2010 Tobias Koenig"));
+    about->addAuthor(ki18n("Tobias Koenig").toString(), QString(), QStringLiteral("tokoe@kde.org"));
     setAboutData(about);
 }
 
 void KCMKMailSummary::modified()
 {
-    emit changed( true );
+    emit changed(true);
 }
 
 void KCMKMailSummary::initGUI()
 {
-    QVBoxLayout *layout = new QVBoxLayout( this );
+    QVBoxLayout *layout = new QVBoxLayout(this);
 //TODO PORT QT5     layout->setSpacing( QDialog::spacingHint() );
-    layout->setMargin( 0 );
+    layout->setMargin(0);
 
     mCheckedCollectionWidget = new PimCommon::CheckedCollectionWidget(KMime::Message::mimeType());
 
-    mFullPath = new QCheckBox( i18n( "Show full path for folders" ), this );
+    mFullPath = new QCheckBox(i18n("Show full path for folders"), this);
     mFullPath->setToolTip(
-                i18nc( "@info:tooltip", "Show full path for each folder" ) );
+        i18nc("@info:tooltip", "Show full path for each folder"));
     mFullPath->setWhatsThis(
-                i18nc( "@info:whatsthis",
-                       "Enable this option if you want to see the full path "
-                       "for each folder listed in the summary. If this option is "
-                       "not enabled, then only the base folder path will be shown." ) );
-    layout->addWidget( mCheckedCollectionWidget );
-    layout->addWidget( mFullPath );
+        i18nc("@info:whatsthis",
+              "Enable this option if you want to see the full path "
+              "for each folder listed in the summary. If this option is "
+              "not enabled, then only the base folder path will be shown."));
+    layout->addWidget(mCheckedCollectionWidget);
+    layout->addWidget(mFullPath);
 }
 
 void KCMKMailSummary::initFolders()
 {
-    KSharedConfigPtr _config = KSharedConfig::openConfig( QLatin1String("kcmkmailsummaryrc") );
+    KSharedConfigPtr _config = KSharedConfig::openConfig(QLatin1String("kcmkmailsummaryrc"));
 
     mModelState =
-            new KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
-    mModelState->setSelectionModel( mCheckedCollectionWidget->selectionModel() );
+        new KViewStateMaintainer<Akonadi::ETMViewStateSaver>(_config->group("CheckState"), this);
+    mModelState->setSelectionModel(mCheckedCollectionWidget->selectionModel());
 }
 
 void KCMKMailSummary::loadFolders()
 {
-    KConfig _config( QLatin1String("kcmkmailsummaryrc") );
-    KConfigGroup config(&_config, "General" );
+    KConfig _config(QLatin1String("kcmkmailsummaryrc"));
+    KConfigGroup config(&_config, "General");
     mModelState->restoreState();
-    const bool showFolderPaths = config.readEntry( "showFolderPaths", false );
-    mFullPath->setChecked( showFolderPaths );
+    const bool showFolderPaths = config.readEntry("showFolderPaths", false);
+    mFullPath->setChecked(showFolderPaths);
 }
 
 void KCMKMailSummary::storeFolders()
 {
-    KConfig _config( QLatin1String("kcmkmailsummaryrc") );
-    KConfigGroup config(&_config, "General" );
+    KConfig _config(QLatin1String("kcmkmailsummaryrc"));
+    KConfigGroup config(&_config, "General");
     mModelState->saveState();
-    config.writeEntry( "showFolderPaths", mFullPath->isChecked() );
+    config.writeEntry("showFolderPaths", mFullPath->isChecked());
     config.sync();
 }
 
@@ -130,20 +130,20 @@ void KCMKMailSummary::load()
     initFolders();
     loadFolders();
 
-    emit changed( false );
+    emit changed(false);
 }
 
 void KCMKMailSummary::save()
 {
     storeFolders();
 
-    emit changed( false );
+    emit changed(false);
 }
 
 void KCMKMailSummary::defaults()
 {
-    mFullPath->setChecked( true );
+    mFullPath->setChecked(true);
 
-    emit changed( true );
+    emit changed(true);
 }
 

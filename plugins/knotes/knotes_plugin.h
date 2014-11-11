@@ -29,9 +29,9 @@
 
 class KNotesUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
-  public:
-    explicit KNotesUniqueAppHandler( KontactInterface::Plugin *plugin )
-      : KontactInterface::UniqueAppHandler( plugin ) {}
+public:
+    explicit KNotesUniqueAppHandler(KontactInterface::Plugin *plugin)
+        : KontactInterface::UniqueAppHandler(plugin) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
@@ -40,22 +40,24 @@ class KNotesPlugin : public KontactInterface::Plugin
 {
     Q_OBJECT
 public:
-    KNotesPlugin( KontactInterface::Core *core, const QVariantList & );
+    KNotesPlugin(KontactInterface::Core *core, const QVariantList &);
     ~KNotesPlugin();
 
-    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parentWidget );
+    virtual KontactInterface::Summary *createSummaryWidget(QWidget *parentWidget);
 
     bool isRunningStandalone() const;
 
     QString tipFile() const;
-    int weight() const { return 600; }
+    int weight() const
+    {
+        return 600;
+    }
 
     const KAboutData aboutData();
 
-    bool canDecodeMimeData( const QMimeData *data ) const;
-    void processDropEvent( QDropEvent * );
+    bool canDecodeMimeData(const QMimeData *data) const;
+    void processDropEvent(QDropEvent *);
     void shortcutChanged();
-
 
 protected:
     KParts::ReadOnlyPart *createPart();

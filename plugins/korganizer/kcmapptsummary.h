@@ -30,27 +30,27 @@
 
 extern "C"
 {
-  Q_DECL_EXPORT KCModule *create_apptsummary( QWidget *parent, const char * );
+    Q_DECL_EXPORT KCModule *create_apptsummary(QWidget *parent, const char *);
 }
 
 class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    explicit KCMApptSummary( QWidget *parent = 0 );
+public:
+    explicit KCMApptSummary(QWidget *parent = 0);
 
     void load();
     void save();
     void defaults();
     const KAboutData *aboutData() const;
 
-  private slots:
+private slots:
     void modified();
-    void buttonClicked( int id );
-    void customDaysChanged( int value );
+    void buttonClicked(int id);
+    void customDaysChanged(int value);
 
-  private:
+private:
     QButtonGroup *mDaysButtonGroup;
     QButtonGroup *mShowButtonGroup;
     QButtonGroup *mGroupwareButtonGroup;

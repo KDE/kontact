@@ -43,13 +43,14 @@ using namespace Kontact;
 #include <QCollator>
 #include <QLayout>
 
-namespace Kontact {
+namespace Kontact
+{
 
 class SelectionModel : public QItemSelectionModel
 {
 public:
-    SelectionModel( QAbstractItemModel *model, QObject *parent )
-        : QItemSelectionModel( model, parent )
+    SelectionModel(QAbstractItemModel *model, QObject *parent)
+        : QItemSelectionModel(model, parent)
     {
     }
 
@@ -61,23 +62,23 @@ public slots:
         // to this one when clearing the selection.
     }
 
-    void select( const QModelIndex &index, QItemSelectionModel::SelectionFlags command )
+    void select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command)
     {
         // Don't allow the current selection to be cleared
-        if ( !index.isValid() && ( command & QItemSelectionModel::Clear ) ) {
+        if (!index.isValid() && (command & QItemSelectionModel::Clear)) {
             return;
         }
-        QItemSelectionModel::select( index, command );
+        QItemSelectionModel::select(index, command);
     }
 
-    void select( const QItemSelection &selection,
-                 QItemSelectionModel::SelectionFlags command )
+    void select(const QItemSelection &selection,
+                QItemSelectionModel::SelectionFlags command)
     {
         // Don't allow the current selection to be cleared
-        if ( !selection.count() && ( command & QItemSelectionModel::Clear ) ) {
+        if (!selection.count() && (command & QItemSelectionModel::Clear)) {
             return;
         }
-        QItemSelectionModel::select( selection, command );
+        QItemSelectionModel::select(selection, command);
     }
 };
 
@@ -88,8 +89,8 @@ public:
         PluginName = Qt::UserRole
     };
 
-    Model( Navigator *parentNavigator = 0 )
-        : QStringListModel( parentNavigator ), mNavigator(parentNavigator)
+    Model(Navigator *parentNavigator = 0)
+        : QStringListModel(parentNavigator), mNavigator(parentNavigator)
     {
     }
 
@@ -98,18 +99,19 @@ public:
         emit reset();
     }
 
-    void setPluginList( const QList<KontactInterface::Plugin*> &list ) {
+    void setPluginList(const QList<KontactInterface::Plugin *> &list)
+    {
         pluginList = list;
     }
 
-    Qt::ItemFlags flags( const QModelIndex &index ) const
+    Qt::ItemFlags flags(const QModelIndex &index) const
     {
-        Qt::ItemFlags flags = QStringListModel::flags( index );
+        Qt::ItemFlags flags = QStringListModel::flags(index);
 
         flags &= ~Qt::ItemIsEditable;
 
-        if ( index.isValid() ) {
-            if ( static_cast<KontactInterface::Plugin*>( index.internalPointer() )->disabled() ) {
+        if (index.isValid()) {
+            if (static_cast<KontactInterface::Plugin *>(index.internalPointer())->disabled()) {
                 flags &= ~Qt::ItemIsEnabled;
                 flags &= ~Qt::ItemIsSelectable;
                 flags &= ~Qt::ItemIsDropEnabled;
@@ -123,71 +125,71 @@ public:
         return flags;
     }
 
-    QModelIndex index( int row, int column,
-                       const QModelIndex &parent = QModelIndex() ) const
+    QModelIndex index(int row, int column,
+                      const QModelIndex &parent = QModelIndex()) const
     {
-        Q_UNUSED( parent );
-        if ( row < 0 || row >= pluginList.count() ) {
+        Q_UNUSED(parent);
+        if (row < 0 || row >= pluginList.count()) {
             return QModelIndex();
         }
-        return createIndex( row, column, pluginList[row] );
+        return createIndex(row, column, pluginList[row]);
     }
 
-    QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const
     {
-        if ( !index.isValid() || !index.internalPointer() ) {
+        if (!index.isValid() || !index.internalPointer()) {
             return QVariant();
         }
 
-        if ( role == Qt::DisplayRole ) {
-            if ( !mNavigator->showText() ) {
+        if (role == Qt::DisplayRole) {
+            if (!mNavigator->showText()) {
                 return QVariant();
             }
-            return static_cast<KontactInterface::Plugin*>( index.internalPointer() )->title();
-        } else if ( role == Qt::DecorationRole ) {
-            if ( !mNavigator->showIcons() ) {
+            return static_cast<KontactInterface::Plugin *>(index.internalPointer())->title();
+        } else if (role == Qt::DecorationRole) {
+            if (!mNavigator->showIcons()) {
                 return QVariant();
             }
-            return QIcon::fromTheme( static_cast<KontactInterface::Plugin*>( index.internalPointer() )->icon() );
-        } else if ( role == Qt::TextAlignmentRole ) {
+            return QIcon::fromTheme(static_cast<KontactInterface::Plugin *>(index.internalPointer())->icon());
+        } else if (role == Qt::TextAlignmentRole) {
             return Qt::AlignCenter;
-        } else if ( role == Qt::ToolTipRole ) {
-            if ( !mNavigator->showText() ) {
-                return static_cast<KontactInterface::Plugin*>( index.internalPointer() )->title();
+        } else if (role == Qt::ToolTipRole) {
+            if (!mNavigator->showText()) {
+                return static_cast<KontactInterface::Plugin *>(index.internalPointer())->title();
             }
             return QVariant();
-        } else if ( role == PluginName ) {
-            return static_cast<KontactInterface::Plugin*>( index.internalPointer() )->identifier();
+        } else if (role == PluginName) {
+            return static_cast<KontactInterface::Plugin *>(index.internalPointer())->identifier();
         }
-        return QStringListModel::data( index, role );
+        return QStringListModel::data(index, role);
     }
 
 private:
-    QList<KontactInterface::Plugin*> pluginList;
+    QList<KontactInterface::Plugin *> pluginList;
     Navigator *mNavigator;
 };
 
 class SortFilterProxyModel
-        : public QSortFilterProxyModel
+    : public QSortFilterProxyModel
 {
 public:
-    SortFilterProxyModel( QObject *parent = 0 ): QSortFilterProxyModel( parent )
+    SortFilterProxyModel(QObject *parent = 0): QSortFilterProxyModel(parent)
     {
-        setDynamicSortFilter( true );
-        sort ( 0 );
+        setDynamicSortFilter(true);
+        sort(0);
     }
 protected:
-    bool lessThan( const QModelIndex &left, const QModelIndex &right ) const
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const
     {
         KontactInterface::Plugin *leftPlugin =
-                static_cast<KontactInterface::Plugin*>( left.internalPointer() );
+            static_cast<KontactInterface::Plugin *>(left.internalPointer());
         KontactInterface::Plugin *rightPlugin =
-                static_cast<KontactInterface::Plugin*>( right.internalPointer() );
+            static_cast<KontactInterface::Plugin *>(right.internalPointer());
 
-        if ( leftPlugin->weight() == rightPlugin->weight() ) {
+        if (leftPlugin->weight() == rightPlugin->weight()) {
             //Optimize it
             QCollator col;
-            return col.compare( leftPlugin->title(), rightPlugin->title() ) < 0;
+            return col.compare(leftPlugin->title(), rightPlugin->title()) < 0;
         }
 
         return leftPlugin->weight() < rightPlugin->weight();
@@ -197,37 +199,37 @@ protected:
 class Delegate : public QStyledItemDelegate
 {
 public:
-    Delegate( Navigator *parentNavigator = 0 )
-        : QStyledItemDelegate( parentNavigator ), mNavigator( parentNavigator )
+    Delegate(Navigator *parentNavigator = 0)
+        : QStyledItemDelegate(parentNavigator), mNavigator(parentNavigator)
     {
     }
 
-    void paint( QPainter *painter, const QStyleOptionViewItem &option,
-                const QModelIndex &index ) const
+    void paint(QPainter *painter, const QStyleOptionViewItem &option,
+               const QModelIndex &index) const
     {
-        if ( !index.isValid() || !index.internalPointer() ) {
+        if (!index.isValid() || !index.internalPointer()) {
             return;
         }
 
-        QStyleOptionViewItemV4 optionCopy( *static_cast<const QStyleOptionViewItemV4*>( &option ) );
+        QStyleOptionViewItemV4 optionCopy(*static_cast<const QStyleOptionViewItemV4 *>(&option));
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
-        optionCopy.decorationSize = QSize( mNavigator->iconSize(), mNavigator->iconSize() );
+        optionCopy.decorationSize = QSize(mNavigator->iconSize(), mNavigator->iconSize());
         optionCopy.textElideMode = Qt::ElideNone;
-        QStyledItemDelegate::paint( painter, optionCopy, index );
+        QStyledItemDelegate::paint(painter, optionCopy, index);
     }
 
-    QSize sizeHint( const QStyleOptionViewItem &option, const QModelIndex &index ) const
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
     {
-        if ( !index.isValid() || !index.internalPointer() ) {
+        if (!index.isValid() || !index.internalPointer()) {
             return QSize();
         }
 
-        QStyleOptionViewItemV4 optionCopy( *static_cast<const QStyleOptionViewItemV4*>( &option ) );
+        QStyleOptionViewItemV4 optionCopy(*static_cast<const QStyleOptionViewItemV4 *>(&option));
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
         optionCopy.decorationSize =
-                mNavigator->showIcons() ? QSize( mNavigator->iconSize(), mNavigator->iconSize() ) : QSize();
+            mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize()) : QSize();
         optionCopy.textElideMode = Qt::ElideNone;
-        return QStyledItemDelegate::sizeHint( optionCopy, index );
+        return QStyledItemDelegate::sizeHint(optionCopy, index);
     }
 
 private:
@@ -236,154 +238,154 @@ private:
 
 }
 
-Navigator::Navigator( SidePaneBase *parent )
-    : QListView( parent ), mSidePane( parent )
+Navigator::Navigator(SidePaneBase *parent)
+    : QListView(parent), mSidePane(parent)
 {
-    setViewport( new QWidget( this ) );
+    setViewport(new QWidget(this));
 
-    setVerticalScrollMode( ScrollPerPixel );
-    setHorizontalScrollMode( ScrollPerPixel );
+    setVerticalScrollMode(ScrollPerPixel);
+    setHorizontalScrollMode(ScrollPerPixel);
 
     mIconSize = Prefs::self()->sidePaneIconSize();
     mShowIcons = Prefs::self()->sidePaneShowIcons();
     mShowText = Prefs::self()->sidePaneShowText();
 
-    QActionGroup *viewMode = new QActionGroup( this );
+    QActionGroup *viewMode = new QActionGroup(this);
 
-    mShowIconsAction = new QAction( i18nc( "@action:inmenu", "Show Icons Only" ), this );
-    mShowIconsAction->setCheckable( true );
-    mShowIconsAction->setActionGroup( viewMode );
-    mShowIconsAction->setChecked( !mShowText && mShowIcons );
+    mShowIconsAction = new QAction(i18nc("@action:inmenu", "Show Icons Only"), this);
+    mShowIconsAction->setCheckable(true);
+    mShowIconsAction->setActionGroup(viewMode);
+    mShowIconsAction->setChecked(!mShowText && mShowIcons);
     setHelpText(mShowIconsAction,
-                i18nc( "@info:status",
-                       "Show sidebar items with icons and without text" ) );
+                i18nc("@info:status",
+                      "Show sidebar items with icons and without text"));
     mShowIconsAction->setWhatsThis(
-                i18nc( "@info:whatsthis",
-                       "Choose this option if you want the sidebar items to have icons without text." ) );
+        i18nc("@info:whatsthis",
+              "Choose this option if you want the sidebar items to have icons without text."));
     connect(mShowIconsAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
-    mShowTextAction = new QAction( i18nc( "@action:inmenu", "Show Text Only" ), this );
-    mShowTextAction->setCheckable( true );
-    mShowTextAction->setActionGroup( viewMode );
-    mShowTextAction->setChecked( mShowText && !mShowIcons );
+    mShowTextAction = new QAction(i18nc("@action:inmenu", "Show Text Only"), this);
+    mShowTextAction->setCheckable(true);
+    mShowTextAction->setActionGroup(viewMode);
+    mShowTextAction->setChecked(mShowText && !mShowIcons);
     setHelpText(mShowTextAction,
-                i18nc( "@info:status",
-                       "Show sidebar items with text and without icons" ) );
+                i18nc("@info:status",
+                      "Show sidebar items with text and without icons"));
     mShowTextAction->setWhatsThis(
-                i18nc( "@info:whatsthis",
-                       "Choose this option if you want the sidebar items to have text without icons." ) );
+        i18nc("@info:whatsthis",
+              "Choose this option if you want the sidebar items to have text without icons."));
     connect(mShowTextAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
-    mShowBothAction = new QAction( i18nc( "@action:inmenu", "Show Icons && Text" ), this );
-    mShowBothAction->setCheckable( true );
-    mShowBothAction->setActionGroup( viewMode );
-    mShowBothAction->setChecked( mShowText && mShowIcons );
+    mShowBothAction = new QAction(i18nc("@action:inmenu", "Show Icons && Text"), this);
+    mShowBothAction->setCheckable(true);
+    mShowBothAction->setActionGroup(viewMode);
+    mShowBothAction->setChecked(mShowText && mShowIcons);
     setHelpText(mShowBothAction,
-                i18nc( "@info:status",
-                       "Show sidebar items with icons and text" ) );
+                i18nc("@info:status",
+                      "Show sidebar items with icons and text"));
     mShowBothAction->setWhatsThis(
-                i18nc( "@info:whatsthis",
-                       "Choose this option if you want the sidebar items to have icons and text." ) );
+        i18nc("@info:whatsthis",
+              "Choose this option if you want the sidebar items to have icons and text."));
     connect(mShowBothAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
-    QAction *sep = new QAction( this );
-    sep->setSeparator( true );
+    QAction *sep = new QAction(this);
+    sep->setSeparator(true);
 
-    QActionGroup *iconSize = new QActionGroup( this );
+    QActionGroup *iconSize = new QActionGroup(this);
 
-    mBigIconsAction = new QAction( i18nc( "@action:inmenu", "Big Icons" ), this );
-    mBigIconsAction->setCheckable( iconSize );
-    mBigIconsAction->setActionGroup( iconSize );
-    mBigIconsAction->setChecked( mIconSize == KIconLoader::SizeLarge );
+    mBigIconsAction = new QAction(i18nc("@action:inmenu", "Big Icons"), this);
+    mBigIconsAction->setCheckable(iconSize);
+    mBigIconsAction->setActionGroup(iconSize);
+    mBigIconsAction->setChecked(mIconSize == KIconLoader::SizeLarge);
     setHelpText(mBigIconsAction,
-                i18nc( "@info:status",
-                       "Show large size sidebar icons" ) );
+                i18nc("@info:status",
+                      "Show large size sidebar icons"));
     mBigIconsAction->setWhatsThis(
-                i18nc( "@info:whatsthis",
-                       "Choose this option if you want the sidebar icons to be extra big." ) );
+        i18nc("@info:whatsthis",
+              "Choose this option if you want the sidebar icons to be extra big."));
     connect(mBigIconsAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
-    mNormalIconsAction = new QAction( i18nc( "@action:inmenu", "Normal Icons" ), this );
-    mNormalIconsAction->setCheckable( true );
-    mNormalIconsAction->setActionGroup( iconSize );
-    mNormalIconsAction->setChecked( mIconSize == KIconLoader::SizeMedium );
+    mNormalIconsAction = new QAction(i18nc("@action:inmenu", "Normal Icons"), this);
+    mNormalIconsAction->setCheckable(true);
+    mNormalIconsAction->setActionGroup(iconSize);
+    mNormalIconsAction->setChecked(mIconSize == KIconLoader::SizeMedium);
     setHelpText(mNormalIconsAction,
-                i18nc( "@info:status",
-                       "Show normal size sidebar icons" ) );
+                i18nc("@info:status",
+                      "Show normal size sidebar icons"));
     mNormalIconsAction->setWhatsThis(
-                i18nc( "@info:whatsthis",
-                       "Choose this option if you want the sidebar icons to be normal size." ) );
+        i18nc("@info:whatsthis",
+              "Choose this option if you want the sidebar icons to be normal size."));
     connect(mNormalIconsAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
-    mSmallIconsAction = new QAction( i18nc( "@action:inmenu", "Small Icons" ), this );
-    mSmallIconsAction->setCheckable( true );
-    mSmallIconsAction->setActionGroup( iconSize );
-    mSmallIconsAction->setChecked( mIconSize == KIconLoader::SizeSmallMedium );
+    mSmallIconsAction = new QAction(i18nc("@action:inmenu", "Small Icons"), this);
+    mSmallIconsAction->setCheckable(true);
+    mSmallIconsAction->setActionGroup(iconSize);
+    mSmallIconsAction->setChecked(mIconSize == KIconLoader::SizeSmallMedium);
     setHelpText(mSmallIconsAction,
-                i18nc( "@info:status",
-                       "Show small size sidebar icons" ) );
+                i18nc("@info:status",
+                      "Show small size sidebar icons"));
     mSmallIconsAction->setWhatsThis(
-                i18nc( "@info:whatsthis",
-                       "Choose this option if you want the sidebar icons to be extra small." ) );
+        i18nc("@info:whatsthis",
+              "Choose this option if you want the sidebar icons to be extra small."));
     connect(mSmallIconsAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
-    QList<QAction*> actionList;
+    QList<QAction *> actionList;
     actionList << mShowIconsAction << mShowTextAction << mShowBothAction << sep
                << mBigIconsAction << mNormalIconsAction << mSmallIconsAction;
 
-    insertActions( 0, actionList );
+    insertActions(0, actionList);
 
-    setContextMenuPolicy( Qt::ActionsContextMenu );
-    setViewMode( ListMode );
-    setItemDelegate( new Delegate( this ) );
-    mModel = new Model( this );
+    setContextMenuPolicy(Qt::ActionsContextMenu);
+    setViewMode(ListMode);
+    setItemDelegate(new Delegate(this));
+    mModel = new Model(this);
     SortFilterProxyModel *sortFilterProxyModel = new SortFilterProxyModel;
-    sortFilterProxyModel->setSourceModel( mModel );
-    setModel( sortFilterProxyModel );
-    setSelectionModel( new SelectionModel( sortFilterProxyModel, this ) );
+    sortFilterProxyModel->setSourceModel(mModel);
+    setModel(sortFilterProxyModel);
+    setSelectionModel(new SelectionModel(sortFilterProxyModel, this));
 
-    setDragDropMode( DropOnly );
-    viewport()->setAcceptDrops( true );
-    setDropIndicatorShown( true );
+    setDragDropMode(DropOnly);
+    viewport()->setAcceptDrops(true);
+    setDropIndicatorShown(true);
 
-    connect( selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-             this, SLOT(slotCurrentChanged(QModelIndex)) );
+    connect(selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
+            this, SLOT(slotCurrentChanged(QModelIndex)));
 }
 
-void Navigator::updatePlugins( QList<KontactInterface::Plugin*> plugins_ )
+void Navigator::updatePlugins(QList<KontactInterface::Plugin *> plugins_)
 {
     QString currentPlugin;
-    if ( currentIndex().isValid() ) {
-        currentPlugin = currentIndex().model()->data( currentIndex(), Model::PluginName ).toString();
+    if (currentIndex().isValid()) {
+        currentPlugin = currentIndex().model()->data(currentIndex(), Model::PluginName).toString();
     }
 
-    QList<KontactInterface::Plugin*> pluginsToShow;
-    foreach ( KontactInterface::Plugin *plugin, plugins_ ) {
-        if ( plugin->showInSideBar() ) {
+    QList<KontactInterface::Plugin *> pluginsToShow;
+    foreach (KontactInterface::Plugin *plugin, plugins_) {
+        if (plugin->showInSideBar()) {
             pluginsToShow << plugin;
         }
     }
 
-    mModel->setPluginList( pluginsToShow );
+    mModel->setPluginList(pluginsToShow);
 
-    mModel->removeRows( 0, mModel->rowCount() );
-    mModel->insertRows( 0, pluginsToShow.count() );
+    mModel->removeRows(0, mModel->rowCount());
+    mModel->insertRows(0, pluginsToShow.count());
 
     // Restore the previous selected index, if any
-    if ( !currentPlugin.isEmpty() ) {
-        setCurrentPlugin( currentPlugin );
+    if (!currentPlugin.isEmpty()) {
+        setCurrentPlugin(currentPlugin);
     }
 }
 
-void Navigator::setCurrentPlugin( const QString &plugin )
+void Navigator::setCurrentPlugin(const QString &plugin)
 {
-    const int numberOfRows( model()->rowCount() );
-    for ( int i = 0; i < numberOfRows; ++i ) {
-        const QModelIndex index = model()->index( i, 0 );
-        const QString pluginName = model()->data( index, Model::PluginName ).toString();
+    const int numberOfRows(model()->rowCount());
+    for (int i = 0; i < numberOfRows; ++i) {
+        const QModelIndex index = model()->index(i, 0);
+        const QString pluginName = model()->data(index, Model::PluginName).toString();
 
-        if ( plugin == pluginName ) {
-            selectionModel()->setCurrentIndex( index, QItemSelectionModel::SelectCurrent );
+        if (plugin == pluginName) {
+            selectionModel()->setCurrentIndex(index, QItemSelectionModel::SelectCurrent);
             break;
         }
     }
@@ -397,44 +399,44 @@ QSize Navigator::sizeHint() const
     //          removed. (ereslibre)
 
     int maxWidth = 0;
-    const int numberOfRows( model()->rowCount() );
-    for ( int i = 0; i < numberOfRows; ++i ) {
-        const QModelIndex index = model()->index( i, 0 );
-        maxWidth = qMax( maxWidth, sizeHintForIndex( index ).width() );
+    const int numberOfRows(model()->rowCount());
+    for (int i = 0; i < numberOfRows; ++i) {
+        const QModelIndex index = model()->index(i, 0);
+        maxWidth = qMax(maxWidth, sizeHintForIndex(index).width());
     }
 
     int viewHeight = QListView::sizeHint().height();
 
-    return QSize( maxWidth + rect().width() - contentsRect().width(), viewHeight );
+    return QSize(maxWidth + rect().width() - contentsRect().width(), viewHeight);
 }
 
-void Navigator::dragEnterEvent( QDragEnterEvent *event )
+void Navigator::dragEnterEvent(QDragEnterEvent *event)
 {
-    if ( event->proposedAction() == Qt::IgnoreAction ) {
+    if (event->proposedAction() == Qt::IgnoreAction) {
         return;
     }
     event->acceptProposedAction();
 }
 
-void Navigator::dragMoveEvent( QDragMoveEvent *event )
+void Navigator::dragMoveEvent(QDragMoveEvent *event)
 {
-    if ( event->proposedAction() == Qt::IgnoreAction ) {
+    if (event->proposedAction() == Qt::IgnoreAction) {
         return;
     }
 
-    const QModelIndex dropIndex = indexAt( event->pos() );
+    const QModelIndex dropIndex = indexAt(event->pos());
 
-    if ( !dropIndex.isValid() ||
-         !( dropIndex.model()->flags( dropIndex ) & Qt::ItemIsEnabled ) ) {
-        event->setAccepted( false );
+    if (!dropIndex.isValid() ||
+            !(dropIndex.model()->flags(dropIndex) & Qt::ItemIsEnabled)) {
+        event->setAccepted(false);
         return;
     } else {
         const QModelIndex sourceIndex =
-                static_cast<const QSortFilterProxyModel*>( model() )->mapToSource( dropIndex );
+            static_cast<const QSortFilterProxyModel *>(model())->mapToSource(dropIndex);
         KontactInterface::Plugin *plugin =
-                static_cast<KontactInterface::Plugin*>( sourceIndex.internalPointer() );
-        if ( !plugin->canDecodeMimeData( event->mimeData() ) ) {
-            event->setAccepted( false );
+            static_cast<KontactInterface::Plugin *>(sourceIndex.internalPointer());
+        if (!plugin->canDecodeMimeData(event->mimeData())) {
+            event->setAccepted(false);
             return;
         }
     }
@@ -442,22 +444,22 @@ void Navigator::dragMoveEvent( QDragMoveEvent *event )
     event->acceptProposedAction();
 }
 
-void Navigator::dropEvent( QDropEvent *event )
+void Navigator::dropEvent(QDropEvent *event)
 {
-    if ( event->proposedAction() == Qt::IgnoreAction ) {
+    if (event->proposedAction() == Qt::IgnoreAction) {
         return;
     }
 
-    const QModelIndex dropIndex = indexAt( event->pos() );
+    const QModelIndex dropIndex = indexAt(event->pos());
 
-    if ( !dropIndex.isValid() ) {
+    if (!dropIndex.isValid()) {
         return;
     } else {
         const QModelIndex sourceIndex =
-                static_cast<const QSortFilterProxyModel*>( model() )->mapToSource( dropIndex );
+            static_cast<const QSortFilterProxyModel *>(model())->mapToSource(dropIndex);
         KontactInterface::Plugin *plugin =
-                static_cast<KontactInterface::Plugin*>( sourceIndex.internalPointer() );
-        plugin->processDropEvent( event );
+            static_cast<KontactInterface::Plugin *>(sourceIndex.internalPointer());
+        plugin->processDropEvent(event);
     }
 }
 
@@ -470,70 +472,69 @@ void Navigator::setHelpText(QAction *act, const QString &text)
     }
 }
 
-
-void Navigator::showEvent( QShowEvent *event )
+void Navigator::showEvent(QShowEvent *event)
 {
-    parentWidget()->setMaximumWidth( sizeHint().width() );
-    parentWidget()->setMinimumWidth( sizeHint().width() );
+    parentWidget()->setMaximumWidth(sizeHint().width());
+    parentWidget()->setMinimumWidth(sizeHint().width());
 
-    QListView::showEvent( event );
+    QListView::showEvent(event);
 }
 
-void Navigator::slotCurrentChanged( const QModelIndex &current )
+void Navigator::slotCurrentChanged(const QModelIndex &current)
 {
-    if ( !current.isValid() || !current.internalPointer() ||
-         !( current.model()->flags( current ) & Qt::ItemIsEnabled ) ) {
+    if (!current.isValid() || !current.internalPointer() ||
+            !(current.model()->flags(current) & Qt::ItemIsEnabled)) {
         return;
     }
 
     QModelIndex source =
-            static_cast<const QSortFilterProxyModel*>( current.model() )->mapToSource( current );
+        static_cast<const QSortFilterProxyModel *>(current.model())->mapToSource(current);
 
-    emit pluginActivated( static_cast<KontactInterface::Plugin*>( source.internalPointer() ) );
+    emit pluginActivated(static_cast<KontactInterface::Plugin *>(source.internalPointer()));
 }
 
-void Navigator::slotActionTriggered( bool checked )
+void Navigator::slotActionTriggered(bool checked)
 {
     QObject *object = sender();
 
-    if ( object == mShowIconsAction ) {
+    if (object == mShowIconsAction) {
         mShowIcons = checked;
         mShowText = !checked;
-    } else if ( object == mShowTextAction ) {
+    } else if (object == mShowTextAction) {
         mShowIcons = !checked;
         mShowText = checked;
-    } else if ( object == mShowBothAction ) {
+    } else if (object == mShowBothAction) {
         mShowIcons = checked;
         mShowText = checked;
-    } else if ( object == mBigIconsAction ) {
+    } else if (object == mBigIconsAction) {
         mIconSize = KIconLoader::SizeLarge;
-    } else if ( object == mNormalIconsAction ) {
+    } else if (object == mNormalIconsAction) {
         mIconSize = KIconLoader::SizeMedium;
-    } else if ( object == mSmallIconsAction ) {
+    } else if (object == mSmallIconsAction) {
         mIconSize = KIconLoader::SizeSmallMedium;
     }
 
-    Prefs::self()->setSidePaneIconSize( mIconSize );
-    Prefs::self()->setSidePaneShowIcons( mShowIcons );
-    Prefs::self()->setSidePaneShowText( mShowText );
+    Prefs::self()->setSidePaneIconSize(mIconSize);
+    Prefs::self()->setSidePaneShowIcons(mShowIcons);
+    Prefs::self()->setSidePaneShowText(mShowText);
 
     mModel->emitReset();
 
-    QTimer::singleShot( 0, this, SLOT(updateNavigatorSize()) );
+    QTimer::singleShot(0, this, SLOT(updateNavigatorSize()));
 }
 
 void Navigator::updateNavigatorSize()
 {
-    parentWidget()->setMaximumWidth( sizeHint().width() );
-    parentWidget()->setMinimumWidth( sizeHint().width() );
+    parentWidget()->setMaximumWidth(sizeHint().width());
+    parentWidget()->setMinimumWidth(sizeHint().width());
 }
 
-IconSidePane::IconSidePane( KontactInterface::Core *core, QWidget *parent )
-    : SidePaneBase( core, parent )
+IconSidePane::IconSidePane(KontactInterface::Core *core, QWidget *parent)
+    : SidePaneBase(core, parent)
 {
-    mNavigator = new Navigator( this );
+    mNavigator = new Navigator(this);
     layout()->addWidget(mNavigator);
-    mNavigator->setFocusPolicy( Qt::NoFocus );
+    mNavigator->setFocusPolicy(Qt::NoFocus);
     connect(mNavigator, &Navigator::pluginActivated, this, &IconSidePane::pluginSelected);
 }
 
@@ -541,22 +542,20 @@ IconSidePane::~IconSidePane()
 {
 }
 
-void IconSidePane::setCurrentPlugin( const QString &plugin )
+void IconSidePane::setCurrentPlugin(const QString &plugin)
 {
-    mNavigator->setCurrentPlugin( plugin );
+    mNavigator->setCurrentPlugin(plugin);
 }
 
 void IconSidePane::updatePlugins()
 {
-    mNavigator->updatePlugins( core()->pluginList() );
+    mNavigator->updatePlugins(core()->pluginList());
 }
 
-void IconSidePane::resizeEvent( QResizeEvent *event )
+void IconSidePane::resizeEvent(QResizeEvent *event)
 {
-    Q_UNUSED( event );
-    setMaximumWidth( mNavigator->sizeHint().width() );
-    setMinimumWidth( mNavigator->sizeHint().width() );
+    Q_UNUSED(event);
+    setMaximumWidth(mNavigator->sizeHint().width());
+    setMinimumWidth(mNavigator->sizeHint().width());
 }
 
-
-// vim: sw=2 sts=2 et tw=80

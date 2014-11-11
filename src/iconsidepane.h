@@ -27,14 +27,16 @@
 
 #include <QListView>
 
-namespace KontactInterface {
+namespace KontactInterface
+{
 class Core;
 class Plugin;
 }
 
 class QAction;
 
-namespace Kontact {
+namespace Kontact
+{
 
 class Model;
 class Navigator;
@@ -44,10 +46,10 @@ class Navigator : public QListView
     Q_OBJECT
 
 public:
-    explicit Navigator( SidePaneBase *parent = 0 );
+    explicit Navigator(SidePaneBase *parent = 0);
 
-    void updatePlugins( QList<KontactInterface::Plugin*> plugins );
-    void setCurrentPlugin( const QString &plugin );
+    void updatePlugins(QList<KontactInterface::Plugin *> plugins);
+    void setCurrentPlugin(const QString &plugin);
 
     int iconSize() const
     {
@@ -67,17 +69,17 @@ public:
     virtual QSize sizeHint() const;
 
 signals:
-    void pluginActivated( KontactInterface::Plugin *plugin );
+    void pluginActivated(KontactInterface::Plugin *plugin);
 
 protected:
-    virtual void dragEnterEvent( QDragEnterEvent *event );
-    virtual void dragMoveEvent( QDragMoveEvent *event );
-    virtual void dropEvent( QDropEvent *event );
-    virtual void showEvent( QShowEvent * event );
+    virtual void dragEnterEvent(QDragEnterEvent *event);
+    virtual void dragMoveEvent(QDragMoveEvent *event);
+    virtual void dropEvent(QDropEvent *event);
+    virtual void showEvent(QShowEvent *event);
 
 private slots:
-    void slotCurrentChanged( const QModelIndex &current );
-    void slotActionTriggered( bool checked );
+    void slotCurrentChanged(const QModelIndex &current);
+    void slotActionTriggered(bool checked);
     void updateNavigatorSize();
 
 private:
@@ -102,16 +104,16 @@ class IconSidePane : public SidePaneBase
     Q_OBJECT
 
 public:
-    IconSidePane( KontactInterface::Core *core, QWidget *parent );
+    IconSidePane(KontactInterface::Core *core, QWidget *parent);
     ~IconSidePane();
 
-    void setCurrentPlugin( const QString &plugin );
+    void setCurrentPlugin(const QString &plugin);
 
 public slots:
     virtual void updatePlugins();
 
 protected:
-    void resizeEvent( QResizeEvent *event );
+    void resizeEvent(QResizeEvent *event);
 
 private:
     Navigator *mNavigator;

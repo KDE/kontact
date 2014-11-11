@@ -25,7 +25,6 @@
 #include <KToolBar>
 #include <QLineEdit>
 
-
 #include <KXMLGUIBuilder>
 #include <KXMLGUIFactory>
 
@@ -39,7 +38,6 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 
-
 KNoteEditDialog::KNoteEditDialog(bool readOnly, QWidget *parent)
     : QDialog(parent)
 {
@@ -48,62 +46,63 @@ KNoteEditDialog::KNoteEditDialog(bool readOnly, QWidget *parent)
 
 void KNoteEditDialog::init(bool readOnly)
 {
-    setWindowTitle( readOnly ? i18nc( "@title:window", "Show Popup Note" ) : i18nc( "@title:window", "Edit Popup Note" ) );
-    QDialogButtonBox *buttonBox = new QDialogButtonBox( readOnly ? QDialogButtonBox::Close : QDialogButtonBox::Ok | QDialogButtonBox::Cancel );
+    setWindowTitle(readOnly ? i18nc("@title:window", "Show Popup Note") : i18nc("@title:window", "Edit Popup Note"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(readOnly ? QDialogButtonBox::Close : QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &KNoteEditDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &KNoteEditDialog::reject);
     if (readOnly) {
-       buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
+        buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
     } else {
-       buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
-       mOkButton = buttonBox->button(QDialogButtonBox::Ok);
-       mOkButton->setDefault(true);
-       mOkButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+        buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
+        mOkButton = buttonBox->button(QDialogButtonBox::Ok);
+        mOkButton->setDefault(true);
+        mOkButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     }
 
-    setModal( true );
+    setModal(true);
     // this dialog is modal to prevent one from editing the same note twice
     // in two different windows
 
     //QT5 setComponentData( KComponentData( "knotes" ) ); // TODO: memleak
-    setXMLFile( QLatin1String("knotesui.rc") );
+    setXMLFile(QLatin1String("knotesui.rc"));
 
-    QWidget *page = new QWidget( this );
+    QWidget *page = new QWidget(this);
     mainLayout->addWidget(page);
     mainLayout->addWidget(buttonBox);
 
-    QVBoxLayout *layout = new QVBoxLayout( page );
+    QVBoxLayout *layout = new QVBoxLayout(page);
 
     QHBoxLayout *hbl = new QHBoxLayout();
-    layout->addItem( hbl );
+    layout->addItem(hbl);
     //QT5 hbl->setSpacing( marginHint() );
-    QLabel *label = new QLabel( page );
-    label->setText( i18nc( "@label popup note name", "Name:" ) );
-    hbl->addWidget( label, 0 );
-    mTitleEdit= new QLineEdit( page );
+    QLabel *label = new QLabel(page);
+    label->setText(i18nc("@label popup note name", "Name:"));
+    hbl->addWidget(label, 0);
+    mTitleEdit = new QLineEdit(page);
     mTitleEdit->setClearButtonEnabled(true);
-    mTitleEdit->setObjectName( QLatin1String("name") );
-    if (!readOnly)
+    mTitleEdit->setObjectName(QLatin1String("name"));
+    if (!readOnly) {
         connect(mTitleEdit, &QLineEdit::textChanged, this, &KNoteEditDialog::slotTextChanged);
-    hbl->addWidget( mTitleEdit, 1, Qt::AlignVCenter );
+    }
+    hbl->addWidget(mTitleEdit, 1, Qt::AlignVCenter);
 
     //TODO customize it
-    mNoteEdit = new KNoteEdit( QLatin1String("knotesrc"), actionCollection(), page );
+    mNoteEdit = new KNoteEdit(QLatin1String("knotesrc"), actionCollection(), page);
     mNoteEdit->setFocus();
 
-    KXMLGUIBuilder builder( page );
-    KXMLGUIFactory factory( &builder, this );
-    factory.addClient( this );
+    KXMLGUIBuilder builder(page);
+    KXMLGUIFactory factory(&builder, this);
+    factory.addClient(this);
 
-    mTool = static_cast<KToolBar *>( factory.container( QLatin1String("note_tool"), this ) );
-    layout->addWidget( mTool );
-    layout->addWidget( mNoteEdit );
+    mTool = static_cast<KToolBar *>(factory.container(QLatin1String("note_tool"), this));
+    layout->addWidget(mTool);
+    layout->addWidget(mNoteEdit);
 
-    actionCollection()->addAssociatedWidget( this );
-    foreach ( QAction *action, actionCollection()->actions() ) {
-        action->setShortcutContext( Qt::WidgetWithChildrenShortcut );
+    actionCollection()->addAssociatedWidget(this);
+    foreach (QAction *action, actionCollection()->actions()) {
+        action->setShortcutContext(Qt::WidgetWithChildrenShortcut);
     }
     readConfig();
     setReadOnly(readOnly);
@@ -116,35 +115,35 @@ KNoteEditDialog::~KNoteEditDialog()
 
 void KNoteEditDialog::setColor(const QColor &fg, const QColor &bg)
 {
-    mNoteEdit->setColor( fg, bg );
+    mNoteEdit->setColor(fg, bg);
 }
 
 void KNoteEditDialog::setAcceptRichText(bool b)
 {
-    mNoteEdit->setAcceptRichText( b );
+    mNoteEdit->setAcceptRichText(b);
     mTool->setVisible(b);
 }
 
 void KNoteEditDialog::setReadOnly(bool b)
 {
-    mNoteEdit->setEnabled( !b );
+    mNoteEdit->setEnabled(!b);
     mTool->setEnabled(!b);
     mTitleEdit->setEnabled(!b);
 }
 
 void KNoteEditDialog::readConfig()
 {
-    KConfigGroup grp( KSharedConfig::openConfig(), "KNoteEditDialog" );
-    const QSize size = grp.readEntry( "Size", QSize(300, 200) );
-    if ( size.isValid() ) {
-        resize( size );
+    KConfigGroup grp(KSharedConfig::openConfig(), "KNoteEditDialog");
+    const QSize size = grp.readEntry("Size", QSize(300, 200));
+    if (size.isValid()) {
+        resize(size);
     }
 }
 
 void KNoteEditDialog::writeConfig()
 {
-    KConfigGroup grp( KSharedConfig::openConfig(), "KNoteEditDialog" );
-    grp.writeEntry( "Size", size() );
+    KConfigGroup grp(KSharedConfig::openConfig(), "KNoteEditDialog");
+    grp.writeEntry("Size", size());
     grp.sync();
 }
 
@@ -153,9 +152,9 @@ QString KNoteEditDialog::text() const
     return mNoteEdit->text();
 }
 
-void KNoteEditDialog::setText( const QString &text )
+void KNoteEditDialog::setText(const QString &text)
 {
-    mNoteEdit->setText( text );
+    mNoteEdit->setText(text);
 }
 
 QString KNoteEditDialog::title() const
@@ -163,11 +162,12 @@ QString KNoteEditDialog::title() const
     return mTitleEdit->text();
 }
 
-void KNoteEditDialog::setTitle( const QString &text )
+void KNoteEditDialog::setTitle(const QString &text)
 {
-    mTitleEdit->setText( text );
-    if (mTitleEdit->isEnabled() && mOkButton)
+    mTitleEdit->setText(text);
+    if (mTitleEdit->isEnabled() && mOkButton) {
         mOkButton->setEnabled(!text.isEmpty());
+    }
 }
 
 KNoteEdit *KNoteEditDialog::noteEdit() const
@@ -177,8 +177,9 @@ KNoteEdit *KNoteEditDialog::noteEdit() const
 
 void KNoteEditDialog::slotTextChanged(const QString &text)
 {
-     if (mOkButton)
+    if (mOkButton) {
         mOkButton->setEnabled(!text.isEmpty());
+    }
 }
 
 void KNoteEditDialog::setTabSize(int size)
@@ -186,17 +187,17 @@ void KNoteEditDialog::setTabSize(int size)
     mNoteEdit->setTabStop(size);
 }
 
-void KNoteEditDialog::setAutoIndentMode( bool newmode )
+void KNoteEditDialog::setAutoIndentMode(bool newmode)
 {
     mNoteEdit->setAutoIndentMode(newmode);
 }
 
-void KNoteEditDialog::setTextFont( const QFont &font )
+void KNoteEditDialog::setTextFont(const QFont &font)
 {
     mNoteEdit->setTextFont(font);
 }
 
-void KNoteEditDialog::setCursorPositionFromStart( int pos )
+void KNoteEditDialog::setCursorPositionFromStart(int pos)
 {
     mNoteEdit->setCursorPositionFromStart(pos);
 }

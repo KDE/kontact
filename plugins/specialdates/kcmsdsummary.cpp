@@ -33,158 +33,157 @@
 
 extern "C"
 {
-  Q_DECL_EXPORT KCModule *create_sdsummary( QWidget *parent, const char * )
-  {
-    return new KCMSDSummary( parent );
-  }
+    Q_DECL_EXPORT KCModule *create_sdsummary(QWidget *parent, const char *)
+    {
+        return new KCMSDSummary(parent);
+    }
 }
 
-KCMSDSummary::KCMSDSummary(QWidget *parent )
-  : KCModule( parent )
+KCMSDSummary::KCMSDSummary(QWidget *parent)
+    : KCModule(parent)
 {
-  setupUi( this );
+    setupUi(this);
 
-  customDaysChanged( 7 );
+    customDaysChanged(7);
 
-  connect(mDateTodayButton, &QRadioButton::clicked, this, &KCMSDSummary::modified);
-  connect(mDateMonthButton, &QRadioButton::clicked, this, &KCMSDSummary::modified);
-  connect(mDateRangeButton, &QRadioButton::clicked, this, &KCMSDSummary::modified);
+    connect(mDateTodayButton, &QRadioButton::clicked, this, &KCMSDSummary::modified);
+    connect(mDateMonthButton, &QRadioButton::clicked, this, &KCMSDSummary::modified);
+    connect(mDateRangeButton, &QRadioButton::clicked, this, &KCMSDSummary::modified);
 
-  connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMSDSummary::modified);
-  connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMSDSummary::customDaysChanged);
+    connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMSDSummary::modified);
+    connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMSDSummary::customDaysChanged);
 
-  connect(mShowBirthdaysFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
-  connect(mShowAnniversariesFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
-  connect(mShowHolidaysFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
-  connect(mShowSpecialsFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+    connect(mShowBirthdaysFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+    connect(mShowAnniversariesFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+    connect(mShowHolidaysFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+    connect(mShowSpecialsFromCalBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
 
-  connect(mShowBirthdaysFromKABBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
-  connect(mShowAnniversariesFromKABBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+    connect(mShowBirthdaysFromKABBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+    connect(mShowAnniversariesFromKABBox, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
 
-  connect(mShowMineOnly, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
+    connect(mShowMineOnly, &QCheckBox::stateChanged, this, &KCMSDSummary::modified);
 
-  KAcceleratorManager::manage( this );
+    KAcceleratorManager::manage(this);
 
-  load();
+    load();
 }
 
 void KCMSDSummary::modified()
 {
-  emit changed( true );
+    emit changed(true);
 }
 
-void KCMSDSummary::buttonClicked( int id )
+void KCMSDSummary::buttonClicked(int id)
 {
-  mCustomDays->setEnabled( id == 2 );
+    mCustomDays->setEnabled(id == 2);
 }
 
-void KCMSDSummary::customDaysChanged( int value )
+void KCMSDSummary::customDaysChanged(int value)
 {
-  mCustomDays->setSuffix( i18np( " day", " days", value ) );
+    mCustomDays->setSuffix(i18np(" day", " days", value));
 }
 
 void KCMSDSummary::load()
 {
-  KConfig config( QLatin1String("kcmsdsummaryrc") );
+    KConfig config(QLatin1String("kcmsdsummaryrc"));
 
-  KConfigGroup group = config.group( "Days" );
-  int days = group.readEntry( "DaysToShow", 7 );
-  if ( days == 1 ) {
-    mDateTodayButton->setChecked( true );
-  } else if ( days == 31 ) {
-    mDateMonthButton->setChecked( true );
-  } else {
-    mDateRangeButton->setChecked( true );
-    mCustomDays->setValue( days );
-    mCustomDays->setEnabled( true );
-  }
+    KConfigGroup group = config.group("Days");
+    int days = group.readEntry("DaysToShow", 7);
+    if (days == 1) {
+        mDateTodayButton->setChecked(true);
+    } else if (days == 31) {
+        mDateMonthButton->setChecked(true);
+    } else {
+        mDateRangeButton->setChecked(true);
+        mCustomDays->setValue(days);
+        mCustomDays->setEnabled(true);
+    }
 
-  group = config.group( "Show" );
+    group = config.group("Show");
 
-  mShowBirthdaysFromKABBox->setChecked( group.readEntry( "BirthdaysFromContacts", true ) );
-  mShowBirthdaysFromCalBox->setChecked( group.readEntry( "BirthdaysFromCalendar", true ) );
+    mShowBirthdaysFromKABBox->setChecked(group.readEntry("BirthdaysFromContacts", true));
+    mShowBirthdaysFromCalBox->setChecked(group.readEntry("BirthdaysFromCalendar", true));
 
-  mShowAnniversariesFromKABBox->setChecked( group.readEntry( "AnniversariesFromContacts", true ) );
-  mShowAnniversariesFromCalBox->setChecked( group.readEntry( "AnniversariesFromCalendar", true ) );
+    mShowAnniversariesFromKABBox->setChecked(group.readEntry("AnniversariesFromContacts", true));
+    mShowAnniversariesFromCalBox->setChecked(group.readEntry("AnniversariesFromCalendar", true));
 
-  mShowHolidaysFromCalBox->setChecked( group.readEntry( "HolidaysFromCalendar", true ) );
+    mShowHolidaysFromCalBox->setChecked(group.readEntry("HolidaysFromCalendar", true));
 
-  mShowSpecialsFromCalBox->setChecked( group.readEntry( "SpecialsFromCalendar", true ) );
+    mShowSpecialsFromCalBox->setChecked(group.readEntry("SpecialsFromCalendar", true));
 
-  group = config.group( "Groupware" );
-  mShowMineOnly->setChecked( group.readEntry( "ShowMineOnly", false ) );
+    group = config.group("Groupware");
+    mShowMineOnly->setChecked(group.readEntry("ShowMineOnly", false));
 
-  emit changed( false );
+    emit changed(false);
 }
 
 void KCMSDSummary::save()
 {
-  KConfig config( QLatin1String("kcmsdsummaryrc") );
+    KConfig config(QLatin1String("kcmsdsummaryrc"));
 
-  KConfigGroup group = config.group( "Days" );
+    KConfigGroup group = config.group("Days");
 
-  int days;
-  if ( mDateTodayButton->isChecked() ) {
-    days = 1;
-  } else if ( mDateMonthButton->isChecked() ) {
-    days = 31;
-  } else {
-    days = mCustomDays->value();
-  }
-  group.writeEntry( "DaysToShow", days );
+    int days;
+    if (mDateTodayButton->isChecked()) {
+        days = 1;
+    } else if (mDateMonthButton->isChecked()) {
+        days = 31;
+    } else {
+        days = mCustomDays->value();
+    }
+    group.writeEntry("DaysToShow", days);
 
-  group = config.group( "Show" );
+    group = config.group("Show");
 
-  group.writeEntry( "BirthdaysFromContacts", mShowBirthdaysFromKABBox->isChecked() );
-  group.writeEntry( "BirthdaysFromCalendar", mShowBirthdaysFromCalBox->isChecked() );
+    group.writeEntry("BirthdaysFromContacts", mShowBirthdaysFromKABBox->isChecked());
+    group.writeEntry("BirthdaysFromCalendar", mShowBirthdaysFromCalBox->isChecked());
 
-  group.writeEntry( "AnniversariesFromContacts", mShowAnniversariesFromKABBox->isChecked() );
-  group.writeEntry( "AnniversariesFromCalendar", mShowAnniversariesFromCalBox->isChecked() );
+    group.writeEntry("AnniversariesFromContacts", mShowAnniversariesFromKABBox->isChecked());
+    group.writeEntry("AnniversariesFromCalendar", mShowAnniversariesFromCalBox->isChecked());
 
-  group.writeEntry( "HolidaysFromCalendar", mShowHolidaysFromCalBox->isChecked() );
+    group.writeEntry("HolidaysFromCalendar", mShowHolidaysFromCalBox->isChecked());
 
-  group.writeEntry( "SpecialsFromCalendar", mShowSpecialsFromCalBox->isChecked() );
+    group.writeEntry("SpecialsFromCalendar", mShowSpecialsFromCalBox->isChecked());
 
-  group = config.group( "Groupware" );
-  group.writeEntry( "ShowMineOnly", mShowMineOnly->isChecked() );
+    group = config.group("Groupware");
+    group.writeEntry("ShowMineOnly", mShowMineOnly->isChecked());
 
-  group.sync();
-  emit changed( false );
+    group.sync();
+    emit changed(false);
 }
 
 void KCMSDSummary::defaults()
 {
-  mDateRangeButton->setChecked( true );
-  mCustomDays->setValue( 7 );
-  mCustomDays->setEnabled( true );
+    mDateRangeButton->setChecked(true);
+    mCustomDays->setValue(7);
+    mCustomDays->setEnabled(true);
 
-  mShowBirthdaysFromKABBox->setChecked( true );
-  mShowBirthdaysFromCalBox->setChecked( true );
-  mShowAnniversariesFromKABBox->setChecked( true );
-  mShowAnniversariesFromCalBox->setChecked( true );
-  mShowHolidaysFromCalBox->setChecked( true );
-  mShowSpecialsFromCalBox->setChecked( true );
+    mShowBirthdaysFromKABBox->setChecked(true);
+    mShowBirthdaysFromCalBox->setChecked(true);
+    mShowAnniversariesFromKABBox->setChecked(true);
+    mShowAnniversariesFromCalBox->setChecked(true);
+    mShowHolidaysFromCalBox->setChecked(true);
+    mShowSpecialsFromCalBox->setChecked(true);
 
-  mShowMineOnly->setChecked( false );
+    mShowMineOnly->setChecked(false);
 
-  emit changed( true );
+    emit changed(true);
 }
 
 const KAboutData *KCMSDSummary::aboutData() const
 {
-  KAboutData *about = new KAboutData(
-    QLatin1String( "kcmsdsummary" ),
-    i18n( "Upcoming Special Dates Configuration Dialog" ),
-    QString(), QString(), KAboutLicense::GPL,
-    i18n( "Copyright © 2004 Tobias Koenig\n"
-           "Copyright © 2004–2010 Allen Winter" ) );
+    KAboutData *about = new KAboutData(
+        QLatin1String("kcmsdsummary"),
+        i18n("Upcoming Special Dates Configuration Dialog"),
+        QString(), QString(), KAboutLicense::GPL,
+        i18n("Copyright © 2004 Tobias Koenig\n"
+             "Copyright © 2004–2010 Allen Winter"));
 
+    about->addAuthor(i18n("Tobias Koenig"),
+                     QString(), QLatin1String("tokoe@kde.org"));
+    about->addAuthor(i18n("Allen Winter"),
+                     QString(), QLatin1String("winter@kde.org"));
 
-  about->addAuthor( i18n( "Tobias Koenig" ),
-                    QString(), QLatin1String("tokoe@kde.org") );
-  about->addAuthor( i18n( "Allen Winter" ),
-                    QString(), QLatin1String("winter@kde.org") );
-
-  return about;
+    return about;
 }
 

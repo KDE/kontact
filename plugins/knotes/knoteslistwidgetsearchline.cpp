@@ -21,7 +21,6 @@
 
 #include <KLocalizedString>
 
-
 KNotesListWidgetSearchLine::KNotesListWidgetSearchLine(QWidget *parent)
     : KListWidgetSearchLine(parent)
 {
@@ -38,12 +37,12 @@ void KNotesListWidgetSearchLine::updateClickMessage(const QString &shortcutStr)
     setPlaceholderText(i18n("Search notes...<%1>", shortcutStr));
 }
 
-bool KNotesListWidgetSearchLine::itemMatches( const QListWidgetItem *item, const QString &s ) const
+bool KNotesListWidgetSearchLine::itemMatches(const QListWidgetItem *item, const QString &s) const
 {
     if (!item) {
         return false;
     }
-    const KNotesIconViewItem *iconView = dynamic_cast<const KNotesIconViewItem *>( item );
+    const KNotesIconViewItem *iconView = dynamic_cast<const KNotesIconViewItem *>(item);
     if (!iconView) {
         return false;
     }

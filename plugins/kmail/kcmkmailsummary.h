@@ -28,13 +28,15 @@
 
 #include <KCModule>
 #include <KViewStateMaintainer>
-namespace Akonadi {
+namespace Akonadi
+{
 class ETMViewStateSaver;
 }
 
 class QCheckBox;
 
-namespace PimCommon {
+namespace PimCommon
+{
 class CheckedCollectionWidget;
 }
 
@@ -43,7 +45,7 @@ class KCMKMailSummary : public KCModule
     Q_OBJECT
 
 public:
-    explicit KCMKMailSummary( QWidget *parent = 0 );
+    explicit KCMKMailSummary(QWidget *parent = 0);
 
     virtual void load();
     virtual void save();

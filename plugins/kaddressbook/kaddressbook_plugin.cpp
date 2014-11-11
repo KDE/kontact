@@ -37,54 +37,53 @@
 #include <QDBusReply>
 #include <QStandardPaths>
 
-EXPORT_KONTACT_PLUGIN( KAddressBookPlugin, kaddressbook )
+EXPORT_KONTACT_PLUGIN(KAddressBookPlugin, kaddressbook)
 
-KAddressBookPlugin::KAddressBookPlugin( KontactInterface::Core *core, const QVariantList & )
-  : KontactInterface::Plugin( core, core, "kaddressbook" )
+KAddressBookPlugin::KAddressBookPlugin(KontactInterface::Core *core, const QVariantList &)
+    : KontactInterface::Plugin(core, core, "kaddressbook")
 {
-  //QT5 setComponentData( KontactPluginFactory::componentData() );
+    //QT5 setComponentData( KontactPluginFactory::componentData() );
 
+    QAction *action =
+        new QAction(QIcon::fromTheme(QLatin1String("contact-new")),
+                    i18nc("@action:inmenu", "New Contact..."), this);
+    actionCollection()->addAction(QLatin1String("new_contact"), action);
+    connect(action, &QAction::triggered, this, &KAddressBookPlugin::slotNewContact);
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_C));
+    //action->setHelpText(
+    //  i18nc( "@info:status", "Create a new contact" ) );
+    action->setWhatsThis(
+        i18nc("@info:whatsthis",
+              "You will be presented with a dialog where you can create a new contact."));
+    insertNewAction(action);
 
-  QAction *action =
-    new QAction( QIcon::fromTheme( QLatin1String("contact-new") ),
-                 i18nc( "@action:inmenu", "New Contact..." ), this );
-  actionCollection()->addAction( QLatin1String("new_contact"), action );
-  connect(action, &QAction::triggered, this, &KAddressBookPlugin::slotNewContact);
-  action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_C ) );
-  //action->setHelpText(
-  //  i18nc( "@info:status", "Create a new contact" ) );
-  action->setWhatsThis(
-    i18nc( "@info:whatsthis",
-           "You will be presented with a dialog where you can create a new contact." ) );
-  insertNewAction( action );
+    action =
+        new QAction(QIcon::fromTheme(QLatin1String("user-group-new")),
+                    i18nc("@action:inmenu", "New Contact Group..."), this);
+    actionCollection()->addAction(QLatin1String("new_contactgroup"), action);
+    connect(action, &QAction::triggered, this, &KAddressBookPlugin::slotNewContactGroup);
+    action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_G));
+    //action->setHelpText(
+    //  i18nc( "@info:status", "Create a new contact group" ) );
+    action->setWhatsThis(
+        i18nc("@info:whatsthis",
+              "You will be presented with a dialog where you can create a new contact group."));
+    insertNewAction(action);
 
-  action =
-    new QAction( QIcon::fromTheme( QLatin1String("user-group-new") ),
-                 i18nc( "@action:inmenu", "New Contact Group..." ), this );
-  actionCollection()->addAction( QLatin1String("new_contactgroup"), action );
-  connect(action, &QAction::triggered, this, &KAddressBookPlugin::slotNewContactGroup);
-  action->setShortcut( QKeySequence( Qt::CTRL + Qt::SHIFT + Qt::Key_G ) );
-  //action->setHelpText(
-  //  i18nc( "@info:status", "Create a new contact group" ) );
-  action->setWhatsThis(
-    i18nc( "@info:whatsthis",
-           "You will be presented with a dialog where you can create a new contact group." ) );
-  insertNewAction( action );
+    QAction *syncAction =
+        new QAction(QIcon::fromTheme(QLatin1String("view-refresh")),
+                    i18nc("@action:inmenu", "Sync Contacts"), this);
+    actionCollection()->addAction(QLatin1String("kaddressbook_sync"), syncAction);
+    connect(syncAction, &QAction::triggered, this, &KAddressBookPlugin::slotSyncContacts);
+    //syncAction->setHelpText(
+    //  i18nc( "@info:status", "Synchronize groupware contacts" ) );
+    syncAction->setWhatsThis(
+        i18nc("@info:whatsthis",
+              "Choose this option to synchronize your groupware contacts."));
+    insertSyncAction(syncAction);
 
-  QAction *syncAction =
-    new QAction( QIcon::fromTheme( QLatin1String("view-refresh") ),
-                 i18nc( "@action:inmenu", "Sync Contacts" ), this );
-  actionCollection()->addAction( QLatin1String("kaddressbook_sync"), syncAction );
-  connect(syncAction, &QAction::triggered, this, &KAddressBookPlugin::slotSyncContacts);
-  //syncAction->setHelpText(
-  //  i18nc( "@info:status", "Synchronize groupware contacts" ) );
-  syncAction->setWhatsThis(
-    i18nc( "@info:whatsthis",
-           "Choose this option to synchronize your groupware contacts." ) );
-  insertSyncAction( syncAction );
-
-  mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
-    new KontactInterface::UniqueAppHandlerFactory<KAddressBookUniqueAppHandler>(), this );
+    mUniqueAppWatcher = new KontactInterface::UniqueAppWatcher(
+        new KontactInterface::UniqueAppHandlerFactory<KAddressBookUniqueAppHandler>(), this);
 }
 
 KAddressBookPlugin::~KAddressBookPlugin()
@@ -93,101 +92,101 @@ KAddressBookPlugin::~KAddressBookPlugin()
 
 void KAddressBookPlugin::slotNewContact()
 {
-  KParts::ReadOnlyPart *part = createPart();
-  if ( !part ) {
-    return;
-  }
+    KParts::ReadOnlyPart *part = createPart();
+    if (!part) {
+        return;
+    }
 
-  if ( part->metaObject()->indexOfMethod( "newContact()" ) == -1 ) {
-    qWarning() << "KAddressBook part is missing slot newContact()";
-    return;
-  }
+    if (part->metaObject()->indexOfMethod("newContact()") == -1) {
+        qWarning() << "KAddressBook part is missing slot newContact()";
+        return;
+    }
 
-  QMetaObject::invokeMethod( part, "newContact" );
+    QMetaObject::invokeMethod(part, "newContact");
 }
 
 void KAddressBookPlugin::slotNewContactGroup()
 {
-  KParts::ReadOnlyPart *part = createPart();
-  if ( !part ) {
-    return;
-  }
+    KParts::ReadOnlyPart *part = createPart();
+    if (!part) {
+        return;
+    }
 
-  if ( part->metaObject()->indexOfMethod( "newGroup()" ) == -1 ) {
-    qWarning() << "KAddressBook part is missing slot newGroup()";
-    return;
-  }
+    if (part->metaObject()->indexOfMethod("newGroup()") == -1) {
+        qWarning() << "KAddressBook part is missing slot newGroup()";
+        return;
+    }
 
-  QMetaObject::invokeMethod( part, "newGroup" );
+    QMetaObject::invokeMethod(part, "newGroup");
 }
 
 QString KAddressBookPlugin::tipFile() const
 {
-  // TODO: tips file
-  //QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kaddressbook/tips");
-  QString file;
-  return file;
+    // TODO: tips file
+    //QString file = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kaddressbook/tips");
+    QString file;
+    return file;
 }
 
 KParts::ReadOnlyPart *KAddressBookPlugin::createPart()
 {
-  KParts::ReadOnlyPart *part = loadPart();
-  if ( !part ) {
-    return 0;
-  }
-
-  // disable the Ctrl+N shortcut, as it is used by Kontact already
-  if ( part->action( "akonadi_contact_create" ) ) {
-    QAction *newAction = qobject_cast<QAction*>( part->action( "akonadi_contact_create" ) );
-    if ( newAction ) {
-      newAction->setShortcut( QKeySequence() );
+    KParts::ReadOnlyPart *part = loadPart();
+    if (!part) {
+        return 0;
     }
-  }
 
-  return part;
+    // disable the Ctrl+N shortcut, as it is used by Kontact already
+    if (part->action("akonadi_contact_create")) {
+        QAction *newAction = qobject_cast<QAction *>(part->action("akonadi_contact_create"));
+        if (newAction) {
+            newAction->setShortcut(QKeySequence());
+        }
+    }
+
+    return part;
 }
 
 bool KAddressBookPlugin::isRunningStandalone() const
 {
-  return mUniqueAppWatcher->isRunningStandalone();
+    return mUniqueAppWatcher->isRunningStandalone();
 }
 
 QStringList KAddressBookPlugin::invisibleToolbarActions() const
 {
-  QStringList actions;
-  actions << QLatin1String("akonadi_contact_create") << QLatin1String("akonadi_contact_group_create");
-  return actions;
+    QStringList actions;
+    actions << QLatin1String("akonadi_contact_create") << QLatin1String("akonadi_contact_group_create");
+    return actions;
 }
 
 void KAddressBookPlugin::shortcutChanged()
 {
-  KParts::ReadOnlyPart *localPart = part();
-  if ( localPart ) {
-    if ( localPart->metaObject()->indexOfMethod( "updateQuickSearchText()" ) == -1 ) {
-      qWarning() << "KAddressBook part is missing slot updateQuickSearchText()";
-      return;
+    KParts::ReadOnlyPart *localPart = part();
+    if (localPart) {
+        if (localPart->metaObject()->indexOfMethod("updateQuickSearchText()") == -1) {
+            qWarning() << "KAddressBook part is missing slot updateQuickSearchText()";
+            return;
+        }
+        QMetaObject::invokeMethod(localPart, "updateQuickSearchText");
     }
-    QMetaObject::invokeMethod( localPart, "updateQuickSearchText" );
-  }
 }
 
 void KAddressBookPlugin::slotSyncContacts()
 {
 #if 0
-  QDBusMessage message =
-      QDBusMessage::createMethodCall( "org.kde.kmail", "/Groupware",
-                                      "org.kde.kmail.groupware",
-                                      "triggerSync" );
-  message << QString( "Contact" );
-  QDBusConnection::sessionBus().send( message );
+    QDBusMessage message =
+        QDBusMessage::createMethodCall("org.kde.kmail", "/Groupware",
+                                       "org.kde.kmail.groupware",
+                                       "triggerSync");
+    message << QString("Contact");
+    QDBusConnection::sessionBus().send(message);
 #else
-  qWarning() << QLatin1String(" Need to port to AKONADI: KAddressBookPlugin::slotSyncNotes");
+    qWarning() << QLatin1String(" Need to port to AKONADI: KAddressBookPlugin::slotSyncNotes");
 #endif
 }
 
 void KAddressBookUniqueAppHandler::loadCommandLineOptions()
 {
-  KCmdLineArgs::addCmdLineOptions( kaddressbook_options() );
+    KCmdLineArgs::addCmdLineOptions(kaddressbook_options());
 }
 
 int KAddressBookUniqueAppHandler::newInstance()
@@ -195,7 +194,7 @@ int KAddressBookUniqueAppHandler::newInstance()
     qDebug() ;
     // Ensure part is loaded
     (void)plugin()->part();
-    org::kde::kaddressbook kaddressbook( QLatin1String("org.kde.kaddressbook"), QLatin1String("/KAddressBook"), QDBusConnection::sessionBus() );
+    org::kde::kaddressbook kaddressbook(QLatin1String("org.kde.kaddressbook"), QLatin1String("/KAddressBook"), QDBusConnection::sessionBus());
     QDBusReply<bool> reply = kaddressbook.handleCommandLine();
     return KontactInterface::UniqueAppHandler::newInstance();
 }

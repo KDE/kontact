@@ -26,7 +26,7 @@ class KNotesWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KNotesWidget(KNotesPart *part, QWidget *parent=0);
+    explicit KNotesWidget(KNotesPart *part, QWidget *parent = 0);
     ~KNotesWidget();
 
     KNotesIconView *notesView() const;

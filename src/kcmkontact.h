@@ -30,14 +30,15 @@ using namespace KPIM;
 
 #include <KService>
 
-namespace Kontact {
+namespace Kontact
+{
 
 class KcmKontact : public KPrefsModule
 {
     Q_OBJECT
 
 public:
-    explicit KcmKontact( QWidget *parent = 0 );
+    explicit KcmKontact(QWidget *parent = 0);
 
     virtual const KAboutData *aboutData() const;
 };
@@ -47,14 +48,17 @@ class PluginSelection : public KPrefsWid
     Q_OBJECT
 
 public:
-    PluginSelection( KConfigSkeleton::ItemString *item, QWidget *parent );
+    PluginSelection(KConfigSkeleton::ItemString *item, QWidget *parent);
     ~PluginSelection();
 
     void readConfig();
     void writeConfig();
 
     QList<QWidget *> widgets() const;
-    KComboBox *comboBox() const { return mPluginCombo; }
+    KComboBox *comboBox() const
+    {
+        return mPluginCombo;
+    }
 
 private:
     KComboBox *mPluginCombo;

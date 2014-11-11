@@ -32,35 +32,35 @@
 
 void KOrganizerUniqueAppHandler::loadCommandLineOptions()
 {
-  KCmdLineArgs::addCmdLineOptions( korganizer_options() );
+    KCmdLineArgs::addCmdLineOptions(korganizer_options());
 }
 
 int KOrganizerUniqueAppHandler::newInstance()
 {
-  // Ensure part is loaded
-  (void)plugin()->part();
+    // Ensure part is loaded
+    (void)plugin()->part();
 
-  QDBusMessage message = QDBusMessage::createMethodCall( QLatin1String("org.kde.korganizer"),
-                                                         QLatin1String("/Korganizer"),
-                                                         QLatin1String("org.kde.korganizer.Korganizer"),
-                                                         QLatin1String("handleCommandLine") );
-  QDBusConnection::sessionBus().send( message );
+    QDBusMessage message = QDBusMessage::createMethodCall(QLatin1String("org.kde.korganizer"),
+                           QLatin1String("/Korganizer"),
+                           QLatin1String("org.kde.korganizer.Korganizer"),
+                           QLatin1String("handleCommandLine"));
+    QDBusConnection::sessionBus().send(message);
 
-  // Bring korganizer's plugin to front
-  // This bit is duplicated from KUniqueApplication::newInstance()
-  QWidget *mWidget = mainWidget();
-  if ( mWidget ) {
-    mWidget->show();
-    KWindowSystem::forceActiveWindow( mWidget->winId() );
-    KStartupInfo::appStarted();
-  }
+    // Bring korganizer's plugin to front
+    // This bit is duplicated from KUniqueApplication::newInstance()
+    QWidget *mWidget = mainWidget();
+    if (mWidget) {
+        mWidget->show();
+        KWindowSystem::forceActiveWindow(mWidget->winId());
+        KStartupInfo::appStarted();
+    }
 
-  // Then ensure the part appears in kontact.
-  // ALWAYS use the korganizer plugin; i.e. never show the todo nor journal
-  // plugins when creating a new instance via the command line, even if
-  // the command line options are empty; else we'd need to examine the
-  // options and then figure out which plugin we should show.
-  // kolab/issue3971
-  plugin()->core()->selectPlugin( QLatin1String("kontact_korganizerplugin") );
-  return 0;
+    // Then ensure the part appears in kontact.
+    // ALWAYS use the korganizer plugin; i.e. never show the todo nor journal
+    // plugins when creating a new instance via the command line, even if
+    // the command line options are empty; else we'd need to examine the
+    // options and then figure out which plugin we should show.
+    // kolab/issue3971
+    plugin()->core()->selectPlugin(QLatin1String("kontact_korganizerplugin"));
+    return 0;
 }

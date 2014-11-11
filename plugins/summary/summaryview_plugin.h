@@ -29,26 +29,29 @@ class KSelectAction;
 class KAboutData;
 class SummaryView : public KontactInterface::Plugin
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    SummaryView( KontactInterface::Core *core, const QVariantList & );
+public:
+    SummaryView(KontactInterface::Core *core, const QVariantList &);
     ~SummaryView();
 
-    int weight() const { return 100; }
+    int weight() const
+    {
+        return 100;
+    }
 
     const KAboutData aboutData();
 
-  protected:
+protected:
     virtual KParts::ReadOnlyPart *createPart();
 
-  private slots:
+private slots:
 
     void doSync();
-    void syncAccount( const QString &account );
+    void syncAccount(const QString &account);
     void fillSyncActionSubEntries();
 
-  private:
+private:
     SummaryViewPart *mPart;
     KSelectAction *mSyncAction;
 };

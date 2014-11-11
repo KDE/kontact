@@ -36,17 +36,17 @@ class QDate;
 
 class SummaryEventInfo
 {
-  public:
+public:
 
-    typedef QList<SummaryEventInfo*> List;
+    typedef QList<SummaryEventInfo *> List;
 
     SummaryEventInfo();
 
-    static List eventsForDate( const QDate &date,
-                               KCalCore::Calendar *calendar );
+    static List eventsForDate(const QDate &date,
+                              KCalCore::Calendar *calendar);
     static List eventsForRange(const QDate &start, const QDate &end, // range is inclusive
-                               KCalCore::Calendar *calendar );
-    static void setShowSpecialEvents( bool skipBirthdays, bool skipAnniversaries );
+                               KCalCore::Calendar *calendar);
+    static void setShowSpecialEvents(bool skipBirthdays, bool skipAnniversaries);
 
     KCalCore::Event::Ptr ev;
     QString startDate;
@@ -58,10 +58,10 @@ class SummaryEventInfo
     QString summaryTooltip;
     bool makeBold;
 
-  private:
+private:
 
-    static void dateDiff( const QDate &date, int &days );
-    static bool skip( const KCalCore::Event::Ptr &event );
+    static void dateDiff(const QDate &date, int &days);
+    static bool skip(const KCalCore::Event::Ptr &event);
     static bool mShowBirthdays, mShowAnniversaries;
 };
 

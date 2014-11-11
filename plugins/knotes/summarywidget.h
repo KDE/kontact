@@ -32,16 +32,19 @@
 class QGridLayout;
 class QItemSelectionModel;
 class QLabel;
-namespace KontactInterface {
+namespace KontactInterface
+{
 class Plugin;
 }
 
-namespace Akonadi {
+namespace Akonadi
+{
 class ChangeRecorder;
 class ETMViewStateSaver;
 class Item;
 }
-namespace NoteShared {
+namespace NoteShared
+{
 class NotesChangeRecorder;
 class NotesAkonadiTreeModel;
 }
@@ -51,14 +54,14 @@ class KNotesSummaryWidget : public KontactInterface::Summary
 {
     Q_OBJECT
 public:
-    KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent );
+    KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent);
     ~KNotesSummaryWidget();
 
-    void updateSummary( bool force = false );
+    void updateSummary(bool force = false);
     QStringList configModules() const;
 
 protected:
-    virtual bool eventFilter( QObject *obj, QEvent *e );
+    virtual bool eventFilter(QObject *obj, QEvent *e);
 
 private slots:
     void updateFolderList();

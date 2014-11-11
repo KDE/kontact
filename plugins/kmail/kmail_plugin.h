@@ -32,15 +32,16 @@
 
 class OrgKdeKmailKmailInterface;
 
-namespace KontactInterface {
+namespace KontactInterface
+{
 class UniqueAppWatcher;
 }
 
 class KMailUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
 public:
-    explicit KMailUniqueAppHandler( KontactInterface::Plugin *plugin )
-        : KontactInterface::UniqueAppHandler( plugin ) {}
+    explicit KMailUniqueAppHandler(KontactInterface::Plugin *plugin)
+        : KontactInterface::UniqueAppHandler(plugin) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
@@ -50,14 +51,17 @@ class KMailPlugin : public KontactInterface::Plugin
     Q_OBJECT
 
 public:
-    KMailPlugin( KontactInterface::Core *core, const QVariantList & );
+    KMailPlugin(KontactInterface::Core *core, const QVariantList &);
     ~KMailPlugin();
 
     bool isRunningStandalone() const;
-    bool createDBUSInterface( const QString &serviceType );
-    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
+    bool createDBUSInterface(const QString &serviceType);
+    virtual KontactInterface::Summary *createSummaryWidget(QWidget *parent);
     QString tipFile() const;
-    int weight() const { return 200; }
+    int weight() const
+    {
+        return 200;
+    }
 
     QStringList invisibleToolbarActions() const;
     virtual bool queryClose() const;
@@ -66,10 +70,10 @@ public:
 
 protected:
     virtual KParts::ReadOnlyPart *createPart();
-    void openComposer( const KUrl &attach = KUrl() );
-    void openComposer( const QString &to );
-    bool canDecodeMimeData( const QMimeData * ) const;
-    void processDropEvent( QDropEvent * );
+    void openComposer(const KUrl &attach = KUrl());
+    void openComposer(const QString &to);
+    bool canDecodeMimeData(const QMimeData *) const;
+    void processDropEvent(QDropEvent *);
 
 protected slots:
     void slotNewMail();

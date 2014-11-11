@@ -30,145 +30,145 @@
 #include <KLocalizedString>
 #include <KConfig>
 
-KCModule *create_apptsummary( QWidget *parent, const char * )
+KCModule *create_apptsummary(QWidget *parent, const char *)
 {
-  return new KCMApptSummary( parent );
+    return new KCMApptSummary(parent);
 }
 
-KCMApptSummary::KCMApptSummary( QWidget *parent )
-  : KCModule( parent )
+KCMApptSummary::KCMApptSummary(QWidget *parent)
+    : KCModule(parent)
 {
-  setupUi( this );
+    setupUi(this);
 
-  mDaysButtonGroup = new QButtonGroup( this ); //krazy:exclude=tipsandthis
-  mDaysButtonGroup->addButton( mDateTodayButton, 0 );
-  mDaysButtonGroup->addButton( mDateMonthButton, 1 );
-  mDaysButtonGroup->addButton( mDateRangeButton, 2 );
+    mDaysButtonGroup = new QButtonGroup(this);   //krazy:exclude=tipsandthis
+    mDaysButtonGroup->addButton(mDateTodayButton, 0);
+    mDaysButtonGroup->addButton(mDateMonthButton, 1);
+    mDaysButtonGroup->addButton(mDateRangeButton, 2);
 
-  mShowButtonGroup = new QButtonGroup( this ); //krazy:exclude=tipsandthis
-  mShowButtonGroup->setExclusive( false );
-  mShowButtonGroup->addButton( mShowBirthdaysFromCal );
-  mShowButtonGroup->addButton( mShowAnniversariesFromCal );
+    mShowButtonGroup = new QButtonGroup(this);   //krazy:exclude=tipsandthis
+    mShowButtonGroup->setExclusive(false);
+    mShowButtonGroup->addButton(mShowBirthdaysFromCal);
+    mShowButtonGroup->addButton(mShowAnniversariesFromCal);
 
-  mGroupwareButtonGroup = new QButtonGroup( this ); //krazy:exclude=tipsandthis
-  mGroupwareButtonGroup->setExclusive( false );
-  mGroupwareButtonGroup->addButton( mShowMineOnly );
+    mGroupwareButtonGroup = new QButtonGroup(this);   //krazy:exclude=tipsandthis
+    mGroupwareButtonGroup->setExclusive(false);
+    mGroupwareButtonGroup->addButton(mShowMineOnly);
 
-  customDaysChanged( 7 );
+    customDaysChanged(7);
 
-  connect(mDaysButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::modified);
-  connect(mDaysButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::buttonClicked);
-  connect(mShowButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::modified);
-  connect(mGroupwareButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::modified);
+    connect(mDaysButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::modified);
+    connect(mDaysButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::buttonClicked);
+    connect(mShowButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::modified);
+    connect(mGroupwareButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &KCMApptSummary::modified);
 
-  connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMApptSummary::modified);
-  connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMApptSummary::customDaysChanged);
+    connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMApptSummary::modified);
+    connect(mCustomDays, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &KCMApptSummary::customDaysChanged);
 
-  KAcceleratorManager::manage( this );
+    KAcceleratorManager::manage(this);
 
-  load();
+    load();
 }
 
 void KCMApptSummary::modified()
 {
-  emit changed( true );
+    emit changed(true);
 }
 
-void KCMApptSummary::buttonClicked( int id )
+void KCMApptSummary::buttonClicked(int id)
 {
-  mCustomDays->setEnabled( id == 2 );
+    mCustomDays->setEnabled(id == 2);
 }
 
-void KCMApptSummary::customDaysChanged( int value )
+void KCMApptSummary::customDaysChanged(int value)
 {
-  mCustomDays->setSuffix( i18np( " day", " days", value ) );
+    mCustomDays->setSuffix(i18np(" day", " days", value));
 }
 
 void KCMApptSummary::load()
 {
-  KConfig config( QLatin1String("kcmapptsummaryrc") );
-  KConfigGroup group = config.group( "Days" );
+    KConfig config(QLatin1String("kcmapptsummaryrc"));
+    KConfigGroup group = config.group("Days");
 
-  int days = group.readEntry( "DaysToShow", 7 );
-  if ( days == 1 ) {
-    mDateTodayButton->setChecked( true );
-  } else if ( days == 31 ) {
-    mDateMonthButton->setChecked( true );
-  } else {
-    mDateRangeButton->setChecked( true );
-    mCustomDays->setValue( days );
-    mCustomDays->setEnabled( true );
-  }
+    int days = group.readEntry("DaysToShow", 7);
+    if (days == 1) {
+        mDateTodayButton->setChecked(true);
+    } else if (days == 31) {
+        mDateMonthButton->setChecked(true);
+    } else {
+        mDateRangeButton->setChecked(true);
+        mCustomDays->setValue(days);
+        mCustomDays->setEnabled(true);
+    }
 
-  group = config.group( "Show" );
+    group = config.group("Show");
 
-  mShowBirthdaysFromCal->setChecked( group.readEntry( "BirthdaysFromCalendar", true ) );
-  mShowAnniversariesFromCal->setChecked( group.readEntry( "AnniversariesFromCalendar", true ) );
+    mShowBirthdaysFromCal->setChecked(group.readEntry("BirthdaysFromCalendar", true));
+    mShowAnniversariesFromCal->setChecked(group.readEntry("AnniversariesFromCalendar", true));
 
-  group = config.group( "Groupware" );
-  mShowMineOnly->setChecked( group.readEntry( "ShowMineOnly", false ) );
+    group = config.group("Groupware");
+    mShowMineOnly->setChecked(group.readEntry("ShowMineOnly", false));
 
-  emit changed( false );
+    emit changed(false);
 }
 
 void KCMApptSummary::save()
 {
-  KConfig config(QLatin1String( "kcmapptsummaryrc") );
-  KConfigGroup group = config.group( "Days" );
+    KConfig config(QLatin1String("kcmapptsummaryrc"));
+    KConfigGroup group = config.group("Days");
 
-  int days;
-  switch ( mDaysButtonGroup->checkedId() ) {
-  case 0:
-    days = 1;
-    break;
-  case 1:
-    days = 31;
-    break;
-  case 2:
-  default:
-    days = mCustomDays->value();
-    break;
-  }
+    int days;
+    switch (mDaysButtonGroup->checkedId()) {
+    case 0:
+        days = 1;
+        break;
+    case 1:
+        days = 31;
+        break;
+    case 2:
+    default:
+        days = mCustomDays->value();
+        break;
+    }
 
-  group.writeEntry( "DaysToShow", days );
+    group.writeEntry("DaysToShow", days);
 
-  group = config.group( "Show" );
-  group.writeEntry( "BirthdaysFromCalendar", mShowBirthdaysFromCal->isChecked() );
-  group.writeEntry( "AnniversariesFromCalendar", mShowAnniversariesFromCal->isChecked() );
+    group = config.group("Show");
+    group.writeEntry("BirthdaysFromCalendar", mShowBirthdaysFromCal->isChecked());
+    group.writeEntry("AnniversariesFromCalendar", mShowAnniversariesFromCal->isChecked());
 
-  group = config.group( "Groupware" );
-  group.writeEntry( "ShowMineOnly", mShowMineOnly->isChecked() );
+    group = config.group("Groupware");
+    group.writeEntry("ShowMineOnly", mShowMineOnly->isChecked());
 
-  config.sync();
-  emit changed( false );
+    config.sync();
+    emit changed(false);
 }
 
 void KCMApptSummary::defaults()
 {
-  mDateRangeButton->setChecked( true );
-  mCustomDays->setValue( 7 );
-  mCustomDays->setEnabled( true );
+    mDateRangeButton->setChecked(true);
+    mCustomDays->setValue(7);
+    mCustomDays->setEnabled(true);
 
-  mShowBirthdaysFromCal->setChecked( true );
-  mShowAnniversariesFromCal->setChecked( true );
+    mShowBirthdaysFromCal->setChecked(true);
+    mShowAnniversariesFromCal->setChecked(true);
 
-  mShowMineOnly->setChecked( false );
+    mShowMineOnly->setChecked(false);
 
-  emit changed( true );
+    emit changed(true);
 }
 
 const KAboutData *KCMApptSummary::aboutData() const
 {
-  KAboutData *about = new KAboutData(
-    QStringLiteral( "kcmapptsummary" ),
-    i18n( "Upcoming Events Configuration Dialog" ),
-    QString(), QString(), KAboutLicense::GPL,
-    i18n( "Copyright © 2003–2004 Tobias Koenig\n"
-           "Copyright © 2005–2010 Allen Winter" ) );
+    KAboutData *about = new KAboutData(
+        QStringLiteral("kcmapptsummary"),
+        i18n("Upcoming Events Configuration Dialog"),
+        QString(), QString(), KAboutLicense::GPL,
+        i18n("Copyright © 2003–2004 Tobias Koenig\n"
+             "Copyright © 2005–2010 Allen Winter"));
 
-  about->addAuthor( i18n( "Tobias Koenig" ), QString(), QLatin1String("tokoe@kde.org") );
-  about->addAuthor( i18n( "Allen Winter" ), QString(), QLatin1String("winter@kde.org") );
+    about->addAuthor(i18n("Tobias Koenig"), QString(), QLatin1String("tokoe@kde.org"));
+    about->addAuthor(i18n("Allen Winter"), QString(), QLatin1String("winter@kde.org"));
 
-  return about;
+    return about;
 }
 

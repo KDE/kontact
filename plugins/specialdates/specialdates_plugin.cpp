@@ -32,38 +32,38 @@
 #include <KLocalizedString>
 #include <KIconLoader>
 
-EXPORT_KONTACT_PLUGIN( SpecialdatesPlugin, specialdates )
+EXPORT_KONTACT_PLUGIN(SpecialdatesPlugin, specialdates)
 
-SpecialdatesPlugin::SpecialdatesPlugin( KontactInterface::Core *core, const QVariantList & )
-  : KontactInterface::Plugin( core, core, 0 )
+SpecialdatesPlugin::SpecialdatesPlugin(KontactInterface::Core *core, const QVariantList &)
+    : KontactInterface::Plugin(core, core, 0)
 {
-  //QT5 setComponentData( KontactPluginFactory::componentData() );
-  KIconLoader::global()->addAppDir( QLatin1String("kdepim") );
+    //QT5 setComponentData( KontactPluginFactory::componentData() );
+    KIconLoader::global()->addAppDir(QLatin1String("kdepim"));
 }
 
 SpecialdatesPlugin::~SpecialdatesPlugin()
 {
 }
 
-KontactInterface::Summary *SpecialdatesPlugin::createSummaryWidget( QWidget *parentWidget )
+KontactInterface::Summary *SpecialdatesPlugin::createSummaryWidget(QWidget *parentWidget)
 {
-  return new SDSummaryWidget( this, parentWidget );
+    return new SDSummaryWidget(this, parentWidget);
 }
 
 const KAboutData SpecialdatesPlugin::aboutData()
 {
-    KAboutData aboutData = KAboutData( QLatin1String("specialdates"),
-                                 i18n( "Special Dates Summary" ),
-                                 QLatin1String("1.0"),
-                                 i18n( "Kontact Special Dates Summary" ),
-                                 KAboutLicense::LGPL,
-                                 i18n( "Copyright © 2003 Tobias Koenig\n"
-                                        "Copyright © 2004–2010 Allen Winter" ) );
-    aboutData.addAuthor( i18n( "Allen Winter" ),
-                           i18n( "Current Maintainer" ), QLatin1String("winter@kde.org") );
-    aboutData.addAuthor( i18n( "Tobias Koenig" ),
-                           QString(), QLatin1String("tokoe@kde.org") );
-    aboutData.setProductName( "kontact/specialdates");
-  return aboutData;
+    KAboutData aboutData = KAboutData(QLatin1String("specialdates"),
+                                      i18n("Special Dates Summary"),
+                                      QLatin1String("1.0"),
+                                      i18n("Kontact Special Dates Summary"),
+                                      KAboutLicense::LGPL,
+                                      i18n("Copyright © 2003 Tobias Koenig\n"
+                                           "Copyright © 2004–2010 Allen Winter"));
+    aboutData.addAuthor(i18n("Allen Winter"),
+                        i18n("Current Maintainer"), QLatin1String("winter@kde.org"));
+    aboutData.addAuthor(i18n("Tobias Koenig"),
+                        QString(), QLatin1String("tokoe@kde.org"));
+    aboutData.setProductName("kontact/specialdates");
+    return aboutData;
 }
 #include "specialdates_plugin.moc"

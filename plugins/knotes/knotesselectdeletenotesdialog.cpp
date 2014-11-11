@@ -21,7 +21,6 @@
 #include <KLocalizedString>
 #include <KStandardGuiItem>
 
-
 #include <QHBoxLayout>
 #include <QLabel>
 #include <KSharedConfig>
@@ -41,7 +40,7 @@ KNotesSelectDeleteNotesListWidget::~KNotesSelectDeleteNotesListWidget()
 
 }
 
-void KNotesSelectDeleteNotesListWidget::setItems(const QList<KNotesIconViewItem*> &items)
+void KNotesSelectDeleteNotesListWidget::setItems(const QList<KNotesIconViewItem *> &items)
 {
     Q_FOREACH (KNotesIconViewItem *item, items) {
         QListWidgetItem *i = new QListWidgetItem(this);
@@ -57,8 +56,8 @@ void KNotesSelectDeleteNotesListWidget::setItems(const QList<KNotesIconViewItem*
 KNotesSelectDeleteNotesDialog::KNotesSelectDeleteNotesDialog(const QList<KNotesIconViewItem *> &items, QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle( i18nc( "@title:window", "Confirm Delete" ) );
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    setWindowTitle(i18nc("@title:window", "Confirm Delete"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
@@ -67,18 +66,18 @@ KNotesSelectDeleteNotesDialog::KNotesSelectDeleteNotesDialog(const QList<KNotesI
     connect(buttonBox, &QDialogButtonBox::accepted, this, &KNotesSelectDeleteNotesDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &KNotesSelectDeleteNotesDialog::reject);
     buttonBox->button(QDialogButtonBox::Cancel)->setDefault(true);
-    setModal( true );
+    setModal(true);
     QWidget *w = new QWidget;
     QVBoxLayout *lay = new QVBoxLayout;
     w->setLayout(lay);
-    QLabel *lab = new QLabel( i18ncp( "@info", "Do you really want to delete this note?", "Do you really want to delete these %1 notes?", items.count() ));
+    QLabel *lab = new QLabel(i18ncp("@info", "Do you really want to delete this note?", "Do you really want to delete these %1 notes?", items.count()));
     lay->addWidget(lab);
     mSelectedListWidget = new KNotesSelectDeleteNotesListWidget;
     lay->addWidget(mSelectedListWidget);
     mainLayout->addWidget(w);
     mSelectedListWidget->setItems(items);
     okButton->setText(KStandardGuiItem::del().text());
-    
+
     mainLayout->addWidget(buttonBox);
     readConfig();
 }
@@ -90,18 +89,17 @@ KNotesSelectDeleteNotesDialog::~KNotesSelectDeleteNotesDialog()
 
 void KNotesSelectDeleteNotesDialog::readConfig()
 {
-    KConfigGroup grp( KSharedConfig::openConfig(), "KNotesSelectDeleteNotesDialog" );
-    const QSize size = grp.readEntry( "Size", QSize(300, 200) );
-    if ( size.isValid() ) {
-        resize( size );
+    KConfigGroup grp(KSharedConfig::openConfig(), "KNotesSelectDeleteNotesDialog");
+    const QSize size = grp.readEntry("Size", QSize(300, 200));
+    if (size.isValid()) {
+        resize(size);
     }
 }
 
 void KNotesSelectDeleteNotesDialog::writeConfig()
 {
-    KConfigGroup grp( KSharedConfig::openConfig(), "KNotesSelectDeleteNotesDialog" );
-    grp.writeEntry( "Size", size() );
+    KConfigGroup grp(KSharedConfig::openConfig(), "KNotesSelectDeleteNotesDialog");
+    grp.writeEntry("Size", size());
     grp.sync();
 }
-
 

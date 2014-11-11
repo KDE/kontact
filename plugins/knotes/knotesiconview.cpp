@@ -23,7 +23,6 @@
 #include "knotes/notes/knotedisplaysettings.h"
 #include "utils/knoteutils.h"
 
-
 #include <KLocalizedString>
 
 #include <AkonadiCore/ItemModifyJob>
@@ -42,17 +41,17 @@
 
 //#define DEBUG_SAVE_NOTE 1
 
-KNotesIconView::KNotesIconView( KNotesPart *part, QWidget *parent )
+KNotesIconView::KNotesIconView(KNotesPart *part, QWidget *parent)
     : QListWidget(parent),
       m_part(part)
 {
-    setViewMode( QListView::IconMode );
-    setMovement( QListView::Static );
-    setResizeMode( QListView::Adjust );
+    setViewMode(QListView::IconMode);
+    setMovement(QListView::Static);
+    setResizeMode(QListView::Adjust);
 
-    setSelectionMode( QAbstractItemView::ExtendedSelection );
-    setWordWrap( true );
-    setMouseTracking ( true );
+    setSelectionMode(QAbstractItemView::ExtendedSelection);
+    setWordWrap(true);
+    setMouseTracking(true);
 }
 
 KNotesIconView::~KNotesIconView()
@@ -62,31 +61,33 @@ KNotesIconView::~KNotesIconView()
 
 bool KNotesIconView::event(QEvent *e)
 {
-    if( e->type() != QEvent::ToolTip )
-      return QListWidget::event( e );
-    QHelpEvent * he = static_cast< QHelpEvent * >( e );
+    if (e->type() != QEvent::ToolTip) {
+        return QListWidget::event(e);
+    }
+    QHelpEvent *he = static_cast< QHelpEvent * >(e);
 
-    QPoint pnt = viewport()->mapFromGlobal( mapToGlobal( he->pos() ) );
+    QPoint pnt = viewport()->mapFromGlobal(mapToGlobal(he->pos()));
 
-    if ( pnt.y() < 0 )
-      return true;
+    if (pnt.y() < 0) {
+        return true;
+    }
 
-    QListWidgetItem *item = itemAt( pnt );
+    QListWidgetItem *item = itemAt(pnt);
     if (item) {
-        KNotesIconViewItem *noteItem = static_cast<KNotesIconViewItem*>(item);
+        KNotesIconViewItem *noteItem = static_cast<KNotesIconViewItem *>(item);
         const QString toolTip = NoteShared::NoteUtils::createToolTip(noteItem->item());
-        QToolTip::showText( he->globalPos(), toolTip, viewport(), visualItemRect( item ) );
+        QToolTip::showText(he->globalPos(), toolTip, viewport(), visualItemRect(item));
     }
     return true;
 }
 
-void KNotesIconView::mousePressEvent( QMouseEvent *e )
+void KNotesIconView::mousePressEvent(QMouseEvent *e)
 {
-    if ( e->button() == Qt::RightButton ) {
-        QListView::mousePressEvent( e );
-        m_part->popupRMB( currentItem(), e->pos (), e->globalPos() );
+    if (e->button() == Qt::RightButton) {
+        QListView::mousePressEvent(e);
+        m_part->popupRMB(currentItem(), e->pos(), e->globalPos());
     } else {
-        QListView::mousePressEvent( e );
+        QListView::mousePressEvent(e);
     }
 }
 
@@ -109,13 +110,13 @@ QHash<Akonadi::Entity::Id, KNotesIconViewItem *> KNotesIconView::noteList() cons
     return mNoteList;
 }
 
-KNotesIconViewItem::KNotesIconViewItem( const Akonadi::Item &item, QListWidget *parent )
-    : QListWidgetItem( parent ),
+KNotesIconViewItem::KNotesIconViewItem(const Akonadi::Item &item, QListWidget *parent)
+    : QListWidgetItem(parent),
       mItem(item),
       mDisplayAttribute(new KNoteDisplaySettings),
       mReadOnly(false)
 {
-    if ( mItem.hasAttribute<NoteShared::NoteDisplayAttribute>()) {
+    if (mItem.hasAttribute<NoteShared::NoteDisplayAttribute>()) {
         mDisplayAttribute->setDisplayAttribute(mItem.attribute<NoteShared::NoteDisplayAttribute>());
     } else {
         setDisplayDefaultValue();
@@ -132,10 +133,10 @@ KNotesIconViewItem::~KNotesIconViewItem()
 void KNotesIconViewItem::prepare()
 {
     const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
-    const KMime::Headers::Subject * const subject = noteMessage ? noteMessage->subject(false) : 0;
+    const KMime::Headers::Subject *const subject = noteMessage ? noteMessage->subject(false) : 0;
     setText(subject ? subject->asUnicodeString() : QString());
 
-    if ( mItem.hasAttribute<NoteShared::NoteLockAttribute>() ) {
+    if (mItem.hasAttribute<NoteShared::NoteLockAttribute>()) {
         mReadOnly = true;
     } else {
         mReadOnly = false;
@@ -157,13 +158,13 @@ void KNotesIconViewItem::setReadOnly(bool b, bool save)
         }
     } else {
         if (mReadOnly) {
-            mItem.attribute<NoteShared::NoteLockAttribute>( Akonadi::Entity::AddIfMissing );
+            mItem.attribute<NoteShared::NoteLockAttribute>(Akonadi::Entity::AddIfMissing);
         }
     }
     if (save) {
         Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
 #ifdef DEBUG_SAVE_NOTE
-        qDebug()<<" KNotesIconViewItem::setReadOnly savenote";
+        qDebug() << " KNotesIconViewItem::setReadOnly savenote";
 #endif
         connect(job, &Akonadi::ItemModifyJob::result, this, &KNotesIconViewItem::slotNoteSaved);
     }
@@ -178,36 +179,37 @@ void KNotesIconViewItem::setDisplayDefaultValue()
 
 void KNotesIconViewItem::slotNoteSaved(KJob *job)
 {
-    qDebug()<<" void KNotesIconViewItem::slotNoteSaved(KJob *job)";
-    if ( job->error() ) {
-        qDebug()<<" problem during save note:"<<job->errorString();
+    qDebug() << " void KNotesIconViewItem::slotNoteSaved(KJob *job)";
+    if (job->error()) {
+        qDebug() << " problem during save note:" << job->errorString();
     }
 }
 
-void KNotesIconViewItem::setChangeIconTextAndDescription( const QString &iconText, const QString &description, int position)
+void KNotesIconViewItem::setChangeIconTextAndDescription(const QString &iconText, const QString &description, int position)
 {
     setIconText(iconText, false);
     saveNoteContent(iconText, description, position);
 }
 
-void KNotesIconViewItem::setIconText( const QString &text, bool save )
+void KNotesIconViewItem::setIconText(const QString &text, bool save)
 {
     QString replaceText ;
-    if ( text.count() > 50 ) {
+    if (text.count() > 50) {
         replaceText = text.left(50) + QLatin1String("...");
     } else {
         replaceText = text ;
     }
 
-    setText( replaceText );
-    if (save)
+    setText(replaceText);
+    if (save) {
         saveNoteContent(text);
+    }
 }
 
 QString KNotesIconViewItem::realName() const
 {
     const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
-    const KMime::Headers::Subject * const subject = noteMessage ? noteMessage->subject(false) : 0;
+    const KMime::Headers::Subject *const subject = noteMessage ? noteMessage->subject(false) : 0;
     return subject ? subject->asUnicodeString() : QString();
 }
 
@@ -252,12 +254,11 @@ int KNotesIconViewItem::cursorPositionFromStart() const
 {
     int pos = 0;
     const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
-    if ( noteMessage->headerByType( "X-Cursor-Position" ) ) {
-        pos = noteMessage->headerByType( "X-Cursor-Position" )->asUnicodeString().toInt();
+    if (noteMessage->headerByType("X-Cursor-Position")) {
+        pos = noteMessage->headerByType("X-Cursor-Position")->asUnicodeString().toInt();
     }
     return pos;
 }
-
 
 void KNotesIconViewItem::setDescription(const QString &description)
 {
@@ -277,40 +278,39 @@ Akonadi::Item KNotesIconViewItem::item()
 void KNotesIconViewItem::saveNoteContent(const QString &subject, const QString &description, int position)
 {
     KMime::Message::Ptr message = mItem.payload<KMime::Message::Ptr>();
-    const QByteArray encoding( "utf-8" );
+    const QByteArray encoding("utf-8");
     if (!subject.isEmpty()) {
-        message->subject( true )->fromUnicodeString( subject, encoding );
+        message->subject(true)->fromUnicodeString(subject, encoding);
     }
-    message->contentType( true )->setMimeType( isRichText() ? "text/html" : "text/plain" );
+    message->contentType(true)->setMimeType(isRichText() ? "text/html" : "text/plain");
     message->contentType()->setCharset(encoding);
     message->contentTransferEncoding(true)->setEncoding(KMime::Headers::CEquPr);
-    message->date( true )->setDateTime( QDateTime::currentDateTime() );
+    message->date(true)->setDateTime(QDateTime::currentDateTime());
     if (!description.isEmpty()) {
-        message->mainBodyPart()->fromUnicodeString( description );
+        message->mainBodyPart()->fromUnicodeString(description);
     } else if (message->mainBodyPart()->decodedText().isEmpty()) {
-        message->mainBodyPart()->fromUnicodeString( QString::fromLatin1( " " ) );
+        message->mainBodyPart()->fromUnicodeString(QString::fromLatin1(" "));
     }
 
-    if (position >=0 ) {
-        KMime::Headers::Generic *header = new KMime::Headers::Generic( "X-Cursor-Position", message.get(), QString::number( position ), "utf-8" );
-        message->setHeader( header );
+    if (position >= 0) {
+        KMime::Headers::Generic *header = new KMime::Headers::Generic("X-Cursor-Position", message.get(), QString::number(position), "utf-8");
+        message->setHeader(header);
     }
 
     message->assemble();
 
-    mItem.setPayload( message );
+    mItem.setPayload(message);
     Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
 #ifdef DEBUG_SAVE_NOTE
-    qDebug()<<" KNotesIconViewItem::saveNoteContent savenote";
+    qDebug() << " KNotesIconViewItem::saveNoteContent savenote";
 #endif
     connect(job, &Akonadi::ItemModifyJob::result, this, &KNotesIconViewItem::slotNoteSaved);
 }
 
-
-void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QByteArray> & set)
+void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QByteArray> &set)
 {
     mItem = item;
-    if ( item.hasAttribute<NoteShared::NoteDisplayAttribute>()) {
+    if (item.hasAttribute<NoteShared::NoteDisplayAttribute>()) {
         mDisplayAttribute->setDisplayAttribute(item.attribute<NoteShared::NoteDisplayAttribute>());
     }
     if (set.contains("ATR:KJotsLockAttribute")) {
@@ -318,7 +318,7 @@ void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QBy
     }
     if (set.contains("PLD:RFC822")) {
         const KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
-        const KMime::Headers::Subject * const subject = noteMessage ? noteMessage->subject(false) : 0;
+        const KMime::Headers::Subject *const subject = noteMessage ? noteMessage->subject(false) : 0;
         setIconText(subject ? subject->asUnicodeString() : QString(), false);
     }
     if (set.contains("ATR:NoteDisplayAttribute")) {
@@ -329,12 +329,13 @@ void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QBy
 void KNotesIconViewItem::updateSettings()
 {
     KIconEffect effect;
-    const QColor color( mDisplayAttribute->backgroundColor() );
-    if (mDefaultPixmap.isNull())
-        mDefaultPixmap = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
-    QPixmap icon = effect.apply( mDefaultPixmap, KIconEffect::Colorize, 1, color, false );
+    const QColor color(mDisplayAttribute->backgroundColor());
+    if (mDefaultPixmap.isNull()) {
+        mDefaultPixmap = KIconLoader::global()->loadIcon(QLatin1String("knotes"), KIconLoader::Desktop);
+    }
+    QPixmap icon = effect.apply(mDefaultPixmap, KIconEffect::Colorize, 1, color, false);
     setFont(mDisplayAttribute->titleFont());
-    setIcon( icon );
+    setIcon(icon);
 }
 
 #include "moc_knotesiconview.cpp"

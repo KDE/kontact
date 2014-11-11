@@ -31,15 +31,15 @@
 
 extern "C"
 {
-  Q_DECL_EXPORT KCModule *create_todosummary( QWidget *parent, const char * );
+    Q_DECL_EXPORT KCModule *create_todosummary(QWidget *parent, const char *);
 }
 
 class KCMTodoSummary : public KCModule, public Ui::TodoSummaryConfig_Base
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    explicit KCMTodoSummary( QWidget *parent = 0 );
+public:
+    explicit KCMTodoSummary(QWidget *parent = 0);
     virtual ~KCMTodoSummary();
 
     void load();
@@ -47,9 +47,9 @@ class KCMTodoSummary : public KCModule, public Ui::TodoSummaryConfig_Base
     void defaults();
     const KAboutData *aboutData() const;
 
-  private slots:
+private slots:
     void modified();
-    void customDaysChanged( int value );
+    void customDaysChanged(int value);
 };
 
 #endif

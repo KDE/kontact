@@ -17,7 +17,6 @@
 */
 #include "kontactconfiguredialog.h"
 
-
 #include <QDBusReply>
 #include <QDBusInterface>
 #include <QDebug>
@@ -25,8 +24,8 @@
 
 using namespace Kontact;
 
-KontactConfigureDialog::KontactConfigureDialog( QWidget *parent )
-    : KSettings::Dialog( parent )
+KontactConfigureDialog::KontactConfigureDialog(QWidget *parent)
+    : KSettings::Dialog(parent)
 {
     connect(button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &KontactConfigureDialog::slotOk);
     connect(button(QDialogButtonBox::Apply), &QPushButton::clicked, this, &KontactConfigureDialog::slotApply);
@@ -39,26 +38,25 @@ KontactConfigureDialog::~KontactConfigureDialog()
 void KontactConfigureDialog::emitConfigChanged()
 {
     //Add code from plugins which needs to be call when we close kontact dialog config
-    QDBusInterface kmailIface( QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QLatin1String("org.kde.kmail.kmail"),
-                               QDBusConnection::sessionBus() );
-    if ( kmailIface.isValid() ) {
+    QDBusInterface kmailIface(QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QLatin1String("org.kde.kmail.kmail"),
+                              QDBusConnection::sessionBus());
+    if (kmailIface.isValid()) {
         QDBusReply<void> reply;
-        if ( !( reply = kmailIface.call( QLatin1String("updateConfig") ) ).isValid() ) {
+        if (!(reply = kmailIface.call(QLatin1String("updateConfig"))).isValid()) {
             QDBusError err = kmailIface.lastError();
             qCritical() << "Communication problem with KMail. "
-                     << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
+                        << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
         }
     }
-    QDBusInterface knotesIface( QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QLatin1String("org.kde.kontact.KNotes"),
-                                QDBusConnection::sessionBus() );
-    if ( knotesIface.isValid() ) {
+    QDBusInterface knotesIface(QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QLatin1String("org.kde.kontact.KNotes"),
+                               QDBusConnection::sessionBus());
+    if (knotesIface.isValid()) {
         QDBusReply<void> reply;
-        if ( !( reply = knotesIface.call( QLatin1String("updateConfig") ) ).isValid() ) {
+        if (!(reply = knotesIface.call(QLatin1String("updateConfig"))).isValid()) {
             const QDBusError err = knotesIface.lastError();
             qCritical() << "Communication problem with KNotes. "
-                     << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
+                        << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
         }
-
 
     }
 }

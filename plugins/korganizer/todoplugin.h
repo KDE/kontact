@@ -28,40 +28,44 @@
 
 class OrgKdeKorganizerCalendarInterface;
 
-namespace KontactInterface {
-  class UniqueAppWatcher;
+namespace KontactInterface
+{
+class UniqueAppWatcher;
 }
 
 class TodoPlugin : public KontactInterface::Plugin
 {
-  Q_OBJECT
-  public:
-    TodoPlugin( KontactInterface::Core *core, const QVariantList & );
+    Q_OBJECT
+public:
+    TodoPlugin(KontactInterface::Core *core, const QVariantList &);
     ~TodoPlugin();
 
-    bool createDBUSInterface( const QString &serviceType );
+    bool createDBUSInterface(const QString &serviceType);
     bool isRunningStandalone() const;
-    int weight() const { return 450; }
+    int weight() const
+    {
+        return 450;
+    }
 
-    bool canDecodeMimeData( const QMimeData * ) const;
-    void processDropEvent( QDropEvent * );
+    bool canDecodeMimeData(const QMimeData *) const;
+    void processDropEvent(QDropEvent *);
 
     QStringList invisibleToolbarActions() const;
 
-    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
+    virtual KontactInterface::Summary *createSummaryWidget(QWidget *parent);
 
     void select();
 
     OrgKdeKorganizerCalendarInterface *interface();
 
-  protected:
+protected:
     KParts::ReadOnlyPart *createPart();
 
-  private slots:
+private slots:
     void slotNewTodo();
     void slotSyncTodos();
 
-  private:
+private:
     OrgKdeKorganizerCalendarInterface *mIface;
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };

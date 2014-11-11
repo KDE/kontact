@@ -36,15 +36,18 @@ class KNotesWidget;
 class QAction;
 class KToggleAction;
 
-namespace KDNSSD {
+namespace KDNSSD
+{
 class PublicService;
 }
-namespace Akonadi {
+namespace Akonadi
+{
 class ChangeRecorder;
 class Collection;
 class ETMViewStateSaver;
 }
-namespace NoteShared {
+namespace NoteShared
+{
 class NotesChangeRecorder;
 class NotesAkonadiTreeModel;
 }
@@ -55,41 +58,40 @@ class KNotesPart : public KParts::ReadOnlyPart
     Q_OBJECT
 
 public:
-    explicit KNotesPart(QObject *parent = 0 );
+    explicit KNotesPart(QObject *parent = 0);
     ~KNotesPart();
 
     bool openFile();
 
 public slots:
-    void newNote( const QString &name = QString(),
-                     const QString &text = QString() );
-    void newNoteFromClipboard( const QString &name = QString() );
+    void newNote(const QString &name = QString(),
+                 const QString &text = QString());
+    void newNoteFromClipboard(const QString &name = QString());
     QStringList notesList() const;
-
 
 public:
     void updateConfig();
-    void killNote( Akonadi::Item::Id id );
-    void killNote( Akonadi::Item::Id id, bool force );
+    void killNote(Akonadi::Item::Id id);
+    void killNote(Akonadi::Item::Id id, bool force);
 
-    QString name( Akonadi::Item::Id id ) const;
-    QString text(Akonadi::Entity::Id id ) const;
+    QString name(Akonadi::Item::Id id) const;
+    QString text(Akonadi::Entity::Id id) const;
 
-    void setName( Akonadi::Item::Id id, const QString &newName );
-    void setText( Akonadi::Item::Id id, const QString &newText );
+    void setName(Akonadi::Item::Id id, const QString &newName);
+    void setText(Akonadi::Item::Id id, const QString &newText);
 
     QMap<QString, QString> notes() const;
-    void popupRMB( QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos );
+    void popupRMB(QListWidgetItem *item, const QPoint &pos, const QPoint &globalPos);
     void editNote(Akonadi::Entity::Id id);
 
     void updateClickMessage();
 private slots:
-    void editNote( QListWidgetItem *item );
+    void editNote(QListWidgetItem *item);
     void editNote();
 
     void renameNote();
 
-    void slotOnCurrentChanged( );
+    void slotOnCurrentChanged();
 
     void killSelectedNotes();
 

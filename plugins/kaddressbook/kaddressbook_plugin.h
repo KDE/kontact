@@ -23,43 +23,47 @@
 
 #include <KontactInterface/UniqueAppHandler>
 
-namespace KontactInterface {
-  class Plugin;
+namespace KontactInterface
+{
+class Plugin;
 }
 
 class KAddressBookUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
-  public:
-    explicit KAddressBookUniqueAppHandler( KontactInterface::Plugin *plugin )
-      : KontactInterface::UniqueAppHandler( plugin ) {}
+public:
+    explicit KAddressBookUniqueAppHandler(KontactInterface::Plugin *plugin)
+        : KontactInterface::UniqueAppHandler(plugin) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
 
 class KAddressBookPlugin : public KontactInterface::Plugin
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    KAddressBookPlugin( KontactInterface::Core *core, const QVariantList & );
+public:
+    KAddressBookPlugin(KontactInterface::Core *core, const QVariantList &);
     ~KAddressBookPlugin();
 
     QString tipFile() const;
     bool isRunningStandalone() const;
-    int weight() const { return 300; }
+    int weight() const
+    {
+        return 300;
+    }
 
     QStringList invisibleToolbarActions() const;
     void shortcutChanged();
 
-  protected:
+protected:
     KParts::ReadOnlyPart *createPart();
 
-  private Q_SLOTS:
+private Q_SLOTS:
     void slotNewContact();
     void slotNewContactGroup();
     void slotSyncContacts();
 
-  private:
+private:
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 
 };

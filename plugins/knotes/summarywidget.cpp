@@ -57,50 +57,49 @@
 #include <QVBoxLayout>
 #include <QItemSelectionModel>
 
-
-KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent )
-    : KontactInterface::Summary( parent ),
-      mLayout( 0 ),
-      mPlugin( plugin ),
-      mInProgress( false )
+KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent)
+    : KontactInterface::Summary(parent),
+      mLayout(0),
+      mPlugin(plugin),
+      mInProgress(false)
 {
-    mDefaultPixmap = KIconLoader::global()->loadIcon( QLatin1String("knotes"), KIconLoader::Desktop );
-    QVBoxLayout *mainLayout = new QVBoxLayout( this );
-    mainLayout->setSpacing( 3 );
-    mainLayout->setMargin( 3 );
+    mDefaultPixmap = KIconLoader::global()->loadIcon(QLatin1String("knotes"), KIconLoader::Desktop);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setSpacing(3);
+    mainLayout->setMargin(3);
 
-    QWidget *header = createHeader( this, QLatin1String("view-pim-notes"), i18n( "Popup Notes" ) );
-    mainLayout->addWidget( header );
+    QWidget *header = createHeader(this, QLatin1String("view-pim-notes"), i18n("Popup Notes"));
+    mainLayout->addWidget(header);
 
     mLayout = new QGridLayout();
-    mainLayout->addItem( mLayout );
-    mLayout->setSpacing( 3 );
-    mLayout->setRowStretch( 6, 1 );
+    mainLayout->addItem(mLayout);
+    mLayout->setSpacing(3);
+    mLayout->setRowStretch(6, 1);
 
-    KIconLoader loader( QLatin1String("knotes") );
+    KIconLoader loader(QLatin1String("knotes"));
 
-    mPixmap = loader.loadIcon( QLatin1String("knotes"), KIconLoader::Small );
+    mPixmap = loader.loadIcon(QLatin1String("knotes"), KIconLoader::Small);
 
-    Akonadi::Session *session = new Akonadi::Session( "KNotes Session", this );
+    Akonadi::Session *session = new Akonadi::Session("KNotes Session", this);
     mNoteRecorder = new NoteShared::NotesChangeRecorder(this);
     mNoteRecorder->changeRecorder()->setSession(session);
     mNoteTreeModel = new NoteShared::NotesAkonadiTreeModel(mNoteRecorder->changeRecorder(), this);
 
     connect(mNoteTreeModel, &NoteShared::NotesAkonadiTreeModel::rowsInserted, this, &KNotesSummaryWidget::updateFolderList);
 
-    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemChanged(Akonadi::Item,QSet<QByteArray>)), SLOT(updateFolderList()));
-    connect( mNoteRecorder->changeRecorder(), SIGNAL(itemRemoved(Akonadi::Item)), SLOT(updateFolderList()) );
+    connect(mNoteRecorder->changeRecorder(), SIGNAL(itemChanged(Akonadi::Item,QSet<QByteArray>)), SLOT(updateFolderList()));
+    connect(mNoteRecorder->changeRecorder(), SIGNAL(itemRemoved(Akonadi::Item)), SLOT(updateFolderList()));
 
-    mSelectionModel = new QItemSelectionModel( mNoteTreeModel );
-    mModelProxy = new KCheckableProxyModel( this );
-    mModelProxy->setSelectionModel( mSelectionModel );
-    mModelProxy->setSourceModel( mNoteTreeModel );
+    mSelectionModel = new QItemSelectionModel(mNoteTreeModel);
+    mModelProxy = new KCheckableProxyModel(this);
+    mModelProxy->setSelectionModel(mSelectionModel);
+    mModelProxy->setSourceModel(mNoteTreeModel);
 
-    KSharedConfigPtr _config = KSharedConfig::openConfig( QLatin1String("kcmknotessummaryrc") );
+    KSharedConfigPtr _config = KSharedConfig::openConfig(QLatin1String("kcmknotessummaryrc"));
 
     mModelState =
-            new KViewStateMaintainer<Akonadi::ETMViewStateSaver>( _config->group( "CheckState" ), this );
-    mModelState->setSelectionModel( mSelectionModel );
+        new KViewStateMaintainer<Akonadi::ETMViewStateSaver>(_config->group("CheckState"), this);
+    mModelState->setSelectionModel(mSelectionModel);
 }
 
 KNotesSummaryWidget::~KNotesSummaryWidget()
@@ -109,10 +108,11 @@ KNotesSummaryWidget::~KNotesSummaryWidget()
 
 void KNotesSummaryWidget::updateFolderList()
 {
-    if (mInProgress)
+    if (mInProgress) {
         return;
+    }
     mInProgress = true;
-    qDeleteAll( mLabels );
+    qDeleteAll(mLabels);
     mLabels.clear();
     int counter = 0;
 
@@ -120,130 +120,131 @@ void KNotesSummaryWidget::updateFolderList()
     displayNotes(QModelIndex(), counter);
     mInProgress = false;
 
-    if ( counter == 0 ) {
-        QLabel *label = new QLabel( i18n( "No note found" ), this );
-        label->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-        mLayout->addWidget( label, 0, 0 );
-        mLabels.append( label );
+    if (counter == 0) {
+        QLabel *label = new QLabel(i18n("No note found"), this);
+        label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+        mLayout->addWidget(label, 0, 0);
+        mLabels.append(label);
     }
-    QList<QLabel*>::const_iterator lit;
-    QList<QLabel*>::const_iterator lend( mLabels.constEnd() );
-    for ( lit = mLabels.constBegin(); lit != lend; ++lit ) {
+    QList<QLabel *>::const_iterator lit;
+    QList<QLabel *>::const_iterator lend(mLabels.constEnd());
+    for (lit = mLabels.constBegin(); lit != lend; ++lit) {
         (*lit)->show();
     }
 }
 
-void KNotesSummaryWidget::displayNotes( const QModelIndex &parent, int &counter)
+void KNotesSummaryWidget::displayNotes(const QModelIndex &parent, int &counter)
 {
-    const int nbCol = mModelProxy->rowCount( parent );
-    for ( int i = 0; i < nbCol; ++i ) {
-        const QModelIndex child = mModelProxy->index( i, 0, parent );
+    const int nbCol = mModelProxy->rowCount(parent);
+    for (int i = 0; i < nbCol; ++i) {
+        const QModelIndex child = mModelProxy->index(i, 0, parent);
         const Akonadi::Item item =
-                mModelProxy->data( child,
-                                  Akonadi::EntityTreeModel::ItemRole ).value<Akonadi::Item>();
+            mModelProxy->data(child,
+                              Akonadi::EntityTreeModel::ItemRole).value<Akonadi::Item>();
         if (item.isValid()) {
             createNote(item, counter);
             ++counter;
         }
-        displayNotes( child, counter );
+        displayNotes(child, counter);
     }
 }
 
 void KNotesSummaryWidget::slotPopupMenu(const QString &note)
 {
-    QMenu popup( this );
+    QMenu popup(this);
     const QAction *modifyNoteAction = popup.addAction(
-                KIconLoader::global()->loadIcon( QLatin1String("document-edit"), KIconLoader::Small ),
-                i18n( "Modify Note..." ) );
+                                          KIconLoader::global()->loadIcon(QLatin1String("document-edit"), KIconLoader::Small),
+                                          i18n("Modify Note..."));
     popup.addSeparator();
     const QAction *deleteNoteAction = popup.addAction(
-                KIconLoader::global()->loadIcon( QLatin1String("edit-delete"), KIconLoader::Small ),
-                i18n( "Delete Note..." ) );
+                                          KIconLoader::global()->loadIcon(QLatin1String("edit-delete"), KIconLoader::Small),
+                                          i18n("Delete Note..."));
 
-    const QAction *ret = popup.exec( QCursor::pos() );
-    if ( ret == deleteNoteAction ) {
-        deleteNote( note );
-    } else if ( ret == modifyNoteAction ) {
-        slotSelectNote( note );
+    const QAction *ret = popup.exec(QCursor::pos());
+    if (ret == deleteNoteAction) {
+        deleteNote(note);
+    } else if (ret == modifyNoteAction) {
+        slotSelectNote(note);
     }
 }
 
 void KNotesSummaryWidget::deleteNote(const QString &note)
 {
-    org::kde::kontact::KNotes knotes( QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QDBusConnection::sessionBus() );
+    org::kde::kontact::KNotes knotes(QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QDBusConnection::sessionBus());
     knotes.killNote(note.toLongLong());
 }
 
 void KNotesSummaryWidget::createNote(const Akonadi::Item &item, int counter)
 {
-    if (!item.hasPayload<KMime::Message::Ptr>())
+    if (!item.hasPayload<KMime::Message::Ptr>()) {
         return;
+    }
 
     KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
-    if (!noteMessage)
+    if (!noteMessage) {
         return;
-    const KMime::Headers::Subject * const subject = noteMessage->subject(false);
-    KUrlLabel *urlLabel = new KUrlLabel( QString::number( item.id() ), subject ? subject->asUnicodeString() : QString(), this );
+    }
+    const KMime::Headers::Subject *const subject = noteMessage->subject(false);
+    KUrlLabel *urlLabel = new KUrlLabel(QString::number(item.id()), subject ? subject->asUnicodeString() : QString(), this);
 
-    urlLabel->installEventFilter( this );
-    urlLabel->setAlignment( Qt::AlignLeft );
-    urlLabel->setWordWrap( true );
+    urlLabel->installEventFilter(this);
+    urlLabel->setAlignment(Qt::AlignLeft);
+    urlLabel->setWordWrap(true);
     connect(urlLabel, static_cast<void (KUrlLabel::*)(const QString &)>(&KUrlLabel::leftClickedUrl), this, &KNotesSummaryWidget::slotSelectNote);
     connect(urlLabel, static_cast<void (KUrlLabel::*)(const QString &)>(&KUrlLabel::rightClickedUrl), this, &KNotesSummaryWidget::slotPopupMenu);
 
-    mLayout->addWidget( urlLabel, counter, 1 );
+    mLayout->addWidget(urlLabel, counter, 1);
 
     QColor color;
-    if ( item.hasAttribute<NoteShared::NoteDisplayAttribute>()) {
+    if (item.hasAttribute<NoteShared::NoteDisplayAttribute>()) {
         color = item.attribute<NoteShared::NoteDisplayAttribute>()->backgroundColor();
     }
     // Folder icon.
     KIconEffect effect;
-    QPixmap pixmap = effect.apply( mDefaultPixmap, KIconEffect::Colorize, 1, color, false );
+    QPixmap pixmap = effect.apply(mDefaultPixmap, KIconEffect::Colorize, 1, color, false);
 
-    QLabel *label = new QLabel( this );
-    label->setAlignment( Qt::AlignVCenter );
+    QLabel *label = new QLabel(this);
+    label->setAlignment(Qt::AlignVCenter);
     QIcon icon(pixmap);
-    label->setPixmap( icon.pixmap( label->height() / 1.5 ) );
-    label->setMaximumWidth( label->minimumSizeHint().width() );
-    mLayout->addWidget( label, counter, 0 );
-    mLabels.append( label );
-    mLabels.append( urlLabel );
+    label->setPixmap(icon.pixmap(label->height() / 1.5));
+    label->setMaximumWidth(label->minimumSizeHint().width());
+    mLayout->addWidget(label, counter, 0);
+    mLabels.append(label);
+    mLabels.append(urlLabel);
 }
 
-void KNotesSummaryWidget::updateSummary( bool force )
+void KNotesSummaryWidget::updateSummary(bool force)
 {
-    Q_UNUSED( force );
+    Q_UNUSED(force);
     updateFolderList();
 }
 
-void KNotesSummaryWidget::slotSelectNote( const QString &note )
+void KNotesSummaryWidget::slotSelectNote(const QString &note)
 {
-    if ( !mPlugin->isRunningStandalone() ) {
-        mPlugin->core()->selectPlugin( mPlugin );
+    if (!mPlugin->isRunningStandalone()) {
+        mPlugin->core()->selectPlugin(mPlugin);
     } else {
         mPlugin->bringToForeground();
     }
-    org::kde::kontact::KNotes knotes( QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QDBusConnection::sessionBus() );
+    org::kde::kontact::KNotes knotes(QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QDBusConnection::sessionBus());
     knotes.editNote(note.toLongLong());
 }
 
-bool KNotesSummaryWidget::eventFilter( QObject *obj, QEvent *e )
+bool KNotesSummaryWidget::eventFilter(QObject *obj, QEvent *e)
 {
-    if ( obj->inherits( "KUrlLabel" ) ) {
-        KUrlLabel* label = static_cast<KUrlLabel*>( obj );
-        if ( e->type() == QEvent::Enter ) {
-            emit message( i18n( "Read Popup Note: \"%1\"", label->text() ) );
-        } else if ( e->type() == QEvent::Leave ) {
-            emit message( QString::null );        //krazy:exclude=nullstrassign for old broken gcc
+    if (obj->inherits("KUrlLabel")) {
+        KUrlLabel *label = static_cast<KUrlLabel *>(obj);
+        if (e->type() == QEvent::Enter) {
+            emit message(i18n("Read Popup Note: \"%1\"", label->text()));
+        } else if (e->type() == QEvent::Leave) {
+            emit message(QString::null);          //krazy:exclude=nullstrassign for old broken gcc
         }
     }
 
-    return KontactInterface::Summary::eventFilter( obj, e );
+    return KontactInterface::Summary::eventFilter(obj, e);
 }
-
 
 QStringList KNotesSummaryWidget::configModules() const
 {
-    return QStringList()<<QLatin1String( "kcmknotessummary.desktop" );
+    return QStringList() << QLatin1String("kcmknotessummary.desktop");
 }

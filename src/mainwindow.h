@@ -40,9 +40,10 @@ class QSplitter;
 class QStackedWidget;
 
 typedef QList<KontactInterface::Plugin *> PluginList;
-typedef QList<QAction*> ActionPluginList;
+typedef QList<QAction *> ActionPluginList;
 
-namespace Kontact {
+namespace Kontact
+{
 
 class AboutDialog;
 class SidePaneBase;
@@ -50,22 +51,25 @@ class SidePaneBase;
 class KONTACT_EXPORT MainWindow : public KontactInterface::Core
 {
     Q_OBJECT
-    Q_CLASSINFO( "D-Bus Interface", "org.kde.kontact.KontactInterface" )
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kontact.KontactInterface")
 
 public:
     MainWindow();
     ~MainWindow();
 
-    virtual PluginList pluginList() const { return mPlugins; }
-    void setInitialActivePluginModule( const QString & );
+    virtual PluginList pluginList() const
+    {
+        return mPlugins;
+    }
+    void setInitialActivePluginModule(const QString &);
 
-    static bool pluginActionWeightLessThan( const QAction *left, const QAction *right );
-    static bool pluginWeightLessThan( const KontactInterface::Plugin *left,
-                                      const KontactInterface::Plugin *right );
+    static bool pluginActionWeightLessThan(const QAction *left, const QAction *right);
+    static bool pluginWeightLessThan(const KontactInterface::Plugin *left,
+                                     const KontactInterface::Plugin *right);
 
 public slots:
-    virtual void selectPlugin( KontactInterface::Plugin *plugin );
-    Q_SCRIPTABLE virtual void selectPlugin( const QString &pluginName );
+    virtual void selectPlugin(KontactInterface::Plugin *plugin);
+    Q_SCRIPTABLE virtual void selectPlugin(const QString &pluginName);
     void slotActionTriggered();
 
     void updateConfig();
@@ -73,7 +77,7 @@ public slots:
 protected slots:
     void initObject();
     void initGUI();
-    void slotActivePartChanged( KParts::Part *part );
+    void slotActivePartChanged(KParts::Part *part);
     void slotPreferences();
     void slotNewClicked();
     void slotSyncClicked();
@@ -83,10 +87,10 @@ protected slots:
     void slotNewToolbarConfig();
     void slotShowIntroduction();
     void showAboutDialog();
-    void slotShowStatusMsg( const QString & );
+    void slotShowStatusMsg(const QString &);
     void activateInitialPluginModule();
-    void slotOpenUrl( const KUrl &url );
-    void slotOpenUrl( const QUrl &url );
+    void slotOpenUrl(const KUrl &url);
+    void slotOpenUrl(const QUrl &url);
 
 private:
     void initWidgets();
@@ -95,22 +99,22 @@ private:
     void saveSettings();
     void waitForKSycoca();
 
-    bool isPluginLoaded( const KPluginInfo & );
-    KontactInterface::Plugin *pluginFromInfo( const KPluginInfo & );
+    bool isPluginLoaded(const KPluginInfo &);
+    KontactInterface::Plugin *pluginFromInfo(const KPluginInfo &);
     void loadPlugins();
     void unloadPlugins();
     void updateShortcuts();
-    bool removePlugin( const KPluginInfo & );
-    void addPlugin( KontactInterface::Plugin *plugin );
-    void partLoaded( KontactInterface::Plugin *plugin, KParts::ReadOnlyPart *part );
+    bool removePlugin(const KPluginInfo &);
+    void addPlugin(KontactInterface::Plugin *plugin);
+    void partLoaded(KontactInterface::Plugin *plugin, KParts::ReadOnlyPart *part);
     void setupActions();
-    void showTip( bool );
+    void showTip(bool);
     virtual bool queryClose();
-    virtual void readProperties( const KConfigGroup &config );
-    virtual void saveProperties( KConfigGroup &config );
-    void paintAboutScreen( const QString &msg );
+    virtual void readProperties(const KConfigGroup &config);
+    virtual void saveProperties(KConfigGroup &config);
+    void paintAboutScreen(const QString &msg);
     static QString introductionString();
-    KToolBar *findToolBar( const char *name );
+    KToolBar *findToolBar(const char *name);
 
 private slots:
     void pluginsChanged();
@@ -150,7 +154,6 @@ private:
 
 }
 
-Q_DECLARE_METATYPE( KontactInterface::Plugin * )
+Q_DECLARE_METATYPE(KontactInterface::Plugin *)
 
 #endif
-// vim: sw=2 sts=2 et

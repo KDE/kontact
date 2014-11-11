@@ -24,26 +24,27 @@
 
 #include <QWidget>
 
-namespace KontactInterface {
+namespace KontactInterface
+{
 class Core;
 class Plugin;
 }
 
-
-namespace Kontact {
+namespace Kontact
+{
 
 class SidePaneBase : public QWidget
 {
     Q_OBJECT
 
 public:
-    SidePaneBase( KontactInterface::Core *core, QWidget *parent );
+    SidePaneBase(KontactInterface::Core *core, QWidget *parent);
     virtual ~SidePaneBase();
 
-    virtual void setCurrentPlugin( const QString & ) = 0;
+    virtual void setCurrentPlugin(const QString &) = 0;
 
 signals:
-    void pluginSelected( KontactInterface::Plugin * );
+    void pluginSelected(KontactInterface::Plugin *);
 
 public slots:
     /**

@@ -42,61 +42,61 @@ using namespace Kontact;
 #include <KSharedConfig>
 #include <KWindowConfig>
 
-AboutDialog::AboutDialog( KontactInterface::Core *core )
-    : KPageDialog( core ), mCore( core )
+AboutDialog::AboutDialog(KontactInterface::Core *core)
+    : KPageDialog(core), mCore(core)
 {
-    setWindowTitle( i18n( "About Kontact" ) );
-    setStandardButtons( QDialogButtonBox::Close );
-    button( QDialogButtonBox::Close )->setDefault(true);
-    setModal( false );
+    setWindowTitle(i18n("About Kontact"));
+    setStandardButtons(QDialogButtonBox::Close);
+    button(QDialogButtonBox::Close)->setDefault(true);
+    setModal(false);
     //QT5 showButtonSeparator( true );
-    setFaceType( KPageDialog::List );
+    setFaceType(KPageDialog::List);
 #if 0 //QT5
-    addAboutData( i18n( "Kontact Container" ), QLatin1String( "kontact" ),
-                  KComponentData::mainComponent().aboutData() );
+    addAboutData(i18n("Kontact Container"), QLatin1String("kontact"),
+                 KComponentData::mainComponent().aboutData());
 #endif
-    QList<KontactInterface::Plugin*> plugins = mCore->pluginList();
-    QList<KontactInterface::Plugin*>::ConstIterator end = plugins.constEnd();
-    QList<KontactInterface::Plugin*>::ConstIterator it = plugins.constBegin();
-    for ( ; it != end; ++it ) {
-        addAboutPlugin( *it );
+    QList<KontactInterface::Plugin *> plugins = mCore->pluginList();
+    QList<KontactInterface::Plugin *>::ConstIterator end = plugins.constEnd();
+    QList<KontactInterface::Plugin *>::ConstIterator it = plugins.constBegin();
+    for (; it != end; ++it) {
+        addAboutPlugin(*it);
     }
 
     //QT5 addLicenseText( KComponentData::mainComponent().aboutData() );
-    resize(QSize( 600, 400 ));
-    KConfigGroup grp = KConfigGroup( KSharedConfig::openConfig(), "AboutDialog" );
-    KWindowConfig::restoreWindowSize( windowHandle(), grp);
+    resize(QSize(600, 400));
+    KConfigGroup grp = KConfigGroup(KSharedConfig::openConfig(), "AboutDialog");
+    KWindowConfig::restoreWindowSize(windowHandle(), grp);
     connect(this, &AboutDialog::finished, this, &AboutDialog::saveSize);
 }
 
 void AboutDialog::saveSize()
 {
-    KConfigGroup group( KSharedConfig::openConfig(), "AboutDialog" );
+    KConfigGroup group(KSharedConfig::openConfig(), "AboutDialog");
     KWindowConfig::saveWindowSize(windowHandle(), group);
     group.sync();
 }
 
-void AboutDialog::addAboutPlugin( KontactInterface::Plugin *plugin )
+void AboutDialog::addAboutPlugin(KontactInterface::Plugin *plugin)
 {
     //QT5 addAboutData( plugin->title(), plugin->icon(), plugin->aboutData() );
 }
 
-void AboutDialog::addAboutData( const QString &title, const QString &icon,
-                                const KAboutData *about )
+void AboutDialog::addAboutData(const QString &title, const QString &icon,
+                               const KAboutData *about)
 {
-    QIcon pixmap = QIcon::fromTheme( icon );
+    QIcon pixmap = QIcon::fromTheme(icon);
 
     QFrame *topFrame = new QFrame();
-    KPageWidgetItem *pageItem = new KPageWidgetItem( topFrame, title );
-    pageItem->setIcon( pixmap );
+    KPageWidgetItem *pageItem = new KPageWidgetItem(topFrame, title);
+    pageItem->setIcon(pixmap);
 
-    addPage( pageItem );
+    addPage(pageItem);
 
-    QBoxLayout *topLayout = new QVBoxLayout( topFrame );
+    QBoxLayout *topLayout = new QVBoxLayout(topFrame);
 
-    if ( !about ) {
-        QLabel *label = new QLabel( i18n( "No about information available." ), topFrame );
-        topLayout->addWidget( label );
+    if (!about) {
+        QLabel *label = new QLabel(i18n("No about information available."), topFrame);
+        topLayout->addWidget(label);
     } else {
         QString text;
 
@@ -104,69 +104,69 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
         //QT5 text += QLatin1String("<b>") + about->programName() + QLatin1String("</b>");
         text += QLatin1String("<br>");
 
-        text += i18n( "Version %1", about->version() );
+        text += i18n("Version %1", about->version());
         text += QLatin1String("</p>");
 
-        if ( !about->shortDescription().isEmpty() ) {
-            text += QLatin1String("<p>") + about->shortDescription() +QLatin1String( "<br>") +
+        if (!about->shortDescription().isEmpty()) {
+            text += QLatin1String("<p>") + about->shortDescription() + QLatin1String("<br>") +
                     about->copyrightStatement() + QLatin1String("</p>");
         }
 
         QString home = about->homepage();
-        if ( !home.isEmpty() ) {
+        if (!home.isEmpty()) {
             text += QLatin1String("<a href=\"") + home + QLatin1String("\">") + home + QLatin1String("</a><br>");
         }
 
-        text.replace( QLatin1Char('\n'), QLatin1String("<br>") );
+        text.replace(QLatin1Char('\n'), QLatin1String("<br>"));
 
-        QLabel *label = new QLabel( text, topFrame );
-        label->setAlignment( Qt::AlignTop );
+        QLabel *label = new QLabel(text, topFrame);
+        label->setAlignment(Qt::AlignTop);
         label->setOpenExternalLinks(true);
         label->setTextInteractionFlags(
-                    Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard | Qt::LinksAccessibleByMouse );
-        topLayout->addWidget( label );
+            Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard | Qt::LinksAccessibleByMouse);
+        topLayout->addWidget(label);
 
-        QTextBrowser *personView = new QTextBrowser( topFrame );
-        personView->setReadOnly( true );
-        topLayout->addWidget( personView, 1 );
+        QTextBrowser *personView = new QTextBrowser(topFrame);
+        personView->setReadOnly(true);
+        topLayout->addWidget(personView, 1);
 
         text.clear();
         const QList<KAboutPerson> authors = about->authors();
-        if ( !authors.isEmpty() ) {
-            text += i18n( "<p><b>Authors:</b></p>" );
+        if (!authors.isEmpty()) {
+            text += i18n("<p><b>Authors:</b></p>");
 
             QList<KAboutPerson>::ConstIterator it;
             QList<KAboutPerson>::ConstIterator end(authors.end());
-            for ( it = authors.begin(); it != end; ++it ) {
-                text += formatPerson( (*it).name(), (*it).emailAddress() );
-                if ( !(*it).task().isEmpty() ) {
+            for (it = authors.begin(); it != end; ++it) {
+                text += formatPerson((*it).name(), (*it).emailAddress());
+                if (!(*it).task().isEmpty()) {
                     text += QLatin1String("<i>") + (*it).task() + QLatin1String("</i><br>");
                 }
             }
         }
 
         const QList<KAboutPerson> credits = about->credits();
-        if ( !credits.isEmpty() ) {
-            text += i18n( "<p><b>Thanks to:</b></p>" );
+        if (!credits.isEmpty()) {
+            text += i18n("<p><b>Thanks to:</b></p>");
 
             QList<KAboutPerson>::ConstIterator it;
             QList<KAboutPerson>::ConstIterator end(credits.end());
-            for ( it = credits.begin(); it != end; ++it ) {
-                text += formatPerson( (*it).name(), (*it).emailAddress() );
-                if ( !(*it).task().isEmpty() ) {
+            for (it = credits.begin(); it != end; ++it) {
+                text += formatPerson((*it).name(), (*it).emailAddress());
+                if (!(*it).task().isEmpty()) {
                     text += QLatin1String("<i>") + (*it).task() + QLatin1String("</i><br>");
                 }
             }
         }
 
         const QList<KAboutPerson> translators = about->translators();
-        if ( !translators.isEmpty() ) {
-            text += i18n( "<p><b>Translators:</b></p>" );
+        if (!translators.isEmpty()) {
+            text += i18n("<p><b>Translators:</b></p>");
 
             QList<KAboutPerson>::ConstIterator it;
             QList<KAboutPerson>::ConstIterator end(translators.end());
-            for ( it = translators.begin(); it != end; ++it ) {
-                text += formatPerson( (*it).name(), (*it).emailAddress() );
+            for (it = translators.begin(); it != end; ++it) {
+                text += formatPerson((*it).name(), (*it).emailAddress());
             }
         }
         //krazy:excludeall=style (really need krazy conditional code sections)
@@ -266,14 +266,14 @@ void AboutDialog::addAboutData( const QString &title, const QString &icon,
                 </tr>\
                 </table><br /><br />");
 
-                personView->setText( text );
+        personView->setText(text);
     }
 }
 
-QString AboutDialog::formatPerson( const QString &name, const QString &email )
+QString AboutDialog::formatPerson(const QString &name, const QString &email)
 {
     QString text = name;
-    if ( !email.isEmpty() ) {
+    if (!email.isEmpty()) {
         text += QLatin1String(" &lt;<a href=\"mailto:") + email + QLatin1String("\">") + email + QLatin1String("</a>&gt;");
     }
 
@@ -281,29 +281,29 @@ QString AboutDialog::formatPerson( const QString &name, const QString &email )
     return text;
 }
 
-void AboutDialog::addLicenseText( const KAboutData *about )
+void AboutDialog::addLicenseText(const KAboutData *about)
 {
-    if ( !about || about->licenses().isEmpty() ) {
+    if (!about || about->licenses().isEmpty()) {
         return;
     }
-    QPixmap pixmap = KIconLoader::global()->loadIcon( QLatin1String("help-about"),
-                                                      KIconLoader::Desktop, 48 );
+    QPixmap pixmap = KIconLoader::global()->loadIcon(QLatin1String("help-about"),
+                     KIconLoader::Desktop, 48);
 
-    const QString title = i18n( "%1 License", about->displayName() );
+    const QString title = i18n("%1 License", about->displayName());
 
     QFrame *topFrame = new QFrame();
-    KPageWidgetItem *page = new KPageWidgetItem( topFrame, title );
-    page->setIcon( QIcon( pixmap ) );
-    addPage( page );
-    QBoxLayout *topLayout = new QVBoxLayout( topFrame );
+    KPageWidgetItem *page = new KPageWidgetItem(topFrame, title);
+    page->setIcon(QIcon(pixmap));
+    addPage(page);
+    QBoxLayout *topLayout = new QVBoxLayout(topFrame);
 
-    QTextBrowser *textBrowser = new QTextBrowser( topFrame );
+    QTextBrowser *textBrowser = new QTextBrowser(topFrame);
     QString licenseStr;
     Q_FOREACH (const KAboutLicense &license,  about->licenses()) {
-       licenseStr += QString::fromLatin1( "<pre>%1</pre>" ).arg( license.text() );
+        licenseStr += QString::fromLatin1("<pre>%1</pre>").arg(license.text());
     }
-    textBrowser->setHtml( licenseStr );
+    textBrowser->setHtml(licenseStr);
 
-    topLayout->addWidget( textBrowser );
+    topLayout->addWidget(textBrowser);
 }
 

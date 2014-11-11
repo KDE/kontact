@@ -29,9 +29,10 @@
 
 class DropWidget;
 
-namespace KontactInterface {
-  class Core;
-  class Summary;
+namespace KontactInterface
+{
+class Core;
+class Summary;
 }
 
 class KAboutData;
@@ -43,42 +44,42 @@ class QVBoxLayout;
 
 class SummaryViewPart : public KParts::ReadOnlyPart
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    SummaryViewPart( KontactInterface::Core *core, const char *widgetName,
-                     const KAboutData &aboutData, QObject *parent = 0 );
+public:
+    SummaryViewPart(KontactInterface::Core *core, const char *widgetName,
+                    const KAboutData &aboutData, QObject *parent = 0);
     ~SummaryViewPart();
 
-  public slots:
+public slots:
     void slotTextChanged();
     void slotAdjustPalette();
-    void setDate( const QDate &newDate );
+    void setDate(const QDate &newDate);
     void updateSummaries();
 
-  signals:
-    void textChanged( const QString & );
+signals:
+    void textChanged(const QString &);
 
-  protected:
+protected:
     virtual bool openFile();
-    virtual void partActivateEvent( KParts::PartActivateEvent *event );
+    virtual void partActivateEvent(KParts::PartActivateEvent *event);
 
-  protected slots:
+protected slots:
     void slotConfigure();
     void updateWidgets();
-    void summaryWidgetMoved( QWidget *target, QWidget *widget, int alignment );
+    void summaryWidgetMoved(QWidget *target, QWidget *widget, int alignment);
 
-  private:
-    void initGUI( KontactInterface::Core *core );
+private:
+    void initGUI(KontactInterface::Core *core);
     void loadLayout();
     void saveLayout();
-    QString widgetName( QWidget * ) const;
+    QString widgetName(QWidget *) const;
 
     QStringList configModules() const;
-    void drawLtoR( QWidget *target, QWidget *widget, int alignment );
-    void drawRtoL( QWidget *target, QWidget *widget, int alignment );
+    void drawLtoR(QWidget *target, QWidget *widget, int alignment);
+    void drawRtoL(QWidget *target, QWidget *widget, int alignment);
 
-    QMap<QString, KontactInterface::Summary*> mSummaries;
+    QMap<QString, KontactInterface::Summary *> mSummaries;
     KontactInterface::Core *mCore;
     DropWidget *mFrame;
     QFrame *mMainWidget;

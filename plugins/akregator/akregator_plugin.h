@@ -27,44 +27,48 @@
 
 #include <KontactInterface/UniqueAppHandler>
 
-namespace KontactInterface {
-  class Plugin;
+namespace KontactInterface
+{
+class Plugin;
 }
 
 class OrgKdeAkregatorPartInterface;
 
 class AkregatorUniqueAppHandler : public KontactInterface::UniqueAppHandler
 {
-  public:
-    explicit AkregatorUniqueAppHandler( KontactInterface::Plugin *plugin )
-      : KontactInterface::UniqueAppHandler( plugin ) {}
+public:
+    explicit AkregatorUniqueAppHandler(KontactInterface::Plugin *plugin)
+        : KontactInterface::UniqueAppHandler(plugin) {}
     virtual void loadCommandLineOptions();
     virtual int newInstance();
 };
 
 class AkregatorPlugin : public KontactInterface::Plugin
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    AkregatorPlugin( KontactInterface::Core *core, const QVariantList & );
+public:
+    AkregatorPlugin(KontactInterface::Core *core, const QVariantList &);
     ~AkregatorPlugin();
 
     QString tipFile() const;
-    int weight() const { return 475; }
+    int weight() const
+    {
+        return 475;
+    }
 
     OrgKdeAkregatorPartInterface *interface();
 
     virtual QStringList configModules() const;
     QStringList invisibleToolbarActions() const;
     bool isRunningStandalone() const;
-    virtual void readProperties( const KConfigGroup &config );
-    virtual void saveProperties( KConfigGroup &config );
+    virtual void readProperties(const KConfigGroup &config);
+    virtual void saveProperties(KConfigGroup &config);
 
-  private slots:
+private slots:
     void addFeed();
 
-  protected:
+protected:
     KParts::ReadOnlyPart *createPart();
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
     OrgKdeAkregatorPartInterface *m_interface;

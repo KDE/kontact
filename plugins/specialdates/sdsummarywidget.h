@@ -31,12 +31,14 @@
 #include <KontactInterface/Summary>
 #include <Akonadi/Calendar/ETMCalendar>
 
-namespace KHolidays {
-  class HolidayRegion;
+namespace KHolidays
+{
+class HolidayRegion;
 }
 
-namespace KontactInterface {
-  class Plugin;
+namespace KontactInterface
+{
+class Plugin;
 }
 
 class QDate;
@@ -47,41 +49,41 @@ class KJob;
 
 class SDSummaryWidget : public KontactInterface::Summary
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    SDSummaryWidget( KontactInterface::Plugin *plugin, QWidget *parent );
+public:
+    SDSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent);
     ~SDSummaryWidget();
 
     QStringList configModules() const;
     void configUpdated();
-    void updateSummary( bool force = false )
+    void updateSummary(bool force = false)
     {
-      Q_UNUSED( force );
-      updateView();
+        Q_UNUSED(force);
+        updateView();
     }
 
-  protected:
-    virtual bool eventFilter( QObject *obj, QEvent *e );
+protected:
+    virtual bool eventFilter(QObject *obj, QEvent *e);
 
-  private slots:
+private slots:
     void updateView();
-    void popupMenu( const QString &url );
-    void mailContact( const QString &url );
-    void viewContact( const QString &url );
-    void slotBirthdayJobFinished( KJob *job );
-    void slotItemFetchJobDone(KJob* job);
+    void popupMenu(const QString &url);
+    void mailContact(const QString &url);
+    void viewContact(const QString &url);
+    void slotBirthdayJobFinished(KJob *job);
+    void slotItemFetchJobDone(KJob *job);
 
-  private:
-    int span( const KCalCore::Event::Ptr &event ) const;
-    int dayof( const KCalCore::Event::Ptr &event, const QDate &date ) const;
+private:
+    int span(const KCalCore::Event::Ptr &event) const;
+    int dayof(const KCalCore::Event::Ptr &event, const QDate &date) const;
     bool initHolidays();
-    void dateDiff( const QDate &date, int &days, int &years ) const;
+    void dateDiff(const QDate &date, int &days, int &years) const;
 
     Akonadi::ETMCalendar::Ptr mCalendar;
 
     QGridLayout *mLayout;
-    QList<QLabel*> mLabels;
+    QList<QLabel *> mLabels;
     KontactInterface::Plugin *mPlugin;
 
     int mDaysAhead;

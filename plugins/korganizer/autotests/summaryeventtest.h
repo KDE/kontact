@@ -24,13 +24,13 @@
 
 class SummaryEventTester : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
 private slots:
-  void test_Multiday();
+    void test_Multiday();
 
-  void test_eventsForRange_data();
-  void test_eventsForRange();
+    void test_eventsForRange_data();
+    void test_eventsForRange();
 };
 
 #endif

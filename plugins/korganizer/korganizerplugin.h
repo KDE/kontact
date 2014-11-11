@@ -29,26 +29,30 @@
 
 class OrgKdeKorganizerCalendarInterface;
 
-namespace KontactInterface {
-  class UniqueAppWatcher;
+namespace KontactInterface
+{
+class UniqueAppWatcher;
 }
 
 class KOrganizerPlugin : public KontactInterface::Plugin
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    KOrganizerPlugin( KontactInterface::Core *core, const QVariantList & );
+public:
+    KOrganizerPlugin(KontactInterface::Core *core, const QVariantList &);
     ~KOrganizerPlugin();
 
-    bool createDBUSInterface( const QString &serviceType );
+    bool createDBUSInterface(const QString &serviceType);
     bool isRunningStandalone() const;
-    int weight() const { return 400; }
+    int weight() const
+    {
+        return 400;
+    }
 
-    bool canDecodeMimeData( const QMimeData * ) const;
-    void processDropEvent( QDropEvent * );
+    bool canDecodeMimeData(const QMimeData *) const;
+    void processDropEvent(QDropEvent *);
 
-    virtual KontactInterface::Summary *createSummaryWidget( QWidget *parent );
+    virtual KontactInterface::Summary *createSummaryWidget(QWidget *parent);
 
     QString tipFile() const;
     QStringList invisibleToolbarActions() const;
@@ -57,14 +61,14 @@ class KOrganizerPlugin : public KontactInterface::Plugin
 
     OrgKdeKorganizerCalendarInterface *interface();
 
-  protected:
+protected:
     KParts::ReadOnlyPart *createPart();
 
-  private slots:
+private slots:
     void slotNewEvent();
     void slotSyncEvents();
 
-  private:
+private:
     OrgKdeKorganizerCalendarInterface *mIface;
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
 };

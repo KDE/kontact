@@ -35,8 +35,9 @@
 
 class TodoPlugin;
 
-namespace Akonadi {
-  class IncidenceChanger;
+namespace Akonadi
+{
+class IncidenceChanger;
 }
 
 class QGridLayout;
@@ -44,33 +45,36 @@ class QLabel;
 
 class TodoSummaryWidget : public KontactInterface::Summary
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    TodoSummaryWidget( TodoPlugin *plugin, QWidget *parent );
+public:
+    TodoSummaryWidget(TodoPlugin *plugin, QWidget *parent);
     ~TodoSummaryWidget();
 
-    int summaryHeight() const { return 3; }
+    int summaryHeight() const
+    {
+        return 3;
+    }
     QStringList configModules() const;
 
-  public slots:
-    void updateSummary( bool force = false )
+public slots:
+    void updateSummary(bool force = false)
     {
-      Q_UNUSED( force );
-      updateView();
+        Q_UNUSED(force);
+        updateView();
     }
 
-  protected:
-    virtual bool eventFilter( QObject *obj, QEvent *e );
+protected:
+    virtual bool eventFilter(QObject *obj, QEvent *e);
 
-  private slots:
+private slots:
     void updateView();
-    void popupMenu( const QString &uid );
-    void viewTodo( const QString &uid );
-    void removeTodo( const Akonadi::Item &item );
-    void completeTodo( Akonadi::Item::Id id );
+    void popupMenu(const QString &uid);
+    void viewTodo(const QString &uid);
+    void removeTodo(const Akonadi::Item &item);
+    void completeTodo(Akonadi::Item::Id id);
 
-  private:
+private:
     TodoPlugin *mPlugin;
     QGridLayout *mLayout;
 
@@ -82,7 +86,7 @@ class TodoSummaryWidget : public KontactInterface::Summary
     bool mHideNotStarted;
     bool mShowMineOnly;
 
-    QList<QLabel*> mLabels;
+    QList<QLabel *> mLabels;
     Akonadi::ETMCalendar::Ptr mCalendar;
     Akonadi::IncidenceChanger *mChanger;
 
@@ -91,14 +95,14 @@ class TodoSummaryWidget : public KontactInterface::Summary
       @param todo is a pointer to a To-do object to test.
       @return if the To-do starts on the current date.
     */
-    bool startsToday( const KCalCore::Todo::Ptr &todo );
+    bool startsToday(const KCalCore::Todo::Ptr &todo);
 
     /**
       Create a text string containing the states of the To-do.
       @param todo is a pointer to a To-do object to test.
       @return a QString containing a comma-separated list of To-do states.
     */
-    const QString stateStr( const KCalCore::Todo::Ptr &todo );
+    const QString stateStr(const KCalCore::Todo::Ptr &todo);
 };
 
 #endif

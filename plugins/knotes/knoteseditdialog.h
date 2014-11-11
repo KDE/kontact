@@ -29,17 +29,17 @@ class KNoteEditDialog : public QDialog, virtual public KXMLGUIClient
 {
     Q_OBJECT
 public:
-    explicit KNoteEditDialog( bool readOnly, QWidget *parent = 0 );
+    explicit KNoteEditDialog(bool readOnly, QWidget *parent = 0);
     ~KNoteEditDialog();
 
     void setAcceptRichText(bool b);
     QString text() const;
 
-    void setText( const QString &text );
+    void setText(const QString &text);
 
     QString title() const;
 
-    void setTitle( const QString &text );
+    void setTitle(const QString &text);
 
     KNoteEdit *noteEdit() const;
 

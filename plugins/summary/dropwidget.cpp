@@ -25,23 +25,23 @@
 #include <QDropEvent>
 #include <QMimeData>
 
-DropWidget::DropWidget( QWidget *parent )
-  : QWidget( parent )
+DropWidget::DropWidget(QWidget *parent)
+    : QWidget(parent)
 {
-  setAcceptDrops( true );
+    setAcceptDrops(true);
 }
 
-void DropWidget::dragEnterEvent( QDragEnterEvent *event )
+void DropWidget::dragEnterEvent(QDragEnterEvent *event)
 {
-  if ( event->mimeData()->hasFormat( QLatin1String("application/x-kontact-summary") ) ) {
-    event->acceptProposedAction();
-  }
+    if (event->mimeData()->hasFormat(QLatin1String("application/x-kontact-summary"))) {
+        event->acceptProposedAction();
+    }
 }
 
-void DropWidget::dropEvent( QDropEvent *event )
+void DropWidget::dropEvent(QDropEvent *event)
 {
-  int alignment = ( event->pos().x() < ( width() / 2 ) ? Qt::AlignLeft : Qt::AlignRight );
-  alignment |= ( event->pos().y() < ( height() / 2 ) ? Qt::AlignTop : Qt::AlignBottom );
-  //QT5 emit summaryWidgetDropped( this, event->source(), alignment );
+    int alignment = (event->pos().x() < (width() / 2) ? Qt::AlignLeft : Qt::AlignRight);
+    alignment |= (event->pos().y() < (height() / 2) ? Qt::AlignTop : Qt::AlignBottom);
+    //QT5 emit summaryWidgetDropped( this, event->source(), alignment );
 }
 

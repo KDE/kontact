@@ -31,20 +31,20 @@
 
 class KCMSDSummary : public KCModule, public Ui::SDSummaryConfig_Base
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    explicit KCMSDSummary(QWidget *parent = 0 );
+public:
+    explicit KCMSDSummary(QWidget *parent = 0);
 
     virtual void load();
     virtual void save();
     virtual void defaults();
     virtual const KAboutData *aboutData() const;
 
-  private slots:
+private slots:
     void modified();
-    void buttonClicked( int id );
-    void customDaysChanged( int value );
+    void buttonClicked(int id);
+    void customDaysChanged(int value);
 };
 
 #endif
