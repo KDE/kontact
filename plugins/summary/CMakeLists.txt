@@ -6,14 +6,10 @@ include_directories(${Boost_INCLUDE_DIRS})
 set(kontact_summaryplugin_PART_SRCS summaryview_plugin.cpp summaryview_part.cpp dropwidget.cpp)
 qt4_add_resources(kontact_summaryplugin_PART_SRCS summaryview.qrc)
 
-if(KMAIL_SUPPORTED)
-  qt5_add_dbus_interfaces(kontact_summaryplugin_PART_SRCS ${CMAKE_BINARY_DIR}/kmail/org.kde.kmail.kmail.xml)
-endif()
+qt5_add_dbus_interfaces(kontact_summaryplugin_PART_SRCS ${CMAKE_BINARY_DIR}/kmail/org.kde.kmail.kmail.xml)
 
 add_library(kontact_summaryplugin MODULE ${kontact_summaryplugin_PART_SRCS})
-if(KMAIL_SUPPORTED)
-  add_dependencies(kontact_summaryplugin kmail_xml)
-endif()
+add_dependencies(kontact_summaryplugin kmail_xml)
 
 target_link_libraries(kontact_summaryplugin KF5::KCMUtils  KF5::IdentityManagement KF5::KontactInterface kdepim)
 

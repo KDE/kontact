@@ -22,9 +22,7 @@
 #include "summaryview_plugin.h"
 #include "summaryview_part.h"
 #include "kdepim-version.h"
-#ifdef KMAIL_SUPPORTED
 #include "kmailinterface.h"
-#endif
 
 #include <KontactInterface/Core>
 
@@ -57,13 +55,11 @@ void SummaryView::fillSyncActionSubEntries()
     QStringList menuItems;
     menuItems.append(i18nc("@action:inmenu sync everything", "All"));
 
-#ifdef KMAIL_SUPPORTED
     org::kde::kmail::kmail kmail(QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QDBusConnection::sessionBus());
     const QDBusReply<QStringList> reply = kmail.accounts();
     if (reply.isValid()) {
         menuItems << reply.value();
     }
-#endif
 
     mSyncAction->clear();
     mSyncAction->setItems(menuItems);
@@ -74,11 +70,9 @@ void SummaryView::syncAccount(const QString &account)
     if (account == i18nc("sync everything", "All")) {
         doSync();
     } else {
-#ifdef KMAIL_SUPPORTED
         org::kde::kmail::kmail kmail(QLatin1String("org.kde.kmail"), QLatin1String("/KMail"),
                                      QDBusConnection::sessionBus());
         kmail.checkAccount(account);
-#endif
     }
     fillSyncActionSubEntries();
 }
