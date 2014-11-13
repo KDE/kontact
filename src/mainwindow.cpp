@@ -1146,12 +1146,7 @@ void MainWindow::slotNewToolbarConfig()
 
 void MainWindow::slotOpenUrl(const QUrl &url)
 {
-    slotOpenUrl(KUrl(url));
-}
-
-void MainWindow::slotOpenUrl(const KUrl &url)
-{
-    if (url.protocol() == QLatin1String("exec")) {
+    if (url.scheme() == QLatin1String("exec")) {
         const QString path(url.path());
         if (path == QLatin1String("/switch")) {
             if (mCurrentPlugin) {

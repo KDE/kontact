@@ -116,7 +116,7 @@ void KMailPlugin::processDropEvent(QDropEvent *de)
         tmp.open();
         FileStorage storage(cal, tmp.fileName());
         storage.save();
-        openComposer(KUrl(tmp.fileName()));
+        openComposer(QUrl::fromLocalFile(tmp.fileName()));
     } else if (KContacts::VCardDrag::fromMimeData(md, list)) {
         KContacts::Addressee::List::ConstIterator it;
         QStringList to;
@@ -130,7 +130,7 @@ void KMailPlugin::processDropEvent(QDropEvent *de)
     qWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'.").arg(de->mimeData()->formats().join(QLatin1Char(';')));
 }
 
-void KMailPlugin::openComposer(const KUrl &attach)
+void KMailPlugin::openComposer(const QUrl &attach)
 {
     (void) part(); // ensure part is loaded
     Q_ASSERT(m_instance);

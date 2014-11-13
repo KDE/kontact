@@ -89,7 +89,6 @@ protected slots:
     void showAboutDialog();
     void slotShowStatusMsg(const QString &);
     void activateInitialPluginModule();
-    void slotOpenUrl(const KUrl &url);
     void slotOpenUrl(const QUrl &url);
 
 private:

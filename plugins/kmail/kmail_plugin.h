@@ -70,7 +70,7 @@ public:
 
 protected:
     virtual KParts::ReadOnlyPart *createPart();
-    void openComposer(const KUrl &attach = KUrl());
+    void openComposer(const QUrl &attach = QUrl());
     void openComposer(const QString &to);
     bool canDecodeMimeData(const QMimeData *) const;
     void processDropEvent(QDropEvent *);
