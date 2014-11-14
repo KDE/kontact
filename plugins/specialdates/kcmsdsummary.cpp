@@ -85,7 +85,7 @@ void KCMSDSummary::customDaysChanged(int value)
 
 void KCMSDSummary::load()
 {
-    KConfig config(QLatin1String("kcmsdsummaryrc"));
+    KConfig config(QStringLiteral("kcmsdsummaryrc"));
 
     KConfigGroup group = config.group("Days");
     int days = group.readEntry("DaysToShow", 7);
@@ -119,7 +119,7 @@ void KCMSDSummary::load()
 
 void KCMSDSummary::save()
 {
-    KConfig config(QLatin1String("kcmsdsummaryrc"));
+    KConfig config(QStringLiteral("kcmsdsummaryrc"));
 
     KConfigGroup group = config.group("Days");
 
@@ -173,16 +173,16 @@ void KCMSDSummary::defaults()
 const KAboutData *KCMSDSummary::aboutData() const
 {
     KAboutData *about = new KAboutData(
-        QLatin1String("kcmsdsummary"),
+        QStringLiteral("kcmsdsummary"),
         i18n("Upcoming Special Dates Configuration Dialog"),
         QString(), QString(), KAboutLicense::GPL,
         i18n("Copyright © 2004 Tobias Koenig\n"
              "Copyright © 2004–2010 Allen Winter"));
 
     about->addAuthor(i18n("Tobias Koenig"),
-                     QString(), QLatin1String("tokoe@kde.org"));
+                     QString(), QStringLiteral("tokoe@kde.org"));
     about->addAuthor(i18n("Allen Winter"),
-                     QString(), QLatin1String("winter@kde.org"));
+                     QString(), QStringLiteral("winter@kde.org"));
 
     return about;
 }

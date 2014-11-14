@@ -79,7 +79,7 @@ void KCMTodoSummary::customDaysChanged(int value)
 
 void KCMTodoSummary::load()
 {
-    KConfig config(QLatin1String("kcmtodosummaryrc"));
+    KConfig config(QStringLiteral("kcmtodosummaryrc"));
     KConfigGroup group = config.group("Days");
 
     int days = group.readEntry("DaysToShow", 7);
@@ -108,7 +108,7 @@ void KCMTodoSummary::load()
 
 void KCMTodoSummary::save()
 {
-    KConfig config(QLatin1String("kcmtodosummaryrc"));
+    KConfig config(QStringLiteral("kcmtodosummaryrc"));
     KConfigGroup group = config.group("Days");
 
     int days;
@@ -155,16 +155,16 @@ void KCMTodoSummary::defaults()
 const KAboutData *KCMTodoSummary::aboutData() const
 {
     KAboutData *about = new KAboutData(
-        QLatin1String("kcmtodosummary"),
+        QStringLiteral("kcmtodosummary"),
         i18n("Pending To-dos Configuration Dialog"),
         QString(), QString(), KAboutLicense::GPL,
         i18n("Copyright © 2003–2004 Tobias Koenig\n"
              "Copyright © 2005–2010 Allen Winter"));
 
     about->addAuthor(i18n("Tobias Koenig"),
-                     QString(), QLatin1String("tokoe@kde.org"));
+                     QString(), QStringLiteral("tokoe@kde.org"));
     about->addAuthor(i18n("Allen Winter"),
-                     QString(), QLatin1String("winter@kde.org"));
+                     QString(), QStringLiteral("winter@kde.org"));
 
     return about;
 }
