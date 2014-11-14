@@ -124,8 +124,8 @@ KCMKontactSummary::KCMKontactSummary(QWidget *parent)
 void KCMKontactSummary::load()
 {
     KService::List offers = KServiceTypeTrader::self()->query(
-                                QString::fromLatin1("Kontact/Plugin"),
-                                QString::fromLatin1("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
+                                QStringLiteral("Kontact/Plugin"),
+                                QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
 
     QStringList activeSummaries;
 

@@ -91,8 +91,8 @@ static void listPlugins()
     KComponentData instance("kontact");   //Can't use KontactApp -- too late for adding cmdline opts
 
     const KService::List offers = KServiceTypeTrader::self()->query(
-                                      QString::fromLatin1("Kontact/Plugin"),
-                                      QString::fromLatin1("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
+                                      QStringLiteral("Kontact/Plugin"),
+                                      QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
     KService::List::ConstIterator end(offers.end());
     for (KService::List::ConstIterator it = offers.begin(); it != end; ++it) {
         KService::Ptr service = (*it);

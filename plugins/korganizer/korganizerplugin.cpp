@@ -264,6 +264,6 @@ void KOrganizerPlugin::processDropEvent(QDropEvent *event)
         }
         return;
     }
-    qWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'.").arg(event->mimeData()->formats().join(QLatin1Char(';')));
+    qWarning() << QStringLiteral("Cannot handle drop events of type '%1'.").arg(event->mimeData()->formats().join(QLatin1Char(';')));
 }
 #include "korganizerplugin.moc"

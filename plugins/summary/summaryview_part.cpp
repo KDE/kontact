@@ -123,7 +123,7 @@ void SummaryViewPart::updateWidgets()
     const KIdentityManagement::Identity &id = idm.defaultIdentity();
 
     QString currentUser = i18n("Summary for %1", id.fullName());
-    mUsernameLabel->setText(QString::fromLatin1("<b>%1</b>").arg(currentUser));
+    mUsernameLabel->setText(QStringLiteral("<b>%1</b>").arg(currentUser));
 
     mSummaries.clear();
 
