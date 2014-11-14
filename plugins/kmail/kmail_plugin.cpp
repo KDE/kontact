@@ -106,7 +106,7 @@ void KMailPlugin::shortcutChanged()
 
 void KMailPlugin::processDropEvent(QDropEvent *de)
 {
-    MemoryCalendar::Ptr cal(new MemoryCalendar(QString::fromLatin1("UTC")));
+    MemoryCalendar::Ptr cal(new MemoryCalendar(QStringLiteral("UTC")));
     KContacts::Addressee::List list;
     const QMimeData *md = de->mimeData();
 
@@ -127,7 +127,7 @@ void KMailPlugin::processDropEvent(QDropEvent *de)
         openComposer(to.join(QLatin1String(", ")));
     }
 
-    qWarning() << QString::fromLatin1("Cannot handle drop events of type '%1'.").arg(de->mimeData()->formats().join(QLatin1Char(';')));
+    qWarning() << QStringLiteral("Cannot handle drop events of type '%1'.").arg(de->mimeData()->formats().join(QLatin1Char(';')));
 }
 
 void KMailPlugin::openComposer(const QUrl &attach)
