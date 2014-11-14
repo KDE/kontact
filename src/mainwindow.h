@@ -27,7 +27,6 @@
 
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
-#include <KUrl>
 #include <QAction>
 
 class KActionMenu;

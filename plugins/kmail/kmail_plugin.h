@@ -28,8 +28,7 @@
 #include <KontactInterface/Plugin>
 #include <KontactInterface/UniqueAppHandler>
 
-#include <KUrl>
-
+#include <QUrl>
 class OrgKdeKmailKmailInterface;
 
 namespace KontactInterface
