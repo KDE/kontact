@@ -16,6 +16,7 @@
   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "kontactconfiguredialog.h"
+#include <KHelpClient>
 
 #include <QDBusReply>
 #include <QDBusInterface>
@@ -59,6 +60,11 @@ void KontactConfigureDialog::emitConfigChanged()
         }
 
     }
+}
+
+void KontactConfigureDialog::slotHelpClicked()
+{
+    KHelpClient::invokeHelp(QLatin1String("main-config"), QLatin1String("kontact"));
 }
 
 void KontactConfigureDialog::slotApply()

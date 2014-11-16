@@ -38,6 +38,7 @@ protected slots:
     /** @reimplemented */
     void slotOk();
     void emitConfigChanged();
+    void slotHelpClicked();
 };
 
 }
