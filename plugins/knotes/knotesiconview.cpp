@@ -289,7 +289,7 @@ void KNotesIconViewItem::saveNoteContent(const QString &subject, const QString &
     if (!description.isEmpty()) {
         message->mainBodyPart()->fromUnicodeString(description);
     } else if (message->mainBodyPart()->decodedText().isEmpty()) {
-        message->mainBodyPart()->fromUnicodeString(QString::fromLatin1(" "));
+        message->mainBodyPart()->fromUnicodeString(QStringLiteral(" "));
     }
 
     if (position >= 0) {
