@@ -75,7 +75,6 @@ void KCMKNotesSummary::modified()
 void KCMKNotesSummary::initGUI()
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
-//TODO PORT QT5     layout->setSpacing( QDialog::spacingHint() );
     layout->setMargin(0);
 
     mCheckedCollectionWidget = new PimCommon::CheckedCollectionWidget(Akonotes::Note::mimeType());
