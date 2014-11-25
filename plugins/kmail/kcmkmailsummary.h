@@ -47,9 +47,9 @@ class KCMKMailSummary : public KCModule
 public:
     explicit KCMKMailSummary(QWidget *parent = 0);
 
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
+    void load() Q_DECL_OVERRIDE;
+    void save() Q_DECL_OVERRIDE;
+    void defaults() Q_DECL_OVERRIDE;
 
 private slots:
     void modified();
