@@ -95,7 +95,6 @@ KCMKontactSummary::KCMKontactSummary(QWidget *parent)
 {
     setButtons(NoAdditionalButton);
     QVBoxLayout *layout = new QVBoxLayout(this);
-    //QT5 layout->setSpacing( KDialog::spacingHint() );
     layout->setMargin(0);
 
     QLabel *label =
