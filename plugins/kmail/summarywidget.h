@@ -64,7 +64,7 @@ public:
     QStringList configModules() const;
 
 protected:
-    virtual bool eventFilter(QObject *obj, QEvent *e);
+    bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;
 
 public slots:
     virtual void updateSummary(bool force);
