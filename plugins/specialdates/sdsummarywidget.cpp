@@ -44,7 +44,7 @@
 #include <KUrlLabel>
 #include <KIconLoader>
 #include <KConfigGroup>
-#include <KToolInvocation>
+#include <QDesktopServices>
 #include <KHolidays/kholidays/Holidays>
 
 #include <QDate>
@@ -664,7 +664,7 @@ void SDSummaryWidget::slotItemFetchJobDone(KJob *job)
     }
     const KContacts::Addressee contact = lst.first().payload<KContacts::Addressee>();
 
-    KToolInvocation::invokeMailer(contact.fullEmail(), QString());
+    QDesktopServices::openUrl(QUrl(contact.fullEmail()));
 }
 
 void SDSummaryWidget::viewContact(const QString &url)
