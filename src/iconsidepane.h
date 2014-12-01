@@ -72,10 +72,10 @@ signals:
     void pluginActivated(KontactInterface::Plugin *plugin);
 
 protected:
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void dragMoveEvent(QDragMoveEvent *event);
-    virtual void dropEvent(QDropEvent *event);
-    virtual void showEvent(QShowEvent *event);
+    virtual void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
+    virtual void dragMoveEvent(QDragMoveEvent *event) Q_DECL_OVERRIDE;
+    virtual void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
+    virtual void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
 
 private slots:
     void slotCurrentChanged(const QModelIndex &current);
