@@ -38,7 +38,7 @@ public:
 protected:
     void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 
-    bool event(QEvent *e);
+    bool event(QEvent *e) Q_DECL_OVERRIDE;
 
 private:
     KNotesPart *m_part;
