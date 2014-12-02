@@ -36,7 +36,7 @@ public:
     KNotesIconViewItem *iconView(Akonadi::Item::Id id) const;
     QHash<Akonadi::Item::Id, KNotesIconViewItem *> noteList() const;
 protected:
-    void mousePressEvent(QMouseEvent *);
+    void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 
     bool event(QEvent *e);
 
