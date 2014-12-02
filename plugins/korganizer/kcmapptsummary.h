@@ -38,7 +38,7 @@ class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
     Q_OBJECT
 
 public:
-    explicit KCMApptSummary(QWidget *parent = 0);
+    explicit KCMApptSummary(QWidget *parent = Q_NULLPTR);
 
     void load();
     void save();

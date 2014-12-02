@@ -29,7 +29,7 @@ class KNoteEditDialog : public QDialog, virtual public KXMLGUIClient
 {
     Q_OBJECT
 public:
-    explicit KNoteEditDialog(bool readOnly, QWidget *parent = 0);
+    explicit KNoteEditDialog(bool readOnly, QWidget *parent = Q_NULLPTR);
     ~KNoteEditDialog();
 
     void setAcceptRichText(bool b);

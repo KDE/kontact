@@ -23,7 +23,7 @@
 class KNotesListWidgetSearchLine : public KListWidgetSearchLine
 {
 public:
-    explicit KNotesListWidgetSearchLine(QWidget *parent = 0);
+    explicit KNotesListWidgetSearchLine(QWidget *parent = Q_NULLPTR);
     ~KNotesListWidgetSearchLine();
 
     void updateClickMessage(const QString &shortcutStr);

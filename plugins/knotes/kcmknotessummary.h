@@ -35,7 +35,7 @@ class KCMKNotesSummary : public KCModule
     Q_OBJECT
 
 public:
-    explicit KCMKNotesSummary(QWidget *parent = 0);
+    explicit KCMKNotesSummary(QWidget *parent = Q_NULLPTR);
 
     void load() Q_DECL_OVERRIDE;
     void save() Q_DECL_OVERRIDE;

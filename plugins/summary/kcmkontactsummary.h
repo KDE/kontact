@@ -43,7 +43,7 @@ class KCMKontactSummary : public KCModule
     Q_OBJECT
 
 public:
-    explicit KCMKontactSummary(QWidget *parent = 0);
+    explicit KCMKontactSummary(QWidget *parent = Q_NULLPTR);
 
     void load();
     void save();

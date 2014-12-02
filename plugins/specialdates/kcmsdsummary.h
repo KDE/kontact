@@ -34,7 +34,7 @@ class KCMSDSummary : public KCModule, public Ui::SDSummaryConfig_Base
     Q_OBJECT
 
 public:
-    explicit KCMSDSummary(QWidget *parent = 0);
+    explicit KCMSDSummary(QWidget *parent = Q_NULLPTR);
 
     void load() Q_DECL_OVERRIDE;
     void save() Q_DECL_OVERRIDE;
