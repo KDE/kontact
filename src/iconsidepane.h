@@ -113,7 +113,7 @@ public slots:
     virtual void updatePlugins();
 
 protected:
-    void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
 
 private:
     Navigator *mNavigator;

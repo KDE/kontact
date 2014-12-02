@@ -47,14 +47,14 @@ public:
         return 450;
     }
 
-    bool canDecodeMimeData(const QMimeData *) const;
-    void processDropEvent(QDropEvent *);
+    bool canDecodeMimeData(const QMimeData *) const Q_DECL_OVERRIDE;
+    void processDropEvent(QDropEvent *) Q_DECL_OVERRIDE;
 
-    QStringList invisibleToolbarActions() const;
+    QStringList invisibleToolbarActions() const Q_DECL_OVERRIDE;
 
     virtual KontactInterface::Summary *createSummaryWidget(QWidget *parent);
 
-    void select();
+    void select() Q_DECL_OVERRIDE;
 
     OrgKdeKorganizerCalendarInterface *interface();
 

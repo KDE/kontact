@@ -55,9 +55,9 @@ public:
 
     const KAboutData aboutData();
 
-    bool canDecodeMimeData(const QMimeData *data) const;
-    void processDropEvent(QDropEvent *);
-    void shortcutChanged();
+    bool canDecodeMimeData(const QMimeData *data) const Q_DECL_OVERRIDE;
+    void processDropEvent(QDropEvent *) Q_DECL_OVERRIDE;
+    void shortcutChanged() Q_DECL_OVERRIDE;
 
 protected:
     KParts::ReadOnlyPart *createPart();

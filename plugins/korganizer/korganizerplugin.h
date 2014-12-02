@@ -49,13 +49,13 @@ public:
         return 400;
     }
 
-    bool canDecodeMimeData(const QMimeData *) const;
-    void processDropEvent(QDropEvent *);
+    bool canDecodeMimeData(const QMimeData *) const Q_DECL_OVERRIDE;
+    void processDropEvent(QDropEvent *) Q_DECL_OVERRIDE;
 
     virtual KontactInterface::Summary *createSummaryWidget(QWidget *parent);
 
-    QString tipFile() const;
-    QStringList invisibleToolbarActions() const;
+    QString tipFile() const Q_DECL_OVERRIDE;
+    QStringList invisibleToolbarActions() const Q_DECL_OVERRIDE;
 
     void select();
 
