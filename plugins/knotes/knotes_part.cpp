@@ -94,10 +94,10 @@
 
 KNotesPart::KNotesPart(QObject *parent)
     : KParts::ReadOnlyPart(parent),
-      mNotesWidget(0) ,
-      mPublisher(0),
-      mNotePrintPreview(0),
-      mNoteTreeModel(0)
+      mNotesWidget(Q_NULLPTR) ,
+      mPublisher(Q_NULLPTR),
+      mNotePrintPreview(Q_NULLPTR),
+      mNoteTreeModel(Q_NULLPTR)
 {
     (void) new KNotesAdaptor(this);
     QDBusConnection::sessionBus().registerObject(QLatin1String("/KNotes"), this);

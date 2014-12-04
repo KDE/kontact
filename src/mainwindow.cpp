@@ -141,7 +141,7 @@ int ServiceStarter::startServiceFor(const QString &serviceType,
 }
 
 MainWindow::MainWindow()
-    : KontactInterface::Core(), mSplitter(0), mCurrentPlugin(0), mAboutDialog(0),
+    : KontactInterface::Core(), mSplitter(Q_NULLPTR), mCurrentPlugin(Q_NULLPTR), mAboutDialog(Q_NULLPTR),
       mReallyClose(false), mSyncActionsEnabled(true)
 {
     // The ServiceStarter created here will be deleted by the KDbusServiceStarter
