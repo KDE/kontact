@@ -59,7 +59,6 @@
 
 KNotesSummaryWidget::KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent)
     : KontactInterface::Summary(parent),
-      mLayout(0),
       mPlugin(plugin),
       mInProgress(false)
 {
