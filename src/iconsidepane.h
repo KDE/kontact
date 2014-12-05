@@ -46,7 +46,7 @@ class Navigator : public QListView
     Q_OBJECT
 
 public:
-    explicit Navigator(SidePaneBase *parent = 0);
+    explicit Navigator(SidePaneBase *parent = Q_NULLPTR);
 
     void updatePlugins(QList<KontactInterface::Plugin *> plugins);
     void setCurrentPlugin(const QString &plugin);
