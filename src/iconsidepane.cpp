@@ -179,7 +179,7 @@ public:
         sort(0);
     }
 protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const Q_DECL_OVERRIDE
     {
         KontactInterface::Plugin *leftPlugin =
             static_cast<KontactInterface::Plugin *>(left.internalPointer());
