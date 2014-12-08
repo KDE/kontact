@@ -41,7 +41,7 @@ public:
     void defaults() Q_DECL_OVERRIDE;
     const KAboutData *aboutData() const Q_DECL_OVERRIDE;
 
-private slots:
+private Q_SLOTS:
     void modified();
     void buttonClicked(int id);
     void customDaysChanged(int value);

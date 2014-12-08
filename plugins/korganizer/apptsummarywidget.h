@@ -64,7 +64,7 @@ public:
 protected:
     bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;
 
-private slots:
+private Q_SLOTS:
     void updateView();
     void popupMenu(const QString &uid);
     void viewEvent(const QString &uid);

@@ -51,20 +51,20 @@ public:
                     const KAboutData &aboutData, QObject *parent = Q_NULLPTR);
     ~SummaryViewPart();
 
-public slots:
+public Q_SLOTS:
     void slotTextChanged();
     void slotAdjustPalette();
     void setDate(const QDate &newDate);
     void updateSummaries();
 
-signals:
+Q_SIGNALS:
     void textChanged(const QString &);
 
 protected:
     virtual bool openFile();
     virtual void partActivateEvent(KParts::PartActivateEvent *event);
 
-protected slots:
+protected Q_SLOTS:
     void slotConfigure();
     void updateWidgets();
     void summaryWidgetMoved(QWidget *target, QWidget *widget, int alignment);

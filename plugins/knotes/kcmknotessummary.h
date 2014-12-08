@@ -41,7 +41,7 @@ public:
     void save() Q_DECL_OVERRIDE;
     void defaults() Q_DECL_OVERRIDE;
 
-private slots:
+private Q_SLOTS:
     void modified();
 
 private:

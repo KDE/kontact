@@ -34,7 +34,7 @@ class DropWidget : public QWidget
 public:
     explicit DropWidget(QWidget *parent);
 
-signals:
+Q_SIGNALS:
     void summaryWidgetDropped(QWidget *target, QWidget *widget, int alignment);
 
 protected:

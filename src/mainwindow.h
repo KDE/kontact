@@ -66,14 +66,14 @@ public:
     static bool pluginWeightLessThan(const KontactInterface::Plugin *left,
                                      const KontactInterface::Plugin *right);
 
-public slots:
+public Q_SLOTS:
     virtual void selectPlugin(KontactInterface::Plugin *plugin);
     Q_SCRIPTABLE virtual void selectPlugin(const QString &pluginName);
     void slotActionTriggered();
 
     void updateConfig();
 
-protected slots:
+protected Q_SLOTS:
     void initObject();
     void initGUI();
     void slotActivePartChanged(KParts::Part *part);
@@ -114,7 +114,7 @@ private:
     static QString introductionString();
     KToolBar *findToolBar(const char *name);
 
-private slots:
+private Q_SLOTS:
     void pluginsChanged();
 
     void configureShortcuts();

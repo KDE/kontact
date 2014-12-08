@@ -65,7 +65,7 @@ public:
     virtual void readProperties(const KConfigGroup &config);
     virtual void saveProperties(KConfigGroup &config);
 
-private slots:
+private Q_SLOTS:
     void addFeed();
 
 protected:

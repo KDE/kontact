@@ -55,7 +55,7 @@ protected:
 
     QString formatPerson(const QString &name, const QString &email);
 
-private slots:
+private Q_SLOTS:
     void saveSize();
 
 private:

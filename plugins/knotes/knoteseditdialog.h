@@ -56,7 +56,7 @@ public:
     void setCursorPositionFromStart(int pos);
 
     int cursorPositionFromStart() const;
-private slots:
+private Q_SLOTS:
     void slotTextChanged(const QString &text);
 
 private:

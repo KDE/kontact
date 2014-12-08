@@ -31,7 +31,7 @@ public:
     explicit KontactConfigureDialog(QWidget *parent = Q_NULLPTR);
     ~KontactConfigureDialog();
 
-protected slots:
+protected Q_SLOTS:
     /** @reimplemented */
     void slotApply();
 

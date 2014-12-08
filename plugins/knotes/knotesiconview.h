@@ -77,7 +77,7 @@ public:
     void setCursorPositionFromStart(int pos);
     int cursorPositionFromStart() const;
 
-private slots:
+private Q_SLOTS:
     void slotNoteSaved(KJob *job);
 private:
     void prepare();

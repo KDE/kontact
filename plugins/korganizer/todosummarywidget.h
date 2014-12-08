@@ -57,7 +57,7 @@ public:
     }
     QStringList configModules() const;
 
-public slots:
+public Q_SLOTS:
     void updateSummary(bool force = false)
     {
         Q_UNUSED(force);
@@ -67,7 +67,7 @@ public slots:
 protected:
     bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;
 
-private slots:
+private Q_SLOTS:
     void updateView();
     void popupMenu(const QString &uid);
     void viewTodo(const QString &uid);

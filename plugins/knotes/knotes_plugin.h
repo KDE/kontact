@@ -62,7 +62,7 @@ public:
 protected:
     KParts::ReadOnlyPart *createPart();
 
-private slots:
+private Q_SLOTS:
     void slotNewNote();
 
 private:

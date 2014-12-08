@@ -43,10 +43,10 @@ public:
 
     virtual void setCurrentPlugin(const QString &) = 0;
 
-signals:
+Q_SIGNALS:
     void pluginSelected(KontactInterface::Plugin *);
 
-public slots:
+public Q_SLOTS:
     /**
       This method is called by the core whenever the count
       of plugins has changed.

@@ -68,7 +68,7 @@ public:
 
     virtual QSize sizeHint() const;
 
-signals:
+Q_SIGNALS:
     void pluginActivated(KontactInterface::Plugin *plugin);
 
 protected:
@@ -77,7 +77,7 @@ protected:
     void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
     void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
 
-private slots:
+private Q_SLOTS:
     void slotCurrentChanged(const QModelIndex &current);
     void slotActionTriggered(bool checked);
     void updateNavigatorSize();
@@ -109,7 +109,7 @@ public:
 
     void setCurrentPlugin(const QString &plugin);
 
-public slots:
+public Q_SLOTS:
     virtual void updatePlugins();
 
 protected:

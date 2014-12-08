@@ -45,7 +45,7 @@ public:
 protected:
     virtual KParts::ReadOnlyPart *createPart();
 
-private slots:
+private Q_SLOTS:
 
     void doSync();
     void syncAccount(const QString &account);

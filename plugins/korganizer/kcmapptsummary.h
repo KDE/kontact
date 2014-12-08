@@ -45,7 +45,7 @@ public:
     void defaults();
     const KAboutData *aboutData() const;
 
-private slots:
+private Q_SLOTS:
     void modified();
     void buttonClicked(int id);
     void customDaysChanged(int value);

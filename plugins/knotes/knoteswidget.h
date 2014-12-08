@@ -32,7 +32,7 @@ public:
     KNotesIconView *notesView() const;
 
     void updateClickMessage(const QString &shortcutStr);
-public slots:
+public Q_SLOTS:
     void slotFocusQuickSearch();
 
 private:

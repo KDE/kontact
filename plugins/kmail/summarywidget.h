@@ -66,10 +66,10 @@ public:
 protected:
     bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;
 
-public slots:
+public Q_SLOTS:
     virtual void updateSummary(bool force);
 
-private slots:
+private Q_SLOTS:
     void selectFolder(const QString &);
     void slotCollectionChanged();
     void slotUpdateFolderList();

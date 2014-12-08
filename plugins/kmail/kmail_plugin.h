@@ -74,7 +74,7 @@ protected:
     bool canDecodeMimeData(const QMimeData *) const;
     void processDropEvent(QDropEvent *);
 
-protected slots:
+protected Q_SLOTS:
     void slotNewMail();
     void slotSyncFolders();
 

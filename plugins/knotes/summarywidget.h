@@ -63,7 +63,7 @@ public:
 protected:
     bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;
 
-private slots:
+private Q_SLOTS:
     void updateFolderList();
     void slotSelectNote(const QString &note);
     void slotPopupMenu(const QString &);

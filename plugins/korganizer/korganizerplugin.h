@@ -64,7 +64,7 @@ public:
 protected:
     KParts::ReadOnlyPart *createPart();
 
-private slots:
+private Q_SLOTS:
     void slotNewEvent();
     void slotSyncEvents();
 
