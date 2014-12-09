@@ -83,7 +83,7 @@ void KCMKNotesSummary::initGUI()
 
 void KCMKNotesSummary::initFolders()
 {
-    KSharedConfigPtr _config = KSharedConfig::openConfig(QLatin1String("kcmknotessummaryrc"));
+    KSharedConfigPtr _config = KSharedConfig::openConfig(QStringLiteral("kcmknotessummaryrc"));
 
     mModelState =
         new KViewStateMaintainer<Akonadi::ETMViewStateSaver>(_config->group("CheckState"), this);
@@ -97,7 +97,7 @@ void KCMKNotesSummary::loadFolders()
 
 void KCMKNotesSummary::storeFolders()
 {
-    KConfig config(QLatin1String("kcmknotessummaryrc"));
+    KConfig config(QStringLiteral("kcmknotessummaryrc"));
     mModelState->saveState();
     config.sync();
 }
