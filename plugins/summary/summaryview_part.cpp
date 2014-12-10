@@ -209,11 +209,9 @@ void SummaryViewPart::updateWidgets()
     layout->insertSpacing(0, margin);
     mLeftColumn = new QVBoxLayout();
     layout->addLayout(mLeftColumn);
-//TODO PORT QT5   mLeftColumn->setSpacing( QDialog::spacingHint() );
     layout->addWidget(vline);
     mRightColumn = new QVBoxLayout();
     layout->addLayout(mRightColumn);
-//TODO PORT QT5   mRightColumn->setSpacing( QDialog::spacingHint() );
     layout->insertSpacing(-1, margin);
 
     QStringList::ConstIterator strIt;
@@ -487,8 +485,6 @@ void SummaryViewPart::initGUI(KontactInterface::Core *core)
     slotAdjustPalette();
 
     mMainLayout = new QVBoxLayout(mMainWidget);
-//TODO PORT QT5   mMainLayout->setSpacing( QDialog::spacingHint() );
-//TODO PORT QT5   mMainLayout->setMargin( QDialog::marginHint() );
 
     QHBoxLayout *hbl = new QHBoxLayout();
     mMainLayout->addItem(hbl);

@@ -49,7 +49,6 @@ AboutDialog::AboutDialog(KontactInterface::Core *core)
     setStandardButtons(QDialogButtonBox::Close);
     button(QDialogButtonBox::Close)->setDefault(true);
     setModal(false);
-    //QT5 showButtonSeparator( true );
     setFaceType(KPageDialog::List);
 #if 0 //QT5
     addAboutData(i18n("Kontact Container"), QLatin1String("kontact"),

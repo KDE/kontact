@@ -76,7 +76,6 @@ void KNoteEditDialog::init(bool readOnly)
 
     QHBoxLayout *hbl = new QHBoxLayout();
     layout->addItem(hbl);
-    //QT5 hbl->setSpacing( marginHint() );
     QLabel *label = new QLabel(page);
     label->setText(i18nc("@label popup note name", "Name:"));
     hbl->addWidget(label, 0);

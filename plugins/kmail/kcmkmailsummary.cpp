@@ -81,7 +81,6 @@ void KCMKMailSummary::modified()
 void KCMKMailSummary::initGUI()
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
-//TODO PORT QT5     layout->setSpacing( QDialog::spacingHint() );
     layout->setMargin(0);
 
     mCheckedCollectionWidget = new PimCommon::CheckedCollectionWidget(KMime::Message::mimeType());
