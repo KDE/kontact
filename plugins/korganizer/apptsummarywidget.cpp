@@ -275,7 +275,7 @@ bool ApptSummaryWidget::eventFilter(QObject *obj, QEvent *e)
             emit message(i18n("Edit Event: \"%1\"", label->text()));
         }
         if (e->type() == QEvent::Leave) {
-            emit message(QString::null);   //krazy:exclude=nullstrassign for old broken gcc
+            emit message(QString());
         }
     }
 
