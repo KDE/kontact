@@ -54,7 +54,7 @@ public:
     {
     }
 
-public slots:
+public Q_SLOTS:
     void clear()
     {
         // Don't allow the current selection to be cleared. QListView doesn't call to this method
