@@ -3,7 +3,7 @@
 
   Copyright (C) 2002-2003 Daniel Molkentin <molkentin@kde.org>
   Copyright (C) 2004-2006 Michael Brade <brade@kde.org>
-  Copyright (C) 2013-2014 Laurent Montel <montel@kde.org>
+  Copyright (C) 2013-2015 Laurent Montel <montel@kde.org>
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public
