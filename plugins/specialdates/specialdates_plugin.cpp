@@ -37,6 +37,7 @@ EXPORT_KONTACT_PLUGIN(SpecialdatesPlugin, specialdates)
 SpecialdatesPlugin::SpecialdatesPlugin(KontactInterface::Core *core, const QVariantList &)
     : KontactInterface::Plugin(core, core, 0)
 {
+#pragma "port QT5"
     //QT5 setComponentData( KontactPluginFactory::componentData() );
     KIconLoader::global()->addAppDir(QLatin1String("kdepim"));
 }

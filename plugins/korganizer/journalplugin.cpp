@@ -41,6 +41,7 @@ EXPORT_KONTACT_PLUGIN(JournalPlugin, journal)
 JournalPlugin::JournalPlugin(KontactInterface::Core *core, const QVariantList &)
     : KontactInterface::Plugin(core, core, "korganizer", "journal"), mIface(0)
 {
+#pragma "port QT5"
     //QT5 setComponentData( KontactPluginFactory::componentData() );
     KIconLoader::global()->addAppDir(QLatin1String("korganizer"));
     KIconLoader::global()->addAppDir(QLatin1String("kdepim"));
@@ -50,6 +51,7 @@ JournalPlugin::JournalPlugin(KontactInterface::Core *core, const QVariantList &)
                     i18nc("@action:inmenu", "New Journal..."), this);
     actionCollection()->addAction(QLatin1String("new_journal"), action);
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_J));
+#pragma "port QT5"
     //QT5 action->setHelpText(
     //i18nc( "@info:status", "Create a new journal" ) );
     action->setWhatsThis(
@@ -63,6 +65,7 @@ JournalPlugin::JournalPlugin(KontactInterface::Core *core, const QVariantList &)
         new QAction(QIcon::fromTheme(QLatin1String("view-refresh")),
                     i18nc("@action:inmenu", "Sync Journal"), this);
     actionCollection()->addAction(QLatin1String("journal_sync"), syncAction);
+#pragma "port QT5"
     //QT5 syncAction->setHelpText(
     //i18nc( "@info:status", "Synchronize groupware journal" ) );
     syncAction->setWhatsThis(

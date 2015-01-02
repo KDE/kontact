@@ -59,6 +59,7 @@ SummaryViewPart::SummaryViewPart(KontactInterface::Core *core, const char *,
                                  const KAboutData &aboutData, QObject *parent)
     : KParts::ReadOnlyPart(parent), mCore(core), mFrame(0), mConfigAction(0)
 {
+#pragma "port QT5"
     //QT5 setComponentData( KComponentData( aboutData ) );
 
     loadLayout();
@@ -71,6 +72,7 @@ SummaryViewPart::SummaryViewPart(KontactInterface::Core *core, const char *,
     mConfigAction = new QAction(QIcon::fromTheme(QLatin1String("configure")), i18n("&Configure Summary View..."), this);
     actionCollection()->addAction(QLatin1String("summaryview_configure"), mConfigAction);
     connect(mConfigAction, &QAction::triggered, this, &SummaryViewPart::slotConfigure);
+#pragma "port QT5"
     //QT5 mConfigAction->setHelpText( i18n( "Configure the summary view" ) );
     mConfigAction->setWhatsThis(
         i18nc("@info:whatsthis",

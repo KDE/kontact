@@ -60,6 +60,7 @@ KNotesPlugin::KNotesPlugin(KontactInterface::Core *core, const QVariantList &)
     : KontactInterface::Plugin(core, core, "knotes")
 {
     KNoteUtils::migrateToAkonadi();
+#pragma "port QT5"
     //QT5 setComponentData( KontactPluginFactory::componentData() );
 
     QAction *action =

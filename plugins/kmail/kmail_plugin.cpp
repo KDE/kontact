@@ -52,6 +52,7 @@ EXPORT_KONTACT_PLUGIN(KMailPlugin, kmail)
 KMailPlugin::KMailPlugin(KontactInterface::Core *core, const QVariantList &)
     : KontactInterface::Plugin(core, core, "kmail2"), m_instance(0)
 {
+#pragma "port QT5"
     //QT5 setComponentData( KontactPluginFactory::componentData() );
 
     QAction *action =

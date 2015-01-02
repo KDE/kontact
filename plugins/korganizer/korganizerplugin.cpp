@@ -56,6 +56,7 @@ EXPORT_KONTACT_PLUGIN(KOrganizerPlugin, korganizer)
 KOrganizerPlugin::KOrganizerPlugin(KontactInterface::Core *core, const QVariantList &)
     : KontactInterface::Plugin(core, core, "korganizer", "calendar"), mIface(0)
 {
+#pragma "port QT5"
     //QT5 setComponentData( KontactPluginFactory::componentData() );
     KIconLoader::global()->addAppDir(QLatin1String("korganizer"));
     KIconLoader::global()->addAppDir(QLatin1String("kdepim"));
@@ -65,6 +66,8 @@ KOrganizerPlugin::KOrganizerPlugin(KontactInterface::Core *core, const QVariantL
                     i18nc("@action:inmenu", "New Event..."), this);
     actionCollection()->addAction(QLatin1String("new_event"), action);
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_E));
+#pragma "port QT5"
+
     //QT5 action->setHelpText(
     //i18nc( "@info:status", "Create a new event" ) );
     action->setWhatsThis(
@@ -77,6 +80,7 @@ KOrganizerPlugin::KOrganizerPlugin(KontactInterface::Core *core, const QVariantL
         new QAction(QIcon::fromTheme(QLatin1String("view-refresh")),
                     i18nc("@action:inmenu", "Sync Calendar"), this);
     actionCollection()->addAction(QLatin1String("korganizer_sync"), syncAction);
+#pragma "port QT5"
     //QT5 syncAction->setHelpText(
     //i18nc( "@info:status", "Synchronize groupware calendar" ) );
     syncAction->setWhatsThis(
@@ -256,6 +260,7 @@ void KOrganizerPlugin::processDropEvent(QDropEvent *event)
             tf.setAutoRemove(true);
             tf.open();
             QString uri = QLatin1String("kmail:") + QString::number(mail.serialNumber());
+#pragma "port QT5"
             //QT5 tf.write( event->encodedData( "message/rfc822" ) );
             interface()->openEventEditor(
                 i18nc("@item", "Mail: %1", mail.subject()), txt,
