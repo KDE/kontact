@@ -51,9 +51,10 @@ JournalPlugin::JournalPlugin(KontactInterface::Core *core, const QVariantList &)
                     i18nc("@action:inmenu", "New Journal..."), this);
     actionCollection()->addAction(QLatin1String("new_journal"), action);
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_J));
-#pragma "port QT5"
-    //QT5 action->setHelpText(
-    //i18nc( "@info:status", "Create a new journal" ) );
+    QString str = i18nc( "@info:status", "Create a new journal" );
+    action->setStatusTip(str);
+    action->setToolTip(str);
+
     action->setWhatsThis(
         i18nc("@info:whatsthis",
               "You will be presented with a dialog where you can create "
@@ -65,9 +66,10 @@ JournalPlugin::JournalPlugin(KontactInterface::Core *core, const QVariantList &)
         new QAction(QIcon::fromTheme(QLatin1String("view-refresh")),
                     i18nc("@action:inmenu", "Sync Journal"), this);
     actionCollection()->addAction(QLatin1String("journal_sync"), syncAction);
-#pragma "port QT5"
-    //QT5 syncAction->setHelpText(
-    //i18nc( "@info:status", "Synchronize groupware journal" ) );
+    str = i18nc( "@info:status", "Synchronize groupware journal" );
+    syncAction->setStatusTip(str);
+    syncAction->setToolTip(str);
+
     syncAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option to synchronize your groupware journal entries."));

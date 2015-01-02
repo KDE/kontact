@@ -72,8 +72,9 @@ SummaryViewPart::SummaryViewPart(KontactInterface::Core *core, const char *,
     mConfigAction = new QAction(QIcon::fromTheme(QLatin1String("configure")), i18n("&Configure Summary View..."), this);
     actionCollection()->addAction(QLatin1String("summaryview_configure"), mConfigAction);
     connect(mConfigAction, &QAction::triggered, this, &SummaryViewPart::slotConfigure);
-#pragma "port QT5"
-    //QT5 mConfigAction->setHelpText( i18n( "Configure the summary view" ) );
+    const QString str = i18n( "Configure the summary view" );
+    mConfigAction->setStatusTip(str);
+    mConfigAction->setToolTip(str);
     mConfigAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choosing this will show a dialog where you can select which "

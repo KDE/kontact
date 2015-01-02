@@ -66,10 +66,10 @@ KOrganizerPlugin::KOrganizerPlugin(KontactInterface::Core *core, const QVariantL
                     i18nc("@action:inmenu", "New Event..."), this);
     actionCollection()->addAction(QLatin1String("new_event"), action);
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_E));
-#pragma "port QT5"
+    QString str = i18nc( "@info:status", "Create a new event" );
+    action->setStatusTip(str);
+    action->setToolTip(str);
 
-    //QT5 action->setHelpText(
-    //i18nc( "@info:status", "Create a new event" ) );
     action->setWhatsThis(
         i18nc("@info:whatsthis",
               "You will be presented with a dialog where you can create a new event item."));
@@ -80,9 +80,10 @@ KOrganizerPlugin::KOrganizerPlugin(KontactInterface::Core *core, const QVariantL
         new QAction(QIcon::fromTheme(QLatin1String("view-refresh")),
                     i18nc("@action:inmenu", "Sync Calendar"), this);
     actionCollection()->addAction(QLatin1String("korganizer_sync"), syncAction);
-#pragma "port QT5"
-    //QT5 syncAction->setHelpText(
-    //i18nc( "@info:status", "Synchronize groupware calendar" ) );
+    str = i18nc( "@info:status", "Synchronize groupware calendar" );
+    syncAction->setStatusTip(str);
+    syncAction->setToolTip(str);
+
     syncAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option to synchronize your groupware events."));
