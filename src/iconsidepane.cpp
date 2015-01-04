@@ -173,7 +173,7 @@ class SortFilterProxyModel
     : public QSortFilterProxyModel
 {
 public:
-    SortFilterProxyModel(QObject *parent = 0): QSortFilterProxyModel(parent)
+    SortFilterProxyModel(QObject *parent = Q_NULLPTR): QSortFilterProxyModel(parent)
     {
         setDynamicSortFilter(true);
         sort(0);
