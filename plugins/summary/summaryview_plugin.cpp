@@ -39,7 +39,7 @@ EXPORT_KONTACT_PLUGIN(SummaryView, summary)
 SummaryView::SummaryView(KontactInterface::Core *core, const QVariantList &)
     : KontactInterface::Plugin(core, core, 0), mPart(0)
 {
-#pragma "port QT5"
+#pragma message("port QT5")
     //QT5 setComponentData( KontactPluginFactory::componentData() );
 
     mSyncAction = new KSelectAction(QIcon::fromTheme(QLatin1String("view-refresh")), i18n("Sync All"), this);

@@ -59,7 +59,7 @@ SummaryViewPart::SummaryViewPart(KontactInterface::Core *core, const char *,
                                  const KAboutData &aboutData, QObject *parent)
     : KParts::ReadOnlyPart(parent), mCore(core), mFrame(0), mConfigAction(0)
 {
-#pragma "port QT5"
+#pragma message("port QT5")
     //QT5 setComponentData( KComponentData( aboutData ) );
 
     loadLayout();

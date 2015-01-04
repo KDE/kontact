@@ -42,7 +42,7 @@ EXPORT_KONTACT_PLUGIN(KAddressBookPlugin, kaddressbook)
 KAddressBookPlugin::KAddressBookPlugin(KontactInterface::Core *core, const QVariantList &)
     : KontactInterface::Plugin(core, core, "kaddressbook")
 {
-#pragma "port QT5"
+#pragma message("port QT5")
     //QT5 setComponentData( KontactPluginFactory::componentData() );
 
     QAction *action =

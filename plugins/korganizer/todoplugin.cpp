@@ -54,7 +54,7 @@ EXPORT_KONTACT_PLUGIN(TodoPlugin, todo)
 TodoPlugin::TodoPlugin(KontactInterface::Core *core, const QVariantList &)
     : KontactInterface::Plugin(core, core, "korganizer", "todo"), mIface(0)
 {
-#pragma "port QT5"
+#pragma message("port QT5")
     //QT5 setComponentData( KontactPluginFactory::componentData() );
     KIconLoader::global()->addAppDir(QLatin1String("korganizer"));
     KIconLoader::global()->addAppDir(QLatin1String("kdepim"));
@@ -262,7 +262,7 @@ void TodoPlugin::processDropEvent(QDropEvent *event)
                           mail.messageId();
             QTemporaryFile tf;
             tf.setAutoRemove(true);
-#pragma "port QT5"
+#pragma message("port QT5")
             //QT5 tf.write( event->encodedData( "message/rfc822" ) );
             interface()->openTodoEditor(
                 i18nc("@item", "Mail: %1", mail.subject()),

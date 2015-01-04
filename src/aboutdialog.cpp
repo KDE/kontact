@@ -60,7 +60,7 @@ AboutDialog::AboutDialog(KontactInterface::Core *core)
     for (; it != end; ++it) {
         addAboutPlugin(*it);
     }
-#pragma "port QT5"
+#pragma message("port QT5")
     //QT5 addLicenseText( KComponentData::mainComponent().aboutData() );
     resize(QSize(600, 400));
     KConfigGroup grp = KConfigGroup(KSharedConfig::openConfig(), "AboutDialog");
@@ -77,7 +77,7 @@ void AboutDialog::saveSize()
 
 void AboutDialog::addAboutPlugin(KontactInterface::Plugin *plugin)
 {
-#pragma "port QT5"
+#pragma message("port QT5")
     //QT5 addAboutData( plugin->title(), plugin->icon(), plugin->aboutData() );
 }
 
@@ -101,7 +101,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
         QString text;
 
         text += QLatin1String("<p>");
-#pragma "port QT5"
+#pragma message("port QT5")
         //QT5 text += QLatin1String("<b>") + about->programName() + QLatin1String("</b>");
         text += QLatin1String("<br>");
 

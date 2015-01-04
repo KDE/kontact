@@ -41,7 +41,7 @@ EXPORT_KONTACT_PLUGIN(JournalPlugin, journal)
 JournalPlugin::JournalPlugin(KontactInterface::Core *core, const QVariantList &)
     : KontactInterface::Plugin(core, core, "korganizer", "journal"), mIface(0)
 {
-#pragma "port QT5"
+#pragma message("port QT5")
     //QT5 setComponentData( KontactPluginFactory::componentData() );
     KIconLoader::global()->addAppDir(QLatin1String("korganizer"));
     KIconLoader::global()->addAppDir(QLatin1String("kdepim"));

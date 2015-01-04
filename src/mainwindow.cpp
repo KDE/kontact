@@ -245,7 +245,7 @@ void MainWindow::initObject()
     if (mSidePane) {
         mSidePane->updatePlugins();
     }
-#pragma "port QT5"
+#pragma message("port QT5")
     //QT5 Port to KAboutData KSettings::Dispatcher::registerComponent( aboutData(), this, "updateConfig" );
 
     loadSettings();
@@ -1063,7 +1063,7 @@ void MainWindow::slotPreferences()
                 }
             }
         }
-#pragma "port QT5"
+#pragma message("port QT5")
         //QT5 dlg->setHelp( QLatin1String("main-config"), QLatin1String("kontact") );
         dlg->addPluginInfos(filteredPlugins);
         connect(dlg, &Kontact::KontactConfigureDialog::pluginSelectionChanged, this, &MainWindow::pluginsChanged);

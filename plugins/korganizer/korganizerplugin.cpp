@@ -56,7 +56,7 @@ EXPORT_KONTACT_PLUGIN(KOrganizerPlugin, korganizer)
 KOrganizerPlugin::KOrganizerPlugin(KontactInterface::Core *core, const QVariantList &)
     : KontactInterface::Plugin(core, core, "korganizer", "calendar"), mIface(0)
 {
-#pragma "port QT5"
+#pragma message("port QT5")
     //QT5 setComponentData( KontactPluginFactory::componentData() );
     KIconLoader::global()->addAppDir(QLatin1String("korganizer"));
     KIconLoader::global()->addAppDir(QLatin1String("kdepim"));
@@ -261,7 +261,7 @@ void KOrganizerPlugin::processDropEvent(QDropEvent *event)
             tf.setAutoRemove(true);
             tf.open();
             QString uri = QLatin1String("kmail:") + QString::number(mail.serialNumber());
-#pragma "port QT5"
+#pragma message("port QT5")
             //QT5 tf.write( event->encodedData( "message/rfc822" ) );
             interface()->openEventEditor(
                 i18nc("@item", "Mail: %1", mail.subject()), txt,
