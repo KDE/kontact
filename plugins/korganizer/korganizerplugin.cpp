@@ -66,7 +66,7 @@ KOrganizerPlugin::KOrganizerPlugin(KontactInterface::Core *core, const QVariantL
                     i18nc("@action:inmenu", "New Event..."), this);
     actionCollection()->addAction(QLatin1String("new_event"), action);
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_E));
-    QString str = i18nc( "@info:status", "Create a new event" );
+    QString str = i18nc("@info:status", "Create a new event");
     action->setStatusTip(str);
     action->setToolTip(str);
 
@@ -80,7 +80,7 @@ KOrganizerPlugin::KOrganizerPlugin(KontactInterface::Core *core, const QVariantL
         new QAction(QIcon::fromTheme(QLatin1String("view-refresh")),
                     i18nc("@action:inmenu", "Sync Calendar"), this);
     actionCollection()->addAction(QLatin1String("korganizer_sync"), syncAction);
-    str = i18nc( "@info:status", "Synchronize groupware calendar" );
+    str = i18nc("@info:status", "Synchronize groupware calendar");
     syncAction->setStatusTip(str);
     syncAction->setToolTip(str);
 

@@ -64,7 +64,7 @@ TodoPlugin::TodoPlugin(KontactInterface::Core *core, const QVariantList &)
                     i18nc("@action:inmenu", "New To-do..."), this);
     actionCollection()->addAction(QLatin1String("new_todo"), action);
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_T));
-    QString str = i18nc( "@info:status", "Create a new to-do" );
+    QString str = i18nc("@info:status", "Create a new to-do");
     action->setStatusTip(str);
     action->setToolTip(str);
 
@@ -77,7 +77,7 @@ TodoPlugin::TodoPlugin(KontactInterface::Core *core, const QVariantList &)
     QAction *syncAction =
         new QAction(QIcon::fromTheme(QLatin1String("view-refresh")),
                     i18nc("@action:inmenu", "Sync To-do List"), this);
-    str = i18nc( "@info:status", "Synchronize groupware to-do list" );
+    str = i18nc("@info:status", "Synchronize groupware to-do list");
     syncAction->setStatusTip(str);
     syncAction->setToolTip(str);
     syncAction->setWhatsThis(

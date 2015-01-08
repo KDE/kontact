@@ -72,7 +72,7 @@ SummaryViewPart::SummaryViewPart(KontactInterface::Core *core, const char *,
     mConfigAction = new QAction(QIcon::fromTheme(QLatin1String("configure")), i18n("&Configure Summary View..."), this);
     actionCollection()->addAction(QLatin1String("summaryview_configure"), mConfigAction);
     connect(mConfigAction, &QAction::triggered, this, &SummaryViewPart::slotConfigure);
-    const QString str = i18n( "Configure the summary view" );
+    const QString str = i18n("Configure the summary view");
     mConfigAction->setStatusTip(str);
     mConfigAction->setToolTip(str);
     mConfigAction->setWhatsThis(
