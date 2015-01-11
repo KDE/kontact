@@ -49,14 +49,14 @@ add_library(kcm_knotessummary MODULE ${kcm_knotessummary_PART_SRCS})
 target_link_libraries(kcm_knotessummary  KF5::Mime KF5::AkonadiCore akonadi_next pimcommon)
 
 
-install(TARGETS kcm_knotessummary DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_knotessummary DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES kcmknotessummary.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES kcmknotessummary.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
 
-install(TARGETS kontact_knotesplugin DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES knotes_part.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/knotes)
-install(FILES knotesplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-install(FILES org.kde.kontact.KNotes.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+install(TARGETS kontact_knotesplugin DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(FILES knotes_part.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/knotes)
+install(FILES knotesplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR}/kontact)
+install(FILES org.kde.kontact.KNotes.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
 
-install(FILES knotes.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
+install(FILES knotes.setdlg DESTINATION ${KDE_INSTALL_DATADIR}/kontact/ksettingsdialog)

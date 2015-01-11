@@ -39,11 +39,11 @@ target_link_libraries(kcm_sdsummary Qt5::Widgets KF5::KCMUtils KF5::I18n)
 
 ########### install files ###############
 
-install(TARGETS kontact_specialdatesplugin DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kcm_sdsummary DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_specialdatesplugin DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(TARGETS kcm_sdsummary DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES specialdatesplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-install(FILES kcmsdsummary.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES specialdatesplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR}/kontact)
+install(FILES kcmsdsummary.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
-install(FILES specialdates.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
+install(FILES specialdates.setdlg DESTINATION ${KDE_INSTALL_DATADIR}/kontact/ksettingsdialog)
 

@@ -59,15 +59,15 @@ add_subdirectory(autotests)
 
 ########### install files ###############
 
-install(TARGETS kcm_apptsummary DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kcm_todosummary DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kontact_korganizerplugin DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kontact_todoplugin DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kontact_journalplugin DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_apptsummary DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(TARGETS kcm_todosummary DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(TARGETS kontact_korganizerplugin DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(TARGETS kontact_todoplugin DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(TARGETS kontact_journalplugin DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES korganizerplugin.desktop todoplugin.desktop journalplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-install(FILES kcmapptsummary.desktop kcmtodosummary.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES korganizerplugin.desktop todoplugin.desktop journalplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR}/kontact)
+install(FILES kcmapptsummary.desktop kcmtodosummary.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
-install(FILES korganizer.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
+install(FILES korganizer.setdlg DESTINATION ${KDE_INSTALL_DATADIR}/kontact/ksettingsdialog)
 
 

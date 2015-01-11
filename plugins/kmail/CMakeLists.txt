@@ -30,12 +30,12 @@ target_link_libraries(kcm_kmailsummary  KF5::Mime KF5::AkonadiCore akonadi_next 
 
 ########### install files ###############
 
-install(TARGETS kontact_kmailplugin DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_kmailplugin DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(TARGETS kcm_kmailsummary DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_kmailsummary DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES kmailplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install(FILES kmailplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR}/kontact)
 
-install(FILES kcmkmailsummary.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES kcmkmailsummary.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
-install(FILES kmail.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
+install(FILES kmail.setdlg DESTINATION ${KDE_INSTALL_DATADIR}/kontact/ksettingsdialog)

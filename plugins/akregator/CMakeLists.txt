@@ -16,9 +16,9 @@ target_link_libraries(kontact_akregatorplugin  KF5::KontactInterface)
 
 ########### install files ###############
 
-install(TARGETS kontact_akregatorplugin DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_akregatorplugin DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES akregatorplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
+install(FILES akregatorplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR}/kontact)
 
-install(FILES akregator.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
+install(FILES akregator.setdlg DESTINATION ${KDE_INSTALL_DATADIR}/kontact/ksettingsdialog)
 

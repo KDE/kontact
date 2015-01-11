@@ -23,11 +23,11 @@ target_link_libraries(kcm_kontactsummary KF5::KCMUtils Qt5::Widgets KF5::KCMUtil
 
 ########### install files ###############
 
-install(TARGETS kontact_summaryplugin DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS kcm_kontactsummary DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kontact_summaryplugin DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(TARGETS kcm_kontactsummary DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES summaryplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-install(FILES kcmkontactsummary.desktop DESTINATION ${SERVICES_INSTALL_DIR})
-install(FILES kontactsummary_part.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kontactsummary)
+install(FILES summaryplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR}/kontact)
+install(FILES kcmkontactsummary.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES kontactsummary_part.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kontactsummary)
 
-install(FILES summary.setdlg DESTINATION ${DATA_INSTALL_DIR}/kontact/ksettingsdialog)
+install(FILES summary.setdlg DESTINATION ${KDE_INSTALL_DATADIR}/kontact/ksettingsdialog)

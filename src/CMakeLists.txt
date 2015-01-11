@@ -35,7 +35,7 @@ set_target_properties(kontactprivate PROPERTIES
   SOVERSION ${KDEPIM_LIB_SOVERSION}
 )
 
-install(TARGETS kontactprivate ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS kontactprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 ########### next target ###############
 
@@ -55,7 +55,7 @@ target_link_libraries(kontact_bin
   kontactprivate
 )
 
-install(TARGETS kontact_bin ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kontact_bin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
@@ -69,15 +69,15 @@ target_link_libraries(kcm_kontact
   kontactprivate
 )
 
-install(TARGETS kcm_kontact DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
 ########### install files ###############
 
-install(PROGRAMS org.kde.kontact.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install(FILES Kontact.appdata.xml DESTINATION ${CMAKE_INSTALL_METAINFODIR})
-install(FILES kontact.kcfg DESTINATION ${KCFG_INSTALL_DIR})
-install(FILES kontactconfig.desktop DESTINATION ${SERVICES_INSTALL_DIR})
-install(FILES kontactui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kontact)
+install(PROGRAMS org.kde.kontact.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES Kontact.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(FILES kontact.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
+install(FILES kontactconfig.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES kontactui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kontact)
 
 add_subdirectory(icons)
 
