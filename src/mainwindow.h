@@ -108,8 +108,8 @@ private:
     void setupActions();
     void showTip(bool);
     bool queryClose() Q_DECL_OVERRIDE;
-    virtual void readProperties(const KConfigGroup &config);
-    virtual void saveProperties(KConfigGroup &config);
+    void readProperties(const KConfigGroup &config) Q_DECL_OVERRIDE;
+    void saveProperties(KConfigGroup &config) Q_DECL_OVERRIDE;
     void paintAboutScreen(const QString &msg);
     static QString introductionString();
     KToolBar *findToolBar(const char *name);
