@@ -55,8 +55,9 @@ add_library(kcm_todosummary MODULE ${kcm_todosummary_PART_SRCS})
 target_link_libraries(kcm_todosummary Qt5::Widgets KF5::KCMUtils KF5::I18n)
 
 ########## Unit Test ###########
-add_subdirectory(autotests)
-
+if (BUILD_TESTING)
+   add_subdirectory(autotests)
+endif()
 ########### install files ###############
 
 install(TARGETS kcm_apptsummary DESTINATION ${KDE_INSTALL_PLUGINDIR})
