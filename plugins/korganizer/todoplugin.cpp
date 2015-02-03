@@ -262,8 +262,8 @@ void TodoPlugin::processDropEvent(QDropEvent *event)
                           mail.messageId();
             QTemporaryFile tf;
             tf.setAutoRemove(true);
-#pragma message("port QT5")
-            //QT5 tf.write( event->encodedData( "message/rfc822" ) );
+
+            tf.write( event->mimeData()->data( QLatin1String("message/rfc822") ) );
             interface()->openTodoEditor(
                 i18nc("@item", "Mail: %1", mail.subject()),
                 txt, uri, tf.fileName(), QStringList(), QLatin1String("message/rfc822"));
