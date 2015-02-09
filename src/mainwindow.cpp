@@ -430,7 +430,7 @@ void MainWindow::initAboutScreen()
     mIntroPart->settings()->setAttribute(QWebSettings::JavaEnabled, false);
     mIntroPart->settings()->setAttribute(QWebSettings::PluginsEnabled, false);
 
-    connect(mIntroPart->page(), SIGNAL(linkClicked(QUrl)), this, SLOT(slotOpenUrl(QUrl)), Qt::QueuedConnection);
+    connect(mIntroPart->page(), &QWebPage::linkClicked, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
 }
 
 void MainWindow::setupActions()

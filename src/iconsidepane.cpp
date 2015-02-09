@@ -348,8 +348,8 @@ Navigator::Navigator(SidePaneBase *parent)
     viewport()->setAcceptDrops(true);
     setDropIndicatorShown(true);
 
-    connect(selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-            this, SLOT(slotCurrentChanged(QModelIndex)));
+    connect(selectionModel(), &QItemSelectionModel::currentChanged,
+            this, &Navigator::slotCurrentChanged);
 }
 
 void Navigator::updatePlugins(QList<KontactInterface::Plugin *> plugins_)
