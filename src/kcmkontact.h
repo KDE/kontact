@@ -40,7 +40,7 @@ class KcmKontact : public KPrefsModule
 public:
     explicit KcmKontact(QWidget *parent = Q_NULLPTR);
 
-    virtual const KAboutData *aboutData() const;
+    const KAboutData *aboutData() const Q_DECL_OVERRIDE;
 };
 
 class PluginSelection : public KPrefsWid
@@ -51,10 +51,10 @@ public:
     PluginSelection(KConfigSkeleton::ItemString *item, QWidget *parent);
     ~PluginSelection();
 
-    void readConfig();
-    void writeConfig();
+    void readConfig() Q_DECL_OVERRIDE;
+    void writeConfig() Q_DECL_OVERRIDE;
 
-    QList<QWidget *> widgets() const;
+    QList<QWidget *> widgets() const Q_DECL_OVERRIDE;
     KComboBox *comboBox() const
     {
         return mPluginCombo;

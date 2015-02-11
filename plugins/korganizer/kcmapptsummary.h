@@ -40,10 +40,10 @@ class KCMApptSummary : public KCModule, public Ui::ApptSummaryConfig_Base
 public:
     explicit KCMApptSummary(QWidget *parent = Q_NULLPTR);
 
-    void load();
-    void save();
-    void defaults();
-    const KAboutData *aboutData() const;
+    void load() Q_DECL_OVERRIDE;
+    void save() Q_DECL_OVERRIDE;
+    void defaults() Q_DECL_OVERRIDE;
+    const KAboutData *aboutData() const Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void modified();

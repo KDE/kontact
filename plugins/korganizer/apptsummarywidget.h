@@ -49,13 +49,13 @@ public:
     ApptSummaryWidget(KOrganizerPlugin *plugin, QWidget *parent);
     ~ApptSummaryWidget();
 
-    int summaryHeight() const
+    int summaryHeight() const Q_DECL_OVERRIDE
     {
         return 3;
     }
-    QStringList configModules() const;
+    QStringList configModules() const Q_DECL_OVERRIDE;
     void configUpdated();
-    void updateSummary(bool force = false)
+    void updateSummary(bool force = false) Q_DECL_OVERRIDE
     {
         Q_UNUSED(force);
         updateView();

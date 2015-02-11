@@ -129,7 +129,7 @@ public:
 };
 
 SDSummaryWidget::SDSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent)
-    : KontactInterface::Summary(parent), mPlugin(plugin), mHolidays(0)
+    : KontactInterface::Summary(parent), mPlugin(plugin), mHolidays(Q_NULLPTR)
 {
     mCalendar = CalendarSupport::calendarSingleton();
     // Create the Summary Layout
@@ -280,7 +280,7 @@ void SDSummaryWidget::createLabels()
 {
     KIconLoader loader(QLatin1String("kdepim"));
 
-    QLabel *label = 0;
+    QLabel *label = Q_NULLPTR;
 
     // Remove all special date labels from the layout and delete them, as we
     // will re-create all labels below.

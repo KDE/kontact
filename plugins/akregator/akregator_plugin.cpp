@@ -38,7 +38,7 @@
 EXPORT_KONTACT_PLUGIN(AkregatorPlugin, akregator)
 
 AkregatorPlugin::AkregatorPlugin(KontactInterface::Core *core, const QVariantList &)
-    : KontactInterface::Plugin(core, core, "akregator"), m_interface(0)
+    : KontactInterface::Plugin(core, core, "akregator"), m_interface(Q_NULLPTR)
 {
 
 #pragma message("port QT5")
@@ -65,7 +65,7 @@ AkregatorPlugin::AkregatorPlugin(KontactInterface::Core *core, const QVariantLis
 AkregatorPlugin::~AkregatorPlugin()
 {
     delete m_interface;
-    m_interface = 0;
+    m_interface = Q_NULLPTR;
 }
 
 bool AkregatorPlugin::isRunningStandalone() const
@@ -100,7 +100,7 @@ KParts::ReadOnlyPart *AkregatorPlugin::createPart()
 {
     KParts::ReadOnlyPart *part = loadPart();
     if (!part) {
-        return 0;
+        return Q_NULLPTR;
     }
 
     m_interface = new OrgKdeAkregatorPartInterface(

@@ -66,7 +66,7 @@ public:
         return mShowText;
     }
 
-    virtual QSize sizeHint() const;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void pluginActivated(KontactInterface::Plugin *plugin);
@@ -107,10 +107,10 @@ public:
     IconSidePane(KontactInterface::Core *core, QWidget *parent);
     ~IconSidePane();
 
-    void setCurrentPlugin(const QString &plugin);
+    void setCurrentPlugin(const QString &plugin) Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
-    virtual void updatePlugins();
+    void updatePlugins() Q_DECL_OVERRIDE;
 
 protected:
     void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;

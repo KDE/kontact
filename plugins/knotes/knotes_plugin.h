@@ -32,8 +32,8 @@ class KNotesUniqueAppHandler : public KontactInterface::UniqueAppHandler
 public:
     explicit KNotesUniqueAppHandler(KontactInterface::Plugin *plugin)
         : KontactInterface::UniqueAppHandler(plugin) {}
-    virtual void loadCommandLineOptions();
-    virtual int newInstance();
+    void loadCommandLineOptions() Q_DECL_OVERRIDE;
+    int newInstance() Q_DECL_OVERRIDE;
 };
 
 class KNotesPlugin : public KontactInterface::Plugin
@@ -43,24 +43,24 @@ public:
     KNotesPlugin(KontactInterface::Core *core, const QVariantList &);
     ~KNotesPlugin();
 
-    virtual KontactInterface::Summary *createSummaryWidget(QWidget *parentWidget);
+    KontactInterface::Summary *createSummaryWidget(QWidget *parentWidget) Q_DECL_OVERRIDE;
 
-    bool isRunningStandalone() const;
+    bool isRunningStandalone() const Q_DECL_OVERRIDE;
 
-    QString tipFile() const;
-    int weight() const
+    QString tipFile() const Q_DECL_OVERRIDE;
+    int weight() const Q_DECL_OVERRIDE
     {
         return 600;
     }
 
-    const KAboutData aboutData();
+    const KAboutData aboutData() Q_DECL_OVERRIDE;
 
     bool canDecodeMimeData(const QMimeData *data) const Q_DECL_OVERRIDE;
     void processDropEvent(QDropEvent *) Q_DECL_OVERRIDE;
     void shortcutChanged() Q_DECL_OVERRIDE;
 
 protected:
-    KParts::ReadOnlyPart *createPart();
+    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void slotNewNote();

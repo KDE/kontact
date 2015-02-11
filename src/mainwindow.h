@@ -56,7 +56,7 @@ public:
     MainWindow();
     ~MainWindow();
 
-    virtual PluginList pluginList() const
+    PluginList pluginList() const Q_DECL_OVERRIDE
     {
         return mPlugins;
     }
@@ -67,8 +67,8 @@ public:
                                      const KontactInterface::Plugin *right);
 
 public Q_SLOTS:
-    virtual void selectPlugin(KontactInterface::Plugin *plugin);
-    Q_SCRIPTABLE virtual void selectPlugin(const QString &pluginName);
+    void selectPlugin(KontactInterface::Plugin *plugin) Q_DECL_OVERRIDE;
+    Q_SCRIPTABLE virtual void selectPlugin(const QString &pluginName) Q_DECL_OVERRIDE;
     void slotActionTriggered();
 
     void updateConfig();
@@ -104,7 +104,7 @@ private:
     void updateShortcuts();
     bool removePlugin(const KPluginInfo &);
     void addPlugin(KontactInterface::Plugin *plugin);
-    void partLoaded(KontactInterface::Plugin *plugin, KParts::ReadOnlyPart *part);
+    void partLoaded(KontactInterface::Plugin *plugin, KParts::ReadOnlyPart *part) Q_DECL_OVERRIDE;
     void setupActions();
     void showTip(bool);
     bool queryClose() Q_DECL_OVERRIDE;
@@ -118,7 +118,7 @@ private Q_SLOTS:
     void pluginsChanged();
 
     void configureShortcuts();
-    void configureToolbars();
+    void configureToolbars() Q_DECL_OVERRIDE;
     void slotShowHideSideBar();
 
 private:

@@ -262,7 +262,7 @@ KNotesPart::KNotesPart(QObject *parent)
 KNotesPart::~KNotesPart()
 {
     delete mPublisher;
-    mPublisher = 0;
+    mPublisher = Q_NULLPTR;
 }
 
 void KNotesPart::updateClickMessage()
@@ -672,7 +672,7 @@ void KNotesPart::slotSendToNetwork()
 void KNotesPart::updateNetworkListener()
 {
     delete mPublisher;
-    mPublisher = 0;
+    mPublisher = Q_NULLPTR;
 
     if (NoteShared::NoteSharedGlobalConfig::receiveNotes()) {
         // create the socket and start listening for connections
@@ -735,10 +735,10 @@ void KNotesPart::slotSaveAs()
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
 
     QUrl url;
-    QCheckBox *convert = 0;
+    QCheckBox *convert = Q_NULLPTR;
 
     if (knoteItem->isRichText()) {
-        convert = new QCheckBox(0);
+        convert = new QCheckBox(Q_NULLPTR);
         convert->setText(i18n("Save note as plain text"));
     }
     QPointer<KFileDialog> dlg = new KFileDialog(url, QString(), widget(), convert);

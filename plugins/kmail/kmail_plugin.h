@@ -41,8 +41,8 @@ class KMailUniqueAppHandler : public KontactInterface::UniqueAppHandler
 public:
     explicit KMailUniqueAppHandler(KontactInterface::Plugin *plugin)
         : KontactInterface::UniqueAppHandler(plugin) {}
-    virtual void loadCommandLineOptions();
-    virtual int newInstance();
+    void loadCommandLineOptions() Q_DECL_OVERRIDE;
+    int newInstance() Q_DECL_OVERRIDE;
 };
 
 class KMailPlugin : public KontactInterface::Plugin
@@ -53,26 +53,26 @@ public:
     KMailPlugin(KontactInterface::Core *core, const QVariantList &);
     ~KMailPlugin();
 
-    bool isRunningStandalone() const;
-    bool createDBUSInterface(const QString &serviceType);
-    virtual KontactInterface::Summary *createSummaryWidget(QWidget *parent);
-    QString tipFile() const;
-    int weight() const
+    bool isRunningStandalone() const Q_DECL_OVERRIDE;
+    bool createDBUSInterface(const QString &serviceType) Q_DECL_OVERRIDE;
+    KontactInterface::Summary *createSummaryWidget(QWidget *parent) Q_DECL_OVERRIDE;
+    QString tipFile() const Q_DECL_OVERRIDE;
+    int weight() const Q_DECL_OVERRIDE
     {
         return 200;
     }
 
-    QStringList invisibleToolbarActions() const;
-    virtual bool queryClose() const;
+    QStringList invisibleToolbarActions() const Q_DECL_OVERRIDE;
+    bool queryClose() const Q_DECL_OVERRIDE;
 
-    void shortcutChanged();
+    void shortcutChanged() Q_DECL_OVERRIDE;
 
 protected:
-    virtual KParts::ReadOnlyPart *createPart();
+    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE;
     void openComposer(const QUrl &attach = QUrl());
     void openComposer(const QString &to);
-    bool canDecodeMimeData(const QMimeData *) const;
-    void processDropEvent(QDropEvent *);
+    bool canDecodeMimeData(const QMimeData *) const Q_DECL_OVERRIDE;
+    void processDropEvent(QDropEvent *) Q_DECL_OVERRIDE;
 
 protected Q_SLOTS:
     void slotNewMail();

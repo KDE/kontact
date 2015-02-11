@@ -35,7 +35,7 @@
 EXPORT_KONTACT_PLUGIN(SpecialdatesPlugin, specialdates)
 
 SpecialdatesPlugin::SpecialdatesPlugin(KontactInterface::Core *core, const QVariantList &)
-    : KontactInterface::Plugin(core, core, 0)
+    : KontactInterface::Plugin(core, core, Q_NULLPTR)
 {
 #pragma message("port QT5")
     //QT5 setComponentData( KontactPluginFactory::componentData() );

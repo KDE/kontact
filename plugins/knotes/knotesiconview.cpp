@@ -102,7 +102,7 @@ KNotesIconViewItem *KNotesIconView::iconView(Akonadi::Item::Id id) const
     if (mNoteList.contains(id)) {
         return mNoteList.value(id);
     }
-    return 0;
+    return Q_NULLPTR;
 }
 
 QHash<Akonadi::Entity::Id, KNotesIconViewItem *> KNotesIconView::noteList() const
@@ -133,7 +133,7 @@ KNotesIconViewItem::~KNotesIconViewItem()
 void KNotesIconViewItem::prepare()
 {
     const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
-    const KMime::Headers::Subject *const subject = noteMessage ? noteMessage->subject(false) : 0;
+    const KMime::Headers::Subject *const subject = noteMessage ? noteMessage->subject(false) : Q_NULLPTR;
     setText(subject ? subject->asUnicodeString() : QString());
 
     if (mItem.hasAttribute<NoteShared::NoteLockAttribute>()) {
@@ -209,7 +209,7 @@ void KNotesIconViewItem::setIconText(const QString &text, bool save)
 QString KNotesIconViewItem::realName() const
 {
     const KMime::Message::Ptr noteMessage = mItem.payload<KMime::Message::Ptr>();
-    const KMime::Headers::Subject *const subject = noteMessage ? noteMessage->subject(false) : 0;
+    const KMime::Headers::Subject *const subject = noteMessage ? noteMessage->subject(false) : Q_NULLPTR;
     return subject ? subject->asUnicodeString() : QString();
 }
 
@@ -318,7 +318,7 @@ void KNotesIconViewItem::setChangeItem(const Akonadi::Item &item, const QSet<QBy
     }
     if (set.contains("PLD:RFC822")) {
         const KMime::Message::Ptr noteMessage = item.payload<KMime::Message::Ptr>();
-        const KMime::Headers::Subject *const subject = noteMessage ? noteMessage->subject(false) : 0;
+        const KMime::Headers::Subject *const subject = noteMessage ? noteMessage->subject(false) : Q_NULLPTR;
         setIconText(subject ? subject->asUnicodeString() : QString(), false);
     }
     if (set.contains("ATR:NoteDisplayAttribute")) {

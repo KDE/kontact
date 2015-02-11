@@ -35,19 +35,19 @@ public:
     SpecialdatesPlugin(KontactInterface::Core *core, const QVariantList &);
     ~SpecialdatesPlugin();
 
-    int weight() const
+    int weight() const Q_DECL_OVERRIDE
     {
         return 325;
     }
 
-    const KAboutData aboutData();
+    const KAboutData aboutData() Q_DECL_OVERRIDE;
 
-    virtual KontactInterface::Summary *createSummaryWidget(QWidget *parentWidget);
+    KontactInterface::Summary *createSummaryWidget(QWidget *parentWidget) Q_DECL_OVERRIDE;
 
 protected:
-    virtual KParts::ReadOnlyPart *createPart()
+    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE
     {
-        return 0;
+        return Q_NULLPTR;
     }
 
 };

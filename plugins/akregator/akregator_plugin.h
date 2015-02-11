@@ -39,8 +39,8 @@ class AkregatorUniqueAppHandler : public KontactInterface::UniqueAppHandler
 public:
     explicit AkregatorUniqueAppHandler(KontactInterface::Plugin *plugin)
         : KontactInterface::UniqueAppHandler(plugin) {}
-    virtual void loadCommandLineOptions();
-    virtual int newInstance();
+    void loadCommandLineOptions() Q_DECL_OVERRIDE;
+    int newInstance() Q_DECL_OVERRIDE;
 };
 
 class AkregatorPlugin : public KontactInterface::Plugin
@@ -51,8 +51,8 @@ public:
     AkregatorPlugin(KontactInterface::Core *core, const QVariantList &);
     ~AkregatorPlugin();
 
-    QString tipFile() const;
-    int weight() const
+    QString tipFile() const Q_DECL_OVERRIDE;
+    int weight() const Q_DECL_OVERRIDE
     {
         return 475;
     }
@@ -60,16 +60,16 @@ public:
     OrgKdeAkregatorPartInterface *interface();
 
     virtual QStringList configModules() const;
-    QStringList invisibleToolbarActions() const;
-    bool isRunningStandalone() const;
-    virtual void readProperties(const KConfigGroup &config);
-    virtual void saveProperties(KConfigGroup &config);
+    QStringList invisibleToolbarActions() const Q_DECL_OVERRIDE;
+    bool isRunningStandalone() const Q_DECL_OVERRIDE;
+    void readProperties(const KConfigGroup &config) Q_DECL_OVERRIDE;
+    void saveProperties(KConfigGroup &config) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void addFeed();
 
 protected:
-    KParts::ReadOnlyPart *createPart();
+    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE;
     KontactInterface::UniqueAppWatcher *mUniqueAppWatcher;
     OrgKdeAkregatorPartInterface *m_interface;
 };

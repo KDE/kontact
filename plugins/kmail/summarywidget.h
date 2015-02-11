@@ -57,17 +57,17 @@ class SummaryWidget : public KontactInterface::Summary
 public:
     SummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent);
 
-    int summaryHeight() const
+    int summaryHeight() const Q_DECL_OVERRIDE
     {
         return 1;
     }
-    QStringList configModules() const;
+    QStringList configModules() const Q_DECL_OVERRIDE;
 
 protected:
     bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
-    virtual void updateSummary(bool force);
+    void updateSummary(bool force) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void selectFolder(const QString &);

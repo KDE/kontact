@@ -52,7 +52,7 @@
 EXPORT_KONTACT_PLUGIN(TodoPlugin, todo)
 
 TodoPlugin::TodoPlugin(KontactInterface::Core *core, const QVariantList &)
-    : KontactInterface::Plugin(core, core, "korganizer", "todo"), mIface(0)
+    : KontactInterface::Plugin(core, core, "korganizer", "todo"), mIface(Q_NULLPTR)
 {
 #pragma message("port QT5")
     //QT5 setComponentData( KontactPluginFactory::componentData() );
@@ -104,7 +104,7 @@ KParts::ReadOnlyPart *TodoPlugin::createPart()
     KParts::ReadOnlyPart *part = loadPart();
 
     if (!part) {
-        return 0;
+        return Q_NULLPTR;
     }
 
     mIface = new OrgKdeKorganizerCalendarInterface(

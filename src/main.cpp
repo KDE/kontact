@@ -59,14 +59,14 @@ class KontactApp : public
 {
     Q_OBJECT
 public:
-    KontactApp() : mMainWindow(0), mSessionRestored(false)
+    KontactApp() : mMainWindow(Q_NULLPTR), mSessionRestored(false)
     {
         KIconLoader::global()->addAppDir(QLatin1String("kdepim"));
     }
     ~KontactApp() {}
 
     /*reimp*/
-    int newInstance();
+    int newInstance() Q_DECL_OVERRIDE;
 
     void setMainWindow(MainWindow *window)
     {
@@ -160,7 +160,7 @@ int KontactApp::newInstance()
 
 int main(int argc, char **argv)
 {
-    K4AboutData about("kontact", 0, ki18n("Kontact"), version, ki18n(description),
+    K4AboutData about("kontact", Q_NULLPTR, ki18n("Kontact"), version, ki18n(description),
                       K4AboutData::License_GPL,
                       ki18n("Copyright © 2001–2015 Kontact authors"),
                       KLocalizedString(), "http://kontact.org");

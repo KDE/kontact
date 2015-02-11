@@ -55,9 +55,9 @@ public:
     SDSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent);
     ~SDSummaryWidget();
 
-    QStringList configModules() const;
+    QStringList configModules() const Q_DECL_OVERRIDE;
     void configUpdated();
-    void updateSummary(bool force = false)
+    void updateSummary(bool force = false) Q_DECL_OVERRIDE
     {
         Q_UNUSED(force);
         updateView();

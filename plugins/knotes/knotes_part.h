@@ -61,7 +61,7 @@ public:
     explicit KNotesPart(QObject *parent = Q_NULLPTR);
     ~KNotesPart();
 
-    bool openFile();
+    bool openFile() Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     void newNote(const QString &name = QString(),

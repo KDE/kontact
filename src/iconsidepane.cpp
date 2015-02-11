@@ -55,14 +55,14 @@ public:
     }
 
 public Q_SLOTS:
-    void clear()
+    void clear() Q_DECL_OVERRIDE
     {
         // Don't allow the current selection to be cleared. QListView doesn't call to this method
         // nowadays, but just to cover of future change of implementation, since QTreeView does call
         // to this one when clearing the selection.
     }
 
-    void select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command)
+    void select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE
     {
         // Don't allow the current selection to be cleared
         if (!index.isValid() && (command & QItemSelectionModel::Clear)) {
@@ -72,7 +72,7 @@ public Q_SLOTS:
     }
 
     void select(const QItemSelection &selection,
-                QItemSelectionModel::SelectionFlags command)
+                QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE
     {
         // Don't allow the current selection to be cleared
         if (!selection.count() && (command & QItemSelectionModel::Clear)) {
@@ -89,7 +89,7 @@ public:
         PluginName = Qt::UserRole
     };
 
-    Model(Navigator *parentNavigator = 0)
+    Model(Navigator *parentNavigator = Q_NULLPTR)
         : QStringListModel(parentNavigator), mNavigator(parentNavigator)
     {
     }
@@ -104,7 +104,7 @@ public:
         pluginList = list;
     }
 
-    Qt::ItemFlags flags(const QModelIndex &index) const
+    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE
     {
         Qt::ItemFlags flags = QStringListModel::flags(index);
 
@@ -126,7 +126,7 @@ public:
     }
 
     QModelIndex index(int row, int column,
-                      const QModelIndex &parent = QModelIndex()) const
+                      const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE
     {
         Q_UNUSED(parent);
         if (row < 0 || row >= pluginList.count()) {
@@ -135,7 +135,7 @@ public:
         return createIndex(row, column, pluginList[row]);
     }
 
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE
     {
         if (!index.isValid() || !index.internalPointer()) {
             return QVariant();
@@ -199,13 +199,13 @@ protected:
 class Delegate : public QStyledItemDelegate
 {
 public:
-    Delegate(Navigator *parentNavigator = 0)
+    Delegate(Navigator *parentNavigator = Q_NULLPTR)
         : QStyledItemDelegate(parentNavigator), mNavigator(parentNavigator)
     {
     }
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
-               const QModelIndex &index) const
+               const QModelIndex &index) const Q_DECL_OVERRIDE
     {
         if (!index.isValid() || !index.internalPointer()) {
             return;
@@ -218,7 +218,7 @@ public:
         QStyledItemDelegate::paint(painter, optionCopy, index);
     }
 
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE
     {
         if (!index.isValid() || !index.internalPointer()) {
             return QSize();
@@ -333,7 +333,7 @@ Navigator::Navigator(SidePaneBase *parent)
     actionList << mShowIconsAction << mShowTextAction << mShowBothAction << sep
                << mBigIconsAction << mNormalIconsAction << mSmallIconsAction;
 
-    insertActions(0, actionList);
+    insertActions(Q_NULLPTR, actionList);
 
     setContextMenuPolicy(Qt::ActionsContextMenu);
     setViewMode(ListMode);

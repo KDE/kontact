@@ -33,8 +33,8 @@ class KAddressBookUniqueAppHandler : public KontactInterface::UniqueAppHandler
 public:
     explicit KAddressBookUniqueAppHandler(KontactInterface::Plugin *plugin)
         : KontactInterface::UniqueAppHandler(plugin) {}
-    virtual void loadCommandLineOptions();
-    virtual int newInstance();
+    void loadCommandLineOptions() Q_DECL_OVERRIDE;
+    int newInstance() Q_DECL_OVERRIDE;
 };
 
 class KAddressBookPlugin : public KontactInterface::Plugin
@@ -45,18 +45,18 @@ public:
     KAddressBookPlugin(KontactInterface::Core *core, const QVariantList &);
     ~KAddressBookPlugin();
 
-    QString tipFile() const;
-    bool isRunningStandalone() const;
-    int weight() const
+    QString tipFile() const Q_DECL_OVERRIDE;
+    bool isRunningStandalone() const Q_DECL_OVERRIDE;
+    int weight() const Q_DECL_OVERRIDE
     {
         return 300;
     }
 
-    QStringList invisibleToolbarActions() const;
-    void shortcutChanged();
+    QStringList invisibleToolbarActions() const Q_DECL_OVERRIDE;
+    void shortcutChanged() Q_DECL_OVERRIDE;
 
 protected:
-    KParts::ReadOnlyPart *createPart();
+    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void slotNewContact();

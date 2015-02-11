@@ -40,9 +40,9 @@ public:
     TodoPlugin(KontactInterface::Core *core, const QVariantList &);
     ~TodoPlugin();
 
-    bool createDBUSInterface(const QString &serviceType);
-    bool isRunningStandalone() const;
-    int weight() const
+    bool createDBUSInterface(const QString &serviceType) Q_DECL_OVERRIDE;
+    bool isRunningStandalone() const Q_DECL_OVERRIDE;
+    int weight() const Q_DECL_OVERRIDE
     {
         return 450;
     }
@@ -52,14 +52,14 @@ public:
 
     QStringList invisibleToolbarActions() const Q_DECL_OVERRIDE;
 
-    virtual KontactInterface::Summary *createSummaryWidget(QWidget *parent);
+    KontactInterface::Summary *createSummaryWidget(QWidget *parent) Q_DECL_OVERRIDE;
 
     void select() Q_DECL_OVERRIDE;
 
     OrgKdeKorganizerCalendarInterface *interface();
 
 protected:
-    KParts::ReadOnlyPart *createPart();
+    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void slotNewTodo();

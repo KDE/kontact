@@ -42,9 +42,9 @@ public:
     KOrganizerPlugin(KontactInterface::Core *core, const QVariantList &);
     ~KOrganizerPlugin();
 
-    bool createDBUSInterface(const QString &serviceType);
-    bool isRunningStandalone() const;
-    int weight() const
+    bool createDBUSInterface(const QString &serviceType) Q_DECL_OVERRIDE;
+    bool isRunningStandalone() const Q_DECL_OVERRIDE;
+    int weight() const Q_DECL_OVERRIDE
     {
         return 400;
     }
@@ -52,17 +52,17 @@ public:
     bool canDecodeMimeData(const QMimeData *) const Q_DECL_OVERRIDE;
     void processDropEvent(QDropEvent *) Q_DECL_OVERRIDE;
 
-    virtual KontactInterface::Summary *createSummaryWidget(QWidget *parent);
+    KontactInterface::Summary *createSummaryWidget(QWidget *parent) Q_DECL_OVERRIDE;
 
     QString tipFile() const Q_DECL_OVERRIDE;
     QStringList invisibleToolbarActions() const Q_DECL_OVERRIDE;
 
-    void select();
+    void select() Q_DECL_OVERRIDE;
 
     OrgKdeKorganizerCalendarInterface *interface();
 
 protected:
-    KParts::ReadOnlyPart *createPart();
+    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void slotNewEvent();

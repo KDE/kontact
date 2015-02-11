@@ -93,8 +93,8 @@ public:
 
     virtual int startServiceFor(const QString &serviceType,
                                 const QString &constraint = QString(),
-                                QString *error = 0, QString *dbusService = 0,
-                                int flags = 0);
+                                QString *error = Q_NULLPTR, QString *dbusService = Q_NULLPTR,
+                                int flags = 0) Q_DECL_OVERRIDE;
 
     // We need to keep track of the plugins which are loaded, so pass a pointer
     // to the plugin list here. Be sure to reset it back to 0 with
@@ -115,7 +115,7 @@ protected:
     static PluginList *mPlugins;
 };
 
-PluginList *ServiceStarter::mPlugins = 0;
+PluginList *ServiceStarter::mPlugins = Q_NULLPTR;
 
 int ServiceStarter::startServiceFor(const QString &serviceType,
                                     const QString &constraint,
@@ -182,7 +182,7 @@ void MainWindow::initGUI()
 
     setStandardToolBarMenuEnabled(true);
 
-    createGUI(0);
+    createGUI(Q_NULLPTR);
 
     KToolBar *navigatorToolBar = findToolBar("navigatorToolBar");
     if (navigatorToolBar) {
@@ -279,8 +279,8 @@ MainWindow::~MainWindow()
         saveMainWindowSettings(grp);
     }
 
-    createGUI(0);
-    ServiceStarter::setPluginList(0);
+    createGUI(Q_NULLPTR);
+    ServiceStarter::setPluginList(Q_NULLPTR);
     saveSettings();
 
     //QList<KParts::Part*> parts = mPartManager->parts();
@@ -506,7 +506,7 @@ void MainWindow::setupActions()
 
 bool MainWindow::isPluginLoaded(const KPluginInfo &info)
 {
-    return (pluginFromInfo(info) != 0);
+    return (pluginFromInfo(info) != Q_NULLPTR);
 }
 
 KontactInterface::Plugin *MainWindow::pluginFromInfo(const KPluginInfo &info)
@@ -517,7 +517,7 @@ KontactInterface::Plugin *MainWindow::pluginFromInfo(const KPluginInfo &info)
             return *it;
         }
     }
-    return 0;
+    return Q_NULLPTR;
 }
 
 void MainWindow::loadPlugins()
@@ -532,7 +532,7 @@ void MainWindow::loadPlugins()
             continue;
         }
 
-        KontactInterface::Plugin *plugin = 0;
+        KontactInterface::Plugin *plugin = Q_NULLPTR;
         if (isPluginLoaded(*it)) {
             plugin = pluginFromInfo(*it);
             if (plugin) {
@@ -660,8 +660,8 @@ bool MainWindow::removePlugin(const KPluginInfo &info)
             removeChildClient(plugin);
 
             if (mCurrentPlugin == plugin) {
-                mCurrentPlugin = 0;
-                createGUI(0);
+                mCurrentPlugin = Q_NULLPTR;
+                createGUI(Q_NULLPTR);
             }
 
             plugin->deleteLater(); // removes the part automatically
@@ -673,7 +673,7 @@ bool MainWindow::removePlugin(const KPluginInfo &info)
                 delete q;
             }
 
-            if (mCurrentPlugin == 0) {
+            if (mCurrentPlugin == Q_NULLPTR) {
                 PluginList::Iterator it;
                 PluginList::Iterator pluginEnd(mPlugins.end());
                 for (it = mPlugins.begin(); it != pluginEnd; ++it) {
@@ -748,7 +748,7 @@ void MainWindow::partLoaded(KontactInterface::Plugin *plugin, KParts::ReadOnlyPa
 void MainWindow::slotActivePartChanged(KParts::Part *part)
 {
     if (!part) {
-        createGUI(0);
+        createGUI(Q_NULLPTR);
         return;
     }
 
@@ -881,12 +881,12 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
 
         mCurrentPlugin = plugin;
 
-        QAction *newAction = 0;
+        QAction *newAction = Q_NULLPTR;
         if (!plugin->newActions().isEmpty()) {
             newAction = plugin->newActions().first();
         }
 
-        QAction *syncAction = 0;
+        QAction *syncAction = Q_NULLPTR;
         if (!plugin->syncActions().isEmpty()) {
             syncAction = plugin->syncActions().first();
         }
@@ -1041,7 +1041,7 @@ void MainWindow::slotQuit()
 
 void MainWindow::slotPreferences()
 {
-    static Kontact::KontactConfigureDialog *dlg = 0;
+    static Kontact::KontactConfigureDialog *dlg = Q_NULLPTR;
     if (!dlg) {
         dlg = new Kontact::KontactConfigureDialog(this);
         dlg->setAllowComponentSelection(true);

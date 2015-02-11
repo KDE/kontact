@@ -57,8 +57,8 @@ public:
     KNotesSummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent);
     ~KNotesSummaryWidget();
 
-    void updateSummary(bool force = false);
-    QStringList configModules() const;
+    void updateSummary(bool force = false) Q_DECL_OVERRIDE;
+    QStringList configModules() const Q_DECL_OVERRIDE;
 
 protected:
     bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;

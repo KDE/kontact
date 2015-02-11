@@ -35,15 +35,15 @@ public:
     SummaryView(KontactInterface::Core *core, const QVariantList &);
     ~SummaryView();
 
-    int weight() const
+    int weight() const Q_DECL_OVERRIDE
     {
         return 100;
     }
 
-    const KAboutData aboutData();
+    const KAboutData aboutData() Q_DECL_OVERRIDE;
 
 protected:
-    virtual KParts::ReadOnlyPart *createPart();
+    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
 
