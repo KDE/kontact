@@ -74,9 +74,10 @@ bool KNotesIconView::event(QEvent *e)
 
     QListWidgetItem *item = itemAt(pnt);
     if (item) {
-        KNotesIconViewItem *noteItem = static_cast<KNotesIconViewItem *>(item);
-        const QString toolTip = NoteShared::NoteUtils::createToolTip(noteItem->item());
-        QToolTip::showText(he->globalPos(), toolTip, viewport(), visualItemRect(item));
+        KNotesIconViewItem *noteItem = static_cast<KNotesIconViewItem*>(item);
+        NoteShared::NoteUtils noteUtils;
+        const QString toolTip = noteUtils.createToolTip(noteItem->item());
+        QToolTip::showText( he->globalPos(), toolTip, viewport(), visualItemRect( item ) );
     }
     return true;
 }
