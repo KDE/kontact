@@ -653,7 +653,8 @@ void KNotesPart::slotMail()
     if (!mNotesWidget->notesView()->currentItem())
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
-    NoteShared::NoteUtils::sendToMail(widget(),knoteItem->realName(), knoteItem->description());
+    NoteShared::NoteUtils noteUtils;
+    noteUtils.sendToMail(widget(),knoteItem->realName(), knoteItem->description());
 }
 
 void KNotesPart::slotSendToNetwork()
@@ -661,7 +662,8 @@ void KNotesPart::slotSendToNetwork()
     if (!mNotesWidget->notesView()->currentItem())
         return;
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
-    NoteShared::NoteUtils::sendToNetwork(widget(), knoteItem->realName(), knoteItem->description());
+    NoteShared::NoteUtils noteUtils;
+    noteUtils.sendToNetwork(widget(), knoteItem->realName(), knoteItem->description());
 }
 
 void KNotesPart::updateNetworkListener()
