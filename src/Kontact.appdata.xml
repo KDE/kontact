@@ -27,6 +27,7 @@
   <name xml:lang="sk">Kontact</name>
   <name xml:lang="sl">Kontact</name>
   <name xml:lang="sv">Kontact</name>
+  <name xml:lang="tr">Kontact</name>
   <name xml:lang="uk">Kontact</name>
   <name xml:lang="x-test">xxKontactxx</name>
   <name xml:lang="zh-CN">Kontact</name>
@@ -55,6 +56,7 @@
     <p xml:lang="sk">Kontact je integrované riešenie pre vaše potreby správy osobných informácií (PIM). Kombinuje dobre známe KDE aplikácie ako KMail, KOrganizer a KAddressBook do jedného rozhrania na poskytnutie ľahkému prístupu k pošte, plánovaniu, adresáru a iným funkciám PIM.</p>
     <p xml:lang="sl">Kontact je enovit paket za upravljanje osebnih podatkov (PIM). V enovit vmesnik združuje znane programe za KDE kot npr. KMail, KOrganizer in KAddressBook in ponuja enostaven dostop do e-pošte, razporejanja opravil, imenika in drugih funkcij.</p>
     <p xml:lang="sv">Kontact är den integrerade lösningen för personlig informationshantering (PIM). Den kombinerar välkända KDE-program såsom Kmail, Korganizer och adressboken i ett enda gränssnitt för att enkelt ge tillgång till e-post, schemaläggning, adresser och annan funktionalitet för personlig informationshantering.</p>
+    <p xml:lang="tr">Kontact kişisel bilgi yönetimi (PIM) ihtiyaçlarınız için tümleşik bir çözümdür. KMail, KOrganizer ve KAddressBook gibi iyi bilinen KDE uygulamalarını tek bir arayüzde birleştirerek e-posta, zamanlama, adres defteri ve diğer PIM işlevlerine kolay erişim sunar.</p>
     <p xml:lang="uk">Kontact — інтегроване рішення для забезпечення ваших потреб у керуванні особистими даними (PIM). Ця програма поєднує добре відомі програми KDE, зокрема KMail, KOrganizer та KAddressBook у межах єдиного інтерфейсу, який полегшує доступ до пошти, планів, адресної книги та інших можливостей з керування особистими даними.</p>
     <p xml:lang="x-test">xxKontact is the integrated solution to your personal information management (PIM) needs. It combines well-known KDE applications like KMail, KOrganizer and KAddressBook into a single interface to provide easy access to mail, scheduling, address book and other PIM functionality.xx</p>
   </description>
