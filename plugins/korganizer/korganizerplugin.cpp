@@ -261,7 +261,7 @@ void KOrganizerPlugin::processDropEvent(QDropEvent *event)
             tf.setAutoRemove(true);
             tf.open();
             QString uri = QLatin1String("kmail:") + QString::number(mail.serialNumber());
-            tf.write( event->mimeData()->data( QLatin1String("message/rfc822") ) );
+            tf.write(event->mimeData()->data(QLatin1String("message/rfc822")));
             interface()->openEventEditor(
                 i18nc("@item", "Mail: %1", mail.subject()), txt,
                 uri, tf.fileName(), QStringList(), QLatin1String("message/rfc822"));

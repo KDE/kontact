@@ -263,7 +263,7 @@ void TodoPlugin::processDropEvent(QDropEvent *event)
             QTemporaryFile tf;
             tf.setAutoRemove(true);
 
-            tf.write( event->mimeData()->data( QLatin1String("message/rfc822") ) );
+            tf.write(event->mimeData()->data(QLatin1String("message/rfc822")));
             interface()->openTodoEditor(
                 i18nc("@item", "Mail: %1", mail.subject()),
                 txt, uri, tf.fileName(), QStringList(), QLatin1String("message/rfc822"));

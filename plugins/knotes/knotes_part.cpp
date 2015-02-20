@@ -658,7 +658,7 @@ void KNotesPart::slotMail()
     }
     KNotesIconViewItem *knoteItem = static_cast<KNotesIconViewItem *>(mNotesWidget->notesView()->currentItem());
     NoteShared::NoteUtils noteUtils;
-    noteUtils.sendToMail(widget(),knoteItem->realName(), knoteItem->description());
+    noteUtils.sendToMail(widget(), knoteItem->realName(), knoteItem->description());
 }
 
 void KNotesPart::slotSendToNetwork()

@@ -57,8 +57,7 @@ public:
 
     QStringList configModules() const Q_DECL_OVERRIDE;
     void configUpdated();
-    void updateSummary(bool force = false) Q_DECL_OVERRIDE
-    {
+    void updateSummary(bool force = false) Q_DECL_OVERRIDE {
         Q_UNUSED(force);
         updateView();
     }

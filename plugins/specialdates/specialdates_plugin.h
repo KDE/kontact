@@ -45,8 +45,7 @@ public:
     KontactInterface::Summary *createSummaryWidget(QWidget *parentWidget) Q_DECL_OVERRIDE;
 
 protected:
-    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE
-    {
+    KParts::ReadOnlyPart *createPart() Q_DECL_OVERRIDE {
         return Q_NULLPTR;
     }
 

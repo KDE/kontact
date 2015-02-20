@@ -55,27 +55,26 @@ public:
     }
 
 public Q_SLOTS:
-    void clear() Q_DECL_OVERRIDE
-    {
+    void clear() Q_DECL_OVERRIDE {
         // Don't allow the current selection to be cleared. QListView doesn't call to this method
         // nowadays, but just to cover of future change of implementation, since QTreeView does call
         // to this one when clearing the selection.
     }
 
-    void select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE
-    {
+    void select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE {
         // Don't allow the current selection to be cleared
-        if (!index.isValid() && (command & QItemSelectionModel::Clear)) {
+        if (!index.isValid() && (command & QItemSelectionModel::Clear))
+        {
             return;
         }
         QItemSelectionModel::select(index, command);
     }
 
     void select(const QItemSelection &selection,
-                QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE
-    {
+                QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE {
         // Don't allow the current selection to be cleared
-        if (!selection.count() && (command & QItemSelectionModel::Clear)) {
+        if (!selection.count() && (command & QItemSelectionModel::Clear))
+        {
             return;
         }
         QItemSelectionModel::select(selection, command);
