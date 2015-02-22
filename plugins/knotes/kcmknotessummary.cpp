@@ -62,7 +62,7 @@ KCMKNotesSummary::KCMKNotesSummary(QWidget *parent)
                                        QString(),
                                        i18n("Notes Summary Configuration Dialog"),
                                        KAboutLicense::GPL,
-                                       i18n("Copyright © 2013-2014 Laurent Montel <montel@kde.org>"));
+                                       i18n("Copyright © 2013-2015 Laurent Montel <montel@kde.org>"));
     about->addAuthor(ki18n("Laurent Montel").toString(), QString(), QStringLiteral("montel@kde.org"));
     setAboutData(about);
 }
