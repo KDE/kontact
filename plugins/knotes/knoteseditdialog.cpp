@@ -66,7 +66,7 @@ void KNoteEditDialog::init(bool readOnly)
     // in two different windows
 #pragma message("port QT5")
     //QT5 setComponentData( KComponentData( "knotes" ) ); // TODO: memleak
-    setXMLFile(QLatin1String("knotesui.rc"));
+    setXMLFile(QStringLiteral("knotesui.rc"));
 
     QWidget *page = new QWidget(this);
     mainLayout->addWidget(page);
@@ -81,21 +81,21 @@ void KNoteEditDialog::init(bool readOnly)
     hbl->addWidget(label, 0);
     mTitleEdit = new QLineEdit(page);
     mTitleEdit->setClearButtonEnabled(true);
-    mTitleEdit->setObjectName(QLatin1String("name"));
+    mTitleEdit->setObjectName(QStringLiteral("name"));
     if (!readOnly) {
         connect(mTitleEdit, &QLineEdit::textChanged, this, &KNoteEditDialog::slotTextChanged);
     }
     hbl->addWidget(mTitleEdit, 1, Qt::AlignVCenter);
 
     //TODO customize it
-    mNoteEdit = new KNoteEdit(QLatin1String("knotesrc"), actionCollection(), page);
+    mNoteEdit = new KNoteEdit(QStringLiteral("knotesrc"), actionCollection(), page);
     mNoteEdit->setFocus();
 
     KXMLGUIBuilder builder(page);
     KXMLGUIFactory factory(&builder, this);
     factory.addClient(this);
 
-    mTool = static_cast<KToolBar *>(factory.container(QLatin1String("note_tool"), this));
+    mTool = static_cast<KToolBar *>(factory.container(QStringLiteral("note_tool"), this));
     layout->addWidget(mTool);
     layout->addWidget(mNoteEdit);
 
