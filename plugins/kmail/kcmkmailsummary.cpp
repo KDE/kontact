@@ -99,7 +99,7 @@ void KCMKMailSummary::initGUI()
 
 void KCMKMailSummary::initFolders()
 {
-    KSharedConfigPtr _config = KSharedConfig::openConfig(QLatin1String("kcmkmailsummaryrc"));
+    KSharedConfigPtr _config = KSharedConfig::openConfig(QStringLiteral("kcmkmailsummaryrc"));
 
     mModelState =
         new KViewStateMaintainer<Akonadi::ETMViewStateSaver>(_config->group("CheckState"), this);
@@ -108,7 +108,7 @@ void KCMKMailSummary::initFolders()
 
 void KCMKMailSummary::loadFolders()
 {
-    KConfig _config(QLatin1String("kcmkmailsummaryrc"));
+    KConfig _config(QStringLiteral("kcmkmailsummaryrc"));
     KConfigGroup config(&_config, "General");
     mModelState->restoreState();
     const bool showFolderPaths = config.readEntry("showFolderPaths", false);
@@ -117,7 +117,7 @@ void KCMKMailSummary::loadFolders()
 
 void KCMKMailSummary::storeFolders()
 {
-    KConfig _config(QLatin1String("kcmkmailsummaryrc"));
+    KConfig _config(QStringLiteral("kcmkmailsummaryrc"));
     KConfigGroup config(&_config, "General");
     mModelState->saveState();
     config.writeEntry("showFolderPaths", mFullPath->isChecked());
