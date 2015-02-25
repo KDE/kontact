@@ -42,7 +42,6 @@
 #include "alarms/notealarmdialog.h"
 #include "noteshared/resources/localresourcecreator.h"
 #include "noteshared/job/createnewnotejob.h"
-#include "noteshared/settings/globalsettings.h"
 
 #include "noteshared/akonadi/notesakonaditreemodel.h"
 #include "noteshared/akonadi/noteschangerecorder.h"
@@ -366,7 +365,7 @@ void KNotesPart::slotNoteCreationFinished(KJob* job)
     if (job->error()) {
         kWarning() << job->errorString();
         NoteShared::NoteSharedGlobalConfig::self()->setDefaultFolder(-1);
-        NoteShared::GlobalSettings::self()->requestSync();
+        NoteShared::NoteSharedGlobalConfig::self()->writeConfig();
         KMessageBox::error(widget(), i18n("Note was not created."), i18n("Create new note"));
         return;
     }
