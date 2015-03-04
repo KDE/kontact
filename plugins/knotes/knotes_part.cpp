@@ -51,7 +51,7 @@
 #include "noteshared/attributes/notedisplayattribute.h"
 #include "noteshared/attributes/notelockattribute.h"
 
-#include "akonadi_next/note.h"
+#include <Akonadi/Notes/NoteUtils>
 
 #include <KDateTime>
 #include <AkonadiCore/Session>

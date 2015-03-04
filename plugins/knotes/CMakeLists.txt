@@ -46,7 +46,7 @@ set(kcm_knotessummary_PART_SRCS kcmknotessummary.cpp )
 
 add_library(kcm_knotessummary MODULE ${kcm_knotessummary_PART_SRCS})
 
-target_link_libraries(kcm_knotessummary  KF5::Mime KF5::AkonadiCore akonadi_next pimcommon)
+target_link_libraries(kcm_knotessummary  KF5::Mime KF5::AkonadiCore pimcommon KF5::AkonadiNotes)
 
 
 install(TARGETS kcm_knotessummary DESTINATION ${KDE_INSTALL_PLUGINDIR})

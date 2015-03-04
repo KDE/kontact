@@ -165,7 +165,7 @@ void KNoteEditDialog::setTitle(const QString &text)
 {
     mTitleEdit->setText(text);
     if (mTitleEdit->isEnabled() && mOkButton) {
-        mOkButton->setEnabled(!text.isEmpty());
+        mOkButton->setEnabled(!text.trimmed().isEmpty());
     }
 }
 
@@ -177,7 +177,7 @@ KNoteEdit *KNoteEditDialog::noteEdit() const
 void KNoteEditDialog::slotTextChanged(const QString &text)
 {
     if (mOkButton) {
-        mOkButton->setEnabled(!text.isEmpty());
+        mOkButton->setEnabled(!text.trimmed().isEmpty());
     }
 }
 
