@@ -50,7 +50,7 @@ set(kcm_knotessummary_PART_SRCS kcmknotessummary.cpp )
 
 kde4_add_plugin(kcm_knotessummary ${kcm_knotessummary_PART_SRCS})
 
-target_link_libraries(kcm_knotessummary ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KMIME_LIBS} ${KDEPIMLIBS_AKONADI_LIBS} akonadi_next pimcommon)
+target_link_libraries(kcm_knotessummary ${KDE4_KDEUI_LIBS} ${KDEPIMLIBS_KMIME_LIBS} ${KDEPIMLIBS_AKONADI_LIBS} ${KDEPIMLIBS_AKONADI_NOTES_LIBS} pimcommon)
 
 
 install(TARGETS kcm_knotessummary DESTINATION ${PLUGIN_INSTALL_DIR})
