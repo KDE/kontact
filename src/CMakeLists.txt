@@ -3,8 +3,6 @@ add_subdirectory(about)
 
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
-  ${CMAKE_SOURCE_DIR}/libkdepimdbusinterfaces 
-  ${CMAKE_SOURCE_DIR}/libkdepim/
 )
 
 ########### next target ###############
