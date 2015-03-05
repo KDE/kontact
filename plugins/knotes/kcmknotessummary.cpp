@@ -78,7 +78,7 @@ void KCMKNotesSummary::initGUI()
     layout->setMargin(0);
 
     mCheckedCollectionWidget = new PimCommon::CheckedCollectionWidget(Akonadi::NoteUtils::noteMimeType());
-    layout->addWidget( mCheckedCollectionWidget );
+    layout->addWidget(mCheckedCollectionWidget);
 }
 
 void KCMKNotesSummary::initFolders()
