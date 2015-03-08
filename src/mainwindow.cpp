@@ -45,7 +45,7 @@ using namespace Kontact;
 #include <KApplication>
 #include <KConfigGroup>
 #include <KDBusServiceStarter>
-#include <QDebug>
+#include "kontact_debug.h"
 #include <KEditToolBar>
 #include <KHelpMenu>
 #include <KWebView>
@@ -126,7 +126,7 @@ int ServiceStarter::startServiceFor(const QString &serviceType,
         PluginList::ConstIterator end = mPlugins->constEnd();
         for (PluginList::ConstIterator it = mPlugins->constBegin(); it != end; ++it) {
             if ((*it)->createDBUSInterface(serviceType)) {
-                qDebug() << "found interface for" << serviceType;
+                qCDebug(KONTACT_LOG) << "found interface for" << serviceType;
                 if (dbusService) {
                     *dbusService = (*it)->registerClient();
                 }
@@ -135,7 +135,7 @@ int ServiceStarter::startServiceFor(const QString &serviceType,
         }
     }
 
-    qDebug() << "Didn't find dbus interface, falling back to external process";
+    qCDebug(KONTACT_LOG) << "Didn't find dbus interface, falling back to external process";
     return KDBusServiceStarter::startServiceFor(serviceType, constraint,
             error, dbusService, flags);
 }
@@ -211,7 +211,7 @@ void MainWindow::waitForKSycoca()
         // give Kded time to initialize and create the
         // System Configuration database necessary for further
         // Kontact startup
-        qDebug() << "Waiting for KSycoca";
+        qCDebug(KONTACT_LOG) << "Waiting for KSycoca";
         sleep(1);
         ++i;
     }
@@ -390,7 +390,7 @@ void MainWindow::paintAboutScreen(const QString &msg)
     QString location = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kontact/about/main.html"));
     QFile f(location);
     if (!f.open(QIODevice::ReadOnly)) {
-        qWarning() << "Failed to load about page: " << f.errorString();
+        qCWarning(KONTACT_LOG) << "Failed to load about page: " << f.errorString();
         return;
     }
     QString content = QString::fromLocal8Bit(f.readAll());
@@ -541,13 +541,13 @@ void MainWindow::loadPlugins()
             continue;
         }
 
-        qDebug() << "Loading Plugin:" << it->name();
+        qCDebug(KONTACT_LOG) << "Loading Plugin:" << it->name();
         QString error;
         plugin =
             it->service()->createInstance<KontactInterface::Plugin>(this, QVariantList(), &error);
 
         if (!plugin) {
-            qDebug() << "Unable to create plugin for" << it->name() << error;
+            qCDebug(KONTACT_LOG) << "Unable to create plugin for" << it->name() << error;
             continue;
         }
 
@@ -564,7 +564,7 @@ void MainWindow::loadPlugins()
             mDelayedPreload.append(plugin);
         }
 
-        qDebug() << "LIBNAMEPART:" << libNameProp.toString();
+        qCDebug(KONTACT_LOG) << "LIBNAMEPART:" << libNameProp.toString();
 
         plugin->setPartLibraryName(libNameProp.toString().toUtf8());
         plugin->setExecutableName(exeNameProp.toString());
@@ -591,13 +591,13 @@ void MainWindow::loadPlugins()
         QList<QAction *>::const_iterator end(actionList.end());
 
         for (listIt = actionList.begin(); listIt != end; ++listIt) {
-            qDebug() << QLatin1String("Plugging New actions") << (*listIt)->objectName();
+            qCDebug(KONTACT_LOG) << QLatin1String("Plugging New actions") << (*listIt)->objectName();
             mNewActions->addAction((*listIt));
         }
 
         if (mSyncActionsEnabled) {
             Q_FOREACH (QAction *listIt, plugin->syncActions()) {
-                qDebug() << QLatin1String("Plugging Sync actions") << listIt->objectName();
+                qCDebug(KONTACT_LOG) << QLatin1String("Plugging Sync actions") << listIt->objectName();
                 mSyncActions->addAction(listIt);
             }
         }
@@ -646,14 +646,14 @@ bool MainWindow::removePlugin(const KPluginInfo &info)
             QList<QAction *>::const_iterator listIt;
             QList<QAction *>::const_iterator listEnd(actionList.constEnd());
             for (listIt = actionList.constBegin(); listIt != listEnd; ++listIt) {
-                qDebug() << QLatin1String("Unplugging New actions") << (*listIt)->objectName();
+                qCDebug(KONTACT_LOG) << QLatin1String("Unplugging New actions") << (*listIt)->objectName();
                 mNewActions->removeAction(*listIt);
             }
 
             if (mSyncActionsEnabled) {
                 actionList = plugin->syncActions();
                 for (listIt = actionList.constBegin(); listIt != actionList.constEnd(); ++listIt) {
-                    qDebug() << QLatin1String("Unplugging Sync actions") << (*listIt)->objectName();
+                    qCDebug(KONTACT_LOG) << QLatin1String("Unplugging Sync actions") << (*listIt)->objectName();
                     mSyncActions->removeAction(*listIt);
                 }
             }
@@ -693,7 +693,7 @@ bool MainWindow::removePlugin(const KPluginInfo &info)
 
 void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
 {
-    qDebug();
+    qCDebug(KONTACT_LOG);
 
     mPlugins.append(plugin);
 
@@ -752,7 +752,7 @@ void MainWindow::slotActivePartChanged(KParts::Part *part)
         return;
     }
 
-    qDebug() << QLatin1String("Part activated:") << part
+    qCDebug(KONTACT_LOG) << QLatin1String("Part activated:") << part
              << QLatin1String("with stack id.") << mPartsStack->indexOf(part->widget());
 
     statusBar()->clearMessage();
@@ -1083,7 +1083,7 @@ void MainWindow::pluginsChanged()
 
 void MainWindow::updateConfig()
 {
-    qDebug();
+    qCDebug(KONTACT_LOG);
 
     saveSettings();
     loadSettings();

@@ -20,7 +20,7 @@
 
 #include <QDBusReply>
 #include <QDBusInterface>
-#include <QDebug>
+#include "kontact_debug.h"
 #include <QPushButton>
 
 using namespace Kontact;

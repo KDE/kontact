@@ -13,6 +13,7 @@ set(kontactprivate_LIB_SRCS
   iconsidepane.cpp
   aboutdialog.cpp
   kontactconfiguredialog.cpp
+  kontact_debug.cpp
 )
 
 kconfig_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc)
