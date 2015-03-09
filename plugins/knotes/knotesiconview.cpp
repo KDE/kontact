@@ -36,7 +36,7 @@
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QListWidgetItem>
-#include <QDebug>
+#include "knotes_kontact_plugin_debug.h"
 #include <QToolTip>
 
 //#define DEBUG_SAVE_NOTE 1
@@ -165,7 +165,7 @@ void KNotesIconViewItem::setReadOnly(bool b, bool save)
     if (save) {
         Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
 #ifdef DEBUG_SAVE_NOTE
-        qDebug() << " KNotesIconViewItem::setReadOnly savenote";
+        qCDebug(KNOTES_KONTACT_PLUGIN_LOG) << " KNotesIconViewItem::setReadOnly savenote";
 #endif
         connect(job, &Akonadi::ItemModifyJob::result, this, &KNotesIconViewItem::slotNoteSaved);
     }
@@ -180,9 +180,9 @@ void KNotesIconViewItem::setDisplayDefaultValue()
 
 void KNotesIconViewItem::slotNoteSaved(KJob *job)
 {
-    qDebug() << " void KNotesIconViewItem::slotNoteSaved(KJob *job)";
+    qCDebug(KNOTES_KONTACT_PLUGIN_LOG) << " void KNotesIconViewItem::slotNoteSaved(KJob *job)";
     if (job->error()) {
-        qDebug() << " problem during save note:" << job->errorString();
+        qCDebug(KNOTES_KONTACT_PLUGIN_LOG) << " problem during save note:" << job->errorString();
     }
 }
 
@@ -303,7 +303,7 @@ void KNotesIconViewItem::saveNoteContent(const QString &subject, const QString &
     mItem.setPayload(message);
     Akonadi::ItemModifyJob *job = new Akonadi::ItemModifyJob(mItem);
 #ifdef DEBUG_SAVE_NOTE
-    qDebug() << " KNotesIconViewItem::saveNoteContent savenote";
+    qCDebug(KNOTES_KONTACT_PLUGIN_LOG) << " KNotesIconViewItem::saveNoteContent savenote";
 #endif
     connect(job, &Akonadi::ItemModifyJob::result, this, &KNotesIconViewItem::slotNoteSaved);
 }

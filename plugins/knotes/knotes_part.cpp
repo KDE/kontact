@@ -22,6 +22,7 @@
 */
 
 #include "knotes_part.h"
+#include "knotes_kontact_plugin_debug.h"
 #include "notesharedglobalconfig.h"
 #include "noteshared/noteutils.h"
 #include "knoteseditdialog.h"
@@ -363,7 +364,7 @@ void KNotesPart::newNote(const QString &name, const QString &text)
 void KNotesPart::slotNoteCreationFinished(KJob *job)
 {
     if (job->error()) {
-        qWarning() << job->errorString();
+        qCWarning(KNOTES_KONTACT_PLUGIN_LOG) << job->errorString();
         NoteShared::NoteSharedGlobalConfig::self()->setDefaultFolder(-1);
         NoteShared::NoteSharedGlobalConfig::self()->save();
         KMessageBox::error(widget(), i18n("Note was not created."), i18n("Create new note"));
@@ -486,7 +487,7 @@ void KNotesPart::killSelectedNotes()
 void KNotesPart::slotDeleteNotesFinished(KJob *job)
 {
     if (job->error()) {
-        qDebug() << " problem during delete job note:" << job->errorString();
+        qCDebug(KNOTES_KONTACT_PLUGIN_LOG) << " problem during delete job note:" << job->errorString();
     }
 }
 
@@ -718,9 +719,9 @@ void KNotesPart::slotSetAlarm()
 
 void KNotesPart::slotNoteSaved(KJob *job)
 {
-    qDebug() << " void KNote::slotNoteSaved(KJob *job)";
+    qCDebug(KNOTES_KONTACT_PLUGIN_LOG) << " void KNote::slotNoteSaved(KJob *job)";
     if (job->error()) {
-        qDebug() << " problem during save note:" << job->errorString();
+        qCDebug(KNOTES_KONTACT_PLUGIN_LOG) << " problem during save note:" << job->errorString();
     }
 }
 
@@ -829,7 +830,7 @@ void KNotesPart::slotSelectNote(Akonadi::Item::Id id)
 void KNotesPart::slotCollectionChanged(const Akonadi::Collection &col, const QSet<QByteArray> &set)
 {
     if (set.contains("showfoldernotesattribute")) {
-        //qDebug()<<" collection Changed "<<set<<" col "<<col;
+        //qCDebug(KNOTES_KONTACT_PLUGIN_LOG)<<" collection Changed "<<set<<" col "<<col;
         if (col.hasAttribute<NoteShared::ShowFolderNotesAttribute>()) {
             fetchNotesFromCollection(col);
         } else {
@@ -859,7 +860,7 @@ void KNotesPart::fetchNotesFromCollection(const Akonadi::Collection &col)
 void KNotesPart::slotItemFetchFinished(KJob *job)
 {
     if (job->error()) {
-        qDebug() << "Error occurred during item fetch:" << job->errorString();
+        qCDebug(KNOTES_KONTACT_PLUGIN_LOG) << "Error occurred during item fetch:" << job->errorString();
         return;
     }
 

@@ -32,7 +32,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QVBoxLayout>
-#include <QDebug>
+#include "knotes_kontact_plugin_debug.h"
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <QDialogButtonBox>

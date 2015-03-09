@@ -6,7 +6,8 @@ include_directories(
     ${Grantlee_INCLUDE_DIRS}
 )
 
-set(kontact_knotesplugin_PART_SRCS 
+set(kontact_knotesplugin_PART_SRCS
+  knotes_kontact_plugin_debug.cpp 
   knotes_plugin.cpp
   knotes_part.cpp
   summarywidget.cpp

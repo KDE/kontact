@@ -26,7 +26,7 @@
 #include <KAboutData>
 #include <KAcceleratorManager>
 #include <KCheckableProxyModel>
-#include <QDebug>
+#include "knotes_kontact_plugin_debug.h"
 #include <QDialog>
 #include <KLocalizedString>
 #include <QLineEdit>
