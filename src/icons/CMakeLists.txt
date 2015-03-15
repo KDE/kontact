@@ -1,1 +1,1 @@
-ecm_install_icons(ICONS hi128-apps-kontact.png  hi16-apps-kontact.png  hi22-apps-kontact.png  hi32-apps-kontact.png  hi48-apps-kontact.png  hi64-apps-kontact.png DESTINATION ${KDE_INSTALL_ICONDIR})
+ecm_install_icons(ICONS 128-apps-kontact.png  16-apps-kontact.png  22-apps-kontact.png  32-apps-kontact.png  48-apps-kontact.png  64-apps-kontact.png DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor)
