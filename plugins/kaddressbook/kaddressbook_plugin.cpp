@@ -192,7 +192,6 @@ void KAddressBookUniqueAppHandler::loadCommandLineOptions()
 
 int KAddressBookUniqueAppHandler::newInstance()
 {
-    qDebug() ;
     // Ensure part is loaded
     (void)plugin()->part();
     org::kde::kaddressbook kaddressbook(QLatin1String("org.kde.kaddressbook"), QLatin1String("/KAddressBook"), QDBusConnection::sessionBus());
