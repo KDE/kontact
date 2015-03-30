@@ -753,7 +753,7 @@ void MainWindow::slotActivePartChanged(KParts::Part *part)
     }
 
     qCDebug(KONTACT_LOG) << QLatin1String("Part activated:") << part
-             << QLatin1String("with stack id.") << mPartsStack->indexOf(part->widget());
+                         << QLatin1String("with stack id.") << mPartsStack->indexOf(part->widget());
 
     statusBar()->clearMessage();
 }

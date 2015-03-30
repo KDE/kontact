@@ -20,4 +20,3 @@
 #include "knotes_kontact_plugin_debug.h"
 Q_LOGGING_CATEGORY(KNOTES_KONTACT_PLUGIN_LOG, "log_knoteskontactplugin")
 
-

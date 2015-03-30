@@ -20,4 +20,3 @@
 #include "kontact_debug.h"
 Q_LOGGING_CATEGORY(KONTACT_LOG, "log_kontact")
 
-
