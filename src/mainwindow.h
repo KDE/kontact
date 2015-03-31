@@ -68,7 +68,7 @@ public:
 
 public Q_SLOTS:
     void selectPlugin(KontactInterface::Plugin *plugin) Q_DECL_OVERRIDE;
-    Q_SCRIPTABLE virtual void selectPlugin(const QString &pluginName) Q_DECL_OVERRIDE;
+    Q_SCRIPTABLE void selectPlugin(const QString &pluginName) Q_DECL_OVERRIDE;
     void slotActionTriggered();
 
     void updateConfig();
