@@ -46,9 +46,9 @@ KAddressBookPlugin::KAddressBookPlugin(KontactInterface::Core *core, const QVari
     //QT5 setComponentData( KontactPluginFactory::componentData() );
 
     QAction *action =
-        new QAction(QIcon::fromTheme(QLatin1String("contact-new")),
+        new QAction(QIcon::fromTheme(QStringLiteral("contact-new")),
                     i18nc("@action:inmenu", "New Contact..."), this);
-    actionCollection()->addAction(QLatin1String("new_contact"), action);
+    actionCollection()->addAction(QStringLiteral("new_contact"), action);
     connect(action, &QAction::triggered, this, &KAddressBookPlugin::slotNewContact);
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_C));
     //action->setHelpText(
@@ -59,9 +59,9 @@ KAddressBookPlugin::KAddressBookPlugin(KontactInterface::Core *core, const QVari
     insertNewAction(action);
 
     action =
-        new QAction(QIcon::fromTheme(QLatin1String("user-group-new")),
+        new QAction(QIcon::fromTheme(QStringLiteral("user-group-new")),
                     i18nc("@action:inmenu", "New Contact Group..."), this);
-    actionCollection()->addAction(QLatin1String("new_contactgroup"), action);
+    actionCollection()->addAction(QStringLiteral("new_contactgroup"), action);
     connect(action, &QAction::triggered, this, &KAddressBookPlugin::slotNewContactGroup);
     action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_G));
     //action->setHelpText(
@@ -72,9 +72,9 @@ KAddressBookPlugin::KAddressBookPlugin(KontactInterface::Core *core, const QVari
     insertNewAction(action);
 
     QAction *syncAction =
-        new QAction(QIcon::fromTheme(QLatin1String("view-refresh")),
+        new QAction(QIcon::fromTheme(QStringLiteral("view-refresh")),
                     i18nc("@action:inmenu", "Sync Contacts"), this);
-    actionCollection()->addAction(QLatin1String("kaddressbook_sync"), syncAction);
+    actionCollection()->addAction(QStringLiteral("kaddressbook_sync"), syncAction);
     connect(syncAction, &QAction::triggered, this, &KAddressBookPlugin::slotSyncContacts);
     //syncAction->setHelpText(
     //  i18nc( "@info:status", "Synchronize groupware contacts" ) );
@@ -155,7 +155,7 @@ bool KAddressBookPlugin::isRunningStandalone() const
 QStringList KAddressBookPlugin::invisibleToolbarActions() const
 {
     QStringList actions;
-    actions << QLatin1String("akonadi_contact_create") << QLatin1String("akonadi_contact_group_create");
+    actions << QStringLiteral("akonadi_contact_create") << QStringLiteral("akonadi_contact_group_create");
     return actions;
 }
 
@@ -181,7 +181,7 @@ void KAddressBookPlugin::slotSyncContacts()
     message << QString("Contact");
     QDBusConnection::sessionBus().send(message);
 #else
-    qWarning() << QLatin1String(" Need to port to AKONADI: KAddressBookPlugin::slotSyncNotes");
+    qWarning() << QStringLiteral(" Need to port to AKONADI: KAddressBookPlugin::slotSyncNotes");
 #endif
 }
 
@@ -194,7 +194,7 @@ int KAddressBookUniqueAppHandler::newInstance()
 {
     // Ensure part is loaded
     (void)plugin()->part();
-    org::kde::kaddressbook kaddressbook(QLatin1String("org.kde.kaddressbook"), QLatin1String("/KAddressBook"), QDBusConnection::sessionBus());
+    org::kde::kaddressbook kaddressbook(QStringLiteral("org.kde.kaddressbook"), QStringLiteral("/KAddressBook"), QDBusConnection::sessionBus());
     QDBusReply<bool> reply = kaddressbook.handleCommandLine();
     return KontactInterface::UniqueAppHandler::newInstance();
 }

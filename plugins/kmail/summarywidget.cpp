@@ -60,7 +60,7 @@ SummaryWidget::SummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent)
     mainLayout->setSpacing(3);
     mainLayout->setMargin(3);
 
-    QWidget *header = createHeader(this, QLatin1String("view-pim-mail"), i18n("New Messages"));
+    QWidget *header = createHeader(this, QStringLiteral("view-pim-mail"), i18n("New Messages"));
     mainLayout->addWidget(header);
 
     mLayout = new QGridLayout();
@@ -83,7 +83,7 @@ SummaryWidget::SummaryWidget(KontactInterface::Plugin *plugin, QWidget *parent)
     mModelProxy->setSelectionModel(mSelectionModel);
     mModelProxy->setSourceModel(mModel);
 
-    KSharedConfigPtr _config = KSharedConfig::openConfig(QLatin1String("kcmkmailsummaryrc"));
+    KSharedConfigPtr _config = KSharedConfig::openConfig(QStringLiteral("kcmkmailsummaryrc"));
 
     mModelState =
         new KViewStateMaintainer<Akonadi::ETMViewStateSaver>(_config->group("CheckState"), this);
@@ -114,7 +114,7 @@ void SummaryWidget::selectFolder(const QString &folder)
         mPlugin->core()->selectPlugin(mPlugin);
     }
 
-    org::kde::kmail::kmail kmail(QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QDBusConnection::sessionBus());
+    org::kde::kmail::kmail kmail(QStringLiteral("org.kde.kmail"), QStringLiteral("/KMail"), QDBusConnection::sessionBus());
     kmail.selectFolder(folder);
 }
 
@@ -142,7 +142,7 @@ void SummaryWidget::displayModel(const QModelIndex &parent,
                     // Construct the full path string.
                     parentTreeNames.insert(parentTreeNames.size(), col.name());
                     urlLabel = new KUrlLabel(QString::number(col.id()),
-                                             parentTreeNames.join(QLatin1String("/")), this);
+                                             parentTreeNames.join(QStringLiteral("/")), this);
                     parentTreeNames.removeLast();
                 } else {
                     urlLabel = new KUrlLabel(QString::number(col.id()), col.name(), this);
@@ -198,8 +198,8 @@ void SummaryWidget::slotUpdateFolderList()
     mLabels.clear();
     mModelState->restoreState();
     int counter = 0;
-    qDebug() << QLatin1String("Iterating over") << mModel->rowCount() << QLatin1String("collections.");
-    KConfig _config(QLatin1String("kcmkmailsummaryrc"));
+    qDebug() << QStringLiteral("Iterating over") << mModel->rowCount() << QStringLiteral("collections.");
+    KConfig _config(QStringLiteral("kcmkmailsummaryrc"));
     KConfigGroup config(&_config, "General");
     const bool showFolderPaths = config.readEntry("showFolderPaths", false);
     displayModel(QModelIndex(), counter, showFolderPaths, QStringList());
@@ -234,6 +234,6 @@ bool SummaryWidget::eventFilter(QObject *obj, QEvent *e)
 
 QStringList SummaryWidget::configModules() const
 {
-    return QStringList() << QLatin1String("kcmkmailsummary.desktop");
+    return QStringList() << QStringLiteral("kcmkmailsummary.desktop");
 }
 
