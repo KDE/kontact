@@ -77,12 +77,11 @@ void AboutDialog::saveSize()
 
 void AboutDialog::addAboutPlugin(KontactInterface::Plugin *plugin)
 {
-#pragma message("port QT5")
-    //QT5 addAboutData( plugin->title(), plugin->icon(), plugin->aboutData() );
+    addAboutData( plugin->title(), plugin->icon(), plugin->aboutData() );
 }
 
 void AboutDialog::addAboutData(const QString &title, const QString &icon,
-                               const KAboutData *about)
+                               const KAboutData &about)
 {
     QIcon pixmap = QIcon::fromTheme(icon);
 
@@ -94,26 +93,25 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
 
     QBoxLayout *topLayout = new QVBoxLayout(topFrame);
 
-    if (!about) {
+    if (about.displayName().isEmpty()) {
         QLabel *label = new QLabel(i18n("No about information available."), topFrame);
         topLayout->addWidget(label);
     } else {
         QString text;
 
         text += QLatin1String("<p>");
-#pragma message("port QT5")
-        //QT5 text += QLatin1String("<b>") + about->programName() + QLatin1String("</b>");
+        text += QLatin1String("<b>") + about.displayName() + QLatin1String("</b>");
         text += QLatin1String("<br>");
 
-        text += i18n("Version %1", about->version());
+        text += i18n("Version %1", about.version());
         text += QLatin1String("</p>");
 
-        if (!about->shortDescription().isEmpty()) {
-            text += QLatin1String("<p>") + about->shortDescription() + QLatin1String("<br>") +
-                    about->copyrightStatement() + QLatin1String("</p>");
+        if (!about.shortDescription().isEmpty()) {
+            text += QLatin1String("<p>") + about.shortDescription() + QLatin1String("<br>") +
+                    about.copyrightStatement() + QLatin1String("</p>");
         }
 
-        QString home = about->homepage();
+        QString home = about.homepage();
         if (!home.isEmpty()) {
             text += QLatin1String("<a href=\"") + home + QLatin1String("\">") + home + QLatin1String("</a><br>");
         }
@@ -132,7 +130,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
         topLayout->addWidget(personView, 1);
 
         text.clear();
-        const QList<KAboutPerson> authors = about->authors();
+        const QList<KAboutPerson> authors = about.authors();
         if (!authors.isEmpty()) {
             text += i18n("<p><b>Authors:</b></p>");
 
@@ -146,7 +144,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
             }
         }
 
-        const QList<KAboutPerson> credits = about->credits();
+        const QList<KAboutPerson> credits = about.credits();
         if (!credits.isEmpty()) {
             text += i18n("<p><b>Thanks to:</b></p>");
 
@@ -160,7 +158,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
             }
         }
 
-        const QList<KAboutPerson> translators = about->translators();
+        const QList<KAboutPerson> translators = about.translators();
         if (!translators.isEmpty()) {
             text += i18n("<p><b>Translators:</b></p>");
 
@@ -282,15 +280,15 @@ QString AboutDialog::formatPerson(const QString &name, const QString &email)
     return text;
 }
 
-void AboutDialog::addLicenseText(const KAboutData *about)
+void AboutDialog::addLicenseText(const KAboutData &about)
 {
-    if (!about || about->licenses().isEmpty()) {
+    if (about.licenses().isEmpty()) {
         return;
     }
     QPixmap pixmap = KIconLoader::global()->loadIcon(QLatin1String("help-about"),
                      KIconLoader::Desktop, 48);
 
-    const QString title = i18n("%1 License", about->displayName());
+    const QString title = i18n("%1 License", about.displayName());
 
     QFrame *topFrame = new QFrame();
     KPageWidgetItem *page = new KPageWidgetItem(topFrame, title);
@@ -300,7 +298,7 @@ void AboutDialog::addLicenseText(const KAboutData *about)
 
     QTextBrowser *textBrowser = new QTextBrowser(topFrame);
     QString licenseStr;
-    Q_FOREACH (const KAboutLicense &license,  about->licenses()) {
+    Q_FOREACH (const KAboutLicense &license,  about.licenses()) {
         licenseStr += QString::fromLatin1("<pre>%1</pre>").arg(license.text());
     }
     textBrowser->setHtml(licenseStr);

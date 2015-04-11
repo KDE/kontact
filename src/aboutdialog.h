@@ -49,9 +49,9 @@ protected:
     void addAboutPlugin(KontactInterface::Plugin *plugin);
 
     void addAboutData(const QString &title, const QString &icon,
-                      const KAboutData *about);
+                      const KAboutData &about);
 
-    void addLicenseText(const KAboutData *about);
+    void addLicenseText(const KAboutData &about);
 
     QString formatPerson(const QString &name, const QString &email);
 
