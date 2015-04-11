@@ -67,7 +67,7 @@ protected:
 protected Q_SLOTS:
     void slotConfigure();
     void updateWidgets();
-    void summaryWidgetMoved(QWidget *target, QWidget *widget, int alignment);
+    void summaryWidgetMoved(QWidget *target, QObject *obj, int alignment);
 
 private:
     void initGUI(KontactInterface::Core *core);

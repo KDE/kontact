@@ -35,7 +35,7 @@ public:
     explicit DropWidget(QWidget *parent);
 
 Q_SIGNALS:
-    void summaryWidgetDropped(QWidget *target, QWidget *widget, int alignment);
+    void summaryWidgetDropped(QWidget *target, QObject *source, int alignment);
 
 protected:
     void dragEnterEvent(QDragEnterEvent *) Q_DECL_OVERRIDE;

@@ -168,8 +168,8 @@ void SummaryViewPart::updateWidgets()
 
                 connect(summary, SIGNAL(message(QString)),
                         BroadcastStatus::instance(), SLOT(setStatusMsg(QString)));
-                connect(summary, SIGNAL(summaryWidgetDropped(QWidget*,QWidget*,int)),
-                        this, SLOT(summaryWidgetMoved(QWidget*,QWidget*,int)));
+                connect(summary, &KontactInterface::Summary::summaryWidgetDropped,
+                        this, &SummaryViewPart::summaryWidgetMoved);
 
                 if (!mLeftColumnSummaries.contains(plugin->identifier()) &&
                         !mRightColumnSummaries.contains(plugin->identifier())) {
@@ -249,9 +249,10 @@ void SummaryViewPart::updateWidgets()
     mRightColumn->addStretch();
 }
 
-void SummaryViewPart::summaryWidgetMoved(QWidget *target, QWidget *widget, int alignment)
+void SummaryViewPart::summaryWidgetMoved(QWidget *target, QObject *obj, int alignment)
 {
-    if (target == widget) {
+    QWidget *widget = dynamic_cast<QWidget *>(obj);
+    if (!widget || (target == widget)) {
         return;
     }
 
