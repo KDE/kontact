@@ -33,7 +33,7 @@ target_link_libraries(kontact_knotesplugin
                       kdepim 
                       pimcommon 
                       noteshared 
-                      akonadi_next
+                      
 )
 
 ########### install files ###############
