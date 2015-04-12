@@ -44,6 +44,7 @@ using namespace Kontact;
 #include <KIconLoader>
 
 #include <iostream>
+#include <kdelibs4configmigrator.h>
 using namespace std;
 
 static const char description[] = I18N_NOOP("KDE personal information manager");
@@ -160,6 +161,10 @@ int KontactApp::newInstance()
 
 int main(int argc, char **argv)
 {
+    Kdelibs4ConfigMigrator migrate(QStringLiteral("kontact"));
+    migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc"));
+    migrate.setUiFiles(QStringList() << QStringLiteral("kontactui.rc"));
+    migrate.migrate();
     K4AboutData about("kontact", Q_NULLPTR, ki18n("Kontact"), version, ki18n(description),
                       K4AboutData::License_GPL,
                       ki18n("Copyright © 2001–2015 Kontact authors"),
