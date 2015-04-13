@@ -77,7 +77,7 @@ void AboutDialog::saveSize()
 
 void AboutDialog::addAboutPlugin(KontactInterface::Plugin *plugin)
 {
-    addAboutData( plugin->title(), plugin->icon(), plugin->aboutData() );
+    addAboutData(plugin->title(), plugin->icon(), plugin->aboutData());
 }
 
 void AboutDialog::addAboutData(const QString &title, const QString &icon,
