@@ -1063,8 +1063,6 @@ void MainWindow::slotPreferences()
                 }
             }
         }
-#pragma message("port QT5")
-        //QT5 dlg->setHelp( QLatin1String("main-config"), QLatin1String("kontact") );
         dlg->addPluginInfos(filteredPlugins);
         connect(dlg, &Kontact::KontactConfigureDialog::pluginSelectionChanged, this, &MainWindow::pluginsChanged);
     }
