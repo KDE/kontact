@@ -245,8 +245,7 @@ void MainWindow::initObject()
     if (mSidePane) {
         mSidePane->updatePlugins();
     }
-#pragma message("port QT5")
-    //QT5 Port to KAboutData KSettings::Dispatcher::registerComponent( aboutData(), this, "updateConfig" );
+    KSettings::Dispatcher::registerComponent( QStringLiteral("kontact"), this, "updateConfig" );
 
     loadSettings();
 
