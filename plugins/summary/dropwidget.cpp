@@ -42,7 +42,6 @@ void DropWidget::dropEvent(QDropEvent *event)
 {
     int alignment = (event->pos().x() < (width() / 2) ? Qt::AlignLeft : Qt::AlignRight);
     alignment |= (event->pos().y() < (height() / 2) ? Qt::AlignTop : Qt::AlignBottom);
-#pragma message("port QT5")
     emit summaryWidgetDropped(this, event->source(), alignment);
 }
 
