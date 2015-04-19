@@ -50,18 +50,15 @@ AboutDialog::AboutDialog(KontactInterface::Core *core)
     button(QDialogButtonBox::Close)->setDefault(true);
     setModal(false);
     setFaceType(KPageDialog::List);
-#if 0 //QT5
     addAboutData(i18n("Kontact Container"), QLatin1String("kontact"),
-                 KComponentData::mainComponent().aboutData());
-#endif
+                 KAboutData::applicationData());
     QList<KontactInterface::Plugin *> plugins = mCore->pluginList();
     QList<KontactInterface::Plugin *>::ConstIterator end = plugins.constEnd();
     QList<KontactInterface::Plugin *>::ConstIterator it = plugins.constBegin();
     for (; it != end; ++it) {
         addAboutPlugin(*it);
     }
-#pragma message("port QT5")
-    //QT5 addLicenseText( KComponentData::mainComponent().aboutData() );
+    addLicenseText(KAboutData::applicationData());
     resize(QSize(600, 400));
     KConfigGroup grp = KConfigGroup(KSharedConfig::openConfig(), "AboutDialog");
     KWindowConfig::restoreWindowSize(windowHandle(), grp);

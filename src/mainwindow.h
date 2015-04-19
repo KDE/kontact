@@ -122,6 +122,7 @@ private Q_SLOTS:
     void slotShowHideSideBar();
 
 private:
+    void setHelpText(QAction *action, const QString &text);
     QFrame *mTopWidget;
 
     QSplitter *mSplitter;

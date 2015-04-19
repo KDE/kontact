@@ -468,8 +468,7 @@ void MainWindow::setupActions()
     QAction *action =
         new QAction(QIcon::fromTheme(QLatin1String("configure")),
                     i18nc("@action:inmenu", "Configure Kontact..."), this);
-    //QT5action->setHelpText(
-    //            i18nc( "@info:status", "Configure Kontact" ) );
+    setHelpText(action, i18nc( "@info:status", "Configure Kontact" ));
     action->setWhatsThis(
         i18nc("@info:whatsthis",
               "You will be presented with a dialog where you can configure Kontact."));
@@ -479,8 +478,7 @@ void MainWindow::setupActions()
     action =
         new QAction(QIcon::fromTheme(QLatin1String("kontact")),
                     i18nc("@action:inmenu", "&Kontact Introduction"), this);
-    //action->setHelpText(
-    //            i18nc( "@info:status", "Show the Kontact Introduction page" ) );
+    setHelpText(action, i18nc( "@info:status", "Show the Kontact Introduction page" ) );
     action->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option to see the Kontact Introduction page."));
@@ -490,8 +488,8 @@ void MainWindow::setupActions()
     action =
         new QAction(QIcon::fromTheme(QLatin1String("ktip")),
                     i18nc("@action:inmenu", "&Tip of the Day"), this);
-    //action->setHelpText(
-    //            i18nc( "@info:status", "Show the Tip-of-the-Day dialog" ) );
+
+    setHelpText( action, i18nc( "@info:status", "Show the Tip-of-the-Day dialog" ) );
     action->setWhatsThis(
         i18nc("@info:whatsthis",
               "You will be presented with a dialog showing small tips to help "
@@ -1289,3 +1287,11 @@ void MainWindow::slotShowHideSideBar()
     }
 }
 
+void MainWindow::setHelpText(QAction *action, const QString &text)
+{
+    action->setStatusTip(text);
+    action->setToolTip(text);
+    if (action->whatsThis().isEmpty()) {
+        action->setWhatsThis(text);
+    }
+}
