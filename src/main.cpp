@@ -168,7 +168,7 @@ int main(int argc, char **argv)
     K4AboutData about("kontact", Q_NULLPTR, ki18n("Kontact"), version, ki18n(description),
                       K4AboutData::License_GPL,
                       ki18n("Copyright © 2001–2015 Kontact authors"),
-                      KLocalizedString(), "http://kontact.org");
+                      KLocalizedString(), "https://userbase.kde.org/Kontact");
 
     about.addAuthor(ki18n("Allen Winter"), KLocalizedString(), "winter@kde.org");
     about.addAuthor(ki18n("Rafael Fernández López"), KLocalizedString(), "ereslibre@kde.org");
