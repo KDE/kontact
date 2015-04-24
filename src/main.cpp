@@ -162,7 +162,7 @@ int main( int argc, char **argv )
     KAboutData about( "kontact", 0, ki18n( "Kontact" ), version, ki18n(description),
                       KAboutData::License_GPL,
                       ki18n( "Copyright © 2001–2014 Kontact authors" ),
-                      KLocalizedString(), "http://kontact.org" );
+                      KLocalizedString(), "https://userbase.kde.org/Kontact" );
 
     about.addAuthor( ki18n( "Allen Winter" ), KLocalizedString(), "winter@kde.org" );
     about.addAuthor( ki18n( "Rafael Fernández López" ), KLocalizedString(), "ereslibre@kde.org" );
