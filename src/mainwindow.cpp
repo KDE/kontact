@@ -245,7 +245,7 @@ void MainWindow::initObject()
     if (mSidePane) {
         mSidePane->updatePlugins();
     }
-    KSettings::Dispatcher::registerComponent( QStringLiteral("kontact"), this, "updateConfig" );
+    KSettings::Dispatcher::registerComponent(QStringLiteral("kontact"), this, "updateConfig");
 
     loadSettings();
 
@@ -468,7 +468,7 @@ void MainWindow::setupActions()
     QAction *action =
         new QAction(QIcon::fromTheme(QLatin1String("configure")),
                     i18nc("@action:inmenu", "Configure Kontact..."), this);
-    setHelpText(action, i18nc( "@info:status", "Configure Kontact" ));
+    setHelpText(action, i18nc("@info:status", "Configure Kontact"));
     action->setWhatsThis(
         i18nc("@info:whatsthis",
               "You will be presented with a dialog where you can configure Kontact."));
@@ -478,7 +478,7 @@ void MainWindow::setupActions()
     action =
         new QAction(QIcon::fromTheme(QLatin1String("kontact")),
                     i18nc("@action:inmenu", "&Kontact Introduction"), this);
-    setHelpText(action, i18nc( "@info:status", "Show the Kontact Introduction page" ) );
+    setHelpText(action, i18nc("@info:status", "Show the Kontact Introduction page"));
     action->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option to see the Kontact Introduction page."));
@@ -489,7 +489,7 @@ void MainWindow::setupActions()
         new QAction(QIcon::fromTheme(QLatin1String("ktip")),
                     i18nc("@action:inmenu", "&Tip of the Day"), this);
 
-    setHelpText( action, i18nc( "@info:status", "Show the Tip-of-the-Day dialog" ) );
+    setHelpText(action, i18nc("@info:status", "Show the Tip-of-the-Day dialog"));
     action->setWhatsThis(
         i18nc("@info:whatsthis",
               "You will be presented with a dialog showing small tips to help "
