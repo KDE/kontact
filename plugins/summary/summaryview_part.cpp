@@ -388,7 +388,7 @@ void SummaryViewPart::drawRtoL(QWidget *target, QWidget *widget, int alignment)
 
 void SummaryViewPart::slotTextChanged()
 {
-    emit textChanged(i18n("What's next?"));
+    Q_EMIT textChanged(i18n("What's next?"));
 }
 
 void SummaryViewPart::slotAdjustPalette()

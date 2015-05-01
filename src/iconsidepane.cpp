@@ -95,7 +95,7 @@ public:
 
     void emitReset()
     {
-        emit reset();
+        Q_EMIT reset();
     }
 
     void setPluginList(const QList<KontactInterface::Plugin *> &list)
@@ -489,7 +489,7 @@ void Navigator::slotCurrentChanged(const QModelIndex &current)
     QModelIndex source =
         static_cast<const QSortFilterProxyModel *>(current.model())->mapToSource(current);
 
-    emit pluginActivated(static_cast<KontactInterface::Plugin *>(source.internalPointer()));
+    Q_EMIT pluginActivated(static_cast<KontactInterface::Plugin *>(source.internalPointer()));
 }
 
 void Navigator::slotActionTriggered(bool checked)
