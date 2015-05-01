@@ -53,7 +53,7 @@ void SummaryView::fillSyncActionSubEntries()
     QStringList menuItems;
     menuItems.append(i18nc("@action:inmenu sync everything", "All"));
 
-    org::kde::kmail::kmail kmail(QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QDBusConnection::sessionBus());
+    org::kde::kmail::kmail kmail(QStringLiteral("org.kde.kmail"), QStringLiteral("/KMail"), QDBusConnection::sessionBus());
     const QDBusReply<QStringList> reply = kmail.accounts();
     if (reply.isValid()) {
         menuItems << reply.value();
@@ -68,7 +68,7 @@ void SummaryView::syncAccount(const QString &account)
     if (account == i18nc("sync everything", "All")) {
         doSync();
     } else {
-        org::kde::kmail::kmail kmail(QLatin1String("org.kde.kmail"), QLatin1String("/KMail"),
+        org::kde::kmail::kmail kmail(QStringLiteral("org.kde.kmail"), QStringLiteral("/KMail"),
                                      QDBusConnection::sessionBus());
         kmail.checkAccount(account);
     }

@@ -66,8 +66,8 @@ SummaryViewPart::SummaryViewPart(KontactInterface::Core *core, const char *,
     setDate(QDate::currentDate());
     connect(mCore, &KontactInterface::Core::dayChanged, this, &SummaryViewPart::setDate);
 
-    mConfigAction = new QAction(QIcon::fromTheme(QLatin1String("configure")), i18n("&Configure Summary View..."), this);
-    actionCollection()->addAction(QLatin1String("summaryview_configure"), mConfigAction);
+    mConfigAction = new QAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("&Configure Summary View..."), this);
+    actionCollection()->addAction(QStringLiteral("summaryview_configure"), mConfigAction);
     connect(mConfigAction, &QAction::triggered, this, &SummaryViewPart::slotConfigure);
     const QString str = i18n("Configure the summary view");
     mConfigAction->setStatusTip(str);
@@ -78,7 +78,7 @@ SummaryViewPart::SummaryViewPart(KontactInterface::Core *core, const char *,
               "summaries you want to see and also allow you to configure "
               "the summaries to your liking."));
 
-    setXMLFile(QLatin1String("kontactsummary_part.rc"));
+    setXMLFile(QStringLiteral("kontactsummary_part.rc"));
 
     QTimer::singleShot(0, this, SLOT(slotTextChanged()));
 }
@@ -134,14 +134,14 @@ void SummaryViewPart::updateWidgets()
 
     QStringList activeSummaries;
 
-    KConfig config(QLatin1String("kontact_summaryrc"));
+    KConfig config(QStringLiteral("kontact_summaryrc"));
     KConfigGroup grp(&config, QString());
     if (!grp.hasKey("ActiveSummaries")) {
-        activeSummaries << QLatin1String("kontact_korganizerplugin");
-        activeSummaries << QLatin1String("kontact_todoplugin");
-        activeSummaries << QLatin1String("kontact_specialdatesplugin");
-        activeSummaries << QLatin1String("kontact_kmailplugin");
-        activeSummaries << QLatin1String("kontact_knotesplugin");
+        activeSummaries << QStringLiteral("kontact_korganizerplugin");
+        activeSummaries << QStringLiteral("kontact_todoplugin");
+        activeSummaries << QStringLiteral("kontact_specialdatesplugin");
+        activeSummaries << QStringLiteral("kontact_kmailplugin");
+        activeSummaries << QStringLiteral("kontact_knotesplugin");
     } else {
         activeSummaries = grp.readEntry("ActiveSummaries", QStringList());
     }
@@ -423,7 +423,7 @@ void SummaryViewPart::slotAdjustPalette()
 
 void SummaryViewPart::setDate(const QDate &newDate)
 {
-    QString date(QLatin1String("<b>%1</b>"));
+    QString date(QStringLiteral("<b>%1</b>"));
     date = date.arg(KLocale::global()->formatDate(newDate));
     mDateLabel->setText(date);
 }
@@ -431,11 +431,11 @@ void SummaryViewPart::setDate(const QDate &newDate)
 void SummaryViewPart::slotConfigure()
 {
     KCMultiDialog dlg(mMainWidget);
-    dlg.setObjectName(QLatin1String("ConfigDialog"));
+    dlg.setObjectName(QStringLiteral("ConfigDialog"));
     dlg.setModal(true);
 
     QStringList modules = configModules();
-    modules.prepend(QLatin1String("kcmkontactsummary.desktop"));
+    modules.prepend(QStringLiteral("kcmkontactsummary.desktop"));
     connect(&dlg, SIGNAL(configCommitted()),
             this, SLOT(updateWidgets()));
 

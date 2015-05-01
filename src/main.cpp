@@ -62,7 +62,7 @@ class KontactApp : public
 public:
     KontactApp() : mMainWindow(Q_NULLPTR), mSessionRestored(false)
     {
-        KIconLoader::global()->addAppDir(QLatin1String("kdepim"));
+        KIconLoader::global()->addAppDir(QStringLiteral("kdepim"));
     }
     ~KontactApp() {}
 

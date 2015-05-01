@@ -161,7 +161,7 @@ MainWindow::MainWindow()
     mSidePane->setMaximumWidth(mSidePane->sizeHint().width());
     mSidePane->setMinimumWidth(mSidePane->sizeHint().width());
 
-    factory()->plugActionList(this, QLatin1String("navigator_actionlist"), mActionPlugins);
+    factory()->plugActionList(this, QStringLiteral("navigator_actionlist"), mActionPlugins);
 
     KConfigGroup grp(KSharedConfig::openConfig(), "MainWindow");
     KWindowConfig::restoreWindowSize(windowHandle(), grp);
@@ -466,27 +466,27 @@ void MainWindow::setupActions()
     }
 
     QAction *action =
-        new QAction(QIcon::fromTheme(QLatin1String("configure")),
+        new QAction(QIcon::fromTheme(QStringLiteral("configure")),
                     i18nc("@action:inmenu", "Configure Kontact..."), this);
     setHelpText(action, i18nc("@info:status", "Configure Kontact"));
     action->setWhatsThis(
         i18nc("@info:whatsthis",
               "You will be presented with a dialog where you can configure Kontact."));
-    actionCollection()->addAction(QLatin1String("settings_configure_kontact"), action);
+    actionCollection()->addAction(QStringLiteral("settings_configure_kontact"), action);
     connect(action, &QAction::triggered, this, &MainWindow::slotPreferences);
 
     action =
-        new QAction(QIcon::fromTheme(QLatin1String("kontact")),
+        new QAction(QIcon::fromTheme(QStringLiteral("kontact")),
                     i18nc("@action:inmenu", "&Kontact Introduction"), this);
     setHelpText(action, i18nc("@info:status", "Show the Kontact Introduction page"));
     action->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option to see the Kontact Introduction page."));
-    actionCollection()->addAction(QLatin1String("help_introduction"), action);
+    actionCollection()->addAction(QStringLiteral("help_introduction"), action);
     connect(action, &QAction::triggered, this, &MainWindow::slotShowIntroduction);
 
     action =
-        new QAction(QIcon::fromTheme(QLatin1String("ktip")),
+        new QAction(QIcon::fromTheme(QStringLiteral("ktip")),
                     i18nc("@action:inmenu", "&Tip of the Day"), this);
 
     setHelpText(action, i18nc("@info:status", "Show the Tip-of-the-Day dialog"));
@@ -494,7 +494,7 @@ void MainWindow::setupActions()
         i18nc("@info:whatsthis",
               "You will be presented with a dialog showing small tips to help "
               "you use this program more effectively."));
-    actionCollection()->addAction(QLatin1String("help_tipofday"), action);
+    actionCollection()->addAction(QStringLiteral("help_tipofday"), action);
     connect(action, &QAction::triggered, this, &MainWindow::slotShowTip);
     //TODO 4.12: add description
     QShortcut *shortcut = new QShortcut(QKeySequence(Qt::Key_F9), this);
@@ -552,10 +552,10 @@ void MainWindow::loadPlugins()
         plugin->setTitle(it->name());
         plugin->setIcon(it->icon());
 
-        QVariant libNameProp = it->property(QLatin1String("X-KDE-KontactPartLibraryName"));
-        QVariant exeNameProp = it->property(QLatin1String("X-KDE-KontactPartExecutableName"));
-        QVariant loadOnStart = it->property(QLatin1String("X-KDE-KontactPartLoadOnStart"));
-        QVariant hasPartProp = it->property(QLatin1String("X-KDE-KontactPluginHasPart"));
+        QVariant libNameProp = it->property(QStringLiteral("X-KDE-KontactPartLibraryName"));
+        QVariant exeNameProp = it->property(QStringLiteral("X-KDE-KontactPartExecutableName"));
+        QVariant loadOnStart = it->property(QStringLiteral("X-KDE-KontactPartLoadOnStart"));
+        QVariant hasPartProp = it->property(QStringLiteral("X-KDE-KontactPluginHasPart"));
 
         if (!loadOnStart.isNull() && loadOnStart.toBool()) {
             mDelayedPreload.append(plugin);
@@ -588,13 +588,13 @@ void MainWindow::loadPlugins()
         QList<QAction *>::const_iterator end(actionList.end());
 
         for (listIt = actionList.begin(); listIt != end; ++listIt) {
-            qCDebug(KONTACT_LOG) << QLatin1String("Plugging New actions") << (*listIt)->objectName();
+            qCDebug(KONTACT_LOG) << QStringLiteral("Plugging New actions") << (*listIt)->objectName();
             mNewActions->addAction((*listIt));
         }
 
         if (mSyncActionsEnabled) {
             Q_FOREACH (QAction *listIt, plugin->syncActions()) {
-                qCDebug(KONTACT_LOG) << QLatin1String("Plugging Sync actions") << listIt->objectName();
+                qCDebug(KONTACT_LOG) << QStringLiteral("Plugging Sync actions") << listIt->objectName();
                 mSyncActions->addAction(listIt);
             }
         }
@@ -1227,9 +1227,9 @@ QString MainWindow::introductionString()
     KIconLoader *iconloader = KIconLoader::global();
     const int iconSize = iconloader->currentSize(KIconLoader::Desktop);
 
-    const QString handbook_icon_path = iconloader->iconPath(QLatin1String("help-contents"), KIconLoader::Desktop);
-    const QString html_icon_path = iconloader->iconPath(QLatin1String("kontact"), KIconLoader::Desktop);
-    const QString wizard_icon_path = iconloader->iconPath(QLatin1String("tools-wizard"), KIconLoader::Desktop);
+    const QString handbook_icon_path = iconloader->iconPath(QStringLiteral("help-contents"), KIconLoader::Desktop);
+    const QString html_icon_path = iconloader->iconPath(QStringLiteral("kontact"), KIconLoader::Desktop);
+    const QString wizard_icon_path = iconloader->iconPath(QStringLiteral("tools-wizard"), KIconLoader::Desktop);
 
     QString info =
         ki18nc(
@@ -1248,7 +1248,7 @@ QString MainWindow::introductionString()
         subs(KComponentData::mainComponent().aboutData()->version()).
         subs(i18nc("@item:intext",
                    "Kontact handles your e-mail, address book, calendar, to-do list and more.")).
-        subs(QLatin1String("exec:/help?kontact")).
+        subs(QStringLiteral("exec:/help?kontact")).
         subs(iconSize).
         subs(iconSize).
         subs(QLatin1String("file:") + handbook_icon_path).
