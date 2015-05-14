@@ -103,14 +103,14 @@ static void listPlugins()
 static void loadCommandLineOptions(QCommandLineParser *parser)
 {
     parser->addOption(QCommandLineOption(
-        QLatin1String("module"),
+        QStringLiteral("module"),
         i18n("Start with a specific Kontact module"),
-        QLatin1String("module")));
+        QStringLiteral("module")));
     parser->addOption(QCommandLineOption(
-        QLatin1String("iconify"),
+        QStringLiteral("iconify"),
         i18n("Start in iconified (minimized) mode")));
     parser->addOption(QCommandLineOption(
-        QLatin1String("list"),
+        QStringLiteral("list"),
         i18n("List all possible modules and exit")));
 }
 
@@ -124,8 +124,8 @@ int KontactApp::activate(const QStringList &args)
     if (Prefs::self()->forceStartupPlugin()) {
         moduleName = Prefs::self()->forcedStartupPlugin();
     }
-    if (parser.isSet(QLatin1String("module"))) {
-        moduleName = parser.value(QLatin1String("module"));
+    if (parser.isSet(QStringLiteral("module"))) {
+        moduleName = parser.value(QStringLiteral("module"));
     }
     if (!mSessionRestored) {
         if (!mMainWindow) {
@@ -137,7 +137,7 @@ int KontactApp::activate(const QStringList &args)
             KontactInterface::UniqueAppHandler::setMainWidget(mMainWindow);
             // --iconify is needed in kontact, although kstart can do that too,
             // because kstart returns immediately so it's too early to talk D-Bus to the app.
-            if (parser.isSet(QLatin1String("iconify"))) {
+            if (parser.isSet(QStringLiteral("iconify"))) {
                 KWindowSystem::minimizeWindow(mMainWindow->winId(), false /*no animation*/);
             }
         } else {
@@ -163,28 +163,28 @@ int main(int argc, char **argv)
     migrate.setUiFiles(QStringList() << QStringLiteral("kontactui.rc"));
     migrate.migrate();
 
-    KAboutData about(QLatin1String("kontact"),
+    KAboutData about(QStringLiteral("kontact"),
                      i18n("Kontact"),
-                     QLatin1String(version),
+                     QStringLiteral(version),
                      i18n(description),
                      KAboutLicense::GPL,
                      i18n("Copyright © 2001–2015 Kontact authors"),
                      QString(),
-                     QLatin1String("https://userbase.kde.org/Kontact"));
+                     QStringLiteral("https://userbase.kde.org/Kontact"));
 
-    about.addAuthor(i18n("Allen Winter"), QString(), QLatin1String("winter@kde.org"));
-    about.addAuthor(i18n("Rafael Fernández López"), QString(), QLatin1String("ereslibre@kde.org"));
-    about.addAuthor(i18n("Daniel Molkentin"), QString(), QLatin1String("molkentin@kde.org"));
-    about.addAuthor(i18n("Don Sanders"), QString(), QLatin1String("sanders@kde.org"));
-    about.addAuthor(i18n("Cornelius Schumacher"), QString(), QLatin1String("schumacher@kde.org"));
-    about.addAuthor(i18n("Tobias K\303\266nig"), QString(), QLatin1String("tokoe@kde.org"));
-    about.addAuthor(i18n("David Faure"), QString(), QLatin1String("faure@kde.org"));
-    about.addAuthor(i18n("Ingo Kl\303\266cker"), QString(), QLatin1String("kloecker@kde.org"));
-    about.addAuthor(i18n("Sven L\303\274ppken"), QString(), QLatin1String("sven@kde.org"));
-    about.addAuthor(i18n("Zack Rusin"), QString(), QLatin1String("zack@kde.org"));
+    about.addAuthor(i18n("Allen Winter"), QString(), QStringLiteral("winter@kde.org"));
+    about.addAuthor(i18n("Rafael Fernández López"), QString(), QStringLiteral("ereslibre@kde.org"));
+    about.addAuthor(i18n("Daniel Molkentin"), QString(), QStringLiteral("molkentin@kde.org"));
+    about.addAuthor(i18n("Don Sanders"), QString(), QStringLiteral("sanders@kde.org"));
+    about.addAuthor(i18n("Cornelius Schumacher"), QString(), QStringLiteral("schumacher@kde.org"));
+    about.addAuthor(i18n("Tobias K\303\266nig"), QString(), QStringLiteral("tokoe@kde.org"));
+    about.addAuthor(i18n("David Faure"), QString(), QStringLiteral("faure@kde.org"));
+    about.addAuthor(i18n("Ingo Kl\303\266cker"), QString(), QStringLiteral("kloecker@kde.org"));
+    about.addAuthor(i18n("Sven L\303\274ppken"), QString(), QStringLiteral("sven@kde.org"));
+    about.addAuthor(i18n("Zack Rusin"), QString(), QStringLiteral("zack@kde.org"));
     about.addAuthor(i18n("Matthias Hoelzer-Kluepfel"),
-                    i18n("Original Author"), QLatin1String("mhk@kde.org"));
-    about.addCredit(i18n("Torgny Nyblom"), i18n("Git Migration"), QLatin1String("nyblom@kde.org"));
+                    i18n("Original Author"), QStringLiteral("mhk@kde.org"));
+    about.addCredit(i18n("Torgny Nyblom"), i18n("Git Migration"), QStringLiteral("nyblom@kde.org"));
     about.setOrganizationDomain("kde.org");
 
 
@@ -196,7 +196,7 @@ int main(int argc, char **argv)
     cmdArgs->process(args);
     about.processCommandLine(cmdArgs);
 
-    if (cmdArgs->isSet(QLatin1String("list"))) {
+    if (cmdArgs->isSet(QStringLiteral("list"))) {
         listPlugins();
         return 0;
     }
