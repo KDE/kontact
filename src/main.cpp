@@ -165,7 +165,7 @@ int main(int argc, char **argv)
 
     KAboutData about(QStringLiteral("kontact"),
                      i18n("Kontact"),
-                     QStringLiteral(version),
+                     QLatin1String(version),
                      i18n(description),
                      KAboutLicense::GPL,
                      i18n("Copyright © 2001–2015 Kontact authors"),
