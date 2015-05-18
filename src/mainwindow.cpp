@@ -42,7 +42,6 @@ using namespace Kontact;
 #include <KXMLGUIFactory>
 #include <KActionCollection>
 #include <KActionMenu>
-#include <KApplication>
 #include <KConfigGroup>
 #include <KDBusServiceStarter>
 #include "kontact_debug.h"
@@ -77,6 +76,8 @@ using namespace Kontact;
 #include <QStandardPaths>
 #include <QFile>
 #include <QHBoxLayout>
+#include <QApplication>
+#include <KAboutData>
 
 // Define the maximum time Kontact waits for KSycoca to become available.
 static const int KSYCOCA_WAIT_TIMEOUT = 10;
@@ -840,7 +841,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
     }
 
     // store old focus widget
-    QWidget *focusWidget = kapp->focusWidget();
+    QWidget *focusWidget = qApp->focusWidget();
     if (mCurrentPlugin && focusWidget) {
         // save the focus widget only when it belongs to the activated part
         QWidget *parent = focusWidget->parentWidget();
@@ -1198,7 +1199,7 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
 bool MainWindow::queryClose()
 {
-    if (kapp->sessionSaving() || mReallyClose) {
+    if (qApp->isSavingSession() || mReallyClose) {
         return true;
     }
 

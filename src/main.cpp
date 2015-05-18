@@ -23,6 +23,7 @@
 #include "kdepim-version.h"
 
 #include "mainwindow.h"
+#include "kontact_debug.h"
 #include "prefs.h"
 using namespace Kontact;
 
@@ -30,18 +31,16 @@ using namespace Kontact;
 
 #include <KontactInterface/Plugin>
 #include <KontactInterface/UniqueAppHandler>
-#ifdef Q_OS_WIN
 #include <KontactInterface/PimUniqueApplication>
-#endif
 
-#include <k4aboutdata.h>
-#include <KCmdLineArgs>
 #include <KLocalizedString>
 #include <KService>
 #include <KServiceTypeTrader>
 #include <KUniqueApplication>
 #include <KWindowSystem>
 #include <KIconLoader>
+
+#include <QCommandLineParser>
 
 #include <iostream>
 #include <kdelibs4configmigrator.h>
@@ -51,23 +50,21 @@ static const char description[] = I18N_NOOP("KDE personal information manager");
 
 static const char version[] = KDEPIM_VERSION;
 
-class KontactApp : public
-#ifdef Q_OS_WIN
-    KontactInterface::PimUniqueApplication
-#else
-    KUniqueApplication
-#endif
+class KontactApp : public KontactInterface::PimUniqueApplication
 {
     Q_OBJECT
 public:
-    KontactApp() : mMainWindow(Q_NULLPTR), mSessionRestored(false)
+    KontactApp(int &argc, char **argv[], KAboutData &about)
+      : KontactInterface::PimUniqueApplication(argc, argv, about)
+      , mMainWindow(Q_NULLPTR)
+      , mSessionRestored(false)
     {
         KIconLoader::global()->addAppDir(QStringLiteral("kdepim"));
     }
     ~KontactApp() {}
 
     /*reimp*/
-    int newInstance() Q_DECL_OVERRIDE;
+    int activate(const QStringList &arguments) Q_DECL_OVERRIDE;
 
     void setMainWindow(MainWindow *window)
     {
@@ -78,9 +75,6 @@ public:
     {
         mSessionRestored = restored;
     }
-
-public Q_SLOTS:
-    void loadCommandLineOptionsForNewInstance();
 
 private:
     MainWindow *mMainWindow;
@@ -106,31 +100,32 @@ static void listPlugins()
     }
 }
 
-static void loadCommandLineOptions()
+static void loadCommandLineOptions(QCommandLineParser *parser)
 {
-    KCmdLineOptions options;
-    options.add("module <module>", ki18n("Start with a specific Kontact module"));
-    options.add("iconify", ki18n("Start in iconified (minimized) mode"));
-    options.add("list", ki18n("List all possible modules and exit"));
-    KCmdLineArgs::addCmdLineOptions(options);
+    parser->addOption(QCommandLineOption(
+        QStringLiteral("module"),
+        i18n("Start with a specific Kontact module"),
+        QStringLiteral("module")));
+    parser->addOption(QCommandLineOption(
+        QStringLiteral("iconify"),
+        i18n("Start in iconified (minimized) mode")));
+    parser->addOption(QCommandLineOption(
+        QStringLiteral("list"),
+        i18n("List all possible modules and exit")));
 }
 
-// Called by KUniqueApplication
-void KontactApp::loadCommandLineOptionsForNewInstance()
+int KontactApp::activate(const QStringList &args)
 {
-    KCmdLineArgs::reset(); // forget options defined by other "applications"
-    loadCommandLineOptions(); // re-add the kontact options
-}
+    QCommandLineParser parser;
+    loadCommandLineOptions(&parser);
+    parser.process(args);
 
-int KontactApp::newInstance()
-{
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     QString moduleName;
     if (Prefs::self()->forceStartupPlugin()) {
         moduleName = Prefs::self()->forcedStartupPlugin();
     }
-    if (args->isSet("module")) {
-        moduleName = args->getOption("module");
+    if (parser.isSet(QStringLiteral("module"))) {
+        moduleName = parser.value(QStringLiteral("module"));
     }
     if (!mSessionRestored) {
         if (!mMainWindow) {
@@ -142,7 +137,7 @@ int KontactApp::newInstance()
             KontactInterface::UniqueAppHandler::setMainWidget(mMainWindow);
             // --iconify is needed in kontact, although kstart can do that too,
             // because kstart returns immediately so it's too early to talk D-Bus to the app.
-            if (args->isSet("iconify")) {
+            if (parser.isSet(QStringLiteral("iconify"))) {
                 KWindowSystem::minimizeWindow(mMainWindow->winId(), false /*no animation*/);
             }
         } else {
@@ -150,13 +145,15 @@ int KontactApp::newInstance()
                 mMainWindow->setInitialActivePluginModule(moduleName);
             }
         }
+    } else if (!moduleName.isEmpty()) {
+        mMainWindow->selectPlugin(moduleName);
     }
 
     KPIM::ReminderClient::startDaemon();
 
     // Handle startup notification and window activation
     // (The first time it will do nothing except note that it was called)
-    return KUniqueApplication::newInstance();
+    return 0;
 }
 
 int main(int argc, char **argv)
@@ -165,44 +162,50 @@ int main(int argc, char **argv)
     migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("kontactui.rc"));
     migrate.migrate();
-    K4AboutData about("kontact", Q_NULLPTR, ki18n("Kontact"), version, ki18n(description),
-                      K4AboutData::License_GPL,
-                      ki18n("Copyright © 2001–2015 Kontact authors"),
-                      KLocalizedString(), "https://userbase.kde.org/Kontact");
 
-    about.addAuthor(ki18n("Allen Winter"), KLocalizedString(), "winter@kde.org");
-    about.addAuthor(ki18n("Rafael Fernández López"), KLocalizedString(), "ereslibre@kde.org");
-    about.addAuthor(ki18n("Daniel Molkentin"), KLocalizedString(), "molkentin@kde.org");
-    about.addAuthor(ki18n("Don Sanders"), KLocalizedString(), "sanders@kde.org");
-    about.addAuthor(ki18n("Cornelius Schumacher"), KLocalizedString(), "schumacher@kde.org");
-    about.addAuthor(ki18n("Tobias K\303\266nig"), KLocalizedString(), "tokoe@kde.org");
-    about.addAuthor(ki18n("David Faure"), KLocalizedString(), "faure@kde.org");
-    about.addAuthor(ki18n("Ingo Kl\303\266cker"), KLocalizedString(), "kloecker@kde.org");
-    about.addAuthor(ki18n("Sven L\303\274ppken"), KLocalizedString(), "sven@kde.org");
-    about.addAuthor(ki18n("Zack Rusin"), KLocalizedString(), "zack@kde.org");
-    about.addAuthor(ki18n("Matthias Hoelzer-Kluepfel"),
-                    ki18n("Original Author"), "mhk@kde.org");
-    about.addCredit(ki18n("Torgny Nyblom"), ki18n("Git Migration"), "nyblom@kde.org");
+    KAboutData about(QStringLiteral("kontact"),
+                     i18n("Kontact"),
+                     QLatin1String(version),
+                     i18n(description),
+                     KAboutLicense::GPL,
+                     i18n("Copyright © 2001–2015 Kontact authors"),
+                     QString(),
+                     QStringLiteral("https://userbase.kde.org/Kontact"));
+
+    about.addAuthor(i18n("Allen Winter"), QString(), QStringLiteral("winter@kde.org"));
+    about.addAuthor(i18n("Rafael Fernández López"), QString(), QStringLiteral("ereslibre@kde.org"));
+    about.addAuthor(i18n("Daniel Molkentin"), QString(), QStringLiteral("molkentin@kde.org"));
+    about.addAuthor(i18n("Don Sanders"), QString(), QStringLiteral("sanders@kde.org"));
+    about.addAuthor(i18n("Cornelius Schumacher"), QString(), QStringLiteral("schumacher@kde.org"));
+    about.addAuthor(i18n("Tobias K\303\266nig"), QString(), QStringLiteral("tokoe@kde.org"));
+    about.addAuthor(i18n("David Faure"), QString(), QStringLiteral("faure@kde.org"));
+    about.addAuthor(i18n("Ingo Kl\303\266cker"), QString(), QStringLiteral("kloecker@kde.org"));
+    about.addAuthor(i18n("Sven L\303\274ppken"), QString(), QStringLiteral("sven@kde.org"));
+    about.addAuthor(i18n("Zack Rusin"), QString(), QStringLiteral("zack@kde.org"));
+    about.addAuthor(i18n("Matthias Hoelzer-Kluepfel"),
+                    i18n("Original Author"), QStringLiteral("mhk@kde.org"));
+    about.addCredit(i18n("Torgny Nyblom"), i18n("Git Migration"), QStringLiteral("nyblom@kde.org"));
     about.setOrganizationDomain("kde.org");
 
-    KCmdLineArgs::init(argc, argv, &about);
 
-    loadCommandLineOptions();
-    KUniqueApplication::addCmdLineOptions();
-    KCmdLineArgs::addStdCmdLineOptions();
+    KontactApp app(argc, &argv, about);
+    QCommandLineParser *cmdArgs = app.cmdArgs();
+    loadCommandLineOptions(cmdArgs);
 
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if (args->isSet("list")) {
+    const QStringList args = QApplication::arguments();
+    cmdArgs->process(args);
+    about.processCommandLine(cmdArgs);
+
+    if (cmdArgs->isSet(QStringLiteral("list"))) {
         listPlugins();
         return 0;
     }
 
-    if (!KontactApp::start()) {
+    if (!KontactApp::start(args)) {
         // Already running, brought to the foreground.
+        qCDebug(KONTACT_LOG) << "Kontact alread running, exiting.";
         return 0;
     }
-
-    KontactApp app;
 
     // Qt doesn't treat the system tray as a window, and therefore Qt would quit
     // the event loop when an error message is clicked away while Kontact is in the
@@ -211,7 +214,7 @@ int main(int argc, char **argv)
     // See http://bugs.kde.org/show_bug.cgi?id=163479
     QApplication::setQuitOnLastWindowClosed(false);
 
-    if (app.restoringSession()) {
+    if (!app.isSessionRestored()) {
         // There can only be one main window
         if (KMainWindow::canBeRestored(1)) {
             MainWindow *mainWindow = new MainWindow();
