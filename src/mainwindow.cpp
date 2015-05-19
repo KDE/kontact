@@ -458,7 +458,7 @@ void MainWindow::setupActions()
             QIcon::fromTheme(QLatin1String("view-refresh")),
             i18nc("@title:menu synchronize pim items (message,calendar,to-do,etc.)", "Sync"), this);
         actionCollection()->addAction(QLatin1String("action_sync"), mSyncActions);
-        mSyncActions->setShortcuts(KStandardShortcut::reload());
+        actionCollection()->setDefaultShortcuts(mSyncActions, KStandardShortcut::reload());
         connect(mSyncActions, &KActionMenu::triggered, this, &MainWindow::slotSyncClicked);
     }
 
@@ -624,7 +624,7 @@ void MainWindow::updateShortcuts()
     for (it = mActionPlugins.constBegin(); it != end; ++it) {
         QAction *action = static_cast<QAction *>(*it);
         const QString shortcut = QString::fromLatin1("Ctrl+%1").arg(mActionPlugins.count() - i);
-        action->setShortcut(QKeySequence(shortcut));
+        actionCollection()->setDefaultShortcut(action, QKeySequence(shortcut));
         ++i;
     }
     factory()->plugActionList(this, QLatin1String("navigator_actionlist"), mActionPlugins);
@@ -718,7 +718,7 @@ void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
     foreach (QAction *qaction, mActionPlugins) {
         QAction *action = static_cast<QAction *>(qaction);
         QString shortcut = QString::fromLatin1("Ctrl+%1").arg(mActionPlugins.count() - i);
-        action->setShortcut(QKeySequence(shortcut));
+        actionCollection()->setDefaultShortcut(action, QKeySequence(shortcut));
         ++i;
     }
 }
