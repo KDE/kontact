@@ -51,7 +51,6 @@ using namespace Kontact;
 #include <KMessageBox>
 #include <KPluginInfo>
 #include <KRun>
-#include <KStandardDirs>
 #include <KServiceTypeTrader>
 #include <KShortcutsDialog>
 #include <KSqueezedTextLabel>
@@ -394,13 +393,11 @@ void MainWindow::paintAboutScreen(const QString &msg)
     }
     QString content = QString::fromLocal8Bit(f.readAll());
     f.close();
-    content = content.arg(QLatin1String("file:") + KStandardDirs::locate(
-                              "data", QLatin1String("kdeui/about/kde_infopage.css")));
+    content = content.arg(QLatin1String("file:") + QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("/kf5/infopage/kde_infopage.css")));
     if (QApplication::isRightToLeft()) {
         content =
             content.arg(QLatin1String("@import \"%1\";")).
-            arg(QLatin1String("file:") + KStandardDirs::locate(
-                    "data", QLatin1String("kdeui/about/kde_infopage_rtl.css")));
+            arg(QLatin1String("file:") + QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("/kf5/infopage/kde_infopage_rtl.css"))); 
     } else {
         content = content.arg(QString());
     }

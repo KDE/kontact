@@ -33,10 +33,10 @@ using namespace Kontact;
 #include <KontactInterface/UniqueAppHandler>
 #include <KontactInterface/PimUniqueApplication>
 
+#include <KAboutData>
 #include <KLocalizedString>
 #include <KService>
 #include <KServiceTypeTrader>
-#include <KUniqueApplication>
 #include <KWindowSystem>
 #include <KIconLoader>
 
@@ -83,7 +83,7 @@ private:
 
 static void listPlugins()
 {
-    KComponentData instance("kontact");   //Can't use KontactApp -- too late for adding cmdline opts
+    //KComponentData instance("kontact");   //Can't use KontactApp -- too late for adding cmdline opts
 
     const KService::List offers = KServiceTypeTrader::self()->query(
                                       QStringLiteral("Kontact/Plugin"),

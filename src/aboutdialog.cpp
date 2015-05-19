@@ -31,7 +31,6 @@ using namespace Kontact;
 #include <KAboutData>
 #include <KLocalizedString>
 #include <QTextBrowser>
-#include <KGlobal>
 #include <KConfigGroup>
 #include <QIcon>
 #include <KIconLoader>
