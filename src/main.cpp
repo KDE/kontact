@@ -55,9 +55,9 @@ class KontactApp : public KontactInterface::PimUniqueApplication
     Q_OBJECT
 public:
     KontactApp(int &argc, char **argv[], KAboutData &about)
-      : KontactInterface::PimUniqueApplication(argc, argv, about)
-      , mMainWindow(Q_NULLPTR)
-      , mSessionRestored(false)
+        : KontactInterface::PimUniqueApplication(argc, argv, about)
+        , mMainWindow(Q_NULLPTR)
+        , mSessionRestored(false)
     {
         KIconLoader::global()->addAppDir(QStringLiteral("kdepim"));
     }
@@ -103,15 +103,15 @@ static void listPlugins()
 static void loadCommandLineOptions(QCommandLineParser *parser)
 {
     parser->addOption(QCommandLineOption(
-        QStringLiteral("module"),
-        i18n("Start with a specific Kontact module"),
-        QStringLiteral("module")));
+                          QStringLiteral("module"),
+                          i18n("Start with a specific Kontact module"),
+                          QStringLiteral("module")));
     parser->addOption(QCommandLineOption(
-        QStringLiteral("iconify"),
-        i18n("Start in iconified (minimized) mode")));
+                          QStringLiteral("iconify"),
+                          i18n("Start in iconified (minimized) mode")));
     parser->addOption(QCommandLineOption(
-        QStringLiteral("list"),
-        i18n("List all possible modules and exit")));
+                          QStringLiteral("list"),
+                          i18n("List all possible modules and exit")));
 }
 
 int KontactApp::activate(const QStringList &args)
@@ -186,7 +186,6 @@ int main(int argc, char **argv)
                     i18n("Original Author"), QStringLiteral("mhk@kde.org"));
     about.addCredit(i18n("Torgny Nyblom"), i18n("Git Migration"), QStringLiteral("nyblom@kde.org"));
     about.setOrganizationDomain("kde.org");
-
 
     KontactApp app(argc, &argv, about);
     QCommandLineParser *cmdArgs = app.cmdArgs();

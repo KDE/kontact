@@ -397,7 +397,7 @@ void MainWindow::paintAboutScreen(const QString &msg)
     if (QApplication::isRightToLeft()) {
         content =
             content.arg(QLatin1String("@import \"%1\";")).
-            arg(QLatin1String("file:") + QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("/kf5/infopage/kde_infopage_rtl.css"))); 
+            arg(QLatin1String("file:") + QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("/kf5/infopage/kde_infopage_rtl.css")));
     } else {
         content = content.arg(QString());
     }
