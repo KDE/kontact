@@ -159,7 +159,7 @@ int KontactApp::activate(const QStringList &args)
 int main(int argc, char **argv)
 {
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kontact"));
-    migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc"));
+    migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc") << QStringLiteral("kontact_summaryrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("kontactui.rc"));
     migrate.migrate();
 
