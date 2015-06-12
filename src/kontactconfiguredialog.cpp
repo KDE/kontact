@@ -40,21 +40,21 @@ KontactConfigureDialog::~KontactConfigureDialog()
 void KontactConfigureDialog::emitConfigChanged()
 {
     //Add code from plugins which needs to be call when we close kontact dialog config
-    QDBusInterface kmailIface(QLatin1String("org.kde.kmail"), QLatin1String("/KMail"), QLatin1String("org.kde.kmail.kmail"),
+    QDBusInterface kmailIface(QStringLiteral("org.kde.kmail"), QStringLiteral("/KMail"), QStringLiteral("org.kde.kmail.kmail"),
                               QDBusConnection::sessionBus());
     if (kmailIface.isValid()) {
         QDBusReply<void> reply;
-        if (!(reply = kmailIface.call(QLatin1String("updateConfig"))).isValid()) {
+        if (!(reply = kmailIface.call(QStringLiteral("updateConfig"))).isValid()) {
             QDBusError err = kmailIface.lastError();
             qCritical() << "Communication problem with KMail. "
                         << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
         }
     }
-    QDBusInterface knotesIface(QLatin1String("org.kde.kontact"), QLatin1String("/KNotes"), QLatin1String("org.kde.kontact.KNotes"),
+    QDBusInterface knotesIface(QStringLiteral("org.kde.kontact"), QStringLiteral("/KNotes"), QStringLiteral("org.kde.kontact.KNotes"),
                                QDBusConnection::sessionBus());
     if (knotesIface.isValid()) {
         QDBusReply<void> reply;
-        if (!(reply = knotesIface.call(QLatin1String("updateConfig"))).isValid()) {
+        if (!(reply = knotesIface.call(QStringLiteral("updateConfig"))).isValid()) {
             const QDBusError err = knotesIface.lastError();
             qCritical() << "Communication problem with KNotes. "
                         << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
@@ -65,7 +65,7 @@ void KontactConfigureDialog::emitConfigChanged()
 
 void KontactConfigureDialog::slotHelpClicked()
 {
-    KHelpClient::invokeHelp(QLatin1String("main-config"), QLatin1String("kontact"));
+    KHelpClient::invokeHelp(QStringLiteral("main-config"), QStringLiteral("kontact"));
 }
 
 void KontactConfigureDialog::slotApply()
