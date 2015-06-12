@@ -66,8 +66,8 @@ KcmKontact::KcmKontact(QWidget *parent)
 
     pluginStartupLayout->addStretch(1);
 
-    connect(forceStartupPlugin->checkBox(), SIGNAL(toggled(bool)),
-            selection->comboBox(), SLOT(setEnabled(bool)));
+    connect(forceStartupPlugin->checkBox(), &QAbstractButton::toggled,
+            selection->comboBox(), &QWidget::setEnabled);
     load();
 }
 
