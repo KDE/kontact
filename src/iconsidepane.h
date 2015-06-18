@@ -48,7 +48,7 @@ class Navigator : public QListView
 public:
     explicit Navigator(SidePaneBase *parent = Q_NULLPTR);
 
-    void updatePlugins(QList<KontactInterface::Plugin *> plugins);
+    void updatePlugins(const QList<KontactInterface::Plugin *> &plugins);
     void setCurrentPlugin(const QString &plugin);
 
     int iconSize() const

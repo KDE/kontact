@@ -80,6 +80,8 @@ private:
     void drawRtoL(QWidget *target, QWidget *widget, int alignment);
 
     QMap<QString, KontactInterface::Summary *> mSummaries;
+    QStringList mLeftColumnSummaries;
+    QStringList mRightColumnSummaries;
     KontactInterface::Core *mCore;
     DropWidget *mFrame;
     QFrame *mMainWidget;
@@ -90,8 +92,6 @@ private:
     QLabel *mDateLabel;
     QAction *mConfigAction;
 
-    QStringList mLeftColumnSummaries;
-    QStringList mRightColumnSummaries;
 };
 
 #endif

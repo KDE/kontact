@@ -351,7 +351,7 @@ Navigator::Navigator(SidePaneBase *parent)
             this, &Navigator::slotCurrentChanged);
 }
 
-void Navigator::updatePlugins(QList<KontactInterface::Plugin *> plugins_)
+void Navigator::updatePlugins(const QList<KontactInterface::Plugin *> &plugins_)
 {
     QString currentPlugin;
     if (currentIndex().isValid()) {
