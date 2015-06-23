@@ -455,7 +455,7 @@ void MainWindow::setupActions()
 
     if (mSyncActionsEnabled) {
         mSyncActions = new KActionMenu(
-            QIcon::fromTheme(QLatin1String("view-refresh")),
+            QIcon::fromTheme(QStringLiteral("view-refresh")),
             i18nc("@title:menu synchronize pim items (message,calendar,to-do,etc.)", "Sync"), this);
         actionCollection()->addAction(QLatin1String("action_sync"), mSyncActions);
         actionCollection()->setDefaultShortcuts(mSyncActions, KStandardShortcut::reload());
