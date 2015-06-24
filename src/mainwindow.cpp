@@ -435,7 +435,7 @@ void MainWindow::setupActions()
 
     mNewActions = new KActionMenu(
         i18nc("@title:menu create new pim items (message,calendar,to-do,etc.)", "New"), this);
-    actionCollection()->addAction(QLatin1String("action_new"), mNewActions);
+    actionCollection()->addAction(QStringLiteral("action_new"), mNewActions);
     actionCollection()->setDefaultShortcuts(mNewActions, KStandardShortcut::openNew());
     connect(mNewActions, &KActionMenu::triggered, this, &MainWindow::slotNewClicked);
 
@@ -457,7 +457,7 @@ void MainWindow::setupActions()
         mSyncActions = new KActionMenu(
             QIcon::fromTheme(QStringLiteral("view-refresh")),
             i18nc("@title:menu synchronize pim items (message,calendar,to-do,etc.)", "Sync"), this);
-        actionCollection()->addAction(QLatin1String("action_sync"), mSyncActions);
+        actionCollection()->addAction(QStringLiteral("action_sync"), mSyncActions);
         actionCollection()->setDefaultShortcuts(mSyncActions, KStandardShortcut::reload());
         connect(mSyncActions, &KActionMenu::triggered, this, &MainWindow::slotSyncClicked);
     }
@@ -640,14 +640,14 @@ bool MainWindow::removePlugin(const KPluginInfo &info)
             QList<QAction *>::const_iterator listIt;
             QList<QAction *>::const_iterator listEnd(actionList.constEnd());
             for (listIt = actionList.constBegin(); listIt != listEnd; ++listIt) {
-                qCDebug(KONTACT_LOG) << QLatin1String("Unplugging New actions") << (*listIt)->objectName();
+                qCDebug(KONTACT_LOG) << QStringLiteral("Unplugging New actions") << (*listIt)->objectName();
                 mNewActions->removeAction(*listIt);
             }
 
             if (mSyncActionsEnabled) {
                 actionList = plugin->syncActions();
                 for (listIt = actionList.constBegin(); listIt != actionList.constEnd(); ++listIt) {
-                    qCDebug(KONTACT_LOG) << QLatin1String("Unplugging Sync actions") << (*listIt)->objectName();
+                    qCDebug(KONTACT_LOG) << QStringLiteral("Unplugging Sync actions") << (*listIt)->objectName();
                     mSyncActions->removeAction(*listIt);
                 }
             }
@@ -746,8 +746,8 @@ void MainWindow::slotActivePartChanged(KParts::Part *part)
         return;
     }
 
-    qCDebug(KONTACT_LOG) << QLatin1String("Part activated:") << part
-                         << QLatin1String("with stack id.") << mPartsStack->indexOf(part->widget());
+    qCDebug(KONTACT_LOG) << QStringLiteral("Part activated:") << part
+                         << QStringLiteral("with stack id.") << mPartsStack->indexOf(part->widget());
 
     statusBar()->clearMessage();
 }

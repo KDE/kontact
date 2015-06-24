@@ -520,16 +520,16 @@ void SummaryViewPart::loadLayout()
     KConfigGroup grp(&config, QString());
 
     if (!grp.hasKey("LeftColumnSummaries")) {
-        mLeftColumnSummaries << QLatin1String("kontact_korganizerplugin");
-        mLeftColumnSummaries << QLatin1String("kontact_todoplugin");
-        mLeftColumnSummaries << QLatin1String("kontact_specialdatesplugin");
+        mLeftColumnSummaries << QStringLiteral("kontact_korganizerplugin");
+        mLeftColumnSummaries << QStringLiteral("kontact_todoplugin");
+        mLeftColumnSummaries << QStringLiteral("kontact_specialdatesplugin");
     } else {
         mLeftColumnSummaries = grp.readEntry("LeftColumnSummaries", QStringList());
     }
 
     if (!grp.hasKey("RightColumnSummaries")) {
-        mRightColumnSummaries << QLatin1String("kontact_kmailplugin");
-        mRightColumnSummaries << QLatin1String("kontact_knotesplugin");
+        mRightColumnSummaries << QStringLiteral("kontact_kmailplugin");
+        mRightColumnSummaries << QStringLiteral("kontact_knotesplugin");
     } else {
         mRightColumnSummaries = grp.readEntry("RightColumnSummaries", QStringList());
     }
