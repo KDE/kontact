@@ -1147,7 +1147,7 @@ void MainWindow::slotOpenUrl(const QUrl &url)
         } else if (path == QLatin1String("/accountwizard")) {
             KRun::runCommand(QLatin1String("accountwizard"), this);
             slotQuit();
-        } else if (path.startsWith(QLatin1String("/help"))) {
+        } else if (path.startsWith(QStringLiteral("/help"))) {
             QString app(QLatin1String("kontact"));
             if (!url.query().isEmpty()) {
                 app = url.query().mid(1);
