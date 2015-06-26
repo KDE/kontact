@@ -385,7 +385,7 @@ void MainWindow::initWidgets()
 
 void MainWindow::paintAboutScreen(const QString &msg)
 {
-    QString location = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kontact/about/main.html"));
+    QString location = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kontact/about/main.html"));
     QFile f(location);
     if (!f.open(QIODevice::ReadOnly)) {
         qCWarning(KONTACT_LOG) << "Failed to load about page: " << f.errorString();
@@ -627,7 +627,7 @@ void MainWindow::updateShortcuts()
         actionCollection()->setDefaultShortcut(action, QKeySequence(shortcut));
         ++i;
     }
-    factory()->plugActionList(this, QLatin1String("navigator_actionlist"), mActionPlugins);
+    factory()->plugActionList(this, QStringLiteral("navigator_actionlist"), mActionPlugins);
 }
 
 bool MainWindow::removePlugin(const KPluginInfo &info)

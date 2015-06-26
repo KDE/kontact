@@ -49,7 +49,7 @@ AboutDialog::AboutDialog(KontactInterface::Core *core)
     button(QDialogButtonBox::Close)->setDefault(true);
     setModal(false);
     setFaceType(KPageDialog::List);
-    addAboutData(i18n("Kontact Container"), QLatin1String("kontact"),
+    addAboutData(i18n("Kontact Container"), QStringLiteral("kontact"),
                  KAboutData::applicationData());
     QList<KontactInterface::Plugin *> plugins = mCore->pluginList();
     QList<KontactInterface::Plugin *>::ConstIterator end = plugins.constEnd();
@@ -112,7 +112,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
             text += QLatin1String("<a href=\"") + home + QLatin1String("\">") + home + QLatin1String("</a><br>");
         }
 
-        text.replace(QLatin1Char('\n'), QLatin1String("<br>"));
+        text.replace(QLatin1Char('\n'), QStringLiteral("<br>"));
 
         QLabel *label = new QLabel(text, topFrame);
         label->setAlignment(Qt::AlignTop);

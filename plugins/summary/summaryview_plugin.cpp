@@ -115,11 +115,11 @@ const KAboutData SummaryView::aboutData()
                                i18n("(c) 2003-2014 The Kontact developers"));
 
     aboutData.addAuthor(i18n("Sven Lueppken"),
-                        QString(), QLatin1String("sven@kde.org"));
+                        QString(), QStringLiteral("sven@kde.org"));
     aboutData.addAuthor(i18n("Cornelius Schumacher"),
-                        QString(), QLatin1String("schumacher@kde.org"));
+                        QString(), QStringLiteral("schumacher@kde.org"));
     aboutData.addAuthor(i18n("Tobias Koenig"),
-                        QString(), QLatin1String("tokoe@kde.org"));
+                        QString(), QStringLiteral("tokoe@kde.org"));
     aboutData.setProductName("kontact/summary");
     return aboutData;
 }
