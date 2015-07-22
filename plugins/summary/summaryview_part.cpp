@@ -476,7 +476,7 @@ void SummaryViewPart::initGUI(KontactInterface::Core *core)
     sa->setWidgetResizable(true);
 
     mMainWidget = new QFrame;
-    mMainWidget->setObjectName(QLatin1String("mMainWidget"));
+    mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     sa->setWidget(mMainWidget);
     mMainWidget->setFocusPolicy(Qt::StrongFocus);
     setWidget(sa);

@@ -100,7 +100,7 @@ void SummaryView::doSync()
 KParts::ReadOnlyPart *SummaryView::createPart()
 {
     mPart = new SummaryViewPart(core(), "summarypartframe", aboutData(), this);
-    mPart->setObjectName(QLatin1String("summaryPart"));
+    mPart->setObjectName(QStringLiteral("summaryPart"));
     return mPart;
 }
 
