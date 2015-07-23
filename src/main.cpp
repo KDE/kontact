@@ -46,7 +46,6 @@ using namespace Kontact;
 #include <kdelibs4configmigrator.h>
 using namespace std;
 
-static const char description[] = I18N_NOOP("KDE personal information manager");
 
 static const char version[] = KDEPIM_VERSION;
 
@@ -54,8 +53,8 @@ class KontactApp : public KontactInterface::PimUniqueApplication
 {
     Q_OBJECT
 public:
-    KontactApp(int &argc, char **argv[], KAboutData &about)
-        : KontactInterface::PimUniqueApplication(argc, argv, about)
+    KontactApp(int &argc, char **argv[])
+        : KontactInterface::PimUniqueApplication(argc, argv)
         , mMainWindow(Q_NULLPTR)
         , mSessionRestored(false)
     {
@@ -158,6 +157,7 @@ int KontactApp::activate(const QStringList &args)
 
 int main(int argc, char **argv)
 {
+    KontactApp app(argc, &argv);
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kontact"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc") << QStringLiteral("kontact_summaryrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("kontactui.rc"));
@@ -166,7 +166,7 @@ int main(int argc, char **argv)
     KAboutData about(QStringLiteral("kontact"),
                      i18n("Kontact"),
                      QLatin1String(version),
-                     i18n(description),
+                     i18n("KDE personal information manager"),
                      KAboutLicense::GPL,
                      i18n("Copyright © 2001–2015 Kontact authors"),
                      QString(),
@@ -186,8 +186,8 @@ int main(int argc, char **argv)
                     i18n("Original Author"), QStringLiteral("mhk@kde.org"));
     about.addCredit(i18n("Torgny Nyblom"), i18n("Git Migration"), QStringLiteral("nyblom@kde.org"));
     about.setOrganizationDomain("kde.org");
+    app.setAboutData(about);
 
-    KontactApp app(argc, &argv, about);
     QCommandLineParser *cmdArgs = app.cmdArgs();
     loadCommandLineOptions(cmdArgs);
 
