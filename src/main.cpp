@@ -46,7 +46,6 @@ using namespace Kontact;
 #include <kdelibs4configmigrator.h>
 using namespace std;
 
-
 static const char version[] = KDEPIM_VERSION;
 
 class KontactApp : public KontactInterface::PimUniqueApplication
