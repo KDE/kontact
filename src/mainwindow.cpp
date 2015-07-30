@@ -55,7 +55,6 @@ using namespace Kontact;
 #include <KShortcutsDialog>
 #include <KSqueezedTextLabel>
 #include <KStandardAction>
-#include <KTipDialog>
 #include <KToolBar>
 #include <KParts/PartManager>
 #include <KSettings/Dispatcher>
@@ -249,8 +248,6 @@ void MainWindow::initObject()
     loadSettings();
 
     statusBar()->show();
-
-    QTimer::singleShot(200, this, SLOT(slotShowTipOnStart()));
 
     // done initializing
     slotShowStatusMsg(QString());
@@ -482,17 +479,6 @@ void MainWindow::setupActions()
     actionCollection()->addAction(QStringLiteral("help_introduction"), action);
     connect(action, &QAction::triggered, this, &MainWindow::slotShowIntroduction);
 
-    action =
-        new QAction(QIcon::fromTheme(QStringLiteral("ktip")),
-                    i18nc("@action:inmenu", "&Tip of the Day"), this);
-
-    setHelpText(action, i18nc("@info:status", "Show the Tip-of-the-Day dialog"));
-    action->setWhatsThis(
-        i18nc("@info:whatsthis",
-              "You will be presented with a dialog showing small tips to help "
-              "you use this program more effectively."));
-    actionCollection()->addAction(QStringLiteral("help_tipofday"), action);
-    connect(action, &QAction::triggered, this, &MainWindow::slotShowTip);
     //TODO 4.12: add description
     QShortcut *shortcut = new QShortcut(QKeySequence(Qt::Key_F9), this);
     connect(shortcut, &QShortcut::activated, this, &MainWindow::slotShowHideSideBar);
@@ -998,33 +984,9 @@ void MainWindow::saveSettings()
     }
 }
 
-void MainWindow::slotShowTip()
-{
-    showTip(true);
-}
-
-void MainWindow::slotShowTipOnStart()
-{
-    showTip(false);
-}
-
 void MainWindow::slotShowIntroduction()
 {
     mPartsStack->setCurrentIndex(0);
-}
-
-void MainWindow::showTip(bool force)
-{
-    QStringList tips;
-    PluginList::ConstIterator end = mPlugins.constEnd();
-    for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
-        const QString file = (*it)->tipFile();
-        if (!file.isEmpty()) {
-            tips.append(file);
-        }
-    }
-
-    KTipDialog::showMultiTip(this, tips, force);
 }
 
 void MainWindow::slotQuit()
