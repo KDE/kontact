@@ -26,7 +26,6 @@ target_link_libraries(kontactprivate
   KF5::WebKit
   KF5::KontactInterface
   kdepim
-  kdepimdbusinterfaces
 )
 
 set_target_properties(kontactprivate PROPERTIES
