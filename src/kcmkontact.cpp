@@ -74,7 +74,7 @@ KcmKontact::KcmKontact(QWidget *parent)
 const KAboutData *KcmKontact::aboutData() const
 {
     KAboutData *about = new KAboutData(
-        QLatin1String("kontactconfig"),
+        QStringLiteral("kontactconfig"),
         i18nc("@title", "KDE Kontact"),
         QString(),
         QString(),
@@ -83,10 +83,10 @@ const KAboutData *KcmKontact::aboutData() const
 
     about->addAuthor(i18nc("@info:credit", "Cornelius Schumacher"),
                      i18nc("@info:credit", "Developer"),
-                     QLatin1String("schumacher@kde.org"));
+                     QStringLiteral("schumacher@kde.org"));
     about->addAuthor(i18nc("@info:credit", "Tobias Koenig"),
                      i18nc("@info:credit", "Developer"),
-                     QLatin1String("tokoe@kde.org"));
+                     QStringLiteral("tokoe@kde.org"));
 
     return about;
 }
@@ -122,14 +122,14 @@ void PluginSelection::readConfig()
     for (KService::List::ConstIterator it = offers.begin(); it != end; ++it) {
         KService::Ptr service = *it;
         // skip summary only plugins
-        QVariant var = service->property(QLatin1String("X-KDE-KontactPluginHasPart"));
+        QVariant var = service->property(QStringLiteral("X-KDE-KontactPluginHasPart"));
         if (var.isValid() && var.toBool() == false) {
             continue;
         }
         mPluginCombo->addItem(service->name());
         mPluginList.append(service);
 
-        if (service->property(QLatin1String("X-KDE-PluginInfo-Name")).toString() == mItem->value()) {
+        if (service->property(QStringLiteral("X-KDE-PluginInfo-Name")).toString() == mItem->value()) {
             activeComponent = mPluginList.count() - 1;
         }
     }
@@ -140,7 +140,7 @@ void PluginSelection::readConfig()
 void PluginSelection::writeConfig()
 {
     KService::Ptr ptr =  mPluginList.at(mPluginCombo->currentIndex());
-    mItem->setValue(ptr->property(QLatin1String("X-KDE-PluginInfo-Name")).toString());
+    mItem->setValue(ptr->property(QStringLiteral("X-KDE-PluginInfo-Name")).toString());
 }
 
 QList<QWidget *> PluginSelection::widgets() const

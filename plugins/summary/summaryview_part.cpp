@@ -395,7 +395,7 @@ void SummaryViewPart::slotAdjustPalette()
 {
     if (!QApplication::isRightToLeft()) {
         mMainWidget->setStyleSheet(
-            QLatin1String("#mMainWidget { "
+            QStringLiteral("#mMainWidget { "
                           " background: palette(base);"
                           " color: palette(text);"
                           " background-image: url(:/summaryview/kontact_bg.png);"
@@ -407,7 +407,7 @@ void SummaryViewPart::slotAdjustPalette()
                           " color: palette(link); }"));
     } else {
         mMainWidget->setStyleSheet(
-            QLatin1String("#mMainWidget { "
+            QStringLiteral("#mMainWidget { "
                           " background: palette(base);"
                           " color: palette(text);"
                           " background-image: url(:/summaryview/kontact_bg.png);"
@@ -516,7 +516,7 @@ void SummaryViewPart::initGUI(KontactInterface::Core *core)
 
 void SummaryViewPart::loadLayout()
 {
-    KConfig config(QLatin1String("kontact_summaryrc"));
+    KConfig config(QStringLiteral("kontact_summaryrc"));
     KConfigGroup grp(&config, QString());
 
     if (!grp.hasKey("LeftColumnSummaries")) {
@@ -537,7 +537,7 @@ void SummaryViewPart::loadLayout()
 
 void SummaryViewPart::saveLayout()
 {
-    KConfig config(QLatin1String("kontact_summaryrc"));
+    KConfig config(QStringLiteral("kontact_summaryrc"));
     KConfigGroup grp(&config, QString());
 
     grp.writeEntry("LeftColumnSummaries", mLeftColumnSummaries);

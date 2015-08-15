@@ -107,9 +107,9 @@ KParts::ReadOnlyPart *SummaryView::createPart()
 const KAboutData SummaryView::aboutData()
 {
     KAboutData aboutData = KAboutData(
-                               QLatin1String("kontactsummary"),
+                               QStringLiteral("kontactsummary"),
                                i18n("Kontact Summary"),
-                               QLatin1String(KDEPIM_VERSION),
+                               QStringLiteral(KDEPIM_VERSION),
                                i18n("Kontact Summary View"),
                                KAboutLicense::LGPL,
                                i18n("(c) 2003-2014 The Kontact developers"));

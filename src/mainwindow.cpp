@@ -147,7 +147,7 @@ MainWindow::MainWindow()
     new ServiceStarter(&mPlugins);
 
     QDBusConnection::sessionBus().registerObject(
-        QLatin1String("/KontactInterface"), this, QDBusConnection::ExportScriptableSlots);
+        QStringLiteral("/KontactInterface"), this, QDBusConnection::ExportScriptableSlots);
 
     // Set this to be the group leader for all subdialogs - this means
     // modal subdialogs will only affect this dialog, not the other windows
@@ -176,7 +176,7 @@ void MainWindow::initGUI()
 
     KStandardAction::keyBindings(this, SLOT(configureShortcuts()), actionCollection());
     KStandardAction::configureToolbars(this, SLOT(configureToolbars()), actionCollection());
-    setXMLFile(QLatin1String("kontactui.rc"));
+    setXMLFile(QStringLiteral("kontactui.rc"));
 
     setStandardToolBarMenuEnabled(true);
 
@@ -393,7 +393,7 @@ void MainWindow::paintAboutScreen(const QString &msg)
     content = content.arg(QLatin1String("file:") + QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("/kf5/infopage/kde_infopage.css")));
     if (QApplication::isRightToLeft()) {
         content =
-            content.arg(QLatin1String("@import \"%1\";")).
+            content.arg(QStringLiteral("@import \"%1\";")).
             arg(QLatin1String("file:") + QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("/kf5/infopage/kde_infopage_rtl.css")));
     } else {
         content = content.arg(QString());
@@ -439,7 +439,7 @@ void MainWindow::setupActions()
     // If the user is using disconnected imap mail folders as groupware, we add
     // plugins' Synchronize actions to the toolbar which trigger an imap sync.
     // Otherwise it's redundant and misleading.
-    KConfig _config(QLatin1String("kmail2rc"));
+    KConfig _config(QStringLiteral("kmail2rc"));
     KConfigGroup config(&_config, "Groupware");
 #if defined(KDEPIM_ENTERPRISE_BUILD)
     bool defGW = config.readEntry("Enabled", true);
@@ -1028,7 +1028,7 @@ void MainWindow::slotPreferences()
 
 void MainWindow::pluginsChanged()
 {
-    unplugActionList(QLatin1String("navigator_actionlist"));
+    unplugActionList(QStringLiteral("navigator_actionlist"));
     unloadPlugins();
     loadPlugins();
     mSidePane->updatePlugins();
@@ -1107,10 +1107,10 @@ void MainWindow::slotOpenUrl(const QUrl &url)
                 mPartsStack->setCurrentIndex(mPartsStack->indexOf(mCurrentPlugin->part()->widget()));
             }
         } else if (path == QLatin1String("/accountwizard")) {
-            KRun::runCommand(QLatin1String("accountwizard"), this);
+            KRun::runCommand(QStringLiteral("accountwizard"), this);
             slotQuit();
         } else if (path.startsWith(QStringLiteral("/help"))) {
-            QString app(QLatin1String("kontact"));
+            QString app(QStringLiteral("kontact"));
             if (!url.query().isEmpty()) {
                 app = url.query().mid(1);
             }
@@ -1211,24 +1211,24 @@ QString MainWindow::introductionString()
         subs(iconSize).
         subs(iconSize).
         subs(QLatin1String("file:") + handbook_icon_path).
-        subs(QLatin1String("exec:/help?kontact")).
+        subs(QStringLiteral("exec:/help?kontact")).
         subs(i18nc("@item:intext", "Read Manual")).
         subs(i18nc("@item:intext", "Learn more about Kontact and its components")).
-        subs(QLatin1String("http://kontact.org")).
+        subs(QStringLiteral("http://kontact.org")).
         subs(iconSize).
         subs(iconSize).
         subs(QLatin1String("file:") + html_icon_path).
-        subs(QLatin1String("http://kontact.org")).
+        subs(QStringLiteral("http://kontact.org")).
         subs(i18nc("@item:intext", "Visit Kontact Website")).
         subs(i18nc("@item:intext", "Access online resources and tutorials")).
-        subs(QLatin1String("exec:/accountwizard")).
+        subs(QStringLiteral("exec:/accountwizard")).
         subs(iconSize).
         subs(iconSize).
         subs(QLatin1String("file:") + wizard_icon_path).
-        subs(QLatin1String("exec:/accountwizard")).
+        subs(QStringLiteral("exec:/accountwizard")).
         subs(i18nc("@item:intext", "Setup your Accounts")).
         subs(i18nc("@item:intext", "Prepare Kontact for use")).
-        subs(QLatin1String("exec:/switch")).
+        subs(QStringLiteral("exec:/switch")).
         toString();
     return info;
 }

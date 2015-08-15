@@ -281,7 +281,7 @@ void AboutDialog::addLicenseText(const KAboutData &about)
     if (about.licenses().isEmpty()) {
         return;
     }
-    QPixmap pixmap = KIconLoader::global()->loadIcon(QLatin1String("help-about"),
+    QPixmap pixmap = KIconLoader::global()->loadIcon(QStringLiteral("help-about"),
                      KIconLoader::Desktop, 48);
 
     const QString title = i18n("%1 License", about.displayName());
