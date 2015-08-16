@@ -57,7 +57,7 @@ using namespace Kontact;
 #include <KStandardAction>
 #include <KToolBar>
 #include <KParts/PartManager>
-#include <KSettings/Dispatcher>
+#include <ksettings/Dispatcher>
 #include <KSycoca>
 #include <KIconLoader>
 #include <KLocalizedString>

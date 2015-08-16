@@ -25,6 +25,8 @@ target_link_libraries(kontactprivate
   KF5::KCMUtils
   KF5::WebKit
   KF5::KontactInterface
+  KF5::IconThemes
+  KF5::WindowSystem
   kdepim
 )
 

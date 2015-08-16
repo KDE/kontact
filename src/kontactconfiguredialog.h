@@ -18,7 +18,7 @@
 #ifndef KONTACTCONFIGUREDIALOG_H
 #define KONTACTCONFIGUREDIALOG_H
 
-#include <KSettings/Dialog>
+#include <ksettings/Dialog>
 
 namespace Kontact
 {
