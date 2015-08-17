@@ -270,7 +270,7 @@ MainWindow::~MainWindow()
     if (mCurrentPlugin) {
         KConfigGroup grp(
             KSharedConfig::openConfig()->group(
-                QString::fromLatin1("MainWindow%1").arg(mCurrentPlugin->identifier())));
+                QStringLiteral("MainWindow%1").arg(mCurrentPlugin->identifier())));
         saveMainWindowSettings(grp);
     }
 
@@ -609,7 +609,7 @@ void MainWindow::updateShortcuts()
     int i = 0;
     for (it = mActionPlugins.constBegin(); it != end; ++it) {
         QAction *action = static_cast<QAction *>(*it);
-        const QString shortcut = QString::fromLatin1("Ctrl+%1").arg(mActionPlugins.count() - i);
+        const QString shortcut = QStringLiteral("Ctrl+%1").arg(mActionPlugins.count() - i);
         actionCollection()->setDefaultShortcut(action, QKeySequence(shortcut));
         ++i;
     }
@@ -703,7 +703,7 @@ void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
     int i = 0;
     foreach (QAction *qaction, mActionPlugins) {
         QAction *action = static_cast<QAction *>(qaction);
-        QString shortcut = QString::fromLatin1("Ctrl+%1").arg(mActionPlugins.count() - i);
+        QString shortcut = QStringLiteral("Ctrl+%1").arg(mActionPlugins.count() - i);
         actionCollection()->setDefaultShortcut(action, QKeySequence(shortcut));
         ++i;
     }
@@ -794,7 +794,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
 
     if (mCurrentPlugin) {
         KConfigGroup grp = KSharedConfig::openConfig()->group(
-                               QString::fromLatin1("MainWindow%1").arg(mCurrentPlugin->identifier()));
+                               QStringLiteral("MainWindow%1").arg(mCurrentPlugin->identifier()));
         saveMainWindowSettings(grp);
     }
 
@@ -926,7 +926,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
     }
 
     applyMainWindowSettings(KSharedConfig::openConfig()->group(
-                                QString::fromLatin1("MainWindow%1").arg(plugin->identifier())));
+                                QStringLiteral("MainWindow%1").arg(plugin->identifier())));
 
     QApplication::restoreOverrideCursor();
 }
@@ -1076,7 +1076,7 @@ void MainWindow::configureToolbars()
 {
     if (mCurrentPlugin) {
         KConfigGroup grp(KSharedConfig::openConfig()->group(
-                             QString::fromLatin1("MainWindow%1").arg(mCurrentPlugin->identifier())));
+                             QStringLiteral("MainWindow%1").arg(mCurrentPlugin->identifier())));
         saveMainWindowSettings(grp);
     }
     QPointer<KEditToolBar> edit = new KEditToolBar(factory());
@@ -1093,7 +1093,7 @@ void MainWindow::slotNewToolbarConfig()
     if (mCurrentPlugin) {
         applyMainWindowSettings(
             KSharedConfig::openConfig()->group(
-                QString::fromLatin1("MainWindow%1").arg(mCurrentPlugin->identifier())));
+                QStringLiteral("MainWindow%1").arg(mCurrentPlugin->identifier())));
     }
     updateShortcuts(); // for the plugActionList call
 }
