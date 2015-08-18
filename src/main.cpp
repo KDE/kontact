@@ -62,7 +62,7 @@ public:
     ~KontactApp() {}
 
     /*reimp*/
-    int activate(const QStringList &arguments) Q_DECL_OVERRIDE;
+    int activate(const QStringList &arguments, const QString &workingDir) Q_DECL_OVERRIDE;
 
     void setMainWindow(MainWindow *window)
     {
@@ -112,8 +112,10 @@ static void loadCommandLineOptions(QCommandLineParser *parser)
                           i18n("List all possible modules and exit")));
 }
 
-int KontactApp::activate(const QStringList &args)
+int KontactApp::activate(const QStringList &args, const QString &workingDir)
 {
+    Q_UNUSED(workingDir);
+
     QCommandLineParser parser;
     loadCommandLineOptions(&parser);
     parser.process(args);
