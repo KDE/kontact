@@ -22,11 +22,14 @@ add_library(kontactprivate ${kontactprivate_LIB_SRCS})
 generate_export_header(kontactprivate BASE_NAME kontact)
 
 target_link_libraries(kontactprivate
-  KF5::KCMUtils
-  KF5::WebKit
+PUBLIC
+  KF5::KIOWidgets
+  KF5::WindowSystem
   KF5::KontactInterface
   KF5::IconThemes
-  KF5::WindowSystem
+PRIVATE
+  KF5::KCMUtils
+  KF5::WebKit
   kdepim
 )
 
@@ -51,7 +54,6 @@ set_target_properties(kontact_bin PROPERTIES OUTPUT_NAME kontact)
 target_link_libraries(kontact_bin
   KF5::WebKit
   KF5::Service
-  KF5::KontactInterface
   kdepimdbusinterfaces
   kontactprivate
 )
