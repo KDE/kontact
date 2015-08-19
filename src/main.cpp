@@ -218,7 +218,7 @@ int main(int argc, char **argv)
         }
     }
 
-    bool ret = app.exec();
+    int ret = app.exec();
     qDeleteAll(KMainWindow::memberList());
 
     return ret;
