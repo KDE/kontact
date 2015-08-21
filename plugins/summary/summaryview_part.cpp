@@ -40,11 +40,10 @@ using KPIM::BroadcastStatus;
 #include <KCMultiDialog>
 #include <KConfigGroup>
 #include <QDialog>
-#include <KGlobalSettings>
 #include <QIcon>
 #include <KLocalizedString>
 #include <KParts/PartActivateEvent>
-
+#include <KConfig>
 #include <QApplication>
 #include <QDate>
 #include <QHBoxLayout>
@@ -52,7 +51,7 @@ using KPIM::BroadcastStatus;
 #include <QScrollArea>
 #include <QTimer>
 #include <QVBoxLayout>
-#include <KLocale>
+#include <QLocale>
 
 SummaryViewPart::SummaryViewPart(KontactInterface::Core *core, const char *,
                                  const KAboutData &aboutData, QObject *parent)
@@ -423,7 +422,7 @@ void SummaryViewPart::slotAdjustPalette()
 void SummaryViewPart::setDate(const QDate &newDate)
 {
     QString date(QStringLiteral("<b>%1</b>"));
-    date = date.arg(KLocale::global()->formatDate(newDate));
+    date = date.arg(QLocale().toString(newDate));
     mDateLabel->setText(date);
 }
 
@@ -481,7 +480,8 @@ void SummaryViewPart::initGUI(KontactInterface::Core *core)
     mMainWidget->setFocusPolicy(Qt::StrongFocus);
     setWidget(sa);
 
-    connect(KGlobalSettings::self(), &KGlobalSettings::kdisplayPaletteChanged, this, &SummaryViewPart::slotAdjustPalette);
+    //KF5: port it
+    //connect(KGlobalSettings::self(), &KGlobalSettings::kdisplayPaletteChanged, this, &SummaryViewPart::slotAdjustPalette);
     slotAdjustPalette();
 
     mMainLayout = new QVBoxLayout(mMainWidget);
