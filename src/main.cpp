@@ -57,7 +57,6 @@ public:
         , mMainWindow(Q_NULLPTR)
         , mSessionRestored(false)
     {
-        KIconLoader::global()->addAppDir(QStringLiteral("kdepim"));
     }
     ~KontactApp() {}
 
