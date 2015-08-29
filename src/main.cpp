@@ -60,7 +60,6 @@ public:
     }
     ~KontactApp() {}
 
-    /*reimp*/
     int activate(const QStringList &arguments, const QString &workingDir) Q_DECL_OVERRIDE;
 
     void setMainWindow(MainWindow *window)
