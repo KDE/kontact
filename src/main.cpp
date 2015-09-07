@@ -76,7 +76,7 @@ public:
     }
 
 private:
-    MainWindow *mMainWindow;
+    QPointer<MainWindow> mMainWindow;
     bool mSessionRestored;
 };
 
