@@ -9,7 +9,7 @@ qt5_add_dbus_interfaces(kontact_summaryplugin_PART_SRCS ${CMAKE_BINARY_DIR}/kmai
 add_library(kontact_summaryplugin MODULE ${kontact_summaryplugin_PART_SRCS})
 add_dependencies(kontact_summaryplugin kmail_xml)
 
-target_link_libraries(kontact_summaryplugin KF5::KCMUtils  KF5::IdentityManagement KF5::KontactInterface kdepim KF5::ConfigCore)
+target_link_libraries(kontact_summaryplugin KF5::KCMUtils  KF5::IdentityManagement KF5::KontactInterface KF5::Libkdepim KF5::ConfigCore)
 
 ########### next target ###############
 

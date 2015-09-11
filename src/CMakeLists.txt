@@ -30,7 +30,7 @@ PUBLIC
 PRIVATE
   KF5::KCMUtils
   KF5::WebKit
-  kdepim
+  KF5::Libkdepim
 )
 
 set_target_properties(kontactprivate PROPERTIES
@@ -68,7 +68,7 @@ add_library(kcm_kontact MODULE ${kcm_kontact_PART_SRCS})
 
 target_link_libraries(kcm_kontact
   KF5::KCMUtils
-  kdepim
+  KF5::Libkdepim
   kontactprivate
 )
 

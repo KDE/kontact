@@ -25,7 +25,7 @@
 #ifndef KCMKONTACT_H
 #define KCMKONTACT_H
 
-#include <libkdepim/prefs/kprefsdialog.h>
+#include <Libkdepim/KPrefsDialog>
 using namespace KPIM;
 
 #include <KService>

@@ -31,9 +31,9 @@ using namespace Kontact;
 
 #include <unistd.h>
 
-#include <libkdepim/misc/broadcaststatus.h>
-#include <libkdepim/progresswidget/progressstatusbarwidget.h>
-#include <libkdepim/progresswidget/statusbarprogresswidget.h>
+#include <Libkdepim/BroadcastStatus>
+#include <Libkdepim/ProgressStatusBarWidget>
+#include <Libkdepim/StatusbarProgressWidget>
 
 #include <KontactInterface/Core>
 

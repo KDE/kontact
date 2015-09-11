@@ -25,7 +25,7 @@
 #include "summaryview_part.h"
 #include "dropwidget.h"
 
-#include <libkdepim/misc/broadcaststatus.h>
+#include <Libkdepim/BroadcastStatus>
 using KPIM::BroadcastStatus;
 
 #include <KIdentityManagement/Identity>
