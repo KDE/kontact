@@ -27,7 +27,7 @@
 #include "prefs.h"
 using namespace Kontact;
 
-#include <libkdepimdbusinterfaces/reminderclient.h>
+#include <libkdepimdbusinterfaces/src/reminderclient.h>
 
 #include <KontactInterface/Plugin>
 #include <KontactInterface/UniqueAppHandler>
