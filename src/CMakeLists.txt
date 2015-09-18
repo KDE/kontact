@@ -54,7 +54,7 @@ set_target_properties(kontact_bin PROPERTIES OUTPUT_NAME kontact)
 target_link_libraries(kontact_bin
   KF5::WebKit
   KF5::Service
-  kdepimdbusinterfaces
+  KF5::KdepimDBusInterfaces
   kontactprivate
 )
 
