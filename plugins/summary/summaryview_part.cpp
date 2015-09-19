@@ -78,7 +78,7 @@ SummaryViewPart::SummaryViewPart(KontactInterface::Core *core, const char *,
 
     setXMLFile(QStringLiteral("kontactsummary_part.rc"));
 
-    QTimer::singleShot(0, this, SLOT(slotTextChanged()));
+    QTimer::singleShot(0, this, &SummaryViewPart::slotTextChanged);
 }
 
 SummaryViewPart::~SummaryViewPart()
@@ -161,8 +161,8 @@ void SummaryViewPart::updateWidgets()
             if (summary->summaryHeight() > 0) {
                 mSummaries.insert(plugin->identifier(), summary);
 
-                connect(summary, SIGNAL(message(QString)),
-                        BroadcastStatus::instance(), SLOT(setStatusMsg(QString)));
+                connect(summary, &KontactInterface::Summary::message,
+                        BroadcastStatus::instance(), &KPIM::BroadcastStatus::setStatusMsg);
                 connect(summary, &KontactInterface::Summary::summaryWidgetDropped,
                         this, &SummaryViewPart::summaryWidgetMoved);
 

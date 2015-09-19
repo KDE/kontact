@@ -519,7 +519,7 @@ void Navigator::slotActionTriggered(bool checked)
 
     mModel->emitReset();
 
-    QTimer::singleShot(0, this, SLOT(updateNavigatorSize()));
+    QTimer::singleShot(0, this, &Navigator::updateNavigatorSize);
 }
 
 void Navigator::updateNavigatorSize()
