@@ -109,6 +109,11 @@ PluginSelection::~PluginSelection()
 {
 }
 
+KComboBox *PluginSelection::comboBox() const
+{
+    return mPluginCombo;
+}
+
 void PluginSelection::readConfig()
 {
     const KService::List offers = KServiceTypeTrader::self()->query(

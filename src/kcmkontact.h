@@ -55,10 +55,7 @@ public:
     void writeConfig() Q_DECL_OVERRIDE;
 
     QList<QWidget *> widgets() const Q_DECL_OVERRIDE;
-    KComboBox *comboBox() const
-    {
-        return mPluginCombo;
-    }
+    KComboBox *comboBox() const;
 
 private:
     KComboBox *mPluginCombo;
