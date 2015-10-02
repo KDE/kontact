@@ -187,7 +187,7 @@ int main(int argc, char **argv)
     about.addCredit(i18n("Torgny Nyblom"), i18n("Git Migration"), QStringLiteral("nyblom@kde.org"));
     about.setOrganizationDomain("kde.org");
     app.setAboutData(about);
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kaddressbook")));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kontact")));
 
     QCommandLineParser *cmdArgs = app.cmdArgs();
     loadCommandLineOptions(cmdArgs);
