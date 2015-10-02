@@ -26,6 +26,7 @@
   <name xml:lang="pt">Kontact</name>
   <name xml:lang="pt-BR">Kontact</name>
   <name xml:lang="ro">Kontact</name>
+  <name xml:lang="ru">Kontact</name>
   <name xml:lang="sk">Kontact</name>
   <name xml:lang="sl">Kontact</name>
   <name xml:lang="sv">Kontact</name>
@@ -58,6 +59,7 @@
     <p xml:lang="pl">Kontact jest zintegrowanym rozwiązaniem odpowiadającym na potrzeby zarządzania informacjami osobistymi (ZIO). Łączy znane aplikacje KDE takie jak KMail, KOrganizer oraz Książka adresowa w program o jednym układzie sterowania, aby umożliwić łatwy dostęp do poczty, planowania, książki adresowej i innych funkcjonalności ZIO.</p>
     <p xml:lang="pt">O Kontact é a solução integrada para as suas necessidades de gestão de informações pessoais (PIM). Combina as conhecidas aplicações do KDE que são o  KMail, o KOrganizer e o KAddressBook numa única interface, de forma a dar um acesso simples ao correio, calendários, livros de endereço e outras funcionalidades de PIM.</p>
     <p xml:lang="pt-BR">Kontact é a solução integrada para suas necessidades de gerenciamento de informações pessoais (PIM). Ele agrupa os aplicativos conhecidos do KDE, como o KMail, o KOrganizer e o KAddressBook em uma única interface, para oferecer um acesso simples ao e-mail, à agenda, ao livro de endereços e a outras funcionalidades de PIM.</p>
+    <p xml:lang="ru">Kontact — это персональный информационный менеджер (PIM). Он интегрирует почтовый клиент KMail, персональный органайзер KOrganizer и адресную книгу KAddressBook в единый интерфейс.</p>
     <p xml:lang="sk">Kontact je integrované riešenie pre vaše potreby správy osobných informácií (PIM). Kombinuje dobre známe KDE aplikácie ako KMail, KOrganizer a KAddressBook do jedného rozhrania na poskytnutie ľahkému prístupu k pošte, plánovaniu, adresáru a iným funkciám PIM.</p>
     <p xml:lang="sl">Kontact je enovit paket za upravljanje osebnih podatkov (PIM). V enovit vmesnik združuje znane programe za KDE kot npr. KMail, KOrganizer in KAddressBook in ponuja enostaven dostop do e-pošte, razporejanja opravil, imenika in drugih funkcij.</p>
     <p xml:lang="sv">Kontact är den integrerade lösningen för personlig informationshantering (PIM). Den kombinerar välkända KDE-program såsom Kmail, Korganizer och adressboken i ett enda gränssnitt för att enkelt ge tillgång till e-post, schemaläggning, adresser och annan funktionalitet för personlig informationshantering.</p>
