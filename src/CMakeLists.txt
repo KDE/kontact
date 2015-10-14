@@ -31,6 +31,7 @@ PRIVATE
   KF5::KCMUtils
   KF5::WebKit
   KF5::Libkdepim
+  KF5::GrantleeTheme
 )
 
 set_target_properties(kontactprivate PROPERTIES

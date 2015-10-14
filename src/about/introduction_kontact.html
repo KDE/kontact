@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+
+{% block style %}
+.links {
+    margin: auto;
+}
+
+.links td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+{% endblock style %}
+
+{% block box %}
+
+<div class="center">
+    <h2>{% i18n "Welcome to Kontact %1" _(version) %}</h2>
+    <p>{% i18n "Kontact handles your e-mail, address book, calendar, to-do list and more." %}</p>
+</div>
+
+<table class="links">
+    {% for link in links %}
+    <tr>
+        <td>
+            <a href="{{ link.url }}">{% icon link.icon desktop %}</a>
+        <td>
+        <td>
+            <a href="{{ link.url }}">{{ link.title }}</a><br/>
+            <small>{{ link.subtext }}</small>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<span><a href="exec:/switch">{% i18n "Skip this introduction" %}</a></span>
+
+{% endblock box %}
+

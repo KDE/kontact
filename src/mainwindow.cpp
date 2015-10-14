@@ -76,6 +76,10 @@ using namespace Kontact;
 #include <QHBoxLayout>
 #include <QApplication>
 #include <KAboutData>
+#include <QFontDatabase>
+
+#include <grantleetheme/grantleethememanager.h>
+#include <grantleetheme/grantleetheme.h>
 
 // Define the maximum time Kontact waits for KSycoca to become available.
 static const int KSYCOCA_WAIT_TIMEOUT = 10;
@@ -261,7 +265,7 @@ void MainWindow::initObject()
         selectPlugin(mCurrentPlugin);
     }
 
-    paintAboutScreen(introductionString());
+    paintAboutScreen(QStringLiteral("introduction_kontact.html"), introductionData());
     Prefs::setLastVersionSeen(KAboutData::applicationData().version());
 }
 
@@ -360,12 +364,7 @@ void MainWindow::initWidgets()
 
     initAboutScreen();
 
-    const QString loading =
-        i18nc("@item",
-              "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>",
-              i18nc("@item:intext", "Loading Kontact..."));
-
-    paintAboutScreen(loading);
+    paintAboutScreen(QStringLiteral("loading_kontact.html"), QVariantHash());
 
     KPIM::ProgressStatusBarWidget *progressStatusBarWidget = new KPIM::ProgressStatusBarWidget(statusBar(), this);
 
@@ -380,31 +379,20 @@ void MainWindow::initWidgets()
     mSplitter->setCollapsible(1, false);
 }
 
-void MainWindow::paintAboutScreen(const QString &msg)
+void MainWindow::paintAboutScreen(const QString &templateName, const QVariantHash &data)
 {
-    QString location = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kontact/about/main.html"));
-    QFile f(location);
-    if (!f.open(QIODevice::ReadOnly)) {
-        qCWarning(KONTACT_LOG) << "Failed to load about page: " << f.errorString();
-        return;
-    }
-    QString content = QString::fromLocal8Bit(f.readAll());
-    f.close();
-    content = content.arg(QLatin1String("file:") + QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("/kf5/infopage/kde_infopage.css")));
-    if (QApplication::isRightToLeft()) {
-        content =
-            content.arg(QStringLiteral("@import \"%1\";")).
-            arg(QLatin1String("file:") + QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("/kf5/infopage/kde_infopage_rtl.css")));
+    GrantleeTheme::ThemeManager manager(QStringLiteral("splashPage"),
+                                        QStringLiteral("splash.theme"),
+                                        Q_NULLPTR,
+                                        QStringLiteral("messageviewer/about/"));
+    GrantleeTheme::Theme theme = manager.theme(QStringLiteral("default"));
+    if (!theme.isValid()) {
+        qCDebug(KONTACT_LOG) << "Theme error: failed to find splash theme";
     } else {
-        content = content.arg(QString());
+        mIntroPart->setHtml(theme.render(templateName, data),
+                            QUrl::fromLocalFile(theme.absolutePath() + QLatin1Char('/')));
     }
 
-    mIntroPart->setHtml(
-        content.arg(QFont().pointSize() + 2).
-        arg(i18nc("@item:intext", "KDE Kontact")).
-        arg(i18nc("@item:intext", "Get Organized!")).
-        arg(i18nc("@item:intext", "The KDE Personal Information Management Suite")).
-        arg(msg));
 }
 
 void MainWindow::initAboutScreen()
@@ -422,6 +410,11 @@ void MainWindow::initAboutScreen()
     mIntroPart->settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
     mIntroPart->settings()->setAttribute(QWebSettings::JavaEnabled, false);
     mIntroPart->settings()->setAttribute(QWebSettings::PluginsEnabled, false);
+
+    const QFontInfo font(QFontDatabase().systemFont(QFontDatabase::GeneralFont));
+    mIntroPart->settings()->setFontFamily(QWebSettings::StandardFont, font.family());
+    mIntroPart->settings()->setFontSize(QWebSettings::DefaultFontSize, font.pixelSize());
+
 
     connect(mIntroPart->page(), &QWebPage::linkClicked, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
 }
@@ -1181,56 +1174,31 @@ void MainWindow::slotShowStatusMsg(const QString &msg)
     mStatusMsgLabel->setText(msg);
 }
 
-QString MainWindow::introductionString()
+QVariantHash MainWindow::introductionData()
 {
-    KIconLoader *iconloader = KIconLoader::global();
-    const int iconSize = iconloader->currentSize(KIconLoader::Desktop);
+    QVariantHash data;
+    data[QStringLiteral("icon")] = QStringLiteral("kontact");
+    data[QStringLiteral("name")] = i18n("Kontact");
+    data[QStringLiteral("subtitle")] = i18n("The KDE Personal Information Management Suite.");
+    data[QStringLiteral("version")] = KAboutData::applicationData().version();
 
-    const QString handbook_icon_path = iconloader->iconPath(QStringLiteral("help-contents"), KIconLoader::Desktop);
-    const QString html_icon_path = iconloader->iconPath(QStringLiteral("kontact"), KIconLoader::Desktop);
-    const QString wizard_icon_path = iconloader->iconPath(QStringLiteral("tools-wizard"), KIconLoader::Desktop);
+    QVariantList links = {
+        QVariantHash{ { QStringLiteral("url"), QStringLiteral("exec:/help?kontact") },
+                      { QStringLiteral("icon"), QStringLiteral("help-contents") },
+                      { QStringLiteral("title"), i18n("Read Manual") },
+                      { QStringLiteral("subtext"), i18n("Learn more about Kontact and it's components") } },
+        QVariantHash{ { QStringLiteral("url"), QStringLiteral("http://kontact.org") },
+                      { QStringLiteral("icon"), QStringLiteral("kontact") },
+                      { QStringLiteral("title"), i18n("Visit Kontact Website") },
+                      { QStringLiteral("subtext"), i18n("Access online resources and tutorials") } },
+        QVariantHash{ { QStringLiteral("url"), QStringLiteral("exec:/accountwizard") },
+                      { QStringLiteral("icon"), QStringLiteral("tools-wizard") },
+                      { QStringLiteral("title"), i18n("Setup your Accounts") },
+                      { QStringLiteral("subtext"), i18n("Prepare Kontact for use") } }
+    };
+    data[QStringLiteral("links")] = links;
 
-    QString info =
-        ki18nc(
-            "@info",
-            "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</h2>"
-            "<p align=\"center\">%2</p>"
-            "<table align=\"center\">"
-            "<tr><td><a href=\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td>"
-            "<td><a href=\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></tr>"
-            "<tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /></a></td>"
-            "<td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>%16</nobr></span></td></tr>"
-            "<tr><td><a href=\"%17\"><img width=\"%18\" height=\"%19\" src=\"%20\" /></a></td>"
-            "<td><a href=\"%21\">%22</a><br /><span id=\"subtext\"><nobr>%23</nobr></span></td></tr>"
-            "</table>"
-            "<p style=\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>").
-        subs(KAboutData::applicationData().version()).
-        subs(i18nc("@item:intext",
-                   "Kontact handles your e-mail, address book, calendar, to-do list and more.")).
-        subs(QStringLiteral("exec:/help?kontact")).
-        subs(iconSize).
-        subs(iconSize).
-        subs(QLatin1String("file:") + handbook_icon_path).
-        subs(QStringLiteral("exec:/help?kontact")).
-        subs(i18nc("@item:intext", "Read Manual")).
-        subs(i18nc("@item:intext", "Learn more about Kontact and its components")).
-        subs(QStringLiteral("http://kontact.org")).
-        subs(iconSize).
-        subs(iconSize).
-        subs(QLatin1String("file:") + html_icon_path).
-        subs(QStringLiteral("http://kontact.org")).
-        subs(i18nc("@item:intext", "Visit Kontact Website")).
-        subs(i18nc("@item:intext", "Access online resources and tutorials")).
-        subs(QStringLiteral("exec:/accountwizard")).
-        subs(iconSize).
-        subs(iconSize).
-        subs(QLatin1String("file:") + wizard_icon_path).
-        subs(QStringLiteral("exec:/accountwizard")).
-        subs(i18nc("@item:intext", "Setup your Accounts")).
-        subs(i18nc("@item:intext", "Prepare Kontact for use")).
-        subs(QStringLiteral("exec:/switch")).
-        toString();
-    return info;
+    return data;
 }
 
 void MainWindow::slotShowHideSideBar()

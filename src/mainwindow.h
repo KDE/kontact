@@ -107,8 +107,8 @@ private:
     bool queryClose() Q_DECL_OVERRIDE;
     void readProperties(const KConfigGroup &config) Q_DECL_OVERRIDE;
     void saveProperties(KConfigGroup &config) Q_DECL_OVERRIDE;
-    void paintAboutScreen(const QString &msg);
-    static QString introductionString();
+    void paintAboutScreen(const QString &templateName, const QVariantHash &data);
+    static QVariantHash introductionData();
     KToolBar *findToolBar(const char *name);
 
 private Q_SLOTS:
