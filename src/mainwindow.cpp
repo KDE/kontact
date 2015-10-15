@@ -1186,7 +1186,7 @@ QVariantHash MainWindow::introductionData()
         QVariantHash{ { QStringLiteral("url"), QStringLiteral("exec:/help?kontact") },
                       { QStringLiteral("icon"), QStringLiteral("help-contents") },
                       { QStringLiteral("title"), i18n("Read Manual") },
-                      { QStringLiteral("subtext"), i18n("Learn more about Kontact and it's components") } },
+                      { QStringLiteral("subtext"), i18n("Learn more about Kontact and its components") } },
         QVariantHash{ { QStringLiteral("url"), QStringLiteral("http://kontact.org") },
                       { QStringLiteral("icon"), QStringLiteral("kontact") },
                       { QStringLiteral("title"), i18n("Visit Kontact Website") },
