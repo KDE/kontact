@@ -293,7 +293,7 @@ Navigator::Navigator(SidePaneBase *parent)
     QActionGroup *iconSize = new QActionGroup(this);
 
     mBigIconsAction = new QAction(i18nc("@action:inmenu", "Big Icons"), this);
-    mBigIconsAction->setCheckable(iconSize);
+    mBigIconsAction->setCheckable(true);
     mBigIconsAction->setActionGroup(iconSize);
     mBigIconsAction->setChecked(mIconSize == KIconLoader::SizeLarge);
     setHelpText(mBigIconsAction,
