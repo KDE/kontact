@@ -45,7 +45,7 @@ void KontactConfigureDialog::emitConfigChanged()
     if (kmailIface.isValid()) {
         QDBusReply<void> reply;
         if (!(reply = kmailIface.call(QStringLiteral("updateConfig"))).isValid()) {
-            QDBusError err = kmailIface.lastError();
+            const QDBusError err = kmailIface.lastError();
             qCritical() << "Communication problem with KMail. "
                         << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
         }
