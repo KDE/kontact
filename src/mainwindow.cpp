@@ -856,7 +856,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
 
         QAction *newAction = Q_NULLPTR;
         if (!plugin->newActions().isEmpty()) {
-            newAction = plugin->newActions().first();
+            newAction = plugin->newActions().at(0);
         }
 
         QAction *syncAction = Q_NULLPTR;
