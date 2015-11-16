@@ -734,7 +734,7 @@ void MainWindow::slotActivePartChanged(KParts::Part *part)
 void MainWindow::slotNewClicked()
 {
     if (!mCurrentPlugin->newActions().isEmpty()) {
-        mCurrentPlugin->newActions().first()->trigger();
+        mCurrentPlugin->newActions().at(0)->trigger();
     } else {
         PluginList::Iterator it;
         PluginList::Iterator end(mPlugins.end());
@@ -750,7 +750,7 @@ void MainWindow::slotNewClicked()
 void MainWindow::slotSyncClicked()
 {
     if (!mCurrentPlugin->syncActions().isEmpty()) {
-        mCurrentPlugin->syncActions().first()->trigger();
+        mCurrentPlugin->syncActions().at(0)->trigger();
     } else {
         PluginList::Iterator it;
         PluginList::Iterator end(mPlugins.end());
@@ -861,7 +861,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
 
         QAction *syncAction = Q_NULLPTR;
         if (!plugin->syncActions().isEmpty()) {
-            syncAction = plugin->syncActions().first();
+            syncAction = plugin->syncActions().at(0);
         }
 
         createGUI(plugin->part());
