@@ -59,7 +59,6 @@ using namespace Kontact;
 #include <KParts/PartManager>
 #include <ksettings/Dispatcher>
 #include <KSycoca>
-#include <KIconLoader>
 #include <KLocalizedString>
 #include <QDBusConnection>
 #include <QSplitter>

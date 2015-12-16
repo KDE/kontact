@@ -38,7 +38,6 @@ using namespace Kontact;
 #include <KService>
 #include <KServiceTypeTrader>
 #include <KWindowSystem>
-#include <KIconLoader>
 
 #include <QCommandLineParser>
 
