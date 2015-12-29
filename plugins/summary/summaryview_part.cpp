@@ -53,7 +53,7 @@ using KPIM::BroadcastStatus;
 #include <QVBoxLayout>
 #include <QLocale>
 
-SummaryViewPart::SummaryViewPart(KontactInterface::Core *core, const char *,
+SummaryViewPart::SummaryViewPart(KontactInterface::Core *core,
                                  const KAboutData &aboutData, QObject *parent)
     : KParts::ReadOnlyPart(parent), mCore(core), mFrame(Q_NULLPTR), mConfigAction(Q_NULLPTR)
 {

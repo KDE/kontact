@@ -47,7 +47,7 @@ class SummaryViewPart : public KParts::ReadOnlyPart
     Q_OBJECT
 
 public:
-    SummaryViewPart(KontactInterface::Core *core, const char *widgetName,
+    SummaryViewPart(KontactInterface::Core *core,
                     const KAboutData &aboutData, QObject *parent = Q_NULLPTR);
     ~SummaryViewPart();
 
