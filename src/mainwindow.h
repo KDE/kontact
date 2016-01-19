@@ -37,6 +37,7 @@ class KSqueezedTextLabel;
 class QFrame;
 class QSplitter;
 class QStackedWidget;
+class IntroductionWebView;
 
 typedef QList<KontactInterface::Plugin *> PluginList;
 typedef QList<QAction *> ActionPluginList;
@@ -134,7 +135,7 @@ private:
     PluginList mDelayedPreload;
     ActionPluginList mActionPlugins;
     QList<KPluginInfo> mPluginInfos;
-    KWebView *mIntroPart;
+    IntroductionWebView *mIntroPart;
 
     KSqueezedTextLabel *mStatusMsgLabel;
 

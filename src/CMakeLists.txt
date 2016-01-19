@@ -13,6 +13,7 @@ set(kontactprivate_LIB_SRCS
   iconsidepane.cpp
   aboutdialog.cpp
   kontactconfiguredialog.cpp
+  introductionwebview.cpp
 )
 ecm_qt_declare_logging_category(kontactprivate_LIB_SRCS HEADER kontact_debug.h IDENTIFIER KONTACT_LOG CATEGORY_NAME log_kontact)
 

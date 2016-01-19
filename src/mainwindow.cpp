@@ -26,6 +26,7 @@
 #include "aboutdialog.h"
 #include "prefs.h"
 #include "iconsidepane.h"
+#include "introductionwebview.h"
 #include "kontactconfiguredialog.h"
 using namespace Kontact;
 
@@ -401,19 +402,8 @@ void MainWindow::initAboutScreen()
     introboxHBoxLayout->setMargin(0);
     mPartsStack->addWidget(introbox);
     mPartsStack->setCurrentWidget(introbox);
-    mIntroPart = new KWebView(introbox);
+    mIntroPart = new IntroductionWebView(introbox);
     introboxHBoxLayout->addWidget(mIntroPart);
-    mIntroPart->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
-    mIntroPart->setFocusPolicy(Qt::WheelFocus);
-    // Let's better be paranoid and disable plugins (it defaults to enabled):
-    mIntroPart->settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
-    mIntroPart->settings()->setAttribute(QWebSettings::JavaEnabled, false);
-    mIntroPart->settings()->setAttribute(QWebSettings::PluginsEnabled, false);
-
-    const QFontInfo font(QFontDatabase().systemFont(QFontDatabase::GeneralFont));
-    mIntroPart->settings()->setFontFamily(QWebSettings::StandardFont, font.family());
-    mIntroPart->settings()->setFontSize(QWebSettings::DefaultFontSize, font.pixelSize());
-
     connect(mIntroPart->page(), &QWebPage::linkClicked, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
 }
 
