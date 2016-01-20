@@ -7,11 +7,15 @@ include_directories(
 
 ########### next target ###############
 
-set(kontactprivate_introduction_LIB_SRCS
-    introductionwebview.cpp
-    introductionwebenginepage.cpp
-    )
-
+if (QTWEBENGINE_EXPERIMENTAL_OPTION)
+    set(kontactprivate_introduction_LIB_SRCS
+        introductionwebenginepage.cpp
+        )
+else()
+    set(kontactprivate_introduction_LIB_SRCS
+        introductionwebview.cpp
+        )
+endif()
 
 set(kontactprivate_LIB_SRCS
   ${kontactprivate_introduction_LIB_SRCS}
