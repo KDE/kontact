@@ -33,6 +33,5 @@ bool IntroductionWebEnginePage::acceptNavigationRequest(const QUrl &url, Navigat
     Q_UNUSED(type);
     Q_UNUSED(isMainFrame);
     Q_EMIT urlClicked(url);
-    qDebug()<<" url************"<<url;
     return false;
 }
