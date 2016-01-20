@@ -27,6 +27,8 @@ class IntroductionWebView : public KWebView
 public:
     explicit IntroductionWebView(QWidget *parent = Q_NULLPTR);
     ~IntroductionWebView();
+Q_SIGNALS:
+    void openUrl(const QUrl &url);
 };
 
 #endif // INTRODUCTIONWEBVIEW_H

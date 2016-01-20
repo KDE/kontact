@@ -404,7 +404,7 @@ void MainWindow::initAboutScreen()
     mPartsStack->setCurrentWidget(introbox);
     mIntroPart = new IntroductionWebView(introbox);
     introboxHBoxLayout->addWidget(mIntroPart);
-    connect(mIntroPart->page(), &QWebPage::linkClicked, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
+    connect(mIntroPart, &IntroductionWebView::openUrl, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
 }
 
 void MainWindow::setupActions()

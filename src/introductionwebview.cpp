@@ -32,6 +32,7 @@ IntroductionWebView::IntroductionWebView(QWidget *parent)
     const QFontInfo font(QFontDatabase().systemFont(QFontDatabase::GeneralFont));
     settings()->setFontFamily(QWebSettings::StandardFont, font.family());
     settings()->setFontSize(QWebSettings::DefaultFontSize, font.pixelSize());
+    connect(page(), &QWebPage::linkClicked, this, &IntroductionWebView::openUrl);
 }
 
 IntroductionWebView::~IntroductionWebView()
