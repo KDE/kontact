@@ -26,7 +26,15 @@
 #include "aboutdialog.h"
 #include "prefs.h"
 #include "iconsidepane.h"
-#include "introductionwebview.h"
+
+#ifdef QTWEBENGINE_EXPERIMENTAL_OPTION
+#include "webengine/introductionwebengineview.h"
+#include "webengine/introductionwebenginepage.h"
+#else
+#include "webview/introductionwebview.h"
+#include <KWebView>
+#endif
+
 #include "kontactconfiguredialog.h"
 using namespace Kontact;
 
@@ -48,7 +56,6 @@ using namespace Kontact;
 #include "kontact_debug.h"
 #include <KEditToolBar>
 #include <KHelpMenu>
-#include <KWebView>
 #include <KMessageBox>
 #include <KPluginInfo>
 #include <KRun>
@@ -66,7 +73,6 @@ using namespace Kontact;
 #include <QStackedWidget>
 #include <QTimer>
 #include <QVBoxLayout>
-#include <QWebSettings>
 #include <QShortcut>
 #include <QIcon>
 #include <KHelpClient>
@@ -402,9 +408,14 @@ void MainWindow::initAboutScreen()
     introboxHBoxLayout->setMargin(0);
     mPartsStack->addWidget(introbox);
     mPartsStack->setCurrentWidget(introbox);
+#ifdef QTWEBENGINE_EXPERIMENTAL_OPTION
+    mIntroPart = new IntroductionWebEngineView(introbox);
+    connect(mIntroPart, &IntroductionWebEngineView::openUrl, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
+#else
     mIntroPart = new IntroductionWebView(introbox);
-    introboxHBoxLayout->addWidget(mIntroPart);
     connect(mIntroPart, &IntroductionWebView::openUrl, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
+#endif
+    introboxHBoxLayout->addWidget(mIntroPart);
 }
 
 void MainWindow::setupActions()

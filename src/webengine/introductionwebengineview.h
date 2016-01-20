@@ -15,15 +15,21 @@
   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "introductionwebenginepage.h"
 
-IntroductionWebEnginePage::IntroductionWebEnginePage(QWidget *parent)
-    : QWidget(parent)
+#ifndef INTRODUCTIONWEBENGINEVIEW_H
+#define INTRODUCTIONWEBENGINEVIEW_H
+
+#include <QWebEngineView>
+
+class IntroductionWebEngineView : public QWebEngineView
 {
+    Q_OBJECT
+public:
+    explicit IntroductionWebEngineView(QWidget *parent = Q_NULLPTR);
+    ~IntroductionWebEngineView();
 
-}
+Q_SIGNALS:
+    void openUrl(const QUrl &url);
+};
 
-IntroductionWebEnginePage::~IntroductionWebEnginePage()
-{
-
-}
+#endif // INTRODUCTIONWEBENGINEVIEW_H

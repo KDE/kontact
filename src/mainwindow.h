@@ -24,7 +24,7 @@
 #define KONTACT_MAINWINDOW_H
 
 #include "kontact_export.h"
-
+#include "config-kdepim.h"
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
 #include <QAction>
@@ -37,7 +37,11 @@ class KSqueezedTextLabel;
 class QFrame;
 class QSplitter;
 class QStackedWidget;
+#ifdef QTWEBENGINE_EXPERIMENTAL_OPTION
+class IntroductionWebEngineView;
+#else
 class IntroductionWebView;
+#endif
 
 typedef QList<KontactInterface::Plugin *> PluginList;
 typedef QList<QAction *> ActionPluginList;
@@ -135,8 +139,12 @@ private:
     PluginList mDelayedPreload;
     ActionPluginList mActionPlugins;
     QList<KPluginInfo> mPluginInfos;
-    IntroductionWebView *mIntroPart;
 
+#ifdef QTWEBENGINE_EXPERIMENTAL_OPTION
+    IntroductionWebEngineView *mIntroPart;
+#else
+    IntroductionWebView *mIntroPart;
+#endif
     KSqueezedTextLabel *mStatusMsgLabel;
 
     QString mInitialActiveModule;

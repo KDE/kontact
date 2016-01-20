@@ -9,12 +9,15 @@ include_directories(
 
 if (QTWEBENGINE_EXPERIMENTAL_OPTION)
     set(kontactprivate_introduction_LIB_SRCS
-        introductionwebenginepage.cpp
+        webengine/introductionwebenginepage.cpp
+        webengine/introductionwebengineview.cpp
         )
+    set(kontactprivate_web_LIB Qt5::WebEngine Qt5::WebEngineWidgets)
 else()
     set(kontactprivate_introduction_LIB_SRCS
-        introductionwebview.cpp
+        webview/introductionwebview.cpp
         )
+    set(kontactprivate_web_LIB KF5::WebKit)
 endif()
 
 set(kontactprivate_LIB_SRCS
@@ -40,7 +43,7 @@ PUBLIC
   KF5::IconThemes
 PRIVATE
   KF5::KCMUtils
-  KF5::WebKit
+  ${kontactprivate_web_LIB}
   KF5::Libkdepim
   KF5::GrantleeTheme
 )
