@@ -25,6 +25,8 @@ IntroductionWebEngineView::IntroductionWebEngineView(QWidget *parent)
 {
     IntroductionWebEnginePage *pageEngine = new IntroductionWebEnginePage(this);
     setPage(pageEngine);
+
+    setFocusPolicy(Qt::WheelFocus);
     connect(pageEngine, &IntroductionWebEnginePage::urlClicked, this, &IntroductionWebEngineView::openUrl);
 }
 

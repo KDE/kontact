@@ -16,11 +16,19 @@
 */
 
 #include "introductionwebenginepage.h"
-
+#include <QFontDatabase>
+#include <QWebEngineSettings>
 IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
     : QWebEnginePage(parent)
 {
+    // Let's better be paranoid and disable plugins (it defaults to enabled):
+    settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, false);
+    //settings()->setAttribute(QWebEngineSettings::Javascript, false);
+    //settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
 
+    const QFontInfo font(QFontDatabase().systemFont(QFontDatabase::GeneralFont));
+    settings()->setFontFamily(QWebEngineSettings::StandardFont, font.family());
+    settings()->setFontSize(QWebEngineSettings::DefaultFontSize, font.pixelSize());
 }
 
 IntroductionWebEnginePage::~IntroductionWebEnginePage()
