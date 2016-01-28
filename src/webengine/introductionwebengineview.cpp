@@ -15,7 +15,6 @@
   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #include "introductionwebengineview.h"
 #include "introductionwebenginepage.h"
 #include <QWebEnginePage>
