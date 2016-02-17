@@ -23,8 +23,7 @@ IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
 {
     // Let's better be paranoid and disable plugins (it defaults to enabled):
     settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, false);
-    //settings()->setAttribute(QWebEngineSettings::Javascript, false);
-    //settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
+    settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
 
     const QFontInfo font(QFontDatabase().systemFont(QFontDatabase::GeneralFont));
     settings()->setFontFamily(QWebEngineSettings::StandardFont, font.family());
