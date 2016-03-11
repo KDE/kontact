@@ -91,7 +91,7 @@ install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR})
 ########### install files ###############
 
 install(PROGRAMS org.kde.kontact.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES Kontact.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(FILES org.kde.kontact.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES kontact.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 install(FILES kontactconfig.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 install(FILES kontactui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kontact)
