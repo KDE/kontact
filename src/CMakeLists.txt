@@ -7,7 +7,7 @@ include_directories(
 
 ########### next target ###############
 
-if (QTWEBENGINE_EXPERIMENTAL_OPTION)
+if (QTWEBENGINE_SUPPORT_OPTION)
     set(kontactprivate_introduction_LIB_SRCS
         webengine/introductionwebenginepage.cpp
         webengine/introductionwebengineview.cpp

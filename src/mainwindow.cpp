@@ -27,7 +27,7 @@
 #include "prefs.h"
 #include "iconsidepane.h"
 
-#ifdef QTWEBENGINE_EXPERIMENTAL_OPTION
+#ifdef QTWEBENGINE_SUPPORT_OPTION
 #include "webengine/introductionwebengineview.h"
 #include "webengine/introductionwebenginepage.h"
 #else
@@ -408,7 +408,7 @@ void MainWindow::initAboutScreen()
     introboxHBoxLayout->setMargin(0);
     mPartsStack->addWidget(introbox);
     mPartsStack->setCurrentWidget(introbox);
-#ifdef QTWEBENGINE_EXPERIMENTAL_OPTION
+#ifdef QTWEBENGINE_SUPPORT_OPTION
     mIntroPart = new IntroductionWebEngineView(introbox);
     connect(mIntroPart, &IntroductionWebEngineView::openUrl, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
 #else

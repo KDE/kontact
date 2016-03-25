@@ -37,7 +37,7 @@ class KSqueezedTextLabel;
 class QFrame;
 class QSplitter;
 class QStackedWidget;
-#ifdef QTWEBENGINE_EXPERIMENTAL_OPTION
+#ifdef QTWEBENGINE_SUPPORT_OPTION
 class IntroductionWebEngineView;
 #else
 class IntroductionWebView;
@@ -140,7 +140,7 @@ private:
     ActionPluginList mActionPlugins;
     QList<KPluginInfo> mPluginInfos;
 
-#ifdef QTWEBENGINE_EXPERIMENTAL_OPTION
+#ifdef QTWEBENGINE_SUPPORT_OPTION
     IntroductionWebEngineView *mIntroPart;
 #else
     IntroductionWebView *mIntroPart;
