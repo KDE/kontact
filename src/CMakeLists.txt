@@ -37,11 +37,11 @@ generate_export_header(kontactprivate BASE_NAME kontact)
 
 target_link_libraries(kontactprivate
 PUBLIC
-  KF5::KIOWidgets
   KF5::WindowSystem
-  KF5::KontactInterface
   KF5::IconThemes
 PRIVATE
+  KF5::KIOWidgets
+  KF5::KontactInterface
   KF5::KCMUtils
   ${kontactprivate_web_LIB}
   KF5::Libkdepim
@@ -70,6 +70,7 @@ target_link_libraries(kontact_bin
   KF5::Service
   KF5::KdepimDBusInterfaces
   kontactprivate
+  KF5::KontactInterface
 )
 
 install(TARGETS kontact_bin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
@@ -84,6 +85,8 @@ target_link_libraries(kcm_kontact
   KF5::KCMUtils
   KF5::Libkdepim
   kontactprivate
+  KF5::KIOWidgets
+  KF5::KontactInterface
 )
 
 install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR})
