@@ -2,8 +2,8 @@
 add_subdirectory(about)
 
 include_directories(
-  ${CMAKE_CURRENT_BINARY_DIR}
-)
+    ${CMAKE_CURRENT_BINARY_DIR}
+    )
 
 ########### next target ###############
 
@@ -21,13 +21,13 @@ else()
 endif()
 
 set(kontactprivate_LIB_SRCS
-  ${kontactprivate_introduction_LIB_SRCS}
-  mainwindow.cpp
-  sidepanebase.cpp
-  iconsidepane.cpp
-  aboutdialog.cpp
-  kontactconfiguredialog.cpp
-)
+    ${kontactprivate_introduction_LIB_SRCS}
+    mainwindow.cpp
+    sidepanebase.cpp
+    iconsidepane.cpp
+    aboutdialog.cpp
+    kontactconfiguredialog.cpp
+    )
 ecm_qt_declare_logging_category(kontactprivate_LIB_SRCS HEADER kontact_debug.h IDENTIFIER KONTACT_LOG CATEGORY_NAME log_kontact)
 
 kconfig_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc)
@@ -36,22 +36,22 @@ add_library(kontactprivate ${kontactprivate_LIB_SRCS})
 generate_export_header(kontactprivate BASE_NAME kontact)
 
 target_link_libraries(kontactprivate
-PUBLIC
-  KF5::WindowSystem
-  KF5::IconThemes
-PRIVATE
-  KF5::KIOWidgets
-  KF5::KontactInterface
-  KF5::KCMUtils
-  ${kontactprivate_web_LIB}
-  KF5::Libkdepim
-  KF5::GrantleeTheme
-)
+    PUBLIC
+    KF5::WindowSystem
+    KF5::IconThemes
+    PRIVATE
+    KF5::KIOWidgets
+    KF5::KontactInterface
+    KF5::KCMUtils
+    ${kontactprivate_web_LIB}
+    KF5::Libkdepim
+    KF5::GrantleeTheme
+    )
 
 set_target_properties(kontactprivate PROPERTIES
-  VERSION ${KDEPIM_LIB_VERSION}
-  SOVERSION ${KDEPIM_LIB_SOVERSION}
-)
+    VERSION ${KDEPIM_LIB_VERSION}
+    SOVERSION ${KDEPIM_LIB_SOVERSION}
+    )
 
 install(TARGETS kontactprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
@@ -67,11 +67,11 @@ add_executable(kontact_bin ${kontact_bin_SRCS})
 set_target_properties(kontact_bin PROPERTIES OUTPUT_NAME kontact)
 
 target_link_libraries(kontact_bin
-  KF5::Service
-  KF5::KdepimDBusInterfaces
-  kontactprivate
-  KF5::KontactInterface
-)
+    KF5::Service
+    KF5::KdepimDBusInterfaces
+    kontactprivate
+    KF5::KontactInterface
+    )
 
 install(TARGETS kontact_bin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -82,12 +82,12 @@ set(kcm_kontact_PART_SRCS kcmkontact.cpp)
 add_library(kcm_kontact MODULE ${kcm_kontact_PART_SRCS})
 
 target_link_libraries(kcm_kontact
-  KF5::KCMUtils
-  KF5::Libkdepim
-  kontactprivate
-  KF5::KIOWidgets
-  KF5::KontactInterface
-)
+    KF5::KCMUtils
+    KF5::Libkdepim
+    kontactprivate
+    KF5::KIOWidgets
+    KF5::KontactInterface
+    )
 
 install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
