@@ -4,7 +4,7 @@
 set(kontact_summaryplugin_PART_SRCS summaryview_plugin.cpp summaryview_part.cpp dropwidget.cpp)
 qt5_add_resources(kontact_summaryplugin_PART_SRCS summaryview.qrc)
 
-qt5_add_dbus_interfaces(kontact_summaryplugin_PART_SRCS ${CMAKE_BINARY_DIR}/kmail/org.kde.kmail.kmail.xml)
+qt5_add_dbus_interfaces(kontact_summaryplugin_PART_SRCS ${CMAKE_BINARY_DIR}/kmail/src/org.kde.kmail.kmail.xml)
 
 add_library(kontact_summaryplugin MODULE ${kontact_summaryplugin_PART_SRCS})
 add_dependencies(kontact_summaryplugin kmail_xml)
