@@ -20,7 +20,7 @@
 */
 
 // Use the kdepim version
-#include "kdepim-version.h"
+#include "kontact-version.h"
 
 #include "mainwindow.h"
 #include "kontact_debug.h"
