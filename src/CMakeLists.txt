@@ -10,14 +10,9 @@ include_directories(
 
 ########### next target ###############
 
-set(kontactprivate_introduction_LIB_SRCS
+set(kontactprivate_LIB_SRCS
     webengine/introductionwebenginepage.cpp
     webengine/introductionwebengineview.cpp
-    )
-set(kontactprivate_web_LIB Qt5::WebEngine Qt5::WebEngineWidgets)
-
-set(kontactprivate_LIB_SRCS
-    ${kontactprivate_introduction_LIB_SRCS}
     mainwindow.cpp
     sidepanebase.cpp
     iconsidepane.cpp
@@ -39,9 +34,10 @@ target_link_libraries(kontactprivate
     KF5::KIOWidgets
     KF5::KontactInterface
     KF5::KCMUtils
-    ${kontactprivate_web_LIB}
     KF5::Libkdepim
     KF5::GrantleeTheme
+    Qt5::WebEngine
+    Qt5::WebEngineWidgets
     )
 
 set_target_properties(kontactprivate PROPERTIES
