@@ -10,18 +10,11 @@ include_directories(
 
 ########### next target ###############
 
-if (QTWEBENGINE_SUPPORT_OPTION)
-    set(kontactprivate_introduction_LIB_SRCS
-        webengine/introductionwebenginepage.cpp
-        webengine/introductionwebengineview.cpp
-        )
-    set(kontactprivate_web_LIB Qt5::WebEngine Qt5::WebEngineWidgets)
-else()
-    set(kontactprivate_introduction_LIB_SRCS
-        webview/introductionwebview.cpp
-        )
-    set(kontactprivate_web_LIB KF5::WebKit)
-endif()
+set(kontactprivate_introduction_LIB_SRCS
+    webengine/introductionwebenginepage.cpp
+    webengine/introductionwebengineview.cpp
+    )
+set(kontactprivate_web_LIB Qt5::WebEngine Qt5::WebEngineWidgets)
 
 set(kontactprivate_LIB_SRCS
     ${kontactprivate_introduction_LIB_SRCS}

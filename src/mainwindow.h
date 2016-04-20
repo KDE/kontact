@@ -37,11 +37,7 @@ class KSqueezedTextLabel;
 class QFrame;
 class QSplitter;
 class QStackedWidget;
-#ifdef QTWEBENGINE_SUPPORT_OPTION
 class IntroductionWebEngineView;
-#else
-class IntroductionWebView;
-#endif
 
 typedef QList<KontactInterface::Plugin *> PluginList;
 typedef QList<QAction *> ActionPluginList;
@@ -140,11 +136,7 @@ private:
     ActionPluginList mActionPlugins;
     QList<KPluginInfo> mPluginInfos;
 
-#ifdef QTWEBENGINE_SUPPORT_OPTION
     IntroductionWebEngineView *mIntroPart;
-#else
-    IntroductionWebView *mIntroPart;
-#endif
     KSqueezedTextLabel *mStatusMsgLabel;
 
     QString mInitialActiveModule;

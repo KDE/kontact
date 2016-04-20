@@ -27,13 +27,8 @@
 #include "prefs.h"
 #include "iconsidepane.h"
 
-#ifdef QTWEBENGINE_SUPPORT_OPTION
 #include "webengine/introductionwebengineview.h"
 #include "webengine/introductionwebenginepage.h"
-#else
-#include "webview/introductionwebview.h"
-#include <KWebView>
-#endif
 
 #include "kontactconfiguredialog.h"
 using namespace Kontact;
@@ -408,13 +403,8 @@ void MainWindow::initAboutScreen()
     introboxHBoxLayout->setMargin(0);
     mPartsStack->addWidget(introbox);
     mPartsStack->setCurrentWidget(introbox);
-#ifdef QTWEBENGINE_SUPPORT_OPTION
     mIntroPart = new IntroductionWebEngineView(introbox);
     connect(mIntroPart, &IntroductionWebEngineView::openUrl, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
-#else
-    mIntroPart = new IntroductionWebView(introbox);
-    connect(mIntroPart, &IntroductionWebView::openUrl, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
-#endif
     introboxHBoxLayout->addWidget(mIntroPart);
 }
 
