@@ -69,6 +69,7 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${kontact_SOURCE_DIR})
     find_package(KF5WebEngineViewer ${MESSAGELIB_LIB_VERSION_LIB} CONFIG REQUIRED)
     set(WEBENGINE_TYPE "QtWebEngine")
 
+    add_definitions(-DQT_USE_QSTRINGBUILDER)
 
     include_directories(${kontact_SOURCE_DIR} ${kontact_BINARY_DIR})
 endif()
