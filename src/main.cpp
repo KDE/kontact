@@ -157,9 +157,7 @@ int main(int argc, char **argv)
 {
     KontactApp app(argc, &argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-#if QT_VERSION >= 0x050600
     app.setAttribute(Qt::AA_EnableHighDpiScaling);
-#endif
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kontact"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc") << QStringLiteral("kontact_summaryrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("kontactui.rc"));
