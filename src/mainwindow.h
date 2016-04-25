@@ -24,7 +24,6 @@
 #define KONTACT_MAINWINDOW_H
 
 #include "kontact_export.h"
-#include "config-kdepim.h"
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
 #include <QAction>
