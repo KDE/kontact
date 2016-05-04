@@ -29,7 +29,6 @@
 #include <QAction>
 
 class KActionMenu;
-class KWebView;
 class KPluginInfo;
 class KSqueezedTextLabel;
 
