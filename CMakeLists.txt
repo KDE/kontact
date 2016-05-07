@@ -38,8 +38,7 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${kontact_SOURCE_DIR})
 
 
     set(QT_REQUIRED_VERSION "5.6.0")
-    find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED Widgets Test WebEngine WebEngineWidgets)
-    find_package(Qt5X11Extras NO_MODULE)
+    find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED DBus Widgets WebEngine WebEngineWidgets)
     set(MAILCOMMON_LIB_VERSION_LIB "5.2.40")
     set(LIBKDEPIM_LIB_VERSION_LIB "5.2.40")
     set(LIBGRANTLEETHEME_LIB_VERSION_LIB "5.2.40")
