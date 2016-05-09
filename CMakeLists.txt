@@ -60,10 +60,10 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${kontact_SOURCE_DIR})
     option(KDEPIM_ENTERPRISE_BUILD "Enable features specific to the enterprise branch, which are normally disabled. Also, it disables many components not needed for Kontact such as the Kolab client." FALSE)
     set(WEBENGINE_TYPE "QtWebEngine")
 
-    add_definitions(-DQT_USE_QSTRINGBUILDER)
 
     include_directories(${kontact_SOURCE_DIR} ${kontact_BINARY_DIR})
 endif()
+add_definitions(-DQT_USE_QSTRINGBUILDER)
 
 
 add_definitions( -DQT_NO_CAST_FROM_ASCII )
