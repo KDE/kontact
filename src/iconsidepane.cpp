@@ -210,7 +210,7 @@ public:
             return;
         }
 
-        QStyleOptionViewItemV4 optionCopy(*static_cast<const QStyleOptionViewItemV4 *>(&option));
+        QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
         optionCopy.decorationSize = QSize(mNavigator->iconSize(), mNavigator->iconSize());
         optionCopy.textElideMode = Qt::ElideNone;
@@ -223,7 +223,7 @@ public:
             return QSize();
         }
 
-        QStyleOptionViewItemV4 optionCopy(*static_cast<const QStyleOptionViewItemV4 *>(&option));
+        QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
         optionCopy.decorationSize =
             mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize()) : QSize();
