@@ -680,8 +680,8 @@ void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
 
     // sort the action plugins again and reset shortcuts. If we removed and then readded some plugins
     // we need to take in count their weights for setting shortcuts again
-    qSort(mActionPlugins.begin(), mActionPlugins.end(), pluginActionWeightLessThan);
-    qSort(mPlugins.begin(), mPlugins.end(), pluginWeightLessThan);
+    std::sort(mActionPlugins.begin(), mActionPlugins.end(), pluginActionWeightLessThan);
+    std::sort(mPlugins.begin(), mPlugins.end(), pluginWeightLessThan);
     int i = 0;
     foreach (QAction *qaction, mActionPlugins) {
         QAction *action = static_cast<QAction *>(qaction);
