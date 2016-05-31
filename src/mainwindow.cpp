@@ -20,8 +20,6 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
-#include <config-enterprise.h>
-
 #include "mainwindow.h"
 #include "aboutdialog.h"
 #include "prefs.h"
@@ -418,29 +416,6 @@ void MainWindow::setupActions()
     actionCollection()->setDefaultShortcuts(mNewActions, KStandardShortcut::openNew());
     connect(mNewActions, &KActionMenu::triggered, this, &MainWindow::slotNewClicked);
 
-    // If the user is using disconnected imap mail folders as groupware, we add
-    // plugins' Synchronize actions to the toolbar which trigger an imap sync.
-    // Otherwise it's redundant and misleading.
-    KConfig _config(QStringLiteral("kmail2rc"));
-    KConfigGroup config(&_config, "Groupware");
-#if defined(KDEPIM_ENTERPRISE_BUILD)
-    bool defGW = config.readEntry("Enabled", true);
-#else
-    bool defGW = config.readEntry("Enabled", false);
-#endif
-    KConfig *_cfg = Prefs::self()->config();
-    KConfigGroup cfg(_cfg, "Kontact Groupware Settings");
-    mSyncActionsEnabled = cfg.readEntry("GroupwareMailFoldersEnabled", defGW);
-
-    if (mSyncActionsEnabled) {
-        mSyncActions = new KActionMenu(
-            QIcon::fromTheme(QStringLiteral("view-refresh")),
-            i18nc("@title:menu synchronize pim items (message,calendar,to-do,etc.)", "Sync"), this);
-        actionCollection()->addAction(QStringLiteral("action_sync"), mSyncActions);
-        actionCollection()->setDefaultShortcuts(mSyncActions, KStandardShortcut::reload());
-        connect(mSyncActions, &KActionMenu::triggered, this, &MainWindow::slotSyncClicked);
-    }
-
     QAction *action =
         new QAction(QIcon::fromTheme(QStringLiteral("configure")),
                     i18nc("@action:inmenu", "Configure Kontact..."), this);
@@ -730,22 +705,6 @@ void MainWindow::slotNewClicked()
         for (it = mPlugins.begin(); it != end; ++it) {
             if (!(*it)->newActions().isEmpty()) {
                 (*it)->newActions().first()->trigger();
-                return;
-            }
-        }
-    }
-}
-
-void MainWindow::slotSyncClicked()
-{
-    if (!mCurrentPlugin->syncActions().isEmpty()) {
-        mCurrentPlugin->syncActions().at(0)->trigger();
-    } else {
-        PluginList::Iterator it;
-        PluginList::Iterator end(mPlugins.end());
-        for (it = mPlugins.begin(); it != end; ++it) {
-            if (!(*it)->syncActions().isEmpty()) {
-                (*it)->syncActions().first()->trigger();
                 return;
             }
         }

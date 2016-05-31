@@ -78,7 +78,6 @@ protected Q_SLOTS:
     void slotActivePartChanged(KParts::Part *part);
     void slotPreferences();
     void slotNewClicked();
-    void slotSyncClicked();
     void slotQuit();
     void slotNewToolbarConfig();
     void slotShowIntroduction();
