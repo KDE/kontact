@@ -123,7 +123,6 @@ private:
     QSplitter *mSplitter;
 
     KActionMenu *mNewActions;
-    KActionMenu *mSyncActions;
     SidePaneBase *mSidePane;
     QStackedWidget *mPartsStack;
     KontactInterface::Plugin *mCurrentPlugin;
@@ -143,7 +142,6 @@ private:
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;
-    bool mSyncActionsEnabled;
 };
 
 }

@@ -143,7 +143,7 @@ int ServiceStarter::startServiceFor(const QString &serviceType,
 
 MainWindow::MainWindow()
     : KontactInterface::Core(), mSplitter(Q_NULLPTR), mCurrentPlugin(Q_NULLPTR), mAboutDialog(Q_NULLPTR),
-      mReallyClose(false), mSyncActionsEnabled(true)
+      mReallyClose(false)
 {
     // The ServiceStarter created here will be deleted by the KDbusServiceStarter
     // base class, which is a global static.
@@ -532,20 +532,11 @@ void MainWindow::loadPlugins()
             mNewActions->addAction((*listIt));
         }
 
-        if (mSyncActionsEnabled) {
-            Q_FOREACH (QAction *listIt, plugin->syncActions()) {
-                qCDebug(KONTACT_LOG) << QStringLiteral("Plugging Sync actions") << listIt->objectName();
-                mSyncActions->addAction(listIt);
-            }
-        }
         addPlugin(plugin);
     }
 
     const bool state = (!mPlugins.isEmpty());
     mNewActions->setEnabled(state);
-    if (mSyncActionsEnabled) {
-        mSyncActions->setEnabled(state);
-    }
 }
 
 void MainWindow::unloadPlugins()
@@ -587,13 +578,6 @@ bool MainWindow::removePlugin(const KPluginInfo &info)
                 mNewActions->removeAction(*listIt);
             }
 
-            if (mSyncActionsEnabled) {
-                actionList = plugin->syncActions();
-                for (listIt = actionList.constBegin(); listIt != actionList.constEnd(); ++listIt) {
-                    qCDebug(KONTACT_LOG) << QStringLiteral("Unplugging Sync actions") << (*listIt)->objectName();
-                    mSyncActions->removeAction(*listIt);
-                }
-            }
             removeChildClient(plugin);
 
             if (mCurrentPlugin == plugin) {
@@ -807,11 +791,6 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
             newAction = plugin->newActions().at(0);
         }
 
-        QAction *syncAction = Q_NULLPTR;
-        if (!plugin->syncActions().isEmpty()) {
-            syncAction = plugin->syncActions().at(0);
-        }
-
         createGUI(plugin->part());
         plugin->shortcutChanged();
 
@@ -834,26 +813,6 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
                     mNewActions->setText(newAction->text());
                     mNewActions->setWhatsThis(newAction->whatsThis());
                     break;
-                }
-            }
-        }
-
-        if (mSyncActionsEnabled) {
-            if (syncAction) {
-                mSyncActions->setIcon(syncAction->icon());
-                static_cast<QAction *>(mSyncActions)->setText(syncAction->text());
-            } else { // we'll use the action of the first plugin which offers one
-                PluginList::Iterator it;
-                PluginList::Iterator end(mPlugins.end());
-                for (it = mPlugins.begin(); it != end; ++it) {
-                    if (!(*it)->syncActions().isEmpty()) {
-                        syncAction = (*it)->syncActions().first();
-                    }
-                    if (syncAction) {
-                        static_cast<QAction *>(mSyncActions)->setIcon(syncAction->icon());
-                        mSyncActions->setText(syncAction->text());
-                        break;
-                    }
                 }
             }
         }
