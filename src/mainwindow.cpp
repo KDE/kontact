@@ -388,7 +388,7 @@ void MainWindow::paintAboutScreen(const QString &templateName, const QVariantHas
     if (!theme.isValid()) {
         qCDebug(KONTACT_LOG) << "Theme error: failed to find splash theme";
     } else {
-        mIntroPart->setHtml(theme.render(templateName, data),
+        mIntroPart->setHtml(theme.render(templateName, data, QByteArrayLiteral("kontact")),
                             QUrl::fromLocalFile(theme.absolutePath() + QLatin1Char('/')));
     }
 
