@@ -55,6 +55,7 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${kontact_SOURCE_DIR})
     find_package(KF5DBusAddons ${KF5_VERSION} CONFIG REQUIRED)
     find_package(KF5DocTools ${KF5_VERSION} REQUIRED)
     find_package(KF5KCMUtils ${KF5_VERSION} CONFIG REQUIRED)
+    find_package(KF5Crash ${KF5_VERSION} REQUIRED)
 
 
     # Find KdepimLibs Package

@@ -38,6 +38,7 @@ using namespace Kontact;
 #include <KService>
 #include <KServiceTypeTrader>
 #include <KWindowSystem>
+#include <KCrash>
 
 #include <QCommandLineParser>
 
@@ -158,6 +159,7 @@ int main(int argc, char **argv)
     KontactApp app(argc, &argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     app.setAttribute(Qt::AA_EnableHighDpiScaling);
+    KCrash::initialize();
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kontact"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc") << QStringLiteral("kontact_summaryrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("kontactui.rc"));

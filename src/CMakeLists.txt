@@ -60,6 +60,7 @@ target_link_libraries(kontact_bin
     KF5::KdepimDBusInterfaces
     kontactprivate
     KF5::KontactInterface
+    KF5::Crash
     )
 
 install(TARGETS kontact_bin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
