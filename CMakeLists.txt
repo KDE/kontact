@@ -25,7 +25,7 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${kontact_SOURCE_DIR})
 
 
     # Do NOT add quote
-    set(KDEPIM_DEV_VERSION beta1)
+    set(KDEPIM_DEV_VERSION pre)
 
     # add an extra space
     if(DEFINED KDEPIM_DEV_VERSION)
@@ -33,7 +33,7 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${kontact_SOURCE_DIR})
     endif()
 
 
-    set(KDEPIM_VERSION_NUMBER "5.2.80")
+    set(KDEPIM_VERSION_NUMBER "5.3.40")
     set(KDEPIM_VERSION "${KDEPIM_VERSION_NUMBER}${KDEPIM_DEV_VERSION}")
 
 
