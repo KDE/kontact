@@ -40,7 +40,6 @@ protected Q_SLOTS:
     /** @reimplemented */
     void slotOk();
     void emitConfigChanged();
-    void slotHelpClicked();
 };
 
 }

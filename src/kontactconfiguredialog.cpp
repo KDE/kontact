@@ -18,7 +18,6 @@
 */
 
 #include "kontactconfiguredialog.h"
-#include <KHelpClient>
 
 #include <QDBusReply>
 #include <QDBusInterface>
@@ -63,11 +62,6 @@ void KontactConfigureDialog::emitConfigChanged()
         }
 
     }
-}
-
-void KontactConfigureDialog::slotHelpClicked()
-{
-    KHelpClient::invokeHelp(QStringLiteral("main-config"), QStringLiteral("kontact"));
 }
 
 void KontactConfigureDialog::slotApply()
