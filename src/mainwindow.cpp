@@ -1012,7 +1012,7 @@ void MainWindow::slotOpenUrl(const QUrl &url)
         } else if (path.startsWith(QStringLiteral("/help"))) {
             QString app(QStringLiteral("kontact"));
             if (!url.query().isEmpty()) {
-                app = url.query().mid(1);
+                app = url.query();
             }
             KHelpClient::invokeHelp(QString(), app);
         }
