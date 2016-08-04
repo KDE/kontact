@@ -29,9 +29,8 @@ using namespace Kontact;
 SidePaneBase::SidePaneBase(KontactInterface::Core *core, QWidget *parent)
     : QWidget(parent), mCore(core)
 {
-    QVBoxLayout *layout = new QVBoxLayout;
+    QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);
-    setLayout(layout);
 }
 
 SidePaneBase::~SidePaneBase()

@@ -406,7 +406,8 @@ QSize Navigator::sizeHint() const
 
     int viewHeight = QListView::sizeHint().height();
 
-    return QSize(maxWidth + rect().width() - contentsRect().width(), viewHeight);
+    QSize size(maxWidth + rect().width() - contentsRect().width(), viewHeight);
+    return size;
 }
 
 void Navigator::dragEnterEvent(QDragEnterEvent *event)
@@ -554,7 +555,8 @@ void IconSidePane::updatePlugins()
 void IconSidePane::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event);
-    setMaximumWidth(mNavigator->sizeHint().width());
-    setMinimumWidth(mNavigator->sizeHint().width());
+    const int newWidth(mNavigator->sizeHint().width());
+    setFixedWidth(newWidth);
+    mNavigator->setFixedWidth(newWidth);
 }
 
