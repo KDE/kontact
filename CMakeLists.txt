@@ -71,9 +71,9 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${kontact_SOURCE_DIR})
 
 
     include_directories(${kontact_SOURCE_DIR} ${kontact_BINARY_DIR})
-    add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 endif()
 add_definitions(-DQT_USE_QSTRINGBUILDER)
+add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 
 add_definitions( -DQT_NO_CAST_FROM_ASCII )
