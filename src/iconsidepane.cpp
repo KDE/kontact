@@ -95,7 +95,8 @@ public:
 
     void emitReset()
     {
-        Q_EMIT reset();
+        //FIXME 
+        //Q_EMIT reset();
     }
 
     void setPluginList(const QList<KontactInterface::Plugin *> &list)
