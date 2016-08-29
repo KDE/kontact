@@ -1,0 +1,1014 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym>PIM</acronym>">
+  <!ENTITY kappname "&kontact;">
+  <!ENTITY package "kdepim">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE">
+]>
+
+<book id="kontact" lang="&language;">
+
+<bookinfo>
+
+<title>The &kontact; Handbook</title>
+
+<authorgroup>
+<author>
+<firstname>Cornelius</firstname>
+<surname>Schumacher</surname>
+<affiliation><address>&Cornelius.Schumacher.mail;</address></affiliation>
+</author>
+
+<author>
+<firstname>Antonio</firstname>
+<surname>Salazar</surname>
+<affiliation><address><email>savedfastcool@gmail.com</email>
+    </address></affiliation>
+</author>
+
+<author>
+<firstname>Daniel</firstname>
+<surname>Molkentin</surname>
+<affiliation><address>&Daniel.Molkentin.mail;</address></affiliation>
+</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+
+<copyright>
+<year>2003-2005</year><holder>&Cornelius.Schumacher;</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2010-08-20</date>
+<releaseinfo>4.5.1 beta1</releaseinfo>
+
+<abstract><para>&kontact; is the integrated solution to your personal
+information management (&PIM;) needs. It combines well-known &kde;
+applications such as &kmail;, &korganizer; and &kaddressbook; into a
+single interface to provide easy access to mail, scheduling,
+address book and other &PIM; functionality.  </para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdepim</keyword>
+<keyword>KMail</keyword>
+<keyword>Organizer</keyword>
+<keyword>KAddressBook</keyword>
+<keyword>KNotes</keyword>
+<keyword>Akregator</keyword>
+<keyword>PIM</keyword>
+<keyword>groupware</keyword>
+<keyword>Outlook</keyword>
+<keyword>Evolution</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>&kontact; is the integrated solution for personal information
+management.  It combines the well-known &kde; applications for email,
+scheduling, address book, and notes (&kmail;, &korganizer;,
+&kaddressbook;, and &knotes;)
+into a single interface. Being
+based on a true component framework &kontact; provides exactly the
+same functionality as the stand-alone applications, and adds more
+features, by making use of the integrated way &kontact; runs the
+applications as components. Users still retain the choice of which
+applications are run within &kontact; and which are run
+stand-alone.</para>
+
+<para>In addition to the functionality of the individual applications &kontact;
+provides a summary view and advanced drag &amp; drop features between
+components.
+</para>
+
+</chapter>
+
+
+<chapter id="components">
+<title>&kontact; Components</title>
+
+<para>
+&kontact; integrates the following applications. See the individual
+application manuals for details on how to use them. These apply to
+running them as components inside &kontact; just as well as running
+them stand-alone.
+</para>
+
+<variablelist>
+    <varlistentry>
+        <term><ulink url="help:kmail">&kmail;</ulink></term>
+        <listitem><para>The &kde; mail client.</para></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><ulink url="help:korganizer">&korganizer;</ulink></term>
+        <listitem><para>The &kde; calendar and scheduling application.</para>
+            </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><ulink url="help:kaddressbook">&kaddressbook;</ulink></term>
+        <listitem><para>The &kde; contact manager.</para></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><ulink url="help:knotes">&knotes;</ulink></term>
+        <listitem><para>The &kde; sticky notes application.</para></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term><ulink url="help:akregator">&akregator;</ulink></term>
+        <listitem><para>The &kde; RSS feed reader.</para>
+            </listitem>
+    </varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="main-window">
+<title>The &kontact; Main Window</title>
+
+<para>The Main Window consists of a side pane on the left showing the icons of
+the available components, a main view on the right which contains the main
+window of the active component and the usual menu, tool and status bars.</para>
+
+<sect1 id="side-pane">
+<title>Side Pane</title>
+
+<para>The Side Pane serves multiple purposes. It allows for switching between
+components, shows which component is active and serves as the target for
+drag &amp; drop operations to the different applications.</para>
+
+<screenshot>
+<screeninfo>&kontact;'s Side Pane</screeninfo>
+<mediaobject>
+<imageobject><imagedata format="PNG" fileref="side-pane.png" /></imageobject>
+<textobject>
+<phrase>&kontact;'s Side Pane</phrase>
+</textobject>
+<caption>
+<para>
+&kontact;'s Side Pane
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para>For switching between components simply click on the corresponding icon.
+The main window of the component is shown and the menu, tool and status bars are
+adapted to reflect the functionality of the active component. If you activate a
+component for the first time there might be a small delay until the main view
+is changed, because components are loaded on demand. This means you don't waste
+memory for components not in use.</para>
+
+<para>The icons in the Side Pane can also be used as targets for drag &amp; drop
+operations. For example, you can drag a mail message from the mail part and
+drop it on the icon of the to-do list or the calendar to create a to-do
+or event associated with this mail.</para>
+
+<para>Finally, you can change the size of the icons in the Side Pane.
+Right-clicking on the Side Pane will give you the option to use Large,
+Normal, or Small icons, as well as the option to use text only
+instead of icons.</para>
+
+<para>If you dislike the Side Pane, you can simply hide it by dragging the
+splitter. An alternative navigation between parts is provided by the 
+<guilabel>Navigator</guilabel> toolbar, which can be freely positioned. See
+<xref linkend="bars" /> for more on the <guilabel>Navigator</guilabel>
+toolbar.</para>
+
+</sect1>
+
+
+<sect1 id="main-view">
+
+<title>Main View</title>
+
+<para>The view on the right which takes up most of the area of the &kontact;
+main window shows the active component. This exactly corresponds to the main
+window the component uses when run as a stand-alone application. The highlighted
+icon in the Side Pane indicates to which application the Main View belongs.
+&kontact; remembers the active component when exiting, so the next time
+&kontact; starts it initially displays that component in the Main View.</para>
+
+<screenshot>
+<screeninfo>&kontact;'s Main View</screeninfo>
+<mediaobject>
+<imageobject><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<textobject>
+<phrase>&kontact;'s Main View</phrase>
+</textobject>
+<caption>
+<para>
+    &kontact;'s Main View
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para>In addition, there are two ways of overriding the component that &kontact;
+starts with. The first is supplying an argument to the &kontact; program call
+(see <xref linkend="command-line"/>). The second is a setting in the
+&kontact; Settings dialog that will allow you to always start &kontact; in a 
+certain mode.</para>
+
+<para>To get to it, go to <menuchoice><guimenu>Settings</guimenu>
+<guimenuitem>Configure Kontact</guimenuitem></menuchoice> and click on
+<guilabel>Kontact</guilabel> in the list.</para>
+
+<screenshot>
+<screeninfo>&kontact; Starting Component Setting</screeninfo>
+<mediaobject>
+<imageobject><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<textobject>
+<phrase>&kontact; Starting Component Setting</phrase>
+</textobject>
+<caption>
+<para>
+    &kontact; Starting Component Setting
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="bars">
+<title>Menu, Tool and Status Bars</title>
+
+<para>The menu, tool and status bars are adapted to the active component. That
+means that, in addition to some common functions like the help menu which are
+shown for all components, there are actions which are switched when the active
+component is switched. These actions available for each component are the same
+as those available when running the application stand-alone.</para>
+
+<screenshot>
+<screeninfo>Views of &kontact;'s menubars in the Summary View, Mail View, and
+    Calendar View</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
+<textobject>
+<phrase>Views of &kontact;'s menubars in the Summary View, Mail View, and
+    Calendar View</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo>Views of &kontact;'s menubars in the Summary View, Mail View, and
+    Calendar View</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
+<textobject>
+<phrase>Views of &kontact;'s menubars in the Summary View, Mail View, and
+    Calendar View</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo>Views of &kontact;'s menubars in the Summary View, Mail View, and
+    Calendar View</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
+<textobject>
+<phrase>Views of &kontact;'s menubars in the Summary View, Mail View, and
+    Calendar View</phrase>
+</textobject>
+<caption>
+<para>
+    Views of &kontact;'s menubars in the Summary View, Mail View, and Calendar
+    View.
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para>In addition, &kontact; can show the <guilabel>Navigator</guilabel>
+toolbar, which allows you access to the &kontact; components very much as the
+Side Pane does. However, unlike the Side Pane, buttons in the
+<guilabel>Navigator</guilabel> toolbar cannot be used for drag &amp; drop
+operations to other components.</para>
+
+<para>To activate the toolbar, select <menuchoice><guimenu>Settings</guimenu>
+<guisubmenu>Toolbars Shown</guisubmenu>
+<guimenuitem>Navigator</guimenuitem></menuchoice>.
+</para>
+
+<screenshot>
+<screeninfo>&kontact;'s <guimenuitem>Navigator</guimenuitem>
+    toolbar.</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
+<textobject>
+<phrase>&kontact;'s <guimenuitem>Navigator</guimenuitem> toolbar.</phrase>
+</textobject>
+<caption>
+<para>
+    &kontact;'s <guimenuitem>Navigator</guimenuitem> toolbar.
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para>A special action common to all components is the
+<guimenuitem>New</guimenuitem> action. It allows creation of new objects
+including emails, contacts, appointments and to-dos independently of which
+component is active. The component responsible for processing the
+selected object is started, if required, and takes over the created
+object.</para>
+
+<screenshot>
+<screeninfo>&kontact;'s New Menu</screeninfo>
+<mediaobject>
+<imageobject><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<textobject>
+<phrase>&kontact;'s New Menu</phrase>
+</textobject>
+<caption>
+<para>
+&kontact;'s New Menu
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="side-pane-drag-and-drop">
+<title>Drag and Drop Functionality</title>
+
+<para>&kontact; provides advanced drag and drop functionality between 
+the programs it contains. Following is a brief description of each of
+the specific drag and drop operations that can be used and the
+result of each.</para>
+
+<sect2 id="side-pane-drag-and-drop-kmail-todo">
+<title>&kmail; -&gt; &korganizer; To-do List</title>
+
+<para>
+Dragging a message from 
+<ulink url="help:kmail/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
+to the icon for &korganizer;'s To-do list 
+(<guiicon><inlinemediaobject><imageobject>
+<imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/>
+</imageobject></inlinemediaobject></guiicon>)
+will create a new To-do with 
+<guilabel>Mail: <replaceable>Subject</replaceable></guilabel> as the title and 
+<guilabel>From: <replaceable>Sender</replaceable>
+To: <replaceable>Receiver</replaceable>
+Subject: <replaceable>Subject</replaceable></guilabel> as the contents
+(where text that looks <guilabel><replaceable>like
+this</replaceable></guilabel> is information
+from the message itself), as well as the email message itself as an
+attachment.
+</para>
+
+</sect2>
+
+<sect2 id="side-pane-drag-and-drop-kmail-calendar">
+<title>&kmail; -&gt; &korganizer; Calendar</title>
+
+<para>
+Dragging a message from 
+<ulink url="help:kmail/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
+to the icon for &korganizer;'s Calendar
+(<guiicon><inlinemediaobject><imageobject>
+<imagedata fileref="calendar-sidebar-icon.png" format="PNG"/>
+</imageobject></inlinemediaobject></guiicon>)
+will create a new Event with 
+<guilabel>Mail: <replaceable>Subject</replaceable></guilabel> as the title and 
+<guilabel>From: <replaceable>Sender</replaceable>
+To: <replaceable>Receiver</replaceable>
+Subject: <replaceable>Subject</replaceable></guilabel> as the contents
+(where text that looks <guilabel><replaceable>like
+this</replaceable></guilabel> is information
+from the message itself), as well as the email message itself as an
+attachment.
+</para>
+
+<para>Note that dragging onto the To-do button creates a To-do,
+whereas dragging onto the Calendar creates an Event. More on this
+distinction is available in the 
+<ulink url="help:korganizer">&korganizer; documentation</ulink>
+</para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kmail-contacts">
+<title>&kmail; -&gt; &kaddressbook;</title>
+
+<para>
+Dragging a message from 
+<ulink url="help:kmail/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
+ to the icon for &kaddressbook;
+(<guiicon><inlinemediaobject><imageobject> <imagedata
+                                           fileref="kaddressbook-sidebar-icon.png" 
+                                           format="PNG" />
+</imageobject></inlinemediaobject></guiicon>) will create a contact
+from the email address of the sender, unless a contact with that name
+already exists. A dialog box notifies you of this action.
+</para>
+
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
+<title>&kaddressbook; -&gt; &korganizer; To-do List</title>
+
+<para>
+Dragging any number of entries from <ulink
+url="help:kaddressbook/using-kaddressbook.html">&kaddressbook;'s main
+window</ulink> to the icon for &korganizer;'s To-do List
+(<guiicon><inlinemediaobject><imageobject> <imagedata
+                                           fileref="todo-list-sidebar-icon.png" 
+                                           format="PNG"/>
+</imageobject></inlinemediaobject></guiicon>) will create a new To-do
+with &quot;Meeting&quot; as the title and the selected contacts as
+attendees.
+</para>
+
+<para>Note that dragging onto the To-do button creates a To-do,
+whereas dragging onto the Calendar creates an Event. More on this
+distinction is available in the 
+<ulink url="help:korganizer">&korganizer; documentation</ulink>
+</para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
+<title>&kaddressbook; -&gt; &korganizer; Calendar</title>
+
+<para>
+Dragging any number of entries from <ulink
+url="help:kaddressbook/using-kaddressbook.html">&kaddressbook;'s main
+window</ulink> to the icon for &korganizer;'s Calendar
+(<guiicon><inlinemediaobject><imageobject> <imagedata
+                                           fileref="calendar-sidebar-icon.png" 
+                                           format="PNG"/>
+</imageobject></inlinemediaobject></guiicon>) will create a new Event
+with &quot;Meeting&quot; as the title and the selected contacts as
+attendees.
+</para>
+
+<para>Note that dragging onto the To-do button creates a To-do,
+whereas dragging onto the Calendar creates an Event. More on this
+distinction is available in the 
+<ulink url="help:korganizer">&korganizer; documentation</ulink>
+</para>
+
+</sect2>
+
+
+</sect1>
+
+<sect1 id="keyboard-shortcuts">
+<title>Keyboard Shortcuts</title>
+
+<para>&kontact; provides several global keyboard shortcuts for easier access to
+certain features. Below is a list of the default shortcuts; however, note that
+you can configure the keyboard shortcuts by going to
+<menuchoice><guimenu>Settings</guimenu>
+<guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice>.</para>
+
+<screenshot>
+<screeninfo>&kontact;'s Shortcut Configuration Window</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="configuration-shortcuts.png" />
+</imageobject>
+<textobject>
+<phrase>&kontact;'s Shortcut Configuration Window</phrase>
+</textobject>
+<caption>
+<para>
+&kontact;'s Shortcut Configuration Window
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<important>
+    <para>The shortcuts mentioned below for switching components vary slightly
+    depending on the components you have activated (see
+    <xref linkend="main-config" />). In general, the components can be activated
+    by using &Ctrl; in conjunction with a number; the number can
+    be determined by counting how many items from the top the component is in
+    the side pane.</para>
+</important>
+
+<para>The following are the default shortcuts for &kontact;:</para>
+
+<table>
+<title>Keyboard Shortcuts</title>
+<tgroup cols="2">
+<thead><row><entry>Action</entry><entry>Key Combo</entry></row></thead>
+<tbody>
+<row><entry>Summary View</entry><entry><keycombo action="simul">&Ctrl;<keycap>1</keycap></keycombo></entry></row>
+<row><entry>Mail Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>2</keycap></keycombo></entry></row>
+<row><entry>Contacts Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>3</keycap></keycombo></entry></row>
+<row><entry>Calendar Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>4</keycap></keycombo></entry></row>
+<row><entry>To-do List Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>5</keycap></keycombo></entry></row>
+<row><entry>Feeds Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>6</keycap></keycombo></entry></row>
+<row><entry>Usenet Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>7</keycap></keycombo></entry></row>
+<row><entry>Journal Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>8</keycap></keycombo></entry></row>
+<row><entry>Notebooks Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>9</keycap></keycombo></entry></row>
+<row><entry>New <replaceable>Item</replaceable></entry><entry><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
+<important><para>New <replaceable>Item</replaceable> changes depending on
+        what component is currently selected. It is New Message for the Summary
+        and Mail components, New Contact for the Contact component, New Event
+        for the Calendar component, New To-do for the To-do list component, New
+        Journal for the Journal component, New Note for the Notes component, 
+        New Feed for the Feeds component, and New Article for the Usenet
+        component. Each of these actions has its own keyboard shortcut as listed
+        below.</para></important></entry></row>
+<row><entry>New Message</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>M</keycap></keycombo></entry></row>
+<row><entry>New Contact</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>C</keycap></keycombo></entry></row>
+<row><entry>New To-do</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>T</keycap></keycombo></entry></row>
+<row><entry>New Feed</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>F</keycap></keycombo></entry></row>
+<row><entry>New Article</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>A</keycap></keycombo></entry></row>
+<row><entry>New Journal</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>J</keycap></keycombo></entry></row>
+<row><entry>New KJots Page</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>P</keycap></keycombo></entry></row>
+<row><entry>New KJots Book</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>B</keycap></keycombo></entry></row>
+<row><entry>New Popup Note</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>N</keycap></keycombo></entry></row>
+<row><entry>New Task</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>W</keycap></keycombo></entry></row>
+<row><entry>&kontact; Handbook</entry><entry><keycombo action="press"><keycap>F1</keycap></keycombo></entry></row>
+<row><entry>What's This Help</entry><entry><keycombo action="simul">&Ctrl;<keycap>F1</keycap></keycombo></entry></row>
+<row><entry>Quit</entry><entry><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></entry></row>
+</tbody>
+</tgroup>
+</table>
+</sect1>
+
+</chapter>
+
+<chapter id="summary-view">
+<title>The Summary View</title>
+
+<para>The default view when starting &kontact; for the first time is the Summary
+View. It shows an overview of the most relevant information provided by the
+selected &kontact; components. These can be notes, imminent
+appointments or birthdays, due to-dos, new messages &etc; Which information is
+shown is configurable by selecting the corresponding components in the <link
+linkend="configuration">&kontact; configuration dialog</link>.</para>
+
+<screenshot>
+<screeninfo>&kontact;'s Summary View</screeninfo>
+<mediaobject>
+<imageobject><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<textobject>
+<phrase>&kontact;'s Summary View</phrase>
+</textobject>
+<caption>
+<para>
+&kontact;'s Summary View
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<!-- not in kde4 para>If you think the information you see is outdated, you can click on the
+<guibutton>Refresh</guibutton> button (<guiicon><inlinemediaobject><imageobject>
+<imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
+</imageobject></inlinemediaobject></guiicon>)
+in the Summary View toolbar to refresh
+the data.</para-->
+
+<sect1 id="summary-view-component-reposition">
+<title>Repositioning Summary View Components</title>
+
+<para>The Summary View allows you to change where the
+components are in the view itself. So, if you prefer to
+have your Special Dates in the lower left and your To-dos in
+the upper right, you can rearrange the Summary View to
+reflect that.</para>
+
+<para>Repositioning components in the Summary View is as simple
+as dragging them to the new location you want them to be in. Hold down the
+&Ctrl; key, click and hold on the gray title area of the component and drag
+the component to wherever you want it to be. Note that this positioning is done
+compared to other components. So you can move the Mail component to be
+below the To-do component in the view, but you cannot place it in a specific
+position. If you have only one component in your Summary View, the only option
+is to move it between the two columns of the view; two components can either
+be two in one column or one in each column; and so on and so forth. Whenever
+you are dragging a component, you will see a small preview box following your
+mouse around showing you the component.</para>
+
+<screenshot>
+<screeninfo>Rearranging &kontact;'s Summary View</screeninfo>
+<mediaobject>
+<imageobject><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<textobject>
+<phrase>Rearranging &kontact;'s Summary View</phrase>
+</textobject>
+<caption>
+<para>
+Rearranging &kontact;'s Summary View
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title>Configuring &kontact;</title>
+
+<sect1 id="main-config">
+<title>&kontact; Configuration Window</title>
+
+<para>When selecting the <guimenuitem>Configure &kontact;</guimenuitem>
+action from the <guimenu>Settings</guimenu> menu, the &kontact;
+configuration dialog is shown. It provides a list of the
+configurations for all the active components of &kontact;. You can
+click the <guilabel>&gt;</guilabel> symbol next to the component name to
+expand the tree so that you can view the options for that
+component. Selecting one of the configuration
+options under a heading will bring up that configuration section on
+the right.</para>
+
+<screenshot>
+<screeninfo>&kontact;'s Configuration Window</screeninfo>
+<mediaobject>
+<imageobject><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<textobject>
+<phrase>&kontact;'s Configuration Window</phrase>
+</textobject>
+<caption>
+<para>
+&kontact;'s Configuration Window
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para>By checking the box next to the component title you select the
+component to be visible in the Side Pane and the Summary View. The
+component is loaded and shown in the Main Window when
+clicking on its icon in the Side Pane. By
+unchecking the check box the component is removed from the Side Pane and
+Summary View. Changes become effective by clicking the
+<guibutton>Apply</guibutton> or <guibutton>OK</guibutton>
+buttons.</para>
+
+<para>You can also configure individual components by clicking on the
+corresponding icon in the Side Pane and then selecting the menu item
+<guimenuitem>Configure <replaceable>application name</replaceable></guimenuitem>
+from the <guimenu>Settings</guimenu> menu.</para>
+
+<screenshot>
+<screeninfo>&kontact; Settings Menu When &kmail; is Selected</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="settings-menu-kmail.png"/>
+</imageobject>
+<textobject>
+<phrase>&kontact; Settings Menu When &kmail; is Selected</phrase>
+</textobject>
+<caption>
+<para>
+&kontact; Settings Menu When &kmail; is Selected
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="summary-view-config">
+<title>Configuring &kontact;'s Summary View</title>
+
+<para>When you select <guilabel>Summaries</guilabel>
+in the &kontact; settings dialog, a page is displayed that allows you to select which summary
+plugins &kontact; should show in its summary view.
+Here is a brief list of the currently available plugins and what they do:
+</para>
+
+<screenshot>
+<screeninfo>Summary Selection</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-selection.png"/>
+</imageobject>
+<textobject>
+<phrase>Summary Selection</phrase>
+</textobject>
+<caption><para>Summary Selection</para></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="summary-view-config-calendar">
+<title>&kontact; Summary Plugins: Calendar</title>
+
+<para>
+The <quote>Calendar</quote> plugin for &kontact;'s Summary View adds
+an area in the view labeled <guilabel>Upcoming Events</guilabel>. This
+will display any events that currently apply.
+</para>
+
+<screenshot>
+<screeninfo>&kontact; Calendar Summary Plugin</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-calendar.png"/>
+</imageobject>
+<textobject>
+<phrase>&kontact; Calendar Summary Plugin</phrase>
+</textobject>
+<caption>
+<para>
+&kontact; Calendar Summary Plugin
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+<sect2 id="summary-view-config-mail">
+<title>&kontact; Summary Plugins: Mail</title>
+
+<para>
+The <quote>Mail</quote> plugin for &kontact;'s Summary View adds an
+area in the view labeled <guilabel>New Messages</guilabel>. This area
+is updated every time you receive new messages to inform you how many
+of these messages there are and which folder they are in.
+</para>
+
+<screenshot>
+<screeninfo>&kontact; Mail Summary Plugin</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-mail.png"/>
+</imageobject>
+<textobject>
+<phrase>&kontact; Mail Summary Plugin</phrase>
+</textobject>
+<caption>
+<para>
+&kontact; Mail Summary Plugin
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-notes">
+<title>&kontact; Summary Plugins: Notes</title>
+
+<para>
+The <quote>Notes</quote> plugin for &kontact;'s Summary View adds an
+area in the view labeled <guilabel>Popup Notes</guilabel>. This area
+displays all current notes' titles (titles default to the date/time
+the note was created). Clicking on the title of a note will bring up
+the Notes area.
+</para>
+
+<screenshot>
+<screeninfo>&kontact; Notes Summary Plugin</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-notes.png"/>
+</imageobject>
+<textobject>
+<phrase>&kontact; Notes Summary Plugin</phrase>
+</textobject>
+<caption>
+<para>
+&kontact; Notes Summary Plugin
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-todo-list">
+<title>&kontact; Summary Plugins: To-do List</title>
+
+<para>
+The <quote>To-do List</quote> plugin for &kontact;'s Summary View adds
+an area in the view labeled <guilabel>Pending To-dos</guilabel>. This area
+contains all current to-dos, including ones that have been completed.
+It displays the title of the to-do, the percentage of completion, and
+the current status of the to-do. Note that you can purge all completed
+to-dos via the &kontact; To-do List. Clicking on a to-do's title will
+currently do nothing.
+</para>
+
+<screenshot>
+<screeninfo>&kontact; To-do List Summary Plugin</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-todos.png"/>
+</imageobject>
+<textobject>
+<phrase>&kontact; To-do List Summary Plugin</phrase>
+</textobject>
+<caption>
+<para>
+&kontact; To-do List Summary Plugin
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-special-dates">
+<title>&kontact; Summary Plugins: Special Dates</title>
+
+<para>
+The <quote>Special Dates</quote> plugin for &kontact;'s Summary View adds an
+area in the view labeled <guilabel>Upcoming Special Dates</guilabel>.
+This area contains information based on the criteria selected in the
+configuration area of the plugin in &kontact;'s Summary View configuration.
+The <quote>Special Dates</quote> plugin is especially useful because it can
+display birthdays, anniversaries, holidays, and special occasions from both
+the calendar and the contact list in one place.
+</para>
+
+<screenshot>
+<screeninfo>&kontact; Special Dates Plugin</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-special-dates.png"/>
+</imageobject>
+<textobject>
+<phrase>&kontact; Special Dates Plugin</phrase>
+</textobject>
+<caption>
+<para>
+&kontact; Special Dates Plugin
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+</sect1>
+
+</chapter>
+
+
+<chapter id="command-line">
+<title>&kontact; On the Command Line</title>
+
+<para>&kontact; has several command line arguments
+that can be used for certain actions.</para>
+
+<para>First of all, &kontact; supports command line arguments
+that all &kde;/&Qt; applications support. You can get a full list of
+these by typing:
+</para>
+
+<para>
+<prompt>&percnt;</prompt> <command>kontact --help-all</command>
+</para>
+
+<para>&kontact; also supports several command line arguments
+specific to it.</para>
+
+<sect1 id="command-line-arguments">
+<title>Command Line Arguments</title>
+
+<sect2 id="command-line-module">
+<title>Module-related Arguments</title>
+
+<para>To get a list of available &kontact; modules, you can type:</para>
+
+<para>
+<prompt>&percnt;</prompt> <command>kontact --list</command>
+</para>
+
+<para>Then, to start &kontact; with a module active, type:</para>
+
+<para>
+<prompt>&percnt;</prompt> <command>kontact --module <replaceable>moduleName</replaceable></command>
+</para>
+
+<para>Where <replaceable>moduleName</replaceable> is one of the modules obtained using the
+previous command.</para>
+
+</sect2>
+
+<sect2 id="command-line-startup">
+<title>Startup-related Arguments</title>
+
+<para>To start &kontact; in iconified mode<footnote><para>Iconified mode is also
+called minimized; it is when the application window is hidden and the
+application is available only in the taskbar.</para></footnote>, you can
+type:</para>
+
+<para>
+<prompt>&percnt;</prompt> <command>kontact --iconify</command>
+</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="technology">
+<title>Under The Hood</title>
+
+<para>&kontact; makes extensive use of several &kde; key technologies, most
+notably KParts and &DBus;.</para>
+
+<para>The &GUI; integration of the components is done by plugins
+providing KParts versions of the applications. This only needs a thin
+additional layer on top of the already existing code of the
+stand-alone applications.</para>
+
+<para>For communication between the components &DBus; is used. This
+has the nice characteristic that it is completely transparent to
+whether the application is run stand-alone or embedded as KPart into
+&kontact;. When running inside of &kontact; an efficient in-process
+mode of &DBus; is used.</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title>Credits and License</title>
+
+<para>&kontact;</para>
+
+<para>Program copyright 2004-2005, The &kde; Developers</para>
+
+<para>Contributors:</para>
+
+<itemizedlist>
+<listitem><para>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+    </listitem>
+<listitem><para>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+    </listitem>
+<listitem><para>&Don.Sanders; &Don.Sanders.mail;</para>
+    </listitem>
+<listitem><para>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+    </listitem>
+<listitem><para>Allen Winter <email>winter@kde.org</email></para></listitem>
+<listitem><para>Matthis H&ouml;lzer-Kl&uuml;pfel <email>mhk@kde.org</email>, the
+original author of the &kontact; framework.</para>
+    </listitem>
+
+<listitem><para>All the valued developers of the applications &kontact; is
+integrating. They did almost all the work.</para>
+    </listitem>
+</itemizedlist>
+
+<para>Documentation copyright 2004-2005</para>
+
+<para>Contributors:
+
+<itemizedlist>
+<listitem><para>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem><para>Antonio Salazar <email>savedfastcool@gmail.com</email></para>
+</listitem>
+<listitem><para>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
+
+<listitem><para>All the members of the &kde; documentation list who
+assisted with markup and style issues.</para>
+</listitem>
+</itemizedlist>
+</para>
+
+
+<para>&kontact; homepage is at <ulink
+    url="http://kontact.kde.org">http://kontact.kde.org</ulink></para>
+
+
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+&underFDL;
+&underGPL;
+
+</chapter>
+
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

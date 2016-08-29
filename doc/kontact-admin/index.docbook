@@ -1,0 +1,300 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym>PIM</acronym>">
+  <!ENTITY kappname "&kontact;">
+  <!ENTITY package "kdepim">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE"> 
+]>
+
+<book id="kontact-admin" lang="&language;">
+
+<bookinfo>
+<title>The &kappname; Administrator's Guide</title>
+
+<authorgroup>
+
+<author>
+<firstname>Allen</firstname>
+<surname>Winter</surname>
+<affiliation>
+<address><email>allen@kdab.net</email></address>
+</affiliation>
+</author>
+
+</authorgroup>
+
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<!-- Date and version information of the documentation
+Don't forget to include this last date and this last revision number, we
+need them for translation coordination !
+Please respect the format of the date (YYYY-MM-DD) and of the version
+(V.MM.LL), it could be used by automation scripts.
+Do NOT change these in the translation. -->
+
+<date>2009-06-08</date>
+<releaseinfo>0.00.03</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract><para>This is the administrator's manual for &kappname;,
+the integrated solution to your personal information management (&PIM;) needs.
+&kappname; combines well-known &kde; applications like &kmail;, &korganizer;
+and &kaddressbook; into a single interface to provide easy access to mail,
+scheduling, address book and other &PIM; functionality.  </para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdepim</keyword>
+<keyword>PIM</keyword>
+<keyword>KMail</keyword>
+<keyword>KOrganizer</keyword>
+<keyword>KAddressBook</keyword>
+<keyword>KNotes</keyword>
+<keyword>Akregator</keyword>
+<keyword>administration</keyword>
+<keyword>administer</keyword>
+<keyword>email</keyword>
+<keyword>calendar</keyword>
+<keyword>contact</keyword>
+<keyword>administration</keyword>
+<keyword>administer</keyword>
+<keyword>groupware</keyword>
+<keyword>Outlook</keyword>
+<keyword>Exchange</keyword>
+<keyword>Evolution</keyword>
+</keywordset>
+
+</bookinfo>
+
+<!-- Chapter Introduction -->
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>
+This is the administrator's manual for &kappname;,
+the integrated solution to your personal information management (&PIM;) needs.
+This document is intended to aid the groupware administrator with typical tasks
+needed to setup &kappname; and make it work smoothly in various environments.
+</para>
+
+<para>
+&kappname; combines well-known &kde; applications like &kmail;, &korganizer;
+and &kaddressbook; into a single interface to provide easy access to mail,
+scheduling, address book and other &PIM; functionality.  </para>
+</chapter>
+
+<!-- Chapter Compatibility -->
+<chapter id="compat">
+<title>Compatibility Issues</title>
+
+<para>
+This chapter provides help with how to make &kappname;
+communicate effectively with various groupware solutions.
+</para>
+
+<sect1 id="compat-outlook">
+<title>Outlook and Exchange</title>
+
+<para>
+In the &kappname; configuration dialog, under <menuchoice><guimenu>Mail</guimenu>
+<guimenuitem>Misc</guimenuitem></menuchoice> on the <guilabel>Invitations</guilabel> page 
+you will find the following options that will help the user communicate
+with Microsoft Outlook(tm) running in a Kolab environment or in a
+Microsoft Exchange(tm) environment.
+</para>
+
+
+<variablelist>
+
+<varlistentry>
+<term><guilabel>Mangle From:/To: headers in replies to invitations</guilabel></term>
+<listitem>
+<para>Enable this option to make Microsoft Outlook(tm) understand your answers to invitation replies.</para>
+<para>Microsoft Outlook has a number of shortcomings in its implementation of
+the iCalendar standard; this option works around one of them. If you 
+have problems with Outlook users not being able to get your replies,
+try setting this option.</para>
+<para>Details: When mailing an iCal invitation this makes the message have 
+the From: header the same as the To: header. It also sets header
+ X-KMail-Identity to the To:'s UIOD and makes sure the BCC: is blank.
+Outlook will only understand the reply if the From: header is 
+the same as the To: header of the invitation message.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Send invitations in the mail body</guilabel></term>
+<listitem>
+<para>Invitations are normally sent as attachments to a mail. This switch
+changes the invitation to be sent in the text of the mail instead;
+this is necessary to send invitations and replies to Microsoft Outlook.
+But, when you do this, you no longer get descriptive text that mail
+programs can read; so, to people who have email programs that do not
+understand the invitations, the resulting messages look very odd.
+People that have email programs that do understand invitations will
+still be able to work with this.</para>
+<para>Details: When mailing an iCal invitation this option makes the
+message body from the attachment data and sets the Content-Type header
+to 'text/calendar; method=something; charset="utf-8"'.</para>
+<para>Auto-sending is also turned on so there is no human intervention
+required for composing.</para>
+<note><para>Encryption and self-signing are disabled.</para></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Exchange-compatible invitation naming</guilabel></term>
+<listitem>
+<para>Microsoft Outlook, when used in combination with a Microsoft Exchange(tm)
+server, has a problem understanding standards-compliant groupware email.
+Enable this option to send groupware invitations in a way that Microsoft
+Exchange(tm) understands. The invitation will be sent as an attachment with name
+<filename>ical.ics</filename>.</para>
+<para>Details: When mailing an iCal invitation this makes
+the message have the subject "(Declined|Tentative|Accepted|Delegated): subject".
+The invitation will be sent as an attachment with name <filename>ical.ics</filename>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Outlook compatible invitation reply comments</guilabel></term>
+<listitem>
+<para>When the user provides comments when responding to invitations, send the
+comment in a form that Microsoft Outlook(tm) understands. If this option is not
+enabled, the response comments will not be seen in Outlook.</para>
+<para>Details: When answering the invitation comments will be sent as a
+DESCRIPTION iCal property instead of the COMMENT iCal property
+(in violation of RFC2446).</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+</chapter>
+
+<!-- Chapter Behavior -->
+<chapter id="behavior">
+<title>Behavioral Issues</title>
+
+<para>
+This chapter provides instructions on how to make &kappname; 
+behave more like other groupware clients.
+</para>
+
+<sect1 id="behave-composing">
+<title>Composing Messages</title>
+
+<para>
+Outlook users are accustomed to typing a list of addresses in the To:,
+CC: or BCC: fields separated by a semicolon (';') character in addition
+to a comma (',').  By default, &kappname; only allows the comma as an address
+separator character.  To also allow the semicolon, change the
+<option>AllowSemicolonAsAddressSeparator</option> from false to true
+in the installed <filename>share/config.kcfg/kmail.kcfg</filename> file. 
+</para>
+
+</sect1>
+</chapter>
+
+<!-- Chapter RFC Compromises -->
+<chapter id="nonrfc">
+<title>RFC Compromises</title>
+
+<para>&kappname; is designed to interoperate as well as is possible
+with a wide variety of groupware solutions.  To that end, we sometimes
+make design compromises with respect to the various Internet RFCs
+that provide the basis for low-level libraries on which &kappname;
+relies heavily.</para>
+
+<note><para>We never knowingly violate any RFC.</para></note>
+
+<para>The following list of RFC compromises is made by &kappname; or
+the low-levels libraries used by &kappname;:</para>
+
+<itemizedlist>
+<listitem>
+<para>
+When writing duration values into iCalendar files, &kappname; never
+writes the DURATION property in terms of weeks (i.e., 1*DIGIT "W"); 
+instead, the integer number of weeks is always multiplied by 7 and written
+in terms of days (i.e. 1*DIGIT "D").
+</para>
+</listitem>
+</itemizedlist>
+
+</chapter>
+
+<!-- Chapter Common Problems -->
+<chapter id="common-problems">
+<title>Common Problems</title>
+<para>
+This chapter deals with common problems the administrator is likely to encounter.
+</para>
+
+<sect1 id="freebusy">
+<title>FreeBusy</title>
+
+<para>
+FreeBusy common problems ...
+</para>
+
+</sect1>
+</chapter>
+
+<!-- Chapter Credits+License -->
+<chapter id="credits-and-license">
+<title>Credits and License</title>
+
+<para>
+Documentation Copyright &copy; 2009 Klarälvdalens Datakonsult AB, a KDAB Group company, <email>info@kdab.net</email>
+</para>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+&underFDL;               <!-- FDL: do not remove -->
+&underGPL;        	 <!-- GPL License -->
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="getting-kapp">
+<title>How to obtain &kappname;</title>
+
+&install.intro.documentation;
+
+</sect1>
+
+<sect1 id="compilation">
+<title>Compilation and Installation</title>
+
+<!-- This entity contains the boilerplate text for standard -->
+<!-- compilation instructions.  If your application requires any -->
+<!-- special handling, remove it, and replace with your own text. -->
+
+&install.compile.documentation;
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
