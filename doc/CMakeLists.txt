@@ -1,2 +1,2 @@
-kdoctools_create_handbook(index.docbook INSTALL_DESTINATION ${KDE_INSTALL_DOCBUNDLEDIR}/en SUBDIR kontact)
+add_subdirectory(kontact)
 add_subdirectory(kontact-admin)
