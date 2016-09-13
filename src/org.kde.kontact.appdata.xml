@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Kontact</name>
+  <name xml:lang="ar">تراسلك</name>
   <name xml:lang="ast">Kontact</name>
   <name xml:lang="bs">Kontact</name>
   <name xml:lang="ca">Kontact</name>
@@ -45,6 +46,7 @@
       It combines well-known KDE applications like KMail, KOrganizer and KAddressBook into a single interface to provide easy access to mail,
       scheduling, address book and other PIM functionality.
     </p>
+    <p xml:lang="ar">«تراسلك» هو حلّ متكامل لاحتياجات إدارة معلوماتك الشّخصيّة (PIM). يضمّ الطّقم برمجيّات كدي المعروفة مثل «بريدك»، و«منظّمك» و«دفتر عناوينك» إلى واجهة واحدة لتوفير نفاذ أسهل إلى البريد، والجدولة ودفتر العناوين وأيّة وظائف PIM أخرى.</p>
     <p xml:lang="ca">El Kontact és la solució integral per a la gestió de la vostra informació personal (PIM) que necessiteu. Combina aplicacions KDE conegudes com el KMail, KOrganizer i KAddressBook en una única interfície per a facilitar l'accés al correu, la planificació, la llibreta d'adreces i altres funcionalitats del PIM.</p>
     <p xml:lang="ca-valencia">El Kontact és la solució integral per a la gestió de la vostra informació personal (PIM) que necessiteu. Combina aplicacions KDE conegudes com el KMail, KOrganizer i KAddressBook en una única interfície per a facilitar l'accés al correu, la planificació, la llibreta d'adreces i altres funcionalitats del PIM.</p>
     <p xml:lang="cs">Kontact je integrované řešení pro vaše potřeby pro správu osobních informací(PIM). Kombinuje dobře známé aplikace KDE jako KMail, KOrganizer a KAddressBook do jednoho rozhraní pro snadný přístup k poště, plánování, knize adres a další funkcionalitě PIM.</p>
