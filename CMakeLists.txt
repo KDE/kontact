@@ -82,6 +82,6 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kontact\")
 add_subdirectory(src)
 add_subdirectory(kconf_update)
 
-install( FILES kontact.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
+install( FILES kontact.renamecategories kontact.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 add_subdirectory(doc)
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
