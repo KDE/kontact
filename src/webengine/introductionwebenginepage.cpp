@@ -26,6 +26,13 @@ IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
     // Let's better be paranoid and disable plugins (it defaults to enabled):
     settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, false);
     settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
+    settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, false);
+    settings()->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, false);
+    settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
+    settings()->setAttribute(QWebEngineSettings::XSSAuditingEnabled, false);
+    settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
+    settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, false);
+    settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, false);
 
     const QFontInfo font(QFontDatabase().systemFont(QFontDatabase::GeneralFont));
     settings()->setFontFamily(QWebEngineSettings::StandardFont, font.family());
