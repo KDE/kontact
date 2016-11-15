@@ -48,6 +48,7 @@ namespace Kontact
 
 class SelectionModel : public QItemSelectionModel
 {
+    Q_OBJECT
 public:
     SelectionModel(QAbstractItemModel *model, QObject *parent)
         : QItemSelectionModel(model, parent)
@@ -83,6 +84,7 @@ public Q_SLOTS:
 
 class Model : public QStringListModel
 {
+    Q_OBJECT
 public:
     enum SpecialRoles {
         PluginName = Qt::UserRole
@@ -172,6 +174,7 @@ private:
 class SortFilterProxyModel
     : public QSortFilterProxyModel
 {
+    Q_OBJECT
 public:
     explicit SortFilterProxyModel(QObject *parent = Q_NULLPTR): QSortFilterProxyModel(parent)
     {
@@ -198,6 +201,7 @@ protected:
 
 class Delegate : public QStyledItemDelegate
 {
+    Q_OBJECT
 public:
     explicit Delegate(Navigator *parentNavigator = Q_NULLPTR)
         : QStyledItemDelegate(parentNavigator), mNavigator(parentNavigator)
@@ -560,4 +564,6 @@ void IconSidePane::resizeEvent(QResizeEvent *event)
     setFixedWidth(newWidth);
     mNavigator->setFixedWidth(newWidth);
 }
+
+#include "iconsidepane.moc"
 
