@@ -364,7 +364,7 @@ void Navigator::updatePlugins(const QList<KontactInterface::Plugin *> &plugins_)
     }
 
     QList<KontactInterface::Plugin *> pluginsToShow;
-    foreach (KontactInterface::Plugin *plugin, plugins_) {
+    for (KontactInterface::Plugin *plugin : plugins_) {
         if (plugin->showInSideBar()) {
             pluginsToShow << plugin;
         }

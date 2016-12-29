@@ -80,6 +80,20 @@ using namespace Kontact;
 #include <grantleetheme/grantleethememanager.h>
 #include <grantleetheme/grantleetheme.h>
 
+#if QT_VERSION < QT_VERSION_CHECK(5,7,0)
+namespace QtPrivate {
+template <typename T> struct QAddConst { typedef const T Type; };
+}
+
+// this adds const to non-const objects (like std::as_const)
+template <typename T>
+Q_DECL_CONSTEXPR typename QtPrivate::QAddConst<T>::Type &qAsConst(T &t) Q_DECL_NOTHROW { return t; }
+// prevent rvalue arguments:
+template <typename T>
+void qAsConst(const T &&) Q_DECL_EQ_DELETE;
+#endif
+
+
 // Define the maximum time Kontact waits for KSycoca to become available.
 static const int KSYCOCA_WAIT_TIMEOUT = 10;
 
@@ -280,13 +294,6 @@ MainWindow::~MainWindow()
     createGUI(Q_NULLPTR);
     ServiceStarter::setPluginList(Q_NULLPTR);
     saveSettings();
-
-    //QList<KParts::Part*> parts = mPartManager->parts();
-
-    //  Q_FOREACH( KParts::Part *p, parts ) {
-    //    delete p;
-    //    p = 0;
-    //  }
 
     Prefs::self()->save();
 
@@ -642,7 +649,7 @@ void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
     std::sort(mActionPlugins.begin(), mActionPlugins.end(), pluginActionWeightLessThan);
     std::sort(mPlugins.begin(), mPlugins.end(), pluginWeightLessThan);
     int i = 0;
-    foreach (QAction *qaction, mActionPlugins) {
+    for (QAction *qaction : qAsConst(mActionPlugins)) {
         QAction *action = static_cast<QAction *>(qaction);
         QString shortcut = QStringLiteral("Ctrl+%1").arg(mActionPlugins.count() - i);
         actionCollection()->setDefaultShortcut(action, QKeySequence(shortcut));
@@ -1029,7 +1036,7 @@ void MainWindow::readProperties(const KConfigGroup &config)
         QSet<QString>::fromList(config.readEntry("ActivePlugins", QStringList()));
 
     if (!activePlugins.isEmpty()) {
-        foreach (KontactInterface::Plugin *plugin, mPlugins) {
+        for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
             if (!plugin->isRunningStandalone() && activePlugins.contains(plugin->identifier())) {
                 plugin->readProperties(config);
             }
@@ -1043,7 +1050,7 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
     QStringList activePlugins;
 
-    foreach (const KPluginInfo &pluginInfo, mPluginInfos) {
+    for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
         if (pluginInfo.isPluginEnabled()) {
             KontactInterface::Plugin *plugin = pluginFromInfo(pluginInfo);
             if (plugin) {
@@ -1062,7 +1069,7 @@ bool MainWindow::queryClose()
         return true;
     }
 
-    foreach (KontactInterface::Plugin *plugin, mPlugins) {
+    for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
         if (!plugin->isRunningStandalone()) {
             if (!plugin->queryClose()) {
                 return false;
