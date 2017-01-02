@@ -90,7 +90,7 @@ public:
         PluginName = Qt::UserRole
     };
 
-    explicit Model(Navigator *parentNavigator = Q_NULLPTR)
+    explicit Model(Navigator *parentNavigator = nullptr)
         : QStringListModel(parentNavigator), mNavigator(parentNavigator)
     {
     }
@@ -176,7 +176,7 @@ class SortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit SortFilterProxyModel(QObject *parent = Q_NULLPTR): QSortFilterProxyModel(parent)
+    explicit SortFilterProxyModel(QObject *parent = nullptr): QSortFilterProxyModel(parent)
     {
         setDynamicSortFilter(true);
         sort(0);
@@ -203,7 +203,7 @@ class Delegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
-    explicit Delegate(Navigator *parentNavigator = Q_NULLPTR)
+    explicit Delegate(Navigator *parentNavigator = nullptr)
         : QStyledItemDelegate(parentNavigator), mNavigator(parentNavigator)
     {
     }
@@ -337,7 +337,7 @@ Navigator::Navigator(SidePaneBase *parent)
     actionList << mShowIconsAction << mShowTextAction << mShowBothAction << sep
                << mBigIconsAction << mNormalIconsAction << mSmallIconsAction;
 
-    insertActions(Q_NULLPTR, actionList);
+    insertActions(nullptr, actionList);
 
     setContextMenuPolicy(Qt::ActionsContextMenu);
     setViewMode(ListMode);

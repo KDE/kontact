@@ -108,7 +108,7 @@ public:
 
     virtual int startServiceFor(const QString &serviceType,
                                 const QString &constraint = QString(),
-                                QString *error = Q_NULLPTR, QString *dbusService = Q_NULLPTR,
+                                QString *error = nullptr, QString *dbusService = nullptr,
                                 int flags = 0) Q_DECL_OVERRIDE;
 
     // We need to keep track of the plugins which are loaded, so pass a pointer
@@ -130,7 +130,7 @@ protected:
     static PluginList *mPlugins;
 };
 
-PluginList *ServiceStarter::mPlugins = Q_NULLPTR;
+PluginList *ServiceStarter::mPlugins = nullptr;
 
 int ServiceStarter::startServiceFor(const QString &serviceType,
                                     const QString &constraint,
@@ -156,7 +156,7 @@ int ServiceStarter::startServiceFor(const QString &serviceType,
 }
 
 MainWindow::MainWindow()
-    : KontactInterface::Core(), mSplitter(Q_NULLPTR), mCurrentPlugin(Q_NULLPTR), mAboutDialog(Q_NULLPTR),
+    : KontactInterface::Core(), mSplitter(nullptr), mCurrentPlugin(nullptr), mAboutDialog(nullptr),
       mReallyClose(false)
 {
     // The ServiceStarter created here will be deleted by the KDbusServiceStarter
@@ -197,7 +197,7 @@ void MainWindow::initGUI()
 
     setStandardToolBarMenuEnabled(true);
 
-    createGUI(Q_NULLPTR);
+    createGUI(nullptr);
 
     KToolBar *navigatorToolBar = findToolBar("navigatorToolBar");
     if (navigatorToolBar) {
@@ -291,8 +291,8 @@ MainWindow::~MainWindow()
         saveMainWindowSettings(grp);
     }
 
-    createGUI(Q_NULLPTR);
-    ServiceStarter::setPluginList(Q_NULLPTR);
+    createGUI(nullptr);
+    ServiceStarter::setPluginList(nullptr);
     saveSettings();
 
     Prefs::self()->save();
@@ -389,7 +389,7 @@ void MainWindow::paintAboutScreen(const QString &templateName, const QVariantHas
 {
     GrantleeTheme::ThemeManager manager(QStringLiteral("splashPage"),
                                         QStringLiteral("splash.theme"),
-                                        Q_NULLPTR,
+                                        nullptr,
                                         QStringLiteral("messageviewer/about/"));
     GrantleeTheme::Theme theme = manager.theme(QStringLiteral("default"));
     if (!theme.isValid()) {
@@ -450,7 +450,7 @@ void MainWindow::setupActions()
 
 bool MainWindow::isPluginLoaded(const KPluginInfo &info)
 {
-    return (pluginFromInfo(info) != Q_NULLPTR);
+    return (pluginFromInfo(info) != nullptr);
 }
 
 KontactInterface::Plugin *MainWindow::pluginFromInfo(const KPluginInfo &info)
@@ -461,7 +461,7 @@ KontactInterface::Plugin *MainWindow::pluginFromInfo(const KPluginInfo &info)
             return *it;
         }
     }
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 void MainWindow::loadPlugins()
@@ -476,7 +476,7 @@ void MainWindow::loadPlugins()
             continue;
         }
 
-        KontactInterface::Plugin *plugin = Q_NULLPTR;
+        KontactInterface::Plugin *plugin = nullptr;
         if (isPluginLoaded(*it)) {
             plugin = pluginFromInfo(*it);
             if (plugin) {
@@ -588,8 +588,8 @@ bool MainWindow::removePlugin(const KPluginInfo &info)
             removeChildClient(plugin);
 
             if (mCurrentPlugin == plugin) {
-                mCurrentPlugin = Q_NULLPTR;
-                createGUI(Q_NULLPTR);
+                mCurrentPlugin = nullptr;
+                createGUI(nullptr);
             }
 
             plugin->deleteLater(); // removes the part automatically
@@ -601,7 +601,7 @@ bool MainWindow::removePlugin(const KPluginInfo &info)
                 delete q;
             }
 
-            if (mCurrentPlugin == Q_NULLPTR) {
+            if (mCurrentPlugin == nullptr) {
                 PluginList::Iterator it;
                 PluginList::Iterator pluginEnd(mPlugins.end());
                 for (it = mPlugins.begin(); it != pluginEnd; ++it) {
@@ -676,7 +676,7 @@ void MainWindow::partLoaded(KontactInterface::Plugin *plugin, KParts::ReadOnlyPa
 void MainWindow::slotActivePartChanged(KParts::Part *part)
 {
     if (!part) {
-        createGUI(Q_NULLPTR);
+        createGUI(nullptr);
         return;
     }
 
@@ -793,7 +793,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
 
         mCurrentPlugin = plugin;
 
-        QAction *newAction = Q_NULLPTR;
+        QAction *newAction = nullptr;
         if (!plugin->newActions().isEmpty()) {
             newAction = plugin->newActions().at(0);
         }
@@ -904,7 +904,7 @@ void MainWindow::slotQuit()
 
 void MainWindow::slotPreferences()
 {
-    static Kontact::KontactConfigureDialog *dlg = Q_NULLPTR;
+    static Kontact::KontactConfigureDialog *dlg = nullptr;
     if (!dlg) {
         dlg = new Kontact::KontactConfigureDialog(this);
         dlg->setAllowComponentSelection(true);

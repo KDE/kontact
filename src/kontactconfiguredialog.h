@@ -30,7 +30,7 @@ class KontactConfigureDialog : public KSettings::Dialog
     Q_OBJECT
 
 public:
-    explicit KontactConfigureDialog(QWidget *parent = Q_NULLPTR);
+    explicit KontactConfigureDialog(QWidget *parent = nullptr);
     ~KontactConfigureDialog();
 
 protected Q_SLOTS:

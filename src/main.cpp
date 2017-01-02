@@ -54,7 +54,7 @@ class KontactApp : public KontactInterface::PimUniqueApplication
 public:
     KontactApp(int &argc, char **argv[])
         : KontactInterface::PimUniqueApplication(argc, argv)
-        , mMainWindow(Q_NULLPTR)
+        , mMainWindow(nullptr)
         , mSessionRestored(false)
     {
     }
