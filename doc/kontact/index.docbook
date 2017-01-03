@@ -2,8 +2,6 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
  "dtd/kdedbx45.dtd" [
   <!ENTITY PIM "<acronym>PIM</acronym>">
-  <!ENTITY kappname "&kontact;">
-  <!ENTITY package "kdepim">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
 ]>
@@ -43,14 +41,14 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2010-08-20</date>
-<releaseinfo>4.5.1 beta1</releaseinfo>
+<date>2016-12-08</date>
+<releaseinfo>5.4.40 (Applications 16.12)</releaseinfo>
 
 <abstract><para>&kontact; is the integrated solution to your personal
 information management (&PIM;) needs. It combines well-known &kde;
 applications such as &kmail;, &korganizer; and &kaddressbook; into a
 single interface to provide easy access to mail, scheduling,
-address book and other &PIM; functionality.  </para></abstract>
+address book and other &PIM; functionality.</para></abstract>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -473,84 +471,6 @@ distinction is available in the
 
 </sect1>
 
-<sect1 id="keyboard-shortcuts">
-<title>Keyboard Shortcuts</title>
-
-<para>&kontact; provides several global keyboard shortcuts for easier access to
-certain features. Below is a list of the default shortcuts; however, note that
-you can configure the keyboard shortcuts by going to
-<menuchoice><guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice>.</para>
-
-<screenshot>
-<screeninfo>&kontact;'s Shortcut Configuration Window</screeninfo>
-<mediaobject>
-<imageobject>
-    <imagedata format="PNG" fileref="configuration-shortcuts.png" />
-</imageobject>
-<textobject>
-<phrase>&kontact;'s Shortcut Configuration Window</phrase>
-</textobject>
-<caption>
-<para>
-&kontact;'s Shortcut Configuration Window
-</para>
-</caption>
-</mediaobject>
-</screenshot>
-
-<important>
-    <para>The shortcuts mentioned below for switching components vary slightly
-    depending on the components you have activated (see
-    <xref linkend="main-config" />). In general, the components can be activated
-    by using &Ctrl; in conjunction with a number; the number can
-    be determined by counting how many items from the top the component is in
-    the side pane.</para>
-</important>
-
-<para>The following are the default shortcuts for &kontact;:</para>
-
-<table>
-<title>Keyboard Shortcuts</title>
-<tgroup cols="2">
-<thead><row><entry>Action</entry><entry>Key Combo</entry></row></thead>
-<tbody>
-<row><entry>Summary View</entry><entry><keycombo action="simul">&Ctrl;<keycap>1</keycap></keycombo></entry></row>
-<row><entry>Mail Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>2</keycap></keycombo></entry></row>
-<row><entry>Contacts Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>3</keycap></keycombo></entry></row>
-<row><entry>Calendar Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>4</keycap></keycombo></entry></row>
-<row><entry>To-do List Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>5</keycap></keycombo></entry></row>
-<row><entry>Feeds Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>6</keycap></keycombo></entry></row>
-<row><entry>Usenet Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>7</keycap></keycombo></entry></row>
-<row><entry>Journal Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>8</keycap></keycombo></entry></row>
-<row><entry>Notebooks Component</entry><entry><keycombo action="simul">&Ctrl;<keycap>9</keycap></keycombo></entry></row>
-<row><entry>New <replaceable>Item</replaceable></entry><entry><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
-<important><para>New <replaceable>Item</replaceable> changes depending on
-        what component is currently selected. It is New Message for the Summary
-        and Mail components, New Contact for the Contact component, New Event
-        for the Calendar component, New To-do for the To-do list component, New
-        Journal for the Journal component, New Note for the Notes component, 
-        New Feed for the Feeds component, and New Article for the Usenet
-        component. Each of these actions has its own keyboard shortcut as listed
-        below.</para></important></entry></row>
-<row><entry>New Message</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>M</keycap></keycombo></entry></row>
-<row><entry>New Contact</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>C</keycap></keycombo></entry></row>
-<row><entry>New To-do</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>T</keycap></keycombo></entry></row>
-<row><entry>New Feed</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>F</keycap></keycombo></entry></row>
-<row><entry>New Article</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>A</keycap></keycombo></entry></row>
-<row><entry>New Journal</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>J</keycap></keycombo></entry></row>
-<row><entry>New KJots Page</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>P</keycap></keycombo></entry></row>
-<row><entry>New KJots Book</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>B</keycap></keycombo></entry></row>
-<row><entry>New Popup Note</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>N</keycap></keycombo></entry></row>
-<row><entry>New Task</entry><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>W</keycap></keycombo></entry></row>
-<row><entry>&kontact; Handbook</entry><entry><keycombo action="press"><keycap>F1</keycap></keycombo></entry></row>
-<row><entry>What's This Help</entry><entry><keycombo action="simul">&Ctrl;<keycap>F1</keycap></keycombo></entry></row>
-<row><entry>Quit</entry><entry><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></entry></row>
-</tbody>
-</tgroup>
-</table>
-</sect1>
-
 </chapter>
 
 <chapter id="summary-view">
@@ -737,6 +657,7 @@ will display any events that currently apply.
 </mediaobject>
 </screenshot>
 </sect2>
+
 <sect2 id="summary-view-config-mail">
 <title>&kontact; Summary Plugins: Mail</title>
 
@@ -867,12 +788,7 @@ the calendar and the contact list in one place.
 that can be used for certain actions.</para>
 
 <para>First of all, &kontact; supports command line arguments
-that all &kde;/&Qt; applications support. You can get a full list of
-these by typing:
-</para>
-
-<para>
-<prompt>&percnt;</prompt> <command>kontact --help-all</command>
+that all &kf5;/&Qt; applications support, see the man pages qt5options and kf5options.
 </para>
 
 <para>&kontact; also supports several command line arguments
@@ -986,18 +902,152 @@ assisted with markup and style issues.</para>
 </itemizedlist>
 </para>
 
-
-<para>&kontact; homepage is at <ulink
-    url="http://kontact.kde.org">http://kontact.kde.org</ulink></para>
-
-
-
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 &underFDL;
 &underGPL;
 
 </chapter>
 
+<appendix id="kontact-admin">
+<title>Administrator's Guide</title>
+<!-- Section Compatibility -->
+<sect1 id="compat">
+<title>Compatibility Issues</title>
+
+<para>
+This section provides help with how to make &kontact;
+communicate effectively with various groupware solutions.
+</para>
+
+<sect2 id="compat-outlook">
+<title>Outlook and Exchange</title>
+
+<para>
+In the &kontact; configuration dialog, under <menuchoice><guimenu>Mail</guimenu>
+<guimenuitem>Misc</guimenuitem></menuchoice> on the <guilabel>Invitations</guilabel> page 
+you will find the following options that will help the user communicate
+with Microsoft Outlook(tm) running in a Kolab environment or in a
+Microsoft Exchange(tm) environment.
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term><guilabel>Mangle From:/To: headers in replies to invitations</guilabel></term>
+<listitem>
+<para>Enable this option to make Microsoft Outlook(tm) understand your answers to invitation replies.</para>
+<para>Microsoft Outlook has a number of shortcomings in its implementation of
+the iCalendar standard; this option works around one of them. If you 
+have problems with Outlook users not being able to get your replies,
+try setting this option.</para>
+<para>Details: When mailing an iCal invitation this makes the message have 
+the From: header the same as the To: header. It also sets header
+ X-KMail-Identity to the To:'s UIOD and makes sure the BCC: is blank.
+Outlook will only understand the reply if the From: header is 
+the same as the To: header of the invitation message.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Send invitations in the mail body</guilabel></term>
+<listitem>
+<para>Invitations are normally sent as attachments to a mail. This switch
+changes the invitation to be sent in the text of the mail instead;
+this is necessary to send invitations and replies to Microsoft Outlook.
+But, when you do this, you no longer get descriptive text that mail
+programs can read; so, to people who have email programs that do not
+understand the invitations, the resulting messages look very odd.
+People that have email programs that do understand invitations will
+still be able to work with this.</para>
+<para>Details: When mailing an iCal invitation this option makes the
+message body from the attachment data and sets the Content-Type header
+to 'text/calendar; method=something; charset="utf-8"'.</para>
+<para>Auto-sending is also turned on so there is no human intervention
+required for composing.</para>
+<note><para>Encryption and self-signing are disabled.</para></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Exchange-compatible invitation naming</guilabel></term>
+<listitem>
+<para>Microsoft Outlook, when used in combination with a Microsoft Exchange(tm)
+server, has a problem understanding standards-compliant groupware email.
+Enable this option to send groupware invitations in a way that Microsoft
+Exchange(tm) understands. The invitation will be sent as an attachment with name
+<filename>ical.ics</filename>.</para>
+<para>Details: When mailing an iCal invitation this makes
+the message have the subject "(Declined|Tentative|Accepted|Delegated): subject".
+The invitation will be sent as an attachment with name <filename>ical.ics</filename>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Outlook-compatible attachment naming</guilabel></term>
+<listitem>
+<para>Turn this option on to make Outlook(tm) understand attachment names
+containing non-English characters.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+</sect1>
+
+<!-- Section Behavior -->
+<sect1 id="behavior">
+<title>Behavioral Issues</title>
+
+<para>
+This section provides instructions on how to make &kontact; 
+behave more like other groupware clients.
+</para>
+
+<sect2 id="behave-composing">
+<title>Composing Messages</title>
+
+<para>
+Outlook users are accustomed to typing a list of addresses in the To:,
+CC: or BCC: fields separated by a semicolon (';') character in addition
+to a comma (',').  By default, &kontact; only allows the comma as an address
+separator character.  To also allow the semicolon, change the
+<option>AllowSemicolonAsAddressSeparator</option> from false to true
+in the installed <filename>share/config.kcfg/messagecomposer.kcfg</filename> file. 
+</para>
+
+</sect2>
+</sect1>
+
+<!-- Section RFC Compromises -->
+<sect1 id="nonrfc">
+<title>RFC Compromises</title>
+
+<para>&kontact; is designed to interoperate as well as is possible
+with a wide variety of groupware solutions.  To that end, we sometimes
+make design compromises with respect to the various Internet RFCs
+that provide the basis for low-level libraries on which &kontact;
+relies heavily.</para>
+
+<note><para>We never knowingly violate any RFC.</para></note>
+
+<para>The following list of RFC compromises is made by &kontact; or
+the low-levels libraries used by &kontact;:</para>
+<!--FIXME is this correct?-->
+<itemizedlist>
+<listitem>
+<para>
+When writing duration values into iCalendar files, &kontact; never
+writes the DURATION property in terms of weeks (i.e., 1*DIGIT "W"); 
+instead, the integer number of weeks is always multiplied by 7 and written
+in terms of days (i.e. 1*DIGIT "D").
+</para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+</appendix>
 
 &documentation.index;
 </book>
