@@ -26,7 +26,7 @@ class IntroductionWebEnginePage : public QWebEnginePage
 {
     Q_OBJECT
 public:
-    explicit IntroductionWebEnginePage(QObject *parent = Q_NULLPTR);
+    explicit IntroductionWebEnginePage(QObject *parent = nullptr);
     ~IntroductionWebEnginePage();
 Q_SIGNALS:
     void urlClicked(const QUrl &url);

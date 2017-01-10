@@ -26,7 +26,7 @@ class IntroductionWebEngineView : public QWebEngineView
 {
     Q_OBJECT
 public:
-    explicit IntroductionWebEngineView(QWidget *parent = Q_NULLPTR);
+    explicit IntroductionWebEngineView(QWidget *parent = nullptr);
     ~IntroductionWebEngineView();
 
 Q_SIGNALS:
