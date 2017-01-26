@@ -150,9 +150,7 @@ void PluginSelection::writeConfig()
 
 QList<QWidget *> PluginSelection::widgets() const
 {
-    QList<QWidget *> widgets;
-    widgets.append(mPluginCombo);
-
+    const QList<QWidget *> widgets{mPluginCombo};
     return widgets;
 }
 

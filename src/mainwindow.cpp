@@ -138,7 +138,7 @@ int ServiceStarter::startServiceFor(const QString &serviceType,
                                     int flags)
 {
     if (mPlugins) {
-        PluginList::ConstIterator end = mPlugins->constEnd();
+        const PluginList::ConstIterator end = mPlugins->constEnd();
         for (PluginList::ConstIterator it = mPlugins->constBegin(); it != end; ++it) {
             if ((*it)->createDBUSInterface(serviceType)) {
                 qCDebug(KONTACT_LOG) << "found interface for" << serviceType;
@@ -188,7 +188,7 @@ void MainWindow::initGUI()
     initWidgets();
     setupActions();
     setHelpMenuEnabled(false);
-    KHelpMenu *helpMenu = new KHelpMenu(this, QString(), true/*, actionCollection() QT5*/);
+    KHelpMenu *helpMenu = new KHelpMenu(this, QString(), true);
     connect(helpMenu, &KHelpMenu::showAboutApplication, this, &MainWindow::showAboutDialog);
 
     KStandardAction::keyBindings(this, &MainWindow::configureShortcuts, actionCollection());
@@ -300,7 +300,7 @@ MainWindow::~MainWindow()
     // During deletion of plugins, we should not access the plugin list (bug #182176)
     delete mSidePane;
 
-    PluginList::ConstIterator end = mPlugins.constEnd();
+    const PluginList::ConstIterator end = mPlugins.constEnd();
     for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
         delete *it;
     }
@@ -333,7 +333,7 @@ bool MainWindow::pluginWeightLessThan(const KontactInterface::Plugin *left,
 void MainWindow::activateInitialPluginModule()
 {
     if (!mInitialActiveModule.isEmpty() && !mPlugins.isEmpty()) {
-        PluginList::ConstIterator end = mPlugins.constEnd();
+        const PluginList::ConstIterator end = mPlugins.constEnd();
         for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
             if (!(*it)->identifier().isEmpty() &&
                     (*it)->identifier().contains(mInitialActiveModule)) {
@@ -455,7 +455,7 @@ bool MainWindow::isPluginLoaded(const KPluginInfo &info)
 
 KontactInterface::Plugin *MainWindow::pluginFromInfo(const KPluginInfo &info)
 {
-    PluginList::ConstIterator end = mPlugins.constEnd();
+    const PluginList::ConstIterator end = mPlugins.constEnd();
     for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
         if ((*it)->identifier() == info.pluginName()) {
             return *it;
@@ -470,7 +470,7 @@ void MainWindow::loadPlugins()
 
     int i;
     KPluginInfo::List::ConstIterator it;
-    KPluginInfo::List::ConstIterator end(mPluginInfos.constEnd());
+    const KPluginInfo::List::ConstIterator end(mPluginInfos.constEnd());
     for (it = mPluginInfos.constBegin(); it != end; ++it) {
         if (!it->isPluginEnabled()) {
             continue;
@@ -532,7 +532,7 @@ void MainWindow::loadPlugins()
 
         const QList<QAction *> actionList = plugin->newActions();
         QList<QAction *>::const_iterator listIt;
-        QList<QAction *>::const_iterator end(actionList.end());
+        const QList<QAction *>::const_iterator end(actionList.end());
 
         for (listIt = actionList.begin(); listIt != end; ++listIt) {
             qCDebug(KONTACT_LOG) << QStringLiteral("Plugging New actions") << (*listIt)->objectName();
@@ -548,7 +548,7 @@ void MainWindow::loadPlugins()
 
 void MainWindow::unloadPlugins()
 {
-    KPluginInfo::List::ConstIterator end = mPluginInfos.constEnd();
+    const KPluginInfo::List::ConstIterator end = mPluginInfos.constEnd();
     KPluginInfo::List::ConstIterator it;
     for (it = mPluginInfos.constBegin(); it != end; ++it) {
         if (!it->isPluginEnabled()) {
@@ -559,7 +559,7 @@ void MainWindow::unloadPlugins()
 
 void MainWindow::updateShortcuts()
 {
-    ActionPluginList::ConstIterator end = mActionPlugins.constEnd();
+    const ActionPluginList::ConstIterator end = mActionPlugins.constEnd();
     ActionPluginList::ConstIterator it;
     int i = 0;
     for (it = mActionPlugins.constBegin(); it != end; ++it) {
@@ -573,7 +573,7 @@ void MainWindow::updateShortcuts()
 
 bool MainWindow::removePlugin(const KPluginInfo &info)
 {
-    PluginList::Iterator end = mPlugins.end();
+    const PluginList::Iterator end = mPlugins.end();
     for (PluginList::Iterator it = mPlugins.begin(); it != end; ++it) {
         KontactInterface::Plugin *plugin = *it;
         if ((*it)->identifier() == info.pluginName()) {
@@ -603,7 +603,7 @@ bool MainWindow::removePlugin(const KPluginInfo &info)
 
             if (mCurrentPlugin == nullptr) {
                 PluginList::Iterator it;
-                PluginList::Iterator pluginEnd(mPlugins.end());
+                const PluginList::Iterator pluginEnd(mPlugins.end());
                 for (it = mPlugins.begin(); it != pluginEnd; ++it) {
                     if ((*it)->showInSideBar()) {
                         selectPlugin(*it);
@@ -692,7 +692,7 @@ void MainWindow::slotNewClicked()
         mCurrentPlugin->newActions().at(0)->trigger();
     } else {
         PluginList::Iterator it;
-        PluginList::Iterator end(mPlugins.end());
+        const PluginList::Iterator end(mPlugins.end());
         for (it = mPlugins.begin(); it != end; ++it) {
             if (!(*it)->newActions().isEmpty()) {
                 (*it)->newActions().first()->trigger();
