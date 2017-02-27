@@ -20,6 +20,7 @@
 #include "introductionwebenginepage.h"
 #include <QFontDatabase>
 #include <QWebEngineSettings>
+#include <QWebEngineProfile>
 IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
     : QWebEnginePage(parent)
 {
@@ -33,6 +34,21 @@ IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
     settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
     settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, false);
     settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, false);
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
+    settings()->setAttribute(QWebEngineSettings::ScreenCaptureEnabled, false);
+    settings()->setAttribute(QWebEngineSettings::WebGLEnabled, false);
+    settings()->setAttribute(QWebEngineSettings::AutoLoadIconsForPage, false);
+    settings()->setAttribute(QWebEngineSettings::Accelerated2dCanvasEnabled, false);
+    settings()->setAttribute(QWebEngineSettings::WebGLEnabled, false);
+#endif
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+    settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
+    settings()->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, false);
+#endif
+    profile()->setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
+
 
     const QFontInfo font(QFontDatabase().systemFont(QFontDatabase::GeneralFont));
     settings()->setFontFamily(QWebEngineSettings::StandardFont, font.family());
