@@ -266,7 +266,6 @@ Navigator::Navigator(SidePaneBase *parent)
     mShowIconsAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option if you want the sidebar items to have icons without text."));
-    connect(mShowIconsAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
     mShowTextAction = new QAction(i18nc("@action:inmenu", "Show Text Only"), this);
     mShowTextAction->setCheckable(true);
@@ -278,7 +277,6 @@ Navigator::Navigator(SidePaneBase *parent)
     mShowTextAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option if you want the sidebar items to have text without icons."));
-    connect(mShowTextAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
     mShowBothAction = new QAction(i18nc("@action:inmenu", "Show Icons && Text"), this);
     mShowBothAction->setCheckable(true);
@@ -290,12 +288,13 @@ Navigator::Navigator(SidePaneBase *parent)
     mShowBothAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option if you want the sidebar items to have icons and text."));
-    connect(mShowBothAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
     QAction *sep = new QAction(this);
     sep->setSeparator(true);
+    connect(viewMode, &QActionGroup::triggered, this, &Navigator::slotActionTriggered);
 
     QActionGroup *iconSize = new QActionGroup(this);
+    connect(iconSize, &QActionGroup::triggered, this, &Navigator::slotActionTriggered);
 
     mBigIconsAction = new QAction(i18nc("@action:inmenu", "Big Icons"), this);
     mBigIconsAction->setCheckable(true);
@@ -307,7 +306,6 @@ Navigator::Navigator(SidePaneBase *parent)
     mBigIconsAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option if you want the sidebar icons to be extra big."));
-    connect(mBigIconsAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
     mNormalIconsAction = new QAction(i18nc("@action:inmenu", "Normal Icons"), this);
     mNormalIconsAction->setCheckable(true);
@@ -319,7 +317,6 @@ Navigator::Navigator(SidePaneBase *parent)
     mNormalIconsAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option if you want the sidebar icons to be normal size."));
-    connect(mNormalIconsAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
     mSmallIconsAction = new QAction(i18nc("@action:inmenu", "Small Icons"), this);
     mSmallIconsAction->setCheckable(true);
@@ -331,7 +328,6 @@ Navigator::Navigator(SidePaneBase *parent)
     mSmallIconsAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option if you want the sidebar icons to be extra small."));
-    connect(mSmallIconsAction, &QAction::triggered, this, &Navigator::slotActionTriggered);
 
     QList<QAction *> actionList;
     actionList << mShowIconsAction << mShowTextAction << mShowBothAction << sep
@@ -498,10 +494,9 @@ void Navigator::slotCurrentChanged(const QModelIndex &current)
     Q_EMIT pluginActivated(static_cast<KontactInterface::Plugin *>(source.internalPointer()));
 }
 
-void Navigator::slotActionTriggered(bool checked)
+void Navigator::slotActionTriggered(QAction *object)
 {
-    QObject *object = sender();
-
+    bool checked = object->isChecked();
     if (object == mShowIconsAction) {
         mShowIcons = checked;
         mShowText = !checked;

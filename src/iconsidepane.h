@@ -79,7 +79,7 @@ protected:
 
 private Q_SLOTS:
     void slotCurrentChanged(const QModelIndex &current);
-    void slotActionTriggered(bool checked);
+    void slotActionTriggered(QAction *checked);
     void updateNavigatorSize();
 
 private:
