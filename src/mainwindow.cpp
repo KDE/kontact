@@ -1003,7 +1003,7 @@ void MainWindow::slotOpenUrl(const QUrl &url)
             KRun::runCommand(QStringLiteral("accountwizard"), this);
             slotQuit();
         } else if (path.startsWith(QStringLiteral("/help"))) {
-            QString app(QStringLiteral("kontact"));
+            QString app(QStringLiteral("org.kde.kontact"));
             if (!url.query().isEmpty()) {
                 app = url.query();
             }
@@ -1083,7 +1083,7 @@ QVariantHash MainWindow::introductionData()
     data[QStringLiteral("version")] = KAboutData::applicationData().version();
 
     QVariantList links = {
-        QVariantHash{ { QStringLiteral("url"), QStringLiteral("exec:/help?kontact") },
+        QVariantHash{ { QStringLiteral("url"), QStringLiteral("exec:/help?org.kde.kontact") },
             { QStringLiteral("icon"), QStringLiteral("help-contents") },
             { QStringLiteral("title"), i18n("Read Manual") },
             { QStringLiteral("subtext"), i18n("Learn more about Kontact and its components") } },
