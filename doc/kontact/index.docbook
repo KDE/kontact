@@ -102,7 +102,7 @@ them stand-alone.
 
 <variablelist>
     <varlistentry>
-        <term><ulink url="help:kmail">&kmail;</ulink></term>
+        <term><ulink url="help:kmail2">&kmail;</ulink></term>
         <listitem><para>The &kde; mail client.</para></listitem>
     </varlistentry>
     <varlistentry>
@@ -354,7 +354,7 @@ result of each.</para>
 
 <para>
 Dragging a message from 
-<ulink url="help:kmail/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
+<ulink url="help:kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
 to the icon for &korganizer;'s To-do list 
 (<guiicon><inlinemediaobject><imageobject>
 <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/>
@@ -377,7 +377,7 @@ attachment.
 
 <para>
 Dragging a message from 
-<ulink url="help:kmail/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
+<ulink url="help:kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
 to the icon for &korganizer;'s Calendar
 (<guiicon><inlinemediaobject><imageobject>
 <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/>
@@ -407,7 +407,7 @@ distinction is available in the
 
 <para>
 Dragging a message from 
-<ulink url="help:kmail/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
+<ulink url="help:kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
  to the icon for &kaddressbook;
 (<guiicon><inlinemediaobject><imageobject> <imagedata
                                            fileref="kaddressbook-sidebar-icon.png" 
