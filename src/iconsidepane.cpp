@@ -27,6 +27,7 @@ using namespace Kontact;
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
 
+#include <QApplication>
 #include <QAction>
 #include <QIcon>
 #include <KLocalizedString>
@@ -404,6 +405,9 @@ QSize Navigator::sizeHint() const
         const QModelIndex index = model()->index(i, 0);
         maxWidth = qMax(maxWidth, sizeHintForIndex(index).width());
     }
+
+    // Take vertical scrollbar into account
+    maxWidth += qApp->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
 
     int viewHeight = QListView::sizeHint().height();
 
