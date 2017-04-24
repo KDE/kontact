@@ -93,9 +93,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
         QLabel *label = new QLabel(i18n("No about information available."), topFrame);
         topLayout->addWidget(label);
     } else {
-        QString text;
-
-        text += QLatin1String("<p>");
+        QString text = QLatin1String("<p>");
         text += QLatin1String("<b>") + about.displayName() + QLatin1String("</b>");
         text += QLatin1String("<br>");
 
