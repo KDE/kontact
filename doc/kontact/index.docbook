@@ -102,24 +102,24 @@ them stand-alone.
 
 <variablelist>
     <varlistentry>
-        <term><ulink url="help:kmail2">&kmail;</ulink></term>
+        <term><ulink url="help:/kmail2">&kmail;</ulink></term>
         <listitem><para>The &kde; mail client.</para></listitem>
     </varlistentry>
     <varlistentry>
-        <term><ulink url="help:korganizer">&korganizer;</ulink></term>
+        <term><ulink url="help:/korganizer">&korganizer;</ulink></term>
         <listitem><para>The &kde; calendar and scheduling application.</para>
             </listitem>
     </varlistentry>
     <varlistentry>
-        <term><ulink url="help:kaddressbook">&kaddressbook;</ulink></term>
+        <term><ulink url="help:/kaddressbook">&kaddressbook;</ulink></term>
         <listitem><para>The &kde; contact manager.</para></listitem>
     </varlistentry>
     <varlistentry>
-        <term><ulink url="help:knotes">&knotes;</ulink></term>
+        <term><ulink url="help:/knotes">&knotes;</ulink></term>
         <listitem><para>The &kde; sticky notes application.</para></listitem>
     </varlistentry>
     <varlistentry>
-        <term><ulink url="help:akregator">&akregator;</ulink></term>
+        <term><ulink url="help:/akregator">&akregator;</ulink></term>
         <listitem><para>The &kde; RSS feed reader.</para>
             </listitem>
     </varlistentry>
@@ -354,7 +354,7 @@ result of each.</para>
 
 <para>
 Dragging a message from 
-<ulink url="help:kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
+<ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
 to the icon for &korganizer;'s To-do list 
 (<guiicon><inlinemediaobject><imageobject>
 <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/>
@@ -377,7 +377,7 @@ attachment.
 
 <para>
 Dragging a message from 
-<ulink url="help:kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
+<ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
 to the icon for &korganizer;'s Calendar
 (<guiicon><inlinemediaobject><imageobject>
 <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/>
@@ -396,7 +396,7 @@ attachment.
 <para>Note that dragging onto the To-do button creates a To-do,
 whereas dragging onto the Calendar creates an Event. More on this
 distinction is available in the 
-<ulink url="help:korganizer">&korganizer; documentation</ulink>
+<ulink url="help:/korganizer">&korganizer; documentation</ulink>
 </para>
 
 </sect2>
@@ -407,7 +407,7 @@ distinction is available in the
 
 <para>
 Dragging a message from 
-<ulink url="help:kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
+<ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
  to the icon for &kaddressbook;
 (<guiicon><inlinemediaobject><imageobject> <imagedata
                                            fileref="kaddressbook-sidebar-icon.png" 
@@ -426,7 +426,7 @@ already exists. A dialog box notifies you of this action.
 
 <para>
 Dragging any number of entries from <ulink
-url="help:kaddressbook/using-kaddressbook.html">&kaddressbook;'s main
+url="help:/kaddressbook/using-kaddressbook.html">&kaddressbook;'s main
 window</ulink> to the icon for &korganizer;'s To-do List
 (<guiicon><inlinemediaobject><imageobject> <imagedata
                                            fileref="todo-list-sidebar-icon.png" 
@@ -439,7 +439,7 @@ attendees.
 <para>Note that dragging onto the To-do button creates a To-do,
 whereas dragging onto the Calendar creates an Event. More on this
 distinction is available in the 
-<ulink url="help:korganizer">&korganizer; documentation</ulink>
+<ulink url="help:/korganizer">&korganizer; documentation</ulink>
 </para>
 
 </sect2>
@@ -450,7 +450,7 @@ distinction is available in the
 
 <para>
 Dragging any number of entries from <ulink
-url="help:kaddressbook/using-kaddressbook.html">&kaddressbook;'s main
+url="help:/kaddressbook/using-kaddressbook.html">&kaddressbook;'s main
 window</ulink> to the icon for &korganizer;'s Calendar
 (<guiicon><inlinemediaobject><imageobject> <imagedata
                                            fileref="calendar-sidebar-icon.png" 
@@ -463,7 +463,7 @@ attendees.
 <para>Note that dragging onto the To-do button creates a To-do,
 whereas dragging onto the Calendar creates an Event. More on this
 distinction is available in the 
-<ulink url="help:korganizer">&korganizer; documentation</ulink>
+<ulink url="help:/korganizer">&korganizer; documentation</ulink>
 </para>
 
 </sect2>
