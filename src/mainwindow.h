@@ -55,7 +55,7 @@ public:
     MainWindow();
     ~MainWindow();
 
-    PluginList pluginList() const Q_DECL_OVERRIDE
+    PluginList pluginList() const override
     {
         return mPlugins;
     }
@@ -66,8 +66,8 @@ public:
                                      const KontactInterface::Plugin *right);
 
 public Q_SLOTS:
-    void selectPlugin(KontactInterface::Plugin *plugin) Q_DECL_OVERRIDE;
-    Q_SCRIPTABLE void selectPlugin(const QString &pluginName) Q_DECL_OVERRIDE;
+    void selectPlugin(KontactInterface::Plugin *plugin) override;
+    Q_SCRIPTABLE void selectPlugin(const QString &pluginName) override;
     void slotActionTriggered();
 
     void updateConfig();
@@ -100,11 +100,11 @@ private:
     void updateShortcuts();
     bool removePlugin(const KPluginInfo &);
     void addPlugin(KontactInterface::Plugin *plugin);
-    void partLoaded(KontactInterface::Plugin *plugin, KParts::ReadOnlyPart *part) Q_DECL_OVERRIDE;
+    void partLoaded(KontactInterface::Plugin *plugin, KParts::ReadOnlyPart *part) override;
     void setupActions();
-    bool queryClose() Q_DECL_OVERRIDE;
-    void readProperties(const KConfigGroup &config) Q_DECL_OVERRIDE;
-    void saveProperties(KConfigGroup &config) Q_DECL_OVERRIDE;
+    bool queryClose() override;
+    void readProperties(const KConfigGroup &config) override;
+    void saveProperties(KConfigGroup &config) override;
     void paintAboutScreen(const QString &templateName, const QVariantHash &data);
     static QVariantHash introductionData();
     KToolBar *findToolBar(const char *name);
@@ -113,7 +113,7 @@ private Q_SLOTS:
     void pluginsChanged();
 
     void configureShortcuts();
-    void configureToolbars() Q_DECL_OVERRIDE;
+    void configureToolbars() override;
     void slotShowHideSideBar();
 
 private:

@@ -66,16 +66,16 @@ public:
         return mShowText;
     }
 
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 Q_SIGNALS:
     void pluginActivated(KontactInterface::Plugin *plugin);
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
-    void dragMoveEvent(QDragMoveEvent *event) Q_DECL_OVERRIDE;
-    void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
-    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dragMoveEvent(QDragMoveEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+    void showEvent(QShowEvent *event) override;
 
 private Q_SLOTS:
     void slotCurrentChanged(const QModelIndex &current);
@@ -107,13 +107,13 @@ public:
     IconSidePane(KontactInterface::Core *core, QWidget *parent);
     ~IconSidePane();
 
-    void setCurrentPlugin(const QString &plugin) Q_DECL_OVERRIDE;
+    void setCurrentPlugin(const QString &plugin) override;
 
 public Q_SLOTS:
-    void updatePlugins() Q_DECL_OVERRIDE;
+    void updatePlugins() override;
 
 protected:
-    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *event) override;
 
 private:
     Navigator *mNavigator;

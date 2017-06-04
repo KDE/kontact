@@ -57,13 +57,13 @@ public:
     }
 
 public Q_SLOTS:
-    void clear() Q_DECL_OVERRIDE {
+    void clear() override {
         // Don't allow the current selection to be cleared. QListView doesn't call to this method
         // nowadays, but just to cover of future change of implementation, since QTreeView does call
         // to this one when clearing the selection.
     }
 
-    void select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE {
+    void select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command) override {
         // Don't allow the current selection to be cleared
         if (!index.isValid() && (command & QItemSelectionModel::Clear))
         {
@@ -73,7 +73,7 @@ public Q_SLOTS:
     }
 
     void select(const QItemSelection &selection,
-                QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE {
+                QItemSelectionModel::SelectionFlags command) override {
         // Don't allow the current selection to be cleared
         if (!selection.count() && (command & QItemSelectionModel::Clear))
         {
@@ -107,7 +107,7 @@ public:
         pluginList = list;
     }
 
-    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE
+    Qt::ItemFlags flags(const QModelIndex &index) const override
     {
         Qt::ItemFlags flags = QStringListModel::flags(index);
 
@@ -129,7 +129,7 @@ public:
     }
 
     QModelIndex index(int row, int column,
-                      const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE
+                      const QModelIndex &parent = QModelIndex()) const override
     {
         Q_UNUSED(parent);
         if (row < 0 || row >= pluginList.count()) {
@@ -138,7 +138,7 @@ public:
         return createIndex(row, column, pluginList[row]);
     }
 
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
     {
         if (!index.isValid() || !index.internalPointer()) {
             return QVariant();
@@ -183,7 +183,7 @@ public:
         sort(0);
     }
 protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const Q_DECL_OVERRIDE
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override
     {
         KontactInterface::Plugin *leftPlugin =
             static_cast<KontactInterface::Plugin *>(left.internalPointer());
@@ -210,7 +210,7 @@ public:
     }
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
-               const QModelIndex &index) const Q_DECL_OVERRIDE
+               const QModelIndex &index) const override
     {
         if (!index.isValid() || !index.internalPointer()) {
             return;
@@ -223,7 +223,7 @@ public:
         QStyledItemDelegate::paint(painter, optionCopy, index);
     }
 
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override
     {
         if (!index.isValid() || !index.internalPointer()) {
             return QSize();
