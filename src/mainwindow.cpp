@@ -30,9 +30,9 @@
 
 #include "kontactconfiguredialog.h"
 using namespace Kontact;
-
+#ifndef WIN32
 #include <unistd.h>
-
+#endif
 #include <Libkdepim/BroadcastStatus>
 #include <Libkdepim/ProgressStatusBarWidget>
 #include <Libkdepim/StatusbarProgressWidget>
@@ -227,7 +227,12 @@ void MainWindow::waitForKSycoca()
         // System Configuration database necessary for further
         // Kontact startup
         qCDebug(KONTACT_LOG) << "Waiting for KSycoca";
+#ifdef WIN32
+        Sleep(1000);
+#else
         sleep(1);
+#endif
+
         ++i;
     }
     // This should only happen if the distribution is broken
