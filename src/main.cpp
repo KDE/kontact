@@ -194,6 +194,7 @@ int main(int argc, char **argv)
     about.setOrganizationDomain("kde.org");
     app.setAboutData(about);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kontact")));
+    app.setDesktopFileName(QStringLiteral("org.kde.kontact"));
 
     QCommandLineParser *cmdArgs = app.cmdArgs();
     loadCommandLineOptions(cmdArgs);
