@@ -29,6 +29,9 @@ public:
     explicit IntroductionWebEngineView(QWidget *parent = nullptr);
     ~IntroductionWebEngineView();
 
+protected:
+    void contextMenuEvent(QContextMenuEvent *ev) override;
+
 Q_SIGNALS:
     void openUrl(const QUrl &url);
 };
