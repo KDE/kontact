@@ -35,3 +35,8 @@ IntroductionWebEngineView::~IntroductionWebEngineView()
 {
 
 }
+
+void IntroductionWebEngineView::contextMenuEvent(QContextMenuEvent *)
+{
+    //Don't define contextmenu
+}
