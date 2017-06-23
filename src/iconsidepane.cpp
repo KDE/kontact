@@ -21,6 +21,7 @@
 */
 
 #include "iconsidepane.h"
+#include "mainwindow.h"
 #include "prefs.h"
 using namespace Kontact;
 
@@ -98,7 +99,7 @@ public:
 
     void emitReset()
     {
-        //FIXME 
+        //FIXME
         //Q_EMIT reset();
     }
 
@@ -244,7 +245,7 @@ private:
 }
 
 Navigator::Navigator(SidePaneBase *parent)
-    : QListView(parent), mSidePane(parent)
+    : QListView(parent), mSidePane(parent), mMainWindow(nullptr)
 {
     setViewport(new QWidget(this));
 
@@ -256,6 +257,7 @@ Navigator::Navigator(SidePaneBase *parent)
     mShowText = Prefs::self()->sidePaneShowText();
 
     QActionGroup *viewMode = new QActionGroup(this);
+    connect(viewMode, &QActionGroup::triggered, this, &Navigator::slotActionTriggered);
 
     mShowIconsAction = new QAction(i18nc("@action:inmenu", "Show Icons Only"), this);
     mShowIconsAction->setCheckable(true);
@@ -289,10 +291,6 @@ Navigator::Navigator(SidePaneBase *parent)
     mShowBothAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Choose this option if you want the sidebar items to have icons and text."));
-
-    QAction *sep = new QAction(this);
-    sep->setSeparator(true);
-    connect(viewMode, &QActionGroup::triggered, this, &Navigator::slotActionTriggered);
 
     QActionGroup *iconSize = new QActionGroup(this);
     connect(iconSize, &QActionGroup::triggered, this, &Navigator::slotActionTriggered);
@@ -330,9 +328,24 @@ Navigator::Navigator(SidePaneBase *parent)
         i18nc("@info:whatsthis",
               "Choose this option if you want the sidebar icons to be extra small."));
 
+    mHideSideBarAction = new QAction(i18nc("@action:inmenu", "Hide Sidebar"), this);
+    mHideSideBarAction->setCheckable(true);
+    mHideSideBarAction->setChecked(false);
+    setHelpText(mHideSideBarAction, i18nc("@info:status", "Hide the icon sidebar"));
+    mHideSideBarAction->setWhatsThis(
+                i18nc("@info:whatsthis",
+                       "Choose this option if you to hide the icon sidebar. Press F9 to unhide."));
+    connect(mHideSideBarAction, &QAction::triggered, this, &Navigator::slotHideSideBarTriggered);
+
+    QAction *sep = new QAction(this);
+    sep->setSeparator(true);
+    QAction *sep2 = new QAction(this);
+    sep2->setSeparator(true);
+
     QList<QAction *> actionList;
     actionList << mShowIconsAction << mShowTextAction << mShowBothAction << sep
-               << mBigIconsAction << mNormalIconsAction << mSmallIconsAction;
+               << mBigIconsAction << mNormalIconsAction << mSmallIconsAction << sep2
+               << mHideSideBarAction;
 
     insertActions(nullptr, actionList);
 
@@ -527,6 +540,14 @@ void Navigator::slotActionTriggered(QAction *object)
     QTimer::singleShot(0, this, &Navigator::updateNavigatorSize);
 }
 
+void Navigator::slotHideSideBarTriggered()
+{
+    if (mainWindow()) {
+        mainWindow()->showHideSideBar(false);
+        mHideSideBarAction->setChecked(false);
+    }
+}
+
 void Navigator::updateNavigatorSize()
 {
     parentWidget()->setMaximumWidth(sizeHint().width());
@@ -539,6 +560,7 @@ IconSidePane::IconSidePane(KontactInterface::Core *core, QWidget *parent)
     mNavigator = new Navigator(this);
     layout()->addWidget(mNavigator);
     mNavigator->setFocusPolicy(Qt::NoFocus);
+    mNavigator->setMainWindow(dynamic_cast<MainWindow *>(core));
     connect(mNavigator, &Navigator::pluginActivated, this, &IconSidePane::pluginSelected);
 }
 
@@ -565,4 +587,3 @@ void IconSidePane::resizeEvent(QResizeEvent *event)
 }
 
 #include "iconsidepane.moc"
-

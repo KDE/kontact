@@ -39,6 +39,7 @@ namespace Kontact
 {
 
 class Model;
+class MainWindow;
 class Navigator;
 
 class Navigator : public QListView
@@ -66,6 +67,16 @@ public:
         return mShowText;
     }
 
+    void setMainWindow(MainWindow *mainWindow)
+    {
+        mMainWindow = mainWindow;
+    }
+
+    MainWindow *mainWindow()
+    {
+        return mMainWindow;
+    }
+
     QSize sizeHint() const override;
 
 Q_SIGNALS:
@@ -80,11 +91,13 @@ protected:
 private Q_SLOTS:
     void slotCurrentChanged(const QModelIndex &current);
     void slotActionTriggered(QAction *checked);
+    void slotHideSideBarTriggered();
     void updateNavigatorSize();
 
 private:
     void setHelpText(QAction *act, const QString &text);
     SidePaneBase *mSidePane;
+    MainWindow *mMainWindow;
     Model *mModel;
 
     int mIconSize;
@@ -97,6 +110,7 @@ private:
     QAction *mBigIconsAction;
     QAction *mNormalIconsAction;
     QAction *mSmallIconsAction;
+    QAction *mHideSideBarAction;
 };
 
 class IconSidePane : public SidePaneBase

@@ -145,7 +145,7 @@ int ServiceStarter::startServiceFor(const QString &serviceType,
 
 MainWindow::MainWindow()
     : KontactInterface::Core(), mSplitter(nullptr), mCurrentPlugin(nullptr), mAboutDialog(nullptr),
-      mReallyClose(false)
+    mReallyClose(false), mSaveSideBarWidth(10)
 {
     // The ServiceStarter created here will be deleted by the KDbusServiceStarter
     // base class, which is a global static.
@@ -347,15 +347,10 @@ void MainWindow::initWidgets()
     setCentralWidget(mTopWidget);
 
     mSplitter = new QSplitter(mTopWidget);
+    connect(mSplitter, &QSplitter::splitterMoved, this, &MainWindow::slotSplitterMoved);
     layout->addWidget(mSplitter);
     mSidePane = new IconSidePane(this, mSplitter);
-    /*
-    // don't occupy screen estate on load
 
-    QList<int> sizes;
-    sizes << 0;
-    mSplitter->setSizes(sizes);
-    */
     connect(mSidePane, SIGNAL(pluginSelected(KontactInterface::Plugin*)), SLOT(selectPlugin(KontactInterface::Plugin*)));
 
     mPartsStack = new QStackedWidget(mSplitter);
@@ -436,9 +431,15 @@ void MainWindow::setupActions()
     actionCollection()->addAction(QStringLiteral("help_introduction"), action);
     connect(action, &QAction::triggered, this, &MainWindow::slotShowIntroduction);
 
-    //TODO 4.12: add description
-    QShortcut *shortcut = new QShortcut(QKeySequence(Qt::Key_F9), this);
-    connect(shortcut, &QShortcut::activated, this, &MainWindow::slotShowHideSideBar);
+    mShowHideAction = new QAction(QIcon::fromTheme(QStringLiteral("zoom-fit-width")),
+                                  i18nc("@action:inmenu", "Hide/Show the component sidebar"), this);
+    setHelpText(mShowHideAction, i18nc("@info:status", "Hide/Show the component sidebar"));
+    mShowHideAction->setWhatsThis(
+        i18nc("@info:whatsthis",
+              "Allows you to show or hide the component sidebar as desired."));
+    mShowHideAction->setShortcut(QKeySequence(Qt::Key_F9));
+    actionCollection()->addAction(QStringLiteral("hide_show_sidebar"), mShowHideAction);
+    connect(mShowHideAction, &QAction::triggered, this, &MainWindow::slotShowHideSideBar);
 }
 
 bool MainWindow::isPluginLoaded(const KPluginInfo &info)
@@ -856,12 +857,7 @@ void MainWindow::selectPlugin(const QString &pluginName)
 void MainWindow::loadSettings()
 {
     if (mSplitter) {
-        // if the preferences do not contain useful values, the side pane part of the splitter
-        // takes up the full width of the window, so leave the splitter sizing at the widget defaults
-        QList<int> sizes = Prefs::self()->sidePaneSplitter();
-        if (sizes.count() == mSplitter->count()) {
-            mSplitter->setSizes(sizes);
-        }
+        showHideSideBar(Prefs::self()->sideBarOpen());
     }
 
     // Preload Plugins. This _must_ happen before the default part is loaded
@@ -1108,16 +1104,54 @@ QVariantHash MainWindow::introductionData()
     return data;
 }
 
+void MainWindow::showHideSideBar(bool show)
+{
+    QList<int> sizes = mSplitter->sizes();
+    if (!sizes.isEmpty()) {
+        if (show) {
+            sizes[0] = mSaveSideBarWidth;
+        } else {
+            mSaveSideBarWidth = qMax(sizes[0], 10);
+            sizes[0] = 0;
+        }
+        mSplitter->setSizes(sizes);
+        Prefs::self()->setSideBarOpen(show);
+    }
+}
+
+QString MainWindow::showHideSideBarMessage(bool hidden) const
+{
+    if (hidden) {
+        return i18nc("@info:status",
+                     "Sidebar is hidden. Show the sidebar again using the %1 key.",
+                     mShowHideAction->shortcut().toString());
+    } else {
+        return QString();
+    }
+}
+
 void MainWindow::slotShowHideSideBar()
 {
     QList<int> sizes = mSplitter->sizes();
     if (!sizes.isEmpty()) {
-        if (sizes.at(0) != 0) {
-            sizes[0] = 0;
+        bool open = (sizes.at(0) != 0);
+        showHideSideBar(!open);
+        if (open) {
+            statusBar()->showMessage(showHideSideBarMessage(true));
         } else {
-            sizes[0] = 10;
+            statusBar()->showMessage(showHideSideBarMessage(false));
         }
-        mSplitter->setSizes(sizes);
+    }
+}
+
+void MainWindow::slotSplitterMoved(int pos, int index)
+{
+    if (index == 1) {
+        if (pos == 0) {
+            statusBar()->showMessage(showHideSideBarMessage(true));
+        } else {
+            statusBar()->showMessage(showHideSideBarMessage(false));
+        }
     }
 }
 

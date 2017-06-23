@@ -34,8 +34,8 @@ using namespace Kontact;
 #include <KLocalizedString>
 
 #include <QCheckBox>
+#include <QFormLayout>
 #include <QHBoxLayout>
-#include <QVBoxLayout>
 
 extern "C"
 {
@@ -48,10 +48,9 @@ extern "C"
 KcmKontact::KcmKontact(QWidget *parent)
     : KPrefsModule(Prefs::self(), parent)
 {
-    QBoxLayout *topLayout = new QVBoxLayout(this);
+    QFormLayout *topLayout = new QFormLayout(this);
     QBoxLayout *pluginStartupLayout = new QHBoxLayout();
     topLayout->addItem(pluginStartupLayout);
-    topLayout->addStretch();
 
     KPrefsWidBool *forceStartupPlugin =
         addWidBool(Prefs::self()->forceStartupPluginItem(), this);
@@ -68,6 +67,10 @@ KcmKontact::KcmKontact(QWidget *parent)
 
     connect(forceStartupPlugin->checkBox(), &QAbstractButton::toggled,
             selection->comboBox(), &QWidget::setEnabled);
+
+    KPrefsWidBool *showSideBar = addWidBool(Prefs::self()->sideBarOpenItem(), this);
+    topLayout->addWidget(showSideBar->checkBox());
+
     load();
 }
 
@@ -153,4 +156,3 @@ QList<QWidget *> PluginSelection::widgets() const
     const QList<QWidget *> widgets{mPluginCombo};
     return widgets;
 }
-

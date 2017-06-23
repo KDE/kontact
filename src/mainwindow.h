@@ -64,6 +64,7 @@ public:
     static bool pluginActionWeightLessThan(const QAction *left, const QAction *right);
     static bool pluginWeightLessThan(const KontactInterface::Plugin *left,
                                      const KontactInterface::Plugin *right);
+    void showHideSideBar(bool show);
 
 public Q_SLOTS:
     void selectPlugin(KontactInterface::Plugin *plugin) override;
@@ -108,6 +109,7 @@ private:
     void paintAboutScreen(const QString &templateName, const QVariantHash &data);
     static QVariantHash introductionData();
     KToolBar *findToolBar(const char *name);
+    QString showHideSideBarMessage(bool hidden) const;
 
 private Q_SLOTS:
     void pluginsChanged();
@@ -115,6 +117,7 @@ private Q_SLOTS:
     void configureShortcuts();
     void configureToolbars() override;
     void slotShowHideSideBar();
+    void slotSplitterMoved(int pos, int index);
 
 private:
     void setHelpText(QAction *action, const QString &text);
@@ -142,6 +145,8 @@ private:
 
     AboutDialog *mAboutDialog;
     bool mReallyClose;
+    int mSaveSideBarWidth;
+    QAction *mShowHideAction;
 };
 
 }
