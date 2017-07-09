@@ -219,7 +219,8 @@ public:
 
         QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
-        optionCopy.decorationSize = QSize(mNavigator->iconSize(), mNavigator->iconSize());
+        optionCopy.decorationSize =
+            mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize()) : QSize();
         optionCopy.textElideMode = Qt::ElideNone;
         QStyledItemDelegate::paint(painter, optionCopy, index);
     }
