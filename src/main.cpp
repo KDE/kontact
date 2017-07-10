@@ -79,12 +79,10 @@ private:
 
 static void listPlugins()
 {
-    //KComponentData instance("kontact");   //Can't use KontactApp -- too late for adding cmdline opts
-
     const KService::List offers = KServiceTypeTrader::self()->query(
                                       QStringLiteral("Kontact/Plugin"),
                                       QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
-    KService::List::ConstIterator end(offers.end());
+    const KService::List::ConstIterator end(offers.end());
     for (KService::List::ConstIterator it = offers.begin(); it != end; ++it) {
         KService::Ptr service = (*it);
         // skip summary only plugins
@@ -92,7 +90,7 @@ static void listPlugins()
         if (var.isValid() && var.toBool() == false) {
             continue;
         }
-        cout << service->library().remove(QStringLiteral("kontact_")).toLatin1().data() << endl;
+        cout << "lib name " << qPrintable(service->library().remove(QStringLiteral("kontact_"))) << endl;
     }
 }
 
@@ -225,7 +223,7 @@ int main(int argc, char **argv)
         }
     }
 
-    int ret = app.exec();
+    const int ret = app.exec();
     qDeleteAll(KMainWindow::memberList());
 
     return ret;

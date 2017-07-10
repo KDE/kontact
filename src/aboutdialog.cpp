@@ -52,7 +52,7 @@ AboutDialog::AboutDialog(KontactInterface::Core *core)
     addAboutData(i18n("Kontact Container"), QStringLiteral("kontact"),
                  KAboutData::applicationData());
     QList<KontactInterface::Plugin *> plugins = mCore->pluginList();
-    QList<KontactInterface::Plugin *>::ConstIterator end = plugins.constEnd();
+    const QList<KontactInterface::Plugin *>::ConstIterator end = plugins.constEnd();
     QList<KontactInterface::Plugin *>::ConstIterator it = plugins.constBegin();
     for (; it != end; ++it) {
         addAboutPlugin(*it);
@@ -127,10 +127,8 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
         const QList<KAboutPerson> authors = about.authors();
         if (!authors.isEmpty()) {
             text += i18n("<p><b>Authors:</b></p>");
-
-            QList<KAboutPerson>::ConstIterator it;
             const QList<KAboutPerson>::ConstIterator end(authors.end());
-            for (it = authors.begin(); it != end; ++it) {
+            for (QList<KAboutPerson>::ConstIterator it = authors.begin(); it != end; ++it) {
                 text += formatPerson((*it).name(), (*it).emailAddress());
                 if (!(*it).task().isEmpty()) {
                     text += QLatin1String("<i>") + (*it).task() + QLatin1String("</i><br>");
@@ -142,9 +140,8 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
         if (!credits.isEmpty()) {
             text += i18n("<p><b>Thanks to:</b></p>");
 
-            QList<KAboutPerson>::ConstIterator it;
             const QList<KAboutPerson>::ConstIterator end(credits.end());
-            for (it = credits.begin(); it != end; ++it) {
+            for (QList<KAboutPerson>::ConstIterator it = credits.begin(); it != end; ++it) {
                 text += formatPerson((*it).name(), (*it).emailAddress());
                 if (!(*it).task().isEmpty()) {
                     text += QLatin1String("<i>") + (*it).task() + QLatin1String("</i><br>");
@@ -155,10 +152,8 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
         const QList<KAboutPerson> translators = about.translators();
         if (!translators.isEmpty()) {
             text += i18n("<p><b>Translators:</b></p>");
-
-            QList<KAboutPerson>::ConstIterator it;
             const QList<KAboutPerson>::ConstIterator end(translators.end());
-            for (it = translators.begin(); it != end; ++it) {
+            for (QList<KAboutPerson>::ConstIterator it = translators.begin(); it != end; ++it) {
                 text += formatPerson((*it).name(), (*it).emailAddress());
             }
         }

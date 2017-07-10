@@ -126,7 +126,7 @@ void PluginSelection::readConfig()
     int activeComponent = 0;
     mPluginCombo->clear();
     mPluginList.clear();
-    KService::List::ConstIterator end(offers.end());
+    const KService::List::ConstIterator end(offers.end());
     for (KService::List::ConstIterator it = offers.begin(); it != end; ++it) {
         KService::Ptr service = *it;
         // skip summary only plugins
