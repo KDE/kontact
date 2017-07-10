@@ -44,6 +44,7 @@ using namespace Kontact;
 #include <QTimer>
 #include <QCollator>
 #include <QLayout>
+#include <QPainter>
 
 namespace Kontact
 {
@@ -219,8 +220,9 @@ public:
 
         QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
+        const int height = QFontMetrics(painter->font()).height();
         optionCopy.decorationSize =
-            mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize()) : QSize();
+            mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize() + height) : QSize();
         optionCopy.textElideMode = Qt::ElideNone;
         QStyledItemDelegate::paint(painter, optionCopy, index);
     }
@@ -233,6 +235,7 @@ public:
 
         QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
+
         optionCopy.decorationSize =
             mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize()) : QSize();
         optionCopy.textElideMode = Qt::ElideNone;
@@ -553,6 +556,7 @@ void Navigator::updateNavigatorSize()
 {
     parentWidget()->setMaximumWidth(sizeHint().width());
     parentWidget()->setMinimumWidth(sizeHint().width());
+    update();
 }
 
 IconSidePane::IconSidePane(KontactInterface::Core *core, QWidget *parent)
