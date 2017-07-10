@@ -237,10 +237,9 @@ void MainWindow::initObject()
                                 QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
     mPluginInfos = KPluginInfo::fromServices(
                        offers, KConfigGroup(Prefs::self()->config(), "Plugins"));
-    KPluginInfo::List::Iterator it;
-    KPluginInfo::List::Iterator end(mPluginInfos.end());
 
-    for (it = mPluginInfos.begin(); it != end; ++it) {
+    const KPluginInfo::List::Iterator end(mPluginInfos.end());
+    for (KPluginInfo::List::Iterator it = mPluginInfos.begin(); it != end; ++it) {
         it->load();
     }
 
@@ -525,10 +524,9 @@ void MainWindow::loadPlugins()
         KontactInterface::Plugin *plugin = plugins.at(i);
 
         const QList<QAction *> actionList = plugin->newActions();
-        QList<QAction *>::const_iterator listIt;
         const QList<QAction *>::const_iterator end(actionList.end());
 
-        for (listIt = actionList.begin(); listIt != end; ++listIt) {
+        for (QList<QAction *>::const_iterator  listIt = actionList.begin(); listIt != end; ++listIt) {
             qCDebug(KONTACT_LOG) << QStringLiteral("Plugging New actions") << (*listIt)->objectName();
             mNewActions->addAction((*listIt));
         }
@@ -543,8 +541,7 @@ void MainWindow::loadPlugins()
 void MainWindow::unloadPlugins()
 {
     const KPluginInfo::List::ConstIterator end = mPluginInfos.constEnd();
-    KPluginInfo::List::ConstIterator it;
-    for (it = mPluginInfos.constBegin(); it != end; ++it) {
+    for (KPluginInfo::List::ConstIterator it = mPluginInfos.constBegin(); it != end; ++it) {
         if (!it->isPluginEnabled()) {
             removePlugin(*it);
         }
@@ -554,9 +551,8 @@ void MainWindow::unloadPlugins()
 void MainWindow::updateShortcuts()
 {
     const ActionPluginList::ConstIterator end = mActionPlugins.constEnd();
-    ActionPluginList::ConstIterator it;
     int i = 0;
-    for (it = mActionPlugins.constBegin(); it != end; ++it) {
+    for (ActionPluginList::ConstIterator it = mActionPlugins.constBegin(); it != end; ++it) {
         QAction *action = static_cast<QAction *>(*it);
         const QString shortcut = QStringLiteral("Ctrl+%1").arg(mActionPlugins.count() - i);
         actionCollection()->setDefaultShortcut(action, QKeySequence(shortcut));
@@ -861,9 +857,8 @@ void MainWindow::loadSettings()
     }
 
     // Preload Plugins. This _must_ happen before the default part is loaded
-    PluginList::ConstIterator it;
     PluginList::ConstIterator end(mDelayedPreload.constEnd());
-    for (it = mDelayedPreload.constBegin(); it != end; ++it) {
+    for (PluginList::ConstIterator it = mDelayedPreload.constBegin(); it != end; ++it) {
         selectPlugin(*it);
     }
     selectPlugin(Prefs::self()->mActivePlugin);
@@ -900,9 +895,8 @@ void MainWindow::slotPreferences()
 
         // do not show settings of components running standalone
         KPluginInfo::List filteredPlugins = mPluginInfos;
-        PluginList::ConstIterator it;
         PluginList::ConstIterator end(mPlugins.constEnd());
-        for (it = mPlugins.constBegin(); it != end; ++it) {
+        for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
             if ((*it)->isRunningStandalone()) {
                 KPluginInfo::List::ConstIterator infoIt;
                 KPluginInfo::List::ConstIterator infoEnd(filteredPlugins.constEnd());
