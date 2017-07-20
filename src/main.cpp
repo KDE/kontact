@@ -208,7 +208,7 @@ int main(int argc, char **argv)
 
     if (!KontactApp::start(args)) {
         // Already running, brought to the foreground.
-        qCDebug(KONTACT_LOG) << "Kontact alread running, exiting.";
+        qCDebug(KONTACT_LOG) << "Kontact already running, exiting.";
         return 0;
     }
 
