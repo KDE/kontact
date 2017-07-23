@@ -436,8 +436,8 @@ void MainWindow::setupActions()
     mShowHideAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Allows you to show or hide the component sidebar as desired."));
-    mShowHideAction->setShortcut(QKeySequence(Qt::Key_F9));
     actionCollection()->addAction(QStringLiteral("hide_show_sidebar"), mShowHideAction);
+    actionCollection()->setDefaultShortcut(mShowHideAction, QKeySequence(Qt::Key_F9));
     connect(mShowHideAction, &QAction::triggered, this, &MainWindow::slotShowHideSideBar);
 }
 
