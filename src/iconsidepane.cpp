@@ -98,12 +98,6 @@ public:
     {
     }
 
-    void emitReset()
-    {
-        //FIXME
-        //Q_EMIT reset();
-    }
-
     void setPluginList(const QList<KontactInterface::Plugin *> &list)
     {
         pluginList = list;
@@ -539,7 +533,7 @@ void Navigator::slotActionTriggered(QAction *object)
     Prefs::self()->setSidePaneShowIcons(mShowIcons);
     Prefs::self()->setSidePaneShowText(mShowText);
 
-    mModel->emitReset();
+    reset();
 
     QTimer::singleShot(0, this, &Navigator::updateNavigatorSize);
 }
