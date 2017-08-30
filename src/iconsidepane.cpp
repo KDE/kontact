@@ -165,7 +165,7 @@ public:
 
 private:
     QList<KontactInterface::Plugin *> pluginList;
-    Navigator *mNavigator;
+    Navigator *mNavigator = nullptr;
 };
 
 class SortFilterProxyModel
@@ -237,7 +237,7 @@ public:
     }
 
 private:
-    Navigator *mNavigator;
+    Navigator *mNavigator = nullptr;
 };
 
 }

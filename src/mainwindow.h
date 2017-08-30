@@ -121,22 +121,22 @@ private Q_SLOTS:
 
 private:
     void setHelpText(QAction *action, const QString &text);
-    QFrame *mTopWidget;
+    QFrame *mTopWidget = nullptr;
 
-    QSplitter *mSplitter;
+    QSplitter *mSplitter = nullptr;
 
-    KActionMenu *mNewActions;
-    SidePaneBase *mSidePane;
-    QStackedWidget *mPartsStack;
-    KontactInterface::Plugin *mCurrentPlugin;
-    KParts::PartManager *mPartManager;
+    KActionMenu *mNewActions = nullptr;
+    SidePaneBase *mSidePane = nullptr;
+    QStackedWidget *mPartsStack = nullptr;
+    KontactInterface::Plugin *mCurrentPlugin = nullptr;
+    KParts::PartManager *mPartManager = nullptr;
     PluginList mPlugins;
     PluginList mDelayedPreload;
     ActionPluginList mActionPlugins;
     QList<KPluginInfo> mPluginInfos;
 
-    IntroductionWebEngineView *mIntroPart;
-    KSqueezedTextLabel *mStatusMsgLabel;
+    IntroductionWebEngineView *mIntroPart = nullptr;
+    KSqueezedTextLabel *mStatusMsgLabel = nullptr;
 
     QString mInitialActiveModule;
 
@@ -144,9 +144,9 @@ private:
     QMap<KontactInterface::Plugin *, QAction *> mPluginAction;
 
     AboutDialog *mAboutDialog;
-    bool mReallyClose;
+    bool mReallyClose = false;
     int mSaveSideBarWidth;
-    QAction *mShowHideAction;
+    QAction *mShowHideAction = nullptr;
 };
 
 }

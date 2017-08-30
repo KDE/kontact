@@ -59,7 +59,7 @@ private Q_SLOTS:
     void saveSize();
 
 private:
-    KontactInterface::Core *mCore;
+    KontactInterface::Core *mCore = nullptr;
 };
 
 }

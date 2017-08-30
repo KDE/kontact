@@ -96,21 +96,21 @@ private Q_SLOTS:
 
 private:
     void setHelpText(QAction *act, const QString &text);
-    SidePaneBase *mSidePane;
-    MainWindow *mMainWindow;
-    Model *mModel;
+    SidePaneBase *mSidePane = nullptr;
+    MainWindow *mMainWindow = nullptr;
+    Model *mModel = nullptr;
 
     int mIconSize;
-    bool mShowIcons;
-    bool mShowText;
+    bool mShowIcons = false;
+    bool mShowText = false;
 
-    QAction *mShowIconsAction;
-    QAction *mShowTextAction;
-    QAction *mShowBothAction;
-    QAction *mBigIconsAction;
-    QAction *mNormalIconsAction;
-    QAction *mSmallIconsAction;
-    QAction *mHideSideBarAction;
+    QAction *mShowIconsAction = nullptr;
+    QAction *mShowTextAction = nullptr;
+    QAction *mShowBothAction = nullptr;
+    QAction *mBigIconsAction = nullptr;
+    QAction *mNormalIconsAction = nullptr;
+    QAction *mSmallIconsAction = nullptr;
+    QAction *mHideSideBarAction = nullptr;
 };
 
 class IconSidePane : public SidePaneBase
