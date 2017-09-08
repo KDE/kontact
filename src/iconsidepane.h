@@ -100,7 +100,7 @@ private:
     MainWindow *mMainWindow = nullptr;
     Model *mModel = nullptr;
 
-    int mIconSize;
+    int mIconSize = 0;
     bool mShowIcons = false;
     bool mShowText = false;
 
@@ -130,7 +130,7 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
 
 private:
-    Navigator *mNavigator;
+    Navigator *mNavigator = nullptr;
 };
 
 }
