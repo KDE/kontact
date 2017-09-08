@@ -508,8 +508,8 @@ void MainWindow::loadPlugins()
         if (hasPartProp.isValid()) {
             plugin->setShowInSideBar(hasPartProp.toBool());
         }
-
-        for (i = 0; i < plugins.count(); ++i) {
+        const int nbPlugins{plugins.count()};
+        for (i = 0; i < nbPlugins; ++i) {
             KontactInterface::Plugin *p = plugins.at(i);
             if (plugin->weight() < p->weight()) {
                 break;

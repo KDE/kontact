@@ -143,9 +143,9 @@ private:
     QMap<QString, QPointer<QWidget> > mFocusWidgets;
     QMap<KontactInterface::Plugin *, QAction *> mPluginAction;
 
-    AboutDialog *mAboutDialog;
+    AboutDialog *mAboutDialog = nullptr;
     bool mReallyClose = false;
-    int mSaveSideBarWidth;
+    int mSaveSideBarWidth = 0;
     QAction *mShowHideAction = nullptr;
 };
 

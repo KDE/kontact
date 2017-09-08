@@ -58,9 +58,9 @@ public:
     KComboBox *comboBox() const;
 
 private:
-    KComboBox *mPluginCombo;
+    KComboBox *mPluginCombo = nullptr;
     KService::List mPluginList;
-    KConfigSkeleton::ItemString *mItem;
+    KConfigSkeleton::ItemString *mItem = nullptr;
 };
 
 }
