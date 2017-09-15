@@ -66,18 +66,15 @@ using namespace Kontact;
 #include <QDBusConnection>
 #include <QSplitter>
 #include <QStackedWidget>
-#include <QTimer>
 #include <QVBoxLayout>
 #include <QShortcut>
 #include <QIcon>
 #include <KHelpClient>
 #include <KSharedConfig>
 #include <QStandardPaths>
-#include <QFile>
 #include <QHBoxLayout>
 #include <QApplication>
 #include <KAboutData>
-#include <QFontDatabase>
 
 #include <grantleetheme/grantleethememanager.h>
 #include <grantleetheme/grantleetheme.h>

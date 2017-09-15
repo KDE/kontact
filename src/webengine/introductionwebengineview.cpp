@@ -19,7 +19,6 @@
 
 #include "introductionwebengineview.h"
 #include "introductionwebenginepage.h"
-#include <QWebEnginePage>
 
 IntroductionWebEngineView::IntroductionWebEngineView(QWidget *parent)
     : QWebEngineView(parent)

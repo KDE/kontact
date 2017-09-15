@@ -32,7 +32,6 @@ using namespace Kontact;
 #include <QAction>
 #include <QIcon>
 #include <KLocalizedString>
-#include <KStringHandler>
 #include <KIconLoader>
 
 #include <QDragEnterEvent>
