@@ -258,7 +258,7 @@ void MainWindow::initObject()
     // done initializing
     slotShowStatusMsg(QString());
 
-    connect(KPIM::BroadcastStatus::instance(), SIGNAL(statusMsg(QString)), this, SLOT(slotShowStatusMsg(QString)));
+    connect(KPIM::BroadcastStatus::instance(), &KPIM::BroadcastStatus::statusMsg, this, &MainWindow::slotShowStatusMsg);
 
     // launch commandline specified module if any
     activateInitialPluginModule();
