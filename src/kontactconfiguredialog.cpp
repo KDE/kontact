@@ -18,7 +18,8 @@
 */
 
 #include "kontactconfiguredialog.h"
-
+#include <KConfig>
+#include <KSharedConfig>
 #include <QDBusReply>
 #include <QDBusInterface>
 #include "kontact_debug.h"
@@ -36,6 +37,9 @@ KontactConfigureDialog::KontactConfigureDialog(QWidget *parent)
 
 KontactConfigureDialog::~KontactConfigureDialog()
 {
+    KConfigGroup group(KSharedConfig::openConfig(), "KontactConfigureDialog");
+    group.writeEntry("width", width());
+    group.writeEntry("height", height());
 }
 
 void KontactConfigureDialog::emitConfigChanged()
@@ -76,3 +80,10 @@ void KontactConfigureDialog::slotOk()
     emitConfigChanged();
 }
 
+QSize KontactConfigureDialog::sizeHint() const
+{
+    KConfigGroup group(KSharedConfig::openConfig(), "KontactConfigureDialog");
+    const int width = group.readEntry("width", 800);
+    const int height = group.readEntry("height", 600);
+    return QSize(width, height);
+}

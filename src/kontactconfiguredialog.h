@@ -33,6 +33,9 @@ public:
     explicit KontactConfigureDialog(QWidget *parent = nullptr);
     ~KontactConfigureDialog();
 
+protected:
+    QSize sizeHint() const override;
+
 protected Q_SLOTS:
     /** @reimplemented */
     void slotApply();
@@ -40,6 +43,7 @@ protected Q_SLOTS:
     /** @reimplemented */
     void slotOk();
     void emitConfigChanged();
+
 };
 
 }
