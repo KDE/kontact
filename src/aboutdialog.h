@@ -55,10 +55,8 @@ protected:
 
     QString formatPerson(const QString &name, const QString &email);
 
-private Q_SLOTS:
-    void saveSize();
-
 private:
+    void saveSize();
     KontactInterface::Core *mCore = nullptr;
 };
 
