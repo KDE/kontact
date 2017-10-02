@@ -57,6 +57,7 @@ public:
         , mMainWindow(nullptr)
         , mSessionRestored(false)
     {
+        KLocalizedString::setApplicationDomain("kontact");
     }
     ~KontactApp() {}
 
