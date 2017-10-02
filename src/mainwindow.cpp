@@ -172,9 +172,6 @@ void MainWindow::initGUI()
 {
     initWidgets();
     setupActions();
-    setHelpMenuEnabled(false);
-    KHelpMenu *helpMenu = new KHelpMenu(this, QString(), true);
-    connect(helpMenu, &KHelpMenu::showAboutApplication, this, &MainWindow::showAboutDialog);
 
     KStandardAction::keyBindings(this, &MainWindow::configureShortcuts, actionCollection());
     KStandardAction::configureToolbars(this, &MainWindow::configureToolbars, actionCollection());
