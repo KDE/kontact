@@ -41,25 +41,6 @@
   <name xml:lang="zh-CN">Kontact</name>
   <name xml:lang="zh-TW">個人資訊管理_Kontact</name>
   <summary>An integrated solution to your personal information management</summary>
-  <summary xml:lang="ca">Una solució integrada per a la gestió de la vostra informació personal.</summary>
-  <summary xml:lang="ca-valencia">Una solució integrada per a la gestió de la vostra informació personal.</summary>
-  <summary xml:lang="cs">Integrované řešení pro správu Vašich osobních informací.</summary>
-  <summary xml:lang="de">Eine integrierte Lösung für Ihre persönliche Informationsverwaltung</summary>
-  <summary xml:lang="en-GB">An integrated solution to your personal information management.</summary>
-  <summary xml:lang="es">Una solución integrada para la gestión de información personal.</summary>
-  <summary xml:lang="fi">Keskitetty ratkaisu henkilökohtaiseen tiedonhallintaasi.</summary>
-  <summary xml:lang="fr">Une solution intégrée pour la gestion de vos informations personnelles.</summary>
-  <summary xml:lang="it">Una soluzione integrata per la gestione delle informazioni personali.</summary>
-  <summary xml:lang="nl">Een geïntegreerde oplossing voor beheer van uw persoonlijke informatie.</summary>
-  <summary xml:lang="pl">Zintegrowane rozwiązanie do zarządzania twoimi informacjami osobistymi.</summary>
-  <summary xml:lang="pt">Uma solução integrada para a gestão da sua informação pessoal.</summary>
-  <summary xml:lang="sk">Integrované riešenie pre vašu správu osobných informácií.</summary>
-  <summary xml:lang="sl">Zbirka programov za upravljanje z osebnimi podatki.</summary>
-  <summary xml:lang="sv">En integrerad lösning för personlig informationshantering</summary>
-  <summary xml:lang="tr">Kişisel bilgi yönetiminize tümleşik bir çözüm.</summary>
-  <summary xml:lang="uk">Комплексне рішення для керування особистими даними.</summary>
-  <summary xml:lang="x-test">xxAn integrated solution to your personal information management.xx</summary>
-  <summary xml:lang="zh-CN">个人信息管理的集成解决方案。</summary>
   <description>
     <p>
       Kontact is the integrated solution to your personal information management (PIM) needs.
