@@ -99,7 +99,7 @@ public:
     // We need to keep track of the plugins which are loaded, so pass a pointer
     // to the plugin list here. Be sure to reset it back to 0 with
     // setPluginList() as soon as the list gets destroyed.
-    ServiceStarter(PluginList *pluginList)
+    explicit ServiceStarter(PluginList *pluginList)
     {
         mPlugins = pluginList;
     }
