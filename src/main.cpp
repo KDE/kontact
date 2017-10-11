@@ -160,8 +160,10 @@ int main(int argc, char **argv)
     qputenv("QT_QPA_PLATFORM", "xcb");
 #endif
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
     KontactApp app(argc, &argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+    
     KCrash::initialize();
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kontact"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc") << QStringLiteral("kontact_summaryrc"));
