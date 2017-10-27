@@ -2,7 +2,7 @@ set(KDEPIM_VERSION_NUMBER "5.6.40")
 cmake_minimum_required(VERSION 3.1)
 project(kontact VERSION ${KDEPIM_VERSION_NUMBER})
 
-set(KF5_VERSION "5.38.0")
+set(KF5_VERSION "5.39.0")
 find_package(ECM ${KF5_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
