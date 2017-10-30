@@ -19,6 +19,7 @@ set(kontactprivate_LIB_SRCS
 ecm_qt_declare_logging_category(kontactprivate_LIB_SRCS HEADER kontact_debug.h IDENTIFIER KONTACT_LOG CATEGORY_NAME org.kde.pim.kontact)
 
 kconfig_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc)
+qt5_add_resources(kontactprivate_LIB_SRCS kontact.qrc)
 
 add_library(kontactprivate ${kontactprivate_LIB_SRCS})
 generate_export_header(kontactprivate BASE_NAME kontact)
@@ -87,7 +88,6 @@ install(PROGRAMS org.kde.kontact.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.kontact.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES kontact.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 install(FILES kontactconfig.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
-install(FILES kontactui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kontact)
 
 add_subdirectory(icons)
 
