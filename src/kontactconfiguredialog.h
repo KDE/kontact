@@ -22,9 +22,7 @@
 
 #include <ksettings/Dialog>
 
-namespace Kontact
-{
-
+namespace Kontact {
 class KontactConfigureDialog : public KSettings::Dialog
 {
     Q_OBJECT
@@ -43,10 +41,7 @@ protected Q_SLOTS:
     /** @reimplemented */
     void slotOk();
     void emitConfigChanged();
-
 };
-
 }
 
 #endif /* KONTACTCONFIGUREDIALOG_H */
-

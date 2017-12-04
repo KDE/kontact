@@ -45,7 +45,6 @@ IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
     settings()->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, false);
     profile()->setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
 
-
     const QFontInfo font(QFontDatabase().systemFont(QFontDatabase::GeneralFont));
     settings()->setFontFamily(QWebEngineSettings::StandardFont, font.family());
     settings()->setFontSize(QWebEngineSettings::DefaultFontSize, font.pixelSize());
@@ -53,7 +52,6 @@ IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
 
 IntroductionWebEnginePage::~IntroductionWebEnginePage()
 {
-
 }
 
 bool IntroductionWebEnginePage::acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame)

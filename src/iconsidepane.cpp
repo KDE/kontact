@@ -45,9 +45,7 @@ using namespace Kontact;
 #include <QLayout>
 #include <QPainter>
 
-namespace Kontact
-{
-
+namespace Kontact {
 class SelectionModel : public QItemSelectionModel
 {
     Q_OBJECT
@@ -58,26 +56,26 @@ public:
     }
 
 public Q_SLOTS:
-    void clear() override {
+    void clear() override
+    {
         // Don't allow the current selection to be cleared. QListView doesn't call to this method
         // nowadays, but just to cover of future change of implementation, since QTreeView does call
         // to this one when clearing the selection.
     }
 
-    void select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command) override {
+    void select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command) override
+    {
         // Don't allow the current selection to be cleared
-        if (!index.isValid() && (command & QItemSelectionModel::Clear))
-        {
+        if (!index.isValid() && (command & QItemSelectionModel::Clear)) {
             return;
         }
         QItemSelectionModel::select(index, command);
     }
 
-    void select(const QItemSelection &selection,
-                QItemSelectionModel::SelectionFlags command) override {
+    void select(const QItemSelection &selection, QItemSelectionModel::SelectionFlags command) override
+    {
         // Don't allow the current selection to be cleared
-        if (!selection.count() && (command & QItemSelectionModel::Clear))
-        {
+        if (!selection.count() && (command & QItemSelectionModel::Clear)) {
             return;
         }
         QItemSelectionModel::select(selection, command);
@@ -93,7 +91,8 @@ public:
     };
 
     explicit Model(Navigator *parentNavigator = nullptr)
-        : QStringListModel(parentNavigator), mNavigator(parentNavigator)
+        : QStringListModel(parentNavigator)
+        , mNavigator(parentNavigator)
     {
     }
 
@@ -123,8 +122,7 @@ public:
         return flags;
     }
 
-    QModelIndex index(int row, int column,
-                      const QModelIndex &parent = QModelIndex()) const override
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override
     {
         Q_UNUSED(parent);
         if (row < 0 || row >= pluginList.count()) {
@@ -167,23 +165,23 @@ private:
     Navigator *mNavigator = nullptr;
 };
 
-class SortFilterProxyModel
-    : public QSortFilterProxyModel
+class SortFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit SortFilterProxyModel(QObject *parent = nullptr): QSortFilterProxyModel(parent)
+    explicit SortFilterProxyModel(QObject *parent = nullptr) : QSortFilterProxyModel(parent)
     {
         setDynamicSortFilter(true);
         sort(0);
     }
+
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override
     {
-        KontactInterface::Plugin *leftPlugin =
-            static_cast<KontactInterface::Plugin *>(left.internalPointer());
-        KontactInterface::Plugin *rightPlugin =
-            static_cast<KontactInterface::Plugin *>(right.internalPointer());
+        KontactInterface::Plugin *leftPlugin
+            = static_cast<KontactInterface::Plugin *>(left.internalPointer());
+        KontactInterface::Plugin *rightPlugin
+            = static_cast<KontactInterface::Plugin *>(right.internalPointer());
 
         if (leftPlugin->weight() == rightPlugin->weight()) {
             //Optimize it
@@ -200,12 +198,12 @@ class Delegate : public QStyledItemDelegate
     Q_OBJECT
 public:
     explicit Delegate(Navigator *parentNavigator = nullptr)
-        : QStyledItemDelegate(parentNavigator), mNavigator(parentNavigator)
+        : QStyledItemDelegate(parentNavigator)
+        , mNavigator(parentNavigator)
     {
     }
 
-    void paint(QPainter *painter, const QStyleOptionViewItem &option,
-               const QModelIndex &index) const override
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override
     {
         if (!index.isValid() || !index.internalPointer()) {
             return;
@@ -214,8 +212,8 @@ public:
         QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
         const int height = QFontMetrics(painter->font()).height();
-        optionCopy.decorationSize =
-            mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize() + height) : QSize();
+        optionCopy.decorationSize
+            = mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize() + height) : QSize();
         optionCopy.textElideMode = Qt::ElideNone;
         QStyledItemDelegate::paint(painter, optionCopy, index);
     }
@@ -229,8 +227,8 @@ public:
         QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
 
-        optionCopy.decorationSize =
-            mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize()) : QSize();
+        optionCopy.decorationSize
+            = mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize()) : QSize();
         optionCopy.textElideMode = Qt::ElideNone;
         return QStyledItemDelegate::sizeHint(optionCopy, index);
     }
@@ -238,11 +236,12 @@ public:
 private:
     Navigator *mNavigator = nullptr;
 };
-
 }
 
 Navigator::Navigator(SidePaneBase *parent)
-    : QListView(parent), mSidePane(parent), mMainWindow(nullptr)
+    : QListView(parent)
+    , mSidePane(parent)
+    , mMainWindow(nullptr)
 {
     setViewport(new QWidget(this));
 
@@ -330,8 +329,8 @@ Navigator::Navigator(SidePaneBase *parent)
     mHideSideBarAction->setChecked(false);
     setHelpText(mHideSideBarAction, i18nc("@info:status", "Hide the icon sidebar"));
     mHideSideBarAction->setWhatsThis(
-                i18nc("@info:whatsthis",
-                       "Choose this option if you to hide the icon sidebar. Press F9 to unhide."));
+        i18nc("@info:whatsthis",
+              "Choose this option if you to hide the icon sidebar. Press F9 to unhide."));
     connect(mHideSideBarAction, &QAction::triggered, this, &Navigator::slotHideSideBarTriggered);
 
     QAction *sep = new QAction(this);
@@ -441,15 +440,15 @@ void Navigator::dragMoveEvent(QDragMoveEvent *event)
 
     const QModelIndex dropIndex = indexAt(event->pos());
 
-    if (!dropIndex.isValid() ||
-            !(dropIndex.model()->flags(dropIndex) & Qt::ItemIsEnabled)) {
+    if (!dropIndex.isValid()
+        || !(dropIndex.model()->flags(dropIndex) & Qt::ItemIsEnabled)) {
         event->setAccepted(false);
         return;
     } else {
-        const QModelIndex sourceIndex =
-            static_cast<const QSortFilterProxyModel *>(model())->mapToSource(dropIndex);
-        KontactInterface::Plugin *plugin =
-            static_cast<KontactInterface::Plugin *>(sourceIndex.internalPointer());
+        const QModelIndex sourceIndex
+            = static_cast<const QSortFilterProxyModel *>(model())->mapToSource(dropIndex);
+        KontactInterface::Plugin *plugin
+            = static_cast<KontactInterface::Plugin *>(sourceIndex.internalPointer());
         if (!plugin->canDecodeMimeData(event->mimeData())) {
             event->setAccepted(false);
             return;
@@ -470,10 +469,10 @@ void Navigator::dropEvent(QDropEvent *event)
     if (!dropIndex.isValid()) {
         return;
     } else {
-        const QModelIndex sourceIndex =
-            static_cast<const QSortFilterProxyModel *>(model())->mapToSource(dropIndex);
-        KontactInterface::Plugin *plugin =
-            static_cast<KontactInterface::Plugin *>(sourceIndex.internalPointer());
+        const QModelIndex sourceIndex
+            = static_cast<const QSortFilterProxyModel *>(model())->mapToSource(dropIndex);
+        KontactInterface::Plugin *plugin
+            = static_cast<KontactInterface::Plugin *>(sourceIndex.internalPointer());
         plugin->processDropEvent(event);
     }
 }
@@ -497,13 +496,13 @@ void Navigator::showEvent(QShowEvent *event)
 
 void Navigator::slotCurrentChanged(const QModelIndex &current)
 {
-    if (!current.isValid() || !current.internalPointer() ||
-            !(current.model()->flags(current) & Qt::ItemIsEnabled)) {
+    if (!current.isValid() || !current.internalPointer()
+        || !(current.model()->flags(current) & Qt::ItemIsEnabled)) {
         return;
     }
 
-    QModelIndex source =
-        static_cast<const QSortFilterProxyModel *>(current.model())->mapToSource(current);
+    QModelIndex source
+        = static_cast<const QSortFilterProxyModel *>(current.model())->mapToSource(current);
 
     Q_EMIT pluginActivated(static_cast<KontactInterface::Plugin *>(source.internalPointer()));
 }

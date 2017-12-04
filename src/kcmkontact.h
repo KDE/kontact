@@ -30,9 +30,7 @@ using namespace KPIM;
 
 #include <KService>
 
-namespace Kontact
-{
-
+namespace Kontact {
 class KcmKontact : public KPrefsModule
 {
     Q_OBJECT
@@ -62,7 +60,6 @@ private:
     KService::List mPluginList;
     KConfigSkeleton::ItemString *mItem = nullptr;
 };
-
 }
 
 #endif

@@ -42,7 +42,8 @@ using namespace Kontact;
 #include <KWindowConfig>
 
 AboutDialog::AboutDialog(KontactInterface::Core *core)
-    : KPageDialog(core), mCore(core)
+    : KPageDialog(core)
+    , mCore(core)
 {
     setWindowTitle(i18n("About Kontact"));
     setStandardButtons(QDialogButtonBox::Close);
@@ -76,8 +77,7 @@ void AboutDialog::addAboutPlugin(KontactInterface::Plugin *plugin)
     addAboutData(plugin->title(), plugin->icon(), plugin->aboutData());
 }
 
-void AboutDialog::addAboutData(const QString &title, const QString &icon,
-                               const KAboutData &about)
+void AboutDialog::addAboutData(const QString &title, const QString &icon, const KAboutData &about)
 {
     QIcon pixmap = QIcon::fromTheme(icon);
 
@@ -101,8 +101,8 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
         text += QLatin1String("</p>");
 
         if (!about.shortDescription().isEmpty()) {
-            text += QLatin1String("<p>") + about.shortDescription() + QLatin1String("<br>") +
-                    about.copyrightStatement() + QLatin1String("</p>");
+            text += QLatin1String("<p>") + about.shortDescription() + QLatin1String("<br>")
+                    +about.copyrightStatement() + QLatin1String("</p>");
         }
 
         QString home = about.homepage();
@@ -158,7 +158,8 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon,
             }
         }
         //krazy:excludeall=style (really need krazy conditional code sections)
-        text += i18n("<br /><br />\
+        text += i18n(
+            "<br /><br />\
                      <i>This Free Software product was improved as part of a commercial project:</i>\
                      <h3>Credits</h3>\
                      Project Kowi (March 2007 - )<br /><br />\
@@ -275,7 +276,7 @@ void AboutDialog::addLicenseText(const KAboutData &about)
         return;
     }
     QPixmap pixmap = KIconLoader::global()->loadIcon(QStringLiteral("help-about"),
-                     KIconLoader::Desktop, 48);
+                                                     KIconLoader::Desktop, 48);
 
     const QString title = i18n("%1 License", about.displayName());
 
@@ -295,4 +296,3 @@ void AboutDialog::addLicenseText(const KAboutData &about)
 
     topLayout->addWidget(textBrowser);
 }
-

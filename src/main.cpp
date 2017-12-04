@@ -59,7 +59,10 @@ public:
     {
         KLocalizedString::setApplicationDomain("kontact");
     }
-    ~KontactApp() {}
+
+    ~KontactApp()
+    {
+    }
 
     int activate(const QStringList &arguments, const QString &workingDir) override;
 
@@ -68,6 +71,7 @@ public:
         mMainWindow = window;
         KontactInterface::UniqueAppHandler::setMainWidget(window);
     }
+
     void setSessionRestored(bool restored)
     {
         mSessionRestored = restored;
@@ -81,8 +85,8 @@ private:
 static void listPlugins()
 {
     const KService::List offers = KServiceTypeTrader::self()->query(
-                                      QStringLiteral("Kontact/Plugin"),
-                                      QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
+        QStringLiteral("Kontact/Plugin"),
+        QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
     const KService::List::ConstIterator end(offers.end());
     for (KService::List::ConstIterator it = offers.begin(); it != end; ++it) {
         KService::Ptr service = (*it);
@@ -163,7 +167,7 @@ int main(int argc, char **argv)
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
     KontactApp app(argc, &argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-    
+
     KCrash::initialize();
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kontact"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc") << QStringLiteral("kontact_summaryrc"));

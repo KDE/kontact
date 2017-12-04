@@ -40,9 +40,7 @@ class IntroductionWebEngineView;
 typedef QList<KontactInterface::Plugin *> PluginList;
 typedef QList<QAction *> ActionPluginList;
 
-namespace Kontact
-{
-
+namespace Kontact {
 class AboutDialog;
 class SidePaneBase;
 
@@ -59,11 +57,11 @@ public:
     {
         return mPlugins;
     }
+
     void setInitialActivePluginModule(const QString &);
 
     static bool pluginActionWeightLessThan(const QAction *left, const QAction *right);
-    static bool pluginWeightLessThan(const KontactInterface::Plugin *left,
-                                     const KontactInterface::Plugin *right);
+    static bool pluginWeightLessThan(const KontactInterface::Plugin *left, const KontactInterface::Plugin *right);
     void showHideSideBar(bool show);
 
 public Q_SLOTS:
@@ -148,7 +146,6 @@ private:
     int mSaveSideBarWidth = 0;
     QAction *mShowHideAction = nullptr;
 };
-
 }
 
 Q_DECLARE_METATYPE(KontactInterface::Plugin *)

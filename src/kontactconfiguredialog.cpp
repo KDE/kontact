@@ -64,7 +64,6 @@ void KontactConfigureDialog::emitConfigChanged()
             qCritical() << "Communication problem with KNotes. "
                         << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
         }
-
     }
 }
 

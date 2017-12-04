@@ -39,10 +39,10 @@ using namespace Kontact;
 
 extern "C"
 {
-    Q_DECL_EXPORT KCModule *create_kontactconfig(QWidget *parent, const char *)
-    {
-        return new KcmKontact(parent);
-    }
+Q_DECL_EXPORT KCModule *create_kontactconfig(QWidget *parent, const char *)
+{
+    return new KcmKontact(parent);
+}
 }
 
 KcmKontact::KcmKontact(QWidget *parent)
@@ -52,12 +52,12 @@ KcmKontact::KcmKontact(QWidget *parent)
     QBoxLayout *pluginStartupLayout = new QHBoxLayout();
     topLayout->addItem(pluginStartupLayout);
 
-    KPrefsWidBool *forceStartupPlugin =
-        addWidBool(Prefs::self()->forceStartupPluginItem(), this);
+    KPrefsWidBool *forceStartupPlugin
+        = addWidBool(Prefs::self()->forceStartupPluginItem(), this);
     pluginStartupLayout->addWidget(forceStartupPlugin->checkBox());
 
-    PluginSelection *selection =
-        new PluginSelection(Prefs::self()->forcedStartupPluginItem(), this);
+    PluginSelection *selection
+        = new PluginSelection(Prefs::self()->forcedStartupPluginItem(), this);
     addWid(selection);
 
     pluginStartupLayout->addWidget(selection->comboBox());
@@ -120,8 +120,8 @@ KComboBox *PluginSelection::comboBox() const
 void PluginSelection::readConfig()
 {
     const KService::List offers = KServiceTypeTrader::self()->query(
-                                      QStringLiteral("Kontact/Plugin"),
-                                      QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
+        QStringLiteral("Kontact/Plugin"),
+        QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
 
     int activeComponent = 0;
     mPluginCombo->clear();
@@ -147,12 +147,14 @@ void PluginSelection::readConfig()
 
 void PluginSelection::writeConfig()
 {
-    KService::Ptr ptr =  mPluginList.at(mPluginCombo->currentIndex());
+    KService::Ptr ptr = mPluginList.at(mPluginCombo->currentIndex());
     mItem->setValue(ptr->property(QStringLiteral("X-KDE-PluginInfo-Name")).toString());
 }
 
 QList<QWidget *> PluginSelection::widgets() const
 {
-    const QList<QWidget *> widgets{mPluginCombo};
+    const QList<QWidget *> widgets{
+        mPluginCombo
+    };
     return widgets;
 }

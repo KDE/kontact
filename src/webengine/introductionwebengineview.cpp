@@ -32,7 +32,6 @@ IntroductionWebEngineView::IntroductionWebEngineView(QWidget *parent)
 
 IntroductionWebEngineView::~IntroductionWebEngineView()
 {
-
 }
 
 void IntroductionWebEngineView::contextMenuEvent(QContextMenuEvent *)

@@ -27,17 +27,14 @@
 
 #include <KPageDialog>
 
-namespace KontactInterface
-{
+namespace KontactInterface {
 class Core;
 class Plugin;
 }
 
 class KAboutData;
 
-namespace Kontact
-{
-
+namespace Kontact {
 class AboutDialog : public KPageDialog
 {
     Q_OBJECT
@@ -48,8 +45,7 @@ public:
 protected:
     void addAboutPlugin(KontactInterface::Plugin *plugin);
 
-    void addAboutData(const QString &title, const QString &icon,
-                      const KAboutData &about);
+    void addAboutData(const QString &title, const QString &icon, const KAboutData &about);
 
     void addLicenseText(const KAboutData &about);
 
@@ -59,7 +55,6 @@ private:
     void saveSize();
     KontactInterface::Core *mCore = nullptr;
 };
-
 }
 
 #endif
