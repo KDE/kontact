@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Kontact
 Name[af]=Kontact
-Name[ar]=Kontact
+Name[ar]=متراسلك
 Name[ast]=Kontact
 Name[bg]=Kontact
 Name[br]=Kontact
@@ -73,7 +73,7 @@ Type=Application
 Icon=kontact
 GenericName=Personal Information Manager
 GenericName[af]=Personlike informasie bestuurder
-GenericName[ar]=مدير المعلومات الشخصية
+GenericName[ar]=مدير المعلومات الشّخصيّة
 GenericName[bg]=Лична информация
 GenericName[bs]=Upravljanje osobnim podacima
 GenericName[ca]=Gestor de la informació personal
