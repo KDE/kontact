@@ -108,7 +108,7 @@ public:
 
 protected:
 
-    virtual ~ServiceStarter()
+    ~ServiceStarter() override
     {
     }
 
