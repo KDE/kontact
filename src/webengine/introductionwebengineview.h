@@ -27,7 +27,7 @@ class IntroductionWebEngineView : public QWebEngineView
     Q_OBJECT
 public:
     explicit IntroductionWebEngineView(QWidget *parent = nullptr);
-    ~IntroductionWebEngineView();
+    ~IntroductionWebEngineView() override;
 
 protected:
     void contextMenuEvent(QContextMenuEvent *ev) override;

@@ -47,7 +47,7 @@ class PluginSelection : public KPrefsWid
 
 public:
     PluginSelection(KConfigSkeleton::ItemString *item, QWidget *parent);
-    ~PluginSelection();
+    ~PluginSelection() override;
 
     void readConfig() override;
     void writeConfig() override;

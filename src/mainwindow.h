@@ -51,7 +51,7 @@ class KONTACT_EXPORT MainWindow : public KontactInterface::Core
 
 public:
     MainWindow();
-    ~MainWindow();
+    ~MainWindow() override;
 
     PluginList pluginList() const override
     {

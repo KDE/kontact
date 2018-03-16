@@ -29,7 +29,7 @@ class KontactConfigureDialog : public KSettings::Dialog
 
 public:
     explicit KontactConfigureDialog(QWidget *parent = nullptr);
-    ~KontactConfigureDialog();
+    ~KontactConfigureDialog() override;
 
 protected:
     QSize sizeHint() const override;
