@@ -36,6 +36,7 @@ using namespace Kontact;
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QHBoxLayout>
+#include <QStandardItemModel>
 
 extern "C"
 {
@@ -119,6 +120,8 @@ KComboBox *PluginSelection::comboBox() const
 
 void PluginSelection::readConfig()
 {
+    const KConfigGroup grp(Prefs::self()->config(), "Plugins");
+
     const KService::List offers = KServiceTypeTrader::self()->query(
         QStringLiteral("Kontact/Plugin"),
         QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
@@ -136,6 +139,15 @@ void PluginSelection::readConfig()
         }
         mPluginCombo->addItem(service->name());
         mPluginList.append(service);
+
+        // skip disabled plugins
+        const QString pluginName = service->property(QStringLiteral("X-KDE-PluginInfo-Name")).toString();
+        if (!grp.readEntry(pluginName + QStringLiteral("Enabled"), false)) {
+            const QStandardItemModel *qsm = qobject_cast<QStandardItemModel *>(mPluginCombo->model());
+            if (qsm) {
+                qsm->item(mPluginCombo->count()-1, 0)->setEnabled(false);
+            }
+        }
 
         if (service->property(QStringLiteral("X-KDE-PluginInfo-Name")).toString() == mItem->value()) {
             activeComponent = mPluginList.count() - 1;
