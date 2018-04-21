@@ -209,17 +209,39 @@ public:
             return;
         }
 
-        QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
-        optionCopy.decorationPosition = QStyleOptionViewItem::Top;
+        QStyleOptionViewItem opt(*static_cast<const QStyleOptionViewItem *>(&option));
+        //optionCopy.state |= QStyle::State_Active;
+        opt.decorationPosition = QStyleOptionViewItem::Top;
 #if QT_VERSION < QT_VERSION_CHECK(5,9,0)
         const int height = QFontMetrics(painter->font()).height();
 #else
         const int height = 0;
 #endif
-        optionCopy.decorationSize
-            = mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize() + height) : QSize();
-        optionCopy.textElideMode = Qt::ElideNone;
-        QStyledItemDelegate::paint(painter, optionCopy, index);
+        painter->save();
+
+        mNavigator->style()->drawControl(QStyle::CE_ItemViewItem, &opt, painter);
+
+        if (mNavigator->showIcons() && mNavigator->showText()) {
+            opt.icon = index.data(Qt::DecorationRole).value<QIcon>();
+            const int size = mNavigator->iconSize();
+            const auto spacing = mNavigator->style()->pixelMetric(QStyle::PM_FocusFrameHMargin);
+            const int textHeight = painter->fontMetrics().height();
+
+            const int y = opt.rect.y() + (opt.rect.height() - size - spacing - textHeight) / 2;
+
+            opt.icon.paint(painter, QRect(opt.rect.x(), y, opt.rect.width(), size), Qt::AlignCenter, QIcon::Normal, QIcon::On);
+            painter->drawText(QRect(opt.rect.x(), y + size + spacing, opt.rect.width(), textHeight),
+                              index.data(Qt::DisplayRole).toString(), { Qt::AlignCenter });
+
+        } else if (mNavigator->showIcons()) {
+            opt.icon = index.data(Qt::DecorationRole).value<QIcon>();
+            const int size = mNavigator->iconSize() + height;
+            opt.decorationSize = QSize(size, size);
+            opt.icon.paint(painter, opt.rect, Qt::AlignCenter, QIcon::Normal, QIcon::On);
+        } else if (mNavigator->showText()) {
+            painter->drawText(opt.rect, index.data(Qt::DisplayRole).toString(), { Qt::AlignCenter });
+        }
+        painter->restore();
     }
 
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override
