@@ -356,7 +356,7 @@ Navigator::Navigator(SidePaneBase *parent)
     setHelpText(mHideSideBarAction, i18nc("@info:status", "Hide the icon sidebar"));
     mHideSideBarAction->setWhatsThis(
         i18nc("@info:whatsthis",
-              "Choose this option if you to hide the icon sidebar. Press F9 to unhide."));
+              "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."));
     connect(mHideSideBarAction, &QAction::triggered, this, &Navigator::slotHideSideBarTriggered);
 
     QAction *sep = new QAction(this);
