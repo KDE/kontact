@@ -1,4 +1,4 @@
-set(KDEPIM_VERSION_NUMBER "5.8.40")
+set(KDEPIM_VERSION_NUMBER "5.8.80")
 cmake_minimum_required(VERSION 3.1)
 project(kontact VERSION ${KDEPIM_VERSION_NUMBER})
 
