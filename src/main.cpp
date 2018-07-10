@@ -159,10 +159,6 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
 
 int main(int argc, char **argv)
 {
-    //Fix QtWebEngine + wayland
-#if defined(Q_OS_UNIX) && QT_VERSION < QT_VERSION_CHECK(5, 9, 0)
-    qputenv("QT_QPA_PLATFORM", "xcb");
-#endif
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
     KontactApp app(argc, &argv);
