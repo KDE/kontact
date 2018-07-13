@@ -28,6 +28,7 @@
   <Action name="action_sync"/>
   <Merge/>
 </ToolBar>
+<Merge/>
 <ToolBar position="Top" noMerge="1" hidden="true" name="navigatorToolBar"><text>Navigator</text>
   <ActionList name="navigator_actionlist" />
 </ToolBar>
