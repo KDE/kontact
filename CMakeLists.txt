@@ -21,7 +21,7 @@ include(ECMGeneratePriFile)
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
-include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(ECMAddAppIcon)
 include(ECMQtDeclareLoggingCategory)
 include(ECMCoverageOption)
@@ -68,13 +68,7 @@ find_package(KF5KdepimDBusInterfaces ${KDEPIM_APPS_LIB_VERSION_LIB} CONFIG REQUI
 
 
 include_directories(${kontact_SOURCE_DIR} ${kontact_BINARY_DIR})
-add_definitions(-DQT_USE_QSTRINGBUILDER)
-add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
-
-
-add_definitions(-DQT_NO_CAST_FROM_ASCII)
-add_definitions(-DQT_NO_CAST_TO_ASCII)
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DTRANSLATION_DOMAIN=\"kontact\")
 
