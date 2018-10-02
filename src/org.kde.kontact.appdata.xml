@@ -3,6 +3,7 @@
   <id>org.kde.kontact.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
+  <developer_name>The KDE Community</developer_name>
   <name>Kontact</name>
   <name xml:lang="ar">متراسلك</name>
   <name xml:lang="ast">Kontact</name>
@@ -40,7 +41,7 @@
   <name xml:lang="x-test">xxKontactxx</name>
   <name xml:lang="zh-CN">Kontact</name>
   <name xml:lang="zh-TW">個人資訊管理_Kontact</name>
-  <summary>An integrated solution to your personal information management</summary>
+  <summary>Handle all your emails, calendars, contacts and more within a single window</summary>
   <summary xml:lang="ar">حلّ متكامل لإدارة المعلومات الشّخصيّة</summary>
   <summary xml:lang="ca">Una solució integrada per a la gestió de la vostra informació personal</summary>
   <summary xml:lang="ca-valencia">Una solució integrada per a la gestió de la vostra informació personal</summary>
@@ -66,10 +67,19 @@
   <summary xml:lang="zh-CN">个人信息管理的集成解决方案</summary>
   <description>
     <p>
-      Kontact is the integrated solution to your personal information management (PIM) needs.
-      It combines well-known KDE applications like KMail, KOrganizer and KAddressBook into a single interface to provide easy access to mail,
-      scheduling, address book and other PIM functionality.
+    Handle your email, calendar, contacts and other personal data with Kontact. Kontact groups everything together in one place and helps you manage your communications, organize your day and work with your colleagues.
     </p>
+    <p>
+    Kontact unifies several personal information management applications into a single window to give you the best possible experience and boost your productivity. With Kontact you can use all the tools of our powerful suite in one place. Unlike proprietary web applications we value your privacy and support open standards, which is why Kontact gives you full control over your data. You can of course also access your data offline if you want to.
+    </p>
+    <p>Kontact consists of several well-integrated components:</p>
+    <ul>
+        <li>KMail - a powerful and feature-rich email client with support for a wide range of email providers.</li>
+        <li>KOrganizer - a calendar and scheduling component of Kontact which is able to work with NextCloud, Kolab, Google Calendar and other calendaring services.</li>
+        <li>KAddressBook - an easy to use contact management tool that can synchronize contacts with many popular services.</li>
+        <li>Akregator - a news reader with powerful search and archiving functionality.</li>
+        <li>KNotes - a simple program that lets you write the computer equivalent of sticky notes.</li>
+    </ul>
     <p xml:lang="ar">«متراسلك» هو حلّ متكامل لاحتياجات إدارة معلوماتك الشّخصيّة (PIM). يضمّ الطّقم برمجيّات كدي المعروفة مثل «بريدك»، و«منظّمك» و«دفتر عناوينك» في واجهة واحدة لتوفير نفاذ أسهل إلى البريد، والجدولة ودفتر العناوين وأيّة وظائف PIM أخرى.</p>
     <p xml:lang="ca">El Kontact és la solució integral per a la gestió de la vostra informació personal (PIM) que necessiteu. Combina aplicacions KDE conegudes com el KMail, KOrganizer i KAddressBook en una única interfície per a facilitar l'accés al correu, la planificació, la llibreta d'adreces i altres funcionalitats del PIM.</p>
     <p xml:lang="ca-valencia">El Kontact és la solució integral per a la gestió de la vostra informació personal (PIM) que necessiteu. Combina aplicacions KDE conegudes com el KMail, KOrganizer i KAddressBook en una única interfície per a facilitar l'accés al correu, la planificació, la llibreta d'adreces i altres funcionalitats del PIM.</p>
@@ -101,12 +111,28 @@
     <p xml:lang="zh-CN">Kontact 是您的个人信息管理（PIM）的集成化解决方案。他组合了知名的 KDE 应用程序，例如 KMail，KOrgranizer 和 KAddressBook 到一个界面当中，从而提供对邮件，计划，地址簿和其他个人信息管理功能的简单访问。</p>
     <p xml:lang="zh-TW">Kontact 是一套個人資訊管理（PIM）的整合解決方案。它將用的 KDE 應用程式，如 KMail, KOrganizer, KAddressBook 等，結合在單一介面中，讓您可以輕鬆處理郵件、排程、通訊錄等等功能。</p>
   </description>
-  <url type="homepage">http://www.kontact.org/</url>
+  <url type="homepage">https://www.kontact.org/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kontact</url>
-  <url type="help">http://docs.kde.org/stable/en/kdepim/kontact/index.html</url>
+  <url type="help">https://docs.kde.org/stable/en/kdepim/kontact/index.html</url>
   <screenshots>
     <screenshot type="default">
-      <image>http://kde.org/images/screenshots/kontact.png</image>
+      <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-summary.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>KMail, the email component of Kontact.</caption>
+      <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-kmail.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Organize your time, manage events, create todos or schedule meetings with KOrganizer.</caption>
+      <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-korganizer.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>KAddressBook provides an easy way to manage your contacts.</caption>
+      <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-kaddressbook.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Stay on top of the new with Akregator, our news reader.</caption>
+      <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-akregator.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
