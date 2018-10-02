@@ -49,7 +49,8 @@ install(TARGETS kontactprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMEL
 
 set(kontact_bin_SRCS main.cpp kontact_debug.cpp)
 
-ecm_add_app_icon(kontact_bin_SRCS ICONS ${CMAKE_CURRENT_SOURCE_DIR}/icons/48-apps-kontact.svg)
+file(GLOB icons "${CMAKE_CURRENT_SOURCE_DIR}/icons/*-apps-kontact.png")
+ecm_add_app_icon(kontact_bin_SRCS ICONS ${icons})
 
 add_executable(kontact_bin ${kontact_bin_SRCS})
 
