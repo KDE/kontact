@@ -51,6 +51,7 @@
   <summary xml:lang="ca">Gestiona tots els correus electrònics, calendaris, contactes i més en una sola finestra</summary>
   <summary xml:lang="nl">Behandel al uw e-mails, agenda's, contactpersonen en meer in een enkel venster</summary>
   <summary xml:lang="pt">Trate de todo o seu correio, calendários, contactos e mais ainda dentro de uma única janela</summary>
+  <summary xml:lang="sv">Hantera all e-post, kalendrar, kontakter med mera inne i ett enda fönster</summary>
   <summary xml:lang="uk">Єдине вікно для роботи із вашою електронною поштою, календарями, записами контактів тощо</summary>
   <summary xml:lang="x-test">xxHandle all your emails, calendars, contacts and more within a single windowxx</summary>
   <description>
@@ -72,6 +73,7 @@
     <p xml:lang="ca">El Kontact consta de diversos components ben integrats:</p>
     <p xml:lang="nl">Kontact bestaat uit verschillende goed geïntegreerde componenten:</p>
     <p xml:lang="pt">O Kontact consiste em vários componentes bem integrados:</p>
+    <p xml:lang="sv">Kontact består av flera välintegrerade komponenter:</p>
     <p xml:lang="uk">Kontact складається із декількох добре інтегрованих компонентів:</p>
     <p xml:lang="x-test">xxKontact consists of several well-integrated components:xx</p>
     <ul>
@@ -94,12 +96,14 @@
       <li>Akregator - a news reader with powerful search and archiving functionality.</li>
       <li xml:lang="ca">Akregator: un lector de notícies amb una potent funcionalitat de cerca i arxiu.</li>
       <li xml:lang="pt">Akregator - um leitor de notícias com funcionalidades poderosas de pesquisa e arquivo.</li>
+      <li xml:lang="sv">Akregator: En nyhetsläsare med kraftfull sök- och arkiveringsfunktionalitet.</li>
       <li xml:lang="uk">Akregator — програми для читання новин із потужними можливостями із пошуку та архівування даних.</li>
       <li xml:lang="x-test">xxAkregator - a news reader with powerful search and archiving functionality.xx</li>
       <li>KNotes - a simple program that lets you write the computer equivalent of sticky notes.</li>
       <li xml:lang="ca">KNotes: un programa senzill que permet escriure l'equivalent a l'ordinador a les notes adhesives.</li>
       <li xml:lang="nl">KNotes - een eenvoudig programma dat u het computerequivalent van plaknotities laat schrijven.</li>
       <li xml:lang="pt">KNotes - um programa simples que lhe permite escrever o equivalente no computador às 'notas autocolantes'.</li>
+      <li xml:lang="sv">Knotes: Ett enkelt program som låter dig skriva datorns motsvarighet till klisterlappar.</li>
       <li xml:lang="uk">KNotes — простої програми, яка надає вам змогу створювати комп'ютеризований еквівалент липких папірців із нотатками.</li>
       <li xml:lang="x-test">xxKNotes - a simple program that lets you write the computer equivalent of sticky notes.xx</li>
     </ul>
@@ -116,6 +120,7 @@
       <caption xml:lang="ca">El KMail, el component de correu electrònic del Kontact.</caption>
       <caption xml:lang="nl">KMail, de e-mailcomponent van Kontact.</caption>
       <caption xml:lang="pt">KMail, o componente de e-mail do Kontact.</caption>
+      <caption xml:lang="sv">Kmail: E-postkomponenten i Kontact.</caption>
       <caption xml:lang="uk">KMail — компонент Kontact для роботи з електронною поштою.</caption>
       <caption xml:lang="x-test">xxKMail, the email component of Kontact.xx</caption>
       <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-kmail.png</image>
@@ -125,6 +130,7 @@
       <caption xml:lang="ca">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu pendents o programeu reunions amb el KOrganizer.</caption>
       <caption xml:lang="nl">Organiseer uw tijd, beheer uw afspraken, maak todo's of plan meetings met KOrganizer.</caption>
       <caption xml:lang="pt">Organize o seu tempo, faça a gestão dos eventos, crie tarefas ou agende reuniões com o KOrganizer.</caption>
+      <caption xml:lang="sv">Organisera din tid, hantera händelser, skapa uppgifter eller schemalägg möten med Korganizer.</caption>
       <caption xml:lang="uk">Упорядковуйте ваш графік, керуйте записами подій, створюйте записи завдань та плануйте зустрічі за допомогою KOrganizer.</caption>
       <caption xml:lang="x-test">xxOrganize your time, manage events, create todos or schedule meetings with KOrganizer.xx</caption>
       <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-korganizer.png</image>
@@ -134,6 +140,7 @@
       <caption xml:lang="ca">El KAddressBook proporciona una manera fàcil de gestionar els vostres contactes.</caption>
       <caption xml:lang="nl">KAddressBook biedt een gemakkelijke manier om uw contactpersonen te beheren.</caption>
       <caption xml:lang="pt">O KAddressBook oferece uma forma simples de gerir os seus contactos.</caption>
+      <caption xml:lang="sv">Adressboken tillhandahåller ett enkelt sätt att hantera dina kontakter.</caption>
       <caption xml:lang="uk">KAddressBook — надає у ваше розпорядження простий спосіб керувати вашими записами контактів.</caption>
       <caption xml:lang="x-test">xxKAddressBook provides an easy way to manage your contacts.xx</caption>
       <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-kaddressbook.png</image>
@@ -143,6 +150,7 @@
       <caption xml:lang="ca">Mantingueu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies.</caption>
       <caption xml:lang="nl">Sta bovenop het nieuws met Akregator, onze nieuwslezer.</caption>
       <caption xml:lang="pt">Fique a par das novidades com o Akregator, o nosso leitor de notícias.</caption>
+      <caption xml:lang="sv">Håll reda på nyheter med Akregator, vår nyhetsläsare.</caption>
       <caption xml:lang="uk">Залишайтеся на вістрі подій разом із Akregator, нашою програмою для читання новин.</caption>
       <caption xml:lang="x-test">xxStay on top of the new with Akregator, our news reader.xx</caption>
       <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-akregator.png</image>
