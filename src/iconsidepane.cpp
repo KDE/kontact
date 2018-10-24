@@ -212,11 +212,7 @@ public:
         QStyleOptionViewItem opt(*static_cast<const QStyleOptionViewItem *>(&option));
         //optionCopy.state |= QStyle::State_Active;
         opt.decorationPosition = QStyleOptionViewItem::Top;
-#if QT_VERSION < QT_VERSION_CHECK(5,9,0)
-        const int height = QFontMetrics(painter->font()).height();
-#else
         const int height = 0;
-#endif
         painter->save();
 
         mNavigator->style()->drawControl(QStyle::CE_ItemViewItem, &opt, painter);
