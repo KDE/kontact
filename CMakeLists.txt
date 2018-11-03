@@ -1,4 +1,4 @@
-set(KDEPIM_VERSION_NUMBER "5.9.40")
+set(KDEPIM_VERSION_NUMBER "5.9.80")
 cmake_minimum_required(VERSION 3.1)
 project(kontact VERSION ${KDEPIM_VERSION_NUMBER})
 
@@ -27,7 +27,7 @@ include(ECMQtDeclareLoggingCategory)
 
 
 # Do NOT add quote
-set(KDEPIM_DEV_VERSION alpha)
+set(KDEPIM_DEV_VERSION beta)
 
 # add an extra space
 if(DEFINED KDEPIM_DEV_VERSION)
