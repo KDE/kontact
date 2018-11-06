@@ -91,7 +91,7 @@ class ServiceStarter : public KDBusServiceStarter
 {
 public:
 
-    virtual int startServiceFor(const QString &serviceType, const QString &constraint = QString(), QString *error = nullptr, QString *dbusService = nullptr, int flags = 0) override;
+    int startServiceFor(const QString &serviceType, const QString &constraint = QString(), QString *error = nullptr, QString *dbusService = nullptr, int flags = 0) override;
 
     // We need to keep track of the plugins which are loaded, so pass a pointer
     // to the plugin list here. Be sure to reset it back to 0 with
