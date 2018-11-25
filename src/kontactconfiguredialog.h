@@ -35,10 +35,10 @@ protected:
     QSize sizeHint() const override;
 
 protected Q_SLOTS:
-    /** @reimplemented */
+    /** reimplemented */
     void slotApply();
 
-    /** @reimplemented */
+    /** reimplemented */
     void slotOk();
     void emitConfigChanged();
 };

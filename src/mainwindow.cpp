@@ -203,7 +203,7 @@ void MainWindow::waitForKSycoca()
         if (KSycoca::isAvailable()) {
             return;
         }
-        // When KSycoca is not availabe that usually means Kontact
+        // When KSycoca is not available that usually means Kontact
         // was started before kded is done with it's first run
         // we want to block Kontact execution to
         // give Kded time to initialize and create the
