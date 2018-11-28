@@ -371,7 +371,7 @@ Navigator::Navigator(SidePaneBase *parent)
     setViewMode(ListMode);
     setItemDelegate(new Delegate(this));
     mModel = new Model(this);
-    SortFilterProxyModel *sortFilterProxyModel = new SortFilterProxyModel;
+    SortFilterProxyModel *sortFilterProxyModel = new SortFilterProxyModel(this);
     sortFilterProxyModel->setSourceModel(mModel);
     setModel(sortFilterProxyModel);
     setSelectionModel(new SelectionModel(sortFilterProxyModel, this));
