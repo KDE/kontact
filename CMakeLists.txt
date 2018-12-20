@@ -2,8 +2,8 @@ set(KDEPIM_VERSION_NUMBER "5.10.40")
 cmake_minimum_required(VERSION 3.5)
 project(kontact VERSION ${KDEPIM_VERSION_NUMBER})
 
-set(KF5_VERSION "5.53.0")
-find_package(ECM ${KF5_VERSION} REQUIRED NO_MODULE)
+set(KF5_MIN_VERSION "5.53.0")
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 include(ECMInstallIcons)
@@ -50,12 +50,12 @@ set(LIBKDEPIM_LIB_VERSION_LIB "5.10.40")
 set(LIBGRANTLEETHEME_LIB_VERSION_LIB "5.10.40")
 set(KDEPIM_APPS_LIB_VERSION_LIB "5.10.40")
 # Find KF5 package
-find_package(KF5DBusAddons ${KF5_VERSION} CONFIG REQUIRED)
-find_package(KF5DocTools ${KF5_VERSION} REQUIRED)
-find_package(KF5KCMUtils ${KF5_VERSION} CONFIG REQUIRED)
-find_package(KF5Crash ${KF5_VERSION} REQUIRED)
-find_package(KF5WindowSystem ${KF5_VERSION} REQUIRED)
-find_package(KF5IconThemes ${KF5_VERSION} REQUIRED)
+find_package(KF5DBusAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5DocTools ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5KCMUtils ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5Crash ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5WindowSystem ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5IconThemes ${KF5_MIN_VERSION} REQUIRED)
 
 
 # Find KdepimLibs Package
