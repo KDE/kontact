@@ -334,7 +334,7 @@ void MainWindow::initWidgets()
 {
     QWidget *mTopWidget = new QWidget(this);
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
     mTopWidget->setLayout(layout);
     setCentralWidget(mTopWidget);
@@ -385,7 +385,7 @@ void MainWindow::initAboutScreen()
 {
     QWidget *introbox = new QWidget(mPartsStack);
     QHBoxLayout *introboxHBoxLayout = new QHBoxLayout(introbox);
-    introboxHBoxLayout->setMargin(0);
+    introboxHBoxLayout->setContentsMargins(0, 0, 0, 0);
     mPartsStack->addWidget(introbox);
     mPartsStack->setCurrentWidget(introbox);
     mIntroPart = new IntroductionWebEngineView(introbox);
