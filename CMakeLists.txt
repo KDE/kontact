@@ -74,6 +74,10 @@ if (${Qt5Widgets_VERSION} STRGREATER "5.13")
 else()
    add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 endif()
+if (${KF5Config_VERSION} STRGREATER "5.56.0")
+        add_definitions(-DQT_NO_FOREACH)
+        MESSAGE(STATUS "compile without foreach")
+endif()
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kontact\")
 
