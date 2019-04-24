@@ -426,6 +426,8 @@ void MainWindow::setupActions()
     mShowHideAction = new QAction(QIcon::fromTheme(QStringLiteral("zoom-fit-width")),
                                   i18nc("@action:inmenu", "Hide/Show the component sidebar"), this);
     setHelpText(mShowHideAction, i18nc("@info:status", "Hide/Show the component sidebar"));
+    mShowHideAction->setCheckable(true);
+    mShowHideAction->setChecked(Prefs::self()->sideBarOpen());
     mShowHideAction->setWhatsThis(
         i18nc("@info:whatsthis",
               "Allows you to show or hide the component sidebar as desired."));

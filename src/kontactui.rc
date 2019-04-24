@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui version="416" name="kontact" >
+<gui version="417" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -10,6 +10,10 @@
     <Merge/>
   </Menu>
   <Merge />
+  <Menu noMerge="1" name="view">
+     <text>&amp;View</text>
+     <Action name="hide_show_sidebar"/>
+  </Menu>
   <Menu noMerge="1" name="settings">
      <text>&amp;Settings</text>
      <Merge name="StandardToolBarMenuHandler" />
