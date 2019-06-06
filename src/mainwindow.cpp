@@ -786,8 +786,13 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
         createGUI(plugin->part());
         plugin->shortcutChanged();
 
-        setCaption(i18nc("@title:window Plugin dependent window title",
-                         "%1 - Kontact", plugin->title()));
+        // KParts's guiActivateEvent emptied the caption when leaving the old part,
+        // and only some parts (like kmail) set it in guiActivateEvent when being activated.
+        // For others, this is the default caption:
+        if (windowTitle().isEmpty()) {
+            setCaption(i18nc("@title:window Plugin dependent window title",
+                        "%1 - Kontact", plugin->title()));
+        }
 
         if (newAction) {
             mNewActions->setIcon(newAction->icon());
