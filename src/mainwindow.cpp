@@ -47,7 +47,6 @@ using namespace Kontact;
 #include <KActionCollection>
 #include <KActionMenu>
 #include <KConfigGroup>
-#include <KDBusServiceStarter>
 #include "kontact_debug.h"
 #include <KEditToolBar>
 #include <KHelpMenu>
@@ -82,61 +81,6 @@ using namespace Kontact;
 // Define the maximum time Kontact waits for KSycoca to become available.
 static const int KSYCOCA_WAIT_TIMEOUT = 10;
 
-// This class extends the normal KDBusServiceStarter.
-//
-// When a service start is requested, it asks all plugins
-// to create their dbus interfaces in addition to the normal
-// way of starting a service.
-class ServiceStarter : public KDBusServiceStarter
-{
-public:
-
-    int startServiceFor(const QString &serviceType, const QString &constraint = QString(), QString *error = nullptr, QString *dbusService = nullptr, int flags = 0) override;
-
-    // We need to keep track of the plugins which are loaded, so pass a pointer
-    // to the plugin list here. Be sure to reset it back to 0 with
-    // setPluginList() as soon as the list gets destroyed.
-    explicit ServiceStarter(PluginList *pluginList)
-    {
-        mPlugins = pluginList;
-    }
-
-    static void setPluginList(PluginList *pluginList)
-    {
-        mPlugins = pluginList;
-    }
-
-protected:
-
-    ~ServiceStarter() override
-    {
-    }
-
-    static PluginList *mPlugins;
-};
-
-PluginList *ServiceStarter::mPlugins = nullptr;
-
-int ServiceStarter::startServiceFor(const QString &serviceType, const QString &constraint, QString *error, QString *dbusService, int flags)
-{
-    if (mPlugins) {
-        const PluginList::ConstIterator end = mPlugins->constEnd();
-        for (PluginList::ConstIterator it = mPlugins->constBegin(); it != end; ++it) {
-            if ((*it)->createDBUSInterface(serviceType)) {
-                qCDebug(KONTACT_LOG) << "found interface for" << serviceType;
-                if (dbusService) {
-                    *dbusService = (*it)->registerClient();
-                }
-                return 0;
-            }
-        }
-    }
-
-    qCDebug(KONTACT_LOG) << "Didn't find dbus interface, falling back to external process";
-    return KDBusServiceStarter::startServiceFor(serviceType, constraint,
-                                                error, dbusService, flags);
-}
-
 MainWindow::MainWindow()
     : KontactInterface::Core()
     , mSplitter(nullptr)
@@ -145,10 +89,6 @@ MainWindow::MainWindow()
     , mReallyClose(false)
     , mSaveSideBarWidth(10)
 {
-    // The ServiceStarter created here will be deleted by the KDbusServiceStarter
-    // base class, which is a global static.
-    new ServiceStarter(&mPlugins);
-
     QDBusConnection::sessionBus().registerObject(
         QStringLiteral("/KontactInterface"), this, QDBusConnection::ExportScriptableSlots);
 
@@ -279,7 +219,6 @@ MainWindow::~MainWindow()
     }
 
     createGUI(nullptr);
-    ServiceStarter::setPluginList(nullptr);
     saveSettings();
 
     Prefs::self()->save();
