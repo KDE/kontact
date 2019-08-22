@@ -139,7 +139,7 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
             // --iconify is needed in kontact, although kstart can do that too,
             // because kstart returns immediately so it's too early to talk D-Bus to the app.
             if (parser.isSet(QStringLiteral("iconify"))) {
-                KWindowSystem::minimizeWindow(mMainWindow->winId(), false /*no animation*/);
+                KWindowSystem::minimizeWindow(mMainWindow->winId());
             }
         } else {
             if (!moduleName.isEmpty()) {
