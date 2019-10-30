@@ -269,6 +269,7 @@ Navigator::Navigator(SidePaneBase *parent)
 
     setVerticalScrollMode(ScrollPerPixel);
     setHorizontalScrollMode(ScrollPerPixel);
+    setFrameShape(QFrame::NoFrame);
 
     mIconSize = Prefs::self()->sidePaneIconSize();
     mShowIcons = Prefs::self()->sidePaneShowIcons();
