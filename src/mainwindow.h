@@ -90,7 +90,6 @@ private:
     void initAboutScreen();
     void loadSettings();
     void saveSettings();
-    void waitForKSycoca();
 
     bool isPluginLoaded(const KPluginInfo &);
     KontactInterface::Plugin *pluginFromInfo(const KPluginInfo &);
