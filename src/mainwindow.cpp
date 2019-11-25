@@ -136,36 +136,15 @@ void MainWindow::initGUI()
     }
 }
 
-void MainWindow::waitForKSycoca()
-{
-    int i = 0;
-    while (i < KSYCOCA_WAIT_TIMEOUT) {
-        if (KSycoca::isAvailable()) {
-            return;
-        }
-        // When KSycoca is not available that usually means Kontact
-        // was started before kded is done with it's first run
-        // we want to block Kontact execution to
-        // give Kded time to initialize and create the
-        // System Configuration database necessary for further
-        // Kontact startup
-        qCDebug(KONTACT_LOG) << "Waiting for KSycoca";
-#ifdef WIN32
-        Sleep(1000);
-#else
-        sleep(1);
-#endif
-
-        ++i;
-    }
-    // This should only happen if the distribution is broken
-    qFatal("KSycoca unavailable. Kontact will be unable to find plugins.");
-}
-
 void MainWindow::initObject()
 {
     if (!KSycoca::isAvailable()) {
-        waitForKSycoca();
+        qDebug() << "Trying to create ksycoca...";
+        KSycoca::self()->ensureCacheValid();
+        if (!KSycoca::isAvailable()) {
+            // This should only happen if the distribution is broken, or the disk full
+            qFatal("KSycoca unavailable. Kontact will be unable to find plugins.");
+        }
     }
     KService::List offers = KServiceTypeTrader::self()->query(
         QStringLiteral("Kontact/Plugin"),
