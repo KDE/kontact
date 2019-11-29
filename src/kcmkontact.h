@@ -29,7 +29,7 @@
 using namespace KPIM;
 
 #include <KService>
-
+class QComboBox;
 namespace Kontact {
 class KcmKontact : public KPrefsModule
 {
@@ -53,10 +53,10 @@ public:
     void writeConfig() override;
 
     QList<QWidget *> widgets() const override;
-    KComboBox *comboBox() const;
+    QComboBox *comboBox() const;
 
 private:
-    KComboBox *mPluginCombo = nullptr;
+    QComboBox *mPluginCombo = nullptr;
     KService::List mPluginList;
     KConfigSkeleton::ItemString *mItem = nullptr;
 };

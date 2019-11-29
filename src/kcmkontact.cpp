@@ -29,7 +29,7 @@ using namespace Kontact;
 #include <KontactInterface/Plugin>
 
 #include <KAboutData>
-#include <KComboBox>
+#include <QComboBox>
 #include <KServiceTypeTrader>
 #include <KLocalizedString>
 
@@ -98,7 +98,7 @@ const KAboutData *KcmKontact::aboutData() const
 PluginSelection::PluginSelection(KConfigSkeleton::ItemString *item, QWidget *parent)
 {
     mItem = item;
-    mPluginCombo = new KComboBox(parent);
+    mPluginCombo = new QComboBox(parent);
     mPluginCombo->setToolTip(
         i18nc("@info:tooltip", "Select the initial plugin to use on each start"));
     mPluginCombo->setWhatsThis(
@@ -106,14 +106,14 @@ PluginSelection::PluginSelection(KConfigSkeleton::ItemString *item, QWidget *par
               "Select the plugin from this drop down list to be used as the "
               "initial plugin each time Kontact is started. Otherwise, Kontact "
               "will restore the last active plugin from the previous usage."));
-    connect(mPluginCombo, qOverload<int>(&KComboBox::currentIndexChanged), this, &PluginSelection::changed);
+    connect(mPluginCombo, qOverload<int>(&QComboBox::currentIndexChanged), this, &PluginSelection::changed);
 }
 
 PluginSelection::~PluginSelection()
 {
 }
 
-KComboBox *PluginSelection::comboBox() const
+QComboBox *PluginSelection::comboBox() const
 {
     return mPluginCombo;
 }
