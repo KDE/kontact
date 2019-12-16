@@ -45,7 +45,7 @@ AboutDialog::AboutDialog(KontactInterface::Core *core)
     : KPageDialog(core)
     , mCore(core)
 {
-    setWindowTitle(i18n("About Kontact"));
+    setWindowTitle(i18nc("@title:window", "About Kontact"));
     setStandardButtons(QDialogButtonBox::Close);
     button(QDialogButtonBox::Close)->setDefault(true);
     setModal(false);
