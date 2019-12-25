@@ -228,7 +228,6 @@ public:
             opt.icon.paint(painter, QRect(opt.rect.x(), y, opt.rect.width(), size), Qt::AlignCenter, QIcon::Normal, QIcon::On);
             painter->drawText(QRect(opt.rect.x(), y + size + spacing, opt.rect.width(), textHeight),
                               index.data(Qt::DisplayRole).toString(), { Qt::AlignCenter });
-
         } else if (mNavigator->showIcons()) {
             opt.icon = index.data(Qt::DecorationRole).value<QIcon>();
             const int size = mNavigator->iconSize() + height;

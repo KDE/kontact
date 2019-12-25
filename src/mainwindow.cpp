@@ -709,7 +709,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
         // For others, this is the default caption:
         if (windowTitle().isEmpty()) {
             setCaption(i18nc("@title:window Plugin dependent window title",
-                        "%1 - Kontact", plugin->title()));
+                             "%1 - Kontact", plugin->title()));
         }
 
         if (newAction) {
@@ -999,17 +999,17 @@ QVariantHash MainWindow::introductionData()
 
     QVariantList links = {
         QVariantHash{ { QStringLiteral("url"), QStringLiteral("exec:/help?org.kde.kontact") },
-                      { QStringLiteral("icon"), QStringLiteral("help-contents") },
-                      { QStringLiteral("title"), i18n("Read Manual") },
-                      { QStringLiteral("subtext"), i18n("Learn more about Kontact and its components") } },
+            { QStringLiteral("icon"), QStringLiteral("help-contents") },
+            { QStringLiteral("title"), i18n("Read Manual") },
+            { QStringLiteral("subtext"), i18n("Learn more about Kontact and its components") } },
         QVariantHash{ { QStringLiteral("url"), QStringLiteral("https://kontact.kde.org") },
-                      { QStringLiteral("icon"), QStringLiteral("kontact") },
-                      { QStringLiteral("title"), i18n("Visit Kontact Website") },
-                      { QStringLiteral("subtext"), i18n("Access online resources and tutorials") } },
+            { QStringLiteral("icon"), QStringLiteral("kontact") },
+            { QStringLiteral("title"), i18n("Visit Kontact Website") },
+            { QStringLiteral("subtext"), i18n("Access online resources and tutorials") } },
         QVariantHash{ { QStringLiteral("url"), QStringLiteral("exec:/accountwizard") },
-                      { QStringLiteral("icon"), QStringLiteral("tools-wizard") },
-                      { QStringLiteral("title"), i18n("Setup your Accounts") },
-                      { QStringLiteral("subtext"), i18n("Prepare Kontact for use") } }
+            { QStringLiteral("icon"), QStringLiteral("tools-wizard") },
+            { QStringLiteral("title"), i18n("Setup your Accounts") },
+            { QStringLiteral("subtext"), i18n("Prepare Kontact for use") } }
     };
     data[QStringLiteral("links")] = links;
 
