@@ -106,7 +106,11 @@ PluginSelection::PluginSelection(KConfigSkeleton::ItemString *item, QWidget *par
               "Select the plugin from this drop down list to be used as the "
               "initial plugin each time Kontact is started. Otherwise, Kontact "
               "will restore the last active plugin from the previous usage."));
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(mPluginCombo, qOverload<int>(&QComboBox::currentIndexChanged), this, &PluginSelection::changed);
+#else
+    connect(mPluginCombo, qOverload<int, const QString &>(&QComboBox::currentIndexChanged), this, &PluginSelection::changed);
+#endif
 }
 
 PluginSelection::~PluginSelection()
