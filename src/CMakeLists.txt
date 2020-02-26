@@ -16,7 +16,16 @@ set(kontactprivate_LIB_SRCS
     aboutdialog.cpp
     kontactconfiguredialog.cpp
     )
-ecm_qt_declare_logging_category(kontactprivate_LIB_SRCS HEADER kontact_debug.h IDENTIFIER KONTACT_LOG CATEGORY_NAME org.kde.pim.kontact)
+
+if (ECM_VERSION VERSION_LESS "5.68.0")
+    ecm_qt_declare_logging_category(kontactprivate_LIB_SRCS HEADER kontact_debug.h IDENTIFIER KONTACT_LOG CATEGORY_NAME org.kde.pim.kontact)
+else()
+    ecm_qt_declare_logging_category(kontactprivate_LIB_SRCS HEADER kontact_debug.h IDENTIFIER KONTACT_LOG CATEGORY_NAME org.kde.pim.kontact
+        DESCRIPTION "kontact (kontact application)"
+        OLD_CATEGORY_NAMES log_kontact
+        EXPORT KONTACT
+    )
+endif()
 
 kconfig_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc)
 qt5_add_resources(kontactprivate_LIB_SRCS kontact.qrc)
