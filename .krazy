@@ -1,2 +1,2 @@
-EXTRA camelcase,defines,kdebug,null,qenums,tipsandthis
+EXTRA camelcase,defines,null,qenums,tipsandthis
 SKIP /tests/
