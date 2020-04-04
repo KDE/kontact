@@ -1,7 +1,7 @@
-set(KDEPIM_VERSION_NUMBER "5.13.90")
+set(KDEPIM_VERSION_NUMBER "5.14.0")
 cmake_minimum_required(VERSION 3.5)
 project(kontact VERSION ${KDEPIM_VERSION_NUMBER})
-set(RELEASE_SERVICE_VERSION "20.03.90")
+set(RELEASE_SERVICE_VERSION "20.04.0")
 set(KF5_MIN_VERSION "5.68.0")
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -27,7 +27,7 @@ include(ECMQtDeclareLoggingCategory)
 
 
 # Do NOT add quote
-set(KDEPIM_DEV_VERSION rc)
+set(KDEPIM_DEV_VERSION )
 
 # add an extra space
 if(DEFINED KDEPIM_DEV_VERSION)
