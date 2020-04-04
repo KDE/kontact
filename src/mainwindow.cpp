@@ -75,8 +75,8 @@ using namespace Kontact;
 #include <QApplication>
 #include <KAboutData>
 
-#include <grantleetheme/grantleethememanager.h>
-#include <grantleetheme/grantleetheme.h>
+#include <GrantleeTheme/GrantleeThemeManager>
+#include <GrantleeTheme/GrantleeTheme>
 
 // Define the maximum time Kontact waits for KSycoca to become available.
 static const int KSYCOCA_WAIT_TIMEOUT = 10;
