@@ -560,7 +560,7 @@ void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
     }
 }
 
-void MainWindow::partLoaded(KontactInterface::Plugin *plugin, KParts::ReadOnlyPart *part)
+void MainWindow::partLoaded(KontactInterface::Plugin *plugin, KParts::Part *part)
 {
     Q_UNUSED(plugin);
 

@@ -98,7 +98,7 @@ private:
     void updateShortcuts();
     bool removePlugin(const KPluginInfo &);
     void addPlugin(KontactInterface::Plugin *plugin);
-    void partLoaded(KontactInterface::Plugin *plugin, KParts::ReadOnlyPart *part) override;
+    void partLoaded(KontactInterface::Plugin *plugin, KParts::Part *part) override;
     void setupActions();
     bool queryClose() override;
     void readProperties(const KConfigGroup &config) override;
