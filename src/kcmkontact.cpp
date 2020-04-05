@@ -129,9 +129,7 @@ void PluginSelection::readConfig()
     int activeComponent = 0;
     mPluginCombo->clear();
     mPluginList.clear();
-    const KService::List::ConstIterator end(offers.end());
-    for (KService::List::ConstIterator it = offers.begin(); it != end; ++it) {
-        KService::Ptr service = *it;
+    for (const KService::Ptr &service : offers) {
         // skip summary only plugins
         QVariant var = service->property(QStringLiteral("X-KDE-KontactPluginHasPart"));
         if (var.isValid() && var.toBool() == false) {

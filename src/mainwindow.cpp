@@ -146,15 +146,14 @@ void MainWindow::initObject()
             qFatal("KSycoca unavailable. Kontact will be unable to find plugins.");
         }
     }
-    KService::List offers = KServiceTypeTrader::self()->query(
+    const KService::List offers = KServiceTypeTrader::self()->query(
         QStringLiteral("Kontact/Plugin"),
         QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
     mPluginInfos = KPluginInfo::fromServices(
         offers, KConfigGroup(Prefs::self()->config(), "Plugins"));
 
-    const KPluginInfo::List::Iterator end(mPluginInfos.end());
-    for (KPluginInfo::List::Iterator it = mPluginInfos.begin(); it != end; ++it) {
-        it->load();
+    for (KPluginInfo &pluginInfo : mPluginInfos) {
+        pluginInfo.load();
     }
 
     // prepare the part manager
@@ -205,10 +204,7 @@ MainWindow::~MainWindow()
     // During deletion of plugins, we should not access the plugin list (bug #182176)
     delete mSidePane;
 
-    const PluginList::ConstIterator end = mPlugins.constEnd();
-    for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
-        delete *it;
-    }
+    qDeleteAll(mPlugins);
 }
 
 // Called by main().
@@ -375,40 +371,37 @@ void MainWindow::loadPlugins()
     QList<KontactInterface::Plugin *> plugins;
 
     int i;
-    KPluginInfo::List::ConstIterator it;
-    const KPluginInfo::List::ConstIterator end(mPluginInfos.constEnd());
-    for (it = mPluginInfos.constBegin(); it != end; ++it) {
-        if (!it->isPluginEnabled()) {
+    for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
+        if (!pluginInfo.isPluginEnabled()) {
             continue;
         }
 
         KontactInterface::Plugin *plugin = nullptr;
-        if (isPluginLoaded(*it)) {
-            plugin = pluginFromInfo(*it);
+        if (isPluginLoaded(pluginInfo)) {
+            plugin = pluginFromInfo(pluginInfo);
             if (plugin) {
                 plugin->configUpdated();
             }
             continue;
         }
 
-        qCDebug(KONTACT_LOG) << "Loading Plugin:" << it->name();
+        qCDebug(KONTACT_LOG) << "Loading Plugin:" << pluginInfo.name();
         QString error;
-        plugin
-            = it->service()->createInstance<KontactInterface::Plugin>(this, QVariantList(), &error);
+        plugin = pluginInfo.service()->createInstance<KontactInterface::Plugin>(this, QVariantList(), &error);
 
         if (!plugin) {
-            qCDebug(KONTACT_LOG) << "Unable to create plugin for" << it->name() << error;
+            qCDebug(KONTACT_LOG) << "Unable to create plugin for" << pluginInfo.name() << error;
             continue;
         }
 
-        plugin->setIdentifier(it->pluginName());
-        plugin->setTitle(it->name());
-        plugin->setIcon(it->icon());
+        plugin->setIdentifier(pluginInfo.pluginName());
+        plugin->setTitle(pluginInfo.name());
+        plugin->setIcon(pluginInfo.icon());
 
-        QVariant libNameProp = it->property(QStringLiteral("X-KDE-KontactPartLibraryName"));
-        QVariant exeNameProp = it->property(QStringLiteral("X-KDE-KontactPartExecutableName"));
-        QVariant loadOnStart = it->property(QStringLiteral("X-KDE-KontactPartLoadOnStart"));
-        QVariant hasPartProp = it->property(QStringLiteral("X-KDE-KontactPluginHasPart"));
+        QVariant libNameProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPartLibraryName"));
+        QVariant exeNameProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPartExecutableName"));
+        QVariant loadOnStart = pluginInfo.property(QStringLiteral("X-KDE-KontactPartLoadOnStart"));
+        QVariant hasPartProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPluginHasPart"));
 
         if (!loadOnStart.isNull() && loadOnStart.toBool()) {
             mDelayedPreload.append(plugin);
@@ -433,18 +426,12 @@ void MainWindow::loadPlugins()
         plugins.insert(i, plugin);
     }
 
-    const int numberOfPlugins(plugins.count());
-    for (i = 0; i < numberOfPlugins; ++i) {
-        KontactInterface::Plugin *plugin = plugins.at(i);
-
+    for (KontactInterface::Plugin *plugin : qAsConst(plugins)) {
         const QList<QAction *> actionList = plugin->newActions();
-        const QList<QAction *>::const_iterator end(actionList.end());
-
-        for (QList<QAction *>::const_iterator listIt = actionList.begin(); listIt != end; ++listIt) {
-            qCDebug(KONTACT_LOG) << QStringLiteral("Plugging New actions") << (*listIt)->objectName();
-            mNewActions->addAction((*listIt));
+        for (QAction *action : actionList) {
+            qCDebug(KONTACT_LOG) << "Plugging new action" << action->objectName();
+            mNewActions->addAction(action);
         }
-
         addPlugin(plugin);
     }
 
@@ -454,10 +441,9 @@ void MainWindow::loadPlugins()
 
 void MainWindow::unloadPlugins()
 {
-    const KPluginInfo::List::ConstIterator end = mPluginInfos.constEnd();
-    for (KPluginInfo::List::ConstIterator it = mPluginInfos.constBegin(); it != end; ++it) {
-        if (!it->isPluginEnabled()) {
-            removePlugin(*it);
+    for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
+        if (!pluginInfo.isPluginEnabled()) {
+            removePlugin(pluginInfo);
         }
     }
 }
@@ -506,11 +492,9 @@ bool MainWindow::removePlugin(const KPluginInfo &info)
             }
 
             if (mCurrentPlugin == nullptr) {
-                PluginList::Iterator it;
-                const PluginList::Iterator pluginEnd(mPlugins.end());
-                for (it = mPlugins.begin(); it != pluginEnd; ++it) {
-                    if ((*it)->showInSideBar()) {
-                        selectPlugin(*it);
+                for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+                    if (plugin->showInSideBar()) {
+                        selectPlugin(plugin);
                         return true;
                     }
                 }
@@ -594,11 +578,9 @@ void MainWindow::slotNewClicked()
     if (!mCurrentPlugin->newActions().isEmpty()) {
         mCurrentPlugin->newActions().at(0)->trigger();
     } else {
-        PluginList::Iterator it;
-        const PluginList::Iterator end(mPlugins.end());
-        for (it = mPlugins.begin(); it != end; ++it) {
-            if (!(*it)->newActions().isEmpty()) {
-                (*it)->newActions().first()->trigger();
+        for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+            if (!plugin->newActions().isEmpty()) {
+                plugin->newActions().first()->trigger();
                 return;
             }
         }
