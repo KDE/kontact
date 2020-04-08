@@ -91,12 +91,11 @@ private:
     void loadSettings();
     void saveSettings();
 
-    bool isPluginLoaded(const KPluginInfo &);
     KontactInterface::Plugin *pluginFromName(const QString &identifier);
     void loadPlugins();
     void unloadPlugins();
     void updateShortcuts();
-    bool removePlugin(const KPluginInfo &);
+    bool removePlugin(const QString &pluginName);
     void addPlugin(KontactInterface::Plugin *plugin);
     void partLoaded(KontactInterface::Plugin *plugin, KParts::Part *part) override;
     void setupActions();

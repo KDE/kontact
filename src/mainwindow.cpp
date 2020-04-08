@@ -435,7 +435,7 @@ void MainWindow::unloadPlugins()
 {
     for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
         if (!pluginInfo.isPluginEnabled()) {
-            removePlugin(pluginInfo);
+            removePlugin(pluginInfo.pluginName());
         }
     }
 }
@@ -453,12 +453,12 @@ void MainWindow::updateShortcuts()
     factory()->plugActionList(this, QStringLiteral("navigator_actionlist"), mActionPlugins);
 }
 
-bool MainWindow::removePlugin(const KPluginInfo &info)
+bool MainWindow::removePlugin(const QString &pluginName)
 {
     const PluginList::Iterator end = mPlugins.end();
     for (PluginList::Iterator it = mPlugins.begin(); it != end; ++it) {
         KontactInterface::Plugin *plugin = *it;
-        if ((*it)->identifier() == info.pluginName()) {
+        if ((*it)->identifier() == pluginName) {
             QList<QAction *> actionList = plugin->newActions();
             QList<QAction *>::const_iterator listIt;
             QList<QAction *>::const_iterator listEnd(actionList.constEnd());
