@@ -350,16 +350,11 @@ void MainWindow::setupActions()
     connect(mShowHideAction, &QAction::triggered, this, &MainWindow::slotShowHideSideBar);
 }
 
-bool MainWindow::isPluginLoaded(const KPluginInfo &info)
-{
-    return pluginFromInfo(info) != nullptr;
-}
-
-KontactInterface::Plugin *MainWindow::pluginFromInfo(const KPluginInfo &info)
+KontactInterface::Plugin *MainWindow::pluginFromName(const QString &identifier)
 {
     const PluginList::ConstIterator end = mPlugins.constEnd();
     for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
-        if ((*it)->identifier() == info.pluginName()) {
+        if ((*it)->identifier() == identifier) {
             return *it;
         }
     }
@@ -376,12 +371,9 @@ void MainWindow::loadPlugins()
             continue;
         }
 
-        KontactInterface::Plugin *plugin = nullptr;
-        if (isPluginLoaded(pluginInfo)) {
-            plugin = pluginFromInfo(pluginInfo);
-            if (plugin) {
-                plugin->configUpdated();
-            }
+        KontactInterface::Plugin *plugin = pluginFromName(pluginInfo.pluginName());
+        if (plugin) { // already loaded
+            plugin->configUpdated();
             continue;
         }
 
@@ -390,7 +382,7 @@ void MainWindow::loadPlugins()
         plugin = pluginInfo.service()->createInstance<KontactInterface::Plugin>(this, QVariantList(), &error);
 
         if (!plugin) {
-            qCDebug(KONTACT_LOG) << "Unable to create plugin for" << pluginInfo.name() << error;
+            qCDebug(KONTACT_LOG) << "Unable to create plugin for" << pluginInfo.name() << pluginInfo.service()->entryPath() << error;
             continue;
         }
 
@@ -940,7 +932,7 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
     for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
         if (pluginInfo.isPluginEnabled()) {
-            KontactInterface::Plugin *plugin = pluginFromInfo(pluginInfo);
+            KontactInterface::Plugin *plugin = pluginFromName(pluginInfo.pluginName());
             if (plugin) {
                 activePlugins.append(plugin->identifier());
                 plugin->saveProperties(config);

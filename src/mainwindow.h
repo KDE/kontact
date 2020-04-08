@@ -92,7 +92,7 @@ private:
     void saveSettings();
 
     bool isPluginLoaded(const KPluginInfo &);
-    KontactInterface::Plugin *pluginFromInfo(const KPluginInfo &);
+    KontactInterface::Plugin *pluginFromName(const QString &identifier);
     void loadPlugins();
     void unloadPlugins();
     void updateShortcuts();
