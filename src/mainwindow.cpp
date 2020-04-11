@@ -78,9 +78,6 @@ using namespace Kontact;
 #include <GrantleeTheme/GrantleeThemeManager>
 #include <GrantleeTheme/GrantleeTheme>
 
-// Define the maximum time Kontact waits for KSycoca to become available.
-static const int KSYCOCA_WAIT_TIMEOUT = 10;
-
 MainWindow::MainWindow()
     : KontactInterface::Core()
     , mSplitter(nullptr)
