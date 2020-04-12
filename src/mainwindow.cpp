@@ -230,11 +230,10 @@ bool MainWindow::pluginWeightLessThan(const KontactInterface::Plugin *left, cons
 void MainWindow::activateInitialPluginModule()
 {
     if (!mInitialActiveModule.isEmpty() && !mPlugins.isEmpty()) {
-        const PluginList::ConstIterator end = mPlugins.constEnd();
-        for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
-            if (!(*it)->identifier().isEmpty()
-                && (*it)->identifier().contains(mInitialActiveModule)) {
-                selectPlugin(*it);
+        for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+            if (!plugin->identifier().isEmpty()
+                && plugin->identifier().contains(mInitialActiveModule)) {
+                selectPlugin(plugin);
                 return;
             }
         }
@@ -347,22 +346,19 @@ void MainWindow::setupActions()
     connect(mShowHideAction, &QAction::triggered, this, &MainWindow::slotShowHideSideBar);
 }
 
-KontactInterface::Plugin *MainWindow::pluginFromName(const QString &identifier)
+KontactInterface::Plugin *MainWindow::pluginFromName(const QString &identifier) const
 {
-    const PluginList::ConstIterator end = mPlugins.constEnd();
-    for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
-        if ((*it)->identifier() == identifier) {
-            return *it;
-        }
-    }
-    return nullptr;
+    auto hasIdentifier = [&](KontactInterface::Plugin * plugin) {
+        return plugin->identifier() == identifier;
+    };
+    const auto it = std::find_if(mPlugins.constBegin(), mPlugins.constEnd(), hasIdentifier);
+    return it == mPlugins.constEnd() ? nullptr : *it;
 }
 
 void MainWindow::loadPlugins()
 {
     QList<KontactInterface::Plugin *> plugins;
 
-    int i;
     for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
         if (!pluginInfo.isPluginEnabled()) {
             continue;
@@ -403,17 +399,9 @@ void MainWindow::loadPlugins()
         if (hasPartProp.isValid()) {
             plugin->setShowInSideBar(hasPartProp.toBool());
         }
-        const int nbPlugins{
-            plugins.count()
-        };
-        for (i = 0; i < nbPlugins; ++i) {
-            KontactInterface::Plugin *p = plugins.at(i);
-            if (plugin->weight() < p->weight()) {
-                break;
-            }
-        }
-        plugins.insert(i, plugin);
+        plugins.append(plugin);
     }
+    std::sort(plugins.begin(), plugins.end(), pluginWeightLessThan); // new plugins
 
     for (KontactInterface::Plugin *plugin : qAsConst(plugins)) {
         const QList<QAction *> actionList = plugin->newActions();
@@ -424,12 +412,22 @@ void MainWindow::loadPlugins()
         addPlugin(plugin);
     }
 
+    std::sort(mPlugins.begin(), mPlugins.end(), pluginWeightLessThan); // all plugins
+
+    // sort the action plugins again and reset shortcuts. If we removed and then readded some plugins
+    // we need to take in count their weights for setting shortcuts again
+    std::sort(mActionPlugins.begin(), mActionPlugins.end(), pluginActionWeightLessThan);
+
+    updateShortcuts();
+
     const bool state = (!mPlugins.isEmpty());
     mNewActions->setEnabled(state);
 }
 
-void MainWindow::unloadPlugins()
+void MainWindow::unloadDisabledPlugins()
 {
+    // Only remove the now-disabled plugins.
+    // Keep the other ones. loadPlugins() will skip those that are already loaded.
     for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
         if (!pluginInfo.isPluginEnabled()) {
             removePlugin(pluginInfo.pluginName());
@@ -439,60 +437,57 @@ void MainWindow::unloadPlugins()
 
 void MainWindow::updateShortcuts()
 {
-    const ActionPluginList::ConstIterator end = mActionPlugins.constEnd();
-    int i = 0;
-    for (ActionPluginList::ConstIterator it = mActionPlugins.constBegin(); it != end; ++it) {
-        QAction *action = static_cast<QAction *>(*it);
-        const QString shortcut = QStringLiteral("Ctrl+%1").arg(mActionPlugins.count() - i);
-        actionCollection()->setDefaultShortcut(action, QKeySequence(shortcut));
-        ++i;
+    for (int i = 0; i < mActionPlugins.count(); ++i) {
+        QAction *action = mActionPlugins.at(i);
+        const QKeySequence shortcut(QStringLiteral("Ctrl+%1").arg(mActionPlugins.count() - i));
+        actionCollection()->setDefaultShortcut(action, shortcut);
+        // Prevent plugActionList from restoring some old saved shortcuts
+        action->setProperty("_k_DefaultShortcut", QVariant::fromValue(QList<QKeySequence>{shortcut}));
     }
-    factory()->plugActionList(this, QStringLiteral("navigator_actionlist"), mActionPlugins);
 }
 
 bool MainWindow::removePlugin(const QString &pluginName)
 {
-    const PluginList::Iterator end = mPlugins.end();
-    for (PluginList::Iterator it = mPlugins.begin(); it != end; ++it) {
-        KontactInterface::Plugin *plugin = *it;
-        if ((*it)->identifier() == pluginName) {
-            QList<QAction *> actionList = plugin->newActions();
-            QList<QAction *>::const_iterator listIt;
-            QList<QAction *>::const_iterator listEnd(actionList.constEnd());
-            for (listIt = actionList.constBegin(); listIt != listEnd; ++listIt) {
-                qCDebug(KONTACT_LOG) << QStringLiteral("Unplugging New actions") << (*listIt)->objectName();
-                mNewActions->removeAction(*listIt);
-            }
-
-            removeChildClient(plugin);
-
-            if (mCurrentPlugin == plugin) {
-                mCurrentPlugin = nullptr;
-                createGUI(nullptr);
-            }
-
-            plugin->deleteLater(); // removes the part automatically
-            mPlugins.erase(it);
-            if (plugin->showInSideBar()) {
-                QAction *q = mPluginAction[plugin]; // remove QAction, to free the shortcut for later use
-                mActionPlugins.removeAll(q);
-                mPluginAction.remove(plugin);
-                delete q;
-            }
-
-            if (mCurrentPlugin == nullptr) {
-                for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
-                    if (plugin->showInSideBar()) {
-                        selectPlugin(plugin);
-                        return true;
-                    }
-                }
-            }
-            return true;
-        }
+    auto hasIdentifier = [&](KontactInterface::Plugin * plugin) {
+        return plugin->identifier() == pluginName;
+    };
+    const auto it = std::find_if(mPlugins.begin(), mPlugins.end(), hasIdentifier);
+    if (it == mPlugins.end()) {
+        qCDebug(KONTACT_LOG) << "Plugin not found" << pluginName;
+        return false;
+    }
+    KontactInterface::Plugin *plugin = *it;
+    const QList<QAction *> actionList = plugin->newActions();
+    for (QAction *action : actionList) {
+        qCDebug(KONTACT_LOG) << QStringLiteral("Unplugging New actions") << action->objectName();
+        mNewActions->removeAction(action);
     }
 
-    return false;
+    removeChildClient(plugin);
+
+    if (mCurrentPlugin == plugin) {
+        mCurrentPlugin = nullptr;
+        createGUI(nullptr);
+    }
+
+    plugin->deleteLater(); // removes the part automatically
+    mPlugins.erase(it);
+    if (plugin->showInSideBar()) {
+        QAction *q = mPluginAction[plugin]; // remove QAction, to free the shortcut for later use
+        mActionPlugins.removeAll(q);
+        mPluginAction.remove(plugin);
+        actionCollection()->removeAction(q); // deletes q
+    }
+
+    if (mCurrentPlugin == nullptr) {
+        for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+            if (plugin->showInSideBar()) {
+                selectPlugin(plugin);
+                return true;
+            }
+        }
+    }
+    return true;
 }
 
 void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
@@ -509,28 +504,17 @@ void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
             i18nc("@info:whatsthis",
                   "Switch to plugin %1", plugin->title()));
         action->setCheckable(true);
-        action->setData(QVariant::fromValue(plugin));     // on the slot we can decode
-        // which action was triggered
-        connect(action, &QAction::triggered, this, &MainWindow::slotActionTriggered);
-        actionCollection()->addAction(plugin->title(), action);
+        action->setData(QVariant::fromValue(plugin)); // used by pluginActionWeightLessThan
+        connect(action, &QAction::triggered, this, [=]() {
+            slotActionTriggered(action, plugin->identifier());
+        });
+        actionCollection()->addAction(plugin->identifier(), action);
         mActionPlugins.append(action);
         mPluginAction.insert(plugin, action);
     }
 
     // merge the plugins GUI into the main window
     insertChildClient(plugin);
-
-    // sort the action plugins again and reset shortcuts. If we removed and then readded some plugins
-    // we need to take in count their weights for setting shortcuts again
-    std::sort(mActionPlugins.begin(), mActionPlugins.end(), pluginActionWeightLessThan);
-    std::sort(mPlugins.begin(), mPlugins.end(), pluginWeightLessThan);
-    int i = 0;
-    for (QAction *qaction : qAsConst(mActionPlugins)) {
-        QAction *action = static_cast<QAction *>(qaction);
-        QString shortcut = QStringLiteral("Ctrl+%1").arg(mActionPlugins.count() - i);
-        actionCollection()->setDefaultShortcut(action, QKeySequence(shortcut));
-        ++i;
-    }
 }
 
 void MainWindow::partLoaded(KontactInterface::Plugin *plugin, KParts::Part *part)
@@ -685,17 +669,15 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
 
         if (newAction) {
             mNewActions->setIcon(newAction->icon());
-            static_cast<QAction *>(mNewActions)->setText(newAction->text());
+            mNewActions->setText(newAction->text());
             mNewActions->setWhatsThis(newAction->whatsThis());
         } else { // we'll use the action of the first plugin which offers one
-            PluginList::Iterator it;
-            PluginList::Iterator end(mPlugins.end());
-            for (it = mPlugins.begin(); it != end; ++it) {
-                if (!(*it)->newActions().isEmpty()) {
-                    newAction = (*it)->newActions().first();
+            for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+                if (!plugin->newActions().isEmpty()) {
+                    newAction = plugin->newActions().first();
                 }
                 if (newAction) {
-                    static_cast<QAction *>(mNewActions)->setIcon(newAction->icon());
+                    mNewActions->setIcon(newAction->icon());
                     mNewActions->setText(newAction->text());
                     mNewActions->setWhatsThis(newAction->whatsThis());
                     break;
@@ -717,25 +699,19 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
     QApplication::restoreOverrideCursor();
 }
 
-void MainWindow::slotActionTriggered()
+void MainWindow::slotActionTriggered(QAction *action, const QString &identifier)
 {
-    QAction *actionSender = static_cast<QAction *>(sender());
-    actionSender->setChecked(true);
-    KontactInterface::Plugin *plugin = actionSender->data().value<KontactInterface::Plugin *>();
-    if (!plugin) {
-        return;
+    action->setChecked(true);
+    if (!identifier.isEmpty()) {
+        mSidePane->setCurrentPlugin(identifier);
     }
-    mSidePane->setCurrentPlugin(plugin->identifier());
 }
 
 void MainWindow::selectPlugin(const QString &pluginName)
 {
-    PluginList::ConstIterator end = mPlugins.constEnd();
-    for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
-        if ((*it)->identifier() == pluginName) {
-            selectPlugin(*it);
-            return;
-        }
+    KontactInterface::Plugin *plugin = pluginFromName(pluginName);
+    if (plugin) {
+        selectPlugin(plugin);
     }
 }
 
@@ -746,9 +722,8 @@ void MainWindow::loadSettings()
     }
 
     // Preload Plugins. This _must_ happen before the default part is loaded
-    PluginList::ConstIterator end(mDelayedPreload.constEnd());
-    for (PluginList::ConstIterator it = mDelayedPreload.constBegin(); it != end; ++it) {
-        selectPlugin(*it);
+    for (KontactInterface::Plugin *plugin : qAsConst(mDelayedPreload)) {
+        selectPlugin(plugin);
     }
     selectPlugin(Prefs::self()->mActivePlugin);
 }
@@ -805,13 +780,14 @@ void MainWindow::slotPreferences()
     dlg->show();
 }
 
+// Called when the user enables/disables plugins in the configuration dialog
 void MainWindow::pluginsChanged()
 {
     unplugActionList(QStringLiteral("navigator_actionlist"));
-    unloadPlugins();
+    unloadDisabledPlugins();
     loadPlugins();
     mSidePane->updatePlugins();
-    updateShortcuts();
+    factory()->plugActionList(this, QStringLiteral("navigator_actionlist"), mActionPlugins);
 }
 
 void MainWindow::updateConfig()
@@ -874,7 +850,7 @@ void MainWindow::slotNewToolbarConfig()
             KSharedConfig::openConfig()->group(
                 QStringLiteral("MainWindow%1").arg(mCurrentPlugin->identifier())));
     }
-    updateShortcuts(); // for the plugActionList call
+    factory()->plugActionList(this, QStringLiteral("navigator_actionlist"), mActionPlugins);
 }
 
 void MainWindow::slotOpenUrl(const QUrl &url)

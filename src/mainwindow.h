@@ -67,7 +67,7 @@ public:
 public Q_SLOTS:
     void selectPlugin(KontactInterface::Plugin *plugin) override;
     Q_SCRIPTABLE void selectPlugin(const QString &pluginName) override;
-    void slotActionTriggered();
+    void slotActionTriggered(QAction *action, const QString &identifier);
 
     void updateConfig();
 
@@ -91,9 +91,9 @@ private:
     void loadSettings();
     void saveSettings();
 
-    KontactInterface::Plugin *pluginFromName(const QString &identifier);
+    KontactInterface::Plugin *pluginFromName(const QString &identifier) const;
     void loadPlugins();
-    void unloadPlugins();
+    void unloadDisabledPlugins();
     void updateShortcuts();
     bool removePlugin(const QString &pluginName);
     void addPlugin(KontactInterface::Plugin *plugin);
