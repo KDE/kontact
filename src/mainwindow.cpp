@@ -52,6 +52,7 @@ using namespace Kontact;
 #include <KHelpMenu>
 #include <KMessageBox>
 #include <KPluginInfo>
+#include <KPluginMetaData>
 #include <KRun>
 #include <KServiceTypeTrader>
 #include <KShortcutsDialog>
@@ -143,13 +144,16 @@ void MainWindow::initObject()
             qFatal("KSycoca unavailable. Kontact will be unable to find plugins.");
         }
     }
-    const KService::List offers = KServiceTypeTrader::self()->query(
-        QStringLiteral("Kontact/Plugin"),
-        QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
-    mPluginInfos = KPluginInfo::fromServices(
-        offers, KConfigGroup(Prefs::self()->config(), "Plugins"));
 
+    const QVector<KPluginMetaData> pluginMetaDatas = KPluginLoader::findPlugins(
+            QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
+            return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+            });
+    mPluginInfos = KPluginInfo::fromMetaData(pluginMetaDatas);
+
+    KConfigGroup configGroup(Prefs::self()->config(), "Plugins");
     for (KPluginInfo &pluginInfo : mPluginInfos) {
+        pluginInfo.setConfig(configGroup);
         pluginInfo.load();
     }
 
@@ -364,22 +368,29 @@ void MainWindow::loadPlugins()
             continue;
         }
 
-        KontactInterface::Plugin *plugin = pluginFromName(pluginInfo.pluginName());
+        const QString pluginName = pluginInfo.libraryPath();
+        //qDebug() << pluginName;
+        KontactInterface::Plugin *plugin = pluginFromName(pluginName);
         if (plugin) { // already loaded
             plugin->configUpdated();
             continue;
         }
 
         qCDebug(KONTACT_LOG) << "Loading Plugin:" << pluginInfo.name();
-        QString error;
-        plugin = pluginInfo.service()->createInstance<KontactInterface::Plugin>(this, QVariantList(), &error);
-
-        if (!plugin) {
-            qCDebug(KONTACT_LOG) << "Unable to create plugin for" << pluginInfo.name() << pluginInfo.service()->entryPath() << error;
+        KPluginLoader loader(pluginInfo.libraryPath());
+        KPluginFactory* factory = loader.factory();
+        if (!factory) {
+            qWarning() << "Error loading plugin" << pluginInfo.libraryPath() << loader.errorString();
             continue;
+        } else {
+            plugin = factory->create<KontactInterface::Plugin>(this);
+            if (!plugin) {
+                qCWarning(KONTACT_LOG) << "Unable to create plugin for" << pluginInfo.libraryPath();
+                continue;
+            }
         }
 
-        plugin->setIdentifier(pluginInfo.pluginName());
+        plugin->setIdentifier(pluginName);
         plugin->setTitle(pluginInfo.name());
         plugin->setIcon(pluginInfo.icon());
 
