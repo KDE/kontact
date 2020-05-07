@@ -63,7 +63,6 @@ set_target_properties(kontact_bin PROPERTIES OUTPUT_NAME kontact)
 
 target_link_libraries(kontact_bin
     KF5::Service
-    KF5::KdepimDBusInterfaces
     kontactprivate
     KF5::KontactInterface
     KF5::Crash

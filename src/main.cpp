@@ -27,8 +27,6 @@
 #include "prefs.h"
 using namespace Kontact;
 
-#include <KdepimDBusInterfaces/ReminderClient>
-
 #include <KontactInterface/Plugin>
 #include <KontactInterface/UniqueAppHandler>
 #include <KontactInterface/PimUniqueApplication>
@@ -41,6 +39,8 @@ using namespace Kontact;
 #include <KCrash>
 
 #include <QCommandLineParser>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
 
 #include <iostream>
 #include <kdelibs4configmigrator.h>
@@ -150,7 +150,7 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
         mMainWindow->selectPlugin(moduleName);
     }
 
-    KPIM::ReminderClient::startDaemon();
+    QDBusConnection::sessionBus().interface()->startService(QStringLiteral("org.kde.kontact"));
 
     // Handle startup notification and window activation
     // (The first time it will do nothing except note that it was called)
