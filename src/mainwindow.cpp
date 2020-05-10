@@ -47,9 +47,11 @@ using namespace Kontact;
 #include <KActionCollection>
 #include <KActionMenu>
 #include <KConfigGroup>
+#include <KDialogJobUiDelegate>
 #include "kontact_debug.h"
 #include <KEditToolBar>
 #include <KHelpMenu>
+#include <KIO/CommandLauncherJob>
 #include <KMessageBox>
 #include <KPluginInfo>
 #include <KPluginMetaData>
@@ -874,7 +876,9 @@ void MainWindow::slotOpenUrl(const QUrl &url)
                 mPartsStack->setCurrentIndex(mPartsStack->indexOf(mCurrentPlugin->part()->widget()));
             }
         } else if (path == QLatin1String("/accountwizard")) {
-            KRun::runCommand(QStringLiteral("accountwizard"), this);
+            KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(QStringLiteral("accountwizard"));
+            job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+            job->exec();
             slotQuit();
         } else if (path.startsWith(QLatin1String("/help"))) {
             QString app(QStringLiteral("org.kde.kontact"));
