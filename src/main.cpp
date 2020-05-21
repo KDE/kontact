@@ -150,7 +150,8 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
         mMainWindow->selectPlugin(moduleName);
     }
 
-    QDBusConnection::sessionBus().interface()->startService(QStringLiteral("org.kde.kontact"));
+    // Start KOrgac in case it's wasn't started on session start.
+    QDBusConnection::sessionBus().interface()->startService(QStringLiteral("org.kde.korgac"));
 
     // Handle startup notification and window activation
     // (The first time it will do nothing except note that it was called)
