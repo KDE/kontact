@@ -33,7 +33,7 @@ IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
     settings()->setAttribute(QWebEngineSettings::XSSAuditingEnabled, false);
     settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
     settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, false);
-    settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, false);
+    //settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, false);
 
     settings()->setAttribute(QWebEngineSettings::ScreenCaptureEnabled, false);
     settings()->setAttribute(QWebEngineSettings::WebGLEnabled, false);
