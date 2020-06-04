@@ -75,7 +75,7 @@ public Q_SLOTS:
     void select(const QItemSelection &selection, QItemSelectionModel::SelectionFlags command) override
     {
         // Don't allow the current selection to be cleared
-        if (!selection.count() && (command & QItemSelectionModel::Clear)) {
+        if (selection.isEmpty() && (command & QItemSelectionModel::Clear)) {
             return;
         }
         QItemSelectionModel::select(selection, command);

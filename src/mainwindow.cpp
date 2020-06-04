@@ -566,7 +566,7 @@ void MainWindow::slotNewClicked()
     } else {
         for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
             if (!plugin->newActions().isEmpty()) {
-                plugin->newActions().first()->trigger();
+                plugin->newActions().constFirst()->trigger();
                 return;
             }
         }
@@ -616,12 +616,12 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
     }
 
     if (mCurrentPlugin) {
-        QAction *action = mPluginAction[ mCurrentPlugin ];
+        QAction *action = mPluginAction.value(mCurrentPlugin);
         if (action) {
             action->setChecked(false);
         }
     }
-    QAction *selectedPluginAction = mPluginAction[ plugin ];
+    QAction *selectedPluginAction = mPluginAction.value(mCurrentPlugin);
     if (selectedPluginAction) {
         selectedPluginAction->setChecked(true);
     }
@@ -654,7 +654,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
         view->show();
 
         if (!mFocusWidgets.isEmpty() && mFocusWidgets.contains(plugin->identifier())) {
-            focusWidget = mFocusWidgets[ plugin->identifier() ];
+            focusWidget = mFocusWidgets.value(plugin->identifier());
             if (focusWidget) {
                 focusWidget->setFocus();
             }
@@ -688,7 +688,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
         } else { // we'll use the action of the first plugin which offers one
             for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
                 if (!plugin->newActions().isEmpty()) {
-                    newAction = plugin->newActions().first();
+                    newAction = plugin->newActions().constFirst();
                 }
                 if (newAction) {
                     mNewActions->setIcon(newAction->icon());
