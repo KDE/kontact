@@ -35,7 +35,7 @@ using namespace Kontact;
 #else
 #include <unistd.h>
 #endif
-#include <Libkdepim/BroadcastStatus>
+#include <PimCommon/BroadcastStatus>
 #include <Libkdepim/ProgressStatusBarWidget>
 #include <Libkdepim/StatusbarProgressWidget>
 
@@ -177,7 +177,7 @@ void MainWindow::initObject()
     // done initializing
     slotShowStatusMsg(QString());
 
-    connect(KPIM::BroadcastStatus::instance(), &KPIM::BroadcastStatus::statusMsg, this, &MainWindow::slotShowStatusMsg);
+    connect(PimCommon::BroadcastStatus::instance(), &PimCommon::BroadcastStatus::statusMsg, this, &MainWindow::slotShowStatusMsg);
 
     // launch commandline specified module if any
     activateInitialPluginModule();

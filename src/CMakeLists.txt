@@ -38,6 +38,7 @@ target_link_libraries(kontactprivate
     KF5::KontactInterface
     KF5::KCMUtils
     KF5::Libkdepim
+    KF5::PimCommon
     KF5::GrantleeTheme
     Qt5::WebEngine
     Qt5::WebEngineWidgets
