@@ -55,7 +55,7 @@ using namespace Kontact;
 #include <KMessageBox>
 #include <KPluginInfo>
 #include <KPluginMetaData>
-#include <KRun>
+#include <KIO/OpenUrlJob>
 #include <KServiceTypeTrader>
 #include <KShortcutsDialog>
 #include <KSqueezedTextLabel>
@@ -888,7 +888,8 @@ void MainWindow::slotOpenUrl(const QUrl &url)
             KHelpClient::invokeHelp(QString(), app);
         }
     } else {
-        new KRun(url, this);
+        KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url);
+        job->start();
     }
 }
 
