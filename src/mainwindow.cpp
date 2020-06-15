@@ -370,9 +370,8 @@ void MainWindow::loadPlugins()
             continue;
         }
 
-        const QString pluginName = pluginInfo.libraryPath();
-        //qDebug() << pluginName;
-        KontactInterface::Plugin *plugin = pluginFromName(pluginName);
+        const QString pluginPath = pluginInfo.libraryPath();
+        KontactInterface::Plugin *plugin = pluginFromName(pluginPath);
         if (plugin) { // already loaded
             plugin->configUpdated();
             continue;
@@ -392,7 +391,7 @@ void MainWindow::loadPlugins()
             }
         }
 
-        plugin->setIdentifier(pluginName);
+        plugin->setIdentifier(pluginInfo.pluginName());
         plugin->setTitle(pluginInfo.name());
         plugin->setIcon(pluginInfo.icon());
 
