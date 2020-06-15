@@ -141,7 +141,7 @@ private:
 
     AboutDialog *mAboutDialog = nullptr;
     bool mReallyClose = false;
-    int mSaveSideBarWidth = 0;
+    int mSaveSideBarWidth = 10;
     QAction *mShowHideAction = nullptr;
 };
 }

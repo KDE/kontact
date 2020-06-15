@@ -83,11 +83,6 @@ using namespace Kontact;
 
 MainWindow::MainWindow()
     : KontactInterface::Core()
-    , mSplitter(nullptr)
-    , mCurrentPlugin(nullptr)
-    , mAboutDialog(nullptr)
-    , mReallyClose(false)
-    , mSaveSideBarWidth(10)
 {
     QDBusConnection::sessionBus().registerObject(
         QStringLiteral("/KontactInterface"), this, QDBusConnection::ExportScriptableSlots);
