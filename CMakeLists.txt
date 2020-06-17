@@ -69,9 +69,7 @@ find_package(KF5PimCommonAkonadi ${PIMCOMMON_LIB_VERSION_LIB} CONFIG REQUIRED)
 
 
 include_directories(${kontact_SOURCE_DIR} ${kontact_BINARY_DIR})
-if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
-   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
-endif()
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
 
 add_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_KEYWORDS)
