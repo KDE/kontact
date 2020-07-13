@@ -31,34 +31,21 @@ using namespace KPIM;
 #include <KService>
 class QComboBox;
 namespace Kontact {
-class KcmKontact : public KPrefsModule
+class KcmKontact : public KCModule
 {
     Q_OBJECT
 
 public:
     explicit KcmKontact(QWidget *parent = nullptr);
 
+    void load() override;
+    void save() override;
+
     const KAboutData *aboutData() const override;
-};
-
-class PluginSelection : public KPrefsWid
-{
-    Q_OBJECT
-
-public:
-    PluginSelection(KConfigSkeleton::ItemString *item, QWidget *parent);
-    ~PluginSelection() override;
-
-    void readConfig() override;
-    void writeConfig() override;
-
-    QList<QWidget *> widgets() const override;
-    QComboBox *comboBox() const;
-
 private:
-    QComboBox *mPluginCombo = nullptr;
     KService::List mPluginList;
-    KConfigSkeleton::ItemString *mItem = nullptr;
+    QComboBox *mPluginCombo = nullptr;
+    QCheckBox *mShowSideBarCheckbox = nullptr;
 };
 }
 
