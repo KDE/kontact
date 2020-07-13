@@ -25,11 +25,10 @@
 #ifndef KCMKONTACT_H
 #define KCMKONTACT_H
 
-#include <Libkdepim/KPrefsDialog>
-using namespace KPIM;
-
+#include <KCModule>
 #include <KService>
 class QComboBox;
+class QCheckBox;
 namespace Kontact {
 class KcmKontact : public KCModule
 {
