@@ -33,7 +33,6 @@ using namespace Kontact;
 #ifdef WIN32
 #include <windows.h>
 #else
-#include <QWebEngineUrlScheme>
 #include <unistd.h>
 #endif
 #include <PimCommon/BroadcastStatus>
@@ -42,6 +41,7 @@ using namespace Kontact;
 
 #include <KontactInterface/Core>
 
+#include <QWebEngineUrlScheme>
 #include <QStatusBar>
 #include <KWindowConfig>
 #include <KXMLGUIFactory>
