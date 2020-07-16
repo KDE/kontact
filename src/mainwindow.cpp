@@ -41,6 +41,7 @@ using namespace Kontact;
 
 #include <KontactInterface/Core>
 
+#include <QWebEngineUrlScheme>
 #include <QStatusBar>
 #include <KWindowConfig>
 #include <KXMLGUIFactory>
@@ -84,6 +85,10 @@ using namespace Kontact;
 MainWindow::MainWindow()
     : KontactInterface::Core()
 {
+    QWebEngineUrlScheme cidScheme("cid");
+    cidScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored);
+    cidScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
+    QWebEngineUrlScheme::registerScheme(cidScheme);
     QDBusConnection::sessionBus().registerObject(
         QStringLiteral("/KontactInterface"), this, QDBusConnection::ExportScriptableSlots);
 
