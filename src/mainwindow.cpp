@@ -85,10 +85,12 @@ using namespace Kontact;
 MainWindow::MainWindow()
     : KontactInterface::Core()
 {
+    //Necessary for "cid" support in kmail.
     QWebEngineUrlScheme cidScheme("cid");
     cidScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored);
     cidScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
     QWebEngineUrlScheme::registerScheme(cidScheme);
+
     QDBusConnection::sessionBus().registerObject(
         QStringLiteral("/KontactInterface"), this, QDBusConnection::ExportScriptableSlots);
 
