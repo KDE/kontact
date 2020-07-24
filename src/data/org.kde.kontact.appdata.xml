@@ -7,6 +7,7 @@
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
   <developer_name xml:lang="cs">Komunita KDE</developer_name>
+  <developer_name xml:lang="da">KDE-fællesskabet</developer_name>
   <developer_name xml:lang="de">Die KDE-Gemeinschaft</developer_name>
   <developer_name xml:lang="en-GB">The KDE Community</developer_name>
   <developer_name xml:lang="es">La comunidad de KDE</developer_name>
@@ -118,8 +119,8 @@
     <p>
     Kontact unifies several personal information management applications into a single window to give you the best possible experience and boost your productivity. With Kontact you can use all the tools of our powerful suite in one place. Unlike proprietary web applications we value your privacy and support open standards, which is why Kontact gives you full control over your data. You can of course also access your data offline if you want to.
     </p>
-    <p xml:lang="ca">El Kontact unifica diverses aplicacions per a la gestió de la informació personal en una sola finestra per oferir-vos la millor experiència possible i així millorar la vostra productivitat. Amb el Kontact podreu usar totes les eines de la nostra poderosa suite en un sol lloc. A diferència d'aplicacions web propietàries, nosaltres valorem la vostra privadesa i implementem els estàndards oberts, de manera que el Kontact us donarà el control total de les vostres dades. Per descomptat, si voleu, també podreu accedir a les vostres dades fora de línia.</p>
-    <p xml:lang="ca-valencia">El Kontact unifica diverses aplicacions per a la gestió de la informació personal en una sola finestra per oferir-vos la millor experiència possible i així millorar la vostra productivitat. Amb el Kontact podreu usar totes les eines de la nostra poderosa suite en un sol lloc. A diferència d'aplicacions web propietàries, nosaltres valorem la vostra privadesa i implementem els estàndards oberts, de manera que el Kontact vos donarà el control total de les vostres dades. Per descomptat, si voleu, també podreu accedir a les vostres dades fora de línia.</p>
+    <p xml:lang="ca">El Kontact unifica diverses aplicacions per a la gestió de la informació personal en una sola finestra per a oferir-vos la millor experiència possible i així millorar la vostra productivitat. Amb el Kontact podreu usar totes les eines de la nostra poderosa suite en un sol lloc. A diferència d'aplicacions web propietàries, nosaltres valorem la vostra privadesa i implementem els estàndards oberts, de manera que el Kontact us donarà el control total de les vostres dades. Per descomptat, si voleu, també podreu accedir a les vostres dades fora de línia.</p>
+    <p xml:lang="ca-valencia">El Kontact unifica diverses aplicacions per a la gestió de la informació personal en una sola finestra per a oferir-vos la millor experiència possible i així millorar la vostra productivitat. Amb el Kontact podreu usar totes les eines de la nostra poderosa suite en un sol lloc. A diferència d'aplicacions web propietàries, nosaltres valorem la vostra privadesa i implementem els estàndards oberts, de manera que el Kontact vos donarà el control total de les vostres dades. Per descomptat, si voleu, també podreu accedir a les vostres dades fora de línia.</p>
     <p xml:lang="en-GB">Kontact unifies several personal information management applications into a single window to give you the best possible experience and boost your productivity. With Kontact you can use all the tools of our powerful suite in one place. Unlike proprietary web applications we value your privacy and support open standards, which is why Kontact gives you full control over your data. You can of course also access your data offline if you want to.</p>
     <p xml:lang="es">Kontact unifica varias aplicaciones de gestión de información personal en una sola ventana para proporcionarle la mejor experiencia posible e incrementar su productividad. Con  Kontact, usted puede usar todas las herramientas de nuestra potente suite en un lugar. Al contrario que las aplicaciones web propietarias, valoramos la confidencialidad e implementamos estándares abiertos, que es lo que hace que  Kontact le proporcione control completo sobre sus datos. También puede, por supuesto, acceder a sus datos sin conexión, si lo desea.</p>
     <p xml:lang="et">Kontact koondab mitmed isikliku teabe haldamise rakendused ühte aknasse pakkumaks sulle parimaid võimalusi oma tööde ja tegemistega kiiremini ja hõlpsamalt hakkama saada. Kontact võimaldab kasutada kõiki meie võimsaid tööriistu ühes kohas. Erinevalt kommertslikest veebirakendustest hindame me kõrgelt kasutaja privaatsust ja toetame avatud standardeid, mis muu hulgas tähendab, et Kontact jätab täieliku kontrolli sinu andmete üle sinu enda kätte. Soovi korral saab oma andmetele ligi loomulikult ka võrguta režiimis.</p>
@@ -211,8 +212,8 @@
       <li xml:lang="uk">KOrganizer — компонента для роботи з календарем і планування Kontact, який здатен працювати із NextCloud, Kolab, Календарем Google та іншими службами роботи з календарями у інтернеті.</li>
       <li xml:lang="x-test">xxKOrganizer - a calendar and scheduling component of Kontact which is able to work with NextCloud, Kolab, Google Calendar and other calendaring services.xx</li>
       <li>KAddressBook - an easy to use contact management tool that can synchronize contacts with many popular services.</li>
-      <li xml:lang="ca">KAddressBook: una eina per a la gestió dels contactes fácil d'usar que pot sincronitzar contactes amb molts serveis populars.</li>
-      <li xml:lang="ca-valencia">KAddressBook: una eina per a la gestió dels contactes fácil d'usar que pot sincronitzar contactes amb molts serveis populars.</li>
+      <li xml:lang="ca">KAddressBook: una eina per a la gestió dels contactes fàcil d'usar que pot sincronitzar contactes amb molts serveis populars.</li>
+      <li xml:lang="ca-valencia">KAddressBook: una eina per a la gestió dels contactes fàcil d'usar que pot sincronitzar contactes amb molts serveis populars.</li>
       <li xml:lang="en-GB">KAddressBook - an easy to use contact management tool that can synchronise contacts with many popular services.</li>
       <li xml:lang="es">KAddressBook - una herramienta de gestión de contactos fácil de usar que permite sincronizar contactos con muchos servicios populares.</li>
       <li xml:lang="et">KAddressBook - hõlpsasti kasutatav kontaktide haldamise vahend, mis suudab sünkroonida kontakte paljude levinud teenustega.</li>
@@ -369,8 +370,8 @@
     </screenshot>
     <screenshot>
       <caption>Stay on top of the new with Akregator, our news reader.</caption>
-      <caption xml:lang="ca">Mantingueu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies.</caption>
-      <caption xml:lang="ca-valencia">Mantingueu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies.</caption>
+      <caption xml:lang="ca">Manteniu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies.</caption>
+      <caption xml:lang="ca-valencia">Manteniu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies.</caption>
       <caption xml:lang="en-GB">Stay on top of the new with Akregator, our news reader.</caption>
       <caption xml:lang="es">Manténgase al día con Akregator, nuestro lector de noticias.</caption>
       <caption xml:lang="et">Meie uudistelugeja Akregator aitab sind kursis hoida uusimate uudistega.</caption>
