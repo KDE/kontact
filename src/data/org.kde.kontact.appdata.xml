@@ -84,7 +84,7 @@
   <summary xml:lang="nl">Behandel al uw e-mails, agenda's, contactpersonen en meer in een enkel venster</summary>
   <summary xml:lang="pl">Zarządzaj swoimi kontami pocztowymi, kalendarzami, kontaktami i więcej w jednym oknie</summary>
   <summary xml:lang="pt">Trate de todo o seu correio, calendários, contactos e mais ainda dentro de uma única janela</summary>
-  <summary xml:lang="pt-BR">Gerencie em uma única janela todos os seus emails, calendários, contatos e muito mais</summary>
+  <summary xml:lang="pt-BR">Gerencie em uma única janela todos os seus e-mails, calendários, contatos e muito mais</summary>
   <summary xml:lang="ru">Работа с электронной почтой, календарями и контактами из одного окна приложения</summary>
   <summary xml:lang="sk">Spracujte všetky svoje e-maily, kalendáre, kontakty a ďalšie položky v jednom okne</summary>
   <summary xml:lang="sl">Upravljajte z vsemi e-poštnimi sporočili, koledarji, stiki in drugem v enem samem oknu</summary>
@@ -111,7 +111,7 @@
     <p xml:lang="nl">Behandel uw e-mail, agenda, contactpersonen en andere persoonlijke gegevens met Kontact. Kontact groepeert alles in één plek en helpt u uw communicaties te beheren, uw dag te organiseren en samen te werken met uw collega's.</p>
     <p xml:lang="pl">Zarządzaj swoimi kontami pocztowymi, kalendarzami, kontaktami i innymi danymi osobistymi przy użyciu Kontact. Kontact grupuje wszystko w jednym miejscu i pomaga zarządzać twoim porozumiewaniem się oraz ustalaniem twojego dnia i pracy z twoimi kolegami.</p>
     <p xml:lang="pt">Trate do seu correio, calendários, contactos e outros dados pessoais com o Kontact. O Kontact agrupa tudo em conjunto num único lugar e ajuda-o a gerir as suas comunicações, organizar o seu dia e trabalho com os seus colegas.</p>
-    <p xml:lang="pt-BR">Seu email, calendário, contatos e outros dados pessoais unidos no Kontact. Ele reúne tudo isso em um único lugar e ajuda você a gerenciar suas mensagens, organizar o seu dia e trabalhar com seus colegas.</p>
+    <p xml:lang="pt-BR">Seu e-mail, calendário, contatos e outros dados pessoais unidos no Kontact. Ele reúne tudo isso em um único lugar e ajuda você a gerenciar suas mensagens, organizar o seu dia e trabalhar com seus colegas.</p>
     <p xml:lang="ru">Kontact служит для работы с электронной почтой, управления календарями, контактами и другими личными данными. Kontact объединяет всё это в одном приложении и позволяет управлять коммуникациями, планировать рабочий день и взаимодействовать с коллегами.</p>
     <p xml:lang="sk">Zaobchádzajte s e-mailom, kalendárom, kontaktmi a inými osobnými údajmi pomocou aplikácie Kontact. Kontact zoskupuje všetko dohromady na jednom mieste a pomáha vám spravovať vašu komunikáciu, organizovať deň a pracovať s kolegami.</p>
     <p xml:lang="sl">S Kontactom upravljate s svojo e-pošto, koledarjem, stiki in drugimi osebnimi podatki.Kontact združuje vse skupaj na enem mestu in vam pomaga pri upravljanju svojih komunikacij, organizacije dela vašega dne in sodelovanja sodelavci.</p>
@@ -186,7 +186,7 @@
       <li xml:lang="nl">KMail - een krachtige e-mailclient met veel mogelijkheden met ondersteuning van een brede reeks van e-mailleveranciers.</li>
       <li xml:lang="pl">KMail - zaawansowany i pełen możliwości klient pocztowy z obsługą wielu dostawców poczty.</li>
       <li xml:lang="pt">KMail - um cliente de e-mail poderoso e rico em funcionalidades para uma grande variedade de fornecedores de e-mail.</li>
-      <li xml:lang="pt-BR">KMail - um cliente de email poderoso e cheio de recursos com suporte a uma ampla variedade de provedores de email.</li>
+      <li xml:lang="pt-BR">KMail - um cliente de e-mail poderoso e cheio de recursos com suporte a uma ampla variedade de provedores de email.</li>
       <li xml:lang="ru">KMail — мощный почтовый клиент с богатым набором функций, поддерживающий множество почтовых служб.</li>
       <li xml:lang="sk">KMail - výkonný a na funkcie bohatý e-mailový klient s podporou širokej škály poskytovateľov e-mailov.</li>
       <li xml:lang="sl">KMail - močan e-poštni odjemalec z mnogo funkcijami  s podporo za številno paleto ponudnikov e-pošte.</li>
