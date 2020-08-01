@@ -293,7 +293,7 @@
   </description>
   <url type="homepage">https://www.kontact.org/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kontact</url>
-  <url type="help">https://docs.kde.org/stable/en/kdepim/kontact/index.html</url>
+  <url type="help">https://docs.kde.org/?application=kontact</url>
   <screenshots>
     <screenshot type="default">
       <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-summary.png</image>
