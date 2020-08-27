@@ -566,7 +566,7 @@ IconSidePane::IconSidePane(KontactInterface::Core *core, QWidget *parent)
     mNavigator = new Navigator(this);
     layout()->addWidget(mNavigator);
     mNavigator->setFocusPolicy(Qt::NoFocus);
-    mNavigator->setMainWindow(dynamic_cast<MainWindow *>(core));
+    mNavigator->setMainWindow(qobject_cast<MainWindow *>(core));
     connect(mNavigator, &Navigator::pluginActivated, this, &IconSidePane::pluginSelected);
 }
 
