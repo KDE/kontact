@@ -41,7 +41,7 @@ protected:
     KontactInterface::Core *core() const;
 
 private:
-    KontactInterface::Core *mCore = nullptr;
+    KontactInterface::Core *const mCore;
 };
 }
 

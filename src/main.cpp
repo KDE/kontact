@@ -43,7 +43,6 @@ public:
     KontactApp(int &argc, char **argv[])
         : KontactInterface::PimUniqueApplication(argc, argv)
         , mMainWindow(nullptr)
-        , mSessionRestored(false)
     {
         KLocalizedString::setApplicationDomain("kontact");
     }
@@ -67,7 +66,7 @@ public:
 
 private:
     QPointer<MainWindow> mMainWindow;
-    bool mSessionRestored;
+    bool mSessionRestored = false;
 };
 
 static void listPlugins()

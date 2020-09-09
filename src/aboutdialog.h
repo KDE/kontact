@@ -37,7 +37,7 @@ protected:
 
 private:
     void saveSize();
-    KontactInterface::Core *mCore = nullptr;
+    KontactInterface::Core *const mCore;
 };
 }
 
