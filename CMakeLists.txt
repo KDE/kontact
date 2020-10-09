@@ -1,7 +1,7 @@
-set(PIM_VERSION "5.15.2")
+set(PIM_VERSION "5.15.3")
 cmake_minimum_required(VERSION 3.5)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "20.08.2")
+set(RELEASE_SERVICE_VERSION "20.08.3")
 set(KF5_MIN_VERSION "5.71.0")
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
