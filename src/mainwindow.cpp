@@ -27,7 +27,6 @@ using namespace Kontact;
 #include <Libkdepim/ProgressStatusBarWidget>
 #include <Libkdepim/StatusbarProgressWidget>
 
-#include <KontactInterface/Core>
 
 #include <QWebEngineUrlScheme>
 #include <QStatusBar>
