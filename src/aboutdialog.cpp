@@ -66,7 +66,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon, const 
     QIcon pixmap = QIcon::fromTheme(icon);
 
     QFrame *topFrame = new QFrame();
-    KPageWidgetItem *pageItem = new KPageWidgetItem(topFrame, title);
+    auto *pageItem = new KPageWidgetItem(topFrame, title);
     pageItem->setIcon(pixmap);
 
     addPage(pageItem);
@@ -103,7 +103,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon, const 
             Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard | Qt::LinksAccessibleByMouse);
         topLayout->addWidget(label);
 
-        QTextBrowser *personView = new QTextBrowser(topFrame);
+        auto *personView = new QTextBrowser(topFrame);
         personView->setReadOnly(true);
         topLayout->addWidget(personView, 1);
 
@@ -265,12 +265,12 @@ void AboutDialog::addLicenseText(const KAboutData &about)
     const QString title = i18n("%1 License", about.displayName());
 
     QFrame *topFrame = new QFrame();
-    KPageWidgetItem *page = new KPageWidgetItem(topFrame, title);
+    auto *page = new KPageWidgetItem(topFrame, title);
     page->setIcon(QIcon(pixmap));
     addPage(page);
     QBoxLayout *topLayout = new QVBoxLayout(topFrame);
 
-    QTextBrowser *textBrowser = new QTextBrowser(topFrame);
+    auto *textBrowser = new QTextBrowser(topFrame);
     QString licenseStr;
     const QList<KAboutLicense> lstLicenses = about.licenses();
     for (const KAboutLicense &license : lstLicenses) {

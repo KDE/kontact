@@ -238,7 +238,7 @@ void MainWindow::activateInitialPluginModule()
 void MainWindow::initWidgets()
 {
     QWidget *mTopWidget = new QWidget(this);
-    QVBoxLayout *layout = new QVBoxLayout;
+    auto *layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
     mTopWidget->setLayout(layout);
@@ -258,7 +258,7 @@ void MainWindow::initWidgets()
 
     paintAboutScreen(QStringLiteral("loading_kontact.html"), QVariantHash());
 
-    KPIM::ProgressStatusBarWidget *progressStatusBarWidget = new KPIM::ProgressStatusBarWidget(statusBar(), this);
+    auto *progressStatusBarWidget = new KPIM::ProgressStatusBarWidget(statusBar(), this);
 
     mStatusMsgLabel
         = new KSqueezedTextLabel(i18nc("@info:status", " Initializing..."), statusBar());
@@ -289,7 +289,7 @@ void MainWindow::paintAboutScreen(const QString &templateName, const QVariantHas
 void MainWindow::initAboutScreen()
 {
     QWidget *introbox = new QWidget(mPartsStack);
-    QHBoxLayout *introboxHBoxLayout = new QHBoxLayout(introbox);
+    auto *introboxHBoxLayout = new QHBoxLayout(introbox);
     introboxHBoxLayout->setContentsMargins(0, 0, 0, 0);
     mPartsStack->addWidget(introbox);
     mPartsStack->setCurrentWidget(introbox);
@@ -876,7 +876,7 @@ void MainWindow::slotOpenUrl(const QUrl &url)
             KHelpClient::invokeHelp(QString(), app);
         }
     } else {
-        KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url);
+        auto *job = new KIO::OpenUrlJob(url);
         job->start();
     }
 }

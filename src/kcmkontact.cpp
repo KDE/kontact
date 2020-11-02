@@ -33,7 +33,7 @@ Q_DECL_EXPORT KCModule *create_kontactconfig(QWidget *parent, const char *)
 KcmKontact::KcmKontact(QWidget *parent)
     : KCModule(parent)
 {
-    QFormLayout *topLayout = new QFormLayout(this);
+    auto *topLayout = new QFormLayout(this);
     QBoxLayout *pluginStartupLayout = new QHBoxLayout();
     topLayout->addItem(pluginStartupLayout);
 
