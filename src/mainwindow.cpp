@@ -44,7 +44,6 @@ using namespace Kontact;
 #include <KPluginInfo>
 #include <KPluginMetaData>
 #include <KIO/OpenUrlJob>
-#include <KServiceTypeTrader>
 #include <KShortcutsDialog>
 #include <KSqueezedTextLabel>
 #include <KStandardAction>
