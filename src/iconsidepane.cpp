@@ -111,7 +111,7 @@ public:
 
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override
     {
-        Q_UNUSED(parent);
+        Q_UNUSED(parent)
         if (row < 0 || row >= pluginList.count()) {
             return QModelIndex();
         }
@@ -586,7 +586,7 @@ void IconSidePane::updatePlugins()
 
 void IconSidePane::resizeEvent(QResizeEvent *event)
 {
-    Q_UNUSED(event);
+    Q_UNUSED(event)
     const int newWidth(mNavigator->sizeHint().width());
     setFixedWidth(newWidth);
     mNavigator->setFixedWidth(newWidth);

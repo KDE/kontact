@@ -519,7 +519,7 @@ void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
 
 void MainWindow::partLoaded(KontactInterface::Plugin *plugin, KParts::Part *part)
 {
-    Q_UNUSED(plugin);
+    Q_UNUSED(plugin)
 
     // See if we have this part already (e.g. due to two plugins sharing it)
     if (mPartsStack->indexOf(part->widget()) != -1) {

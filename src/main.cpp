@@ -102,7 +102,7 @@ static void loadCommandLineOptions(QCommandLineParser *parser)
 
 int KontactApp::activate(const QStringList &args, const QString &workingDir)
 {
-    Q_UNUSED(workingDir);
+    Q_UNUSED(workingDir)
 
     QCommandLineParser parser;
     loadCommandLineOptions(&parser);
