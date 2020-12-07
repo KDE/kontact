@@ -47,7 +47,7 @@ public:
         KLocalizedString::setApplicationDomain("kontact");
     }
 
-    ~KontactApp()
+    ~KontactApp() override
     {
     }
 

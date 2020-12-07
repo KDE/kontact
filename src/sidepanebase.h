@@ -23,7 +23,7 @@ class SidePaneBase : public QWidget
 
 public:
     SidePaneBase(KontactInterface::Core *core, QWidget *parent);
-    virtual ~SidePaneBase();
+    ~SidePaneBase() override;
 
     virtual void setCurrentPlugin(const QString &) = 0;
 

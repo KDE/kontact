@@ -103,7 +103,7 @@ class IconSidePane : public SidePaneBase
 
 public:
     IconSidePane(KontactInterface::Core *core, QWidget *parent);
-    ~IconSidePane();
+    ~IconSidePane() override;
 
     void setCurrentPlugin(const QString &plugin) override;
 
