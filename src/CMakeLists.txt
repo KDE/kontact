@@ -27,6 +27,10 @@ kconfig_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc)
 qt5_add_resources(kontactprivate_LIB_SRCS kontact.qrc)
 
 add_library(kontactprivate ${kontactprivate_LIB_SRCS})
+if (COMPILE_WITH_CMAKE_SUPPORT)
+    set_target_properties(kontactprivate PROPERTIES UNITY_BUILD ON)
+endif()
+
 generate_export_header(kontactprivate BASE_NAME kontact)
 
 target_link_libraries(kontactprivate
@@ -68,6 +72,9 @@ target_link_libraries(kontact_bin
     KF5::KontactInterface
     KF5::Crash
     )
+if (COMPILE_WITH_CMAKE_SUPPORT)
+    set_target_properties(kontact_bin PROPERTIES UNITY_BUILD ON)
+endif()
 
 install(TARGETS kontact_bin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
