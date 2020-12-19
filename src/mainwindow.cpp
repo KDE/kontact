@@ -884,13 +884,8 @@ void MainWindow::readProperties(const KConfigGroup &config)
 {
     Core::readProperties(config);
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    QSet<QString> activePlugins
-        = QSet<QString>::fromList(config.readEntry("ActivePlugins", QStringList()));
-#else
     const auto activePluginList = config.readEntry("ActivePlugins", QStringList());
     QSet<QString> activePlugins(activePluginList.begin(), activePluginList.end());
-#endif
 
     if (!activePlugins.isEmpty()) {
         for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
