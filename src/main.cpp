@@ -163,7 +163,7 @@ int main(int argc, char **argv)
                      QLatin1String(version),
                      i18n("KDE personal information manager"),
                      KAboutLicense::GPL,
-                     i18n("Copyright © 2001–2020 Kontact authors"),
+                     i18n("Copyright © 2001–2021 Kontact authors"),
                      QString(),
                      QStringLiteral("https://userbase.kde.org/Kontact"));
 
