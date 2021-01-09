@@ -456,6 +456,7 @@
   <provides>
     <binary>kontact</binary>
   </provides>
+  <content_rating type="oars-1.1" />
   <releases>
     <release version="5.16.1" date="2021-01-07"/>
     <release version="5.16.0" date="2020-12-10"/>
