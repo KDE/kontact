@@ -338,7 +338,10 @@
       <caption xml:lang="es">KMail, el componente de correo de Kontact</caption>
       <caption xml:lang="nl">KMail, de e-mailcomponent van Kontact</caption>
       <caption xml:lang="nn">KMail, e-postprogrammet i Kontact</caption>
+      <caption xml:lang="pt">KMail, o componente de e-mail do Kontact</caption>
       <caption xml:lang="pt-BR">KMail, o componente de e-mail do Kontact</caption>
+      <caption xml:lang="sl">KMail, e-poštna komponenta Kontacta</caption>
+      <caption xml:lang="sv">Kmail: E-postkomponenten i Kontact</caption>
       <caption xml:lang="uk">KMail — компонент Kontact для роботи з електронною поштою</caption>
       <caption xml:lang="x-test">xxKMail, the email component of Kontactxx</caption>
       <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-kmail.png</image>
@@ -351,7 +354,10 @@
       <caption xml:lang="es">Organice su tiempo, gestione eventos, cree tareas pendientes o planifique reuniones con KOrganizer</caption>
       <caption xml:lang="nl">Organiseer uw tijd, beheer uw afspraken, maak todo's of plan meetings met KOrganizer</caption>
       <caption xml:lang="nn">Planlegg dagane, hald oversikt over arrangement, lag oppgåvelister eller inviter til møte med KOrganizer</caption>
+      <caption xml:lang="pt">Organize o seu tempo, faça a gestão dos eventos, crie tarefas ou agende reuniões com o KOrganizer</caption>
       <caption xml:lang="pt-BR">Organize o seu tempo, gerencie eventos, crie to-dos ou agende reuniões com o KOrganizer</caption>
+      <caption xml:lang="sl">Organizirajte svoj čas, upravljajte dogodke, ustvarjajte sezname nedokončanih opravil ali načrtujte sestanke s programom KOrganizer</caption>
+      <caption xml:lang="sv">Organisera din tid, hantera händelser, skapa uppgifter eller schemalägg möten med Korganizer</caption>
       <caption xml:lang="uk">Упорядковуйте ваш графік, керуйте записами подій, створюйте записи завдань та плануйте зустрічі за допомогою KOrganizer</caption>
       <caption xml:lang="x-test">xxOrganize your time, manage events, create todos or schedule meetings with KOrganizerxx</caption>
       <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-korganizer.png</image>
@@ -364,7 +370,10 @@
       <caption xml:lang="es">KAddressBook proporciona un modo sencillo de gestionar sus contactos</caption>
       <caption xml:lang="nl">KAddressBook biedt een gemakkelijke manier om uw contactpersonen te beheren</caption>
       <caption xml:lang="nn">KAddressBook lèt deg enkelt halda oversikt over kontaktar</caption>
+      <caption xml:lang="pt">O KAddressBook oferece uma forma simples de gerir os seus contactos</caption>
       <caption xml:lang="pt-BR">O KAddressBook fornece uma maneira fácil de gerenciar seus contatos</caption>
+      <caption xml:lang="sl">KAddressBook omogoča preprost način za upravljanje stikov</caption>
+      <caption xml:lang="sv">Adressboken tillhandahåller ett enkelt sätt att hantera dina kontakter</caption>
       <caption xml:lang="uk">KAddressBook — надає у ваше розпорядження простий спосіб керувати вашими записами контактів</caption>
       <caption xml:lang="x-test">xxKAddressBook provides an easy way to manage your contactsxx</caption>
       <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-kaddressbook.png</image>
@@ -377,7 +386,10 @@
       <caption xml:lang="es">Manténgase al día con Akregator, nuestro lector de noticias</caption>
       <caption xml:lang="nl">Sta bovenop het nieuws met Akregator, onze nieuwslezer</caption>
       <caption xml:lang="nn">Hald deg oppdatert med nyheitslesaren Akregator</caption>
+      <caption xml:lang="pt">Fique a par das novidades com o Akregator, o nosso leitor de notícias</caption>
       <caption xml:lang="pt-BR">Fique de olho no que há de novo com o Akregator, o nosso leitor de notícias</caption>
+      <caption xml:lang="sl">Bodite na sproti obveščeni z Akregatorjem našim bralnikom novic</caption>
+      <caption xml:lang="sv">Håll reda på nyheter med Akregator, vår nyhetsläsare</caption>
       <caption xml:lang="uk">Залишайтеся на вістрі подій разом із Akregator, нашою програмою для читання новин</caption>
       <caption xml:lang="x-test">xxStay on top of the new with Akregator, our news readerxx</caption>
       <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-akregator.png</image>
