@@ -333,6 +333,7 @@
     <screenshot>
       <caption>KMail, the email component of Kontact</caption>
       <caption xml:lang="ca">El KMail, el component de correu electrònic del Kontact</caption>
+      <caption xml:lang="ca-valencia">El KMail, el component de correu electrònic del Kontact</caption>
       <caption xml:lang="da">KMail, Kontacts e-mailkomponent</caption>
       <caption xml:lang="es">KMail, el componente de correo de Kontact</caption>
       <caption xml:lang="nl">KMail, de e-mailcomponent van Kontact</caption>
@@ -346,6 +347,7 @@
     <screenshot>
       <caption>Organize your time, manage events, create todos or schedule meetings with KOrganizer</caption>
       <caption xml:lang="ca">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb el KOrganizer</caption>
+      <caption xml:lang="ca-valencia">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb el KOrganizer</caption>
       <caption xml:lang="da">Planlæg din tid, administrér begivenheder, opret gøremål og planlæg møder med KOrganizer</caption>
       <caption xml:lang="es">Organice su tiempo, gestione eventos, cree tareas pendientes o planifique reuniones con KOrganizer</caption>
       <caption xml:lang="nl">Organiseer uw tijd, beheer uw afspraken, maak todo's of plan meetings met KOrganizer</caption>
@@ -359,6 +361,7 @@
     <screenshot>
       <caption>KAddressBook provides an easy way to manage your contacts</caption>
       <caption xml:lang="ca">El KAddressBook proporciona una manera fàcil de gestionar els vostres contactes</caption>
+      <caption xml:lang="ca-valencia">El KAddressBook proporciona una manera fàcil de gestionar els vostres contactes</caption>
       <caption xml:lang="da">KAddressBook giver en nem måde at håndtere din kontakter på</caption>
       <caption xml:lang="es">KAddressBook proporciona un modo sencillo de gestionar sus contactos</caption>
       <caption xml:lang="nl">KAddressBook biedt een gemakkelijke manier om uw contactpersonen te beheren</caption>
@@ -372,6 +375,7 @@
     <screenshot>
       <caption>Stay on top of the new with Akregator, our news reader</caption>
       <caption xml:lang="ca">Manteniu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies</caption>
+      <caption xml:lang="ca-valencia">Manteniu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies</caption>
       <caption xml:lang="da">Hold styr på nyhederne med vores nyhedslæser Akregator</caption>
       <caption xml:lang="es">Manténgase al día con Akregator, nuestro lector de noticias</caption>
       <caption xml:lang="nl">Sta bovenop het nieuws met Akregator, onze nieuwslezer</caption>
