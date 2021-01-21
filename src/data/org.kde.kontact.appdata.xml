@@ -336,7 +336,9 @@
       <caption xml:lang="ca-valencia">El KMail, el component de correu electrònic del Kontact</caption>
       <caption xml:lang="da">KMail, Kontacts e-mailkomponent</caption>
       <caption xml:lang="es">KMail, el componente de correo de Kontact</caption>
+      <caption xml:lang="ia">KMail, le componente de e-posta de Kontact</caption>
       <caption xml:lang="id">KMail, adalah komponen email pada Kontact</caption>
+      <caption xml:lang="it">KMail è il componente di posta elettronica di Kontact</caption>
       <caption xml:lang="nl">KMail, de e-mailcomponent van Kontact</caption>
       <caption xml:lang="nn">KMail, e-postprogrammet i Kontact</caption>
       <caption xml:lang="pl">KMail, składnik poczty w Kontact</caption>
@@ -355,7 +357,9 @@
       <caption xml:lang="ca-valencia">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb el KOrganizer</caption>
       <caption xml:lang="da">Planlæg din tid, administrér begivenheder, opret gøremål og planlæg møder med KOrganizer</caption>
       <caption xml:lang="es">Organice su tiempo, gestione eventos, cree tareas pendientes o planifique reuniones con KOrganizer</caption>
+      <caption xml:lang="ia">Organisa tu tempore, gere eventos, crea actiones de facer,i.e. tu agnda, o planifica incontros con KOrganizer</caption>
       <caption xml:lang="id">Atur waktu, kelola acara, ciptakan kegiatan atau jadwalkan rapatmu menggunakan KOrganizer</caption>
+      <caption xml:lang="it">Organizza il tuo tempo, gestisci eventi, crea cose da fare o pianifica delle riunioni con KOrganizer</caption>
       <caption xml:lang="nl">Organiseer uw tijd, beheer uw afspraken, maak todo's of plan meetings met KOrganizer</caption>
       <caption xml:lang="nn">Planlegg dagane, hald oversikt over arrangement, lag oppgåvelister eller inviter til møte med KOrganizer</caption>
       <caption xml:lang="pl">Organizuj swój czas, zarządzaj wydarzeniami, twórz zadania do zrobienia i planuj spotkania z KOrganizer</caption>
@@ -374,7 +378,9 @@
       <caption xml:lang="ca-valencia">El KAddressBook proporciona una manera fàcil de gestionar els vostres contactes</caption>
       <caption xml:lang="da">KAddressBook giver en nem måde at håndtere din kontakter på</caption>
       <caption xml:lang="es">KAddressBook proporciona un modo sencillo de gestionar sus contactos</caption>
+      <caption xml:lang="ia">KaddressBook forni un modo facile de gerer tu contactos</caption>
       <caption xml:lang="id">KAddressBook menyediakan cara yang mudah untuk mengelola kontakmu</caption>
+      <caption xml:lang="it">KAddressBook fornisce un modo semplice per gestire i contatti</caption>
       <caption xml:lang="nl">KAddressBook biedt een gemakkelijke manier om uw contactpersonen te beheren</caption>
       <caption xml:lang="nn">KAddressBook lèt deg enkelt halda oversikt over kontaktar</caption>
       <caption xml:lang="pl">KAddressBook zapewnia łatwy sposób na zarządzanie twoimi kontaktami</caption>
@@ -393,7 +399,9 @@
       <caption xml:lang="ca-valencia">Manteniu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies</caption>
       <caption xml:lang="da">Hold styr på nyhederne med vores nyhedslæser Akregator</caption>
       <caption xml:lang="es">Manténgase al día con Akregator, nuestro lector de noticias</caption>
+      <caption xml:lang="ia">Resta al culmine del novas con Akregator, nostre lector de syndication de novas</caption>
       <caption xml:lang="id">Tetap mengikuti yang baru dengan Akregator, pembaca berita kami</caption>
+      <caption xml:lang="it">Rimani aggiornato sulle novità con Akregator, il nostro lettore di notizie</caption>
       <caption xml:lang="nl">Sta bovenop het nieuws met Akregator, onze nieuwslezer</caption>
       <caption xml:lang="nn">Hald deg oppdatert med nyheitslesaren Akregator</caption>
       <caption xml:lang="pl">Bądź na bieżąco z Akregatorem, naszym czytnikiem wieści</caption>
