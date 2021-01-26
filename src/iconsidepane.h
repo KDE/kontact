@@ -14,14 +14,16 @@
 
 #include <QListView>
 
-namespace KontactInterface {
+namespace KontactInterface
+{
 class Core;
 class Plugin;
 }
 
 class QAction;
 
-namespace Kontact {
+namespace Kontact
+{
 class Model;
 class MainWindow;
 class Navigator;

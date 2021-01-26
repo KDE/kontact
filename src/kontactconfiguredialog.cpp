@@ -5,11 +5,11 @@
 */
 
 #include "kontactconfiguredialog.h"
+#include "kontact_debug.h"
 #include <KConfig>
 #include <KSharedConfig>
-#include <QDBusReply>
 #include <QDBusInterface>
-#include "kontact_debug.h"
+#include <QDBusReply>
 #include <QPushButton>
 
 using namespace Kontact;
@@ -31,9 +31,8 @@ KontactConfigureDialog::~KontactConfigureDialog()
 
 void KontactConfigureDialog::emitConfigChanged()
 {
-    //Add code from plugins which needs to be call when we close kontact dialog config
-    QDBusInterface kmailIface(QStringLiteral("org.kde.kmail"), QStringLiteral("/KMail"), QStringLiteral("org.kde.kmail.kmail"),
-                              QDBusConnection::sessionBus());
+    // Add code from plugins which needs to be call when we close kontact dialog config
+    QDBusInterface kmailIface(QStringLiteral("org.kde.kmail"), QStringLiteral("/KMail"), QStringLiteral("org.kde.kmail.kmail"), QDBusConnection::sessionBus());
     if (kmailIface.isValid()) {
         QDBusReply<void> reply;
         if (!(reply = kmailIface.call(QStringLiteral("updateConfig"))).isValid()) {
@@ -42,7 +41,9 @@ void KontactConfigureDialog::emitConfigChanged()
                         << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
         }
     }
-    QDBusInterface knotesIface(QStringLiteral("org.kde.kontact"), QStringLiteral("/KNotes"), QStringLiteral("org.kde.kontact.KNotes"),
+    QDBusInterface knotesIface(QStringLiteral("org.kde.kontact"),
+                               QStringLiteral("/KNotes"),
+                               QStringLiteral("org.kde.kontact.KNotes"),
                                QDBusConnection::sessionBus());
     if (knotesIface.isValid()) {
         QDBusReply<void> reply;

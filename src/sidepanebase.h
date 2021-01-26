@@ -11,12 +11,14 @@
 
 #include <QWidget>
 
-namespace KontactInterface {
+namespace KontactInterface
+{
 class Core;
 class Plugin;
 }
 
-namespace Kontact {
+namespace Kontact
+{
 class SidePaneBase : public QWidget
 {
     Q_OBJECT

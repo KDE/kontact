@@ -13,7 +13,8 @@
 #include <KService>
 class QComboBox;
 class QCheckBox;
-namespace Kontact {
+namespace Kontact
+{
 class KcmKontact : public KCModule
 {
     Q_OBJECT
@@ -25,6 +26,7 @@ public:
     void save() override;
 
     const KAboutData *aboutData() const override;
+
 private:
     KService::List mPluginList;
     QComboBox *mPluginCombo = nullptr;

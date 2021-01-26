@@ -11,14 +11,16 @@
 
 #include <KPageDialog>
 
-namespace KontactInterface {
+namespace KontactInterface
+{
 class Core;
 class Plugin;
 }
 
 class KAboutData;
 
-namespace Kontact {
+namespace Kontact
+{
 class AboutDialog : public KPageDialog
 {
     Q_OBJECT

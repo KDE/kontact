@@ -13,17 +13,17 @@ using namespace Kontact;
 #include <KontactInterface/Plugin>
 
 #include <KAboutData>
-#include <KLocalizedString>
-#include <QTextBrowser>
 #include <KConfigGroup>
-#include <QIcon>
 #include <KIconLoader>
+#include <KLocalizedString>
+#include <QIcon>
+#include <QTextBrowser>
 
+#include <KSharedConfig>
+#include <KWindowConfig>
 #include <QBoxLayout>
 #include <QLabel>
 #include <QPushButton>
-#include <KSharedConfig>
-#include <KWindowConfig>
 
 AboutDialog::AboutDialog(KontactInterface::Core *core)
     : KPageDialog(core)
@@ -34,8 +34,7 @@ AboutDialog::AboutDialog(KontactInterface::Core *core)
     button(QDialogButtonBox::Close)->setDefault(true);
     setModal(false);
     setFaceType(KPageDialog::List);
-    addAboutData(i18n("Kontact Container"), QStringLiteral("kontact"),
-                 KAboutData::applicationData());
+    addAboutData(i18n("Kontact Container"), QStringLiteral("kontact"), KAboutData::applicationData());
     QList<KontactInterface::Plugin *> plugins = mCore->pluginList();
     const QList<KontactInterface::Plugin *>::ConstIterator end = plugins.constEnd();
     QList<KontactInterface::Plugin *>::ConstIterator it = plugins.constBegin();
@@ -85,8 +84,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon, const 
         text += QLatin1String("</p>");
 
         if (!about.shortDescription().isEmpty()) {
-            text += QLatin1String("<p>") + about.shortDescription() + QLatin1String("<br>")
-                    +about.copyrightStatement() + QLatin1String("</p>");
+            text += QLatin1String("<p>") + about.shortDescription() + QLatin1String("<br>") + about.copyrightStatement() + QLatin1String("</p>");
         }
 
         QString home = about.homepage();
@@ -99,8 +97,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon, const 
         QLabel *label = new QLabel(text, topFrame);
         label->setAlignment(Qt::AlignTop);
         label->setOpenExternalLinks(true);
-        label->setTextInteractionFlags(
-            Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard | Qt::LinksAccessibleByMouse);
+        label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard | Qt::LinksAccessibleByMouse);
         topLayout->addWidget(label);
 
         auto *personView = new QTextBrowser(topFrame);
@@ -141,7 +138,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon, const 
                 text += formatPerson((*it).name(), (*it).emailAddress());
             }
         }
-        //krazy:excludeall=style (really need krazy conditional code sections)
+        // krazy:excludeall=style (really need krazy conditional code sections)
         text += i18n(
             "<br /><br />\
                      <i>This Free Software product was improved as part of a commercial project:</i>\
@@ -259,8 +256,7 @@ void AboutDialog::addLicenseText(const KAboutData &about)
     if (about.licenses().isEmpty()) {
         return;
     }
-    QPixmap pixmap = KIconLoader::global()->loadIcon(QStringLiteral("help-about"),
-                                                     KIconLoader::Desktop, 48);
+    QPixmap pixmap = KIconLoader::global()->loadIcon(QStringLiteral("help-about"), KIconLoader::Desktop, 48);
 
     const QString title = i18n("%1 License", about.displayName());
 

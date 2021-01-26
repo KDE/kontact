@@ -28,7 +28,8 @@ class IntroductionWebEngineView;
 typedef QList<KontactInterface::Plugin *> PluginList;
 typedef QList<QAction *> ActionPluginList;
 
-namespace Kontact {
+namespace Kontact
+{
 class AboutDialog;
 class SidePaneBase;
 
@@ -124,7 +125,7 @@ private:
 
     QString mInitialActiveModule;
 
-    QMap<QString, QPointer<QWidget> > mFocusWidgets;
+    QMap<QString, QPointer<QWidget>> mFocusWidgets;
     QMap<KontactInterface::Plugin *, QAction *> mPluginAction;
 
     AboutDialog *mAboutDialog = nullptr;

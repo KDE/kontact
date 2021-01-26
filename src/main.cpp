@@ -10,21 +10,21 @@
 // Use the kdepim version
 #include "kontact-version.h"
 
-#include "mainwindow.h"
 #include "kontact_debug.h"
+#include "mainwindow.h"
 #include "prefs.h"
 using namespace Kontact;
 
+#include <KontactInterface/PimUniqueApplication>
 #include <KontactInterface/Plugin>
 #include <KontactInterface/UniqueAppHandler>
-#include <KontactInterface/PimUniqueApplication>
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedString>
 #include <KService>
 #include <KServiceTypeTrader>
 #include <KWindowSystem>
-#include <KCrash>
 
 #include <QCommandLineParser>
 #include <QDBusConnection>
@@ -71,9 +71,8 @@ private:
 
 static void listPlugins()
 {
-    const KService::List offers = KServiceTypeTrader::self()->query(
-        QStringLiteral("Kontact/Plugin"),
-        QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
+    const KService::List offers =
+        KServiceTypeTrader::self()->query(QStringLiteral("Kontact/Plugin"), QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
     const KService::List::ConstIterator end(offers.end());
     for (KService::List::ConstIterator it = offers.begin(); it != end; ++it) {
         KService::Ptr service = (*it);
@@ -88,16 +87,9 @@ static void listPlugins()
 
 static void loadCommandLineOptions(QCommandLineParser *parser)
 {
-    parser->addOption(QCommandLineOption(
-                          QStringLiteral("module"),
-                          i18n("Start with a specific Kontact module"),
-                          QStringLiteral("module")));
-    parser->addOption(QCommandLineOption(
-                          QStringLiteral("iconify"),
-                          i18n("Start in iconified (minimized) mode")));
-    parser->addOption(QCommandLineOption(
-                          QStringLiteral("list"),
-                          i18n("List all possible modules and exit")));
+    parser->addOption(QCommandLineOption(QStringLiteral("module"), i18n("Start with a specific Kontact module"), QStringLiteral("module")));
+    parser->addOption(QCommandLineOption(QStringLiteral("iconify"), i18n("Start in iconified (minimized) mode")));
+    parser->addOption(QCommandLineOption(QStringLiteral("list"), i18n("List all possible modules and exit")));
 }
 
 int KontactApp::activate(const QStringList &args, const QString &workingDir)
@@ -177,8 +169,7 @@ int main(int argc, char **argv)
     about.addAuthor(i18n("Ingo Kl\303\266cker"), QString(), QStringLiteral("kloecker@kde.org"));
     about.addAuthor(i18n("Sven L\303\274ppken"), QString(), QStringLiteral("sven@kde.org"));
     about.addAuthor(i18n("Zack Rusin"), QString(), QStringLiteral("zack@kde.org"));
-    about.addAuthor(i18n("Matthias Hoelzer-Kluepfel"),
-                    i18n("Original Author"), QStringLiteral("mhk@kde.org"));
+    about.addAuthor(i18n("Matthias Hoelzer-Kluepfel"), i18n("Original Author"), QStringLiteral("mhk@kde.org"));
     about.addCredit(i18n("Torgny Nyblom"), i18n("Git Migration"), QStringLiteral("nyblom@kde.org"));
     about.setOrganizationDomain("kde.org");
     app.setAboutData(about);

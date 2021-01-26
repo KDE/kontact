@@ -13,17 +13,16 @@ using namespace Kontact;
 #include <KontactInterface/Plugin>
 
 #include <KAboutData>
-#include <QComboBox>
-#include <KServiceTypeTrader>
 #include <KLocalizedString>
+#include <KServiceTypeTrader>
+#include <QComboBox>
 
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QHBoxLayout>
 #include <QStandardItemModel>
 
-extern "C"
-{
+extern "C" {
 Q_DECL_EXPORT KCModule *create_kontactconfig(QWidget *parent, const char *)
 {
     return new KcmKontact(parent);
@@ -41,23 +40,21 @@ KcmKontact::KcmKontact(QWidget *parent)
     forceStartupPluginCheckBox->setObjectName(QStringLiteral("kcfg_ForceStartupPlugin"));
     pluginStartupLayout->addWidget(forceStartupPluginCheckBox);
 
-
     mPluginCombo = new QComboBox(parent);
-    mPluginCombo->setToolTip(
-        i18nc("@info:tooltip", "Select the initial plugin to use on each start"));
-    mPluginCombo->setWhatsThis(
-        i18nc("@info:whatsthis",
-              "Select the plugin from this drop down list to be used as the "
-              "initial plugin each time Kontact is started. Otherwise, Kontact "
-              "will restore the last active plugin from the previous usage."));
-    connect(mPluginCombo, qOverload<int>(&QComboBox::currentIndexChanged), this, [this]() { Q_EMIT changed(true); });
+    mPluginCombo->setToolTip(i18nc("@info:tooltip", "Select the initial plugin to use on each start"));
+    mPluginCombo->setWhatsThis(i18nc("@info:whatsthis",
+                                     "Select the plugin from this drop down list to be used as the "
+                                     "initial plugin each time Kontact is started. Otherwise, Kontact "
+                                     "will restore the last active plugin from the previous usage."));
+    connect(mPluginCombo, qOverload<int>(&QComboBox::currentIndexChanged), this, [this]() {
+        Q_EMIT changed(true);
+    });
     pluginStartupLayout->addWidget(mPluginCombo);
     mPluginCombo->setEnabled(false);
 
     pluginStartupLayout->addStretch(1);
 
-    connect(forceStartupPluginCheckBox, &QAbstractButton::toggled,
-            mPluginCombo, &QWidget::setEnabled);
+    connect(forceStartupPluginCheckBox, &QAbstractButton::toggled, mPluginCombo, &QWidget::setEnabled);
 
     QCheckBox *showSideBarCheckbox = new QCheckBox(Prefs::self()->sideBarOpenItem()->label(), this);
     showSideBarCheckbox->setObjectName(QStringLiteral("kcfg_SideBarOpen"));
@@ -71,9 +68,8 @@ void KcmKontact::load()
 {
     const KConfigGroup grp(Prefs::self()->config(), "Plugins");
 
-    const KService::List offers = KServiceTypeTrader::self()->query(
-        QStringLiteral("Kontact/Plugin"),
-        QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
+    const KService::List offers =
+        KServiceTypeTrader::self()->query(QStringLiteral("Kontact/Plugin"), QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
 
     int activeComponent = 0;
     mPluginCombo->clear();
@@ -92,11 +88,10 @@ void KcmKontact::load()
         if (!grp.readEntry(pluginName + QStringLiteral("Enabled"), false)) {
             const QStandardItemModel *qsm = qobject_cast<QStandardItemModel *>(mPluginCombo->model());
             if (qsm) {
-                qsm->item(mPluginCombo->count()-1, 0)->setEnabled(false);
+                qsm->item(mPluginCombo->count() - 1, 0)->setEnabled(false);
             }
         }
         if (service->property(QStringLiteral("X-KDE-PluginInfo-Name")).toString() == Prefs::self()->activePlugin()) {
-
             activeComponent = mPluginList.count() - 1;
         }
     }
@@ -115,20 +110,15 @@ void KcmKontact::save()
 
 const KAboutData *KcmKontact::aboutData() const
 {
-    KAboutData *about = new KAboutData(
-        QStringLiteral("kontactconfig"),
-        i18nc("@title", "KDE Kontact"),
-        QString(),
-        QString(),
-        KAboutLicense::GPL,
-        i18nc("@info:credit", "(c), 2003 Cornelius Schumacher"));
+    KAboutData *about = new KAboutData(QStringLiteral("kontactconfig"),
+                                       i18nc("@title", "KDE Kontact"),
+                                       QString(),
+                                       QString(),
+                                       KAboutLicense::GPL,
+                                       i18nc("@info:credit", "(c), 2003 Cornelius Schumacher"));
 
-    about->addAuthor(i18nc("@info:credit", "Cornelius Schumacher"),
-                     i18nc("@info:credit", "Developer"),
-                     QStringLiteral("schumacher@kde.org"));
-    about->addAuthor(i18nc("@info:credit", "Tobias Koenig"),
-                     i18nc("@info:credit", "Developer"),
-                     QStringLiteral("tokoe@kde.org"));
+    about->addAuthor(i18nc("@info:credit", "Cornelius Schumacher"), i18nc("@info:credit", "Developer"), QStringLiteral("schumacher@kde.org"));
+    about->addAuthor(i18nc("@info:credit", "Tobias Koenig"), i18nc("@info:credit", "Developer"), QStringLiteral("tokoe@kde.org"));
 
     return about;
 }
