@@ -15,6 +15,7 @@ set(kontactprivate_LIB_SRCS
     iconsidepane.cpp
     aboutdialog.cpp
     kontactconfiguredialog.cpp
+    kontact.qrc
     )
 
 ecm_qt_declare_logging_category(kontactprivate_LIB_SRCS HEADER kontact_debug.h IDENTIFIER KONTACT_LOG CATEGORY_NAME org.kde.pim.kontact
@@ -24,7 +25,6 @@ ecm_qt_declare_logging_category(kontactprivate_LIB_SRCS HEADER kontact_debug.h I
     )
 
 kconfig_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc)
-qt5_add_resources(kontactprivate_LIB_SRCS kontact.qrc)
 
 add_library(kontactprivate ${kontactprivate_LIB_SRCS})
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
