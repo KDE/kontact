@@ -197,7 +197,7 @@ int main(int argc, char **argv)
     if (!app.isSessionRestored()) {
         // There can only be one main window
         if (KMainWindow::canBeRestored(1)) {
-            auto *mainWindow = new MainWindow();
+            auto mainWindow = new MainWindow();
             app.setMainWindow(mainWindow);
             app.setSessionRestored(true);
             mainWindow->show();

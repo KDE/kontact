@@ -165,8 +165,8 @@ public:
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override
     {
-        auto *leftPlugin = static_cast<KontactInterface::Plugin *>(left.internalPointer());
-        auto *rightPlugin = static_cast<KontactInterface::Plugin *>(right.internalPointer());
+        auto leftPlugin = static_cast<KontactInterface::Plugin *>(left.internalPointer());
+        auto rightPlugin = static_cast<KontactInterface::Plugin *>(right.internalPointer());
 
         if (leftPlugin->weight() == rightPlugin->weight()) {
             // Optimize it
@@ -257,7 +257,7 @@ Navigator::Navigator(SidePaneBase *parent)
     mShowIcons = Prefs::self()->sidePaneShowIcons();
     mShowText = Prefs::self()->sidePaneShowText();
 
-    auto *viewMode = new QActionGroup(this);
+    auto viewMode = new QActionGroup(this);
     connect(viewMode, &QActionGroup::triggered, this, &Navigator::slotActionTriggered);
 
     mShowIconsAction = new QAction(i18nc("@action:inmenu", "Show Icons Only"), this);
@@ -281,7 +281,7 @@ Navigator::Navigator(SidePaneBase *parent)
     setHelpText(mShowBothAction, i18nc("@info:status", "Show sidebar items with icons and text"));
     mShowBothAction->setWhatsThis(i18nc("@info:whatsthis", "Choose this option if you want the sidebar items to have icons and text."));
 
-    auto *iconSize = new QActionGroup(this);
+    auto iconSize = new QActionGroup(this);
     connect(iconSize, &QActionGroup::triggered, this, &Navigator::slotActionTriggered);
 
     mBigIconsAction = new QAction(i18nc("@action:inmenu", "Big Icons"), this);
@@ -312,9 +312,9 @@ Navigator::Navigator(SidePaneBase *parent)
     mHideSideBarAction->setWhatsThis(i18nc("@info:whatsthis", "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."));
     connect(mHideSideBarAction, &QAction::triggered, this, &Navigator::slotHideSideBarTriggered);
 
-    auto *sep = new QAction(this);
+    auto sep = new QAction(this);
     sep->setSeparator(true);
-    auto *sep2 = new QAction(this);
+    auto sep2 = new QAction(this);
     sep2->setSeparator(true);
 
     QList<QAction *> actionList;
@@ -327,7 +327,7 @@ Navigator::Navigator(SidePaneBase *parent)
     setViewMode(ListMode);
     setItemDelegate(new Delegate(this));
     mModel = new Model(this);
-    auto *sortFilterProxyModel = new SortFilterProxyModel(this);
+    auto sortFilterProxyModel = new SortFilterProxyModel(this);
     sortFilterProxyModel->setSourceModel(mModel);
     setModel(sortFilterProxyModel);
     setSelectionModel(new SelectionModel(sortFilterProxyModel, this));
@@ -422,7 +422,7 @@ void Navigator::dragMoveEvent(QDragMoveEvent *event)
         return;
     } else {
         const QModelIndex sourceIndex = static_cast<const QSortFilterProxyModel *>(model())->mapToSource(dropIndex);
-        auto *plugin = static_cast<KontactInterface::Plugin *>(sourceIndex.internalPointer());
+        auto plugin = static_cast<KontactInterface::Plugin *>(sourceIndex.internalPointer());
         if (!plugin->canDecodeMimeData(event->mimeData())) {
             event->setAccepted(false);
             return;
@@ -444,7 +444,7 @@ void Navigator::dropEvent(QDropEvent *event)
         return;
     } else {
         const QModelIndex sourceIndex = static_cast<const QSortFilterProxyModel *>(model())->mapToSource(dropIndex);
-        auto *plugin = static_cast<KontactInterface::Plugin *>(sourceIndex.internalPointer());
+        auto plugin = static_cast<KontactInterface::Plugin *>(sourceIndex.internalPointer());
         plugin->processDropEvent(event);
     }
 }

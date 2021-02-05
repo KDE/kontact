@@ -10,7 +10,7 @@
 IntroductionWebEngineView::IntroductionWebEngineView(QWidget *parent)
     : QWebEngineView(parent)
 {
-    auto *pageEngine = new IntroductionWebEnginePage(this);
+    auto pageEngine = new IntroductionWebEnginePage(this);
     setPage(pageEngine);
 
     setFocusPolicy(Qt::WheelFocus);
