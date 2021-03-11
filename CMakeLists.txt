@@ -1,4 +1,4 @@
-set(PIM_VERSION "5.16.40")
+set(PIM_VERSION "5.16.80")
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(kontact VERSION ${PIM_VERSION})
 set(RELEASE_SERVICE_VERSION "21.03.80")
