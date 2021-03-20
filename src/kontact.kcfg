@@ -22,7 +22,7 @@
 
    <entry type="Bool" name="SideBarOpen">
       <default>true</default>
-      <label>Show the component sidebar:</label>
+      <label>Show the component sidebar</label>
       <tooltip>Show/Hide the icon sidebar</tooltip>
       <whatsthis>To save screen real estate you might choose to hide the icon sidebar. Uncheck this box to hide the component sidebar. Note that the F9 key will hide/show the icon sidebar.</whatsthis>
     </entry>
