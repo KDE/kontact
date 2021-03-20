@@ -32,9 +32,9 @@ Q_DECL_EXPORT KCModule *create_kontactconfig(QWidget *parent, const char *)
 KcmKontact::KcmKontact(QWidget *parent)
     : KCModule(parent)
 {
-    auto topLayout = new QFormLayout(this);
+    auto topLayout = new QVBoxLayout(this);
     QBoxLayout *pluginStartupLayout = new QHBoxLayout();
-    topLayout->addItem(pluginStartupLayout);
+    topLayout->addLayout(pluginStartupLayout);
 
     QCheckBox *forceStartupPluginCheckBox = new QCheckBox(Prefs::self()->forceStartupPluginItem()->label(), this);
     forceStartupPluginCheckBox->setObjectName(QStringLiteral("kcfg_ForceStartupPlugin"));
@@ -50,9 +50,9 @@ KcmKontact::KcmKontact(QWidget *parent)
         Q_EMIT changed(true);
     });
     pluginStartupLayout->addWidget(mPluginCombo);
+    pluginStartupLayout->addStretch();
     mPluginCombo->setEnabled(false);
 
-    pluginStartupLayout->addStretch(1);
 
     connect(forceStartupPluginCheckBox, &QAbstractButton::toggled, mPluginCombo, &QWidget::setEnabled);
 
@@ -61,6 +61,7 @@ KcmKontact::KcmKontact(QWidget *parent)
     topLayout->addWidget(showSideBarCheckbox);
 
     addConfig(Prefs::self(), this);
+    topLayout->addStretch();
     load();
 }
 
