@@ -6,8 +6,7 @@
   SPDX-License-Identifier: GPL-2.0-or-later WITH Qt-Commercial-exception-1.0
 */
 
-#ifndef KCMKONTACT_H
-#define KCMKONTACT_H
+#pragma once
 
 #include <KCModule>
 #include <KService>
@@ -34,4 +33,3 @@ private:
 };
 }
 
-#endif

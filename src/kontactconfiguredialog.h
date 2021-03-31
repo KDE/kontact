@@ -4,8 +4,7 @@
    SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef KONTACTCONFIGUREDIALOG_H
-#define KONTACTCONFIGUREDIALOG_H
+#pragma once
 
 #include <ksettings/Dialog>
 
@@ -32,4 +31,3 @@ protected Q_SLOTS:
 };
 }
 
-#endif /* KONTACTCONFIGUREDIALOG_H */

@@ -7,8 +7,7 @@
   SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef KONTACT_ICONSIDEPANEBASE_H
-#define KONTACT_ICONSIDEPANEBASE_H
+#pragma once
 
 #include "sidepanebase.h"
 
@@ -120,4 +119,3 @@ private:
 };
 }
 
-#endif

@@ -4,8 +4,7 @@
    SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef INTRODUCTIONWEBENGINEPAGE_H
-#define INTRODUCTIONWEBENGINEPAGE_H
+#pragma once
 
 #include <QWebEnginePage>
 
@@ -22,4 +21,3 @@ protected:
     bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) override;
 };
 
-#endif // INTRODUCTIONWEBENGINEPAGE_H

@@ -6,8 +6,7 @@
   SPDX-License-Identifier: GPL-2.0-or-later WITH Qt-Commercial-exception-1.0
 */
 
-#ifndef KONTACT_ABOUTDIALOG_H
-#define KONTACT_ABOUTDIALOG_H
+#pragma once
 
 #include <KPageDialog>
 
@@ -43,4 +42,3 @@ private:
 };
 }
 
-#endif

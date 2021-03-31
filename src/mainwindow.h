@@ -8,8 +8,7 @@
   SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef KONTACT_MAINWINDOW_H
-#define KONTACT_MAINWINDOW_H
+#pragma once
 
 #include "kontact_export.h"
 #include <KontactInterface/Core>
@@ -137,4 +136,3 @@ private:
 
 Q_DECLARE_METATYPE(KontactInterface::Plugin *)
 
-#endif

@@ -4,8 +4,7 @@
    SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#ifndef INTRODUCTIONWEBENGINEVIEW_H
-#define INTRODUCTIONWEBENGINEVIEW_H
+#pragma once
 
 #include <QWebEngineView>
 
@@ -23,4 +22,3 @@ Q_SIGNALS:
     void openUrl(const QUrl &url);
 };
 
-#endif // INTRODUCTIONWEBENGINEVIEW_H

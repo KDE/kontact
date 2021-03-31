@@ -6,8 +6,7 @@
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
-#ifndef KONTACT_SIDEPANEBASE_H
-#define KONTACT_SIDEPANEBASE_H
+#pragma once
 
 #include <QWidget>
 
@@ -47,4 +46,3 @@ private:
 };
 }
 
-#endif
