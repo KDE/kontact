@@ -22,8 +22,8 @@ using namespace Kontact;
 #include <KAboutData>
 #include <KCrash>
 #include <KLocalizedString>
-#include <KService>
-#include <KServiceTypeTrader>
+#include <KPluginLoader>
+#include <KPluginMetaData>
 #include <KWindowSystem>
 
 #include <QCommandLineParser>
@@ -71,17 +71,21 @@ private:
 
 static void listPlugins()
 {
-    const KService::List offers =
-        KServiceTypeTrader::self()->query(QStringLiteral("Kontact/Plugin"), QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
-    const KService::List::ConstIterator end(offers.end());
-    for (KService::List::ConstIterator it = offers.begin(); it != end; ++it) {
-        KService::Ptr service = (*it);
+    const QVector<KPluginMetaData> pluginMetaDatas = KPluginLoader::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
+        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+    });
+
+    for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins
-        QVariant var = service->property(QStringLiteral("X-KDE-KontactPluginHasPart"));
-        if (var.isValid() && var.toBool() == false) {
-            continue;
+        if (plugin.rawData().contains(QLatin1String("X-KDE-KontactPluginHasPart"))) {
+            bool var = plugin.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
+
+            if (!var) {
+                continue;
+            }
         }
-        cout << "lib name " << qPrintable(service->library().remove(QStringLiteral("kontact_"))) << endl;
+
+        cout << "lib name " << qPrintable(plugin.pluginId().remove(QStringLiteral("kontact_"))) << endl;
     }
 }
 
