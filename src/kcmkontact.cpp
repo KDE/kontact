@@ -14,7 +14,7 @@ using namespace Kontact;
 
 #include <KAboutData>
 #include <KLocalizedString>
-#include <KServiceTypeTrader>
+#include <KPluginLoader>
 #include <QComboBox>
 
 #include <QCheckBox>
@@ -53,7 +53,6 @@ KcmKontact::KcmKontact(QWidget *parent)
     pluginStartupLayout->addStretch();
     mPluginCombo->setEnabled(false);
 
-
     connect(forceStartupPluginCheckBox, &QAbstractButton::toggled, mPluginCombo, &QWidget::setEnabled);
 
     QCheckBox *showSideBarCheckbox = new QCheckBox(Prefs::self()->sideBarOpenItem()->label(), this);
@@ -69,30 +68,35 @@ void KcmKontact::load()
 {
     const KConfigGroup grp(Prefs::self()->config(), "Plugins");
 
-    const KService::List offers =
-        KServiceTypeTrader::self()->query(QStringLiteral("Kontact/Plugin"), QStringLiteral("[X-KDE-KontactPluginVersion] == %1").arg(KONTACT_PLUGIN_VERSION));
+    const QVector<KPluginMetaData> pluginMetaDatas = KPluginLoader::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
+        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+    });
 
     int activeComponent = 0;
     mPluginCombo->clear();
     mPluginList.clear();
-    for (const KService::Ptr &service : offers) {
+    for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins
-        QVariant var = service->property(QStringLiteral("X-KDE-KontactPluginHasPart"));
-        if (var.isValid() && var.toBool() == false) {
-            continue;
+        if (plugin.rawData().contains(QLatin1String("X-KDE-KontactPluginHasPart"))) {
+            bool var = plugin.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
+
+            if (!var) {
+                continue;
+            }
         }
-        mPluginCombo->addItem(service->name());
-        mPluginList.append(service);
+
+        mPluginCombo->addItem(plugin.name());
+        mPluginList.append(plugin);
 
         // skip disabled plugins
-        const QString pluginName = service->property(QStringLiteral("X-KDE-PluginInfo-Name")).toString();
+        const QString pluginName = plugin.pluginId();
         if (!grp.readEntry(pluginName + QStringLiteral("Enabled"), false)) {
             const QStandardItemModel *qsm = qobject_cast<QStandardItemModel *>(mPluginCombo->model());
             if (qsm) {
                 qsm->item(mPluginCombo->count() - 1, 0)->setEnabled(false);
             }
         }
-        if (service->property(QStringLiteral("X-KDE-PluginInfo-Name")).toString() == Prefs::self()->activePlugin()) {
+        if (pluginName == Prefs::self()->activePlugin()) {
             activeComponent = mPluginList.count() - 1;
         }
     }
@@ -103,9 +107,8 @@ void KcmKontact::load()
 
 void KcmKontact::save()
 {
-    const KService::Ptr ptr = mPluginList.at(mPluginCombo->currentIndex());
-    const QString activePluginName = ptr->property(QStringLiteral("X-KDE-PluginInfo-Name")).toString();
-    Prefs::self()->setActivePlugin(activePluginName);
+    const KPluginMetaData plugin = mPluginList.at(mPluginCombo->currentIndex());
+    Prefs::self()->setActivePlugin(plugin.pluginId());
     KCModule::save();
 }
 

@@ -67,7 +67,6 @@ add_executable(kontact_bin ${kontact_bin_SRCS})
 set_target_properties(kontact_bin PROPERTIES OUTPUT_NAME kontact)
 
 target_link_libraries(kontact_bin
-    KF5::Service
     kontactprivate
     KF5::KontactInterface
     KF5::Crash

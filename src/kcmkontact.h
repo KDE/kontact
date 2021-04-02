@@ -9,7 +9,8 @@
 #pragma once
 
 #include <KCModule>
-#include <KService>
+#include <KPluginMetaData>
+
 class QComboBox;
 class QCheckBox;
 namespace Kontact
@@ -27,7 +28,7 @@ public:
     const KAboutData *aboutData() const override;
 
 private:
-    KService::List mPluginList;
+    QVector<KPluginMetaData> mPluginList;
     QComboBox *mPluginCombo = nullptr;
     QCheckBox *mShowSideBarCheckbox = nullptr;
 };
