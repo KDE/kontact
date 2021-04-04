@@ -359,10 +359,10 @@ void MainWindow::loadPlugins()
         plugin->setTitle(pluginInfo.name());
         plugin->setIcon(pluginInfo.icon());
 
-        QVariant libNameProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPartLibraryName"));
-        QVariant exeNameProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPartExecutableName"));
-        QVariant loadOnStart = pluginInfo.property(QStringLiteral("X-KDE-KontactPartLoadOnStart"));
-        QVariant hasPartProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPluginHasPart"));
+        const QVariant libNameProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPartLibraryName"));
+        const QVariant exeNameProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPartExecutableName"));
+        const QVariant loadOnStart = pluginInfo.property(QStringLiteral("X-KDE-KontactPartLoadOnStart"));
+        const QVariant hasPartProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPluginHasPart"));
 
         if (!loadOnStart.isNull() && loadOnStart.toBool()) {
             mDelayedPreload.append(plugin);
