@@ -328,13 +328,12 @@ KontactInterface::Plugin *MainWindow::pluginFromName(const QString &identifier) 
 void MainWindow::loadPlugins()
 {
     QList<KontactInterface::Plugin *> plugins;
-
     for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
         if (!pluginInfo.isPluginEnabled()) {
             continue;
         }
 
-        const QString pluginPath = pluginInfo.libraryPath();
+        const QString pluginPath = pluginInfo.pluginName();
         KontactInterface::Plugin *plugin = pluginFromName(pluginPath);
         if (plugin) { // already loaded
             plugin->configUpdated();
