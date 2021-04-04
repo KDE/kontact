@@ -81,7 +81,7 @@ private Q_SLOTS:
 
 private:
     void setHelpText(QAction *act, const QString &text);
-    SidePaneBase *mSidePane = nullptr;
+    SidePaneBase *const mSidePane;
     MainWindow *mMainWindow = nullptr;
     Model *mModel = nullptr;
 

@@ -148,7 +148,7 @@ public:
 
 private:
     QList<KontactInterface::Plugin *> pluginList;
-    Navigator *mNavigator = nullptr;
+    Navigator *const mNavigator;
 };
 
 class SortFilterProxyModel : public QSortFilterProxyModel
@@ -238,14 +238,13 @@ public:
     }
 
 private:
-    Navigator *mNavigator = nullptr;
+    Navigator *const mNavigator;
 };
 }
 
 Navigator::Navigator(SidePaneBase *parent)
     : QListView(parent)
     , mSidePane(parent)
-    , mMainWindow(nullptr)
 {
     setViewport(new QWidget(this));
 
