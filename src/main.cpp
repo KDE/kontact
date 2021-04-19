@@ -31,7 +31,10 @@ using namespace Kontact;
 #include <QDBusConnectionInterface>
 
 #include <iostream>
+#include <kcoreaddons_version.h>
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <kdelibs4configmigrator.h>
+#endif
 using namespace std;
 
 static const char version[] = KONTACT_VERSION;
@@ -149,11 +152,12 @@ int main(int argc, char **argv)
     KontactApp app(argc, &argv);
 
     KCrash::initialize();
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kontact"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc") << QStringLiteral("kontact_summaryrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("kontactui.rc"));
     migrate.migrate();
-
+#endif
     KAboutData about(QStringLiteral("kontact"),
                      i18n("Kontact"),
                      QLatin1String(version),
