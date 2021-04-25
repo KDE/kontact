@@ -52,11 +52,15 @@ set(LIBKDEPIM_LIB_VERSION "5.17.40")
 set(LIBGRANTLEETHEME_LIB_VERSION "5.17.40")
 # Find KF5 package
 find_package(KF5DBusAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5DocTools ${KF5_MIN_VERSION} REQUIRED)
 find_package(KF5KCMUtils ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5Crash ${KF5_MIN_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_MIN_VERSION} REQUIRED)
 find_package(KF5IconThemes ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5DocTools ${KF5_MIN_VERSION})
+set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
+)
 
 
 # Find KdepimLibs Package
@@ -89,8 +93,10 @@ ecm_qt_install_logging_categories(
         FILE kontact.categories
         DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
         )
-add_subdirectory(doc)
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 ki18n_install(po)
-kdoctools_install(po)
+if(KF5DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
