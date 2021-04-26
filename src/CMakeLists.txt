@@ -38,6 +38,7 @@ target_link_libraries(kontactprivate
     KF5::WindowSystem
     KF5::IconThemes
     PRIVATE
+    KF5::I18n
     KF5::KIOWidgets
     KF5::KontactInterface
     KF5::KCMUtils
@@ -68,6 +69,7 @@ set_target_properties(kontact_bin PROPERTIES OUTPUT_NAME kontact)
 
 target_link_libraries(kontact_bin
     kontactprivate
+    KF5::I18n
     KF5::KontactInterface
     KF5::Crash
     )
@@ -84,6 +86,7 @@ set(kcm_kontact_PART_SRCS kcmkontact.cpp)
 add_library(kcm_kontact MODULE ${kcm_kontact_PART_SRCS})
 
 target_link_libraries(kcm_kontact
+    KF5::I18n
     KF5::KCMUtils
     KF5::Libkdepim
     kontactprivate
