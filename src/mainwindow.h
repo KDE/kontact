@@ -13,12 +13,11 @@
 #include "kontact_export.h"
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
-#include <QAction>
 
 class KActionMenu;
 class KPluginInfo;
 class KSqueezedTextLabel;
-
+class QAction;
 class QFrame;
 class QSplitter;
 class QStackedWidget;

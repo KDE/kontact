@@ -51,6 +51,7 @@ using namespace Kontact;
 #include <KToolBar>
 #include <KWindowConfig>
 #include <KXMLGUIFactory>
+#include <QAction>
 #include <QApplication>
 #include <QDBusConnection>
 #include <QHBoxLayout>
@@ -62,6 +63,7 @@ using namespace Kontact;
 #include <QStatusBar>
 #include <QVBoxLayout>
 #include <QWebEngineUrlScheme>
+
 #include <ksettings/Dispatcher>
 
 #include <GrantleeTheme/GrantleeTheme>
