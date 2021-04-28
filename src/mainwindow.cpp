@@ -155,7 +155,6 @@ void MainWindow::initObject()
     if (mSidePane) {
         mSidePane->updatePlugins();
     }
-    KSettings::Dispatcher::registerComponent(QStringLiteral("kontact"), this, "updateConfig");
 
     loadSettings();
 
@@ -721,6 +720,11 @@ void MainWindow::slotPreferences()
     if (!dlg) {
         dlg = new Kontact::KontactConfigureDialog(this);
         dlg->setAllowComponentSelection(true);
+        connect(dlg, QOverload<const QByteArray &>::of(&KSettings::Dialog::configCommitted), this, [this](const QByteArray &componentName) {
+            if (componentName == QByteArrayLiteral("kontact")) {
+                MainWindow::updateConfig();
+            }
+        });
 
         // do not show settings of components running standalone
         KPluginInfo::List filteredPlugins = mPluginInfos;
