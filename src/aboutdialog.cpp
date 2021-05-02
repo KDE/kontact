@@ -64,7 +64,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon, const 
 {
     QIcon pixmap = QIcon::fromTheme(icon);
 
-    QFrame *topFrame = new QFrame();
+    auto topFrame = new QFrame();
     auto pageItem = new KPageWidgetItem(topFrame, title);
     pageItem->setIcon(pixmap);
 
@@ -73,7 +73,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon, const 
     QBoxLayout *topLayout = new QVBoxLayout(topFrame);
 
     if (about.displayName().isEmpty()) {
-        QLabel *label = new QLabel(i18n("No about information available."), topFrame);
+        auto label = new QLabel(i18n("No about information available."), topFrame);
         topLayout->addWidget(label);
     } else {
         QString text = QStringLiteral("<p>");
@@ -94,7 +94,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon, const 
 
         text.replace(QLatin1Char('\n'), QStringLiteral("<br>"));
 
-        QLabel *label = new QLabel(text, topFrame);
+        auto label = new QLabel(text, topFrame);
         label->setAlignment(Qt::AlignTop);
         label->setOpenExternalLinks(true);
         label->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard | Qt::LinksAccessibleByMouse);
@@ -260,7 +260,7 @@ void AboutDialog::addLicenseText(const KAboutData &about)
 
     const QString title = i18n("%1 License", about.displayName());
 
-    QFrame *topFrame = new QFrame();
+    auto topFrame = new QFrame();
     auto page = new KPageWidgetItem(topFrame, title);
     page->setIcon(QIcon(pixmap));
     addPage(page);

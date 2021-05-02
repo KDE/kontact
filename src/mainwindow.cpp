@@ -231,7 +231,7 @@ void MainWindow::activateInitialPluginModule()
 
 void MainWindow::initWidgets()
 {
-    QWidget *mTopWidget = new QWidget(this);
+    auto mTopWidget = new QWidget(this);
     auto layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
@@ -277,7 +277,7 @@ void MainWindow::paintAboutScreen(const QString &templateName, const QVariantHas
 
 void MainWindow::initAboutScreen()
 {
-    QWidget *introbox = new QWidget(mPartsStack);
+    auto introbox = new QWidget(mPartsStack);
     auto introboxHBoxLayout = new QHBoxLayout(introbox);
     introboxHBoxLayout->setContentsMargins(0, 0, 0, 0);
     mPartsStack->addWidget(introbox);
@@ -296,7 +296,7 @@ void MainWindow::setupActions()
     actionCollection()->setDefaultShortcuts(mNewActions, KStandardShortcut::openNew());
     connect(mNewActions, &KActionMenu::triggered, this, &MainWindow::slotNewClicked);
 
-    QAction *action = new QAction(QIcon::fromTheme(QStringLiteral("configure")), i18nc("@action:inmenu", "Configure Kontact..."), this);
+    auto action = new QAction(QIcon::fromTheme(QStringLiteral("configure")), i18nc("@action:inmenu", "Configure Kontact..."), this);
     setHelpText(action, i18nc("@info:status", "Configure Kontact"));
     action->setWhatsThis(i18nc("@info:whatsthis", "You will be presented with a dialog where you can configure Kontact."));
     actionCollection()->addAction(QStringLiteral("settings_configure_kontact"), action);
@@ -474,7 +474,7 @@ void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
     mPlugins.append(plugin);
 
     if (plugin->showInSideBar()) {
-        QAction *action = new QAction(QIcon::fromTheme(plugin->icon()), plugin->title(), this);
+        auto action = new QAction(QIcon::fromTheme(plugin->icon()), plugin->title(), this);
         // action->setHelpText(
         //            i18nc( "@info:status", "Plugin %1", plugin->title() ) );
         action->setWhatsThis(i18nc("@info:whatsthis", "Switch to plugin %1", plugin->title()));
@@ -822,7 +822,7 @@ void MainWindow::slotOpenUrl(const QUrl &url)
                 mPartsStack->setCurrentIndex(mPartsStack->indexOf(mCurrentPlugin->part()->widget()));
             }
         } else if (path == QLatin1String("/accountwizard")) {
-            KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(QStringLiteral("accountwizard"));
+            auto job = new KIO::CommandLauncherJob(QStringLiteral("accountwizard"));
             job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
             job->exec();
             slotQuit();

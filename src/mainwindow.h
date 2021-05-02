@@ -23,8 +23,8 @@ class QSplitter;
 class QStackedWidget;
 class IntroductionWebEngineView;
 
-typedef QList<KontactInterface::Plugin *> PluginList;
-typedef QList<QAction *> ActionPluginList;
+using PluginList = QList<KontactInterface::Plugin *>;
+using ActionPluginList = QList<QAction *>;
 
 namespace Kontact
 {

@@ -36,7 +36,7 @@ KcmKontact::KcmKontact(QWidget *parent)
     QBoxLayout *pluginStartupLayout = new QHBoxLayout();
     topLayout->addLayout(pluginStartupLayout);
 
-    QCheckBox *forceStartupPluginCheckBox = new QCheckBox(Prefs::self()->forceStartupPluginItem()->label(), this);
+    auto forceStartupPluginCheckBox = new QCheckBox(Prefs::self()->forceStartupPluginItem()->label(), this);
     forceStartupPluginCheckBox->setObjectName(QStringLiteral("kcfg_ForceStartupPlugin"));
     pluginStartupLayout->addWidget(forceStartupPluginCheckBox);
 
@@ -55,7 +55,7 @@ KcmKontact::KcmKontact(QWidget *parent)
 
     connect(forceStartupPluginCheckBox, &QAbstractButton::toggled, mPluginCombo, &QWidget::setEnabled);
 
-    QCheckBox *showSideBarCheckbox = new QCheckBox(Prefs::self()->sideBarOpenItem()->label(), this);
+    auto showSideBarCheckbox = new QCheckBox(Prefs::self()->sideBarOpenItem()->label(), this);
     showSideBarCheckbox->setObjectName(QStringLiteral("kcfg_SideBarOpen"));
     topLayout->addWidget(showSideBarCheckbox);
 
@@ -114,12 +114,12 @@ void KcmKontact::save()
 
 const KAboutData *KcmKontact::aboutData() const
 {
-    KAboutData *about = new KAboutData(QStringLiteral("kontactconfig"),
-                                       i18nc("@title", "KDE Kontact"),
-                                       QString(),
-                                       QString(),
-                                       KAboutLicense::GPL,
-                                       i18nc("@info:credit", "(c), 2003 Cornelius Schumacher"));
+    auto about = new KAboutData(QStringLiteral("kontactconfig"),
+                                i18nc("@title", "KDE Kontact"),
+                                QString(),
+                                QString(),
+                                KAboutLicense::GPL,
+                                i18nc("@info:credit", "(c), 2003 Cornelius Schumacher"));
 
     about->addAuthor(i18nc("@info:credit", "Cornelius Schumacher"), i18nc("@info:credit", "Developer"), QStringLiteral("schumacher@kde.org"));
     about->addAuthor(i18nc("@info:credit", "Tobias Koenig"), i18nc("@info:credit", "Developer"), QStringLiteral("tokoe@kde.org"));
