@@ -14,6 +14,7 @@ using namespace Kontact;
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KPluginFactory>
 #include <KPluginLoader>
 #include <QComboBox>
 
@@ -22,15 +23,9 @@ using namespace Kontact;
 #include <QHBoxLayout>
 #include <QStandardItemModel>
 
-extern "C" {
-Q_DECL_EXPORT KCModule *create_kontactconfig(QWidget *parent, const char *)
-{
-    return new KcmKontact(parent);
-}
-}
-
-KcmKontact::KcmKontact(QWidget *parent)
-    : KCModule(parent)
+K_PLUGIN_FACTORY_WITH_JSON(KCMKontactSummaryFactory, "kontactconfig.json", registerPlugin<KcmKontact>();)
+KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
 {
     auto topLayout = new QVBoxLayout(this);
     QBoxLayout *pluginStartupLayout = new QHBoxLayout();
@@ -126,3 +121,4 @@ const KAboutData *KcmKontact::aboutData() const
 
     return about;
 }
+#include "kcmkontact.moc"

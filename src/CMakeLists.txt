@@ -84,7 +84,7 @@ install(TARGETS kontact_bin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 set(kcm_kontact_PART_SRCS kcmkontact.cpp)
 
 add_library(kcm_kontact MODULE ${kcm_kontact_PART_SRCS})
-
+kcoreaddons_desktop_to_json(kcm_kontact "data/kontactconfig.desktop" SERVICE_TYPES kcmodule.desktop)
 target_link_libraries(kcm_kontact
     KF5::I18n
     KF5::KCMUtils

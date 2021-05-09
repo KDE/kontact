@@ -20,7 +20,7 @@ class KcmKontact : public KCModule
     Q_OBJECT
 
 public:
-    explicit KcmKontact(QWidget *parent = nullptr);
+    explicit KcmKontact(QWidget *parent = nullptr, const QVariantList &args = {});
 
     void load() override;
     void save() override;
