@@ -29,7 +29,7 @@ public:
 
 private:
     QVector<KPluginMetaData> mPluginList;
-    QComboBox *mPluginCombo = nullptr;
+    QComboBox *const mPluginCombo;
     QCheckBox *mShowSideBarCheckbox = nullptr;
 };
 }

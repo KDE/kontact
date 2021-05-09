@@ -26,6 +26,7 @@ using namespace Kontact;
 K_PLUGIN_FACTORY_WITH_JSON(KCMKontactSummaryFactory, "kontactconfig.json", registerPlugin<KcmKontact>();)
 KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
+    , mPluginCombo(new QComboBox(parent))
 {
     auto topLayout = new QVBoxLayout(this);
     QBoxLayout *pluginStartupLayout = new QHBoxLayout();
@@ -35,7 +36,6 @@ KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
     forceStartupPluginCheckBox->setObjectName(QStringLiteral("kcfg_ForceStartupPlugin"));
     pluginStartupLayout->addWidget(forceStartupPluginCheckBox);
 
-    mPluginCombo = new QComboBox(parent);
     mPluginCombo->setToolTip(i18nc("@info:tooltip", "Select the initial plugin to use on each start"));
     mPluginCombo->setWhatsThis(i18nc("@info:whatsthis",
                                      "Select the plugin from this drop down list to be used as the "
