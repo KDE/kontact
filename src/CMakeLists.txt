@@ -1,13 +1,10 @@
 configure_file(kontact-version.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/kontact-version.h @ONLY)
 add_subdirectory(about)
-
-include_directories(
-    ${CMAKE_CURRENT_BINARY_DIR}
-    )
+add_library(kontactprivate)
 
 ########### next target ###############
 
-set(kontactprivate_LIB_SRCS
+target_sources(kontactprivate PRIVATE
     webengine/introductionwebenginepage.cpp
     webengine/introductionwebengineview.cpp
     mainwindow.cpp
@@ -18,15 +15,15 @@ set(kontactprivate_LIB_SRCS
     kontact.qrc
     )
 
-ecm_qt_declare_logging_category(kontactprivate_LIB_SRCS HEADER kontact_debug.h IDENTIFIER KONTACT_LOG CATEGORY_NAME org.kde.pim.kontact
+ecm_qt_declare_logging_category(kontactprivate HEADER kontact_debug.h IDENTIFIER KONTACT_LOG CATEGORY_NAME org.kde.pim.kontact
         DESCRIPTION "kontact (kontact application)"
         OLD_CATEGORY_NAMES log_kontact
         EXPORT KONTACT
     )
 
-kconfig_add_kcfg_files(kontactprivate_LIB_SRCS prefs.kcfgc)
+kconfig_add_kcfg_files(kontactprivate prefs.kcfgc)
 
-add_library(kontactprivate ${kontactprivate_LIB_SRCS})
+
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(kontactprivate PROPERTIES UNITY_BUILD ON)
 endif()
