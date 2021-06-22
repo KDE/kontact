@@ -55,12 +55,12 @@ install(TARGETS kontactprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMEL
 
 ########### next target ###############
 
-set(kontact_bin_SRCS main.cpp kontact_debug.cpp)
 
 file(GLOB icons "${CMAKE_CURRENT_SOURCE_DIR}/icons/*-apps-kontact.png")
 ecm_add_app_icon(kontact_bin_SRCS ICONS ${icons})
 
-add_executable(kontact_bin ${kontact_bin_SRCS})
+add_executable(kontact_bin)
+target_sources(kontact_bin PRIVATE main.cpp kontact_debug.cpp)
 
 set_target_properties(kontact_bin PROPERTIES OUTPUT_NAME kontact)
 
@@ -78,9 +78,7 @@ install(TARGETS kontact_bin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
-set(kcm_kontact_PART_SRCS kcmkontact.cpp)
-
-add_library(kcm_kontact MODULE ${kcm_kontact_PART_SRCS})
+add_library(kcm_kontact MODULE kcmkontact.cpp)
 kcoreaddons_desktop_to_json(kcm_kontact "data/kontactconfig.desktop" SERVICE_TYPES kcmodule.desktop)
 target_link_libraries(kcm_kontact
     KF5::I18n
