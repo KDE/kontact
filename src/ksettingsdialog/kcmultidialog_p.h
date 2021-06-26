@@ -1,6 +1,7 @@
 /*
     This file is part of the KDE project
     SPDX-FileCopyrightText: 2007 Matthias Kretz <kretz@kde.org>
+    SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -20,8 +21,7 @@ class KCMultiDialogPrivate
     Q_DECLARE_PUBLIC(KCMultiDialog)
 protected:
     KCMultiDialogPrivate(KCMultiDialog *parent)
-        : currentModule(nullptr)
-        , q_ptr(parent)
+        : q_ptr(parent)
     {
     }
 
@@ -29,7 +29,7 @@ protected:
     {
     }
 
-    KCModuleProxy *currentModule;
+    KCModuleProxy *currentModule = nullptr;
 
     struct CreatedModule {
         KCModuleProxy *kcm;
@@ -43,7 +43,6 @@ protected:
     void _k_slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *previous);
     virtual void _k_clientChanged();
     void _k_dialogClosed();
-    void _k_updateHeader(bool use, const QString &message);
 
     KCMultiDialog *q_ptr;
 

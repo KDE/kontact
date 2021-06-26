@@ -1,6 +1,7 @@
 /*
     This file is part of the KDE project
     SPDX-FileCopyrightText: 2007 Matthias Kretz <kretz@kde.org>
+    SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -20,8 +21,6 @@
 #include <KPluginInfo>
 #include <KService>
 
-class QCheckBox;
-
 namespace KSettings
 {
 class DialogPrivate : public KCMultiDialogPrivate
@@ -31,18 +30,16 @@ class DialogPrivate : public KCMultiDialogPrivate
 protected:
     DialogPrivate(Dialog *parent);
 
-    QHash<QString, KPageWidgetItem *> pageItemForGroupId;
     QHash<KPageWidgetItem *, KPluginInfo> pluginForItem;
-    QHash<KPageWidgetItem *, QCheckBox *> checkBoxForItem;
-    KPluginInfo::List plugininfos;
 
     QStringList registeredComponents;
-    QSet<KCModuleInfo> kcmInfos;
-    QStringList componentBlacklist;
+    QSet<KPluginMetaData> kcmsMetaData;
+
+    QList<QPair<KPluginMetaData, QVector<KPluginMetaData>>> componentsMetaData;
+
     QStringList arguments;
     QStringList components;
 
-    bool staticlistview : 1;
     bool firstshow : 1;
     quint32 pluginStateDirty : 30;
 
@@ -51,9 +48,9 @@ protected:
     void updateConfiguration();
     void _k_clientChanged() override;
 
-    KPageWidgetItem *createPageItem(KPageWidgetItem *parentItem, const QString &name, const QString &comment, const QString &iconName, int weight);
+    KPageWidgetItem *createPageItem(KPageWidgetItem *parentItem, const QString &name, const QString &comment, const QString &iconName);
 
-    void connectItemCheckBox(KPageWidgetItem *item, const KPluginInfo &pinfo, bool isEnabled);
+    // void connectItemCheckBox(KPageWidgetItem *item, const KPluginInfo &pinfo, bool isEnabled);
 
 private:
     /**
@@ -61,23 +58,9 @@ private:
      * Check whether the plugin associated with this KCM is enabled.
      */
     bool isPluginForKCMEnabled(const KCModuleInfo *moduleinfo, KPluginInfo &pinfo) const;
-    bool isPluginImmutable(const KPluginInfo &pinfo) const;
 
     QSet<KCModuleInfo> instanceServices();
     QSet<KCModuleInfo> parentComponentsServices(const QStringList &);
-
-    /**
-     * @internal
-     * Read the .setdlg file and add it to the groupmap
-     */
-    void parseGroupFile(const QString &);
-
-    /**
-     * @internal
-     * If this module is put into a TreeList hierarchy this will return a
-     * list of the names of the parent modules.
-     */
-    // QStringList parentModuleNames(KCModuleInfo *);
 
     /**
      * @internal

@@ -12,7 +12,6 @@
 #include <KPluginMetaData>
 
 class QComboBox;
-class QCheckBox;
 namespace Kontact
 {
 class KcmKontact : public KCModule
