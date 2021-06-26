@@ -11,6 +11,8 @@ target_sources(kontactprivate PRIVATE
     sidepanebase.cpp
     iconsidepane.cpp
     aboutdialog.cpp
+    ksettingsdialog/kcmultidialog.cpp
+    ksettingsdialog/dialog.cpp
     kontactconfiguredialog.cpp
     kontact.qrc
     )
@@ -39,6 +41,7 @@ target_link_libraries(kontactprivate
     KF5::KIOWidgets
     KF5::KontactInterface
     KF5::KCMUtils
+    KF5::GuiAddons
     KF5::Libkdepim
     KF5::PimCommon
     KF5::GrantleeTheme
