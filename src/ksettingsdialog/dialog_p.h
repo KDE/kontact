@@ -31,19 +31,17 @@ class DialogPrivate : public KCMultiDialogPrivate
 protected:
     DialogPrivate(Dialog *parent);
 
-    QHash<QString, KPageWidgetItem *> pageItemForGroupId;
     QHash<KPageWidgetItem *, KPluginInfo> pluginForItem;
     QHash<KPageWidgetItem *, QCheckBox *> checkBoxForItem;
-    KPluginInfo::List plugininfos;
 
     QStringList registeredComponents;
-    QSet<KCModuleInfo> kcmInfos;
     QSet<KPluginMetaData> kcmsMetaData;
-    QStringList componentBlacklist;
+
+    QHash<KPluginMetaData, QVector<KPluginMetaData>> componentsMetaData;
+
     QStringList arguments;
     QStringList components;
 
-    bool staticlistview : 1;
     bool firstshow : 1;
     quint32 pluginStateDirty : 30;
 
@@ -54,7 +52,7 @@ protected:
 
     KPageWidgetItem *createPageItem(KPageWidgetItem *parentItem, const QString &name, const QString &comment, const QString &iconName, int weight);
 
-    void connectItemCheckBox(KPageWidgetItem *item, const KPluginInfo &pinfo, bool isEnabled);
+    // void connectItemCheckBox(KPageWidgetItem *item, const KPluginInfo &pinfo, bool isEnabled);
 
 private:
     /**
@@ -62,23 +60,9 @@ private:
      * Check whether the plugin associated with this KCM is enabled.
      */
     bool isPluginForKCMEnabled(const KCModuleInfo *moduleinfo, KPluginInfo &pinfo) const;
-    bool isPluginImmutable(const KPluginInfo &pinfo) const;
 
     QSet<KCModuleInfo> instanceServices();
     QSet<KCModuleInfo> parentComponentsServices(const QStringList &);
-
-    /**
-     * @internal
-     * Read the .setdlg file and add it to the groupmap
-     */
-    void parseGroupFile(const QString &);
-
-    /**
-     * @internal
-     * If this module is put into a TreeList hierarchy this will return a
-     * list of the names of the parent modules.
-     */
-    // QStringList parentModuleNames(KCModuleInfo *);
 
     /**
      * @internal

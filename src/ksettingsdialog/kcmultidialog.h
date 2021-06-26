@@ -14,7 +14,7 @@
 #include <QScrollBar>
 
 #include <KPageDialog>
-#include <kcmoduleinfo.h>
+#include <KPluginMetaData>
 
 class KCMultiDialogPrivate;
 
@@ -24,7 +24,7 @@ class KCMultiDialogPrivate;
  *
  * @author Matthias Elter <elter@kde.org>, Daniel Molkentin <molkentin@kde.org>
  */
-class KCMUTILS_EXPORT KCMultiDialog : public KPageDialog
+class KCMultiDialog : public KPageDialog
 {
     Q_OBJECT
     Q_DECLARE_PRIVATE(KCMultiDialog)
@@ -43,43 +43,11 @@ public:
     ~KCMultiDialog() override;
 
     /**
-     * Add a module.
-     *
-     * The module is added according to its KCModuleInfo::weight(). The weight determines where in the list
-     * the module will appear. Lighter modules on top, heavier modules at the bottom.
-     *
-     * @param module Specify the name of the module that is to be added
-     *               to the list of modules the dialog will show.
-     *
-     * @param args The arguments that should be given to the KCModule when it is created
-     *
-     * @returns The @see KPageWidgetItem associated with the new dialog page.
-     **/
-    KPageWidgetItem *addModule(const QString &module, const QStringList &args = QStringList());
-
-    /**
      * Add a module to the dialog. Its position will be determined based on the @c X-KDE-Weight value.
      * @param metaData KPluginMetaData that will be used to load the plugin
      * @since 5.84
      */
-    KPageWidgetItem *addModule(const KPluginMetaData &metaData);
-
-    /**
-     * Add a module.
-     *
-     * The module is added according to its KCModuleInfo::weight(). The weight determines where in the list
-     * the module will appear. Lighter modules on top, heavier modules at the bottom.
-     *
-     * @param moduleinfo Pass a KCModuleInfo object which will be
-     *                   used for creating the module. It will be added
-     *                   to the list of modules the dialog will show.
-     *
-     * @param parent The @see KPageWidgetItem that should appear as parents
-     *               in the tree view or a 0 pointer if there is no parent.
-     *
-     * @param args The arguments that should be given to the KCModule when it is created
-     **/
-    KPageWidgetItem *addModule(const KCModuleInfo &moduleinfo, KPageWidgetItem *parent = nullptr, const QStringList &args = QStringList());
+    KPageWidgetItem *addModule(const KPluginMetaData &metaData, KPageWidgetItem *parent = nullptr, const QStringList &args = QStringList());
 
     /**
      * Removes all modules from the dialog.
@@ -172,7 +140,6 @@ protected Q_SLOTS:
 private:
     Q_PRIVATE_SLOT(d_func(), void _k_slotCurrentPageChanged(KPageWidgetItem *, KPageWidgetItem *))
     Q_PRIVATE_SLOT(d_func(), void _k_clientChanged())
-    Q_PRIVATE_SLOT(d_func(), void _k_updateHeader(bool use, const QString &message))
 };
 
 /**

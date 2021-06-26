@@ -43,7 +43,6 @@ protected:
     void _k_slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *previous);
     virtual void _k_clientChanged();
     void _k_dialogClosed();
-    void _k_updateHeader(bool use, const QString &message);
 
     KCMultiDialog *q_ptr;
 

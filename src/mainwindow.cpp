@@ -351,7 +351,6 @@ void MainWindow::loadPlugins()
         }
 
         plugin->setIdentifier(pluginMetaData.fileName());
-        KPluginInfo().pluginName();
         plugin->setTitle(pluginMetaData.name());
         plugin->setIcon(pluginMetaData.iconName());
 
@@ -716,28 +715,16 @@ void MainWindow::slotPreferences()
     static Kontact::KontactConfigureDialog *dlg = nullptr;
     if (!dlg) {
         dlg = new Kontact::KontactConfigureDialog(this);
-        dlg->setAllowComponentSelection(true);
 
-        for (const auto &bla : mPluginMetaData)
-            qWarning() << bla.fileName();
-        // do not show settings of components running standalone
-        KPluginInfo::List filteredPlugins; //= mPluginInfos; TODO FIXME
-        PluginList::ConstIterator end(mPlugins.constEnd());
-        for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
-            if ((*it)->isRunningStandalone()) {
-                KPluginInfo::List::ConstIterator infoIt;
-                KPluginInfo::List::ConstIterator infoEnd(filteredPlugins.constEnd());
-                for (infoIt = filteredPlugins.constBegin(); infoIt != infoEnd; ++infoIt) {
-                    if (infoIt->pluginName() == (*it)->identifier()) {
-                        filteredPlugins.removeAll(*infoIt);
-                        break;
-                    }
-                }
+        for (const KPluginMetaData &metaData : qAsConst(mPluginMetaData)) {
+            QString pluginNamespace = metaData.value(QStringLiteral("X-KDE-KontactPartExecutableName"));
+            if (metaData.pluginId() == QLatin1String("kontact_summaryplugin")) {
+                pluginNamespace = QStringLiteral("summary");
             }
+            const QVector<KPluginMetaData> kcms =
+                pluginNamespace.isEmpty() ? QVector<KPluginMetaData>() : KPluginLoader::findPlugins(QStringLiteral("pim/kcms/") + pluginNamespace);
+            dlg->addPluginComponent(metaData, kcms);
         }
-        for (auto bla : filteredPlugins)
-            qWarning() << bla.entryPath();
-        dlg->addPluginInfos(filteredPlugins);
         connect(dlg, &Kontact::KontactConfigureDialog::pluginSelectionChanged, this, &MainWindow::pluginsChanged);
     }
 

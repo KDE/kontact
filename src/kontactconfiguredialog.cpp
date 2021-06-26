@@ -7,6 +7,7 @@
 #include "kontactconfiguredialog.h"
 #include "kontact_debug.h"
 #include <KConfig>
+#include <KConfigGroup>
 #include <KSharedConfig>
 #include <QDBusInterface>
 #include <QDBusReply>
