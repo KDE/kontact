@@ -135,16 +135,10 @@ void MainWindow::initObject()
         }
     }
 
-    const QVector<KPluginMetaData> pluginMetaDatas = KPluginLoader::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
+    const auto pluginMetaData = KPluginLoader::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
         return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
     });
-    mPluginInfos = KPluginInfo::fromMetaData(pluginMetaDatas);
-
-    KConfigGroup configGroup(Prefs::self()->config(), "Plugins");
-    for (KPluginInfo &pluginInfo : mPluginInfos) {
-        pluginInfo.setConfig(configGroup);
-        pluginInfo.load();
-    }
+    mPluginMetaData = QList<KPluginMetaData>(pluginMetaData.begin(), pluginMetaData.end());
 
     // prepare the part manager
     mPartManager = new KParts::PartManager(this);
@@ -330,51 +324,52 @@ KontactInterface::Plugin *MainWindow::pluginFromName(const QString &identifier) 
 void MainWindow::loadPlugins()
 {
     QList<KontactInterface::Plugin *> plugins;
-    for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
-        if (!pluginInfo.isPluginEnabled()) {
+    KConfigGroup configGroup(Prefs::self()->config(), "Plugins");
+    for (const KPluginMetaData &pluginMetaData : qAsConst(mPluginMetaData)) {
+        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1String("Enabled"), pluginMetaData.isEnabledByDefault())) {
             continue;
         }
 
-        const QString pluginPath = pluginInfo.pluginName();
-        KontactInterface::Plugin *plugin = pluginFromName(pluginPath);
+        KontactInterface::Plugin *plugin = pluginFromName(pluginMetaData.pluginId());
         if (plugin) { // already loaded
             plugin->configUpdated();
             continue;
         }
 
-        qCDebug(KONTACT_LOG) << "Loading Plugin:" << pluginInfo.name();
-        KPluginLoader loader(pluginInfo.libraryPath());
+        qCDebug(KONTACT_LOG) << "Loading Plugin:" << pluginMetaData.name();
+        KPluginLoader loader(pluginMetaData.fileName());
         KPluginFactory *factory = loader.factory();
         if (!factory) {
-            qWarning() << "Error loading plugin" << pluginInfo.libraryPath() << loader.errorString();
+            qWarning() << "Error loading plugin" << pluginMetaData.fileName() << loader.errorString();
             continue;
         } else {
             plugin = factory->create<KontactInterface::Plugin>(this);
             if (!plugin) {
-                qCWarning(KONTACT_LOG) << "Unable to create plugin for" << pluginInfo.libraryPath();
+                qCWarning(KONTACT_LOG) << "Unable to create plugin for" << pluginMetaData.fileName();
                 continue;
             }
         }
 
-        plugin->setIdentifier(pluginInfo.pluginName());
-        plugin->setTitle(pluginInfo.name());
-        plugin->setIcon(pluginInfo.icon());
+        plugin->setIdentifier(pluginMetaData.fileName());
+        KPluginInfo().pluginName();
+        plugin->setTitle(pluginMetaData.name());
+        plugin->setIcon(pluginMetaData.iconName());
 
-        const QVariant libNameProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPartLibraryName"));
-        const QVariant exeNameProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPartExecutableName"));
-        const QVariant loadOnStart = pluginInfo.property(QStringLiteral("X-KDE-KontactPartLoadOnStart"));
-        const QVariant hasPartProp = pluginInfo.property(QStringLiteral("X-KDE-KontactPluginHasPart"));
+        const QString libNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartLibraryName"));
+        const QString exeNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartExecutableName"));
+        const QString loadOnStart = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartLoadOnStart"));
+        const QString hasPartProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPluginHasPart"));
 
-        if (!loadOnStart.isNull() && loadOnStart.toBool()) {
+        if (!loadOnStart.isEmpty() && loadOnStart == QLatin1String("true")) {
             mDelayedPreload.append(plugin);
         }
 
-        qCDebug(KONTACT_LOG) << "LIBNAMEPART:" << libNameProp.toString();
+        qCDebug(KONTACT_LOG) << "LIBNAMEPART:" << libNameProp;
 
-        plugin->setPartLibraryName(libNameProp.toString().toUtf8());
-        plugin->setExecutableName(exeNameProp.toString());
-        if (hasPartProp.isValid()) {
-            plugin->setShowInSideBar(hasPartProp.toBool());
+        plugin->setPartLibraryName(libNameProp.toUtf8());
+        plugin->setExecutableName(exeNameProp);
+        if (!hasPartProp.isEmpty()) {
+            plugin->setShowInSideBar(hasPartProp == QLatin1String("true"));
         }
         plugins.append(plugin);
     }
@@ -405,9 +400,10 @@ void MainWindow::unloadDisabledPlugins()
 {
     // Only remove the now-disabled plugins.
     // Keep the other ones. loadPlugins() will skip those that are already loaded.
-    for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
-        if (!pluginInfo.isPluginEnabled()) {
-            removePlugin(pluginInfo.pluginName());
+    KConfigGroup configGroup(Prefs::self()->config(), "Plugins");
+    for (const KPluginMetaData &pluginMetaData : qAsConst(mPluginMetaData)) {
+        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1String("Enabled"), pluginMetaData.isEnabledByDefault())) {
+            removePlugin(pluginMetaData.pluginId());
         }
     }
 }
@@ -722,8 +718,10 @@ void MainWindow::slotPreferences()
         dlg = new Kontact::KontactConfigureDialog(this);
         dlg->setAllowComponentSelection(true);
 
+        for (const auto &bla : mPluginMetaData)
+            qWarning() << bla.fileName();
         // do not show settings of components running standalone
-        KPluginInfo::List filteredPlugins = mPluginInfos;
+        KPluginInfo::List filteredPlugins; //= mPluginInfos; TODO FIXME
         PluginList::ConstIterator end(mPlugins.constEnd());
         for (PluginList::ConstIterator it = mPlugins.constBegin(); it != end; ++it) {
             if ((*it)->isRunningStandalone()) {
@@ -737,6 +735,8 @@ void MainWindow::slotPreferences()
                 }
             }
         }
+        for (auto bla : filteredPlugins)
+            qWarning() << bla.entryPath();
         dlg->addPluginInfos(filteredPlugins);
         connect(dlg, &Kontact::KontactConfigureDialog::pluginSelectionChanged, this, &MainWindow::pluginsChanged);
     }
@@ -861,9 +861,10 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
     QStringList activePlugins;
 
-    for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
-        if (pluginInfo.isPluginEnabled()) {
-            KontactInterface::Plugin *plugin = pluginFromName(pluginInfo.pluginName());
+    KConfigGroup configGroup(Prefs::self()->config(), "Plugins");
+    for (const KPluginMetaData &pluginMetaData : qAsConst(mPluginMetaData)) {
+        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1String("Enabled"), pluginMetaData.isEnabledByDefault())) {
+            KontactInterface::Plugin *plugin = pluginFromName(pluginMetaData.pluginId());
             if (plugin) {
                 activePlugins.append(plugin->identifier());
                 plugin->saveProperties(config);

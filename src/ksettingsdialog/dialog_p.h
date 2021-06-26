@@ -38,6 +38,7 @@ protected:
 
     QStringList registeredComponents;
     QSet<KCModuleInfo> kcmInfos;
+    QSet<KPluginMetaData> kcmsMetaData;
     QStringList componentBlacklist;
     QStringList arguments;
     QStringList components;
