@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <ksettings/Dialog>
+#include "ksettingsdialog/dialog.h"
 
 namespace Kontact
 {

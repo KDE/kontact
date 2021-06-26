@@ -57,6 +57,7 @@ find_package(KF5KCMUtils ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5Crash ${KF5_MIN_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_MIN_VERSION} REQUIRED)
 find_package(KF5IconThemes ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF5GuiAddons ${KF5_MIN_VERSION} REQUIRED)
 find_package(KF5DocTools ${KF5_MIN_VERSION})
 set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
