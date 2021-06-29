@@ -354,6 +354,7 @@
       <caption xml:lang="ca-valencia">El KMail, el component de correu electrònic del Kontact</caption>
       <caption xml:lang="da">KMail, Kontacts e-mailkomponent</caption>
       <caption xml:lang="de">KMail, die E-Mail-Komponente von Kontact</caption>
+      <caption xml:lang="el">KMail, το ηλεκτρονικό ταχυδρομείο του Kontact</caption>
       <caption xml:lang="en-GB">KMail, the email component of Kontact</caption>
       <caption xml:lang="es">KMail, el componente de correo de Kontact</caption>
       <caption xml:lang="fi">KMail, Kontactin sähköpostiosa</caption>
@@ -381,6 +382,7 @@
       <caption xml:lang="ca-valencia">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb el KOrganizer</caption>
       <caption xml:lang="da">Planlæg din tid, administrér begivenheder, opret gøremål og planlæg møder med KOrganizer</caption>
       <caption xml:lang="de">Organisieren Sie Ihre Zeit, verwalten Sie Ereignisse, erstellen Sie Aufgaben oder planen Sie Besprechungen mit KOrganizer</caption>
+      <caption xml:lang="el">Οργανώστε το χρόνο σας, διαχειριστείτε γεγονότα, δημιουργείστε λίστα μελλοντικών εργασιών ή προγραμματίστε συναντήσεις με το KOrganizer</caption>
       <caption xml:lang="en-GB">Organise your time, manage events, create to-dos or schedule meetings with KOrganizer</caption>
       <caption xml:lang="es">Organice su tiempo, gestione eventos, cree tareas pendientes o planifique reuniones con KOrganizer</caption>
       <caption xml:lang="fi">Hallitse ajankäyttöäsi ja tapahtumia, luo tehtäviä tai aikatauluta tapaamisia KOrganizerilla</caption>
@@ -409,6 +411,7 @@
       <caption xml:lang="cs">KAddressBook poskytuje snadný způsob pro správu kontaktů</caption>
       <caption xml:lang="da">KAddressBook giver en nem måde at håndtere din kontakter på</caption>
       <caption xml:lang="de">KAddressBook bietet eine einfache Möglichkeit, Ihre Kontakte zu verwalten</caption>
+      <caption xml:lang="el">Το KAddressBook παρέχει έναν εύκολο τρόπο διαχείρισης των επαφών σας</caption>
       <caption xml:lang="en-GB">KAddressBook provides an easy way to manage your contacts</caption>
       <caption xml:lang="es">KAddressBook proporciona un modo sencillo de gestionar sus contactos</caption>
       <caption xml:lang="fi">KAddressBook tarjoaa helpon tavan yhteystietojesi hallintaan</caption>
@@ -436,6 +439,7 @@
       <caption xml:lang="ca-valencia">Manteniu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies</caption>
       <caption xml:lang="da">Hold styr på nyhederne med vores nyhedslæser Akregator</caption>
       <caption xml:lang="de">Bleiben Sie auf dem Laufenden mit Akregator, unserem Newsreader</caption>
+      <caption xml:lang="el">Μείνετε στην κορυφή των εξελίξεων με το Akregator, τον αναγνώστη ειδήσεων</caption>
       <caption xml:lang="en-GB">Stay on top of the new with Akregator, our news reader</caption>
       <caption xml:lang="es">Manténgase al día con Akregator, nuestro lector de noticias</caption>
       <caption xml:lang="fi">Pysyttele ajan tasalla syötelukijallamme Akregatorilla</caption>
