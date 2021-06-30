@@ -30,16 +30,7 @@ class KCMultiDialog : public KPageDialog
     Q_DECLARE_PRIVATE(KCMultiDialog)
 
 public:
-    /**
-     * Constructs a new KCMultiDialog
-     *
-     * @param parent The parent widget
-     **/
     explicit KCMultiDialog(QWidget *parent = nullptr);
-
-    /**
-     * Destructor
-     **/
     ~KCMultiDialog() override;
 
     /**
@@ -49,20 +40,7 @@ public:
      */
     KPageWidgetItem *addModule(const KPluginMetaData &metaData, KPageWidgetItem *parent = nullptr);
 
-    /**
-     * Removes all modules from the dialog.
-     */
-    void clear();
-
 Q_SIGNALS:
-    /**
-     * Emitted after all KCModules have been told to save their configuration.
-     *
-     * The applyClicked and okClicked signals are emitted before the
-     * configuration is saved.
-     */
-    void configCommitted();
-
     /**
      * Emitted after the KCModules have been told to save their configuration.
      * It is emitted once for every instance the KCMs that were changed belong
@@ -84,7 +62,6 @@ protected:
     /**
      * This constructor can be used by subclasses to provide a custom KPageWidget.
      */
-    KCMultiDialog(KPageWidget *pageWidget, QWidget *parent, Qt::WindowFlags flags = Qt::WindowFlags());
     KCMultiDialog(KCMultiDialogPrivate &dd, KPageWidget *pageWidget, QWidget *parent, Qt::WindowFlags flags = Qt::WindowFlags());
 
     KCMultiDialogPrivate *const d_ptr;
@@ -169,7 +146,7 @@ public:
         }
     }
 
-    UnboundScrollArea(QWidget *w)
+    explicit UnboundScrollArea(QWidget *w)
         : QScrollArea(w)
     {
     }

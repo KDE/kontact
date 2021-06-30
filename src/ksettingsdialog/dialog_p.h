@@ -30,38 +30,13 @@ class DialogPrivate : public KCMultiDialogPrivate
 protected:
     DialogPrivate(Dialog *parent);
 
-    QHash<KPageWidgetItem *, KPluginInfo> pluginForItem;
-
     QStringList registeredComponents;
-    QSet<KPluginMetaData> kcmsMetaData;
-
     QList<QPair<KPluginMetaData, QVector<KPluginMetaData>>> componentsMetaData;
-
-    QStringList arguments;
-    QStringList components;
-
-    bool firstshow : 1;
-    quint32 pluginStateDirty : 30;
-
-    // void _k_configureTree();
-    void _k_updateEnabledState(bool);
-    void updateConfiguration();
-    void _k_clientChanged() override;
+    bool firstshow = true;
 
     KPageWidgetItem *createPageItem(KPageWidgetItem *parentItem, const QString &name, const QString &comment, const QString &iconName);
 
-    // void connectItemCheckBox(KPageWidgetItem *item, const KPluginInfo &pinfo, bool isEnabled);
-
 private:
-    /**
-     * @internal
-     * Check whether the plugin associated with this KCM is enabled.
-     */
-    bool isPluginForKCMEnabled(const KCModuleInfo *moduleinfo, KPluginInfo &pinfo) const;
-
-    QSet<KCModuleInfo> instanceServices();
-    QSet<KCModuleInfo> parentComponentsServices(const QStringList &);
-
     /**
      * @internal
      * This method is called only once. The KCMultiDialog is not created

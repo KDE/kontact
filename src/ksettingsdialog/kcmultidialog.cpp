@@ -229,13 +229,6 @@ KCMultiDialog::KCMultiDialog(QWidget *parent)
     d_func()->init();
 }
 
-KCMultiDialog::KCMultiDialog(KPageWidget *pageWidget, QWidget *parent, Qt::WindowFlags flags)
-    : KPageDialog(pageWidget, parent, flags)
-    , d_ptr(new KCMultiDialogPrivate(this))
-{
-    d_func()->init();
-}
-
 KCMultiDialog::KCMultiDialog(KCMultiDialogPrivate &dd, KPageWidget *pageWidget, QWidget *parent, Qt::WindowFlags flags)
     : KPageDialog(pageWidget, parent, flags)
     , d_ptr(&dd)
@@ -337,8 +330,6 @@ void KCMultiDialogPrivate::apply()
     for (const QString &name : qAsConst(updatedComponents)) {
         Q_EMIT q->configCommitted(name.toLatin1());
     }
-
-    Q_EMIT q->configCommitted();
 }
 
 void KCMultiDialog::slotApplyClicked()

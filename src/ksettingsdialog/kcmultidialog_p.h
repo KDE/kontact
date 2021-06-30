@@ -44,7 +44,7 @@ protected:
     virtual void _k_clientChanged();
     void _k_dialogClosed();
 
-    KCMultiDialog *q_ptr;
+    KCMultiDialog *const q_ptr;
 
 private:
     void init();

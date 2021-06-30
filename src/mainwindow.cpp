@@ -714,7 +714,7 @@ void MainWindow::slotPreferences()
     static Kontact::KontactConfigureDialog *dlg = nullptr;
     if (!dlg) {
         dlg = new Kontact::KontactConfigureDialog(this);
-        connect(dlg, QOverload<const QByteArray &>::of(&KSettings::Dialog::configCommitted), this, [this](const QByteArray &componentName) {
+        connect(dlg, &KSettings::Dialog::configCommitted, this, [this](const QByteArray &componentName) {
             if (componentName == QByteArrayLiteral("kontact")) {
                 MainWindow::updateConfig();
             }
