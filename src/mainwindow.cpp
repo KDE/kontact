@@ -219,7 +219,7 @@ bool MainWindow::pluginWeightLessThan(const KontactInterface::Plugin *left, cons
 void MainWindow::activateInitialPluginModule()
 {
     if (!mInitialActiveModule.isEmpty() && !mPlugins.isEmpty()) {
-        for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+        for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
             if (!plugin->identifier().isEmpty() && plugin->identifier().contains(mInitialActiveModule)) {
                 selectPlugin(plugin);
                 return;
@@ -329,7 +329,7 @@ KontactInterface::Plugin *MainWindow::pluginFromName(const QString &identifier) 
 void MainWindow::loadPlugins()
 {
     QList<KontactInterface::Plugin *> plugins;
-    for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
+    for (const KPluginInfo &pluginInfo : std::as_const(mPluginInfos)) {
         if (!pluginInfo.isPluginEnabled()) {
             continue;
         }
@@ -379,7 +379,7 @@ void MainWindow::loadPlugins()
     }
     std::sort(plugins.begin(), plugins.end(), pluginWeightLessThan); // new plugins
 
-    for (KontactInterface::Plugin *plugin : qAsConst(plugins)) {
+    for (KontactInterface::Plugin *plugin : std::as_const(plugins)) {
         const QList<QAction *> actionList = plugin->newActions();
         for (QAction *action : actionList) {
             qCDebug(KONTACT_LOG) << "Plugging new action" << action->objectName();
@@ -404,7 +404,7 @@ void MainWindow::unloadDisabledPlugins()
 {
     // Only remove the now-disabled plugins.
     // Keep the other ones. loadPlugins() will skip those that are already loaded.
-    for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
+    for (const KPluginInfo &pluginInfo : std::as_const(mPluginInfos)) {
         if (!pluginInfo.isPluginEnabled()) {
             removePlugin(pluginInfo.pluginName());
         }
@@ -456,7 +456,7 @@ bool MainWindow::removePlugin(const QString &pluginName)
     }
 
     if (mCurrentPlugin == nullptr) {
-        for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+        for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
             if (plugin->showInSideBar()) {
                 selectPlugin(plugin);
                 return true;
@@ -524,7 +524,7 @@ void MainWindow::slotNewClicked()
     if (!mCurrentPlugin->newActions().isEmpty()) {
         mCurrentPlugin->newActions().at(0)->trigger();
     } else {
-        for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+        for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
             if (!plugin->newActions().isEmpty()) {
                 plugin->newActions().constFirst()->trigger();
                 return;
@@ -638,7 +638,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
             mNewActions->setText(newAction->text());
             mNewActions->setWhatsThis(newAction->whatsThis());
         } else { // we'll use the action of the first plugin which offers one
-            for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+            for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
                 if (!plugin->newActions().isEmpty()) {
                     newAction = plugin->newActions().constFirst();
                 }
@@ -686,7 +686,7 @@ void MainWindow::loadSettings()
     }
 
     // Preload Plugins. This _must_ happen before the default part is loaded
-    for (KontactInterface::Plugin *plugin : qAsConst(mDelayedPreload)) {
+    for (KontactInterface::Plugin *plugin : std::as_const(mDelayedPreload)) {
         selectPlugin(plugin);
     }
     selectPlugin(Prefs::self()->mActivePlugin);
@@ -851,7 +851,7 @@ void MainWindow::readProperties(const KConfigGroup &config)
     QSet<QString> activePlugins(activePluginList.begin(), activePluginList.end());
 
     if (!activePlugins.isEmpty()) {
-        for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+        for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
             if (!plugin->isRunningStandalone() && activePlugins.contains(plugin->identifier())) {
                 plugin->readProperties(config);
             }
@@ -865,7 +865,7 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
     QStringList activePlugins;
 
-    for (const KPluginInfo &pluginInfo : qAsConst(mPluginInfos)) {
+    for (const KPluginInfo &pluginInfo : std::as_const(mPluginInfos)) {
         if (pluginInfo.isPluginEnabled()) {
             KontactInterface::Plugin *plugin = pluginFromName(pluginInfo.pluginName());
             if (plugin) {
@@ -884,7 +884,7 @@ bool MainWindow::queryClose()
         return true;
     }
 
-    for (KontactInterface::Plugin *plugin : qAsConst(mPlugins)) {
+    for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
         if (!plugin->isRunningStandalone()) {
             if (!plugin->queryClose()) {
                 return false;
