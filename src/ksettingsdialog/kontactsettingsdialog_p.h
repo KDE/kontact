@@ -21,8 +21,6 @@
 #include <KPluginInfo>
 #include <KService>
 
-namespace KSettings
-{
 class KontactSettingsDialogPrivate : public KontactKCMultiDialogPrivate
 {
     friend class PageNode;
@@ -46,5 +44,4 @@ private:
     void createDialogFromServices();
 };
 
-} // namespace KSettings
 #endif // KSETTINGS_DIALOG_P_H

@@ -308,7 +308,7 @@ void KontactKCMultiDialogPrivate::apply()
     Q_Q(KontactKCMultiDialog);
     QStringList updatedComponents;
 
-    for (const CreatedModule &module : qAsConst(modules)) {
+    for (const CreatedModule &module : std::as_const(modules)) {
         KCModuleProxy *proxy = module.kcm;
 
         if (proxy->changed()) {
@@ -327,7 +327,7 @@ void KontactKCMultiDialogPrivate::apply()
     }
 
     // Send the configCommitted signal for every updated component.
-    for (const QString &name : qAsConst(updatedComponents)) {
+    for (const QString &name : std::as_const(updatedComponents)) {
         Q_EMIT q->configCommitted(name.toLatin1());
     }
 }
@@ -384,7 +384,7 @@ void KontactKCMultiDialog::closeEvent(QCloseEvent *event)
      * in other situations will lead to "module already loaded in Foo," while to the user
      * doesn't appear so(the dialog is hidden)
      */
-    for (auto &proxy : qAsConst(d->modules)) {
+    for (auto &proxy : std::as_const(d->modules)) {
         proxy.kcm->deleteClient();
     }
 }
@@ -393,7 +393,7 @@ KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData
 {
     Q_D(KontactKCMultiDialog);
     // Create the scroller
-    auto *moduleScroll = new UnboundScrollArea(this);
+    auto moduleScroll = new UnboundScrollArea(this);
     // Prepare the scroll area
     moduleScroll->setWidgetResizable(true);
     moduleScroll->setFrameStyle(QFrame::NoFrame);

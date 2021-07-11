@@ -26,8 +26,6 @@
 
 #include "kontact_debug.h"
 
-namespace KSettings
-{
 KontactSettingsDialog::KontactSettingsDialog(QWidget *parent)
     : KontactKCMultiDialog(*new KontactSettingsDialogPrivate(this), new KPageWidget, parent)
 {
@@ -107,7 +105,5 @@ void KontactSettingsDialogPrivate::createDialogFromServices()
         config->reparseConfiguration();
     });
 }
-
-} // namespace
 
 #include "moc_kontactsettingsdialog.cpp"

@@ -11,13 +11,10 @@
 
 #include "kontactkcmultidialog.h"
 
-namespace KSettings
-{
 class KontactSettingsDialogPrivate;
 
 class KontactSettingsDialog : public KontactKCMultiDialog
 {
-    friend class PageNode;
     Q_DECLARE_PRIVATE(KontactSettingsDialog)
     Q_OBJECT
 public:
@@ -35,18 +32,6 @@ protected:
      * Reimplemented to lazy create the dialog on first show.
      */
     void showEvent(QShowEvent *) override;
-
-Q_SIGNALS:
-    /**
-     * If you use the dialog in Configurable mode and want to be notified
-     * when the user changes the plugin selections use this signal. It's
-     * emitted if the selection has changed and the user pressed Apply or
-     * Ok. In the slot you would then load and unload the plugins as
-     * requested.
-     */
-    void pluginSelectionChanged();
 };
-
-}
 
 #endif // KSETTINGS_DIALOG_H

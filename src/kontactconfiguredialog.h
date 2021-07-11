@@ -10,7 +10,7 @@
 
 namespace Kontact
 {
-class KontactConfigureDialog : public KSettings::KontactSettingsDialog
+class KontactConfigureDialog : public KontactSettingsDialog
 {
     Q_OBJECT
 

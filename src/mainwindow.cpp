@@ -65,8 +65,6 @@ using namespace Kontact;
 #include <QVBoxLayout>
 #include <QWebEngineUrlScheme>
 
-#include <ksettings/Dispatcher>
-
 #include <GrantleeTheme/GrantleeTheme>
 #include <GrantleeTheme/GrantleeThemeManager>
 
@@ -714,7 +712,7 @@ void MainWindow::slotPreferences()
     static Kontact::KontactConfigureDialog *dlg = nullptr;
     if (!dlg) {
         dlg = new Kontact::KontactConfigureDialog(this);
-        connect(dlg, &KSettings::KontactSettingsDialog::configCommitted, this, [this](const QByteArray &componentName) {
+        connect(dlg, &KontactSettingsDialog::configCommitted, this, [this](const QByteArray &componentName) {
             if (componentName == QByteArrayLiteral("kontact")) {
                 MainWindow::updateConfig();
             }
@@ -724,7 +722,7 @@ void MainWindow::slotPreferences()
             return m1.rawData().value(QStringLiteral("X-KDE-Weight")).toInt() < m2.rawData().value(QStringLiteral("X-KDE-Weight")).toInt();
         };
         std::sort(mPluginMetaData.begin(), mPluginMetaData.end(), sortByWeight);
-        for (const KPluginMetaData &metaData : qAsConst(mPluginMetaData)) {
+        for (const KPluginMetaData &metaData : std::as_const(mPluginMetaData)) {
             const QString pluginNamespace = metaData.value(QStringLiteral("X-KDE-ConfigModuleNamespace"));
             if (!pluginNamespace.isEmpty()) {
                 auto plugins = KPluginLoader::findPlugins(pluginNamespace);
@@ -732,7 +730,6 @@ void MainWindow::slotPreferences()
                 dlg->addPluginComponent(metaData, plugins);
             }
         }
-        connect(dlg, &Kontact::KontactConfigureDialog::pluginSelectionChanged, this, &MainWindow::pluginsChanged);
     }
 
     dlg->show();
