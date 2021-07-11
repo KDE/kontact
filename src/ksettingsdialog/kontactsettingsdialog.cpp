@@ -6,8 +6,8 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include "dialog.h"
-#include "dialog_p.h"
+#include "kontactsettingsdialog.h"
+#include "kontactsettingsdialog_p.h"
 
 #include <KConfig>
 #include <KLocalizedString>
@@ -28,24 +28,24 @@
 
 namespace KSettings
 {
-Dialog::Dialog(QWidget *parent)
-    : KCMultiDialog(*new DialogPrivate(this), new KPageWidget, parent)
+KontactSettingsDialog::KontactSettingsDialog(QWidget *parent)
+    : KontactKCMultiDialog(*new KontactSettingsDialogPrivate(this), new KPageWidget, parent)
 {
 }
 
-Dialog::~Dialog()
+KontactSettingsDialog::~KontactSettingsDialog()
 {
 }
 
-void Dialog::addPluginComponent(const KPluginMetaData &parentPluginMetaData, const QVector<KPluginMetaData> &pluginMetaData)
+void KontactSettingsDialog::addPluginComponent(const KPluginMetaData &parentPluginMetaData, const QVector<KPluginMetaData> &pluginMetaData)
 {
-    Q_D(Dialog);
+    Q_D(KontactSettingsDialog);
     d->componentsMetaData.append({parentPluginMetaData, pluginMetaData});
 }
 
-void Dialog::showEvent(QShowEvent *)
+void KontactSettingsDialog::showEvent(QShowEvent *)
 {
-    Q_D(Dialog);
+    Q_D(KontactSettingsDialog);
     if (d->firstshow) {
         setUpdatesEnabled(false);
         d->createDialogFromServices();
@@ -54,14 +54,14 @@ void Dialog::showEvent(QShowEvent *)
     }
 }
 
-DialogPrivate::DialogPrivate(Dialog *parent)
-    : KCMultiDialogPrivate(parent)
+KontactSettingsDialogPrivate::KontactSettingsDialogPrivate(KontactSettingsDialog *parent)
+    : KontactKCMultiDialogPrivate(parent)
 {
 }
 
-KPageWidgetItem *DialogPrivate::createPageItem(KPageWidgetItem *parentItem, const QString &name, const QString &comment, const QString &iconName)
+KPageWidgetItem *KontactSettingsDialogPrivate::createPageItem(KPageWidgetItem *parentItem, const QString &name, const QString &comment, const QString &iconName)
 {
-    Q_Q(Dialog);
+    Q_Q(KontactSettingsDialog);
     auto page = new QWidget(q);
 
     auto iconLabel = new QLabel(page);
@@ -88,9 +88,9 @@ KPageWidgetItem *DialogPrivate::createPageItem(KPageWidgetItem *parentItem, cons
     return (item);
 }
 
-void DialogPrivate::createDialogFromServices()
+void KontactSettingsDialogPrivate::createDialogFromServices()
 {
-    Q_Q(Dialog);
+    Q_Q(KontactSettingsDialog);
 
     for (const auto &pair : std::as_const(componentsMetaData)) {
         const KPluginMetaData &parentComponentMetaData = pair.first;
@@ -102,7 +102,7 @@ void DialogPrivate::createDialogFromServices()
         }
     }
 
-    QObject::connect(q, QOverload<const QByteArray &>::of(&KCMultiDialog::configCommitted), q, [](const QByteArray &componentName) {
+    QObject::connect(q, QOverload<const QByteArray &>::of(&KontactKCMultiDialog::configCommitted), q, [](const QByteArray &componentName) {
         KSharedConfig::Ptr config = KSharedConfig::openConfig(QString::fromLatin1(componentName) + QLatin1String("rc"));
         config->reparseConfiguration();
     });
@@ -110,4 +110,4 @@ void DialogPrivate::createDialogFromServices()
 
 } // namespace
 
-#include "moc_dialog.cpp"
+#include "moc_kontactsettingsdialog.cpp"

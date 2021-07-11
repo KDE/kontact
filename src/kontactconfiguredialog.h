@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "ksettingsdialog/dialog.h"
+#include "ksettingsdialog/kontactsettingsdialog.h"
 
 namespace Kontact
 {
-class KontactConfigureDialog : public KSettings::Dialog
+class KontactConfigureDialog : public KSettings::KontactSettingsDialog
 {
     Q_OBJECT
 

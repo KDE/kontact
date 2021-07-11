@@ -9,8 +9,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "kcmultidialog.h"
-#include "kcmultidialog_p.h"
+#include "kontactkcmultidialog.h"
+#include "kontactkcmultidialog_p.h"
 
 #include "kcmoduleproxy.h"
 
@@ -33,9 +33,9 @@
 #include <KPageWidgetModel>
 #include <KPluginMetaData>
 
-bool KCMultiDialogPrivate::resolveChanges(KCModuleProxy *currentProxy)
+bool KontactKCMultiDialogPrivate::resolveChanges(KCModuleProxy *currentProxy)
 {
-    Q_Q(KCMultiDialog);
+    Q_Q(KontactKCMultiDialog);
     if (!currentProxy || !currentProxy->changed()) {
         return true;
     }
@@ -66,9 +66,9 @@ bool KCMultiDialogPrivate::resolveChanges(KCModuleProxy *currentProxy)
     }
 }
 
-void KCMultiDialogPrivate::_k_slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *previous)
+void KontactKCMultiDialogPrivate::_k_slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *previous)
 {
-    Q_Q(KCMultiDialog);
+    Q_Q(KontactKCMultiDialog);
 
     KCModuleProxy *previousModule = nullptr;
     for (int i = 0; i < modules.count(); ++i) {
@@ -110,9 +110,9 @@ void KCMultiDialogPrivate::_k_slotCurrentPageChanged(KPageWidgetItem *current, K
     _k_clientChanged();
 }
 
-void KCMultiDialogPrivate::_k_clientChanged()
+void KontactKCMultiDialogPrivate::_k_clientChanged()
 {
-    Q_Q(KCMultiDialog);
+    Q_Q(KontactKCMultiDialog);
     // qDebug();
     // Get the current module
     KCModuleProxy *activeModule = nullptr;
@@ -131,20 +131,20 @@ void KCMultiDialogPrivate::_k_clientChanged()
 
         QPushButton *applyButton = q->buttonBox()->button(QDialogButtonBox::Apply);
         if (applyButton) {
-            q->disconnect(applyButton, &QAbstractButton::clicked, q, &KCMultiDialog::slotApplyClicked);
+            q->disconnect(applyButton, &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotApplyClicked);
         }
 
         QPushButton *okButton = q->buttonBox()->button(QDialogButtonBox::Ok);
         if (okButton) {
-            q->disconnect(okButton, &QAbstractButton::clicked, q, &KCMultiDialog::slotOkClicked);
+            q->disconnect(okButton, &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotOkClicked);
         }
 
         if (applyButton) {
-            q->connect(applyButton, &QAbstractButton::clicked, q, &KCMultiDialog::slotApplyClicked);
+            q->connect(applyButton, &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotApplyClicked);
         }
 
         if (okButton) {
-            q->connect(okButton, &QAbstractButton::clicked, q, &KCMultiDialog::slotOkClicked);
+            q->connect(okButton, &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotOkClicked);
         }
     }
 
@@ -189,9 +189,9 @@ void KCMultiDialogPrivate::_k_clientChanged()
     }
 }
 
-void KCMultiDialogPrivate::init()
+void KontactKCMultiDialogPrivate::init()
 {
-    Q_Q(KCMultiDialog);
+    Q_Q(KontactKCMultiDialog);
     q->setFaceType(KPageDialog::Auto);
     q->setWindowTitle(i18n("Configure"));
     q->setModal(false);
@@ -210,11 +210,11 @@ void KCMultiDialogPrivate::init()
     buttonBox->button(QDialogButtonBox::Reset)->setEnabled(false);
     buttonBox->button(QDialogButtonBox::Apply)->setEnabled(false);
 
-    q->connect(buttonBox->button(QDialogButtonBox::Apply), &QAbstractButton::clicked, q, &KCMultiDialog::slotApplyClicked);
-    q->connect(buttonBox->button(QDialogButtonBox::Ok), &QAbstractButton::clicked, q, &KCMultiDialog::slotOkClicked);
-    q->connect(buttonBox->button(QDialogButtonBox::RestoreDefaults), &QAbstractButton::clicked, q, &KCMultiDialog::slotDefaultClicked);
-    q->connect(buttonBox->button(QDialogButtonBox::Help), &QAbstractButton::clicked, q, &KCMultiDialog::slotHelpClicked);
-    q->connect(buttonBox->button(QDialogButtonBox::Reset), &QAbstractButton::clicked, q, &KCMultiDialog::slotUser1Clicked);
+    q->connect(buttonBox->button(QDialogButtonBox::Apply), &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotApplyClicked);
+    q->connect(buttonBox->button(QDialogButtonBox::Ok), &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotOkClicked);
+    q->connect(buttonBox->button(QDialogButtonBox::RestoreDefaults), &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotDefaultClicked);
+    q->connect(buttonBox->button(QDialogButtonBox::Help), &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotHelpClicked);
+    q->connect(buttonBox->button(QDialogButtonBox::Reset), &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotUser1Clicked);
 
     q->setButtonBox(buttonBox);
     q->connect(q, &KPageDialog::currentPageChanged, q, [this](KPageWidgetItem *current, KPageWidgetItem *before) {
@@ -222,26 +222,26 @@ void KCMultiDialogPrivate::init()
     });
 }
 
-KCMultiDialog::KCMultiDialog(QWidget *parent)
+KontactKCMultiDialog::KontactKCMultiDialog(QWidget *parent)
     : KPageDialog(parent)
-    , d_ptr(new KCMultiDialogPrivate(this))
+    , d_ptr(new KontactKCMultiDialogPrivate(this))
 {
     d_func()->init();
 }
 
-KCMultiDialog::KCMultiDialog(KCMultiDialogPrivate &dd, KPageWidget *pageWidget, QWidget *parent, Qt::WindowFlags flags)
+KontactKCMultiDialog::KontactKCMultiDialog(KontactKCMultiDialogPrivate &dd, KPageWidget *pageWidget, QWidget *parent, Qt::WindowFlags flags)
     : KPageDialog(pageWidget, parent, flags)
     , d_ptr(&dd)
 {
     d_func()->init();
 }
 
-KCMultiDialog::~KCMultiDialog()
+KontactKCMultiDialog::~KontactKCMultiDialog()
 {
     delete d_ptr;
 }
 
-void KCMultiDialog::showEvent(QShowEvent *ev)
+void KontactKCMultiDialog::showEvent(QShowEvent *ev)
 {
     KPageDialog::showEvent(ev);
     adjustSize();
@@ -259,9 +259,9 @@ void KCMultiDialog::showEvent(QShowEvent *ev)
     }
 }
 
-void KCMultiDialog::slotDefaultClicked()
+void KontactKCMultiDialog::slotDefaultClicked()
 {
-    Q_D(KCMultiDialog);
+    Q_D(KontactKCMultiDialog);
     const KPageWidgetItem *item = currentPage();
     if (!item) {
         return;
@@ -276,14 +276,14 @@ void KCMultiDialog::slotDefaultClicked()
     }
 }
 
-void KCMultiDialog::slotUser1Clicked()
+void KontactKCMultiDialog::slotUser1Clicked()
 {
     const KPageWidgetItem *item = currentPage();
     if (!item) {
         return;
     }
 
-    Q_D(KCMultiDialog);
+    Q_D(KontactKCMultiDialog);
     for (int i = 0; i < d->modules.count(); ++i) {
         if (d->modules[i].item == item) {
             d->modules[i].kcm->load();
@@ -293,7 +293,7 @@ void KCMultiDialog::slotUser1Clicked()
     }
 }
 
-bool KCMultiDialogPrivate::moduleSave(KCModuleProxy *module)
+bool KontactKCMultiDialogPrivate::moduleSave(KCModuleProxy *module)
 {
     if (!module) {
         return false;
@@ -303,9 +303,9 @@ bool KCMultiDialogPrivate::moduleSave(KCModuleProxy *module)
     return true;
 }
 
-void KCMultiDialogPrivate::apply()
+void KontactKCMultiDialogPrivate::apply()
 {
-    Q_Q(KCMultiDialog);
+    Q_Q(KontactKCMultiDialog);
     QStringList updatedComponents;
 
     for (const CreatedModule &module : qAsConst(modules)) {
@@ -332,7 +332,7 @@ void KCMultiDialogPrivate::apply()
     }
 }
 
-void KCMultiDialog::slotApplyClicked()
+void KontactKCMultiDialog::slotApplyClicked()
 {
     QPushButton *applyButton = buttonBox()->button(QDialogButtonBox::Apply);
     applyButton->setFocus();
@@ -340,7 +340,7 @@ void KCMultiDialog::slotApplyClicked()
     d_func()->apply();
 }
 
-void KCMultiDialog::slotOkClicked()
+void KontactKCMultiDialog::slotOkClicked()
 {
     QPushButton *okButton = buttonBox()->button(QDialogButtonBox::Ok);
     okButton->setFocus();
@@ -349,14 +349,14 @@ void KCMultiDialog::slotOkClicked()
     accept();
 }
 
-void KCMultiDialog::slotHelpClicked()
+void KontactKCMultiDialog::slotHelpClicked()
 {
     const KPageWidgetItem *item = currentPage();
     if (!item) {
         return;
     }
 
-    Q_D(KCMultiDialog);
+    Q_D(KontactKCMultiDialog);
     QString docPath;
     for (int i = 0; i < d->modules.count(); ++i) {
         if (d->modules[i].item == item) {
@@ -374,9 +374,9 @@ void KCMultiDialog::slotHelpClicked()
     }
 }
 
-void KCMultiDialog::closeEvent(QCloseEvent *event)
+void KontactKCMultiDialog::closeEvent(QCloseEvent *event)
 {
-    Q_D(KCMultiDialog);
+    Q_D(KontactKCMultiDialog);
     KPageDialog::closeEvent(event);
 
     /**
@@ -389,9 +389,9 @@ void KCMultiDialog::closeEvent(QCloseEvent *event)
     }
 }
 
-KPageWidgetItem *KCMultiDialog::addModule(const KPluginMetaData &metaData, KPageWidgetItem *parent)
+KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData, KPageWidgetItem *parent)
 {
-    Q_D(KCMultiDialog);
+    Q_D(KontactKCMultiDialog);
     // Create the scroller
     auto *moduleScroll = new UnboundScrollArea(this);
     // Prepare the scroll area
@@ -404,7 +404,7 @@ KPageWidgetItem *KCMultiDialog::addModule(const KPluginMetaData &metaData, KPage
 
     auto item = new KPageWidgetItem(moduleScroll, metaData.name());
 
-    KCMultiDialogPrivate::CreatedModule createdModule;
+    KontactKCMultiDialogPrivate::CreatedModule createdModule;
     createdModule.kcm = kcm;
     createdModule.item = item;
     d->modules.append(createdModule);
@@ -440,4 +440,4 @@ KPageWidgetItem *KCMultiDialog::addModule(const KPluginMetaData &metaData, KPage
     return item;
 }
 
-#include "moc_kcmultidialog.cpp"
+#include "moc_kontactkcmultidialog.cpp"

@@ -9,21 +9,21 @@
 #ifndef KSETTINGS_DIALOG_H
 #define KSETTINGS_DIALOG_H
 
-#include "./kcmultidialog.h"
+#include "kontactkcmultidialog.h"
 
 namespace KSettings
 {
-class DialogPrivate;
+class KontactSettingsDialogPrivate;
 
-class Dialog : public KCMultiDialog
+class KontactSettingsDialog : public KontactKCMultiDialog
 {
     friend class PageNode;
-    Q_DECLARE_PRIVATE(Dialog)
+    Q_DECLARE_PRIVATE(KontactSettingsDialog)
     Q_OBJECT
 public:
-    explicit Dialog(QWidget *parent = nullptr);
+    explicit KontactSettingsDialog(QWidget *parent = nullptr);
 
-    ~Dialog() override;
+    ~KontactSettingsDialog() override;
 
     /**
      * Adds a page with parentPluginMetaData used for title & icon of the component page and pluginMetaData for it's subpages

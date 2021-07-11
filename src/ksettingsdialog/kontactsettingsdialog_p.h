@@ -9,9 +9,9 @@
 #ifndef KSETTINGS_DIALOG_P_H
 #define KSETTINGS_DIALOG_P_H
 
-#include "dialog.h"
 #include "kcmoduleinfo.h"
-#include "kcmultidialog_p.h"
+#include "kontactkcmultidialog_p.h"
+#include "kontactsettingsdialog.h"
 
 #include <QHash>
 #include <QSet>
@@ -23,12 +23,12 @@
 
 namespace KSettings
 {
-class DialogPrivate : public KCMultiDialogPrivate
+class KontactSettingsDialogPrivate : public KontactKCMultiDialogPrivate
 {
     friend class PageNode;
-    Q_DECLARE_PUBLIC(Dialog)
+    Q_DECLARE_PUBLIC(KontactSettingsDialog)
 protected:
-    DialogPrivate(Dialog *parent);
+    KontactSettingsDialogPrivate(KontactSettingsDialog *parent);
 
     QStringList registeredComponents;
     QList<QPair<KPluginMetaData, QVector<KPluginMetaData>>> componentsMetaData;

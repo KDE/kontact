@@ -16,7 +16,7 @@
 using namespace Kontact;
 
 KontactConfigureDialog::KontactConfigureDialog(QWidget *parent)
-    : KSettings::Dialog(parent)
+    : KSettings::KontactSettingsDialog(parent)
 {
     setFaceType(Tree);
     connect(button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &KontactConfigureDialog::slotOk);

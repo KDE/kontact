@@ -7,8 +7,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef KCMULTIDIALOG_H
-#define KCMULTIDIALOG_H
+#ifndef KONTACTKCMULTIDIALOG_H
+#define KONTACTKCMULTIDIALOG_H
 
 #include <QScrollArea>
 #include <QScrollBar>
@@ -16,7 +16,7 @@
 #include <KPageDialog>
 #include <KPluginMetaData>
 
-class KCMultiDialogPrivate;
+class KontactKCMultiDialogPrivate;
 
 /**
  * @short A class that offers a KPageDialog containing arbitrary
@@ -24,14 +24,14 @@ class KCMultiDialogPrivate;
  *
  * @author Matthias Elter <elter@kde.org>, Daniel Molkentin <molkentin@kde.org>
  */
-class KCMultiDialog : public KPageDialog
+class KontactKCMultiDialog : public KPageDialog
 {
     Q_OBJECT
-    Q_DECLARE_PRIVATE(KCMultiDialog)
+    Q_DECLARE_PRIVATE(KontactKCMultiDialog)
 
 public:
-    explicit KCMultiDialog(QWidget *parent = nullptr);
-    ~KCMultiDialog() override;
+    explicit KontactKCMultiDialog(QWidget *parent = nullptr);
+    ~KontactKCMultiDialog() override;
 
     /**
      * Add a module to the dialog. Its position will be determined based on the @c X-KDE-Weight value.
@@ -62,9 +62,9 @@ protected:
     /**
      * This constructor can be used by subclasses to provide a custom KPageWidget.
      */
-    KCMultiDialog(KCMultiDialogPrivate &dd, KPageWidget *pageWidget, QWidget *parent, Qt::WindowFlags flags = Qt::WindowFlags());
+    KontactKCMultiDialog(KontactKCMultiDialogPrivate &dd, KPageWidget *pageWidget, QWidget *parent, Qt::WindowFlags flags = Qt::WindowFlags());
 
-    KCMultiDialogPrivate *const d_ptr;
+    KontactKCMultiDialogPrivate *const d_ptr;
 
     void closeEvent(QCloseEvent *event) override;
     void showEvent(QShowEvent *event) override;

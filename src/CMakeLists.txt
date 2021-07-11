@@ -11,8 +11,8 @@ target_sources(kontactprivate PRIVATE
     sidepanebase.cpp
     iconsidepane.cpp
     aboutdialog.cpp
-    ksettingsdialog/kcmultidialog.cpp
-    ksettingsdialog/dialog.cpp
+        ksettingsdialog/kontactkcmultidialog.cpp
+        ksettingsdialog/kontactsettingsdialog.cpp
     kontactconfiguredialog.cpp
     kontact.qrc
     )

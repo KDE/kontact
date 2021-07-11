@@ -6,26 +6,26 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#ifndef KCMULTIDIALOG_P_H
-#define KCMULTIDIALOG_P_H
+#ifndef KONTACTKCMULTIDIALOG_P_H
+#define KONTACTKCMULTIDIALOG_P_H
 
-#include "kcmultidialog.h"
+#include "kontactkcmultidialog.h"
 #include <QList>
 #include <QStringList>
 
 class KCModuleProxy;
 class KPageWidgetItem;
 
-class KCMultiDialogPrivate
+class KontactKCMultiDialogPrivate
 {
-    Q_DECLARE_PUBLIC(KCMultiDialog)
+    Q_DECLARE_PUBLIC(KontactKCMultiDialog)
 protected:
-    KCMultiDialogPrivate(KCMultiDialog *parent)
+    KontactKCMultiDialogPrivate(KontactKCMultiDialog *parent)
         : q_ptr(parent)
     {
     }
 
-    virtual ~KCMultiDialogPrivate()
+    virtual ~KontactKCMultiDialogPrivate()
     {
     }
 
@@ -44,7 +44,7 @@ protected:
     virtual void _k_clientChanged();
     void _k_dialogClosed();
 
-    KCMultiDialog *const q_ptr;
+    KontactKCMultiDialog *const q_ptr;
 
 private:
     void init();
@@ -53,4 +53,4 @@ private:
     bool moduleSave(KCModuleProxy *module);
 };
 
-#endif // KCMULTIDIALOG_P_H
+#endif // KONTACTKCMULTIDIALOG_P_H
