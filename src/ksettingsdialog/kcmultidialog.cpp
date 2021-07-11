@@ -196,7 +196,7 @@ void KCMultiDialogPrivate::init()
     q->setWindowTitle(i18n("Configure"));
     q->setModal(false);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(q);
+    auto buttonBox = new QDialogButtonBox(q);
     buttonBox->setStandardButtons(QDialogButtonBox::Help | QDialogButtonBox::RestoreDefaults | QDialogButtonBox::Cancel | QDialogButtonBox::Apply
                                   | QDialogButtonBox::Close | QDialogButtonBox::Ok | QDialogButtonBox::Reset);
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), KStandardGuiItem::ok());
@@ -399,10 +399,10 @@ KPageWidgetItem *KCMultiDialog::addModule(const KPluginMetaData &metaData, KPage
     moduleScroll->setFrameStyle(QFrame::NoFrame);
     moduleScroll->viewport()->setAutoFillBackground(false);
 
-    KCModuleProxy *kcm = new KCModuleProxy(metaData, moduleScroll, QStringList());
+    auto kcm = new KCModuleProxy(metaData, moduleScroll, QStringList());
     moduleScroll->setWidget(kcm);
 
-    KPageWidgetItem *item = new KPageWidgetItem(moduleScroll, metaData.name());
+    auto item = new KPageWidgetItem(moduleScroll, metaData.name());
 
     KCMultiDialogPrivate::CreatedModule createdModule;
     createdModule.kcm = kcm;
@@ -421,7 +421,7 @@ KPageWidgetItem *KCMultiDialog::addModule(const KPluginMetaData &metaData, KPage
         item->setIcon(QIcon::fromTheme(metaData.iconName()));
     }
     bool updateCurrentPage = false;
-    const KPageWidgetModel *model = qobject_cast<const KPageWidgetModel *>(pageWidget()->model());
+    const auto model = qobject_cast<const KPageWidgetModel *>(pageWidget()->model());
     Q_ASSERT(model);
     if (parent) {
         addSubPage(parent, item);

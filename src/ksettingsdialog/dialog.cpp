@@ -62,21 +62,21 @@ DialogPrivate::DialogPrivate(Dialog *parent)
 KPageWidgetItem *DialogPrivate::createPageItem(KPageWidgetItem *parentItem, const QString &name, const QString &comment, const QString &iconName)
 {
     Q_Q(Dialog);
-    QWidget *page = new QWidget(q);
+    auto page = new QWidget(q);
 
-    QLabel *iconLabel = new QLabel(page);
-    QLabel *commentLabel = new QLabel(comment, page);
+    auto iconLabel = new QLabel(page);
+    auto commentLabel = new QLabel(comment, page);
     commentLabel->setTextFormat(Qt::RichText);
-    QVBoxLayout *layout = new QVBoxLayout(page);
+    auto layout = new QVBoxLayout(page);
     layout->addWidget(iconLabel);
     layout->addWidget(commentLabel);
     layout->addStretch();
 
-    KPageWidgetItem *item = new KPageWidgetItem(page, name);
+    auto item = new KPageWidgetItem(page, name);
     item->setIcon(QIcon::fromTheme(iconName));
     iconLabel->setPixmap(item->icon().pixmap(128, 128));
 
-    const KPageWidgetModel *model = qobject_cast<const KPageWidgetModel *>(q->pageWidget()->model());
+    const auto model = qobject_cast<const KPageWidgetModel *>(q->pageWidget()->model());
     Q_ASSERT(model);
 
     if (parentItem) {
