@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <developer_name>The KDE Community</developer_name>
+  <developer_name xml:lang="az">KDE Cəmiyyəti</developer_name>
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
   <developer_name xml:lang="cs">Komunita KDE</developer_name>
@@ -35,6 +36,7 @@
   <developer_name xml:lang="zh-CN">KDE 社区</developer_name>
   <name>Kontact</name>
   <name xml:lang="ar">متراسلك</name>
+  <name xml:lang="az">Kontact</name>
   <name xml:lang="bs">Kontact</name>
   <name xml:lang="ca">Kontact</name>
   <name xml:lang="ca-valencia">Kontact</name>
@@ -73,6 +75,7 @@
   <name xml:lang="zh-CN">Kontact</name>
   <name xml:lang="zh-TW">個人資訊管理_Kontact</name>
   <summary>Handle all your emails, calendars, contacts and more within a single window</summary>
+  <summary xml:lang="az">Bütün e-poçtlarınız, təqvimləriniz və digəriləri üzərində bir pəncərədə işləyin</summary>
   <summary xml:lang="ca">Gestiona tots els correus electrònics, calendaris, contactes i més en una sola finestra</summary>
   <summary xml:lang="ca-valencia">Gestiona tots els correus electrònics, calendaris, contactes i més en una sola finestra</summary>
   <summary xml:lang="da">Håndtér alle dine e-mails, kalendere, kontakter og mere i et enkelt vindue</summary>
@@ -105,6 +108,7 @@
     <p>
     Handle your email, calendar, contacts and other personal data with Kontact. Kontact groups everything together in one place and helps you manage your communications, organize your day and work with your colleagues.
     </p>
+    <p xml:lang="az">E-poştlarınızı, təqvimlərinizi əlaqələrinizi və digər şəxsi məlumatları Kontact ilə idarə edin. Kontact hər şeyi bir yerdə toplayır və ünsiyyətlərinizi idarə etməyinizə, gününüzü təşkil etməyə və həmkarlarınızla işləməyinizə kömək edir.</p>
     <p xml:lang="ca">Controleu el vostre correu electrònic, calendari, contactes i altres dades personals amb el Kontact. El Kontact agrupa tot junt en un mateix lloc i ajuda a gestionar les vostres comunicacions, organitzar el vostre dia i treballar amb els vostres companys.</p>
     <p xml:lang="ca-valencia">Controleu el vostre correu electrònic, calendari, contactes i altres dades personals amb el Kontact. El Kontact agrupa tot junt en un mateix lloc i ajuda a gestionar les vostres comunicacions, organitzar el vostre dia i treballar amb els vostres companys.</p>
     <p xml:lang="da">Håndtér din e-mail, kalender, kontakter og andre personlige data med Kontact. Kontact grupperer alt samlet på et sted og hjælper dig med at administrere din kommunikation, organisere din dag og samarbejde med dine kolleger.</p>
@@ -136,6 +140,7 @@
     <p>
     Kontact unifies several personal information management applications into a single window to give you the best possible experience and boost your productivity. With Kontact you can use all the tools of our powerful suite in one place. Unlike proprietary web applications we value your privacy and support open standards, which is why Kontact gives you full control over your data. You can of course also access your data offline if you want to.
     </p>
+    <p xml:lang="az">Kontact, sizə mümkün olan ən yaxşı təcrübəni təqdim etmək və işinizi daha səmərəli etmək üçün bir neçə fərdi məlumat idarəetmə tətbiqini vahid bir pəncərədə birləşdirir. Kontact ilə güclü dəstimizin bütün alətlərini bir yerdə istifadə edə bilərsiniz. Xüsusi veb tətbiqlərindən fərqli olaraq, məxfiliyinizə dəyər veririk və açıq proqram təminatı standartlarını dəstəkləyirik, bu səbəbdən Kontact sizə məlumatlarınız üzərində tam nəzarət  etmək imkanı verir. İstəsəniz, əlbəttə ki, məlumatlarınıza oflayn olaraq da daxil ola bilərsiniz.</p>
     <p xml:lang="ca">El Kontact unifica diverses aplicacions per a la gestió de la informació personal en una sola finestra per a oferir-vos la millor experiència possible i així millorar la vostra productivitat. Amb el Kontact podreu usar totes les eines de la nostra poderosa suite en un sol lloc. A diferència d'aplicacions web propietàries, nosaltres valorem la vostra privadesa i implementem els estàndards oberts, de manera que el Kontact us donarà el control total de les vostres dades. Per descomptat, si voleu, també podreu accedir a les vostres dades fora de línia.</p>
     <p xml:lang="ca-valencia">El Kontact unifica diverses aplicacions per a la gestió de la informació personal en una sola finestra per a oferir-vos la millor experiència possible i així millorar la vostra productivitat. Amb el Kontact podreu usar totes les eines de la nostra poderosa suite en un sol lloc. A diferència d'aplicacions web propietàries, nosaltres valorem la vostra privadesa i implementem els estàndards oberts, de manera que el Kontact vos donarà el control total de les vostres dades. Per descomptat, si voleu, també podreu accedir a les vostres dades fora de línia.</p>
     <p xml:lang="da">Kontact forener mange programmer til personlige informationshåndtering (PIM) i et enkelt vindue, for at give dig den bedst mulige oplevelse og øge din produktivitet. Med Kontact kan du bruge alle værktøjerne i vores kraftfulde pakke på et sted. Modsat proprietære webapplikationer så værdsætter vi privatlig og understøtter åbne standarder, derfor giver Kontact dig fuld kontrol over dine data. Du kan selvfølgelig også tilgå dine data offline hvis du ønsker.</p>
@@ -165,6 +170,7 @@
     <p xml:lang="x-test">xxKontact unifies several personal information management applications into a single window to give you the best possible experience and boost your productivity. With Kontact you can use all the tools of our powerful suite in one place. Unlike proprietary web applications we value your privacy and support open standards, which is why Kontact gives you full control over your data. You can of course also access your data offline if you want to.xx</p>
     <p xml:lang="zh-CN">Kontact 通过将多种不同的个人信息管理工具整合到单个窗口中来提高您的工作效率。它提供的丰富的功能可在触手可及的距离内轻松访问。与专有网站服务不同，我们尊重您的隐私并支持开放标准，让您可以完全掌控自己的数据。您还可以离线访问自己的数据。</p>
     <p>Kontact consists of several well-integrated components:</p>
+    <p xml:lang="az">Kontact bir neçə dərindən inteqrasiya olunmuş komponentlərdən ibarətdir:</p>
     <p xml:lang="ca">El Kontact consta de diversos components ben integrats:</p>
     <p xml:lang="ca-valencia">El Kontact consta de diversos components ben integrats:</p>
     <p xml:lang="da">Kontact består af adskillige velintegrerede komponenter:</p>
