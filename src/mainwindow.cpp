@@ -13,6 +13,7 @@
 #include "aboutdialog.h"
 #include "iconsidepane.h"
 #include "prefs.h"
+#include <kxmlgui_version.h>
 
 #include "webengine/introductionwebenginepage.h"
 #include "webengine/introductionwebengineview.h"
@@ -768,7 +769,11 @@ void MainWindow::showAboutDialog()
 
 void MainWindow::configureShortcuts()
 {
+#if KXMLGUI_VERSION < QT_VERSION_CHECK(5, 84, 0)
     KShortcutsDialog dialog(KShortcutsEditor::AllActions, KShortcutsEditor::LetterShortcutsAllowed, this);
+#else
+    KShortcutsDialog dialog(this);
+#endif
     dialog.addCollection(actionCollection());
 
     if (mCurrentPlugin && mCurrentPlugin->part()) {
