@@ -201,6 +201,7 @@
     <p xml:lang="zh-CN">Kontact 包括以下高度整合的功能组件：</p>
     <ul>
       <li>KMail - a powerful and feature-rich email client with support for a wide range of email providers.</li>
+      <li xml:lang="az">KMail, güclü və zəngin imkanları ilə geniş miqyasda e-poçt serverlərini dəstəkləyən bir e-poçt müştərisidir.</li>
       <li xml:lang="ca">KMail: un client de correu electrònic potent i ric en característiques amb suport per a una àmplia varietat de proveïdors de correu electrònic.</li>
       <li xml:lang="ca-valencia">KMail: un client de correu electrònic potent i ric en característiques amb suport per a una àmplia varietat de proveïdors de correu electrònic.</li>
       <li xml:lang="da">KMail - en kraftfuld og funktionsrig e-mailklient med understøttelse af en lang række e-mailudbydere.</li>
@@ -230,6 +231,7 @@
       <li xml:lang="x-test">xxKMail - a powerful and feature-rich email client with support for a wide range of email providers.xx</li>
       <li xml:lang="zh-CN">KMail - 一款功能齐全的电子邮件客户端程序，支持各种电子邮件服务提供商。</li>
       <li>KOrganizer - a calendar and scheduling component of Kontact which is able to work with NextCloud, Kolab, Google Calendar and other calendaring services.</li>
+      <li xml:lang="az">KOrganizer, Kcontact tətbiqinin, NextCloud, Kolab, Google Təqvim və digər onlayn təqvim xidmətləri ilə işləməyi bacaran təqvim və planlama komponentidir.</li>
       <li xml:lang="ca">KOrganizer: un component de calendari i programació del Kontact, el qual pot treballar amb el NextCloud, Kolab, Google Calendar i altres serveis de calendari.</li>
       <li xml:lang="ca-valencia">KOrganizer: un component de calendari i programació del Kontact, el qual pot treballar amb el NextCloud, Kolab, Google Calendar i altres serveis de calendari.</li>
       <li xml:lang="da">KOrganizer - en kalender- og planlægningskomponent til Kontact som virker med NextCloud, Kolab, Google Calendar og andre kalendertjenester.</li>
@@ -259,6 +261,7 @@
       <li xml:lang="x-test">xxKOrganizer - a calendar and scheduling component of Kontact which is able to work with NextCloud, Kolab, Google Calendar and other calendaring services.xx</li>
       <li xml:lang="zh-CN">KOrganizer - 一款日历和日程安排调度工具，支持 NextCloud、Kolab、Google Calendar 以及其他的日历服务。</li>
       <li>KAddressBook - an easy to use contact management tool that can synchronize contacts with many popular services.</li>
+      <li xml:lang="az">KAdressBook, əlqələrinizi asan idarəetmə alətidir. O əlaqələrinizi (kontaktlarınızı) bir çox tanınmış xidmətlər arasında eyniləşdirə bilir.</li>
       <li xml:lang="ca">KAddressBook: una eina per a la gestió dels contactes fàcil d'usar que pot sincronitzar contactes amb molts serveis populars.</li>
       <li xml:lang="ca-valencia">KAddressBook: una eina per a la gestió dels contactes fàcil d'usar que pot sincronitzar contactes amb molts serveis populars.</li>
       <li xml:lang="da">KAddressBook - et brugervenligt værktøj til at håndtere kontakter, som kan synkronisere kontakter med mange populære tjenester.</li>
@@ -288,6 +291,7 @@
       <li xml:lang="x-test">xxKAddressBook - an easy to use contact management tool that can synchronize contacts with many popular services.xx</li>
       <li xml:lang="zh-CN">KAddressBook - 一款简单易用的联系人管理工具，可以同步到各种常用的网络服务。</li>
       <li>Akregator - a news reader with powerful search and archiving functionality.</li>
+      <li xml:lang="az">Akregator, güclü axtarış və arxivləmə imkanlarına malik xəbərləri, yenilikləri oxuma vasitəsidir.</li>
       <li xml:lang="ca">Akregator: un lector de notícies amb una potent funcionalitat de cerca i arxiu.</li>
       <li xml:lang="ca-valencia">Akregator: un lector de notícies amb una potent funcionalitat de cerca i arxiu.</li>
       <li xml:lang="da">Akregator - en nyhedslæser med kraftfuld søgning og arkiveringsfunktionalitet.</li>
@@ -317,6 +321,7 @@
       <li xml:lang="x-test">xxAkregator - a news reader with powerful search and archiving functionality.xx</li>
       <li xml:lang="zh-CN">Akregator - 一款具备强大搜索和存档功能的新闻阅读器。</li>
       <li>KNotes - a simple program that lets you write the computer equivalent of sticky notes.</li>
+      <li xml:lang="az">KNotes, qeydlər aparmaq üçün, komputerinizə yapışdırılan qeyd kağızlarına bənzər sadə bir proqramdır.</li>
       <li xml:lang="ca">KNotes: un programa senzill que permet escriure l'equivalent a l'ordinador a les notes adhesives.</li>
       <li xml:lang="ca-valencia">KNotes: un programa senzill que permet escriure l'equivalent a l'ordinador a les notes adhesives.</li>
       <li xml:lang="da">KNotes - et simpelt program som lader dig skrive post-it-noter på din computer.</li>
@@ -356,6 +361,7 @@
     </screenshot>
     <screenshot>
       <caption>KMail, the email component of Kontact</caption>
+      <caption xml:lang="az">KMail, Kcontaktın e-poçt hissəsidir</caption>
       <caption xml:lang="ca">El KMail, el component de correu electrònic del Kontact</caption>
       <caption xml:lang="ca-valencia">El KMail, el component de correu electrònic del Kontact</caption>
       <caption xml:lang="da">KMail, Kontacts e-mailkomponent</caption>
@@ -384,6 +390,7 @@
     </screenshot>
     <screenshot>
       <caption>Organize your time, manage events, create todos or schedule meetings with KOrganizer</caption>
+      <caption xml:lang="az">Vaxtınızın, tədbirlərinizin idarə dilməsini, tapşırıqlar yaradılmasını, gələcək işlərinizi və ya görüşləriniz planlaşdırmağı KOrganizer ilə həyata keçirin</caption>
       <caption xml:lang="ca">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb el KOrganizer</caption>
       <caption xml:lang="ca-valencia">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb el KOrganizer</caption>
       <caption xml:lang="da">Planlæg din tid, administrér begivenheder, opret gøremål og planlæg møder med KOrganizer</caption>
@@ -412,6 +419,7 @@
     </screenshot>
     <screenshot>
       <caption>KAddressBook provides an easy way to manage your contacts</caption>
+      <caption xml:lang="az">KAdressBook əlaqələriniz idarə etməyin asan yolunu təqdim edir</caption>
       <caption xml:lang="ca">El KAddressBook proporciona una manera fàcil de gestionar els vostres contactes</caption>
       <caption xml:lang="ca-valencia">El KAddressBook proporciona una manera fàcil de gestionar els vostres contactes</caption>
       <caption xml:lang="cs">KAddressBook poskytuje snadný způsob pro správu kontaktů</caption>
@@ -441,6 +449,7 @@
     </screenshot>
     <screenshot>
       <caption>Stay on top of the new with Akregator, our news reader</caption>
+      <caption xml:lang="az">Bizim xəbər oxuyucumuz olan Akregator ilə yeniliklərdən hamıdan öncə xəbərdar olun</caption>
       <caption xml:lang="ca">Manteniu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies</caption>
       <caption xml:lang="ca-valencia">Manteniu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies</caption>
       <caption xml:lang="da">Hold styr på nyhederne med vores nyhedslæser Akregator</caption>
