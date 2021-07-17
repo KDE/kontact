@@ -2,6 +2,7 @@
 Name=Kontact
 Name[af]=Kontact
 Name[ar]=متراسلك
+Name[az]=Kontact
 Name[bg]=Kontact
 Name[br]=Kontact
 Name[bs]=Kontact
@@ -73,6 +74,7 @@ Icon=kontact
 GenericName=Personal Information Manager
 GenericName[af]=Personlike informasie bestuurder
 GenericName[ar]=مدير المعلومات الشّخصيّة
+GenericName[az]=Fərdi Məlumat İdarəçisi
 GenericName[bg]=Лична информация
 GenericName[bs]=Upravljanje osobnim podacima
 GenericName[ca]=Gestor de la informació personal
