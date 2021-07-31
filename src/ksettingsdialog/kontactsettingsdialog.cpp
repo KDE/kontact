@@ -13,7 +13,6 @@
 #include <KLocalizedString>
 #include <KPluginMetaData>
 #include <KServiceGroup>
-#include <KServiceTypeTrader>
 #include <KSharedConfig>
 
 #include <QCoreApplication>
