@@ -6,8 +6,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#ifndef KONTACTKCMULTIDIALOG_P_H
-#define KONTACTKCMULTIDIALOG_P_H
+#pragma once
 
 #include "kontactkcmultidialog.h"
 #include <QList>
@@ -53,4 +52,3 @@ private:
     bool moduleSave(KCModuleProxy *module);
 };
 
-#endif // KONTACTKCMULTIDIALOG_P_H

@@ -7,8 +7,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef KONTACTKCMULTIDIALOG_H
-#define KONTACTKCMULTIDIALOG_H
+#pragma once
 
 #include <QScrollArea>
 #include <QScrollBar>
@@ -153,4 +152,3 @@ public:
     virtual ~UnboundScrollArea() = default;
 };
 
-#endif

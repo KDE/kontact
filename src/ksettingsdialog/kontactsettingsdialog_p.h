@@ -6,8 +6,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#ifndef KSETTINGS_DIALOG_P_H
-#define KSETTINGS_DIALOG_P_H
+#pragma once
 
 #include "kcmoduleinfo.h"
 #include "kontactkcmultidialog_p.h"
@@ -44,4 +43,3 @@ private:
     void createDialogFromServices();
 };
 
-#endif // KSETTINGS_DIALOG_P_H

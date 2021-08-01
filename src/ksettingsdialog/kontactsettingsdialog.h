@@ -6,8 +6,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#ifndef KSETTINGS_DIALOG_H
-#define KSETTINGS_DIALOG_H
+#pragma once
 
 #include "kontactkcmultidialog.h"
 
@@ -34,4 +33,3 @@ protected:
     void showEvent(QShowEvent *) override;
 };
 
-#endif // KSETTINGS_DIALOG_H
