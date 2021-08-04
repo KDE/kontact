@@ -354,20 +354,24 @@ void MainWindow::loadPlugins()
 
         const QString libNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartLibraryName"));
         const QString exeNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartExecutableName"));
-        const QString loadOnStart = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartLoadOnStart"));
-        const QString hasPartProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPluginHasPart"));
 
-        if (!loadOnStart.isEmpty() && loadOnStart == QLatin1String("true")) {
-            mDelayedPreload.append(plugin);
+        if (pluginMetaData.rawData().contains(QLatin1String("X-KDE-KontactPartLoadOnStart"))) {
+            bool loadOnStart = pluginMetaData.rawData().value(QStringLiteral("X-KDE-KontactPartLoadOnStart")).toBool();
+            if (loadOnStart) {
+                mDelayedPreload.append(plugin);
+            }
+        }
+        if (pluginMetaData.rawData().contains(QLatin1String("X-KDE-KontactPluginHasPart"))) {
+            const bool hasPartProp = pluginMetaData.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
+            plugin->setShowInSideBar(hasPartProp);
+        } else {
+            plugin->setShowInSideBar(true);
         }
 
         qCDebug(KONTACT_LOG) << "LIBNAMEPART:" << libNameProp;
 
         plugin->setPartLibraryName(libNameProp.toUtf8());
         plugin->setExecutableName(exeNameProp);
-        if (!hasPartProp.isEmpty()) {
-            plugin->setShowInSideBar(hasPartProp == QLatin1String("true"));
-        }
         plugins.append(plugin);
     }
     std::sort(plugins.begin(), plugins.end(), pluginWeightLessThan); // new plugins
