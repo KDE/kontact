@@ -3,7 +3,7 @@ Icon=kontact
 Type=Service
 X-KDE-ServiceTypes=KCModule
 
-X-KDE-ModuleType=Library
+
 X-KDE-Library=kcm_kontact
 X-KDE-FactoryName=kontactconfig
 X-KDE-HasReadOnlyMode=false
