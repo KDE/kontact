@@ -7,7 +7,7 @@ X-KDE-ServiceTypes=KCModule
 X-KDE-Library=kcm_kontact
 X-KDE-FactoryName=kontactconfig
 
-X-KDE-ParentApp=kontact
+
 X-KDE-ParentComponents=kontact
 X-KDE-Weight=0
 
