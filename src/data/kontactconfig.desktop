@@ -8,7 +8,7 @@ X-KDE-Library=kcm_kontact
 X-KDE-FactoryName=kontactconfig
 
 
-X-KDE-ParentComponents=kontact
+
 X-KDE-Weight=0
 
 Name=Kontact Configuration
