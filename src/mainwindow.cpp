@@ -773,7 +773,7 @@ void MainWindow::showAboutDialog()
 
 void MainWindow::configureShortcuts()
 {
-#if KXMLGUI_VERSION <= QT_VERSION_CHECK(5, 84, 0)
+#if KXMLGUI_VERSION < QT_VERSION_CHECK(5, 85, 0)
     KShortcutsDialog dialog(KShortcutsEditor::AllActions, KShortcutsEditor::LetterShortcutsAllowed, this);
 #else
     KShortcutsDialog dialog(this);
