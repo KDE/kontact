@@ -14,7 +14,10 @@
 #include <QPushButton>
 
 using namespace Kontact;
-
+namespace
+{
+static const char myKontactConfigureDialogConfigGroupName[] = "KontactConfigureDialog";
+}
 KontactConfigureDialog::KontactConfigureDialog(QWidget *parent)
     : KontactSettingsDialog(parent)
 {
@@ -25,7 +28,7 @@ KontactConfigureDialog::KontactConfigureDialog(QWidget *parent)
 
 KontactConfigureDialog::~KontactConfigureDialog()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), "KontactConfigureDialog");
+    KConfigGroup group(KSharedConfig::openStateConfig(), myKontactConfigureDialogConfigGroupName);
     group.writeEntry("width", width());
     group.writeEntry("height", height());
 }
@@ -70,7 +73,7 @@ void KontactConfigureDialog::slotOk()
 
 QSize KontactConfigureDialog::sizeHint() const
 {
-    KConfigGroup group(KSharedConfig::openConfig(), "KontactConfigureDialog");
+    KConfigGroup group(KSharedConfig::openStateConfig(), myKontactConfigureDialogConfigGroupName);
     const int width = group.readEntry("width", 800);
     const int height = group.readEntry("height", 600);
     return QSize(width, height);
