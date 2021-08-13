@@ -193,7 +193,7 @@ void KontactKCMultiDialogPrivate::init()
 {
     Q_Q(KontactKCMultiDialog);
     q->setFaceType(KPageDialog::Auto);
-    q->setWindowTitle(i18n("Configure"));
+    q->setWindowTitle(i18nc("@title:window", "Configure"));
     q->setModal(false);
 
     auto buttonBox = new QDialogButtonBox(q);
