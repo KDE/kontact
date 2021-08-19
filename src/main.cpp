@@ -10,6 +10,7 @@
 // Use the kdepim version
 #include "kontact-version.h"
 
+#include "kcoreaddons_version.h"
 #include "kontact_debug.h"
 #include "mainwindow.h"
 #include "prefs.h"
@@ -74,9 +75,15 @@ private:
 
 static void listPlugins()
 {
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
     const QVector<KPluginMetaData> pluginMetaDatas = KPluginLoader::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
         return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
     });
+#else
+    const QVector<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
+        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+    });
+#endif
 
     for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins

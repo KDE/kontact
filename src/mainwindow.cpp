@@ -12,8 +12,8 @@
 #include "mainwindow.h"
 #include "aboutdialog.h"
 #include "iconsidepane.h"
+#include "kcoreaddons_version.h"
 #include "prefs.h"
-
 #include "webengine/introductionwebenginepage.h"
 #include "webengine/introductionwebengineview.h"
 
@@ -133,10 +133,15 @@ void MainWindow::initObject()
             qFatal("KSycoca unavailable. Kontact will be unable to find plugins.");
         }
     }
-
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
     mPluginMetaData = KPluginLoader::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
         return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
     });
+#else
+    mPluginMetaData = KPluginMetaData::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
+        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+    });
+#endif
 
     // prepare the part manager
     mPartManager = new KParts::PartManager(this);
@@ -334,6 +339,7 @@ void MainWindow::loadPlugins()
         }
 
         qCDebug(KONTACT_LOG) << "Loading Plugin:" << pluginMetaData.name();
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
         KPluginLoader loader(pluginMetaData.fileName());
         KPluginFactory *factory = loader.factory();
         if (!factory) {
@@ -346,7 +352,19 @@ void MainWindow::loadPlugins()
                 continue;
             }
         }
-
+#else
+        const auto loadResult = KPluginFactory::instantiatePlugin<KontactInterface::Plugin>(pluginMetaData, this);
+        if (!loadResult) {
+            qCWarning(KONTACT_LOG) << "Error loading plugin" << pluginMetaData.fileName() << loadResult.errorString;
+            continue;
+        } else {
+            plugin = loadResult.plugin;
+            if (!plugin) {
+                qCWarning(KONTACT_LOG) << "Unable to create plugin for" << pluginMetaData.fileName();
+                continue;
+            }
+        }
+#endif
         plugin->setIdentifier(pluginMetaData.fileName());
         plugin->setTitle(pluginMetaData.name());
         plugin->setIcon(pluginMetaData.iconName());
@@ -729,7 +747,11 @@ void MainWindow::slotPreferences()
         for (const KPluginMetaData &metaData : std::as_const(mPluginMetaData)) {
             const QString pluginNamespace = metaData.value(QStringLiteral("X-KDE-ConfigModuleNamespace"));
             if (!pluginNamespace.isEmpty()) {
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
                 auto plugins = KPluginLoader::findPlugins(pluginNamespace);
+#else
+                auto plugins = KPluginMetaData::findPlugins(pluginNamespace);
+#endif
                 std::sort(plugins.begin(), plugins.end(), sortByWeight);
                 dlg->addPluginComponent(metaData, plugins);
             }
