@@ -429,7 +429,7 @@ KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData
         addPage(item);
     }
 
-    QObject::connect(kcm, QOverload<bool>::of(&KCModuleProxy::changed), this, [d]() {
+    QObject::connect(kcm, qOverload<bool>(&KCModuleProxy::changed), this, [d]() {
         d->_k_clientChanged();
     });
 
