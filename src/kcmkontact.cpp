@@ -7,7 +7,6 @@
 */
 
 #include "kcmkontact.h"
-#include "kcoreaddons_version.h"
 #include "prefs.h"
 using namespace Kontact;
 
@@ -16,7 +15,6 @@ using namespace Kontact;
 #include <KAboutData>
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <QComboBox>
 
 #include <QCheckBox>
@@ -63,15 +61,9 @@ KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
 void KcmKontact::load()
 {
     const KConfigGroup grp(Prefs::self()->config(), "Plugins");
-#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
-    const QVector<KPluginMetaData> pluginMetaDatas = KPluginLoader::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
-        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
-    });
-#else
     const QVector<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
         return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
     });
-#endif
 
     int activeComponent = 0;
     mPluginCombo->clear();
