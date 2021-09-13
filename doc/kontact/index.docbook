@@ -861,7 +861,7 @@ mode of &DBus; is used.</para>
 
 <para>&kontact;</para>
 
-<para>Program copyright 2004-2005, The &kde; Developers</para>
+<para>Program copyright 2004-2021, The &kde; Developers</para>
 
 <para>Contributors:</para>
 
@@ -875,7 +875,13 @@ mode of &DBus; is used.</para>
 <listitem><para>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
     </listitem>
 <listitem><para>Allen Winter <email>winter@kde.org</email></para></listitem>
-<listitem><para>Matthis H&ouml;lzer-Kl&uuml;pfel <email>mhk@kde.org</email>, the
+<listitem><para>Rafael Fernández López <email>ereslibre@kde.org</email></para></listitem>
+<listitem><para>&David.Faure; &David.Faure.mail;</para></listitem>
+<listitem><para>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para></listitem>
+<listitem><para>Sven Lüppken <email>sven@kde.org</email></para></listitem>
+<listitem><para>Torgny Nyblom <email>nyblom@kde.org</email></para></listitem>
+<listitem><para>Zack Rusin <email>zack@kde.org</email></para></listitem>
+<listitem><para>Matthias Hölzer-Klüpfel <email>mhk@kde.org</email>, the
 original author of the &kontact; framework.</para>
     </listitem>
 
