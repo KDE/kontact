@@ -15,10 +15,6 @@
   build against older kdelibs releases.
 */
 
-#ifndef KONTACT_VERSION_H
-#define KONTACT_VERSION_H
-
-
+#pragma once
 #define KONTACT_VERSION "@KDEPIM_VERSION@"
 
-#endif
