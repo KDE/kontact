@@ -40,7 +40,7 @@ KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
                                      "Select the plugin from this drop down list to be used as the "
                                      "initial plugin each time Kontact is started. Otherwise, Kontact "
                                      "will restore the last active plugin from the previous usage."));
-    connect(mPluginCombo, qOverload<int>(&QComboBox::currentIndexChanged), this, [this]() {
+    connect(mPluginCombo, &QComboBox::currentIndexChanged, this, [this]() {
         Q_EMIT changed(true);
     });
     pluginStartupLayout->addWidget(mPluginCombo);
