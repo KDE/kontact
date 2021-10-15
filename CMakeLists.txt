@@ -88,7 +88,6 @@ if (USE_UNITY_CMAKE_SUPPORT)
     set(COMPILE_WITH_UNITY_CMAKE_SUPPORT ON)
 endif()
 add_subdirectory(src)
-add_subdirectory(kconf_update)
 
 ecm_qt_install_logging_categories(
         EXPORT KONTACT

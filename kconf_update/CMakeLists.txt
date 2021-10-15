@@ -1,6 +1,0 @@
-install(FILES kontact.upd
-    DESTINATION ${KDE_INSTALL_KCONFUPDATEDIR}
-    )
-install(PROGRAMS kontact-15.08-kickoff.sh
-    DESTINATION ${KDE_INSTALL_KCONFUPDATEDIR}
-    )
