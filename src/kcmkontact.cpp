@@ -102,6 +102,7 @@ void KcmKontact::save()
 {
     const KPluginMetaData plugin = mPluginList.at(mPluginCombo->currentIndex());
     Prefs::self()->setActivePlugin(plugin.pluginId());
+    Prefs::self()->setForcedStartupPlugin(plugin.pluginId());
     KCModule::save();
 }
 
