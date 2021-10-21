@@ -92,7 +92,7 @@ target_link_libraries(kcm_kontact
     KF5::KontactInterface
     )
 
-install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms/kontact)
 
 ########### install files ###############
 
