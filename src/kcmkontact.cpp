@@ -83,7 +83,7 @@ void KcmKontact::load()
 
         // skip disabled plugins
         const QString pluginName = plugin.pluginId();
-        if (!grp.readEntry(pluginName + QStringLiteral("Enabled"), false)) {
+        if (!grp.readEntry(pluginName + QStringLiteral("Enabled"), true)) {
             const QStandardItemModel *qsm = qobject_cast<QStandardItemModel *>(mPluginCombo->model());
             if (qsm) {
                 qsm->item(mPluginCombo->count() - 1, 0)->setEnabled(false);
