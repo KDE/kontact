@@ -11,7 +11,6 @@
 
 #include "kontactkcmultidialog.h"
 #include "kcmoduleproxy.h"
-#include "kcmutils_version.h"
 #include "kontactkcmultidialog_p.h"
 
 #include <QApplication>
@@ -37,11 +36,7 @@ bool KontactKCMultiDialogPrivate::resolveChanges(KCModuleProxy *currentProxy)
 {
     Q_Q(KontactKCMultiDialog);
     if (!currentProxy
-#if KCMUTILS_VERSION > QT_VERSION_CHECK(5, 86, 0)
         || !currentProxy->isChanged()) {
-#else
-        || !currentProxy->changed()) {
-#endif
 
         return true;
     }
@@ -132,11 +127,7 @@ void KontactKCMultiDialogPrivate::_k_clientChanged()
     bool change = false;
     bool defaulted = false;
     if (activeModule) {
-#if KCMUTILS_VERSION > QT_VERSION_CHECK(5, 86, 0)
         change = activeModule->isChanged();
-#else
-        change = activeModule->changed();
-#endif
         defaulted = activeModule->defaulted();
 
         QPushButton *applyButton = q->buttonBox()->button(QDialogButtonBox::Apply);
@@ -321,11 +312,7 @@ void KontactKCMultiDialogPrivate::apply()
     for (const CreatedModule &module : std::as_const(modules)) {
         KCModuleProxy *proxy = module.kcm;
 
-#if KCMUTILS_VERSION > QT_VERSION_CHECK(5, 86, 0)
         if (proxy->isChanged()) {
-#else
-        if (proxy->changed()) {
-#endif
             proxy->save();
             /**
              * Add name of the components the kcm belongs to the list

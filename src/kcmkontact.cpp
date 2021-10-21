@@ -27,6 +27,7 @@ KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
     , mPluginCombo(new QComboBox(parent))
 {
+    qDebug() << " ssssssssssssssssssssssssssssssssssssss";
     auto topLayout = new QVBoxLayout(this);
     QBoxLayout *pluginStartupLayout = new QHBoxLayout();
     topLayout->addLayout(pluginStartupLayout);
