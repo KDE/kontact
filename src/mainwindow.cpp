@@ -928,6 +928,7 @@ void MainWindow::showHideSideBar(bool show)
         }
         mSplitter->setSizes(sizes);
         Prefs::self()->setSideBarOpen(show);
+        mShowHideAction->setChecked(show);
     }
 }
 
