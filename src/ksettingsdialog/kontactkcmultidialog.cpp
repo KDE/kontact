@@ -72,7 +72,7 @@ void KontactKCMultiDialogPrivate::_k_slotCurrentPageChanged(KPageWidgetItem *cur
     Q_Q(KontactKCMultiDialog);
 
     KCModuleProxy *previousModule = nullptr;
-    for (int i = 0; i < modules.count(); ++i) {
+    for (int i = 0, total = modules.count(); i < total; ++i) {
         if (modules[i].item == previous) {
             previousModule = modules[i].kcm;
         }
@@ -80,7 +80,7 @@ void KontactKCMultiDialogPrivate::_k_slotCurrentPageChanged(KPageWidgetItem *cur
 
     // Delete global margins and spacing, since we want the contents to
     // be able to touch the edges of the window
-    q->layout()->setContentsMargins(0, 0, 0, 0);
+    q->layout()->setContentsMargins({});
 
     const KPageWidget *pageWidget = q->pageWidget();
     pageWidget->layout()->setSpacing(0);
@@ -268,7 +268,7 @@ void KontactKCMultiDialog::slotDefaultClicked()
         return;
     }
 
-    for (int i = 0; i < d->modules.count(); ++i) {
+    for (int i = 0, total = d->modules.count(); i < total; ++i) {
         if (d->modules[i].item == item) {
             d->modules[i].kcm->defaults();
             d->_k_clientChanged();

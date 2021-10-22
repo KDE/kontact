@@ -18,7 +18,7 @@ SidePaneBase::SidePaneBase(KontactInterface::Core *core, QWidget *parent)
     , mCore(core)
 {
     auto layout = new QVBoxLayout(this);
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setContentsMargins({});
 }
 
 SidePaneBase::~SidePaneBase()

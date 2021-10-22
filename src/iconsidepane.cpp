@@ -394,9 +394,9 @@ QSize Navigator::sizeHint() const
     // Take vertical scrollbar into account
     maxWidth += qApp->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
 
-    int viewHeight = QListView::sizeHint().height();
+    const int viewHeight = QListView::sizeHint().height();
 
-    QSize size(maxWidth + rect().width() - contentsRect().width(), viewHeight);
+    const QSize size(maxWidth + rect().width() - contentsRect().width(), viewHeight);
     return size;
 }
 

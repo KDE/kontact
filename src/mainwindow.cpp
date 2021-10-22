@@ -222,7 +222,7 @@ void MainWindow::initWidgets()
 {
     auto mTopWidget = new QWidget(this);
     auto layout = new QVBoxLayout;
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setContentsMargins({});
     layout->setSpacing(0);
     mTopWidget->setLayout(layout);
     setCentralWidget(mTopWidget);
@@ -268,7 +268,7 @@ void MainWindow::initAboutScreen()
 {
     auto introbox = new QWidget(mPartsStack);
     auto introboxHBoxLayout = new QHBoxLayout(introbox);
-    introboxHBoxLayout->setContentsMargins(0, 0, 0, 0);
+    introboxHBoxLayout->setContentsMargins({});
     mPartsStack->addWidget(introbox);
     mPartsStack->setCurrentWidget(introbox);
     mIntroPart = new IntroductionWebEngineView(introbox);
@@ -351,7 +351,7 @@ void MainWindow::loadPlugins()
         const QString exeNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartExecutableName"));
 
         if (pluginMetaData.rawData().contains(QLatin1String("X-KDE-KontactPartLoadOnStart"))) {
-            bool loadOnStart = pluginMetaData.rawData().value(QStringLiteral("X-KDE-KontactPartLoadOnStart")).toBool();
+            const bool loadOnStart = pluginMetaData.rawData().value(QStringLiteral("X-KDE-KontactPartLoadOnStart")).toBool();
             if (loadOnStart) {
                 mDelayedPreload.append(plugin);
             }
@@ -406,7 +406,7 @@ void MainWindow::unloadDisabledPlugins()
 
 void MainWindow::updateShortcuts()
 {
-    for (int i = 0; i < mActionPlugins.count(); ++i) {
+    for (int i = 0, total = mActionPlugins.count(); i < total; ++i) {
         QAction *action = mActionPlugins.at(i);
         const QKeySequence shortcut(QStringLiteral("Ctrl+%1").arg(mActionPlugins.count() - i));
         actionCollection()->setDefaultShortcut(action, shortcut);

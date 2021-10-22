@@ -28,7 +28,7 @@ KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
     , mPluginCombo(new QComboBox(parent))
 {
     auto topLayout = new QVBoxLayout(this);
-    QBoxLayout *pluginStartupLayout = new QHBoxLayout();
+    auto pluginStartupLayout = new QHBoxLayout();
     topLayout->addLayout(pluginStartupLayout);
 
     auto forceStartupPluginCheckBox = new QCheckBox(Prefs::self()->forceStartupPluginItem()->label(), this);

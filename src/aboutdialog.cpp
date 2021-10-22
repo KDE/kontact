@@ -70,7 +70,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon, const 
 
     addPage(pageItem);
 
-    QBoxLayout *topLayout = new QVBoxLayout(topFrame);
+    auto topLayout = new QVBoxLayout(topFrame);
 
     if (about.displayName().isEmpty()) {
         auto label = new QLabel(i18n("No about information available."), topFrame);
@@ -87,7 +87,7 @@ void AboutDialog::addAboutData(const QString &title, const QString &icon, const 
             text += QLatin1String("<p>") + about.shortDescription() + QLatin1String("<br>") + about.copyrightStatement() + QLatin1String("</p>");
         }
 
-        QString home = about.homepage();
+        const QString home = about.homepage();
         if (!home.isEmpty()) {
             text += QLatin1String("<a href=\"") + home + QLatin1String("\">") + home + QLatin1String("</a><br>");
         }
