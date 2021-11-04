@@ -14,6 +14,15 @@ target_sources(kontactprivate PRIVATE
     ksettingsdialog/kontactkcmultidialog.cpp
     ksettingsdialog/kontactsettingsdialog.cpp
     kontactconfiguredialog.cpp
+    webengine/introductionwebenginepage.h
+    webengine/introductionwebengineview.h
+    mainwindow.h
+    sidepanebase.h
+    iconsidepane.h
+    aboutdialog.h
+    ksettingsdialog/kontactkcmultidialog.h
+    ksettingsdialog/kontactsettingsdialog.h
+    kontactconfiguredialog.h
     kontact.qrc
     )
 
@@ -81,7 +90,7 @@ install(TARGETS kontact_bin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
-add_library(kcm_kontact MODULE kcmkontact.cpp)
+add_library(kcm_kontact MODULE kcmkontact.cpp kcmkontact.h)
 kcoreaddons_desktop_to_json(kcm_kontact "data/kontactconfig.desktop" SERVICE_TYPES kcmodule.desktop)
 target_link_libraries(kcm_kontact
     KF5::I18n
