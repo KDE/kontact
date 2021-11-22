@@ -87,7 +87,7 @@ public:
         pluginList = list;
     }
 
-    Qt::ItemFlags flags(const QModelIndex &index) const override
+    Q_REQUIRED_RESULT Qt::ItemFlags flags(const QModelIndex &index) const override
     {
         Qt::ItemFlags flags = QStringListModel::flags(index);
 
@@ -108,7 +108,7 @@ public:
         return flags;
     }
 
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override
+    Q_REQUIRED_RESULT QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override
     {
         Q_UNUSED(parent)
         if (row < 0 || row >= pluginList.count()) {
@@ -117,7 +117,7 @@ public:
         return createIndex(row, column, pluginList[row]);
     }
 
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
     {
         if (!index.isValid() || !index.internalPointer()) {
             return QVariant();
@@ -163,7 +163,7 @@ public:
     }
 
 protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override
+    Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override
     {
         auto leftPlugin = static_cast<KontactInterface::Plugin *>(left.internalPointer());
         auto rightPlugin = static_cast<KontactInterface::Plugin *>(right.internalPointer());
@@ -223,7 +223,7 @@ public:
         painter->restore();
     }
 
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override
+    Q_REQUIRED_RESULT QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override
     {
         if (!index.isValid() || !index.internalPointer()) {
             return QSize();
