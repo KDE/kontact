@@ -24,9 +24,7 @@ protected:
     {
     }
 
-    virtual ~KontactKCMultiDialogPrivate()
-    {
-    }
+    virtual ~KontactKCMultiDialogPrivate() = default;
 
     KCModuleProxy *currentModule = nullptr;
 
@@ -36,7 +34,7 @@ protected:
         QStringList componentNames;
     };
 
-    typedef QList<CreatedModule> ModuleList;
+    using ModuleList = QList<CreatedModule>;
     ModuleList modules;
 
     void _k_slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *previous);

@@ -37,9 +37,7 @@ IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
     settings()->setFontSize(QWebEngineSettings::DefaultFontSize, font.pixelSize());
 }
 
-IntroductionWebEnginePage::~IntroductionWebEnginePage()
-{
-}
+IntroductionWebEnginePage::~IntroductionWebEnginePage() = default;
 
 bool IntroductionWebEnginePage::acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame)
 {

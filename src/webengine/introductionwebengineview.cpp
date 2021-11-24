@@ -17,9 +17,7 @@ IntroductionWebEngineView::IntroductionWebEngineView(QWidget *parent)
     connect(pageEngine, &IntroductionWebEnginePage::urlClicked, this, &IntroductionWebEngineView::openUrl);
 }
 
-IntroductionWebEngineView::~IntroductionWebEngineView()
-{
-}
+IntroductionWebEngineView::~IntroductionWebEngineView() = default;
 
 void IntroductionWebEngineView::contextMenuEvent(QContextMenuEvent *)
 {

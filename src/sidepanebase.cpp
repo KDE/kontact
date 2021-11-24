@@ -21,9 +21,7 @@ SidePaneBase::SidePaneBase(KontactInterface::Core *core, QWidget *parent)
     layout->setContentsMargins({});
 }
 
-SidePaneBase::~SidePaneBase()
-{
-}
+SidePaneBase::~SidePaneBase() = default;
 
 KontactInterface::Core *SidePaneBase::core() const
 {

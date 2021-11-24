@@ -112,7 +112,7 @@ public:
     {
         Q_UNUSED(parent)
         if (row < 0 || row >= pluginList.count()) {
-            return QModelIndex();
+            return {};
         }
         return createIndex(row, column, pluginList[row]);
     }
@@ -120,17 +120,17 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
     {
         if (!index.isValid() || !index.internalPointer()) {
-            return QVariant();
+            return {};
         }
 
         if (role == Qt::DisplayRole) {
             if (!mNavigator->showText()) {
-                return QVariant();
+                return {};
             }
             return static_cast<KontactInterface::Plugin *>(index.internalPointer())->title();
         } else if (role == Qt::DecorationRole) {
             if (!mNavigator->showIcons()) {
-                return QVariant();
+                return {};
             }
             return QIcon::fromTheme(static_cast<KontactInterface::Plugin *>(index.internalPointer())->icon());
         } else if (role == Qt::TextAlignmentRole) {
@@ -139,7 +139,7 @@ public:
             if (!mNavigator->showText()) {
                 return static_cast<KontactInterface::Plugin *>(index.internalPointer())->title();
             }
-            return QVariant();
+            return {};
         } else if (role == PluginName) {
             return static_cast<KontactInterface::Plugin *>(index.internalPointer())->identifier();
         }
@@ -226,7 +226,7 @@ public:
     Q_REQUIRED_RESULT QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override
     {
         if (!index.isValid() || !index.internalPointer()) {
-            return QSize();
+            return {};
         }
 
         QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
@@ -530,9 +530,7 @@ IconSidePane::IconSidePane(KontactInterface::Core *core, QWidget *parent)
     connect(mNavigator, &Navigator::pluginActivated, this, &IconSidePane::pluginSelected);
 }
 
-IconSidePane::~IconSidePane()
-{
-}
+IconSidePane::~IconSidePane() = default;
 
 void IconSidePane::setCurrentPlugin(const QString &plugin)
 {

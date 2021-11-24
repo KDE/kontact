@@ -49,9 +49,7 @@ public:
         KLocalizedString::setApplicationDomain("kontact");
     }
 
-    ~KontactApp() override
-    {
-    }
+    ~KontactApp() override = default;
 
     int activate(const QStringList &arguments, const QString &workingDir) override;
 

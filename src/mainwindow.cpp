@@ -940,7 +940,7 @@ QString MainWindow::showHideSideBarMessage(bool hidden) const
     if (hidden) {
         return i18nc("@info:status", "Sidebar is hidden. Show the sidebar again using the %1 key.", mShowHideAction->shortcut().toString());
     } else {
-        return QString();
+        return {};
     }
 }
 

@@ -30,9 +30,7 @@ KontactSettingsDialog::KontactSettingsDialog(QWidget *parent)
 {
 }
 
-KontactSettingsDialog::~KontactSettingsDialog()
-{
-}
+KontactSettingsDialog::~KontactSettingsDialog() = default;
 
 void KontactSettingsDialog::addPluginComponent(const KPluginMetaData &parentPluginMetaData, const QVector<KPluginMetaData> &pluginMetaData)
 {
