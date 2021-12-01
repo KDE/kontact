@@ -343,7 +343,7 @@ void MainWindow::loadPlugins()
                 continue;
             }
         }
-        plugin->setIdentifier(pluginMetaData.fileName());
+        plugin->setIdentifier(pluginMetaData.pluginId());
         plugin->setTitle(pluginMetaData.name());
         plugin->setIcon(pluginMetaData.iconName());
 
