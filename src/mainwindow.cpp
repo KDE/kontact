@@ -41,7 +41,6 @@ using namespace Kontact;
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KParts/PartManager>
-#include <KPluginInfo>
 #include <KPluginMetaData>
 #include <KSharedConfig>
 #include <KShortcutsDialog>

@@ -17,7 +17,6 @@
 #include <QString>
 
 #include <KPageWidgetModel>
-#include <KPluginInfo>
 #include <KService>
 
 class KontactSettingsDialogPrivate : public KontactKCMultiDialogPrivate

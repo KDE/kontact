@@ -15,7 +15,6 @@
 #include <KontactInterface/Plugin>
 
 class KActionMenu;
-class KPluginInfo;
 class KSqueezedTextLabel;
 class QAction;
 class QFrame;
