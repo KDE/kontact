@@ -37,17 +37,17 @@ public:
     void updatePlugins(const QList<KontactInterface::Plugin *> &plugins);
     void setCurrentPlugin(const QString &plugin);
 
-    int iconSize() const
+    Q_REQUIRED_RESULT int iconSize() const
     {
         return mIconSize;
     }
 
-    bool showIcons() const
+    Q_REQUIRED_RESULT bool showIcons() const
     {
         return mShowIcons;
     }
 
-    bool showText() const
+    Q_REQUIRED_RESULT bool showText() const
     {
         return mShowText;
     }
@@ -57,7 +57,7 @@ public:
         mMainWindow = mainWindow;
     }
 
-    MainWindow *mainWindow()
+    Q_REQUIRED_RESULT MainWindow *mainWindow()
     {
         return mMainWindow;
     }

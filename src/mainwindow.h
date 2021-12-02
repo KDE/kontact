@@ -38,7 +38,7 @@ public:
     MainWindow();
     ~MainWindow() override;
 
-    PluginList pluginList() const override
+    Q_REQUIRED_RESULT PluginList pluginList() const override
     {
         return mPlugins;
     }

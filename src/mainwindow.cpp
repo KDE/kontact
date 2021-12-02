@@ -116,7 +116,7 @@ void MainWindow::initGUI()
         Q_ASSERT(navigatorToolBar->sizeHint().isValid());
         navigatorToolBar->setMinimumWidth(navigatorToolBar->sizeHint().width());
     } else {
-        qCritical() << "Unable to find navigatorToolBar, probably kontactui.rc is missing";
+        qCCritical(KONTACT_LOG) << "Unable to find navigatorToolBar, probably kontactui.rc is missing";
     }
 }
 
