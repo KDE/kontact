@@ -10,7 +10,6 @@
 */
 
 #include "mainwindow.h"
-#include "aboutdialog.h"
 #include "iconsidepane.h"
 #include "prefs.h"
 #include "webengine/introductionwebenginepage.h"
@@ -753,19 +752,6 @@ void MainWindow::updateConfig()
 
     saveSettings();
     loadSettings();
-}
-
-void MainWindow::showAboutDialog()
-{
-    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-
-    if (!mAboutDialog) {
-        mAboutDialog = new AboutDialog(this);
-    }
-
-    mAboutDialog->show();
-    mAboutDialog->raise();
-    QApplication::restoreOverrideCursor();
 }
 
 void MainWindow::configureShortcuts()

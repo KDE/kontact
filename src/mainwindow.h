@@ -27,7 +27,6 @@ using ActionPluginList = QList<QAction *>;
 
 namespace Kontact
 {
-class AboutDialog;
 class SidePaneBase;
 
 class KONTACT_EXPORT MainWindow : public KontactInterface::Core
@@ -66,7 +65,6 @@ protected Q_SLOTS:
     void slotQuit();
     void slotNewToolbarConfig();
     void slotShowIntroduction();
-    void showAboutDialog();
     void slotShowStatusMsg(const QString &);
     void activateInitialPluginModule();
     void slotOpenUrl(const QUrl &url);
@@ -125,7 +123,6 @@ private:
     QMap<QString, QPointer<QWidget>> mFocusWidgets;
     QMap<KontactInterface::Plugin *, QAction *> mPluginAction;
 
-    AboutDialog *mAboutDialog = nullptr;
     bool mReallyClose = false;
     int mSaveSideBarWidth = 10;
     QAction *mShowHideAction = nullptr;

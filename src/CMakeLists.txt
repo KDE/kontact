@@ -10,7 +10,6 @@ target_sources(kontactprivate PRIVATE
     mainwindow.cpp
     sidepanebase.cpp
     iconsidepane.cpp
-    aboutdialog.cpp
     ksettingsdialog/kontactkcmultidialog.cpp
     ksettingsdialog/kontactsettingsdialog.cpp
     kontactconfiguredialog.cpp
@@ -19,7 +18,6 @@ target_sources(kontactprivate PRIVATE
     mainwindow.h
     sidepanebase.h
     iconsidepane.h
-    aboutdialog.h
     ksettingsdialog/kontactkcmultidialog.h
     ksettingsdialog/kontactsettingsdialog.h
     kontactconfiguredialog.h
