@@ -24,8 +24,6 @@ public:
     void load() override;
     void save() override;
 
-    const KAboutData *aboutData() const override;
-
 private:
     QVector<KPluginMetaData> mPluginList;
     QComboBox *const mPluginCombo;

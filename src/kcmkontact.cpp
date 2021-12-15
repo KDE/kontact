@@ -106,18 +106,4 @@ void KcmKontact::save()
     KCModule::save();
 }
 
-const KAboutData *KcmKontact::aboutData() const
-{
-    auto about = new KAboutData(QStringLiteral("kontactconfig"),
-                                i18nc("@title", "KDE Kontact"),
-                                QString(),
-                                QString(),
-                                KAboutLicense::GPL,
-                                i18nc("@info:credit", "(c), 2003 Cornelius Schumacher"));
-
-    about->addAuthor(i18nc("@info:credit", "Cornelius Schumacher"), i18nc("@info:credit", "Developer"), QStringLiteral("schumacher@kde.org"));
-    about->addAuthor(i18nc("@info:credit", "Tobias Koenig"), i18nc("@info:credit", "Developer"), QStringLiteral("tokoe@kde.org"));
-
-    return about;
-}
 #include "kcmkontact.moc"
