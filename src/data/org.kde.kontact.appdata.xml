@@ -357,7 +357,7 @@
   <url type="help">https://docs.kde.org/?application=kontact</url>
   <screenshots>
     <screenshot type="default">
-      <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-summary.png</image>
+      <image type="source">https://kontact.kde.org/assets/img/appstream/kontact-summary.png</image>
     </screenshot>
     <screenshot>
       <caption>KMail, the email component of Kontact</caption>
@@ -387,7 +387,7 @@
       <caption xml:lang="uk">KMail — компонент Kontact для роботи з електронною поштою</caption>
       <caption xml:lang="x-test">xxKMail, the email component of Kontactxx</caption>
       <caption xml:lang="zh-CN">KMail，Kontact 的电子邮件客户端组件</caption>
-      <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-kmail.png</image>
+      <image type="source">https://kontact.kde.org/assets/img/appstream/kontact-kmail.png</image>
     </screenshot>
     <screenshot>
       <caption>Organize your time, manage events, create todos or schedule meetings with KOrganizer</caption>
@@ -417,7 +417,7 @@
       <caption xml:lang="uk">Упорядковуйте ваш графік, керуйте записами подій, створюйте записи завдань та плануйте зустрічі за допомогою KOrganizer</caption>
       <caption xml:lang="x-test">xxOrganize your time, manage events, create todos or schedule meetings with KOrganizerxx</caption>
       <caption xml:lang="zh-CN">KOrganizer，安排您的时间、管理事件、创建待办任务</caption>
-      <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-korganizer.png</image>
+      <image type="source">https://kontact.kde.org/assets/img/appstream/kontact-korganizer.png</image>
     </screenshot>
     <screenshot>
       <caption>KAddressBook provides an easy way to manage your contacts</caption>
@@ -448,7 +448,7 @@
       <caption xml:lang="uk">KAddressBook — надає у ваше розпорядження простий спосіб керувати вашими записами контактів</caption>
       <caption xml:lang="x-test">xxKAddressBook provides an easy way to manage your contactsxx</caption>
       <caption xml:lang="zh-CN">KAddressBook，简单便捷地管理您的联系人</caption>
-      <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-kaddressbook.png</image>
+      <image type="source">https://kontact.kde.org/assets/img/appstream/kontact-kaddressbook.png</image>
     </screenshot>
     <screenshot>
       <caption>Stay on top of the new with Akregator, our news reader</caption>
@@ -478,7 +478,7 @@
       <caption xml:lang="uk">Залишайтеся на вістрі подій разом із Akregator, нашою програмою для читання новин</caption>
       <caption xml:lang="x-test">xxStay on top of the new with Akregator, our news readerxx</caption>
       <caption xml:lang="zh-CN">Akregator，帮助您获取最新资讯的新闻阅读器</caption>
-      <image type="source" width="1280" height="720">https://kontact.kde.org/assets/img/appstream/kontact-akregator.png</image>
+      <image type="source">https://kontact.kde.org/assets/img/appstream/kontact-akregator.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
