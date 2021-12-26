@@ -148,3 +148,4 @@ X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.kontact
 Categories=Qt;KDE;Office;
 X-DocPath=kontact/index.html
+X-GNOME-SingleWindow=true
