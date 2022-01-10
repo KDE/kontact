@@ -49,7 +49,7 @@ set(KDEPIM_LIB_SOVERSION "5")
 
 
 set(QT_REQUIRED_VERSION "5.15.2")
-find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED DBus Widgets WebEngine WebEngineWidgets)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_REQUIRED_VERSION} CONFIG REQUIRED DBus Widgets WebEngine WebEngineWidgets)
 set(LIBKDEPIM_LIB_VERSION "5.19.40")
 set(LIBGRANTLEETHEME_LIB_VERSION "5.19.40")
 # Find KF5 package

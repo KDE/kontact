@@ -52,8 +52,8 @@ target_link_libraries(kontactprivate
     KF5::Libkdepim
     KF5::PimCommon
     KF5::GrantleeTheme
-    Qt::WebEngine
-    Qt::WebEngineWidgets
+    Qt${QT_MAJOR_VERSION}::WebEngine
+    Qt${QT_MAJOR_VERSION}::WebEngineWidgets
     )
 
 set_target_properties(kontactprivate PROPERTIES
