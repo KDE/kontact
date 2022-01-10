@@ -22,7 +22,7 @@ using namespace Kontact;
 #include <QHBoxLayout>
 #include <QStandardItemModel>
 
-K_PLUGIN_FACTORY_WITH_JSON(KCMKontactSummaryFactory, "kontactconfig.json", registerPlugin<KcmKontact>();)
+K_PLUGIN_CLASS_WITH_JSON(KcmKontact, "kontactconfig.json")
 KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
     , mPluginCombo(new QComboBox(parent))
