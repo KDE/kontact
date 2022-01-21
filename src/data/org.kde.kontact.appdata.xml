@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <developer_name>The KDE Community</developer_name>
+  <developer_name xml:lang="ar">مجتمع كدي</developer_name>
   <developer_name xml:lang="az">KDE Cəmiyyəti</developer_name>
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
@@ -75,6 +76,7 @@
   <name xml:lang="zh-CN">Kontact</name>
   <name xml:lang="zh-TW">個人資訊管理_Kontact</name>
   <summary>Handle all your emails, calendars, contacts and more within a single window</summary>
+  <summary xml:lang="ar">تعامل مع جميع رسائل البريد الإلكتروني والتقويمات وجهات اتصالك في نافذة واحدة</summary>
   <summary xml:lang="az">Bütün e-poçtlarınız, təqvimləriniz və digəriləri üzərində bir pəncərədə işləyin</summary>
   <summary xml:lang="ca">Gestiona tots els correus electrònics, calendaris, contactes i més en una sola finestra</summary>
   <summary xml:lang="ca-valencia">Gestiona tots els correus electrònics, calendaris, contactes i més en una sola finestra</summary>
@@ -108,6 +110,7 @@
     <p>
     Handle your email, calendar, contacts and other personal data with Kontact. Kontact groups everything together in one place and helps you manage your communications, organize your day and work with your colleagues.
     </p>
+    <p xml:lang="ar">تعامل مع بريدك الإلكتروني والتقويم وجهات الاتصال والبيانات الشخصية الأخرى مع متراسلك.يجمع متراسلك كل شيء معًا في مكان واحد ويساعدك على إدارة اتصالاتك وتنظيم يومك والعمل مع زملائك.</p>
     <p xml:lang="az">E-poştlarınızı, təqvimlərinizi əlaqələrinizi və digər şəxsi məlumatları Kontact ilə idarə edin. Kontact hər şeyi bir yerdə toplayır və ünsiyyətlərinizi idarə etməyinizə, gününüzü təşkil etməyə və həmkarlarınızla işləməyinizə kömək edir.</p>
     <p xml:lang="ca">Controleu el vostre correu electrònic, calendari, contactes i altres dades personals amb el Kontact. El Kontact agrupa tot junt en un mateix lloc i ajuda a gestionar les vostres comunicacions, organitzar el vostre dia i treballar amb els vostres companys.</p>
     <p xml:lang="ca-valencia">Controleu el vostre correu electrònic, calendari, contactes i altres dades personals amb el Kontact. El Kontact agrupa tot junt en un mateix lloc i ajuda a gestionar les vostres comunicacions, organitzar el vostre dia i treballar amb els vostres companys.</p>
@@ -140,6 +143,7 @@
     <p>
     Kontact unifies several personal information management applications into a single window to give you the best possible experience and boost your productivity. With Kontact you can use all the tools of our powerful suite in one place. Unlike proprietary web applications we value your privacy and support open standards, which is why Kontact gives you full control over your data. You can of course also access your data offline if you want to.
     </p>
+    <p xml:lang="ar">يوحِّد متراسلك العديد من تطبيقات إدارة المعلومات الشخصية في نافذة واحدة لمنحك أفضل تجربة ممكنة وتعزيز إنتاجيتك. مع متراسلك، يمكنك استخدام جميع أدوات مجموعتنا القوية في مكان واحد. على عكس تطبيقات الويب الاحتكارية، فإننا نقدر خصوصيتك وندعم المعايير المفتوحة، وهذا هو السبب في أن متراسلك يمنحك التحكم الكامل في بياناتك. يمكنك بالطبع أيضًا الوصول إلى بياناتك في وضع عدم الاتصال إذا كنت تريد ذلك.</p>
     <p xml:lang="az">Kontact, sizə mümkün olan ən yaxşı təcrübəni təqdim etmək və işinizi daha səmərəli etmək üçün bir neçə fərdi məlumat idarəetmə tətbiqini vahid bir pəncərədə birləşdirir. Kontact ilə güclü dəstimizin bütün alətlərini bir yerdə istifadə edə bilərsiniz. Xüsusi veb tətbiqlərindən fərqli olaraq, məxfiliyinizə dəyər veririk və açıq proqram təminatı standartlarını dəstəkləyirik, bu səbəbdən Kontact sizə məlumatlarınız üzərində tam nəzarət  etmək imkanı verir. İstəsəniz, əlbəttə ki, məlumatlarınıza oflayn olaraq da daxil ola bilərsiniz.</p>
     <p xml:lang="ca">El Kontact unifica diverses aplicacions per a la gestió de la informació personal en una sola finestra per a oferir-vos la millor experiència possible i així millorar la vostra productivitat. Amb el Kontact podreu usar totes les eines de la nostra poderosa suite en un sol lloc. A diferència d'aplicacions web propietàries, nosaltres valorem la vostra privadesa i implementem els estàndards oberts, de manera que el Kontact us donarà el control total de les vostres dades. Per descomptat, si voleu, també podreu accedir a les vostres dades fora de línia.</p>
     <p xml:lang="ca-valencia">El Kontact unifica diverses aplicacions per a la gestió de la informació personal en una sola finestra per a oferir-vos la millor experiència possible i així millorar la vostra productivitat. Amb el Kontact podreu usar totes les eines de la nostra poderosa suite en un sol lloc. A diferència d'aplicacions web propietàries, nosaltres valorem la vostra privadesa i implementem els estàndards oberts, de manera que el Kontact vos donarà el control total de les vostres dades. Per descomptat, si voleu, també podreu accedir a les vostres dades fora de línia.</p>
@@ -170,6 +174,7 @@
     <p xml:lang="x-test">xxKontact unifies several personal information management applications into a single window to give you the best possible experience and boost your productivity. With Kontact you can use all the tools of our powerful suite in one place. Unlike proprietary web applications we value your privacy and support open standards, which is why Kontact gives you full control over your data. You can of course also access your data offline if you want to.xx</p>
     <p xml:lang="zh-CN">Kontact 通过将多种不同的个人信息管理工具整合到单个窗口中来提高您的工作效率。它提供的丰富的功能可在触手可及的距离内轻松访问。与专有网站服务不同，我们尊重您的隐私并支持开放标准，让您可以完全掌控自己的数据。您还可以离线访问自己的数据。</p>
     <p>Kontact consists of several well-integrated components:</p>
+    <p xml:lang="ar">يتكون متراسلك من العديد من المكونات المتكاملة:</p>
     <p xml:lang="az">Kontact bir neçə dərindən inteqrasiya olunmuş komponentlərdən ibarətdir:</p>
     <p xml:lang="ca">El Kontact consta de diversos components ben integrats:</p>
     <p xml:lang="ca-valencia">El Kontact consta de diversos components ben integrats:</p>
@@ -201,6 +206,7 @@
     <p xml:lang="zh-CN">Kontact 包括以下高度整合的功能组件：</p>
     <ul>
       <li>KMail - a powerful and feature-rich email client with support for a wide range of email providers.</li>
+      <li xml:lang="ar">بريدك - عميل بريد إلكتروني قوي وغني بالمميزات مع دعم لمجموعة واسعة من مزودي خِدْمَات البريد الإلكتروني.</li>
       <li xml:lang="az">KMail, güclü və zəngin imkanları ilə geniş miqyasda e-poçt serverlərini dəstəkləyən bir e-poçt müştərisidir.</li>
       <li xml:lang="ca">KMail: un client de correu electrònic potent i ric en característiques amb suport per a una àmplia varietat de proveïdors de correu electrònic.</li>
       <li xml:lang="ca-valencia">KMail: un client de correu electrònic potent i ric en característiques amb suport per a una àmplia varietat de proveïdors de correu electrònic.</li>
@@ -231,6 +237,7 @@
       <li xml:lang="x-test">xxKMail - a powerful and feature-rich email client with support for a wide range of email providers.xx</li>
       <li xml:lang="zh-CN">KMail - 一款功能齐全的电子邮件客户端程序，支持各种电子邮件服务提供商。</li>
       <li>KOrganizer - a calendar and scheduling component of Kontact which is able to work with NextCloud, Kolab, Google Calendar and other calendaring services.</li>
+      <li xml:lang="ar">منظمك - مكون تقويم وجدولة في متراسلك قادر على العمل مع NextCloud و Kolab وتقويم غوغل وخدمات التقويم الأخرى.</li>
       <li xml:lang="az">KOrganizer, Kcontact tətbiqinin, NextCloud, Kolab, Google Təqvim və digər onlayn təqvim xidmətləri ilə işləməyi bacaran təqvim və planlama komponentidir.</li>
       <li xml:lang="ca">KOrganizer: un component de calendari i programació del Kontact, el qual pot treballar amb el NextCloud, Kolab, Google Calendar i altres serveis de calendari.</li>
       <li xml:lang="ca-valencia">KOrganizer: un component de calendari i programació del Kontact, el qual pot treballar amb el NextCloud, Kolab, Google Calendar i altres serveis de calendari.</li>
@@ -261,6 +268,7 @@
       <li xml:lang="x-test">xxKOrganizer - a calendar and scheduling component of Kontact which is able to work with NextCloud, Kolab, Google Calendar and other calendaring services.xx</li>
       <li xml:lang="zh-CN">KOrganizer - 一款日历和日程安排调度工具，支持 NextCloud、Kolab、Google Calendar 以及其他的日历服务。</li>
       <li>KAddressBook - an easy to use contact management tool that can synchronize contacts with many popular services.</li>
+      <li xml:lang="ar">عنوانك - أداة سهلة الاستخدام لإدارة جهات الاتصال يمكنها مزامنة جهات الاتصال مع العديد من الخِدْمات الشائعة.</li>
       <li xml:lang="az">KAdressBook, əlqələrinizi asan idarəetmə alətidir. O əlaqələrinizi (kontaktlarınızı) bir çox tanınmış xidmətlər arasında eyniləşdirə bilir.</li>
       <li xml:lang="ca">KAddressBook: una eina per a la gestió dels contactes fàcil d'usar que pot sincronitzar contactes amb molts serveis populars.</li>
       <li xml:lang="ca-valencia">KAddressBook: una eina per a la gestió dels contactes fàcil d'usar que pot sincronitzar contactes amb molts serveis populars.</li>
@@ -291,6 +299,7 @@
       <li xml:lang="x-test">xxKAddressBook - an easy to use contact management tool that can synchronize contacts with many popular services.xx</li>
       <li xml:lang="zh-CN">KAddressBook - 一款简单易用的联系人管理工具，可以同步到各种常用的网络服务。</li>
       <li>Akregator - a news reader with powerful search and archiving functionality.</li>
+      <li xml:lang="ar">أكريغاتور قارئ أخبار ببحث قوي وإمكانية الأرشفة.</li>
       <li xml:lang="az">Akregator, güclü axtarış və arxivləmə imkanlarına malik xəbərləri, yenilikləri oxuma vasitəsidir.</li>
       <li xml:lang="ca">Akregator: un lector de notícies amb una potent funcionalitat de cerca i arxiu.</li>
       <li xml:lang="ca-valencia">Akregator: un lector de notícies amb una potent funcionalitat de cerca i arxiu.</li>
@@ -321,6 +330,7 @@
       <li xml:lang="x-test">xxAkregator - a news reader with powerful search and archiving functionality.xx</li>
       <li xml:lang="zh-CN">Akregator - 一款具备强大搜索和存档功能的新闻阅读器。</li>
       <li>KNotes - a simple program that lets you write the computer equivalent of sticky notes.</li>
+      <li xml:lang="ar">ملاحظاتك - برنامج بسيط لكتابة الملاحظات على الحاسوب.</li>
       <li xml:lang="az">KNotes, qeydlər aparmaq üçün, komputerinizə yapışdırılan qeyd kağızlarına bənzər sadə bir proqramdır.</li>
       <li xml:lang="ca">KNotes: un programa senzill que permet escriure l'equivalent a l'ordinador a les notes adhesives.</li>
       <li xml:lang="ca-valencia">KNotes: un programa senzill que permet escriure l'equivalent a l'ordinador a les notes adhesives.</li>
@@ -361,6 +371,7 @@
     </screenshot>
     <screenshot>
       <caption>KMail, the email component of Kontact</caption>
+      <caption xml:lang="ar">بريدك هو عميل بريد إلكتروني خاص بمتراسلك</caption>
       <caption xml:lang="az">KMail, Kcontaktın e-poçt hissəsidir</caption>
       <caption xml:lang="ca">El KMail, el component de correu electrònic del Kontact</caption>
       <caption xml:lang="ca-valencia">El KMail, el component de correu electrònic del Kontact</caption>
@@ -391,6 +402,7 @@
     </screenshot>
     <screenshot>
       <caption>Organize your time, manage events, create todos or schedule meetings with KOrganizer</caption>
+      <caption xml:lang="ar">نظم وقتك وأدر الأحداث وأنشى المهام أو جدولة الاجتماعات مع منظمك</caption>
       <caption xml:lang="az">Vaxtınızın, tədbirlərinizin idarə dilməsini, tapşırıqlar yaradılmasını, gələcək işlərinizi və ya görüşləriniz planlaşdırmağı KOrganizer ilə həyata keçirin</caption>
       <caption xml:lang="ca">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb el KOrganizer</caption>
       <caption xml:lang="ca-valencia">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb el KOrganizer</caption>
@@ -421,6 +433,7 @@
     </screenshot>
     <screenshot>
       <caption>KAddressBook provides an easy way to manage your contacts</caption>
+      <caption xml:lang="ar">يوفر دفتر عناوينك طريقة سهلة لإدارة جهات الاتصال الخاصة بك </caption>
       <caption xml:lang="az">KAdressBook əlaqələriniz idarə etməyin asan yolunu təqdim edir</caption>
       <caption xml:lang="ca">El KAddressBook proporciona una manera fàcil de gestionar els vostres contactes</caption>
       <caption xml:lang="ca-valencia">El KAddressBook proporciona una manera fàcil de gestionar els vostres contactes</caption>
@@ -452,6 +465,7 @@
     </screenshot>
     <screenshot>
       <caption>Stay on top of the new with Akregator, our news reader</caption>
+      <caption xml:lang="ar">ابق على اطلاع على الجديد مع قارئ الأخبار أكريغاتور</caption>
       <caption xml:lang="az">Bizim xəbər oxuyucumuz olan Akregator ilə yeniliklərdən hamıdan öncə xəbərdar olun</caption>
       <caption xml:lang="ca">Manteniu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies</caption>
       <caption xml:lang="ca-valencia">Manteniu-vos al corrent de les notícies amb l'Akregator, el nostre lector de notícies</caption>
