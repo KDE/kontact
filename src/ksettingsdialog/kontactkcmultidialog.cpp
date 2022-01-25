@@ -10,8 +10,8 @@
 */
 
 #include "kontactkcmultidialog.h"
-#include "kcmoduleproxy.h"
 #include "kontactkcmultidialog_p.h"
+#include <KCModuleProxy>
 
 #include <QApplication>
 #include <QDesktopServices>

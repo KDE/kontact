@@ -8,9 +8,9 @@
 
 #pragma once
 
-#include "kcmoduleinfo.h"
 #include "kontactkcmultidialog_p.h"
 #include "kontactsettingsdialog.h"
+#include <KCModuleInfo>
 
 #include <QHash>
 #include <QSet>
