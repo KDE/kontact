@@ -10,6 +10,7 @@
 */
 
 #include "kontactkcmultidialog.h"
+#include "kontact_debug.h"
 #include "kontactkcmultidialog_p.h"
 #include <KCModuleProxy>
 
@@ -368,7 +369,12 @@ void KontactKCMultiDialog::slotHelpClicked()
     const QUrl docUrl = QUrl(QStringLiteral("help:/")).resolved(QUrl(docPath)); // same code as in KHelpClient::invokeHelp
     const QString docUrlScheme = docUrl.scheme();
     if (docUrlScheme == QLatin1String("help") || docUrlScheme == QLatin1String("man") || docUrlScheme == QLatin1String("info")) {
-        QProcess::startDetached(QStringLiteral("khelpcenter"), QStringList() << docUrl.toString());
+        const QString exec = QStandardPaths::findExecutable(QStringLiteral("khelpcenter"));
+        if (exec.isEmpty()) {
+            qCWarning(KONTACT_LOG) << "Could not find khelpcenter in PATH.";
+        } else {
+            QProcess::startDetached(QStringLiteral("khelpcenter"), QStringList() << docUrl.toString());
+        }
     } else {
         QDesktopServices::openUrl(docUrl);
     }
