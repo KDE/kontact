@@ -14,6 +14,7 @@
 #include "kontactkcmultidialog_p.h"
 
 #include <KCModuleProxy>
+#include <KIO/ApplicationLauncherJob>
 #include <QApplication>
 #include <QDesktopServices>
 #include <QDesktopWidget>
@@ -26,6 +27,7 @@
 #include <QStyle>
 #include <QUrl>
 
+#include <KDialogJobUiDelegate>
 #include <KGuiItem>
 #include <KIconUtils>
 #include <KLocalizedString>
@@ -369,11 +371,13 @@ void KontactKCMultiDialog::slotHelpClicked()
     const QUrl docUrl = QUrl(QStringLiteral("help:/")).resolved(QUrl(docPath)); // same code as in KHelpClient::invokeHelp
     const QString docUrlScheme = docUrl.scheme();
     if (docUrlScheme == QLatin1String("help") || docUrlScheme == QLatin1String("man") || docUrlScheme == QLatin1String("info")) {
-        const QString exec = QStandardPaths::findExecutable(QStringLiteral("khelpcenter"));
-        if (exec.isEmpty()) {
-            qCWarning(KONTACT_LOG) << "Could not find khelpcenter in PATH.";
+        const KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("khelpcenter"));
+        if (service) {
+            auto job = new KIO::ApplicationLauncherJob(service);
+            job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+            job->start();
         } else {
-            QProcess::startDetached(QStringLiteral("khelpcenter"), QStringList() << docUrl.toString());
+            qCWarning(KONTACT_LOG) << "Could not find khelpcenter in PATH.";
         }
     } else {
         QDesktopServices::openUrl(docUrl);
