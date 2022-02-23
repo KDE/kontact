@@ -104,7 +104,7 @@ install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms/kontac
 
 install(PROGRAMS data/org.kde.kontact.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES data/org.kde.kontact.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install(FILES data/kontactconfig.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES data/kontactconfig.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR})
 install(FILES kontact.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 configure_file(data/org.kde.kontact.service.in org.kde.kontact.service)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kontact.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
