@@ -1,7 +1,7 @@
-set(PIM_VERSION "5.19.80")
+set(PIM_VERSION "5.20.40")
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "22.03.80")
+set(RELEASE_SERVICE_VERSION "22.07.40")
 set(KF5_MIN_VERSION "5.92.0")
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -31,7 +31,7 @@ include(ECMDeprecationSettings)
 
 
 # Do NOT add quote
-set(KDEPIM_DEV_VERSION beta)
+set(KDEPIM_DEV_VERSION alpha)
 
 # add an extra space
 if(DEFINED KDEPIM_DEV_VERSION)
