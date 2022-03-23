@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui version="419" name="kontact" >
+<gui version="420" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -13,6 +13,8 @@
   <Menu noMerge="1" name="view">
      <text>&amp;View</text>
      <Action name="hide_show_sidebar"/>
+     <Separator/>
+     <Action name="fullscreen"/>
   </Menu>
   <Menu noMerge="1" name="settings">
      <text>&amp;Settings</text>

@@ -21,6 +21,7 @@ class QFrame;
 class QSplitter;
 class QStackedWidget;
 class IntroductionWebEngineView;
+class KToggleFullScreenAction;
 
 using PluginList = QList<KontactInterface::Plugin *>;
 using ActionPluginList = QList<QAction *>;
@@ -101,6 +102,7 @@ private Q_SLOTS:
 
 private:
     void setHelpText(QAction *action, const QString &text);
+    void slotFullScreen(bool t);
     QFrame *mTopWidget = nullptr;
 
     QSplitter *mSplitter = nullptr;
@@ -126,6 +128,7 @@ private:
     bool mReallyClose = false;
     int mSaveSideBarWidth = 10;
     QAction *mShowHideAction = nullptr;
+    KToggleFullScreenAction *mShowFullScreenAction = nullptr;
 };
 }
 

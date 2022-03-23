@@ -20,6 +20,8 @@ using namespace Kontact;
 #ifdef WIN32
 #include <windows.h>
 #else
+#include <QFontDatabase>
+#include <QMenuBar>
 #include <unistd.h>
 #endif
 #include <Libkdepim/ProgressStatusBarWidget>
@@ -303,6 +305,30 @@ void MainWindow::setupActions()
     actionCollection()->addAction(QStringLiteral("hide_show_sidebar"), mShowHideAction);
     actionCollection()->setDefaultShortcut(mShowHideAction, QKeySequence(Qt::Key_F9));
     connect(mShowHideAction, &QAction::triggered, this, &MainWindow::slotShowHideSideBar);
+
+    mShowFullScreenAction = KStandardAction::fullScreen(nullptr, nullptr, this, actionCollection());
+    actionCollection()->setDefaultShortcut(mShowFullScreenAction, Qt::Key_F11);
+    connect(mShowFullScreenAction, &QAction::toggled, this, &MainWindow::slotFullScreen);
+}
+
+void MainWindow::slotFullScreen(bool t)
+{
+    KToggleFullScreenAction::setFullScreen(this, t);
+    QMenuBar *mb = menuBar();
+    if (t) {
+        auto b = new QToolButton(mb);
+        b->setDefaultAction(mShowFullScreenAction);
+        b->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Ignored));
+        b->setFont(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont));
+        mb->setCornerWidget(b, Qt::TopRightCorner);
+        b->setVisible(true);
+        b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    } else {
+        QWidget *w = mb->cornerWidget(Qt::TopRightCorner);
+        if (w) {
+            w->deleteLater();
+        }
+    }
 }
 
 KontactInterface::Plugin *MainWindow::pluginFromName(const QString &identifier) const
