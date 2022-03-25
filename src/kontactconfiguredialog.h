@@ -30,4 +30,3 @@ protected Q_SLOTS:
     void emitConfigChanged();
 };
 }
-

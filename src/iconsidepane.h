@@ -118,4 +118,3 @@ private:
     Navigator *mNavigator = nullptr;
 };
 }
-

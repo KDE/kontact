@@ -21,4 +21,3 @@ protected:
 Q_SIGNALS:
     void openUrl(const QUrl &url);
 };
-

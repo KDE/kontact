@@ -38,9 +38,7 @@
 bool KontactKCMultiDialogPrivate::resolveChanges(KCModuleProxy *currentProxy)
 {
     Q_Q(KontactKCMultiDialog);
-    if (!currentProxy
-        || !currentProxy->isChanged()) {
-
+    if (!currentProxy || !currentProxy->isChanged()) {
         return true;
     }
 

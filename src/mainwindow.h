@@ -133,4 +133,3 @@ private:
 }
 
 Q_DECLARE_METATYPE(KontactInterface::Plugin *)
-

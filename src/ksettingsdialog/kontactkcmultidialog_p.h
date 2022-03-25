@@ -49,4 +49,3 @@ private:
     bool resolveChanges(KCModuleProxy *currentProxy);
     bool moduleSave(KCModuleProxy *module);
 };
-

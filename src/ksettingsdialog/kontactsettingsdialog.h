@@ -32,4 +32,3 @@ protected:
      */
     void showEvent(QShowEvent *) override;
 };
-

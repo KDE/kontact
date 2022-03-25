@@ -151,4 +151,3 @@ public:
     }
     ~UnboundScrollArea() override = default;
 };
-

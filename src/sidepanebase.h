@@ -45,4 +45,3 @@ private:
     KontactInterface::Core *const mCore;
 };
 }
-
