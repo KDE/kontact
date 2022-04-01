@@ -78,7 +78,7 @@ find_package(KF5PimCommonAkonadi ${PIMCOMMON_LIB_VERSION} CONFIG REQUIRED)
 
 
 include_directories(${kontact_SOURCE_DIR} ${kontact_BINARY_DIR})
-ecm_set_disabled_deprecation_versions(QT 5.15.2 KF 5.92.0)
+ecm_set_disabled_deprecation_versions(QT 5.15.2 KF 5.93.0)
 
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kontact\")
