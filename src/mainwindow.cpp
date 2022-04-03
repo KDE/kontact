@@ -20,6 +20,7 @@ using namespace Kontact;
 #ifdef WIN32
 #include <windows.h>
 #else
+#include <KColorSchemeManager>
 #include <QFontDatabase>
 #include <QMenuBar>
 #include <unistd.h>
@@ -309,6 +310,9 @@ void MainWindow::setupActions()
     mShowFullScreenAction = KStandardAction::fullScreen(nullptr, nullptr, this, actionCollection());
     actionCollection()->setDefaultShortcut(mShowFullScreenAction, Qt::Key_F11);
     connect(mShowFullScreenAction, &QAction::toggled, this, &MainWindow::slotFullScreen);
+
+    auto manager = new KColorSchemeManager(this);
+    actionCollection()->addAction(QStringLiteral("colorscheme_menu"), manager->createSchemeSelectionMenu(this));
 }
 
 void MainWindow::slotFullScreen(bool t)
