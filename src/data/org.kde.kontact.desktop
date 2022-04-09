@@ -149,3 +149,4 @@ X-DBUS-ServiceName=org.kde.kontact
 Categories=Qt;KDE;Office;
 X-DocPath=kontact/index.html
 SingleMainWindow=true
+Version=1.5
