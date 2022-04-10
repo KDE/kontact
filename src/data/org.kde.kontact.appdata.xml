@@ -403,6 +403,7 @@
       <caption xml:lang="pt">KMail, o componente de e-mail do Kontact</caption>
       <caption xml:lang="pt-BR">KMail, o componente de e-mail do Kontact</caption>
       <caption xml:lang="ru">KMail — модуль Kontact, предназначенный для работы с электронной почтой</caption>
+      <caption xml:lang="sk">KMail, e-mailová súčasť Kontact</caption>
       <caption xml:lang="sl">KMail, e-poštna komponenta Kontacta</caption>
       <caption xml:lang="sv">Kmail: E-postkomponenten i Kontact</caption>
       <caption xml:lang="tr">KMail, Kontact'ın e-posta bileşeni</caption>
@@ -435,6 +436,7 @@
       <caption xml:lang="pt">Organize o seu tempo, faça a gestão dos eventos, crie tarefas ou agende reuniões com o KOrganizer</caption>
       <caption xml:lang="pt-BR">Organize o seu tempo, gerencie eventos, crie to-dos ou agende reuniões com o KOrganizer</caption>
       <caption xml:lang="ru">KOrganizer позволяет планировать время, управлять событиями, создавать задачи и организовывать встречи</caption>
+      <caption xml:lang="sk">Usporiadajte si čas, spravujte udalosti, vytvárajte úlohy alebo plánujte stretnutia s KOrganizer.</caption>
       <caption xml:lang="sl">Organizirajte svoj čas, upravljajte dogodke, ustvarjajte sezname nedokončanih opravil ali načrtujte sestanke s programom KOrganizer</caption>
       <caption xml:lang="sv">Organisera din tid, hantera händelser, skapa uppgifter eller schemalägg möten med Korganizer</caption>
       <caption xml:lang="tr">KOrganizer ile zamanınızı, etkinliklerinizi, toplantılarınızı ve yapılacaklarınızı düzenleyin</caption>
@@ -468,6 +470,7 @@
       <caption xml:lang="pt">O KAddressBook oferece uma forma simples de gerir os seus contactos</caption>
       <caption xml:lang="pt-BR">O KAddressBook fornece uma maneira fácil de gerenciar seus contatos</caption>
       <caption xml:lang="ru">KAddressBook позволяет управлять контактами просто</caption>
+      <caption xml:lang="sk">KAddressBook poskytuje jednoduchý spôsob, ako spravovať vaše kontakty.</caption>
       <caption xml:lang="sl">KAddressBook omogoča preprost način za upravljanje stikov</caption>
       <caption xml:lang="sv">Adressboken tillhandahåller ett enkelt sätt att hantera dina kontakter</caption>
       <caption xml:lang="tr">KAddressBook, size kişilerinizi kolayca yönetme olanağı sunar</caption>
@@ -500,6 +503,7 @@
       <caption xml:lang="pt">Fique a par das novidades com o Akregator, o nosso leitor de notícias</caption>
       <caption xml:lang="pt-BR">Fique de olho no que há de novo com o Akregator, o nosso leitor de notícias</caption>
       <caption xml:lang="ru">Узнавайте новости при помощи Akregator — программы для чтения новостей</caption>
+      <caption xml:lang="sk">Zostaňte v obraze s novinkami s našou čítačkou správ Akregator.</caption>
       <caption xml:lang="sl">Bodite na sproti obveščeni z Akregatorjem našim bralnikom novic</caption>
       <caption xml:lang="sv">Håll reda på nyheter med Akregator, vår nyhetsläsare</caption>
       <caption xml:lang="tr">Haber okuyucumuz Akregator ile her zaman güncel kalın</caption>
