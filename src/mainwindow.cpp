@@ -20,9 +20,6 @@ using namespace Kontact;
 #ifdef WIN32
 #include <windows.h>
 #else
-#include <KColorSchemeManager>
-#include <QFontDatabase>
-#include <QMenuBar>
 #include <unistd.h>
 #endif
 #include <Libkdepim/ProgressStatusBarWidget>
@@ -33,6 +30,7 @@ using namespace Kontact;
 #include <KAboutData>
 #include <KActionCollection>
 #include <KActionMenu>
+#include <KColorSchemeManager>
 #include <KConfigGroup>
 #include <KDialogJobUiDelegate>
 #include <KEditToolBar>
@@ -55,8 +53,10 @@ using namespace Kontact;
 #include <QAction>
 #include <QApplication>
 #include <QDBusConnection>
+#include <QFontDatabase>
 #include <QHBoxLayout>
 #include <QIcon>
+#include <QMenuBar>
 #include <QShortcut>
 #include <QSplitter>
 #include <QStackedWidget>
