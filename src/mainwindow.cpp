@@ -410,7 +410,7 @@ void MainWindow::loadPlugins()
 
     std::sort(mPlugins.begin(), mPlugins.end(), pluginWeightLessThan); // all plugins
 
-    // sort the action plugins again and reset shortcuts. If we removed and then readded some plugins
+    // sort the action plugins again and reset shortcuts. If we removed and then read some plugins
     // we need to take in count their weights for setting shortcuts again
     std::sort(mActionPlugins.begin(), mActionPlugins.end(), pluginActionWeightLessThan);
 

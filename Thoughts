@@ -90,7 +90,7 @@ Don: else wants to look at a folder tree widget that's cool with me.
 # I had a look at the Qt designer widget choosing widget. I think it has a
 # severe usability problem, because the buttons (or kind of tabs) which are used
 # to access the widget subgroups are not always at the same place but move
-# around when you click on them. Dependening on which group is shown, the button
+# around when you click on them. Depending on which group is shown, the button
 # is at the top or at the bottom of the widget. In my opinion this solution is
 # unacceptable.
 
@@ -148,9 +148,9 @@ Toolbar Items
 -------------
 
 d The KParts Technology only provides actions for the current part. It might be
-d desireable to have common actions that are always available.
+d desirable to have common actions that are always available.
 
-Don: I agree that it is desireable to have common actions always
+Don: I agree that it is desirable to have common actions always
 Don: available (and parts too like the todo list)
 Don:
 Don: But are you sure Kparts is limited in this way? KOrganizer can load
@@ -286,7 +286,7 @@ d Yes, but of course one should always prefer in-process IPC if possible. DCOP
 d currently _works_ for Kontact, but that's all about it. It isn't exactly elegant.
 d The only advantange of the current approach is that we can allow the user to
 d run one of the parts standalone. I am not really sure we want that. I used to find
-d it desireable, but I am not sure anymore.
+d it desirable, but I am not sure anymore.
 
 MiB: But that's the whole idea behind Kontact---to be able to integrate apps
 MiB: _and_ to have standalone versions. Just think about KNotes... impossible
@@ -316,7 +316,7 @@ MiB: a parent or standalone on the desktop.
 # Communication with external applications is something which doesn't fit too
 # well with the 'integrated' approach of Kontact. Is this really necessary?
 
-d We won't get around it, think knotes, maybe sync tools, think abstact 3rd party
+d We won't get around it, think knotes, maybe sync tools, think abstract 3rd party
 d projects (not sure the latter is really that important, but we should consider it.
 d it barely plays a role anyway).
 
@@ -369,7 +369,7 @@ Summary View
 h: How would one best integrate a summary view into kontact?
 h: a) add a virtual QWidget *summary(const QDateTime&, QWidget* parent );
 h:    to get a summary widget for a day?
-h: b) use some sort of XML to UI to represent the summary informations
-h: c) have a stand a lone part which opens the PIM data seperately? ( How
+h: b) use some sort of XML to UI to represent the summary information
+h: c) have a stand a lone part which opens the PIM data separately? ( How
 h:    to synchronize access? )
 

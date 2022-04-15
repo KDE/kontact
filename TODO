@@ -3,7 +3,7 @@ UNTIL KDE 3.2
 
 - merge config of parts into a unified config dialog
   * Unified Identity handling (Name, Mail address, SMTP, use KMIdentity KDEPIM wide?)
-    Currently this is dublicated in at least KMail, KNode and KOrganizer
+    Currently this is duplicated in at least KMail, KNode and KOrganizer
   * Molularize KOrganizer and KMail Settings and turn them into kcm's
   * Think about extending the kcm idea and add a framework to locate kcm's for apps via KTrader
 - same for unified credits

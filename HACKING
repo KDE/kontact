@@ -93,7 +93,7 @@ Class and File Names
 Class and Variable Names
 ------------------------
 
-- For class, variable, function names seperate multiple words by upper-casing
+- For class, variable, function names separate multiple words by upper-casing
   the words precedeed by other words.
 - Class names start with an upper-case letter.
 - Function names start with a lower-case letter.
