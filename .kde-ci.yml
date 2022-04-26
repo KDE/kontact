@@ -12,3 +12,5 @@ Dependencies:
     'pim/libkdepim' : '@same'
     'pim/pimcommon' : '@same'
     'third-party/grantlee' : '@stable'
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      
