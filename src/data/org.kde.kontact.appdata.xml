@@ -115,7 +115,7 @@
     <p xml:lang="ar">تعامل مع بريدك الإلكتروني والتقويم وجهات الاتصال والبيانات الشخصية الأخرى مع متراسلك.يجمع متراسلك كل شيء معًا في مكان واحد ويساعدك على إدارة اتصالاتك وتنظيم يومك والعمل مع زملائك.</p>
     <p xml:lang="az">E-poştlarınızı, təqvimlərinizi əlaqələrinizi və digər şəxsi məlumatları Kontact ilə idarə edin. Kontact hər şeyi bir yerdə toplayır və ünsiyyətlərinizi idarə etməyinizə, gününüzü təşkil etməyə və həmkarlarınızla işləməyinizə kömək edir.</p>
     <p xml:lang="ca">Controleu el vostre correu electrònic, calendari, contactes i altres dades personals amb el Kontact. El Kontact agrupa tot junt en un mateix lloc i ajuda a gestionar les vostres comunicacions, organitzar el vostre dia i treballar amb els vostres companys.</p>
-    <p xml:lang="ca-valencia">Controleu el vostre correu electrònic, calendari, contactes i atres dades personals amb Kontact. Kontact agrupa tot junt en un mateix lloc i ajuda a gestionar les vostres comunicacions, organitzar el vostre dia i treballar amb els vostres companys.</p>
+    <p xml:lang="ca-valencia">Controleu el vostre correu electrònic, calendari, contactes i atres dades personals amb Kontact. Kontact agrupa tot junt en un mateix lloc i ajuda a gestionar les vostres comunicacions, organisar el vostre dia i treballar amb els vostres companys.</p>
     <p xml:lang="da">Håndtér din e-mail, kalender, kontakter og andre personlige data med Kontact. Kontact grupperer alt samlet på et sted og hjælper dig med at administrere din kommunikation, organisere din dag og samarbejde med dine kolleger.</p>
     <p xml:lang="de">Verwalten Sie Ihre E-Mails, Kalender, Kontakte und andere persönliche Daten mit Kontact. Kontact fasst alles an einem Ort zusammen und hilft Ihnen, Ihre Kommunikation zu verwalten, Ihren Tag zu organisieren und mit Ihren Kollegen zusammenzuarbeiten.</p>
     <p xml:lang="el">Διαχειριστείτε το ηλ. ταχυδρομείο σας, το βιβλίο διευθύνσεων σας, το ημερολόγιό σας, τις επαφές σας και άλλα προσωπικά δεδομένα με το Kontact. Το Kontact τα ομαδοποιεί όλα μαζί σε εα σημείο και σάς βοηθάει να διαχειριστείτε τις επικοινωνίες σας, να οργανώσετε την ημέρα σας και να εργαστείτε με τους συναδέλφους σας.</p>
@@ -278,7 +278,7 @@
       <li xml:lang="ar">عنوانك - أداة سهلة الاستخدام لإدارة جهات الاتصال يمكنها مزامنة جهات الاتصال مع العديد من الخِدْمات الشائعة.</li>
       <li xml:lang="az">KAdressBook, əlqələrinizi asan idarəetmə alətidir. O əlaqələrinizi (kontaktlarınızı) bir çox tanınmış xidmətlər arasında eyniləşdirə bilir.</li>
       <li xml:lang="ca">KAddressBook: una eina per a la gestió dels contactes fàcil d'usar que pot sincronitzar contactes amb molts serveis populars.</li>
-      <li xml:lang="ca-valencia">KAddressBook: una eina per a la gestió dels contactes fàcil d'utilisar que pot sincronitzar contactes amb molts serveis populars.</li>
+      <li xml:lang="ca-valencia">KAddressBook: una eina per a la gestió dels contactes fàcil d'utilisar que pot sincronisar contactes amb molts serveis populars.</li>
       <li xml:lang="da">KAddressBook - et brugervenligt værktøj til at håndtere kontakter, som kan synkronisere kontakter med mange populære tjenester.</li>
       <li xml:lang="de">KAddressBook - ein einfach zu bedienendes Programm, das Kontakte mit vielen gängigen Diensten abgleichen kann. </li>
       <li xml:lang="el">KAddressBook - ένα εύκολης χρήσης εργαλείο διαχείρισης επαφών το οποίο συγχρονίζει επαφές με πολλές δημοφιλείς υπηρεσίες.</li>
@@ -417,7 +417,7 @@
       <caption xml:lang="ar">نظم وقتك وأدر الأحداث وأنشى المهام أو جدولة الاجتماعات مع منظمك</caption>
       <caption xml:lang="az">Vaxtınızın, tədbirlərinizin idarə dilməsini, tapşırıqlar yaradılmasını, gələcək işlərinizi və ya görüşləriniz planlaşdırmağı KOrganizer ilə həyata keçirin</caption>
       <caption xml:lang="ca">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb el KOrganizer</caption>
-      <caption xml:lang="ca-valencia">Organitzeu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb KOrganizer</caption>
+      <caption xml:lang="ca-valencia">Organiseu el vostre temps, gestioneu els esdeveniments, creeu tasques pendents o programeu reunions amb KOrganizer</caption>
       <caption xml:lang="da">Planlæg din tid, administrér begivenheder, opret gøremål og planlæg møder med KOrganizer</caption>
       <caption xml:lang="de">Organisieren Sie Ihre Zeit, verwalten Sie Ereignisse, erstellen Sie Aufgaben oder planen Sie Besprechungen mit KOrganizer</caption>
       <caption xml:lang="el">Οργανώστε το χρόνο σας, διαχειριστείτε γεγονότα, δημιουργείστε λίστα μελλοντικών εργασιών ή προγραμματίστε συναντήσεις με το KOrganizer</caption>
