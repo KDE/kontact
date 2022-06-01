@@ -61,9 +61,10 @@ KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
 void KcmKontact::load()
 {
     const KConfigGroup grp(Prefs::self()->config(), "Plugins");
-    const QVector<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(QStringLiteral("kontact5"), [](const KPluginMetaData &data) {
-        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
-    });
+    const QVector<KPluginMetaData> pluginMetaDatas =
+        KPluginMetaData::findPlugins(QStringLiteral("kontact" QT_STRINGIFY(QT_VERSION_MAJOR)), [](const KPluginMetaData &data) {
+            return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+        });
 
     int activeComponent = 0;
     mPluginCombo->clear();
