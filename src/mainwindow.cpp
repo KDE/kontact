@@ -747,7 +747,7 @@ void MainWindow::slotPreferences()
         });
 
         // Add the main contact KCM which is not associated with a specific plugin
-        dlg->addModule(KPluginMetaData(QStringLiteral("pim/kcms/kontact/kcm_kontact")));
+        dlg->addModule(KPluginMetaData(QStringLiteral("pim" QT_STRINGIFY(QT_VERSION_MAJOR)) + QStringLiteral("/kcms/kontact/kcm_kontact")));
 
         auto sortByWeight = [](const KPluginMetaData &m1, const KPluginMetaData &m2) {
             return m1.rawData().value(QStringLiteral("X-KDE-Weight")).toInt() < m2.rawData().value(QStringLiteral("X-KDE-Weight")).toInt();
