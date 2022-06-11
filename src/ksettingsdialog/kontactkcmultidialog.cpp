@@ -18,7 +18,6 @@
 #include <KIO/ApplicationLauncherJob>
 #include <QApplication>
 #include <QDesktopServices>
-#include <QDesktopWidget>
 #include <QJsonArray>
 #include <QLayout>
 #include <QProcess>
