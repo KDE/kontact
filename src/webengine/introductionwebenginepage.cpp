@@ -6,6 +6,7 @@
 
 #include "introductionwebenginepage.h"
 #include <QFontDatabase>
+#include <QFontInfo>
 #include <QWebEngineProfile>
 #include <QWebEngineSettings>
 IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)

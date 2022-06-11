@@ -18,6 +18,7 @@ using namespace Kontact;
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <QAction>
+#include <QActionGroup>
 #include <QApplication>
 #include <QIcon>
 

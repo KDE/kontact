@@ -79,9 +79,13 @@ MainWindow::MainWindow()
 
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/KontactInterface"), this, QDBusConnection::ExportScriptableSlots);
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     // Set this to be the group leader for all subdialogs - this means
     // modal subdialogs will only affect this dialog, not the other windows
     setAttribute(Qt::WA_GroupLeader);
+#else
+#pragma "Port it"
+#endif
 
     initGUI();
     initObject();
