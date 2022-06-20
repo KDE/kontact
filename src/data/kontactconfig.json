@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Default KDE Kontact Component",
+        "Description[az]": "Standart KDE Kontact tərkib hissələri",
         "Description[ca@valencia]": "Component predeterminat de Kontact de KDE",
         "Description[ca]": "Component predeterminat del Kontact de KDE",
         "Description[de]": "Standard-Komponente von Kontact",
@@ -8,6 +9,7 @@
         "Description[fr]": "Composant de KDE par défaut pour Kontact",
         "Description[it]": "Componente predefinito di KDE Kontact",
         "Description[nl]": "Standaard component van KDE Kontact",
+        "Description[nn]": "Standard KDE Kontact-komponent",
         "Description[pt]": "Componente do Kontact Predefinido do KDE",
         "Description[sk]": "Predvolený komponent KDE Kontact",
         "Description[sl]": "Privzeta komponenta KDE Kontacta",
@@ -17,6 +19,7 @@
         "Description[x-test]": "xxDefault KDE Kontact Componentxx",
         "Icon": "kontact",
         "Name": "Kontact Configuration",
+        "Name[az]": "Kontact ayarları",
         "Name[ca@valencia]": "Configuració de Kontact",
         "Name[ca]": "Configuració del Kontact",
         "Name[de]": "Einrichtung von Kontact",
@@ -24,6 +27,7 @@
         "Name[fr]": "Configuration de Kontact",
         "Name[it]": "Configurazione di Kontact",
         "Name[nl]": "Configuratie van Kontact",
+        "Name[nn]": "Kontact-oppsett",
         "Name[pt]": "Configuração do Kontact",
         "Name[sk]": "Nastavenie Kontakt",
         "Name[sl]": "Konfiguracija Kontacta",
