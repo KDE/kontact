@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Default KDE Kontact Component",
+        "Description[ar]": "مكوّن «متراسلك كدي» المبدئيّ",
         "Description[az]": "Standart KDE Kontact tərkib hissələri",
         "Description[bg]": "Стандартна компонента на KDE Kontact",
         "Description[ca@valencia]": "Component predeterminat de Kontact de KDE",
@@ -28,6 +29,7 @@
         "Description[x-test]": "xxDefault KDE Kontact Componentxx",
         "Icon": "kontact",
         "Name": "Kontact Configuration",
+        "Name[ar]": "ضبط «متراسلك»",
         "Name[az]": "Kontact ayarları",
         "Name[bg]": "Настройка на Kontact",
         "Name[ca@valencia]": "Configuració de Kontact",
