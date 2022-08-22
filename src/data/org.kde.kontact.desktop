@@ -144,7 +144,6 @@ GenericName[wa]=Manaedjeu des informåcions da sinne
 GenericName[x-test]=xxPersonal Information Managerxx
 GenericName[zh_CN]=个人信息管理工具
 GenericName[zh_TW]=個人資訊管理者
-Terminal=false
 StartupNotify=true
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.kontact
