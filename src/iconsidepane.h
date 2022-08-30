@@ -73,13 +73,12 @@ protected:
     void dropEvent(QDropEvent *event) override;
     void showEvent(QShowEvent *event) override;
 
-private Q_SLOTS:
+private:
     void slotCurrentChanged(const QModelIndex &current);
     void slotActionTriggered(QAction *checked);
     void slotHideSideBarTriggered();
     void updateNavigatorSize();
 
-private:
     void setHelpText(QAction *act, const QString &text);
     SidePaneBase *const mSidePane;
     MainWindow *mMainWindow = nullptr;
