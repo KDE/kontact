@@ -23,6 +23,7 @@
   <developer_name xml:lang="ia">Le communitate de KDE</developer_name>
   <developer_name xml:lang="id">Komunitas KDE</developer_name>
   <developer_name xml:lang="it">La comunità KDE</developer_name>
+  <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">De KDE gemeenschap</developer_name>
   <developer_name xml:lang="nn">KDE-fellesskapet</developer_name>
@@ -59,6 +60,7 @@
   <name xml:lang="ia">Kontact</name>
   <name xml:lang="id">Kontact</name>
   <name xml:lang="it">Kontact</name>
+  <name xml:lang="ka">Kontact</name>
   <name xml:lang="ko">Kontact</name>
   <name xml:lang="lt">Kontact</name>
   <name xml:lang="nb">Kontact</name>
@@ -97,6 +99,7 @@
   <summary xml:lang="ia">Manea tote tu messages de eposta, calendarios, contactos e altere intra un singule fenestra</summary>
   <summary xml:lang="id">Menangani email, kalender, kontak dan selebihnya dalam window tunggal</summary>
   <summary xml:lang="it">Gestisci tutta la tua posta elettronica, i calendari, i contatti ed altro in una sola finestra</summary>
+  <summary xml:lang="ka">იმუშავეთ თქვენს ელფოსტასთან, კალენდართან და კონტაქტებთან ერთი ფანჯრით</summary>
   <summary xml:lang="ko">이메일, 달력, 연락처와 같은 개인 정보를 한 곳에서 처리하기</summary>
   <summary xml:lang="nl">Behandel al uw e-mails, agenda's, contactpersonen en meer in een enkel venster</summary>
   <summary xml:lang="nn">Handsam all e-posten din og alle kalendrane og kontaktane dine frå eitt program</summary>
@@ -133,6 +136,7 @@
     <p xml:lang="ia">Manea tu messages de eposta, calendario, contactos e altere datos personal con Kontact. Kontact gruppa omne cosas insimul in un placia e adjuta te a gerer tu communicationes, organisa tu die e travalia con tu collegas.</p>
     <p xml:lang="id">Menangani email, kalender, kontak, dan data pribadimu lainnya dengan Kontact. Kontact mengelompokkan semuanya bersama di satu tempat dan membantu kamu mengelola komunikasi, mengatur hari, dan bekerja dengan kolegamu.</p>
     <p xml:lang="it">Gestisci i tuoi messaggi di posta, il calendario, i contatti e altri dati personali con Kontact. Kontact raggruppa tutto assieme in un unico posto e ti aiuta a gestire le tue comunicazioni, organizzare la tua giornata e lavorare con i tuoi colleghi.</p>
+    <p xml:lang="ka">იმუშავეთ თქვენი ელფოსტასთან კალენდართან, კონტაქტებთან და სხვა პირადი მონაცემების Kontact-თან ერთად. Kontact აჯგუფებს ყველაფერს ერთად ერთ ადგილას და დაგეხმარებათ მართოთ თქვენი კომუნიკაციები, მოაწყოთ თქვენი დღე და იმუშაოთ თქვენს კოლეგებთან.</p>
     <p xml:lang="ko">Kontact를 사용하여 이메일, 달력, 연락처와 같은 개인 정보를 한 곳에서 처리하십시오. Kontact는 모든 것을 한 자리에 표시하며 대화 기록, 일정 관리, 협업을 도와 줍니다.</p>
     <p xml:lang="nl">Behandel uw e-mail, agenda, contactpersonen en andere persoonlijke gegevens met Kontact. Kontact groepeert alles in één plek en helpt u uw communicaties te beheren, uw dag te organiseren en samen te werken met uw collega's.</p>
     <p xml:lang="nn">Handsam e-posten din, kalendrane og kontaktane dine samt annan personleg informasjon med Kontact. Kontact samlar alt på éin stad og hjelper deg å halda oversikt over kommunikasjon og avtalar, og til å samhandla med kollegaar.</p>
