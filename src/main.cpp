@@ -178,7 +178,6 @@ int main(int argc, char **argv)
     about.addAuthor(i18n("Zack Rusin"), QString(), QStringLiteral("zack@kde.org"));
     about.addAuthor(i18n("Matthias Hoelzer-Kluepfel"), i18n("Original Author"), QStringLiteral("mhk@kde.org"));
     about.addCredit(i18n("Torgny Nyblom"), i18n("Git Migration"), QStringLiteral("nyblom@kde.org"));
-    about.setOrganizationDomain("kde.org");
     app.setAboutData(about);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kontact")));
     app.setDesktopFileName(QStringLiteral("org.kde.kontact"));
