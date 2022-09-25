@@ -9,18 +9,12 @@
 #include "kontactsettingsdialog.h"
 #include "kontactsettingsdialog_p.h"
 
-#include <KConfig>
 #include <KLocalizedString>
 #include <KPluginMetaData>
-#include <KServiceGroup>
 #include <KSharedConfig>
 
-#include <QCoreApplication>
-#include <QDialogButtonBox>
-#include <QDir>
 #include <QLabel>
 #include <QPushButton>
-#include <QStack>
 #include <QVBoxLayout>
 
 #include "kontact_debug.h"

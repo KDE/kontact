@@ -35,7 +35,6 @@ using namespace Kontact;
 #include <KDialogJobUiDelegate>
 #include <KEditToolBar>
 #include <KHelpClient>
-#include <KHelpMenu>
 #include <KIO/CommandLauncherJob>
 #include <KIO/OpenUrlJob>
 #include <KLocalizedString>

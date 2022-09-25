@@ -12,13 +12,11 @@ using namespace Kontact;
 
 #include <KontactInterface/Plugin>
 
-#include <KAboutData>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <QComboBox>
 
 #include <QCheckBox>
-#include <QFormLayout>
 #include <QHBoxLayout>
 #include <QStandardItemModel>
 

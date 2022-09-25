@@ -10,14 +10,8 @@
 
 #include "kontactkcmultidialog_p.h"
 #include "kontactsettingsdialog.h"
-#include <KCModuleInfo>
 
-#include <QHash>
-#include <QSet>
 #include <QString>
-
-#include <KPageWidgetModel>
-#include <KService>
 
 class KontactSettingsDialogPrivate : public KontactKCMultiDialogPrivate
 {
