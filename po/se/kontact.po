@@ -1,0 +1,510 @@
+# Translation of kontact to Northern Sami
+#
+# Børre Gaup <boerre@skolelinux.no>, 2004, 2005, 2006, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2009-10-09 13:26+0200\n"
+"Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
+"Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
+"Language: se\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Børre Gaup"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "boerre@skolelinux.no"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+
+#: src/about/introduction_kontact.html:36
+msgid "Skip this introduction"
+msgstr ""
+
+#: src/about/loading_kontact.html:5
+msgid "Loading Kontact ..."
+msgstr ""
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr ""
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr ""
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr ""
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr ""
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr ""
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr ""
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr ""
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr ""
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr ""
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Álggat vissis Kontact-moduvllain"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr ""
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Čájet buot vejolaš moduvllaid ja heaittit"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "KDE:a peršuvnnalaš dieđuid gieđahalli"
+
+#: src/main.cpp:165
+#, kde-format
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr ""
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr ""
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr ""
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr ""
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr ""
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr ""
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr ""
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr ""
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr ""
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr ""
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Álgovuolggalaš čálli"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr ""
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr ""
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr ""
+
+# unreviewed-context
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Ođđa"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr ""
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr ""
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr ""
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr ""
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr ""
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr ""
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr ""
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr ""
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr ""
+
+#: src/mainwindow.cpp:921
+#, kde-format
+msgid "The KDE Personal Information Management Suite."
+msgstr ""
+
+#: src/mainwindow.cpp:926
+#, kde-format
+msgid "Read Manual"
+msgstr ""
+
+#: src/mainwindow.cpp:927
+#, kde-format
+msgid "Learn more about Kontact and its components"
+msgstr ""
+
+#: src/mainwindow.cpp:930
+#, kde-format
+msgid "Visit Kontact Website"
+msgstr ""
+
+#: src/mainwindow.cpp:931
+#, kde-format
+msgid "Access online resources and tutorials"
+msgstr ""
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr ""
+
+#: src/mainwindow.cpp:935
+#, kde-format
+msgid "Prepare Kontact for use"
+msgstr ""
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""

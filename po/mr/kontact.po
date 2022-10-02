@@ -1,0 +1,2074 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Chetan Khona <chetan@kompkin.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2013-04-06 11:41+0530\n"
+"Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
+"Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "चेतन खोना"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "chetan@kompkin.com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid ""
+#| "Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"कॉन्टॅक्ट  तुमचे ई-मेल, पत्त्यांची नोंदवही, दिनदर्शिका, करावयाच्या कामांची यादी या बाबींचे "
+"व्यवस्थापन बघतो."
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgctxt "@action:inmenu"
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "कॉन्टॅक्ट चा परीचय (&K)"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "कॉन्टॅक्ट भारण(loading)"
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "फक्त चिन्हे दर्शवा"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "बाजूच्या पट्टीतील चिन्हे असलेल्या पण मजकूर नसलेल्या बाबी दर्शवा"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"तुम्हाला बाजुपट्टीतील चिन्हे असलेल्या पण मजकूर नसलेल्या बाबी हव्या असतील तर हा पर्याय "
+"निवडा. "
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "फक्त मजकूर दर्शवा"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "बाजूपट्टीतील चिन्हे असलेल्या पण मजकूर नसलेल्या बाबी दर्शवा"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"तुम्हाला बाजूपट्टीतील बाबींमध्ये मजकूर हवा पण चिन्हे नको असतील तर हा पर्याय निवडा."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "चिन्हे आणि मजकूर दर्शवा"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "बाजूपट्टीतील चिन्हे आणि मजकूर असलेल्या बाबी दर्शवा"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr "तुम्हाला बाजूपट्टीतील बाबींमध्ये चिन्हे आणि मजकूर हवा असेल तर हा पर्याय निवडा."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "मोठी चिन्हे"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "बाजूपट्टीतील मोठ्या आकाराची चिन्हे दर्शवा"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr "तुम्हाला बाजूपट्टीतील चिन्हे फारच मोठ्या आकाराची हवी असतील तर हा पर्याय निवडा"
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "सर्वसाधारण चिन्हे"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "बाजूपट्टीतील सर्वसाधारण आकाराची चिन्हे दर्शवा"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr "तुम्हाला बाजूपट्टीतील चिन्हे सर्वसाधारण आकाराची हवी असतील तर हा पर्याय निवडा."
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "लहान चिन्हे"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "बाजूपट्टीतील लहान आकाराची चिन्हे दर्शवा"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr "तुम्हाला बाजूपट्टीतील चिन्हे फारच लहान आकाराची हवी असतील तर हा पर्याय निवडा"
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid ""
+#| "Choose this option if you want the sidebar items to have icons and text."
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr "तुम्हाला बाजूपट्टीतील बाबींमध्ये चिन्हे आणि मजकूर हवा असेल तर हा पर्याय निवडा."
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "प्रत्येकवेळी सुरु करताना प्राथमिक/प्रारंभिक प्लगइन वापरा"
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+"प्रत्येकवेळी कॉन्टॅक्ट चालू करताना वापरण्यासाठी ह्या  ड्रॉप डाउन यादीतील प्लगइन निवडा. "
+"अन्यथा कॉन्टॅक्ट  मागील प्रयोग/वापरातील क्रियाशील प्लगइन पुनर्स्थापित करेल."
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "वर्तमान सक्रिय प्लगइन"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "नेहमी प्लगइनने सुरवात करा"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "प्रत्येवेली सुरु करताना प्राथमिक/प्रारंभिक प्लगइन निवडा "
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"bahutekvबहुतेकveवेlळा कॉन्टॅक्ट संगणक पूर्ण बंद करण्याचे आधी वापरलेला प्लगइन घेऊन येईल.परंतु "
+"तुम्हाला याऐवजी निवडलेला प्लगइन हवा असेल तर ही पेटी वापरा."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "फाईल (&F)"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "संयोजना (&S)"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "मदत (&H)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "मुख्य साधनपट्टी"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "मार्गनिर्देशक"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "कॉन्टॅक्टच्या विशिष्ठ विभागाने सुरवात करा"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "चित्रलिपीच्या (लहान आकारातील) पद्धतीत सुरु करा"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "शक्य असलेल्या सर्व विभागांची यादी करा"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "कॉन्टॅक्ट"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "केडीई वैयक्तिक माहिती व्यवस्थापक"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "Copyright © 2001–2013 Kontact authors"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "सर्वाधिकार © २००१-२०१३ कॉन्टॅक्ट लेखक"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "अलन विंटर"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "राफेल फर्नंदेझ लोपेझ"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "डेनिएल मोल्केटीन"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "डॉन सेन्दर्स"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "कॉर्निलूअस शुमाकर"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "टोबीआस कोनिग"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "डेविड फाउर"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "इंगो क्लोकर "
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "स्वेन ल्युप्पकेन "
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "झाक रुसीन"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "माथीआस होएलझेर- क्लुपफेल"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "मूळ लेखक"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr "टोरगनी नायब्लोम"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr "Git स्थलांतरण"
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr "सुरवात केलेले"
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "नवीन"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "कॉन्टॅक्ट ची मांडणी करा"
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "कॉन्टॅक्ट ची मांडणी करा"
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+"तुम्हाला कॉन्टॅक्ट ची मांडणी करण्यासाठी एक संगणकीय संवाद खिडकी उपलब्ध करून दिली जाईल."
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "कॉन्टॅक्ट चा परीचय (&K)"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "कॉन्टॅक्ट चा परिचय करून देणारे पृष्ठ दर्शवा"
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "कॉन्टॅक्ट ची माहिती देणारे पृष्ठ पाहण्यासाठी हा पर्याय निवडा."
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "प्लगइन %1 कडे जा"
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "एकमेव उपयोजन प्राधान्याने चालू आहे..."
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "%1 साठी दाखल करू शकत नाही."
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - कॉन्टॅक्ट"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "केडीई वैयक्तिक माहिती व्यवस्थापन संच"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "पुस्तिका वाचा"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "कॉन्टॅक्ट आणि त्याचे घटक यांची अधिक माहिती घ्या"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "कॉन्टॅक्टच्या वेबसाईटला भेट द्या"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "ऑन लाइनवरून साधने आणि अभ्यास सामग्री/वर्गपाठ शोधा/संपर्क करा  "
+
+#: src/mainwindow.cpp:934
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Setup your Accounts"
+msgid "Setup your Accounts"
+msgstr "तुमचे खाते उघडा"
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Prepare Kontact for use"
+msgid "Prepare Kontact for use"
+msgstr "कॉन्टॅक्ट  चा उपयोग/वापर करण्यासाठी तयार व्हा"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "केडीई कॉन्टॅक्ट"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c) २००३ कॉमेलीअस शुमाकर"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "कॉमेलीअस शुमाकर"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "विकासक"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "टोबिआस कोएनींग"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "कॉन्टॅक्ट विषयी"
+
+#~ msgid "Kontact Container"
+#~ msgstr "कॉन्टॅक्ट कोश/धारक"
+
+#~ msgid "No about information available."
+#~ msgstr "याविषयी माहिती उपलब्ध नाही"
+
+#~ msgid "Version %1"
+#~ msgstr "आवृत्ती %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>लेखक :</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>ला धन्यवाद :</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>अनुवादक :</b></p>"
+
+#~ msgid "%1 License"
+#~ msgstr "%1 परवाना"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "सुसूत्रीत करा"
+
+#~ msgctxt "@title:column plugin name"
+#~ msgid "Summary Plugin Name"
+#~ msgstr "सारांश प्लग-इन नाव"
+
+#~ msgid "Select the plugin summaries to show on the summary page."
+#~ msgstr "सारांश पृष्ठ दाखविण्यासाठी प्लगइन सारांशा शोधा."
+
+#~ msgid "kontactsummary"
+#~ msgstr "कॉन्टॅक्टसारांश"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "केडीई कॉन्टॅक्ट सारांश"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "©, २००४ टोबिआस कोएनिग"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "टोबीआस कोएनींग"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "सारांश दृश्याची संयोजना करा (&C)..."
+
+#~ msgid "Configure the summary view"
+#~ msgstr "सारांश दृश्याची संयोजना करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Choosing this will show a dialog where you can select which summaries you "
+#~ "want to see and also allow you to configure the summaries to your liking."
+#~ msgstr ""
+#~ "हा निवडल्याने (पर्याय) तुम्हाला एक संगणकीय संवाद खिडकी दिसेल जेथे तुम्ही पाहायचे सारांश "
+#~ "निवडू शकाल आणि तुमच्या आवडीप्रमाणे सारांशांची मांडणीदेखील करता येईल."
+
+#~ msgid "Summary for %1"
+#~ msgstr "%1 साठी सारांश"
+
+#~ msgid "What's next?"
+#~ msgstr "पुढे काय?"
+
+#~ msgid "Sync All"
+#~ msgstr "सर्व सुसूत्रीत करा"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "सर्व"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "सर्व"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "कॉन्टॅक्ट सारांश"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "कॉन्टॅक्ट सारांश दृश्य"
+
+#, fuzzy
+#~| msgid "(c) 2003 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(c) २००३ कॉन्टॅक्ट विकासक "
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "स्वेन ल्युपकेन"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "केडीई कॉन्टॅक्ट"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "संघटीत करून घ्या"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "“\"<h2 style='text-align:center; margin-top: 0px;'>कॉन्टॅक्ट मध्ये तुमचे स्वागत "
+#~ "आहे %1</h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a "
+#~ "href=\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a "
+#~ "href=\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">हा परिचय दुर्लक्षित करा</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "आजची विशेष टिपण्णी (&T)"
+
+#~ msgctxt "@info:status"
+#~ msgid "Show the Tip-of-the-Day dialog"
+#~ msgstr "दिवसाच्या संकेताची संवाद खिडकी दर्शवा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog showing small tips to help you use "
+#~ "this program more effectively."
+#~ msgstr ""
+#~ "तुम्हाला ही प्रणाली जास्त परिणामकारक रीतीने वापरता यावी म्हणून छोट्या-छोट्या खुणा/"
+#~ "संकेत असलेली एक संगणकीय संवाद खिडकी उपलब्ध करून दिली जाईल"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "नवीन माहिती साठा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr ""
+#~ "तुम्हाला नवीन माहिती साठा संग्रहित करण्यासाठी एक संवाद खिडकी उपलब्ध करून देण्यात "
+#~ "येईल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "नवीन संपर्क"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr ""
+#~ "तुम्हाला एक संवाद खिडकी उपलब्ध करून देण्यात येईल, जेथे तुम्ही नवीन संपर्क तयार करू शकाल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "नवीन संपर्क समूह"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr ""
+#~ "तुम्हाला नवीन संपर्क समूह तयार करण्यासाठी एक संवाद खिडकी उपलब्ध करून देण्यात येईल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "सर्व संपर्क सुसूत्रीत करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "तुमचे समूहानुसारचे संपर्क सुसूत्रीत करण्यासाठी हा पर्याय निवडा"
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmail सारांश"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "संदेशांच्या सारांशाच्या मांडणीसाठी संवाद खिडकी"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "स्वामित्व हक्क © टोबीआस कोएनींग"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "संचीकांसाठी पूर्ण शोधमार्ग दर्शवा"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "प्रत्येक संचीकेसाठी पूर्ण शोधमार्ग दर्शवा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Enable this option if you want to see the full path for each folder "
+#~ "listed in the summary. If this option is not enabled, then only the base "
+#~ "folder path will be shown."
+#~ msgstr ""
+#~ "सारांशामध्ये समाविष्ट केलेल्या प्रत्येक संचिकेचा पूर्ण शोधमार्ग तुम्हाला पाहावयाचा असेल तर "
+#~ "हा पर्याय वापरा. हा पर्याय वापरला नाही तर फक्त प्राथमिक/तळाच्या/पहिल्या संचीकेचा "
+#~ "शोधमार्ग दाखविला जाईल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "नवीन संदेश....."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and send a new "
+#~ "email message."
+#~ msgstr ""
+#~ "तुम्हाला अशी एक संवाद खिडकी उपलब्ध करून दिली जाईल कि जिच्यात\"तुम्ही नवीन इमेल संदेश "
+#~ "तयार करू/लिहू शकाल व पाठवू शकाल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "संदेश सुसूत्रीत करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "संदेशांचे समूह सुसूत्रीत करण्यासाठी हा पर्याय निवडा."
+
+#~ msgid "New Messages"
+#~ msgstr "नवीन संदेश"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>एकूण : %2<br/>न वाचलेले : %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "तुमच्या नियंत्रित संचयीकांत वाचून झालेले संदेश नाहीत"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "संचयीका उघडा : \"%1\""
+
+#, fuzzy
+#~| msgid "kcmsdsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmsdसारांश"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "संदेशांच्या सारांशाच्या मांडणीसाठी संवाद खिडकी"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "वर्तमान पालक"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "नवीन (&N)"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can add a new popup note."
+#~ msgstr ""
+#~ "तुम्हाला एक संवाद खिडकी उपलब्ध करून देण्यात येईल, जीमध्ये तुम्हाला नवीन प्रकटक नोंद "
+#~ "टाकता येईल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "संपादन...."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can modify an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "सध्याच्या प्रकटक नोंदीमध्ये सुधारणा करण्यासाठी तुम्घाला एक संवाद खिडकी उप्काब्ध करून "
+#~ "दिली जाईल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "नवीन नाव...."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can rename an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "सध्याच्या प्रकटन नोंदीला नवीन नाव देण्यासाठी एक संवाद खिडकी उपलब्ध करून देण्यात येईल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "काढून टाका"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be prompted if you really want to permanently remove the "
+#~ "selected popup note."
+#~ msgstr ""
+#~ "तुम्हाला प्रकटक नोंद कायमची काढून टाकावयाची असेल तर त्यासाठी मार्गदर्शन केले जाईल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "निवडलेल्या नोंदी छापा....."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be prompted to print the selected popup note."
+#~ msgstr "निवडलेली प्रकटक नोंद छापण्यासाठी तुम्हाला मार्गदर्शन केले जाईल."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "निवडलेल्या नोंदी छापा....."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Preferences KNotes..."
+#~ msgstr "निवडलेल्या नोंदी छापा....."
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr "नोंदी छापण्यासाठी प्रथम यादीतून त्या निवडा"
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "प्रकटक नोंदी छापा"
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Create new popup note"
+#~ msgid "Create new note"
+#~ msgstr "नवीन प्रकटक नोंद तयार/निर्माण करा"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "तुम्हाला नक्की हि नोंद काढून टाकायची आहे का?"
+#~ msgstr[1] "तुम्हाला नक्की %1 या नोंदी काढून टाकायच्या आहेत का?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "काढून टाकण्याविषयी खात्री करा"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "प्रकटक नोंदीला नवीन नाव द्या"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "नवीन नाव :"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "New Popup Note..."
+#~ msgid "Show Note..."
+#~ msgstr "नवीन प्रकटक नोंद"
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgid "Settings"
+#~ msgstr "संयोजना (&S)"
+
+#~ msgid "&Edit"
+#~ msgstr "संपादन (&E)"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "नवीन प्रकटक नोंद"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new popup note."
+#~ msgstr ""
+#~ "नवीन प्रकटक नोंद तयार करण्यासाठी तुम्हाला एक संवादक खिडकी उपलब्ध करून दिली जाईल. "
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "केनोंदी(Knotes)"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "प्रकटक नोंदी"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Copyright © 2003–2010 Kontact authors"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "स्वामित्व हक्क © २००३-२०१० कॉन्टॅक्ट लेखक"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "वर्तमान पालक"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "वर्तमान पालक"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "मायकेल ब्रेड"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "वर्तमान पालक"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "बैठक"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "नोंद : %1"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "नवी नोंद"
+
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "अनेक पटीत संदेश पाठविण्यासाठी कोणतेही सहाय्य नाही"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "पासून :%1\n"
+#~ "पर्यंत :%2\n"
+#~ "विषय :%3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "मेल : %1"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Sync Popup Notes"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "प्रकटक नोंदी सुसूत्रीत करा"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "प्रकटक नोंद संपादन/संपादित करा "
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "नाव"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Search notes..."
+#~ msgstr "निवडलेल्या नोंदी छापा....."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "निवडलेल्या नोंदी छापा....."
+
+#~ msgid "Popup Notes"
+#~ msgstr "प्रकटक नोंदी"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "New Popup Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "नवीन प्रकटक नोंद"
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Delete popup note"
+#~ msgid "Delete Note..."
+#~ msgstr "प्रकटक नोंद काढून टाका"
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "प्रकटक नोंद वाचा : \"%1\""
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "घटना सारांश संयोजना"
+
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "लवकरच येणाऱ्या घटनांची सुरवात दर्शवा"
+
+#~ msgid "Show events for today only"
+#~ msgstr "फक्त आजच्याच घटना दर्शवा"
+
+#~ msgid ""
+#~ "Check this box if you want to see events occurring on this date only."
+#~ msgstr "फक्त ह्या दिवशीच होणाऱ्या घटना बघण्यासाठी ही पेटी निवडा."
+
+#~ msgid "&Today only"
+#~ msgstr "फक्त आजच (&T)"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "पुढील महिन्याभरात होणाऱ्या घटना दर्शवा"
+
+#~ msgid ""
+#~ "Check this box if you want to see events that start sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "पुढील ३१ दिवसात कधीतरी सुरु होणाऱ्या घटना पाहायच्या असतील तर ही पेटी निवडा."
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "पुढील महिन्यात (३१ दिवस) (&M)"
+
+#~ msgid "Select the days for showing upcoming events"
+#~ msgstr "आगामी घटना पाहण्यासाठी दिवस निवडा"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming events."
+#~ msgstr ""
+#~ "आगामी घटनासाठी तुम्हाला दिवसांची संख्या निश्चीत करायची असेल तर ही पेटी निवडा."
+
+#~ msgid "Within the &next:"
+#~ msgstr "पुढील काळात (&N):"
+
+#~ msgid "Set the number of days to show upcoming events"
+#~ msgstr "आगामी घटना दाखविण्यासाठी दिवसांची संख्या निश्चीत करा "
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming events up to "
+#~ "1 year in the future."
+#~ msgstr ""
+#~ "पुढील एक वर्षातील घटना पाहण्यासाठी दिवसांची संख्या निश्चीत करायची असेल तर ही "
+#~ "स्पीनबॉक्स वापरा."
+
+#~ msgid "1 day"
+#~ msgstr "१ दिवस"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " दिवस"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "तुमच्या दिनदर्शिकेमधील पुढील काळातील घटना दर्शवा"
+
+#~ msgid ""
+#~ "Show birthdays from your calendar when also using the Birthday resource"
+#~ msgstr "तुमच्या दिनदर्शिकेतील वाढदिवस प्रणाली वापरून वाढदिवस दर्शवा"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "आगामी घटनाच्या संक्षिप्त यादीत वाढदिवसांचा समावेश करण्यासाठी हा पर्याय वापरा. हा "
+#~ "पर्याय तुम्ही फक्त वाढदिवस प्रणाली वापरणार असाल तरच उपलब्ध आहे. "
+
+#~ msgid "Show &birthdays"
+#~ msgstr "वाढदिवस दर्शवा (&B)"
+
+#~ msgid ""
+#~ "Shows anniversaries from your calendar when using the Birthdays resource"
+#~ msgstr ""
+#~ "वाढदिवस प्रणाली वापरताना तुमच्या दिनदर्शिकेमधील वर्धापनदिन/स्मृतीदिनदेखील दर्शवा."
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "आगामी घटनांच्या संक्षिप्त यादीत वर्धापनदिन/स्मृतीदिन समाविष्ट करण्यासाठी हा पर्याय "
+#~ "निवडा. मात्र तुम्ही दिनदर्शिकेमधील वाढदिवस प्रणाली वापरात असाल तरच हा पर्याय "
+#~ "उपलब्ध आहे."
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "वर्धापनदिन/स्मृतीदिन दर्शवा (&A)"
+
+#~ msgid "Groupware Settings"
+#~ msgstr "समूहानुसार मांडणी"
+
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "फक्त माझ्या दिनदर्शिकेमध्ये असलेलेच कार्यक्रम दर्शवा"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show events belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "फक्त तुमच्या दिनदर्शिकेतील कार्यक्रमांची संक्षिप्त यादीच पहावयाची असेल तर हा पर्याय "
+#~ "वापरा."
+
+#~ msgid "Show &my events only"
+#~ msgstr "फक्त माझेच कार्यक्रम दर्शवा (&M)"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "आगामी कार्यक्रम"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "पुढील दिवसभरात होणारी एकही घटना नाही"
+#~ msgstr[1] "पुढील %1 दिवसात होणारी एकही घटना नाही"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "नियोजित भेटी संपादन करा (&E)..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "भेट काढून टाका (&D)"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "घटना संपादन करा : \"%1\""
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "नवीन टिपण्णी..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "नवीन टिपण्णी तयार करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new journal "
+#~ "entry."
+#~ msgstr "संगणकाच्या संप्रेषणात नवीन नोंद करतेवेळी तुम्हाला एक संवाद खिडकी दिली जाईल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "टिपण्णी सुसूत्रीत करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "टिपण्णी समूहानुसार सुसूत्रीत करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware journal entries."
+#~ msgstr "तुमच्या संप्रेषणातील नोंदी समूहानुसार सुसूत्रीत करण्यासाठी हा पर्याय निवडा. "
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] "[0]"
+#~ msgstr[1] "[1]"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "आगामी कार्यक्रमांची मांडणी करणारा संगणकीय संवादक"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "स्वामित्व हक्क © 2003-2004 टोबीआस कोएनिग\n"
+#~ "“स्वामित्व हक्क © 2005-2010 आलन विंटर"
+
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "करावयाच्या शिल्लक राहिलेल्या रचना/मांडण्या यांचा संगणकीय संवादक"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "नवीन कार्यक्रम......"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "नवीन कार्यक्रम तयार करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new event item."
+#~ msgstr ""
+#~ "कार्यक्रमाचे नवीन कलम तयार करतेवेळी तुम्हाला एक संगणकीय संवाद खिडकी उपलब्ध करून दिली "
+#~ "जाईल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "दिनदर्शिका सुसूत्रीत करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "दिनदर्शिका समूहानुसार सुसूत्रीत करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware events."
+#~ msgstr "कार्यक्रम साम्मुहानुसार सुसूत्रीत करण्यासाठी हा पर्याय निवडा."
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "आज"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "उद्या"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "1 दिवसात"
+#~ msgstr[1] "%1 दिवसात"
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "च्या आत "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "1 तास"
+#~ msgstr[1] "%1 तास"
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "1 मिनिट"
+#~ msgstr[1] "%1 मिनिटे"
+
+#~ msgid "now"
+#~ msgstr "आता"
+
+#~ msgid "all day"
+#~ msgstr "पूर्ण दिवस"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "पुढील : %1"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "नवीन करण्यासाठी...."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "नवीन करण्यासाठी तयार करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new to-do item."
+#~ msgstr ""
+#~ " तुम्हाला एक संगणकीय संवाद खिडकी उपलब्ध करून दिली जाईल,जीमध्ये तुम्ही नवीन कलम तयार "
+#~ "करू शकाल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "करावयाच्या (कामांची) यादी सुसूत्रीत करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "करावयाच्या (कामांची) यादी समूहानुसार सुसूत्रीत करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr ""
+#~ "तुमची करावयाच्या (कामांची) यादी समूहानुसार सुसूत्रीत करण्यासाठी हा पर्याय निवडा."
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "करावयाच्या (कामे) यादीच्या संक्षिप्त/सारांश रुपाची मांडणी करा "
+
+#~ msgid "Show To-dos Due"
+#~ msgstr "करावयाचे अपेक्षित (कार्यक्रम) दर्शवा"
+
+#~ msgid "Show To-dos due today only"
+#~ msgstr "फक्त आज करावयाचे (कार्यक्रम) दर्शवा"
+
+#~ msgid "Check this box if you want to see To-dos due on this date only."
+#~ msgstr "फक्त ह्याच तारखेलाच करावयाचे कार्यक्रम पाहायचे असतील तर ही पेटी निवडा. "
+
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "पुढील महिन्याभरातील करावयाचे कार्यक्रम दर्शवा"
+
+#~ msgid ""
+#~ "Check this box if you want to see To-dos that are due sometime during the "
+#~ "next 31 days."
+#~ msgstr "पुढील ३१ दिवसात कधी तरी होणारे कार्यक्रम पाहायचे असतील तर ही पेटी निवडा."
+
+#~ msgid "Select the days for showing pending To-dos"
+#~ msgstr "शिल्लक असलेल्या कार्यक्रमांचे दिवस निवडा"
+
+#~ msgid ""
+#~ "Check this box if you want specify the number of days in the future for "
+#~ "pending To-dos."
+#~ msgstr ""
+#~ "शिल्लक असलेल्या कार्यक्रमांचे नक्की दिवस निर्देशित करायचे असतील तर ही पेटी निवडा."
+
+#~ msgid "Set the number of days to show pending To-dos"
+#~ msgstr "शिल्लक कार्यक्रम पाहण्यासाठी दिवसांची संख्या ठरवा"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show pending To-dos up to 1 "
+#~ "year in the future."
+#~ msgstr ""
+#~ "आगामी एक वर्षापर्यंतचे शिल्लक राहणाऱ्या कार्यक्रमांचे दिवस ठरविण्यासाठी ही पेटी निवडा."
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "खालील प्रकारचे करायचे कार्यक्रम लपवा"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "पार पडलेले कार्यक्रम लपवा"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have already been "
+#~ "completed."
+#~ msgstr "या पूर्वीच पार पडलेल्या कार्यक्रमांचा तपशील पहायचा नसेल तर ही पेटी निवडा."
+
+#~ msgid "&Completed"
+#~ msgstr "पूर्ण झालेले (&C)"
+
+#~ msgid "Hide To-dos without a due date"
+#~ msgstr "तारीख नसलेले कार्यक्रम लपवा"
+
+#~ msgid "Check this box if you do not want to see open-ended To-dos."
+#~ msgstr "कालमर्यादा नसलेले करावयाचे कार्यक्रम पाहायचे नसतील तर ही पेटी निवडा."
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "कालमर्यादा नसलेले (निर्धारित तारीख नसलेले) (&O)"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "सुरु न झालेले करावयाचे कार्यक्रम लपवा"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "आगामी काळातील सुरु होण्याची तारीख असलेले करायचे कार्यक्रम पाहायचे नसतील तर ही पेटी "
+#~ "निवडा."
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "सुरु न झालेले (सुरु होण्याची तारीख भविष्यातील आहे) (&U)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "प्रगतीपथावर असलेले कार्यक्रम लपवा"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "जे करावयाचे कार्यक्रम सुरु झाले आहेत पण पुरा झालेले नाहीत/संपलेले नाहीत बघावयाचे नसतील "
+#~ "तर ही पेटी निवडा."
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "प्रगतीपथावरील (सुरु झालेले पण पूर्ण न झालेले) (&I)"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "मुदत संपलेले करावयाचे कार्यक्रम लपवा"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "ठरलेली तारीख उलटून गेलेले पण पूर्ण न झालेले करावयाचे कार्यक्रम पाहायचे नसतील तर ही पेटी "
+#~ "निवडा."
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "मुदत संपलेले (पूर्ण न झालेले आणि नियोजित तारीख उलटून गेलेले) (&D)"
+
+#~ msgid "Show To-dos belonging to my calendars only"
+#~ msgstr "फक्त माझ्या दिनदर्शिकेशी संबंधितच करावयाचे कार्यक्रम दर्शवा"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show To-dos belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "फक्त तुमच्या दिनदर्शिकेशी संबंधित करावयाच्या कार्यक्रमांचा सारांश पाहीज असेल तर ही पेटी "
+#~ "निवडा."
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "फक्त मला करायचे कार्य दर्शवा (&M)"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "शिल्लक राहिलेले करायचे कार्यक्रम"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "आज"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "उद्या"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "1 दिवस अगोदर"
+#~ msgstr[1] "%1 दिवस अगोदर"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "अपेक्षित"
+
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "पुढील दिवसात शिल्लक राहिलेला करायचा एकही कार्यक्रम नाही"
+#~ msgstr[1] "पुढील %1 दिवसात शिल्लक राहिलेला करायचा एकही कार्यक्रम नाही"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "करायचे कार्य संपादित करा (&E)..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "करायचे कार्य काढून टाका (&D)"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "पूर्ण झालेल्या कार्यक्रमांवर खुणा करा (&M)"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "करायचे कार्यक्रम संपादित करा : \"%1\""
+
+#~ msgid "open-ended"
+#~ msgstr "मुदत नसलेले"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "उशीर झालेले"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "आज सुरु होत आहे"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "सुरु न झालेले"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "पूर्ण झालेले"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "प्रगतीपथावर/चालू आहे "
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "पूर्वनिर्धारित खास दिनांकंचा मांडणी संवाद"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "स्वामित्व हक्क © २००४ टोबिअस कोएनिग\n"
+#~ "“स्वामित्व हक्क २००४ – २०१० अलन विंटर"
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "खास दिनांकंच्या सरांशाची मांडणी"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "सुरवातीच्या खास दिनांक दर्शवा"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "फक्त आजच्या खास दिनांक दर्शवा"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions occurring on this "
+#~ "date only."
+#~ msgstr "फक्त ह्या दिवशी होणारे खास प्रसंग पाहण्यासाठी ही पेटी निवडा."
+
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "पुढील महिन्यात सुरु होणारे खास प्रसंग दर्शवा"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions that start sometime "
+#~ "during the next 31 days."
+#~ msgstr ""
+#~ "पुढील ३१ दिवसात कधी तरी सुरु होणारे खास प्रसंग पाहायचे असतील तर ही पेटी तपासून पहा."
+
+#~ msgid "Select the days for showing upcoming special occasions"
+#~ msgstr "पूर्वनिर्धारित खास प्रसंग दाखवण्यासाठी दिवस निवडा"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming special occasions."
+#~ msgstr ""
+#~ "पूर्वनिर्धारित खास प्रसंगांचे भावी काळातील दिवस निश्चीत करण्यासाठी ही पेटी निवडा."
+
+#~ msgid "Set the number of days to show upcoming special occasions"
+#~ msgstr "पूर्वनिर्धारित प्रसंग दाखविण्यासाठी दिवसांची संख्या निश्चीत करा"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming special "
+#~ "occasions up to one year in the future."
+#~ msgstr ""
+#~ "भविष्यात पुढील एक वर्षापर्यंत पूर्वनिर्धारित खास प्रसंग दाखविण्यासाठी दिवस निश्चीत "
+#~ "कार्याल ही स्पिनबॉंक्स(spinbox)वापरा  "
+
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "तुमच्या दिनदर्शिकेमधील ह्या खास दिनांक दर्शवा"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "तुमच्या दिनदर्शिकेतील वाढदिवस दर्शवा"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Birthday\" category."
+#~ msgstr ""
+#~ "पूर्वनिर्धारित खास प्रसंगांच्या सारांशात तुमच्या दिनदर्शिकेतील वाढदिवस समाविष्ट "
+#~ "करण्यासाठी हा पर्याय निवडा. विशेषतः असे कर्यक्रम \"वाढदिवस\" ह्या वर्गातील असतात."
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "तुमच्या दिनदर्शिकेमधील वार्षिक दिन दर्शवा"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Anniversary\" category."
+#~ msgstr ""
+#~ "पूर्वनिर्धारित खास प्रसंगांच्या सारांशात तुमच्या दिनदर्शिकेतील वार्षिक दिन समाविष्ट "
+#~ "करण्यासाठी हा पर्याय निवडा. विशेषतः असे कार्यक्रम \"वार्षिक दिन\"ह्या वर्गातील "
+#~ "असतात."
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "तुमच्या दिनदर्शिकेतील सुट्ट्या दर्शवा"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the upcoming "
+#~ "special occasions summary. These are events from your configured holiday "
+#~ "region, or events with the \"Holiday\" category."
+#~ msgstr ""
+#~ "पूर्वनिर्धारित खास प्रसंगांच्या सारांशात तुमच्या दिनदर्शिकेतील सुट्ट्या समाविष्ट "
+#~ "करण्यासाठी हा पर्याय निवडा. हे कार्यक्रम तुमच्या मांडणी केलेल्या सुट्ट्या ह्या विभागातील "
+#~ "असतात किंवा \"सुट्ट्या\" ह्या वर्गातील असतात."
+
+#~ msgid "Show &holidays"
+#~ msgstr "सुट्ट्या दर्शवा (&H)"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "तुमच्या दिनदर्शिकेमधील खास प्रसंग दर्शवा"
+
+#~ msgid ""
+#~ "Enable this option to include events from your calendar with the "
+#~ "\"special occasion\" category."
+#~ msgstr ""
+#~ "तुमच्या दिनदर्शिकेमधील \"विशेष प्रसंग\" अशी वर्गवारी असलेले कार्यक्रम समाविष्ट "
+#~ "करण्यासाठी हा पर्याय निवडा. "
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "खास प्रसंग दर्शवा (&P)"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "तुमच्या संपर्क यादीतून या खास दिनांक दर्शवा"
+
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "तुमच्या पत्त्यांच्या नोंदीतून वाढदिवस दर्शवा"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "आगामी खास प्रसंगांच्या सारांशात तुमच्या पत्त्यांच्या नोंदवहीतील वाढदिवस समाविष्ट "
+#~ "करण्यासाठी हा पर्याय निवडा."
+
+#~ msgid "Show birth&days"
+#~ msgstr "वाढदिवस दर्शवा (&D)"
+
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "तुमच्या नोंदवहीतील वार्षिक दिन दर्शवा"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "आगामी खास प्रसंगांच्या सारांशात तुमच्या पत्त्यांच्या नोंदवहीतील वार्षिक दिन समाविष्ट "
+#~ "करण्यासाठी हा पर्याय निवडा."
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "वार्षिक दिन दर्शवा (&V)"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "पुढील काळातील खास दिनांक"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "आज"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "उद्या"
+
+#~ msgid "Birthday"
+#~ msgstr "वाढदिवस"
+
+#~ msgid "Anniversary"
+#~ msgstr "वर्धापनदिन/स्मृतीदिन"
+
+#~ msgid "Holiday"
+#~ msgstr "सुट्टी"
+
+#~ msgid "Special Occasion"
+#~ msgstr "विशेष प्रसंग"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "एक वर्ष"
+#~ msgstr[1] "%1 वर्षे"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "पुढील 1 दिवसात एकही विशेष दिनांक नाही"
+#~ msgstr[1] "पुढील %1 दिवसात एकही विशेष दिनांक नाही"
+
+#~ msgid "Send &Mail"
+#~ msgstr "मेल पाठवा (&M)"
+
+#~ msgid "View &Contact"
+#~ msgstr "पहा आणि संपर्क साधा (&C)"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "\"%1\" ला मेल करा"
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "खास दिनांकंचा सारांश"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "कॉन्टॅक्ट खास दिनांकंचा सारांश"
+
+#~ msgid ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "स्वामित्व हक्क © २००३ टोबिआस कोएनिग\n"
+#~ " “स्वामित्व हक्क © २००४-२०१० अलन विंटर"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "वर्तमान पालक"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "नवीन के-जोट्स पान"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr ""
+#~ "नवीन जोट्स पान तयार करण्यासाठी तुम्हाला एक संवाद खिडकी उपलब्ध करून देण्यात येईल."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "नवी के-जोट्स पुस्तक"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots book."
+#~ msgstr ""
+#~ "तुम्हाला नवीन जोट्स पुस्तक तयार करण्यासाठी एक संवाद खिडकी उपलब्ध करून देण्यात येईल."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "नवीन माहिती साठा तयार करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "नवीन संपर्क तयार करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "नवीन संपर्क समूह तयार करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "संपर्क समूहानुसार सुसूत्रीत करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "नवीन जोट्स पान तयार करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "नवीन जोट्स पुस्तक तयार करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "नवीन मेल संदेश तयार करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "संदेश समूहानुसार सुसूत्रीत करा"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "नवीन लेख....."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "युनिक्स नियमसंचाचा (Usenet)उपयोग करून नवीन लेख लिहा/तयार करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new article to "
+#~ "post on Usenet."
+#~ msgstr ""
+#~ "युजनेटवर टाकण्याकरता नवीन लेख तयार करण्यासाठी तुम्हाला एक संवाद खिडकी उपलब्ध करून "
+#~ "देण्यात येईल."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "नवीन प्रकटक नोंद तयार करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "प्रकटक नोंद संपादित करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "प्रकटक नोंदीला नवीन नाव द्या"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "प्रकटक नोंद काढून टाका"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "प्रकटक नोंद छापा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "नवीन प्रकटक नोंद तयार/निर्माण करा"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmpptsummary (kcmpptसारांश)"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary  (kcmtodoसारांश)"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "नवीन काम"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "वेळ पाळण्यावर लक्ष ठेवणारे साधन तयार करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and start a new "
+#~ "time tracker."
+#~ msgstr ""
+#~ "वेळ पाळण्यावर लक्ष ठेवणारे साधन तयार करतेवेळी तुम्हाला एक संगणकीय संवाद खिडकी उपलब्ध "
+#~ "करून दिली जाईल"
+
+#~ msgid "task_popup"
+#~ msgstr "प्रकातक कार्य"
+
+#~ msgid "kcmplanner"
+#~ msgstr "केसीएम-नियोजक"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "नियोजनाच्या सारांश मांडणीचा संगणकीय संवाद"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+#~ msgstr ""
+#~ "स्वामित्व हक्क ©२००४ टोबिआस कोएनिग\n"
+#~ " स्वामित्व हक्क ©२००६-२००८ ओरल टीमोसीन\n"
+#~ "स्वामित्व हक्क ©२००९-२०१० अलन विंटर"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "ओरल टीमोसीन"
+
+#~ msgid "Planner"
+#~ msgstr "नियोजक"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "आज"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "उद्या"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "पुढील दिवसात शिल्लक राहिलेली करायची एकही नियोजित भेट नाही"
+#~ msgstr[1] "पुढील %1 दिवसात शिल्लक राहिलेली करायची एकही नियोजित भेट नाही"
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "उशीर झालेले"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "नियोजित भेट संपादित करा : \"%1\""
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "प्रगतीपथावर आहे"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "आज सुरु होत आहे"
+
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "आज करावयाचे आहे"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "पूर्ण झाले"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "नियोजन सारांश मांडणी"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "सर्वसाधारण"
+
+#~ msgid "General Configuration"
+#~ msgstr "सर्वसाधारण मांडणी"
+
+#~ msgid "Show an icon indicating a recurring item"
+#~ msgstr "कलम/बाब यांची पुनरावृत्ती दर्शविणारे चिन्ह/चित्र दर्शवा "
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon that indicates an event or to-"
+#~ "do is recurring."
+#~ msgstr ""
+#~ "तुम्हाला पुनरावृत्ती होणारा कार्यक्रम वा करावयाचा कार्यक्रम  दर्शविणारे चिन्ह/चित्र "
+#~ "पाहायचे असेल तर ही पेटी निवडा.  "
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "आवर्ती कला/बाबी दर्शविणारे चिन्ह/चित्र दर्शवा"
+
+#~ msgid "Show an icon indicating the item has a reminder"
+#~ msgstr "काम/बाब यांची आठवण करून देणारे चिन्ह/चित्र दर्शवा"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon indicating that the event or to-"
+#~ "do has a reminder."
+#~ msgstr ""
+#~ "तुम्हाला कार्यक्रम/करावयाच्या कार्यक्रमाची आठवण करून देणारे चिन्ह/चित्र पाहायचे असेल तर "
+#~ "ही पेटी निवडा."
+
+#~ msgid "Show reminder icon"
+#~ msgstr "आठवण करून देणारे चिन्ह/चित्र दर्शवा"
+
+#~ msgid "Underline links in descriptions"
+#~ msgstr "वर्णनातील/तपशीलातील दुवे अधोरेखित करा"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr ""
+#~ "तुम्हाला एकात्म साधन शोधकाचे (URL) दुवे अधोरेखित करायचे असतील तर ही पेटी निवडा. "
+
+#~ msgid "Underline links"
+#~ msgstr "दुवे अधोरेखित करा"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "सारांशामध्ये आगामी कार्यक्रम दर्शवा"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr "तुम्हाला करावयाचे कार्यक्रम सारांशामध्ये पाहायचे असतील तर ही पेटी निवडा."
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "नियोजाकात करावयाचे कार्यक्रम दर्शवा"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "सारांशामध्ये खास दिनांक दर्शवा"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr "तुम्हाला सारांशामध्ये खास दिनांक पहायच्या असतील तर ही पेटी निवडा"
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "नियोजकामध्ये खास दिनांक दर्शवा"
+
+#~ msgid "Events"
+#~ msgstr "घटना/कार्यक्रम"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "दिनदर्शिकेतील घटना/कार्यक्रम दर्शवा"
+
+#~ msgid "To-dos"
+#~ msgstr "करावयाचे कार्यक्रम"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "पूर्ण झालेले कार्यक्रम लपवा"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have already been "
+#~ "completed."
+#~ msgstr "याआधीच पूर्ण झालेले करावयाचे कार्यक्रम पाहायचे नसतील तर ही खिडकी निवडा."
+
+#~ msgid "Hide to-dos without a due date"
+#~ msgstr "नियत दिनांक नसलेले करायचे कार्यक्रम लपवा"
+
+#~ msgid "Check this box if you do not want to see open-ended to-dos."
+#~ msgstr "मुदत नसलेले करावयाचे कार्यक्रम पाहायचे नसतील तर ही पेटी निवडा."
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "सुरु न झालेले कार्यक्रम लपवा"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "सुरु होण्याची तारीख पुढच्या काळातील असेल आणि असे करायचे कार्यक्रम तुम्हाला पाहायचे "
+#~ "नसतील तर ही पेटी निवडा."
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "चालू करायचे कार्यक्रम लपवा"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr "सुरु झालेले पण न संपलेले करायचे कार्यक्रम पाहायचे नसतील तर ही पेटी निवडा."
+
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "करायचे विलंबित कार्यक्रम लपवा"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "नियत तारीख उलटून गेलेले पण पूर्ण न झालेले कार्यक्रम पाहायचे नसतील तर ही पेटी निवडा."
+
+#~ msgid "Special Dates"
+#~ msgstr "खास दिनांक"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "ह्या खास दिनांक दर्शवा"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "तुमच्या पत्त्यांच्या नोंदवहीतील वाढदिवस नियोजकाच्या सारांशात समाविष्ट करण्यासाठी हा "
+#~ "पर्याय निवडा. "
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "पत्त्यांच्या नोंदवहीतील वाढदिवस दर्शवा "
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "तुमच्या पत्त्यांच्या नोंदवहीतील वार्षिक दिन नियोजकाच्या सारांशात समाविष्ट करण्यासाठी "
+#~ "हा पर्याय निवडा."
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "पत्त्यांच्या नोंदवहीतील वर्धापनदिन/स्मृतीदिन दर्शवा"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the planner "
+#~ "summary. These are events from your configured holiday region, or events "
+#~ "with the \"Holiday\" category."
+#~ msgstr ""
+#~ "तुमच्या दिनदर्शिकेतील सुट्ट्या नियोजकाच्या सारांशात समाविष्ट करण्यासाठी हा पर्याय "
+#~ "निवडा. हे कार्यक्रम तुमच्या मांडणी केलेल्या सुट्ट्यांच्या विभागातील आहेत, किंवा कार्यक्रम "
+#~ "\"सुट्ट्या\" वर्गवारीतील आहेत."
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "दिनदर्शिकेमधील सुट्ट्या दर्शवा"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "दिनदर्शिकेमधील खास प्रसंग दर्शवा"
+
+#~ msgid "Planner Summary"
+#~ msgstr "नियोजकाचा/नियोजनाचा सारांश"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "कॉन्टॅक्ट नियोजन सारांश"
+
+#~ msgid "Active Calendar"
+#~ msgstr "सक्रिय/कार्यक्षम दिनदर्शिका"
+
+#~ msgid "Default Calendar"
+#~ msgstr "पूर्वनिर्धारित दिनदर्शिका"
+
+#~ msgid "Birthdays"
+#~ msgstr "वाढदिवस"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdसारांश"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "प्लगइन %1"
+
+#~ msgid "No Notes Available"
+#~ msgstr "काहीही नोंदी उपलब्ध नाहीत"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "प्रकटक नोंदी सुसूत्रीत करा"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "प्रकटक नोंदी समूहानुसार सुसूत्रीत करा"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "तुमच्या प्रकटक नोंदी सुसूत्रीत करण्यासाठी हा पर्याय निवडा"
+
+#~ msgid "<p><b>भाषांतरकार(Translators):</b></p>"
+#~ msgstr "<p><b>भाषांतरकार :</b></p>"

@@ -1,0 +1,1951 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Thanomsub Noppaburana <donga.nb@gmail.com>, 2008, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2010-02-27 01:40+0700\n"
+"Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
+"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ถนอมทรัพย์ นพบูรณ์"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "donga.nb@gmail.com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid ""
+#| "Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact สามารถใช้จัดการข้อมูลต่าง ๆ ของคุณได้หลายอย่าง เช่น อีเมล, สมุดที่อยู่, ปฏิทินนัดหมาย, "
+"สิ่งที่จะทำ และอื่น ๆ อีกมาก"
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgctxt "@action:inmenu"
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "บทแนะนำ &Kontact"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "กำลังโหลด Kontact..."
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "แสดงไอคอนเท่านั้น"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr ""
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "แสดงข้อความเท่านั้น"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "แสดงไอคอนและข้อความ"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr ""
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "ไอคอนขนาดใหญ่"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "แสดงไอคอนขนาดใหญ่บนถาดข้าง"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr "เลือกตัวเลือกนี้ หากคุณต้องการให้ถาดข้างแสดงไอคอนขนาดใหญ่"
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "ไอคอนขนาดปกติ"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "แสดงไอคอนขนาดปกติบนถาดข้าง"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr "เลือกตัวเลือกนี้ หากคุณต้องการให้ถาดข้างแสดงไอคอนขนาดปกติ"
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "ไอคอนขนาดเล็ก"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "แสดงไอคอนขนาดเล็กบนถาดข้าง"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr "เลือกตัวเลือกนี้ หากคุณต้องการให้ถาดข้างแสดงไอคอนขนาดเล็ก"
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Choose this option if you want the sidebar icons to be normal size."
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr "เลือกตัวเลือกนี้ หากคุณต้องการให้ถาดข้างแสดงไอคอนขนาดปกติ"
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "เลือกส่วนเสริมที่จะเริ่มเมื่อโปรแกรมเริ่มการทำงานทุกครั้ง"
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "ส่วนเสริมที่ทำงานอยู่ในปัจจุบัน"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "เริ่มการทำงานด้วยส่วนเสริมนี้เสมอ:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "ตั้งค่าส่วนเสริมที่จะเริ่มเมื่อโปรแกรมเริ่มการทำงาน"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, fuzzy, kde-format
+#| msgid ""
+#| "Usually Kontact will come up with the component used before shutdown. "
+#| "Check this box if you would like a specific component to come up on start "
+#| "instead."
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"ตามปกติแล้ว Kontact "
+"จะเริ่มการทำงานโดยเรียกส่วนประกอบที่ใช้งานตัวสุดท้ายก่อนจบการทำงานครั้งหลังสุด "
+"การกาเลือกที่ช่องนี้ จะทำให้คุณสามารถเลือกได้เองว่า จะให้ Kontact "
+"เริ่มการทำงานแล้วเรียกส่วนประกอบใดขึ้นมาทำงาน"
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "แ&ฟ้ม"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "&ตั้งค่า"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "&ช่วยเหลือ"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "แถบเครื่องมือหลัก"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "ตัวนำทาง"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "เริ่มการทำงานด้วยมอดูล Kontact ที่กำหนด"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "เริ่มแบบย่อเป็นไอคอนไปยังถาดระบบ (ย่อหาย)"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "เรียกมอดูลที่เป็นไปได้ทั้งหมดแล้วออกจากโปรแกรม"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "เครื่องมือจัดการข้อมูลส่วนบุคคลของ KDE"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "สงวนลิขสิทธิ์ (c) 2004 Tobias Koenig"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "ผู้เขียนแรกเริ่ม"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr ""
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr ""
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr "กำลังเริ่มการทำงาน..."
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "สร้างใหม่"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "ปรับแต่ง Kontact..."
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "ปรับแต่ง Kontact"
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "บทแนะนำ &Kontact"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "แสดงหน้าบทแนะนำ Kontact"
+
+#: src/mainwindow.cpp:301
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "บทแนะนำ &Kontact"
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "สลับไปยังส่วนเสริม %1"
+
+#: src/mainwindow.cpp:574
+#, fuzzy, kde-format
+#| msgid "Application is running standalone. Foregrounding..."
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "โปรแกรมนี้ทำงานแบบห้ามทำงานซ้อนอีก กำลังเรียกตัวที่ทำงานอยู่แล้ว..."
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "ไม่สามารถเรียกใช้ส่วนประกอบ %1 ได้"
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "ชุดโปรแกรมจัดการข้อมูลส่วนบุคคลของ KDE"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "อ่านคู่มือ"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "ดูรายละเอียดเพิ่มเติมเกี่ยวกับ Kontact และส่วนประกอบต่าง ๆ ของมัน"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "แวะเยี่ยมเว็บไซต์ Kontact"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "ใช้ทรัพยากรและบทแนะนำการใช้งานแบบออนไลน์"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr ""
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgid "Prepare Kontact for use in corporate networks"
+msgid "Prepare Kontact for use"
+msgstr "เตรียม Kontact สำหรับใช้งานในเครือข่ายของบริษัท"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "สงวนลิขสิทธิ์ (c), 2003 Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "ผู้พัฒนา"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "เกี่ยวกับ Kontact"
+
+#~ msgid "Kontact Container"
+#~ msgstr "ส่วนบรรจุมุมมอง Kontact"
+
+#~ msgid "No about information available."
+#~ msgstr "ไม่มีข้อมูลรายละเอียด"
+
+#~ msgid "Version %1"
+#~ msgstr "รุ่น %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>ผู้เขียน:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>ขอขอบคุณ:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>ผู้แปลภาษา:</b></p>"
+
+#~ msgid "%1 License"
+#~ msgstr "ลิขสิทธิ์ %1"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "ปรับเทียบข้อมูล"
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "รายงานสรุปของ Kontact สำหรับ KDE"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "สงวนลิขสิทธิ์ (c), 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "ปรับแต่งมุมมองรายงานสรุป..."
+
+#~ msgid "Configure the summary view"
+#~ msgstr "ปรับแต่งมุมมองรายงานสรุป..."
+
+#~ msgid "Summary for %1"
+#~ msgstr "รายงานสรุปสำหรับ %1"
+
+#~ msgid "What's next?"
+#~ msgstr "มีอะไรอีก ?"
+
+#~ msgid "Sync All"
+#~ msgstr "ปรับเทียบข้อมูลทั้งหมด"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "ทั้งหมด"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "ทั้งหมด"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "รายงานสรุปของ Kontact"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "มุมมองรายงานสรุปของ Kontact"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "(c) 2003-2004 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "สงวนลิขสิทธิ์ (c) 2003-2004 กลุ่มผู้พัฒนา Kontact"
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "มาจัดการข้อมูลกันเถอะ !"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>ขอต้อนรับสู่ Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">ข้ามหน้าบทแนะนำนี้</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&คำแนะนำประจำวัน"
+
+#~ msgctxt "@info:status"
+#~ msgid "Show the Tip-of-the-Day dialog"
+#~ msgstr "แสดงกล่องคำแนะนำประจำวัน"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "แหล่งป้อนข่าวตัวใหม่..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "ที่อยู่ติดต่อใหม่..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "กลุ่มที่อยู่ติดต่อกลุ่มใหม่..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "ปรับเทียบข้อมูลที่อยู่ติดต่อ"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "ปรับเทียบข้อมูลที่อยู่ติดต่อ"
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "กล่องการปรับแต่งค่าสรุปจดหมาย"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "สงวนลิขสิทธิ์ (c) 2004 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "แสดงตำแหน่งเต็มของโฟลเดอร์"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "แสดงพาธเต็มของแต่ละโฟลเดอร์"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "จดหมายใหม่..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "ปรับเทียบจดหมาย"
+
+#, fuzzy
+#~| msgid "Synchronize Mail"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "ปรับเทียบข้อมูลจดหมาย"
+
+#~ msgid "New Messages"
+#~ msgstr "จดหมายใหม่"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>รวม: %2<br/>ยังไม่ได้อ่าน: %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "ไม่มีจดหมายที่ยังไม่ได้อ่านในโฟลเดอร์ที่เฝ้าดูอยู่"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "เปิดโฟลเดอร์: \"%1\""
+
+#, fuzzy
+#~| msgid "kcmsdsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "กล่องการปรับแต่งค่าสรุปจดหมาย"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "ผู้ดูแลคนปัจจุบัน"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "สร้างใ&หม่"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "แก้ไข..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "เปลี่ยนชื่อ..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "ลบ"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "พิมพ์บันทึกย่อที่เลือกไว้..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "พิมพ์บันทึกย่อที่เลือกไว้..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Preferences KNotes..."
+#~ msgstr "พิมพ์บันทึกย่อที่เลือกไว้..."
+
+#, fuzzy
+#~| msgid "To print notes, first select the notes to print from the list."
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr "เพื่อการพิมพ์บันทึกย่อ อันดับแรก ให้ทำการเลือกบันทึกย่อที่จะพิมพ์จากรายการก่อน"
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "พิมพ์บันทึกย่อแบบผุด"
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Create new popup note"
+#~ msgid "Create new note"
+#~ msgstr "สร้างบันทึกย่อแบบผุดตัวใหม่"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "คุณต้องการจะลบ %1 บันทึกนี้ จริงหรือไม่ ?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "ยืนยันการลบ"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "เปลี่ยนชื่อของบันทึกย่อแบบผุด"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "ชื่อใหม่:"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "New Popup Note..."
+#~ msgid "Show Note..."
+#~ msgstr "สร้างบันทึกย่อแบบผุดตัวใหม่..."
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgid "Settings"
+#~ msgstr "&ตั้งค่า"
+
+#~ msgid "&Edit"
+#~ msgstr "แ&ก้ไข"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "สร้างบันทึกย่อแบบผุดตัวใหม่..."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "บันทึกย่อ-K"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "บันทึกย่อแบบผุด"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "สงวนลิขสิทธิ์ (c) 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "ผู้ดูแลคนปัจจุบัน"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "ผู้ดูแลคนปัจจุบัน"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "ผู้ดูแลคนปัจจุบัน"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "การประชุม"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "บันทึกย่อ: %1"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "บันทึกย่อใหม่"
+
+#, fuzzy
+#~| msgid "Drops of multiple mails are not supported."
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "ไม่รองรับการลบจดหมายจำนวนฉบับ"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "จาก: %1\n"
+#~ "ถึง: %2\n"
+#~ "เรื่อง: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "เมล: %1"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Sync Popup Notes"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "ปรับเทียบข้อมูลบันทึกย่อแบบผุด"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "แก้ไขบันทึกย่อแบบผุด"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "ชื่อ:"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Search notes..."
+#~ msgstr "พิมพ์บันทึกย่อที่เลือกไว้..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "พิมพ์บันทึกย่อที่เลือกไว้..."
+
+#~ msgid "Popup Notes"
+#~ msgstr "บันทึกย่อแบบผุด"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "New Popup Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "สร้างบันทึกย่อแบบผุดตัวใหม่..."
+
+#, fuzzy
+#~| msgid "Delete Feed"
+#~ msgid "Delete Note..."
+#~ msgstr "ลบแหล่งป้อนข่าว"
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "อ่านบันทึกย่อแบบผุด: \"%1\""
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "การปรับแต่งค่าสรุปเหตุการณ์"
+
+#, fuzzy
+#~| msgid "Show Events Starting"
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "แสดงการเริ่มเหตุการณ์"
+
+#~ msgid "Show events for today only"
+#~ msgstr "แสดงเหตุการณ์ต่าง ๆ ของวันนี้เท่านั้น"
+
+#~ msgid "&Today only"
+#~ msgstr "&วันนี้เท่านั้น"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "แสดงเหตุการณ์ต่าง ๆ ที่จะเริ่มในเดือนหน้า"
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "ภายในเดือนหน้า (31 วัน)"
+
+#, fuzzy
+#~| msgid "Within the &next"
+#~ msgid "Within the &next:"
+#~ msgstr "ภายใน"
+
+#~ msgid "1 day"
+#~ msgstr "1 วัน"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " วัน"
+
+#, fuzzy
+#~| msgid "Show These Special Dates From Your Contact List"
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "แสดงวันพิเศษเหล่านี้จากรายการที่อยู่ติดต่อของคุณ"
+
+#~ msgid "Show &birthdays"
+#~ msgstr "แสดงวันเกิดต่าง ๆ"
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "แสดงวันเฉลิมฉลอง"
+
+#, fuzzy
+#~| msgid "News Feed Settings"
+#~ msgid "Groupware Settings"
+#~ msgstr "การตั้งค่าแหล่งป้อนข่าว"
+
+#~ msgid "Show &my events only"
+#~ msgstr "แสดงเหตุการณ์ต่าง ๆ ของฉันเท่านั้น"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "เหตุการณ์ที่ใกล้จะถึง"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "ยังไม่มีเหตุการณ์ใดที่จะเริ่มภายในช่วง %1 วันข้างหน้านี้"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "แก้ไขการนัดหมาย..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "ลบการนัดหมาย"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "แก้ไขเหตุการณ์: \"%1\""
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "บันทึกประจำวันใหม่..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "เขียนบันทึกประจำวันตัวใหม่"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "ปรับเทียบข้อมูลบันทึกประจำวัน"
+
+#, fuzzy
+#~| msgid "Synchronize Mail"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "ปรับเทียบข้อมูลจดหมาย"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " วัน"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "กล่องปรับแต่งค่าเหตุการณ์ที่ใกล้จะถึง"
+
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "กล่องปรับแต่งค่าสิ่งที่จะทำ"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "เหตุการณ์ใหม่..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "สร้างเหตุการณ์ใหม่"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "ปรับเทียบข้อมูลปฏิทินนัดหมาย"
+
+#, fuzzy
+#~| msgid "Synchronize Mail"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "ปรับเทียบข้อมูลจดหมาย"
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "วันนี้"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "วันพรุ่งนี้"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "อีก %1 วัน"
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "อีก "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "%1 ช.ม."
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "%1 นาที"
+
+#~ msgid "now"
+#~ msgstr "ตอนนี้"
+
+#~ msgid "all day"
+#~ msgstr "ทั้งวัน"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "ครั้งต่อไป: %1"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "สิ่งที่จะทำใหม่..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "สิ่งที่จะทำตัวใหม่"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "ปรับเทียบข้อมูลรายการสิ่งที่จะทำ"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "ปรับเทียบข้อมูลที่อยู่ติดต่อ"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "ปรับเทียบข้อมูลที่อยู่ติดต่อ"
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "การปรับแต่งค่าสรุปสิ่งที่จะทำ"
+
+#~ msgid "Show To-dos Due"
+#~ msgstr "แสดงวันครบกำหนดของสิ่งที่จะทำ"
+
+#~ msgid "Show To-dos due today only"
+#~ msgstr "แสดงสิ่งที่จะทำที่ครบกำหนดในวันนี้เท่านั้น"
+
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "แสดงสิ่งที่จะทำที่ครบกำหนดในเดือนหน้า"
+
+#~ msgid "Select the days for showing pending To-dos"
+#~ msgstr "เลือกวันต่าง ๆ สำหรับการแสดงสิ่งที่จะทำที่ยังทำไม่เสร็จ"
+
+#~ msgid "Set the number of days to show pending To-dos"
+#~ msgstr "ตั้งค่าจำนวนวันสำหรับแสดงสิ่งที่จะทำที่ยังทำไม่เสร็จ"
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "ซ่อนสิ่งที่จะทำประเภทต่อไปนี้"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "ซ่อนสิ่งที่จะทำที่เสร็จสมบูรณ์แล้ว"
+
+#~ msgid "&Completed"
+#~ msgstr "เสร็จสมบูรณ์"
+
+#~ msgid "Hide To-dos without a due date"
+#~ msgstr "ซ่อนสิ่งที่จะทำที่ไม่มีวันครบกำหนด"
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "เปิด-สิ้นสุดแล้ว (ไม่มีวันครบกำหนด)"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "ซ่อนสิ่งที่จะทำที่ยังไม่เริ่มทำ"
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "ยังไม่เริ่ม (ยังไม่ถึงวันที่เริ่ม)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "ซ่อนสิ่งที่จะทำที่อยู่ระหว่างดำเนินการ"
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "อยู่ระหว่างดำเนินการ (เริ่มแล้วแต่ยังไม่เสร็จเรียบร้อย)"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "ซ่อนสิ่งที่จะทำที่เกินกำหนด"
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "เกินวันครบกำหนด (ยังไม่เสร็จเรียบร้อยและเกินวันที่กำหนด)"
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "แสดงสิ่งที่จะทำของฉันเท่านั้น"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "สิ่งที่ยังทำไม่เสร็จ"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "วันนี้"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "วันพรุ่งนี้"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "%1 วันก่อน"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "ครบกำหนด"
+
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "ไม่มีสิ่งที่จะทำที่ยังทำไม่เสร็จที่จะครบกำหนดในช่วง %1 วันข้างหน้านี้"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "แก้ไขสิ่งที่จะทำ..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "ลบสิ่งที่จะทำ"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "ปรับสถานะสิ่งที่จะทำเป็นเสร็จสมบูรณ์แล้ว"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "แก้ไขสิ่งที่จะทำ: \"%1\""
+
+#~ msgid "open-ended"
+#~ msgstr "เปิด-สิ้นสุดแล้ว"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "เกินกำหนด"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "เริ่มวันนี้"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "ยังไม่เริ่ม"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "เสร็จสมบูรณ์"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "อยู่ระหว่างดำเนินการ"
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "กล่องการปรับแต่งค่าวันพิเศษที่ใกล้จะมาถึง"
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "การปรับแต่งรายงานสรุปวันพิเศษ"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "แสดงการเริ่มวันพิเศษ"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "แสดงวันโอกาสพิเศษสำหรับวันนี้เท่านั้น"
+
+#, fuzzy
+#~| msgid "No upcoming events starting within the next day"
+#~| msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "ยังไม่มีเหตุการณ์ใดที่จะเริ่มภายในช่วง %1 วันข้างหน้านี้"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "แสดงวันเกิดต่าง ๆ จากปฏิทินของคุณ"
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "แสดงวันเฉลิมฉลองจากปฏิทินของคุณ"
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "แสดงวันหยุดต่าง ๆ จากปฏิทินของคุณ"
+
+#~ msgid "Show &holidays"
+#~ msgstr "แสดงวันหยุดพักผ่อน"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "แสดงวันโอกาสพิเศษต่าง ๆ จากปฏิทินของคุณ"
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "แสดงวันโอกาสพิเศษ"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "แสดงวันพิเศษเหล่านี้จากรายการที่อยู่ติดต่อของคุณ"
+
+#, fuzzy
+#~| msgid "Show &birthdays"
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "แสดงวันเกิด"
+
+#~ msgid "Show birth&days"
+#~ msgstr "แสดงวันเกิด"
+
+#, fuzzy
+#~| msgid "Show &anniversaries"
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "แสดงวันเฉลิมฉลอง"
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "แสดงวันเฉลิมฉลอง"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "วันพิเศษที่ใกล้จะถึง"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "วันนี้"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "วันพรุ่งนี้"
+
+#~ msgid "Birthday"
+#~ msgstr "วันเกิด"
+
+#~ msgid "Anniversary"
+#~ msgstr "วันเฉลิมฉลอง"
+
+#~ msgid "Holiday"
+#~ msgstr "วันหยุด"
+
+#~ msgid "Special Occasion"
+#~ msgstr "วันโอกาสพิเศษ"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "%1 ปี"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "ไม่มีวันพิเศษในช่วง %1 วันข้างหน้านี้"
+
+#~ msgid "Send &Mail"
+#~ msgstr "ส่งจดหมาย"
+
+#~ msgid "View &Contact"
+#~ msgstr "แสดงที่อยู่ติดต่อ"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "ส่งจดหมายไปยัง:\"%1\""
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "รายงานสรุปวันพิเศษ"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "รายงานสรุปวันพิเศษของ Kontact"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "ผู้ดูแลคนปัจจุบัน"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "จดหมายใหม่"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "จดหมายใหม่"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "สร้างแหล่งป้อนข่าวตัวใหม่"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "สร้างที่อยู่ติดต่อรายการใหม่"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "สร้างกลุ่มที่อยู่ติดต่อกลุ่มใหม่"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "ปรับเทียบข้อมูลที่อยู่ติดต่อ"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "ที่อยู่ติดต่อใหม่..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "ที่อยู่ติดต่อใหม่..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "สร้างจดหมายฉบับใหม่"
+
+#, fuzzy
+#~| msgid "New Article..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "New Article..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "ที่อยู่ติดต่อใหม่..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "สร้างบันทึกย่อแบบผุดตัวใหม่"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "แก้ไขบันทึกย่อแบบผุด"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "เปลี่ยนชื่อของบันทึกย่อแบบผุด"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "ลบบันทึกย่อแบบผุด"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "พิมพ์บันทึกย่อแบบผุด"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "สร้างบันทึกย่อแบบผุดตัวใหม่"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "งานใหม่"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "ที่อยู่ติดต่อใหม่..."
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "กล่องการปรับแต่งค่าสรุปจดหมาย"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgid "Planner"
+#~ msgstr "วางแผน"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "วันนี้"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "วันพรุ่งนี้"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "ไม่มีการนัดหมายที่ยังค้างอยู่ในช่วง %1 วันข้างหน้านี้"
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "เกินกำหนด"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "แก้ไขการนัดหมาย: \"%1\""
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "อยู่ระหว่างดำเนินการ"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "เริ่มวันนี้"
+
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "ครบกำหนดวันนี้"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "เสร็จสมบูรณ์แล้ว"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "ปรับแต่งค่าสรุปแผนงาน"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "ค่าทั่วไป"
+
+#~ msgid "General Configuration"
+#~ msgstr "ปรับแต่งค่าทั่วไป"
+
+#, fuzzy
+#~| msgid "Show To-dos Due"
+#~ msgid "Show recurrence icon"
+#~ msgstr "แสดงวันครบกำหนดของสิ่งที่จะทำ"
+
+#, fuzzy
+#~| msgid "Show To-dos Due"
+#~ msgid "Show reminder icon"
+#~ msgstr "แสดงวันครบกำหนดของสิ่งที่จะทำ"
+
+#, fuzzy
+#~| msgid "Pending To-dos"
+#~ msgid "Underline links in descriptions"
+#~ msgstr "สิ่งที่ยังทำไม่เสร็จ"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr "กาเลือกตัวเลือกนี้ หากคุณต้องการให้ที่อยู่เชื่อมโยง URL มีการขีดเส้นใต้ด้วย"
+
+#~ msgid "Underline links"
+#~ msgstr "ขีดเส้นใต้ส่วนเชื่อมโยง"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "แสดงรายการสิ่งที่จะทำไว้ในหน้าสรุปด้วย"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr "กาเลือกตัวเลือกนี้ หากคุณต้องการให้มีการแสดงรายการสิ่งที่จะทำไว้ในหน้าสรุปด้วย"
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "แสดงสิ่งที่จะทำในแผนงาน"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "แสดงวันพิเศษในหน้าสรุปด้วย"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr "กาเลือกตัวเลือกนี้ หากคุณต้องการให้มีการแสดงวันพิเศษในหน้าสรุปด้วย"
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "แสดงวันพิเศษต่าง ๆ ในแผนงาน"
+
+#~ msgid "Events"
+#~ msgstr "เหตุการณ์ต่าง ๆ"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "แสดงเหตุการณ์ต่าง ๆ ของปฏิทินนัดหมาย"
+
+#~ msgid "To-dos"
+#~ msgstr "สิ่งที่จะทำ"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "ซ่อนสิ่งที่จะทำที่เสร็จสมบูรณ์แล้ว"
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "ซ่อนสิ่งที่จะทำที่ยังไม่เริ่มทำ"
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "ซ่อนสิ่งที่จะทำที่อยู่ระหว่างดำเนินการ"
+
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "ซ่อนสิ่งที่จะทำที่เกินกำหนด"
+
+#~ msgid "Special Dates"
+#~ msgstr "วันพิเศษต่าง ๆ"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "แสดงวันพิเศษเหล่านี้"
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "แสดงวันเกิดต่าง ๆ ที่พบในสมุดที่อยู่"
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "แสดงวันเฉลิมฉลองต่าง ๆ ที่พบในสมุดที่อยู่"
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "แสดงวันหยุดต่าง ๆ จากปฏิทิน"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "แสดงวันโอกาสพิเศษต่าง ๆ จากปฏิทิน"
+
+#~ msgid "Planner Summary"
+#~ msgstr "รายงานสรุปแผนงาน"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "รายงานสรุปแผนงานสำหรับ Kontact"
+
+#~ msgid "Active Calendar"
+#~ msgstr "ปฏิทินที่ใช้งานอยู่"
+
+#~ msgid "Default Calendar"
+#~ msgstr "ปฏิทินปริยาย"
+
+#~ msgid "Birthdays"
+#~ msgstr "วันเกิดต่าง ๆ"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "ส่วนเสริม %1"
+
+#~ msgid "No Notes Available"
+#~ msgstr "ไม่มีรายการบันทึกย่อ"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "ปรับเทียบข้อมูลบันทึกย่อแบบผุด"
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "สงวนลิขสิทธิ์ (c) 2003 The Kontact developers"
+
+#, fuzzy
+#~| msgid "Configure Kontact as Groupware Client"
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "ปรับแต่ง Kontact ให้เป็นเช่นเดียวกันกับไคลเอนต์กรุ๊ปแวร์"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "วันเกิด"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "วันเฉลิมฉลอง"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "วันหยุด"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "วันโอกาสพิเศษ"
+
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "สงวนลิขสิทธิ์ (C) 2001-2009 กลุ่มผู้พัฒนา Kontact"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "สงวนลิขสิทธิ์ (c) 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "สงวนลิขสิทธิ์ (c) 2007-2008 Oral Timocin"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "สงวนลิขสิทธิ์ (c) 2004-2005 The KDE PIM Team"
+
+#~ msgid "(c) 2004-2006 Allen Winter"
+#~ msgstr "สงวนลิขสิทธิ์ (c) 2004-2006 Allen Winter"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "ภายในระบบ"
+
+#~ msgid "Summary"
+#~ msgstr "รายงานสรุป"
+
+#~ msgid "kontactconfig"
+#~ msgstr "ปรับแต่ง Kontact"
+
+#~ msgid " days"
+#~ msgstr " วัน"
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgid "Rename"
+#~ msgstr "เปลี่ยนชื่อ..."
+
+#, fuzzy
+#~| msgid "Show &anniversaries"
+#~ msgid "Show &anniveraries"
+#~ msgstr "แสดงวันเฉลิมฉลอง"
+
+#~ msgid "New Distribution List..."
+#~ msgstr "รายการแจกจ่ายใหม่..."
+
+#~ msgid "New SMS..."
+#~ msgstr "ข้อความ SMS ใหม่..."
+
+#~ msgid "New News Feed"
+#~ msgstr "แหล่งป้อนข่าวใหม่"
+
+#~ msgid "URL:"
+#~ msgstr "ที่อยู่ URL:"
+
+#~ msgid "Arts"
+#~ msgstr "ศิลปะ"
+
+#~ msgid "Business"
+#~ msgstr "ธุรกิจ"
+
+#~ msgid "Computers"
+#~ msgstr "คอมพิวเตอร์"
+
+#~ msgid "Misc"
+#~ msgstr "เบ็ดเตล็ด"
+
+#~ msgid "Recreation"
+#~ msgstr "สันทนาการ"
+
+#~ msgid "Society"
+#~ msgstr "สังคม"
+
+#~ msgid "Custom"
+#~ msgstr "ขนบธรรมเนียม"
+
+#~ msgid "All"
+#~ msgstr "ทั้งหมด"
+
+#~ msgid "Add"
+#~ msgstr "เพิ่ม"
+
+#~ msgid "Remove"
+#~ msgstr "เอาออก"
+
+#~ msgid "Selected"
+#~ msgstr "ที่เลือกไว้ "
+
+#~ msgid "Refresh time:"
+#~ msgstr "ช่วงเวลาเรียกปรับปรุง:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "จำนวนรายการที่ให้แสดง:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "กล่องการปรับแต่งค่าตั๋วรับข่าว"
+
+#~ msgid "News Feeds"
+#~ msgstr "แหล่งป้อนข่าว"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "ไม่มีบริการ rss dcop อยู่\n"
+#~ "คุณจำเป็นต้องใช้ rssservice กับส่วนเสริมนี้"
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "คัดลอกที่อยู่ URL ไปยังคลิปบอร์ด"
+
+#~ msgid "Weather Information"
+#~ msgstr "ข้อมูลอากาศ"
+
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "ไม่มีบริการข้อมูลอากาศผ่านทาง D-Bus อยู่ \n"
+#~ "คุณจำเป็นต้องใช้ KWeather ร่วมกับส่วนเสริมนี้"
+
+#~ msgid "Last updated on"
+#~ msgstr "ปรับปรุงล่าสุดเมื่อ"
+
+#~ msgid "Wind Speed"
+#~ msgstr "ความเร็วลม"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "ความชืั้นสัมพัทธ์"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "แสดงรายการสภาพอากาศจากสถานี"
+
+#~ msgid "Ian Reinhart Geiser"
+#~ msgstr "Ian Reinhart Geiser"
+
+#~ msgid "John Ratke"
+#~ msgstr "John Ratke"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "ปรับปรุงแก้ไขและปรับโค้ดให้กระชับและอ่านง่ายขึ้น"
+
+#~ msgid "Unknown"
+#~ msgstr "ไม่ทราบ"
+
+#~ msgid "Calendar View"
+#~ msgstr "มุมมองปฏิทิน"
+
+#~ msgid "Display:"
+#~ msgstr "แสดง:"
+
+#~ msgid "Include:"
+#~ msgstr "รวมถึง:"
+
+#, fuzzy
+#~| msgid "Special Dates"
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "วันพิเศษ"
+
+#~ msgid "0%"
+#~ msgstr "0%"
+
+#~ msgid "20%"
+#~ msgstr "20%"
+
+#~ msgid "30%"
+#~ msgstr "30%"
+
+#~ msgid "40%"
+#~ msgstr "40%"
+
+#~ msgid "50%"
+#~ msgstr "50%"
+
+#~ msgid "60%"
+#~ msgstr "60%"
+
+#~ msgid "70%"
+#~ msgstr "70%"
+
+#~ msgid "80%"
+#~ msgstr "80%"
+
+#~ msgid "90%"
+#~ msgstr "90%"
+
+#~ msgid "100%"
+#~ msgstr "100%"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "ทรัพยากรปริยายของ KOrganizer"
+
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "วันนี้"
+
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "วันพรุ่งนี้"
+
+#, fuzzy
+#~| msgid "Show These Special Dates From Your Contact List"
+#~ msgid "Show Birthdays from Contact List"
+#~ msgstr "แสดงวันพิเศษเหล่านี้จากรายการที่อยู่ติดต่อของคุณ"
+
+#, fuzzy
+#~| msgid "Show These Special Dates From Your Contact List"
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "แสดงวันพิเศษเหล่านี้จากรายการที่อยู่ติดต่อของคุณ"
+
+#, fuzzy
+#~| msgid "&Today only"
+#~ msgid "Today only"
+#~ msgstr "วันนี้เท่านั้น"
+
+#, fuzzy
+#~| msgid "Over&due (not completed and beyond due-date)"
+#~ msgid "Overdue (not completetd and beyond due-date)"
+#~ msgstr "เกินวันครบกำหนด (ยังไม่เสร็จเรียบร้อยและเกินวันที่กำหนด)"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos starting today"
+#~ msgstr "เริ่มวันนี้"
+
+#, fuzzy
+#~| msgctxt "to-do ends today"
+#~| msgid "ends today"
+#~ msgid "To-dos ending today"
+#~ msgstr "สิ้นสุดวันนี้"
+
+#, fuzzy
+#~| msgid "&In-progress (started but not completed)"
+#~ msgid "In-progress(started but not completetd)"
+#~ msgstr "อยู่ระหว่างดำเนินการ (เริ่มแล้วแต่ยังไม่เสร็จเรียบร้อย)"
+
+#~ msgid "One day"
+#~ msgstr "หนึ่งวัน"
+
+#~ msgid "Five days"
+#~ msgstr "ห้าวัน"
+
+#~ msgid "One week"
+#~ msgstr "หนึ่งสัปดาห์"
+
+#~ msgid "One month"
+#~ msgstr "หนึ่งเดือน"
+
+#~ msgid "Show all to-dos"
+#~ msgstr "แสดงสิ่งที่จะทำทั้งหมด"
+
+#~ msgid "Starting to-dos"
+#~ msgstr "สิ่งที่จะทำที่กำลังเริ่ม"
+
+#~ msgid "Ending to-dos"
+#~ msgstr "สิ่งที่จะทำที่กำลังสิ้นสุด"
+
+#~ msgid "To-dos in progress"
+#~ msgstr "สิ่งที่จะทำที่กำลังดำเนินการ"
+
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "กล่องการปรับแต่งค่าตารางเวลา"
+
+#~ msgid "&Today"
+#~ msgstr "วันนี้"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "ไม่สามารถจัดการกับการลบเหตุการณ์ประเภท '%1' ได้"
+
+#~ msgid "Notes Management"
+#~ msgstr "จัดการบันทึกย่อ"
+
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "ขนาดไอคอน"
+
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "ใหญ่"
+
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "เล็ก"
+
+#~ msgid "Synchronize"
+#~ msgstr "ปรับเทียบข้อมูล"
+
+#~ msgid "Name"
+#~ msgstr "ชื่อ"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr "คุณสามารถเลือกลักษณะการแสดงของส่วนเสริมรายงานสรุปที่จะแสดงในมุมมองรายงานสรุปได้ที่นี่"

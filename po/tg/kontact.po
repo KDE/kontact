@@ -1,0 +1,1986 @@
+# translation of kontact.po to Tajik
+# translation of kontact.po to Тоҷикӣ
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# 2004, infoDev, a World Bank organization
+# 2004, Khujand Computer Technologies, Inc.
+# 2004, Youth Opportunities, NGO
+# Victor Ibragimov <youth_opportunities@tajik.net>, 2004.
+# Marina Kolucheva <youth_opportunities@tajik.net>, 2004.
+# Roger V Kovacs, <rkovacs@khujand.org>, 2004.
+# Erkin Pulatov <erkin_pulatov@mail.ru>, 2004.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2004-08-17 18:42+0500\n"
+"Last-Translator: Erkin Pulatov <erkin_pulatov@mail.ru>\n"
+"Language-Team: Tajik\n"
+"Language: tg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+msgid "Skip this introduction"
+msgstr "Қуттии Kontact"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+msgid "Loading Kontact ..."
+msgstr "Kontact-ро омода кардан..."
+
+#: src/iconsidepane.cpp:263
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Намоиши ҳама масъалаҳо"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr ""
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+
+#: src/iconsidepane.cpp:270
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Намоиши ҳама масъалаҳо"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+
+#: src/iconsidepane.cpp:277
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Намоиши ҳама масъалаҳо"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr ""
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+
+#: src/iconsidepane.cpp:287
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Намоиши ҳама масъалаҳо"
+
+#: src/iconsidepane.cpp:291
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Намоиши ҳама масъалаҳо"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+
+#: src/iconsidepane.cpp:294
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Намоиши ҳама масъалаҳо"
+
+#: src/iconsidepane.cpp:298
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Намоиши ҳама масъалаҳо"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+
+#: src/iconsidepane.cpp:301
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Намоиши ҳама масъалаҳо"
+
+#: src/iconsidepane.cpp:305
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Намоиши ҳама масъалаҳо"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr ""
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr ""
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, fuzzy, kde-format
+#| msgid "Meeting"
+msgid "&Settings"
+msgstr "Вохӯрӣ"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr ""
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Ба кор андохтан бо қисмати муайян"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr ""
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Нишон додани рӯйхати қисматҳои дастрас ва баромадан"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "Менеҷери ахбороти шахсии KDE "
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "(c) 2004 Тобиас Коэниг"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr ""
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr ""
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr ""
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr ""
+
+#: src/main.cpp:173
+#, fuzzy, kde-format
+#| msgid "(c), 2003 Cornelius Schumacher"
+msgid "Cornelius Schumacher"
+msgstr "(c), 2003 Корнелиус Шумахер"
+
+#: src/main.cpp:174
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Tobias König"
+msgstr "(c) 2004 Тобиас Коэниг"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr ""
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr ""
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr ""
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Муаллифи Ибтидоӣ"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr ""
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr ""
+
+#: src/mainwindow.cpp:251
+#, fuzzy, kde-format
+#| msgid " Initializing..."
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr "Инитсиализатсия..."
+
+#: src/mainwindow.cpp:288
+#, fuzzy, kde-format
+#| msgid "New"
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Нав"
+
+#: src/mainwindow.cpp:293
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Kontact-ро омода кардан..."
+
+#: src/mainwindow.cpp:294
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Kontact-ро омода кардан..."
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+
+#: src/mainwindow.cpp:299
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "Қуттии Kontact"
+
+#: src/mainwindow.cpp:300
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Қуттии Kontact"
+
+#: src/mainwindow.cpp:301
+#, fuzzy, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Қуттии Kontact"
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr ""
+
+#: src/mainwindow.cpp:574
+#, fuzzy, kde-format
+#| msgid "Application is running standalone. Foregrounding..."
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Гузориш алоҳида иҷро шуда истодааст. Кушодашавӣ..."
+
+#: src/mainwindow.cpp:590
+#, fuzzy, kde-format
+#| msgid "Cannot load part for %1."
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Пур кардани қисмати %1 имконнопазир аст."
+
+#: src/mainwindow.cpp:658
+#, fuzzy, kde-format
+#| msgctxt "Plugin dependent window title"
+#| msgid "%1 - Kontact"
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+msgid "The KDE Personal Information Management Suite."
+msgstr "Менеҷери ахбороти шахсии KDE "
+
+#: src/mainwindow.cpp:926
+#, kde-format
+msgid "Read Manual"
+msgstr ""
+
+#: src/mainwindow.cpp:927
+#, kde-format
+msgid "Learn more about Kontact and its components"
+msgstr ""
+
+#: src/mainwindow.cpp:930
+#, kde-format
+msgid "Visit Kontact Website"
+msgstr ""
+
+#: src/mainwindow.cpp:931
+#, kde-format
+msgid "Access online resources and tutorials"
+msgstr ""
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr ""
+
+#: src/mainwindow.cpp:935
+#, kde-format
+msgid "Prepare Kontact for use"
+msgstr ""
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Корнелиус Шумахер"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "(c), 2003 Корнелиус Шумахер"
+
+#, fuzzy
+#~| msgid "Plugin Developer"
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Тавлидгари Плагинҳо"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "(c) 2004 Тобиас Коэниг"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Маълумот дар бораи Kontact"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Қуттии Kontact"
+
+#~ msgid "No about information available."
+#~ msgstr "Ахборот дастрас надорад."
+
+#, fuzzy
+#~| msgid "Version %1</p>"
+#~ msgid "Version %1"
+#~ msgstr "Ривояти %1</p>"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Муаллифон:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Ташаккур ба:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Тарҷумаҳо:</b></p>"
+
+#, fuzzy
+#~ msgid "%1 License"
+#~ msgstr "%1 Литсензия"
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "KDE Робитаи ҷамъ"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Тобиас Койнг"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Tobias Koenig"
+#~ msgstr "(c) 2004 Тобиас Коэниг"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&Мизроб кардани дайджест..."
+
+#, fuzzy
+#~| msgid "&Configure Summary View..."
+#~ msgid "Configure the summary view"
+#~ msgstr "&Мизроб кардани дайджест..."
+
+#, fuzzy
+#~ msgid "Summary for %1"
+#~ msgstr "Резюме"
+
+#~ msgid "What's next?"
+#~ msgstr "Баъд аз он чӣ?"
+
+#, fuzzy
+#~| msgid "All"
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Ҳама"
+
+#, fuzzy
+#~| msgid "All"
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Ҳама"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Робитаи ҷамъ"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Робитаи ҷамъи аз назар гузаронӣ"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(C) 2001-2004, коргардони Kontact"
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#, fuzzy
+#~| msgid "&Tip of the Day"
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&Маслиҳати Рӯз"
+
+#, fuzzy
+#~| msgid "New Feed..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Диҳиши нав..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Намоиши &алоқа"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "Намоиши &алоқа"
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Мухтасар дуруст кардани дайджест дар Mail"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "(c) 2004 Тобиас Коэниг"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Нишон додани тамоми роҳҳо ба феҳристҳо"
+
+#, fuzzy
+#~| msgid "Show full path for folders"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Нишон додани тамоми роҳҳо ба феҳристҳо"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Мактуби нав"
+
+#, fuzzy
+#~| msgid "Send &Mail"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Фиристодани &почта"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "Намоиши &алоқа"
+
+#~ msgid "New Messages"
+#~ msgstr "Мактуби нав"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#, fuzzy
+#~| msgid "kcmkorgsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmkorgsummary"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Мухтасар дуруст кардани дайджест дар Mail"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "Координатор"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "Нав"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Масъалаи нав..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Тағири ном"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Интихобшуда"
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Интихоби қисматҳо..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Интихоби қисматҳо..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Preferences KNotes..."
+#~ msgstr "Интихоби қисматҳо..."
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Нишонаро тағир додан"
+
+#, fuzzy
+#~ msgid "Create new note"
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Оё шумо дар ҳақиқат мехоҳед ин нишонаро кӯр кунед?"
+#~ msgstr[1] "Оё шумо дар ҳақиқат мехоҳед %1 нишонаҳоро кӯр кунед?"
+
+#, fuzzy
+#~| msgid "Confirm Delete"
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Тасдиқи нест кардан"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Ном:"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Show Note..."
+#~ msgstr "Нишонаи нав..."
+
+#, fuzzy
+#~| msgid "Meeting"
+#~ msgid "Settings"
+#~ msgstr "Вохӯрӣ"
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "Масъалаи нав..."
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Нишонаи нав..."
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "Навиштаҷотҳо"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Нишонаро тағир додан"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "(c) 2004 Тобиас Коэниг"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Координатор"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Координатор"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Координатор"
+
+#, fuzzy
+#~| msgid "Meeting"
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Вохӯрӣ"
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Навиштаҷотҳо"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Нишонаи нав..."
+
+#, fuzzy
+#~| msgid "Drops of multiple mails are not supported."
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Нест кардани якчанд хатҳо нигоҳ дошта намешавад."
+
+#, fuzzy
+#~| msgid ""
+#~| "From: %1\n"
+#~| "To: %2\n"
+#~| "Subject: %3"
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Аз: %1\n"
+#~ "Ба: %2\n"
+#~ "Мавзӯъ: %3"
+
+#, fuzzy
+#~| msgid "Mail: %1"
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Почта: %1"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Намоиши &алоқа"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Нишонаро тағир додан"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Ном:"
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Search notes..."
+#~ msgstr "Интихоби қисматҳо..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Интихоби қисматҳо..."
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgid "Popup Notes"
+#~ msgstr "Нишонаро тағир додан"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "Нишонаи нав..."
+
+#, fuzzy
+#~| msgid "Delete Feed"
+#~ msgid "Delete Note..."
+#~ msgstr "Нест кардани диҳиш"
+
+#, fuzzy
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Мухтасар дуруст кардани дайджест дар Mail"
+
+#, fuzzy
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Робитаи ҷамъ"
+
+#, fuzzy
+#~ msgid "Show events for today only"
+#~ msgstr "Намоиши масъалаи имрӯз"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today only"
+#~ msgstr "Имрӯз"
+
+#, fuzzy
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Не ягон рӯзи таввалуд ё солгард дар зарфи рӯз гузаронида мешавад."
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "1 day"
+#~ msgstr " рӯз"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " рӯз"
+
+#, fuzzy
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~ msgid "Show &birthdays"
+#~ msgstr "Ҳамаи рӯзҳои таваллуд"
+
+#, fuzzy
+#~ msgid "Show &anniversaries"
+#~ msgstr "Ҳамаи солгардҳо"
+
+#, fuzzy
+#~| msgid "News Feed Settings"
+#~ msgid "Groupware Settings"
+#~ msgstr "Хабарҳои нави нишондод"
+
+#, fuzzy
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Намоиши масъалаи имрӯз"
+
+#, fuzzy
+#~ msgid "Show &my events only"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] ""
+#~ "Не ягон рӯзи таввалуд ё солгард дар зарфи рӯз гузаронида мешавад."
+#~ msgstr[1] ""
+#~ "Не ягон рӯзи таввалуд ё солгард дар зарфи %1 рӯзҳо гузаронида мешавад."
+
+#, fuzzy
+#~ msgid "&Edit Appointment..."
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~ msgid "&Delete Appointment"
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Почтаи нав..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Почтаи нав..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Намоиши &алоқа"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " рӯз"
+#~ msgstr[1] " рӯзҳо"
+
+#, fuzzy
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~| msgid "New Event..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Воқеаи нав..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Тақвим"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Намоиши &алоқа"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Имрӯз"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Пагоҳ"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "дар %1 рӯз"
+#~ msgstr[1] "дар %1 рӯзҳо"
+
+#, fuzzy
+#~ msgid "now"
+#~ msgstr "ношинос"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "all day"
+#~ msgstr " рӯз"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Навиштаҷотҳо"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Масъалаи нав..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Намоиши &алоқа"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "Намоиши &алоқа"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Мухтасар дуруст кардани дайджест дар Mail"
+
+#, fuzzy
+#~ msgid "Show To-dos Due"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "Не ягон рӯзи таввалуд ё солгард дар зарфи рӯз гузаронида мешавад."
+
+#, fuzzy
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Нест кардани диҳиш"
+
+#, fuzzy
+#~ msgid "&Completed"
+#~ msgstr "Нест кардани диҳиш"
+
+#, fuzzy
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "иҷро шуда истодааст"
+
+#, fuzzy
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Масъалаҳо"
+
+#, fuzzy
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Намоиши масъалаи имрӯз"
+
+#, fuzzy
+#~ msgid "Pending To-dos"
+#~ msgstr "Масъалаҳо"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Имрӯз"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Пагоҳ"
+
+#, fuzzy
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] " рӯз"
+#~ msgstr[1] " рӯзҳо"
+
+#, fuzzy
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "таъхир карда шуда"
+
+#, fuzzy
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] ""
+#~ "Не ягон рӯзи таввалуд ё солгард дар зарфи рӯз гузаронида мешавад."
+#~ msgstr[1] ""
+#~ "Не ягон рӯзи таввалуд ё солгард дар зарфи %1 рӯзҳо гузаронида мешавад."
+
+#, fuzzy
+#~ msgid "&Edit To-do..."
+#~ msgstr "Масъалаи нав..."
+
+#, fuzzy
+#~ msgid "&Delete To-do"
+#~ msgstr "Нест кардани диҳиш"
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "таъхир карда шуда"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "Ҳамин рӯз сар мешавад"
+
+#, fuzzy
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "Нест кардани диҳиш"
+
+#, fuzzy
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "иҷро шуда истодааст"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Мухтасар дуруст кардани дайджест дар Mail"
+
+#, fuzzy
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Робитаи ҷамъ"
+
+#, fuzzy
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Не ягон рӯзи таввалуд ё солгард дар зарфи рӯз гузаронида мешавад."
+
+#, fuzzy
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Ҳамаи солгардҳо"
+
+#, fuzzy
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~ msgid "Show &holidays"
+#~ msgstr "Ҳамаи рӯзҳои таваллуд"
+
+#, fuzzy
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Ҳамаи рӯзҳои таваллуд"
+
+#, fuzzy
+#~ msgid "Show birth&days"
+#~ msgstr "Ҳамаи рӯзҳои таваллуд"
+
+#, fuzzy
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Ҳамаи солгардҳо"
+
+#, fuzzy
+#~ msgid "Show anni&versaries"
+#~ msgstr "Ҳамаи солгардҳо"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Робитаи ҷамъ"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Имрӯз"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Пагоҳ"
+
+#, fuzzy
+#~ msgid "Holiday"
+#~ msgstr "Имрӯз"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "%1  сол"
+#~ msgstr[1] "%1 солҳо"
+
+#, fuzzy
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] ""
+#~ "Не ягон рӯзи таввалуд ё солгард дар зарфи рӯз гузаронида мешавад."
+#~ msgstr[1] ""
+#~ "Не ягон рӯзи таввалуд ё солгард дар зарфи %1 рӯзҳо гузаронида мешавад."
+
+#~ msgid "Send &Mail"
+#~ msgstr "Фиристодани &почта"
+
+#~ msgid "View &Contact"
+#~ msgstr "Намоиши &алоқа"
+
+#, fuzzy
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Мактубро фиристодан ба %1"
+
+#, fuzzy
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Робитаи ҷамъ"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgid "Current Maintainer"
+#~ msgstr "Координатор"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Мактуби нав"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Мактуби нав"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Намоиши &алоқа"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Намоиши &алоқа"
+
+#, fuzzy
+#~| msgid "New Article..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Мақолаи нав..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Нишонаро тағир додан"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Нишонаро тағир додан"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmkabsummary"
+
+#, fuzzy
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmkabsummary"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Мактуби нав"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Алоқаи нав..."
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Мухтасар дуруст кардани дайджест дар Mail"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Имрӯз"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Пагоҳ"
+
+#, fuzzy
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] ""
+#~ "Не ягон рӯзи таввалуд ё солгард дар зарфи рӯз гузаронида мешавад."
+#~ msgstr[1] ""
+#~ "Не ягон рӯзи таввалуд ё солгард дар зарфи %1 рӯзҳо гузаронида мешавад."
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "таъхир карда шуда"
+
+#, fuzzy
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "иҷро шуда истодааст"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "Ҳамин рӯз сар мешавад"
+
+#, fuzzy
+#~| msgid "ends today"
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "Ҳамин рӯз тамом мешавад"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Мухтасар дуруст кардани дайджест дар Mail"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "General Configuration"
+#~ msgstr "Мухтасар дуруст кардани дайджест дар Mail"
+
+#, fuzzy
+#~ msgid "Show recurrence icon"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~ msgid "Show reminder icon"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Масъалаҳо"
+
+#, fuzzy
+#~ msgid "Underline links"
+#~ msgstr "Масъалаҳо"
+
+#, fuzzy
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Робитаи ҷамъ"
+
+#, fuzzy
+#~ msgid "Show special dates in planner"
+#~ msgstr "Робитаи ҷамъ"
+
+#, fuzzy
+#~ msgid "Show Calendar Events"
+#~ msgstr "Тақвим"
+
+#, fuzzy
+#~ msgid "To-dos"
+#~ msgstr "Масъалаҳо"
+
+#, fuzzy
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Нест кардани диҳиш"
+
+#, fuzzy
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Нест кардани диҳиш"
+
+#, fuzzy
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "иҷро шуда истодааст"
+
+#, fuzzy
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Масъалаҳо"
+
+#, fuzzy
+#~ msgid "Special Dates"
+#~ msgstr "Робитаи ҷамъ"
+
+#, fuzzy
+#~ msgid "Show these Special Dates"
+#~ msgstr "Робитаи ҷамъ"
+
+#, fuzzy
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Ҳамаи рӯзҳои таваллуд"
+
+#, fuzzy
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Ҳамаи солгардҳо"
+
+#, fuzzy
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~| msgid "Summary"
+#~ msgid "Planner Summary"
+#~ msgstr "Резюме"
+
+#, fuzzy
+#~| msgid "Kontact Summary"
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Робитаи ҷамъ"
+
+#, fuzzy
+#~ msgid "Active Calendar"
+#~ msgstr "Тақвим"
+
+#, fuzzy
+#~ msgid "Default Calendar"
+#~ msgstr "Тақвим"
+
+#, fuzzy
+#~ msgid "Birthdays"
+#~ msgstr "Ҳамаи рӯзҳои таваллуд"
+
+#, fuzzy
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmkabsummary"
+
+#, fuzzy
+#~ msgid "No Notes Available"
+#~ msgstr "Ахборот мавҷуд надорад"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Намоиши &алоқа"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Намоиши &алоқа"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "Намоиши &алоқа"
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(C) 2003 Алоқаи иморатсозҳо"
+
+#, fuzzy
+#~| msgid "Configure Kontact..."
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Kontact-ро омода кардан..."
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(C) 2001-2004, коргардони Kontact"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003 - 2004, Тобиас Коэниг"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Локалӣ"
+
+#~ msgid "Summary"
+#~ msgstr "Резюме"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid " days"
+#~ msgstr " рӯз"
+
+#, fuzzy
+#~ msgid "Rename"
+#~ msgstr "Тағири ном"
+
+#, fuzzy
+#~ msgid "Show &anniveraries"
+#~ msgstr "Ҳамаи солгардҳо"
+
+#, fuzzy
+#~| msgid "New Feed..."
+#~ msgid "New SMS..."
+#~ msgstr "Диҳиши нав..."
+
+#~ msgid "New News Feed"
+#~ msgstr "Хабарҳои нави хурокворӣ"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "Тасвирҳо"
+
+#~ msgid "Business"
+#~ msgstr "Бизнес"
+
+#~ msgid "Computers"
+#~ msgstr "Компютерҳо"
+
+#~ msgid "Misc"
+#~ msgstr "Гуногун"
+
+#~ msgid "Recreation"
+#~ msgstr "Бозсозӣ"
+
+#~ msgid "Society"
+#~ msgstr "Ҷамъият"
+
+#, fuzzy
+#~ msgid "Custom"
+#~ msgstr "Идоракунии гумрук"
+
+#~ msgid "All"
+#~ msgstr "Ҳама"
+
+#~ msgid "Selected"
+#~ msgstr "Интихобшуда"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Бозсозии вақт:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Миқдори чизҳои нишон дода:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Мизроб кардани тақвим"
+
+#~ msgid "News Feeds"
+#~ msgstr "Ахборот дар бораи диҳиш"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "Хизматгузории обу ҳаво дар DCOP. нодастрас аст.\n"
+#~ "Шумо бояд  "
+
+#~ msgid "Weather Information"
+#~ msgstr "Ахборот дар бораи обу ҳаво"
+
+#, fuzzy
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "Хизматгузории обу ҳаво дар DCOP дастрас нест;\n"
+#~ "Шумо бояд барои истифода кардани ин хизматрасонӣ КОбу ҳаворо муқарар "
+#~ "кунед."
+
+#~ msgid "Wind Speed"
+#~ msgstr "Суръати шамол"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "Рутубати нисбӣ"
+
+#, fuzzy
+#~ msgid "View Weather Report for Station"
+#~ msgstr "Ахборот дар бораи обу ҳаво"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "Беҳбудиҳо ва бисёр тозакуниҳои рамз"
+
+#~ msgid "Unknown"
+#~ msgstr "Номаълум"
+
+#, fuzzy
+#~ msgid "Show To-dos"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "Робитаи ҷамъ"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Имрӯз"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Пагоҳ"
+
+#, fuzzy
+#~ msgid "Show Birthdays from Contact List"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "Today only"
+#~ msgstr "Имрӯз"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos starting today"
+#~ msgstr "Ҳамин рӯз сар мешавад"
+
+#, fuzzy
+#~ msgid "To-dos ending today"
+#~ msgstr "Масъалаҳои муайянкарда нест"
+
+#~ msgid "One day"
+#~ msgstr "Як рӯз"
+
+#~ msgid "Five days"
+#~ msgstr "Панҷ рӯз"
+
+#~ msgid "One week"
+#~ msgstr "Як ҳафта"
+
+#~ msgid "One month"
+#~ msgstr "Як моҳ"
+
+#, fuzzy
+#~ msgid "Show all to-dos"
+#~ msgstr "Намоиши ҳама масъалаҳо"
+
+#, fuzzy
+#~ msgid "Starting to-dos"
+#~ msgstr "Масъалаҳо"
+
+#, fuzzy
+#~ msgid "Ending to-dos"
+#~ msgstr "Масъалаҳо"
+
+#, fuzzy
+#~ msgid "To-dos in progress"
+#~ msgstr "иҷро шуда истодааст"
+
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "Дуруст кардани тақвимот"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today"
+#~ msgstr "Имрӯз"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr ""
+#~ "Кор карда баромадани воқеаи нест кардани намуди '%1' имконнопазир аст."
+
+#~ msgid "Notes Management"
+#~ msgstr "Роҳбарияти навиштанҳо"
+
+#~ msgid "Name"
+#~ msgstr "Ном"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr ""
+#~ "Дар ин чо шумо метавонед, қисматҳоро интихоб кунед барои дар дайджест "
+#~ "нишон додан."
+
+#~ msgid "&Request Feature..."
+#~ msgstr "&Талаб кардани функсияи иловагии..."
+
+#, fuzzy
+#~ msgid "&Refresh Summary View..."
+#~ msgstr "&Мизроб кардани дайджест..."
+
+#~ msgid "Appointments"
+#~ msgstr "Вохӯриҳо"
+
+#, fuzzy
+#~ msgid "How many days should the calendar show at once?"
+#~ msgstr "Чанд рӯзро дар тақвимот нишон диҳам?"
+
+#~ msgid "KPilot Information"
+#~ msgstr "Ахборот дар бораи KPilot"
+
+#~ msgid ""
+#~ "KPilot - HotSync software for KDE\n"
+#~ "\n"
+#~ msgstr ""
+#~ "KPilot - барномаи синхронизатсия барои KDE\n"
+#~ "\n"
+
+#~ msgid "Project Leader"
+#~ msgstr "Раиси проект"
+
+#~ msgid "<i>Last sync:</i>"
+#~ msgstr "<i>Синхронизатсияи охирин:</i>"
+
+#~ msgid "No information available"
+#~ msgstr "Ахборот мавҷуд надорад"
+
+#, fuzzy
+#~ msgid "[View Sync Log]"
+#~ msgstr "Маҷаллаи синхронизационӣ КПилот"
+
+#~ msgid "<i>User:</i>"
+#~ msgstr "<i>Истифодакунанда:</i>"
+
+#~ msgid "<i>Device:</i>"
+#~ msgstr "<i>Сохтор:</i>"
+
+#~ msgid "<i>Status:</i>"
+#~ msgstr "<i>Вазъият:</i>"
+
+#~ msgid "No communication with the daemon possible"
+#~ msgstr "Ба демон пайваст шудан имконпазир нест"
+
+#~ msgid "<i>Conduits:</i>"
+#~ msgstr "<i>Каналҳо:</i>"
+
+#~ msgid "unknown"
+#~ msgstr "ношинос"
+
+#~ msgid "No information available (Daemon not running?)"
+#~ msgstr "Ххборот дар бораи Демон имконпазир аст"
+
+#~ msgid "KPilot HotSync Log"
+#~ msgstr "Маҷаллаи синхронизационӣ КПилот"
+
+#~ msgid "Unable to open Hotsync log %1."
+#~ msgstr "Кушодани маҷаллаи синхронизационӣ имконнопазир аст %1."
+
+#, fuzzy
+#~ msgid "How many days should the special dates summary show at once?"
+#~ msgstr ""
+#~ "Баъди чанд рӯз ифодаи кӯтоҳи китобчаи адресҳо бояд нишон дода шавад?"

@@ -1,0 +1,2424 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Jean Cayron <jean.cayron@gmail.com>, 2008, 2009, 2010, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2013-03-19 17:01+0100\n"
+"Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
+"Language-Team: Walloon <linux-wa@walon.org>\n"
+"Language: wa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Djan Cayron"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "jean.cayron@gmail.com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgid ""
+#| "Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact apougne vos emiles, vosse calpin d' adresse, calindrî, djivêye des "
+"afés et co pus."
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "Adrovaedje di &Kontact"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "Dji tchedje Kontact..."
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "En håyner k' les imådjetes"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr ""
+"Håyner les cayets el bår di costé avou des imådjetes eyet sins scrijhaedje"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"Clitchîz cisse tchuze si vs voloz k' les cayets el bår di costé åyexhe des "
+"imådjetes sins scrijhaedje."
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "En håyner kel tecse"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "Håyner les cayets el bår di costé avou do tecse eyet sins imådjete"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"Clitchîz cisse tchuze si vs voloz k' les cayets el bår di costé åyexhe des "
+"scrijhaedjes sins imådjete."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Håyner imådjetes eyet tecse"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr ""
+"Håyner les cayets el bår di costé avou des imådjetes eyet do scrijhaedje"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+"Clitchîz cisse tchuze si vs voloz k' les cayets el bår di costé åyexhe des "
+"imådjetes eyet do scrijhaedje."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Grandès imådjetes"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Håyner l' grande grandeu des imådjetes el bår di costé"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+"Clitchîz cisse tchuze ci si vs voloz k' les cayets el bår di costé soeyexhe "
+"miergrand."
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Imådjetes normåles"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Håyner l' grandeu normåle des imådjetes el bår di costé"
+
+#: src/iconsidepane.cpp:299
+#, fuzzy, kde-format
+#| msgid "Check this box to hide to-dos that are 100% complete."
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr "Clitchîz cisse boesse po catchî les afés ki sont finis a 100%."
+
+#: src/iconsidepane.cpp:301
+#, fuzzy, kde-format
+#| msgid "Small Icons"
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Pitiès imådjetes"
+
+#: src/iconsidepane.cpp:305
+#, fuzzy, kde-format
+#| msgid "Show reminder icon"
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Mostrer l' imådjete do rimimbreu"
+
+#: src/iconsidepane.cpp:306
+#, fuzzy, kde-format
+#| msgid "Check this box to hide to-dos that are 100% complete."
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr "Clitchîz cisse boesse po catchî les afés ki sont finis a 100%."
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid ""
+#| "Choose this option if you want the sidebar items to have icons and text."
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+"Clitchîz cisse tchuze si vs voloz k' les cayets el bår di costé åyexhe des "
+"imådjetes eyet do scrijhaedje."
+
+#: src/kcmkontact.cpp:36
+#, fuzzy, kde-format
+#| msgid "Select the plugin summaries to show on the summary page."
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr ""
+"Tchoezixhoz les racourtis do tchôke-divins po mostrer dins l' pådje di "
+"rascourti."
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "Li tchôke-divins ovrant pol moumint"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "Todi enonder avou c' tchôke-divins la :"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "Defini l' prumî tchôke-divins a tchaeke enondaedje"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Normålmint Kontact s' enondrè avou l' tchôke-divins eployî divant d' "
+"distinde. Clitchîz cisse boesse si vs voloz kel tchôke-divins di specifyî "
+"arive al plaece a l' enondaedje."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&Fitchî"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "A&pontiaedjes"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "&Aidance"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Mwaisse båre ås usteyes"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "Naivieu"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Enonder avou on module di Kontact diné"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Enonder en môde imådjete (å pus ptit)"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Fé l' djivêye di tos les modules possibes eyet moussî foû"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "Manaedjeu des informåcions da vosse di KDE"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "© 2004 Tobias Koenig"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Oridjinnå oteur"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr ""
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr ""
+
+#: src/mainwindow.cpp:251
+#, fuzzy, kde-format
+#| msgid " Initializing..."
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr "Inicialijhaedje..."
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Novea"
+
+#: src/mainwindow.cpp:293
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Apontyî Kontact..."
+
+#: src/mainwindow.cpp:294
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Apontyî Kontact..."
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+
+#: src/mainwindow.cpp:299
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "Adrovaedje di &Kontact"
+
+#: src/mainwindow.cpp:300
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Adrovaedje di &Kontact"
+
+#: src/mainwindow.cpp:301
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Adrovaedje di &Kontact"
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr ""
+
+#: src/mainwindow.cpp:574
+#, fuzzy, kde-format
+#| msgid "Application is running standalone. Foregrounding..."
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Li programe est enondé tot seule. Dji mete å prumî plan..."
+
+#: src/mainwindow.cpp:590
+#, fuzzy, kde-format
+#| msgid "Cannot load part for %1."
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Dji n' sai nén tcherdjî l' pårt po %1."
+
+#: src/mainwindow.cpp:658
+#, fuzzy, kde-format
+#| msgctxt "Plugin dependent window title"
+#| msgid "%1 - Kontact"
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "Li shûte KDE pol manaedjmint des informåcions da vosse"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "Lére les esplikêyes"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "Aprinde pus so Kontact eyet ses componints"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "Viziter l' waibe da Kontact"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "Aveur accès ås rissources eyets tutoriels"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr ""
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgid "Prepare Kontact for use in corporate networks"
+msgid "Prepare Kontact for use"
+msgstr "Aprester Kontact po esse eployî dins des rantoeles d' eterprijhe"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "Kontact da KDE"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "©, 2003 Cornelius Schumacher"
+
+#, fuzzy
+#~| msgid "Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Programeu"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Åd fwait di Kontact"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Contneu Kontact"
+
+#~ msgid "No about information available."
+#~ msgstr "Pont d' pondants et djondants åd fwait disponibes."
+
+#~ msgid "Version %1"
+#~ msgstr "Modêye %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Oteurs:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Gråce a:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Ratourneus:</b></p>"
+
+#~ msgid "%1 License"
+#~ msgstr "%1 Licince"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "Sincro"
+
+#~ msgctxt "@title:column plugin name"
+#~ msgid "Summary Plugin Name"
+#~ msgstr "No do tchôke-divins pol racourti"
+
+#~ msgid "Select the plugin summaries to show on the summary page."
+#~ msgstr ""
+#~ "Tchoezixhoz les racourtis do tchôke-divins po mostrer dins l' pådje di "
+#~ "rascourti."
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "Racourti Kontact da KDE"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "©, 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&Apontyî vuwe do racourti..."
+
+#, fuzzy
+#~| msgid "&Configure Summary View..."
+#~ msgid "Configure the summary view"
+#~ msgstr "&Apontyî vuwe do racourti..."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Racourti po %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Cwè adon?"
+
+#, fuzzy
+#~| msgid "Synchronize All"
+#~ msgid "Sync All"
+#~ msgstr "Totafwait sincronijhî"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Totafwait"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Totafwait"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Racourti di Kontact"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Vuwe do racourti di Kontact"
+
+#, fuzzy
+#~| msgid "(c) 2003-2004 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "© 2003-2004 Les programeus di Kontact"
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#, fuzzy
+#~| msgid ""
+#~| "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</"
+#~| "h2>"
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "Kontact da KDE"
+
+#, fuzzy
+#~| msgid "Get Organized!"
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Organijhîz vs!"
+
+#, fuzzy
+#~| msgid ""
+#~| "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~| "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~| "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~| "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~| "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src="
+#~| "\"%13\" /></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext"
+#~| "\"><nobr>%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width="
+#~| "\"%18\" height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</"
+#~| "a><br /><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p "
+#~| "style=\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</"
+#~| "a></p>"
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Bénvnou dins Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Passer cist adrovaedje</a></p>"
+
+#, fuzzy
+#~| msgid "&Tip of the Day"
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "Li b&oune idêye do djoû"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Novea floû..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz radjouter on novea floû."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Novea contak..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz ahiver on novea contak."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Novea groupe di contaks..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz ahiver on novea groupe "
+#~ "di contaks."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Sincro contaks"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "Tchoezixhoz cisse tchuze chal po sincronijhî vos contaks groupware."
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Divize d' apontiaedje do racourti des messaedjes"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "Copyright © 2004–2010 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Mostrer tot l' tchimin des ridants"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Mostrer tot l' tchimin po tchaeke ridant"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Enable this option if you want to see the full path for each folder "
+#~ "listed in the summary. If this option is not enabled, then only the base "
+#~ "folder path will be shown."
+#~ msgstr ""
+#~ "Metoz e-n alaedje cisse tchuze chal si vs voloz vey li tchmin e-n etir po "
+#~ "tchaeke ridant k' est el djivêye do racourti. Si cisse tchuze chal n' est "
+#~ "nén e-n alaedje, i gn a k' el tchimin do ridant d' båze ki srè mostré."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Novea messaedje..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and send a new "
+#~ "email message."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz ahiver eyet evoyî on "
+#~ "novea messaedje emile."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Sincro emiles"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "Tchoezixhoz cisse tchuze chal po sincronijhî vos emiles groupware."
+
+#~ msgid "New Messages"
+#~ msgstr "Noveas messaedjes"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>Totå : %2<br/>Nén léjhou : %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "Pont d' messaedje nén léjhous dins vos ridants corwaitîz"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Drovi ridant « %1 »"
+
+#, fuzzy
+#~| msgid "kcmsdsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Divize d' apontiaedje do racourti des messaedjes"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "Mintneu do moumint"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "&Novea"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can add a new popup note."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz radjouter ene novele "
+#~ "aspitante note."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Aspougnî..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can modify an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz candjî ene aspitante "
+#~ "note egzistante."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Rilomer..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can rename an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz rilomer ene aspitante "
+#~ "note egzistante."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Disfacer"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be prompted if you really want to permanently remove the "
+#~ "selected popup note."
+#~ msgstr ""
+#~ "Vos alez esse arinné po vs dimander si vs voloz disfacer po do bon "
+#~ "l' aspitante note di tchoezeye."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Imprimer les notes tchoezeyes..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be prompted to print the selected popup note."
+#~ msgstr ""
+#~ "Vos alez esse arinné po vs dimander si vs voloz imprimer l' aspitante "
+#~ "note di tchoezeye."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Imprimer les notes tchoezeyes..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Preferences KNotes..."
+#~ msgstr "Imprimer les notes tchoezeyes..."
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr ""
+#~ "Po rexhe des notes, tchoezixhoz aprume les notes a imprimer foû del "
+#~ "djivêye."
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Imprimer aspitantès notes"
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Create new popup note"
+#~ msgid "Create new note"
+#~ msgstr "Ahiver novele aspitante note"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Voloz vs disfacer cisse note chal po do bon ?"
+#~ msgstr[1] "Voloz vs disfacer ces %1 notes chal po do bon ?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Racertiner disfaçaedje"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Rilomer l' aspitante note"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Novea no :"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "New Popup Note..."
+#~ msgid "Show Note..."
+#~ msgstr "Novele aspitante note...."
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgid "Settings"
+#~ msgstr "A&pontiaedjes"
+
+#~ msgid "&Edit"
+#~ msgstr "&Candjî..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Novele aspitante note...."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new popup note."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz ahiver ene novele "
+#~ "aspitante note."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "KNotes"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Aspitantès notes"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Copyright © 2003–2010 Kontact authors"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "Copyright © 2003–2010 les oteurs di Kontact"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Mintneu do moumint"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Mintneu do moumint"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Mintneu do moumint"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Raploû"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Note : %1"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Novele note"
+
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Li depot di sacwants messaedjes n' est nén sopoirté."
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Di : %1\n"
+#~ "Po : %2\n"
+#~ "Sudjet : %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Emile : %1"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Sync Popup Notes"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Sincro aspitantès notes"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Aspougnî l' aspitante note"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "No :"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Search notes..."
+#~ msgstr "Imprimer les notes tchoezeyes..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Imprimer les notes tchoezeyes..."
+
+#~ msgid "Popup Notes"
+#~ msgstr "Aspitantès notes"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "New Popup Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "Novele aspitante note...."
+
+#, fuzzy
+#~| msgid "Delete Feed"
+#~ msgid "Delete Note..."
+#~ msgstr "Disfacer floû"
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Lére l' aspitante note : « %1 »"
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Apontiaedje do racourti des evenmints"
+
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Mostrer les evenmints a vni k' comincèt dins"
+
+#~ msgid "Show events for today only"
+#~ msgstr "Èn mostrer les evenmints k' pos ouy"
+
+#~ msgid ""
+#~ "Check this box if you want to see events occurring on this date only."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz vey ki ls evenmints di cisse date "
+#~ "la."
+
+#~ msgid "&Today only"
+#~ msgstr "&K' ådjourdu"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Mostrer ls evenmints a vni dins l' moes ki vént"
+
+#~ msgid ""
+#~ "Check this box if you want to see events that start sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz vey ki ls evenmints k' comincèt "
+#~ "des 31 djoûs k' vinèt."
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "Divins l' &moes ki vént (31 djoûs)"
+
+#~ msgid "Select the days for showing upcoming events"
+#~ msgstr "Tchoezi les djoûs k' on mostere les evenmints a vni"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming events."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs voloz dire li nombe di djoûs dins l' avni "
+#~ "po les evenmints ki vnèt."
+
+#~ msgid "Within the &next:"
+#~ msgstr "Divi&ns l' shuvant :"
+
+#~ msgid "Set the number of days to show upcoming events"
+#~ msgstr "Defini l' nombe di djoûs k' on mostere les evenmints a vni"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming events up to "
+#~ "1 year in the future."
+#~ msgstr ""
+#~ "Siervoz vs di c' tchamp ci po defini l' nombe di djoûs k' on mostere les "
+#~ "evenmints a vni djuska 1 an a l' avni."
+
+#~ msgid "1 day"
+#~ msgstr "1 djoû"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " djoûs"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Mostrer ces evenmints a vni a pårti d' vosse calindrî"
+
+#~ msgid ""
+#~ "Show birthdays from your calendar when also using the Birthday resource"
+#~ msgstr ""
+#~ "Mostrer les dates di skepiaedje a pårti d' vosse calindrî cwand i s' "
+#~ "sieve ossu del rissoûce Date di skepiaedje"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Metoz en alaedje cisse tchuze po mete divins les dates di skepiaedje di "
+#~ "vosse calindrî dins l' racourti des Evenmints a vni. Cisse tchuze n' est "
+#~ "disponibe ki s' vos vs siervoz del rissoûce Dates di skepiaedje dins "
+#~ "vosse calindrî."
+
+#~ msgid "Show &birthdays"
+#~ msgstr "Mostrer &dates di skepiaedje"
+
+#~ msgid ""
+#~ "Shows anniversaries from your calendar when using the Birthdays resource"
+#~ msgstr ""
+#~ "Mostere les aniviersaires a pårti d' vosse calindrî cwand on s' sieve del "
+#~ "rissoûce Dates di skepiaedje"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Metoz en alaedje cisse tchuze po mete divins les aniviersaires a pårti d' "
+#~ "vosse calindrî dins l' racourti des Evenmints a vni. Cisse tchuze n' est "
+#~ "disponibe ki s' vos vs siervoz del rissoûce Dates di skepiaedje dins "
+#~ "vosse calindrî."
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "Mostrer &aniviersaires"
+
+#~ msgid "Groupware Settings"
+#~ msgstr "Tchuzes Groupware"
+
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Èn mostrer k' les evenmints apårtinant a mes calindrîs"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show events belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs voloz kel racourti n' mostere ki ls "
+#~ "evenmints apårtinant a vos calindrîs."
+
+#~ msgid "Show &my events only"
+#~ msgstr "Èn håyner k' &mes evenmints"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "Evenmints a vni"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "Nol evenmint a vni dins l' djoû ki vént"
+#~ msgstr[1] "Nol evenmint a vni dins les %1 djoûs ki vnèt"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "&Candjî Radjoû..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "&Disfacer radjoû"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Candjî evenmint: « %1 »"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Novea djournå..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Ahiver on novea djournå"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new journal "
+#~ "entry."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz ahiver ene novele "
+#~ "intrêye å djournå."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Sincro djournå"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Sincronijhî djournå groupware"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware journal entries."
+#~ msgstr ""
+#~ "Tchoezixhoz cisse tchuze chal po sincronijhî vos intrêyes e djournå "
+#~ "groupware."
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " djoû"
+#~ msgstr[1] " djoûs"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Divize d' apontiaedje des evenmints a vni"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Divize d' apontiaedje des afés co dins l' termene"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Novea envenmint..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Ahiver on novea evenmint"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new event item."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz ahiver on novea cayet "
+#~ "d' evenmint."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Sincro calindrî"
+
+#, fuzzy
+#~| msgid "Synchronize Mail"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Sincronijhî emile"
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Ouy"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Dimwin"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "dins on djoû"
+#~ msgstr[1] "dins %1 djoûs"
+
+#~ msgid "now"
+#~ msgstr "asteure"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "all day"
+#~ msgstr " djoû"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#, fuzzy
+#~| msgid "Note: %1"
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Note: %1"
+
+#, fuzzy
+#~| msgid "New To-do..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Novea afé..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Novea soçon..."
+
+#, fuzzy
+#~| msgid "Sync To-do List"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Sincro djivêye des afés"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Sincronijhî calpins d' adresses"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "Sincronijhî calpins d' adresses"
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Apontiaedje do racourti des afés"
+
+#~ msgid "Show To-dos Due"
+#~ msgstr "Mostrer les afés ki dvrént esse finis"
+
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Èn mostrer k' les afés kel termene est ouy"
+
+#~ msgid "Check this box if you want to see To-dos due on this date only."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz vey ki ls afés kel termene est "
+#~ "cisse date la."
+
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "Mostrer ls afés a fini dins l' moes ki vént"
+
+#~ msgid ""
+#~ "Check this box if you want to see To-dos that are due sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz vey ki ls afés kel termene est des "
+#~ "31 djoûs k' vinèt."
+
+#~ msgid "Select the days for showing pending To-dos"
+#~ msgstr "Tchoezixhoz les djoûs k' on mostere les afés co dins l' termene"
+
+#~ msgid ""
+#~ "Check this box if you want specify the number of days in the future for "
+#~ "pending To-dos."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs voloz dire li nombe di djoûs dins l' avni "
+#~ "po les afés co dins l' termene."
+
+#~ msgid "Set the number of days to show pending To-dos"
+#~ msgstr ""
+#~ "Definixhoz l' nombe di djoûs k' on mostere les afés co dins l' termene"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show pending To-dos up to 1 "
+#~ "year in the future."
+#~ msgstr ""
+#~ "Siervoz vs di c' tchamp ci po defini l' nombe di djoûs k' on mostere les "
+#~ "afés co dins l' termene djuska 1 an a l' avni."
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "Catchî ces sôres d' afés la"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Catchî les afés finis"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz nén vey les afés k' ont ddja stî "
+#~ "fnis."
+
+#~ msgid "&Completed"
+#~ msgstr "&Fini"
+
+#~ msgid "Hide To-dos without a due date"
+#~ msgstr "Catchî les afés sins termene"
+
+#~ msgid "Check this box if you do not want to see open-ended To-dos."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz nén vey les afés sins date di dfén."
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "&Sins dfén (pont d' termene)"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "Catchî les afés nén co atakés"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vos n' voloz nén vey les afés avou ene date "
+#~ "di cmince a l' avni."
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "&Nén co ataké (date di cominçmint a vni)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "Catchî les afés e fjhaedje"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "1Clitchîz cisse boesse po catchî les afés ki n' ont stî enondêyes mins ki "
+#~ "n' sont nén co fineyes"
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "&E fijhaedje (ataké mins nén co fini)"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Catchî les afés foû termene"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz nén vey les afés k' ont dispassé "
+#~ "leu termene mins n' ont nén co stî fneyes."
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "Termene &dispassé (nén co fni eyet termene dedja dispassé)"
+
+#~ msgid "Show To-dos belonging to my calendars only"
+#~ msgstr "Èn mostrer k' les afés apårtinants a mes calindrîs"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show To-dos belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs voloz kel racourti n' mostere ki ls afés "
+#~ "apårtinant a vos calindrîs."
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Èn håyner k' &mes afés"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "Afés co dins l' termene"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Ouy"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Dimwin"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "Gn a on djoû"
+#~ msgstr[1] "Gn a %1 djoûs"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "est l' limite"
+
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "Pont d' afés co dins l' termene divant l' djoû ki vént"
+#~ msgstr[1] "Pont d' afés co dins l' termene divant les %1 djoûs ki vnèt"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "&Candjî afé..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "Disfacer afé"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "&Marker afé come fini"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Candjî afé: « %1 »"
+
+#~ msgid "open-ended"
+#~ msgstr "sins dfén"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "termene dispassé"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "atake ouy"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "nén co ataké"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "fini"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "e fjhaedje"
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Divize d' apontiaedje des speciålès dates a vni"
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Apontiaedje do racourti des speciålès dates"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Mostrer l' cominçmint des speciålès dates"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Èn mostrer les speciås etrevéns k' pos ouy"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions occurring on this "
+#~ "date only."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz vey ki les speciås etrevéns s' "
+#~ "passant cisse date la."
+
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Mostrer les speciås etrevéns a vni dins l' moes ki vént"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions that start sometime "
+#~ "during the next 31 days."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz vey ki les speciås etrevéns k' "
+#~ "comincèt des 31 djoûs k' vinèt."
+
+#~ msgid "Select the days for showing upcoming special occasions"
+#~ msgstr "Tchoezi les djoûs k' on mostere les speciås etrevéns a vni"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming special occasions."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs voloz dire li nombe di djoûs dins l' avni "
+#~ "po les speciås etrevéns ki vnèt."
+
+#~ msgid "Set the number of days to show upcoming special occasions"
+#~ msgstr "Defini l' nombe di djoûs k' on mostere les speciås etrevéns a vni"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming special "
+#~ "occasions up to one year in the future."
+#~ msgstr ""
+#~ "Siervoz vs di c' tchamp ci po defini l' nombe di djoûs k' on mostere les "
+#~ "speciås etrevéns a vni djuska èn an a l' avni."
+
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Mostrer ces speciås etrevéns a pårti d' vosse calindrî"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Mostrer les dates di skepiaedje a pårti d' vosse calindrî"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Birthday\" category."
+#~ msgstr ""
+#~ "Mete en alaedje cisse tchuze po mete divins les dates di skepiaedje di "
+#~ "vosse calindrî dins l' racourti des speciås etrevéns. Ça sont tipicmint "
+#~ "des evenmints avou l' categoreye « Date di skepiaedje »."
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Mostrer ls aniviersaires a pårti d' vosse calindrî"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Anniversary\" category."
+#~ msgstr ""
+#~ "Mete en alaedje cisse tchuze po mete les aniviersaires di vosse calindrî "
+#~ "dins l' racourti des speciås etrevéns. Ça sont tipicmint des evenmints "
+#~ "avou l' categoreye « Aniviersaire »."
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Mostrer les condjîs a pårti d' vosse calindrî"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the upcoming "
+#~ "special occasions summary. These are events from your configured holiday "
+#~ "region, or events with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Metoz en alaedje cisse tchuze ci po mete les condjîs di vosse calindrî "
+#~ "dins l' racourti des speciås etrevéns a vni. Çou sont des evenmints des "
+#~ "condjîs d' vosse payis k' vos avoz apontyî oudon-bén d' evenmints avou l' "
+#~ "categoreye « Condjî »."
+
+#~ msgid "Show &holidays"
+#~ msgstr "Mostrer &condjîs"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Mostrer les sipeciås etrevéns a pårti d' vosse calindrî"
+
+#~ msgid ""
+#~ "Enable this option to include events from your calendar with the "
+#~ "\"special occasion\" category."
+#~ msgstr ""
+#~ "Metoz c' tchuze ci en alaedje po mete divins des evenmints d' vosse "
+#~ "calindrî avou l' categoreye « sipeciå etrevén »."
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Mostrer s&peciås etrevéns"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Mostrer ces speciålès dates a pårti d' vosse calpin d' adresses"
+
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Mostrer les dates di skepiaedje a pårti d' vosse calpin d' adresses"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Metoz en alaedje cisse tchuze ci po mete les dates di skepiaedje di vosse "
+#~ "calpin d' adresses e racourti des speciås etrevéns a vni."
+
+#~ msgid "Show birth&days"
+#~ msgstr "Mostrer &dates di skepiaedje"
+
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Mostrer ls aniviersaires a pårti do calpin d' adresses"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Metoz en alaedje cisse tchuze ci po mete les aniviersaires di vosse "
+#~ "calpin d' adresses e racourti des speciås etrevéns a vni."
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "Mostrer ani&viersaires"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Sipeciålès dates a vni"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Ouy"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Dimwin"
+
+#~ msgid "Birthday"
+#~ msgstr "Date di skepiaedje"
+
+#~ msgid "Anniversary"
+#~ msgstr "Aniviersaire"
+
+#~ msgid "Holiday"
+#~ msgstr "Condjî"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Sipeciål etrevén"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "ene anêye"
+#~ msgstr[1] "%1 anêyes"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Pont d' sipeciålès dates divant on djoû"
+#~ msgstr[1] "Pont d' sipeciålès dates dins les %1 djoûs ki vnèt"
+
+#~ msgid "Send &Mail"
+#~ msgstr "Evoyî e&mile"
+
+#~ msgid "View &Contact"
+#~ msgstr "Vey &soçon..."
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Emiler a: « %1 »"
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Racourti des speciålès dates"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Racourti des speciålès dates di Kontact"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "Mintneu do moumint"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Novele pådje KJots"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz ahiver ene novele pådje "
+#~ "« jots »."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Novea live KJots"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots book."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz ahiver on novea live "
+#~ "« jots »."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Ahiver on novea floû"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "Ahiver on novea contak"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Ahiver on novea groupe di contaks"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Sincronijhî contaks groupware"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Ahiver ene novele pådje « jots »"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Ahiver on novea live « jots »"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Ahiver on novea messaedje emile"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Sincronijhî emiles groupware"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Novea papî..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Ahiver on novea papî Usenet"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new article to "
+#~ "post on Usenet."
+#~ msgstr ""
+#~ "Vos aler vey on purnea di dvize wice ki vs såroz ahiver on novea årtike a "
+#~ "poster so Usenet."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Ahiver ene novele aspitante note"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Aspougnî l' aspitante note"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Rilomer l' aspitante note"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Disfacer aspitante note"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Imprimer l' aspitante note"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Ahiver novele aspitante note"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#, fuzzy
+#~| msgid "New Task"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Novele bouye"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Novea soçon..."
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Purnea d' divize d' apontiaedje do racourti do planifieu"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgid "Planner"
+#~ msgstr "Planifieu"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Ouy"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Dimwin"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Pont d' radjoû co dins l' termene li djoû ki vént"
+#~ msgstr[1] "Pont d' radjoû co dins l' termene les %1 djoûs ki vnèt"
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "foû termene"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Candjî radjoû: « %1 »"
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "e fjhaedje"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "ouy a l' atake"
+
+#, fuzzy
+#~| msgctxt "to-do ends today"
+#~| msgid "ends today"
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "fini ouy"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "fini"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Apontiaedje do racourti do planifieu"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "Djenerå"
+
+#~ msgid "General Configuration"
+#~ msgstr "Apontiaedje djenerå"
+
+#~ msgid "Show an icon indicating a recurring item"
+#~ msgstr "Håyner ene imådjete mostrant on cayet recurint"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon that indicates an event or to-"
+#~ "do is recurring."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs voloz vey ene imådjete ki mostere k' èn "
+#~ "evenmint ou èn afé est recurint."
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "Mostrer l' imådjete del recurince"
+
+#~ msgid "Show an icon indicating the item has a reminder"
+#~ msgstr "Håyner ene imådjete mostrant kel cayet a on rimimbreu"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon indicating that the event or to-"
+#~ "do has a reminder."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs voloz vey ene imådjete ki mostere ki "
+#~ "l' evenmint ou l' afé a-st on rimimbreu."
+
+#~ msgid "Show reminder icon"
+#~ msgstr "Mostrer l' imådjete do rimimbreu"
+
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Sorlignî hårdêyes ezès discrijhaedjes"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs voloz k' les hårdêyes d' URL soeyexhe "
+#~ "sorligneyes."
+
+#~ msgid "Underline links"
+#~ msgstr "Sorlignî hårdêyes"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Mostrer les afés dins l' racourti"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr "Clitchîz cisse boesse ci si vs voloz vey les afés e racourti."
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Mostrer les afés dins l' planifieu"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Mostrer les speciålès dates dins l' racourti"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs voloz vey les sipeciålès dates e racourti."
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "Mostrer les speciålès dates dins l' planifieu"
+
+#~ msgid "Events"
+#~ msgstr "Evenmints"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "Mostrer evenmints do calindrî"
+
+#~ msgid "To-dos"
+#~ msgstr "Afés"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Catchî les afés finis"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz nén vey les afés k' ont ddja stî "
+#~ "fnis."
+
+#~ msgid "Hide to-dos without a due date"
+#~ msgstr "Catchî les afés sins termene"
+
+#~ msgid "Check this box if you do not want to see open-ended to-dos."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz nén vey les afés sins date di dfén."
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Catchî les afés nén co atakés"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz nén vey les afés avou ene date di "
+#~ "cmince a l' avni."
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "Catchî les afés e fjhaedje"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz nén vey les afés k' ont stî "
+#~ "atakêyes mins n' sont nén co fneyes."
+
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Catchî les afés foû termene"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse ci si vs ni vloz nén vey les afés k' ont dispassé "
+#~ "leu termene mins n' ont nén co stî fneyes."
+
+#~ msgid "Special Dates"
+#~ msgstr "Sipeciålès dates"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "Mostrer ces speciålès dates"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Mete en alaedje cisse tchuze ci po mete les dates di skepiaedje di vosse "
+#~ "calpin d' adresses e racourti do planifieu."
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Mostrer les dates di skepiaedje a pårti do calpin d' adresses"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Mete en alaedje cisse tchuze ci po mete les aniviersaires di vosse calpin "
+#~ "d' adresses e racourti do planifieu."
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Mostrer ls aniviersaires a pårti do calpin d' adresses"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the planner "
+#~ "summary. These are events from your configured holiday region, or events "
+#~ "with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Metoz en alaedje cisse tchuze ci po mete les condjîs di vosse calindrî "
+#~ "dins l' racourti do planifieu. Çou sont des evenmints des condjîs d' "
+#~ "vosse payis k' vos avoz apontyî oudon-bén d' evenmints avou l' categoreye "
+#~ "« Condjî »."
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Mostrer les condjîs a pårti do calindrî"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Mostrer les sipeciås etrevéns a pårti do calindrî"
+
+#~ msgid "Planner Summary"
+#~ msgstr "Racourti do planifieu"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Racourti do planifieu di Kontact"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Calindrî en alaedje"
+
+#, fuzzy
+#~| msgid "Calendar"
+#~ msgid "Default Calendar"
+#~ msgstr "Calindrî"
+
+#, fuzzy
+#~| msgid "Birthday"
+#~ msgid "Birthdays"
+#~ msgstr "Date di skepiaedje"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgid "No Notes Available"
+#~ msgstr "I gn a pont d' note"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Sincro aspitantès notes"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Sincronijhî notes groupware"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "Tchoezixhoz cisse tchuze chal po sincronijhî vos notes groupware."
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "© 2003 Les programeus di Kontact"
+
+#, fuzzy
+#~| msgid "Configure Kontact as Groupware Client"
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Apontyî Kontact come cliyint Groupware"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "DATE DI SKEPIAEDJE"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "ANIVIERSAIRE"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "CONDJÎ"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "SIPECIÅL ETREVÉN"
+
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "© 2001-2009 Les programeus di Kontact"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "© 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "© 2007-2008 Oral Timocin"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "© 2004-2005 L' ekipe KDE PIM"
+
+#~ msgid "(c) 2004-2006 Allen Winter"
+#~ msgstr "© 2004-2006 Allen Winter"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Locå"
+
+#~ msgid "Summary"
+#~ msgstr "Racourti"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#~ msgid " days"
+#~ msgstr " djoûs"
+
+#~ msgid "Rename"
+#~ msgstr "Rilomer"
+
+#, fuzzy
+#~| msgid ""
+#~| "Check this box to hide to-dos that have been started but are not "
+#~| "complete yet"
+#~ msgid ""
+#~ "Check this box if you don't want to see To-dos that haven't been "
+#~ "completed yet and are past their due date."
+#~ msgstr ""
+#~ "Clitchîz cisse boesse po catchî les afés ki n' ont stî enondêyes mins ki "
+#~ "n' sont nén co fineyes"
+
+#~ msgid "Show &anniveraries"
+#~ msgstr "Mostrer ls &aniviersaires"
+
+#~ msgid "New Distribution List..."
+#~ msgstr "Novele djivêye di distribucion..."
+
+#~ msgid "New SMS..."
+#~ msgstr "Novea SMS..."
+
+#~ msgid "New News Feed"
+#~ msgstr "Novea floû d' noveles"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "Årts"
+
+#~ msgid "Business"
+#~ msgstr "Afwaires"
+
+#~ msgid "Computers"
+#~ msgstr "Copiutreces"
+
+#~ msgid "Misc"
+#~ msgstr "Totès sôres"
+
+#~ msgid "Recreation"
+#~ msgstr "Tins libe"
+
+#~ msgid "Society"
+#~ msgstr "Societé"
+
+#~ msgid "Custom"
+#~ msgstr "Z vosse môde"
+
+#~ msgid "All"
+#~ msgstr "Totafwait"
+
+#~ msgid "Add"
+#~ msgstr "Radjouter"
+
+#~ msgid "Remove"
+#~ msgstr "Oister"
+
+#~ msgid "Selected"
+#~ msgstr "Tchoezi"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Tins divant d' rafrister:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Nombe di cayets a mostrer:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Divize d' apontiaedje do Newsticker"
+
+#~ msgid "News Feeds"
+#~ msgstr "Floûs d' noveles"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "Pont d' siervice dcop rss di disponibe.\n"
+#~ "Vos avoz mezåjhe di rssservice po vs vos siervi d' ci tchôke-divins."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "Copyî URL dins l' tchapea emacralé"
+
+#~ msgid "Weather Information"
+#~ msgstr "Informåcions meteyo"
+
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "Pont d' siervice D-Bus meteyo di disponibe;\n"
+#~ "vos avoz mezåjhe di KMeteyo po -z eployî ci tchôke-divins."
+
+#~ msgid "Last updated on"
+#~ msgstr "Metou a djoû pol dierin côp l'"
+
+#~ msgid "Wind Speed"
+#~ msgstr "Radisté do vint"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "Rel. crouweur"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "Vey li rapoirt meteyo pol sitåcion"
+
+#~ msgid "Ian Reinhart Geiser"
+#~ msgstr "Ian Reinhart Geiser"
+
+#~ msgid "John Ratke"
+#~ msgstr "John Ratke"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "Amidraedjes eyet co pus di rnetiaedjes do côde"
+
+#~ msgid "Unknown"
+#~ msgstr "Nén cnoxhou"
+
+#~ msgid "Calendar View"
+#~ msgstr "Vuwe do calindrî"
+
+#~ msgid "Display:"
+#~ msgstr "Håynaedje:"
+
+#~ msgid "Include:"
+#~ msgstr "Mete divins:"
+
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "Afés / Speciålès dates"
+
+#~ msgid "0%"
+#~ msgstr "0%"
+
+#~ msgid "20%"
+#~ msgstr "20%"
+
+#~ msgid "30%"
+#~ msgstr "30%"
+
+#~ msgid "40%"
+#~ msgstr "40%"
+
+#~ msgid "50%"
+#~ msgstr "50%"
+
+#~ msgid "60%"
+#~ msgstr "60%"
+
+#~ msgid "70%"
+#~ msgstr "70%"
+
+#~ msgid "80%"
+#~ msgstr "80%"
+
+#~ msgid "90%"
+#~ msgstr "90%"
+
+#~ msgid "100%"
+#~ msgstr "100%"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "Prémetowe rissoûce da KOrganizer"
+
+#~ msgid "Check this box to hide to-dos that are 100% complete"
+#~ msgstr "Clitchîz cisse boesse po catchî les afés ki sont finis a 100%"
+
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Ouy"
+
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Dimwin"
+
+#, fuzzy
+#~| msgid "Show These Special Dates From Your Contact List"
+#~ msgid "Show Birthdays from Contact List"
+#~ msgstr "Mostrer ces speciålès dates a pårti d' vosse calpin d' adresses"
+
+#, fuzzy
+#~| msgid "Show These Special Dates From Your Contact List"
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "Mostrer ces speciålès dates a pårti d' vosse calpin d' adresses"
+
+#, fuzzy
+#~| msgid "&Today only"
+#~ msgid "Today only"
+#~ msgstr "&K' ådjourdu"
+
+#, fuzzy
+#~| msgid "Over&due (not completed and beyond due-date)"
+#~ msgid "Overdue (not completetd and beyond due-date)"
+#~ msgstr "Termene &dispassé (nén co fni eyet termene dedja passé)"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos starting today"
+#~ msgstr "atake ouy"
+
+#, fuzzy
+#~| msgctxt "to-do ends today"
+#~| msgid "ends today"
+#~ msgid "To-dos ending today"
+#~ msgstr "fini ouy"
+
+#, fuzzy
+#~| msgid "&In-progress (started but not completed)"
+#~ msgid "In-progress(started but not completetd)"
+#~ msgstr "&E fijhaedje (ataké mins nén co fini)"
+
+#~ msgid "One day"
+#~ msgstr "On djoû"
+
+#~ msgid "Five days"
+#~ msgstr "Cénk djoûs"
+
+#~ msgid "One week"
+#~ msgstr "Ene samwinne"
+
+#~ msgid "One month"
+#~ msgstr "On moes"
+
+#~ msgid "Show all to-dos"
+#~ msgstr "Mostrer tos ls afés"
+
+#~ msgid "Starting to-dos"
+#~ msgstr "Afés a l' atake"
+
+#~ msgid "Ending to-dos"
+#~ msgstr "Afés finixhant"
+
+#~ msgid "To-dos in progress"
+#~ msgstr "Afés e fjhaedje"
+
+#~ msgid "Priority limit:"
+#~ msgstr "Limite di prumiristé:"
+
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "Divize d' apontiaedje do programeu"
+
+#~ msgid "&Today"
+#~ msgstr "&Ouy"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "Dji n' sai nén apougnî les evenmints d' depot del sôre « %1 »."
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "Grandeu des imådjetes"
+
+#, fuzzy
+#~| msgid "Large"
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "Grande"
+
+#, fuzzy
+#~| msgid "Small"
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "Pitite"

@@ -1,0 +1,2278 @@
+#
+# Tamas Szanto <taszanto@gmail.com>, 2003.
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2011, 2012.
+# Balázs Úr <urbalazs@gmail.com>, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE 4.3\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2014-06-20 21:52+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kelemen Gábor,Kiszel Kristóf,Szántó Tamás"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kelemeng@gnome.hu,ulysses@kubuntu.org,taszanto@gmail.com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid ""
+#| "Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"A Kontact többek között levelek, címjegyzékek, naptárak és feladatlisták "
+"kezelésére alkalmas."
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgctxt "@action:inmenu"
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "A &Kontact bemutatása"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "A Kontact betöltése…"
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Csak ikonok megjelenítése"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "Oldalsáv elemeinek megjelenítése ikonokkal, szöveg nélkül"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"Válassza ezt a lehetőséget, ha az oldalsáv elemeit ikonokkal, szöveg nélkül "
+"szeretné."
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Csak szöveg megjelenítése"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "Oldalsáv elemeinek megjelenítése szöveggel, ikonok nélkül"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"Válassza ezt a lehetőséget, ha az oldalsáv elemeit szöveggel, ikonok nélkül "
+"szeretné."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Ikonok és szöveg megjelenítése"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "Oldalsáv elemeinek megjelenítése ikonokkal és szöveggel"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+"Válassza ezt a lehetőséget, ha szeretné hogy az oldalsáv elemeinek legyenek "
+"ikonjaik és szövegük."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Nagy ikonok"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Nagyméretű oldalsávikonok megjelenítése"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+"Válassza ezt a lehetőséget, ha rendkívül nagy méretű oldalsávikonokat "
+"szeretne."
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Normál ikonok"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Normál méretű oldalsávikonok megjelenítése"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+"Válassza ezt a lehetőséget, ha normál méretű oldalsávikonokat szeretne."
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Kis ikonok"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Kisméretű oldalsávikonok megjelenítése"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+"Válassza ezt a lehetőséget, ha rendkívül kicsi oldalsávikonokat szeretne."
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid ""
+#| "Choose this option if you want the sidebar items to have icons and text."
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+"Válassza ezt a lehetőséget, ha szeretné hogy az oldalsáv elemeinek legyenek "
+"ikonjaik és szövegük."
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "A kezdeti bővítmény kiválasztása minden induláskor"
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+"Válassza ki ki a Kontact indulásakor használandó kezdeti bővítményt a "
+"legördülő listából. Egyébként a Kontact az utoljára használt bővítménnyel "
+"indul."
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "A jelenleg aktív bővítmény"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "Indítás mindig ezzel a bővítménnyel:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "A minden indításkor elinduló bővítmény beállítása"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"A Kontact általában az utolsó kilépéskor használt bővítménnyel indul el. "
+"Jelölje be ezt az opciót, ha inkább a megadott bővítménnyel szeretné "
+"indítani."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&Fájl"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "&Beállítások"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "&Súgó"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Alap eszköztár"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "Navigátor"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Indulás egy megadott Kontact-modullal"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Indulás minimalizált állapotban"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "A választható modulok kilistázása, majd kilépés"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "KDE információkezelő"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "Copyright © 2001–2014 Kontact authors"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "Copyright © A Kontact szerzői, 2001-2014."
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Eredeti szerző"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr "Torgny Nyblom"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr "Git migráció"
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " Inicializálás…"
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Új"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "A Kontact beállításai…"
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "A Kontact beállítása"
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+"Megjelenik egy párbeszédablak, ahol módosíthatja a Kontact beállításait."
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "A &Kontact bemutatása"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "A Kontact bemutatkozó oldalának megjelenítése"
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr ""
+"Válassza ezt a lehetőséget a Kontact bemutatkozó oldalának megjelenítéséhez."
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "Váltás a(z) %1 bővítményre"
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Az alkalmazás önállóan fut. Előtérbe hozás…"
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Nem tölthető be objektum ehhez: %1."
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "A KDE személyes-információ kezelő csomagja"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "A kézikönyv elolvasása"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "Tudjon meg többet a Kontactról és összetevőiről"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "A Kontact weboldalának megtekintése"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "Online erőforrások és útmutatók elérése"
+
+#: src/mainwindow.cpp:934
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Setup your Accounts"
+msgid "Setup your Accounts"
+msgstr "A fiókjai beállítása"
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Prepare Kontact for use"
+msgid "Prepare Kontact for use"
+msgstr "A Kontact előkészítése használatra"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "© Cornelius Schumacher, 2003."
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Fejlesztő"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "A Kontact névjegye"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Kontact keretprogram"
+
+#~ msgid "No about information available."
+#~ msgstr "Nem áll rendelkezésre információ."
+
+#~ msgid "Version %1"
+#~ msgstr "%1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Szerzők:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Közreműködők:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Fordítók:</b></p>"
+
+#~ msgid ""
+#~ "<br /><br />                     <i>This Free Software product was "
+#~ "improved as part of a commercial project:</i>                     "
+#~ "<h3>Credits</h3>                     Project Kowi (March 2007 - )<br /"
+#~ "><br />                                          <b>Production / Project "
+#~ "Coordination</b><br />                     Bernhard Reiter<br /"
+#~ ">                     <b>Director of Development</b><br /"
+#~ ">                     Till Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                Unit Lead<br /"
+#~ ">                Senior QA, Packaging<br />                QA, "
+#~ "Packaging<br />                Additional NSIS<br />                "
+#~ "Backup Coordinator                </td>                "
+#~ "<td>                Bernhard Reiter<br />                Bernhard "
+#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
+#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit Lead<br />                Development<br /"
+#~ ">                Development<br />                Additional D. + "
+#~ "Crypto<br />                Crypto GUI Development                </"
+#~ "td>                <td>                Till Adam<br />                "
+#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
+#~ "Frank Osterfeld<br />                Marc Mutz                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Crypto-Backend Porting<br />                "
+#~ "Crypto-Backend                </td>                <td>                "
+#~ "Werner Koch<br />                Marcus Brinkmann                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>External QA Darmstadt, basysKom GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit-Lead                </td>                "
+#~ "<td>                Dr. Stefan Werden                </td>                "
+#~ "</tr>                </table><br /><br />"
+#~ msgstr ""
+#~ "<br /><br />    <i>Ez a szabad szoftver termék egy kereskedelmi projekt "
+#~ "részeként lett továbbfejlesztve:</i>   <h3>Köszönet</h3>    Kowi projekt "
+#~ "(2007. március - )<br /><br />        <b>Termelés / Projekt koordináció</"
+#~ "b><br />    Bernhard Reiter<br />    <b>A fejlesztés igazgatója</b><br /"
+#~ ">    Till Adam    <br /><br />        <table border=\"0\" width=\"100%"
+#~ "\">     <tr>     <td colspan=\"2\">      <b>Osnabr&uuml;ck egység, "
+#~ "Intevation GmbH</b>     </td>    </tr>    <tr>     <td width=\"60%"
+#~ "\">      Egységvezető<br />      Senior QA, csomagolás<br />      QA, "
+#~ "csomagolás<br />      További NSIS<br />      Biztonsági másolat "
+#~ "irányító     </td>     <td>      Bernhard Reiter<br />      Bernhard "
+#~ "Herzog<br />      Ludwig Reiter<br />      Emanuel Sch&uuml;tze<br /"
+#~ ">      Dr. Jan-Oliver Wagner     </td>    </tr>    </table>    <br /><br /"
+#~ ">        <table border=\"0\" width=\"100%\">    <tr>     <td colspan="
+#~ "\"2\">        <b>Berlin egység, Klar&auml;lvdalens Datakonsult AB</b>     "
+#~ "</td>    </tr>    <tr>     <td width=\"60%\">      Egységvezető<br /"
+#~ ">      Fejlesztés<br />      Fejlesztés<br />      További D. + "
+#~ "titkosítás<br />      Titkosítás GUI fejlesztés     </td>     <td>      "
+#~ "Till Adam<br />      Jaroslaw Staniek<br />      Volker Krause<br />      "
+#~ "Frank Osterfeld<br />      Marc Mutz     </td>    </tr>    </table>    "
+#~ "<br /><br />        <table border=\"0\" width=\"100%\">    <tr>     <td "
+#~ "colspan=\"2\">      <b>D&uuml;sseldorf egység, g10 Code GmbH</b>     </"
+#~ "td>    </tr>    <tr>     <td width=\"60%\">      Titkosító háttérprogram "
+#~ "átírás<br />      Titkosító háttérprogram     </td>     <td>      Werner "
+#~ "Koch<br />      Marcus Brinkmann     </td>    </tr>    </table>    <br /"
+#~ "><br />        <table border=\"0\" width=\"100%\">    <tr>     <td "
+#~ "colspan=\"2\">      <b>Külső QA Darmstadt, basysKom GmbH</b>     </td>    "
+#~ "</tr>    <tr>     <td width=\"60%\">      Egységvezető     </td>     "
+#~ "<td>      Dr. Stefan Werden     </td>    </tr>    </table><br /><br />"
+
+#~ msgid "%1 License"
+#~ msgstr "%1 licenc"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "Szinkronizálás"
+
+#~ msgctxt "@title:column plugin name"
+#~ msgid "Summary Plugin Name"
+#~ msgstr "Áttekintő modul neve"
+
+#~ msgid "Select the plugin summaries to show on the summary page."
+#~ msgstr "Válassza ki, mely áttekintők jelenjenek meg az Áttekintő oldalon."
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "Kontact áttekintő"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "© Tobias Koenig, 2004."
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "Az átte&kintő beállításai..."
+
+#~ msgid "Configure the summary view"
+#~ msgstr "Az összefoglaló nézet beállítása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Choosing this will show a dialog where you can select which summaries you "
+#~ "want to see and also allow you to configure the summaries to your liking."
+#~ msgstr ""
+#~ "Válassza ezt a megjelenítendő összefoglaló nézetek kijelöléséhez és az "
+#~ "összefoglaló nézetek testre szabásához."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Áttekintő - %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Mi következik?"
+
+#~ msgid "Sync All"
+#~ msgstr "Az összes szinkronizálása"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Mind"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Mind"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Kontact áttekintő"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Kontact áttekintő nézet"
+
+#, fuzzy
+#~| msgid "(c) 2003-2014 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "© A Kontact fejlesztői, 2003-2014."
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Legyen szervezett!"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Üdvözli a Kontact %1!</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">A bevezetés kihagyása</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "A nap &tippje"
+
+#~ msgctxt "@info:status"
+#~ msgid "Show the Tip-of-the-Day dialog"
+#~ msgstr "A nap tippje párbeszédalak megjelenítése"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog showing small tips to help you use "
+#~ "this program more effectively."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, amely a program hatékonyabb használatát "
+#~ "segítő tippeket ad."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Új hírcsatorna…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr "Egy párbeszédablak jelenik meg, ahol új hírcsatornát adhat hozzá."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Új névjegy…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr "Egy párbeszédablak jelenik meg, ahol új névjegyet adhat hozzá."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Új névjegycsoport…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, ahol új névjegycsoportot hozhat létre."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Névjegyek szinkronizálása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr ""
+#~ "Válassza ezt a beállítást csoportmunka-névjegyek szinkronizálásához."
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "A levelek áttekintőjének beállítóablaka"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "Copyright © Tobias Koenig, 2004-2010."
+
+#~ msgid "Show full path for folders"
+#~ msgstr "A mappák teljes elérési útja látszódjon"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "A mappák teljes elérési útjának megjelenítése"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Enable this option if you want to see the full path for each folder "
+#~ "listed in the summary. If this option is not enabled, then only the base "
+#~ "folder path will be shown."
+#~ msgstr ""
+#~ "Engedélyezze ezt a beállítást, ha az összesítőben felsorolt minden egyes "
+#~ "mappa teljes elérési útját látni szeretné. Ha ez a beállítás nincs "
+#~ "engedélyezve, csak a kiindulási mappa elérési útja jelenik meg."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Új üzenet…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and send a new "
+#~ "email message."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, ahol új üzenetet hozhat létre és küldhet "
+#~ "el."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Levelek szinkronizálása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr ""
+#~ "Válassza ezt a beállítást a csoportmunka-levelek szinkronizálásához."
+
+#~ msgid "New Messages"
+#~ msgstr "Új üzenetek"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>Összesen: %2<br/>Nem olvasott: %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "Nincs olvasatlan üzenet a figyelt mappákban"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Mappa megnyitása: \"%1\""
+
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmknotessummary"
+
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "A jegyzetek áttekintőjének beállítóablaka"
+
+#, fuzzy
+#~| msgid "Copyright © 2013-2014 Laurent Montel <montel@kde.org>"
+#~ msgid "Copyright © 2013-2015 Laurent Montel <montel@kde.org>"
+#~ msgstr "Copyright © Laurent Montel <montel@kde.org>, 2013-2014."
+
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "Ú&j"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can add a new popup note."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, ahol új felugró jegyzetet hozhat létre."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Szerkesztés…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can modify an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, ahol szerkeszthet egy már meglévő felugró "
+#~ "jegyzetet."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Átnevezés…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can rename an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, ahol átnevezhet egy már meglévő felugró "
+#~ "jegyzetet."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Törlés"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be prompted if you really want to permanently remove the "
+#~ "selected popup note."
+#~ msgstr ""
+#~ "A program meg fogja kérdezni, hogy biztos véglegesen törölni szeretné-e a "
+#~ "kijelölt felugró jegyzetet."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "A kijelölt jegyzetek nyomtatása…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be prompted to print the selected popup note."
+#~ msgstr "A program rá fog kérdezni a kijelölt felugró jegyzet nyomtatására."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "A kijelölt jegyzetek nyomtatási képe…"
+
+#~ msgid "Note settings..."
+#~ msgstr "Jegyzet beállításai…"
+
+#~ msgid "Preferences KNotes..."
+#~ msgstr "A KNotes beállításai…"
+
+#~ msgid "Mail..."
+#~ msgstr "Levél…"
+
+#~ msgid "Send..."
+#~ msgstr "Küldés…"
+
+#~ msgid "Set Alarm..."
+#~ msgstr "Emlékeztető beállítása…"
+
+#~ msgid "New Note From Clipboard"
+#~ msgstr "Új jegyzet a vágólapról"
+
+#~ msgid "New Note From Text File..."
+#~ msgstr "Új jegyzet a szövegfájlból…"
+
+#~ msgid "Save As..."
+#~ msgstr "Mentés másként…"
+
+#~ msgid "Lock"
+#~ msgstr "Zárolás"
+
+#~ msgid "Unlock"
+#~ msgstr "Feloldás"
+
+#~ msgid "Set Focus to Quick Search"
+#~ msgstr "Fókusz beállítása a gyors keresőre"
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr ""
+#~ "A jegyzetek nyomtatásához előbb válassza ki a nyomtatandó jegyzeteket a "
+#~ "listából."
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Felugró jegyzetek nyomtatása"
+
+#~ msgid "Note was not created."
+#~ msgstr "A jegyzet nem jött létre."
+
+#~ msgid "Create new note"
+#~ msgstr "Új jegyzet létrehozása"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Biztosan törölni szeretné ezt a jegyzetet?"
+#~ msgstr[1] "Biztosan törölni szeretné ezt a(z) %1 jegyzetet?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Törlés megerősítése"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Felugró jegyzet átnevezése"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Új név:"
+
+#~ msgid "Show Note..."
+#~ msgstr "Jegyzet megjelenítése…"
+
+#~ msgid "Settings"
+#~ msgstr "Beállítások"
+
+#~ msgid "Save note as plain text"
+#~ msgstr "Jegyzet mentése egyszerű szövegként"
+
+#~ msgid "Save As"
+#~ msgstr "Mentés másként"
+
+#~ msgid ""
+#~ "<qt>A file named <b>%1</b> already exists.<br />Are you sure you want to "
+#~ "overwrite it?</qt>"
+#~ msgstr ""
+#~ "<qt>Már létezik <b>%1</b> nevű fájl.<br />Biztosan felül szeretné írni?</"
+#~ "qt>"
+
+#~ msgid "Select Text File"
+#~ msgstr "Szövegfájl kijelölése"
+
+#~ msgid "Error during open text file: %1"
+#~ msgstr "Hiba történt a szövegfájl megnyitásakor: %1"
+
+#~ msgid "Open Text File"
+#~ msgstr "Szövegfájl megnyitása"
+
+#~ msgid "Note from file '%1'"
+#~ msgstr "Jegyzet a(z) „%1” fájlból"
+
+#~ msgid "&Edit"
+#~ msgstr "Mó&dosítás"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Új felugró jegyzet…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new popup note."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, ahol új felugró jegyzetet hozhat létre."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "KNotes"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Felugró jegyzetek"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "Copyright © A Kontact szerzői, 2003-2014."
+
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Jelenlegi karbantartó"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Korábbi karbantartó"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Találkozó"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Jegyzet: %1"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Új jegyzet"
+
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Nem lehet egyszerre több üzenetet ejteni."
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Feladó: %1\n"
+#~ "Címzett: %2\n"
+#~ "Tárgy: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Üzenet: %1"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Felugró jegyzet megjelenítése"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Felugró jegyzet szerkesztése"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Név:"
+
+#~ msgid "Search notes..."
+#~ msgstr "Jegyzetek keresése…"
+
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Jegyzetek keresése…<%1>"
+
+#~ msgid "(note locked, it will not removed)"
+#~ msgstr "(jegyzet zárolva, nem lesz eltávolítva)"
+
+#~ msgid "Popup Notes"
+#~ msgstr "Felugró jegyzetek"
+
+#~ msgid "No note found"
+#~ msgstr "Nem található jegyzet"
+
+#~ msgid "Modify Note..."
+#~ msgstr "Jegyzet módosítása…"
+
+#~ msgid "Delete Note..."
+#~ msgstr "Jegyzet törlése…"
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Felugró jegyzet olvasása: „%1”"
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Az események áttekintőjének beállításai"
+
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Közelgő események időtávja"
+
+#~ msgid "Show events for today only"
+#~ msgstr "Csak a mai események megjelenítése"
+
+#~ msgid ""
+#~ "Check this box if you want to see events occurring on this date only."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha kizárólag az ezen a dátumon előforduló "
+#~ "eseményeket szeretné látni."
+
+#~ msgid "&Today only"
+#~ msgstr "&Csak ma"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "A következő hónapon belül kezdődő események megjelenítése"
+
+#~ msgid ""
+#~ "Check this box if you want to see events that start sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha látni szeretné azokat az eseményeket, "
+#~ "amelyek a következő 31 nap során kezdődnek."
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "A &következő hónapban (31 nap)"
+
+#~ msgid "Select the days for showing upcoming events"
+#~ msgstr "A napok kiválasztása a közelgő események megjelenítésére"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming events."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet a napok számának megadásához, amelyen belül "
+#~ "közelgő események megjelenítendők."
+
+#~ msgid "Within the &next:"
+#~ msgstr "A követke&ző"
+
+#~ msgid "Set the number of days to show upcoming events"
+#~ msgstr "A napok számának beállítása a közelgő események megjelenítéséhez"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming events up to "
+#~ "1 year in the future."
+#~ msgstr ""
+#~ "Ezen számmező használatával megadhatja a napok számát (ez akár egy év is "
+#~ "lehet), amelyen belül a közelgő események megjelenítendők."
+
+#~ msgid "1 day"
+#~ msgstr "1 nap"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " nap"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Közelgő események a naptárból"
+
+#~ msgid ""
+#~ "Show birthdays from your calendar when also using the Birthday resource"
+#~ msgstr "Születésnapok a naptárból, ha a Születésnapok erőforrás használt"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a naptárában található születésnapok "
+#~ "megjelenítéséhez a közelgő események áttekintésében. Ez a lehetőség csak "
+#~ "akkor érhető el, ha a Születésnapok eszközt használja a naptárában."
+
+#~ msgid "Show &birthdays"
+#~ msgstr "Szü&letésnapok"
+
+#~ msgid ""
+#~ "Shows anniversaries from your calendar when using the Birthdays resource"
+#~ msgstr ""
+#~ "Évfordulókat mutat a naptárban a Születésnapok erőforrás használatakor"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a naptárában található évfordulók "
+#~ "megjelenítéséhez a közelgő események áttekintésében. Ez a lehetőség csak "
+#~ "akkor érhető el, ha a Születésnapok eszközt használja a naptárában."
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "Év&fordulók"
+
+#~ msgid "Groupware Settings"
+#~ msgstr "Csoportmunka beállítások"
+
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Csak a saját naptáraimhoz tartozó események megjelenítése"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show events belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet ahhoz, hogy az összefoglaló csak az Ön "
+#~ "naptáraihoz tartozó eseményeket jelenítse meg."
+
+#~ msgid "Show &my events only"
+#~ msgstr "Csak a &saját eseményeim megjelenítése"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "Közelgő események"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "Nincs esemény a következő napon"
+#~ msgstr[1] "Nincs esemény a következő %1 napban"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "Találkozó mó&dosítása..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "Találkozó &törlése"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Esemény módosítása: \"%1\""
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Új napló…"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Új napló létrehozása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new journal "
+#~ "entry."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, ahol új naplóbejegyzést hozhat létre."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Napló szinkronizálása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Csoportmunkanapló szinkronizálása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware journal entries."
+#~ msgstr ""
+#~ "Válassza ezt a beállítást a csoportmunkanapló bejegyzéseinek "
+#~ "szinkronizálásához."
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " nap"
+#~ msgstr[1] " nap"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "A közelgő események beállítóablaka"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © Tobias Koenig, 2003–2004.\n"
+#~ "Copyright © Allen Winter, 2005–2010."
+
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Az esedékes feladatok beállítóablaka"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Új esemény…"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Új esemény létrehozása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new event item."
+#~ msgstr "Egy párbeszédablak jelenik meg, ahol új eseményt hozhat létre."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Naptár szinkronizálása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Csoportmunkanaptár szinkronizálása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware events."
+#~ msgstr ""
+#~ "Válassza ezt a beállítást a csoportmunka-események szinkronizálásához."
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Ma"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Holnap"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "1 nap múlva"
+#~ msgstr[1] "%1 nap múlva"
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "ennyi idő múlva: "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "1 óra"
+#~ msgstr[1] "%1 óra"
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "1 perc"
+#~ msgstr[1] "%1 perc"
+
+#~ msgid "now"
+#~ msgstr "most"
+
+#~ msgid "all day"
+#~ msgstr "egész nap"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Következő: %1"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Új feladat…"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Új feladat létrehozása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new to-do item."
+#~ msgstr "Egy párbeszédablak jelenik meg, ahol új feladatot hozhat létre."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "A feladatlista szinkronizálása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Csoportmunka-feladatlista szinkronizálása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr ""
+#~ "Válassza ezt a beállítást a csoportmunka-feladatlista szinkronizálásához."
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "A feladatok áttekintőjének beállításai"
+
+#~ msgid "Show To-dos Due"
+#~ msgstr "Az esedékes feladatok mutatása"
+
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Csak a ma esedékes tennivalók megjelenítése"
+
+#~ msgid "Check this box if you want to see To-dos due on this date only."
+#~ msgstr ""
+#~ "Válassza ki ezt a négyzetet, ha csak az ezen a napon esedékes "
+#~ "tennivalókat szeretné látni."
+
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "A következő hónapon belül esedékes tennivalók megjelenítése"
+
+#~ msgid ""
+#~ "Check this box if you want to see To-dos that are due sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha látni szeretné a következő 31 nap során "
+#~ "esedékes tennivalókat."
+
+#~ msgid "Select the days for showing pending To-dos"
+#~ msgstr "A napok kiválasztása a függőben levő tennivalók megjelenítéséhez"
+
+#~ msgid ""
+#~ "Check this box if you want specify the number of days in the future for "
+#~ "pending To-dos."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet a napok számának megadásához, amelyen belül a "
+#~ "függőben lévő tennivalók megjelenítendők."
+
+#~ msgid "Set the number of days to show pending To-dos"
+#~ msgstr ""
+#~ "A napok számának beállítása a függőben levő tennivalók megjelenítéséhez"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show pending To-dos up to 1 "
+#~ "year in the future."
+#~ msgstr ""
+#~ "Ezen számmező használatával megadhatja a napok számát (ez akár egy év is "
+#~ "lehet), amelyen belül a függőben lévő tennivalók megjelenítendők."
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "Az alábbi típusú feladatok elrejtése"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Befejezett tennivalók elrejtése"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha nem szeretné látni a már befejezett "
+#~ "tennivalókat."
+
+#~ msgid "&Completed"
+#~ msgstr "&Befejezett"
+
+#~ msgid "Hide To-dos without a due date"
+#~ msgstr "A határidő nélküli tennivalók elrejtése"
+
+#~ msgid "Check this box if you do not want to see open-ended To-dos."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha nem szeretné látni a határidő nélküli "
+#~ "tennivalókat."
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "Ny&itott (határidő nélküli)"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "Az el sem kezdett tennivalók elrejtése"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha nem szeretné látni a jövőben kezdődő "
+#~ "tennivalókat."
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "Nincs &elkezdve (a kezdési dátum jövőbeli)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "A folyamatban levő tennivalók elrejtése"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha nem szeretné látni az elkezdett, de "
+#~ "befejezetlen tennivalókat."
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "&Folyamatban (elkezdődött, de nincs befejezve)"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Lejárt határidejű tennivalók elrejtése"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha nem szeretné látni a lejárt határidejű, de "
+#~ "befejezetlen tennivalókat."
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "I&dőn túli (nincs befejezve és lejárt a határidő)"
+
+#~ msgid "Show To-dos belonging to my calendars only"
+#~ msgstr "Csak a saját naptáraimhoz tartozó tennivalók megjelenítése"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show To-dos belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet ahhoz, hogy az összegzés csak a saját "
+#~ "naptáraihoz tartozó tennivalókat jelenítse meg."
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Csak a &saját tennivalók megjelenítése"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "Esedékes feladatok"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Ma"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Holnap"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "%1 nappal ezelőtt"
+#~ msgstr[1] "%1 nappal ezelőtt"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "esedékes"
+
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "Nincs esedékes feladat a következő 1 napban"
+#~ msgstr[1] "Nincs esedékes feladat a következő %1 napban"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "Feladat sz&erkesztése..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "Feladat &törlése"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "A feladat megjelölése be&fejezettnek"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Feladat módosítása: \"%1\""
+
+#~ msgid "open-ended"
+#~ msgstr "nyitott"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "a határidő lejárt"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "ma kezdődik"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "nincs elkezdve"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "befejezett"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "folyamatban "
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ", "
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "A közelgő fontos dátumok beállítóablaka"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © Tobias Koenig, 2004.\n"
+#~ "Copyright © Allen Winter, 2004-2010."
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "A fontos dátumok áttekintési beállításai"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Megjelenített fontos dátumok"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Csak a mai különleges alkalmak megjelenítése"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions occurring on this "
+#~ "date only."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha csak az ezen dátumon előforduló különleges "
+#~ "alkalmakat szeretné látni."
+
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr ""
+#~ "A következő hónapon belül esedékes különleges alkalmak megjelenítése"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions that start sometime "
+#~ "during the next 31 days."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha látni szeretné a következő 31 nap során "
+#~ "esedékes különleges alkalmakat."
+
+#~ msgid "Select the days for showing upcoming special occasions"
+#~ msgstr ""
+#~ "A napok kiválasztása a következő különleges alkalmak megjelenítéséhez"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming special occasions."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet a napok számának megadásához, amelyen belül "
+#~ "közelgő különleges alkalmak megjelenítendők."
+
+#~ msgid "Set the number of days to show upcoming special occasions"
+#~ msgstr ""
+#~ "A napok számának beállítása a közelgő különleges alkalmak megjelenítéséhez"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming special "
+#~ "occasions up to one year in the future."
+#~ msgstr ""
+#~ "Ezen számmező használatával megadhatja a napok számát (ez akár egy év is "
+#~ "lehet), amelyen belül a közelgő különleges alkalmak megjelenítendők."
+
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Fontos dátumok a naptárból"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "A naptárában található születésnapok megjelenítése"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Birthday\" category."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a naptárában található születésnapok "
+#~ "megjelenítéséhez a különleges alkalmak áttekintésében. Ezek általában a "
+#~ "„Születésnap” kategória eseményei."
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "A naptárában található évfordulók megjelenítése"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Anniversary\" category."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a naptárában található évfordulók "
+#~ "megjelenítéséhez a különleges alkalmak áttekintésében. Ezek általában az "
+#~ "„Évfordulók” kategória eseményei."
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "A saját naptárában található ünnepnapok megjelenítése"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the upcoming "
+#~ "special occasions summary. These are events from your configured holiday "
+#~ "region, or events with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a címjegyzékében lévő szabadságok "
+#~ "megjelenítéséhez a következő különleges alkalmak összefoglalásában. Ezek "
+#~ "a területi beállításainak vagy a „Szabadság” kategóriájának eseményei."
+
+#~ msgid "Show &holidays"
+#~ msgstr "Ünne&pnapok"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Különleges alkalmak megjelenítése a saját naptárából"
+
+#~ msgid ""
+#~ "Enable this option to include events from your calendar with the "
+#~ "\"special occasion\" category."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a saját naptárában „különleges alkalom” "
+#~ "kategóriaként megjelölt események felvételéhez."
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Speciális &alkalmak"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Fontos dátumok a névjegyekből"
+
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "A címjegyzékében található születésnapok megjelenítése"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a címjegyzékében lévő születésnapok "
+#~ "megjelenítéséhez a következő különleges alkalmak összefoglalásában."
+
+#~ msgid "Show birth&days"
+#~ msgstr "&Születésnapok"
+
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "A címjegyzékében található évfordulók megjelenítése"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a címjegyzékében lévő évfordulók "
+#~ "megjelenítéséhez a következő különleges alkalmak összefoglalásában."
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "É&vfordulók"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Közelgő fontos dátumok"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Ma"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Holnap"
+
+#~ msgid "Birthday"
+#~ msgstr "Születésnap"
+
+#~ msgid "Anniversary"
+#~ msgstr "Évforduló"
+
+#~ msgid "Holiday"
+#~ msgstr "Ünnepnap"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Különleges alkalom"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "1 év"
+#~ msgstr[1] "%1 év"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Nincs fontos dátum a következő 1 napban"
+#~ msgstr[1] "Nincs fontos dátum a következő %1 napban"
+
+#~ msgid "Send &Mail"
+#~ msgstr "E-mail kül&dése"
+
+#~ msgid "View &Contact"
+#~ msgstr "A névjegy megte&kintése"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "E-mail küldése: \"%1\""
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "A fontos dátumok áttekintése"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Kontact - Speciális dátumok áttekintője"
+
+#~ msgid ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © Tobias Koenig, 2003.\n"
+#~ "Copyright © Allen Winter, 2004-2010."
+
+#~ msgid "Current Maintainer"
+#~ msgstr "Jelenlegi karbantartó"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Új KJots lap"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr "Egy párbeszédablak jelenik meg, ahol új jegyzetlapot hozhat létre."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Új jegyzetfüzet"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots book."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, ahol új jegyzetfüzetet hozhat létre."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Új hírcsatorna létrehozása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "Új névjegy létrehozása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Új névjegycsoport létrehozása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Csoportmunka-névjegyek szinkronizálása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Új jegyzetlap létrehozása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Új jegyzetfüzet létrehozása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Új levél létrehozása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Csoportmunka-levelek szinkronizálása"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Új cikk…"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Új Usenet cikk létrehozása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new article to "
+#~ "post on Usenet."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, ahol új Usenet cikket hozhat lére és "
+#~ "küldhet el."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Új felugró jegyzet létrehozása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Felugró jegyzet szerkesztése"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Felugró jegyzet átnevezése"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Felugró jegyzet törlése"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Felugró jegyzet nyomtatása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Új felugró jegyzet létrehozása"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Új feladat"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Új időnyilvántartó létrehozása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and start a new "
+#~ "time tracker."
+#~ msgstr ""
+#~ "Egy párbeszédablak jelenik meg, ahol új időnyilvántartót hozhat létre és "
+#~ "indíthat el."
+
+#~ msgid "task_popup"
+#~ msgstr "task_popup"
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "A tervező áttekintőjének beállítóablaka"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © Tobias Koenig, 2004.\n"
+#~ "Copyright © Oral Timocin, 2006-2008.\n"
+#~ "Copyright © Allen Winter, 2009-2010."
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgid "Planner"
+#~ msgstr "Tervező"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Ma"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Holnap"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Nincs találkozó a következő 1 napban"
+#~ msgstr[1] "Nincs találkozó a következő %1 napban"
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "a határidő lejárt"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Találkozó módosítása: \"%1\""
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "folyamatban"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "ma kezdődik"
+
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "Ma esedékes"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "befejezve"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "A tervező nézet beállítása"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "Általános"
+
+#~ msgid "General Configuration"
+#~ msgstr "Általános beállítások"
+
+#~ msgid "Show an icon indicating a recurring item"
+#~ msgstr "Ismétlődő elemet jelző ikon megjelenítése"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon that indicates an event or to-"
+#~ "do is recurring."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha szeretné látni az esemény vagy tennivaló "
+#~ "ismétlődését jelző ikont."
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "Ismétlődési ikon"
+
+#~ msgid "Show an icon indicating the item has a reminder"
+#~ msgstr "Emlékeztetővel ellátott elemet jelző ikon megjelenítése."
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon indicating that the event or to-"
+#~ "do has a reminder."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha szeretné látni az eseményhez vagy "
+#~ "tennivalóhoz tartozó emlékeztetőt jelző ikont."
+
+#~ msgid "Show reminder icon"
+#~ msgstr "Emlékeztető ikon"
+
+#~ msgid "Underline links in descriptions"
+#~ msgstr "A leírásban található hivatkozások aláhúzása"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr "Jelölje be ezt a négyzetet, ha alá szeretné húzatni az URL-címeket."
+
+#~ msgid "Underline links"
+#~ msgstr "A linkek aláhúzása"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Tennivalók megjelenítése az összegzésben"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha látni szeretné a tennivalókat az "
+#~ "összegzésben."
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Tennivalók megjelenítése a tervezőben"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Különleges dátumok megjelenítése az összegzésben"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha látni szeretné a különleges dátumokat az "
+#~ "összegzésben."
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "A fontos dátumok mutatása tervező nézetben"
+
+#~ msgid "Events"
+#~ msgstr "Események"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "Naptári események megjelenítése"
+
+#~ msgid "To-dos"
+#~ msgstr "Feladatok"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Befejezett tennivalók elrejtése"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha nem szeretné látni a befejezett "
+#~ "tennivalókat."
+
+#~ msgid "Hide to-dos without a due date"
+#~ msgstr "Határidő nélküli tennivalók elrejtése"
+
+#~ msgid "Check this box if you do not want to see open-ended to-dos."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha nem szeretné látni a határidő nélküli "
+#~ "tennivalókat."
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "El nem kezdett tennivalók elrejtése"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha nem szeretné látni a jövőben kezdődő "
+#~ "tennivalókat."
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "Folyamatban levő tennivalók elrejtése"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha nem szeretné látni az elkezdett, de be nem "
+#~ "fejezett tennivalókat."
+
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Lejárt határidejű tennivalók elrejtése"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Jelölje be ezt a négyzetet, ha nem szeretné látni a lejárt határidejű, de "
+#~ "még be nem fejezett tennivalókat."
+
+#~ msgid "Special Dates"
+#~ msgstr "Fontos dátumok"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "Mutatott fontos dátumok"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a címjegyzékében található születésnapok "
+#~ "felvételéhez a tervező összegzésébe."
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "A címjegyzékben található születésnapok megjelenítése"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a címjegyzékében található évfordulók "
+#~ "felvételéhez a tervező összegzésébe."
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "A címjegyzékben található évfordulók megjelenítése"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the planner "
+#~ "summary. These are events from your configured holiday region, or events "
+#~ "with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Engedélyezze ezt a lehetőséget a saját naptárában található szabadságok "
+#~ "felvételéhez a tervező összegzésébe. Ezek a területi beállításainak vagy "
+#~ "a „Szabadság” kategóriájának eseményei."
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Ünnepnapok a naptárból"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Különleges alkalmak a naptárból"
+
+#~ msgid "Planner Summary"
+#~ msgstr "Tervező - Áttekintés"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Kontact tervező - Áttekintés"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Aktív naptár"
+
+#~ msgid "Default Calendar"
+#~ msgstr "Alapértelmezett naptár"
+
+#~ msgid "Birthdays"
+#~ msgstr "Születésnapok"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "%1 bővítmény"
+
+#~ msgid "No Notes Available"
+#~ msgstr "Nincs feljegyzés"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Feljegyzések szinkronizálása"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Csoportmunka-feljegyzések szinkronizálása"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr ""
+#~ "Válassza ezt a beállítást a csoportmunka-feljegyzések szinkronizálásához."
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(c) A Kontact fejlesztői, 2003."
+
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "A Kontact beállítása csoportmunka-kliensnek"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "SZÜLETÉSNAP"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "ÉVFORDULÓ"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "ÜNNEPNAP"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "KÜLÖNLEGES ALKALOM"
+
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(c) A Kontact fejlesztői, 2001-2009."
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(C) Tobias Koenig, 2003-2004."
+
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "(c) Oral Timocin, 2007-2008."
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(C) A KDE PIM fejlesztői, 2004-2005."
+
+#~ msgid "(c) 2004-2006 Allen Winter"
+#~ msgstr "(c) Allen Winter, 2004-2006."
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Helyi"
+
+#~ msgid "Summary"
+#~ msgstr "Áttekintő"
+
+#~ msgid " days"
+#~ msgstr " nap"
+
+#~ msgid "Show &anniveraries"
+#~ msgstr "É&vfordulók"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#~ msgid "New Distribution List..."
+#~ msgstr "Új címlista..."
+
+#~ msgid "Synchronize Mail"
+#~ msgstr "Levélszinkronizálás"
+
+#~ msgid "Rename"
+#~ msgstr "Átnevezés"

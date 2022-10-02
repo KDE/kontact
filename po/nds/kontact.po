@@ -1,0 +1,2529 @@
+# translation of kontact.po to Low Saxon
+# Translation of kontact.po to Low Saxon
+# Heiko Evermann <heiko@evermann.de>, 2004.
+# Heiko Evermann <heiko.evermann@gmx.de>, 2004.
+# Sönke Dibbern <s_dibbern@web.de>, 2004, 2005, 2006, 2007, 2008, 2009, 2014.
+# Manfred Wiese <m.j.wiese@web.de>, 2008, 2010, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2014-06-20 16:38+0200\n"
+"Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
+"Language-Team: Low Saxon <kde-i18n-doc@kde.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sönke Dibbern, Manfred Wiese"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "s_dibbern@web.de, m.j.wiese@web.de"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid ""
+#| "Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact pleegt Dien Nettpost, Adressbook, Kalenner, Opgavenlist un anner "
+"Saken mehr."
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgctxt "@action:inmenu"
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "&Kontact-Inföhren"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "Kontact warrt laadt..."
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Bloots Lüttbiller wiesen"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "Sietpaneel-Elementen mit Lüttbiller ahn Text wiesen"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"Maak dit an, wenn Du Sietpaneel-Elementen mit Lüttbiller ahn Text wiesen "
+"wullt."
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Bloots Text wiesen"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "Sietpaneel-Elementen mit Text ahn Lüttbiller wiesen"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"Maak dit an, wenn Du Sietpaneel-Elementen mit Text, man ahn Lüttbiller "
+"wiesen wullt."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Lüttbiller un Text wiesen"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "Sietpaneel-Elementen mit Lüttbiller un Text wiesen"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+"Maak dit an, wenn Du Sietpaneel-Elementen mit Lüttbiller un Text wiesen "
+"wullt."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Groot Lüttbiller"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Groot Sietpaneel-Lüttbiller wiesen"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+"Maak dit an, wenn Du besünners groot Sietpaneel-Elementen wiesen wullt."
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Normaal Lüttbiller"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Normaal Sietpaneel-Lüttbiller wiesen"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr "Maak dit an, wenn Du normaal groot Sietpaneel-Elementen wiesen wullt."
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Lütt Lüttbiller"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Lütt Sietpaneel-Lüttbiller wiesen"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr "Maak dit an, wenn Du besünners lütt Sietpaneel-Elementen wiesen wullt."
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid ""
+#| "Choose this option if you want the sidebar items to have icons and text."
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+"Maak dit an, wenn Du Sietpaneel-Elementen mit Lüttbiller un Text wiesen "
+"wullt."
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "Dat bi elk Programmstart bruukt Moduul utsöken"
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+"Söök ut disse Köörlist dat Moduul ut, dat Du bi elk Programmstart bruken "
+"wullt. Anners bruukt \"Kontact\" dat tolest bruukt Moduul."
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "Dat opstunns aktuelle Moduul"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "Jümmers mit dat Moduul starten:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "Dat bi elk Programmstart bruukt Moduul fastleggen"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Normalerwies start Kontact mit dat Moduul, dat ehr't leste Tomaken aktiv "
+"weer. Aktiveer dit, wenn Du jümmers mit een Moduul starten wullt."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&Datei"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "&Instellen"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "&Hülp"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Hööft-Warktüüchbalken"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "Stüern"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Kontact mit dat angeven Moduul starten"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Minimeert starten"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "All Modulen oplisten un denn dat Programm beennen"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "De KDE-Pleger för Dien persöönliche Informatschonen"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "Copyright © 2001–2014 Kontact authors"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "Copyright © 2001–2014 de Schrieverslüüd vun Kontact"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Orginaalautor"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr "Torgny Nyblom"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr "Ümwannelwarktüüch för Git"
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " An't Torechtmaken..."
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Nieg"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Kontact instellen..."
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Kontact instellen"
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr "Binnen en nieg Dialoog kannst Du \"Kontact\" instellen."
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "&Kontact-Inföhren"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "De \"Kontact\"-Inföhrensiet wiesen"
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Maak dit an,wenn Du de \"Kontact\"-Inföhrensiet wiesen wullt."
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "Na Moduul %1 wesseln"
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Programm löppt as enkel Anwennen un geiht na den Vörgrund..."
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Komponent för \"%1\" lett sik nich laden."
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "KDE-Ümgeven för de Pleeg vun persöönliche Informatschonen"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "Handbook lesen"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "Mehr över \"Kontact\" un sien Komponenten"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "Kontact-Nettsiet besöken"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "Togriep op Internet-Ressourcen un -Inföhren"
+
+#: src/mainwindow.cpp:934
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Setup your Accounts"
+msgid "Setup your Accounts"
+msgstr "Dien Kontos inrichten"
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Prepare Kontact for use"
+msgid "Prepare Kontact for use"
+msgstr "Kontact för Bruuk torechtmaken"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE-Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "© 2003 Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Schriever"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Över Kontact"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Kontact-Fatt"
+
+#~ msgid "No about information available."
+#~ msgstr "Keen Informatschonen verföögbor."
+
+#~ msgid "Version %1"
+#~ msgstr "Verschoon %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Autoren:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Dank ok an:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Översetters:</b></p>"
+
+#~ msgid ""
+#~ "<br /><br />                     <i>This Free Software product was "
+#~ "improved as part of a commercial project:</i>                     "
+#~ "<h3>Credits</h3>                     Project Kowi (March 2007 - )<br /"
+#~ "><br />                                          <b>Production / Project "
+#~ "Coordination</b><br />                     Bernhard Reiter<br /"
+#~ ">                     <b>Director of Development</b><br /"
+#~ ">                     Till Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                Unit Lead<br /"
+#~ ">                Senior QA, Packaging<br />                QA, "
+#~ "Packaging<br />                Additional NSIS<br />                "
+#~ "Backup Coordinator                </td>                "
+#~ "<td>                Bernhard Reiter<br />                Bernhard "
+#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
+#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit Lead<br />                Development<br /"
+#~ ">                Development<br />                Additional D. + "
+#~ "Crypto<br />                Crypto GUI Development                </"
+#~ "td>                <td>                Till Adam<br />                "
+#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
+#~ "Frank Osterfeld<br />                Marc Mutz                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Crypto-Backend Porting<br />                "
+#~ "Crypto-Backend                </td>                <td>                "
+#~ "Werner Koch<br />                Marcus Brinkmann                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>External QA Darmstadt, basysKom GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit-Lead                </td>                "
+#~ "<td>                Dr. Stefan Werden                </td>                "
+#~ "</tr>                </table><br /><br />"
+#~ msgstr ""
+#~ "<br /><br /><i>Dit Free-Software-Produkt wöör as Deel vun en warflich "
+#~ "Projekt verbetert:</i>                     <h3>Verdeensten</"
+#~ "h3>                     Projekt Kowi (März 2007 - )<br /><br /"
+#~ ">                                          <b>Produkschoon / "
+#~ "Projektkoordineren</b><br />                     Bernhard Reiter<br /"
+#~ ">                     <b>Utwickel-Leder</b><br />                     "
+#~ "Till Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan=\"2\">      "
+#~ "<b>Osnabr&uuml;cker Part, Intevation GmbH</b>     </td>    </tr>    "
+#~ "<tr>     <td width=\"60%\">      Partenleed<br />      Hööft-"
+#~ "Göödbesekern, Paketbuu<br />      Göödbesekern, Paketbuu<br />      "
+#~ "Toföögt NSIS<br />      Tweet Koordinater     </td>     <td>      "
+#~ "Bernhard Reiter<br />      Bernhard Herzog<br />      Ludwig Reiter<br /"
+#~ ">      Emanuel Sch&uuml;tze<br />      Dr. Jan-Oliver Wagner     </td>    "
+#~ "</tr>    </table>    <br /><br />        <table border=\"0\" width=\"100%"
+#~ "\">    <tr>     <td colspan=\"2\">        <b>Berliner Part, Klar&auml;"
+#~ "lvdalens Datakonsult AB</b>     </td>    </tr>    <tr>     <td width=\"60%"
+#~ "\">      Partenleed<br />      Utwickeln<br />      Utwickeln<br />      "
+#~ "Toföögt Utw. + Verlsöteln<br />      Verslötelböversiet-Utw.     </"
+#~ "td>     <td>      Till Adam<br />      Jaroslaw Staniek<br />      Volker "
+#~ "Krause<br />      Frank Osterfeld<br />      Marc Mutz     </td>    </"
+#~ "tr>    </table>    <br /><br />        <table border=\"0\" width=\"100%"
+#~ "\">    <tr>     <td colspan=\"2\">      <b>D&uuml;sseldorfer Part, g10 "
+#~ "Code GmbH</b>     </td>    </tr>    <tr>     <td width=\"60%\">      "
+#~ "Porteren Verslötelhülpprogramm<br />      Verslötelhülpprogramm     </"
+#~ "td>     <td>      Werner Koch<br />      Marcus Brinkmann     </td>    </"
+#~ "tr>    </table>    <br /><br />        <table border=\"0\" width=\"100%"
+#~ "\">    <tr>     <td colspan=\"2\">      <b>Extern Göödbesekern Darmstadt, "
+#~ "basysKom GmbH</b>     </td>    </tr>    <tr>     <td width=\"60%\">      "
+#~ "Partenleed     </td>     <td>      Dr. Stefan Werden     </td>    </"
+#~ "tr>    </table><br /><br />"
+
+#~ msgid "%1 License"
+#~ msgstr "%1-Lizenz"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "Synkroniseren"
+
+#~ msgctxt "@title:column plugin name"
+#~ msgid "Summary Plugin Name"
+#~ msgstr "Tosamenfaat-Moduul"
+
+#~ msgid "Select the plugin summaries to show on the summary page."
+#~ msgstr ""
+#~ "Bitte de Moduul-Tosamenfaten utsöken, de Du op de Tosamenfatensiet hebben "
+#~ "wullt"
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "KDE Kontact-Tosamenfaten "
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "© 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&Tosamenfaat-Ansicht instellen..."
+
+#~ msgid "Configure the summary view"
+#~ msgstr "De Tosamenfaat-Ansicht instellen"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Choosing this will show a dialog where you can select which summaries you "
+#~ "want to see and also allow you to configure the summaries to your liking."
+#~ msgstr ""
+#~ "Is dit anmaakt, dukt en Dialoog op, binnen den sik de Tosamenfaat-Ansicht "
+#~ "utsöken lett un ok de Tosamenfaten na Dien Möög instellen laat."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Tosamenfaten för %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Wat kummt neegst?"
+
+#~ msgid "Sync All"
+#~ msgstr "All synkroniseren"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "All"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "All"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Kontact-Tosamenfaten"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Kontact-Tosamenfaatansicht"
+
+#, fuzzy
+#~| msgid "(c) 2003-2014 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "© 2003-2014 de Schrieverslüüd vun Kontact"
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE-Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Allens organiseert!"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Willkamen bi Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Disse Inföhren övergahn</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&Tipp för Vundaag"
+
+#~ msgctxt "@info:status"
+#~ msgid "Show the Tip-of-the-Day dialog"
+#~ msgstr "\"Tipp för Vundaag\"-Dialoog wiesen"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog showing small tips to help you use "
+#~ "this program more effectively."
+#~ msgstr ""
+#~ "Binnen en nieg Dialoog warrt lütte Tipps för beter Programmbruuk wiest."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Nieg Narichtenstroom..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Stroom tofögen."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Nieg Kontakt..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Kontakt opstellen."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Nieg Kontaktkoppel..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Kontaktkoppel opstellen."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Kontakten synkroniseren"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du Dien Arbeitkoppel-Kontakten synkroniseren wullt."
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Instellendialoog för Nettposttosamenfaten"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "Copyright © 2004–2010: Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Den helen Padd för Ornern wiesen"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Den helen Padd för elk Orner wiesen"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Enable this option if you want to see the full path for each folder "
+#~ "listed in the summary. If this option is not enabled, then only the base "
+#~ "folder path will be shown."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du binnen de Tosamenfaten för elk Orner den helen Padd "
+#~ "oplist hebben wullt. Is dit nich anmaakt, warrt bloots de Wörtelornerpadd "
+#~ "wiest."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Nieg Naricht..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and send a new "
+#~ "email message."
+#~ msgstr ""
+#~ "Binnen en nieg Dialoog kannst Du en nieg Nettbreef opstellen un "
+#~ "loosstüern."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Nettpost synkroniseren"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du Dien Arbeitkoppel-Nettpost synkroniseren wullt."
+
+#~ msgid "New Messages"
+#~ msgstr "Niege Narichten"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>Tosamen: %2<br/>Nich leest: %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "Keen nich leeste Narichten binnen Dien beluerte Ornern"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Orner \"%1\" opmaken"
+
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmknotessummary"
+
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Instellendialoog för Notiztosamenfaten"
+
+#, fuzzy
+#~| msgid "Copyright © 2013-2014 Laurent Montel <montel@kde.org>"
+#~ msgid "Copyright © 2013-2015 Laurent Montel <montel@kde.org>"
+#~ msgstr "Copyright © 2013-2014 Laurent Montel <montel@kde.org>"
+
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "&Nieg"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can add a new popup note."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Opduknotiz tofögen."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Bewerken..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can modify an existing "
+#~ "popup note."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en al vörhannen Opduknotiz ännern."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Ümnömen..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can rename an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Binnen en nieg Dialoog kannst Du en al vörhannen Opduknotiz ümnömen."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Wegdoon"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be prompted if you really want to permanently remove the "
+#~ "selected popup note."
+#~ msgstr ""
+#~ "Du warrst fraagt, wat Du de markeert Opduknotiz redig duerhaftig wegdoon "
+#~ "wullt."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Utsöcht Notizen drucken..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be prompted to print the selected popup note."
+#~ msgstr "Du warrst fraagt, wat Du en Opduknotiz drucken wullt."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Druckvöransicht för utsöcht Notizen..."
+
+#~ msgid "Note settings..."
+#~ msgstr "Notizinstellen"
+
+#~ msgid "Preferences KNotes..."
+#~ msgstr "KNotes-Instellen..."
+
+#~ msgid "Mail..."
+#~ msgstr "Nettpost..."
+
+#~ msgid "Send..."
+#~ msgstr "Loosstüern..."
+
+#~ msgid "Set Alarm..."
+#~ msgstr "Alarm fastleggen..."
+
+#~ msgid "New Note From Clipboard"
+#~ msgstr "Nieg Notiz ut Twischenaflaag"
+
+#~ msgid "New Note From Text File..."
+#~ msgstr "Nieg Notiz ut Textdatei..."
+
+#~ msgid "Save As..."
+#~ msgstr "Sekern as..."
+
+#~ msgid "Lock"
+#~ msgstr "Afsluten"
+
+#~ msgid "Unlock"
+#~ msgstr "Opsluten"
+
+#~ msgid "Set Focus to Quick Search"
+#~ msgstr "Blinker na Fixsöök setten"
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr "Söök bitte eerst op de List de Notizen ut, de Du drucken wullt."
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Opduknotizen drucken"
+
+#~ msgid "Note was not created."
+#~ msgstr "Notiz wöör nich opstellt"
+
+#~ msgid "Create new note"
+#~ msgstr "Nieg Notiz opstellen"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Wullt Du disse Notiz redig wegdoon?"
+#~ msgstr[1] "Wullt Du disse %1 Notizen redig wegdoon?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Wegdoon beglöven"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Opduknotiz ümnömen"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Nieg Naam:"
+
+#~ msgid "Show Note..."
+#~ msgstr "Notiz wiesen..."
+
+#~ msgid "Settings"
+#~ msgstr "Instellen"
+
+#~ msgid "Save note as plain text"
+#~ msgstr "Notiz as eenfach Text sekern"
+
+#~ msgid "Save As"
+#~ msgstr "Sekern as"
+
+#~ msgid ""
+#~ "<qt>A file named <b>%1</b> already exists.<br />Are you sure you want to "
+#~ "overwrite it?</qt>"
+#~ msgstr ""
+#~ "<qt>Dat gifft al en Datei mit den Naam <b>%1</b>.<br />Büst Du seker, Du "
+#~ "wullt ehr överschrieven?</qt>"
+
+#~ msgid "Select Text File"
+#~ msgstr "Textdatei utsöken"
+
+#~ msgid "Error during open text file: %1"
+#~ msgstr "Fehler bi't Opmaken vun en Textdatei: %1"
+
+#~ msgid "Open Text File"
+#~ msgstr "Textdatei opmaken"
+
+#~ msgid "Note from file '%1'"
+#~ msgstr "Notiz ut Datei „%1“"
+
+#~ msgid "&Edit"
+#~ msgstr "&Bewerken"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Niege Opduknotiz..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new popup note."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Opduknotiz opstellen."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "KNotes"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Opduknotizen"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "Copyright © 2003–2014 de Schrieverslüüd vun Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Pleger opstunns"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Verleden Pleger"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Mööt"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Notiz: %1"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Nieg Notiz"
+
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Dat Afleggen vun mehr as een Nettbreef warrt nich ünnerstütt."
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Vun: %1\n"
+#~ "Na: %2\n"
+#~ "Bedraap: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Nettbreef: %1"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Opduker wiesen"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Opduknotiz bewerken"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Naam:"
+
+#~ msgid "Search notes..."
+#~ msgstr "Notizen söken..."
+
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Notizen söken...<%1>"
+
+#~ msgid "(note locked, it will not removed)"
+#~ msgstr "(Notiz afslaten, warrt nich wegmaakt)"
+
+#~ msgid "Popup Notes"
+#~ msgstr "Opduknotizen"
+
+#~ msgid "No note found"
+#~ msgstr "Keen Notiz funnen"
+
+#~ msgid "Modify Note..."
+#~ msgstr "Notiz bewerken..."
+
+#~ msgid "Delete Note..."
+#~ msgstr "Notiz wegdoon..."
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Opduknotiz lesen: \"%1\""
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Begeefnis-Tosamenfaten instellen"
+
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Tokamen Begeefnissen wiesen"
+
+#~ msgid "Show events for today only"
+#~ msgstr "Bloots Begeefnissen för Vundaag wiesen"
+
+#~ msgid ""
+#~ "Check this box if you want to see events occurring on this date only."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du bloots de Begeefnissen wiesen wullt, de op den "
+#~ "aktuellen Dag afloopt."
+
+#~ msgid "&Today only"
+#~ msgstr "Bloots för &Vundaag"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Begeefnissen wiesen, de binnen den tokamen Maand anfangt"
+
+#~ msgid ""
+#~ "Check this box if you want to see events that start sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du Begeefnissen wiesen wullt, de binnen de nakamen 31 "
+#~ "Daag anfangt."
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "Binnen den nakamen &Maand (31 Daag)"
+
+#~ msgid "Select the days for showing upcoming events"
+#~ msgstr ""
+#~ "De Tall vun Daag fastleggen, för de Du tokamen Begeefnissen wiesen wullt"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming events."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du de Tall vun Daag fastleggen wullt, för de tokamen "
+#~ "Begeefnissen wiest warrt."
+
+#~ msgid "Within the &next:"
+#~ msgstr "Binnen de &nakamen:"
+
+#~ msgid "Set the number of days to show upcoming events"
+#~ msgstr ""
+#~ "De Tall vun Daag fastleggen, för de Du tokamen Begeefnissen wiesen wullt"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming events up to "
+#~ "1 year in the future."
+#~ msgstr ""
+#~ "Mit dit Dreihfeld kannst Du de Tall vun Daag (bet to een Johr vörut) "
+#~ "fastleggen, för de tokamen Begeefnissen wiest warrt."
+
+#~ msgid "1 day"
+#~ msgstr "1 Dag"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " Daag anfangt"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Disse tokamen Begeefnissen ut den Kalenner wiesen"
+
+#~ msgid ""
+#~ "Show birthdays from your calendar when also using the Birthday resource"
+#~ msgstr ""
+#~ "Geboortsdaag ut den Kalenner wiesen, wenn ok de Geboortsdag-Ressource "
+#~ "bruukt warrt"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Bruuk disse Optschoon, wenn Du ok Geboortsdaag ut Dien Kalenner binnen de "
+#~ "Tosamenfaten över de tokamen Begeefnissen wiesen wullt. Disse Optschoon "
+#~ "is bloots verföögbor, wenn Du binnen Dien Kalenner ok de Geboortsdag-"
+#~ "Ressource bruukst."
+
+#~ msgid "Show &birthdays"
+#~ msgstr "&Geboortsdaag wiesen"
+
+#~ msgid ""
+#~ "Shows anniversaries from your calendar when using the Birthdays resource"
+#~ msgstr ""
+#~ "Wiest Johrdaag ut den Kalenner, wenn de Geboortsdag-Ressource bruukt warrt"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Bruuk disse Optschoon, wenn Du ok Johrdaag binnen de Tosamenfaten över de "
+#~ "tokamen Begeefnissen wiesen wullt. Disse Optschoon is bloots verföögbor, "
+#~ "wenn Du binnen Dien Kalenner ok de Geboortsdag-Ressource bruukst."
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "&Johrdaag wiesen"
+
+#~ msgid "Groupware Settings"
+#~ msgstr "Arbeitkoppel-Instellen"
+
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Bloots Begeefnissen ut de egen Kalenners wiesen"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show events belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du binnen de Tosamenfaten bloots Begeefnissen ut Dien "
+#~ "egen Kalenners wiesen wullt."
+
+#~ msgid "Show &my events only"
+#~ msgstr "Bloots &egen Begeefnissen wiesen"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "Tokamen Begeefnissen"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "Binnen den tokamen Dag steiht keen Begeefnis an"
+#~ msgstr[1] "Binnen de tokamen %1 Daag steiht keen Begeefnis an"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "Termin &bewerken..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "Termin &wegdoon"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Begeefnis bewerken: \"%1\""
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Nieg Daagbook..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "En nieg Daagbook opstellen"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new journal "
+#~ "entry."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Daagbookindrag opstellen."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Daagbook synkroniseren"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Arbeitkoppel-Daagbook synkroniseren"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware journal entries."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du Dien Arbeitkoppel-Daagbookindrääg synkroniseren "
+#~ "wullt."
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " Dag"
+#~ msgstr[1] " Daag"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Instellendialoog för tokamen Begeefnissen"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2003–2004: Tobias Koenig\n"
+#~ "Copyright © 2005–2010: Allen Winter"
+
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Instellendialoog för nich afslaten Opgaven"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Nieg Begeefnis..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "En nieg Begeefnis opstellen"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new event item."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Begeefnisindrag opstellen."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Kalenner synkroniseren"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Arbeitkoppel-Kalenner synkroniseren"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware events."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du Dien Arbeitkoppel-Begeefnissen synkroniseren wullt."
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Vundaag"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Morgen"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "morgen"
+#~ msgstr[1] "in %1 Daag"
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "in "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "1 Stn."
+#~ msgstr[1] "%1 Stn."
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "1 Min."
+#~ msgstr[1] "%1 Min."
+
+#~ msgid "now"
+#~ msgstr "nu"
+
+#~ msgid "all day"
+#~ msgstr "Heel Dag"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Nakamen: %1"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Nieg Opgaav..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "En nieg Opgaav opstellen"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new to-do item."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Opgavenindrag opstellen."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Opgavenlist synkroniseren"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Arbeitkoppel-Opgavenlist synkroniseren"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du Dien Arbeitkoppel-Opgavenlist synkroniseren wullt."
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Opgaven-Tosamenfaten instellen"
+
+#~ msgid "Show To-dos Due"
+#~ msgstr "Opgaven na Afloop wiesen"
+
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Bloots Opgaven wiesen, de op den aktuellen Dag afloopt"
+
+#~ msgid "Check this box if you want to see To-dos due on this date only."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du bloots de Opgaven wiesen wullt, de op den aktuellen "
+#~ "Dag afloopt"
+
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "Opgaven wiesen, de binnen den tokamen Maand afloopt"
+
+#~ msgid ""
+#~ "Check this box if you want to see To-dos that are due sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du bloots de Opgaven wiesen wullt, de binnen de nakamen "
+#~ "31 Daag afloopt."
+
+#~ msgid "Select the days for showing pending To-dos"
+#~ msgstr ""
+#~ "De Tall vun Daag fastleggen, för de Du nich afslaten Opgaven wiesen wullt"
+
+#~ msgid ""
+#~ "Check this box if you want specify the number of days in the future for "
+#~ "pending To-dos."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du de Tall vun Daag fastleggen wullt, för de nich "
+#~ "afslaten Opgaven wiest warrt"
+
+#~ msgid "Set the number of days to show pending To-dos"
+#~ msgstr ""
+#~ "De Tall vun Daag fastleggen, för de Du nich afslaten Opgaven wiesen wullt"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show pending To-dos up to 1 "
+#~ "year in the future."
+#~ msgstr ""
+#~ "Mit dit Dreihfeld kannst Du de Tall vun Daag fastleggen, för de nich "
+#~ "afslaten Opgaven wiest warrt"
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "Disse Opgaavtypen versteken"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Afslaten Opgaven versteken"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have already been "
+#~ "completed."
+#~ msgstr "Maak dit an, wenn Du keen al afslaten Opgaven wiesen wullt."
+
+#~ msgid "&Completed"
+#~ msgstr "&Afslaten"
+
+#~ msgid "Hide To-dos without a due date"
+#~ msgstr "Opgaven ahn Afloopdatum versteken"
+
+#~ msgid "Check this box if you do not want to see open-ended To-dos."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du keen Opgaven wiesen wullt, de keen Afloopdatum hebbt"
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "Ahn &Enn (keen Afloopdatum)"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "Nich anfungen Opgaven versteken"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du keen Opgaven wiesen wullt, de eerst in de Tokunft "
+#~ "anfangt"
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "&Nich anfungen (Anfangdatum liggt in de Tokunft)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "Opgaven in de Maak versteken"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du keen Opgaven wiesen wullt, de al anfungen hebbt, man "
+#~ "noch nich afslaten wöörn."
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "&In de Maak (anfungen, man nich afslaten)"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Utstahn Opgaven versteken"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du keen Opgaven wiesen wullt, de över ehr Afloopdatum "
+#~ "liggt, man noch nich afslaten sünd."
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "&Utstahn (över de Tiet un nich afslaten)"
+
+#~ msgid "Show To-dos belonging to my calendars only"
+#~ msgstr "Bloots Opgaven ut de egen Kalenners wiesen"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show To-dos belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du binnen de Tosamenfaten bloots Opgaven ut Dien egen "
+#~ "Kalenners wiesen wullt."
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Bloots &egen Opgaven wiesen"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "Nich afslaten Opgaven"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Vundaag"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Morgen"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "vör 1 Dag"
+#~ msgstr[1] "vör %1 Daag"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "löppt af"
+
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "Binnen den tokamen Dag löppt keen nich afslaten Opgaav af"
+#~ msgstr[1] "Binnen de tokamen %1 Dag löppt keen nich afslaten Opgaav af"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "Opgaav &bewerken..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "Opgaav &wegdoon"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "Opgaav as &utföhrt markeren"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Opgaav bewerken: \"%1\""
+
+#~ msgid "open-ended"
+#~ msgstr "keen Frist"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "steiht ut"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "fangt vundaag an"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "nich anfungen"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "afslaten"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "in de Maak "
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Instellendialoog för tokamen besünner Daten"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2004: Tobias Koenig\n"
+#~ "Copyright © 2004–2010: Allen Winter"
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Tosamenfaten över besünner Daten instellen"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Besünner Daten wiesen, de anfangt in"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Besünner Begeefnissen bloots för vundaag wiesen"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions occurring on this "
+#~ "date only."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du bloots besünner Begeefnissen för Vundaag wiesen "
+#~ "wullt."
+
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Besünner Begeefnissen wiesen, de binnen den tokamen Maand anfangt"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions that start sometime "
+#~ "during the next 31 days."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du bloots besünner Begeefnissen wiesen wullt, de binnen "
+#~ "de nakamen 31 Daag anfangt."
+
+#~ msgid "Select the days for showing upcoming special occasions"
+#~ msgstr ""
+#~ "De Tall vun Daag fastleggen, för de Du tokamen besünner Begeefnissen "
+#~ "wiesen wullt"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming special occasions."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du de Tall vun Daag fastleggen wullt, för de tokamen "
+#~ "besünner Begeefnissen wiest warrt."
+
+#~ msgid "Set the number of days to show upcoming special occasions"
+#~ msgstr ""
+#~ "De Tall vun Daag fastleggen, för de Du tokamen besünner Begeefnissen "
+#~ "wiesen wullt"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming special "
+#~ "occasions up to one year in the future."
+#~ msgstr ""
+#~ "Mit dit Dreihfeld kannst Du de Tall vun Daag bet to een Johr vörut "
+#~ "fastleggen, för de tokamen besünner Begeefnissen wiest warrt"
+
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Disse besünner Daten ut den Kalenner wiesen"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Fierdaag ut den Kalenner wiesen"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Birthday\" category."
+#~ msgstr ""
+#~ "Bruuk disse Optschoon, wenn Du ok Geboortsdaag ut Dien Kalenner binnen de "
+#~ "Tosamenfaten över de tokamen besünner Begeefnissen wiesen wullt. "
+#~ "Normalerwies sünd dat Begeefnissen mit de Kategorie \"Geboortsdaag\"."
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Johrdaag ut KAdressbook wiesen"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Anniversary\" category."
+#~ msgstr ""
+#~ "Bruuk disse Optschoon, wenn Du ok Johrdaag binnen de Tosamenfaten över de "
+#~ "tokamen besünner Begeefnissen wiesen wullt. Normalerwies sünd dat "
+#~ "Begeefnissen mit de Kategorie \"Johrdaag\"."
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Fierdaag ut den Kalenner wiesen"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the upcoming "
+#~ "special occasions summary. These are events from your configured holiday "
+#~ "region, or events with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Bruuk disse Optschoon, wenn Du ok Fierdaag binnen de Tosamenfaten över de "
+#~ "tokamen besünner Begeefnissen wiesen wullt. Normalerwies sünd dat "
+#~ "Begeefnissen mit de Kategorie \"Fierdaag\"."
+
+#~ msgid "Show &holidays"
+#~ msgstr "&Fierdaag wiesen"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Besünner Begeefnissen ut den Kalenner wiesen"
+
+#~ msgid ""
+#~ "Enable this option to include events from your calendar with the "
+#~ "\"special occasion\" category."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du Begeefnissen ut de Kalennerkategorie \"Besünner "
+#~ "Begeefnissen\" wiesen wullt."
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "&Besünner Begeefnissen wiesen"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Disse besünner Daten ut de Kontaktenlist wiesen"
+
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Geboortsdaag ut KAdressbook wiesen"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Bruuk disse Optschoon, wenn Du ok Geboortsdaag binnen de Tosamenfaten "
+#~ "över de tokamen besünner Begeefnissen wiesen wullt."
+
+#~ msgid "Show birth&days"
+#~ msgstr "Geboorts&daag wiesen"
+
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Johrdaag ut KAdressbook wiesen"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Bruuk disse Optschoon, wenn Du ok Johrdaag binnen de Tosamenfaten över de "
+#~ "tokamen besünner Begeefnissen wiesen wullt."
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "J&ohrdaag wiesen"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Tokamen besünner Daten"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Vundaag"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Morgen"
+
+#~ msgid "Birthday"
+#~ msgstr "Geboortsdag"
+
+#~ msgid "Anniversary"
+#~ msgstr "Johrdag"
+
+#~ msgid "Holiday"
+#~ msgstr "Fierdag"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Besünner Begeefnis"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "een Johr"
+#~ msgstr[1] "%1 Johren"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Binnen den tokamen Dag steiht keen besünner Datum an"
+#~ msgstr[1] "Binnen de %1 tokamen Daag steiht keen besünner Datum an"
+
+#~ msgid "Send &Mail"
+#~ msgstr "&Nettbreef sennen"
+
+#~ msgid "View &Contact"
+#~ msgstr "&Kontakt ankieken"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Nettbreef na: \"%1\""
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Tosamenfaten över besünner Daten"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Kontact-Tosamenfaten för besünner Daten"
+
+#~ msgid ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2003: Tobias Koenig\n"
+#~ "Copyright © 2004–2010: Allen Winter"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "Pleger opstunns"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Nieg KJots-Siet"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Jots-Siet opstellen."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Nieg KJots-Book"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots book."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Jots-Book opstellen."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Nieg Stroom opstellen"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "Nieg Kontakt opstellen"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Nieg Kontaktkoppel opstellen"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Arbeitkoppel-Kontakten synkroniseren"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "En nieg Jots-Siet opstellen"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "En nieg Jots-Book opstellen"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Nieg Nettbreef opstellen"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Arbeitkoppel-Nettpost synkroniseren"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Nieg Krink-Naricht..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Nieg Usenet-Bidrag opstellen"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new article to "
+#~ "post on Usenet."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Usenet-Bidrag opstellen."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Niege Opduknotiz opstellen"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Opduknotiz bewerken"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Opduknotiz ümnömen"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Opduknotiz wegdoon"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Opduknotiz drucken"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Niege Opduknotiz opstellen"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Nieg Opgaav"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Nieg Tietkieker opstellen"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and start a new "
+#~ "time tracker."
+#~ msgstr "Binnen en nieg Dialoog kannst Du en nieg Tietkieker starten."
+
+#~ msgid "task_popup"
+#~ msgstr "task_popup"
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Instellendialoog för de Planer-Översicht"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2004: Tobias Koenig\n"
+#~ "Copyright © 2006–2008: Oral Timocin\n"
+#~ "Copyright © 2009–2010: Allen Winter"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgid "Planner"
+#~ msgstr "Planer"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Vundaag"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Morgen"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Binnen den tokamen Dag steiht keen Termin an"
+#~ msgstr[1] "Binnen de tokamen %1 Daag steiht keen Termin an"
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "steiht ut"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Termin bewerken: \"%1\""
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "in de Maak"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "fangt Vundaag an"
+
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "endt vundaag"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "afslaten"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Instellen för de Planer-Översicht"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "Allmeen"
+
+#~ msgid "General Configuration"
+#~ msgstr "Allmeen Instellen"
+
+#~ msgid "Show an icon indicating a recurring item"
+#~ msgstr "Lüttbild för wedderhaalt Indrag wiesen"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon that indicates an event or to-"
+#~ "do is recurring."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du en Lüttbild för wedderkamen Begeefnissen oder "
+#~ "Opgaven wiesen wullt."
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "Wedderhalen-Lüttbild wiesen"
+
+#~ msgid "Show an icon indicating the item has a reminder"
+#~ msgstr "En Lüttbild as Henwies op en Vöranstoot wiesen"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon indicating that the event or to-"
+#~ "do has a reminder."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du en Vöranstööt-Lüttbild för wedderkamen Begeefnissen "
+#~ "oder Opgaven wiesen wullt."
+
+#~ msgid "Show reminder icon"
+#~ msgstr "Vöranstööt-Lüttbild wiesen"
+
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Ünnerstreken Links binnen Beschrieven"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr "Maak dit an, wenn Du ünnerstreken URLs wiesen wullt."
+
+#~ msgid "Underline links"
+#~ msgstr "Links ünnerstreken"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Opgaven binnen Tosamenfaten wiesen"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr "Maak dit an, wenn Du Opgaven binnen de Tosamenfaten wiesen wullt."
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Opgaven binnen Planer wiesen"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Besünner Daten binnen Tosamenfaten wiesen"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du besünner Daten binnen de Tosamenfaten wiesen wullt."
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "Besünner Daten binnen Planer wiesen"
+
+#~ msgid "Events"
+#~ msgstr "Begeefnissen"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "Kalennerbegeefnissen wiesen"
+
+#~ msgid "To-dos"
+#~ msgstr "Opgaven"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Afslaten Opgaven versteken"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have already been "
+#~ "completed."
+#~ msgstr "Maak dit an, wenn Du keen al afslaten Opgaven wiesen wullt."
+
+#~ msgid "Hide to-dos without a due date"
+#~ msgstr "Opgaven ahn Afloopdatum versteken"
+
+#~ msgid "Check this box if you do not want to see open-ended to-dos."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du keen Opgaven wiesen wullt, de keen Afloopdatum hebbt."
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Nich anfungen Opgaven versteken"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du keen Opgaven wiesen wullt, de eerst in de Tokunft "
+#~ "anfangt."
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "Opgaven in de Maak versteken"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du keen Opgaven wiesen wullt, de al anfungen hebbt, man "
+#~ "noch nich afslaten wöörn."
+
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Utstahn Opgaven versteken"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du keen Opgaven wiesen wullt, de över ehr Afloopdatum "
+#~ "liggt, man noch nich afslaten sünd."
+
+#~ msgid "Special Dates"
+#~ msgstr "Besünner Daten"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "Disse Besünner Daten wiesen"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du Geboortsdaag ut KAdressbook binnen de Planer-"
+#~ "Översicht wiesen wullt."
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Geboortsdaag ut KAdressbook wiesen"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du Johrdaag ut KAdressbook binnen de Planer-Översicht "
+#~ "wiesen wullt."
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Johrdaag ut KAdressbook wiesen"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the planner "
+#~ "summary. These are events from your configured holiday region, or events "
+#~ "with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du Fierdaag ut KAdressbook binnen de Planer-Översicht "
+#~ "wiesen wullt. Dit sünd Begeefnissen ut Dien instellt lokaal Fierdaag, "
+#~ "oder Begeefnissen ut de Kategorie \"Fierdaag\"."
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Fierdaag ut den Kalenner wiesen"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Besünner Begeefnissen ut den Kalenner wiesen"
+
+#~ msgid "Planner Summary"
+#~ msgstr "Planer-Översicht"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Planer-Översicht vun Kontact"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Aktiv Kalenner"
+
+#~ msgid "Default Calendar"
+#~ msgstr "Standardkalenner"
+
+#~ msgid "Birthdays"
+#~ msgstr "Geboortsdaag"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "Moduul %1"
+
+#~ msgid "No Notes Available"
+#~ msgstr "Keen Notizen verföögbor"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Opduknotizen synkroniseren"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Arbeitkoppel-Notizen synkroniseren"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "Maak dit an, wenn Du Dien Arbeitkoppel-Notizen synkroniseren wullt."
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "© 2003 De Schrieverslüüd vun Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Kontact as Arbeitkoppel-Client instellen"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "Geboortsdag"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "Johrdag"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "Fierdag"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "Besünner Begeefnis"
+
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "© 2001-2009 De Schrievers vun Kontact"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "© 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "© 2007-2008 Oral Timocin"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "© 2004-2005 De PIM-Koppel vun KDE"
+
+#~ msgid "(c) 2004-2006 Allen Winter"
+#~ msgstr "© 2004-2006 Allen Winter"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Lokaal"
+
+#~ msgid "Summary"
+#~ msgstr "Tosamenfaten"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#~ msgid " days"
+#~ msgstr " Daag"
+
+#~ msgid ""
+#~ "Create a new contact<p>You will be presented with a dialog where you can "
+#~ "add all data about a person, including addresses and phone numbers.</p>"
+#~ msgstr ""
+#~ "En nieg Kontakt opstellen<p>Röppt en Dialoog op, binnen den Du all Daten "
+#~ "to en Persoon ingeven kannst, so as Adressen un Telefoonnummern.</p>"
+
+#~ msgid "Rename"
+#~ msgstr "Ümnömen"
+
+#~ msgid ""
+#~ "Check this box if you don't want to see To-dos that haven't been "
+#~ "completed yet and are past their due date."
+#~ msgstr ""
+#~ "Maak dit an, wenn Du keen Opgaven wiesen wullt, de al över de Tiet sünd, "
+#~ "man noch nich afslaten wöörn."
+
+#~ msgid "Show &anniveraries"
+#~ msgstr "&Johrdaag wiesen"
+
+#~ msgid "New Distribution List..."
+#~ msgstr "Nieg Verdeellist..."
+
+#~ msgid "New SMS..."
+#~ msgstr "Nieg SMS..."
+
+#~ msgid "New News Feed"
+#~ msgstr "Nieg Narichtenstroom"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "Künst"
+
+#~ msgid "Business"
+#~ msgstr "Warf"
+
+#~ msgid "Computers"
+#~ msgstr "Reekners"
+
+#~ msgid "Misc"
+#~ msgstr "Anner"
+
+#~ msgid "Recreation"
+#~ msgstr "Freetiet"
+
+#~ msgid "Society"
+#~ msgstr "Sellschap"
+
+#~ msgid "Custom"
+#~ msgstr "Egen"
+
+#~ msgid "All"
+#~ msgstr "All"
+
+#~ msgid "Add"
+#~ msgstr "Tofögen"
+
+#~ msgid "Remove"
+#~ msgstr "Wegmaken"
+
+#~ msgid "Selected"
+#~ msgstr "Utsöcht"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Opfrischtiet:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Tall vun wiest Narichten:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Narichtentelegraaf-Instellendialoog"
+
+#~ msgid "News Feeds"
+#~ msgstr "Narichtenborns"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "Keen DCOP-Deenst för RSS verföögbor.\n"
+#~ "För dit Plugin bruukst Du \"rssservice\"."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "URL na Twischenaflaag koperen"
+
+#~ msgid "Weather Information"
+#~ msgstr "Wederinformatschonen"
+
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "Keen D-Bus-Deenst för't Weder verföögbor.\n"
+#~ "För dit Moduul bruukst Du \"KWeather\"."
+
+#~ msgid "Last updated on"
+#~ msgstr "Tolest opfrischt an'n"
+
+#~ msgid "Wind Speed"
+#~ msgstr "Windgauheit"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "Rel. Fuchtigkeit"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "Wederbericht för Statschoon ankieken"
+
+#~ msgid "Ian Reinhart Geiser"
+#~ msgstr "Ian Reinhart Geiser"
+
+#~ msgid "John Ratke"
+#~ msgstr "John Ratke"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "Verbetern un mehr Kode-Reenmaken"
+
+#~ msgid "Unknown"
+#~ msgstr "Nich begäng"
+
+#~ msgid "Calendar View"
+#~ msgstr "Kalenner-Ansicht"
+
+#~ msgid "Display:"
+#~ msgstr "Dorstellen:"
+
+#~ msgid "Include:"
+#~ msgstr "Insluten:"
+
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "Opgaven / Besünner Daten"
+
+#~ msgid "0%"
+#~ msgstr "0%"
+
+#~ msgid "20%"
+#~ msgstr "20%"
+
+#~ msgid "30%"
+#~ msgstr "30%"
+
+#~ msgid "40%"
+#~ msgstr "40%"
+
+#~ msgid "50%"
+#~ msgstr "50%"
+
+#~ msgid "60%"
+#~ msgstr "60%"
+
+#~ msgid "70%"
+#~ msgstr "70%"
+
+#~ msgid "80%"
+#~ msgstr "80%"
+
+#~ msgid "90%"
+#~ msgstr "90%"
+
+#~ msgid "100%"
+#~ msgstr "100%"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "Standard-Ressource för KOrganizer"
+
+#~ msgid "Check this box to hide to-dos that are 100% complete"
+#~ msgstr "Maak dit an, wenn Du 100% afslaten Opgaven versteken wullt"
+
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Vundaag"
+
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Morgen"
+
+#~ msgid "Show Birthdays from Contact List"
+#~ msgstr "Geboortsdaag ut de Kontaktenlist wiesen"
+
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "Johrdaag ut de Kontaktenlist wiesen"
+
+#~ msgid "Today only"
+#~ msgstr "Bloots vundaag"
+
+#~ msgid "Overdue (not completetd and beyond due-date)"
+#~ msgstr "Utstahn (nich afslaten un över Afloopdatum hen)"
+
+#~ msgid "To-dos starting today"
+#~ msgstr "Opgaven, de vundaag anfangt "
+
+#~ msgid "To-dos ending today"
+#~ msgstr "Opgaven, de vundaag afloopt"
+
+#~ msgid "In-progress(started but not completetd)"
+#~ msgstr "In de Maak (anfungen, man nich afslaten)"
+
+#~ msgid "Days to show Selection"
+#~ msgstr "Wiest Daag"
+
+#~ msgid "One day"
+#~ msgstr "Een Dag"
+
+#~ msgid "Five days"
+#~ msgstr "Fief Daag"
+
+#~ msgid "One week"
+#~ msgstr "Een Week"
+
+#~ msgid "One month"
+#~ msgstr "Een Maand"
+
+#~ msgid "Show event recurrence"
+#~ msgstr "Begeefnis-Wedderhalen wiesen"
+
+#~ msgid "Show events with reminder"
+#~ msgstr "Begeefnissen mit Vöranstoot wiesen"
+
+#~ msgid "underline Event label"
+#~ msgstr "Begeefnis-Beteker ünnerstreken"
+
+#~ msgid "Show all to-dos"
+#~ msgstr "All Opgaven wiesen"
+
+#~ msgid "Starting to-dos"
+#~ msgstr "Anfangen Opgaven"
+
+#~ msgid "Ending to-dos"
+#~ msgstr "Anstahn Opgaven"
+
+#~ msgid "To-dos in progress"
+#~ msgstr "Opgaven in de Maak"
+
+#~ msgid "Priority limit:"
+#~ msgstr "Prioriteetgrenz:"
+
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "Plaanöversicht-Instellendialoog"
+
+#~ msgid "&Today"
+#~ msgstr "&Vundaag"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "Aflegg-Begeefnissen vun den Typ \"%1\" warrt nich ünnerstütt."
+
+#~ msgid "Notes Management"
+#~ msgstr "Notizen plegen"
+
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "Lüttbildgrött"
+
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "Groot"
+
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "Lütt"
+
+#~ msgid "Synchronize"
+#~ msgstr "Synkroniseren"
+
+#~ msgid "Name"
+#~ msgstr "Naam"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr ""
+#~ "Hier kannst Du fastleggen, welk Komponenten Du binnen de Tosamenfaten "
+#~ "wiest hebben wullt."
+
+#~ msgid "&Request Feature..."
+#~ msgstr "&Funkschoon vörslaan..."

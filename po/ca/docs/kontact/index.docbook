@@ -1,0 +1,1223 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym
+>PIM</acronym
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE">
+]>
+
+<book id="kontact" lang="&language;">
+
+<bookinfo>
+
+<title
+>El manual de &kontact;</title>
+
+<authorgroup>
+<author
+><firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+><address
+>&Cornelius.Schumacher.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Antonio</firstname
+> <surname
+>Salazar</surname
+> <affiliation
+><address
+><email
+>savedfastcool@gmail.com</email>
+    </address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+><address
+>&Daniel.Molkentin.mail;</address
+></affiliation>
+</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+
+<copyright>
+<year
+>2003-2005</year
+><holder
+>&Cornelius.Schumacher;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>8 de desembre de 2016</date>
+<releaseinfo
+>5.4.40 (Aplicacions 16.12)</releaseinfo>
+
+<abstract
+><para
+>&kontact; és la solució integrada que necessiteu per a la gestió de la vostra informació personal (&PIM;). Combina aplicacions ben conegudes de &kde; com &kmail;, &korganizer; i &kaddressbook; en una interfície simple per a proveir d'un accés al correu, la planificació de tasques, la llibreta d'adreces i altres funcionalitats &PIM;.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>KMail</keyword>
+<keyword
+>Organizer</keyword>
+<keyword
+>KAddressBook</keyword>
+<keyword
+>KNotes</keyword>
+<keyword
+>Akregator</keyword>
+<keyword
+>PIM</keyword>
+<keyword
+>treball en grup</keyword>
+<keyword
+>Outlook</keyword>
+<keyword
+>Evolution</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>Introducció</title>
+
+<para
+>El &kontact; és la solució integrada per a la gestió de la informació personal. Combina aplicacions ben conegudes del &kde; per al correu electrònic, planificació, llibreta d'adreces i notes (&kmail;, &korganizer;, &kaddressbook; i &knode;) en una sola interfície. Basada en un verdader entorn de components, &kontact; proveeix exactament les mateixes funcions que les altres aplicacions per separat i afegeix més característiques que fan ús de la manera integrada en la qual &kontact; executa les aplicacions com a components. Els usuaris podran escollir quines aplicacions executar dins del &kontact; i quines ho faran a part.</para>
+
+<para
+>A més de les funcions de les aplicacions individuals, &kontact; proveeix una vista de resum i característiques avançades per a l'arrossegat i deixat entre components. </para>
+
+</chapter>
+
+
+<chapter id="components">
+<title
+>Components de &kontact;</title>
+
+<para
+>&kontact; integra les següents aplicacions. Consulteu els manuals de cada aplicació per a tenir més detalls a sobre del seu ús. Aquests són aplicables tot i estar-se executant com a components dins de &kontact;. </para>
+
+<variablelist>
+    <varlistentry>
+        <term
+><ulink url="help:/kmail2"
+>&kmail;</ulink
+></term>
+        <listitem
+><para
+>El client de correu de &kde;.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/korganizer"
+>&korganizer;</ulink
+></term>
+        <listitem
+><para
+>L'aplicació per organitzar i planificar tasques del &kde;.</para>
+            </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/kaddressbook"
+>&kaddressbook;</ulink
+></term>
+        <listitem
+><para
+>El gestor de contactes del &kde;.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/knotes"
+>&knotes;</ulink
+></term>
+        <listitem
+><para
+>L'aplicació de notes adhesives del &kde;.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/akregator"
+>&akregator;</ulink
+></term>
+        <listitem
+><para
+>El lector de fonts RSS del &kde;.</para>
+            </listitem>
+    </varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="main-window">
+<title
+>La finestra principal de &kontact;</title>
+
+<para
+>La finestra principal consta d'una subfinestra lateral a l'esquerra que mostra les icones dels components disponibles, una vista principal a la dreta que conté la finestra principal del component actiu; el menú, les barres d'eines i d'estat habituals.</para>
+
+<sect1 id="side-pane">
+<title
+>Subfinestra lateral</title>
+
+<para
+>La subfinestra lateral serveix per a múltiples finalitats. Permet alternar entre els components, mostra quin component està actiu i serveix com a objectiu per a les operacions d'arrossegar i deixar per a les diferents aplicacions.</para>
+
+<screenshot>
+<screeninfo
+>Subfinestra lateral del &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="side-pane.png"/></imageobject>
+<textobject>
+<phrase
+>Subfinestra lateral del &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Subfinestra lateral del &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Per alternar entre els components, simplement feu clic sobre la icona corresponent. Es mostrarà la finestra principal del component en qüestió, el menú i les barres d'eines i d'estat s'adaptaran per a reflectir les funcions del component actiu. Si activeu un component per primera vegada, pot haver-hi un petit retard fins que canviï la vista principal, atès que els components es carreguen sota demanda. Això vol dir que no es malbarata memòria en els components que no utilitzeu.</para>
+
+<para
+>Les icones de la subfinestra lateral també es poden usar com a objectius per a les operacions d'arrossegar i deixar. Per exemple, arrossegueu un missatge de correu des de la part del correu sobre la icona de la llista de tasques pendents o sobre el calendari per a crear una tasca pendent o un esdeveniment associat amb aquest correu.</para>
+
+<para
+>Per acabar, podeu canviar la mida de les icones en la subfinestra lateral. En fer clic dret sobre la subfinestra lateral se us indicarà l'opció d'usar icones grans, normals o petites, així com l'opció per a usar tan sols text en comptes d'icones.</para>
+
+<para
+>Si no us agrada la subfinestra lateral, podeu simplement amagar-la arrossegant el divisor. Una alternativa de navegació entre les parts és proporcionada per la barra d'eines <guilabel
+>Navegador</guilabel
+>, la qual es pot posicionar lliurement. Consulteu <xref linkend="bars"/> per a més informació sobre la barra d'eines <guilabel
+>Navegador</guilabel
+>.</para>
+
+</sect1>
+
+
+<sect1 id="main-view">
+
+<title
+>Vista principal</title>
+
+<para
+>La vista de la dreta és la que ocupa l'espai més gran a la finestra principal de &kontact;, atès que mostra el component actiu. Es correspon exactament amb la finestra principal que usa el component quan s'executa com a aplicació en solitari. La icona ressaltada en la subfinestra lateral indica a quina aplicació pertany la finestra principal. &kontact; recorda quin component estava actiu, de manera que en iniciar &kontact; la vista mostra altra vegada el que estava actiu en sortir per darrera vegada.</para>
+
+<screenshot>
+<screeninfo
+>Vista principal de &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<textobject>
+<phrase
+>Vista principal de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Vista principal de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>A més, hi ha dues maneres de tornar a definir el component amb el qual ha d'iniciar-se &kontact;. La primera és aportar un argument per a cridar al programa &kontact; (vegeu <xref linkend="command-line"/>). La segona és una opció en el diàleg de configuració de &kontact;, la qual permet que &kontact; sigui iniciat sempre en un cert mode.</para>
+
+<para
+>Per a fer-ho, aneu a <menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Configura Kontact...</guimenuitem
+></menuchoice
+> i feu clic a <guilabel
+>Kontact</guilabel
+> en la llista.</para>
+
+<screenshot>
+<screeninfo
+>Establir el component inicial de &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<textobject>
+<phrase
+>Establir el component inicial de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Establir el component inicial de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="bars">
+<title
+>Menú, barres d'eines i d'estat</title>
+
+<para
+>El menú i les barres d'eines i d'estat s'adapten a les del component actiu. Això vol dir que, a més d'algunes funcions habituals com el menú d'ajuda, que es mostren a tots els components, hi ha accions que es canvien quan canvia el component actiu. Aquestes accions disponibles per a cada component són les mateixes que estan disponibles quan s'executa l'aplicació en solitari.</para>
+
+<screenshot>
+<screeninfo
+>Vistes de les barres de menús de &kontact; en la vista de resum, vista de correu i vista de calendari</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
+<textobject>
+<phrase
+>Vistes de les barres de menús de &kontact; en la vista de resum, vista de correu i vista de calendari</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Vistes de les barres de menús de &kontact; en la vista de resum, vista de correu i vista de calendari</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
+<textobject>
+<phrase
+>Vistes de les barres de menús de &kontact; en la vista de resum, vista de correu i vista de calendari</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Vistes de les barres de menús de &kontact; en la vista de resum, vista de correu i vista de calendari</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
+<textobject>
+<phrase
+>Vistes de les barres de menús de &kontact; en la vista de resum, vista de correu i vista de calendari</phrase>
+</textobject>
+<caption>
+<para
+>Vistes de les barres de menús de &kontact; en la vista de resum, vista de correu i vista de calendari. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>A més, &kontact; pot mostrar la barra d'eines <guilabel
+>Navegador</guilabel
+>, que us permet un accés als components de &kontact; molt semblant a com ho fa la subfinestra lateral. Però, a diferència d'aquesta, els botons a la barra d'eines <guilabel
+>Navegador</guilabel
+> no es poden utilitzar per a operacions d'arrossegar i deixar cap a altres components.</para>
+
+<para
+>Per a activar la barra d'eines, seleccioneu <menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guisubmenu
+>Barres d'eines mostrades</guisubmenu
+> <guimenuitem
+>Navegador</guimenuitem
+></menuchoice
+>. </para>
+
+<screenshot>
+<screeninfo
+>La barra d'eines <guimenuitem
+>Navegador</guimenuitem
+> de &kontact;.</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
+<textobject>
+<phrase
+>La barra d'eines <guimenuitem
+>Navegador</guimenuitem
+> de &kontact;.</phrase>
+</textobject>
+<caption>
+<para
+>La barra d'eines <guimenuitem
+>Navegador</guimenuitem
+> de &kontact;. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Una acció especial comuna a tots els components és l'acció <guimenuitem
+>Nou</guimenuitem
+>. Permet la creació d'objectes nous com correus electrònics, contactes, cites i tasques pendents, independentment del component actiu. Si fos requerit, s'inicia el component responsable de processar l'acció seleccionada.</para>
+
+<screenshot>
+<screeninfo
+>Menú Nou de &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<textobject>
+<phrase
+>Menú Nou de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Menú Nou de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="side-pane-drag-and-drop">
+<title
+>Funcionalitat d'arrossegar i deixar anar</title>
+
+<para
+>&kontact; proveeix una funcionalitat d'arrossegar i deixar anar avançada entre els programes que conté. A continuació hi ha una breu descripció de cadascuna de les operacions específiques d'arrossegar i deixar anar que es poden usar i el seu resultat.</para>
+
+<sect2 id="side-pane-drag-and-drop-kmail-todo">
+<title
+>&kmail; -&gt; Llista de tasques pendents del &korganizer;</title>
+
+<para
+>En arrossegar un missatge des de la <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>subfinestra de capçaleres del &kmail;</ulink
+> cap a la icona de la llista de tasques pendents de &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) es crearà una nova pendent amb el títol <guilabel
+>Correu: <replaceable
+>Assumpte</replaceable
+></guilabel
+> i el contingut <guilabel
+>De: <replaceable
+>Remitent</replaceable
+> Per a: <replaceable
+>Destinatari</replaceable
+> Assumpte: <replaceable
+>Assumpte</replaceable
+></guilabel
+> (en el que el text que apareix <guilabel
+><replaceable
+>d'aquesta manera</replaceable
+></guilabel
+> serà la informació del missatge), així com el mateix missatge de correu electrònic com a adjunt. </para>
+
+</sect2>
+
+<sect2 id="side-pane-drag-and-drop-kmail-calendar">
+<title
+>&kmail; -&gt; Calendari del &korganizer;</title>
+
+<para
+>En arrossegar un missatge des de la <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>subfinestra de capçaleres del &kmail;</ulink
+> cap a la icona del calendari de &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) es crearà un nou esdeveniment amb el títol <guilabel
+>Correu: <replaceable
+>Assumpte</replaceable
+></guilabel
+> i el contingut <guilabel
+>De: <replaceable
+>Remitent</replaceable
+> Per a: <replaceable
+>Destinatari</replaceable
+> Assumpte: <replaceable
+>Assumpte</replaceable
+></guilabel
+> (en el que el text que apareix <guilabel
+><replaceable
+>d'aquesta manera</replaceable
+></guilabel
+> serà la informació del missatge), així com el mateix missatge de correu electrònic com a adjunt. </para>
+
+<para
+>Tingueu present que en arrossegar sobre el botó de tasques pendents es crea una tasca pendent, mentre que en arrossegar sobre el calendari es crea un esdeveniment. Teniu més informació sobre la distinció entre tasques pendents i esdeveniments a la <ulink url="help:/korganizer"
+>documentació del &korganizer;</ulink
+>. </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kmail-contacts">
+<title
+>&kmail; -&gt; &kaddressbook;</title>
+
+<para
+>En arrossegar un missatge des de la <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>subfinestra de capçaleres del &kmail;</ulink
+> cap a la icona de &kaddressbook; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="kaddressbook-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) es crearà un contacte amb l'adreça de correu electrònic del remitent, llevat que ja hi hagi un contacte amb aquest mateix nom. Se us notificarà l'acció mitjançant un diàleg. </para>
+
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
+<title
+>&kaddressbook; -&gt; Llista de tasques pendents del &korganizer;</title>
+
+<para
+>En arrossegar qualsevol nombre d'entrades des de <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>la finestra principal del &kaddressbook;</ulink
+> cap a la icona de la llista de tasques pendents del &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) es crearà una tasca pendent nova amb el títol &quot;Reunió&quot; i els contactes seleccionats com a assistents. </para>
+
+<para
+>Tingueu present que en arrossegar sobre el botó de tasques pendents es crea una tasca pendent, mentre que en arrossegar sobre el calendari es crea un esdeveniment. Teniu més informació sobre la distinció entre tasques pendents i esdeveniments a la <ulink url="help:/korganizer"
+>documentació del &korganizer;</ulink
+>. </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
+<title
+>&kaddressbook; -&gt; Calendari del &korganizer;</title>
+
+<para
+>En arrossegar qualsevol nombre d'entrades des de la <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>finestra principal del &kaddressbook;</ulink
+> cap a la icona de calendari del &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) es crearà un nou esdeveniment amb el títol &quot;Reunió&quot; i els contactes seleccionats com a assistents. </para>
+
+<para
+>Tingueu present que en arrossegar sobre el botó de tasques pendents es crea una tasca pendent, mentre que en arrossegar sobre el calendari es crea un esdeveniment. Teniu més informació sobre la distinció entre tasques pendents i esdeveniments a la <ulink url="help:/korganizer"
+>documentació del &korganizer;</ulink
+>. </para>
+
+</sect2>
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="summary-view">
+<title
+>La vista de resum</title>
+
+<para
+>La vista per omissió en iniciar &kontact; per primera vegada és la vista del resum. Mostra la informació més apropiada proveïda pels components escollits de &kontact;. Poden ser notes, cites o aniversaris imminents, tasques pendents vençudes, missatges nous, &etc; La informació que es mostra la podeu configurar seleccionant els components corresponents en el <link linkend="configuration"
+>diàleg de configuració de &kontact;</link
+>.</para>
+
+<screenshot>
+<screeninfo
+>Vista del resum de &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<textobject>
+<phrase
+>Vista del resum de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Vista del resum de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<!-- not in kde4 para
+>If you think the information you see is outdated, you can click on the
+<guibutton
+>Refresh</guibutton
+> button (<guiicon
+><inlinemediaobject
+><imageobject>
+<imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
+</imageobject
+></inlinemediaobject
+></guiicon
+>)
+in the Summary View toolbar to refresh
+the data.</para-->
+
+<sect1 id="summary-view-component-reposition">
+<title
+>Tornar a ubicar els components de la vista de resum</title>
+
+<para
+>La vista del resum us permet canviar a on han de mostrar-se els components. De manera que, si voleu que les dates especials estiguin en la part inferior esquerra i les tasques pendents apareguin a la part superior dreta, podeu tornar a configurar la vista del resum per a reflectir-ho.</para>
+
+<para
+>Tornar a ubicar els components en la vista del resum és tan simple com arrossegar-los cap a la nova localització en la qual voleu que estiguin. Manteniu premuda la tecla &Ctrl;, feu clic i arrossegueu l'àrea grisa del títol del component cap a on voleu que estigui. Tingueu present que aquesta posició és relativa a la resta de components. De manera que, podeu moure el component de correu perquè en la vista aparegui a sota del component de tasques pendents, però no el podeu ubicar en una posició específica. Si tan sols teniu un component en la vostra vista del resum, l'única opció que teniu és moure'l entre les dues columnes de la vista; dos components poden estar o bé en una mateixa columna o un en cada columna; i així successivament. Quan arrossegueu un component, veureu un petit quadre de vista prèvia seguint al punter del ratolí mentre el moveu.</para>
+
+<screenshot>
+<screeninfo
+>Tornar a configurar la vista del resum de &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<textobject>
+<phrase
+>Tornar a configurar la vista del resum de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Tornar a configurar la vista del resum de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title
+>Configurar el &kontact;</title>
+
+<sect1 id="main-config">
+<title
+>Finestra de configuració de &kontact;</title>
+
+<para
+>Quan se seleccioni l'acció <guimenuitem
+>Configura &kontact;</guimenuitem
+> des del menú <guimenu
+>Arranjament</guimenu
+>, es mostrarà el diàleg de configuració de &kontact;. Aquest proveeix una llista de les configuracions per a tots els components actius de &kontact;. Podeu fer clic sobre el símbol <guilabel
+>&gt;</guilabel
+> que està al costat del nom de cada component per a desplegar l'arbre i poder veure millor les opcions del component per aquest. Seleccionant una de les opcions de configuració sota una capçalera fareu que es mostri aquesta secció de configuració a la dreta.</para>
+
+<screenshot>
+<screeninfo
+>Finestra de configuració de &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<textobject>
+<phrase
+>Finestra de configuració de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Finestra de configuració de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>En marcar la casella que està al costat del títol del component seleccioneu el component perquè se situï a la subfinestra lateral i en la vista del resum. El component és carregat i la seva vista principal es mostra a la finestra principal quan feu clic per primera vegada sobre la seva icona en la subfinestra lateral. Si desmarqueu la casella de selecció, el component serà eliminat de la subfinestra lateral i de la vista del resum. Els canvis seran efectius quan feu clic sobre els botons <guibutton
+>Aplica</guibutton
+> o <guibutton
+>D'acord</guibutton
+>.</para>
+
+<para
+>També podeu configurar els components individuals fent clic sobre la icona corresponent en la subfinestra lateral i després seleccionant l'element <guimenuitem
+>Configura <replaceable
+>nom de l'aplicació</replaceable
+></guimenuitem
+> en el menú <guimenu
+>Arranjament</guimenu
+>.</para>
+
+<screenshot>
+<screeninfo
+>Menú Arranjament de &kontact; quan està seleccionat el &kmail;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="settings-menu-kmail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Menú Arranjament de &kontact; quan està seleccionat el &kmail;</phrase>
+</textobject>
+<caption>
+<para
+>Menú Arranjament de &kontact; quan està seleccionat el &kmail; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="summary-view-config">
+<title
+>Configurar la vista del resum de &kontact;</title>
+
+<para
+>Quan seleccioneu <guimenuitem
+>Resums</guimenuitem
+> en el diàleg d'arranjament de &kontact;, es mostrarà una pàgina que us permetrà seleccionar quins connectors de resum de &kontact; s'han de mostrar en la vista del resum. Aquí hi ha una llista curta dels connectors actualment disponibles i el que fan: </para>
+
+<screenshot>
+<screeninfo
+>Selecció de resum</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-selection.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Selecció de resum</phrase>
+</textobject>
+<caption
+><para
+>Selecció de resum</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="summary-view-config-calendar">
+<title
+>Connectors del resum de &kontact;: Calendari</title>
+
+<para
+>El connector «Calendari» per a la vista de resum de &kontact; afegeix una àrea en la vista anomenada <guilabel
+>Propers esdeveniments</guilabel
+>. Mostrarà qualsevol esdeveniment que vagi a aplicar-se en l'actualitat. </para>
+
+<screenshot>
+<screeninfo
+>Connector de calendari del resum de &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-calendar.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Connector de calendari del resum de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Connector de calendari del resum de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-mail">
+<title
+>Connectors del resum de &kontact;: Correu</title>
+
+<para
+>El connector «Correu» per a la vista del resum de &kontact; afegeix una àrea en la vista anomenada <guilabel
+>Missatges nous</guilabel
+>. Aquesta àrea s'actualitza cada vegada que rebeu nous missatges per a informar-vos de quants missatges nous hi ha i en quines carpetes estan. </para>
+
+<screenshot>
+<screeninfo
+>Connector de correu del resum de &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-mail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Connector de correu del resum de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Connector de correu del resum de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-notes">
+<title
+>Connectors del resum de &kontact;: Notes</title>
+
+<para
+>El connector «Notes» per a la vista del resum de &kontact; afegeix una àrea en la vista anomenada <guilabel
+>Notes emergents</guilabel
+>. Aquesta àrea mostra els títols de totes les notes actuals (per omissió, el títol és la data/hora en la qual es va crear la nota). En fer clic sobre el títol de la nota, s'accedirà a l'àrea de notes. </para>
+
+<screenshot>
+<screeninfo
+>Connector de notes del resum de &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-notes.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Connector de notes del resum de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Connector de notes del resum de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-todo-list">
+<title
+>Connectors del resum de &kontact;: Llista de tasques pendents</title>
+
+<para
+>El connector «Llista de tasques pendents» per a la vista del resum de &kontact; afegeix una àrea en la vista anomenada <guilabel
+>Tasques pendents inacabades</guilabel
+>. Aquesta àrea conté totes les tasques pendents actuals, incloses les que ja s'han completat. Mostra el títol de la tasca pendent, el percentatge completat i l'estat actual de la tasca pendent. Tingueu present que podeu eliminar totes les tasques pendents finalitzades mitjançant la llista de tasques pendents de &kontact;. Actualment, en fer clic sobre el títol d'una tasca pendent no comporta cap acció. </para>
+
+<screenshot>
+<screeninfo
+>Connector Llista de tasques pendents per al resum de &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-todos.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Connector Llista de tasques pendents per al resum de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Connector Llista de tasques pendents per al resum de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-special-dates">
+<title
+>Connectors del resum de &kontact;: Dates especials</title>
+
+<para
+>El connector de la vista del resum de &kontact; «Dates especials» afegeix una àrea en la vista anomenada <guilabel
+>Dates especials</guilabel
+>. Aquesta àrea conté informació basada en els criteris que heu seleccionat en l'àrea de configuració del connector en la configuració de la vista del resum de &kontact;. El connector «Dates especials» és especialment d'utilitat, ja que us pot mostrar els aniversaris, vacances i ocasions especials, que es trobin tant en el calendari com en la llista de contactes. </para>
+
+<screenshot>
+<screeninfo
+>Connector Dates especials de &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-special-dates.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Connector Dates especials de &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Connector Dates especials de &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+</sect1>
+
+</chapter>
+
+
+<chapter id="command-line">
+<title
+>&kontact; sobre la línia d'ordres</title>
+
+<para
+>&kontact; té diversos arguments per a la línia d'ordres que es poden usar per a realitzar certes accions.</para>
+
+<para
+>En primer lloc, el &kontact; admet els arguments de línia d'ordres admesos per totes les aplicacions del &kde; i les &Qt;, vegeu les pàgines man de qt5options i kf5options. </para>
+
+<para
+>&kontact; també admet diversos arguments específics en la línia d'ordres.</para>
+
+<sect1 id="command-line-arguments">
+<title
+>Arguments de la línia d'ordres</title>
+
+<sect2 id="command-line-module">
+<title
+>Arguments relatius als mòduls</title>
+
+<para
+>Per a obtenir una llista de mòduls disponibles de &kontact;, podeu escriure:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --list</command
+> </para>
+
+<para
+>Després, perquè &kontact; sigui iniciat amb un mòdul actiu, escriviu:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --module <replaceable
+>nomMòdul</replaceable
+></command
+> </para>
+
+<para
+>A on <replaceable
+>nomMòdul</replaceable
+> serà un dels mòduls que heu obtingut usant l'ordre anterior.</para>
+
+</sect2>
+
+<sect2 id="command-line-startup">
+<title
+>Arguments relatius a l'inici</title>
+
+<para
+>Per a iniciar &kontact; en mode icona<footnote
+><para
+>El mode icona també es coneix com a minimitzat; és quan la finestra de l'aplicació s'oculta i l'aplicació només està disponible a la barra de tasques.</para
+></footnote
+>, podeu escriure:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --iconify</command
+> </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="technology">
+<title
+>Sota la màscara</title>
+
+<para
+>&kontact; fa un ús extensiu de diverses tecnologies clau en &kde;, entre les quals destaquen KParts i &DBus;.</para>
+
+<para
+>La integració en la &IGU; dels components es fa mitjançant connectors que proveeixen les versions de KParts de les aplicacions. Aquest punt tan sols necessita una prima capa addicional sobre el codi existent de les aplicacions en solitari.</para>
+
+<para
+>Per a la comunicació entre els components s'usa &DBus;. Aquest disposa de la bona característica de ser absolutament transparent tant si l'aplicació funciona en solitari o incrustada com a KPart en &kontact;. En executar-se dins de &kontact; s'usa un mode de procés &DBus; força eficient.</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Crèdits i llicència</title>
+
+<para
+>&kontact;</para>
+
+<para
+>Copyright del programa 2001-2021, Els desenvolupadors del &kde;</para>
+
+<para
+>Col·laboradors:</para>
+
+<itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Don.Sanders; &Don.Sanders.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+    </listitem>
+<listitem
+><para
+>Allen Winter <email
+>winter@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Rafael Fernández López <email
+>ereslibre@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>&David.Faure; &David.Faure.mail;</para
+></listitem>
+<listitem
+><para
+>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para
+></listitem>
+<listitem
+><para
+>Sven Lüppken <email
+>sven@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Torgny Nyblom <email
+>nyblom@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Zack Rusin <email
+>zack@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthis H&ouml;lzer-Kl&uuml;pfel <email
+>mhk@kde.org</email
+>, l'autor original del marc de treball &kontact;.</para>
+    </listitem>
+
+<listitem
+><para
+>Tots els valuosos desenvolupadors de les aplicacions que integra &kontact;. Ells han fet gairebé tot el treball.</para>
+    </listitem>
+</itemizedlist>
+
+<para
+>Copyright de la documentació 2004-2005</para>
+
+<para
+>Col·laboradors: <itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem
+><para
+>Antonio Salazar <email
+>savedfastcool@gmail.com</email
+></para>
+</listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
+
+<listitem
+><para
+>Llista de tots els membres de la documentació &kde; que han ajudat amb els temes de marques i amb els estils.</para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+<appendix id="kontact-admin">
+<title
+>Guia de l'administrador</title>
+<!-- Section Compatibility -->
+<sect1 id="compat">
+<title
+>Problemes de compatibilitat</title>
+
+<para
+>Aquesta secció proporciona ajuda sobre com es comunica eficaçment el &kontact; amb les diferents solucions de treball en grup. </para>
+
+<sect2 id="compat-outlook">
+<title
+>Outlook i Exchange</title>
+
+<para
+>En el diàleg de configuració de &kontact;, sota <menuchoice
+><guimenu
+>Correu</guimenu
+><guimenuitem
+>Miscel·lània</guimenuitem
+></menuchoice
+> a la pàgina <guilabel
+>Invitacions</guilabel
+> trobareu les següents opcions que ajudaran a l'usuari comunicar-se amb Microsoft Outlook(tm) que s'executen en un entorn Kolab o en un entorn Microsoft Exchange(tm). </para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Suprimeix les capçaleres De:/A: en les respostes a invitacions</guilabel
+></term>
+<listitem>
+<para
+>Habiliteu aquesta opció per a fer que el Microsoft Outlook(tm) entengui les vostres respostes com a respostes a invitacions.</para>
+<para
+>El Microsoft Outlook té una sèrie de defectes en la seva implementació de l'estàndard iCalendar. Aquesta opció evita un d'ells. Si teniu problemes amb què els usuaris de l'Outlook no poden obtenir les vostres respostes, proveu activant aquesta opció.</para>
+<para
+>Detalls: Quan s'envia una invitació d'iCal això fa que el missatge tingui la capçalera «From:» és el mateix que la capçalera «To:». També estableix la capçalera «X-KMail-Identity» a la «UIOD» de «To:» i s'assegura que la «BCC:» està en blanc. Outlook només entén la resposta si la capçalera «From:» és la mateixa que la capçalera «To:» del missatge d'invitació.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Envia les invitacions al cos del missatge</guilabel
+></term>
+<listitem>
+<para
+>Les invitacions normalment s'envien com a adjunts a un correu. Aquest interruptor canvia els correus d'invitació perquè s'enviïn al text del correu; això és necessari per enviar invitacions i respostes a Microsoft Outlook. Però, quan feu això, ja no obteniu text descriptiu que puguin llegir els programes de correu; per tant, els missatges resultants semblaran molt estranys a la gent que té programes de correu que no entenen les invitacions. La gent que té programes de correu que entenen les invitacions encara podran treballar d'aquesta forma.</para>
+<para
+>Detalls: En enviar una invitació d'iCal aquesta opció crea el cos del missatge a partir de les dades adjuntes i estableix la capçalera Content-Type a «text/calendar; method=quelcom; charset="utf-8"».</para>
+<para
+>L'autoenviament també està activat de manera que no és necessària la intervenció humana per redactar.</para>
+<note
+><para
+>L'encriptatge i la signatura a si mateix estan inhabilitats.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Denominació de les invitacions compatible amb l'Exchange</guilabel
+></term>
+<listitem>
+<para
+>Microsoft Outlook, quan s'utilitza en combinació amb un servidor Microsoft Exchange(tm), té un problema en interpretar el correu electrònic de treball en grup que compleix l'estàndard. Habilitant aquesta opció s'enviaran les invitacions de treball en grup de manera que Microsoft Exchange(tm) les entengui. La invitació s'enviarà com un adjunt amb el nom <filename
+>ical.ics</filename
+>.</para>
+<para
+>Detalls: En enviar una invitació d'iCal això fa que el missatge tingui l'assumpte «(Rebutjada|Provisional|Acceptada|Delegada): assumpte». La invitació s'envia com un fitxer adjunt amb el nom <filename
+>ical.ics</filename
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Denominació dels adjunts compatible amb l'Outlook</guilabel
+></term>
+<listitem>
+<para
+>Activeu aquesta opció per fer que l'Outlook(tm) comprengui els noms dels adjunts que continguin caràcters no anglesos.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+</sect1>
+
+<!-- Section Behavior -->
+<sect1 id="behavior">
+<title
+>Problemes de comportament</title>
+
+<para
+>Aquesta secció proporciona instruccions sobre com fer que el &kontact; es comporti més com altres clients de treball en grup. </para>
+
+<sect2 id="behave-composing">
+<title
+>Redactar els missatges</title>
+
+<para
+>Els usuaris de l'Outlook estan acostumats a escriure una llista d'adreces en els camps Per a:, CC: o BBC: separats per un caràcter («;») punt i coma, a més d'una coma («,»). Per omissió, el &kontact; només permet la coma com a separador d'adreces. Per a permetre també el punt i coma, canvieu <option
+>AllowSemicolonAsAddressSeparator</option
+> des de «false» a «true» en el fitxer <filename
+>share/config.kcfg/messagecomposer.kcfg</filename
+> instal·lat. </para>
+
+</sect2>
+</sect1>
+
+<!-- Section RFC Compromises -->
+<sect1 id="nonrfc">
+<title
+>Compromisos RFC</title>
+
+<para
+>El &kontact; està dissenyat per a interoperar el millor possible amb una àmplia varietat de solucions de treball en grup. Amb aquesta finalitat, de vegades fa concessions de disseny respectant les vàries RFC d'Internet que proporcionen la base per a biblioteques de baix nivell sobre les que el &kontact; depèn en gran manera.</para>
+
+<note
+><para
+>Mai es pot infringir cap RFC.</para
+></note>
+
+<para
+>La següent llista de compromisos RFC està feta pel &kontact; o les biblioteques de baix nivell utilitzades pel &kontact;:</para>
+<!--FIXME is this correct?-->
+<itemizedlist>
+<listitem>
+<para
+>En escriure els valors de durada en els fitxers d'iCalendar, el &kontact; mai escriu la propietat DURATION en termes de setmanes (&ead;, 1*DIGIT "W"), en canvi, el nombre enter de setmanes sempre és multiplicat per 7 i escrit en termes de dies (és a dir, 1*DIGIT "D"). </para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

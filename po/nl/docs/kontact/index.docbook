@@ -1,0 +1,1233 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym
+>PIM</acronym
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE">
+]>
+
+<book id="kontact" lang="&language;">
+
+<bookinfo>
+
+<title
+>Het handboek van &kontact;</title>
+
+<authorgroup>
+<author
+><firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+><address
+>&Cornelius.Schumacher.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Antonio</firstname
+> <surname
+>Salazar</surname
+> <affiliation
+><address
+><email
+>savedfastcool@gmail.com</email>
+    </address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+><address
+>&Daniel.Molkentin.mail;</address
+></affiliation>
+</author>
+&Tom.Albers;&Bram.Schoenmakers;&Sander.Koning;&Freek.de.Kruijf; 
+</authorgroup>
+
+
+<copyright>
+<year
+>2003-2005</year
+><holder
+>&Cornelius.Schumacher;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-12-08</date>
+<releaseinfo
+>5.4.40 (Applications 16.12)</releaseinfo>
+
+<abstract
+><para
+>&kontact; is een alles-in-één oplossing voor het beheren van al uw persoonlijke gegevens. Het combineert bekende &kde;-toepassingen als &kmail;, &korganizer; en &kaddressbook; tot één geheel, zodat u snel en eenvoudig toegang hebt tot uw e-mail, agenda, adressen en andere handige &PIM;-toepassingen.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>KMail</keyword>
+<keyword
+>Organizer</keyword>
+<keyword
+>KAddressBook</keyword>
+<keyword
+>KNotes</keyword>
+<keyword
+>Akregator</keyword>
+<keyword
+>PIM</keyword>
+<keyword
+>groupware</keyword>
+<keyword
+>Outlook</keyword>
+<keyword
+>Evolution</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>Inleiding</title>
+
+<para
+>&kontact; is een alles-in-één oplossing voor het beheren van al uw persoonlijke gegevens. Het combineert welbekende &kde;-toepassingen voor e-mail, agenda, adressen en notities (&kmail;, &korganizer;, &kaddressbook; en &knotes;) tot één geheel. Doordat er gebruik gemaakt wordt van een echt raamwerk van componenten, biedt &kontact; exact dezelfde functionaliteit als wanneer de afzonderlijke toepassingen los gestart zouden worden. U blijft de keuze houden om de toepassingen via &kontact; of als zelfstandige toepassing te starten.</para>
+
+<para
+>Los van de functionaliteit van de afzonderlijke toepassingen, biedt &kontact; een overzichtspagina en uitgebreide mogelijkheden om gegevens tussen de verschillende componenten uit te wisselen. </para>
+
+</chapter>
+
+
+<chapter id="components">
+<title
+>De componenten van &kontact;</title>
+
+<para
+>Onderstaande toepassingen zijn in &kontact; geïntegreerd. Bekijk het handboek van de toepassing voor meer uitleg over de verschillende mogelijkheden ervan. Het handboek is van toepassing op het programma, ongeacht of het nu in &kontact; gebruikt wordt of niet. </para>
+
+<variablelist>
+    <varlistentry>
+        <term
+><ulink url="help:/kmail2"
+>&kmail;</ulink
+></term>
+        <listitem
+><para
+>De &kde; e-mailclient.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/korganizer"
+>&korganizer;</ulink
+></term>
+        <listitem
+><para
+>De &kde; applicatie voor agenda en plannen.</para>
+            </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/kaddressbook"
+>&kaddressbook;</ulink
+></term>
+        <listitem
+><para
+>De &kde; beheerder van contactpersonen.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/knotes"
+>&knotes;</ulink
+></term>
+        <listitem
+><para
+>De &kde; applicatie voor plaknotities.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/akregator"
+>&akregator;</ulink
+></term>
+        <listitem
+><para
+>Het &kde; RSS-nieuwsbron-leesprogramma.</para>
+            </listitem>
+    </varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="main-window">
+<title
+>Het hoofdvenster van &kontact;</title>
+
+<para
+>Het hoofdvenster bestaat uit een zijbalk aan de linkerkant, waarin de pictogrammen van de beschikbare toepassingen staan, een programmavenster rechts, dat het hoofdvenster van de actieve component toont en de gebruikelijke menu-, werk- en statusbalken.</para>
+
+<sect1 id="side-pane">
+<title
+>Zijbalk</title>
+
+<para
+>Het zijpaneel heeft meerdere functies. Allereerst kunt u door het klikken op een pictogram aangeven welk component u op dat moment wilt gebruiken. Ook kunt u zien welk component op het moment actief is. Tevens kunnen er gegevens van het ene component naar het andere overgebracht worden door deze naar het desbetreffende pictogram te slepen.</para>
+
+<screenshot>
+<screeninfo
+>De zijbalk van &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="side-pane.png"/></imageobject>
+<textobject>
+<phrase
+>De zijbalk van &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>De zijbalk van &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Om tussen de componenten te wisselen klikt u eenvoudigweg op het bijbehorende pictogram. Het hoofdvenster van dat component wordt dan getoond. Ook de bijbehorende menu's, werk- en statusbalken zullen nu te zien zijn, zodat alle functionaliteit van het actieve component beschikbaar is. De eerste keer dat u een component oproept kan er enige vertraging zijn voordat de component daadwerkelijk verschijnt. Dit wordt veroorzaakt doordat de component pas geladen wordt op het moment dat u er om vraagt. Componenten die niet gebruikt worden nemen dan ook geen geheugen in beslag.</para>
+
+<para
+>De pictogrammen in het zijpaneel worden ook gebruikt om gegevens van de ene naar de andere component te slepen. U kunt bijvoorbeeld een e-mail naar Taken of Agenda slepen om de e-mailbericht aan respectievelijk een taak of herinnering op een bepaalde datum te koppelen.</para>
+
+<para
+>Als laatste kunt u de grootte van de pictogrammen in het zijpaneel wijzigen. Door rechts te klikken op het zijpaneel kunt u kiezen om grote, normale of kleine pictogrammen te gebruiken, of om alleen tekst in plaats van pictogrammen te gebruiken.</para>
+
+<para
+>Als u het zijpaneel niet prettig vindt, kunt u deze verbergen door de splitsbalk te verplaatsen. Een andere manier om tussen de componenten te navigeren is de <guilabel
+>Navigator</guilabel
+>-werkbalk, die u vrijelijk kunt verplaatsen. Zie <xref linkend="bars"/> voor meer over de <guilabel
+>Navigator</guilabel
+> werkbalk.</para>
+
+</sect1>
+
+
+<sect1 id="main-view">
+
+<title
+>Hoofdvenster</title>
+
+<para
+>Het grootste deel van het hoofdvenster van &kontact; wordt in beslag genomen door het componentvenster. Hierin wordt de actieve component weergegeven. Dit is exact hetzelfde venster dat getoond wordt als de component los van &kontact; als zelfstandige toepassing gestart wordt. In het zijpaneel is het pictogram van de component die actief is geaccentueerd. Na het starten van &kontact; wordt de component geladen die ook actief was toen &kontact; werd afgesloten.</para>
+
+<screenshot>
+<screeninfo
+>Het hoofdvenster van &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<textobject>
+<phrase
+>Het hoofdvenster van &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Het hoofdvenster van &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Verder zijn er twee manieren om de component te kiezen waarmee &kontact; opstart. De eerste is een argument meegeven aan de opdrachtaanroep van &kontact; (zie <xref linkend="command-line"/>). De tweede is een instelling in het instellingenvenster van &kontact; waarmee u &kontact; altijd in een bepaalde modus kunt laten opstarten.</para>
+
+<para
+>Om daar te komen, ga naar <menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Kontact instellen</guimenuitem
+></menuchoice
+> en klik op <guilabel
+>Kontact</guilabel
+> in de lijst.</para>
+
+<screenshot>
+<screeninfo
+>Het venster "Startcomponent instellen" van &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<textobject>
+<phrase
+>Het venster "Startcomponent instellen" van &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Het venster "Startcomponent instellen" van &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="bars">
+<title
+>Menu, werk- en statusbalken</title>
+
+<para
+>Het menu en de werk- en statusbalken van het actieve component worden overgenomen in &kontact;. Dat betekent dat in aanvulling op enkele standaard menuonderdelen, zoals bijvoorbeeld het handboek van &kontact;, de menuonderdelen, werk- en statusbalken van het copmponent gebruikt worden. Deze onderdelen veranderen dus wanneer een ander component geactiveerd wordt. De onderdelen hebben dezelfde functionaliteit en inhoud als wanneer de toepassing los van &kontact; gestart zou zijn.</para>
+
+<screenshot>
+<screeninfo
+>Weergaven van de menubalken in &kontact; met de overzichtsweergave, e-mailweergave en agendaweergave</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
+<textobject>
+<phrase
+>Weergaven van de menubalken in &kontact; met de overzichtsweergave, e-mailweergave en agendaweergave</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Weergaven van de menubalken in &kontact; met de overzichtsweergave, e-mailweergave en agendaweergave</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
+<textobject>
+<phrase
+>Weergaven van de menubalken in &kontact; met de overzichtsweergave, e-mailweergave en agendaweergave</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Weergaven van de menubalken in &kontact; met de overzichtsweergave, e-mailweergave en agendaweergave</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
+<textobject>
+<phrase
+>Weergaven van de menubalken in &kontact; met de overzichtsweergave, e-mailweergave en agendaweergave</phrase>
+</textobject>
+<caption>
+<para
+>Weergaven van de menubalken in &kontact; met de overzichtsweergave, e-mailweergave en agendaweergave </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Bovendien kan &kontact; een <guilabel
+>Navigator</guilabel
+>-werkbalk tonen, die u in staat stelt om de componenten van &kontact; te bereiken op dezelfde manier als dat kan via het zijpaneel. De knoppen in de <guilabel
+>Navigator</guilabel
+>-werkbalk kunnen niet gebruikt worden voor bewerkingen van slepen &amp; laten vallen naar andere componenten in tegenstelling tot het zijpaneel.</para>
+
+<para
+>Om de werkbalk te activeren, selecteert u <menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guisubmenu
+>Getoonde werkbalken</guisubmenu
+> <guimenuitem
+>Navigator</guimenuitem
+></menuchoice
+>. </para>
+
+<screenshot>
+<screeninfo
+>&kontact;'s <guimenuitem
+>Navigator</guimenuitem
+> werkbalk.</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact;'s <guimenuitem
+>Navigator</guimenuitem
+> werkbalk.</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;'s <guimenuitem
+>Navigator</guimenuitem
+> werkbalk. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Bij alle componenten is het menuonderdeel <guimenuitem
+>Nieuw</guimenuitem
+> beschikbaar. Onafhankelijk van de actieve component creëert het een object voor nieuwe e-mail, nieuwe contactpersoon, nieuw agendaonderdeel of nieuwe taak. Vervolgens wordt de bijbehorende component, indien nodig, gestart en neemt die het aangemaakte object over.</para>
+
+<screenshot>
+<screeninfo
+>Het menu "Nieuw" van &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<textobject>
+<phrase
+>Het menu "Nieuw" van &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Het menu "Nieuw" van &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="side-pane-drag-and-drop">
+<title
+>Sleepmogelijkheden</title>
+
+<para
+>&kontact; biedt uitgebreide mogelijkheden om items te slepen tussen de beschikbare programma's. Wat hier volgt is een korte omschrijving van iedere specifieke mogelijkheid van slepen en laten vallen.</para>
+
+<sect2 id="side-pane-drag-and-drop-kmail-todo">
+<title
+>&kmail; -&gt; &korganizer; Takenlijst</title>
+
+<para
+>Het slepen van een bericht vanuit het <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>berichtenvak van &kmail;</ulink
+> naar het pictogram van de takenlijst van &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) maakt een nieuwe taak aan met <guilabel
+>E-mail: <replaceable
+>Onderwerp</replaceable
+></guilabel
+> als samenvatting. De inhoud van de taak bevat vervolgens <guilabel
+>Van: <replaceable
+>afzender</replaceable
+> Aan: <replaceable
+>ontvanger</replaceable
+> Onderwerp: <replaceable
+>onderwerp</replaceable
+></guilabel
+>. De tekst die <guilabel
+><replaceable
+>er zo uit ziet</replaceable
+></guilabel
+> bevat informatie uit het bericht. Bovendien wordt het e-mailbericht aan de taak gekoppeld als bijlage. </para>
+
+</sect2>
+
+<sect2 id="side-pane-drag-and-drop-kmail-calendar">
+<title
+>&kmail; -&gt; &korganizer; Agenda</title>
+
+<para
+>Het slepen van een bericht vanuit het <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>berichtenvak van &kmail;</ulink
+> naar het agendapictogram van &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="calendar-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) maakt een nieuw evenement aan met <guilabel
+>E-mail:  <replaceable
+>Onderwerp</replaceable
+></guilabel
+> als samenvatting. De inhoud van het evenement bevat vervolgens <guilabel
+>Van: <replaceable
+>afzender</replaceable
+> Aan: <replaceable
+>ontvanger</replaceable
+> Onderwerp: <replaceable
+>onderwerp</replaceable
+></guilabel
+>. De tekst die <guilabel
+><replaceable
+>er zo uit ziet</replaceable
+></guilabel
+> bevat informatie uit het bericht. Bovendien wordt het e-mailbericht aan het evenement gekoppeld als bijlage. </para>
+
+<para
+>Onthoud dat het slepen naar de takenlijst een taak aanmaakt en het slepen naar het de agenda een evenement aanmaakt. Meer informatie over dit onderscheid kunt u vinden in de <ulink url="help:/korganizer"
+>documentatie van &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kmail-contacts">
+<title
+>&kmail; -&gt; &kaddressbook;</title>
+
+<para
+>Het slepen van een bericht van het <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>berichtenvak van &kmail;</ulink
+> naar het pictogram van &kaddressbook; (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="kaddressbook-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) maakt een nieuw contactpersoon aan met het e-mailadres van de afzender. Dit wordt niet verder uitgevoerd indien de afzender al in uw adresboek staat. Een dialoogvenster zal u hiervan op de hoogte stellen. </para>
+
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
+<title
+>&kaddressbook; -&gt; &korganizer; Takenlijst</title>
+
+<para
+>Het slepen van een aantal contactpersonen van <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>het hoofdvenster van &kaddressbook;</ulink
+> naar het pictogram van de takenlijst van &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) maakt een nieuwe taak aan met &quot;Vergadering&quot; als titel en de geselecteerde contactpersonen als aanwezigen. </para>
+
+<para
+>Onthoud dat het slepen naar de takenlijst een taak aanmaakt en het slepen naar het de agenda een evenement aanmaakt. Meer informatie over dit onderscheid kunt u vinden in de <ulink url="help:/korganizer"
+>documentatie van &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
+<title
+>&kaddressbook; -&gt; &korganizer; Agenda</title>
+
+<para
+>Het slepen van een aantal contactpersonen van <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>het hoofdvenster van &kaddressbook;</ulink
+> naar het pictogram van de agenda van &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="calendar-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) maakt een nieuw evenement aan met &quot;Vergadering&quot; als titel en de geselecteerde contactpersonen als aanwezigen. </para>
+
+<para
+>Onthoud dat het slepen naar de takenlijst een taak aanmaakt en het slepen naar het de agenda een evenement aanmaakt. Meer informatie over dit onderscheid kunt u vinden in de <ulink url="help:/korganizer"
+>documentatie van &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="summary-view">
+<title
+>De overzichtsweergave</title>
+
+<para
+>Als &kontact; voor de allereerste keer gestart wordt, krijgt u de overzichtsweergave te zien. Dit is een overzicht van relevante gegevens uit de verschillende componenten van &kontact;. Dit notities, de afspraken die u binnenkort hebt, verjaardagen die naderen, taken die binnenkort gedaan moeten zijn, nieuwe berichten, &etc;. Welke gegevens getoond worden kan worden ingesteld in het venster <link linkend="configuration"
+>&kontact; instellen</link
+>.</para>
+
+<screenshot>
+<screeninfo
+>De overzichtsweergave van &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<textobject>
+<phrase
+>De overzichtsweergave van &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>De overzichtsweergave van &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<!-- not in kde4 para
+>If you think the information you see is outdated, you can click on the
+<guibutton
+>Refresh</guibutton
+> button (<guiicon
+><inlinemediaobject
+><imageobject>
+<imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
+</imageobject
+></inlinemediaobject
+></guiicon
+>)
+in the Summary View toolbar to refresh
+the data.</para-->
+
+<sect1 id="summary-view-component-reposition">
+<title
+>Componenten van de overzichtsweergave verplaatsen</title>
+
+<para
+>U kunt in de overzichtsweergave de plaats van de componenten in de eigenlijke weergave wijzigen. Dus als u liever uw speciale datums in de linkerbenedenhoek en uw taken in de rechterbovenhoek ziet staan, dan kunt u de overzichtsweergave daarvoor opnieuw indelen.</para>
+
+<para
+>Componenten verplaatsen in de overzichtsweergave doet u eenvoudig door ze naar de gewenste nieuwe locatie te slepen. Houd de muisknop ingedrukt en klik op de grijze titel van de component, sleep de component naar de  gewenste plaats. Merk op dat deze verplaatsingen relatief aan andere componenten zijn. U kunt de e-mailcomponent dus onder de takencomponent plaatsen, maar niet op een willekeurige plaats. Als u slechts één component in uw overzichtsweergave hebt, kunt u deze slechts tussen de twee kolommen verplaatsen; twee componenten kunnen geplaatst worden als twee in één kolom of één in elke kolom; enzovoort. Als u een component versleept ziet u een klein voorbeeldkader van de component dat de muis volgt.</para>
+
+<screenshot>
+<screeninfo
+>De overzichtsweergave van &kontact; opnieuw indelen</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<textobject>
+<phrase
+>De overzichtsweergave van &kontact; opnieuw indelen</phrase>
+</textobject>
+<caption>
+<para
+>De overzichtsweergave van &kontact; opnieuw indelen </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title
+>&kontact; instellen</title>
+
+<sect1 id="main-config">
+<title
+>Configuratievenster van &kontact;</title>
+
+<para
+>Wanneer u <guimenuitem
+>&kontact; instellen...</guimenuitem
+> in het menu <guimenu
+>Instellingen</guimenu
+> kiest, verschijnt het instellingenvenster van &kontact;. Dit geeft een lijst van instellingen voor alle actieve componenten van &kontact;. U kunt op het symbool <guilabel
+>&gt;</guilabel
+> klikken, links van de componentnaam, om de beschikbare opties uit te klappen. Zo kunt u snel de opties voor die component zien. Door een instellingsoptie aan de linkerzijde te selecteren wordt rechts de instellingsmodule getoond.</para>
+
+<screenshot>
+<screeninfo
+>Het configuratievenster van &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<textobject>
+<phrase
+>Het configuratievenster van &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Het configuratievenster van &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Door een vinkje voor de component te plaatsen wordt het in het zijpaneel en de overzichtsweergave zichtbaar. De component wordt geladen en in het hoofdscherm getoond zodra er op het pictogram in het zijpaneel wordt geklikt. Door het vinkje weg te halen wordt de component uit het zijpaneel en de overzichtsweergave verwijderd. Wijzigingen worden pas doorgevoerd als er op <guibutton
+>Toepassen</guibutton
+> of <guibutton
+>OK</guibutton
+> geklikt wordt.</para>
+
+<para
+>Om de individuele componenten in te stellen klikt u op het desbetreffende pictogram in het zijpaneel. Vervolgens selecteert u in het menu <guimenu
+>Instellingen</guimenu
+> en daarna <guimenuitem
+><replaceable
+>Toepassing</replaceable
+> instellen...</guimenuitem
+>.</para>
+
+<screenshot>
+<screeninfo
+>Het menu "Instellingen" van &kontact; wanneer &kmail; is geselecteerd</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="settings-menu-kmail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Het menu "Instellingen" van &kontact; wanneer &kmail; is geselecteerd</phrase>
+</textobject>
+<caption>
+<para
+>Het menu "Instellingen" van &kontact; wanneer &kmail; is geselecteerd </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="summary-view-config">
+<title
+>De overzichtsweergave van &kontact; instellen</title>
+
+<para
+>Wanneer u <guilabel
+>Overzicht</guilabel
+> in de instellingendialoog van &kontact; kiest verschijnt er pagina waarin u de overzicht-plug-ins kunt selecteren die &kontact; moet tonen in de overzichtsweergave. Hier volgt een korte opsomming van de beschikbare plug-ins en wat ze doen: </para>
+
+<screenshot>
+<screeninfo
+>Overzichtselectie</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-selection.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Overzichtselectie</phrase>
+</textobject>
+<caption
+><para
+>Overzichtselectie</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="summary-view-config-calendar">
+<title
+>&kontact; overzichtsplugins: Agenda</title>
+
+<para
+>De <quote
+>Agenda</quote
+>-plugin voor de overzichtsweergave van &kontact; maakt een gebeid aan met de tekst <guilabel
+>Komende gebeurtenissen</guilabel
+>. Dit zal alle geldende gebeurtenissen tonen. </para>
+
+<screenshot>
+<screeninfo
+>Agenda-overzichtsplugin voor &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-calendar.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Agenda-overzichtsplugin voor &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Agenda-overzichtsplugin voor &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-mail">
+<title
+>&kontact; overzichtsplugins: E-mail</title>
+
+<para
+>De <quote
+>E-mail</quote
+>plugin voor de overzichtsweergave van &kontact; maakt een nieuw gedeelte aan met de titel <guilabel
+>Nieuwe berichten</guilabel
+>. Dit gedeelte zal telkens ververst worden zodra er nieuwe berichten binnenkomen en zal het aantal nieuwe berichten per map tonen. </para>
+
+<screenshot>
+<screeninfo
+>E-mailoverzichtsplugin voor &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-mail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>E-mailoverzichtsplugin voor &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>E-mailoverzichtsplugin voor &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-notes">
+<title
+>&kontact; overzichtsplugins: Notities</title>
+
+<para
+>De overzichtsplugin <quote
+>Notities</quote
+> voegt een nieuw gedeelte toe met het label <guilabel
+>Notities</guilabel
+>. Hierin worden de titels van alle huidige notities getoond. De titel is standaard de datum en tijd waarop de notitie is aangemaakt. Door op een notitie te klikken wordt het gedeelte "Notities" geopend. </para>
+
+<screenshot>
+<screeninfo
+>Notitie-overzichtsplugin voor &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-notes.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Notitie-overzichtsplugin voor &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Notitie-overzichtsplugin voor &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-todo-list">
+<title
+>Overzichtsplugins voor &kontact;: Taken</title>
+
+<para
+>De plugin <quote
+>Taken</quote
+> voor de overzichtsweergave van &kontact; voegt een gedeelte met de titel <guilabel
+>Openstaande taken</guilabel
+> toe. Dit gedeelte bevat alle huidige taken, inclusief de voltooide taken. Het toont de samenvatting van de taak, het percentage van de voltooiing en de huidige status van de taak. U kunt trouwens alle voltooide taken in één keer uit de takenlijst verwijderen. Het klikken op een taak heeft op dit moment nog geen effect. </para>
+
+<screenshot>
+<screeninfo
+>Takenoverzichtsplugin voor &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-todos.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Takenoverzichtsplugin voor &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Takenoverzichtsplugin voor &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-special-dates">
+<title
+>&kontact; overzichtsplugins: Speciale datums</title>
+
+<para
+>De <quote
+>Speciale datums</quote
+> plugin voor &kontact;s overzichtsweergave voegt een gedeelte <guilabel
+>Nabije speciale datums</guilabel
+> aan de weergave toe. Dit gedeelte bevat informatie die gebaseerd is op de gekozen criteria in het configuratiegedeelte van de plugin in de instellingen van de overzichtsweergave van &kontact;. De <quote
+>Speciale datums</quote
+> plugin is in het bijzonder nuttig omdat deze geboortedata, verjaardagen, feestdagen en speciale gebeurtenissen uit zowel de agenda als de contactpersonenlijst op één plaats kan weergeven. </para>
+
+<screenshot>
+<screeninfo
+>Plugin voor speciale datums voor &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-special-dates.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Plugin voor speciale datums voor &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Plugin voor speciale datums voor &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+</sect1>
+
+</chapter>
+
+
+<chapter id="command-line">
+<title
+>&kontact; op de commandoregel</title>
+
+<para
+>&kontact; biedt verschillende argumenten voor de commandoregel.</para>
+
+<para
+>Om te beginnen ondersteunt &kontact; alle argumenten die ook door alle &kf5;/&Qt;-toepassingen ondersteund worden, zie man-pagina's qt5options en kf5options. </para>
+
+<para
+>&kontact; ondersteunt ook een aantal argumenten die specifiek voor deze toepassing zijn.</para>
+
+<sect1 id="command-line-arguments">
+<title
+>Argumenten commandoprompt</title>
+
+<sect2 id="command-line-module">
+<title
+>Argumenten met betrekking tot modules</title>
+
+<para
+>Om een lijst te tonen van alle beschikbare &kontact;-modules, dient u het volgende te typen:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --list</command
+> </para>
+
+<para
+>Om &kontact; met een bepaalde module op te laten starten, typt u:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --module <replaceable
+>modulenaam</replaceable
+></command
+> </para>
+
+<para
+>De <replaceable
+>modulenaam</replaceable
+> staat voor een modulenaam die u bij het aanroepen van het vorige commando gekregen hebt.</para>
+
+</sect2>
+
+<sect2 id="command-line-startup">
+<title
+>Argumenten met betrekking tot opstarten</title>
+
+<para
+>Om &kontact; in de pictogrammodus op te starten <footnote
+><para
+>pictogrammodus wordt ook geminimaliseerd genoemd; dat is wanneer het applicatievenster verborgen is en de applicatie alleen beschikbaar is in de taakbalk.</para
+></footnote
+>, kunt u typen:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --iconify</command
+> </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="technology">
+<title
+>Onder de motorkap</title>
+
+<para
+>&kontact; maakt intensief gebruik van de onderliggende &kde;-technologie. Met name KParts en &DBus;.</para>
+
+<para
+>De integratie van de componenten wordt verzorgd door plugins. Deze plugins zorgen er voor dat KParts-versies van de toepassingen beschikbaar zijn. Daardoor is er maar een dunne laag nodig om de bestaande broncode van de stand-alone toepassingen.</para>
+
+<para
+>Voor de communicatie tussen de verschillende componenten wordt &DBus; gebruikt. Eén van de handige eigenschappen hiervan is dat het dezelfde functionaliteit beschikbaar stelt zowel aan de los gestarte toepassing, als aan het KPart-deel in &kontact;. Binnen &kontact; wordt overigens een efficiënte 'in-process'-variant van &DBus; gebruikt.</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+>&kontact;</para>
+
+<para
+>Programma copyright 2001-2021, de &kde;-ontwikkelaars</para>
+
+<para
+>Auteurs:</para>
+
+<itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Don.Sanders; &Don.Sanders.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+    </listitem>
+<listitem
+><para
+>Allen Winter <email
+>winter@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Rafael Fernández López <email
+>ereslibre@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>&David.Faure; &David.Faure.mail;</para
+></listitem>
+<listitem
+><para
+>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para
+></listitem>
+<listitem
+><para
+>Sven Lüppken <email
+>sven@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Torgny Nyblom <email
+>nyblom@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Zack Rusin <email
+>zack@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthias Hölzer-Klüpfel <email
+>mhk@kde.org</email
+>, de oorspronkelijke auteur van het &kontact; framework.</para>
+    </listitem>
+
+<listitem
+><para
+>De gewaardeerde collega's van de verschillende toepassingen waaruit &kontact; is opgebouwd.</para>
+    </listitem>
+</itemizedlist>
+
+<para
+>Documentatie copyright 2004-2005</para>
+
+<para
+>Auteurs: <itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem
+><para
+>Antonio Salazar <email
+>savedfastcool@gmail.com</email
+></para>
+</listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
+
+<listitem
+><para
+>Alle leden van de &kde; mailinglijst voor documentatie die meegeholpen hebben met de opmaak en het verbeteren van de schrijfstijl.</para>
+</listitem>
+</itemizedlist>
+</para>
+
+&meld.fouten;&vertaling.tom;&vertaling.bram;&nagelezen.rinse;&vertaling.sander;&nagelezen.natalie;&vertaling.freek; &underFDL; &underGPL; </chapter>
+
+<appendix id="kontact-admin">
+<title
+>Systeembeheerdersgids</title>
+<!-- Section Compatibility -->
+<sect1 id="compat">
+<title
+>Compatibiliteitszaken</title>
+
+<para
+>Deze sectie levert hulp bij hoe &kontact; effectief kan communiceren met verschillende groupware-oplossingen. </para>
+
+<sect2 id="compat-outlook">
+<title
+>Outlook en Exchange</title>
+
+<para
+>In de configuratiedialoog van &kontact;, onder <menuchoice
+><guimenu
+>E-mail</guimenu
+> <guimenuitem
+>Diversen</guimenuitem
+></menuchoice
+> op de pagina <guilabel
+>Uitnodigingen</guilabel
+> vindt u de volgende opties die de gebruiker helpen om te communiceren met Microsoft Outlook(tm) die draaien in een Kolab omgeving of in een Microsoft Exchange(tm) omgeving. </para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>De kopschriften Van:/Aan: aanpassen bij antwoorden op uitnodigingen</guilabel
+></term>
+<listitem>
+<para
+>Activeer deze optie om er voor te zorgen dat Microsoft Outlook(tm) de antwoorden op uitnodigingen begrijpt.</para>
+<para
+>Microsoft Outlook kent een aantal tekortkomingen in de implementatie van de iCalendar-standaard. Deze optie speelt daarop in. Wanneer u problemen hebt met Outlook-gebruikers die uw antwoorden niet kunnen ontvangen kunt u deze optie proberen.</para>
+<para
+>Details: Bij het zenden van een iCal uitnodiging maakt dit dat het bericht een Van: kopregel krijgt die hetzelfde is als de Aan: kopregel. Het stelt ook de kopregel X-KMail-Identity in op de Naar-UIOD en zorgt dat de BCC: leeg is. Outlook begrijpt het antwoord alleen als de Van: kopregel hetzelfde is als de Aan: kopregel van het uitnodigingsbericht.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Uitnodigingen in berichtinhoud verzenden</guilabel
+></term>
+<listitem>
+<para
+>Uitnodigingen worden normaal gesproken als bijlagen verstuurd. Deze optie zal er toe leiden dat uitnodiging als tekst in de e-mail zelf wordt geplaatst; dit is nodig om uitnodigingen en antwoorden te verzenden naar Microsoft Outlook. In dat geval zal er echter geen beschrijvende tekst worden meegestuurd die begrijpelijk is voor e-mailprogramma's. Voor degenen die e-mailprogramma's gebruiken die uitnodigingen niet begrijpen, zullen deze berichten er heel vreemd uitzien. Voor degenen die e-mailprogramma's gebruiken die uitnodigingen wel begrijpen, is er niets aan de hand.</para>
+<para
+>Details: Bij het mailen van een iCal-uitnodiging zorgt deze optie dat de berichtbody gemaakt wordt uit de bijlage en de header Content-Type wordt 'text/calendar; method=something; charset="utf-8"'.</para>
+<para
+>Automatisch verzenden is ook ingeschakeld, zodat er geen menselijke interventie is vereist voor het opstellen.</para>
+<note
+><para
+>Encryptie en zelf-ondertekenen zijn uitgeschakeld.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Naamgeving van uitnodigingen compatibel met Exchange</guilabel
+></term>
+<listitem>
+<para
+>Microsoft Outlook heeft, indien gebruikt met een Microsoft Exchange (tm)-server, problemen met het begrijpen van groupware e-mail die zich aan de standaarden houdt. Schakel deze optie in om groupware-uitnodigingen te versturen die correct kunnen worden verwerkt door Microsoft Exchange (tm). De uitnodigingen zullen worden verstuurd in een bijlage met de naam <filename
+>ical.ics</filename
+>.</para>
+<para
+>Details: Bij het mailen van een iCal-uitnodiging zorgt dit ervoor dat het bericht het onderwerp "(Declined|Tentative|Accepted|Delegated): subject" heeft. De uitnodiging zal worden verzonden als een bijlage met de naam <filename
+>ical.ics</filename
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Namen voor bijlagen compatibel met Outlook(tm)</guilabel
+></term>
+<listitem>
+<para
+>Zet deze optie aan om ervoor te zorgen dat Outlook(tm) de namen van bijlagen begrijpt die niet-West-Europese tekens bevatten.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+</sect1>
+
+<!-- Section Behavior -->
+<sect1 id="behavior">
+<title
+>Gedragsaangelegenheden</title>
+
+<para
+>Deze sectie levert instructies over hoe &kontact; zich beter als andere groupware-clients kan gedragen. </para>
+
+<sect2 id="behave-composing">
+<title
+>Samenstellen van berichten</title>
+
+<para
+>Gebruikers van Outlook zijn er aan gewend om een lijst adressen in de Naar:, Cc: of Bcc: velden in te typen die gescheiden zijn door een puntkomma (';') naast een komma (',') Standaard, staat &kontact; alleen de komma toe als een scheidingsteken van een adres. Om ook de puntkomma toe te staan, wijzigt u <option
+>AllowSemicolonAsAddressSeparator</option
+> van false naar true in het geïnstalleerde bestand <filename
+>share/config.kcfg/messagecomposer.kcfg</filename
+>. </para>
+
+</sect2>
+</sect1>
+
+<!-- Section RFC Compromises -->
+<sect1 id="nonrfc">
+<title
+>RFC-compromissen</title>
+
+<para
+>&kontact; is ontworpen om zo veel mogelijk samen te werken met een brede variatie van groupware oplossingen. Daarom maken we soms ontwerpcompromissen met betrekking tot de verschillende Internet RFC's die de basis is voor de laag niveau bibliotheek waarop &kontact; zwaar van afhangt.</para>
+
+<note
+><para
+>Wij gaan nooit bewust in tegen een RFC.</para
+></note>
+
+<para
+>De volgende lijst van RFC-compromissen wordt door &kontact; gemaakt of door de laag-niveau bibliotheken in gebruik door &kontact;:</para>
+<!--FIXME is this correct?-->
+<itemizedlist>
+<listitem>
+<para
+>Bij het schrijven van de duur in iCalendar bestanden, zal &kontact; nooit de DURATION-eigenschap wegschrijven in termen van weken (bijv., 1*CIJFER "W"); in plaats daarvan wordt het aantal weken altijd vermenigvuldigt met 7 en weggeschreven in termen van dagen (bijv. 1*CIJFER "D"). </para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

@@ -1,0 +1,2068 @@
+# translation of kontact.po to
+# Copyright (C) 2004, 2006, 2007 Free Software Foundation, Inc.
+# Ahmad M. Zawawi <azawawi@emirates.net.ae>, 2004.
+# محمد سعد  Mohamed SAAD <metehyi@free.fr>, 2006.
+# Youssef Chahibi <chahibi@gmail.com>, 2007.
+# Abdalrahim G. Fakhouri <abdilra7eem@yahoo.com>, 2014.
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2018.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2022-01-09 22:49+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.07.70\n"
+"X-POOTLE-MTIME: 1381756334.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "محمد سعد, عبدالرحيم الفاخوري,صفا الفليج"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "metehyi@free.fr,abdilra7eem@yahoo.com,safa1996alfulaij@gmail.com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr "مرحبًا في «متراسلك %1»"
+
+#: src/about/introduction_kontact.html:19
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"يتعامل «مراسلك» مع البريد الإلكترونيّ ودفتر العناوين والتّقويم وقائمة المهامّ "
+"وغيرها."
+
+#: src/about/introduction_kontact.html:36
+msgid "Skip this introduction"
+msgstr "تخطَّ هذه المقدّمة"
+
+#: src/about/loading_kontact.html:5
+msgid "Loading Kontact ..."
+msgstr "يحمّل «متراسلك»..."
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "اعرض أيقونات فقط"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "اعرض عناصر الشّريط الجانبيّ بأيقونات فقط دون نصّ"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr "اختر هذا الخيار إن أردت أن تكون عناصر الشّريط الجانبي بأيقونات دون نصّ."
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "اعرض نصًّا فقط"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "اعرض عناصر الشّريط الجانبيّ بنصوص فقط دون أيقونات"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr "اختر هذا الخيار إن أردت أن تكون عناصر الشّريط الجانبي بنصّ دون أيقونات."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "اعرض نصًّا وأيقونات"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "اعرض عناصر الشّريط الجانبيّ بأيقونات ونصّ"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr "اختر هذا الخيار إن أردت أن تكون عناصر الشّريط الجانبي بأيقونات ونصّ."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "أيقونات كبيرة"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "اعرض أيقونات الشّريط الجانبيّ بحجم كبير"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr "اختر هذا الخيار إن أردت أن تكون أيقونات الشّريط الجانبي كبيرة جدًّا."
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "أيقونات عاديّة"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "اعرض أيقونات الشّريط الجانبيّ بحجم عاديّ"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr "اختر هذا الخيار إن أردت أن تكون أيقونات الشّريط الجانبي بحجمها العاديّ."
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "أيقونات صغيرة"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "اعرض أيقونات الشّريط الجانبيّ بحجم صغير"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr "اختر هذا الخيار إن أردت أن تكون أيقونات الشّريط الجانبي صغيرة جدًّا."
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr "أخفِ الشّريط الجانبيّ"
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr "أخفِ شريط الأيقونات الجانبيّ"
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr "اختر هذا الخيار لإخفاء شريط الأيقونات الجانبيّ. اضغط F9 لعرضه ثانيةً."
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "اختر الملحقة الأوّليّة لاستخدامها عند كلّ بدء"
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+"اختر الملحقة من هن القائمة المنسدلة هذه لاستخدامها كملحقة أوّليّة في كلّ مرّة "
+"يبدأ فيها «متراسلك». وإلّا فسيستعيد «متراسلك» آخر ملحقة نشطة من آخر استخدام."
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "الملحقة النّشطة حاليًّا"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "ابدأ دائمًا بملحقة:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "اضبط الملحقة الأوّليّة عند كلّ بدء"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"يفتح «متراسلك» عادة بالملحقة التي استُخدمت قبل إطفائه. أشّر على هذا المربّع إن "
+"أردت فتح الملحقة المحدّدة عند البدء."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr "اعرض شريط المكوّنات الجانبيّ"
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr "اعرض/أخفِ شريط الأيقونات الجانبيّ"
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+"لاستغلال المساحة في الشّاشة يمكنك إخفاء شريط الأيقونات الجانبيّ. أزِل تأشير هذا "
+"المربّع لإخفاء شريط المكوّنات الجانبيّ. لاحظ بأنّ مفتاح F9 سيُخفي/يعرض شريط "
+"الأيقونات الجانبيّ."
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&ملفّ"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "&عرض"
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "إ&عدادات"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "م&ساعدة"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "شريط الأدوات الرّئيسيّ"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "التّنقّل"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "ابدأ بوحدة «متراسلك» محدّدة"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "ابدأ في وضع مصغّر"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "اسرد كلّ الوحدات الممكنة واخرج"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "متراسلك"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "مدير «كدي» للمعلومات الشّخصيّة"
+
+#: src/main.cpp:165
+#, kde-format
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "الحقوق محفوظة © 2001–%1 لمؤلّفي «متراسلك»"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "المؤلّف الأصليّ"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr "Torgny Nyblom"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr "النّقل إلى «غِت»"
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " يمهّد..."
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "جديد"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "اضبط «متراسلك»..."
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "اضبط «متراسلك»"
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr "سيُعرض حواريّ يمكنك منه ضبط «متراسلك»."
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "مقدّمة «مترا&سلك»"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "اعرض صفحة مقدّمة «متراسلك»"
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "اختر هذا الخيار لمطالعة صفحة مقدّمة «متراسلك»."
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr "اعرض/أخفِ شريط المكوّنات الجانبيّ"
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr "اعرض/أخفِ شريط المكوّنات الجانبيّ"
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr "يتيح لك عرض أو إخفاء شريط المكوّنات الجانبيّ إن أردت."
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "بدّل إلى ملحقة «%1»"
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "التّطبيق يعمل لوحده. سأجلبه هنا..."
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "تعذّر تحميل جزء «%1»."
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - متراسلك"
+
+#: src/mainwindow.cpp:921
+#, kde-format
+msgid "The KDE Personal Information Management Suite."
+msgstr "طقم «كدي» لإدارة المعلومات الشّخصيّة."
+
+#: src/mainwindow.cpp:926
+#, kde-format
+msgid "Read Manual"
+msgstr "اقرأ الكتيّب"
+
+#: src/mainwindow.cpp:927
+#, kde-format
+msgid "Learn more about Kontact and its components"
+msgstr "اطّلع على المزيد عن «متراسلك» ومكوّناته"
+
+#: src/mainwindow.cpp:930
+#, kde-format
+msgid "Visit Kontact Website"
+msgstr "زُر موقع «متراسلك»"
+
+#: src/mainwindow.cpp:931
+#, kde-format
+msgid "Access online resources and tutorials"
+msgstr "توصّل إلى الموارد والدّروس على الشّابكة"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr "اضبط حساباتك"
+
+#: src/mainwindow.cpp:935
+#, kde-format
+msgid "Prepare Kontact for use"
+msgstr "جهّز «متراسلك» لتستخدمه"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr "الشّريط الجانبيّ مخفيّ. اعرض الشّريط الجانبيّ ثانيةً باستخدام مفتاح %1."
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "متراسلك لِكدي"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "©، ٢٠٠٣ لِ‍ Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "مطوّر"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "عن «متراسلك»"
+
+#~ msgid "Kontact Container"
+#~ msgstr "«متراسلك» الحاوي"
+
+#~ msgid "No about information available."
+#~ msgstr "لا معلومات متوفّرة عن الملحقة."
+
+#~ msgid "Version %1"
+#~ msgstr "الإصدارة %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>المؤلّفون:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>شكرٌ وعرفان:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>المترجمون:</b></p>"
+
+# Additional NSIS؟؟؟؟؟
+#, fuzzy
+#~ msgid ""
+#~ "<br /><br />                     <i>This Free Software product was "
+#~ "improved as part of a commercial project:</i>                     "
+#~ "<h3>Credits</h3>                     Project Kowi (March 2007 - )<br /"
+#~ "><br />                                          <b>Production / Project "
+#~ "Coordination</b><br />                     Bernhard Reiter<br /"
+#~ ">                     <b>Director of Development</b><br /"
+#~ ">                     Till Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                Unit Lead<br /"
+#~ ">                Senior QA, Packaging<br />                QA, "
+#~ "Packaging<br />                Additional NSIS<br />                "
+#~ "Backup Coordinator                </td>                "
+#~ "<td>                Bernhard Reiter<br />                Bernhard "
+#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
+#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit Lead<br />                Development<br /"
+#~ ">                Development<br />                Additional D. + "
+#~ "Crypto<br />                Crypto GUI Development                </"
+#~ "td>                <td>                Till Adam<br />                "
+#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
+#~ "Frank Osterfeld<br />                Marc Mutz                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Crypto-Backend Porting<br />                "
+#~ "Crypto-Backend                </td>                <td>                "
+#~ "Werner Koch<br />                Marcus Brinkmann                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>External QA Darmstadt, basysKom GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit-Lead                </td>                "
+#~ "<td>                Dr. Stefan Werden                </td>                "
+#~ "</tr>                </table><br /><br />"
+#~ msgstr ""
+#~ "<html dir=\"rtl\"><br /><br />                     <i>جرى تحسين المنتج "
+#~ "الحرّ هذا كجزء من مشروع تجاريّ:</i>                     <h3>إشادات</"
+#~ "h3>                     مشروع «كُووي/Kowi» (مارس ٢٠٠٧ - )<br /><br /"
+#~ ">                                          <b>الإنتاج / تنسيق المشروع</"
+#~ "b><br />                     Bernhard Reiter<br />                     "
+#~ "<b>مدير التّطوير</b><br />                     Till "
+#~ "Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>وحدة أوسنابروك، Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                قيادة الوحدة<br /"
+#~ ">                كبير ضمان الجودة والتّحزيم<br />                ضمان "
+#~ "الجودة والتّحزيم<br />                Additional NSIS<br />                "
+#~ "منسّق النّسخ الاحتياطيّ                </td>                "
+#~ "<td>                Bernhard Reiter<br />                Bernhard "
+#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
+#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>وحدة برلين، Klar&auml;lvdalens Datakonsult AB</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                قيادة الوحدة<br />                التّطوير<br /"
+#~ ">                التّطوير<br />                تطوير إضافيّ والتّعمية<br /"
+#~ ">                تطوير واجهة التّعمية الرّسوميّة                </"
+#~ "td>                <td>                Till Adam<br />                "
+#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
+#~ "Frank Osterfeld<br />                Marc Mutz                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>وحدة دوسلدورف، g10 Code GmbH</b>                </td>                </"
+#~ "tr>                <tr>                <td width=\"60%\">                "
+#~ "نقل سَند التّعمية<br />                سَند التّعمية                </"
+#~ "td>                <td>                Werner Koch<br />                "
+#~ "Marcus Brinkmann                </td>                </tr>                "
+#~ "</table>                <br /><br />                                "
+#~ "<table border=\"0\" width=\"100%\">                <tr>                "
+#~ "<td colspan=\"2\">                <b>ضمان الجودة الإضافيّ من دارمشتات، "
+#~ "basysKom GmbH</b>                </td>                </"
+#~ "tr>                <tr>                <td width=\"60%\">                "
+#~ "قيادة الوحدة                </td>                <td>                Dr. "
+#~ "Stefan Werden                </td>                </tr>                </"
+#~ "table><br /><br /></html>"
+
+#~ msgid "%1 License"
+#~ msgstr "رخصة %1"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "زامِن"
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "ملخص KDE Kontact"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "أ&عداد العرض الملخص..."
+
+#, fuzzy
+#~ msgid "Configure the summary view"
+#~ msgstr "أ&عداد العرض الملخص..."
+
+#~ msgid "Summary for %1"
+#~ msgstr "الملخص لـ %1"
+
+#~ msgid "What's next?"
+#~ msgstr "ما هو التالي ؟"
+
+#~ msgid "Sync All"
+#~ msgstr "زامن الكل"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "الكلّ"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "الكلّ"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "ملخص Kontact"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "عرض Kontact الملخص"
+
+#, fuzzy
+#~| msgid "(c) 2003-2014 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(c) 2003-2014 مطورو Kontact"
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr " نظًم أعمالك!"
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'> مرحبا إلى Kontact</"
+#~ "h2><p></p><table align=\"center\"><tr><td><a href=\"%3\"><img width="
+#~ "\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href=\"%7\"></a><br /"
+#~ "><span id=\"subtext\"><nobr></nobr></span></td></tr><tr><td><a href="
+#~ "\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /></a></td><td><a "
+#~ "href=\"%14\"></a><br /><span id=\"subtext\"><nobr></nobr></span></td></"
+#~ "tr><tr><td><a href=\"%17\"><img width=\"%18\" height=\"%19\" src=\"%20\" /"
+#~ "></a></td><td><a href=\"%21\"></a><br /><span id=\"subtext\"><nobr></"
+#~ "nobr></span></td></tr></table><p style=\"margin-bottom: 0px\"><a href="
+#~ "\"%24\"> تخطّي</a></p>"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&تلميحة اليوم"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "تغذية جديدة..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr "سيُعرَض عليك نموذج يمكنك إضافة تغذية جديدة فيه."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "متراسل جديد..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr "سيُعرَض عليك نموذج يمكنك إنشاء متراسل جديد فيه."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "مجموعة اتصال جديدة..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr "سيُعرَض عليك نموذج يمكنك إنشاء مجموعة اتصال جديدة فيه."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "زامن المتراسلين"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "اختر هذا الخيار إذا كنت تريد مزامنة متراسلي المجموعة لديك."
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "حوار إعداد خلاصات البريد"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "الحقوق محفوظة © 2004–2010 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "أعرض المسار الكامل للمجلدات"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "أعرض المسار الكامل لكل مجلد"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "رسالة جديدة..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "زامِن البريد"
+
+#, fuzzy
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "فعل هذا الخيار لمزامنة بريد مجموعاتك."
+
+#~ msgid "New Messages"
+#~ msgstr "رسائل جديدة"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "لا رسائل غير مقروءة في مجلداتك المُراقبة"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "إفتح المجلًد:  \"%1\""
+
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmknotessummary"
+
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "حوار إعداد ملخص الملاحظات"
+
+#, fuzzy
+#~| msgid "Copyright © 2013-2014 Laurent Montel <montel@kde.org>"
+#~ msgid "Copyright © 2013-2015 Laurent Montel <montel@kde.org>"
+#~ msgstr "الحقوق محفوظة © 2013-2014 Laurent Montel <montel@kde.org>"
+
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "&جديد"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "حرِّر..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "إعِد التسمية..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "احذف"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "اطبع الملاحظات المحددة..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "عايِن طباعة الملاحظات المحددة..."
+
+#~ msgid "Preferences KNotes..."
+#~ msgstr "ملاحظاتك للتفضيلات..."
+
+#~ msgid "Mail..."
+#~ msgstr "البريد..."
+
+#~ msgid "Send..."
+#~ msgstr "أرسل..."
+
+#~ msgid "Set Alarm..."
+#~ msgstr "اضبط المنبه..."
+
+#~ msgid "New Note From Clipboard"
+#~ msgstr "ملاحظة جديدة من الحافظة"
+
+#~ msgid "New Note From Text File..."
+#~ msgstr "ملاحظة جديدة من ملف نصي..."
+
+#~ msgid "Save As..."
+#~ msgstr "احفظ بالاسم..."
+
+#~ msgid "Lock"
+#~ msgstr "اقفل"
+
+#~ msgid "Unlock"
+#~ msgstr "الغِ قفل"
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr "لطباعة ملاحظات، أولاً اختر الملاحظات التي تريد طباعتها من القائمة."
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "اطبع الملاحظات المنبثقة"
+
+#~ msgid "Note was not created."
+#~ msgstr "لم يتم إنشاء الملاحظة."
+
+#~ msgid "Create new note"
+#~ msgstr "أنشئ ملاحظة جديدة"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "هل تريد حقاً محو هذه الملاحظة؟"
+#~ msgstr[1] "هل تريد حقاً محو هاتين الملاحظتين؟"
+#~ msgstr[2] "هل تريد حقا حذف هذه الملاحظات البالغ عددها %1؟"
+#~ msgstr[3] "هل تريد حقا حذف هذه الملاحظات البالغ عددها %1؟"
+#~ msgstr[4] "هل تريد حقا حذف هذه الملاحظات البالغ عددها %1؟"
+#~ msgstr[5] "هل تريد حقا حذف هذه الملاحظات البالغ عددها %1؟"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "أكّد المحو"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "أعِد تسمية الملاحظة المنبثقة"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "اسم جديد:"
+
+#~ msgid "Show Note..."
+#~ msgstr "اعرض الملاحظة..."
+
+#~ msgid "Settings"
+#~ msgstr "الإعدادات"
+
+#~ msgid "Save note as plain text"
+#~ msgstr "احفظ الملاحظة كنصّ صَرِف"
+
+#~ msgid "Save As"
+#~ msgstr "احفظ باسم"
+
+#~ msgid ""
+#~ "<qt>A file named <b>%1</b> already exists.<br />Are you sure you want to "
+#~ "overwrite it?</qt>"
+#~ msgstr ""
+#~ "<qt>هنا ملف موجود اسمه <b>%1</b>.<br />هل أنت متأكد انك تريد طمسه؟</qt>"
+
+#~ msgid "Select Text File"
+#~ msgstr "اختر ملفاً نصيًّا"
+
+#~ msgid "Error during open text file: %1"
+#~ msgstr "خطأ أثناء فتح الملف النصي: %1"
+
+#~ msgid "Open Text File"
+#~ msgstr "افتح الملف النصي"
+
+#~ msgid "Note from file '%1'"
+#~ msgstr "ملاحظة من الملف '%1'"
+
+#~ msgid "&Edit"
+#~ msgstr "&حرّر"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "ملاحظة منبثقة جديدة..."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "ملاحظاتك"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "الملاحظات المنبثقة"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "الحقوق محفوظة © 2003–2014 مؤلفو Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "المشرف الحالي على المشروع"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "المشرف السابق على المشروع"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "اجتماع"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "ملاحظة: %1"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "ملاحظة جديدة"
+
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "إسقاط رسائل البريد المتعددة غير مدعوم."
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "من: %1\n"
+#~ "إلى: %2\n"
+#~ "الموضوع: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "البريد: %1"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "اعرض الملاحظات المنبثقة"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "حرر الملاحظة المنبثقة"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "الاسم:"
+
+#~ msgid "Search notes..."
+#~ msgstr "ابحث في الملاحظات..."
+
+#~ msgid "Search notes...<%1>"
+#~ msgstr "ابحث في الملاحظات...<%1>"
+
+#~ msgid "(note locked, it will not removed)"
+#~ msgstr "(الملاحظة مُقفلَة، لن تُزال)"
+
+#~ msgid "Popup Notes"
+#~ msgstr "الملاحظات المنبثقة"
+
+#~ msgid "No note found"
+#~ msgstr "لم يُعثَر على أي ملاحظة"
+
+#~ msgid "Modify Note..."
+#~ msgstr "عدِّل الملاحظة..."
+
+#~ msgid "Delete Note..."
+#~ msgstr "احذف الملاحظة..."
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "اقرأ الملاحظة المنبثقة: \"%1\""
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "تضبيط ملخصات الأحداث"
+
+#, fuzzy
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "اعرض بدء الأحداث القادمة"
+
+#~ msgid "Show events for today only"
+#~ msgstr "اعرض فقط أحداث اليوم"
+
+#~ msgid "&Today only"
+#~ msgstr "ال&يوم فقط"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "اعرض أحداث الشهر القادم"
+
+#~ msgid "1 day"
+#~ msgstr "اليوم واحد"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr "من الأيام"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "اعرض هذه الأحداث القادمة من تقويمك"
+
+#~ msgid "Show &birthdays"
+#~ msgstr "اعرض أعياد الميلا&د"
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "اعرض الذكريات ال&سنوية"
+
+#, fuzzy
+#~ msgid "Groupware Settings"
+#~ msgstr "تعيينات تغذية الأخبار"
+
+#~ msgid "Show &my events only"
+#~ msgstr "اعرض فقط أحداث&ي"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "أحداث قادمة"
+
+#, fuzzy
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "لا بدء التالي اليوم"
+#~ msgstr[1] "لا بدء التالي اليوم"
+#~ msgstr[2] ""
+#~ msgstr[3] ""
+#~ msgstr[4] ""
+#~ msgstr[5] ""
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "&حرِّر المواعيد..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "احذ&ف المواعيد"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "حرر الحدث: \"%1\""
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "مذكرة جديدة..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "أنشئ مذكرة جديدة"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "زامن المذكرة"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "زامن بريد"
+
+#, fuzzy
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware journal entries."
+#~ msgstr "زامن المراسَلون"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " يوم"
+#~ msgstr[1] " يوم"
+#~ msgstr[2] " يومان"
+#~ msgstr[3] " أيام"
+#~ msgstr[4] " يومًا"
+#~ msgstr[5] " يوم"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "حوار تضبيط الأحداث القادمة"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "الحقوق محفوظة © 2003–2004 Tobias Koenig\n"
+#~ "الحقوق محفوظة © 2005–2010 Allen Winter"
+
+#, fuzzy
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "منتظِر إلى إعدادات حوار"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "حدث جديد..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "أنشئ حدثًا جديدًا"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "زامن التقويم"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "زامن بريد"
+
+#, fuzzy
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware events."
+#~ msgstr "زامن بريد"
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "اليوم"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "غداً"
+
+#, fuzzy
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "بوصة اليوم"
+#~ msgstr[1] "بوصة اليوم"
+#~ msgstr[2] ""
+#~ msgstr[3] ""
+#~ msgstr[4] ""
+#~ msgstr[5] ""
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "خلال "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "أقل من ساعة"
+#~ msgstr[1] "ساعة واحدة"
+#~ msgstr[2] "ساعتين"
+#~ msgstr[3] "%1 ساعات"
+#~ msgstr[4] "%1 ساعة"
+#~ msgstr[5] "%1 ساعة"
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "أقل من دقيقة"
+#~ msgstr[1] "دقيقة واحدة"
+#~ msgstr[2] "دقيقتين"
+#~ msgstr[3] "%1 دقائق"
+#~ msgstr[4] "%1 دقيقة"
+#~ msgstr[5] "%1 دقيقة"
+
+#~ msgid "now"
+#~ msgstr "الآن"
+
+#~ msgid "all day"
+#~ msgstr "طوال اليوم"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "التالي: %1"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "واجب جديد..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "أنشئ واجباً جديداً..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "زامن قائمة المهام"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "زامن المراسَلون"
+
+#, fuzzy
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "زامن المراسَلون"
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "إعداد ملخص قائمة الأعمال"
+
+#, fuzzy
+#~ msgid "Show To-dos Due"
+#~ msgstr "اعرض قائمة الأعمال ال"
+
+#, fuzzy
+#~ msgid "Show To-dos due today only"
+#~ msgstr "أعرض الأيقونات"
+
+#, fuzzy
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "لا pending إلى التالي اليوم"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "اخفِ الأعمال المكتملة"
+
+#~ msgid "&Completed"
+#~ msgstr "م&كتمل"
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "وقت &مفتوح (دون موعد نهائي)"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "اخفِ الأعمال غير المبدوءة"
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "&غير مبدوء (تاريخ البدء في المستقبل)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "اخفِ الأعمال قيد التنفيذ"
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "قيد التنفيذ (مبدوء لكنه غير منتهٍ)"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "اخفِ الأعمال المتأخرة"
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "متأخِّر (غير منتهٍ، وتخطى الموعد النهائيّ)"
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "اعرض فقط أعمال&ي"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "أعمال تنتظر"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "اليوم"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "غداً"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "منذ أقل من يوم واحد"
+#~ msgstr[1] "منذ يوم واحد"
+#~ msgstr[2] "منذ يومين"
+#~ msgstr[3] "منذ %1 أيام"
+#~ msgstr[4] "منذ %1 يوماً"
+#~ msgstr[5] "منذ %1 يوم"
+
+#, fuzzy
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "مطلوب فوراً"
+
+#, fuzzy
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "لا pending إلى التالي اليوم"
+#~ msgstr[1] "لا pending إلى التالي اليوم"
+#~ msgstr[2] ""
+#~ msgstr[3] ""
+#~ msgstr[4] ""
+#~ msgstr[5] ""
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "&حرِّر الواجب..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "أ&محي الواجب"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "&علم الواجِب بأنه مكتمل"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "حرر الواجب: \"%1\""
+
+#~ msgid "open-ended"
+#~ msgstr "مفتوح"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "متأخر"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "يبدء اليوم"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "لم يبدأ"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "مكتمل"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "جارٍ "
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr "،"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "قادم خاص تواريخ إعدادات حوار"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "القوق محفوظة © 2004 Tobias Koenig\n"
+#~ "القوق محفوظة © 2004–2010 Allen Winter"
+
+#, fuzzy
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "ملخص التواريخ الخاصة"
+
+#, fuzzy
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "قادم خاص تواريخ"
+
+#, fuzzy
+#~ msgid "Show special occasions for today only"
+#~ msgstr "مناسبة خاصة"
+
+#, fuzzy
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "لا بدء التالي اليوم"
+
+#, fuzzy
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "مناسبة خاصة"
+
+#, fuzzy
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "ذكرة سنوية"
+
+#, fuzzy
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "مناسبة خاصة"
+
+#, fuzzy
+#~ msgid "Show &holidays"
+#~ msgstr "أعرض الأيقونات"
+
+#, fuzzy
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "مناسبة خاصة"
+
+#, fuzzy
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "مناسبة خاصة"
+
+#, fuzzy
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "ذكرة سنوية"
+
+#, fuzzy
+#~ msgid "Show birth&days"
+#~ msgstr "عيد الميلاد"
+
+#, fuzzy
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "ذكرة سنوية"
+
+#, fuzzy
+#~ msgid "Show anni&versaries"
+#~ msgstr "ذكرة سنوية"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "قادم خاص تواريخ"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "اليوم"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "غداً"
+
+#~ msgid "Birthday"
+#~ msgstr "عيد الميلاد"
+
+#~ msgid "Anniversary"
+#~ msgstr "ذكرة سنوية"
+
+#~ msgid "Holiday"
+#~ msgstr "عطلة"
+
+#~ msgid "Special Occasion"
+#~ msgstr "مناسبة خاصة"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "أقل من سنة"
+#~ msgstr[1] "سنة واحدة"
+#~ msgstr[2] "سنتين"
+#~ msgstr[3] "%1 سنوات"
+#~ msgstr[4] "%1 سنة"
+#~ msgstr[5] "%1 سنة"
+
+#, fuzzy
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "لا التالي اليوم"
+#~ msgstr[1] "لا التالي اليوم"
+#~ msgstr[2] ""
+#~ msgstr[3] ""
+#~ msgstr[4] ""
+#~ msgstr[5] ""
+
+#~ msgid "Send &Mail"
+#~ msgstr "أرسل &بريد"
+
+#~ msgid "View &Contact"
+#~ msgstr "أ&عرض المراسل"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "أرسل بريد إلى: \"%1\""
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "ملخص التواريخ الخاصة"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "ملخص Kontact للمواعيد الخاصة"
+
+#~ msgid ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "القوق محفوظة © 2003 Tobias Koenig\n"
+#~ "القوق محفوظة © 2004–2010 Allen Winter"
+
+#, fuzzy
+#~ msgid "Current Maintainer"
+#~ msgstr "المشرف الحالي"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "صفحات KJots جديدة"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr "سيُعرَض عليك نموذج يمكنك إنشاء صفحات jots جديدة فيه."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "كتاب KJots جديد"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots book."
+#~ msgstr "سيُعرَض عليك نموذج يمكنك إنشاء كتاب jots فيه."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "أنشئ تغذية جديدة"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "أنشئ متراسلاً جديداً"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "أنشئ مجموعة اتصال جديدة"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "زامن متراسلي المجموعات"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "أنشئ صفحة jots جديدة"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "أنشئ كتاب jots جديد"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "أنشئ رسالة جديدة"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "زامن بريد"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "مقال جديد..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "أنشئ مقال Usenet جديد"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "أنشئ ملاحظة منبثقة جديدة"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "حرر الملاحظة المنبثقة"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "أعِد تسمية الملاحظة المنبثقة"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "احذف الملاحظة المنبثقة"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "اطبع الملاحظة المنبثقة"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "أنشئ ملاحظة منبثقة جديدة"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "مهمة جديدة"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "أنشئ متتبع وقت جديد"
+
+#~ msgid "task_popup"
+#~ msgstr "task_popup"
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "حوار إعداد ملخص المخطِّط"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+#~ msgstr ""
+#~ "القوق محفوظة © 2004 Tobias Koenig\n"
+#~ "القوق محفوظة © 2006–2008 Oral Timocin\n"
+#~ "القوق محفوظة © 2009–2010 Allen Winter"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "اليوم"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "غداً"
+
+#, fuzzy
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "لا بدء التالي اليوم"
+#~ msgstr[1] "لا بدء التالي اليوم"
+#~ msgstr[2] ""
+#~ msgstr[3] ""
+#~ msgstr[4] ""
+#~ msgstr[5] ""
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "متأخر"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "حرِّر الموعد: \"%1\""
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "جارٍ"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "يبدء اليوم"
+
+#, fuzzy
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "يبدء اليوم"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "مكتمل"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#, fuzzy
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "حوار إعداد ملخص البريد"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "عامّ"
+
+#~ msgid "General Configuration"
+#~ msgstr "الإعداد العام"
+
+#~ msgid "Underline links"
+#~ msgstr "تسطير الروابط"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "اعرض المهام في الملخص"
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "اعرض المهام في المخطِّط"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "اعرض التواريخ الخاصة في الملخص"
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "اعرض التواريخ الخاصة في المخطِّط"
+
+#~ msgid "Events"
+#~ msgstr "الأحداث"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "اعرض أحداث التقويم"
+
+#~ msgid "To-dos"
+#~ msgstr "المهام"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "اخفِ المهام المكتملة"
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "اخفِ الواجبات غير المبدوءة"
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "اخفِ الواجبات قيد التنفيذ"
+
+#, fuzzy
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "منتظِر إلى"
+
+#~ msgid "Special Dates"
+#~ msgstr "التواريخ الخاصة"
+
+#, fuzzy
+#~ msgid "Show these Special Dates"
+#~ msgstr "قادم خاص تواريخ"
+
+#, fuzzy
+#~ msgid "Show birthdays from address book"
+#~ msgstr "ذكرة سنوية"
+
+#, fuzzy
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "ذكرة سنوية"
+
+#, fuzzy
+#~ msgid "Show holidays from calendar"
+#~ msgstr "مناسبة خاصة"
+
+#, fuzzy
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "مناسبة خاصة"
+
+#, fuzzy
+#~ msgid "Planner Summary"
+#~ msgstr "الملخص"
+
+#, fuzzy
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "ملخص Kontact"
+
+#~ msgid "Active Calendar"
+#~ msgstr "التقويم النشط"
+
+#, fuzzy
+#~ msgid "Default Calendar"
+#~ msgstr "التقويم النشط"
+
+#~ msgid "Birthdays"
+#~ msgstr "أعياد الميلاد"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "الملحق %1"
+
+#~ msgid "No Notes Available"
+#~ msgstr "لا توجد ملاحظات متوفرة"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "زامن الملاحظات"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "زامن المراسَلون"
+
+#, fuzzy
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "زامن المراسَلون"
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(c) 2003 طاقم تطوير Kontact"
+
+#, fuzzy
+#~| msgid "Configure Kontact as Groupware Client"
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "إعداد Kontact كزبون البرمجيات الجماعية Groupware"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "عيد ميلاد"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "ذكرة سنوية"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "عطلة"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "مناسبة خاصة"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(C) 2001-2004 طاقم تطوير Kontact"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003 - 2004 Tobias Koenig"
+
+#, fuzzy
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "c ألين شتاء"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(c) 2004-2005 طاقم تطوير منظم المعلومات الشخصي لــ KDE"
+
+#, fuzzy
+#~ msgid "(c) 2004-2006 Allen Winter"
+#~ msgstr "c ألين شتاء"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "المحلًي"
+
+#~ msgid "Summary"
+#~ msgstr "الملخص"
+
+#~ msgid "kontactconfig"
+#~ msgstr "إعدادات kontact"
+
+#, fuzzy
+#~ msgid " days"
+#~ msgstr "اليوم"
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgid "Rename"
+#~ msgstr "إعادة التسمية..."
+
+#, fuzzy
+#~| msgid "Anniversary"
+#~ msgid "Show &anniveraries"
+#~ msgstr "ذكرة سنوية"
+
+#, fuzzy
+#~ msgid "New SMS..."
+#~ msgstr "جديد SMS."
+
+#~ msgid "New News Feed"
+#~ msgstr "تغذية أخبار جديدة"
+
+#~ msgid "URL:"
+#~ msgstr "عنوان المَوْرِد النظامي:"
+
+#~ msgid "Arts"
+#~ msgstr "الفنون"
+
+#~ msgid "Business"
+#~ msgstr "الأعمال"
+
+#~ msgid "Computers"
+#~ msgstr "أجهزة الحاسوب"
+
+#~ msgid "Misc"
+#~ msgstr "المتفرقات"
+
+#~ msgid "Recreation"
+#~ msgstr "الترفيه"
+
+#~ msgid "Society"
+#~ msgstr "الجمعية/المنظمة/الشركة"
+
+#~ msgid "Custom"
+#~ msgstr "المعتاد"
+
+#~ msgid "All"
+#~ msgstr "الكلّ"
+
+#, fuzzy
+#~ msgid "Add"
+#~ msgstr "إضافة"
+
+#, fuzzy
+#~ msgid "Remove"
+#~ msgstr "احذف"
+
+#~ msgid "Selected"
+#~ msgstr "المختار"
+
+#~ msgid "Refresh time:"
+#~ msgstr "فترة التحديث:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "عدد البنود المعروضة:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "حوار إعداد شريط الأخبار Newsticker"
+
+#~ msgid "News Feeds"
+#~ msgstr "تغذيات الأخبار"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "لا يوجد خدمة  rss dcop متوفرة.\n"
+#~ "أنت بحاجة إلى rssservice كي تستعمل هذا القابس."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "أنسخ عنوان المورد النظامي إلى الحافظة"
+
+#~ msgid "Weather Information"
+#~ msgstr "أخبار الطقس"
+
+#, fuzzy
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr "لا D الناقل خدمة متوفّر إلى استخدام ملحق."
+
+#~ msgid "Last updated on"
+#~ msgstr "تمّ آخر تحديث في"
+
+#~ msgid "Wind Speed"
+#~ msgstr "سرعة الرياح"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "الرطوبة النسبية"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "شاهد معلومات الطقس للمحطة"
+
+#, fuzzy
+#~ msgid "Ian Reinhart Geiser"
+#~ msgstr "Ian Reinhart Geiser"
+
+#, fuzzy
+#~ msgid "John Ratke"
+#~ msgstr "جون"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "تحسينات و زيادة تنظيف البرمجة"
+
+#~ msgid "Unknown"
+#~ msgstr "غير معروف"
+
+#, fuzzy
+#~ msgid "Show Special Dates"
+#~ msgstr "قادم خاص تواريخ"
+
+#, fuzzy
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "قادم خاص تواريخ"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "مورد KOrganizer الأفتراضي"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today"
+#~ msgstr "اليوم"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "لا يمكن معاملة أحداث الإسقاط من النوع '%1'."
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "اليوم"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "غداً"
+
+#, fuzzy
+#~| msgid "Newsticker Configuration Dialog"
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "حوار إعداد شريط الأخبار Newsticker"
+
+#, fuzzy
+#~ msgid "One day"
+#~ msgstr "اليوم"
+
+#, fuzzy
+#~ msgid "Five days"
+#~ msgstr "اليوم"
+
+#, fuzzy
+#~ msgid "Starting to-dos"
+#~ msgstr "منتظِر إلى"
+
+#, fuzzy
+#~ msgid "Ending to-dos"
+#~ msgstr "منتظِر إلى"
+
+#, fuzzy
+#~ msgid "To-dos in progress"
+#~ msgstr "بوصة progress "
+
+#~ msgid "Notes Management"
+#~ msgstr "تدبير الملاحظات"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "قياس الأيقونة"
+
+#, fuzzy
+#~| msgid "Large"
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "كبير"
+
+#, fuzzy
+#~| msgid "Small"
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "صغير"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgid "Synchronize"
+#~ msgstr "زامن"
+
+#~ msgid "Name"
+#~ msgstr "الاسم"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr "يمكنك هنا تحديد أي من قوابس الملخص تراه في عرض الملخص."

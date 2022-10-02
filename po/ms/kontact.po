@@ -1,0 +1,2127 @@
+# Malay translation.
+# MIMOS <opensource@mimos.my>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mimos\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2005-11-22 11:01+0800\n"
+"Last-Translator: MIMOS <opensource@mimos.my>\n"
+"Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "MIMOS"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "opensource@mimos.my"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgid ""
+#| "Kontact handles your e-mail, addressbook, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact mengendalikan e-mel, buku alamat, kalendar, senarai tugasan anda dan "
+"banyak lagi ."
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "Pengenalan &Kontact "
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "Memuatkan Kontact..."
+
+#: src/iconsidepane.cpp:263
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Paparkan Ikon"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr ""
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+
+#: src/iconsidepane.cpp:270
+#, fuzzy, kde-format
+#| msgid "Show Text"
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Paparkan Teks"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+
+#: src/iconsidepane.cpp:277
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Paparkan Ikon"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr ""
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+
+#: src/iconsidepane.cpp:287
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Paparkan Ikon"
+
+#: src/iconsidepane.cpp:291
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Paparkan semua tugasan"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+
+#: src/iconsidepane.cpp:294
+#, fuzzy, kde-format
+#| msgid "Normal"
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Normal"
+
+#: src/iconsidepane.cpp:298
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Paparkan semua tugasan"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+
+#: src/iconsidepane.cpp:301
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Paparkan Ikon"
+
+#: src/iconsidepane.cpp:305
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Paparkan semua tugasan"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr ""
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr ""
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, fuzzy, kde-format
+#| msgid "Always start with specified component:"
+msgid "Always start with plugin:"
+msgstr "Sentiasa mulakan dengan komponen khusus:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, fuzzy, kde-format
+#| msgid ""
+#| "Usually Kontact will come up with the component used before shutdown. "
+#| "Check this box if you would like a specific component to come up on start "
+#| "instead."
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Biasanya Kontact akan didatangkan bersama komponen yang digunakan sebelum "
+"penutupan. Tetapi jika anda ingin komponen khusus didatangkan semasa "
+"pemulaan, semak kotak ini."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, fuzzy, kde-format
+#| msgid "Meeting"
+msgid "&Settings"
+msgstr "Perjumpaan"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr ""
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Mulakan dengan modul Kontact khusus"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Mulakan dalam mod terikon  (diminimumkan) "
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Senaraikan semua modul dan keluar"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "Pengurus maklumat peribadi KDE "
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "(c) 2004 Tobias Koenig"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr ""
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr ""
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr ""
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr ""
+
+#: src/main.cpp:173
+#, fuzzy, kde-format
+#| msgid "(c), 2003 Cornelius Schumacher"
+msgid "Cornelius Schumacher"
+msgstr "(c), 2003 Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Tobias König"
+msgstr "(c) 2004 Tobias Koenig"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr ""
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr ""
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr ""
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Pengarang  Asal"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr ""
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr ""
+
+#: src/mainwindow.cpp:251
+#, fuzzy, kde-format
+#| msgid " Initializing..."
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr "Memulakan..."
+
+#: src/mainwindow.cpp:288
+#, fuzzy, kde-format
+#| msgid "New"
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Baru"
+
+#: src/mainwindow.cpp:293
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Konfigurkan Kontact..."
+
+#: src/mainwindow.cpp:294
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Konfigurkan Kontact..."
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+
+#: src/mainwindow.cpp:299
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "Pengenalan &Kontact "
+
+#: src/mainwindow.cpp:300
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Pengenalan &Kontact "
+
+#: src/mainwindow.cpp:301
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Pengenalan &Kontact "
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr ""
+
+#: src/mainwindow.cpp:574
+#, fuzzy, kde-format
+#| msgid "Application is running standalone. Foregrounding..."
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Aplikasi sedang berjalan bersendirian. Membuat latar depan..."
+
+#: src/mainwindow.cpp:590
+#, fuzzy, kde-format
+#| msgid "Cannot load part for %1."
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Tidak dapat memuatkan bahagian untuk %1."
+
+#: src/mainwindow.cpp:658
+#, fuzzy, kde-format
+#| msgctxt "Plugin dependent window title"
+#| msgid "%1 - Kontact"
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "Suit Pengurusan Maklumat Peribadi KDE"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "Baca Manual"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "Pelajari lebih lanjut tentang Kontact dan komponennya"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "Lawat Laman Web Kontact"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "Akses sumber dalam talian dan tutorial"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr ""
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgid "Prepare Kontact for use in corporate networks"
+msgid "Prepare Kontact for use"
+msgstr "Sediakan Kontact untuk digunakan dalam rangkaian korporat"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#, fuzzy
+#~| msgid "Plugin Developer"
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Pembangun Plugin"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Tentang Kontact"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Kontena Kontact "
+
+#~ msgid "No about information available."
+#~ msgstr "Tiada apa-apa tentang maklumat boleh didapatkan."
+
+#, fuzzy
+#~| msgid "Version %1</p>"
+#~ msgid "Version %1"
+#~ msgstr "Versi %1</p>"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Pengarang:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Terima kasih kepada:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Penterjemah:</b></p>"
+
+#~ msgid "%1 License"
+#~ msgstr "Lesen %1 "
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "Ringkasan KDE Kontact "
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Tobias Koenig"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&Konfigurkan  Paparan Ringkasan..."
+
+#, fuzzy
+#~| msgid "&Configure Summary View..."
+#~ msgid "Configure the summary view"
+#~ msgstr "&Konfigurkan  Paparan Ringkasan..."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Ringkasan untuk %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Apa seterusnya?"
+
+#, fuzzy
+#~| msgid "All"
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Semua"
+
+#, fuzzy
+#~| msgid "All"
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Semua"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Ringkasan Kontact"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Paparan Ringkasan Kontact"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "Pembangun (C) 2001-2004 The Kontact "
+
+#, fuzzy
+#~| msgid ""
+#~| "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</"
+#~| "h2>"
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 gaya='laras teks:tengah; jidar atas: 0px; jidar bawah: 0px'>%1</h2>"
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#, fuzzy
+#~| msgid "Get Organized!"
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Susun dengan teratur!"
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='laras teks:tengah; jidar atas: 0px;'>Selamat Datang ke Kontact "
+#~ "%1</h2><p>%1</p><table align=\"tengah\"><tr><td><a href=\"%1\"><img width="
+#~ "\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subteks\"><nobr>%1</td></tr><tr><td><a href=\"%1\"><img "
+#~ "width=\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subteks\"><nobr>%1</td></tr><tr><td><a href=\"%1\"><img "
+#~ "width=\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subteks\"><nobr>%1</td></tr></jadual><p style=\"jidar "
+#~ "bawah: 0px\"> <a href=\"%1\">Langkau pengenalan ini</a></p>"
+
+#, fuzzy
+#~| msgid "&Tip of the Day"
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&Tip Hari Ini"
+
+#, fuzzy
+#~| msgid "New Feed..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Suapan Baru..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Melkan Dialog Konfigurasi Ringkasan"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Tayangkan laluan penuh untuk folder"
+
+#, fuzzy
+#~| msgid "Show full path for folders"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Tayangkan laluan penuh untuk folder"
+
+#, fuzzy
+#~| msgid "New Message..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Mesej Baru..."
+
+#, fuzzy
+#~| msgid "Send &Mail"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Hantar &Mel"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#~ msgid "New Messages"
+#~ msgstr "Mesej Baru"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#, fuzzy
+#~| msgid "kcmkorgsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmkorgsummary"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Melkan Dialog Konfigurasi Ringkasan"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "Penyenggara"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "Baru"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Tugasan Baru..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Namakan semula"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Dipilih"
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Pilih Komponen..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Pilih Komponen..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Preferences KNotes..."
+#~ msgstr "Pilih Komponen..."
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Edit Nota"
+
+#, fuzzy
+#~ msgid "Create new note"
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "_n: Anda pasti ingin menghapuskan nota ini?"
+#~ msgstr[1] "Anda pasti ingin  menghapuskan  %1 nota berikut?"
+
+#, fuzzy
+#~| msgid "Confirm Delete"
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Sahkan Hapus"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Nama:"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Show Note..."
+#~ msgstr "Nota Baru..."
+
+#, fuzzy
+#~| msgid "Meeting"
+#~ msgid "Settings"
+#~ msgstr "Perjumpaan"
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "Tugasan Baru..."
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Nota Baru..."
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "Nota"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Edit Nota"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Penyenggara"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Penyenggara"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Penyenggara"
+
+#, fuzzy
+#~| msgid "Meeting"
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Perjumpaan"
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Nota"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Nota Baru..."
+
+#, fuzzy
+#~| msgid "Drops of multiple mails are not supported."
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Melepaskan berbilang mel tidak disokong."
+
+#, fuzzy
+#~| msgid ""
+#~| "From: %1\n"
+#~| "To: %2\n"
+#~| "Subject: %3"
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Daripada: %1\n"
+#~ "Kepada: %2\n"
+#~ "Subjek: %3"
+
+#, fuzzy
+#~| msgid "Mail: %1"
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Mel: %1"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Edit Nota"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Nama:"
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Search notes..."
+#~ msgstr "Pilih Komponen..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Pilih Komponen..."
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgid "Popup Notes"
+#~ msgstr "Edit Nota"
+
+#, fuzzy
+#~| msgid "No service found"
+#~ msgid "No note found"
+#~ msgstr "Tiada servis  ditemui"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "Nota Baru..."
+
+#, fuzzy
+#~| msgid "Delete Feed"
+#~ msgid "Delete Note..."
+#~ msgstr "Hapuskan Suapan"
+
+#, fuzzy
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Melkan Dialog Konfigurasi Ringkasan"
+
+#, fuzzy
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show events for today only"
+#~ msgstr "Paparkan tugasan hari ini"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today only"
+#~ msgstr "Hari ini"
+
+#, fuzzy
+#~ msgid "Show events starting within the next month"
+#~ msgstr "_n: Tiada tarikh khusus dalam masa 1 hari seterusnya"
+
+#, fuzzy
+#~ msgid "1 day"
+#~ msgstr "_n:  hari"
+
+#, fuzzy
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr "_n:  hari"
+
+#, fuzzy
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show &birthdays"
+#~ msgstr "Paparkan semua tarikh lahir"
+
+#, fuzzy
+#~ msgid "Show &anniversaries"
+#~ msgstr "Paparkan semula ulang tahun"
+
+#, fuzzy
+#~| msgid "News Feed Settings"
+#~ msgid "Groupware Settings"
+#~ msgstr "Seting Suapan Baru"
+
+#, fuzzy
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Paparkan tugasan hari ini"
+
+#, fuzzy
+#~| msgid "Show Text"
+#~ msgid "Show &my events only"
+#~ msgstr "Paparkan Teks"
+
+#, fuzzy
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "_n: Tiada tarikh khusus dalam masa 1 hari seterusnya"
+#~ msgstr[1] "Tiada tarikh khusus menunggu dalam masa %1 hari seterusnya"
+
+#, fuzzy
+#~ msgid "&Edit Appointment..."
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~ msgid "&Delete Appointment"
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~| msgid "New Journal..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Jurnal Baru..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~| msgid "New Journal..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Jurnal Baru..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] "_n:  hari"
+#~ msgstr[1] "hari"
+
+#, fuzzy
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Dialog Konfigurasi Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Dialog Konfigurasi Tarikh Khusus"
+
+#, fuzzy
+#~| msgid "New Event..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Kejadian Baru..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Kalendar Aktif"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Hari ini"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Esok"
+
+#, fuzzy
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "_n: dalam 1 hari"
+#~ msgstr[1] "dalam %1 hari"
+
+#~ msgid "now"
+#~ msgstr "sekarang"
+
+#, fuzzy
+#~ msgid "all day"
+#~ msgstr "_n:  hari"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Nota"
+
+#, fuzzy
+#~| msgid "New To-do..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Tugasan Baru..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Paparkan semua tugasan"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Melkan Dialog Konfigurasi Ringkasan"
+
+#, fuzzy
+#~ msgid "Show To-dos Due"
+#~ msgstr "Paparkan semua tugasan"
+
+#, fuzzy
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Paparkan semua tugasan"
+
+#, fuzzy
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "_n: Tiada tarikh khusus dalam masa 1 hari seterusnya"
+
+#, fuzzy
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Hapuskan Suapan"
+
+#, fuzzy
+#~ msgid "&Completed"
+#~ msgstr "Hapuskan Suapan"
+
+#, fuzzy
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "sedang berjalan"
+
+#, fuzzy
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Tugasan"
+
+#, fuzzy
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Paparkan tugasan hari ini"
+
+#, fuzzy
+#~ msgid "Pending To-dos"
+#~ msgstr "Tugasan"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Hari ini"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Esok"
+
+#, fuzzy
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "_n:  hari"
+#~ msgstr[1] "hari"
+
+#, fuzzy
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "Lewat Tempoh"
+
+#, fuzzy
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "_n: Tiada tarikh khusus dalam masa 1 hari seterusnya"
+#~ msgstr[1] "Tiada tarikh khusus menunggu dalam masa %1 hari seterusnya"
+
+#, fuzzy
+#~ msgid "&Edit To-do..."
+#~ msgstr "Tugasan Baru..."
+
+#, fuzzy
+#~ msgid "&Delete To-do"
+#~ msgstr "Hapuskan Suapan"
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "Lewat Tempoh"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "mula hari ini"
+
+#, fuzzy
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "Hapuskan Suapan"
+
+#, fuzzy
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "sedang berjalan"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Dialog Konfigurasi Tarikh Khusus"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "_n: Tiada tarikh khusus dalam masa 1 hari seterusnya"
+
+#, fuzzy
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Paparkan semula ulang tahun"
+
+#, fuzzy
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show &holidays"
+#~ msgstr "Paparkan semua tarikh lahir"
+
+#, fuzzy
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Peristiwa Khusus"
+
+#, fuzzy
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Dialog Konfigurasi Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Paparkan semua tarikh lahir"
+
+#, fuzzy
+#~ msgid "Show birth&days"
+#~ msgstr "Paparkan semua tarikh lahir"
+
+#, fuzzy
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Paparkan semula ulang tahun"
+
+#, fuzzy
+#~ msgid "Show anni&versaries"
+#~ msgstr "Paparkan semula ulang tahun"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Tarikh Khusus"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Hari ini"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Esok"
+
+#~ msgid "Birthday"
+#~ msgstr "Tarikh lahir"
+
+#~ msgid "Anniversary"
+#~ msgstr "Ulang tahun"
+
+#~ msgid "Holiday"
+#~ msgstr "Cuti"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Peristiwa Khusus"
+
+#, fuzzy
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "_n: satu tahun"
+#~ msgstr[1] "%1 tahun"
+
+#, fuzzy
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "_n: Tiada tarikh khusus dalam masa 1 hari seterusnya"
+#~ msgstr[1] "Tiada tarikh khusus menunggu dalam masa %1 hari seterusnya"
+
+#~ msgid "Send &Mail"
+#~ msgstr "Hantar &Mel"
+
+#~ msgid "View &Contact"
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Melkan kepada %1"
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Ringkasan Tarikh Khusus Kontact "
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgid "Current Maintainer"
+#~ msgstr "Penyenggara"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Mesej Baru"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Mesej Baru"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~| msgid "New Article..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Artikel Baru..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Edit Nota"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Edit Nota"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Mesej Baru"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Orang Hubungan Baru..."
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Melkan Dialog Konfigurasi Ringkasan"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Hari ini"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Esok"
+
+#, fuzzy
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "_n: Tiada tarikh khusus dalam masa 1 hari seterusnya"
+#~ msgstr[1] "Tiada tarikh khusus menunggu dalam masa %1 hari seterusnya"
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "Lewat Tempoh"
+
+#, fuzzy
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "sedang berjalan"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "mula hari ini"
+
+#, fuzzy
+#~| msgid "ends today"
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "tamat hari ini"
+
+#, fuzzy
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "Hapuskan Suapan"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Melkan Dialog Konfigurasi Ringkasan"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "General Configuration"
+#~ msgstr "Melkan Dialog Konfigurasi Ringkasan"
+
+#, fuzzy
+#~ msgid "Show recurrence icon"
+#~ msgstr "Paparkan semua tugasan"
+
+#, fuzzy
+#~ msgid "Show reminder icon"
+#~ msgstr "Paparkan semua tugasan"
+
+#, fuzzy
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Tugasan"
+
+#, fuzzy
+#~ msgid "Underline links"
+#~ msgstr "Tugasan"
+
+#, fuzzy
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Paparkan semua tugasan"
+
+#, fuzzy
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Paparkan semua tugasan"
+
+#, fuzzy
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show special dates in planner"
+#~ msgstr "Tarikh Khusus"
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgid "Show Calendar Events"
+#~ msgstr "Kalendar Aktif"
+
+#, fuzzy
+#~ msgid "To-dos"
+#~ msgstr "Tugasan"
+
+#, fuzzy
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Hapuskan Suapan"
+
+#, fuzzy
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Hapuskan Suapan"
+
+#, fuzzy
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "sedang berjalan"
+
+#, fuzzy
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Tugasan"
+
+#, fuzzy
+#~ msgid "Special Dates"
+#~ msgstr "Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show these Special Dates"
+#~ msgstr "Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Paparkan semua tarikh lahir"
+
+#, fuzzy
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Paparkan semula ulang tahun"
+
+#, fuzzy
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#, fuzzy
+#~| msgid "Summary"
+#~ msgid "Planner Summary"
+#~ msgstr "Ringkasan"
+
+#, fuzzy
+#~| msgid "Kontact Summary"
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Ringkasan Kontact"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Kalendar Aktif"
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgid "Default Calendar"
+#~ msgstr "Kalendar Aktif"
+
+#, fuzzy
+#~| msgid "Birthday"
+#~ msgid "Birthdays"
+#~ msgstr "Tarikh lahir"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~ msgid "No Notes Available"
+#~ msgstr "Tiada maklumat boleh didapatkan"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "Paparkan &Orang Hubungan"
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "Pembangun (c) 2003 The Kontact "
+
+#, fuzzy
+#~| msgid "Configure Kontact as Groupware Client"
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Konfigur Kontact sebagai Pelanggan Groupware"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "TARIKH LAHIR"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "ULANG TAHUN"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "CUTI"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "PERISTIWA KHUSUS"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "Pembangun (C) 2001-2004 The Kontact "
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "Pasukan (c) 2004-2005 The KDE PIM "
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Setempat"
+
+#~ msgid "Summary"
+#~ msgstr "Ringkasan"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#, fuzzy
+#~ msgid " days"
+#~ msgstr "_n:  hari"
+
+#, fuzzy
+#~ msgid "Rename"
+#~ msgstr "Namakan semula"
+
+#, fuzzy
+#~ msgid "Show &anniveraries"
+#~ msgstr "Paparkan semula ulang tahun"
+
+#, fuzzy
+#~| msgid "New Feed..."
+#~ msgid "New SMS..."
+#~ msgstr "Suapan Baru..."
+
+#~ msgid "New News Feed"
+#~ msgstr "Suapan Berita Baru"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "Kesenian"
+
+#~ msgid "Business"
+#~ msgstr "Perniagaan"
+
+#~ msgid "Computers"
+#~ msgstr "Komputer"
+
+#~ msgid "Misc"
+#~ msgstr "Pelbagai"
+
+#~ msgid "Recreation"
+#~ msgstr "Rekreasi"
+
+#~ msgid "Society"
+#~ msgstr "Kemasyarakatan"
+
+#~ msgid "Custom"
+#~ msgstr "Kebudayaan"
+
+#~ msgid "All"
+#~ msgstr "Semua"
+
+#~ msgid "Selected"
+#~ msgstr "Dipilih"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Muatkan semula waktu:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Bilangan item dipaparkan:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Dialog Konfigurasi Newsticker"
+
+#~ msgid "News Feeds"
+#~ msgstr "Suapan Berita"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "Tiada servis  rss dcop boleh didapatkan.\n"
+#~ "Anda perlukan servis  rss untuk menggunakan plugin ini."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "Salin URL ke Klipbod"
+
+#~ msgid "Weather Information"
+#~ msgstr "Maklumat Cuaca"
+
+#, fuzzy
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "Tiada servis cuaca dcop boleh didapatkan\n"
+#~ "anda perlukan  KWeather untuk menggunakan plugin ini."
+
+#~ msgid "Last updated on"
+#~ msgstr "Kemas kini terakhir pada"
+
+#~ msgid "Wind Speed"
+#~ msgstr "Halaju Angin"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "Kelembapan relatif"
+
+#, fuzzy
+#~ msgid "View Weather Report for Station"
+#~ msgstr "Maklumat Cuaca"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "Pengelokan dan pembersihan kod "
+
+#~ msgid "Unknown"
+#~ msgstr "Tidak diketahui"
+
+#, fuzzy
+#~ msgid "Show To-dos"
+#~ msgstr "Paparkan semua tugasan"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "Ringkasan Tarikh Khusus"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "Sumber KOrganizer Piawai"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Hari ini"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Esok"
+
+#, fuzzy
+#~ msgid "Show Birthdays from Contact List"
+#~ msgstr "Dialog Konfigurasi Tarikh Khusus"
+
+#, fuzzy
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "Dialog Konfigurasi Tarikh Khusus"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "Today only"
+#~ msgstr "Hari ini"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos starting today"
+#~ msgstr "mula hari ini"
+
+#, fuzzy
+#~| msgid "No to-dos pending"
+#~ msgid "To-dos ending today"
+#~ msgstr "Tiada tugasan menunggu"
+
+#~ msgid "One day"
+#~ msgstr "Satu hari"
+
+#~ msgid "Five days"
+#~ msgstr "Lima hari"
+
+#~ msgid "One week"
+#~ msgstr "Satu minggu"
+
+#~ msgid "One month"
+#~ msgstr "Satu bulan"
+
+#, fuzzy
+#~ msgid "Show all to-dos"
+#~ msgstr "Paparkan semua tugasan"
+
+#, fuzzy
+#~ msgid "Starting to-dos"
+#~ msgstr "Tugasan"
+
+#, fuzzy
+#~ msgid "Ending to-dos"
+#~ msgstr "Tugasan"
+
+#, fuzzy
+#~ msgid "To-dos in progress"
+#~ msgstr "sedang berjalan"
+
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "Dialog Konfigurasi Jadual"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today"
+#~ msgstr "Hari ini"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "Tidak dapat mengendalikan jenis kejadian pelepasan  '%1'."
+
+#~ msgid "Notes Management"
+#~ msgstr "Pengurusan Nota"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "Saiz Ikon"
+
+#, fuzzy
+#~| msgid "Large"
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "Besar"
+
+#, fuzzy
+#~| msgid "Small"
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "Kecil"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgid "Synchronize"
+#~ msgstr "Saiz Ikon"
+
+#~ msgid "Name"
+#~ msgstr "Nama"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr ""
+#~ "Di sini anda boleh memilih mana satu ringkasan plugin yang boleh dilihat "
+#~ "dalam paparan ringkasan"
+
+#~ msgid "&Request Feature..."
+#~ msgstr "&Minta Ciri..."
+
+#, fuzzy
+#~ msgid "&Refresh Summary View..."
+#~ msgstr "&Konfigurkan  Paparan Ringkasan..."
+
+#~ msgid ""
+#~ "Program error: the .desktop file for the service does not have a Library "
+#~ "key."
+#~ msgstr ""
+#~ "Ralat program: fail desktop untuk servis tersebut tidak mempunyai kekunci "
+#~ "Pustaka."
+
+#~ msgid "Program error: the library %1 does not provide a factory."
+#~ msgstr "Ralat program: pustaka  %1 tidak menyediakan kilang."
+
+#~ msgid ""
+#~ "Program error: the library %1 does not support creating components of the "
+#~ "specified type"
+#~ msgstr ""
+#~ "Ralat program: pustaka %1 tidak menyokong penciptaan jenis komponen yang "
+#~ "dinyatakan"
+
+#~ msgid "Appointments"
+#~ msgstr "Temu janji"
+
+#, fuzzy
+#~ msgid "How many days should the calendar show at once?"
+#~ msgstr "Berapa hari kalendar sepatutnya dipaparkan sekaligus?"
+
+#~ msgid "KPilot Information"
+#~ msgstr "Maklumat KPilot"
+
+#~ msgid ""
+#~ "KPilot - HotSync software for KDE\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Perisian KPilot - HotSync untuk KDE\n"
+#~ "\n"
+
+#~ msgid "Project Leader"
+#~ msgstr "Ketua Projek"
+
+#~ msgid "<i>Last sync:</i>"
+#~ msgstr "<i>Penyegerakan terakhir:</i>"
+
+#~ msgid "No information available"
+#~ msgstr "Tiada maklumat boleh didapatkan"
+
+#~ msgid "[View Sync Log]"
+#~ msgstr "[Paparkan Log Segerak]"
+
+#~ msgid "<i>User:</i>"
+#~ msgstr "<i>Pengguna:</i>"
+
+#~ msgid "<i>Device:</i>"
+#~ msgstr "<i>Peranti:</i>"
+
+#~ msgid "<i>Status:</i>"
+#~ msgstr "<i>Status:</i>"
+
+#~ msgid "No communication with the daemon possible"
+#~ msgstr "Tidak boleh berkomunikasi dengan daemon "
+
+#~ msgid "<i>Conduits:</i>"
+#~ msgstr "<i>Saluran:</i>"
+
+#~ msgid "KPilot is currently not running."
+#~ msgstr "KPilot tidak berjalan masa ini"
+
+#~ msgid "[Start KPilot]"
+#~ msgstr "[Mulakan KPilot]"
+
+#~ msgid "unknown"
+#~ msgstr "tidak diketahui"
+
+#~ msgid "No information available (Daemon not running?)"
+#~ msgstr "Tiada maklumat boleh didapatkan (Daemon tidak berjalan?)"
+
+#~ msgid "KPilot HotSync Log"
+#~ msgstr "Pengelogan KPilot HotSync "
+
+#~ msgid "Unable to open Hotsync log %1."
+#~ msgstr "Tidak dapat membuka pengelogan  Hotsync %1."
+
+#, fuzzy
+#~ msgid "How many days should the special dates summary show at once?"
+#~ msgstr ""
+#~ "Berapa hari sepatutnya ringkasan tarikh khusus dipaparkan sekaligus?"

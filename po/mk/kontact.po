@@ -1,0 +1,2145 @@
+# Copyright (C) 2006, 2007 Free Software Foundation, Inc.
+# translation of kontact.po to Macedonian
+#
+#
+# Bozidar Proevski <bobibobi@freemail.com.mk>, 2005, 2006, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2007-02-28 14:13+0100\n"
+"Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
+"Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: Plural-Forms: nplurals=3; plural=n%10==1 ? 0 : n%10==2 ? 1 : "
+"2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Божидар Проевски"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "bobibobi@freemail.com.mk"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgid ""
+#| "Kontact handles your e-mail, addressbook, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Контакт ракува со вашата е-пошта, адресари, календари, листи со задачи и "
+"многу повеќе."
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "&Вовед во Контакт"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "Вчитувам Контакт..."
+
+#: src/iconsidepane.cpp:263
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Прикажи икони"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr ""
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+
+#: src/iconsidepane.cpp:270
+#, fuzzy, kde-format
+#| msgid "Show Text"
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Прикажи текст"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+
+#: src/iconsidepane.cpp:277
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Прикажи икони"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr ""
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+
+#: src/iconsidepane.cpp:287
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Прикажи икони"
+
+#: src/iconsidepane.cpp:291
+#, fuzzy, kde-format
+#| msgid "Show all to-dos"
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Прикажи ги сите задачи"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+
+#: src/iconsidepane.cpp:294
+#, fuzzy, kde-format
+#| msgid "Normal"
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Нормални"
+
+#: src/iconsidepane.cpp:298
+#, fuzzy, kde-format
+#| msgid "Show all to-dos"
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Прикажи ги сите задачи"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+
+#: src/iconsidepane.cpp:301
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Прикажи икони"
+
+#: src/iconsidepane.cpp:305
+#, fuzzy, kde-format
+#| msgid "Show all to-dos"
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Прикажи ги сите задачи"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr ""
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr ""
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, fuzzy, kde-format
+#| msgid "Always start with specified component:"
+msgid "Always start with plugin:"
+msgstr "Секогаш стартувај со наведената компонента:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, fuzzy, kde-format
+#| msgid ""
+#| "Usually Kontact will come up with the component used before shutdown. "
+#| "Check this box if you would like a specific component to come up on start "
+#| "instead."
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Обично Контакт стартува со компонентата што била користена пред напуштањето. "
+"Обележете го ова поле ако сакате наместо тоа да се стартува одредена "
+"компонента."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, fuzzy, kde-format
+#| msgid "Meeting"
+msgid "&Settings"
+msgstr "Состанок"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr ""
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Стартува со зададениот модул на Контакт"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Стартува во иконифициран (спуштен) режим"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Ги листа ги сите можни модули и напушта"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Контакт"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "Менаџер за лични информации во KDE"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "(c) 2004 Tobias Koenig"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr ""
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr ""
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr ""
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr ""
+
+#: src/main.cpp:173
+#, fuzzy, kde-format
+#| msgid "(c), 2003 Cornelius Schumacher"
+msgid "Cornelius Schumacher"
+msgstr "(c), 2003 Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Tobias König"
+msgstr "(c) 2004 Tobias Koenig"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr ""
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr ""
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr ""
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Оригинален автор"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr ""
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr ""
+
+#: src/mainwindow.cpp:251
+#, fuzzy, kde-format
+#| msgid " Initializing..."
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " Иницијализирам..."
+
+#: src/mainwindow.cpp:288
+#, fuzzy, kde-format
+#| msgid "New"
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Ново"
+
+#: src/mainwindow.cpp:293
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Конфигурирај Контакт..."
+
+#: src/mainwindow.cpp:294
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Конфигурирај Контакт..."
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+
+#: src/mainwindow.cpp:299
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "&Вовед во Контакт"
+
+#: src/mainwindow.cpp:300
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "&Вовед во Контакт"
+
+#: src/mainwindow.cpp:301
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "&Вовед во Контакт"
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr ""
+
+#: src/mainwindow.cpp:574
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Апликацијата работи самостојно. Ставам во преден план..."
+
+#: src/mainwindow.cpp:590
+#, fuzzy, kde-format
+#| msgid "Cannot load part for %1."
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Не можам да го вчитам делот за %1."
+
+#: src/mainwindow.cpp:658
+#, fuzzy, kde-format
+#| msgctxt "Plugin dependent window title"
+#| msgid "%1 - Kontact"
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Контакт"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgid "KDE personal information manager"
+msgid "The KDE Personal Information Management Suite."
+msgstr "Менаџер за лични информации во KDE"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "Прочитај го прирачникот"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "Научете повеќе за Контакт и неговите компоненти"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "Посетете ја веб-страницата на Контакт"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+msgid "Access online resources and tutorials"
+msgstr "Пристап до мрежни ресурси и учебници"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr ""
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgid "Prepare Kontact for use in corporate networks"
+msgid "Prepare Kontact for use"
+msgstr "Го подготвува Контакт за употреба во корпоративни мрежи"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Контакт"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#, fuzzy
+#~| msgid "Plugin Developer"
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Развивач на приклучокот"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "За Контакт"
+
+#, fuzzy
+#~ msgid "No about information available."
+#~ msgstr "Нема достапна информација за."
+
+#, fuzzy
+#~| msgid "Version %1</p>"
+#~ msgid "Version %1"
+#~ msgstr "Верзија %1</p>"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Автори:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Благодарност до:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Преведувачи:</b></p>"
+
+#~ msgid "%1 License"
+#~ msgstr "Лиценца за %1"
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "Преглед на KDE Контакт"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Tobias Koenig"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&Конфигурирај преглед..."
+
+#, fuzzy
+#~| msgid "&Configure Summary View..."
+#~ msgid "Configure the summary view"
+#~ msgstr "&Конфигурирај преглед..."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Преглед за %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Што е следно?"
+
+#, fuzzy
+#~| msgid "All"
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Сите"
+
+#, fuzzy
+#~| msgid "All"
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Сите"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Преглед на Контакт"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Преглед на Контакт"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(C) 2001-2004 развивачите на Контакт"
+
+#, fuzzy
+#~| msgid ""
+#~| "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</"
+#~| "h2>"
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Контакт"
+
+#, fuzzy
+#~| msgid "Get Organized!"
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Организирајте се!"
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Добредојдовте во Контакт "
+#~ "%1</h2><p>%1</p><table align=\"center\"><tr><td><a href=\"%1\"><img width="
+#~ "\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr><tr><td><a href=\"%1\"><img "
+#~ "width=\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr><tr><td><a href=\"%1\"><img "
+#~ "width=\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr></table><p style=\"margin-"
+#~ "bottom: 0px\"> <a href=\"%1\">Прескокни го воведот</a></p>"
+
+#, fuzzy
+#~| msgid "&Tip of the Day"
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "Сове&т на денот"
+
+#, fuzzy
+#~| msgid "New Message..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Нова порака..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Прикажи &контакт"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "Прикажи &контакт"
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Дијалог за конфигурација на прегледот на пошта"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Прикажи ја целата патека за папките"
+
+#, fuzzy
+#~| msgid "Show full path for folders"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Прикажи ја целата патека за папките"
+
+#, fuzzy
+#~| msgid "New Message..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Нова порака..."
+
+#, fuzzy
+#~| msgid "Send &Mail"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "И&спрати пошта"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "Прикажи &контакт"
+
+#~ msgid "New Messages"
+#~ msgstr "Нови пораки"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "Нема непрочитани пораки во вашите следени папки"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Отвори папка: „%1“"
+
+#, fuzzy
+#~| msgid "kcmkorgsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmkorgsummary"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Дијалог за конфигурација на прегледот на пошта"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "Одржувач"
+
+#, fuzzy
+#~| msgid "&New"
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "&Ново"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "&Уреди задача..."
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Преименувај..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Избраните"
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Избери компоненти..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Избери компоненти..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Preferences KNotes..."
+#~ msgstr "Избери компоненти..."
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Уреди белешка"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgid "Create new note"
+#~ msgstr "Прочитај забелешка: „%1“"
+
+#, fuzzy
+#~| msgid "Do you really want to delete this note?"
+#~| msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Дали навистина сакате да ја избришете оваа %1 белешка?"
+#~ msgstr[1] "Дали навистина сакате да ги избришете овие %1 белешки?"
+#~ msgstr[2] "Дали навистина сакате да ги избришете овие %1 белешки?"
+
+#, fuzzy
+#~| msgid "Confirm Delete"
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Потврдете бришење"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Прочитај забелешка: „%1“"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Име:"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Show Note..."
+#~ msgstr "Нова белешка..."
+
+#, fuzzy
+#~| msgid "Meeting"
+#~ msgid "Settings"
+#~ msgstr "Состанок"
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "&Уреди задача..."
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Нова белешка..."
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "Белешки"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Уреди белешка"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Одржувач"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Одржувач"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Одржувач"
+
+#, fuzzy
+#~| msgid "Meeting"
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Состанок"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Прочитај забелешка: „%1“"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Нова белешка..."
+
+#, fuzzy
+#~| msgid ""
+#~| "From: %1\n"
+#~| "To: %2\n"
+#~| "Subject: %3"
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Од: %1\n"
+#~ "До: %2\n"
+#~ "Тема: %3"
+
+#, fuzzy
+#~| msgid "Mail: %1"
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Пошта: %1"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Прикажи &контакт"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Уреди белешка"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Име:"
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Search notes..."
+#~ msgstr "Избери компоненти..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Избери компоненти..."
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgid "Popup Notes"
+#~ msgstr "Уреди белешка"
+
+#, fuzzy
+#~| msgid "No service found"
+#~ msgid "No note found"
+#~ msgstr "Сервисот не е пронајден"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "Нова белешка..."
+
+#, fuzzy
+#~| msgid "&Delete Appointment"
+#~ msgid "Delete Note..."
+#~ msgstr "&Избриши закажан состанок"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Прочитај забелешка: „%1“"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Дијалог за конфигурација на прегледот на пошта"
+
+#, fuzzy
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Специјални датуми"
+
+#, fuzzy
+#~| msgid "Show today's to-dos only"
+#~ msgid "Show events for today only"
+#~ msgstr "Прикажи ги само денешните задачи"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today only"
+#~ msgstr "Денес"
+
+#, fuzzy
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Нема закажани состаноци во текот на следниот %1 ден"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "1 day"
+#~ msgstr " ден"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " ден"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Специјални денови од календар"
+
+#, fuzzy
+#~| msgid "Show birthdays"
+#~ msgid "Show &birthdays"
+#~ msgstr "Прикажи родендени"
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show &anniversaries"
+#~ msgstr "Прикажи годишнини"
+
+#, fuzzy
+#~| msgid "Show today's to-dos only"
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Прикажи ги само денешните задачи"
+
+#, fuzzy
+#~| msgid "Show Text"
+#~ msgid "Show &my events only"
+#~ msgstr "Прикажи текст"
+
+#, fuzzy
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "Нема закажани состаноци во текот на следниот %1 ден"
+#~ msgstr[1] "Нема закажани состаноци во текот на следните %1 дена"
+#~ msgstr[2] "Нема закажани состаноци во текот на следните %1 дена"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "Ур&еди закажан состанок..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "&Избриши закажан состанок"
+
+#, fuzzy
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Уреди закажан состанок: „%1“"
+
+#, fuzzy
+#~| msgid "New Journal..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Нов дневник..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "New Journal..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Нов дневник..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Прикажи &контакт"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " ден"
+#~ msgstr[1] " дена"
+#~ msgstr[2] " дена"
+
+#, fuzzy
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Дијалог за конфигурација на специјални датуми"
+
+#, fuzzy
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Дијалог за конфигурација на специјални датуми"
+
+#, fuzzy
+#~| msgid "New Event..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Нов настан..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Активен календар"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Прикажи &контакт"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Денес"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Утре"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "за %1 ден"
+#~ msgstr[1] "за %1 дена"
+#~ msgstr[2] "за %1 дена"
+
+#~ msgid "now"
+#~ msgstr "сега"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "all day"
+#~ msgstr " ден"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Прочитај забелешка: „%1“"
+
+#, fuzzy
+#~| msgid "New To-do..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Нова задача..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Прикажи ги сите задачи"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Прикажи &контакт"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "Прикажи &контакт"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Дијалог за конфигурација на прегледот на пошта"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show To-dos Due"
+#~ msgstr "Прикажи ги сите задачи"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Прикажи ги сите задачи"
+
+#, fuzzy
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "Нема специјални датуми во текот на наредниот %1 ден"
+
+#, fuzzy
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~ msgid "&Completed"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "во тек"
+
+#, fuzzy
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~| msgid "Show today's to-dos only"
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Прикажи ги само денешните задачи"
+
+#, fuzzy
+#~ msgid "Pending To-dos"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Денес"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Утре"
+
+#, fuzzy
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] " ден"
+#~ msgstr[1] " дена"
+#~ msgstr[2] " дена"
+
+#, fuzzy
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "поминат рок"
+
+#, fuzzy
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "Нема специјални датуми во текот на наредниот %1 ден"
+#~ msgstr[1] "Нема специјални датуми во текот на наредните %1 дена"
+#~ msgstr[2] "Нема специјални датуми во текот на наредните %1 дена"
+
+#, fuzzy
+#~ msgid "&Edit To-do..."
+#~ msgstr "&Уреди задача..."
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Уредете ја задачата: „%1“"
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "поминат рок"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "почнува денес"
+
+#, fuzzy
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "во тек"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Дијалог за конфигурација на специјални датуми"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Преглед на специјални датуми"
+
+#, fuzzy
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Специјални датуми"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Специјални денови од календар"
+
+#, fuzzy
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Нема закажани состаноци во текот на следниот %1 ден"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Специјални денови од календар"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Специјални денови од календар"
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Прикажи годишнини"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Специјални денови од календар"
+
+#, fuzzy
+#~| msgid "Show holidays"
+#~ msgid "Show &holidays"
+#~ msgstr "Прикажи празници"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Специјални денови од календар"
+
+#, fuzzy
+#~| msgid "Show special occasions"
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Прикажи специјални настани"
+
+#, fuzzy
+#~| msgid "Special Dates From Contact List"
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Специјални датуми од листата со контакти"
+
+#, fuzzy
+#~| msgid "Show birthdays"
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Прикажи родендени"
+
+#, fuzzy
+#~| msgid "Show birthdays"
+#~ msgid "Show birth&days"
+#~ msgstr "Прикажи родендени"
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Прикажи годишнини"
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show anni&versaries"
+#~ msgstr "Прикажи годишнини"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Специјални датуми"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Денес"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Утре"
+
+#~ msgid "Birthday"
+#~ msgstr "Роденден"
+
+#~ msgid "Anniversary"
+#~ msgstr "Годишнина"
+
+#~ msgid "Holiday"
+#~ msgstr "Празник"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Специјален настан"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "%1 година"
+#~ msgstr[1] "%1 години"
+#~ msgstr[2] "%1 години"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Нема специјални датуми во текот на наредниот %1 ден"
+#~ msgstr[1] "Нема специјални датуми во текот на наредните %1 дена"
+#~ msgstr[2] "Нема специјални датуми во текот на наредните %1 дена"
+
+#~ msgid "Send &Mail"
+#~ msgstr "И&спрати пошта"
+
+#~ msgid "View &Contact"
+#~ msgstr "Прикажи &контакт"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Е-пошта до: „%1“"
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Преглед на специјални датуми"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Преглед на специјалните датуми во Контакт"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgid "Current Maintainer"
+#~ msgstr "Одржувач"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Нови пораки"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Нови пораки"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Прикажи &контакт"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Прикажи &контакт"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Нов напис..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Прочитај забелешка: „%1“"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Уреди белешка"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Прочитај забелешка: „%1“"
+
+#, fuzzy
+#~| msgid "&Delete Appointment"
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "&Избриши закажан состанок"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Уреди белешка"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Прочитај забелешка: „%1“"
+
+#, fuzzy
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~| msgid "New Task"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Нова задача"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Нов контакт..."
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Дијалог за конфигурација на прегледот на пошта"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Денес"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Утре"
+
+#, fuzzy
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Нема закажани состаноци во текот на следниот %1 ден"
+#~ msgstr[1] "Нема закажани состаноци во текот на следните %1 дена"
+#~ msgstr[2] "Нема закажани состаноци во текот на следните %1 дена"
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "поминат рок"
+
+#, fuzzy
+#~| msgid "&Edit Appointment..."
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Ур&еди закажан состанок..."
+
+#, fuzzy
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "во тек"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "почнува денес"
+
+#, fuzzy
+#~| msgid "ends today"
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "завршува денес"
+
+#, fuzzy
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Дијалог за конфигурација на прегледот на пошта"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "General Configuration"
+#~ msgstr "Дијалог за конфигурација на прегледот на пошта"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show recurrence icon"
+#~ msgstr "Прикажи ги сите задачи"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show reminder icon"
+#~ msgstr "Прикажи ги сите задачи"
+
+#, fuzzy
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~ msgid "Underline links"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Прикажи ги сите задачи"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Прикажи ги сите задачи"
+
+#, fuzzy
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Специјални датуми"
+
+#, fuzzy
+#~ msgid "Show special dates in planner"
+#~ msgstr "Специјални датуми"
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgid "Show Calendar Events"
+#~ msgstr "Активен календар"
+
+#, fuzzy
+#~ msgid "To-dos"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "во тек"
+
+#, fuzzy
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~ msgid "Special Dates"
+#~ msgstr "Специјални датуми"
+
+#, fuzzy
+#~ msgid "Show these Special Dates"
+#~ msgstr "Специјални датуми"
+
+#, fuzzy
+#~| msgid "Show birthdays"
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Прикажи родендени"
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Прикажи годишнини"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Специјални денови од календар"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Специјални денови од календар"
+
+#, fuzzy
+#~| msgid "Summary"
+#~ msgid "Planner Summary"
+#~ msgstr "Преглед"
+
+#, fuzzy
+#~| msgid "Kontact Summary"
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Преглед на Контакт"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Активен календар"
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgid "Default Calendar"
+#~ msgstr "Активен календар"
+
+#, fuzzy
+#~| msgid "Birthday"
+#~ msgid "Birthdays"
+#~ msgstr "Роденден"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgid "No Notes Available"
+#~ msgstr "Нема достапни белешки"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Прикажи &контакт"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Прикажи &контакт"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "Прикажи &контакт"
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(c) 2003 развивачите на Контакт"
+
+#, fuzzy
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Конфигурирајте го Контакт како клиент за Groupware"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "РОДЕНДЕН"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "ГОДИШНИНА"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "ПРАЗНИК"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "СПЕЦИЈАЛЕН НАСТАН"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(C) 2001-2004 развивачите на Контакт"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(c) 2004-2005 тимот на KDE PIM"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Локални"
+
+#~ msgid "Summary"
+#~ msgstr "Преглед"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid " days"
+#~ msgstr " ден"
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgid "Rename"
+#~ msgstr "Преименувај..."
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show &anniveraries"
+#~ msgstr "Прикажи годишнини"
+
+#, fuzzy
+#~| msgid "New Message..."
+#~ msgid "New SMS..."
+#~ msgstr "Нова порака..."
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "Уметности"
+
+#~ msgid "Business"
+#~ msgstr "Бизнис"
+
+#~ msgid "Computers"
+#~ msgstr "Компјутери"
+
+#~ msgid "Misc"
+#~ msgstr "Разно"
+
+#~ msgid "Recreation"
+#~ msgstr "Рекреација"
+
+#~ msgid "Society"
+#~ msgstr "Општество"
+
+#~ msgid "Custom"
+#~ msgstr "Сопствено"
+
+#~ msgid "All"
+#~ msgstr "Сите"
+
+#~ msgid "Selected"
+#~ msgstr "Избраните"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Време на освежување:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Број на покажани ставки:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#, fuzzy
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Дијалог за конфигурација на лента со вести"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "Нема достапен сервис rss dcop.\n"
+#~ "Ви треба rssservice за да го користите овој приклучок."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "Копирај URL на табла со исечоци"
+
+#~ msgid "Weather Information"
+#~ msgstr "Информации за времето"
+
+#, fuzzy
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "Нема достапен dcop-сервис за време.\n"
+#~ "Ви треба KWeather за да го користите овој приклучок."
+
+#~ msgid "Last updated on"
+#~ msgstr "Последно ажурирано на"
+
+#~ msgid "Wind Speed"
+#~ msgstr "Брзина на ветар"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "Рел. влажност"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "Преглед на временската прогноза за станица"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "Унапредувања и расчистувања низ кодот"
+
+#~ msgid "Unknown"
+#~ msgstr "Непознат"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show To-dos"
+#~ msgstr "Прикажи ги сите задачи"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "Преглед на специјални датуми"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "Стандарден ресурс на КОрганизатор"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Денес"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Утре"
+
+#, fuzzy
+#~| msgid "Special Dates From Contact List"
+#~ msgid "Show Birthdays from Contact List"
+#~ msgstr "Специјални датуми од листата со контакти"
+
+#, fuzzy
+#~| msgid "Special Dates From Contact List"
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "Специјални датуми од листата со контакти"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "Today only"
+#~ msgstr "Денес"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos starting today"
+#~ msgstr "почнува денес"
+
+#, fuzzy
+#~| msgid "No to-dos pending"
+#~ msgid "To-dos ending today"
+#~ msgstr "Нема недовршени задачи"
+
+#~ msgid "One day"
+#~ msgstr "Еден ден"
+
+#~ msgid "Five days"
+#~ msgstr "Пет дена"
+
+#~ msgid "One week"
+#~ msgstr "Една недела"
+
+#~ msgid "One month"
+#~ msgstr "Еден месец"
+
+#~ msgid "Show all to-dos"
+#~ msgstr "Прикажи ги сите задачи"
+
+#, fuzzy
+#~ msgid "Starting to-dos"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~ msgid "Ending to-dos"
+#~ msgstr "Задачи"
+
+#, fuzzy
+#~ msgid "To-dos in progress"
+#~ msgstr "во тек"
+
+#, fuzzy
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "Дијалог за конфигурација на распореди"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today"
+#~ msgstr "Денес"
+
+#~ msgid "Notes Management"
+#~ msgstr "Менаџмент на белешки"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "Големина на икони"
+
+#, fuzzy
+#~| msgid "Large"
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "Големи"
+
+#, fuzzy
+#~| msgid "Small"
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "Мали"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgid "Synchronize"
+#~ msgstr "Големина на икони"
+
+#~ msgid "Name"
+#~ msgstr "Име"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr ""
+#~ "Тука може да изберете кои приклучоци за преглед да бидат видливи во "
+#~ "Вашиот преглед."
+
+#~ msgid "&Refresh Summary View..."
+#~ msgstr "Освежи п&реглед..."
+
+#~ msgid ""
+#~ "Program error: the .desktop file for the service does not have a Library "
+#~ "key."
+#~ msgstr ""
+#~ "Грешка во програмата: .desktop-датотеката за сервисот нема клуч „Library“."
+
+#, fuzzy
+#~ msgid "Program error: the library %1 does not provide a factory."
+#~ msgstr "Грешка во програмата: библиотеката %1 не обезбедува работилница."
+
+#~ msgid ""
+#~ "Program error: the library %1 does not support creating components of the "
+#~ "specified type"
+#~ msgstr ""
+#~ "Грешка во програмата: библиотеката %1 не поддржува создавање на "
+#~ "компоненти од наведениот тип"
+
+#~ msgid "Appointments"
+#~ msgstr "Закажани состаноци"
+
+#~ msgid "How many days should the calendar show at once?"
+#~ msgstr "Колку денови да покаже календарот одеднаш?"
+
+#~ msgid "KPilot Information"
+#~ msgstr "Информации за КПилот"
+
+#~ msgid "Project Leader"
+#~ msgstr "Лидер на проектот"
+
+#~ msgid "No information available"
+#~ msgstr "Нема достапни информации"
+
+#~ msgid "<i>User:</i>"
+#~ msgstr "<i>Корисник:</i>"
+
+#~ msgid "<i>Device:</i>"
+#~ msgstr "<i>Уред:</i>"
+
+#~ msgid "<i>Status:</i>"
+#~ msgstr "<i>Статус:</i>"
+
+#, fuzzy
+#~ msgid "No communication with the daemon possible"
+#~ msgstr "Не е возможна комуникација со даемонот"
+
+#~ msgid "<i>Conduits:</i>"
+#~ msgstr "<i>Канали:</i>"
+
+#~ msgid "KPilot is currently not running."
+#~ msgstr "КПилот моментално не работи."
+
+#~ msgid "[Start KPilot]"
+#~ msgstr "[Стартувај КПилот]"
+
+#~ msgid "unknown"
+#~ msgstr "непознато"
+
+#~ msgid "No information available (Daemon not running?)"
+#~ msgstr "Нема достапна инфомација (даемонот не работи?)"
+
+#~ msgid "How many days should the special dates summary show at once?"
+#~ msgstr "Колку дена одеднаш треба да прикаже прегледот на специјални датуми?"

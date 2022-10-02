@@ -1,0 +1,1966 @@
+# translation of kontact.po to Punjabi
+#
+# Amanpreet Singh Alam <aalam@redhat.com>, 2004, 2005.
+# A S Alam <aalam@users.sf.net>, 2007, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2010-01-19 08:12+0530\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: ਪੰਜਾਬੀ <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@users.sf.net"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgid ""
+#| "Kontact handles your e-mail, addressbook, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"ਕੇ-ਸੰਪਰਕ ਤੁਹਾਡੇ ਈ-ਮੇਲ, ਸਿਰਨਾਵਾਂ ਕਿਤਾਬ, ਕੈਲੰਡਰ, ਕਰਨ ਲਈ ਕੰਮ ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ ਨੂੰ ਸੰਭਾਲ ਸਕਦਾ ਹੈ।"
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgctxt "@action:inmenu"
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "ਕੇ-ਸੰਪਰਕ ਜਾਣ ਪਛਾਣ(&K)"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "ਕੇ-ਸੰਪਰਕ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "ਕੇਵਲ ਆਈਕਾਨ ਵੇਖੋ"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr ""
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "ਕੇਵਲ ਸ਼ਬਦ ਵੇਖੋ"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "ਆਈਕਾਨ ਤੇ ਸ਼ਬਦ ਵੇਖੋ"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr ""
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "ਵੱਡੇ ਆਈਕਾਨ"
+
+#: src/iconsidepane.cpp:291
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "ਆਈਕਾਨ ਵੇਖਾਓ"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "ਸਧਾਰਨ ਆਈਕਾਨ"
+
+#: src/iconsidepane.cpp:298
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "ਆਈਕਾਨ ਵੇਖਾਓ"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "ਛੋਟੇ ਆਈਕਾਨ"
+
+#: src/iconsidepane.cpp:305
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "ਆਈਕਾਨ ਵੇਖਾਓ"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr ""
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr ""
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, fuzzy, kde-format
+#| msgid "Always start with specified component:"
+msgid "Always start with plugin:"
+msgstr "ਹਮੇਸ਼ਾ ਖਾਸ ਭਾਗ ਨਾਲ ਸ਼ੁਰੂ:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, fuzzy, kde-format
+#| msgid ""
+#| "Usually Kontact will come up with the component used before shutdown. "
+#| "Check this box if you would like a specific component to come up on start "
+#| "instead."
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"ਅਕਸਰ ਕੇ-ਸੰਪਰਕ ਬੰਦ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਵਰਤੇ ਜਾਦੇ ਭਾਗਾਂ ਨਾਲ ਹੀ ਹੁੰਦਾ ਹੈ। ਇਸ ਬਕਸੇ ਦੀ ਵਰਤੋਂ ਕਰੋ, ਜੇਕਰ "
+"ਤੁਸੀਂ ਸ਼ੁਰੂ ਵੇਲੇ ਕਿਸੇ ਭਾਗ ਨੂੰ ਵਰਤਣਾ ਚਾਹੁੰਦੇ ਹੋ।"
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "ਫਾਇਲ(&F)"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "ਸੈਟਿੰਗ(&S)"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "ਮੱਦਦ(&H)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "ਮੇਨ ਟੂਲਬਾਰ"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "ਨੇਵੀਗੇਟਰ"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "ਖਾਸ ਕੇ-ਸੰਪਰਕ ਭਾਗ ਨਾਲ ਸ਼ੁਰੂ ਕਰੋ"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "ਆਈਕਾਨ ਢੰਗ ਵਿੱਚ ਸ਼ੁਰੂ ਕਰੋ"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "ਸਭ ਭਾਗ ਵੇਖਾਉ ਅਤੇ ਬੰਦ ਕਰੋ"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "ਕੇ-ਸੰਪਰਕ"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "KDE ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਮੈਨੇਜਰ"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "(c) 2004 Tobias Koenig"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr ""
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr ""
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr ""
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr ""
+
+#: src/main.cpp:173
+#, fuzzy, kde-format
+#| msgid "(c), 2003 Cornelius Schumacher"
+msgid "Cornelius Schumacher"
+msgstr "(c), 2003 Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Tobias König"
+msgstr "(c) 2004 Tobias Koenig"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr ""
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr ""
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr ""
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "ਅਸਲੀ ਲੇਖਕ"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr ""
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr ""
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " ਸ਼ੁਰੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "ਨਵਾਂ"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "ਕੇ-ਸੰਪਰਕ ਸੰਰਚਨਾ..."
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "ਕੇ-ਸੰਪਰਕ ਸੰਰਚਨਾ"
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "ਕੇ-ਸੰਪਰਕ ਜਾਣ ਪਛਾਣ(&K)"
+
+#: src/mainwindow.cpp:300
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "ਕੇ-ਸੰਪਰਕ ਜਾਣ ਪਛਾਣ(&K)"
+
+#: src/mainwindow.cpp:301
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "ਕੇ-ਸੰਪਰਕ ਜਾਣ ਪਛਾਣ(&K)"
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr ""
+
+#: src/mainwindow.cpp:574
+#, fuzzy, kde-format
+#| msgid "Application is running standalone. Foregrounding..."
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "ਕਾਰਜ ਇੱਕਲਾ ਹੀ ਚੱਲ ਰਿਹਾ ਹੈ। ਪੇਸ਼ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+
+#: src/mainwindow.cpp:590
+#, fuzzy, kde-format
+#| msgid "Cannot load part for %1."
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "%1 ਦਾ ਭਾਗ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।"
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - ਕਸੰਪਰਕ"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "KDE ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਪਰਬੰਧਨ ਸਾਫਟਵੇਅਰ"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "ਦਸਤਾਵੇਜ਼ ਪੜ੍ਹੋ"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "ਕੇ-ਸੰਪਰਕ ਅਤੇ ਇਸ ਦੇ ਭਾਗਾਂ ਬਾਰੇ ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਲਈ ਦਸਤਾਵੇਜ਼ ਵੇਖੋ"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "ਕੇ-ਸੰਪਰਕ ਦੀ ਵੈਬਸਾਇਟ ਵੇਖੋ"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "ਆਨਲਾਇਨ ਸਰੋਤ ਅਤੇ ਸਹਾਇਕ ਵਰਤੋਂ"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr ""
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgid "Prepare Kontact for use in corporate networks"
+msgid "Prepare Kontact for use"
+msgstr "ਕੇ-ਸੰਪਰਕ ਨੂੰ ਕਾਰਪੋਰੇਟ ਨੈਟਵਰਕ ਵਿੱਚ ਵਰਤਣ ਲਈ ਤਿਆਰ"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE ਕੇ-ਸੰਪਰਕ"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "ਡਿਵੈਲਪਰ"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "ਕਸੰਪਰਕ ਬਾਰੇ"
+
+#~ msgid "Kontact Container"
+#~ msgstr "ਕਸੰਪਰਕ ਪ੍ਰਬੰਧਕ"
+
+#~ msgid "No about information available."
+#~ msgstr "ਕੋਈ ਜਾਣਕਾਰੀ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।"
+
+#~ msgid "Version %1"
+#~ msgstr "ਵਰਜਨ %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>ਲੇਖਕ:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>ਧੰਨਵਾਦ:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>ਅਨੁਵਾਦਕ:</b></p>"
+
+#~ msgid "%1 License"
+#~ msgstr "%1 ਲਾਈਸੈਂਸ"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "ਸੈਕਰੋ"
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "KDE ਕੇ-ਸੰਪਰਕ ਸੰਖੇਪ"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "ਸੰਖੇਪ ਝਲਕ ਸੰਰਚਨਾ (&C)..."
+
+#, fuzzy
+#~| msgid "&Configure Summary View..."
+#~ msgid "Configure the summary view"
+#~ msgstr "ਸੰਖੇਪ ਝਲਕ ਸੰਰਚਨਾ (&C)..."
+
+#~ msgid "Summary for %1"
+#~ msgstr "%1 ਲਈ ਸੰਖੇਪ"
+
+#~ msgid "What's next?"
+#~ msgstr "ਅੱਗੇ ਕੀ ਹੈ?"
+
+#~ msgid "Sync All"
+#~ msgstr "ਸਭ ਸੈਕਰੋ"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "ਸਭ"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "ਸਭ"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "ਕੇ-ਸੰਪਰਕ ਸੰਖੇਪ"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "ਕੇ-ਸੰਪਰਕ ਸੰਖੇਪ ਦਿੱਖ"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(C) 2001-2004 ਕੇ-ਸੰਪਰਕ ਖੋਜੀ"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE ਕੇ-ਸੰਪਰਕ"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "ਪਰਬੰਧ ਕਰੋ!"
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>ਕੇ-ਸੰਪਰਕ %1 ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ</"
+#~ "h2><p>%1</p><table align=\"center\"><tr><td><a href=\"%1\"><img width="
+#~ "\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr><tr><td><a href=\"%1\"><img "
+#~ "width=\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr><tr><td><a href=\"%1\"><img "
+#~ "width=\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr></table><p style=\"margin-"
+#~ "bottom: 0px\"> <a href=\"%1\">ਜਾਣ ਪਛਾਣ ਨੂੰ ਛੱਡ ਦਿਓ</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "ਅੱਜ ਦਾ ਇਸ਼ਾਰਾ(&T)"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "ਨਵੀਂ ਫੀਡ..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "ਸੰਪਰਕ ਸੈਕਰੋ ਕਰੋ"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "ਪੱਤਰ ਸੰਖੇਪ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "ਫੋਲਡਰ ਲਈ ਪੂਰਾ ਮਾਰਗ ਵੇਖਾਓ"
+
+#, fuzzy
+#~| msgid "Show full path for folders"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "ਫੋਲਡਰ ਲਈ ਪੂਰਾ ਮਾਰਗ ਵੇਖਾਓ"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "ਨਵਾਂ ਸੁਨੇਹਾ..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "ਮੇਲ ਸੈਕਰੋ"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#~ msgid "New Messages"
+#~ msgstr "ਨਵੇਂ ਸੁਨੇਹੇ"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "ਤੁਹਾਡੀ ਨਿਗਰਾਨੀ ਅਧੀਨ ਫੋਲਡਰ ਵਿੱਚ ਕੋਈ ਨਾ-ਪੜਿਆ ਸੁਨੇਹਾ ਨਹੀਂ"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "ਫੋਲਡਰ ਖੋਲ੍ਹੋ: \"%1\""
+
+#, fuzzy
+#~| msgid "kcmsdsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "ਪੱਤਰ ਸੰਖੇਪ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "ਮੌਜੂਦਾ ਪ੍ਰਬੰਧਕ"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "ਨਵਾਂ(&N)"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "ਸੋਧ..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "ਨਾਂ-ਬਦਲੋ..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "ਹਟਾਓ"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgid "Preferences KNotes..."
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgid "Create new note"
+#~ msgstr "ਪੜਨ ਸੂਚੀ: \"%1\""
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "ਕੀ ਤੁਸੀਂ ਇਸ ਸੂਚਨਾ ਨੂੰ ਹਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰਦੇ ਹੋ?"
+#~ msgstr[1] "ਕੀ ਤੁਸੀਂ %1 ਸੂਚਨਾਵਾਂ ਨੂੰ ਹਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰਦੇ ਹੋ?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "ਹਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "ਪੜਨ ਸੂਚੀ: \"%1\""
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "ਨਵਾਂ ਨਾਂ:"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Show Note..."
+#~ msgstr "ਨਵੀਂ ਸੂਚਨਾ..."
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgid "Settings"
+#~ msgstr "ਸੈਟਿੰਗ(&S)"
+
+#~ msgid "&Edit"
+#~ msgstr "ਸੋਧ(&E)"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "ਨਵੀਂ ਸੂਚਨਾ..."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "ਕੇ-ਸੂਚਨਾ"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "ਮੌਜੂਦਾ ਪ੍ਰਬੰਧਕ"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "ਮੌਜੂਦਾ ਪ੍ਰਬੰਧਕ"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "ਮੌਜੂਦਾ ਪ੍ਰਬੰਧਕ"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "ਮੀਟਿੰਗ"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "ਪੜਨ ਸੂਚੀ: \"%1\""
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "ਨਵਾਂ ਨੋਟ"
+
+#, fuzzy
+#~| msgid "Drops of multiple mails are not supported."
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "ਬਹੁਤੇ ਪੱਤਰ ਹਟਾਉਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "ਵੱਲੋਂ: %1\n"
+#~ "ਵੱਲ: %2\n"
+#~ "ਵਿਸ਼ਾ: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "ਮੇਲ: %1"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "ਨਾਂ:"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgid "Search notes..."
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgid "Search notes...<%1>"
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgid "Popup Notes"
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "ਨਵੀਂ ਸੂਚਨਾ..."
+
+#, fuzzy
+#~| msgid "Delete Feed"
+#~ msgid "Delete Note..."
+#~ msgstr "ਫੀਡ ਹਟਾਓ"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "ਪੜਨ ਸੂਚੀ: \"%1\""
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Event Summary Configuration"
+#~ msgstr "ਪੱਤਰ ਸੰਖੇਪ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#, fuzzy
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "ਖਾਸ ਦਿਨ"
+
+#, fuzzy
+#~| msgid "Show Icons"
+#~ msgid "Show events for today only"
+#~ msgstr "ਆਈਕਾਨ ਵੇਖਾਓ"
+
+#~ msgid "&Today only"
+#~ msgstr "ਕੇਵਲ ਅੱਜ(&T)"
+
+#, fuzzy
+#~| msgid "No upcoming events starting within the next day"
+#~| msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgid "Show events starting within the next month"
+#~ msgstr "ਅਗਲੇ ਦਿਨ ਵਿੱਚ ਕੋਈ ਬਕਾਇਆ ਮੁਲਾਕਾਤ ਨਹੀਂ ਹੈ"
+
+#~ msgid "1 day"
+#~ msgstr "1 ਦਿਨ"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr "  ਦਿਨ"
+
+#~ msgid "Show &birthdays"
+#~ msgstr "ਜਨਮਦਿਨ ਵੇਖੋ(&b)"
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "ਵਰ੍ਹੇ ਗੰਢ ਵੇਖੋ(&a)"
+
+#, fuzzy
+#~| msgid "News Feed Settings"
+#~ msgid "Groupware Settings"
+#~ msgstr "ਨਵੀਂ ਫੀਡ ਸੈਟਿੰਗ"
+
+#, fuzzy
+#~| msgid "Show Text"
+#~ msgid "Show &my events only"
+#~ msgstr "ਪਾਠ ਵੇਖਾਓ"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "ਆ ਰਹੇ ਈਵੈਂਟ"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "ਅਗਲੇ ਦਿਨ ਵਿੱਚ ਕੋਈ ਬਕਾਇਆ ਮੁਲਾਕਾਤ ਨਹੀਂ ਹੈ"
+#~ msgstr[1] "ਅਗਲੇ %1 ਦਿਨਾਂ ਵਿੱਚ ਕੋਈ ਬਕਾਇਆ ਮੁਲਾਕਾਤ ਨਹੀਂ ਹੈ"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "ਮੁਲਾਕਾਤ ਸੋਧ(&E)..."
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "ਰੁਝੇਵਾਂ ਸੋਧ: \"%1\""
+
+#, fuzzy
+#~| msgid "New Journal..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "ਨਵਾਂ ਰੋਜ਼ਨਾਮਚਾ"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#, fuzzy
+#~| msgid "New Journal..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "ਨਵਾਂ ਰੋਜ਼ਨਾਮਚਾ"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] "  ਦਿਨ"
+#~ msgstr[1] " ਦਿਨ"
+
+#, fuzzy
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "ਖਾਸ ਮਿਤੀ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#, fuzzy
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "ਖਾਸ ਮਿਤੀ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "ਨਵਾਂ ਈਵੈਂਟ..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "ਨਵਾਂ ਈਵੈਂਟ ਬਣਾਓ"
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "ਸਰਗਰਮ ਕੈਲੰਡਰ"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "ਅੱਜ"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "ਭਲਕੇ"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "1 ਦਿਨ ਵਿੱਚ"
+#~ msgstr[1] "%1 ਦਿਨਾਂ ਵਿੱਚ"
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "ਵਿੱਚ "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "1 ਘੰਟਾ"
+#~ msgstr[1] "%1 ਘੰਟੇ"
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "1 ਮਿੰਟ"
+#~ msgstr[1] "%1 ਮਿੰਟ"
+
+#~ msgid "now"
+#~ msgstr "ਹੁਣ"
+
+#~ msgid "all day"
+#~ msgstr "ਸਾਰਾ ਦਿਨ"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "ਅੱਗੇ: %1"
+
+#, fuzzy
+#~| msgid "New To-do..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "ਨਵਾਂ ਕੰਮ..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#, fuzzy
+#~| msgid "Show Icons"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "ਆਈਕਾਨ ਵੇਖਾਓ"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "ਪੱਤਰ ਸੰਖੇਪ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#, fuzzy
+#~| msgid "Show Icons"
+#~ msgid "Show To-dos Due"
+#~ msgstr "ਆਈਕਾਨ ਵੇਖਾਓ"
+
+#, fuzzy
+#~| msgid "Show Icons"
+#~ msgid "Show To-dos due today only"
+#~ msgstr "ਆਈਕਾਨ ਵੇਖਾਓ"
+
+#, fuzzy
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "ਅਗਲੇ 1 ਦਿਨ ਵਿੱਚ ਕੋਈ ਖਾਸ ਦਿਨ ਨਹੀਂ ਹੈ"
+
+#, fuzzy
+#~ msgid "Hide completed To-dos"
+#~ msgstr "ਕਾਰਜ"
+
+#~ msgid "&Completed"
+#~ msgstr "ਪੂਰੇ ਹੋਏ(&C)"
+
+#, fuzzy
+#~| msgid "in-progress "
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "ਕਾਰਵਾਈ ਅਧੀਨ "
+
+#, fuzzy
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "ਕਾਰਜ"
+
+#, fuzzy
+#~| msgid "Show Icons"
+#~ msgid "Show &my To-dos only"
+#~ msgstr "ਆਈਕਾਨ ਵੇਖਾਓ"
+
+#, fuzzy
+#~ msgid "Pending To-dos"
+#~ msgstr "ਕਾਰਜ"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "ਅੱਜ"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "ਭਲਕੇ"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "1 ਦਿਨ ਪਹਿਲਾਂ"
+#~ msgstr[1] "%1 ਦਿਨ ਪਹਿਲਾਂ"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "ਨਿਯਤ"
+
+#, fuzzy
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "ਅਗਲੇ 1 ਦਿਨ ਵਿੱਚ ਕੋਈ ਖਾਸ ਦਿਨ ਨਹੀਂ ਹੈ"
+#~ msgstr[1] "ਅਗਲੇ %1 ਦਿਨਾਂ ਵਿੱਚ ਕੋਈ ਖਾਸ ਦਿਨ ਨਹੀਂ ਹੈ"
+
+#, fuzzy
+#~ msgid "&Edit To-do..."
+#~ msgstr "ਕਰਨ ਲਈ ਸੋਧ: \"%1\""
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "ਕਰਨ ਲਈ ਸੋਧ: \"%1\""
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "ਬਕਾਇਆ"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "ਅੱਜ ਸ਼ੁਰੂਆਤ"
+
+#, fuzzy
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "ਕਾਰਜ"
+
+#, fuzzy
+#~| msgid "in-progress "
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "ਕਾਰਵਾਈ ਅਧੀਨ "
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "ਖਾਸ ਮਿਤੀ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "ਖਾਸ ਮਿਤੀ ਸੰਖੇਪ"
+
+#, fuzzy
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "ਖਾਸ ਦਿਨ"
+
+#, fuzzy
+#~| msgid "Special Occasion"
+#~ msgid "Show special occasions for today only"
+#~ msgstr "ਖਾਸ ਮੌਕਾ"
+
+#, fuzzy
+#~| msgid "No upcoming events starting within the next day"
+#~| msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "ਅਗਲੇ ਦਿਨ ਵਿੱਚ ਕੋਈ ਬਕਾਇਆ ਮੁਲਾਕਾਤ ਨਹੀਂ ਹੈ"
+
+#, fuzzy
+#~| msgid "Special Occasion"
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "ਖਾਸ ਮੌਕਾ"
+
+#, fuzzy
+#~| msgid "Anniversary"
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "ਵਰੇ ਗੰਢ"
+
+#, fuzzy
+#~| msgid "Special Occasion"
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "ਖਾਸ ਮੌਕਾ"
+
+#~ msgid "Show &holidays"
+#~ msgstr "ਛੁੱਟੀਆਂ ਵੇਖੋ(&h)"
+
+#, fuzzy
+#~| msgid "Special Occasion"
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "ਖਾਸ ਮੌਕਾ"
+
+#, fuzzy
+#~| msgid "Special Occasion"
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "ਖਾਸ ਮੌਕਾ"
+
+#, fuzzy
+#~| msgid "Birthday"
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "ਜਨਮਦਿਨ"
+
+#~ msgid "Show birth&days"
+#~ msgstr "ਜਨਮਦਿਨ ਵੇਖੋ(&d)"
+
+#, fuzzy
+#~| msgid "Anniversary"
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "ਵਰੇ ਗੰਢ"
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "ਵਰ੍ਹੇ ਗੰਢ ਵੇਖੋ(&v)"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "ਖਾਸ ਦਿਨ"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "ਅੱਜ"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "ਭਲਕੇ"
+
+#~ msgid "Birthday"
+#~ msgstr "ਜਨਮਦਿਨ"
+
+#~ msgid "Anniversary"
+#~ msgstr "ਵਰ੍ਹੇਗੰਢ"
+
+#~ msgid "Holiday"
+#~ msgstr "ਛੁੱਟੀ"
+
+#~ msgid "Special Occasion"
+#~ msgstr "ਖਾਸ ਮੌਕਾ"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "ਇੱਕ ਸਾਲ"
+#~ msgstr[1] "%1 ਸਾਲ"
+
+#, fuzzy
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "ਅਗਲੇ 1 ਦਿਨ ਵਿੱਚ ਕੋਈ ਖਾਸ ਦਿਨ ਨਹੀਂ ਹੈ"
+#~ msgstr[1] "ਅਗਲੇ %1 ਦਿਨਾਂ ਵਿੱਚ ਕੋਈ ਖਾਸ ਦਿਨ ਨਹੀਂ ਹੈ"
+
+#~ msgid "Send &Mail"
+#~ msgstr "ਪੱਤਰ ਭੇਜੋ(&M)"
+
+#~ msgid "View &Contact"
+#~ msgstr "ਸੰਪਰਕ ਵੇਖੋ(&C)"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "ਮੇਲ ਭੇਜੋ: \"%1\""
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "ਖਾਸ ਮਿਤੀ ਸੰਖੇਪ"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "ਕੇ-ਸੰਪਰਕ ਖਾਸ ਮਿਤੀ ਸੰਖੇਪ"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "ਮੌਜੂਦਾ ਪ੍ਰਬੰਧਕ"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "ਨਵੇਂ ਸੁਨੇਹੇ"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "ਨਵੇਂ ਸੁਨੇਹੇ"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "ਨਵਾਂ ਲੇਖ..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "ਪੜਨ ਸੂਚੀ: \"%1\""
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "ਪੜਨ ਸੂਚੀ: \"%1\""
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "ਸੂਚਨਾ ਸੋਧ"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "ਪੜਨ ਸੂਚੀ: \"%1\""
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "ਨਵਾਂ ਕੰਮ"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "ਨਵਾਂ ਸੰਪਰਕ..."
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "ਪੱਤਰ ਸੰਖੇਪ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#~ msgid "Planner"
+#~ msgstr "ਪਲੇਨਰ"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "ਅੱਜ"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "ਭਲਕੇ"
+
+#, fuzzy
+#~| msgid "No upcoming events starting within the next day"
+#~| msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "ਅਗਲੇ ਦਿਨ ਵਿੱਚ ਕੋਈ ਬਕਾਇਆ ਮੁਲਾਕਾਤ ਨਹੀਂ ਹੈ"
+#~ msgstr[1] "ਅਗਲੇ %1 ਦਿਨਾਂ ਵਿੱਚ ਕੋਈ ਬਕਾਇਆ ਮੁਲਾਕਾਤ ਨਹੀਂ ਹੈ"
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "ਬਕਾਇਆ"
+
+#, fuzzy
+#~| msgid "Edit Event: \"%1\""
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "ਰੁਝੇਵਾਂ ਸੋਧ: \"%1\""
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "ਕਾਰਵਾਈ ਜਾਰੀ"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "ਅੱਜ ਸ਼ੁਰੂਆਤ"
+
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "ਅੱਜ ਖਤਮ"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "ਪੂਰੇ ਹੋਏ"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "ਪੱਤਰ ਸੰਖੇਪ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "ਆਮ"
+
+#~ msgid "General Configuration"
+#~ msgstr "ਆਮ ਸੰਰਚਨਾ"
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "ਸਰੋਤ ਆਈਕਾਨ ਵੇਖੋ"
+
+#~ msgid "Show reminder icon"
+#~ msgstr "ਰੀਮਾਈਡਰ ਆਈਕਾਨ ਵੇਖੋ"
+
+#, fuzzy
+#~ msgid "Underline links in descriptions"
+#~ msgstr "ਕਾਰਜ"
+
+#, fuzzy
+#~ msgid "Underline links"
+#~ msgstr "ਕਾਰਜ"
+
+#, fuzzy
+#~| msgid "Show Icons"
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "ਆਈਕਾਨ ਵੇਖਾਓ"
+
+#, fuzzy
+#~| msgid "Show Icons"
+#~ msgid "Show To-dos in planner"
+#~ msgstr "ਆਈਕਾਨ ਵੇਖਾਓ"
+
+#, fuzzy
+#~ msgid "Show special dates in the summary"
+#~ msgstr "ਖਾਸ ਦਿਨ"
+
+#, fuzzy
+#~ msgid "Show special dates in planner"
+#~ msgstr "ਖਾਸ ਦਿਨ"
+
+#~ msgid "Events"
+#~ msgstr "ਈਵੈਂਟ"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "ਕੈਲੰਡਰ ਈਵੈਂਟ ਵੇਖੋ"
+
+#, fuzzy
+#~ msgid "To-dos"
+#~ msgstr "ਕਾਰਜ"
+
+#, fuzzy
+#~ msgid "Hide completed to-dos"
+#~ msgstr "ਕਾਰਜ"
+
+#, fuzzy
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "ਕਾਰਜ"
+
+#, fuzzy
+#~| msgid "in-progress "
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "ਕਾਰਵਾਈ ਅਧੀਨ "
+
+#, fuzzy
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "ਕਾਰਜ"
+
+#~ msgid "Special Dates"
+#~ msgstr "ਖਾਸ ਦਿਨ"
+
+#, fuzzy
+#~ msgid "Show these Special Dates"
+#~ msgstr "ਖਾਸ ਦਿਨ"
+
+#, fuzzy
+#~| msgid "Birthday"
+#~ msgid "Show birthdays from address book"
+#~ msgstr "ਜਨਮਦਿਨ"
+
+#, fuzzy
+#~| msgid "Anniversary"
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "ਵਰੇ ਗੰਢ"
+
+#, fuzzy
+#~| msgid "Special Occasion"
+#~ msgid "Show holidays from calendar"
+#~ msgstr "ਖਾਸ ਮੌਕਾ"
+
+#, fuzzy
+#~| msgid "Special Occasion"
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "ਖਾਸ ਮੌਕਾ"
+
+#~ msgid "Planner Summary"
+#~ msgstr "ਪਲੇਨਰ ਸੰਖੇਪ"
+
+#, fuzzy
+#~| msgid "Kontact Summary"
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "ਕੇ-ਸੰਪਰਕ ਸੰਖੇਪ"
+
+#~ msgid "Active Calendar"
+#~ msgstr "ਸਰਗਰਮ ਕੈਲੰਡਰ"
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgid "Default Calendar"
+#~ msgstr "ਸਰਗਰਮ ਕੈਲੰਡਰ"
+
+#, fuzzy
+#~| msgid "Birthday"
+#~ msgid "Birthdays"
+#~ msgstr "ਜਨਮਦਿਨ"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "ਪਲੱਗਇਨ %1"
+
+#~ msgid "No Notes Available"
+#~ msgstr "ਕੋਈ ਸੂਚਨਾ ਉਪਲੱਬਧ ਨਹੀਂ"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "ਸੰਪਰਕ ਵੇਖਾਓ(&C)"
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(c) 2003 ਕੇ-ਸੰਪਰਕ ਖੋਜੀ"
+
+#, fuzzy
+#~| msgid "Configure Kontact as Groupware Client"
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "ਕੇ-ਸੰਪਰਕ ਨੂੰ ਗਰੁੱਪਵੇਅਰ ਕਲਾਂਇਟ ਦੇ ਤੌਰ 'ਤੇ ਸੰਰਚਨਾ"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "ਜਨਮਦਿਨ"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "ਵਰ੍ਹੇ ਗੰਢ"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "ਛੁੱਟੀ"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "ਖਾਸ ਮੌਕਾ"
+
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(C) 2001-2009 ਕੇ-ਸੰਪਰਕ ਖੋਜੀ"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "(c) 2007-2008 Oral Timocin"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(c) 2004-2005 KDE PIM ਟੀਮ"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "ਲੋਕਲ"
+
+#~ msgid "Summary"
+#~ msgstr "ਸੰਖੇਪ"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid " days"
+#~ msgstr "  ਦਿਨ"
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgid "Rename"
+#~ msgstr "ਨਾਂ-ਤਬਦੀਲ..."
+
+#, fuzzy
+#~| msgid "Anniversary"
+#~ msgid "Show &anniveraries"
+#~ msgstr "ਵਰੇ ਗੰਢ"
+
+#~ msgid "New SMS..."
+#~ msgstr "ਨਵਾਂ SMS..."
+
+#~ msgid "New News Feed"
+#~ msgstr "ਨਵਾਂ ਖ਼ਬਰ ਫੀਡ"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "ਕਲਾ"
+
+#~ msgid "Business"
+#~ msgstr "ਵਪਾਰ"
+
+#~ msgid "Computers"
+#~ msgstr "ਕੰਪਿਊਟਰ"
+
+#~ msgid "Misc"
+#~ msgstr "ਫੁਟਕਲ"
+
+#~ msgid "Recreation"
+#~ msgstr "ਮੁੜ-ਨਿਰਮਾਣ"
+
+#~ msgid "Society"
+#~ msgstr "ਸਮਾਜ"
+
+#~ msgid "Custom"
+#~ msgstr "ਪਸੰਦੀਦਾ"
+
+#~ msgid "All"
+#~ msgstr "ਸਭ"
+
+#~ msgid "Selected"
+#~ msgstr "ਚੁਣੇ"
+
+#~ msgid "Refresh time:"
+#~ msgstr "ਤਾਜ਼ਾ ਸਮਾਂ:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "ਵੇਖਾਈਆਂ ਇਕਾਈਆਂ ਦੀ ਗਿਣਤੀ:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "ਖ਼ਬਰਸਾਰ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#~ msgid "News Feeds"
+#~ msgstr "ਖ਼ਬਰਾਂ ਫੀਡ"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "ਕੋਈ rss dcop ਸੇਵਾ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।\n"
+#~ "ਤੁਹਾਨੂੰ ਇਹ ਪਲੱਗਿੰਨ ਇਸਤੇਮਾਲ ਕਰਨ ਲਈ rssservice ਦੀ ਲੋੜ ਹੈ।"
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "URL ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਨਕਲ"
+
+#~ msgid "Weather Information"
+#~ msgstr "ਮੌਸਮ ਜਾਣਕਾਰੀ"
+
+#, fuzzy
+#~| msgid ""
+#~| "No weather dbus service available;\n"
+#~| "you need KWeather to use this plugin."
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "ਕੋਈ ਮੌਸਮ dbus ਸੇਵਾ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ,\n"
+#~ "ਤੁਹਾਨੂੰ ਇਸ ਪਲੱਗਇਨ ਲਈ KWeather ਦੀ ਲੋੜ ਹੈ।"
+
+#~ msgid "Last updated on"
+#~ msgstr "ਆਖਰੀ ਅੱਪਡੇਟ"
+
+#~ msgid "Wind Speed"
+#~ msgstr "ਹਵਾ ਗਤੀ"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "ਅਨੁਸਾਰੀ ਨਮੀ"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "ਸਟੇਸ਼ਨ ਲਈ ਮੌਸਮ ਜਾਣਕਾਰੀ ਦਿਓ"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "ਸੁਧਾਰ ਅਤੇ ਹੋਰ ਕੋਡ ਸੁਧਾਈ"
+
+#~ msgid "Unknown"
+#~ msgstr "ਅਣਜਾਣ"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "ਖਾਸ ਮਿਤੀ ਸੰਖੇਪ"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "ਮੂਲ ਕੇ-ਪਰਬੰਧਕ ਸਰੋਤ"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "ਅੱਜ"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "ਕੱਲ"
+
+#, fuzzy
+#~| msgid "Anniversary"
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "ਵਰੇ ਗੰਢ"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "Today only"
+#~ msgstr "ਅੱਜ"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos starting today"
+#~ msgstr "ਅੱਜ ਸ਼ੁਰੂਆਤ"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos ending today"
+#~ msgstr "ਅੱਜ ਸ਼ੁਰੂਆਤ"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "One day"
+#~ msgstr "  ਦਿਨ"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "Five days"
+#~ msgstr "  ਦਿਨ"
+
+#, fuzzy
+#~ msgid "Starting to-dos"
+#~ msgstr "ਕਾਰਜ"
+
+#, fuzzy
+#~ msgid "Ending to-dos"
+#~ msgstr "ਕਾਰਜ"
+
+#, fuzzy
+#~| msgid "in-progress "
+#~ msgid "To-dos in progress"
+#~ msgstr "ਕਾਰਵਾਈ ਅਧੀਨ "
+
+#, fuzzy
+#~| msgid "Newsticker Configuration Dialog"
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "ਖ਼ਬਰਸਾਰ ਸੰਰਚਨਾ ਵਾਰਤਾਲਾਪ"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today"
+#~ msgstr "ਅੱਜ"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "'%1' ਕਿਸਮ ਦੀ ਘਟਨਾ ਲਈ ਹਟਾਉਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
+
+#~ msgid "Notes Management"
+#~ msgstr "ਸੂਚਨਾ ਪਰਬੰਧਨ"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "ਆਈਕਾਨ ਆਕਾਰ"
+
+#, fuzzy
+#~| msgid "Large"
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "ਵੱਡਾ"
+
+#, fuzzy
+#~| msgid "Small"
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "ਛੋਟਾ"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgid "Synchronize"
+#~ msgstr "ਆਈਕਾਨ ਆਕਾਰ"
+
+#~ msgid "Name"
+#~ msgstr "ਨਾਂ"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr "ਤੁਹਾਡੇ ਸਾਹਮਣੇ ਉਪਲੱਬਧ ਹੋਣ ਲਈ ਕਿਹੜੀ ਪਲੱਗਿੰਨ ਇਸਤੇਮਾਲ ਕੀਤੀ ਜਾਵੇ।"
+
+#~ msgid "&Request Feature..."
+#~ msgstr "ਲੋੜੀਦੇ ਫੀਚਰ(&R)..."
+
+#~ msgid "&Refresh Summary View..."
+#~ msgstr "ਸੰਖੇਪ ਝਲਕ ਤਾਜ਼ਾ(&R)..."

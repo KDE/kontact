@@ -1,0 +1,1251 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym
+>PIM</acronym
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Ukrainian "INCLUDE">
+]>
+
+<book id="kontact" lang="&language;">
+
+<bookinfo>
+
+<title
+>Підручник з &kontact;</title>
+
+<authorgroup>
+<author
+><firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+><address
+>&Cornelius.Schumacher.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Antonio</firstname
+> <surname
+>Salazar</surname
+> <affiliation
+><address
+><email
+>savedfastcool@gmail.com</email>
+    </address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+><address
+>&Daniel.Molkentin.mail;</address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2003-2005</year
+><holder
+>&Cornelius.Schumacher;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>8 грудня 2016 року</date>
+<releaseinfo
+>5.4.40 (Програми 16.12)</releaseinfo>
+
+<abstract
+><para
+>&kontact; — це інтегроване рішення для задоволення ваших потреб у керуванні особистою інформацією (personal information management або &PIM;). У програмі поєднано у єдиний інтерфейс добре відомі програми &kde; на зразок &kmail;, &korganizer; і &kaddressbook;, — таке поєднання спрощує доступ до таких функцій &PIM;, яка робота з електронною поштою, планування, користування адресною книгою.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>KMail</keyword>
+<keyword
+>Записник</keyword>
+<keyword
+>KAddressBook</keyword>
+<keyword
+>KNotes</keyword>
+<keyword
+>Akregator</keyword>
+<keyword
+>PIM</keyword>
+<keyword
+>groupware</keyword>
+<keyword
+>Outlook</keyword>
+<keyword
+>Evolution</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+
+<para
+>&kontact; — це інтегроване рішення для задоволення ваших потреб у керуванні особистою інформацією. У програмі поєднано у єдиний інтерфейс добре відомі програми &kde; для роботи з електронною поштою, планування, роботи з нотатками (&kmail;, &korganizer;, &kaddressbook; та &knotes;). Заснована на свої компонентах, програма &kontact; надає у ваше розпорядження ті самі функціональні можливості, які надають окремі програми, і додає нові можливості, пов’язані з використанням інтегрованого способу, у який &kontact; запускає свої компоненти. Користувачі програми можуть обирати між запуском програм з меж &kontact; і запуском програми, як окремого компонента.</para>
+
+<para
+>Окрім функціональних можливостей окремих програм, у &kontact; ви отримаєте доступ до загального перегляду і додаткових можливостей з перетягування і скидання елементів між компонентами. </para>
+
+</chapter>
+
+
+<chapter id="components">
+<title
+>Компоненти &kontact;</title>
+
+<para
+>У &kontact; інтегровано наведені нижче програми. Щоб дізнатися про подробиці використання окремих програм, скористайтеся підручниками з цих програм. Це стосується, як запуску цих програм у &kontact;, так і окремого їх запуску. </para>
+
+<variablelist>
+    <varlistentry>
+        <term
+><ulink url="help:/kmail2"
+>&kmail;</ulink
+></term>
+        <listitem
+><para
+>Клієнт електронної пошти &kde;.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/korganizer"
+>&korganizer;</ulink
+></term>
+        <listitem
+><para
+>Програма &kde; з функціями календаря і планувальника.</para>
+            </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/kaddressbook"
+>&kaddressbook;</ulink
+></term>
+        <listitem
+><para
+>Інструмент &kde; керування даними контактів.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/knotes"
+>&knotes;</ulink
+></term>
+        <listitem
+><para
+>Програма &kde; з функцією липких нотаток.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/akregator"
+>&akregator;</ulink
+></term>
+        <listitem
+><para
+>Програма для читання подач RSS &kde;.</para>
+            </listitem>
+    </varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="main-window">
+<title
+>Головне вікно &kontact;</title>
+
+<para
+>Головне вікно програми складається з бічної панелі, розташованої ліворуч, на якій показано піктограми доступних компонентів, головної області перегляду, у якій міститиметься вікно активного компонента і звичайних панелей меню, інструментів і стану.</para>
+
+<sect1 id="side-pane">
+<title
+>Бічна панель</title>
+
+<para
+>Бічну панель призначено для виконання різних завдань. За її допомогою можна перемикатися між компонентами програми, бачити, який компонент є активним, вона також слугує областю призначення для операцій з перетягування зі скиданням даних між різними програмами-компонентами.</para>
+
+<screenshot>
+<screeninfo
+>Бічна панель &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="side-pane.png"/></imageobject>
+<textobject>
+<phrase
+>Бічна панель &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Бічна панель &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Щоб перемкнути програму на інший компонент, просто натисніть піктограму відповідного компонента. Після натискання у основній області перегляду буде показано головне вікно компонента, а меню, панель інструментів і смужку стану вікна буде налаштовано на функціональні можливості активного компонента. Якщо ви активуєте компонент уперше, між активацією компонента і появою вікна компонента у основній області перегляду може пройти певний час, оскільки компоненти завантажуються динамічно. Така стратегія завантаження компонентів дозволяє програмі не захаращувати пам’ять комп’ютера компонентами, якими ви не користуєтеся.</para>
+
+<para
+>Крім того піктограми бічної панелі можна використовувати як точки призначення для дій з перетягування зі скиданням. Ви, наприклад, можете перетягнути повідомлення електронної пошти з поштової частини програми і скинути його на піктограму списку завдань або календаря з метою створення завдання або події, пов’язаної з цим повідомленням електронної пошти.</para>
+
+<para
+>Нарешті, ви можете змінювати розмір піктограм бічної панелі. Якщо навести вказівник миші на бічну панель і клацнути правою кнопкою миші, відкриється контекстне меню, у якому ви зможете обрати один з розмірів піктограм: великий, звичайний або маленький, а також обрати пункт, за використання якого замість піктограм буде показано лише текст.</para>
+
+<para
+>Якщо вам не подобається бічна панель, ви можете її просто сховати перетягуванням роздільника. Альтернативним засобом для здійснення навігації між частинами програми є панель <guilabel
+>Навігатора</guilabel
+>, яку можна розташувати у будь-якому місці вікна програми. Щоб дізнатися більше про цю панель, прочитайте розділ <xref linkend="bars"/>, присвячений панелі <guilabel
+>Навігатора</guilabel
+>.</para>
+
+</sect1>
+
+
+<sect1 id="main-view">
+
+<title
+>Головне вікно</title>
+
+<para
+>У області перегляду, яка розташовується праворуч і займає більшу частину площі головного вікна &kontact;, буде показано вікно активного компонента. Це вікно повністю збігатиметься з головним вікном компонента, запущеного окремою програмою. Виокремлена піктограма на бічній панелі позначатиме, якій програмі належить вікно у області перегляду. &kontact; запам’ятовуватиме, який з компонентів був активним, отже після запуску &kontact; у області перегляду буде показано вікно програми, яку було активовано перед останнім виходом з &kontact;.</para>
+
+<screenshot>
+<screeninfo
+>Головна область перегляду &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<textobject>
+<phrase
+>Головна область перегляду &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Головна область перегляду &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Існує два способи перевизначення компонента, з якого починатиме роботу &kontact;. Першим способом є додавання параметра до командного рядка виклику програми &kontact; (див. <xref linkend="command-line"/>). Другим способом є позначення пункту у вікні параметрів &kontact;, цей пункт надасть вам змогу завжди запускати &kontact; у вказаному режимі.</para>
+
+<para
+>Щоб дістатися до цього пункту скористайтеся пунктом меню <menuchoice
+><guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Налаштувати Kontact</guimenuitem
+></menuchoice
+>, а потім натисніть кнопку <guilabel
+>Kontact</guilabel
+> у списку.</para>
+
+<screenshot>
+<screeninfo
+>Параметр запуску компонента &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<textobject>
+<phrase
+>Параметр запуску компонента &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Параметр запуску компонента &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="bars">
+<title
+>Меню, панель інструментів і смужка стану</title>
+
+<para
+>Панелі меню, інструментів і смужку стану буде змінено згідно параметрів активного компонента. Це означає, що окрім деяких типовий функцій на зразок меню довідки, які буде показано для всіх компонентів, буде показано елементи, які характерні лише для компонента, який ви активізували. Ці елементи кожного з компонентів точнісінько збігатимуться з тими елементами, які ви бачитимете у вікні програми, запущеної окремо.</para>
+
+<screenshot>
+<screeninfo
+>Вигляд панелей меню &kontact; у режимах Зведення, Пошти і Календаря</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
+<textobject>
+<phrase
+>Вигляд панелей меню &kontact; у режимах Зведення, Пошти і Календаря</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Вигляд панелей меню &kontact; у режимах Зведення, Пошти і Календаря</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
+<textobject>
+<phrase
+>Вигляд панелей меню &kontact; у режимах Зведення, Пошти і Календаря</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Вигляд панелей меню &kontact; у режимах Зведення, Пошти і Календаря</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
+<textobject>
+<phrase
+>Вигляд панелей меню &kontact; у режимах Зведення, Пошти і Календаря</phrase>
+</textobject>
+<caption>
+<para
+>Вигляд панелей меню &kontact; у режимах Зведення, Пошти і Календаря </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Крім того, у &kontact; може бути показано панель інструментів <guilabel
+>Навігатора</guilabel
+>, за допомогою якої ви зможете отримати доступ до компонентів &kontact; у спосіб дуже подібний до способу доступу за допомогою бічної панелі. Але, на відміну від бічної панелі, кнопки панелі інструментів <guilabel
+>Навігатора</guilabel
+> не можна використовувати для дій з перетягування зі скиданням між різними компонентами.</para>
+
+<para
+>Щоб задіяти цю панель інструментів, скористайтеся пунктом меню <menuchoice
+><guimenu
+>Параметри</guimenu
+> <guisubmenu
+>Показані панелі</guisubmenu
+> <guimenuitem
+>Навігатор</guimenuitem
+></menuchoice
+>. </para>
+
+<screenshot>
+<screeninfo
+>Панель інструментів <guimenuitem
+>Навігатор</guimenuitem
+> &kontact;.</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
+<textobject>
+<phrase
+>Панель інструментів <guimenuitem
+>Навігатор</guimenuitem
+> &kontact;.</phrase>
+</textobject>
+<caption>
+<para
+>Панель інструментів <guimenuitem
+>Навігатор</guimenuitem
+> &kontact;. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Особливою дією для всіх компонентів є дія <guimenuitem
+>Створити</guimenuitem
+>. За її допомогою можна створювати нові об’єкти, наприклад повідомлення електронної пошти, контакти, події та завдання, байдуже, який з компонентів є активним. За потреби буде запущено компонент, призначений для роботи з вибраним об’єктом, саме він і допоможе вам у створенні об’єкта.</para>
+
+<screenshot>
+<screeninfo
+>Меню «Створити» &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<textobject>
+<phrase
+>Меню «Створити» &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Меню «Створити» &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="side-pane-drag-and-drop">
+<title
+>Функціональні можливості з перетягування зі скиданням</title>
+
+<para
+>У &kontact; передбачено удосконалену функціональну можливість перетягування зі скиданням даних між програмами, які об’єднує &kontact;. Нижче наведено коротенький опис кожної з окремих дій з перетягування зі скиданням, які можна використовувати, і результат, який буде отримано після виконання дії.</para>
+
+<sect2 id="side-pane-drag-and-drop-kmail-todo">
+<title
+>&kmail; -&gt; &korganizer; список завдань</title>
+
+<para
+>Перетягування повідомлення з <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>панелі заголовків &kmail;</ulink
+> на піктограму списку завдань &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) призведе до створення завдання з заголовком <guilabel
+>Лист: <replaceable
+>Тема</replaceable
+></guilabel
+> і вмістом <guilabel
+>Від: <replaceable
+>Відправник</replaceable
+> Кому: <replaceable
+>Отримувач</replaceable
+> Тема: <replaceable
+>Тема</replaceable
+></guilabel
+> (де текст, який виглядає <guilabel
+><replaceable
+>ось так</replaceable
+></guilabel
+>, буде взято з самого повідомлення), а також повідомленням електронної пошти як долученням. </para>
+
+</sect2>
+
+<sect2 id="side-pane-drag-and-drop-kmail-calendar">
+<title
+>&kmail; -&gt; Календар &korganizer;</title>
+
+<para
+>Перетягування повідомлення з <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>панелі заголовків &kmail;</ulink
+> на піктограму календаря &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) призведе до створення нової події з заголовком <guilabel
+>Лист: <replaceable
+>Тема</replaceable
+></guilabel
+> і вмістом <guilabel
+>Від: <replaceable
+>Відправник</replaceable
+> Кому: <replaceable
+>Отримувач</replaceable
+> Тема: <replaceable
+>Тема</replaceable
+></guilabel
+> (де текст, який виглядає <guilabel
+><replaceable
+>ось так</replaceable
+></guilabel
+>, буде взято з самого повідомлення), а також повідомленням електронної пошти як долученням. </para>
+
+<para
+>Зауважте, що перетягування на кнопку «Завдання» створить завдання, а перетягування на кнопку «Календар» створить подію. Докладніше про різницю між цими двома пунктами можна дізнатися з <ulink url="help:/korganizer"
+>Підручника з &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kmail-contacts">
+<title
+>&kmail; -&gt; &kaddressbook;</title>
+
+<para
+>Перетягування повідомлень з <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>панелі заголовків &kmail;</ulink
+> на піктограму &kaddressbook; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="kaddressbook-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) створить контакт з адресою електронної пошти відправника, якщо такого контакту ще не існує. Відомості щодо цієї дії ви зможете отримати за допомогою діалогового вікна. </para>
+
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
+<title
+>&kaddressbook; -&gt; Список завдань &korganizer;</title>
+
+<para
+>Перетягування довільної кількості записів з <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>головного вікна &kaddressbook;</ulink
+> на піктограму списку завдань &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) створить нове завдання з заголовком «Зустріч» і обраними контактами-учасниками. </para>
+
+<para
+>Зауважте, що перетягування на кнопку «Завдання» створить завдання, а перетягування на кнопку «Календар» створить подію. Докладніше про різницю між цими двома пунктами можна дізнатися з <ulink url="help:/korganizer"
+>Підручника з &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
+<title
+>&kaddressbook; -&gt; Календар &korganizer;</title>
+
+<para
+>Перетягування довільної кількості записів з <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>головного вікна &kaddressbook;</ulink
+> на піктограму календаря &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) створить нову подію з заголовком «Зустріч» і обраними контактами-учасниками. </para>
+
+<para
+>Зауважте, що перетягування на кнопку «Завдання» створить завдання, а перетягування на кнопку «Календар» створить подію. Докладніше про різницю між цими двома пунктами можна дізнатися з <ulink url="help:/korganizer"
+>Підручника з &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="summary-view">
+<title
+>Перегляд зведення</title>
+
+<para
+>Типовим компонентом після першого запуску &kontact; буде компонент «Зведення». У області перегляду цього компонента буде показано найвідповідніші відомості, надані обраними компонентами &kontact;. Серед цих відомостей можуть бути нотатки, близькі дати днів народження, поточні завдання, нові повідомлення тощо. Список відомостей, які буде показано, можна обрати позначенням відповідних компонентів у <link linkend="configuration"
+>діалоговому вікні налаштування &kontact;</link
+>.</para>
+
+<screenshot>
+<screeninfo
+>Перегляд зведення &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<textobject>
+<phrase
+>Перегляд зведення &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Перегляд зведення &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<!-- not in kde4 para
+>If you think the information you see is outdated, you can click on the
+<guibutton
+>Refresh</guibutton
+> button (<guiicon
+><inlinemediaobject
+><imageobject>
+<imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
+</imageobject
+></inlinemediaobject
+></guiicon
+>)
+in the Summary View toolbar to refresh
+the data.</para-->
+
+<sect1 id="summary-view-component-reposition">
+<title
+>Перевпорядкування компонентів перегляду зведення</title>
+
+<para
+>У перегляді «Зведення» ви можете змінити розташування компонентів у самому перегляді. Отже, якщо ви бажаєте пересунути ваші «Особливі дати» вниз ліворуч, і натомість пересунути завдання вгору праворуч, ви можете перевпорядкувати елементи перегляду.</para>
+
+<para
+>Перевпорядкування компонентів у перегляді «Зведення» можна виконати за допомогою простого перетягування їх на нове бажане місце. Натисніть і утримуйте натиснутою клавішу &Ctrl; Наведіть вказівник миші на сіру область заголовка компонента і перетягніть позначку компонента у бажане місце. Зауважте, що зміну розташування буде виконано відносно інших компонентів. Отже, ви можете перетягнути у області перегляду позначку компонента пошти під позначку компонента завдань, але ви не зможете пересунути цю позначку у відповідне місце. Якщо у вашому перегляді зведення буде лише один пункт, ви зможете пересунути його лише у один з двох стовпчиків перегляду, якщо у вас буде два компоненти, ви зможете розташувати їх або обидва у одному стовпчику, або по одному компоненту у кожному зі стовпчиків. Під час перетягування позначки компонента ви бачитимете позначку перегляду, яка рухатиметься слідом за вказівником миші і показуватиме вам ваш компонент.</para>
+
+<screenshot>
+<screeninfo
+>Перевпорядкування перегляду «Зведення» у &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<textobject>
+<phrase
+>Перевпорядкування перегляду «Зведення» у &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Перевпорядкування перегляду «Зведення» у &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title
+>Як налаштувати &kontact;</title>
+
+<sect1 id="main-config">
+<title
+>Вікно налаштування &kontact;</title>
+
+<para
+>Якщо ви оберете пункт <guimenuitem
+>Налаштувати &kontact;</guimenuitem
+> у меню <guimenu
+>Параметри</guimenu
+>, буде відкрито діалогове вікно налаштування &kontact;. У ньому ви знайдете список налаштувань для всіх активних компонентів &kontact;. Для того, щоб згорнути список параметрів компонента, ви можете натиснути позначку з символом <guilabel
+>&gt;</guilabel
+> поряд з назвою компонента, так ви зможете переглянути параметри лише того компонента, який вам потрібен. Вибір одного з пунктів налаштування призведе до показу відповідного розділу налаштувань у правій частині вікна.</para>
+
+<screenshot>
+<screeninfo
+>Вікно налаштування &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<textobject>
+<phrase
+>Вікно налаштування &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Вікно налаштування &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Позначення пункту компонента у списку призведе до показу позначки компонента на бічній панелі і у перегляді «Зведення». Після першого ж натискання піктограми компонента на бічній панелі, компонент буде завантажено, а його вікно буде показано у основній області перегляду. Якщо зняти позначку з пункту компонента у списку, елементи компонента буде вилучено з бічної панелі і перегляду «Зведення». Зміни набудуть чинності після натискання кнопки <guibutton
+>Застосувати</guibutton
+> або кнопки <guibutton
+>Гаразд</guibutton
+>.</para>
+
+<para
+>Крім того, ви можете налаштувати окремі компоненти, якщо активуєте компонент натисканням відповідної піктограми на бічній панелі з наступним вибором пункту <guimenuitem
+>Налаштувати <replaceable
+>назва програми</replaceable
+></guimenuitem
+> меню <guimenu
+>Параметри</guimenu
+>.</para>
+
+<screenshot>
+<screeninfo
+>Меню параметрів &kontact;, якщо обрано &kmail;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="settings-menu-kmail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Меню параметрів &kontact;, якщо обрано &kmail;</phrase>
+</textobject>
+<caption>
+<para
+>Меню параметрів &kontact;, якщо обрано &kmail; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="summary-view-config">
+<title
+>Як налаштувати перегляд зведення у &kontact;</title>
+
+<para
+>Якщо ви виберете пункт <guimenuitem
+>Резюме</guimenuitem
+> у діалоговому вікні параметрів &kontact;, програма відкриє діалогове вікно, за допомогою якого ви зможете визначити список додатків резюме &kontact;, які буде показано у перегляді резюме. Ось короткий список наявних додатків з описом їх призначення: </para>
+
+<screenshot>
+<screeninfo
+>Вибір резюме</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-selection.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Вибір резюме</phrase>
+</textobject>
+<caption
+><para
+>Вибір резюме</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="summary-view-config-calendar">
+<title
+>Додатки зведення &kontact;: Календар</title>
+
+<para
+>За використання додатка <quote
+>Календар</quote
+> у перегляд «Зведення» &kontact; буде додано область з міткою <guilabel
+>Майбутні події</guilabel
+>. У цій області буде показано всі поточні події. </para>
+
+<screenshot>
+<screeninfo
+>Додаток зведення календаря &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-calendar.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Додаток зведення календаря &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Додаток зведення календаря &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-mail">
+<title
+>Додатки зведення &kontact;: Пошта</title>
+
+<para
+>За використання додатка <quote
+>Пошта</quote
+> для перегляду «Зведення» &kontact; буде додано область з міткою <guilabel
+>Нові повідомлення</guilabel
+>. Ця область оновлюватиметься кожного разу, коли ви отримуватимете нові повідомлення, у ній буде показано кількість цих повідомлень і теку, де знаходяться повідомлення. </para>
+
+<screenshot>
+<screeninfo
+>Додаток зведення пошти у &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-mail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Додаток зведення пошти у &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Додаток зведення пошти у &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-notes">
+<title
+>Додатки зведення &kontact;: Нотатки</title>
+
+<para
+>За використання додатка <quote
+>Нотатки</quote
+> для перегляду «Зведення» &kontact; буде додано область з міткою <guilabel
+>Нотатки</guilabel
+>. У цій області буде показано всі поточні заголовки нотаток (типовими заголовками є дата і час створення нотатки). Натискання заголовка нотатки відкриє область перегляду «Нотатки». </para>
+
+<screenshot>
+<screeninfo
+>Додаток зведення нотаток у &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-notes.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Додаток зведення нотаток у &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Додаток зведення нотаток у &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-todo-list">
+<title
+>Додатки зведення &kontact;: Список завдань</title>
+
+<para
+>За використання додатка <quote
+>Список завдань</quote
+> для перегляду «Зведення» &kontact; буде додано область з міткою <guilabel
+>Призначені завдання</guilabel
+>. У цій області буде показано всі поточні завдання, зокрема і ті, які було завершено. У області перегляду буде показано заголовок завдання, відсоток його виконання і поточний стан завдання. Зауважте, що ви можете вилучити всі завершені завдання за допомогою списку завдань &kontact;. У поточній версії програми натискання заголовка завдання не призведе ні до яких наслідків. </para>
+
+<screenshot>
+<screeninfo
+>Додаток зведення списку завдань у &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-todos.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Додаток зведення списку завдань у &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Додаток зведення списку завдань у &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-special-dates">
+<title
+>Додатки зведення &kontact;: Особливі дати</title>
+
+<para
+>За використання додатка <quote
+>Особливі дати</quote
+> для перегляду «Зведення» &kontact; буде додано область з міткою <guilabel
+>Майбутні особливі дати</guilabel
+>. У цій області буде показано відомості, фільтровані на основі критерію, обраного у області налаштування додатка вікна налаштування перегляду підсумків &kontact;. Додаток <quote
+>Особливі дати</quote
+> є зручним способом перегляду списку днів народження, річниць весіль, свят і особливих подій, тут ви зможете ознайомитися як з календарем, так і зі списком контактів. </para>
+
+<screenshot>
+<screeninfo
+>Додаток особливих дат &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-special-dates.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Додаток особливих дат &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Додаток особливих дат &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+</sect1>
+
+</chapter>
+
+
+<chapter id="command-line">
+<title
+>Робота з &kontact; за допомогою командного рядка</title>
+
+<para
+>У &kontact; передбачено декілька параметрів командного рядка, які можна використовувати для виконання програмою певних дій.</para>
+
+<para
+>Перш за все, &kontact; підтримує всі параметри командного рядка, які підтримують і інші програми &kf5;/&Qt;. Із повним списком ви можете ознайомитися за допомогою сторінок підручника (man) qt5options і kf5options. </para>
+
+<para
+>Окрім того, &kontact; підтримує і декілька специфічних для програми параметрів командного рядка.</para>
+
+<sect1 id="command-line-arguments">
+<title
+>Параметри командного рядка</title>
+
+<sect2 id="command-line-module">
+<title
+>Параметри, пов’язані з модулями</title>
+
+<para
+>Щоб програма вивела список всіх модулів, доступних у &kontact;, віддайте їй команду:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --list</command
+> </para>
+
+<para
+>Після цього, щоб запустити &kontact; з задіяним модулем, виконайте команду:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --module <replaceable
+>назва_модуля</replaceable
+></command
+> </para>
+
+<para
+>Де <replaceable
+>назва_модуля</replaceable
+> — це одна з назв модулів, отриманих за допомогою попередньої команди.</para>
+
+</sect2>
+
+<sect2 id="command-line-startup">
+<title
+>Параметри, пов’язані з запуском</title>
+
+<para
+>Щоб запустити &kontact; у згорнутому вигляді<footnote
+><para
+>Згорнутий вигляд також називають мінімізованим; це режим роботи програми, за якого вікно програми буде сховано, доступ до програми можна буде отримати лише за допомогою панелі завдань.</para
+></footnote
+>, виконайте таку команду:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --iconify</command
+> </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="technology">
+<title
+>За сценою</title>
+
+<para
+>&kontact; широко використовує деякі з ключових технологій &kde;, зокрема KParts і &DBus;.</para>
+
+<para
+>Інтегрування графічного інтерфейсу користувача компонентів здійснено за допомогою додатків, які реалізують KParts-версії програм. Для створення таких додатків був потрібен лише незначний прошарок між &kontact; і вже існуючим кодом окремих програм-компонентів.</para>
+
+<para
+>Для обміну інформацією між компонентами використовується &DBus;. Цей інтерфейс має чудову властивість прозорості: не має значення було програму запущено як окрему, або як вбудовану у вигляді KPart до &kontact;. Під час запуску у межах &kontact; застосовується ефективний режим роботи &DBus; у межах одного процесу.</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Подяки і ліцензія</title>
+
+<para
+>&kontact;</para>
+
+<para
+>Авторські права на програму належать Розробникам &kde; (©2001–2021)</para>
+
+<para
+>Учасники розробки:</para>
+
+<itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Don.Sanders; &Don.Sanders.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+    </listitem>
+<listitem
+><para
+>Allen Winter <email
+>winter@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Rafael Fernández López <email
+>ereslibre@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>&David.Faure; &David.Faure.mail;</para
+></listitem>
+<listitem
+><para
+>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para
+></listitem>
+<listitem
+><para
+>Sven Lüppken <email
+>sven@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Torgny Nyblom <email
+>nyblom@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Zack Rusin <email
+>zack@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthias Hölzer-Klüpfel <email
+>mhk@kde.org</email
+>, перший автор набору інструментів &kontact;.</para>
+    </listitem>
+
+<listitem
+><para
+>Всім чудовим розробникам програм, які було зібрано у &kontact;. Саме ці люди виконали основний обсяг роботи.</para>
+    </listitem>
+</itemizedlist>
+
+<para
+>Авторські права на документацію належать (©2004–2005)</para>
+
+<para
+>Учасники розробки: <itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem
+><para
+>Antonio Salazar <email
+>savedfastcool@gmail.com</email
+></para>
+</listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
+
+<listitem
+><para
+>Всім учасникам списку документування &kde;, які допомогли з усуненням вад у розмітці і стилі цього документа.</para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+<appendix id="kontact-admin">
+<title
+>Довідник адміністратора</title>
+<!-- Section Compatibility -->
+<sect1 id="compat">
+<title
+>Проблеми сумісності</title>
+
+<para
+>У цьому розділі подано довідку з питань, пов’язаних з ефективним обміном даними між &kontact; та різноманітними рішеннями з групової роботи. </para>
+
+<sect2 id="compat-outlook">
+<title
+>Outlook і Exchange</title>
+
+<para
+>У діалоговому вікні налаштування &kontact; на сторінці <guilabel
+>Запрошення</guilabel
+> у меню <menuchoice
+><guimenu
+>Пошта</guimenu
+> <guimenuitem
+>Різне</guimenuitem
+></menuchoice
+> ви знайдете наведені нижче пункти, за допомогою яких можна полегшити користувачеві обмін даними з Microsoft Outlook(tm), запущеним у середовищі Kolab або середовищі Microsoft Exchange(tm). </para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Перекручувати заголовки Від:/Кому: у відповідях на запрошення</guilabel
+></term>
+<listitem>
+<para
+>Позначте цей пункт, щоб клієнти з Microsoft Outlook(tm) могли зрозуміти ваші відповіді на запрошення.</para>
+<para
+>Програма Microsoft Outlook має декілька дефектів у реалізації стандарту iCalendar; цей параметр враховує один з них. Якщо ті, хто використовує Outlook, не можуть отримати ваші відповіді, спробуйте позначити цей пункт.</para>
+<para
+>Подробиці: використання цього пункту під час надсилання запрошення iCal електронною поштою встановлює рівність поля заголовка From: полю заголовка To:. Крім того, поле заголовка X-KMail-Identity дорівнюватиме UIOD поля To, а поле BCC: буде спорожнено. Outlook розпізнає відповіді, лише якщо у заголовку повідомлення запрошення значення поля From: дорівнює значенню поля To:.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Надсилати запрошення в тілі листа</guilabel
+></term>
+<listitem>
+<para
+>Типово запрошення надсилаються як долучення в середині листа. Цей параметр змушує надсилати запрошення в тілі листа; це потрібно для надсилання запрошень та відповідей на запрошення до програми Microsoft Outlook. Якщо буде позначено цей пункт, листи не будуть містити текст описом, придатним для читання. Тому ті, хто користується поштовими програмами, що не розуміють запрошення, будуть бачити повідомлення, яке виглядає дуже дивно. А ті, хто використовує поштові програми, що розуміють запрошення, зможуть працювати з вашими запрошеннями.</para>
+<para
+>Подробиці: позначення цього пункту призводить до того, що під час надсилання запрошення iCal текст повідомлення електронної пошти буде сформовано з даних долучення, а значенням поля заголовка Content-Type буде рядок 'text/calendar; method=something; charset="utf-8"'.</para>
+<para
+>Крім того, увімкнено автоматичне надсилання, отже втручання персоналу для створення повідомлень не потрібне.</para>
+<note
+><para
+>Шифрування і самопідписування вимкнено.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Сумісне з Exchange іменування запрошень</guilabel
+></term>
+<listitem>
+<para
+>У Microsoft Outlook, якщо ця програма використовується разом з сервером Microsoft Exchange(tm), існує проблема з розпізнаванням сумісних зі стандартами групових повідомлень електронної пошти. Позначте цей пункт, щоб програма надсилала групові запрошення у форматі, який розпізнається Microsoft Exchange. Запрошення буде надіслано у долученні з назвою <filename
+>ical.ics</filename
+>.</para>
+<para
+>Подробиці: позначення цього пункту призводить до того, що запрошення iCal буде надіслано у повідомленні з темою «(Declined|Tentative|Accepted|Delegated): тема». Саме запрошення буде надіслано у долученні з назвою <filename
+>ical.ics</filename
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Надавати долученням сумісні з Outlook назви</guilabel
+></term>
+<listitem>
+<para
+>Позначте цей пункт, щоб програма Outlook™ могла зрозуміти назви долучень, що містять не латинські літери.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+</sect1>
+
+<!-- Section Behavior -->
+<sect1 id="behavior">
+<title
+>Проблеми, пов’язані з поведінкою</title>
+
+<para
+>У цьому розділі ви знайдете поради щодо того, як зробити поведінку &kontact; подібною до інших клієнтів групової роботи. </para>
+
+<sect2 id="behave-composing">
+<title
+>Створення повідомлень</title>
+
+<para
+>Користувачі Outlook звикли вводити список адрес у поля Кому:, Копія: і Потайна копія: з відокремленням крапкою з комою («;») на додачу до коми («,'». Типово, у &kontact; для відокремлення адрес можна використовувати лише символ коми. Щоб уможливити використання крапки з комою, змініть значення <option
+>AllowSemicolonAsAddressSeparator</option
+> з false на true у встановленому файлі <filename
+>share/config.kcfg/messagecomposer.kcfg</filename
+>. </para>
+
+</sect2>
+</sect1>
+
+<!-- Section RFC Compromises -->
+<sect1 id="nonrfc">
+<title
+>Компроміси RFC</title>
+
+<para
+>&kontact; розроблено таким чином, що програма здатна добре працювати з багатьма програмами, призначеними для групової роботи. З цієї причини автори змушені були знаходити компроміси щодо різноманітних оприлюднених у інтернеті RFC, ці компроміси є основою для низькорівневих бібліотек, без яких &kontact; не зможе працювати.</para>
+
+<note
+><para
+>Ми ніколи свідомо не порушували жодного RFC.</para
+></note>
+
+<para
+>Нижче наведено список компромісів з RFC, які було використано під час створення &kontact; або основних бібліотек, потрібних для роботи &kontact;:</para>
+<!--FIXME is this correct?-->
+<itemizedlist>
+<listitem>
+<para
+>Під час запису значень тривалості до файлів iCalendar, &kontact; ніколи не записує властивість DURATION (тривалості) у тижнях (тобто, 1*ЧИСЛО "W"); програма завжди множить ціле число тижнів на 7 і записує значення у днях (тобто 1*ЧИСЛО "D"). </para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

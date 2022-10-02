@@ -1,0 +1,2125 @@
+# translation of kontact.po to
+# translation of kontact.po to
+# translation of kontact.po to
+# translation of kontact.po to
+# translation of kontact.po to
+# translation of kontact.po to
+# Copyright (C) 2004 Free Software Foundation, Inc.
+#
+# Ambalam <tamilpc@ambalam.com>, 2004.
+# root <root@localhost.localdomain>, 2004.
+# Kishore G <kishore96@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2021-01-18 19:05+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.12.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "tamilpc team"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tamilpc@ambalam.com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgid ""
+#| "Kontact handles your e-mail, addressbook, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact உங்கள் மின்னஞ்சல், முகவரிப்புத்தகம், நாட்காட்டி செய்யவேண்டிய பட்டியல் போன்றவைகளை "
+"செய்கிறது."
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "&தொடர்பு அறிமுகம்"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "தொடர்பை ஏற்றுகிறது..."
+
+#: src/iconsidepane.cpp:263
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr ""
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+
+#: src/iconsidepane.cpp:270
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+
+#: src/iconsidepane.cpp:277
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr ""
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+
+#: src/iconsidepane.cpp:287
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#: src/iconsidepane.cpp:291
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+
+#: src/iconsidepane.cpp:294
+#, fuzzy, kde-format
+#| msgid "Normal"
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "இயல்பான "
+
+#: src/iconsidepane.cpp:298
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+
+#: src/iconsidepane.cpp:301
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#: src/iconsidepane.cpp:305
+#, fuzzy, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr ""
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr ""
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, fuzzy, kde-format
+#| msgid "Always start with specified component:"
+msgid "Always start with plugin:"
+msgstr "எப்போதும் குறிப்பிட்ட பகுதியில் துவக்கு:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, fuzzy, kde-format
+#| msgid ""
+#| "Usually Kontact will come up with the component used before shutdown. "
+#| "Check this box if you would like a specific component to come up on start "
+#| "instead."
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"வழக்கமாக, கணினியை நிறுத்துவதற்கு முன் Kontact  அதன் பயன்படுத்தப்பட்ட பகுதியுடன் வரும். "
+"அதற்கு பதிலாக ஒரு குறிப்பிட்ட பகுதி உங்களுக்கு வேண்டுமென்றால் இந்த பெட்டியை "
+"தேர்ந்தெடுக்கவும்."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, fuzzy, kde-format
+#| msgid "Meeting"
+msgid "&Settings"
+msgstr "கூட்டம்"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "பிரதான கருவிப்பட்டை"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr ""
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "குறிப்பிடப்பட்ட Kontact கூறுகளிலிருந்து ஆரம்பி"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "சின்னமாக்கப்பட்ட (சிறிதாக்கப்பட்ட) வகையில் துவக்கு"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "சாத்தியமாகும் அனைத்து தொகுதிகளையும் பட்டியலிட்டு வெளியேறு"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "KDE தனிப்பட்ட தகவல் மேலாளர்"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "(சி) 2004 Tobias Koenig"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr ""
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr ""
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr ""
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr ""
+
+#: src/main.cpp:173
+#, fuzzy, kde-format
+#| msgid "(c), 2003 Cornelius Schumacher"
+msgid "Cornelius Schumacher"
+msgstr "(c), 2003 Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Tobias König"
+msgstr "(சி) 2004 Tobias Koenig"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr ""
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr ""
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr ""
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "உண்மையான ஆசிரியர்"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr ""
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr ""
+
+#: src/mainwindow.cpp:251
+#, fuzzy, kde-format
+#| msgid " Initializing..."
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr "துவக்குகிறது..."
+
+#: src/mainwindow.cpp:288
+#, fuzzy, kde-format
+#| msgid "New"
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "புதிய"
+
+#: src/mainwindow.cpp:293
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "கட்டமைவு Kontact..."
+
+#: src/mainwindow.cpp:294
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "கட்டமைவு Kontact..."
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+
+#: src/mainwindow.cpp:299
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "&தொடர்பு அறிமுகம்"
+
+#: src/mainwindow.cpp:300
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "&தொடர்பு அறிமுகம்"
+
+#: src/mainwindow.cpp:301
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "&தொடர்பு அறிமுகம்"
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr ""
+
+#: src/mainwindow.cpp:574
+#, fuzzy, kde-format
+#| msgid "Application is running standalone. Foregrounding..."
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "பயன்பாடு பின்னணியில் தனியாக இயங்கிக்கொண்டு இருக்கிறது"
+
+#: src/mainwindow.cpp:590
+#, fuzzy, kde-format
+#| msgid "Cannot load part for %1."
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "%1க்கான பகுதியை ஏற்று."
+
+#: src/mainwindow.cpp:658
+#, fuzzy, kde-format
+#| msgctxt "Plugin dependent window title"
+#| msgid "%1 - Kontact"
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr " %1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "KDE சொந்த தகவல் மேலாளர் பிரிவு"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "கையேட்டை படி"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "Kontact மற்றும் அதன் பகுதிகளைப் பற்றி அதிக தெரிந்துகொள்"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "Kontact வலைத்தளத்திற்கு செல்"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "வலைத்தள மூலங்கள் மற்றும் பயிற்சிநிலையங்களை அணுகு"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr ""
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgid "Prepare Kontact for use in corporate networks"
+msgid "Prepare Kontact for use"
+msgstr "ஒரே அமைப்பு வலைப்பின்னல்களில் பயன்படுத்த Kontactஐ தயாரிக்கவும்"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#, fuzzy
+#~| msgid "Plugin Developer"
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "சொருகுப்பொருள் மேம்பாட்டாளர்"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "(சி) 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Kontact யைப் பற்றி"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Kontact   கொள்கலன்கள் "
+
+#~ msgid "No about information available."
+#~ msgstr "இதைப் பற்றிய தகவல்கள் இல்லை"
+
+#, fuzzy
+#~| msgid "Version %1</p>"
+#~ msgid "Version %1"
+#~ msgstr "பதிப்பு %1</p>"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>ஆசிரியர்கள்:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>க்கு நன்றி:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>மொழிபெயர்ப்பாவர்Translators:</b></p>"
+
+#~ msgid "%1 License"
+#~ msgstr "%1 உரிமம்"
+
+#~ msgid "kontactsummary"
+#~ msgstr "Kontact சுருக்கம் "
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "KDE Kontact  சுருக்கம் "
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(சி), 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Tobias Koenig"
+#~ msgstr "(சி) 2004 Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&கட்டமை சுருக்கம் தோற்றம்..."
+
+#, fuzzy
+#~| msgid "&Configure Summary View..."
+#~ msgid "Configure the summary view"
+#~ msgstr "&கட்டமை சுருக்கம் தோற்றம்..."
+
+#~ msgid "Summary for %1"
+#~ msgstr "%1க்கான சுருக்கம் "
+
+#~ msgid "What's next?"
+#~ msgstr "அடுத்து என்ன?"
+
+#, fuzzy
+#~| msgid "All"
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "அனைத்தும்"
+
+#, fuzzy
+#~| msgid "All"
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "அனைத்தும்"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Kontact  சுருக்கம் "
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Kontact  சுருக்கம் தோற்றம்"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(சி) 2001-2004 Kontact  உருவாக்குபவர்கள்"
+
+#, fuzzy
+#~| msgid ""
+#~| "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</"
+#~| "h2>"
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#, fuzzy
+#~| msgid "Get Organized!"
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "நிறுவப்பட்டது!"
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p>%1</p><table align=\"center\"><tr><td><a href=\"%1\"><img width="
+#~ "\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr><tr><td><a href=\"%1\"><img "
+#~ "width=\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr><tr><td><a href=\"%1\"><img "
+#~ "width=\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr></table><p style=\"margin-"
+#~ "bottom: 0px\"> <a href=\"%1\">Skip this introduction</a></p>"
+
+#, fuzzy
+#~| msgid "&Tip of the Day"
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&நாள் குறிப்பு"
+
+#, fuzzy
+#~| msgid "New Feed..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "புதிய உள்ளீடு..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "பார்வை & தொடர்பு "
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "பார்வை & தொடர்பு "
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmk அஞ்சல் சுருக்கம் "
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "அஞ்சல் சுருக்கம் கட்டமை உரையாடல்"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "(சி) 2004 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "ஆவணத்திற்கான முழு வழியையும் காட்டு"
+
+#, fuzzy
+#~| msgid "Show full path for folders"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "ஆவணத்திற்கான முழு வழியையும் காட்டு"
+
+#, fuzzy
+#~| msgid "New Message..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "புதிய செய்தி..."
+
+#, fuzzy
+#~| msgid "Send &Mail"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "&அஞ்சலை அனுப்பு"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "பார்வை & தொடர்பு "
+
+#~ msgid "New Messages"
+#~ msgstr "புதிய செய்திகள்"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr " %1 / %2"
+
+#, fuzzy
+#~| msgid "kcmkorgsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmkorg சுருக்கம் "
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "அஞ்சல் சுருக்கம் கட்டமை உரையாடல்"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "நிலைப்படுத்துபவர்"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "புதிய"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "புதிய செய்யவேண்டியவைகள்..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "மாற்றுப்பெயர்"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "தேர்ந்தெடுக்கபட்டது"
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "பகுதிகளை தேர்ந்தெடு..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "பகுதிகளை தேர்ந்தெடு..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Preferences KNotes..."
+#~ msgstr "பகுதிகளை தேர்ந்தெடு..."
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "குறிப்புகளைத் தொகு"
+
+#, fuzzy
+#~ msgid "Create new note"
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "அந்த குறிப்பினை நீக்குவதற்க்கு உங்களுக்கு விருப்பமா?"
+#~ msgstr[1] "இந்த %1  குறிப்புகளை நீக்குவதற்க்கு உங்களுக்கு விருப்பமா?"
+
+#, fuzzy
+#~| msgid "Confirm Delete"
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "நீக்குதலை சரிபார்"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "பெயர்:"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Show Note..."
+#~ msgstr "புதிய குறிப்பு..."
+
+#, fuzzy
+#~| msgid "Meeting"
+#~ msgid "Settings"
+#~ msgstr "கூட்டம்"
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "புதிய செய்யவேண்டியவைகள்..."
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "புதிய குறிப்பு..."
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "குறிப்புகள்"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "குறிப்புகளைத் தொகு"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "(சி) 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "நிலைப்படுத்துபவர்"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "நிலைப்படுத்துபவர்"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "நிலைப்படுத்துபவர்"
+
+#, fuzzy
+#~| msgid "Meeting"
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "கூட்டம்"
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "குறிப்புகள்"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "புதிய குறிப்பு..."
+
+#, fuzzy
+#~| msgid "Drops of multiple mails are not supported."
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "பலஅஞ்சல் விடுவது ஆதரிக்கப்படாது."
+
+#, fuzzy
+#~| msgid ""
+#~| "From: %1\n"
+#~| "To: %2\n"
+#~| "Subject: %3"
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+
+#, fuzzy
+#~| msgid "Mail: %1"
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "அஞ்சல்: %1"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "பார்வை & தொடர்பு "
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "குறிப்புகளைத் தொகு"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "பெயர்:"
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Search notes..."
+#~ msgstr "பகுதிகளை தேர்ந்தெடு..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "பகுதிகளை தேர்ந்தெடு..."
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgid "Popup Notes"
+#~ msgstr "குறிப்புகளைத் தொகு"
+
+#, fuzzy
+#~| msgid "No service found"
+#~ msgid "No note found"
+#~ msgstr "சேவை இல்லை"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "புதிய குறிப்பு..."
+
+#, fuzzy
+#~| msgid "Delete Feed"
+#~ msgid "Delete Note..."
+#~ msgstr "உள்ளீட்டை நீக்கு"
+
+#, fuzzy
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Event Summary Configuration"
+#~ msgstr "அஞ்சல் சுருக்கம் கட்டமை உரையாடல்"
+
+#, fuzzy
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "விசேஷ தேதிகள்"
+
+#, fuzzy
+#~ msgid "Show events for today only"
+#~ msgstr "இன்றைய பணியைக் காட்டு"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today only"
+#~ msgstr "இன்று"
+
+#, fuzzy
+#~ msgid "Show events starting within the next month"
+#~ msgstr "%1 நாட்களுக்குள் எந்த விசேஷ நாட்கள் எதுவும் இல்லை"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "1 day"
+#~ msgstr "நாள்"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr "நாள்"
+
+#, fuzzy
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "நாட்காட்டியில் இருந்து விசேஷ தினங்களைக் காட்டு"
+
+#, fuzzy
+#~ msgid "Show &birthdays"
+#~ msgstr "அனைத்து பிறந்த தேதிகளை காட்டு"
+
+#, fuzzy
+#~ msgid "Show &anniversaries"
+#~ msgstr "அனைத்து ஆண்டுவிழாக்களை காட்டு"
+
+#, fuzzy
+#~| msgid "News Feed Settings"
+#~ msgid "Groupware Settings"
+#~ msgstr "செய்திகள் உள்ளீட்டு அமைப்புகள்"
+
+#, fuzzy
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "இன்றைய பணியைக் காட்டு"
+
+#, fuzzy
+#~ msgid "Show &my events only"
+#~ msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#, fuzzy
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "%1 நாட்களுக்குள் எந்த விசேஷ நாட்கள் எதுவும் இல்லை"
+
+#, fuzzy
+#~ msgid "&Edit Appointment..."
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~ msgid "&Delete Appointment"
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~| msgid "New Journal..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "புதிய பத்திரிகை..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~| msgid "New Journal..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "புதிய பத்திரிகை..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "பார்வை & தொடர்பு "
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] "நாள்"
+#~ msgstr[1] "நாட்கள்"
+
+#, fuzzy
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "விசேஷ தேதிகள் வடிவமைப்பு உரையாடல் பெட்டி"
+
+#, fuzzy
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "விசேஷ தேதிகள் வடிவமைப்பு உரையாடல் பெட்டி"
+
+#, fuzzy
+#~| msgid "New Event..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "புதிய நிகழ்ச்சி..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "செயற்படு நாள்காட்டி"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "பார்வை & தொடர்பு "
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "இன்று"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "நாளை"
+
+#, fuzzy
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "1 நாளில்"
+#~ msgstr[1] "%1 நாட்களில்"
+
+#~ msgid "now"
+#~ msgstr "இப்போது"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "all day"
+#~ msgstr "நாள்"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "குறிப்புகள்"
+
+#, fuzzy
+#~| msgid "New To-do..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "புதிய செய்யவேண்டியவைகள்..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "பார்வை & தொடர்பு "
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "பார்வை & தொடர்பு "
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "அஞ்சல் சுருக்கம் கட்டமை உரையாடல்"
+
+#, fuzzy
+#~ msgid "Show To-dos Due"
+#~ msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#, fuzzy
+#~ msgid "Show To-dos due today only"
+#~ msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#, fuzzy
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "%1 நாட்களுக்குள் எந்த விசேஷ நாட்கள் எதுவும் இல்லை"
+
+#, fuzzy
+#~ msgid "Hide completed To-dos"
+#~ msgstr "உள்ளீட்டை நீக்கு"
+
+#, fuzzy
+#~ msgid "&Completed"
+#~ msgstr "உள்ளீட்டை நீக்கு"
+
+#, fuzzy
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "நடைபெறுகிறது"
+
+#, fuzzy
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "செய்யவேண்டியவைகள்"
+
+#, fuzzy
+#~ msgid "Show &my To-dos only"
+#~ msgstr "இன்றைய பணியைக் காட்டு"
+
+#, fuzzy
+#~ msgid "Pending To-dos"
+#~ msgstr "செய்யவேண்டியவைகள்"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "இன்று"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "நாளை"
+
+#, fuzzy
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "நாள்"
+#~ msgstr[1] "நாட்கள்"
+
+#, fuzzy
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "காலங்கடந்த தவணை"
+
+#, fuzzy
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "%1 நாட்களுக்குள் எந்த விசேஷ நாட்கள் எதுவும் இல்லை"
+
+#, fuzzy
+#~ msgid "&Edit To-do..."
+#~ msgstr "புதிய செய்யவேண்டியவைகள்..."
+
+#, fuzzy
+#~ msgid "&Delete To-do"
+#~ msgstr "உள்ளீட்டை நீக்கு"
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "காலங்கடந்த தவணை"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "இன்றே துவங்குக"
+
+#, fuzzy
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "உள்ளீட்டை நீக்கு"
+
+#, fuzzy
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "நடைபெறுகிறது"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "விசேஷ தேதிகள் வடிவமைப்பு உரையாடல் பெட்டி"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "விசேஷ தேதிகளின் சுருக்கம்"
+
+#, fuzzy
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "விசேஷ தேதிகள்"
+
+#, fuzzy
+#~ msgid "Show special occasions for today only"
+#~ msgstr "நாட்காட்டியில் இருந்து விசேஷ தினங்களைக் காட்டு"
+
+#, fuzzy
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "%1 நாட்களுக்குள் எந்த விசேஷ நாட்கள் எதுவும் இல்லை"
+
+#, fuzzy
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "நாட்காட்டியில் இருந்து விசேஷ தினங்களைக் காட்டு"
+
+#, fuzzy
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "நாட்காட்டியில் இருந்து விசேஷ தினங்களைக் காட்டு"
+
+#, fuzzy
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "அனைத்து ஆண்டுவிழாக்களை காட்டு"
+
+#, fuzzy
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "நாட்காட்டியில் இருந்து விசேஷ தினங்களைக் காட்டு"
+
+#, fuzzy
+#~ msgid "Show &holidays"
+#~ msgstr "அனைத்து பிறந்த தேதிகளை காட்டு"
+
+#, fuzzy
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "நாட்காட்டியில் இருந்து விசேஷ தினங்களைக் காட்டு"
+
+#, fuzzy
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "விசேஷ நிகழ்வு"
+
+#, fuzzy
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "விசேஷ தேதிகள் வடிவமைப்பு உரையாடல் பெட்டி"
+
+#, fuzzy
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "அனைத்து பிறந்த தேதிகளை காட்டு"
+
+#, fuzzy
+#~ msgid "Show birth&days"
+#~ msgstr "அனைத்து பிறந்த தேதிகளை காட்டு"
+
+#, fuzzy
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "அனைத்து ஆண்டுவிழாக்களை காட்டு"
+
+#, fuzzy
+#~ msgid "Show anni&versaries"
+#~ msgstr "அனைத்து ஆண்டுவிழாக்களை காட்டு"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "விசேஷ தேதிகள்"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "இன்று"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "நாளை"
+
+#~ msgid "Birthday"
+#~ msgstr "பிறந்தநாள்"
+
+#~ msgid "Anniversary"
+#~ msgstr "திருமண நாள்"
+
+#~ msgid "Holiday"
+#~ msgstr "விடுமுறை"
+
+#~ msgid "Special Occasion"
+#~ msgstr "விசேஷ நிகழ்வு"
+
+#, fuzzy
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "ஒரு ஆண்டு"
+#~ msgstr[1] "%1 ஆண்டுகள்"
+
+#, fuzzy
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "%1 நாட்களுக்குள் எந்த விசேஷ நாட்கள் எதுவும் இல்லை"
+
+#~ msgid "Send &Mail"
+#~ msgstr "&அஞ்சலை அனுப்பு"
+
+#~ msgid "View &Contact"
+#~ msgstr "பார்வை &தொடர்பு "
+
+#, fuzzy
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "%1-க்கு அஞ்சல்"
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "விசேஷ தேதிகளின் சுருக்கம்"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Kontactன் விசேஷ தேதிகள் சுருக்கம்"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgid "Current Maintainer"
+#~ msgstr "நிலைப்படுத்துபவர்"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "புதிய செய்திகள்"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "புதிய செய்திகள்"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "பார்வை & தொடர்பு "
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "பார்வை & தொடர்பு "
+
+#, fuzzy
+#~| msgid "New Article..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "புதிய தலைப்பு..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "குறிப்புகளைத் தொகு"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "குறிப்புகளைத் தொகு"
+
+#, fuzzy
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "புதிய செய்திகள்"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "புதிய தொடர்பு..."
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "அஞ்சல் சுருக்கம் கட்டமை உரையாடல்"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "இன்று"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "நாளை"
+
+#, fuzzy
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "%1 நாட்களுக்குள் எந்த விசேஷ நாட்கள் எதுவும் இல்லை"
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "காலங்கடந்த தவணை"
+
+#, fuzzy
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "நடைபெறுகிறது"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "இன்றே துவங்குக"
+
+#, fuzzy
+#~| msgid "ends today"
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "இன்றே நிறைவுறு"
+
+#, fuzzy
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "உள்ளீட்டை நீக்கு"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "அஞ்சல் சுருக்கம் கட்டமை உரையாடல்"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "General Configuration"
+#~ msgstr "அஞ்சல் சுருக்கம் கட்டமை உரையாடல்"
+
+#, fuzzy
+#~ msgid "Show recurrence icon"
+#~ msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#, fuzzy
+#~ msgid "Show reminder icon"
+#~ msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#, fuzzy
+#~ msgid "Underline links in descriptions"
+#~ msgstr "செய்யவேண்டியவைகள்"
+
+#, fuzzy
+#~ msgid "Underline links"
+#~ msgstr "செய்யவேண்டியவைகள்"
+
+#, fuzzy
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#, fuzzy
+#~ msgid "Show To-dos in planner"
+#~ msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#, fuzzy
+#~ msgid "Show special dates in the summary"
+#~ msgstr "விசேஷ தேதிகள்"
+
+#, fuzzy
+#~ msgid "Show special dates in planner"
+#~ msgstr "விசேஷ தேதிகள்"
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgid "Show Calendar Events"
+#~ msgstr "செயற்படு நாள்காட்டி"
+
+#, fuzzy
+#~ msgid "To-dos"
+#~ msgstr "செய்யவேண்டியவைகள்"
+
+#, fuzzy
+#~ msgid "Hide completed to-dos"
+#~ msgstr "உள்ளீட்டை நீக்கு"
+
+#, fuzzy
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "உள்ளீட்டை நீக்கு"
+
+#, fuzzy
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "நடைபெறுகிறது"
+
+#, fuzzy
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "செய்யவேண்டியவைகள்"
+
+#, fuzzy
+#~ msgid "Special Dates"
+#~ msgstr "விசேஷ தேதிகள்"
+
+#, fuzzy
+#~ msgid "Show these Special Dates"
+#~ msgstr "விசேஷ தேதிகள்"
+
+#, fuzzy
+#~ msgid "Show birthdays from address book"
+#~ msgstr "அனைத்து பிறந்த தேதிகளை காட்டு"
+
+#, fuzzy
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "அனைத்து ஆண்டுவிழாக்களை காட்டு"
+
+#, fuzzy
+#~ msgid "Show holidays from calendar"
+#~ msgstr "நாட்காட்டியில் இருந்து விசேஷ தினங்களைக் காட்டு"
+
+#, fuzzy
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "நாட்காட்டியில் இருந்து விசேஷ தினங்களைக் காட்டு"
+
+#, fuzzy
+#~| msgid "Summary"
+#~ msgid "Planner Summary"
+#~ msgstr "சுருக்கம் "
+
+#, fuzzy
+#~| msgid "Kontact Summary"
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Kontact  சுருக்கம் "
+
+#~ msgid "Active Calendar"
+#~ msgstr "செயற்படு நாள்காட்டி"
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgid "Default Calendar"
+#~ msgstr "செயற்படு நாள்காட்டி"
+
+#, fuzzy
+#~| msgid "Birthday"
+#~ msgid "Birthdays"
+#~ msgstr "பிறந்தநாள்"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~ msgid "No Notes Available"
+#~ msgstr "தகவல்கள் எதுவும் இல்லை"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "பார்வை & தொடர்பு "
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "பார்வை & தொடர்பு "
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "பார்வை & தொடர்பு "
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(சி) 2001-2003 The Kontact  உருவாக்குபவர்கள்"
+
+#, fuzzy
+#~| msgid "Configure Kontact as Groupware Client"
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Kontactஐ குழுவாரி உறுப்பினராக வடிவமை"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "பிறந்தநாள்:"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "திருமண நாள்"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "விடுமுறை நாள்"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "விசேஷ நிகழ்வு"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(சி) 2001-2004 Kontact  உருவாக்குபவர்கள்"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(சி) 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(c) 2004-2005 KDE PIM குழு"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "உள்"
+
+#~ msgid "Summary"
+#~ msgstr "சுருக்கம் "
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontact  கட்டமைவு "
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid " days"
+#~ msgstr "நாள்"
+
+#, fuzzy
+#~ msgid "Rename"
+#~ msgstr "மாற்றுப்பெயர்"
+
+#, fuzzy
+#~ msgid "Show &anniveraries"
+#~ msgstr "அனைத்து ஆண்டுவிழாக்களை காட்டு"
+
+#, fuzzy
+#~| msgid "New Feed..."
+#~ msgid "New SMS..."
+#~ msgstr "புதிய உள்ளீடு..."
+
+#~ msgid "New News Feed"
+#~ msgstr "செய்திகள் உள்ளிடப்படவில்லை"
+
+#~ msgid "URL:"
+#~ msgstr "வலைமனை:"
+
+#~ msgid "Arts"
+#~ msgstr "கலைகள்"
+
+#~ msgid "Business"
+#~ msgstr "வியாபாரம்"
+
+#~ msgid "Computers"
+#~ msgstr "கணினிகள்"
+
+#~ msgid "Misc"
+#~ msgstr "இதர"
+
+#~ msgid "Recreation"
+#~ msgstr "கேளிக்கை"
+
+#~ msgid "Society"
+#~ msgstr "சமூகம்"
+
+#~ msgid "Custom"
+#~ msgstr "தனிப்பயன்"
+
+#~ msgid "All"
+#~ msgstr "அனைத்தும்"
+
+#~ msgid "Selected"
+#~ msgstr "தேர்ந்தெடுக்கபட்டது"
+
+#~ msgid "Refresh time:"
+#~ msgstr "புதுப்பிக்கும் நேரம்:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "காட்டப்படும் உருப்படிகளின் எண்ணிக்கை:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Newsticker வடிவமைப்பு உரையாடல் பெட்டி"
+
+#~ msgid "News Feeds"
+#~ msgstr "செய்திகளை உள்ளீடுகிறது"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "rss dcop சேவை இல்லை.\n"
+#~ "இந்த சொருகுப்பொருளைப் பயன்படுத்த rssservice தேவைப்படுகிறது."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "வலைமனையை பிடிப்புப்பலகைக்கு நகல் எடு"
+
+#~ msgid "Weather Information"
+#~ msgstr "வானிலை தகவல்கள்"
+
+#, fuzzy
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "சூழல் விடு சேவைகள் கிடைக்கவில்லை;\n"
+#~ "தங்களுக்கு Kசூழல் உள்ளீட்டை பயன்படுத்த தேவைப்படுகிறது."
+
+#~ msgid "Wind Speed"
+#~ msgstr "காற்று வேகம் "
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "சார்பு ஈரப்பதம்"
+
+#, fuzzy
+#~ msgid "View Weather Report for Station"
+#~ msgstr "வானிலை தகவல்கள்"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "முன்னேற்றம் மற்றும் அதிக குறிமுறையை  செம்மைசெய்   "
+
+#~ msgid "Unknown"
+#~ msgstr "அறியாத"
+
+#, fuzzy
+#~ msgid "Show To-dos"
+#~ msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "விசேஷ தேதிகளின் சுருக்கம்"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "முன்னிருப்பு K-ஒழுங்கமைப்பர் மூலம்"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "இன்று"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "நாளை"
+
+#, fuzzy
+#~ msgid "Show Birthdays from Contact List"
+#~ msgstr "விசேஷ தேதிகள் வடிவமைப்பு உரையாடல் பெட்டி"
+
+#, fuzzy
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "விசேஷ தேதிகள் வடிவமைப்பு உரையாடல் பெட்டி"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "Today only"
+#~ msgstr "இன்று"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos starting today"
+#~ msgstr "இன்றே துவங்குக"
+
+#, fuzzy
+#~| msgid "No to-dos pending"
+#~ msgid "To-dos ending today"
+#~ msgstr "செய்யவேண்டியவைகள் இல்லை"
+
+#~ msgid "One day"
+#~ msgstr "ஒரு நாள்"
+
+#~ msgid "Five days"
+#~ msgstr "ஐந்து நாட்கள்"
+
+#~ msgid "One week"
+#~ msgstr "ஒரு வாரம்"
+
+#~ msgid "One month"
+#~ msgstr "ஒரு மாதம்"
+
+#, fuzzy
+#~ msgid "Show all to-dos"
+#~ msgstr "அனைத்து பணிகளையும் காட்டு"
+
+#, fuzzy
+#~ msgid "Starting to-dos"
+#~ msgstr "செய்யவேண்டியவைகள்"
+
+#, fuzzy
+#~ msgid "Ending to-dos"
+#~ msgstr "செய்யவேண்டியவைகள்"
+
+#, fuzzy
+#~ msgid "To-dos in progress"
+#~ msgstr "நடைபெறுகிறது"
+
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "கட்டமை உரையாடலை வகைப்படுத்து"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today"
+#~ msgstr "இன்று"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "வகை'%1'-க்கு விட்டுத் தாங்குதல் இயலாது"
+
+#~ msgid "Notes Management"
+#~ msgstr "குறிப்புகள் மேலாண்மை"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "குறும்பட அளவு"
+
+#, fuzzy
+#~| msgid "Large"
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "பெரிய"
+
+#, fuzzy
+#~| msgid "Small"
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "சிறிய"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgid "Synchronize"
+#~ msgstr "குறும்பட அளவு"
+
+#~ msgid "Name"
+#~ msgstr "பெயர்"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr ""
+#~ "கூட்டு தொகுப்புக் காட்சியில் தெரிய வேண்டுவனவற்றின் கூட்டு உள்ளீட்டை தாங்கள் இங்கிருந்தே "
+#~ "தேர்ந்தெடுக்க இயலும்."
+
+#~ msgid "&Request Feature..."
+#~ msgstr "விருப்ப பண்புகள்..."
+
+#, fuzzy
+#~ msgid "&Refresh Summary View..."
+#~ msgstr "&கட்டமை சுருக்கம் தோற்றம்..."
+
+#~ msgid ""
+#~ "Program error: the .desktop file for the service does not have a Library "
+#~ "key."
+#~ msgstr "நிரல் பிழை: .மேல்மேசை கோப்பில் நூலக விசை இல்லை."
+
+#~ msgid "Program error: the library %1 does not provide a factory."
+#~ msgstr "நிரல் பிழை: நூலகம் %1 ஒரு தொழிலகத்தை வழங்கவில்லை."
+
+#~ msgid ""
+#~ "Program error: the library %1 does not support creating components of the "
+#~ "specified type"
+#~ msgstr "நிரல் பிழை: குறிபிட்ட வகையின் உருவாக்கும் பகுதிகளை நூலகம் %1 ஆதரிக்கவில்லை"
+
+#~ msgid "Appointments"
+#~ msgstr "சந்திப்புகள்"
+
+#, fuzzy
+#~ msgid "How many days should the calendar show at once?"
+#~ msgstr "எத்தனை நாட்களுக்கு ஒரு முறை நாள்காட்டியைக் காட்ட வேண்டும்?"
+
+#~ msgid "KPilot Information"
+#~ msgstr "Kவிமானி தகவல்கள்"
+
+#~ msgid ""
+#~ "KPilot - HotSync software for KDE\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Kவிமானி - HotSync  KDE க்கான மென்பொருள்\n"
+#~ "\n"
+
+#~ msgid "Project Leader"
+#~ msgstr "திட்டப்பணித் தலைவர்"
+
+#~ msgid "<i>Last sync:</i>"
+#~ msgstr "<i>கடைசி sync:</i>"
+
+#~ msgid "No information available"
+#~ msgstr "தகவல்கள் எதுவும் இல்லை"
+
+#~ msgid "[View Sync Log]"
+#~ msgstr "[View Sync Log]"
+
+#~ msgid "<i>User:</i>"
+#~ msgstr "<i>பயனர்:</i>"
+
+#~ msgid "<i>Device:</i>"
+#~ msgstr "<i>சாதனம்:</i>"
+
+#~ msgid "<i>Status:</i>"
+#~ msgstr "<i>நிலைமை:</i>"
+
+#~ msgid "No communication with the daemon possible"
+#~ msgstr "டேமென்னோடு தகவல் தொடர்பு கொள்ள இயலாது"
+
+#~ msgid "<i>Conduits:</i>"
+#~ msgstr "<i>காண்டுயுட்:</i>"
+
+#~ msgid "KPilot is currently not running."
+#~ msgstr "KPilot தற்போது இயங்கவில்லை."
+
+#~ msgid "[Start KPilot]"
+#~ msgstr "[Start KPilot]"
+
+#~ msgid "unknown"
+#~ msgstr "அறியாத"
+
+#~ msgid "No information available (Daemon not running?)"
+#~ msgstr "தகவல்கள் இருக்கவில்லை (டேமொன் இயங்கவில்லையா?)"
+
+#~ msgid "KPilot HotSync Log"
+#~ msgstr "KPilot HotSync பதிவு"
+
+#~ msgid "Unable to open Hotsync log %1."
+#~ msgstr "Hotsync பதிவை %1 திறக்க இயலாது."
+
+#, fuzzy
+#~ msgid "How many days should the special dates summary show at once?"
+#~ msgstr "சுருக்கத் திரை எத்தனை நாட்களை விசேஷ தேதிகளாக ஒருமுறை காட்டவேண்டும்?"

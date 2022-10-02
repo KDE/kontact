@@ -1,0 +1,2194 @@
+# translation of kontact.po to
+# translation of kontact.po to Slovenian
+# Translation of kontact.po to Slovenian
+# Copyright (C) 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+#
+# Gregor Rakar <gregor.rakar@kiss.uni-lj.si>, 2003.
+# Gregor Rakar <gregor.rakar@kiss.si>, 2003, 2004, 2005.
+# Andrej Vernekar <andrej.vernekar@moj.net>, 2003, 2004, 2005, 2006, 2007, 2008, 2009.
+# Jure Repinc <jlp@holodeck1.com>, 2006, 2007, 2009, 2010, 2011, 2012.
+# Andrej Vernekar <andrej.vernerkar@moj.net>, 2008.
+# Andrej Mernik <andrejm@ubuntu.si>, 2015, 2016, 2017, 2018.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2022-01-03 09:14+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.04.3\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andrej Vernekar,Jure Repinc,Andrej Mernik"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "andrej.vernekar@moj.net,jlp@holodeck1.com,andrejm@ubuntu.si"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr "Dobrodošli v Kontactu %1"
+
+#: src/about/introduction_kontact.html:19
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact upravlja z vašo e-pošto, imenikom, koledarjem, seznamom opravil, itd."
+
+#: src/about/introduction_kontact.html:36
+msgid "Skip this introduction"
+msgstr "Preskoči ta uvod"
+
+#: src/about/loading_kontact.html:5
+msgid "Loading Kontact ..."
+msgstr "Nalaganje Kontacta ..."
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Pokaži samo ikone"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "Predmete v stranski vrstici pokaži z ikono in brez besedila"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"Izberite to možnost, če želite, da imajo predmeti v stranski vrstici ikono, "
+"a nimajo besedila."
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Pokaži samo besedilo"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "Predmete v stranski vrstici pokaži z besedilom in brez ikon"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"Izberite to možnost, če želite, da imajo predmeti v stranski vrstici "
+"besedilo, a nimajo ikon."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Pokaži ikone in besedilo"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "Predmete v stranski vrstici pokaži z ikono in besedilom"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+"Izberite to možnost, če želite, da imajo predmeti v stranski vrstici ikono "
+"in besedilo."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Velike ikone"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "V stranski vrstici pokaži velike ikone"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr "Izberite to možnost, če želite, da so ikone v stranski vrstici velike."
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Običajne ikone"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "V stranski vrstici pokaži običajne ikone"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+"Izberite to možnost, če želite, da so ikone v stranski vrstici običajne "
+"velikosti."
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Majhne ikone"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "V stranski vrstici pokaži majhne ikone"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr "Izberite to možnost, če želite, da so ikone v stranski vrstici majhne."
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr "Skrij stransko vrstico"
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr "Skrij stransko vrstico z ikonami"
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+"Izberite to možnost, če želite skriti stransko letvico z ikonami. Pritisnite "
+"F9 za njen ponovni prikaz."
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "Izberite začetni vstavek, ki bo uporabljen ob vsakem zagonu"
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+"S spustnega seznama izberite vstavek, ki bo ob vsakem zagonu Kontacta "
+"uporabljen kot začetni vstavek. V nasprotnem primeru si Kontact zapomni "
+"nazadnje dejaven vstavek."
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "Trenutno dejaven vstavek"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "Vedno začni z vstavkom:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "Nastavi začetni vstavek za vsak zagon"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Običajno se bo Kontact zagnal z vstavkom, ki se je uporabljal pred izklopom. "
+"Označite to polje, če bi ob zagonu raje videli točno določen vstavek."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr "Pokaži stransko vrstico s sestavnimi deli"
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr "Preklopi stransko vrstico z ikonami"
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+"Za povečanje delovnega prostora se boste morda odločili za skritje stranske "
+"vrstice z ikonami. Odstranite oznako, da skrijete stransko vrstico s "
+"sestavnimi deli. Zapomnite si, da lahko za njen preklop uporabite tipko F9."
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&Datoteka"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "Pogled"
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "Na&stavitve"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "&Pomoč"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Glavna orodna vrstica"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "Krmar"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Začni z določenim modulom Kontacta"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Zaženi v skrčenem (ikonskem) načinu"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Izpiši seznam vseh razpoložljivih modulov in končaj"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "KDE-jev upravljalnik z osebnimi podatki"
+
+#: src/main.cpp:165
+#, kde-format
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "Copyright © 2001–%1 avtorji Kontacta"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Prvotni avtor"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr "Torgny Nyblom"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr "Prehod na Git"
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " Začenjanje ..."
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Novo"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Nastavi Kontact ..."
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Nastavi Kontact"
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+"Pojavilo se bo pogovorno okno, v katerem boste lahko nastavili Kontact."
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "Uvod v &Kontact"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Prikaži uvodno stran za Kontact"
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Izberite to možnost, da vidite uvodno stran za Kontact."
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr "Preklopi stransko vrstico s sestavnimi deli"
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr "Preklop stranske vrstice s sestavnimi deli"
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr "Omogoči preklop stranske vrstice s sestavnimi deli."
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "Preklopi na vstavek %1"
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Program teče samostojno. Premikanje v ospredje ..."
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Ni mogoče naložiti dela za %1."
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, kde-format
+msgid "The KDE Personal Information Management Suite."
+msgstr "KDE-jeva zbirka programov za upravljanje z osebnimi podatki."
+
+#: src/mainwindow.cpp:926
+#, kde-format
+msgid "Read Manual"
+msgstr "Preberite priročnik"
+
+#: src/mainwindow.cpp:927
+#, kde-format
+msgid "Learn more about Kontact and its components"
+msgstr "Naučite se več o Kontactu in njegovih sestavnih delih"
+
+#: src/mainwindow.cpp:930
+#, kde-format
+msgid "Visit Kontact Website"
+msgstr "Obiščite spletišče Kontacta"
+
+#: src/mainwindow.cpp:931
+#, kde-format
+msgid "Access online resources and tutorials"
+msgstr "Dostopajte do spletnih virov in vodnikov"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr "Nastavite svoje račune"
+
+#: src/mainwindow.cpp:935
+#, kde-format
+msgid "Prepare Kontact for use"
+msgstr "Pripravite Kontact za uporabo"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+"Stranska vrstica je skrita. Znova jo lahko pokažete s pritiskom na tipko %1."
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "© 2003 Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Razvijalec"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "O Kontactu"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Vsebnik Kontacta"
+
+#~ msgid "No about information available."
+#~ msgstr "Na voljo ni nobenih podatkov o programu."
+
+#~ msgid "Version %1"
+#~ msgstr "Različica %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Avtorji:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Zahvaljujoč:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Prevajalci:</b></p>"
+
+#~ msgid ""
+#~ "<br /><br />                     <i>This Free Software product was "
+#~ "improved as part of a commercial project:</i>                     "
+#~ "<h3>Credits</h3>                     Project Kowi (March 2007 - )<br /"
+#~ "><br />                                          <b>Production / Project "
+#~ "Coordination</b><br />                     Bernhard Reiter<br /"
+#~ ">                     <b>Director of Development</b><br /"
+#~ ">                     Till Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                Unit Lead<br /"
+#~ ">                Senior QA, Packaging<br />                QA, "
+#~ "Packaging<br />                Additional NSIS<br />                "
+#~ "Backup Coordinator                </td>                "
+#~ "<td>                Bernhard Reiter<br />                Bernhard "
+#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
+#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit Lead<br />                Development<br /"
+#~ ">                Development<br />                Additional D. + "
+#~ "Crypto<br />                Crypto GUI Development                </"
+#~ "td>                <td>                Till Adam<br />                "
+#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
+#~ "Frank Osterfeld<br />                Marc Mutz                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Crypto-Backend Porting<br />                "
+#~ "Crypto-Backend                </td>                <td>                "
+#~ "Werner Koch<br />                Marcus Brinkmann                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>External QA Darmstadt, basysKom GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit-Lead                </td>                "
+#~ "<td>                Dr. Stefan Werden                </td>                "
+#~ "</tr>                </table><br /><br />"
+#~ msgstr ""
+#~ "<br /><br />                     <i>Ta prosta programska oprema je bila "
+#~ "izboljšana v sklopu komercialnega projekta:</i>                     "
+#~ "<h3>Zasluge</h3>                     Projekt Kowi (marec 2007 - )<br /"
+#~ "><br />                                          <b>Razvoj, koordinacija "
+#~ "projekta</b><br />                     Bernhard Reiter<br /"
+#~ ">                     <b>Vodja razvoja</b><br />                     Till "
+#~ "Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>Enota Osnabr&uuml;ck, Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                Vodja enote<br /"
+#~ ">                Zagotavljanje kakovosti, pakiranje<br />                "
+#~ "Zagotavljanje kakovosti, pakiranje<br />                Dodaten NSIS<br /"
+#~ ">                Koordinacija varnostnega kopiranja             </"
+#~ "td>                <td>                Bernhard Reiter<br /"
+#~ ">                Bernhard Herzog<br />                Ludwig Reiter<br /"
+#~ ">                Emanuel Sch&uuml;tze<br />                Dr. Jan-Oliver "
+#~ "Wagner                </td>                </tr>                </"
+#~ "table>                <br /><br />                                <table "
+#~ "border=\"0\" width=\"100%\">                <tr>                <td "
+#~ "colspan=\"2\">                <b>Enota Berlin, Klar&auml;lvdalens "
+#~ "Datakonsult AB</b>                </td>                </"
+#~ "tr>                <tr>                <td width=\"60%\">                "
+#~ "Vodja enote<br />                Razvoj<br />                Razvoj<br /"
+#~ ">                Dodatno D. + šifriranje<br />                Razvoj "
+#~ "grafičnega vmesnika za šifriranje                </td>                "
+#~ "<td>                Till Adam<br />                Jaroslaw Staniek<br /"
+#~ ">                Volker Krause<br />                Frank Osterfeld<br /"
+#~ ">                Marc Mutz                </td>                </"
+#~ "tr>                </table>                <br /><br /"
+#~ ">                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>Enota D&uuml;sseldorf, g10 Code GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Predelava zaledja za šifriranje<br /"
+#~ ">                Zaledje za šifriranje                </"
+#~ "td>                <td>                Werner Koch<br />                "
+#~ "Marcus Brinkmann                </td>                </tr>                "
+#~ "</table>                <br /><br />                                "
+#~ "<table border=\"0\" width=\"100%\">                <tr>                "
+#~ "<td colspan=\"2\">                <b>Zunanje zagotavljanje kakovosti "
+#~ "Darmstadt, basysKom GmbH</b>                </td>                </"
+#~ "tr>                <tr>                <td width=\"60%\">                "
+#~ "Vodja enote                </td>                <td>                Dr. "
+#~ "Stefan Werden                </td>                </tr>                </"
+#~ "table><br /><br />"
+
+#~ msgid "%1 License"
+#~ msgstr "Licenca %1"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "Uskladi"
+
+#~ msgctxt "@title:column plugin name"
+#~ msgid "Summary Plugin Name"
+#~ msgstr "Ime vstavka za povzetek"
+
+#~ msgid "Select the plugin summaries to show on the summary page."
+#~ msgstr ""
+#~ "Izberite vstavke za povzetke, ki jih želite prikazati na strani s "
+#~ "povzetki."
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "Povzetek KDE-jevega Kontacta"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "©, 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&Nastavi prikaz povzetkov ..."
+
+#~ msgid "Configure the summary view"
+#~ msgstr "Nastavitev prikaza povzetkov"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Choosing this will show a dialog where you can select which summaries you "
+#~ "want to see and also allow you to configure the summaries to your liking."
+#~ msgstr ""
+#~ "Če izberete to, se bo prikazalo pogovorno okno, kjer lahko izberete "
+#~ "povzetke, ki jih želite videti. Povzetke lahko tudi prilagodite po svojem "
+#~ "okusu."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Povzetek za %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Kaj bo naslednje?"
+
+#~ msgid "Sync All"
+#~ msgstr "Uskladi vse"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Vse"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Vse"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Povzetek Kontacta"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Kontactov ogled povzetka"
+
+#, fuzzy
+#~| msgid "(c) 2003-2015 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "© 2003-2015 razvijalci Kontacta"
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Organizirajte se!"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Dobrodošli v Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Preskoči ta uvod</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&Namig dneva"
+
+#~ msgctxt "@info:status"
+#~ msgid "Show the Tip-of-the-Day dialog"
+#~ msgstr "Prikaži okno z namigom dneva"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog showing small tips to help you use "
+#~ "this program more effectively."
+#~ msgstr ""
+#~ "Prikazalo se bo pogovorno okno, ki prikazuje kratke namige za pomoč pri "
+#~ "učinkoviti uporabi programa."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Nov vir ..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr "Prikazalo se vam bo pogovorno okno, kjer lahko dodate nov vir."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Nov stik ..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite nov stik."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Nova skupina stikov ..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite novo skupino "
+#~ "stikov."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Uskladi stike"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "Izberite to možnost, da uskladite stike za skupinsko delo."
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Nastavitveno okno povzetka pošte"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "Avtorske pravice © 2004–2010 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Prikaži polno pot za mape"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Za vsako mapo prikaži polno pot"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Enable this option if you want to see the full path for each folder "
+#~ "listed in the summary. If this option is not enabled, then only the base "
+#~ "folder path will be shown."
+#~ msgstr ""
+#~ "Omogočite to možnost, če želite za vsako mapo v povzetku videti polno "
+#~ "pot. Če ta možnost ni omogočena, bo prikazana le pot do osnovne mape."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Novo sporočilo ..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and send a new "
+#~ "email message."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite in pošljete novo "
+#~ "e-poštno sporočilo."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Uskladi pošto"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "Izberite to možnost, da uskladite e-pošto za skupinsko delo."
+
+#~ msgid "New Messages"
+#~ msgstr "Nova sporočila"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>Skupaj: %2<br/>Neprebranih: %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "V nadziranih mapah ni neprebranih sporočil"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Odpri mapo: »%1«"
+
+#, fuzzy
+#~| msgid "kcmkorgsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmkorgsummary"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Nastavitveno okno povzetka pošte"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "Trenutni vzdrževalec"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "&Nova"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can add a new popup note."
+#~ msgstr "Prikazalo se vam bo pogovorno okno, kjer lahko dodate novo notico."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Urejanje ..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can modify an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko spremenite obstoječo "
+#~ "notico."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Preimenuj ..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can rename an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko preimenujete obstoječo "
+#~ "notico."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Izbriši"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be prompted if you really want to permanently remove the "
+#~ "selected popup note."
+#~ msgstr "Povprašani boste, ali res želite trajno odstraniti izbrano notico."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Natisni izbrane notice ..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be prompted to print the selected popup note."
+#~ msgstr "Povprašani boste, o tiskanju izbranih notic."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Natisni izbrane notice ..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Preferences KNotes..."
+#~ msgstr "Natisni izbrane notice ..."
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr "Za tiskanje notic najprej s seznama izberite želene notice."
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Natisni notice"
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Create new popup note"
+#~ msgid "Create new note"
+#~ msgstr "Ustvari novo notico"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Ali zares želite izbrisati teh %1 notic?"
+#~ msgstr[1] "Ali zares želite izbrisati to %1 notico?"
+#~ msgstr[2] "Ali zares želite izbrisati ti %1 notici?"
+#~ msgstr[3] "Ali zares želite izbrisati te %1 notice?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Potrdi brisanje"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Preimenuj notico"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Novo ime:"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "New Popup Note..."
+#~ msgid "Show Note..."
+#~ msgstr "Nova notica ..."
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgid "Settings"
+#~ msgstr "&Nastavitve"
+
+#~ msgid "&Edit"
+#~ msgstr "&Urejanje"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Nova notica ..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new popup note."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite novo notico."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "KNotes"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Notice"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Copyright © 2003–2010 Kontact authors"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "Avtorske pravice © 2003-2010 razvijalci Kontacta"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Trenutni vzdrževalec"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Trenutni vzdrževalec"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Trenutni vzdrževalec"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Srečanje"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Notica: %1"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Nova notica"
+
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Spuščanje več e-poštnih sporočil ni podprto."
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Od: %1\n"
+#~ "Za: %2\n"
+#~ "Zadeva: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Pošta: %1"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Sync Popup Notes"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Uskladi notice"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Urejanje notice"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Ime:"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Search notes..."
+#~ msgstr "Natisni izbrane notice ..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Natisni izbrane notice ..."
+
+#~ msgid "Popup Notes"
+#~ msgstr "Notice"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "New Popup Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "Nova notica ..."
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Delete popup note"
+#~ msgid "Delete Note..."
+#~ msgstr "Izbriši notico"
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Preberi notico: »%1«"
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Nastavitev povzetka dogodkov"
+
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Prikaži prihajajoče dogodke, ki se začnejo"
+
+#~ msgid "Show events for today only"
+#~ msgstr "Prikaži samo današnje dogodke"
+
+#~ msgid ""
+#~ "Check this box if you want to see events occurring on this date only."
+#~ msgstr ""
+#~ "Omogočite to možnost, če bi radi videli samo dogodke, ki se zgodijo na ta "
+#~ "datum."
+
+#~ msgid "&Today only"
+#~ msgstr "Sa&mo danes"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Prikaži dogodke, ki se začnejo čez manj kot mesec"
+
+#~ msgid ""
+#~ "Check this box if you want to see events that start sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Omogočite to možnost, če bi radi videli dogodke, ki se začnejo v "
+#~ "naslednjih 31 dneh."
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "Čez manj kot &mesec (31 dni)"
+
+#~ msgid "Select the days for showing upcoming events"
+#~ msgstr "Izberite dneve za prikazovanje prihajajočih dogodkov"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming events."
+#~ msgstr ""
+#~ "Omogočite to možnost, če želite določiti število dni v prihodnosti za "
+#~ "prihajajoče dogodke."
+
+#~ msgid "Within the &next:"
+#~ msgstr "Čez &manj kot:"
+
+#~ msgid "Set the number of days to show upcoming events"
+#~ msgstr "Nastavite število dni za prikazovanje prihajajočih dogodkov"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming events up to "
+#~ "1 year in the future."
+#~ msgstr ""
+#~ "Uporabite to vrtilno polje, da nastavite število dni za prikazovanje "
+#~ "prihajajočih dogodkov, ki so lahko največ eno leto v prihodnosti."
+
+#~ msgid "1 day"
+#~ msgstr "1 dan"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " dni"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Prikaži te prihajajoče dogodke s koledarja"
+
+#~ msgid ""
+#~ "Show birthdays from your calendar when also using the Birthday resource"
+#~ msgstr ""
+#~ "Prikaži rojstne dni s koledarja, tudi ko je v uporabi koledar Rojstni "
+#~ "dnevi"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Omogočite to možnost, da v povzetek prihajajočih dogodkov vključite tudi "
+#~ "rojstne dni s koledarja. Ta možnost je na voljo samo, če uporabljate "
+#~ "koledar Rojstni dnevi."
+
+#~ msgid "Show &birthdays"
+#~ msgstr "Prikaži ro&jstne dneve"
+
+#~ msgid ""
+#~ "Shows anniversaries from your calendar when using the Birthdays resource"
+#~ msgstr ""
+#~ "Prikaži obletnice s koledarja, ko je v uporabi koledar Rojstni dnevi"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Omogočite to možnost, da v povzetek prihajajočih dogodkov vključite tudi "
+#~ "obletnice s koledarja. Ta možnost je na voljo samo, če uporabljate "
+#~ "koledar Rojstni dnevi."
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "Prikaži o&bletnice"
+
+#~ msgid "Groupware Settings"
+#~ msgstr "Nastavitve skupinskega dela"
+
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Prikaži samo dogodke z mojih koledarjev"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show events belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Omogočite to možnost, če želite, da bodo v povzetku prikazani samo "
+#~ "dogodki z vaših koledarjev."
+
+#~ msgid "Show &my events only"
+#~ msgstr "Prikaži samo &moje dogodke"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "Prihajajoči dogodki"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "V naslednjih %1 dneh se ne začne noben dogodek"
+#~ msgstr[1] "V naslednjem %1 dnevu se ne začne noben dogodek"
+#~ msgstr[2] "V naslednjih %1 dneh se ne začne noben dogodek"
+#~ msgstr[3] "V naslednjih %1 dneh se ne začne noben dogodek"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "&Uredi zmenek ..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "&Zbriši zmenek"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Uredi dogodek: »%1«"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Nov dnevnik ..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Ustvari nov vnos v dnevnik"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new journal "
+#~ "entry."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite nov vnos za "
+#~ "dnevnik."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Uskladi dnevnik"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Uskladi dnevnik za skupinsko delo"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware journal entries."
+#~ msgstr ""
+#~ "Izberite to možnost, da uskladite vnose v dnevniku za skupinsko delo."
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] "v %1 dneh"
+#~ msgstr[1] "v %1 dnevu"
+#~ msgstr[2] "v %1 dneh"
+#~ msgstr[3] "v %1 dneh"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Nastavitveno okno za prihajajoče dogodke"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "Avtorske pravice © 2003–2004 Tobias Koenig\n"
+#~ "Avtorske pravice © 2005–2010 Allen Winter"
+
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Nastavitveno okno za čakajoča opravila"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Nov dogodek ..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Ustvari nov dogodek"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new event item."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite nov dogodek."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Uskladi koledar"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Uskladi koledar za skupinsko delo"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware events."
+#~ msgstr "Izberite to možnost, da uskladite koledar za skupinsko delo."
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Danes"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Jutri"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "v %1 dneh"
+#~ msgstr[1] "v %1 dnevu"
+#~ msgstr[2] "v %1 dneh"
+#~ msgstr[3] "v %1 dneh"
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "čez "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "%1 ur"
+#~ msgstr[1] "%1 uro"
+#~ msgstr[2] "%1 uri"
+#~ msgstr[3] "%1 ure"
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "%1 minut"
+#~ msgstr[1] "%1 minuto"
+#~ msgstr[2] "%1 minuti"
+#~ msgstr[3] "%1 minute"
+
+#~ msgid "now"
+#~ msgstr "sedaj"
+
+#~ msgid "all day"
+#~ msgstr "ves dan"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Naslednja: %1"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Novo opravilo ..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Ustvari novo opravilo"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new to-do item."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite novo opravilo."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Uskladi seznam opravil"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Uskladi seznam opravil za skupinsko delo"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "Izberite to možnost, da uskladite seznam opravil za skupinsko delo."
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Nastavitev povzetka planerja"
+
+#~ msgid "Show To-dos Due"
+#~ msgstr "Prikaži opravila, ki zapadejo"
+
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Prikaži samo opravila, ki zapadejo danes"
+
+#~ msgid "Check this box if you want to see To-dos due on this date only."
+#~ msgstr ""
+#~ "Omogočite to možnost, če bi radi videli samo opravila, ki zapadejo na ta "
+#~ "datum."
+
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "Prikaži opravila, ki zapadejo čez manj kot mesec"
+
+#~ msgid ""
+#~ "Check this box if you want to see To-dos that are due sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Omogočite to možnost, če bi radi videli opravila, ki zapadejo v "
+#~ "naslednjih 31 dneh."
+
+#~ msgid "Select the days for showing pending To-dos"
+#~ msgstr "Izberite dneve za prikazovanje čakajočih opravil"
+
+#~ msgid ""
+#~ "Check this box if you want specify the number of days in the future for "
+#~ "pending To-dos."
+#~ msgstr ""
+#~ "Omogočite to možnost, če želite določiti število dni v prihodnosti za "
+#~ "čakajoča opravila."
+
+#~ msgid "Set the number of days to show pending To-dos"
+#~ msgstr "Nastavite število dni za prikazovanje čakajočih opravil"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show pending To-dos up to 1 "
+#~ "year in the future."
+#~ msgstr ""
+#~ "Uporabite to vrtilno polje, da nastavite število dni za prikazovanje "
+#~ "čakajočih opravil, ki so lahko največ eno leto v prihodnosti."
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "Skrij naslednje vrste opravil"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Skrij zaključena opravila"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Omogočite to možnost, če ne želite videti opravil, ki so že bila "
+#~ "zaključena."
+
+#~ msgid "&Completed"
+#~ msgstr "&Zaključena"
+
+#~ msgid "Hide To-dos without a due date"
+#~ msgstr "Skrij opravila brez datuma zapadlosti"
+
+#~ msgid "Check this box if you do not want to see open-ended To-dos."
+#~ msgstr ""
+#~ "Omogočite to možnost, če ne želite videti opravil, ki nimajo določenega "
+#~ "konca."
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "&Brez zapadlosti"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "Skrij nepričeta opravila"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Omogočite to možnost, če ne želite videti opravil, ki imajo datum začetka "
+#~ "v prihodnosti."
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "&Nepričeta (začetni datum v prihodnosti)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "Skrij opravila, ki tečejo"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Omogočite to možnost, če ne želite videti opravil, ki so bila pričeta, a "
+#~ "še niso zaključena."
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "&V teku (pričeta, a ne zaključena)"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Skrij potekla opravila"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Omogočite to možnost, če ne želite videti opravila, ki so prek datuma "
+#~ "zapadlosti, a še niso bila zaključena."
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "&Potekla (prek datuma zapadlosti, a še ne zaključena)"
+
+#~ msgid "Show To-dos belonging to my calendars only"
+#~ msgstr "Prikaži samo opravila, z mojega koledarja"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show To-dos belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Omogočite to možnost, če želite, da bodo v povzetku prikazana samo "
+#~ "opravila z vaših koledarjev."
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Prikaži samo &moja opravila"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "Čakajoča opravila"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Danes"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Jutri"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "Pred %1 dnevi"
+#~ msgstr[1] "Pred %1 dnevom"
+#~ msgstr[2] "Pred %1 dnevoma"
+#~ msgstr[3] "Pred %1 dnevi"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "zapade"
+
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "V naslednjih %1 dneh ni nobenega čakajočega opravila"
+#~ msgstr[1] "V naslednjem %1 dnevu ni nobenega čakajočega opravila"
+#~ msgstr[2] "V naslednjih %1 dneh ni nobenega čakajočega opravila"
+#~ msgstr[3] "V naslednjih %1 dneh ni nobenega čakajočega opravila"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "&Uredi opravilo ..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "&Zbriši opravilo"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "&Označi opravilo kot zaključeno"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Uredi opravilo: »%1«"
+
+#~ msgid "open-ended"
+#~ msgstr "brez zapadlosti"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "poteklo"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "se začne danes"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "ni začeto"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "zaključeno"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "v teku "
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Nastavitveno okno za posebne prihajajoče datume"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Avtorske pravice © 2004 Tobias Koenig\n"
+#~ "Avtorske pravice © 2004–2010 Allen Winter"
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Nastavitev povzetka posebnih datumov"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Prikaži posebne datume, ki se začnejo"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Prikaži samo posebne priložnosti za danes"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions occurring on this "
+#~ "date only."
+#~ msgstr ""
+#~ "Omogočite to možnost, če bi radi videli samo posebne priložnosti, ki se "
+#~ "zgodijo na ta datum."
+
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Prikaži posebne priložnosti, ki se začnejo čez manj kot mesec"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions that start sometime "
+#~ "during the next 31 days."
+#~ msgstr ""
+#~ "Omogočite to možnost, če bi radi videli posebne priložnosti, ki se "
+#~ "začnejo v naslednjih 31 dneh."
+
+#~ msgid "Select the days for showing upcoming special occasions"
+#~ msgstr "Izberite dneve za prikazovanje prihajajočih posebnih priložnosti"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming special occasions."
+#~ msgstr ""
+#~ "Omogočite to možnost, če želite določiti število dni v prihodnosti za "
+#~ "prihajajoče posebne priložnosti."
+
+#~ msgid "Set the number of days to show upcoming special occasions"
+#~ msgstr ""
+#~ "Nastavite število dni za prikazovanje prihajajočih posebnih priložnosti"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming special "
+#~ "occasions up to one year in the future."
+#~ msgstr ""
+#~ "Uporabite to vrtilno polje, da nastavite število dni za prikazovanje "
+#~ "prihajajočih posebnih priložnosti, ki so lahko največ eno leto v "
+#~ "prihodnosti."
+
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Prikaži te posebne datume s koledarja"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Prikaži rojstne dni s koledarja"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Birthday\" category."
+#~ msgstr ""
+#~ "Omogočite to možnost, da v povzetek prihajajočih posebnih priložnosti "
+#~ "vključite tudi rojstne dni s koledarja. Običajno so to dogodki, ki so v "
+#~ "kategoriji »Rojstni dan«."
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Prikaži obletnice s koledarja"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Anniversary\" category."
+#~ msgstr ""
+#~ "Omogočite to možnost, da v povzetek prihajajočih posebnih priložnosti "
+#~ "vključite tudi obletnice s koledarja. Običajno so to dogodki, ki so v "
+#~ "kategoriji »Obletnica«."
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Prikaži praznike s koledarja"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the upcoming "
+#~ "special occasions summary. These are events from your configured holiday "
+#~ "region, or events with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Omogočite to možnost, da v povzetek prihajajočih posebnih priložnosti "
+#~ "vključite tudi praznike s koledarja. To so dogodki iz nastavljenega "
+#~ "prazničnega območja, ali pa dogodki v kategoriji »Praznik«."
+
+#~ msgid "Show &holidays"
+#~ msgstr "Prikaži pra&znike"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Prikaži posebne priložnosti s koledarja"
+
+#~ msgid ""
+#~ "Enable this option to include events from your calendar with the "
+#~ "\"special occasion\" category."
+#~ msgstr ""
+#~ "Omogočite to možnost, da vključite dogodke s koledarja, ki imajo "
+#~ "kategorijo »posebna priložnost«."
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Prikaži po&sebne priložnosti"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Prikaži te posebne datume s seznama stikov"
+
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Prikaži rojstne dni iz adresarja"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Omogočite to možnost, da v povzetek prihajajočih posebnih priložnosti "
+#~ "vključite tudi rojstne dni iz adresarja."
+
+#~ msgid "Show birth&days"
+#~ msgstr "Prikaži rojs&tne dneve"
+
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Prikaži obletnice iz adresarja"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Omogočite to možnost, da v povzetek prihajajočih posebnih priložnosti "
+#~ "vključite tudi obletnice iz adresarja."
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "Prikaži ob&letnice"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Posebni prihajajoči datumi"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Danes"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Jutri"
+
+#~ msgid "Birthday"
+#~ msgstr "Rojstni dan"
+
+#~ msgid "Anniversary"
+#~ msgstr "Obletnica"
+
+#~ msgid "Holiday"
+#~ msgstr "Praznik"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Posebna priložnost"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "v %1 letih"
+#~ msgstr[1] "v %1 letu"
+#~ msgstr[2] "v %1 letih"
+#~ msgstr[3] "v %1 letih"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Naslednji %1 dan ni posebnih datumov"
+#~ msgstr[1] "Naslednja %1 dneva ni posebnih datumov"
+#~ msgstr[2] "Naslednje %1 dni ni posebnih datumov"
+#~ msgstr[3] "Naslednjih %1 dni ni posebnih datumov"
+
+#~ msgid "Send &Mail"
+#~ msgstr "Pošlji &pošto"
+
+#~ msgid "View &Contact"
+#~ msgstr "Oglej si &stik"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Pošlji sporočilo na: »%1«"
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Povzetek posebnih datumov"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Kontactov povzetek posebnih datumov"
+
+#~ msgid ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Avtorske pravice © 2003 Tobias Koenig\n"
+#~ "Avtorske pravice © 2004–2010 Allen Winter"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "Trenutni vzdrževalec"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Nova stran KJots"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite novo stran KJots."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Nova beležnica KJots"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots book."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite novo beležnico "
+#~ "KJots."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Ustvari nov vir"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "Ustvari nov stik"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Ustvari novo skupino stikov"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Uskladi stike za skupinsko delo"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Ustvari novo stran KJots"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Ustvari novo beležnico KJots"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Ustvari novo e-poštno sporočilo"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Uskladi e-pošto za skupinsko delo"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Nov sestavek ..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Ustvari nov sestavek za novičarsko skupino"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new article to "
+#~ "post on Usenet."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite nov sestavek za "
+#~ "objavo v novičarski skupini."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Ustvari novo notico"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Urejanje notice"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Preimenuj notico"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Izbriši notico"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Natisni izbrane notice"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Ustvari novo notico"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Novo spremljanje časa"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Ustvari novo spremljanje časa"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and start a new "
+#~ "time tracker."
+#~ msgstr ""
+#~ "Prikazalo se vam bo pogovorno okno, kjer lahko ustvarite in začnete novo "
+#~ "spremljanje časa."
+
+#~ msgid "task_popup"
+#~ msgstr "task_popup"
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Nastavitveno okno povzetka planerja"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+#~ msgstr ""
+#~ "Avtorske pravice © 2004 Tobias Koenig\n"
+#~ "Avtorske pravice © 2006–2008 Oral Timocin\n"
+#~ "Avtorske pravice © 2009–2010 Allen Winter"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgid "Planner"
+#~ msgstr "Planer"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Danes"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Jutri"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Naslednjih %1 dni ni sestankov"
+#~ msgstr[1] "Naslednji %1 dan ni sestankov"
+#~ msgstr[2] "Naslednja %1 dni ni sestankov"
+#~ msgstr[3] "Naslednje %1 dni ni sestankov"
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "zapadlo"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Uredi zmenek: »%1«"
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "v teku"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "se začne danes"
+
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "zapade danes"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "končano"
+
+#~ msgid "%1%"
+#~ msgstr "%1 %"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Nastavitev povzetka planerja"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "Splošno"
+
+#~ msgid "General Configuration"
+#~ msgstr "Splošna nastavitev"
+
+#~ msgid "Show an icon indicating a recurring item"
+#~ msgstr "Prikaži ikono, ki označuje ponavljajočo postavko"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon that indicates an event or to-"
+#~ "do is recurring."
+#~ msgstr ""
+#~ "Omogočite to možnost, če želite videti ikono, ki nakazuje, da se dogodek "
+#~ "ali opravilo ponavlja."
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "Prikaži ikono ponavljanja"
+
+#~ msgid "Show an icon indicating the item has a reminder"
+#~ msgstr "Prikaži ikono, ki označuje, da ima postavka opomnik"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon indicating that the event or to-"
+#~ "do has a reminder."
+#~ msgstr ""
+#~ "Omogočite to možnost, če želite videti ikono, ki nakazuje, da ima dogodek "
+#~ "ali opravilo opomnik."
+
+#~ msgid "Show reminder icon"
+#~ msgstr "Prikaži ikono opomnika"
+
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Podčrtaj povezave v opisih"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr ""
+#~ "Omogočite to možnost, če želite, da so povezave do lokacij podčrtane."
+
+#~ msgid "Underline links"
+#~ msgstr "Podčrtaj povezave"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "V povzetku prikaži opravila"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr "Omogočite to možnost, če v povzetku želite videti tudi opravila."
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "V planerju prikaži opravila"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "V povzetku prikaži posebne datume"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr ""
+#~ "Omogočite to možnost, če v povzetku želite videti tudi posebne datume."
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "V planerju prikaži posebne datume"
+
+#~ msgid "Events"
+#~ msgstr "Dogodki"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "Prikaži dogodke s koledarja"
+
+#~ msgid "To-dos"
+#~ msgstr "Opravila"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Skrij zaključena opravila"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Omogočite to možnost, če ne želite videti opravil, ki so že bila "
+#~ "zaključena."
+
+#~ msgid "Hide to-dos without a due date"
+#~ msgstr "Skrij opravila brez datuma zapadlosti"
+
+#~ msgid "Check this box if you do not want to see open-ended to-dos."
+#~ msgstr ""
+#~ "Omogočite to možnost, če ne želite videti opravil, ki nimajo določenega "
+#~ "konca."
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Skrij nepričeta opravila"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Omogočite to možnost, če ne želite videti opravil, ki imajo datum začetka "
+#~ "v prihodnosti."
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "Skrij opravila, ki tečejo"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Omogočite to možnost, če ne želite videti opravil, ki so bila pričeta, a "
+#~ "še niso zaključena."
+
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Skrij potekla opravila"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Omogočite to možnost, če ne želite videti opravila, ki so prek datuma "
+#~ "zapadlosti, a še niso bila zaključena."
+
+#~ msgid "Special Dates"
+#~ msgstr "Posebni datumi"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "Prikaži te posebne datume"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Omogočite to možnost, da v povzetek planerja vključite tudi rojstne dni "
+#~ "iz adresarja."
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Prikaži rojstne dni iz adresarja"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Omogočite to možnost, da v povzetek planerja vključite tudi obletnice iz "
+#~ "adresarja."
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Prikaži obletnice iz adresarja"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the planner "
+#~ "summary. These are events from your configured holiday region, or events "
+#~ "with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Omogočite to možnost, da v povzetek planerja vključite tudi praznike s "
+#~ "koledarja. To so dogodki iz nastavljenega prazničnega območja, ali pa "
+#~ "dogodki v kategoriji »Praznik«."
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Prikaži praznike s koledarja"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Prikaži posebne priložnosti s koledarja"
+
+#~ msgid "Planner Summary"
+#~ msgstr "Povzetek planerja"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Povzetek planerja Kontacta"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Aktiven koledar"
+
+#~ msgid "Default Calendar"
+#~ msgstr "Privzeti koledar"
+
+#~ msgid "Birthdays"
+#~ msgstr "Rojstni dnevi"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmkabsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "Vstavek %1"

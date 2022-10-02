@@ -1,0 +1,1249 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym
+>PIM</acronym
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Italian "INCLUDE">
+]>
+
+<book id="kontact" lang="&language;">
+
+<bookinfo>
+
+<title
+>Manuale di &kontact;</title>
+
+<authorgroup>
+<author
+><firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+><address
+>&Cornelius.Schumacher.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Antonio</firstname
+> <surname
+>Salazar</surname
+> <affiliation
+><address
+><email
+>savedfastcool@gmail.com</email>
+    </address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+><address
+>&Daniel.Molkentin.mail;</address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Alessandro</firstname
+><surname
+>Pasotti</surname
+><affiliation
+><address
+><email
+>ale.pas@tiscalinet.it</email
+></address
+></affiliation
+><contrib
+>Traduzione del documento</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2003-2005</year
+><holder
+>&Cornelius.Schumacher;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-12-08</date>
+<releaseinfo
+>5.4.40 (Applications 16.12)</releaseinfo>
+
+<abstract
+><para
+>&kontact; è la soluzione integrata per la gestione delle informazioni personali (&PIM;). Combina in una singola interfaccia le ben note applicazioni &kde; come &kmail;, &korganizer; e &kaddressbook;, permettendo di accedere agevolmente alla posta, all'agenda, alla rubrica indirizzi e alle altre funzionalità &PIM;.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>KMail</keyword>
+<keyword
+>Organizer</keyword>
+<keyword
+>KAddressBook</keyword>
+<keyword
+>KNotes</keyword>
+<keyword
+>Akregator</keyword>
+<keyword
+>PIM</keyword>
+<keyword
+>groupware</keyword>
+<keyword
+>Outlook</keyword>
+<keyword
+>Evolution</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>Introduzione</title>
+
+<para
+>&kontact; è la soluzione integrata per la gestione delle informazioni personali (&PIM;, &quot;Personal Information Manager&quot;). Combina in una singola interfaccia le ben note applicazioni &kde; per la gestione della posta, gli appuntamenti, la rubrica indirizzi e gli appunti (&kmail;, &korganizer;, &kaddressbook; e &knotes;). &kontact; è basato su una reale struttura a componenti, e fornisce quindi esattamente le stesse funzionalità delle singole applicazioni che lo compongono aggiungendone però alcune, che sfruttano la possibilità di eseguire le singole applicazioni in maniera integrata come componenti. L'utente mantiene però piena libertà nella scelta di quali applicazioni eseguire all'interno di &kontact; e quali come programmi indipendenti.</para>
+
+<para
+>In aggiunta alle funzionalità delle singole applicazioni, &kontact; fornisce una vista riassuntiva e caratteristiche avanzate di trascinamento tra le applicazioni che lo compongono. </para>
+
+</chapter>
+
+
+<chapter id="components">
+<title
+>Componenti di &kontact;</title>
+
+<para
+>&kontact; integra le seguenti applicazioni. Fai riferimento ai manuali delle singole applicazioni per i dettagli su come utilizzarle, queste istruzioni si applicano sia all'uso all'interno di &kontact; sia all'uso come programmi indipendenti. </para>
+
+<variablelist>
+    <varlistentry>
+        <term
+><ulink url="help:/kmail2"
+>&kmail;</ulink
+></term>
+        <listitem
+><para
+>Il programma di posta elettronica di &kde;.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/korganizer"
+>&korganizer;</ulink
+></term>
+        <listitem
+><para
+>Il programma di calendario ed agenda di &kde;.</para>
+            </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/kaddressbook"
+>&kaddressbook;</ulink
+></term>
+        <listitem
+><para
+>Il gestore della rubrica di &kde;.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/knotes"
+>&knotes;</ulink
+></term>
+        <listitem
+><para
+>Il programma di note adesive di &kde;.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/akregator"
+>&akregator;</ulink
+></term>
+        <listitem
+><para
+>Il lettore di fonti RSS di &kde;.</para>
+            </listitem>
+    </varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="main-window">
+<title
+>La finestra principale di &kontact;</title>
+
+<para
+>La finestra principale consiste di un pannello laterale sulla sinistra, che mostra le icone dei componenti disponibili, di una vista principale sulla destra che contiene la finestra principale del componente attivo e delle consuete barre di stato, degli strumenti e dei menu.</para>
+
+<sect1 id="side-pane">
+<title
+>Il pannello laterale</title>
+
+<para
+>Il pannello laterale serve a diversi scopi. Permette di passare da un componente all'altro, mostra quale componente è attivo e fornisce un'area sensibile per le operazioni di trascinamento tra i diversi componenti.</para>
+
+<screenshot>
+<screeninfo
+>Pannello laterale di &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="side-pane.png"/></imageobject>
+<textobject>
+<phrase
+>Pannello laterale di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Pannello laterale di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Per passare da un componente all'altro, è sufficiente fare clic sull'icona corrispondente. Viene mostrata la finestra principale del programma e le barre di stato e dei menu vengono adattate per rispecchiare le funzionalità del componente attivo. Se attivi un componente per la prima volta potrebbe verificarsi un piccolo ritardo durante l'operazione di caricamento, perché i componenti vengono caricati al momento del bisogno. In questo modo non si verifica un inutile spreco di memoria per i componenti non utilizzati.</para>
+
+<para
+>Le icone del pannello laterale possono anche essere usate come bersagli per le operazioni di trascinamento. Per esempio puoi trascinare un messaggio di posta elettronica dal componente di posta sull'icona delle cose da fare o del calendario per associare al messaggio trascinato una cosa da fare o un evento rispettivamente.</para>
+
+<para
+>Puoi cambiare la dimensione delle icone nel pannello laterale facendo clic con il tasto destro del mouse sul pannello stesso. Puoi scegliere se usare icone grandi, medie o piccole o se usare solo testo al posto delle icone.</para>
+
+<para
+>Se preferisci non avere una barra laterale, puoi sempre nasconderla trascinando il bordo della cornice. Un metodo alternativo per passare da un componente all'altro è fornito dalla barra del <guilabel
+>navigatore</guilabel
+>, che può essere posizionata liberamente. Fai riferimento a <xref linkend="bars"/> per maggiori informazioni sulla barra del <guilabel
+>navigatore</guilabel
+>.</para>
+
+</sect1>
+
+
+<sect1 id="main-view">
+
+<title
+>La vista principale</title>
+
+<para
+>La vista sulla destra, che occupa la maggior parte della finestra principale di &kontact;, mostra il componente attivo. Questa corrisponde esattamente alla finestra principale che il componente mostra quando viene avviato in modalità indipendente. Le icone evidenziate nel pannello laterale indicano a quale componente appartiene la vista principale. &kontact; ricorda quale applicazione è stata utilizzata l'ultima volta, e la ripropone all'avvio successivo nella vista principale.</para>
+
+<screenshot>
+<screeninfo
+>La vista principale di &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<textobject>
+<phrase
+>La vista principale di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>La vista principale di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Inoltre ci sono due modi per selezionare il componente che viene attivato all'avvio di &kontact;. Il primo è un argomento da aggiungere alla riga di comando di &kontact; (vedi <xref linkend="command-line"/>). Il secondo è un'opzione nella finestra di impostazioni di &kontact; che permette di avviare sempre &kontact; con un componente specificato.</para>
+
+<para
+>Per utilizzarlo, bisogna selezionare la voce di menu <menuchoice
+><guimenu
+>Impostazioni</guimenu
+> <guimenuitem
+>Configura Kontact</guimenuitem
+></menuchoice
+> e fare clic su <guilabel
+>Kontact</guilabel
+> nella lista.</para>
+
+<screenshot>
+<screeninfo
+>Impostazione del componente attivo all'avvio di &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<textobject>
+<phrase
+>Impostazione del componente attivo all'avvio di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Impostazione del componente attivo all'avvio di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="bars">
+<title
+>Barre dei menu, degli strumenti e di stato </title>
+
+<para
+>Le barre dei menu, degli strumenti e di stato sono adattate al componente attivo. Questo significa che, in aggiunta alle funzioni comuni come l'aiuto, che sono presenti in tutti i componenti, alcune voci di menu vengono sostituite nel momento in cui si passa da un componente all'altro. Queste voci di menu corrispondono esattamente a quelle disponibili quando il componente viene eseguito in modalità autonoma.</para>
+
+<screenshot>
+<screeninfo
+>Le barre dei menu di &kontact; nelle viste sommario, posta e agenda</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
+<textobject>
+<phrase
+>Le barre dei menu di &kontact; nelle viste sommario, posta e agenda</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Le barre dei menu di &kontact; nelle viste sommario, posta e agenda</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
+<textobject>
+<phrase
+>Le barre dei menu di &kontact; nelle viste sommario, posta e agenda</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Le barre dei menu di &kontact; nelle viste sommario, posta e agenda</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
+<textobject>
+<phrase
+>Le barre dei menu di &kontact; nelle viste sommario, posta e agenda</phrase>
+</textobject>
+<caption>
+<para
+>Le barre dei menu di &kontact; nelle viste sommario, posta e agenda. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Inoltre, &kontact; può mostrare la barra degli strumenti <guilabel
+>navigatore</guilabel
+>, che consente di accedere ai componenti di &kontact; in modo analogo al pannello laterale. Tuttavia, al contrario del pannello laterale, i pulsanti nella barra degli strumenti <guilabel
+>navigatore</guilabel
+> non possono essere usati per trascinare operazioni su altri componenti.</para>
+
+<para
+>Per attivare la barra degli strumenti, selezionare <menuchoice
+><guimenu
+>Impostazioni</guimenu
+><guisubmenu
+>Barre mostrate</guisubmenu
+> <guimenuitem
+>Navigatore</guimenuitem
+></menuchoice
+>. </para>
+
+<screenshot>
+<screeninfo
+>La barra <guimenuitem
+>navigatore</guimenuitem
+> di &kontact;.</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
+<textobject>
+<phrase
+>La barra <guimenuitem
+>navigatore</guimenuitem
+> di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Barra degli strumenti <guimenuitem
+>Navigatore</guimenuitem
+> di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Una voce di menu speciale, comune a tutti i componenti, è l'azione <guimenuitem
+>Nuovo</guimenuitem
+>. Essa permette la creazione di nuovi oggetti, come i messaggi di posta elettronica, i contatti, gli appuntamenti e le cose da fare, indipendentemente da quale componente è attivo. Il componente adatto viene quindi attivato e si occupa di gestire l'oggetto creato.</para>
+
+<screenshot>
+<screeninfo
+>Il menu Nuovo di &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<textobject>
+<phrase
+>Il menu Nuovo di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Il menu Nuovo di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="side-pane-drag-and-drop">
+<title
+>Funzionalità di trascinamento</title>
+
+<para
+>&kontact; fornisce funzionalità avanzate di trascinamento tra i componenti che ne fanno parte. Quella che segue è una breve descrizione delle operazioni di trascinamento disponibili e dei risultati di ciascuna di esse.</para>
+
+<sect2 id="side-pane-drag-and-drop-kmail-todo">
+<title
+>&kmail; -&gt; Cose da fare di &korganizer;</title>
+
+<para
+>Trascinando un messaggio dal <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>pannello delle intestazioni di &kmail;</ulink
+> sull'icona delle cose da fare di &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) crea una nuova cosa da fare con <guilabel
+>Posta: <replaceable
+>Oggetto</replaceable
+></guilabel
+> come titolo <guilabel
+>Da: <replaceable
+>Mittente</replaceable
+> A: <replaceable
+>Destinatario</replaceable
+> Oggetto: <replaceable
+>Oggetto</replaceable
+></guilabel
+> come contenuto (dove il testo che compare come <guilabel
+><replaceable
+>questo</replaceable
+></guilabel
+> proviene dal messaggio stesso) e con il messaggio di posta come allegato. </para>
+
+</sect2>
+
+<sect2 id="side-pane-drag-and-drop-kmail-calendar">
+<title
+>&kmail; -&gt; Calendario di &korganizer;</title>
+
+<para
+>Trascinando un messaggio dal <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>pannello delle intestazioni di &kmail;</ulink
+> sull'icona del calendario di &korganizer;(<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) crea un nuovo evento con <guilabel
+>Posta: <replaceable
+>Oggetto</replaceable
+></guilabel
+> come titolo <guilabel
+>Da: <replaceable
+>Mittente</replaceable
+> A: <replaceable
+>Destinatario</replaceable
+> Oggetto: <replaceable
+>Oggetto</replaceable
+></guilabel
+> come contenuto (dove il testo che compare come <guilabel
+><replaceable
+>questo</replaceable
+></guilabel
+> proviene dal messaggio stesso) e con il messaggio di posta come allegato. </para>
+
+<para
+>Nota che trascinando sull'icona delle cose da fare viene creata una cosa da fare, mentre trascinando sull'icona del calendario viene creato un evento. Ulteriori informazioni sulle differenze tra questi due oggetti sono disponibili nella <ulink url="help:/korganizer"
+>documentazione di &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kmail-contacts">
+<title
+>&kmail; -&gt; &kaddressbook;</title>
+
+<para
+>Trascinando un messaggio dal <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>pannello delle intestazioni di &kmail;</ulink
+> sull'icona di &kaddressbook;(<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="kaddressbook-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) crea un nuovo contatto a partire dall'indirizzo di posta elettronica del mittente del messaggio, a meno che questo non sia già presente nella rubrica. Una finestra di dialogo conferma l'esito dell'operazione. </para>
+
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
+<title
+>&kaddressbook; -&gt; Cose da fare di &korganizer;</title>
+
+<para
+>Trascinando una o più voci dalla <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>finestra principale di &kaddressbook;</ulink
+> sull'icona delle cose da fare di &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) crea una nuova cosa da fare con &quot;Riunione&quot; come titolo e i contatti selezionati come partecipanti. </para>
+
+<para
+>Nota che trascinando sull'icona delle cose da fare viene creata una cosa da fare, mentre trascinando sull'icona del calendario viene creato un evento. Ulteriori informazioni sulle differenze tra questi due oggetti sono disponibili nella <ulink url="help:/korganizer"
+>documentazione di &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
+<title
+>&kaddressbook; -&gt; Calendario di &korganizer;</title>
+
+<para
+>Trascinando una o più voci dalla <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>finestra principale di &kaddressbook;</ulink
+> sull'icona del calendario di &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) crea un nuovo evento con &quot;Riunione&quot; come titolo e i contatti selezionati come partecipanti. </para>
+
+<para
+>Nota che trascinando sull'icona delle cose da fare viene creata una cosa da fare, mentre trascinando sull'icona del calendario viene creato un evento. Ulteriori informazioni sulle differenze tra questi due oggetti sono disponibili nella <ulink url="help:/korganizer"
+>documentazione di &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="summary-view">
+<title
+>La vista sommario</title>
+
+<para
+>La vista predefinita quando si avvia &kontact; per la prima volta è la vista sommario. La vista sommario mostra una panoramica delle principali informazioni fornite dai componenti selezionati di &kontact;. Queste possono essere note, appuntamenti o compleanni imminenti, cose da fare in scadenza, nuovi messaggi, &etc;. Puoi selezionare quali informazioni mostrare selezionando il componente corrispondente nella <link linkend="configuration"
+>finestra di configurazione di &kontact;</link
+>.</para>
+
+<screenshot>
+<screeninfo
+>La vista sommario di &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<textobject>
+<phrase
+>La vista sommario di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>La vista sommario di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<!-- not in kde4 para
+>If you think the information you see is outdated, you can click on the
+<guibutton
+>Refresh</guibutton
+> button (<guiicon
+><inlinemediaobject
+><imageobject>
+<imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
+</imageobject
+></inlinemediaobject
+></guiicon
+>)
+in the Summary View toolbar to refresh
+the data.</para-->
+
+<sect1 id="summary-view-component-reposition">
+<title
+>Riposizionare i componenti nella vista sommario</title>
+
+<para
+>La vista sommario permette di modificare la posizione dei componenti all'interno di essa. Così, se preferisci avere gli anniversari e i compleanni in basso a sinistra, e le cose da fare in alto a destra, puoi personalizzare la vista sommario di conseguenza.</para>
+
+<para
+>Per riposizionare i componenti nella vista sommario è sufficiente trascinarli nella posizione dove vuoi che vengano visualizzati. Tieni premuto il tasto &Ctrl;, fai clic sull'area grigia del titolo del componente e trascinalo nella sua nuova posizione. Nota che la posizione viene stabilita in funzione degli altri componenti. Puoi quindi spostare il componente della posta sotto le cose da fare ma non puoi posizionarlo esattamente in una certa posizione. Se la vista sommario contiene un unico componente, la sola opzione è se posizionarlo nella colonna di destra o in quella di sinistra; se i componenti sono due puoi decidere se tenerli nella stessa colonna in due colonne separate. Mentre stai trascinando un componente, vedrai una piccola anteprima del componente che stai trascinando seguire il puntatore del mouse.</para>
+
+<screenshot>
+<screeninfo
+>Riposizionare i componenti nella vista sommario di &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<textobject>
+<phrase
+>Riposizionare i componenti nella vista sommario di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Riposizionare i componenti nella vista sommario di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title
+>Configurare &kontact;</title>
+
+<sect1 id="main-config">
+<title
+>La finestra di configurazione di &kontact;</title>
+
+<para
+>Dopo aver selezionato la voce <guimenuitem
+>Configura &kontact;</guimenuitem
+> dal menu <guimenu
+>Impostazioni</guimenu
+> comparirà la finestra di configurazione di &kontact;. Questa finestra fornisce un elenco delle opzioni di configurazione di tutti i componenti di &kontact;. Fai clic sul simbolo <guilabel
+>&gt;</guilabel
+> di fianco al nome del componente per espandere l'albero per visualizzare le opzioni di quel componente. Selezionando un'opzione di configurazione, la finestra sulla destra mostrerà la sezione relativa.</para>
+
+<screenshot>
+<screeninfo
+>La finestra di configurazione di &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<textobject>
+<phrase
+>La finestra di configurazione di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>La finestra di configurazione di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Marcando la casella di fianco al nome del componente, scegli quali saranno visibili nel pannello laterale e nella vista sommario. Un componente viene caricato e mostrato nella finestra principale quando fai clic sulla relativa icona sul pannello laterale. Per rimuovere un componente dal pannello laterale e dalla vista sommario, è sufficiente de-selezionare la casella relativa. Le modifiche diventato effettive facendo clic sui pulsanti <guibutton
+>Applica</guibutton
+> o <guibutton
+>OK</guibutton
+>.</para>
+
+<para
+>Puoi anche configurare i singoli componenti con un clic sull'icona corrispondente nel pannello laterale e selezionando quindi la voce <guimenuitem
+>Configura <replaceable
+>nome applicazione</replaceable
+></guimenuitem
+> dal menu <guimenu
+>Impostazioni</guimenu
+>.</para>
+
+<screenshot>
+<screeninfo
+>Il menu impostazioni di &kontact; quando &kmail; è selezionato</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="settings-menu-kmail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Il menu impostazioni di &kontact; quando  è se&kmail;lezionato</phrase>
+</textobject>
+<caption>
+<para
+>Il menu impostazioni di &kontact; quando &kmail; è selezionato </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="summary-view-config">
+<title
+>Configurare la vista sommario di &kontact;</title>
+
+<para
+>Quando selezioni <guilabel
+>Sommari</guilabel
+> dalla finestra delle impostazioni di &kontact;, viene mostrata una pagina che permette di scegliere quali estensioni devono essere mostrate da &kontact; nella vista del sommario. Quella che segue è una breve descrizione delle estensioni disponibili e di quello che fanno: </para>
+
+<screenshot>
+<screeninfo
+>Selezione del sommario</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-selection.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Selezione del sommario</phrase>
+</textobject>
+<caption
+><para
+>Selezione del sommario</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="summary-view-config-calendar">
+<title
+>Estensione sommario di &kontact;: Calendario</title>
+
+<para
+>L'estensione <quote
+>Calendario</quote
+> per la vista sommario di &kontact; aggiunge alla vista un'area chiamata <guilabel
+>Prossimi eventi</guilabel
+> in cui saranno visualizzati gli appuntamenti corrispondenti. </para>
+
+<screenshot>
+<screeninfo
+>L'estensione sommario del calendario di &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-calendar.png"/>
+</imageobject>
+<textobject>
+<phrase
+>L'estensione sommario del Calendario di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>L'estensione sommario del Calendario di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-mail">
+<title
+>Estensione sommario di &kontact; Posta</title>
+
+<para
+>L'estensione <quote
+>Posta</quote
+> per la vista sommario di &kontact; aggiunge alla vista un'area chiamata <guilabel
+>Nuovi messaggi</guilabel
+>. Quest'area viene aggiornata ogni volta che ricevi un nuovo messaggio per informarti su quanti sono questi nuovi messaggi e in quali cartelle si trovano. </para>
+
+<screenshot>
+<screeninfo
+>L'estensione sommario Posta di &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-mail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>L'estensione sommario Posta di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>L'estensione sommario Posta di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-notes">
+<title
+>Estensione sommario di &kontact; Note</title>
+
+<para
+>L'estensione <quote
+>Note</quote
+> per la vista sommario di &kontact; aggiunge alla vista un'area chiamata <guilabel
+>Note a comparsa</guilabel
+>. Quest'area contiene i titoli delle note inserite (il titolo predefinito, contiene data e ora di creazione della nota). Fai clic sul titolo della nota per visualizzarne il contenuto. </para>
+
+<screenshot>
+<screeninfo
+>L'estensione sommario Note di &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-notes.png"/>
+</imageobject>
+<textobject>
+<phrase
+>L'estensione sommario Note di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>L'estensione sommario Note di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-todo-list">
+<title
+>Estensione sommario di &kontact; Cose da fare</title>
+
+<para
+>L'estensione <quote
+>Cose da fare</quote
+> per la vista sommario di &kontact; aggiunge alla vista un'area chiamata <guilabel
+>Cose da fare in scadenza</guilabel
+>. Quest'area contiene tutte le cose da fare, comprese quelle che hai completato. Per ciascuna cosa da fare, mostra il titolo, la percentuale di completamento e lo stato corrente. Nota che puoi eliminare le cose da fare completate dall'elenco delle cose da fare di &kontact;. Per adesso, facendo clic sul titolo della cosa da fare, non succede nulla. </para>
+
+<screenshot>
+<screeninfo
+>L'estensione sommario Cose da Fare di &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-todos.png"/>
+</imageobject>
+<textobject>
+<phrase
+>L'estensione sommario Cose da Fare di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>L'estensione sommario Cose da Fare di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-special-dates">
+<title
+>Estensione sommario di &kontact;: Date speciali</title>
+
+<para
+>L'estensione <quote
+>Date speciali</quote
+> per la vista sommario di &kontact; aggiunge alla vista un'area chiamata <guilabel
+>Prossime date speciali</guilabel
+>. Quest'area contiene informazioni selezionate a seconda dei criteri impostati nell'area di configurazione dell'estensione, nella configurazione della vista sommario di &kontact;. Questa estensione è particolarmente utile per visualizzare in un unico posto vacanze, anniversari e occasioni speciali provenienti sia dal calendario sia dai contatti. </para>
+
+<screenshot>
+<screeninfo
+>L'estensione Date speciali di &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-special-dates.png"/>
+</imageobject>
+<textobject>
+<phrase
+>L'estensione Date speciali di &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>L'estensione Date speciali di &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+</sect1>
+
+</chapter>
+
+
+<chapter id="command-line">
+<title
+>&kontact; dalla riga di comando</title>
+
+<para
+>&kontact; ha numerose opzioni a riga di comando per compiere diverse azioni.</para>
+
+<para
+>Prima di tutto, &kontact; supporta tutte le opzioni a riga di comando delle applicazioni &kf5;/&Qt;, consultare le pagine di manuale qt5options e kf5options. </para>
+
+<para
+>&kontact; supporta anche diverse opzioni specifiche.</para>
+
+<sect1 id="command-line-arguments">
+<title
+>Opzioni della riga di comando</title>
+
+<sect2 id="command-line-module">
+<title
+>Opzioni relative ai moduli</title>
+
+<para
+>Per una lista dei moduli disponibili in &kontact;, digita:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --list</command
+> </para>
+
+<para
+>Quindi, per avviare &kontact; con un particolare modulo attivo, digita:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --module <replaceable
+>nomeModulo</replaceable
+></command
+> </para>
+
+<para
+>Dove <replaceable
+>nomeModulo</replaceable
+> è uno dei moduli ottenuti usando il comando precedente.</para>
+
+</sect2>
+
+<sect2 id="command-line-startup">
+<title
+>Opzioni relative all'avvio</title>
+
+<para
+>Per avviare &kontact; ridotto ad icona<footnote
+><para
+>La modalità "ridotto ad icona" è detta anche "minimizzata"; si ha quando la finestra dell'applicazione è nascosta è l'applicazione è disponibile tramite la barra delle applicazioni.</para
+></footnote
+>, puoi digitare:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --iconify</command
+> </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="technology">
+<title
+>Dietro le quinte</title>
+
+<para
+>&kontact; fa un uso intenso di alcune delle tecnologie chiave di &kde;, in particolare KParts e &DBus;.</para>
+
+<para
+>L'integrazione nella &GUI; dei componenti è realizzata dalle estensioni fornendo delle versioni KPart delle applicazioni. Questo richiede solo un sottile strato aggiuntivo in cima al codice preesistente delle applicazioni indipendenti.</para>
+
+<para
+>Per la comunicazione tra i componenti è usato &DBus;. Questo ha la simpatica caratteristica di essere completamente trasparente rispetto al fatto che l'applicazione sia eseguita in modalità indipendente o inserita come KPart all'interno di &kontact;. Quando è in esecuzione all'interno di &kontact; viene usata una efficiente modalità &quot;in-process&quot; di &DBus;.</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Riconoscimenti e licenza</title>
+
+<para
+>&kontact;</para>
+
+<para
+>Copyright 2001-2021, gli sviluppatori di &kde;</para>
+
+<para
+>Contributi:</para>
+
+<itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Don.Sanders; &Don.Sanders.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+    </listitem>
+<listitem
+><para
+>Allen Winter <email
+>winter@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Rafael Fernández López <email
+>ereslibre@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>&David.Faure; &David.Faure.mail;</para
+></listitem>
+<listitem
+><para
+>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para
+></listitem>
+<listitem
+><para
+>Sven Lüppken <email
+>sven@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Torgny Nyblom <email
+>nyblom@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Zack Rusin <email
+>zack@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthias Hölzer-Klüpfel <email
+>mhk@kde.org</email
+>, l'autore originale di &kontact;.</para>
+    </listitem>
+
+<listitem
+><para
+>Tutti i valorosi sviluppatori delle applicazioni integrate in &kontact;. Loro hanno fatto la maggior parte del lavoro.</para>
+    </listitem>
+</itemizedlist>
+
+<para
+>Copyright documentazione 2004-2005</para>
+
+<para
+>Contributi: <itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem
+><para
+>Antonio Salazar <email
+>savedfastcool@gmail.com</email
+></para>
+</listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
+
+<listitem
+><para
+>Tutti membri della lista di documentazione di &kde; che hanno aiutato per quanto riguarda la formattazione e lo stile.</para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para
+>Alessandro Pasotti<email
+>ale.pas@tiscalinet.it</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+<appendix id="kontact-admin">
+<title
+>Guida dell'amministratore</title>
+<!-- Section Compatibility -->
+<sect1 id="compat">
+<title
+>Problemi di compatibilità</title>
+
+<para
+>Questa sezione spiega come far comunicare efficacemente &kontact; con varie soluzioni di groupware. </para>
+
+<sect2 id="compat-outlook">
+<title
+>Outlook ed Exchange</title>
+
+<para
+>Nella finestra di configurazione di &kontact;, sotto <menuchoice
+><guimenu
+>Posta</guimenu
+> <guimenuitem
+>Varie</guimenuitem
+></menuchoice
+> nella pagina <guilabel
+>Inviti</guilabel
+> si trovano le seguenti opzioni che aiutano l'utente a comunicare con Microsoft Outlook(tm) che funziona in un ambiente Kolab o in un ambiente Microsoft Exchange(tm). </para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Adatta le intestazioni Da: / A: nelle risposte agli inviti</guilabel
+></term>
+<listitem>
+<para
+>Abilita questa opzione per rendere compatibili con Microsoft Outlook(tm) le tue risposte alle richieste di invito.</para>
+<para
+>Microsoft Outlook ha alcune limitazioni nell'implementazione dello standard iCalendar; questa opzione ne aggira alcune perché possa funzionare. Se hai problemi con utenti di Outlook che non riescono a risponderti, prova ad attivare questa opzione.</para>
+<para
+>Dettagli: quando spedisci un invito iCal questa opzione fa' sì che l'intestazione Da: del messaggio sia uguale all'intestazione A:. Imposta inoltre l'intestazione X-KMail-Identity al valore di UIOD di A: e fa' sì che il campo Ccn: sia vuoto. Outlook comprende correttamente la risposta solo se l'intestazione Da: corrisponde all'intestazione A: dell'invito.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Spedisci gli inviti nel corpo del messaggio</guilabel
+></term>
+<listitem>
+<para
+>Gli inviti vengono generalmente spediti come allegato. Questa opzione fa in modo che vengano spediti come testo del messaggio; ciò è necessario quando bisogna inviare inviti a Microsoft Outlook. Attivando questa opzione, però, non è più possibile avere un testo descrittivo che i programmi di posta possano leggere; in questo modo le persone che hanno programmi di posta che non possono visualizzare gli inviti, riceveranno un messaggio formattato male. Le persone che hanno, invece, dei programmi di posta che possono visualizzare gli inviti non avranno problemi.</para>
+<para
+>Dettagli: quando spedisci un invito iCal questa opzione costruisce il corpo del messaggio a partire dai dati in allegato ed imposta l'intestazione Content-Type al valore «text/calendar; method=something; charset="utf-8"».</para>
+<para
+>L'invio automatico è inoltre abilitato, quindi non è richiesto alcun intervento umano per la composizione.</para>
+<note
+><para
+>Cifratura e auto-firma sono disabilitate.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Nomi inviti compatibili con Exchange</guilabel
+></term>
+<listitem>
+<para
+>Microsoft Outlook, quando utilizzato in combinazione con un server Microsoft Exchange(tm), ha dei problemi di compatibilità con i messaggi di groupware. Abilita questa opzione per spedire inviti di groupware in modo che Microsoft Exchange(tm) non dia problemi. L'invito verrà spedito come allegato con nome <filename
+>ical.ics</filename
+>.</para>
+<para
+>Dettagli: quando spedisci un invito iCal questa opzione fa' sì che il messaggio abbia come oggetto «(Declinato|Incerto|Accettato|Delegato): oggetto». L'invito verrà inviato come un allegato avente nome <filename
+>ical.ics</filename
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Nomi degli allegati compatibili con Outlook</guilabel
+></term>
+<listitem>
+<para
+>Abilita questa opzione per rendere i nomi dei tuoi allegati che contengono caratteri non standard, compatibili con Outlook(tm).</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+</sect1>
+
+<!-- Section Behavior -->
+<sect1 id="behavior">
+<title
+>Problemi di comportamento</title>
+
+<para
+>Questa sezione spiega come far sì perché &kontact; possa comportarsi come altri client di groupware. </para>
+
+<sect2 id="behave-composing">
+<title
+>Composizione dei messaggi</title>
+
+<para
+>Gli utenti Outlook sono abituati a digitare un elenco di indirizzi nei campi A:, CC: o Ccn: separati da punto e virgola («;») in aggiunta alla virgola («,»). Come impostazione predefinita &kontact; permette l'uso della sola virgola come carattere di separazione degli indirizzi. Per consentire l'uso del punto e virgola bisogna cambiare il valore di <option
+>AllowSemicolonAsAddressSeparator</option
+> da false a true nel file installato <filename
+>share/config.kcfg/messagecomposer.kcfg</filename
+>. </para>
+
+</sect2>
+</sect1>
+
+<!-- Section RFC Compromises -->
+<sect1 id="nonrfc">
+<title
+>Compromessi con i documenti RFC</title>
+
+<para
+>&kontact; è progettato per essere il più possibile interoperabile con svariate soluzioni di groupware. Per questo motivo, qualche volta sono stati fatti dei compromessi in fase di progettazione riguardo al rispetto dei vari documenti RFC di Internet che forniscono le basi per le librerie di livello più basso su cui &kontact; si appoggia pesantemente.</para>
+
+<note
+><para
+>Non abbiamo mai deliberatamente violato alcun documento RFC.</para
+></note>
+
+<para
+>L'elenco seguente contiene i compromessi con i documenti RFC fatti da &kontact; o dalle librerie a basso livello usate da &kontact;:</para>
+<!--FIXME is this correct?-->
+<itemizedlist>
+<listitem>
+<para
+>Quando scrive i valori della durata nel file iCalendar, &kontact; non scrive mai la proprietà DURATION come numero di settimane (ad es. 1*DIGIT "W"); invece, il numero intero di settimane è sempre moltiplicato per 7 e scritto come totali di giorni (ad es. 1*DIGIT "D"). </para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

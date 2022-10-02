@@ -1,0 +1,2447 @@
+# Translation of kontact.po into Finnish
+#
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Author: Lliehu
+# Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2003, 2008.
+# Tapio Kautto <eleknader@phnet.fi>, 2004.
+# Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2005.
+# Ilpo Kantonen <ilpo@iki.fi>, 2005, 2006.
+# Kim Enkovaara <kim.enkovaara@iki.fi>, 2006.
+# Mikko Piippo <piippo@cc.helsinki.fi>, 2007.
+# Tommi Nieminen <translator@legisign.org>, 2010, 2011, 2012, 2017, 2018, 2019, 2020, 2021, 2022.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2015, 2016.
+# Jiri Grönroos <jiri.gronroos+kde@iki.fi>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2022-01-27 21:21+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:25:04+0000\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Teemu Rytilahti,Ilpo Kantonen,Jiri Grönroos,Jussi Aalto,Kim Enkovaara,Mikko "
+"Piippo,Teemu Rytilahti,Tommi Nieminen,Lasse Liehu"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"tpr@d5k.net,,,jta_l10n@dnainternet.net,,,,translator@legisign.org,lasse."
+"liehu@gmail.com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr "Tervetuloa käyttämään Kontactia %1"
+
+#: src/about/introduction_kontact.html:19
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact hallitsee sähköpostisi, osoitekirjasi, kalenterisi, tehtävälistasi "
+"ja paljon muuta."
+
+#: src/about/introduction_kontact.html:36
+msgid "Skip this introduction"
+msgstr "Poistu johdannosta"
+
+#: src/about/loading_kontact.html:5
+msgid "Loading Kontact ..."
+msgstr "Ladataan Kontactia…"
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Näytä vain kuvakkeet"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "Näytä sivupalkin kohdille kuvake tekstittä"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"Valitse tämä, jos haluat sivupalkin kohdat esitettävän kuvakkeina tekstittä."
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Näytä vain teksti"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "Näytä sivupalkin kohdille teksti kuvakkeetta"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"Valitse tämä, jos haluat sivupalkin kohdissa esitettävä tekstinä kuvakkeitta."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Näytä kuvakkeet ja teksti"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "Näytä sivupalkin kohdille kuvake ja teksti"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+"Valitse tämä, jos haluat sivupalkin kohdissa esitettävän niin kuvake kuin "
+"teksti."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Suuret kuvakkeet"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Käytä hyvin suuria sivupalkkikuvakkeita"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr "Valitse tämä, jos haluat hyvin suuret sivupalkkikuvakkeet."
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Tavallisen kokoiset kuvakkeet"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Käytä tavallisen kokoisia sivupalkkikuvakkeita"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr "Valitse tämä, jos haluat tavallisen kokoiset sivupalkkikuvakkeet."
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Pienet kuvakkeet"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Käytä pieniä sivupalkkikuvakkeita"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr "Valitse tämä, jos haluat sivupalkin kuvakkeiden olevan hyvin pieniä."
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr "Piilota sivupaneeli"
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr "Piilota kuvakesivupaneeli"
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+"Valitse tämä asetus, jos haluat piilottaa kuvakesivupaneelin. Palauta se "
+"näkyviin painamalla F9."
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "Valitse liitännäinen, johon siirrytään käynnistyksen jälkeen"
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+"Valitse pudotusvalikosta liitännäinen, joka näytetään aluksi Kontactin "
+"käynnistyttyä. Muussa tapauksessa Kontact näyttää edellisen käyttökerran "
+"viimeiseksi aktiivisena olleen liitännäisen."
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "Tällä hetkellä aktiivinen liitännäinen"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "Aloita aina liitännäisellä:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "Aloita jokaisen käynnistyksen aloitusliitännäinen"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Kontact käynnistyy yleensä liitännäiseen, jota käytettiin ennen kuin ohjelma "
+"viimeksi suljettiin. Valitse tämä, jos haluat Kontactin käynnistyvän "
+"tiettyyn liitännäiseen."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr "Näytä osiosivupaneeli"
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr "Näytä tai piilota kuvakesivupaneeli"
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+"Säästääksesi näyttöpinta-alaa voit haluta piilottaa kuvakesivupaneelin. "
+"Piilota osiosivupaneeli poistamalla tästä rasti. Huomaa, että F9-näppäimellä "
+"voi piilottaa tai näyttää kuvakesivupaneelin."
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&Tiedosto"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "&Näkymä"
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "&Asetukset"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "&Ohje"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Päätyökalurivi"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "Selain"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Aloita tietystä Kontact-moduulista"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Käynnistä pienennettynä"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Luettele kaikki mahdolliset moduulit ja lopeta"
+
+# pmap: =/gen=Kontactin/
+# pmap: =/elat=Kontactista/
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "KDE:n henkilökohtainen tietojen hallintaohjelma"
+
+#: src/main.cpp:165
+#, kde-format
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "Tekijänoikeudet © 2001–%1 Kontactin tekijät"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Alkuperäinen tekijä"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr "Torgny Nyblom"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr "Git-siirros"
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " Alustetaan…"
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Uusi"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Kontactin asetukset…"
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Kontactin asetukset"
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr "Saat näkyviin ikkunan, missä voit määrittää Kontactin asetukset."
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "Johdanto &Kontactiin"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Näytä Kontactin johdantosivu"
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Valitse tämä, jos haluat nähdä Kontactin johdantosivun."
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr "Piilota tai näytä osiosivupaneeli"
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr "Piilota tai näytä osiosivupaneeli"
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr "Sallii sinun mielesi mukaan näyttää tai piilottaa osiosivupaneelin."
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "Vaihda liitännäiseen %1"
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Sovellusta ajetaan itsenäisenä. Tuodaan esille…"
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Osan %1 lataus ei onnistu."
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 – Kontact"
+
+#: src/mainwindow.cpp:921
+#, kde-format
+msgid "The KDE Personal Information Management Suite."
+msgstr "KDE:n henkilökohtaisten tietojen hallintaohjelma"
+
+#: src/mainwindow.cpp:926
+#, kde-format
+msgid "Read Manual"
+msgstr "Lue ohje"
+
+#: src/mainwindow.cpp:927
+#, kde-format
+msgid "Learn more about Kontact and its components"
+msgstr "Opi lisää Kontactista ja sen komponenteista"
+
+#: src/mainwindow.cpp:930
+#, kde-format
+msgid "Visit Kontact Website"
+msgstr "Vieraile Kontactin verkkosivustolla"
+
+#: src/mainwindow.cpp:931
+#, kde-format
+msgid "Access online resources and tutorials"
+msgstr "Hae verkosta apua ja oppaita"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr "Määritä tilit"
+
+#: src/mainwindow.cpp:935
+#, kde-format
+msgid "Prepare Kontact for use"
+msgstr "Valmistele Kontact käytettäväksi yritysverkoissa"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr "Sivupaneeli on piilotettu. Saat sen jälleen näkyviin %1-näppäimellä."
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Kehittäjä"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Tietoa Kontactista"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Kontact-sisällyttäjä"
+
+#~ msgid "No about information available."
+#~ msgstr "Tietoa Tietoa-ikkunaan ei ole saatavilla."
+
+#~ msgid "Version %1"
+#~ msgstr "Versio %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Tekijät:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Kiitokset:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Kääntäjät:</b></p>"
+
+#~ msgid ""
+#~ "<br /><br />                     <i>This Free Software product was "
+#~ "improved as part of a commercial project:</i>                     "
+#~ "<h3>Credits</h3>                     Project Kowi (March 2007 - )<br /"
+#~ "><br />                                          <b>Production / Project "
+#~ "Coordination</b><br />                     Bernhard Reiter<br /"
+#~ ">                     <b>Director of Development</b><br /"
+#~ ">                     Till Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                Unit Lead<br /"
+#~ ">                Senior QA, Packaging<br />                QA, "
+#~ "Packaging<br />                Additional NSIS<br />                "
+#~ "Backup Coordinator                </td>                "
+#~ "<td>                Bernhard Reiter<br />                Bernhard "
+#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
+#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit Lead<br />                Development<br /"
+#~ ">                Development<br />                Additional D. + "
+#~ "Crypto<br />                Crypto GUI Development                </"
+#~ "td>                <td>                Till Adam<br />                "
+#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
+#~ "Frank Osterfeld<br />                Marc Mutz                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Crypto-Backend Porting<br />                "
+#~ "Crypto-Backend                </td>                <td>                "
+#~ "Werner Koch<br />                Marcus Brinkmann                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>External QA Darmstadt, basysKom GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit-Lead                </td>                "
+#~ "<td>                Dr. Stefan Werden                </td>                "
+#~ "</tr>                </table><br /><br />"
+#~ msgstr ""
+#~ "<br /><br />    <i>Tätä vapaata ohjelmistotuotetta parannettiin osana "
+#~ "kaupallista projektia:</i>    <h3>Tekijätiedot</h3>    Project Kowi "
+#~ "(maaliskuu 2007 – )<br /><br />        <b>Tuotanto / projektin "
+#~ "koordinointi</b><br />    Bernhard Reiter<br />    <b>Kehityksen johtaja</"
+#~ "b><br />    Till Adam    <br /><br />        <table border=\"0\" width="
+#~ "\"100%\">     <tr>     <td colspan=\"2\">      <b>Osnabr&uuml;ckin "
+#~ "yksikkö, Intevation GmbH</b>     </td>    </tr>    <tr>     <td width="
+#~ "\"60%\">      Yksikön johto<br />      Johtava laadunvarmistus, "
+#~ "paketointi<br />      Laadunvarmistus, paketointi<br />      Täydentävä "
+#~ "NSIS<br />      Varakoordinaattori     </td>     <td>      Bernhard "
+#~ "Reiter<br />      Bernhard Herzog<br />      Ludwig Reiter<br />      "
+#~ "Emanuel Sch&uuml;tze<br />      Dr. Jan-Oliver Wagner     </td>    </"
+#~ "tr>    </table>    <br /><br />        <table border=\"0\" width=\"100%"
+#~ "\">    <tr>     <td colspan=\"2\">        <b>Berliinin yksikkö, Klar&auml;"
+#~ "lvdalens Datakonsult AB</b>     </td>    </tr>    <tr>     <td width=\"60%"
+#~ "\">      Yksikön johto<br />      Kehitys<br />      Kehitys<br />      "
+#~ "Täydentävä kehitys + salaus<br />      Salauskäyttöliittymän kehitys     "
+#~ "</td>     <td>      Till Adam<br />      Jaroslaw Staniek<br />      "
+#~ "Volker Krause<br />      Frank Osterfeld<br />      Marc Mutz     </"
+#~ "td>    </tr>    </table>    <br /><br />        <table border=\"0\" width="
+#~ "\"100%\">    <tr>     <td colspan=\"2\">      <b>D&uuml;sseldorfin "
+#~ "yksikkö, g10 Code GmbH</b>     </td>    </tr>    <tr>     <td width=\"60%"
+#~ "\">      Salauslaajennuksen siirtäminen<br />      Salauslaajennus     </"
+#~ "td>     <td>      Werner Koch<br />      Marcus Brinkmann     </td>    </"
+#~ "tr>    </table>    <br /><br />        <table border=\"0\" width=\"100%"
+#~ "\">    <tr>     <td colspan=\"2\">      <b>Ulkoinen laadunvarmistus "
+#~ "Darmstadt, basysKom GmbH</b>     </td>    </tr>    <tr>     <td width="
+#~ "\"60%\">      Yksikön johto     </td>     <td>      Dr. Stefan Werden     "
+#~ "</td>    </tr>    </table><br /><br />"
+
+#~ msgid "%1 License"
+#~ msgstr "%1-lisenssi"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "Synkronoi"
+
+#~ msgctxt "@title:column plugin name"
+#~ msgid "Summary Plugin Name"
+#~ msgstr "Yhteenvetoliitännäisen nimi"
+
+#~ msgid "Select the plugin summaries to show on the summary page."
+#~ msgstr "Valitse yhteenvetosivulla näytettävät liitännäiset"
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "KDE Kontact -yhteenveto"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&Yhteenvetonäkymän asetukset…"
+
+#~ msgid "Configure the summary view"
+#~ msgstr "Yhteenvetonäkymän asetukset"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Choosing this will show a dialog where you can select which summaries you "
+#~ "want to see and also allow you to configure the summaries to your liking."
+#~ msgstr ""
+#~ "Tämän valitseminen näyttää kyselyikkunan, josta voit valita, mitä "
+#~ "yhteenvetoja haluat nähdä, ja antaa sinun myös määrittää yhteysvedot "
+#~ "mieleisiksesi."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Yhteenveto henkilölle %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Mitä seuraavaksi?"
+
+#~ msgid "Sync All"
+#~ msgstr "Synkronoi kaikki"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Kaikki"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Kaikki"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Kontact-yhteenveto"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Kontact-yhteenvetonäkymä"
+
+#, fuzzy
+#~| msgid "(c) 2003-2015 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "© 2003–2015 Kontact-kehittäjät"
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Organisoidu!"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Tervetuloa käyttämään "
+#~ "Kontactia %1</h2><p align=\"center\">%2</p><table align=\"center"
+#~ "\"><tr><td><a href=\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></"
+#~ "a></td><td><a href=\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</"
+#~ "nobr></span></td></tr><tr><td><a href=\"%10\"><img width=\"%11\" height="
+#~ "\"%12\" src=\"%13\" /></a></td><td><a href=\"%14\">%15</a><br /><span id="
+#~ "\"subtext\"><nobr>%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img "
+#~ "width=\"%18\" height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">"
+#~ "%22</a><br /><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></"
+#~ "table><p style=\"margin-bottom: 0px\"> <a href=\"%24\">Poistu "
+#~ "johdannosta</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&Päivän vinkki"
+
+#~ msgctxt "@info:status"
+#~ msgid "Show the Tip-of-the-Day dialog"
+#~ msgstr "Näytä päivän vinkki -ikkuna"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog showing small tips to help you use "
+#~ "this program more effectively."
+#~ msgstr ""
+#~ "Saat näkyviin ikkunan, joka antaa pieniä vinkkejä, miten käyttää tätä "
+#~ "ohjelma tehokkaammin."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Uusi syöte…."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr "Saat näkyviin ikkunan, jossa voit lisätä uuden syötteen."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Uusi yhteystieto…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr "Saat näkyviin ikkunan, jossa voit luoda uuden yhteystiedon."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Uusi yhteystietoryhmä…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr "Saat näkyviin ikkunan, jossa voit luoda uuden yhteystietoryhmän."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Synkronoi yhteystiedot"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "Valitse tämä synkronoidaksesi ryhmätyöohjelmiston yhteystietosi."
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Sähköpostin yhteenvetonäkymän asetusikkuna"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "Tekijänoikeudet © 2004–2010 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Näytä kansioiden koko polku"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Näytä kunkin kansion koko polku"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Enable this option if you want to see the full path for each folder "
+#~ "listed in the summary. If this option is not enabled, then only the base "
+#~ "folder path will be shown."
+#~ msgstr ""
+#~ "Ota tämä asetus käyttöön, jos haluat nähdä jokaisen yhteenvedossa "
+#~ "luetellun kansion koko sijaintipolun. Ellei asetus ole käytössä, vain "
+#~ "kansiopolun viimeinen osa näytetään."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Uusi viesti…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and send a new "
+#~ "email message."
+#~ msgstr ""
+#~ "Saat näkyviin ikkunan, jossa voit kirjoittaa ja lähettää uuden "
+#~ "sähköpostiviestin."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Synkronoi sähköposti"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "Valitse tämä synkronoidaksesi ryhmätyösähköpostisi."
+
+#~ msgid "New Messages"
+#~ msgstr "Uudet viestit"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>Kaikkiaan: %2<br/>Lukematta: %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "Seuraamissasi kansioissa ei ole lukemattomia viestejä"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Avaa kansio: ”%1”"
+
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmknotessummary"
+
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Muistiinpanojen yhteenvetonäkymän asetusikkuna"
+
+#~ msgid "Copyright © 2013-2015 Laurent Montel <montel@kde.org>"
+#~ msgstr "Copyright © 2013–2015 Laurent Montel <montel@kde.org>"
+
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "&Uusi"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can add a new popup note."
+#~ msgstr "Tämä avaa kyselyikkunan, jossa voit luoda uuden ponnahdusviestin."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Muokkaa…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can modify an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Tämä avaa kyselyikkunan, jossa voit muuttaa olemassa olevaa "
+#~ "ponnahdusviestiä."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Muuta nimeä…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can rename an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Saat näkyviin ikkunan, jossa voit muuttaa olemassa olevan "
+#~ "ponnahdusviestin nimeä."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Poista"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be prompted if you really want to permanently remove the "
+#~ "selected popup note."
+#~ msgstr ""
+#~ "Sinulta kysytään, haluatko varmasti poistaa valitun ponnahdusviestin "
+#~ "pysyvästi."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Tulosta valitut muistiinpanot…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be prompted to print the selected popup note."
+#~ msgstr "Sinulta kysytään, tulostetaanko valittu ponnahdusviesti."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Esikatsele valittujen muistiinpanojen tulostusta…"
+
+#~ msgid "Note settings..."
+#~ msgstr "Muistiinpanon asetukset…"
+
+#~ msgid "Preferences KNotes..."
+#~ msgstr "KNotesin asetukset…"
+
+#~ msgid "Mail..."
+#~ msgstr "Lähetä sähköpostitse…"
+
+#~ msgid "Send..."
+#~ msgstr "Lähetä…"
+
+#~ msgid "Set Alarm..."
+#~ msgstr "Aseta hälytys…"
+
+#~ msgid "New Note From Clipboard"
+#~ msgstr "Uusi muistiinpano leikepöydältä"
+
+#~ msgid "New Note From Text File..."
+#~ msgstr "Uusi muistiinpano tekstitiedostosta…"
+
+#~ msgid "Save As..."
+#~ msgstr "Tallenna nimellä…"
+
+#~ msgid "Lock"
+#~ msgstr "Lukitse"
+
+#~ msgid "Unlock"
+#~ msgstr "Avaa lukitus"
+
+#~ msgid "Set Focus to Quick Search"
+#~ msgstr "Kohdista pikahakukenttään"
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr "Valitse tulostettavat muistiinpanot luettelosta"
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Tulosta ponnahdusviestit"
+
+#~ msgid "Note was not created."
+#~ msgstr "Muistiinpanoa ei luotu."
+
+#~ msgid "Create new note"
+#~ msgstr "Luo uusi muistiinpano"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Haluatko varmasti poistaa tämän muistiinpanon?"
+#~ msgstr[1] "Haluatko varmasti poistaa nämä %1 muistiinpanoa?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Vahvista poisto"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Muuta ponnahdusviestin nimeä"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Uusi nimi:"
+
+#~ msgid "Show Note..."
+#~ msgstr "Näytä muistiinpano…"
+
+#~ msgid "Settings"
+#~ msgstr "Asetukset"
+
+#~ msgid "Save note as plain text"
+#~ msgstr "Tallenna muistiinpano pelkkänä tekstinä"
+
+#~ msgid "Save As"
+#~ msgstr "Tallenna nimellä"
+
+#~ msgid ""
+#~ "<qt>A file named <b>%1</b> already exists.<br />Are you sure you want to "
+#~ "overwrite it?</qt>"
+#~ msgstr ""
+#~ "<qt>Tiedosto nimeltä <b>%1</b> on jo olemassa.<br />Haluatko varmasti "
+#~ "korvata sen?</qt>"
+
+#~ msgid "Select Text File"
+#~ msgstr "Valitse tekstitiedosto"
+
+#~ msgid "Error during open text file: %1"
+#~ msgstr "Virhe avattaessa tekstitiedostoa: %1"
+
+#~ msgid "Open Text File"
+#~ msgstr "Avaa tekstitiedosto"
+
+#~ msgid "Note from file '%1'"
+#~ msgstr "Muistiinpano tiedostosta ”%1”"
+
+#~ msgid "&Edit"
+#~ msgstr "&Muokkaa"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Uusi ponnahdusviesti…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new popup note."
+#~ msgstr "Saat näkyviin ikkunan, jossa voit luoda uuden ponnahdusviestin."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "KNotes"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Ponnahdusmuistiinpanot"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "Tekijänoikeudet © 2003–2014 Kontactin tekijät"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Nykyinen ylläpitäjä"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Edellinen ylläpitäjä"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Tapaaminen"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Muistiinpano: ”%1”"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Uusi muistilappu"
+
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Usean viestin pudottamista ei tueta."
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Lähettäjä: %1\n"
+#~ "Vastaanottaja: %2\n"
+#~ "Aihe: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Sähköposti: %1"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Näytä ponnahdusviesti"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Muokkaa ponnahdusviestiä"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Nimi:"
+
+#~ msgid "Search notes..."
+#~ msgstr "Etsi muistiinpanoja…"
+
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Etsi muistiinpanoja…<%1>"
+
+#~ msgid "(note locked, it will not removed)"
+#~ msgstr "(muistiinpano on lukittu; sitä ei poisteta)"
+
+#~ msgid "Popup Notes"
+#~ msgstr "Ponnahdusmuistiinpanot"
+
+#~ msgid "No note found"
+#~ msgstr "Muistiinpanoa ei löytynyt"
+
+#~ msgid "Modify Note..."
+#~ msgstr "Muuta muistiinpanoa…"
+
+#~ msgid "Delete Note..."
+#~ msgstr "Poista muistiinpano…"
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Lue ponnahdusmuistiinpano: ”%1”"
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Tapahtumien yhteenvedon asetukset"
+
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Näytä tulevat tapahtumat alkaen"
+
+#~ msgid "Show events for today only"
+#~ msgstr "Näytä tapahtumat vain tältä päivältä"
+
+#~ msgid ""
+#~ "Check this box if you want to see events occurring on this date only."
+#~ msgstr "Valitse tämä, jos haluat nähdä vain tänäiset tapahtumat."
+
+#~ msgid "&Today only"
+#~ msgstr "Va&in tänään"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Näytä kuukauden sisään alkavat tapahtumat"
+
+#~ msgid ""
+#~ "Check this box if you want to see events that start sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Valitse tämä, jos haluat nähdä tapahtumat, jotka alkavat seuraavien 31 "
+#~ "päivän aikana."
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "&Tulevalta kuulta (31 päivää)"
+
+#~ msgid "Select the days for showing upcoming events"
+#~ msgstr "Valitse monenko päivän tulevat tapahtumat näytetään"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming events."
+#~ msgstr ""
+#~ "Valitse tämä ruutu, jos haluat määrittää, monenko päivän tulevat "
+#~ "tapahtumat näytetään."
+
+#~ msgid "Within the &next:"
+#~ msgstr "&Seuraavalta ajalta:"
+
+#~ msgid "Set the number of days to show upcoming events"
+#~ msgstr "Aseta monenko päivältä tulevat tapahtumat näytetään"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming events up to "
+#~ "1 year in the future."
+#~ msgstr ""
+#~ "Tällä säätimellä voit asettaa, moneltako päivältä (vuoteen saakka) haluat "
+#~ "nähdä tulevat tapahtumat."
+
+#~ msgid "1 day"
+#~ msgstr "1 päivä"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " päivää"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Näytä nämä tulevat tapahtumat kalenteristasi"
+
+#~ msgid ""
+#~ "Show birthdays from your calendar when also using the Birthday resource"
+#~ msgstr ""
+#~ "Näytä syntymäpäivät kalenteristasi, kun käytössä on myös "
+#~ "syntymäpäiväresurssi"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Käytä tätä asetusta näyttääksesi syntymäpäivät kalenteristasi tulevien "
+#~ "tapahtumien yhteenvedossa. Asetus on käytettävissä vain, jos käytät "
+#~ "kalenterissasi syntymäpäiväresurssia."
+
+#~ msgid "Show &birthdays"
+#~ msgstr "Näytä s&yntymäpäivät"
+
+#~ msgid ""
+#~ "Shows anniversaries from your calendar when using the Birthdays resource"
+#~ msgstr ""
+#~ "Näytä merkkipäivät kalenteristasi, kun syntymäpäiväresurssi on käytössä"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Ota tämä asetus käyttöön näyttääksesi merkkipäivät kalenteristasi "
+#~ "tulevien tapahtumien yhteenvedossa. Asetus on käytettävissä vain, jos "
+#~ "käytät kalenterissasi syntymäpäiväresurssia."
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "M&erkkipäivät"
+
+#~ msgid "Groupware Settings"
+#~ msgstr "ryhmätyöohjelmiston asetukset"
+
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Näytä vain omiin kalentereihini kuuluvat tapahtumat"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show events belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Valitse tämä, jos haluat näyttää yhteenvedossa vain omiin kalentereihisi "
+#~ "kuuluvat tapahtumat."
+
+#~ msgid "Show &my events only"
+#~ msgstr "Näytä vain &omat tapahtumani"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "Tulevat tapahtumat"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "Ei tapahtumia %1 vuorokauden kuluessa"
+#~ msgstr[1] "Ei sovittuja tapaamisia seuraavien %1 päivän sisällä"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "&Muokkaa tapaamista…"
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "&Poista tapaaminen"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Muokkaa tapahtumaa: ”%1”"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Uusi päiväkirjamerkintä…"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Luo uusi päiväkirjamerkintä"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new journal "
+#~ "entry."
+#~ msgstr "Saat näkyviin ikkunan, jossa voit luoda uuden päiväkirjamerkinnän."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Synkronoi päiväkirja"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Synkronoi ryhmätyöohjelmiston päiväkirja"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware journal entries."
+#~ msgstr ""
+#~ "Valitse tämä synkronoidaksesi ryhmätyöohjelmiston päiväkirjamerkinnät."
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " päivä"
+#~ msgstr[1] " päivää"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Tulevien tapahtumien asetukset"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "Tekijänoikeudet © 2003–2004 Tobias Koenig\n"
+#~ "Tekijänoikeudet © 2005–2010 Allen Winter"
+
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Keskeneräisten tehtävien asetukset"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Uusi tapahtuma…"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Luo uusi tapahtuma"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new event item."
+#~ msgstr "Tämä avaa kyselyikkunan, jossa voit luoda uuden tapahtuman."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Synkronoi kalenteri"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Synkronoi ryhmätyökalenteri"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware events."
+#~ msgstr "Valitse tämä synkronoidaksesi ryhmätyötapahtumasi."
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Tänään"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Huomenna"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "päivän kuluttua"
+#~ msgstr[1] "%1 päivän kuluttua"
+
+# Välilyönti lisätty, jotta merkitään käännetyksi; ks. msgid ”1 min / %1 mins”
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr " "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "1 t"
+#~ msgstr[1] "%1 t"
+
+# Yllä ”in”-msgid väittää, että viesti on muotoa ”in 1 hour 2 minutes”, mutta todellisuudessa käytetään jonoja ”hr” ja ”mins”, jolloin prepositiosta ”in” tulee suomen postpositio ”kuluttua” tähän id:hen
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "1 min kuluttua"
+#~ msgstr[1] "%1 min kuluttua"
+
+#~ msgid "now"
+#~ msgstr "nyt"
+
+#~ msgid "all day"
+#~ msgstr "koko päivä"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1–%2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Seuraava: %1"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Uusi tehtävä…"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Luo uusi tehtävä"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new to-do item."
+#~ msgstr "Tämä avaa kyselyikkunan, jossa voit luoda uuden tehtävän."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Synkronoi tehtäväluettelo"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Synkronoi ryhmätyön tehtäväluettelo"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr ""
+#~ "Valitse tämä asetus synkronoidaksesi ryhmätyöohjelmistosi tehtäväluettelo."
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Tehtävien yhteenvedon asetukset"
+
+#~ msgid "Show To-dos Due"
+#~ msgstr "Näytä tehtävät, joilla on määräaika"
+
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Näytä vain tehtävät, joiden määräaika on tänään"
+
+#~ msgid "Check this box if you want to see To-dos due on this date only."
+#~ msgstr ""
+#~ "Valitse tämä ruutu, jos haluat nähdä vain ne tehtävät, joiden määräaika "
+#~ "on tänään."
+
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "Näytä tehtävät, joiden määräaika on kuukauden sisään"
+
+#~ msgid ""
+#~ "Check this box if you want to see To-dos that are due sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Valitse tämä ruutu, jos haluat nähdä tehtävät, joiden määräaika on 31 "
+#~ "päivän sisään."
+
+#~ msgid "Select the days for showing pending To-dos"
+#~ msgstr "Valitse, monenko päivän ajalta odottavat tehtävät näytetään"
+
+#~ msgid ""
+#~ "Check this box if you want specify the number of days in the future for "
+#~ "pending To-dos."
+#~ msgstr ""
+#~ "Valitse tämä ruutu, jos haluat määrittää ajanjakson, jonka ajalta "
+#~ "odottavat tehtävät näytetään."
+
+#~ msgid "Set the number of days to show pending To-dos"
+#~ msgstr "Aseta aika (päivissä), jolta odottavat tehtävät näytetään"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show pending To-dos up to 1 "
+#~ "year in the future."
+#~ msgstr ""
+#~ "Aseta tällä kentällä aika, jolta odottavat tehtävät näytetään (enintään "
+#~ "vuoden tulevaisuuteen)."
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "Piilota seuraavat tehtävätyypit"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Piilota valmistuneet tehtävät"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have already been "
+#~ "completed."
+#~ msgstr "Valitse tämä ruutu, ellet haluat nähdä valmistuneita tehtäviä."
+
+#~ msgid "&Completed"
+#~ msgstr "&Valmiit"
+
+#~ msgid "Hide To-dos without a due date"
+#~ msgstr "Piilota määräpäivättömät tehtävät"
+
+#~ msgid "Check this box if you do not want to see open-ended To-dos."
+#~ msgstr ""
+#~ "Valitse tämä ruutu, ellet halua nähdä tehtäviä, joilla ei ole asetettu "
+#~ "määräpäivää."
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "&Avoimet (ei määräpäivää)"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "Piilota aloittamattomat tehtävät"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Valitse tämä ruutu, ellet haluat nähdä tehtäviä, joiden aloituspäivä on "
+#~ "tulevaisuudessa."
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "A&loittamattomat (aloituspäivä tulevaisuudessa)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "Piilota meneillään olevat tehtävät"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Valitse tämä ruutu, ellet haluat nähdä tehtäviä, jotka on aloitettu mutta "
+#~ "jotka eivät vielä ole valmiita."
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "&Meneillään olevat (aloitettu muttei valmis)"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Piilota myöhässä olevat tehtävät"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Valitse tämä ruutu, ellet halua nähdä tehtäviä, jotka ovat ohittaneet "
+#~ "määräpäivänsä valmistumatta."
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "&Myöhässä (ei valmis, mutta määräpäivä ohi)"
+
+#~ msgid "Show To-dos belonging to my calendars only"
+#~ msgstr "Näytä vain omiin kalentereihini kuuluvat tehtävät"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show To-dos belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Valitse tämä, jos haluat yhteenvedossa näytettävän vain omiin "
+#~ "kalentereihisi kuuluvat tehtävät."
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Näytä vain &omat tehtäväni"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "Odottavat tehtävät"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Tänään"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Huomenna"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "1 päivä sitten"
+#~ msgstr[1] "%1 päivää sitten"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "määräpäivä"
+
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "Ei tehtävien määräpäivää seuraavan päivän sisällä"
+#~ msgstr[1] "Ei tehtävien määräpäivää seuraavien %1 päivän sisällä"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "&Muokkaa tehtävää…"
+
+#~ msgid "&Delete To-do"
+#~ msgstr "&Poista tehtävä"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "&Merkitse tehtävä tehdyksi"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Muokkaa tehtävää: ”%1”"
+
+#~ msgid "open-ended"
+#~ msgstr "päättymisaika avoin"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "myöhässä"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "alkaa tänään"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "ei alkanut"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "valmis"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "tekeillä "
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Tulevien merkkipäivien asetusikkuna"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Erityispäivien yhteenvedon asetukset"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Näytä erityispäivät alkaen"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Näytä vain tänäiset erityistilaisuudet"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions occurring on this "
+#~ "date only."
+#~ msgstr ""
+#~ "Valitse tämä, jos haluat nähdä vain tänään tapahtuvat erityistilaisuudet."
+
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Näytä seuraavan kuukauden aikana alkavat erityistilaisuudet"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions that start sometime "
+#~ "during the next 31 days."
+#~ msgstr ""
+#~ "Valitse tämä ruutu, jos haluat nähdä seuraavien 31 päivän aikana "
+#~ "käynnistyvät erityistilaisuudet."
+
+#~ msgid "Select the days for showing upcoming special occasions"
+#~ msgstr "Valitse, monenko päivät tulevät erityistilaisuudet näytetään"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming special occasions."
+#~ msgstr ""
+#~ "Valitse tämä ruutu, jos haluat määrittää, monenko päivän ajalta tulevat "
+#~ "erityistilaisuudet näytetään."
+
+#~ msgid "Set the number of days to show upcoming special occasions"
+#~ msgstr "Aseta, monenko päivän ajalta tulevat erityistilaisuudet näytetään"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming special "
+#~ "occasions up to one year in the future."
+#~ msgstr ""
+#~ "Tällä säätimellä voit asettaa, moneltako päivältä tulevat "
+#~ "erityistapahtumat näytetään (enintään vuodelta)."
+
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Näytä nämä erityispäivät kalenteristasi"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Näytä syntymäpäivät kalenterista"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Birthday\" category."
+#~ msgstr ""
+#~ "Käytä tätä valintaa sisällyttääksesi syntymäpäivät kalenteristasi "
+#~ "tulevien erityistilaisuuksien yhteenvetoon. Nämä ovat tyypillisesti "
+#~ "”Syntymäpäivä”-luokan tapahtumia."
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Näytä merkkipäivät kalenteristasi"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Anniversary\" category."
+#~ msgstr ""
+#~ "Käytä tätä valintaa sisällyttääksesi vuosipäivät kalenteristasi tulevien "
+#~ "erityistilaisuuksien yhteenvetoon. Nämä ovat tyypillisesti ”vuosipäivä”-"
+#~ "luokan tapahtumia."
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Näytä lomapäivät kalenteristasi"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the upcoming "
+#~ "special occasions summary. These are events from your configured holiday "
+#~ "region, or events with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Käytä tätä valintaa sisällyttääksesi vapaapäivät kalenteristasi tulevien "
+#~ "erityistilaisuuksien yhteenvetoon. Vapaapäivät määrittyvät valitsemasi "
+#~ "vapaapäiväalueen mukaan tai ovat Vapaapäivä-luokan tapahtumia."
+
+#~ msgid "Show &holidays"
+#~ msgstr "Näytä &vapaapäivät"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Näytä erityistapahtumat kalenteristasi"
+
+#~ msgid ""
+#~ "Enable this option to include events from your calendar with the "
+#~ "\"special occasion\" category."
+#~ msgstr ""
+#~ "Käytä tätä valintaa sisällyttääksesi erityistilaisuuksiksi merkityt "
+#~ "tapahtumat kalenteristasi."
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "&Erityistilaisuudet"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Näytä nämä erityispäivät yhteystietoluettelostasi"
+
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Näytä syntymäpäivät osoitekirjastasi"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Käytä tätä valintaa sisällyttäksesi syntymäpäivät kalenteristasi tulevien "
+#~ "erityistilaisuuksien yhteenvetoon."
+
+#~ msgid "Show birth&days"
+#~ msgstr "&Syntymäpäivät"
+
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Näytä merkkipäivät osoitekirjastasi"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Käytä tätä valintaa sisällyttääksesi merkkipäivät kalenteristasi tulevien "
+#~ "erityistilaisuuksien yhteenvetoon."
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "&merkkipäivät"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Tulevat merkkipäivät"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Tänään"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Huomenna"
+
+#~ msgid "Birthday"
+#~ msgstr "Syntymäpäivä"
+
+#~ msgid "Anniversary"
+#~ msgstr "Vuosipäivä"
+
+#~ msgid "Holiday"
+#~ msgstr "Lomapäivä"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Erityinen tapahtuma"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "yhden vuoden"
+#~ msgstr[1] "%1 vuotta"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Ei syntymä- tai juhlapäiviä seuraavan päivän sisällä"
+#~ msgstr[1] "Ei syntymä- tai juhlapäiviä seuraavien %1 päivän sisällä"
+
+#~ msgid "Send &Mail"
+#~ msgstr "Lähetä sähkö&postia"
+
+#~ msgid "View &Contact"
+#~ msgstr "Näytä &yhteystieto"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Lähetä sähköpostia henkilölle:\"%1\""
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Merkkipäivien yhteenveto"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Yhteenveto"
+
+#~ msgid ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "Nykyinen ylläpitäjä"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Uusi KJots-sivu"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr "Saat näkyviin ikkunan, jossa voit luoda uuden muistiinpanosivun."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Uusi KJots-kirja"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots book."
+#~ msgstr "Saat näkyviin ikkunan, jossa voit luoda uuden muistiinpanokirjan."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Luo uusi syöte"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "Luo uusi yhteystieto"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Luo uusi yhteystietoryhmä"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Synkronoi ryhmätyöohjelmiston yhteystiedot"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Luo uusi muistiinpanosivu"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Luo uusi muistiinpanokirja"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Luo uusi sähköpostiviesti"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Synkronoi ryhmätyösähköposti"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Uusi artikkeli…"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Luo uusi uutisryhmäartikkeli"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new article to "
+#~ "post on Usenet."
+#~ msgstr ""
+#~ "Saat näkyviin ikkunan, jossa voit kirjoittaa uuden Usenet-artikkelin."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Luo uusi ponnahdusviesti"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Muokkaa ponnahdusviestiä"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Muuta ponnahdusviestin nimeä"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Poista ponnahdusviesti"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Tulosta ponnahdusviesti"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Luo uusi ponnahdusviesti"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Uusi tehtävä"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Luo uusi ajanseuranta"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and start a new "
+#~ "time tracker."
+#~ msgstr ""
+#~ "Sinulle näytetään ikkuna, missä voit luoda ja käynnistää uuden "
+#~ "ajanseurannan."
+
+#~ msgid "task_popup"
+#~ msgstr "task_popup"
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Suunnitelmayhteenvedon asetusikkuna"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+#~ msgstr ""
+#~ "Tekijänoikeudet © 2004 Tobias Koenig\n"
+#~ "Tekijänoikeudet © 2006–2008 Oral Timocin\n"
+#~ "Tekijänoikeudet © 2009–2010 Allen Winter"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgid "Planner"
+#~ msgstr "Suunnittelija"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Tänään"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Huomenna"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Ei tapaamisia vuorokauden sisään"
+#~ msgstr[1] "Ei tapaamisia seuraavien %1 päivän aikana"
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "myöhässä"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "&Muokkaa tapaamista: ”%1”"
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "tekeillä"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "alkaa tänään"
+
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "määräpäivä tänään"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "valmiina"
+
+#~ msgid "%1%"
+#~ msgstr "%1 %"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Suunnitelmayhteenvedon asetukset"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "Yleistä"
+
+#~ msgid "General Configuration"
+#~ msgstr "Yleisasetukset"
+
+#~ msgid "Show an icon indicating a recurring item"
+#~ msgstr "Näytä toistuvaa merkintää osoittava kuvake"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon that indicates an event or to-"
+#~ "do is recurring."
+#~ msgstr ""
+#~ "Valitse tämä, jos haluat toistuvan tapahtuman tai tehtävän osoitettavan "
+#~ "kuvakkeella."
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "Näytä toiston kuvake"
+
+#~ msgid "Show an icon indicating the item has a reminder"
+#~ msgstr "Näytä kuvake, joka osoittaa merkinnällä olevan muistutus"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon indicating that the event or to-"
+#~ "do has a reminder."
+#~ msgstr ""
+#~ "Valitse tämä, jos haluat kuvakkeen silloin, kun tapahtumalla tai "
+#~ "tehtävällä on muistutus."
+
+#~ msgid "Show reminder icon"
+#~ msgstr "Näytä muistutuskuvake"
+
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Alleviivaa kuvauksissa olevat linkit"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr "Valitse tämä, jos haluat verkkolinkit alleviivattavan."
+
+#~ msgid "Underline links"
+#~ msgstr "Alleviivaa linkit"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Näytä tehtävät yhteenvedossa"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr "Valitse tämä, jos haluat nähdä tehtävät yhteenvedossa."
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Näytä tehtävät suunnittelijassa"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Näytä erityispäivät yhteenvedossa"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr "Valitse tämä ruutu, jos haluat nähdä erityispäivät yhteenvedossa."
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "Näytä erityispäivät suunnittelijassa"
+
+#~ msgid "Events"
+#~ msgstr "Tapahtumat"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "Näytä kalenterin tapahtumat"
+
+#~ msgid "To-dos"
+#~ msgstr "Tehtävät"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Piilota valmistuneet tehtävät"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have already been "
+#~ "completed."
+#~ msgstr "Valitse tämä, ellet haluat nähdä jo valmistuneita tehtäviä."
+
+#~ msgid "Hide to-dos without a due date"
+#~ msgstr "Piilota määräpäivättömät tehtävät"
+
+#~ msgid "Check this box if you do not want to see open-ended to-dos."
+#~ msgstr ""
+#~ "Valitse tämä, jos haluat nähdä vain sellaiset tehtävät, joilla on "
+#~ "määräpäivä."
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Piilota aloittamattomat tehtävät"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Valitse tämä, ellet haluat nähdä tehtäviä, joiden aloituspäivä on "
+#~ "tulevaisuudessa."
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "Piilota tekeillä olevat tehtävät"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Valitse tämä, ellet halua nähdä tehtäviä, jotka on aloitettu mutta jotka "
+#~ "eivät vielä ole valmiita."
+
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Piilota erääntyneet tehtävät"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Valitse tämä, ellet halua nähdä tehtäviä, jotka ovat ohittaneet "
+#~ "määräpäivänsä tulematta valmiiksi."
+
+#~ msgid "Special Dates"
+#~ msgstr "Merkkipäivät"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "Näytä nämä merkkipäivät"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Ota tämä asetus käyttöön näyttääksesi merkkipäivät osoitekirjastasi "
+#~ "suunnitelmayhteenvedossa."
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Näytä syntymäpäivät osoitekirjasta"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Ota tämä asetus käyttöön näyttääksesi merkkipäivät osoitekirjastasi "
+#~ "suunnitelmayhteenvedossa."
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Näytä merkkipäivät osoitekirjasta"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the planner "
+#~ "summary. These are events from your configured holiday region, or events "
+#~ "with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Ota tämä asetus käyttöön näyttääksesi vapaapäivät kalenteristasi "
+#~ "suunnitelmayhteenvedossa. Nämä ovat vapaapäiväalueesi määrittämiä "
+#~ "tapahtumia tai tapahtumia, jotka on merkitty lomaksi."
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Näytä vapaapäivät kalenterista"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Näytä erityistilaisuudet kalenterista"
+
+#~ msgid "Planner Summary"
+#~ msgstr "Suunnitelmayhteenveto"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Kontactin suunnitelmayhteenveto"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Aktiivinen kalenteri"
+
+#~ msgid "Default Calendar"
+#~ msgstr "Oletuskalenteri"
+
+#~ msgid "Birthdays"
+#~ msgstr "Syntymäpäivät"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "Liitännäinen %1"
+
+#~ msgid "No Notes Available"
+#~ msgstr "Ei muistiinpanoja saatavilla"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Synkronoi ponnahdusviestit"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Synkronoi ryhmätyöohjelmiston muistiinpanot"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "Valitse tämä synkronoidaksesi ryhmätyöohjelmistosi muistiinpanot."
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(C) 2003 Kontact-kehittäjät"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Aseta Kontact Groupware-asiakasohjelmaksi"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "SYNTYMÄPÄIVÄ"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "VUOSIPÄIVÄ"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "LOMAPÄIVÄ"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "ERITYINEN TAPAHTUMA"
+
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(C) 2001-2009 Kontact-kehittäjät"
+
+#~ msgid "Summary"
+#~ msgstr "Yhteenveto"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Paikallinen"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003–2004 Tobias Koenig"
+
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "(c) 2007–2008 Oral Timocin"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(c) 2004–2005 The KDE PIM -ryhmä"
+
+#~ msgid "(c) 2004-2006 Allen Winter"
+#~ msgstr "(c) 2004–2006 Allen Winter"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#~ msgid " days"
+#~ msgstr " päivää"
+
+#~ msgid "Rename"
+#~ msgstr "Muuta nimeä"
+
+#~ msgid "Show &anniveraries"
+#~ msgstr "&Vuosipäivät"
+
+#~ msgid "New Distribution List..."
+#~ msgstr "Uusi jakelulista..."
+
+#~ msgid "New SMS..."
+#~ msgstr "Uusi tekstiviesti..."
+
+#~ msgid "New News Feed"
+#~ msgstr "Uusi uutissyöte"
+
+#~ msgid "URL:"
+#~ msgstr "Verkko-osoite:"
+
+#~ msgid "Arts"
+#~ msgstr "Taiteet"
+
+#~ msgid "Business"
+#~ msgstr "Työ"
+
+#~ msgid "Computers"
+#~ msgstr "Tietokoneet"
+
+#~ msgid "Misc"
+#~ msgstr "Sekalaiset"
+
+#~ msgid "Recreation"
+#~ msgstr "Vapaa-aika"
+
+#~ msgid "Society"
+#~ msgstr "Yhteiskunta"
+
+#~ msgid "Custom"
+#~ msgstr "Omat"
+
+#~ msgid "All"
+#~ msgstr "Kaikki"
+
+#~ msgid "Add"
+#~ msgstr "Lisää"
+
+#~ msgid "Remove"
+#~ msgstr "Poista"
+
+#~ msgid "Selected"
+#~ msgstr "Valitut"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Päivitysväli:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Näytettävien syötteiden määrä:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Uutistenhakijan asetusten valintaikkuna"
+
+#~ msgid "News Feeds"
+#~ msgstr "Uutislähteet"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "Ei rss dcop -palvelua saatavilla.\n"
+#~ "Tarvitset rss-palvelua käyttääksesi tätä liitännäistä."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "Kopioi verkko-osoite leikepöydälle"
+
+#~ msgid "Weather Information"
+#~ msgstr "Säätiedotus"
+
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "Ei säätilan D-Bus-palvelua saatavilla;\n"
+#~ "käytä  KWeather-ohjelmaa tälle liitännäiselle."
+
+#~ msgid "Last updated on"
+#~ msgstr "Päivitetty viimeksi"
+
+#~ msgid "Wind Speed"
+#~ msgstr "Tuulen nopeus"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "Suhteellinen kosteus"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "Näytä aseman säätiedotus"
+
+#~ msgid "Ian Reinhart Geiser"
+#~ msgstr "Ian Reinhart Geiser"
+
+#~ msgid "John Ratke"
+#~ msgstr "John Ratke"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "Paranteluja ja lisää koodin puhdistuksia"
+
+#~ msgid "Unknown"
+#~ msgstr "Tuntematon"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "Erityispäivien yhteenveto"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "KOrganizerin oletustietolähde"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Tänään"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Huomenna"
+
+#, fuzzy
+#~| msgid "Anniversary"
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "Vuosipäivä"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "Today only"
+#~ msgstr "Tänään"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos starting today"
+#~ msgstr "alkaa tänään"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos ending today"
+#~ msgstr "alkaa tänään"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "One day"
+#~ msgstr " päivä"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "Five days"
+#~ msgstr " päivä"
+
+#, fuzzy
+#~| msgid "Pending To-dos"
+#~ msgid "Starting to-dos"
+#~ msgstr "Tekemättömät tehtävät"
+
+#, fuzzy
+#~| msgid "Pending To-dos"
+#~ msgid "Ending to-dos"
+#~ msgstr "Tekemättömät tehtävät"
+
+#, fuzzy
+#~| msgid "in-progress "
+#~ msgid "To-dos in progress"
+#~ msgstr "tekeillä"
+
+#, fuzzy
+#~| msgid "Newsticker Configuration Dialog"
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "Uutistenhakijan asetusten valintaikkuna"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today"
+#~ msgstr "Tänään"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "%1-tyyppisiä pudotuksia ei tueta."
+
+#~ msgid "Notes Management"
+#~ msgstr "Muistiinpanojen hallinta"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "Kuvakekoko"
+
+#, fuzzy
+#~| msgid "Large"
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "Suuri"
+
+#, fuzzy
+#~| msgid "Small"
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "Pieni"
+
+#~ msgid "Synchronize"
+#~ msgstr "Synkronoi"
+
+#~ msgid "Name"
+#~ msgstr "Nimi"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr "Tässä voit valita yhteenvetoon mukaan otettavat tiedot"

@@ -1,0 +1,1252 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym
+>PIM</acronym
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE">
+]>
+
+<book id="kontact" lang="&language;">
+
+<bookinfo>
+
+<title
+>Handbok &kontact;</title>
+
+<authorgroup>
+<author
+><firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+><address
+>&Cornelius.Schumacher.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Antonio</firstname
+> <surname
+>Salazar</surname
+> <affiliation
+><address
+><email
+>savedfastcool@gmail.com</email>
+    </address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+><address
+>&Daniel.Molkentin.mail;</address
+></affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2003-2005</year
+><holder
+>&Cornelius.Schumacher;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-12-08</date>
+<releaseinfo
+>5.4.40 (Program 16.12)</releaseinfo>
+
+<abstract
+><para
+>&kontact; är den integrerade lösningen för dina behov av personlig informationshantering (&PIM;). Den kombinerar välkända &kde;-program som &kmail;, &korganizer; och &kaddressbook; i ett enda gränssnitt för att tillhandahålla ett enkelt sätt att komma åt e-post, kalenderfunktion, adressbok och andra funktioner för informationshantering.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>Kmail</keyword>
+<keyword
+>Filofax</keyword>
+<keyword
+>Adressboken</keyword>
+<keyword
+>Anteckningslappar</keyword>
+<keyword
+>Akregator</keyword>
+<keyword
+>PIM</keyword>
+<keyword
+>grupprogram</keyword>
+<keyword
+>Outlook</keyword>
+<keyword
+>Evolution</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+
+<para
+>&kontact; är den integrerade lösningen för personlig informationshantering. Den kombinerar de välkända &kde;-programmen för e-post, schemaläggning, adressbok och anteckningar (&kmail;, &korganizer;, &kaddressbook;, och &knotes;) i ett enda gränssnitt. Eftersom det är baserat på ett sant komponentramverk, erbjuder &kontact; exakt samma funktioner som de fristående programmen, och lägger till fler funktioner genom att utnyttja det integrerade sätt som &kontact; kör programmen som komponenter. Användare behåller fortfarande valet av vilka program som ska köras i &kontact;, och vilka som ska köras fristående.</para>
+
+<para
+>Förutom funktionerna i varje individuellt program tillhandahåller &kontact; en översiktsvy och avancerade drag och släpp funktioner mellan komponenter. </para>
+
+</chapter>
+
+
+<chapter id="components">
+<title
+>Komponenter i &kontact;</title>
+
+<para
+>&kontact; integrerar följande program. För detaljinformation om hur de används, se varje programs handbok. Där beskrivs både hur de körs som komponenter inne i &kontact;, och hur de körs som fristående program. </para>
+
+<variablelist>
+    <varlistentry>
+        <term
+><ulink url="help:/kmail2"
+>&kmail;</ulink
+></term>
+        <listitem
+><para
+>&kde;:s e-postklient.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/korganizer"
+>&korganizer;</ulink
+></term>
+        <listitem
+><para
+>&kde;:s kalender och schemaläggningsprogram.</para>
+            </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/kaddressbook"
+>&kaddressbook;</ulink
+></term>
+        <listitem
+><para
+>&kde;:s kontakthantering.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/knotes"
+>&knotes;</ulink
+></term>
+        <listitem
+><para
+>&kde;:s program för uppklistrade anteckningar.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/akregator"
+>&akregator;</ulink
+></term>
+        <listitem
+><para
+>&kde;:s gränssnitt till RSS-kanaler.</para>
+            </listitem>
+    </varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="main-window">
+<title
+>&kontact;s huvudfönster</title>
+
+<para
+>Huvudfönstret består av en sidopanel till vänster som visar ikonerna för de tillgängliga komponenterna, en huvudvy till höger som innehåller den aktiva komponentens huvudfönster och de vanliga meny-, verktygs- och statusraderna.</para>
+
+<sect1 id="side-pane">
+<title
+>Sidopanelen</title>
+
+<para
+>Sidopanelen tjänar flera syften. Den gör det möjligt att byta mellan komponenter, visar vilken komponent som är aktiv och fungerar som mål för drag-och-släpp till de olika programmen.</para>
+
+<screenshot>
+<screeninfo
+>Sidopanelen i &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="side-pane.png"/></imageobject>
+<textobject>
+<phrase
+>Sidopanelen i &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Sidopanelen i &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>För att byta mellan komponenter, klicka helt enkelt på motsvarande ikon. Komponentens huvudfönster visas och menyraden, verktygsraden och statusraden anpassas för att motsvara funktionerna i den aktiva komponenten. Om du aktiverar en komponent för första gången, kan det uppstå en kort fördröjning innan huvudvyn ändras, eftersom komponenter laddas vid behov. Det betyder att du inte slösar minne på komponenter du inte använder.</para>
+
+<para
+>Ikonerna i sidopanelen kan också användas som mål för drag-och-släpp. Du kan till exempel dra ett brev från e-postkomponenten och släppa det på ikonen för uppgiftslistan eller kalendern för att skapa en uppgift eller händelse som hör ihop med brevet.</para>
+
+<para
+>Till sist kan du ändra storlek på ikonerna i sidopanelen. Ett högerklick på sidopanelen ger dig alternativen att använda stora, normala eller små ikoner, samt alternativet att bara använda text istället för ikoner.</para>
+
+<para
+>Om du ogillar sidoraden kan du helt enkelt dölja den genom att dra avdelaren. Ett alternativt sätt att navigera mellan delar tillhandahålls av <guilabel
+>navigeringsverktygsraden</guilabel
+> som kan placeras fritt. Se <xref linkend="bars"/> för mer information om <guilabel
+>navigeringsverktygsraden</guilabel
+>.</para>
+
+</sect1>
+
+
+<sect1 id="main-view">
+
+<title
+>Huvudvyn</title>
+
+<para
+>Vyn till höger som upptar största delen av området i &kontact;s huvudfönster, visar den aktiva komponenten. Det motsvarar exakt huvudfönstret som komponenten använder när den kör som ett fristående program. Den markerade ikonen i sidopanelen anger vilket program som huvudvyn hör till. &kontact; kommer ihåg vilken komponent som var aktiv när det avslutas, så nästa gång &kontact; startas visas den komponenten i huvudvyn från början.</para>
+
+<screenshot>
+<screeninfo
+>&kontact;s huvudfönster</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact;s huvudfönster</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;s huvudfönster </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Dessutom finns det två sätt att överskrida komponenten som &kontact; startar med. Det första är som väljare vid anrop av programmet &kontact; (se <xref linkend="command-line"/>). Det andra är en inställning i &kontact;s inställningsdialogruta som låter dig alltid starta &kontact; med ett visst läge.</para>
+
+<para
+>För att komma till den, gå till <menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa Kontact</guimenuitem
+></menuchoice
+> och klicka på <guilabel
+>Kontact</guilabel
+> i listan.</para>
+
+<screenshot>
+<screeninfo
+>&kontact;s komponentinställning vid start</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact;s komponentinställning vid start</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;s komponentinställning vid start </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="bars">
+<title
+>Meny, verktygsrader och statusrad</title>
+
+<para
+>Meny-, verktygs- och statusraderna anpassas för den aktiva komponenten. Det betyder att förutom några gemensamma funktioner som hjälpmenyn, som visas för alla komponenter, finns det alternativ som byts när den aktiva komponenten ändras. Alternativen som är tillgängliga för varje komponent är desamma som är tillgängliga när programmet körs fristående.</para>
+
+<screenshot>
+<screeninfo
+>Vyer av &kontact;s menyrader i översiktsvyn, brevvyn och kalendervyn</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
+<textobject>
+<phrase
+>Vyer av &kontact;s menyrader i översiktsvyn, brevvyn och kalendervyn</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Vyer av &kontact;s menyrader i översiktsvyn, brevvyn och kalendervyn</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
+<textobject>
+<phrase
+>Vyer av &kontact;s menyrader i översiktsvyn, brevvyn och kalendervyn</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Vyer av &kontact;s menyrader i översiktsvyn, brevvyn och kalendervyn</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
+<textobject>
+<phrase
+>Vyer av &kontact;s menyrader i översiktsvyn, brevvyn och kalendervyn</phrase>
+</textobject>
+<caption>
+<para
+>Vyer av &kontact;s menyrader i översiktsvyn, brevvyn och kalendervyn. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Dessutom kan &kontact; visa en <guilabel
+>navigeringsverktygsrad</guilabel
+> som låter dig komma åt komponenterna i &kontact; på ett sätt som mycket liknar sidopanelen. I motsats till sidopanelen, kan dock inte knappar i <guilabel
+>navigeringsverktygsraden</guilabel
+> användas för drag och släpp till andra komponenter.</para>
+
+<para
+>Välj <menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guisubmenu
+>Visade verktygsrader</guisubmenu
+>  <guimenuitem
+>Navigator</guimenuitem
+></menuchoice
+> för att aktivera verktygsraden. </para>
+
+<screenshot>
+<screeninfo
+>&kontact;s <guimenuitem
+>navigeringsverktygsrad</guimenuitem
+>.</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact;s <guimenuitem
+>navigeringsverktygsrad</guimenuitem
+>.</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;s <guimenuitem
+>navigeringsverktygsrad</guimenuitem
+>. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Ett särskilt alternativ som är gemensamt för alla komponenter är alternativet <guimenuitem
+>Ny</guimenuitem
+>. Det möjliggör att nya objekt, som brev, kontakter, möten och uppgifter skapas oberoende av vilken komponent som är aktiv. Komponenten som är ansvarig för att behandla det valda objektet startas, om det behövs, och tar över objektet som skapats.</para>
+
+<screenshot>
+<screeninfo
+>Menyn Ny i &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<textobject>
+<phrase
+>Menyn Ny i &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Menyn Ny i &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="side-pane-drag-and-drop">
+<title
+>Drag och släpp-funktioner</title>
+
+<para
+>&kontact; tillhandahåller avancerade funktioner för drag och släpp mellan de program som ingår. Det följande är en kortfattad beskrivning av var och en av de specifika åtgärderna för drag och släpp som kan utföras, och resultatet av var och en.</para>
+
+<sect2 id="side-pane-drag-and-drop-kmail-todo">
+<title
+>&kmail; -&gt; &korganizer;s uppgiftslista</title>
+
+<para
+>Att dra ett brev från <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>&kmail;s rubrikruta</ulink
+> till ikonen för &korganizer;s uppgiftslista (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) skapar en ny uppgift med titeln <guilabel
+>Brev: <replaceable
+>rubrik</replaceable
+></guilabel
+> och innehållet <guilabel
+>Från: <replaceable
+>avsändare</replaceable
+> Till: <replaceable
+>mottagare</replaceable
+> Rubrik: <replaceable
+>rubrik</replaceable
+></guilabel
+> (där text som ser ut <guilabel
+><replaceable
+>så här</replaceable
+></guilabel
+> är information från själva brevet), samt brevet självt som en bilaga. </para>
+
+</sect2>
+
+<sect2 id="side-pane-drag-and-drop-kmail-calendar">
+<title
+>&kmail; -&gt; &korganizer;s kalender</title>
+
+<para
+>Att dra ett brev från <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>&kmail;s rubrikruta</ulink
+> till ikonen för &korganizer;s kalender (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="calendar-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) skapar en ny händelse med titeln <guilabel
+>Brev: <replaceable
+>rubrik</replaceable
+></guilabel
+> och innehållet <guilabel
+>Från: <replaceable
+>avsändare</replaceable
+> Till: <replaceable
+>mottagare</replaceable
+> Rubrik: <replaceable
+>rubrik</replaceable
+></guilabel
+> (där text som ser ut <guilabel
+><replaceable
+>så här</replaceable
+></guilabel
+> är information från själva brevet), samt brevet självt som en bilaga. </para>
+
+<para
+>Observera att dra till uppgiftsknappen skapar en uppgift, medan att dra till kalendern skapar en händelse. Mer om denna skillnad är tillgängligt i <ulink url="help:/korganizer"
+>&korganizer;s dokumentation</ulink
+>. </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kmail-contacts">
+<title
+>&kmail; -&gt; &kaddressbook;</title>
+
+<para
+>Att dra ett brev från <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>&kmail;s rubrikruta</ulink
+> till ikonen för adressboken (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="kaddressbook-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) skapar en kontakt med avsändarens e-postadress, om en kontakt med det namnet inte redan finns. En dialogruta ger dig information om åtgärden. </para>
+
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
+<title
+>&kaddressbook; -&gt; &korganizer;s uppgiftslista</title>
+
+<para
+>Att dra ett godtyckligt antal poster från <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>adressbokens huvudfönster</ulink
+> till ikonen för &korganizer;s uppgiftslista (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) skapar en ny uppgift med titeln &quot;Möte&quot; och valda kontakter som deltagare. </para>
+
+<para
+>Observera att dra till uppgiftsknappen skapar en uppgift, medan att dra till kalendern skapar en händelse. Mer om denna skillnad är tillgängligt i <ulink url="help:/korganizer"
+>&korganizer;s dokumentation</ulink
+>. </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
+<title
+>&kaddressbook; -&gt; &korganizer;s kalender</title>
+
+<para
+>Att dra ett godtyckligt antal poster från <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>adressbokens huvudfönster</ulink
+> till ikonen för &korganizer;s uppgiftslista (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="calendar-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) skapar en ny händelse med titeln &quot;Möte&quot; och valda kontakter som deltagare. </para>
+
+<para
+>Observera att dra till uppgiftsknappen skapar en uppgift, medan att dra till kalendern skapar en händelse. Mer om denna skillnad är tillgängligt i <ulink url="help:/korganizer"
+>&korganizer;s dokumentation</ulink
+>. </para>
+
+</sect2>
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="summary-view">
+<title
+>Översiktsvyn</title>
+
+<para
+>Standardvyn när &kontact; startas för första gången är översiktsvyn. Den visar en översikt över den mest relevanta information som tillhandahålls av de valda komponenterna i &kontact;. Det kan vara anteckningar, nära förestående möten eller födelsedagar, aktuella uppgifter, nya brev, etc. Informationen som visas kan anpassas genom att välja respektive komponent i <link linkend="configuration"
+>&kontact;s inställningsdialogruta</link
+>.</para>
+
+<screenshot>
+<screeninfo
+>Översiktsvyn i &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<textobject>
+<phrase
+>Översiktsvyn i &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Översiktsvyn i &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<!-- not in kde4 para
+>If you think the information you see is outdated, you can click on the
+<guibutton
+>Refresh</guibutton
+> button (<guiicon
+><inlinemediaobject
+><imageobject>
+<imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
+</imageobject
+></inlinemediaobject
+></guiicon
+>)
+in the Summary View toolbar to refresh
+the data.</para-->
+
+<sect1 id="summary-view-component-reposition">
+<title
+>Ändra position för komponenterna i översiktsvyn</title>
+
+<para
+>Översiktsvyn låter dig ändra var komponenterna finns i själva vyn. Om du alltså föredrar att ha speciella datum längst ner till vänster, och uppgifter längst upp till höger, kan du arrangera om översiktsvyn för att motsvara det.</para>
+
+<para
+>Att ändra position för komponenterna i översiktsvyn är så enkelt som att dra dem till den nya platsen du vill att de ska finnas. Håll nere &Ctrl;-tangenten, klicka och håll på komponentens gråa namnlist och dra komponenten dit du vill att den ska vara. Observera att positioneringen görs i förhållande till andra komponenter. Du kan alltså flytta brevkomponenten under uppgiftskomponenten i vyn, men du kan inte placera den på en specifik position. Om du bara har en komponent i översiktsvyn är den enda möjligheten att flytta den mellan de två kolumnerna i vyn. Två komponenter kan antingen vara två i en kolumn eller en i vardera kolumn, och så vidare. Så fort du drar en komponent, ser du en liten förhandsgranskningsruta som följer med musen och visar komponenten.</para>
+
+<screenshot>
+<screeninfo
+>Arrangera om översiktsvyn i &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<textobject>
+<phrase
+>Arrangera om översiktsvyn i &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Arrangera om översiktsvyn i &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title
+>Anpassa &kontact;</title>
+
+<sect1 id="main-config">
+<title
+>&kontact;s inställningsfönster</title>
+
+<para
+>När alternativet <guimenuitem
+>Anpassa &kontact;</guimenuitem
+> väljes i menyn <guimenu
+>Inställningar</guimenu
+>, visas &kontact;s inställningsdialogruta. Den tillhandahåller en lista med tillgängliga komponenter i  &kontact;. Du kan klicka på symbolen <guilabel
+>&gt;</guilabel
+> intill komponentnamnen för att dra ihop alternativen så att du kan se alternativen för komponenten du letar efter. Genom att markera ett av inställningsalternativen under en rubrik, visas den inställningssidan till höger.</para>
+
+<screenshot>
+<screeninfo
+>&kontact;s inställningsfönster</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact;s inställningsfönster</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;s inställningsfönster </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Genom att markera rutan intill komponentnamnet, väljer du att komponenten ska läggas till i sidoraden och i översiktsvyn. Komponenten laddas, och dess huvudvy visas i huvudfönstret när ikonen i sidopanelen klickas för första gången. Genom att avmarkera kryssrutan tas komponenten bort från sidopanelen och översiktsvyn. Ändringar verkställs genom att klicka på knapparna <guibutton
+>Verkställ</guibutton
+> eller <guibutton
+>Ok</guibutton
+>.</para>
+
+<para
+>Du kan också anpassa enskilda komponenter genom att klicka på motsvarande ikon i huvudfönstrets sidopanel, och därefter välja menyalternativet <guimenuitem
+>Anpassa <replaceable
+>programnamn</replaceable
+></guimenuitem
+> i menyn <guimenu
+>Inställningar</guimenu
+>.</para>
+
+<screenshot>
+<screeninfo
+>&kontact;s inställningsmeny när &kmail; är valt</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="settings-menu-kmail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact;s inställningsmeny när &kmail; är valt</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;s inställningsmeny när &kmail; är valt </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="summary-view-config">
+<title
+>Anpassa &kontact;s översiktsvy</title>
+
+<para
+>När du väljer <guilabel
+>Översikter</guilabel
+> i &kontact;s inställningsdialogruta visas en sida som låter dig välja vilka översiktskomponenter som &kontact; ska visa i översiktsvyn. Här är en kortfattad lista med insticksprogrammen som för närvarande är tillgängliga, och vad de gör: </para>
+
+<screenshot>
+<screeninfo
+>Översiktsval</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-selection.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Översiktsval</phrase>
+</textobject>
+<caption
+><para
+>Översiktsval</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="summary-view-config-calendar">
+<title
+>&kontact;s översiktsinsticksprogram: Kalender</title>
+
+<para
+>Insticksprogrammet <quote
+>Kalender</quote
+> för &kontact;s översiktsvy lägger till ett område i vyn som heter <guilabel
+>Kommande händelser</guilabel
+>. Det visar alla händelser som för närvarande är planerade. </para>
+
+<screenshot>
+<screeninfo
+>&kontact;s översiktsinsticksprogram för kalender</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-calendar.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact;s översiktsinsticksprogram för kalender</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;s översiktsinsticksprogram för kalender </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-mail">
+<title
+>&kontact;s översiktsinsticksprogram: Brev</title>
+
+<para
+>Insticksprogrammet <quote
+>Brev</quote
+> för &kontact;s översiktsvy lägger till ett område i vyn som heter <guilabel
+>Nya brev</guilabel
+>. Området uppdateras varje gång du tar emot nya brev, med information om hur många brev det finns och i vilka korgar de finns. </para>
+
+<screenshot>
+<screeninfo
+>&kontact;s översiktsinsticksprogram för brev</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-mail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact;s översiktsinsticksprogram för brev</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;s översiktsinsticksprogram för brev </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-notes">
+<title
+>&kontact;s översiktsinsticksprogram: Anteckningar</title>
+
+<para
+>Insticksprogrammet <quote
+>Anteckningslappar</quote
+> för &kontact;s översiktsvy lägger till ett område i vyn som heter <guilabel
+>Anteckningar</guilabel
+>. Området visar titlar för alla aktuella anteckningar (titlarnas förvalda värde är datum och tid då anteckningen skapades). Genom att klicka på en antecknings titel visas anteckningsområdet. </para>
+
+<screenshot>
+<screeninfo
+>&kontact;s översiktsinsticksprogram för anteckningar</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-notes.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact;s översiktsinsticksprogram för anteckningar</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;s översiktsinsticksprogram för anteckningar </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-todo-list">
+<title
+>&kontact;s översiktsinsticksprogram: Uppgftslista</title>
+
+<para
+>Insticksprogrammet <quote
+>Uppgiftslista</quote
+> för &kontact;s översiktsvy lägger till ett område i vyn som heter <guilabel
+>Väntande uppgifter</guilabel
+>. Området innehåller alla nuvarande uppgifter, inklusive de som är färdiga. Den visar uppgiftens titel, procent som är färdigt, och uppgiftens nuvarande status. Observera att du kan rensa alla färdiga uppgifter via &kontact;s uppgiftslista. För närvarande händer ingenting vid ett klick på en uppgift. </para>
+
+<screenshot>
+<screeninfo
+>&kontact;s översiktsinsticksprogram för uppgiftslista</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-todos.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact;s översiktsinsticksprogram för uppgiftslista</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;s översiktsinsticksprogram för uppgiftslista </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-special-dates">
+<title
+>&kontact;s översiktsinsticksprogram: Speciella datum</title>
+
+<para
+>&kontact;s översiktsinsticksprogram <quote
+>Speciella datum</quote
+> lägger till ett område som heter <guilabel
+>Förestående speciella datum</guilabel
+>. Området innehåller information baserat på urvalskriterier som väljes i insticksprogrammets inställningar i &kontact;s inställning av översiktsvyn. Insticksprogrammet <quote
+>Speciella datum</quote
+> är särskilt användbart eftersom det kan visa födelsedagar, årsdagar, helger och särskilda tillfällen både från kalendern och kontaktlistan på ett ställe. </para>
+
+<screenshot>
+<screeninfo
+>&kontact;s insticksprogram för speciella datum</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-special-dates.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact;s insticksprogram för speciella datum</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;s insticksprogram för speciella datum </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+</sect1>
+
+</chapter>
+
+
+<chapter id="command-line">
+<title
+>&kontact; på kommandoraden</title>
+
+<para
+>&kontact; har flera kommandoradsväljare som kan användas för vissa åtgärder.</para>
+
+<para
+>För det första stöder &kontact; kommandoradsväljare som alla KF5- och &Qt;-program stöder. Se manualsidorna qt5options och kf5options. </para>
+
+<para
+>&kontact; stöder också flera specifika kommandoradsväljare.</para>
+
+<sect1 id="command-line-arguments">
+<title
+>Kommandoradsväljare</title>
+
+<sect2 id="command-line-module">
+<title
+>Modulrelaterade väljare</title>
+
+<para
+>För att få en lista med alla tillgängliga moduler i &kontact;, kan du skriva:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --list</command
+> </para>
+
+<para
+>För att starta &kontact; med en viss modul aktiv, skriv därefter:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --module <replaceable
+>modulnamn</replaceable
+></command
+> </para>
+
+<para
+>Där <replaceable
+>modulnamn</replaceable
+> är en av modulerna som erhölls med föregående kommando.</para>
+
+</sect2>
+
+<sect2 id="command-line-startup">
+<title
+>Startrelaterade väljare</title>
+
+<para
+>För att starta &kontact; i minimerat läge<footnote
+><para
+> Minimerat läge kallas också ikonläge. Det är när programmets fönster är dolt och programmet bara är tillgängligt i verktygsraden.</para
+></footnote
+>, kan du skriva:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --iconify</command
+> </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="technology">
+<title
+>Under huven</title>
+
+<para
+>&kontact; utnyttjar i stor utsträckning många av &kde;:s nyckelteknologier, däribland utmärker sig Kparts och &DBus;.</para>
+
+<para
+>Integreringen av komponenternas grafiska gränssnitt sker med insticksprogram som tillhandahåller Kparts-versioner av programmen. Det kräver bara ett tunt extralager över den befintliga koden i de fristående programmen.</para>
+
+<para
+>&DBus; används för kommunikation mellan komponenterna. Det har den trevliga egenskapen att det är fullständigt transparent om programmet kör fristående eller inbäddat som en Kpart i &kontact;. När det kör inne i &kontact;, används det effektiva processinterna läget i &DBus;.</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Tack till och licens</title>
+
+<para
+>&kontact;</para>
+
+<para
+>Program copyright 2001-2021, &kde;-utvecklarna</para>
+
+<para
+>Bidragsgivare:</para>
+
+<itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Don.Sanders; &Don.Sanders.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+    </listitem>
+<listitem
+><para
+>Allen Winter <email
+>winter@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Rafael Fernández López <email
+>ereslibre@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>&David.Faure; &David.Faure.mail;</para
+></listitem>
+<listitem
+><para
+>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para
+></listitem>
+<listitem
+><para
+>Sven Lüppken <email
+>sven@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Torgny Nyblom <email
+>nyblom@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Zack Rusin <email
+>zack@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthias Hölzer-Klüpfel <email
+>mhk@kde.org</email
+>, ursprunglig upphovsman till &kontact;s ramverk.</para>
+    </listitem>
+
+<listitem
+><para
+>Alla värderade utvecklare av programmen som &kontact; integrerar. De har gjort nästan allt arbete.</para>
+    </listitem>
+</itemizedlist>
+
+<para
+>Dokumentation copyright 2004-2005</para>
+
+<para
+>Bidragsgivare: <itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem
+><para
+>Antonio Salazar <email
+>savedfastcool@gmail.com</email
+></para>
+</listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
+
+<listitem
+><para
+>Alla medlemmar av &kde;:s dokumentationslista, som hjälpte till med hantering av taggar och stilar.</para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para
+>Översättning Stefan Asserhäll<email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+<appendix id="kontact-admin">
+<title
+>Administrationsguide</title>
+<!-- Section Compatibility -->
+<sect1 id="compat">
+<title
+>Kompatibilitetsproblem</title>
+
+<para
+>Det här avsnittet tillhandahåller hjälp om hur man får &kontact; att kommunicera effektivt med diverse grupprogramlösningar. </para>
+
+<sect2 id="compat-outlook">
+<title
+>Outlook och Exchange</title>
+
+<para
+>I &kontact;s inställningsdialogruta, under <menuchoice
+><guimenu
+>Brev</guimenu
+> <guimenuitem
+>Diverse</guimenuitem
+></menuchoice
+> på sidan <guilabel
+>Inbjudningar</guilabel
+> hittar du följande alternativ, som hjälper användaren att kommunicera med Microsoft Outlook™, som körs i en Kolab-miljö eller i en Microsoft Exchange™-miljö. </para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Behandla Från:/Till:-huvuden i svar på inbjudningar</guilabel
+></term>
+<listitem>
+<para
+>Aktivera det här alternativet för att få Microsoft Outlook™ att förstå dina svar på inbjudningar.</para>
+<para
+>Microsoft Outlook har ett antal tillkortakommanden i sin implementering av iCalendar-standarden. Det här alternativet gör att det går att komma förbi ett av dem. Om du har problem med att användare av Outlook inte kan ta emot dina svar, pröva att aktivera alternativet.</para>
+<para
+>Detaljinformation: När en iCal-inbjudan skickas med e-post, gör det att brevet har samma värde i Från: som i Till:. Det ställer också in X-KMail-Identity till UIOD för värdet i Till, och försäkrar att Dold kopia: är tom. Outlook förstår bara svaret om Från: har samma värde som Till: i brevet med inbjudan.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Skicka inbjudningar i brevets text</guilabel
+></term>
+<listitem>
+<para
+>En inbjudan skickas normalt som en bilaga till brevet. Det här alternativet ändrar det så att inbjudan istället skickas i brevets text. Det behövs för att skicka inbjudan och svar till Microsoft Outlook. Men när du gör det, får du inte längre beskrivande text som e-postprogram kan läsa, så för personer som har e-postprogram som inte förstår inbjudan ser de resulterande breven mycket underliga ut. Personer som har e-postprogram som inte förstår inbjudan, kommer dock fortfarande kunna hantera det här.</para>
+<para
+>Detaljinformation: När en iCal-inbjudan skickas med e-post skapar alternativet brevtexten från bilagans data, och ställer in Content-Type till 'text/calendar; method=någonting; charset="utf-8"'.</para>
+<para
+>Skicka automatiskt är också avstängt, så att det inte behövs någon mänsklig ingripande för att skapa brevet.</para>
+<note
+><para
+>Kryptering och självsignering är inaktiverade.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Namngivning av inbjudningar som fungerar med Exchange</guilabel
+></term>
+<listitem>
+<para
+>Microsoft Outlook har problem att förstå e-post från grupprogram som följer standard, vid användning tillsammans med en Microsoft Exchange™ server.
+Aktivera det här alternativet för att skicka grupprograminbjudningar på ett sätt som Microsoft Exchange™ förstår. Inbjudan skickas som en bilaga vid namn <filename
+>ical.ics</filename
+>.</para>
+<para
+>Detaljinformation: När en iCal-inbjudan skickas med e-post gör detta att brevet har rubriken "(Declined|Tentative|Accepted|Delegated): rubrik". Inbjudan skickas som en bilaga med namnet <filename
+>ical.ics</filename
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Namngivning av bilagor som fungerar med Outlook</guilabel
+></term>
+<listitem>
+<para
+>Aktivera det här alternativet för att få Outlook™ att förstå dina svar på inbjudningar som innehåller andra tecken än engelska.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+</sect1>
+
+<!-- Section Behavior -->
+<sect1 id="behavior">
+<title
+>Beteendeproblem</title>
+
+<para
+>Det här avsnittet tillhandahåller instruktioner om hur man får &kontact; att bete sig mer likt andra grupprogram. </para>
+
+<sect2 id="behave-composing">
+<title
+>Skriva brev</title>
+
+<para
+>Användare av Outlook är vana vid att skriva en lista med adresser i fälten Till:, Kopia: eller Dold kopia: åtskilda med semikolon (';'), förutom ett kommatecken (',') Normalt tillåter &kappname; bara kommatecken för att skilja adresser åt. Ändra <option
+>AllowSemicolonAsAddressSeparator</option
+> från false till true i den installerade filen <filename
+>share/config.kcfg/messagecomposer.kcfg</filename
+>, för att också tillåta semikolon. </para>
+
+</sect2>
+</sect1>
+
+<!-- Section RFC Compromises -->
+<sect1 id="nonrfc">
+<title
+>Kompromisser med RFC</title>
+
+<para
+>&kontact; är konstruerat för att fungera så bra som möjligt tillsammans med ett stort antal grupprogramlösningar. För att åstadkomma det, gör vi ibland designkompromisser med avseende på de olika Internet RFC:er, som tillhandahåller grunderna för de lågnivåbibliotek vilka &kontact; i stor utsträckning förlitar sig på.</para>
+
+<note
+><para
+>Vi bryter aldrig medvetet mot någon RFC.</para
+></note>
+
+<para
+>Följande lista anger kompromisser med RFC som görs av &kontact; eller de lågnivåbibliotek som används av &kontact;:</para>
+<!--FIXME is this correct?-->
+<itemizedlist>
+<listitem>
+<para
+>När tidsvärden skrivs in i iCalendar-filer, skriver &kontact; aldrig egenskapen DURATION i antal veckor (dvs. 1*SIFFRA "W"). Istället multipliceras alltid ett helt antal veckor med 7 och skrivs som dagar (dvs. 1*SIFFRA "D"). </para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

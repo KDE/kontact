@@ -1,0 +1,2552 @@
+# translation of kontact.po to Greek
+# translation of kontact.po to
+# translation of kontact.po to
+# Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+#
+# Stergios Dramis <sdramis@egnatia.ee.auth.gr>, 2003-2004.
+# Loukas Stamellos <lstamellos@power-on.gr>, 2005.
+# Spiros Georgaras <sng@hellug.gr>, 2005, 2006, 2007, 2008.
+# Λουκάς Σταμέλλος <lstamellos@gmail.com>, 2005.
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2007, 2008, 2009.
+# Spiros Georgaras <sngeorgaras@otenet.gr>, 2008.
+# Giorgos Katsikatsos <giorgos.katsikatsos@gmail.com>, 2010.
+# Petros Vidalis <p_vidalis@hotmail.com>, 2010.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2011, 2012.
+# Stelios <sstavra@gmail.com>, 2012, 2020, 2021.
+# Dimitris Kardarakos <dimkard@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2021-06-28 11:29+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Σπύρος Γεωργαράς, Τούσης Μανώλης, Γιώργος Κατσικάτσος"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"sng@hellug.gr, manolis@koppermind.homelinux.org, giorgos.katsikatsos@gmail."
+"com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr "Καλωσορίσατε στο Kontact %1"
+
+#: src/about/introduction_kontact.html:19
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"To Kontact χειρίζεται το ηλ. ταχυδρομείο σας, το βιβλίο διευθύνσεων σας, το "
+"ημερολόγιό σας τη λίστα των προς υλοποίηση εργασιών σας και πολλά άλλα."
+
+#: src/about/introduction_kontact.html:36
+msgid "Skip this introduction"
+msgstr "Να παραλειφθεί αυτή η εισαγωγή"
+
+#: src/about/loading_kontact.html:5
+msgid "Loading Kontact ..."
+msgstr "Φόρτωση Kontact..."
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Εμφάνιση εικονιδίων μόνο"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "Εμφάνιση αντικειμένων πλευρικής γραμμής με εικονίδια χωρίς κείμενο"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα αντικείμενα της πλευρικής "
+"γραμμής να έχουν εικονίδια χωρίς κείμενο."
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Εμφάνιση κειμένου μόνο"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "Εμφάνιση αντικειμένων πλευρικής γραμμής με κείμενο χωρίς εικονίδια"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα αντικείμενα της πλευρικής "
+"γραμμής να έχουν κείμενο χωρίς εικονίδια."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Εμφάνιση εικονιδίων και κειμένου"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "Εμφάνιση αντικειμένων πλευρικής γραμμής με εικονίδια και κείμενο"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+"Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα αντικείμενα της πλευρικής "
+"γραμμής να έχουν εικονίδια και κείμενο."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Μεγάλα εικονίδια"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Εμφάνιση εικονιδίων πλευρικής γραμμής μεγάλου μεγέθους"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+"Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα εικονίδια της πλευρικής γραμμής "
+"να είναι πολύ μεγάλα."
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Κανονικά εικονίδια"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Εμφάνιση εικονιδίων πλευρικής γραμμής κανονικού μεγέθους"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+"Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα εικονίδια της πλευρικής γραμμής "
+"να είναι κανονικού μεγέθους."
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Μικρά εικονίδια"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Εμφάνιση εικονιδίων πλευρικής γραμμής μικρού μεγέθους"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+"Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα εικονίδια της πλευρικής γραμμής "
+"να είναι πολύ μικρά."
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr "Απόκρυψη πλευρικής γραμμής"
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr "Απόκρυψη της πλευρικής γραμμής εικονιδίων"
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+"Ενεργοποιήστε αυτήν την επιλογή αν θέλετε να αποκρύψετε την πλευρική "
+"γραμμήμε τα εικονίδια. Πιέστε F9 για επανεμφάνιση."
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "Επιλέξτε το αρχικό πρόσθετο για χρήση σε κάθε εκκίνηση"
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+"Επιλέξτε το πρόσθετο από αυτήν τη λίστα επιλογών που θα χρησιμοποιηθεί ως το "
+"αρχικό πρόσθετο κάθε φορά που ξεκινά το Kontact. Διαφορετικά, το Kontact θα "
+"επαναφέρει το τελευταίο ενεργό πρόσθετο από την προηγούμενη χρήση."
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "Το τρέχον ενεργό πρόσθετο"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "Εκκίνηση πάντα με το συστατικό:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "Επιλέγετε το αρχικό πρόσθετο σε κάθε εκκίνηση"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Συνήθως το Kontact θα ξεκινήσει με το πρόσθετο που χρησιμοποιούσε πριν "
+"τερματιστεί. Επιλέξτε αυτό το πεδίο αν θα θέλατε να ξεκινήσετε το Kontact με "
+"το συγκεκριμένο πρόσθετο."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr "Να εμφανίζεται η πλευρική γραμμή συστατικών"
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr "Εμφάνιση/απόκρυψη της πλευρικής γραμμής εικονιδίων"
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+"Για να αξιοποιήσετε περισσότερο χώρο στην οθόνη μπορείτε να κρύψετε την "
+"πλευρική γραμμή εικονιδίων. Αναιρέστε την επιλογή αυτή για να αποκρύψετε την "
+"πλευρική γραμμή των συστατικών. Σημειώστε ότι το πλήκτρο F9 θα αποκρύψει/"
+"εμφανίσει την πλευρική γραμμή των εικονιδίων."
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&Αρχείο"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "&Προβολή"
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "&Ρυθμίσεις"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "&Βοήθεια"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμών εργαλείων"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "Πλοήγηση"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Εκκίνηση με συγκεκριμένο άρθρωμα του Kontact"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Εκκίνηση στο πλαίσιο συστήματος"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Εμφάνιση όλων των πιθανών αρθρωμάτων και έξοδος"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "Διαχειριστής προσωπικών πληροφοριών του KDE"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "Copyright © 2001–2021 Kontact authors"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "Πνευματικά δικαιώματα © 2001–2021, οι συγγραφείς του Kontact"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Αρχικός συγγραφέας"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr "Torgny Nyblom"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr "Μετάβαση στο git"
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr "Αρχικοποίηση..."
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Νέο"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Διαμόρφωση Kontact..."
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Διαμόρφωση Kontact..."
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+"Θα παρουσιαστεί ένας διάλογος από όπου θα μπορείτε να διαμορφώσετε το "
+"Kontact."
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "&Εισαγωγή στο Kontact"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Εμφάνιση της σελίδας εισαγωγής στο Kontact"
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr ""
+"Ενεργοποιήστε αυτήν την επιλογή για να βλέπετε τη σελίδα εισαγωγής στο "
+"Kontact"
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr "Απόκρυψη/εμφάνιση της πλευρικής γραμμής συστατικών"
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr "Απόκρυψη/εμφάνιση της πλευρικής γραμμής συστατικών"
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+"Σας επιτρέπει να εμφανίσετε ή να αποκρύψετε την πλευρική γραμμή συστατικών."
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "Εναλλαγή στο πρόσθετο %1"
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Η εφαρμογή εκτελείται ανεξάρτητα. Μεταφορά στο προσκήνιο..."
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Αδυναμία φόρτωσης τμήματος του %1."
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, kde-format
+msgid "The KDE Personal Information Management Suite."
+msgstr "Σουίτα Διαχείρισης Προσωπικών Πληροφοριών του KDE."
+
+#: src/mainwindow.cpp:926
+#, kde-format
+msgid "Read Manual"
+msgstr "Ανάγνωση βιβλίου οδηγιών"
+
+#: src/mainwindow.cpp:927
+#, kde-format
+msgid "Learn more about Kontact and its components"
+msgstr "Μάθετε περισσότερα για το Kontact και τα συστατικά του"
+
+#: src/mainwindow.cpp:930
+#, kde-format
+msgid "Visit Kontact Website"
+msgstr "Επισκεφθείτε τον ιστότοπο του Kontact"
+
+#: src/mainwindow.cpp:931
+#, kde-format
+msgid "Access online resources and tutorials"
+msgstr "Πρόσβαση σε πόρους και εκπαίδευση στο διαδίκτυο"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr "Ρυθμίστε τους λογαριασμούς σας"
+
+#: src/mainwindow.cpp:935
+#, kde-format
+msgid "Prepare Kontact for use"
+msgstr "Προετοιμάστε το Kontact για χρήση"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+"Η πλευρική γραμμή είναι σε απόκρυψη. Εμφανίστε τη πάλι με χρήση του πλήκτρου "
+"%1."
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Προγραμματιστής"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Σχετικά με το Kontact"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Υποδοχέας του Kontact"
+
+#~ msgid "No about information available."
+#~ msgstr "Δεν υπάρχουν σχετικές πληροφορίες."
+
+#~ msgid "Version %1"
+#~ msgstr "Έκδοση %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Συγγραφείς:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Ευχαριστήρια σε:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Μεταφραστές:</b></p>"
+
+#~ msgid ""
+#~ "<br /><br />                     <i>This Free Software product was "
+#~ "improved as part of a commercial project:</i>                     "
+#~ "<h3>Credits</h3>                     Project Kowi (March 2007 - )<br /"
+#~ "><br />                                          <b>Production / Project "
+#~ "Coordination</b><br />                     Bernhard Reiter<br /"
+#~ ">                     <b>Director of Development</b><br /"
+#~ ">                     Till Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                Unit Lead<br /"
+#~ ">                Senior QA, Packaging<br />                QA, "
+#~ "Packaging<br />                Additional NSIS<br />                "
+#~ "Backup Coordinator                </td>                "
+#~ "<td>                Bernhard Reiter<br />                Bernhard "
+#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
+#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit Lead<br />                Development<br /"
+#~ ">                Development<br />                Additional D. + "
+#~ "Crypto<br />                Crypto GUI Development                </"
+#~ "td>                <td>                Till Adam<br />                "
+#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
+#~ "Frank Osterfeld<br />                Marc Mutz                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Crypto-Backend Porting<br />                "
+#~ "Crypto-Backend                </td>                <td>                "
+#~ "Werner Koch<br />                Marcus Brinkmann                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>External QA Darmstadt, basysKom GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit-Lead                </td>                "
+#~ "<td>                Dr. Stefan Werden                </td>                "
+#~ "</tr>                </table><br /><br />"
+#~ msgstr ""
+#~ "<br /><br />                     <i>Αυτό το το προϊόν Ελεύθερου "
+#~ "Λογισμικού βελτιώθηκε ως τμήμα ενός εμπορικού έργου:</"
+#~ "i>                     <h3>Credits</h3>                     Έργο Kowi "
+#~ "(Μάρτιος 2007 - )<br /><br />                                          "
+#~ "<b>Παραγωγή / Συντονισμός Έργου</b><br />                     Bernhard "
+#~ "Reiter<br />                     <b>Διευθυντής ανάπτυξης</b><br /"
+#~ ">                     Till Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                Unit Lead<br /"
+#~ ">                Senior QA, Packaging<br />                QA, "
+#~ "Packaging<br />                Additional NSIS<br />                "
+#~ "Συντονιστής υποστήριξης                </td>                "
+#~ "<td>                Bernhard Reiter<br />                Bernhard "
+#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
+#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit Lead<br />                Development<br /"
+#~ ">                Development<br />                Additional D. + "
+#~ "Crypto<br />                Crypto GUI Development                </"
+#~ "td>                <td>                Till Adam<br />                "
+#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
+#~ "Frank Osterfeld<br />                Marc Mutz                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Crypto-Backend Porting<br />                "
+#~ "Crypto-Backend                </td>                <td>                "
+#~ "Werner Koch<br />                Marcus Brinkmann                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>External QA Darmstadt, basysKom GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit-Lead                </td>                "
+#~ "<td>                Dr. Stefan Werden                </td>                "
+#~ "</tr>                </table><br /><br />"
+
+#~ msgid "%1 License"
+#~ msgstr "Άδεια χρήσης %1"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "Συγχρ"
+
+#~ msgctxt "@title:column plugin name"
+#~ msgid "Summary Plugin Name"
+#~ msgstr "Όνομα πρόσθετου περίληψης"
+
+#~ msgid "Select the plugin summaries to show on the summary page."
+#~ msgstr ""
+#~ "Επιλέξτε οι περιλήψεις προσθέτων να εμφανίζονται στη σελίδα περίληψης."
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "Περίληψη KDE Kontact"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&Διαμόρφωση προβολής περίληψης..."
+
+#~ msgid "Configure the summary view"
+#~ msgstr "Διαμόρφωση της προβολής περίληψης"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Choosing this will show a dialog where you can select which summaries you "
+#~ "want to see and also allow you to configure the summaries to your liking."
+#~ msgstr ""
+#~ "Αν το επιλέξετε αυτό θα εμφανίσει ένα διάλογο από όπου θα μπορείτε να "
+#~ "επιλέγετε ποιες περιλήψεις θέλετε να βλέπετε και επίσης θα σας επιτρέπει "
+#~ "να διαμορφώνετε τις περιλήψεις που προτιμάτε."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Περίληψη για %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Τι ακολουθεί;"
+
+#~ msgid "Sync All"
+#~ msgstr "Συγχρ όλων"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Όλα"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Όλα"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Περίληψη Kontact"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Προβολή περίληψης του Kontact"
+
+#, fuzzy
+#~| msgid "(c) 2003-2014 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(c) 2003-2014 Οι προγραμματιστές του Kontact"
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Οργανωθείτε!"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Καλώς ήρθατε στο Kontact "
+#~ "%1</h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Παράλειψη της εισαγωγής</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&Συμβουλή της Ημέρας"
+
+#~ msgctxt "@info:status"
+#~ msgid "Show the Tip-of-the-Day dialog"
+#~ msgstr "Εμφάνιση του διαλόγου για τη συμβουλή της ημέρας"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog showing small tips to help you use "
+#~ "this program more effectively."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος που θα εμφανίζει μικρές συμβουλές που θα "
+#~ "σας βοηθήσουν να κάνετε αποτελεσματική χρήση αυτού του προγράμματος."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Νέα ροή..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος από όπου μπορείτε να προσθέσετε νέα ροή."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Νέα επαφή..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος από όπου μπορείτε να δημιουργήσετε νέα "
+#~ "επαφή."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Νέα ομάδα επαφών..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να δημιουργήσετε μια νέα "
+#~ "ομάδα επαφών."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Συγχρ επαφών"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr ""
+#~ "Ενεργοποιήστε την επιλογή αυτή για να συγχρονίσετε τις επαφές groupware."
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Διάλογος διαμόρφωσης περίληψης αλληλογραφίας"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "Copyright © 2004–2010 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Εμφάνιση της πλήρους διαδρομής για τους φακέλους"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Εμφάνιση της πλήρους διαδρομής για κάθε φάκελο"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Enable this option if you want to see the full path for each folder "
+#~ "listed in the summary. If this option is not enabled, then only the base "
+#~ "folder path will be shown."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή αν θέλετε να βλέπετε την πλήρη διαδρομή "
+#~ "για κάθε φάκελο που καταγράφεται στην περίληψη. Αν η επιλογή αυτή δεν "
+#~ "είναι ενεργή, τότε μόνο η διαδρομή του βασικού φακέλου θα εμφανίζεται."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Νέο μήνυμα..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and send a new "
+#~ "email message."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να δημιουργήσετε και να "
+#~ "στείλετε ένα νέο μήνυμα αλληλογραφίας."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Συγχρ ηλ. ταχυδρομείου"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr ""
+#~ "Ενεργοποιήστε την επιλογή αυτή για να συγχρονίσετε την αλληλογραφία "
+#~ "igroupware."
+
+#~ msgid "New Messages"
+#~ msgstr "Νέα μηνύματα"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>σύνολο: %2<br/>μη αναγνωσμένα: %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr ""
+#~ "Δεν υπάρχουν μη αναγνωσμένα μηνύματα στους φακέλους που παρακολουθείτε"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Άνοιγμα φακέλου: \"%1\""
+
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmknotessummary"
+
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Διάλογος διαμόρφωσης περίληψης σημειώσεων"
+
+#, fuzzy
+#~| msgid "Copyright © 2013-2014 Laurent Montel <montel@kde.org>"
+#~ msgid "Copyright © 2013-2015 Laurent Montel <montel@kde.org>"
+#~ msgstr "Πνευματικά δικαιώματα © 2013-2014 Laurent Montel <montel@kde.org>"
+
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "&Νέο"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can add a new popup note."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να δημιουργήσετε μια νέα "
+#~ "αναδυόμενη σημείωση"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Επεξεργασία..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can modify an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να τροποποιήσετε μια "
+#~ "υπάρχουσα αναδυόμενη σημείωση"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Μετονομασία..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can rename an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να μετονομάσετε μια "
+#~ "υπάρχουσα αναδυόμενη σημείωση"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Διαγραφή"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be prompted if you really want to permanently remove the "
+#~ "selected popup note."
+#~ msgstr ""
+#~ "Θα εμφανιστεί προτροπή αν πράγματι θέλετε να αφαιρέσετε μόνιμα την "
+#~ "επιλεγμένη αναδυόμενη σημείωση."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Εκτύπωση επιλεγμένων σημειώσεων..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be prompted to print the selected popup note."
+#~ msgstr ""
+#~ "Θα εμφανιστεί προτροπή για να εκτυπώσετε την επιλεγμένη αναδυόμενη "
+#~ "σημείωση."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Προεπισκόπηση εκτύπωσης επιλεγμένων σημειώσεων..."
+
+#~ msgid "Note settings..."
+#~ msgstr "Ρυθμίσεις σημείωσης..."
+
+#~ msgid "Preferences KNotes..."
+#~ msgstr "Προτιμήσεις KNotes..."
+
+#~ msgid "Mail..."
+#~ msgstr "Αλληλογραφία..."
+
+#~ msgid "Send..."
+#~ msgstr "Αποστολή..."
+
+#~ msgid "Set Alarm..."
+#~ msgstr "Ορισμός συναγερμού..."
+
+#~ msgid "New Note From Clipboard"
+#~ msgstr "Νέα σημείωση από το πρόχειρο"
+
+#~ msgid "New Note From Text File..."
+#~ msgstr "Νέα σημείωση από αρχείο κειμένου..."
+
+#~ msgid "Save As..."
+#~ msgstr "Αποθήκευση ως..."
+
+#~ msgid "Lock"
+#~ msgstr "Κλείδωμα"
+
+#~ msgid "Unlock"
+#~ msgstr "Ξεκλείδωμα"
+
+#~ msgid "Set Focus to Quick Search"
+#~ msgstr "Εστίαση στη γρήγορη αναζήτηση"
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr ""
+#~ "Για την εκτύπωση σημειώσεων, επιλέξτε πρώτα τις σημειώσεις προς εκτύπωση "
+#~ "από τη λίστα."
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Εκτύπωση αναδυόμενων σημειώσεων"
+
+#~ msgid "Note was not created."
+#~ msgstr "Η σημείωση δε δημιουργήθηκε."
+
+#~ msgid "Create new note"
+#~ msgstr "Δημιουργία νέας σημείωσης"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Σίγουρα θέλετε να διαγράψετε αυτήν τη σημείωση;"
+#~ msgstr[1] "Σίγουρα θέλετε να διαγράψετε αυτές τις %1 σημειώσεις;"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Επιβεβαίωση διαγραφής"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Μετονομασία αναδυόμενης σημείωσης"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Νέο όνομα:"
+
+#~ msgid "Show Note..."
+#~ msgstr "Εμφάνιση σημείωσης..."
+
+#~ msgid "Settings"
+#~ msgstr "Ρυθμίσεις"
+
+#~ msgid "Save note as plain text"
+#~ msgstr "Αποθήκευση σημείωσης ως απλό κείμενο"
+
+#~ msgid "Save As"
+#~ msgstr "Αποθήκευση ως"
+
+#~ msgid ""
+#~ "<qt>A file named <b>%1</b> already exists.<br />Are you sure you want to "
+#~ "overwrite it?</qt>"
+#~ msgstr ""
+#~ "<qt>Ένα αρχείο με όνομα <b>%1</b> υπάρχει ήδη.<br />Είστε σίγουροι ότι "
+#~ "θέλετε να αντικατασταθεί;</qt>"
+
+#~ msgid "Select Text File"
+#~ msgstr "Επιλογή αρχείου κειμένου"
+
+#~ msgid "Error during open text file: %1"
+#~ msgstr "Σφάλμα κατά το άνοιγμα του αρχείου κειμένου: %1"
+
+#~ msgid "Open Text File"
+#~ msgstr "Άνοιγμα αρχείου κειμένου"
+
+#~ msgid "Note from file '%1'"
+#~ msgstr "Σημείωση από αρχείο '%1'"
+
+#~ msgid "&Edit"
+#~ msgstr "&Επεξεργασία"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Νέα αναδυόμενη σημείωση..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new popup note."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να δημιουργήσετε μια νέα "
+#~ "αναδυόμενη σημείωση."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "KNotes"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Αναδυόμενες σημειώσεις"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "Πνευματικά δικαιώματα © 2003–2014, οι συγγραφείς του Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Τρέχων συντηρητής"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Προηγούμενος συντηρητής"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Συνάντηση"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Σημείωση: %1"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Νέα σημείωση"
+
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Οι αποθέσεις πολλαπλών μηνυμάτων δεν υποστηρίζονται."
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Από: %1\n"
+#~ "Προς: %2\n"
+#~ "Θέμα: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Μήνυμα: %1"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Εμφάνιση αναδυόμενης σημείωσης"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Επεξεργασία αναδυόμενης σημείωσης"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Όνομα:"
+
+#~ msgid "Search notes..."
+#~ msgstr "Αναζήτηση σημειώσεων..."
+
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Αναζήτηση σημειώσεων...<%1>"
+
+#~ msgid "(note locked, it will not removed)"
+#~ msgstr "(η σημείωση κλειδώθηκε, δε θα αφαιρεθεί)"
+
+#~ msgid "Popup Notes"
+#~ msgstr "Αναδυόμενες σημειώσεις"
+
+#~ msgid "No note found"
+#~ msgstr "Δε βρέθηκαν σημειώσεις"
+
+#~ msgid "Modify Note..."
+#~ msgstr "Τροποποίηση σημείωσης..."
+
+#~ msgid "Delete Note..."
+#~ msgstr "Διαγραφή σημείωσης..."
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Ανάγνωση αναδυόμενης σημείωσης: \"%1\""
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Διαμόρφωση περίληψης γεγονότων"
+
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Εμφάνιση γεγονότων με αρχή"
+
+#~ msgid "Show events for today only"
+#~ msgstr "Εμφάνιση γεγονότων για σήμερα μόνο"
+
+#~ msgid ""
+#~ "Check this box if you want to see events occurring on this date only."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε να βλέπετε γεγονότα που συνέβησαν στην "
+#~ "ημερομηνία αυτή μόνο."
+
+#~ msgid "&Today only"
+#~ msgstr "&Σήμερα μόνο"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Εμφάνιση γεγονότων που αρχίζουν μέσα στον επόμενο μήνα"
+
+#~ msgid ""
+#~ "Check this box if you want to see events that start sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε να βλέπετε γεγονότα που αρχίζουν "
+#~ "κάποια στιγμή μέσα στις επόμενες 31 ημέρες."
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "Μέσα στον επόμενο &μήνα (31 μέρες)"
+
+#~ msgid "Select the days for showing upcoming events"
+#~ msgstr "Επιλέξτε τις ημέρες που θα εμφανίζονται τα επόμενα γεγονότα"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming events."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο για να ορίσετε τον αριθμό των ημερών στο μέλλον "
+#~ "για τα επόμενα γεγονότα."
+
+#~ msgid "Within the &next:"
+#~ msgstr "Μέσα στις &επόμενες:"
+
+#~ msgid "Set the number of days to show upcoming events"
+#~ msgstr ""
+#~ "Καθορίστε τον αριθμό των ημερών που θα εμφανίζουν τα επόμενα γεγονότα"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming events up to "
+#~ "1 year in the future."
+#~ msgstr ""
+#~ "Χρησιμοποιήστε αυτό το περιστροφικό πλαίσιο για να ορίσετε τον αριθμό των "
+#~ "ημερών που θα εμφανίζουν τα επόμενα γεγονότα μέχρι και 1 έτος στο μέλλον."
+
+#~ msgid "1 day"
+#~ msgstr "1 ημέρα"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " ημέρες"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Εμφάνιση αυτών των επερχόμενων γεγονότων του ημερολογίου σας"
+
+#~ msgid ""
+#~ "Show birthdays from your calendar when also using the Birthday resource"
+#~ msgstr ""
+#~ "Εμφάνιση γενεθλίων από το ημερολόγιό σας όταν γίνεται χρήση του πόρου "
+#~ "γενεθλίων"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για τη συμπερίληψη γενεθλίων του "
+#~ "ημερολογίου σας στην περίληψη επερχόμενων γεγονότων. Αυτή η επιλογή είναι "
+#~ "διαθέσιμη μόνο αν χρησιμοποιείτε τον πόρο γενεθλίων στο ημερολόγιό σας."
+
+#~ msgid "Show &birthdays"
+#~ msgstr "Εμφάνιση &γενεθλίων"
+
+#~ msgid ""
+#~ "Shows anniversaries from your calendar when using the Birthdays resource"
+#~ msgstr ""
+#~ "Εμφάνιση επετείων από το ημερολόγιό σας όταν γίνεται χρήση του πόρου "
+#~ "γενεθλίων"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για τη συμπερίληψη επετείων του "
+#~ "ημερολογίου σας στην περίληψη επερχόμενων γεγονότων. Αυτή η επιλογή είναι "
+#~ "διαθέσιμη μόνο αν χρησιμοποιείτε τον πόρο γενεθλίων στο ημερολόγιό σας."
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "Εμφάνιση &επετείων"
+
+#~ msgid "Groupware Settings"
+#~ msgstr "Ρυθμίσεις groupware"
+
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Εμφάνιση γεγονότων που ανήκουν στα δικά μου ημερολόγια μόνο"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show events belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε η περίληψη να εμφανίζει γεγονότα που "
+#~ "ανήκουν στα δικά σας ημερολόγια μόνο."
+
+#~ msgid "Show &my events only"
+#~ msgstr "Εμφάνιση των γεγονότων &μου μόνο"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "Σημαντικά γεγονότα"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "Δεν υπάρχουν ραντεβού την επόμενη ημέρα"
+#~ msgstr[1] "Δεν υπάρχουν ραντεβού στις επόμενες %1 ημέρες"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "&Επεξεργασία ραντεβού..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "&Διαγραφή ραντεβού"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Επεξεργασία ραντεβού: \"%1\""
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Νέο χρονικό..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Δημιουργία νέου χρονικού"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new journal "
+#~ "entry."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να δημιουργήσετε μια νέα "
+#~ "εγγραφή χρονικού."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Συγχρ χρονικού"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Συγχρονισμός χρονικού groupware"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware journal entries."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για να συγχρονίσετε τις εγγραφές χρονικών "
+#~ "groupware."
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " ημέρα"
+#~ msgstr[1] " ημέρες"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Διάλογος διαμόρφωσης σημαντικών ημερομηνιών"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Διάλογος διαμόρφωσης εργασιών προς υλοποίηση"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Νέο γεγονός..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Δημιουργία νέου γεγονότος"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new event item."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να δημιουργήσετε ένα νέο "
+#~ "αντικείμενο γεγονότος."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Συγχρ ημερολογίου"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Συγχρονισμός ημερολογίου groupware"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware events."
+#~ msgstr ""
+#~ "Ενεργοποιήστε την επιλογή αυτή για να συγχρονίσετε τα γεγονότα groupware."
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Σήμερα"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Αύριο"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "σε 1 ημέρα"
+#~ msgstr[1] "σε %1 ημέρες"
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "σε "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "1 ώρα"
+#~ msgstr[1] "%1 ώρες"
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "1 λεπτό"
+#~ msgstr[1] "%1 λεπτά"
+
+#~ msgid "now"
+#~ msgstr "τώρα"
+
+#~ msgid "all day"
+#~ msgstr "όλη την ημέρα"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Επόμενη: %1"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Νέα προς υλοποίηση εργασία..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Δημιουργία νέας προς υλοποίηση εργασίας"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new to-do item."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να δημιουργήσετε ένα νέο "
+#~ "αντικείμενο προς υλοποίηση εργασίας."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Συγχρονισμός προς υλοποίηση λίστας"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Συγχρονισμός λίστας προς υλοποίηση εργασιών groupware"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr ""
+#~ "Ενεργοποιήστε την επιλογή αυτή για να συγχρονίσετε τη λίστα με τις προς "
+#~ "υλοποίηση ομαδικές εργασίες σας."
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Διαμόρφωση περίληψης προς υλοποίηση εργασιών"
+
+#~ msgid "Show To-dos Due"
+#~ msgstr "Εμφάνιση λήξης προς υλοποίηση εργασιών"
+
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Εμφάνιση μόνο των προς υλοποίηση εργασιών που λήγουν σήμερα"
+
+#~ msgid "Check this box if you want to see To-dos due on this date only."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο α θέλετε να βλέπετε μόνο τις προς υλοποίηση "
+#~ "εργασίες που λήγουν σήμερα."
+
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr ""
+#~ "Εμφάνιση των προς υλοποίηση εργασιών που λήγουν μέσα στον επόμενο μήνα"
+
+#~ msgid ""
+#~ "Check this box if you want to see To-dos that are due sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε να βλέπετε τις προς υλοποίηση εργασίες "
+#~ "που λήγουν κάποια στιγμή μέσα στις επόμενες 31 ημέρες."
+
+#~ msgid "Select the days for showing pending To-dos"
+#~ msgstr ""
+#~ "Επιλέξτε τις ημέρες που εμφανίζουν τις σε αναμονή προς υλοποίηση εργασίες"
+
+#~ msgid ""
+#~ "Check this box if you want specify the number of days in the future for "
+#~ "pending To-dos."
+#~ msgstr ""
+#~ "Επιλέξτε το πλαίσιο αυτό αν θέλετε να ορίσετε τον αριθμό των ημερών στο "
+#~ "μέλλον για τις προς υλοποίηση εργασίες σε αναμονή."
+
+#~ msgid "Set the number of days to show pending To-dos"
+#~ msgstr ""
+#~ "Καθορίστε τον αριθμό των ημερών για την εμφάνιση των προς υλοποίηση "
+#~ "εργασιών σε αναμονή"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show pending To-dos up to 1 "
+#~ "year in the future."
+#~ msgstr ""
+#~ "Χρησιμοποιήστε αυτό το περιστροφικό πλαίσιο για την εμφάνιση των σε "
+#~ "αναμονή προς υλοποίηση εργασιών μέχρι και 1 έτος στο μέλλον."
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "Απόκρυψη παρακάτω τύπων προς υλοποίηση εργασιών"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Απόκρυψη ολοκληρωμένων προς υλοποίηση εργασίες"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν δεν θέλετε να βλέπετε τις προς υλοποίηση "
+#~ "εργασίες που έχουν ήδη ολοκληρωθεί."
+
+#~ msgid "&Completed"
+#~ msgstr "&Ολοκληρωμένες"
+
+#~ msgid "Hide To-dos without a due date"
+#~ msgstr "Απόκρυψη προς υλοποίηση εργασιών χωρίς ημερομηνία λήξης"
+
+#~ msgid "Check this box if you do not want to see open-ended To-dos."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν δεν θέλετε να βλέπετε προς υλοποίηση εργασίες "
+#~ "με ανοιχτή ημερομηνία λήξης."
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "&Ανοιχτό τέλος (χωρίς λήξη)"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "Απόκρυψη των μη εκτελούμενων προς υλοποίηση εργασιών"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν δεν θέλετε να βλέπετε τις προς υλοποίηση "
+#~ "εργασίες με ημερομηνία έναρξης στο μέλλον."
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "&Χωρίς εκκίνηση (η ημερομηνία αρχής βρίσκεται στο μέλλον)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "Απόκρυψη των σε εξέλιξη προς υλοποίηση εργασιών"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν δεν θέλετε να βλέπετε τις προς υλοποίηση "
+#~ "εργασίες που ξεκίνησαν αλλά δεν έχουν ολοκληρωθεί."
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "&Σε εξέλιξη (εκκίνηση χωρίς ολοκλήρωση)"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Απόκρυψη των εκπρόθεσμων προς υλοποίηση εργασιών"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν δεν θέλετε να βλέπετε τις προς υλοποίηση "
+#~ "εργασίες η ημερομηνία λήξης των οποίων έχει εκπνεύσει αλλά δεν έχουν "
+#~ "ακόμη ολοκληρωθεί."
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "Εκ&πρόθεσμα (μη ολοκληρωμένες και βρίσκονται μετά τη λήξη)"
+
+#~ msgid "Show To-dos belonging to my calendars only"
+#~ msgstr ""
+#~ "Εμφάνιση των προς υλοποίηση εργασιών που ανήκουν στα ημερολόγιά μου μόνο"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show To-dos belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε η περίληψη να εμφανίζει τις προς "
+#~ "υλοποίηση εργασίες που ανήκουν στα ημερολόγια σας μόνο."
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Εμφάνιση μόνο των δικών &μου προς υλοποίηση εργασιών"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "Εργασίες σε αναμονή"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Σήμερα"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Αύριο"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "πριν 1 ημέρα"
+#~ msgstr[1] "πριν %1 ημέρες"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "λήξη"
+
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "Δεν υπάρχουν εργασίες προς υλοποίηση μέσα στην επόμενη ημέρα"
+#~ msgstr[1] ""
+#~ "Δεν υπάρχουν εργασίες προς υλοποίηση μέσα στις επόμενες %1 ημέρες"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "&Επεξεργασία προς υλοποίηση εργασίας..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "&Διαγραφή προς υλοποίηση εργασίας"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "&Σημείωση προς υλοποίηση εργασίας ως ολοκληρωμένη"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Επεξεργασία του προς υλοποίηση: \"%1\""
+
+#~ msgid "open-ended"
+#~ msgstr "χωρίς λήξη"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "εκπρόθεσμο"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "ξεκινά σήμερα"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "δεν ξεκίνησε"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "ολοκληρώθηκε"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "σε εξέλιξη"
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Διάλογος διαμόρφωσης σημαντικών ημερομηνιών"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Διαμόρφωση περίληψης σημαντικών ημερομηνιών"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Εμφάνιση σημαντικών ημερομηνιών με αρχή"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Εμφάνιση ειδικών περιστάσεων για σήμερα μόνο"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions occurring on this "
+#~ "date only."
+#~ msgstr ""
+#~ "Επιλέξτε το πλαίσιο αυτό αν θέλετε να βλέπετε ειδικές περιστάσεις για "
+#~ "αυτήν την ημερομηνία μόνο."
+
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Εμφάνιση ειδικών περιστάσεων που αρχίζουν μέσα στον επόμενο μήνα"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions that start sometime "
+#~ "during the next 31 days."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε να βλέπετε ειδικές περιστάσεις που "
+#~ "αρχίζουν κάποια στιγμή μέσα στις επόμενες 31 ημέρες."
+
+#~ msgid "Select the days for showing upcoming special occasions"
+#~ msgstr "Επιλέξτε τις ημέρες εμφάνισης επόμενων ειδικών περιστάσεων"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming special occasions."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε να ορίσετε τον αριθμό των ημερών στο "
+#~ "μέλλον για επόμενες ειδικές περιστάσεις."
+
+#~ msgid "Set the number of days to show upcoming special occasions"
+#~ msgstr ""
+#~ "Καθορίστε τον αριθμό των ημερών εμφάνισης επόμενων ειδικών περιστάσεων"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming special "
+#~ "occasions up to one year in the future."
+#~ msgstr ""
+#~ "Χρησιμοποιήστε αυτό το περιστροφικό πλαίσιο για να ορίσετε τον αριθμό "
+#~ "ημερών εμφάνισης επόμενων ειδικών περιστάσεων μέχρι και ένα έτος στο "
+#~ "μέλλον."
+
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Εμφάνιση αυτών των σημαντικών ημερομηνιών του ημερολογίου σας"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Εμφάνιση εορτών από το ημερολόγιό σας"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Birthday\" category."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για τη συμπερίληψη γενεθλίων του "
+#~ "ημερολογίου σας στην περίληψη επόμενων ειδικών περιστάσεων. Τυπικά "
+#~ "πρόκειται για γεγονότα με την κατηγορία »Γενέθλια»."
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Εμφάνιση επετείων από το ημερολόγιό σας"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Anniversary\" category."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για τη συμπερίληψη επετείων του "
+#~ "ημερολογίου σας στην περίληψη επόμενων ειδικών περιστάσεων. Τυπικά "
+#~ "πρόκειται για γεγονότα με την κατηγορία «Επέτειος»."
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Εμφάνιση εορτών από το ημερολόγιό σας"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the upcoming "
+#~ "special occasions summary. These are events from your configured holiday "
+#~ "region, or events with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για τη συμπερίληψη εορτών του ημερολογίου "
+#~ "σας στην περίληψη επόμενων ειδικών περιστάσεων. Πρόκειται για γεγονότα "
+#~ "από τη διαμορφωμένη περιοχή εορτών σας, ή γεγονότα με την κατηγορία "
+#~ "«Εορτές»."
+
+#~ msgid "Show &holidays"
+#~ msgstr "Εμφάνιση εο&ρτών"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Εμφάνιση ειδικών περιστάσεων από το ημερολόγιο"
+
+#~ msgid ""
+#~ "Enable this option to include events from your calendar with the "
+#~ "\"special occasion\" category."
+#~ msgstr ""
+#~ "Ενεργοποιήστε την επιλογή αυτή για να συμπεριλάβετε γεγονότα από το "
+#~ "ημερολόγιό σας με την κατηγορία «ειδική περίσταση»."
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Εμφάνιση ει&δικών περιστάσεων"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Εμφάνιση αυτών των σημαντικών ημερομηνιών της λίστας επαφών σας"
+
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Εμφάνιση γενεθλίων από το βιβλίο διευθύνσεών σας"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για τη συμπερίληψη γενεθλίων από το "
+#~ "βιβλίο διευθύνσεών σας στην περίληψη επόμενων ειδικών περιστάσεων."
+
+#~ msgid "Show birth&days"
+#~ msgstr "Εμφάνιση &γενεθλίων"
+
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Εμφάνιση επετείων από το βιβλίο διευθύνσεών σας"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για τη συμπερίληψη επετείων από το βιβλίο "
+#~ "διευθύνσεών σας στην περίληψη επόμενων ειδικών περιστάσεων."
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "Εμφάνιση &επετείων"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Σημαντικές ημερομηνίες"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Σήμερα"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Αύριο"
+
+#~ msgid "Birthday"
+#~ msgstr "Γενέθλια"
+
+#~ msgid "Anniversary"
+#~ msgstr "Επέτειος"
+
+#~ msgid "Holiday"
+#~ msgstr "Εορτή"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Ειδική περίσταση"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "ένας χρόνος"
+#~ msgstr[1] "%1 χρόνια"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Δεν υπάρχουν σημαντικές ημερομηνίες μέσα στην επόμενη ημέρα"
+#~ msgstr[1] "Δεν υπάρχουν σημαντικές ημερομηνίες μέσα στις επόμενες %1 ημέρες"
+
+#~ msgid "Send &Mail"
+#~ msgstr "Αποστολή &Ηλ. ταχυδρομείου"
+
+#~ msgid "View &Contact"
+#~ msgstr "Προβολή &επαφής"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Ηλ. μήνυμα σε: \"%1\""
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Περίληψη σημαντικών ημερομηνιών"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Περίληψη σημαντικών ημερομηνιών Kontact"
+
+#~ msgid ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "Τρέχων συντηρητής"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Νέα σελίδα KJots"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να δημιουργήσετε μια νέα "
+#~ "σελίδα jots."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Νέο βιβλίο KJots"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots book."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να δημιουργήσετε ένα νέο "
+#~ "βιβλίο jots."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Δημιουργία νέας ροής"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "Δημιουργία νέας επαφής"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Δημιουργία νέας ομάδας επαφών"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Συγχρονισμός επαφών groupware"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Δημιουργία νέας σελίδας jots"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Δημιουργία νέου βιβλίου jots"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Δημιουργία νέου μηνύματος αλληλογραφίας"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Συγχρονισμός αλληλογραφίας groupware"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Νέο άρθρο..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Δημιουργία ενός νέου άρθρου usenet"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new article to "
+#~ "post on Usenet."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος όπου θα μπορέσετε να δημιουργήσετε ένα νέο "
+#~ "άρθρο για ανάρτηση στο usenet."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Δημιουργία νέας αναδυόμενης σημείωσης"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Επεξεργασία αναδυόμενης σημείωσης"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Μετονομασία αναδυόμενης σημείωσης"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Διαγραφή αναδυόμενης σημείωσης"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Εκτύπωση αναδυόμενης σημείωσης"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Δημιουργία νέας αναδυόμενης σημείωσης"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Νέα εργασία"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Δημιουργία νέου ιχνηλάτη χρόνου"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and start a new "
+#~ "time tracker."
+#~ msgstr ""
+#~ "Θα παρουσιαστεί ένας διάλογος από όπου θα μπορείτε να δημιουργείτε και να "
+#~ "ξεκινάτε έναν νέο ιχνηλάτη χρόνου."
+
+#~ msgid "task_popup"
+#~ msgstr "task_popup"
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Διάλογος διαμόρφωσης περίληψης Planner"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgid "Planner"
+#~ msgstr "Planner"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Σήμερα"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Αύριο"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Δεν υπάρχουν ραντεβού την επόμενη ημέρα"
+#~ msgstr[1] "Δεν υπάρχουν ραντεβού στις επόμενες %1 ημέρες"
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "εκπρόθεσμο"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Επεξεργασία Ραντεβού: \"%1\""
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "σε εξέλιξη"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "ξεκινά σήμερα"
+
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "λήγει σήμερα"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "ολοκληρώθηκε"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Διαμόρφωση περίληψης Planner"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "Γενικά"
+
+#~ msgid "General Configuration"
+#~ msgstr "Γενική διαμόρφωση"
+
+#~ msgid "Show an icon indicating a recurring item"
+#~ msgstr "Εμφάνιση εικονιδίου που υποδηλώνει επανεμφανιζόμενο αντικείμενο"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon that indicates an event or to-"
+#~ "do is recurring."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε να βλέπετε ένα εικονίδιο που δηλώνει "
+#~ "ότι ένα γεγονός ή μια προς υλοποίηση εργασία επανεμφανίζεται."
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "Προβολή εικονιδίου επανεμφάνισης"
+
+#~ msgid "Show an icon indicating the item has a reminder"
+#~ msgstr ""
+#~ "Εμφανίζει ένα εικονίδιο που δηλώνει ότι το αντικείμενο περιέχει υπενθύμιση"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon indicating that the event or to-"
+#~ "do has a reminder."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε να βλέπετε ένα εικονίδιο που δηλώνει "
+#~ "ότι το γεγονός ή η προς υλοποίηση εργασία περιέχει υπενθύμιση."
+
+#~ msgid "Show reminder icon"
+#~ msgstr "Εμφάνιση εικονιδίου υπενθύμισης"
+
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Υπογράμμιση συνδέσμων σε περιγραφές"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε οι URL σύνδεσμοι να υπογραμμίζονται."
+
+#~ msgid "Underline links"
+#~ msgstr "Υπογράμμιση συνδέσμων"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Εμφάνιση προς υλοποίηση εργασιών στην περίληψη"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε να βλέπετε προς υλοποίηση εργασίες "
+#~ "στην περίληψη."
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Εμφάνιση προς υλοποίηση εργασιών στο planner"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Εμφάνιση σημαντικών ημερομηνιών στην περίληψη"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν θέλετε να βλέπετε προς σημαντικές ημερομηνίες "
+#~ "στην περίληψη."
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "Εμφάνιση σημαντικών ημερομηνιών στο planner"
+
+#~ msgid "Events"
+#~ msgstr "Γεγονότα"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "Εμφάνιση γεγονότων ημερολογίου"
+
+#~ msgid "To-dos"
+#~ msgstr "Προς υλοποίηση"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Απόκρυψη ολοκληρωμένων προς υλοποίηση εργασιών"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν δεν θέλετε να βλέπετε προς υλοποίηση εργασίες "
+#~ "οι οποίες έχουν ήδη ολοκληρωθεί."
+
+#~ msgid "Hide to-dos without a due date"
+#~ msgstr "Απόκρυψη προς υλοποίηση εργασιών χωρίς ημερομηνία λήξης"
+
+#~ msgid "Check this box if you do not want to see open-ended to-dos."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν δεν θέλετε να βλέπετε προς υλοποίηση εργασίες "
+#~ "με ανοιχτή ημερομηνία λήξης."
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Απόκρυψη των μη εκτελούμενων προς υλοποίηση εργασιών"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν δεν θέλετε να βλέπετε προς υλοποίηση εργασίες "
+#~ "με μελλοντική ημερομηνία έναρξης."
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "Απόκρυψη των σε εξέλιξη προς υλοποίηση εργασιών"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν δεν θέλετε να βλέπετε προς υλοποίηση εργασίες "
+#~ "που έχουν ξεκινήσει αλλά δεν έχουν ακόμη ολοκληρωθεί."
+
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Απόκρυψη εκπρόθεσμων προς υλοποίηση εργασιών"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Επιλέξτε αυτό το πλαίσιο αν δεν θέλετε να βλέπετε προς υλοποίηση εργασίες "
+#~ "η ημερομηνία λήξης των οποίων έχει εκπνεύσει αλλά δεν έχουν ακόμη "
+#~ "ολοκληρωθεί."
+
+#~ msgid "Special Dates"
+#~ msgstr "Σημαντικές ημερομηνίες"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "Εμφάνιση σημαντικών ημερομηνιών"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Ενεργοποιήστε την επιλογή αυτή για να συμπεριλάβετε ημερομηνίες γενεθλίων "
+#~ "από το βιβλίο διευθύνσεών σας στην περίληψη του planner."
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Εμφάνιση γενεθλίων από το βιβλίο διευθύνσεων"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Ενεργοποιήστε την επιλογή αυτή για να συμπεριλάβετε επετείους από το "
+#~ "βιβλίο διευθύνσεών σας στην περίληψη του planner."
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Εμφάνιση επετείων από το βιβλίο διευθύνσεων"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the planner "
+#~ "summary. These are events from your configured holiday region, or events "
+#~ "with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για τη συμπερίληψη εορτών από το "
+#~ "ημερολόγιό σας στην περίληψη planner. Αυτά είναι γεγονότα από τη "
+#~ "διαμορφωμένη περιοχή εορτών, ή γεγονότα με την κατηγορία «Εορτές»."
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Εμφάνιση εορτών από ημερολόγιο"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Εμφάνιση ειδικών περιστάσεων από το ημερολόγιο"
+
+#~ msgid "Planner Summary"
+#~ msgstr "Περίληψη Planner"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Περίληψη Kontact Planner"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Ενεργό ημερολόγιο"
+
+#~ msgid "Default Calendar"
+#~ msgstr "Προκαθορισμένο ημερολόγιο"
+
+#~ msgid "Birthdays"
+#~ msgstr "Ημέρες γενεθλίων"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "Πρόσθετο %1"
+
+#~ msgid "No Notes Available"
+#~ msgstr "Δεν υπάρχουν διαθέσιμες σημειώσεις"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Συγχρ αναδυόμενων σημειώσεων"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Συγχρονισμός σημειώσεων groupware"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr ""
+#~ "Ενεργοποιήστε την επιλογή αυτή για να συγχρονίσετε τις σημειώσεις "
+#~ "groupware."
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(c) 2003 οι προγραμματιστές του Kontact"
+
+#, fuzzy
+#~| msgid "Configure Kontact as Groupware Client"
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Ρύθμιση του Kontact ως Πελάτη Groupware"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "ΓΕΝΕΘΛΙΑ"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "ΕΠΕΤΕΙΟΣ"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "ΕΟΡΤΗ"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "ΕΙΔΙΚΗ ΠΕΡΙΣΤΑΣΗ"
+
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(C) 2001-2009 οι προγραμματιστές του Kontact"
+
+#~ msgid "Summary"
+#~ msgstr "Σύνοψη"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Τοπικός"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "(c) 2007-2008 Oral Timocin"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(c) 2004-2005 Η Ομάδα του KDE PIM"
+
+#~ msgid "(c) 2004-2006 Allen Winter"
+#~ msgstr "(c) 2004-2006 Allen Winter"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#~ msgid " days"
+#~ msgstr " μέρες"
+
+#~ msgid "Rename"
+#~ msgstr "Μετονομασία"
+
+#, fuzzy
+#~| msgid ""
+#~| "Check this box to hide to-dos that have been started but are not "
+#~| "complete yet"
+#~ msgid ""
+#~ "Check this box if you don't want to see To-dos that haven't been "
+#~ "completed yet and are past their due date."
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για την απόκρυψη των προς υλοποίηση "
+#~ "εργασιών που εκκίνησαν αλλά δεν έχουν ολοκληρωθεί"
+
+#~ msgid "Show &anniveraries"
+#~ msgstr "Εμφάνιση &επετείων"
+
+#~ msgid "New Distribution List..."
+#~ msgstr "Νέα λίστα διανομής..."
+
+#~ msgid "New SMS..."
+#~ msgstr "Νέο SMS..."
+
+#~ msgid "New News Feed"
+#~ msgstr "Νέα ροή ειδήσεων"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "Τέχνες"
+
+#~ msgid "Business"
+#~ msgstr "Επιχειρήσεις"
+
+#~ msgid "Computers"
+#~ msgstr "Υπολογιστές"
+
+#~ msgid "Misc"
+#~ msgstr "Διάφορα"
+
+#~ msgid "Recreation"
+#~ msgstr "Ψυχαγωγία"
+
+#~ msgid "Society"
+#~ msgstr "Κοινωνία"
+
+#~ msgid "Custom"
+#~ msgstr "Προσαρμογή"
+
+#~ msgid "All"
+#~ msgstr "Όλα"
+
+#~ msgid "Add"
+#~ msgstr "Προσθήκη"
+
+#~ msgid "Remove"
+#~ msgstr "Αφαίρεση"
+
+#~ msgid "Selected"
+#~ msgstr "Επιλεγμένα"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Χρόνος ανανέωσης:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Αριθμός εμφανιζόμενων αντικειμένων:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Διάλογος ρύθμισης του Newsticker"
+
+#~ msgid "News Feeds"
+#~ msgstr "Νέες ροές"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "Δεν υπάρχει διαθέσιμη υπηρεσία rss dcop.\n"
+#~ "Χρειάζεστε μια υπηρεσία rss για τη χρήση αυτού του προσθέτου."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "Αντιγραφή URL στο πρόχειρο"
+
+#~ msgid "Weather Information"
+#~ msgstr "Πληροφορίες καιρού"
+
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "Δεν υπάρχει διαθέσιμη υπηρεσία D-Bus καιρού.\n"
+#~ "Χρειάζεστε το KWeather για να χρησιμοποιήσετε αυτό το πρόσθετο."
+
+#~ msgid "Last updated on"
+#~ msgstr "Τελευταία ενημέρωση"
+
+#~ msgid "Wind Speed"
+#~ msgstr "Ταχύτητα ανέμου"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "Σχετική υγρασία"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "Εμφάνιση πληροφοριών καιρού για το σταθμό"
+
+#~ msgid "Ian Reinhart Geiser"
+#~ msgstr "Ian Reinhart Geiser"
+
+#~ msgid "John Ratke"
+#~ msgstr "John Ratke"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "Βελτιώσεις και καθάρισμα του κώδικα"
+
+#~ msgid "Unknown"
+#~ msgstr "Άγνωστο"
+
+#~ msgid "Calendar View"
+#~ msgstr "Προβολή ημερολογίου"
+
+#~ msgid "Display:"
+#~ msgstr "Εμφάνιση:"
+
+#~ msgid "Include:"
+#~ msgstr "Συμπερίληψη:"
+
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "Προς υλοποίηση / σημαντικές ημερομηνίες"
+
+#~ msgid "0%"
+#~ msgstr "0%"
+
+#~ msgid "20%"
+#~ msgstr "20%"
+
+#~ msgid "30%"
+#~ msgstr "30%"
+
+#~ msgid "40%"
+#~ msgstr "40%"
+
+#~ msgid "50%"
+#~ msgstr "50%"
+
+#~ msgid "60%"
+#~ msgstr "60%"
+
+#~ msgid "70%"
+#~ msgstr "70%"
+
+#~ msgid "80%"
+#~ msgstr "80%"
+
+#~ msgid "90%"
+#~ msgstr "90%"
+
+#~ msgid "100%"
+#~ msgstr "100%"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "Προκαθορισμένος πόρος KOrganizer"
+
+#~ msgid "Check this box to hide to-dos that are 100% complete"
+#~ msgstr ""
+#~ "Ενεργοποιήστε αυτήν την επιλογή για την απόκρυψη των 100% υλοποιημένων "
+#~ "εργασιών"
+
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Σήμερα"
+
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Αύριο"
+
+#~ msgid "Show Birthdays from Contact List"
+#~ msgstr "Εμφάνιση γενεθλίων από τη λίστα επαφών"
+
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "Εμφάνιση επετείων από τη λίστα επαφών"
+
+#~ msgid "Today only"
+#~ msgstr "Σήμερα μόνο"
+
+#~ msgid "Overdue (not completetd and beyond due-date)"
+#~ msgstr "Εκπρόθεσμα (μη ολοκληρωμένες και βρίσκονται μετά τη λήξη)"
+
+#~ msgid "To-dos starting today"
+#~ msgstr "Προς υλοποίηση που ξεκινούν σήμερα"
+
+#~ msgid "To-dos ending today"
+#~ msgstr "Προς υλοποίηση που τελειώνουν σήμερα"
+
+#~ msgid "In-progress(started but not completetd)"
+#~ msgstr "Σε εξέλιξη (εκκίνηση χωρίς ολοκλήρωση)"
+
+#~ msgid "One day"
+#~ msgstr "Μία ημέρα"
+
+#~ msgid "Five days"
+#~ msgstr "Πέντε ημέρες"
+
+#~ msgid "One week"
+#~ msgstr "Μία εβδομάδα"
+
+#~ msgid "One month"
+#~ msgstr "Ένας μήνας"
+
+#~ msgid "Show all to-dos"
+#~ msgstr "Εμφάνιση όλων των προς υλοποίηση"
+
+#~ msgid "Starting to-dos"
+#~ msgstr "Εργασίες προς υλοποίηση που αρχίζουν"
+
+#~ msgid "Ending to-dos"
+#~ msgstr "Εργασίες προς υλοποίηση που τελειώνουν"
+
+#~ msgid "To-dos in progress"
+#~ msgstr "Εργασίες προς υλοποίηση σε εξέλιξη"
+
+#~ msgid "Priority limit:"
+#~ msgstr "Όριο προτεραιότητας:"
+
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "Διάλογος ρύθμισης σχεδιαγράμματος"
+
+#~ msgid "&Today"
+#~ msgstr "&Σήμερα"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "Αδύνατος ο χειρισμός γεγονότων απόθεσης του τύπου %1 ."

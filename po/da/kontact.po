@@ -1,0 +1,2348 @@
+# translation of kontact.po to Dansk
+# translation of kontact.po to
+# Danish translation of kontact
+# Copyright (C).
+#
+# Erik Kjær Pedersen <erik@binghamton.edu>, 2003, 2004, 2005, 2006.
+# Erik K. Pedersen <erik@binghamton.edu>, 2005.
+# Martin Schlander <mschlander@opensuse.org>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2018, 2020, 2021, 2022.
+# Jan Madsen <jan.madsen.pt@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2022-08-08 17:36+0200\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team: Danish <kde-i18n-doc@kde.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.12.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Erik Kjær Pedersen,Martin Schlander,Jan Madsen"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "erik@binghamton.edu,mschlander@opensuse.org,jan.madsen.pt@gmail.com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr "Velkommen til Kontact %1"
+
+#: src/about/introduction_kontact.html:19
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact håndterer din e-mail, adressebog, kalender, gøremålsliste med mere."
+
+#: src/about/introduction_kontact.html:36
+msgid "Skip this introduction"
+msgstr "Skip denne introduktion"
+
+#: src/about/loading_kontact.html:5
+msgid "Loading Kontact ..."
+msgstr "Indlæser Kontact..."
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Vis kun ikoner"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "Vis elementer i sidepanelet med ikoner og uden tekst"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"Vælg denne indstilling hvis ønsker at elementer i sidepanelet skal have "
+"ikoner uden tekst."
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Vis kun tekst"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "Vis elementer i sidepanelet med tekst og uden ikoner"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"Vælg denne indstilling hvis ønsker at elementer i sidepanelet skal have "
+"tekst uden ikoner."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Vis ikoner og tekst"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "Vis elementer i sidepanelet med ikoner og tekst"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+"Vælg denne indstilling hvis ønsker at elementer i sidepanelet skal have "
+"ikoner og tekst."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Store ikoner"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Vis ikoner i sidepanelet i stor størrelse"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+"Vælg denne indstilling hvis ønsker at ikoner i sidepanelet skal være ekstra "
+"store."
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Normale ikoner"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Vis ikoner i sidepanelet i normal størrelse"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+"Vælg denne indstilling hvis ønsker at ikoner i sidepanelet skal have normal "
+"størrelse."
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Små ikoner"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Vis ikoner i sidepanelet i lille størrelse"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+"Vælg denne indstilling hvis ønsker at ikoner i sidepanelet skal være ekstra "
+"små."
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr "Skjul sidepanel"
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr "Skjul sidepanel med ikoner"
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+"Vælg denne indstilling hvis ønsker at skjule sidepanelet med ikoner. Tryk F9 "
+"for at vise det igen."
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "Vælg det plugin der skal bruges først hver opstart."
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+"Vælg det plugin, der skal bruges indledningsvist hver gang Kontact startes, "
+"fra denne drop-ned-liste. Ellers vil Kontact genskabe det senest aktive "
+"plugin fra tidligere brug."
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "Det aktuelt aktive plugin"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "Start altid med plugin:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "Vælg plugin til visning ved opstart"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Normalt starter Kontact med det plugin som blev brugt da programmet blev "
+"lukket. Markér dette felt hvis du ønsker at det specificerede plugin skal "
+"vises ved start i stedet."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr "Vis sidepanelet med komponenter"
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr "Vis/skjul sidepanelet med ikoner"
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+"For at spare plads på skærmen kan du vælge at skjule sidepanelet med ikoner. "
+"Afmarkér dette felt for at skjule sidepanelet med komponenter. Bemærk at F9-"
+"tasten vil skjule/vise sidepanelet med ikoner."
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&Fil"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "&Vis"
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "&Indstillinger"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "&Hjælp"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Hovedværktøjslinje"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "Navigering"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Start med et angivet Kontact-modul"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Start i ikonificeret (minimeret) tilstand"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Vis liste over mulige moduler og afslut"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "KDE's håndtering af personlig information"
+
+#: src/main.cpp:165
+#, kde-format
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "Ophavsret © 2001–%1 Kontact-udviklerne"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Oprindelig forfatter"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr "Torgny Nyblom"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr "Migrering til Git"
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " Initialiserer..."
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Ny"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Indstil Kontact..."
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Indstil Kontact..."
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr "Du vil blive præsenteret for en dialog, hvor du kan indstille Kontact."
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "Introduktion til &Kontact"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Vis Kontacts introduktionsside"
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Vælg denne indstilling for at se Kontacts introduktionsside."
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr "Vis/skjul sidepanelet med komponenter"
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr "Vis/skjul sidepanelet med komponenter"
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr "Lader dig vise eller skjule sidepanelet med komponenter som du ønsker."
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "Skift til pluginet %1"
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Program kører selvstændigt. Sætter i forgrund..."
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Kan ikke indlæse Part for %1."
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, kde-format
+msgid "The KDE Personal Information Management Suite."
+msgstr "KDE's programpakke til håndtering af personlig information (PIM)."
+
+#: src/mainwindow.cpp:926
+#, kde-format
+msgid "Read Manual"
+msgstr "Læs håndbogen"
+
+#: src/mainwindow.cpp:927
+#, kde-format
+msgid "Learn more about Kontact and its components"
+msgstr "Lær mere om Kontact og dets komponenter"
+
+#: src/mainwindow.cpp:930
+#, kde-format
+msgid "Visit Kontact Website"
+msgstr "Besøg Kontacts hjemmeside"
+
+#: src/mainwindow.cpp:931
+#, kde-format
+msgid "Access online resources and tutorials"
+msgstr "Tilgå online-ressourcer og gennemgange"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr "Sæt dine konti op"
+
+#: src/mainwindow.cpp:935
+#, kde-format
+msgid "Prepare Kontact for use"
+msgstr "Gør Kontact klar til brug"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr "Sidepanelet er skjult. Vis sidepanelet med %1-tasten."
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Udvikler"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Om Kontact"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Kontact samlingsprogram"
+
+#~ msgid "No about information available."
+#~ msgstr "Ingen 'om'-information tilgængelig"
+
+#~ msgid "Version %1"
+#~ msgstr "Version %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Forfattere:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Tak til:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Oversættere:</b></p>"
+
+#~ msgid ""
+#~ "<br /><br />                     <i>This Free Software product was "
+#~ "improved as part of a commercial project:</i>                     "
+#~ "<h3>Credits</h3>                     Project Kowi (March 2007 - )<br /"
+#~ "><br />                                          <b>Production / Project "
+#~ "Coordination</b><br />                     Bernhard Reiter<br /"
+#~ ">                     <b>Director of Development</b><br /"
+#~ ">                     Till Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                Unit Lead<br /"
+#~ ">                Senior QA, Packaging<br />                QA, "
+#~ "Packaging<br />                Additional NSIS<br />                "
+#~ "Backup Coordinator                </td>                "
+#~ "<td>                Bernhard Reiter<br />                Bernhard "
+#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
+#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit Lead<br />                Development<br /"
+#~ ">                Development<br />                Additional D. + "
+#~ "Crypto<br />                Crypto GUI Development                </"
+#~ "td>                <td>                Till Adam<br />                "
+#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
+#~ "Frank Osterfeld<br />                Marc Mutz                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Crypto-Backend Porting<br />                "
+#~ "Crypto-Backend                </td>                <td>                "
+#~ "Werner Koch<br />                Marcus Brinkmann                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>External QA Darmstadt, basysKom GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit-Lead                </td>                "
+#~ "<td>                Dr. Stefan Werden                </td>                "
+#~ "</tr>                </table><br /><br />"
+#~ msgstr ""
+#~ "<br /><br />    <i>Dette fri software-produkt er blevet forbedret som del "
+#~ "af et kommercielt projekt:</i>    <h3>Tak</h3>    Project Kowi (marts "
+#~ "2007 - )<br /><br />        <b>Produktion / projektkoordination</b><br /"
+#~ ">    Bernhard Reiter<br />    <b>Udviklingsleder</b><br />    Till "
+#~ "Adam    <br /><br />        <table border=\"0\" width=\"100%\">     "
+#~ "<tr>     <td colspan=\"2\">      <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
+#~ "b>     </td>    </tr>    <tr>     <td width=\"60%\">      Enhedsleder<br /"
+#~ ">      Senior QA, pakning<br />      QA, pakning<br />      Yderligere "
+#~ "NSIS<br />      Backup-koordinator     </td>     <td>      Bernhard "
+#~ "Reiter<br />      Bernhard Herzog<br />      Ludwig Reiter<br />      "
+#~ "Emanuel Sch&uuml;tze<br />      Dr. Jan-Oliver Wagner     </td>    </"
+#~ "tr>    </table>    <br /><br />        <table border=\"0\" width=\"100%"
+#~ "\">    <tr>     <td colspan=\"2\">        <b>Berlin Unit, Klar&auml;"
+#~ "lvdalens Datakonsult AB</b>     </td>    </tr>    <tr>     <td width=\"60%"
+#~ "\">      Enhedsleder<br />      Udvikling<br />      Udvikling<br />      "
+#~ "Yderligere D. + krypto<br />      Crypto GUI Development     </td>     "
+#~ "<td>      Till Adam<br />      Jaroslaw Staniek<br />      Volker "
+#~ "Krause<br />      Frank Osterfeld<br />      Marc Mutz     </td>    </"
+#~ "tr>    </table>    <br /><br />        <table border=\"0\" width=\"100%"
+#~ "\">    <tr>     <td colspan=\"2\">      <b>D&uuml;sseldorf-enheden, g10 "
+#~ "Code GmbH</b>     </td>    </tr>    <tr>     <td width=\"60%\">      "
+#~ "krypto-backend-portering<br />      krypto-backend     </td>     "
+#~ "<td>      Werner Koch<br />      Marcus Brinkmann     </td>    </tr>    </"
+#~ "table>    <br /><br />        <table border=\"0\" width=\"100%\">    "
+#~ "<tr>     <td colspan=\"2\">      <b>Ekstern QA Darmstadt, basysKom GmbH</"
+#~ "b>     </td>    </tr>    <tr>     <td width=\"60%\">      Enhedsleder     "
+#~ "</td>     <td>      Dr. Stefan Werden     </td>    </tr>    </table><br /"
+#~ "><br />"
+
+#~ msgid "%1 License"
+#~ msgstr "%1 Licens"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "Synk."
+
+#~ msgctxt "@title:column plugin name"
+#~ msgid "Summary Plugin Name"
+#~ msgstr "Navn på oversigtsplugin"
+
+#~ msgid "Select the plugin summaries to show on the summary page."
+#~ msgstr "Vælg de pluginoversigter der skal vises på oversigtssiden."
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontact-oversigt"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "KDE Kontact-oversigt"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&Indstil oversigtsvisning..."
+
+#~ msgid "Configure the summary view"
+#~ msgstr "Indstil oversigtsvisningen"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Choosing this will show a dialog where you can select which summaries you "
+#~ "want to see and also allow you to configure the summaries to your liking."
+#~ msgstr ""
+#~ "Valg af dette vil vise en dialog hvor du kan vælge hvilke oversigter du "
+#~ "vil se samt lade dig indstille oversigterne efter din egen smag."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Oversigt for %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Hvad er det næste?"
+
+#~ msgid "Sync All"
+#~ msgstr "Synkronisér alle"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Alle"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Alle"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Kontact-oversigt"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Kontacts oversigtsvisning"
+
+#, fuzzy
+#~| msgid "(c) 2003-2014 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(c) 2003-2014 Kontact-udviklerne"
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Bliv organiseret!"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Velkommen til Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip denne introduktion</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&Dagens tip"
+
+#~ msgctxt "@info:status"
+#~ msgid "Show the Tip-of-the-Day dialog"
+#~ msgstr "Vis dialogen med dagens tip"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog showing small tips to help you use "
+#~ "this program more effectively."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog som viser små tips til at hjælpe "
+#~ "dig med at bruge dette program mere effektivt."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Nyt feed..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan tilføje et nyt feed."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Ny kontakt..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan oprette en ny kontakt."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Ny kontaktgruppe..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan oprette en ny "
+#~ "kontaktgruppe."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Synkronisér kontakter"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "Vælg denne indstilling for at synkronisere din groupware-kontakter."
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Indstillingsdialog til postoversigt"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "Ophavsret © 2004–2010 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Vis fuld sti for mapper"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Vis fuld sti til hver mappe"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Enable this option if you want to see the full path for each folder "
+#~ "listed in the summary. If this option is not enabled, then only the base "
+#~ "folder path will be shown."
+#~ msgstr ""
+#~ "Aktivér denne indstilling hvis du vil se den fulde sti til hver mappe som "
+#~ "er oplistet i oversigten. Hvis denne indstilling ikke er aktiveret, vil "
+#~ "kun stien til basismappen blive vist."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Nyt brev..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and send a new "
+#~ "email message."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan skrive og sende en ny "
+#~ "e-mail."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Synkronisér e-mail"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "Vælg denne indstilling for at synkronisere din groupware-e-mail."
+
+#~ msgid "New Messages"
+#~ msgstr "Nye breve"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>I alt: %2<br/>Ulæste: %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "Ingen ulæste breve i overvågede mapper"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Åbn mappe: \"%1\""
+
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmknotessummary"
+
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Indstillingsdialog til noteoversigt"
+
+#, fuzzy
+#~| msgid "Copyright © 2013-2014 Laurent Montel <montel@kde.org>"
+#~ msgid "Copyright © 2013-2015 Laurent Montel <montel@kde.org>"
+#~ msgstr "Ophavsret © 2013-2014 Laurent Montel <montel@kde.org>"
+
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "&Ny"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can add a new popup note."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan tilføje en ny pop-op-"
+#~ "note."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Redigér..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can modify an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan ændre en eksisterende "
+#~ "pop-op-note."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Omdøb..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can rename an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan omdøbe en "
+#~ "eksisterende pop-op-note."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Slet"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be prompted if you really want to permanently remove the "
+#~ "selected popup note."
+#~ msgstr ""
+#~ "Du vil blive spurgt om du virkelig vil fjerne den markerede pop-op-note "
+#~ "permanent."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Udskriv markerede noter..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be prompted to print the selected popup note."
+#~ msgstr "Du vil blive spurgt om du vil udskrive den markerede pop-op-note."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Vis udskrift af valgte noter..."
+
+#~ msgid "Note settings..."
+#~ msgstr "Note-indstillinger..."
+
+#~ msgid "Preferences KNotes..."
+#~ msgstr "Indstillinger til KNotes..."
+
+#~ msgid "Mail..."
+#~ msgstr "E-mail..."
+
+#~ msgid "Send..."
+#~ msgstr "Send..."
+
+#~ msgid "Set Alarm..."
+#~ msgstr "Sæt alarm..."
+
+#~ msgid "New Note From Clipboard"
+#~ msgstr "Ny note fra udklipsholderen"
+
+#~ msgid "New Note From Text File..."
+#~ msgstr "Ny note fra tekstfil..."
+
+#~ msgid "Save As..."
+#~ msgstr "Gem som..."
+
+#~ msgid "Lock"
+#~ msgstr "Lås"
+
+#~ msgid "Unlock"
+#~ msgstr "Lås op"
+
+#~ msgid "Set Focus to Quick Search"
+#~ msgstr "Giv hurtigsøgning fokus"
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr ""
+#~ "For at udskrive noter vælges noterne der skal udskrives først fra listen."
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Udskriv pop-op-noter"
+
+#~ msgid "Note was not created."
+#~ msgstr "Noten blev ikke oprettet."
+
+#~ msgid "Create new note"
+#~ msgstr "Opret ny note"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Vil du virkelig slette denne note?"
+#~ msgstr[1] "Vil du virkelig slette disse %1 noter?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Bekræft sletning"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Omdøb pop-op-note"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Nyt navn:"
+
+#~ msgid "Show Note..."
+#~ msgstr "Vis note..."
+
+#~ msgid "Settings"
+#~ msgstr "Indstillinger"
+
+#~ msgid "Save note as plain text"
+#~ msgstr "Gem note som klartekst"
+
+#~ msgid "Save As"
+#~ msgstr "Gem som"
+
+#~ msgid ""
+#~ "<qt>A file named <b>%1</b> already exists.<br />Are you sure you want to "
+#~ "overwrite it?</qt>"
+#~ msgstr ""
+#~ "<qt>En fil med navnet <b>%1</b> findes allerede.<br />Er du sikker på at "
+#~ "du vil overskrive den?</qt>"
+
+#~ msgid "Select Text File"
+#~ msgstr "Vælg tekstfil"
+
+#~ msgid "Error during open text file: %1"
+#~ msgstr "Fejl under åbning af tekstfil: %1"
+
+#~ msgid "Open Text File"
+#~ msgstr "Åbn tekstfil"
+
+#~ msgid "Note from file '%1'"
+#~ msgstr "Note fra filen \"%1\""
+
+#~ msgid "&Edit"
+#~ msgstr "&Redigér"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Ny pop-op-note..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new popup note."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan oprette en ny pop-op-"
+#~ "note."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "KNotes"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Pop-op-noter"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "Ophavsret © 2003–2014 Kontact-udviklerne"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Nuværende vedligeholder"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Tidligere vedligeholder"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Møde"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Note: %1"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Ny note"
+
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Drop af flere e-mails er ikke understøttet."
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Fra: %1\n"
+#~ "Til: %2\n"
+#~ "Emne: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "E-mail: %1"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Vis pop-op-note"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Redigér pop-op-note"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Navn:"
+
+#~ msgid "Search notes..."
+#~ msgstr "Søg i noter..."
+
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Søg i noter...<%1>"
+
+#~ msgid "(note locked, it will not removed)"
+#~ msgstr "(note låst, den vil ikke blive fjernet)"
+
+#~ msgid "Popup Notes"
+#~ msgstr "Pop-op-noter"
+
+#~ msgid "No note found"
+#~ msgstr "Ingen note fundet"
+
+#~ msgid "Modify Note..."
+#~ msgstr "Ændr note..."
+
+#~ msgid "Delete Note..."
+#~ msgstr "Slet note..."
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Læs pop-op-note: \"%1\""
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Indstilling af begivenhedsoversigt"
+
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Vis kommende begivenheder som begynder om"
+
+#~ msgid "Show events for today only"
+#~ msgstr "Vis kun begivenheder for i dag"
+
+#~ msgid ""
+#~ "Check this box if you want to see events occurring on this date only."
+#~ msgstr ""
+#~ "Markér dette felt hvis du kun vil se særlige lejligheder som finder sted "
+#~ "på denne dato."
+
+#~ msgid "&Today only"
+#~ msgstr "&Kun i dag"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Vis begivenheder som starter indenfor den næste måned"
+
+#~ msgid ""
+#~ "Check this box if you want to see events that start sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Markér dette felt hvis du kun vil se begivenheder som starter indenfor de "
+#~ "næste 31 dage."
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "Indenfor den næste &måned (31 dage)"
+
+#~ msgid "Select the days for showing upcoming events"
+#~ msgstr "Vælg antal dage til visning af kommende begivenheder"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming events."
+#~ msgstr ""
+#~ "Markér dette felt hvis du vil angive antal dage til kommende begivenheder."
+
+#~ msgid "Within the &next:"
+#~ msgstr "Indenfor de &næste:"
+
+#~ msgid "Set the number of days to show upcoming events"
+#~ msgstr "Angiv antal dage til visning af kommende begivenheder"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming events up to "
+#~ "1 year in the future."
+#~ msgstr ""
+#~ "Brug dette spinfelt til at sætte antallet af dage hvor kommende "
+#~ "begivenheder skal vises. Du kan angive op til ét år frem i tiden."
+
+#~ msgid "1 day"
+#~ msgstr "1 dag"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " dage"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Vis disse kommende begivenheder fra din kalender"
+
+#~ msgid ""
+#~ "Show birthdays from your calendar when also using the Birthday resource"
+#~ msgstr ""
+#~ "Vis fødselsdage fra din kalender når fødselsdagsressourcen også bruges"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise  fødselsdage fra din kalender i "
+#~ "oversigten over kommende begivenheder. Denne indstilling er kun "
+#~ "tilgængelig hvis du bruger fødselsdagsressourcen i din kalender."
+
+#~ msgid "Show &birthdays"
+#~ msgstr "Vis &fødselsdage"
+
+#~ msgid ""
+#~ "Shows anniversaries from your calendar when using the Birthdays resource"
+#~ msgstr "Viser årsdage fra din kalender når fødselsdagsressourcen bruges"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise årsdage fra din kalender i "
+#~ "oversigten over kommende begivenheder. Denne indstilling er kun "
+#~ "tilgængelig hvis du bruger fødselsdagsressourcen i din kalender."
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "Vis å&rsdage"
+
+#~ msgid "Groupware Settings"
+#~ msgstr "Indstilling af groupware"
+
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Vis kun begivenheder som hører til min kalender"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show events belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Markér dette felt, hvis du ønsker at oversigten kun skal vise "
+#~ "begivenheder, som hører til din kalender."
+
+#~ msgid "Show &my events only"
+#~ msgstr "Vis kun &mine begivenheder"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "Kommende begivenheder"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "Ingen planlagte begivenheder begynder indenfor det næste døgn"
+#~ msgstr[1] "Ingen kommende begivenheder begynder indenfor de næste %1 dage"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "R&edigér aftale..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "S&let aftale"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Redigér begivenhed: \"%1\""
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Ny journal..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Opret ny journal"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new journal "
+#~ "entry."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan oprette en ny "
+#~ "journalindgang."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Synkronisér journal"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Synkronisér groupware-journal"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware journal entries."
+#~ msgstr ""
+#~ "Vælg denne indstilling for at synkronisere dine groupware-journalindgange."
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " dag"
+#~ msgstr[1] " dage"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Indstillingsdialog for kommende begivenheder"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "Ophavsret © 2003–2004 Tobias Koenig\n"
+#~ "Ophavsret © 2005–2010 Allen Winter"
+
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Indstillingsdialog for udestående gøremål"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Ny begivenhed..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Opret ny begivenhed"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new event item."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan oprette en ny "
+#~ "begivenhed."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Synkronisér kalender"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Synkronisér groupware-kalender"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware events."
+#~ msgstr ""
+#~ "Vælg denne indstilling for at synkronisere dine groupware-begivenheder."
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "I dag"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "I morgen"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "om 1 dag"
+#~ msgstr[1] "om %1 dage"
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "om "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "1 t."
+#~ msgstr[1] "%1 t."
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "1 min."
+#~ msgstr[1] "%1 min."
+
+#~ msgid "now"
+#~ msgstr "nu"
+
+#~ msgid "all day"
+#~ msgstr "hele dagen"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Næste: %1"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Nyt gøremål..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Opret nyt gøremål"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new to-do item."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan oprette et nyt "
+#~ "gøremål."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Synkronisér gøremålsliste"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Synkronisér groupware-gøremålsliste"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr ""
+#~ "Vælg denne indstilling for at synkronisere din groupware-gøremålsliste."
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Indstilling af gøremålsoversigt"
+
+#~ msgid "Show To-dos Due"
+#~ msgstr "Vis gøremål som forfalder om"
+
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Vis kun gøremål som forfalder i dag"
+
+#~ msgid "Check this box if you want to see To-dos due on this date only."
+#~ msgstr ""
+#~ "Markér dette felt hvis du kun vil se gøremål som forfalder på denne dato."
+
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "Vis gøremål som forfalder indenfor den næste måned"
+
+#~ msgid ""
+#~ "Check this box if you want to see To-dos that are due sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Markér dette felt hvis du vil se gøremål som forfalder indenfor de næste "
+#~ "31 dage."
+
+#~ msgid "Select the days for showing pending To-dos"
+#~ msgstr "Vælg antal dage til visning af udestående gøremål"
+
+#~ msgid ""
+#~ "Check this box if you want specify the number of days in the future for "
+#~ "pending To-dos."
+#~ msgstr ""
+#~ "Markér dette felt hvis du vil angive antal dage i fremtiden til "
+#~ "udestående gøremål."
+
+#~ msgid "Set the number of days to show pending To-dos"
+#~ msgstr "Vælg antal dage til visning af udestående gøremål"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show pending To-dos up to 1 "
+#~ "year in the future."
+#~ msgstr ""
+#~ "Brug dette spinfelt til at sætte antallet af dage hvor udestående gøremål "
+#~ "skal vises. Du kan angive op til ét år frem i tiden."
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "Skjul følgende gøremålstyper"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Skjul gennemførte gøremål"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Markér dette felt hvis du ikke vil se gøremål der allerede er blevet "
+#~ "gennemført."
+
+#~ msgid "&Completed"
+#~ msgstr "&Gennemført"
+
+#~ msgid "Hide To-dos without a due date"
+#~ msgstr "Skjul gøremål uden en forfaldsdato"
+
+#~ msgid "Check this box if you do not want to see open-ended To-dos."
+#~ msgstr "Markér dette felt hvis du ikke vil se gøremål uden en afslutning."
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "&Åben afslutning (ingen forfaldsdato)"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "Skjul ikke-påbegyndte gøremål"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Markér dette felt hvis du ikke vil se gøremål med en startdato som er i "
+#~ "fremtiden."
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "&Ikke påbegyndt (startdato er i fremtiden)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "Skjul gøremål der er i gang"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Markér dette felt hvis du ikke vil se gøremål der er blevet påbegyndt men "
+#~ "endnu ikke gennemført."
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "&I gang (startet men ikke gennemført)"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Skjul forsinkede gøremål"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Markér dette felt hvis du ikke vil se gøremål der har passeret deres "
+#~ "forfaldsdato men endnu ikke er gennemført."
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "Forsin&ket (ikke gennemført og forfaldsdato passeret)"
+
+#~ msgid "Show To-dos belonging to my calendars only"
+#~ msgstr "Vis kun gøremål der hører til min kalender"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show To-dos belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Markér dette felt, hvis du ønsker at oversigten kun skal vise gøremål, "
+#~ "som hører til din kalender."
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Vis kun &mine gøremål"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "Udestående gøremål"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "I dag"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "I morgen"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "1 dag siden"
+#~ msgstr[1] "%1 dage siden"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "forfalder"
+
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "Ingen udestående gøremål forfalder indenfor det næste døgn"
+#~ msgstr[1] "Ingen udestående gøremål forfalder indenfor de næste %1 dage"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "R&edigér gøremål..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "S&let gøremål"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "&Markér gøremål som færdigt"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Redigér gøremål: \"%1\""
+
+#~ msgid "open-ended"
+#~ msgstr "ingen afslutning"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "forsinket"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "starter i dag"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "ikke startet"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "afsluttet"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "i gang"
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Indstillingsdialog for kommende særlige datoer"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Ophavsret © 2004 Tobias Koenig\n"
+#~ "Ophavsret © 2004–2010 Allen Winter"
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Indstilling af oversigt over særlige datoer"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Vis særlige datoer begyndende"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Vis kun særlige lejligheder for i dag"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions occurring on this "
+#~ "date only."
+#~ msgstr ""
+#~ "Markér dette felt hvis du kun vil se særlige lejligheder som finder sted "
+#~ "på denne dato."
+
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Vis særlige lejligheder som starter indenfor den næste måned"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions that start sometime "
+#~ "during the next 31 days."
+#~ msgstr ""
+#~ "Markér dette felt hvis du kun vil se særlige lejligheder som starter "
+#~ "indenfor de næste 31 dage."
+
+#~ msgid "Select the days for showing upcoming special occasions"
+#~ msgstr "Vælg de dage hvor kommende særlige lejligheder skal vises"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming special occasions."
+#~ msgstr ""
+#~ "Markér dette felt hvis du vil angive antal dage til kommende særlige "
+#~ "lejligheder."
+
+#~ msgid "Set the number of days to show upcoming special occasions"
+#~ msgstr "Angiv antal dage til visning af kommende særlige lejligheder"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming special "
+#~ "occasions up to one year in the future."
+#~ msgstr ""
+#~ "Brug dette spinfelt til at sætte antallet af dage hvor kommende særlige "
+#~ "lejligheder skal vises. Du kan angive op til ét år frem i tiden."
+
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Vise disse særlige datoer fra din kalender"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Vis fødselsdage fra din kalender"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Birthday\" category."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise  fødselsdage fra din kalender i "
+#~ "oversigten over kommende særlige lejligheder. Typisk er dette "
+#~ "begivenheder med kategorien \"Fødselsdag\"."
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Vis årsdage fra din kalender"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Anniversary\" category."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise årsdage fra din kalender i "
+#~ "oversigten over kommende særlige lejligheder. Typisk er dette "
+#~ "begivenheder med kategorien \"Årsdag\"."
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Vis helligdage fra din kalender"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the upcoming "
+#~ "special occasions summary. These are events from your configured holiday "
+#~ "region, or events with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise  helligdage fra din kalender i "
+#~ "oversigten over kommende særlige lejligheder. Dette er begivenheder fra "
+#~ "dit indstillede helligdagsområde eller begivenheder med kategorien "
+#~ "\"Helligdag\"."
+
+#~ msgid "Show &holidays"
+#~ msgstr "Vis &helligdage"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Vis særlige lejligheder fra din kalender"
+
+#~ msgid ""
+#~ "Enable this option to include events from your calendar with the "
+#~ "\"special occasion\" category."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise  begivenheder fra din kalender med "
+#~ "kategorien \"Særlig lejlighed\"."
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Vis sæ&rlige lejligheder"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Vis disse særlige datoer fra din kontaktliste"
+
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Vis fødselsdage fra din adressebog"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise  fødselsdage fra din adressebog i "
+#~ "oversigten over kommende særlige lejligheder."
+
+#~ msgid "Show birth&days"
+#~ msgstr "Vis fødsels&dage"
+
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Vis årsdage fra din adressebog"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise årsdage fra din adressebog i "
+#~ "oversigten over kommende særlige lejligheder."
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "Vis års&dage"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Kommende særlige datoer"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "I dag"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "I morgen"
+
+#~ msgid "Birthday"
+#~ msgstr "Fødselsdag"
+
+#~ msgid "Anniversary"
+#~ msgstr "Årsdag"
+
+#~ msgid "Holiday"
+#~ msgstr "Helligdag"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Særlig lejlighed"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "et år"
+#~ msgstr[1] "%1 år"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Ingen særlige datoer indenfor det næste døgn"
+#~ msgstr[1] "Ingen særlige datoer indenfor de næste %1 dage"
+
+#~ msgid "Send &Mail"
+#~ msgstr "Send &post"
+
+#~ msgid "View &Contact"
+#~ msgstr "Vis &kontakt"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Send til:\"%1\""
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Oversigt over specielle datoer"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Oversigt over særlige datoer i Kontact"
+
+#~ msgid ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Ophavsret © 2003 Tobias Koenig\n"
+#~ "Ophavsret © 2004–2010 Allen Winter"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "Nuværende vedligeholder"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Ny KJots-side"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan oprette en ny jots-"
+#~ "side."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Ny KJots-bog"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots book."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan oprette en ny jots-"
+#~ "bog."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Opret nyt feed"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "Opret en ny kontakt"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Opret en ny kontaktgruppe"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Synkronisér groupware-kontakter"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Opret en ny jots-side"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Opret en ny jots-bog"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Skriv ny e-mail"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Synkronisér groupware-e-mail"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Ny artikel..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Skriv ny Usenet-artikel"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new article to "
+#~ "post on Usenet."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan skrive en ny artikel "
+#~ "til Usenet."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Opret en ny pop-op-note"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Redigér pop-op-note"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Omdøb pop-op-note"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Slet pop-op-note"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Udskriv pop-op-note"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Skriv ny pop-op-note"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Ny opgave"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Opret ny tidsstyring"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and start a new "
+#~ "time tracker."
+#~ msgstr ""
+#~ "Du vil blive præsenteret for en dialog, hvor du kan oprette og starte en "
+#~ "ny tidsstyring."
+
+#~ msgid "task_popup"
+#~ msgstr "task_popup"
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Konfigurationsdialog til oversigt for planlægningskalender"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+#~ msgstr ""
+#~ "Ophavsret © 2004 Tobias Koenig\n"
+#~ "Ophavsret © 2006–2008 Oral Timocin\n"
+#~ "Ophavsret © 2009–2010 Allen Winter"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgid "Planner"
+#~ msgstr "Kalender"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "I dag"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "I morgen"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Ingen forestående aftaler indenfor det næste døgn"
+#~ msgstr[1] "Ingen forestående aftaler indenfor de næste %1 dage"
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "forsinket"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Redigér aftale: \"%1\""
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "i gang"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "starter i dag"
+
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "forfalder i dag"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "afsluttet"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Konfiguration af oversigt for planlægningskalender"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "Generelt"
+
+#~ msgid "General Configuration"
+#~ msgstr "Generel konfiguration"
+
+#~ msgid "Show an icon indicating a recurring item"
+#~ msgstr "Vis  at elementer gentages med et ikon"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon that indicates an event or to-"
+#~ "do is recurring."
+#~ msgstr ""
+#~ "Markér dette felt hvis du vil se et ikon der angiver at en begivenhed "
+#~ "eller et gøremål gentages."
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "Vis gentagelsesikon"
+
+#~ msgid "Show an icon indicating the item has a reminder"
+#~ msgstr "Vis at elementer har en påmindelse med et ikon"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon indicating that the event or to-"
+#~ "do has a reminder."
+#~ msgstr ""
+#~ "Markér dette felt hvis du vil se et ikon der angiver at en begivenhed "
+#~ "eller et gøremål har en påmindelse."
+
+#~ msgid "Show reminder icon"
+#~ msgstr "Vis påmindelsesikon"
+
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Understreg links i beskrivelser"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr "Markér dette felt hvis du ønsker at URL-links skal understreges."
+
+#~ msgid "Underline links"
+#~ msgstr "Understreg links"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Vis gøremål i oversigten"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr "Markér dette felt hvis du vil se gøremål i oversigten."
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Vis gøremål i planlægningskalender"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Vis særlige datoer i oversigten"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr "Markér dette felt hvis du vil se særlige datoer i oversigten."
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "Vis særlige datoer i planlægningskalender"
+
+#~ msgid "Events"
+#~ msgstr "Begivenheder"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "Vis kalenderbegivenheder"
+
+#~ msgid "To-dos"
+#~ msgstr "Gøremål"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Skjul gennemførte gøremål"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Markér dette felt hvis du ikke vil se gøremål der allerede er blevet "
+#~ "gennemført."
+
+#~ msgid "Hide to-dos without a due date"
+#~ msgstr "Skjul gøremål uden en forfaldsdato"
+
+#~ msgid "Check this box if you do not want to see open-ended to-dos."
+#~ msgstr "Markér dette felt hvis du ikke vil se gøremål uden en afslutning."
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Skjul ikke-påbegyndte gøremål"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Markér dette felt hvis du ikke vil se gøremål med en startdato som er i "
+#~ "fremtiden."
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "Skjul gøremål der er i gang"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Markér dette felt hvis du ikke vil se gøremål der er blevet påbegyndt men "
+#~ "endnu ikke gennemført."
+
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Skjul forsinkede gøremål"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Markér dette felt hvis du ikke vil se gøremål der har passeret deres "
+#~ "forfaldsdato men endnu ikke er gennemført."
+
+#~ msgid "Special Dates"
+#~ msgstr "Særlige datoer"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "Vis disse særlige datoer"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise  fødselsdage fra din adressebog i "
+#~ "kalenderoversigten."
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Vis fødselsdage fra adressebogen"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise årsdage fra din adressebog i "
+#~ "kalenderoversigten."
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Vis årsdage fra adressebogen"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the planner "
+#~ "summary. These are events from your configured holiday region, or events "
+#~ "with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Aktivér denne indstilling for at vise  helligdage fra din kalender i "
+#~ "kalenderoversigten. Dette er begivenheder fra dit indstillede "
+#~ "helligdagsområde eller begivenheder med kategorien \"Helligdag\"."
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Vis helligdage fra kalender"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Vis særlige lejligheder fra kalender"
+
+#~ msgid "Planner Summary"
+#~ msgstr "Kalenderoversigt"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Kontacts kalenderoversigt"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Aktiv kalender"
+
+#~ msgid "Default Calendar"
+#~ msgstr "Standardkalender"
+
+#~ msgid "Birthdays"
+#~ msgstr "Fødselsdage"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "Pluginet %1"
+
+#~ msgid "No Notes Available"
+#~ msgstr "Ingen noter tilgængelige"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Synkronisér pop-op-noter"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Synkronisér groupware-noter"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "Vælg denne indstilling for at synkronisere dine groupware-noter."
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(c) 2003 Kontact-udviklerne"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Indstil Kontact som groupware-klient"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "FØDSELSDAG"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "MÆRKEDAG"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "HELLIGDAG"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "SÆRLIGT TILFÆLDE"
+
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(C) 2001-2009 Kontact-udviklerne"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "(c) 2007-2008 Oral Timocin"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(c) 2004-2005 KDE PIM-holdet"
+
+#~ msgid "(c) 2004-2006 Allen Winter"
+#~ msgstr "(c) 2004-2006 Allen Winter"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Lokal"
+
+#~ msgid "Summary"
+#~ msgstr "Oversigt"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#~ msgid " days"
+#~ msgstr " dage"
+
+#~ msgid "Rename"
+#~ msgstr "Omdøb"
+
+#~ msgid "Show &anniveraries"
+#~ msgstr "Vis mærked&age"
+
+#~ msgid "New Distribution List..."
+#~ msgstr "Ny distributionsliste..."
+
+#~ msgid "New SMS..."
+#~ msgstr "Ny SMS..."
+
+#~ msgid "New News Feed"
+#~ msgstr "Nyt nyheds-feed"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "Arts"
+
+#~ msgid "Business"
+#~ msgstr "Forretning"
+
+#~ msgid "Computers"
+#~ msgstr "Computere"
+
+#~ msgid "Misc"
+#~ msgstr "Diverse"
+
+#~ msgid "Recreation"
+#~ msgstr "Rekreation"
+
+#~ msgid "Society"
+#~ msgstr "Samfund"
+
+#~ msgid "Custom"
+#~ msgstr "Brugervalgt"
+
+#~ msgid "All"
+#~ msgstr "Alle"
+
+#~ msgid "Add"
+#~ msgstr "Tilføj"
+
+#~ msgid "Remove"
+#~ msgstr "Fjern"
+
+#~ msgid "Selected"
+#~ msgstr "Markeret"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Genopfriskningstid:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Antal punkter vist:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Indstillingsdialog for nyhedstelegraf"
+
+#~ msgid "News Feeds"
+#~ msgstr "Nyheds-feeds"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "Ingen rss dcop-tjeneste tilgængelig.\n"
+#~ "Du har brug for rssservice for at bruge dette plugin."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "Kopiér URL til udklipsholderen"
+
+#~ msgid "Weather Information"
+#~ msgstr "Vejr-information"
+
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "Ingen D-Bus vejrtjeneste tilgængelig;\n"
+#~ "du skal bruge KWeather for at anvende dette plugin."
+
+#~ msgid "Last updated on"
+#~ msgstr "Senest opdateret den"
+
+#~ msgid "Wind Speed"
+#~ msgstr "Vindhastighed"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "Rel. fugtighed:"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "Vis vejrudsigt for station"
+
+#~ msgid "Ian Reinhart Geiser"
+#~ msgstr "Ian Reinhart Geiser"
+
+#~ msgid "John Ratke"
+#~ msgstr "John Ratke"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "Forbedringer og flere kode-oprydninger"
+
+#~ msgid "Unknown"
+#~ msgstr "Ukendt"

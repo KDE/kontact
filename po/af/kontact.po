@@ -1,0 +1,2191 @@
+# vertaling van kontact.po na Afrikaans
+#
+# Frikkie Thirion <kde.afrikaans@gmail.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact stable\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2007-01-08 14:24+0200\n"
+"Last-Translator: Frikkie Thirion <kde.afrikaans@gmail.com>\n"
+"Language-Team: Afrikaans <translate-discuss-af@lists.sourceforge.net>\n"
+"Language: af\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Frikkie Thirion"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde.afrikaans@gmail.com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgid ""
+#| "Kontact handles your e-mail, addressbook, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontak handteer jou e-pos, adresboek, kalender, te-doen lys en nog baie meer."
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "Kontact inleiding"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "Besig om Kontact te laai..."
+
+#: src/iconsidepane.cpp:263
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Vertoon Ikone"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr ""
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+
+#: src/iconsidepane.cpp:270
+#, fuzzy, kde-format
+#| msgid "Show Text"
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Vertoon Teks"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr ""
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+
+#: src/iconsidepane.cpp:277
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Vertoon Ikone"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr ""
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+
+#: src/iconsidepane.cpp:287
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Vertoon Ikone"
+
+#: src/iconsidepane.cpp:291
+#, fuzzy, kde-format
+#| msgid "Show all to-dos"
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Vertoon alle te-doen notas"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+
+#: src/iconsidepane.cpp:294
+#, fuzzy, kde-format
+#| msgid "Normal"
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Normaal"
+
+#: src/iconsidepane.cpp:298
+#, fuzzy, kde-format
+#| msgid "Show all to-dos"
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Vertoon alle te-doen notas"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+
+#: src/iconsidepane.cpp:301
+#, fuzzy, kde-format
+#| msgid "Show Icons"
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Vertoon Ikone"
+
+#: src/iconsidepane.cpp:305
+#, fuzzy, kde-format
+#| msgid "Show all to-dos"
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Vertoon alle te-doen notas"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr ""
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr ""
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, fuzzy, kde-format
+#| msgid "Always start with specified component:"
+msgid "Always start with plugin:"
+msgstr "Begin altyd met hierdie komponent:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, fuzzy, kde-format
+#| msgid ""
+#| "Usually Kontact will come up with the component used before shutdown. "
+#| "Check this box if you would like a specific component to come up on start "
+#| "instead."
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Kontact begin gewoonlik met die komponent wat gebruik was voordat dit "
+"toegemaak was. Kies hierdie opsie om 'n spesifieke komponent te spesifiseer "
+"wanneer die program oopmaak."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, fuzzy, kde-format
+#| msgid "Meeting"
+msgid "&Settings"
+msgstr "Vergadering"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr ""
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Begin met die hierdie Kontact module"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Begin in geikonifiseerde (minimeer) modus"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Lys al die moontlike modules en gaan uit."
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "KDE persoonlike informasie bestuurder"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "(c) 2004 Tobias Koenig"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr ""
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr ""
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr ""
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr ""
+
+#: src/main.cpp:173
+#, fuzzy, kde-format
+#| msgid "(c), 2003 Cornelius Schumacher"
+msgid "Cornelius Schumacher"
+msgstr "(c), 2003 Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, fuzzy, kde-format
+#| msgid "(c) 2004 Tobias Koenig"
+msgid "Tobias König"
+msgstr "(c) 2004 Tobias Koenig"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr ""
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr ""
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr ""
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr ""
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Oorspronklike Outeur"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr ""
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr ""
+
+#: src/mainwindow.cpp:251
+#, fuzzy, kde-format
+#| msgid " Initializing..."
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr "Besig om te inisialiseer..."
+
+#: src/mainwindow.cpp:288
+#, fuzzy, kde-format
+#| msgid "New"
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Nuwe"
+
+#: src/mainwindow.cpp:293
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Stel Kontact op..."
+
+#: src/mainwindow.cpp:294
+#, fuzzy, kde-format
+#| msgid "Configure Kontact..."
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Stel Kontact op..."
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr ""
+
+#: src/mainwindow.cpp:299
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "Kontact inleiding"
+
+#: src/mainwindow.cpp:300
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Kontact inleiding"
+
+#: src/mainwindow.cpp:301
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Kontact inleiding"
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr ""
+
+#: src/mainwindow.cpp:574
+#, fuzzy, kde-format
+#| msgid "Application is running standalone. Foregrounding..."
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Die program loop alleen staande. Plaas in die voorgrond..."
+
+#: src/mainwindow.cpp:590
+#, fuzzy, kde-format
+#| msgid "Cannot load part for %1."
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Kan nie 'n deel van %1 laai nie."
+
+#: src/mainwindow.cpp:658
+#, fuzzy, kde-format
+#| msgctxt "Plugin dependent window title"
+#| msgid "%1 - Kontact"
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "Die KDE persoonlike informasie bestuur paket"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "Lees handleiding"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "Leer meer aangaande Kontact en sy komponente"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "Besoek die Kontact web bladsy"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "Kry toegang tot aanlyn hulpbronne en voorbeelde"
+
+#: src/mainwindow.cpp:934
+#, kde-format
+msgid "Setup your Accounts"
+msgstr ""
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgid "Prepare Kontact for use in corporate networks"
+msgid "Prepare Kontact for use"
+msgstr "Berei Kontact voor om in 'n besigheid netwerk gebruik te word"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#, fuzzy
+#~| msgid "(c), 2003 Cornelius Schumacher"
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#, fuzzy
+#~| msgid "Plugin Developer"
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Inprop module ontwikkelaar"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Aangaande Kontact"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Kontact Instandhouer"
+
+#~ msgid "No about information available."
+#~ msgstr "Geen 'aangaande' informasie is beskikbaar nie."
+
+#, fuzzy
+#~| msgid "Version %1</p>"
+#~ msgid "Version %1"
+#~ msgstr "Weergawe %1</p>"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Outeure:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Dank aan:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Vertalers:</b></p>"
+
+#~ msgid "%1 License"
+#~ msgstr "%1 Lisensie"
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "KDE Kontact Opsomming"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Tobias Koenig"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "Stel opsomming aansig op..."
+
+#, fuzzy
+#~| msgid "&Configure Summary View..."
+#~ msgid "Configure the summary view"
+#~ msgstr "Stel opsomming aansig op..."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Opsomming vir %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Wat is volgende?"
+
+#, fuzzy
+#~| msgid "All"
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Alle"
+
+#, fuzzy
+#~| msgid "All"
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Alle"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Kontact Opsomming"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Kontak Opsomming Aansig"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(c), 2001-2004 Die Kontact ontwikkeling span"
+
+#, fuzzy
+#~| msgid ""
+#~| "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</"
+#~| "h2>"
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;margin-bottom:0px'>%1</h2>"
+
+#, fuzzy
+#~| msgid "KDE Kontact"
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#, fuzzy
+#~| msgid "Get Organized!"
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Word geörganiseerd!"
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welkom by Kontact %1</"
+#~ "h2><p>%1</p><table align=\"center\"><tr><td><a href=\"%1\"><img width="
+#~ "\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr><tr><td><a href=\"%1\"><img "
+#~ "width=\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr><tr><td><a href=\"%1\"><img "
+#~ "width=\"%1\" height=\"%1\" src=\"%1\" /></a></td><td><a href=\"%1\">%1</"
+#~ "a><br><span id=\"subtext\"><nobr>%1</td></tr></table><p style=\"margin-"
+#~ "bottom: 0px\"> <a href=\"%1\">Spring oor hierdie inleiding</a></p>"
+
+#, fuzzy
+#~| msgid "&Tip of the Day"
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "Leidraad van die dag"
+
+#, fuzzy
+#~| msgid "New Feed..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Nuwe stroom..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Besigtig kontak"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "Besigtig kontak"
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "E-pos opsomming opstelling dialoog"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Vertoon volle pad na gidse"
+
+#, fuzzy
+#~| msgid "Show full path for folders"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Vertoon volle pad na gidse"
+
+#, fuzzy
+#~| msgid "New Message..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Nuwe boodskap..."
+
+#, fuzzy
+#~| msgid "Send &Mail"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Stuur e-pos"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "Besigtig kontak"
+
+#~ msgid "New Messages"
+#~ msgstr "Nuwe boodskap"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "Geen ongeleesde boodskappe in die gidse wat gemonitor word nie"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Maak gids: \"%1\" oop"
+
+#, fuzzy
+#~| msgid "kcmkorgsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmkorgsummary"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "E-pos opsomming opstelling dialoog"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "Instandhouer"
+
+#, fuzzy
+#~| msgid "&New"
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "Nuwe"
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Redigeer te-doen nota..."
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Herbenaam..."
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Keuse"
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Kies komponente..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Kies komponente..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Preferences KNotes..."
+#~ msgstr "Kies komponente..."
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Redigeer nota"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgid "Create new note"
+#~ msgstr "Lees nota: \"%1\""
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Wil jy rêrig hierdie nota uitvee?"
+#~ msgstr[1] "Wil jy rêrig hierdie %1 notas uitvee?"
+
+#, fuzzy
+#~| msgid "Confirm Delete"
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Bevestig uitvee"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Lees nota: \"%1\""
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Naam:"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Show Note..."
+#~ msgstr "Nuwe nota..."
+
+#, fuzzy
+#~| msgid "Meeting"
+#~ msgid "Settings"
+#~ msgstr "Vergadering"
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "Redigeer te-doen nota..."
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Nuwe nota..."
+
+#, fuzzy
+#~| msgid "Notes"
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "Notas"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Redigeer nota"
+
+#, fuzzy
+#~| msgid "(c) 2004 Tobias Koenig"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "(c) 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Instandhouer"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Instandhouer"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Instandhouer"
+
+#, fuzzy
+#~| msgid "Meeting"
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Vergadering"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Lees nota: \"%1\""
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Nuwe nota..."
+
+#, fuzzy
+#~| msgid "Drops of multiple mails are not supported."
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Aflewer ('drop') van veelvuldige e-posse word nie ondersteun nie."
+
+#, fuzzy
+#~| msgid ""
+#~| "From: %1\n"
+#~| "To: %2\n"
+#~| "Subject: %3"
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Van: %1\n"
+#~ "Aan: %2\n"
+#~ "Onderwerp: %3"
+
+#, fuzzy
+#~| msgid "Mail: %1"
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Pos: %1"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Besigtig kontak"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Redigeer nota"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Naam:"
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Search notes..."
+#~ msgstr "Kies komponente..."
+
+#, fuzzy
+#~| msgid "Select Components..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Kies komponente..."
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgid "Popup Notes"
+#~ msgstr "Redigeer nota"
+
+#, fuzzy
+#~| msgid "No service found"
+#~ msgid "No note found"
+#~ msgstr "Geen diens gevind nie"
+
+#, fuzzy
+#~| msgid "New Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "Nuwe nota..."
+
+#, fuzzy
+#~| msgid "Delete Feed"
+#~ msgid "Delete Note..."
+#~ msgstr "Vee stroom uit"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Lees nota: \"%1\""
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Event Summary Configuration"
+#~ msgstr "E-pos opsomming opstelling dialoog"
+
+#, fuzzy
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Spesiale datums"
+
+#, fuzzy
+#~| msgid "Show today's to-dos only"
+#~ msgid "Show events for today only"
+#~ msgstr "Vertoon net vandag se te-doen notas"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today only"
+#~ msgstr "Vandag"
+
+#, fuzzy
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Geen afsprake geskeduleer in die volgende dag nie"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "1 day"
+#~ msgstr "dag"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr "dag"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Spesiale datums vanuit die kalender"
+
+#, fuzzy
+#~| msgid "Show birthdays"
+#~ msgid "Show &birthdays"
+#~ msgstr "Vertoon verjaarsdae"
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show &anniversaries"
+#~ msgstr "Vertoon herdenkings"
+
+#, fuzzy
+#~| msgid "News Feed Settings"
+#~ msgid "Groupware Settings"
+#~ msgstr "Nuus stroom instellings"
+
+#, fuzzy
+#~| msgid "Show today's to-dos only"
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Vertoon net vandag se te-doen notas"
+
+#, fuzzy
+#~| msgid "Show Text"
+#~ msgid "Show &my events only"
+#~ msgstr "Vertoon Teks"
+
+#, fuzzy
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "Geen afsprake geskeduleer in die volgende dag nie"
+#~ msgstr[1] "Geen afsprake geskeduleer in die volgende %1 dae nie"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "Redigeer afspraak..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "Vee afspraak uit"
+
+#, fuzzy
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Redigeer afspraak: \"%1\""
+
+#, fuzzy
+#~| msgid "New Journal..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Nuwe joernaal..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "New Journal..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Nuwe joernaal..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Besigtig kontak"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] "dag"
+#~ msgstr[1] " dae"
+
+#, fuzzy
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Spesiale datums opstel dialoog"
+
+#, fuzzy
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Spesiale datums opstel dialoog"
+
+#, fuzzy
+#~| msgid "New Event..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Nuwe funksie..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Aktiewe kalender"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Besigtig kontak"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Vandag"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Môre"
+
+#, fuzzy
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "in 1 dag"
+#~ msgstr[1] "in %1 dae"
+
+#~ msgid "now"
+#~ msgstr "nou"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "all day"
+#~ msgstr "dag"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Lees nota: \"%1\""
+
+#, fuzzy
+#~| msgid "New To-do..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Nuwe te-doen nota..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Vertoon alle te-doen notas"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Besigtig kontak"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "Besigtig kontak"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "E-pos opsomming opstelling dialoog"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show To-dos Due"
+#~ msgstr "Vertoon alle te-doen notas"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Vertoon alle te-doen notas"
+
+#, fuzzy
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "Geen spesiale datums vir vandag nie"
+
+#, fuzzy
+#~| msgid "&Delete To-do"
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Vee te-doen nota uit"
+
+#, fuzzy
+#~| msgid "&Delete To-do"
+#~ msgid "&Completed"
+#~ msgstr "Vee te-doen nota uit"
+
+#, fuzzy
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "In proses"
+
+#, fuzzy
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Te-doen notas"
+
+#, fuzzy
+#~| msgid "Show today's to-dos only"
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Vertoon net vandag se te-doen notas"
+
+#, fuzzy
+#~ msgid "Pending To-dos"
+#~ msgstr "Te-doen notas"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Vandag"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Môre"
+
+#, fuzzy
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "dag"
+#~ msgstr[1] " dae"
+
+#, fuzzy
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "agterstallig"
+
+#, fuzzy
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "Geen spesiale datums vir vandag nie"
+#~ msgstr[1] "Geen spesiale datums vir die volgende %1 dae nie."
+
+#, fuzzy
+#~ msgid "&Edit To-do..."
+#~ msgstr "Redigeer te-doen nota..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "Vee te-doen nota uit"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "Merk te-doen nota as afgehandel"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Redigeer te-doen nota: \"%1\""
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "agterstallig"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "begin vandag"
+
+#, fuzzy
+#~| msgid "&Delete To-do"
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "Vee te-doen nota uit"
+
+#, fuzzy
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "In proses"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Spesiale datums opstel dialoog"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Spesiale datum opsomming"
+
+#, fuzzy
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Spesiale datums"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Spesiale datums vanuit die kalender"
+
+#, fuzzy
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Geen afsprake geskeduleer in die volgende dag nie"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Spesiale datums vanuit die kalender"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Spesiale datums vanuit die kalender"
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Vertoon herdenkings"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Spesiale datums vanuit die kalender"
+
+#, fuzzy
+#~| msgid "Show holidays"
+#~ msgid "Show &holidays"
+#~ msgstr "Vertoon vakansies"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Spesiale datums vanuit die kalender"
+
+#, fuzzy
+#~| msgid "Show special occasions"
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Vertoon spesiale geleenthede"
+
+#, fuzzy
+#~| msgid "Special Dates From Contact List"
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Spesiale datums vanuit die kontakte lys"
+
+#, fuzzy
+#~| msgid "Show birthdays"
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Vertoon verjaarsdae"
+
+#, fuzzy
+#~| msgid "Show birthdays"
+#~ msgid "Show birth&days"
+#~ msgstr "Vertoon verjaarsdae"
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Vertoon herdenkings"
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show anni&versaries"
+#~ msgstr "Vertoon herdenkings"
+
+#, fuzzy
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Spesiale datums"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Vandag"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Môre"
+
+#~ msgid "Birthday"
+#~ msgstr "Verjaarsdag"
+
+#~ msgid "Anniversary"
+#~ msgstr "Herdenking"
+
+#~ msgid "Holiday"
+#~ msgstr "Vakansie"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Spesiale geleentheid"
+
+#, fuzzy
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "Een jaar"
+#~ msgstr[1] "%1 jare"
+
+#, fuzzy
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Geen spesiale datums vir vandag nie"
+#~ msgstr[1] "Geen spesiale datums vir die volgende %1 dae nie."
+
+#~ msgid "Send &Mail"
+#~ msgstr "Stuur e-pos"
+
+#~ msgid "View &Contact"
+#~ msgstr "Besigtig kontak"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "E-pos aan: \"%1\""
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Spesiale datum opsomming"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Spesiale datum opsomming"
+
+#, fuzzy
+#~| msgid "Maintainer"
+#~ msgid "Current Maintainer"
+#~ msgstr "Instandhouer"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Nuwe boodskap"
+
+#, fuzzy
+#~| msgid "New Messages"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Nuwe boodskap"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Besigtig kontak"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Besigtig kontak"
+
+#, fuzzy
+#~| msgid "New Article..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Nuwe artikel..."
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Lees nota: \"%1\""
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Redigeer nota"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Lees nota: \"%1\""
+
+#, fuzzy
+#~| msgid "&Delete Appointment"
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Vee afspraak uit"
+
+#, fuzzy
+#~| msgid "Edit Note"
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Redigeer nota"
+
+#, fuzzy
+#~| msgid "Read Note: \"%1\""
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Lees nota: \"%1\""
+
+#, fuzzy
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~| msgid "New Task"
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Nuwe taak"
+
+#, fuzzy
+#~| msgid "New Contact..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Nuwe kontak..."
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "E-pos opsomming opstelling dialoog"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Vandag"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Môre"
+
+#, fuzzy
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Geen afsprake geskeduleer in die volgende dag nie"
+#~ msgstr[1] "Geen afsprake geskeduleer in die volgende %1 dae nie"
+
+#, fuzzy
+#~| msgid "overdue"
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "agterstallig"
+
+#, fuzzy
+#~| msgid "&Edit Appointment..."
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Redigeer afspraak..."
+
+#, fuzzy
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "In proses"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "begin vandag"
+
+#, fuzzy
+#~| msgid "ends today"
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "eindig vandag"
+
+#, fuzzy
+#~| msgid "&Delete To-do"
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "Vee te-doen nota uit"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "E-pos opsomming opstelling dialoog"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "General Configuration"
+#~ msgstr "E-pos opsomming opstelling dialoog"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show recurrence icon"
+#~ msgstr "Vertoon alle te-doen notas"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show reminder icon"
+#~ msgstr "Vertoon alle te-doen notas"
+
+#, fuzzy
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Te-doen notas"
+
+#, fuzzy
+#~ msgid "Underline links"
+#~ msgstr "Te-doen notas"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Vertoon alle te-doen notas"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Vertoon alle te-doen notas"
+
+#, fuzzy
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Spesiale datums"
+
+#, fuzzy
+#~ msgid "Show special dates in planner"
+#~ msgstr "Spesiale datums"
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgid "Show Calendar Events"
+#~ msgstr "Aktiewe kalender"
+
+#, fuzzy
+#~ msgid "To-dos"
+#~ msgstr "Te-doen notas"
+
+#, fuzzy
+#~| msgid "&Delete To-do"
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Vee te-doen nota uit"
+
+#, fuzzy
+#~| msgid "&Delete To-do"
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Vee te-doen nota uit"
+
+#, fuzzy
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "In proses"
+
+#, fuzzy
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Te-doen notas"
+
+#, fuzzy
+#~ msgid "Special Dates"
+#~ msgstr "Spesiale datums"
+
+#, fuzzy
+#~ msgid "Show these Special Dates"
+#~ msgstr "Spesiale datums"
+
+#, fuzzy
+#~| msgid "Show birthdays"
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Vertoon verjaarsdae"
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Vertoon herdenkings"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Spesiale datums vanuit die kalender"
+
+#, fuzzy
+#~| msgid "Special Dates From Calendar"
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Spesiale datums vanuit die kalender"
+
+#, fuzzy
+#~| msgid "Summary"
+#~ msgid "Planner Summary"
+#~ msgstr "Opsomming"
+
+#, fuzzy
+#~| msgid "Kontact Summary"
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Kontact Opsomming"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Aktiewe kalender"
+
+#, fuzzy
+#~| msgid "Active Calendar"
+#~ msgid "Default Calendar"
+#~ msgstr "Aktiewe kalender"
+
+#, fuzzy
+#~| msgid "Birthday"
+#~ msgid "Birthdays"
+#~ msgstr "Verjaarsdag"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgid "No Notes Available"
+#~ msgstr "Geen notas beskikbaar"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Besigtig kontak"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Besigtig kontak"
+
+#, fuzzy
+#~| msgid "View &Contact"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "Besigtig kontak"
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(c) 2003 Die Kontact ontwikkelaars"
+
+#, fuzzy
+#~| msgid "Configure Kontact as Groupware Client"
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Stel Kontact as 'n Groupware kliënt op"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "Verjaarsdag"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "Herdenking"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "Vakansie"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "Spesiale geleentheid"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(c), 2001-2004 Die Kontact ontwikkeling span"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(c) 2004 - 2005 Die KDE PIM span"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Plaaslik"
+
+#~ msgid "Summary"
+#~ msgstr "Opsomming"
+
+#~ msgid "kontactconfig"
+#~ msgstr "Kontact Opstelling"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid " days"
+#~ msgstr "dag"
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgid "Rename"
+#~ msgstr "Herbenaam..."
+
+#, fuzzy
+#~| msgid "Show anniversaries"
+#~ msgid "Show &anniveraries"
+#~ msgstr "Vertoon herdenkings"
+
+#, fuzzy
+#~| msgid "New Feed..."
+#~ msgid "New SMS..."
+#~ msgstr "Nuwe stroom..."
+
+#~ msgid "New News Feed"
+#~ msgstr "Nuwe nuus stroom"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "Arts"
+
+#~ msgid "Business"
+#~ msgstr "Besigheid"
+
+#~ msgid "Computers"
+#~ msgstr "Rekenaars"
+
+#~ msgid "Misc"
+#~ msgstr "Allerlei"
+
+#~ msgid "Recreation"
+#~ msgstr "Ontspanning"
+
+#~ msgid "Society"
+#~ msgstr "Gemeenskap"
+
+#~ msgid "Custom"
+#~ msgstr "Pasmaak"
+
+#~ msgid "All"
+#~ msgstr "Alle"
+
+#~ msgid "Selected"
+#~ msgstr "Keuse"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Verfris tyd:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Aantal itemme wat vertoon word:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Nuus tikker opstel dialoog"
+
+#~ msgid "News Feeds"
+#~ msgstr "Nuus strome"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "Geen RSS DCOP diens beskikbaar nie.\n"
+#~ "rssservice is nodig om van hierdie inprop module gebruik te kan maak."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "Kopiëer URL na die klipbord"
+
+#~ msgid "Weather Information"
+#~ msgstr "Weer Informasie"
+
+#, fuzzy
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "Geen weer DCOP diens is beskikbaar nie;\n"
+#~ "<i>KWeather</i> is nodig om van hierdie inprop module gebruik te kan maak."
+
+#~ msgid "Last updated on"
+#~ msgstr "Laas opdateer:"
+
+#~ msgid "Wind Speed"
+#~ msgstr "Wind Spoed"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "Relatiewe Humiditeit"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "Besigtig stasie se weer verslag"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "Verbeteringe en kode skoonmaak"
+
+#~ msgid "Unknown"
+#~ msgstr "Onbekend"
+
+#, fuzzy
+#~| msgid "Show all to-dos"
+#~ msgid "Show To-dos"
+#~ msgstr "Vertoon alle te-doen notas"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "Spesiale datum opsomming"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "Standaard KOrganizer hulpbron"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Vandag"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Môre"
+
+#, fuzzy
+#~| msgid "Special Dates From Contact List"
+#~ msgid "Show Birthdays from Contact List"
+#~ msgstr "Spesiale datums vanuit die kontakte lys"
+
+#, fuzzy
+#~| msgid "Special Dates From Contact List"
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "Spesiale datums vanuit die kontakte lys"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "Today only"
+#~ msgstr "Vandag"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos starting today"
+#~ msgstr "begin vandag"
+
+#, fuzzy
+#~| msgid "No to-dos pending"
+#~ msgid "To-dos ending today"
+#~ msgstr "Geen te-doen notas uitstaande"
+
+#~ msgid "One day"
+#~ msgstr "Een dag"
+
+#~ msgid "Five days"
+#~ msgstr "Vyf dae"
+
+#~ msgid "One week"
+#~ msgstr "Een week"
+
+#~ msgid "One month"
+#~ msgstr "Een maand"
+
+#~ msgid "Show all to-dos"
+#~ msgstr "Vertoon alle te-doen notas"
+
+#, fuzzy
+#~ msgid "Starting to-dos"
+#~ msgstr "Te-doen notas"
+
+#, fuzzy
+#~ msgid "Ending to-dos"
+#~ msgstr "Te-doen notas"
+
+#, fuzzy
+#~ msgid "To-dos in progress"
+#~ msgstr "In proses"
+
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "Skedule opstel dialoog"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today"
+#~ msgstr "Vandag"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "Kan nie aflewer ('drop') aksies vir tipe '%1' handteer nie."
+
+#~ msgid "Notes Management"
+#~ msgstr "Nota bestuurder"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "Ikoon Grootte"
+
+#, fuzzy
+#~| msgid "Large"
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "Groot"
+
+#, fuzzy
+#~| msgid "Small"
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "Klein"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgid "Synchronize"
+#~ msgstr "Ikoon Grootte"
+
+#~ msgid "Name"
+#~ msgstr "Naam"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr ""
+#~ "Jy kan hier spesifiseer watter opsomming inprop modules in die opsomming "
+#~ "aansig sigbaar moet wees."
+
+#~ msgid "&Request Feature..."
+#~ msgstr "Versoek eienskap..."
+
+#~ msgid "&Refresh Summary View..."
+#~ msgstr "Verfris opsomming aansig..."
+
+#~ msgid ""
+#~ "Program error: the .desktop file for the service does not have a Library "
+#~ "key."
+#~ msgstr ""
+#~ "Program fout: Die .desktop lêer vir die diens het nie 'n biblioteek "
+#~ "sleutel nie."
+
+#~ msgid "Program error: the library %1 does not provide a factory."
+#~ msgstr "Program fout: Die biblioteek %1 verskaf nie 'n fabriek nie."
+
+#~ msgid ""
+#~ "Program error: the library %1 does not support creating components of the "
+#~ "specified type"
+#~ msgstr ""
+#~ "Program fout: Die biblioteek %1 ondersteun nie die skep van komponente "
+#~ "van die spesifieke tipe nie."
+
+#~ msgid "Appointments"
+#~ msgstr "Afsprake"
+
+#~ msgid "How many days should the calendar show at once?"
+#~ msgstr "Hoeveel dae van die kalender moet op 'n slag vertoon word?"
+
+#~ msgid "KPilot Information"
+#~ msgstr "KPilot informasie"
+
+#~ msgid ""
+#~ "KPilot - HotSync software for KDE\n"
+#~ "\n"
+#~ msgstr ""
+#~ "KPilot - Sinkronisasie sagteware vir KDE\n"
+#~ "\n"
+
+#~ msgid "Project Leader"
+#~ msgstr "Projek leier"
+
+#~ msgid "<i>Last sync:</i>"
+#~ msgstr "<i>Laaste sinkronisaise:</i>"
+
+#~ msgid "No information available"
+#~ msgstr "Geen informasie beskikbaar"
+
+#~ msgid "[View Sync Log]"
+#~ msgstr "[Kyk na sinkronisasie log]"
+
+#~ msgid "<i>User:</i>"
+#~ msgstr "<i>Gebruiker:</i>"
+
+#~ msgid "<i>Device:</i>"
+#~ msgstr "<i>Toestel:</i>"
+
+#~ msgid "<i>Status:</i>"
+#~ msgstr "<i>Status:</i>"
+
+#~ msgid "No communication with the daemon possible"
+#~ msgstr "Geen kommunikasie met die bediener is moontlik nie"
+
+#~ msgid "<i>Conduits:</i>"
+#~ msgstr "<i>Pad:</i>"
+
+#~ msgid "KPilot is currently not running."
+#~ msgstr "KPilot loop nie tans nie."
+
+#~ msgid "[Start KPilot]"
+#~ msgstr "[Begin KPilot]"
+
+#~ msgid "unknown"
+#~ msgstr "onbekend"
+
+#~ msgid "No information available (Daemon not running?)"
+#~ msgstr "Geen informasie is beskikbaar nie (Loop die bediener?)"
+
+#~ msgid "KPilot HotSync Log"
+#~ msgstr "KPilot HotSync Log"
+
+#~ msgid "Unable to open Hotsync log %1."
+#~ msgstr "Kon nie die Hotsync log '%1' oopmaak nie"
+
+#~ msgid "How many days should the special dates summary show at once?"
+#~ msgstr ""
+#~ "Hoeveel dae se spesiale datum opsommings moet op 'n slag vertoon word?"

@@ -1,0 +1,2042 @@
+# Traducerea kontact.po în Română
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Sergiu Bivol <sergiu@cip.md>, 2008.
+# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2010, 2011.
+# Sergiu Bivol <sergiu@cip.md>, 2010, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2013-01-10 15:39+0200\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sergiu Bivol"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sergiu@cip.md"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid ""
+#| "Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact vă administrează poșta, cartea de adrese, calendarul, lista de "
+"activități și altele."
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgctxt "@action:inmenu"
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "Introducere în &Kontact"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "Se încarcă Kontact..."
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Arată numai pictograme"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "Arată elementele din bara laterală cu pictograme și fără text"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"Alegeți această opțiune dacă doriți ca elementele din bara laterală să aibă "
+"pictograme fără text."
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Arată numai text"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "Arată elementele din bara laterală cu text și fără pictograme"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"Alegeți această opțiune dacă doriți ca elementele din bara laterală să aibă "
+"text fără pictograme."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Arată pictograme și text"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "Arată elementele din bara laterală cu pictograme și text"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+"Alegeți această opțiune dacă doriți ca elementele din bara laterală să aibă "
+"pictograme și text."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Pictograme mari"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Arată pictograme mari în bara laterală"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+"Alegeți această opțiune dacă doriți ca pictogramele din bara laterală să fie "
+"extra-mari."
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Pictograme normale"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Arată pictograme normale în bara laterală"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+"Alegeți această opțiune dacă doriți ca pictogramele din bara laterală să fie "
+"de dimensiune normală."
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Pictograme mici"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Arată pictograme mici în bara laterală"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+"Alegeți această opțiune dacă doriți ca pictogramele din bara laterală să fie "
+"extra-mici."
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid ""
+#| "Choose this option if you want the sidebar items to have icons and text."
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+"Alegeți această opțiune dacă doriți ca elementele din bara laterală să aibă "
+"pictograme și text."
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "Alegeți extensia inițială de folosit la fiecare pornire"
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "Modulul activ momentan"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "Pornește întotdeauna cu modulul:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "Stabilește modulul inițial la fiecare pornire"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&Fișier"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "&Configurări"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "&Ajutor"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Bara de unelte principală"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "Navigator"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Pornește cu un anumit modul Kontact"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Pornește în regim minimizat"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Enumeră toate modulele posibile și ieși"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "Gestionar de informații personale KDE"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "Copyright © 2001–2013 Kontact authors"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "Drept de autor © 2001–2013 Autorii Kontact"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Autor original"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr "Torgny Nyblom"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr "Migrare spre Git"
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " Inițializare..."
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Nou"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Configurare Kontact..."
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Configurează Kontact"
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr "Vi se va afișa un dialog în care puteți configura Kontact."
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "Introducere în &Kontact"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Arată pagina introductivă Kontact"
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Alegeți această opțiune pentru a vedea pagina introductivă Kontact."
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "Comută la modulul %1"
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr ""
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Componenta pentru %1 nu poate fi încărcată."
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "Suita KDE de gestiune a informațiilor personale"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "Citește manualul"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "Învățați mai multe despre Kontact și componentele acestuia"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "Vizitează situl Kontact"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "Accesează resurse și îndrumare online"
+
+#: src/mainwindow.cpp:934
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Setup your Accounts"
+msgid "Setup your Accounts"
+msgstr "Configurați-vă conturile"
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Prepare Kontact for use"
+msgid "Prepare Kontact for use"
+msgstr "Pregătește Kontact pentru utilizare"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "Kontact KDE"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Dezvoltator"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Despre Kontact"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Container Kontact"
+
+#~ msgid "No about information available."
+#~ msgstr "Nu sunt informații disponibile."
+
+#~ msgid "Version %1"
+#~ msgstr "Versiunea %1"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Autori:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Mulțumiri:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Traducători:</b></p>"
+
+#~ msgid "%1 License"
+#~ msgstr "Licență %1"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "Sincronizare"
+
+#~ msgctxt "@title:column plugin name"
+#~ msgid "Summary Plugin Name"
+#~ msgstr "Denumire modul Sumar"
+
+#~ msgid "Select the plugin summaries to show on the summary page."
+#~ msgstr "Alegeți modulele de sumar de afișat pe pagina cu sumare."
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "Sumar Kontact KDE"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "&Configurare vizualizare sumară..."
+
+#~ msgid "Configure the summary view"
+#~ msgstr "Configurează vizualizarea sumară"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Choosing this will show a dialog where you can select which summaries you "
+#~ "want to see and also allow you to configure the summaries to your liking."
+#~ msgstr ""
+#~ "Alegerea acestei opțiuni va afișa un dialog în care puteți alege ce "
+#~ "sumare doriți să vedeți și vă va permite să configurați sumarele după "
+#~ "bunul plac."
+
+#~ msgid "Summary for %1"
+#~ msgstr "Sumar pentru %1"
+
+#~ msgid "What's next?"
+#~ msgstr "Ce urmează?"
+
+#~ msgid "Sync All"
+#~ msgstr "Sincronizează tot"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Tot"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Tot"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Sumar Kontact"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Vizualizare sumară Kontact"
+
+#, fuzzy
+#~| msgid "(c) 2003-2004 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(c) 2003-2004 Dezvoltatorii Kontact"
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "Kontact KDE"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Organizează-te!"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Bun venit în Kontact %1</"
+#~ "h2 align=\"center\"><p>%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Sari peste introducere</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&Sfatul zilei"
+
+#~ msgctxt "@info:status"
+#~ msgid "Show the Tip-of-the-Day dialog"
+#~ msgstr "Arată dialogul cu sfatul zilei"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Flux nou..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr "Vi se va afișa un dialog în care puteți adăuga un flux."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Contact nou..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr "Vi se va afișa un dialog în care puteți crea un nou contact."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Grup de contacte nou..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr ""
+#~ "Vi se va afișa un dialog în care puteți crea un nou grup de contacte."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Sincronizează contacte"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr ""
+#~ "Alegeți această opțiune pentru a vă sincronizacontactele de colaborare."
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Dialog de configurare Sumar poștă"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "Drept de autor © 2004–2010, Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Arată calea completă pentru dosare"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Arată calea completă pentru fiecare dosar"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Mesaj nou..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and send a new "
+#~ "email message."
+#~ msgstr ""
+#~ "Vi se va afișa un dialog în care puteți crea o nouă scrisoare electronică."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Sincronizează poșta"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "Sincronizează contacte"
+
+#~ msgid "New Messages"
+#~ msgstr "Mesaje noi"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>Total: %2<br/>Necitite: %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "Niciun mesaj necitit în dosarele monitorizate"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Deschide dosarul: „%1”"
+
+#, fuzzy
+#~| msgid "kcmsdsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Dialog de configurare Sumar poștă"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgid "Laurent Montel"
+#~ msgstr "Responsabil actual"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "&Nouă"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can add a new popup note."
+#~ msgstr "Vi se va afișa un dialog în care puteți crea o nouă notiță."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Modificare..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can modify an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Vi se va afișa un dialog în care puteți modifica o notiță existentă."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Redenumire..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can rename an existing "
+#~ "popup note."
+#~ msgstr ""
+#~ "Vi se va afișa un dialog în care puteți redenumi o notiță existentă."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Șterge"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Tipărește notițele alese..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Tipărește notițele alese..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Preferences KNotes..."
+#~ msgstr "Tipărește notițele alese..."
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr ""
+#~ "Pentru a tipări notițe, alegeți mai întâi notițele de tipărit din listă."
+
+#, fuzzy
+#~| msgid "Print Popup Notes"
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Tipărește notițe personale"
+
+#, fuzzy
+#~| msgid "Read Popup Note: \"%1\""
+#~ msgid "Create new note"
+#~ msgstr "Citire notiță personală: „%1”"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Sigur ștergeți această notă?"
+#~ msgstr[1] "Sigur ștergeți aceste %1 note?"
+#~ msgstr[2] "Sigur ștergeți aceste %1 de note?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Confirmare ștergere"
+
+#, fuzzy
+#~| msgid "Read Popup Note: \"%1\""
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Citire notiță personală: „%1”"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Denumire:"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "New Popup Note..."
+#~ msgid "Show Note..."
+#~ msgstr "Notiță nouă..."
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgid "Settings"
+#~ msgstr "&Configurări"
+
+#~ msgid "&Edit"
+#~ msgstr "&Editare"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Notiță nouă..."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "KNotițe"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Notițe"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Copyright © 2003–2010 Kontact authors"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "Drept de autor © 2003–2010, Autorii Kontact"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Responsabil actual"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Responsabil actual"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Responsabil actual"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Întrevedere"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "Notă: %1"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Notiță nouă"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "De la: %1\n"
+#~ "Către: %2\n"
+#~ "Subiect: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Poștă: %1"
+
+#, fuzzy
+#~| msgid "Sync Popup Notes"
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Sincronizează notițe personale"
+
+#, fuzzy
+#~| msgid "Edit Popup Note"
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Redactează notița personală"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Denumire:"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Search notes..."
+#~ msgstr "Tipărește notițele alese..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Print Selected Notes..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Tipărește notițele alese..."
+
+#~ msgid "Popup Notes"
+#~ msgstr "Notițe"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "New Popup Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "Notiță nouă..."
+
+#, fuzzy
+#~| msgid "Delete Feed"
+#~ msgid "Delete Note..."
+#~ msgstr "Șterge fluxul"
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Citire notiță personală: „%1”"
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Configurare Sumar evenimente"
+
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Arată evenimentele apropiate începând"
+
+#~ msgid "Show events for today only"
+#~ msgstr "Arată numai evenimentele pentru azi"
+
+#~ msgid ""
+#~ "Check this box if you want to see events occurring on this date only."
+#~ msgstr "Bifați dacă doriți să vedeți numai evenimentele de pe această dată."
+
+#~ msgid "&Today only"
+#~ msgstr "Numai as&tăzi"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Arată evenimentele începând în luna viitoare"
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "În cursul lunii &viitoare (31 de zile)"
+
+#~ msgid "Select the days for showing upcoming events"
+#~ msgstr "Alegeți zilele pentru afișarea evenimentelor apropiate"
+
+#~ msgid "Within the &next:"
+#~ msgstr "Î&n cursul următoarelor:"
+
+#~ msgid "Set the number of days to show upcoming events"
+#~ msgstr "Stabilește numărul de zile de de arătat evenimentele apropiate"
+
+#~ msgid "1 day"
+#~ msgstr "1 zi"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " zile"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Arată aceste evenimente apropiate din calendar"
+
+#~ msgid "Show &birthdays"
+#~ msgstr "Arată &zile de naștere"
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "Arată &aniversări"
+
+#~ msgid "Groupware Settings"
+#~ msgstr "Configurări colaborare"
+
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Arată numai evenimente aparținând calendarelor mele"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show events belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Bifați această casetă dacă doriți ca sumarul să arate numai evenimentele "
+#~ "aparținând calendarelor dumneavoastră."
+
+#~ msgid "Show &my events only"
+#~ msgstr "Arată numai evenimentele &mele"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "Evenimente apropiate"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "Nu sunt evenimente apropiate ce încep în ziua următoare"
+#~ msgstr[1] "Nu sunt evenimente apropiate ce încep în următoarele %1 zile"
+#~ msgstr[2] "Nu sunt evenimente apropiate ce încep în următoarele %1 de zile"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "&Editare întâlnire..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "Ș&terge întâlnirea"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Editare eveniment: „%1”"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Jurnal nou..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Creează jurnal nou"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Sincronizează jurnalul"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Sincronizează contacte"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " zi"
+#~ msgstr[1] " zile"
+#~ msgstr[2] " de zile"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Dialog de configurare Evenimente apropiate"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "Drept de autor © 2003–2004, Tobias Koenig\n"
+#~ "Drept de autor © 2005–2010, Allen Winter"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Eveniment nou..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Creează eveniment nou"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Sincronizează calendarul"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Sincronizează contacte"
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Astăzi"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Mâine"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "în 1 zi"
+#~ msgstr[1] "în %1 zile"
+#~ msgstr[2] "în %1 de zile"
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "în "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "1 oră"
+#~ msgstr[1] "%1 ore"
+#~ msgstr[2] "%1 ore"
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "1 min"
+#~ msgstr[1] "%1 min"
+#~ msgstr[2] "%1 min"
+
+#~ msgid "now"
+#~ msgstr "acum"
+
+#~ msgid "all day"
+#~ msgstr "toată ziua"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Următoare: %1"
+
+#, fuzzy
+#~| msgid "New To-do..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "De-făcut nou..."
+
+#, fuzzy
+#~| msgid "New Contact Group..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Grup de contacte nou..."
+
+#, fuzzy
+#~| msgid "Sync To-do List"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Sincronizează lista de-făcut"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Sincronizează contacte"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "Sincronizează contacte"
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Configurare Sumar activități"
+
+#, fuzzy
+#~| msgid "Show Text Only"
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Arată numai text"
+
+#~ msgid "Check this box if you want to see To-dos due on this date only."
+#~ msgstr "Bifați dacă doriți să vedeți numai activitățile de pe această dată."
+
+#, fuzzy
+#~| msgid "No special dates within the next 1 day"
+#~| msgid_plural "No special dates pending within the next %1 days"
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "Nu sunt zile speciale în ziua următoare"
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "Ascunde următoarele tipuri de activități"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Ascunde activitățile încheiate"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Bifați această casetă dacă nu doriți să vedeți activitățile ce au fost "
+#~ "încheiate deja."
+
+#~ msgid "&Completed"
+#~ msgstr "În&cheiat"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "Ascunde activitățile neîncepute"
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "Neîncep&ute (data de început este în viitor)"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "Ascunde activitățile în curs"
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "Î&n curs (începute dar neterminate)"
+
+#~ msgid "Show To-dos belonging to my calendars only"
+#~ msgstr "Arată numai activitățile aparținând calendarelor mele"
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Arată numai activitățile &mele"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "Activități în așteptare"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Astăzi"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Mâine"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "Acum o zi"
+#~ msgstr[1] "Acum %1 zile"
+#~ msgstr[2] "Acum %1 de zile"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "Modificar&e activitate..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "Ș&terge activitatea"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "&Marchează activitatea ca încheiată"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Modificare activitate: „%1”"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "începe astăzi"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "neîncepută"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "încheiată"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "în curs "
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Dialog de configurare Zile speciale apropiate"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Drept de autor © 2004 Tobias Koenig\n"
+#~ "Drept de autor © 2004–2010 Allen Winter"
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Configurare Sumar zile speciale"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Arată datele speciale începând"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Arată ocazii deosebite numai pentru azi"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions occurring on this "
+#~ "date only."
+#~ msgstr ""
+#~ "Bifați dacă doriți să vedeți numai ocaziile deosebite de pe această dată."
+
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Arată ocaziile deosebite începând în luna viitoare"
+
+#~ msgid "Select the days for showing upcoming special occasions"
+#~ msgstr "Alegeți zilele pentru afișarea ocaziilor deosebite apropiate"
+
+#~ msgid "Set the number of days to show upcoming special occasions"
+#~ msgstr ""
+#~ "Stabilește numărul de zile de de arătat ocaziile deosebite apropiate"
+
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Arată aceste date speciale din calendar"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Arată zilele de naștere din calendar"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Birthday\" category."
+#~ msgstr ""
+#~ "Activați această opțiune pentru a include zilele de naștere din calendar "
+#~ "în sumarul ocaziilor deosebite apropiate. În mod normal, acestea sunt "
+#~ "evenimente cu categoria „Zi de naștere”."
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Arată aniversări din calendar"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Anniversary\" category."
+#~ msgstr ""
+#~ "Activați această opțiune pentru a include aniversările din calendar în "
+#~ "sumarul ocaziilor deosebite apropiate. În mod normal, acestea sunt "
+#~ "evenimente cu categoria „Aniversare”."
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Arată sărbători din calendar"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the upcoming "
+#~ "special occasions summary. These are events from your configured holiday "
+#~ "region, or events with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Activați această opțiune pentru a include sărbătorile din calendar în "
+#~ "sumarul ocaziilor deosebite apropiate. Acestea sunt evenimente din "
+#~ "regiunea de sărbători configurată de dumneavoastră, sau evenimente cu "
+#~ "categoria „Sărbătoare”."
+
+#~ msgid "Show &holidays"
+#~ msgstr "Arată &sărbători"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Arată ocazii deosebite din calendar"
+
+#~ msgid ""
+#~ "Enable this option to include events from your calendar with the "
+#~ "\"special occasion\" category."
+#~ msgstr ""
+#~ "Activați această opțiune pentru a include evenimentele din calendar cu "
+#~ "categoria „ocazie deosebită”."
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Arată ocazii deose&bite"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Arată aceste zile speciale din lista de contacte"
+
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Arată zile de naștere din cartea de adrese"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Activați această opțiune pentru a include zilele de naștere din cartea de "
+#~ "adrese în sumarul ocaziilor deosebite apropiate."
+
+#~ msgid "Show birth&days"
+#~ msgstr "Arată zile &de naștere"
+
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Arată aniversări din cartea de adrese"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Activați această opțiune pentru a include aniversările din cartea de "
+#~ "adrese în sumarul ocaziilor deosebite apropiate."
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "Arată ani&versări"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Zile speciale apropiate"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Astăzi"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Mâine"
+
+#~ msgid "Birthday"
+#~ msgstr "Zi de naștere"
+
+#~ msgid "Anniversary"
+#~ msgstr "Aniversare"
+
+#~ msgid "Holiday"
+#~ msgstr "Sărbătoare"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Ocazie deosebită"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "un an"
+#~ msgstr[1] "%1 ani"
+#~ msgstr[2] "%1 de ani"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Nu sunt zile speciale în ziua următoare"
+#~ msgstr[1] "Nu sunt zile speciale în următoarele %1 zile"
+#~ msgstr[2] "Nu sunt zile speciale în următoarele %1 de zile"
+
+#~ msgid "Send &Mail"
+#~ msgstr "Tri&mite poșta"
+
+#~ msgid "View &Contact"
+#~ msgstr "Vezi &contact"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Trimite prin poștă către: „%1”"
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Sumar zile speciale"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Sumar zile speciale Kontact"
+
+#~ msgid ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Drept de autor © 2003 Tobias Koenig\n"
+#~ "Drept de autor © 2004–2010 Allen Winter"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "Responsabil actual"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Pagină KJots nouă"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr "Vi se va afișa un dialog în care puteți crea o nouă pagină „jots”."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Carte KJots nouă"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Creează un flux nou"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "Creează un nou contact"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Creează un nou grup de contacte"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Sincronizează contacte de colaborare"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Creează o nouă pagină jots"
+
+#, fuzzy
+#~| msgid "New Contact Group..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Grup de contacte nou..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Creează o nouă scrisoare electronică"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Sincronizează poșta colaborativă"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Articol nou..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Creează un nou articol Usenet"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new article to "
+#~ "post on Usenet."
+#~ msgstr ""
+#~ "Vi se va afișa un dialog în care puteți crea un nou articol de publicat "
+#~ "pe Usenet."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Creează o nouă notiță"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Redactează notița personală"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Redenumește notița"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Șterge notița"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Tipărește notița"
+
+#, fuzzy
+#~| msgid "Read Popup Note: \"%1\""
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Citire notiță personală: „%1”"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Sarcină nouă"
+
+#, fuzzy
+#~| msgid "New Contact Group..."
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Grup de contacte nou..."
+
+#~ msgid "task_popup"
+#~ msgstr "task_popup"
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Dialog de configurare Sumar planificator"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+#~ msgstr ""
+#~ "Drept de autor © 2004 Tobias Koenig\n"
+#~ "Drept de autor © 2006–2008 Oral Timocin\n"
+#~ "Drept de autor © 2009–2010 Allen Winter"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgid "Planner"
+#~ msgstr "Planificator"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Astăzi"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Mâine"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Nu sunt întâlniri ce încep în ziua următoare"
+#~ msgstr[1] "Nu sunt întâlniri ce încep în următoarele %1 zile"
+#~ msgstr[2] "Nu sunt întâlniri ce încep în următoarele %1 de zile"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Editare întâlnire: „%1”"
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "în curs"
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "începe astăzi"
+
+#, fuzzy
+#~| msgctxt "to-do ends today"
+#~| msgid "ends today"
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "se încheie astăzi"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "încheiat"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Configurare Sumar planificator"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "General"
+
+#~ msgid "General Configuration"
+#~ msgstr "Configurare generală"
+
+#~ msgid "Show an icon indicating a recurring item"
+#~ msgstr "Arată o pictogramă indicând un element recurent"
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "Arată pictograma de recurență"
+
+#~ msgid "Show an icon indicating the item has a reminder"
+#~ msgstr "Arată o pictogramă indicând că elementul are memento"
+
+#~ msgid "Show reminder icon"
+#~ msgstr "Arată pictograma de reamintire"
+
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Subliniază legăturile în descrieri"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr "Bifați această casetă dacă doriți să fie subliniate legăturile URL."
+
+#~ msgid "Underline links"
+#~ msgstr "Subliniază legăturile"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Arată activitățile în sumar"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr "Bifați această casetă dacă doriți să vedeți activitățile în sumar."
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Arată activitățile în planificator"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Arată zilele speciale în sumar"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr ""
+#~ "Bifați această casetă dacă doriți să vedeți zilele speciale în sumar."
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "Arată datele speciale în planificator"
+
+#~ msgid "Events"
+#~ msgstr "Evenimente"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "Arată evenimentele calendarului"
+
+#~ msgid "To-dos"
+#~ msgstr "Activități"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Ascunde activitățile încheiate"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Bifați această casetă dacă nu doriți să vedeți activitățile ce s-au "
+#~ "încheiat deja."
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Ascunde activitățile neîncepute"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Bifați această casetă dacă nu doriți să vedeți activitățile cu data de "
+#~ "început în viitor."
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "Ascunde activitățile în curs"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Bifați această casetă dacă nu doriți să vedeți activitățile ce au fost "
+#~ "începute dar nu s-au încheiat încă."
+
+#~ msgid "Special Dates"
+#~ msgstr "Zile speciale"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "Arată aceste date deosebite"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Activați această opțiune pentru a include zilele de naștere din cartea de "
+#~ "adrese în sumarul planificatorului."
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Arată zile de naștere din cartea de adrese"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Activați această opțiune pentru a include aniversările din cartea de "
+#~ "adrese în sumarul planificatorului."
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Arată aniversări din cartea de adrese"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the planner "
+#~ "summary. These are events from your configured holiday region, or events "
+#~ "with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Activați această opțiune pentru a include sărbătorile din calendar în "
+#~ "sumarul planificatorului. Acestea sunt evenimente din regiunea de "
+#~ "sărbători configurată de dumneavoastră, sau evenimente cu categoria "
+#~ "„Sărbătoare”."
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Arată sărbători din calendar"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Arată ocazii deosebite din calendar"
+
+#~ msgid "Planner Summary"
+#~ msgstr "Sumar planificator"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Sumar pentru planificatorul Kontact"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Calendar activ"
+
+#~ msgid "Default Calendar"
+#~ msgstr "Calendar implicit"
+
+#~ msgid "Birthdays"
+#~ msgstr "Zile de naștere"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "Modulul %1"
+
+#~ msgid "No Notes Available"
+#~ msgstr "Nicio notiță disponibilă"
+
+#, fuzzy
+#~| msgid "Sync Popup Notes"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Sincronizează notițe personale"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Sincronizează contacte"
+
+#, fuzzy
+#~| msgid "Synchronize Contacts"
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr "Sincronizează contacte"
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(C) 2003 Dezvoltatorii Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Configurează Kontact ca client de colaborare"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "ZI DE NAȘTERE"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "ANIVERSARE"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "SĂRBĂTOARE"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "OCAZIE DEOSEBITĂ"
+
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(C) 2001-2009 Dezvoltatorii Kontact"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003 - 2004 Tobias Koenig"
+
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "(c) 2007-2008 Oral Timocin"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(c) 2004-2005 Echipa KDE PIM"
+
+#~ msgid "(c) 2004-2006 Allen Winter"
+#~ msgstr "(c) 2004-2006 Allen Winter"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Local"
+
+#~ msgid "Summary"
+#~ msgstr "Sumar"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#~ msgid " days"
+#~ msgstr " zile"
+
+#~ msgid "Rename"
+#~ msgstr "Redenumește"
+
+#~ msgid "Show &anniveraries"
+#~ msgstr "Arată &aniversări"
+
+#~ msgid "New Distribution List..."
+#~ msgstr "Listă de distribuție nouă..."
+
+#~ msgid "New SMS..."
+#~ msgstr "SMS nou..."
+
+#~ msgid "New News Feed"
+#~ msgstr "Flux de știri nou"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "Arte"
+
+#~ msgid "Business"
+#~ msgstr "Afaceri"
+
+#~ msgid "Computers"
+#~ msgstr "Calculatoare"
+
+#~ msgid "Misc"
+#~ msgstr "Diverse"
+
+#~ msgid "Recreation"
+#~ msgstr "Recreere"
+
+#~ msgid "Society"
+#~ msgstr "Societate"
+
+#~ msgid "Custom"
+#~ msgstr "Personalizat"
+
+#~ msgid "All"
+#~ msgstr "Toate"
+
+#~ msgid "Add"
+#~ msgstr "Adaugă"
+
+#~ msgid "Remove"
+#~ msgstr "Elimină"
+
+#~ msgid "Selected"
+#~ msgstr "Ales"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Interval actualizare:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Număr de elemente afișate:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "News Feeds"
+#~ msgstr "Fluxuri de știri"
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "Copiază URL în clipboard"
+
+#~ msgid "Calendar View"
+#~ msgstr "Vizualizare calendar"
+
+#~ msgid "Display:"
+#~ msgstr "Afișare:"
+
+#~ msgid "Include:"
+#~ msgstr "Include:"
+
+#~ msgid "0%"
+#~ msgstr "0%"
+
+#~ msgid "20%"
+#~ msgstr "20%"
+
+#~ msgid "30%"
+#~ msgstr "30%"
+
+#~ msgid "40%"
+#~ msgstr "40%"
+
+#~ msgid "50%"
+#~ msgstr "50%"
+
+#~ msgid "60%"
+#~ msgstr "60%"
+
+#~ msgid "70%"
+#~ msgstr "70%"
+
+#~ msgid "80%"
+#~ msgstr "80%"
+
+#~ msgid "90%"
+#~ msgstr "90%"
+
+#~ msgid "100%"
+#~ msgstr "100%"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "Mărime pictogramă"
+
+#, fuzzy
+#~| msgid "Large"
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "Mare"
+
+#, fuzzy
+#~| msgid "Small"
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "Mică"

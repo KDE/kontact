@@ -1,0 +1,2484 @@
+# translation of kontact.po to Kazakh
+#
+# Sairan Kikkarin <sairan@computer.org>, 2007, 2011.
+# Sairan Kikkarin <sairan(at)computer.org>, 2010, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:46+0000\n"
+"PO-Revision-Date: 2013-11-11 03:51+0600\n"
+"Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
+"Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Сайран Киккарин"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sairan@computer.org"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr ""
+
+#: src/about/introduction_kontact.html:19
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid ""
+#| "Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact эл.пошта, адрестік кітапша, күнтізбе, істер тізімі және басқа "
+"нәрселерімен айналысады."
+
+#: src/about/introduction_kontact.html:36
+#, fuzzy
+#| msgctxt "@action:inmenu"
+#| msgid "&Kontact Introduction"
+msgid "Skip this introduction"
+msgstr "&Kontact кіріспесі"
+
+#: src/about/loading_kontact.html:5
+#, fuzzy
+#| msgctxt "@item:intext"
+#| msgid "Loading Kontact..."
+msgid "Loading Kontact ..."
+msgstr "Kontact-ты жегу..."
+
+#: src/iconsidepane.cpp:263
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Таңбашаларды ғана көрсету"
+
+#: src/iconsidepane.cpp:267
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "Бүйірдегі панелінде мәтінсіз таңбашалармен көрсету"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"Бүйірдегі панелінде нысандар мәтінсіз таңбашалармен көрсетілсін десеңіз - "
+"осыны таңдаңыз."
+
+#: src/iconsidepane.cpp:270
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Мәтінді ғана көрсету"
+
+#: src/iconsidepane.cpp:274
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "Бүйірдегі панелінде таңбашасыз мәтінімен көрсету"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"Бүйірдегі панелінде нысандар таңбашасыз мәтінімен көрсетілсін десеңіз - "
+"осыны таңдаңыз."
+
+#: src/iconsidepane.cpp:277
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Мәтін && Таңбашаларды көрсету"
+
+#: src/iconsidepane.cpp:281
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "Бүйірдегі панелінде таңбашасы және мәтінімен көрсету"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+"Бүйірдегі панелінде нысандар таңбашасы және мәтінімен көрсетілсін десеңіз - "
+"осыны таңдаңыз."
+
+#: src/iconsidepane.cpp:287
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Үлкен таңбашалар"
+
+#: src/iconsidepane.cpp:291
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Бүйірдегі панелінде таңбашаларды үлкен қылып көрсету"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+"Бүйірдегі панелінде нысан таңбашалары үлкен қылып көрсетілсін десеңіз - "
+"осыны таңдаңыз."
+
+#: src/iconsidepane.cpp:294
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Кәдімгі таңбашалар"
+
+#: src/iconsidepane.cpp:298
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Бүйірдегі панелінде таңбашаларды кәдімгі өлшемінде көрсету"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+"Бүйірдегі панелінде нысан таңбашалары кәдімгі өлшемінде көрсетілсін десеңіз "
+"- осыны таңдаңыз."
+
+#: src/iconsidepane.cpp:301
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Шағын таңбашалар"
+
+#: src/iconsidepane.cpp:305
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Бүйірдегі панелінде таңбашаларды шағын қылып көрсету"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+"Бүйірдегі панелінде нысан таңбашалары шағын қылып көрсетілсін десеңіз - "
+"осыны таңдаңыз."
+
+#: src/iconsidepane.cpp:308
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:311
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr ""
+
+#: src/iconsidepane.cpp:312
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid ""
+#| "Choose this option if you want the sidebar items to have icons and text."
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+"Бүйірдегі панелінде нысандар таңбашасы және мәтінімен көрсетілсін десеңіз - "
+"осыны таңдаңыз."
+
+#: src/kcmkontact.cpp:36
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "Бастағанда қай плагинді пайдаланып бастайтынын таңдау"
+
+#: src/kcmkontact.cpp:38
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+"Kontact жұмысын бастағанда қай плагинді пайдалананып бастайтынын осы "
+"ашылмалы тізімінен.таңдаңыз. Әйтпесе, Kontact өткендегі соңғы пайдаланғанын "
+"қайталайды."
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "Қазір белсенді плагині"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "Әрқашан мынау плагинінен басталсын:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "Әрқашан бастайтын плагинді орнату"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Әдетте Kontact өткенде доғару алдындағы істеген плагинінен бастайды. Оның "
+"орнына нақты бір плагинінен бастайтын қылу үшін осы көзді белгілеп қойыңыз."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the component sidebar"
+msgstr ""
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the icon sidebar"
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide the icon sidebar. "
+"Uncheck this box to hide the component sidebar. Note that the F9 key will "
+"hide/show the icon sidebar."
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&Файл"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "&Баптау"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:32
+#, kde-format
+msgid "&Help"
+msgstr "&Анықтама"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Негізгі құралдар"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:42
+#, kde-format
+msgid "Navigator"
+msgstr "Таңдағыш"
+
+#: src/main.cpp:94
+#, kde-format
+msgid "Start with a specific Kontact module"
+msgstr "Kontact тиісті модулінен бастасын"
+
+#: src/main.cpp:95
+#, kde-format
+msgid "Start in iconified (minimized) mode"
+msgstr "Таңбашалы (түйілген) түрінен бастасын"
+
+#: src/main.cpp:96
+#, kde-format
+msgid "List all possible modules and exit"
+msgstr "Бар модульдерін тізімдеп доғарылсын"
+
+#: src/main.cpp:161 src/mainwindow.cpp:920
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:163
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "KDE дербес ақпарат менеджері"
+
+#: src/main.cpp:165
+#, fuzzy, kde-format
+#| msgid "Copyright © 2001–2013 Kontact authors"
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "Copyright © 2001–2013 Kontact авторлары"
+
+#: src/main.cpp:169
+#, kde-format
+msgid "Allen Winter"
+msgstr "Allen Winter"
+
+#: src/main.cpp:170
+#, kde-format
+msgid "Rafael Fernández López"
+msgstr "Rafael Fernández López"
+
+#: src/main.cpp:171
+#, kde-format
+msgid "Daniel Molkentin"
+msgstr "Daniel Molkentin"
+
+#: src/main.cpp:172
+#, kde-format
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Tobias König"
+msgstr "Tobias König"
+
+#: src/main.cpp:175
+#, kde-format
+msgid "David Faure"
+msgstr "David Faure"
+
+#: src/main.cpp:176
+#, kde-format
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:177
+#, kde-format
+msgid "Sven Lüppken"
+msgstr "Sven Lüppken"
+
+#: src/main.cpp:178
+#, kde-format
+msgid "Zack Rusin"
+msgstr "Zack Rusin"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer-Kluepfel"
+
+#: src/main.cpp:179
+#, kde-format
+msgid "Original Author"
+msgstr "Бастапқы авторы"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Torgny Nyblom"
+msgstr "Torgny Nyblom"
+
+#: src/main.cpp:180
+#, kde-format
+msgid "Git Migration"
+msgstr "Git-ке көшіру"
+
+#: src/mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " Бастау күйіне келтіру..."
+
+#: src/mainwindow.cpp:288
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Жаңа"
+
+#: src/mainwindow.cpp:293
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Kontact-ты баптау..."
+
+#: src/mainwindow.cpp:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Kontact-ты баптау"
+
+#: src/mainwindow.cpp:295
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr "Kontact-ты баптау диалогы ұсынылады."
+
+#: src/mainwindow.cpp:299
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "&Kontact кіріспесі"
+
+#: src/mainwindow.cpp:300
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Kontact-тың кіріспе бетін көрсету"
+
+#: src/mainwindow.cpp:301
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Kontact-тың кіріспе бетін көру үшін осыны таңдаңыз."
+
+#: src/mainwindow.cpp:305
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show the component sidebar"
+msgstr ""
+
+#: src/mainwindow.cpp:309
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the component sidebar as desired."
+msgstr ""
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:504
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "%1 плагиніне ауысу"
+
+#: src/mainwindow.cpp:574
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Қолданба жеке түрде жегілген. Шақырлып жатыр..."
+
+#: src/mainwindow.cpp:590
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "%1 бөлшегі жүктелмеді."
+
+#: src/mainwindow.cpp:658
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 - Kontact"
+
+#: src/mainwindow.cpp:921
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "The KDE Personal Information Management Suite"
+msgid "The KDE Personal Information Management Suite."
+msgstr "KDE дербес ақпарат менеджер дестесі"
+
+#: src/mainwindow.cpp:926
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Read Manual"
+msgid "Read Manual"
+msgstr "Нұсқауын оқу"
+
+#: src/mainwindow.cpp:927
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Learn more about Kontact and its components"
+msgid "Learn more about Kontact and its components"
+msgstr "Kontact және оның компонентері туралы көбірек білу"
+
+#: src/mainwindow.cpp:930
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Visit Kontact Website"
+msgid "Visit Kontact Website"
+msgstr "Kontact-тың веб-сайты"
+
+#: src/mainwindow.cpp:931
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Access online resources and tutorials"
+msgid "Access online resources and tutorials"
+msgstr "Онлайн ресурстар мен оқулықтарына қатынау"
+
+#: src/mainwindow.cpp:934
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Setup your Accounts"
+msgid "Setup your Accounts"
+msgstr "Тіркелгілеріңізді орнату"
+
+#: src/mainwindow.cpp:935
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "Prepare Kontact for use"
+msgid "Prepare Kontact for use"
+msgstr "Kontact-ты істеуге бейімдеу"
+
+#: src/mainwindow.cpp:960
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr ""
+
+#~ msgctxt "@title"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@info:credit"
+#~ msgid "(c), 2003 Cornelius Schumacher"
+#~ msgstr "(c), 2003 Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Developer"
+#~ msgstr "Құрастырушысы"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#, fuzzy
+#~| msgid "About Kontact"
+#~ msgctxt "@title:window"
+#~ msgid "About Kontact"
+#~ msgstr "Kontact туралы"
+
+#~ msgid "Kontact Container"
+#~ msgstr "Kontact модулі"
+
+#~ msgid "No about information available."
+#~ msgstr "Бұл туралы мәлімет жоқ."
+
+#~ msgid "Version %1"
+#~ msgstr "%1 нұсқасы"
+
+#~ msgid "<p><b>Authors:</b></p>"
+#~ msgstr "<p><b>Авторлары:</b></p>"
+
+#~ msgid "<p><b>Thanks to:</b></p>"
+#~ msgstr "<p><b>Алғыстар:</b></p>"
+
+#~ msgid "<p><b>Translators:</b></p>"
+#~ msgstr "<p><b>Аудармашылар:</b></p>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<br /><br />    <i>This Free Software product was improved as part of a "
+#~| "commercial project:</i>    <h3>Credits</h3>    Project Kowi (March 2007 "
+#~| "- )<br /><br />        <b>Production / Project Coordination</b><br />    "
+#~| "Bernhard Reiter<br />    <b>Director of Development</b><br />    Till "
+#~| "Adam    <br /><br />        <table border=\"0\" width=\"100%\">     "
+#~| "<tr>     <td colspan=\"2\">      <b>Osnabr&uuml;ck Unit, Intevation "
+#~| "GmbH</b>     </td>    </tr>    <tr>     <td width=\"60%\">      Unit "
+#~| "Lead<br />      Senior QA, Packaging<br />      QA, Packaging<br />      "
+#~| "Additional NSIS<br />      Backup Coordinator     </td>     <td>      "
+#~| "Bernhard Reiter<br />      Bernhard Herzog<br />      Ludwig Reiter<br /"
+#~| ">      Emanuel Sch&uuml;tze<br />      Dr. Jan-Oliver Wagner     </"
+#~| "td>    </tr>    </table>    <br /><br />        <table border=\"0\" "
+#~| "width=\"100%\">    <tr>     <td colspan=\"2\">        <b>Berlin Unit, "
+#~| "Klar&auml;lvdalens Datakonsult AB</b>     </td>    </tr>    <tr>     <td "
+#~| "width=\"60%\">      Unit Lead<br />      Development<br />      "
+#~| "Development<br />      Additional D. + Crypto<br />      Crypto GUI "
+#~| "Development     </td>     <td>      Till Adam<br />      Jaroslaw "
+#~| "Staniek<br />      Volker Krause<br />      Frank Osterfeld<br />      "
+#~| "Marc Mutz     </td>    </tr>    </table>    <br /><br />        <table "
+#~| "border=\"0\" width=\"100%\">    <tr>     <td colspan=\"2\">      "
+#~| "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>     </td>    </tr>    "
+#~| "<tr>     <td width=\"60%\">      Crypto-Backend Porting<br />      "
+#~| "Crypto-Backend     </td>     <td>      Werner Koch<br />      Marcus "
+#~| "Brinkmann     </td>    </tr>    </table>    <br /><br />        <table "
+#~| "border=\"0\" width=\"100%\">    <tr>     <td colspan=\"2\">      "
+#~| "<b>External QA Darmstadt, basysKom GmbH</b>     </td>    </tr>    "
+#~| "<tr>     <td width=\"60%\">      Unit-Lead     </td>     <td>      Dr. "
+#~| "Stefan Werden     </td>    </tr>    </table><br /><br />"
+#~ msgid ""
+#~ "<br /><br />                     <i>This Free Software product was "
+#~ "improved as part of a commercial project:</i>                     "
+#~ "<h3>Credits</h3>                     Project Kowi (March 2007 - )<br /"
+#~ "><br />                                          <b>Production / Project "
+#~ "Coordination</b><br />                     Bernhard Reiter<br /"
+#~ ">                     <b>Director of Development</b><br /"
+#~ ">                     Till Adam                     <br /><br /"
+#~ ">                                          <table border=\"0\" width="
+#~ "\"100%\">                 <tr>                <td colspan="
+#~ "\"2\">                <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
+#~ "b>                </td>                </tr>                "
+#~ "<tr>                <td width=\"60%\">                Unit Lead<br /"
+#~ ">                Senior QA, Packaging<br />                QA, "
+#~ "Packaging<br />                Additional NSIS<br />                "
+#~ "Backup Coordinator                </td>                "
+#~ "<td>                Bernhard Reiter<br />                Bernhard "
+#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
+#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit Lead<br />                Development<br /"
+#~ ">                Development<br />                Additional D. + "
+#~ "Crypto<br />                Crypto GUI Development                </"
+#~ "td>                <td>                Till Adam<br />                "
+#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
+#~ "Frank Osterfeld<br />                Marc Mutz                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Crypto-Backend Porting<br />                "
+#~ "Crypto-Backend                </td>                <td>                "
+#~ "Werner Koch<br />                Marcus Brinkmann                </"
+#~ "td>                </tr>                </table>                <br /"
+#~ "><br />                                <table border=\"0\" width=\"100%"
+#~ "\">                <tr>                <td colspan=\"2\">                "
+#~ "<b>External QA Darmstadt, basysKom GmbH</b>                </"
+#~ "td>                </tr>                <tr>                <td width="
+#~ "\"60%\">                Unit-Lead                </td>                "
+#~ "<td>                Dr. Stefan Werden                </td>                "
+#~ "</tr>                </table><br /><br />"
+#~ msgstr ""
+#~ "<br /><br />    <i>Бұл Еркін таратылатын бағдарлама келесі коммерциялық "
+#~ "жобаның бір бөлігі ретінде жетілдірілген:</i>    <h3>Алғыстар</h3>    "
+#~ "Kowi жобасы (наурыз 2007 - )<br /><br />        <b>Өндіру / Жобаны "
+#~ "реттеушісі</b><br />    Bernhard Reiter<br />    <b>Департамент "
+#~ "директоры</b><br />    Till Adam    <br /><br />        <table border="
+#~ "\"0\" width=\"100%\">     <tr>     <td colspan=\"2\">      <b>Osnabr&uuml;"
+#~ "ck Unit, Intevation GmbH</b>     </td>    </tr>    <tr>     <td width="
+#~ "\"60%\">      Бөлім бастығы<br />      Senior QA, Packaging<br />      "
+#~ "QA, Дестелеу<br />      Қосымша NSIS<br />      сақтық көшірмелеу "
+#~ "реттеушсісі    </td>     <td>      Bernhard Reiter<br />      Bernhard "
+#~ "Herzog<br />      Ludwig Reiter<br />      Emanuel Sch&uuml;tze<br /"
+#~ ">      Dr. Jan-Oliver Wagner     </td>    </tr>    </table>    <br /><br /"
+#~ ">        <table border=\"0\" width=\"100%\">    <tr>     <td colspan="
+#~ "\"2\">        <b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>     </"
+#~ "td>    </tr>    <tr>     <td width=\"60%\">      Бөлім бастығы<br />      "
+#~ "Жасап шығару<br />      Құрастыру<br />      Қосымша құрас. + Шифрлау<br /"
+#~ ">      Шифрлау GUI құрастыруы     </td>     <td>      Till Adam<br /"
+#~ ">      Jaroslaw Staniek<br />      Volker Krause<br />      Frank "
+#~ "Osterfeld<br />      Marc Mutz     </td>    </tr>    </table>    <br /"
+#~ "><br />        <table border=\"0\" width=\"100%\">    <tr>     <td "
+#~ "colspan=\"2\">      <b>D&uuml;sseldorf Unit, g10 Code GmbH</b>     </"
+#~ "td>    </tr>    <tr>     <td width=\"60%\">      Шифрлау-Тетігін "
+#~ "порттау<br />      Шифрлау тетігі     </td>     <td>      Werner Koch<br /"
+#~ ">      Marcus Brinkmann     </td>    </tr>    </table>    <br /><br /"
+#~ ">        <table border=\"0\" width=\"100%\">    <tr>     <td colspan="
+#~ "\"2\">      <b>External QA Darmstadt, basysKom GmbH</b>     </td>    </"
+#~ "tr>    <tr>     <td width=\"60%\">      Бөлім бастығы     </td>     "
+#~ "<td>      Dr. Stefan Werden     </td>    </tr>    </table><br /><br />"
+
+#~ msgid "%1 License"
+#~ msgstr "%1 лицензиясы"
+
+#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
+#~ msgid "Sync"
+#~ msgstr "Қадамдастыру"
+
+#~ msgctxt "@title:column plugin name"
+#~ msgid "Summary Plugin Name"
+#~ msgstr "Мазмұндама плагиннің атауы"
+
+#~ msgid "Select the plugin summaries to show on the summary page."
+#~ msgstr "Мазмұндама бетінде көрсететін плагин мазмұндамаларын таңдау."
+
+#~ msgid "kontactsummary"
+#~ msgstr "kontactsummary"
+
+#~ msgid "KDE Kontact Summary"
+#~ msgstr "KDE Kontact мазмұндамасы"
+
+#~ msgid "(c), 2004 Tobias Koenig"
+#~ msgstr "(c), 2004 Tobias Koenig"
+
+#~ msgid "Tobias Koenig"
+#~ msgstr "Tobias Koenig"
+
+#~ msgid "&Configure Summary View..."
+#~ msgstr "Мазмұндама көрінісін &баптау..."
+
+#~ msgid "Configure the summary view"
+#~ msgstr "Мазмұндама көрінісін баптау"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Choosing this will show a dialog where you can select which summaries you "
+#~ "want to see and also allow you to configure the summaries to your liking."
+#~ msgstr ""
+#~ "Бұны таңдасаңыз, мазмндамаларын қалай көргіңіз келетінің таңдап, оларды "
+#~ "баптауға мүкіндік беретін диалогы ұсынылады."
+
+#~ msgid "Summary for %1"
+#~ msgstr "%1 мазмұндамасы"
+
+#~ msgid "What's next?"
+#~ msgstr "Не істеу?"
+
+#~ msgid "Sync All"
+#~ msgstr "Барлығын қадамдастыру"
+
+#~ msgctxt "@action:inmenu sync everything"
+#~ msgid "All"
+#~ msgstr "Барлығын"
+
+#~ msgctxt "sync everything"
+#~ msgid "All"
+#~ msgstr "Барлығын"
+
+#~ msgid "Kontact Summary"
+#~ msgstr "Kontact мазмұндамасы"
+
+#~ msgid "Kontact Summary View"
+#~ msgstr "Kontact мазмұндамасы ғой"
+
+#, fuzzy
+#~| msgid "(c) 2003-2013 The Kontact developers"
+#~ msgid "(c) 2003-2016 The Kontact developers"
+#~ msgstr "(c) 2003-2013 Kontact құрастырушылары"
+
+#~ msgid "Sven Lueppken"
+#~ msgstr "Sven Lueppken"
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
+
+#~ msgctxt "@item:intext"
+#~ msgid "KDE Kontact"
+#~ msgstr "KDE Kontact"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Get Organized!"
+#~ msgstr "Ұйымдастырып қой!"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
+#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
+#~ msgstr ""
+#~ "<h2 style='text-align:center; margin-top: 0px;'>Kontact %1: қош келдіңіз!"
+#~ "</h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
+#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
+#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
+#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
+#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
+#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
+#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
+#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
+#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Бұл кіріспені аттап кету</a></p>"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "&Tip of the Day"
+#~ msgstr "&Бүгінгі кеңес"
+
+#~ msgctxt "@info:status"
+#~ msgid "Show the Tip-of-the-Day dialog"
+#~ msgstr "Бүгінгі кеңес терезесін көрсету"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog showing small tips to help you use "
+#~ "this program more effectively."
+#~ msgstr ""
+#~ "Бағдарламаны тиімді қодану тәсілдері туралы шағын кеңестер терезесі "
+#~ "ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Feed..."
+#~ msgstr "Жаңа ақпар..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be presented with a dialog where you can add a new feed."
+#~ msgstr "Жаңа ақпарды қосу диалогы ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact..."
+#~ msgstr "Жаңа контакт..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact."
+#~ msgstr "Жаңа контактты құру диалогы ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Contact Group..."
+#~ msgstr "Жаңа контакт тобы..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new contact "
+#~ "group."
+#~ msgstr "Жаңа контакттар тобын құру диалогы ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Contacts"
+#~ msgstr "Контакттарын қадамдастыру"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware contacts."
+#~ msgstr "Топтық іс контакттарыңызды қадамдастыру үшін осыны таңдаңыз."
+
+#~ msgid "kcmkmailsummary"
+#~ msgstr "kcmkmailsummary"
+
+#~ msgid "Mail Summary Configuration Dialog"
+#~ msgstr "Пошта атауларын баптау диалогы"
+
+#~ msgid "Copyright © 2004–2010 Tobias Koenig"
+#~ msgstr "Copyright © 2004–2010 Tobias Koenig"
+
+#~ msgid "Show full path for folders"
+#~ msgstr "Қапшықтардың толық жолы көрсетілсін"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Show full path for each folder"
+#~ msgstr "Әр қапшықтың толық жолын көрсету"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "Enable this option if you want to see the full path for each folder "
+#~ "listed in the summary. If this option is not enabled, then only the base "
+#~ "folder path will be shown."
+#~ msgstr ""
+#~ "Мазмұндамада тізімделген әр қапшықтын жолы толық көрсетілсін десеңіз - "
+#~ "осыны таңдаңыз. Әйтпесе, тек негізгі қапшықтың жолы ғана көрсетіледі."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Message..."
+#~ msgstr "Жаңа хат..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and send a new "
+#~ "email message."
+#~ msgstr "Жаңа эл.пошта хаты жазып жіберетін диалог терезесі ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Mail"
+#~ msgstr "Поштаны қадамдастыру"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware email."
+#~ msgstr "Топтық іс поштасын қадамдастыру үшін осыны таңдаңыз."
+
+#~ msgid "New Messages"
+#~ msgstr "Жаңа хаттар"
+
+#~ msgid "<qt><b>%1</b><br/>Total: %2<br/>Unread: %3</qt>"
+#~ msgstr "<qt><b>%1</b><br/>Жалпы: %2<br/>Оқылмаған: %3</qt>"
+
+#~ msgctxt "%1: number of unread messages %2: total number of messages"
+#~ msgid "%1 / %2"
+#~ msgstr "%1 / %2"
+
+#~ msgid "No unread messages in your monitored folders"
+#~ msgstr "Бақылаудағы қапшықтарда оқылмаған хаттар жоқ"
+
+#~ msgid "Open Folder: \"%1\""
+#~ msgstr "Ашатын қапшық: \"%1\""
+
+#, fuzzy
+#~| msgid "kcmsdsummary"
+#~ msgid "kcmknotessummary"
+#~ msgstr "kcmsdsummary"
+
+#, fuzzy
+#~| msgid "Mail Summary Configuration Dialog"
+#~ msgid "Notes Summary Configuration Dialog"
+#~ msgstr "Пошта атауларын баптау диалогы"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Laurent Montel"
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@action:inmenu create new popup note"
+#~ msgid "&New"
+#~ msgstr "&Жаңа"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can add a new popup note."
+#~ msgstr "Жаңа қалқымалы жазбаны дайындау диалогы ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit..."
+#~ msgstr "Өзгерту..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can modify an existing "
+#~ "popup note."
+#~ msgstr "Бар қалқымалы жазуды өзгерту диалогы ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Rename..."
+#~ msgstr "Атауын өзгерту..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can rename an existing "
+#~ "popup note."
+#~ msgstr "Қалқымалы жазудың атауын өзерту диалогы ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Delete"
+#~ msgstr "Өшіру"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be prompted if you really want to permanently remove the "
+#~ "selected popup note."
+#~ msgstr "Таңдалған қалқымалы жазуды шын өшірмексіз бе деген сұрақ қойылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Selected Notes..."
+#~ msgstr "Тандағандарын басып шығару"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "You will be prompted to print the selected popup note."
+#~ msgstr "Таңдалған қалқымалы жазбаны басып шығармақсыз ба деп сұралады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Print Preview Selected Notes..."
+#~ msgstr "Тандағандарын нобайын басып шығару..."
+
+#~ msgid "Note settings..."
+#~ msgstr "Жазбаны баптау"
+
+#~ msgid "Preferences KNotes..."
+#~ msgstr "KNotes баптауы..."
+
+#~ msgid "Mail..."
+#~ msgstr "Пошта...."
+
+#~ msgid "Send..."
+#~ msgstr "Жіберу..."
+
+#~ msgid "Set Alarm..."
+#~ msgstr "Ескертуді орнату..."
+
+#~ msgid "New Note From Clipboard"
+#~ msgstr "Алмасу буферінен жаңа жазба"
+
+#, fuzzy
+#~| msgid "New Note From Clipboard"
+#~ msgid "New Note From Text File..."
+#~ msgstr "Алмасу буферінен жаңа жазба"
+
+#~ msgid "Save As..."
+#~ msgstr "Былай сақтау..."
+
+#~ msgid "Lock"
+#~ msgstr "Бұғаттау"
+
+#~ msgid "Unlock"
+#~ msgstr "Бұғатын шешу"
+
+#~ msgctxt "@info"
+#~ msgid "To print notes, first select the notes to print from the list."
+#~ msgstr "Басып шығару үшін керегін тізімінен таңдап алыңыз."
+
+#~ msgctxt "@title:window"
+#~ msgid "Print Popup Notes"
+#~ msgstr "Қалқымалы жазбаны басып шығару"
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Create new popup note"
+#~ msgid "Create new note"
+#~ msgstr "Жаңа қалқымалы жазбаны дайындау"
+
+#~ msgctxt "@info"
+#~ msgid "Do you really want to delete this note?"
+#~ msgid_plural "Do you really want to delete these %1 notes?"
+#~ msgstr[0] "Шынымен осы %1 жазбаны өшірмексіз бе?"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Delete"
+#~ msgstr "Өшіруді құптау"
+
+#~ msgctxt "@title:window"
+#~ msgid "Rename Popup Note"
+#~ msgstr "Қалқымалы жазбаның атауын өзгерту"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "New Name:"
+#~ msgstr "Жаң атауы:"
+
+#~ msgid "Show Note..."
+#~ msgstr "Жазбаны көрсету..."
+
+#~ msgid "Settings"
+#~ msgstr "Баптау"
+
+#~ msgid "Save note as plain text"
+#~ msgstr "Кәдімгі мәтінде сақтау"
+
+#~ msgid "Save As"
+#~ msgstr "Былай сақтау"
+
+#~ msgid ""
+#~ "<qt>A file named <b>%1</b> already exists.<br />Are you sure you want to "
+#~ "overwrite it?</qt>"
+#~ msgstr ""
+#~ "<qt><b>%1</b> деп аталған файл бар екен.<br />Шынымен оның үстінен "
+#~ "жазбақсыз ба?</qt>"
+
+#~ msgid "&Edit"
+#~ msgstr "&Өңдеу"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Popup Note..."
+#~ msgstr "Жаңа қалқымалы жазба..."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new popup note."
+#~ msgstr "Жаңа қалқымалы жазбаны дайындау диалогы ұсынылады."
+
+#~ msgctxt "@title"
+#~ msgid "KNotes"
+#~ msgstr "KNotes"
+
+#~ msgctxt "@title"
+#~ msgid "Popup Notes"
+#~ msgstr "Қалқымалы жазбалар"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Copyright © 2003–2013 Kontact authors"
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright © 2003–2014 Kontact authors"
+#~ msgstr "Copyright © 2003–2013 Kontact авторлары"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Laurent Montel"
+#~ msgstr "Laurent Montel"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Current Maintainer"
+#~ msgstr "Қазіргі жетелдірушісі"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Michael Brade"
+#~ msgstr "Michael Brade"
+
+#, fuzzy
+#~| msgctxt "@info:credit"
+#~| msgid "Current Maintainer"
+#~ msgctxt "@info:credit"
+#~ msgid "Previous Maintainer"
+#~ msgstr "Қазіргі жетелдірушісі"
+
+#~ msgctxt "@item"
+#~ msgid "Meeting"
+#~ msgstr "Жиналыс"
+
+#~ msgctxt "@item"
+#~ msgid "Note: %1"
+#~ msgstr "\"%1\" жазбасы"
+
+#~ msgctxt "@item"
+#~ msgid "New Note"
+#~ msgstr "Жаңа жазба"
+
+#~ msgctxt "@info"
+#~ msgid "Dropping multiple mails is not supported."
+#~ msgstr "Бірнеше хаттарды бірден тастауға болмайды."
+
+#~ msgctxt "@item"
+#~ msgid ""
+#~ "From: %1\n"
+#~ "To: %2\n"
+#~ "Subject: %3"
+#~ msgstr ""
+#~ "Кімге: %1\n"
+#~ "Кімден: %2\n"
+#~ "Тақырыбы: %3"
+
+#~ msgctxt "@item"
+#~ msgid "Mail: %1"
+#~ msgstr "Пошта: %1"
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Popup Note"
+#~ msgstr "Қалқымалы жазбаны көрсету"
+
+#~ msgctxt "@title:window"
+#~ msgid "Edit Popup Note"
+#~ msgstr "Қалқымалы жазбаны өңдеу"
+
+#~ msgctxt "@label popup note name"
+#~ msgid "Name:"
+#~ msgstr "Атауы:"
+
+#~ msgid "Search notes..."
+#~ msgstr "Жазбаларды іздеу..."
+
+#, fuzzy
+#~| msgid "Search notes..."
+#~ msgid "Search notes...<%1>"
+#~ msgstr "Жазбаларды іздеу..."
+
+#~ msgid "(note locked, it will not removed)"
+#~ msgstr "(жазба бұғатталған, ол өшірілмейді)"
+
+#~ msgid "Popup Notes"
+#~ msgstr "Қалқымалы жазбалар"
+
+#, fuzzy
+#~| msgid "Show Note..."
+#~ msgid "Modify Note..."
+#~ msgstr "Жазбаны көрсету..."
+
+#, fuzzy
+#~| msgid "Delete Feed"
+#~ msgid "Delete Note..."
+#~ msgstr "Ақпарды өшіру"
+
+#~ msgid "Read Popup Note: \"%1\""
+#~ msgstr "Оқитын жазба: \"%1\""
+
+#~ msgid "Event Summary Configuration"
+#~ msgstr "Оқиға мазмұндамасын баптау"
+
+#~ msgid "Show Upcoming Events Starting"
+#~ msgstr "Келесіде басталатын болашақ оқиғалар көрсетілсін:"
+
+#~ msgid "Show events for today only"
+#~ msgstr "Бүгінгі ғана оқиғаларды көрсету"
+
+#~ msgid ""
+#~ "Check this box if you want to see events occurring on this date only."
+#~ msgstr "Тек бүгінгі ғана оқиғалар көрсетілсін десеңіз - осыны белгілеңіз."
+
+#~ msgid "&Today only"
+#~ msgstr "&Бүгінгі ғана"
+
+#~ msgid "Show events starting within the next month"
+#~ msgstr "Келесі айда басталатын оқиғаларды көрсету"
+
+#~ msgid ""
+#~ "Check this box if you want to see events that start sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Келесі 31 күнде басталатын оқиғалар көрсетілсін десеңіз - осы белгіні "
+#~ "қойыңыз."
+
+#~ msgid "Within the next &month (31 days)"
+#~ msgstr "Келесі &айдағы (31 күндегілерді)"
+
+#~ msgid "Select the days for showing upcoming events"
+#~ msgstr "Болашақ оқиғалардың көрсететін мерзімін таңдау"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming events."
+#~ msgstr ""
+#~ "Болашақ оқиғалардың көрсететін мерзімін келтірмек болсаңыз - осы белгіні "
+#~ "қойыңыз."
+
+#~ msgid "Within the &next:"
+#~ msgstr "&Алдағы "
+
+#~ msgid "Set the number of days to show upcoming events"
+#~ msgstr "Болашақ оқиғалардың көрсететін мерзімін келтіру"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming events up to "
+#~ "1 year in the future."
+#~ msgstr ""
+#~ "Осы сан тергіштің көмегімен болашақ оқиғалардың көрсететін 1 күннен 1 "
+#~ "жылға дейінгі мерзімін таңдаңыз."
+
+#~ msgid "1 day"
+#~ msgstr "1 күндегі оқиғаларды"
+
+#~ msgctxt "days to show in summary"
+#~ msgid " days"
+#~ msgstr " күндегі оқиғаларды"
+
+#~ msgid "Show These Upcoming Events From Your Calendar"
+#~ msgstr "Күнтізбеңіздегі мынандай болашақ оқигалар көрсетілсін"
+
+#~ msgid ""
+#~ "Show birthdays from your calendar when also using the Birthday resource"
+#~ msgstr ""
+#~ "\"Туған күн\" ресурсын де пайдаланатын күнтізбеңіздегі туған күндерді "
+#~ "көрсету"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Болашақ оқиғалар атауларына күнтізбеңіздегі туған күндер кірсін десеңіз - "
+#~ "осыны белгілеңіз. Бұл параметр, егерде күнтізбеңізде \"Туған күн\" "
+#~ "ресурсын пайдаланғанда ғана істейді."
+
+#~ msgid "Show &birthdays"
+#~ msgstr "&Туған күнідер  көрсетілсін"
+
+#~ msgid ""
+#~ "Shows anniversaries from your calendar when using the Birthdays resource"
+#~ msgstr ""
+#~ "\"Туған күн\" ресурсын де пайдаланатын күнтізбеңіздегі жылдықтарды көрсету"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming events summary. This option is only available if you are using "
+#~ "the Birthdays resource in your calendar."
+#~ msgstr ""
+#~ "Болашақ оқиғалар атауларына күнтізбеңіздегі жылдықтар кірсін десеңіз - "
+#~ "осыны белгілеңіз. Бұл параметр, егерде күнтізбеңізде \"Туған күн\" "
+#~ "ресурсын пайдаланғанда ғана істейді."
+
+#~ msgid "Show &anniversaries"
+#~ msgstr "&Жылдықтар көрсетілсін"
+
+#~ msgid "Groupware Settings"
+#~ msgstr "Топтық істі баптау"
+
+#~ msgid "Show events belonging to my calendars only"
+#~ msgstr "Тек менің күнтізбемдегі ғана оқиғаларды көрсету"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show events belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Мазмұндамада тек менің күнтізбемдегі ғана оқиғалар көрсетілсін десеңіз - "
+#~ "осы белгіні қойыңыз."
+
+#~ msgid "Show &my events only"
+#~ msgstr "Тек менің күнтізбемдегі оқиғалар көрсетілсін"
+
+#~ msgid "Upcoming Events"
+#~ msgstr "Болашақтағы оқиғалар"
+
+#~ msgid "No upcoming events starting within the next day"
+#~ msgid_plural "No upcoming events starting within the next %1 days"
+#~ msgstr[0] "Келесі %1 күнде басталатын оқиға жоқ"
+
+#~ msgid "&Edit Appointment..."
+#~ msgstr "Кездесуді ө&згерту..."
+
+#~ msgid "&Delete Appointment"
+#~ msgstr "Кездесуді ө&шіру"
+
+#~ msgid "Edit Event: \"%1\""
+#~ msgstr "Өзгертетін оқиға: \"%1\""
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Journal..."
+#~ msgstr "Жаңа күнделік..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new journal"
+#~ msgstr "Жаңа күнделікті бастау"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new journal "
+#~ "entry."
+#~ msgstr "Жаңа күнделікті жазуын бастау диалогы ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Journal"
+#~ msgstr "Күнделікті қадамдастыру"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware journal"
+#~ msgstr "Топтық іс күнделігін қадамдастыру"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware journal entries."
+#~ msgstr "Топтық іс күнделігіңізді қадамдастыру үшін - осыны таңдаңыз."
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " күн"
+
+#~ msgid "Upcoming Events Configuration Dialog"
+#~ msgstr "Болашақ оқиғаларды баптау диалогы"
+
+#~ msgid ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2003–2004 Tobias Koenig\n"
+#~ "Copyright © 2005–2010 Allen Winter"
+
+#~ msgid "Pending To-dos Configuration Dialog"
+#~ msgstr "Болашақ істерді баптау диалогы"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Event..."
+#~ msgstr "Жаңа оқиға..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new event"
+#~ msgstr "Жаңа оқиғаны белгілеу"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new event item."
+#~ msgstr "Жаңа оқиғаны жазуын белгілеу диалогы ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Calendar"
+#~ msgstr "Күнтізбені қадамдастыру"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware calendar"
+#~ msgstr "Топтық іс күнтізбесін қадамдастыру"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware events."
+#~ msgstr "Топтық іс күнтізбесін қадамдастыру үшін - осыны таңдаңыз."
+
+#~ msgctxt "the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Бүгін"
+
+#~ msgctxt "the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Ертең"
+
+#~ msgid "in 1 day"
+#~ msgid_plural "in %1 days"
+#~ msgstr[0] "%1 күннен кейін"
+
+#~ msgctxt "eg. in 1 hour 2 minutes"
+#~ msgid "in "
+#~ msgstr "- "
+
+#~ msgctxt "use abbreviation for hour to keep the text short"
+#~ msgid "1 hr"
+#~ msgid_plural "%1 hrs"
+#~ msgstr[0] "%1 сағ.кейін"
+
+#~ msgctxt "use abbreviation for minute to keep the text short"
+#~ msgid "1 min"
+#~ msgid_plural "%1 mins"
+#~ msgstr[0] "%1 мин.кейін"
+
+#~ msgid "now"
+#~ msgstr "қазір"
+
+#~ msgid "all day"
+#~ msgstr "күнімен"
+
+#~ msgctxt "Time from - to"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "next occurrence"
+#~ msgid "Next: %1"
+#~ msgstr "Келесіде: \"%1\""
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New To-do..."
+#~ msgstr "Жаңа іс..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new to-do"
+#~ msgstr "Жаңа істі жоспарлау"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new to-do item."
+#~ msgstr "Жаңа жоспады құру диалогы ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync To-do List"
+#~ msgstr "Істер тізімін қадамдастыру"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware to-do list"
+#~ msgstr "Топтық істера тізімін қадамдастыру"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware to-do list."
+#~ msgstr "Топтық істер тізіміңізді қадамдастыру үшін - осыны таңдаңыз."
+
+#~ msgid "To-do Summary Configuration"
+#~ msgstr "Іс мазмұндамасын баптау"
+
+#~ msgid "Show To-dos Due"
+#~ msgstr "Істердің бітіру мерзімі көрсетілсін"
+
+#~ msgid "Show To-dos due today only"
+#~ msgstr "Істердің бітіру мерзімін көрсету"
+
+#~ msgid "Check this box if you want to see To-dos due on this date only."
+#~ msgstr ""
+#~ "Тек осы күнде ғана бітуге тиіс істер көрсетілсін десеңіз - осы белгіні "
+#~ "қойыңыз."
+
+#~ msgid "Show To-dos due within the next month"
+#~ msgstr "Келесі айда бітетін істерді көрсету"
+
+#~ msgid ""
+#~ "Check this box if you want to see To-dos that are due sometime during the "
+#~ "next 31 days."
+#~ msgstr ""
+#~ "Келесі 31 күнде бітуге тиіс жаспарлар көрсетілсін десеңіз - осы белгіні "
+#~ "қойыңыз."
+
+#~ msgid "Select the days for showing pending To-dos"
+#~ msgstr "Болашақта бітуге тиіс істерін көрсететін мерзімін таңдау"
+
+#~ msgid ""
+#~ "Check this box if you want specify the number of days in the future for "
+#~ "pending To-dos."
+#~ msgstr ""
+#~ "Болашақта бітуге тиіс істердің көрсететін мерзімін келтірмек болсаңыз - "
+#~ "осы белгіні қойыңыз."
+
+#~ msgid "Set the number of days to show pending To-dos"
+#~ msgstr "Басталып әлі бітпеген істерді көрсететін мерзімін келтіру"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show pending To-dos up to 1 "
+#~ "year in the future."
+#~ msgstr ""
+#~ "Осы сан тергіштің көмегімен болашақта бітуге тиіс жоспалрдың көрсететін 1 "
+#~ "күннен 1 жылға дейінгі мерзімін таңдаңыз."
+
+#~ msgid "Hide Following To-do Types"
+#~ msgstr "Келесі істер түрі жасырылсын"
+
+#~ msgid "Hide completed To-dos"
+#~ msgstr "Біткен істерді жасыру"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have already been "
+#~ "completed."
+#~ msgstr "Біткен істер көрсетілмесін десеңіз - осы белгіні қойыңыз."
+
+#~ msgid "&Completed"
+#~ msgstr "&Біткен"
+
+#~ msgid "Hide To-dos without a due date"
+#~ msgstr "Бітіру керек күні белгіленбеген істерді жасыру"
+
+#~ msgid "Check this box if you do not want to see open-ended To-dos."
+#~ msgstr ""
+#~ "Нақты аяқтайтын күні жоқ істер жасырылсын десеңіз - осы белгіні қойыңыз."
+
+#~ msgid "&Open-ended (no due date)"
+#~ msgstr "&Аяқтаусыз (бітіруі керек күнсіз)"
+
+#~ msgid "Hide unstarted To-dos"
+#~ msgstr "Басталмаған істерді жасыру"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Басталатын күні әлі болашақтағы істер көрсетілмесін десеңіз - осы белгіні "
+#~ "қойыңыз."
+
+#~ msgid "&Unstarted (start date is in the future)"
+#~ msgstr "&Әлі басталмағандарды"
+
+#~ msgid "Hide in-progress To-dos"
+#~ msgstr "Барыстағы істерді жасыру"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Басталып әлі бітпеген істер көрсетілсін десеңіз - осы белгіні қойыңыз."
+
+#~ msgid "&In-progress (started but not completed)"
+#~ msgstr "Ба&сталып әлі бітпегендерді"
+
+#~ msgid "Hide overdue To-dos"
+#~ msgstr "Мерзімінен сөзылып жатқан істерді жасыру"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see To-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Бітіру керек күні өтіп сөзылып жатқан істер көрсетілмесін десеңіз - осы "
+#~ "белгіні қойыңыз."
+
+#~ msgid "Over&due (not completed and beyond due-date)"
+#~ msgstr "С&озылып (керегінде біттпей) жатқандарды"
+
+#~ msgid "Show To-dos belonging to my calendars only"
+#~ msgstr "Тек менің күнтізбемдегі ғана істерді көрсету"
+
+#~ msgid ""
+#~ "Check this box if you want the summary to show To-dos belonging to your "
+#~ "calendars only."
+#~ msgstr ""
+#~ "Тек күнтізбеңіздегі ғана істер мазмұндамада көрсетілсін десеңіз - осы "
+#~ "белгіні қойыңыз."
+
+#~ msgid "Show &my To-dos only"
+#~ msgstr "Тек &менің күнтізбемдегі істер көрсетілсін"
+
+#~ msgid "Pending To-dos"
+#~ msgstr "Басталған істер"
+
+#~ msgctxt "the to-do is due today"
+#~ msgid "Today"
+#~ msgstr "Бүгін"
+
+#~ msgctxt "the to-do is due tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Ертең"
+
+#~ msgid "1 day ago"
+#~ msgid_plural "%1 days ago"
+#~ msgstr[0] "%1 күн бұрын"
+
+#~ msgctxt "the to-do is due"
+#~ msgid "due"
+#~ msgstr "бітетін"
+
+#~ msgid "No pending to-dos due within the next day"
+#~ msgid_plural "No pending to-dos due within the next %1 days"
+#~ msgstr[0] "Келесі %1 күнде бітетін істер жоқ"
+
+#~ msgid "&Edit To-do..."
+#~ msgstr "Істі &өгерту..."
+
+#~ msgid "&Delete To-do"
+#~ msgstr "Істі ө&шіру"
+
+#~ msgid "&Mark To-do Completed"
+#~ msgstr "Іс орындалған &деу"
+
+#~ msgid "Edit To-do: \"%1\""
+#~ msgstr "Өзгертілетін іс: \"%1\""
+
+#~ msgid "open-ended"
+#~ msgstr "аяқталуы шектелмеген"
+
+#~ msgctxt "the to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "мерзімі өтіп кеткен"
+
+#~ msgctxt "the to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "бүгін басталатын"
+
+#~ msgctxt "the to-do has not been started yet"
+#~ msgid "not-started"
+#~ msgstr "басталмаған"
+
+#~ msgctxt "the to-do is completed"
+#~ msgid "completed"
+#~ msgstr "біткен"
+
+#~ msgctxt "the to-do is in-progress"
+#~ msgid "in-progress "
+#~ msgstr "орындалып жатқан"
+
+#~ msgctxt "Separator for status like this: overdue, completed"
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "Upcoming Special Dates Configuration Dialog"
+#~ msgstr "Болашақ ерекше күндерді баптау диалогы"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+
+#~ msgid "Special Dates Summary Configuration"
+#~ msgstr "Ерекше күндерді кіргізуін баптау"
+
+#~ msgid "Show Special Dates Starting"
+#~ msgstr "Келесіде басталатын ерекше күндер көрсетілсін:"
+
+#~ msgid "Show special occasions for today only"
+#~ msgstr "Бүгінгі ғана ерекше күндерді көрсету"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions occurring on this "
+#~ "date only."
+#~ msgstr ""
+#~ "Тек бүгінгі ғана ерекше күндер көрсетілсін десеңіз - осы белгіні қойңыз."
+
+#~ msgid "Show special occasions starting within the next month"
+#~ msgstr "Келесі айда басталатын ерекше оқиғаларды көрсету"
+
+#~ msgid ""
+#~ "Check this box if you want to see special occasions that start sometime "
+#~ "during the next 31 days."
+#~ msgstr ""
+#~ "Келесі 31 күнде басталатын ерекше оқиғалар көрсетілсін десеңіз - осы "
+#~ "белгіні қойыңыз."
+
+#~ msgid "Select the days for showing upcoming special occasions"
+#~ msgstr "Болашақ ерекше оқиғаларын көрсететін мерзімін таңдау"
+
+#~ msgid ""
+#~ "Check this box if you want to specify the number of days in the future "
+#~ "for upcoming special occasions."
+#~ msgstr ""
+#~ "Болашақ ерекше оқиғаларын көрсететін мерзімін келтірмек болсаңыз - осы "
+#~ "белгіні қойыңыз."
+
+#~ msgid "Set the number of days to show upcoming special occasions"
+#~ msgstr "Болашақ ерекше оқиғаларын көрсететін мерзімін келтіру"
+
+#~ msgid ""
+#~ "Use this spinbox to set the number of days to show upcoming special "
+#~ "occasions up to one year in the future."
+#~ msgstr ""
+#~ "Осы сан тергіштің көмегімен болашақ ерекше оқиғаларын көрсететін 1 күннен "
+#~ "1 жылға дейінгі мерзімін таңдаңыз."
+
+#~ msgid "Show These Special Dates From Your Calendar"
+#~ msgstr "Күнтізбеңіздегі мынандай ерекше күндер көрсетілсін"
+
+#~ msgid "Show birthdays from your calendar"
+#~ msgstr "Күнтізбеңіздегі туған күндерді көрсету"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Birthday\" category."
+#~ msgstr ""
+#~ "Ерекше оқиғалар атауларына күнтізбеңіздегі туған күндер кірсін десеңіз - "
+#~ "осыны белгілеңіз. Бұған жергілікті демалыс күндер я \"Туған күн\" "
+#~ "санаттағы оқиғалар кіреді."
+
+#~ msgid "Show anniversaries from your calendar"
+#~ msgstr "Күнтізбеңіздегі жылдықтарды көрсету"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your calendar in the "
+#~ "upcoming special occasions summary. Typically, these are events with the "
+#~ "\"Anniversary\" category."
+#~ msgstr ""
+#~ "Болашақ ерекше оқиалар мазмұндамасына күнтізбеңіздегі жылдық күндер "
+#~ "кірсін десеңіз - осыны белгілеңіз. Бұған жергілікті демалыс күндер я "
+#~ "\"Жылдық\" санаттағы оқиғалар кіреді."
+
+#~ msgid "Show holidays from your calendar"
+#~ msgstr "Күнтізбеңіздегі демалыс күндерді көрсету"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the upcoming "
+#~ "special occasions summary. These are events from your configured holiday "
+#~ "region, or events with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Болашақ ерекше оқиғалар мазмұндамасына күнтізбеңіздегі демалыс күндер "
+#~ "кірсін десеңіз - осыны белгілеңіз. Бұған жергілікті демалыс күндер я "
+#~ "\"Мейрамдар\" санаттағы оқиғалар кіреді."
+
+#~ msgid "Show &holidays"
+#~ msgstr "&Демалыстар көрсетілсін"
+
+#~ msgid "Show special occasions from your calendar"
+#~ msgstr "Күнтізбеңіздегі ерекше оқиғаларды көрсету"
+
+#~ msgid ""
+#~ "Enable this option to include events from your calendar with the "
+#~ "\"special occasion\" category."
+#~ msgstr ""
+#~ "Жоспарлағыш мазмұндамасына күнтізбеңіздегі \"ерекше оқиға\" санатына "
+#~ "жататындар кірсін десеңіз - осыны белгілеңіз."
+
+#~ msgid "Show s&pecial occasions"
+#~ msgstr "Е&рекше оқиғалар көрсетілсін"
+
+#~ msgid "Show These Special Dates From Your Contact List"
+#~ msgstr "Контакттар тізіміңіздегі мынандай ерекше күндер көрсетілсін"
+
+#~ msgid "Show birthdays from your address book"
+#~ msgstr "Адрестік кітапшаңыздағы туған күнідерді көрсету"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Ерекше оқиғалар мазмұндамасына адрестік кітапшаңыздағы туған күнідер "
+#~ "кірсін десеңіз - осыны белгілеңіз."
+
+#~ msgid "Show birth&days"
+#~ msgstr "Туған &күндер көрсетілсін"
+
+#~ msgid "Show anniversaries from your address book"
+#~ msgstr "Адрестік кітапшаңіздағы жылдықтарды көрсету"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "upcoming special occasions summary."
+#~ msgstr ""
+#~ "Болашақ ерекше оқиғалар атауларына адрестік кітапшаңыздағы жылдықтар "
+#~ "кірсін десеңіз осыны белгілеңіз."
+
+#~ msgid "Show anni&versaries"
+#~ msgstr "Жыл&дықтар көрсетілсін"
+
+#~ msgid "Upcoming Special Dates"
+#~ msgstr "Болашақ ерекше күндер"
+
+#~ msgctxt "the special day is today"
+#~ msgid "Today"
+#~ msgstr "Бүгін"
+
+#~ msgctxt "the special day is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Ертең"
+
+#~ msgid "Birthday"
+#~ msgstr "Туған күні"
+
+#~ msgid "Anniversary"
+#~ msgstr "Жылдығы"
+
+#~ msgid "Holiday"
+#~ msgstr "Демалыс"
+
+#~ msgid "Special Occasion"
+#~ msgstr "Ерекше оқиға"
+
+#~ msgid "one year"
+#~ msgid_plural "%1 years"
+#~ msgstr[0] "%1 жыл"
+
+#~ msgid "No special dates within the next 1 day"
+#~ msgid_plural "No special dates pending within the next %1 days"
+#~ msgstr[0] "Келесі %1 күнде ерекше күндер жоқ"
+
+#~ msgid "Send &Mail"
+#~ msgstr "&Поштаны жіберу"
+
+#~ msgid "View &Contact"
+#~ msgstr "&Контактты қарау"
+
+#~ msgid "Mail to:\"%1\""
+#~ msgstr "Хат қабылдаушысы:\"%1\""
+
+#~ msgid "Special Dates Summary"
+#~ msgstr "Ерекше күндер атаулары"
+
+#~ msgid "Kontact Special Dates Summary"
+#~ msgstr "Kontact-тың ерекше күндер атаулары"
+
+#~ msgid ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2003 Tobias Koenig\n"
+#~ "Copyright © 2004–2010 Allen Winter"
+
+#~ msgid "Current Maintainer"
+#~ msgstr "Қазіргі жетілдірушісі"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Page"
+#~ msgstr "Жаңа KJots парақшасы"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots page."
+#~ msgstr "Жаңа шағын парақшаны қосу үшін диалогы ұсынылады."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New KJots Book"
+#~ msgstr "Жаңа KJots дәптері"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new jots book."
+#~ msgstr "Жаңа шағын дәптерін қосу үшін диалогы ұсынылады."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new feed"
+#~ msgstr "Жаңа ақпарды беру"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact"
+#~ msgstr "Жаңа контактты құру"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new contact group"
+#~ msgstr "Жаңа контакт тобын құру"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware contacts"
+#~ msgstr "Топтық іс контакттарын қадамдастыру"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots page"
+#~ msgstr "Жаңа шағын парақшаны қосу"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new jots book"
+#~ msgstr "Жаңа шағын дәптерін қосу"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new mail message"
+#~ msgstr "Жаңа эл.пошта хаттың жазу"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware mail"
+#~ msgstr "Топтық іс поштасын қадамдастыру"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Article..."
+#~ msgstr "Жаңа мақала..."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new Usenet article"
+#~ msgstr "Жаңа Usenet мақаласын жазу"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create a new article to "
+#~ "post on Usenet."
+#~ msgstr ""
+#~ "Usenet-те жіберілетін жаңа мақаланы жазу үшін диалог терезесі ұсынылады."
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new popup note"
+#~ msgstr "Жаңа қалқымалы жазбаны дайындау"
+
+#~ msgctxt "@info:status"
+#~ msgid "Edit popup note"
+#~ msgstr "Қалқымалы жазуды өзерту"
+
+#~ msgctxt "@info:status"
+#~ msgid "Rename popup note"
+#~ msgstr "Қалқымалы жазудың атауын өзерту"
+
+#~ msgctxt "@info:status"
+#~ msgid "Delete popup note"
+#~ msgstr "Қалқымалы жазуды өшіру"
+
+#~ msgctxt "@info:status"
+#~ msgid "Print popup note"
+#~ msgstr "Қалқымалы жазбаны басып шығару"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create new popup note"
+#~ msgstr "Жаңа қалқымалы жазбаны дайындау"
+
+#~ msgid "kcmapptsummary"
+#~ msgstr "kcmapptsummary"
+
+#~ msgid "kcmtodosummary"
+#~ msgstr "kcmtodosummary"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "New Task"
+#~ msgstr "Жаңа тапсырма"
+
+#~ msgctxt "@info:status"
+#~ msgid "Create a new time tracker"
+#~ msgstr "Жаңа уақыт қадағалауын бастау"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "You will be presented with a dialog where you can create and start a new "
+#~ "time tracker."
+#~ msgstr "Жаңа уақыт қадағалағышын құру диалогы ұсынылады."
+
+#~ msgid "task_popup"
+#~ msgstr "task_popup"
+
+#~ msgid "kcmplanner"
+#~ msgstr "kcmplanner"
+
+#~ msgid "Planner Summary Configuration Dialog"
+#~ msgstr "Жоспарлағыш мазмұндамасын баптау диалогы"
+
+#~ msgid ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+#~ msgstr ""
+#~ "Copyright © 2004 Tobias Koenig\n"
+#~ "Copyright © 2006–2008 Oral Timocin\n"
+#~ "Copyright © 2009–2010 Allen Winter"
+
+#~ msgid "Oral Timocin"
+#~ msgstr "Oral Timocin"
+
+#~ msgid "Planner"
+#~ msgstr "Жоспарлағыш"
+
+#~ msgctxt "today"
+#~ msgid "Today"
+#~ msgstr "Бүгін"
+
+#~ msgctxt "tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Ертең"
+
+#~ msgid "No appointments pending within the next day"
+#~ msgid_plural "No appointments pending within the next %1 days"
+#~ msgstr[0] "Келесі %1 күнге белгіленген кездесу жоқ"
+
+#~ msgctxt "to-do is overdue"
+#~ msgid "overdue"
+#~ msgstr "мерзімі өтіп кеткен"
+
+#~ msgid "Edit Appointment: \"%1\""
+#~ msgstr "Өзгертетін кездесу: \"%1\""
+
+#~ msgctxt "work on to-do is in progress"
+#~ msgid "in progress"
+#~ msgstr "орындалуда "
+
+#~ msgctxt "to-do starts today"
+#~ msgid "starts today"
+#~ msgstr "бүгін басталады"
+
+#~ msgctxt "to-do due today"
+#~ msgid "due today"
+#~ msgstr "бүгін аяқталады"
+
+#~ msgctxt "to-do is completed"
+#~ msgid "completed"
+#~ msgstr "орындалған"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
+
+#~ msgid "Planner Summary Configuration"
+#~ msgstr "Жоспарлағыш мазмұндамасын баптау"
+
+#~ msgctxt "general settings"
+#~ msgid "General"
+#~ msgstr "Жалпы"
+
+#~ msgid "General Configuration"
+#~ msgstr "Жалпы баптауы"
+
+#~ msgid "Show an icon indicating a recurring item"
+#~ msgstr "Қайталанатын аталымын таңбашамен белгілеу"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon that indicates an event or to-"
+#~ "do is recurring."
+#~ msgstr ""
+#~ "Қайталанатын оқиға не іс арнаулы таңбашамен белгіленсін десеңіз - осы "
+#~ "белгіні қойыңыз."
+
+#~ msgid "Show recurrence icon"
+#~ msgstr "Қайталану таңбашалары көрсетілсін"
+
+#~ msgid "Show an icon indicating the item has a reminder"
+#~ msgstr "Еске салуы бар аталымды таңбашамен белгілеу"
+
+#~ msgid ""
+#~ "Check this box if you want to see an icon indicating that the event or to-"
+#~ "do has a reminder."
+#~ msgstr ""
+#~ "Еске салуы бар оқиға не іс арнаулы таңбашамен белгіленсін десеңіз - осы "
+#~ "белгін қойыңыз."
+
+#~ msgid "Show reminder icon"
+#~ msgstr "Еске салу таңбашалары көрсетілсін"
+
+#~ msgid "Underline links in descriptions"
+#~ msgstr "Сипаттамалардағы сілтемелердің астын сызу"
+
+#~ msgid "Check this box if you want URL links to be underlined."
+#~ msgstr "Сілтемелердің асты сызылсын десеңіз - осы белгні қойыңыз."
+
+#~ msgid "Underline links"
+#~ msgstr "Сілтемелердің асты сызылсын"
+
+#~ msgid "Show to-dos in the summary"
+#~ msgstr "Істерді мазмұдамаға кіргізу"
+
+#~ msgid "Check this box if you want to see to-dos in the summary."
+#~ msgstr "Істер мазмұндамаға кірсін десеңіз - осы белгіні қойыңыз."
+
+#~ msgid "Show To-dos in planner"
+#~ msgstr "Істер жоспарлағышта көрсетілсін"
+
+#~ msgid "Show special dates in the summary"
+#~ msgstr "Болашақ ерекше күндерді мазмұндамада көрсету"
+
+#~ msgid "Check this box if you want to see special dates in the summary."
+#~ msgstr ""
+#~ "Болашақ ерекше күндерді мазмұндамаға кірсін десеңіз - осыны бегілеңіз."
+
+#~ msgid "Show special dates in planner"
+#~ msgstr "Болашақ ерекше күндер жоспарлағышта көсетілсін"
+
+#~ msgid "Events"
+#~ msgstr "Оқиғалар"
+
+#~ msgid "Show Calendar Events"
+#~ msgstr "Күнтізбе оқиғаларын көрсету"
+
+#~ msgid "To-dos"
+#~ msgstr "Істер"
+
+#~ msgid "Hide completed to-dos"
+#~ msgstr "Бітткен істерді жасыру"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have already been "
+#~ "completed."
+#~ msgstr ""
+#~ "Бұл кезде дейін біткен істер көрсетілмесін десеңіз - осы белгіні қойыңыз."
+
+#~ msgid "Hide to-dos without a due date"
+#~ msgstr "Бітіруі керек күні көрсетілмеген істерді жасыру"
+
+#~ msgid "Check this box if you do not want to see open-ended to-dos."
+#~ msgstr ""
+#~ "Нақты аяқтайтын күні белгіленбеген істер жасырылсын десеңіз - осы белгіні "
+#~ "қойыңыз."
+
+#~ msgid "Hide unstarted to-dos"
+#~ msgstr "Басталмаған істерді жасыру"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos with a start date in the "
+#~ "future."
+#~ msgstr ""
+#~ "Басталатын күні әлі болашақтағы істер көрсетілмесін десеңіз - осы белгіні "
+#~ "қойыңыз."
+
+#~ msgid "Hide in-progress to-dos"
+#~ msgstr "Барыстағы істерді жасыру"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that have been started "
+#~ "but are not yet completed."
+#~ msgstr ""
+#~ "Басталып әлі бітпеген істер көрсетілмесін десеңіз - осы белгіні қойыңыз."
+
+#~ msgid "Hide overdue to-dos"
+#~ msgstr "Мерзімінен асып жатқан істерді жасыру"
+
+#~ msgid ""
+#~ "Check this box if you do not want to see to-dos that are past their due "
+#~ "date but have not yet been completed."
+#~ msgstr ""
+#~ "Бітіруі керек күні өтіп, сөзылып жатқан істер көрсетілмесін десеңіз - осы "
+#~ "белгіні қойыңыз."
+
+#~ msgid "Special Dates"
+#~ msgstr "Ерекше күндер"
+
+#~ msgid "Show these Special Dates"
+#~ msgstr "Мынандай ерекше күндер көрсетілсін"
+
+#~ msgid ""
+#~ "Enable this option to include birthdays from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Жаспарлағыштағы мазмұндамаға адрестік кітапшаңыздағы туған күнідер кірсін "
+#~ "десеңіз - осыны белгілеңіз."
+
+#~ msgid "Show birthdays from address book"
+#~ msgstr "Адрестік кітапшадағы туған күнідер көрсетілсін"
+
+#~ msgid ""
+#~ "Enable this option to include anniversaries from your address book in the "
+#~ "planner summary."
+#~ msgstr ""
+#~ "Жаспарлағыш мазмұндамасына адрестік кітапшаңыздағы жылдықтар кірсін "
+#~ "десеңіз - осыны белгілеңіз."
+
+#~ msgid "Show anniversaries from address book"
+#~ msgstr "Адрестік кітапшадағы жылдықтар көрсетілсін"
+
+#~ msgid ""
+#~ "Enable this option to include holidays from your calendar in the planner "
+#~ "summary. These are events from your configured holiday region, or events "
+#~ "with the \"Holiday\" category."
+#~ msgstr ""
+#~ "Жоспарлағыш мазмұндамасына күнтізбеңіздегі демалыс күндер кірсін десеңіз "
+#~ "- осыны белгілеңіз. Бұған жергілікті демалыс күндер я \"Мейрамдар\" "
+#~ "санаттағы оқиғалар кіреді."
+
+#~ msgid "Show holidays from calendar"
+#~ msgstr "Күнтізбедегі мейрамдар көрсетілсін"
+
+#~ msgid "Show special occasions from calendar"
+#~ msgstr "Күнтізбедегі ерекше оқиғалар көрсетілсін"
+
+#~ msgid "Planner Summary"
+#~ msgstr "Жоспарлағыш мазмұндамасы"
+
+#~ msgid "Kontact Planner Summary"
+#~ msgstr "Kontact жоспарлағыш мазмұндамасы"
+
+#~ msgid "Active Calendar"
+#~ msgstr "Істегі күнтізбе"
+
+#~ msgid "Default Calendar"
+#~ msgstr "Әдеттегі күнтізбе"
+
+#~ msgid "Birthdays"
+#~ msgstr "Туған күндер"
+
+#~ msgid "kcmsdsummary"
+#~ msgstr "kcmsdsummary"
+
+#~ msgctxt "@info:status"
+#~ msgid "Plugin %1"
+#~ msgstr "%1 плагині"
+
+#~ msgid "No Notes Available"
+#~ msgstr "Жазбалар жоқ"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Sync Popup Notes"
+#~ msgstr "Қалқымалы жазбаларын қадамдастыру"
+
+#~ msgctxt "@info:status"
+#~ msgid "Synchronize groupware notes"
+#~ msgstr "Топтық іс жазбаларын қадамдастыру"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid "Choose this option to synchronize your groupware notes."
+#~ msgstr ""
+#~ "Топтық іс қалқымалы жазбаларыңызды қадамдастыру үшін - осыны таңдаңыз."
+
+#~ msgid "(c) 2003 The Kontact developers"
+#~ msgstr "(c) 2003 Kontact жасаушылары"
+
+#~ msgctxt "@item:intext"
+#~ msgid "Configure Kontact as Groupware Client"
+#~ msgstr "Kontact-ты топты іс клиенті ретінде баптау"
+
+#~ msgid "BIRTHDAY"
+#~ msgstr "ТУҒАН КҮН"
+
+#~ msgid "ANNIVERSARY"
+#~ msgstr "ЖЫЛДЫҚ"
+
+#~ msgid "HOLIDAY"
+#~ msgstr "ДЕМАЛЫС"
+
+#~ msgid "SPECIAL OCCASION"
+#~ msgstr "ЕРЕКШЕ ОҚИҒА"
+
+#, fuzzy
+#~| msgid "(C) 2001-2004 The Kontact developers"
+#~ msgid "(C) 2001-2009 The Kontact developers"
+#~ msgstr "(C) 2001-2004 Kontact жасаушылары"
+
+#~ msgid "(c) 2003 - 2004 Tobias Koenig"
+#~ msgstr "(c) 2003 - 2004 Tobias Koenig"
+
+#, fuzzy
+#~| msgid "(c) 2004-2006 Allen Winter"
+#~ msgid "(c) 2007-2008 Oral Timocin"
+#~ msgstr "(c) 2004-2006 Allen Winter"
+
+#~ msgid "(c) 2004-2005 The KDE PIM Team"
+#~ msgstr "(c) 2004-2005 KDE PIM тобы"
+
+#~ msgid "(c) 2004-2006 Allen Winter"
+#~ msgstr "(c) 2004-2006 Allen Winter"
+
+#~ msgctxt "prefix for local folders"
+#~ msgid "Local"
+#~ msgstr "Жергілікті"
+
+#~ msgid "Summary"
+#~ msgstr "Атауы"
+
+#~ msgid "kontactconfig"
+#~ msgstr "kontactconfig"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid " days"
+#~ msgstr " күн"
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgid "Rename"
+#~ msgstr "Атауын өзгерту..."
+
+#, fuzzy
+#~| msgid "Anniversary"
+#~ msgid "Show &anniveraries"
+#~ msgstr "Жылдығы"
+
+#, fuzzy
+#~| msgid "New Feed..."
+#~ msgid "New SMS..."
+#~ msgstr "Жаңа ақпар..."
+
+#~ msgid "New News Feed"
+#~ msgstr "Жаңа жаңалық ақпарлары"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Arts"
+#~ msgstr "Өнер"
+
+#~ msgid "Business"
+#~ msgstr "Іскерлік"
+
+#~ msgid "Computers"
+#~ msgstr "Компьютер"
+
+#~ msgid "Misc"
+#~ msgstr "Тағы басқа"
+
+#~ msgid "Recreation"
+#~ msgstr "Демалыс"
+
+#~ msgid "Society"
+#~ msgstr "Қоғам"
+
+#~ msgid "Custom"
+#~ msgstr "Басқа"
+
+#~ msgid "All"
+#~ msgstr "Барлық"
+
+#~ msgid "Add"
+#~ msgstr "Қосу"
+
+#~ msgid "Remove"
+#~ msgstr "Өшіру"
+
+#~ msgid "Selected"
+#~ msgstr "Таңдалған"
+
+#~ msgid "Refresh time:"
+#~ msgstr "Жаңарту аралығы:"
+
+#~ msgid "Number of items shown:"
+#~ msgstr "Көрсетілетіндерінің саны:"
+
+#~ msgid "kcmkontactknt"
+#~ msgstr "kcmkontactknt"
+
+#~ msgid "Newsticker Configuration Dialog"
+#~ msgstr "Жаңалық таспасын баптау диалогы"
+
+#~ msgid "News Feeds"
+#~ msgstr "Жаңалық ақпарлары"
+
+#~ msgid ""
+#~ "No rss dcop service available.\n"
+#~ "You need rssservice to use this plugin."
+#~ msgstr ""
+#~ "RSS DCOP қызметі жоқ.\n"
+#~ "Бұл плагинді пайдалану үшін rssservice қызметі керек."
+
+#~ msgid "Copy URL to Clipboard"
+#~ msgstr "URL сілтемесін көшіріп алу"
+
+#~ msgid "Weather Information"
+#~ msgstr "Ауа райы"
+
+#, fuzzy
+#~| msgid ""
+#~| "No weather dbus service available;\n"
+#~| "you need KWeather to use this plugin."
+#~ msgid ""
+#~ "No weather D-Bus service available;\n"
+#~ "you need KWeather to use this plugin."
+#~ msgstr ""
+#~ "Ауа райы DBUS қызметі жоқ;\n"
+#~ "бұл плагин модулін пайдалану үшін KWeather керек."
+
+#~ msgid "Last updated on"
+#~ msgstr "Соңғысы"
+
+#~ msgid "Wind Speed"
+#~ msgstr "Жел жылдамдылығы"
+
+#~ msgid "Rel. Humidity"
+#~ msgstr "Салыст. ылғалдылық"
+
+#~ msgid "View Weather Report for Station"
+#~ msgstr "Ауа райы болжамын көрсету"
+
+#~ msgid "Improvements and more code cleanups"
+#~ msgstr "Жақсарту мен кодын жетілдіру"
+
+#~ msgid "Unknown"
+#~ msgstr "Беймәлім"
+
+#, fuzzy
+#~| msgid "Special Dates Summary"
+#~ msgid "To-do's / Special Dates"
+#~ msgstr "Ерекше күндер тұжырымы"
+
+#~ msgid "Default KOrganizer resource"
+#~ msgstr "Әдетті KOrganizer ресурсы"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgctxt "@label the appointment is today"
+#~ msgid "Today"
+#~ msgstr "Бүгін"
+
+#, fuzzy
+#~| msgid "Tomorrow"
+#~ msgctxt "@label the appointment is tomorrow"
+#~ msgid "Tomorrow"
+#~ msgstr "Ертең"
+
+#, fuzzy
+#~| msgid "Anniversary"
+#~ msgid "Show Anniversaries from Contact List"
+#~ msgstr "Жылдығы"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "Today only"
+#~ msgstr "Бүгін"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos starting today"
+#~ msgstr "бүгін басталатын"
+
+#, fuzzy
+#~| msgid "starts today"
+#~ msgid "To-dos ending today"
+#~ msgstr "бүгін басталатын"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "One day"
+#~ msgstr " күн"
+
+#, fuzzy
+#~| msgid " day"
+#~| msgid_plural " days"
+#~ msgid "Five days"
+#~ msgstr " күн"
+
+#, fuzzy
+#~| msgid "Pending To-dos"
+#~ msgid "Starting to-dos"
+#~ msgstr "Болашақ жоспарлар"
+
+#, fuzzy
+#~| msgid "Pending To-dos"
+#~ msgid "Ending to-dos"
+#~ msgstr "Болашақ жоспарлар"
+
+#, fuzzy
+#~| msgid "in-progress "
+#~ msgid "To-dos in progress"
+#~ msgstr "орындалуда "
+
+#, fuzzy
+#~| msgid "Newsticker Configuration Dialog"
+#~ msgid "Schedule Configuration Dialog"
+#~ msgstr "Жаңалық таспасын баптау диалогы"
+
+#, fuzzy
+#~| msgid "Today"
+#~ msgid "&Today"
+#~ msgstr "Бүгін"
+
+#~ msgid "Cannot handle drop events of type '%1'."
+#~ msgstr "'%1' түрдегі оқиғаларды лақтыруға болмайды."
+
+#~ msgid "Notes Management"
+#~ msgstr "Жазбалармен айналысу"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgctxt "@title:menu"
+#~ msgid "Icon Size"
+#~ msgstr "Таңбаша өлшемі"
+
+#, fuzzy
+#~| msgid "Large"
+#~ msgctxt "@action:inmenu change to large icons"
+#~ msgid "Large"
+#~ msgstr "Үлкен"
+
+#, fuzzy
+#~| msgid "Small"
+#~ msgctxt "@action:inmenu change to small icons"
+#~ msgid "Small"
+#~ msgstr "Кіші"
+
+#, fuzzy
+#~| msgid "Icon Size"
+#~ msgid "Synchronize"
+#~ msgstr "Таңбаша өлшемі"
+
+#~ msgid "Name"
+#~ msgstr "Атауы"
+
+#~ msgid ""
+#~ "Here you can select which summary plugins to have visible in your summary "
+#~ "view."
+#~ msgstr ""
+#~ "Мұнда тұжырымдамаңызда қай тұжырым плагин модульдері көрсетілетінін "
+#~ "таңдай аласыз."
+
+#~ msgid "&Request Feature..."
+#~ msgstr "Қа&сиеті туралы сұрау..."
+
+#~ msgid "&Refresh Summary View..."
+#~ msgstr "Тұжырымдаманы ж&аңарту..."

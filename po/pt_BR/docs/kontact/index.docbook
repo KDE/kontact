@@ -1,0 +1,1388 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym
+>PIM</acronym
+>">
+  <!ENTITY kappname "&kontact;">
+  <!ENTITY package "kdepim">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Brazilian-Portuguese "INCLUDE">
+]>
+
+<book id="kontact" lang="&language;">
+
+<bookinfo>
+
+<title
+>Manual do &kontact;</title>
+
+<authorgroup>
+<author
+><firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+><address
+>&Cornelius.Schumacher.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Antonio</firstname
+> <surname
+>Salazar</surname
+> <affiliation
+><address
+><email
+>savedfastcool@gmail.com</email>
+    </address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+><address
+>&Daniel.Molkentin.mail;</address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Marcus</firstname
+><surname
+>Gama</surname
+><affiliation
+><address
+><email
+>marcus.gama@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2003-2005</year
+><holder
+>&Cornelius.Schumacher;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>20/08/2010</date>
+<releaseinfo
+>4.5.1 beta1</releaseinfo>
+
+<abstract
+><para
+>O &kontact; é a solução integrada para as suas necessidades de gerenciamento de informações pessoais (&PIM;). Ele combina os aplicativos conhecidos do &kde;, como o &kmail;, o &korganizer; e o &kaddressbook; em uma única interface para oferecer um acesso simples ao e-mail, à agenda, ao livro de endereços e a outras funcionalidades de &PIM;. </para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>KMail</keyword>
+<keyword
+>Organizador</keyword>
+<keyword
+>KAddressBook</keyword>
+<keyword
+>KNotes</keyword>
+<keyword
+>Akregator</keyword>
+<keyword
+>PIM</keyword>
+<keyword
+>trabalho em grupo</keyword>
+<keyword
+>Outlook</keyword>
+<keyword
+>Evolution</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+
+<para
+>&kontact; é a solução integrada para suas necessidades de gerenciamento de informações pessoais. Ele combina os aplicativos de e-mail, agenda, livro de endereços e notas, conhecidos do &kde; (&kmail;, &korganizer;, &kaddressbook; e &knotes;), em uma única interface. Baseando-se numa verdadeira plataforma de componentes, o &kontact; oferece exatamente as mesmas funcionalidades dos aplicativos individuais, adicionando ainda algumas funcionalidades, que aproveitam a forma integrada como o &kontact; executa os aplicativos como componentes. Os usuários ainda terão a possibilidade de escolher os aplicativos que são executados dentro do &kontact; e quais são executados individualmente.</para>
+
+<para
+>Além das funcionalidades dos aplicativos individuais que o &kontact; oferece, existe ainda uma área de resumo e algumas funcionalidades avançadas de arrastar &amp; soltar entre componentes. </para>
+
+</chapter>
+
+
+<chapter id="components">
+<title
+>Componentes do &kontact;</title>
+
+<para
+>O &kontact; integra os seguintes aplicativos. Veja os manuais dos mesmos para mais detalhes sobre como usá-los. Estes detalhes se aplicam tanto a sua execução como componentes dentro do &kontact;, como quando são executados isoladamente. </para>
+
+<variablelist>
+    <varlistentry>
+        <term
+><ulink url="help:kmail"
+>&kmail;</ulink
+></term>
+        <listitem
+><para
+>O cliente de e-mail do &kde;.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:korganizer"
+>&korganizer;</ulink
+></term>
+        <listitem
+><para
+>O aplicativo de calendário e agenda do &kde;.</para>
+            </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:kaddressbook"
+>&kaddressbook;</ulink
+></term>
+        <listitem
+><para
+>O gerenciador de contatos do &kde;.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:knotes"
+>&knotes;</ulink
+></term>
+        <listitem
+><para
+>O aplicativo de notas do &kde;.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:akregator"
+>&akregator;</ulink
+></term>
+        <listitem
+><para
+>O leitor de fontes de RSS do &kde;.</para>
+            </listitem>
+    </varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="main-window">
+<title
+>A Janela Principal do &kontact;</title>
+
+<para
+>A janela principal consiste numa área lateral à esquerda que mostra os ícones dos componentes disponíveis, uma área principal à direita que contém a janela principal do componente ativo e o menu normal, assim como as barras de ferramentas e de estado.</para>
+
+<sect1 id="side-pane">
+<title
+>Painel Lateral</title>
+
+<para
+>O painel lateral serve vários objetivos. Ele permite mudar de componente para componente, mostra qual o componente ativo e serve como destino para as operações de arrastar &amp; soltar para os diferentes aplicativos.</para>
+
+<screenshot>
+<screeninfo
+>Painel Lateral do &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="side-pane.png"/></imageobject>
+<textobject>
+<phrase
+>Painel Lateral do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Painel Lateral do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Para mudar de componente, basta clicar no ícone correspondente. A janela principal do componente é mostrada e o menu, as barras de ferramentas e de estado são adaptadas para refletir as funcionalidades do componente ativo. Se você ativar um componente pela primeira vez, poderá ocorrer um pequeno atraso até que a janela principal seja alterada, uma vez que os componentes são carregados sob demanda. Isto significa que você não irá desperdiçar memória com os componentes que não estiverem em uso.</para>
+
+<para
+>Os ícones da área lateral também poderão ser usados para operações de 'arrastar &amp; soltar'. Por exemplo, você poderá arrastar uma mensagem do componente de e-mail e soltá-la no ícone da lista de itens por-fazer ou no calendário ou criar uma tarefa por-fazer ou um evento associado a essa mensagem.</para>
+
+<para
+>Finalmente, você poderá alterar o tamanho dos ícones no painel lateral. Se clicar com o botão direito no painel lateral, aparecerá a opção para usar ícones Grandes, Normais ou Pequenos, assim como a opção para usar apenas texto, em vez dos ícones.</para>
+
+<para
+>Se você não gostar do painel lateral, poderá simplesmente ocultá-la, arrastando para isso a barra separadora. Existe uma navegação alternativa entre os componentes através da barra de <guilabel
+>Navegação</guilabel
+>, a qual poderá ser posicionada em qualquer lado. Veja em <xref linkend="bars"/> para mais informações sobre a barra de <guilabel
+>Navegação</guilabel
+>.</para>
+
+</sect1>
+
+
+<sect1 id="main-view">
+
+<title
+>Visão Principal</title>
+
+<para
+>A visão à direita, que ocupa a maior parte da área da janela principal do &kontact; mostra o componente ativo. Isto corresponde exatamente à janela principal que o componente usa ao executar-se como um aplicativo individual. O ícone realçado no painel lateral indica a qual aplicativo pertence a visão principal. O &kontact; lembra qual o componente estava ativo ao sair, para que na próxima vez em que for iniciado, a visão mostre inicialmente o aplicativo que estava ativo na última vez que fechou o programa.</para>
+
+<screenshot>
+<screeninfo
+>A Visão Principal do &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<textobject>
+<phrase
+>A Visão Principal do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>A Visão Principal do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Além disso, existem duas maneiras de alterar o componente do &kontact; ao iniciar. A primeira é indicar um argumento para a chamada do programa &kontact; (veja em <xref linkend="command-line"/>). A segunda é uma opção na janela de Configuração do &kontact;, que lhe permitirá iniciar sempre o &kontact; num determinado modo.</para>
+
+<para
+>Para acessar esta opção, vá para <menuchoice
+><guimenu
+>Configurações</guimenu
+> <guimenuitem
+>Configurar o Kontact</guimenuitem
+></menuchoice
+> e clique em <guilabel
+>Kontact</guilabel
+> na lista.</para>
+
+<screenshot>
+<screeninfo
+>Configuração do Componente Inicial do &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<textobject>
+<phrase
+>Configuração do componente inicial do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Configuração do Componente Inicial do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="bars">
+<title
+>Barras de Menu, Ferramentas e Estado</title>
+
+<para
+>As barras de menu, de ferramentas e de estado são adaptadas de acordo com o componente ativo. Isto significa que, além de algumas funções comuns como o menu de ajuda, que são mostradas para todos os componentes, existem algumas ações que são alteradas quando se muda de componente ativo. As ações disponíveis para cada componente são as mesmas que ficam disponíveis ao executar o aplicativo de forma individual.</para>
+
+<screenshot>
+<screeninfo
+>Vistas dos menus do &kontact; no Resumo, no E-mail e no Calendário</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
+<textobject>
+<phrase
+>Vistas dos menus do &kontact; no Resumo, no E-mail e no Calendário</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Vistas dos menus do &kontact; no Resumo, no E-mail e no Calendário</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
+<textobject>
+<phrase
+>Vistas dos menus do &kontact; no Resumo, no E-mail e no Calendário</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Vistas dos menus do &kontact; no Resumo, no E-mail e no Calendário</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
+<textobject>
+<phrase
+>Vistas dos menus do &kontact; no Resumo, no E-mail e no Calendário</phrase>
+</textobject>
+<caption>
+<para
+>Vistas dos menus do &kontact; no Resumo, no E-mail e no Calendário. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Além disso, o &kontact; pode mostrar a barra de <guilabel
+>Navegação</guilabel
+> que lhe fornece acesso aos componentes do &kontact;, tal como acontece no painel lateral. Contudo, ao contrário do painel lateral, os botões da barra de <guilabel
+>Navegação</guilabel
+> não podem ser usados para as operações de 'arrastar &amp; soltar' para os outros componentes.</para>
+
+<para
+>Para ativar a barra de ferramentas, selecione a opção <menuchoice
+><guimenu
+>Configurações</guimenu
+> <guisubmenu
+>Barras de ferramentas visíveis</guisubmenu
+> <guimenuitem
+>Navegador</guimenuitem
+></menuchoice
+>. </para>
+
+<screenshot>
+<screeninfo
+>Barra de <guimenuitem
+>Navegação</guimenuitem
+> do &kontact;.</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
+<textobject>
+<phrase
+>Barra de <guimenuitem
+>Navegação</guimenuitem
+> do &kontact;.</phrase>
+</textobject>
+<caption>
+<para
+>Barra de <guimenuitem
+>Navegação</guimenuitem
+> do &kontact;. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Uma ação especial que é comum a todos os componente é a ação <guimenuitem
+>Novo</guimenuitem
+>. Ela permite a criação de novos objetos, incluindo mensagens de e-mail, contatos, compromissos e tarefas, independentemente do componente que está ativo. O componente responsável por processar o objeto selecionado é iniciado, se necessário, e irá tratar do objeto criado.</para>
+
+<screenshot>
+<screeninfo
+>Menu Novo do &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<textobject>
+<phrase
+>Menu Novo do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Menu Novo do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="side-pane-drag-and-drop">
+<title
+>Funcionalidades de Arrastar e Soltar</title>
+
+<para
+>O &kontact; oferece funcionalidades avançadas de 'arrastar e soltar' entre os programas que ele contém. A seguir, está uma breve descrição de cada uma das operações específicas de 'arrastar e soltar' que poderão ser efetuadas, bem como o resultado de cada uma.</para>
+
+<sect2 id="side-pane-drag-and-drop-kmail-todo">
+<title
+>Lista de Por-Fazer do &kmail; -&gt; &korganizer;</title>
+
+<para
+>Arrastar uma mensagem da <ulink url="help:kmail/using-kmail.html#the-mail-reader-window"
+>área de Cabeçalhos do &kmail;</ulink
+> para o ícone da lista de Itens Por-Fazer do &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) irá criar um novo item Por-Fazer com o <guilabel
+>Mail: <replaceable
+>Assunto</replaceable
+></guilabel
+> como título e <guilabel
+>From: <replaceable
+>Remetente</replaceable
+> To: <replaceable
+>Destinatário</replaceable
+> Subject: <replaceable
+>Assunto</replaceable
+></guilabel
+> como conteúdo (em que o texto que apareça <guilabel
+><replaceable
+>desta forma</replaceable
+></guilabel
+> sejam informações da mensagem em si), assim como a mensagem de e-mail em si como anexo. </para>
+
+</sect2>
+
+<sect2 id="side-pane-drag-and-drop-kmail-calendar">
+<title
+>&kmail; -&gt; Calendário do &korganizer;</title>
+
+<para
+>Arrastar uma mensagem da <ulink url="help:kmail/using-kmail.html#the-mail-reader-window"
+>área de Cabeçalhos do &kmail;</ulink
+> para o ícone do Calendário do &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) irá criar um novo Evento com o <guilabel
+>Mail: <replaceable
+>Assunto</replaceable
+></guilabel
+> como título e <guilabel
+>From: <replaceable
+>Remetente</replaceable
+> To: <replaceable
+>Destinatário</replaceable
+> Subject: <replaceable
+>Assunto</replaceable
+></guilabel
+> como conteúdo (em que o texto que apareça <guilabel
+><replaceable
+>desta forma</replaceable
+></guilabel
+> sejam informações da mensagem em si), assim como a mensagem de e-mail em si como anexo. </para>
+
+<para
+>Lembre-se que o arrastamento para o botão Por-Fazer irá criar um item Por-Fazer, enquanto que o arrastamento para o Calendário cria um Evento. Mais informações sobre esta distinção estão disponíveis na <ulink url="help:korganizer"
+>documentação do &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kmail-contacts">
+<title
+>&kmail; -&gt; &kaddressbook;</title>
+
+<para
+>O arrastamento de uma mensagem da <ulink url="help:kmail/using-kmail.html#the-mail-reader-window"
+>painel de Cabeçalhos do &kmail;</ulink
+> para o ícone do &kaddressbook; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="kaddressbook-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) irá criar um contato para o endereço de e-mail do remetente, a menos que já exista um contato com esse nome. Uma caixa de diálogo lhe notificará desta ação. </para>
+
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
+<title
+>&kaddressbook; -&gt; Lista de Por-Fazer do &korganizer;</title>
+
+<para
+>Arrastar um número qualquer de itens da <ulink url="help:kaddressbook/using-kaddressbook.html"
+>janela principal do &kaddressbook;</ulink
+> para o ícone da lista de itens Por-Fazer do &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) irá criar um novo item Por-Fazer com &quot;Meeting&quot; como título e os contatos selecionados como participantes. </para>
+
+<para
+>Lembre-se que o arrastamento para o botão Por-Fazer irá criar um item Por-Fazer, enquanto que o arrastamento para o Calendário cria um Evento. Mais informações sobre esta distinção estão disponíveis na <ulink url="help:korganizer"
+>documentação do &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
+<title
+>&kaddressbook; -&gt; Calendário do &korganizer;</title>
+
+<para
+>Arrastando qualquer número de entradas da <ulink url="help:kaddressbook/using-kaddressbook.html"
+>janela principal do &kaddressbook;</ulink
+> para o ícone do Calendário do &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) irá criar um novo Evento com &quot;Reunião&quot; como título e os contatos selecionados como participantes. </para>
+
+<para
+>Lembre-se que o arrastamento para o botão Por-Fazer irá criar um item Por-Fazer, enquanto que o arrastamento para o Calendário cria um Evento. Mais informações sobre esta distinção estão disponíveis na <ulink url="help:korganizer"
+>documentação do &korganizer;</ulink
+> </para>
+
+</sect2>
+
+
+</sect1>
+
+<sect1 id="keyboard-shortcuts">
+<title
+>Atalhos do Teclado</title>
+
+<para
+>O &kontact; oferece vários atalhos de teclado para um acesso simples a certas funcionalidades. Abaixo, encontra-se uma lista dos atalhos padrão. Entretanto, lembre-se de que você poderá configurar os atalhos de teclado acessando <menuchoice
+><guimenu
+>Configurações</guimenu
+> <guimenuitem
+>Configurar atalhos...</guimenuitem
+></menuchoice
+>.</para>
+
+<screenshot>
+<screeninfo
+>Janela de Configuração dos Atalhos do &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="configuration-shortcuts.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Janela de Configuração dos Atalhos do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Janela de Configuração dos Atalhos do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<important>
+    <para
+>Os atalhos mencionados abaixo para mudar de componentes variam ligeiramente, dependendo dos componentes que você tiver ativado (veja em <xref linkend="main-config"/>). De um modo geral, os componentes poderão ser ativados usando o &Ctrl; em conjunto com um número; esse número poderá ser obtido contando-se o número de itens desde o topo até o item na área lateral.</para>
+</important>
+
+<para
+>Os seguintes atalhos são os pré-definidos para o &kontact;:</para>
+
+<table>
+<title
+>Atalhos do Teclado</title>
+<tgroup cols="2">
+<thead
+><row
+><entry
+>Ação</entry
+><entry
+>Combinação de teclas</entry
+></row
+></thead>
+<tbody>
+<row
+><entry
+>Visualização do resumo</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>1</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Componente de e-mail</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>2</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Componente de Contatos</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>3</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Componente de Calendário</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>4</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Componente de Itens Por-Fazer</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>5</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Componente de Fontes de RSS</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>6</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Componente da Usenet</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>7</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Componente do Diário</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>8</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Componente de Livro de notas</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>9</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Novo <replaceable
+>Item</replaceable
+></entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+<important
+><para
+>O Novo <replaceable
+>Item</replaceable
+> muda, dependendo do componente que está atualmente selecionado. É igual a Nova Mensagem para os componentes de Resumo e E-Mail, Novo Contato para o componente de Contatos, Novo Evento para o componente do Calendário, Novo Item Por-Fazer para a lista de itens por fazer, Novo Diário para o componente do Diário, Nova Nota para o componente de Notas, Nova Fonte para o componente de Fontes e Novo Artigo para o componente de Notícias. Cada uma destas ações tem o seu próprio atalho de teclado como listado abaixo.</para
+></important
+></entry
+></row>
+<row
+><entry
+>Nova Mensagem</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>M</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Novo Contato</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>C</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Novo Por-fazer</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>T</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Nova Fonte</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>F</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Novo Artigo</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>A</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Novo Diário</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>J</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Nova página do KJots</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>P</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Novo livro do KJots</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>B</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Nova nota instantânea</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>N</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Nova Tarefa</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>W</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Manual do &kontact;</entry
+><entry
+><keycombo action="press"
+><keycap
+>F1</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>A ajuda O que é Isto?</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F1</keycap
+></keycombo
+></entry
+></row>
+<row
+><entry
+>Sair</entry
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+></row>
+</tbody>
+</tgroup>
+</table>
+</sect1>
+
+</chapter>
+
+<chapter id="summary-view">
+<title
+>A Visão do Resumo</title>
+
+<para
+>A janela padrão que aparece quando inicia o &kontact; pela primeira vez é a janela do resumo. Ela mostra uma vista global sobre todas as informações relevantes oferecida pelos vários componentes selecionados do &kontact;. Incluem-se as notas, compromissos ou aniversários iminentes, tarefas a serem concluídas, novas mensagens, &etc; A informação mostrada é configurável selecionando-se os componentes correspondentes no <link linkend="configuration"
+>diálogo de configuração do &kontact;</link
+>.</para>
+
+<screenshot>
+<screeninfo
+>Visão de Resumo do &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<textobject>
+<phrase
+>Visão de Resumo do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Visão de Resumo do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<!-- not in kde4 para
+>If you think the information you see is outdated, you can click on the
+<guibutton
+>Refresh</guibutton
+> button (<guiicon
+><inlinemediaobject
+><imageobject>
+<imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
+</imageobject
+></inlinemediaobject
+></guiicon
+>)
+in the Summary View toolbar to refresh
+the data.</para-->
+
+<sect1 id="summary-view-component-reposition">
+<title
+>Reposicionando os Componentes da Visão de Resumo</title>
+
+<para
+>A Visão de Resumo permite-lhe alterar o local onde os componentes se encontram na visão em si. Assim, se preferir ter as suas Datas Especiais na parte inferior esquerda e as suas tarefas na parte superior, você poderá reorganizar a visão de resumo para refletir isso.</para>
+
+<para
+>O posicionamento dos componentes da Visão de Resumo é tão simples como arrastá-los para a nova posição em que deseja colocá-los. Mantenha pressionada a tecla &Ctrl;, clique e mantenha pressionada a área de título cinza do componente, arrastando-o para onde quiser colocá-lo. Lembre-se de que este posicionamento é feito em relação aos outros componentes. Assim, você poderá mover o componente do e-mail para baixo do componente de tarefas na visão, mas não poderá colocá-lo numa posição específica. Se tiver apenas um componente na sua visão de resumo, a única opção para mover é entre as duas colunas da visão; dois componentes poderão ficar ambos na mesma coluna ou um em cada coluna, e assim por diante. Sempre que estiver arrastando um componente, você verá uma pequena área de previsão que segue o seu mouse, mostrando-lhe a nova posição do componente.</para>
+
+<screenshot>
+<screeninfo
+>Organizando a Visão de Resumo do &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<textobject>
+<phrase
+>Organizando a Visão de Resumo do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Organizando a Visão de Resumo do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title
+>Configurando o &kontact;</title>
+
+<sect1 id="main-config">
+<title
+>A Janela de Configuração do &kontact;</title>
+
+<para
+>Ao selecionar a ação <guimenuitem
+>Configurar o &kontact;</guimenuitem
+> no menu <guimenu
+>Configurações</guimenu
+>, a janela de configuração do &kontact; é apresentada. Ela mostra uma lista com os componentes ativos do &kontact;. O usuário poderá clicar no símbolo <guilabel
+>&gt;</guilabel
+> ao lado do nome do componente para expandir as opções do componente. Selecionar uma das opções de configuração abaixo de cada cabeçalho irá mostrar essa seção de configuração à direita.</para>
+
+<screenshot>
+<screeninfo
+>Janela de Configuração do &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<textobject>
+<phrase
+>Janela de Configuração do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Janela de Configuração do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Ao assinalar a opção próxima ao título do componente, você seleciona o componente que ficará visível no painel lateral e na visão do resumo. O componente é carregado e mostrado na janela principal cada vez que for clicado o seu ícone no painel lateral. Ao desmarcar a opção, o componente é removido do painel lateral e da visão de resumo. As alterações se tornam efetivas clicando nos botões <guibutton
+>Aplicar</guibutton
+> ou <guibutton
+>OK</guibutton
+>.</para>
+
+<para
+>Você também pode configurar os componentes individuais clicando no ícone correspondente no painel lateral e selecionando o item de menu <guimenuitem
+>Configurar o <replaceable
+>nome do aplicativo</replaceable
+></guimenuitem
+> no menu <guimenu
+>Configurações</guimenu
+>.</para>
+
+<screenshot>
+<screeninfo
+>Menu de Configurações do &kontact; Quando Está Selecionado o &kmail;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="settings-menu-kmail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Menu de Configurações do &kontact; Quando Está Selecionado o &kmail;</phrase>
+</textobject>
+<caption>
+<para
+>Menu de Configurações do &kontact; Quando Está Selecionado o &kmail; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="summary-view-config">
+<title
+>Configurando a Visão do Resumo do &kontact;</title>
+
+<para
+>Quando você selecionar a opção <guilabel
+>Resumos</guilabel
+> na janela de configurações do &kontact;, é exibida uma página que lhe permite selecionar os plugins de resumo que o &kontact; deverá mostrar na sua visão de resumo. Aqui está uma breve lista dos plugins já disponíveis e o que eles fazem: </para>
+
+<screenshot>
+<screeninfo
+>Seleção do resumo</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-selection.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Seleção do resumo</phrase>
+</textobject>
+<caption
+><para
+>Seleção do resumo</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="summary-view-config-calendar">
+<title
+>Plugins de Resumo do &kontact;: Calendário</title>
+
+<para
+>O plugin de <quote
+>Calendário</quote
+> para a visão do Resumo do &kontact; adiciona uma área à visão chamada <guilabel
+>Próximos eventos</guilabel
+>. Isto irá mostrar os eventos que se aplicam atualmente. </para>
+
+<screenshot>
+<screeninfo
+>Plugin de Resumo do Calendário do &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-calendar.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Plugin de Resumo do Calendário do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Plugin de Resumo do Calendário do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+<sect2 id="summary-view-config-mail">
+<title
+>Plugins de Resumo do &kontact;: E-mail</title>
+
+<para
+>O plugin de <quote
+>E-mail</quote
+> da Visão de Resumo do &kontact; adiciona uma área à visão chamada <guilabel
+>Mensagens Novas</guilabel
+>. Esta área é atualizada sempre que você recebe mensagens novas, para o informar quantas mensagens existem e as pastas em que se encontram. </para>
+
+<screenshot>
+<screeninfo
+>Plugin de Resumo do e-mail do &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-mail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Plugin de Resumo do e-mail do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Plugin de Resumo do e-mail do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-notes">
+<title
+>Plugins de Resumo do &kontact;: Notas</title>
+
+<para
+>O plugin de <quote
+>Notas</quote
+> da Visão de Resumo do &kontact; adiciona uma área à visão chamada <guilabel
+>Notas instantâneas</guilabel
+>. Esta área mostra todos os títulos das notas atuais (os título são, por padrão, a data/hora em que a nota foi criada). Clicar no título de uma nota irá abrir a área de Notas. </para>
+
+<screenshot>
+<screeninfo
+>Plugin de Resumo das Notas do &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-notes.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Plugin de Resumo das Notas do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Plugin de Resumo das Notas do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-todo-list">
+<title
+>Plugins de Resumo do &kontact;: Lista de Itens Por-Fazer</title>
+
+<para
+>A <quote
+>Lista de tarefas</quote
+> da visão de resumo do &kontact; adiciona uma área à janela chamada <guilabel
+>Tarefas pendentes</guilabel
+>. Esta área contém todas as tarefas atuais, incluindo as que já foram concluídas. Mostra o título dos itens, a porcentagem de finalização e o estado atual do item. Note que você poderá retirar todas as tarefas através da Lista de tarefas do &kontact;. Clicar no título de um desses itens não fará nada realmente. </para>
+
+<screenshot>
+<screeninfo
+>Plugin de Resumo dos Itens Por-Fazer do &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-todos.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Plugin de Resumo dos Itens Por-Fazer do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Plugin de Resumo dos Itens Por-Fazer do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-special-dates">
+<title
+>Plugins de Resumo do &kontact;: Datas Especiais</title>
+
+<para
+>O plugin de <quote
+>Datas especiais</quote
+> da Visão de Resumo do &kontact; adiciona uma área a esta chamada <guilabel
+>Próximas datas especiais</guilabel
+>. Esta área contém informações baseadas nos critérios selecionados na área de configuração do plugin, na configuração da visão de resumo do &kontact;. O plugin de <quote
+>Datas especiais</quote
+> é especialmente útil, uma vez que pode mostrar os aniversários, férias e ocasiões especiais, tanto no calendário como na lista de contatos, em apenas um local. </para>
+
+<screenshot>
+<screeninfo
+>Plugin de datas especiais do &kontact;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-special-dates.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Plugin de datas especiais do &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Plugin de datas especiais do &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+</sect1>
+
+</chapter>
+
+
+<chapter id="command-line">
+<title
+>O &kontact; na Linha de Comando</title>
+
+<para
+>O &kontact; tem vários argumentos da linha de comando que poderão ser usados para determinadas ações.</para>
+
+<para
+>Primeiramente, o &kontact; suporta os argumentos da linha de comando que todos os aplicativos do &kde;/&Qt; suportam. Você poderá obter uma lista completa destas opções digitando: </para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --help-all</command
+> </para>
+
+<para
+>O &kontact; também suporta vários argumentos da linha de comando específicos para ele.</para>
+
+<sect1 id="command-line-arguments">
+<title
+>Argumentos da linha de comando</title>
+
+<sect2 id="command-line-module">
+<title
+>Argumentos Relacionados com o Módulo</title>
+
+<para
+>Para obter uma lista com os módulos disponíveis para o &kontact;, você poderá digitar:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --list</command
+> </para>
+
+<para
+>Então, para iniciar o &kontact; com um módulo ativo, digite:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --module <replaceable
+>nomeMódulo</replaceable
+></command
+> </para>
+
+<para
+>Onde o <replaceable
+>nomeMódulo</replaceable
+> é um dos módulos obtidos com o comando anterior.</para>
+
+</sect2>
+
+<sect2 id="command-line-startup">
+<title
+>Argumentos Relacionados com a Inicialização</title>
+
+<para
+>Para iniciar o &kontact; no modo minimizado <footnote
+><para
+>Este modo ocorre quando a janela do aplicativo está oculta e o aplicativo está disponível apenas na barra de tarefas.</para
+></footnote
+>, você poderá digitar:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --iconify</command
+> </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="technology">
+<title
+>Por Dentro da Tecnologia</title>
+
+<para
+>O &kontact; faz uma utilização extensiva de várias tecnologias-chave do &kde;, principalmente das KParts e do &DBus;.</para>
+
+<para
+>A integração da &GUI; dos componentes é feita através de plugins que fornecem versões das KParts dos aplicativos. Isto só precisa de uma fina camada adicional por cima do código já existente do aplicativo isolado.</para>
+
+<para
+>Para a comunicação entre os componentes é usado o &DBus;. Ele tem a característica útil que é o fato de ser completamente transparente se o aplicativo é executado de forma isolada ou embutida como uma KPart no &kontact;. Ao executar dentro do &kontact;, é usado um modo eficiente intrínseco ao processo do &DBus;.</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Créditos e licença</title>
+
+<para
+>&kontact;</para>
+
+<para
+>Programa com copyright 2004-2005, A Equipe de Desenvolvimento do &kde;</para>
+
+<para
+>Contribuições:</para>
+
+<itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Don.Sanders; &Don.Sanders.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+    </listitem>
+<listitem
+><para
+>Allen Winter <email
+>winter@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthis H&ouml;lzer-Kl&uuml;pfel <email
+>mhk@kde.org</email
+>, o autor original da infraestrutura &kontact;.</para>
+    </listitem>
+
+<listitem
+><para
+>Todos os valorosos programadores dos aplicativos que o &kontact; integra. Eles fizeram quase todo o trabalho.</para>
+    </listitem>
+</itemizedlist>
+
+<para
+>Documentação com copyright 2004-2005</para>
+
+<para
+>Contribuições: <itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem
+><para
+>Antonio Salazar <email
+>savedfastcool@gmail.com</email
+></para>
+</listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
+
+<listitem
+><para
+>Todos os membros da lista de documentação do &kde; que assistiram nas questões de estilo e formatação.</para>
+</listitem>
+</itemizedlist>
+</para>
+
+
+<para
+>A página do &kontact; está em <ulink url="http://kontact.kde.org"
+>http://kontact.kde.org</ulink
+></para>
+
+
+
+<para
+>Tradução de Marcus Gama <email
+>marcus.gama@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
