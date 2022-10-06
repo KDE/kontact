@@ -276,13 +276,13 @@ msgstr ""
 #: src/kontactui.rc:6
 #, kde-format
 msgid "&File"
-msgstr "&Fitxer"
+msgstr "Fi&txer"
 
 #. i18n: ectx: Menu (view)
 #: src/kontactui.rc:14
 #, kde-format
 msgid "&View"
-msgstr "&Visualitza"
+msgstr "Vi&sualitza"
 
 #. i18n: ectx: Menu (settings)
 #: src/kontactui.rc:20
