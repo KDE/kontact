@@ -31,7 +31,7 @@ using namespace Kontact;
 
 #include <iostream>
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <kdelibs4configmigrator.h>
+#include <Kdelibs4ConfigMigrator>
 #endif
 using namespace std;
 
