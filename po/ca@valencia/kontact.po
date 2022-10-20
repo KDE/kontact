@@ -203,7 +203,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
-msgstr "Seleccioneu el connector inicial a utilitzar en cada inici"
+msgstr "Seleccioneu el connector inicial que s'ha d'utilitzar en cada inici"
 
 #: src/kcmkontact.cpp:38
 #, kde-format
