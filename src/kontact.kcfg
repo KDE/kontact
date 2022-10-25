@@ -45,5 +45,10 @@
 
     <entry type="String" name="LastVersionSeen" hidden="true">
     </entry>
+        <entry key="ShowMenuBar" type="Bool">
+        <default>true</default>
+         <!-- label and whatsthis are already provided by KStandardAction::showMenubar -->
+        <label></label>
+    </entry>
   </group>
 </kcfg>

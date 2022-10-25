@@ -46,6 +46,7 @@ using namespace Kontact;
 #include <KSqueezedTextLabel>
 #include <KStandardAction>
 #include <KSycoca>
+#include <KToggleAction>
 #include <KToolBar>
 #include <KWindowConfig>
 #include <KXMLGUIFactory>
@@ -97,6 +98,8 @@ MainWindow::MainWindow()
     KConfigGroup grp(KSharedConfig::openConfig(), "MainWindow");
     KWindowConfig::restoreWindowSize(windowHandle(), grp);
     setAutoSaveSettings();
+    mShowMenuBarAction->setChecked(Prefs::self()->showMenuBar());
+    slotToggleMenubar(true);
 }
 
 void MainWindow::initGUI()
@@ -317,6 +320,29 @@ void MainWindow::setupActions()
 
     auto manager = new KColorSchemeManager(this);
     actionCollection()->addAction(QStringLiteral("colorscheme_menu"), manager->createSchemeSelectionMenu(this));
+
+    mShowMenuBarAction = KStandardAction::showMenubar(this, &MainWindow::slotToggleMenubar, actionCollection());
+}
+
+void MainWindow::slotToggleMenubar(bool dontShowWarning)
+{
+    if (menuBar()) {
+        if (mShowMenuBarAction->isChecked()) {
+            menuBar()->show();
+        } else {
+            if (!dontShowWarning && (!toolBar()->isVisible() /* || !toolBar()->actions().contains(mHamburgerMenu)*/)) {
+                const QString accel = mShowMenuBarAction->shortcut().toString();
+                KMessageBox::information(this,
+                                         i18n("<qt>This will hide the menu bar completely."
+                                              " You can show it again by typing %1.</qt>",
+                                              accel),
+                                         i18n("Hide menu bar"),
+                                         QStringLiteral("HideMenuBarWarning"));
+            }
+            menuBar()->hide();
+        }
+        Prefs::self()->setShowMenuBar(mShowMenuBarAction->isChecked());
+    }
 }
 
 void MainWindow::slotFullScreen(bool t)

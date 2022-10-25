@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui version="421" name="kontact" >
+<gui version="422" name="kontact" >
 <MenuBar>
   <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -19,6 +19,7 @@
   <Menu noMerge="1" name="settings">
      <text>&amp;Settings</text>
      <Merge name="StandardToolBarMenuHandler" />
+     <Action name="options_show_menubar" group="settings_configure" />
      <Merge/>
      <Separator/>
      <Action name="colorscheme_menu" />
