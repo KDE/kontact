@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-26 00:47+0000\n"
-"PO-Revision-Date: 2022-01-02 08:55+0200\n"
+"PO-Revision-Date: 2022-10-26 16:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -483,13 +483,13 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
+"<qt>За допомогою цього пункту можна повністю сховати смужку меню. Наказати "
+"програмі знову показувати цю смужку можна клавіатурним скороченням %1.</qt>"
 
 #: src/mainwindow.cpp:339
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgid "Hide menu bar"
-msgstr "Приховати бічну панель"
+msgstr "Приховати смужку меню"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:530

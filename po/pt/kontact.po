@@ -483,13 +483,13 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
+"<qt>Isto irá esconder a barra do menu por completo. Podê-la-á mostrar de "
+"novo se escrever %1.</qt>"
 
 #: src/mainwindow.cpp:339
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgid "Hide menu bar"
-msgstr "Esconder a Barra Lateral"
+msgstr "Esconder o menu"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:530
