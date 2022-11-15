@@ -13,7 +13,6 @@
 #include "kontact_debug.h"
 #include "kontactkcmultidialog_p.h"
 #include <KCModuleProxy>
-#include <kwidgetsaddons_version.h>
 
 #include <KCModuleProxy>
 #include <KIO/ApplicationLauncherJob>
@@ -41,11 +40,7 @@ bool KontactKCMultiDialogPrivate::resolveChanges(KCModuleProxy *currentProxy)
     }
 
     // Let the user decide
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     const int queryUser = KMessageBox::warningTwoActionsCancel(q,
-#else
-    const int queryUser = KMessageBox::warningYesNoCancel(q,
-#endif
                                                                i18n("The settings of the current module have changed.\n"
                                                                     "Do you want to apply the changes or discard them?"),
                                                                i18n("Apply Settings"),
@@ -54,18 +49,10 @@ bool KontactKCMultiDialogPrivate::resolveChanges(KCModuleProxy *currentProxy)
                                                                KStandardGuiItem::cancel());
 
     switch (queryUser) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     case KMessageBox::ButtonCode::PrimaryAction:
-#else
-    case KMessageBox::Yes:
-#endif
         return moduleSave(currentProxy);
 
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     case KMessageBox::ButtonCode::SecondaryAction:
-#else
-    case KMessageBox::No:
-#endif
         currentProxy->load();
         return true;
 
