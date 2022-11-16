@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-26 00:47+0000\n"
-"PO-Revision-Date: 2022-01-02 20:08+0100\n"
+"PO-Revision-Date: 2022-10-29 09:15+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.0\n"
+"X-Generator: Lokalize 22.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -475,13 +475,13 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
+"<qt>Questo comando nasconderà completamente la barra dei menu. Puoi "
+"visualizzarla di nuovo digitando %1.</qt>"
 
 #: src/mainwindow.cpp:339
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgid "Hide menu bar"
-msgstr "Nascondi barra laterale"
+msgstr "Nascondi barra dei menu"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:530
