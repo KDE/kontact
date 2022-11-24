@@ -14,14 +14,14 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-26 00:47+0000\n"
-"PO-Revision-Date: 2022-01-08 10:43+0100\n"
+"PO-Revision-Date: 2022-11-23 20:18+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.03.70\n"
+"X-Generator: Lokalize 22.08.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -472,13 +472,13 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
+"<qt>To spowoduje całkowite ukrycie paska menu. Można go przywrócić "
+"naciskając %1.</qt>"
 
 #: src/mainwindow.cpp:339
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgid "Hide menu bar"
-msgstr "Ukryj pasek boczny"
+msgstr "Ukryj pasek menu"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:530
