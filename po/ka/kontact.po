@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-26 00:47+0000\n"
-"PO-Revision-Date: 2022-10-27 06:00+0200\n"
+"PO-Revision-Date: 2022-11-28 09:37+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -319,7 +319,7 @@ msgstr "KDE-ის პირადი ინფორმაციის მმ�
 #: src/main.cpp:165
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr ""
+msgstr "© 2001–%1 Kontact -ის ავტორები, ყველა უფლება დაცულია"
 
 #: src/main.cpp:169
 #, kde-format
@@ -419,7 +419,7 @@ msgstr "Kontact- ის მორგება"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
-msgstr ""
+msgstr "წარმოგიდგებათ ფანჯარა, რომლითაც შეგიძლიათ Kontact-ი მოირგოთ."
 
 #: src/mainwindow.cpp:302
 #, kde-format
@@ -437,7 +437,7 @@ msgstr "Kontact-ით საწყისი გვერდის ჩვენ�
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
-msgstr ""
+msgstr "აირჩიეთ ეს პარამეტრი, რომ Kontact-ის მისასალმებელი გვერდი დაინახოთ."
 
 #: src/mainwindow.cpp:308
 #, kde-format
@@ -480,7 +480,7 @@ msgstr "%1 დამატებაზე გადართვა"
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
-msgstr ""
+msgstr "აპლიკაცია მარტოა გაშვებული. წინა პლანზე გამოტანა..."
 
 #: src/mainwindow.cpp:616
 #, kde-format
@@ -497,7 +497,7 @@ msgstr "%1 - Kontact"
 #: src/mainwindow.cpp:947
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
-msgstr ""
+msgstr "KDE-ის პერსონალური ინფორმაციის მართვის ნაკრები."
 
 #: src/mainwindow.cpp:952
 #, kde-format
@@ -507,7 +507,7 @@ msgstr "სახელმძღვანელოს წაკითხვა"
 #: src/mainwindow.cpp:953
 #, kde-format
 msgid "Learn more about Kontact and its components"
-msgstr ""
+msgstr "გაიგეთ მეტი Kontact-ზე და მის კომპონენტებზე"
 
 #: src/mainwindow.cpp:956
 #, kde-format
