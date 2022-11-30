@@ -11,6 +11,14 @@ Dependencies:
     'pim/kpimtextedit' : '@same'
     'pim/libkdepim' : '@same'
     'pim/pimcommon' : '@same'
+
+- 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+  'require':
+    'libraries/ktexttemplate': '@stable'
+
+- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
+  'require':
     'third-party/grantlee' : '@stable'
+
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      
