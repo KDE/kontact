@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:47+0000\n"
+"POT-Creation-Date: 2022-12-03 00:47+0000\n"
 "PO-Revision-Date: 2010-07-16 22:09-0700\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -296,103 +296,103 @@ msgstr "メインツールバー"
 msgid "Navigator"
 msgstr "ナビゲータ"
 
-#: src/main.cpp:94
+#: src/main.cpp:105
 #, kde-format
 msgid "Start with a specific Kontact module"
 msgstr "指定したモジュールで起動"
 
-#: src/main.cpp:95
+#: src/main.cpp:106
 #, kde-format
 msgid "Start in iconified (minimized) mode"
 msgstr "アイコン化 (最小化) モードで起動"
 
-#: src/main.cpp:96
+#: src/main.cpp:107
 #, kde-format
 msgid "List all possible modules and exit"
 msgstr "利用可能なすべてのモジュールを表示して終了"
 
-#: src/main.cpp:161 src/mainwindow.cpp:946
+#: src/main.cpp:178 src/mainwindow.cpp:946
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
 
-#: src/main.cpp:163
+#: src/main.cpp:180
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "KDE 個人情報マネージャ (PIM)"
 
-#: src/main.cpp:165
+#: src/main.cpp:182
 #, fuzzy, kde-format
 #| msgid "Copyright © 2001–2010 Kontact authors"
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "Copyright © 2001–2010 Kontact 作者"
 
-#: src/main.cpp:169
+#: src/main.cpp:186
 #, kde-format
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: src/main.cpp:170
+#: src/main.cpp:187
 #, kde-format
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
-#: src/main.cpp:171
+#: src/main.cpp:188
 #, kde-format
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
-#: src/main.cpp:172
+#: src/main.cpp:189
 #, kde-format
 msgid "Don Sanders"
 msgstr "Don Sanders"
 
-#: src/main.cpp:173
+#: src/main.cpp:190
 #, kde-format
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
-#: src/main.cpp:174
+#: src/main.cpp:191
 #, kde-format
 msgid "Tobias König"
 msgstr "Tobias König"
 
-#: src/main.cpp:175
+#: src/main.cpp:192
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: src/main.cpp:176
+#: src/main.cpp:193
 #, kde-format
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
-#: src/main.cpp:177
+#: src/main.cpp:194
 #, kde-format
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
-#: src/main.cpp:178
+#: src/main.cpp:195
 #, kde-format
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
-#: src/main.cpp:179
+#: src/main.cpp:196
 #, kde-format
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:179
+#: src/main.cpp:196
 #, kde-format
 msgid "Original Author"
 msgstr "オリジナルの作者"
 
-#: src/main.cpp:180
+#: src/main.cpp:197
 #, kde-format
 msgid "Torgny Nyblom"
 msgstr ""
 
-#: src/main.cpp:180
+#: src/main.cpp:197
 #, kde-format
 msgid "Git Migration"
 msgstr ""

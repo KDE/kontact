@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:47+0000\n"
+"POT-Creation-Date: 2022-12-03 00:47+0000\n"
 "PO-Revision-Date: 2013-01-11 01:50+0330\n"
 "Last-Translator: Mohammad Reza Mirdamadi <mohi@ubuntu.ir>\n"
 "Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
@@ -300,102 +300,102 @@ msgstr "میله ابزار اصلی"
 msgid "Navigator"
 msgstr "ناوشگر"
 
-#: src/main.cpp:94
+#: src/main.cpp:105
 #, kde-format
 msgid "Start with a specific Kontact module"
 msgstr "آغاز با پیمانه مشخص Kontact"
 
-#: src/main.cpp:95
+#: src/main.cpp:106
 #, kde-format
 msgid "Start in iconified (minimized) mode"
 msgstr "آغاز در حالت شمایل‌شده )کمینه‌شده("
 
-#: src/main.cpp:96
+#: src/main.cpp:107
 #, kde-format
 msgid "List all possible modules and exit"
 msgstr "فهرست همه پیمانه‌های ممکن و خروج"
 
-#: src/main.cpp:161 src/mainwindow.cpp:946
+#: src/main.cpp:178 src/mainwindow.cpp:946
 #, kde-format
 msgid "Kontact"
 msgstr ""
 
-#: src/main.cpp:163
+#: src/main.cpp:180
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "مدیر اطلاعات شخصی KDE"
 
-#: src/main.cpp:165
+#: src/main.cpp:182
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr ""
 
-#: src/main.cpp:169
+#: src/main.cpp:186
 #, kde-format
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: src/main.cpp:170
+#: src/main.cpp:187
 #, kde-format
 msgid "Rafael Fernández López"
 msgstr ""
 
-#: src/main.cpp:171
+#: src/main.cpp:188
 #, kde-format
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
-#: src/main.cpp:172
+#: src/main.cpp:189
 #, kde-format
 msgid "Don Sanders"
 msgstr ""
 
-#: src/main.cpp:173
+#: src/main.cpp:190
 #, kde-format
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
-#: src/main.cpp:174
+#: src/main.cpp:191
 #, kde-format
 msgid "Tobias König"
 msgstr ""
 
-#: src/main.cpp:175
+#: src/main.cpp:192
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: src/main.cpp:176
+#: src/main.cpp:193
 #, kde-format
 msgid "Ingo Klöcker"
 msgstr ""
 
-#: src/main.cpp:177
+#: src/main.cpp:194
 #, kde-format
 msgid "Sven Lüppken"
 msgstr ""
 
-#: src/main.cpp:178
+#: src/main.cpp:195
 #, kde-format
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
-#: src/main.cpp:179
+#: src/main.cpp:196
 #, kde-format
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:179
+#: src/main.cpp:196
 #, kde-format
 msgid "Original Author"
 msgstr "نویسنده اصلی"
 
-#: src/main.cpp:180
+#: src/main.cpp:197
 #, kde-format
 msgid "Torgny Nyblom"
 msgstr ""
 
-#: src/main.cpp:180
+#: src/main.cpp:197
 #, kde-format
 msgid "Git Migration"
 msgstr ""
