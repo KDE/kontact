@@ -205,6 +205,7 @@
     <p xml:lang="ia">Kontact consiste de muklte componentes ben integrate:</p>
     <p xml:lang="id">Kontact terdiri dari beberapa komponen yang terintegrasi dengan baik:</p>
     <p xml:lang="it">Kontact è formato da un serie di componenti ben integrati tra loro:</p>
+    <p xml:lang="ka">Kontact რამდენიმე კარგად ინტეგრირებული კომპონენტისგან შედგება:</p>
     <p xml:lang="ko">Kontact는 여러 구성 요소로 구성됩니다:</p>
     <p xml:lang="nl">Kontact bestaat uit verschillende goed geïntegreerde componenten:</p>
     <p xml:lang="nn">Kontact er sett saman av fleire tett integrerte komponentar:</p>
@@ -239,6 +240,7 @@
       <li xml:lang="ia">KMAil . un cliente de e-posta potente e ric de characteristicas con supporto per un vaste quantitate de provider (fornitores) de eposta.</li>
       <li xml:lang="id">KMail - sebuah klien email yang hebat dan kaya fitur dengan dukungan untuk berbagai penyedia email.</li>
       <li xml:lang="it">KMail - un client di posta potente e ricco di funzioni con supporto per un'ampia gamma di fornitori di posta elettronica.</li>
+      <li xml:lang="ka">KMail - მძლავრი და ფუნქციებით მდიდარ ელფოსტის კლიენტი, რომელსაც მრავალი ელფოსტის მომწოდებლის მხარდაჭერა გააჩნია.</li>
       <li xml:lang="ko">KMail - 다기능 이메일 클라이언트, 여러 이메일 서비스를 지원합니다.</li>
       <li xml:lang="nl">KMail - een krachtige e-mailclient met veel mogelijkheden met ondersteuning van een brede reeks van e-mailleveranciers.</li>
       <li xml:lang="nn">KMail – kraftig og funksjonsrikt e-postprogram med støtte for mange e-postleverandørar.</li>
@@ -338,6 +340,7 @@
       <li xml:lang="ia">Akregator - un lector de syndication de novas con unfunctionalitate potente de cerca e archivar.</li>
       <li xml:lang="id">Akregator - sebuah pembaca berita dengan fungsi pencarian dan pengarsipan yang hebat.</li>
       <li xml:lang="it">Akregator - un lettore di notizie con potenti funzioni di ricerca ed archiviazione.</li>
+      <li xml:lang="ka">Akregator - სიახლეების ლენტა მძლავრი ძებნისა და არქივაციის ფუნქციონალით.</li>
       <li xml:lang="ko">Akregator - 검색과 보관 기능이 있는 뉴스 피드 리더입니다.</li>
       <li xml:lang="nl">Akregator - een nieuwslezer met krachtige zoek- en archiveringsfunctionaliteit.</li>
       <li xml:lang="nn">Akregator – nyheitslesar med kraftig søkje- og arkivfunksjonalitet.</li>
@@ -371,6 +374,7 @@
       <li xml:lang="ia">KNotes - un simple programma que te permitte scriver le equivalente de computatior de notas collose.</li>
       <li xml:lang="id">KNotes - sebuah program sederhana yang memungkinkan kamu menulis komputer yang setara dengan catatan lekat.</li>
       <li xml:lang="it">KNotes - un programma semplice che ti permette di scrivere l'equivalente a computer delle note adesive.</li>
+      <li xml:lang="ka">KNotes - მარტივი პროგრამა, რომელიც წებოვანი ქაღალდების კომპიუტერის ექვივალენტია.</li>
       <li xml:lang="ko">KNotes - 찍찍이 노트를 쉽게 작성할 수 있도록 도와 줍니다.</li>
       <li xml:lang="nl">KNotes - een eenvoudig programma dat u het computerequivalent van plaknotities laat schrijven.</li>
       <li xml:lang="nn">KNotes – enkelt program for å skriva elektroniske «gule lappar».</li>
@@ -412,6 +416,7 @@
       <caption xml:lang="ia">KMail, le componente de e-posta de Kontact</caption>
       <caption xml:lang="id">KMail, adalah komponen email pada Kontact</caption>
       <caption xml:lang="it">KMail è il componente di posta elettronica di Kontact</caption>
+      <caption xml:lang="ka">KMail-ი, Kontact-ის ელფოსტის კომპონენტი</caption>
       <caption xml:lang="ko">KMail, Kontact의 이메일 구성 요소.</caption>
       <caption xml:lang="nl">KMail, de e-mailcomponent van Kontact</caption>
       <caption xml:lang="nn">KMail, e-postprogrammet i Kontact</caption>
@@ -446,6 +451,7 @@
       <caption xml:lang="ia">Organisa tu tempore, gere eventos, crea actiones de facer,i.e. tu agnda, o planifica incontros con KOrganizer</caption>
       <caption xml:lang="id">Atur waktu, kelola acara, ciptakan kegiatan atau jadwalkan rapatmu menggunakan KOrganizer</caption>
       <caption xml:lang="it">Organizza il tuo tempo, gestisci eventi, crea cose da fare o pianifica delle riunioni con KOrganizer</caption>
+      <caption xml:lang="ka">დააორგანიზეთ თქვენი დრო, მართეთ მოვლენები, შექმენით განრიგი და დაგეგმეთ შეხვედრები KOrganizer-ით</caption>
       <caption xml:lang="ko">KOrganizer를 사용하여 일정과 행사를 관리하고, 할 일 목록을 작성하고 모임을 예약하기</caption>
       <caption xml:lang="nl">Organiseer uw tijd, beheer uw afspraken, maak todo's of plan meetings met KOrganizer</caption>
       <caption xml:lang="nn">Planlegg dagane, hald oversikt over arrangement, lag oppgåvelister eller inviter til møte med KOrganizer</caption>
@@ -481,6 +487,7 @@
       <caption xml:lang="ia">KaddressBook forni un modo facile de gerer tu contactos</caption>
       <caption xml:lang="id">KAddressBook menyediakan cara yang mudah untuk mengelola kontakmu</caption>
       <caption xml:lang="it">KAddressBook fornisce un modo semplice per gestire i contatti</caption>
+      <caption xml:lang="ka">KAddressBook კონტაქტებთან მუშაობის საშუალებას გაძლევთ</caption>
       <caption xml:lang="ko">KAddressBook을 통하여 연락처를 쉽게 관리하기</caption>
       <caption xml:lang="nl">KAddressBook biedt een gemakkelijke manier om uw contactpersonen te beheren</caption>
       <caption xml:lang="nn">KAddressBook lèt deg enkelt halda oversikt over kontaktar</caption>
@@ -515,6 +522,7 @@
       <caption xml:lang="ia">Resta al culmine del novas con Akregator, nostre lector de syndication de novas</caption>
       <caption xml:lang="id">Tetap mengikuti yang baru dengan Akregator, pembaca berita kami</caption>
       <caption xml:lang="it">Rimani aggiornato sulle novità con Akregator, il nostro lettore di notizie</caption>
+      <caption xml:lang="ka">იყავით ყველა წინ სიახლეებით Akregator-თან, ჩვენს სიახლეების მკითხველთან ერთად</caption>
       <caption xml:lang="ko">뉴스 리더 Akregator를 사용해서 최신 정보 따라가기</caption>
       <caption xml:lang="nl">Sta bovenop het nieuws met Akregator, onze nieuwslezer</caption>
       <caption xml:lang="nn">Hald deg oppdatert med nyheitslesaren Akregator</caption>
