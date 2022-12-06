@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:47+0000\n"
-"PO-Revision-Date: 2022-12-01 08:52+0100\n"
+"PO-Revision-Date: 2022-12-05 06:41+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -206,6 +206,9 @@ msgid ""
 "each time Kontact is started. Otherwise, Kontact will restore the last "
 "active plugin from the previous usage."
 msgstr ""
+"ჩამოსაშლელი სიიდან აირჩეთ დამატება, რომელიც გამოყენებული იქნება, როგორც "
+"საწყისი დამატება, როცა Kontact-ი გაეშვება. სხვა შემთხვევაში Kontact-ი წინა "
+"გაშვებისას გამოყენებულ დამატებას ჩატვირთავს."
 
 #. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
 #. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
