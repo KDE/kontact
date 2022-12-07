@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:47+0000\n"
-"PO-Revision-Date: 2022-12-05 06:41+0100\n"
+"PO-Revision-Date: 2022-12-06 06:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -236,6 +236,8 @@ msgid ""
 "Usually Kontact will come up with the plugin used before shutdown. Check "
 "this box if you would like the specified plugin to come up on start instead."
 msgstr ""
+"ჩვეულებრივ Kontact-ი ამ დამატებას გამორთვამდე მაინც გამოყენებს. ჩართეთ ეს, "
+"თუ გნებავთ მონიშნული დამატება გაშვებისას იქნას გამოყენებული."
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
@@ -257,6 +259,9 @@ msgid ""
 "Uncheck this box to hide the component sidebar. Note that the F9 key will "
 "hide/show the icon sidebar."
 msgstr ""
+"ეკრანის რეალური მდგომარეობის შესანახად შეიძლება ხატულების გვერდითი პანელის "
+"გაქრობაც მოინდომოთ. მოხსენით ეს თოლია, რათა კომპონენტის გვერდითი პანელი "
+"დამალოთ. დაიმახსოვრეთ. რომ პანელის ხილულობის გადართვა F9 ღილაკითაც შეგიძლიათ."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
