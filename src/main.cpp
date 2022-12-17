@@ -23,25 +23,15 @@ using namespace Kontact;
 #include <KCrash>
 #include <KLocalizedString>
 #include <KPluginMetaData>
-#include <KWindowSystem>
 
 #include <QCommandLineParser>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+#include <QWindow>
 
 #include <iostream>
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <Kdelibs4ConfigMigrator>
-#endif
-
-#include "kwindowsystem_version.h"
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
-#define HAVE_X11 1
-#if KWINDOWSYSTEM_VERSION >= QT_VERSION_CHECK(5, 101, 0)
-#include <KX11Extras>
-#endif
-#else
-#define HAVE_X11 0
 #endif
 
 using namespace std;
@@ -133,13 +123,7 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
             // --iconify is needed in kontact, although kstart can do that too,
             // because kstart returns immediately so it's too early to talk D-Bus to the app.
             if (parser.isSet(QStringLiteral("iconify"))) {
-#if KWINDOWSYSTEM_VERSION < QT_VERSION_CHECK(5, 101, 0)
-                KWindowSystem::minimizeWindow(mMainWindow->winId());
-#else
-#ifdef HAVE_X11
-                KX11Extras::minimizeWindow(mMainWindow->winId());
-#endif
-#endif
+                mMainWindow->windowHandle()->showMinimized();
             }
         } else {
             if (!moduleName.isEmpty()) {

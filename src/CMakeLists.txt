@@ -41,7 +41,6 @@ generate_export_header(kontactprivate BASE_NAME kontact)
 
 target_link_libraries(kontactprivate
     PUBLIC
-    KF5::WindowSystem
     KF5::IconThemes
     PRIVATE
     KF5::I18n
