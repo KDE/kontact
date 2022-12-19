@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:47+0000\n"
+"POT-Creation-Date: 2022-12-19 00:47+0000\n"
 "PO-Revision-Date: 2009-06-13 16:18+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: icelandic <kde-isl@molar.is>\n"
@@ -304,105 +304,105 @@ msgstr "Aðaltækjaslá"
 msgid "Navigator"
 msgstr ""
 
-#: src/main.cpp:105
+#: src/main.cpp:95
 #, kde-format
 msgid "Start with a specific Kontact module"
 msgstr "Byrja með ákveðna Kontact einingu"
 
-#: src/main.cpp:106
+#: src/main.cpp:96
 #, kde-format
 msgid "Start in iconified (minimized) mode"
 msgstr "Byrja í táknmyndaham (lágmarkað)"
 
-#: src/main.cpp:107
+#: src/main.cpp:97
 #, kde-format
 msgid "List all possible modules and exit"
 msgstr "Birta alla mögulegar einingar og hætta"
 
-#: src/main.cpp:178 src/mainwindow.cpp:946
+#: src/main.cpp:162 src/mainwindow.cpp:946
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
 
-#: src/main.cpp:180
+#: src/main.cpp:164
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "Persónulegur upplýsingastjóri KDE"
 
-#: src/main.cpp:182
+#: src/main.cpp:166
 #, fuzzy, kde-format
 #| msgid "(c) 2004 Tobias Koenig"
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "(c) 2004 Tobias Koenig"
 
-#: src/main.cpp:186
+#: src/main.cpp:170
 #, fuzzy, kde-format
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: src/main.cpp:187
+#: src/main.cpp:171
 #, fuzzy, kde-format
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
-#: src/main.cpp:188
+#: src/main.cpp:172
 #, fuzzy, kde-format
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
-#: src/main.cpp:189
+#: src/main.cpp:173
 #, kde-format
 msgid "Don Sanders"
 msgstr ""
 
-#: src/main.cpp:190
+#: src/main.cpp:174
 #, fuzzy, kde-format
 #| msgid "(c), 2003 Cornelius Schumacher"
 msgid "Cornelius Schumacher"
 msgstr "(c), 2003 Cornelius Schumacher"
 
-#: src/main.cpp:191
+#: src/main.cpp:175
 #, fuzzy, kde-format
 #| msgid "(c) 2004 Tobias Koenig"
 msgid "Tobias König"
 msgstr "(c) 2004 Tobias Koenig"
 
-#: src/main.cpp:192
+#: src/main.cpp:176
 #, fuzzy, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: src/main.cpp:193
+#: src/main.cpp:177
 #, kde-format
 msgid "Ingo Klöcker"
 msgstr ""
 
-#: src/main.cpp:194
+#: src/main.cpp:178
 #, kde-format
 msgid "Sven Lüppken"
 msgstr ""
 
-#: src/main.cpp:195
+#: src/main.cpp:179
 #, fuzzy, kde-format
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
-#: src/main.cpp:196
+#: src/main.cpp:180
 #, fuzzy, kde-format
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:196
+#: src/main.cpp:180
 #, kde-format
 msgid "Original Author"
 msgstr "Upprunalegur höfundur"
 
-#: src/main.cpp:197
+#: src/main.cpp:181
 #, kde-format
 msgid "Torgny Nyblom"
 msgstr ""
 
-#: src/main.cpp:197
+#: src/main.cpp:181
 #, kde-format
 msgid "Git Migration"
 msgstr ""
