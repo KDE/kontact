@@ -1,126 +1,190 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
  "dtd/kdedbx45.dtd" [
-  <!ENTITY PIM "<acronym>PIM</acronym>">
+  <!ENTITY PIM "<acronym
+>PIM</acronym
+>">
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % English "INCLUDE">
+  <!ENTITY % German "INCLUDE">
 ]>
 
 <book id="kontact" lang="&language;">
 
 <bookinfo>
 
-<title>The &kontact; Handbook</title>
+<title
+>Das Handbuch zu &kontact;</title>
 
 <authorgroup>
-<author>
-<firstname>Cornelius</firstname>
-<surname>Schumacher</surname>
-<affiliation><address>&Cornelius.Schumacher.mail;</address></affiliation>
+<author
+><firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+><address
+>&Cornelius.Schumacher.mail;</address
+></affiliation>
 </author>
 
-<author>
-<firstname>Antonio</firstname>
-<surname>Salazar</surname>
-<affiliation><address><email>savedfastcool@gmail.com</email>
-    </address></affiliation>
+<author
+><firstname
+>Antonio</firstname
+> <surname
+>Salazar</surname
+> <affiliation
+><address
+><email
+>savedfastcool@gmail.com</email>
+    </address
+></affiliation>
 </author>
 
-<author>
-<firstname>Daniel</firstname>
-<surname>Molkentin</surname>
-<affiliation><address>&Daniel.Molkentin.mail;</address></affiliation>
+<author
+><firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+><address
+>&Daniel.Molkentin.mail;</address
+></affiliation>
 </author>
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<othercredit role="translator"
+><firstname
+>Maren</firstname
+><surname
+>Pakura</surname
+><affiliation
+><address
+><email
+>maren@kde.org</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
 </authorgroup>
 
 
 <copyright>
-<year>2003-2005</year><holder>&Cornelius.Schumacher;</holder>
+<year
+>2003-2005</year
+><holder
+>&Cornelius.Schumacher;</holder>
 </copyright>
 
-<legalnotice>&FDLNotice;</legalnotice>
+<legalnotice
+>&FDLNotice;</legalnotice>
 
-<date>2016-12-08</date>
-<releaseinfo>5.4.40 (Applications 16.12)</releaseinfo>
+<date
+>2016-12-08</date>
+<releaseinfo
+>5.4.40 (Anwendungen 16.12)</releaseinfo>
 
-<abstract><para>&kontact; is the integrated solution to your personal
-information management (&PIM;) needs. It combines well-known &kde;
-applications such as &kmail;, &korganizer; and &kaddressbook; into a
-single interface to provide easy access to mail, scheduling,
-address book and other &PIM; functionality.</para></abstract>
+<abstract
+><para
+>&kontact; ist das integrierte Programm für Persönliche Informationsverwaltung (&PIM;). Es kombiniert bekannte &kde;-Programme wie &kmail;, &korganizer; und &kaddressbook; unter einer einheitlichen Oberfläche. Damit hat man einfachen Zugriff auf E-Mail, Termine, Adressbuch und weitere &PIM;-Funktionen.</para
+></abstract>
 
 <keywordset>
-<keyword>KDE</keyword>
-<keyword>kdepim</keyword>
-<keyword>KMail</keyword>
-<keyword>Organizer</keyword>
-<keyword>KAddressBook</keyword>
-<keyword>KNotes</keyword>
-<keyword>Akregator</keyword>
-<keyword>PIM</keyword>
-<keyword>groupware</keyword>
-<keyword>Outlook</keyword>
-<keyword>Evolution</keyword>
+<keyword
+>KDE</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>KMail</keyword>
+<keyword
+>Organizer</keyword>
+<keyword
+>KAddressBook</keyword>
+<keyword
+>KNotes</keyword>
+<keyword
+>Akregator</keyword>
+<keyword
+>PIM</keyword>
+<keyword
+>groupware</keyword>
+<keyword
+>Outlook</keyword>
+<keyword
+>Evolution</keyword>
 </keywordset>
 
 </bookinfo>
 
 
 <chapter id="introduction">
-<title>Introduction</title>
+<title
+>Einleitung</title>
 
-<para>&kontact; is the integrated solution for personal information
-management.  It combines the well-known &kde; applications for email,
-scheduling, address book, and notes (&kmail;, &korganizer;,
-&kaddressbook;, and &knotes;)
-into a single interface. Being
-based on a true component framework &kontact; provides exactly the
-same functionality as the stand-alone applications, and adds more
-features, by making use of the integrated way &kontact; runs the
-applications as components. Users still retain the choice of which
-applications are run within &kontact; and which are run
-stand-alone.</para>
+<para
+>&kontact; ist die integrierte Lösung für Persönliche Informationsverwaltung (&PIM;). Es kombiniert bekannte &kde;-Programme für E-Mail, Terminverwaltung, Adressen, Notizblock und News (&kmail;, &korganizer;, &kaddressbook;, und &knotes;) unter einer einheitlichen Oberfläche. Basierend auf einem Komponenten-Framework bietet &kontact; dieselben Funktionen, die von den Programmen einzeln bereitgestellt werden. Durch die integrierte Handhabung werden darüber hinaus weitere Funktionen angeboten. Jeder Benutzer kann selbst entscheiden, welche dieser Programme er innerhalb von &kontact; und welche er eigenständig ausführen möchte.</para>
 
-<para>In addition to the functionality of the individual applications &kontact;
-provides a summary view and advanced drag &amp; drop features between
-components.
-</para>
+<para
+>Zusätzlich zu den Funktionen der Einzelprogramme bietet &kontact; eine Übersicht und erweiterte Ziehen-&amp;-Ablegen-Funktionen zwischen den Komponenten. </para>
 
 </chapter>
 
 
 <chapter id="components">
-<title>&kontact; Components</title>
+<title
+>Komponenten von &kontact;</title>
 
-<para>
-&kontact; integrates the following applications. See the individual
-application manuals for details on how to use them. These apply to
-running them as components inside &kontact; just as well as running
-them stand-alone.
-</para>
+<para
+>Die folgende Anwendungen sind in &kontact; integriert. In den jeweiligen Handbüchern finden sich weitergehende Informationen zu ihrer Nutzung. Diese gelten auch für die Verwendung als Komponenten innerhalb von &kontact;. </para>
 
 <variablelist>
     <varlistentry>
-        <term><ulink url="help:/kmail2">&kmail;</ulink></term>
-        <listitem><para>The &kde; mail client.</para></listitem>
+        <term
+><ulink url="help:/kmail2"
+>&kmail;</ulink
+></term>
+        <listitem
+><para
+>Das &kde;-Mail-Programm</para
+></listitem>
     </varlistentry>
     <varlistentry>
-        <term><ulink url="help:/korganizer">&korganizer;</ulink></term>
-        <listitem><para>The &kde; calendar and scheduling application.</para>
+        <term
+><ulink url="help:/korganizer"
+>&korganizer;</ulink
+></term>
+        <listitem
+><para
+>Der &kde;-Kalender und Zeitplaner.</para>
             </listitem>
     </varlistentry>
     <varlistentry>
-        <term><ulink url="help:/kaddressbook">&kaddressbook;</ulink></term>
-        <listitem><para>The &kde; contact manager.</para></listitem>
+        <term
+><ulink url="help:/kaddressbook"
+>&kaddressbook;</ulink
+></term>
+        <listitem
+><para
+>Die &kde;-Kontaktverwaltung.</para
+></listitem>
     </varlistentry>
     <varlistentry>
-        <term><ulink url="help:/knotes">&knotes;</ulink></term>
-        <listitem><para>The &kde; sticky notes application.</para></listitem>
+        <term
+><ulink url="help:/knotes"
+>&knotes;</ulink
+></term>
+        <listitem
+><para
+>Die Haftnotizen für &kde;.</para
+></listitem>
     </varlistentry>
     <varlistentry>
-        <term><ulink url="help:/akregator">&akregator;</ulink></term>
-        <listitem><para>The &kde; RSS feed reader.</para>
+        <term
+><ulink url="help:/akregator"
+>&akregator;</ulink
+></term>
+        <listitem
+><para
+>Das &kde;-Anzeigeprogramm für RSS-Nachrichtenquellen.</para>
             </listitem>
     </varlistentry>
 </variablelist>
@@ -128,107 +192,107 @@ them stand-alone.
 </chapter>
 
 <chapter id="main-window">
-<title>The &kontact; Main Window</title>
+<title
+>Das Hauptfenster von &kontact;</title>
 
-<para>The Main Window consists of a side pane on the left showing the icons of
-the available components, a main view on the right which contains the main
-window of the active component and the usual menu, tool and status bars.</para>
+<para
+>Im Hauptfenster links im Seitenbereich werden die Symbole der verfügbaren Komponenten gezeigt. Weiterhin befindet sich rechts das Hauptfenster der aktiven Komponente, sowie deren Menü- und Werkzeugleisten.</para>
 
 <sect1 id="side-pane">
-<title>Side Pane</title>
+<title
+>Seitenbereich</title>
 
-<para>The Side Pane serves multiple purposes. It allows for switching between
-components, shows which component is active and serves as the target for
-drag &amp; drop operations to the different applications.</para>
+<para
+>Der Seitenbereich dient mehreren Zwecken. Er dient zum Umschalten zwischen den Komponenten, zur Anzeige der aktiven Komponente und als Zielbereich für Ziehen-&amp;-Ablegen-Operationen.</para>
 
 <screenshot>
-<screeninfo>&kontact;'s Side Pane</screeninfo>
+<screeninfo
+>Die Seitenleiste von &kontact;</screeninfo>
 <mediaobject>
-<imageobject><imagedata format="PNG" fileref="side-pane.png" /></imageobject>
+<imageobject
+><imagedata format="PNG" fileref="side-pane.png"/></imageobject>
 <textobject>
-<phrase>&kontact;'s Side Pane</phrase>
+<phrase
+>Die Seitenleiste von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-&kontact;'s Side Pane
-</para>
+<para
+>Die Seitenleiste von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
 
-<para>For switching between components simply click on the corresponding icon.
-The main window of the component is shown and the menu, tool and status bars are
-adapted to reflect the functionality of the active component. If you activate a
-component for the first time there might be a small delay until the main view
-is changed, because components are loaded on demand. This means you don't waste
-memory for components not in use.</para>
+<para
+>Zum Umschalten klickt man einfach auf das gewünschte Symbol. Daraufhin wird das Hauptfenster und Menü-, Werkzeug- und Statusleiste der gewählten Komponente angezeigt. Beim ersten Aufruf einer Komponente kann es aufgrund der Ladezeit zu einer kleinen Verzögerung kommen, da nur benötigte Komponenten in den Arbeitsspeicher geladen werden.</para>
 
-<para>The icons in the Side Pane can also be used as targets for drag &amp; drop
-operations. For example, you can drag a mail message from the mail part and
-drop it on the icon of the to-do list or the calendar to create a to-do
-or event associated with this mail.</para>
+<para
+>Die Symbole der Seitenleiste dienen außerdem als Zielbereich für Ziehen-&amp;-Ablege-Operationen. Beispielsweise können Sie eine E-Mail auf die Aufgabenliste oder den Kalender ziehen, um eine Aufgabe in Verbindung mit der E-Mail einzutragen.</para>
 
-<para>Finally, you can change the size of the icons in the Side Pane.
-Right-clicking on the Side Pane will give you the option to use Large,
-Normal, or Small icons, as well as the option to use text only
-instead of icons.</para>
+<para
+>Schließlich können Sie die Größe der Symbole in der Seitenleiste ändern. Durch einen Rechtsklick in der Seitenleiste erhalten Sie die Auswahlmöglichkeiten Groß, Normal und Klein, sowie die Optionen anstelle der Symbole Text anzuzeigen.</para>
 
-<para>If you dislike the Side Pane, you can simply hide it by dragging the
-splitter. An alternative navigation between parts is provided by the 
-<guilabel>Navigator</guilabel> toolbar, which can be freely positioned. See
-<xref linkend="bars" /> for more on the <guilabel>Navigator</guilabel>
-toolbar.</para>
+<para
+>Wenn Ihnen die Seitenleiste nicht zusagt, können sie diese ausblenden, indem Sie den Hauptbereich des Fensters bis zum linken Rand ziehen. Die frei positionierbare Werkzeugleiste <guilabel
+>Navigator</guilabel
+> bietet eine alternative Möglichkeit, um zwischen den Anwendungen umzuschalten. Weitere Informationen zur Werkzeugleiste <guilabel
+>Navigator</guilabel
+> finden Sie unter <xref linkend="bars"/>. </para>
 
 </sect1>
 
 
 <sect1 id="main-view">
 
-<title>Main View</title>
+<title
+>Hauptansicht</title>
 
-<para>The view on the right which takes up most of the area of the &kontact;
-main window shows the active component. This exactly corresponds to the main
-window the component uses when run as a stand-alone application. The highlighted
-icon in the Side Pane indicates to which application the Main View belongs.
-&kontact; remembers the active component when exiting, so the next time
-&kontact; starts it initially displays that component in the Main View.</para>
+<para
+>Der Bereich rechts nimmt den größten Teil des Hauptfensters von &kontact; ein. Der Inhalt stimmt mit dem Hauptfenster der aktiven Komponente überein, wie sie als Einzelanwendung aussieht. Das hervorgehobene Symbol in der Seitenleiste zeigt an, welches Programm im Hauptfenster geöffnet ist. &kontact; speichert die letzte Einstellung automatisch und diese Komponente wird beim erneuten Start von &kontact; wieder angezeigt.</para>
 
 <screenshot>
-<screeninfo>&kontact;'s Main View</screeninfo>
+<screeninfo
+>Die Hauptansicht von &kontact;</screeninfo>
 <mediaobject>
-<imageobject><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<imageobject
+><imagedata format="PNG" fileref="main-view.png"/></imageobject>
 <textobject>
-<phrase>&kontact;'s Main View</phrase>
+<phrase
+>Das Hauptfenster von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-    &kontact;'s Main View
-</para>
+<para
+>Die Hauptansicht von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
 
-<para>In addition, there are two ways of overriding the component that &kontact;
-starts with. The first is supplying an argument to the &kontact; program call
-(see <xref linkend="command-line"/>). The second is a setting in the
-&kontact; Settings dialog that will allow you to always start &kontact; in a 
-certain mode.</para>
+<para
+>Es gibt zwei Wege um festzulegen, mit welcher Komponente &kontact; starten soll. Zum einen besteht die Möglichkeit, beim Aufruf von &kontact; einen entsprechenden Parameter zu übergeben (siehe <xref linkend="command-line"/>). Die zweite Möglichkeit ist eine Einstellung im Einstellungsdialog von &kontact;, mit der &kontact; dazu veranlasst wird immer in einem bestimmten Modus zu starten.</para>
 
-<para>To get to it, go to <menuchoice><guimenu>Settings</guimenu>
-<guimenuitem>Configure Kontact</guimenuitem></menuchoice> and click on
-<guilabel>Kontact</guilabel> in the list.</para>
+<para
+>Diese Einstellung erreichen Sie, indem Sie im Menü auf <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Kontact einrichten ...</guimenuitem
+></menuchoice
+> klicken und dann <guilabel
+>Kontact</guilabel
+> in der Liste auswählen.</para>
 
 <screenshot>
-<screeninfo>&kontact; Starting Component Setting</screeninfo>
+<screeninfo
+>Einstellung für die Startkomponente von &kontact;</screeninfo>
 <mediaobject>
-<imageobject><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
 <textobject>
-<phrase>&kontact; Starting Component Setting</phrase>
+<phrase
+>Einstellung für die Startkomponente von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-    &kontact; Starting Component Setting
-</para>
+<para
+>Einstellung für die Startkomponente von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -236,105 +300,114 @@ certain mode.</para>
 </sect1>
 
 <sect1 id="bars">
-<title>Menu, Tool and Status Bars</title>
+<title
+>Menü-, Werkzeug- und Statusleisten</title>
 
-<para>The menu, tool and status bars are adapted to the active component. That
-means that, in addition to some common functions like the help menu which are
-shown for all components, there are actions which are switched when the active
-component is switched. These actions available for each component are the same
-as those available when running the application stand-alone.</para>
+<para
+>Menü, Werkzeugleiste und Statusleiste zeigen die Inhalte der aktiven Komponente an. Bis auf beispielsweise die Hilfefunktion, die zu allen Anwendungen gehört, werden beim Umschalten zu einer anderen Komponente auch die Inhalte dieser Leisten ausgetauscht. Dadurch werden die gleichen Aktionen in diesen Leisten wie beim getrennten Ausführung der einzelnen Module angezeigt. </para>
 
 <screenshot>
-<screeninfo>Views of &kontact;'s menubars in the Summary View, Mail View, and
-    Calendar View</screeninfo>
+<screeninfo
+>Die Menüleisten von &kontact; in der Zusammenfassung, der E-Mail-Ansicht und der Kalender-Ansicht</screeninfo>
 <mediaobject>
 <imageobject>
     <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
 <textobject>
-<phrase>Views of &kontact;'s menubars in the Summary View, Mail View, and
-    Calendar View</phrase>
+<phrase
+>Die Menüleisten von &kontact; in der Zusammenfassung, der E-Mail-Ansicht und der Kalender-Ansicht</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
 
 <screenshot>
-<screeninfo>Views of &kontact;'s menubars in the Summary View, Mail View, and
-    Calendar View</screeninfo>
+<screeninfo
+>Die Menüleisten von &kontact; in der Zusammenfassung, der E-Mail-Ansicht und der Kalender-Ansicht</screeninfo>
 <mediaobject>
 <imageobject>
     <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
 <textobject>
-<phrase>Views of &kontact;'s menubars in the Summary View, Mail View, and
-    Calendar View</phrase>
+<phrase
+>Die Menüleisten von &kontact; in der Zusammenfassung, der E-Mail-Ansicht und der Kalender-Ansicht</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
 
 <screenshot>
-<screeninfo>Views of &kontact;'s menubars in the Summary View, Mail View, and
-    Calendar View</screeninfo>
+<screeninfo
+>Die Menüleisten von &kontact; in der Zusammenfassung, der E-Mail-Ansicht und der Kalender-Ansicht</screeninfo>
 <mediaobject>
 <imageobject>
     <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
 <textobject>
-<phrase>Views of &kontact;'s menubars in the Summary View, Mail View, and
-    Calendar View</phrase>
+<phrase
+>Die Menüleisten von &kontact; in der Zusammenfassung, der E-Mail-Ansicht und der Kalender-Ansicht</phrase>
 </textobject>
 <caption>
-<para>
-    Views of &kontact;'s menubars in the Summary View, Mail View, and Calendar
-    View.
-</para>
+<para
+>Die Menüleisten von &kontact; in der Zusammenfassung, der E-Mail-Ansicht und der Kalender-Ansicht </para>
 </caption>
 </mediaobject>
 </screenshot>
 
-<para>In addition, &kontact; can show the <guilabel>Navigator</guilabel>
-toolbar, which allows you access to the &kontact; components very much as the
-Side Pane does. However, unlike the Side Pane, buttons in the
-<guilabel>Navigator</guilabel> toolbar cannot be used for drag &amp; drop
-operations to other components.</para>
+<para
+>Zusätzlich kann in &kontact; eine Werkzeugleiste <guilabel
+>Navigator</guilabel
+> angezeigt werden, die den Zugriff auf die einzelnen Module von &kontact; auf die gleiche Weise wie über die Seitenleiste ermöglicht. Im Gegensatz zur Seitenleiste können die Knöpfe in der Werkzeugleiste <guilabel
+>Navigator</guilabel
+> jedoch nicht für das Ziehen-&amp;-Ablegen zu anderen Modulen benutzt werden.</para>
 
-<para>To activate the toolbar, select <menuchoice><guimenu>Settings</guimenu>
-<guisubmenu>Toolbars Shown</guisubmenu>
-<guimenuitem>Navigator</guimenuitem></menuchoice>.
-</para>
+<para
+>Um diese Werkzeugleiste anzuzeigen, wählen Sie <menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guisubmenu
+>Angezeigte Werkzeugleisten</guisubmenu
+> <guimenuitem
+>Navigator</guimenuitem
+></menuchoice
+>. </para>
 
 <screenshot>
-<screeninfo>&kontact;'s <guimenuitem>Navigator</guimenuitem>
-    toolbar.</screeninfo>
+<screeninfo
+><guimenuitem
+>Navigator</guimenuitem
+>-Werkzeugleiste von &kontact;</screeninfo>
 <mediaobject>
 <imageobject>
     <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
 <textobject>
-<phrase>&kontact;'s <guimenuitem>Navigator</guimenuitem> toolbar.</phrase>
+<phrase
+><guimenuitem
+>Navigator</guimenuitem
+>-Werkzeugleiste von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-    &kontact;'s <guimenuitem>Navigator</guimenuitem> toolbar.
-</para>
+<para
+><guimenuitem
+>Navigator</guimenuitem
+>-Werkzeugleiste von &kontact;. </para>
 </caption>
 </mediaobject>
 </screenshot>
 
-<para>A special action common to all components is the
-<guimenuitem>New</guimenuitem> action. It allows creation of new objects
-including emails, contacts, appointments and to-dos independently of which
-component is active. The component responsible for processing the
-selected object is started, if required, and takes over the created
-object.</para>
+<para
+>Allen Komponenten gemeinsam ist der Menüeintrag <guimenuitem
+>Neu</guimenuitem
+>. Er ermöglicht die Erzeugung von neuen Objekten wie E-Mails, Kontakten, Terminen und Aufgaben unabhängig von der gerade aktiven Komponente. Bei Bedarf wird die für die Verarbeitung benötigte Komponente automatisch gestartet.</para>
 
 <screenshot>
-<screeninfo>&kontact;'s New Menu</screeninfo>
+<screeninfo
+>Das Menü Neu von &kontact;</screeninfo>
 <mediaobject>
-<imageobject><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<imageobject
+><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
 <textobject>
-<phrase>&kontact;'s New Menu</phrase>
+<phrase
+>Das Menü Neu von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-&kontact;'s New Menu
-</para>
+<para
+>Das Menü Neu von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -342,129 +415,145 @@ object.</para>
 </sect1>
 
 <sect1 id="side-pane-drag-and-drop">
-<title>Drag and Drop Functionality</title>
+<title
+>Ziehen-und-Ablegen-Funktionalität</title>
 
-<para>&kontact; provides advanced drag and drop functionality between 
-the programs it contains. Following is a brief description of each of
-the specific drag and drop operations that can be used and the
-result of each.</para>
+<para
+>Mit &kontact; bietet fortgeschrittene Möglichkeiten für das Ziehen und Ablegen zwischen den eingebetteten Programmen. Es folgt eine kurze Beschreibung der möglichen Aktionen durch Ziehen und Ablegen und welche Ergebnisse damit erreicht werden.</para>
 
 <sect2 id="side-pane-drag-and-drop-kmail-todo">
-<title>&kmail; -&gt; &korganizer; To-do List</title>
+<title
+>&kmail; -&gt; &korganizer; Aufgabenliste</title>
 
-<para>
-Dragging a message from 
-<ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
-to the icon for &korganizer;'s To-do list 
-(<guiicon><inlinemediaobject><imageobject>
-<imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/>
-</imageobject></inlinemediaobject></guiicon>)
-will create a new To-do with 
-<guilabel>Mail: <replaceable>Subject</replaceable></guilabel> as the title and 
-<guilabel>From: <replaceable>Sender</replaceable>
-To: <replaceable>Receiver</replaceable>
-Subject: <replaceable>Subject</replaceable></guilabel> as the contents
-(where text that looks <guilabel><replaceable>like
-this</replaceable></guilabel> is information
-from the message itself), as well as the email message itself as an
-attachment.
-</para>
+<para
+>Das Ziehen einer Nachricht von der <ulink url="/help:kmail2/using-kmail.html#the-mail-reader-window"
+>Vorspannliste von &kmail;</ulink
+> auf das Symbol für die Aufgabenliste von &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) erzeugt eine neue Aufgabe mit <guilabel
+>E-Mail: <replaceable
+>Betreff</replaceable
+></guilabel
+> als Titel und <guilabel
+>Von: <replaceable
+>Absender</replaceable
+> An: <replaceable
+>Empfänger</replaceable
+> Betreff: <replaceable
+>Betreff</replaceable
+></guilabel
+> als Inhalt (wobei der Text, der <guilabel
+><replaceable
+>so</replaceable
+></guilabel
+> aussieht, aus der Nachricht selbst stammt). Die E-Mail-Nachricht selbst wird an die Aufgabe angehängt. </para>
 
 </sect2>
 
 <sect2 id="side-pane-drag-and-drop-kmail-calendar">
-<title>&kmail; -&gt; &korganizer; Calendar</title>
+<title
+>&kmail; -&gt; &korganizer; Kalender</title>
 
-<para>
-Dragging a message from 
-<ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
-to the icon for &korganizer;'s Calendar
-(<guiicon><inlinemediaobject><imageobject>
-<imagedata fileref="calendar-sidebar-icon.png" format="PNG"/>
-</imageobject></inlinemediaobject></guiicon>)
-will create a new Event with 
-<guilabel>Mail: <replaceable>Subject</replaceable></guilabel> as the title and 
-<guilabel>From: <replaceable>Sender</replaceable>
-To: <replaceable>Receiver</replaceable>
-Subject: <replaceable>Subject</replaceable></guilabel> as the contents
-(where text that looks <guilabel><replaceable>like
-this</replaceable></guilabel> is information
-from the message itself), as well as the email message itself as an
-attachment.
-</para>
+<para
+>Das Ziehen einer Nachricht von der <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>Vorspannliste von &kmail;</ulink
+> auf das Symbol für den Kalender von &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="calendar-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) erzeugt einen neuen Termin mit <guilabel
+>E-Mail: <replaceable
+>Betreff</replaceable
+></guilabel
+> als Titel und <guilabel
+>Von: <replaceable
+>Absender</replaceable
+> An: <replaceable
+>Empfänger</replaceable
+> Betreff: <replaceable
+>Betreff</replaceable
+></guilabel
+> als Inhalt (wobei der Text, der <guilabel
+><replaceable
+>so</replaceable
+></guilabel
+> aussieht, aus der Nachricht selbst stammt). Die E-Mail-Nachricht selbst wird an die Aufgabe angehängt. </para>
 
-<para>Note that dragging onto the To-do button creates a To-do,
-whereas dragging onto the Calendar creates an Event. More on this
-distinction is available in the 
-<ulink url="help:/korganizer">&korganizer; documentation</ulink>
-</para>
+<para
+>Beachten Sie, dass das Ziehen auf das Aufgabensymbol eine Aufgabe erzeugt, während das Ziehen auf das Kalendersymbol einen Termin erzeugt. Mehr zu den Unterschied zwischen diesen finden Sie in der <ulink url="help:/korganizer"
+>&korganizer;-Dokumentation</ulink
+>. </para>
 
 </sect2>
 
 
 <sect2 id="side-pane-drag-and-drop-kmail-contacts">
-<title>&kmail; -&gt; &kaddressbook;</title>
+<title
+>&kmail; -&gt; &kaddressbook;</title>
 
-<para>
-Dragging a message from 
-<ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
- to the icon for &kaddressbook;
-(<guiicon><inlinemediaobject><imageobject> <imagedata
-                                           fileref="kaddressbook-sidebar-icon.png" 
-                                           format="PNG" />
-</imageobject></inlinemediaobject></guiicon>) will create a contact
-from the email address of the sender, unless a contact with that name
-already exists. A dialog box notifies you of this action.
-</para>
+<para
+>Das Ziehen einer Nachricht von der <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>Vorspannliste von &kmail;</ulink
+> auf das Symbol für &kaddressbook; (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="kaddressbook-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) erzeugt einen neuen Kontakt aus der E-Mail-Adresse des Absenders, sofern noch kein Kontakt mit diesem Namen existiert. Ein Dialog informiert Sie darüber. </para>
 
 
 </sect2>
 
 
 <sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
-<title>&kaddressbook; -&gt; &korganizer; To-do List</title>
+<title
+>&kaddressbook; -&gt; &korganizer; Aufgabenliste</title>
 
-<para>
-Dragging any number of entries from <ulink
-url="help:/kaddressbook/using-kaddressbook.html">&kaddressbook;'s main
-window</ulink> to the icon for &korganizer;'s To-do List
-(<guiicon><inlinemediaobject><imageobject> <imagedata
-                                           fileref="todo-list-sidebar-icon.png" 
-                                           format="PNG"/>
-</imageobject></inlinemediaobject></guiicon>) will create a new To-do
-with &quot;Meeting&quot; as the title and the selected contacts as
-attendees.
-</para>
+<para
+>Das Ziehen einer beliebigen Anzahl von Einträgen aus dem <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>Hauptfenster von &kaddressbook;</ulink
+> auf das Symbol für die Aufgabenliste von &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) erzeugt eine neue Aufgabe mit &quot;Treffen&quot; als Titel und den ausgewählten Kontakten als Teilnehmern. </para>
 
-<para>Note that dragging onto the To-do button creates a To-do,
-whereas dragging onto the Calendar creates an Event. More on this
-distinction is available in the 
-<ulink url="help:/korganizer">&korganizer; documentation</ulink>
-</para>
+<para
+>Beachten Sie, dass das Ziehen auf das Aufgabensymbol eine Aufgabe erzeugt, während das Ziehen auf das Kalendersymbol einen Termin erzeugt. Mehr zu den Unterschied zwischen diesen finden Sie in der <ulink url="help:/korganizer"
+>&korganizer;-Dokumentation</ulink
+>. </para>
 
 </sect2>
 
 
 <sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
-<title>&kaddressbook; -&gt; &korganizer; Calendar</title>
+<title
+>&kaddressbook; -&gt; &korganizer; Kalender</title>
 
-<para>
-Dragging any number of entries from <ulink
-url="help:/kaddressbook/using-kaddressbook.html">&kaddressbook;'s main
-window</ulink> to the icon for &korganizer;'s Calendar
-(<guiicon><inlinemediaobject><imageobject> <imagedata
-                                           fileref="calendar-sidebar-icon.png" 
-                                           format="PNG"/>
-</imageobject></inlinemediaobject></guiicon>) will create a new Event
-with &quot;Meeting&quot; as the title and the selected contacts as
-attendees.
-</para>
+<para
+>Das Ziehen einer beliebigen Anzahl von Einträgen aus dem <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>Hauptfenster von &kaddressbook;</ulink
+> auf das Symbol für den Kalender von &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="calendar-sidebar-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>) erzeugt einen neuen Termin mit &quot;Treffen&quot; als Titel und den ausgewählten Kontakten als Teilnehmern. </para>
 
-<para>Note that dragging onto the To-do button creates a To-do,
-whereas dragging onto the Calendar creates an Event. More on this
-distinction is available in the 
-<ulink url="help:/korganizer">&korganizer; documentation</ulink>
-</para>
+<para
+>Beachten Sie, dass das Ziehen auf das Aufgabensymbol eine Aufgabe erzeugt, während das Ziehen auf das Kalendersymbol einen Termin erzeugt. Mehr zu den Unterschied zwischen diesen finden Sie in der <ulink url="help:/korganizer"
+>&korganizer;-Dokumentation</ulink
+>. </para>
 
 </sect2>
 
@@ -474,69 +563,69 @@ distinction is available in the
 </chapter>
 
 <chapter id="summary-view">
-<title>The Summary View</title>
+<title
+>Die Übersicht</title>
 
-<para>The default view when starting &kontact; for the first time is the Summary
-View. It shows an overview of the most relevant information provided by the
-selected &kontact; components. These can be notes, imminent
-appointments or birthdays, due to-dos, new messages &etc; Which information is
-shown is configurable by selecting the corresponding components in the <link
-linkend="configuration">&kontact; configuration dialog</link>.</para>
+<para
+>Beim ersten Start von &kontact; wird zunächst die Übersicht angezeigt. Sie enthält die wichtigsten Informationen für die ausgewählten Komponenten von &kontact;. Dabei kann es sich um Notizen, wichtige Termine oder Geburtstage, fällige Aufgaben, Neue Nachrichten oder andere Informationen handeln. Die Inhalte sind durch Auswahl der gewünschten Komponenten im <link linkend="configuration"
+>Einrichtungsdialog von &kontact;</link
+> einstellbar.</para>
 
 <screenshot>
-<screeninfo>&kontact;'s Summary View</screeninfo>
+<screeninfo
+>Die Übersicht von &kontact;</screeninfo>
 <mediaobject>
-<imageobject><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
 <textobject>
-<phrase>&kontact;'s Summary View</phrase>
+<phrase
+>Die Übersicht von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-&kontact;'s Summary View
-</para>
+<para
+>Die Übersicht von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
 
-<!-- not in kde4 para>If you think the information you see is outdated, you can click on the
-<guibutton>Refresh</guibutton> button (<guiicon><inlinemediaobject><imageobject>
+<!-- not in kde4 para
+>If you think the information you see is outdated, you can click on the
+<guibutton
+>Refresh</guibutton
+> button (<guiicon
+><inlinemediaobject
+><imageobject>
 <imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
-</imageobject></inlinemediaobject></guiicon>)
+</imageobject
+></inlinemediaobject
+></guiicon
+>)
 in the Summary View toolbar to refresh
 the data.</para-->
 
 <sect1 id="summary-view-component-reposition">
-<title>Repositioning Summary View Components</title>
+<title
+>Neuanordnung der Komponenten für die Übersicht</title>
 
-<para>The Summary View allows you to change where the
-components are in the view itself. So, if you prefer to
-have your Special Dates in the lower left and your To-dos in
-the upper right, you can rearrange the Summary View to
-reflect that.</para>
+<para
+>In der Übersicht können Sie festlegen, an welcher Stelle die Komponenten angezeigt werden. Wenn Sie die Besonderen Termine lieber links unten und die Aufgaben rechts oben haben möchten, können Sie die Übersicht entsprechend anpassen.</para>
 
-<para>Repositioning components in the Summary View is as simple
-as dragging them to the new location you want them to be in. Hold down the
-&Ctrl; key, click and hold on the gray title area of the component and drag
-the component to wherever you want it to be. Note that this positioning is done
-compared to other components. So you can move the Mail component to be
-below the To-do component in the view, but you cannot place it in a specific
-position. If you have only one component in your Summary View, the only option
-is to move it between the two columns of the view; two components can either
-be two in one column or one in each column; and so on and so forth. Whenever
-you are dragging a component, you will see a small preview box following your
-mouse around showing you the component.</para>
+<para
+>Die Neuanordnung der Komponenten in der Übersicht kann einfach durch Ziehen und Ablegen an der gewünschten Stelle erfolgen. Halten Sie die &Ctrl;taste gedrückt und klicken Sie auf die grau unterlegte Überschrift und ziehen Sie diese bei gedrückter Maustaste an die gewünschte Stelle. Beachten Sie, dass die Anordnung nicht beliebig erfolgen kann, sondern immer nur in Bezug auf die anderen Einträge. So können Sie die Mail-Komponenten zwar unter die Komponente für Aufgaben verschieben, aber nicht an eine frei wählbare Position irgendwo. Wenn Sie nur einen Eintrag in der Übersicht haben, können Sie diesen nur zwischen den beiden vorhandenen Spalten verschieben, bei zwei Einträgen können in jeder Spalte einer oder beide in derselben Spalten abgelegt werden &etc; Sobald Sie eine Komponente mit der Maus Ziehen, wird eine kleine Vorschau angezeigt, die sich mit dem Mauszeiger bewegt.</para>
 
 <screenshot>
-<screeninfo>Rearranging &kontact;'s Summary View</screeninfo>
+<screeninfo
+>Neuanordnen der Übersicht von &kontact;</screeninfo>
 <mediaobject>
-<imageobject><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
 <textobject>
-<phrase>Rearranging &kontact;'s Summary View</phrase>
+<phrase
+>Neuanordnen der Übersicht von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-Rearranging &kontact;'s Summary View
-</para>
+<para
+>Neuanordnen der Übersicht von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -546,63 +635,69 @@ Rearranging &kontact;'s Summary View
 
 
 <chapter id="configuration">
-<title>Configuring &kontact;</title>
+<title
+>&kontact; einrichten</title>
 
 <sect1 id="main-config">
-<title>&kontact; Configuration Window</title>
+<title
+>Der Einrichtungsdialog von &kontact;</title>
 
-<para>When selecting the <guimenuitem>Configure &kontact;</guimenuitem>
-action from the <guimenu>Settings</guimenu> menu, the &kontact;
-configuration dialog is shown. It provides a list of the
-configurations for all the active components of &kontact;. You can
-click the <guilabel>&gt;</guilabel> symbol next to the component name to
-expand the tree so that you can view the options for that
-component. Selecting one of the configuration
-options under a heading will bring up that configuration section on
-the right.</para>
+<para
+>Durch Auswahl von <guimenuitem
+>&kontact; einrichten ...</guimenuitem
+> aus dem Menü <guimenu
+>Einstellungen</guimenu
+> wird der Einrichtungsdialog von &kontact; aufgerufen. Er bietet zunächst eine Liste der verfügbaren Komponenten. Sie können auf das <guilabel
+>&gt;</guilabel
+>-Symbol neben den Komponentennamen klicken, um deren Optionen auszuklappen, sodass sie die Optionen für die gewünschte Komponente sehen können. Nach Auswahl eines Unterpunktes einer Komponente werden die Einstellungen dafür auf der rechten Seite des Dialogs angezeigt.</para>
 
 <screenshot>
-<screeninfo>&kontact;'s Configuration Window</screeninfo>
+<screeninfo
+>Der Einrichtungsdialog von &kontact;</screeninfo>
 <mediaobject>
-<imageobject><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
 <textobject>
-<phrase>&kontact;'s Configuration Window</phrase>
+<phrase
+>Der Einrichtungsdialog von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-&kontact;'s Configuration Window
-</para>
+<para
+>Der Einrichtungsdialog von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
 
-<para>By checking the box next to the component title you select the
-component to be visible in the Side Pane and the Summary View. The
-component is loaded and shown in the Main Window when
-clicking on its icon in the Side Pane. By
-unchecking the check box the component is removed from the Side Pane and
-Summary View. Changes become effective by clicking the
-<guibutton>Apply</guibutton> or <guibutton>OK</guibutton>
-buttons.</para>
+<para
+>Durch Markierung des Ankreuzfeldes neben dem Komponentennamen wird die Komponente zur Anzeige in der Übersicht und dem Seitenbereich ausgewählt. Die Komponente wird dann durch Auswahl des Symbols geladen und ihr Hauptfenster im rechten Bereich angezeigt. Durch Entfernen der Markierung wird die Komponente aus dem Seitenbereich und der Übersicht entfernt. Änderungen werden durch Klicken auf <guibutton
+>Anwenden</guibutton
+> oder <guibutton
+>OK</guibutton
+> wirksam.</para>
 
-<para>You can also configure individual components by clicking on the
-corresponding icon in the Side Pane and then selecting the menu item
-<guimenuitem>Configure <replaceable>application name</replaceable></guimenuitem>
-from the <guimenu>Settings</guimenu> menu.</para>
+<para
+>Sie können Komponenten auch einzeln einrichten, indem Sie die Komponente durch Klicken auf ihr Symbol im Seitenbereich des Hauptfensters auswählen und dann den Menüpunkt <guimenuitem
+><replaceable
+>Programmname </replaceable
+>einrichten</guimenuitem
+> aus dem Menü <guimenu
+>Einstellungen</guimenu
+> auswählen.</para>
 
 <screenshot>
-<screeninfo>&kontact; Settings Menu When &kmail; is Selected</screeninfo>
+<screeninfo
+>Das Menü Einstellungen von &kontact;, wenn &kmail; ausgewählt ist</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata format="PNG" fileref="settings-menu-kmail.png"/>
 </imageobject>
 <textobject>
-<phrase>&kontact; Settings Menu When &kmail; is Selected</phrase>
+<phrase
+>Das Menü Einstellungen von &kontact;, wenn &kmail; ausgewählt ist</phrase>
 </textobject>
 <caption>
-<para>
-&kontact; Settings Menu When &kmail; is Selected
-</para>
+<para
+>Das Menü Einstellungen von &kontact;, wenn &kmail; ausgewählt ist </para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -610,168 +705,179 @@ from the <guimenu>Settings</guimenu> menu.</para>
 </sect1>
 
 <sect1 id="summary-view-config">
-<title>Configuring &kontact;'s Summary View</title>
+<title
+>Die Übersicht von &kontact; konfigurieren</title>
 
-<para>When you select <guilabel>Summaries</guilabel>
-in the &kontact; settings dialog, a page is displayed that allows you to select which summary
-plugins &kontact; should show in its summary view.
-Here is a brief list of the currently available plugins and what they do:
-</para>
+<para
+>Wenn Sie <guilabel
+>Übersichten</guilabel
+> im Einrichtungsdialog von &kontact; wählen, wird eine Seite angezeigt, in der Sie die &kontact;-Module in der Übersicht festlegen können. Hier folgt eine kurze Liste der einzelnen verfügbaren Module und ihrer Funktionen: </para>
 
 <screenshot>
-<screeninfo>Summary Selection</screeninfo>
+<screeninfo
+>Zusammenstellung der Übersicht</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata format="PNG" fileref="summary-selection.png"/>
 </imageobject>
 <textobject>
-<phrase>Summary Selection</phrase>
+<phrase
+>Zusammenstellung der Übersicht</phrase>
 </textobject>
-<caption><para>Summary Selection</para></caption>
+<caption
+><para
+>Zusammenstellung der Übersicht</para
+></caption>
 </mediaobject>
 </screenshot>
 
 <sect2 id="summary-view-config-calendar">
-<title>&kontact; Summary Plugins: Calendar</title>
+<title
+>Übersichtsmodule in &kontact;: Kalender</title>
 
-<para>
-The <quote>Calendar</quote> plugin for &kontact;'s Summary View adds
-an area in the view labeled <guilabel>Upcoming Events</guilabel>. This
-will display any events that currently apply.
-</para>
+<para
+>Das <quote
+>Kalender</quote
+>-Modul für die Übersicht in &kontact; fügt einen Bereich namens <guilabel
+>Anstehende Termine</guilabel
+> hinzu. Hier werden alle anstehenden Termine angezeigt. </para>
 
 <screenshot>
-<screeninfo>&kontact; Calendar Summary Plugin</screeninfo>
+<screeninfo
+>Das Kalender-Übersichtsmodul von &kontact;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata format="PNG" fileref="summary-view-calendar.png"/>
 </imageobject>
 <textobject>
-<phrase>&kontact; Calendar Summary Plugin</phrase>
+<phrase
+>Das Kalender-Übersichtsmodul von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-&kontact; Calendar Summary Plugin
-</para>
+<para
+>Das Kalender-Übersichtsmodul von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
 </sect2>
 
 <sect2 id="summary-view-config-mail">
-<title>&kontact; Summary Plugins: Mail</title>
+<title
+>Übersichtsmodule in &kontact;: E-Mail</title>
 
-<para>
-The <quote>Mail</quote> plugin for &kontact;'s Summary View adds an
-area in the view labeled <guilabel>New Messages</guilabel>. This area
-is updated every time you receive new messages to inform you how many
-of these messages there are and which folder they are in.
-</para>
+<para
+>Das <quote
+>E-Mail</quote
+>-Übersichtsmodul von &kontact; fügt einen Bereich namens <guilabel
+>Neue Nachrichten</guilabel
+> hinzu. Dieser Bereich wird jedes Mal aktualisiert, wenn Sie neue Nachrichten empfangen, und teilt Ihnen mit, wieviele neue Nachrichten vorliegen, und in welchen Ordnern sie zu finden sind. </para>
 
 <screenshot>
-<screeninfo>&kontact; Mail Summary Plugin</screeninfo>
+<screeninfo
+>Das E-Mail-Übersichtsmodul von &kontact;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata format="PNG" fileref="summary-view-mail.png"/>
 </imageobject>
 <textobject>
-<phrase>&kontact; Mail Summary Plugin</phrase>
+<phrase
+>Das E-Mail-Übersichtsmodul von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-&kontact; Mail Summary Plugin
-</para>
+<para
+>Das E-Mail-Übersichtsmodul von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
 </sect2>
 
 <sect2 id="summary-view-config-notes">
-<title>&kontact; Summary Plugins: Notes</title>
+<title
+>Übersichtsmodule in &kontact;: Notizen</title>
 
-<para>
-The <quote>Notes</quote> plugin for &kontact;'s Summary View adds an
-area in the view labeled <guilabel>Popup Notes</guilabel>. This area
-displays all current notes' titles (titles default to the date/time
-the note was created). Clicking on the title of a note will bring up
-the Notes area.
-</para>
+<para
+>Das <quote
+>Notizen</quote
+>-Übersichtsmodul von &kontact; fügt einen Bereich namens <guilabel
+>Notizen</guilabel
+> hinzu. Hier werden die Titel aller aktuellen Notizen angezeigt (als Titel wird per Voreinstellung das Datum und die Uhrzeit verwendet, als die Notiz geschrieben wurde). Wenn Sie auf den Titel einer Notiz klicken, wird der Notizenbereich angezeigt. </para>
 
 <screenshot>
-<screeninfo>&kontact; Notes Summary Plugin</screeninfo>
+<screeninfo
+>Das Notizen-Übersichtsmodul von &kontact;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata format="PNG" fileref="summary-view-notes.png"/>
 </imageobject>
 <textobject>
-<phrase>&kontact; Notes Summary Plugin</phrase>
+<phrase
+>Das Notizen-Übersichtsmodul von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-&kontact; Notes Summary Plugin
-</para>
+<para
+>Das Notizen-Übersichtsmodul von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
 </sect2>
 
 <sect2 id="summary-view-config-todo-list">
-<title>&kontact; Summary Plugins: To-do List</title>
+<title
+>Übersichtsmodule in &kontact;: Aufgabenliste</title>
 
-<para>
-The <quote>To-do List</quote> plugin for &kontact;'s Summary View adds
-an area in the view labeled <guilabel>Pending To-dos</guilabel>. This area
-contains all current to-dos, including ones that have been completed.
-It displays the title of the to-do, the percentage of completion, and
-the current status of the to-do. Note that you can purge all completed
-to-dos via the &kontact; To-do List. Clicking on a to-do's title will
-currently do nothing.
-</para>
+<para
+>Das <quote
+>Aufgabenliste</quote
+>-Übersichtsmodul in &kontact; fügt einen Bereich namens <guilabel
+>Anstehende Aufgaben</guilabel
+> hinzu. Dieser enthält alle aktuellen Aufgaben, einschließlich der erledigten. Angezeigt werden der Titel, der Erledigungsgrad und der aktuelle Status. Beachten Sie, dass Sie alle erledigten Aufgaben über die Aufgabenliste von &kontact; gelöscht werden können. Derzeit passiert nichts, wenn Sie den Titel einer Aufgabe anklicken. </para>
 
 <screenshot>
-<screeninfo>&kontact; To-do List Summary Plugin</screeninfo>
+<screeninfo
+>Das Aufgabenliste-Übersichtsmodul von &kontact;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata format="PNG" fileref="summary-view-todos.png"/>
 </imageobject>
 <textobject>
-<phrase>&kontact; To-do List Summary Plugin</phrase>
+<phrase
+>Das Aufgabenliste-Übersichtsmodul von &kontact;</phrase>
 </textobject>
 <caption>
-<para>
-&kontact; To-do List Summary Plugin
-</para>
+<para
+>Das Aufgabenliste-Übersichtsmodul von &kontact; </para>
 </caption>
 </mediaobject>
 </screenshot>
 </sect2>
 
 <sect2 id="summary-view-config-special-dates">
-<title>&kontact; Summary Plugins: Special Dates</title>
+<title
+>Übersichtsmodule in &kontact;: Besondere Termine</title>
 
-<para>
-The <quote>Special Dates</quote> plugin for &kontact;'s Summary View adds an
-area in the view labeled <guilabel>Upcoming Special Dates</guilabel>.
-This area contains information based on the criteria selected in the
-configuration area of the plugin in &kontact;'s Summary View configuration.
-The <quote>Special Dates</quote> plugin is especially useful because it can
-display birthdays, anniversaries, holidays, and special occasions from both
-the calendar and the contact list in one place.
-</para>
+<para
+>Das Übersichtsmodul <quote
+>Besondere Termine</quote
+> fügt einen Bereich in die Übersicht von &kontact; ein, der den Titel <guilabel
+>Anstehende besondere Termine</guilabel
+> trägt. Dieser Bereich zeigt die Informationen, die in der Einrichtung des Übersichtsmoduls ausgewählt wurden. Das Modul <quote
+>Besondere Termine</quote
+> ist besonders hilfreich, da es Geburtstage, Jahrestage, Feiertage und besondere Termine aus dem Kalender und den Kontakten an einer Stelle darstellt. </para>
 
 <screenshot>
-<screeninfo>&kontact; Special Dates Plugin</screeninfo>
+<screeninfo
+>Das &kontact;-Übersichtsmodul Besondere Termine</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata format="PNG" fileref="summary-view-special-dates.png"/>
 </imageobject>
 <textobject>
-<phrase>&kontact; Special Dates Plugin</phrase>
+<phrase
+>Das &kontact;-Übersichtsmodul Besondere Termine</phrase>
 </textobject>
 <caption>
-<para>
-&kontact; Special Dates Plugin
-</para>
+<para
+>Das &kontact;-Übersichtsmodul Besondere Termine </para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -782,52 +888,72 @@ the calendar and the contact list in one place.
 
 
 <chapter id="command-line">
-<title>&kontact; On the Command Line</title>
+<title
+>&kontact; auf der Befehlszeile</title>
 
-<para>&kontact; has several command line arguments
-that can be used for certain actions.</para>
+<para
+>&kontact; verfügt über mehrere Befehlszeilenargumente, die für bestimmte Aktionen benutzt werden können.</para>
 
-<para>First of all, &kontact; supports command line arguments
-that all &kf5;/&Qt; applications support, see the man pages qt5options and kf5options.
-</para>
+<para
+>Zunächst einmal unterstützt &kontact; alle standardmäßigen Befehlszeilenargumente von &kf5;/&Qt;. Diese Argumente finden Sie in den Handbuchseiten von qt5options und kf5options. </para>
 
-<para>&kontact; also supports several command line arguments
-specific to it.</para>
+<para
+>&kontact; hat darüber hinaus eine Reihe eigener Argumente.</para>
 
 <sect1 id="command-line-arguments">
-<title>Command Line Arguments</title>
+<title
+>Befehlszeilenargumente</title>
 
 <sect2 id="command-line-module">
-<title>Module-related Arguments</title>
+<title
+>Modulbezogene Argumente</title>
 
-<para>To get a list of available &kontact; modules, you can type:</para>
+<para
+>Mit folgendem Befehl erhalten Sie eine Liste der verfügbaren Module von &kontact;:</para>
 
-<para>
-<prompt>&percnt;</prompt> <command>kontact --list</command>
-</para>
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --list</command
+> </para>
 
-<para>Then, to start &kontact; with a module active, type:</para>
+<para
+>Um &kontact; mit einem bestimmten Modul zu starten, geben Sie ein:</para>
 
-<para>
-<prompt>&percnt;</prompt> <command>kontact --module <replaceable>moduleName</replaceable></command>
-</para>
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --module <replaceable
+>modulname</replaceable
+></command
+> </para>
 
-<para>Where <replaceable>moduleName</replaceable> is one of the modules obtained using the
-previous command.</para>
+<para
+>wobei <replaceable
+>modulname</replaceable
+> eines der Module ist, die Sie sich mit dem vorherigen Befehl haben anzeigen lassen.</para>
 
 </sect2>
 
 <sect2 id="command-line-startup">
-<title>Startup-related Arguments</title>
+<title
+>Argumente für den Start</title>
 
-<para>To start &kontact; in iconified mode<footnote><para>Iconified mode is also
-called minimized; it is when the application window is hidden and the
-application is available only in the taskbar.</para></footnote>, you can
-type:</para>
+<para
+>Um &kontact; als Symbol zu starten<footnote
+><para
+>In diesem Modus - auch minimiert genannt - ist das Programmfenster ausgeblendet und das Programm kann nur über das Symbol in der Programmleiste geöffnet werden.</para
+></footnote
+>, geben Sie folgendes ein:</para>
 
-<para>
-<prompt>&percnt;</prompt> <command>kontact --iconify</command>
-</para>
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --iconify</command
+> </para>
 
 </sect2>
 
@@ -837,162 +963,190 @@ type:</para>
 
 
 <chapter id="technology">
-<title>Under The Hood</title>
+<title
+>Unter der Oberfläche</title>
 
-<para>&kontact; makes extensive use of several &kde; key technologies, most
-notably KParts and &DBus;.</para>
+<para
+>&kontact; macht intensiven Gebrauch von den &kde;-Schlüsseltechnologien KParts und &DBus;.</para>
 
-<para>The &GUI; integration of the components is done by plugins
-providing KParts versions of the applications. This only needs a thin
-additional layer on top of the already existing code of the
-stand-alone applications.</para>
+<para
+>Die &GUI;-Integration der Komponenten erfolgt durch Module, die eine KPart-Version der Anwendung bereitstellen. Dazu wird nur eine dünne Ebene oberhalb der Einzelanwendung im eigenen Fenster benötigt.</para>
 
-<para>For communication between the components &DBus; is used. This
-has the nice characteristic that it is completely transparent to
-whether the application is run stand-alone or embedded as KPart into
-&kontact;. When running inside of &kontact; an efficient in-process
-mode of &DBus; is used.</para>
+<para
+>Zur Kommunikation zwischen den Komponenten wird &DBus; verwendet. Dieser Mechanismus funktioniert gleichermaßen, egal ob die Anwendung als Komponente innerhalb von &kontact; oder selbstständig gestartet wurde. Innerhalb von &kontact; wird ein besonders effizienter Modus von &DBus; verwendet.</para>
 
 </chapter>
 
 
 <chapter id="credits">
-<title>Credits and License</title>
+<title
+>Danksagungen und Lizenz</title>
 
-<para>&kontact;</para>
+<para
+>&kontact;</para>
 
-<para>Program copyright 2001-2021, The &kde; Developers</para>
+<para
+>Programm Copyright 2004-2005. Die &kde;-Entwickler</para>
 
-<para>Contributors:</para>
+<para
+>Mitwirkende:</para>
 
 <itemizedlist>
-<listitem><para>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
     </listitem>
-<listitem><para>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
     </listitem>
-<listitem><para>&Don.Sanders; &Don.Sanders.mail;</para>
+<listitem
+><para
+>&Don.Sanders; &Don.Sanders.mail;</para>
     </listitem>
-<listitem><para>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+<listitem
+><para
+>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
     </listitem>
-<listitem><para>Allen Winter <email>winter@kde.org</email></para></listitem>
-<listitem><para>Rafael Fernández López <email>ereslibre@kde.org</email></para></listitem>
-<listitem><para>&David.Faure; &David.Faure.mail;</para></listitem>
-<listitem><para>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para></listitem>
-<listitem><para>Sven Lüppken <email>sven@kde.org</email></para></listitem>
-<listitem><para>Torgny Nyblom <email>nyblom@kde.org</email></para></listitem>
-<listitem><para>Zack Rusin <email>zack@kde.org</email></para></listitem>
-<listitem><para>Matthias Hölzer-Klüpfel <email>mhk@kde.org</email>, the
-original author of the &kontact; framework.</para>
+<listitem
+><para
+>Allen Winter <email
+>winter@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthis H&ouml;lzer-Kl&uuml;pfel <email
+>mhk@kde.org</email
+>, der ursprüngliche Autor des &kontact;-Frameworks.</para>
     </listitem>
 
-<listitem><para>All the valued developers of the applications &kontact; is
-integrating. They did almost all the work.</para>
+<listitem
+><para
+>Alle geschätzten Entwickler der Einzelanwendungen, die in &kontact; integriert werden. Sie haben beinahe die gesamte Arbeit geleistet.</para>
     </listitem>
 </itemizedlist>
 
-<para>Documentation copyright 2004-2005</para>
+<para
+>Copyright der Dokumentation 2004-2005</para>
 
-<para>Contributors:
+<para
+>Mitwirkende: <itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem
+><para
+>Antonio Salazar <email
+>savedfastcool@gmail.com</email
+></para>
+</listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
 
-<itemizedlist>
-<listitem><para>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
-</listitem>
-<listitem><para>Antonio Salazar <email>savedfastcool@gmail.com</email></para>
-</listitem>
-<listitem><para>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
-</listitem>
-
-<listitem><para>All the members of the &kde; documentation list who
-assisted with markup and style issues.</para>
+<listitem
+><para
+>Alle Mitglieder der &kde;-Dokumentationsliste, die mit der Formatierung und Stilfragen geholfen haben.</para>
 </listitem>
 </itemizedlist>
 </para>
 
-<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-&underFDL;
-&underGPL;
-
-</chapter>
+<para
+>Deutsche Übersetzung von Maren Pakura <email
+>maren@kde.org</email
+></para
+> &underFDL; &underGPL; </chapter>
 
 <appendix id="kontact-admin">
-<title>Administrator's Guide</title>
+<title
+>Handbuch für den Systemverwalter</title>
 <!-- Section Compatibility -->
 <sect1 id="compat">
-<title>Compatibility Issues</title>
+<title
+>Kompatibilitäts-Probleme</title>
 
-<para>
-This section provides help with how to make &kontact;
-communicate effectively with various groupware solutions.
-</para>
+<para
+>In diesem Abschnitt finden Sie Anleitungen, um die Kommunikation von &kontact; mit anderen Groupware-Lösungen zu verbessern. </para>
 
 <sect2 id="compat-outlook">
-<title>Outlook and Exchange</title>
+<title
+>Outlook und Exchange</title>
 
-<para>
-In the &kontact; configuration dialog, under <menuchoice><guimenu>Mail</guimenu>
-<guimenuitem>Misc</guimenuitem></menuchoice> on the <guilabel>Invitations</guilabel> page 
-you will find the following options that will help the user communicate
-with Microsoft Outlook(tm) running in a Kolab environment or in a
-Microsoft Exchange(tm) environment.
-</para>
+<para
+>Im Einrichtungsdialog von &kontact; finden Sie unter <menuchoice
+><guimenu
+>E-Mail</guimenu
+><guimenuitem
+>Diverses</guimenuitem
+></menuchoice
+> auf der Seite <guilabel
+>Einladungen</guilabel
+> einige Einstellungen, die dem Benutzer bei der Kommunikation mit Microsoft Outlook(tm) in einer Kolab-Umgebung oder in einer Microsoft Exchange(tm)-Umgebung helfen. </para>
 
 <variablelist>
 
 <varlistentry>
-<term><guilabel>Mangle From:/To: headers in replies to invitations</guilabel></term>
+<term
+><guilabel
+>Vorspannfelder für „Von“ und „An“ in Antworten auf Terminanfragen einsetzen</guilabel
+></term>
 <listitem>
-<para>Enable this option to make Microsoft Outlook(tm) understand your answers to invitation replies.</para>
-<para>Microsoft Outlook has a number of shortcomings in its implementation of
-the iCalendar standard; this option works around one of them. If you 
-have problems with Outlook users not being able to get your replies,
-try setting this option.</para>
-<para>Details: When mailing an iCal invitation this makes the message have 
-the From: header the same as the To: header. It also sets header
- X-KMail-Identity to the To:'s UIOD and makes sure the BCC: is blank.
-Outlook will only understand the reply if the From: header is 
-the same as the To: header of the invitation message.</para>
+<para
+>Schalten Sie diese Option ein, damit Microsoft Outlook(tm) Ihre Antworten auf Einladungen versteht.</para>
+<para
+>Das Programm Microsoft Outlook implementiert den iCalendar-Standard nicht vollständig korrekt. Diese Einstellung schafft Abhilfe für einen solchen Fehler. Falls Benutzer von Outlook Ihre Antworten nicht erhalten, versuchen Sie es mit dieser Einstellung.</para>
+<para
+>Details: Beim Senden einer iCal-Einladung wird mit dieser Einstellung der im Vorspann der Nachricht der gleiche Wert für „Von“ für das Feld „An” benutzt. Außerdem wird im Vorspann für „X-KMail-Identity“ der UIOD des Feldes „An” und der Wert des Feldes „Blindkopie“ gelöscht. Outlook versteht die Antwort nur dann, wenn im Vorspann der Einladung die Felder „Von“ und „An” den gleichen Wert haben</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Send invitations in the mail body</guilabel></term>
+<term
+><guilabel
+>Einladung im Textteil der E-Mail verschicken</guilabel
+></term>
 <listitem>
-<para>Invitations are normally sent as attachments to a mail. This switch
-changes the invitation to be sent in the text of the mail instead;
-this is necessary to send invitations and replies to Microsoft Outlook.
-But, when you do this, you no longer get descriptive text that mail
-programs can read; so, to people who have email programs that do not
-understand the invitations, the resulting messages look very odd.
-People that have email programs that do understand invitations will
-still be able to work with this.</para>
-<para>Details: When mailing an iCal invitation this option makes the
-message body from the attachment data and sets the Content-Type header
-to 'text/calendar; method=something; charset="utf-8"'.</para>
-<para>Auto-sending is also turned on so there is no human intervention
-required for composing.</para>
-<note><para>Encryption and self-signing are disabled.</para></note>
+<para
+>Terminanfragen werden normalerweise als Anhang versendet. Diese Einstellung bewirkt, dass Terminanfragen stattdessen im Text der Mail versendet werden. Dies ist bei Terminanfragen und Antworten an Microsoft Outlook nötig. Wenn Sie diese Einstellung verwenden, erhalten Sie keinen erläuternden Text mehr, der von einem E-Mail-Programm gelesen werden kann. Für Personen, deren E-Mail-Programme Terminanfragen nicht verstehen, sehen die entsprechenden Nachrichten sehr merkwürdig aus. Personen, deren E-Mail-Programm Terminanfragen versteht, können weiterhin damit arbeiten.</para>
+<para
+>Details: Beim Senden einer iCal-Einladung wird mit dieser Einstellung der Nachrichtentext aus den Daten des Anhangs erzeugt und im Vorspann als Content-Typ 'text/calendar; method=something; charset="utf-8"'. eingetragen.</para>
+<para
+>Das Automatische Versenden ist auch eingeschaltet, daher ist für das Verfassen der Nachricht keine Aktion durch den Benutzer nötig.</para>
+<note
+><para
+>Verschlüsselung und eigene Signierung sind nicht möglich.</para
+></note>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Exchange-compatible invitation naming</guilabel></term>
+<term
+><guilabel
+>Exchange-kompatible Namensvergabe für Einladungen</guilabel
+></term>
 <listitem>
-<para>Microsoft Outlook, when used in combination with a Microsoft Exchange(tm)
-server, has a problem understanding standards-compliant groupware email.
-Enable this option to send groupware invitations in a way that Microsoft
-Exchange(tm) understands. The invitation will be sent as an attachment with name
-<filename>ical.ics</filename>.</para>
-<para>Details: When mailing an iCal invitation this makes
-the message have the subject "(Declined|Tentative|Accepted|Delegated): subject".
-The invitation will be sent as an attachment with name <filename>ical.ics</filename>.</para>
+<para
+>Wenn Microsoft Outlook mit einem Microsoft-Exchange-Server eingesetzt wird, versteht es keine standardkonformen Arbeitsgruppen-E-Mails. Wenn diese Einstellung aktiviert ist, werden Einladungen in einem Format gesendet, das von Microsoft Exchange verstanden wird. Die Einladung wird als Anhang mit dem Namen <filename
+>ical.ics</filename
+> gesendet.</para>
+<para
+>Details: Beim Senden einer iCal-Einladung wird mit dieser Einstellung dem Betreff der Nachricht "(Abgelehnt|Vorläufig|Akzeptiert|Delegiert). Betreff" vorangestellt. Die Einladung wird als Anhang mit dem Namen <filename
+>ical.ics</filename
+> versendet.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Outlook-compatible attachment naming</guilabel></term>
+<term
+><guilabel
+>Outlook-kompatible Namensvergabe für Anhänge</guilabel
+></term>
 <listitem>
-<para>Turn this option on to make Outlook(tm) understand attachment names
-containing non-English characters.</para>
+<para
+>Schalten Sie diese Einstellung ein, damit Outlook(tm) die Namen von Anhängen akzeptiert, die Sonderzeichen enthalten.</para>
 </listitem>
 </varlistentry>
 
@@ -1003,51 +1157,46 @@ containing non-English characters.</para>
 
 <!-- Section Behavior -->
 <sect1 id="behavior">
-<title>Behavioral Issues</title>
+<title
+>Anpassung des Verhaltens</title>
 
-<para>
-This section provides instructions on how to make &kontact; 
-behave more like other groupware clients.
-</para>
+<para
+>In diesem Abschnitt finden Sie Anleitungen, um das Verhalten von &kontact; besser an andere Groupware-Programme anzupassen. </para>
 
 <sect2 id="behave-composing">
-<title>Composing Messages</title>
+<title
+>Nachrichten erstellen</title>
 
-<para>
-Outlook users are accustomed to typing a list of addresses in the To:,
-CC: or BCC: fields separated by a semicolon (';') character in addition
-to a comma (',').  By default, &kontact; only allows the comma as an address
-separator character.  To also allow the semicolon, change the
-<option>AllowSemicolonAsAddressSeparator</option> from false to true
-in the installed <filename>share/config.kcfg/messagecomposer.kcfg</filename> file. 
-</para>
+<para
+>Benutzer von Outlook sind daran gewöhnt, mehrere Adressen bei der Eingabe in die Felder „An“, „Kopie“ und „Bindkopie“ durch ein Semikolon (';') oder durch zu einem Komma (',') zu trennen In der Voreinstellung ist &kontact; nur das Komma als Trennzeichen zwischen Adressen erlaubt. Um hier auch das Semikolon verwenden zu können, ändern Sie in der installierten Datei <filename
+>share/config.kcfg/messagecomposer.kcfg</filename
+> den Wert  <option
+>AllowSemicolonAsAddressSeparator</option
+> von „false“ auf „true“. </para>
 
 </sect2>
 </sect1>
 
 <!-- Section RFC Compromises -->
 <sect1 id="nonrfc">
-<title>RFC Compromises</title>
+<title
+>RFC-Kompromisse</title>
 
-<para>&kontact; is designed to interoperate as well as is possible
-with a wide variety of groupware solutions.  To that end, we sometimes
-make design compromises with respect to the various Internet RFCs
-that provide the basis for low-level libraries on which &kontact;
-relies heavily.</para>
+<para
+>&kontact; wird mit dem Ziel entwickelt, so gut wie möglich mit vielen verschiedenen Groupware-Lösungen zusammen zu arbeiten. Um das zu erreichen, sind manchmal Kompromisse im Hinblick auf verschieden Internet-RFCs nötig, die die Grundlage der von &kontact; verwendeten Bibliotheken bilden.</para>
 
-<note><para>We never knowingly violate any RFC.</para></note>
+<note
+><para
+>Die Regelungen von RFCs werden niemals absichtlich missachtet.</para
+></note>
 
-<para>The following list of RFC compromises is made by &kontact; or
-the low-levels libraries used by &kontact;:</para>
+<para
+>Im Folgenden werden die von &kontact; und den zugehörigen Bibliotheken verwendeten RFC-Kompromisse aufgeführt:</para>
 <!--FIXME is this correct?-->
 <itemizedlist>
 <listitem>
-<para>
-When writing duration values into iCalendar files, &kontact; never
-writes the DURATION property in terms of weeks (i.e., 1*DIGIT "W"); 
-instead, the integer number of weeks is always multiplied by 7 and written
-in terms of days (i.e. 1*DIGIT "D").
-</para>
+<para
+>Beim Schreiben von Zeiträumen in iCalendar-Dateien verwendet &kontact; niemals die Dauer in Wochen (&ie; 1*DIGIT "W"), sondern multipliziert die Anzahl der Wochen immer mit dem Faktor sieben und schreibt den Zeitraum als Tage (&ie; 1*DIGIT "D"). </para>
 </listitem>
 </itemizedlist>
 
