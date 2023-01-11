@@ -16,13 +16,13 @@
 # H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2010, 2011.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2017.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-19 00:47+0000\n"
-"PO-Revision-Date: 2022-11-21 22:34+0300\n"
+"PO-Revision-Date: 2023-01-10 21:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -30,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 "X-POOTLE-MTIME: 1413132130.000000\n"
 
 #, kde-format
@@ -48,13 +48,13 @@ msgstr ""
 #: src/about/introduction_kontact.html:18
 #, kde-format
 msgid "Welcome to Kontact %1"
-msgstr "Kontact %1 Sürümüne Hoş Geldiniz"
+msgstr "Kontak %1 Sürümüne Hoş Geldiniz"
 
 #: src/about/introduction_kontact.html:19
 msgid ""
 "Kontact handles your e-mail, address book, calendar, to-do list and more."
 msgstr ""
-"Kontact e-posta, adres defteri, takvim, yapılacak ögeleri listesi ve daha "
+"Kontak; e-posta, adres defteri, takvim, yapılacaklar listesi ve daha "
 "fazlasını düzenlemenizi sağlar."
 
 #: src/about/introduction_kontact.html:36
@@ -63,7 +63,7 @@ msgstr "Bu tanıtımı atla"
 
 #: src/about/loading_kontact.html:5
 msgid "Loading Kontact ..."
-msgstr "Kontact yükleniyor..."
+msgstr "Kontak yükleniyor..."
 
 #: src/iconsidepane.cpp:263
 #, kde-format
@@ -223,9 +223,9 @@ msgid ""
 "each time Kontact is started. Otherwise, Kontact will restore the last "
 "active plugin from the previous usage."
 msgstr ""
-"Kontact her başlatıldığında kullanılacak başlangıç eklentisini seçmek için "
-"açılır listeyi kullanın. Aksi takdirde Kontact, önceki kullanımdaki son "
-"etkin eklentiyi açacaktır."
+"Kontak her başlatıldığında kullanılacak başlangıç eklentisini seçmek için "
+"açılır listeyi kullanın. Aksi takdirde Kontak, önceki kullanımdaki son etkin "
+"eklentiyi açacaktır."
 
 #. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
 #. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
@@ -253,7 +253,7 @@ msgid ""
 "Usually Kontact will come up with the plugin used before shutdown. Check "
 "this box if you would like the specified plugin to come up on start instead."
 msgstr ""
-"Kontact genellikle kapatılmadan önce açık olan bileşen ile açılır. Eğer özel "
+"Kontak genellikle kapatılmadan önce açık olan bileşen ile açılır. Eğer özel "
 "bir bileşen ile açılmasını istiyorsanız bu kutucuğu işaretleyin."
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
@@ -319,7 +319,7 @@ msgstr "Gezgin"
 #: src/main.cpp:95
 #, kde-format
 msgid "Start with a specific Kontact module"
-msgstr "Belirli bir Kontact modülü ile başla"
+msgstr "Belirli bir Kontak modülü ile başla"
 
 #: src/main.cpp:96
 #, kde-format
@@ -334,7 +334,7 @@ msgstr "Tüm modülleri listele ve çık"
 #: src/main.cpp:162 src/mainwindow.cpp:946
 #, kde-format
 msgid "Kontact"
-msgstr "Kontact"
+msgstr "Kontak"
 
 #: src/main.cpp:164
 #, kde-format
@@ -344,7 +344,7 @@ msgstr "KDE kişisel bilgi yöneticisi"
 #: src/main.cpp:166
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "Telif Hakkı © 2001-%1 Kontact yazarları"
+msgstr "Telif Hakkı © 2001-%1 Kontak yazarları"
 
 #: src/main.cpp:170
 #, kde-format
@@ -432,37 +432,37 @@ msgstr "Yeni"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
-msgstr "Kontact Uygulamasını Yapılandır..."
+msgstr "Kontak Uygulamasını Yapılandır..."
 
 #: src/mainwindow.cpp:297
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
-msgstr "Kontact Uygulamasını Yapılandır"
+msgstr "Kontak Uygulamasını Yapılandır"
 
 #: src/mainwindow.cpp:298
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
-msgstr "Kontact'ı yapılandırabileceğiniz bir iletişim kutusu sunulacak."
+msgstr "Kontak'ı yapılandırabileceğiniz bir iletişim kutusu sunulacak."
 
 #: src/mainwindow.cpp:302
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
-msgstr "&Kontact Uygulamasına Giriş"
+msgstr "&Kontak Uygulamasına Giriş"
 
 #: src/mainwindow.cpp:303
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
-msgstr "Kontact giriş sayfasını göster"
+msgstr "Kontak giriş sayfasını göster"
 
 #: src/mainwindow.cpp:304
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
-msgstr "Kontact giriş sayfasını görmek için bu seçeneği seçin."
+msgstr "Kontak giriş sayfasını görmek için bu seçeneği seçin."
 
 #: src/mainwindow.cpp:308
 #, kde-format
@@ -521,7 +521,7 @@ msgstr "%1 bölümü yüklenemedi."
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
-msgstr "%1 - Kontact"
+msgstr "%1 - Kontak"
 
 #: src/mainwindow.cpp:947
 #, kde-format
@@ -536,12 +536,12 @@ msgstr "Kılavuzu Oku"
 #: src/mainwindow.cpp:953
 #, kde-format
 msgid "Learn more about Kontact and its components"
-msgstr "Kontact ve bileşenleri hakkında daha fazla bilgi al"
+msgstr "Kontak ve bileşenleri hakkında daha fazla bilgi al"
 
 #: src/mainwindow.cpp:956
 #, kde-format
 msgid "Visit Kontact Website"
-msgstr "Kontact Web Sayfasına Git"
+msgstr "Kontak Web Sayfasına Git"
 
 #: src/mainwindow.cpp:957
 #, kde-format
@@ -556,7 +556,7 @@ msgstr "Hesaplarınızı Ayarlayın"
 #: src/mainwindow.cpp:961
 #, kde-format
 msgid "Prepare Kontact for use"
-msgstr "Kontact'ı kullanım için hazırlayın"
+msgstr "Kontak'ı kullanım için hazırlayın"
 
 #: src/mainwindow.cpp:986
 #, kde-format
