@@ -2,8 +2,8 @@ set(PIM_VERSION "5.22.40")
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(kontact VERSION ${PIM_VERSION})
 set(RELEASE_SERVICE_VERSION "23.03.40")
-set(KF5_MIN_VERSION "5.102.0")
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+set(KF_MIN_VERSION "5.102.0")
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 include(ECMInstallIcons)
@@ -57,13 +57,13 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_REQUIRED_VERSION} CONFIG REQUIRED DBus W
 set(LIBKDEPIM_LIB_VERSION "5.22.40")
 set(LIBGRANTLEETHEME_LIB_VERSION "5.22.40")
 # Find KF5 package
-find_package(KF5I18n ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5DBusAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5KCMUtils ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Crash ${KF5_MIN_VERSION} REQUIRED)
-find_package(KF5IconThemes ${KF5_MIN_VERSION} REQUIRED)
-find_package(KF5GuiAddons ${KF5_MIN_VERSION} REQUIRED)
-find_package(KF5DocTools ${KF5_MIN_VERSION})
+find_package(KF5I18n ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5KCMUtils ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5Crash ${KF_MIN_VERSION} REQUIRED)
+find_package(KF5IconThemes ${KF_MIN_VERSION} REQUIRED)
+find_package(KF5GuiAddons ${KF_MIN_VERSION} REQUIRED)
+find_package(KF5DocTools ${KF_MIN_VERSION})
 set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
