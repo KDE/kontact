@@ -41,13 +41,13 @@ generate_export_header(kontactprivate BASE_NAME kontact)
 
 target_link_libraries(kontactprivate
     PUBLIC
-    KF5::IconThemes
+    KF${KF_MAJOR_VERSION}::IconThemes
     PRIVATE
-    KF5::I18n
-    KF5::KIOWidgets
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::KIOWidgets
     KF5::KontactInterface
-    KF5::KCMUtils
-    KF5::GuiAddons
+    KF${KF_MAJOR_VERSION}::KCMUtils
+    KF${KF_MAJOR_VERSION}::GuiAddons
     KF5::Libkdepim
     KF5::PimCommon
     KF5::GrantleeTheme
@@ -74,9 +74,9 @@ set_target_properties(kontact_bin PROPERTIES OUTPUT_NAME kontact)
 
 target_link_libraries(kontact_bin
     kontactprivate
-    KF5::I18n
+    KF${KF_MAJOR_VERSION}::I18n
     KF5::KontactInterface
-    KF5::Crash
+    KF${KF_MAJOR_VERSION}::Crash
     )
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(kontact_bin PROPERTIES UNITY_BUILD ON)
@@ -88,11 +88,11 @@ install(TARGETS kontact_bin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_library(kcm_kontact MODULE kcmkontact.cpp kcmkontact.h)
 target_link_libraries(kcm_kontact
-    KF5::I18n
-    KF5::KCMUtils
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::KCMUtils
     KF5::Libkdepim
     kontactprivate
-    KF5::KIOWidgets
+    KF${KF_MAJOR_VERSION}::KIOWidgets
     KF5::KontactInterface
     )
 

@@ -27,6 +27,7 @@ using namespace Kontact;
 #include <QCommandLineParser>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+#include <QPointer>
 #include <QWindow>
 
 #include <iostream>

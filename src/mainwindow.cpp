@@ -57,6 +57,7 @@ using namespace Kontact;
 #include <QHBoxLayout>
 #include <QIcon>
 #include <QMenuBar>
+#include <QPointer>
 #include <QShortcut>
 #include <QSplitter>
 #include <QStackedWidget>
