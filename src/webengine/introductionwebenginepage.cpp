@@ -32,8 +32,11 @@ IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
     settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
     settings()->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, false);
     profile()->setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const QFontInfo font(QFontDatabase().systemFont(QFontDatabase::GeneralFont));
+#else
+    const QFontInfo font(QFontDatabase::systemFont(QFontDatabase::GeneralFont));
+#endif
     settings()->setFontFamily(QWebEngineSettings::StandardFont, font.family());
     settings()->setFontSize(QWebEngineSettings::DefaultFontSize, font.pixelSize());
 }
