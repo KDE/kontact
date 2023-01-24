@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:47+0000\n"
+"POT-Creation-Date: 2023-01-24 00:59+0000\n"
 "PO-Revision-Date: 2022-12-06 06:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -299,173 +299,173 @@ msgstr "ხელსაწყოთა მთავარი ზოლი"
 msgid "Navigator"
 msgstr "ნავიგატორი"
 
-#: src/main.cpp:95
+#: src/main.cpp:96
 #, kde-format
 msgid "Start with a specific Kontact module"
 msgstr "Kontact-ის მითითებული დამატებით გაშვება"
 
-#: src/main.cpp:96
+#: src/main.cpp:97
 #, kde-format
 msgid "Start in iconified (minimized) mode"
 msgstr "ჩაკეცილად (მინიმიზირებულ რეჟიმში) გაშვება"
 
-#: src/main.cpp:97
+#: src/main.cpp:98
 #, kde-format
 msgid "List all possible modules and exit"
 msgstr "შესაძლო მოდულების სიის გამოტანა და გასვლა"
 
-#: src/main.cpp:162 src/mainwindow.cpp:946
+#: src/main.cpp:163 src/mainwindow.cpp:947
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
 
-#: src/main.cpp:164
+#: src/main.cpp:165
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "KDE-ის პირადი ინფორმაციის მმართველი"
 
-#: src/main.cpp:166
+#: src/main.cpp:167
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "© 2001–%1 Kontact -ის ავტორები, ყველა უფლება დაცულია"
 
-#: src/main.cpp:170
+#: src/main.cpp:171
 #, kde-format
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: src/main.cpp:171
+#: src/main.cpp:172
 #, kde-format
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
-#: src/main.cpp:172
+#: src/main.cpp:173
 #, kde-format
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
-#: src/main.cpp:173
+#: src/main.cpp:174
 #, kde-format
 msgid "Don Sanders"
 msgstr "Don Sanders"
 
-#: src/main.cpp:174
+#: src/main.cpp:175
 #, kde-format
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
-#: src/main.cpp:175
+#: src/main.cpp:176
 #, kde-format
 msgid "Tobias König"
 msgstr "Tobias König"
 
-#: src/main.cpp:176
+#: src/main.cpp:177
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: src/main.cpp:177
+#: src/main.cpp:178
 #, kde-format
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
-#: src/main.cpp:178
+#: src/main.cpp:179
 #, kde-format
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
-#: src/main.cpp:179
+#: src/main.cpp:180
 #, kde-format
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
-#: src/main.cpp:180
+#: src/main.cpp:181
 #, kde-format
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:180
+#: src/main.cpp:181
 #, kde-format
 msgid "Original Author"
 msgstr "საწყისი ავტორი"
 
-#: src/main.cpp:181
+#: src/main.cpp:182
 #, kde-format
 msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
 
-#: src/main.cpp:181
+#: src/main.cpp:182
 #, kde-format
 msgid "Git Migration"
 msgstr "Git-ზე მიგრაცია"
 
-#: src/mainwindow.cpp:254
+#: src/mainwindow.cpp:255
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
 msgstr " ინიციალიზაცია..."
 
-#: src/mainwindow.cpp:291
+#: src/mainwindow.cpp:292
 #, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
 msgstr "&ახალი"
 
-#: src/mainwindow.cpp:296
+#: src/mainwindow.cpp:297
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
 msgstr "Kontact- ის მორგება..."
 
-#: src/mainwindow.cpp:297
+#: src/mainwindow.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
 msgstr "Kontact- ის მორგება"
 
-#: src/mainwindow.cpp:298
+#: src/mainwindow.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
 msgstr "წარმოგიდგებათ ფანჯარა, რომლითაც შეგიძლიათ Kontact-ი მოირგოთ."
 
-#: src/mainwindow.cpp:302
+#: src/mainwindow.cpp:303
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
 msgstr "&Kontact-ის შესავალი"
 
-#: src/mainwindow.cpp:303
+#: src/mainwindow.cpp:304
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
 msgstr "Kontact-ით საწყისი გვერდის ჩვენება"
 
-#: src/mainwindow.cpp:304
+#: src/mainwindow.cpp:305
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
 msgstr "აირჩიეთ ეს პარამეტრი, რომ Kontact-ის მისასალმებელი გვერდი დაინახოთ."
 
-#: src/mainwindow.cpp:308
+#: src/mainwindow.cpp:309
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide/Show the component sidebar"
 msgstr "კომპონენტის გვერდითი პანელის ჩვენება/დამალვა"
 
-#: src/mainwindow.cpp:309
+#: src/mainwindow.cpp:310
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show the component sidebar"
 msgstr "კომპონენტის გვერდითი პანელის ჩვენება/დამალვა"
 
-#: src/mainwindow.cpp:312
+#: src/mainwindow.cpp:313
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
 msgstr "კომპონენტების გვერდითი პანელის სურვილისამებრ ჩვენება/გაქრობა."
 
-#: src/mainwindow.cpp:336
+#: src/mainwindow.cpp:337
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -474,72 +474,72 @@ msgstr ""
 "<qt>მენიუს ზოლი მთლიანად დაიმალება. მისი თავიდან საჩვენებლად დააწექით: %1.</"
 "qt>"
 
-#: src/mainwindow.cpp:339
+#: src/mainwindow.cpp:340
 #, kde-format
 msgid "Hide menu bar"
 msgstr "მენიუს ზოლის დამალვა"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:530
+#: src/mainwindow.cpp:531
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "%1 დამატებაზე გადართვა"
 
-#: src/mainwindow.cpp:600
+#: src/mainwindow.cpp:601
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr "აპლიკაცია მარტოა გაშვებული. წინა პლანზე გამოტანა..."
 
-#: src/mainwindow.cpp:616
+#: src/mainwindow.cpp:617
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "ნაწილის ჩატვირთვის შეცდომა %1-სთვის."
 
-#: src/mainwindow.cpp:684
+#: src/mainwindow.cpp:685
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:948
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "KDE-ის პერსონალური ინფორმაციის მართვის ნაკრები."
 
-#: src/mainwindow.cpp:952
+#: src/mainwindow.cpp:953
 #, kde-format
 msgid "Read Manual"
 msgstr "სახელმძღვანელოს წაკითხვა"
 
-#: src/mainwindow.cpp:953
+#: src/mainwindow.cpp:954
 #, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "გაიგეთ მეტი Kontact-ზე და მის კომპონენტებზე"
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:957
 #, kde-format
 msgid "Visit Kontact Website"
 msgstr "Kontact-ის საიტზე გადასვლა"
 
-#: src/mainwindow.cpp:957
+#: src/mainwindow.cpp:958
 #, kde-format
 msgid "Access online resources and tutorials"
 msgstr "წვდომა ონლაინ რესურსებისა და გაკვეთილებთან"
 
-#: src/mainwindow.cpp:960
+#: src/mainwindow.cpp:961
 #, kde-format
 msgid "Setup your Accounts"
 msgstr "თქვენი ანგარიშების მორგება"
 
-#: src/mainwindow.cpp:961
+#: src/mainwindow.cpp:962
 #, kde-format
 msgid "Prepare Kontact for use"
 msgstr "Kontact-ის მომზადება გამოყენებისთვის"
 
-#: src/mainwindow.cpp:986
+#: src/mainwindow.cpp:987
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
