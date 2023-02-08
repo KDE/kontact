@@ -91,7 +91,7 @@ void KontactSettingsDialogPrivate::createDialogFromServices()
         }
     }
 
-    QObject::connect(q, qOverload<const QByteArray &>(&KontactKCMultiDialog::configCommitted), q, [](const QByteArray &componentName) {
+    QObject::connect(q, &KontactKCMultiDialog::configCommitted, q, [](const QByteArray &componentName) {
         KSharedConfig::Ptr config = KSharedConfig::openConfig(QString::fromLatin1(componentName) + QLatin1String("rc"));
         config->reparseConfiguration();
     });
