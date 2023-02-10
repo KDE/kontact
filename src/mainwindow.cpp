@@ -74,7 +74,9 @@ MainWindow::MainWindow()
 {
     // Necessary for "cid" support in kmail.
     QWebEngineUrlScheme cidScheme("cid");
-    cidScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored);
+    cidScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
+                       | QWebEngineUrlScheme::LocalAccessAllowed);
+
     cidScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
     QWebEngineUrlScheme::registerScheme(cidScheme);
 
