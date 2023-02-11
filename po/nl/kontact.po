@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 00:59+0000\n"
+"POT-Creation-Date: 2023-02-11 00:58+0000\n"
 "PO-Revision-Date: 2022-10-26 23:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -322,7 +322,7 @@ msgstr "Geminimaliseerd starten"
 msgid "List all possible modules and exit"
 msgstr "Toon alle beschikbare modules en sluit weer af"
 
-#: src/main.cpp:163 src/mainwindow.cpp:947
+#: src/main.cpp:163 src/mainwindow.cpp:949
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
@@ -407,67 +407,67 @@ msgstr "Torgny Nyblom"
 msgid "Git Migration"
 msgstr "Git Migration"
 
-#: src/mainwindow.cpp:255
+#: src/mainwindow.cpp:257
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
 msgstr " Bezig met initialiseren..."
 
-#: src/mainwindow.cpp:292
+#: src/mainwindow.cpp:294
 #, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
 msgstr "Nieuw"
 
-#: src/mainwindow.cpp:297
+#: src/mainwindow.cpp:299
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
 msgstr "Kontact configureren..."
 
-#: src/mainwindow.cpp:298
+#: src/mainwindow.cpp:300
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
 msgstr "Kontact configureren"
 
-#: src/mainwindow.cpp:299
+#: src/mainwindow.cpp:301
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
 msgstr "U krijgt een dialoog te zien waarin u Kontact kunt configureren."
 
-#: src/mainwindow.cpp:303
+#: src/mainwindow.cpp:305
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
 msgstr "&Kontact introductie"
 
-#: src/mainwindow.cpp:304
+#: src/mainwindow.cpp:306
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
 msgstr "De introductiepagina van Kontact tonen"
 
-#: src/mainwindow.cpp:305
+#: src/mainwindow.cpp:307
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Selecteer deze optie om de Introductiepagina van Kontact te zien."
 
-#: src/mainwindow.cpp:309
+#: src/mainwindow.cpp:311
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide/Show the component sidebar"
 msgstr "De zijbalk voor componenten verbergen/tonen"
 
-#: src/mainwindow.cpp:310
+#: src/mainwindow.cpp:312
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show the component sidebar"
 msgstr "De zijbalk voor componenten verbergen/tonen"
 
-#: src/mainwindow.cpp:313
+#: src/mainwindow.cpp:315
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
@@ -475,7 +475,7 @@ msgstr ""
 "Stelt u in staat de zijbalk voor componenten naar wens te verbergen of te "
 "tonen."
 
-#: src/mainwindow.cpp:337
+#: src/mainwindow.cpp:339
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -484,73 +484,73 @@ msgstr ""
 "<qt>Hierdoor wordt de menubalk geheel verborgen. U kunt die weer zichtbaar "
 "maken door %1 te typen.</qt>"
 
-#: src/mainwindow.cpp:340
+#: src/mainwindow.cpp:342
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Menubalk verbergen"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:531
+#: src/mainwindow.cpp:533
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "Naar plugin %1 omschakelen"
 
-#: src/mainwindow.cpp:601
+#: src/mainwindow.cpp:603
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr ""
 "De toepassing draait zelfstandig en wordt nu op de voorgrond geplaatst..."
 
-#: src/mainwindow.cpp:617
+#: src/mainwindow.cpp:619
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "Component voor %1 kan niet worden geladen."
 
-#: src/mainwindow.cpp:685
+#: src/mainwindow.cpp:687
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
-#: src/mainwindow.cpp:948
+#: src/mainwindow.cpp:950
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "Het KDE-pakket voor beheer van persoonlijke informatie."
 
-#: src/mainwindow.cpp:953
+#: src/mainwindow.cpp:955
 #, kde-format
 msgid "Read Manual"
 msgstr "Handboek lezen"
 
-#: src/mainwindow.cpp:954
+#: src/mainwindow.cpp:956
 #, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "Kom meer te weten over Kontact en zijn componenten"
 
-#: src/mainwindow.cpp:957
+#: src/mainwindow.cpp:959
 #, kde-format
 msgid "Visit Kontact Website"
 msgstr "Bezoek de website van Kontact"
 
-#: src/mainwindow.cpp:958
+#: src/mainwindow.cpp:960
 #, kde-format
 msgid "Access online resources and tutorials"
 msgstr "Documentatie en tutorials online raadplegen"
 
-#: src/mainwindow.cpp:961
+#: src/mainwindow.cpp:963
 #, kde-format
 msgid "Setup your Accounts"
 msgstr "Uw accounts instellen"
 
-#: src/mainwindow.cpp:962
+#: src/mainwindow.cpp:964
 #, kde-format
 msgid "Prepare Kontact for use"
 msgstr "Bereid Kontact voor op gebruik"
 
-#: src/mainwindow.cpp:987
+#: src/mainwindow.cpp:989
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
