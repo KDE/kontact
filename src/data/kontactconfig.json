@@ -62,11 +62,7 @@
         "Name[sv]": "Inställning av Kontact",
         "Name[tr]": "Kontak Yapılandırması",
         "Name[uk]": "Налаштування Kontact",
-        "Name[x-test]": "xxKontact Configurationxx",
-        "ServiceTypes": [
-            "KCModule"
-        ]
+        "Name[x-test]": "xxKontact Configurationxx"
     },
-    "X-KDE-FactoryName": "kontactconfig",
     "X-KDE-Weight": 0
 }
