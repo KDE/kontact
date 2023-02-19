@@ -19,7 +19,7 @@ class KontactKCMultiDialogPrivate
 {
     Q_DECLARE_PUBLIC(KontactKCMultiDialog)
 protected:
-    KontactKCMultiDialogPrivate(KontactKCMultiDialog *parent)
+    explicit KontactKCMultiDialogPrivate(KontactKCMultiDialog *parent)
         : q_ptr(parent)
     {
     }
@@ -47,5 +47,5 @@ private:
     void init();
     void apply();
     bool resolveChanges(KCModuleProxy *currentProxy);
-    bool moduleSave(KCModuleProxy *module);
+    static bool moduleSave(KCModuleProxy *module);
 };

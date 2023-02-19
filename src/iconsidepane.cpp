@@ -281,26 +281,26 @@ Navigator::Navigator(SidePaneBase *parent)
     setHelpText(mShowBothAction, i18nc("@info:status", "Show sidebar items with icons and text"));
     mShowBothAction->setWhatsThis(i18nc("@info:whatsthis", "Choose this option if you want the sidebar items to have icons and text."));
 
-    auto iconSize = new QActionGroup(this);
-    connect(iconSize, &QActionGroup::triggered, this, &Navigator::slotActionTriggered);
+    auto iconSizeActionGroup = new QActionGroup(this);
+    connect(iconSizeActionGroup, &QActionGroup::triggered, this, &Navigator::slotActionTriggered);
 
     mBigIconsAction = new QAction(i18nc("@action:inmenu", "Big Icons"), this);
     mBigIconsAction->setCheckable(true);
-    mBigIconsAction->setActionGroup(iconSize);
+    mBigIconsAction->setActionGroup(iconSizeActionGroup);
     mBigIconsAction->setChecked(mIconSize == KIconLoader::SizeLarge);
     setHelpText(mBigIconsAction, i18nc("@info:status", "Show large size sidebar icons"));
     mBigIconsAction->setWhatsThis(i18nc("@info:whatsthis", "Choose this option if you want the sidebar icons to be extra big."));
 
     mNormalIconsAction = new QAction(i18nc("@action:inmenu", "Normal Icons"), this);
     mNormalIconsAction->setCheckable(true);
-    mNormalIconsAction->setActionGroup(iconSize);
+    mNormalIconsAction->setActionGroup(iconSizeActionGroup);
     mNormalIconsAction->setChecked(mIconSize == KIconLoader::SizeMedium);
     setHelpText(mNormalIconsAction, i18nc("@info:status", "Show normal size sidebar icons"));
     mNormalIconsAction->setWhatsThis(i18nc("@info:whatsthis", "Choose this option if you want the sidebar icons to be normal size."));
 
     mSmallIconsAction = new QAction(i18nc("@action:inmenu", "Small Icons"), this);
     mSmallIconsAction->setCheckable(true);
-    mSmallIconsAction->setActionGroup(iconSize);
+    mSmallIconsAction->setActionGroup(iconSizeActionGroup);
     mSmallIconsAction->setChecked(mIconSize == KIconLoader::SizeSmallMedium);
     setHelpText(mSmallIconsAction, i18nc("@info:status", "Show small size sidebar icons"));
     mSmallIconsAction->setWhatsThis(i18nc("@info:whatsthis", "Choose this option if you want the sidebar icons to be extra small."));
