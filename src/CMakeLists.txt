@@ -45,12 +45,12 @@ target_link_libraries(kontactprivate
     PRIVATE
     KF${KF_MAJOR_VERSION}::I18n
     KF${KF_MAJOR_VERSION}::KIOWidgets
-    KF5::KontactInterface
+    KPim${KF_MAJOR_VERSION}::KontactInterface
     KF${KF_MAJOR_VERSION}::KCMUtils
     KF${KF_MAJOR_VERSION}::GuiAddons
-    KF5::Libkdepim
+    KPim${KF_MAJOR_VERSION}::Libkdepim
     KF5::PimCommon
-    KF5::GrantleeTheme
+    KPim${KF_MAJOR_VERSION}::GrantleeTheme
     Qt::WebEngineWidgets
     )
 
@@ -75,7 +75,7 @@ set_target_properties(kontact_bin PROPERTIES OUTPUT_NAME kontact)
 target_link_libraries(kontact_bin
     kontactprivate
     KF${KF_MAJOR_VERSION}::I18n
-    KF5::KontactInterface
+    KPim${KF_MAJOR_VERSION}::KontactInterface
     KF${KF_MAJOR_VERSION}::Crash
     )
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
@@ -90,10 +90,10 @@ add_library(kcm_kontact MODULE kcmkontact.cpp kcmkontact.h)
 target_link_libraries(kcm_kontact
     KF${KF_MAJOR_VERSION}::I18n
     KF${KF_MAJOR_VERSION}::KCMUtils
-    KF5::Libkdepim
+    KPim${KF_MAJOR_VERSION}::Libkdepim
     kontactprivate
     KF${KF_MAJOR_VERSION}::KIOWidgets
-    KF5::KontactInterface
+    KPim${KF_MAJOR_VERSION}::KontactInterface
     )
 
 install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim${QT_MAJOR_VERSION}/kcms/kontact)
