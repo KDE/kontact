@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-11 02:37+0000\n"
-"PO-Revision-Date: 2023-02-03 15:59+0100\n"
+"PO-Revision-Date: 2023-02-22 16:42+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -307,7 +307,7 @@ msgstr "Správce osobních informací pro KDE"
 #: src/main.cpp:165
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "Copyright © 2001–%1 Tvůrci aplikace Kontact"
+msgstr "Autorská práva © 2001–%1 Tvůrci aplikace Kontact"
 
 #: src/main.cpp:169
 #, kde-format
@@ -431,7 +431,7 @@ msgstr "Pro zobrazení úvodní stránky Kontactu vyberte tuto volbu."
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide/Show the component sidebar"
-msgstr ""
+msgstr "Skrýt/zobrazit postranní lištu s komponenty"
 
 #: src/mainwindow.cpp:311
 #, kde-format
