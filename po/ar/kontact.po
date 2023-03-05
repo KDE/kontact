@@ -312,7 +312,7 @@ msgstr "متراسلك"
 #: src/main.cpp:163
 #, kde-format
 msgid "KDE personal information manager"
-msgstr "مدير «كدي» للمعلومات الشّخصيّة"
+msgstr "مدير «كِيدِي» للمعلومات الشّخصيّة"
 
 #: src/main.cpp:165
 #, kde-format
@@ -495,7 +495,7 @@ msgstr "%1 - متراسلك"
 #: src/mainwindow.cpp:949
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
-msgstr "طقم «كدي» لإدارة المعلومات الشّخصيّة."
+msgstr "طقم «كِيدِي» لإدارة المعلومات الشّخصيّة."
 
 #: src/mainwindow.cpp:954
 #, kde-format
@@ -535,7 +535,7 @@ msgstr "الشّريط الجانبيّ مخفيّ. اعرض الشّريط ال
 
 #~ msgctxt "@title"
 #~ msgid "KDE Kontact"
-#~ msgstr "متراسلك لِكدي"
+#~ msgstr "متراسلك لِكِيدِي"
 
 #~ msgctxt "@info:credit"
 #~ msgid "(c), 2003 Cornelius Schumacher"
