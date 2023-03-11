@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-11 00:58+0000\n"
-"PO-Revision-Date: 2022-01-27 21:21+0200\n"
+"PO-Revision-Date: 2022-11-05 21:17+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2012-12-01 22:25:04+0000\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -480,13 +480,13 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
+"<qt>Tämä piilottaa valikkorivin kokonaan. Saat sen uudelleen näkyviin "
+"painamalla %1.</qt>"
 
 #: src/mainwindow.cpp:342
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgid "Hide menu bar"
-msgstr "Piilota sivupaneeli"
+msgstr "Piilota valikkorivi"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:533
