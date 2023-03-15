@@ -49,7 +49,7 @@ target_link_libraries(kontactprivate
     KF${KF_MAJOR_VERSION}::KCMUtils
     KF${KF_MAJOR_VERSION}::GuiAddons
     KPim${KF_MAJOR_VERSION}::Libkdepim
-    KF5::PimCommon
+    KPim${KF_MAJOR_VERSION}::PimCommon
     KPim${KF_MAJOR_VERSION}::GrantleeTheme
     Qt::WebEngineWidgets
     )
