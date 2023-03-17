@@ -20,6 +20,8 @@ target_sources(kontactprivate PRIVATE
     iconsidepane.h
     ksettingsdialog/kontactkcmultidialog.h
     ksettingsdialog/kontactsettingsdialog.h
+    ksettingsdialog/kontactkcmultidialog_p.h
+    ksettingsdialog/kontactsettingsdialog_p.h
     kontactconfiguredialog.h
     kontact.qrc
     )
