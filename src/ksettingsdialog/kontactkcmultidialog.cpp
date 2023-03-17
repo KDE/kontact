@@ -12,7 +12,6 @@
 #include "kontactkcmultidialog.h"
 #include "kontact_debug.h"
 #include "kontactkcmultidialog_p.h"
-#include <KCModuleProxy>
 
 #include <KCModuleProxy>
 #include <KIO/ApplicationLauncherJob>
