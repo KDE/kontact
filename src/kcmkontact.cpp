@@ -21,15 +21,28 @@ using namespace Kontact;
 #include <QStandardItemModel>
 
 K_PLUGIN_CLASS_WITH_JSON(KcmKontact, "data/kontactconfig.json")
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
 KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)
     , mPluginCombo(new QComboBox(parent))
+#else
+KcmKontact::KcmKontact(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KCModule(parent, data, args)
+    , mPluginCombo(new QComboBox(widget()))
+#endif
 {
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
     auto topLayout = new QVBoxLayout(this);
+#else
+    auto topLayout = new QVBoxLayout(widget());
+#endif
     auto pluginStartupLayout = new QHBoxLayout();
     topLayout->addLayout(pluginStartupLayout);
-
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
     auto forceStartupPluginCheckBox = new QCheckBox(Prefs::self()->forceStartupPluginItem()->label(), this);
+#else
+    auto forceStartupPluginCheckBox = new QCheckBox(Prefs::self()->forceStartupPluginItem()->label(), widget());
+#endif
     forceStartupPluginCheckBox->setObjectName(QStringLiteral("kcfg_ForceStartupPlugin"));
     pluginStartupLayout->addWidget(forceStartupPluginCheckBox);
 
@@ -39,19 +52,30 @@ KcmKontact::KcmKontact(QWidget *parent, const QVariantList &args)
                                      "initial plugin each time Kontact is started. Otherwise, Kontact "
                                      "will restore the last active plugin from the previous usage."));
     connect(mPluginCombo, &QComboBox::currentIndexChanged, this, [this]() {
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
         Q_EMIT changed(true);
+#else
+            markAsChanged();
+#endif
     });
     pluginStartupLayout->addWidget(mPluginCombo);
     pluginStartupLayout->addStretch();
     mPluginCombo->setEnabled(false);
 
     connect(forceStartupPluginCheckBox, &QAbstractButton::toggled, mPluginCombo, &QWidget::setEnabled);
-
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
     auto showSideBarCheckbox = new QCheckBox(Prefs::self()->sideBarOpenItem()->label(), this);
+#else
+    auto showSideBarCheckbox = new QCheckBox(Prefs::self()->sideBarOpenItem()->label(), widget());
+#endif
     showSideBarCheckbox->setObjectName(QStringLiteral("kcfg_SideBarOpen"));
     topLayout->addWidget(showSideBarCheckbox);
 
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
     addConfig(Prefs::self(), this);
+#else
+    addConfig(Prefs::self(), widget());
+#endif
     topLayout->addStretch();
     load();
 }

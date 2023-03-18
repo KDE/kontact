@@ -7,7 +7,7 @@
 */
 
 #pragma once
-
+#include "kcmutils_version.h"
 #include <KCModule>
 #include <KPluginMetaData>
 
@@ -19,7 +19,11 @@ class KcmKontact : public KCModule
     Q_OBJECT
 
 public:
-    explicit KcmKontact(QWidget *parent = nullptr, const QVariantList &args = {});
+#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
+    explicit KcmKontact(QWidget *parent, const QVariantList &args);
+#else
+    explicit KcmKontact(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
+#endif
 
     void load() override;
     void save() override;
