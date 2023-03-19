@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:58+0000\n"
+"POT-Creation-Date: 2023-03-19 00:49+0000\n"
 "PO-Revision-Date: 2022-11-11 14:31+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -182,13 +182,13 @@ msgstr ""
 "Yan panel nişanını gizlətmək istəsəniz bu seçimi edin. Göstərmək üçün F9 "
 "basın."
 
-#: src/kcmkontact.cpp:36
+#: src/kcmkontact.cpp:49
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
 msgstr "Hər açılışda istifadə olunacaq ilk plaqini seçin"
 
-#: src/kcmkontact.cpp:38
+#: src/kcmkontact.cpp:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

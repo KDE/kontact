@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:58+0000\n"
+"POT-Creation-Date: 2023-03-19 00:49+0000\n"
 "PO-Revision-Date: 2005-10-25 20:31+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -186,13 +186,13 @@ msgid ""
 "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
 msgstr ""
 
-#: src/kcmkontact.cpp:36
+#: src/kcmkontact.cpp:49
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
 msgstr ""
 
-#: src/kcmkontact.cpp:38
+#: src/kcmkontact.cpp:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

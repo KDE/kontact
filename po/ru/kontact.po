@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:58+0000\n"
+"POT-Creation-Date: 2023-03-19 00:49+0000\n"
 "PO-Revision-Date: 2023-01-12 11:23+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -201,13 +201,13 @@ msgstr ""
 "Используйте этот параметр для скрытия боковой панели. Нажмите клавишу F9, "
 "чтобы сделать панель видимой."
 
-#: src/kcmkontact.cpp:36
+#: src/kcmkontact.cpp:49
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
 msgstr "Выберите модуль, открываемый при каждом запуске"
 
-#: src/kcmkontact.cpp:38
+#: src/kcmkontact.cpp:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

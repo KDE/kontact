@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:58+0000\n"
+"POT-Creation-Date: 2023-03-19 00:49+0000\n"
 "PO-Revision-Date: 2014-06-20 16:38+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-doc@kde.org>\n"
@@ -201,13 +201,13 @@ msgstr ""
 "Maak dit an, wenn Du Sietpaneel-Elementen mit Lüttbiller un Text wiesen "
 "wullt."
 
-#: src/kcmkontact.cpp:36
+#: src/kcmkontact.cpp:49
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
 msgstr "Dat bi elk Programmstart bruukt Moduul utsöken"
 
-#: src/kcmkontact.cpp:38
+#: src/kcmkontact.cpp:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

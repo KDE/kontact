@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:58+0000\n"
+"POT-Creation-Date: 2023-03-19 00:49+0000\n"
 "PO-Revision-Date: 2023-03-11 04:52\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -175,13 +175,13 @@ msgid ""
 "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
 msgstr "如果要隐藏图标边栏，请选择此选项。按 F9 取消隐藏。"
 
-#: src/kcmkontact.cpp:36
+#: src/kcmkontact.cpp:49
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
 msgstr "选择要在每次启动时初始化的插件。"
 
-#: src/kcmkontact.cpp:38
+#: src/kcmkontact.cpp:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

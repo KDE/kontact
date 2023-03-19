@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:58+0000\n"
+"POT-Creation-Date: 2023-03-19 00:49+0000\n"
 "PO-Revision-Date: 2012-06-15 08:06+0700\n"
 "Last-Translator: Sophea <sophea@khmeros.info>\n"
 "Language-Team: Khmer <>\n"
@@ -193,13 +193,13 @@ msgid ""
 "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
 msgstr "ជ្រើស​ជម្រើស​នេះ ប្រសិនបើ​អ្នក​ចង់​ឲ្យធាតុ​របារចំហៀង​មាន​រូបតំណាង និងអត្ថបទ ។"
 
-#: src/kcmkontact.cpp:36
+#: src/kcmkontact.cpp:49
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
 msgstr "ជ្រើស​​កម្មវិធី​ជំនួយតំបូង ដើម្បី​​ប្រើនៅ​ពេល​ចាប់​ផ្តើម​នីមួយ​ៗ"
 
-#: src/kcmkontact.cpp:38
+#: src/kcmkontact.cpp:51
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
