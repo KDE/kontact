@@ -1,60 +1,66 @@
 # Translation of kontact into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+#
+# Minuskloj: ĉ ĝ ĵ ĥ ŝ ŭ   Majuskloj: Ĉ Ĝ Ĵ Ĥ Ŝ Ŭ
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-19 00:49+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-25 12:58+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: pology\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Axel Rousseau"
+msgstr "Axel Rousseau,Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "axel@esperanto-jeunes.org"
+msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
 
 #: src/about/introduction_kontact.html:18
 #, kde-format
 msgid "Welcome to Kontact %1"
-msgstr ""
+msgstr "Bonvenon al Kontakto %1"
 
 #: src/about/introduction_kontact.html:19
 msgid ""
 "Kontact handles your e-mail, address book, calendar, to-do list and more."
 msgstr ""
+"Kontact pritraktas vian retpoŝton, adreslibron, kalendaron, faroliston kaj "
+"pli."
 
 #: src/about/introduction_kontact.html:36
 msgid "Skip this introduction"
-msgstr ""
+msgstr "Preterpasu ĉi tiun enkondukon"
 
 #: src/about/loading_kontact.html:5
 msgid "Loading Kontact ..."
-msgstr ""
+msgstr "Ŝarĝante Kontakton..."
 
 #: src/iconsidepane.cpp:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
-msgstr ""
+msgstr "Montru nur piktogramojn"
 
 #: src/iconsidepane.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
-msgstr ""
+msgstr "Montru flankajn erojn kun ikonoj kaj sen teksto"
 
 #: src/iconsidepane.cpp:268
 #, kde-format
@@ -62,18 +68,20 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr ""
+"Elektu ĉi tiun opcion se vi volas, ke la flankaj eroj havu ikonojn sen "
+"teksto."
 
 #: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
-msgstr ""
+msgstr "Montru Nur Tekston"
 
 #: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
-msgstr ""
+msgstr "Montri flankmenuajn erojn kun teksto kaj sen ikonoj"
 
 #: src/iconsidepane.cpp:275
 #, kde-format
@@ -81,18 +89,20 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr ""
+"Elektu ĉi tiun opcion se vi volas, ke la flankaj eroj havu tekston sen "
+"ikonoj."
 
 #: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
-msgstr ""
+msgstr "Montri piktogramojn && Tekston"
 
 #: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
-msgstr ""
+msgstr "Montru flankmenuajn erojn kun ikonoj kaj teksto"
 
 #: src/iconsidepane.cpp:282
 #, kde-format
@@ -100,72 +110,80 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr ""
+"Elektu ĉi tiun opcion se vi volas, ke la flankaj eroj havu ikonojn kaj "
+"tekston."
 
 #: src/iconsidepane.cpp:287
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
-msgstr ""
+msgstr "Grandaj Ikonoj"
 
 #: src/iconsidepane.cpp:291
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
-msgstr ""
+msgstr "Montru grandgrandajn flankajn ikonojn"
 
 #: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr ""
+"Elektu ĉi tiun opcion se vi volas, ke la flanka kolumno ikonoj estu "
+"pligrandaj."
 
 #: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
-msgstr ""
+msgstr "Normalaj piktogramoj"
 
 #: src/iconsidepane.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
-msgstr ""
+msgstr "Montru normalajn grandecojn flankajn ikonojn"
 
 #: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr ""
+"Elektu ĉi tiun opcion se vi volas, ke la flanka kolumna piktogramoj estu "
+"normala grandeco."
 
 #: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
-msgstr ""
+msgstr "Malgrandaj Ikonoj"
 
 #: src/iconsidepane.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
-msgstr ""
+msgstr "Montru ikonojn de malgranda grandeco flanka kolumno"
 
 #: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr ""
+"Elektu ĉi tiun opcion se vi volas, ke la flanka kolumno ikonoj estu tro "
+"malgrandaj."
 
 #: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
-msgstr ""
+msgstr "Kaŝi Flankbreton"
 
 #: src/iconsidepane.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
-msgstr ""
+msgstr "Kaŝi la flankan ikonon"
 
 #: src/iconsidepane.cpp:312
 #, kde-format
@@ -173,12 +191,14 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
 msgstr ""
+"Elektu ĉi tiun opcion se vi volas kaŝi la flankan ikonon. Premu F9 por "
+"malkaŝi."
 
 #: src/kcmkontact.cpp:49
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
-msgstr ""
+msgstr "Elektu la komencan kromprogramon por uzi en ĉiu komenco"
 
 #: src/kcmkontact.cpp:51
 #, kde-format
@@ -188,25 +208,28 @@ msgid ""
 "each time Kontact is started. Otherwise, Kontact will restore the last "
 "active plugin from the previous usage."
 msgstr ""
+"Elektu la kromprogramon el ĉi tiu fallisto por esti uzata kiel komenca "
+"kromaĵo ĉiufoje kiam Kontact estas komencita. Alie, Kontact restarigos la "
+"lastan aktivan kromprogramon de la antaŭa uzado."
 
 #. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
 #. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
 #: src/kontact.kcfg:11 src/kontact.kcfg:12
 #, kde-format
 msgid "The currently active plugin"
-msgstr ""
+msgstr "La nuntempe aktiva kromaĵo"
 
 #. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:16
 #, kde-format
 msgid "Always start with plugin:"
-msgstr ""
+msgstr "Ĉiam komencu per kromaĵo:"
 
 #. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:17
 #, kde-format
 msgid "Set the initial plugin on each start"
-msgstr ""
+msgstr "Agordu la komencan kromprogramon ĉe ĉiu komenco"
 
 #. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:18
@@ -215,18 +238,20 @@ msgid ""
 "Usually Kontact will come up with the plugin used before shutdown. Check "
 "this box if you would like the specified plugin to come up on start instead."
 msgstr ""
+"Kutime Kontact venos kun la kromaĵo uzata antaŭ malŝalto. Marku ĉi tiun "
+"skatolon se vi ŝatus ke la specifita kromaĵo aperu anstataŭe."
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
 #, kde-format
 msgid "Show the component sidebar"
-msgstr ""
+msgstr "Montru la flankan komponenton"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
 #, kde-format
 msgid "Show/Hide the icon sidebar"
-msgstr ""
+msgstr "Montri/Kaŝi la ikonan flankbreton"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
@@ -236,6 +261,9 @@ msgid ""
 "Uncheck this box to hide the component sidebar. Note that the F9 key will "
 "hide/show the icon sidebar."
 msgstr ""
+"Por konservi ekranan nemoveblaĵon, vi eble elektas kaŝi la ikonan flankan "
+"kolon. Malmarku ĉi tiun skatolon por kaŝi la komponan flankbreton. Notu, ke "
+"la F9-klavo kaŝos/montros la ikonan flanka kolumno."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -247,7 +275,7 @@ msgstr "&Dosiero"
 #: src/kontactui.rc:14
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&Vidi"
 
 #. i18n: ectx: Menu (settings)
 #: src/kontactui.rc:20
@@ -271,22 +299,22 @@ msgstr "Ĉefa ilobreto"
 #: src/kontactui.rc:43
 #, kde-format
 msgid "Navigator"
-msgstr ""
+msgstr "Navigilo"
 
 #: src/main.cpp:96
 #, kde-format
 msgid "Start with a specific Kontact module"
-msgstr ""
+msgstr "Komencu per specifa modulo de Kontakto"
 
 #: src/main.cpp:97
 #, kde-format
 msgid "Start in iconified (minimized) mode"
-msgstr ""
+msgstr "Komencu en ikonigita (minimigita) reĝimo"
 
 #: src/main.cpp:98
 #, kde-format
 msgid "List all possible modules and exit"
-msgstr ""
+msgstr "Listigu ĉiujn eblajn modulojn kaj eliru"
 
 #: src/main.cpp:163 src/mainwindow.cpp:949
 #, kde-format
@@ -296,12 +324,12 @@ msgstr "Kontact"
 #: src/main.cpp:165
 #, kde-format
 msgid "KDE personal information manager"
-msgstr ""
+msgstr "KDE-administranto pri personaj informoj"
 
 #: src/main.cpp:167
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr ""
+msgstr "Kopirajto © 2001–%1 Kontaktu aŭtoroj"
 
 #: src/main.cpp:171
 #, kde-format
@@ -366,78 +394,78 @@ msgstr "Originala aŭtoro"
 #: src/main.cpp:182
 #, kde-format
 msgid "Torgny Nyblom"
-msgstr ""
+msgstr "Torgny Nyblom"
 
 #: src/main.cpp:182
 #, kde-format
 msgid "Git Migration"
-msgstr ""
+msgstr "Git Migrado"
 
 #: src/mainwindow.cpp:257
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
-msgstr ""
+msgstr "Komencante..."
 
 #: src/mainwindow.cpp:294
 #, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
-msgstr ""
+msgstr "Nova"
 
 #: src/mainwindow.cpp:299
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
-msgstr ""
+msgstr "Agordi Kontakton..."
 
 #: src/mainwindow.cpp:300
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
-msgstr ""
+msgstr "Agordi Kontakton"
 
 #: src/mainwindow.cpp:301
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
-msgstr ""
+msgstr "Vi estos prezentita kun dialogo kie vi povas agordi Kontact."
 
 #: src/mainwindow.cpp:305
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
-msgstr ""
+msgstr "&Kontakto Enkonduko"
 
 #: src/mainwindow.cpp:306
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
-msgstr ""
+msgstr "Montru la Kontaktan Enkondukan paĝon"
 
 #: src/mainwindow.cpp:307
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
-msgstr ""
+msgstr "Elektu ĉi tiun opcion por vidi la paĝon de Kontact Enkonduko."
 
 #: src/mainwindow.cpp:311
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide/Show the component sidebar"
-msgstr ""
+msgstr "Kaŝi/Montri la komponan flankbreton"
 
 #: src/mainwindow.cpp:312
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show the component sidebar"
-msgstr ""
+msgstr "Kaŝi/Montri la komponan flankbreton"
 
 #: src/mainwindow.cpp:315
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
-msgstr ""
+msgstr "Ebligas al vi montri aŭ kaŝi la komponan flankbreton laŭdezire."
 
 #: src/mainwindow.cpp:339
 #, kde-format
@@ -445,30 +473,32 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
+"<qt>Ĉi tio tute kaŝos la menubreton. Vi povas montri ĝin denove tajpante %1."
+"</qt>"
 
 #: src/mainwindow.cpp:342
 #, kde-format
 msgid "Hide menu bar"
-msgstr ""
+msgstr "Kaŝi menubreton"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:533
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
-msgstr ""
+msgstr "Ŝaltu al kromaĵo %1"
 
 #: src/mainwindow.cpp:603
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
-msgstr ""
+msgstr "Apliko funkcias memstare. Malantaŭplano..."
 
 #: src/mainwindow.cpp:619
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
-msgstr ""
+msgstr "Ne povas ŝargi parton por %1."
 
 #: src/mainwindow.cpp:687
 #, kde-format
@@ -479,164 +509,41 @@ msgstr "%1 - Kontact"
 #: src/mainwindow.cpp:950
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
-msgstr ""
+msgstr "La KDE-Administrado pri Personaj Informoj."
 
 #: src/mainwindow.cpp:955
 #, kde-format
 msgid "Read Manual"
-msgstr ""
+msgstr "Legu Manlibron"
 
 #: src/mainwindow.cpp:956
 #, kde-format
 msgid "Learn more about Kontact and its components"
-msgstr ""
+msgstr "Lernu pli pri Kontact kaj ĝiaj komponantoj"
 
 #: src/mainwindow.cpp:959
 #, kde-format
 msgid "Visit Kontact Website"
-msgstr ""
+msgstr "Vizitu Kontaktan Retejon"
 
 #: src/mainwindow.cpp:960
 #, kde-format
 msgid "Access online resources and tutorials"
-msgstr ""
+msgstr "Aliru interretajn rimedojn kaj lernilojn"
 
 #: src/mainwindow.cpp:963
 #, kde-format
 msgid "Setup your Accounts"
-msgstr ""
+msgstr "Agordu viajn Kontojn"
 
 #: src/mainwindow.cpp:964
 #, kde-format
 msgid "Prepare Kontact for use"
-msgstr ""
+msgstr "Preparu Kontakt por uzo"
 
 #: src/mainwindow.cpp:989
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
-
-#~ msgctxt "@info:credit"
-#~ msgid "Cornelius Schumacher"
-#~ msgstr "Cornelius Schumacher"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Developer"
-#~ msgstr "Programisto"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Tobias Koenig"
-#~ msgstr "Tobias Koenig"
-
-#, fuzzy
-#~| msgid "Kontact"
-#~ msgctxt "@title:window"
-#~ msgid "About Kontact"
-#~ msgstr "Kontact"
-
-#~ msgid "Version %1"
-#~ msgstr "Versio %1"
-
-#~ msgid "Tobias Koenig"
-#~ msgstr "Tobias Koenig"
-
-#~ msgid "Sven Lueppken"
-#~ msgstr "Sven Lueppken"
-
-#~ msgctxt "@item"
-#~ msgid ""
-#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
-#~ msgstr ""
-#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
-
-#~ msgctxt "%1: number of unread messages %2: total number of messages"
-#~ msgid "%1 / %2"
-#~ msgstr "%1 / %2"
-
-#, fuzzy
-#~| msgid "Current Maintainer"
-#~ msgid "Laurent Montel"
-#~ msgstr "Nuna fleganto"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Rename..."
-#~ msgstr "Renomi..."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Delete"
-#~ msgstr "Forigi"
-
-#, fuzzy
-#~| msgid "&Settings"
-#~ msgid "Settings"
-#~ msgstr "A&gordo"
-
-#~ msgid "&Edit"
-#~ msgstr "&Redakti"
-
-#, fuzzy
-#~| msgid "Current Maintainer"
-#~ msgctxt "@info:credit"
-#~ msgid "Laurent Montel"
-#~ msgstr "Nuna fleganto"
-
-#, fuzzy
-#~| msgid "Current Maintainer"
-#~ msgctxt "@info:credit"
-#~ msgid "Current Maintainer"
-#~ msgstr "Nuna fleganto"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Michael Brade"
-#~ msgstr "Michael Brade"
-
-#, fuzzy
-#~| msgid "Current Maintainer"
-#~ msgctxt "@info:credit"
-#~ msgid "Previous Maintainer"
-#~ msgstr "Nuna fleganto"
-
-#, fuzzy
-#~| msgctxt "@action:inmenu"
-#~| msgid "Delete"
-#~ msgid "Delete Note..."
-#~ msgstr "Forigi"
-
-#~ msgctxt "Time from - to"
-#~ msgid "%1 - %2"
-#~ msgstr "%1 - %2"
-
-#~ msgid "Birthday"
-#~ msgstr "Naskiĝdato"
-
-#~ msgid "Anniversary"
-#~ msgstr "Jubileo"
-
-#~ msgid "Current Maintainer"
-#~ msgstr "Nuna fleganto"
-
-#~ msgid "Oral Timocin"
-#~ msgstr "Oral Timocin"
-
-#, fuzzy
-#~ msgid "%1%"
-#~ msgstr "%1%"
-
-#, fuzzy
-#~| msgid "General"
-#~ msgctxt "general settings"
-#~ msgid "General"
-#~ msgstr "Ĝenerale"
-
-#, fuzzy
-#~ msgid "Events"
-#~ msgstr "Eventoj:"
-
-#, fuzzy
-#~| msgid "Birthday"
-#~ msgid "Birthdays"
-#~ msgstr "Naskiĝdato"
-
-#~ msgid "Summary"
-#~ msgstr "Resumo"
+"Flankbreto estas kaŝita. Montru la flankbreton denove uzante la klavon %1."
