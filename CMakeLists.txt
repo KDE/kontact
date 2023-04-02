@@ -84,7 +84,7 @@ find_package(KPim${KF_MAJOR_VERSION}PimCommon ${PIMCOMMON_LIB_VERSION} CONFIG RE
 
 
 include_directories(${kontact_SOURCE_DIR} ${kontact_BINARY_DIR})
-ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.104.0)
+ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.105.0)
 
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kontact\")
