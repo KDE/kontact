@@ -26,7 +26,7 @@ KontactSettingsDialog::KontactSettingsDialog(QWidget *parent)
 
 KontactSettingsDialog::~KontactSettingsDialog() = default;
 
-void KontactSettingsDialog::addPluginComponent(const KPluginMetaData &parentPluginMetaData, const QVector<KPluginMetaData> &pluginMetaData)
+void KontactSettingsDialog::addPluginComponent(const KPluginMetaData &parentPluginMetaData, const QList<KPluginMetaData> &pluginMetaData)
 {
     Q_D(KontactSettingsDialog);
     d->componentsMetaData.append({parentPluginMetaData, pluginMetaData});
@@ -83,7 +83,7 @@ void KontactSettingsDialogPrivate::createDialogFromServices()
 
     for (const auto &pair : std::as_const(componentsMetaData)) {
         const KPluginMetaData &parentComponentMetaData = pair.first;
-        const QVector<KPluginMetaData> &kcmsMetaData = pair.second;
+        const QList<KPluginMetaData> &kcmsMetaData = pair.second;
         KPageWidgetItem *parentItem =
             createPageItem(nullptr, parentComponentMetaData.name(), parentComponentMetaData.description(), parentComponentMetaData.iconName());
         for (const KPluginMetaData &metaData : kcmsMetaData) {

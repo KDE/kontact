@@ -24,7 +24,7 @@ public:
     /**
      * Adds a page with parentPluginMetaData used for title & icon of the component page and pluginMetaData for it's subpages
      */
-    void addPluginComponent(const KPluginMetaData &parentPluginMetaData, const QVector<KPluginMetaData> &pluginMetaData);
+    void addPluginComponent(const KPluginMetaData &parentPluginMetaData, const QList<KPluginMetaData> &pluginMetaData);
 
 protected:
     /**

@@ -117,7 +117,7 @@ private:
     PluginList mPlugins;
     PluginList mDelayedPreload;
     ActionPluginList mActionPlugins;
-    QVector<KPluginMetaData> mPluginMetaData;
+    QList<KPluginMetaData> mPluginMetaData;
 
     IntroductionWebEngineView *mIntroPart = nullptr;
     KSqueezedTextLabel *mStatusMsgLabel = nullptr;

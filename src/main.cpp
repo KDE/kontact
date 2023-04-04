@@ -69,7 +69,7 @@ private:
 
 static void listPlugins()
 {
-    const QVector<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(QStringLiteral("pim6/kontact"), [](const KPluginMetaData &data) {
+    const QList<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(QStringLiteral("pim6/kontact"), [](const KPluginMetaData &data) {
         return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
     });
 

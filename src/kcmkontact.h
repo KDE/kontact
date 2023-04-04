@@ -25,7 +25,7 @@ public:
     void save() override;
 
 private:
-    QVector<KPluginMetaData> mPluginList;
+    QList<KPluginMetaData> mPluginList;
     QComboBox *const mPluginCombo;
 };
 }

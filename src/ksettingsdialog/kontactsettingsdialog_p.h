@@ -21,7 +21,7 @@ protected:
     KontactSettingsDialogPrivate(KontactSettingsDialog *parent);
 
     QStringList registeredComponents;
-    QList<QPair<KPluginMetaData, QVector<KPluginMetaData>>> componentsMetaData;
+    QList<QPair<KPluginMetaData, QList<KPluginMetaData>>> componentsMetaData;
     bool firstshow = true;
 
     KPageWidgetItem *createPageItem(KPageWidgetItem *parentItem, const QString &name, const QString &comment, const QString &iconName);
