@@ -98,7 +98,7 @@ target_link_libraries(kcm_kontact
     KPim${KF_MAJOR_VERSION}::KontactInterface
     )
 
-install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim${QT_MAJOR_VERSION}/kcms/kontact)
+install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim6/kcms/kontact)
 
 ########### install files ###############
 
