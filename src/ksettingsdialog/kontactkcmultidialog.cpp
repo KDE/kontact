@@ -13,12 +13,8 @@
 #include "kontact_debug.h"
 #include "kontactkcmultidialog_p.h"
 
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-#include <KCModuleProxy>
-#else
 #include <KCModule>
 #include <KCModuleLoader>
-#endif
 #include <KIO/ApplicationLauncherJob>
 #include <QApplication>
 #include <QDesktopServices>
@@ -36,18 +32,10 @@
 #include <KMessageBox>
 #include <KPageWidgetModel>
 
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-bool KontactKCMultiDialogPrivate::resolveChanges(KCModuleProxy *currentProxy)
-#else
 bool KontactKCMultiDialogPrivate::resolveChanges(KCModule *currentProxy)
-#endif
 {
     Q_Q(KontactKCMultiDialog);
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    if (!currentProxy || !currentProxy->isChanged()) {
-#else
     if (!currentProxy || !currentProxy->needsSave()) {
-#endif
         return true;
     }
 
@@ -80,11 +68,7 @@ bool KontactKCMultiDialogPrivate::resolveChanges(KCModule *currentProxy)
 void KontactKCMultiDialogPrivate::_k_slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *previous)
 {
     Q_Q(KontactKCMultiDialog);
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    KCModuleProxy *previousModule = nullptr;
-#else
     KCModule *previousModule = nullptr;
-#endif
     for (int i = 0, total = modules.count(); i < total; ++i) {
         if (modules[i].item == previous) {
             previousModule = modules[i].kcm;
@@ -129,11 +113,7 @@ void KontactKCMultiDialogPrivate::_k_clientChanged()
     Q_Q(KontactKCMultiDialog);
     // qDebug();
     // Get the current module
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    KCModuleProxy *activeModule = nullptr;
-#else
     KCModule *activeModule = nullptr;
-#endif
     for (int i = 0; i < modules.count(); ++i) {
         if (modules[i].item == q->currentPage()) {
             activeModule = modules[i].kcm;
@@ -144,13 +124,8 @@ void KontactKCMultiDialogPrivate::_k_clientChanged()
     bool change = false;
     bool defaulted = false;
     if (activeModule) {
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-        change = activeModule->isChanged();
-        defaulted = activeModule->defaulted();
-#else
         change = activeModule->needsSave();
         defaulted = activeModule->representsDefaults();
-#endif
 
         QPushButton *applyButton = q->buttonBox()->button(QDialogButtonBox::Apply);
         if (applyButton) {
@@ -316,11 +291,7 @@ void KontactKCMultiDialog::slotUser1Clicked()
     }
 }
 
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-bool KontactKCMultiDialogPrivate::moduleSave(KCModuleProxy *module)
-#else
 bool KontactKCMultiDialogPrivate::moduleSave(KCModule *module)
-#endif
 {
     if (!module) {
         return false;
@@ -336,16 +307,8 @@ void KontactKCMultiDialogPrivate::apply()
     QStringList updatedComponents;
 
     for (const CreatedModule &module : std::as_const(modules)) {
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-        KCModuleProxy *proxy = module.kcm;
-#else
         KCModule *proxy = module.kcm;
-#endif
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-        if (proxy->isChanged()) {
-#else
         if (proxy->needsSave()) {
-#endif
             proxy->save();
             /**
              * Add name of the components the kcm belongs to the list
@@ -440,13 +403,8 @@ KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData
     moduleScroll->setFrameStyle(QFrame::NoFrame);
     moduleScroll->viewport()->setAutoFillBackground(false);
 
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    auto kcm = new KCModuleProxy(metaData, moduleScroll, QStringList());
-    moduleScroll->setWidget(kcm);
-#else
     auto kcm = KCModuleLoader::loadModule(metaData, moduleScroll, QVariantList());
     moduleScroll->setWidget(kcm->widget());
-#endif
 
     auto item = new KPageWidgetItem(moduleScroll, metaData.name());
 
@@ -458,14 +416,9 @@ KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData
     // if (qobject_cast<KCModuleQml *>(kcm->realModule())) {
     // item->setHeaderVisible(false);
     //}
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    if (kcm->realModule() && kcm->realModule()->useRootOnlyMessage()) {
-        item->setHeader(QStringLiteral("<b>%1</b><br><i>%2</i>").arg(metaData.name(), kcm->realModule()->rootOnlyMessage()));
-#else
 #pragma "port to qt6"
     if (/*kcm->useRootOnlyMessage()*/ 0) {
         // item->setHeader(QStringLiteral("<b>%1</b><br><i>%2</i>").arg(metaData.name(), kcm->rootOnlyMessage()));
-#endif
         item->setIcon(KIconUtils::addOverlay(QIcon::fromTheme(metaData.iconName()), QIcon::fromTheme(QStringLiteral("dialog-warning")), Qt::BottomRightCorner));
     } else {
         item->setHeader(metaData.name());
@@ -479,15 +432,9 @@ KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData
     } else {
         addPage(item);
     }
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    QObject::connect(kcm, &KCModuleProxy::changed, this, [d]() {
-        d->_k_clientChanged();
-    });
-#else
     QObject::connect(kcm, &KCModule::needsSaveChanged, this, [d]() {
         d->_k_clientChanged();
     });
-#endif
 
     if (d->modules.count() == 1 || updateCurrentPage) {
         setCurrentPage(item);

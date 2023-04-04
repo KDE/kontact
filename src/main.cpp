@@ -31,9 +31,6 @@ using namespace Kontact;
 #include <QWindow>
 
 #include <iostream>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <Kdelibs4ConfigMigrator>
-#endif
 
 using namespace std;
 
@@ -72,10 +69,9 @@ private:
 
 static void listPlugins()
 {
-    const QVector<KPluginMetaData> pluginMetaDatas =
-        KPluginMetaData::findPlugins(QStringLiteral("pim" QT_STRINGIFY(QT_VERSION_MAJOR)) + QStringLiteral("/kontact"), [](const KPluginMetaData &data) {
-            return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
-        });
+    const QVector<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(QStringLiteral("pim6/kontact"), [](const KPluginMetaData &data) {
+        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+    });
 
     for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins
@@ -145,20 +141,10 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
 
 int main(int argc, char **argv)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-#endif
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
     KontactApp app(argc, &argv);
 
     KCrash::initialize();
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Kdelibs4ConfigMigrator migrate(QStringLiteral("kontact"));
-    migrate.setConfigFiles(QStringList() << QStringLiteral("kontactrc") << QStringLiteral("kontact_summaryrc"));
-    migrate.setUiFiles(QStringList() << QStringLiteral("kontactui.rc"));
-    migrate.migrate();
-#endif
     KAboutData about(QStringLiteral("kontact"),
                      i18n("Kontact"),
                      QLatin1String(version),

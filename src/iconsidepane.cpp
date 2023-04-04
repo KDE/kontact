@@ -414,11 +414,7 @@ void Navigator::dragMoveEvent(QDragMoveEvent *event)
     if (event->proposedAction() == Qt::IgnoreAction) {
         return;
     }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    const QModelIndex dropIndex = indexAt(event->pos());
-#else
     const QModelIndex dropIndex = indexAt(event->position().toPoint());
-#endif
 
     if (!dropIndex.isValid() || !(dropIndex.model()->flags(dropIndex) & Qt::ItemIsEnabled)) {
         event->setAccepted(false);
@@ -441,11 +437,7 @@ void Navigator::dropEvent(QDropEvent *event)
         return;
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    const QModelIndex dropIndex = indexAt(event->pos());
-#else
     const QModelIndex dropIndex = indexAt(event->position().toPoint());
-#endif
 
     if (!dropIndex.isValid()) {
         return;

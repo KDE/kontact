@@ -13,11 +13,7 @@
 #include <QList>
 #include <QStringList>
 
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-class KCModuleProxy;
-#else
 class KCModule;
-#endif
 class KPageWidgetItem;
 
 class KontactKCMultiDialogPrivate
@@ -31,18 +27,10 @@ protected:
 
     virtual ~KontactKCMultiDialogPrivate() = default;
 
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    KCModuleProxy *currentModule = nullptr;
-#else
     KCModule *currentModule = nullptr;
-#endif
 
     struct CreatedModule {
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-        KCModuleProxy *kcm = nullptr;
-#else
         KCModule *kcm = nullptr;
-#endif
         KPageWidgetItem *item = nullptr;
         QStringList componentNames;
     };
@@ -59,11 +47,6 @@ protected:
 private:
     void init();
     void apply();
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-    bool resolveChanges(KCModuleProxy *currentProxy);
-    static bool moduleSave(KCModuleProxy *module);
-#else
     bool resolveChanges(KCModule *currentProxy);
     static bool moduleSave(KCModule *module);
-#endif
 };

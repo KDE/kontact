@@ -142,10 +142,9 @@ void MainWindow::initObject()
             qFatal("KSycoca unavailable. Kontact will be unable to find plugins.");
         }
     }
-    mPluginMetaData =
-        KPluginMetaData::findPlugins(QStringLiteral("pim" QT_STRINGIFY(QT_VERSION_MAJOR)) + QStringLiteral("/kontact"), [](const KPluginMetaData &data) {
-            return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
-        });
+    mPluginMetaData = KPluginMetaData::findPlugins(QStringLiteral("pim6/kontact"), [](const KPluginMetaData &data) {
+        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+    });
 
     // prepare the part manager
     mPartManager = new KParts::PartManager(this);
@@ -780,7 +779,7 @@ void MainWindow::slotPreferences()
         });
 
         // Add the main contact KCM which is not associated with a specific plugin
-        dlg->addModule(KPluginMetaData(QStringLiteral("pim" QT_STRINGIFY(QT_VERSION_MAJOR)) + QStringLiteral("/kcms/kontact/kcm_kontact")));
+        dlg->addModule(KPluginMetaData(QStringLiteral("pim6/kcms/kontact/kcm_kontact")));
 
         auto sortByWeight = [](const KPluginMetaData &m1, const KPluginMetaData &m2) {
             return m1.rawData().value(QStringLiteral("X-KDE-Weight")).toInt() < m2.rawData().value(QStringLiteral("X-KDE-Weight")).toInt();
