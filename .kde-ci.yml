@@ -13,16 +13,5 @@ Dependencies:
     'pim/libkdepim' : '@latest-kf6'
     'pim/pimcommon' : '@latest-kf6'
 
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
-  'require':
-    'third-party/grantlee' : '@stable'
-    'frameworks/extra-cmake-modules': '@latest'
-    'pim/akonadi' : '@same'
-    'pim/grantleetheme' : '@same'
-    'pim/kontactinterface' : '@same'
-    'pim/kpimtextedit' : '@same'
-    'pim/libkdepim' : '@same'
-    'pim/pimcommon' : '@same'
-
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      
