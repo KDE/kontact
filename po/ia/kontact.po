@@ -961,7 +961,7 @@ msgstr ""
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Print Preview Selected Notes..."
-#~ msgstr "Imprime notas de vista preliminari seligite ..."
+#~ msgstr "Imprime notas de vista preliminar seligite ..."
 
 #~ msgid "Note settings..."
 #~ msgstr "Preferentias de nota..."
