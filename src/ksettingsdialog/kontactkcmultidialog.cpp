@@ -413,17 +413,8 @@ KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData
     createdModule.item = item;
     d->modules.append(createdModule);
 
-    // if (qobject_cast<KCModuleQml *>(kcm->realModule())) {
-    // item->setHeaderVisible(false);
-    //}
-#pragma "port to qt6"
-    if (/*kcm->useRootOnlyMessage()*/ 0) {
-        // item->setHeader(QStringLiteral("<b>%1</b><br><i>%2</i>").arg(metaData.name(), kcm->rootOnlyMessage()));
-        item->setIcon(KIconUtils::addOverlay(QIcon::fromTheme(metaData.iconName()), QIcon::fromTheme(QStringLiteral("dialog-warning")), Qt::BottomRightCorner));
-    } else {
-        item->setHeader(metaData.name());
-        item->setIcon(QIcon::fromTheme(metaData.iconName()));
-    }
+    item->setHeader(metaData.name());
+    item->setIcon(QIcon::fromTheme(metaData.iconName()));
     bool updateCurrentPage = false;
     const auto model = qobject_cast<const KPageWidgetModel *>(pageWidget()->model());
     Q_ASSERT(model);
