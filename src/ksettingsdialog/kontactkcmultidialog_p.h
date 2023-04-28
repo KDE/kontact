@@ -8,7 +8,6 @@
 
 #pragma once
 
-#include "kcmutils_version.h"
 #include "kontactkcmultidialog.h"
 #include <QList>
 #include <QStringList>
