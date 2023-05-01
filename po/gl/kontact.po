@@ -1,6 +1,5 @@
 # translation of kontact.po to Galician
 # Copyright (C) 2003, 2004, 2006, 2008, 2009 Free Software Foundation, Inc.
-#
 # Xabi García <xabigf@gmx.net>, 2003, 2004.
 # Xabier García Feal <xabigf@gmx.net>, 2004.
 # Xabi G. Feal <xabigf@gmx.net>, 2006.
@@ -11,13 +10,14 @@
 # Marce Villarino <mvillarino@users.sourceforge.net>, 2009.
 # Marce Villarino <mvillarino@kde-espana.es>, 2012, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2016, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-11 00:58+0000\n"
-"PO-Revision-Date: 2019-09-29 09:16+0200\n"
+"PO-Revision-Date: 2023-04-30 11:28+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -251,10 +251,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar:"
+#, kde-format
 msgid "Show the component sidebar"
-msgstr "Mostrar a barra lateral de compoñentes:"
+msgstr "Mostrar a barra lateral de compoñentes"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
@@ -318,7 +317,7 @@ msgstr "Comezar cun módulo concreto de Kontact"
 #: src/main.cpp:97
 #, kde-format
 msgid "Start in iconified (minimized) mode"
-msgstr "Iniciar en modo iconificado (minimizado)"
+msgstr "Iniciar en modo de icona (minimizado)"
 
 #: src/main.cpp:98
 #, kde-format
@@ -336,10 +335,9 @@ msgid "KDE personal information manager"
 msgstr "Xestor de información persoal de KDE"
 
 #: src/main.cpp:167
-#, fuzzy, kde-format
-#| msgid "Copyright © 2001–2019 Kontact authors"
+#, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "© 2001–2019 Autores de Kontact"
+msgstr "© 2001–%1 Xente autora de Kontact"
 
 #: src/main.cpp:171
 #, kde-format
@@ -484,13 +482,13 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
+"<qt>Isto agocha completamente a barra do menú. Pódese mostrar de novo "
+"escribindo %1.</qt>"
 
 #: src/mainwindow.cpp:342
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgid "Hide menu bar"
-msgstr "Ocultar a barra lateral"
+msgstr "Agochar a barra de menú"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:533
