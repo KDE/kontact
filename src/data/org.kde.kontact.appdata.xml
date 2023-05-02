@@ -428,6 +428,7 @@
       <caption xml:lang="eu">KMail, Kontact-en e-posta osagaia</caption>
       <caption xml:lang="fi">KMail, Kontactin sähköpostiosa</caption>
       <caption xml:lang="fr">KMail, le composant pour le courriel de Kontact.</caption>
+      <caption xml:lang="gl">KMail, o compoñente de correo electrónico de Kontact</caption>
       <caption xml:lang="ia">KMail, le componente de e-posta de Kontact</caption>
       <caption xml:lang="id">KMail, adalah komponen email pada Kontact</caption>
       <caption xml:lang="it">KMail è il componente di posta elettronica di Kontact</caption>
@@ -464,6 +465,7 @@
       <caption xml:lang="eu">Antolatu zure denbora, kudeatu ekitaldiak, sortu zereginak edo programatu hitzorduak KOrganize erabiliz</caption>
       <caption xml:lang="fi">Hallitse ajankäyttöäsi ja tapahtumia, luo tehtäviä tai aikatauluta tapaamisia KOrganizerilla</caption>
       <caption xml:lang="fr">Organiser votre temps, gérer des évènements, créer des listes de tâches et planifier des réunions avec KOrganizer.</caption>
+      <caption xml:lang="gl">Organize o seu tempo, xestione os seus eventos, e cree tarefas ou planifique reunións con KOrganizer.</caption>
       <caption xml:lang="ia">Organisa tu tempore, gere eventos, crea actiones de facer,i.e. tu agnda, o planifica incontros con KOrganizer</caption>
       <caption xml:lang="id">Atur waktu, kelola acara, ciptakan kegiatan atau jadwalkan rapatmu menggunakan KOrganizer</caption>
       <caption xml:lang="it">Organizza il tuo tempo, gestisci eventi, crea cose da fare o pianifica delle riunioni con KOrganizer</caption>
@@ -501,6 +503,7 @@
       <caption xml:lang="eu">KAddressBook-ek zure kontaktuak kudeatzeko era erraz bat ematen du</caption>
       <caption xml:lang="fi">KAddressBook tarjoaa helpon tavan yhteystietojesi hallintaan</caption>
       <caption xml:lang="fr">KAddressBook offre une façon simple de gérer vos contacts.</caption>
+      <caption xml:lang="gl">KAddressBook fornece unha forma sinxela de xestionar os seus contactos.</caption>
       <caption xml:lang="ia">KaddressBook forni un modo facile de gerer tu contactos</caption>
       <caption xml:lang="id">KAddressBook menyediakan cara yang mudah untuk mengelola kontakmu</caption>
       <caption xml:lang="it">KAddressBook fornisce un modo semplice per gestire i contatti</caption>
@@ -537,6 +540,7 @@
       <caption xml:lang="eu">Zaude albisteen jakitun Akregator, gure albiste irakurlearekin</caption>
       <caption xml:lang="fi">Pysyttele ajan tasalla syötelukijallamme Akregatorilla</caption>
       <caption xml:lang="fr">Restez au courant des nouvelles avec Akregator, notre lecteur de flux.</caption>
+      <caption xml:lang="gl">Mantéñase ao día con Akregator, o noso lector de novas.</caption>
       <caption xml:lang="ia">Resta al culmine del novas con Akregator, nostre lector de syndication de novas</caption>
       <caption xml:lang="id">Tetap mengikuti yang baru dengan Akregator, pembaca berita kami</caption>
       <caption xml:lang="it">Rimani aggiornato sulle novità con Akregator, il nostro lettore di notizie</caption>
@@ -564,9 +568,9 @@
   </provides>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="5.23.0" date="2023-04-20"/>
     <release version="5.22.3" date="2023-03-02"/>
     <release version="5.22.2" date="2023-02-02"/>
     <release version="5.22.1" date="2023-01-05"/>
-    <release version="5.22.0" date="2022-12-08"/>
   </releases>
 </component>
