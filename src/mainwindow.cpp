@@ -31,6 +31,7 @@ using namespace Kontact;
 #include <KActionCollection>
 #include <KActionMenu>
 #include <KColorSchemeManager>
+#include <KColorSchemeMenu>
 #include <KConfigGroup>
 #include <KDialogJobUiDelegate>
 #include <KEditToolBar>
@@ -321,7 +322,7 @@ void MainWindow::setupActions()
     connect(mShowFullScreenAction, &QAction::toggled, this, &MainWindow::slotFullScreen);
 
     auto manager = new KColorSchemeManager(this);
-    actionCollection()->addAction(QStringLiteral("colorscheme_menu"), manager->createSchemeSelectionMenu(this));
+    actionCollection()->addAction(QStringLiteral("colorscheme_menu"), KColorSchemeMenu::createMenu(manager, this));
 
     mShowMenuBarAction = KStandardAction::showMenubar(this, &MainWindow::slotToggleMenubar, actionCollection());
 }
