@@ -539,7 +539,7 @@ msgstr "الشّريط الجانبيّ مخفيّ. اعرض الشّريط ال
 
 #~ msgctxt "@info:credit"
 #~ msgid "(c), 2003 Cornelius Schumacher"
-#~ msgstr "©، ٢٠٠٣ لِ‍ Cornelius Schumacher"
+#~ msgstr "©، 2003 لِ‍ Cornelius Schumacher"
 
 #~ msgctxt "@info:credit"
 #~ msgid "Cornelius Schumacher"
@@ -628,7 +628,7 @@ msgstr "الشّريط الجانبيّ مخفيّ. اعرض الشّريط ال
 #~ msgstr ""
 #~ "<html dir=\"rtl\"><br /><br />                     <i>جرى تحسين المنتج "
 #~ "الحرّ هذا كجزء من مشروع تجاريّ:</i>                     <h3>إشادات</"
-#~ "h3>                     مشروع «كُووي/Kowi» (مارس ٢٠٠٧ - )<br /><br /"
+#~ "h3>                     مشروع «كُووي/Kowi» (مارس 2007 - )<br /><br /"
 #~ ">                                          <b>الإنتاج / تنسيق المشروع</"
 #~ "b><br />                     Bernhard Reiter<br />                     "
 #~ "<b>مدير التّطوير</b><br />                     Till "
