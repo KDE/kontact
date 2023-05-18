@@ -533,7 +533,7 @@ void MainWindow::addPlugin(KontactInterface::Plugin *plugin)
         action->setWhatsThis(i18nc("@info:whatsthis", "Switch to plugin %1", plugin->title()));
         action->setCheckable(true);
         action->setData(QVariant::fromValue(plugin)); // used by pluginActionWeightLessThan
-        connect(action, &QAction::triggered, this, [=]() {
+        connect(action, &QAction::triggered, this, [this, action, plugin]() {
             slotActionTriggered(action, plugin->identifier());
         });
         actionCollection()->addAction(plugin->identifier(), action);
