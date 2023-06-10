@@ -18,7 +18,7 @@ class KcmKontact : public KCModule
     Q_OBJECT
 
 public:
-    explicit KcmKontact(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
+    explicit KcmKontact(QObject *parent, const KPluginMetaData &data);
 
     void load() override;
     void save() override;

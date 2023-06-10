@@ -21,8 +21,8 @@ using namespace Kontact;
 #include <QStandardItemModel>
 
 K_PLUGIN_CLASS_WITH_JSON(KcmKontact, "data/kontactconfig.json")
-KcmKontact::KcmKontact(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
-    : KCModule(parent, data, args)
+KcmKontact::KcmKontact(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
     , mPluginCombo(new QComboBox(widget()))
 {
     auto topLayout = new QVBoxLayout(widget());
