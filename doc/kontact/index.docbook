@@ -788,7 +788,7 @@ the calendar and the contact list in one place.
 that can be used for certain actions.</para>
 
 <para>First of all, &kontact; supports command line arguments
-that all &kf5;/&Qt; applications support, see the man pages qt5options and kf5options.
+that all &kde-frameworks;/&Qt; applications support, see the man pages qt5options and kf5options.
 </para>
 
 <para>&kontact; also supports several command line arguments
