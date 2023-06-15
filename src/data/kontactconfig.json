@@ -33,6 +33,7 @@
         "Description[tr]": "Öntanımlı KDE Contact Bileşeni",
         "Description[uk]": "Типовий компонент Kontact KDE",
         "Description[x-test]": "xxDefault KDE Kontact Componentxx",
+        "Description[zh_TW]": "預設 KDE Kontact 元件",
         "Icon": "kontact",
         "Name": "Kontact Configuration",
         "Name[ar]": "ضبط «متراسلك»",
@@ -66,7 +67,8 @@
         "Name[sv]": "Inställning av Kontact",
         "Name[tr]": "Kontak Yapılandırması",
         "Name[uk]": "Налаштування Kontact",
-        "Name[x-test]": "xxKontact Configurationxx"
+        "Name[x-test]": "xxKontact Configurationxx",
+        "Name[zh_TW]": "Kontact 設定"
     },
     "X-KDE-Weight": 0
 }
