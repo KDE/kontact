@@ -6,35 +6,36 @@
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007, 2008.
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2011, 2012, 2013, 2014, 2015.
 # pan93412 <pan93412@gmail.com>, 2018, 2019.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-19 00:49+0000\n"
-"PO-Revision-Date: 2019-03-22 00:34+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
+"PO-Revision-Date: 2023-06-15 05:05+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 18.12.3\n"
+"X-Generator: Lokalize 23.04.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "謝侑呈"
+msgstr "謝侑呈, Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "yochenhsieh@xuite.net"
+msgstr "yochenhsieh@xuite.net, mail@kisaragi-hiu.com"
 
 #: src/about/introduction_kontact.html:18
 #, kde-format
 msgid "Welcome to Kontact %1"
-msgstr "歡迎進度 Kontact %1"
+msgstr "歡迎使用 Kontact %1"
 
 #: src/about/introduction_kontact.html:19
 msgid ""
@@ -59,14 +60,14 @@ msgstr "只顯示圖示"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
-msgstr "在邊列的項目顯示圖示但不顯示文字"
+msgstr "在側邊欄的項目顯示圖示但不顯示文字"
 
 #: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
-msgstr "勾選此選項，邊列的項目只會有圖示而不會有文字。"
+msgstr "勾選此選項，側邊欄的項目只會有圖示而不會有文字。"
 
 #: src/iconsidepane.cpp:270
 #, kde-format
@@ -78,14 +79,14 @@ msgstr "只顯示文字"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
-msgstr "在邊列的項目只顯示文字而不顯示圖示"
+msgstr "在側邊欄的項目只顯示文字而不顯示圖示"
 
 #: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
-msgstr "勾選此選項，邊列的項目只會有文字而不會有圖示。"
+msgstr "勾選此選項，側邊欄的項目只會有文字而不會有圖示。"
 
 #: src/iconsidepane.cpp:277
 #, kde-format
@@ -97,14 +98,14 @@ msgstr "顯示圖示與文字"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
-msgstr "在邊列的項目顯示文字與圖示"
+msgstr "在側邊欄的項目顯示文字與圖示"
 
 #: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
-msgstr "勾選此選項，邊列的項目會有圖示與文字。"
+msgstr "勾選此選項，側邊欄的項目會有圖示與文字。"
 
 #: src/iconsidepane.cpp:287
 #, kde-format
@@ -116,13 +117,13 @@ msgstr "大圖示"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
-msgstr "邊列顯示大圖示"
+msgstr "側邊欄顯示大圖示"
 
 #: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
-msgstr "勾選此選項，邊列的項目圖示會變很大。"
+msgstr "勾選此選項，側邊欄的項目圖示會變很大。"
 
 #: src/iconsidepane.cpp:294
 #, kde-format
@@ -134,13 +135,13 @@ msgstr "一般圖示"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
-msgstr "邊列顯示一般圖示"
+msgstr "側邊欄顯示一般圖示"
 
 #: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
-msgstr "勾選此選項，邊列的項目圖示會是正常大小。"
+msgstr "勾選此選項，側邊欄的項目圖示會是正常大小。"
 
 #: src/iconsidepane.cpp:301
 #, kde-format
@@ -152,13 +153,13 @@ msgstr "小圖示"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
-msgstr "邊列顯示小圖示"
+msgstr "側邊欄顯示小圖示"
 
 #: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
-msgstr "勾選此選項，邊列的項目圖示會是小圖示。"
+msgstr "勾選此選項，側邊欄的項目圖示會是小圖示。"
 
 #: src/iconsidepane.cpp:308
 #, kde-format
@@ -227,8 +228,7 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar:"
+#, kde-format
 msgid "Show the component sidebar"
 msgstr "顯示元件側邊欄"
 
@@ -246,6 +246,8 @@ msgid ""
 "Uncheck this box to hide the component sidebar. Note that the F9 key will "
 "hide/show the icon sidebar."
 msgstr ""
+"為了節省螢幕空間，您可能會選擇隱藏圖示側邊欄。取消勾選這個方塊來隱藏元件側邊"
+"欄。請記得 F9 按鍵可以用來隱藏/顯示圖示側邊欄。"
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -257,7 +259,7 @@ msgstr "檔案(&F)"
 #: src/kontactui.rc:14
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "檢視(&V)"
 
 #. i18n: ectx: Menu (settings)
 #: src/kontactui.rc:20
@@ -309,10 +311,9 @@ msgid "KDE personal information manager"
 msgstr "KDE 個人資訊管理程式"
 
 #: src/main.cpp:167
-#, fuzzy, kde-format
-#| msgid "Copyright © 2001–2019 Kontact authors"
+#, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "版權 © 2001–2019 Kontact 作者群"
+msgstr "版權所有 © 2001–%1 Kontact 作者群"
 
 #: src/main.cpp:171
 #, kde-format
@@ -448,21 +449,19 @@ msgstr "隱藏 / 顯示功能側邊欄"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
-msgstr ""
+msgstr "讓您隨您喜好顯示或隱藏元件側邊欄。"
 
 #: src/mainwindow.cpp:339
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
-msgstr ""
+msgstr "<qt>這會完全隱藏選單列。您可以按下 %1 重新顯示選單列。</qt>"
 
 #: src/mainwindow.cpp:342
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgid "Hide menu bar"
-msgstr "隱藏側邊欄"
+msgstr "隱藏選單列"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:533
@@ -517,7 +516,7 @@ msgstr "取得線上資源與教學"
 #: src/mainwindow.cpp:963
 #, kde-format
 msgid "Setup your Accounts"
-msgstr "設定您的帳戶"
+msgstr "設定您的帳號"
 
 #: src/mainwindow.cpp:964
 #, kde-format
