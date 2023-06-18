@@ -87,7 +87,7 @@ static void listPlugins()
             }
         }
 
-        cout << "lib name " << qPrintable(plugin.pluginId().remove(QStringLiteral("kontact_"))) << endl;
+        cout << "Plugin name " << qPrintable(plugin.pluginId()) << endl;
     }
 }
 
