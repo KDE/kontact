@@ -23,3 +23,5 @@ void IntroductionWebEngineView::contextMenuEvent(QContextMenuEvent *)
 {
     // Don't define contextmenu
 }
+
+#include "moc_introductionwebengineview.cpp"

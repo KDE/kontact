@@ -78,3 +78,5 @@ QSize KontactConfigureDialog::sizeHint() const
     const int height = group.readEntry("height", 600);
     return QSize(width, height);
 }
+
+#include "moc_kontactconfiguredialog.cpp"

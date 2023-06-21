@@ -551,3 +551,5 @@ void IconSidePane::resizeEvent(QResizeEvent *event)
 }
 
 #include "iconsidepane.moc"
+
+#include "moc_iconsidepane.cpp"

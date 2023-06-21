@@ -1025,3 +1025,5 @@ void MainWindow::setHelpText(QAction *action, const QString &text)
         action->setWhatsThis(text);
     }
 }
+
+#include "moc_mainwindow.cpp"

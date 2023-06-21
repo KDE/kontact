@@ -103,3 +103,5 @@ void KcmKontact::save()
 }
 
 #include "kcmkontact.moc"
+
+#include "moc_kcmkontact.cpp"

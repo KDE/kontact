@@ -49,3 +49,5 @@ bool IntroductionWebEnginePage::acceptNavigationRequest(const QUrl &url, Navigat
     Q_EMIT urlClicked(url);
     return false;
 }
+
+#include "moc_introductionwebenginepage.cpp"
