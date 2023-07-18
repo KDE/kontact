@@ -14,7 +14,6 @@
   <developer_name xml:lang="de">Die KDE-Gemeinschaft</developer_name>
   <developer_name xml:lang="el">Η Κοινότητα του KDE</developer_name>
   <developer_name xml:lang="en-GB">The KDE Community</developer_name>
-  <developer_name xml:lang="eo">La KDE-Komunumo</developer_name>
   <developer_name xml:lang="es">La comunidad de KDE</developer_name>
   <developer_name xml:lang="et">KDE kogukond</developer_name>
   <developer_name xml:lang="eu">KDE komunitatea</developer_name>
@@ -52,7 +51,6 @@
   <name xml:lang="de">Kontact</name>
   <name xml:lang="el">Kontact</name>
   <name xml:lang="en-GB">Kontact</name>
-  <name xml:lang="eo">Kontact</name>
   <name xml:lang="es">Kontact</name>
   <name xml:lang="et">Kontact</name>
   <name xml:lang="eu">Kontact</name>
@@ -93,7 +91,6 @@
   <summary xml:lang="de">Verwalten Sie alle Ihre E-Mails. Kalender, Kontakte und mehr in einem einzigen Fenster</summary>
   <summary xml:lang="el">Διαχειριστείτε την ηλεκτρονική σας αλληλογραφία, τα ημερολόγιά σας, τις επαφές σας και πολλά άλλα από ένα μόνο παράθυρο.</summary>
   <summary xml:lang="en-GB">Handle all your emails, calendars, contacts and more within a single window</summary>
-  <summary xml:lang="eo">Pritraktu ĉiujn viajn retpoŝtojn, kalendarojn, kontaktojn kaj pli ene de ununura fenestro</summary>
   <summary xml:lang="es">Gestiona todos sus correos, calendarios, contactos y más en una única ventana</summary>
   <summary xml:lang="et">Kõigi e-kirjade, kalendrite, kontaktide ja veel palju muu käitlemine ühesainsas aknas</summary>
   <summary xml:lang="eu">Kudeatu zure e-postak, egutegiak, kontaktuak eta gehiago leiho bakarrean</summary>
@@ -132,7 +129,6 @@
     <p xml:lang="de">Verwalten Sie Ihre E-Mails, Kalender, Kontakte und andere persönliche Daten mit Kontact. Kontact fasst alles an einem Ort zusammen und hilft Ihnen, Ihre Kommunikation zu verwalten, Ihren Tag zu organisieren und mit Ihren Kollegen zusammenzuarbeiten.</p>
     <p xml:lang="el">Διαχειριστείτε το ηλ. ταχυδρομείο σας, το βιβλίο διευθύνσεων σας, το ημερολόγιό σας, τις επαφές σας και άλλα προσωπικά δεδομένα με το Kontact. Το Kontact τα ομαδοποιεί όλα μαζί σε εα σημείο και σάς βοηθάει να διαχειριστείτε τις επικοινωνίες σας, να οργανώσετε την ημέρα σας και να εργαστείτε με τους συναδέλφους σας.</p>
     <p xml:lang="en-GB">Handle your email, calendar, contacts and other personal data with Kontact. Kontact groups everything together in one place and helps you manage your communications, organise your day and work with your colleagues.</p>
-    <p xml:lang="eo">Pritraktu vian retpoŝton, kalendaron, kontaktojn kaj aliajn personajn datumojn kun Kontact. Kontact grupigas ĉion en unu loko kaj helpas vin administri viajn komunikadojn, organizi vian tagon kaj labori kun viaj kolegoj.</p>
     <p xml:lang="es">Gestiona su correo, calendarios, contactos y otros datos personales con Kontact. Kontact agrupa todo junto en un solo lugar y le ayuda a gestionar sus comunicaciones, organizar su jornada y trabajar con sus colegas.</p>
     <p xml:lang="et">E-kirjade, kalendri, kontaktide ja muude isiklike andmete käitlemine Kontactis. Kontact toob kõik ühte kohta kokku ja aitab sul oma kommunikatsiooni hallata ning korraldada nii igapäevaelu kui koostööd kolleegidega.</p>
     <p xml:lang="eu">Kudeatu zure e-posta, egutegia, kontaktuak eta beste informazio pertsonala Kontact erabiliz. Kontact-ek guztia biltzen du leku bakarrean eta zure komunikazioak kudeatzen, zure eguna antolatzen eta zure lankideekin lan egiten laguntzen dizu.</p>
@@ -170,7 +166,6 @@
     <p xml:lang="de">Kontact vereinigt mehrere Anwendungen zur Verwaltung persönlicher Informationen in einem einzigen Fenster, um Ihnen die optimale Nutzung zu ermöglichen und Ihre Produktivität zu steigern. Mit Kontact können Sie alle Anwendungen unserer leistungsstarken Software an einem einzigen Ort nutzen. Im Gegensatz zu proprietären Web-Anwendungen schätzen wir Ihre Privatsphäre und unterstützen offene Standards, weshalb Sie mit Kontact die volle Kontrolle über Ihre Daten haben. Natürlich können Sie auch offline auf Ihre Daten zugreifen, wenn Sie das möchten.</p>
     <p xml:lang="el">Το Kontact ενοποιεί πολλές εφαρμογές διαχείρισης προσωπικών δεδομένων σε ένα παράθυρο για να σας δώσει την καλύτερη δυνατή εμπειρία και να αυξήσει την παραγωγικότητά σας. Με το Kontact μπορείτε να χρησιμοποιείτε όλα τα εργαλεία της πανίσχυρης αυτής σουίτας από ένα σημείο. Αντίθετα με τις ιδιοκτησιακές εφαρμογές του ιστού δίνουμε αξία στο ιδωτικό σας απόρρητο και υποστηρίζουμε τα ανοιχτά πρότυπα, και αυτός είναι ο λόγος για τον οποίο με το Kontact έχετε πλήρη έλεγχο στα δικά σας δεδομένα. Νπορείτε φυσικά να έχετε και εκτός δικτύου πρόσβαση στα δεδομένα σας αν το θελήσετε.</p>
     <p xml:lang="en-GB">Kontact unifies several personal information management applications into a single window to give you the best possible experience and boost your productivity. With Kontact you can use all the tools of our powerful suite in one place. Unlike proprietary web applications we value your privacy and support open standards, which is why Kontact gives you full control over your data. You can of course also access your data offline if you want to.</p>
-    <p xml:lang="eo">Kontact unuigas plurajn aplikaĵojn pri administrado de personaj informoj en unu fenestron por doni al vi la plej bonan eblan sperton kaj pliigi vian produktivecon. Kun Kontact vi povas uzi ĉiujn ilojn de nia potenca serio en unu loko. Male al proprietaj TTT-aplikoj ni taksas vian privatecon kaj subtenas malfermajn normojn, tial Kontact donas al vi plenan kontrolon pri viaj datumoj. Vi povas kompreneble ankaŭ aliri viajn datumojn eksterrete, se vi volas.</p>
     <p xml:lang="es">Kontact unifica varias aplicaciones de gestión de información personal en una sola ventana para proporcionarle la mejor experiencia posible e incrementar su productividad. Con  Kontact, usted puede usar todas las herramientas de nuestra potente suite en un lugar. Al contrario que las aplicaciones web propietarias, valoramos la confidencialidad e implementamos estándares abiertos, que es lo que hace que  Kontact le proporcione control completo sobre sus datos. También puede, por supuesto, acceder a sus datos sin conexión, si lo desea.</p>
     <p xml:lang="et">Kontact koondab mitmed isikliku teabe haldamise rakendused ühte aknasse pakkumaks sulle parimaid võimalusi oma tööde ja tegemistega kiiremini ja hõlpsamalt hakkama saada. Kontact võimaldab kasutada kõiki meie võimsaid tööriistu ühes kohas. Erinevalt kommertslikest veebirakendustest hindame me kõrgelt kasutaja privaatsust ja toetame avatud standardeid, mis muu hulgas tähendab, et Kontact jätab täieliku kontrolli sinu andmete üle sinu enda kätte. Soovi korral saab oma andmetele ligi loomulikult ka võrguta režiimis.</p>
     <p xml:lang="eu">Kontact-ek informazio pertsonala kudeatzeko hainbat aplikazio bateratzen ditu leiho bakar batean, ahal den esperientzia onena izan dezazun eta zure produktibitatea areagotzeko. Kontact-ekin gure suite ahaltsuaren tresna guztiak leku berean erabil ditzakezu. Web aplikazio jabedunek ez bezala, zure pribatutasuna aintzat hartzen dugu eta estandar irekien alde egiten dugu, horrek ematen dizu zure datuen gaineko kontrol osoa. Nahi izanez gero, jakina, zure datuetara lerroz-kanpo ere sar zaitezke.</p>
@@ -206,7 +201,6 @@
     <p xml:lang="de">Kontact besteht aus mehreren gut aufeinander abgestimmten Komponenten:</p>
     <p xml:lang="el">Το Kontact αποτελείται από πολλά ενοποιημένα συστατικά:</p>
     <p xml:lang="en-GB">Kontact consists of several well-integrated components:</p>
-    <p xml:lang="eo">Kontact konsistas el pluraj bone integritaj komponentoj:</p>
     <p xml:lang="es">Kontact consta de varios componentes bien integrados:</p>
     <p xml:lang="et">Kontact koosneb mitmest omavahel hästi lõimitud komponendist:</p>
     <p xml:lang="eu">Kontact-ek ondo bateratutako hainbat osagai ditu:</p>
@@ -243,7 +237,6 @@
       <li xml:lang="de">KMail - ein leistungsfähiger und funktionsreicher E-Mail-Client mit Unterstützung für eine Vielzahl von E-Mail-Anbietern.</li>
       <li xml:lang="el">KMail - μια πανίσχυρη και πλούσια σε χαρακτηριστικά εφαρμογή ηλεκτρονικής αλληλογραφίας με υποστήριξη για ένα μεγάλο εύρος παρόχων ηλεκτρονικού ταχυδρομείου.</li>
       <li xml:lang="en-GB">KMail - a powerful and feature-rich email client with support for a wide range of email providers.</li>
-      <li xml:lang="eo">KMail - potenca kaj riĉa retpoŝta kliento kun subteno por larĝa gamo de retpoŝtaj provizantoj.</li>
       <li xml:lang="es">KMail- un cliente de correo poderoso y lleno de funcionalidades que admite una amplia variedad de proveedores de correo.</li>
       <li xml:lang="et">KMail - võimas ja võimalusterohke e-posti klient, mis toetab suurt valikut e-posti teenuse pakkujaid.</li>
       <li xml:lang="eu">KMail - ezaugarri asko dituen e-posta bezero ahaltsu bat, e-posta hornitzaile-sorta zabalarentzako euskarria duena.</li>
@@ -279,7 +272,6 @@
       <li xml:lang="de">KOrganizer - eine Kalender- und Terminplanungskomponente von Kontact, die mit NextCloud, Kolab, Google Calendar und anderen Kalenderdiensten funktioniert.</li>
       <li xml:lang="el">KOrganizer - ένα συστατικό ημερολογίου και χρονικού προγραμματισμού του Kontact το οποίο συνεργάζεται με NextCloud, Kolab, Google Calendar και άλλες υπηρεσίες ημερολογίου.</li>
       <li xml:lang="en-GB">KOrganizer - a calendar and scheduling component of Kontact which is able to work with NextCloud, Kolab, Google Calendar and other calendaring services.</li>
-      <li xml:lang="eo">KOrganizer - kalendara kaj programa komponanto de Kontact, kiu kapablas funkcii kun NextCloud, Kolab, Google Calendar kaj aliaj kalendaraj servoj.</li>
       <li xml:lang="es">Korganizer - un componente de Kontact de calendario y agenda, que es capaz de funcionar con NextCloud, Kolab, Google Calenda y otros servicios de calendario.</li>
       <li xml:lang="et">KOrganizer - Kontacti kalendri- ja ajastamiskomponent, mis suudab teha koostööd NextCloudi, Kolabi, Google Calendari ja teiste kalendriteenustega.</li>
       <li xml:lang="eu">KOrganizer - Kontact-eko egutegi eta antolaketa osagai bat, NextCloud, Kolab, Google Calendar eta egunkarietarako beste zerbitzu batzuekin lan egiteko gai dena.</li>
@@ -315,7 +307,6 @@
       <li xml:lang="de">KAddressBook - ein einfach zu bedienendes Programm, das Kontakte mit vielen gängigen Diensten abgleichen kann. </li>
       <li xml:lang="el">KAddressBook - ένα εύκολης χρήσης εργαλείο διαχείρισης επαφών το οποίο συγχρονίζει επαφές με πολλές δημοφιλείς υπηρεσίες.</li>
       <li xml:lang="en-GB">KAddressBook - an easy to use contact management tool that can synchronise contacts with many popular services.</li>
-      <li xml:lang="eo">KAddressBook - facile uzebla kontaktadministra ilo, kiu povas sinkronigi kontaktojn kun multaj popularaj servoj.</li>
       <li xml:lang="es">KAddressBook - una herramienta de gestión de contactos fácil de usar que permite sincronizar contactos con muchos servicios populares.</li>
       <li xml:lang="et">KAddressBook - hõlpsasti kasutatav kontaktide haldamise vahend, mis suudab sünkroonida kontakte paljude levinud teenustega.</li>
       <li xml:lang="eu">KAddressBook - erabiltzen erraza den kontaktuak kudeatzeko tresna bat, kontaktuak zerbitzu ezagun askorekin sinkroniza ditzakeena.</li>
@@ -351,7 +342,6 @@
       <li xml:lang="de">Akregator - ein Newsreader mit leistungsstarker Such- und Archivierungsfunktion.</li>
       <li xml:lang="el">Akregator - ένας αναγνώστης ειδήσεων με ισχυρή λειτουργικότητα αναζήτησης και αρχειοθέτησης.</li>
       <li xml:lang="en-GB">Akregator - a news reader with powerful search and archiving functionality.</li>
-      <li xml:lang="eo">Akregator - novaĵleganto kun potenca serĉo kaj arkiva funkcio.</li>
       <li xml:lang="es">Akregator - un lector de noticias con potentes funcionalidades de búsqueda y archivado.</li>
       <li xml:lang="et">Akregator - uudistevoogude lugeja võimsa otsingu ja ulatuslike arhiveerimisvõimalustega.</li>
       <li xml:lang="eu">Akregator - bilatzeko eta artxibatzeko funtzionalitate ahaltsuak dituen albiste irakurle bat.</li>
@@ -387,7 +377,6 @@
       <li xml:lang="de">KNotes - ein einfaches Programm, mit dem Sie Notizen schreiben.</li>
       <li xml:lang="el">KNotes - ένα απλό πρόγραμμα, το ισοδύναμο σε υπολογιστή των αυτοκόλλητων σημειώσεων.</li>
       <li xml:lang="en-GB">KNotes - a simple program that lets you write the computer equivalent of sticky notes.</li>
-      <li xml:lang="eo">KNotes - simpla programo kiu ebligas vin skribi la komputilan ekvivalenton de gluaj notoj.</li>
       <li xml:lang="es">KNotes - un programa sencillo que le permite escribir en el ordenador el equivalente de notas pegajosas.</li>
       <li xml:lang="et">KNotes - lihtne rakendus, mis lubab kirja panna "kollaste märkmelehtede" analooge arvutis.</li>
       <li xml:lang="eu">KNotes - ordenagailurako ohar itsaskorren parekoa den programa xume bat.</li>
@@ -433,7 +422,6 @@
       <caption xml:lang="de">KMail, die E-Mail-Komponente von Kontact</caption>
       <caption xml:lang="el">KMail, το ηλεκτρονικό ταχυδρομείο του Kontact</caption>
       <caption xml:lang="en-GB">KMail, the email component of Kontact</caption>
-      <caption xml:lang="eo">KMail, la retpoŝta komponanto de Kontact</caption>
       <caption xml:lang="es">KMail, el componente de correo de Kontact</caption>
       <caption xml:lang="eu">KMail, Kontact-en e-posta osagaia</caption>
       <caption xml:lang="fi">KMail, Kontactin sähköpostiosa</caption>
@@ -471,7 +459,6 @@
       <caption xml:lang="de">Organisieren Sie Ihre Zeit, verwalten Sie Ereignisse, erstellen Sie Aufgaben oder planen Sie Besprechungen mit KOrganizer</caption>
       <caption xml:lang="el">Οργανώστε το χρόνο σας, διαχειριστείτε γεγονότα, δημιουργείστε λίστα μελλοντικών εργασιών ή προγραμματίστε συναντήσεις με το KOrganizer</caption>
       <caption xml:lang="en-GB">Organise your time, manage events, create to-dos or schedule meetings with KOrganizer</caption>
-      <caption xml:lang="eo">Organizu vian tempon, administru eventojn, kreu ĉiujn aŭ planu renkontiĝojn kun KOrganizer</caption>
       <caption xml:lang="es">Organice su tiempo, gestione eventos, cree tareas pendientes o planifique reuniones con KOrganizer</caption>
       <caption xml:lang="eu">Antolatu zure denbora, kudeatu ekitaldiak, sortu zereginak edo programatu hitzorduak KOrganize erabiliz</caption>
       <caption xml:lang="fi">Hallitse ajankäyttöäsi ja tapahtumia, luo tehtäviä tai aikatauluta tapaamisia KOrganizerilla</caption>
@@ -510,7 +497,6 @@
       <caption xml:lang="de">KAddressBook bietet eine einfache Möglichkeit, Ihre Kontakte zu verwalten</caption>
       <caption xml:lang="el">Το KAddressBook παρέχει έναν εύκολο τρόπο διαχείρισης των επαφών σας</caption>
       <caption xml:lang="en-GB">KAddressBook provides an easy way to manage your contacts</caption>
-      <caption xml:lang="eo">KAddressBook provizas facilan manieron administri viajn kontaktojn</caption>
       <caption xml:lang="es">KAddressBook proporciona un modo sencillo de gestionar sus contactos</caption>
       <caption xml:lang="eu">KAddressBook-ek zure kontaktuak kudeatzeko era erraz bat ematen du</caption>
       <caption xml:lang="fi">KAddressBook tarjoaa helpon tavan yhteystietojesi hallintaan</caption>
@@ -548,7 +534,6 @@
       <caption xml:lang="de">Bleiben Sie auf dem Laufenden mit Akregator, unserem Newsreader</caption>
       <caption xml:lang="el">Μείνετε στην κορυφή των εξελίξεων με το Akregator, τον αναγνώστη ειδήσεων</caption>
       <caption xml:lang="en-GB">Stay on top of the new with Akregator, our news reader</caption>
-      <caption xml:lang="eo">Restu pri la novaĵo kun Akregator, nia novaĵleganto</caption>
       <caption xml:lang="es">Manténgase al día con Akregator, nuestro lector de noticias</caption>
       <caption xml:lang="eu">Zaude albisteen jakitun Akregator, gure albiste irakurlearekin</caption>
       <caption xml:lang="fi">Pysyttele ajan tasalla syötelukijallamme Akregatorilla</caption>
