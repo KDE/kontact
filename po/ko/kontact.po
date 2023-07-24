@@ -472,7 +472,7 @@ msgstr "%1 플러그인으로 전환"
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
-msgstr "프로그램이 이미 실행 중입니다. 배경에서 지켜봅니다..."
+msgstr "앱이 이미 실행 중입니다. 배경에서 지켜봅니다..."
 
 #: src/mainwindow.cpp:619
 #, kde-format
