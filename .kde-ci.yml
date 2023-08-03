@@ -6,7 +6,6 @@ Dependencies:
   'require':
     'third-party/grantlee' : '@stable'
     'frameworks/extra-cmake-modules': '@latest'
-    'pim/akonadi' : '@same'
     'pim/grantleetheme' : '@same'
     'pim/kontactinterface' : '@same'
     'pim/kpimtextedit' : '@same'
