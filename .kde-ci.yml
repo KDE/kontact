@@ -6,7 +6,6 @@ Dependencies:
   'require':
     'frameworks/ktexttemplate': '@latest-kf6'
     'frameworks/extra-cmake-modules': '@latest-kf6'
-    'pim/akonadi' : '@latest-kf6'
     'pim/grantleetheme' : '@latest-kf6'
     'pim/kontactinterface' : '@latest-kf6'
     'pim/kpimtextedit' : '@latest-kf6'

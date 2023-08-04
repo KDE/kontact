@@ -42,7 +42,6 @@ endif()
 set(KDEPIM_VERSION "${PIM_VERSION}${KDEPIM_DEV_VERSION} (${RELEASE_SERVICE_VERSION})")
 
 set(KPIMTEXTEDIT_LIB_VERSION "5.240.40")
-set(AKONADI_VERSION "5.240.40")
 set(KONTACTINTERFACE_LIB_VERSION "5.240.40")
 set(PIMCOMMON_LIB_VERSION "5.240.40")
 
@@ -69,12 +68,10 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
 
 # Find KdepimLibs Package
 find_package(KPim6TextEdit ${KPIMTEXTEDIT_LIB_VERSION} CONFIG REQUIRED)
-find_package(KPim6Akonadi ${AKONADI_VERSION} CONFIG REQUIRED)
 find_package(KPim6KontactInterface ${KONTACTINTERFACE_LIB_VERSION} CONFIG REQUIRED)
 find_package(KPim6Libkdepim ${LIBKDEPIM_LIB_VERSION} CONFIG REQUIRED)
 find_package(KPim6GrantleeTheme ${LIBGRANTLEETHEME_LIB_VERSION} CONFIG REQUIRED)
 find_package(KPim6PimCommon ${PIMCOMMON_LIB_VERSION} CONFIG REQUIRED)
-
 
 include_directories(${kontact_SOURCE_DIR} ${kontact_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.5  KF 5.240.0)
