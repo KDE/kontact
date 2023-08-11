@@ -895,7 +895,7 @@ the data.</para-->
 >&kontact; har flera kommandoradsväljare som kan användas för vissa åtgärder.</para>
 
 <para
->För det första stöder &kontact; kommandoradsväljare som alla KF5- och &Qt;-program stöder. Se manualsidorna qt5options och kf5options. </para>
+>För det första stöder &kontact; kommandoradsväljare som alla &kde; Ramverk och &Qt;-program stöder. Se manualsidorna qt5options och kf5options. </para>
 
 <para
 >&kontact; stöder också flera specifika kommandoradsväljare.</para>
