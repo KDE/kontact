@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-19 00:49+0000\n"
+"POT-Creation-Date: 2023-09-21 00:45+0000\n"
 "PO-Revision-Date: 2010-02-27 01:40+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -189,13 +189,13 @@ msgid ""
 "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
 msgstr "เลือกตัวเลือกนี้ หากคุณต้องการให้ถาดข้างแสดงไอคอนขนาดปกติ"
 
-#: src/kcmkontact.cpp:49
+#: src/kcmkontact.cpp:35
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
 msgstr "เลือกส่วนเสริมที่จะเริ่มเมื่อโปรแกรมเริ่มการทำงานทุกครั้ง"
 
-#: src/kcmkontact.cpp:51
+#: src/kcmkontact.cpp:37
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -296,259 +296,259 @@ msgstr "แถบเครื่องมือหลัก"
 msgid "Navigator"
 msgstr "ตัวนำทาง"
 
-#: src/main.cpp:96
+#: src/main.cpp:92
 #, kde-format
 msgid "Start with a specific Kontact module"
 msgstr "เริ่มการทำงานด้วยมอดูล Kontact ที่กำหนด"
 
-#: src/main.cpp:97
+#: src/main.cpp:93
 #, kde-format
 msgid "Start in iconified (minimized) mode"
 msgstr "เริ่มแบบย่อเป็นไอคอนไปยังถาดระบบ (ย่อหาย)"
 
-#: src/main.cpp:98
+#: src/main.cpp:94
 #, kde-format
 msgid "List all possible modules and exit"
 msgstr "เรียกมอดูลที่เป็นไปได้ทั้งหมดแล้วออกจากโปรแกรม"
 
-#: src/main.cpp:163 src/mainwindow.cpp:949
+#: src/main.cpp:149 src/mainwindow.cpp:941
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
 
-#: src/main.cpp:165
+#: src/main.cpp:151
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "เครื่องมือจัดการข้อมูลส่วนบุคคลของ KDE"
 
-#: src/main.cpp:167
+#: src/main.cpp:153
 #, fuzzy, kde-format
 #| msgid "(c) 2004 Tobias Koenig"
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "สงวนลิขสิทธิ์ (c) 2004 Tobias Koenig"
 
-#: src/main.cpp:171
+#: src/main.cpp:157
 #, kde-format
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: src/main.cpp:172
+#: src/main.cpp:158
 #, kde-format
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
-#: src/main.cpp:173
+#: src/main.cpp:159
 #, kde-format
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
-#: src/main.cpp:174
+#: src/main.cpp:160
 #, kde-format
 msgid "Don Sanders"
 msgstr "Don Sanders"
 
-#: src/main.cpp:175
+#: src/main.cpp:161
 #, kde-format
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
-#: src/main.cpp:176
+#: src/main.cpp:162
 #, kde-format
 msgid "Tobias König"
 msgstr "Tobias König"
 
-#: src/main.cpp:177
+#: src/main.cpp:163
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: src/main.cpp:178
+#: src/main.cpp:164
 #, kde-format
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
-#: src/main.cpp:179
+#: src/main.cpp:165
 #, kde-format
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
-#: src/main.cpp:180
+#: src/main.cpp:166
 #, kde-format
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
-#: src/main.cpp:181
+#: src/main.cpp:167
 #, kde-format
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:181
+#: src/main.cpp:167
 #, kde-format
 msgid "Original Author"
 msgstr "ผู้เขียนแรกเริ่ม"
 
-#: src/main.cpp:182
+#: src/main.cpp:168
 #, kde-format
 msgid "Torgny Nyblom"
 msgstr ""
 
-#: src/main.cpp:182
+#: src/main.cpp:168
 #, kde-format
 msgid "Git Migration"
 msgstr ""
 
-#: src/mainwindow.cpp:257
+#: src/mainwindow.cpp:249
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
 msgstr "กำลังเริ่มการทำงาน..."
 
-#: src/mainwindow.cpp:294
+#: src/mainwindow.cpp:286
 #, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
 msgstr "สร้างใหม่"
 
-#: src/mainwindow.cpp:299
+#: src/mainwindow.cpp:291
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
 msgstr "ปรับแต่ง Kontact..."
 
-#: src/mainwindow.cpp:300
+#: src/mainwindow.cpp:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
 msgstr "ปรับแต่ง Kontact"
 
-#: src/mainwindow.cpp:301
+#: src/mainwindow.cpp:293
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
 msgstr ""
 
-#: src/mainwindow.cpp:305
+#: src/mainwindow.cpp:297
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
 msgstr "บทแนะนำ &Kontact"
 
-#: src/mainwindow.cpp:306
+#: src/mainwindow.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
 msgstr "แสดงหน้าบทแนะนำ Kontact"
 
-#: src/mainwindow.cpp:307
+#: src/mainwindow.cpp:299
 #, fuzzy, kde-format
 #| msgid "&Kontact Introduction"
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
 msgstr "บทแนะนำ &Kontact"
 
-#: src/mainwindow.cpp:311
+#: src/mainwindow.cpp:303
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide/Show the component sidebar"
 msgstr ""
 
-#: src/mainwindow.cpp:312
+#: src/mainwindow.cpp:304
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show the component sidebar"
 msgstr ""
 
-#: src/mainwindow.cpp:315
+#: src/mainwindow.cpp:307
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
 msgstr ""
 
-#: src/mainwindow.cpp:339
+#: src/mainwindow.cpp:331
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: src/mainwindow.cpp:342
+#: src/mainwindow.cpp:334
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:533
+#: src/mainwindow.cpp:525
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "สลับไปยังส่วนเสริม %1"
 
-#: src/mainwindow.cpp:603
+#: src/mainwindow.cpp:595
 #, fuzzy, kde-format
 #| msgid "Application is running standalone. Foregrounding..."
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr "โปรแกรมนี้ทำงานแบบห้ามทำงานซ้อนอีก กำลังเรียกตัวที่ทำงานอยู่แล้ว..."
 
-#: src/mainwindow.cpp:619
+#: src/mainwindow.cpp:611
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "ไม่สามารถเรียกใช้ส่วนประกอบ %1 ได้"
 
-#: src/mainwindow.cpp:687
+#: src/mainwindow.cpp:679
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
-#: src/mainwindow.cpp:950
+#: src/mainwindow.cpp:942
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "The KDE Personal Information Management Suite"
 msgid "The KDE Personal Information Management Suite."
 msgstr "ชุดโปรแกรมจัดการข้อมูลส่วนบุคคลของ KDE"
 
-#: src/mainwindow.cpp:955
+#: src/mainwindow.cpp:947
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Read Manual"
 msgid "Read Manual"
 msgstr "อ่านคู่มือ"
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:948
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Learn more about Kontact and its components"
 msgid "Learn more about Kontact and its components"
 msgstr "ดูรายละเอียดเพิ่มเติมเกี่ยวกับ Kontact และส่วนประกอบต่าง ๆ ของมัน"
 
-#: src/mainwindow.cpp:959
+#: src/mainwindow.cpp:951
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Visit Kontact Website"
 msgid "Visit Kontact Website"
 msgstr "แวะเยี่ยมเว็บไซต์ Kontact"
 
-#: src/mainwindow.cpp:960
+#: src/mainwindow.cpp:952
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Access online resources and tutorials"
 msgid "Access online resources and tutorials"
 msgstr "ใช้ทรัพยากรและบทแนะนำการใช้งานแบบออนไลน์"
 
-#: src/mainwindow.cpp:963
+#: src/mainwindow.cpp:955
 #, kde-format
 msgid "Setup your Accounts"
 msgstr ""
 
-#: src/mainwindow.cpp:964
+#: src/mainwindow.cpp:956
 #, fuzzy, kde-format
 #| msgid "Prepare Kontact for use in corporate networks"
 msgid "Prepare Kontact for use"
 msgstr "เตรียม Kontact สำหรับใช้งานในเครือข่ายของบริษัท"
 
-#: src/mainwindow.cpp:989
+#: src/mainwindow.cpp:981
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."

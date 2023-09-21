@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-19 00:49+0000\n"
+"POT-Creation-Date: 2023-09-21 00:45+0000\n"
 "PO-Revision-Date: 2013-04-06 11:41+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -193,13 +193,13 @@ msgid ""
 "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
 msgstr "तुम्हाला बाजूपट्टीतील बाबींमध्ये चिन्हे आणि मजकूर हवा असेल तर हा पर्याय निवडा."
 
-#: src/kcmkontact.cpp:49
+#: src/kcmkontact.cpp:35
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
 msgstr "प्रत्येकवेळी सुरु करताना प्राथमिक/प्रारंभिक प्लगइन वापरा"
 
-#: src/kcmkontact.cpp:51
+#: src/kcmkontact.cpp:37
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -296,261 +296,261 @@ msgstr "मुख्य साधनपट्टी"
 msgid "Navigator"
 msgstr "मार्गनिर्देशक"
 
-#: src/main.cpp:96
+#: src/main.cpp:92
 #, kde-format
 msgid "Start with a specific Kontact module"
 msgstr "कॉन्टॅक्टच्या विशिष्ठ विभागाने सुरवात करा"
 
-#: src/main.cpp:97
+#: src/main.cpp:93
 #, kde-format
 msgid "Start in iconified (minimized) mode"
 msgstr "चित्रलिपीच्या (लहान आकारातील) पद्धतीत सुरु करा"
 
-#: src/main.cpp:98
+#: src/main.cpp:94
 #, kde-format
 msgid "List all possible modules and exit"
 msgstr "शक्य असलेल्या सर्व विभागांची यादी करा"
 
-#: src/main.cpp:163 src/mainwindow.cpp:949
+#: src/main.cpp:149 src/mainwindow.cpp:941
 #, kde-format
 msgid "Kontact"
 msgstr "कॉन्टॅक्ट"
 
-#: src/main.cpp:165
+#: src/main.cpp:151
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "केडीई वैयक्तिक माहिती व्यवस्थापक"
 
-#: src/main.cpp:167
+#: src/main.cpp:153
 #, fuzzy, kde-format
 #| msgid "Copyright © 2001–2013 Kontact authors"
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "सर्वाधिकार © २००१-२०१३ कॉन्टॅक्ट लेखक"
 
-#: src/main.cpp:171
+#: src/main.cpp:157
 #, kde-format
 msgid "Allen Winter"
 msgstr "अलन विंटर"
 
-#: src/main.cpp:172
+#: src/main.cpp:158
 #, kde-format
 msgid "Rafael Fernández López"
 msgstr "राफेल फर्नंदेझ लोपेझ"
 
-#: src/main.cpp:173
+#: src/main.cpp:159
 #, kde-format
 msgid "Daniel Molkentin"
 msgstr "डेनिएल मोल्केटीन"
 
-#: src/main.cpp:174
+#: src/main.cpp:160
 #, kde-format
 msgid "Don Sanders"
 msgstr "डॉन सेन्दर्स"
 
-#: src/main.cpp:175
+#: src/main.cpp:161
 #, kde-format
 msgid "Cornelius Schumacher"
 msgstr "कॉर्निलूअस शुमाकर"
 
-#: src/main.cpp:176
+#: src/main.cpp:162
 #, kde-format
 msgid "Tobias König"
 msgstr "टोबीआस कोनिग"
 
-#: src/main.cpp:177
+#: src/main.cpp:163
 #, kde-format
 msgid "David Faure"
 msgstr "डेविड फाउर"
 
-#: src/main.cpp:178
+#: src/main.cpp:164
 #, kde-format
 msgid "Ingo Klöcker"
 msgstr "इंगो क्लोकर "
 
-#: src/main.cpp:179
+#: src/main.cpp:165
 #, kde-format
 msgid "Sven Lüppken"
 msgstr "स्वेन ल्युप्पकेन "
 
-#: src/main.cpp:180
+#: src/main.cpp:166
 #, kde-format
 msgid "Zack Rusin"
 msgstr "झाक रुसीन"
 
-#: src/main.cpp:181
+#: src/main.cpp:167
 #, kde-format
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "माथीआस होएलझेर- क्लुपफेल"
 
-#: src/main.cpp:181
+#: src/main.cpp:167
 #, kde-format
 msgid "Original Author"
 msgstr "मूळ लेखक"
 
-#: src/main.cpp:182
+#: src/main.cpp:168
 #, kde-format
 msgid "Torgny Nyblom"
 msgstr "टोरगनी नायब्लोम"
 
-#: src/main.cpp:182
+#: src/main.cpp:168
 #, kde-format
 msgid "Git Migration"
 msgstr "Git स्थलांतरण"
 
-#: src/mainwindow.cpp:257
+#: src/mainwindow.cpp:249
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
 msgstr "सुरवात केलेले"
 
-#: src/mainwindow.cpp:294
+#: src/mainwindow.cpp:286
 #, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
 msgstr "नवीन"
 
-#: src/mainwindow.cpp:299
+#: src/mainwindow.cpp:291
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
 msgstr "कॉन्टॅक्ट ची मांडणी करा"
 
-#: src/mainwindow.cpp:300
+#: src/mainwindow.cpp:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
 msgstr "कॉन्टॅक्ट ची मांडणी करा"
 
-#: src/mainwindow.cpp:301
+#: src/mainwindow.cpp:293
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
 msgstr ""
 "तुम्हाला कॉन्टॅक्ट ची मांडणी करण्यासाठी एक संगणकीय संवाद खिडकी उपलब्ध करून दिली जाईल."
 
-#: src/mainwindow.cpp:305
+#: src/mainwindow.cpp:297
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
 msgstr "कॉन्टॅक्ट चा परीचय (&K)"
 
-#: src/mainwindow.cpp:306
+#: src/mainwindow.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
 msgstr "कॉन्टॅक्ट चा परिचय करून देणारे पृष्ठ दर्शवा"
 
-#: src/mainwindow.cpp:307
+#: src/mainwindow.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
 msgstr "कॉन्टॅक्ट ची माहिती देणारे पृष्ठ पाहण्यासाठी हा पर्याय निवडा."
 
-#: src/mainwindow.cpp:311
+#: src/mainwindow.cpp:303
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide/Show the component sidebar"
 msgstr ""
 
-#: src/mainwindow.cpp:312
+#: src/mainwindow.cpp:304
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show the component sidebar"
 msgstr ""
 
-#: src/mainwindow.cpp:315
+#: src/mainwindow.cpp:307
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
 msgstr ""
 
-#: src/mainwindow.cpp:339
+#: src/mainwindow.cpp:331
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: src/mainwindow.cpp:342
+#: src/mainwindow.cpp:334
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:533
+#: src/mainwindow.cpp:525
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "प्लगइन %1 कडे जा"
 
-#: src/mainwindow.cpp:603
+#: src/mainwindow.cpp:595
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr "एकमेव उपयोजन प्राधान्याने चालू आहे..."
 
-#: src/mainwindow.cpp:619
+#: src/mainwindow.cpp:611
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "%1 साठी दाखल करू शकत नाही."
 
-#: src/mainwindow.cpp:687
+#: src/mainwindow.cpp:679
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - कॉन्टॅक्ट"
 
-#: src/mainwindow.cpp:950
+#: src/mainwindow.cpp:942
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "The KDE Personal Information Management Suite"
 msgid "The KDE Personal Information Management Suite."
 msgstr "केडीई वैयक्तिक माहिती व्यवस्थापन संच"
 
-#: src/mainwindow.cpp:955
+#: src/mainwindow.cpp:947
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Read Manual"
 msgid "Read Manual"
 msgstr "पुस्तिका वाचा"
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:948
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Learn more about Kontact and its components"
 msgid "Learn more about Kontact and its components"
 msgstr "कॉन्टॅक्ट आणि त्याचे घटक यांची अधिक माहिती घ्या"
 
-#: src/mainwindow.cpp:959
+#: src/mainwindow.cpp:951
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Visit Kontact Website"
 msgid "Visit Kontact Website"
 msgstr "कॉन्टॅक्टच्या वेबसाईटला भेट द्या"
 
-#: src/mainwindow.cpp:960
+#: src/mainwindow.cpp:952
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Access online resources and tutorials"
 msgid "Access online resources and tutorials"
 msgstr "ऑन लाइनवरून साधने आणि अभ्यास सामग्री/वर्गपाठ शोधा/संपर्क करा  "
 
-#: src/mainwindow.cpp:963
+#: src/mainwindow.cpp:955
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Setup your Accounts"
 msgid "Setup your Accounts"
 msgstr "तुमचे खाते उघडा"
 
-#: src/mainwindow.cpp:964
+#: src/mainwindow.cpp:956
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Prepare Kontact for use"
 msgid "Prepare Kontact for use"
 msgstr "कॉन्टॅक्ट  चा उपयोग/वापर करण्यासाठी तयार व्हा"
 
-#: src/mainwindow.cpp:989
+#: src/mainwindow.cpp:981
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
