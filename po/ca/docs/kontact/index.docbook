@@ -140,7 +140,7 @@
 ></term>
         <listitem
 ><para
->L'aplicació per organitzar i planificar tasques del &kde;.</para>
+>L'aplicació de calendari i planificació de &kde;.</para>
             </listitem>
     </varlistentry>
     <varlistentry>
@@ -209,13 +209,13 @@
 </screenshot>
 
 <para
->Per alternar entre els components, simplement feu clic sobre la icona corresponent. Es mostrarà la finestra principal del component en qüestió, el menú i les barres d'eines i d'estat s'adaptaran per a reflectir les funcions del component actiu. Si activeu un component per primera vegada, pot haver-hi un petit retard fins que canviï la vista principal, atès que els components es carreguen sota demanda. Això vol dir que no es malbarata memòria en els components que no utilitzeu.</para>
+>Per a alternar entre els components, simplement feu clic sobre la icona corresponent. Es mostrarà la finestra principal del component en qüestió, el menú i les barres d'eines i d'estat s'adaptaran per a reflectir les funcions del component actiu. Si activeu un component per primera vegada, pot haver-hi un petit retard fins que canviï la vista principal, atès que els components es carreguen sota demanda. Això vol dir que no es malbarata memòria en els components que no utilitzeu.</para>
 
 <para
 >Les icones de la subfinestra lateral també es poden usar com a objectius per a les operacions d'arrossegar i deixar. Per exemple, arrossegueu un missatge de correu des de la part del correu sobre la icona de la llista de tasques pendents o sobre el calendari per a crear una tasca pendent o un esdeveniment associat amb aquest correu.</para>
 
 <para
->Per acabar, podeu canviar la mida de les icones en la subfinestra lateral. En fer clic dret sobre la subfinestra lateral se us indicarà l'opció d'usar icones grans, normals o petites, així com l'opció per a usar tan sols text en comptes d'icones.</para>
+>Per a acabar, podeu canviar la mida de les icones en la subfinestra lateral. En fer clic dret sobre la subfinestra lateral se us indicarà l'opció d'usar icones grans, normals o petites, així com l'opció per a usar tan sols text en comptes d'icones.</para>
 
 <para
 >Si no us agrada la subfinestra lateral, podeu simplement amagar-la arrossegant el divisor. Una alternativa de navegació entre les parts és proporcionada per la barra d'eines <guilabel
@@ -723,7 +723,7 @@ the data.</para-->
 
 <para
 >El connector «Calendari» per a la vista de resum de &kontact; afegeix una àrea en la vista anomenada <guilabel
->Propers esdeveniments</guilabel
+>Pròxims esdeveniments</guilabel
 >. Mostrarà qualsevol esdeveniment que vagi a aplicar-se en l'actualitat. </para>
 
 <screenshot>
@@ -1114,11 +1114,11 @@ the data.</para-->
 ></term>
 <listitem>
 <para
->Les invitacions normalment s'envien com a adjunts a un correu. Aquest interruptor canvia els correus d'invitació perquè s'enviïn al text del correu; això és necessari per enviar invitacions i respostes a Microsoft Outlook. Però, quan feu això, ja no obteniu text descriptiu que puguin llegir els programes de correu; per tant, els missatges resultants semblaran molt estranys a la gent que té programes de correu que no entenen les invitacions. La gent que té programes de correu que entenen les invitacions encara podran treballar d'aquesta forma.</para>
+>Les invitacions normalment s'envien com a adjunts a un correu. Aquest interruptor canvia els correus d'invitació perquè s'enviïn al text del correu; això és necessari per a enviar invitacions i respostes a Microsoft Outlook. Però, quan feu això, ja no obteniu text descriptiu que puguin llegir els programes de correu; per tant, els missatges resultants semblaran molt estranys a la gent que té programes de correu que no entenen les invitacions. La gent que té programes de correu que entenen les invitacions encara podran treballar d'aquesta forma.</para>
 <para
 >Detalls: En enviar una invitació d'iCal aquesta opció crea el cos del missatge a partir de les dades adjuntes i estableix la capçalera Content-Type a «text/calendar; method=quelcom; charset="utf-8"».</para>
 <para
->L'autoenviament també està activat de manera que no és necessària la intervenció humana per redactar.</para>
+>L'enviament automàtic també està activat de manera que no és necessària la intervenció humana per a redactar.</para>
 <note
 ><para
 >L'encriptatge i la signatura a si mateix estan inhabilitats.</para
@@ -1150,7 +1150,7 @@ the data.</para-->
 ></term>
 <listitem>
 <para
->Activeu aquesta opció per fer que l'Outlook(tm) comprengui els noms dels adjunts que continguin caràcters no anglesos.</para>
+>Activeu aquesta opció per a fer que l'Outlook(tm) comprengui els noms dels adjunts que continguin caràcters no anglesos.</para>
 </listitem>
 </varlistentry>
 
