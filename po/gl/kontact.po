@@ -509,7 +509,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
-msgstr "Non se pode cargar a parte para %1."
+msgstr "Non é posíbel cargar a parte para %1."
 
 #: src/mainwindow.cpp:687
 #, kde-format
