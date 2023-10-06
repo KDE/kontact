@@ -39,7 +39,7 @@ public:
     MainWindow();
     ~MainWindow() override;
 
-    Q_REQUIRED_RESULT PluginList pluginList() const override
+    [[nodiscard]] PluginList pluginList() const override
     {
         return mPlugins;
     }
