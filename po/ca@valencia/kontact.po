@@ -196,8 +196,8 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
 msgstr ""
-"Escolliu esta opció si voleu ocultar la icona de la barra lateral. Premeu F9 "
-"per a mostrar-la."
+"Escolliu esta opció si voleu ocultar la icona de la barra lateral. Premeu "
+"«F9» per a mostrar-la."
 
 #: src/kcmkontact.cpp:49
 #, kde-format
@@ -269,8 +269,8 @@ msgid ""
 msgstr ""
 "Per a guardar l'estat real de la pantalla, podeu escollir ocultar la icona "
 "de la barra lateral. Desmarqueu esta casella per a ocultar el component de "
-"la barra lateral. Cal tindre en compte que la tecla F9 ocultarà/mostrarà la "
-"icona de la barra lateral."
+"la barra lateral. Cal tindre en compte que la tecla «F9» ocultarà/mostrarà "
+"la icona de la barra lateral."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
