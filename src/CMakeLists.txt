@@ -1,4 +1,4 @@
-configure_file(kontact-version.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/kontact-version.h @ONLY)
+configure_file(kontact-version.h.in ${CMAKE_CURRENT_BINARY_DIR}/kontact-version.h @ONLY)
 add_subdirectory(about)
 add_library(kontactprivate)
 
