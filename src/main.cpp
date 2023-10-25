@@ -44,7 +44,7 @@ public:
         : KontactInterface::PimUniqueApplication(argc, argv)
         , mMainWindow(nullptr)
     {
-        KLocalizedString::setApplicationDomain("kontact");
+        KLocalizedString::setApplicationDomain(QByteArrayLiteral("kontact"));
     }
 
     ~KontactApp() override = default;
