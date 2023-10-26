@@ -5,6 +5,7 @@
   <project_license>GPL-2.0+</project_license>
   <developer_name>The KDE Community</developer_name>
   <developer_name xml:lang="ar">مجتمع كِيدِي</developer_name>
+  <developer_name xml:lang="ast">La comunidá KDE</developer_name>
   <developer_name xml:lang="az">KDE Cəmiyyəti</developer_name>
   <developer_name xml:lang="bg">Общността на KDE</developer_name>
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
@@ -42,6 +43,7 @@
   <developer_name xml:lang="zh-TW">KDE 社群</developer_name>
   <name>Kontact</name>
   <name xml:lang="ar">متراسلك</name>
+  <name xml:lang="ast">Kontact</name>
   <name xml:lang="az">Kontact</name>
   <name xml:lang="bg">Kontact</name>
   <name xml:lang="bs">Kontact</name>
