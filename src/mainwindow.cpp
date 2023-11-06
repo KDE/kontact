@@ -91,7 +91,7 @@ MainWindow::MainWindow()
 
     factory()->plugActionList(this, QStringLiteral("navigator_actionlist"), mActionPlugins);
 
-    KConfigGroup grp(KSharedConfig::openConfig(), "MainWindow");
+    KConfigGroup grp(KSharedConfig::openConfig(), QLatin1String("MainWindow"));
     KWindowConfig::restoreWindowSize(windowHandle(), grp);
     setAutoSaveSettings();
     mShowMenuBarAction->setChecked(Prefs::self()->showMenuBar());
@@ -372,7 +372,7 @@ KontactInterface::Plugin *MainWindow::pluginFromName(const QString &identifier) 
 void MainWindow::loadPlugins()
 {
     QList<KontactInterface::Plugin *> plugins;
-    KConfigGroup configGroup(Prefs::self()->config(), "Plugins");
+    KConfigGroup configGroup(Prefs::self()->config(), QLatin1String("Plugins"));
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
         if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1String("Enabled"), pluginMetaData.isEnabledByDefault())) {
             continue;
@@ -449,7 +449,7 @@ void MainWindow::unloadDisabledPlugins()
 {
     // Only remove the now-disabled plugins.
     // Keep the other ones. loadPlugins() will skip those that are already loaded.
-    KConfigGroup configGroup(Prefs::self()->config(), "Plugins");
+    KConfigGroup configGroup(Prefs::self()->config(), QLatin1String("Plugins"));
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
         if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1String("Enabled"), pluginMetaData.isEnabledByDefault())) {
             removePlugin(pluginMetaData.pluginId());
@@ -895,7 +895,7 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
     QStringList activePlugins;
 
-    KConfigGroup configGroup(Prefs::self()->config(), "Plugins");
+    KConfigGroup configGroup(Prefs::self()->config(), QLatin1String("Plugins"));
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
         if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1String("Enabled"), pluginMetaData.isEnabledByDefault())) {
             KontactInterface::Plugin *plugin = pluginFromName(pluginMetaData.pluginId());

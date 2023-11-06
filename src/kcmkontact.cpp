@@ -56,7 +56,7 @@ KcmKontact::KcmKontact(QObject *parent, const KPluginMetaData &data)
 
 void KcmKontact::load()
 {
-    const KConfigGroup grp(Prefs::self()->config(), "Plugins");
+    const KConfigGroup grp(Prefs::self()->config(), QLatin1String("Plugins"));
     const QList<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(QStringLiteral("pim6/kontact"), [](const KPluginMetaData &data) {
         return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
     });
