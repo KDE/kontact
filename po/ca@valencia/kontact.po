@@ -244,7 +244,7 @@ msgid ""
 "this box if you would like the specified plugin to come up on start instead."
 msgstr ""
 "Normalment, Kontact sempre s'inicia amb l'últim connector utilitzat abans de "
-"finalitzar. Marqueu esta casella si voleu que s'inicie un connector "
+"finalitzar. Seleccioneu esta casella si voleu que s'inicie un connector "
 "especificat en iniciar."
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
