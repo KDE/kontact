@@ -29,7 +29,7 @@ KcmKontact::KcmKontact(QObject *parent, const KPluginMetaData &data)
     auto pluginStartupLayout = new QHBoxLayout();
     topLayout->addLayout(pluginStartupLayout);
     auto forceStartupPluginCheckBox = new QCheckBox(Prefs::self()->forceStartupPluginItem()->label(), widget());
-    forceStartupPluginCheckBox->setObjectName(QStringLiteral("kcfg_ForceStartupPlugin"));
+    forceStartupPluginCheckBox->setObjectName(QLatin1StringView("kcfg_ForceStartupPlugin"));
     pluginStartupLayout->addWidget(forceStartupPluginCheckBox);
 
     mPluginCombo->setToolTip(i18nc("@info:tooltip", "Select the initial plugin to use on each start"));
@@ -46,7 +46,7 @@ KcmKontact::KcmKontact(QObject *parent, const KPluginMetaData &data)
 
     connect(forceStartupPluginCheckBox, &QAbstractButton::toggled, mPluginCombo, &QWidget::setEnabled);
     auto showSideBarCheckbox = new QCheckBox(Prefs::self()->sideBarOpenItem()->label(), widget());
-    showSideBarCheckbox->setObjectName(QStringLiteral("kcfg_SideBarOpen"));
+    showSideBarCheckbox->setObjectName(QLatin1StringView("kcfg_SideBarOpen"));
     topLayout->addWidget(showSideBarCheckbox);
 
     addConfig(Prefs::self(), widget());
