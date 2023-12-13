@@ -70,6 +70,9 @@ using namespace Kontact;
 #include <GrantleeTheme/GrantleeTheme>
 #include <GrantleeTheme/GrantleeThemeManager>
 
+#include <PimCommon/NeedUpdateVersionUtils>
+#include <PimCommon/NeedUpdateVersionWidget>
+
 MainWindow::MainWindow()
     : KontactInterface::Core()
 {
@@ -229,6 +232,15 @@ void MainWindow::initWidgets()
     layout->setSpacing(0);
     mTopWidget->setLayout(layout);
     setCentralWidget(mTopWidget);
+
+    if (PimCommon::NeedUpdateVersionUtils::checkVersion()) {
+        const auto status = PimCommon::NeedUpdateVersionUtils::obsoleteVersionStatus(KAboutData::applicationData().version(), QDate::currentDate());
+        if (status != PimCommon::NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
+            auto needUpdateVersionWidget = new PimCommon::NeedUpdateVersionWidget(this);
+            layout->addWidget(needUpdateVersionWidget);
+            needUpdateVersionWidget->setObsoleteVersion(status);
+        }
+    }
 
     mSplitter = new QSplitter(mTopWidget);
     connect(mSplitter, &QSplitter::splitterMoved, this, &MainWindow::slotSplitterMoved);
