@@ -428,7 +428,7 @@
       <li xml:lang="zh-TW">KNotes - 一個簡單的程式，讓您寫電腦版的便條貼。</li>
     </ul>
   </description>
-  <url type="homepage">https://www.kontact.org/</url>
+  <url type="homepage">https://kontact.kde.org/components/kontact/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kontact</url>
   <url type="help">https://docs.kde.org/?application=kontact</url>
   <screenshots>
