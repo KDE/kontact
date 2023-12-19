@@ -293,7 +293,7 @@ void MainWindow::initAboutScreen()
 
 void MainWindow::setupActions()
 {
-    actionCollection()->addAction(KStandardAction::Quit, this, SLOT(slotQuit()));
+    KStandardAction::quit(this, &MainWindow::slotQuit, actionCollection());
 
     mNewActions = new KActionMenu(i18nc("@title:menu create new pim items (message,calendar,to-do,etc.)", "New"), this);
     actionCollection()->addAction(QStringLiteral("action_new"), mNewActions);
