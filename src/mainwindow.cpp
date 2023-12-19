@@ -73,9 +73,30 @@ using namespace Kontact;
 #include <PimCommon/NeedUpdateVersionUtils>
 #include <PimCommon/NeedUpdateVersionWidget>
 
+// signal handler for SIGINT & SIGTERM
+#ifdef Q_OS_UNIX
+#include <KSignalHandler>
+#include <signal.h>
+#include <unistd.h>
+#endif
+
 MainWindow::MainWindow()
     : KontactInterface::Core()
 {
+#ifdef Q_OS_UNIX
+    /**
+     * Set up signal handler for SIGINT and SIGTERM
+     */
+    KSignalHandler::self()->watchSignal(SIGINT);
+    KSignalHandler::self()->watchSignal(SIGTERM);
+    connect(KSignalHandler::self(), &KSignalHandler::signalReceived, this, [this](int signal) {
+        if (signal == SIGINT || signal == SIGTERM) {
+            // Intercept console.
+            printf("Shutting down...\n");
+            slotQuit();
+        }
+    });
+#endif
     // Necessary for "cid" support in kmail.
     QWebEngineUrlScheme cidScheme("cid");
     cidScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
