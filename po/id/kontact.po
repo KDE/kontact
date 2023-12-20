@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-14 01:35+0000\n"
+"POT-Creation-Date: 2023-12-20 01:34+0000\n"
 "PO-Revision-Date: 2022-09-28 09:27+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -310,7 +310,7 @@ msgstr "Mulai dalam mode ikon (diminimalkan)"
 msgid "List all possible modules and exit"
 msgstr "Daftar semua modul yang memungkinkan dan keluar"
 
-#: src/main.cpp:149 src/mainwindow.cpp:953
+#: src/main.cpp:149 src/mainwindow.cpp:974
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
@@ -395,68 +395,68 @@ msgstr "Torgny Nyblom"
 msgid "Git Migration"
 msgstr "Migrasi Git"
 
-#: src/mainwindow.cpp:261
+#: src/mainwindow.cpp:282
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
 msgstr " Menginisialisasi..."
 
-#: src/mainwindow.cpp:298
+#: src/mainwindow.cpp:319
 #, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
 msgstr "Baru"
 
-#: src/mainwindow.cpp:303
+#: src/mainwindow.cpp:324
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
 msgstr "Konfigurasi Kontact..."
 
-#: src/mainwindow.cpp:304
+#: src/mainwindow.cpp:325
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
 msgstr "Konfigurasi Kontact"
 
-#: src/mainwindow.cpp:305
+#: src/mainwindow.cpp:326
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
 msgstr ""
 "Kamu akan disuguhi dengan dialog di mana kamu bisa mengonfigurasi Kontact."
 
-#: src/mainwindow.cpp:309
+#: src/mainwindow.cpp:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
 msgstr "Pengenalan &Kontact"
 
-#: src/mainwindow.cpp:310
+#: src/mainwindow.cpp:331
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
 msgstr "Tampilkan halaman Pengenalan Kontact"
 
-#: src/mainwindow.cpp:311
+#: src/mainwindow.cpp:332
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Pilih opsi ini untuk melihat halaman Pengenalan Kontact."
 
-#: src/mainwindow.cpp:315
+#: src/mainwindow.cpp:336
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide/Show the component sidebar"
 msgstr "Sembunyikan/Tampilkan bilah sisi komponen"
 
-#: src/mainwindow.cpp:316
+#: src/mainwindow.cpp:337
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show the component sidebar"
 msgstr "Sembunyikan/Tampilkan bilah sisi komponen"
 
-#: src/mainwindow.cpp:319
+#: src/mainwindow.cpp:340
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
@@ -464,14 +464,14 @@ msgstr ""
 "Memungkinkan kamu untuk menampilkan atau menyembunyikan bilah sisi komponen "
 "yang diinginkan."
 
-#: src/mainwindow.cpp:343
+#: src/mainwindow.cpp:364
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: src/mainwindow.cpp:346
+#: src/mainwindow.cpp:367
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Hide Sidebar"
@@ -479,66 +479,66 @@ msgid "Hide menu bar"
 msgstr "Sembunyikan Bilah Sisi"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:537
+#: src/mainwindow.cpp:558
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "Beralih ke plugin %1"
 
-#: src/mainwindow.cpp:607
+#: src/mainwindow.cpp:628
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr "Aplikasi telah berjalan mandiri. Melatardepani..."
 
-#: src/mainwindow.cpp:623
+#: src/mainwindow.cpp:644
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "Tidak bisa memuat bagian %1."
 
-#: src/mainwindow.cpp:691
+#: src/mainwindow.cpp:712
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
-#: src/mainwindow.cpp:954
+#: src/mainwindow.cpp:975
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "Perangkat Pengelolaan Informasi Personal KDE."
 
-#: src/mainwindow.cpp:959
+#: src/mainwindow.cpp:980
 #, kde-format
 msgid "Read Manual"
 msgstr "Baca Buku Petunjuk"
 
-#: src/mainwindow.cpp:960
+#: src/mainwindow.cpp:981
 #, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "Pelajari lebih lanjut tentang Kontact dan komponen-komponennya"
 
-#: src/mainwindow.cpp:963
+#: src/mainwindow.cpp:984
 #, kde-format
 msgid "Visit Kontact Website"
 msgstr "Kunjungi Situs Kontact"
 
-#: src/mainwindow.cpp:964
+#: src/mainwindow.cpp:985
 #, kde-format
 msgid "Access online resources and tutorials"
 msgstr "Akses tutorial dan sumberdaya online"
 
-#: src/mainwindow.cpp:967
+#: src/mainwindow.cpp:988
 #, kde-format
 msgid "Setup your Accounts"
 msgstr "Siapkan Akunmu"
 
-#: src/mainwindow.cpp:968
+#: src/mainwindow.cpp:989
 #, kde-format
 msgid "Prepare Kontact for use"
 msgstr "Mempersiapkan Kontact untuk digunakan"
 
-#: src/mainwindow.cpp:993
+#: src/mainwindow.cpp:1014
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
