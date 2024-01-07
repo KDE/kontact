@@ -430,6 +430,7 @@
   </description>
   <url type="homepage">https://kontact.kde.org/components/kontact/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kontact</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=kontact&amp;source=appdata</url>
   <url type="help">https://docs.kde.org/?application=kontact</url>
   <screenshots>
     <screenshot type="default">
