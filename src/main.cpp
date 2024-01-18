@@ -170,6 +170,8 @@ int main(int argc, char **argv)
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kontact")));
     app.setDesktopFileName(QStringLiteral("org.kde.kontact"));
 
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kontact")));
+
     QCommandLineParser *cmdArgs = app.cmdArgs();
     loadCommandLineOptions(cmdArgs);
 
