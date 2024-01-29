@@ -28,7 +28,7 @@ KontactConfigureDialog::KontactConfigureDialog(QWidget *parent)
 
 KontactConfigureDialog::~KontactConfigureDialog()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myKontactConfigureDialogConfigGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myKontactConfigureDialogConfigGroupName));
     group.writeEntry("width", width());
     group.writeEntry("height", height());
 }
@@ -73,7 +73,7 @@ void KontactConfigureDialog::slotOk()
 
 QSize KontactConfigureDialog::sizeHint() const
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myKontactConfigureDialogConfigGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myKontactConfigureDialogConfigGroupName));
     const int width = group.readEntry("width", 800);
     const int height = group.readEntry("height", 600);
     return QSize(width, height);

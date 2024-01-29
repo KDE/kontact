@@ -364,7 +364,7 @@ void KontactKCMultiDialog::slotHelpClicked()
 
     const QUrl docUrl = QUrl(QStringLiteral("help:/")).resolved(QUrl(docPath)); // same code as in KHelpClient::invokeHelp
     const QString docUrlScheme = docUrl.scheme();
-    if (docUrlScheme == QLatin1String("help") || docUrlScheme == QLatin1String("man") || docUrlScheme == QLatin1String("info")) {
+    if (docUrlScheme == QLatin1StringView("help") || docUrlScheme == QLatin1String("man") || docUrlScheme == QLatin1String("info")) {
         const KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("khelpcenter"));
         if (service) {
             auto job = new KIO::ApplicationLauncherJob(service);

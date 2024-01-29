@@ -407,7 +407,7 @@ void MainWindow::loadPlugins()
     QList<KontactInterface::Plugin *> plugins;
     KConfigGroup configGroup(Prefs::self()->config(), QStringLiteral("Plugins"));
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
-        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1String("Enabled"), pluginMetaData.isEnabledByDefault())) {
+        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1StringView("Enabled"), pluginMetaData.isEnabledByDefault())) {
             continue;
         }
 
@@ -436,13 +436,13 @@ void MainWindow::loadPlugins()
         const QString libNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartLibraryName"));
         const QString exeNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartExecutableName"));
 
-        if (pluginMetaData.rawData().contains(QLatin1String("X-KDE-KontactPartLoadOnStart"))) {
+        if (pluginMetaData.rawData().contains(QLatin1StringView("X-KDE-KontactPartLoadOnStart"))) {
             const bool loadOnStart = pluginMetaData.rawData().value(QStringLiteral("X-KDE-KontactPartLoadOnStart")).toBool();
             if (loadOnStart) {
                 mDelayedPreload.append(plugin);
             }
         }
-        if (pluginMetaData.rawData().contains(QLatin1String("X-KDE-KontactPluginHasPart"))) {
+        if (pluginMetaData.rawData().contains(QLatin1StringView("X-KDE-KontactPluginHasPart"))) {
             const bool hasPartProp = pluginMetaData.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
             plugin->setShowInSideBar(hasPartProp);
         } else {
@@ -484,7 +484,7 @@ void MainWindow::unloadDisabledPlugins()
     // Keep the other ones. loadPlugins() will skip those that are already loaded.
     KConfigGroup configGroup(Prefs::self()->config(), QStringLiteral("Plugins"));
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
-        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1String("Enabled"), pluginMetaData.isEnabledByDefault())) {
+        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1StringView("Enabled"), pluginMetaData.isEnabledByDefault())) {
             removePlugin(pluginMetaData.pluginId());
         }
     }
@@ -615,7 +615,7 @@ void MainWindow::slotNewClicked()
 KToolBar *MainWindow::findToolBar(const char *name)
 {
     // like KMainWindow::toolBar, but which doesn't create the toolbar if not found
-    return findChild<KToolBar *>(QLatin1String(name));
+    return findChild<KToolBar *>(QLatin1StringView(name));
 }
 
 void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
@@ -882,18 +882,18 @@ void MainWindow::slotNewToolbarConfig()
 
 void MainWindow::slotOpenUrl(const QUrl &url)
 {
-    if (url.scheme() == QLatin1String("exec")) {
+    if (url.scheme() == QLatin1StringView("exec")) {
         const QString path(url.path());
-        if (path == QLatin1String("/switch")) {
+        if (path == QLatin1StringView("/switch")) {
             if (mCurrentPlugin) {
                 mPartsStack->setCurrentIndex(mPartsStack->indexOf(mCurrentPlugin->part()->widget()));
             }
-        } else if (path == QLatin1String("/accountwizard")) {
+        } else if (path == QLatin1StringView("/accountwizard")) {
             auto job = new KIO::CommandLauncherJob(QStringLiteral("accountwizard"));
             job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
             job->exec();
             slotQuit();
-        } else if (path.startsWith(QLatin1String("/help"))) {
+        } else if (path.startsWith(QLatin1StringView("/help"))) {
             QString app(QStringLiteral("org.kde.kontact"));
             if (!url.query().isEmpty()) {
                 app = url.query();
@@ -930,7 +930,7 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
     KConfigGroup configGroup(Prefs::self()->config(), QStringLiteral("Plugins"));
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
-        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1String("Enabled"), pluginMetaData.isEnabledByDefault())) {
+        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1StringView("Enabled"), pluginMetaData.isEnabledByDefault())) {
             KontactInterface::Plugin *plugin = pluginFromName(pluginMetaData.pluginId());
             if (plugin) {
                 activePlugins.append(plugin->identifier());

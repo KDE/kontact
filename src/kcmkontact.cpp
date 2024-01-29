@@ -66,7 +66,7 @@ void KcmKontact::load()
     mPluginList.clear();
     for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins
-        if (plugin.rawData().contains(QLatin1String("X-KDE-KontactPluginHasPart"))) {
+        if (plugin.rawData().contains(QLatin1StringView("X-KDE-KontactPluginHasPart"))) {
             bool var = plugin.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
 
             if (!var) {

@@ -75,7 +75,7 @@ static void listPlugins()
 
     for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins
-        if (plugin.rawData().contains(QLatin1String("X-KDE-KontactPluginHasPart"))) {
+        if (plugin.rawData().contains(QLatin1StringView("X-KDE-KontactPluginHasPart"))) {
             bool var = plugin.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
 
             if (!var) {
@@ -147,7 +147,7 @@ int main(int argc, char **argv)
     KCrash::initialize();
     KAboutData about(QStringLiteral("kontact"),
                      i18n("Kontact"),
-                     QLatin1String(version),
+                     QLatin1StringView(version),
                      i18n("KDE personal information manager"),
                      KAboutLicense::GPL,
                      i18n("Copyright © 2001–%1 Kontact authors", QStringLiteral("2024")),
