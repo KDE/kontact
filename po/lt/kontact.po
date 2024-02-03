@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:34+0000\n"
-"PO-Revision-Date: 2015-12-29 21:21+0200\n"
+"PO-Revision-Date: 2024-02-02 23:00+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -194,7 +194,8 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
-msgstr "Pažymėkite pradinį papildinį naudojamą kiekvieno paleisimo metu."
+msgstr ""
+"Pažymėkite pradinį įskiepį, kuris bus naudojamas kiekvieno paleidimo metu."
 
 #: src/kcmkontact.cpp:37
 #, kde-format
@@ -210,19 +211,19 @@ msgstr ""
 #: src/kontact.kcfg:11 src/kontact.kcfg:12
 #, kde-format
 msgid "The currently active plugin"
-msgstr "Šiuo metu aktyvus papildinys"
+msgstr "Šiuo metu aktyvus įskiepis"
 
 #. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:16
 #, kde-format
 msgid "Always start with plugin:"
-msgstr "Visuomet pradėti su papildiniu:"
+msgstr "Visuomet pradėti naudojant įskiepį:"
 
 #. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:17
 #, kde-format
 msgid "Set the initial plugin on each start"
-msgstr "Nustatyti pradinį papildinį kiekvieno paleidimo metu"
+msgstr "Nustatyti pradinį įskiepį kiekvieno paleidimo metu"
 
 #. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:18
@@ -231,9 +232,9 @@ msgid ""
 "Usually Kontact will come up with the plugin used before shutdown. Check "
 "this box if you would like the specified plugin to come up on start instead."
 msgstr ""
-"Paprastai Kontact startuodamas suras ir parodys komponentą, kuris buvo "
-"naudojamas prieš paskutinį kartą jį išjungiant. Pažymėkite šią parinktį jei "
-"norite, kad visuomet būtų paleidžiamas tas pats komponentas."
+"Įprastai, Kontact būdama paleidžiama rodys įskiepį, kuris buvo naudojamas "
+"prieš paskutinį kartą ją išjungiant. Pažymėkite šią parinktį, jei norite, "
+"kad visuomet būtų paleidžiamas nurodytas įskiepis."
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
@@ -480,7 +481,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
-msgstr "Perjungti į papildinį %1"
+msgstr "Perjungti į įskiepį %1"
 
 #: src/mainwindow.cpp:628
 #, kde-format
