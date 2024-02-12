@@ -2,41 +2,38 @@
 # Tamas Szanto <taszanto@gmail.com>, 2003.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2011, 2012.
 # Balázs Úr <urbalazs@gmail.com>, 2012, 2013, 2014.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:34+0000\n"
-"PO-Revision-Date: 2014-06-20 21:52+0200\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"PO-Revision-Date: 2024-02-11 22:53+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Kelemen Gábor,Kiszel Kristóf,Szántó Tamás"
+msgstr "Kiszel Kristóf"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kelemeng@gnome.hu,ulysses@kubuntu.org,taszanto@gmail.com"
+msgstr "ulysses@fsf.hu"
 
 #: src/about/introduction_kontact.html:18
 #, kde-format
 msgid "Welcome to Kontact %1"
-msgstr ""
+msgstr "Üdvözli a Kontact %1"
 
 #: src/about/introduction_kontact.html:19
-#, fuzzy
-#| msgctxt "@item:intext"
-#| msgid ""
-#| "Kontact handles your e-mail, address book, calendar, to-do list and more."
 msgid ""
 "Kontact handles your e-mail, address book, calendar, to-do list and more."
 msgstr ""
@@ -44,16 +41,10 @@ msgstr ""
 "kezelésére alkalmas."
 
 #: src/about/introduction_kontact.html:36
-#, fuzzy
-#| msgctxt "@action:inmenu"
-#| msgid "&Kontact Introduction"
 msgid "Skip this introduction"
-msgstr "A &Kontact bemutatása"
+msgstr "A bevezető átugrása"
 
 #: src/about/loading_kontact.html:5
-#, fuzzy
-#| msgctxt "@item:intext"
-#| msgid "Loading Kontact..."
 msgid "Loading Kontact ..."
 msgstr "A Kontact betöltése…"
 
@@ -182,13 +173,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
-msgstr ""
+msgstr "Oldalsáv elrejtése"
 
 #: src/iconsidepane.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
-msgstr ""
+msgstr "Az ikonos oldalsáv elrejtése"
 
 #: src/iconsidepane.cpp:312
 #, fuzzy, kde-format
@@ -333,10 +324,9 @@ msgid "KDE personal information manager"
 msgstr "KDE információkezelő"
 
 #: src/main.cpp:153
-#, fuzzy, kde-format
-#| msgid "Copyright © 2001–2014 Kontact authors"
+#, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "Copyright © A Kontact szerzői, 2001-2014."
+msgstr "Copyright © A Kontact szerzői, 2001-%1."
 
 #: src/main.cpp:157
 #, kde-format
