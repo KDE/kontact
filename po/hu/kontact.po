@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:34+0000\n"
-"PO-Revision-Date: 2024-02-11 22:53+0100\n"
+"PO-Revision-Date: 2024-02-16 10:18+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -182,16 +182,13 @@ msgid "Hide the icon sidebar"
 msgstr "Az ikonos oldalsáv elrejtése"
 
 #: src/iconsidepane.cpp:312
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "Choose this option if you want the sidebar items to have icons and text."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
 msgstr ""
-"Válassza ezt a lehetőséget, ha szeretné hogy az oldalsáv elemeinek legyenek "
-"ikonjaik és szövegük."
+"Válassza ezt a lehetőséget, ha szeretné elrejteni az ikonos oldalsávot. "
+"Nyomja meg az F9-et a megjelenítéshez."
 
 #: src/kcmkontact.cpp:35
 #, kde-format
@@ -245,13 +242,13 @@ msgstr ""
 #: src/kontact.kcfg:25
 #, kde-format
 msgid "Show the component sidebar"
-msgstr ""
+msgstr "Komponens oldalsáv megjelenítése"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
 #, kde-format
 msgid "Show/Hide the icon sidebar"
-msgstr ""
+msgstr "Ikonos oldalsáv megjelenítése/elrejtése"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
@@ -261,6 +258,9 @@ msgid ""
 "Uncheck this box to hide the component sidebar. Note that the F9 key will "
 "hide/show the icon sidebar."
 msgstr ""
+"A képernyőterület megtakarítása érdekében elrejtheti az ikonos oldalsávot. A "
+"komponens oldalsáv elrejtéséhez törölje a jelölőnégyzetet. Vegye figyelembe, "
+"hogy az F9 billentyű elrejti/megjeleníti az ikonos oldalsávot."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -272,7 +272,7 @@ msgstr "&Fájl"
 #: src/kontactui.rc:14
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&Nézet"
 
 #. i18n: ectx: Menu (settings)
 #: src/kontactui.rc:20
@@ -452,19 +452,21 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide/Show the component sidebar"
-msgstr ""
+msgstr "Komponens oldalsáv elrejtése/megjelenítése"
 
 #: src/mainwindow.cpp:337
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show the component sidebar"
-msgstr ""
+msgstr "Komponens oldalsáv elrejtése/megjelenítése"
 
 #: src/mainwindow.cpp:340
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
 msgstr ""
+"Lehetővé teszi a komponens oldalsáv tetszőleges megjelenítését vagy "
+"elrejtését."
 
 #: src/mainwindow.cpp:364
 #, kde-format
@@ -472,11 +474,13 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
+"<qt>Teljesen elrejti a menüsávot. Ezzel a paranccsal állítható vissza: %1.</"
+"qt>"
 
 #: src/mainwindow.cpp:367
 #, kde-format
 msgid "Hide menu bar"
-msgstr ""
+msgstr "Menüsáv elrejtése"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:558
@@ -504,51 +508,37 @@ msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
 #: src/mainwindow.cpp:975
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "The KDE Personal Information Management Suite"
+#, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "A KDE személyes-információ kezelő csomagja"
 
 #: src/mainwindow.cpp:980
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "Read Manual"
+#, kde-format
 msgid "Read Manual"
-msgstr "A kézikönyv elolvasása"
+msgstr "Kézikönyv elolvasása"
 
 #: src/mainwindow.cpp:981
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "Learn more about Kontact and its components"
+#, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "Tudjon meg többet a Kontactról és összetevőiről"
 
 #: src/mainwindow.cpp:984
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "Visit Kontact Website"
+#, kde-format
 msgid "Visit Kontact Website"
-msgstr "A Kontact weboldalának megtekintése"
+msgstr "Kontact weboldal felkeresése"
 
 #: src/mainwindow.cpp:985
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "Access online resources and tutorials"
+#, kde-format
 msgid "Access online resources and tutorials"
 msgstr "Online erőforrások és útmutatók elérése"
 
 #: src/mainwindow.cpp:988
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "Setup your Accounts"
+#, kde-format
 msgid "Setup your Accounts"
-msgstr "A fiókjai beállítása"
+msgstr "Fiókbeállítás"
 
 #: src/mainwindow.cpp:989
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "Prepare Kontact for use"
+#, kde-format
 msgid "Prepare Kontact for use"
 msgstr "A Kontact előkészítése használatra"
 
@@ -557,6 +547,7 @@ msgstr "A Kontact előkészítése használatra"
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
+"Az oldalsáv rejtett. Az ismételt megjelenítéshez használja a(z) %1 gombot."
 
 #~ msgctxt "@title"
 #~ msgid "KDE Kontact"
