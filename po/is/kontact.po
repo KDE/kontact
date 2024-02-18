@@ -3,19 +3,20 @@
 # Þröstur Svanbergsson <throstur@bylur.net>, 2004.
 # Arnar Leosson <leosson@frisurf.no>, 2005.
 # Sveinn í Felli <sveinki@nett.is>, 2009.
+# SPDX-FileCopyrightText: 2023 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:34+0000\n"
-"PO-Revision-Date: 2009-06-13 16:18+0000\n"
-"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
-"Language-Team: icelandic <kde-isl@molar.is>\n"
+"PO-Revision-Date: 2023-12-31 15:03+0000\n"
+"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -23,52 +24,48 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Richard Allen, Svanur Pálsson, Þröstur Svanbergsson, Arnar Leósson"
+msgstr ""
+"Richard Allen, Svanur Pálsson, Þröstur Svanbergsson, Arnar Leósson, "
+"Guðmundur Erlingsson"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ra@ra.is, svanur@tern.is, throstur@bylur.net, leosson@frisurf.no"
+msgstr ""
+"ra@ra.is, svanur@tern.is, throstur@bylur.net, leosson@frisurf.no, "
+"gudmundure@gmail.com"
 
 #: src/about/introduction_kontact.html:18
 #, kde-format
 msgid "Welcome to Kontact %1"
-msgstr ""
+msgstr "Velkomin í Kontact %1"
 
 #: src/about/introduction_kontact.html:19
-#, fuzzy
-#| msgid ""
-#| "Kontact handles your e-mail, addressbook, calendar, to-do list and more."
 msgid ""
 "Kontact handles your e-mail, address book, calendar, to-do list and more."
 msgstr ""
-"Kontact heldur utan um póstinn þinn, vistfangaskrá, dagatal, verkþáttalista "
-"og meira."
+"Kontact heldur utan um póstinn þinn, tengiliði, dagatal, verkefnalista og "
+"fleira."
 
 #: src/about/introduction_kontact.html:36
-#, fuzzy
-#| msgid "&Kontact Introduction"
 msgid "Skip this introduction"
-msgstr "Inngangur að &Kontact "
+msgstr "Sleppa þessari kynningu"
 
 #: src/about/loading_kontact.html:5
-#, fuzzy
-#| msgid "Loading Kontact..."
 msgid "Loading Kontact ..."
-msgstr "Ræsi Kontact..."
+msgstr "Keyri Kontact..."
 
 #: src/iconsidepane.cpp:263
-#, fuzzy, kde-format
-#| msgid "Show Icons"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
-msgstr "Sýna táknmyndir"
+msgstr "Sýna aðeins tákn"
 
 #: src/iconsidepane.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
-msgstr ""
+msgstr "Sýna atriði á hliðarstiku með táknum og engum texta"
 
 #: src/iconsidepane.cpp:268
 #, kde-format
@@ -76,19 +73,20 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr ""
+"Veldu þennan valkost ef þú vilt að atriðin á hliðarstikunni birtist sem tákn "
+"án texta."
 
 #: src/iconsidepane.cpp:270
-#, fuzzy, kde-format
-#| msgid "Show Text"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
-msgstr "Sýna texta"
+msgstr "Sýna aðeins texta"
 
 #: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
-msgstr ""
+msgstr "Sýna atriði á hliðarstiku með texta en án tákns"
 
 #: src/iconsidepane.cpp:275
 #, kde-format
@@ -96,19 +94,20 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr ""
+"Veldu þennan valkost ef þú vilt að atriðin á hliðarstikunni birtist með "
+"texta en ekki tákn."
 
 #: src/iconsidepane.cpp:277
-#, fuzzy, kde-format
-#| msgid "Show Icons"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
-msgstr "Sýna táknmyndir"
+msgstr "Sýna tákn og texta"
 
 #: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
-msgstr ""
+msgstr "Sýna atriði á hliðarstiku með tákni og texta"
 
 #: src/iconsidepane.cpp:282
 #, kde-format
@@ -116,78 +115,76 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr ""
+"Veldu þennan valkost ef þú vilt að atriði á hliðarstiku birtist með tákn og "
+"texta."
 
 #: src/iconsidepane.cpp:287
-#, fuzzy, kde-format
-#| msgid "Show Icons"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
-msgstr "Sýna táknmyndir"
+msgstr "Stór tákn"
 
 #: src/iconsidepane.cpp:291
-#, fuzzy, kde-format
-#| msgid "Show all to-dos"
+#, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
-msgstr "Sýna alla verkþætti"
+msgstr "Sýna stór tákn á hliðarstikunni"
 
 #: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
-msgstr ""
+msgstr "Veldu þennan valkost ef þú vilt hafa stór tákn á hliðarstikunni."
 
 #: src/iconsidepane.cpp:294
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
-msgstr "Venjulegar"
+msgstr "Venjuleg tákn"
 
 #: src/iconsidepane.cpp:298
-#, fuzzy, kde-format
-#| msgid "Show all to-dos"
+#, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
-msgstr "Sýna alla verkþætti"
+msgstr "Sýna tákn af venjulegri stærð á hliðarstikunni"
 
 #: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr ""
+"Veldu þennan valkost ef þú vilt hafa tákn af venjulegri stærð á "
+"hliðarstikunni."
 
 #: src/iconsidepane.cpp:301
-#, fuzzy, kde-format
-#| msgid "Show Icons"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
-msgstr "Sýna táknmyndir"
+msgstr "Lítil tákn"
 
 #: src/iconsidepane.cpp:305
-#, fuzzy, kde-format
-#| msgid "Show all to-dos"
+#, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
-msgstr "Sýna alla verkþætti"
+msgstr "Sýna lítil tákn á hliðarstikunni"
 
 #: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
-msgstr ""
+msgstr "Veldu þennan valkost ef þú vilt hafa mjög lítil tákn á hliðarstikunni."
 
 #: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
-msgstr ""
+msgstr "Fela hliðarstiku"
 
 #: src/iconsidepane.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
-msgstr ""
+msgstr "Fela hliðarstikuna"
 
 #: src/iconsidepane.cpp:312
 #, kde-format
@@ -195,12 +192,13 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
 msgstr ""
+"Veldu þetta ef þú vilt fela hliðarstikuna. Ýttu á F9 til að sýna hana aftur."
 
 #: src/kcmkontact.cpp:35
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
-msgstr ""
+msgstr "Veldu viðbót sem á að opna við ræsingu"
 
 #: src/kcmkontact.cpp:37
 #, kde-format
@@ -210,53 +208,50 @@ msgid ""
 "each time Kontact is started. Otherwise, Kontact will restore the last "
 "active plugin from the previous usage."
 msgstr ""
+"Veldu viðbótina af fellilistanum sem á að opna þegar forritið er ræst. Ef "
+"ekkert er valið mun Kontact velja aftur viðbótina sem var notuð síðast þegar "
+"forritið var notað."
 
 #. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
 #. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
 #: src/kontact.kcfg:11 src/kontact.kcfg:12
 #, kde-format
 msgid "The currently active plugin"
-msgstr ""
+msgstr "Viðbótin sem er virk núna"
 
 #. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:16
-#, fuzzy, kde-format
-#| msgid "Always start with specified component:"
+#, kde-format
 msgid "Always start with plugin:"
-msgstr "Alltaf byrja með þessa einingu:"
+msgstr "Alltaf byrja með þessa viðbót:"
 
 #. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:17
 #, kde-format
 msgid "Set the initial plugin on each start"
-msgstr ""
+msgstr "Velja viðbót sem á að opna við ræsingu"
 
 #. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:18
-#, fuzzy, kde-format
-#| msgid ""
-#| "Usually Kontact will come up with the component used before shutdown. "
-#| "Check this box if you would like a specific component to come up on start "
-#| "instead."
+#, kde-format
 msgid ""
 "Usually Kontact will come up with the plugin used before shutdown. Check "
 "this box if you would like the specified plugin to come up on start instead."
 msgstr ""
-"Kontact byrjar vanalega með þá einingu sem var seinast opin þegar hætt var í "
-"forritinu. Hakaðu við hér ef þú vilt heldur að ákveðin eining sé alltaf "
-"opnuð fyrst."
+"Kontact byrjar vanalega með þá viðbót sem var síðast opin þegar forritinuvar "
+"lokað. Hakaðu hér ef þú vilt heldur að tiltekin viðbót sé alltaf opnuð fyrst."
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
 #, kde-format
 msgid "Show the component sidebar"
-msgstr ""
+msgstr "Sýna hliðarstikuna"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
 #, kde-format
 msgid "Show/Hide the icon sidebar"
-msgstr ""
+msgstr "Sýna/fela hliðarstikuna"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
@@ -266,10 +261,13 @@ msgid ""
 "Uncheck this box to hide the component sidebar. Note that the F9 key will "
 "hide/show the icon sidebar."
 msgstr ""
+"Þú gætir viljað fela hliðarstikuna til að fá meira pláss á skjánum. Afhakaðu "
+"þennan gátreit til að fela hliðarstikuna. Athugaðu að F9-lykillinn felur/"
+"sýnir hliðarstikuna."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
-#, fuzzy, kde-format
+#, kde-format
 msgid "&File"
 msgstr "&Skrá"
 
@@ -277,42 +275,41 @@ msgstr "&Skrá"
 #: src/kontactui.rc:14
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "S&koða"
 
 #. i18n: ectx: Menu (settings)
 #: src/kontactui.rc:20
-#, fuzzy, kde-format
-#| msgid "Meeting"
+#, kde-format
 msgid "&Settings"
-msgstr "Fundur"
+msgstr "&Stillingar"
 
 #. i18n: ectx: Menu (help)
 #: src/kontactui.rc:33
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Help"
 msgstr "&Hjálp"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/kontactui.rc:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Main Toolbar"
-msgstr "Aðaltækjaslá"
+msgstr "Aðaltækjastika"
 
 #. i18n: ectx: ToolBar (navigatorToolBar)
 #: src/kontactui.rc:43
 #, kde-format
 msgid "Navigator"
-msgstr ""
+msgstr "Leiðarstika"
 
 #: src/main.cpp:92
 #, kde-format
 msgid "Start with a specific Kontact module"
-msgstr "Byrja með ákveðna Kontact einingu"
+msgstr "Byrja með tiltekna Kontact-einingu"
 
 #: src/main.cpp:93
 #, kde-format
 msgid "Start in iconified (minimized) mode"
-msgstr "Byrja í táknmyndaham (lágmarkað)"
+msgstr "Byrja í táknasniði (falið)"
 
 #: src/main.cpp:94
 #, kde-format
@@ -327,68 +324,65 @@ msgstr "Kontact"
 #: src/main.cpp:151
 #, kde-format
 msgid "KDE personal information manager"
-msgstr "Persónulegur upplýsingastjóri KDE"
+msgstr "Umsjónarforrit KDE fyrir persónulegar upplýsingar"
 
 #: src/main.cpp:153
-#, fuzzy, kde-format
-#| msgid "(c) 2004 Tobias Koenig"
+#, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "(c) 2004 Tobias Koenig"
+msgstr "Höfundarréttur © 2001–%1 höfundar Kontact"
 
 #: src/main.cpp:157
-#, fuzzy, kde-format
+#, kde-format
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
 #: src/main.cpp:158
-#, fuzzy, kde-format
+#, kde-format
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
 #: src/main.cpp:159
-#, fuzzy, kde-format
+#, kde-format
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
 #: src/main.cpp:160
 #, kde-format
 msgid "Don Sanders"
-msgstr ""
+msgstr "Don Sanders"
 
 #: src/main.cpp:161
-#, fuzzy, kde-format
-#| msgid "(c), 2003 Cornelius Schumacher"
+#, kde-format
 msgid "Cornelius Schumacher"
-msgstr "(c), 2003 Cornelius Schumacher"
+msgstr "Cornelius Schumacher"
 
 #: src/main.cpp:162
-#, fuzzy, kde-format
-#| msgid "(c) 2004 Tobias Koenig"
+#, kde-format
 msgid "Tobias König"
-msgstr "(c) 2004 Tobias Koenig"
+msgstr "Tobias König"
 
 #: src/main.cpp:163
-#, fuzzy, kde-format
+#, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
 #: src/main.cpp:164
 #, kde-format
 msgid "Ingo Klöcker"
-msgstr ""
+msgstr "Ingo Klöcker"
 
 #: src/main.cpp:165
 #, kde-format
 msgid "Sven Lüppken"
-msgstr ""
+msgstr "Sven Lüppken"
 
 #: src/main.cpp:166
-#, fuzzy, kde-format
+#, kde-format
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
 #: src/main.cpp:167
-#, fuzzy, kde-format
+#, kde-format
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
@@ -400,85 +394,78 @@ msgstr "Upprunalegur höfundur"
 #: src/main.cpp:168
 #, kde-format
 msgid "Torgny Nyblom"
-msgstr ""
+msgstr "Torgny Nyblom"
 
 #: src/main.cpp:168
 #, kde-format
 msgid "Git Migration"
-msgstr ""
+msgstr "Git-flutningur"
 
 #: src/mainwindow.cpp:282
-#, fuzzy, kde-format
-#| msgid " Initializing..."
+#, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
 msgstr " Frumstilli..."
 
 #: src/mainwindow.cpp:319
-#, fuzzy, kde-format
-#| msgid "New"
+#, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
 msgstr "Nýtt"
 
 #: src/mainwindow.cpp:324
-#, fuzzy, kde-format
-#| msgid "Configure Kontact..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
-msgstr "Stilla Kontact..."
+msgstr "Grunnstilla Kontact..."
 
 #: src/mainwindow.cpp:325
-#, fuzzy, kde-format
-#| msgid "Configure Kontact..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
-msgstr "Stilla Kontact..."
+msgstr "Grunnstilla Kontact"
 
 #: src/mainwindow.cpp:326
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
-msgstr ""
+msgstr "Það opnast svargluggi þar sem þú getur grunnstillt Kontact."
 
 #: src/mainwindow.cpp:330
-#, fuzzy, kde-format
-#| msgid "&Kontact Introduction"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
-msgstr "Inngangur að &Kontact "
+msgstr "Kynning á &Kontact "
 
 #: src/mainwindow.cpp:331
-#, fuzzy, kde-format
-#| msgid "&Kontact Introduction"
+#, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
-msgstr "Inngangur að &Kontact "
+msgstr "Birta kynningarsíðuna um Kontact"
 
 #: src/mainwindow.cpp:332
-#, fuzzy, kde-format
-#| msgid "&Kontact Introduction"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
-msgstr "Inngangur að &Kontact "
+msgstr "Veldu þennan valkost til að sjá kynningarsíðuna um Kontact"
 
 #: src/mainwindow.cpp:336
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide/Show the component sidebar"
-msgstr ""
+msgstr "Fela/sýna hliðarstikuna"
 
 #: src/mainwindow.cpp:337
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show the component sidebar"
-msgstr ""
+msgstr "Fela/sýna hliðarstikuna"
 
 #: src/mainwindow.cpp:340
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
-msgstr ""
+msgstr "Gerir þér kleift að sýna eða fela hliðarstikuna eftir þörfum."
 
 #: src/mainwindow.cpp:364
 #, kde-format
@@ -486,87 +473,80 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
+"<qt>Þetta felur alveg valmyndastikuna. Þú getur kallað hana aftur fram með "
+"því að ýta á %1.</qt>"
 
 #: src/mainwindow.cpp:367
 #, kde-format
 msgid "Hide menu bar"
-msgstr ""
+msgstr "Fela valmyndastiku"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:558
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
-msgstr ""
+msgstr "Skipta í viðbótina %1"
 
 #: src/mainwindow.cpp:628
-#, fuzzy, kde-format
-#| msgid "Application is running standalone. Foregrounding..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
-msgstr "Forritið er þegar í gangi. Set fyrir framan..."
+msgstr "Forritið er þegar í gangi. Færi framfyrir..."
 
 #: src/mainwindow.cpp:644
-#, fuzzy, kde-format
-#| msgid "Cannot load part for %1."
+#, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
-msgstr "Get ekki hlaðið upp hluta fyrir %1."
+msgstr "Get ekki hlaðið hluta fyrir %1."
 
 #: src/mainwindow.cpp:712
-#, fuzzy, kde-format
-#| msgctxt "Plugin dependent window title"
-#| msgid "%1 - Kontact"
+#, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
 #: src/mainwindow.cpp:975
-#, fuzzy, kde-format
-#| msgid "The KDE Personal Information Management Suite"
+#, kde-format
 msgid "The KDE Personal Information Management Suite."
-msgstr "KDE vöndull fyrir persónuupplýsingar"
+msgstr "KDE Umsjónarforrit fyrir persónulegar upplýsingar"
 
 #: src/mainwindow.cpp:980
-#, fuzzy, kde-format
-#| msgid "Read Manual"
+#, kde-format
 msgid "Read Manual"
 msgstr "Lesa handbók"
 
 #: src/mainwindow.cpp:981
-#, fuzzy, kde-format
-#| msgid "Learn more about Kontact and its components"
+#, kde-format
 msgid "Learn more about Kontact and its components"
-msgstr "Lærðu meira um Kontact og einingar þess"
+msgstr "Lærðu meira um Kontact og hluta þess"
 
 #: src/mainwindow.cpp:984
-#, fuzzy, kde-format
-#| msgid "Visit Kontact Website"
+#, kde-format
 msgid "Visit Kontact Website"
 msgstr "Fara á heimasíðu Kontact"
 
 #: src/mainwindow.cpp:985
-#, fuzzy, kde-format
-#| msgid "Access online resources and tutorials"
+#, kde-format
 msgid "Access online resources and tutorials"
-msgstr "Fáðu aðgang að nettengdum auðlindum og kennsluefni"
+msgstr "Skoðaðu fræðslu- og kennsluefni á netinu"
 
 #: src/mainwindow.cpp:988
 #, kde-format
 msgid "Setup your Accounts"
-msgstr ""
+msgstr "Setja upp notandareikninga"
 
 #: src/mainwindow.cpp:989
-#, fuzzy, kde-format
-#| msgid "Prepare Kontact for use in corporate networks"
+#, kde-format
 msgid "Prepare Kontact for use"
-msgstr "Undirbúðu Kontact fyrir notkun í fyrirtækjanetinu"
+msgstr "Undirbúa Kontact fyrir notkun"
 
 #: src/mainwindow.cpp:1014
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
+"Hliðarstikan er falin. Ýttu á lykilinn %1 til að sýna hliðarstikuna aftur."
 
 #, fuzzy
 #~| msgid "KDE Kontact"
