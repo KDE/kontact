@@ -442,6 +442,7 @@
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kontact</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kontact&amp;source=appdata</url>
   <url type="help">https://docs.kde.org/?application=kontact</url>
+  <url type="vcs-browser">https://invent.kde.org/pim/kontact</url>
   <screenshots>
     <screenshot type="default">
       <image type="source">https://kontact.kde.org/assets/img/appstream/kontact-summary.png</image>
