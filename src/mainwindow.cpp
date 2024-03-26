@@ -359,7 +359,7 @@ void MainWindow::slotToggleMenubar(bool dontShowWarning)
             menuBar()->show();
         } else {
             if (!dontShowWarning && (!toolBar()->isVisible() /* || !toolBar()->actions().contains(mHamburgerMenu)*/)) {
-                const QString accel = mShowMenuBarAction->shortcut().toString();
+                const QString accel = mShowMenuBarAction->shortcut().toString(QKeySequence::NativeText);
                 KMessageBox::information(this,
                                          i18n("<qt>This will hide the menu bar completely."
                                               " You can show it again by typing %1.</qt>",
@@ -1011,7 +1011,9 @@ void MainWindow::showHideSideBar(bool show)
 QString MainWindow::showHideSideBarMessage(bool hidden) const
 {
     if (hidden) {
-        return i18nc("@info:status", "Sidebar is hidden. Show the sidebar again using the %1 key.", mShowHideAction->shortcut().toString());
+        return i18nc("@info:status",
+                     "Sidebar is hidden. Show the sidebar again using the %1 key.",
+                     mShowHideAction->shortcut().toString(QKeySequence::NativeText));
     } else {
         return {};
     }
