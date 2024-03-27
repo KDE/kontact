@@ -246,6 +246,7 @@ private:
 Navigator::Navigator(SidePaneBase *parent)
     : QListView(parent)
     , mSidePane(parent)
+    , mModel(new Model(this))
 {
     setViewport(new QWidget(this));
 
@@ -326,7 +327,6 @@ Navigator::Navigator(SidePaneBase *parent)
     setContextMenuPolicy(Qt::ActionsContextMenu);
     setViewMode(ListMode);
     setItemDelegate(new Delegate(this));
-    mModel = new Model(this);
     auto sortFilterProxyModel = new SortFilterProxyModel(this);
     sortFilterProxyModel->setSourceModel(mModel);
     setModel(sortFilterProxyModel);

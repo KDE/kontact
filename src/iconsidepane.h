@@ -82,7 +82,7 @@ private:
     void setHelpText(QAction *act, const QString &text);
     SidePaneBase *const mSidePane;
     MainWindow *mMainWindow = nullptr;
-    Model *mModel = nullptr;
+    Model *const mModel;
 
     int mIconSize = 0;
     bool mShowIcons = false;
