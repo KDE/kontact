@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:34+0000\n"
-"PO-Revision-Date: 2024-03-25 19:39\n"
+"POT-Creation-Date: 2024-03-27 00:38+0000\n"
+"PO-Revision-Date: 2024-03-26 19:25\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -518,7 +518,7 @@ msgstr "建立您的账户"
 msgid "Prepare Kontact for use"
 msgstr "准备使用 Kontact"
 
-#: src/mainwindow.cpp:1014
+#: src/mainwindow.cpp:1015
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
