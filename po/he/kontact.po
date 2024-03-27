@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:34+0000\n"
+"POT-Creation-Date: 2024-03-27 02:52+0000\n"
 "PO-Revision-Date: 2023-11-04 00:10+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: hebrew <kde-l10n-he@kde.org>\n"
@@ -531,7 +531,7 @@ msgstr "הגדרת החשבונות שלך"
 msgid "Prepare Kontact for use"
 msgstr "הכנת Kontact לשימוש"
 
-#: src/mainwindow.cpp:1014
+#: src/mainwindow.cpp:1015
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
