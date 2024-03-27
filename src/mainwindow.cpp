@@ -333,7 +333,7 @@ void MainWindow::setupActions()
     actionCollection()->addAction(QStringLiteral("help_introduction"), action);
     connect(action, &QAction::triggered, this, &MainWindow::slotShowIntroduction);
 
-    mShowHideAction = new QAction(QIcon::fromTheme(QStringLiteral("zoom-fit-width")), i18nc("@action:inmenu", "Hide/Show the component sidebar"), this);
+    mShowHideAction = new QAction(QIcon::fromTheme(QStringLiteral("zoom-fit-width")), i18nc("@action:inmenu", "Show Sidebar"), this);
     setHelpText(mShowHideAction, i18nc("@info:status", "Hide/Show the component sidebar"));
     mShowHideAction->setCheckable(true);
     mShowHideAction->setChecked(Prefs::self()->sideBarOpen());
