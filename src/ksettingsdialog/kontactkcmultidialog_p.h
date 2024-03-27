@@ -46,6 +46,6 @@ protected:
 private:
     void init();
     void apply();
-    bool resolveChanges(KCModule *currentProxy);
+    [[nodiscard]] bool resolveChanges(KCModule *currentProxy);
     static bool moduleSave(KCModule *module);
 };

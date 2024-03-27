@@ -18,5 +18,5 @@ Q_SIGNALS:
     void urlClicked(const QUrl &url);
 
 protected:
-    bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) override;
+    [[nodiscard]] bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) override;
 };
