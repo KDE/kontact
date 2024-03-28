@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-27 00:38+0000\n"
-"PO-Revision-Date: 2024-03-26 19:25\n"
+"POT-Creation-Date: 2024-03-28 00:40+0000\n"
+"PO-Revision-Date: 2024-03-27 19:45\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -45,130 +45,130 @@ msgstr "跳过本介绍"
 msgid "Loading Kontact ..."
 msgstr "正在加载 Kontact..."
 
-#: src/iconsidepane.cpp:263
+#: src/iconsidepane.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "只显示图标"
 
-#: src/iconsidepane.cpp:267
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "侧边栏项目只显示图标，无文字"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:269
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr "如果您想要侧边栏项目只显示图标，不显示文字，请选中此项。"
 
-#: src/iconsidepane.cpp:270
+#: src/iconsidepane.cpp:271
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "只显示文字"
 
-#: src/iconsidepane.cpp:274
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "侧边栏项目只显示文字，无图标"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:276
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr "如果您想要侧边栏项目只显示文字，不显示图标，请选中此项。"
 
-#: src/iconsidepane.cpp:277
+#: src/iconsidepane.cpp:278
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "显示图标和文字"
 
-#: src/iconsidepane.cpp:281
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "侧边栏项目同时显示图标和文字"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:283
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr "如果您想要侧边栏同时显示图标和文字，请选中此项。"
 
-#: src/iconsidepane.cpp:287
+#: src/iconsidepane.cpp:288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "大图标"
 
-#: src/iconsidepane.cpp:291
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "侧边栏显示大图标"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:293
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr "如果您想要侧边栏图标显示为大尺寸，请选中此项。"
 
-#: src/iconsidepane.cpp:294
+#: src/iconsidepane.cpp:295
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "普通图标"
 
-#: src/iconsidepane.cpp:298
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "侧边栏显示普通图标"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:300
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr "如果您想要侧边栏图标显示为普通尺寸，请选中此项。"
 
-#: src/iconsidepane.cpp:301
+#: src/iconsidepane.cpp:302
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "小图标"
 
-#: src/iconsidepane.cpp:305
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "侧边栏显示小图标"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:307
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr "如果您想要侧边栏图标显示为小尺寸，请选中此项。"
 
-#: src/iconsidepane.cpp:308
+#: src/iconsidepane.cpp:309
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "隐藏侧边栏"
 
-#: src/iconsidepane.cpp:311
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "隐藏图标侧边栏"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -429,10 +429,12 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "选择此项可查看 Kontact 介绍页"
 
 #: src/mainwindow.cpp:336
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Hide Sidebar"
 msgctxt "@action:inmenu"
-msgid "Hide/Show the component sidebar"
-msgstr "隐藏/显示组件侧边栏"
+msgid "Show Sidebar"
+msgstr "隐藏侧边栏"
 
 #: src/mainwindow.cpp:337
 #, kde-format
@@ -523,3 +525,7 @@ msgstr "准备使用 Kontact"
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr "侧栏已隐藏。要重新显示侧栏，请按 %1 键。"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Hide/Show the component sidebar"
+#~ msgstr "隐藏/显示组件侧边栏"

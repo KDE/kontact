@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-27 00:38+0000\n"
+"POT-Creation-Date: 2024-03-28 00:40+0000\n"
 "PO-Revision-Date: 2023-12-31 15:03+0000\n"
 "Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -55,19 +55,19 @@ msgstr "Sleppa þessari kynningu"
 msgid "Loading Kontact ..."
 msgstr "Keyri Kontact..."
 
-#: src/iconsidepane.cpp:263
+#: src/iconsidepane.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Sýna aðeins tákn"
 
-#: src/iconsidepane.cpp:267
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Sýna atriði á hliðarstiku með táknum og engum texta"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:269
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -76,19 +76,19 @@ msgstr ""
 "Veldu þennan valkost ef þú vilt að atriðin á hliðarstikunni birtist sem tákn "
 "án texta."
 
-#: src/iconsidepane.cpp:270
+#: src/iconsidepane.cpp:271
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Sýna aðeins texta"
 
-#: src/iconsidepane.cpp:274
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Sýna atriði á hliðarstiku með texta en án tákns"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:276
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -97,19 +97,19 @@ msgstr ""
 "Veldu þennan valkost ef þú vilt að atriðin á hliðarstikunni birtist með "
 "texta en ekki tákn."
 
-#: src/iconsidepane.cpp:277
+#: src/iconsidepane.cpp:278
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Sýna tákn og texta"
 
-#: src/iconsidepane.cpp:281
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Sýna atriði á hliðarstiku með tákni og texta"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:283
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -118,37 +118,37 @@ msgstr ""
 "Veldu þennan valkost ef þú vilt að atriði á hliðarstiku birtist með tákn og "
 "texta."
 
-#: src/iconsidepane.cpp:287
+#: src/iconsidepane.cpp:288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Stór tákn"
 
-#: src/iconsidepane.cpp:291
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Sýna stór tákn á hliðarstikunni"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:293
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr "Veldu þennan valkost ef þú vilt hafa stór tákn á hliðarstikunni."
 
-#: src/iconsidepane.cpp:294
+#: src/iconsidepane.cpp:295
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Venjuleg tákn"
 
-#: src/iconsidepane.cpp:298
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Sýna tákn af venjulegri stærð á hliðarstikunni"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:300
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
@@ -156,37 +156,37 @@ msgstr ""
 "Veldu þennan valkost ef þú vilt hafa tákn af venjulegri stærð á "
 "hliðarstikunni."
 
-#: src/iconsidepane.cpp:301
+#: src/iconsidepane.cpp:302
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Lítil tákn"
 
-#: src/iconsidepane.cpp:305
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Sýna lítil tákn á hliðarstikunni"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:307
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr "Veldu þennan valkost ef þú vilt hafa mjög lítil tákn á hliðarstikunni."
 
-#: src/iconsidepane.cpp:308
+#: src/iconsidepane.cpp:309
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Fela hliðarstiku"
 
-#: src/iconsidepane.cpp:311
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Fela hliðarstikuna"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -450,10 +450,12 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Veldu þennan valkost til að sjá kynningarsíðuna um Kontact"
 
 #: src/mainwindow.cpp:336
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Hide Sidebar"
 msgctxt "@action:inmenu"
-msgid "Hide/Show the component sidebar"
-msgstr "Fela/sýna hliðarstikuna"
+msgid "Show Sidebar"
+msgstr "Fela hliðarstiku"
 
 #: src/mainwindow.cpp:337
 #, kde-format
@@ -547,6 +549,10 @@ msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 "Hliðarstikan er falin. Ýttu á lykilinn %1 til að sýna hliðarstikuna aftur."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Hide/Show the component sidebar"
+#~ msgstr "Fela/sýna hliðarstikuna"
 
 #, fuzzy
 #~| msgid "KDE Kontact"

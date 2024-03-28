@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-27 00:38+0000\n"
+"POT-Creation-Date: 2024-03-28 00:40+0000\n"
 "PO-Revision-Date: 2022-10-27 07:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -55,19 +55,19 @@ msgstr "Preskoči ta uvod"
 msgid "Loading Kontact ..."
 msgstr "Nalaganje Kontacta ..."
 
-#: src/iconsidepane.cpp:263
+#: src/iconsidepane.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Pokaži samo ikone"
 
-#: src/iconsidepane.cpp:267
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Predmete v stranski vrstici pokaži z ikono in brez besedila"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:269
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -76,19 +76,19 @@ msgstr ""
 "Izberite to možnost, če želite, da imajo predmeti v stranski vrstici ikono, "
 "a nimajo besedila."
 
-#: src/iconsidepane.cpp:270
+#: src/iconsidepane.cpp:271
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Pokaži samo besedilo"
 
-#: src/iconsidepane.cpp:274
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Predmete v stranski vrstici pokaži z besedilom in brez ikon"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:276
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -97,19 +97,19 @@ msgstr ""
 "Izberite to možnost, če želite, da imajo predmeti v stranski vrstici "
 "besedilo, a nimajo ikon."
 
-#: src/iconsidepane.cpp:277
+#: src/iconsidepane.cpp:278
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Pokaži ikone in besedilo"
 
-#: src/iconsidepane.cpp:281
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Predmete v stranski vrstici pokaži z ikono in besedilom"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:283
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -118,37 +118,37 @@ msgstr ""
 "Izberite to možnost, če želite, da imajo predmeti v stranski vrstici ikono "
 "in besedilo."
 
-#: src/iconsidepane.cpp:287
+#: src/iconsidepane.cpp:288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Velike ikone"
 
-#: src/iconsidepane.cpp:291
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "V stranski vrstici pokaži velike ikone"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:293
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr "Izberite to možnost, če želite, da so ikone v stranski vrstici velike."
 
-#: src/iconsidepane.cpp:294
+#: src/iconsidepane.cpp:295
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Običajne ikone"
 
-#: src/iconsidepane.cpp:298
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "V stranski vrstici pokaži običajne ikone"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:300
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
@@ -156,37 +156,37 @@ msgstr ""
 "Izberite to možnost, če želite, da so ikone v stranski vrstici običajne "
 "velikosti."
 
-#: src/iconsidepane.cpp:301
+#: src/iconsidepane.cpp:302
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Majhne ikone"
 
-#: src/iconsidepane.cpp:305
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "V stranski vrstici pokaži majhne ikone"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:307
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr "Izberite to možnost, če želite, da so ikone v stranski vrstici majhne."
 
-#: src/iconsidepane.cpp:308
+#: src/iconsidepane.cpp:309
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Skrij stransko vrstico"
 
-#: src/iconsidepane.cpp:311
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Skrij stransko vrstico z ikonami"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -452,10 +452,12 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Izberite to možnost, da vidite uvodno stran za Kontact."
 
 #: src/mainwindow.cpp:336
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Hide Sidebar"
 msgctxt "@action:inmenu"
-msgid "Hide/Show the component sidebar"
-msgstr "Preklopi stransko vrstico s sestavnimi deli"
+msgid "Show Sidebar"
+msgstr "Skrij stransko vrstico"
 
 #: src/mainwindow.cpp:337
 #, kde-format
@@ -549,6 +551,10 @@ msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 "Stranska vrstica je skrita. Znova jo lahko pokažete s pritiskom na tipko %1."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Hide/Show the component sidebar"
+#~ msgstr "Preklopi stransko vrstico s sestavnimi deli"
 
 #~ msgctxt "@title"
 #~ msgid "KDE Kontact"
