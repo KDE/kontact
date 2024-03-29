@@ -16,13 +16,13 @@
 # H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2010, 2011.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2017.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-27 02:52+0000\n"
-"PO-Revision-Date: 2023-01-21 15:21+0300\n"
+"PO-Revision-Date: 2024-03-28 15:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -30,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 24.02.1\n"
 "X-POOTLE-MTIME: 1413132130.000000\n"
 
 #, kde-format
@@ -63,7 +63,7 @@ msgstr "Bu tanıtımı atla"
 
 #: src/about/loading_kontact.html:5
 msgid "Loading Kontact ..."
-msgstr "Kontak yükleniyor..."
+msgstr "Kontak yükleniyor…"
 
 #: src/iconsidepane.cpp:263
 #, kde-format
@@ -344,7 +344,7 @@ msgstr "KDE kişisel bilgi yöneticisi"
 #: src/main.cpp:153
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "Telif Hakkı © 2001-%1 Kontak yazarları"
+msgstr "Telif Hakkı © 2001–%1 Kontak yazarları"
 
 #: src/main.cpp:157
 #, kde-format
@@ -399,7 +399,7 @@ msgstr "Zack Rusin"
 #: src/main.cpp:167
 #, kde-format
 msgid "Matthias Hoelzer-Kluepfel"
-msgstr "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hoelzer–Kluepfel"
 
 #: src/main.cpp:167
 #, kde-format
@@ -420,7 +420,7 @@ msgstr "Git Taşıma"
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
-msgstr " Başlatılıyor..."
+msgstr "Başlatılıyor…"
 
 #: src/mainwindow.cpp:319
 #, kde-format
@@ -432,7 +432,7 @@ msgstr "Yeni"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
-msgstr "Kontak Uygulamasını Yapılandır..."
+msgstr "Kontak Uygulamasını Yapılandır…"
 
 #: src/mainwindow.cpp:325
 #, kde-format
@@ -444,7 +444,7 @@ msgstr "Kontak Uygulamasını Yapılandır"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
-msgstr "Kontak'ı yapılandırabileceğiniz bir iletişim kutusu sunulacak."
+msgstr "Kontak’ı yapılandırabileceğiniz bir iletişim kutusu sunulacak."
 
 #: src/mainwindow.cpp:330
 #, kde-format
@@ -509,7 +509,7 @@ msgstr "%1 eklentisine geç"
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
-msgstr "Uygulama tek başına çalıştırılıyor. Arka plana atılıyor..."
+msgstr "Uygulama tek başına çalışıyor. Arka plana atılıyor…"
 
 #: src/mainwindow.cpp:644
 #, kde-format
@@ -521,7 +521,7 @@ msgstr "%1 bölümü yüklenemedi."
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
-msgstr "%1 - Kontak"
+msgstr "%1 — Kontak"
 
 #: src/mainwindow.cpp:975
 #, kde-format
@@ -546,7 +546,7 @@ msgstr "Kontak Web Sayfasına Git"
 #: src/mainwindow.cpp:985
 #, kde-format
 msgid "Access online resources and tutorials"
-msgstr "İnternet'teki kaynaklara ve öğreticilere eriş"
+msgstr "İnternet’teki kaynaklara ve öğreticilere eriş"
 
 #: src/mainwindow.cpp:988
 #, kde-format
@@ -556,7 +556,7 @@ msgstr "Hesaplarınızı Ayarlayın"
 #: src/mainwindow.cpp:989
 #, kde-format
 msgid "Prepare Kontact for use"
-msgstr "Kontak'ı kullanım için hazırlayın"
+msgstr "Kontak’ı kullanım için hazırlayın"
 
 #: src/mainwindow.cpp:1015
 #, kde-format
