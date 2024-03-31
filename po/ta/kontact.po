@@ -8,13 +8,13 @@
 #
 # Ambalam <tamilpc@ambalam.com>, 2004.
 # root <root@localhost.localdomain>, 2004.
-# Kishore G <kishore96@gmail.com>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-28 00:40+0000\n"
-"PO-Revision-Date: 2022-10-27 19:52+0530\n"
+"PO-Revision-Date: 2024-03-30 21:58+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,23 +37,18 @@ msgstr "tamilpc@ambalam.com"
 #: src/about/introduction_kontact.html:18
 #, kde-format
 msgid "Welcome to Kontact %1"
-msgstr ""
+msgstr "காண்டாக்ட் %1-க்கு நல்வரவு"
 
 #: src/about/introduction_kontact.html:19
-#, fuzzy
-#| msgid ""
-#| "Kontact handles your e-mail, addressbook, calendar, to-do list and more."
 msgid ""
 "Kontact handles your e-mail, address book, calendar, to-do list and more."
 msgstr ""
-"Kontact உங்கள் மின்னஞ்சல், முகவரிப்புத்தகம், நாட்காட்டி செய்யவேண்டிய பட்டியல் போன்றவைகளை "
-"செய்கிறது."
+"காண்டாக்ட் உங்கள் மின்னஞ்சல், முகவரிப்புத்தகம், நாட்காட்டி, செய்யவேண்டியவற்றின் பட்டியல் "
+"போன்றவற்றைக் கையாளும்."
 
 #: src/about/introduction_kontact.html:36
-#, fuzzy
-#| msgid "&Kontact Introduction"
 msgid "Skip this introduction"
-msgstr "&தொடர்பு அறிமுகம்"
+msgstr "இந்த அறிமுகத்தை மறை"
 
 #: src/about/loading_kontact.html:5
 msgid "Loading Kontact ..."
@@ -99,10 +94,10 @@ msgid ""
 msgstr ""
 
 #: src/iconsidepane.cpp:278
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
-msgstr "அனைத்து பணிகளையும் காட்டு"
+msgstr "சின்னங்களையும் உரையையும் காட்டு"
 
 #: src/iconsidepane.cpp:282
 #, kde-format
@@ -118,10 +113,10 @@ msgid ""
 msgstr ""
 
 #: src/iconsidepane.cpp:288
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
-msgstr "அனைத்து பணிகளையும் காட்டு"
+msgstr "பெரிய சின்னங்கள்"
 
 #: src/iconsidepane.cpp:292
 #, fuzzy, kde-format
@@ -136,11 +131,10 @@ msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr ""
 
 #: src/iconsidepane.cpp:295
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
-msgstr "இயல்பான "
+msgstr "இயல்பான சின்னங்கள்"
 
 #: src/iconsidepane.cpp:299
 #, fuzzy, kde-format
@@ -155,10 +149,10 @@ msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr ""
 
 #: src/iconsidepane.cpp:302
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
-msgstr "அனைத்து பணிகளையும் காட்டு"
+msgstr "சிறு சின்னங்கள்"
 
 #: src/iconsidepane.cpp:306
 #, fuzzy, kde-format
@@ -176,7 +170,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
-msgstr ""
+msgstr "பக்கப்பட்டையை மறை"
 
 #: src/iconsidepane.cpp:312
 #, kde-format
