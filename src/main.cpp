@@ -33,6 +33,7 @@ using namespace Kontact;
 #include <iostream>
 
 using namespace std;
+using namespace Qt::Literals::StringLiterals;
 
 static const char version[] = KONTACT_VERSION;
 
@@ -75,7 +76,7 @@ static void listPlugins()
 
     for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins
-        if (plugin.rawData().contains(QLatin1StringView("X-KDE-KontactPluginHasPart"))) {
+        if (plugin.rawData().contains("X-KDE-KontactPluginHasPart"_L1)) {
             bool var = plugin.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
 
             if (!var) {

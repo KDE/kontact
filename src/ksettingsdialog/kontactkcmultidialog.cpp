@@ -31,6 +31,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPageWidgetModel>
+using namespace Qt::Literals::StringLiterals;
 
 bool KontactKCMultiDialogPrivate::resolveChanges(KCModule *currentProxy)
 {
@@ -364,7 +365,7 @@ void KontactKCMultiDialog::slotHelpClicked()
 
     const QUrl docUrl = QUrl(QStringLiteral("help:/")).resolved(QUrl(docPath)); // same code as in KHelpClient::invokeHelp
     const QString docUrlScheme = docUrl.scheme();
-    if (docUrlScheme == QLatin1StringView("help") || docUrlScheme == QLatin1StringView("man") || docUrlScheme == QLatin1StringView("info")) {
+    if (docUrlScheme == QLatin1StringView("help") || docUrlScheme == "man"_L1 || docUrlScheme == "info"_L1) {
         const KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("khelpcenter"));
         if (service) {
             auto job = new KIO::ApplicationLauncherJob(service);

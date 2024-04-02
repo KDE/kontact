@@ -5,6 +5,8 @@
 */
 
 #include "introductionwebenginepage.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include <QFontDatabase>
 #include <QFontInfo>
 #include <QWebEngineProfile>
@@ -41,7 +43,7 @@ IntroductionWebEnginePage::~IntroductionWebEnginePage() = default;
 
 bool IntroductionWebEnginePage::acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame)
 {
-    if (url.scheme() == QLatin1StringView("data")) {
+    if (url.scheme() == "data"_L1) {
         return true;
     }
     Q_UNUSED(type)

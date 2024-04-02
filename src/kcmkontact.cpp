@@ -7,6 +7,8 @@
 */
 
 #include "kcmkontact.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "prefs.h"
 using namespace Kontact;
 
@@ -29,7 +31,7 @@ KcmKontact::KcmKontact(QObject *parent, const KPluginMetaData &data)
     auto pluginStartupLayout = new QHBoxLayout();
     topLayout->addLayout(pluginStartupLayout);
     auto forceStartupPluginCheckBox = new QCheckBox(Prefs::self()->forceStartupPluginItem()->label(), widget());
-    forceStartupPluginCheckBox->setObjectName(QLatin1StringView("kcfg_ForceStartupPlugin"));
+    forceStartupPluginCheckBox->setObjectName("kcfg_ForceStartupPlugin"_L1);
     pluginStartupLayout->addWidget(forceStartupPluginCheckBox);
 
     mPluginCombo->setToolTip(i18nc("@info:tooltip", "Select the initial plugin to use on each start"));
@@ -46,7 +48,7 @@ KcmKontact::KcmKontact(QObject *parent, const KPluginMetaData &data)
 
     connect(forceStartupPluginCheckBox, &QAbstractButton::toggled, mPluginCombo, &QWidget::setEnabled);
     auto showSideBarCheckbox = new QCheckBox(Prefs::self()->sideBarOpenItem()->label(), widget());
-    showSideBarCheckbox->setObjectName(QLatin1StringView("kcfg_SideBarOpen"));
+    showSideBarCheckbox->setObjectName("kcfg_SideBarOpen"_L1);
     topLayout->addWidget(showSideBarCheckbox);
 
     addConfig(Prefs::self(), widget());
@@ -66,7 +68,7 @@ void KcmKontact::load()
     mPluginList.clear();
     for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins
-        if (plugin.rawData().contains(QLatin1StringView("X-KDE-KontactPluginHasPart"))) {
+        if (plugin.rawData().contains("X-KDE-KontactPluginHasPart"_L1)) {
             bool var = plugin.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
 
             if (!var) {

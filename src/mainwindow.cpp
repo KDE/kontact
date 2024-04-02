@@ -10,6 +10,8 @@
 */
 
 #include "mainwindow.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "iconsidepane.h"
 #include "prefs.h"
 #include "webengine/introductionwebenginepage.h"
@@ -407,7 +409,7 @@ void MainWindow::loadPlugins()
     QList<KontactInterface::Plugin *> plugins;
     KConfigGroup configGroup(Prefs::self()->config(), QStringLiteral("Plugins"));
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
-        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1StringView("Enabled"), pluginMetaData.isEnabledByDefault())) {
+        if (!configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
             continue;
         }
 
@@ -436,13 +438,13 @@ void MainWindow::loadPlugins()
         const QString libNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartLibraryName"));
         const QString exeNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartExecutableName"));
 
-        if (pluginMetaData.rawData().contains(QLatin1StringView("X-KDE-KontactPartLoadOnStart"))) {
+        if (pluginMetaData.rawData().contains("X-KDE-KontactPartLoadOnStart"_L1)) {
             const bool loadOnStart = pluginMetaData.rawData().value(QStringLiteral("X-KDE-KontactPartLoadOnStart")).toBool();
             if (loadOnStart) {
                 mDelayedPreload.append(plugin);
             }
         }
-        if (pluginMetaData.rawData().contains(QLatin1StringView("X-KDE-KontactPluginHasPart"))) {
+        if (pluginMetaData.rawData().contains("X-KDE-KontactPluginHasPart"_L1)) {
             const bool hasPartProp = pluginMetaData.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
             plugin->setShowInSideBar(hasPartProp);
         } else {
@@ -484,7 +486,7 @@ void MainWindow::unloadDisabledPlugins()
     // Keep the other ones. loadPlugins() will skip those that are already loaded.
     KConfigGroup configGroup(Prefs::self()->config(), QStringLiteral("Plugins"));
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
-        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1StringView("Enabled"), pluginMetaData.isEnabledByDefault())) {
+        if (!configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
             removePlugin(pluginMetaData.pluginId());
         }
     }
@@ -882,18 +884,18 @@ void MainWindow::slotNewToolbarConfig()
 
 void MainWindow::slotOpenUrl(const QUrl &url)
 {
-    if (url.scheme() == QLatin1StringView("exec")) {
+    if (url.scheme() == "exec"_L1) {
         const QString path(url.path());
-        if (path == QLatin1StringView("/switch")) {
+        if (path == "/switch"_L1) {
             if (mCurrentPlugin) {
                 mPartsStack->setCurrentIndex(mPartsStack->indexOf(mCurrentPlugin->part()->widget()));
             }
-        } else if (path == QLatin1StringView("/accountwizard")) {
+        } else if (path == "/accountwizard"_L1) {
             auto job = new KIO::CommandLauncherJob(QStringLiteral("accountwizard"));
             job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
             job->exec();
             slotQuit();
-        } else if (path.startsWith(QLatin1StringView("/help"))) {
+        } else if (path.startsWith("/help"_L1)) {
             QString app(QStringLiteral("org.kde.kontact"));
             if (!url.query().isEmpty()) {
                 app = url.query();
@@ -930,7 +932,7 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
     KConfigGroup configGroup(Prefs::self()->config(), QStringLiteral("Plugins"));
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
-        if (!configGroup.readEntry(pluginMetaData.pluginId() + QLatin1StringView("Enabled"), pluginMetaData.isEnabledByDefault())) {
+        if (!configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
             KontactInterface::Plugin *plugin = pluginFromName(pluginMetaData.pluginId());
             if (plugin) {
                 activePlugins.append(plugin->identifier());

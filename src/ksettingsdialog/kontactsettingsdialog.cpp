@@ -7,6 +7,8 @@
 */
 
 #include "kontactsettingsdialog.h"
+using namespace Qt::Literals::StringLiterals;
+
 #include "kontactsettingsdialog_p.h"
 
 #include <KLocalizedString>
@@ -92,7 +94,7 @@ void KontactSettingsDialogPrivate::createDialogFromServices()
     }
 
     QObject::connect(q, &KontactKCMultiDialog::configCommitted, q, [](const QByteArray &componentName) {
-        KSharedConfig::Ptr config = KSharedConfig::openConfig(QString::fromLatin1(componentName) + QLatin1StringView("rc"));
+        KSharedConfig::Ptr config = KSharedConfig::openConfig(QString::fromLatin1(componentName) + "rc"_L1);
         config->reparseConfiguration();
     });
 }
