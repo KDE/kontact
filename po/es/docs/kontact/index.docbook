@@ -895,7 +895,7 @@ the data.</para-->
 >&kontact; tiene varios argumentos para la línea de órdenes que se pueden usar para realizar ciertas acciones.</para>
 
 <para
->En primer lugar, &kontact; admite los argumentos de línea de órdenes que reconocen todas las aplicaciones de &kde-frameworks;/&Qt;, consulte las páginas de los manuales de qt5options y kf5options. </para>
+>En primer lugar, &kontact; admite los argumentos de línea de órdenes que reconocen todas las aplicaciones de &kde-frameworks;/&Qt;, consulte las páginas de los manuales de qt6options y kf6options. </para>
 
 <para
 >&kontact; también admite varios argumentos específicos en la línea de órdenes.</para>

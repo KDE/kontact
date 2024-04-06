@@ -869,7 +869,7 @@ the data.</para-->
 >&kontact; té diversos arguments per a la línia d'ordres que es poden usar per a realitzar certes accions.</para>
 
 <para
->En primer lloc, el &kontact; admet els arguments de línia d'ordres admesos per tots els &kde-frameworks;/&Qt;, vegeu les pàgines man de qt5options i kf5options. </para>
+>En primer lloc, el &kontact; admet els arguments de línia d'ordres admesos per tots els &kde-frameworks;/&Qt;, vegeu les pàgines man de qt6options i kf6options. </para>
 
 <para
 >&kontact; també admet diversos arguments específics en la línia d'ordres.</para>
