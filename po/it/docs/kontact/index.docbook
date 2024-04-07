@@ -893,7 +893,7 @@ the data.</para-->
 >&kontact; ha numerose opzioni a riga di comando per compiere diverse azioni.</para>
 
 <para
->Prima di tutto, &kontact; supporta tutte le opzioni a riga di comando delle applicazioni &kde-frameworks;/&Qt;, consultare le pagine di manuale qt5options e kf5options. </para>
+>Prima di tutto, &kontact; supporta tutte le opzioni a riga di comando delle applicazioni &kde-frameworks;/&Qt;, consultare le pagine di manuale qt6options e kf6options. </para>
 
 <para
 >&kontact; supporta anche diverse opzioni specifiche.</para>
