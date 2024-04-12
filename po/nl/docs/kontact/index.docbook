@@ -881,7 +881,7 @@ the data.</para-->
 >&kontact; biedt verschillende argumenten voor de commandoregel.</para>
 
 <para
->Om te beginnen ondersteunt &kontact; alle argumenten die ook door alle &kde-frameworks;/&Qt;-toepassingen ondersteund worden, zie man-pagina's qt5options en kf5options. </para>
+>Om te beginnen ondersteunt &kontact; alle argumenten die ook door alle &kde-frameworks;/&Qt;-toepassingen ondersteund worden, zie man-pagina's qt6options en kf6options. </para>
 
 <para
 >&kontact; ondersteunt ook een aantal argumenten die specifiek voor deze toepassing zijn.</para>
