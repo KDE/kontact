@@ -3,14 +3,14 @@
 # Þröstur Svanbergsson <throstur@bylur.net>, 2004.
 # Arnar Leosson <leosson@frisurf.no>, 2005.
 # Sveinn í Felli <sveinki@nett.is>, 2009.
-# SPDX-FileCopyrightText: 2023 Guðmundur Erlingsson <gudmundure@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-03 00:38+0000\n"
-"PO-Revision-Date: 2023-12-31 15:03+0000\n"
-"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
+"PO-Revision-Date: 2024-04-06 21:08+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
@@ -115,7 +115,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr ""
-"Veldu þennan valkost ef þú vilt að atriði á hliðarstiku birtist með tákn og "
+"Veldu þennan valkost ef þú vilt að atriði á hliðarstiku birtist með tákni og "
 "texta."
 
 #: src/iconsidepane.cpp:288
@@ -238,8 +238,9 @@ msgid ""
 "Usually Kontact will come up with the plugin used before shutdown. Check "
 "this box if you would like the specified plugin to come up on start instead."
 msgstr ""
-"Kontact byrjar vanalega með þá viðbót sem var síðast opin þegar forritinuvar "
-"lokað. Hakaðu hér ef þú vilt heldur að tiltekin viðbót sé alltaf opnuð fyrst."
+"Kontact byrjar venjulega með þá viðbót sem var síðast opin þegar forritinu "
+"var lokað. Hakaðu hér ef þú vilt heldur að tiltekin viðbót sé alltaf opnuð "
+"fyrst."
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
@@ -309,7 +310,7 @@ msgstr "Byrja með tiltekna Kontact-einingu"
 #: src/main.cpp:94
 #, kde-format
 msgid "Start in iconified (minimized) mode"
-msgstr "Byrja í táknasniði (falið)"
+msgstr "Byrja í táknasniði (forritið falið)"
 
 #: src/main.cpp:95
 #, kde-format
@@ -450,12 +451,10 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Veldu þennan valkost til að sjá kynningarsíðuna um Kontact"
 
 #: src/mainwindow.cpp:338
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Sidebar"
-msgstr "Fela hliðarstiku"
+msgstr "Sýna hliðarstiku"
 
 #: src/mainwindow.cpp:339
 #, kde-format
