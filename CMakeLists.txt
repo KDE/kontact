@@ -1,7 +1,7 @@
-set(PIM_VERSION "6.0.40")
+set(PIM_VERSION "6.0.80")
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "24.04.40")
+set(RELEASE_SERVICE_VERSION "24.05.0")
 set(KF_MIN_VERSION "6.0.0")
 set(QT_REQUIRED_VERSION "6.6.0")
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
@@ -33,7 +33,7 @@ include(ECMFeatureSummary)
 
 
 # Do NOT add quote
-set(KDEPIM_DEV_VERSION alpha)
+set(KDEPIM_DEV_VERSION beta)
 
 # add an extra space
 if(DEFINED KDEPIM_DEV_VERSION)
