@@ -9,14 +9,14 @@
 # Julia Dronova <juliette.tux@gmail.com>, 2012.
 # Yuri Efremov <yur.arh@gmail.com>, 2013.
 # Alexander Lakhin <exclusion@gmail.com>, 2013.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2023.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2023, 2024.
 # Olesya Gerasimenko <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-03 00:38+0000\n"
-"PO-Revision-Date: 2023-01-12 11:23+0300\n"
+"PO-Revision-Date: 2024-05-12 16:09+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -457,12 +457,10 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Показать страницу вводной информации о Kontact."
 
 #: src/mainwindow.cpp:338
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Sidebar"
-msgstr "Скрыть боковую панель"
+msgstr "Показать боковую панель"
 
 #: src/mainwindow.cpp:339
 #, kde-format
