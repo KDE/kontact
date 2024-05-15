@@ -155,18 +155,18 @@ int main(int argc, char **argv)
                      QString(),
                      QStringLiteral("https://userbase.kde.org/Kontact"));
 
-    about.addAuthor(i18n("Allen Winter"), QString(), QStringLiteral("winter@kde.org"));
-    about.addAuthor(i18n("Rafael Fernández López"), QString(), QStringLiteral("ereslibre@kde.org"));
-    about.addAuthor(i18n("Daniel Molkentin"), QString(), QStringLiteral("molkentin@kde.org"));
-    about.addAuthor(i18n("Don Sanders"), QString(), QStringLiteral("sanders@kde.org"));
-    about.addAuthor(i18n("Cornelius Schumacher"), QString(), QStringLiteral("schumacher@kde.org"));
-    about.addAuthor(i18n("Tobias K\303\266nig"), QString(), QStringLiteral("tokoe@kde.org"));
-    about.addAuthor(i18n("David Faure"), QString(), QStringLiteral("faure@kde.org"));
-    about.addAuthor(i18n("Ingo Kl\303\266cker"), QString(), QStringLiteral("kloecker@kde.org"));
-    about.addAuthor(i18n("Sven L\303\274ppken"), QString(), QStringLiteral("sven@kde.org"));
-    about.addAuthor(i18n("Zack Rusin"), QString(), QStringLiteral("zack@kde.org"));
-    about.addAuthor(i18n("Matthias Hoelzer-Kluepfel"), i18n("Original Author"), QStringLiteral("mhk@kde.org"));
-    about.addCredit(i18n("Torgny Nyblom"), i18n("Git Migration"), QStringLiteral("nyblom@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Allen Winter"), QString(), QStringLiteral("winter@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Rafael Fernández López"), QString(), QStringLiteral("ereslibre@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Daniel Molkentin"), QString(), QStringLiteral("molkentin@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Don Sanders"), QString(), QStringLiteral("sanders@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Cornelius Schumacher"), QString(), QStringLiteral("schumacher@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Tobias K\303\266nig"), QString(), QStringLiteral("tokoe@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "David Faure"), QString(), QStringLiteral("faure@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Ingo Kl\303\266cker"), QString(), QStringLiteral("kloecker@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Sven L\303\274ppken"), QString(), QStringLiteral("sven@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Zack Rusin"), QString(), QStringLiteral("zack@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Matthias Hoelzer-Kluepfel"), i18n("Original Author"), QStringLiteral("mhk@kde.org"));
+    about.addCredit(i18nc("@info:credit", "Torgny Nyblom"), i18n("Git Migration"), QStringLiteral("nyblom@kde.org"));
     app.setAboutData(about);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kontact")));
     app.setDesktopFileName(QStringLiteral("org.kde.kontact"));
