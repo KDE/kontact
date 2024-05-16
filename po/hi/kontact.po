@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"POT-Creation-Date: 2024-05-16 00:39+0000\n"
 "PO-Revision-Date: 2008-01-23 13:17+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -323,57 +323,78 @@ msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "(c) 2004 टॉबियस कोएनिग"
 
 #: src/main.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allen Winter"
+msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "एलन विंटर"
 
 #: src/main.cpp:159
 #, kde-format
+msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr ""
 
 #: src/main.cpp:160
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Daniel Molkentin"
+msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "डेनियल मॉल्केनटिन"
 
 #: src/main.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Don Sanders"
+msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "डॉन सेंडर्स"
 
 #: src/main.cpp:162
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cornelius Schumacher"
+msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "कॉर्नेलियस शूमेकर"
 
 #: src/main.cpp:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Tobias König"
+msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "टॉबियस कोएनिग"
 
 #: src/main.cpp:164
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "David Faure"
+msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "डेविड फॉउरे"
 
 #: src/main.cpp:165
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ingo Klöcker"
+msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "इंगो क्लोकर"
 
 #: src/main.cpp:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sven Lüppken"
+msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "स्वेन लुपकेन"
 
 #: src/main.cpp:167
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Zack Rusin"
+msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "जेक रुसिन"
 
 #: src/main.cpp:168
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Matthias Hoelzer-Kluepfel"
+msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "मैथियास होल्ज़र-क्लूपफेल"
 
@@ -384,6 +405,7 @@ msgstr "मूल लेखक"
 
 #: src/main.cpp:169
 #, kde-format
+msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr ""
 
@@ -551,6 +573,9 @@ msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "कॉर्नेलियस शूमेकर"
+
 #, fuzzy
 #~| msgid "KDE Kontact"
 #~ msgctxt "@title"
@@ -562,12 +587,6 @@ msgstr ""
 #~ msgctxt "@info:credit"
 #~ msgid "(c), 2003 Cornelius Schumacher"
 #~ msgstr "(c) 2003 कॉर्नेलियस शूमेकर"
-
-#, fuzzy
-#~| msgid "Cornelius Schumacher"
-#~ msgctxt "@info:credit"
-#~ msgid "Cornelius Schumacher"
-#~ msgstr "कॉर्नेलियस शूमेकर"
 
 #, fuzzy
 #~| msgid "Tobias Koenig"

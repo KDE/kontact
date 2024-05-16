@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"POT-Creation-Date: 2024-05-16 00:39+0000\n"
 "PO-Revision-Date: 2004-04-20 13:26+CEST\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -312,57 +312,68 @@ msgstr "(c), 2004 Tobias Koenig"
 
 #: src/main.cpp:158
 #, kde-format
+msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr ""
 
 #: src/main.cpp:159
 #, kde-format
+msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr ""
 
 #: src/main.cpp:160
 #, kde-format
+msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr ""
 
 #: src/main.cpp:161
 #, kde-format
+msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr ""
 
 #: src/main.cpp:162
 #, fuzzy, kde-format
+msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "(c), 2003 Kornelijus Šumaher (Cornelius Schumacher)"
 
 #: src/main.cpp:163
 #, fuzzy, kde-format
 #| msgid "(c), 2004 Tobias Koenig"
+msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "(c), 2004 Tobias Koenig"
 
 #: src/main.cpp:164
 #, kde-format
+msgctxt "@info:credit"
 msgid "David Faure"
 msgstr ""
 
 #: src/main.cpp:165
 #, kde-format
+msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr ""
 
 #: src/main.cpp:166
 #, kde-format
+msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr ""
 
 #: src/main.cpp:167
 #, kde-format
+msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr ""
 
 #: src/main.cpp:168
 #, kde-format
+msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr ""
 
@@ -373,6 +384,7 @@ msgstr "Autor"
 
 #: src/main.cpp:169
 #, kde-format
+msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr ""
 
@@ -527,6 +539,10 @@ msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 
 #, fuzzy
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "(c), 2003 Kornelijus Šumaher (Cornelius Schumacher)"
+
+#, fuzzy
 #~ msgctxt "@title"
 #~ msgid "KDE Kontact"
 #~ msgstr "KDE Kontact"
@@ -534,11 +550,6 @@ msgstr ""
 #, fuzzy
 #~ msgctxt "@info:credit"
 #~ msgid "(c), 2003 Cornelius Schumacher"
-#~ msgstr "(c), 2003 Kornelijus Šumaher (Cornelius Schumacher)"
-
-#, fuzzy
-#~ msgctxt "@info:credit"
-#~ msgid "Cornelius Schumacher"
 #~ msgstr "(c), 2003 Kornelijus Šumaher (Cornelius Schumacher)"
 
 #, fuzzy

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"POT-Creation-Date: 2024-05-16 00:39+0000\n"
 "PO-Revision-Date: 2024-03-28 05:17+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -346,57 +346,78 @@ msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "Copyright © 2001–%1 los autores de Kontact"
 
 #: src/main.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allen Winter"
+msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
 #: src/main.cpp:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rafael Fernández López"
+msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
 #: src/main.cpp:160
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Daniel Molkentin"
+msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
 #: src/main.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Don Sanders"
+msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "Don Sanders"
 
 #: src/main.cpp:162
 #, kde-format
+msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
 #: src/main.cpp:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Tobias König"
+msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "Tobias König"
 
 #: src/main.cpp:164
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "David Faure"
+msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
 #: src/main.cpp:165
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ingo Klöcker"
+msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
 #: src/main.cpp:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sven Lüppken"
+msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
 #: src/main.cpp:167
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Zack Rusin"
+msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
 #: src/main.cpp:168
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Matthias Hoelzer-Kluepfel"
+msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
@@ -406,7 +427,9 @@ msgid "Original Author"
 msgstr "Autor original"
 
 #: src/main.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Torgny Nyblom"
+msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
 
@@ -564,6 +587,9 @@ msgstr ""
 "La barra lateral está oculta. Muestre la barra lateral de nuevo pulsando la "
 "tecla %1."
 
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
 #~ msgctxt "@action:inmenu"
 #~ msgid "Hide/Show the component sidebar"
 #~ msgstr "Mostrar/Ocultar el componente de la barra lateral"
@@ -575,10 +601,6 @@ msgstr ""
 #~ msgctxt "@info:credit"
 #~ msgid "(c), 2003 Cornelius Schumacher"
 #~ msgstr "© 2003 Cornelius Schumacher"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Cornelius Schumacher"
-#~ msgstr "Cornelius Schumacher"
 
 #~ msgctxt "@info:credit"
 #~ msgid "Developer"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:38+0000\n"
+"POT-Creation-Date: 2024-05-16 00:39+0000\n"
 "PO-Revision-Date: 2009-10-09 13:26+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -308,56 +308,67 @@ msgstr ""
 
 #: src/main.cpp:158
 #, kde-format
+msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr ""
 
 #: src/main.cpp:159
 #, kde-format
+msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr ""
 
 #: src/main.cpp:160
 #, kde-format
+msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr ""
 
 #: src/main.cpp:161
 #, kde-format
+msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr ""
 
 #: src/main.cpp:162
 #, kde-format
+msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr ""
 
 #: src/main.cpp:163
 #, kde-format
+msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr ""
 
 #: src/main.cpp:164
 #, kde-format
+msgctxt "@info:credit"
 msgid "David Faure"
 msgstr ""
 
 #: src/main.cpp:165
 #, kde-format
+msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr ""
 
 #: src/main.cpp:166
 #, kde-format
+msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr ""
 
 #: src/main.cpp:167
 #, kde-format
+msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr ""
 
 #: src/main.cpp:168
 #, kde-format
+msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr ""
 
@@ -368,6 +379,7 @@ msgstr "Álgovuolggalaš čálli"
 
 #: src/main.cpp:169
 #, kde-format
+msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr ""
 
