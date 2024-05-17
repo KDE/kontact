@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-16 00:39+0000\n"
-"PO-Revision-Date: 2024-03-30 10:51+0400\n"
+"PO-Revision-Date: 2024-05-16 13:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -320,32 +320,28 @@ msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "الحقوق محفوظة © 2001–%1 لمؤلّفي «متراسلك»"
 
 #: src/main.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
-msgstr "Allen Winter"
+msgstr "ألين وينتر"
 
 #: src/main.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rafael Fernández López"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
-msgstr "Rafael Fernández López"
+msgstr "رافائيل فرنانديز لوبيز"
 
 #: src/main.cpp:160
-#, fuzzy, kde-format
-#| msgid "Daniel Molkentin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
-msgstr "Daniel Molkentin"
+msgstr "دانييل مولكنتين"
 
 #: src/main.cpp:161
-#, fuzzy, kde-format
-#| msgid "Don Sanders"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
-msgstr "Don Sanders"
+msgstr "دون ساندرز"
 
 #: src/main.cpp:162
 #, kde-format
@@ -354,46 +350,40 @@ msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
 #: src/main.cpp:163
-#, fuzzy, kde-format
-#| msgid "Tobias König"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
-msgstr "Tobias König"
+msgstr "توبياس كونيغ"
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
-msgstr "David Faure"
+msgstr "ديفيد فور"
 
 #: src/main.cpp:165
-#, fuzzy, kde-format
-#| msgid "Ingo Klöcker"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
-msgstr "Ingo Klöcker"
+msgstr "إنغو كلوكر"
 
 #: src/main.cpp:166
-#, fuzzy, kde-format
-#| msgid "Sven Lüppken"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
-msgstr "Sven Lüppken"
+msgstr "سفين لوكن"
 
 #: src/main.cpp:167
-#, fuzzy, kde-format
-#| msgid "Zack Rusin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
-msgstr "Zack Rusin"
+msgstr "زاك روسين"
 
 #: src/main.cpp:168
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
-msgstr "Matthias Hoelzer-Kluepfel"
+msgstr "ماتياس هويلزر-كلويبفيل"
 
 #: src/main.cpp:168
 #, kde-format
@@ -401,11 +391,10 @@ msgid "Original Author"
 msgstr "المؤلّف الأصليّ"
 
 #: src/main.cpp:169
-#, fuzzy, kde-format
-#| msgid "Torgny Nyblom"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
-msgstr "Torgny Nyblom"
+msgstr "تورجني نيبلوم"
 
 #: src/main.cpp:169
 #, kde-format

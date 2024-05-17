@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-16 00:39+0000\n"
-"PO-Revision-Date: 2024-03-28 06:41+0200\n"
+"PO-Revision-Date: 2024-05-16 06:37+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -323,77 +323,67 @@ msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "כל הזכויות שמורות © 2001‏–%1 יוצרי Kontact"
 
 #: src/main.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "אלן וינטר"
 
 #: src/main.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rafael Fernández López"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "רפאל פרננדז לופז"
 
 #: src/main.cpp:160
-#, fuzzy, kde-format
-#| msgid "Daniel Molkentin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "דניאל מולקנטין"
 
 #: src/main.cpp:161
-#, fuzzy, kde-format
-#| msgid "Don Sanders"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "דון סנדרס"
 
 #: src/main.cpp:162
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
-msgstr "(c), 2003 Cornelius Schumacher"
+msgstr "(c), 2003 קורנליוס שומאכר"
 
 #: src/main.cpp:163
-#, fuzzy, kde-format
-#| msgid "Tobias König"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "טוביאס קניג"
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
-msgstr "דיויד פור"
+msgstr "דוד פור"
 
 #: src/main.cpp:165
-#, fuzzy, kde-format
-#| msgid "Ingo Klöcker"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "אינגו קלוקר"
 
 #: src/main.cpp:166
-#, fuzzy, kde-format
-#| msgid "Sven Lüppken"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "סוון לופקן"
 
 #: src/main.cpp:167
-#, fuzzy, kde-format
-#| msgid "Zack Rusin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "זאק רוסין"
 
 #: src/main.cpp:168
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "מתיאס הולצר-קלופּפל"
@@ -404,8 +394,7 @@ msgid "Original Author"
 msgstr "היוצר המקורי"
 
 #: src/main.cpp:169
-#, fuzzy, kde-format
-#| msgid "Torgny Nyblom"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "טורני נייבלום"

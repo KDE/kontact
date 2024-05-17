@@ -310,81 +310,70 @@ msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "Autorská práva © 2001–%1 Tvůrci aplikace Kontact"
 
 #: src/main.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
 #: src/main.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rafael Fernández López"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
 #: src/main.cpp:160
-#, fuzzy, kde-format
-#| msgid "Daniel Molkentin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
-msgstr "Daniel Molkentin"
+msgstr ""
 
 #: src/main.cpp:161
-#, fuzzy, kde-format
-#| msgid "Don Sanders"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
-msgstr "Don Sanders"
+msgstr ""
 
 #: src/main.cpp:162
-#, fuzzy, kde-format
-#| msgid "Cornelius Schumacher"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
 #: src/main.cpp:163
-#, fuzzy, kde-format
-#| msgid "Tobias König"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
-msgstr "Tobias König"
+msgstr ""
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
 #: src/main.cpp:165
-#, fuzzy, kde-format
-#| msgid "Ingo Klöcker"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
-msgstr "Ingo Klöcker"
+msgstr ""
 
 #: src/main.cpp:166
-#, fuzzy, kde-format
-#| msgid "Sven Lüppken"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
-msgstr "Sven Lüppken"
+msgstr ""
 
 #: src/main.cpp:167
-#, fuzzy, kde-format
-#| msgid "Zack Rusin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
-msgstr "Zack Rusin"
+msgstr ""
 
 #: src/main.cpp:168
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
-msgstr "Matthias Hoelzer-Kluepfel"
+msgstr ""
 
 #: src/main.cpp:168
 #, kde-format
@@ -392,11 +381,10 @@ msgid "Original Author"
 msgstr "Původní autor"
 
 #: src/main.cpp:169
-#, fuzzy, kde-format
-#| msgid "Torgny Nyblom"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
-msgstr "Torgny Nyblom"
+msgstr ""
 
 #: src/main.cpp:169
 #, kde-format
