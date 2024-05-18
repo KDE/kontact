@@ -385,9 +385,7 @@ msgid "Don Sanders"
 msgstr "Don Sanders"
 
 #: src/main.cpp:162
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "Cornelius Schumacher"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"

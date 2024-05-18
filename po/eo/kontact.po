@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-16 00:39+0000\n"
-"PO-Revision-Date: 2024-03-28 10:37+0100\n"
+"PO-Revision-Date: 2024-05-17 06:24+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -48,7 +48,7 @@ msgstr "Preterpasu ĉi tiun enkondukon"
 
 #: src/about/loading_kontact.html:5
 msgid "Loading Kontact ..."
-msgstr "Ŝarĝante Kontakton..."
+msgstr "Ŝargante Kontakton..."
 
 #: src/iconsidepane.cpp:264
 #, kde-format
@@ -60,7 +60,7 @@ msgstr "Montru nur piktogramojn"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
-msgstr "Montru flankajn erojn kun ikonoj kaj sen teksto"
+msgstr "Montru flankajn erojn kun piktogramoj kaj sen teksto"
 
 #: src/iconsidepane.cpp:269
 #, kde-format
@@ -68,7 +68,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr ""
-"Elektu ĉi tiun opcion se vi volas, ke la flankaj eroj havu ikonojn sen "
+"Elektu ĉi tiun opcion se vi volas, ke la flankaj eroj havu piktogramojn sen "
 "teksto."
 
 #: src/iconsidepane.cpp:271
@@ -81,7 +81,7 @@ msgstr "Montru Nur Tekston"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
-msgstr "Montri flankmenuajn erojn kun teksto kaj sen ikonoj"
+msgstr "Montri flankmenuajn erojn kun teksto kaj sen piktogramoj"
 
 #: src/iconsidepane.cpp:276
 #, kde-format
@@ -90,7 +90,7 @@ msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr ""
 "Elektu ĉi tiun opcion se vi volas, ke la flankaj eroj havu tekston sen "
-"ikonoj."
+"piktogramoj."
 
 #: src/iconsidepane.cpp:278
 #, kde-format
@@ -102,7 +102,7 @@ msgstr "Montri piktogramojn && Tekston"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
-msgstr "Montru flankmenuajn erojn kun ikonoj kaj teksto"
+msgstr "Montru flankmenuajn erojn kun piktogramoj kaj teksto"
 
 #: src/iconsidepane.cpp:283
 #, kde-format
@@ -110,27 +110,27 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr ""
-"Elektu ĉi tiun opcion se vi volas, ke la flankaj eroj havu ikonojn kaj "
+"Elektu ĉi tiun opcion se vi volas, ke la flankaj eroj havu piktogramojn kaj "
 "tekston."
 
 #: src/iconsidepane.cpp:288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
-msgstr "Grandaj Ikonoj"
+msgstr "Grandaj Piktogramoj"
 
 #: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
-msgstr "Montru grandgrandajn flankajn ikonojn"
+msgstr "Montri grandajn flankbret-piktogramojn"
 
 #: src/iconsidepane.cpp:293
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr ""
-"Elektu ĉi tiun opcion se vi volas, ke la flanka kolumno ikonoj estu "
+"Elektu ĉi tiun opcion se vi volas, ke la flanka kolumno piktogramoj estu "
 "pligrandaj."
 
 #: src/iconsidepane.cpp:295
@@ -143,7 +143,7 @@ msgstr "Normalaj piktogramoj"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
-msgstr "Montru normalajn grandecojn flankajn ikonojn"
+msgstr "Montri normal-grandecajn flankajn piktogramojn"
 
 #: src/iconsidepane.cpp:300
 #, kde-format
@@ -157,20 +157,20 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
-msgstr "Malgrandaj Ikonoj"
+msgstr "Malgrandaj Piktogramoj"
 
 #: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
-msgstr "Montru ikonojn de malgranda grandeco flanka kolumno"
+msgstr "Montri flankbretajn piktogramojn de malgranda grandeco"
 
 #: src/iconsidepane.cpp:307
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr ""
-"Elektu ĉi tiun opcion se vi volas, ke la flanka kolumno ikonoj estu tro "
+"Elektu ĉi tiun opcion se vi volas, ke la flankbretaj piktogramoj estu ekstre "
 "malgrandaj."
 
 #: src/iconsidepane.cpp:309
@@ -183,7 +183,7 @@ msgstr "Kaŝi Flankbreton"
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
-msgstr "Kaŝi la flankan ikonon"
+msgstr "Kaŝi la piktograman flankbreton"
 
 #: src/iconsidepane.cpp:313
 #, kde-format
@@ -191,8 +191,8 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
 msgstr ""
-"Elektu ĉi tiun opcion se vi volas kaŝi la flankan ikonon. Premu F9 por "
-"malkaŝi."
+"Elektu ĉi tiun opcion se vi volas kaŝi la piktograman flankbreton. Premu F9 "
+"por malkaŝi."
 
 #: src/kcmkontact.cpp:37
 #, kde-format
@@ -251,7 +251,7 @@ msgstr "Montru la flankan komponenton"
 #: src/kontact.kcfg:26
 #, kde-format
 msgid "Show/Hide the icon sidebar"
-msgstr "Montri/Kaŝi la ikonan flankbreton"
+msgstr "Montri/Kaŝi la piktograman flankbreton"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
@@ -261,9 +261,9 @@ msgid ""
 "Uncheck this box to hide the component sidebar. Note that the F9 key will "
 "hide/show the icon sidebar."
 msgstr ""
-"Por konservi ekranan nemoveblaĵon, vi eble elektas kaŝi la ikonan flankan "
-"kolon. Malmarku ĉi tiun skatolon por kaŝi la komponan flankbreton. Notu, ke "
-"la F9-klavo kaŝos/montros la ikonan flanka kolumno."
+"Por konservi ekranan nemoveblaĵon, vi eble elektas kaŝi la piktograman "
+"flankbreton. Malmarku ĉi tiun skatolon por kaŝi la komponan flankbreton. "
+"Rimarku, ke la F9-klavo kaŝos/montros la piktograman flankbreton."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -309,7 +309,7 @@ msgstr "Komencu per specifa modulo de Kontakto"
 #: src/main.cpp:94
 #, kde-format
 msgid "Start in iconified (minimized) mode"
-msgstr "Komencu en ikonigita (minimigita) reĝimo"
+msgstr "Komencu en piktogramigita (minimumigita) reĝimo"
 
 #: src/main.cpp:95
 #, kde-format
@@ -332,78 +332,67 @@ msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "Kopirajto © 2001–%1 Kontaktu aŭtoroj"
 
 #: src/main.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
 #: src/main.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rafael Fernández López"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
 #: src/main.cpp:160
-#, fuzzy, kde-format
-#| msgid "Daniel Molkentin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
 #: src/main.cpp:161
-#, fuzzy, kde-format
-#| msgid "Don Sanders"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "Don Sanders"
 
 #: src/main.cpp:162
-#, fuzzy, kde-format
-#| msgid "Cornelius Schumacher"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
 #: src/main.cpp:163
-#, fuzzy, kde-format
-#| msgid "Tobias König"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "Tobias König"
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
 #: src/main.cpp:165
-#, fuzzy, kde-format
-#| msgid "Ingo Klöcker"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
 #: src/main.cpp:166
-#, fuzzy, kde-format
-#| msgid "Sven Lüppken"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
 #: src/main.cpp:167
-#, fuzzy, kde-format
-#| msgid "Zack Rusin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
 #: src/main.cpp:168
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
@@ -414,8 +403,7 @@ msgid "Original Author"
 msgstr "Originala aŭtoro"
 
 #: src/main.cpp:169
-#, fuzzy, kde-format
-#| msgid "Torgny Nyblom"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
