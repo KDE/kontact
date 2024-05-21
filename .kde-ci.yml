@@ -6,6 +6,7 @@ Dependencies:
   'require':
     'frameworks/ktexttemplate': '@latest-kf6'
     'frameworks/extra-cmake-modules': '@latest-kf6'
+    'frameworks/kiconthemes': '@latest-kf6'
     'pim/grantleetheme' : '@same'
     'pim/kontactinterface' : '@same'
     'pim/libkdepim' : '@same'
