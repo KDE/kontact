@@ -3,21 +3,21 @@
 # Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2003,2004, 2005, 2006.
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2004, 2005, 2009, 2010.
 # David Jarvie <djarvie@kde.org>, 2009.
-# Steve Allewell <steve.allewell@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-16 00:39+0000\n"
-"PO-Revision-Date: 2022-12-31 15:29+0000\n"
+"POT-Creation-Date: 2024-05-22 00:39+0000\n"
+"PO-Revision-Date: 2024-05-21 19:26+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: British English\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -289,125 +289,114 @@ msgstr "Main Toolbar"
 msgid "Navigator"
 msgstr "Navigator"
 
-#: src/main.cpp:93
+#: src/main.cpp:103
 #, kde-format
 msgid "Start with a specific Kontact module"
 msgstr "Start with a specific Kontact module"
 
-#: src/main.cpp:94
+#: src/main.cpp:104
 #, kde-format
 msgid "Start in iconified (minimized) mode"
 msgstr "Start in iconified (minimised) mode"
 
-#: src/main.cpp:95
+#: src/main.cpp:105
 #, kde-format
 msgid "List all possible modules and exit"
 msgstr "List all possible modules and exit"
 
-#: src/main.cpp:150 src/mainwindow.cpp:976
+#: src/main.cpp:170 src/mainwindow.cpp:976
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
 
-#: src/main.cpp:152
+#: src/main.cpp:172
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "KDE personal information manager"
 
-#: src/main.cpp:154
+#: src/main.cpp:174
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "Copyright © 2001–%1 Kontact authors"
 
-#: src/main.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#: src/main.cpp:178
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: src/main.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rafael Fernández López"
+#: src/main.cpp:179
+#, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
-#: src/main.cpp:160
-#, fuzzy, kde-format
-#| msgid "Daniel Molkentin"
+#: src/main.cpp:180
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
-#: src/main.cpp:161
-#, fuzzy, kde-format
-#| msgid "Don Sanders"
+#: src/main.cpp:181
+#, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "Don Sanders"
 
-#: src/main.cpp:162
+#: src/main.cpp:182
 #, kde-format
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
-#: src/main.cpp:163
-#, fuzzy, kde-format
-#| msgid "Tobias König"
+#: src/main.cpp:183
+#, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "Tobias König"
 
-#: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#: src/main.cpp:184
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: src/main.cpp:165
-#, fuzzy, kde-format
-#| msgid "Ingo Klöcker"
+#: src/main.cpp:185
+#, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
-#: src/main.cpp:166
-#, fuzzy, kde-format
-#| msgid "Sven Lüppken"
+#: src/main.cpp:186
+#, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
-#: src/main.cpp:167
-#, fuzzy, kde-format
-#| msgid "Zack Rusin"
+#: src/main.cpp:187
+#, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
-#: src/main.cpp:168
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#: src/main.cpp:188
+#, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:168
+#: src/main.cpp:188
 #, kde-format
 msgid "Original Author"
 msgstr "Original Author"
 
-#: src/main.cpp:169
-#, fuzzy, kde-format
-#| msgid "Torgny Nyblom"
+#: src/main.cpp:189
+#, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
 
-#: src/main.cpp:169
+#: src/main.cpp:189
 #, kde-format
 msgid "Git Migration"
 msgstr "Git Migration"
@@ -461,12 +450,10 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Choose this option to see the Kontact Introduction page."
 
 #: src/mainwindow.cpp:338
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Sidebar"
-msgstr "Hide Sidebar"
+msgstr "Show Sidebar"
 
 #: src/mainwindow.cpp:339
 #, kde-format

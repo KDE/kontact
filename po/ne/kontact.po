@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-16 00:39+0000\n"
+"POT-Creation-Date: 2024-05-22 00:39+0000\n"
 "PO-Revision-Date: 2007-09-12 17:34+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -300,125 +300,125 @@ msgstr ""
 msgid "Navigator"
 msgstr ""
 
-#: src/main.cpp:93
+#: src/main.cpp:103
 #, kde-format
 msgid "Start with a specific Kontact module"
 msgstr "निर्दिष्ट सम्पर्क मोडयुलबाट सुरु गर्नुहोस्"
 
-#: src/main.cpp:94
+#: src/main.cpp:104
 #, kde-format
 msgid "Start in iconified (minimized) mode"
 msgstr "प्रतिमामय (सानो गरिएको) मोडमा सुरु गर्नुहोस्"
 
-#: src/main.cpp:95
+#: src/main.cpp:105
 #, kde-format
 msgid "List all possible modules and exit"
 msgstr "सबै सम्भाव्य मोडयुल सूचिबद्ध गर्नुहोस् र अन्त्य गर्नुहोस्"
 
-#: src/main.cpp:150 src/mainwindow.cpp:976
+#: src/main.cpp:170 src/mainwindow.cpp:976
 #, kde-format
 msgid "Kontact"
 msgstr "सम्पर्क"
 
-#: src/main.cpp:152
+#: src/main.cpp:172
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "केडीई व्यक्तिगत सूचना प्रबन्धक"
 
-#: src/main.cpp:154
+#: src/main.cpp:174
 #, fuzzy, kde-format
 #| msgid "(c) 2004 Tobias Koenig"
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "(c) 2004 टोबियास कोइनिङ"
 
-#: src/main.cpp:158
+#: src/main.cpp:178
 #, fuzzy, kde-format
 #| msgid "Allen Winter"
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "एलेन विन्टर"
 
-#: src/main.cpp:159
+#: src/main.cpp:179
 #, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr ""
 
-#: src/main.cpp:160
+#: src/main.cpp:180
 #, fuzzy, kde-format
 #| msgid "Daniel Molkentin"
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "डानिएल मोल्केन्टिन"
 
-#: src/main.cpp:161
+#: src/main.cpp:181
 #, fuzzy, kde-format
 #| msgid "Don Sanders"
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "डन सान्डर"
 
-#: src/main.cpp:162
+#: src/main.cpp:182
 #, fuzzy, kde-format
 #| msgid "Cornelius Schumacher"
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "कर्नेलस सुमाकर"
 
-#: src/main.cpp:163
+#: src/main.cpp:183
 #, fuzzy, kde-format
 #| msgid "Tobias König"
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "टोबियास कोनिङ"
 
-#: src/main.cpp:164
+#: src/main.cpp:184
 #, fuzzy, kde-format
 #| msgid "David Faure"
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "डेभिड फाउर"
 
-#: src/main.cpp:165
+#: src/main.cpp:185
 #, fuzzy, kde-format
 #| msgid "Ingo Klöcker"
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "इङ्गो क्लकर"
 
-#: src/main.cpp:166
+#: src/main.cpp:186
 #, fuzzy, kde-format
 #| msgid "Sven Lüppken"
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "स्भेन लुप्केन"
 
-#: src/main.cpp:167
+#: src/main.cpp:187
 #, fuzzy, kde-format
 #| msgid "Zack Rusin"
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "ज्याक रुसिन"
 
-#: src/main.cpp:168
+#: src/main.cpp:188
 #, fuzzy, kde-format
 #| msgid "Matthias Hoelzer-Kluepfel"
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "म्याथियास होएल्जर क्लुपफेल"
 
-#: src/main.cpp:168
+#: src/main.cpp:188
 #, kde-format
 msgid "Original Author"
 msgstr "मौलिक लेखक"
 
-#: src/main.cpp:169
+#: src/main.cpp:189
 #, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr ""
 
-#: src/main.cpp:169
+#: src/main.cpp:189
 #, kde-format
 msgid "Git Migration"
 msgstr ""
