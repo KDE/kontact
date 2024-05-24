@@ -79,6 +79,7 @@ target_link_libraries(kontact_bin
     KF6::I18n
     KPim6::KontactInterface
     KF6::Crash
+    Qt::DBus
     )
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(kontact_bin PROPERTIES UNITY_BUILD ON)
