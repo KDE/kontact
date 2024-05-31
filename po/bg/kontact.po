@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:39+0000\n"
-"PO-Revision-Date: 2024-05-16 11:27+0200\n"
+"PO-Revision-Date: 2024-05-30 18:38+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -27,7 +27,7 @@ msgstr "Ясен Праматаров,Златко Попов,Минчо Кон�
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "yasen@lindeas.com,zlatkopopov@fsa-bg.org"
+msgstr "yasen@lindeas.com,zlatkopopov@fsa-bg.org,mkondarev@yahoo.de"
 
 #: src/about/introduction_kontact.html:18
 #, kde-format
@@ -565,7 +565,3 @@ msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 "Страничната лента е скрита. Покажете отново страничната лента, като "
 "използвате клавиша %1."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Hide/Show the component sidebar"
-#~ msgstr "Скриване/показване на страничната лента на компонента"
