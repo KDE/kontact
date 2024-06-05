@@ -100,9 +100,9 @@ static void listPlugins()
 
 static void loadCommandLineOptions(QCommandLineParser *parser)
 {
-    parser->addOption(QCommandLineOption(QStringLiteral("module"), i18n("Start with a specific Kontact module"), QStringLiteral("module")));
-    parser->addOption(QCommandLineOption(QStringLiteral("iconify"), i18n("Start in iconified (minimized) mode")));
-    parser->addOption(QCommandLineOption(QStringLiteral("list"), i18n("List all possible modules and exit")));
+    parser->addOption(QCommandLineOption(QStringLiteral("module"), i18nc("@info:shell", "Start with a specific Kontact module"), QStringLiteral("module")));
+    parser->addOption(QCommandLineOption(QStringLiteral("iconify"), i18nc("@info:shell", "Start in iconified (minimized) mode")));
+    parser->addOption(QCommandLineOption(QStringLiteral("list"), i18nc("@info:shell", "List all possible modules and exit")));
 }
 
 int KontactApp::activate(const QStringList &args, const QString &workingDir)
