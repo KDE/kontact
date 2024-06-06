@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-02-02 23:00+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -294,17 +294,23 @@ msgid "Navigator"
 msgstr "Žvalgiklis"
 
 #: src/main.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start with a specific Kontact module"
+msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Pradėti įkeliant konkretų Kontact modulį"
 
 #: src/main.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start in iconified (minimized) mode"
+msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "Paleisti paslėpta veiksena (ikona pulte)"
 
 #: src/main.cpp:105
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "List all possible modules and exit"
+msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Išvardinti visus galimus modulius ir išeiti"
 

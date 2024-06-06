@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2004-04-20 13:26+CEST\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -281,16 +281,19 @@ msgstr ""
 
 #: src/main.cpp:103
 #, kde-format
+msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr ""
 
 #: src/main.cpp:104
 #, kde-format
+msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr ""
 
 #: src/main.cpp:105
 #, kde-format
+msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-05-21 19:26+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -290,17 +290,23 @@ msgid "Navigator"
 msgstr "Navigator"
 
 #: src/main.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start with a specific Kontact module"
+msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Start with a specific Kontact module"
 
 #: src/main.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start in iconified (minimized) mode"
+msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "Start in iconified (minimised) mode"
 
 #: src/main.cpp:105
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "List all possible modules and exit"
+msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "List all possible modules and exit"
 

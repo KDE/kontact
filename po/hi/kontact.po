@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2008-01-23 13:17+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -292,17 +292,23 @@ msgid "Navigator"
 msgstr ""
 
 #: src/main.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start with a specific Kontact module"
+msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "विशिष्ट कॉन्टेक्ट मॉड्यूल के साथ प्रारंभ करें"
 
 #: src/main.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start in iconified (minimized) mode"
+msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "प्रतीकरूप (न्यूनतम किए गए) मोड में प्रारंभ करें"
 
 #: src/main.cpp:105
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "List all possible modules and exit"
+msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "सभी संभावित मॉड्यूल दिखाकर बाहर हों"
 

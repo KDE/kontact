@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:39+0000\n"
+"POT-Creation-Date: 2024-06-06 00:39+0000\n"
 "PO-Revision-Date: 2024-03-30 21:58+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -294,17 +294,23 @@ msgid "Navigator"
 msgstr ""
 
 #: src/main.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start with a specific Kontact module"
+msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "குறிப்பிடப்பட்ட Kontact கூறுகளிலிருந்து ஆரம்பி"
 
 #: src/main.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start in iconified (minimized) mode"
+msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "சின்னமாக்கப்பட்ட (சிறிதாக்கப்பட்ட) வகையில் துவக்கு"
 
 #: src/main.cpp:105
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "List all possible modules and exit"
+msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "சாத்தியமாகும் அனைத்து தொகுதிகளையும் பட்டியலிட்டு வெளியேறு"
 
