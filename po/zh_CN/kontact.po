@@ -281,22 +281,19 @@ msgid "Navigator"
 msgstr "导航器"
 
 #: src/main.cpp:103
-#, fuzzy, kde-format
-#| msgid "Start with a specific Kontact module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "以指定的 Kontact 模块启动"
 
 #: src/main.cpp:104
-#, fuzzy, kde-format
-#| msgid "Start in iconified (minimized) mode"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "以图标方式 (最小化) 启动"
 
 #: src/main.cpp:105
-#, fuzzy, kde-format
-#| msgid "List all possible modules and exit"
+#, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "列出可能的全部模块并退出"

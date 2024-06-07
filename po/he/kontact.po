@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:39+0000\n"
-"PO-Revision-Date: 2024-05-16 06:37+0300\n"
+"PO-Revision-Date: 2024-06-06 06:00+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -293,25 +293,22 @@ msgid "Navigator"
 msgstr "נווט"
 
 #: src/main.cpp:103
-#, fuzzy, kde-format
-#| msgid "Start with a specific Kontact module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "התחלה עם רכיב מסוים של Kontact"
 
 #: src/main.cpp:104
-#, fuzzy, kde-format
-#| msgid "Start in iconified (minimized) mode"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
-msgstr "התחלה עם הרכיב במצב מוקטן (לסמל)"
+msgstr "התחלה במצב מוקטן (לסמל)"
 
 #: src/main.cpp:105
-#, fuzzy, kde-format
-#| msgid "List all possible modules and exit"
+#, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
-msgstr "הצגת כל הרכיבים האפשריים ויציאה"
+msgstr "הצגת כל הרכיבים האפשריים ולצאת"
 
 #: src/main.cpp:170 src/mainwindow.cpp:976
 #, kde-format

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:39+0000\n"
-"PO-Revision-Date: 2024-05-18 21:21+0300\n"
+"PO-Revision-Date: 2024-06-06 11:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -317,22 +317,19 @@ msgid "Navigator"
 msgstr "Gezgin"
 
 #: src/main.cpp:103
-#, fuzzy, kde-format
-#| msgid "Start with a specific Kontact module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
-msgstr "Belirli bir Kontak modülü ile başla"
+msgstr "Belirli bir Kontak modülü ile başlat"
 
 #: src/main.cpp:104
-#, fuzzy, kde-format
-#| msgid "Start in iconified (minimized) mode"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "Küçültülmüş olarak başlat"
 
 #: src/main.cpp:105
-#, fuzzy, kde-format
-#| msgid "List all possible modules and exit"
+#, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Tüm modülleri listele ve çık"
