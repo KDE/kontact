@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:39+0000\n"
-"PO-Revision-Date: 2024-05-17 16:16+0200\n"
+"PO-Revision-Date: 2024-06-07 08:35+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -327,25 +327,22 @@ msgid "Navigator"
 msgstr "Navigateur"
 
 #: src/main.cpp:103
-#, fuzzy, kde-format
-#| msgid "Start with a specific Kontact module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Démarrer avec un module spécifique de Kontact "
 
 #: src/main.cpp:104
-#, fuzzy, kde-format
-#| msgid "Start in iconified (minimized) mode"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
-msgstr "Démarrer en mode « Icône » (minimisé)"
+msgstr "Démarrer en mode « Icône » (Minimisé)"
 
 #: src/main.cpp:105
-#, fuzzy, kde-format
-#| msgid "List all possible modules and exit"
+#, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
-msgstr "Lister tous les modules disponibles et quitter"
+msgstr "Lister tous les modules disponibles et fermer"
 
 #: src/main.cpp:170 src/mainwindow.cpp:976
 #, kde-format
