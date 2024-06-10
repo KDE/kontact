@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:39+0000\n"
-"PO-Revision-Date: 2024-05-18 17:42+0900\n"
+"PO-Revision-Date: 2024-06-09 19:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -286,22 +286,19 @@ msgid "Navigator"
 msgstr "導覽"
 
 #: src/main.cpp:103
-#, fuzzy, kde-format
-#| msgid "Start with a specific Kontact module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "以指定的 Kontact 模組啟動"
 
 #: src/main.cpp:104
-#, fuzzy, kde-format
-#| msgid "Start in iconified (minimized) mode"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "以小圖示模式（最小化）啟動"
 
 #: src/main.cpp:105
-#, fuzzy, kde-format
-#| msgid "List all possible modules and exit"
+#, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "列出所有可用的模組然後離開"
