@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:39+0000\n"
-"PO-Revision-Date: 2024-05-16 13:41+0400\n"
+"PO-Revision-Date: 2024-06-08 11:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -20,6 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -288,25 +289,19 @@ msgid "Navigator"
 msgstr "التّنقّل"
 
 #: src/main.cpp:103
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Start with a specific Kontact module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "ابدأ بوحدة «متراسلك» محدّدة"
 
 #: src/main.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "Start in iconified (minimized) mode"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "ابدأ في وضع مصغّر"
 
 #: src/main.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@info:shell"
-#| msgid "List all possible modules and exit"
+#, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "اسرد كلّ الوحدات الممكنة واخرج"

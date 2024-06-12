@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:39+0000\n"
-"PO-Revision-Date: 2024-05-29 11:30+0200\n"
+"PO-Revision-Date: 2024-06-07 11:09+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -280,22 +280,19 @@ msgid "Navigator"
 msgstr "Navigátor"
 
 #: src/main.cpp:103
-#, fuzzy, kde-format
-#| msgid "Start with a specific Kontact module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Spustit s určitým modulem Kontactu"
 
 #: src/main.cpp:104
-#, fuzzy, kde-format
-#| msgid "Start in iconified (minimized) mode"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "Spustit v minimalizované podobě"
 
 #: src/main.cpp:105
-#, fuzzy, kde-format
-#| msgid "List all possible modules and exit"
+#, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Vypsat všechny existující moduly a skončit"
