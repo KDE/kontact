@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:39+0000\n"
-"PO-Revision-Date: 2024-03-30 21:58+0530\n"
+"PO-Revision-Date: 2024-06-16 20:05+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -84,7 +84,7 @@ msgstr "உரையை மட்டும் காட்டு"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
-msgstr ""
+msgstr "ஓரப்பட்டையிலுள்ளவற்றை உரையுடனும் சின்னங்கள் இல்லாமலும் காட்டும்"
 
 #: src/iconsidepane.cpp:276
 #, kde-format
@@ -119,10 +119,10 @@ msgid "Big Icons"
 msgstr "பெரிய சின்னங்கள்"
 
 #: src/iconsidepane.cpp:292
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
-msgstr "அனைத்து பணிகளையும் காட்டு"
+msgstr ""
 
 #: src/iconsidepane.cpp:293
 #, kde-format
@@ -137,10 +137,10 @@ msgid "Normal Icons"
 msgstr "இயல்பான சின்னங்கள்"
 
 #: src/iconsidepane.cpp:299
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
-msgstr "அனைத்து பணிகளையும் காட்டு"
+msgstr ""
 
 #: src/iconsidepane.cpp:300
 #, kde-format
@@ -155,10 +155,10 @@ msgid "Small Icons"
 msgstr "சிறு சின்னங்கள்"
 
 #: src/iconsidepane.cpp:306
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
-msgstr "அனைத்து பணிகளையும் காட்டு"
+msgstr ""
 
 #: src/iconsidepane.cpp:307
 #, kde-format
@@ -170,7 +170,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
-msgstr "பக்கப்பட்டையை மறை"
+msgstr "ஓரப்பட்டையை மறை"
 
 #: src/iconsidepane.cpp:312
 #, kde-format
@@ -205,7 +205,7 @@ msgstr ""
 #: src/kontact.kcfg:11 src/kontact.kcfg:12
 #, kde-format
 msgid "The currently active plugin"
-msgstr ""
+msgstr "தற்போது செயலிலுள்ள செருகுநிரல்"
 
 #. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:16
@@ -260,26 +260,25 @@ msgstr ""
 #: src/kontactui.rc:6
 #, kde-format
 msgid "&File"
-msgstr ""
+msgstr "&கோப்பு"
 
 #. i18n: ectx: Menu (view)
 #: src/kontactui.rc:14
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&பார்வை"
 
 #. i18n: ectx: Menu (settings)
 #: src/kontactui.rc:20
-#, fuzzy, kde-format
-#| msgid "Meeting"
+#, kde-format
 msgid "&Settings"
-msgstr "கூட்டம்"
+msgstr "&அமைப்புகள்"
 
 #. i18n: ectx: Menu (help)
 #: src/kontactui.rc:33
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "&உதவி"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/kontactui.rc:37
