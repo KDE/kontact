@@ -35,7 +35,7 @@ ecm_qt_declare_logging_category(kontactprivate HEADER kontact_debug.h IDENTIFIER
 kconfig_add_kcfg_files(kontactprivate prefs.kcfgc)
 
 
-if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
+if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(kontactprivate PROPERTIES UNITY_BUILD ON)
 endif()
 
@@ -81,7 +81,7 @@ target_link_libraries(kontact_bin
     KF6::Crash
     Qt::DBus
     )
-if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
+if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(kontact_bin PROPERTIES UNITY_BUILD ON)
 endif()
 if(TARGET KF6::IconThemes)
