@@ -7,7 +7,6 @@
     <name translate="no">KDE</name>
   </developer>
   <name>Kontact</name>
-  <launchable type="desktop-id">org.kde.kontact.desktop</launchable>
   <name xml:lang="ar">متراسلك</name>
   <name xml:lang="ast">Kontact</name>
   <name xml:lang="az">Kontact</name>
@@ -53,6 +52,7 @@
   <name xml:lang="x-test">xxKontactxx</name>
   <name xml:lang="zh-CN">Kontact</name>
   <name xml:lang="zh-TW">Kontact</name>
+  <launchable type="desktop-id">org.kde.kontact.desktop</launchable>
   <summary>Handle all your emails, calendars, contacts and more within a single window</summary>
   <summary xml:lang="ar">تعامل مع جميع رسائل البريد الإلكتروني والتقويمات وجهات اتصالك في نافذة واحدة</summary>
   <summary xml:lang="az">Bütün e-poçtlarınız, təqvimləriniz və digəriləri üzərində bir pəncərədə işləyin</summary>
