@@ -80,12 +80,10 @@ target_link_libraries(kontact_bin
     KPim6::KontactInterface
     KF6::Crash
     Qt::DBus
+    KF6::IconThemes
     )
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(kontact_bin PROPERTIES UNITY_BUILD ON)
-endif()
-if(TARGET KF6::IconThemes)
-    target_link_libraries(kontact_bin KF6::IconThemes)
 endif()
 install(TARGETS kontact_bin ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
