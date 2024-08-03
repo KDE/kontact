@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-02 00:41+0000\n"
-"PO-Revision-Date: 2024-06-06 06:31+0200\n"
+"PO-Revision-Date: 2024-08-02 05:31+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -494,11 +494,10 @@ msgstr ""
 "%1.</qt>"
 
 #: src/mainwindow.cpp:369
-#, fuzzy, kde-format
-#| msgid "Hide menu bar"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
-msgstr "Skrij menijsko vrstico"
+msgstr "Skrij vrstico menija"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:560

@@ -469,12 +469,10 @@ msgid ""
 msgstr ""
 
 #: src/mainwindow.cpp:369
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
-msgstr "隐藏侧边栏"
+msgstr ""
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:560
