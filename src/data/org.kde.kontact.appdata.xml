@@ -371,45 +371,6 @@
       <li xml:lang="x-test">xxAkregator - a news reader with powerful search and archiving functionality.xx</li>
       <li xml:lang="zh-CN">Akregator - 一款具备强大搜索和存档功能的新闻阅读器。</li>
       <li xml:lang="zh-TW">Akregator - 一個新聞閱讀器，提供強大的搜尋與封存功能。</li>
-      <li>KNotes - a simple program that lets you write the computer equivalent of sticky notes.</li>
-      <li xml:lang="ar">ملاحظاتك - برنامج بسيط لكتابة الملاحظات على الحاسوب.</li>
-      <li xml:lang="az">KNotes, qeydlər aparmaq üçün, komputerinizə yapışdırılan qeyd kağızlarına bənzər sadə bir proqramdır.</li>
-      <li xml:lang="bg">KNotes - проста програма, която ви позволява да пишете компютърния еквивалент на лепящи листчета .</li>
-      <li xml:lang="ca">KNotes: un programa senzill que permet escriure l'equivalent a l'ordinador a les notes adhesives.</li>
-      <li xml:lang="ca-valencia">KNotes: un programa senzill que permet escriure l'equivalent a l'ordinador a les notes adhesives.</li>
-      <li xml:lang="da">KNotes - et simpelt program som lader dig skrive post-it-noter på din computer.</li>
-      <li xml:lang="de">KNotes - ein einfaches Programm, mit dem Sie Notizen schreiben.</li>
-      <li xml:lang="el">KNotes - ένα απλό πρόγραμμα, το ισοδύναμο σε υπολογιστή των αυτοκόλλητων σημειώσεων.</li>
-      <li xml:lang="en-GB">KNotes - a simple program that lets you write the computer equivalent of sticky notes.</li>
-      <li xml:lang="eo">KNotes - simpla programo kiu ebligas vin skribi la komputilan ekvivalenton de gluaj notoj.</li>
-      <li xml:lang="es">KNotes - un programa sencillo que le permite escribir en el ordenador el equivalente de notas pegajosas.</li>
-      <li xml:lang="et">KNotes - lihtne rakendus, mis lubab kirja panna "kollaste märkmelehtede" analooge arvutis.</li>
-      <li xml:lang="eu">KNotes - ordenagailurako ohar itsaskorren parekoa den programa xume bat.</li>
-      <li xml:lang="fi">KNotes: yksinkertainen ohjelma, jolla voit luoda tarralappujen tietokonevastineita.</li>
-      <li xml:lang="fr">KNotes - un programme simple qui vous permet d'avoir l'équivalent électronique des papillons autocollants (Post_it®).</li>
-      <li xml:lang="gl">KNotes — un programa sinxelo que lle permite escribir o equivalente informático a pequenas notas de texto.</li>
-      <li xml:lang="he">KNotes - תוכנית פשוטה שמאפשרת לך לכתוב את המקבילה הממוחשבת של פתקים נצמדים.</li>
-      <li xml:lang="hu">KNotes - egy egyszerű program, amely lehetővé teszi, hogy megírja a számítógépes megfelelőjét az öntapadós cetliknek.</li>
-      <li xml:lang="ia">KNotes - un simple programma que te permitte scriver le equivalente de computatior de notas collose.</li>
-      <li xml:lang="id">KNotes - sebuah program sederhana yang memungkinkan Anda menulis komputer yang setara dengan catatan lekat.</li>
-      <li xml:lang="it">KNotes - un programma semplice che ti permette di scrivere l'equivalente a computer delle note adesive.</li>
-      <li xml:lang="ka">KNotes - მარტივი პროგრამა, რომელიც წებოვანი ქაღალდების კომპიუტერის ექვივალენტია.</li>
-      <li xml:lang="ko">KNotes - 찍찍이 노트를 쉽게 작성할 수 있도록 도와 줍니다.</li>
-      <li xml:lang="lv">„KNotes“ — vienkārša programma, kas piedāvā digitālas piezīmju lapiņas.</li>
-      <li xml:lang="nl">KNotes - een eenvoudig programma dat u het computerequivalent van plaknotities laat schrijven.</li>
-      <li xml:lang="nn">KNotes – enkelt program for å skriva elektroniske «gule lappar».</li>
-      <li xml:lang="pl">KNotes - prosty program, który umożliwia pisanie żółtych karteczek na komputerze.</li>
-      <li xml:lang="pt">KNotes - um programa simples que lhe permite escrever o equivalente no computador às 'notas autocolantes'.</li>
-      <li xml:lang="pt-BR">KNotes - uma programa simples que permite escrever o equivalente a notas adesivas no seu computador.</li>
-      <li xml:lang="ru">KNotes ­— простое приложение, предназначенное для создания заметок.</li>
-      <li xml:lang="sk">KNotes - jednoduchý program, ktorý vám umožní písať do počítača ekvivalent lepiacich poznámok.</li>
-      <li xml:lang="sl">KNotes - preprost program, ki vam omogoča, da pišete računalniški ekvivalent lepljivih sporočilc.</li>
-      <li xml:lang="sv">Knotes: Ett enkelt program som låter dig skriva datorns motsvarighet till klisterlappar.</li>
-      <li xml:lang="tr">K Notlar - yapışkan notların bilgisayar dengini yazmanıza izin veren yalın bir program.</li>
-      <li xml:lang="uk">KNotes — простої програми, яка надає вам змогу створювати комп'ютеризований еквівалент липких папірців із нотатками.</li>
-      <li xml:lang="x-test">xxKNotes - a simple program that lets you write the computer equivalent of sticky notes.xx</li>
-      <li xml:lang="zh-CN">KNotes - 一款简单易用的电子便签工具。</li>
-      <li xml:lang="zh-TW">KNotes - 一個簡單的程式，讓您寫電腦版的便條貼。</li>
     </ul>
   </description>
   <url type="homepage">https://kontact.kde.org/components/kontact/</url>
