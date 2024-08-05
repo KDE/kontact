@@ -45,18 +45,6 @@ void KontactConfigureDialog::emitConfigChanged()
                         << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
         }
     }
-    QDBusInterface knotesIface(QStringLiteral("org.kde.kontact"),
-                               QStringLiteral("/KNotes"),
-                               QStringLiteral("org.kde.kontact.KNotes"),
-                               QDBusConnection::sessionBus());
-    if (knotesIface.isValid()) {
-        QDBusReply<void> reply;
-        if (!(reply = knotesIface.call(QStringLiteral("updateConfig"))).isValid()) {
-            const QDBusError err = knotesIface.lastError();
-            qCritical() << "Communication problem with KNotes. "
-                        << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
-        }
-    }
 }
 
 void KontactConfigureDialog::slotApply()
