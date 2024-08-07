@@ -93,6 +93,7 @@ void KontactSettingsDialogPrivate::createDialogFromServices()
         }
     }
 
+    // TODO fix me. Config name is not correct !!!!
     QObject::connect(q, &KontactKCMultiDialog::configCommitted, q, [](const QString &pluginId) {
         KSharedConfig::Ptr config = KSharedConfig::openConfig(pluginId + "rc"_L1);
         config->reparseConfiguration();
