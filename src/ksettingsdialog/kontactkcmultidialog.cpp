@@ -315,18 +315,15 @@ void KontactKCMultiDialogPrivate::apply()
              * Add name of the components the kcm belongs to the list
              * of updated components.
              */
-            const QStringList componentNames = module.componentNames;
-            for (const QString &componentName : componentNames) {
-                if (!updatedComponents.contains(componentName)) {
-                    updatedComponents.append(componentName);
-                }
+            if (!updatedComponents.contains(module.pluginId)) {
+                updatedComponents.append(module.pluginId);
             }
         }
     }
 
     // Send the configCommitted signal for every updated component.
     for (const QString &name : std::as_const(updatedComponents)) {
-        Q_EMIT q->configCommitted(name.toLatin1());
+        Q_EMIT q->configCommitted(name);
     }
 }
 
@@ -412,6 +409,7 @@ KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData
     KontactKCMultiDialogPrivate::CreatedModule createdModule;
     createdModule.kcm = kcm;
     createdModule.item = item;
+    createdModule.pluginId = metaData.pluginId();
     d->modules.append(createdModule);
 
     item->setHeader(metaData.name());
