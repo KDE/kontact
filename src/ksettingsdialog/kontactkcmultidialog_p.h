@@ -31,7 +31,7 @@ protected:
     struct CreatedModule {
         KCModule *kcm = nullptr;
         KPageWidgetItem *item = nullptr;
-        QStringList componentNames;
+        QString pluginId;
     };
 
     using ModuleList = QList<CreatedModule>;

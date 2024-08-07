@@ -46,16 +46,16 @@ Q_SIGNALS:
      * to.
      *
      * You can make use of this if you have more than one component in your
-     * application. componentName tells you the instance that has to reload its
+     * application. pluginId tells you the instance that has to reload its
      * configuration.
      *
      * The applyClicked and okClicked signals are emitted before the
      * configuration is saved.
      *
-     * @param componentName The name of the instance that needs to reload its
+     * @param pluginId The name of the instance that needs to reload its
      *                     configuration.
      */
-    void configCommitted(const QByteArray &componentName);
+    void configCommitted(const QString &pluginId);
 
 protected:
     /**

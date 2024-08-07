@@ -800,8 +800,8 @@ void MainWindow::slotPreferences()
     static Kontact::KontactConfigureDialog *dlg = nullptr;
     if (!dlg) {
         dlg = new Kontact::KontactConfigureDialog(this);
-        connect(dlg, &KontactSettingsDialog::configCommitted, this, [this](const QByteArray &componentName) {
-            if (componentName == QByteArrayLiteral("kontact")) {
+        connect(dlg, &KontactSettingsDialog::configCommitted, this, [this](const QString &pluginid) {
+            if (pluginid == QStringLiteral("kcm_kontact")) {
                 MainWindow::updateConfig();
             }
         });
