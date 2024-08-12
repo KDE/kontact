@@ -158,7 +158,6 @@ int main(int argc, char **argv)
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
     KontactApp app(argc, &argv);
 
-    KCrash::initialize();
 #if HAVE_STYLE_MANAGER
     KStyleManager::initStyle();
 #else // !HAVE_STYLE_MANAGER
@@ -192,6 +191,7 @@ int main(int argc, char **argv)
     app.setDesktopFileName(QStringLiteral("org.kde.kontact"));
 
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kontact")));
+    KCrash::initialize();
 
     QCommandLineParser *cmdArgs = app.cmdArgs();
     loadCommandLineOptions(cmdArgs);
