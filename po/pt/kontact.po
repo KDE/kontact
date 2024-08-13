@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-02 00:41+0000\n"
+"POT-Creation-Date: 2024-08-13 00:40+0000\n"
 "PO-Revision-Date: 2022-03-25 16:05+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -331,111 +331,111 @@ msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Listar todos os módulos possíveis e sair"
 
-#: src/main.cpp:170 src/mainwindow.cpp:976
+#: src/main.cpp:169 src/mainwindow.cpp:976
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
 
-#: src/main.cpp:172
+#: src/main.cpp:171
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "Gestor de informação pessoal do KDE"
 
-#: src/main.cpp:174
+#: src/main.cpp:173
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "Copyright © 2001–%1 dos autores do Kontact"
 
-#: src/main.cpp:178
+#: src/main.cpp:177
 #, fuzzy, kde-format
 #| msgid "Allen Winter"
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: src/main.cpp:179
+#: src/main.cpp:178
 #, fuzzy, kde-format
 #| msgid "Rafael Fernández López"
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
-#: src/main.cpp:180
+#: src/main.cpp:179
 #, fuzzy, kde-format
 #| msgid "Daniel Molkentin"
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
-#: src/main.cpp:181
+#: src/main.cpp:180
 #, fuzzy, kde-format
 #| msgid "Don Sanders"
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "Don Sanders"
 
-#: src/main.cpp:182
+#: src/main.cpp:181
 #, fuzzy, kde-format
 #| msgid "Cornelius Schumacher"
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
-#: src/main.cpp:183
+#: src/main.cpp:182
 #, fuzzy, kde-format
 #| msgid "Tobias König"
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "Tobias König"
 
-#: src/main.cpp:184
+#: src/main.cpp:183
 #, fuzzy, kde-format
 #| msgid "David Faure"
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: src/main.cpp:185
+#: src/main.cpp:184
 #, fuzzy, kde-format
 #| msgid "Ingo Klöcker"
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
-#: src/main.cpp:186
+#: src/main.cpp:185
 #, fuzzy, kde-format
 #| msgid "Sven Lüppken"
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
-#: src/main.cpp:187
+#: src/main.cpp:186
 #, fuzzy, kde-format
 #| msgid "Zack Rusin"
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
-#: src/main.cpp:188
+#: src/main.cpp:187
 #, fuzzy, kde-format
 #| msgid "Matthias Hoelzer-Kluepfel"
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:188
+#: src/main.cpp:187
 #, kde-format
 msgid "Original Author"
 msgstr "Autor Original"
 
-#: src/main.cpp:189
+#: src/main.cpp:188
 #, fuzzy, kde-format
 #| msgid "Torgny Nyblom"
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
 
-#: src/main.cpp:189
+#: src/main.cpp:188
 #, kde-format
 msgid "Git Migration"
 msgstr "Migração para o Git"
