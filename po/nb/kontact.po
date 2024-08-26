@@ -295,21 +295,18 @@ msgstr "Navigatør"
 
 #: src/main.cpp:103
 #, fuzzy, kde-format
-#| msgid "Start with a specific Kontact module"
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Start med en spesifisert Kontact modul"
 
 #: src/main.cpp:104
 #, fuzzy, kde-format
-#| msgid "Start in iconified (minimized) mode"
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "Start i ikonisert (minimert) modus"
 
 #: src/main.cpp:105
 #, fuzzy, kde-format
-#| msgid "List all possible modules and exit"
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Vis en liste av alle mulige moduler og avslutt"
@@ -331,28 +328,24 @@ msgstr ""
 
 #: src/main.cpp:178
 #, fuzzy, kde-format
-#| msgid "Allen Winter"
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
 #: src/main.cpp:179
 #, fuzzy, kde-format
-#| msgid "Rafael Fernández López"
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
 #: src/main.cpp:180
 #, fuzzy, kde-format
-#| msgid "Daniel Molkentin"
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
 #: src/main.cpp:181
 #, fuzzy, kde-format
-#| msgid "Don Sanders"
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "Don Sanders"
@@ -365,42 +358,36 @@ msgstr "Cornelius Schumacher"
 
 #: src/main.cpp:183
 #, fuzzy, kde-format
-#| msgid "Tobias König"
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "Tobias König"
 
 #: src/main.cpp:184
 #, fuzzy, kde-format
-#| msgid "David Faure"
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
 #: src/main.cpp:185
 #, fuzzy, kde-format
-#| msgid "Ingo Klöcker"
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
 #: src/main.cpp:186
 #, fuzzy, kde-format
-#| msgid "Sven Lüppken"
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
 #: src/main.cpp:187
 #, fuzzy, kde-format
-#| msgid "Zack Rusin"
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
 #: src/main.cpp:188
 #, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
@@ -412,7 +399,6 @@ msgstr "Opprinnelig forfatter"
 
 #: src/main.cpp:189
 #, fuzzy, kde-format
-#| msgid "Torgny Nyblom"
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
