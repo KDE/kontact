@@ -278,7 +278,6 @@ msgstr ""
 
 #: src/main.cpp:103
 #, fuzzy, kde-format
-#| msgid "Start with a specific Kontact module"
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Álggat vissis Kontact-moduvllain"
@@ -291,7 +290,6 @@ msgstr ""
 
 #: src/main.cpp:105
 #, fuzzy, kde-format
-#| msgid "List all possible modules and exit"
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Čájet buot vejolaš moduvllaid ja heaittit"
