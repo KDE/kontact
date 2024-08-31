@@ -13,11 +13,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "iconsidepane.h"
+#include "kcolorscheme_version.h"
+#include "kontactconfiguredialog.h"
 #include "prefs.h"
 #include "webengine/introductionwebenginepage.h"
 #include "webengine/introductionwebengineview.h"
-
-#include "kontactconfiguredialog.h"
 using namespace Kontact;
 #ifdef WIN32
 #include <windows.h>
@@ -348,7 +348,11 @@ void MainWindow::setupActions()
     actionCollection()->setDefaultShortcut(mShowFullScreenAction, Qt::Key_F11);
     connect(mShowFullScreenAction, &QAction::toggled, this, &MainWindow::slotFullScreen);
 
+#if KCOLORSCHEME_VERSION < QT_VERSION_CHECK(6, 6, 0)
     auto manager = new KColorSchemeManager(this);
+#else
+    auto manager = KColorSchemeManager::instance();
+#endif
     actionCollection()->addAction(QStringLiteral("colorscheme_menu"), KColorSchemeMenu::createMenu(manager, this));
 
     mShowMenuBarAction = KStandardAction::showMenubar(this, &MainWindow::slotToggleMenubar, actionCollection());
