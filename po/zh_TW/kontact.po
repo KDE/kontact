@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:40+0000\n"
+"POT-Creation-Date: 2024-09-01 00:39+0000\n"
 "PO-Revision-Date: 2024-08-03 14:17+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -303,7 +303,7 @@ msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "列出所有可用的模組然後離開"
 
-#: src/main.cpp:169 src/mainwindow.cpp:976
+#: src/main.cpp:169 src/mainwindow.cpp:980
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
@@ -466,80 +466,80 @@ msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
 msgstr "讓您隨您喜好顯示或隱藏元件側邊欄。"
 
-#: src/mainwindow.cpp:366
+#: src/mainwindow.cpp:370
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>這會完全隱藏選單列。您可以按下 %1 重新顯示選單列。</qt>"
 
-#: src/mainwindow.cpp:369
+#: src/mainwindow.cpp:373
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "隱藏選單列"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:560
+#: src/mainwindow.cpp:564
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "切換到外掛程式 %1"
 
-#: src/mainwindow.cpp:630
+#: src/mainwindow.cpp:634
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr "已獨立執行應用程式。移至前景..."
 
-#: src/mainwindow.cpp:646
+#: src/mainwindow.cpp:650
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "無法載入 %1 的部份。"
 
-#: src/mainwindow.cpp:714
+#: src/mainwindow.cpp:718
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
-#: src/mainwindow.cpp:977
+#: src/mainwindow.cpp:981
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "KDE 個人資訊管理套裝程式。"
 
-#: src/mainwindow.cpp:982
+#: src/mainwindow.cpp:986
 #, kde-format
 msgid "Read Manual"
 msgstr "閱讀說明"
 
-#: src/mainwindow.cpp:983
+#: src/mainwindow.cpp:987
 #, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "了解更多關於 Kontact 與其元件的功能"
 
-#: src/mainwindow.cpp:986
+#: src/mainwindow.cpp:990
 #, kde-format
 msgid "Visit Kontact Website"
 msgstr "瀏覽 Kontact 網站"
 
-#: src/mainwindow.cpp:987
+#: src/mainwindow.cpp:991
 #, kde-format
 msgid "Access online resources and tutorials"
 msgstr "取得線上資源與教學"
 
-#: src/mainwindow.cpp:990
+#: src/mainwindow.cpp:994
 #, kde-format
 msgid "Setup your Accounts"
 msgstr "設定您的帳號"
 
-#: src/mainwindow.cpp:991
+#: src/mainwindow.cpp:995
 #, kde-format
 msgid "Prepare Kontact for use"
 msgstr "準備使用 Kontact"
 
-#: src/mainwindow.cpp:1017
+#: src/mainwindow.cpp:1021
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
