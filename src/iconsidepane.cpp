@@ -380,10 +380,10 @@ void Navigator::setCurrentPlugin(const QString &plugin)
 
 QSize Navigator::sizeHint() const
 {
-    //### TODO: We can cache this value, so this reply is faster. Since here we won't
-    //          have too many elements, it is not that important. When caching this value
-    //          make sure it is updated correctly when new rows have been added or
-    //          removed. (ereslibre)
+    // ### TODO: We can cache this value, so this reply is faster. Since here we won't
+    //           have too many elements, it is not that important. When caching this value
+    //           make sure it is updated correctly when new rows have been added or
+    //           removed. (ereslibre)
 
     int maxWidth = 0;
     const int numberOfRows(model()->rowCount());
