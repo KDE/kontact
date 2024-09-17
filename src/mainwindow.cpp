@@ -13,7 +13,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "iconsidepane.h"
-#include "kcolorscheme_version.h"
 #include "kontactconfiguredialog.h"
 #include "prefs.h"
 #include "webengine/introductionwebenginepage.h"
