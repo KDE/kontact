@@ -1,0 +1,1251 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym
+>PIM</acronym
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE">
+]>
+
+<book id="kontact" lang="&language;">
+
+<bookinfo>
+
+<title
+>&kontact; Priročnik</title>
+
+<authorgroup>
+<author
+><firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+><address
+>&Cornelius.Schumacher.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Antonio</firstname
+> <surname
+>Salazar</surname
+> <affiliation
+><address
+><email
+>savedfastcool@gmail.com</email>
+    </address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+><address
+>&Daniel.Molkentin.mail;</address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Matjaž</firstname
+><surname
+>Jeran</surname
+><affiliation
+><address
+><email
+>matjaz.jeran@amis.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2003-2005</year
+><holder
+>&Cornelius.Schumacher;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>08.12.2016</date>
+<releaseinfo
+>5.4.40 (Aplikacije 16.12)</releaseinfo>
+
+<abstract
+><para
+>&kontact; je integrirana rešitev za vaše potrebe po upravljanju osebnih informacij (&PIM;). Združuje znane &kde; aplikacije, kot sta &kmail;, &korganizer; in &kaddressbook; v en sam vmesnik za enostaven dostop do pošte, razporejanja, imenika in drugih &PIM; funkcionalnost.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>KMail</keyword>
+<keyword
+>Organizer</keyword>
+<keyword
+>KAddressBook</keyword>
+<keyword
+>KNotes</keyword>
+<keyword
+>Akregator</keyword>
+<keyword
+>PIM</keyword>
+<keyword
+>skupinska programska oprema</keyword>
+<keyword
+>Outlook</keyword>
+<keyword
+>Evolution</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<para
+>&kontact; je integrirana rešitev za upravljanje osebnih podatkov. Združuje znane &kde; aplikacije za e-pošto, razporejanje, imenik in beležke (&kmail;, &korganizer;, &kaddressbook; in &knotes;) v en sam vmesnik. Ker temelji na pravem ogrodju komponent &kontact; zagotavlja popolnoma enako funkcionalnost kot samostojne aplikacije in dodaja več funkcij z uporabo integriranega načina &kontact; izvaja aplikacije kot komponente. Uporabniki še vedno obdržijo izbiro, katere aplikacije se izvajajo znotraj &kontact; in ki se izvajajo samostojno.</para>
+
+<para
+>Poleg funkcionalnosti posameznih aplikacij &kontact; ponuja pogled povzetka in napredno povleci &amp; spustite funkcije med komponentami. </para>
+
+</chapter>
+
+
+<chapter id="components">
+<title
+>&kontact; Komponente</title>
+
+<para
+>&kontact; vključuje naslednje aplikacije. Za podrobnosti o njihovi uporabi glejte priročnike za posamezne aplikacije. To velja za njihovo izvajanje kot komponent znotraj &kontact; enako dobro, kot da jih izvajate samostojno. </para>
+
+<variablelist>
+    <varlistentry>
+        <term
+><ulink url="help:/kmail2"
+>&kmail;</ulink
+></term>
+        <listitem
+><para
+>&kde; poštni odjemalec.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/korganizer"
+>&korganizer;</ulink
+></term>
+        <listitem
+><para
+>&kde; aplikacija za koledar in razporejanje.</para>
+            </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/kaddressbook"
+>&kaddressbook;</ulink
+></term>
+        <listitem
+><para
+>&kde; upravitelj stikov.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/knotes"
+>&knotes;</ulink
+></term>
+        <listitem
+><para
+>&kde; aplikacija za lepljive zapiske.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/akregator"
+>&akregator;</ulink
+></term>
+        <listitem
+><para
+>&kde; bralnik virov RSS.</para>
+            </listitem>
+    </varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="main-window">
+<title
+>&kontact; Glavno okno</title>
+
+<para
+>Glavno okno je sestavljeno iz stranskega podokna na levi, ki prikazuje ikone razpoložljivih komponent, glavnega pogleda na desni, ki vsebuje glavno okno aktivne komponente ter običajne menijske, orodne in statusne vrstice.</para>
+
+<sect1 id="side-pane">
+<title
+>Stransko podokno</title>
+
+<para
+>Stransko podokno ima več namenov. Omogoča preklapljanje med komponentami, prikazuje, katera komponenta je aktivna in služi kot cilj za vlečenje &amp; spustite operacije v različne aplikacije.</para>
+
+<screenshot>
+<screeninfo
+>&kontact; stransko podokno</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="side-pane.png"/></imageobject>
+<textobject>
+<phrase
+>Stransko podokno &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Stransko podokno &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Za preklapljanje med komponentami preprosto kliknite na ustrezno ikono. Prikaže se glavno okno komponente, meni, orodne in statusne vrstice pa so prilagojene tako, da odražajo funkcionalnost aktivne komponente. Če komponento aktivirate prvič, lahko pride do spremembe glavnega pogleda z majhno zamudo, ker se komponente naložijo na zahtevo. To pomeni, da ne zapravljate pomnilnika za komponente, ki niso v uporabi.</para>
+
+<para
+>Ikone v stranskem podoknu lahko uporabite tudi kot cilje za vlečenje &amp; padajoče operacije. Na primer, lahko povlečete e-poštno sporočilo iz poštnega dela in ga spustite na ikono seznama opravil ali koledarja, da ustvarite opravilo ali dogodek, povezan s to pošto.</para>
+
+<para
+>Nazadnje lahko spremenite velikost ikon v stranskem podoknu. Z desnim klikom na stransko podokno boste imeli možnost uporabe velikih, običajnih ali majhnih ikon ter možnost uporabe samo besedila namesto ikon.</para>
+
+<para
+>Če vam stransko podokno ni všeč, ga lahko preprosto skrijete tako, da povlečete razdelilnik. Alternativno krmarjenje med deli omogoča orodna vrstica <guilabel
+>Navigator</guilabel
+>, ki jo lahko poljubno postavite. Glejte <xref linkend="bars"/> za več o orodni vrstici <guilabel
+>Navigator</guilabel
+>.</para>
+
+</sect1>
+
+
+<sect1 id="main-view">
+
+<title
+>Glavni pogled</title>
+
+<para
+>Pogled na desni, ki zavzema večino območja &kontact; glavno okno prikazuje aktivno komponento. To natančno ustreza glavnemu oknu, ki ga komponenta uporablja, ko se izvaja kot samostojna aplikacija. Označena ikona v stranskem podoknu označuje, kateri aplikaciji pripada glavni pogled. &kontact; si zapomni aktivno komponento ob izhodu, tako da naslednjič, ko &kontact; zažene, sprva prikaže to komponento v glavnem pogledu.</para>
+
+<screenshot>
+<screeninfo
+>Glavni pogled &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<textobject>
+<phrase
+>Glavni pogled &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Glavni pogled &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Poleg tega obstajata dva načina za preglasitev komponente, ki jo &kontact; se začne z. Prvi je posredovanje argumenta &kontact;u klic programa (glejte <xref linkend="command-line"/>). Druga je nastavitev v &kontact; Pogovorno okno z nastavitvami, ki vam bo omogočilo, da vedno zaženete &kontact; v določenem načinu.</para>
+
+<para
+>Do njega pridete tako, da pojdite na <menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Konfiguriraj Kontact</guimenuitem
+></menuchoice
+> in na seznamu kliknite <guilabel
+>Kontact</guilabel
+>.</para>
+
+<screenshot>
+<screeninfo
+>&kontact; Začetek nastavitve komponent</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact; Začetek nastavitve komponent</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; Začetek nastavitve komponent </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="bars">
+<title
+>Meni, orodna in statusna vrstica</title>
+
+<para
+>Meni, orodna in statusna vrstica so prilagojene aktivni komponenti. To pomeni, da poleg nekaterih običajnih funkcij, kot je meni za pomoč, ki so prikazani za vse komponente, obstajajo dejanja, ki se preklopijo, ko preklopite aktivno komponento. Ta dejanja, ki so na voljo za vsako komponento, so enaka tistim, ki so na voljo, ko se aplikacija izvaja samostojno.</para>
+
+<screenshot>
+<screeninfo
+>Pogledi menijskih vrstic &kontact; v pogledu povzetka, pogledu pošte in pogledu koledarja</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
+<textobject>
+<phrase
+>Pogledi menijskih vrstic &kontact; v pogledu povzetka, pogledu pošte in pogledu koledarja</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Pogledi menijskih vrstic &kontact; v pogledu povzetka, pogledu pošte in pogledu koledarja</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
+<textobject>
+<phrase
+>Pogledi menijskih vrstic &kontact; v pogledu povzetka, pogledu pošte in pogledu koledarja</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Pogledi menijskih vrstic &kontact; v pogledu povzetka, pogledu pošte in pogledu koledarja</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
+<textobject>
+<phrase
+>Pogledi menijskih vrstic &kontact; v pogledu povzetka, pogledu pošte in pogledu koledarja</phrase>
+</textobject>
+<caption>
+<para
+>Pogledi menijskih vrstic &kontact; v pogledu povzetka, pogledu pošte in pogledu koledarja. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Poleg tega &kontact; lahko prikaže orodno vrstico <guilabel
+>Navigator</guilabel
+>, ki vam omogoča dostop do &kontact; komponente zelo podobno kot stransko podokno. Za razliko od stranskega podokna pa gumbov v orodni vrstici <guilabel
+>Navigator</guilabel
+> ni mogoče uporabiti za vlečenje &amp; spustite operacije na druge komponente.</para>
+
+<para
+>Če želite aktivirati orodno vrstico, izberite <menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guisubmenu
+>Prikazane orodne vrstice</guisubmenu
+> <guimenuitem
+>Navigator</guimenuitem
+></menuchoice
+>. </para>
+
+<screenshot>
+<screeninfo
+>&kontact; orodna vrstica <guimenuitem
+>Navigator</guimenuitem
+>.</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact; orodna vrstica <guimenuitem
+>Navigator</guimenuitem
+>.</phrase>
+</textobject>
+<caption>
+<para
+>Orodna vrstica <guimenuitem
+>Navigator</guimenuitem
+> &kontact;. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Posebno dejanje, skupno vsem komponentam, je dejanje <guimenuitem
+>Novo</guimenuitem
+>. Omogoča ustvarjanje novih predmetov, vključno z e-pošto, stiki, sestanki in opravili, ne glede na to, katera komponenta je aktivna. Komponenta, odgovorna za obdelavo izbranega objekta, se po potrebi zažene in prevzame izdelani objekt.</para>
+
+<screenshot>
+<screeninfo
+>Nov meni &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact; Novi meni</phrase>
+</textobject>
+<caption>
+<para
+>Nov meni &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="side-pane-drag-and-drop">
+<title
+>Funkcionalnost povleci in spusti</title>
+
+<para
+>&kontact; zagotavlja napredno funkcijo povleci in spusti med programi, ki jih vsebuje. Sledi kratek opis posameznih operacij povleci in spusti, ki jih je mogoče uporabiti, ter rezultat vsake.</para>
+
+<sect2 id="side-pane-drag-and-drop-kmail-todo">
+<title
+>&kmail; -&gt; &korganizer; Seznam opravil</title>
+
+<para
+>Vlečenje sporočila iz <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>podokna z glavami &kmail;</ulink
+> na ikono za opravila &korganizer; seznam (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) bo ustvaril nov Opravila z <guilabel
+>Pošta: <replaceable
+>Zadeva</replaceable
+></guilabel
+> kot naslov in <guilabel
+>Od: <replaceable
+>Pošiljatelj</replaceable
+> Za: <replaceable
+>Prejemnik</replaceable
+> Zadeva: <replaceable
+>Zadeva</replaceable
+></guilabel
+> kot vsebina (kjer je besedilo, ki je videti <guilabel
+><replaceable
+>tako</replaceable
+></guilabel
+>, informacije iz samega sporočila), kot tudi e-poštno sporočilo sama kot priloga. </para>
+
+</sect2>
+
+<sect2 id="side-pane-drag-and-drop-kmail-calendar">
+<title
+>&kmail; -&gt; &korganizer; Koledar</title>
+
+<para
+>Vlečenje sporočila iz <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>podokna z glavami &kmail;</ulink
+> na ikono za koledar &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) bo ustvaril nov dogodek z <guilabel
+> Pošta: <replaceable
+>Zadeva</replaceable
+></guilabel
+> kot naslov in <guilabel
+>Od: <replaceable
+>Pošiljatelj</replaceable
+> Za: <replaceable
+>Prejemnik</replaceable
+> Zadeva: <replaceable
+>Zadeva</replaceable 
+></guilabel
+> kot vsebino (kjer je besedilo, ki je videti <guilabel
+><replaceable
+>tako</replaceable
+></guilabel
+>, informacije iz samega sporočila), kot tudi samo e-poštno sporočilo kot prilogo. </para>
+
+<para
+>Upoštevajte, da vlečenje na gumb Opravila ustvari opravilo, medtem ko vlečenje na koledar ustvari dogodek. Več o tem razlikovanju je na voljo v <ulink url="help:/korganizer"
+>&korganizer; dokumentacija</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kmail-contacts">
+<title
+>&kmail; -&gt; &kaddressbook;</title>
+
+<para
+>Vlečenje sporočila iz <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>podokna z glavami &kmail;</ulink
+> na ikono za &kaddressbook; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="kaddressbook-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) bo ustvaril stik iz e-pošte naslov pošiljatelja, razen če kontakt s tem imenom že obstaja. O tem dejanju vas obvesti pogovorno okno. </para>
+
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
+<title
+>&kaddressbook; -&gt; &korganizer; Seznam opravil</title>
+
+<para
+>Vlečenje poljubnega števila vnosov iz <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>glavnega okna &kaddressbook;</ulink
+> na ikono za Seznam opravil &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) bo ustvaril novo opravilo z &quot; Srečanje&quot; kot naslov in izbrane kontakte kot udeležence. </para>
+
+<para
+>Upoštevajte, da vlečenje na gumb Opravila ustvari opravilo, medtem ko vlečenje na koledar ustvari dogodek. Več o tem razlikovanju je na voljo v <ulink url="help:/korganizer"
+>&korganizer; dokumentacija</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
+<title
+>&kaddressbook; -&gt; &korganizer; Koledar</title>
+
+<para
+>Vlečenje poljubnega števila vnosov iz <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>glavnega okna &kaddressbook;</ulink
+> na ikono koledarja &korganizer; (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) bo ustvaril nov dogodek s &quot;Meeting&quot; kot naslov in izbrane kontakte kot udeležence. </para>
+
+<para
+>Upoštevajte, da vlečenje na gumb Opravila ustvari opravilo, medtem ko vlečenje na koledar ustvari dogodek. Več o tem razlikovanju je na voljo v <ulink url="help:/korganizer"
+>&korganizer; dokumentacija</ulink
+> </para>
+
+</sect2>
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="summary-view">
+<title
+>Pogled povzetka</title>
+
+<para
+>Privzeti pogled ob zagonu &kontact; prvič je pogled povzetek. Prikazuje pregled najpomembnejših informacij, ki jih ponuja izbran &kontact; komponente. To so lahko beležke, skorajšnji sestanki ali rojstni dnevi, dolžnosti, nova sporočila &etc; Kateri podatki so prikazani, je mogoče konfigurirati z izbiro ustreznih komponent v <link linkend="configuration"
+>&kontact; konfiguracijsko pogovorno okno</link
+>.</para>
+
+<screenshot>
+<screeninfo
+>Pogled povzetka &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<textobject>
+<phrase
+>Pogled povzetka &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Pogled povzetka &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<!-- not in kde4 para
+>If you think the information you see is outdated, you can click on the
+<guibutton
+>Refresh</guibutton
+> button (<guiicon
+><inlinemediaobject
+><imageobject>
+<imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
+</imageobject
+></inlinemediaobject
+></guiicon
+>)
+in the Summary View toolbar to refresh
+the data.</para-->
+
+<sect1 id="summary-view-component-reposition">
+<title
+>Prestavljanje komponent pogleda povzetka</title>
+
+<para
+>Pogled povzetka vam omogoča, da spremenite, kje so komponente v samem pogledu. Torej, če želite imeti posebne datume v spodnjem levem kotu in opravila v zgornjem desnem kotu, lahko preuredite pogled povzetka, da bo to odražal.</para>
+
+<para
+>Sprememba položaja komponent v pogledu povzetka je tako preprosta, kot da jih povlečete na novo mesto, kjer želite, da so. Držite &Ctrl; kliknite in držite sivo naslovno območje komponente ter povlecite komponento kamor koli želite. Upoštevajte, da je to pozicioniranje izvedeno v primerjavi z drugimi komponentami. Torej lahko premaknete komponento pošte pod komponento Opravila v pogledu, ne morete pa je postaviti na določen položaj. Če imate v pogledu povzetka samo eno komponento, je edina možnost, da jo premikate med obema stolpcema pogleda; dve komponenti sta lahko dve v enem stolpcu ali ena v vsakem stolpcu; in tako naprej in tako naprej. Kadar koli povlečete komponento, boste videli majhno polje za predogled, ki sledi vaši miški in vam prikazuje komponento.</para>
+
+<screenshot>
+<screeninfo
+>Preurejanje pogleda povzetka &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<textobject>
+<phrase
+>Preurejanje pogleda povzetka &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Preurejanje pogleda povzetka &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title
+>Konfiguriranje &kontact;</title>
+
+<sect1 id="main-config">
+<title
+>&kontact; Konfiguracijsko okno</title>
+
+<para
+>Ko v meniju <guimenu
+>Nastavitve</guimenu
+> izberete dejanje <guimenuitem
+>Konfiguriraj &kontact;</guimenuitem
+>, se &kontact; prikazano je konfiguracijsko pogovorno okno. Ponuja seznam konfiguracij za vse aktivne komponente &kontact;. Lahko kliknete simbol <guilabel
+>&gt;</guilabel
+> poleg imena komponente, da razširite drevo in si lahko ogledate možnosti za to komponento. Če izberete eno od možnosti konfiguracije pod naslovom, se prikaže ta razdelek konfiguracije na desni.</para>
+
+<screenshot>
+<screeninfo
+>Konfiguracijsko okno &kontact;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<textobject>
+<phrase
+>Konfiguracijsko okno &kontact;</phrase>
+</textobject>
+<caption>
+<para
+>Konfiguracijsko okno &kontact; </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Če potrdite polje poleg naslova komponente, izberete komponento, ki bo vidna v stranskem podoknu in v pogledu povzetka. Komponenta se naloži in prikaže v glavnem oknu, ko kliknete njeno ikono v stranskem podoknu. Če počistite potrditveno polje, se komponenta odstrani iz stranskega podokna in pogleda povzetka. Spremembe stopijo v veljavo s klikom na gumb <guibutton
+>Uporabi</guibutton
+> ali <guibutton
+>V redu</guibutton
+>.</para>
+
+<para
+>Posamezne komponente lahko konfigurirate tudi tako, da kliknete ustrezno ikono v stranskem podoknu in nato izberete menijsko postavko <guimenuitem
+>Konfiguriraj <replaceable
+>ime aplikacije</replaceable
+></guimenuitem
+> v meniju <guimenu
+>Nastavitve</guimenu
+> .</para>
+
+<screenshot>
+<screeninfo
+>&kontact; Meni z nastavitvami Ko &kmail; je izbrano</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="settings-menu-kmail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact; Meni z nastavitvami Ko &kmail; je izbrano</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; Meni z nastavitvami Ko &kmail; je izbran </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="summary-view-config">
+<title
+>Konfiguriranje &kontact; pogleda povzetka</title>
+
+<para
+>Ko izberete <guilabel
+>Povzetki</guilabel
+> v mapi &kontact; pogovorno okno z nastavitvami, se prikaže stran, na kateri lahko izberete, kateri povzetek vtičnikov &kontact; mora biti prikazan v pogledu povzetka. Tukaj je kratek seznam trenutno razpoložljivih vtičnikov in njihovega delovanja: </para>
+
+<screenshot>
+<screeninfo
+>Izbira povzetka</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-selection.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Izbira povzetka</phrase>
+</textobject>
+<caption
+><para
+>Izbira povzetka</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="summary-view-config-calendar">
+<title
+>&kontact; Povzetek vtičnikov: Koledar</title>
+
+<para
+>Vtičnik <quote
+>Koledar</quote
+> za pogled povzetka &kontact; doda območje v pogled z oznako <guilabel
+>Prihajajoči dogodki</guilabel
+>. To bo prikazalo vse dogodke, ki trenutno veljajo. </para>
+
+<screenshot>
+<screeninfo
+>&kontact; Vtičnik za povzetek koledarja</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-calendar.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact; Vtičnik za povzetek koledarja</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; Vtičnik za povzetek koledarja </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-mail">
+<title
+>&kontact; Povzetek vtičnikov: Pošta</title>
+
+<para
+>Vtičnik <quote
+>Pošta</quote
+> za pogled povzetka &kontact; doda območje v pogledu z oznako <guilabel
+>Nova sporočila</guilabel
+>. To področje se posodobi vsakič, ko prejmete nova sporočila, da vas obvesti, koliko teh sporočil je na voljo in v kateri mapi so. </para>
+
+<screenshot>
+<screeninfo
+>&kontact; vtičnik poštnega povzetka</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-mail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact; Vtičnik poštnega povzetka</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; Vtičnik poštnega povzetka </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-notes">
+<title
+>&kontact; Povzetek vtičnikov: Opombe</title>
+
+<para
+>Vtičnik <quote
+>Opombe</quote
+> za pogled povzetka &kontact; doda območje v pogledu z oznako <guilabel
+>Pojavne opombe</guilabel
+>. V tem območju so prikazani naslovi vseh trenutnih zapiskov (privzeti naslovi so datum/čas, ko je bil zapisek ustvarjen). S klikom na naslov opombe se odpre območje Opombe. </para>
+
+<screenshot>
+<screeninfo
+>&kontact; Vtičnik Notes povzetka</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-notes.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact; Vtičnik Notes povzetka</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; Vtičnik Notes povzetka </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-todo-list">
+<title
+>&kontact; Povzetek vtičnikov: Seznam opravil</title>
+
+<para
+>Vtičnik <quote
+>Seznam opravil</quote
+> za pogled povzetka &kontact; doda območje v pogledu z oznako <guilabel
+>Čakajoča opravila</guilabel
+>. To področje vsebuje vsa trenutna opravila, vključno s tistimi, ki so bila dokončana. Prikaže naslov opravila, odstotek dokončanja in trenutno stanje opravila. Upoštevajte, da lahko izbrišete vsa dokončana opravila preko &kontact; Seznam opravil. S klikom na naslov opravila trenutno ne boste naredili ničesar. </para>
+
+<screenshot>
+<screeninfo
+>&kontact; Vtičnik povzeteka Seznama opravil</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-todos.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact; Vtičnik povzeteka seznama opravil</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; Vtičnik povzeteka seznama opravil </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-special-dates">
+<title
+>&kontact; Povzetek vtičnikov: posebni datumi</title>
+
+<para
+>Vtičnik <quote
+>Posebni datumi</quote
+> za pogled povzetka &kontact; doda območje v pogledu z oznako <guilabel
+>Prihajajoči posebni datumi</guilabel
+>. To področje vsebuje informacije, ki temeljijo na merilih, izbranih v konfiguracijskem območju vtičnika v konfiguraciji pogleda povzetka &kontact;. Vtičnik <quote
+>Posebni datumi</quote
+> je še posebej uporaben, ker lahko na enem mestu prikaže rojstne dneve, obletnice, praznike in posebne priložnosti iz koledarja in seznama stikov. </para>
+
+<screenshot>
+<screeninfo
+>&kontact; Vtičnik za posebne datume</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-special-dates.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact; Vtičnik za posebne datume</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; Vtičnik za posebne datume </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+</sect1>
+
+</chapter>
+
+
+<chapter id="command-line">
+<title
+>&kontact; V ukazni vrstici</title>
+
+<para
+>&kontact; ima več argumentov ukazne vrstice, ki jih je mogoče uporabiti za določena dejanja.</para>
+
+<para
+>Najprej &kontact; podpira argumente ukazne vrstice, da vsi &kde-frameworks;/&Qt; podpora za aplikacije, glejte man strani qt6options in kf6options. </para>
+
+<para
+>&kontact; podpira tudi več argumentov ukazne vrstice, specifičnih zanj.</para>
+
+<sect1 id="command-line-arguments">
+<title
+>Argumenti ukazne vrstice</title>
+
+<sect2 id="command-line-module">
+<title
+>Argumenti, povezani z modulom</title>
+
+<para
+>Če želite pridobiti seznam razpoložljivih &kontact; modulov, lahko vnesete:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --list</command
+> </para>
+
+<para
+>Nato za zagon &kontact; z aktivnim modulom vnesite:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --module <replaceable
+>imeModula</replaceable
+></command
+> </para>
+
+<para
+>Pri čemer je <replaceable
+>imeModula</replaceable
+> eden od modulov, pridobljen s prejšnjim ukazom.</para>
+
+</sect2>
+
+<sect2 id="command-line-startup">
+<title
+>Argumenti, povezani z zagonom</title>
+
+<para
+>Če želite zagnati &kontact; v ikoniziranem načinu<footnote
+><para
+>Ikonizirani način se imenuje tudi minimiziran; je, ko je okno aplikacije skrito in je aplikacija na voljo samo v opravilni vrstici.</para
+></footnote
+>, lahko vnesete:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --iconify</command
+> </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="technology">
+<title
+>Pod pokrovom</title>
+
+<para
+>&kontact; obsežno uporablja več &kde; ključnih tehnologij, predvsem KParts in &DBus;.</para>
+
+<para
+>&GUI; integracijo komponent izvajajo vtičniki, ki zagotavljajo različice aplikacij Kparts. Za to je potreben samo tanek dodaten sloj na vrhu že obstoječe kode samostojnih aplikacij.</para>
+
+<para
+>Za komunikacijo med komponentami &DBus; se uporablja. To ima lepo lastnost, da je popolnoma pregledno, ali se aplikacija izvaja samostojno ali je vdelana kot KPart v &kontact;. Pri izvajanju znotraj &kontact; učinkovit medprocesni način &DBus; se uporablja.</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Zasluge in licenca</title>
+
+<para
+>&kontact;</para>
+
+<para
+>Avtorske pravice za program 2001-2021, &kde; Razvijalci</para>
+
+<para
+>Sodelavci:</para>
+
+<itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Don.Sanders; &Don.Sanders.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+    </listitem>
+<listitem
+><para
+>Allen Winter <email
+>winter@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Rafael Fernández López <email
+>ereslibre@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>&David.Faure; &David.Faure.mail;</para
+></listitem>
+<listitem
+><para
+>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para
+></listitem>
+<listitem
+><para
+>Sven Lüppken <email
+>sven@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Torgny Nyblom <email
+>nyblom@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Zack Rusin <email
+>zack@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthias Hölzer-Klüpfel <email
+>mhk@kde.org</email
+>, the original author of the &kontact; framework.</para>
+    </listitem>
+
+<listitem
+><para
+>Vsi cenjeni razvijalci aplikacij &kontact; se integrira. Opravili so skoraj vse delo.</para>
+    </listitem>
+</itemizedlist>
+
+<para
+>Avtorske pravice za dokumentacijo 2004-2005</para>
+
+<para
+>Sodelavci: <itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem
+><para
+>Antonio Salazar <email
+>savedfastcool@gmail.com</email
+></para>
+</listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
+
+<listitem
+><para
+>Vsi člani &kde; seznam dokumentacije, ki je pomagal pri težavah z označevanjem in slogom.</para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para
+>Prevod: Matjaž Jeran<email
+>matjaz.jeran@amis.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+<appendix id="kontact-admin">
+<title
+>Vodnik za skrbnike</title>
+<!-- Section Compatibility -->
+<sect1 id="compat">
+<title
+>Težave z združljivostjo</title>
+
+<para
+>Ta razdelek ponuja pomoč pri ustvarjanju &kontact; učinkovito komunicirati z različnimi rešitvami za skupinsko programsko opremo. </para>
+
+<sect2 id="compat-outlook">
+<title
+>Outlook in Exchange</title>
+
+<para
+>V &kontact; konfiguracijsko pogovorno okno, boste pod <menuchoice
+><guimenu
+>Pošta</guimenu
+> <guimenuitem
+>Razno</guimenuitem
+></menuchoice
+> na strani <guilabel
+>Vabila</guilabel
+> našli naslednje možnosti, ki bodo uporabniku pomagale komunicirati z Microsoft Outlook(tm), ki se izvaja v okolju Kolab ali v okolju Microsoft Exchange(tm). </para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Mangle od:/do: glave v odgovorih na povabila</guilabel
+></term>
+<listitem>
+<para
+>Omogočite to možnost, da bo Microsoft Outlook(tm) razumel vaše odgovore na odgovore na povabila.</para>
+<para
+>Microsoft Outlook ima številne pomanjkljivosti pri izvajanju standarda iCalendar; ta možnost deluje okoli enega od njih. Če imate težave z uporabniki Outlooka, ki ne morejo dobiti vaših odgovorov, poskusite nastaviti to možnost.</para>
+<para
+>Podrobnosti: Ko pošiljate povabilo iCal, ima to sporočilo glavo Od: enako kot glavo Za:. Prav tako nastavi glavo X-KMail-Identity na UIOD Za: in poskrbi, da je BCC: prazno. Outlook bo odgovor razumel le, če je glava Od: enaka glavi Za: v vabilu.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Pošlji vabila v telesu pošte</guilabel
+></term>
+<listitem>
+<para
+>Vabila so običajno poslana kot priponke k e-pošti. To stikalo spremeni vabilo, ki bo namesto tega poslano v besedilu pošte; to je potrebno za pošiljanje povabil in odgovorov v Microsoft Outlook. Toda ko to storite, ne dobite več opisnega besedila, ki bi ga poštni programi lahko prebrali; tako so za ljudi, ki imajo e-poštne programe, ki ne razumejo povabil, nastala sporočila videti zelo čudna. Ljudje, ki imajo e-poštne programe, ki razumejo povabila, bodo še vedno lahko delali s tem.</para>
+<para
+>Podrobnosti: pri pošiljanju povabila iCal ta možnost ustvari telo sporočila iz podatkov priloge in nastavi glavo Content-Type na 'text/calendar; metoda=nekaj; charset="utf-8"'.</para>
+<para
+>Vklopljeno je tudi samodejno pošiljanje, tako da za sestavljanje ni potreben človeški poseg.</para>
+<note
+><para
+>Šifriranje in samopodpisovanje sta onemogočena.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Poimenovanje povabila, združljivo z Exchange</guilabel
+></term>
+<listitem>
+<para
+>Microsoft Outlook, če se uporablja v kombinaciji s strežnikom Microsoft Exchange(tm), ima težave pri razumevanju e-pošte skupinske programske opreme, skladne s standardi. Omogočite to možnost, če želite poslati povabila skupinski programi na način, ki ga Microsoft Exchange(tm) razume. Povabilo bo poslano kot priponka z imenom <filename
+>ical.ics</filename
+>.</para>
+<para
+>Podrobnosti: Ko pošljete povabilo iCal, ima to sporočilo zadevo "(Zavrnjeno|Pogojno|Sprejeto|Delegirano): zadeva". Povabilo bo poslano kot priponka z imenom <filename
+>ical.ics</filename
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Poimenovanje prilog, združljivo z Outlookom</guilabel
+></term>
+<listitem>
+<para
+>Vklopite to možnost, da bo Outlook(tm) razumel imena prilog, ki vsebujejo neangleške znake.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+</sect1>
+
+<!-- Section Behavior -->
+<sect1 id="behavior">
+<title
+>Vedenjske težave</title>
+
+<para
+>V tem razdelku so navodila, kako narediti &kontact; se obnašajo bolj kot drugi odjemalci skupinskega programa. </para>
+
+<sect2 id="behave-composing">
+<title
+>Sestavljanje sporočil</title>
+
+<para
+>Uporabniki Outlooka so navajeni, da v polja Za:, CC: ali BCC: vnesejo seznam naslovov, ločenih s podpičjem (';') poleg vejice (','). Privzeto &kontact; dovoljuje samo vejico kot znak za ločevanje naslovov. Če želite dovoliti tudi podpičje, spremenite <option
+>AllowSemicolonAsAddressSeparator</option
+> iz false v true v nameščeni datoteki <filename
+>share/config.kcfg/messagecomposer.kcfg</filename
+>. </para>
+
+</sect2>
+</sect1>
+
+<!-- Section RFC Compromises -->
+<sect1 id="nonrfc">
+<title
+>Kompromisi RFC</title>
+
+<para
+>&kontact; je zasnovan za medsebojno delovanje, kolikor je le mogoče, s široko paleto rešitev skupinskega programja. V ta namen včasih sklepamo kompromise v zvezi z različnimi internetnimi RFC-ji, ki zagotavljajo osnovo za nizkonivojske knjižnice, na katerih &kontact; se močno zanaša.</para>
+
+<note
+><para
+>Nikoli zavestno ne kršimo nobenega RFC.</para
+></note>
+
+<para
+>Naslednji seznam kompromisov RFC je pripravil &kontact; ali nizkonivojske knjižnice, ki jih uporablja &kontact;:</para>
+<!--FIXME is this correct?-->
+<itemizedlist>
+<listitem>
+<para
+>Ko zapisujete vrednosti trajanja v datoteke iCalendar, &kontact; lastnosti TRAJANJE nikoli ne zapiše v tednih (tj. 1*ŠTEVKA "W"); namesto tega je celo število tednov vedno pomnoženo s 7 in zapisano v dnevih (tj. 1*ŠTEVKA "D"). </para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
