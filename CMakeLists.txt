@@ -30,7 +30,7 @@ include(ECMAddAppIcon)
 include(ECMQtDeclareLoggingCategory)
 include(ECMDeprecationSettings)
 include(ECMFeatureSummary)
-
+include(ECMCheckOutboundLicense)
 
 # Do NOT add quote
 set(KDEPIM_DEV_VERSION alpha)
@@ -98,3 +98,5 @@ if(KF6DocTools_FOUND)
     add_subdirectory(doc)
 endif()
 ecm_feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+file(GLOB_RECURSE ALL_SOURCE_FILES src/*.cpp src/*.h)
+ecm_check_outbound_license(LICENSES GPL-2.0-only  FILES ${ALL_SOURCE_FILES})
