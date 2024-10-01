@@ -159,7 +159,6 @@ public:
     explicit SortFilterProxyModel(QObject *parent = nullptr)
         : QSortFilterProxyModel(parent)
     {
-        setDynamicSortFilter(true);
         sort(0);
     }
 
