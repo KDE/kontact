@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:40+0000\n"
+"POT-Creation-Date: 2024-10-02 00:40+0000\n"
 "PO-Revision-Date: 2007-02-28 14:13+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -56,139 +56,139 @@ msgstr "&Вовед во Контакт"
 msgid "Loading Kontact ..."
 msgstr "Вчитувам Контакт..."
 
-#: src/iconsidepane.cpp:264
+#: src/iconsidepane.cpp:263
 #, fuzzy, kde-format
 #| msgid "Show Icons"
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Прикажи икони"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr ""
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr ""
 
-#: src/iconsidepane.cpp:271
+#: src/iconsidepane.cpp:270
 #, fuzzy, kde-format
 #| msgid "Show Text"
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Прикажи текст"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr ""
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr ""
 
-#: src/iconsidepane.cpp:278
+#: src/iconsidepane.cpp:277
 #, fuzzy, kde-format
 #| msgid "Show Icons"
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Прикажи икони"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr ""
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr ""
 
-#: src/iconsidepane.cpp:288
+#: src/iconsidepane.cpp:287
 #, fuzzy, kde-format
 #| msgid "Show Icons"
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Прикажи икони"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:291
 #, fuzzy, kde-format
 #| msgid "Show all to-dos"
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Прикажи ги сите задачи"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr ""
 
-#: src/iconsidepane.cpp:295
+#: src/iconsidepane.cpp:294
 #, fuzzy, kde-format
 #| msgid "Normal"
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Нормални"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:298
 #, fuzzy, kde-format
 #| msgid "Show all to-dos"
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Прикажи ги сите задачи"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr ""
 
-#: src/iconsidepane.cpp:302
+#: src/iconsidepane.cpp:301
 #, fuzzy, kde-format
 #| msgid "Show Icons"
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Прикажи икони"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:305
 #, fuzzy, kde-format
 #| msgid "Show all to-dos"
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Прикажи ги сите задачи"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr ""
 
-#: src/iconsidepane.cpp:309
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr ""
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr ""
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

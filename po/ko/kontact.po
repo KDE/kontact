@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:40+0000\n"
+"POT-Creation-Date: 2024-10-02 00:40+0000\n"
 "PO-Revision-Date: 2024-08-19 23:50+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -45,130 +45,130 @@ msgstr "이 소개 건너뛰기"
 msgid "Loading Kontact ..."
 msgstr "Kontact 불러오는 중..."
 
-#: src/iconsidepane.cpp:264
+#: src/iconsidepane.cpp:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "아이콘만 보기"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "사이드바 항목에 아이콘만 표시"
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr "사이드바 항목에 텍스트 없이 아이콘만 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:271
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "텍스트만 보기"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "사이드바 항목에 텍스트만 표시"
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr "사이드바 항목에 텍스트만 아이콘 없이 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:278
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "아이콘과 텍스트 보기"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "사이드바 항목에 아이콘과 텍스트 표시"
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr "사이드바 항목에 아이콘과 텍스트를 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:288
+#: src/iconsidepane.cpp:287
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "큰 아이콘"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:291
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "큰 사이드바 아이콘 사용"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr "사이드바 아이콘을 매우 크게 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:295
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "보통 아이콘"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "보통 사이드바 아이콘 사용"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr "사이드바 아이콘을 일반적 크기로 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:302
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "작은 아이콘"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "작은 사이드바 아이콘 사용"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr "사이드바 아이콘을 매우 작게 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:309
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "사이드바 숨기기"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "아이콘 사이드바 숨기기"
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

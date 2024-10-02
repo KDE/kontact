@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:40+0000\n"
+"POT-Creation-Date: 2024-10-02 00:40+0000\n"
 "PO-Revision-Date: 2023-11-12 09:37+0700\n"
 "Last-Translator: Linerly <linerly@linerly.xyz>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -48,19 +48,19 @@ msgstr "Lewati perkenalan ini"
 msgid "Loading Kontact ..."
 msgstr "Memuat Kontact..."
 
-#: src/iconsidepane.cpp:264
+#: src/iconsidepane.cpp:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Tampilkan Ikon Saja"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Tampilkan item bilah sisi dengan ikon dan tanpa teks"
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -69,19 +69,19 @@ msgstr ""
 "Pilih opsi ini jika kamu ingin item-item bilah sisi untuk memiliki ikon "
 "tanpa teks."
 
-#: src/iconsidepane.cpp:271
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Tampilkan Teks Saja"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Tampilkan item-item dengan teks dan tanpa ikon"
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -90,19 +90,19 @@ msgstr ""
 "Pilih opsi ini jika kamu ingin item-item bilah sisi untuk memiliki teks "
 "tanpa ikon."
 
-#: src/iconsidepane.cpp:278
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Tampilkan Ikon && Teks"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Tampilkan item-item bilah sisi dengan ikon dan teks"
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -111,75 +111,75 @@ msgstr ""
 "Pilih opsi ini jika kamu ingin item-item bilah sisi untuk memiliki ikon dan "
 "teks."
 
-#: src/iconsidepane.cpp:288
+#: src/iconsidepane.cpp:287
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Ikon Besar"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:291
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Tampilkan ikon bilah sisi berukuran besar"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr "Pilih opsi ini jika kamu ingin ikon-ikon menjadi ekstra besar."
 
-#: src/iconsidepane.cpp:295
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Ikon Normal"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Tampilkan ikon-ikon bilah sisi berukuran normal"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr ""
 "Pilih opsi ini jika kamu ingin ikon-ikon bilah sisi menjadi berukuran normal."
 
-#: src/iconsidepane.cpp:302
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Ikon Kecil"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Tampilkan ikon-ikon bilah sisi berukuran kecil"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr ""
 "Pilih opsi ini jika kamu ingin ikon-ikon bilah sisi menjadi ekstra kecil."
 
-#: src/iconsidepane.cpp:309
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Sembunyikan Bilah Sisi"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Sembunyikan bilah sisi ikon"
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

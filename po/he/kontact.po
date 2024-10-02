@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:40+0000\n"
+"POT-Creation-Date: 2024-10-02 00:40+0000\n"
 "PO-Revision-Date: 2024-08-02 07:49+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -54,131 +54,131 @@ msgstr "דילוג על ההיכרות הזאת"
 msgid "Loading Kontact ..."
 msgstr "Kontact נטען…"
 
-#: src/iconsidepane.cpp:264
+#: src/iconsidepane.cpp:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "הצגת סמלים בלבד"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "הצגת פריטי סרגל צד עם סמלים וללא כיתוב"
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr "נא לבחור באפשרות הזאת כדי שלפריטי סרגל הצד יהיו סמלים ללא כיתוב."
 
-#: src/iconsidepane.cpp:271
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "הצגת כיתוב בלבד"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "הצגת פריטי סרגל צד עם כיתוב וללא סמלים"
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr "נא לבחור באפשרות הזאת כדי שלפריטי סרגל הצד יהיה כיתוב ללא סמלים."
 
-#: src/iconsidepane.cpp:278
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "הצגת סמלים וכיתוב"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "הצגת פריטי סרגל צד עם סמלים וכיתוב"
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr "יש לבחור באפשרות הזאת כדי שלפריטי סרגל הצד יהיו סמלים וכיתוב."
 
-#: src/iconsidepane.cpp:288
+#: src/iconsidepane.cpp:287
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "סמלים גדולים"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:291
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "הצגת סמלי סרגלי צד גדולים"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr ""
 "יש לבחור באפשרות הזאת כדי שהסמלים של פריטי סרגל הצד יהיו גדולים במיוחד."
 
-#: src/iconsidepane.cpp:295
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "סמלים רגילים"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "הצגת סמלי סרגלי צד רגילים"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr "יש לבחור באפשרות הזאת כדי שהסמלים של פריטי סרגל הצד יהיו בגודל רגיל."
 
-#: src/iconsidepane.cpp:302
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "סמלים קטנים"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "הצגת סמלי סרגלי צד קטנים"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr "יש לבחור באפשרות הזאת כדי שהסמלים של פריטי סרגל הצד יהיו קטנים במיוחד."
 
-#: src/iconsidepane.cpp:309
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "הסתרת סרגל צד"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "הסתרת סרגל הצד של הסמלים"
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

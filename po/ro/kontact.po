@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:40+0000\n"
+"POT-Creation-Date: 2024-10-02 00:40+0000\n"
 "PO-Revision-Date: 2013-01-10 15:39+0200\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -60,19 +60,19 @@ msgstr "Introducere în &Kontact"
 msgid "Loading Kontact ..."
 msgstr "Se încarcă Kontact..."
 
-#: src/iconsidepane.cpp:264
+#: src/iconsidepane.cpp:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Arată numai pictograme"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Arată elementele din bara laterală cu pictograme și fără text"
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -81,19 +81,19 @@ msgstr ""
 "Alegeți această opțiune dacă doriți ca elementele din bara laterală să aibă "
 "pictograme fără text."
 
-#: src/iconsidepane.cpp:271
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Arată numai text"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Arată elementele din bara laterală cu text și fără pictograme"
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -102,19 +102,19 @@ msgstr ""
 "Alegeți această opțiune dacă doriți ca elementele din bara laterală să aibă "
 "text fără pictograme."
 
-#: src/iconsidepane.cpp:278
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Arată pictograme și text"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Arată elementele din bara laterală cu pictograme și text"
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -123,19 +123,19 @@ msgstr ""
 "Alegeți această opțiune dacă doriți ca elementele din bara laterală să aibă "
 "pictograme și text."
 
-#: src/iconsidepane.cpp:288
+#: src/iconsidepane.cpp:287
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Pictograme mari"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:291
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Arată pictograme mari în bara laterală"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
@@ -143,19 +143,19 @@ msgstr ""
 "Alegeți această opțiune dacă doriți ca pictogramele din bara laterală să fie "
 "extra-mari."
 
-#: src/iconsidepane.cpp:295
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Pictograme normale"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Arată pictograme normale în bara laterală"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
@@ -163,19 +163,19 @@ msgstr ""
 "Alegeți această opțiune dacă doriți ca pictogramele din bara laterală să fie "
 "de dimensiune normală."
 
-#: src/iconsidepane.cpp:302
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Pictograme mici"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Arată pictograme mici în bara laterală"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
@@ -183,19 +183,19 @@ msgstr ""
 "Alegeți această opțiune dacă doriți ca pictogramele din bara laterală să fie "
 "extra-mici."
 
-#: src/iconsidepane.cpp:309
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr ""
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr ""
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:312
 #, fuzzy, kde-format
 #| msgctxt "@info:whatsthis"
 #| msgid ""

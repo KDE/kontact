@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:40+0000\n"
+"POT-Creation-Date: 2024-10-02 00:40+0000\n"
 "PO-Revision-Date: 2024-08-02 14:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -65,19 +65,19 @@ msgstr "Bu tanıtımı atla"
 msgid "Loading Kontact ..."
 msgstr "Kontak yükleniyor…"
 
-#: src/iconsidepane.cpp:264
+#: src/iconsidepane.cpp:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Yalnızca Simgeleri Göster"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Kenar çubuğu ögelerini simgeli ve metin olmadan göster"
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -86,19 +86,19 @@ msgstr ""
 "Kenar çubuğu ögelerinin simgelerinde metin görünmesin istiyorsanız bu "
 "seçeneği seçin."
 
-#: src/iconsidepane.cpp:271
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Yalnızca Metni Göster"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Kenar çubuğu ögelerini simgesiz olarak, metin ile göster"
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -107,19 +107,19 @@ msgstr ""
 "Kenar çubuğundaki ögelerin simgesiz metinlerini görmek istiyorsanız bu "
 "seçeneği seçin."
 
-#: src/iconsidepane.cpp:278
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Simgeleri ve Metni Göster"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Kenar çubuğu ögelerini simge ve metin ile göster"
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -128,19 +128,19 @@ msgstr ""
 "Kenar çubuğundaki ögelerin simgeleri ve metni olsun istiyorsanız bu seçeneği "
 "seçin."
 
-#: src/iconsidepane.cpp:288
+#: src/iconsidepane.cpp:287
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Büyük Simgeler"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:291
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Kenar çubuğundaki simgeleri büyük boyutta göster"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
@@ -148,19 +148,19 @@ msgstr ""
 "Kenar çubuğu simgelerinin fazladan büyük olmasını istiyorsanız bu seçeneği "
 "seçin."
 
-#: src/iconsidepane.cpp:295
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Normal Simgeler"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Kenar çubuğundaki simgeleri normal boyutta göster"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
@@ -168,19 +168,19 @@ msgstr ""
 "Kenar çubuğu simgelerinin normal boyutta olmasını istiyorsanız bu seçeneği "
 "seçin."
 
-#: src/iconsidepane.cpp:302
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Küçük Simgeler"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Kenar çubuğundaki simgeleri küçük boyutta göster"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
@@ -188,19 +188,19 @@ msgstr ""
 "Kenar çubuğu simgelerinin fazladan küçük olmasını istiyorsanız bu seçeneği "
 "seçin."
 
-#: src/iconsidepane.cpp:309
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Kenar Çubuğunu Gizle"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Simge kenar çubuğunu gizle"
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

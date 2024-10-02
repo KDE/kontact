@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:40+0000\n"
+"POT-Creation-Date: 2024-10-02 00:40+0000\n"
 "PO-Revision-Date: 2024-09-20 09:29+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -62,19 +62,19 @@ msgstr "Να παραλειφθεί αυτή η εισαγωγή"
 msgid "Loading Kontact ..."
 msgstr "Φόρτωση Kontact..."
 
-#: src/iconsidepane.cpp:264
+#: src/iconsidepane.cpp:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Εμφάνιση εικονιδίων μόνο"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Εμφάνιση αντικειμένων πλευρικής γραμμής με εικονίδια χωρίς κείμενο"
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -83,19 +83,19 @@ msgstr ""
 "Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα αντικείμενα της πλευρικής "
 "γραμμής να έχουν εικονίδια χωρίς κείμενο."
 
-#: src/iconsidepane.cpp:271
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Εμφάνιση κειμένου μόνο"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Εμφάνιση αντικειμένων πλευρικής γραμμής με κείμενο χωρίς εικονίδια"
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -104,19 +104,19 @@ msgstr ""
 "Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα αντικείμενα της πλευρικής "
 "γραμμής να έχουν κείμενο χωρίς εικονίδια."
 
-#: src/iconsidepane.cpp:278
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Εμφάνιση εικονιδίων και κειμένου"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Εμφάνιση αντικειμένων πλευρικής γραμμής με εικονίδια και κείμενο"
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -125,19 +125,19 @@ msgstr ""
 "Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα αντικείμενα της πλευρικής "
 "γραμμής να έχουν εικονίδια και κείμενο."
 
-#: src/iconsidepane.cpp:288
+#: src/iconsidepane.cpp:287
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Μεγάλα εικονίδια"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:291
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Εμφάνιση εικονιδίων πλευρικής γραμμής μεγάλου μεγέθους"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
@@ -145,19 +145,19 @@ msgstr ""
 "Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα εικονίδια της πλευρικής γραμμής "
 "να είναι πολύ μεγάλα."
 
-#: src/iconsidepane.cpp:295
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Κανονικά εικονίδια"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Εμφάνιση εικονιδίων πλευρικής γραμμής κανονικού μεγέθους"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
@@ -165,19 +165,19 @@ msgstr ""
 "Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα εικονίδια της πλευρικής γραμμής "
 "να είναι κανονικού μεγέθους."
 
-#: src/iconsidepane.cpp:302
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Μικρά εικονίδια"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Εμφάνιση εικονιδίων πλευρικής γραμμής μικρού μεγέθους"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
@@ -185,19 +185,19 @@ msgstr ""
 "Ενεργοποιήστε αυτήν την επιλογή αν θέλετε τα εικονίδια της πλευρικής γραμμής "
 "να είναι πολύ μικρά."
 
-#: src/iconsidepane.cpp:309
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Απόκρυψη πλευρικής γραμμής"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:311
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Απόκρυψη της πλευρικής γραμμής εικονιδίων"
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
