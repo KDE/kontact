@@ -2,7 +2,6 @@
 #
 # Håvard Korsvoll <korsvoll@skulelinux.no>, 2003, 2004.
 # Gaute Hvoslef Kvalnes <gaute@verdsveven.com>, 2004, 2005.
-# Karl Ove Hufthammer <karl@huftis.org>, 2004, 2005, 2008, 2010, 2013, 2020, 2021, 2022.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2008, 2009, 2010.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2019.
 msgid ""
@@ -10,14 +9,14 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:39+0000\n"
-"PO-Revision-Date: 2022-10-30 09:36+0100\n"
+"PO-Revision-Date: 2024-09-27 20:42+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 24.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -296,19 +295,19 @@ msgid "Navigator"
 msgstr "Navigering"
 
 #: src/main.cpp:103
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Start med fast Kontact-modul"
 
 #: src/main.cpp:104
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "Start som ikon (minimert)"
 
 #: src/main.cpp:105
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Vis oversikt over alle moglege modular og avslutt"
@@ -329,25 +328,25 @@ msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "© 2001–%1 Kontact-utviklarane"
 
 #: src/main.cpp:178
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
 #: src/main.cpp:179
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
 #: src/main.cpp:180
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
 #: src/main.cpp:181
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "Don Sanders"
@@ -359,40 +358,40 @@ msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
 #: src/main.cpp:183
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "Tobias König"
 
 #: src/main.cpp:184
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
 #: src/main.cpp:185
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
 #: src/main.cpp:186
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
 #: src/main.cpp:187
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
 #: src/main.cpp:188
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
-msgstr "Matthias Hoelzer-Kluepfel"
+msgstr "Matthias Hölzer-Klüpfel"
 
 #: src/main.cpp:188
 #, kde-format
@@ -400,7 +399,7 @@ msgid "Original Author"
 msgstr "Opphavsperson"
 
 #: src/main.cpp:189
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
@@ -459,10 +458,10 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Vel dette for å visa ei innføring i Kontact."
 
 #: src/mainwindow.cpp:338
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Sidebar"
-msgstr "Gøym sidestolpe"
+msgstr "Vis sidestolpe"
 
 #: src/mainwindow.cpp:339
 #, kde-format
