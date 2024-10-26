@@ -347,11 +347,7 @@ void MainWindow::setupActions()
     actionCollection()->setDefaultShortcut(mShowFullScreenAction, Qt::Key_F11);
     connect(mShowFullScreenAction, &QAction::toggled, this, &MainWindow::slotFullScreen);
 
-#if KCOLORSCHEME_VERSION < QT_VERSION_CHECK(6, 6, 0)
-    auto manager = new KColorSchemeManager(this);
-#else
     auto manager = KColorSchemeManager::instance();
-#endif
     actionCollection()->addAction(QStringLiteral("colorscheme_menu"), KColorSchemeMenu::createMenu(manager, this));
 
     mShowMenuBarAction = KStandardAction::showMenubar(this, &MainWindow::slotToggleMenubar, actionCollection());
