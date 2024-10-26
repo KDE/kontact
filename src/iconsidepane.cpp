@@ -75,7 +75,9 @@ class Model : public QStringListModel
 {
     Q_OBJECT
 public:
-    enum SpecialRoles { PluginName = Qt::UserRole };
+    enum SpecialRoles {
+        PluginName = Qt::UserRole
+    };
 
     explicit Model(Navigator *parentNavigator = nullptr)
         : QStringListModel(parentNavigator)
