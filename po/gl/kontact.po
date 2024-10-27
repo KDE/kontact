@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-27 00:41+0000\n"
 "PO-Revision-Date: 2024-08-03 12:18+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -57,19 +57,19 @@ msgstr "Omitir a introdución"
 msgid "Loading Kontact ..."
 msgstr "Cargando Kontact…"
 
-#: src/iconsidepane.cpp:263
+#: src/iconsidepane.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Amosar só as iconas"
 
-#: src/iconsidepane.cpp:267
+#: src/iconsidepane.cpp:269
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Amosar os elementos da barra lateral con iconas e sen texto"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -78,19 +78,19 @@ msgstr ""
 "Escolla esta opción se quere que os elementos da barra lateral teñan iconas "
 "sen texto."
 
-#: src/iconsidepane.cpp:270
+#: src/iconsidepane.cpp:272
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Amosar só o texto"
 
-#: src/iconsidepane.cpp:274
+#: src/iconsidepane.cpp:276
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Amosar os elementos da barra lateral con texto e sen iconas"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -99,19 +99,19 @@ msgstr ""
 "Escolla esta opción se quere que os elementos da barra lateral teñan texto "
 "sen iconas."
 
-#: src/iconsidepane.cpp:277
+#: src/iconsidepane.cpp:279
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Amosar as iconas e o texto"
 
-#: src/iconsidepane.cpp:281
+#: src/iconsidepane.cpp:283
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Amosar os elementos da barra lateral con iconas e texto"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:284
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -120,19 +120,19 @@ msgstr ""
 "Escolla esta opción se quere que os elementos da barra lateral teñan iconas "
 "e texto."
 
-#: src/iconsidepane.cpp:287
+#: src/iconsidepane.cpp:289
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Iconas grandes"
 
-#: src/iconsidepane.cpp:291
+#: src/iconsidepane.cpp:293
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Amosar iconas de tamaño grande na barra lateral"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
@@ -140,19 +140,19 @@ msgstr ""
 "Escolla esta opción se quere que as iconas da barra lateral sexan moi "
 "grandes."
 
-#: src/iconsidepane.cpp:294
+#: src/iconsidepane.cpp:296
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Iconas normais"
 
-#: src/iconsidepane.cpp:298
+#: src/iconsidepane.cpp:300
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Amosar iconas normais na barra lateral"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
@@ -160,19 +160,19 @@ msgstr ""
 "Escolla esta opción se quere que as iconas da barra lateral teñan un tamaño "
 "normal."
 
-#: src/iconsidepane.cpp:301
+#: src/iconsidepane.cpp:303
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Iconas pequenas"
 
-#: src/iconsidepane.cpp:305
+#: src/iconsidepane.cpp:307
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Amosar iconas pequenas na barra lateral"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
@@ -180,19 +180,19 @@ msgstr ""
 "Escolla esta opción se quere que as iconas da barra lateral teñan un tamaño "
 "moi pequeno."
 
-#: src/iconsidepane.cpp:308
+#: src/iconsidepane.cpp:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Ocultar a barra lateral"
 
-#: src/iconsidepane.cpp:311
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Ocultar a barra lateral de iconas"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:314
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -327,7 +327,7 @@ msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Listar todos os módulos posíbeis e saír"
 
-#: src/main.cpp:169 src/mainwindow.cpp:979
+#: src/main.cpp:169 src/mainwindow.cpp:975
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
@@ -491,7 +491,7 @@ msgid "Allows you to show or hide the component sidebar as desired."
 msgstr ""
 "Permítelle amosar ou ocultar a barra lateral de compoñentes cando queira."
 
-#: src/mainwindow.cpp:369
+#: src/mainwindow.cpp:365
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -500,20 +500,20 @@ msgstr ""
 "<qt>Isto agocha completamente a barra de menú. Pódese amosar de novo "
 "escribindo %1.</qt>"
 
-#: src/mainwindow.cpp:372
+#: src/mainwindow.cpp:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Agochar a barra de menú"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:563
+#: src/mainwindow.cpp:559
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "Pasar ao complemento %1"
 
-#: src/mainwindow.cpp:633
+#: src/mainwindow.cpp:629
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
@@ -521,54 +521,54 @@ msgstr ""
 "A aplicación estase a executar de maneira independente. Poñéndoa en primeiro "
 "plano…"
 
-#: src/mainwindow.cpp:649
+#: src/mainwindow.cpp:645
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "Non é posíbel cargar a parte para %1."
 
-#: src/mainwindow.cpp:717
+#: src/mainwindow.cpp:713
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
-#: src/mainwindow.cpp:980
+#: src/mainwindow.cpp:976
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "A colección de software de xestión de información persoal de KDE."
 
-#: src/mainwindow.cpp:985
+#: src/mainwindow.cpp:981
 #, kde-format
 msgid "Read Manual"
 msgstr "Ler o manual"
 
-#: src/mainwindow.cpp:986
+#: src/mainwindow.cpp:982
 #, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "Aprender máis sobre Kontact e os seus compoñentes"
 
-#: src/mainwindow.cpp:989
+#: src/mainwindow.cpp:985
 #, kde-format
 msgid "Visit Kontact Website"
 msgstr "Visitar o sitio web de Kontact"
 
-#: src/mainwindow.cpp:990
+#: src/mainwindow.cpp:986
 #, kde-format
 msgid "Access online resources and tutorials"
 msgstr "Acceder a recursos e titoriais por Internet"
 
-#: src/mainwindow.cpp:993
+#: src/mainwindow.cpp:989
 #, kde-format
 msgid "Setup your Accounts"
 msgstr "Configurar as súas contas"
 
-#: src/mainwindow.cpp:994
+#: src/mainwindow.cpp:990
 #, kde-format
 msgid "Prepare Kontact for use"
 msgstr "Preparar Kontact para o seu uso"
 
-#: src/mainwindow.cpp:1020
+#: src/mainwindow.cpp:1016
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."

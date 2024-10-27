@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-27 00:41+0000\n"
 "PO-Revision-Date: 2023-12-30 16:45+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -47,19 +47,19 @@ msgstr "Preskočiť tento úvod"
 msgid "Loading Kontact ..."
 msgstr "Načítavanie Kontact..."
 
-#: src/iconsidepane.cpp:263
+#: src/iconsidepane.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Zobraziť iba ikony"
 
-#: src/iconsidepane.cpp:267
+#: src/iconsidepane.cpp:269
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Ukázať položky bočného panela s ikonami a bez textu"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -68,19 +68,19 @@ msgstr ""
 "Vyberte túto voľbu, ak chcete, aby položky bočného panela mali ikony bez "
 "textu."
 
-#: src/iconsidepane.cpp:270
+#: src/iconsidepane.cpp:272
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Zobraziť iba text"
 
-#: src/iconsidepane.cpp:274
+#: src/iconsidepane.cpp:276
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Ukázať položky bočného panela s textom a bez ikon"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -88,19 +88,19 @@ msgid ""
 msgstr ""
 "Vyberte túto voľbu, ak chcete, aby položky bočného panela mali text bez ikon."
 
-#: src/iconsidepane.cpp:277
+#: src/iconsidepane.cpp:279
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Ukázať ikony && text"
 
-#: src/iconsidepane.cpp:281
+#: src/iconsidepane.cpp:283
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Ukázať položky bočného panela s ikonami a textom"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:284
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -108,74 +108,74 @@ msgid ""
 msgstr ""
 "Vyberte túto voľbu, ak chcete, aby položky bočného panela mali ikony a text."
 
-#: src/iconsidepane.cpp:287
+#: src/iconsidepane.cpp:289
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Veľké ikony"
 
-#: src/iconsidepane.cpp:291
+#: src/iconsidepane.cpp:293
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Zobraziť ikony bočného panela s veľkou veľkosťou"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr "Vyberte túto voľbu, ak chcete v bočnom paneli extra veľké ikony."
 
-#: src/iconsidepane.cpp:294
+#: src/iconsidepane.cpp:296
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Normálne ikony"
 
-#: src/iconsidepane.cpp:298
+#: src/iconsidepane.cpp:300
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Zobraziť ikony bočného panela s normálnou veľkosťou"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr ""
 "Vyberte túto voľbu, ak chcete v bočnom paneli ikony s normálnou veľkosťou."
 
-#: src/iconsidepane.cpp:301
+#: src/iconsidepane.cpp:303
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Malé ikony"
 
-#: src/iconsidepane.cpp:305
+#: src/iconsidepane.cpp:307
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Zobraziť ikony bočného panela s malou veľkosťou"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr "Vyberte túto voľbu, ak chcete v bočnom paneli extra malé ikony."
 
-#: src/iconsidepane.cpp:308
+#: src/iconsidepane.cpp:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Skryť bočný panel"
 
-#: src/iconsidepane.cpp:311
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Skryť ikonu bočného panelu"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:314
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -312,7 +312,7 @@ msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Vypísať všetky dostupné moduly a skončiť"
 
-#: src/main.cpp:169 src/mainwindow.cpp:979
+#: src/main.cpp:169 src/mainwindow.cpp:975
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
@@ -488,7 +488,7 @@ msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
 msgstr "Umžní vám zobraziť alebo skryť komponent bočného panelu."
 
-#: src/mainwindow.cpp:369
+#: src/mainwindow.cpp:365
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -496,7 +496,7 @@ msgid ""
 msgstr ""
 "<qt>Toto skryje panel ponuky úplne. Môžete ju zobraziť zadaním %1.</qt>"
 
-#: src/mainwindow.cpp:372
+#: src/mainwindow.cpp:368
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"
@@ -504,66 +504,66 @@ msgid "Hide menu bar"
 msgstr "Skryť panel ponuky"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:563
+#: src/mainwindow.cpp:559
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "Prepnúť na plugin %1"
 
-#: src/mainwindow.cpp:633
+#: src/mainwindow.cpp:629
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr "Aplikácia beží samostatne. Zvýraznenie..."
 
-#: src/mainwindow.cpp:649
+#: src/mainwindow.cpp:645
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "Nemožno načítať časť pre %1."
 
-#: src/mainwindow.cpp:717
+#: src/mainwindow.cpp:713
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
-#: src/mainwindow.cpp:980
+#: src/mainwindow.cpp:976
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "Súprava správy osobných informácií KDE."
 
-#: src/mainwindow.cpp:985
+#: src/mainwindow.cpp:981
 #, kde-format
 msgid "Read Manual"
 msgstr "Čítať manuál"
 
-#: src/mainwindow.cpp:986
+#: src/mainwindow.cpp:982
 #, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "Dozvedieť sa viac o KontactK a jeho komponentoch"
 
-#: src/mainwindow.cpp:989
+#: src/mainwindow.cpp:985
 #, kde-format
 msgid "Visit Kontact Website"
 msgstr "Navštíviť webovú stránku Kontact"
 
-#: src/mainwindow.cpp:990
+#: src/mainwindow.cpp:986
 #, kde-format
 msgid "Access online resources and tutorials"
 msgstr "Prístup na online zdroje a návody pre začiatočníkov"
 
-#: src/mainwindow.cpp:993
+#: src/mainwindow.cpp:989
 #, kde-format
 msgid "Setup your Accounts"
 msgstr "Nastavte vaše účty"
 
-#: src/mainwindow.cpp:994
+#: src/mainwindow.cpp:990
 #, kde-format
 msgid "Prepare Kontact for use"
 msgstr "Pripraviť Kontact pre použitie"
 
-#: src/mainwindow.cpp:1020
+#: src/mainwindow.cpp:1016
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."

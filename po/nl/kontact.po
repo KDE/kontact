@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-02 00:40+0000\n"
+"POT-Creation-Date: 2024-10-27 00:41+0000\n"
 "PO-Revision-Date: 2024-08-02 13:02+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -54,19 +54,19 @@ msgstr "Deze introductie overslaan"
 msgid "Loading Kontact ..."
 msgstr "Kontact laden..."
 
-#: src/iconsidepane.cpp:263
+#: src/iconsidepane.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Alleen pictogrammen tonen"
 
-#: src/iconsidepane.cpp:267
+#: src/iconsidepane.cpp:269
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Items in het zijvak tonen met pictogrammen zonder tekst"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -75,19 +75,19 @@ msgstr ""
 "Selecteer dit keuzevakje als u wilt dat items in het zijvak pictogrammen "
 "tonen zonder tekst."
 
-#: src/iconsidepane.cpp:270
+#: src/iconsidepane.cpp:272
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Alleen tekst tonen"
 
-#: src/iconsidepane.cpp:274
+#: src/iconsidepane.cpp:276
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Item in het zijvak tonen met tekst zonder pictogrammen"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -96,19 +96,19 @@ msgstr ""
 "Selecteer dit keuzevakje als u wilt dat items in het zijvak tekst tonen "
 "zonder pictogrammen."
 
-#: src/iconsidepane.cpp:277
+#: src/iconsidepane.cpp:279
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Pictogrammen en tekst tonen"
 
-#: src/iconsidepane.cpp:281
+#: src/iconsidepane.cpp:283
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Items in het zijvak tonen met pictogrammen en tekst"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:284
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -117,19 +117,19 @@ msgstr ""
 "Selecteer dit keuzevakje als u wilt dat items in het zijvak pictogrammen en "
 "tekst tonen."
 
-#: src/iconsidepane.cpp:287
+#: src/iconsidepane.cpp:289
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Grote pictogrammen"
 
-#: src/iconsidepane.cpp:291
+#: src/iconsidepane.cpp:293
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Grote pictogrammen tonen in zijvak"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
@@ -137,19 +137,19 @@ msgstr ""
 "Selecteer dit keuzevakje als u wilt dat pictogrammen in het zijvak extra "
 "groot zijn."
 
-#: src/iconsidepane.cpp:294
+#: src/iconsidepane.cpp:296
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Normale pictogrammen"
 
-#: src/iconsidepane.cpp:298
+#: src/iconsidepane.cpp:300
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Normale pictogrammen tonen in het zijvak"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
@@ -157,19 +157,19 @@ msgstr ""
 "Selecteer dit keuzevakje als u wilt dat pictogrammen in het zijvak een "
 "normale grootte hebben."
 
-#: src/iconsidepane.cpp:301
+#: src/iconsidepane.cpp:303
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Kleine pictogrammen"
 
-#: src/iconsidepane.cpp:305
+#: src/iconsidepane.cpp:307
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Kleine pictogrammen tonen in het zijvak"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
@@ -177,19 +177,19 @@ msgstr ""
 "Selecteer dit keuzevakje als u wilt dat pictogrammen in het zijvak extra "
 "klein zijn."
 
-#: src/iconsidepane.cpp:308
+#: src/iconsidepane.cpp:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Zijvak verbergen"
 
-#: src/iconsidepane.cpp:311
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Zijvak voor pictogrammen verbergen"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:314
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -325,7 +325,7 @@ msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Toon alle beschikbare modules en sluit weer af"
 
-#: src/main.cpp:169 src/mainwindow.cpp:979
+#: src/main.cpp:169 src/mainwindow.cpp:975
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
@@ -490,7 +490,7 @@ msgstr ""
 "Stelt u in staat de zijbalk voor componenten naar wens te verbergen of te "
 "tonen."
 
-#: src/mainwindow.cpp:369
+#: src/mainwindow.cpp:365
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -499,74 +499,74 @@ msgstr ""
 "<qt>Hierdoor wordt de menubalk geheel verborgen. U kunt die weer zichtbaar "
 "maken door %1 te typen.</qt>"
 
-#: src/mainwindow.cpp:372
+#: src/mainwindow.cpp:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Menubalk verbergen"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:563
+#: src/mainwindow.cpp:559
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "Naar plugin %1 omschakelen"
 
-#: src/mainwindow.cpp:633
+#: src/mainwindow.cpp:629
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr ""
 "De toepassing draait zelfstandig en wordt nu op de voorgrond geplaatst..."
 
-#: src/mainwindow.cpp:649
+#: src/mainwindow.cpp:645
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "Component voor %1 kan niet worden geladen."
 
-#: src/mainwindow.cpp:717
+#: src/mainwindow.cpp:713
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
-#: src/mainwindow.cpp:980
+#: src/mainwindow.cpp:976
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "Het KDE-pakket voor beheer van persoonlijke informatie."
 
-#: src/mainwindow.cpp:985
+#: src/mainwindow.cpp:981
 #, kde-format
 msgid "Read Manual"
 msgstr "Handboek lezen"
 
-#: src/mainwindow.cpp:986
+#: src/mainwindow.cpp:982
 #, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "Kom meer te weten over Kontact en zijn componenten"
 
-#: src/mainwindow.cpp:989
+#: src/mainwindow.cpp:985
 #, kde-format
 msgid "Visit Kontact Website"
 msgstr "Bezoek de website van Kontact"
 
-#: src/mainwindow.cpp:990
+#: src/mainwindow.cpp:986
 #, kde-format
 msgid "Access online resources and tutorials"
 msgstr "Documentatie en tutorials online raadplegen"
 
-#: src/mainwindow.cpp:993
+#: src/mainwindow.cpp:989
 #, kde-format
 msgid "Setup your Accounts"
 msgstr "Uw accounts instellen"
 
-#: src/mainwindow.cpp:994
+#: src/mainwindow.cpp:990
 #, kde-format
 msgid "Prepare Kontact for use"
 msgstr "Bereid Kontact voor op gebruik"
 
-#: src/mainwindow.cpp:1020
+#: src/mainwindow.cpp:1016
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
