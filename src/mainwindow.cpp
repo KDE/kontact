@@ -128,8 +128,8 @@ void MainWindow::initGUI()
     initWidgets();
     setupActions();
 
-    KStandardAction::keyBindings(this, &MainWindow::configureShortcuts, actionCollection());
-    KStandardAction::configureToolbars(this, &MainWindow::configureToolbars, actionCollection());
+    KStandardActions::keyBindings(this, &MainWindow::configureShortcuts, actionCollection());
+    KStandardActions::configureToolbars(this, &MainWindow::configureToolbars, actionCollection());
     setXMLFile(QStringLiteral("kontactui.rc"));
 
     setStandardToolBarMenuEnabled(true);
@@ -315,7 +315,7 @@ void MainWindow::initAboutScreen()
 
 void MainWindow::setupActions()
 {
-    KStandardAction::quit(this, &MainWindow::slotQuit, actionCollection());
+    KStandardActions::quit(this, &MainWindow::slotQuit, actionCollection());
 
     mNewActions = new KActionMenu(i18nc("@title:menu create new pim items (message,calendar,to-do,etc.)", "New"), this);
     actionCollection()->addAction(QStringLiteral("action_new"), mNewActions);
