@@ -105,8 +105,6 @@ private:
     void slotFullScreen(bool t);
     void slotToggleMenubar(bool dontShowWarning);
 
-    QFrame *mTopWidget = nullptr;
-
     QSplitter *mSplitter = nullptr;
 
     KActionMenu *mNewActions = nullptr;

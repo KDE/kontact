@@ -246,7 +246,6 @@ private:
 
 Navigator::Navigator(SidePaneBase *parent)
     : QListView(parent)
-    , mSidePane(parent)
     , mModel(new Model(this))
 {
     setViewport(new QWidget(this));

@@ -80,7 +80,6 @@ private:
     void updateNavigatorSize();
 
     void setHelpText(QAction *act, const QString &text);
-    SidePaneBase *const mSidePane;
     MainWindow *mMainWindow = nullptr;
     Model *const mModel;
 
