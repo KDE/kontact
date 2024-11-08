@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:41+0000\n"
+"POT-Creation-Date: 2024-11-08 00:41+0000\n"
 "PO-Revision-Date: 2024-08-02 09:22+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -47,19 +47,19 @@ msgstr "Salta iste introduction"
 msgid "Loading Kontact ..."
 msgstr "Cargante Kontact..."
 
-#: src/iconsidepane.cpp:265
+#: src/iconsidepane.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Monstra solmente icones"
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Monstra elementos de barra lateral con icones e sin texto"
 
-#: src/iconsidepane.cpp:270
+#: src/iconsidepane.cpp:269
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -68,19 +68,19 @@ msgstr ""
 "Selige iste option si tu vole que elementos de barra lateral ha icones sin "
 "texto."
 
-#: src/iconsidepane.cpp:272
+#: src/iconsidepane.cpp:271
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Monstra solmente texto"
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Monstra elementos de barra lateral con texto e sin icones"
 
-#: src/iconsidepane.cpp:277
+#: src/iconsidepane.cpp:276
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -89,19 +89,19 @@ msgstr ""
 "Selige iste option si tu vole que elementos de barra lateral ha texto sin "
 "icones."
 
-#: src/iconsidepane.cpp:279
+#: src/iconsidepane.cpp:278
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Monstra icones && texto"
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Monstra elementos de barra lateral con icones e texto"
 
-#: src/iconsidepane.cpp:284
+#: src/iconsidepane.cpp:283
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -109,19 +109,19 @@ msgid ""
 msgstr ""
 "Selige iste option si tu vole elementos de barra lateral ha icones e texto."
 
-#: src/iconsidepane.cpp:289
+#: src/iconsidepane.cpp:288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Icones grande"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Monstra icones de barra lateral de grandor grande"
 
-#: src/iconsidepane.cpp:294
+#: src/iconsidepane.cpp:293
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
@@ -129,19 +129,19 @@ msgstr ""
 "Selige iste option si tu vole icones de barra lateral es de grandor extra "
 "grande."
 
-#: src/iconsidepane.cpp:296
+#: src/iconsidepane.cpp:295
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Icones normal"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Monstra icones de barra lateral de grandor normal"
 
-#: src/iconsidepane.cpp:301
+#: src/iconsidepane.cpp:300
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
@@ -149,37 +149,37 @@ msgstr ""
 "Selige iste optiorn si tu vole que icones de barra lateral es de grandor "
 "normal."
 
-#: src/iconsidepane.cpp:303
+#: src/iconsidepane.cpp:302
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Parve icones"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Monstra icones de parve grandor de barra lateral"
 
-#: src/iconsidepane.cpp:308
+#: src/iconsidepane.cpp:307
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr "Selige iste option si tu vole icones de barra a latere es extra parve."
 
-#: src/iconsidepane.cpp:310
+#: src/iconsidepane.cpp:309
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Cela barra lateral"
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Cela le barra lateral de icone"
 
-#: src/iconsidepane.cpp:314
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""

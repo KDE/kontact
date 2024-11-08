@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:41+0000\n"
+"POT-Creation-Date: 2024-11-08 00:41+0000\n"
 "PO-Revision-Date: 2022-08-08 17:36+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -51,19 +51,19 @@ msgstr "Skip denne introduktion"
 msgid "Loading Kontact ..."
 msgstr "Indlæser Kontact..."
 
-#: src/iconsidepane.cpp:265
+#: src/iconsidepane.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Vis kun ikoner"
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:268
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Vis elementer i sidepanelet med ikoner og uden tekst"
 
-#: src/iconsidepane.cpp:270
+#: src/iconsidepane.cpp:269
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -72,19 +72,19 @@ msgstr ""
 "Vælg denne indstilling hvis ønsker at elementer i sidepanelet skal have "
 "ikoner uden tekst."
 
-#: src/iconsidepane.cpp:272
+#: src/iconsidepane.cpp:271
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Vis kun tekst"
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Vis elementer i sidepanelet med tekst og uden ikoner"
 
-#: src/iconsidepane.cpp:277
+#: src/iconsidepane.cpp:276
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -93,19 +93,19 @@ msgstr ""
 "Vælg denne indstilling hvis ønsker at elementer i sidepanelet skal have "
 "tekst uden ikoner."
 
-#: src/iconsidepane.cpp:279
+#: src/iconsidepane.cpp:278
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Vis ikoner og tekst"
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Vis elementer i sidepanelet med ikoner og tekst"
 
-#: src/iconsidepane.cpp:284
+#: src/iconsidepane.cpp:283
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -114,19 +114,19 @@ msgstr ""
 "Vælg denne indstilling hvis ønsker at elementer i sidepanelet skal have "
 "ikoner og tekst."
 
-#: src/iconsidepane.cpp:289
+#: src/iconsidepane.cpp:288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Store ikoner"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Vis ikoner i sidepanelet i stor størrelse"
 
-#: src/iconsidepane.cpp:294
+#: src/iconsidepane.cpp:293
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
@@ -134,19 +134,19 @@ msgstr ""
 "Vælg denne indstilling hvis ønsker at ikoner i sidepanelet skal være ekstra "
 "store."
 
-#: src/iconsidepane.cpp:296
+#: src/iconsidepane.cpp:295
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Normale ikoner"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Vis ikoner i sidepanelet i normal størrelse"
 
-#: src/iconsidepane.cpp:301
+#: src/iconsidepane.cpp:300
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
@@ -154,19 +154,19 @@ msgstr ""
 "Vælg denne indstilling hvis ønsker at ikoner i sidepanelet skal have normal "
 "størrelse."
 
-#: src/iconsidepane.cpp:303
+#: src/iconsidepane.cpp:302
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Små ikoner"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Vis ikoner i sidepanelet i lille størrelse"
 
-#: src/iconsidepane.cpp:308
+#: src/iconsidepane.cpp:307
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
@@ -174,19 +174,19 @@ msgstr ""
 "Vælg denne indstilling hvis ønsker at ikoner i sidepanelet skal være ekstra "
 "små."
 
-#: src/iconsidepane.cpp:310
+#: src/iconsidepane.cpp:309
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Skjul sidepanel"
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Skjul sidepanel med ikoner"
 
-#: src/iconsidepane.cpp:314
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
