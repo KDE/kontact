@@ -143,7 +143,7 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
     }
 
     // Start KOrgac in case it's wasn't started on session start.
-    QDBusConnection::sessionBus().interface()->startService(QStringLiteral("org.kde.korgac"));
+    QDBusConnection::sessionBus().interface()->startService(QStringLiteral("org.kde.kalendarac"));
 
     // Handle startup notification and window activation
     // (The first time it will do nothing except note that it was called)
