@@ -24,6 +24,13 @@ class IntroductionWebEngineView;
 class KToggleFullScreenAction;
 class KToggleAction;
 
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+namespace PimCommon
+{
+class VerifyNewVersionWidget;
+}
+#endif
+
 using PluginList = QList<KontactInterface::Plugin *>;
 using ActionPluginList = QList<QAction *>;
 namespace Kontact
@@ -130,6 +137,9 @@ private:
     QAction *mShowHideAction = nullptr;
     KToggleFullScreenAction *mShowFullScreenAction = nullptr;
     KToggleAction *mShowMenuBarAction = nullptr;
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    PimCommon::VerifyNewVersionWidget *const mVerifyNewVersionWidget;
+#endif
 };
 }
 

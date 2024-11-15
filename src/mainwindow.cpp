@@ -73,6 +73,7 @@ using namespace Kontact;
 
 #include <PimCommon/NeedUpdateVersionUtils>
 #include <PimCommon/NeedUpdateVersionWidget>
+#include <PimCommon/VerifyNewVersionWidget>
 
 // signal handler for SIGINT & SIGTERM
 #ifdef Q_OS_UNIX
@@ -83,6 +84,9 @@ using namespace Kontact;
 
 MainWindow::MainWindow()
     : KontactInterface::Core()
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    , mVerifyNewVersionWidget(new PimCommon::VerifyNewVersionWidget(this))
+#endif
 {
 #ifdef Q_OS_UNIX
     /**
@@ -351,6 +355,13 @@ void MainWindow::setupActions()
     actionCollection()->addAction(QStringLiteral("colorscheme_menu"), KColorSchemeMenu::createMenu(manager, this));
 
     mShowMenuBarAction = KStandardAction::showMenubar(this, &MainWindow::slotToggleMenubar, actionCollection());
+
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    // TODO add it when we will have url
+    mVerifyNewVersionWidget->addOsUrlInfo(PimCommon::VerifyNewVersionWidget::OsVersion::Windows, QStringLiteral("https://cdn.kde.org/ci-builds/pim/"));
+    auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
+    actionCollection()->addAction(QStringLiteral("verify_check_version"), verifyNewVersionAction);
+#endif
 }
 
 void MainWindow::slotToggleMenubar(bool dontShowWarning)
