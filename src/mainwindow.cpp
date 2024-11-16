@@ -358,7 +358,8 @@ void MainWindow::setupActions()
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     // TODO add it when we will have url
-    mVerifyNewVersionWidget->addOsUrlInfo(PimCommon::VerifyNewVersionWidget::OsVersion::Windows, QStringLiteral("https://cdn.kde.org/ci-builds/pim/"));
+    mVerifyNewVersionWidget->addOsUrlInfo(PimCommon::VerifyNewVersionWidget::OsVersion::Windows,
+                                          QStringLiteral("https://cdn.kde.org/ci-builds/pim/kontact/master/windows/"));
     auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
     actionCollection()->addAction(QStringLiteral("verify_check_version"), verifyNewVersionAction);
 #endif
