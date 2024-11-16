@@ -1,7 +1,7 @@
-set(PIM_VERSION "6.2.80")
+set(PIM_VERSION "6.2.90")
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "24.11.80")
+set(RELEASE_SERVICE_VERSION "24.11.90")
 set(KF_MIN_VERSION "6.6.0")
 set(QT_REQUIRED_VERSION "6.7.0")
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
@@ -33,7 +33,7 @@ include(ECMFeatureSummary)
 include(ECMCheckOutboundLicense)
 
 # Do NOT add quote
-set(KDEPIM_DEV_VERSION beta)
+set(KDEPIM_DEV_VERSION rc)
 
 # add an extra space
 if(DEFINED KDEPIM_DEV_VERSION)
