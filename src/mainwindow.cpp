@@ -12,6 +12,7 @@
 #include "mainwindow.h"
 using namespace Qt::Literals::StringLiterals;
 
+#include "config-kontact.h"
 #include "iconsidepane.h"
 #include "kontactconfiguredialog.h"
 #include "prefs.h"
@@ -357,9 +358,12 @@ void MainWindow::setupActions()
     mShowMenuBarAction = KStandardAction::showMenubar(this, &MainWindow::slotToggleMenubar, actionCollection());
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-    // TODO add it when we will have url
-    mVerifyNewVersionWidget->addOsUrlInfo(PimCommon::VerifyNewVersionWidget::OsVersion::Windows,
-                                          QStringLiteral("https://cdn.kde.org/ci-builds/pim/kontact/master/windows/"));
+#if KONTACT_STABLE_VERSION
+    const QString url = QStringLiteral("https://cdn.kde.org/ci-builds/pim/kontact/24.12/windows/");
+#else
+    const QString url = QStringLiteral("https://cdn.kde.org/ci-builds/pim/kontact/master/windows/");
+#endif
+    mVerifyNewVersionWidget->addOsUrlInfo(PimCommon::VerifyNewVersionWidget::OsVersion::Windows, url);
     auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
     actionCollection()->addAction(QStringLiteral("verify_check_version"), verifyNewVersionAction);
 #endif
