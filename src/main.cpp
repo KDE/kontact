@@ -32,15 +32,9 @@ using namespace Kontact;
 
 #include <iostream>
 
-#define HAVE_KICONTHEME __has_include(<KIconTheme>)
-#if HAVE_KICONTHEME
 #include <KIconTheme>
-#endif
 
-#define HAVE_STYLE_MANAGER __has_include(<KStyleManager>)
-#if HAVE_STYLE_MANAGER
 #include <KStyleManager>
-#endif
 
 using namespace std;
 using namespace Qt::Literals::StringLiterals;
@@ -152,19 +146,11 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
 
 int main(int argc, char **argv)
 {
-#if HAVE_KICONTHEME
     KIconTheme::initTheme();
-#endif
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
     KontactApp app(argc, &argv);
 
-#if HAVE_STYLE_MANAGER
     KStyleManager::initStyle();
-#else // !HAVE_STYLE_MANAGER
-#if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
-    QApplication::setStyle(QStringLiteral("breeze"));
-#endif // defined(Q_OS_MACOS) || defined(Q_OS_WIN)
-#endif // HAVE_STYLE_MANAGER
     KAboutData about(QStringLiteral("kontact"),
                      i18n("Kontact"),
                      QLatin1StringView(version),
