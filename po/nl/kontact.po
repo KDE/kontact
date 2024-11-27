@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-23 00:41+0000\n"
+"POT-Creation-Date: 2024-11-27 00:41+0000\n"
 "PO-Revision-Date: 2024-08-02 13:02+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -307,117 +307,117 @@ msgstr "Hoofdwerkbalk"
 msgid "Navigator"
 msgstr "Navigator"
 
-#: src/main.cpp:103
+#: src/main.cpp:97
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Start met een specifieke Kontact-module"
 
-#: src/main.cpp:104
+#: src/main.cpp:98
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "Geminimaliseerd starten"
 
-#: src/main.cpp:105
+#: src/main.cpp:99
 #, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "Toon alle beschikbare modules en sluit weer af"
 
-#: src/main.cpp:169 src/mainwindow.cpp:991
+#: src/main.cpp:155 src/mainwindow.cpp:991
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
 
-#: src/main.cpp:171
+#: src/main.cpp:157
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "KDE beheerder van persoonlijke informatie"
 
-#: src/main.cpp:173
+#: src/main.cpp:159
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "Copyright © 2001–%1 De auteurs van Kontact"
 
-#: src/main.cpp:177
+#: src/main.cpp:163
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: src/main.cpp:178
+#: src/main.cpp:164
 #, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
-#: src/main.cpp:179
+#: src/main.cpp:165
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
-#: src/main.cpp:180
+#: src/main.cpp:166
 #, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "Don Sanders"
 
-#: src/main.cpp:181
+#: src/main.cpp:167
 #, kde-format
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
-#: src/main.cpp:182
+#: src/main.cpp:168
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "Tobias König"
 
-#: src/main.cpp:183
+#: src/main.cpp:169
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: src/main.cpp:184
+#: src/main.cpp:170
 #, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
-#: src/main.cpp:185
+#: src/main.cpp:171
 #, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
-#: src/main.cpp:186
+#: src/main.cpp:172
 #, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
-#: src/main.cpp:187
+#: src/main.cpp:173
 #, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:187
+#: src/main.cpp:173
 #, kde-format
 msgid "Original Author"
 msgstr "Oorspronkelijke auteur"
 
-#: src/main.cpp:188
+#: src/main.cpp:174
 #, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
 
-#: src/main.cpp:188
+#: src/main.cpp:174
 #, kde-format
 msgid "Git Migration"
 msgstr "Git Migration"

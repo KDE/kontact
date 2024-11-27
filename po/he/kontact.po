@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-23 00:41+0000\n"
+"POT-Creation-Date: 2024-11-27 00:41+0000\n"
 "PO-Revision-Date: 2024-08-02 07:49+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -292,117 +292,117 @@ msgstr "סרגל כלים ראשי"
 msgid "Navigator"
 msgstr "נווט"
 
-#: src/main.cpp:103
+#: src/main.cpp:97
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "התחלה עם רכיב מסוים של Kontact"
 
-#: src/main.cpp:104
+#: src/main.cpp:98
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "התחלה במצב מוקטן (לסמל)"
 
-#: src/main.cpp:105
+#: src/main.cpp:99
 #, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "הצגת כל הרכיבים האפשריים ולצאת"
 
-#: src/main.cpp:169 src/mainwindow.cpp:991
+#: src/main.cpp:155 src/mainwindow.cpp:991
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
 
-#: src/main.cpp:171
+#: src/main.cpp:157
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "מנהל מידע אישי של KDE"
 
-#: src/main.cpp:173
+#: src/main.cpp:159
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "כל הזכויות שמורות © 2001‏–%1 יוצרי Kontact"
 
-#: src/main.cpp:177
+#: src/main.cpp:163
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "אלן וינטר"
 
-#: src/main.cpp:178
+#: src/main.cpp:164
 #, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "רפאל פרננדז לופז"
 
-#: src/main.cpp:179
+#: src/main.cpp:165
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "דניאל מולקנטין"
 
-#: src/main.cpp:180
+#: src/main.cpp:166
 #, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "דון סנדרס"
 
-#: src/main.cpp:181
+#: src/main.cpp:167
 #, kde-format
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "(c), 2003 קורנליוס שומאכר"
 
-#: src/main.cpp:182
+#: src/main.cpp:168
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "טוביאס קניג"
 
-#: src/main.cpp:183
+#: src/main.cpp:169
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "דוד פור"
 
-#: src/main.cpp:184
+#: src/main.cpp:170
 #, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "אינגו קלוקר"
 
-#: src/main.cpp:185
+#: src/main.cpp:171
 #, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "סוון לופקן"
 
-#: src/main.cpp:186
+#: src/main.cpp:172
 #, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "זאק רוסין"
 
-#: src/main.cpp:187
+#: src/main.cpp:173
 #, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "מתיאס הולצר-קלופּפל"
 
-#: src/main.cpp:187
+#: src/main.cpp:173
 #, kde-format
 msgid "Original Author"
 msgstr "היוצר המקורי"
 
-#: src/main.cpp:188
+#: src/main.cpp:174
 #, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "טורני נייבלום"
 
-#: src/main.cpp:188
+#: src/main.cpp:174
 #, kde-format
 msgid "Git Migration"
 msgstr "הסבה ל־Git"
