@@ -17,7 +17,6 @@
 class KActionMenu;
 class KSqueezedTextLabel;
 class QAction;
-class QFrame;
 class QSplitter;
 class QStackedWidget;
 class IntroductionWebEngineView;
