@@ -12,3 +12,5 @@ include:
       - /gitlab-templates/cppcheck.yml
       - /gitlab-templates/clang-format.yml
       - /gitlab-templates/craft-windows-appx-qt6.yml
+      - /gitlab-templates/xml-lint.yml
+      - /gitlab-templates/yaml-lint.yml
