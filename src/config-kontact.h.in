@@ -1,0 +1,7 @@
+/*
+  SPDX-FileCopyrightText: 2024-2025 Laurent Montel <montel@kde.org>
+
+  SPDX-License-Identifier: GPL-2.0-or-later
+*/
+
+#define KONTACT_RELEASE_VERSION_DATE "${KONTACT_RELEASE_VERSION_DATE}"

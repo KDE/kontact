@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(kontact VERSION ${PIM_VERSION})
 set(RELEASE_SERVICE_VERSION "24.12.2")
 set(KF_MIN_VERSION "6.6.0")
+
+# Update it for each release
+set(KONTACT_RELEASE_VERSION_DATE "25.02.03") # yy.MM.dd
+
 set(QT_REQUIRED_VERSION "6.7.0")
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
