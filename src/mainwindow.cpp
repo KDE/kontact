@@ -261,7 +261,7 @@ void MainWindow::initWidgets()
     setCentralWidget(mTopWidget);
 
     if (PimCommon::NeedUpdateVersionUtils::checkVersion()) {
-        const auto status = PimCommon::NeedUpdateVersionUtils::obsoleteVersionStatus(KAboutData::applicationData().version(), QDate::currentDate());
+        const auto status = PimCommon::NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1String(KONTACT_RELEASE_VERSION_DATE), QDate::currentDate());
         if (status != PimCommon::NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
             auto needUpdateVersionWidget = new PimCommon::NeedUpdateVersionWidget(this);
             layout->addWidget(needUpdateVersionWidget);
