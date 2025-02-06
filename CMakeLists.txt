@@ -80,7 +80,7 @@ find_package(KPim6PimCommon ${PIMCOMMON_LIB_VERSION} CONFIG REQUIRED)
 
 include_directories(${kontact_SOURCE_DIR} ${kontact_BINARY_DIR})
 add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
-ecm_set_disabled_deprecation_versions(QT 6.8.1  KF 6.10.0)
+ecm_set_disabled_deprecation_versions(QT 6.8.1  KF 6.11.0)
 
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kontact\")
