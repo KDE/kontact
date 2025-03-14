@@ -255,7 +255,7 @@
       <li xml:lang="sk">KMail - výkonný a na funkcie bohatý e-mailový klient s podporou širokej škály poskytovateľov e-mailov.</li>
       <li xml:lang="sl">KMail - močan e-poštni odjemalec z mnogo funkcijami  s podporo za številno paleto ponudnikov e-pošte.</li>
       <li xml:lang="sv">Kmail: Ett kraftfullt och funktionsrikt e-postprogram med stöd för ett stort antal e-postleverantörer.</li>
-      <li xml:lang="tr">K Posta - güçlü ve özellikli bir e-posta istemcisi. Çok sayıda e-posta sağlayıcısını destekler.</li>
+      <li xml:lang="tr">K Posta — güçlü ve özellikli bir e-posta istemcisi. Çok sayıda e-posta sağlayıcısını destekler.</li>
       <li xml:lang="uk">KMail — потужної і багатої на можливості програми для роботи з електронною поштою, у якій передбачено підтримку широкого діапазону служб надання послуг електронної пошти.</li>
       <li xml:lang="x-test">xxKMail - a powerful and feature-rich email client with support for a wide range of email providers.xx</li>
       <li xml:lang="zh-CN">KMail - 一款功能齐全的电子邮件客户端程序，支持各种电子邮件服务提供商。</li>
@@ -295,7 +295,7 @@
       <li xml:lang="sk">KOrganizer - komponent kalendára a plánovania spoločnosti Kontact, ktorý je schopný pracovať s programami NextCloud, Kolab, Kalendár Google a ďalšími kalendárnymi službami.</li>
       <li xml:lang="sl">KOrganizer - komponenta koledarja in načrtovanja Kontacta, ki lahko sodeluje z NextCloud, Kolab, Google Calendar in drugimi koledarskimi storitvami.</li>
       <li xml:lang="sv">Korganizer: En kalender- och schemaläggningskomponent i Kontact, som kan arbeta med NextCloud, Kolab, Google kalender och andra kalendertjänster.</li>
-      <li xml:lang="tr">K Organizatör - takvim ve ajanda bileşeni. NextCloud, Kolab, Google Takvim ve daha birçok takvim hizmeti ile çalışabilir.</li>
+      <li xml:lang="tr">K Organizatör — takvim ve ajanda bileşeni. NextCloud, Kolab, Google Takvim ve daha birçok takvim hizmeti ile çalışabilir.</li>
       <li xml:lang="uk">KOrganizer — компонента для роботи з календарем і планування Kontact, який здатен працювати із NextCloud, Kolab, Календарем Google та іншими службами роботи з календарями у інтернеті.</li>
       <li xml:lang="x-test">xxKOrganizer - a calendar and scheduling component of Kontact which is able to work with NextCloud, Kolab, Google Calendar and other calendaring services.xx</li>
       <li xml:lang="zh-CN">KOrganizer - 一款日历和日程安排调度工具，支持 NextCloud、Kolab、Google Calendar 以及其他的日历服务。</li>
@@ -335,7 +335,7 @@
       <li xml:lang="sk">KAddressBook - ľahko použiteľný nástroj na správu kontaktov, ktorý dokáže synchronizovať kontakty s mnohými populárnymi službami.</li>
       <li xml:lang="sl">KAddressBook - enostavno orodje za upravljanje stikov, ki lahko sinhronizira stike z mnogimi priljubljenimi storitvami.</li>
       <li xml:lang="sv">Adressboken: Ett lättanvänt kontakthanteringsverktyg som kan synkronisera kontakter med många populära tjänster.</li>
-      <li xml:lang="tr">K Adres Defteri - birçok popüler hizmetle eşzamanlama yapabilen bir kişi yönetim sistemi.</li>
+      <li xml:lang="tr">K Adres Defteri — birçok popüler hizmetle eşzamanlama yapabilen bir kişi yönetim sistemi.</li>
       <li xml:lang="uk">KAddressBook — простого засобу керування записами контактів, який може синхронізувати дані із багатьма популярними службами.</li>
       <li xml:lang="x-test">xxKAddressBook - an easy to use contact management tool that can synchronize contacts with many popular services.xx</li>
       <li xml:lang="zh-CN">KAddressBook - 一款简单易用的联系人管理工具，可以同步到各种常用的网络服务。</li>
@@ -375,7 +375,7 @@
       <li xml:lang="sk">Akregator - čítačka správ s výkonnými funkciami vyhľadávania a archivácie.</li>
       <li xml:lang="sl">Akregator - bralnik novic z zmogljivo funkcijo iskanja in arhiviranja.</li>
       <li xml:lang="sv">Akregator: En nyhetsläsare med kraftfull sök- och arkiveringsfunktionalitet.</li>
-      <li xml:lang="tr">Akregatör - güçlü arama ve arşivleme işlevlerine sahip bir haber okuyucu.</li>
+      <li xml:lang="tr">Akregatör — güçlü arama ve arşivleme işlevlerine sahip bir haber okuyucu.</li>
       <li xml:lang="uk">Akregator — програми для читання новин із потужними можливостями із пошуку та архівування даних.</li>
       <li xml:lang="x-test">xxAkregator - a news reader with powerful search and archiving functionality.xx</li>
       <li xml:lang="zh-CN">Akregator - 一款具备强大搜索和存档功能的新闻阅读器。</li>
@@ -426,7 +426,7 @@
       <caption xml:lang="sk">KMail, e-mailová súčasť Kontact</caption>
       <caption xml:lang="sl">KMail, e-poštna komponenta Kontacta</caption>
       <caption xml:lang="sv">Kmail: E-postkomponenten i Kontact</caption>
-      <caption xml:lang="tr">K Posta, Kontak'ın e-posta bileşeni</caption>
+      <caption xml:lang="tr">K Posta, Kontak’ın e-posta bileşeni</caption>
       <caption xml:lang="uk">KMail — компонент Kontact для роботи з електронною поштою</caption>
       <caption xml:lang="x-test">xxKMail, the email component of Kontactxx</caption>
       <caption xml:lang="zh-CN">KMail，Kontact 的电子邮件客户端组件</caption>
