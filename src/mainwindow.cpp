@@ -84,7 +84,7 @@ using namespace Kontact;
 #endif
 
 MainWindow::MainWindow()
-    : KontactInterface::Core()
+    :
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     , mVerifyNewVersionWidget(new PimCommon::VerifyNewVersionWidget(this))
 #endif
