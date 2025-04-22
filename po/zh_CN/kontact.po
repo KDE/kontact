@@ -447,7 +447,7 @@ msgstr "选择此项可查看 Kontact 介绍页"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Sidebar"
-msgstr ""
+msgstr "显示侧边栏"
 
 #: src/mainwindow.cpp:343
 #, kde-format
