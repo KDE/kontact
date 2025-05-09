@@ -1,13 +1,13 @@
-set(PIM_VERSION "6.4.1")
+set(PIM_VERSION "6.4.2")
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "25.04.1")
+set(RELEASE_SERVICE_VERSION "25.04.2")
 
 # Use true if stable version => we will check specific version
 set(KONTACT_STABLE_VERSION true)
  
 # Update it for each release
-set(KONTACT_RELEASE_VERSION_DATE "25.05.05") # yy.MM.dd
+set(KONTACT_RELEASE_VERSION_DATE "25.06.02") # yy.MM.dd
 
 set(KF_MIN_VERSION "6.9.0")
 set(QT_REQUIRED_VERSION "6.7.0")
