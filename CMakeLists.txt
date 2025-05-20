@@ -9,7 +9,7 @@ set(KONTACT_STABLE_VERSION false)
 # Update it for each release
 set(KONTACT_RELEASE_VERSION_DATE "25.07.10") # yy.MM.dd
 
-set(KF_MIN_VERSION "6.12.0")
+set(KF_MIN_VERSION "6.13.0")
 set(QT_REQUIRED_VERSION "6.8.0")
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
