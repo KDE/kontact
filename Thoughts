@@ -234,7 +234,7 @@ Don: the container. Eg. if the parts want to add folders to the container
 Don: apps folder tree (or navigator)
 Don:
 Don: And maybe for communicating with the status bar.
-	
+
 
 Communication/Interaction:
 ==========================
@@ -372,4 +372,3 @@ h:    to get a summary widget for a day?
 h: b) use some sort of XML to UI to represent the summary information
 h: c) have a stand a lone part which opens the PIM data separately? ( How
 h:    to synchronize access? )
-

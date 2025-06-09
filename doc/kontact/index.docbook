@@ -174,7 +174,7 @@ Normal, or Small icons, as well as the option to use text only
 instead of icons.</para>
 
 <para>If you dislike the Side Pane, you can simply hide it by dragging the
-splitter. An alternative navigation between parts is provided by the 
+splitter. An alternative navigation between parts is provided by the
 <guilabel>Navigator</guilabel> toolbar, which can be freely positioned. See
 <xref linkend="bars" /> for more on the <guilabel>Navigator</guilabel>
 toolbar.</para>
@@ -211,7 +211,7 @@ icon in the Side Pane indicates to which application the Main View belongs.
 <para>In addition, there are two ways of overriding the component that &kontact;
 starts with. The first is supplying an argument to the &kontact; program call
 (see <xref linkend="command-line"/>). The second is a setting in the
-&kontact; Settings dialog that will allow you to always start &kontact; in a 
+&kontact; Settings dialog that will allow you to always start &kontact; in a
 certain mode.</para>
 
 <para>To get to it, go to <menuchoice><guimenu>Settings</guimenu>
@@ -344,7 +344,7 @@ object.</para>
 <sect1 id="side-pane-drag-and-drop">
 <title>Drag and Drop Functionality</title>
 
-<para>&kontact; provides advanced drag and drop functionality between 
+<para>&kontact; provides advanced drag and drop functionality between
 the programs it contains. Following is a brief description of each of
 the specific drag and drop operations that can be used and the
 result of each.</para>
@@ -353,14 +353,14 @@ result of each.</para>
 <title>&kmail; -&gt; &korganizer; To-do List</title>
 
 <para>
-Dragging a message from 
+Dragging a message from
 <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
-to the icon for &korganizer;'s To-do list 
+to the icon for &korganizer;'s To-do list
 (<guiicon><inlinemediaobject><imageobject>
 <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/>
 </imageobject></inlinemediaobject></guiicon>)
-will create a new To-do with 
-<guilabel>Mail: <replaceable>Subject</replaceable></guilabel> as the title and 
+will create a new To-do with
+<guilabel>Mail: <replaceable>Subject</replaceable></guilabel> as the title and
 <guilabel>From: <replaceable>Sender</replaceable>
 To: <replaceable>Receiver</replaceable>
 Subject: <replaceable>Subject</replaceable></guilabel> as the contents
@@ -376,14 +376,14 @@ attachment.
 <title>&kmail; -&gt; &korganizer; Calendar</title>
 
 <para>
-Dragging a message from 
+Dragging a message from
 <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
 to the icon for &korganizer;'s Calendar
 (<guiicon><inlinemediaobject><imageobject>
 <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/>
 </imageobject></inlinemediaobject></guiicon>)
-will create a new Event with 
-<guilabel>Mail: <replaceable>Subject</replaceable></guilabel> as the title and 
+will create a new Event with
+<guilabel>Mail: <replaceable>Subject</replaceable></guilabel> as the title and
 <guilabel>From: <replaceable>Sender</replaceable>
 To: <replaceable>Receiver</replaceable>
 Subject: <replaceable>Subject</replaceable></guilabel> as the contents
@@ -395,7 +395,7 @@ attachment.
 
 <para>Note that dragging onto the To-do button creates a To-do,
 whereas dragging onto the Calendar creates an Event. More on this
-distinction is available in the 
+distinction is available in the
 <ulink url="help:/korganizer">&korganizer; documentation</ulink>
 </para>
 
@@ -406,11 +406,11 @@ distinction is available in the
 <title>&kmail; -&gt; &kaddressbook;</title>
 
 <para>
-Dragging a message from 
+Dragging a message from
 <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window">&kmail;'s Headers pane</ulink>
  to the icon for &kaddressbook;
 (<guiicon><inlinemediaobject><imageobject> <imagedata
-                                           fileref="kaddressbook-sidebar-icon.png" 
+                                           fileref="kaddressbook-sidebar-icon.png"
                                            format="PNG" />
 </imageobject></inlinemediaobject></guiicon>) will create a contact
 from the email address of the sender, unless a contact with that name
@@ -429,7 +429,7 @@ Dragging any number of entries from <ulink
 url="help:/kaddressbook/using-kaddressbook.html">&kaddressbook;'s main
 window</ulink> to the icon for &korganizer;'s To-do List
 (<guiicon><inlinemediaobject><imageobject> <imagedata
-                                           fileref="todo-list-sidebar-icon.png" 
+                                           fileref="todo-list-sidebar-icon.png"
                                            format="PNG"/>
 </imageobject></inlinemediaobject></guiicon>) will create a new To-do
 with &quot;Meeting&quot; as the title and the selected contacts as
@@ -438,7 +438,7 @@ attendees.
 
 <para>Note that dragging onto the To-do button creates a To-do,
 whereas dragging onto the Calendar creates an Event. More on this
-distinction is available in the 
+distinction is available in the
 <ulink url="help:/korganizer">&korganizer; documentation</ulink>
 </para>
 
@@ -453,7 +453,7 @@ Dragging any number of entries from <ulink
 url="help:/kaddressbook/using-kaddressbook.html">&kaddressbook;'s main
 window</ulink> to the icon for &korganizer;'s Calendar
 (<guiicon><inlinemediaobject><imageobject> <imagedata
-                                           fileref="calendar-sidebar-icon.png" 
+                                           fileref="calendar-sidebar-icon.png"
                                            format="PNG"/>
 </imageobject></inlinemediaobject></guiicon>) will create a new Event
 with &quot;Meeting&quot; as the title and the selected contacts as
@@ -462,7 +462,7 @@ attendees.
 
 <para>Note that dragging onto the To-do button creates a To-do,
 whereas dragging onto the Calendar creates an Event. More on this
-distinction is available in the 
+distinction is available in the
 <ulink url="help:/korganizer">&korganizer; documentation</ulink>
 </para>
 
@@ -930,7 +930,7 @@ communicate effectively with various groupware solutions.
 
 <para>
 In the &kontact; configuration dialog, under <menuchoice><guimenu>Mail</guimenu>
-<guimenuitem>Misc</guimenuitem></menuchoice> on the <guilabel>Invitations</guilabel> page 
+<guimenuitem>Misc</guimenuitem></menuchoice> on the <guilabel>Invitations</guilabel> page
 you will find the following options that will help the user communicate
 with Microsoft Outlook(tm) running in a Kolab environment or in a
 Microsoft Exchange(tm) environment.
@@ -943,13 +943,13 @@ Microsoft Exchange(tm) environment.
 <listitem>
 <para>Enable this option to make Microsoft Outlook(tm) understand your answers to invitation replies.</para>
 <para>Microsoft Outlook has a number of shortcomings in its implementation of
-the iCalendar standard; this option works around one of them. If you 
+the iCalendar standard; this option works around one of them. If you
 have problems with Outlook users not being able to get your replies,
 try setting this option.</para>
-<para>Details: When mailing an iCal invitation this makes the message have 
+<para>Details: When mailing an iCal invitation this makes the message have
 the From: header the same as the To: header. It also sets header
  X-KMail-Identity to the To:'s UIOD and makes sure the BCC: is blank.
-Outlook will only understand the reply if the From: header is 
+Outlook will only understand the reply if the From: header is
 the same as the To: header of the invitation message.</para>
 </listitem>
 </varlistentry>
@@ -1006,7 +1006,7 @@ containing non-English characters.</para>
 <title>Behavioral Issues</title>
 
 <para>
-This section provides instructions on how to make &kontact; 
+This section provides instructions on how to make &kontact;
 behave more like other groupware clients.
 </para>
 
@@ -1019,7 +1019,7 @@ CC: or BCC: fields separated by a semicolon (';') character in addition
 to a comma (',').  By default, &kontact; only allows the comma as an address
 separator character.  To also allow the semicolon, change the
 <option>AllowSemicolonAsAddressSeparator</option> from false to true
-in the installed <filename>share/config.kcfg/messagecomposer.kcfg</filename> file. 
+in the installed <filename>share/config.kcfg/messagecomposer.kcfg</filename> file.
 </para>
 
 </sect2>
@@ -1044,7 +1044,7 @@ the low-levels libraries used by &kontact;:</para>
 <listitem>
 <para>
 When writing duration values into iCalendar files, &kontact; never
-writes the DURATION property in terms of weeks (i.e., 1*DIGIT "W"); 
+writes the DURATION property in terms of weeks (i.e., 1*DIGIT "W");
 instead, the integer number of weeks is always multiplied by 7 and written
 in terms of days (i.e. 1*DIGIT "D").
 </para>
