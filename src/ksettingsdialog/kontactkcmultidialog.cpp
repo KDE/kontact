@@ -355,15 +355,15 @@ void KontactKCMultiDialog::slotHelpClicked()
     QString docPath;
     for (int i = 0; i < d->modules.count(); ++i) {
         if (d->modules[i].item == item) {
-            docPath = d->modules[i].kcm->metaData().value(QStringLiteral("X-DocPath"));
+            docPath = d->modules[i].kcm->metaData().value(u"X-DocPath"_s);
             break;
         }
     }
 
-    const QUrl docUrl = QUrl(QStringLiteral("help:/")).resolved(QUrl(docPath)); // same code as in KHelpClient::invokeHelp
+    const QUrl docUrl = QUrl(u"help:/"_s).resolved(QUrl(docPath)); // same code as in KHelpClient::invokeHelp
     const QString docUrlScheme = docUrl.scheme();
     if (docUrlScheme == QLatin1StringView("help") || docUrlScheme == "man"_L1 || docUrlScheme == "info"_L1) {
-        const KService::Ptr service = KService::serviceByDesktopName(QStringLiteral("khelpcenter"));
+        const KService::Ptr service = KService::serviceByDesktopName(u"khelpcenter"_s);
         if (service) {
             auto job = new KIO::ApplicationLauncherJob(service);
             job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));

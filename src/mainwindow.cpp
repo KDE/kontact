@@ -111,7 +111,7 @@ MainWindow::MainWindow()
     cidScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
     QWebEngineUrlScheme::registerScheme(cidScheme);
 
-    QDBusConnection::sessionBus().registerObject(QStringLiteral("/KontactInterface"), this, QDBusConnection::ExportScriptableSlots);
+    QDBusConnection::sessionBus().registerObject(u"/KontactInterface"_s, this, QDBusConnection::ExportScriptableSlots);
 
     initGUI();
     initObject();
@@ -119,9 +119,9 @@ MainWindow::MainWindow()
     mSidePane->setMaximumWidth(mSidePane->sizeHint().width());
     mSidePane->setMinimumWidth(mSidePane->sizeHint().width());
 
-    factory()->plugActionList(this, QStringLiteral("navigator_actionlist"), mActionPlugins);
+    factory()->plugActionList(this, u"navigator_actionlist"_s, mActionPlugins);
 
-    KConfigGroup grp(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
+    KConfigGroup grp(KSharedConfig::openConfig(), u"MainWindow"_s);
     KWindowConfig::restoreWindowSize(windowHandle(), grp);
     setAutoSaveSettings();
     mShowMenuBarAction->setChecked(Prefs::self()->showMenuBar());
@@ -135,7 +135,7 @@ void MainWindow::initGUI()
 
     KStandardActions::keyBindings(this, &MainWindow::configureShortcuts, actionCollection());
     KStandardActions::configureToolbars(this, &MainWindow::configureToolbars, actionCollection());
-    setXMLFile(QStringLiteral("kontactui.rc"));
+    setXMLFile(u"kontactui.rc"_s);
 
     setStandardToolBarMenuEnabled(true);
 
@@ -165,8 +165,8 @@ void MainWindow::initObject()
             qFatal("KSycoca unavailable. Kontact will be unable to find plugins.");
         }
     }
-    mPluginMetaData = KPluginMetaData::findPlugins(QStringLiteral("pim6/kontact"), [](const KPluginMetaData &data) {
-        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+    mPluginMetaData = KPluginMetaData::findPlugins(u"pim6/kontact"_s, [](const KPluginMetaData &data) {
+        return data.rawData().value(u"X-KDE-KontactPluginVersion"_s).toInt() == KONTACT_PLUGIN_VERSION;
     });
 
     // prepare the part manager
@@ -195,14 +195,14 @@ void MainWindow::initObject()
         selectPlugin(mCurrentPlugin);
     }
 
-    paintAboutScreen(QStringLiteral("introduction_kontact.html"), introductionData());
+    paintAboutScreen(u"introduction_kontact.html"_s, introductionData());
     Prefs::setLastVersionSeen(KAboutData::applicationData().version());
 }
 
 MainWindow::~MainWindow()
 {
     if (mCurrentPlugin) {
-        KConfigGroup grp(KSharedConfig::openConfig()->group(QStringLiteral("MainWindow%1").arg(mCurrentPlugin->identifier())));
+        KConfigGroup grp(KSharedConfig::openConfig()->group(u"MainWindow%1"_s.arg(mCurrentPlugin->identifier())));
         saveMainWindowSettings(grp);
     }
 
@@ -281,7 +281,7 @@ void MainWindow::initWidgets()
 
     initAboutScreen();
 
-    paintAboutScreen(QStringLiteral("loading_kontact.html"), QVariantHash());
+    paintAboutScreen(u"loading_kontact.html"_s, QVariantHash());
 
     auto progressStatusBarWidget = new KPIM::ProgressStatusBarWidget(statusBar(), this);
 
@@ -297,12 +297,12 @@ void MainWindow::initWidgets()
 
 void MainWindow::paintAboutScreen(const QString &templateName, const QVariantHash &data)
 {
-    GrantleeTheme::ThemeManager manager(QStringLiteral("splashPage"), QStringLiteral("splash.theme"), nullptr, QStringLiteral("messageviewer/about/"));
-    GrantleeTheme::Theme theme = manager.theme(QStringLiteral("default"));
+    GrantleeTheme::ThemeManager manager(u"splashPage"_s, u"splash.theme"_s, nullptr, QStringLiteral("messageviewer/about/"));
+    GrantleeTheme::Theme theme = manager.theme(u"default"_s);
     if (!theme.isValid()) {
         qCDebug(KONTACT_LOG) << "Theme error: failed to find splash theme";
     } else {
-        mIntroPart->setHtml(theme.render(templateName, data, QByteArrayLiteral("kontact")), QUrl::fromLocalFile(theme.absolutePath() + QLatin1Char('/')));
+        mIntroPart->setHtml(theme.render(templateName, data, QByteArrayLiteral("kontact")), QUrl::fromLocalFile(theme.absolutePath() + u'/'));
     }
 }
 
@@ -323,28 +323,28 @@ void MainWindow::setupActions()
     KStandardActions::quit(this, &MainWindow::slotQuit, actionCollection());
 
     mNewActions = new KActionMenu(i18nc("@title:menu create new pim items (message,calendar,to-do,etc.)", "New"), this);
-    actionCollection()->addAction(QStringLiteral("action_new"), mNewActions);
+    actionCollection()->addAction(u"action_new"_s, mNewActions);
     actionCollection()->setDefaultShortcuts(mNewActions, KStandardShortcut::openNew());
     connect(mNewActions, &KActionMenu::triggered, this, &MainWindow::slotNewClicked);
 
-    auto action = new QAction(QIcon::fromTheme(QStringLiteral("configure")), i18nc("@action:inmenu", "Configure Kontact..."), this);
+    auto action = new QAction(QIcon::fromTheme(u"configure"_s), i18nc("@action:inmenu", "Configure Kontact..."), this);
     setHelpText(action, i18nc("@info:status", "Configure Kontact"));
     action->setWhatsThis(i18nc("@info:whatsthis", "You will be presented with a dialog where you can configure Kontact."));
-    actionCollection()->addAction(QStringLiteral("settings_configure_kontact"), action);
+    actionCollection()->addAction(u"settings_configure_kontact"_s, action);
     connect(action, &QAction::triggered, this, &MainWindow::slotPreferences);
 
-    action = new QAction(QIcon::fromTheme(QStringLiteral("kontact")), i18nc("@action:inmenu", "&Kontact Introduction"), this);
+    action = new QAction(QIcon::fromTheme(u"kontact"_s), i18nc("@action:inmenu", "&Kontact Introduction"), this);
     setHelpText(action, i18nc("@info:status", "Show the Kontact Introduction page"));
     action->setWhatsThis(i18nc("@info:whatsthis", "Choose this option to see the Kontact Introduction page."));
-    actionCollection()->addAction(QStringLiteral("help_introduction"), action);
+    actionCollection()->addAction(u"help_introduction"_s, action);
     connect(action, &QAction::triggered, this, &MainWindow::slotShowIntroduction);
 
-    mShowHideAction = new QAction(QIcon::fromTheme(QStringLiteral("zoom-fit-width")), i18nc("@action:inmenu", "Show Sidebar"), this);
+    mShowHideAction = new QAction(QIcon::fromTheme(u"zoom-fit-width"_s), i18nc("@action:inmenu", "Show Sidebar"), this);
     setHelpText(mShowHideAction, i18nc("@info:status", "Hide/Show the component sidebar"));
     mShowHideAction->setCheckable(true);
     mShowHideAction->setChecked(Prefs::self()->sideBarOpen());
     mShowHideAction->setWhatsThis(i18nc("@info:whatsthis", "Allows you to show or hide the component sidebar as desired."));
-    actionCollection()->addAction(QStringLiteral("hide_show_sidebar"), mShowHideAction);
+    actionCollection()->addAction(u"hide_show_sidebar"_s, mShowHideAction);
     actionCollection()->setDefaultShortcut(mShowHideAction, QKeySequence(Qt::Key_F9));
     connect(mShowHideAction, &QAction::triggered, this, &MainWindow::slotShowHideSideBar);
 
@@ -353,19 +353,19 @@ void MainWindow::setupActions()
     connect(mShowFullScreenAction, &QAction::toggled, this, &MainWindow::slotFullScreen);
 
     auto manager = KColorSchemeManager::instance();
-    actionCollection()->addAction(QStringLiteral("colorscheme_menu"), KColorSchemeMenu::createMenu(manager, this));
+    actionCollection()->addAction(u"colorscheme_menu"_s, KColorSchemeMenu::createMenu(manager, this));
 
     mShowMenuBarAction = KStandardAction::showMenubar(this, &MainWindow::slotToggleMenubar, actionCollection());
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
 #if KONTACT_STABLE_VERSION
-    const QString url = QStringLiteral("https://cdn.kde.org/ci-builds/pim/kontact/25.04/windows/");
+    const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/25.04/windows/"_s;
 #else
-    const QString url = QStringLiteral("https://cdn.kde.org/ci-builds/pim/kontact/master/windows/");
+    const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/master/windows/"_s;
 #endif
     mVerifyNewVersionWidget->addOsUrlInfo(PimCommon::VerifyNewVersionWidget::OsVersion::Windows, url);
     auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
-    actionCollection()->addAction(QStringLiteral("verify_check_version"), verifyNewVersionAction);
+    actionCollection()->addAction(u"verify_check_version"_s, verifyNewVersionAction);
 #endif
 }
 
@@ -382,7 +382,7 @@ void MainWindow::slotToggleMenubar(bool dontShowWarning)
                                               " You can show it again by typing %1.</qt>",
                                               accel),
                                          i18nc("@title:window", "Hide menu bar"),
-                                         QStringLiteral("HideMenuBarWarning"));
+                                         u"HideMenuBarWarning"_s);
             }
             menuBar()->hide();
         }
@@ -422,7 +422,7 @@ KontactInterface::Plugin *MainWindow::pluginFromName(const QString &identifier) 
 void MainWindow::loadPlugins()
 {
     QList<KontactInterface::Plugin *> plugins;
-    KConfigGroup configGroup(Prefs::self()->config(), QStringLiteral("Plugins"));
+    KConfigGroup configGroup(Prefs::self()->config(), u"Plugins"_s);
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
         if (!configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
             continue;
@@ -450,17 +450,17 @@ void MainWindow::loadPlugins()
         plugin->setTitle(pluginMetaData.name());
         plugin->setIcon(pluginMetaData.iconName());
 
-        const QString libNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartLibraryName"));
-        const QString exeNameProp = pluginMetaData.value(QStringLiteral("X-KDE-KontactPartExecutableName"));
+        const QString libNameProp = pluginMetaData.value(u"X-KDE-KontactPartLibraryName"_s);
+        const QString exeNameProp = pluginMetaData.value(u"X-KDE-KontactPartExecutableName"_s);
 
         if (pluginMetaData.rawData().contains("X-KDE-KontactPartLoadOnStart"_L1)) {
-            const bool loadOnStart = pluginMetaData.rawData().value(QStringLiteral("X-KDE-KontactPartLoadOnStart")).toBool();
+            const bool loadOnStart = pluginMetaData.rawData().value(u"X-KDE-KontactPartLoadOnStart"_s).toBool();
             if (loadOnStart) {
                 mDelayedPreload.append(plugin);
             }
         }
         if (pluginMetaData.rawData().contains("X-KDE-KontactPluginHasPart"_L1)) {
-            const bool hasPartProp = pluginMetaData.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
+            const bool hasPartProp = pluginMetaData.rawData().value(u"X-KDE-KontactPluginHasPart"_s).toBool();
             plugin->setShowInSideBar(hasPartProp);
         } else {
             plugin->setShowInSideBar(true);
@@ -499,7 +499,7 @@ void MainWindow::unloadDisabledPlugins()
 {
     // Only remove the now-disabled plugins.
     // Keep the other ones. loadPlugins() will skip those that are already loaded.
-    KConfigGroup configGroup(Prefs::self()->config(), QStringLiteral("Plugins"));
+    KConfigGroup configGroup(Prefs::self()->config(), u"Plugins"_s);
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
         if (!configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
             removePlugin(pluginMetaData.pluginId());
@@ -511,7 +511,7 @@ void MainWindow::updateShortcuts()
 {
     for (int i = 0, total = mActionPlugins.count(); i < total; ++i) {
         QAction *action = mActionPlugins.at(i);
-        const QKeySequence shortcut(QStringLiteral("Ctrl+%1").arg(mActionPlugins.count() - i));
+        const QKeySequence shortcut(u"Ctrl+%1"_s.arg(mActionPlugins.count() - i));
         actionCollection()->setDefaultShortcut(action, shortcut);
         // Prevent plugActionList from restoring some old saved shortcuts
         action->setProperty("_k_DefaultShortcut", QVariant::fromValue(QList<QKeySequence>{shortcut}));
@@ -531,7 +531,7 @@ bool MainWindow::removePlugin(const QString &pluginName)
     KontactInterface::Plugin *plugin = *it;
     const QList<QAction *> actionList = plugin->newActions();
     for (QAction *action : actionList) {
-        qCDebug(KONTACT_LOG) << QStringLiteral("Unplugging New actions") << action->objectName();
+        qCDebug(KONTACT_LOG) << u"Unplugging New actions"_s << action->objectName();
         mNewActions->removeAction(action);
     }
 
@@ -610,7 +610,7 @@ void MainWindow::slotActivePartChanged(KParts::Part *part)
         return;
     }
 
-    qCDebug(KONTACT_LOG) << QStringLiteral("Part activated:") << part << QStringLiteral("with stack id.") << mPartsStack->indexOf(part->widget());
+    qCDebug(KONTACT_LOG) << u"Part activated:"_s << part << u"with stack id."_s << mPartsStack->indexOf(part->widget());
 
     statusBar()->clearMessage();
 }
@@ -650,7 +650,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
     if (mCurrentPlugin) {
-        KConfigGroup grp = KSharedConfig::openConfig()->group(QStringLiteral("MainWindow%1").arg(mCurrentPlugin->identifier()));
+        KConfigGroup grp = KSharedConfig::openConfig()->group(u"MainWindow%1"_s.arg(mCurrentPlugin->identifier()));
         saveMainWindowSettings(grp);
     }
 
@@ -658,7 +658,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
 
     if (!part) {
         QApplication::restoreOverrideCursor();
-        KMessageBox::error(this, i18nc("@info", "Cannot load part for %1.", plugin->title()) + QLatin1Char('\n') + lastErrorMessage());
+        KMessageBox::error(this, i18nc("@info", "Cannot load part for %1.", plugin->title()) + u'\n' + lastErrorMessage());
         plugin->setDisabled(true);
         mSidePane->updatePlugins();
         return;
@@ -754,7 +754,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
         addToolBar(toolBarArea(navigatorToolBar), navigatorToolBar);
     }
 
-    applyMainWindowSettings(KSharedConfig::openConfig()->group(QStringLiteral("MainWindow%1").arg(plugin->identifier())));
+    applyMainWindowSettings(KSharedConfig::openConfig()->group(u"MainWindow%1"_s.arg(plugin->identifier())));
 
     QApplication::restoreOverrideCursor();
 }
@@ -822,14 +822,14 @@ void MainWindow::slotPreferences()
         });
 
         // Add the main contact KCM which is not associated with a specific plugin
-        dlg->addModule(KPluginMetaData(QStringLiteral("pim6/kcms/kontact/kcm_kontact")));
+        dlg->addModule(KPluginMetaData(u"pim6/kcms/kontact/kcm_kontact"_s));
 
         auto sortByWeight = [](const KPluginMetaData &m1, const KPluginMetaData &m2) {
-            return m1.rawData().value(QStringLiteral("X-KDE-Weight")).toInt() < m2.rawData().value(QStringLiteral("X-KDE-Weight")).toInt();
+            return m1.rawData().value(u"X-KDE-Weight"_s).toInt() < m2.rawData().value(u"X-KDE-Weight"_s).toInt();
         };
         std::sort(mPluginMetaData.begin(), mPluginMetaData.end(), sortByWeight);
         for (const KPluginMetaData &metaData : std::as_const(mPluginMetaData)) {
-            const QString pluginNamespace = metaData.value(QStringLiteral("X-KDE-ConfigModuleNamespace"));
+            const QString pluginNamespace = metaData.value(u"X-KDE-ConfigModuleNamespace"_s);
             if (!pluginNamespace.isEmpty()) {
                 auto plugins = KPluginMetaData::findPlugins(pluginNamespace);
                 std::sort(plugins.begin(), plugins.end(), sortByWeight);
@@ -844,11 +844,11 @@ void MainWindow::slotPreferences()
 // Called when the user enables/disables plugins in the configuration dialog
 void MainWindow::pluginsChanged()
 {
-    unplugActionList(QStringLiteral("navigator_actionlist"));
+    unplugActionList(u"navigator_actionlist"_s);
     unloadDisabledPlugins();
     loadPlugins();
     mSidePane->updatePlugins();
-    factory()->plugActionList(this, QStringLiteral("navigator_actionlist"), mActionPlugins);
+    factory()->plugActionList(this, u"navigator_actionlist"_s, mActionPlugins);
 }
 
 void MainWindow::updateConfig()
@@ -877,7 +877,7 @@ void MainWindow::configureShortcuts()
 void MainWindow::configureToolbars()
 {
     if (mCurrentPlugin) {
-        KConfigGroup grp(KSharedConfig::openConfig()->group(QStringLiteral("MainWindow%1").arg(mCurrentPlugin->identifier())));
+        KConfigGroup grp(KSharedConfig::openConfig()->group(u"MainWindow%1"_s.arg(mCurrentPlugin->identifier())));
         saveMainWindowSettings(grp);
     }
     QPointer<KEditToolBar> edit = new KEditToolBar(factory());
@@ -892,9 +892,9 @@ void MainWindow::slotNewToolbarConfig()
         createGUI(mCurrentPlugin->part());
     }
     if (mCurrentPlugin) {
-        applyMainWindowSettings(KSharedConfig::openConfig()->group(QStringLiteral("MainWindow%1").arg(mCurrentPlugin->identifier())));
+        applyMainWindowSettings(KSharedConfig::openConfig()->group(u"MainWindow%1"_s.arg(mCurrentPlugin->identifier())));
     }
-    factory()->plugActionList(this, QStringLiteral("navigator_actionlist"), mActionPlugins);
+    factory()->plugActionList(this, u"navigator_actionlist"_s, mActionPlugins);
 }
 
 void MainWindow::slotOpenUrl(const QUrl &url)
@@ -906,12 +906,12 @@ void MainWindow::slotOpenUrl(const QUrl &url)
                 mPartsStack->setCurrentIndex(mPartsStack->indexOf(mCurrentPlugin->part()->widget()));
             }
         } else if (path == "/accountwizard"_L1) {
-            auto job = new KIO::CommandLauncherJob(QStringLiteral("accountwizard"));
+            auto job = new KIO::CommandLauncherJob(u"accountwizard"_s);
             job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
             job->exec();
             slotQuit();
         } else if (path.startsWith("/help"_L1)) {
-            QString app(QStringLiteral("org.kde.kontact"));
+            QString app(u"org.kde.kontact"_s);
             if (!url.query().isEmpty()) {
                 app = url.query();
             }
@@ -945,7 +945,7 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
     QStringList activePlugins;
 
-    KConfigGroup configGroup(Prefs::self()->config(), QStringLiteral("Plugins"));
+    KConfigGroup configGroup(Prefs::self()->config(), u"Plugins"_s);
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
         if (!configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
             KontactInterface::Plugin *plugin = pluginFromName(pluginMetaData.pluginId());
@@ -987,24 +987,24 @@ void MainWindow::slotShowStatusMsg(const QString &msg)
 QVariantHash MainWindow::introductionData()
 {
     QVariantHash data;
-    data[QStringLiteral("icon")] = QStringLiteral("kontact");
-    data[QStringLiteral("name")] = i18n("Kontact");
-    data[QStringLiteral("subtitle")] = i18n("The KDE Personal Information Management Suite.");
-    data[QStringLiteral("version")] = KAboutData::applicationData().version();
+    data[u"icon"_s] = u"kontact"_s;
+    data[u"name"_s] = i18n("Kontact");
+    data[u"subtitle"_s] = i18n("The KDE Personal Information Management Suite.");
+    data[u"version"_s] = KAboutData::applicationData().version();
 
-    QVariantList links = {QVariantHash{{QStringLiteral("url"), QStringLiteral("exec:/help?org.kde.kontact")},
-                                       {QStringLiteral("icon"), QStringLiteral("help-contents")},
-                                       {QStringLiteral("title"), i18n("Read Manual")},
-                                       {QStringLiteral("subtext"), i18n("Learn more about Kontact and its components")}},
-                          QVariantHash{{QStringLiteral("url"), QStringLiteral("https://kontact.kde.org")},
-                                       {QStringLiteral("icon"), QStringLiteral("kontact")},
-                                       {QStringLiteral("title"), i18n("Visit Kontact Website")},
-                                       {QStringLiteral("subtext"), i18n("Access online resources and tutorials")}},
-                          QVariantHash{{QStringLiteral("url"), QStringLiteral("exec:/accountwizard")},
-                                       {QStringLiteral("icon"), QStringLiteral("tools-wizard")},
-                                       {QStringLiteral("title"), i18n("Setup your Accounts")},
-                                       {QStringLiteral("subtext"), i18n("Prepare Kontact for use")}}};
-    data[QStringLiteral("links")] = links;
+    QVariantList links = {QVariantHash{{u"url"_s, u"exec:/help?org.kde.kontact"_s},
+                                       {u"icon"_s, u"help-contents"_s},
+                                       {u"title"_s, i18n("Read Manual")},
+                                       {u"subtext"_s, i18n("Learn more about Kontact and its components")}},
+                          QVariantHash{{u"url"_s, u"https://kontact.kde.org"_s},
+                                       {u"icon"_s, u"kontact"_s},
+                                       {u"title"_s, i18n("Visit Kontact Website")},
+                                       {u"subtext"_s, i18n("Access online resources and tutorials")}},
+                          QVariantHash{{u"url"_s, u"exec:/accountwizard"_s},
+                                       {u"icon"_s, u"tools-wizard"_s},
+                                       {u"title"_s, i18n("Setup your Accounts")},
+                                       {u"subtext"_s, i18n("Prepare Kontact for use")}}};
+    data[u"links"_s] = links;
 
     return data;
 }

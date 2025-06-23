@@ -58,9 +58,9 @@ KcmKontact::KcmKontact(QObject *parent, const KPluginMetaData &data)
 
 void KcmKontact::load()
 {
-    const KConfigGroup grp(Prefs::self()->config(), QStringLiteral("Plugins"));
-    const QList<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(QStringLiteral("pim6/kontact"), [](const KPluginMetaData &data) {
-        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+    const KConfigGroup grp(Prefs::self()->config(), u"Plugins"_s);
+    const QList<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(u"pim6/kontact"_s, [](const KPluginMetaData &data) {
+        return data.rawData().value(u"X-KDE-KontactPluginVersion"_s).toInt() == KONTACT_PLUGIN_VERSION;
     });
 
     int activeComponent = 0;
@@ -69,7 +69,7 @@ void KcmKontact::load()
     for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins
         if (plugin.rawData().contains("X-KDE-KontactPluginHasPart"_L1)) {
-            bool var = plugin.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
+            bool var = plugin.rawData().value(u"X-KDE-KontactPluginHasPart"_s).toBool();
 
             if (!var) {
                 continue;
@@ -81,7 +81,7 @@ void KcmKontact::load()
 
         // skip disabled plugins
         const QString pluginName = plugin.pluginId();
-        if (!grp.readEntry(pluginName + QStringLiteral("Enabled"), true)) {
+        if (!grp.readEntry(pluginName + u"Enabled"_s, true)) {
             const QStandardItemModel *qsm = qobject_cast<QStandardItemModel *>(mPluginCombo->model());
             if (qsm) {
                 qsm->item(mPluginCombo->count() - 1, 0)->setEnabled(false);

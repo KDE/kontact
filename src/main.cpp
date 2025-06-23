@@ -74,14 +74,14 @@ private:
 
 static void listPlugins()
 {
-    const QList<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(QStringLiteral("pim6/kontact"), [](const KPluginMetaData &data) {
-        return data.rawData().value(QStringLiteral("X-KDE-KontactPluginVersion")).toInt() == KONTACT_PLUGIN_VERSION;
+    const QList<KPluginMetaData> pluginMetaDatas = KPluginMetaData::findPlugins(u"pim6/kontact"_s, [](const KPluginMetaData &data) {
+        return data.rawData().value(u"X-KDE-KontactPluginVersion"_s).toInt() == KONTACT_PLUGIN_VERSION;
     });
 
     for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins
         if (plugin.rawData().contains("X-KDE-KontactPluginHasPart"_L1)) {
-            bool var = plugin.rawData().value(QStringLiteral("X-KDE-KontactPluginHasPart")).toBool();
+            bool var = plugin.rawData().value(u"X-KDE-KontactPluginHasPart"_s).toBool();
 
             if (!var) {
                 continue;
@@ -94,9 +94,9 @@ static void listPlugins()
 
 static void loadCommandLineOptions(QCommandLineParser *parser)
 {
-    parser->addOption(QCommandLineOption(QStringLiteral("module"), i18nc("@info:shell", "Start with a specific Kontact module"), QStringLiteral("module")));
-    parser->addOption(QCommandLineOption(QStringLiteral("iconify"), i18nc("@info:shell", "Start in iconified (minimized) mode")));
-    parser->addOption(QCommandLineOption(QStringLiteral("list"), i18nc("@info:shell", "List all possible modules and exit")));
+    parser->addOption(QCommandLineOption(u"module"_s, i18nc("@info:shell", "Start with a specific Kontact module"), u"module"_s));
+    parser->addOption(QCommandLineOption(u"iconify"_s, i18nc("@info:shell", "Start in iconified (minimized) mode")));
+    parser->addOption(QCommandLineOption(u"list"_s, i18nc("@info:shell", "List all possible modules and exit")));
 }
 
 int KontactApp::activate(const QStringList &args, const QString &workingDir)
@@ -111,8 +111,8 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
     if (Prefs::self()->forceStartupPlugin()) {
         moduleName = Prefs::self()->forcedStartupPlugin();
     }
-    if (parser.isSet(QStringLiteral("module"))) {
-        moduleName = parser.value(QStringLiteral("module"));
+    if (parser.isSet(u"module"_s)) {
+        moduleName = parser.value(u"module"_s);
     }
     if (!mSessionRestored) {
         if (!mMainWindow) {
@@ -124,7 +124,7 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
             KontactInterface::UniqueAppHandler::setMainWidget(mMainWindow);
             // --iconify is needed in kontact, although kstart can do that too,
             // because kstart returns immediately so it's too early to talk D-Bus to the app.
-            if (parser.isSet(QStringLiteral("iconify"))) {
+            if (parser.isSet(u"iconify"_s)) {
                 mMainWindow->windowHandle()->showMinimized();
             }
         } else {
@@ -137,7 +137,7 @@ int KontactApp::activate(const QStringList &args, const QString &workingDir)
     }
 
     // Start KOrgac in case it's wasn't started on session start.
-    QDBusConnection::sessionBus().interface()->startService(QStringLiteral("org.kde.kalendarac"));
+    QDBusConnection::sessionBus().interface()->startService(u"org.kde.kalendarac"_s);
 
     // Handle startup notification and window activation
     // (The first time it will do nothing except note that it was called)
@@ -151,32 +151,32 @@ int main(int argc, char **argv)
     KontactApp app(argc, &argv);
 
     KStyleManager::initStyle();
-    KAboutData about(QStringLiteral("kontact"),
+    KAboutData about(u"kontact"_s,
                      i18n("Kontact"),
                      QLatin1StringView(version),
                      i18n("KDE personal information manager"),
                      KAboutLicense::GPL,
-                     i18n("Copyright © 2001–%1 Kontact authors", QStringLiteral("2025")),
+                     i18n("Copyright © 2001–%1 Kontact authors", u"2025"_s),
                      QString(),
-                     QStringLiteral("https://userbase.kde.org/Kontact"));
+                     u"https://userbase.kde.org/Kontact"_s);
 
-    about.addAuthor(i18nc("@info:credit", "Allen Winter"), QString(), QStringLiteral("winter@kde.org"));
-    about.addAuthor(i18nc("@info:credit", "Rafael Fernández López"), QString(), QStringLiteral("ereslibre@kde.org"));
-    about.addAuthor(i18nc("@info:credit", "Daniel Molkentin"), QString(), QStringLiteral("molkentin@kde.org"));
-    about.addAuthor(i18nc("@info:credit", "Don Sanders"), QString(), QStringLiteral("sanders@kde.org"));
-    about.addAuthor(i18nc("@info:credit", "Cornelius Schumacher"), QString(), QStringLiteral("schumacher@kde.org"));
-    about.addAuthor(i18nc("@info:credit", "Tobias K\303\266nig"), QString(), QStringLiteral("tokoe@kde.org"));
-    about.addAuthor(i18nc("@info:credit", "David Faure"), QString(), QStringLiteral("faure@kde.org"));
-    about.addAuthor(i18nc("@info:credit", "Ingo Kl\303\266cker"), QString(), QStringLiteral("kloecker@kde.org"));
-    about.addAuthor(i18nc("@info:credit", "Sven L\303\274ppken"), QString(), QStringLiteral("sven@kde.org"));
-    about.addAuthor(i18nc("@info:credit", "Zack Rusin"), QString(), QStringLiteral("zack@kde.org"));
-    about.addAuthor(i18nc("@info:credit", "Matthias Hoelzer-Kluepfel"), i18n("Original Author"), QStringLiteral("mhk@kde.org"));
-    about.addCredit(i18nc("@info:credit", "Torgny Nyblom"), i18n("Git Migration"), QStringLiteral("nyblom@kde.org"));
+    about.addAuthor(i18nc("@info:credit", "Allen Winter"), QString(), u"winter@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "Rafael Fernández López"), QString(), u"ereslibre@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "Daniel Molkentin"), QString(), u"molkentin@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "Don Sanders"), QString(), u"sanders@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "Cornelius Schumacher"), QString(), u"schumacher@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "Tobias K\303\266nig"), QString(), u"tokoe@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "David Faure"), QString(), u"faure@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "Ingo Kl\303\266cker"), QString(), u"kloecker@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "Sven L\303\274ppken"), QString(), u"sven@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "Zack Rusin"), QString(), u"zack@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "Matthias Hoelzer-Kluepfel"), i18n("Original Author"), u"mhk@kde.org"_s);
+    about.addCredit(i18nc("@info:credit", "Torgny Nyblom"), i18n("Git Migration"), u"nyblom@kde.org"_s);
     app.setAboutData(about);
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kontact")));
-    app.setDesktopFileName(QStringLiteral("org.kde.kontact"));
+    app.setWindowIcon(QIcon::fromTheme(u"kontact"_s));
+    app.setDesktopFileName(u"org.kde.kontact"_s);
 
-    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kontact")));
+    QApplication::setWindowIcon(QIcon::fromTheme(u"kontact"_s));
     KCrash::initialize();
 
     QCommandLineParser *cmdArgs = app.cmdArgs();
@@ -186,7 +186,7 @@ int main(int argc, char **argv)
     cmdArgs->process(args);
     about.processCommandLine(cmdArgs);
 
-    if (cmdArgs->isSet(QStringLiteral("list"))) {
+    if (cmdArgs->isSet(u"list"_s)) {
         listPlugins();
         return 0;
     }

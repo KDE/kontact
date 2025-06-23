@@ -12,6 +12,7 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QPushButton>
+using namespace Qt::StringLiterals;
 
 using namespace Kontact;
 namespace
@@ -36,10 +37,10 @@ KontactConfigureDialog::~KontactConfigureDialog()
 void KontactConfigureDialog::emitConfigChanged()
 {
     // Add code from plugins which needs to be call when we close kontact dialog config
-    QDBusInterface kmailIface(QStringLiteral("org.kde.kmail"), QStringLiteral("/KMail"), QStringLiteral("org.kde.kmail.kmail"), QDBusConnection::sessionBus());
+    QDBusInterface kmailIface(u"org.kde.kmail"_s, u"/KMail"_s, QStringLiteral("org.kde.kmail.kmail"), QDBusConnection::sessionBus());
     if (kmailIface.isValid()) {
         QDBusReply<void> reply;
-        if (!(reply = kmailIface.call(QStringLiteral("updateConfig"))).isValid()) {
+        if (!(reply = kmailIface.call(u"updateConfig"_s)).isValid()) {
             const QDBusError err = kmailIface.lastError();
             qCritical() << "Communication problem with KMail. "
                         << "Error message was:" << err.name() << ": \"" << err.message() << "\"";
