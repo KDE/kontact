@@ -1,7 +1,7 @@
-set(PIM_VERSION "6.4.80")
+set(PIM_VERSION "6.4.90")
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "25.07.80")
+set(RELEASE_SERVICE_VERSION "25.07.90")
 
 # Use true if stable version => we will check specific version
 set(KONTACT_STABLE_VERSION false)
@@ -54,7 +54,7 @@ include(ECMFeatureSummary)
 include(ECMCheckOutboundLicense)
 
 # Do NOT add quote
-set(KDEPIM_DEV_VERSION beta)
+set(KDEPIM_DEV_VERSION rc)
 
 # add an extra space
 if(DEFINED KDEPIM_DEV_VERSION)
