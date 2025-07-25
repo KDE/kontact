@@ -359,7 +359,7 @@ void MainWindow::setupActions()
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
 #if KONTACT_STABLE_VERSION
-    const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/25.04/windows/"_s;
+    const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/25.08/windows/"_s;
 #else
     const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/master/windows/"_s;
 #endif
