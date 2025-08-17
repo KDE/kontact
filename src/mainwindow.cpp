@@ -617,7 +617,7 @@ void MainWindow::slotActivePartChanged(KParts::Part *part)
 
 void MainWindow::slotNewClicked()
 {
-    if (!mCurrentPlugin || !mCurrentPlugin->newActions().isEmpty()) {
+    if (mCurrentPlugin && !mCurrentPlugin->newActions().isEmpty()) {
         mCurrentPlugin->newActions().at(0)->trigger();
     } else {
         for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
