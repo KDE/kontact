@@ -74,7 +74,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr ""
-"Seleccioneu esta opció si voleu que els elements de la barra lateral tinguen "
+"Trieu esta opció si voleu que els elements de la barra lateral tinguen "
 "icones sense text."
 
 #: src/iconsidepane.cpp:271
@@ -95,8 +95,8 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr ""
-"Seleccioneu esta opció si voleu que els elements de la barra lateral tinguen "
-"text sense icones."
+"Trieu esta opció si voleu que els elements de la barra lateral tinguen text "
+"sense icones."
 
 #: src/iconsidepane.cpp:278
 #, kde-format
@@ -116,7 +116,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr ""
-"Seleccioneu esta opció si voleu que els elements de la barra lateral tinguen "
+"Trieu esta opció si voleu que els elements de la barra lateral tinguen "
 "icones i text."
 
 #: src/iconsidepane.cpp:288
@@ -136,8 +136,8 @@ msgstr "Mostra icones grans en la barra lateral"
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr ""
-"Seleccioneu esta opció si voleu que les icones de la barra lateral siguen "
-"molt grans."
+"Trieu esta opció si voleu que les icones de la barra lateral siguen molt "
+"grans."
 
 #: src/iconsidepane.cpp:295
 #, kde-format
@@ -156,8 +156,8 @@ msgstr "Mostra icones normals en la barra lateral"
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr ""
-"Seleccioneu esta opció si voleu que les icones de la barra lateral siguen de "
-"mida normal."
+"Trieu esta opció si voleu que les icones de la barra lateral siguen de mida "
+"normal."
 
 #: src/iconsidepane.cpp:302
 #, kde-format
@@ -176,8 +176,8 @@ msgstr "Mostra icones xicotetes en la barra lateral"
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr ""
-"Seleccioneu esta opció si voleu que les icones de la barra lateral siguen "
-"molt xicotetes."
+"Trieu esta opció si voleu que les icones de la barra lateral siguen molt "
+"xicotetes."
 
 #: src/iconsidepane.cpp:309
 #, kde-format
@@ -204,7 +204,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select the initial plugin to use on each start"
-msgstr "Seleccioneu el connector inicial que s'ha d'utilitzar en cada inici"
+msgstr "Trieu el connector inicial que s'ha d'utilitzar en cada inici"
 
 #: src/kcmkontact.cpp:39
 #, kde-format
@@ -214,9 +214,9 @@ msgid ""
 "each time Kontact is started. Otherwise, Kontact will restore the last "
 "active plugin from the previous usage."
 msgstr ""
-"Seleccioneu el connector des d'esta llista desplegable que s'utilitzarà com "
-"a connector inicial cada vegada que s'inicie Kontact. En cas contrari, "
-"Kontact restaurarà l'últim connector actiu durant l'últim ús."
+"Trieu el connector des d'esta llista desplegable que s'utilitzarà com a "
+"connector inicial cada vegada que s'inicie Kontact. En cas contrari, Kontact "
+"restaurarà l'últim connector actiu durant l'últim ús."
 
 #. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
 #. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
@@ -470,7 +470,7 @@ msgstr "Mostra la pàgina d'introducció de Kontact"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
-msgstr "Seleccioneu esta opció per a veure la pàgina d'introducció de Kontact."
+msgstr "Trieu esta opció per a veure la pàgina d'introducció de Kontact."
 
 #: src/mainwindow.cpp:342
 #, kde-format
