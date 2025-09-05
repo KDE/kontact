@@ -52,6 +52,7 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMDeprecationSettings)
 include(ECMFeatureSummary)
 include(ECMCheckOutboundLicense)
+set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 
 # Do NOT add quote
 set(KDEPIM_DEV_VERSION alpha)
