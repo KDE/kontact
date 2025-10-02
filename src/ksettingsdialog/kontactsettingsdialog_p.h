@@ -18,7 +18,7 @@ class KontactSettingsDialogPrivate : public KontactKCMultiDialogPrivate
     friend class PageNode;
     Q_DECLARE_PUBLIC(KontactSettingsDialog)
 protected:
-    KontactSettingsDialogPrivate(KontactSettingsDialog *parent);
+    explicit KontactSettingsDialogPrivate(KontactSettingsDialog *parent);
 
     QStringList registeredComponents;
     QList<QPair<KPluginMetaData, QList<KPluginMetaData>>> componentsMetaData;
