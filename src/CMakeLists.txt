@@ -62,6 +62,7 @@ target_link_libraries(
         KPim6::PimCommon
         KPim6::GrantleeTheme
         Qt::WebEngineWidgets
+        KF6::TextAddonsWidgets
 )
 
 set_target_properties(

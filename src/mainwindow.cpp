@@ -72,9 +72,15 @@ using namespace Kontact;
 #include <GrantleeTheme/GrantleeTheme>
 #include <GrantleeTheme/GrantleeThemeManager>
 
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+#include <TextAddonsWidgets/NeedUpdateVersionUtils>
+#include <TextAddonsWidgets/NeedUpdateVersionWidget>
+#include <TextAddonsWidgets/VerifyNewVersionWidget>
+#else
 #include <PimCommon/NeedUpdateVersionUtils>
 #include <PimCommon/NeedUpdateVersionWidget>
 #include <PimCommon/VerifyNewVersionWidget>
+#endif
 
 // signal handler for SIGINT & SIGTERM
 #ifdef Q_OS_UNIX
@@ -260,6 +266,16 @@ void MainWindow::initWidgets()
     mTopWidget->setLayout(layout);
     setCentralWidget(mTopWidget);
 
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+    if (TextAddonsWidgets::NeedUpdateVersionUtils::checkVersion()) {
+        const auto status = TextAddonsWidgets::NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1String(KONTACT_RELEASE_VERSION_DATE), QDate::currentDate());
+        if (status != TextAddonsWidgets::NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
+            auto needUpdateVersionWidget = new TextAddonsWidgets::NeedUpdateVersionWidget(this);
+            layout->addWidget(needUpdateVersionWidget);
+            needUpdateVersionWidget->setObsoleteVersion(status);
+        }
+    }
+#else
     if (PimCommon::NeedUpdateVersionUtils::checkVersion()) {
         const auto status = PimCommon::NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1String(KONTACT_RELEASE_VERSION_DATE), QDate::currentDate());
         if (status != PimCommon::NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
@@ -268,6 +284,7 @@ void MainWindow::initWidgets()
             needUpdateVersionWidget->setObsoleteVersion(status);
         }
     }
+#endif
 
     mSplitter = new QSplitter(mTopWidget);
     connect(mSplitter, &QSplitter::splitterMoved, this, &MainWindow::slotSplitterMoved);
