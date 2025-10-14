@@ -10,6 +10,7 @@
 
 #pragma once
 
+#include "config-kontact.h"
 #include "kontact_export.h"
 #include <KontactInterface/Core>
 #include <KontactInterface/Plugin>
@@ -24,10 +25,17 @@ class KToggleFullScreenAction;
 class KToggleAction;
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+namespace TextAddonsWidgets
+{
+class VerifyNewVersionWidget;
+}
+#else
 namespace PimCommon
 {
 class VerifyNewVersionWidget;
 }
+#endif
 #endif
 
 using PluginList = QList<KontactInterface::Plugin *>;
@@ -137,7 +145,11 @@ private:
     KToggleFullScreenAction *mShowFullScreenAction = nullptr;
     KToggleAction *mShowMenuBarAction = nullptr;
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+    TextAddonsWidgets::VerifyNewVersionWidget *const mVerifyNewVersionWidget;
+#else
     PimCommon::VerifyNewVersionWidget *const mVerifyNewVersionWidget;
+#endif
 #endif
 };
 }

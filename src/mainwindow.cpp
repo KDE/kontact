@@ -92,7 +92,11 @@ using namespace Kontact;
 MainWindow::MainWindow()
     : KontactInterface::Core()
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+    , mVerifyNewVersionWidget(new TextAddonsWidgets::VerifyNewVersionWidget(this))
+#else
     , mVerifyNewVersionWidget(new PimCommon::VerifyNewVersionWidget(this))
+#endif
 #endif
 {
 #ifdef Q_OS_UNIX
@@ -380,7 +384,11 @@ void MainWindow::setupActions()
 #else
     const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/master/windows/"_s;
 #endif
+#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
+    mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::Windows, url);
+#else
     mVerifyNewVersionWidget->addOsUrlInfo(PimCommon::VerifyNewVersionWidget::OsVersion::Windows, url);
+#endif
     auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
     actionCollection()->addAction(u"verify_check_version"_s, verifyNewVersionAction);
 #endif
