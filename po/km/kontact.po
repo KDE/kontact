@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-14 00:43+0000\n"
+"POT-Creation-Date: 2025-10-15 00:43+0000\n"
 "PO-Revision-Date: 2012-06-15 08:06+0700\n"
 "Last-Translator: Sophea <sophea@khmeros.info>\n"
 "Language-Team: Khmer <>\n"
@@ -317,7 +317,7 @@ msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "រាយ​ម៉ូឌុល​ដែល​​មាន​ទាំងអស់ ហើយ​ចេញ"
 
-#: src/main.cpp:155 src/mainwindow.cpp:1008
+#: src/main.cpp:155 src/mainwindow.cpp:1016
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
@@ -426,161 +426,161 @@ msgstr "Torgny Nyblom"
 msgid "Git Migration"
 msgstr "ការ​ប្ដូរ​មក​ Git"
 
-#: src/mainwindow.cpp:305
+#: src/mainwindow.cpp:309
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
 msgstr " កំពុង​ចាប់​ផ្ដើម..."
 
-#: src/mainwindow.cpp:342
+#: src/mainwindow.cpp:346
 #, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
 msgstr "ថ្មី"
 
-#: src/mainwindow.cpp:347
+#: src/mainwindow.cpp:351
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
 msgstr "កំណត់​រចនាសម្ព័ន្ធ Kontact..."
 
-#: src/mainwindow.cpp:348
+#: src/mainwindow.cpp:352
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
 msgstr "កំណត់​រចនាសម្ព័ន្ធ Kontact"
 
-#: src/mainwindow.cpp:349
+#: src/mainwindow.cpp:353
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
 msgstr "អ្នកនឹង​ត្រូវ​បាន​បង្ហាញ​​ដោយ​ប្រអប់​មួយ​ ដែល​អ្នក​អាច​កំណត់​រចនាសម្ព័ន្ធ Kontact."
 
-#: src/mainwindow.cpp:353
+#: src/mainwindow.cpp:357
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
 msgstr "ការ​ណែនាំ​អំពី Kontact"
 
-#: src/mainwindow.cpp:354
+#: src/mainwindow.cpp:358
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
 msgstr "បង្ហាញ​ទំព័រ​ណែនាំ​របស់ Kontact"
 
-#: src/mainwindow.cpp:355
+#: src/mainwindow.cpp:359
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
 msgstr "ជ្រើស​ជម្រើស​នេះ ដើម្បីមើល​ទំព័រ​ណែនាំ​របស់ Kontact"
 
-#: src/mainwindow.cpp:359
+#: src/mainwindow.cpp:363
 #, fuzzy, kde-format
 #| msgid "Show &holidays"
 msgctxt "@action:inmenu"
 msgid "Show Sidebar"
 msgstr "បង្ហាញ​ថ្ងៃ​ឈប់​សម្រាក"
 
-#: src/mainwindow.cpp:360
+#: src/mainwindow.cpp:364
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show the component sidebar"
 msgstr ""
 
-#: src/mainwindow.cpp:363
+#: src/mainwindow.cpp:367
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
 msgstr ""
 
-#: src/mainwindow.cpp:398
+#: src/mainwindow.cpp:406
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: src/mainwindow.cpp:401
+#: src/mainwindow.cpp:409
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr ""
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:592
+#: src/mainwindow.cpp:600
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "ប្តូរ​ទៅ​កម្មវិធី​ជំនួយ​របស់​ %1"
 
-#: src/mainwindow.cpp:662
+#: src/mainwindow.cpp:670
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr "កម្មវិធី​កំពុង​រត់​តែ​ម្នាក់​ឯង ។ កំពុង​រត់​ខាង​មុខ..."
 
-#: src/mainwindow.cpp:678
+#: src/mainwindow.cpp:686
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "មិនអាច​ផ្ទុក​ផ្នែក​សម្រាប់ %1 បាន​ទេ ។"
 
-#: src/mainwindow.cpp:746
+#: src/mainwindow.cpp:754
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
-#: src/mainwindow.cpp:1009
+#: src/mainwindow.cpp:1017
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "The KDE Personal Information Management Suite"
 msgid "The KDE Personal Information Management Suite."
 msgstr "ឈុត​គ្រប់គ្រង​ព័ត៌មាន​ផ្ទាល់ខ្លួន​របស់ KDE"
 
-#: src/mainwindow.cpp:1014
+#: src/mainwindow.cpp:1022
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Read Manual"
 msgid "Read Manual"
 msgstr "អាន​សៀវភៅ​ដៃ"
 
-#: src/mainwindow.cpp:1015
+#: src/mainwindow.cpp:1023
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Learn more about Kontact and its components"
 msgid "Learn more about Kontact and its components"
 msgstr "សិក្សា​បន្ថែមអំពី Kontact និង​សមាសភាព​​របស់​វា"
 
-#: src/mainwindow.cpp:1018
+#: src/mainwindow.cpp:1026
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Visit Kontact Website"
 msgid "Visit Kontact Website"
 msgstr "ទស្សនា​តំបន់​បណ្ដាញ​របស់ Kontact"
 
-#: src/mainwindow.cpp:1019
+#: src/mainwindow.cpp:1027
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Access online resources and tutorials"
 msgid "Access online resources and tutorials"
 msgstr "ចូលដំណើរការ​ធនធាន​​លើបណ្ដាញ​ និង​ការ​បង្រៀន"
 
-#: src/mainwindow.cpp:1022
+#: src/mainwindow.cpp:1030
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Setup your Accounts"
 msgid "Setup your Accounts"
 msgstr "រៀបចំ​គណនី​របស់​អ្នក"
 
-#: src/mainwindow.cpp:1023
+#: src/mainwindow.cpp:1031
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "Prepare Kontact for use"
 msgid "Prepare Kontact for use"
 msgstr "រៀបចំ​ទំនាក់ទំនង​សម្រាប់​ប្រើ"
 
-#: src/mainwindow.cpp:1049
+#: src/mainwindow.cpp:1057
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."

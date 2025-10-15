@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-14 00:43+0000\n"
+"POT-Creation-Date: 2025-10-15 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -311,7 +311,7 @@ msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "सर्वाणि सम्भाव्यमॉड्यूलानि सूचीकृत्य निर्गच्छन्तु"
 
-#: src/main.cpp:155 src/mainwindow.cpp:1008
+#: src/main.cpp:155 src/mainwindow.cpp:1016
 #, kde-format
 msgid "Kontact"
 msgstr "संपर्कः"
@@ -408,73 +408,73 @@ msgstr "टोर्ग्नी न्यब्लोम"
 msgid "Git Migration"
 msgstr "गिट् प्रवासनम्"
 
-#: src/mainwindow.cpp:305
+#: src/mainwindow.cpp:309
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
 msgstr " आरम्भं कुर्वन्..."
 
-#: src/mainwindow.cpp:342
+#: src/mainwindow.cpp:346
 #, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
 msgstr "नूतनम्‌"
 
-#: src/mainwindow.cpp:347
+#: src/mainwindow.cpp:351
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
 msgstr "सम्पर्क विन्यस्तं..."
 
-#: src/mainwindow.cpp:348
+#: src/mainwindow.cpp:352
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
 msgstr "सम्पर्क विन्यस्तं कुर्वन्तु"
 
-#: src/mainwindow.cpp:349
+#: src/mainwindow.cpp:353
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
 msgstr "भवन्तः एकं संवादं प्रस्तुतं भविष्यन्ति यत्र भवन्तः Kontact विन्यस्तुं शक्नुवन्ति ।"
 
-#: src/mainwindow.cpp:353
+#: src/mainwindow.cpp:357
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
 msgstr "&संपर्क परिचय"
 
-#: src/mainwindow.cpp:354
+#: src/mainwindow.cpp:358
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
 msgstr "Kontact Introduction पृष्ठं दर्शयतु"
 
-#: src/mainwindow.cpp:355
+#: src/mainwindow.cpp:359
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Kontact Introduction पृष्ठं द्रष्टुं एतत् विकल्पं चिनोतु ।"
 
-#: src/mainwindow.cpp:359
+#: src/mainwindow.cpp:363
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Sidebar"
 msgstr "पार्श्वपट्टिकां दर्शयतु"
 
-#: src/mainwindow.cpp:360
+#: src/mainwindow.cpp:364
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show the component sidebar"
 msgstr "घटकस्य पार्श्वपट्टिकां गोपयन्तु/दर्शयन्तु"
 
-#: src/mainwindow.cpp:363
+#: src/mainwindow.cpp:367
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the component sidebar as desired."
 msgstr "घटकपार्श्वपट्टिकां यथा इष्टं दर्शयितुं गोपनं वा कर्तुं शक्नोति ।"
 
-#: src/mainwindow.cpp:398
+#: src/mainwindow.cpp:406
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -482,73 +482,73 @@ msgid ""
 msgstr ""
 "<qt>एतेन मेनू-पट्टिका पूर्णतया गोप्यते । %1.</qt> इति टङ्कयित्वा पुनः दर्शयितुं शक्नुवन्ति"
 
-#: src/mainwindow.cpp:401
+#: src/mainwindow.cpp:409
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "मेनू-पट्टिकां गोपयन्तु"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:592
+#: src/mainwindow.cpp:600
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "प्लगिन् %1 प्रति स्विच् कुर्वन्तु"
 
-#: src/mainwindow.cpp:662
+#: src/mainwindow.cpp:670
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr "अनुप्रयोगः स्वतन्त्रः चालितः अस्ति । अग्रभूमिः..."
 
-#: src/mainwindow.cpp:678
+#: src/mainwindow.cpp:686
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "%1 कृते भागं लोड् कर्तुं न शक्यते ।"
 
-#: src/mainwindow.cpp:746
+#: src/mainwindow.cpp:754
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - सम्पर्कं कुर्वन्तु"
 
-#: src/mainwindow.cpp:1009
+#: src/mainwindow.cpp:1017
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "KDE व्यक्तिगतसूचनाप्रबन्धनसमूहः ।"
 
-#: src/mainwindow.cpp:1014
+#: src/mainwindow.cpp:1022
 #, kde-format
 msgid "Read Manual"
 msgstr "मैनुअल् पठन्तु"
 
-#: src/mainwindow.cpp:1015
+#: src/mainwindow.cpp:1023
 #, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "Kontact इत्यस्य घटकानां च विषये अधिकं ज्ञातुं शक्नुवन्ति"
 
-#: src/mainwindow.cpp:1018
+#: src/mainwindow.cpp:1026
 #, kde-format
 msgid "Visit Kontact Website"
 msgstr "सम्पर्कजालस्थलं पश्यन्तु"
 
-#: src/mainwindow.cpp:1019
+#: src/mainwindow.cpp:1027
 #, kde-format
 msgid "Access online resources and tutorials"
 msgstr "ऑनलाइन संसाधनं पाठ्यक्रमं च प्राप्नुवन्तु"
 
-#: src/mainwindow.cpp:1022
+#: src/mainwindow.cpp:1030
 #, kde-format
 msgid "Setup your Accounts"
 msgstr "स्वस्य खातानि सेटअप कुर्वन्तु"
 
-#: src/mainwindow.cpp:1023
+#: src/mainwindow.cpp:1031
 #, kde-format
 msgid "Prepare Kontact for use"
 msgstr "उपयोगाय Kontact सज्जीकरोतु"
 
-#: src/mainwindow.cpp:1049
+#: src/mainwindow.cpp:1057
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
