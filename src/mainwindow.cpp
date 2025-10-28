@@ -360,11 +360,11 @@ void MainWindow::setupActions()
     actionCollection()->addAction(u"help_introduction"_s, action);
     connect(action, &QAction::triggered, this, &MainWindow::slotShowIntroduction);
 
-    mShowHideAction = new QAction(QIcon::fromTheme(u"zoom-fit-width"_s), i18nc("@action:inmenu", "Show Sidebar"), this);
-    setHelpText(mShowHideAction, i18nc("@info:status", "Hide/Show the component sidebar"));
+    mShowHideAction = new QAction(QIcon::fromTheme(u"zoom-fit-width"_s), i18nc("@action:inmenu", "Show the Kontact Sidebar"), this);
+    setHelpText(mShowHideAction, i18nc("@info:status", "Hide/Show Kontact's component sidebar"));
     mShowHideAction->setCheckable(true);
     mShowHideAction->setChecked(Prefs::self()->sideBarOpen());
-    mShowHideAction->setWhatsThis(i18nc("@info:whatsthis", "Allows you to show or hide the component sidebar as desired."));
+    mShowHideAction->setWhatsThis(i18nc("@info:whatsthis", "Allows you to show or hide the Kontact component sidebar as desired."));
     actionCollection()->addAction(u"hide_show_sidebar"_s, mShowHideAction);
     actionCollection()->setDefaultShortcut(mShowHideAction, QKeySequence(Qt::Key_F9));
     connect(mShowHideAction, &QAction::triggered, this, &MainWindow::slotShowHideSideBar);

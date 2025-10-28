@@ -22,9 +22,9 @@
 
    <entry type="Bool" name="SideBarOpen">
       <default>true</default>
-      <label>Show the component sidebar</label>
-      <tooltip>Show/Hide the icon sidebar</tooltip>
-      <whatsthis>To save screen real estate you might choose to hide the icon sidebar. Uncheck this box to hide the component sidebar. Note that the F9 key will hide/show the icon sidebar.</whatsthis>
+      <label>Show the Kontact component sidebar</label>
+      <tooltip>Show/Hide the Kontact component sidebar</tooltip>
+      <whatsthis>To save screen real estate you might choose to hide Kontact's component sidebar. Uncheck this box to hide the component sidebar. Note that the F9 key will hide/show the component sidebar.</whatsthis>
     </entry>
 
     <entry type="IntList" name="SidePaneSplitter" hidden="true">
