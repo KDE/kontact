@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-15 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:43+0000\n"
 "PO-Revision-Date: 2023-11-12 09:37+0700\n"
 "Last-Translator: Linerly <linerly@linerly.xyz>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -237,23 +237,29 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, kde-format
-msgid "Show the component sidebar"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show the Kontact component sidebar"
 msgstr "Tampilkan bilah sisi komponen"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, kde-format
-msgid "Show/Hide the icon sidebar"
-msgstr "Tampilkan/Sembunyikan bilah sisi ikon"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show/Hide the Kontact component sidebar"
+msgstr "Tampilkan bilah sisi komponen"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "To save screen real estate you might choose to hide the icon sidebar. "
+#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
+#| "hide/show the icon sidebar."
 msgid ""
-"To save screen real estate you might choose to hide the icon sidebar. "
-"Uncheck this box to hide the component sidebar. Note that the F9 key will "
-"hide/show the icon sidebar."
+"To save screen real estate you might choose to hide Kontact's component "
+"sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
+"key will hide/show the component sidebar."
 msgstr ""
 "Untuk menyimpan real estat layar, kamu bisa memilih untuk menyembunyikan "
 "bilah sisi ikon. Hapus centang kotak ini untuk menyembunyikan bilah sisi "
@@ -477,22 +483,25 @@ msgstr "Pilih opsi ini untuk melihat halaman Pengenalan Kontact."
 
 #: src/mainwindow.cpp:363
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#| msgid "Show the component sidebar"
 msgctxt "@action:inmenu"
-msgid "Show Sidebar"
-msgstr "Sembunyikan Bilah Sisi"
+msgid "Show the Kontact Sidebar"
+msgstr "Tampilkan bilah sisi komponen"
 
 #: src/mainwindow.cpp:364
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Hide/Show the component sidebar"
 msgctxt "@info:status"
-msgid "Hide/Show the component sidebar"
+msgid "Hide/Show Kontact's component sidebar"
 msgstr "Sembunyikan/Tampilkan bilah sisi komponen"
 
 #: src/mainwindow.cpp:367
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Allows you to show or hide the component sidebar as desired."
 msgctxt "@info:whatsthis"
-msgid "Allows you to show or hide the component sidebar as desired."
+msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr ""
 "Memungkinkan kamu untuk menampilkan atau menyembunyikan bilah sisi komponen "
 "yang diinginkan."
@@ -580,6 +589,16 @@ msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 "Bilah sisi telah disembunyikan. Untuk menampilkan bilah sisi lagi gunakanlah "
 "tuts %1."
+
+#~ msgid "Show/Hide the icon sidebar"
+#~ msgstr "Tampilkan/Sembunyikan bilah sisi ikon"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Hide Sidebar"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show Sidebar"
+#~ msgstr "Sembunyikan Bilah Sisi"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Hide/Show the component sidebar"

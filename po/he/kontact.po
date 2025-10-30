@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-15 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:43+0000\n"
 "PO-Revision-Date: 2025-09-23 15:07+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -234,23 +234,29 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, kde-format
-msgid "Show the component sidebar"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show the Kontact component sidebar"
 msgstr "הצגת סרגל צד הרכיבים"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, kde-format
-msgid "Show/Hide the icon sidebar"
-msgstr "הצגת/הסתרת סרגל צד הסמלים"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show/Hide the Kontact component sidebar"
+msgstr "הצגת סרגל צד הרכיבים"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "To save screen real estate you might choose to hide the icon sidebar. "
+#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
+#| "hide/show the icon sidebar."
 msgid ""
-"To save screen real estate you might choose to hide the icon sidebar. "
-"Uncheck this box to hide the component sidebar. Note that the F9 key will "
-"hide/show the icon sidebar."
+"To save screen real estate you might choose to hide Kontact's component "
+"sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
+"key will hide/show the component sidebar."
 msgstr ""
 "כדי לנצל את שטח המסך באופן מיטבי אפשר לבחור להסתיר את סרגל צד הסמלים. יש "
 "לבטל את סימון התיבה הזאת כדי להסתיר את סרגל צד הרכיבים. לתשומת ליבך: מקש F9 "
@@ -456,21 +462,26 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "יש לבחור באפשרות כדי לצפות בעמוד ההיכרות עם Kontact."
 
 #: src/mainwindow.cpp:363
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
 msgctxt "@action:inmenu"
-msgid "Show Sidebar"
-msgstr "הצגת סרגל צד"
+msgid "Show the Kontact Sidebar"
+msgstr "הצגת סרגל צד הרכיבים"
 
 #: src/mainwindow.cpp:364
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Hide/Show the component sidebar"
 msgctxt "@info:status"
-msgid "Hide/Show the component sidebar"
+msgid "Hide/Show Kontact's component sidebar"
 msgstr "הצגת/הסתרת סרגל צד הרכיבים"
 
 #: src/mainwindow.cpp:367
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Allows you to show or hide the component sidebar as desired."
 msgctxt "@info:whatsthis"
-msgid "Allows you to show or hide the component sidebar as desired."
+msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr "מאפשר לך להציג או להסתיר את סרגל צד הרכיבים לפי הצורך."
 
 #: src/mainwindow.cpp:406
@@ -553,6 +564,13 @@ msgstr "הכנת Kontact לשימוש"
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr "סרגל הצד מוסתר. אפשר להציג אותו שוב באמצעות המקש %1."
+
+#~ msgid "Show/Hide the icon sidebar"
+#~ msgstr "הצגת/הסתרת סרגל צד הסמלים"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show Sidebar"
+#~ msgstr "הצגת סרגל צד"
 
 #~ msgid "Cornelius Schumacher"
 #~ msgstr "קורנליוס שומאכר"

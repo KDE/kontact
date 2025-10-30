@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-15 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:43+0000\n"
 "PO-Revision-Date: 2024-09-30 22:17+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -240,23 +240,29 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, kde-format
-msgid "Show the component sidebar"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show the Kontact component sidebar"
 msgstr "Komponens oldalsáv megjelenítése"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, kde-format
-msgid "Show/Hide the icon sidebar"
-msgstr "Ikonos oldalsáv megjelenítése/elrejtése"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show/Hide the Kontact component sidebar"
+msgstr "Komponens oldalsáv megjelenítése"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "To save screen real estate you might choose to hide the icon sidebar. "
+#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
+#| "hide/show the icon sidebar."
 msgid ""
-"To save screen real estate you might choose to hide the icon sidebar. "
-"Uncheck this box to hide the component sidebar. Note that the F9 key will "
-"hide/show the icon sidebar."
+"To save screen real estate you might choose to hide Kontact's component "
+"sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
+"key will hide/show the component sidebar."
 msgstr ""
 "A képernyőterület megtakarítása érdekében elrejtheti az ikonos oldalsávot. A "
 "komponens oldalsáv elrejtéséhez törölje a jelölőnégyzetet. Vegye figyelembe, "
@@ -464,21 +470,26 @@ msgstr ""
 "Válassza ezt a lehetőséget a Kontact bemutatkozó oldalának megjelenítéséhez."
 
 #: src/mainwindow.cpp:363
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
 msgctxt "@action:inmenu"
-msgid "Show Sidebar"
-msgstr "Oldalsáv elrejtése"
+msgid "Show the Kontact Sidebar"
+msgstr "Komponens oldalsáv megjelenítése"
 
 #: src/mainwindow.cpp:364
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Hide/Show the component sidebar"
 msgctxt "@info:status"
-msgid "Hide/Show the component sidebar"
+msgid "Hide/Show Kontact's component sidebar"
 msgstr "Komponens oldalsáv elrejtése/megjelenítése"
 
 #: src/mainwindow.cpp:367
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Allows you to show or hide the component sidebar as desired."
 msgctxt "@info:whatsthis"
-msgid "Allows you to show or hide the component sidebar as desired."
+msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr ""
 "Lehetővé teszi a komponens oldalsáv tetszőleges megjelenítését vagy "
 "elrejtését."
@@ -564,6 +575,13 @@ msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 "Az oldalsáv rejtett. Az ismételt megjelenítéshez használja a(z) %1 gombot."
+
+#~ msgid "Show/Hide the icon sidebar"
+#~ msgstr "Ikonos oldalsáv megjelenítése/elrejtése"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show Sidebar"
+#~ msgstr "Oldalsáv elrejtése"
 
 #~ msgid "Cornelius Schumacher"
 #~ msgstr "Cornelius Schumacher"

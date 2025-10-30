@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-15 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -235,23 +235,29 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, kde-format
-msgid "Show the component sidebar"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show the Kontact component sidebar"
 msgstr "घटकस्य पार्श्वपट्टिकां दर्शयतु"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, kde-format
-msgid "Show/Hide the icon sidebar"
-msgstr "चिह्नपार्श्वपट्टिकां दर्शयतु/गोपयतु"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show/Hide the Kontact component sidebar"
+msgstr "घटकस्य पार्श्वपट्टिकां दर्शयतु"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "To save screen real estate you might choose to hide the icon sidebar. "
+#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
+#| "hide/show the icon sidebar."
 msgid ""
-"To save screen real estate you might choose to hide the icon sidebar. "
-"Uncheck this box to hide the component sidebar. Note that the F9 key will "
-"hide/show the icon sidebar."
+"To save screen real estate you might choose to hide Kontact's component "
+"sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
+"key will hide/show the component sidebar."
 msgstr ""
 "स्क्रीन-अचल-सम्पत्त्याः रक्षणार्थं भवान् चिह्न-पार्श्वपट्टिकां गोपयितुं चयनं कर्तुं शक्नोति । "
 "घटकपार्श्वपट्टिकां गोपयितुं एतत् पेटीम् अनचेक् कुर्वन्तु । ध्यानं कुर्वन्तु यत् F9 कीलः "
@@ -457,21 +463,26 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Kontact Introduction पृष्ठं द्रष्टुं एतत् विकल्पं चिनोतु ।"
 
 #: src/mainwindow.cpp:363
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
 msgctxt "@action:inmenu"
-msgid "Show Sidebar"
-msgstr "पार्श्वपट्टिकां दर्शयतु"
+msgid "Show the Kontact Sidebar"
+msgstr "घटकस्य पार्श्वपट्टिकां दर्शयतु"
 
 #: src/mainwindow.cpp:364
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Hide/Show the component sidebar"
 msgctxt "@info:status"
-msgid "Hide/Show the component sidebar"
+msgid "Hide/Show Kontact's component sidebar"
 msgstr "घटकस्य पार्श्वपट्टिकां गोपयन्तु/दर्शयन्तु"
 
 #: src/mainwindow.cpp:367
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Allows you to show or hide the component sidebar as desired."
 msgctxt "@info:whatsthis"
-msgid "Allows you to show or hide the component sidebar as desired."
+msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr "घटकपार्श्वपट्टिकां यथा इष्टं दर्शयितुं गोपनं वा कर्तुं शक्नोति ।"
 
 #: src/mainwindow.cpp:406
@@ -553,3 +564,10 @@ msgstr "उपयोगाय Kontact सज्जीकरोतु"
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr "पार्श्वपट्टिका निगूढा अस्ति। %1 कीलस्य उपयोगेन पुनः पार्श्वपट्टिकां दर्शयतु ।"
+
+#~ msgid "Show/Hide the icon sidebar"
+#~ msgstr "चिह्नपार्श्वपट्टिकां दर्शयतु/गोपयतु"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show Sidebar"
+#~ msgstr "पार्श्वपट्टिकां दर्शयतु"

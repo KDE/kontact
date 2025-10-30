@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-15 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:43+0000\n"
 "PO-Revision-Date: 2009-10-09 13:26+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -222,22 +222,22 @@ msgstr ""
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
 #, kde-format
-msgid "Show the component sidebar"
+msgid "Show the Kontact component sidebar"
 msgstr ""
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
 #, kde-format
-msgid "Show/Hide the icon sidebar"
+msgid "Show/Hide the Kontact component sidebar"
 msgstr ""
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
 #, kde-format
 msgid ""
-"To save screen real estate you might choose to hide the icon sidebar. "
-"Uncheck this box to hide the component sidebar. Note that the F9 key will "
-"hide/show the icon sidebar."
+"To save screen real estate you might choose to hide Kontact's component "
+"sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
+"key will hide/show the component sidebar."
 msgstr ""
 
 #. i18n: ectx: Menu (file)
@@ -443,19 +443,19 @@ msgstr ""
 #: src/mainwindow.cpp:363
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Show Sidebar"
+msgid "Show the Kontact Sidebar"
 msgstr ""
 
 #: src/mainwindow.cpp:364
 #, kde-format
 msgctxt "@info:status"
-msgid "Hide/Show the component sidebar"
+msgid "Hide/Show Kontact's component sidebar"
 msgstr ""
 
 #: src/mainwindow.cpp:367
 #, kde-format
 msgctxt "@info:whatsthis"
-msgid "Allows you to show or hide the component sidebar as desired."
+msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr ""
 
 #: src/mainwindow.cpp:406

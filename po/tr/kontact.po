@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-15 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:43+0000\n"
 "PO-Revision-Date: 2024-08-02 14:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -258,23 +258,29 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, kde-format
-msgid "Show the component sidebar"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show the Kontact component sidebar"
 msgstr "Bileşen kenar çubuğunu göster"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, kde-format
-msgid "Show/Hide the icon sidebar"
-msgstr "Simge yan çubuğunu göster/gizle"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show/Hide the Kontact component sidebar"
+msgstr "Bileşen kenar çubuğunu göster"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "To save screen real estate you might choose to hide the icon sidebar. "
+#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
+#| "hide/show the icon sidebar."
 msgid ""
-"To save screen real estate you might choose to hide the icon sidebar. "
-"Uncheck this box to hide the component sidebar. Note that the F9 key will "
-"hide/show the icon sidebar."
+"To save screen real estate you might choose to hide Kontact's component "
+"sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
+"key will hide/show the component sidebar."
 msgstr ""
 "Ekran sabitini kaydetmek için simge kenar çubuğunu gizlemeyi seçebilirsiniz. "
 "Bileşen kenar çubuğunu gizlemek için bu kutunun işaretini kaldırın. F9 "
@@ -480,21 +486,26 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Kontak giriş sayfasını görmek için bu seçeneği seçin."
 
 #: src/mainwindow.cpp:363
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
 msgctxt "@action:inmenu"
-msgid "Show Sidebar"
-msgstr "Kenar Çubuğunu Göster"
+msgid "Show the Kontact Sidebar"
+msgstr "Bileşen kenar çubuğunu göster"
 
 #: src/mainwindow.cpp:364
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Hide/Show the component sidebar"
 msgctxt "@info:status"
-msgid "Hide/Show the component sidebar"
+msgid "Hide/Show Kontact's component sidebar"
 msgstr "Bileşen kenar çubuğunu göster/gizle"
 
 #: src/mainwindow.cpp:367
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Allows you to show or hide the component sidebar as desired."
 msgctxt "@info:whatsthis"
-msgid "Allows you to show or hide the component sidebar as desired."
+msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr ""
 "Bileşen kenar çubuğunu istediğiniz gibi göstermenize/gizlemenize olanak "
 "sağlar."
@@ -581,6 +592,13 @@ msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 "Kenar çubğu gizli. %1 düğmesini kullanarak, yan çubuğu yeniden "
 "gösterebilirsiniz."
+
+#~ msgid "Show/Hide the icon sidebar"
+#~ msgstr "Simge yan çubuğunu göster/gizle"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show Sidebar"
+#~ msgstr "Kenar Çubuğunu Göster"
 
 #~ msgid "Cornelius Schumacher"
 #~ msgstr "Cornelius Schumacher"

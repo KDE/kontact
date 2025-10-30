@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-15 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:43+0000\n"
 "PO-Revision-Date: 2020-01-02 11:52+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -231,22 +231,27 @@ msgstr ""
 #: src/kontact.kcfg:25
 #, fuzzy, kde-format
 #| msgid "Show the component sidebar:"
-msgid "Show the component sidebar"
+msgid "Show the Kontact component sidebar"
 msgstr "Komponentide külgriba näitamine:"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, kde-format
-msgid "Show/Hide the icon sidebar"
-msgstr "Ikooniriba näitamine/peitmine"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar:"
+msgid "Show/Hide the Kontact component sidebar"
+msgstr "Komponentide külgriba näitamine:"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "To save screen real estate you might choose to hide the icon sidebar. "
+#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
+#| "hide/show the icon sidebar."
 msgid ""
-"To save screen real estate you might choose to hide the icon sidebar. "
-"Uncheck this box to hide the component sidebar. Note that the F9 key will "
-"hide/show the icon sidebar."
+"To save screen real estate you might choose to hide Kontact's component "
+"sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
+"key will hide/show the component sidebar."
 msgstr ""
 "Ekraani paremaks salvestamiseks võib olla hea ikooniriba peita. Selle "
 "mittemärkimisel peidetakse komponentide külgriba. Pane tähele, et klahv F9 "
@@ -468,22 +473,25 @@ msgstr "Valimisel näeb Kontacti sissejuhatust."
 
 #: src/mainwindow.cpp:363
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#| msgid "Show the component sidebar:"
 msgctxt "@action:inmenu"
-msgid "Show Sidebar"
-msgstr "Peida külgriba"
+msgid "Show the Kontact Sidebar"
+msgstr "Komponentide külgriba näitamine:"
 
 #: src/mainwindow.cpp:364
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Hide/Show the component sidebar"
 msgctxt "@info:status"
-msgid "Hide/Show the component sidebar"
+msgid "Hide/Show Kontact's component sidebar"
 msgstr "Komponentide külgriba peitmine/näitamine"
 
 #: src/mainwindow.cpp:367
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Allows you to show or hide the component sidebar as desired."
 msgctxt "@info:whatsthis"
-msgid "Allows you to show or hide the component sidebar as desired."
+msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr ""
 "Võimaldab enda soovi kohaselt komponentide külgriba näha või selle peita."
 
@@ -567,6 +575,16 @@ msgstr "Kontacti ettevalmistamine kasutamiseks"
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr "Külgriba on peidetud. Selle saab uuesti nähtavale tuua klahviga %1."
+
+#~ msgid "Show/Hide the icon sidebar"
+#~ msgstr "Ikooniriba näitamine/peitmine"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Hide Sidebar"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show Sidebar"
+#~ msgstr "Peida külgriba"
 
 #~ msgid "Cornelius Schumacher"
 #~ msgstr "Cornelius Schumacher"

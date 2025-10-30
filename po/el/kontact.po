@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-15 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:43+0000\n"
 "PO-Revision-Date: 2024-09-20 09:29+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -256,23 +256,29 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, kde-format
-msgid "Show the component sidebar"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show the Kontact component sidebar"
 msgstr "Να εμφανίζεται η πλευρική γραμμή συστατικών"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, kde-format
-msgid "Show/Hide the icon sidebar"
-msgstr "Εμφάνιση/απόκρυψη της πλευρικής γραμμής εικονιδίων"
+#, fuzzy, kde-format
+#| msgid "Show the component sidebar"
+msgid "Show/Hide the Kontact component sidebar"
+msgstr "Να εμφανίζεται η πλευρική γραμμή συστατικών"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "To save screen real estate you might choose to hide the icon sidebar. "
+#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
+#| "hide/show the icon sidebar."
 msgid ""
-"To save screen real estate you might choose to hide the icon sidebar. "
-"Uncheck this box to hide the component sidebar. Note that the F9 key will "
-"hide/show the icon sidebar."
+"To save screen real estate you might choose to hide Kontact's component "
+"sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
+"key will hide/show the component sidebar."
 msgstr ""
 "Για να αξιοποιήσετε περισσότερο χώρο στην οθόνη μπορείτε να κρύψετε την "
 "πλευρική γραμμή εικονιδίων. Αναιρέστε την επιλογή αυτή για να αποκρύψετε την "
@@ -484,22 +490,25 @@ msgstr ""
 
 #: src/mainwindow.cpp:363
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Hide Sidebar"
+#| msgid "Show the component sidebar"
 msgctxt "@action:inmenu"
-msgid "Show Sidebar"
-msgstr "Απόκρυψη πλευρικής γραμμής"
+msgid "Show the Kontact Sidebar"
+msgstr "Να εμφανίζεται η πλευρική γραμμή συστατικών"
 
 #: src/mainwindow.cpp:364
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Hide/Show the component sidebar"
 msgctxt "@info:status"
-msgid "Hide/Show the component sidebar"
+msgid "Hide/Show Kontact's component sidebar"
 msgstr "Απόκρυψη/εμφάνιση της πλευρικής γραμμής συστατικών"
 
 #: src/mainwindow.cpp:367
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Allows you to show or hide the component sidebar as desired."
 msgctxt "@info:whatsthis"
-msgid "Allows you to show or hide the component sidebar as desired."
+msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr ""
 "Σας επιτρέπει να εμφανίσετε ή να αποκρύψετε την πλευρική γραμμή συστατικών."
 
@@ -585,6 +594,16 @@ msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 "Η πλευρική γραμμή είναι σε απόκρυψη. Εμφανίστε τη πάλι με χρήση του πλήκτρου "
 "%1."
+
+#~ msgid "Show/Hide the icon sidebar"
+#~ msgstr "Εμφάνιση/απόκρυψη της πλευρικής γραμμής εικονιδίων"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Hide Sidebar"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show Sidebar"
+#~ msgstr "Απόκρυψη πλευρικής γραμμής"
 
 #~ msgid "Cornelius Schumacher"
 #~ msgstr "Cornelius Schumacher"

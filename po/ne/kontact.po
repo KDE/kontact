@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-15 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:43+0000\n"
 "PO-Revision-Date: 2007-09-12 17:34+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -244,23 +244,25 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, kde-format
-msgid "Show the component sidebar"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgid "Show the Kontact component sidebar"
+msgstr "सम्पर्क परिचय"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, kde-format
-msgid "Show/Hide the icon sidebar"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "&Kontact Introduction"
+msgid "Show/Hide the Kontact component sidebar"
+msgstr "सम्पर्क परिचय"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
 #, kde-format
 msgid ""
-"To save screen real estate you might choose to hide the icon sidebar. "
-"Uncheck this box to hide the component sidebar. Note that the F9 key will "
-"hide/show the icon sidebar."
+"To save screen real estate you might choose to hide Kontact's component "
+"sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
+"key will hide/show the component sidebar."
 msgstr ""
 
 #. i18n: ectx: Menu (file)
@@ -488,19 +490,19 @@ msgstr "सम्पर्क परिचय"
 #, fuzzy, kde-format
 #| msgid "Show Icons"
 msgctxt "@action:inmenu"
-msgid "Show Sidebar"
+msgid "Show the Kontact Sidebar"
 msgstr "प्रतिमा देखाउनुहोस्"
 
 #: src/mainwindow.cpp:364
 #, kde-format
 msgctxt "@info:status"
-msgid "Hide/Show the component sidebar"
+msgid "Hide/Show Kontact's component sidebar"
 msgstr ""
 
 #: src/mainwindow.cpp:367
 #, kde-format
 msgctxt "@info:whatsthis"
-msgid "Allows you to show or hide the component sidebar as desired."
+msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr ""
 
 #: src/mainwindow.cpp:406
