@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:43+0000\n"
-"PO-Revision-Date: 2024-08-02 05:31+0200\n"
+"PO-Revision-Date: 2025-10-30 07:46+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -244,33 +244,28 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "Pokaži stransko vrstico s sestavnimi deli"
+msgstr "Pokaži stransko vrstico s komponentami Kontacta"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "Pokaži stransko vrstico s sestavnimi deli"
+msgstr "Pokaži /skrij stransko vrstico s komponentami Kontacta"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
-"Za povečanje delovnega prostora se boste morda odločili za skritje stranske "
-"vrstice z ikonami. Odstranite oznako, da skrijete stransko vrstico s "
-"sestavnimi deli. Zapomnite si, da lahko za njen preklop uporabite tipko F9."
+"Če želite prihraniti prostor na zaslonu, lahko skrijete stransko vrstico "
+"komponent Kontacta. Počistite to polje, da skrijete stransko vrstico "
+"komponent. Upoštevajte, da bo tipka F9 skrila/prikazala stransko vrstico "
+"komponent."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -473,27 +468,24 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Izberite to možnost, da vidite uvodno stran za Kontact."
 
 #: src/mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "Pokaži stransko vrstico s sestavnimi deli"
+msgstr "Pokaži stransko vrstico s komponentami Kontacta"
 
 #: src/mainwindow.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "Preklop stranske vrstice s sestavnimi deli"
+msgstr "Skrij/prikaži stransko vrstico komponent Kontacta"
 
 #: src/mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
-msgstr "Omogoči preklop stranske vrstice s sestavnimi deli."
+msgstr ""
+"Omogoča vam, da po želji prikažete ali skrijete stransko vrstico komponent "
+"Kontacta."
 
 #: src/mainwindow.cpp:406
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:43+0000\n"
-"PO-Revision-Date: 2024-08-02 05:56+0200\n"
+"PO-Revision-Date: 2025-10-30 05:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -46,7 +46,7 @@ msgstr "შესავლის გამოტოვება"
 
 #: src/about/loading_kontact.html:5
 msgid "Loading Kontact ..."
-msgstr "Kontact- ის ჩატვირთვა ..."
+msgstr "Kontact-ის ჩატვირთვა ..."
 
 #: src/iconsidepane.cpp:264
 #, kde-format
@@ -241,33 +241,28 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "კომპონენტის გვერდითი პანელის ჩვენება"
+msgstr "Kontact-ის კომპონენტის გვერდითი პანელის ჩვენება"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "კომპონენტის გვერდითი პანელის ჩვენება"
+msgstr "Kontact-ის კომპონენტის გვერდითი პანელის ჩვენება/დამალვა"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
-"ეკრანის რეალური მდგომარეობის შესანახად შეიძლება ხატულების გვერდითი პანელის "
-"გაქრობაც მოინდომოთ. მოხსენით ეს თოლია, რათა კომპონენტის გვერდითი პანელი "
-"დამალოთ. დაიმახსოვრეთ. რომ პანელის ხილულობის გადართვა F9 ღილაკითაც შეგიძლიათ."
+"ეკრანის რეალური მდგომარეობის შესანახად, შეიძლება, Kontact-ის კომპონენტის "
+"გვერდითი პანელის გაქრობაც მოინდომოთ. მოხსენით ეს თოლია, რათა კომპონენტის "
+"გვერდითი პანელი დამალოთ. დაიმახსოვრეთ. რომ პანელის ხილულობის გადართვა F9 "
+"ღილაკითაც შეგიძლიათ."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -436,13 +431,13 @@ msgstr "&ახალი"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
-msgstr "Kontact- ის მორგება..."
+msgstr "Kontact-ის მორგება..."
 
 #: src/mainwindow.cpp:352
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
-msgstr "Kontact- ის მორგება"
+msgstr "Kontact-ის მორგება"
 
 #: src/mainwindow.cpp:353
 #, kde-format
@@ -469,27 +464,24 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "აირჩიეთ ეს პარამეტრი, რომ Kontact-ის მისასალმებელი გვერდი დაინახოთ."
 
 #: src/mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "კომპონენტის გვერდითი პანელის ჩვენება"
+msgstr "Kontact-ის გვერდითი პანელის ჩვენება"
 
 #: src/mainwindow.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "კომპონენტის გვერდითი პანელის ჩვენება/დამალვა"
+msgstr "Kontact-ის კომპონენტის გვერდითი პანელის დამალვა/ჩვენება"
 
 #: src/mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
-msgstr "კომპონენტების გვერდითი პანელის სურვილისამებრ ჩვენება/გაქრობა."
+msgstr ""
+"საშუალებას გაძლევთ, სურვილისამებრ აჩვენოთ ან დამალოთ Kontact-ის კომპონენტის "
+"გვერდითი ზოლი."
 
 #: src/mainwindow.cpp:406
 #, kde-format

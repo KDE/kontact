@@ -1,7 +1,7 @@
 # Translation of kontact.po to Catalan
-# Copyright (C) 2003-2024 This_file_is_part_of_KDE
+# Copyright (C) 2003-2025 This_file_is_part_of_KDE
 #
-# SPDX-FileCopyrightText: 2006, 2007, 2008, 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2018, 2019, 2021, 2022, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2006, 2007, 2008, 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2018, 2019, 2021, 2022, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 # SPDX-FileCopyrightText: 2003, 2004, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 Antoni Bella Pérez <antonibella5@yahoo.com>
 # SPDX-FileCopyrightText: 2003, 2004, 2005 Albert Astals Cid <aacid@kde.org>
 # SPDX-FileCopyrightText: 2004, 2006 Sebastià Pla i Sanz <sps@sastia.com>
@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:43+0000\n"
-"PO-Revision-Date: 2024-08-02 12:45+0200\n"
+"PO-Revision-Date: 2025-10-30 13:31+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -250,34 +250,28 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "Mostra la barra lateral de components"
+msgstr "Mostra la barra lateral del component Kontact"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "Mostra la barra lateral de components"
+msgstr "Mostra/oculta la barra lateral del component Kontact"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
-"Per a desar l'estat real de la pantalla, podeu escollir ocultar la icona de "
-"la barra lateral. Desmarqueu aquesta casella per a ocultar el component de "
-"la barra lateral. Cal tenir en compte que la tecla F9 ocultarà/mostrarà la "
-"icona de la barra lateral."
+"Per a desar l'estat real de la pantalla, podeu escollir ocultar la barra "
+"lateral del component Kontact. Desmarqueu aquesta casella per a ocultar el "
+"component de la barra lateral. Cal tenir en compte que la tecla F9 ocultarà/"
+"mostrarà la barra lateral del component."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -480,27 +474,23 @@ msgstr ""
 "Seleccioneu aquesta opció per a veure la pàgina d'introducció del Kontact."
 
 #: src/mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "Mostra la barra lateral de components"
+msgstr "Mostra la barra lateral del Kontact"
 
 #: src/mainwindow.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "Oculta/Mostra la barra lateral de components"
+msgstr "Oculta/Mostra la barra lateral del component Kontact"
 
 #: src/mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
-msgstr "Permet mostrar o ocultar la barra lateral de components com vulgueu."
+msgstr ""
+"Permet mostrar o ocultar la barra lateral del component Kontact com vulgueu."
 
 #: src/mainwindow.cpp:406
 #, kde-format

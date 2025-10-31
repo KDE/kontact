@@ -6,20 +6,20 @@
 # Wilbert Berendsen <wbsoft@xs4all.nl>, 2004.
 # Bram Schoenmakers <bramschoenmakers@kde.nl>, 2004, 2005, 2006, 2007.
 # Kristof Bal <kristof.bal@gmail.com>, 2009.
-# SPDX-FileCopyrightText: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:43+0000\n"
-"PO-Revision-Date: 2024-08-02 13:02+0200\n"
+"PO-Revision-Date: 2025-10-30 13:50+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -248,34 +248,28 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "De zijbalk voor componenten tonen"
+msgstr "De zijbalk voor Kontact-componenten tonen"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "De zijbalk voor componenten tonen"
+msgstr "De zijbalk voor Kontact-componenten tonen/verbergen"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
 "Om ruimte op uw scherm te maken kunt u er voor kiezen om het zijvak voor "
-"pictogrammen te verbergen. Deactiveer dit vak om het zijvak voor componenten "
-"te verbergen. Merk op dat de toets F9 het zijvak voor pictogrammen zal "
-"verbergen/tonen."
+"Kontact-componenten te verbergen. Deactiveer dit vak om het zijvak voor "
+"componenten te verbergen. Merk op dat de toets F9 het zijvak voor "
+"componenten zal verbergen/tonen."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -477,29 +471,24 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Selecteer deze optie om de Introductiepagina van Kontact te zien."
 
 #: src/mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "De zijbalk voor componenten tonen"
+msgstr "De zijbalk voor Kontact-componenten tonen"
 
 #: src/mainwindow.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "De zijbalk voor componenten verbergen/tonen"
+msgstr "De zijbalk voor Kontact-componenten verbergen/tonen"
 
 #: src/mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr ""
-"Stelt u in staat de zijbalk voor componenten naar wens te verbergen of te "
-"tonen."
+"Stelt u in staat de zijbalk voor Kontact-componenten naar wens te verbergen "
+"of te tonen."
 
 #: src/mainwindow.cpp:406
 #, kde-format
