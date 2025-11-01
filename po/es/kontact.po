@@ -1,31 +1,27 @@
-# translation of kontact.po to Spanish
-# Translation of kontact to Spanish
-# translation of kontact.po to
-# Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2010 Free Software Foundation, Inc.
+# Spanish translations for kontact.po package.
+# Copyright (C) 2003-2025 This file is copyright:
+# This file is distributed under the same license as the kontact package.
 #
-# Juan Manuel Garcia Molina <juanma@superiodico.net>, 2003, 2004, 2005.
-# Pablo de Vicente <p.devicente@wanadoo.es>, 2005.
-# Juan Manuel García Molina <juanma@superiodico.net>, 2006.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
-# Franco Mariluis <fmariluis@gmail.com>, 2008.
-# SPDX-FileCopyrightText: 2008, 2009, 2019, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
-# Dario Andres Rodriguez <andresbajotierra@gmail.com>, 2009.
-# Dario Andres Rodriguez <andrebajotierra@gmail.com>, 2009.
-# Javier Vinal <fjvinalgmail.com>, 2009, 2010, 2011, 2012, 2017.
-# Javier Viñal <fjvinal@gmail.com>, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019.
+# SPDX-FileCopyrightText: 2003, 2004, 2005, 2006 Juan Manuel García Molina <juanma@superiodico.net>
+# SPDX-FileCopyrightText: 2005 Pablo de Vicente <p.devicente@wanadoo.es>
+# SPDX-FileCopyrightText: 2007 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2008 Franco Mariluis <fmariluis@gmail.com>
+# SPDX-FileCopyrightText: 2008, 2009, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
+# SPDX-FileCopyrightText: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Javier Viñal <fjvinal@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:43+0000\n"
-"PO-Revision-Date: 2024-08-02 17:41+0200\n"
+"PO-Revision-Date: 2025-10-30 12:24+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -60,7 +56,7 @@ msgstr "Omitir esta introducción"
 
 #: src/about/loading_kontact.html:5
 msgid "Loading Kontact ..."
-msgstr "Cargando Kontact..."
+msgstr "Cargando Kontact…"
 
 #: src/iconsidepane.cpp:264
 #, kde-format
@@ -256,34 +252,28 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "Mostrar la barra lateral de componentes"
+msgstr "Mostrar la barra lateral de componentes de Kontact"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "Mostrar la barra lateral de componentes"
+msgstr "Mostrar u ocultar la barra lateral de componentes de Kontact"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
 "Para guardar el estado actual de la pantalla debería elegir ocultar la barra "
-"lateral de iconos. Desmarque esta casilla para ocultar la barra lateral de "
-"componentes. Tenga en cuenta que la tecla F9 ocultará o mostrará la barra "
-"lateral de iconos."
+"lateral de componentes de Kontact. Desmarque esta casilla para ocultar la "
+"barra lateral de componentes. Tenga en cuenta que la tecla F9 ocultará o "
+"mostrará la barra lateral de componentes."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -440,7 +430,7 @@ msgstr "Migración a Git"
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
-msgstr " Inicializando..."
+msgstr " Inicializando…"
 
 #: src/mainwindow.cpp:346
 #, kde-format
@@ -452,7 +442,7 @@ msgstr "Nuevo"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
-msgstr "Configurar Kontact..."
+msgstr "Configurar Kontact…"
 
 #: src/mainwindow.cpp:352
 #, kde-format
@@ -485,27 +475,23 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Elija esta opción para ver la página de introducción a Kontact."
 
 #: src/mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "Mostrar la barra lateral de componentes"
+msgstr "Mostrar la barra lateral de Kontact"
 
 #: src/mainwindow.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "Mostrar u ocultar la barra lateral de componentes"
+msgstr "Mostrar u ocultar la barra lateral de componentes de Kontact"
 
 #: src/mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
-msgstr "Le permite mostrar u ocultar la barra lateral de componentes."
+msgstr ""
+"Le permite mostrar u ocultar la barra lateral de componentes de Kontact."
 
 #: src/mainwindow.cpp:406
 #, kde-format
@@ -534,7 +520,7 @@ msgstr "Cambiar al complemento %1"
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr ""
-"La aplicación está ejecutándose de forma aislada. Pasando a primer plano..."
+"La aplicación está ejecutándose de forma aislada. Pasando a primer plano…"
 
 #: src/mainwindow.cpp:686
 #, kde-format
@@ -590,153 +576,3 @@ msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 "La barra lateral está oculta. Muestre la barra lateral de nuevo pulsando la "
 "tecla %1."
-
-#~ msgid "Show/Hide the icon sidebar"
-#~ msgstr "Mostrar u ocultar la barra lateral de iconos"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Show Sidebar"
-#~ msgstr "Mostrar la barra lateral"
-
-#~ msgid "Cornelius Schumacher"
-#~ msgstr "Cornelius Schumacher"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Hide/Show the component sidebar"
-#~ msgstr "Mostrar/Ocultar el componente de la barra lateral"
-
-#~ msgctxt "@title"
-#~ msgid "KDE Kontact"
-#~ msgstr "KDE Kontact"
-
-#~ msgctxt "@info:credit"
-#~ msgid "(c), 2003 Cornelius Schumacher"
-#~ msgstr "© 2003 Cornelius Schumacher"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Developer"
-#~ msgstr "Desarrollador"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Tobias Koenig"
-#~ msgstr "Tobias Koenig"
-
-#~ msgctxt "@title:window"
-#~ msgid "About Kontact"
-#~ msgstr "Acerca de Kontact"
-
-#~ msgid "Kontact Container"
-#~ msgstr "Contenedor de Kontact"
-
-#~ msgid "No about information available."
-#~ msgstr "No hay información disponible sobre esto."
-
-#~ msgid "Version %1"
-#~ msgstr "Versión %1"
-
-#~ msgid "<p><b>Authors:</b></p>"
-#~ msgstr "<p><b>Autores:</b></p>"
-
-#~ msgid "<p><b>Thanks to:</b></p>"
-#~ msgstr "<p><b>Gracias a</b></p>"
-
-#~ msgid "<p><b>Translators:</b></p>"
-#~ msgstr "<p><b>Traductores:</b></p>"
-
-#~ msgid ""
-#~ "<br /><br />                     <i>This Free Software product was "
-#~ "improved as part of a commercial project:</i>                     "
-#~ "<h3>Credits</h3>                     Project Kowi (March 2007 - )<br /"
-#~ "><br />                                          <b>Production / Project "
-#~ "Coordination</b><br />                     Bernhard Reiter<br /"
-#~ ">                     <b>Director of Development</b><br /"
-#~ ">                     Till Adam                     <br /><br /"
-#~ ">                                          <table border=\"0\" width="
-#~ "\"100%\">                 <tr>                <td colspan="
-#~ "\"2\">                <b>Osnabr&uuml;ck Unit, Intevation GmbH</"
-#~ "b>                </td>                </tr>                "
-#~ "<tr>                <td width=\"60%\">                Unit Lead<br /"
-#~ ">                Senior QA, Packaging<br />                QA, "
-#~ "Packaging<br />                Additional NSIS<br />                "
-#~ "Backup Coordinator                </td>                "
-#~ "<td>                Bernhard Reiter<br />                Bernhard "
-#~ "Herzog<br />                Ludwig Reiter<br />                Emanuel "
-#~ "Sch&uuml;tze<br />                Dr. Jan-Oliver Wagner                </"
-#~ "td>                </tr>                </table>                <br /"
-#~ "><br />                                <table border=\"0\" width=\"100%"
-#~ "\">                <tr>                <td colspan=\"2\">                "
-#~ "<b>Berlin Unit, Klar&auml;lvdalens Datakonsult AB</b>                </"
-#~ "td>                </tr>                <tr>                <td width="
-#~ "\"60%\">                Unit Lead<br />                Development<br /"
-#~ ">                Development<br />                Additional D. + "
-#~ "Crypto<br />                Crypto GUI Development                </"
-#~ "td>                <td>                Till Adam<br />                "
-#~ "Jaroslaw Staniek<br />                Volker Krause<br />                "
-#~ "Frank Osterfeld<br />                Marc Mutz                </"
-#~ "td>                </tr>                </table>                <br /"
-#~ "><br />                                <table border=\"0\" width=\"100%"
-#~ "\">                <tr>                <td colspan=\"2\">                "
-#~ "<b>D&uuml;sseldorf Unit, g10 Code GmbH</b>                </"
-#~ "td>                </tr>                <tr>                <td width="
-#~ "\"60%\">                Crypto-Backend Porting<br />                "
-#~ "Crypto-Backend                </td>                <td>                "
-#~ "Werner Koch<br />                Marcus Brinkmann                </"
-#~ "td>                </tr>                </table>                <br /"
-#~ "><br />                                <table border=\"0\" width=\"100%"
-#~ "\">                <tr>                <td colspan=\"2\">                "
-#~ "<b>External QA Darmstadt, basysKom GmbH</b>                </"
-#~ "td>                </tr>                <tr>                <td width="
-#~ "\"60%\">                Unit-Lead                </td>                "
-#~ "<td>                Dr. Stefan Werden                </td>                "
-#~ "</tr>                </table><br /><br />"
-#~ msgstr ""
-#~ "<br /><br />                     <i>Este producto de software libre se "
-#~ "mejoró como parte de un proyecto comercial:</i>                     "
-#~ "<h3>Créditos</h3>                     Project Kowi (marzo 2007 - )<br /"
-#~ "><br />                                          <b>Producción / "
-#~ "Cordinación del proyecto</b><br />                     Bernhard "
-#~ "Reiter<br />                     <b>Director de desarrollo</b><br /"
-#~ ">                     Till Adam                     <br /><br /"
-#~ ">                                          <table border=\"0\" width="
-#~ "\"100%\">                 <tr>                <td colspan="
-#~ "\"2\">                <b>Unidad de Osnabr&uuml;ck, Intevation GmbH</"
-#~ "b>                </td>                </tr>                "
-#~ "<tr>                <td width=\"60%\">                Dirección de la "
-#~ "unidad<br />                QA Senior, Empaquetado<br />                "
-#~ "QA, Empaquetado<br />                NSIS adicionales<br /"
-#~ ">                Cordinador de copias de respaldo                </"
-#~ "td>                <td>                Bernhard Reiter<br /"
-#~ ">                Bernhard Herzog<br />                Ludwig Reiter<br /"
-#~ ">                Emanuel Sch&uuml;tze<br />                Dr. Jan-Oliver "
-#~ "Wagner                </td>                </tr>                </"
-#~ "table>                <br /><br />                                <table "
-#~ "border=\"0\" width=\"100%\">                <tr>                <td "
-#~ "colspan=\"2\">                <b>Unidad de Berlín, Klar&auml;lvdalens "
-#~ "Datakonsult AB</b>                </td>                </"
-#~ "tr>                <tr>                <td width=\"60%\">                "
-#~ "Director de la unidad<br />                Desarrollo<br /"
-#~ ">                Desarrollo<br />                D. adicional + "
-#~ "Criptografía<br />                Desarrollo de GUI de "
-#~ "criptografía                </td>                <td>                Till "
-#~ "Adam<br />                Jaroslaw Staniek<br />                Volker "
-#~ "Krause<br />                Frank Osterfeld<br />                Marc "
-#~ "Mutz                </td>                </tr>                </"
-#~ "table>                <br /><br />                                <table "
-#~ "border=\"0\" width=\"100%\">                <tr>                <td "
-#~ "colspan=\"2\">                <b>Unidad de D&uuml;sseldorf, g10 Code "
-#~ "GmbH</b>                </td>                </tr>                "
-#~ "<tr>                <td width=\"60%\">                Migración del motor "
-#~ "de criptografía<br />                Motor de criptografía                "
-#~ "</td>                <td>                Werner Koch<br />                "
-#~ "Marcus Brinkmann                </td>                </tr>                "
-#~ "</table>                <br /><br />                                "
-#~ "<table border=\"0\" width=\"100%\">                <tr>                "
-#~ "<td colspan=\"2\">                <b>QA externo Darmstadt, basysKom GmbH</"
-#~ "b>                </td>                </tr>                "
-#~ "<tr>                <td width=\"60%\">                Director de la "
-#~ "unidad                </td>                <td>                Dr. Stefan "
-#~ "Werden                </td>                </tr>                </"
-#~ "table><br /><br />"
-
-#~ msgid "%1 License"
-#~ msgstr "Licencia de %1"
