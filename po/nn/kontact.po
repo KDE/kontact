@@ -566,10 +566,3 @@ msgstr "Førebu Kontact for bruk"
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr "Sidestolpen er no gøymd. Trykk «%1» for å visa han igjen."
-
-#~ msgid "Show/Hide the icon sidebar"
-#~ msgstr "Vis/gøym ikon-sidestolpe"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Show Sidebar"
-#~ msgstr "Vis sidestolpe"
