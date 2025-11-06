@@ -5,13 +5,13 @@
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Abdalrahim G. Fakhouri <abdilra7eem@yahoo.com>, 2014.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2018.
-# SPDX-FileCopyrightText: 2021, 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:43+0000\n"
-"PO-Revision-Date: 2024-08-15 10:54+0400\n"
+"PO-Revision-Date: 2025-11-05 18:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -230,33 +230,27 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "اعرض شريط المكوّنات الجانبيّ"
+msgstr "اعرض شريط المكوّنات الجانبيّ لمتراسلك"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "اعرض شريط المكوّنات الجانبيّ"
+msgstr "اعرض/أخف شريط المكوّنات الجانبيّ لمتراسلك"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
-"لاستغلال المساحة في الشّاشة يمكنك إخفاء شريط الأيقونات الجانبيّ. أزِل تأشير هذا "
-"المربّع لإخفاء شريط المكوّنات الجانبيّ. لاحظ بأنّ مفتاح F9 سيُخفي/يعرض شريط "
-"الأيقونات الجانبيّ."
+"لاستغلال المساحة في الشّاشة يمكنك إخفاء شريط الأيقونات الجانبيّ لمتراسلك. أزِل "
+"تأشير هذا المربّع لإخفاء شريط المكوّنات الجانبيّ. لاحظ بأنّ مفتاح F9 سيُخفي/يعرض "
+"شريط المكونات الجانبيّ."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -355,7 +349,7 @@ msgstr "دون ساندرز"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
-msgstr "Cornelius Schumacher"
+msgstr "كورنيليوس شوماخر"
 
 #: src/main.cpp:168
 #, kde-format
@@ -458,27 +452,22 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "اختر هذا الخيار لمطالعة صفحة مقدّمة «متراسلك»."
 
 #: src/mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "اعرض شريط المكوّنات الجانبيّ"
+msgstr "اعرض الشريط الجانبيّ لمتراسلك"
 
 #: src/mainwindow.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "اعرض/أخفِ شريط المكوّنات الجانبيّ"
+msgstr "اعرض/أخفِ شريط المكوّنات الجانبيّ لمتراسلك"
 
 #: src/mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
-msgstr "يتيح لك عرض أو إخفاء شريط المكوّنات الجانبيّ إن أردت."
+msgstr "يتيح لك عرض أو إخفاء شريط المكوّنات الجانبيّ لمتراسلك إن أردت."
 
 #: src/mainwindow.cpp:406
 #, kde-format
