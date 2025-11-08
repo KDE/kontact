@@ -72,15 +72,9 @@ using namespace Kontact;
 #include <GrantleeTheme/GrantleeTheme>
 #include <GrantleeTheme/GrantleeThemeManager>
 
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
 #include <TextAddonsWidgets/NeedUpdateVersionUtils>
 #include <TextAddonsWidgets/NeedUpdateVersionWidget>
 #include <TextAddonsWidgets/VerifyNewVersionWidget>
-#else
-#include <PimCommon/NeedUpdateVersionUtils>
-#include <PimCommon/NeedUpdateVersionWidget>
-#include <PimCommon/VerifyNewVersionWidget>
-#endif
 
 // signal handler for SIGINT & SIGTERM
 #ifdef Q_OS_UNIX
@@ -92,11 +86,7 @@ using namespace Kontact;
 MainWindow::MainWindow()
     : KontactInterface::Core()
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
     , mVerifyNewVersionWidget(new TextAddonsWidgets::VerifyNewVersionWidget(this))
-#else
-    , mVerifyNewVersionWidget(new PimCommon::VerifyNewVersionWidget(this))
-#endif
 #endif
 {
 #ifdef Q_OS_UNIX
@@ -270,7 +260,6 @@ void MainWindow::initWidgets()
     mTopWidget->setLayout(layout);
     setCentralWidget(mTopWidget);
 
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
     if (TextAddonsWidgets::NeedUpdateVersionUtils::checkVersion()) {
         const auto status = TextAddonsWidgets::NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1String(KONTACT_RELEASE_VERSION_DATE), QDate::currentDate());
         if (status != TextAddonsWidgets::NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
@@ -279,16 +268,6 @@ void MainWindow::initWidgets()
             needUpdateVersionWidget->setObsoleteVersion(status);
         }
     }
-#else
-    if (PimCommon::NeedUpdateVersionUtils::checkVersion()) {
-        const auto status = PimCommon::NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1String(KONTACT_RELEASE_VERSION_DATE), QDate::currentDate());
-        if (status != PimCommon::NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
-            auto needUpdateVersionWidget = new PimCommon::NeedUpdateVersionWidget(this);
-            layout->addWidget(needUpdateVersionWidget);
-            needUpdateVersionWidget->setObsoleteVersion(status);
-        }
-    }
-#endif
 
     mSplitter = new QSplitter(mTopWidget);
     connect(mSplitter, &QSplitter::splitterMoved, this, &MainWindow::slotSplitterMoved);
@@ -380,15 +359,11 @@ void MainWindow::setupActions()
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
 #if KONTACT_STABLE_VERSION
-    const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/25.08/windows/"_s;
+    const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/26.04/windows/"_s;
 #else
     const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/master/windows/"_s;
 #endif
-#if HAVE_TEXTUTILS_HAS_WHATSNEW_SUPPORT
     mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::Windows, url);
-#else
-    mVerifyNewVersionWidget->addOsUrlInfo(PimCommon::VerifyNewVersionWidget::OsVersion::Windows, url);
-#endif
     auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
     actionCollection()->addAction(u"verify_check_version"_s, verifyNewVersionAction);
 #endif
