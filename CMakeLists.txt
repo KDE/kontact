@@ -4,7 +4,7 @@ project(kontact VERSION ${PIM_VERSION})
 set(RELEASE_SERVICE_VERSION "25.11.80")
 
 # Use true if stable version => we will check specific version
-set(KONTACT_STABLE_VERSION false)
+set(KONTACT_STABLE_VERSION true)
 
 # Update it for each release
 set(KONTACT_RELEASE_VERSION_DATE "25.11.10") # yy.MM.dd
