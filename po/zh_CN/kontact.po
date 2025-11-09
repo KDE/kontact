@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kontact/kontact.pot\n"
-"X-Crowdin-File-ID: 45495\n"
+"X-Crowdin-File: /kf6-stable/messages/kontact/kontact.pot\n"
+"X-Crowdin-File-ID: 50274\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -223,32 +223,26 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "显示功能组件侧栏"
+msgstr "显示 Kontact 组件侧栏"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "显示功能组件侧栏"
+msgstr "显示/隐藏 Kontact 组件侧栏"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
-"要节省屏幕空间，您可以选择性地关闭图标侧栏。取消勾选此框就可以隐藏组件侧栏。"
-"请注意，按 F9 可以显示/隐藏此图标侧栏。"
+"要节省屏幕空间，你可以选择隐藏 Kontact 的组件侧栏。取消勾选此复选框即可隐藏组"
+"件侧栏。请注意，按下 F9 可以切换显示/隐藏组件侧栏。"
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -450,27 +444,22 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "选择此项可查看 Kontact 介绍页"
 
 #: src/mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "显示功能组件侧栏"
+msgstr "显示 Kontact 侧栏"
 
 #: src/mainwindow.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "隐藏/显示组件侧边栏"
+msgstr "隐藏/显示组件侧栏"
 
 #: src/mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
-msgstr "允许您按需显示或隐藏组件侧边栏。"
+msgstr "允许您按需显示或隐藏 Kontact 组件侧栏。"
 
 #: src/mainwindow.cpp:406
 #, kde-format
@@ -550,10 +539,3 @@ msgstr "准备使用 Kontact"
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr "侧栏已隐藏。要重新显示侧栏，请按 %1 键。"
-
-#~ msgid "Show/Hide the icon sidebar"
-#~ msgstr "显示/隐藏图标侧栏"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Show Sidebar"
-#~ msgstr "显示侧边栏"
