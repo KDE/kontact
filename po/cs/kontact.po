@@ -224,17 +224,15 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "Zobrazit postranní lištu s komponenty"
+msgstr ""
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "Zobrazit postranní lištu s komponenty"
+msgstr ""
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
@@ -445,19 +443,16 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Pro zobrazení úvodní stránky Kontactu vyberte tuto volbu."
 
 #: src/mainwindow.cpp:342
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "Zobrazit postranní lištu s komponenty"
+msgstr ""
 
 #: src/mainwindow.cpp:343
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "Skrýt/zobrazit postranní lištu s komponenty"
+msgstr ""
 
 #: src/mainwindow.cpp:346
 #, kde-format
@@ -545,10 +540,3 @@ msgstr "Připravit Kontact k použití"
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
-
-#~ msgid "Show/Hide the icon sidebar"
-#~ msgstr "Zobrazit/skrýt postranní lištu s ikonami"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Show Sidebar"
-#~ msgstr "Zobrazit postranní lištu"
