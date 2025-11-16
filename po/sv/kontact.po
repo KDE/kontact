@@ -3,21 +3,21 @@
 # Copyright (C).
 #
 # Mattias Newzella <newzella@linux.nu>, 2003, 2004, 2005.
-# SPDX-FileCopyrightText: 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 # Stefan Asserhall <stefan.asserhall@gmail.com>, 2005, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:43+0000\n"
-"PO-Revision-Date: 2024-08-02 08:00+0200\n"
+"PO-Revision-Date: 2025-11-15 21:22+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -240,33 +240,27 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "Visa komponentsidoraden"
+msgstr "Visa komponentsidoraden i Kontact"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "Visa komponentsidoraden"
+msgstr "Visa eller dölj komponentsidoraden i Kontact"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
-"För att spara skärmutrymme kan du välja att dölja ikonsidoraden. Avmarkera "
-"kryssrutan för att dölja komponentsidoraden. Observera att tangenten F9 "
-"döljer eller visar ikonsidoraden."
+"För att spara skärmutrymme kan du välja att dölja komponentsidoraden i "
+"Kontact. Avmarkera kryssrutan för att dölja komponentsidoraden. Observera "
+"att tangenten F9 döljer eller visar komponentsidoraden."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -468,27 +462,23 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Välj alternativet för att visa Kontacts introduktionssida."
 
 #: src/mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "Visa komponentsidoraden"
+msgstr "Visa sidoraden i Kontact"
 
 #: src/mainwindow.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "Dölj eller visa komponentsidoraden"
+msgstr "Dölj eller visa komponentsidoraden i Kontact"
 
 #: src/mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
-msgstr "Låter dig visa eller dölja komponentsidoraden enligt önskemål."
+msgstr ""
+"Låter dig visa eller dölja komponentsidoraden i Kontact enligt önskemål."
 
 #: src/mainwindow.cpp:406
 #, kde-format
