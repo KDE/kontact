@@ -569,10 +569,3 @@ msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 "Страничната лента е скрита. Покажете отново страничната лента, като "
 "използвате клавиша %1."
-
-#~ msgid "Show/Hide the icon sidebar"
-#~ msgstr "Показване/скриване на страничната лента с икони"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Show Sidebar"
-#~ msgstr "Скриване на страничния панел"
