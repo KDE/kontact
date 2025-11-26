@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-26 00:44+0000\n"
 "PO-Revision-Date: 2020-01-02 11:52+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -299,6 +299,11 @@ msgstr "Liikumisriba"
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Konkreetse Kontacti mooduli avamine"
+
+#: src/main.cpp:97
+#, kde-format
+msgid "Module"
+msgstr ""
 
 #: src/main.cpp:98
 #, fuzzy, kde-format

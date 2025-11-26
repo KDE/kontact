@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-26 00:44+0000\n"
 "PO-Revision-Date: 2024-08-15 19:23+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -314,6 +314,11 @@ msgstr "Navigators"
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Sākt ar konkrētu „Kontact“ moduli"
+
+#: src/main.cpp:97
+#, kde-format
+msgid "Module"
+msgstr ""
 
 #: src/main.cpp:98
 #, kde-format

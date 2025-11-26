@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-26 00:44+0000\n"
 "PO-Revision-Date: 2025-10-30 14:30+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -314,6 +314,11 @@ msgstr "Навігатор"
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Запустити з вказаним модулем Kontact"
+
+#: src/main.cpp:97
+#, kde-format
+msgid "Module"
+msgstr ""
 
 #: src/main.cpp:98
 #, kde-format

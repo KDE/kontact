@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-26 00:44+0000\n"
 "PO-Revision-Date: 2004-08-17 18:42+0500\n"
 "Last-Translator: Erkin Pulatov <erkin_pulatov@mail.ru>\n"
 "Language-Team: Tajik\n"
@@ -289,6 +289,11 @@ msgstr ""
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "Ба кор андохтан бо қисмати муайян"
+
+#: src/main.cpp:97
+#, kde-format
+msgid "Module"
+msgstr ""
 
 #: src/main.cpp:98
 #, kde-format
