@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:44+0000\n"
-"PO-Revision-Date: 2025-10-30 13:31+0100\n"
+"PO-Revision-Date: 2025-11-26 10:51+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -318,7 +318,7 @@ msgstr "Inicia amb un mòdul específic del Kontact"
 #: src/main.cpp:97
 #, kde-format
 msgid "Module"
-msgstr ""
+msgstr "Mòdul"
 
 #: src/main.cpp:98
 #, kde-format
