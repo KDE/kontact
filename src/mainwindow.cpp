@@ -358,12 +358,13 @@ void MainWindow::setupActions()
     mShowMenuBarAction = KStandardAction::showMenubar(this, &MainWindow::slotToggleMenubar, actionCollection());
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    const QString defaultUrlPath = QStringLiteral("https://origin.cdn.kde.org/ci-builds/pim/kontact/");
+    const QString stableBranch = u"26.04"_s;
+    bool stableVersion = false;
 #if KONTACT_STABLE_VERSION
-    const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/26.04/windows/"_s;
-#else
-    const QString url = u"https://cdn.kde.org/ci-builds/pim/kontact/master/windows/"_s;
+    stableVersion = true;
 #endif
-    mVerifyNewVersionWidget->addOsUrlInfo(TextAddonsWidgets::VerifyNewVersionWidget::OsVersion::Windows, url);
+    mVerifyNewVersionWidget->generateUrlInfo(stableBranch, defaultUrlPath, stableVersion);
     auto verifyNewVersionAction = mVerifyNewVersionWidget->verifyNewVersionAction();
     actionCollection()->addAction(u"verify_check_version"_s, verifyNewVersionAction);
 #endif
