@@ -1,13 +1,13 @@
-set(PIM_VERSION "6.5.90")
+set(PIM_VERSION "6.6.0")
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "25.11.90")
+set(RELEASE_SERVICE_VERSION "25.12.0")
 
 # Use true if stable version => we will check specific version
 set(KONTACT_STABLE_VERSION true)
 
 # Update it for each release
-set(KONTACT_RELEASE_VERSION_DATE "25.11.27") # yy.MM.dd
+set(KONTACT_RELEASE_VERSION_DATE "25.12.11") # yy.MM.dd
 
 set(KF_MIN_VERSION "6.18.0")
 set(QT_REQUIRED_VERSION "6.8.0")
@@ -55,7 +55,7 @@ include(ECMCheckOutboundLicense)
 set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 
 # Do NOT add quote
-set(KDEPIM_DEV_VERSION rc)
+set(KDEPIM_DEV_VERSION)
 
 # add an extra space
 if(DEFINED KDEPIM_DEV_VERSION)
