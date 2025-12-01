@@ -573,14 +573,3 @@ msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
 "La barra lateral està oculta. Es tornarà a mostrar emprant la tecla %1."
-
-#~ msgid "Show/Hide the icon sidebar"
-#~ msgstr "Mostra/Oculta la icona de la barra lateral"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Show Sidebar"
-#~ msgstr "Mostra la barra lateral"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Hide/Show the component sidebar"
-#~ msgstr "Oculta/Mostra la barra lateral de components"
