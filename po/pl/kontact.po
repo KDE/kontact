@@ -2,27 +2,28 @@
 # translation of kontact.po to
 #
 # Copyright (C) 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
-# Krzysztof Lichota, 2004.
 # Mikolaj Machowski <mikmach@wp.pl>, 2004, 2005, 2007, 2008, 2009, 2010.
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2004.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2005, 2006.
 # Robert Gomulka <rgom@o2.pl>, 2006.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2007, 2008, 2010.
-# SPDX-FileCopyrightText: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# Krzysztof Lichota, 2004.
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-01 00:44+0000\n"
-"PO-Revision-Date: 2024-08-03 11:30+0200\n"
+"PO-Revision-Date: 2025-12-06 15:22+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
-"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language-Team: pl\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -129,7 +130,7 @@ msgstr "Pokaż duże ikony w pasku bocznym"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
-msgstr "Wybierz tę opcję jeśli w pasku bocznym mają być bardzo duże ikony."
+msgstr "Zaznacz to pole, jeśli w pasku bocznym mają być bardzo duże ikony."
 
 #: src/iconsidepane.cpp:295
 #, kde-format
@@ -148,7 +149,7 @@ msgstr "Pokaż normalne ikony w pasku bocznym"
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr ""
-"Wybierz tę opcję jeśli w pasku bocznym mają być ikony normalnej wielkości."
+"Zaznacz to pole, jeśli w pasku bocznym mają być ikony normalnej wielkości."
 
 #: src/iconsidepane.cpp:302
 #, kde-format
@@ -166,7 +167,7 @@ msgstr "Pokaż małe ikony w pasku bocznym"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
-msgstr "Wybierz tę opcję jeśli w pasku bocznym mają być bardzo małe ikony."
+msgstr "Zaznacz to pole, jeśli w pasku bocznym mają być bardzo małe ikony."
 
 #: src/iconsidepane.cpp:309
 #, kde-format
@@ -240,33 +241,27 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "Pokaż pasek boczny składnika"
+msgstr "Pokaż pasek boczny Kontactu"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "Pokaż pasek boczny składnika"
+msgstr "Pokaż/ukryj pasek boczny Kontactu"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
-"Aby zaoszczędzić miejsce na ekranie możesz ukryć pasek boczny ikon. Odznacz "
-"to pole, aby ukryć pasek boczny składników. Klawisz F9 ukryje/pokaże pasek "
-"boczny ikon."
+"Aby zaoszczędzić miejsce na ekranie możesz ukryć pasek boczny Kontactu. "
+"Odznacz to pole, aby ukryć pasek boczny składników. Klawisz F9 ukryje/pokaże "
+"pasek boczny składników."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -313,7 +308,7 @@ msgstr "Zacznij w określonym module Kontactu"
 #: src/main.cpp:97
 #, kde-format
 msgid "Module"
-msgstr ""
+msgstr "Moduł"
 
 #: src/main.cpp:98
 #, kde-format
@@ -470,31 +465,25 @@ msgstr "Pokaż stronę informacyjną Kontactu"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
-msgstr "Wybierz tę opcję by zobaczyć stronę informacyjną Kontactu."
+msgstr "Zaznacz to pole, aby zobaczyć stronę informacyjną Kontactu."
 
 #: src/mainwindow.cpp:342
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "Pokaż pasek boczny składnika"
+msgstr "Pokaż pasek boczny Kontactu"
 
 #: src/mainwindow.cpp:343
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "Ukryj/Pokaż pasek boczny składników"
+msgstr "Ukryj/Pokaż pasek boczny Kontactu"
 
 #: src/mainwindow.cpp:346
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
-msgstr ""
-"Umożliwia ukrycie  lub pokazanie paseka bocznego składników na żądanie."
+msgstr "Umożliwia ukrycie lub pokazanie paska bocznego Kontactu wg upodobania."
 
 #: src/mainwindow.cpp:382
 #, kde-format
@@ -522,7 +511,7 @@ msgstr "Przełącz na wtyczkę %1"
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
-msgstr "Program jest uruchomiony samodzielnie. Wywoływanie..."
+msgstr "Program jest uruchomiony samodzielnie. Wywoływanie…"
 
 #: src/mainwindow.cpp:662
 #, kde-format
