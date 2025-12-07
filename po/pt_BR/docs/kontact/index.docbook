@@ -4,8 +4,6 @@
   <!ENTITY PIM "<acronym
 >PIM</acronym
 >">
-  <!ENTITY kappname "&kontact;">
-  <!ENTITY package "kdepim">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % Brazilian-Portuguese "INCLUDE">
 ]>
@@ -81,13 +79,13 @@
 >&FDLNotice;</legalnotice>
 
 <date
->20/08/2010</date>
+>08/12/2016</date>
 <releaseinfo
->4.5.1 beta1</releaseinfo>
+>5.4.40 (Applications 16.12)</releaseinfo>
 
 <abstract
 ><para
->O &kontact; é a solução integrada para as suas necessidades de gerenciamento de informações pessoais (&PIM;). Ele combina os aplicativos conhecidos do &kde;, como o &kmail;, o &korganizer; e o &kaddressbook; em uma única interface para oferecer um acesso simples ao e-mail, à agenda, ao livro de endereços e a outras funcionalidades de &PIM;. </para
+>O &kontact; é a solução integrada para as suas necessidades de gerenciamento de informações pessoais (&PIM;). Ele combina os aplicativos conhecidos do &kde;, como o &kmail;, o &korganizer; e o &kaddressbook; em uma única interface para oferecer um acesso simples ao e-mail, à agenda, ao livro de endereços e a outras funcionalidades de &PIM;.</para
 ></abstract>
 
 <keywordset>
@@ -141,7 +139,7 @@
 <variablelist>
     <varlistentry>
         <term
-><ulink url="help:kmail"
+><ulink url="help:/kmail2"
 >&kmail;</ulink
 ></term>
         <listitem
@@ -151,7 +149,7 @@
     </varlistentry>
     <varlistentry>
         <term
-><ulink url="help:korganizer"
+><ulink url="help:/korganizer"
 >&korganizer;</ulink
 ></term>
         <listitem
@@ -161,7 +159,7 @@
     </varlistentry>
     <varlistentry>
         <term
-><ulink url="help:kaddressbook"
+><ulink url="help:/kaddressbook"
 >&kaddressbook;</ulink
 ></term>
         <listitem
@@ -171,7 +169,7 @@
     </varlistentry>
     <varlistentry>
         <term
-><ulink url="help:knotes"
+><ulink url="help:/knotes"
 >&knotes;</ulink
 ></term>
         <listitem
@@ -181,7 +179,7 @@
     </varlistentry>
     <varlistentry>
         <term
-><ulink url="help:akregator"
+><ulink url="help:/akregator"
 >&akregator;</ulink
 ></term>
         <listitem
@@ -428,7 +426,7 @@
 >Lista de Por-Fazer do &kmail; -&gt; &korganizer;</title>
 
 <para
->Arrastar uma mensagem da <ulink url="help:kmail/using-kmail.html#the-mail-reader-window"
+>Arrastar uma mensagem da <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
 >área de Cabeçalhos do &kmail;</ulink
 > para o ícone da lista de Itens Por-Fazer do &korganizer; (<guiicon
 ><inlinemediaobject
@@ -461,7 +459,7 @@
 >&kmail; -&gt; Calendário do &korganizer;</title>
 
 <para
->Arrastar uma mensagem da <ulink url="help:kmail/using-kmail.html#the-mail-reader-window"
+>Arrastar uma mensagem da <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
 >área de Cabeçalhos do &kmail;</ulink
 > para o ícone do Calendário do &korganizer; (<guiicon
 ><inlinemediaobject
@@ -488,7 +486,7 @@
 > sejam informações da mensagem em si), assim como a mensagem de e-mail em si como anexo. </para>
 
 <para
->Lembre-se que o arrastamento para o botão Por-Fazer irá criar um item Por-Fazer, enquanto que o arrastamento para o Calendário cria um Evento. Mais informações sobre esta distinção estão disponíveis na <ulink url="help:korganizer"
+>Lembre-se que o arrastamento para o botão Por-Fazer irá criar um item Por-Fazer, enquanto que o arrastamento para o Calendário cria um Evento. Mais informações sobre esta distinção estão disponíveis na <ulink url="help:/korganizer"
 >documentação do &korganizer;</ulink
 > </para>
 
@@ -500,7 +498,7 @@
 >&kmail; -&gt; &kaddressbook;</title>
 
 <para
->O arrastamento de uma mensagem da <ulink url="help:kmail/using-kmail.html#the-mail-reader-window"
+>O arrastamento de uma mensagem da <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
 >painel de Cabeçalhos do &kmail;</ulink
 > para o ícone do &kaddressbook; (<guiicon
 ><inlinemediaobject
@@ -519,7 +517,7 @@
 >&kaddressbook; -&gt; Lista de Por-Fazer do &korganizer;</title>
 
 <para
->Arrastar um número qualquer de itens da <ulink url="help:kaddressbook/using-kaddressbook.html"
+>Arrastar um número qualquer de itens da <ulink url="help:/kaddressbook/using-kaddressbook.html"
 >janela principal do &kaddressbook;</ulink
 > para o ícone da lista de itens Por-Fazer do &korganizer; (<guiicon
 ><inlinemediaobject
@@ -530,7 +528,7 @@
 >) irá criar um novo item Por-Fazer com &quot;Meeting&quot; como título e os contatos selecionados como participantes. </para>
 
 <para
->Lembre-se que o arrastamento para o botão Por-Fazer irá criar um item Por-Fazer, enquanto que o arrastamento para o Calendário cria um Evento. Mais informações sobre esta distinção estão disponíveis na <ulink url="help:korganizer"
+>Lembre-se que o arrastamento para o botão Por-Fazer irá criar um item Por-Fazer, enquanto que o arrastamento para o Calendário cria um Evento. Mais informações sobre esta distinção estão disponíveis na <ulink url="help:/korganizer"
 >documentação do &korganizer;</ulink
 > </para>
 
@@ -542,7 +540,7 @@
 >&kaddressbook; -&gt; Calendário do &korganizer;</title>
 
 <para
->Arrastando qualquer número de entradas da <ulink url="help:kaddressbook/using-kaddressbook.html"
+>Arrastando qualquer número de entradas da <ulink url="help:/kaddressbook/using-kaddressbook.html"
 >janela principal do &kaddressbook;</ulink
 > para o ícone do Calendário do &korganizer; (<guiicon
 ><inlinemediaobject
@@ -553,308 +551,13 @@
 >) irá criar um novo Evento com &quot;Reunião&quot; como título e os contatos selecionados como participantes. </para>
 
 <para
->Lembre-se que o arrastamento para o botão Por-Fazer irá criar um item Por-Fazer, enquanto que o arrastamento para o Calendário cria um Evento. Mais informações sobre esta distinção estão disponíveis na <ulink url="help:korganizer"
+>Lembre-se que o arrastamento para o botão Por-Fazer irá criar um item Por-Fazer, enquanto que o arrastamento para o Calendário cria um Evento. Mais informações sobre esta distinção estão disponíveis na <ulink url="help:/korganizer"
 >documentação do &korganizer;</ulink
 > </para>
 
 </sect2>
 
 
-</sect1>
-
-<sect1 id="keyboard-shortcuts">
-<title
->Atalhos do Teclado</title>
-
-<para
->O &kontact; oferece vários atalhos de teclado para um acesso simples a certas funcionalidades. Abaixo, encontra-se uma lista dos atalhos padrão. Entretanto, lembre-se de que você poderá configurar os atalhos de teclado acessando <menuchoice
-><guimenu
->Configurações</guimenu
-> <guimenuitem
->Configurar atalhos...</guimenuitem
-></menuchoice
->.</para>
-
-<screenshot>
-<screeninfo
->Janela de Configuração dos Atalhos do &kontact;</screeninfo>
-<mediaobject>
-<imageobject>
-    <imagedata format="PNG" fileref="configuration-shortcuts.png"/>
-</imageobject>
-<textobject>
-<phrase
->Janela de Configuração dos Atalhos do &kontact;</phrase>
-</textobject>
-<caption>
-<para
->Janela de Configuração dos Atalhos do &kontact; </para>
-</caption>
-</mediaobject>
-</screenshot>
-
-<important>
-    <para
->Os atalhos mencionados abaixo para mudar de componentes variam ligeiramente, dependendo dos componentes que você tiver ativado (veja em <xref linkend="main-config"/>). De um modo geral, os componentes poderão ser ativados usando o &Ctrl; em conjunto com um número; esse número poderá ser obtido contando-se o número de itens desde o topo até o item na área lateral.</para>
-</important>
-
-<para
->Os seguintes atalhos são os pré-definidos para o &kontact;:</para>
-
-<table>
-<title
->Atalhos do Teclado</title>
-<tgroup cols="2">
-<thead
-><row
-><entry
->Ação</entry
-><entry
->Combinação de teclas</entry
-></row
-></thead>
-<tbody>
-<row
-><entry
->Visualização do resumo</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->1</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Componente de e-mail</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->2</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Componente de Contatos</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->3</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Componente de Calendário</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->4</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Componente de Itens Por-Fazer</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->5</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Componente de Fontes de RSS</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->6</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Componente da Usenet</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->7</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Componente do Diário</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->8</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Componente de Livro de notas</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->9</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Novo <replaceable
->Item</replaceable
-></entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->N</keycap
-></keycombo>
-<important
-><para
->O Novo <replaceable
->Item</replaceable
-> muda, dependendo do componente que está atualmente selecionado. É igual a Nova Mensagem para os componentes de Resumo e E-Mail, Novo Contato para o componente de Contatos, Novo Evento para o componente do Calendário, Novo Item Por-Fazer para a lista de itens por fazer, Novo Diário para o componente do Diário, Nova Nota para o componente de Notas, Nova Fonte para o componente de Fontes e Novo Artigo para o componente de Notícias. Cada uma destas ações tem o seu próprio atalho de teclado como listado abaixo.</para
-></important
-></entry
-></row>
-<row
-><entry
->Nova Mensagem</entry
-><entry
-><keycombo action="simul"
->&Ctrl;&Shift;<keycap
->M</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Novo Contato</entry
-><entry
-><keycombo action="simul"
->&Ctrl;&Shift;<keycap
->C</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Novo Por-fazer</entry
-><entry
-><keycombo action="simul"
->&Ctrl;&Shift;<keycap
->T</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Nova Fonte</entry
-><entry
-><keycombo action="simul"
->&Ctrl;&Shift;<keycap
->F</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Novo Artigo</entry
-><entry
-><keycombo action="simul"
->&Ctrl;&Shift;<keycap
->A</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Novo Diário</entry
-><entry
-><keycombo action="simul"
->&Ctrl;&Shift;<keycap
->J</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Nova página do KJots</entry
-><entry
-><keycombo action="simul"
->&Ctrl;&Shift;<keycap
->P</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Novo livro do KJots</entry
-><entry
-><keycombo action="simul"
->&Ctrl;&Shift;<keycap
->B</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Nova nota instantânea</entry
-><entry
-><keycombo action="simul"
->&Ctrl;&Shift;<keycap
->N</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Nova Tarefa</entry
-><entry
-><keycombo action="simul"
->&Ctrl;&Shift;<keycap
->W</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Manual do &kontact;</entry
-><entry
-><keycombo action="press"
-><keycap
->F1</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->A ajuda O que é Isto?</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->F1</keycap
-></keycombo
-></entry
-></row>
-<row
-><entry
->Sair</entry
-><entry
-><keycombo action="simul"
->&Ctrl;<keycap
->Q</keycap
-></keycombo
-></entry
-></row>
-</tbody>
-</tgroup>
-</table>
 </sect1>
 
 </chapter>
@@ -1057,6 +760,7 @@ the data.</para-->
 </mediaobject>
 </screenshot>
 </sect2>
+
 <sect2 id="summary-view-config-mail">
 <title
 >Plugins de Resumo do &kontact;: E-mail</title>
@@ -1191,14 +895,7 @@ the data.</para-->
 >O &kontact; tem vários argumentos da linha de comando que poderão ser usados para determinadas ações.</para>
 
 <para
->Primeiramente, o &kontact; suporta os argumentos da linha de comando que todos os aplicativos do &kde;/&Qt; suportam. Você poderá obter uma lista completa destas opções digitando: </para>
-
-<para
-><prompt
->&percnt;</prompt
-> <command
->kontact --help-all</command
-> </para>
+>Primeiramente, o &kontact; suporta os argumentos da linha de comando que todos os aplicativos do &kde-frameworks;/&Qt; suportam. Consulte as páginas de manual do qt6options e kf6options. </para>
 
 <para
 >O &kontact; também suporta vários argumentos da linha de comando específicos para ele.</para>
@@ -1289,7 +986,7 @@ the data.</para-->
 >&kontact;</para>
 
 <para
->Programa com copyright 2004-2005, A Equipe de Desenvolvimento do &kde;</para>
+>Programa com copyright 2004-2021, A Equipe de Desenvolvimento do &kde;</para>
 
 <para
 >Contribuições:</para>
@@ -1319,7 +1016,39 @@ the data.</para-->
 ></listitem>
 <listitem
 ><para
->Matthis H&ouml;lzer-Kl&uuml;pfel <email
+>Rafael Fernández López <email
+>ereslibre@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>&David.Faure; &David.Faure.mail;</para
+></listitem>
+<listitem
+><para
+>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para
+></listitem>
+<listitem
+><para
+>Sven Lüppken <email
+>sven@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Torgny Nyblom <email
+>nyblom@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Zack Rusin <email
+>zack@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthias Hölzer-Klüpfel <email
 >mhk@kde.org</email
 >, o autor original da infraestrutura &kontact;.</para>
     </listitem>
@@ -1357,21 +1086,155 @@ the data.</para-->
 </itemizedlist>
 </para>
 
-
-<para
->A página do &kontact; está em <ulink url="http://kontact.kde.org"
->http://kontact.kde.org</ulink
-></para>
-
-
-
 <para
 >Tradução de Marcus Gama <email
 >marcus.gama@gmail.com</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
+<appendix id="kontact-admin">
+<title
+>Guia do Administrador</title>
+<!-- Section Compatibility -->
+<sect1 id="compat">
+<title
+>Problemas de compatibilidade</title>
+
+<para
+>Esta seção fornece ajuda sobre como fazer o &kontact; se comunicar de forma eficaz com várias soluções de groupware. </para>
+
+<sect2 id="compat-outlook">
+<title
+>Outlook e Exchange</title>
+
+<para
+>Na janela de configuração do &kontact;, em <menuchoice
+><guimenu
+>Correio</guimenu
+> <guimenuitem
+>Diversos</guimenuitem
+></menuchoice
+> na página <guilabel
+>Convites</guilabel
+> você encontrará as seguintes opções que ajudarão o usuário a se comunicar com o Microsoft Outlook(tm) em execução em um ambiente Kolab ou em um ambiente Microsoft Exchange(tm). </para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Manipular cabeçalhos De:/Para: em respostas aos convites</guilabel
+></term>
+<listitem>
+<para
+>Ative esta opção para que o Microsoft Outlook(tm) entenda suas respostas às respostas de convite.</para>
+<para
+>O Microsoft Outlook possui um número de problemas em sua implementação do padrão do iCalendar. Esta opção soluciona um deles. Se você tem problemas com os usuários do Outlook, por eles não serem capazes de obter suas respostas, tente selecionar esta opção.</para>
+<para
+>Detalhes: Ao enviar um convite iCal por e-mail, isso faz com que a mensagem tenha o cabeçalho "De:" igual ao cabeçalho "Para:". Também define o cabeçalho X-KMail-Identity para o UIOD do campo "Para:" e garante que o campo "Cco:" esteja em branco. O Outlook só entenderá a resposta se o cabeçalho "De:" for igual ao cabeçalho "Para:" da mensagem de convite.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Enviar convites no corpo das mensagens</guilabel
+></term>
+<listitem>
+<para
+>Os convites normalmente são enviados como anexos de um e-mail. Esta opção altera o convite para ser enviado no corpo do e-mail; isso é necessário para enviar convites e respostas para o Microsoft Outlook. Mas, ao fazer isso, você não terá mais um texto descritivo que os programas de e-mail possam ler; portanto, para pessoas que têm programas de e-mail que não entendem os convites, as mensagens resultantes parecerão muito estranhas. Pessoas que têm programas de e-mail que entendem os convites ainda poderão trabalhar com esta opção.</para>
+<para
+>Detalhes: Ao enviar um convite iCal por e-mail, esta opção cria o corpo da mensagem a partir dos dados do anexo e define o cabeçalho Content-Type como 'text/calendar; method=something; charset="utf-8"'.</para>
+<para
+>O envio automático também está ativado, portanto não é necessária intervenção humana para compor.</para>
+<note
+><para
+>A criptografia e a assinatura automática estão desativadas.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Nomes de convites compatíveis com o Exchange</guilabel
+></term>
+<listitem>
+<para
+>O Microsoft Outlook, quando usado em conjunto com um servidor Microsoft Exchange™, apresenta problemas para interpretar e-mails de groupware compatíveis com os padrões. Habilite esta opção para enviar convites de groupware de uma forma que o Microsoft Exchange™ reconheça. O convite será enviado como um anexo com o nome <filename
+>ical.ics</filename
+>.</para>
+<para
+>Detalhes: Ao enviar um convite iCal por e-mail, isso fará com que a mensagem tenha o assunto "(Recusado|Provisório|Aceito|Delegado): assunto". O convite será enviado como um anexo com o nome <filename
+>ical.ics</filename
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Nomeação de anexos compatível com o Outlook</guilabel
+></term>
+<listitem>
+<para
+>Ative esta opção para que o Outlook(tm) entenda os nomes dos anexos que contêm caracteres não ingleses.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+</sect1>
+
+<!-- Section Behavior -->
+<sect1 id="behavior">
+<title
+>Problemas comportamentais</title>
+
+<para
+>Esta seção fornece instruções sobre como fazer o &kontact; se comportar mais como outros clientes de groupware. </para>
+
+<sect2 id="behave-composing">
+<title
+>Composição de mensagens</title>
+
+<para
+>Os usuários do Outlook estão acostumados a digitar uma lista de endereços nos campos Para:, Cc: ou Cco:, separados por um ponto e vírgula (';') além de uma vírgula (','). Por padrão, o &kontact; permite apenas a vírgula como separador de endereço. Para permitir também o ponto e vírgula, altere a opção <option
+>AllowSemicolonAsAddressSeparator</option
+> de false para true no arquivo <filename
+>share/config.kcfg/messagecomposer.kcfg</filename
+> instalado. </para>
+
+</sect2>
+</sect1>
+
+<!-- Section RFC Compromises -->
+<sect1 id="nonrfc">
+<title
+>Compromissos RFC</title>
+
+<para
+>O &kontact; foi projetado para interoperar da melhor forma possível com uma ampla variedade de soluções de groupware. Para isso, às vezes fazemos concessões de design em relação aos vários RFCs da Internet que fornecem a base para bibliotecas de baixo nível das quais o &kontact; depende fortemente.</para>
+
+<note
+><para
+>Nós nunca violamos conscientemente nenhuma RFC.</para
+></note>
+
+<para
+>A seguinte lista de concessões de RFC é feita pelo &kontact; ou pelas bibliotecas de baixo nível usadas pelo &kontact;:</para>
+<!--FIXME is this correct?-->
+<itemizedlist>
+<listitem>
+<para
+>Ao gravar valores de duração em arquivos iCalendar, o &kontact; nunca grava a propriedade DURATION em termos de semanas (ou seja, 1*DIGIT "S"); em vez disso, o número inteiro de semanas é sempre multiplicado por 7 e gravado em termos de dias (ou seja, 1*DIGIT "D"). </para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+</appendix>
 
 &documentation.index;
 </book>
