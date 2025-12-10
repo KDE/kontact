@@ -62,7 +62,7 @@ void KontactConfigureDialog::slotOk()
 
 QSize KontactConfigureDialog::sizeHint() const
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myKontactConfigureDialogConfigGroupName));
+    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myKontactConfigureDialogConfigGroupName));
     const int width = group.readEntry("width", 800);
     const int height = group.readEntry("height", 600);
     return QSize(width, height);
