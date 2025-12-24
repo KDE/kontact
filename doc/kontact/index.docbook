@@ -41,8 +41,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2016-12-08</date>
-<releaseinfo>5.4.40 (Applications 16.12)</releaseinfo>
+<date>2025-12-11</date>
+<releaseinfo>6.6.0 (KDE Gear 25.12)</releaseinfo>
 
 <abstract><para>&kontact; is the integrated solution to your personal
 information management (&PIM;) needs. It combines well-known &kde;
@@ -56,7 +56,6 @@ address book and other &PIM; functionality.</para></abstract>
 <keyword>KMail</keyword>
 <keyword>Organizer</keyword>
 <keyword>KAddressBook</keyword>
-<keyword>KNotes</keyword>
 <keyword>Akregator</keyword>
 <keyword>PIM</keyword>
 <keyword>groupware</keyword>
@@ -70,21 +69,16 @@ address book and other &PIM; functionality.</para></abstract>
 <chapter id="introduction">
 <title>Introduction</title>
 
-<para>&kontact; is the integrated solution for personal information
-management.  It combines the well-known &kde; applications for email,
-scheduling, address book, and notes (&kmail;, &korganizer;,
-&kaddressbook;, and &knotes;)
-into a single interface. Being
-based on a true component framework &kontact; provides exactly the
-same functionality as the stand-alone applications, and adds more
-features, by making use of the integrated way &kontact; runs the
-applications as components. Users still retain the choice of which
-applications are run within &kontact; and which are run
-stand-alone.</para>
+<para>&kontact; is the integrated solution for personal information management.
+It combines the well-known &kde; applications for email, scheduling and address book
+(&kmail;, &korganizer;, &kaddressbook;) into a single interface. Being based on a
+true component framework &kontact; provides exactly the same functionality as the
+stand-alone applications, and adds more features, by making use of the integrated
+way &kontact; runs the applications as components. Users still retain the choice of
+which applications are run within &kontact; and which are run stand-alone.</para>
 
-<para>In addition to the functionality of the individual applications &kontact;
-provides a summary view and advanced drag &amp; drop features between
-components.
+<para>In addition to the functionality of the individual applications, &kontact;
+provides a summary view and advanced drag &amp; drop features between components.
 </para>
 
 </chapter>
@@ -113,10 +107,6 @@ them stand-alone.
     <varlistentry>
         <term><ulink url="help:/kaddressbook">&kaddressbook;</ulink></term>
         <listitem><para>The &kde; contact manager.</para></listitem>
-    </varlistentry>
-    <varlistentry>
-        <term><ulink url="help:/knotes">&knotes;</ulink></term>
-        <listitem><para>The &kde; sticky notes application.</para></listitem>
     </varlistentry>
     <varlistentry>
         <term><ulink url="help:/akregator">&akregator;</ulink></term>
@@ -201,9 +191,7 @@ icon in the Side Pane indicates to which application the Main View belongs.
 <phrase>&kontact;'s Main View</phrase>
 </textobject>
 <caption>
-<para>
-    &kontact;'s Main View
-</para>
+<para>&kontact;'s Main View</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -215,7 +203,7 @@ starts with. The first is supplying an argument to the &kontact; program call
 certain mode.</para>
 
 <para>To get to it, go to <menuchoice><guimenu>Settings</guimenu>
-<guimenuitem>Configure Kontact</guimenuitem></menuchoice> and click on
+<guimenuitem>Configure &kontact;</guimenuitem></menuchoice> and click on
 <guilabel>Kontact</guilabel> in the list.</para>
 
 <screenshot>
@@ -226,9 +214,7 @@ certain mode.</para>
 <phrase>&kontact; Starting Component Setting</phrase>
 </textobject>
 <caption>
-<para>
-    &kontact; Starting Component Setting
-</para>
+<para>&kontact; Starting Component Setting</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -478,10 +464,10 @@ distinction is available in the
 
 <para>The default view when starting &kontact; for the first time is the Summary
 View. It shows an overview of the most relevant information provided by the
-selected &kontact; components. These can be notes, imminent
-appointments or birthdays, due to-dos, new messages &etc; Which information is
-shown is configurable by selecting the corresponding components in the <link
-linkend="configuration">&kontact; configuration dialog</link>.</para>
+selected &kontact; components. These can be imminent appointments or birthdays,
+due to-dos, new messages &etc; Which information is shown is configurable by
+selecting the corresponding components in the <link linkend="configuration">
+&kontact; configuration dialog</link>.</para>
 
 <screenshot>
 <screeninfo>&kontact;'s Summary View</screeninfo>
@@ -686,34 +672,6 @@ of these messages there are and which folder they are in.
 </screenshot>
 </sect2>
 
-<sect2 id="summary-view-config-notes">
-<title>&kontact; Summary Plugins: Notes</title>
-
-<para>
-The <quote>Notes</quote> plugin for &kontact;'s Summary View adds an
-area in the view labeled <guilabel>Popup Notes</guilabel>. This area
-displays all current notes' titles (titles default to the date/time
-the note was created). Clicking on the title of a note will bring up
-the Notes area.
-</para>
-
-<screenshot>
-<screeninfo>&kontact; Notes Summary Plugin</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata format="PNG" fileref="summary-view-notes.png"/>
-</imageobject>
-<textobject>
-<phrase>&kontact; Notes Summary Plugin</phrase>
-</textobject>
-<caption>
-<para>
-&kontact; Notes Summary Plugin
-</para>
-</caption>
-</mediaobject>
-</screenshot>
-</sect2>
 
 <sect2 id="summary-view-config-todo-list">
 <title>&kontact; Summary Plugins: To-do List</title>
@@ -861,7 +819,7 @@ mode of &DBus; is used.</para>
 
 <para>&kontact;</para>
 
-<para>Program copyright 2001-2021, The &kde; Developers</para>
+<para>Program copyright 2001-2025, The &kde; Developers</para>
 
 <para>Contributors:</para>
 
@@ -1016,8 +974,8 @@ behave more like other groupware clients.
 <para>
 Outlook users are accustomed to typing a list of addresses in the To:,
 CC: or BCC: fields separated by a semicolon (';') character in addition
-to a comma (',').  By default, &kontact; only allows the comma as an address
-separator character.  To also allow the semicolon, change the
+to a comma (','). By default, &kontact; only allows the comma as an address
+separator character. To also allow the semicolon, change the
 <option>AllowSemicolonAsAddressSeparator</option> from false to true
 in the installed <filename>share/config.kcfg/messagecomposer.kcfg</filename> file.
 </para>
@@ -1030,7 +988,7 @@ in the installed <filename>share/config.kcfg/messagecomposer.kcfg</filename> fil
 <title>RFC Compromises</title>
 
 <para>&kontact; is designed to interoperate as well as is possible
-with a wide variety of groupware solutions.  To that end, we sometimes
+with a wide variety of groupware solutions. To that end, we sometimes
 make design compromises with respect to the various Internet RFCs
 that provide the basis for low-level libraries on which &kontact;
 relies heavily.</para>
