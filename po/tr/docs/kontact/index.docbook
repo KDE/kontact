@@ -1,0 +1,1210 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym
+>PIM</acronym
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Turkish "INCLUDE">
+]>
+
+<book id="kontact" lang="&language;">
+
+<bookinfo>
+
+<title
+>&kontact; El Kitabı</title>
+
+<authorgroup>
+<author
+><firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+><address
+>&Cornelius.Schumacher.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Antonio</firstname
+> <surname
+>Salazar</surname
+> <affiliation
+><address
+><email
+>savedfastcool@gmail.com</email>
+    </address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+><address
+>&Daniel.Molkentin.mail;</address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@îcloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2003-2005</year
+><holder
+>&Cornelius.Schumacher;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2025‒12‒11</date>
+<releaseinfo
+>6.6.0 (KDE Gear 25.12)</releaseinfo>
+
+<abstract
+><para
+>&kontact;, kişisel bilgi yönetimi (&PIM;) gereksinimleriniz için tek tümleşik çözümdür. &kmail;, &korganizer; ve &kaddressbook; gibi bilinen &kde; uygulamalarını tek bir arayüzde birleştirir ve böylece posta, program, adres defteri ve diğer bilgi yönetimi işlevleri için kolay erişim sağlar.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>K Posta</keyword>
+<keyword
+>Organizatör</keyword>
+<keyword
+>K Adres Defteri</keyword>
+<keyword
+>Akregatör</keyword>
+<keyword
+>PIM</keyword>
+<keyword
+>grup yazılımı</keyword>
+<keyword
+>Outlook</keyword>
+<keyword
+>Evolution</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>Giriş</title>
+
+<para
+>&kontact;, kişisel bilgi yönetimi için tümleşik bir çözümdür. E-posta, program ve adres defteri için bilinen &kde; uygulamalarını (&kmail;, &korganizer;, &kaddressbook;) tek bir arayüzde birleştirir. Gerçek bir bileşen çerçevesine dayanan &kontact;, bağımsız uygulamalarla tamamen aynı işlevselliği sunar ve uygulamaları bileşenler olarak çalıştırmanın tümleşik yolunu kullanarak daha fazla özellik ekler. Kullanıcılar, hangi uygulamaların &kontact; içinde, hangilerinin bağımsız olarak çalıştırılacağına dair seçim hakkını korurlar.</para>
+
+<para
+>&kontact;, bireysel uygulamaların işlevselliğine ek olarak, bileşenler arasında özet bir görünüm ve gelişmiş sürükle ve bırak özellikleri sunar. </para>
+
+</chapter>
+
+
+<chapter id="components">
+<title
+>&kontact; Bileşenleri</title>
+
+<para
+>&kontact; aşağıdaki uygulamaları tümleştirir. Bunların nasıl kullanılacağına dair ayrıntılar için ilgili uygulama kılavuzlarına bakın. Bu kılavuzlar, uygulamaları &kontact; içinde bileşen olarak çalıştırmak kadar bağımsız olarak çalıştırmak için de geçerlidir. </para>
+
+<variablelist>
+    <varlistentry>
+        <term
+><ulink url="help:/kmail2"
+>&kmail;</ulink
+></term>
+        <listitem
+><para
+>&kde; posta istemcisi.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/korganizer"
+>&korganizer;</ulink
+></term>
+        <listitem
+><para
+>&kde; takvim ve program uygulaması.</para>
+            </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/kaddressbook"
+>&kaddressbook;</ulink
+></term>
+        <listitem
+><para
+>&kde; kişi yöneticisi.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/akregator"
+>&akregator;</ulink
+></term>
+        <listitem
+><para
+>&kde; RSS beslemesi okuyucusu.</para>
+            </listitem>
+    </varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="main-window">
+<title
+>&kontact; Ana Penceresi</title>
+
+<para
+>Ana pencere, sol tarafta kullanılabilir bileşenlerin simgelerini gösteren bir yan panelden, sağ tarafta ise etkin bileşenin ana penceresini ve olağan menü, araç ve durum çubuklarını içeren bir ana görünümden oluşur.</para>
+
+<sect1 id="side-pane">
+<title
+>Yan Panel</title>
+
+<para
+>Yan panel birden fazla amaca hizmet eder. Bileşenler arasında geçiş yapmayı sağlar, hangi bileşenin etkin olduğunu gösterir ve farklı uygulamalara sürükle bırak işlemleri için hedef görevi görür.</para>
+
+<screenshot>
+<screeninfo
+>&kontact; yan paneli</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="side-pane.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact; yan paneli</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; yan paneli </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Bileşenler arasında geçiş yapmak için ilgili simgeye tıklamanız yeterlidir. Bileşenin ana penceresi görüntülenir ve menü, araç ve durum çubukları, etkin bileşenin işlevselliğini yansıtacak şekilde uyarlanır. Bir bileşeni ilk kez etkinleştirdiğinizde, bileşenler talep üzerine yüklendiği için ana görünümün değişmesi kısa bir gecikmeye neden olabilir. Bu, kullanılmayan bileşenler için bellek israf etmediğiniz anlamına gelir.</para>
+
+<para
+>Yan paneldeki simgeler, sürükle ve bırak işlemleri için de hedef olarak kullanılabilir. Örneğin, posta bölümünden bir e-posta mesajını sürükleyip yapılacaklar listesi veya takvim simgesinin üzerine bırakarak bu e-postayla ilişkili bir yapılacaklar listesi veya etkinlik oluşturabilirsiniz.</para>
+
+<para
+>Son olarak, yan paneldeki simgelerin boyutunu değiştirebilirsiniz. Yan panele sağ tıklayarak Büyük, Normal veya Küçük simgeler kullanma seçeneğinin yanı sıra simgeler yerine yalnızca metin kullanma seçeneğini de elde edersiniz.</para>
+
+<para
+>Yan paneli sevmiyorsanız ayrıcıyı sürükleyerek onu toptan gizleyebilirsiniz. Kısımlar arasında alternatif bir dolaşma yöntemi olarak <guilabel
+>Gezgin</guilabel
+> araç çubuğunu kullanabilirsiniz; bu araç çubuğu serbestçe konumlandırılabilir. <guilabel
+>Gezgin</guilabel
+> araç çubuğu ile ilgili daha fazla bilgi için <xref linkend="bars"/> bölümüne bakın.</para>
+
+</sect1>
+
+
+<sect1 id="main-view">
+
+<title
+>Ana Görünüm</title>
+
+<para
+>&kontact; ana penceresinin büyük bir bölümünü kaplayan sağdaki görünüm, etkin bileşeni gösterir. Bu, bileşenin bağımsız bir uygulama olarak çalıştırıldığında kullandığı ana pencereye tam olarak karşılık gelir. Yan paneldeki vurgulanmış simge, ana görünümün hangi uygulamaya ait olduğunu gösterir. &kontact; uygulamadan çıkarken etkin bileşeni hatırlar, bu nedenle &kontact; bir sonraki başlatılışında başlangıçta ana görünümde o bileşeni görüntüler.</para>
+
+<screenshot>
+<screeninfo
+>&kontact; ana görünümü</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact; ana görünümü</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; ana görünümü</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Ayrıca, &kontact;’ın başlattığı bileşeni geçersiz kılmanın iki yolu vardır. Birincisi, &kontact; program çağrısına bir argüman sağlamaktır (bkz. <xref linkend="command-line"/>). İkincisi ise &kontact;’ın yapılandırma iletişim kutusundaki bir ayardır; bu ayar, &kontact;’ı her zaman belirli bir kipte başlatmanıza olanak tanır.</para>
+
+<para
+>Ona gitmek için <menuchoice
+><guimenu
+>Ayarlar</guimenu
+><guimenuitem
+>&kontact; Uygulamasını Yapılandır</guimenuitem
+></menuchoice
+> yolunu izleyin ve listeden <guilabel
+>Kontak</guilabel
+>’ı seçin.</para>
+
+<screenshot>
+<screeninfo
+>&kontact; başlangıç bileşeni ayarı</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact; başlangıç bileşeni ayarı</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; başlangıç bileşeni ayarı</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="bars">
+<title
+>Menü, Araç ve Durum Çubukları</title>
+
+<para
+>Menü, araç ve durum çubukları etkin bileşene göre uyarlanmıştır. Bu, tüm bileşenler için gösterilen yardım menüsü gibi bazı ortak işlevlere ek olarak, etkin bileşen değiştirildiğinde değiştirilen eylemlerin de olduğu anlamına gelir. Her bileşen için kullanılabilen bu eylemler, uygulamayı bağımsız olarak çalıştırırken kullanılabilenlerle aynıdır.</para>
+
+<screenshot>
+<screeninfo
+>Özet, posta ve takvim görünümlerinde görüntülenen &kontact; menü çubukları</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
+<textobject>
+<phrase
+>Özet, posta ve takvim görünümlerinde görüntülenen &kontact; menü çubukları</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Özet, posta ve takvim görünümlerinde görüntülenen &kontact; menü çubukları</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
+<textobject>
+<phrase
+>Özet, posta ve takvim görünümlerinde görüntülenen &kontact; menü çubukları</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>Özet, posta ve takvim görünümlerinde görüntülenen &kontact; menü çubukları</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
+<textobject>
+<phrase
+>Özet, posta ve takvim görünümlerinde görüntülenen &kontact; menü çubukları</phrase>
+</textobject>
+<caption>
+<para
+>Özet, posta ve takvim görünümlerinde görüntülenen &kontact; menü çubukları </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Ayrıca, &kontact; bileşenine tıpkı yan panelde olduğu gibi erişmenizi sağlayan <guilabel
+>Gezgin</guilabel
+> araç çubuğunu da gösterebilir. Ancak, yan panelden farklı olarak, <guilabel
+>Gezgin</guilabel
+> araç çubuğundaki düğmeler diğer bileşenlere sürükle bırak işlemleri için kullanılamaz.</para>
+
+<para
+>Araç çubuğunu etkinleştirmek için <menuchoice
+><guimenu
+>Araçlar</guimenu
+><guisubmenu
+>Gösterilen Araç Çubukları</guisubmenu
+><guimenuitem
+>Gezgin</guimenuitem
+></menuchoice
+> yolunu izleyin. </para>
+
+<screenshot>
+<screeninfo
+>&kontact;’ın <guimenuitem
+>Gezgin</guimenuitem
+> araç çubuğu</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact;’ın <guimenuitem
+>Gezgin</guimenuitem
+> araç çubuğu</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;’ın <guimenuitem
+>Gezgin</guimenuitem
+> araç çubuğu </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Tüm bileşenlerde ortak olan özel bir işlem <guimenuitem
+>Yeni</guimenuitem
+> işlemidir. Bu işlem, hangi bileşenin etkin olduğuna bakılmaksızın e-postalar, kişiler, randevular ve yapılacaklar listesi gibi yeni nesnelerin oluşturulmasına olanak tanır. Seçilen nesneyi işlemekten sorumlu bileşen, gerekirse başlatılır ve oluşturulan nesneyi devralır.</para>
+
+<screenshot>
+<screeninfo
+>&kontact;’ın Yeni menüsü</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact;’ın Yeni menüsü</phrase>
+</textobject>
+<caption>
+<para
+>&kontact;’ın Yeni menüsü </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="side-pane-drag-and-drop">
+<title
+>Sürükle Bırak İşlevselliği</title>
+
+<para
+>&kontact;, içerdiği programlar arasında gelişmiş sürükle ve bırak işlevselliği sağlar. Aşağıda, kullanılabilecek her bir sürükle ve bırak işleminin kısa bir açıklaması ve her birinin sonucu yer almaktadır.</para>
+
+<sect2 id="side-pane-drag-and-drop-kmail-todo">
+<title
+>&kmail; → &korganizer; yapılacaklar listesi</title>
+
+<para
+><ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>&kmail;’in Üstbilgi panelinden</ulink
+> bir iletiyi &korganizer;’ün yapılacaklar listesine sürüklemek (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>), başlığı <guilabel
+>Posta: <replaceable
+>Konu</replaceable
+></guilabel
+> olan ve içeriği <guilabel
+>Kimden: <replaceable
+>Gönderici</replaceable
+> Kime: <replaceable
+>Alıcı</replaceable
+> Konu: <replaceable
+>Konu</replaceable
+></guilabel
+> olan bir yapılacak oluşturur (metin, iletinin içeriğinin kendisini <guilabel
+><replaceable
+>şöyle</replaceable
+></guilabel
+> alır), e-postanın kendisi de ek olarak iliştirilir. </para>
+
+</sect2>
+
+<sect2 id="side-pane-drag-and-drop-kmail-calendar">
+<title
+>&kmail; → &korganizer; takvimi</title>
+
+<para
+><ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>&kmail;’in Üstbilgi panelinden</ulink
+> bir iletiyi &korganizer;’ün takvimine sürüklemek (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>), başlığı <guilabel
+>Posta: <replaceable
+>Konu</replaceable
+></guilabel
+> olan ve içeriği <guilabel
+>Kimden: <replaceable
+>Gönderici</replaceable
+> Kime: <replaceable
+>Alıcı</replaceable
+> Konu: <replaceable
+>Konu</replaceable
+></guilabel
+> olan bir etkinlik oluşturur (metin, iletinin içeriğinin kendisini <guilabel
+><replaceable
+>şöyle</replaceable
+></guilabel
+> alır), e-postanın kendisi de ek olarak iliştirilir. </para>
+
+<para
+>Dikkat edin, yapılacaklar düğmesinin üzerine sürüklemek bir Yapılacak ögesi oluştururken, takvimin üzerine sürüklemek bir Etkinlik oluşturur. Bu ayrım hakkında daha fazla bilgi <ulink url="help:/korganizer"
+>&korganizer; belgelendirmesinde</ulink
+> bulunabilir. </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kmail-contacts">
+<title
+>&kmail; → &kaddressbook;</title>
+
+<para
+><ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>&kmail;’in Üstbilgi panelinden</ulink
+> bir iletiyi &kaddressbook; simgesine sürüklemek (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="kaddressbook-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>), göndericinin e-posta adresinden bir kişi oluşturur (aynısından yoksa). Bir iletişim kutusu, sizi bu eylem hakkında ikaz eder. </para>
+
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
+<title
+>&kaddressbook; → &korganizer; yapılacaklar listesi</title>
+
+<para
+><ulink url="help:/kaddressbook/using-kaddressbook.html"
+>&kaddressbook;’nin ana penceresinden</ulink
+> &korganizer;’ün yapılacaklar listesine (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) herhangi bir sayıda girdiyi sürüklemek, başlığı “Toplantı” olan ve katılımcıları seçili kişiler olan bir yapılacak oluşturur. </para>
+
+<para
+>Dikkat edin, yapılacaklar düğmesinin üzerine sürüklemek bir Yapılacak ögesi oluştururken, takvimin üzerine sürüklemek bir Etkinlik oluşturur. Bu ayrım hakkında daha fazla bilgi <ulink url="help:/korganizer"
+>&korganizer; belgelendirmesinde</ulink
+> bulunabilir. </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
+<title
+>&kaddressbook; → &korganizer; takvimi</title>
+
+<para
+><ulink url="help:/kaddressbook/using-kaddressbook.html"
+>&kaddressbook;’nin ana penceresinden</ulink
+> &korganizer;’ün takvimine (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) herhangi bir sayıda girdiyi sürüklemek, başlığı “Toplantı” olan ve katılımcıları seçili kişiler olan bir etkinlik oluşturur. </para>
+
+<para
+>Dikkat edin, yapılacaklar düğmesinin üzerine sürüklemek bir Yapılacak ögesi oluştururken, takvimin üzerine sürüklemek bir Etkinlik oluşturur. Bu ayrım hakkında daha fazla bilgi <ulink url="help:/korganizer"
+>&korganizer; belgelendirmesinde</ulink
+> bulunabilir. </para>
+
+</sect2>
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="summary-view">
+<title
+>Özet Görünümü</title>
+
+<para
+>&kontact; ilk kez başlatıldığında öntanımlı görünüm Özet görünümüdür. Seçilen &kontact; bileşenleri tarafından sağlanan en önemli bilgilerin genel bir özetini gösterir. Bunlar yaklaşan randevular veya doğum günleri, yapılacak işler, yeni iletiler vb. olabilir. Hangi bilgilerin gösterileceği, <link linkend="configuration"
+>&kontact; yapılandırma iletişim kutusunda</link
+> ilgili bileşenler seçilerek yapılandırılabilir.</para>
+
+<screenshot>
+<screeninfo
+>&kontact; özet görünümü</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact; özet görünümü</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; özet görünümü </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<!-- not in kde4 para
+>If you think the information you see is outdated, you can click on the
+<guibutton
+>Refresh</guibutton
+> button (<guiicon
+><inlinemediaobject
+><imageobject>
+<imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
+</imageobject
+></inlinemediaobject
+></guiicon
+>)
+in the Summary View toolbar to refresh
+the data.</para-->
+
+<sect1 id="summary-view-component-reposition">
+<title
+>Özet Görünümü Bileşenlerini Konumlandırmak</title>
+
+<para
+>Özet görünümü, bileşenlerin görünüm içindeki konumlarını değiştirmenize olanak tanır. Örneğin, özel tarihlerinizi sol alt köşede, yapılacaklar listenizi ise sağ üst köşede görmek isterseniz özet görünümünü buna göre yeniden düzenleyebilirsiniz.</para>
+
+<para
+>Özet görünümündeki bileşenleri yeniden konumlandırmak, onları istediğiniz yeni konuma sürüklemek kadar basittir. &Ctrl; düğmesini basılı tutun, bileşenin gri başlık alanına tıklayın ve basılı tutarak bileşeni istediğiniz yere sürükleyin. Bu konumlandırmanın diğer bileşenlere göre yapıldığını unutmayın. Yani, posta bileşenini görünümde yapılacaklar bileşeninin altına taşıyabilirsiniz; ancak belirli bir konuma yerleştiremezsiniz. Özet görünümünüzde yalnızca bir bileşen varsa tek seçenek onu görünümün iki sütunu arasında taşımaktır; iki bileşen ya bir sütunda iki tane ya da her sütunda bir tane olabilir; ve benzerleri gibi. Bir bileşeni sürüklediğinizde, farenizi takip eden ve bileşeni gösteren küçük bir önizleme kutusu göreceksiniz.</para>
+
+<screenshot>
+<screeninfo
+>&kontact; özet görünümünü yeniden konumlandırmak</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact; özet görünümünü yeniden konumlandırmak</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; özet görünümünü yeniden konumlandırmak </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title
+>&kontact;’ı Yapılandırmak</title>
+
+<sect1 id="main-config">
+<title
+>&kontact; Yapılandırma Penceresi</title>
+
+<para
+><guimenu
+>Ayarlar</guimenu
+> menüsünden <guimenuitem
+>&kontact; Uygulamasını Yapılandır</guimenuitem
+> eylemini seçtiğinizde, &kontact; yapılandırma iletişim kutusu gösterilir. &kontact;’ın tüm etkin bileşenleri için bir yapılandırma seçenekleri listesi sunar. Bileşen adının yanındaki <guilabel
+>&gt;</guilabel
+> sembolüne tıkladığınızda ağaç genişletilir ve böylece o bileşen için olan seçenekleri görebilirsiniz. Bir başlık altındaki yapılandırma seçeneklerinden birini seçmek, sağ tarafta o yapılandırma bölümünü açacaktır.</para>
+
+<screenshot>
+<screeninfo
+>&kontact; yapılandırma penceresi</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<textobject>
+<phrase
+>&kontact; yapılandırma penceresi</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; yapılandırma penceresi </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Bileşen başlığının yanındaki kutuyu işaretleyerek, bileşenin yan panel ve özet görünümünde görünür olmasını seçebilirsiniz. Bileşen yüklenir ve yan paneldeki simgesine tıkladığınızda ana pencerede gösterilir. Kutunun işaretini kaldırdığınızda, bileşen yan panel ve özet görünümünden kaldırılır. <guibutton
+>Uygula</guibutton
+> veya <guibutton
+>Tamam</guibutton
+> düğmelerine bastığınızda değişiklikler etkin duruma gelir.</para>
+
+<para
+>İlgili bileşeni etkinleştirip <guimenu
+>Ayarlar</guimenu
+> menüsünden <guimenuitem
+><replaceable
+>Bileşen</replaceable
+> Uygulamasını Yapılandır</guimenuitem
+> seçeneğini seçerek bireysel bileşenleri de yapılandırabilirsiniz.</para>
+
+<screenshot>
+<screeninfo
+>&kmail; seçiliyken &kontact; ayarlar menüsü</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="settings-menu-kmail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kmail; seçiliyken &kontact; ayarlar menüsü</phrase>
+</textobject>
+<caption>
+<para
+>&kmail; seçiliyken &kontact; ayarlar menüsü </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="summary-view-config">
+<title
+>&kontact; Özet Görünümünü Yapılandırmak</title>
+
+<para
+>&kontact; ayarları iletişim kutusunda <guilabel
+>Özetler</guilabel
+> bölümünü seçtiğinizde, &kontact;’ın hangi özet eklentilerini özet görünümünde göstermesi gerektiğini seçebileceğiniz bir sayfa açılır. İşte kullanılabilir eklentilerin ve neler yaptıklarının bir listesi: </para>
+
+<screenshot>
+<screeninfo
+>Özet seçimi</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-selection.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Özet seçimi</phrase>
+</textobject>
+<caption
+><para
+>Özet seçimi</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="summary-view-config-calendar">
+<title
+>&kontact; Özet Eklentileri: Takvim</title>
+
+<para
+>&kontact;’ın özet görünümü için olan <quote
+>Takvim</quote
+> eklentisi, <guilabel
+>Yaklaşan Etkinlikler</guilabel
+> için bir alan sunar. Burada, ilgili tüm etkinlikler görüntülenir. </para>
+
+<screenshot>
+<screeninfo
+>&kontact; takvim özeti eklentisi</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-calendar.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact; takvim özeti eklentisi</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; takvim özeti eklentisi </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-mail">
+<title
+>&kontact; Özet Eklentileri: Posta</title>
+
+<para
+>&kontact;’ın özet görünümü için olan <quote
+>Posta</quote
+> eklentisi, <guilabel
+>Yeni İletiler</guilabel
+> için bir alan sunar. Bu alan, ne zaman yeni bir ileti alırsanız güncellenir ve hangi klasörde kaç adet yeni ileti olduğunu belirtir. </para>
+
+<screenshot>
+<screeninfo
+>&kontact; posta özeti eklentisi</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-mail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact; posta özeti eklentisi</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; posta özeti eklentisi </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+
+<sect2 id="summary-view-config-todo-list">
+<title
+>&kontact; Özet Eklentileri: Yapılacaklar Listesi</title>
+
+<para
+>&kontact;’ın özet görünümü için olan <quote
+>Yapılacaklar Listesi</quote
+> eklentisi, <guilabel
+>Bekleyen Yapılacaklar</guilabel
+> için bir alan sunar. Bu alanda, tamamlanmış olanlar da içerilmek üzere tüm geçerli yapılacak işler yer almaktadır. Yapılacak işin başlığı, tamamlanma yüzdesi ve şu anki durumu görüntülenir. Tamamlanmış tüm yapılacak işleri &kontact; Yapılacak İşler Listesi aracılığıyla silebileceğinizi unutmayın. Şu anda bir yapılacak işin başlığına tıklamak hiçbir işlem yapmayacaktır. </para>
+
+<screenshot>
+<screeninfo
+>&kontact; yapılacaklar özeti eklentisi</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-todos.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact; yapılacaklar özeti eklentisi</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; yapılacaklar özeti eklentisi </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-special-dates">
+<title
+>&kontact; Özet Eklentileri: Özel Tarihler</title>
+
+<para
+>&kontact;’ın özet görünümü için olan <quote
+>Özel Tarihler</quote
+> eklentisi, <guilabel
+>Yaklaşan Özel Tarihler</guilabel
+> için bir alan sunar. Bu alan, &kontact;’ın özet görünümü yapılandırmasında eklentinin yapılandırma alanında seçilen kriterlere dayalı bilgileri içerir. <quote
+>Özel Tarihler</quote
+> eklentisi özellikle kullanışlıdır; çünkü doğum günlerini, yıldönümlerini, tatilleri ve özel günleri hem takvimden hem de kişi listesinden tek bir yerde görüntüleyebilir. </para>
+
+<screenshot>
+<screeninfo
+>&kontact; özel tarihler özeti eklentisi</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-special-dates.png"/>
+</imageobject>
+<textobject>
+<phrase
+>&kontact; özel tarihler özeti eklentisi</phrase>
+</textobject>
+<caption>
+<para
+>&kontact; özel tarihler özeti eklentisi </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+</sect1>
+
+</chapter>
+
+
+<chapter id="command-line">
+<title
+>Komut Satırında &kontact;</title>
+
+<para
+>&kontact;’ta, belirli işlemler için kullanılabilecek çeşitli komut satırı argümanları bulunur.</para>
+
+<para
+>Öncelikle &kontact;, bütün &kde-frameworks;/&Qt; uygulamalarının desteklediği tüm komut satırı argümanlarını destekler; qt6options ve kf6options için olan kılavuz (man) sayfalarına bakın. </para>
+
+<para
+>&kontact; ayrıca kendisine özgü çeşitli komut satırı argümanlarını da destekler.</para>
+
+<sect1 id="command-line-arguments">
+<title
+>Komut Satırı Argümanları</title>
+
+<sect2 id="command-line-module">
+<title
+>Modül ile İlgili Argümanlar</title>
+
+<para
+>Kullanılabilir &kontact; modüllerinin bir listesini almak için şunu yazabilirsiniz:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --list</command
+> </para>
+
+<para
+>Sonrasında, &kontact;’ı bir modül etkin olarak başlatmak için şunu yazın:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --module <replaceable
+>modül-adı</replaceable
+></command
+> </para>
+
+<para
+>Burada <replaceable
+>modül-adı</replaceable
+>, bir önceki komutla alınan modüllerden birisi olacaktır.</para>
+
+</sect2>
+
+<sect2 id="command-line-startup">
+<title
+>Başlangıç ile İlgili Argümanlar</title>
+
+<para
+>&kontact;’ı simge durumunda<footnote
+><para
+>Simge durumu, simge durumuna küçültülmüş kip olarak da adlandırılır; bu kipte uygulama penceresi gizlenir ve uygulama yalnızca görev çubuğunda görünür.</para
+></footnote
+> başlatmak için şunu yazın:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --iconify</command
+> </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="technology">
+<title
+>Kaputun Altında</title>
+
+<para
+>&kontact;, birkaç &kde; teknolojisini yoğun olarak kullanır; bunların arasında KParts ve &DBus; da bulunur.</para>
+
+<para
+>Bileşenlerin grafik arayüz tümleşimi, uygulamaların KParts sürümlerini sağlayan eklentiler aracılığıyla yapılır. Bu, bağımsız uygulamaların halihazırda olan kodunun üzerine yalnızca ince bir ek katman gerektirir.</para>
+
+<para
+>Bileşenler arasındaki iletişim için &DBus; kullanılır. Bunun güzel bir özelliği, uygulamanın bağımsız olarak çalıştırılıp çalıştırılmadığına veya &kontact; içine KPart olarak gömülüp gömülmediğine tümüyle saydam olmasıdır. &kontact; içinde çalışırken, &DBus;’un verimli bir işlem içi kipi kullanılır.</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Emeği Geçenler ve Lisans</title>
+
+<para
+>&kontact;</para>
+
+<para
+>Program telif hakkı 2001–2025, &kde; Geliştiricileri</para>
+
+<para
+>Katkıda bulunanlar:</para>
+
+<itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Don.Sanders; &Don.Sanders.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+    </listitem>
+<listitem
+><para
+>Allen Winter <email
+>winter@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Rafael Fernández López <email
+>ereslibre@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>&David.Faure; &David.Faure.mail;</para
+></listitem>
+<listitem
+><para
+>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para
+></listitem>
+<listitem
+><para
+>Sven Lüppken <email
+>sven@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Torgny Nyblom <email
+>nyblom@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Zack Rusin <email
+>zack@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthias Hölzer-Klüpfel <email
+>mhk@kde.org</email
+>, the original author of the &kontact; framework.</para>
+    </listitem>
+
+<listitem
+><para
+>&kontact;’ın tümleştirdiği tüm uygulamaların değerli geliştiricileri. Neredeyse tüm işi onlar yapıyorlar.</para>
+    </listitem>
+</itemizedlist>
+
+<para
+>Belgelendirme telif hakkı 2004–2005</para>
+
+<para
+>Katkıda bulunanlar: <itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem
+><para
+>Antonio Salazar <email
+>savedfastcool@gmail.com</email
+></para>
+</listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
+
+<listitem
+><para
+>İşaretleme ve biçem ile ilgili konularda yardımcı olan &kde; belgelendirme takımının tüm değerli üyeleri.</para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para
+>Çeviri: Emir SARI <email
+>emir_sari@icloud.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+<appendix id="kontact-admin">
+<title
+>Yönetici Kılavuzu</title>
+<!-- Section Compatibility -->
+<sect1 id="compat">
+<title
+>Uyumluluk Sorunları</title>
+
+<para
+>Bu bölüm, &kontact;’ın çeşitli grup yazılım çözümleriyle etkili bir şekilde iletişim kurmasına nasıl yardımcı olunacağına dair bilgiler sunmaktadır. </para>
+
+<sect2 id="compat-outlook">
+<title
+>Outlook ve Exchange</title>
+
+<para
+>&kontact; yapılandırma iletişim kutusunun <menuchoice
+><guimenu
+>Posta</guimenu
+><guimenuitem
+>Çeşitli</guimenuitem
+></menuchoice
+> sayfasının <guilabel
+>Davetler</guilabel
+> bölümünde, kullanıcıların Microsoft Exchange(tm) ortamındaki kullanıcılarla iletişim kurmasına yardımcı olacak seçenekler bulacaksınız. </para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Yanıtlar yanıtlanırken Kimden:/Kime: başlıklarını parçala</guilabel
+></term>
+<listitem>
+<para
+>Bu seçeneği etkinleştirerek Microsoft Outlook(tm)’un davet yanıtlarınıza verdiğiniz yanıtları anlamasını sağlayabilirsiniz.</para>
+<para
+>Microsoft Outlook’un iCalendar standardının uygulanmasında bazı eksiklikleri vardır; bu seçenek bunlardan birini gidermeye yarar. Outlook kullanıcılarının yanıtlarınızı alamamasıyla ilgili sorun yaşıyorsanız bu seçeneği ayarlamayı deneyin.</para>
+<para
+>Ayrıntılar: iCal davetiyesi gönderirken bu, iletinin “Kimden:” başlığını “Kime:” başlığıyla aynı yapar. Ayrıca “X-KMail-Identity” başlığını “Kime:”nin UIOD’sine ayarlar ve “Gizli Kopya” (BCC:) alanının boş olmasını sağlar. Outlook, yalnızca “Kimden:” başlığı davetiye iletisinin “Kime:” başlığıyla aynıysa yanıtı anlayacaktır.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Davetiyeleri e-postanın gövdesine ekleyerek yolla</guilabel
+></term>
+<listitem>
+<para
+>Davetiyeler normalde e-posta eki olarak gönderilir. Bu değişiklik, davetiyenin e-postanın metninde gönderilmesini sağlar; bu, Microsoft Outlook’a davetiye ve yanıt göndermek için gereklidir. Ancak, bunu yaptığınızda, e-posta programlarının okuyabileceği açıklayıcı metni artık alamazsınız; bu nedenle, davetiyeleri anlamayan e-posta programlarına sahip kişiler için ortaya çıkan iletiler çok garip görünür. Davetiyeleri anlayabilen e-posta programlarına sahip kişiler ise yine de bu şekilde çalışabilirler.</para>
+<para
+>Ayrıntılar: Bir iCal davetiyesi gönderirken bu seçenek ileti gövdesini ek verisinden oluşturur ve Content-Type üstbilgisini “text/calendar; method=something; charset="utf-8"” olarak ayarlar.</para>
+<para
+>Kendiliğinden gönderme özelliği de açık olduğundan, oluşturma için insan müdahalesine gerek yoktur.</para>
+<note
+><para
+>Şifreleme ve kendiliğinden imzalama devre dışıdır.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Exchange uyumlu davet adlandırması</guilabel
+></term>
+<listitem>
+<para
+>Microsoft Outlook, Microsoft Exchange(tm) sunucusuyla birlikte kullanıldığında, standartlara uygun grup yazılımı e-postalarını anlamakta sorun yaşar. Grup yazılımı davetiyelerini Microsoft Exchange(tm)’in anlayacağı şekilde göndermek için bu seçeneği etkinleştirin. Davetiye, <filename
+>ical.ics</filename
+> adlı bir dosya eki olarak gönderilecektir.</para>
+<para
+>Ayrıntılar: iCal davetiyesi gönderirken, bu işlem iletinin konusunu “(Reddedildi|Belirsiz|Kabul Edildi|Devredildi): Konu” şeklinde yapar. Davetiye, <filename
+>ical.ics</filename
+> adlı bir dosya eki olarak gönderilecektir.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Outlook uyumlu ek adlandırması</guilabel
+></term>
+<listitem>
+<para
+>Outlook(tm)’un İngilizce olmayan karakterler içeren ek dosya adlarını anlamasını sağlamak için bu seçeneği etkinleştirin.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+</sect1>
+
+<!-- Section Behavior -->
+<sect1 id="behavior">
+<title
+>Davranışsal Sorunlar</title>
+
+<para
+>Bu bölümde, &kontact;’ın diğer grup yazılımı istemcilerine daha çok benzemesini sağlamak için yönergeler verilmektedir. </para>
+
+<sect2 id="behave-composing">
+<title
+>İletiler Oluşturmak</title>
+
+<para
+>Outlook kullanıcıları, “Kime:”, “Kopya:” veya “Gizli kopya:” alanlarına virgül (“,”) karakterine ek olarak noktalı virgül (“;”) karakteriyle ayrılmış bir adres listesi yazmaya alışkındır. Öntanımlı olarak, &kontact; yalnızca virgülü adres ayırıcı karakter olarak kabul eder. Noktalı virgülün de kabul edilmesini sağlamak için kurulu <filename
+>share/config.kcfg/messagecomposer.kcfg</filename
+> dosyasındaki <option
+>AllowSemicolonAsAddressSeparator</option
+> seçeneğini false’dan true’ya değiştirin. </para>
+
+</sect2>
+</sect1>
+
+<!-- Section RFC Compromises -->
+<sect1 id="nonrfc">
+<title
+>RFC Uzlaşmaları</title>
+
+<para
+>&kontact;, çok çeşitli grup yazılım çözümleriyle olabilecek en iyi şekilde birlikte çalışacak şekilde tasarlanmıştır. Bu amaçla, &kontact;’ın büyük ölçüde dayandığı düşük düzeyli kitaplıkların temelini oluşturan çeşitli İnternet RFC’lerine ilişkin tasarımda bazen tavizler veriyoruz.</para>
+
+<note
+><para
+>Biz hiçbir zaman bilerek herhangi bir RFC’yi ihlal etmeyiz.</para
+></note>
+
+<para
+>Aşağıdaki RFC uzlaşmaları listesi, &kontact; veya &kontact; tarafından kullanılan düşük düzeyli kitaplıklar tarafından yapılmıştır:</para>
+<!--FIXME is this correct?-->
+<itemizedlist>
+<listitem>
+<para
+>iCalendar dosyalarına süre değerleri yazılırken, &kontact; hiçbir zaman DURATION özelliğini hafta türünden (yani 1*DIGIT "W") yazmaz; bunun yerine, hafta sayısı her zaman 7 ile çarpılır ve gün cinsinden (yani 1*DIGIT "D") yazılır. </para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

@@ -65,9 +65,9 @@
 >&FDLNotice;</legalnotice>
 
 <date
->8 de desembre de 2016</date>
+>11 de desembre de 2025</date>
 <releaseinfo
->5.4.40 (Aplicacions 16.12)</releaseinfo>
+>6.6.0 (KDE Gear 25.12)</releaseinfo>
 
 <abstract
 ><para
@@ -85,8 +85,6 @@
 >Organizer</keyword>
 <keyword
 >KAddressBook</keyword>
-<keyword
->KNotes</keyword>
 <keyword
 >Akregator</keyword>
 <keyword
@@ -107,7 +105,7 @@
 >Introducció</title>
 
 <para
->El &kontact; és la solució integrada per a la gestió de la informació personal. Combina aplicacions ben conegudes del &kde; per al correu electrònic, planificació, llibreta d'adreces i notes (&kmail;, &korganizer;, &kaddressbook; i &knode;) en una sola interfície. Basada en un verdader entorn de components, &kontact; proveeix exactament les mateixes funcions que les altres aplicacions per separat i afegeix més característiques que fan ús de la manera integrada en la qual &kontact; executa les aplicacions com a components. Els usuaris podran escollir quines aplicacions executar dins del &kontact; i quines ho faran a part.</para>
+>El &kontact; és la solució integrada per a la gestió de la informació personal. Combina aplicacions ben conegudes del &kde; per al correu electrònic, planificació i llibreta d'adreces (&kmail;, &korganizer;, &kaddressbook;) en una interfície única. Basada en un entorn de components íntegre, &kontact; proveeix exactament les mateixes funcions que les altres aplicacions per separat i afegeix més característiques que fan ús de la manera integrada en la qual &kontact; executa les aplicacions com a components. Els usuaris podran escollir quines aplicacions executar dins del &kontact; i quines ho faran a part.</para>
 
 <para
 >A més de les funcions de les aplicacions individuals, &kontact; proveeix una vista de resum i característiques avançades per a l'arrossegat i deixat entre components. </para>
@@ -120,7 +118,7 @@
 >Components de &kontact;</title>
 
 <para
->&kontact; integra les següents aplicacions. Consulteu els manuals de cada aplicació per a tenir més detalls a sobre del seu ús. Aquests són aplicables tot i estar-se executant com a components dins de &kontact;. </para>
+>&kontact; integra les aplicacions següents. Consulteu els manuals de cada aplicació per a tenir més detalls a sobre del seu ús. Aquests són aplicables tot i estar-se executant com a components dins de &kontact;. </para>
 
 <variablelist>
     <varlistentry>
@@ -151,16 +149,6 @@
         <listitem
 ><para
 >El gestor de contactes del &kde;.</para
-></listitem>
-    </varlistentry>
-    <varlistentry>
-        <term
-><ulink url="help:/knotes"
->&knotes;</ulink
-></term>
-        <listitem
-><para
->L'aplicació de notes adhesives del &kde;.</para
 ></listitem>
     </varlistentry>
     <varlistentry>
@@ -247,7 +235,7 @@
 </textobject>
 <caption>
 <para
->Vista principal de &kontact; </para>
+>Vista principal de &kontact;</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -260,7 +248,7 @@
 ><guimenu
 >Arranjament</guimenu
 > <guimenuitem
->Configura Kontact...</guimenuitem
+>Configura &kontact;...</guimenuitem
 ></menuchoice
 > i feu clic a <guilabel
 >Kontact</guilabel
@@ -278,7 +266,7 @@
 </textobject>
 <caption>
 <para
->Establir el component inicial de &kontact; </para>
+>Establir el component inicial de &kontact;</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -420,7 +408,7 @@
 > <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/></imageobject
 ></inlinemediaobject
 ></guiicon
->) es crearà una nova pendent amb el títol <guilabel
+>) es crearà una pendent nova amb el títol <guilabel
 >Correu: <replaceable
 >Assumpte</replaceable
 ></guilabel
@@ -453,7 +441,7 @@
 > <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
 ></inlinemediaobject
 ></guiicon
->) es crearà un nou esdeveniment amb el títol <guilabel
+>) es crearà un esdeveniment nou amb el títol <guilabel
 >Correu: <replaceable
 >Assumpte</replaceable
 ></guilabel
@@ -534,7 +522,7 @@
 > <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
 ></inlinemediaobject
 ></guiicon
->) es crearà un nou esdeveniment amb el títol &quot;Reunió&quot; i els contactes seleccionats com a assistents. </para>
+>) es crearà un esdeveniment nou amb el títol &quot;Reunió&quot; i els contactes seleccionats com a assistents. </para>
 
 <para
 >Tingueu present que en arrossegar sobre el botó de tasques pendents es crea una tasca pendent, mentre que en arrossegar sobre el calendari es crea un esdeveniment. Teniu més informació sobre la distinció entre tasques pendents i esdeveniments a la <ulink url="help:/korganizer"
@@ -553,7 +541,7 @@
 >La vista de resum</title>
 
 <para
->La vista per omissió en iniciar &kontact; per primera vegada és la vista del resum. Mostra la informació més apropiada proveïda pels components escollits de &kontact;. Poden ser notes, cites o aniversaris imminents, tasques pendents vençudes, missatges nous, &etc; La informació que es mostra la podeu configurar seleccionant els components corresponents en el <link linkend="configuration"
+>La vista per omissió en iniciar &kontact; per primera vegada és la vista del resum. Mostra la informació més apropiada proveïda pels components escollits de &kontact;. Poden ser cites o aniversaris imminents, tasques pendents vençudes, missatges nous, &etc; La informació que es mostra la podeu configurar seleccionant els components corresponents en el <link linkend="configuration"
 >diàleg de configuració de &kontact;</link
 >.</para>
 
@@ -597,7 +585,7 @@ the data.</para-->
 >La vista del resum us permet canviar a on han de mostrar-se els components. De manera que, si voleu que les dates especials estiguin en la part inferior esquerra i les tasques pendents apareguin a la part superior dreta, podeu tornar a configurar la vista del resum per a reflectir-ho.</para>
 
 <para
->Tornar a ubicar els components en la vista del resum és tan simple com arrossegar-los cap a la nova localització en la qual voleu que estiguin. Manteniu premuda la tecla &Ctrl;, feu clic i arrossegueu l'àrea grisa del títol del component cap a on voleu que estigui. Tingueu present que aquesta posició és relativa a la resta de components. De manera que, podeu moure el component de correu perquè en la vista aparegui a sota del component de tasques pendents, però no el podeu ubicar en una posició específica. Si tan sols teniu un component en la vostra vista del resum, l'única opció que teniu és moure'l entre les dues columnes de la vista; dos components poden estar o bé en una mateixa columna o un en cada columna; i així successivament. Quan arrossegueu un component, veureu un petit quadre de vista prèvia seguint al punter del ratolí mentre el moveu.</para>
+>Tornar a ubicar els components en la vista del resum és tan simple com arrossegar-los cap a la localització nova en la qual voleu que estiguin. Manteniu premuda la tecla &Ctrl;, feu clic i arrossegueu l'àrea grisa del títol del component cap a on voleu que estigui. Tingueu present que aquesta posició és relativa a la resta de components. De manera que, podeu moure el component de correu perquè en la vista aparegui a sota del component de tasques pendents, però no el podeu ubicar en una posició específica. Si tan sols teniu un component en la vostra vista del resum, l'única opció que teniu és moure'l entre les dues columnes de la vista; dos components poden estar o bé en una mateixa columna o un en cada columna; i així successivament. Quan arrossegueu un component, veureu un petit quadre de vista prèvia seguint al punter del ratolí mentre el moveu.</para>
 
 <screenshot>
 <screeninfo
@@ -752,7 +740,7 @@ the data.</para-->
 <para
 >El connector «Correu» per a la vista del resum de &kontact; afegeix una àrea en la vista anomenada <guilabel
 >Missatges nous</guilabel
->. Aquesta àrea s'actualitza cada vegada que rebeu nous missatges per a informar-vos de quants missatges nous hi ha i en quines carpetes estan. </para>
+>. Aquesta àrea s'actualitza cada vegada que rebeu missatges nous per a informar-vos de quants missatges nous hi ha i en quines carpetes estan. </para>
 
 <screenshot>
 <screeninfo
@@ -773,33 +761,6 @@ the data.</para-->
 </screenshot>
 </sect2>
 
-<sect2 id="summary-view-config-notes">
-<title
->Connectors del resum de &kontact;: Notes</title>
-
-<para
->El connector «Notes» per a la vista del resum de &kontact; afegeix una àrea en la vista anomenada <guilabel
->Notes emergents</guilabel
->. Aquesta àrea mostra els títols de totes les notes actuals (per omissió, el títol és la data/hora en la qual es va crear la nota). En fer clic sobre el títol de la nota, s'accedirà a l'àrea de notes. </para>
-
-<screenshot>
-<screeninfo
->Connector de notes del resum de &kontact;</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata format="PNG" fileref="summary-view-notes.png"/>
-</imageobject>
-<textobject>
-<phrase
->Connector de notes del resum de &kontact;</phrase>
-</textobject>
-<caption>
-<para
->Connector de notes del resum de &kontact; </para>
-</caption>
-</mediaobject>
-</screenshot>
-</sect2>
 
 <sect2 id="summary-view-config-todo-list">
 <title
@@ -960,7 +921,7 @@ the data.</para-->
 >&kontact;</para>
 
 <para
->Copyright del programa 2001-2021, Els desenvolupadors del &kde;</para>
+>Copyright del programa 2001-2025, Els desenvolupadors del &kde;</para>
 
 <para
 >Col·laboradors:</para>
@@ -1088,7 +1049,7 @@ the data.</para-->
 ></menuchoice
 > a la pàgina <guilabel
 >Invitacions</guilabel
-> trobareu les següents opcions que ajudaran a l'usuari comunicar-se amb Microsoft Outlook(tm) que s'executen en un entorn Kolab o en un entorn Microsoft Exchange(tm). </para>
+> trobareu les opcions següents que ajudaran a l'usuari comunicar-se amb Microsoft Outlook(tm) que s'executen en un entorn Kolab o en un entorn Microsoft Exchange(tm). </para>
 
 <variablelist>
 
@@ -1195,7 +1156,7 @@ the data.</para-->
 ></note>
 
 <para
->La següent llista de compromisos RFC està feta pel &kontact; o les biblioteques de baix nivell utilitzades pel &kontact;:</para>
+>La llista següent de compromisos RFC està feta pel &kontact; o les biblioteques de baix nivell utilitzades pel &kontact;:</para>
 <!--FIXME is this correct?-->
 <itemizedlist>
 <listitem>
