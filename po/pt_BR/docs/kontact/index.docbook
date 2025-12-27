@@ -79,9 +79,9 @@
 >&FDLNotice;</legalnotice>
 
 <date
->08/12/2016</date>
+>11/12/2025</date>
 <releaseinfo
->5.4.40 (Applications 16.12)</releaseinfo>
+>6.6.0 (KDE Gear 25.12)</releaseinfo>
 
 <abstract
 ><para
@@ -99,8 +99,6 @@
 >Organizador</keyword>
 <keyword
 >KAddressBook</keyword>
-<keyword
->KNotes</keyword>
 <keyword
 >Akregator</keyword>
 <keyword
@@ -121,10 +119,10 @@
 >Introdução</title>
 
 <para
->&kontact; é a solução integrada para suas necessidades de gerenciamento de informações pessoais. Ele combina os aplicativos de e-mail, agenda, livro de endereços e notas, conhecidos do &kde; (&kmail;, &korganizer;, &kaddressbook; e &knotes;), em uma única interface. Baseando-se numa verdadeira plataforma de componentes, o &kontact; oferece exatamente as mesmas funcionalidades dos aplicativos individuais, adicionando ainda algumas funcionalidades, que aproveitam a forma integrada como o &kontact; executa os aplicativos como componentes. Os usuários ainda terão a possibilidade de escolher os aplicativos que são executados dentro do &kontact; e quais são executados individualmente.</para>
+>&kontact; é a solução integrada para suas necessidades de gerenciamento de informações pessoais. Ele combina os aplicativos de e-mail, agenda e livro de endereços conhecidos do &kde; (&kmail;, &korganizer; e &kaddressbook;), em uma única interface. Baseando-se numa verdadeira plataforma de componentes, o &kontact; oferece exatamente as mesmas funcionalidades dos aplicativos individuais, adicionando ainda algumas funcionalidades, que aproveitam a forma integrada como o &kontact; executa os aplicativos como componentes. Os usuários ainda terão a possibilidade de escolher os aplicativos que são executados dentro do &kontact; e quais são executados individualmente.</para>
 
 <para
->Além das funcionalidades dos aplicativos individuais que o &kontact; oferece, existe ainda uma área de resumo e algumas funcionalidades avançadas de arrastar &amp; soltar entre componentes. </para>
+>Além das funcionalidades dos aplicativos individuais que o &kontact; oferece, existe ainda uma área de resumo e algumas funcionalidades avançadas de arrastar &amp; soltar entre os componentes. </para>
 
 </chapter>
 
@@ -165,16 +163,6 @@
         <listitem
 ><para
 >O gerenciador de contatos do &kde;.</para
-></listitem>
-    </varlistentry>
-    <varlistentry>
-        <term
-><ulink url="help:/knotes"
->&knotes;</ulink
-></term>
-        <listitem
-><para
->O aplicativo de notas do &kde;.</para
 ></listitem>
     </varlistentry>
     <varlistentry>
@@ -261,7 +249,7 @@
 </textobject>
 <caption>
 <para
->A Visão Principal do &kontact; </para>
+>A Visão Principal do &kontact;</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -274,7 +262,7 @@
 ><guimenu
 >Configurações</guimenu
 > <guimenuitem
->Configurar o Kontact</guimenuitem
+>Configurar &kontact;</guimenuitem
 ></menuchoice
 > e clique em <guilabel
 >Kontact</guilabel
@@ -292,7 +280,7 @@
 </textobject>
 <caption>
 <para
->Configuração do Componente Inicial do &kontact; </para>
+>Configuração do Componente Inicial do &kontact;</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -567,7 +555,7 @@
 >A Visão do Resumo</title>
 
 <para
->A janela padrão que aparece quando inicia o &kontact; pela primeira vez é a janela do resumo. Ela mostra uma vista global sobre todas as informações relevantes oferecida pelos vários componentes selecionados do &kontact;. Incluem-se as notas, compromissos ou aniversários iminentes, tarefas a serem concluídas, novas mensagens, &etc; A informação mostrada é configurável selecionando-se os componentes correspondentes no <link linkend="configuration"
+>A janela padrão que aparece quando inicia o &kontact; pela primeira vez é a janela do resumo. Ela mostra uma vista global sobre todas as informações relevantes oferecida pelos vários componentes selecionados do &kontact;. Incluem-se os compromissos ou aniversários iminentes, tarefas a serem concluídas, novas mensagens, &etc; A informação mostrada é configurável selecionando-se os componentes correspondentes no <link linkend="configuration"
 >diálogo de configuração do &kontact;</link
 >.</para>
 
@@ -791,35 +779,6 @@ the data.</para-->
 </screenshot>
 </sect2>
 
-<sect2 id="summary-view-config-notes">
-<title
->Plugins de Resumo do &kontact;: Notas</title>
-
-<para
->O plugin de <quote
->Notas</quote
-> da Visão de Resumo do &kontact; adiciona uma área à visão chamada <guilabel
->Notas instantâneas</guilabel
->. Esta área mostra todos os títulos das notas atuais (os título são, por padrão, a data/hora em que a nota foi criada). Clicar no título de uma nota irá abrir a área de Notas. </para>
-
-<screenshot>
-<screeninfo
->Plugin de Resumo das Notas do &kontact;</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata format="PNG" fileref="summary-view-notes.png"/>
-</imageobject>
-<textobject>
-<phrase
->Plugin de Resumo das Notas do &kontact;</phrase>
-</textobject>
-<caption>
-<para
->Plugin de Resumo das Notas do &kontact; </para>
-</caption>
-</mediaobject>
-</screenshot>
-</sect2>
 
 <sect2 id="summary-view-config-todo-list">
 <title
@@ -986,7 +945,7 @@ the data.</para-->
 >&kontact;</para>
 
 <para
->Programa com copyright 2004-2021, A Equipe de Desenvolvimento do &kde;</para>
+>Programa com copyright 2001-2025, A Equipe de Desenvolvimento do &kde;</para>
 
 <para
 >Contribuições:</para>

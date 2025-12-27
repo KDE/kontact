@@ -65,9 +65,9 @@
 >&FDLNotice;</legalnotice>
 
 <date
->2016-12-08</date>
+>2025-12-11</date>
 <releaseinfo
->5.4.40 (Applications 16.12)</releaseinfo>
+>6.6.0 (KDE Gear 25.12)</releaseinfo>
 
 <abstract
 ><para
@@ -85,8 +85,6 @@
 >Organizer</keyword>
 <keyword
 >KAddressBook</keyword>
-<keyword
->KNotes</keyword>
 <keyword
 >Akregator</keyword>
 <keyword
@@ -107,10 +105,10 @@
 >Inleiding</title>
 
 <para
->&kontact; is een alles-in-één oplossing voor het beheren van al uw persoonlijke gegevens. Het combineert welbekende &kde;-toepassingen voor e-mail, agenda, adressen en notities (&kmail;, &korganizer;, &kaddressbook; en &knotes;) tot één geheel. Doordat er gebruik gemaakt wordt van een echt raamwerk van componenten, biedt &kontact; exact dezelfde functionaliteit als wanneer de afzonderlijke toepassingen los gestart zouden worden. U blijft de keuze houden om de toepassingen via &kontact; of als zelfstandige toepassing te starten.</para>
+>&kontact; is een alles-in-één oplossing voor het beheren van al uw persoonlijke gegevens. Het combineert welbekende &kde;-toepassingen voor e-mail, agenda en adressen (&kmail;, &korganizer; en &kaddressbook;) tot één geheel. Doordat er gebruik gemaakt wordt van een echt raamwerk van componenten, biedt &kontact; exact dezelfde functionaliteit als wanneer de afzonderlijke toepassingen los gestart zouden worden. U blijft de keuze houden om de toepassingen via &kontact; of als zelfstandige toepassing te starten.</para>
 
 <para
->Los van de functionaliteit van de afzonderlijke toepassingen, biedt &kontact; een overzichtspagina en uitgebreide mogelijkheden om gegevens tussen de verschillende componenten uit te wisselen. </para>
+>Los van de functionaliteit van de afzonderlijke toepassingen, biedt &kontact;, een overzichtspagina en uitgebreide mogelijkheden om gegevens tussen de verschillende componenten uit te wisselen. </para>
 
 </chapter>
 
@@ -151,16 +149,6 @@
         <listitem
 ><para
 >De &kde; beheerder van contactpersonen.</para
-></listitem>
-    </varlistentry>
-    <varlistentry>
-        <term
-><ulink url="help:/knotes"
->&knotes;</ulink
-></term>
-        <listitem
-><para
->De &kde; applicatie voor plaknotities.</para
 ></listitem>
     </varlistentry>
     <varlistentry>
@@ -247,7 +235,7 @@
 </textobject>
 <caption>
 <para
->Het hoofdvenster van &kontact; </para>
+>Het hoofdvenster van &kontact;</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -260,7 +248,7 @@
 ><guimenu
 >Instellingen</guimenu
 > <guimenuitem
->Kontact instellen</guimenuitem
+>&kontact; configureren</guimenuitem
 ></menuchoice
 > en klik op <guilabel
 >Kontact</guilabel
@@ -278,7 +266,7 @@
 </textobject>
 <caption>
 <para
->Het venster "Startcomponent instellen" van &kontact; </para>
+>Het venster "Startcomponent instellen" van &kontact;</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -553,8 +541,8 @@
 >De overzichtsweergave</title>
 
 <para
->Als &kontact; voor de allereerste keer gestart wordt, krijgt u de overzichtsweergave te zien. Dit is een overzicht van relevante gegevens uit de verschillende componenten van &kontact;. Dit notities, de afspraken die u binnenkort hebt, verjaardagen die naderen, taken die binnenkort gedaan moeten zijn, nieuwe berichten, &etc;. Welke gegevens getoond worden kan worden ingesteld in het venster <link linkend="configuration"
->&kontact; instellen</link
+>Als &kontact; voor de allereerste keer gestart wordt, krijgt u de overzichtsweergave te zien. Dit is een overzicht van relevante gegevens uit de verschillende componenten van &kontact;. Dit kunnen afspraken zijn, die u binnenkort hebt, verjaardagen die naderen, taken die binnenkort gedaan moeten zijn, nieuwe berichten, &etc;. Welke gegevens getoond worden kan worden ingesteld in het venster <link linkend="configuration"
+>&kontact; configureren</link
 >.</para>
 
 <screenshot>
@@ -777,35 +765,6 @@ the data.</para-->
 </screenshot>
 </sect2>
 
-<sect2 id="summary-view-config-notes">
-<title
->&kontact; overzichtsplugins: Notities</title>
-
-<para
->De overzichtsplugin <quote
->Notities</quote
-> voegt een nieuw gedeelte toe met het label <guilabel
->Notities</guilabel
->. Hierin worden de titels van alle huidige notities getoond. De titel is standaard de datum en tijd waarop de notitie is aangemaakt. Door op een notitie te klikken wordt het gedeelte "Notities" geopend. </para>
-
-<screenshot>
-<screeninfo
->Notitie-overzichtsplugin voor &kontact;</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata format="PNG" fileref="summary-view-notes.png"/>
-</imageobject>
-<textobject>
-<phrase
->Notitie-overzichtsplugin voor &kontact;</phrase>
-</textobject>
-<caption>
-<para
->Notitie-overzichtsplugin voor &kontact; </para>
-</caption>
-</mediaobject>
-</screenshot>
-</sect2>
 
 <sect2 id="summary-view-config-todo-list">
 <title
@@ -972,7 +931,7 @@ the data.</para-->
 >&kontact;</para>
 
 <para
->Programma copyright 2001-2021, de &kde;-ontwikkelaars</para>
+>Programma copyright 2001-2025, de ontwikkelaars van &kde;</para>
 
 <para
 >Auteurs:</para>
