@@ -156,7 +156,7 @@ int main(int argc, char **argv)
                      QLatin1StringView(version),
                      i18n("KDE personal information manager"),
                      KAboutLicense::GPL,
-                     i18n("Copyright © 2001–%1 Kontact authors", u"2025"_s),
+                     i18n("Copyright © 2001–%1 Kontact authors", u"2026"_s),
                      QString(),
                      u"https://userbase.kde.org/Kontact"_s);
 
