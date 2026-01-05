@@ -79,9 +79,9 @@
 >&FDLNotice;</legalnotice>
 
 <date
->2016-12-08</date>
+>2025-12-11</date>
 <releaseinfo
->5.4.40 (Applications 16.12)</releaseinfo>
+>6.6.0 (KDE Gear 25.12)</releaseinfo>
 
 <abstract
 ><para
@@ -99,8 +99,6 @@
 >Organizer</keyword>
 <keyword
 >KAddressBook</keyword>
-<keyword
->KNotes</keyword>
 <keyword
 >Akregator</keyword>
 <keyword
@@ -121,7 +119,7 @@
 >Introduzione</title>
 
 <para
->&kontact; è la soluzione integrata per la gestione delle informazioni personali (&PIM;, &quot;Personal Information Manager&quot;). Combina in una singola interfaccia le ben note applicazioni &kde; per la gestione della posta, gli appuntamenti, la rubrica indirizzi e gli appunti (&kmail;, &korganizer;, &kaddressbook; e &knotes;). &kontact; è basato su una reale struttura a componenti, e fornisce quindi esattamente le stesse funzionalità delle singole applicazioni che lo compongono aggiungendone però alcune, che sfruttano la possibilità di eseguire le singole applicazioni in maniera integrata come componenti. L'utente mantiene però piena libertà nella scelta di quali applicazioni eseguire all'interno di &kontact; e quali come programmi indipendenti.</para>
+>&kontact; è la soluzione integrata per la gestione delle informazioni personali (&PIM;, &quot;Personal Information Manager&quot;). Combina in una singola interfaccia le ben note applicazioni &kde; per la gestione della posta, gli appuntamenti e la rubrica degli indirizzi (&kmail;, &korganizer;, &kaddressbook;). &kontact; è basato su una reale struttura a componenti, e fornisce quindi esattamente le stesse funzionalità delle singole applicazioni che lo compongono aggiungendone però alcune, che sfruttano la possibilità di eseguire le singole applicazioni in maniera integrata come componenti. L'utente mantiene però piena libertà nella scelta di quali applicazioni eseguire all'interno di &kontact; e quali come programmi indipendenti.</para>
 
 <para
 >In aggiunta alle funzionalità delle singole applicazioni, &kontact; fornisce una vista riassuntiva e caratteristiche avanzate di trascinamento tra le applicazioni che lo compongono. </para>
@@ -165,16 +163,6 @@
         <listitem
 ><para
 >Il gestore della rubrica di &kde;.</para
-></listitem>
-    </varlistentry>
-    <varlistentry>
-        <term
-><ulink url="help:/knotes"
->&knotes;</ulink
-></term>
-        <listitem
-><para
->Il programma di note adesive di &kde;.</para
 ></listitem>
     </varlistentry>
     <varlistentry>
@@ -261,7 +249,7 @@
 </textobject>
 <caption>
 <para
->La vista principale di &kontact; </para>
+>La vista principale di &kontact;</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -274,11 +262,11 @@
 ><guimenu
 >Impostazioni</guimenu
 > <guimenuitem
->Configura Kontact</guimenuitem
+>Configura &kontact;</guimenuitem
 ></menuchoice
 > e fare clic su <guilabel
 >Kontact</guilabel
-> nella lista.</para>
+> nell'elenco.</para>
 
 <screenshot>
 <screeninfo
@@ -292,7 +280,7 @@
 </textobject>
 <caption>
 <para
->Impostazione del componente attivo all'avvio di &kontact; </para>
+>Impostazione del componente attivo all'avvio di &kontact;</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -567,7 +555,7 @@
 >La vista sommario</title>
 
 <para
->La vista predefinita quando si avvia &kontact; per la prima volta è la vista sommario. La vista sommario mostra una panoramica delle principali informazioni fornite dai componenti selezionati di &kontact;. Queste possono essere note, appuntamenti o compleanni imminenti, cose da fare in scadenza, nuovi messaggi, &etc;. Puoi selezionare quali informazioni mostrare selezionando il componente corrispondente nella <link linkend="configuration"
+>La vista predefinita quando si avvia &kontact; per la prima volta è la vista sommario. La vista sommario mostra una panoramica delle principali informazioni fornite dai componenti selezionati di &kontact;. Queste possono essere appuntamenti o compleanni imminenti, cose da fare in scadenza, nuovi messaggi, &etc;. Puoi selezionare quali informazioni mostrare selezionando il componente corrispondente nella <link linkend="configuration"
 >finestra di configurazione di &kontact;</link
 >.</para>
 
@@ -791,35 +779,6 @@ the data.</para-->
 </screenshot>
 </sect2>
 
-<sect2 id="summary-view-config-notes">
-<title
->Estensione sommario di &kontact; Note</title>
-
-<para
->L'estensione <quote
->Note</quote
-> per la vista sommario di &kontact; aggiunge alla vista un'area chiamata <guilabel
->Note a comparsa</guilabel
->. Quest'area contiene i titoli delle note inserite (il titolo predefinito, contiene data e ora di creazione della nota). Fai clic sul titolo della nota per visualizzarne il contenuto. </para>
-
-<screenshot>
-<screeninfo
->L'estensione sommario Note di &kontact;</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata format="PNG" fileref="summary-view-notes.png"/>
-</imageobject>
-<textobject>
-<phrase
->L'estensione sommario Note di &kontact;</phrase>
-</textobject>
-<caption>
-<para
->L'estensione sommario Note di &kontact; </para>
-</caption>
-</mediaobject>
-</screenshot>
-</sect2>
 
 <sect2 id="summary-view-config-todo-list">
 <title
@@ -984,7 +943,7 @@ the data.</para-->
 >&kontact;</para>
 
 <para
->Copyright 2001-2021, gli sviluppatori di &kde;</para>
+>Copyright 2001-2025, gli sviluppatori di &kde;</para>
 
 <para
 >Contributi:</para>
