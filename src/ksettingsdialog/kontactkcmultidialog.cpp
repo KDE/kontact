@@ -376,21 +376,6 @@ void KontactKCMultiDialog::slotHelpClicked()
     }
 }
 
-void KontactKCMultiDialog::closeEvent(QCloseEvent *event)
-{
-    Q_D(KontactKCMultiDialog);
-    KPageDialog::closeEvent(event);
-
-    /**
-     * If we don't delete them, the DBUS registration stays, and trying to load the KCMs
-     * in other situations will lead to "module already loaded in Foo," while to the user
-     * doesn't appear so(the dialog is hidden)
-     */
-    for (auto &proxy : std::as_const(d->modules)) {
-        delete proxy.kcm;
-    }
-}
-
 KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData, KPageWidgetItem *parent)
 {
     Q_D(KontactKCMultiDialog);
