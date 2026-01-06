@@ -65,7 +65,6 @@ protected:
 
     KontactKCMultiDialogPrivate *const d_ptr;
 
-    void closeEvent(QCloseEvent *event) override;
     void showEvent(QShowEvent *event) override;
 
 protected Q_SLOTS:
