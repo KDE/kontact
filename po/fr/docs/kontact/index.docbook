@@ -65,9 +65,9 @@
 >&FDLNotice;</legalnotice>
 
 <date
->08-12-2016</date>
+>11-12-2025</date>
 <releaseinfo
->5.4.40 (Applications 16.12)</releaseinfo>
+>6.6.0 (KDE Gear 25.12)</releaseinfo>
 
 <abstract
 ><para
@@ -85,8 +85,6 @@
 >KOrganizer</keyword>
 <keyword
 >KAddressBook</keyword>
-<keyword
->KNotes</keyword>
 <keyword
 >Akregator</keyword>
 <keyword
@@ -107,10 +105,10 @@
 >Introduction</title>
 
 <para
->&kontact; est la solution intégrée pour la gestion d'informations personnelles. Elle combine des applications bien connue de &kde; pour le courriel, la planification, le carnet d'adresses, les notes et les nouvelles (&kmail;, &korganizer;, &kaddressbook;, &knotes; et &knode;) dans une seule interface. Reposant sur un véritable environnement de composants, &kontact; fournit exactement les mêmes fonctionnalités que les applications indépendantes. &kontact; en ajoute d'autres, en tirant avantage de son intégration d'applications sous forme de composants. Les utilisateurs peuvent toujours sélectionner quelles applications sont lancées dans &kontact; et celles qui sont lancées indépendamment.</para>
+>&kontact; est la solution intégrée pour la gestion d'informations personnelles. Elle combine des applications bien connue de &kde; pour le courriel, la planification, le carnet d'adresses (&kmail;, &korganizer;, &kaddressbook;, &knotes;) dans une unique interface. Reposant sur un véritable environnement de composants, &kontact; fournit exactement les mêmes fonctionnalités que les applications indépendantes. &kontact; en ajoute d'autres, en profitant de son intégration, &kontact; lance les applications sous forme de composants. Les personnes utilisatrices peuvent toujours sélectionner quelles applications sont lancées dans &kontact; et celles qui sont lancées indépendamment.</para>
 
 <para
->En plus des fonctionnalités des applications individuelles, &kontact; fournit un résumé, et des fonctionnalités avancées de glisser-déposer entre les composants. </para>
+>En plus des fonctionnalités des applications individuelles, &kontact; fournit un affichage de résumé et des fonctionnalités avancées de glisser-déposer entre les composants. </para>
 
 </chapter>
 
@@ -151,16 +149,6 @@
         <listitem
 ><para
 >Gestionnaire de contacts de &kde;.</para
-></listitem>
-    </varlistentry>
-    <varlistentry>
-        <term
-><ulink url="help:/knotes"
->&knotes;</ulink
-></term>
-        <listitem
-><para
->Application de notes autocollantes de &kde;.</para
 ></listitem>
     </varlistentry>
     <varlistentry>
@@ -247,7 +235,7 @@
 </textobject>
 <caption>
 <para
->La vue principale de &kontact; </para>
+>La vue principale de &kontact;</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -256,11 +244,11 @@
 >En outre, il y a deux moyens d'outrepasser le composant avec lequel &kontact; démarre. Le premier est de passer un argument au lancement de &kontact; (voir <xref linkend="command-line"/>). Le second est un paramètre dans la boite de dialogue de configuration de &kontact; qui permet de démarrer systématiquement &kontact; dans un mode donné.</para>
 
 <para
->Pour cela, allez dans <menuchoice
+>Pour cela, veuillez aller dans <menuchoice
 ><guimenu
 >Configuration</guimenu
 > <guimenuitem
->Configurer Kontact</guimenuitem
+>Configurer &kontact;</guimenuitem
 ></menuchoice
 > et cliquer sur <guilabel
 >Kontact</guilabel
@@ -278,7 +266,7 @@
 </textobject>
 <caption>
 <para
->Définition du composant de démarrage de &kontact; </para>
+>Définition du composant de démarrage de &kontact;</para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -553,7 +541,7 @@
 >Le Résumé</title>
 
 <para
->L'affichage par défaut lorsque vous démarrez &kontact; pour la première fois est le résumé. Il montre un aperçu des informations les plus importantes fournies par les composants &kontact; sélectionnés. Il peut s'agir de notes, de rendez-vous imminents ou d'anniversaires, de tâches restantes, de nouveaux courriels, etc. Les informations affichées peuvent être configurées en sélectionnant les composants correspondants dans la <link linkend="configuration"
+>La vue par défaut lors du démarrage de &kontact; pour la première fois est la vue en résumé. Elle affiche un aperçu des informations les plus importantes fournies par les composants sélectionnés de &kontact;. Il peut s'agir de notes, de rendez-vous imminents ou d'anniversaires, de tâches restantes, de nouveaux courriels, etc. L'affichage de ces informations peut être configuré en sélectionnant les composants correspondants dans la <link linkend="configuration"
 >boite de dialogue de configuration de &kontact;</link
 >.</para>
 
@@ -777,35 +765,6 @@ the data.</para-->
 </screenshot>
 </sect2>
 
-<sect2 id="summary-view-config-notes">
-<title
->Module de Résumé &kontact; : notes</title>
-
-<para
->Le module <quote
->Notes</quote
-> pour le Résumé de &kontact; ajoute une zone dans la vue, désignée <guilabel
->Petites notes</guilabel
->. Cette zone affiche tous les titres des notes actuelles (les titres contiennent par défaut la date et l'heure de création de la note). Cliquer sur le titre d'une note lance la zone de Notes. </para>
-
-<screenshot>
-<screeninfo
->Module de Résumé &kontact; : notes</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata format="PNG" fileref="summary-view-notes.png"/>
-</imageobject>
-<textobject>
-<phrase
->Module de Résumé &kontact; : notes</phrase>
-</textobject>
-<caption>
-<para
->Module de Résumé &kontact; : notes </para>
-</caption>
-</mediaobject>
-</screenshot>
-</sect2>
 
 <sect2 id="summary-view-config-todo-list">
 <title
@@ -972,7 +931,7 @@ the data.</para-->
 >&kontact;</para>
 
 <para
->Licence du programme 2004 - 2005, par l'équipe de développement de &kde;</para>
+>Licence du programme 2001 - 2025, par l'équipe de développement de &kde;</para>
 
 <para
 >Contributeurs :</para>
