@@ -261,7 +261,8 @@ void MainWindow::initWidgets()
     setCentralWidget(mTopWidget);
 
     if (TextAddonsWidgets::NeedUpdateVersionUtils::checkVersion()) {
-        const auto status = TextAddonsWidgets::NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1String(KONTACT_RELEASE_VERSION_DATE), QDate::currentDate());
+        const auto status =
+            TextAddonsWidgets::NeedUpdateVersionUtils::obsoleteVersionStatus(QStringLiteral(KONTACT_RELEASE_VERSION_DATE), QDate::currentDate());
         if (status != TextAddonsWidgets::NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
             auto needUpdateVersionWidget = new TextAddonsWidgets::NeedUpdateVersionWidget(this);
             layout->addWidget(needUpdateVersionWidget);
@@ -553,9 +554,9 @@ bool MainWindow::removePlugin(const QString &pluginName)
     }
 
     if (mCurrentPlugin == nullptr) {
-        for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
-            if (plugin->showInSideBar()) {
-                selectPlugin(plugin);
+        for (KontactInterface::Plugin *currPlugin : std::as_const(mPlugins)) {
+            if (currPlugin->showInSideBar()) {
+                selectPlugin(currPlugin);
                 return true;
             }
         }
@@ -735,9 +736,9 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
             mNewActions->setText(newAction->text());
             mNewActions->setWhatsThis(newAction->whatsThis());
         } else { // we'll use the action of the first plugin which offers one
-            for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
-                if (!plugin->newActions().isEmpty()) {
-                    newAction = plugin->newActions().constFirst();
+            for (KontactInterface::Plugin *currPlugin : std::as_const(mPlugins)) {
+                if (!currPlugin->newActions().isEmpty()) {
+                    newAction = currPlugin->newActions().constFirst();
                 }
                 if (newAction) {
                     mNewActions->setIcon(newAction->icon());
