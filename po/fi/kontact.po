@@ -3,7 +3,7 @@
 # KDE Finnish translation sprint participants:
 # Author: Artnay
 # Author: Lliehu
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2003, 2008.
 # Tapio Kautto <eleknader@phnet.fi>, 2004.
 # Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2005.
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:44+0000\n"
-"PO-Revision-Date: 2025-11-13 14:00+0200\n"
+"PO-Revision-Date: 2026-01-05 17:20+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -314,7 +314,7 @@ msgstr "Aloita tietystä Kontact-moduulista"
 #: src/main.cpp:97
 #, kde-format
 msgid "Module"
-msgstr ""
+msgstr "Moduuli"
 
 #: src/main.cpp:98
 #, kde-format
