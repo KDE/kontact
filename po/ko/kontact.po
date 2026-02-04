@@ -1,13 +1,13 @@
 # Translation of kontact to Korean.
 # Copyright (C) 2007, 2008 This_file_is_part_of_KDE
-# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:41+0000\n"
-"PO-Revision-Date: 2024-08-19 23:50+0200\n"
+"PO-Revision-Date: 2026-02-04 00:05+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -224,33 +224,27 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "구성 요소 사이드바 표시"
+msgstr "Kontact 구성 요소 사이드바 표시"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "구성 요소 사이드바 표시"
+msgstr "Kontact 구성 요소 사이드바 표시/숨기기"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
-"화면 영역을 절약하려면 아이콘 바를 숨길 수도 있습니다. 이 옵션을 사용하지 않"
-"으면 구성 요소 사이드바를 숨깁니다. F9 키는 아이콘 사이드바를 표시하거나 숨깁"
-"니다."
+"화면 영역을 절약하려면 Kontact 구성 요소 사이드바를 숨길 수도 있습니다. 이 옵"
+"션을 사용하지 않으면 구성 요소 사이드바를 숨깁니다. F9 키는 구성 요소 사이드"
+"바를 표시하거나 숨깁니다."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -452,27 +446,22 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Kontact 소개 페이지를 보려면 선택하십시오."
 
 #: src/mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "구성 요소 사이드바 표시"
+msgstr "Kontact 사이드바 표시"
 
 #: src/mainwindow.cpp:364
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "구성 요소 사이드바 보기/숨기기"
+msgstr "Kontact 구성 요소 사이드바 보기/숨기기"
 
 #: src/mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
-msgstr "구성 요소 사이드바를 표시하거나 숨깁니다."
+msgstr "Kontact 구성 요소 사이드바를 표시하거나 숨깁니다."
 
 #: src/mainwindow.cpp:406
 #, kde-format
