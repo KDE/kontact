@@ -33,29 +33,17 @@ msgid "Welcome to Kontact %1"
 msgstr ""
 
 #: src/about/introduction_kontact.html:19
-#, fuzzy
-#| msgctxt "@item:intext"
-#| msgid ""
-#| "Kontact handles your e-mail, address book, calendar, to-do list and more."
 msgid ""
 "Kontact handles your e-mail, address book, calendar, to-do list and more."
 msgstr ""
-"Láimhseálann Kontact do chuid ríomhphoist, do leabhar seoltaí, féilire, "
-"liosta tascanna agus i bhfad níos mó."
 
 #: src/about/introduction_kontact.html:36
-#, fuzzy
-#| msgctxt "@action:inmenu"
-#| msgid "&Kontact Introduction"
 msgid "Skip this introduction"
-msgstr "Tús Eolais ar &Kontact"
+msgstr ""
 
 #: src/about/loading_kontact.html:5
-#, fuzzy
-#| msgctxt "@item:intext"
-#| msgid "Loading Kontact..."
 msgid "Loading Kontact ..."
-msgstr "Kontact á Luchtú..."
+msgstr ""
 
 #: src/iconsidepane.cpp:264
 #, kde-format
@@ -234,19 +222,15 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Kontact Introduction"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "Tús Eolais ar &Kontact"
+msgstr ""
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Kontact Introduction"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "Tús Eolais ar &Kontact"
+msgstr ""
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
@@ -294,25 +278,22 @@ msgid "Navigator"
 msgstr "Nascleantóir"
 
 #: src/main.cpp:97
-#, fuzzy, kde-format
-#| msgid "Start with a specific Kontact module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
-msgstr "Tosaigh le modúl áirithe Kontact"
+msgstr ""
 
 #: src/main.cpp:98
-#, fuzzy, kde-format
-#| msgid "Start in iconified (minimized) mode"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
-msgstr "Tosaigh sa mhód íoslaghdaithe"
+msgstr ""
 
 #: src/main.cpp:99
-#, fuzzy, kde-format
-#| msgid "List all possible modules and exit"
+#, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
-msgstr "Taispeáin gach modúl agus scoir"
+msgstr ""
 
 #: src/main.cpp:155 src/mainwindow.cpp:1016
 #, kde-format
@@ -325,38 +306,33 @@ msgid "KDE personal information manager"
 msgstr "Bainisteoir faisnéise phearsanta KDE"
 
 #: src/main.cpp:159
-#, fuzzy, kde-format
-#| msgid "Copyright © 2001–2013 Kontact authors"
+#, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "© 2001–2013 Údair Kontact"
+msgstr ""
 
 #: src/main.cpp:163
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
-msgstr "Allen Winter"
+msgstr ""
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "Rafael Fernández López"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
-msgstr "Rafael Fernández López"
+msgstr ""
 
 #: src/main.cpp:165
-#, fuzzy, kde-format
-#| msgid "Daniel Molkentin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
-msgstr "Daniel Molkentin"
+msgstr ""
 
 #: src/main.cpp:166
-#, fuzzy, kde-format
-#| msgid "Don Sanders"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
-msgstr "Don Sanders"
+msgstr ""
 
 #: src/main.cpp:167
 #, kde-format
@@ -365,46 +341,40 @@ msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
 #: src/main.cpp:168
-#, fuzzy, kde-format
-#| msgid "Tobias König"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
-msgstr "Tobias König"
+msgstr ""
 
 #: src/main.cpp:169
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
-msgstr "David Faure"
+msgstr ""
 
 #: src/main.cpp:170
-#, fuzzy, kde-format
-#| msgid "Ingo Klöcker"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
-msgstr "Ingo Klöcker"
+msgstr ""
 
 #: src/main.cpp:171
-#, fuzzy, kde-format
-#| msgid "Sven Lüppken"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
-msgstr "Sven Lüppken"
+msgstr ""
 
 #: src/main.cpp:172
-#, fuzzy, kde-format
-#| msgid "Zack Rusin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
-msgstr "Zack Rusin"
+msgstr ""
 
 #: src/main.cpp:173
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
-msgstr "Matthias Hoelzer-Kluepfel"
+msgstr ""
 
 #: src/main.cpp:173
 #, kde-format
@@ -459,12 +429,10 @@ msgid "&Kontact Introduction"
 msgstr "Tús Eolais ar &Kontact"
 
 #: src/mainwindow.cpp:358
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Kontact Introduction"
+#, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
-msgstr "Tús Eolais ar &Kontact"
+msgstr ""
 
 #: src/mainwindow.cpp:359
 #, kde-format
@@ -473,11 +441,10 @@ msgid "Choose this option to see the Kontact Introduction page."
 msgstr ""
 
 #: src/mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "Show &holidays"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
-msgstr "Taispeáin laethanta &saoire"
+msgstr ""
 
 #: src/mainwindow.cpp:364
 #, kde-format
@@ -530,18 +497,14 @@ msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
 #: src/mainwindow.cpp:1017
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "The KDE Personal Information Management Suite"
+#, kde-format
 msgid "The KDE Personal Information Management Suite."
-msgstr "Bainisteoir faisnéise phearsanta KDE"
+msgstr ""
 
 #: src/mainwindow.cpp:1022
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "Read Manual"
+#, kde-format
 msgid "Read Manual"
-msgstr "Léigh an Lámhleabhar"
+msgstr ""
 
 #: src/mainwindow.cpp:1023
 #, kde-format
@@ -549,18 +512,14 @@ msgid "Learn more about Kontact and its components"
 msgstr ""
 
 #: src/mainwindow.cpp:1026
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "Visit Kontact Website"
+#, kde-format
 msgid "Visit Kontact Website"
-msgstr "Féach ar an Suíomh Gréasáin Kontact"
+msgstr ""
 
 #: src/mainwindow.cpp:1027
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "Access online resources and tutorials"
+#, kde-format
 msgid "Access online resources and tutorials"
-msgstr "Rochtain acmhainní agus cúrsaí teagaisc ar líne"
+msgstr ""
 
 #: src/mainwindow.cpp:1030
 #, kde-format
@@ -577,1095 +536,3 @@ msgstr ""
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
 msgstr ""
-
-#~ msgid "Cornelius Schumacher"
-#~ msgstr "Cornelius Schumacher"
-
-#~ msgctxt "@title"
-#~ msgid "KDE Kontact"
-#~ msgstr "Kontact KDE"
-
-#~ msgctxt "@info:credit"
-#~ msgid "(c), 2003 Cornelius Schumacher"
-#~ msgstr "© 2003 Cornelius Schumacher"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Developer"
-#~ msgstr "Forbróir"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Tobias Koenig"
-#~ msgstr "Tobias Koenig"
-
-#, fuzzy
-#~| msgid "About Kontact"
-#~ msgctxt "@title:window"
-#~ msgid "About Kontact"
-#~ msgstr "Eolas faoi Kontact"
-
-#~ msgid "Kontact Container"
-#~ msgstr "Gabhdán Kontact"
-
-#~ msgid "No about information available."
-#~ msgstr "Níl aon eolas ar fáil."
-
-#~ msgid "Version %1"
-#~ msgstr "Leagan %1"
-
-#~ msgid "<p><b>Authors:</b></p>"
-#~ msgstr "<p><b>Údair:</b></p>"
-
-#~ msgid "<p><b>Thanks to:</b></p>"
-#~ msgstr "<p><b>Buíochas le:</b></p>"
-
-#~ msgid "<p><b>Translators:</b></p>"
-#~ msgstr "<p><b>Aistritheoirí:</b></p>"
-
-#~ msgid "%1 License"
-#~ msgstr "Ceadúnas %1"
-
-#~ msgctxt "@title:menu synchronize pim items (message,calendar,to-do,etc.)"
-#~ msgid "Sync"
-#~ msgstr "Sioncrónaigh"
-
-#~ msgid "kontactsummary"
-#~ msgstr "kontactsummary"
-
-#~ msgid "(c), 2004 Tobias Koenig"
-#~ msgstr "©, 2004 Tobias Koenig"
-
-#~ msgid "Tobias Koenig"
-#~ msgstr "Tobias Koenig"
-
-#, fuzzy
-#~| msgctxt "@item:intext"
-#~| msgid "Configure Kontact as Groupware Client"
-#~ msgid "Configure the summary view"
-#~ msgstr "Cumraigh Kontact mar Chliant Groupware"
-
-#~ msgid "Sync All"
-#~ msgstr "Sioncrónaigh Uile"
-
-#~ msgctxt "@action:inmenu sync everything"
-#~ msgid "All"
-#~ msgstr "Uile"
-
-#~ msgctxt "sync everything"
-#~ msgid "All"
-#~ msgstr "Uile"
-
-#~ msgid "Kontact Summary"
-#~ msgstr "Achoimre Kontact"
-
-#, fuzzy
-#~| msgid "(c) 2003 The Kontact developers"
-#~ msgid "(c) 2003-2016 The Kontact developers"
-#~ msgstr "© 2003 Forbróirí Kontact"
-
-#~ msgid "Sven Lueppken"
-#~ msgstr "Sven Lueppken"
-
-#~ msgctxt "@item"
-#~ msgid ""
-#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
-#~ msgstr ""
-#~ "<h2 style='text-align:center; margin-top: 0px; margin-bottom: 0px'>%1</h2>"
-
-#~ msgctxt "@item:intext"
-#~ msgid "KDE Kontact"
-#~ msgstr "Kontact KDE"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "<h2 style='text-align:center; margin-top: 0px;'>Welcome to Kontact %1</"
-#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
-#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
-#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
-#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
-#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
-#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
-#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
-#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
-#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Skip this introduction</a></p>"
-#~ msgstr ""
-#~ "<h2 style='text-align:center; margin-top: 0px;'>Fáilte go dtí Kontact %1</"
-#~ "h2><p align=\"center\">%2</p><table align=\"center\"><tr><td><a href="
-#~ "\"%3\"><img width=\"%4\" height=\"%5\" src=\"%6\" /></a></td><td><a href="
-#~ "\"%7\">%8</a><br /><span id=\"subtext\"><nobr>%9</nobr></span></td></"
-#~ "tr><tr><td><a href=\"%10\"><img width=\"%11\" height=\"%12\" src=\"%13\" /"
-#~ "></a></td><td><a href=\"%14\">%15</a><br /><span id=\"subtext\"><nobr>"
-#~ "%16</nobr></span></td></tr><tr><td><a href=\"%17\"><img width=\"%18\" "
-#~ "height=\"%19\" src=\"%20\" /></a></td><td><a href=\"%21\">%22</a><br /"
-#~ "><span id=\"subtext\"><nobr>%23</nobr></span></td></tr></table><p style="
-#~ "\"margin-bottom: 0px\"> <a href=\"%24\">Ná bac leis an réamhrá seo</a></p>"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "&Tip of the Day"
-#~ msgstr "&Leid an Lae"
-
-#~ msgctxt "@info:status"
-#~ msgid "Show the Tip-of-the-Day dialog"
-#~ msgstr "Taispeáin Leid an Lae"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New Feed..."
-#~ msgstr "Fotha Nua..."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New Contact..."
-#~ msgstr "Teagmháil Nua..."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New Contact Group..."
-#~ msgstr "Grúpa Nua Teagmhálacha..."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Sync Contacts"
-#~ msgstr "Sioncrónaigh Teagmhálacha"
-
-#~ msgid "kcmkmailsummary"
-#~ msgstr "kcmkmailsummary"
-
-#~ msgid "Mail Summary Configuration Dialog"
-#~ msgstr "Dialóg Chumraíochta: Achoimre Ríomhphoist"
-
-#~ msgid "Copyright © 2004–2010 Tobias Koenig"
-#~ msgstr "© 2004-2010 Tobias Koenig"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New Message..."
-#~ msgstr "Teachtaireacht Nua..."
-
-#~ msgid "New Messages"
-#~ msgstr "Teachtaireachtaí Nua"
-
-#~ msgctxt "%1: number of unread messages %2: total number of messages"
-#~ msgid "%1 / %2"
-#~ msgstr "%1 / %2"
-
-# not a verb?
-#~ msgid "Open Folder: \"%1\""
-#~ msgstr "Fillteán Oscailte: \"%1\""
-
-#, fuzzy
-#~| msgid "kcmkorgsummary"
-#~ msgid "kcmknotessummary"
-#~ msgstr "kcmkorgsummary"
-
-#, fuzzy
-#~| msgid "Mail Summary Configuration Dialog"
-#~ msgid "Notes Summary Configuration Dialog"
-#~ msgstr "Dialóg Chumraíochta: Achoimre Ríomhphoist"
-
-#, fuzzy
-#~| msgctxt "@info:credit"
-#~| msgid "Current Maintainer"
-#~ msgid "Laurent Montel"
-#~ msgstr "Cothaitheoir Reatha"
-
-#~ msgctxt "@action:inmenu create new popup note"
-#~ msgid "&New"
-#~ msgstr "&Nua"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Edit..."
-#~ msgstr "Eagar..."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Rename..."
-#~ msgstr "Athainmnigh..."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Delete"
-#~ msgstr "Scrios"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Print Selected Notes..."
-#~ msgstr "Priontáil na Nótaí Roghnaithe..."
-
-#, fuzzy
-#~| msgctxt "@action:inmenu"
-#~| msgid "Print Selected Notes..."
-#~ msgctxt "@action:inmenu"
-#~ msgid "Print Preview Selected Notes..."
-#~ msgstr "Priontáil na Nótaí Roghnaithe..."
-
-#, fuzzy
-#~| msgctxt "@action:inmenu"
-#~| msgid "Print Selected Notes..."
-#~ msgid "Preferences KNotes..."
-#~ msgstr "Priontáil na Nótaí Roghnaithe..."
-
-#~ msgctxt "@info"
-#~ msgid "To print notes, first select the notes to print from the list."
-#~ msgstr "Chun nótaí a phriontáil, roghnaigh na nótaí le priontáil ón liosta."
-
-#~ msgctxt "@title:window"
-#~ msgid "Print Popup Notes"
-#~ msgstr "Priontáil Preabnótaí"
-
-#, fuzzy
-#~| msgctxt "@info:status"
-#~| msgid "Create a new feed"
-#~ msgid "Create new note"
-#~ msgstr "Cruthaigh fotha nua"
-
-#~ msgctxt "@info"
-#~ msgid "Do you really want to delete this note?"
-#~ msgid_plural "Do you really want to delete these %1 notes?"
-#~ msgstr[0] "An bhfuil tú cinnte gur mian leat an nóta seo a scriosadh?"
-#~ msgstr[1] "An bhfuil tú cinnte gur mian leat an dá nóta seo a scriosadh?"
-#~ msgstr[2] "An bhfuil tú cinnte gur mian leat na %1 nóta seo a scriosadh?"
-#~ msgstr[3] "An bhfuil tú cinnte gur mian leat na %1 nóta seo a scriosadh?"
-#~ msgstr[4] "An bhfuil tú cinnte gur mian leat na %1 nóta seo a scriosadh?"
-
-#~ msgctxt "@title:window"
-#~ msgid "Confirm Delete"
-#~ msgstr "Dearbhaigh an Scriosadh"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "New Name:"
-#~ msgstr "Ainm Nua:"
-
-#, fuzzy
-#~| msgctxt "@action:inmenu"
-#~| msgid "New Popup Note..."
-#~ msgid "Show Note..."
-#~ msgstr "Preabnóta Nua..."
-
-#, fuzzy
-#~| msgid "&Settings"
-#~ msgid "Settings"
-#~ msgstr "&Socruithe"
-
-#~ msgid "&Edit"
-#~ msgstr "&Eagar"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New Popup Note..."
-#~ msgstr "Preabnóta Nua..."
-
-#~ msgctxt "@title"
-#~ msgid "KNotes"
-#~ msgstr "KNotes"
-
-#~ msgctxt "@title"
-#~ msgid "Popup Notes"
-#~ msgstr "Preabnótaí"
-
-#, fuzzy
-#~| msgid "Copyright © 2001–2013 Kontact authors"
-#~ msgctxt "@info:credit"
-#~ msgid "Copyright © 2003–2014 Kontact authors"
-#~ msgstr "© 2001–2013 Údair Kontact"
-
-#, fuzzy
-#~| msgctxt "@info:credit"
-#~| msgid "Current Maintainer"
-#~ msgctxt "@info:credit"
-#~ msgid "Laurent Montel"
-#~ msgstr "Cothaitheoir Reatha"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Current Maintainer"
-#~ msgstr "Cothaitheoir Reatha"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Michael Brade"
-#~ msgstr "Michael Brade"
-
-#, fuzzy
-#~| msgctxt "@info:credit"
-#~| msgid "Current Maintainer"
-#~ msgctxt "@info:credit"
-#~ msgid "Previous Maintainer"
-#~ msgstr "Cothaitheoir Reatha"
-
-#~ msgctxt "@item"
-#~ msgid "Meeting"
-#~ msgstr "Cruinniú"
-
-#~ msgctxt "@item"
-#~ msgid "Note: %1"
-#~ msgstr "Nóta: %1"
-
-#~ msgctxt "@item"
-#~ msgid "New Note"
-#~ msgstr "Nóta Nua"
-
-#~ msgctxt "@item"
-#~ msgid ""
-#~ "From: %1\n"
-#~ "To: %2\n"
-#~ "Subject: %3"
-#~ msgstr ""
-#~ "Ó: %1\n"
-#~ "Chuig: %2\n"
-#~ "Ábhar: %3"
-
-#~ msgctxt "@item"
-#~ msgid "Mail: %1"
-#~ msgstr "Ríomhphost: %1"
-
-#, fuzzy
-#~| msgctxt "@action:inmenu"
-#~| msgid "Sync Popup Notes"
-#~ msgctxt "@title:window"
-#~ msgid "Show Popup Note"
-#~ msgstr "Sioncrónaigh Preabnótaí"
-
-#~ msgctxt "@title:window"
-#~ msgid "Edit Popup Note"
-#~ msgstr "Cuir Preabnóta in Eagar"
-
-#~ msgctxt "@label popup note name"
-#~ msgid "Name:"
-#~ msgstr "Ainm:"
-
-#, fuzzy
-#~| msgctxt "@action:inmenu"
-#~| msgid "Print Selected Notes..."
-#~ msgid "Search notes..."
-#~ msgstr "Priontáil na Nótaí Roghnaithe..."
-
-#, fuzzy
-#~| msgctxt "@action:inmenu"
-#~| msgid "Print Selected Notes..."
-#~ msgid "Search notes...<%1>"
-#~ msgstr "Priontáil na Nótaí Roghnaithe..."
-
-#~ msgid "Popup Notes"
-#~ msgstr "Preabnótaí"
-
-#, fuzzy
-#~| msgctxt "@action:inmenu"
-#~| msgid "New Popup Note..."
-#~ msgid "Modify Note..."
-#~ msgstr "Preabnóta Nua..."
-
-#, fuzzy
-#~| msgid "Delete Feed"
-#~ msgid "Delete Note..."
-#~ msgstr "Scrios Fotha"
-
-#~ msgid "Read Popup Note: \"%1\""
-#~ msgstr "Léigh Preabnóta: \"%1\""
-
-#~ msgid "Event Summary Configuration"
-#~ msgstr "Dialóg Chumraíochta: Achoimre Imeachtaí"
-
-#~ msgid "&Today only"
-#~ msgstr "&Inniu amháin"
-
-#~ msgid "1 day"
-#~ msgstr "1 lá"
-
-#~ msgctxt "days to show in summary"
-#~ msgid " days"
-#~ msgstr " lá"
-
-#~ msgid "Show &birthdays"
-#~ msgstr "Taispeáin &breithlaethanta"
-
-#~ msgid "Groupware Settings"
-#~ msgstr "Socruithe Groupware"
-
-#~ msgid "Upcoming Events"
-#~ msgstr "Imeachtaí atá ag teacht"
-
-#~ msgid "&Edit Appointment..."
-#~ msgstr "Cuir Coinne in &Eagar..."
-
-#~ msgid "&Delete Appointment"
-#~ msgstr "&Scrios Coinne"
-
-#~ msgid "Edit Event: \"%1\""
-#~ msgstr "Cuir Imeacht in Eagar: \"%1\""
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New Journal..."
-#~ msgstr "Dialann Nua..."
-
-#, fuzzy
-#~| msgctxt "@info:status"
-#~| msgid "Create a new contact"
-#~ msgctxt "@info:status"
-#~ msgid "Create a new journal"
-#~ msgstr "Cruthaigh teagmháil nua"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Sync Journal"
-#~ msgstr "Sioncrónaigh Dialann"
-
-#~ msgctxt "@info:status"
-#~ msgid "Synchronize groupware journal"
-#~ msgstr "Sioncrónaigh dialann Groupware"
-
-#~ msgid " day"
-#~ msgid_plural " days"
-#~ msgstr[0] " lá"
-#~ msgstr[1] " lá"
-#~ msgstr[2] " lá"
-#~ msgstr[3] " lá"
-#~ msgstr[4] " lá"
-
-#~ msgid "Upcoming Events Configuration Dialog"
-#~ msgstr "Dialóg Chumraíochta: Imeachtaí atá ag teacht"
-
-#~ msgid ""
-#~ "Copyright © 2003–2004 Tobias Koenig\n"
-#~ "Copyright © 2005–2010 Allen Winter"
-#~ msgstr ""
-#~ "Cóipcheart © 2003–2004 Tobias Koenig\n"
-#~ "Cóipcheart © 2005–2010 Allen Winter"
-
-#~ msgid "Pending To-dos Configuration Dialog"
-#~ msgstr "Dialóg Chumraíochta: Tascanna Ar Feitheamh"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New Event..."
-#~ msgstr "Imeacht Nua..."
-
-#, fuzzy
-#~| msgctxt "@info:status"
-#~| msgid "Create a new feed"
-#~ msgctxt "@info:status"
-#~ msgid "Create a new event"
-#~ msgstr "Cruthaigh fotha nua"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Sync Calendar"
-#~ msgstr "Sioncrónaigh Féilire"
-
-#~ msgctxt "@info:status"
-#~ msgid "Synchronize groupware calendar"
-#~ msgstr "Sioncrónaigh féilire Groupware"
-
-#~ msgctxt "the appointment is today"
-#~ msgid "Today"
-#~ msgstr "Inniu"
-
-#~ msgctxt "the appointment is tomorrow"
-#~ msgid "Tomorrow"
-#~ msgstr "Amárach"
-
-#~ msgid "in 1 day"
-#~ msgid_plural "in %1 days"
-#~ msgstr[0] "faoi cheann %1 lá"
-#~ msgstr[1] "faoi cheann %1 lá"
-#~ msgstr[2] "faoi cheann %1 lá"
-#~ msgstr[3] "faoi cheann %1 lá"
-#~ msgstr[4] "faoi cheann %1 lá"
-
-#~ msgctxt "eg. in 1 hour 2 minutes"
-#~ msgid "in "
-#~ msgstr "faoi cheann "
-
-#~ msgctxt "use abbreviation for hour to keep the text short"
-#~ msgid "1 hr"
-#~ msgid_plural "%1 hrs"
-#~ msgstr[0] "1 u"
-#~ msgstr[1] "%1 u"
-#~ msgstr[2] "%1 u"
-#~ msgstr[3] "%1 u"
-#~ msgstr[4] "%1 u"
-
-#~ msgctxt "use abbreviation for minute to keep the text short"
-#~ msgid "1 min"
-#~ msgid_plural "%1 mins"
-#~ msgstr[0] "1 nóim"
-#~ msgstr[1] "%1 nóim"
-#~ msgstr[2] "%1 nóim"
-#~ msgstr[3] "%1 nóim"
-#~ msgstr[4] "%1 nóim"
-
-#~ msgid "now"
-#~ msgstr "anois"
-
-#~ msgid "all day"
-#~ msgstr "an lá ar fad"
-
-#~ msgctxt "Time from - to"
-#~ msgid "%1 - %2"
-#~ msgstr "%1 - %2"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New To-do..."
-#~ msgstr "Tasc Nua..."
-
-#~ msgctxt "@info:status"
-#~ msgid "Create a new to-do"
-#~ msgstr "Cruthaigh tasc nua"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Sync To-do List"
-#~ msgstr "Sioncrónaigh Liosta Tascanna"
-
-#, fuzzy
-#~| msgctxt "@info:status"
-#~| msgid "Synchronize groupware notes"
-#~ msgctxt "@info:status"
-#~ msgid "Synchronize groupware to-do list"
-#~ msgstr "Sioncrónaigh nótaí Groupware"
-
-#~ msgid "To-do Summary Configuration"
-#~ msgstr "Dialóg Chumraíochta: Achoimre Tascanna"
-
-#~ msgid "Hide completed To-dos"
-#~ msgstr "Folaigh tascanna críochnaithe"
-
-#~ msgid "&Completed"
-#~ msgstr "&Críochnaithe"
-
-#~ msgid "Pending To-dos"
-#~ msgstr "Tascanna Le Déanamh"
-
-#~ msgctxt "the to-do is due today"
-#~ msgid "Today"
-#~ msgstr "Inniu"
-
-#~ msgctxt "the to-do is due tomorrow"
-#~ msgid "Tomorrow"
-#~ msgstr "Amárach"
-
-#~ msgid "1 day ago"
-#~ msgid_plural "%1 days ago"
-#~ msgstr[0] "inné"
-#~ msgstr[1] "arú inné"
-#~ msgstr[2] "%1 lá ó shin"
-#~ msgstr[3] "%1 lá ó shin"
-#~ msgstr[4] "%1 lá ó shin"
-
-#~ msgctxt "the to-do is due"
-#~ msgid "due"
-#~ msgstr "dlite"
-
-#~ msgid "&Edit To-do..."
-#~ msgstr "Cuir Tasc in &Eagar..."
-
-#~ msgid "&Delete To-do"
-#~ msgstr "&Scrios Tasc"
-
-#~ msgid "Edit To-do: \"%1\""
-#~ msgstr "Cuir tasc in eagar: \"%1\""
-
-#~ msgctxt "the to-do is overdue"
-#~ msgid "overdue"
-#~ msgstr "thar téarma"
-
-#~ msgctxt "the to-do is completed"
-#~ msgid "completed"
-#~ msgstr "críochnaithe"
-
-#~ msgctxt "the to-do is in-progress"
-#~ msgid "in-progress "
-#~ msgstr "ar siúl "
-
-#~ msgctxt "Separator for status like this: overdue, completed"
-#~ msgid ","
-#~ msgstr ","
-
-#~ msgid "Upcoming Special Dates Configuration Dialog"
-#~ msgstr "Dialóg Chumraíochta: Dátaí Speisialta atá ag teacht"
-
-#~ msgid ""
-#~ "Copyright © 2004 Tobias Koenig\n"
-#~ "Copyright © 2004–2010 Allen Winter"
-#~ msgstr ""
-#~ "Cóipcheart © 2004 Tobias Koenig\n"
-#~ "Cóipcheart © 2004–2010 Allen Winter"
-
-#~ msgid "Show Special Dates Starting"
-#~ msgstr "Taispeáin Dátaí Speisialta Ó"
-
-#~ msgid "Show special occasions for today only"
-#~ msgstr "Taispeáin ócáidí speisialta inniu amháin"
-
-#~ msgid "Show holidays from your calendar"
-#~ msgstr "Taispeáin laethanta saoire ó d'fhéilire"
-
-#~ msgid "Show special occasions from your calendar"
-#~ msgstr "Taispeáin ócáidí speisialta ó d'fhéilire"
-
-#~ msgid "Show s&pecial occasions"
-#~ msgstr "Taispeáin ócáidí s&peisialta"
-
-#~ msgid "Show birthdays from your address book"
-#~ msgstr "Taispeáin breithlaethanta ó do leabhar seoltaí"
-
-#~ msgid "Show birth&days"
-#~ msgstr "Taispeáin breith&laethanta"
-
-#~ msgid "Upcoming Special Dates"
-#~ msgstr "Dátaí Speisialta Le Teacht"
-
-#~ msgctxt "the special day is today"
-#~ msgid "Today"
-#~ msgstr "Inniu"
-
-#~ msgctxt "the special day is tomorrow"
-#~ msgid "Tomorrow"
-#~ msgstr "Amárach"
-
-#~ msgid "Birthday"
-#~ msgstr "Lá Breithe"
-
-#~ msgid "Anniversary"
-#~ msgstr "Cothrom Lae"
-
-#~ msgid "Holiday"
-#~ msgstr "Lá Saoire"
-
-#~ msgid "Special Occasion"
-#~ msgstr "Ócáid Speisialta"
-
-#~ msgid "one year"
-#~ msgid_plural "%1 years"
-#~ msgstr[0] "bliain amháin"
-#~ msgstr[1] "dhá bhliain"
-#~ msgstr[2] "%1 bliana"
-#~ msgstr[3] "%1 mbliana"
-#~ msgstr[4] "%1 bliain"
-
-#~ msgid "Send &Mail"
-#~ msgstr "Seol &Post"
-
-#~ msgid "Mail to:\"%1\""
-#~ msgstr "Seol chuig: \"%1\""
-
-#~ msgid "Current Maintainer"
-#~ msgstr "Cothaitheoir Reatha"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New KJots Page"
-#~ msgstr "Leathanach Nua KJots"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New KJots Book"
-#~ msgstr "Leabhar Nua KJots"
-
-#~ msgctxt "@info:status"
-#~ msgid "Create a new contact group"
-#~ msgstr "Cruthaigh grúpa nua teagmhálacha"
-
-#~ msgctxt "@info:status"
-#~ msgid "Synchronize groupware contacts"
-#~ msgstr "Sioncrónaigh teagmhálacha Groupware"
-
-#~ msgctxt "@info:status"
-#~ msgid "Synchronize groupware mail"
-#~ msgstr "Sioncrónaigh ríomhphost Groupware"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New Article..."
-#~ msgstr "Alt Nua..."
-
-#~ msgctxt "@info:status"
-#~ msgid "Edit popup note"
-#~ msgstr "Cuir preabnóta in eagar"
-
-#~ msgctxt "@info:status"
-#~ msgid "Print popup note"
-#~ msgstr "Priontáil preabnóta"
-
-#~ msgid "kcmapptsummary"
-#~ msgstr "kcmapptsummary"
-
-#~ msgid "kcmtodosummary"
-#~ msgstr "kcmtodosummary"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "New Task"
-#~ msgstr "Tasc Nua"
-
-#~ msgid "task_popup"
-#~ msgstr "task_popup"
-
-#~ msgid "kcmplanner"
-#~ msgstr "kcmplanner"
-
-#~ msgid "Planner Summary Configuration Dialog"
-#~ msgstr "Dialóg Chumraíochta: Achoimre Pleanálaí"
-
-#~ msgid ""
-#~ "Copyright © 2004 Tobias Koenig\n"
-#~ "Copyright © 2006–2008 Oral Timocin\n"
-#~ "Copyright © 2009–2010 Allen Winter"
-#~ msgstr ""
-#~ "Cóipcheart © 2004 Tobias Koenig\n"
-#~ "Cóipcheart © 2006–2008 Oral Timocin\n"
-#~ "Cóipcheart © 2009–2010 Allen Winter"
-
-#~ msgid "Oral Timocin"
-#~ msgstr "Oral Timocin"
-
-#~ msgid "Planner"
-#~ msgstr "Pleanálaí"
-
-#~ msgctxt "today"
-#~ msgid "Today"
-#~ msgstr "Inniu"
-
-#~ msgctxt "tomorrow"
-#~ msgid "Tomorrow"
-#~ msgstr "Amárach"
-
-#~ msgctxt "to-do is overdue"
-#~ msgid "overdue"
-#~ msgstr "thar téarma"
-
-#~ msgid "Edit Appointment: \"%1\""
-#~ msgstr "Cuir Coinne in Eagar: \"%1\""
-
-#~ msgctxt "work on to-do is in progress"
-#~ msgid "in progress"
-#~ msgstr "ar siúl "
-
-#~ msgctxt "to-do is completed"
-#~ msgid "completed"
-#~ msgstr "críochnaithe"
-
-#~ msgid "%1%"
-#~ msgstr "%1%"
-
-#~ msgctxt "general settings"
-#~ msgid "General"
-#~ msgstr "Ginearálta"
-
-#~ msgid "General Configuration"
-#~ msgstr "Cumraíocht Ghinearálta"
-
-#~ msgid "Underline links in descriptions"
-#~ msgstr "Cuir línte faoi naisc i gcur síos"
-
-#~ msgid "Underline links"
-#~ msgstr "Cuir línte faoi naisc"
-
-#~ msgid "Show to-dos in the summary"
-#~ msgstr "Taispeáin tascanna san achoimre"
-
-#~ msgid "Show To-dos in planner"
-#~ msgstr "Taispeáin tascanna sa phleanálaí"
-
-#~ msgid "Show special dates in the summary"
-#~ msgstr "Taispeáin dátaí speisialta san achoimre"
-
-#~ msgid "Show special dates in planner"
-#~ msgstr "Taispeáin dátaí speisialta sa phleanálaí"
-
-#~ msgid "Events"
-#~ msgstr "Imeachtaí"
-
-#~ msgid "To-dos"
-#~ msgstr "Tascanna"
-
-#~ msgid "Hide completed to-dos"
-#~ msgstr "Folaigh tascanna críochnaithe"
-
-#~ msgid "Special Dates"
-#~ msgstr "Dátaí Speisialta"
-
-#~ msgid "Show these Special Dates"
-#~ msgstr "Taispeáin na Dátaí Speisialta seo"
-
-#~ msgid "Show birthdays from address book"
-#~ msgstr "Taispeáin breithlaethanta ó leabhar seoltaí"
-
-#~ msgid "Show special occasions from calendar"
-#~ msgstr "Taispeáin ócáidí speisialta ón fhéilire"
-
-#~ msgid "Planner Summary"
-#~ msgstr "Achoimre an Phleanálaí"
-
-#~ msgid "Active Calendar"
-#~ msgstr "Féilire Bheo"
-
-#~ msgid "Default Calendar"
-#~ msgstr "Féilire Réamhshocraithe"
-
-#~ msgid "Birthdays"
-#~ msgstr "Laethanta Breithe"
-
-#~ msgid "kcmsdsummary"
-#~ msgstr "kcmsdsummary"
-
-#~ msgctxt "@info:status"
-#~ msgid "Plugin %1"
-#~ msgstr "Breiseán %1"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Sync Popup Notes"
-#~ msgstr "Sioncrónaigh Preabnótaí"
-
-#~ msgid "BIRTHDAY"
-#~ msgstr "BREITHLÁ"
-
-#~ msgid "ANNIVERSARY"
-#~ msgstr "COTHROM LAE"
-
-#~ msgid "HOLIDAY"
-#~ msgstr "LÁ SAOIRE"
-
-#~ msgid "SPECIAL OCCASION"
-#~ msgstr "ÓCÁID SPEISIALTA"
-
-#~ msgid "(C) 2001-2009 The Kontact developers"
-#~ msgstr "© 2001-2009 Forbróirí Kontact"
-
-#~ msgid "(c) 2003 - 2004 Tobias Koenig"
-#~ msgstr "© 2003 - 2004 Tobias Koenig"
-
-#~ msgid "(c) 2007-2008 Oral Timocin"
-#~ msgstr "© 2007-2008 Oral Timocin"
-
-#~ msgid "(c) 2004-2005 The KDE PIM Team"
-#~ msgstr "© 2004-2005 Foireann KDE PIM"
-
-#~ msgid "(c) 2004-2006 Allen Winter"
-#~ msgstr "© 2004-2006 Allen Winter"
-
-#~ msgctxt "prefix for local folders"
-#~ msgid "Local"
-#~ msgstr "Logánta"
-
-#~ msgid "Summary"
-#~ msgstr "Achoimre"
-
-#~ msgid "kontactconfig"
-#~ msgstr "kontactconfig"
-
-#~ msgid " days"
-#~ msgstr " lá"
-
-#~ msgid "Rename"
-#~ msgstr "Athainmnigh"
-
-#~ msgid "New Distribution List..."
-#~ msgstr "Liosta Dáilte Nua..."
-
-#~ msgid "New SMS..."
-#~ msgstr "SMS Nua..."
-
-#~ msgid "New News Feed"
-#~ msgstr "Fotha Nua Nuachta"
-
-#~ msgid "URL:"
-#~ msgstr "URL:"
-
-#~ msgid "Arts"
-#~ msgstr "Na hEalaíona"
-
-#~ msgid "Business"
-#~ msgstr "Gnó"
-
-#~ msgid "Computers"
-#~ msgstr "Ríomhairí"
-
-#~ msgid "Misc"
-#~ msgstr "Éagsúil"
-
-#~ msgid "Recreation"
-#~ msgstr "Caitheamh Aimsire"
-
-#~ msgid "Society"
-#~ msgstr "Sochaí"
-
-#~ msgid "Custom"
-#~ msgstr "Saincheaptha"
-
-#~ msgid "All"
-#~ msgstr "Uile"
-
-#~ msgid "Add"
-#~ msgstr "Cuir Leis"
-
-#~ msgid "Remove"
-#~ msgstr "Bain"
-
-#~ msgid "Selected"
-#~ msgstr "Roghnaithe"
-
-#~ msgid "Refresh time:"
-#~ msgstr "Eatramh athnuachana:"
-
-#~ msgid "Number of items shown:"
-#~ msgstr "Líon na míreanna infheicthe:"
-
-#~ msgid "kcmkontactknt"
-#~ msgstr "kcmkontactknt"
-
-#~ msgid "Newsticker Configuration Dialog"
-#~ msgstr "Dialóg Chumraíochta Newsticker"
-
-#~ msgid "News Feeds"
-#~ msgstr "Fothaí Nuachta"
-
-#~ msgid ""
-#~ "No rss dcop service available.\n"
-#~ "You need rssservice to use this plugin."
-#~ msgstr ""
-#~ "Níl aon seirbhís dcop rss ar fáil.\n"
-#~ "Tá rssservice de dhíth ort chun an breiseán seo a úsáid."
-
-#~ msgid "Copy URL to Clipboard"
-#~ msgstr "Cóipeáil URL go dtí an Ghearrthaisce"
-
-#~ msgid "Weather Information"
-#~ msgstr "Faisnéis Aimsire"
-
-#~ msgid ""
-#~ "No weather D-Bus service available;\n"
-#~ "you need KWeather to use this plugin."
-#~ msgstr ""
-#~ "Níl seirbhís aimsire D-Bus ar fáil;\n"
-#~ "Tá KWeather de dhíth ort chun an breiseán seo a úsáid."
-
-#~ msgid "Last updated on"
-#~ msgstr "Nuashonraithe ar"
-
-#~ msgid "Wind Speed"
-#~ msgstr "Luas Gaoithe"
-
-#~ msgid "Rel. Humidity"
-#~ msgstr "Bogthaise Choibh."
-
-#~ msgid "Ian Reinhart Geiser"
-#~ msgstr "Ian Reinhart Geiser"
-
-#~ msgid "John Ratke"
-#~ msgstr "John Ratke"
-
-#~ msgid "Improvements and more code cleanups"
-#~ msgstr "Feabhsúcháin agus tuilleadh glanadh"
-
-#~ msgid "Unknown"
-#~ msgstr "Anaithnid"
-
-#~ msgid "Calendar View"
-#~ msgstr "Amharc Féilire"
-
-#~ msgid "0%"
-#~ msgstr "0%"
-
-#~ msgid "20%"
-#~ msgstr "20%"
-
-#~ msgid "30%"
-#~ msgstr "30%"
-
-#~ msgid "40%"
-#~ msgstr "40%"
-
-#~ msgid "50%"
-#~ msgstr "50%"
-
-#~ msgid "60%"
-#~ msgstr "60%"
-
-#~ msgid "70%"
-#~ msgstr "70%"
-
-#~ msgid "80%"
-#~ msgstr "80%"
-
-#~ msgid "90%"
-#~ msgstr "90%"
-
-#~ msgid "100%"
-#~ msgstr "100%"
-
-#~ msgid "Default KOrganizer resource"
-#~ msgstr "Acmhainn réamhshocraithe KOrganizer"
-
-#~ msgctxt "@label the appointment is today"
-#~ msgid "Today"
-#~ msgstr "Inniu"
-
-#~ msgctxt "@label the appointment is tomorrow"
-#~ msgid "Tomorrow"
-#~ msgstr "Amárach"
-
-#~ msgid "Five days"
-#~ msgstr "Cúig lá"
-
-#~ msgid "One week"
-#~ msgstr "Seachtain"
-
-#~ msgid "One month"
-#~ msgstr "Mí"
-
-#~ msgid "Show all to-dos"
-#~ msgstr "Taispeáin gach tasc"
-
-#~ msgid "To-dos in progress"
-#~ msgstr "Tascanna ar siúl "
-
-#~ msgid "Schedule Configuration Dialog"
-#~ msgstr "Dialóg Chumraíochta Sceideal"
-
-#~ msgid "&Today"
-#~ msgstr "&Inniu"
-
-#~ msgid "Notes Management"
-#~ msgstr "Bainisteoireacht na Nótaí"
-
-#~ msgctxt "@title:menu"
-#~ msgid "Icon Size"
-#~ msgstr "Méid na nDeilbhíní"
-
-#~ msgctxt "@action:inmenu change to large icons"
-#~ msgid "Large"
-#~ msgstr "Mór"
-
-#~ msgctxt "@action:inmenu change to small icons"
-#~ msgid "Small"
-#~ msgstr "Beag"
-
-#~ msgid "Synchronize"
-#~ msgstr "Sioncrónaigh"
-
-#~ msgid "Name"
-#~ msgstr "Ainm"
-
-#~ msgid "Appointments"
-#~ msgstr "Coinní"
-
-#~ msgid "KPilot Information"
-#~ msgstr "Eolas faoi KPilot"
-
-#~ msgid ""
-#~ "KPilot - HotSync software for KDE\n"
-#~ "\n"
-#~ msgstr ""
-#~ "KPilot - bogearraí HotSync do KDE\n"
-#~ "\n"
-
-#~ msgid "Project Leader"
-#~ msgstr "Ceannaire an Tionscadail"
-
-#~ msgid "No information available"
-#~ msgstr "Níl aon eolas ar fáil"
-
-#~ msgid "<i>User:</i>"
-#~ msgstr "<i>Úsáideoir:</i>"
-
-#~ msgid "<i>Device:</i>"
-#~ msgstr "<i>Gléas:</i>"
-
-#~ msgid "<i>Status:</i>"
-#~ msgstr "<i>Stádas:</i>"
-
-#~ msgid "<i>Conduits:</i>"
-#~ msgstr "<i>Seoladáin:</i>"
-
-#~ msgid "KPilot is currently not running."
-#~ msgstr "Níl KPilot ag rith faoi láthair."
-
-#~ msgid "[Start KPilot]"
-#~ msgstr "[Tosaigh KPilot]"
-
-#~ msgid "unknown"
-#~ msgstr "anaithnid"
-
-#~ msgid "KPilot HotSync Log"
-#~ msgstr "Logchomhad HotSync KPilot"
