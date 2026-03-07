@@ -1,7 +1,7 @@
-set(PIM_VERSION "6.6.40")
+set(PIM_VERSION "6.7.40")
 cmake_minimum_required(VERSION 3.27)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "26.03.40")
+set(RELEASE_SERVICE_VERSION "26.07.40")
 
 # Use true if stable version => we will check specific version
 set(KONTACT_STABLE_VERSION false)
