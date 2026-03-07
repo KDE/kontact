@@ -1,7 +1,7 @@
-set(PIM_VERSION "6.6.40")
+set(PIM_VERSION "6.6.80")
 cmake_minimum_required(VERSION 3.27)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "26.03.40")
+set(RELEASE_SERVICE_VERSION "26.03.80")
 
 # Use true if stable version => we will check specific version
 set(KONTACT_STABLE_VERSION false)
@@ -92,7 +92,7 @@ include(ECMCheckOutboundLicense)
 set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 
 # Do NOT add quote
-set(KDEPIM_DEV_VERSION alpha)
+set(KDEPIM_DEV_VERSION beta)
 
 # add an extra space
 if(DEFINED KDEPIM_DEV_VERSION)
