@@ -55,14 +55,14 @@ msgstr "只显示图标"
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
-msgstr "侧边栏项目只显示图标，无文字"
+msgstr "侧边栏项目只显示图标，无文本"
 
 #: src/iconsidepane.cpp:269
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
-msgstr "如果您想要侧边栏项目只显示图标，不显示文字，请选中此项。"
+msgstr "如果您想要侧边栏项目只显示图标，不显示文本，请选中此项。"
 
 #: src/iconsidepane.cpp:271
 #, kde-format
@@ -87,20 +87,20 @@ msgstr "如果您想要侧边栏项目只显示文字，不显示图标，请选
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
-msgstr "显示图标和文字"
+msgstr "显示图标和文本"
 
 #: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
-msgstr "侧边栏项目同时显示图标和文字"
+msgstr "侧边栏项目同时显示图标和文本"
 
 #: src/iconsidepane.cpp:283
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
-msgstr "如果您想要侧边栏同时显示图标和文字，请选中此项。"
+msgstr "如果您想要侧边栏同时显示图标和文本，请选中此项。"
 
 #: src/iconsidepane.cpp:288
 #, kde-format
