@@ -1,5 +1,5 @@
 set(PIM_VERSION "6.7.40")
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.29)
 project(kontact VERSION ${PIM_VERSION})
 set(RELEASE_SERVICE_VERSION "26.07.40")
 
