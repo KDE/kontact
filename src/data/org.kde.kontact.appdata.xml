@@ -61,7 +61,7 @@
   <summary xml:lang="ca-valencia">Gestiona tots els correus electrònics, calendaris, contactes i més en una sola finestra</summary>
   <summary xml:lang="cs">Spravujte všechny své e-maily, kalendáře, kontakty a další v jednom okně</summary>
   <summary xml:lang="da">Håndtér alle dine e-mails, kalendere, kontakter og mere i et enkelt vindue</summary>
-  <summary xml:lang="de">Verwalten Sie alle Ihre E-Mails. Kalender, Kontakte und mehr in einem einzigen Fenster</summary>
+  <summary xml:lang="de">Verwalten Sie alle Ihre E-Mails, Kalender, Kontakte und mehr in einem einzigen Fenster</summary>
   <summary xml:lang="el">Διαχειριστείτε την ηλεκτρονική σας αλληλογραφία, τα ημερολόγιά σας, τις επαφές σας και πολλά άλλα από ένα μόνο παράθυρο.</summary>
   <summary xml:lang="en-GB">Handle all your emails, calendars, contacts and more within a single window</summary>
   <summary xml:lang="eo">Pritraktu ĉiujn viajn retpoŝtojn, kalendarojn, kontaktojn kaj pli ene de ununura fenestro</summary>
@@ -231,7 +231,7 @@
       <li xml:lang="ca-valencia">KMail: un client de correu electrònic potent i ric en característiques amb suport per a una àmplia varietat de proveïdors de correu electrònic.</li>
       <li xml:lang="cs">KMail – výkonný a na funkce bohatý e-mailový klient s podporou široké škály poskytovatelů e-mailových služeb.</li>
       <li xml:lang="da">KMail - en kraftfuld og funktionsrig e-mailklient med understøttelse af en lang række e-mailudbydere.</li>
-      <li xml:lang="de">KMail - ein leistungsfähiger und funktionsreicher E-Mail-Client mit Unterstützung für eine Vielzahl von E-Mail-Anbietern.</li>
+      <li xml:lang="de">KMail – ein leistungsfähiger und funktionsreicher E-Mail-Client mit Unterstützung für eine Vielzahl von E-Mail-Anbietern.</li>
       <li xml:lang="el">KMail - μια πανίσχυρη και πλούσια σε χαρακτηριστικά εφαρμογή ηλεκτρονικής αλληλογραφίας με υποστήριξη για ένα μεγάλο εύρος παρόχων ηλεκτρονικού ταχυδρομείου.</li>
       <li xml:lang="en-GB">KMail - a powerful and feature-rich email client with support for a wide range of email providers.</li>
       <li xml:lang="eo">KMail - potenca kaj riĉa retpoŝta kliento kun subteno por larĝa gamo de retpoŝtaj provizantoj.</li>
@@ -272,7 +272,7 @@
       <li xml:lang="ca-valencia">KOrganizer: un component de calendari i programació de Kontact, el qual pot treballar amb NextCloud, Kolab, Google Calendar i altres serveis de calendari.</li>
       <li xml:lang="cs">KOrganizer – kalendářová a plánovací komponenta Kontactu, která dokáže spolupracovat s NextCloud, Kolab, Google Calendar a dalšími kalendářovými službami.</li>
       <li xml:lang="da">KOrganizer - en kalender- og planlægningskomponent til Kontact som virker med NextCloud, Kolab, Google Calendar og andre kalendertjenester.</li>
-      <li xml:lang="de">KOrganizer - eine Kalender- und Terminplanungskomponente von Kontact, die mit Nextcloud, Kolab, Google Calendar und anderen Kalenderdiensten funktioniert.</li>
+      <li xml:lang="de">KOrganizer – eine Kalender- und Terminplanungskomponente von Kontact, die mit Nextcloud, Kolab, Google Calendar und anderen Kalenderdiensten funktioniert.</li>
       <li xml:lang="el">KOrganizer - ένα συστατικό ημερολογίου και χρονικού προγραμματισμού του Kontact το οποίο συνεργάζεται με NextCloud, Kolab, Google Calendar και άλλες υπηρεσίες ημερολογίου.</li>
       <li xml:lang="en-GB">KOrganizer - a calendar and scheduling component of Kontact which is able to work with NextCloud, Kolab, Google Calendar and other calendaring services.</li>
       <li xml:lang="eo">KOrganizer - kalendara kaj programa komponanto de Kontact, kiu kapablas funkcii kun NextCloud, Kolab, Google Calendar kaj aliaj kalendaraj servoj.</li>
@@ -313,7 +313,7 @@
       <li xml:lang="ca-valencia">KAddressBook: una eina per a la gestió dels contactes fàcil d'utilitzar que pot sincronitzar contactes amb molts serveis populars.</li>
       <li xml:lang="cs">KAddressBook – snadno použitelný nástroj pro správu kontaktů, který dokáže synchronizovat kontakty s mnoha populárními službami.</li>
       <li xml:lang="da">KAddressBook - et brugervenligt værktøj til at håndtere kontakter, som kan synkronisere kontakter med mange populære tjenester.</li>
-      <li xml:lang="de">KAddressBook - ein einfach zu bedienendes Programm, das Kontakte mit vielen gängigen Diensten abgleichen kann. </li>
+      <li xml:lang="de">KAddressBook – ein einfach zu bedienendes Programm, das Kontakte mit vielen gängigen Diensten abgleichen kann.</li>
       <li xml:lang="el">KAddressBook - ένα εύκολης χρήσης εργαλείο διαχείρισης επαφών το οποίο συγχρονίζει επαφές με πολλές δημοφιλείς υπηρεσίες.</li>
       <li xml:lang="en-GB">KAddressBook - an easy to use contact management tool that can synchronise contacts with many popular services.</li>
       <li xml:lang="eo">KAddressBook - facile uzebla kontaktadministra ilo, kiu povas sinkronigi kontaktojn kun multaj popularaj servoj.</li>
@@ -354,7 +354,7 @@
       <li xml:lang="ca-valencia">Akregator: un lector de notícies amb una potent funcionalitat de busca i arxiu.</li>
       <li xml:lang="cs">Akregator - čtečka zpráv s výkonnými funkcemi vyhledávání a archivace.</li>
       <li xml:lang="da">Akregator - en nyhedslæser med kraftfuld søgning og arkiveringsfunktionalitet.</li>
-      <li xml:lang="de">Akregator - ein Newsreader mit leistungsstarker Such- und Archivierungsfunktion.</li>
+      <li xml:lang="de">Akregator – ein Newsreader mit leistungsstarker Such- und Archivierungsfunktion.</li>
       <li xml:lang="el">Akregator - ένας αναγνώστης ειδήσεων με ισχυρή λειτουργικότητα αναζήτησης και αρχειοθέτησης.</li>
       <li xml:lang="en-GB">Akregator - a news reader with powerful search and archiving functionality.</li>
       <li xml:lang="eo">Akregator - novaĵleganto kun potenca serĉo kaj arkiva funkcio.</li>
