@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:44+0000\n"
-"PO-Revision-Date: 2026-02-26 18:44+0100\n"
+"PO-Revision-Date: 2026-04-21 19:07+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 25.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -236,33 +236,27 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:25
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show the Kontact component sidebar"
-msgstr "Vis komponent-sidestolpen"
+msgstr "Vis Kontact sin komponent-sidestolpe"
 
 #. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:26
-#, fuzzy, kde-format
-#| msgid "Show the component sidebar"
+#, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "Vis komponent-sidestolpen"
+msgstr "Vis/gøym Kontact sin komponent-sidestolpe"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "To save screen real estate you might choose to hide the icon sidebar. "
-#| "Uncheck this box to hide the component sidebar. Note that the F9 key will "
-#| "hide/show the icon sidebar."
+#, kde-format
 msgid ""
 "To save screen real estate you might choose to hide Kontact's component "
 "sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
 "key will hide/show the component sidebar."
 msgstr ""
-"For å spara plass kan du velja å gøyma ikon-sidestolpen. Fjern avkryssinga "
-"her for å gøyma komponent-sidestolpen. Merk at snøggtasten «F9» vil visa/"
-"gøym ikon-sidestolpen."
+"For å spara plass kan du velja å gøyma Kontact sin komponent-sidestolpe. "
+"Fjern avkryssinga her for å gøyma han. Merk at snøggtasten «F9» vil visa/"
+"gøyma sidestolpen."
 
 #. i18n: ectx: Menu (file)
 #: src/kontactui.rc:6
@@ -475,12 +469,10 @@ msgid "Show the Kontact Sidebar"
 msgstr "Vis Kontact-sidestolpen"
 
 #: src/mainwindow.cpp:344
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Hide/Show the component sidebar"
+#, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
-msgstr "Vis/gøym komponent-sidestolpen"
+msgstr "Vis/gøym Kontact sin komponent-sidestolpe"
 
 #: src/mainwindow.cpp:347
 #, fuzzy, kde-format
