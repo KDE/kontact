@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:44+0000\n"
-"PO-Revision-Date: 2026-04-21 19:07+0200\n"
+"PO-Revision-Date: 2026-04-22 18:52+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -475,12 +475,10 @@ msgid "Hide/Show Kontact's component sidebar"
 msgstr "Vis/gøym Kontact sin komponent-sidestolpe"
 
 #: src/mainwindow.cpp:347
-#, fuzzy, kde-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Allows you to show or hide the component sidebar as desired."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
-msgstr "Lèt deg visa eller gøyma komponent-sidestolpen."
+msgstr "Lèt deg visa eller gøyma Kontact sin komponent-sidestolpe."
 
 #: src/mainwindow.cpp:383
 #, kde-format
