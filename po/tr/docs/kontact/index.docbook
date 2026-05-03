@@ -58,7 +58,7 @@
 ><affiliation
 ><address
 ><email
->emir_sari@îcloud.com</email
+>emir_sari@icloud.com</email
 ></address
 ></affiliation
 ><contrib
@@ -929,7 +929,7 @@ the data.</para-->
 >&kontact;, birkaç &kde; teknolojisini yoğun olarak kullanır; bunların arasında KParts ve &DBus; da bulunur.</para>
 
 <para
->Bileşenlerin grafik arayüz tümleşimi, uygulamaların KParts sürümlerini sağlayan eklentiler aracılığıyla yapılır. Bu, bağımsız uygulamaların halihazırda olan kodunun üzerine yalnızca ince bir ek katman gerektirir.</para>
+>Bileşenlerin grafik arayüz tümleşimi, uygulamaların KParts sürümlerini sağlayan eklentiler aracılığıyla yapılır. Bu, bağımsız uygulamaların hâlihazırda olan kodunun üzerine yalnızca ince bir ek katman gerektirir.</para>
 
 <para
 >Bileşenler arasındaki iletişim için &DBus; kullanılır. Bunun güzel bir özelliği, uygulamanın bağımsız olarak çalıştırılıp çalıştırılmadığına veya &kontact; içine KPart olarak gömülüp gömülmediğine tümüyle saydam olmasıdır. &kontact; içinde çalışırken, &DBus;’un verimli bir işlem içi kipi kullanılır.</para>
