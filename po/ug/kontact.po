@@ -8,24 +8,25 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:44+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-31 19:20-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: src/about/introduction_kontact.html:18
 #, kde-format
@@ -195,7 +196,7 @@ msgstr ""
 #: src/kontact.kcfg:11 src/kontact.kcfg:12
 #, kde-format
 msgid "The currently active plugin"
-msgstr "The currently active plugin"
+msgstr ""
 
 #. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
 #: src/kontact.kcfg:16
@@ -248,7 +249,7 @@ msgstr "ھۆججەت(&F)"
 #: src/kontactui.rc:14
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "كۆرۈنۈش(&V)"
 
 #. i18n: ectx: Menu (settings)
 #: src/kontactui.rc:20
@@ -283,7 +284,7 @@ msgstr ""
 #: src/main.cpp:97
 #, kde-format
 msgid "Module"
-msgstr ""
+msgstr "بۆلەك"
 
 #: src/main.cpp:98
 #, kde-format
@@ -313,29 +314,25 @@ msgid "Copyright © 2001–%1 Kontact authors"
 msgstr ""
 
 #: src/main.cpp:163
-#, fuzzy, kde-format
-#| msgid "Allen Winter"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "Rafael Fernández López"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
 #: src/main.cpp:165
-#, fuzzy, kde-format
-#| msgid "Daniel Molkentin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
 #: src/main.cpp:166
-#, fuzzy, kde-format
-#| msgid "Don Sanders"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "Don Sanders"
@@ -347,15 +344,13 @@ msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
 #: src/main.cpp:168
-#, fuzzy, kde-format
-#| msgid "Tobias König"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "Tobias König"
 
 #: src/main.cpp:169
-#, fuzzy, kde-format
-#| msgid "David Faure"
+#, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
@@ -367,22 +362,19 @@ msgid "Ingo Klöcker"
 msgstr ""
 
 #: src/main.cpp:171
-#, fuzzy, kde-format
-#| msgid "Sven Lüppken"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
-msgstr "Sven Lüppken"
+msgstr ""
 
 #: src/main.cpp:172
-#, fuzzy, kde-format
-#| msgid "Zack Rusin"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
-msgstr "Zack Rusin"
+msgstr ""
 
 #: src/main.cpp:173
-#, fuzzy, kde-format
-#| msgid "Matthias Hoelzer-Kluepfel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
@@ -390,7 +382,7 @@ msgstr "Matthias Hoelzer-Kluepfel"
 #: src/main.cpp:173
 #, kde-format
 msgid "Original Author"
-msgstr "ئەسلى ئاپتور"
+msgstr "ئەسلى يازغۇچى"
 
 #: src/main.cpp:174
 #, kde-format
@@ -475,12 +467,14 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
+"<qt>بۇ مەشغۇلات تىزىملىك بالداقنى پۈتۈنلەي يوشۇرىدۇ. %1 نى بېسىپ قايتا "
+"كۆرسىتەلەيسىز.</qt>"
 
 #: src/mainwindow.cpp:386
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
-msgstr ""
+msgstr "تىزىملىك بالداقنى يوشۇر"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
 #: src/mainwindow.cpp:577
@@ -528,11 +522,9 @@ msgid "Visit Kontact Website"
 msgstr ""
 
 #: src/mainwindow.cpp:1004
-#, fuzzy, kde-format
-#| msgctxt "@item:intext"
-#| msgid "Access online resources and tutorials"
+#, kde-format
 msgid "Access online resources and tutorials"
-msgstr "توردىكى مەنبە ۋە ئوقۇشلۇقلارنى زىيارەت قىلىش"
+msgstr ""
 
 #: src/mainwindow.cpp:1007
 #, kde-format
@@ -565,7 +557,6 @@ msgstr ""
 #~ msgid "Tobias Koenig"
 #~ msgstr "Tobias Koenig"
 
-#, fuzzy
 #~| msgid "Kontact"
 #~ msgctxt "@title:window"
 #~ msgid "About Kontact"
@@ -610,7 +601,6 @@ msgstr ""
 #~ msgid "%1 / %2"
 #~ msgstr "%1 / %2"
 
-#, fuzzy
 #~| msgctxt "@info:credit"
 #~| msgid "Current Maintainer"
 #~ msgid "Laurent Montel"
@@ -632,7 +622,6 @@ msgstr ""
 #~ msgid "Delete"
 #~ msgstr "ئۆچۈر"
 
-#, fuzzy
 #~| msgctxt "@info:status"
 #~| msgid "Create a new event"
 #~ msgid "Create new note"
@@ -646,7 +635,6 @@ msgstr ""
 #~ msgid "New Name:"
 #~ msgstr "يېڭى ئات:"
 
-#, fuzzy
 #~| msgid "&Settings"
 #~ msgid "Settings"
 #~ msgstr "تەڭشەك(&S)"
@@ -662,7 +650,6 @@ msgstr ""
 #~ msgid "Popup Notes"
 #~ msgstr "سەكرىمە ئىزاھلار"
 
-#, fuzzy
 #~| msgctxt "@info:credit"
 #~| msgid "Current Maintainer"
 #~ msgctxt "@info:credit"
@@ -677,7 +664,6 @@ msgstr ""
 #~ msgid "Michael Brade"
 #~ msgstr "Michael Brade"
 
-#, fuzzy
 #~| msgctxt "@info:credit"
 #~| msgid "Current Maintainer"
 #~ msgctxt "@info:credit"
@@ -710,7 +696,6 @@ msgstr ""
 #~ msgid "Mail: %1"
 #~ msgstr "خەت: %1"
 
-#, fuzzy
 #~| msgid "Popup Notes"
 #~ msgctxt "@title:window"
 #~ msgid "Show Popup Note"
@@ -723,7 +708,6 @@ msgstr ""
 #~ msgid "Popup Notes"
 #~ msgstr "سەكرىمە ئىزاھلار"
 
-#, fuzzy
 #~| msgctxt "@action:inmenu"
 #~| msgid "Delete"
 #~ msgid "Delete Note..."
@@ -739,7 +723,6 @@ msgstr ""
 #~ msgid "Upcoming Events"
 #~ msgstr "پىلاندىكى ھادىسىلەر"
 
-#, fuzzy
 #~| msgctxt "@info:status"
 #~| msgid "Create a new contact"
 #~ msgctxt "@info:status"
@@ -773,7 +756,6 @@ msgstr ""
 #~ msgid "%1 - %2"
 #~ msgstr "%1 - %2"
 
-#, fuzzy
 #~| msgctxt "@info:status"
 #~| msgid "Create a new event"
 #~ msgctxt "@info:status"
