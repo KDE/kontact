@@ -49,6 +49,7 @@
   <name xml:lang="sl">Kontact</name>
   <name xml:lang="sv">Kontact</name>
   <name xml:lang="tr">Kontak</name>
+  <name xml:lang="ug">Kontact</name>
   <name xml:lang="uk">Kontact</name>
   <name xml:lang="zh-CN">Kontact</name>
   <name xml:lang="zh-TW">Kontact</name>
@@ -437,6 +438,7 @@
       <caption xml:lang="sl">KMail, e-poštna komponenta Kontacta</caption>
       <caption xml:lang="sv">Kmail: E-postkomponenten i Kontact</caption>
       <caption xml:lang="tr">K Posta, Kontak’ın e-posta bileşeni</caption>
+      <caption xml:lang="ug">KMail، Kontact نىڭ ئېلخەت بۆلىكى</caption>
       <caption xml:lang="uk">KMail — компонент Kontact для роботи з електронною поштою</caption>
       <caption xml:lang="zh-CN">KMail，Kontact 的电子邮件客户端组件</caption>
       <caption xml:lang="zh-TW">KMail，Kontact 的電子郵件元件</caption>
