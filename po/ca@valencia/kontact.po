@@ -535,7 +535,7 @@ msgstr "No s'ha pogut carregar la part per a %1."
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
-msgstr "%1 - Kontact"
+msgstr "%1 – Kontact"
 
 #: src/mainwindow.cpp:994
 #, kde-format
