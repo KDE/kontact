@@ -1,7 +1,7 @@
-set(PIM_VERSION "6.7.40")
+set(PIM_VERSION "6.8.40")
 cmake_minimum_required(VERSION 3.29)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "26.07.40")
+set(RELEASE_SERVICE_VERSION "26.11.40")
 
 # Use true if stable version => we will check specific version
 set(KONTACT_STABLE_VERSION false)
@@ -124,7 +124,7 @@ find_package(
 )
 set(LIBKDEPIM_LIB_VERSION "6.7.40")
 set(LIBGRANTLEETHEME_LIB_VERSION "6.7.40")
-set(KTEXTADDONS_MIN_VERSION "2.0.2")
+set(KTEXTADDONS_MIN_VERSION "2.1.0")
 
 # Find KF6 package
 find_package(KF6I18n ${KF_MIN_VERSION} CONFIG REQUIRED)
