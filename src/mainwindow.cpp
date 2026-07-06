@@ -360,7 +360,7 @@ void MainWindow::setupActions()
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     const QString defaultUrlPath = QStringLiteral("https://origin.cdn.kde.org/ci-builds/pim/kontact/");
-    const QString stableBranch = u"26.04"_s;
+    const QString stableBranch = u"26.08"_s;
     bool stableVersion = false;
 #if KONTACT_STABLE_VERSION
     stableVersion = true;
