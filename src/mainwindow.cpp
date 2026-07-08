@@ -300,14 +300,10 @@ void MainWindow::paintAboutScreen(const QString &templateName, const QVariantHas
 
 void MainWindow::initAboutScreen()
 {
-    auto introbox = new QWidget(mPartsStack);
-    auto introboxHBoxLayout = new QHBoxLayout(introbox);
-    introboxHBoxLayout->setContentsMargins({});
-    mPartsStack->addWidget(introbox);
-    mPartsStack->setCurrentWidget(introbox);
-    mIntroPart = new IntroductionWebEngineView(introbox);
+    mIntroPart = new IntroductionWebEngineView(mPartsStack);
+    mPartsStack->addWidget(mIntroPart);
+    mPartsStack->setCurrentWidget(mIntroPart);
     connect(mIntroPart, &IntroductionWebEngineView::openUrl, this, &MainWindow::slotOpenUrl, Qt::QueuedConnection);
-    introboxHBoxLayout->addWidget(mIntroPart);
 }
 
 void MainWindow::setupActions()
