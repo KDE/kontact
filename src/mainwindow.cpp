@@ -48,7 +48,6 @@ using namespace Kontact;
 #include <KShortcutsDialog>
 #include <KSqueezedTextLabel>
 #include <KStandardAction>
-#include <KSycoca>
 #include <KToggleAction>
 #include <KToolBar>
 #include <KWindowConfig>
@@ -157,14 +156,6 @@ void MainWindow::initGUI()
 
 void MainWindow::initObject()
 {
-    if (!KSycoca::isAvailable()) {
-        qDebug() << "Trying to create ksycoca...";
-        KSycoca::self()->ensureCacheValid();
-        if (!KSycoca::isAvailable()) {
-            // This should only happen if the distribution is broken, or the disk full
-            qFatal("KSycoca unavailable. Kontact will be unable to find plugins.");
-        }
-    }
     mPluginMetaData = KPluginMetaData::findPlugins(u"pim6/kontact"_s, [](const KPluginMetaData &data) {
         return data.rawData().value(u"X-KDE-KontactPluginVersion"_s).toInt() == KONTACT_PLUGIN_VERSION;
     });
