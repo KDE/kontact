@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
-      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
   <kcfgfile name="kontactrc"/>
-
   <group name="View">
     <entry type="String" name="ActivePlugin">
       <default>kontact_summaryplugin</default>
@@ -19,36 +15,30 @@
     </entry>
     <entry type="String" name="ForcedStartupPlugin" hidden="true">
     </entry>
-
-   <entry type="Bool" name="SideBarOpen">
+    <entry type="Bool" name="SideBarOpen">
       <default>true</default>
       <label>Show the Kontact component sidebar</label>
       <tooltip>Show/Hide the Kontact component sidebar</tooltip>
       <whatsthis>To save screen real estate you might choose to hide Kontact's component sidebar. Uncheck this box to hide the component sidebar. Note that the F9 key will hide/show the component sidebar.</whatsthis>
     </entry>
-
     <entry type="IntList" name="SidePaneSplitter" hidden="true">
       <default>1</default>
     </entry>
-
     <entry type="Int" name="SidePaneIconSize" hidden="true">
       <default>32</default>
     </entry>
-
     <entry type="Bool" name="SidePaneShowIcons" hidden="true">
       <default>true</default>
     </entry>
-
     <entry type="Bool" name="SidePaneShowText" hidden="true">
       <default>true</default>
     </entry>
-
     <entry type="String" name="LastVersionSeen" hidden="true">
     </entry>
-        <entry key="ShowMenuBar" type="Bool">
-        <default>true</default>
-         <!-- label and whatsthis are already provided by KStandardAction::showMenubar -->
-        <label></label>
+    <entry key="ShowMenuBar" type="Bool">
+      <default>true</default>
+      <!-- label and whatsthis are already provided by KStandardAction::showMenubar -->
+      <label/>
     </entry>
   </group>
 </kcfg>

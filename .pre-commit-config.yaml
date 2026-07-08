@@ -57,3 +57,11 @@ repos:
    rev: v0.11.0.1
    hooks:
     - id: shellcheck
+ - repo: https://github.com/efrecon/pre-commit-hook-lxml
+   rev: v0.1.4
+   hooks:
+    - id: format-xml
+      args: [--declaration=double-quotes,--self-closing=nospace,--indent=2,--write]
+      files: \.(xml|kcfg)$
+      types: []
+      exclude: \.(svg)$
