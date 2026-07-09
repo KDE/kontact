@@ -15,4 +15,6 @@ Dependencies:
 
 Options:
  require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']
- enable-lsan: True
+ cppcheck-arguments: '--enable=warning,performance,portability,style --suppress-xml=cppcheck-suppressions.xml'
+ require-cppcheck-clean: true
+ enable-lsan: true
