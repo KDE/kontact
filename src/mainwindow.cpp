@@ -266,7 +266,7 @@ void MainWindow::initWidgets()
     layout->addWidget(mSplitter);
     mSidePane = new IconSidePane(this, mSplitter);
 
-    connect(mSidePane, SIGNAL(pluginSelected(KontactInterface::Plugin *)), SLOT(selectPlugin(KontactInterface::Plugin *)));
+    connect(mSidePane, &Kontact::IconSidePane::pluginSelected, this, qOverload<KontactInterface::Plugin *>(&Kontact::MainWindow::selectPlugin));
 
     mPartsStack = new QStackedWidget(mSplitter);
     mPartsStack->layout()->setSpacing(0);
