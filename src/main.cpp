@@ -41,6 +41,8 @@ using namespace Qt::Literals::StringLiterals;
 
 static const char version[] = KONTACT_VERSION;
 
+namespace
+{
 class KontactApp : public KontactInterface::PimUniqueApplication
 {
     Q_OBJECT
@@ -72,6 +74,7 @@ private:
     QPointer<MainWindow> mMainWindow;
     bool mSessionRestored = false;
 };
+}
 
 static void listPlugins()
 {

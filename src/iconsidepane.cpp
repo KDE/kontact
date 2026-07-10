@@ -35,6 +35,8 @@ using namespace Kontact;
 
 namespace Kontact
 {
+namespace
+{
 class SelectionModel : public QItemSelectionModel
 {
     Q_OBJECT
@@ -70,6 +72,7 @@ public Q_SLOTS:
         QItemSelectionModel::select(selection, command);
     }
 };
+}
 
 class Model : public QStringListModel
 {
@@ -154,6 +157,8 @@ private:
     Navigator *const mNavigator;
 };
 
+namespace
+{
 class SortFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -242,6 +247,7 @@ public:
 private:
     Navigator *const mNavigator;
 };
+}
 }
 
 Navigator::Navigator(SidePaneBase *parent)
