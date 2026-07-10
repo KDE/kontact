@@ -54,8 +54,6 @@ public:
 
     ~KontactApp() override = default;
 
-    int activate(const QStringList &args, const QString &workingDir) override;
-
     void setMainWindow(MainWindow *window)
     {
         mMainWindow = window;
@@ -66,6 +64,9 @@ public:
     {
         mSessionRestored = restored;
     }
+
+protected:
+    int activate(const QStringList &args, const QString &workingDir) override;
 
 private:
     QPointer<MainWindow> mMainWindow;
