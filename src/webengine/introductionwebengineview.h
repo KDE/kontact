@@ -19,5 +19,5 @@ protected:
     void contextMenuEvent(QContextMenuEvent *ev) override;
 
 Q_SIGNALS:
-    void openUrl(const QUrl &url);
+    void openUrl(const QUrl &);
 };

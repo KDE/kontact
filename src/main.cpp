@@ -54,7 +54,7 @@ public:
 
     ~KontactApp() override = default;
 
-    int activate(const QStringList &arguments, const QString &workingDir) override;
+    int activate(const QStringList &args, const QString &workingDir) override;
 
     void setMainWindow(MainWindow *window)
     {

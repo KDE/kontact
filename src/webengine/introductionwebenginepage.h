@@ -15,7 +15,7 @@ public:
     explicit IntroductionWebEnginePage(QObject *parent = nullptr);
     ~IntroductionWebEnginePage() override;
 Q_SIGNALS:
-    void urlClicked(const QUrl &url);
+    void urlClicked(const QUrl &);
 
 protected:
     [[nodiscard]] bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) override;

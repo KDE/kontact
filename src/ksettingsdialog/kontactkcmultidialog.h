@@ -52,10 +52,9 @@ Q_SIGNALS:
      * The applyClicked and okClicked signals are emitted before the
      * configuration is saved.
      *
-     * @param pluginId The name of the instance that needs to reload its
-     *                     configuration.
+     * arg1 The name of the instance that needs to reload its configuration.
      */
-    void configCommitted(const QString &pluginId);
+    void configCommitted(const QString &);
 
 protected:
     /**

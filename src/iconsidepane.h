@@ -65,7 +65,7 @@ public:
     QSize sizeHint() const override;
 
 Q_SIGNALS:
-    void pluginActivated(KontactInterface::Plugin *plugin);
+    void pluginActivated(KontactInterface::Plugin *);
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
@@ -75,7 +75,7 @@ protected:
 
 private:
     void slotCurrentChanged(const QModelIndex &current);
-    void slotActionTriggered(QAction *checked);
+    void slotActionTriggered(QAction *object);
     void slotHideSideBarTriggered();
     void updateNavigatorSize();
 
