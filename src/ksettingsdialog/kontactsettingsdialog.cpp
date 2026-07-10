@@ -76,7 +76,7 @@ KPageWidgetItem *KontactSettingsDialogPrivate::createPageItem(KPageWidgetItem *p
         q->addPage(item);
     }
 
-    return (item);
+    return item;
 }
 
 void KontactSettingsDialogPrivate::createDialogFromServices()
