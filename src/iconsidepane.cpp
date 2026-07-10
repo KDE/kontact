@@ -177,7 +177,7 @@ protected:
 
         if (leftPlugin->weight() == rightPlugin->weight()) {
             // Optimize it
-            QCollator col;
+            const QCollator col;
             return col.compare(leftPlugin->title(), rightPlugin->title()) < 0;
         }
 
@@ -477,14 +477,14 @@ void Navigator::slotCurrentChanged(const QModelIndex &current)
         return;
     }
 
-    QModelIndex source = static_cast<const QSortFilterProxyModel *>(current.model())->mapToSource(current);
+    const QModelIndex source = static_cast<const QSortFilterProxyModel *>(current.model())->mapToSource(current);
 
     Q_EMIT pluginActivated(static_cast<KontactInterface::Plugin *>(source.internalPointer()));
 }
 
 void Navigator::slotActionTriggered(QAction *object)
 {
-    bool checked = object->isChecked();
+    const bool checked = object->isChecked();
     if (object == mShowIconsAction) {
         mShowIcons = checked;
         mShowText = !checked;

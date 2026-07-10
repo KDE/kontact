@@ -114,7 +114,7 @@ void KontactKCMultiDialogPrivate::_k_clientChanged()
     Q_Q(KontactKCMultiDialog);
     // qDebug();
     // Get the current module
-    KCModule *activeModule = nullptr;
+    const KCModule *activeModule = nullptr;
     for (int i = 0; i < modules.count(); ++i) {
         if (modules[i].item == q->currentPage()) {
             activeModule = modules[i].kcm;
@@ -128,12 +128,12 @@ void KontactKCMultiDialogPrivate::_k_clientChanged()
         change = activeModule->needsSave();
         defaulted = activeModule->representsDefaults();
 
-        QPushButton *applyButton = q->buttonBox()->button(QDialogButtonBox::Apply);
+        const QPushButton *applyButton = q->buttonBox()->button(QDialogButtonBox::Apply);
         if (applyButton) {
             q->disconnect(applyButton, &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotApplyClicked);
         }
 
-        QPushButton *okButton = q->buttonBox()->button(QDialogButtonBox::Ok);
+        const QPushButton *okButton = q->buttonBox()->button(QDialogButtonBox::Ok);
         if (okButton) {
             q->disconnect(okButton, &QAbstractButton::clicked, q, &KontactKCMultiDialog::slotOkClicked);
         }
@@ -251,7 +251,7 @@ void KontactKCMultiDialog::showEvent(QShowEvent *ev)
      * We adjust the size after passing the show event
      * because otherwise window pos is set to (0,0)
      */
-    QScreen *screen = QApplication::screenAt(pos());
+    const QScreen *screen = QApplication::screenAt(pos());
     if (screen) {
         const QSize maxSize = screen->availableGeometry().size();
         resize(qMin(sizeHint().width(), maxSize.width()), qMin(sizeHint().height(), maxSize.height()));
@@ -399,7 +399,6 @@ KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData
 
     item->setHeader(metaData.name());
     item->setIcon(QIcon::fromTheme(metaData.iconName()));
-    bool updateCurrentPage = false;
     const auto model = qobject_cast<const KPageWidgetModel *>(pageWidget()->model());
     Q_ASSERT(model);
     if (parent) {
@@ -411,7 +410,7 @@ KPageWidgetItem *KontactKCMultiDialog::addModule(const KPluginMetaData &metaData
         d->_k_clientChanged();
     });
 
-    if (d->modules.count() == 1 || updateCurrentPage) {
+    if (d->modules.count() == 1) {
         setCurrentPage(item);
         d->_k_clientChanged();
     }

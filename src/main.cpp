@@ -85,9 +85,7 @@ static void listPlugins()
     for (const KPluginMetaData &plugin : pluginMetaDatas) {
         // skip summary only plugins
         if (plugin.rawData().contains("X-KDE-KontactPluginHasPart"_L1)) {
-            bool var = plugin.rawData().value(u"X-KDE-KontactPluginHasPart"_s).toBool();
-
-            if (!var) {
+            if (!plugin.rawData().value(u"X-KDE-KontactPluginHasPart"_s).toBool()) {
                 continue;
             }
         }

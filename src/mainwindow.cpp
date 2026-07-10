@@ -119,7 +119,7 @@ MainWindow::MainWindow()
 
     factory()->plugActionList(this, u"navigator_actionlist"_s, mActionPlugins);
 
-    KConfigGroup grp(KSharedConfig::openConfig(), u"MainWindow"_s);
+    const KConfigGroup grp(KSharedConfig::openConfig(), u"MainWindow"_s);
     KWindowConfig::restoreWindowSize(windowHandle(), grp);
     setAutoSaveSettings();
     mShowMenuBarAction->setChecked(Prefs::self()->showMenuBar());
@@ -410,7 +410,7 @@ KontactInterface::Plugin *MainWindow::pluginFromName(const QString &identifier) 
 void MainWindow::loadPlugins()
 {
     QList<KontactInterface::Plugin *> plugins;
-    KConfigGroup configGroup(Prefs::self()->config(), u"Plugins"_s);
+    const KConfigGroup configGroup(Prefs::self()->config(), u"Plugins"_s);
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
         if (!configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
             continue;
@@ -442,8 +442,7 @@ void MainWindow::loadPlugins()
         const QString exeNameProp = pluginMetaData.value(u"X-KDE-KontactPartExecutableName"_s);
 
         if (pluginMetaData.rawData().contains("X-KDE-KontactPartLoadOnStart"_L1)) {
-            const bool loadOnStart = pluginMetaData.rawData().value(u"X-KDE-KontactPartLoadOnStart"_s).toBool();
-            if (loadOnStart) {
+            if (pluginMetaData.rawData().value(u"X-KDE-KontactPartLoadOnStart"_s).toBool()) {
                 mDelayedPreload.append(plugin);
             }
         }
@@ -487,7 +486,7 @@ void MainWindow::unloadDisabledPlugins()
 {
     // Only remove the now-disabled plugins.
     // Keep the other ones. loadPlugins() will skip those that are already loaded.
-    KConfigGroup configGroup(Prefs::self()->config(), u"Plugins"_s);
+    const KConfigGroup configGroup(Prefs::self()->config(), u"Plugins"_s);
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
         if (!configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
             removePlugin(pluginMetaData.pluginId());
@@ -608,7 +607,7 @@ void MainWindow::slotNewClicked()
     if (mCurrentPlugin && !mCurrentPlugin->newActions().isEmpty()) {
         mCurrentPlugin->newActions().at(0)->trigger();
     } else {
-        for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
+        for (const KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
             if (!plugin->newActions().isEmpty()) {
                 plugin->newActions().constFirst()->trigger();
                 return;
@@ -667,7 +666,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
     QWidget *focusWidget = qApp->focusWidget();
     if (mCurrentPlugin && focusWidget) {
         // save the focus widget only when it belongs to the activated part
-        QWidget *parent = focusWidget->parentWidget();
+        const QWidget *parent = focusWidget->parentWidget();
         while (parent) {
             if (parent == mCurrentPlugin->part()->widget()) {
                 mFocusWidgets.insert(mCurrentPlugin->identifier(), QPointer<QWidget>(focusWidget));
@@ -701,7 +700,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
 
         mCurrentPlugin = plugin;
 
-        QAction *newAction = nullptr;
+        const QAction *newAction = nullptr;
         if (!plugin->newActions().isEmpty()) {
             newAction = plugin->newActions().at(0);
         }
@@ -722,7 +721,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
             mNewActions->setText(newAction->text());
             mNewActions->setWhatsThis(newAction->whatsThis());
         } else { // we'll use the action of the first plugin which offers one
-            for (KontactInterface::Plugin *currPlugin : std::as_const(mPlugins)) {
+            for (const KontactInterface::Plugin *currPlugin : std::as_const(mPlugins)) {
                 if (!currPlugin->newActions().isEmpty()) {
                     newAction = currPlugin->newActions().constFirst();
                 }
@@ -868,7 +867,7 @@ void MainWindow::configureToolbars()
         KConfigGroup grp(KSharedConfig::openConfig()->group(u"MainWindow%1"_s.arg(mCurrentPlugin->identifier())));
         saveMainWindowSettings(grp);
     }
-    QPointer<KEditToolBar> edit = new KEditToolBar(factory());
+    const QPointer<KEditToolBar> edit = new KEditToolBar(factory());
     connect(edit.data(), &KEditToolBar::newToolBarConfig, this, &MainWindow::slotNewToolbarConfig);
     edit->exec();
     delete edit;
@@ -916,7 +915,7 @@ void MainWindow::readProperties(const KConfigGroup &config)
     Core::readProperties(config);
 
     const auto activePluginList = config.readEntry("ActivePlugins", QStringList());
-    QSet<QString> activePlugins(activePluginList.begin(), activePluginList.end());
+    const QSet<QString> activePlugins(activePluginList.begin(), activePluginList.end());
 
     if (!activePlugins.isEmpty()) {
         for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
@@ -933,7 +932,7 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
     QStringList activePlugins;
 
-    KConfigGroup configGroup(Prefs::self()->config(), u"Plugins"_s);
+    const KConfigGroup configGroup(Prefs::self()->config(), u"Plugins"_s);
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
         if (!configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
             KontactInterface::Plugin *plugin = pluginFromName(pluginMetaData.pluginId());
@@ -953,7 +952,7 @@ bool MainWindow::queryClose()
         return true;
     }
 
-    for (KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
+    for (const KontactInterface::Plugin *plugin : std::as_const(mPlugins)) {
         if (!plugin->isRunningStandalone()) {
             if (!plugin->queryClose()) {
                 return false;
@@ -980,18 +979,18 @@ QVariantHash MainWindow::introductionData()
     data[u"subtitle"_s] = i18n("The KDE Personal Information Management Suite.");
     data[u"version"_s] = KAboutData::applicationData().version();
 
-    QVariantList links = {QVariantHash{{u"url"_s, u"exec:/help?org.kde.kontact"_s},
-                                       {u"icon"_s, u"help-contents"_s},
-                                       {u"title"_s, i18n("Read Manual")},
-                                       {u"subtext"_s, i18n("Learn more about Kontact and its components")}},
-                          QVariantHash{{u"url"_s, u"https://kontact.kde.org"_s},
-                                       {u"icon"_s, u"kontact"_s},
-                                       {u"title"_s, i18n("Visit Kontact Website")},
-                                       {u"subtext"_s, i18n("Access online resources and tutorials")}},
-                          QVariantHash{{u"url"_s, u"exec:/accountwizard"_s},
-                                       {u"icon"_s, u"tools-wizard"_s},
-                                       {u"title"_s, i18n("Setup your Accounts")},
-                                       {u"subtext"_s, i18n("Prepare Kontact for use")}}};
+    const QVariantList links = {QVariantHash{{u"url"_s, u"exec:/help?org.kde.kontact"_s},
+                                             {u"icon"_s, u"help-contents"_s},
+                                             {u"title"_s, i18n("Read Manual")},
+                                             {u"subtext"_s, i18n("Learn more about Kontact and its components")}},
+                                QVariantHash{{u"url"_s, u"https://kontact.kde.org"_s},
+                                             {u"icon"_s, u"kontact"_s},
+                                             {u"title"_s, i18n("Visit Kontact Website")},
+                                             {u"subtext"_s, i18n("Access online resources and tutorials")}},
+                                QVariantHash{{u"url"_s, u"exec:/accountwizard"_s},
+                                             {u"icon"_s, u"tools-wizard"_s},
+                                             {u"title"_s, i18n("Setup your Accounts")},
+                                             {u"subtext"_s, i18n("Prepare Kontact for use")}}};
     data[u"links"_s] = links;
 
     return data;
@@ -1026,9 +1025,9 @@ QString MainWindow::showHideSideBarMessage(bool hidden) const
 
 void MainWindow::slotShowHideSideBar()
 {
-    QList<int> sizes = mSplitter->sizes();
+    const QList<int> sizes = mSplitter->sizes();
     if (!sizes.isEmpty()) {
-        bool open = (sizes.at(0) != 0);
+        const bool open = (sizes.at(0) != 0);
         showHideSideBar(!open);
         if (open) {
             statusBar()->showMessage(showHideSideBarMessage(true));
