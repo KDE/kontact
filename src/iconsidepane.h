@@ -37,7 +37,7 @@ public:
     void updatePlugins(const QList<KontactInterface::Plugin *> &plugins);
     void setCurrentPlugin(const QString &plugin);
 
-    [[nodiscard]] int iconSize() const
+    [[nodiscard]] int iconDimension() const
     {
         return mIconSize;
     }

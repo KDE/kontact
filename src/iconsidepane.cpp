@@ -206,7 +206,7 @@ public:
 
         if (mNavigator->showIcons() && mNavigator->showText()) {
             opt.icon = index.data(Qt::DecorationRole).value<QIcon>();
-            const int size = mNavigator->iconSize();
+            const int size = mNavigator->iconDimension();
             const auto spacing = mNavigator->style()->pixelMetric(QStyle::PM_FocusFrameHMargin);
             const int textHeight = painter->fontMetrics().height();
 
@@ -216,7 +216,7 @@ public:
             painter->drawText(QRect(opt.rect.x(), y + size + spacing, opt.rect.width(), textHeight), index.data(Qt::DisplayRole).toString(), {Qt::AlignCenter});
         } else if (mNavigator->showIcons()) {
             opt.icon = index.data(Qt::DecorationRole).value<QIcon>();
-            const int size = mNavigator->iconSize() + height;
+            const int size = mNavigator->iconDimension() + height;
             opt.decorationSize = QSize(size, size);
             opt.icon.paint(painter, opt.rect, Qt::AlignCenter, QIcon::Normal, QIcon::On);
         } else if (mNavigator->showText()) {
@@ -234,7 +234,7 @@ public:
         QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
 
-        optionCopy.decorationSize = mNavigator->showIcons() ? QSize(mNavigator->iconSize(), mNavigator->iconSize()) : QSize();
+        optionCopy.decorationSize = mNavigator->showIcons() ? QSize(mNavigator->iconDimension(), mNavigator->iconDimension()) : QSize();
         optionCopy.textElideMode = Qt::ElideNone;
         return QStyledItemDelegate::sizeHint(optionCopy, index);
     }
