@@ -79,7 +79,7 @@ using namespace Kontact;
 #ifdef Q_OS_UNIX
 #include <KSignalHandler>
 #include <csignal>
-#include <unistd.h>
+// #include <unistd.h> already included above
 #endif
 
 MainWindow::MainWindow()
