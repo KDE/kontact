@@ -17,7 +17,7 @@ using namespace Qt::StringLiterals;
 using namespace Kontact;
 namespace
 {
-static const char myKontactConfigureDialogConfigGroupName[] = "KontactConfigureDialog";
+const char myKontactConfigureDialogConfigGroupName[] = "KontactConfigureDialog";
 }
 KontactConfigureDialog::KontactConfigureDialog(QWidget *parent)
     : KontactSettingsDialog(parent)
