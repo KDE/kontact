@@ -88,7 +88,7 @@ static void listPlugins()
             }
         }
 
-        cout << "Plugin name " << qPrintable(plugin.pluginId()) << endl;
+        cout << "Plugin name " << qPrintable(plugin.pluginId()) << '\n';
     }
 }
 
