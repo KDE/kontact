@@ -83,9 +83,8 @@ using namespace Kontact;
 #endif
 
 MainWindow::MainWindow()
-    : KontactInterface::Core()
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-    , mVerifyNewVersionWidget(new TextAddonsWidgets::VerifyNewVersionWidget(this))
+    : mVerifyNewVersionWidget(new TextAddonsWidgets::VerifyNewVersionWidget(this))
 #endif
 {
 #ifdef Q_OS_UNIX
