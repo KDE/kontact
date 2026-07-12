@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:45+0000\n"
+"POT-Creation-Date: 2026-07-12 00:45+0000\n"
 "PO-Revision-Date: 2025-11-27 12:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -52,130 +52,130 @@ msgstr "تخطَّ هذه المقدّمة"
 msgid "Loading Kontact ..."
 msgstr "يحمّل «متراسلك»..."
 
-#: src/iconsidepane.cpp:264
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "اعرض أيقونات فقط"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "اعرض عناصر الشّريط الجانبيّ بأيقونات فقط دون نصّ"
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr "اختر هذا الخيار إن أردت أن تكون عناصر الشّريط الجانبي بأيقونات دون نصّ."
 
-#: src/iconsidepane.cpp:271
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "اعرض نصًّا فقط"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "اعرض عناصر الشّريط الجانبيّ بنصوص فقط دون أيقونات"
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr "اختر هذا الخيار إن أردت أن تكون عناصر الشّريط الجانبي بنصّ دون أيقونات."
 
-#: src/iconsidepane.cpp:278
+#: src/iconsidepane.cpp:284
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "اعرض نصًّا وأيقونات"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:288
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "اعرض عناصر الشّريط الجانبيّ بأيقونات ونصّ"
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:289
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr "اختر هذا الخيار إن أردت أن تكون عناصر الشّريط الجانبي بأيقونات ونصّ."
 
-#: src/iconsidepane.cpp:288
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "أيقونات كبيرة"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "اعرض أيقونات الشّريط الجانبيّ بحجم كبير"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr "اختر هذا الخيار إن أردت أن تكون أيقونات الشّريط الجانبي كبيرة جدًّا."
 
-#: src/iconsidepane.cpp:295
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "أيقونات عاديّة"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "اعرض أيقونات الشّريط الجانبيّ بحجم عاديّ"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr "اختر هذا الخيار إن أردت أن تكون أيقونات الشّريط الجانبي بحجمها العاديّ."
 
-#: src/iconsidepane.cpp:302
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "أيقونات صغيرة"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "اعرض أيقونات الشّريط الجانبيّ بحجم صغير"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr "اختر هذا الخيار إن أردت أن تكون أيقونات الشّريط الجانبي صغيرة جدًّا."
 
-#: src/iconsidepane.cpp:309
+#: src/iconsidepane.cpp:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "أخفِ الشّريط الجانبيّ"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "أخفِ شريط الأيقونات الجانبيّ"
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:319
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -288,266 +288,266 @@ msgstr "شريط الأدوات الرّئيسيّ"
 msgid "Navigator"
 msgstr "التّنقّل"
 
-#: src/main.cpp:97
+#: src/main.cpp:99
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "ابدأ بوحدة «متراسلك» محدّدة"
 
-#: src/main.cpp:97
+#: src/main.cpp:99
 #, kde-format
 msgid "Module"
 msgstr "الوحدة"
 
-#: src/main.cpp:98
+#: src/main.cpp:100
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "ابدأ في وضع مصغّر"
 
-#: src/main.cpp:99
+#: src/main.cpp:101
 #, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "اسرد كلّ الوحدات الممكنة واخرج"
 
-#: src/main.cpp:155 src/mainwindow.cpp:984
+#: src/main.cpp:157 src/mainwindow.cpp:978
 #, kde-format
 msgid "Kontact"
 msgstr "متراسلك"
 
-#: src/main.cpp:157
+#: src/main.cpp:159
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "مدير «كِيدِي» للمعلومات الشّخصيّة"
 
-#: src/main.cpp:159
+#: src/main.cpp:161
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "الحقوق محفوظة © 2001–%1 لمؤلّفي «متراسلك»"
 
-#: src/main.cpp:163
+#: src/main.cpp:165
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "ألين وينتر"
 
-#: src/main.cpp:164
+#: src/main.cpp:166
 #, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "رافائيل فرنانديز لوبيز"
 
-#: src/main.cpp:165
+#: src/main.cpp:167
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "دانييل مولكنتين"
 
-#: src/main.cpp:166
+#: src/main.cpp:168
 #, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "دون ساندرز"
 
-#: src/main.cpp:167
+#: src/main.cpp:169
 #, kde-format
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "كورنيليوس شوماخر"
 
-#: src/main.cpp:168
+#: src/main.cpp:170
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "توبياس كونيغ"
 
-#: src/main.cpp:169
+#: src/main.cpp:171
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "ديفيد فور"
 
-#: src/main.cpp:170
+#: src/main.cpp:172
 #, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "إنغو كلوكر"
 
-#: src/main.cpp:171
+#: src/main.cpp:173
 #, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "سفين لوكن"
 
-#: src/main.cpp:172
+#: src/main.cpp:174
 #, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "زاك روسين"
 
-#: src/main.cpp:173
+#: src/main.cpp:175
 #, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "ماتياس هويلزر-كلويبفيل"
 
-#: src/main.cpp:173
+#: src/main.cpp:175
 #, kde-format
 msgid "Original Author"
 msgstr "المؤلّف الأصليّ"
 
-#: src/main.cpp:174
+#: src/main.cpp:176
 #, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "تورجني نيبلوم"
 
-#: src/main.cpp:174
+#: src/main.cpp:176
 #, kde-format
 msgid "Git Migration"
 msgstr "النّقل إلى «غِت»"
 
-#: src/mainwindow.cpp:280
+#: src/mainwindow.cpp:279
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
 msgstr " يمهّد..."
 
-#: src/mainwindow.cpp:317
+#: src/mainwindow.cpp:312
 #, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
 msgstr "جديد"
 
-#: src/mainwindow.cpp:322
+#: src/mainwindow.cpp:317
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
 msgstr "اضبط «متراسلك»..."
 
-#: src/mainwindow.cpp:323
+#: src/mainwindow.cpp:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
 msgstr "اضبط «متراسلك»"
 
-#: src/mainwindow.cpp:324
+#: src/mainwindow.cpp:319
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
 msgstr "سيُعرض حواريّ يمكنك منه ضبط «متراسلك»."
 
-#: src/mainwindow.cpp:328
+#: src/mainwindow.cpp:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
 msgstr "مقدّمة «مترا&سلك»"
 
-#: src/mainwindow.cpp:329
+#: src/mainwindow.cpp:324
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
 msgstr "اعرض صفحة مقدّمة «متراسلك»"
 
-#: src/mainwindow.cpp:330
+#: src/mainwindow.cpp:325
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
 msgstr "اختر هذا الخيار لمطالعة صفحة مقدّمة «متراسلك»."
 
-#: src/mainwindow.cpp:334
+#: src/mainwindow.cpp:329
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
 msgstr "اعرض الشريط الجانبيّ لمتراسلك"
 
-#: src/mainwindow.cpp:335
+#: src/mainwindow.cpp:330
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
 msgstr "اعرض/أخفِ شريط المكوّنات الجانبيّ لمتراسلك"
 
-#: src/mainwindow.cpp:338
+#: src/mainwindow.cpp:333
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr "يتيح لك عرض أو إخفاء شريط المكوّنات الجانبيّ لمتراسلك إن أردت."
 
-#: src/mainwindow.cpp:374
+#: src/mainwindow.cpp:369
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>سيُخفي هذا شريط القوائم بالكامل. يمكنك إظهاره ثانيةً بضغط %1.</qt>"
 
-#: src/mainwindow.cpp:377
+#: src/mainwindow.cpp:372
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "أخفِ شريط القوائم"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:568
+#: src/mainwindow.cpp:562
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "بدّل إلى ملحقة «%1»"
 
-#: src/mainwindow.cpp:638
+#: src/mainwindow.cpp:632
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr "التّطبيق يعمل لوحده. سأجلبه هنا..."
 
-#: src/mainwindow.cpp:654
+#: src/mainwindow.cpp:648
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "تعذّر تحميل جزء «%1»."
 
-#: src/mainwindow.cpp:722
+#: src/mainwindow.cpp:716
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - متراسلك"
 
-#: src/mainwindow.cpp:985
+#: src/mainwindow.cpp:979
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "طقم «كِيدِي» لإدارة المعلومات الشّخصيّة."
 
-#: src/mainwindow.cpp:990
+#: src/mainwindow.cpp:984
 #, kde-format
 msgid "Read Manual"
 msgstr "اقرأ الكتيّب"
 
-#: src/mainwindow.cpp:991
+#: src/mainwindow.cpp:985
 #, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "اطّلع على المزيد عن «متراسلك» ومكوّناته"
 
-#: src/mainwindow.cpp:994
+#: src/mainwindow.cpp:988
 #, kde-format
 msgid "Visit Kontact Website"
 msgstr "زُر موقع «متراسلك»"
 
-#: src/mainwindow.cpp:995
+#: src/mainwindow.cpp:989
 #, kde-format
 msgid "Access online resources and tutorials"
 msgstr "توصّل إلى الموارد والدّروس على الشّابكة"
 
-#: src/mainwindow.cpp:998
+#: src/mainwindow.cpp:992
 #, kde-format
 msgid "Setup your Accounts"
 msgstr "اضبط حساباتك"
 
-#: src/mainwindow.cpp:999
+#: src/mainwindow.cpp:993
 #, kde-format
 msgid "Prepare Kontact for use"
 msgstr "جهّز «متراسلك» لتستخدمه"
 
-#: src/mainwindow.cpp:1025
+#: src/mainwindow.cpp:1019
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."

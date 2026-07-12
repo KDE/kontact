@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:45+0000\n"
+"POT-Creation-Date: 2026-07-12 00:45+0000\n"
 "PO-Revision-Date: 2026-02-04 00:05+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -45,130 +45,130 @@ msgstr "이 소개 건너뛰기"
 msgid "Loading Kontact ..."
 msgstr "Kontact 불러오는 중..."
 
-#: src/iconsidepane.cpp:264
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "아이콘만 보기"
 
-#: src/iconsidepane.cpp:268
+#: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "사이드바 항목에 아이콘만 표시"
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr "사이드바 항목에 텍스트 없이 아이콘만 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:271
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "텍스트만 보기"
 
-#: src/iconsidepane.cpp:275
+#: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "사이드바 항목에 텍스트만 표시"
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr "사이드바 항목에 텍스트만 아이콘 없이 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:278
+#: src/iconsidepane.cpp:284
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "아이콘과 텍스트 보기"
 
-#: src/iconsidepane.cpp:282
+#: src/iconsidepane.cpp:288
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "사이드바 항목에 아이콘과 텍스트 표시"
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:289
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr "사이드바 항목에 아이콘과 텍스트를 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:288
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "큰 아이콘"
 
-#: src/iconsidepane.cpp:292
+#: src/iconsidepane.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "큰 사이드바 아이콘 사용"
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
 msgstr "사이드바 아이콘을 매우 크게 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:295
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "보통 아이콘"
 
-#: src/iconsidepane.cpp:299
+#: src/iconsidepane.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "보통 사이드바 아이콘 사용"
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
 msgstr "사이드바 아이콘을 일반적 크기로 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:302
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "작은 아이콘"
 
-#: src/iconsidepane.cpp:306
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "작은 사이드바 아이콘 사용"
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
 msgstr "사이드바 아이콘을 매우 작게 표시하려면 선택하십시오."
 
-#: src/iconsidepane.cpp:309
+#: src/iconsidepane.cpp:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "사이드바 숨기기"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "아이콘 사이드바 숨기기"
 
-#: src/iconsidepane.cpp:313
+#: src/iconsidepane.cpp:319
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -282,193 +282,193 @@ msgstr "주 도구 모음"
 msgid "Navigator"
 msgstr "탐색기"
 
-#: src/main.cpp:97
+#: src/main.cpp:99
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with a specific Kontact module"
 msgstr "지정한 Kontact 모듈로 시작"
 
-#: src/main.cpp:97
+#: src/main.cpp:99
 #, kde-format
 msgid "Module"
 msgstr "모듈"
 
-#: src/main.cpp:98
+#: src/main.cpp:100
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start in iconified (minimized) mode"
 msgstr "최소화 모드로 시작"
 
-#: src/main.cpp:99
+#: src/main.cpp:101
 #, kde-format
 msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr "모든 모듈의 목록을 표시하고 끝내기"
 
-#: src/main.cpp:155 src/mainwindow.cpp:984
+#: src/main.cpp:157 src/mainwindow.cpp:978
 #, kde-format
 msgid "Kontact"
 msgstr "Kontact"
 
-#: src/main.cpp:157
+#: src/main.cpp:159
 #, kde-format
 msgid "KDE personal information manager"
 msgstr "KDE 개인 정보 관리자"
 
-#: src/main.cpp:159
+#: src/main.cpp:161
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "Copyright © 2001–%1 Kontact authors"
 
-#: src/main.cpp:163
+#: src/main.cpp:165
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: src/main.cpp:164
+#: src/main.cpp:166
 #, kde-format
 msgctxt "@info:credit"
 msgid "Rafael Fernández López"
 msgstr "Rafael Fernández López"
 
-#: src/main.cpp:165
+#: src/main.cpp:167
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
-#: src/main.cpp:166
+#: src/main.cpp:168
 #, kde-format
 msgctxt "@info:credit"
 msgid "Don Sanders"
 msgstr "Don Sanders"
 
-#: src/main.cpp:167
+#: src/main.cpp:169
 #, kde-format
 msgctxt "@info:credit"
 msgid "Cornelius Schumacher"
 msgstr "Cornelius Schumacher"
 
-#: src/main.cpp:168
+#: src/main.cpp:170
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tobias König"
 msgstr "Tobias König"
 
-#: src/main.cpp:169
+#: src/main.cpp:171
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: src/main.cpp:170
+#: src/main.cpp:172
 #, kde-format
 msgctxt "@info:credit"
 msgid "Ingo Klöcker"
 msgstr "Ingo Klöcker"
 
-#: src/main.cpp:171
+#: src/main.cpp:173
 #, kde-format
 msgctxt "@info:credit"
 msgid "Sven Lüppken"
 msgstr "Sven Lüppken"
 
-#: src/main.cpp:172
+#: src/main.cpp:174
 #, kde-format
 msgctxt "@info:credit"
 msgid "Zack Rusin"
 msgstr "Zack Rusin"
 
-#: src/main.cpp:173
+#: src/main.cpp:175
 #, kde-format
 msgctxt "@info:credit"
 msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
-#: src/main.cpp:173
+#: src/main.cpp:175
 #, kde-format
 msgid "Original Author"
 msgstr "원 작성자"
 
-#: src/main.cpp:174
+#: src/main.cpp:176
 #, kde-format
 msgctxt "@info:credit"
 msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
 
-#: src/main.cpp:174
+#: src/main.cpp:176
 #, kde-format
 msgid "Git Migration"
 msgstr "Git 이전"
 
-#: src/mainwindow.cpp:280
+#: src/mainwindow.cpp:279
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
 msgstr " 초기화 중..."
 
-#: src/mainwindow.cpp:317
+#: src/mainwindow.cpp:312
 #, kde-format
 msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
 msgid "New"
 msgstr "새로 만들기"
 
-#: src/mainwindow.cpp:322
+#: src/mainwindow.cpp:317
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
 msgstr "Kontact 설정..."
 
-#: src/mainwindow.cpp:323
+#: src/mainwindow.cpp:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Configure Kontact"
 msgstr "Kontact 설정"
 
-#: src/mainwindow.cpp:324
+#: src/mainwindow.cpp:319
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "You will be presented with a dialog where you can configure Kontact."
 msgstr "Kontact를 설정할 수 있는 대화 상자가 열립니다."
 
-#: src/mainwindow.cpp:328
+#: src/mainwindow.cpp:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Kontact Introduction"
 msgstr "Kontact 소개(&K)"
 
-#: src/mainwindow.cpp:329
+#: src/mainwindow.cpp:324
 #, kde-format
 msgctxt "@info:status"
 msgid "Show the Kontact Introduction page"
 msgstr "Kontact 소개 페이지 보기"
 
-#: src/mainwindow.cpp:330
+#: src/mainwindow.cpp:325
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option to see the Kontact Introduction page."
 msgstr "Kontact 소개 페이지를 보려면 선택하십시오."
 
-#: src/mainwindow.cpp:334
+#: src/mainwindow.cpp:329
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show the Kontact Sidebar"
 msgstr "Kontact 사이드바 표시"
 
-#: src/mainwindow.cpp:335
+#: src/mainwindow.cpp:330
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide/Show Kontact's component sidebar"
 msgstr "Kontact 구성 요소 사이드바 보기/숨기기"
 
-#: src/mainwindow.cpp:338
+#: src/mainwindow.cpp:333
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr "Kontact 구성 요소 사이드바를 표시하거나 숨깁니다."
 
-#: src/mainwindow.cpp:374
+#: src/mainwindow.cpp:369
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -476,73 +476,73 @@ msgid ""
 msgstr ""
 "<qt>메뉴 표시줄을 완전히 숨깁니다. %1 키를 눌러서 다시 볼 수 있습니다.</qt>"
 
-#: src/mainwindow.cpp:377
+#: src/mainwindow.cpp:372
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "메뉴 표시줄 숨기기"
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:568
+#: src/mainwindow.cpp:562
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr "%1 플러그인으로 전환"
 
-#: src/mainwindow.cpp:638
+#: src/mainwindow.cpp:632
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr "앱이 이미 실행 중입니다. 배경에서 지켜봅니다..."
 
-#: src/mainwindow.cpp:654
+#: src/mainwindow.cpp:648
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr "%1 부분을 불러올 수 없습니다."
 
-#: src/mainwindow.cpp:722
+#: src/mainwindow.cpp:716
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
-#: src/mainwindow.cpp:985
+#: src/mainwindow.cpp:979
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
 msgstr "KDE 개인 정보 관리 도구 모음입니다."
 
-#: src/mainwindow.cpp:990
+#: src/mainwindow.cpp:984
 #, kde-format
 msgid "Read Manual"
 msgstr "사용 설명서 읽기"
 
-#: src/mainwindow.cpp:991
+#: src/mainwindow.cpp:985
 #, kde-format
 msgid "Learn more about Kontact and its components"
 msgstr "Kontact와 구성 요소에 대하여 익히기"
 
-#: src/mainwindow.cpp:994
+#: src/mainwindow.cpp:988
 #, kde-format
 msgid "Visit Kontact Website"
 msgstr "Kontact 웹사이트로 가기"
 
-#: src/mainwindow.cpp:995
+#: src/mainwindow.cpp:989
 #, kde-format
 msgid "Access online resources and tutorials"
 msgstr "온라인 자원과 튜토리얼 보기"
 
-#: src/mainwindow.cpp:998
+#: src/mainwindow.cpp:992
 #, kde-format
 msgid "Setup your Accounts"
 msgstr "내 계정 설정하기"
 
-#: src/mainwindow.cpp:999
+#: src/mainwindow.cpp:993
 #, kde-format
 msgid "Prepare Kontact for use"
 msgstr "Kontact 사용 준비하기"
 
-#: src/mainwindow.cpp:1025
+#: src/mainwindow.cpp:1019
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
