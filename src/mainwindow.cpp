@@ -712,7 +712,8 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
 
         // Only some parts (like kmail) set a caption in guiActivateEvent when being activated.
         // For others, this is the default caption:
-        if (windowTitle() == oldWindowTitle) {
+        const QString newWindowTitle = windowTitle();
+        if (newWindowTitle.isEmpty() || newWindowTitle == oldWindowTitle) {
             setCaption(i18nc("@title:window Plugin dependent window title", "%1 - Kontact", plugin->title()));
         }
 
