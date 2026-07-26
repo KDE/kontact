@@ -365,9 +365,10 @@ void MainWindow::slotToggleMenubar(bool dontShowWarning)
             if (!dontShowWarning && (!toolBar()->isVisible() /* || !toolBar()->actions().contains(mHamburgerMenu)*/)) {
                 const QString accel = mShowMenuBarAction->shortcut().toString(QKeySequence::NativeText);
                 KMessageBox::information(this,
-                                         i18n("<qt>This will hide the menu bar completely."
-                                              " You can show it again by typing %1.</qt>",
-                                              accel),
+                                         i18nc("@info",
+                                               "This will hide the menu bar completely."
+                                               " You can show it again by typing %1.",
+                                               accel),
                                          i18nc("@title:window", "Hide menu bar"),
                                          u"HideMenuBarWarning"_s);
             }
@@ -974,22 +975,22 @@ QVariantHash MainWindow::introductionData()
 {
     QVariantHash data;
     data[u"icon"_s] = u"kontact"_s;
-    data[u"name"_s] = i18n("Kontact");
-    data[u"subtitle"_s] = i18n("The KDE Personal Information Management Suite.");
+    data[u"name"_s] = i18nc("@info/plain", "Kontact");
+    data[u"subtitle"_s] = i18nc("@info/plain", "The KDE Personal Information Management Suite.");
     data[u"version"_s] = KAboutData::applicationData().version();
 
     const QVariantList links = {QVariantHash{{u"url"_s, u"exec:/help?org.kde.kontact"_s},
                                              {u"icon"_s, u"help-contents"_s},
-                                             {u"title"_s, i18n("Read Manual")},
-                                             {u"subtext"_s, i18n("Learn more about Kontact and its components")}},
+                                             {u"title"_s, i18nc("@info/plain", "Read Manual")},
+                                             {u"subtext"_s, i18nc("@info/plain", "Learn more about Kontact and its components")}},
                                 QVariantHash{{u"url"_s, u"https://kontact.kde.org"_s},
                                              {u"icon"_s, u"kontact"_s},
-                                             {u"title"_s, i18n("Visit Kontact Website")},
-                                             {u"subtext"_s, i18n("Access online resources and tutorials")}},
+                                             {u"title"_s, i18nc("@info/plain", "Visit Kontact Website")},
+                                             {u"subtext"_s, i18nc("@info/plain", "Access online resources and tutorials")}},
                                 QVariantHash{{u"url"_s, u"exec:/accountwizard"_s},
                                              {u"icon"_s, u"tools-wizard"_s},
-                                             {u"title"_s, i18n("Setup your Accounts")},
-                                             {u"subtext"_s, i18n("Prepare Kontact for use")}}};
+                                             {u"title"_s, i18nc("@info/plain", "Setup your Accounts")},
+                                             {u"subtext"_s, i18nc("@info/plain", "Prepare Kontact for use")}}};
     data[u"links"_s] = links;
 
     return data;

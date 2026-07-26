@@ -96,7 +96,7 @@ static void listPlugins()
 
 static void loadCommandLineOptions(QCommandLineParser *parser)
 {
-    parser->addOption(QCommandLineOption(u"module"_s, i18nc("@info:shell", "Start with a specific Kontact module"), i18n("Module")));
+    parser->addOption(QCommandLineOption(u"module"_s, i18nc("@info:shell", "Start with a specific Kontact module"), i18nc("@info:shell", "Module")));
     parser->addOption(QCommandLineOption(u"iconify"_s, i18nc("@info:shell", "Start in iconified (minimized) mode")));
     parser->addOption(QCommandLineOption(u"list"_s, i18nc("@info:shell", "List all possible modules and exit")));
 }
@@ -154,11 +154,11 @@ int main(int argc, char **argv)
 
     KStyleManager::initStyle();
     KAboutData about(u"kontact"_s,
-                     i18n("Kontact"),
+                     i18nc("@info/plain", "Kontact"),
                      QLatin1StringView(version),
-                     i18n("KDE personal information manager"),
+                     i18nc("@info/plain", "KDE personal information manager"),
                      KAboutLicense::GPL,
-                     i18n("Copyright © 2001–%1 Kontact authors", u"2026"_s),
+                     i18nc("@info/plain", "Copyright © 2001–%1 Kontact authors", u"2026"_s),
                      QString(),
                      u"https://userbase.kde.org/Kontact"_s);
 
@@ -172,8 +172,8 @@ int main(int argc, char **argv)
     about.addAuthor(i18nc("@info:credit", "Ingo Kl\303\266cker"), QString(), u"kloecker@kde.org"_s);
     about.addAuthor(i18nc("@info:credit", "Sven L\303\274ppken"), QString(), u"sven@kde.org"_s);
     about.addAuthor(i18nc("@info:credit", "Zack Rusin"), QString(), u"zack@kde.org"_s);
-    about.addAuthor(i18nc("@info:credit", "Matthias Hoelzer-Kluepfel"), i18n("Original Author"), u"mhk@kde.org"_s);
-    about.addCredit(i18nc("@info:credit", "Torgny Nyblom"), i18n("Git Migration"), u"nyblom@kde.org"_s);
+    about.addAuthor(i18nc("@info:credit", "Matthias Hoelzer-Kluepfel"), i18nc("@info:credit", "Original Author"), u"mhk@kde.org"_s);
+    about.addCredit(i18nc("@info:credit", "Torgny Nyblom"), i18nc("@info:credit", "Git Migration"), u"nyblom@kde.org"_s);
     app.setAboutData(about);
     app.setWindowIcon(QIcon::fromTheme(u"kontact"_s));
     app.setDesktopFileName(u"org.kde.kontact"_s);

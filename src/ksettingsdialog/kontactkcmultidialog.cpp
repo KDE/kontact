@@ -42,8 +42,9 @@ bool KontactKCMultiDialogPrivate::resolveChanges(KCModule *currentProxy)
 
     // Let the user decide
     const int queryUser = KMessageBox::warningTwoActionsCancel(q,
-                                                               i18n("The settings of the current module have changed.\n"
-                                                                    "Do you want to apply the changes or discard them?"),
+                                                               i18nc("@info",
+                                                                     "The settings of the current module have changed.<nl/>"
+                                                                     "Do you want to apply the changes or discard them?"),
                                                                i18nc("@title:window", "Apply Settings"),
                                                                KStandardGuiItem::apply(),
                                                                KStandardGuiItem::discard(),
