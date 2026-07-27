@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-13 00:44+0000\n"
+"POT-Creation-Date: 2026-07-27 00:46+0000\n"
 "PO-Revision-Date: 2023-11-07 21:27+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -282,6 +282,7 @@ msgstr ""
 
 #: src/main.cpp:99
 #, kde-format
+msgctxt "@info:shell"
 msgid "Module"
 msgstr ""
 
@@ -297,18 +298,21 @@ msgctxt "@info:shell"
 msgid "List all possible modules and exit"
 msgstr ""
 
-#: src/main.cpp:157 src/mainwindow.cpp:977
+#: src/main.cpp:157 src/mainwindow.cpp:979
 #, kde-format
+msgctxt "@info/plain"
 msgid "Kontact"
 msgstr ""
 
 #: src/main.cpp:159
 #, kde-format
+msgctxt "@info/plain"
 msgid "KDE personal information manager"
 msgstr ""
 
 #: src/main.cpp:161
 #, kde-format
+msgctxt "@info/plain"
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr ""
 
@@ -380,6 +384,7 @@ msgstr ""
 
 #: src/main.cpp:175
 #, kde-format
+msgctxt "@info:credit"
 msgid "Original Author"
 msgstr ""
 
@@ -391,6 +396,7 @@ msgstr ""
 
 #: src/main.cpp:176
 #, kde-format
+msgctxt "@info:credit"
 msgid "Git Migration"
 msgstr ""
 
@@ -460,80 +466,87 @@ msgctxt "@info:whatsthis"
 msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr ""
 
-#: src/mainwindow.cpp:368
+#: src/mainwindow.cpp:369
 #, kde-format
+msgctxt "@info"
 msgid ""
-"<qt>This will hide the menu bar completely. You can show it again by typing "
-"%1.</qt>"
+"This will hide the menu bar completely. You can show it again by typing %1."
 msgstr ""
 
-#: src/mainwindow.cpp:371
+#: src/mainwindow.cpp:372
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr ""
 
 #. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
-#: src/mainwindow.cpp:561
+#: src/mainwindow.cpp:562
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Switch to plugin %1"
 msgstr ""
 
-#: src/mainwindow.cpp:631
+#: src/mainwindow.cpp:632
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
 msgstr ""
 
-#: src/mainwindow.cpp:647
+#: src/mainwindow.cpp:648
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load part for %1."
 msgstr ""
 
-#: src/mainwindow.cpp:715
+#: src/mainwindow.cpp:717
 #, kde-format
 msgctxt "@title:window Plugin dependent window title"
 msgid "%1 - Kontact"
 msgstr ""
 
-#: src/mainwindow.cpp:978
+#: src/mainwindow.cpp:980
 #, kde-format
+msgctxt "@info/plain"
 msgid "The KDE Personal Information Management Suite."
 msgstr ""
 
-#: src/mainwindow.cpp:983
+#: src/mainwindow.cpp:985
 #, kde-format
+msgctxt "@info/plain"
 msgid "Read Manual"
 msgstr ""
 
-#: src/mainwindow.cpp:984
+#: src/mainwindow.cpp:986
 #, kde-format
+msgctxt "@info/plain"
 msgid "Learn more about Kontact and its components"
 msgstr ""
 
-#: src/mainwindow.cpp:987
+#: src/mainwindow.cpp:989
 #, kde-format
+msgctxt "@info/plain"
 msgid "Visit Kontact Website"
 msgstr ""
 
-#: src/mainwindow.cpp:988
+#: src/mainwindow.cpp:990
 #, kde-format
+msgctxt "@info/plain"
 msgid "Access online resources and tutorials"
 msgstr ""
 
-#: src/mainwindow.cpp:991
+#: src/mainwindow.cpp:993
 #, kde-format
+msgctxt "@info/plain"
 msgid "Setup your Accounts"
 msgstr ""
 
-#: src/mainwindow.cpp:992
+#: src/mainwindow.cpp:994
 #, kde-format
+msgctxt "@info/plain"
 msgid "Prepare Kontact for use"
 msgstr ""
 
-#: src/mainwindow.cpp:1018
+#: src/mainwindow.cpp:1020
 #, kde-format
 msgctxt "@info:status"
 msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
