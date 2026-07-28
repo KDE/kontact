@@ -305,25 +305,22 @@ msgid "List all possible modules and exit"
 msgstr "列出可能的全部模块并退出"
 
 #: src/main.cpp:157 src/mainwindow.cpp:979
-#, fuzzy, kde-format
-#| msgid "Kontact"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Kontact"
-msgstr "Kontact"
+msgstr ""
 
 #: src/main.cpp:159
-#, fuzzy, kde-format
-#| msgid "KDE personal information manager"
+#, kde-format
 msgctxt "@info/plain"
 msgid "KDE personal information manager"
-msgstr "KDE 个人信息管理器"
+msgstr ""
 
 #: src/main.cpp:161
-#, fuzzy, kde-format
-#| msgid "Copyright © 2001–%1 Kontact authors"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "Copyright © 2001–%1 Kontact authors"
+msgstr ""
 
 #: src/main.cpp:165
 #, kde-format
@@ -392,11 +389,10 @@ msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
 #: src/main.cpp:175
-#, fuzzy, kde-format
-#| msgid "Original Author"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Original Author"
-msgstr "原作者"
+msgstr ""
 
 #: src/main.cpp:176
 #, kde-format
@@ -405,11 +401,10 @@ msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
 
 #: src/main.cpp:176
-#, fuzzy, kde-format
-#| msgid "Git Migration"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Git Migration"
-msgstr "Git 迁移"
+msgstr ""
 
 #: src/mainwindow.cpp:278
 #, kde-format
@@ -478,14 +473,11 @@ msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr "允许您按需显示或隐藏 Kontact 组件侧栏。"
 
 #: src/mainwindow.cpp:369
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This will hide the menu bar completely. You can show it again by "
-#| "typing %1.</qt>"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "This will hide the menu bar completely. You can show it again by typing %1."
-msgstr "<qt>这将完全隐藏菜单栏。按 %1 可以重新显示。</qt>"
+msgstr ""
 
 #: src/mainwindow.cpp:372
 #, kde-format
@@ -519,53 +511,46 @@ msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
 #: src/mainwindow.cpp:980
-#, fuzzy, kde-format
-#| msgid "The KDE Personal Information Management Suite."
+#, kde-format
 msgctxt "@info/plain"
 msgid "The KDE Personal Information Management Suite."
-msgstr "KDE 个人信息管理器套件"
+msgstr ""
 
 #: src/mainwindow.cpp:985
-#, fuzzy, kde-format
-#| msgid "Read Manual"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Read Manual"
-msgstr "阅读手册"
+msgstr ""
 
 #: src/mainwindow.cpp:986
-#, fuzzy, kde-format
-#| msgid "Learn more about Kontact and its components"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Learn more about Kontact and its components"
-msgstr "了解关于 Kontact 及其组件的更多内容"
+msgstr ""
 
 #: src/mainwindow.cpp:989
-#, fuzzy, kde-format
-#| msgid "Visit Kontact Website"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Visit Kontact Website"
-msgstr "访问 Kontact 网站"
+msgstr ""
 
 #: src/mainwindow.cpp:990
-#, fuzzy, kde-format
-#| msgid "Access online resources and tutorials"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Access online resources and tutorials"
-msgstr "访问在线资源和教程"
+msgstr ""
 
 #: src/mainwindow.cpp:993
-#, fuzzy, kde-format
-#| msgid "Setup your Accounts"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Setup your Accounts"
-msgstr "建立您的账户"
+msgstr ""
 
 #: src/mainwindow.cpp:994
-#, fuzzy, kde-format
-#| msgid "Prepare Kontact for use"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Prepare Kontact for use"
-msgstr "准备使用 Kontact"
+msgstr ""
 
 #: src/mainwindow.cpp:1020
 #, kde-format
