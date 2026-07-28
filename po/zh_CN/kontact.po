@@ -306,17 +306,17 @@ msgstr "列出可能的全部模块并退出"
 #: src/main.cpp:155 src/mainwindow.cpp:993
 #, kde-format
 msgid "Kontact"
-msgstr "Kontact"
+msgstr ""
 
 #: src/main.cpp:157
 #, kde-format
 msgid "KDE personal information manager"
-msgstr "KDE 个人信息管理器"
+msgstr ""
 
 #: src/main.cpp:159
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "Copyright © 2001–%1 Kontact authors"
+msgstr ""
 
 #: src/main.cpp:163
 #, kde-format
@@ -387,7 +387,7 @@ msgstr "Matthias Hoelzer-Kluepfel"
 #: src/main.cpp:173
 #, kde-format
 msgid "Original Author"
-msgstr "原作者"
+msgstr ""
 
 #: src/main.cpp:174
 #, kde-format
@@ -398,7 +398,7 @@ msgstr "Torgny Nyblom"
 #: src/main.cpp:174
 #, kde-format
 msgid "Git Migration"
-msgstr "Git 迁移"
+msgstr ""
 
 #: src/mainwindow.cpp:289
 #, kde-format
@@ -507,37 +507,37 @@ msgstr "%1 - Kontact"
 #: src/mainwindow.cpp:994
 #, kde-format
 msgid "The KDE Personal Information Management Suite."
-msgstr "KDE 个人信息管理器套件"
+msgstr ""
 
 #: src/mainwindow.cpp:999
 #, kde-format
 msgid "Read Manual"
-msgstr "阅读手册"
+msgstr ""
 
 #: src/mainwindow.cpp:1000
 #, kde-format
 msgid "Learn more about Kontact and its components"
-msgstr "了解关于 Kontact 及其组件的更多内容"
+msgstr ""
 
 #: src/mainwindow.cpp:1003
 #, kde-format
 msgid "Visit Kontact Website"
-msgstr "访问 Kontact 网站"
+msgstr ""
 
 #: src/mainwindow.cpp:1004
 #, kde-format
 msgid "Access online resources and tutorials"
-msgstr "访问在线资源和教程"
+msgstr ""
 
 #: src/mainwindow.cpp:1007
 #, kde-format
 msgid "Setup your Accounts"
-msgstr "建立您的账户"
+msgstr ""
 
 #: src/mainwindow.cpp:1008
 #, kde-format
 msgid "Prepare Kontact for use"
-msgstr "准备使用 Kontact"
+msgstr ""
 
 #: src/mainwindow.cpp:1034
 #, kde-format
