@@ -246,7 +246,7 @@ msgid ""
 "this box if you would like the specified plugin to come up on start instead."
 msgstr ""
 "Normalerweise wird beim Start von Kontact immer die Komponente angezeigt, "
-"die zuletzt benutzt wurde. Aktivieren Sie diese Einstellung, wenn "
+"die zuletzt verwendet wurde. Aktivieren Sie diese Einstellung, wenn "
 "stattdessen beim Start immer eine bestimmte Komponente angezeigt werden soll."
 
 #. i18n: ectx: label, entry (SideBarOpen), group (View)
