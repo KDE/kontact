@@ -6,14 +6,14 @@
 # Vincenzo Reale <smart2128vr@gmail.com>, 2009.
 # Antonino Arcudi <antonino.arcudi@gmail.com>, 2009.
 # Luigi Toscano <luigi.toscano@tiscali.it>, 2010, 2014, 2017.
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025 Valter Mura <valtermura@gmail.com>
+# SPDX-FileCopyrightText: 2010-2022, 2024-2026 Valter Mura <valtermura@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:46+0000\n"
-"PO-Revision-Date: 2025-11-29 18:56+0100\n"
+"PO-Revision-Date: 2026-07-27 20:19+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -307,8 +307,7 @@ msgid "Start with a specific Kontact module"
 msgstr "Inizia con un modulo Kontact specifico"
 
 #: src/main.cpp:99
-#, fuzzy, kde-format
-#| msgid "Module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Module"
 msgstr "Modulo"
@@ -326,22 +325,19 @@ msgid "List all possible modules and exit"
 msgstr "Elenca tutti i moduli ed esci"
 
 #: src/main.cpp:157 src/mainwindow.cpp:979
-#, fuzzy, kde-format
-#| msgid "Kontact"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Kontact"
 msgstr "Kontact"
 
 #: src/main.cpp:159
-#, fuzzy, kde-format
-#| msgid "KDE personal information manager"
+#, kde-format
 msgctxt "@info/plain"
 msgid "KDE personal information manager"
 msgstr "Strumento di KDE per la gestione delle informazioni personali"
 
 #: src/main.cpp:161
-#, fuzzy, kde-format
-#| msgid "Copyright © 2001–%1 Kontact authors"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "Copyright © 2001–%1, gli autori di Kontact"
@@ -413,8 +409,7 @@ msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
 #: src/main.cpp:175
-#, fuzzy, kde-format
-#| msgid "Original Author"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Original Author"
 msgstr "Autore originale"
@@ -426,8 +421,7 @@ msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
 
 #: src/main.cpp:176
-#, fuzzy, kde-format
-#| msgid "Git Migration"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Git Migration"
 msgstr "Migrazione in Git"
@@ -502,16 +496,13 @@ msgstr ""
 "componente Kontact."
 
 #: src/mainwindow.cpp:369
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This will hide the menu bar completely. You can show it again by "
-#| "typing %1.</qt>"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "This will hide the menu bar completely. You can show it again by typing %1."
 msgstr ""
-"<qt>Questo comando nasconderà completamente la barra dei menu. Puoi "
-"visualizzarla di nuovo digitando %1.</qt>"
+"Questo comando nasconderà completamente la barra dei menu. Puoi "
+"visualizzarla di nuovo digitando %1."
 
 #: src/mainwindow.cpp:372
 #, kde-format
@@ -545,50 +536,43 @@ msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
 #: src/mainwindow.cpp:980
-#, fuzzy, kde-format
-#| msgid "The KDE Personal Information Management Suite."
+#, kde-format
 msgctxt "@info/plain"
 msgid "The KDE Personal Information Management Suite."
 msgstr "Strumento di KDE per la gestione delle informazioni personali."
 
 #: src/mainwindow.cpp:985
-#, fuzzy, kde-format
-#| msgid "Read Manual"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Read Manual"
 msgstr "Leggi il manuale"
 
 #: src/mainwindow.cpp:986
-#, fuzzy, kde-format
-#| msgid "Learn more about Kontact and its components"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Learn more about Kontact and its components"
 msgstr "Altre informazioni su Kontact e sui suoi componenti"
 
 #: src/mainwindow.cpp:989
-#, fuzzy, kde-format
-#| msgid "Visit Kontact Website"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Visit Kontact Website"
 msgstr "Visita il sito web di Kontact"
 
 #: src/mainwindow.cpp:990
-#, fuzzy, kde-format
-#| msgid "Access online resources and tutorials"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Access online resources and tutorials"
 msgstr "Accedi alle risorse e alle esercitazioni in linea"
 
 #: src/mainwindow.cpp:993
-#, fuzzy, kde-format
-#| msgid "Setup your Accounts"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Setup your Accounts"
 msgstr "Imposta i tuoi account"
 
 #: src/mainwindow.cpp:994
-#, fuzzy, kde-format
-#| msgid "Prepare Kontact for use"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Prepare Kontact for use"
 msgstr "Prepara Kontact per l'uso"
