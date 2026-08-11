@@ -5,13 +5,13 @@
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Abdalrahim G. Fakhouri <abdilra7eem@yahoo.com>, 2014.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2018.
-# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:46+0000\n"
-"PO-Revision-Date: 2025-11-27 12:19+0400\n"
+"PO-Revision-Date: 2026-08-10 16:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -295,8 +295,7 @@ msgid "Start with a specific Kontact module"
 msgstr "ابدأ بوحدة «متراسلك» محدّدة"
 
 #: src/main.cpp:99
-#, fuzzy, kde-format
-#| msgid "Module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Module"
 msgstr "الوحدة"
@@ -314,22 +313,19 @@ msgid "List all possible modules and exit"
 msgstr "اسرد كلّ الوحدات الممكنة واخرج"
 
 #: src/main.cpp:157 src/mainwindow.cpp:979
-#, fuzzy, kde-format
-#| msgid "Kontact"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Kontact"
 msgstr "متراسلك"
 
 #: src/main.cpp:159
-#, fuzzy, kde-format
-#| msgid "KDE personal information manager"
+#, kde-format
 msgctxt "@info/plain"
 msgid "KDE personal information manager"
-msgstr "مدير «كِيدِي» للمعلومات الشّخصيّة"
+msgstr "مدير المعلومات الشخصية لكيدي"
 
 #: src/main.cpp:161
-#, fuzzy, kde-format
-#| msgid "Copyright © 2001–%1 Kontact authors"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "الحقوق محفوظة © 2001–%1 لمؤلّفي «متراسلك»"
@@ -401,11 +397,10 @@ msgid "Matthias Hoelzer-Kluepfel"
 msgstr "ماتياس هويلزر-كلويبفيل"
 
 #: src/main.cpp:175
-#, fuzzy, kde-format
-#| msgid "Original Author"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Original Author"
-msgstr "المؤلّف الأصليّ"
+msgstr "المؤلف الأصلي"
 
 #: src/main.cpp:176
 #, kde-format
@@ -414,8 +409,7 @@ msgid "Torgny Nyblom"
 msgstr "تورجني نيبلوم"
 
 #: src/main.cpp:176
-#, fuzzy, kde-format
-#| msgid "Git Migration"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Git Migration"
 msgstr "النّقل إلى «غِت»"
@@ -487,14 +481,11 @@ msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr "يتيح لك عرض أو إخفاء شريط المكوّنات الجانبيّ لمتراسلك إن أردت."
 
 #: src/mainwindow.cpp:369
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This will hide the menu bar completely. You can show it again by "
-#| "typing %1.</qt>"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "This will hide the menu bar completely. You can show it again by typing %1."
-msgstr "<qt>سيُخفي هذا شريط القوائم بالكامل. يمكنك إظهاره ثانيةً بضغط %1.</qt>"
+msgstr "سيُخفي هذا شريط القوائم بالكامل. يمكنك إظهاره ثانيةً بضغط %1."
 
 #: src/mainwindow.cpp:372
 #, kde-format
@@ -528,50 +519,43 @@ msgid "%1 - Kontact"
 msgstr "%1 - متراسلك"
 
 #: src/mainwindow.cpp:980
-#, fuzzy, kde-format
-#| msgid "The KDE Personal Information Management Suite."
+#, kde-format
 msgctxt "@info/plain"
 msgid "The KDE Personal Information Management Suite."
-msgstr "طقم «كِيدِي» لإدارة المعلومات الشّخصيّة."
+msgstr "حزمة إدارة المعلومات الشخصية لكيدي."
 
 #: src/mainwindow.cpp:985
-#, fuzzy, kde-format
-#| msgid "Read Manual"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Read Manual"
-msgstr "اقرأ الكتيّب"
+msgstr "اقرأ الدليل"
 
 #: src/mainwindow.cpp:986
-#, fuzzy, kde-format
-#| msgid "Learn more about Kontact and its components"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Learn more about Kontact and its components"
-msgstr "اطّلع على المزيد عن «متراسلك» ومكوّناته"
+msgstr "تعرّف أكثر على متراسلك ومكوّناته"
 
 #: src/mainwindow.cpp:989
-#, fuzzy, kde-format
-#| msgid "Visit Kontact Website"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Visit Kontact Website"
 msgstr "زُر موقع «متراسلك»"
 
 #: src/mainwindow.cpp:990
-#, fuzzy, kde-format
-#| msgid "Access online resources and tutorials"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Access online resources and tutorials"
-msgstr "توصّل إلى الموارد والدّروس على الشّابكة"
+msgstr "اطّلع على الموارد والدروس التعليمية عبر الإنترنت"
 
 #: src/mainwindow.cpp:993
-#, fuzzy, kde-format
-#| msgid "Setup your Accounts"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Setup your Accounts"
 msgstr "اضبط حساباتك"
 
 #: src/mainwindow.cpp:994
-#, fuzzy, kde-format
-#| msgid "Prepare Kontact for use"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Prepare Kontact for use"
 msgstr "جهّز «متراسلك» لتستخدمه"
