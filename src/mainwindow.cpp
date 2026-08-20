@@ -657,7 +657,7 @@ void MainWindow::selectPlugin(KontactInterface::Plugin *plugin)
             action->setChecked(false);
         }
     }
-    QAction *selectedPluginAction = mPluginAction.value(mCurrentPlugin);
+    QAction *selectedPluginAction = mPluginAction.value(plugin);
     if (selectedPluginAction) {
         selectedPluginAction->setChecked(true);
     }
