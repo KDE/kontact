@@ -359,9 +359,8 @@ void Navigator::updatePlugins(const QList<KontactInterface::Plugin *> &plugins_)
         }
     }
 
-    mModel->setPluginList(pluginsToShow);
-
     mModel->removeRows(0, mModel->rowCount());
+    mModel->setPluginList(pluginsToShow);
     mModel->insertRows(0, pluginsToShow.count());
 
     // Restore the previous selected index, if any
