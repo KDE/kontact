@@ -935,7 +935,7 @@ void MainWindow::saveProperties(KConfigGroup &config)
 
     const KConfigGroup configGroup(Prefs::self()->config(), u"Plugins"_s);
     for (const KPluginMetaData &pluginMetaData : std::as_const(mPluginMetaData)) {
-        if (!configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
+        if (configGroup.readEntry(pluginMetaData.pluginId() + "Enabled"_L1, pluginMetaData.isEnabledByDefault())) {
             KontactInterface::Plugin *plugin = pluginFromName(pluginMetaData.pluginId());
             if (plugin) {
                 activePlugins.append(plugin->identifier());
