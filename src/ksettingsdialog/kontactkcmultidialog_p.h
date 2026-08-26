@@ -39,7 +39,6 @@ protected:
 
     void _k_slotCurrentPageChanged(KPageWidgetItem *current, KPageWidgetItem *previous);
     virtual void _k_clientChanged();
-    void _k_dialogClosed();
 
     KontactKCMultiDialog *const q_ptr;
 
