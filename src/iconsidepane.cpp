@@ -204,7 +204,6 @@ public:
         QStyleOptionViewItem opt(*static_cast<const QStyleOptionViewItem *>(&option));
         // optionCopy.state |= QStyle::State_Active;
         opt.decorationPosition = QStyleOptionViewItem::Top;
-        const int height = 0;
         painter->save();
 
         mNavigator->style()->drawControl(QStyle::CE_ItemViewItem, &opt, painter);
@@ -221,7 +220,7 @@ public:
             painter->drawText(QRect(opt.rect.x(), y + size + spacing, opt.rect.width(), textHeight), index.data(Qt::DisplayRole).toString(), {Qt::AlignCenter});
         } else if (mNavigator->showIcons()) {
             opt.icon = index.data(Qt::DecorationRole).value<QIcon>();
-            const int size = mNavigator->iconDimension() + height;
+            const int size = mNavigator->iconDimension();
             opt.decorationSize = QSize(size, size);
             opt.icon.paint(painter, opt.rect, Qt::AlignCenter, QIcon::Normal, QIcon::On);
         } else if (mNavigator->showText()) {
