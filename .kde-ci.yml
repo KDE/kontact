@@ -4,9 +4,9 @@
 Dependencies:
  - 'on': ['Linux', 'FreeBSD', 'Windows']
    'require':
-    'frameworks/ktexttemplate': '@latest-kf6'
-    'frameworks/extra-cmake-modules': '@latest-kf6'
-    'frameworks/kiconthemes': '@latest-kf6'
+    'frameworks/ktexttemplate': 'Frameworks/6.24'
+    'frameworks/extra-cmake-modules': 'Frameworks/6.24'
+    'frameworks/kiconthemes': 'Frameworks/6.24'
     'pim/grantleetheme': '@same'
     'pim/kontactinterface': '@same'
     'pim/libkdepim': '@same'
