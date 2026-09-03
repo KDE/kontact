@@ -176,13 +176,14 @@ protected:
         auto rightPlugin = static_cast<KontactInterface::Plugin *>(right.internalPointer());
 
         if (leftPlugin->weight() == rightPlugin->weight()) {
-            // Optimize it
-            const QCollator col;
-            return col.compare(leftPlugin->title(), rightPlugin->title()) < 0;
+            return mCollator.compare(leftPlugin->title(), rightPlugin->title()) < 0;
         }
 
         return leftPlugin->weight() < rightPlugin->weight();
     }
+
+private:
+    mutable QCollator mCollator;
 };
 
 class Delegate : public QStyledItemDelegate
