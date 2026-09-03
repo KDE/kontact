@@ -74,6 +74,7 @@ void KontactKCMultiDialogPrivate::_k_slotCurrentPageChanged(KPageWidgetItem *cur
     for (int i = 0, total = modules.count(); i < total; ++i) {
         if (modules[i].item == previous) {
             previousModule = modules[i].kcm;
+            break;
         }
     }
 
