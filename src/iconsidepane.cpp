@@ -464,8 +464,7 @@ void Navigator::setHelpText(QAction *act, const QString &text)
 
 void Navigator::showEvent(QShowEvent *event)
 {
-    parentWidget()->setMaximumWidth(sizeHint().width());
-    parentWidget()->setMinimumWidth(sizeHint().width());
+    parentWidget()->setFixedWidth(sizeHint().width());
 
     QListView::showEvent(event);
 }
@@ -520,8 +519,7 @@ void Navigator::slotHideSideBarTriggered()
 
 void Navigator::updateNavigatorSize()
 {
-    parentWidget()->setMaximumWidth(sizeHint().width());
-    parentWidget()->setMinimumWidth(sizeHint().width());
+    parentWidget()->setFixedWidth(sizeHint().width());
     update();
 }
 

@@ -113,8 +113,7 @@ MainWindow::MainWindow()
     initGUI();
     initObject();
 
-    mSidePane->setMaximumWidth(mSidePane->sizeHint().width());
-    mSidePane->setMinimumWidth(mSidePane->sizeHint().width());
+    mSidePane->setFixedWidth(mSidePane->sizeHint().width());
 
     factory()->plugActionList(this, u"navigator_actionlist"_s, mActionPlugins);
 
