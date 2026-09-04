@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:46+0000\n"
+"POT-Creation-Date: 2026-09-04 00:46+0000\n"
 "PO-Revision-Date: 2026-08-01 16:57+0300\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -50,19 +50,19 @@ msgstr "Praleisti šį įvadą"
 msgid "Loading Kontact ..."
 msgstr "Įkeliama Kontact ..."
 
-#: src/iconsidepane.cpp:269
+#: src/iconsidepane.cpp:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons Only"
 msgstr "Rodyti tik piktogramas"
 
-#: src/iconsidepane.cpp:273
+#: src/iconsidepane.cpp:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and without text"
 msgstr "Rodyti šoninės juostos elementus naudojant piktogramas ir be teksto"
 
-#: src/iconsidepane.cpp:274
+#: src/iconsidepane.cpp:275
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -71,19 +71,19 @@ msgstr ""
 "Pasirinkite šią parinktį, jei norite, kad šoninės juostos elementai būtų "
 "atvaizduojami piktogramomis be teksto."
 
-#: src/iconsidepane.cpp:276
+#: src/iconsidepane.cpp:277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Text Only"
 msgstr "Rodyti tik tekstą"
 
-#: src/iconsidepane.cpp:280
+#: src/iconsidepane.cpp:281
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with text and without icons"
 msgstr "Rodyti šoninės juostos elementus naudojant tekstą ir be piktogramų"
 
-#: src/iconsidepane.cpp:281
+#: src/iconsidepane.cpp:282
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -92,19 +92,19 @@ msgstr ""
 "Pasirinkite šią parinktį, jei norite, kad šoninės juostos elementai būtų "
 "atvaizduojami tekstu be piktogramų."
 
-#: src/iconsidepane.cpp:283
+#: src/iconsidepane.cpp:284
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Icons && Text"
 msgstr "Rodyti piktogramas ir tekstą"
 
-#: src/iconsidepane.cpp:287
+#: src/iconsidepane.cpp:288
 #, kde-format
 msgctxt "@info:status"
 msgid "Show sidebar items with icons and text"
 msgstr "Rodyti šoninės juostos elementus naudojant piktogramas ir tekstą"
 
-#: src/iconsidepane.cpp:288
+#: src/iconsidepane.cpp:289
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -113,19 +113,19 @@ msgstr ""
 "Pasirinkite šią parinktį, jei norite, kad šoninės juostos elementai būtų "
 "atvaizduojami piktogramomis ir tekstu."
 
-#: src/iconsidepane.cpp:293
+#: src/iconsidepane.cpp:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Big Icons"
 msgstr "Didelės piktogramos"
 
-#: src/iconsidepane.cpp:297
+#: src/iconsidepane.cpp:298
 #, kde-format
 msgctxt "@info:status"
 msgid "Show large size sidebar icons"
 msgstr "Rodyti didelio dydžio šoninės juostos piktogramas"
 
-#: src/iconsidepane.cpp:298
+#: src/iconsidepane.cpp:299
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
@@ -133,19 +133,19 @@ msgstr ""
 "Pasirinkite šią parinktį, jei norite, kad šoninės juostos piktogramos būtų "
 "labai didelės."
 
-#: src/iconsidepane.cpp:300
+#: src/iconsidepane.cpp:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Normal Icons"
 msgstr "Įprastos piktogramos"
 
-#: src/iconsidepane.cpp:304
+#: src/iconsidepane.cpp:305
 #, kde-format
 msgctxt "@info:status"
 msgid "Show normal size sidebar icons"
 msgstr "Rodyti įprasto dydžio šoninės juostos piktogramas"
 
-#: src/iconsidepane.cpp:305
+#: src/iconsidepane.cpp:306
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
@@ -153,19 +153,19 @@ msgstr ""
 "Pasirinkite šią parinktį, jei norite, kad šoninės juostos piktogramos būtų "
 "įprasto dydžio."
 
-#: src/iconsidepane.cpp:307
+#: src/iconsidepane.cpp:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Small Icons"
 msgstr "Mažos piktogramos"
 
-#: src/iconsidepane.cpp:311
+#: src/iconsidepane.cpp:312
 #, kde-format
 msgctxt "@info:status"
 msgid "Show small size sidebar icons"
 msgstr "Rodyti mažo dydžio šoninės juostos piktogramas"
 
-#: src/iconsidepane.cpp:312
+#: src/iconsidepane.cpp:313
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
@@ -173,19 +173,19 @@ msgstr ""
 "Pasirinkite šią parinktį, jei norite, kad šoninės juostos piktogramos būtų "
 "labai mažos."
 
-#: src/iconsidepane.cpp:314
+#: src/iconsidepane.cpp:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Sidebar"
 msgstr "Slėpti šoninę juostą"
 
-#: src/iconsidepane.cpp:317
+#: src/iconsidepane.cpp:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Hide the icon sidebar"
 msgstr "Slėpti piktogramų šoninę juostą"
 
-#: src/iconsidepane.cpp:318
+#: src/iconsidepane.cpp:319
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
