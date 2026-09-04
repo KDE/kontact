@@ -7,7 +7,6 @@
 */
 
 #include "kontactsettingsdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "kontactsettingsdialog_p.h"
 
@@ -19,8 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
-#include "kontact_debug.h"
-
+using namespace Qt::Literals::StringLiterals;
 KontactSettingsDialog::KontactSettingsDialog(QWidget *parent)
     : KontactKCMultiDialog(*new KontactSettingsDialogPrivate(this), new KPageWidget, parent)
 {

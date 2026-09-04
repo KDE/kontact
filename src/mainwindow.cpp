@@ -16,7 +16,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "iconsidepane.h"
 #include "kontactconfiguredialog.h"
 #include "prefs.h"
-#include "webengine/introductionwebenginepage.h"
 #include "webengine/introductionwebengineview.h"
 using namespace Kontact;
 #ifdef WIN32
