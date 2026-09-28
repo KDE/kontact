@@ -408,7 +408,7 @@
 > <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/></imageobject
 ></inlinemediaobject
 ></guiicon
->) es crearà una pendent nova amb el títol <guilabel
+>) es crearà una tasca pendent nova amb el títol <guilabel
 >Correu: <replaceable
 >Assumpte</replaceable
 ></guilabel
