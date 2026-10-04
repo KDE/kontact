@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-11 00:47+0000\n"
-"PO-Revision-Date: 2026-02-04 00:05+0100\n"
+"PO-Revision-Date: 2026-10-02 01:04+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -289,8 +289,7 @@ msgid "Start with a specific Kontact module"
 msgstr "지정한 Kontact 모듈로 시작"
 
 #: src/main.cpp:99
-#, fuzzy, kde-format
-#| msgid "Module"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Module"
 msgstr "모듈"
@@ -308,22 +307,19 @@ msgid "List all possible modules and exit"
 msgstr "모든 모듈의 목록을 표시하고 끝내기"
 
 #: src/main.cpp:157 src/mainwindow.cpp:979
-#, fuzzy, kde-format
-#| msgid "Kontact"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Kontact"
 msgstr "Kontact"
 
 #: src/main.cpp:159
-#, fuzzy, kde-format
-#| msgid "KDE personal information manager"
+#, kde-format
 msgctxt "@info/plain"
 msgid "KDE personal information manager"
 msgstr "KDE 개인 정보 관리자"
 
 #: src/main.cpp:161
-#, fuzzy, kde-format
-#| msgid "Copyright © 2001–%1 Kontact authors"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Copyright © 2001–%1 Kontact authors"
 msgstr "Copyright © 2001–%1 Kontact authors"
@@ -395,8 +391,7 @@ msgid "Matthias Hoelzer-Kluepfel"
 msgstr "Matthias Hoelzer-Kluepfel"
 
 #: src/main.cpp:175
-#, fuzzy, kde-format
-#| msgid "Original Author"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Original Author"
 msgstr "원 작성자"
@@ -408,8 +403,7 @@ msgid "Torgny Nyblom"
 msgstr "Torgny Nyblom"
 
 #: src/main.cpp:176
-#, fuzzy, kde-format
-#| msgid "Git Migration"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Git Migration"
 msgstr "Git 이전"
@@ -481,15 +475,11 @@ msgid "Allows you to show or hide the Kontact component sidebar as desired."
 msgstr "Kontact 구성 요소 사이드바를 표시하거나 숨깁니다."
 
 #: src/mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This will hide the menu bar completely. You can show it again by "
-#| "typing %1.</qt>"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "This will hide the menu bar completely. You can show it again by typing %1."
-msgstr ""
-"<qt>메뉴 표시줄을 완전히 숨깁니다. %1 키를 눌러서 다시 볼 수 있습니다.</qt>"
+msgstr "메뉴 표시줄을 완전히 숨깁니다. %1 키를 눌러서 다시 볼 수 있습니다."
 
 #: src/mainwindow.cpp:370
 #, kde-format
@@ -523,50 +513,43 @@ msgid "%1 - Kontact"
 msgstr "%1 - Kontact"
 
 #: src/mainwindow.cpp:980
-#, fuzzy, kde-format
-#| msgid "The KDE Personal Information Management Suite."
+#, kde-format
 msgctxt "@info/plain"
 msgid "The KDE Personal Information Management Suite."
 msgstr "KDE 개인 정보 관리 도구 모음입니다."
 
 #: src/mainwindow.cpp:985
-#, fuzzy, kde-format
-#| msgid "Read Manual"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Read Manual"
 msgstr "사용 설명서 읽기"
 
 #: src/mainwindow.cpp:986
-#, fuzzy, kde-format
-#| msgid "Learn more about Kontact and its components"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Learn more about Kontact and its components"
-msgstr "Kontact와 구성 요소에 대하여 익히기"
+msgstr "Kontact와 구성 요소에 대하여 알아 보기"
 
 #: src/mainwindow.cpp:989
-#, fuzzy, kde-format
-#| msgid "Visit Kontact Website"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Visit Kontact Website"
-msgstr "Kontact 웹사이트로 가기"
+msgstr "Kontact 웹사이트 방문"
 
 #: src/mainwindow.cpp:990
-#, fuzzy, kde-format
-#| msgid "Access online resources and tutorials"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Access online resources and tutorials"
 msgstr "온라인 자원과 튜토리얼 보기"
 
 #: src/mainwindow.cpp:993
-#, fuzzy, kde-format
-#| msgid "Setup your Accounts"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Setup your Accounts"
 msgstr "내 계정 설정하기"
 
 #: src/mainwindow.cpp:994
-#, fuzzy, kde-format
-#| msgid "Prepare Kontact for use"
+#, kde-format
 msgctxt "@info/plain"
 msgid "Prepare Kontact for use"
 msgstr "Kontact 사용 준비하기"
