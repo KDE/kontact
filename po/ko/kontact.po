@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kontact\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:44+0000\n"
-"PO-Revision-Date: 2026-02-04 00:05+0100\n"
+"PO-Revision-Date: 2026-10-02 01:04+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -520,12 +520,12 @@ msgstr "사용 설명서 읽기"
 #: src/mainwindow.cpp:1000
 #, kde-format
 msgid "Learn more about Kontact and its components"
-msgstr "Kontact와 구성 요소에 대하여 익히기"
+msgstr "Kontact와 구성 요소에 대하여 알아 보기"
 
 #: src/mainwindow.cpp:1003
 #, kde-format
 msgid "Visit Kontact Website"
-msgstr "Kontact 웹사이트로 가기"
+msgstr "Kontact 웹사이트 방문"
 
 #: src/mainwindow.cpp:1004
 #, kde-format
