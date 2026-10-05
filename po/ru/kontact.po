@@ -62,7 +62,7 @@ msgstr "Пропустить это введение"
 
 #: src/about/loading_kontact.html:5
 msgid "Loading Kontact ..."
-msgstr "Загрузка Kontact..."
+msgstr "Загрузка Kontact…"
 
 #: src/iconsidepane.cpp:270
 #, kde-format
@@ -82,8 +82,8 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons without text."
 msgstr ""
-"При выборе этой опции на боковой панели будут отображаться только значки без "
-"текста."
+"При выборе этого параметра на боковой панели будут показываться только "
+"значки без текста."
 
 #: src/iconsidepane.cpp:277
 #, kde-format
@@ -103,8 +103,8 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have text without icons."
 msgstr ""
-"При выборе этой опции на боковой панели будет отображаться только текст без "
-"значков."
+"При выборе этого параметра на боковой панели будет показываться только текст "
+"без значков."
 
 #: src/iconsidepane.cpp:284
 #, kde-format
@@ -124,7 +124,8 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Choose this option if you want the sidebar items to have icons and text."
 msgstr ""
-"При выборе этой опции на боковой панели будут отображаться значки с текстом."
+"При выборе этого параметра на боковой панели будут показываться значки с "
+"текстом."
 
 #: src/iconsidepane.cpp:294
 #, kde-format
@@ -142,7 +143,7 @@ msgstr "Показывать значки крупного размера на �
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra big."
-msgstr "При выборе этой опции значки боковой панели будут крупными."
+msgstr "При выборе этого параметра значки боковой панели будут крупными."
 
 #: src/iconsidepane.cpp:301
 #, kde-format
@@ -160,7 +161,8 @@ msgstr "Показывать значки обычного размера на �
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be normal size."
-msgstr "При выборе этой опции значки боковой панели будут обычного размера."
+msgstr ""
+"При выборе этого параметра значки боковой панели будут обычного размера."
 
 #: src/iconsidepane.cpp:308
 #, kde-format
@@ -178,7 +180,7 @@ msgstr "Показывать значки маленького размера н
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Choose this option if you want the sidebar icons to be extra small."
-msgstr "При выборе этой опции значки боковой панели будут маленькими."
+msgstr "При выборе этого параметра значки боковой панели будут маленькими."
 
 #: src/iconsidepane.cpp:315
 #, kde-format
@@ -258,7 +260,7 @@ msgstr "Показывать боковую панель модулей"
 #: src/kontact.kcfg:21
 #, kde-format
 msgid "Show/Hide the Kontact component sidebar"
-msgstr "Показывать или скрыть боковую панель модулей"
+msgstr "Показать или скрыть боковую панель модулей"
 
 #. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
 #: src/kontact.kcfg:22
@@ -438,7 +440,7 @@ msgstr "Перенос исходного кода на Git"
 #, kde-format
 msgctxt "@info:status"
 msgid " Initializing..."
-msgstr " Инициализация..."
+msgstr " Инициализация…"
 
 #: src/mainwindow.cpp:309
 #, kde-format
@@ -450,7 +452,7 @@ msgstr "Создать"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Kontact..."
-msgstr "Настроить Kontact..."
+msgstr "Настроить Kontact…"
 
 #: src/mainwindow.cpp:315
 #, kde-format
@@ -526,7 +528,7 @@ msgstr "Переключить на модуль %1"
 #, kde-format
 msgctxt "@info:status"
 msgid "Application is running standalone. Foregrounding..."
-msgstr "Приложение запущено автономно. Приоритетное обслуживание..."
+msgstr "Приложение запущено автономно. Перевод на передний план…"
 
 #: src/mainwindow.cpp:648
 #, kde-format
