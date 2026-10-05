@@ -7,7 +7,6 @@
 */
 
 #include "kcmkontact.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "prefs.h"
 using namespace Kontact;
@@ -21,6 +20,8 @@ using namespace Kontact;
 #include <QCheckBox>
 #include <QHBoxLayout>
 #include <QStandardItemModel>
+
+using namespace Qt::Literals::StringLiterals;
 
 K_PLUGIN_CLASS_WITH_JSON(KcmKontact, "data/kontactconfig.json")
 KcmKontact::KcmKontact(QObject *parent, const KPluginMetaData &data)

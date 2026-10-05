@@ -5,12 +5,14 @@
 */
 
 #include "introductionwebenginepage.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QFontDatabase>
 #include <QFontInfo>
 #include <QWebEngineProfile>
 #include <QWebEngineSettings>
+
+using namespace Qt::Literals::StringLiterals;
+
 IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
     : QWebEnginePage(parent)
 {

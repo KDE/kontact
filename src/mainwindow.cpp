@@ -10,7 +10,6 @@
 */
 
 #include "mainwindow.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "config-kontact.h"
 #include "iconsidepane.h"
@@ -79,6 +78,8 @@ using namespace Kontact;
 #include <KSignalHandler>
 #include <csignal>
 #endif
+
+using namespace Qt::Literals::StringLiterals;
 
 MainWindow::MainWindow()
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
