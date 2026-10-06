@@ -1,0 +1,572 @@
+# Translation of kontact.po into Serbian.
+# Toplica Tanaskovic <toptan@kde.org.yu>, 2003, 2004.
+# Marko Rosic <roske@kde.org.yu>, 2003.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2004, 2005, 2006, 2007, 2013, 2014.
+# Slobodan Simic <slsimic@gmail.com>, 2005.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kontact\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-01-19 00:44+0000\n"
+"PO-Revision-Date: 2026-10-05 12:49+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@latin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Časlav Ilić,Slobodan Simić,Nemanja Hiršl"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "caslav.ilic@gmx.net,slsimic@gmail.com,nemhirsl@gmail.com"
+
+#: src/about/introduction_kontact.html:18
+#, kde-format
+msgid "Welcome to Kontact %1"
+msgstr "Dobro došli u Kontact %1"
+
+#: src/about/introduction_kontact.html:19
+msgid ""
+"Kontact handles your e-mail, address book, calendar, to-do list and more."
+msgstr ""
+"Kontact rukuje vašom e‑poštom, adresarom, kalendarom, listom poslova i više."
+
+#: src/about/introduction_kontact.html:36
+msgid "Skip this introduction"
+msgstr "Preskoči ovaj uvod"
+
+#: src/about/loading_kontact.html:5
+msgid "Loading Kontact ..."
+msgstr "Učitavam Kontact ..."
+
+#: src/iconsidepane.cpp:264
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons Only"
+msgstr "Prikaži samo ikonice"
+
+#: src/iconsidepane.cpp:268
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and without text"
+msgstr "Prikaži stavke bočne trake sa ikonicama i bez teksta"
+
+#: src/iconsidepane.cpp:269
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons without text."
+msgstr ""
+"Izaberite ovu opciju ako želite da stavke bočne trake imaju ikonice bez "
+"teksta."
+
+#: src/iconsidepane.cpp:271
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Text Only"
+msgstr "Prikaži samo tekst"
+
+#: src/iconsidepane.cpp:275
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with text and without icons"
+msgstr "Prikaži stavke bočne trake sa tekstom i bez ikonica"
+
+#: src/iconsidepane.cpp:276
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have text without icons."
+msgstr ""
+"Izaberite ovu opciju ako želite da stavke bočne trake imaju tekst bez "
+"ikonica."
+
+#: src/iconsidepane.cpp:278
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show Icons && Text"
+msgstr "Prikaži ikonice && tekst"
+
+#: src/iconsidepane.cpp:282
+#, kde-format
+msgctxt "@info:status"
+msgid "Show sidebar items with icons and text"
+msgstr "Prikaži stavke bočne trake sa ikonicama i tekstom"
+
+#: src/iconsidepane.cpp:283
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want the sidebar items to have icons and text."
+msgstr ""
+"Izaberite ovu opciju ako želite da stavke bočne trake imaju ikonice i tekst."
+
+#: src/iconsidepane.cpp:288
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Big Icons"
+msgstr "Velike ikonice"
+
+#: src/iconsidepane.cpp:292
+#, kde-format
+msgctxt "@info:status"
+msgid "Show large size sidebar icons"
+msgstr "Prikaži velike ikonice bočne trake"
+
+#: src/iconsidepane.cpp:293
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra big."
+msgstr ""
+"Izaberite ovu opciju ako želite da ikonice bočne trake budu veoma velike."
+
+#: src/iconsidepane.cpp:295
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Normal Icons"
+msgstr "Normalne ikonice"
+
+#: src/iconsidepane.cpp:299
+#, kde-format
+msgctxt "@info:status"
+msgid "Show normal size sidebar icons"
+msgstr "Prikaži ikonice bočne trake normalne veličine"
+
+#: src/iconsidepane.cpp:300
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be normal size."
+msgstr ""
+"Izaberite ovu opciju ako želite da ikonice bočne trake budu normalne "
+"veličine."
+
+#: src/iconsidepane.cpp:302
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Small Icons"
+msgstr "Male ikonice"
+
+#: src/iconsidepane.cpp:306
+#, kde-format
+msgctxt "@info:status"
+msgid "Show small size sidebar icons"
+msgstr "Prikaži male ikonice bočne trake"
+
+#: src/iconsidepane.cpp:307
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option if you want the sidebar icons to be extra small."
+msgstr ""
+"Izaberite ovu opciju ako želite da ikonice bočne trake budu veoma male."
+
+#: src/iconsidepane.cpp:309
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Hide Sidebar"
+msgstr "Sakrij bočnu traku"
+
+#: src/iconsidepane.cpp:312
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide the icon sidebar"
+msgstr "Sakrij bočnu traku sa ikonicama"
+
+#: src/iconsidepane.cpp:313
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Choose this option if you want to hide the icon sidebar. Press F9 to unhide."
+msgstr ""
+"Izaberite ovu opciju ako želite da sakrijete bočnu traku sa ikonicama. "
+"Pritisnite F9 da je ponovo prikažete."
+
+#: src/kcmkontact.cpp:37
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select the initial plugin to use on each start"
+msgstr "Izaberite početni priključak za svako pokretanje"
+
+#: src/kcmkontact.cpp:39
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"Select the plugin from this drop down list to be used as the initial plugin "
+"each time Kontact is started. Otherwise, Kontact will restore the last "
+"active plugin from the previous usage."
+msgstr ""
+"Izaberite priključak iz ovog padajućeg spiska koji će se koristiti kao "
+"početni pri svakom pokretanju Kontacta. Inače će Kontact vratiti poslednji "
+"aktivni priključak iz prethodne upotrebe."
+
+#. i18n: ectx: tooltip, entry (ActivePlugin), group (View)
+#. i18n: ectx: whatsthis, entry (ActivePlugin), group (View)
+#: src/kontact.kcfg:11 src/kontact.kcfg:12
+#, kde-format
+msgid "The currently active plugin"
+msgstr "Trenutno aktivni priključak"
+
+#. i18n: ectx: label, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:16
+#, kde-format
+msgid "Always start with plugin:"
+msgstr "Uvek počni sa priključkom:"
+
+#. i18n: ectx: tooltip, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:17
+#, kde-format
+msgid "Set the initial plugin on each start"
+msgstr "Postavi početni priključak pri svakom pokretanju"
+
+#. i18n: ectx: whatsthis, entry (ForceStartupPlugin), group (View)
+#: src/kontact.kcfg:18
+#, kde-format
+msgid ""
+"Usually Kontact will come up with the plugin used before shutdown. Check "
+"this box if you would like the specified plugin to come up on start instead."
+msgstr ""
+"Kontact će se obično pojaviti sa priključkom korišćenim pre gašenja. "
+"Popunite ovu kućicu ako želite da se umesto toga pri pokretanju pojavi "
+"zadati priključak."
+
+#. i18n: ectx: label, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:25
+#, kde-format
+msgid "Show the Kontact component sidebar"
+msgstr "Prikaži bočnu traku komponenti Kontacta"
+
+#. i18n: ectx: tooltip, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:26
+#, kde-format
+msgid "Show/Hide the Kontact component sidebar"
+msgstr "Prikaži/sakrij bočnu traku komponenti Kontacta"
+
+#. i18n: ectx: whatsthis, entry (SideBarOpen), group (View)
+#: src/kontact.kcfg:27
+#, kde-format
+msgid ""
+"To save screen real estate you might choose to hide Kontact's component "
+"sidebar. Uncheck this box to hide the component sidebar. Note that the F9 "
+"key will hide/show the component sidebar."
+msgstr ""
+"Da biste sačuvali mesto na ekranu, možete sakriti bočnu traku komponenti "
+"Kontacta. Ispraznite ovu kućicu da biste sakrili bočnu traku komponenti. "
+"Imajte na umu da taster F9 sakriva i prikazuje bočnu traku komponenti."
+
+#. i18n: ectx: Menu (file)
+#: src/kontactui.rc:6
+#, kde-format
+msgid "&File"
+msgstr "&Fajl"
+
+#. i18n: ectx: Menu (view)
+#: src/kontactui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "Pri&kaz"
+
+#. i18n: ectx: Menu (settings)
+#: src/kontactui.rc:20
+#, kde-format
+msgid "&Settings"
+msgstr "&Podešavanje"
+
+#. i18n: ectx: Menu (help)
+#: src/kontactui.rc:33
+#, kde-format
+msgid "&Help"
+msgstr "Po&moć"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kontactui.rc:40
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Glavna traka"
+
+#. i18n: ectx: ToolBar (navigatorToolBar)
+#: src/kontactui.rc:46
+#, kde-format
+msgid "Navigator"
+msgstr "Navigator"
+
+#: src/main.cpp:97
+#, kde-format
+msgctxt "@info:shell"
+msgid "Start with a specific Kontact module"
+msgstr "Počni sa određenim modulom Kontacta"
+
+#: src/main.cpp:97
+#, kde-format
+msgid "Module"
+msgstr "Modul"
+
+#: src/main.cpp:98
+#, kde-format
+msgctxt "@info:shell"
+msgid "Start in iconified (minimized) mode"
+msgstr "Pokreni se u ikonifikovanom (minimizovanom) režimu"
+
+#: src/main.cpp:99
+#, kde-format
+msgctxt "@info:shell"
+msgid "List all possible modules and exit"
+msgstr "Izlistaj sve moguće module i izađi"
+
+#: src/main.cpp:155 src/mainwindow.cpp:993
+#, kde-format
+msgid "Kontact"
+msgstr "Kontact"
+
+#: src/main.cpp:157
+#, kde-format
+msgid "KDE personal information manager"
+msgstr "KDE‑ov menadžer ličnih informacija"
+
+#: src/main.cpp:159
+#, kde-format
+msgid "Copyright © 2001–%1 Kontact authors"
+msgstr "© 2001–%1, autori Kontacta"
+
+#: src/main.cpp:163
+#, kde-format
+msgctxt "@info:credit"
+msgid "Allen Winter"
+msgstr "Alen Vinter"
+
+#: src/main.cpp:164
+#, kde-format
+msgctxt "@info:credit"
+msgid "Rafael Fernández López"
+msgstr "Rafel Fernandez Lopez"
+
+#: src/main.cpp:165
+#, kde-format
+msgctxt "@info:credit"
+msgid "Daniel Molkentin"
+msgstr "Danijel Molkentin"
+
+#: src/main.cpp:166
+#, kde-format
+msgctxt "@info:credit"
+msgid "Don Sanders"
+msgstr "Don Sanders"
+
+#: src/main.cpp:167
+#, kde-format
+msgctxt "@info:credit"
+msgid "Cornelius Schumacher"
+msgstr "Kornelijus Šumaher"
+
+#: src/main.cpp:168
+#, kde-format
+msgctxt "@info:credit"
+msgid "Tobias König"
+msgstr "Tobijas Kenig"
+
+#: src/main.cpp:169
+#, kde-format
+msgctxt "@info:credit"
+msgid "David Faure"
+msgstr "David For"
+
+#: src/main.cpp:170
+#, kde-format
+msgctxt "@info:credit"
+msgid "Ingo Klöcker"
+msgstr "Ingo Klöcker"
+
+#: src/main.cpp:171
+#, kde-format
+msgctxt "@info:credit"
+msgid "Sven Lüppken"
+msgstr "Sven Lipken"
+
+#: src/main.cpp:172
+#, kde-format
+msgctxt "@info:credit"
+msgid "Zack Rusin"
+msgstr "Zak Rasin"
+
+#: src/main.cpp:173
+#, kde-format
+msgctxt "@info:credit"
+msgid "Matthias Hoelzer-Kluepfel"
+msgstr "Matijas Helcer-Klipfel"
+
+#: src/main.cpp:173
+#, kde-format
+msgid "Original Author"
+msgstr "Prvobitni autor"
+
+#: src/main.cpp:174
+#, kde-format
+msgctxt "@info:credit"
+msgid "Torgny Nyblom"
+msgstr "Torgny Nyblom"
+
+#: src/main.cpp:174
+#, kde-format
+msgid "Git Migration"
+msgstr "Prelazak na Git"
+
+#: src/mainwindow.cpp:289
+#, kde-format
+msgctxt "@info:status"
+msgid " Initializing..."
+msgstr " Inicijalizujem..."
+
+#: src/mainwindow.cpp:326
+#, kde-format
+msgctxt "@title:menu create new pim items (message,calendar,to-do,etc.)"
+msgid "New"
+msgstr "Novi"
+
+#: src/mainwindow.cpp:331
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Kontact..."
+msgstr "Podesi Kontact..."
+
+#: src/mainwindow.cpp:332
+#, kde-format
+msgctxt "@info:status"
+msgid "Configure Kontact"
+msgstr "Podesi Kontact"
+
+#: src/mainwindow.cpp:333
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "You will be presented with a dialog where you can configure Kontact."
+msgstr "Dobićete dijalog u kojem možete podesiti Kontact."
+
+#: src/mainwindow.cpp:337
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Kontact Introduction"
+msgstr "&Uvod u Kontact"
+
+#: src/mainwindow.cpp:338
+#, kde-format
+msgctxt "@info:status"
+msgid "Show the Kontact Introduction page"
+msgstr "Prikaži stranicu uvoda u Kontact"
+
+#: src/mainwindow.cpp:339
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Choose this option to see the Kontact Introduction page."
+msgstr "Izaberite ovu opciju da biste videli stranicu uvoda u Kontact."
+
+#: src/mainwindow.cpp:343
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show the Kontact Sidebar"
+msgstr "Prikaži bočnu traku Kontacta"
+
+#: src/mainwindow.cpp:344
+#, kde-format
+msgctxt "@info:status"
+msgid "Hide/Show Kontact's component sidebar"
+msgstr "Sakrij/prikaži bočnu traku komponenti Kontacta"
+
+#: src/mainwindow.cpp:347
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Allows you to show or hide the Kontact component sidebar as desired."
+msgstr ""
+"Omogućava vam da po želji prikažete ili sakrijete bočnu traku komponenti "
+"Kontacta."
+
+#: src/mainwindow.cpp:383
+#, kde-format
+msgid ""
+"<qt>This will hide the menu bar completely. You can show it again by typing "
+"%1.</qt>"
+msgstr ""
+"<qt>Ovo će potpuno sakriti traku menija. Možete je ponovo prikazati "
+"pritiskom na %1.</qt>"
+
+#: src/mainwindow.cpp:386
+#, kde-format
+msgctxt "@title:window"
+msgid "Hide menu bar"
+msgstr "Sakrivanje trake menija"
+
+#. i18nc( "@info:status", "Plugin %1", plugin->title() ) );
+#: src/mainwindow.cpp:577
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Switch to plugin %1"
+msgstr "Prebaci na priključak %1"
+
+#: src/mainwindow.cpp:647
+#, kde-format
+msgctxt "@info:status"
+msgid "Application is running standalone. Foregrounding..."
+msgstr "Program radi samostalno. Prebacujem u prvi plan..."
+
+#: src/mainwindow.cpp:663
+#, kde-format
+msgctxt "@info"
+msgid "Cannot load part for %1."
+msgstr "Ne mogu da učitam deo za %1."
+
+#: src/mainwindow.cpp:731
+#, kde-format
+msgctxt "@title:window Plugin dependent window title"
+msgid "%1 - Kontact"
+msgstr "%1 — Kontact"
+
+#: src/mainwindow.cpp:994
+#, kde-format
+msgid "The KDE Personal Information Management Suite."
+msgstr "KDE‑ova svita za upravljanje ličnim informacijama."
+
+#: src/mainwindow.cpp:999
+#, kde-format
+msgid "Read Manual"
+msgstr "Pročitajte uputstvo"
+
+#: src/mainwindow.cpp:1000
+#, kde-format
+msgid "Learn more about Kontact and its components"
+msgstr "Saznajte više o Kontactu i njegovim komponentama"
+
+#: src/mainwindow.cpp:1003
+#, kde-format
+msgid "Visit Kontact Website"
+msgstr "Posetite veb sajt Kontacta"
+
+#: src/mainwindow.cpp:1004
+#, kde-format
+msgid "Access online resources and tutorials"
+msgstr "Pristup resursima i tutorijalima na vezi"
+
+#: src/mainwindow.cpp:1007
+#, kde-format
+msgid "Setup your Accounts"
+msgstr "Podesite svoje naloge"
+
+#: src/mainwindow.cpp:1008
+#, kde-format
+msgid "Prepare Kontact for use"
+msgstr "Pripremite Kontact za upotrebu"
+
+#: src/mainwindow.cpp:1034
+#, kde-format
+msgctxt "@info:status"
+msgid "Sidebar is hidden. Show the sidebar again using the %1 key."
+msgstr "Bočna traka je skrivena. Ponovo je prikažite tasterom %1."
