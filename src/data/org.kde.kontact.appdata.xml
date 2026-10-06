@@ -48,6 +48,7 @@
   <name xml:lang="sk">Kontact</name>
   <name xml:lang="sl">Kontact</name>
   <name xml:lang="sv">Kontact</name>
+  <name xml:lang="ta">காண்டாக்ட்</name>
   <name xml:lang="tr">Kontak</name>
   <name xml:lang="uk">Kontact</name>
   <name xml:lang="zh-CN">Kontact</name>
@@ -172,7 +173,7 @@
     <p xml:lang="pl">Kontakt scala kilka aplikacji do zrządzania danymi osobistymi w jedno okno, dla najlepszego najlepsze doświadczenie i zwiększenia produktywności. Z Kontact możesz używać wszystkich rozbudowanych narzędzi pakietu w jednym miejscu. W odróżnieniu od własnościowych aplikacji sieciowych, my cenimy twoją prywatność i wspieramy otwarte standardy, więc dajemy ci pełny nadzór nad twoimi danymi. Możesz także uzyskiwać dostęp do swoich danych bez internetu, jeśli chcesz.</p>
     <p xml:lang="pt">O Kontact unifica diversas aplicações de gestão de informações pessoais numa única janela, para que lhe possa dar a melhor experiência possível para melhorar a sua produtividade. Com o Kontact, poderá usar todas as ferramentas do nosso pacote poderoso num único local. Ao contrário das aplicações Web proprietárias, valorizamos a sua privacidade e damos suporte a formatos abertos, sendo que o Kontact lhe dá então controlo total sobre os seus dados. Poderá obviamente também aceder aos seus dados de forma desligada, se o desejar.</p>
     <p xml:lang="pt-BR">O Kontact unifica vários programas gerenciadores de informação em uma única janela para fornecer a melhor experiência possível e aumentar a sua produtividade. Com o Kontact, você pode usar todas as ferramentas da nossa poderosa suíte em um único lugar. Ao contrário de aplicações proprietárias da web, nós valorizamos sua privacidade e apoiamos formatos abertos, dando a você controle total sobre os seus dados. Você também pode acessar seus dados offline caso queira, é claro.</p>
-    <p xml:lang="ru">Kontact предоставляет удобный единый интерфейс, объединяющий различные приложения для управления личной информацией. Kontact позволяет полностью контролировать свои данные, так как в отличии от проприетарных веб-приложений, KDE заботится о конфиденциальности и поддерживает открытые стандарты. Кроме того, поддерживается доступ к загруженным данным в автономном режиме.</p>
+    <p xml:lang="ru">Kontact предоставляет удобный единый интерфейс, объединяющий различные приложения для управления личной информацией. Kontact позволяет полностью контролировать свои данные, так как, в отличие от проприетарных веб-приложений, KDE заботится о конфиденциальности и поддерживает открытые стандарты. Кроме того, поддерживается доступ к загруженным данным в автономном режиме.</p>
     <p xml:lang="sa">Kontact भवन्तं सर्वोत्तमसंभवम् अनुभवं दातुं भवतः उत्पादकताम् वर्धयितुं च अनेकाः व्यक्तिगतसूचनाप्रबन्धन-अनुप्रयोगाः एकस्मिन् विण्डो-मध्ये एकीकृत्य स्थापयति । Kontact इत्यनेन भवान् अस्माकं शक्तिशालिनः suite इत्यस्य सर्वाणि साधनानि एकस्मिन् स्थाने उपयोक्तुं शक्नोति । स्वामित्वयुक्तजाल-अनुप्रयोगानाम् विपरीतम् वयं भवतः गोपनीयतायाः मूल्यं दद्मः, मुक्त-मानकानां समर्थनं च कुर्मः, अतः एव Kontact भवतः दत्तांशस्य उपरि पूर्णं नियन्त्रणं ददाति । भवान् अवश्यमेव इच्छति चेत् स्वस्य दत्तांशं अफलाइन अपि प्राप्तुं शक्नोति।</p>
     <p xml:lang="sk">Kontact zjednocuje niekoľko aplikácií na správu osobných informácií do jedného okna, aby vám poskytol čo najlepší zážitok a zvýšil vašu produktivitu. S programom Kontact môžete používať všetky nástroje našej výkonnej súpravy na jednom mieste. Na rozdiel od proprietárnych webových aplikácií si ceníme vaše súkromie a podporujeme otvorené štandardy, a preto vám spoločnosť Kontact poskytuje úplnú kontrolu nad vašimi údajmi. K vašim údajom môžete, samozrejme, pristupovať aj offline.</p>
     <p xml:lang="sl">Kontact združuje več aplikacij za upravljanje osebnih podatkov v enem oknu, da vam omogočimo najboljšo možno izkušnjo in možnost da maksimirate svojo produktivnost. S Kontactom lahko uporabite vsa orodja našega zmogljivega paketa na enem mestu. Za razliko od lastniških spletnih aplikacij cenimo vašo zasebnost in podpiramo odprte standarde, zato vam Kontact nudi popoln nadzor nad svojimi podatki. Do svojih podatkov lahko seveda dostopate tudi brez povezave, če želite.</p>
@@ -378,7 +379,7 @@
       <li xml:lang="pl">Akregator - czytnik wieści z zaawansowanymi możliwościami wyszukiwania i archiwizowania.</li>
       <li xml:lang="pt">Akregator - um leitor de notícias com funcionalidades poderosas de pesquisa e arquivo.</li>
       <li xml:lang="pt-BR">Akregator - um leitor de notícias com poderosos recursos de pesquisa e arquivamento.</li>
-      <li xml:lang="ru">Akregator ­— чтение новостей с расширенным поиском и возможностью архивирования.</li>
+      <li xml:lang="ru">Akregator — чтение новостей с расширенным поиском и возможностью архивирования.</li>
       <li xml:lang="sa">Akregator - शक्तिशालिनः अन्वेषणं संग्रहणकार्यक्षमतायुक्तः समाचारपाठकः ।</li>
       <li xml:lang="sk">Akregator - čítačka správ s výkonnými funkciami vyhľadávania a archivácie.</li>
       <li xml:lang="sl">Akregator - bralnik novic z zmogljivo funkcijo iskanja in arhiviranja.</li>
@@ -523,7 +524,7 @@
       <caption xml:lang="pl">KAddressBook zapewnia łatwy sposób na zarządzanie twoimi kontaktami</caption>
       <caption xml:lang="pt">O KAddressBook oferece uma forma simples de gerir os seus contactos</caption>
       <caption xml:lang="pt-BR">O KAddressBook fornece uma maneira fácil de gerenciar seus contatos</caption>
-      <caption xml:lang="ru">KAddressBook позволяет управлять контактами просто</caption>
+      <caption xml:lang="ru">KAddressBook позволяет легко управлять контактами</caption>
       <caption xml:lang="sa">KAddressBook भवतः सम्पर्कस्य प्रबन्धनस्य सुलभं मार्गं प्रदाति</caption>
       <caption xml:lang="sk">KAddressBook poskytuje jednoduchý spôsob, ako spravovať vaše kontakty.</caption>
       <caption xml:lang="sl">KAddressBook omogoča preprost način za upravljanje stikov</caption>
@@ -566,7 +567,7 @@
       <caption xml:lang="pl">Bądź na bieżąco z Akregatorem, naszym czytnikiem wieści</caption>
       <caption xml:lang="pt">Fique a par das novidades com o Akregator, o nosso leitor de notícias</caption>
       <caption xml:lang="pt-BR">Fique de olho no que há de novo com o Akregator, o nosso leitor de notícias</caption>
-      <caption xml:lang="ru">Узнавайте новости при помощи Akregator — программы для чтения новостей</caption>
+      <caption xml:lang="ru">Узнавайте новости при помощи Akregator — приложения для чтения новостей</caption>
       <caption xml:lang="sa">अस्माकं वार्तापाठकेन अक्रेगेटर् इत्यनेन सह नूतनस्य उपरि तिष्ठन्तु</caption>
       <caption xml:lang="sk">Zostaňte v obraze s novinkami s našou čítačkou správ Akregator.</caption>
       <caption xml:lang="sl">Bodite na sproti obveščeni z Akregatorjem našim bralnikom novic</caption>
