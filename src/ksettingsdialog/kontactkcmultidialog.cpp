@@ -21,13 +21,11 @@
 #include <QLayout>
 #include <QPushButton>
 #include <QScreen>
-#include <QStringList>
 #include <QStyle>
 #include <QUrl>
 
 #include <KDialogJobUiDelegate>
 #include <KGuiItem>
-#include <KIconUtils>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPageWidgetModel>
