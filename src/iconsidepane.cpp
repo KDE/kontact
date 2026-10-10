@@ -202,7 +202,7 @@ public:
             return;
         }
 
-        QStyleOptionViewItem opt(*static_cast<const QStyleOptionViewItem *>(&option));
+        QStyleOptionViewItem opt(option);
         // optionCopy.state |= QStyle::State_Active;
         opt.decorationPosition = QStyleOptionViewItem::Top;
         painter->save();
@@ -236,7 +236,7 @@ public:
             return {};
         }
 
-        QStyleOptionViewItem optionCopy(*static_cast<const QStyleOptionViewItem *>(&option));
+        QStyleOptionViewItem optionCopy(option);
         optionCopy.decorationPosition = QStyleOptionViewItem::Top;
 
         optionCopy.decorationSize = mNavigator->showIcons() ? QSize(mNavigator->iconDimension(), mNavigator->iconDimension()) : QSize();
