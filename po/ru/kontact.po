@@ -308,7 +308,7 @@ msgstr "Основная панель инструментов"
 #: src/kontactui.rc:46
 #, kde-format
 msgid "Navigator"
-msgstr "Календарь"
+msgstr "Навигация"
 
 #: src/main.cpp:99
 #, kde-format
