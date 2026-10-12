@@ -11,7 +11,7 @@ Dependencies:
     'pim/kontactinterface': '@same'
     'pim/libkdepim': '@same'
     'pim/pimcommon': '@same'
-    'libraries/ktextaddons': '@latest-kf6'
+    'libraries/ktextaddons': '1.9'
 
 Options:
  require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']
