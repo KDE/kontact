@@ -94,13 +94,13 @@
 <keyword
 >kdepim</keyword>
 <keyword
->K Posta</keyword>
+>KMail</keyword>
 <keyword
 >Organizatör</keyword>
 <keyword
->K Adres Defteri</keyword>
+>KAddressbook</keyword>
 <keyword
->Akregatör</keyword>
+>Akregator</keyword>
 <keyword
 >PIM</keyword>
 <keyword
@@ -255,7 +255,7 @@
 </screenshot>
 
 <para
->Ayrıca, &kontact;’ın başlattığı bileşeni geçersiz kılmanın iki yolu vardır. Birincisi, &kontact; program çağrısına bir argüman sağlamaktır (bkz. <xref linkend="command-line"/>). İkincisi ise &kontact;’ın yapılandırma iletişim kutusundaki bir ayardır; bu ayar, &kontact;’ı her zaman belirli bir kipte başlatmanıza olanak tanır.</para>
+>Ayrıca, &kontact;’in başlattığı bileşeni geçersiz kılmanın iki yolu vardır. Birincisi, &kontact; program çağrısına bir argüman sağlamaktır (bkz. <xref linkend="command-line"/>). İkincisi ise &kontact;’in yapılandırma iletişim kutusundaki bir ayardır; bu ayar, &kontact;’i her zaman belirli bir kipte başlatmanıza olanak tanır.</para>
 
 <para
 >Ona gitmek için <menuchoice
@@ -265,8 +265,8 @@
 >&kontact; Uygulamasını Yapılandır</guimenuitem
 ></menuchoice
 > yolunu izleyin ve listeden <guilabel
->Kontak</guilabel
->’ı seçin.</para>
+>Kontact</guilabel
+>’i seçin.</para>
 
 <screenshot>
 <screeninfo
@@ -357,7 +357,7 @@
 
 <screenshot>
 <screeninfo
->&kontact;’ın <guimenuitem
+>&kontact;’in <guimenuitem
 >Gezgin</guimenuitem
 > araç çubuğu</screeninfo>
 <mediaobject>
@@ -365,13 +365,13 @@
     <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
 <textobject>
 <phrase
->&kontact;’ın <guimenuitem
+>&kontact;’in <guimenuitem
 >Gezgin</guimenuitem
 > araç çubuğu</phrase>
 </textobject>
 <caption>
 <para
->&kontact;’ın <guimenuitem
+>&kontact;’in <guimenuitem
 >Gezgin</guimenuitem
 > araç çubuğu </para>
 </caption>
@@ -385,17 +385,17 @@
 
 <screenshot>
 <screeninfo
->&kontact;’ın Yeni menüsü</screeninfo>
+>&kontact;’in Yeni menüsü</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
 <textobject>
 <phrase
->&kontact;’ın Yeni menüsü</phrase>
+>&kontact;’in Yeni menüsü</phrase>
 </textobject>
 <caption>
 <para
->&kontact;’ın Yeni menüsü </para>
+>&kontact;’in Yeni menüsü </para>
 </caption>
 </mediaobject>
 </screenshot>
@@ -415,8 +415,8 @@
 
 <para
 ><ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
->&kmail;’in Üstbilgi panelinden</ulink
-> bir iletiyi &korganizer;’ün yapılacaklar listesine sürüklemek (<guiicon
+>&kmail;’in Üst Bilgi panelinden</ulink
+> bir iletiyi &korganizer;’ın yapılacaklar listesine sürüklemek (<guiicon
 ><inlinemediaobject
 ><imageobject
 > <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
@@ -448,8 +448,8 @@
 
 <para
 ><ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
->&kmail;’in Üstbilgi panelinden</ulink
-> bir iletiyi &korganizer;’ün takvimine sürüklemek (<guiicon
+>&kmail;’in Üst Bilgi panelinden</ulink
+> bir iletiyi &korganizer;’ın takvimine sürüklemek (<guiicon
 ><inlinemediaobject
 ><imageobject
 > <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
@@ -487,7 +487,7 @@
 
 <para
 ><ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
->&kmail;’in Üstbilgi panelinden</ulink
+>&kmail;’in Üst Bilgi panelinden</ulink
 > bir iletiyi &kaddressbook; simgesine sürüklemek (<guiicon
 ><inlinemediaobject
 ><imageobject
@@ -506,8 +506,8 @@
 
 <para
 ><ulink url="help:/kaddressbook/using-kaddressbook.html"
->&kaddressbook;’nin ana penceresinden</ulink
-> &korganizer;’ün yapılacaklar listesine (<guiicon
+>&kaddressbook;’un ana penceresinden</ulink
+> &korganizer;’ın yapılacaklar listesine (<guiicon
 ><inlinemediaobject
 ><imageobject
 > <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
@@ -529,8 +529,8 @@
 
 <para
 ><ulink url="help:/kaddressbook/using-kaddressbook.html"
->&kaddressbook;’nin ana penceresinden</ulink
-> &korganizer;’ün takvimine (<guiicon
+>&kaddressbook;’un ana penceresinden</ulink
+> &korganizer;’ın takvimine (<guiicon
 ><inlinemediaobject
 ><imageobject
 > <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
@@ -624,7 +624,7 @@ the data.</para-->
 
 <chapter id="configuration">
 <title
->&kontact;’ı Yapılandırmak</title>
+>&kontact;’i Yapılandırmak</title>
 
 <sect1 id="main-config">
 <title
@@ -635,7 +635,7 @@ the data.</para-->
 >Ayarlar</guimenu
 > menüsünden <guimenuitem
 >&kontact; Uygulamasını Yapılandır</guimenuitem
-> eylemini seçtiğinizde, &kontact; yapılandırma iletişim kutusu gösterilir. &kontact;’ın tüm etkin bileşenleri için bir yapılandırma seçenekleri listesi sunar. Bileşen adının yanındaki <guilabel
+> eylemini seçtiğinizde, &kontact; yapılandırma iletişim kutusu gösterilir. &kontact;’in tüm etkin bileşenleri için bir yapılandırma seçenekleri listesi sunar. Bileşen adının yanındaki <guilabel
 >&gt;</guilabel
 > sembolüne tıkladığınızda ağaç genişletilir ve böylece o bileşen için olan seçenekleri görebilirsiniz. Bir başlık altındaki yapılandırma seçeneklerinden birini seçmek, sağ tarafta o yapılandırma bölümünü açacaktır.</para>
 
@@ -699,7 +699,7 @@ the data.</para-->
 <para
 >&kontact; ayarları iletişim kutusunda <guilabel
 >Özetler</guilabel
-> bölümünü seçtiğinizde, &kontact;’ın hangi özet eklentilerini özet görünümünde göstermesi gerektiğini seçebileceğiniz bir sayfa açılır. İşte kullanılabilir eklentilerin ve neler yaptıklarının bir listesi: </para>
+> bölümünü seçtiğinizde, &kontact;’in hangi özet eklentilerini özet görünümünde göstermesi gerektiğini seçebileceğiniz bir sayfa açılır. İşte kullanılabilir eklentilerin ve neler yaptıklarının bir listesi: </para>
 
 <screenshot>
 <screeninfo
@@ -724,7 +724,7 @@ the data.</para-->
 >&kontact; Özet Eklentileri: Takvim</title>
 
 <para
->&kontact;’ın özet görünümü için olan <quote
+>&kontact;’in özet görünümü için olan <quote
 >Takvim</quote
 > eklentisi, <guilabel
 >Yaklaşan Etkinlikler</guilabel
@@ -754,7 +754,7 @@ the data.</para-->
 >&kontact; Özet Eklentileri: Posta</title>
 
 <para
->&kontact;’ın özet görünümü için olan <quote
+>&kontact;’in özet görünümü için olan <quote
 >Posta</quote
 > eklentisi, <guilabel
 >Yeni İletiler</guilabel
@@ -785,7 +785,7 @@ the data.</para-->
 >&kontact; Özet Eklentileri: Yapılacaklar Listesi</title>
 
 <para
->&kontact;’ın özet görünümü için olan <quote
+>&kontact;’in özet görünümü için olan <quote
 >Yapılacaklar Listesi</quote
 > eklentisi, <guilabel
 >Bekleyen Yapılacaklar</guilabel
@@ -815,11 +815,11 @@ the data.</para-->
 >&kontact; Özet Eklentileri: Özel Tarihler</title>
 
 <para
->&kontact;’ın özet görünümü için olan <quote
+>&kontact;’in özet görünümü için olan <quote
 >Özel Tarihler</quote
 > eklentisi, <guilabel
 >Yaklaşan Özel Tarihler</guilabel
-> için bir alan sunar. Bu alan, &kontact;’ın özet görünümü yapılandırmasında eklentinin yapılandırma alanında seçilen kriterlere dayalı bilgileri içerir. <quote
+> için bir alan sunar. Bu alan, &kontact;’in özet görünümü yapılandırmasında eklentinin yapılandırma alanında seçilen kriterlere dayalı bilgileri içerir. <quote
 >Özel Tarihler</quote
 > eklentisi özellikle kullanışlıdır; çünkü doğum günlerini, yıl dönümlerini, tatilleri ve özel günleri hem takvimden hem de kişi listesinden tek bir yerde görüntüleyebilir. </para>
 
@@ -851,7 +851,7 @@ the data.</para-->
 >Komut Satırında &kontact;</title>
 
 <para
->&kontact;’ta, belirli işlemler için kullanılabilecek çeşitli komut satırı argümanları bulunur.</para>
+>&kontact;’de, belirli işlemler için kullanılabilecek çeşitli komut satırı argümanları bulunur.</para>
 
 <para
 >Öncelikle &kontact;, bütün &kde-frameworks;/&Qt; uygulamalarının desteklediği tüm komut satırı argümanlarını destekler; qt6options ve kf6options için olan kılavuz (man) sayfalarına bakın. </para>
@@ -878,7 +878,7 @@ the data.</para-->
 > </para>
 
 <para
->Sonrasında, &kontact;’ı bir modül etkin olarak başlatmak için şunu yazın:</para>
+>Sonrasında, &kontact;’i bir modül etkin olarak başlatmak için şunu yazın:</para>
 
 <para
 ><prompt
@@ -901,7 +901,7 @@ the data.</para-->
 >Başlangıç ile İlgili Argümanlar</title>
 
 <para
->&kontact;’ı simge durumunda<footnote
+>&kontact;’i simge durumunda<footnote
 ><para
 >Simge durumu, simge durumuna küçültülmüş kip olarak da adlandırılır; bu kipte uygulama penceresi gizlenir ve uygulama yalnızca görev çubuğunda görünür.</para
 ></footnote
@@ -1014,7 +1014,7 @@ the data.</para-->
 
 <listitem
 ><para
->&kontact;’ın tümleştirdiği tüm uygulamaların değerli geliştiricileri. Neredeyse tüm işi onlar yapıyorlar.</para>
+>&kontact;’in tümleştirdiği tüm uygulamaların değerli geliştiricileri. Neredeyse tüm işi onlar yapıyorlar.</para>
     </listitem>
 </itemizedlist>
 
@@ -1060,7 +1060,7 @@ the data.</para-->
 >Uyumluluk Sorunları</title>
 
 <para
->Bu bölüm, &kontact;’ın çeşitli grup yazılım çözümleriyle etkili bir şekilde iletişim kurmasına nasıl yardımcı olunacağına dair bilgiler sunmaktadır. </para>
+>Bu bölüm, &kontact;’in çeşitli grup yazılım çözümleriyle etkili bir şekilde iletişim kurmasına nasıl yardımcı olunacağına dair bilgiler sunmaktadır. </para>
 
 <sect2 id="compat-outlook">
 <title
@@ -1103,7 +1103,7 @@ the data.</para-->
 <para
 >Davetiyeler normalde e-posta eki olarak gönderilir. Bu değişiklik, davetiyenin e-postanın metninde gönderilmesini sağlar; bu, Microsoft Outlook’a davetiye ve yanıt göndermek için gereklidir. Ancak, bunu yaptığınızda, e-posta programlarının okuyabileceği açıklayıcı metni artık alamazsınız; bu nedenle, davetiyeleri anlamayan e-posta programlarına sahip kişiler için ortaya çıkan iletiler çok garip görünür. Davetiyeleri anlayabilen e-posta programlarına sahip kişiler ise yine de bu şekilde çalışabilirler.</para>
 <para
->Ayrıntılar: Bir iCal davetiyesi gönderirken bu seçenek ileti gövdesini ek verisinden oluşturur ve Content-Type üstbilgisini “text/calendar; method=something; charset="utf-8"” olarak ayarlar.</para>
+>Ayrıntılar: Bir iCal davetiyesi gönderirken bu seçenek ileti gövdesini ek verisinden oluşturur ve Content-Type üst bilgisini “text/calendar; method=something; charset="utf-8"” olarak ayarlar.</para>
 <para
 >Kendiliğinden gönderme özelliği de açık olduğundan, oluşturma için insan müdahalesine gerek yoktur.</para>
 <note
@@ -1152,7 +1152,7 @@ the data.</para-->
 >Davranışsal Sorunlar</title>
 
 <para
->Bu bölümde, &kontact;’ın diğer grup yazılımı istemcilerine daha çok benzemesini sağlamak için yönergeler verilmektedir. </para>
+>Bu bölümde, &kontact;’in diğer grup yazılımı istemcilerine daha çok benzemesini sağlamak için yönergeler verilmektedir. </para>
 
 <sect2 id="behave-composing">
 <title
@@ -1174,7 +1174,7 @@ the data.</para-->
 >RFC Uzlaşmaları</title>
 
 <para
->&kontact;, çok çeşitli grup yazılım çözümleriyle olabilecek en iyi şekilde birlikte çalışacak şekilde tasarlanmıştır. Bu amaçla, &kontact;’ın büyük ölçüde dayandığı düşük düzeyli kitaplıkların temelini oluşturan çeşitli İnternet RFC’lerine ilişkin tasarımda bazen tavizler veriyoruz.</para>
+>&kontact;, çok çeşitli grup yazılım çözümleriyle olabilecek en iyi şekilde birlikte çalışacak şekilde tasarlanmıştır. Bu amaçla, &kontact;’in büyük ölçüde dayandığı düşük düzeyli kitaplıkların temelini oluşturan çeşitli İnternet RFC’lerine ilişkin tasarımda bazen tavizler veriyoruz.</para>
 
 <note
 ><para
