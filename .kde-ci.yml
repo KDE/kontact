@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
- - 'on': ['Linux', 'FreeBSD', 'Windows']
-   'require':
-    'frameworks/ktexttemplate': '@latest-kf6'
-    'frameworks/extra-cmake-modules': '@latest-kf6'
-    'frameworks/kiconthemes': '@latest-kf6'
-    'pim/grantleetheme': '@same'
-    'pim/kontactinterface': '@same'
-    'pim/libkdepim': '@same'
-    'pim/pimcommon': '@same'
-    'libraries/ktextaddons': '@latest-kf6'
+  - 'on': ['Linux', 'FreeBSD', 'Windows']
+    'require':
+      'frameworks/ktexttemplate': '@latest-kf6'
+      'frameworks/extra-cmake-modules': '@latest-kf6'
+      'frameworks/kiconthemes': '@latest-kf6'
+      'pim/grantleetheme': '@same'
+      'pim/kontactinterface': '@same'
+      'pim/libkdepim': '@same'
+      'pim/pimcommon': '@same'
+      'libraries/ktextaddons': '@latest-kf6'
 
 Options:
- require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']
- cppcheck-arguments: '--enable=warning,performance,portability,style --suppress-xml=cppcheck-suppressions.xml'
- require-cppcheck-clean: false
- enable-lsan: true
+  require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']
+  cppcheck-arguments: '--enable=warning,performance,portability,style --suppress-xml=cppcheck-suppressions.xml'
+  require-cppcheck-clean: false
+  enable-lsan: true
