@@ -28,7 +28,6 @@ IntroductionWebEnginePage::IntroductionWebEnginePage(QObject *parent)
     // settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, false);
 
     settings()->setAttribute(QWebEngineSettings::ScreenCaptureEnabled, false);
-    settings()->setAttribute(QWebEngineSettings::WebGLEnabled, false);
     settings()->setAttribute(QWebEngineSettings::AutoLoadIconsForPage, false);
     settings()->setAttribute(QWebEngineSettings::Accelerated2dCanvasEnabled, false);
     settings()->setAttribute(QWebEngineSettings::WebGLEnabled, false);
