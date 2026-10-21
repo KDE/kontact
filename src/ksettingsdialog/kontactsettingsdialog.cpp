@@ -11,11 +11,9 @@
 #include "kontactsettingsdialog_p.h"
 
 #include <KLocalizedString>
-#include <KPluginMetaData>
 #include <KSharedConfig>
 
 #include <QLabel>
-#include <QPushButton>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;

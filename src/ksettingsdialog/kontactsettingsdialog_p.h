@@ -11,7 +11,8 @@
 #include "kontactkcmultidialog_p.h"
 #include "kontactsettingsdialog.h"
 
-#include <QString>
+#include <KPluginMetaData>
+#include <QStringList>
 
 class KontactSettingsDialogPrivate : public KontactKCMultiDialogPrivate
 {

@@ -9,13 +9,10 @@
 
 #pragma once
 
-#include <QScrollArea>
-#include <QScrollBar>
-
 #include <KPageDialog>
-#include <KPluginMetaData>
 
 class KontactKCMultiDialogPrivate;
+class KPluginMetaData;
 
 /**
  * @short A class that offers a KPageDialog containing arbitrary
@@ -114,38 +111,4 @@ protected Q_SLOTS:
 private:
     Q_PRIVATE_SLOT(d_func(), void _k_slotCurrentPageChanged(KPageWidgetItem *, KPageWidgetItem *))
     Q_PRIVATE_SLOT(d_func(), void _k_clientChanged())
-};
-
-/**
- * @brief Custom QScrollArea class that doesn't limit its size hint
- *
- * See original QScrollArea::sizeHint() function,
- * where the size hint is bound by 36*24 font heights
- *
- * Workaround for https://bugreports.qt.io/browse/QTBUG-10459
- */
-
-class UnboundScrollArea : public QScrollArea
-{
-    Q_OBJECT
-public:
-    QSize sizeHint() const override
-    {
-        if (widget()) {
-            // Try to avoid horizontal scrollbar, which just scrolls a scrollbar width.
-            // We always need to reserve space for the vertical scroll bar,
-            // because we can’t know here whether vertical scrolling will be used.
-            QSize withScrollbar = widget()->sizeHint();
-            withScrollbar.rwidth() += verticalScrollBar()->sizeHint().width() + 4;
-            return withScrollbar;
-        } else {
-            return QScrollArea::sizeHint();
-        }
-    }
-
-    explicit UnboundScrollArea(QWidget *w)
-        : QScrollArea(w)
-    {
-    }
-    ~UnboundScrollArea() override = default;
 };

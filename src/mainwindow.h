@@ -10,10 +10,9 @@
 
 #pragma once
 
-#include "config-kontact.h"
 #include "kontact_export.h"
+#include <KPluginMetaData>
 #include <KontactInterface/Core>
-#include <KontactInterface/Plugin>
 
 class KActionMenu;
 class KSqueezedTextLabel;
@@ -23,6 +22,10 @@ class QStackedWidget;
 class IntroductionWebEngineView;
 class KToggleFullScreenAction;
 class KToggleAction;
+namespace KontactInterface
+{
+class Plugin;
+}
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
 namespace TextAddonsWidgets
@@ -142,5 +145,3 @@ private:
 #endif
 };
 }
-
-Q_DECLARE_METATYPE(KontactInterface::Plugin *)

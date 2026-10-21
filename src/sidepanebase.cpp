@@ -8,10 +8,9 @@
 */
 
 #include "sidepanebase.h"
-using namespace Kontact;
 
-#include <KontactInterface/Core>
 #include <QVBoxLayout>
+using namespace Kontact;
 
 SidePaneBase::SidePaneBase(KontactInterface::Core *core, QWidget *parent)
     : QWidget(parent)

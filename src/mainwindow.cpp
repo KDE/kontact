@@ -16,12 +16,8 @@
 #include "kontactconfiguredialog.h"
 #include "prefs.h"
 #include "webengine/introductionwebengineview.h"
+#include <KontactInterface/Plugin>
 using namespace Kontact;
-#ifdef WIN32
-#include <windows.h>
-#else
-#include <unistd.h>
-#endif
 #include <Libkdepim/ProgressStatusBarWidget>
 #include <Libkdepim/StatusbarProgressWidget>
 #include <PimCommon/BroadcastStatus>
@@ -41,6 +37,7 @@ using namespace Kontact;
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KParts/PartManager>
+#include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KSharedConfig>
 #include <KShortcutsDialog>
@@ -52,17 +49,18 @@ using namespace Kontact;
 #include <KXMLGUIFactory>
 #include <QAction>
 #include <QApplication>
+#include <QCursor>
 #include <QDBusConnection>
+#include <QDate>
 #include <QFontDatabase>
-#include <QHBoxLayout>
 #include <QIcon>
 #include <QMenuBar>
 #include <QPointer>
-#include <QShortcut>
+#include <QSet>
 #include <QSplitter>
 #include <QStackedWidget>
-#include <QStandardPaths>
 #include <QStatusBar>
+#include <QToolButton>
 #include <QVBoxLayout>
 #include <QWebEngineUrlScheme>
 
@@ -77,6 +75,7 @@ using namespace Kontact;
 #ifdef Q_OS_UNIX
 #include <KSignalHandler>
 #include <csignal>
+#include <cstdio>
 #endif
 
 using namespace Qt::Literals::StringLiterals;

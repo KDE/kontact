@@ -20,6 +20,7 @@ using namespace Kontact;
 #include <QCheckBox>
 #include <QHBoxLayout>
 #include <QStandardItemModel>
+#include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
 

@@ -10,7 +10,7 @@
 
 #include "kontactkcmultidialog.h"
 #include <QList>
-#include <QStringList>
+#include <QString>
 
 class KCModule;
 class KPageWidgetItem;

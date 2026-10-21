@@ -13,19 +13,12 @@
 
 #include <QListView>
 
-namespace KontactInterface
-{
-class Core;
-class Plugin;
-}
-
 class QAction;
 
 namespace Kontact
 {
 class Model;
 class MainWindow;
-class Navigator;
 
 class Navigator : public QListView
 {
