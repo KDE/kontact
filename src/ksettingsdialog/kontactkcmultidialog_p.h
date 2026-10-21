@@ -26,8 +26,6 @@ protected:
 
     virtual ~KontactKCMultiDialogPrivate() = default;
 
-    KCModule *currentModule = nullptr;
-
     struct CreatedModule {
         KCModule *kcm = nullptr;
         KPageWidgetItem *item = nullptr;
