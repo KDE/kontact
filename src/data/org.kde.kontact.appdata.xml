@@ -641,6 +641,20 @@
       <description>
         <ul>
           <li>Add Akonadi MCP server.</li>
+          <li xml:lang="bg">Добавяне на Akonadi MCP сървър.</li>
+          <li xml:lang="ca">Afegeix un servidor MCP d'Akonadi.</li>
+          <li xml:lang="ca-valencia">Afig un servidor MCP d'Akonadi.</li>
+          <li xml:lang="cs">Přidán server Akonadi MCP.</li>
+          <li xml:lang="es">Añadir servidor MCP de Akonadi.</li>
+          <li xml:lang="it">Aggiungi il server MCP di Akonadi.</li>
+          <li xml:lang="ka">Akonadi-ის MCP სერვერის დამატება.</li>
+          <li xml:lang="nl">Akonadi MCP-server toevoegen.</li>
+          <li xml:lang="pt-BR">Adicionar servidor MCP do Akonadi</li>
+          <li xml:lang="ru">Добавление сервера MCP для Akonadi.</li>
+          <li xml:lang="sk">Pridaný server MCP pre Akonadi.</li>
+          <li xml:lang="sl">Dodaj strežnik Akonadi MCP.</li>
+          <li xml:lang="tr">Akonadi için MCP sunucusu eklendi.</li>
+          <li xml:lang="uk">Додано сервер MCP Akonadi.</li>
         </ul>
       </description>
     </release>
