@@ -344,7 +344,7 @@ msgstr "Gestor de la informació personal per a KDE"
 #: src/main.cpp:159
 #, kde-format
 msgid "Copyright © 2001–%1 Kontact authors"
-msgstr "Copyright © 2001-%1, els autors de Kontact"
+msgstr "Drets d'autoria © 2001-%1, els autors de Kontact"
 
 #: src/main.cpp:163
 #, kde-format
