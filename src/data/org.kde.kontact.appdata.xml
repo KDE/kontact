@@ -641,6 +641,7 @@
       <description>
         <ul>
           <li>Add Akonadi MCP server.</li>
+          <li xml:lang="ar">إضافة خادم أكونادي MCP.</li>
           <li xml:lang="bg">Добавяне на Akonadi MCP сървър.</li>
           <li xml:lang="ca">Afegeix un servidor MCP d'Akonadi.</li>
           <li xml:lang="ca-valencia">Afig un servidor MCP d'Akonadi.</li>
