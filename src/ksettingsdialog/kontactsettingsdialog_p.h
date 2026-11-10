@@ -20,7 +20,7 @@ class KontactSettingsDialogPrivate : public KontactKCMultiDialogPrivate
 protected:
     explicit KontactSettingsDialogPrivate(KontactSettingsDialog *parent);
 
-    QList<QPair<KPluginMetaData, QList<KPluginMetaData>>> componentsMetaData;
+    QList<std::pair<KPluginMetaData, QList<KPluginMetaData>>> componentsMetaData;
     bool firstshow = true;
 
     KPageWidgetItem *createPageItem(KPageWidgetItem *parentItem, const QString &name, const QString &comment, const QString &iconName);
