@@ -1,0 +1,1210 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+ "dtd/kdedbx45.dtd" [
+  <!ENTITY PIM "<acronym
+>PIM</acronym
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE">
+]>
+
+<book id="kontact" lang="&language;">
+
+<bookinfo>
+
+<title
+>دليل متراسلك</title>
+
+<authorgroup>
+<author
+><firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+><address
+>&Cornelius.Schumacher.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Antonio</firstname
+> <surname
+>Salazar</surname
+> <affiliation
+><address
+><email
+>savedfastcool@gmail.com</email>
+    </address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+><address
+>&Daniel.Molkentin.mail;</address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+
+<copyright>
+<year
+>2003-2005</year
+><holder
+>&Cornelius.Schumacher;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2025-12-11</date>
+<releaseinfo
+>6.6.0 (ترس كيدي 21.12)</releaseinfo>
+
+<abstract
+><para
+>متراسلك هو الحل المتكامل لاحتياجات إدارة المعلومات الشخصية (&PIM;). فهو يجمع تطبيقات كيدي المعروفة مثل بريدك ومنظمك ودفتر عناوينك في واجهة واحدة لتوفير وصول سهل إلى البريد والجدولة ودليل العناوين ووظائف &PIM; الأخرى.</para
+></abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>بريدك</keyword>
+<keyword
+>المنظّم</keyword>
+<keyword
+>دفتر عناوينك</keyword>
+<keyword
+>أكريغاتور</keyword>
+<keyword
+>إدارة المعلومات الشخصية </keyword>
+<keyword
+>برامج المجموعات</keyword>
+<keyword
+>أوتلوك</keyword>
+<keyword
+>إيفُليوشن</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+
+<para
+>متراسلك هو الحل المتكامل لإدارة المعلومات الشخصية. فهو يجمع تطبيقات كيدي المعروفة للبريد الإلكتروني والجدولة ودليل العناوين (بريدك ومنظمك ودفتر عناوينك) في واجهة واحدة. نظرًا لكونه مبنيًا على إطار عمل مكونات حقيقي، يوفر متراسلك نفس الوظائف تمامًا مثل التطبيقات المستقلة، ويضيف المزيد من الميزات بالاستفادة من الطريقة المتكاملة التي يدير بها متراسلك التطبيقات كمكونات. لا يزال المستخدمون يحتفظون بخيار أي التطبيقات تُشغل داخل متراسلك وأيها تُشغل بشكل مستقل.</para>
+
+<para
+>بالإضافة إلى وظائف التطبيقات الفردية، يوفر متراسلك عرضًا ملخصًا وميزات متقدمة للسحب والإفلات بين المكونات. </para>
+
+</chapter>
+
+
+<chapter id="components">
+<title
+>مكونات متراسلك</title>
+
+<para
+>يدمج متراسلك التطبيقات التالية. راجع أدلة التطبيقات الفردية للحصول على تفاصيل حول كيفية استخدامها. تنطبق هذه التعليمات على تشغيلها كمكونات داخل متراسلك تمامًا كما تنطبق على تشغيلها بشكل مستقل. </para>
+
+<variablelist>
+    <varlistentry>
+        <term
+><ulink url="help:/kmail2"
+>بريدك</ulink
+></term>
+        <listitem
+><para
+>عميل بريد لكِيدِي</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/korganizer"
+>منظمك</ulink
+></term>
+        <listitem
+><para
+>تطبيق التقويم والجدولة في كيدي.</para>
+            </listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/kaddressbook"
+>دفتر عناوينك</ulink
+></term>
+        <listitem
+><para
+>مدير جهات الاتصال في كيدي.</para
+></listitem>
+    </varlistentry>
+    <varlistentry>
+        <term
+><ulink url="help:/akregator"
+>أكريغاتور</ulink
+></term>
+        <listitem
+><para
+>قارئ خلاصات RSS في كيدي.</para>
+            </listitem>
+    </varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="main-window">
+<title
+>النافذة الرئيسة لـ متراسلك</title>
+
+<para
+>تتكون النافذة الرئيسة من لوحة جانبية على اليسار تعرض أيقونات المكونات المتاحة، وعرض رئيس على اليمين يحتوي على النافذة الرئيسة للمكون النشط، وأشرطة القوائم والأدوات والحالة المعتادة.</para>
+
+<sect1 id="side-pane">
+<title
+>اللوحة الجانبية</title>
+
+<para
+>تخدم اللوحة الجانبية أغراضًا متعددة. فهي تسمح بالتبديل بين المكونات، وتظهر أي مكون نشط، وتعمل كهدف لعمليات السحب والإفلات إلى التطبيقات المختلفة.</para>
+
+<screenshot>
+<screeninfo
+>اللوحة الجانبية لـ متراسلك</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="side-pane.png"/></imageobject>
+<textobject>
+<phrase
+>اللوحة الجانبية لـ متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>اللوحة الجانبية لـ متراسلك </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>للتبديل بين المكونات، ببساطة انقر على الأيقونة المقابلة. تُعرض النافذة الرئيسة للمكون وتُعدل أشرطة القوائم والأدوات والحالة لتعكس وظائف المكون النشط. إذا فعّلت مكونًا لأول مرة، فقد يكون هناك تأخير بسيط حتى يتغير العرض الرئيس، لأن المكونات تُحمّل عند الطلب. هذا يعني أنك لا تهدر الذاكرة على المكونات غير المستخدمة.</para>
+
+<para
+>يمكن أيضًا استخدام الأيقونات في اللوحة الجانبية كأهداف لعمليات السحب والإفلات. على سبيل المثال، يمكنك سحب رسالة بريد من جزء البريد وإفلاتها على أيقونة قائمة المهام أو التقويم لإنشاء مهمة أو حدث مرتبط بهذا البريد.</para>
+
+<para
+>أخيرًا، يمكنك تغيير حجم الأيقونات في اللوحة الجانبية. النقر بزر الفأرة الأيمن على اللوحة الجانبية سيمنحك خيار استخدام أيقونات كبيرة أو عادية أو صغيرة، بالإضافة إلى خيار استخدام النص فقط بدلًا من الأيقونات.</para>
+
+<para
+>إذا كنت لا تحب اللوحة الجانبية، يمكنك ببساطة إخفاؤها بسحب الفاصل. يتم توفير تنقل بديل بين الأجزاء بواسطة شريط أدوات <guilabel
+>المتصفح</guilabel
+>، والذي يمكن وضعه بحرية. راجع <xref linkend="bars"/> لمزيد من المعلومات حول شريط أدوات <guilabel
+>المتصفح</guilabel
+>.</para>
+
+</sect1>
+
+
+<sect1 id="main-view">
+
+<title
+>النافذة الرئيسة</title>
+
+<para
+>العرض على اليمين الذي يشغل معظم مساحة النافذة الرئيسة لـ متراسلك يظهر المكون النشط. هذا يتوافق تمامًا مع النافذة الرئيسة التي يستخدمها المكون عند تشغيله كتطبيق مستقل. تشير الأيقونة المميزة في اللوحة الجانبية إلى أي تطبيق ينتمي العرض الرئيس. يتذكر متراسلك المكون النشط عند الخروج، لذلك في المرة التالية التي يبدأ فيها متراسلك يعرض ذلك المكون في البداية في العرض الرئيس.</para>
+
+<screenshot>
+<screeninfo
+>العرض الرئيس لـ متراسلك</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="main-view.png"/></imageobject>
+<textobject>
+<phrase
+>العرض الرئيس لـ متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>العرض الرئيس لـ متراسلك</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>بالإضافة إلى ذلك، هناك طريقتان لتجاوز المكون الذي يبدأ به متراسلك. الأولى هي توفير وسيطة لاستدعاء برنامج متراسلك (راجع <xref linkend="command-line"/>). الثانية هي إعداد في مربع حوار إعدادات متراسلك سيسمح لك دائمًا ببدء متراسلك في وضع معين.</para>
+
+<para
+>للوصول إليه، اذهب إلى <menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>اضبط متراسلك</guimenuitem
+></menuchoice
+> وانقر على <guilabel
+>كونتاكت</guilabel
+> في القائمة.</para>
+
+<screenshot>
+<screeninfo
+>إعداد المكون البادئ لـ متراسلك</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-starting-component.png"/></imageobject>
+<textobject>
+<phrase
+>إعداد المكون البادئ لـ متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>إعداد المكون البادئ لـ متراسلك</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="bars">
+<title
+>أشرطة القوائم والأدوات والحالة</title>
+
+<para
+>تُعدل أشرطة القوائم والأدوات والحالة وفقًا للمكون النشط. هذا يعني أنه بالإضافة إلى بعض الوظائف المشتركة مثل قائمة المساعدة التي تظهر لجميع المكونات، هناك إجراءات تُبدّل عند تبديل المكون النشط. هذه الإجراءات المتاحة لكل مكون هي نفسها المتاحة عند تشغيل التطبيق بشكل مستقل.</para>
+
+<screenshot>
+<screeninfo
+>عروض أشرطة القوائم في متراسلك في عرض الملخص وعرض البريد وعرض التقويم</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-summary.png"/></imageobject>
+<textobject>
+<phrase
+>عروض أشرطة القوائم في متراسلك في عرض الملخص وعرض البريد وعرض التقويم</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>عروض أشرطة القوائم في متراسلك في عرض الملخص وعرض البريد وعرض التقويم</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-kmail.png"/></imageobject>
+<textobject>
+<phrase
+>عروض أشرطة القوائم في متراسلك في عرض الملخص وعرض البريد وعرض التقويم</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo
+>عروض أشرطة القوائم في متراسلك في عرض الملخص وعرض البريد وعرض التقويم</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="menu-bar-korganizer.png"/></imageobject>
+<textobject>
+<phrase
+>عروض أشرطة القوائم في متراسلك في عرض الملخص وعرض البريد وعرض التقويم</phrase>
+</textobject>
+<caption>
+<para
+>عروض أشرطة القوائم في متراسلك في عرض الملخص وعرض البريد وعرض التقويم. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>بالإضافة إلى ذلك، يمكن لـ متراسلك إظهار شريط أدوات <guilabel
+>المتصفح</guilabel
+>، الذي يتيح لك الوصول إلى مكونات متراسلك تمامًا كما تفعل اللوحة الجانبية. ومع ذلك، على عكس اللوحة الجانبية، لا يمكن استخدام الأزرار في شريط أدوات <guilabel
+>المتصفح</guilabel
+> لعمليات السحب والإفلات إلى المكونات الأخرى.</para>
+
+<para
+>لتفعيل شريط الأدوات، اختر <menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guisubmenu
+>أشرطة الأدوات المعروضة</guisubmenu
+> <guimenuitem
+>المتصفح</guimenuitem
+></menuchoice
+>. </para>
+
+<screenshot>
+<screeninfo
+>شريط أدوات <guimenuitem
+>المتصفح</guimenuitem
+> في متراسلك.</screeninfo>
+<mediaobject>
+<imageobject>
+    <imagedata format="PNG" fileref="navigator-bar-kontact.png"/></imageobject>
+<textobject>
+<phrase
+>شريط أدوات <guimenuitem
+>المتصفح</guimenuitem
+> في متراسلك.</phrase>
+</textobject>
+<caption>
+<para
+>شريط أدوات <guimenuitem
+>المتصفح</guimenuitem
+> في متراسلك. </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>الإجراء الخاص المشترك بين جميع المكونات هو إجراء <guimenuitem
+>جديد</guimenuitem
+>. يسمح بإنشاء كائنات جديدة تشمل رسائل البريد الإلكتروني والمتراسلين والمواعيد والمهام بغض النظر عن المكون النشط. يُبدأ المكون المسؤول عن معالجة الكائن المحدد، إذا لزم الأمر، ويتولى الكائن المُنشأ.</para>
+
+<screenshot>
+<screeninfo
+>قائمة جديد في متراسلك</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="new-menu.png"/></imageobject>
+<textobject>
+<phrase
+>قائمة جديد في متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>قائمة جديد في متراسلك </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="side-pane-drag-and-drop">
+<title
+>وظيفة السحب والإفلات</title>
+
+<para
+>يوفر متراسلك وظيفة سحب وإفلات متقدمة بين البرامج التي يحتويها. فيما يلي وصف موجز لكل عملية سحب وإفلات محددة يمكن استخدامها ونتيجة كل منها.</para>
+
+<sect2 id="side-pane-drag-and-drop-kmail-todo">
+<title
+>بريدك -&gt; قائمة المهام في منظمك</title>
+
+<para
+>سحب رسالة من <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>جزء الرؤوس في بريدك</ulink
+> إلى أيقونة قائمة المهام في منظمك (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) سينشئ مهمة جديدة بعنوان <guilabel
+>بريد: <replaceable
+>الموضوع</replaceable
+></guilabel
+> ومحتوى <guilabel
+>من: <replaceable
+>المرسل</replaceable
+> إلى: <replaceable
+>المستلم</replaceable
+> الموضوع: <replaceable
+>الموضوع</replaceable
+></guilabel
+> (حيث النص الذي يبدو <guilabel
+><replaceable
+>مثل هذا</replaceable
+></guilabel
+> هو معلومات من الرسالة نفسها)، بالإضافة إلى رسالة البريد الإلكتروني نفسها كمرفق. </para>
+
+</sect2>
+
+<sect2 id="side-pane-drag-and-drop-kmail-calendar">
+<title
+>بريدك -&gt; التقويم في منظمك</title>
+
+<para
+>سحب رسالة من <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>جزء الرؤوس في بريدك</ulink
+> إلى أيقونة التقويم في منظمك (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) سينشئ حدثًا جديدًا بعنوان <guilabel
+>بريد: <replaceable
+>الموضوع</replaceable
+></guilabel
+> ومحتوى <guilabel
+>من: <replaceable
+>المرسل</replaceable
+> إلى: <replaceable
+>المستلم</replaceable
+> الموضوع: <replaceable
+>الموضوع</replaceable
+></guilabel
+> (حيث النص الذي يبدو <guilabel
+><replaceable
+>مثل هذا</replaceable
+></guilabel
+> هو معلومات من الرسالة نفسها)، بالإضافة إلى رسالة البريد الإلكتروني نفسها كمرفق. </para>
+
+<para
+>لاحظ أن السحب على زر المهام ينشئ مهمة، بينما السحب على التقويم ينشئ حدثًا. مزيد من التفاصيل حول هذا التمييز متوفرة في <ulink url="help:/korganizer"
+>وثائق منظمك</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kmail-contacts">
+<title
+>بريدك -&gt; دفتر عناوينك</title>
+
+<para
+>سحب رسالة من <ulink url="help:/kmail2/using-kmail.html#the-mail-reader-window"
+>جزء الرؤوس في بريدك</ulink
+> إلى أيقونة دفتر عناوينك (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="kaddressbook-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) سينشئ متراسلًا من عنوان البريد الإلكتروني للمرسل، ما لم يكن هناك متراسل بهذا الاسم موجودًا بالفعل. يُعلمك مربع حوار بهذا الإجراء. </para>
+
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-todo">
+<title
+>دفتر عناوينك -&gt; قائمة المهام في منظمك</title>
+
+<para
+>سحب أي عدد من الإدخالات من <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>النافذة الرئيسة في دفتر عناوينك</ulink
+> إلى أيقونة قائمة المهام في منظمك (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="todo-list-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) سينشئ مهمة جديدة بعنوان &quot;اجتماع&quot; والمتراسلين المحددين كحاضرين. </para>
+
+<para
+>لاحظ أن السحب على زر المهام ينشئ مهمة، بينما السحب على التقويم ينشئ حدثًا. مزيد من التفاصيل حول هذا التمييز متوفرة في <ulink url="help:/korganizer"
+>وثائق منظمك</ulink
+> </para>
+
+</sect2>
+
+
+<sect2 id="side-pane-drag-and-drop-kaddressbook-calendar">
+<title
+>دفتر عناوينك -&gt; التقويم في منظمك</title>
+
+<para
+>سحب أي عدد من الإدخالات من <ulink url="help:/kaddressbook/using-kaddressbook.html"
+>النافذة الرئيسة في دفتر عناوينك</ulink
+> إلى أيقونة التقويم في منظمك (<guiicon
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="calendar-sidebar-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></guiicon
+>) سينشئ حدثًا جديدًا بعنوان &quot;اجتماع&quot; والمتراسلين المحددين كحاضرين. </para>
+
+<para
+>لاحظ أن السحب على زر المهام ينشئ مهمة، بينما السحب على التقويم ينشئ حدثًا. مزيد من التفاصيل حول هذا التمييز متوفرة في <ulink url="help:/korganizer"
+>وثائق منظمك</ulink
+> </para>
+
+</sect2>
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="summary-view">
+<title
+>عرض الملخص</title>
+
+<para
+>العرض المبدئي عند بدء متراسلك لأول مرة هو عرض الملخص. يعرض نظرة عامة على المعلومات الأكثر صلة التي توفرها مكونات متراسلك المحددة. يمكن أن تكون هذه مواعيد أو أعياد ميلاد وشيكة، أو مهام مستحقة، أو رسائل جديدة، إلخ. أي المعلومات تُعرض قابل للضبط باختيار المكونات المقابلة في <link linkend="configuration"
+>حوار تهيئة متراسلك</link
+>.</para>
+
+<screenshot>
+<screeninfo
+>عرض الملخص في متراسلك</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view.png"/></imageobject>
+<textobject>
+<phrase
+>عرض الملخص في متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>عرض الملخص في متراسلك </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<!-- not in kde4 para
+>If you think the information you see is outdated, you can click on the
+<guibutton
+>Refresh</guibutton
+> button (<guiicon
+><inlinemediaobject
+><imageobject>
+<imagedata fileref="summary-view-refresh-button.png" format="PNG"/>
+</imageobject
+></inlinemediaobject
+></guiicon
+>)
+in the Summary View toolbar to refresh
+the data.</para-->
+
+<sect1 id="summary-view-component-reposition">
+<title
+>إعادة وضع مكونات عرض الملخص</title>
+
+<para
+>تتيح لك طريقة العرض الموجزة تغيير مواضع المكونات في طريقة العرض نفسها. لذا، إذا كنت تفضل وضع التواريخ الخاصة في الأسفل يسارًا والمهام في الأعلى يمينًا، يمكنك إعادة ترتيب طريقة العرض الموجزة لتعكس ذلك.</para>
+
+<para
+>إعادة وضع المكونات في طريقة العرض الموجزة بسيطة كسحبها إلى الموقع الجديد الذي تريده. اضغط مع الاستمرار على مفتاح &Ctrl;، وانقر مع الاستمرار على منطقة العنوان الرمادية للمكون واسحبه إلى أي مكان تريده. لاحظ أن هذا التموضع يتم مقارنةً بالمكونات الأخرى. لذا يمكنك نقل مكون البريد ليكون أسفل مكون المهام في طريقة العرض، لكن لا يمكنك وضعه في موضع محدد. إذا كان لديك مكون واحد فقط في طريقة العرض الموجزة، فالخيار الوحيد هو نقله بين العمودين في طريقة العرض؛ أما مكونان فيمكن أن يكونا اثنين في عمود واحد أو واحد في كل عمود؛ وهكذا دواليك. كلما سحبت مكونًا، سترى مربع معاينة صغيرًا يتبع مؤشر الفأرة يظهر لك المكون.</para>
+
+<screenshot>
+<screeninfo
+>إعادة ترتيب طريقة العرض الموجزة لـ متراسلك</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="summary-view-repositioning.png"/></imageobject>
+<textobject>
+<phrase
+>إعادة ترتيب طريقة العرض الموجزة لـ متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>إعادة ترتيب طريقة العرض الموجزة لـ متراسلك </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title
+>ضبط متراسلك</title>
+
+<sect1 id="main-config">
+<title
+>نافذة ضبط متراسلك</title>
+
+<para
+>عند اختيار إجراء <guimenuitem
+>اضبط متراسلك</guimenuitem
+> من قائمة <guimenu
+>الإعدادات</guimenu
+>، يُعرض حوار ضبط متراسلك. يوفر قائمة بضبطات جميع المكونات النشطة لـ متراسلك. يمكنك النقر على رمز <guilabel
+>&gt;</guilabel
+> بجانب اسم المكون لتوسيع الشجرة لعرض خيارات ذلك المكون. اختيار أحد خيارات الضبط تحت عنوان سيعرض قسم الضبط ذلك على اليمين.</para>
+
+<screenshot>
+<screeninfo
+>نافذة ضبط متراسلك</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata format="PNG" fileref="configuration-main.png"/></imageobject>
+<textobject>
+<phrase
+>نافذة ضبط متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>نافذة ضبط متراسلك </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para
+>بتحديد المربع بجانب عنوان المكون، تختار المكون ليكون مرئيًا في اللوحة الجانبية وطريقة العرض الموجزة. يُحمّل المكون ويُعرض في النافذة الرئيسة عند النقر على أيقونته في اللوحة الجانبية. بإلغاء تحديد المربع، يُزال المكون من اللوحة الجانبية وطريقة العرض الموجزة. تصبح التغييرات سارية المفعول بالنقر على الزر <guibutton
+>طبّق</guibutton
+> أو <guibutton
+>موافق</guibutton
+>.</para>
+
+<para
+>يمكنك أيضًا ضبط المكونات الفردية بالنقر على الأيقونة المقابلة في اللوحة الجانبية ثم اختيار عنصر القائمة <guimenuitem
+>اضبط <replaceable
+>اسم التطبيق</replaceable
+></guimenuitem
+> من قائمة <guimenu
+>الإعدادات</guimenu
+>.</para>
+
+<screenshot>
+<screeninfo
+>قائمة إعدادات متراسلك عند تحديد بريدك</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="settings-menu-kmail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>قائمة إعدادات متراسلك عند تحديد بريدك</phrase>
+</textobject>
+<caption>
+<para
+>قائمة إعدادات متراسلك عند تحديد بريدك </para>
+</caption>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="summary-view-config">
+<title
+>ضبط طريقة العرض الموجزة لـ متراسلك</title>
+
+<para
+>عند اختيار <guilabel
+>الموجزات</guilabel
+> في حوار ضبط متراسلك، تُعرض صفحة تتيح لك اختيار ملحقات الموجز التي يجب أن يعرضها متراسلك في طريقة عرضه الموجزة. إليك قائمة مختصرة بالملحقات المتاحة حاليًا وما تفعله: </para>
+
+<screenshot>
+<screeninfo
+>اختيار الملخّصات</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-selection.png"/>
+</imageobject>
+<textobject>
+<phrase
+>اختيار الملخّصات</phrase>
+</textobject>
+<caption
+><para
+>اختيار الملخّصات</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="summary-view-config-calendar">
+<title
+>ملحقات موجز متراسلك: التقويم</title>
+
+<para
+>يضيف ملحق <quote
+>التقويم</quote
+> لطريقة العرض الموجزة لـ متراسلك منطقة في طريقة العرض موسومة بـ <guilabel
+>الأحداث القادمة</guilabel
+>. سيعرض هذا أي أحداث تنطبق حاليًا. </para>
+
+<screenshot>
+<screeninfo
+>ملحق موجز التقويم لـ متراسلك</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-calendar.png"/>
+</imageobject>
+<textobject>
+<phrase
+>ملحق موجز التقويم لـ متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>ملحق موجز التقويم لـ متراسلك </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-mail">
+<title
+>ملحقات موجز متراسلك: البريد</title>
+
+<para
+>يضيف ملحق <quote
+>البريد</quote
+> لطريقة العرض الموجزة لـ متراسلك منطقة في طريقة العرض موسومة بـ <guilabel
+>الرسائل الجديدة</guilabel
+>. تُحدّث هذه المنطقة كلما استقبلت رسائل جديدة لإعلامك بعدد هذه الرسائل والمجلد الذي توجد فيه. </para>
+
+<screenshot>
+<screeninfo
+>ملحق موجز البريد لـ متراسلك</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-mail.png"/>
+</imageobject>
+<textobject>
+<phrase
+>ملحق موجز البريد لـ متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>ملحق موجز البريد لـ متراسلك </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+
+<sect2 id="summary-view-config-todo-list">
+<title
+>ملحقات موجز متراسلك: قائمة المهام</title>
+
+<para
+>يضيف ملحق <quote
+>قائمة المهام</quote
+> لطريقة العرض الموجزة لـ متراسلك منطقة في طريقة العرض موسومة بـ <guilabel
+>المهام المعلقة</guilabel
+>. تحتوي هذه المنطقة على جميع المهام الحالية، بما في ذلك المهام المنجزة. تعرض عنوان المهمة، ونسبة الإنجاز، والحالة الحالية للمهمة. لاحظ أنه يمكنك مسح جميع المهام المنجزة عبر قائمة مهام متراسلك. النقر على عنوان مهمة لن يفعل شيئًا حاليًا. </para>
+
+<screenshot>
+<screeninfo
+>ملحق موجز قائمة المهام لـ متراسلك</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-todos.png"/>
+</imageobject>
+<textobject>
+<phrase
+>ملحق ملخص قائمة مهام متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>ملحق ملخص قائمة مهام متراسلك </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="summary-view-config-special-dates">
+<title
+>ملحقات ملخص متراسلك: تواريخ خاصة</title>
+
+<para
+>ملحق <quote
+>تواريخ خاصة</quote
+> لملخص عرض متراسلك يضيف منطقة في العرض موسومة بـ <guilabel
+>تواريخ خاصة قادمة</guilabel
+>. تحتوي هذه المنطقة على معلومات تستند إلى المعايير المحددة في منطقة ضبط الملحق في ضبط ملخص عرض متراسلك. ملحق <quote
+>تواريخ خاصة</quote
+> مفيد بشكل خاص لأنه يمكنه عرض أعياد الميلاد، الذكرى السنوية، العطلات، والمناسبات الخاصة من كل من التقويم وقائمة المتراسلين في مكان واحد. </para>
+
+<screenshot>
+<screeninfo
+>ملحق التواريخ الخاصة لـ متراسلك</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="summary-view-special-dates.png"/>
+</imageobject>
+<textobject>
+<phrase
+>ملحق التواريخ الخاصة لـ متراسلك</phrase>
+</textobject>
+<caption>
+<para
+>ملحق التواريخ الخاصة لـ متراسلك </para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+</sect1>
+
+</chapter>
+
+
+<chapter id="command-line">
+<title
+>متراسلك في سطر الأوامر</title>
+
+<para
+>لدى متراسلك عدة وسائط سطر أوامر يمكن استخدامها لإجراءات معينة.</para>
+
+<para
+>أولًا، يدعم متراسلك وسائط سطر أوامر تدعمها جميع تطبيقات &kde-frameworks;/&Qt;، انظر صفحات الدليل qt6options و kf6options. </para>
+
+<para
+>يدعم متراسلك أيضًا عدة وسائط سطر أوامر خاصة به.</para>
+
+<sect1 id="command-line-arguments">
+<title
+>معاملات سطر الأوامر</title>
+
+<sect2 id="command-line-module">
+<title
+>وسائط متعلقة بالوحدة</title>
+
+<para
+>للحصول على قائمة بوحدات متراسلك المتاحة، يمكنك كتابة:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --list</command
+> </para>
+
+<para
+>ثم، لبدء متراسلك مع وحدة نشطة، اكتب:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --module <replaceable
+>moduleName</replaceable
+></command
+> </para>
+
+<para
+>حيث <replaceable
+>moduleName</replaceable
+> هي إحدى الوحدات التي تم الحصول عليها باستخدام الأمر السابق.</para>
+
+</sect2>
+
+<sect2 id="command-line-startup">
+<title
+>وسائط متعلقة بالبدء</title>
+
+<para
+>لبدء متراسلك في وضع التصغير<footnote
+><para
+>وضع التصغير يُسمى أيضًا التصغير إلى أيقونة؛ حيث تكون نافذة التطبيق مخفية ويكون التطبيق متاحًا فقط في شريط المهام.</para
+></footnote
+>، يمكنك كتابة:</para>
+
+<para
+><prompt
+>&percnt;</prompt
+> <command
+>kontact --iconify</command
+> </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="technology">
+<title
+>تحت الغطاء</title>
+
+<para
+>يستخدم متراسلك بشكل مكثف عدة تقنيات رئيسية لـ كيدي، أبرزها KParts و &DBus;.</para>
+
+<para
+>تكامل الـ &GUI; للمكونات يتم بواسطة ملحقات توفر إصدارات KParts من التطبيقات. هذا يتطلب فقط طبقة إضافية رقيقة فوق الكود الموجود بالفعل للتطبيقات المستقلة.</para>
+
+<para
+>للاتصال بين المكونات يُستخدم &DBus;. هذا يتميز بخاصية جيدة وهي الشفافية التامة تجاه ما إذا كان التطبيق يُشغل بشكل مستقل أو مضمنًا كـ KPart داخل متراسلك. عند التشغيل داخل متراسلك، يُستخدم وضع داخل العملية فعال لـ &DBus;.</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>الحقوق والترخيص</title>
+
+<para
+>متراسلك</para>
+
+<para
+>حقوق نشر البرنامج 2001-2025، مطورو كيدي</para>
+
+<para
+>المساهمون:</para>
+
+<itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Don.Sanders; &Don.Sanders.mail;</para>
+    </listitem>
+<listitem
+><para
+>&Tobias.Koenig; &Tobias.Koenig.mail;</para>
+    </listitem>
+<listitem
+><para
+>Allen Winter <email
+>winter@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Rafael Fernández López <email
+>ereslibre@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>&David.Faure; &David.Faure.mail;</para
+></listitem>
+<listitem
+><para
+>&Ingo.Kloecker; &Ingo.Kloecker.mail;</para
+></listitem>
+<listitem
+><para
+>Sven Lüppken <email
+>sven@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Torgny Nyblom <email
+>nyblom@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Zack Rusin <email
+>zack@kde.org</email
+></para
+></listitem>
+<listitem
+><para
+>Matthias Hölzer-Klüpfel <email
+>mhk@kde.org</email
+>، المؤلف الأصلي لإطار متراسلك.</para>
+    </listitem>
+
+<listitem
+><para
+>جميع المطورين الموقرين للتطبيقات التي يدمجها متراسلك. لقد قاموا بكل العمل تقريبًا.</para>
+    </listitem>
+</itemizedlist>
+
+<para
+>حقوق نشر الوثائق 2004-2005</para>
+
+<para
+>المساهمون: <itemizedlist>
+<listitem
+><para
+>&Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+</listitem>
+<listitem
+><para
+>Antonio Salazar <email
+>savedfastcool@gmail.com</email
+></para>
+</listitem>
+<listitem
+><para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail;</para>
+</listitem>
+
+<listitem
+><para
+>جميع أعضاء قائمة توثيق كيدي الذين ساعدوا في قضايا الترميز والأسلوب.</para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+<appendix id="kontact-admin">
+<title
+>دليل المسؤول</title>
+<!-- Section Compatibility -->
+<sect1 id="compat">
+<title
+>مشكلات التوافق</title>
+
+<para
+>يوفر هذا القسم مساعدة حول كيفية جعل متراسلك يتواصل بفعالية مع حلول المجموعات المختلفة. </para>
+
+<sect2 id="compat-outlook">
+<title
+>أوتلوك وإكستشينج</title>
+
+<para
+>في حوار ضبط متراسلك، تحت <menuchoice
+><guimenu
+>بريد</guimenu
+> <guimenuitem
+>متنوع</guimenuitem
+></menuchoice
+> في صفحة <guilabel
+>دعوات</guilabel
+> ستجد الخيارات التالية التي ستساعد المستخدم على التواصل مع Microsoft Outlook(tm) الذي يعمل في بيئة Kolab أو في بيئة Microsoft Exchange(tm). </para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>شوه ترويستي من:/إلى: في الردود على الدعوات</guilabel
+></term>
+<listitem>
+<para
+>فعّل هذا الخيار لجعل Microsoft Outlook(tm) يفهم ردودك على ردود الدعوة.</para>
+<para
+>يواجه «مايكروسوفت آوتلوك» عدّة عيوب في تنفيذ معيار iCalendar، يلتفّ هذا الخيار حول إحدى هذه العيوب. إن واجهت مشاكل بأنّ مستخدمي «آوتلوك» لا يستلمون ردودك، فجرّب ضبط هذا الخيار.</para>
+<para
+>التفاصيل: عند إرسال دعوة iCal بالبريد، يجعل هذا الرسالة تحتوي على رأس From: مماثل لرأس To:. كما يضبط رأس X-KMail-Identity على UIOD الخاص بـ To: ويضمن أن BCC: فارغ. لن يفهم Outlook الرد إلا إذا كان رأس From: مماثلًا لرأس To: لرسالة الدعوة.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>أرسل الدعوات في متن البريد</guilabel
+></term>
+<listitem>
+<para
+>تُرسل الدعوات عادةً كمرفقات لبريد. يغير هذا المفتاح الدعوة لتُرسل في نص البريد بدلًا من ذلك؛ هذا ضروري لإرسال الدعوات والردود إلى Microsoft Outlook. ولكن، عندما تفعل هذا، لن تحصل بعد الآن على نص وصفي يمكن لبرامج البريد قراءته؛ لذا، بالنسبة للأشخاص الذين لديهم برامج بريد لا تفهم الدعوات، ستبدو الرسائل الناتجة غريبة جدًا. الأشخاص الذين لديهم برامج بريد تفهم الدعوات سيظلون قادرين على العمل مع هذا.</para>
+<para
+>التفاصيل: عند إرسال دعوة iCal بالبريد، يجعل هذا الخيار نص الرسالة من بيانات المرفق ويضبط رأس Content-Type على 'text/calendar; method=something; charset="utf-8"'.</para>
+<para
+>يُفعّل أيضًا الإرسال التلقائي بحيث لا تكون هناك حاجة لتدخل بشري للتأليف.</para>
+<note
+><para
+>يُعطّل التشفير والتوقيع الذاتي.</para
+></note>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>تسمية الدّعوات متوافقة مع «إكسچينج»</guilabel
+></term>
+<listitem>
+<para
+>Microsoft Outlook، عند استخدامه مع خادم Microsoft Exchange(tm)، لديه مشكلة في فهم البريد الإلكتروني للمجموعات المتوافق مع المعايير. فعّل هذا الخيار لإرسال دعوات المجموعات بطريقة يفهمها Microsoft Exchange(tm). ستُرسل الدعوة كمرفق باسم <filename
+>ical.ics</filename
+>.</para>
+<para
+>التفاصيل: عند إرسال دعوة iCal بالبريد، يجعل هذا الرسالة تحتوي على الموضوع "(مرفوض|مبدئي|مقبول|مفوّض): موضوع". ستُرسل الدعوة كمرفق باسم <filename
+>ical.ics</filename
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>تسمية المرفقات المتوافقة مع أوتلوك</guilabel
+></term>
+<listitem>
+<para
+>شغّل هذا الخيار لجعل Outlook(tm) يفهم أسماء المرفقات التي تحتوي على أحرف غير إنجليزية.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+</sect1>
+
+<!-- Section Behavior -->
+<sect1 id="behavior">
+<title
+>مشكلات سلوكية</title>
+
+<para
+>يوفر هذا القسم تعليمات حول كيفية جعل متراسلك يتصرف بشكل أكبر مثل عملاء المجموعات الآخرين. </para>
+
+<sect2 id="behave-composing">
+<title
+>تأليف الرسائل</title>
+
+<para
+>اعتاد مستخدمو أوتلوك على كتابة قائمة عناوين في حقول To: أو CC: أو BCC: مفصولة بفاصلة منقوطة (';') بالإضافة إلى فاصلة (','). مبدئيًا، يسمح متراسلك فقط بالفاصلة كحرف فاصل للعناوين. للسماح أيضًا بالفاصلة المنقوطة، غيّر <option
+>AllowSemicolonAsAddressSeparator</option
+> من false إلى true في ملف <filename
+>share/config.kcfg/messagecomposer.kcfg</filename
+> المثبت. </para>
+
+</sect2>
+</sect1>
+
+<!-- Section RFC Compromises -->
+<sect1 id="nonrfc">
+<title
+>تنازلات RFC</title>
+
+<para
+>صُمم متراسلك ليتفاعل بأفضل ما يمكن مع مجموعة واسعة من حلول المجموعات. لتحقيق هذه الغاية، نقوم أحيانًا بتنازلات تصميمية فيما يتعلق بمختلف RFCs للإنترنت التي توفر الأساس للمكتبات منخفضة المستوى التي يعتمد عليها متراسلك بشكل كبير.</para>
+
+<note
+><para
+>نحن لا نخالف أي RFC عن قصد.</para
+></note>
+
+<para
+>القائمة التالية من تنازلات RFC تُقدم بواسطة متراسلك أو المكتبات منخفضة المستوى التي يستخدمها متراسلك:</para>
+<!--FIXME is this correct?-->
+<itemizedlist>
+<listitem>
+<para
+>عند كتابة قيم المدة في ملفات iCalendar، لا يكتب متراسلك أبدًا خاصية DURATION بالأسابيع (أي 1*رقم "W")؛ بدلًا من ذلك، يُضرب عدد الأسابيع الصحيح دائمًا في 7 ويُكتب بالأيام (أي 1*رقم "D"). </para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
