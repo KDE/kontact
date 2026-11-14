@@ -1,13 +1,13 @@
-set(PIM_VERSION "6.8.80")
+set(PIM_VERSION "6.8.90")
 cmake_minimum_required(VERSION 3.29)
 project(kontact VERSION ${PIM_VERSION})
-set(RELEASE_SERVICE_VERSION "26.11.80")
+set(RELEASE_SERVICE_VERSION "26.11.90")
 
 # Use true if stable version => we will check specific version
 set(KONTACT_STABLE_VERSION false)
 
 # Update it for each release
-set(KONTACT_RELEASE_VERSION_DATE "26.11.12") # yy.MM.dd
+set(KONTACT_RELEASE_VERSION_DATE "26.11.26") # yy.MM.dd
 
 set(KF_MIN_VERSION "6.30.0")
 set(QT_REQUIRED_VERSION "6.9.0")
@@ -98,7 +98,7 @@ include(ECMFeatureSummary)
 include(ECMCheckOutboundLicense)
 
 # Do NOT add quote
-set(KDEPIM_DEV_VERSION beta1)
+set(KDEPIM_DEV_VERSION rc)
 
 # add an extra space
 if(DEFINED KDEPIM_DEV_VERSION)
