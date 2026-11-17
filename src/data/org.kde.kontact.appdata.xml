@@ -637,7 +637,7 @@
   </provides>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="6.9.0" type="snapshot">
+    <release version="6.9.0" date="2026-12-10">
       <description>
         <ul>
           <li>Add Akonadi MCP server.</li>
