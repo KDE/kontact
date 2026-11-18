@@ -58,6 +58,14 @@
   <name xml:lang="zh-CN">Kontact</name>
   <name xml:lang="zh-TW">Kontact</name>
   <launchable type="desktop-id">org.kde.kontact.desktop</launchable>
+  <keywords>
+    <keyword translate="no">PIM</keyword>
+    <keyword>personal information manager</keyword>
+    <keyword>email</keyword>
+    <keyword>calendar</keyword>
+    <keyword>contacts</keyword>
+    <keyword>tasks</keyword>
+  </keywords>
   <summary>Handle all your emails, calendars, contacts and more within a single window</summary>
   <summary xml:lang="ar">تعامل مع جميع رسائل البريد الإلكتروني والتقويمات وجهات اتصالك في نافذة واحدة</summary>
   <summary xml:lang="az">Bütün e-poçtlarınız, təqvimləriniz və digəriləri üzərində bir pəncərədə işləyin</summary>
