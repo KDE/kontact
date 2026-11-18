@@ -438,6 +438,10 @@
     <value key="KDE::mailinglist">kdepim-users@kde.org</value>
     <value key="KDE::mailinglist-devel">kde-pim@kde.org</value>
   </custom>
+  <branding>
+    <color type="primary" scheme_preference="light">#fbe5c4</color>
+    <color type="primary" scheme_preference="dark">#6e4a14</color>
+  </branding>
   <screenshots>
     <screenshot type="default">
       <image type="source">https://kontact.kde.org/assets/img/appstream/kontact-summary.png</image>
