@@ -13,6 +13,7 @@
 #include "kontact_export.h"
 #include <KPluginMetaData>
 #include <KontactInterface/Core>
+#include <QMap>
 
 class KActionMenu;
 class KSqueezedTextLabel;
