@@ -555,7 +555,7 @@
 >Özet Görünümü</title>
 
 <para
->&kontact; ilk kez başlatıldığında öntanımlı görünüm Özet görünümüdür. Seçilen &kontact; bileşenleri tarafından sağlanan en önemli bilgilerin genel bir özetini gösterir. Bunlar yaklaşan randevular veya doğum günleri, yapılacak işler, yeni iletiler vb. olabilir. Hangi bilgilerin gösterileceği, <link linkend="configuration"
+>&kontact; ilk kez başlatıldığında varsayılan görünüm Özet görünümüdür. Seçilen &kontact; bileşenleri tarafından sağlanan en önemli bilgilerin genel bir özetini gösterir. Bunlar yaklaşan randevular veya doğum günleri, yapılacak işler, yeni iletiler vb. olabilir. Hangi bilgilerin gösterileceği, <link linkend="configuration"
 >&kontact; yapılandırma iletişim kutusunda</link
 > ilgili bileşenler seçilerek yapılandırılabilir.</para>
 
@@ -599,7 +599,7 @@ the data.</para-->
 >Özet görünümü, bileşenlerin görünüm içindeki konumlarını değiştirmenize olanak tanır. Örneğin, özel tarihlerinizi sol alt köşede, yapılacaklar listenizi ise sağ üst köşede görmek isterseniz özet görünümünü buna göre yeniden düzenleyebilirsiniz.</para>
 
 <para
->Özet görünümündeki bileşenleri yeniden konumlandırmak, onları istediğiniz yeni konuma sürüklemek kadar basittir. &Ctrl; düğmesini basılı tutun, bileşenin gri başlık alanına tıklayın ve basılı tutarak bileşeni istediğiniz yere sürükleyin. Bu konumlandırmanın diğer bileşenlere göre yapıldığını unutmayın. Yani, posta bileşenini görünümde yapılacaklar bileşeninin altına taşıyabilirsiniz; ancak belirli bir konuma yerleştiremezsiniz. Özet görünümünüzde yalnızca bir bileşen varsa tek seçenek onu görünümün iki sütunu arasında taşımaktır; iki bileşen ya bir sütunda iki tane ya da her sütunda bir tane olabilir; ve benzerleri gibi. Bir bileşeni sürüklediğinizde, farenizi takip eden ve bileşeni gösteren küçük bir önizleme kutusu göreceksiniz.</para>
+>Özet görünümündeki bileşenleri yeniden konumlandırmak, onları istediğiniz yeni konuma sürüklemek kadar basittir. &Ctrl; düğmesini basılı tutun, bileşenin gri başlık alanına tıklayın ve basılı tutarak bileşeni istediğiniz yere sürükleyin. Bu konumlandırmanın diğer bileşenlere göre yapıldığını unutmayın. Yani, posta bileşenini görünümde yapılacaklar bileşeninin altına taşıyabilirsiniz; ancak belirli bir konuma yerleştiremezsiniz. Özet görünümünüzde yalnızca bir bileşen varsa tek seçenek onu görünümün iki sütunu arasında taşımaktır; iki bileşen ya bir sütunda iki tane ya da her sütunda bir tane olabilir; ve benzerleri gibi. Bir bileşeni sürüklediğinizde, farenizi takip eden ve bileşeni gösteren küçük bir ön izleme kutusu göreceksiniz.</para>
 
 <screenshot>
 <screeninfo
@@ -1040,7 +1040,7 @@ the data.</para-->
 
 <listitem
 ><para
->İşaretleme ve biçem ile ilgili konularda yardımcı olan &kde; belgelendirme takımının tüm değerli üyeleri.</para>
+>İşaretleme ve stil ile ilgili konularda yardımcı olan &kde; belgelendirme takımının tüm değerli üyeleri.</para>
 </listitem>
 </itemizedlist>
 </para>
@@ -1159,7 +1159,7 @@ the data.</para-->
 >İletiler Oluşturmak</title>
 
 <para
->Outlook kullanıcıları, “Kime:”, “Kopya:” veya “Gizli kopya:” alanlarına virgül (“,”) karakterine ek olarak noktalı virgül (“;”) karakteriyle ayrılmış bir adres listesi yazmaya alışkındır. Öntanımlı olarak, &kontact; yalnızca virgülü adres ayırıcı karakter olarak kabul eder. Noktalı virgülün de kabul edilmesini sağlamak için kurulu <filename
+>Outlook kullanıcıları, “Kime:”, “Kopya:” veya “Gizli kopya:” alanlarına virgül (“,”) karakterine ek olarak noktalı virgül (“;”) karakteriyle ayrılmış bir adres listesi yazmaya alışkındır. Varsayılan olarak, &kontact; yalnızca virgülü adres ayırıcı karakter olarak kabul eder. Noktalı virgülün de kabul edilmesini sağlamak için kurulu <filename
 >share/config.kcfg/messagecomposer.kcfg</filename
 > dosyasındaki <option
 >AllowSemicolonAsAddressSeparator</option
