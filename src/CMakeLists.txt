@@ -148,7 +148,7 @@ install(TARGETS kcm_kontact DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim6/kcms/konta
 ########### install files ###############
 
 install(PROGRAMS data/org.kde.kontact.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES data/org.kde.kontact.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(FILES data/org.kde.kontact.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES kontact.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 configure_file(data/org.kde.kontact.service.in org.kde.kontact.service)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kontact.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
